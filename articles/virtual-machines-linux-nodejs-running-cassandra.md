@@ -477,7 +477,7 @@ populateCustomerData() вставляет нескольких строк в С�
 	   con.shutdown();
 	} 
 
-Modify  casdemo.js to add the above function and call it after commenting the previously called createKeyspace() method as shown below:
+Измените casdemo.js, добавив упомянутую выше функцию, и вызовите ее, закомментировав предварительно вызванный метод createKeyspace(), как показано ниже:
 
 	casdemo.js: 
 	var pooledCon = require('cassandra-client').PooledConnection;
