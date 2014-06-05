@@ -1,0 +1,2 @@
+Если профиля Traffic Manager еще нет, используйте для его создания сведения из раздела [Создание профиля Traffic Manager с помощью "Быстрого создания"](http://msdn.microsoft.com/ru-ru/library/windowsazure/dn339012.aspx). Обратите внимание, что имя домена **. trafficmanager.net** связано с профилем Traffic Manager, поскольку этот факт будет использоваться позже в данном документе.
+
