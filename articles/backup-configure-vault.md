@@ -1,27 +1,27 @@
-﻿<properties linkid="manage-services-recovery-configure-backup-vault" urlDisplayName="Настройка хранилища архивации" pageTitle="Настройка служб восстановления Windows Azure для быстрой и простой архивации Windows Server" metaKeywords="аварийное восстановление" description="Из этого учебника вы узнаете, как использовать службу архивации в облачной среде Windows Azure корпорации Майкрософт для архивации данных Windows Server в облако." metaCanonical="" services="recovery-services" documentationCenter="" title="Настройка Windows Azure Backup для быстрой и простой архивации Windows Server" authors=""  solutions="" writer="starra" manager="cynthn" editor="tysonn"  />
+<properties linkid="manage-services-recovery-configure-backup-vault" urlDisplayName="Настройка хранилища архивации" pageTitle="Настройка служб восстановления Azure для быстрой и простой архивации Windows Server" metaKeywords="аварийное восстановление" description="Из этого учебника вы узнаете, как использовать службу архивации в облачной среде Azure корпорации Майкрософт для архивации данных Windows Server в облако." metaCanonical="" services="recovery-services" documentationCenter="" title="Настройка Azure Backup для быстрой и простой архивации Windows Server" authors=""  solutions="" writer="starra" manager="cynthn" editor="tysonn"  />
 
 
 
-<h1><a id="configure-a-backup-vault-tutorial"></a>Настройка Windows Azure Backup для быстрой и простой архивации Windows Server</h1>
+<h1><a id="configure-a-backup-vault-tutorial"></a>Настройка Azure Backup для быстрой и простой архивации Windows Server</h1>
 <div class="dev-callout"> 
 <strong>Примечание.</strong>
  
-<p>Чтобы завершить работу с этим учебником, вам потребуется учетная запись Windows Azure с включенным компонентом Windows Azure Backup.</p>
+<p>Чтобы завершить работу с этим учебником, вам потребуется учетная запись Azure с включенным компонентом Azure Backup.</p>
 <ul> 
-<li>Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="/ru-ru/pricing/free-trial/">Бесплатная пробная версия Windows Azure</a>.</li> 
+<li>Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="/ru-ru/pricing/free-trial/">Бесплатная пробная версия Azure</a>.</li> 
  
-<li>Если у вас есть учетная запись, но вам нужно включить ознакомительную версию Windows Azure Backup, см. раздел <a href="/ru-ru/develop/net/tutorials/create-a-windows-azure-account/#enable" target="_blank">Включение предварительных версий компонентов Windows Azure</a>.</li>
+<li>Если у вас есть учетная запись, но вам нужно включить ознакомительную версию Azure Backup, см. раздел <a href="/ru-ru/develop/net/tutorials/create-a-windows-azure-account/#enable" target="_blank">Включение предварительных версий компонентов Azure</a>.</li>
 </ul>
  
 <p>После отправки запроса на присоединение к программе по ознакомлению с предварительной версией дождитесь назначения активного состояния. Мы утверждаем всех клиентов автоматически, поэтому данный процесс не займет много времени.</p> 
 </div>
   
 
-Для архивации файлов и данных из Windows Server в Windows Azure необходимо создать хранилище архивации в том географическом регионе, где вы хотите хранить данные. В этом учебнике описывается процедура создания хранилища для архивов, загрузки сертификата в хранилище, установки агента архивации, а также приводится обзор задач управления архивацией, доступных на портале управления.
+Для архивации файлов и данных из Windows Server в Azure необходимо создать хранилище архивации в том географическом регионе, где вы хотите хранить данные. В этом учебнике описывается процедура создания хранилища для архивов, загрузки сертификата в хранилище, установки агента архивации, а также приводится обзор задач управления архивацией, доступных на портале управления.
 
 <div class="dev-callout"> 
 <strong>Перед началом работы</strong> 
-<p>Для успешного завершения этого учебника необходим сертификат X.509 v3 для регистрации серверов с хранилищами архивации.  Длина ключа этого сертификата должна составлять не менее 2048 бит, и они должны размещаться в хранилище личных сертификатов на локальном компьютере. При установке сертификата на сервере он должен содержать закрытый ключ этого сертификата. Чтобы передать сертификат на портал управления Windows Azure, необходимо экспортировать открытый ключ в CER-файл.</p> 
+<p>Для успешного завершения этого учебника необходим сертификат X.509 v3 для регистрации серверов с хранилищами архивации.  Длина ключа этого сертификата должна составлять не менее 2048 бит, и они должны размещаться в хранилище личных сертификатов на локальном компьютере. При установке сертификата на сервере он должен содержать закрытый ключ этого сертификата. Чтобы передать сертификат на портал управления Azure, необходимо экспортировать открытый ключ в CER-файл.</p> 
 
 <p>Можно использовать следующее:</p> 
 <ul>
@@ -68,7 +68,7 @@ makecert.exe -r -pe -n CN=CertificateName -ss my -sr localmachine -eku 1.3.6.1.5
 
 4. В поле **Область** выберите географический регион для хранилища архивации.  
 
-5. В поле **Подписка** введите подписку Windows Azure, которую требуется использовать для хранилища архивации. 
+5. В поле **Подписка** введите подписку Azure, которую требуется использовать для хранилища архивации. 
 
 
 6. Щелкните элемент **Создать хранилище архивации**.
@@ -98,8 +98,8 @@ makecert.exe -r -pe -n CN=CertificateName -ss my -sr localmachine -eku 1.3.6.1.5
 	* Агент для Windows Server 2012 Essentials
 5. Выберите соответствующий агент. Выполняется переход в Центр загрузки Майкрософт для загрузки программного обеспечения агента. Дополнительные сведения см. в разделах:
 
-	* [Установка Windows Azure Backup Agent для Windows Server 2012 и System Center 2012 SP1 — Data Protection Manager](http://technet.microsoft.com/ru-ru/library/hh831761.aspx#BKMK_installagent)
-	* [Установка Windows Azure Backup Agent для Windows Server 2012 Essentials](http://technet.microsoft.com/ru-ru/library/jj884318.aspx)
+	* [Установка Azure Backup Agent для Windows Server 2012 и System Center 2012 SP1 — Data Protection Manager](http://technet.microsoft.com/ru-ru/library/hh831761.aspx#BKMK_installagent)
+	* [Установка Azure Backup Agent для Windows Server 2012 Essentials](http://technet.microsoft.com/ru-ru/library/jj884318.aspx)
 
 После установки агента можно воспользоваться соответствующим локальным интерфейсом управления (например, оснасткой консоли управления (MMC), консолью System Center Data Protection Manager или панелью мониторинга Windows Server Essentials), чтобы настроить политику архивации для данного сервера.  
 
@@ -121,9 +121,9 @@ makecert.exe -r -pe -n CN=CertificateName -ss my -sr localmachine -eku 1.3.6.1.5
 
 <h2><a id="next"></a>Следующие шаги</h2>
 
-- Дополнительные сведения о Windows Azure Backup см. в разделе [Обзор Windows Azure Backup](http://go.microsoft.com/fwlink/p/?LinkId=222425) 
+- Дополнительные сведения о Azure Backup см. в разделе [Обзор Azure Backup](http://go.microsoft.com/fwlink/p/?LinkId=222425) 
 
-- Посетите [форум Windows Azure Backup](http://go.microsoft.com/fwlink/p/?LinkId=290933).
+- Посетите [форум Azure Backup](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
 [new-backup-vault]: ./media/backup-configure-vault/RS_howtobackup1.png
 [backup-vault-create]: ./media/backup-configure-vault/RS_howtobackup2.png

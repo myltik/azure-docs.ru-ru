@@ -1,4 +1,4 @@
-﻿<properties linkid="develop-mobile-tutorials-get-started-with-users-dotnet" urlDisplayName="Приступая к работе с пользователями" pageTitle="Приступая к работе с аутентификацией (магазин Windows) | Центр разработчиков для мобильных устройств" metaKeywords="" description="Использование мобильных служб для проверки подлинности пользователей приложения магазина Windows с помощью разнообразных поставщиков удостоверений, включая Google, Facebook, Twitter и Microsoft." metaCanonical="" services="" documentationCenter="Mobile" title="Приступая к работе с аутентификацией в мобильных службах" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="develop-mobile-tutorials-get-started-with-users-dotnet" urlDisplayName="Приступая к работе с пользователями" pageTitle="Приступая к работе с аутентификацией (магазин Windows) | Центр разработчиков для мобильных устройств" metaKeywords="" description="Использование мобильных служб для проверки подлинности пользователей приложения магазина Windows с помощью разнообразных поставщиков удостоверений, включая Google, Facebook, Twitter и Microsoft." metaCanonical="" services="" documentationCenter="Mobile" title="Приступая к работе с аутентификацией в мобильных службах" authors=""  solutions="" writer="" manager="" editor=""  />
 
 
 
@@ -8,7 +8,7 @@
 <div class="dev-center-tutorial-selector sublanding"><a href="/ru-ru/develop/mobile/tutorials/get-started-with-users-dotnet" title="Магазин Windows C#" class="current">Магазин Windows C#</a><a href="/ru-ru/develop/mobile/tutorials/get-started-with-users-js" title="Магазин Windows JavaScript">Магазин Windows JavaScript</a><a href="/ru-ru/develop/mobile/tutorials/get-started-with-users-wp8" title="Windows Phone">Windows Phone</a><a href="/ru-ru/develop/mobile/tutorials/get-started-with-users-ios" title="iOS">iOS</a><a href="/ru-ru/develop/mobile/tutorials/get-started-with-users-android" title="Android">Android</a><a href="/ru-ru/develop/mobile/tutorials/get-started-with-users-html" title="HTML">HTML</a><a href="/ru-ru/develop/mobile/tutorials/get-started-with-users-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/ru-ru/develop/mobile/tutorials/get-started-with-users-xamarin-android" title="Xamarin.Android">Xamarin.Android</a></div>
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
-<p>В этом разделе показано, как выполнять проверку подлинности пользователей в мобильных службах Windows Azure в приложении. В этом учебнике вы добавите проверку подлинности к проекту быстрого запуска, для этого используется поставщик удостоверений, который поддерживается мобильными службами. После выполнения успешной проверки подлинности и авторизации мобильными службами отображается значение ИД пользователя.</p>
+<p>В этом разделе показано, как выполнять проверку подлинности пользователей в мобильных службах Azure в приложении. В этом учебнике вы добавите проверку подлинности к проекту быстрого запуска, для этого используется поставщик удостоверений, который поддерживается мобильными службами. После выполнения успешной проверки подлинности и авторизации мобильными службами отображается значение ИД пользователя.</p>
 <p>Можно смотреть видеоверсию данного учебника, щелкнув клип справа.</p>
 </div>
 <div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Introduction-to-Windows-Azure-Mobile-Services" target="_blank" class="label">Просмотр учебника</a> <a style="background-image: url('/media/devcenter/mobile/videos/get-started-with-users-windows-store-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Windows-Store-app-Getting-Started-with-Authentication-in-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Воспроизведение видео</span></a> <span class="time">10:04</span></div>
@@ -30,7 +30,7 @@
 
 Чтобы иметь возможность проверять подлинность пользователей, необходимо зарегистрировать приложение у поставщика удостоверений. Затем необходимо зарегистрировать секрет клиента, созданный поставщиком, в мобильных службах.
 
-1. Выполните вход на [Портал управления Windows Azure], щелкните пункт **Мобильные службы**, а затем щелкните свою мобильную службу.
+1. Выполните вход на [Портал управления Azure], щелкните пункт **Мобильные службы**, а затем щелкните свою мобильную службу.
 
    	![][4]
 
@@ -46,7 +46,7 @@
  - <a href="/ru-ru/develop/mobile/how-to-guides/register-for-facebook-authentication/" target="_blank">Вход в Facebook</a>
  - <a href="/ru-ru/develop/mobile/how-to-guides/register-for-twitter-authentication/" target="_blank">Вход в Twitter</a>
  - <a href="/ru-ru/develop/mobile/how-to-guides/register-for-google-authentication/" target="_blank">Вход в Google</a>
- - <a href="/ru-ru/documentation/articles/mobile-services-how-to-register-active-directory-authentication/" target="_blank">Windows Azure Active Directory</a>
+ - <a href="/ru-ru/documentation/articles/mobile-services-how-to-register-active-directory-authentication/" target="_blank">Azure Active Directory</a>
 
 
     Не забудьте записать удостоверение клиента и значения секрета, созданные поставщиком.
@@ -176,7 +176,7 @@
 [Авторизация пользователей с помощью скриптов]: /ru-ru/develop/mobile/tutorials/authorize-users-in-scripts-dotnet
 [JavaScript и HTML]: /ru-ru/develop/mobile/tutorials/get-started-with-users-js
 
-[Портал управления Windows Azure]: https://manage.windowsazure.com/
+[Портал управления Azure]: https://manage.windowsazure.com/
 [Справочник принципов использования мобильных служб .NET]: /ru-ru/develop/mobile/how-to-guides/work-with-net-client-library
-[Регистрация пакета приложения для магазина Windows для проверки подлинности Microsoft]: /ru-ru/develop/mobile/how-to-guides/register-windows-store-app-package
+[Регистрация пакета приложения магазина Windows для проверки подлинности Microsoft]: /ru-ru/develop/mobile/how-to-guides/register-windows-store-app-package
 

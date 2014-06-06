@@ -1,10 +1,10 @@
-<properties linkid="manage-services-how-to-create-websites" urlDisplayName="Создание" pageTitle="Создание веб-сайтов — управление службой Windows Azure" metaKeywords="Создание веб-сайта Azure, удаление веб-сайта Azure" description="Узнайте, как создать веб-сайт с помощью портала управления Windows Azure." metaCanonical="" services="web-sites" documentationCenter="" title="Создание и развертывание веб-сайта" authors=""  solutions="" writer="timamm" manager="" editor=""  />
+<properties linkid="manage-services-how-to-create-websites" urlDisplayName="Создание" pageTitle="Создание веб-сайтов — управление службой Azure" metaKeywords="Создание веб-сайта Azure, удаление веб-сайта Azure" description="Узнайте, как создать веб-сайт с помощью портала управления Azure." metaCanonical="" services="web-sites" documentationCenter="" title="Создание и развертывание веб-сайта" authors=""  solutions="" writer="timamm" manager="" editor=""  />
 
 #Создание веб-сайта
 
 В этом разделе показано, как создать веб-сайт на основе коллекции или с помощью портала управления.
 
-Дополнительные сведения о развертывании содержимого на созданном веб-сайте Windows Azure см. в разделе **Развертывание** статьи [Веб-сайты Windows Azure](/ru-ru/documentation/services/web-sites/).
+Дополнительные сведения о развертывании содержимого на созданном веб-сайте Azure см. в разделе **Развертывание** статьи [Веб-сайты Azure](/ru-ru/documentation/services/web-sites/).
 
 ## Оглавление ##
 
@@ -15,9 +15,9 @@
 
 ##<a name="createawebsiteportal"></a>Создание веб-сайта с помощью портала управления
 
-Выполните следующие действия, чтобы создать веб-сайт в Windows Azure.
+Выполните следующие действия, чтобы создать веб-сайт в Azure.
 	
-1. Выполните вход на [портал управления Windows Azure](http://manage.windowsazure.com/).
+1. Выполните вход на [портал управления Azure](http://manage.windowsazure.com/).
 
 2. Щелкните значок **Создать** в нижнем левом углу портала.
 
@@ -60,9 +60,9 @@
 [WACOM.INCLUDE [website-from-gallery](../includes/website-from-gallery.md)]
 
 ##<a name="deleteawebsite"></a>Удаление веб-сайта
-Веб-сайты удаляются с помощью значка **Удалить** на портале управления Windows Azure. Значок **Удалить** становится доступен на портале Windows Azure, если щелкнуть **Веб-сайты** для получения списка всех сайтов, а также отображается в нижней части каждой страницы управления.
+Веб-сайты удаляются с помощью значка **Удалить** на портале управления Azure. Значок **Удалить** становится доступен на портале Azure, если щелкнуть **Веб-сайты** для получения списка всех сайтов, а также отображается в нижней части каждой страницы управления.
 
 ##<a name="nextsteps"></a>Дальнейшие действия
 
-Дополнительные сведения см. в разделе [Веб-сайты Windows Azure](/ru-ru/documentation/services/web-sites/).
+Дополнительные сведения см. в разделе [Веб-сайты Azure](/ru-ru/documentation/services/web-sites/).
 

@@ -1,8 +1,8 @@
-﻿<properties linkid="develop-mobile-how-to-guides-register-for-facebook-authentication" urlDisplayName="Регистрация для проверки подлинности в Facebook" pageTitle="Регистрация для проверки подлинности в Facebook — мобильные службы" metaKeywords="Windows Azure Facebook, Azure Facebook, проверки подлинности, Azure, мобильные службы" description="Использование проверки подлинности в Facebook в ваших приложениях для мобильных служб Windows Azure." metaCanonical="" services="" documentationCenter="" title="Регистрация приложений для проверки подлинности в Facebook с помощью мобильных служб" authors=""  solutions="" writer="glenga" manager="" editor=""  />
+<properties linkid="develop-mobile-how-to-guides-register-for-facebook-authentication" urlDisplayName="Регистрация для проверки подлинности в Facebook" pageTitle="Регистрация для проверки подлинности в Facebook — мобильные службы" metaKeywords="Azure Facebook, Azure Facebook, проверки подлинности, Azure, мобильные службы" description="Использование проверки подлинности в Facebook в ваших приложениях для мобильных служб Azure." metaCanonical="" services="" documentationCenter="" title="Регистрация приложений для проверки подлинности в Facebook с помощью мобильных служб" authors=""  solutions="" writer="glenga" manager="" editor=""  />
 
 # Регистрация приложений для проверки подлинности в Facebook с помощью мобильных служб
 
-В этом разделе показано, как зарегистрировать приложения, чтобы иметь возможность использовать Facebook для проверки подлинности с помощью мобильных служб Windows Azure. 
+В этом разделе показано, как зарегистрировать приложения, чтобы иметь возможность использовать Facebook для проверки подлинности с помощью мобильных служб Azure. 
 
 <div class="dev-callout"><b>Примечание.</b>
 <p>Чтобы выполнить процедуру, описанную в этом разделе, необходимо иметь учетную запись Facebook с проверенным адресом электронной почты и номером мобильного телефона. Чтобы создать новую учетную запись Facebook, перейдите по ссылке <a href="http://go.microsoft.com/fwlink/p/?LinkId=268285" target="_blank">facebook.com</a>.</p>
@@ -55,5 +55,5 @@
 <!-- URLs. -->
 [Разработчики Facebook]: http://go.microsoft.com/fwlink/p/?LinkId=268286
 [Приступая к работе с аутентификацией]: /ru-ru/develop/mobile/tutorials/get-started-with-users-dotnet/
-[Портал управления Windows Azure]: https://manage.windowsazure.com/
+[Портал управления Azure]: https://manage.windowsazure.com/
 

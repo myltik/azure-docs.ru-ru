@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Начало работы с мобильными службами Windows Azure для приложений на платформе Android" metaKeywords="Приложение Windows Azure для платформы Android, мобильная служба для платформы Android, начало работы с Azure Android, Azure Droid, начало работы с Droid Windows" description="Следуйте инструкциям данного учебника, чтобы начать работу с мобильными службами Windows Azure для разработки Android." metaCanonical="" services="" documentationCenter="Mobile" title="Приступая к работе с мобильными службами" authors=""  solutions="" writer="glenga" manager="" editor=""  />
+<properties pageTitle="Начало работы с мобильными службами Azure для приложений на платформе Android" metaKeywords="Приложение Azure для платформы Android, мобильная служба для платформы Android, начало работы с Azure Android, Azure Droid, начало работы с Droid Windows" description="Следуйте инструкциям данного учебника, чтобы начать работу с мобильными службами Azure для разработки Android." metaCanonical="" services="" documentationCenter="Mobile" title="Приступая к работе с мобильными службами" authors=""  solutions="" writer="glenga" manager="" editor=""  />
 
 # <a name="getting-started"> </a>Приступая к работе с мобильными службами
 
@@ -14,14 +14,14 @@
 	<a href="/ru-ru/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/" title="PhoneGap">PhoneGap</a>
 </div>
 
-<!--<div class="dev-center-tutorial-subselector">
+<div class="dev-center-tutorial-subselector">
 	<a href="/ru-ru/documentation/articles/mobile-services-dotnet-backend-android-get-started/" title="Сервер .NET">Сервер .NET</a> | 
 	<a href="/ru-ru/documentation/articles/mobile-services-android-get-started/"  title="Сервер JavaScript" class="current">Сервер JavaScript</a>
-</div>-->
+</div>
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
-<p>В этом учебнике показано, как добавить серверную службу на основе облака в приложение, работающее на платформе Android, с помощью мобильных служб Windows Azure. В этом учебнике будет создана новая мобильная служба и простое приложение <em>Список заданий</em>, которое хранит данные приложения в новой мобильной службе.</p>
+<p>В этом учебнике показано, как добавить серверную службу на основе облака в приложение, работающее на платформе Android, с помощью мобильных служб Azure. В этом учебнике будет создана новая мобильная служба и простое приложение <em>Список заданий</em>, которое хранит данные приложения в новой мобильной службе.</p>
 <p>Снимок экрана завершенного приложения приведен ниже:</p>
 </div>
 <div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Support-in-Windows-Azure-Mobile-Services" target="_blank" class="label">Просмотр учебника</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-get-started-android-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Support-in-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Воспроизведение видео</span></a><span class="time">7:26</span></div>
@@ -33,7 +33,7 @@
 
 Загруженный проект быстрого запуска содержит пакет SDK мобильных служб для платформы Android. Хотя для этого проекта требуется Android 4.2 или более поздней версии, для пакета SDK мобильных служб требуется только Android 2.2 или более поздней версии.
 
-<div class="dev-callout"><strong>Примечание</strong>. <p>Для работы с этим учебником необходима учетная запись Windows Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://www.windowsazure.com/ru-ru/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Бесплатная пробная версия Windows Azure</a>.</p></div>
+<div class="dev-callout"><strong>Примечание</strong>. <p>Для работы с этим учебником необходима учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://www.windowsazure.com/ru-ru/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Бесплатная пробная версия Azure</a>.</p></div>
 
 ## <a name="create-new-service"> </a>Создание мобильной службы
 
@@ -89,7 +89,7 @@
 
    	![][10]
 
-   	При этом в новую мобильную службу, размещенную в Windows Azure, будет отправлен запрос POST. Данные из запроса вставляются в таблицу TodoItem. Элементы, хранящиеся в таблице, возвращаются мобильной службой, а данные отображаются в списке.
+   	При этом в новую мобильную службу, размещенную в Azure, будет отправлен запрос POST. Данные из запроса вставляются в таблицу TodoItem. Элементы, хранящиеся в таблице, возвращаются мобильной службой, а данные отображаются в списке.
 
 	<div class="dev-callout"><strong>Примечание</strong> 
    	<p>Код, который обращается к вашей мобильной службе для запроса и вставки данных, можно просмотреть в файле ToDoActivity.java.</p>

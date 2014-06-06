@@ -1,4 +1,4 @@
-﻿<properties linkid="manage-services-add-a-vm-to-a-virtual-network" urlDisplayName="Добавление ВМ в виртуальную сеть" pageTitle="Добавление виртуальной машины в виртуальную сеть — Windows Azure" metaKeywords="" description="Руководство, в котором показано, как создать учетную запись хранения и виртуальную машину (ВМ), добавляемые к виртуальной сети Windows Azure." metaCanonical="" services="virtual-machines,virtual-network" documentationCenter="" title="Добавление виртуальной машины в виртуальную сеть" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="manage-services-add-a-vm-to-a-virtual-network" urlDisplayName="Добавление ВМ в виртуальную сеть" pageTitle="Добавление виртуальной машины в виртуальную сеть — Azure" metaKeywords="" description="Руководство, в котором показано, как создать учетную запись хранения и виртуальную машину (ВМ), добавляемые к виртуальной сети Azure." metaCanonical="" services="virtual-machines,virtual-network" documentationCenter="" title="Добавление виртуальной машины в виртуальную сеть" authors=""  solutions="" writer="" manager="" editor=""  />
 
 
 
@@ -8,14 +8,14 @@
 
 <!--SOMEWHERE IN THIS TUTORIAL I NEED TO XREF TO THE OTHER VMACHINE TUTORIAL -->
 
-В этом пошаговом руководстве перечислены действия по созданию учетной записи хранения Windows Azure и виртуальной машины (ВМ) для добавления к [виртуальной сети](http://msdn.microsoft.com/ru-ru/library/windowsazure/jj156007.aspx).
+В этом пошаговом руководстве перечислены действия по созданию учетной записи хранения Azure и виртуальной машины (ВМ) для добавления к [виртуальной сети](http://msdn.microsoft.com/ru-ru/library/windowsazure/jj156007.aspx).
 
-В данном учебнике предполагается, что у читателя нет опыта использования платформы Windows Azure.
+В данном учебнике предполагается, что у читателя нет опыта использования платформы Azure.
 
 <div class="dev-callout"> 
 <b>Важно!</b>
 
-<p>Если планируется создание ВМ для установки нового леса Active Directory, следуйте инструкциям в разделе <a href="../active-directory-forest/">Установка нового леса Active Directory в Windows Azure</a>.</p>
+<p>Если планируется создание ВМ для установки нового леса Active Directory, следуйте инструкциям в разделе <a href="../active-directory-forest/">Установка нового леса Active Directory в Azure</a>.</p>
 </div>
 
 
@@ -31,14 +31,14 @@
 
 - Изучите одно из следующих руководств: 
 
-	-  [Создание виртуальной сети в Windows Azure](/ru-ru/manage/services/networking/create-a-virtual-network/)
+	-  [Создание виртуальной сети в Azure](/ru-ru/manage/services/networking/create-a-virtual-network/)
 
 		-ИЛИ- 
 	-  [Создание виртуальной сети для подключений между организациями](/ru-ru/manage/services/networking/cross-premises-connectivity/)
 
 - Учетная запись Windows Live как минимум с одной действительной активной подпиской.	
 
-- Названия руководств [Создание виртуальной сети в Windows Azure](/ru-ru/manage/services/networking/create-a-virtual-network/) или [Создание виртуальной сети для подключений между организациями](/ru-ru/manage/services/networking/cross-premises-connectivity/):
+- Названия руководств [Создание виртуальной сети в Azure](/ru-ru/manage/services/networking/create-a-virtual-network/) или [Создание виртуальной сети для подключений между организациями](/ru-ru/manage/services/networking/cross-premises-connectivity/):
 
 	-	Территориальные группы, назначенные для виртуальной сети.
 
@@ -48,7 +48,7 @@
 
 ## <a name="CreateStorageAcct">Создайте учетную запись хранения</a> ##
 
-1.	После создания виртуальной сети через [портал управления Windows Azure](http://manage.windowsazure.com/) в левом нижнем углу экрана выберите **Создать**.
+1.	После создания виртуальной сети через [портал управления Azure](http://manage.windowsazure.com/) в левом нижнем углу экрана выберите **Создать**.
 
 	![NewStorAcct](./media/virtual-networks-add-virtual-machine/VNTut3_01_NewStorageAccount.png)
 
@@ -143,11 +143,11 @@
 	![AllTab](./media/virtual-networks-add-virtual-machine/VNTut3_12_AllTab.png)
 
 ## Дальнейшие действия ##
-Установка дополнительного контроллера домена для локального домена Active Directory на созданную виртуальную машину описывается в разделе [Установка реплики контроллера домена Active Directory в виртуальной сети Windows Azure](/ru-ru/manage/services/networking/replica-domain-controller/).
+Установка дополнительного контроллера домена для локального домена Active Directory на созданную виртуальную машину описывается в разделе [Установка реплики контроллера домена Active Directory в виртуальной сети Azure](/ru-ru/manage/services/networking/replica-domain-controller/).
 
 ## См. также
 
--  [Виртуальная сеть Windows Azure](http://msdn.microsoft.com/ru-ru/library/windowsazure/jj156007.aspx)
+-  [Виртуальная сеть Azure](http://msdn.microsoft.com/ru-ru/library/windowsazure/jj156007.aspx)
 
 -  [Настройка виртуальной сети с помощью файлов конфигурации сети](http://msdn.microsoft.com/ru-ru/library/windowsazure/jj156097.aspx)
 

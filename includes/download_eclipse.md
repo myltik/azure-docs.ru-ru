@@ -1,4 +1,4 @@
-##Подключаемый модуль Windows Azure для Eclipse с Java (от Microsoft Open Technologies)
+##Подключаемый модуль Azure для Eclipse с Java (от Microsoft Open Technologies)
 
 Предварительные требования:
 
@@ -11,6 +11,6 @@
 2. Введите местоположение веб-сайта <http://dl.msopentech.com/eclipse> и нажмите клавишу **Ввод**.
 3. Выберите элементы для установки и нажмите кнопку **Готово**.
 
-Этот подключаемый модуль использует последнюю версию пакета SDK для Windows Azure. Ее можно загрузить с помощью установщика веб-платформы (WebPI) в <http://go.microsoft.com/fwlink/?LinkID=252838>. Но даже если она не установлена, при создании первого проекта развертывания Windows Azure подключаемый модуль Windows Azure для Eclipse с Java (от Microsoft Open Technologies) автоматически установит соответствующую версию пакета SDK для Windows Azure. 
+Этот подключаемый модуль использует последнюю версию пакета SDK для Azure. Ее можно загрузить с помощью установщика веб-платформы (WebPI) в <http://go.microsoft.com/fwlink/?LinkID=252838>. Но даже если она не установлена, при создании первого проекта развертывания Azure подключаемый модуль Azure для Eclipse с Java (от Microsoft Open Technologies) автоматически установит соответствующую версию пакета SDK для Azure. 
 
 

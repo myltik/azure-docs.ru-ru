@@ -30,19 +30,19 @@
 
 ###Установка вручную
 
-Чтобы вручную загрузить и установить клиентские библиотеки PHP для Windows Azure, выполните следующие действия:
+Чтобы вручную загрузить и установить клиентские библиотеки PHP для Azure, выполните следующие действия:
 
 1. Загрузите содержащий библиотеки архив .zip из [GitHub][php-sdk-github]. Или же скопируйте репозиторий и клонируйте его на свой локальный компьютер. (Для последнего варианта требуется учетная запись GitHub и наличие установленного локально Git.)
 
 	<div class="dev-callout"> 
 	<b>Примечание</b> 
-	<p>Клиентские библиотеки PHP Windows Azure имеют зависимость от пакетов PEAR <a href="http://pear.php.net/package/HTTP_Request2">HTTP_Request2</a>, <a href="http://pear.php.net/package/Mail_mime">Mail_mime</a> и <a href="http://pear.php.net/package/Mail_mimeDecode">Mail_mimeDecode</a>. Чтобы устранить эти зависимости рекомендуется установить эти пакеты с помощью диспетчера пакетов PEAR <a href="http://pear.php.net/manual/en/installation.php"></a>.</p> 
+	<p>Клиентские библиотеки PHP Azure имеют зависимость от пакетов PEAR <a href="http://pear.php.net/package/HTTP_Request2">HTTP_Request2</a>, <a href="http://pear.php.net/package/Mail_mime">Mail_mime</a> и <a href="http://pear.php.net/package/Mail_mimeDecode">Mail_mimeDecode</a>. Чтобы устранить эти зависимости рекомендуется установить эти пакеты с помощью <a href="http://pear.php.net/manual/en/installation.php">диспетчера пакетов PEAR</a>.</p> 
 	</div>
 
 
-2. Скопируйте каталог "WindowsAzure" загруженного архива в структуру каталога приложения.
+2. Скопируйте каталог `WindowsAzure` загруженного архива в структуру каталога приложения.
 
-Дополнительные сведения об установке клиентских библиотек PHP для Windows Azure (включая сведения об установке как пакет PEAR) см. в разделе [Загрузить пакет SDK Windows Azure для PHP][download-SDK-PHP].
+Дополнительные сведения об установке клиентских библиотек PHP для Azure (включая сведения об установке как пакет PEAR) см. в разделе [Загрузить пакет SDK Azure для PHP][download-SDK-PHP].
 
 
 [php-sdk-github]: http://go.microsoft.com/fwlink/?LinkId=252719

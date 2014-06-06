@@ -1,11 +1,11 @@
-﻿<properties linkid="" urlDisplayName="" pageTitle="Архитектура" metaKeywords="" description="Общие сведения об архитектуре, которая охватывает общие шаблоны разработки" metaCanonical="" services="" documentationCenter="" videoId="" scriptId="" title="Обзор архитектуры" authors="" solutions="" writer="waltpo" manager="bjsmith" editor="mattshel"  />
+<properties linkid="" urlDisplayName="" pageTitle="Архитектура" metaKeywords="" description="Общие сведения об архитектуре, которая охватывает общие шаблоны разработки" metaCanonical="" services="" documentationCenter="" videoId="" scriptId="" title="Обзор архитектуры" authors="" solutions="" writer="waltpo" manager="bjsmith" editor="mattshel"  />
 
 #Архитектура
-Способы реализации общих шаблонов разработки в Windows Azure.
+Способы реализации общих шаблонов разработки в Azure.
 
 ###Набор символов и значков Azure
 
-[Загрузите набор символов и значков Windows Azure](http://www.microsoft.com/ru-ru/download/details.aspx?id=41937) для создания технических материалов, которые описывают (или используют) в Windows Azure схемы архитектуры, учебные материалы, презентации, таблицы, инфографику и технические документы. Можно загрузить символы в форматах PPT, Visio и PNG. Мы хотели бы знать ваше мнение, поэтому предлагаем для загрузки инструкции по обратной связи.
+[Загрузите набор символов и значков Azure](http://www.microsoft.com/ru-ru/download/details.aspx?id=41937) для создания технических материалов, которые описывают (или используют) в Azure схемы архитектуры, учебные материалы, презентации, таблицы, инфографику и технические документы. Можно загрузить символы в форматах PPT, Visio и PNG. Мы хотели бы знать ваше мнение, поэтому предлагаем для загрузки инструкции по обратной связи.
 
 ![Набор символов и значков Azure][azure_symbols]
 
@@ -43,7 +43,7 @@
 
 ### Дополнительные рекомендации
 
-Сведения о других общих шаблонах разработки в Windows Azure см. в разделе [Облачные шаблоны разработки](http://msdn.microsoft.com/ru-ru/library/dn568099.aspx).
+Сведения о других общих шаблонах разработки в Azure см. в разделе [Облачные шаблоны разработки](http://msdn.microsoft.com/ru-ru/library/dn568099.aspx).
 
 
 [competing_consumers]: ./media/architecture-overview/CompetingConsumers.png

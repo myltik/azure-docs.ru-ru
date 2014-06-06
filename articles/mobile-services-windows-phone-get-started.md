@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Приступая к работе с мобильными службами Windows Azure для приложений Windows Phone" metaKeywords="" description="Чтобы начать работу с мобильными службами Windows Azure для разработки на платформе Windows Phone, следуйте инструкциям этого учебника. " metaCanonical="" services="" documentationCenter="Mobile" title="Приступая к работе с мобильными службами" authors=""  solutions="" writer="glenga" manager="" editor=""  />
+<properties pageTitle="Приступая к работе с мобильными службами Azure для приложений Windows Phone" metaKeywords="" description="Чтобы начать работу с мобильными службами Azure для разработки на платформе Windows Phone, следуйте инструкциям этого учебника. " metaCanonical="" services="" documentationCenter="Mobile" title="Приступая к работе с мобильными службами" authors=""  solutions="" writer="glenga" manager="" editor=""  />
 
 # <a name="getting-started"> </a>Приступая к работе с мобильными службами
 
@@ -9,7 +9,7 @@
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
-<p>В этом учебнике показано, как добавить серверную службу на основе облака в приложение, работающее на платформе Windows Phone 8, с помощью мобильных служб Windows Azure. В этом учебнике будет создана новая мобильная служба и простое приложение <em>Список заданий</em>, которое хранит данные приложения в новой мобильной службе.</p>
+<p>В этом учебнике показано, как добавить серверную службу на основе облака в приложение, работающее на платформе Windows Phone 8, с помощью мобильных служб Azure. В этом учебнике будет создана новая мобильная служба и простое приложение <em>Список заданий</em>, которое хранит данные приложения в новой мобильной службе.</p>
 <p>Если вы предпочитаете смотреть видео, то в клипе справа приведены те же действия, что и в учебнике. В этом видео Ника Харриса (Nick Harris) вы найдете вводные сведения о мобильных службах, а также руководство по созданию первой мобильной службы и подключению к ней приложения Windows Store.</p>
 </div>
 <div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkId=290816" target="_blank" class="label">Просмотр учебника</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-wp8-get-started-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkId=290816" target="_blank" class="dev-onpage-video"><span class="icon">Воспроизведение видео</span></a> <span class="time">13:18</span></div>
@@ -21,7 +21,7 @@
 
 ![][0]
 
-<div class="dev-callout"><strong>Примечание.</strong> <p>Для работы с этим учебником потребуется учетная запись Windows Azure с включенной возможностью мобильных служб Windows Azure.</p> <ul> <li>Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://www.windowsazure.com/ru-ru/pricing/free-trial/?WT.mc_id=A30A4DDE2&amp;returnurl=http%3A%2F%2FFen-us%2Fdocumentation%2Farticles%2Fmobile-services-windows-phone-get-started%2F" target="_blank">Бесплатная пробная версия Windows Azure</a>.</li></ul> </div>
+<div class="dev-callout"><strong>Примечание.</strong> <p>Для работы с этим учебником потребуется учетная запись Azure с включенной возможностью мобильных служб Azure.</p> <ul> <li>Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://www.windowsazure.com/ru-ru/pricing/free-trial/?WT.mc_id=A30A4DDE2&amp;returnurl=http%3A%2F%2FFru-ru%2Fdocumentation%2Farticles%2Fmobile-services-windows-phone-get-started%2F" target="_blank">Бесплатная пробная версия Azure</a>.</li></ul> </div>
 
 ## <a name="create-new-service"> </a>Создание мобильной службы
 
@@ -63,7 +63,7 @@
 
    	![][10]
 
-   	При этом в новую мобильную службу, размещенную в Windows Azure, будет отправлен запрос POST. Данные из запроса вставляются в таблицу TodoItem. Элементы, хранящиеся в таблице, возвращаются мобильной службой, а данные отображаются в списке.
+   	При этом в новую мобильную службу, размещенную в Azure, будет отправлен запрос POST. Данные из запроса вставляются в таблицу TodoItem. Элементы, хранящиеся в таблице, возвращаются мобильной службой, а данные отображаются в списке.
 
 	>[WACOM.NOTE]Код, который обращается к вашей мобильной службе для запроса и вставки данных, можно просмотреть в файле MainPage.xaml.cs.
 

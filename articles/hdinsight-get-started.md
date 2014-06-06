@@ -167,9 +167,9 @@ HDInsight делает библиотеку [Apache Hadoop][apache-hadoop] до�
 
 Например, для доступа к hadoop-examples.jar можно использовать один из следующих вариантов:
 
-	â—_ wasb://<containername>@<storageaccountname>.blob.core.windows.net/example/jars/hadoop-examples.jar
-	â—_ wasb:///example/jars/hadoop-examples.jar
-	â—_ /example/jars/hadoop-examples.jar
+	● wasb://<containername>@<storageaccountname>.blob.core.windows.net/example/jars/hadoop-examples.jar
+	● wasb:///example/jars/hadoop-examples.jar
+	● /example/jars/hadoop-examples.jar
 				
 Использование префикса *wasb: / /* в путях к этим файлам. Это необходимо для того, чтобы указать, что хранилище BLOB-объектов Azure используется для ввода и вывода файлов. Выходной каталог предполагает, что используемый по умолчанию путь задается относительно папки *wasb:///user/&lt;имя_пользователя&gt;*. 
 

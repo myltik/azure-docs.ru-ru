@@ -1,4 +1,4 @@
-﻿<properties linkid="dev-net-how-to-service-bus-queues" urlDisplayName="Очереди Service Bus" pageTitle="Использование очередей Service Bus (.NET) — Windows Azure" metaKeywords="Очереди Service Bus Azure, очереди Azure, обмен сообщениями Azure, очереди Azure на C#, очереди Azure .NET" description="Сведения об использовании очередей Service Bus в Windows Azure. Примеры кода написаны на C# с помощью API-интерфейса .NET." metaCanonical="" services="service-bus" documentationCenter=".NET" title="Использование очередей Service Bus" authors=""  solutions="" writer="sethm" manager="dwrede" editor="mattshel"  />
+<properties linkid="dev-net-how-to-service-bus-queues" urlDisplayName="Очереди Service Bus" pageTitle="Использование очередей Service Bus (.NET) — Azure" metaKeywords="Очереди Service Bus Azure, очереди Azure, обмен сообщениями Azure, очереди Azure на C#, очереди Azure .NET" description="Сведения об использовании очередей Service Bus в Azure. Примеры кода написаны на C# с помощью API-интерфейса .NET." metaCanonical="" services="service-bus" documentationCenter=".NET" title="Использование очередей Service Bus" authors=""  solutions="" writer="sethm" manager="dwrede" editor="mattshel"  />
 
 
 
@@ -8,6 +8,8 @@
 
 <span>В этом руководстве показано, как использовать очереди Service Bus. Примеры написаны на языке C\# и используют интерфейс .NET API. Здесь описаны такие сценарии, как **создание очередей, отправка и получение сообщений**, а также
 **удаление очередей**. Дополнительные сведения об очередях см. в разделе [Дальнейшие действия]. </span>
+
+[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
 [WACOM.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
@@ -23,7 +25,7 @@
 
 1.  В обозревателе решений щелкните правой кнопкой мыши **Ссылки**, затем выберите команду
     **Управление пакетами NuGet**.
-2.  Найдите WindowsAzure и выберите пункт **Windows Azure Service Bus**. Нажмите кнопку **Установить**, чтобы выполнить установку, затем закройте это диалоговое окно.
+2.  Найдите WindowsAzure и выберите пункт **Azure Service Bus**. Нажмите кнопку **Установить**, чтобы выполнить установку, затем закройте это диалоговое окно.
 
     ![][7]
 
@@ -33,14 +35,14 @@
 
 Строка подключения используется в Service Bus для хранения учетных данных и конечных точек. Строку подключения можно разместить в файле конфигурации, не задавая ее жестко в коде:
 
--При использовании облачных служб Windows Azure рекомендуется хранить строки подключения с помощью системы конфигурации службы Windows Azure (*CSDEF- и *CSCFG-файлы).
-- При использовании веб-сайтов Windows Azure или виртуальных машин Windows Azure рекомендуется хранить строки подключения с помощью системы конфигурации .NET (например, в файле "web.config").
+- При использовании облачных служб Azure рекомендуется хранить строки подключения с помощью системы конфигурации службы Azure (`*CSDEF`- и `*CSCFG`-файлы).
+- При использовании веб-сайтов Azure или виртуальных машин Azure рекомендуется хранить строки подключения с помощью системы конфигурации .NET (например, в файле `web.config`).
 
-В обоих случаях можно извлечь строку подключения с помощью метода "CloudConfigurationManager.GetSetting", как показано далее в этом руководстве.
+В обоих случаях можно извлечь строку подключения с помощью метода `CloudConfigurationManager.GetSetting`, как показано далее в этом руководстве.
 
 ### <a name="config-connstring"> </a>Настройка строки подключения при использовании облачных служб
 
-Механизм настройки службы является уникальным для проектов облачных служб Windows Azure и позволяет динамически изменять параметры конфигурации на портале управления Windows Azure без повторного развертывания приложения.  Например, добавление параметра в файл определения службы ("*.csdef"), как показано ниже:
+Механизм настройки службы является уникальным для проектов облачных служб Azure и позволяет динамически изменять параметры конфигурации на портале управления Azure без повторного развертывания приложения.  Например, добавление параметра в файл определения службы (`*.csdef`), как показано ниже:
 
 	<ServiceDefinition name="WindowsAzure1">
 	...
@@ -52,7 +54,7 @@
 	...
 	</ServiceDefinition>
 
-Затем задайте значения в файле конфигурации службы ("*.cscfg"):
+Затем задайте значения в файле конфигурации службы (`*.cscfg`):
 
 	<ServiceConfiguration serviceName="WindowsAzure1">
 	...
@@ -69,7 +71,7 @@
 
 ### Настройка строки подключения при использовании веб-сайтов или виртуальных машин
 
-При использовании веб-узлов или виртуальных машин рекомендуется использовать систему конфигурации .NET (например, "web.config").  Строка подключения хранится с помощью элемента "<appSettings>":
+При использовании веб-узлов или виртуальных машин рекомендуется использовать систему конфигурации .NET (например, `web.config`).  Строка подключения хранится с помощью элемента `<appSettings>`:
 
 	<configuration>
 	    <appSettings>
@@ -84,7 +86,7 @@
 
 Операции управления для очередей Service Bus можно выполнять с помощью класса **NamespaceManager**. Класс **NamespaceManager** предоставляет методы для создания, перечисления и удаления очередей. 
 
-В этом примере объект **NamespaceManager** создается с помощью класса **CloudConfigurationManager** Windows Azure со строкой подключения, состоящей из базового адреса пространства имен служб Service Bus и учетных данных с соответствующими правами на управление. Эта строка подключения имеет вид 
+В этом примере объект **NamespaceManager** создается с помощью класса **CloudConfigurationManager** Azure со строкой подключения, состоящей из базового адреса пространства имен служб Service Bus и учетных данных с соответствующими правами на управление. Эта строка подключения имеет вид 
 
 	Endpoint=sb://[yourServiceNamespace].servicebus.windows.net/;SharedSecretIssuer=[issuerName];SharedSecretValue=[yourDefaultKey]
 
@@ -216,7 +218,7 @@ Bus автоматически разблокирует сообщение и д
 -   См. справочник MSDN: [Очереди, разделы и подписки][]
 -   Создание работающего приложения, отправляющего сообщения в очередь Service Bus и получающее их из этой очереди: [Учебник по управляемому обмену сообщениями Service Bus в .NET].
 
-  [Следующие шаги]: #next-steps
+  [Дальнейшие действия]: #next-steps
   [Что такое очереди Service Bus]: #what-queues
   [Создание пространства имен службы]: #create-namespace
   [Получение учетных данных управления по умолчанию для пространства имен]: #obtain-creds
@@ -228,7 +230,7 @@ Bus автоматически разблокирует сообщение и д
   [Практическое руководство. Получение сообщений из очереди]: #receive-messages
   [Практическое руководство. Обработка сбоев приложения и нечитаемых сообщений]: #handle-crashes
   [Основные понятия очереди]:./media/service-bus-dotnet-how-to-use-queues/sb-queues-08.png
-  [Портал управления Windows Azure]: http://manage.windowsazure.com
+  [Портал управления Azure]: http://manage.windowsazure.com
   
   
   
@@ -236,6 +238,6 @@ Bus автоматически разблокирует сообщение и д
   
   
   [7]: ./media/service-bus-dotnet-how-to-use-queues/getting-started-multi-tier-13.png
-  [Очереди, разделы и подписки.]: http://msdn.microsoft.com/ru-ru/library/windowsazure/hh367516.aspx
+  [Очереди, разделы и подписки]: http://msdn.microsoft.com/ru-ru/library/windowsazure/hh367516.aspx
   [Учебник по управляемому обмену сообщениями Service Bus в .NET]: http://msdn.microsoft.com/ru-ru/library/windowsazure/hh367512.aspx
 

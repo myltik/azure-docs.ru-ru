@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Приступая к работе с мобильными службами Windows Azure для приложений iOS" metaKeywords="Приложения iOS для Windows Azure, мобильная служба iOS, начало работы Azure iOS" description="Следуйте инструкциям этого учебника, чтобы приступить к использованию мобильных служб Windows Azure для разработки iOS. " metaCanonical="" services="" documentationCenter="Mobile" title="Приступая к работе с мобильными службами" authors=""  solutions="" writer="glenga" manager="" editor=""  />
+<properties pageTitle="Приступая к работе с мобильными службами Azure для приложений iOS" metaKeywords="Приложения iOS для Azure, мобильная служба iOS, начало работы Azure iOS" description="Следуйте инструкциям этого учебника, чтобы приступить к использованию мобильных служб Azure для разработки iOS. " metaCanonical="" services="" documentationCenter="Mobile" title="Приступая к работе с мобильными службами" authors=""  solutions="" writer="glenga" manager="" editor=""  />
 
 # <a name="getting-started"> </a>Приступая к работе с мобильными службами
 <div class="dev-center-tutorial-selector sublanding">
@@ -20,7 +20,7 @@
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
-<p>В этом учебнике показано, как добавить серверную службу на основе облака в приложение, работающее на платформе iOS, с помощью мобильных служб Windows Azure.</p>
+<p>В этом учебнике показано, как добавить серверную службу на основе облака в приложение, работающее на платформе iOS, с помощью мобильных служб Azure.</p>
 <p>Если вы предпочитаете смотреть видео, то в клипе справа приведены те же действия, что и в учебнике.</p>
 </div>
 <div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/iOS-Creating-your-first-app-using-the-Windows-Azure-Mobile-Services-Quickstart" target="_blank" class="label">Просмотр учебника</a> <a style="background-image: url('/media/devcenter/mobile/videos/get-started-ios-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/iOS-Creating-your-first-app-using-the-Windows-Azure-Mobile-Services-Quickstart" target="_blank" class="dev-onpage-video"><span class="icon">Воспроизведение видео</span></a> <span class="time">9:38</span></div>
@@ -34,7 +34,7 @@
 
 Для изучения этого учебника необходимы XCode версии 4.5 и iOS версии 5.0 или более поздних версий. 
 
-<div class="dev-callout"><strong>Примечание</strong>. <p>Для работы с этим учебником необходима учетная запись Windows Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://www.windowsazure.com/ru-ru/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-ios%2F" target="_blank">Бесплатная пробная версия Windows Azure</a>.</p></div>
+<div class="dev-callout"><strong>Примечание</strong>. <p>Для работы с этим учебником необходима учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://www.windowsazure.com/ru-ru/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fru-ru%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-ios%2F" target="_blank">Бесплатная пробная версия Azure</a>.</p></div>
 
 ## <a name="create-new-service"> </a>Создание мобильной службы
 

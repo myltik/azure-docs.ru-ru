@@ -18,13 +18,13 @@
 
         Install-Package WindowsAzure.ServiceBus
  	
-	Это добавляет ссылку на пакет Windows Azure Service Bus SDK с помощью <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">пакета WindowsAzure.ServiceBus NuGet</a>. 
+	Это добавляет ссылку на пакет Azure Service Bus SDK с помощью <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">пакета WindowsAzure.ServiceBus NuGet</a>. 
 
-3. Откройте файл Program.cs и добавьте следующий оператор "using":
+3. Откройте файл Program.cs и добавьте следующий оператор `using`:
 
         using Microsoft.ServiceBus.Notifications;
 
-4. Добавьте следующий метод в класс "Program" или замените его, если он уже существует:
+4. Добавьте следующий метод в класс `Program` или замените его, если он уже существует:
 
         private static async void SendNotificationAsync()
         {
@@ -78,7 +78,7 @@
 		<p>Этот серверный код поддерживает магазин Windows, Windows Phone и клиенты iOS. Методы Send возвращают ошибочный ответ, когда концентратор уведомлений еще не настроен для определенной платформы клиента. </p>
 	</div>
 
-6. В приведенном выше коде замените заполнители "<hub name>" и "<connection string with full access>" именем концентратора уведомлений и строкой подключения для элемента *DefaultFullSharedAccessSignature*, полученного ранее.
+6. В приведенном выше коде замените заполнители `<hub name>` и `<connection string with full access>` именем концентратора уведомлений и строкой подключения для элемента *DefaultFullSharedAccessSignature*, полученного ранее.
 
 7. Добавьте следующие строки в метод **Main**:
 
@@ -93,7 +93,7 @@
 
 0. Завершите работу с разделом учебника [Приступая к работе с мобильными службами], чтобы создать свою мобильную службу.
 
-1. Выполните вход на [портал управления Windows Azure], щелкните пункт "Мобильные службы", а затем щелкните свою мобильную службу.
+1. Выполните вход на [портал управления Azure], щелкните пункт "Мобильные службы", а затем щелкните свою мобильную службу.
 
 2. Щелкните вкладку **Планировщик**, а затем нажмите кнопку **Создать**.
 
@@ -129,7 +129,7 @@
 
 	Этот код отправляет уведомления для каждого из шести тегов в массиве строк для магазина Windows, Windows Phone и устройств iOS. Использование тегов гарантирует, что устройства будут получать уведомления только для зарегистрированных категорий.
 
-6. В приведенном выше коде замените заполнители "<hub name>" и "<connection string with full access>" именем концентратора уведомлений и строкой подключения для элемента *DefaultFullSharedAccessSignature*, полученного ранее.
+6. В приведенном выше коде замените заполнители `<hub name>` и `<connection string with full access>` именем концентратора уведомлений и строкой подключения для элемента *DefaultFullSharedAccessSignature*, полученного ранее.
 
 7. Добавьте следующую вспомогательную функцию после функции запланированного задания, а затем нажмите кнопку **Сохранить**: 
 	
@@ -151,7 +151,7 @@
 <!-- Anchors -->
 [Из консольного приложения]: #console
 [Из мобильных служб]: #mobile-services
-[Запуск приложения и создание уведомлений]: #test-app
+[запуску приложения и созданию уведомлений]: #test-app
 
 <!-- Images. -->
 [13]: ./media/notification-hubs-back-end/notification-hub-create-console-app.png
@@ -163,9 +163,9 @@
 [приступая к работе]: /ru-ru/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 [Использование концентраторов уведомлений для отправки уведомлений пользователям]: ../notificationhubs/tutorial-notify-users-mobileservices.md
 [Приступая к работе с мобильными службами]: /ru-ru/develop/mobile/tutorials/get-started/#create-new-service
-[Портал управления Windows Azure]: https://manage.windowsazure.com/
+[Портал управления Azure]: https://manage.windowsazure.com/
 [Объект wns]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Руководства по использованию концентраторов уведомлений]: http://msdn.microsoft.com/ru-ru/library/jj927170.aspx
 [Инструкции по использованию концентраторов уведомлений для магазина Windows]: http://msdn.microsoft.com/ru-ru/library/jj927172.aspx
-[Интерфейс REST концентраторов уведомлений]: http://msdn.microsoft.com/ru-ru/library/windowsazure/dn223264.aspx
+[интерфейса REST концентраторов уведомлений]: http://msdn.microsoft.com/ru-ru/library/windowsazure/dn223264.aspx
 

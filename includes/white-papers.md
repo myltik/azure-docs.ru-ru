@@ -1,73 +1,73 @@
- <h1>Технические документы по Windows Azure</h1>
-  <p>В перечисленных ниже технических документах рассматриваются дополнительные представления и перспективы служб Windows Azure.</p>
+ <h1>Технические документы по Azure</h1>
+  <p>В перечисленных ниже технических документах рассматриваются дополнительные представления и перспективы служб Azure.</p>
   <p>(в порядке популярности)</p>
   <table border="1" cellspacing="0" cellpadding="10" style="border: 0.5px solid #000000;">
     <tbody>
       <tr>
         <td style="width: 200px;">
-          <a href="http://go.microsoft.com/?linkid=9751405">Рекомендации по безопасности для разработки приложений Windows Azure</a>
+          <a href="http://go.microsoft.com/?linkid=9751405">Рекомендации по безопасности для разработки приложений Azure</a>
         </td>
-        <td style="width: 400px;">В этом документе рассматриваются проблемы безопасности и рекомендуемые подходы к проектированию и разработке более безопасных приложений для платформы Windows Azure.</td>
+        <td style="width: 400px;">В этом документе рассматриваются проблемы безопасности и рекомендуемые подходы к проектированию и разработке более безопасных приложений для платформы Azure.</td>
       </tr>
       <tr>
         <td style="width: 200px;">
-          <a href="http://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf">Обзор безопасности Windows Azure</a>
+          <a href="http://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf">Обзор безопасности Azure</a>
         </td>
-        <td style="width: 400px;">В этом документе описывается массив элементов управления, реализованных в Windows Azure, чтобы клиенты могли оценить, подходят ли эти возможности и элементы управления для их индивидуальных требований.</td>
+        <td style="width: 400px;">В этом документе описывается массив элементов управления, реализованных в Azure, чтобы клиенты могли оценить, подходят ли эти возможности и элементы управления для их индивидуальных требований.</td>
       </tr>
       <tr>
         <td style="width: 200px;">
-          <a href="http://download.microsoft.com/download/F/2/6/F26E80C5-C43B-4913-99AB-F2E4DFBFCBBF/Single%20Sign-On%20from%20Active%20Directory%20to%20a%20Windows%20Azure%20Application%20Whitepaper-RTW.pdf">Единый вход из Active Directory в приложение Windows Azure</a>
+          <a href="http://download.microsoft.com/download/F/2/6/F26E80C5-C43B-4913-99AB-F2E4DFBFCBBF/Single%20Sign-On%20from%20Active%20Directory%20to%20a%20Windows%20Azure%20Application%20Whitepaper-RTW.pdf">Единый вход из Active Directory в приложение Azure</a>
         </td>
-        <td style="width: 400px;">В этом документе содержатся пошаговые инструкции по использованию Windows Identity Foundation, Windows Azure и служб федерации Active Directory (AD FS) 2.0 для реализации единого входа в веб-приложениях, которые развертываются как локально, так и в облаке.</td>
+        <td style="width: 400px;">В этом документе содержатся пошаговые инструкции по использованию Windows Identity Foundation, Azure и служб федерации Active Directory (AD FS) 2.0 для реализации единого входа в веб-приложениях, которые развертываются как локально, так и в облаке.</td>
       </tr>
       <tr>
         <td style="width: 200px;">
-          <a href="http://go.microsoft.com/fwlink/?LinkId=153401">Таблица Windows Azure — программное хранилище таблиц</a>
+          <a href="http://go.microsoft.com/fwlink/?LinkId=153401">Таблица Azure — программное хранилище таблиц</a>
         </td>
-        <td style="width: 400px;">В этом документе описывается таблица Windows Azure, которая представляет собой структурированное хранилище, предоставляемое платформой Windows Azure. Она поддерживает таблицы с высокой степенью масштабируемости в облаке, которые могут содержать миллиарды сущностей и терабайты данных.</td>
+        <td style="width: 400px;">В этом документе описывается таблица Azure, которая представляет собой структурированное хранилище, предоставляемое платформой Azure. Она поддерживает таблицы с высокой степенью масштабируемости в облаке, которые могут содержать миллиарды сущностей и терабайты данных.</td>
       </tr>
       <tr>
         <td style="width: 200px;">
-          <a href="http://go.microsoft.com/?linkid=9751403">Руководство разработчика для службы Service Bus для Windows Azure AppFabric</a>
+          <a href="http://go.microsoft.com/?linkid=9751403">Руководство разработчика для службы Service Bus для Azure AppFabric</a>
         </td>
         <td style="width: 400px;">В этом документе рассматривается использование службы Service Bus для преодоления некоторых проблем подключения к Интернету, часто встречающихся в современном мире.</td>
       </tr>
       <tr>
         <td style="width: 200px;">
-          <a href="http://go.microsoft.com/fwlink/?LinkId=153402">Очередь Windows Azure — программное хранилище очередей</a>
+          <a href="http://go.microsoft.com/fwlink/?LinkId=153402">Очередь Azure — программное хранилище очередей</a>
         </td>
-        <td style="width: 400px;">В этом документе описывается очередь Windows Azure и ее использование для предоставления надежного механизма доставки сообщений.</td>
+        <td style="width: 400px;">В этом документе описывается очередь Azure и ее использование для предоставления надежного механизма доставки сообщений.</td>
       </tr>
       <tr>
         <td style="width: 200px;">
-          <a href="http://go.microsoft.com/?linkid=9710117">Диск Windows Azure — использование надежного устройства для облачных приложений NTFS</a>
+          <a href="http://go.microsoft.com/?linkid=9710117">Диск Azure — использование надежного устройства для облачных приложений NTFS</a>
         </td>
-        <td style="width: 400px;">В этом документе описывается диск Windows Azure и его использование для предоставления устойчивых томов NTFS приложениям Windows Azure.</td>
+        <td style="width: 400px;">В этом документе описывается диск Azure и его использование для предоставления устойчивых томов NTFS приложениям Azure.</td>
       </tr>
       <tr>
         <td style="width: 200px;">
-          <a href="http://go.microsoft.com/?linkid=9682907">Введение в Windows Azure</a>
+          <a href="http://go.microsoft.com/?linkid=9682907">Введение в Azure</a>
         </td>
-        <td style="width: 400px;">Этот документ знакомит читателей с Windows Azure — облачной платформой корпорации Майкрософт, которая позволяет разработчикам запускать приложения и хранить данные на виртуальных машинах в доступном через Интернет центре обработки данных.</td>
+        <td style="width: 400px;">Этот документ знакомит читателей с Azure — облачной платформой корпорации Майкрософт, которая позволяет разработчикам запускать приложения и хранить данные на виртуальных машинах в доступном через Интернет центре обработки данных.</td>
       </tr>
       <tr>
         <td style="width: 200px;">
-          <a href="http://go.microsoft.com/fwlink/?LinkId=153400">BLOB-объект Windows Azure — программное хранилище BLOB-объектов</a>
+          <a href="http://go.microsoft.com/fwlink/?LinkId=153400">BLOB-объект Azure — программное хранилище BLOB-объектов</a>
         </td>
-        <td style="width: 400px;">В этом документе описывается BLOB-объект Windows Azure, использование которого позволяет приложениям хранить в облаке большие объекты (до 50 ГБ каждый).</td>
+        <td style="width: 400px;">В этом документе описывается BLOB-объект Azure, использование которого позволяет приложениям хранить в облаке большие объекты (до 50 ГБ каждый).</td>
       </tr>
       <tr>
         <td style="width: 200px;">
-          <a href="http://go.microsoft.com/?linkid=9751501">Модель программирования Windows Azure</a>
+          <a href="http://go.microsoft.com/?linkid=9751501">Модель программирования Azure</a>
         </td>
-        <td style="width: 400px;">В этом документе обсуждаются преимущества облачной <em>платформы как услуги</em> и рассказывается, как она реализована в Windows Azure.</td>
+        <td style="width: 400px;">В этом документе обсуждаются преимущества облачной <em>платформы как услуги</em> и рассказывается, как она реализована в Azure.</td>
       </tr>
       <tr>
         <td style="width: 200px;">
-          <a href="http://go.microsoft.com/?linkid=9752158">Windows HPC Server и Windows Azure</a>
+          <a href="http://go.microsoft.com/?linkid=9752158">Windows HPC Server и Azure</a>
         </td>
-        <td style="width: 400px;">В этом документе описывается способ совместной работы Windows HPC Server R2 и Windows Azure.</td>
+        <td style="width: 400px;">В этом документе описывается способ совместной работы Windows HPC Server R2 и Azure.</td>
       </tr>
       <tr>
         <td style="width: 200px;">
@@ -79,7 +79,7 @@
         <td style="width: 200px;">
           <a href="http://go.microsoft.com/?linkid=9752188">ИТ как услуга</a>
         </td>
-        <td style="width: 400px;">В этом документе обсуждается, как Windows Azure дополняет Windows Server и как они в совокупности позволяют предприятиям, региональным поставщикам услуг и самой корпорации Майкрософт предоставлять приложения в частных и общедоступных облаках, используя согласованную идентификацию, управление и архитектуру приложений.</td>
+        <td style="width: 400px;">В этом документе обсуждается, как Azure дополняет Windows Server и как они в совокупности позволяют предприятиям, региональным поставщикам услуг и самой корпорации Майкрософт предоставлять приложения в частных и общедоступных облаках, используя согласованную идентификацию, управление и архитектуру приложений.</td>
       </tr>
       <tr>
         <td style="width: 200px;">
@@ -89,13 +89,13 @@
       </tr>
       <tr>
         <td style="width: 200px;">
-          <a href="http://download.microsoft.com/download/E/B/5/EB512F2E-7771-40A3-8025-0DC6D9429951/An%20Introduction%20to%20Windows%20Azure%20platform%20AppFabric%20for%20Developers.docx">Введение в Windows Azure AppFabric для разработчиков</a>
+          <a href="http://download.microsoft.com/download/E/B/5/EB512F2E-7771-40A3-8025-0DC6D9429951/An%20Introduction%20to%20Windows%20Azure%20platform%20AppFabric%20for%20Developers.docx">Введение в Azure AppFabric для разработчиков</a>
         </td>
-        <td style="width: 400px;">В этом документе содержится краткая вводная информация о платформе Windows Azure AppFabric, которая включает службы Service Bus и Access Control и предоставляет общие стандартные блоки, используемые приложениями .NET при расширении их функций в облако и конкретно в платформу Windows Azure.</td>
+        <td style="width: 400px;">В этом документе содержится краткая вводная информация о платформе Azure AppFabric, которая включает службы Service Bus и Access Control и предоставляет общие стандартные блоки, используемые приложениями .NET при расширении их функций в облако и конкретно в платформу Azure.</td>
       </tr>
       <tr>
         <td style="width: 200px;">
-          <a href="http://download.microsoft.com/download/F/9/E/F9EAD956-18D1-42D8-AB1C-7F119856ABBF/Windows%20Azure%20for%20ISVs,%20v1.2--Chappell.pdf">Windows Azure и независимые поставщики программного обеспечения — руководство для ответственных за принятие решений</a>
+          <a href="http://download.microsoft.com/download/F/9/E/F9EAD956-18D1-42D8-AB1C-7F119856ABBF/Windows%20Azure%20for%20ISVs,%20v1.2--Chappell.pdf">Azure и независимые поставщики программного обеспечения — руководство для ответственных за принятие решений</a>
         </td>
         <td style="width: 400px;">В этом документе обсуждается, как с помощью облака независимые поставщики программного обеспечения могут увеличить свои доходы и сократить расходы.</td>
       </tr>
@@ -107,9 +107,9 @@
       </tr>
       <tr>
         <td style="width: 200px;">
-          <a href="http://download.microsoft.com/download/C/A/7/CA7A9801-736E-421E-A386-16B37C83FFE8/Windows-Azure-AppFabric-PDC10-Overview.docx">Обзор Windows Azure AppFabric</a>
+          <a href="http://download.microsoft.com/download/C/A/7/CA7A9801-736E-421E-A386-16B37C83FFE8/Windows-Azure-AppFabric-PDC10-Overview.docx">Обзор Azure AppFabric</a>
         </td>
-        <td style="width: 400px;">Этот документ знакомит читателей с Windows Azure AppFabric — комплексной облачной связующей платформой для разработки и развертывания приложений, а также управления ими на платформе Windows Azure.</td>
+        <td style="width: 400px;">Этот документ знакомит читателей с Azure AppFabric — комплексной облачной связующей платформой для разработки и развертывания приложений, а также управления ими на платформе Azure.</td>
       </tr>
       <tr>
         <td style="width: 200px;">
@@ -121,7 +121,7 @@
         <td style="width: 200px;">
           <a href="http://go.microsoft.com/?linkid=9696879">Системный интегратор</a>
         </td>
-        <td style="width: 400px;">В этом документе рассказывается, как системные интеграторы, являющиеся партнерами корпорации Майкрософт, используют Windows Azure для разработки приложений и служб, предусматривающих быстрое развертывание, простое управление, удобное масштабирование и конкурентоспособные цены.</td>
+        <td style="width: 400px;">В этом документе рассказывается, как системные интеграторы, являющиеся партнерами корпорации Майкрософт, используют Azure для разработки приложений и служб, предусматривающих быстрое развертывание, простое управление, удобное масштабирование и конкурентоспособные цены.</td>
       </tr>
       <tr>
         <td style="width: 200px;">
@@ -131,9 +131,9 @@
       </tr>
       <tr>
         <td style="width: 200px;">
-          <a href="http://go.microsoft.com/?linkid=9776229">Разработка приложений для использования Windows Azure AppFabric Caching</a>
+          <a href="http://go.microsoft.com/?linkid=9776229">Разработка приложений для использования Azure AppFabric Caching</a>
         </td>
-        <td style="width: 400px;">В этом документе рассказывается о предлагаемых Windows Azure Caching разных типах шаблонов кэша, которые поддерживает служба Caching. Здесь также рассматриваются основные проблемы, связанные с кэшем, которые необходимо учитывать при разработке приложений, чтобы воспользоваться возможностями кэширования.</td>
+        <td style="width: 400px;">В этом документе рассказывается о предлагаемых Azure Caching разных типах шаблонов кэша, которые поддерживает служба Caching. Здесь также рассматриваются основные проблемы, связанные с кэшем, которые необходимо учитывать при разработке приложений, чтобы воспользоваться возможностями кэширования.</td>
       </tr>
       <tr>
         <td style="width: 200px;">

@@ -1,4 +1,4 @@
-﻿<properties linkid="manage-windows-howto-logon" urlDisplayName="Вход в виртуальную машину" pageTitle="Вход в виртуальную машину под управлением Windows Server" metaKeywords="Вход в ВМ в Azure, портал виртуальной машины" description="Как войти в систему на виртуальной машине под управлением Windows Server 2008 R2 с помощью портала управления Windows Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Как войти в систему на виртуальной машине под управлением Windows Server" authors=""  solutions="" writer="kathydav" manager="jeffreyg" editor="tysonn"  />
+<properties linkid="manage-windows-howto-logon" urlDisplayName="Вход в виртуальную машину" pageTitle="Вход в виртуальную машину под управлением Windows Server" metaKeywords="Вход в ВМ в Azure, портал виртуальной машины" description="Как войти в систему на виртуальной машине под управлением Windows Server 2008 R2 с помощью портала управления Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Как войти в систему на виртуальной машине под управлением Windows Server" authors=""  solutions="" writer="kathydav" manager="jeffreyg" editor="tysonn"  />
 
 
 
@@ -7,7 +7,7 @@
 
 Для виртуальной машины под управлением операционной системы Windows Server можно использовать кнопку "Подключить" на портале управления для подключения к удаленному рабочему столу. 
 
-1. Войдите на [портал управления Windows Azure](http://manage.windowsazure.com), если вы еще этого не сделали.
+1. Войдите на [портал управления Azure](http://manage.windowsazure.com), если вы еще этого не сделали.
 
 2. Нажмите кнопку **Виртуальные машины**, а затем выберите соответствующую виртуальную машину.
 
