@@ -13,7 +13,7 @@
 
 Служба таблиц содержит следующие компоненты:
 
-![Таблица1][Table1]
+![Table1][Table1]
 
 -   **Формат URL-адреса:** Код обращается к таблицам в учетной записи, используя следующий формат адреса:   
     http://`<storage account>`.table.core.windows.net/`<table>` 
@@ -31,6 +31,6 @@
 
 
   
-  [Таблица1]: ./media/storage-java-how-to-use-table-storage/table1.png
+  [Table1]: ./media/storage-java-how-to-use-table-storage/table1.png
   [OData.org]: http://www.odata.org/
 

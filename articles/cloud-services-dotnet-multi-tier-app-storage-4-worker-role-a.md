@@ -25,11 +25,11 @@
 
 4. Щелкните проект WorkerRoleA правой кнопкой мыши и выберите **Добавить ссылку**.
 
-	![Добавление ссылки в проект WorkerRoleA][mtas-worker-a-add-reference-menu]
+	![Add reference in WorkerRoleA project][mtas-worker-a-add-reference-menu]
 
 4. В окне **Диспетчер ссылок** добавьте ссылку в проект MvcWebRole (или в проект веб-приложения при использовании веб-интерфейса на веб-сайте Azure), затем нажмите кнопку **ОК**.
 
-	![Добавление ссылки на MvcWebRole][mtas-worker-a-reference-manager]
+	![Add reference to MvcWebRole][mtas-worker-a-reference-manager]
 
 
 
@@ -59,7 +59,7 @@
 
 Рабочая роль A создает строки `SendEmail` в таблице `Message`, а рабочая роль B считывает эти строки для получения информации, необходимой для отправки сообщений электронной почты. На следующем рисунке показано подмножество свойств для двух строк `Message` и трех строк `SendEmail` в таблице `Message`.
 
-	![Таблица message с sendmail][mtas-sendMailTbl]
+	![message table with sendmail][mtas-sendMailTbl]
 
 Эти строки в таблице `Message` служат для достижения нескольких целей:
 
@@ -71,7 +71,7 @@
 
 1. В **обозревателе решений** щелкните правой кнопкой мыши папку &quot;Модели&quot; в веб-проекте и выберите **Добавить существующий элемент**.
 
-	![Добавление существующего элемента в папку &quot;Модели&quot; веб-проекта][mtas-add-existing-for-sendemail-model]
+	![Add existing item to Models folder in web project][mtas-add-existing-for-sendemail-model]
 
 3. Перейдите к папке, куда вы загрузили пример приложения, выберите файл *SendEmail.cs* в папке &quot;Модели&quot; веб-проекта и нажмите кнопку &quot;Добавить&quot;.
 
@@ -114,7 +114,7 @@
 
 5. Удалите *WorkerRole.cs*, щелкните правой кнопкой мыши проект WorkerRoleA и выберите **Добавить существующий элемент**.
 
-	![Добавление существующего элемента для рабочей роли A][mtas-worker-a-add-existing]
+	![Add existing item to Worker Role A][mtas-worker-a-add-existing]
 
 2. Перейдите к папке, куда вы загрузили пример приложения, выберите файл *WorkerRoleA.cs* в проекте WorkerRoleA и щелкните пункт **Добавить**.
 
@@ -363,11 +363,11 @@
 
 3. Создайте сообщение для отправки в созданный список рассылки и запланируйте его на текущий день или на уже прошедший день.
 
-	![Новое сообщение в состоянии ожидания][mtas-worker-a-test-pending]
+	![New message in pending status][mtas-worker-a-test-pending]
 
 4. Подождав немного дольше минуты (так как период бездействия метода Run составляет одну минуту), обновите веб-страницу &quot;Сообщения&quot; и убедитесь, что состояние изменено на &quot;Обработка&quot;. (Возможно, сначала состояние изменится на &quot;Очередь&quot;, но скорее всего, переход от состояния &quot;Очередь&quot; к состоянию &quot;Обработка&quot; произойдет настолько быстро, что вы его не заметите.)
 
-	![Новое сообщение в состоянии обработки][mtas-worker-a-test-processing]
+	![New message in processing status][mtas-worker-a-test-processing]
 
 5. Откройте обозреватель хранилища Azure и выберите свою тестовую учетную запись хранения.
 
@@ -375,13 +375,13 @@
 
 	Для каждого проверенного подписчика в списке получателей электронной почты отображается одно сообщение очереди.
 
-	![Сообщение очереди в ASE][mtas-worker-a-tst-ase-queue]
+	![Queue message in ASE][mtas-worker-a-tst-ase-queue]
 
 7. Дважды щелкните сообщение очереди, а затем выберите вкладку **Сообщение** в диалоговом окне **Сведения о сообщении**.
 
 	Отображается содержимое сообщения очереди: ключ раздела (от 2012-12-14), ключ строки (значение MessageRef и адрес электронной почты) и флаг перезапуска, разделенные запятой.
 
-	![Содержимое сообщения очереди в ASE][mtas-worker-a-tst-ase-queue-detail]
+	![Queue message contents in ASE][mtas-worker-a-tst-ase-queue-detail]
 
 8. Закройте диалоговое окно **Сведения о сообщении**.
 
@@ -391,11 +391,11 @@
 
 	Отображается запланированное сообщение со значением &quot;Message&quot; в ключе строки, а затем отображается строка для каждого проверенного подписчика с адресом электронной почты в ключе строки.
 
-	![Строки таблицы Message в ASE][mtas-worker-a-test-ase-message-table]
+	![Message table rows in ASE][mtas-worker-a-test-ase-message-table]
 
 11. Дважды щелкните строку, которая содержит адрес электронной почты в ключе строки, чтобы просмотреть содержимое строки `SendEmail`, созданной рабочей ролью A.
 
-	![Строка SendEmail в таблице Message][mtas-worker-a-test-ase-sendemail-row]
+	![SendEmail row in Message table][mtas-worker-a-test-ase-sendemail-row]
 
 <h2><a name="nextsteps"></a><span class="short-header">Дальнейшие действия</span>Дальнейшие действия</h2>
 
