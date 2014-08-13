@@ -66,7 +66,8 @@ Hadoop предоставляет API-интерфейс для MapReduce, по�
 
 		$subscriptionName = "<SubscriptionName>"   
 		$storageAccountName = "<StorageAccountName>" 
-		$containerName = "<ContainerName>"
+		$containerName = "<ContainerName>
+      "
 
 		# Select the current subscription
 		Select-AzureSubscription $subscriptionName
