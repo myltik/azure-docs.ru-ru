@@ -412,9 +412,21 @@
 
 
 
-[firsttutorial]: /ru-ru/develop/net/tutorials/multi-tier-web-site/1-overview/ [tut5]: /ru-ru/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/ [tut2]: /ru-ru/develop/net/tutorials/multi-tier-web-site/2-download-and-run/
+[firsttutorial]: /ru-ru/develop/net/tutorials/multi-tier-web-site/1-overview/
+[tut5]: /ru-ru/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/
+[tut2]: /ru-ru/develop/net/tutorials/multi-tier-web-site/2-download-and-run/
 
 
 
 
-[mtas-worker-a-add-existing]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-a/mtas-worker-a-add-existing.png [mtas-worker-a-add-reference-menu]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-a/mtas-worker-a-add-reference-menu.png [mtas-worker-a-reference-manager]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-a/mtas-worker-a-reference-manager.png [mtas-add-existing-for-sendemail-model]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-a/mtas-add-existing-for-sendemail-model.png [mtas-worker-a-test-processing]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-a/mtas-worker-a-test-processing.png [mtas-worker-a-test-pending]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-a/mtas-worker-a-test-pending.png [mtas-worker-a-tst-ase-queue]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-a/mtas-worker-a-test-ase-queue.png [mtas-worker-a-tst-ase-queue-detail]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-a/mtas-worker-a-test-ase-queue-detail.png [mtas-worker-a-test-ase-message-table]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-a/mtas-worker-a-test-ase-message-table.png [mtas-worker-a-test-ase-sendemail-row]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-a/mtas-worker-a-test-ase-sendemail-row.png [mtas-sendMailTbl]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-a/mtas-sendMailTbl.png 
+[mtas-worker-a-add-existing]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-a/mtas-worker-a-add-existing.png
+[mtas-worker-a-add-reference-menu]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-a/mtas-worker-a-add-reference-menu.png
+[mtas-worker-a-reference-manager]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-a/mtas-worker-a-reference-manager.png
+[mtas-add-existing-for-sendemail-model]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-a/mtas-add-existing-for-sendemail-model.png
+[mtas-worker-a-test-processing]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-a/mtas-worker-a-test-processing.png
+[mtas-worker-a-test-pending]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-a/mtas-worker-a-test-pending.png
+[mtas-worker-a-tst-ase-queue]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-a/mtas-worker-a-test-ase-queue.png
+[mtas-worker-a-tst-ase-queue-detail]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-a/mtas-worker-a-test-ase-queue-detail.png
+[mtas-worker-a-test-ase-message-table]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-a/mtas-worker-a-test-ase-message-table.png
+[mtas-worker-a-test-ase-sendemail-row]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-a/mtas-worker-a-test-ase-sendemail-row.png
+[mtas-sendMailTbl]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-a/mtas-sendMailTbl.png
