@@ -1,7 +1,9 @@
-> [WACOM.NOTE]
-> Для успешного завершения этого раздела, необходимо иметь для вашей платформы работающую установку Node.js и комплект SDK для Azure для Node.js.
+> Для успешного завершения этого раздела необходимо установить Node.js и пакет SDK для Azure для вашей платформы.
 
->* Установить комплект SDK для Azure для Node.js: <a href="http://go.microsoft.com/fwlink/?LinkId=254279">установщик Windows</a> | <a href="http://go.microsoft.com/fwlink/?LinkId=253471">установщик Mac</a> | <a href="http://go.microsoft.com/fwlink/?LinkId=253472">загрузка Linux</a></li>
+> -   Установите пакет Azure SDK для Node.js: [Пакет установки Windows][] | [Пакет установки Mac][] | [Загрузка для Linux][]
 
->* При использовании Linux или Mac установить Node.js из <a href="http://nodejs.org">http://nodejs.org</a> Установщик Windows уже содержит Node.js.
+> -   При использовании Linux или Mac установите Node.js, скачав его на сайте <http://nodejs.org>. Установщик Windows уже содержит Node.js.
 
+  [Пакет установки Windows]: http://go.microsoft.com/fwlink/?LinkId=254279
+  [Пакет установки Mac]: http://go.microsoft.com/fwlink/?LinkId=253471
+  [Загрузка для Linux]: http://go.microsoft.com/fwlink/?LinkId=253472

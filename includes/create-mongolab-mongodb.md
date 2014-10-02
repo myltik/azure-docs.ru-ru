@@ -1,36 +1,40 @@
-#Создание базы данных MongoDB в Azure
+# Создание базы данных MongoDB в Azure
 
-В этой статье будет рассмотрено, как использовать [MongoLab] для создания базы данных MongoDB из [магазина Azure]. [MongoLab] является поставщиком MongoDB, позволяющим запускать и управлять базами данных MongoDB в центрах обработки данных Azure и подключаться к ним из любого приложения.  
+В этой статье будет рассмотрено, как использовать [MongoLab][] для создания базы данных MongoDB из [магазина Azure][]. [MongoLab][] является поставщиком MongoDB, позволяющим запускать и управлять базами данных MongoDB в центрах обработки данных Windows Azure и подключаться к ним из любого приложения.
 
-Для создание базы данных MongoDB из [магазина Azure] выполните следующие действия:
+Для создания базы данных MongoDB из [магазина Azure][] выполните следующие действия:
 
-1. Войдите на [портал управления Azure][portal].
-2. Щелкните **+СОЗДАТЬ** в нижней части страницы и выберите **МАГАЗИН**.
+1.  Выполните вход на [портал управления Azure][].
+2.  Щелкните **+СОЗДАТЬ** в нижней части страницы и выберите **МАГАЗИН**.
 
-	![Выберите надстройку из магазина](./media/create-mongolab-mongodb/select-store.png)
+    ![Выберите надстройку из магазина][]
 
-3. Выберите **MongoLab**, затем щелкните стрелку в нижней части окна.
+3.  Выберите **MongoLab**, затем щелкните стрелку в нижней части окна.
 
-	![Выберите MongoLab](./media/create-mongolab-mongodb/select-mongo-db.png)
+    ![Выберите MongoLab][]
 
-4. Введите имя базы данных, выберите область, затем щелкните стрелку в нижней части окна.
+4.  Введите имя базы данных, выберите область, затем щелкните стрелку в нижней части окна.
 
-	![Приобретение базы данных MongoLab в магазине](./media/create-mongolab-mongodb/purchase-mongodb.png)
+    ![Приобретение базы данных MongoLab в магазине][]
 
-5. Щелкните флажок, чтобы завершить приобретение.
+5.  Щелкните флажок, чтобы завершить приобретение.
 
-	![Проверьте и завершите приобретение](./media/create-mongolab-mongodb/complete-mongolab-purchase.png)
+    ![Проверьте и завершите приобретение][]
 
-6. После создания базой данных можно управлять на вкладке **НАДСТРОЙКИ** портала управления.
+6.  После создания базой данных можно управлять на вкладке **НАДСТРОЙКИ** портала управления.
 
-	![Управление базой данных MongoLab на портале Azure](./media/create-mongolab-mongodb/manage-mongolab-add-on.png)
+    ![Управление базой данных MongoLab на портале Azure][]
 
-7. Сведения о подключении к базе данных можно получить, щелкнув **СВЕДЕНИЯ О ПОДКЛЮЧЕНИИ** в нижней части страницы (как показано выше).
+7.  Сведения о подключении к базе данных можно получить, щелкнув **СВЕДЕНИЯ О ПОДКЛЮЧЕНИИ** в нижней части страницы (как показано выше).
 
-	![Сведения о подключении к MongoLab](./media/create-mongolab-mongodb/mongolab-conn-info.png) 
+    ![Сведения о подключении к MongoLab][]
 
-[MongoLab]: https://mongolab.com/home
-[waws]: /ru-ru/manage/services/web-sites/
-[магазина Azure]: /ru-ru/store/overview/
-[портал]: http://windows.azure.com/
-
+  [MongoLab]: https://mongolab.com/home
+  [магазина Azure]: /en-us/store/overview/
+  [портал управления Azure]: http://windows.azure.com/
+  [Выберите надстройку из магазина]: ./media/create-mongolab-mongodb/select-store.png
+  [Выберите MongoLab]: ./media/create-mongolab-mongodb/select-mongo-db.png
+  [Приобретение базы данных MongoLab в магазине]: ./media/create-mongolab-mongodb/purchase-mongodb.png
+  [Проверьте и завершите приобретение]: ./media/create-mongolab-mongodb/complete-mongolab-purchase.png
+  [Управление базой данных MongoLab на портале Azure]: ./media/create-mongolab-mongodb/manage-mongolab-add-on.png
+  [Сведения о подключении к MongoLab]: ./media/create-mongolab-mongodb/mongolab-conn-info.png

@@ -1,3 +1,5 @@
 > [WACOM.NOTE]
-> Чтобы завершить работу с этим учебником, необходимо использовать учетную запись Azure. Вы можете <a href="http://www.windowsazure.com/ru-ru/pricing/member-offers/msdn-benefits-details/" target="_blank">активировать свои преимущества подписчика MSDN</a> или <a href="http://www.windowsazure.com/ru-ru/pricing/free-trial/" target="_blank">зарегистрироваться на использование бесплатной пробной версии</a>.
+> Для работы с этим учебником требуется учетная запись Azure. Вы можете [активировать свои преимущества для подписчиков MSDN][] или [зарегистрироваться для использования бесплатной пробной версии][].
 
+  [активировать свои преимущества для подписчиков MSDN]: http://www.windowsazure.com/en-us/pricing/member-offers/msdn-benefits-details/
+  [зарегистрироваться для использования бесплатной пробной версии]: http://www.windowsazure.com/en-us/pricing/free-trial/
