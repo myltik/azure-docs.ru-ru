@@ -1,39 +1,36 @@
+1.  Перейдите на веб-сайт [Консоль Google Cloud][] и войдите с помощью учетной записи Google. Щелкните элемент **СОЗДАТЬ ПРОЕКТ**.
 
+    ![][ ]
 
-<p></p>
+    > [WACOM.NOTE]При наличии существующего проекта после входа в систему открывается страница **Проекты**. Чтобы создать новый проект из панели мониторинга, откройте **Проект API**, нажмите **Создать...** в разделе **Другие проекты**, введите имя проекта и нажмите кнопку **Создать проект**.
 
-<div class="dev-callout"><b>Примечание.</b>
-<p>Чтобы выполнить процедуру, описанную в этом разделе, необходимо иметь учетную запись Google с проверенным адресом электронной почты. Чтобы создать новую учетную запись Google, перейдите по ссылке <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.</p>
-</div> 
+2.  Введите имя проекта, примите условия предоставления услуг и щелкните кнопку **Создать**. Выполните требуемую проверку с помощью SMS и снова щелкните элемент **Create** (Создать).
 
-1. Перейдите на веб-сайт <a href="http://cloud.google.com/console" target="_blank">Консоль Google Cloud</a> и войдите с помощью учетной записи Google. Щелкните элемент **CREATE PROJECT** (СОЗДАТЬ ПРОЕКТ).
+3.  Запишите номер проекта в разделе **Проекты**.
 
-   	![](./media/notification-hubs-android-get-started/mobile-services-google-new-project.png)   
+    Позже в этом учебнике данное значение будет использоваться как переменная PROJECT\_ID для клиента.
 
-	<div class="dev-callout"><b>Примечание.</b>
-	<p>При наличии существующего проекта после входа в систему открывается страница <strong>Projects</strong> (Проекты). Чтобы создать новый проект из панели мониторинга, откройте <strong>Проект API</strong>, нажмите <strong>Создать...</strong> в разделе <strong>Другие проекты</strong>, введите имя проекта и нажмите кнопку <strong>Создать проект</strong>.</p>
-    </div>
+4.  В левом столбце щелкните элемент **API и проверка подлинности**, прокрутите вниз и щелкните переключатель, чтобы включить **Google Cloud Messaging для Android**, и примите условия соглашения.
 
-2. Введите имя проекта, примите условия предоставления услуг и щелкните элемент **Create** (Создать). Выполните требуемую проверку с помощью SMS и снова щелкните элемент **Create** (Создать).
+    ![][1]
 
-3. Запишите номер проекта в разделе **Projects** (Проекты). 
+5.  Щелкните **Учетные данные**, а затем нажмите кнопку **СОЗДАТЬ НОВЫЙ КЛЮЧ**
 
-	Позже в этом учебнике данное значение будет использоваться как переменная PROJECT_ID для клиента.
+    ![][2]
 
-4. В левом столбце щелкните элемент **APIs & auth** (API и проверка подлинности), выполните прокрутку вниз и щелкните переключатель, чтобы включить **Google Cloud Messaging for Android**, и примите условия соглашения. 
+6.  В окне **Создание нового ключа** щелкните **Ключ сервера**. В следующем окне щелкните элемент **Create** (Создать).
 
-	![](./media/notification-hubs-android-get-started/mobile-services-google-enable-GCM.png)
+    ![][3]
 
-5. Щелкните элемент **Credentials** (Учетные данные), а затем **CREATE NEW KEY** (СОЗДАТЬ НОВЫЙ КЛЮЧ). 
+7.  Запишите значение **Ключ API**.
 
-   	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key.png)
+    ![][4]
 
-6. В области **Create a new key** (Создать новый ключ) щелкните элемент **Server key** (Ключ сервера). В следующем окне щелкните элемент **Create** (Создать).
+    Значение ключа API используется для предоставления мобильным службам возможности выполнять проверку подлинности с помощью GCM и отправки push-уведомлений от имени вашего приложения.
 
-   	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key2.png)
-
-7. Запишите значение **API key** (Ключ API).
-
-   	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key3.png) 
-
-
+  [Консоль Google Cloud]: http://cloud.google.com/console
+  [ ]: ./media/notification-hubs-android-get-started/mobile-services-google-new-project.png
+  [1]: ./media/notification-hubs-android-get-started/mobile-services-google-enable-GCM.png
+  [2]: ./media/notification-hubs-android-get-started/mobile-services-google-create-server-key.png
+  [3]: ./media/notification-hubs-android-get-started/mobile-services-google-create-server-key2.png
+  [4]: ./media/notification-hubs-android-get-started/mobile-services-google-create-server-key3.png
