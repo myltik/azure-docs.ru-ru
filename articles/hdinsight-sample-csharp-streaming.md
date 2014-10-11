@@ -1,187 +1,180 @@
-<properties linkid="manage-services-hdinsight-sample-csharp-streaming" urlDisplayName="Примеры HDInsight" pageTitle="Пример счетчика слов на C# для потоковой передачи в HDInsight | Azure" metaKeywords="hdinsight, администрирование hdinsight, администрирование azure hdinsight" description="Узнайте, как выполнить пример [подлежит определению]." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="Пример счетчика слов на C# для потоковой передачи в HDInsight" authors="bradsev" />
+<properties linkid="manage-services-hdinsight-sample-csharp-streaming" urlDisplayName="Hadoop Samples in HDInsight" pageTitle="The C# streaming wordcount Hadoop sample in HDInsight | Azure" metaKeywords="hadoop, hdinsight, hdinsight administration, hdinsight administration azure" description="Learn how to run a sample TBD." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="The C# streaming wordcount Hadoop sample in HDInsight" authors="bradsev" />
 
-# Пример счетчика слов на C# для потоковой передачи HDInsight
- 
-Hadoop предоставляет API-интерфейс для MapReduce, позволяющий создавать функции map (сопоставление) и reduce (редукция) на языках, отличных от Java. В этом учебнике показано, как создавать программы MapReduce на C# с использованием интерфейса потоковой передачи Hadoop и как выполнять программы в Azure HDInsight с использованием Azure PowerShell. 
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev"></tags>
 
-В приведенном примере процедура map и процедура reduce являются исполняемыми файлами, которые считывают входные данные из [stdin][stdin-stdout-stderr] (построчно) и выводят выходные данные в [stdout][stdin-stdout-stderr]. Программа подсчитывает все слова в тексте.
+# Пример счетчика слов на C# для потоковой передачи в HDInsight
 
-Если указан исполняемый файл для **процедур map**, то при инициализации процедуры map каждая задача процедуры map запускает исполняемый файл как отдельный процесс. При выполнении задачи процедуры map входные данные преобразуются в строки, а строки подаются в [stdin][stdin-stdout-stderr] процесса. В то же время процедура map собирает связанные со строками выходные данные из stdout процесса и преобразует каждую строку в пару "ключ-значение", которые собираются в качестве выходных данных процедуры map. По умолчанию префикс строки до первого символа табуляции является ключом, а остальная часть строки (исключая символ табуляции) — это значение. Если в строке нет символа табуляции, вся строка рассматривается как ключ, а значение считается нулевым. 
+Hadoop предоставляет API-интерфейс для MapReduce, позволяющий создавать функции map и reduce на языках, отличных от Java. В этом учебнике показано, как создавать программы MapReduce на C# с использованием интерфейса потоковой передачи Hadoop и как выполнять программы в Azure HDInsight с использованием командлетов Azure PowerShell.
 
-Если указан исполняемый файл для **процедур reduce**, то при инициализации процедуры reduce каждая задача процедуры reduce запускает исполняемый файл как отдельный процесс. При выполнении задачи процедуры reduce входные пары "ключ-значение" преобразуются в строки, а строки подаются в [stdin][stdin-stdout-stderr] процесса. В то же время процедура reduce собирает связанные со строками выходные данные из [stdout][stdin-stdout-stderr] процесса и преобразует каждую строку в пару "ключ-значение", которые собираются в качестве выходных данных процедуры reduce. По умолчанию префикс строки до первого символа табуляции является ключом, а остальная часть строки (исключая символ табуляции) — это значение. 
+В приведенном примере процедура map и процедура reduce являются исполняемыми файлами, которые считывают входные данные из [stdin][] (построчно) и выводят выходные данные в [stdout][stdin]. Программа подсчитывает все слова в тексте.
 
-Дополнительные сведения об интерфейсе потоковой передачи Hadoop см. в разделе [Потоковая передача Hadoop][hadoop-streaming]. 
- 
-**Вы узнаете следующее:**	
-	
-* Как использовать Azure PowerShell для выполнения программы потоковой передачи на C# для анализа данных, содержащихся в файле в HDInsight.		
-* Как написать код на C#, использующий интерфейс потоковой передачи Hadoop.
+Если указан исполняемый файл для **процедур map**, то при инициализации процедуры map каждая задача процедуры map запускает исполняемый файл как отдельный процесс. При выполнении задачи процедуры map входные данные преобразуются в строки, а строки подаются в [stdin][] процесса. В то же время процедура map собирает связанные со строками выходные данные из stdout процесса и преобразует каждую строку в пару "ключ-значение", которые собираются в качестве выходных данных процедуры map. По умолчанию префикс строки до первого символа табуляции является ключом, а остальная часть строки (исключая символ табуляции) — это значение. Если в строке нет символа табуляции, вся строка рассматривается как ключ, а значение считается нулевым.
 
+Если указан исполняемый файл для **процедур reduce**, то при инициализации процедуры reduce каждая задача процедуры reduce запускает исполняемый файл как отдельный процесс. При выполнении задачи процедуры reduce входные пары "ключ-значение" преобразуются в строки, а строки подаются в [stdin][] процесса. В то же время процедура reduce собирает связанные со строками выходные данные из [stdout][stdin] процесса и преобразует каждую строку в пару "ключ-значение", которые собираются в качестве выходных данных процедуры reduce. По умолчанию префикс строки до первого символа табуляции является ключом, а остальная часть строки (исключая символ табуляции) — это значение.
 
-**Предварительные требования**:	
+Дополнительные сведения об интерфейсе потоковой передачи Hadoop см. в разделе [Потоковая передача Hadoop][].
 
-- Необходимо иметь учетную запись Azure. Возможности регистрации учетной записи см. на странице [Бесплатное пробное использование Azure](http://www.windowsazure.com/ru-ru/pricing/free-trial/).
+**Вы узнаете:**
 
-- Вы должны были подготовить кластер HDInsight. Сведения по различным способам создания таких кластеров см. в разделе [Подготовка кластеров HDInsight](/ru-ru/manage/services/hdinsight/provision-hdinsight-clusters/).
+-   Как использовать Azure PowerShell для выполнения программы потоковой передачи на C# для анализа данных, содержащихся в файле в HDInsight.
+-   Как написать код на C#, использующий интерфейс потоковой передачи Hadoop.
 
-- Необходимо установить Azure PowerShell и настроить эту среду для поддержки вашей учетной записи. Сведения о выполнении этой задачи см. в разделе [Установка и настройка Azure PowerShell][powershell-install-configure].
+**Предварительные требования**:
 
+-   Необходимо иметь учетную запись Azure. Возможности регистрации учетной записи см. на странице [Бесплатное пробное использование Azure][].
 
-##Содержание
-В этом разделе демонстрируется выполнение примера, представляющего код Java для программы MapReduce, обобщаются полученные знания и кратко описываются некоторые дальнейшие действия. Здесь содержатся следующие разделы:
-	
-1. [Выполнение примера с использованием Azure PowerShell](#run-sample)	
-2. [Код C# для потоковой передачи Hadoop](#java-code)
-3. [Сводка](#summary)	
-4. [Следующие шаги](#next-steps)	
+-   Вы должны были подготовить кластер HDInsight. Сведения по различным способам создания таких кластеров см. в разделе [Подготовка кластеров HDInsight][]
 
-<h2><a id="run-sample"></a>Выполнение примера с использованием Azure PowerShell</h2>
+-   Необходимо установить Azure PowerShell и настроить эту среду для поддержки вашей учетной записи. Инструкции по выполнению этой задачи см. в разделе [Установка и настройка Azure PowerShell][].
+
+## Содержание
+
+В этом разделе демонстрируется выполнение примера, предоставляется код Java для программы MapReduce, обобщаются полученные знания и кратко описываются некоторые дальнейшие действия. Здесь содержатся следующие разделы:
+
+1.  [Выполнение примера с использованием Azure PowerShell][]
+2.  [Код C# для потоковой передачи Hadoop][]
+3.  [Сводка][]
+4.  [Дальнейшие действия][]
+
+## <span id="run-sample"></span></a>Выполнение примера с использованием Azure PowerShell
 
 **Выполнение задания MapReduce**
 
-1.	Откройте **Azure PowerShell**. Инструкции по открытию окна консоли Azure PowerShell см. в разделе [Установка и настройка Azure PowerShell][powershell-install-configure].
+1.  Откройте **Azure PowerShell**. Инструкции по открытию окна консоли Azure PowerShell см. в разделе [Установка и настройка Azure PowerShell][].
 
-3. Задайте две переменные в следующих командах, а затем выполните команды:
-		
-		$subscriptionName = "<SubscriptionName>"   # Azure subscription name
-		$clusterName = "<ClusterName>"             # HDInsight cluster name
+2.  Задайте две переменные в следующих командах, а затем выполните команды:
 
+        $subscriptionName = "<SubscriptionName>"   # Azure subscription name
+        $clusterName = "<ClusterName>"             # HDInsight cluster name
 
-2. Выполните следующую команду, чтобы определить задание MapReduce:
- 
-		# Create a MapReduce job definition for the streaming job.
-		$streamingWC = New-AzureHDInsightStreamingMapReduceJobDefinition -Files "/example/apps/wc.exe", "/example/apps/cat.exe" -InputPath "/example/data/gutenberg/davinci.txt" -OutputPath "/example/data/StreamingOutput/wc.txt" -Mapper "cat.exe" -Reducer "wc.exe" 
+3.  Выполните следующую команду, чтобы определить задание MapReduce:
 
-	Параметры задают функции сопоставления и редукции, а также входной и выходной файлы.
-                 
-5. Выполните следующие команды, чтобы запустить задание MapReduce, ждать завершения задания, а затем напечатать стандартную ошибку:
+        # Create a MapReduce job definition for the streaming job.
+        $streamingWC = New-AzureHDInsightStreamingMapReduceJobDefinition -Files "/example/apps/wc.exe", "/example/apps/cat.exe" -InputPath "/example/data/gutenberg/davinci.txt" -OutputPath "/example/data/StreamingOutput/wc.txt" -Mapper "cat.exe" -Reducer "wc.exe" 
 
-		# Run the C# Streaming MapReduce job.
-		# Wait for the job to complete.
-		# Print output and standard error file of the MapReduce job
-		Select-AzureSubscription $subscriptionName
-		$streamingWC | Start-AzureHDInsightJob -Cluster $clustername | Wait-AzureHDInsightJob -WaitTimeoutInSeconds 3600 | Get-AzureHDInsightJobOutput -Cluster $clustername -StandardError 
+    Параметры задают функции сопоставления и редукции, а также входной и выходной файлы.
 
-6. Выполните следующие команды для отображения результатов подсчета слов:
+4.  Выполните следующие команды, чтобы запустить задание MapReduce, ждать завершения задания, а затем напечатать стандартную ошибку:
 
-		$subscriptionName = "<SubscriptionName>"   
-		$storageAccountName = "<StorageAccountName>" 
-		$containerName = "<ContainerName>
-      "
+        # Run the C# Streaming MapReduce job.
+        # Wait for the job to complete.
+        # Print output and standard error file of the MapReduce job
+        Select-AzureSubscription $subscriptionName
+        $streamingWC | Start-AzureHDInsightJob -Cluster $clustername | Wait-AzureHDInsightJob -WaitTimeoutInSeconds 3600 | Get-AzureHDInsightJobOutput -Cluster $clustername -StandardError 
 
-		# Select the current subscription
-		Select-AzureSubscription $subscriptionName
-              
-		# Blob storage container and account name
-      $storageAccountKey = Get-AzureStorageKey -StorageAccountName $storageAccountName | %{ $_.Primary }
-      $storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
- 
-		# Retrieve the output
-		Get-AzureStorageBlobContent -Container $containerName -Blob "example/data/StreamingOutput/wc.txt/part-00000" -Context $storageContext -Force 
+5.  Выполните следующие команды для отображения результатов подсчета слов:
 
-		# The number of words in the text is:
-		cat ./example/data/StreamingOutput/wc.txt/part-00000
+        $subscriptionName = "<SubscriptionName>"   
+        $storageAccountName = "<StorageAccountName>" 
+        $containerName = "<ContainerName>"
 
-	Обратите внимание, что выходные файлы задания MapReduce являются неизменяемыми. Поэтому при повторном выполнении этого примера потребуется изменить имя выходного файла.
-	
-<h2><a id="java-code"></a>Код C# для потоковой передачи Hadoop</h2>
+        # Select the current subscription
+        Select-AzureSubscription $subscriptionName
 
-В программе MapReduce используются приложение cat.exe как интерфейс процедуры map для потоковой передачи текста на консоль и приложение wc.exe как интерфейс процедуры reduce для подсчета количества слов, передаваемых в потоковом режиме из документа. Процедура map и процедура reduce считывают символы (построчно) из стандартного входного потока (stdin) и записывают данные в стандартный выходной поток (stdout). 
+        # Blob storage container and account name
 
+    $storageAccountKey = Get-AzureStorageKey -StorageAccountName $storageAccountName | %{ $\_.Primary }
+     $storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
 
+        # Retrieve the output
+        Get-AzureStorageBlobContent -Container $containerName -Blob "example/data/StreamingOutput/wc.txt/part-00000" -Context $storageContext -Force 
 
-	// The source code for the cat.exe (Mapper). 
-	 
-	using System;
-	using System.IO;
-	
-	namespace cat
-	{
-	    class cat
-	    {
-	        static void Main(string[] args)
-	        {
-	            if (args.Length > 0)
-	            {
-	                Console.SetIn(new StreamReader(args[0])); 
-	            }
-	
-	            string line;
-	            while ((line = Console.ReadLine()) != null) 
-	            {
-	                Console.WriteLine(line);
-	            }
-	        }
-	    }
-	}
+        # The number of words in the text is:
+        cat ./example/data/StreamingOutput/wc.txt/part-00000
 
- 
+    Обратите внимание, что выходные файлы задания MapReduce являются неизменяемыми. Поэтому при повторном выполнении этого примера потребуется изменить имя выходного файла.
+
+## <span id="java-code"></span></a>Код C# для потоковой передачи Hadoop
+
+В программе MapReduce используются приложение cat.exe как интерфейс процедуры map для потоковой передачи текста на консоль и приложение wc.exe как интерфейс процедуры reduce для подсчета количества слов, передаваемых в потоковом режиме из документа. Модуль сопоставления и модуль редукции считывают символы (построчно) из стандартного входного потока (stdin) и записывают данные в стандартный выходной поток (stdout).
+
+    // The source code for the cat.exe (Mapper). 
+     
+    using System;
+    using System.IO;
+
+    namespace cat
+    {
+        class cat
+        {
+            static void Main(string[] args)
+            {
+                if (args.Length > 0)
+                {
+                    Console.SetIn(new StreamReader(args[0])); 
+                }
+
+                string line;
+                while ((line = Console.ReadLine()) != null) 
+                {
+                    Console.WriteLine(line);
+                }
+            }
+        }
+    }
 
 Код процедуры map в файле cat.cs использует объект StreamReader для чтения символов входящего потока на консоли, который, в свою очередь, с помощью статического метода Console.Writeline записывает потоковые данные в стандартный выходной поток.
 
+    // The source code for wc.exe (Reducer) is:
 
-	// The source code for wc.exe (Reducer) is:
-	
-	using System;
-	using System.IO;
-	using System.Linq;
-	
-	namespace wc
-	{
-	    class wc
-	    {
-	        static void Main(string[] args)
-	        {
-	            string line;
-	            var count = 0;
-	
-	            if (args.Length > 0){
-	                Console.SetIn(new StreamReader(args[0]));
-	            }
-	
-	            while ((line = Console.ReadLine()) != null) {
-	                count += line.Count(cr => (cr == ' ' || cr == '\n'));
-	            }
-	            Console.WriteLine(count);
-	        }
-	    }
-	}
+    using System;
+    using System.IO;
+    using System.Linq;
 
+    namespace wc
+    {
+        class wc
+        {
+            static void Main(string[] args)
+            {
+                string line;
+                var count = 0;
 
-Код процедуры reduce в файле wc.cs использует объект [StreamReader][streamreader] для чтения символов из стандартного входного потока, который является выходным потоком процедуры map в cat.exe. Поскольку для чтения символов используется метод [Console.Writeline][console-writeline], подсчет слов осуществляется путем подсчета символов пробела и конца строки в конце каждого слова, а затем суммарное значение записывается в стандартный выходной поток с помощью метода [Console.Writeline][console-writeline]. 
+                if (args.Length > 0){
+                    Console.SetIn(new StreamReader(args[0]));
+                }
 
-<h2><a id="summary"></a>Сводка</h2>
+                while ((line = Console.ReadLine()) != null) {
+                    count += line.Count(cr => (cr == ' ' || cr == '\n'));
+                }
+                Console.WriteLine(count);
+            }
+        }
+    }
+
+Код процедуры reduce в файле wc.cs использует объект [StreamReader][] для чтения символов из стандартного входного потока, который является выходным потоком процедуры mapper в cat.exe. Поскольку для чтения символов используется метод [Console.Writeline][], подсчет слов осуществляется путем подсчета символов пробела и конца строки в конце каждого слова, а затем суммарное значение записывается в стандартный выходной поток с помощью метода [Console.Writeline][].
+
+## <span id="summary"></span></a>Сводка
 
 В этом учебнике вы увидели, как развернуть задание MapReduce в HDInsight с использованием потоковой передачи Hadoop.
 
-<h2><a id="next-steps"></a>Следующие шаги</h2>
+## <span id="next-steps"></span></a>Дальнейшие действия
 
 Учебники по выполнению других примеров и инструкции по использованию заданий Pig, Hive и MapReduce в Azure HDInsight с использованием Azure PowerShell см. в следующих разделах:
 
-* [Приступая к работе с Azure HDInsight][getting-started]
-* [Пример: оценка числа пи][pi-estimator]
-* [Пример: счетчик слов][wordcount]
-* [Пример: GraySort 10 ГБ][10gb-graysort]
-* [Использование Pig с HDInsight][pig]
-* [Использование Hive с HDInsight][hive]
-* [Документация по пакету Azure HDInsight SDK][hdinsight-sdk-documentation]
+-   [Приступая к работе с Azure HDInsight][]
+-   [Пример: оценка числа пи][]
+-   [Пример: счетчик слов][]
+-   [Пример: сортировка GraySort 10 ГБ][]
+-   [Использование Pig с HDInsight][]
+-   [Использование Hive с HDInsight][]
+-   [Документация по пакету Azure HDInsight SDK][]
 
-[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/ru-ru/library/dn479185.aspx
-
-[Powershell-install-configure]: /ru-ru/documentation/articles/install-configure-powershell/
-
-
-[getting-started]: /ru-ru/manage/services/hdinsight/get-started-hdinsight/
-[hadoop-streaming]: http://wiki.apache.org/hadoop/HadoopStreaming
-[streamreader]: http://msdn.microsoft.com/ru-ru/library/system.io.streamreader.aspx
-[console-writeline]: http://msdn.microsoft.com/ru-ru/library/system.console.writeline
-[stdin-stdout-stderr]: http://msdn.microsoft.com/ru-ru/library/3x292kth(v=vs.110).aspx
-[pi-estimator]: /ru-ru/manage/services/hdinsight/howto-run-samples/sample-pi-estimator/
-[wordcount]: /ru-ru/manage/services/hdinsight/howto-run-samples/sample-wordcount/
-[10gb-graysort]: /ru-ru/manage/services/hdinsight/howto-run-samples/sample-10gb-graysort/
-
-
-[hive]: /ru-ru/manage/services/hdinsight/using-hive-with-hdinsight/
-[pig]: /ru-ru/manage/services/hdinsight/using-pig-with-hdinsight/
-
-
+  [stdin]: http://msdn.microsoft.com/en-us/library/3x292kth(v=vs.110).aspx
+  [Потоковая передача Hadoop]: http://wiki.apache.org/hadoop/HadoopStreaming
+  [Бесплатное пробное использование Azure]: http://azure.microsoft.com/en-us/pricing/free-trial/
+  [Подготовка кластеров HDInsight]: ../hdinsight-provision-clusters/
+  [Установка и настройка Azure PowerShell]: ../install-configure-powershell/
+  [Выполнение примера с использованием Azure PowerShell]: #run-sample
+  [Код C# для потоковой передачи Hadoop]: #java-code
+  [Сводка]: #summary
+  [Дальнейшие действия]: #next-steps
+  [StreamReader]: http://msdn.microsoft.com/en-us/library/system.io.streamreader.aspx
+  [Console.Writeline]: http://msdn.microsoft.com/en-us/library/system.console.writeline
+  [Приступая к работе с Azure HDInsight]: ../hdinsight-get-started/
+  [Пример: оценка числа пи]: ../hdinsight-sample-pi-estimator/
+  [Пример: счетчик слов]: ../hdinsight-sample-wordcount/
+  [Пример: сортировка GraySort 10 ГБ]: ../hdinsight-sample-10gb-graysort/
+  [Использование Pig с HDInsight]: ../hdinsight-use-pig/
+  [Использование Hive с HDInsight]: ../hdinsight-use-hive/
+  [Документация по пакету Azure HDInsight SDK]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx

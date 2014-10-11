@@ -1,23 +1,14 @@
-<properties linkid="dev-nodejs-basic-web-app-with-storage" urlDisplayName="Веб-приложение с хранилищем" pageTitle="Веб-приложение с хранилищем таблиц (Node.js) | Microsoft Azure" metaKeywords="учебник Azure Node.js hello world, Azure Node.js hello world, приступая к работе с Azure Node.js, учебник Azure Node.js, учебник Azure Node.js Express" description="Учебник, который опирается на учебник по веб-приложению с Express и добавляет службы хранилища Azure и модуль Azure." metaCanonical="" services="cloud-services,storage" documentationCenter="Node.js" title="Веб-приложение Node.js, использующее хранилище" authors="" solutions="" manager="" editor="" />
+<properties linkid="dev-nodejs-basic-web-app-with-storage" urlDisplayName="Web App with Storage" pageTitle="Web app with table storage (Node.js) | Microsoft Azure" metaKeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" description="A tutorial that builds on the Web App with Express tutorial by adding Azure Storage services and the Azure module." metaCanonical="" services="cloud-services,storage" documentationCenter="Node.js" title="Node.js Web Application using Storage" authors="larryfr" solutions="" manager="" editor="" />
 
-
-
-
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr"></tags>
 
 # Веб-приложение Node.js, использующее хранилище
 
-В этом учебнике вы расширите возможности приложения, созданного в
-учебнике [Веб-приложение Node.js с использованием Express], с помощью клиентских библиотек Windows
-Azure для Node.js, позволяющих работать со службами управления данными. Вы
-расширите возможности приложения за счет создания веб-приложения списка задач,
-которое можно развернуть в Azure. Список задач позволяет пользователю
-извлекать задачи, добавлять новые задачи и помечать задачи как завершенные.
+В этом учебнике вы расширите возможности приложения, созданного в учебнике [Веб-приложение Node.js с использованием Express][], с помощью клиентских библиотек Windows Azure для Node.js, позволяющих работать со службами управления данными. Вы расширите возможности приложения за счет создания веб-приложения списка задач,которое можно развернуть в Azure. Список задач позволяет пользователю извлекать задачи, добавлять новые задачи и помечать задачи как завершенные.
 
-Элементы задач хранятся в хранилище Azure. Хранилище
-Azure обеспечивает хранение неструктурированных данных с функциями отказоустойчивости
-и высокой доступности. Хранилище Azure включает в себя несколько структур данных, где можно хранить данные и осуществлять доступ к ним, кроме того, вы можете использовать службы хранилища из API-интерфейсов, включенных в состав пакета Azure SDK для Node.js, или через API-интерфейсы REST. Дополнительные сведения см. в разделе [Хранение данных и доступ к ним в Azure].
+Элементы задач хранятся в хранилище Azure. Хранилище Azure обеспечивает хранение неструктурированных данных с функциями отказоустойчивости и высокой доступности. Хранилище Azure включает в себя несколько структур данных, где можно хранить данные и осуществлять доступ к ним, кроме того, вы можете использовать службы хранилища из API-интерфейсов, включенных в состав пакета Azure SDK для Node.js или через API-интерфейсы REST. Дополнительные сведения см. в разделе [Хранение данных и доступ к ним в Azure][].
 
-В этом учебнике предполагается, что вы завершили учебники [Веб-приложение Node.js] и [Node.js с Express][Node.js Web Application using Express].
+В этом учебнике предполагается, что вы завершили учебники [Веб-приложение Node.js][] и [Node.js с Express][Веб-приложение Node.js с использованием Express].
 
 Вы узнаете:
 
@@ -26,408 +17,380 @@ Azure обеспечивает хранение неструктурирован
 
 Снимок экрана завершенного приложения приведен ниже:
 
-![Готовая веб-страница в Internet Explorer](./media/storage-nodejs-use-table-storage-cloud-service-app/getting-started-1.png)
+![Готовая веб-страница в Internet Explorer][]
 
 ## Настройка учетных данных хранилища в файле Web.Config
 
 Для доступа к хранилищу Azure необходимо передать
-учетные данные хранилища. Для этого используются параметры приложения web.config.
-Эти параметры передаются в качестве переменных среды в Node,
-которые затем считываются пакетом Azure SDK.
+учетные данные хранилища. Для этого используются параметры приложения web.config. Эти параметры передаются в качестве переменных среды в Node, которые затем считываются пакетом Azure SDK.
 
 <div class="dev-callout">
 <strong>Примечание.</strong>
-<p>Учетные данные хранилища используются только при
-развертывании приложения в Azure. При запуске в эмуляторе приложение будет использовать
-эмулятор хранения.</p>
+<p>Учетные данные хранилища используются только при развертывании приложения в Azure При запуске в эмуляторе приложение будет использовать эмулятор хранилища.</p>
 </div>
 
-Выполните следующие действия, чтобы получить учетные данные учетной записи хранения и добавить их в параметры web.config.
+Выполните следующие действия, чтобы получить учетные данные учетной записи хранения и добавить их в параметры web.config:
 
 1.  Если этот еще не сделано, запустите PowerShell Azure из меню **Пуск**, развернув пункты **Все программы, Azure**, щелкнув правой кнопкой мыши элемент **Azure PowerShell** и выбрав **Запуск от имени администратора**.
 
-2.  Перейдите к папке, содержащей ваше приложение. Например, C:\\node\\tasklist\\WebRole1.
+2.  Перейдите к папке, содержащей ваше приложение. Например, C:\\node\\tasklist\\\\WebRole1.
 
-3.  В окне Azure Powershell введите следующий командлет, чтобы получить сведения об учетной записи хранения.
+3.  В окне Azure Powershell введите следующий командлет, чтобы получить сведения об учетной записи хранения:
 
         PS C:\node\tasklist\WebRole1> Get-AzureStorageAccounts
 
-	При этом извлекается список учетных записей хранилища и ключей учетной записи, связанных с вашей размещенной службой.
+    При этом извлекается список учетных записей хранилища и ключей учетной записи, связанных с вашей размещенной службой.
 
-	<div class="dev-callout">
-	<strong>Примечание.</strong>
-	<p>Поскольку пакет Azure SDK создает учетную запись хранения при развертывании службы, учетная запись хранения должна уже существовать в связи с развертыванием приложения в предыдущих руководствах.</p>
-	</div>
+    <div class="dev-callout">
+<strong>Примечание.</strong>
+<p>Поскольку пакет Azure SDK создает учетную запись хранения при развертывании службы, учетная запись хранения должна уже существовать в связи с развертыванием приложения в предыдущих руководствах.</p>
+</div>
 
-4.  Откройте файл web.cloud.config, содержащий параметры среды, которые используются при развертывании приложения в Azure:
+4.  Откройте файл **ServiceDefinition.csdef**, содержащий параметры среды, которые используются при развертывании приложения в Azure:
 
-        PS C:\node\tasklist\WebRole1> notepad web.cloud.config
+        PS C:\node\tasklist> notepad ServiceDefinition.csdef
 
-5.  Вставьте следующий блок под элементом **configuration**, заменив {STORAGE ACCOUNT} и {STORAGE ACCESS KEY} на имя учетной записи и первичный ключ для учетной записи хранения, которые требуется использовать для развертывания:
+5.  Вставьте следующий блок под элементом **Environment**, заменив {STORAGE ACCOUNT} и {STORAGE ACCESS KEY} на имя учетной записи и первичный ключ для учетной записи хранения, которые требуется использовать для развертывания:
 
-        <appSettings>
-          <add key="AZURE_STORAGE_ACCOUNT" value="{STORAGE ACCOUNT}"/>
-          <add key="AZURE_STORAGE_ACCESS_KEY" value="{STORAGE ACCESS KEY}"/>
-        </appSettings>
+        <Variable name="AZURE_STORAGE_ACCOUNT" value="{STORAGE ACCOUNT}" />
+        <Variable name="AZURE_STORAGE_ACCESS_KEY" value="{STORAGE ACCESS KEY}" />
 
-	![Содержимое файла web.cloud.config](./media/storage-nodejs-use-table-storage-cloud-service-app/node37.png)
+    ![Содержимое файла web.cloud.config][]
 
 6.  Сохраните файл и закройте Блокнот.
 
-## Установка модулей
+### Установка дополнительных модулей
 
-Для использования служб управления данных Azure необходимо установить
-модуль Azure для узла. Необходимо также установить модуль node-uuid, который
-будет использоваться для создания глобальных уникальных идентификаторов (UUID). Чтобы
-установить эти модули, введите следующую команду:
+1.  Используйте следующую команду для установки модулей [azure], [node-uuid], [nconf] и [async] локально, а также для сохранения записи о них в файле **package.json**:
 
-    PS C:\node\tasklist\WebRole1> npm install node-uuid azure
+        PS C:\node\tasklist\WebRole1> npm install azure-storage node-uuid async nconf --save
 
-После выполнения команды модули добавляются в
-папку **node\_modules**. Выполните следующие действия, чтобы использовать
-эти модули в своем приложении:
+    Результат этой команды должен выглядеть аналогично следующему:
 
-1.  Откройте файл server.js:
+        node-uuid@1.4.1 node_modules\node-uuid
 
-        PS C:\node\tasklist\WebRole1> notepad server.js
+        nconf@0.6.9 node_modules\nconf
+        ├── ini@1.1.0
+        ├── async@0.2.9
+        └── optimist@0.6.0 (wordwrap@0.0.2, minimist@0.0.8)
 
-2.  После строки, которая заканчивается на express.createServer(), добавьте приведенный ниже ко, чтобы включать модули node-uuid, home и azure. Модуль home еще не существует, но будет создан позже.
+        azure-storage@0.1.0 node_modules\azure-storage
+        ├── extend@1.2.1
+        ├── xmlbuilder@0.4.3
+        ├── mime@1.2.11
+        ├── underscore@1.4.4
+        ├── validator@3.1.0
+        ├── node-uuid@1.4.1
+        ├── xml2js@0.2.7 (sax@0.5.2)
+        └── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
 
-	![Код server.js с выделенной строкой line app = modules.exports](./media/storage-nodejs-use-table-storage-cloud-service-app/node38.png)
+## Использование службы таблиц в приложении Node
 
+В этом разделе базовое приложение, созданное командой **express**, будет расширено путем добавления файла **task.js**, содержащего модель для ваших задач. Также будет изменено существующее приложение **app.js** и создан новый файл контроллера **tasklist.js** для использования этой модели.
+
+### Создание модели
+
+1.  В каталоге **WebRole1** создайте новый каталог с именем **models**.
+
+2.  В каталоге **models** создайте новый файл с именем **task.js**. Этот файл будет содержать модель для задач, создаваемых приложением.
+
+3.  В начале файла **task.js** добавьте следующий код для ссылки на необходимые библиотеки:
+
+        var azure = require('azure-storage');
         var uuid = require('node-uuid');
-        var Home = require('./home');
-        var azure = require('azure');
+        var entityGen = azure.TableUtilities.entityGenerator;
 
-3.  Добавьте код для создания клиента таблицы хранилища, передав информацию об учетной записи хранения и ключе доступа.
+4.  Далее будет добавлен код для определения и экспорта объекта Task. Этот объект отвечает за подключение к таблице.
 
-	<div class="dev-callout">
-	<strong>Примечание.</strong>
-	<p>При работе в эмуляторе пакет SDK автоматически использует эмулятор, даже если сведения об учетной записи хранения были предоставлены через web.config.</p>
-	</div>
+        module.exports = Task;
 
-        var client = azure.createTableService();
-
-4.  Затем создайте в хранилище Azure таблицу с именем tasks. Приведенная ниже логическая схема создает новую таблицу, если она не существует, и заполняет эту таблицу данными по умолчанию.
-
-        //table creation
-        client.createTableIfNotExists('tasks', function(error){
-            if(error){
-                throw error;
+        function Task(storageClient, tableName, partitionKey) {
+          this.storageClient = storageClient;
+          this.tableName = tableName;
+          this.partitionKey = partitionKey;
+          this.storageClient.createTableIfNotExists(tableName, function tableCreated(error) {
+            if(error) {
+              throw error;
             }
+          });
+        };
 
-            var item = {
-                name: 'Add readonly task list',
-                category: 'Site work',
-                date: '12/01/2011',
-                RowKey: uuid(),
-                PartitionKey: 'partition1',
-                completed: false
+5.  Затем добавьте следующий код, чтобы определить дополнительные методы для объекта Task, обеспечивающего взаимодействие с данными, хранящимися в таблице:
+
+        Task.prototype = {
+          find: function(query, callback) {
+            self = this;
+            self.storageClient.queryEntities(query, function entitiesQueried(error, result) {
+              if(error) {
+                callback(error);
+              } else {
+                callback(null, result.entries);
+              }
+            });
+          },
+
+          addItem: function(item, callback) {
+            self = this;
+            // use entityGenerator to set types
+            // NOTE: RowKey must be a string type, even though
+            // it contains a GUID in this example.
+            var itemDescriptor = {
+              PartitionKey: entityGen.String(self.partitionKey),
+              RowKey: entityGen.String(uuid()),
+              name: entityGen.String(item.name),
+              category: entityGen.String(item.category),
+              completed: entityGen.Boolean(false)
             };
 
-            client.insertEntity('tasks', item, function(){});
+            self.storageClient.insertEntity(self.tableName, itemDescriptor, function entityInserted(error) {
+              if(error){  
+                callback(error);
+              }
+              callback(null);
+            });
+          },
 
-        });
-
-5.  Замените существующий код в разделе route на приведенный ниже код, который создает экземпляр контроллера home и направляет на него все запросы для **/** или **/home**.
-
-	![Файл server.js с выделенным разделом routes.](./media/storage-nodejs-use-table-storage-cloud-service-app/node39.png)
-
-        var home = new Home(client);
-        app.get('/', home.showItems.bind(home));
-        app.get('/home', home.showItems.bind(home));
-
-	Обратите внимание, что вместо внутренней обработки запроса вы теперь делегируете команду объекту Home. Команда **bind** обеспечивает правильное локальное разрешение этих ссылок в контроллере home.
-
-## Создание контроллера Home
-
-Теперь необходимо создать контроллер home, который обрабатывает все запросы
-для сайта списка задач. Выполните следующие действия, чтобы создать этот
-контроллер:
-
-1.  Создайте новый файл home.js в Блокноте. Этот файл будет содержать
-    код контроллера, реализующий логическую схему для списка задач.
-
-        PS C:\node\tasklist\WebRole1> notepad home.js
-
-2.  Замените содержимое файла на приведенный ниже код и сохраните файл. В следующем
-    коде используется шаблон модуля JavaScript. Он экспортирует функцию
-    Home. Прототип Home содержит функции для обработки
-    фактических запросов.
-
-        var azure=require('azure');
-        module.exports = Home;
-
-        function Home (client) {
-            this.client = client;
-        };
-
-        Home.prototype = {
-            showItems: function (req, res) {
-                var self = this;
-                this.getItems(false, function (resp, tasklist) {
-                    if (!tasklist) {
-                        tasklist = [];
-                    }			
-                    self.showResults(res, tasklist);
-                });
-            },
-
-            getItems: function (allItems, callback) {
-                var query = azure.TableQuery
-                    .select()
-                    .from('tasks');
-        	
-                if (!allItems) {
-                    query = query.where('completed eq ?', 'false');
+          updateItem: function(rKey, callback) {
+            self = this;
+            self.storageClient.retrieveEntity(self.tableName, self.partitionKey, rKey, function entityQueried(error, entity) {
+              if(error) {
+                callback(error);
+              }
+              entity.completed._ = true;
+              self.storageClient.updateEntity(self.tableName, entity, function entityUpdated(error) {
+                if(error) {
+                  callback(error);
                 }
-                this.client.queryEntities(query, callback);
-             },
+                callback(null);
+              });
+            });
+          }
+        }
 
-             showResults: function (res, tasklist) {
-                res.render('home', { 
-                    title: 'Todo list', 
-                    layout: false, 
-                    tasklist: tasklist });
-             },
-        };
+6.  Сохраните и закройте файл **task.js**.
 
-	Теперь ваш контроллер home включает в себя три функции:
+### Создание контроллера
 
-	-   *showItems* обрабатывает запрос.
-	-   *getItems* использует таблицу клиента для получения элементов открытой задачи
-    из таблицы задач. Обратите внимание, что запрос может использовать дополнительные
-        фильтры. Например, фильтры предыдущего запроса отображают только
-        те задачи, у которых значение completed равно false.
-	-   *showResults* вызывает функцию визуализации Express для
-        отрисовки страницы с помощью представления home, которое предстоит создать в
-        следующем разделе.
+1.  В каталоге **WebRole1/routes** создайте новый файл с именем **tasklist.js** и откройте его в текстовом редакторе.
 
-### Изменение представления Home
+2.  Добавьте в **tasklist.js** следующий код. Он загружает модули azure и async, используемые **tasklist.js**. Он также определяет функцию **TaskList**, передающую экземпляр объекта **Task**, определенного ранее:
 
-Подсистема шаблонов Jade использует синтаксис разметки, который является менее подробным по сравнению с HTML, и является обработчиком по умолчанию для Express. Выполните
-следующие действия, чтобы создать представление, которое поддерживает отображение элементов
-списка задач:
+        var azure = require('azure-storage');
+        var async = require('async');
 
-1.  Из окна команд Windows PowerShell отредактируйте файл home.jade
-    с помощью следующей команды:
+        module.exports = TaskList;
 
-        PS C:\node\tasklist\WebRole1\views> notepad home.jade
+        function TaskList(task) {
+          this.task = task;
+        }
 
-2.  Замените содержимое файла home.jade на код, приведенный ниже, и
-    сохраните файл. Приведенная ниже форма содержит функциональные возможности для чтения
-    и обновление элементов задачи. (Обратите внимание, что в настоящее время контроллер home
-    поддерживает только чтение, позднее вы несете необходимые изменения.) Форма
-    содержит подробные сведения для каждого элемента из списка задач.
+3.  Продолжит добавления в файл **tasklist.js**, добавляя методы, используемые для **showTasks**, **addTask** и **completeTasks**:
 
+        TaskList.prototype = {
+          showTasks: function(req, res) {
+            self = this;
+            var query = azure.TableQuery()
+              .where('completed eq ?', false);
+            self.task.find(query, function itemsFound(error, items) {
+              res.render('index',{title: 'My ToDo List ', tasks: items});
+            });
+          },
+
+          addTask: function(req,res) {
+            var self = this      
+            var item = req.body.item;
+            self.task.addItem(item, function itemAdded(error) {
+              if(error) {
+                throw error;
+              }
+              res.redirect('/');
+            });
+          },
+
+          completeTask: function(req,res) {
+            var self = this;
+            var completedTasks = Object.keys(req.body);
+            async.forEach(completedTasks, function taskIterator(completedTask, callback) {
+              self.task.updateItem(completedTask, function itemsUpdated(error) {
+                if(error){
+                  callback(error);
+                } else {
+                  callback(null);
+                }
+              });
+            }, function goHome(error){
+              if(error) {
+                throw error;
+              } else {
+               res.redirect('/');
+              }
+            });
+          }
+        }
+
+4.  Сохраните файл **tasklist.js**.
+
+### Изменение app.js
+
+1.  В каталоге **WebRole1** откройте файл **app.js** в текстовом редакторе.
+
+2.  В начале файла добавьте следующий код для загрузки модуля Аzure, а также задания имение таблицы и ключа раздела (partitionKey):
+
+        var azure = require('azure-storage');
+        var tableName = 'tasks';
+        var partitionKey = 'hometasks';
+
+3.  Прокрутите файл app.js вниз до появления следующей строки:
+
+        app.use('/', routes);
+        app.use('/users', users);
+
+    Замените вышеприведенные строки на код, приведенный ниже. Он инициализирует экземпляр **Task**, используя подключение к вашей учетной записи хранения. Он передается в **TaskList**, где будет использоваться для взаимодействия со службой таблиц:
+
+        var TaskList = require('./routes/tasklist');
+        var Task = require('./models/task');
+        var task = new Task(azure.createTableService(), tableName, partitionKey);
+        var taskList = new TaskList(task);
+
+        app.get('/', taskList.showTasks.bind(taskList));
+        app.post('/addtask', taskList.addTask.bind(taskList));
+        app.post('/completetask', taskList.completeTask.bind(taskList));
+
+4.  Сохраните файл **app.js**.
+
+### Изменение представления индекса
+
+1.  Измените каталоги на каталог **views** и откройте файл **index.jade** в текстовом редакторе.
+
+2.  Заменит содержимое файла **index.jade** на код, приведенный ниже. Он определяет представление для отображения существующих задач, а также форму для добавления новых задач и пометки существующих задач как завершенных.
+
+        extends layout
+
+        block content
+          h1= title
+          br
+
+          form(action="/completetask", method="post")
+            table.table.table-striped.table-bordered
+              tr
+                td Name
+                td Category
+                td Date
+                td Complete
+              if tasks != []
+                tr
+                  td 
+              else
+                each task in tasks
+                  tr
+                    td #{task.name._}
+                    td #{task.category._}
+                    - var day   = task.Timestamp._.getDate();
+                    - var month = task.Timestamp._.getMonth() + 1;
+                    - var year  = task.Timestamp._.getFullYear();
+                    td #{month + "/" + day + "/" + year}
+                    td
+                      input(type="checkbox", name="#{task.RowKey._}", value="#{!task.completed._}", checked=task.completed._)
+            button.btn(type="submit") Update tasks
+          hr
+          form.well(action="/addtask", method="post")
+            label Item Name: 
+            input(name="item[name]", type="textbox")
+            label Item Category: 
+            input(name="item[category]", type="textbox")
+            br
+            button.btn(type="submit") Add item
+
+3.  Сохраните и закройте файл **index.jade**.
+
+### Изменение глобального макета
+
+Файл **layout.jade** в каталоге **views** используется как глобальный шаблон для других файлов **.jade**. На этом шаге он будет изменен для использования [Twitter Bootstrap][] — набора средств, упрощающих разработку привлекательного веб-сайта.
+
+1.  Загрузите и извлеките файлы [Twitter Bootstrap][1]. Скопируйте файл **bootstrap.min.css** из папки **bootstrap\\dist\\css** в каталог **public\\stylesheets** своего приложения tasklist.
+
+2.  В папке **views** откройте файл **layout.jade** в текстовом редакторе и замените его содержимое на следующее:
+
+        doctype html
         html
-        head
-            title Index
-        body
-            h1 My ToDo List
+          head
+            title= title
+            link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+            link(rel='stylesheet', href='/stylesheets/style.css')
+          body.app
+            nav.navbar.navbar-default
+              div.navbar-header
+                a.navbar-brand(href='/') My Tasks
+            block content
 
-            form
-                table(border="1")
-                    tr
-                        td Name
-                        td Category
-                        td Date
-                        td Complete
-
-                        each item in tasklist
-                            tr
-                                td #{item.name}
-                                td #{item.category} 
-                                td #{item.date} 
-                                td 
-                                    input(type="checkbox", name="completed", value="#{item.RowKey}") 
-
-## Запуск приложения в эмуляторе вычислений
-
-1.  В окне Windows PowerShell введите следующий командлет для
-    запуска службы в эмуляторе вычислений и отображения веб-страницы,
-    которая вызывает службу.
-
-        PS C:\node\tasklist\WebRole1> Start-AzureEmulator -launch
-
-	Браузер отображает следующую страницу, показывая элемент задачи, который был извлечен из хранилища Azure:
-
-	![Отображение страницы "Мой список задач" с одним элементом в таблице в Internet Explorer.](./media/storage-nodejs-use-table-storage-cloud-service-app/node40.png)
-
-## Добавление функциональной возможности новой задачи
-
-В этом разделе вы обновите приложение, реализовав поддержку добавления новых элементов
-задачи.
-
-### Добавление нового маршрута в Server.js
-
-Добавьте в файл server.js следующую строку после последней записи маршрута
-для **/home**, а затем сохраните файл.
-
-![Файл server.js с выделенной строкой, содержащей маршрут для home.](./media/storage-nodejs-use-table-storage-cloud-service-app/node41.png)
-
-        app.post('/home/newitem', home.newItem.bind(home));
-
-	Раздел routes теперь должен выглядеть следующим образом:
-
-       // Routes
-
-       var home = new Home(client);
-       app.get('/', home.showItems.bind(home));
-       app.get('/home', home.showItems.bind(home));
-       app.post('/home/newitem', home.newItem.bind(home));
-
-### Добавление модуля Node-UUID
-
-Чтобы использовать модуль node-uuid для создания уникального идентификатора, добавьте
-следующую строку в верхнюю часть файла home.js после первой строки,
-в которой экспортируется модуль.
-
-![Файл home.js с выделенной строкой module.exports = Home.](./media/storage-nodejs-use-table-storage-cloud-service-app/node42.png)
-
-       var uuid = require('node-uuid');
-
-### Добавление функции нового элемента в контроллер Home
-
-Для реализации функции нового элемента создайте функцию **newItem**.
-Вставьте в файл home.js следующий код после последней функции,
-а затем сохраните файл.
-
-![Функция showresults выделена](./media/storage-nodejs-use-table-storage-cloud-service-app/node43.png)
-
-       newItem: function (req, res) {
-           var self = this;
-           var createItem = function (resp, tasklist) {
-               if (!tasklist) {
-                   tasklist = [];
-               }
-
-               var count = tasklist.length;
-
-               var item = req.body.item;
-               item.RowKey = uuid();
-               item.PartitionKey = 'partition1';
-               item.completed = false;
-
-               self.client.insertEntity('tasks', item, function (error) {
-                   if(error){  
-                       throw error;
-                   }
-                   self.showItems(req, res);
-               });
-           };
-
-           this.getItems(true, createItem);
-       },
-
-Функция **newItem** выполняет следующие задачи:
-
--   Извлекает переданный элемент из тела.
--   Задает значения **RowKey** и **PartitionKey** для нового элемента.
-    Эти параметры необходимы для вставки элемента в таблицу
-    Azure. Создается идентификатор UUID для значения **RowKey**.
--   Вставляет элемент в таблицу задач путем вызова
-    функции **insertEntity**.
--   Отображает страницу путем вызова функции **getItems**.
-
-### Добавление формы нового элемента в представление Home
-
-Теперь обновите представление путем добавления новой формы, чтобы разрешить пользователю добавить
-элемент. Вставьте следующий код в конец файла home.jade
-и сохраните его.
-
-<div class="dev-callout">
-<strong>Примечание.</strong>
-<p>В Jade пробел имеет значение, поэтому не удаляйте
-никакие из указанных ниже пробелов.</p>
-</div>
-
-        hr
-        form(action="/home/newitem", method="post")
-            table(border="1")    
-                tr
-                    td Item Name: 
-                    td 
-                        input(name="item[name]", type="textbox")
-                tr
-                    td Item Category: 
-                    td 
-                        input(name="item[category]", type="textbox")
-                tr
-                    td Item Date: 
-                    td 
-                        input(name="item[date]", type="textbox")
-            input(type="submit", value="Add item")
+3.  Сохраните файл **layout.jade**.
 
 ### Запуск приложения в эмуляторе
 
-1.  Поскольку эмулятор Azure уже запущен, можно
-    просмотреть обновленное приложение:
+Выполните следующую команду, чтобы проверить приложение в эмуляторе.
 
-        PS C:\node\tasklist\WebRole1> start http://localhost:81/home
+    PS C:\node\tasklist\WebRole1> start-azureemulator -launch
 
-	Браузер открывается и отображает следующую страницу:
+Браузер открывается и отображает следующую страницу:
 
-	![Веб-страница под названием "Мой список задач" с таблицей, содержащей задачи, и поля для добавления новой задачи.](./media/storage-nodejs-use-table-storage-cloud-service-app/node44.png)
+![Веб-страница под названием My Task List ("Мой список задач") с таблицей, содержащей задачи, и поля для добавления новой задачи][]
 
-2.  Введите для параметра **Имя элемента:** "New task functionality", для **Категория элемента:** значение "Site work" и для **Дата элемента:** значение "12/02/2011". Нажмите кнопку **Добавить элемент**.
+Используйте форму для добавления или удаления существующих элементом, помечая их как завершенные.
 
-	Элемент добавлен в таблицу задач хранилища Azure задачи и отображается, как показано на следующем снимке экрана.
+## Публикация приложения в Azure
 
-	![Веб-страница под названием "Мой список задач" с таблицей, содержащей задачи, после добавления задачи в список.](./media/storage-nodejs-use-table-storage-cloud-service-app/node45.png)
+В окне Windows PowerShell вызовите следующий командлет, чтобы повторно развернуть размещенную службу в Azure.
 
-## Повторная публикация приложения в Azure
+    PS C:\node\tasklist\WebRole1> Publish-AzureServiceProject -name myuniquename -location datacentername -launch
 
-Теперь, когда приложение готово, опубликуйте его в Azure путем
-обновления развертывания в существующей размещенной службе.
+Замените **myuniquename** на уникальное имя приложения. Замените **datacentername** на имя центра обработки данных Azure, например, **West US** (Запад США).
 
-1.  В окне Windows PowerShell вызовите следующий командлет,
-    чтобы повторно развернуть размещенную службу в Azure. Параметры хранилища и
-    расположение были сохранены, поэтому их не требуется вводить еще раз.
+После завершения развертывания должен появиться ответ, похожий на следующий:
 
-        PS C:\node\tasklist\WebRole1> Publish-AzureServiceProject -name myuniquename -location datacentername -launch
+    PS C:\node\tasklist> publish-azureserviceproject -servicename tasklist -location "West US"
+    WARNING: Publishing tasklist to Windows Azure. This may take several minutes...
+    WARNING: 2:18:42 PM - Preparing runtime deployment for service 'tasklist'
+    WARNING: 2:18:42 PM - Verifying storage account 'tasklist'...
+    WARNING: 2:18:43 PM - Preparing deployment for tasklist with Subscription ID: 65a1016d-0f67-45d2-b838-b8f373d6d52e...
+    WARNING: 2:19:01 PM - Connecting...
+    WARNING: 2:19:02 PM - Uploading Package to storage service larrystore...
+    WARNING: 2:19:40 PM - Upgrading...
+    WARNING: 2:22:48 PM - Created Deployment ID: b7134ab29b1249ff84ada2bd157f296a.
+    WARNING: 2:22:48 PM - Initializing...
+    WARNING: 2:22:49 PM - Instance WebRole1_IN_0 of role WebRole1 is ready.
+    WARNING: 2:22:50 PM - Created Website URL: http://tasklist.cloudapp.net/.
 
-	После завершения развертывания должен появиться ответ, похожий на следующий:
+Как и раньше, благодаря указанию параметра **-launch** после завершения публикации браузер открывает и отображает приложение, запущенное в Azure.
 
-	![сообщения о состоянии, отображаемое во время развертывания.](./media/storage-nodejs-use-table-storage-cloud-service-app/node35.png)
-
-	Как и раньше, благодаря указанию параметра **-launch** после завершения публикации браузер открывает и отображает приложение, запущенное в Azure.
-
-	![В окне браузера отображается страница "Мой список задач". URL-адрес указывает, что теперь страница размещается в Azure.](./media/storage-nodejs-use-table-storage-cloud-service-app/node47.png)
+![В окне браузера отображается страница "Мой список задач". URL-адрес указывает, что теперь страница размещается в Azure.][Готовая веб-страница в Internet Explorer]
 
 ## Остановка и удаление приложения
 
-После развертывания приложения может потребоваться отключить его, чтобы
-сократить затраты или построить и развернуть другие приложения в течение периода
-бесплатного пробного использования.
+После развертывания приложения может потребоваться отключить его, чтобы сократить затраты или построить и развернуть другие приложения в течение периода бесплатного пробного использования.
 
-Для экземпляров веб-роли Azure выставляет счета за почасовое использование серверного времени.
-Серверное время используется с момента развертывания приложения,
-даже если экземпляры не запущены и находятся в остановленном состоянии.
+Azure предусматривает взимание платы за час использованного рабочего времени, а серверное время потребляется, когда приложение развернуто, даже если экземпляры не выполняются и находятся в состоянии остановки.
 
 Ниже показано, как остановить и удалить приложение.
 
-1.  В окне Windows PowerShell остановите развертывание службы,
-    созданное в предыдущем разделе, с помощью следующего командлета:
+1.  В окне Windows PowerShell остановите развертывание службы, созданной в предыдущем разделе, с помощью следующего командлета:
 
         PS C:\node\tasklist\WebRole1> Stop-AzureService
 
-	Остановка службы может занять несколько минут. Если эта служба остановлена, появится сообщение, указывающее на то, что она была остановлена.
+    Остановка службы может занять несколько минут. Если эта служба остановлена, появится сообщение, указывающее на то, что она была остановлена.
 
-	![Сообщения о состоянии, указывающие на остановку службы.](./media/storage-nodejs-use-table-storage-cloud-service-app/node48.png)
-
-3.  Чтобы удалить службу, вызовите следующий командлет:
+2.  Чтобы удалить службу, вызовите следующий командлет:
 
         PS C:\node\tasklist\WebRole1> Remove-AzureService contosotasklist
 
-	При появлении запроса введите **Y**, чтобы удалить службу.
+    При появлении запроса введите **Y**, чтобы удалить службу.
 
-	Удаление службы может занять несколько минут. После удаления службы появится сообщение, указывающее, что служба была удалена.
+    Удаление службы может занять несколько минут. После удаления службы появится сообщение, указывающее, что служба была удалена.
 
-	![Сообщения о состоянии, указывающие на удаление службы.](./media/storage-nodejs-use-table-storage-cloud-service-app/node49.png)
-
-  [Веб-приложение Node.js с использованием Express]: http://www.windowsazure.com/ru-ru/develop/nodejs/tutorials/web-app-with-express/
-  [Хранение данных и доступ к ним в Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/gg433040.aspx
-  [Веб-приложение Node.js]: http://www.windowsazure.com/ru-ru/develop/nodejs/tutorials/getting-started/
- 
-
+  [Веб-приложение Node.js с использованием Express]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/web-app-with-express/
+  [Хранение данных и доступ к ним в Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [Веб-приложение Node.js]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/
+  [Готовая веб-страница в Internet Explorer]: ./media/storage-nodejs-use-table-storage-cloud-service-app/getting-started-1.png
+  [Содержимое файла web.cloud.config]: ./media/storage-nodejs-use-table-storage-cloud-service-app/node37.png
+  [Twitter Bootstrap]: https://github.com/twbs/bootstrap
+  [1]: http://getbootstrap.com/
+  [Веб-страница под названием My Task List ("Мой список задач") с таблицей, содержащей задачи, и поля для добавления новой задачи]: ./media/storage-nodejs-use-table-storage-cloud-service-app/node44.png

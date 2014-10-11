@@ -1,14 +1,18 @@
-<properties linkid="develop-media-services-how-to-guides-encode-an-asset" urlDisplayName="Кодировка актива" pageTitle="Кодировка актива для служб мультимедиа — Azure" metaKeywords="" description="Узнайте, как использовать кодировщик мультимедиа Azure для кодирования контента в службах мультимедиа. Примеры кода написаны на C# и используют Media Services SDK для .NET." metaCanonical="" services="media-services" documentationCenter="" title="Кодировка актива" authors="migree" solutions="" manager="" editor="" />
+<properties linkid="develop-media-services-how-to-guides-encode-an-asset" urlDisplayName="How to Encode an Asset" pageTitle="How to Encode an Asset for Media Services - Azure" metaKeywords="" description="Learn how to use the Azure Media Encoder to encode media content on Media Services. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Encode an Asset" authors="migree" solutions="" manager="" editor="" />
 
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree"/>
 
-#Кодировка актива
-Данная статья является частью серии вводных статей о программировании служб мультимедиа Azure. Предыдущая статья: [Получение мультимедийного процессора](http://go.microsoft.com/fwlink/?LinkID=301732&ampclcid=0x409).
+# Практическое руководство: кодировка активов
 
-Мультимедийный контент на сервере можно закодировать в разных форматах и кодировках, используя кодировщик мультимедиа Azure. Также можно использовать кодировщик, предоставленный партнером служб мультимедиа, кодировщики сторонних производителей доступны в [Магазине Azure][]. Сведения о задачах кодировки можно указать с помощью строк [предустановок кодировщика][] или файлов конфигурации. 
+Эта статья является частью серии вводных статей о программировании служб мультимедиа в Azure. Предыдущий раздел [Практическое руководство: Получение процессора мультимедиа][].
 
-##Кодировка в формате MP4
+Мультимедийный контент на сервере можно закодировать в разных форматах и кодировках, используя кодировщик мультимедиа Azure. Также можно использовать кодировщик, предоставленный партнером служб мультимедиа, кодировщики сторонних производителей доступны в [Магазине Azure][]. Сведения о задачах кодировки можно указать с помощью строк [предустановок кодировщика][] или файлов конфигурации.
+
+## Кодировка в формате MP4
+
 Следующий метод отправляет один актив и создает задание для его кодирования в формате MP4 с помощью предустановки "H264 Broadband 720p", которая создает один MP4-файл с кодировкой H264 и разрешением 720p:
-<pre><code>
+
+    <pre><code>
 	static IJob CreateEncodingJob(string inputMediaFilePath, string outputFolder)
 	{
     	//Create an encrypted asset and upload to storage.
@@ -20,7 +24,7 @@
     	IJob job = _context.Jobs.Create("My encoding job");
 	
 		// Get a reference to the Azure Media Encoder
-		IMediaProcessor processor = GetLatestMediaProcessorByName("Azure Media Encoder");
+		IMediaProcessor processor = GetLatestMediaProcessorByName("Windows Azure Media Encoder");
     
 		// Create a task with the encoding details, using a string preset.
     	ITask task = job.Tasks.AddNew("My encoding task",
@@ -95,18 +99,23 @@
 	            break;
     	}
 	}
+
 </code></pre>
-<h2>Кодировка в формате Smooth Streaming</h2>
+
+
+## Кодировка в формате Smooth Streaming
+
 Закодировать видео в формате Smooth Streaming можно двумя способами:
-<ul>
-<li> напрямую в формате Smooth Streaming; </li>
-<li> кодировка в формате MP4 и преобразование в Smooth Streaming.</li>
-</ul>
 
-Для кодирования непосредственно в формате Smooth Streaming используйте код, показанный выше, но при этом воспользуйтесь одной из предустановок кодировщика Smooth Streaming. Полный список предустановок кодировщика см. в статье [Строки предустановок задачи для программы Azure Media Encoder](http://msdn.microsoft.com/ru-ru/library/jj129582.aspx). 
+-   напрямую в формате Smooth Streaming;
+-   кодировка в формате MP4 и преобразование в Smooth Streaming.
 
-Чтобы преобразовать MP4-файл в формат Smooth Streaming, используйте Azure Media Packager. Azure Media Packager не поддерживает строковые предустановки, поэтому необходимо задать параметры конфигурации в формате XML. XML-код, необходимый для преобразования MP4 в Smooth Streaming, можно найти в статье [Предустановка задачи для Azure Media Packager][]. Скопируйте и вставьте XML-код в файл с именем MediaPackager_MP4ToSmooth.xml в вашем проекте. В следующем примере показано, как преобразовать MP4-актив в формат Smooth Streaming. Метод, приведенный ниже, принимает существующий актив и преобразует его. 
-<pre><code>
+</p>
+Для кодирования непосредственно в формате Smooth Streaming используйте код, показанный выше, но при этом воспользуйтесь одной из предустановок кодировщика Smooth Streaming. Полный список предустановок кодировщика см. в статье [Строки предустановок задачи для программы Windows Azure Media Encoder][].
+
+Чтобы преобразовать MP4-файл в формат Smooth Streaming, используйте Azure Media Packager. Azure Media Packager не поддерживает строковые предустановки, поэтому необходимо задать параметры конфигурации в формате XML. XML-код, необходимый для преобразования MP4 в Smooth Streaming, можно найти в статье [Предустановка задачи для Azure Media Packager][]. Скопируйте и вставьте XML в файл с именем MediaPackager\_MP4ToSmooth.xml в вашем проекте. В следующем примере показано, как преобразовать MP4-актив в формат Smooth Streaming. Метод, приведенный ниже, принимает существующий актив и преобразует его.
+
+   <pre><code>
 private static IJob ConvertMP4toSmooth(IAsset assetToConvert, string configFilePath)
  {
 	// Declare a new job to contain the tasks
@@ -144,20 +153,22 @@ private static IJob ConvertMP4toSmooth(IAsset assetToConvert, string configFileP
 }
 </code></pre>
 
+</p>
 Дополнительные сведения об обработке активов см. в следующих статьях:
-<ul>
-<li><a href="http://msdn.microsoft.com/ru-ru/library/jj129580.aspx">Обработка активов с помощью пакета Media Services SDK для .NET</a></li>
-<li><a href="http://msdn.microsoft.com/ru-ru/library/jj129574.aspx">Обработка активов с помощью API REST служб мультимедиа</a></li>
-</ul>
 
-##Дальнейшие действия
-Вы узнали, как создать задание для кодирования актива. Теперь вы можете приступить к изучению статьи [Проверка хода выполнения задания с помощью служб мультимедиа](http://go.microsoft.com/fwlink/?LinkID=301737&ampclcid=0x409).
+-   [Обработка активов с помощью пакета Media Services SDK для .NET][]
+-   [Обработка активов с помощью API REST служб мультимедиа][]
 
-[Магазине Azure]: https://datamarket.azure.com/
-[предустановок кодировщика]: http://msdn.microsoft.com/ru-ru/library/hh973610.aspx
-[Получение экземпляра процессора мультимедиа]:http://go.microsoft.com/fwlink/?LinkId=301732
-[Отправка зашифрованного актива]:http://go.microsoft.com/fwlink/?LinkId=301733
-[Доставка актива путем загрузки]:http://go.microsoft.com/fwlink/?LinkId=301734
-[Проверка хода выполнения задания]:http://go.microsoft.com/fwlink/?LinkId=301737
-[Предустановка задачи для Azure Media Packager]:http://msdn.microsoft.com/ru-ru/library/windowsazure/hh973635.aspx
+</p>
+## Дальнейшие действия
 
+Вы узнали, как создать задание для кодирования актива. Теперь вы можете приступить к изучению статьи [Проверка хода выполнения задания с помощью служб мультимедиа][].
+
+  [Практическое руководство: Получение процессора мультимедиа]: http://go.microsoft.com/fwlink/?LinkID=301732&ampclcid=0x409
+  [Магазине Azure]: https://datamarket.azure.com/
+  [предустановок кодировщика]: http://msdn.microsoft.com/en-us/library/hh973610.aspx
+  [Строки предустановок задачи для программы Windows Azure Media Encoder]: http://msdn.microsoft.com/en-us/library/jj129582.aspx
+  [Предустановка задачи для Azure Media Packager]: http://msdn.microsoft.com/en-us/library/windowsazure/hh973635.aspx
+  [Обработка активов с помощью пакета Media Services SDK для .NET]: http://msdn.microsoft.com/en-us/library/jj129580.aspx
+  [Обработка активов с помощью API REST служб мультимедиа]: http://msdn.microsoft.com/en-us/library/jj129574.aspx
+  [Проверка хода выполнения задания с помощью служб мультимедиа]: http://go.microsoft.com/fwlink/?LinkID=301737&ampclcid=0x409
