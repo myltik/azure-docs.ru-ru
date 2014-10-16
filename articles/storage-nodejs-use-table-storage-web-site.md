@@ -638,8 +638,8 @@
 
 [Средства командной строки Azure для Mac и Linux]
 
-[Создание и развертывание приложения Node.js на веб-сайтах Azure]: /en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/
-[Публикация на веб-сайтах Azure с использованием репозитория Git]: /en-us/documentation/articles/web-sites-publish-source-control/
+[Создание и развертывание приложения Node.js на веб-сайтах Azure]: /ru-ru/documentation/articles/web-sites-nodejs-develop-deploy-mac/
+[Публикация на веб-сайтах Azure с использованием репозитория Git]: /ru-ru/documentation/articles/web-sites-publish-source-control/
 [Центре разработчиков Azure]: /en-us/develop/nodejs/
 
   [node]: http://nodejs.org
@@ -656,15 +656,15 @@
   [Twitter Bootstrap]: https://github.com/twbs/bootstrap
   [1]: http://getbootstrap.com/
   [Изображение нового элемента в списке задач]: ./media/storage-nodejs-use-table-storage-web-site/table_todo_list.png
-  [Создание и развертывание приложения Node.js на веб-сайте Azure]: /en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/
+  [Создание и развертывание приложения Node.js на веб-сайте Azure]: /ru-ru/documentation/articles/web-sites-nodejs-develop-deploy-mac/
   [antares-iaas-регистрация]: ../includes/antares-iaas-signup.md
-  [Установка и настройка межплатформенного интерфейса командной строки Azure]: /en-us/documentation/articles/xplat-cli/
-  [Средства командной строки Azure для Mac и Linux]: /en-us/documentation/articles/xplat-cli/
+  [Установка и настройка межплатформенного интерфейса командной строки Azure]: /ru-ru/documentation/articles/xplat-cli/
+  [Средства командной строки Azure для Mac и Linux]: /ru-ru/documentation/articles/xplat-cli/
   [Страница загрузки]: ./media/storage-nodejs-use-table-storage-web-site/azure-account-download-cli.png
   [удаленный репозиторий Git]: http://git-scm.com/docs/git-remote
   [Откройте панель мониторинга веб-сайта]: ./media/storage-nodejs-use-table-storage-web-site/go_to_dashboard.png
   [ссылка настройки]: ./media/storage-nodejs-use-table-storage-web-site/sql-task-configure.png
   [параметры приложения]: ./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png
   [сохранение параметров приложения]: ./media/storage-nodejs-use-table-storage-web-site/savebutton.png
-  [Веб-приложение Node.js с MongoDB]: /en-us/documentation/articles/web-sites-nodejs-store-data-mongodb/
-  [Публикация на веб-сайтах Azure с использованием репозитория Git]: /en-us/documentation/articles/web-sites-publish-source-control/
+  [Веб-приложение Node.js с MongoDB]: /ru-ru/documentation/articles/web-sites-nodejs-store-data-mongodb/
+  [Публикация на веб-сайтах Azure с использованием репозитория Git]: /ru-ru/documentation/articles/web-sites-publish-source-control/

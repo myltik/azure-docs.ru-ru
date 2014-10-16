@@ -169,7 +169,7 @@ HDInsight (и технологии Hadoop в целом) наиболее все
   [SQL Server 2012 Analysis Services]: http://www.microsoft.com/sqlserver/en/us/solutions-technologies/business-intelligence/SQL-Server-2012-analysis-services.aspx
   [SQL Server 2012 Reporting]: http://www.microsoft.com/en-us/sqlserver/solutions-technologies/business-intelligence/reporting.aspx
   [Документация по НDInsight]: http://go.microsoft.com/fwlink/?LinkID=285601
-  [Заметки о выпуске HDInsight]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-release-notes/
+  [Заметки о выпуске HDInsight]: http://azure.microsoft.com/ru-ru/documentation/articles/hdinsight-release-notes/
   [Приступая к работе с Azure HDInsight]: ../hdinsight-get-started/
   [Выполнение примеров HDInsight]: ../hdinsight-run-samples/
   [Данные большого размера и Azure]: http://azure.microsoft.com/en-us/solutions/big-data/

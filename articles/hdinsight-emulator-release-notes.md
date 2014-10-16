@@ -63,7 +63,7 @@
 
 -   Подключение к нескольким кластерам, включая локальные установки, а также выполняемые удаленно с помощью службы Azure HDInsight.
 
--   Дополнительные сведения о службе HDInsight см. по адресу: [][]<http://azure.microsoft.com/en-us/documentation/services/hdinsight/></a>.
+-   Дополнительные сведения о службе HDInsight см. по адресу: [][]<http://azure.microsoft.com/ru-ru/documentation/services/hdinsight/></a>.
 
 -   Настройка WASB в локальном кластере
 
@@ -245,6 +245,6 @@
 
 -   [Приступая к работе с эмулятором HDInsight][]
 
-  []: http://azure.microsoft.com/en-us/documentation/services/hdinsight/
+  []: http://azure.microsoft.com/ru-ru/documentation/services/hdinsight/
   [//{container}@{account}/{path]: mailto://{container}@{account}/{path
   [Приступая к работе с эмулятором HDInsight]: ../hdinsight-get-started-emulator/

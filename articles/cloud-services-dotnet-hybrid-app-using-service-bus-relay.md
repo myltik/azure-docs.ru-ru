@@ -773,5 +773,5 @@ Windows Communication Foundation (WCF) безопасно предоставля
   [33]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-service1.png
   [34]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-43.png
   [Azure Service Bus]: http://msdn.microsoft.com/en-us/library/windowsazure/ee732537.aspx
-  [Практические руководства по работе со служебной шиной]: /en-us/documentation/services/service-bus/
+  [Практические руководства по работе со служебной шиной]: /ru-ru/documentation/services/service-bus/
   [Использование очередей Service Bus]: /en-us/develop/net/how-to-guides/service-bus-queues/

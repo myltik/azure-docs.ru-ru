@@ -333,10 +333,10 @@ ACL реализуется с помощью массива политик до�
   [Практическое руководство. Работа с подписями общего доступа]: #sas
   [руководство-очередь-хранилище]: ../includes/howto-queue-storage.md
   [создание-хранилище-учетная запись]: ../includes/create-storage-account.md
-  [Создание и развертывание приложения Node.js на веб-сайте Azure]: /en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/
-  [Облачная служба Node.js]: /en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/
-  [Веб-сайт с WebMatrix]: /en-us/documentation/articles/web-sites-nodejs-use-webmatrix/
-  [Веб-приложение Node.js с хранилищем]: /en-us/documentation/articles/storage-nodejs-use-table-storage-web-site/
+  [Создание и развертывание приложения Node.js на веб-сайте Azure]: /ru-ru/documentation/articles/web-sites-nodejs-develop-deploy-mac/
+  [Облачная служба Node.js]: /ru-ru/documentation/articles/cloud-services-nodejs-develop-deploy-app/
+  [Веб-сайт с WebMatrix]: /ru-ru/documentation/articles/web-sites-nodejs-use-webmatrix/
+  [Веб-приложение Node.js с хранилищем]: /ru-ru/documentation/articles/storage-nodejs-use-table-storage-web-site/
   [Хранение данных и доступ к ним в Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
   [блог команды разработчиков хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
   [Пакет SDK хранилища Azure для Node]: https://github.com/Azure/azure-storage-node

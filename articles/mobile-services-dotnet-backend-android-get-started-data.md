@@ -5,15 +5,15 @@
 # Приступая к работе с данными в мобильных службах
 
 <div class="dev-center-tutorial-selector sublanding">
-    <a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/" title="Магазин Windows C#">Магазин Windows C#</a>
-    <a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/" title="Магазин Windows JavaScript">Магазин Windows JavaScript</a>
-    <a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/" title="Windows Phone">Windows Phone</a>
-    <a href="/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/" title="iOS">iOS</a>
-    <a href="/en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/" title="Android" class="current">Android</a>
+    <a href="/ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/" title="Магазин Windows C#">Магазин Windows C#</a>
+    <a href="/ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/" title="Магазин Windows JavaScript">Магазин Windows JavaScript</a>
+    <a href="/ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/" title="Windows Phone">Windows Phone</a>
+    <a href="/ru-ru/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/" title="iOS">iOS</a>
+    <a href="/ru-ru/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/" title="Android" class="current">Android</a>
 </div>
 
 <div class="dev-center-tutorial-subselector">
-    <a href="/en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/" title="Сервер .NET" class="current">Сервер .NET</a> | 
+    <a href="/ru-ru/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/" title="Сервер .NET" class="current">Сервер .NET</a> | 
     <a href="/en-us/develop/mobile/tutorials/get-started-with-data-android/"  title="Сервер JavaScript">Сервер JavaScript</a>
 </div>
 
@@ -116,12 +116,12 @@
 
 <!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
 
-  [Магазин Windows C\#]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/ "Магазин Windows C#"
-  [Магазин Windows JavaScript]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/ "Магазин Windows JavaScript"
-  [Windows Phone]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/ "Windows Phone"
-  [iOS]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/ "iOS"
-  [Android]: /en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/ "Android"
-  [Сервер .NET]: /en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/ "Сервер .NET"
+  [Магазин Windows C\#]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/ "Магазин Windows C#"
+  [Магазин Windows JavaScript]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/ "Магазин Windows JavaScript"
+  [Windows Phone]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/ "Windows Phone"
+  [iOS]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/ "iOS"
+  [Android]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/ "Android"
+  [Сервер .NET]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/ "Сервер .NET"
   [Сервер JavaScript]: /en-us/develop/mobile/tutorials/get-started-with-data-android/ "Сервер JavaScript"
   [Серверная версия JavaScript]: /en-us/develop/mobile/tutorials/get-started-with-data-android
   [Создание мобильной службы]: #create-service
@@ -144,4 +144,4 @@
   [2]: ./media/mobile-services-dotnet-backend-android-get-started-data/sql-azure-query.png
   [Приступая к работе с проверкой подлинности]: /en-us/develop/mobile/tutorials/get-started-with-users-android
   [Приступая к работе с push-уведомлениями]: /en-us/develop/mobile/tutorials/get-started-with-push-android
-  [Справочник принципов использования мобильных служб .NET]: /en-us/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
+  [Справочник принципов использования мобильных служб .NET]: /ru-ru/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library

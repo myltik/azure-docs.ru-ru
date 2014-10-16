@@ -43,6 +43,6 @@
 
 <!-- URLs. -->
 
-  [Регистрация с помощью Azure Active Directory]: /en-us/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
+  [Регистрация с помощью Azure Active Directory]: /ru-ru/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
   [портале управления Azure]: https://manage.windowsazure.com/
   [ ]: ./media/mobile-services-dotnet-adal-register-service/mobile-services-aad-app-manage-manifest.png

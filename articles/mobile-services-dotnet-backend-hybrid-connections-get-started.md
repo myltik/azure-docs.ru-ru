@@ -178,8 +178,8 @@
   [Изменение мобильной службы для использования этого подключения]: #CreateService
   [Загружаемые файлы для Visual Studio]: http://www.visualstudio.com/downloads/download-visual-studio-vs
   [странице базы данных веб-платформы Майкрософт]: http://www.microsoft.com/web/platform/database.aspx
-  [1]: /en-us/documentation/articles/web-sites-hybrid-connection-connect-on-premises-sql-server#InstallSQL
-  [Создание локальной базы данных SQL Server]: /en-us/documentation/articles/web-sites-hybrid-connection-connect-on-premises-sql-server#CreateSQLDB
+  [1]: /ru-ru/documentation/articles/web-sites-hybrid-connection-connect-on-premises-sql-server#InstallSQL
+  [Создание локальной базы данных SQL Server]: /ru-ru/documentation/articles/web-sites-hybrid-connection-connect-on-premises-sql-server#CreateSQLDB
   [портал управления Azure]: http://go.microsoft.com/fwlink/p/?linkid=213885&clcid=0x409
   [Создание службы BizTalk]: ./media/mobile-services-dotnet-backend-hybrid-connections-get-started/1.png
   [Настройка новой службы BizTalk]: ./media/mobile-services-dotnet-backend-hybrid-connections-get-started/2.png
@@ -190,11 +190,11 @@
   [Установка диспетчера гибридных подключений]: ./media/mobile-services-dotnet-backend-hybrid-connections-get-started/6.png
   [2]: ./media/mobile-services-dotnet-backend-hybrid-connections-get-started/7.png
   [Гибридное подключение выполнено]: ./media/mobile-services-dotnet-backend-hybrid-connections-get-started/8.png
-  [Приступая к работе с мобильными службами]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
+  [Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
   [Сопоставление гибридного подключения]: ./media/mobile-services-dotnet-backend-hybrid-connections-get-started/9.png
   [Выбор гибридного подключения для сопоставления]: ./media/mobile-services-dotnet-backend-hybrid-connections-get-started/10.png
   [Параметр приложения для строки подключения]: ./media/mobile-services-dotnet-backend-hybrid-connections-get-started/11.png
   [SQL Management Studio]: ./media/mobile-services-dotnet-backend-hybrid-connections-get-started/12.png
   [Веб-сайт гибридных подключений]: http://azure.microsoft.com/en-us/services/biztalk-services/
   [Обзор гибридных подключений]: http://go.microsoft.com/fwlink/p/?LinkID=397274
-  [Службы BizTalk: вкладки "Панель мониторинга", "Монитор" и "Масштаб"]: http://azure.microsoft.com/en-us/documentation/articles/biztalk-dashboard-monitor-scale-tabs/
+  [Службы BizTalk: вкладки "Панель мониторинга", "Монитор" и "Масштаб"]: http://azure.microsoft.com/ru-ru/documentation/articles/biztalk-dashboard-monitor-scale-tabs/

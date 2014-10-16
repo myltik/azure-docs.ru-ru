@@ -254,5 +254,5 @@
   [Устранение неполадок веб-сайтов Azure в Visual Studio]: /en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/
   [Развертывание безопасного приложения ASP.NET MVC с членством, OAuth и базой данных SQL на веб-сайте Azure]: /en-us/develop/net/tutorials/web-site-with-sql-database/
   [Модели выполнения Azure]: /en-us/develop/net/fundamentals/compute/
-  [Сравнение веб-сайтов, облачных служб и виртуальных машин Azure]: http://azure.microsoft.com/en-us/documentation/articles/choose-web-site-cloud-service-vm/
+  [Сравнение веб-сайтов, облачных служб и виртуальных машин Azure]: http://azure.microsoft.com/ru-ru/documentation/articles/choose-web-site-cloud-service-vm/
   [Многоуровневое приложение .NET, использующее таблицы хранилища, очереди и BLOB-объекты]: /en-us/develop/net/tutorials/multi-tier-web-site/1-overview/

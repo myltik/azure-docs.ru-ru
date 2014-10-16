@@ -54,5 +54,5 @@ DNS основана на *записях*. Записи связывают ко
   [в документе "Имена доменов IETF – реализация и спецификация"]: http://tools.ietf.org/html/rfc1035
   [портал управления Azure]: https://manage.windowsazure.com
   []: ./media/custom-dns-web-site/dncmntask-cname-6.png
-  [Масштабирование веб-сайтов]: http://www.windowsazure.com/en-us/documentation/articles/web-sites-scale/
+  [Масштабирование веб-сайтов]: http://www.windowsazure.com/ru-ru/documentation/articles/web-sites-scale/
   [1]: ./media/custom-dns-web-site/managecustomdomains.png

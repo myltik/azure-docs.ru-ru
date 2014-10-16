@@ -4,9 +4,9 @@
 
 # Отправка образов в хранилище Azure с помощью мобильных служб
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage" title="Магазин Windows C#" class="current">Магазин Windows C#</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-upload-data-blob-storage" title="Windows Phone">Windows Phone</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage" title="Магазин Windows C#" class="current">Магазин Windows C#</a><a href="/ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-phone-upload-data-blob-storage" title="Windows Phone">Windows Phone</a></div>
 
-<div class="dev-center-tutorial-subselector"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage" title="Серверная часть .NET" class="current">Серверная часть .NET</a> | <a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-upload-data-blob-storage"  title="Серверная часть JavaScript">Серверная часть JavaScript</a></div>
+<div class="dev-center-tutorial-subselector"><a href="/ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage" title="Серверная часть .NET" class="current">Серверная часть .NET</a> | <a href="/ru-ru/documentation/articles/mobile-services-windows-store-dotnet-upload-data-blob-storage"  title="Серверная часть JavaScript">Серверная часть JavaScript</a></div>
 
 В этом разделе показано, как использовать мобильные службы Azure, чтобы передавать и сохранять созданные изображения в хранилище Azure через свое приложение. Для хранения данных мобильные службы используют базу данных SQL. Однако данные больших двоичных объектов (BLOB) более эффективно хранить в службе хранения BLOB-объектов Azure.
 
@@ -49,18 +49,18 @@
 
 <!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
 
-  [Магазин Windows C\#]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage "Магазин Windows C#"
-  [Windows Phone]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-upload-data-blob-storage "Windows Phone"
-  [Серверная часть .NET]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage "Серверная часть .NET"
-  [Серверная часть JavaScript]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-upload-data-blob-storage "Серверная часть JavaScript"
+  [Магазин Windows C\#]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage "Магазин Windows C#"
+  [Windows Phone]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-phone-upload-data-blob-storage "Windows Phone"
+  [Серверная часть .NET]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage "Серверная часть .NET"
+  [Серверная часть JavaScript]: /ru-ru/documentation/articles/mobile-services-windows-store-dotnet-upload-data-blob-storage "Серверная часть JavaScript"
   [Установите библиотеку клиента хранилища]: #install-storage-client
   [Обновите клиентское приложение для захвата изображений]: #add-select-images
   [Установка клиента хранилища в проекте мобильных служб]: #storage-client-server
   [Обновление определения TodoItem в модели данных]: #update-data-model
   [Обновите контроллер таблицы для создания учетных данных SAS]: #update-scripts
   [Передайте изображения для проверки приложения]: #test
-  [Учетная запись хранения Azure]: /en-us/documentation/articles/storage-create-storage-account/
-  [Приступая к работе с мобильными службами]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started
+  [Учетная запись хранения Azure]: /ru-ru/documentation/articles/storage-create-storage-account/
+  [Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/mobile-services-windows-store-dotnet-get-started
   [mobile-services-dotnet-backend-configure-blob-storage]: ../includes/mobile-services-dotnet-backend-configure-blob-storage.md
  
   [mobile-services-windows-store-dotnet-upload-to-blob-storage]: ../includes/mobile-services-windows-store-dotnet-upload-to-blob-storage.md

@@ -5,8 +5,8 @@
 # Обработка конфликтов синхронизации автономных данных в мобильных службах
 
 <div class="dev-center-tutorial-selector sublanding">
-<a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data" title="Магазин Windows C#">Магазин Windows C#</a>
-<a href="/en-us/documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data" title="Windows Phone" class="current">Windows Phone</a>
+<a href="/ru-ru/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data" title="Магазин Windows C#">Магазин Windows C#</a>
+<a href="/ru-ru/documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data" title="Windows Phone" class="current">Windows Phone</a>
 </div>
 
 В этом разделе показывается, как синхронизировать данные и обрабатывать конфликты при использовании возможностей автономной работы мобильных служб Azure. В этом учебнике вам предстоит загрузить приложение, которое поддерживает автономные и оперативные данные, интегрировать мобильную службу с приложением, а затем выполнить вход на портал управления Azure для просмотра и обновления базы данных в ходе выполнения приложения.
@@ -196,9 +196,9 @@
 <!-- Images -->
 <!-- URLs -->
 
-  [Магазин Windows C\#]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data "Магазин Windows C#"
-  [Windows Phone]: /en-us/documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data "Windows Phone"
-  [Приступая к работе с автономными данными]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-offline-data
+  [Магазин Windows C\#]: /ru-ru/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data "Магазин Windows C#"
+  [Windows Phone]: /ru-ru/documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data "Windows Phone"
+  [Приступая к работе с автономными данными]: /ru-ru/documentation/articles/mobile-services-windows-phone-get-started-offline-data
   [Загрузка проекта приложения Windows Phone]: #download-app
   [Добавление столбца даты выполнения для базы данных]: #add-column
   [Обновление базы данных для серверных мобильных служб .NET]: #dotnet-backend
@@ -209,7 +209,7 @@
   [примере кода обработки конфликтов]: http://go.microsoft.com/fwlink/?LinkId=398257
   []: ./media/mobile-services-windows-phone-handling-conflicts-offline-data/mobile-services-handling-conflicts-app-run1.png
   [решение SQLite для Windows Phone 8]: http://go.microsoft.com/fwlink/?LinkId=397953
-  [Как использовать Code First Migrations для обновления модели данных]: /en-us/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations
+  [Как использовать Code First Migrations для обновления модели данных]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations
   [портал управления Azure]: https://manage.windowsazure.com/
   [1]: ./media/mobile-services-windows-phone-handling-conflicts-offline-data/mobile-services-todowithdate-push1.png
   [2]: ./media/mobile-services-windows-phone-handling-conflicts-offline-data/vs-emulator-wvga.png

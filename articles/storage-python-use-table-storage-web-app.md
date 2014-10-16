@@ -175,9 +175,9 @@ API-интерфейсы REST. Дополнительные сведения с�
 -   См. справочник MSDN: [Хранение данных и доступ к ним в Azure][]
 -   Посетите блог команды разработчиков хранилища Azure <http://blogs.msdn.com/b/windowsazurestorage/>
 
-  [веб-приложение Hello World на Django]: http://windowsazure.com/en-us/documentation/articles/virtual-machines-python-django-web-app-windows-server
+  [веб-приложение Hello World на Django]: http://windowsazure.com/ru-ru/documentation/articles/virtual-machines-python-django-web-app-windows-server
   [Хранение данных и доступ к ним в Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
   []: ./media/storage-python-use-table-storage-web-app/web-app-with-storage-Finaloutput-mac.png
   [создание-учетная запись-примечание]: ../includes/create-account-note.md
-  [Руководство по установке Python]: http://windowsazure.com/en-us/documentation/articles/python-how-to-install
+  [Руководство по установке Python]: http://windowsazure.com/ru-ru/documentation/articles/python-how-to-install
   [создание-хранилище-учетная запись]: ../includes/create-storage-account.md

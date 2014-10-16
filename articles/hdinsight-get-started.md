@@ -208,7 +208,7 @@ HDInsight использует для хранения данных хранил
   [Hive]: http://go.microsoft.com/fwlink/?LinkId=510085
   [Введение для Hadoop в HDInsight]: ../hdinsight-introduction/
   [Приступая к работе с эмулятором HDInsight]: ../hdinsight-get-started-emulator/
-  [Подготовка кластера HBase в HDInsight]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-get-started/
+  [Подготовка кластера HBase в HDInsight]: http://azure.microsoft.com/ru-ru/documentation/articles/hdinsight-hbase-get-started/
   [В чем разница между Hadoop и HBase?]: http://go.microsoft.com/fwlink/?LinkId=510237
   [HDI.GetStartedFlow]: ./media/hdinsight-get-started/HDI.GetStartedFlow.png
   [Варианты приобретения]: http://azure.microsoft.com/en-us/pricing/purchase-options/
@@ -224,7 +224,7 @@ HDInsight использует для хранения данных хранил
   [Портал управления Azure]: https://manage.windowsazure.com/
   [HDI.StorageAccount.QuickCreate]: ./media/hdinsight-get-started/HDI.StorageAccount.QuickCreate.png
   [Как создать учетную запись хранения]: ../storage-create-storage-account/
-  [Версии компонентов НDInsight]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-component-versioning/
+  [Версии компонентов НDInsight]: http://azure.microsoft.com/ru-ru/documentation/articles/hdinsight-component-versioning/
   [HDI.ClusterStatus]: ./media/hdinsight-get-started/HDI.ClusterStatus.png
   [HDI.QuickCreateCluster]: ./media/hdinsight-get-started/HDI.QuickCreateCluster.png
   [Новые возможности версий кластеров, предоставляемых HDInsight]: ../hdinsight-component-versioning/

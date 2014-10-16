@@ -113,7 +113,7 @@ ML Studio предоставляет современные алгоритмы �
 Машинное обучение Azure также имеет форум сообщества на MSDN, где вы можете задавать вопросы, связанные с Azure ML. Форум контролируется командой поддержки Azure ML. Посетите [форум Azure][].
 
   [Приступая к работе]: http://go.microsoft.com/fwlink/?LinkId=404226
-  [Учебный центр машинного обучения Azure]: http://azure.microsoft.com/en-us/documentation/services/machine-learning/
+  [Учебный центр машинного обучения Azure]: http://azure.microsoft.com/ru-ru/documentation/services/machine-learning/
   [форумы обратной связи]: http://go.microsoft.com/fwlink/?LinkId=404231
   [форум обратной связи]: https://windowsazure.uservoice.com/forums/257792-machine-learning
   [форум Azure]: http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=MachineLearning

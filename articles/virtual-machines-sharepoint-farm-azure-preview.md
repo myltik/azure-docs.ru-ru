@@ -72,4 +72,4 @@
   [Подробные сведения о конфигурации фермы серверов SharePoint]: ../virtual-machines-sharepoint-farm-config-azure-preview/
   [Настройка SharePoint 2013]: http://technet.microsoft.com/library/ee836142.aspx
   [Портале предварительной версии Microsoft Azure]: https://portal.azure.com/
-  [Использование Windows PowerShell с диспетчером ресурсов]: http://azure.microsoft.com/en-us/documentation/articles/powershell-azure-resource-manager/
+  [Использование Windows PowerShell с диспетчером ресурсов]: http://azure.microsoft.com/ru-ru/documentation/articles/powershell-azure-resource-manager/

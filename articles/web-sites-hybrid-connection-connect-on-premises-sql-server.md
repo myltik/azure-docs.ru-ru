@@ -446,8 +446,8 @@
   [Зарегистрированные пользователи в локальной базе данных]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F11HCTestShowMemberDb.png
   [Джош Твист (Josh Twist) представляет гибридные подключения (видео Channel 9)]: http://channel9.msdn.com/Shows/Azure-Friday/Josh-Twist-introduces-hybrid-connections
   [Веб-сайт гибридных подключений]: http://azure.microsoft.com/en-us/services/biztalk-services/
-  [Службы BizTalk: вкладки "Панель мониторинга", "Монитор" и "Масштаб"]: http://azure.microsoft.com/en-us/documentation/articles/biztalk-dashboard-monitor-scale-tabs/
+  [Службы BizTalk: вкладки "Панель мониторинга", "Монитор" и "Масштаб"]: http://azure.microsoft.com/ru-ru/documentation/articles/biztalk-dashboard-monitor-scale-tabs/
   [Создание реального облака с гибридным подключением с помощью простой переносимости приложений (видео Channel 9)]: http://channel9.msdn.com/events/TechEd/NorthAmerica/2014/DCIM-B323#fbid=
-  [Подключение к локальному SQL Server из мобильной службы Azure с помощью гибридных подключений]: http://azure.microsoft.com/en-us/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started/
+  [Подключение к локальному SQL Server из мобильной службы Azure с помощью гибридных подключений]: http://azure.microsoft.com/ru-ru/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started/
   [Подключение к локальному SQL Server с мобильных служб Azure с помощью гибридных подключений (видео Channel 9)]: http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Connect-to-an-on-premises-SQL-Server-from-Azure-Mobile-Services-using-Hybrid-Connections
   [Общие сведения об удостоверениях ASP.NET]: http://www.asp.net/identity

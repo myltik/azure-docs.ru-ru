@@ -6,7 +6,7 @@
 
 ### Начало работы с хранилищем Azure
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/vs-storage-aspnet-getting-started-blobs" title="Большие двоичные объекты" class="current">Большие двоичные объекты</a><a href="/en-us/documentation/articles/vs-storage-aspnet-getting-started-queues" title="Очереди">Очереди</a><a href="/en-us/documentation/articles/vs-storage-aspnet-getting-started-tables" title="Таблицы">Таблицы</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/ru-ru/documentation/articles/vs-storage-aspnet-getting-started-blobs" title="Большие двоичные объекты" class="current">Большие двоичные объекты</a><a href="/ru-ru/documentation/articles/vs-storage-aspnet-getting-started-queues" title="Очереди">Очереди</a><a href="/ru-ru/documentation/articles/vs-storage-aspnet-getting-started-tables" title="Таблицы">Таблицы</a></div>
 
 Хранилище очередей Azure — это служба хранения большого количества сообщений, к которым можно получить доступ практически из любой точки мира с помощью вызовов с проверкой подлинности по протоколу HTTP или HTTPS. Одно сообщение очереди может быть размером до 64 КБ, а очередь может содержать миллионы сообщений до общего ограничения емкости учетной записи хранения. Дополнительные сведения см. в статье [Как использовать хранилище очередей из .NET][Как использовать хранилище очередей из .NET].
 
@@ -29,8 +29,8 @@
 [WACOM.INCLUDE [vs-storage-getting-started-queues-include][vs-storage-getting-started-queues-include]]
 
   [vs-storage-aspnet-getting-started-intro]: ../includes/vs-storage-aspnet-getting-started-intro.md
-  [Большие двоичные объекты]: /en-us/documentation/articles/vs-storage-aspnet-getting-started-blobs "Большие двоичные объекты"
-  [Очереди]: /en-us/documentation/articles/vs-storage-aspnet-getting-started-queues "Очереди"
-  [Таблицы]: /en-us/documentation/articles/vs-storage-aspnet-getting-started-tables "Таблицы"
-  [Как использовать хранилище очередей из .NET]: http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-queues/
+  [Большие двоичные объекты]: /ru-ru/documentation/articles/vs-storage-aspnet-getting-started-blobs "Большие двоичные объекты"
+  [Очереди]: /ru-ru/documentation/articles/vs-storage-aspnet-getting-started-queues "Очереди"
+  [Таблицы]: /ru-ru/documentation/articles/vs-storage-aspnet-getting-started-tables "Таблицы"
+  [Как использовать хранилище очередей из .NET]: http://azure.microsoft.com/ru-ru/documentation/articles/storage-dotnet-how-to-use-queues/
   [vs-storage-getting-started-queues-include]: ../includes/vs-storage-getting-started-queues-include.md

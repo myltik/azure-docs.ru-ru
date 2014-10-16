@@ -795,7 +795,7 @@
 -   [Использование хранилища BLOB-объектов из .NET][]
 -   [Использование хранилища очередей из .NET][]
 
-  [облачной службе Azure]: /en-us/documentation/articles/fundamentals-application-models/#CloudServices
+  [облачной службе Azure]: /ru-ru/documentation/articles/fundamentals-application-models/#CloudServices
   [базу данных Azure SQL]: http://msdn.microsoft.com/library/azure/ee336279
   [службу BLOB-объектов Azure]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage
   [службу очередей Azure]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern
@@ -803,9 +803,9 @@
   [Список рекламы]: ./media/cloud-services-dotnet-get-started/list.png
   [веб-сайте Azure]: /en-us/services/web-sites/
   [веб-заданий]: http://go.microsoft.com/fwlink/?LinkId=390226
-  [Начинаем работу с Azure WebJobs SDK]: /en-us/documentation/articles/websites-dotnet-webjobs-sdk-get-started/
-  [Сравнение веб-сайтов, облачных служб и виртуальных машин Azure]: http://azure.microsoft.com/en-us/documentation/articles/choose-web-site-cloud-service-vm/
-  [базовые концепции облачной службы Azure]: http://azure.microsoft.com/en-us/documentation/articles/fundamentals-application-models/#CloudServices
+  [Начинаем работу с Azure WebJobs SDK]: /ru-ru/documentation/articles/websites-dotnet-webjobs-sdk-get-started/
+  [Сравнение веб-сайтов, облачных служб и виртуальных машин Azure]: http://azure.microsoft.com/ru-ru/documentation/articles/choose-web-site-cloud-service-vm/
+  [базовые концепции облачной службы Azure]: http://azure.microsoft.com/ru-ru/documentation/articles/fundamentals-application-models/#CloudServices
   [ASP.NET MVC]: http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started
   [веб-форм]: http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview
   [активировать преимущества для подписчиков MSDN]: /en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668
@@ -828,7 +828,7 @@
   [Новая облачная служба]: ./media/cloud-services-dotnet-get-started/newcs.png
   [Новая база данных SQL]: ./media/cloud-services-dotnet-get-started/newdb.png
   [Создание территориальной группы в Azure]: http://msdn.microsoft.com/en-us/library/jj156209.aspx
-  [Управление учетными записями хранения]: /en-us/documentation/articles/storage-manage-storage-account/
+  [Управление учетными записями хранения]: /ru-ru/documentation/articles/storage-manage-storage-account/
   [Новая учетная запись хранения]: ./media/cloud-services-dotnet-get-started/newstorage.png
   [преобразование Web.config]: http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations
   [Не сохраняйте важные данные в общедоступном репозитории исходного кода]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets
@@ -862,12 +862,12 @@
   [EF Connection Resiliency]: http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application
   [PhluffyFotos]: http://code.msdn.microsoft.com/PhluffyFotos-Sample-7ecffd31
   [Многоуровневое облачное приложение Azure с таблицами, квотами, и большими двоичными объектами]: http://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36
-  [пошаговым руководством]: http://azure.microsoft.com/en-us/documentation/articles/cloud-services-dotnet-multi-tier-app-storage-1-overview/
+  [пошаговым руководством]: http://azure.microsoft.com/ru-ru/documentation/articles/cloud-services-dotnet-multi-tier-app-storage-1-overview/
   [Основы облачных служб в Windows Azure]: http://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649
   [Построение реальных облачных приложений с Windows Azure]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction
   [Хранилище Microsoft — новости, рекомендации и шаблоны]: http://channel9.msdn.com/Events/Build/2014/3-628
   [Облачные службы Azure, часть 1: введение]: http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/
-  [Облачные службы Azure]: /en-us/documentation/services/cloud-services/
-  [Хранилище Azure]: /en-us/documentation/services/storage/
-  [Использование хранилища BLOB-объектов из .NET]: /en-us/documentation/articles/storage-dotnet-how-to-use-blobs/
-  [Использование хранилища очередей из .NET]: /en-us/documentation/articles/storage-dotnet-how-to-use-queues/
+  [Облачные службы Azure]: /ru-ru/documentation/services/cloud-services/
+  [Хранилище Azure]: /ru-ru/documentation/services/storage/
+  [Использование хранилища BLOB-объектов из .NET]: /ru-ru/documentation/articles/storage-dotnet-how-to-use-blobs/
+  [Использование хранилища очередей из .NET]: /ru-ru/documentation/articles/storage-dotnet-how-to-use-queues/

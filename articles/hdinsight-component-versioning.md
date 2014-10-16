@@ -336,7 +336,7 @@ HDP 1.1
 
   [Azure HDInsight]: http://go.microsoft.com/fwlink/?LinkID=285601
   [документации по Ambari]: https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md
-  [Заметки о выпуске НDInsight]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-release-notes/
+  [Заметки о выпуске НDInsight]: http://azure.microsoft.com/ru-ru/documentation/articles/hdinsight-release-notes/
   [New-AzureHDInsightCluster]: http://msdn.microsoft.com/en-us/library/dn593744.aspx
   [Family 4]: http://msdn.microsoft.com/en-us/library/azure/ee924680.aspx#explanation
   [Платформе данных Нortonworks Data Platform 2.1]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.1/bk_releasenotes_hdp_2.1/content/ch_relnotes-hdp-2.1.1.html

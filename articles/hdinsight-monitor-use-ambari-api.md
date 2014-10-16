@@ -230,4 +230,4 @@
   [Администрирование кластеров HDInsight с помощью портала управления]: ../hdinsight-administer-use-management-portal/
   [Администрирование кластеров HDInsight с помощью Azure PowerShell]: ../hdinsight-administer-use-powershell/
   [Администрирование кластеров HDInsight с помощью интерфейса командной строки]: ../hdinsight-administer-use-command-line/
-  [Документация по HDInsight]: /en-us/documentation/services/hdinsight/
+  [Документация по HDInsight]: /ru-ru/documentation/services/hdinsight/

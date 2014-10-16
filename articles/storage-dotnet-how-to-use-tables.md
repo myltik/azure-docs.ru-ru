@@ -465,7 +465,7 @@
   [Справочник по клиентской библиотеке хранения для .NET]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [Справочник по REST API]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179355
   [Хранение данных и доступ к ним в Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
-  [Начиная работу с пакетом Azure WebJobs SDK]: /en-us/documentation/articles/websites-dotnet-webjobs-sdk-get-started/
-  [Хранилища Blob-объектов]: /en-us/documentation/articles/storage-dotnet-how-to-use-blobs/
-  [Хранилища очередей]: /en-us/documentation/articles/storage-dotnet-how-to-use-queues/
-  [Базы данных SQL]: /en-us/documentation/articles/sql-database-dotnet-how-to-use/
+  [Начиная работу с пакетом Azure WebJobs SDK]: /ru-ru/documentation/articles/websites-dotnet-webjobs-sdk-get-started/
+  [Хранилища Blob-объектов]: /ru-ru/documentation/articles/storage-dotnet-how-to-use-blobs/
+  [Хранилища очередей]: /ru-ru/documentation/articles/storage-dotnet-how-to-use-queues/
+  [Базы данных SQL]: /ru-ru/documentation/articles/sql-database-dotnet-how-to-use/

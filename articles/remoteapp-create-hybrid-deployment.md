@@ -192,7 +192,7 @@ Azure RemoteApp использует образ шаблона Windows Server 20
 
   [необходимые обновления]: http://support.microsoft.com/kb/2977219
   [предварительную версию RemoteApp]: http://azure.microsoft.com/en-us/services/remoteapp/
-  [Azure PowerShell]: http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/
+  [Azure PowerShell]: http://azure.microsoft.com/ru-ru/documentation/articles/install-configure-powershell/
   [Портале управления Azure]: http://manage.windowsazure.com
   [Настройка VPN «сеть-сеть» на портале управления]: http://msdn.microsoft.com/library/azure/dn133795.aspx
   [Стратегия синхронизации каталогов]: http://msdn.microsoft.com//library/azure/hh967642.aspx

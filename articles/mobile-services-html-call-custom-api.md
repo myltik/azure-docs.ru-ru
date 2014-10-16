@@ -4,7 +4,7 @@
 
 # Вызов настраиваемого API из приложения HTM
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api" title="Магазин Windows C#">Магазин Windows C#</a><a href="/en-us/documentation/articles/mobile-services-windows-store-javascript-call-custom-api" title="Магазин Windows JavaScript">Магазин Windows JavaScript</a><a href="/en-us/documentation/articles/mobile-services-windows-phone-call-custom-api" title="Windows Phone">Windows Phone</a><a href="/en-us/documentation/articles/mobile-services-ios-call-custom-api" title="iOS" >iOS</a><a href="/en-us/documentation/articles/mobile-services-android-call-custom-api" title="Android">Android</a><a href="/en-us/documentation/articles/mobile-services-html-call-custom-api" title="HTML" class="current">HTML</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/ru-ru/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api" title="Магазин Windows C#">Магазин Windows C#</a><a href="/ru-ru/documentation/articles/mobile-services-windows-store-javascript-call-custom-api" title="Магазин Windows JavaScript">Магазин Windows JavaScript</a><a href="/ru-ru/documentation/articles/mobile-services-windows-phone-call-custom-api" title="Windows Phone">Windows Phone</a><a href="/ru-ru/documentation/articles/mobile-services-ios-call-custom-api" title="iOS" >iOS</a><a href="/ru-ru/documentation/articles/mobile-services-android-call-custom-api" title="Android">Android</a><a href="/ru-ru/documentation/articles/mobile-services-html-call-custom-api" title="HTML" class="current">HTML</a></div>
 
 В этом разделе показано, как вызывать настраиваемый интерфейс API из приложения HTML. Настраиваемый интерфейс API позволяет определить пользовательские конечные точки, которые предоставляют функциональные возможности сервера, не сопоставляемые с операциями вставки, обновления, удаления или чтения. При использовании настраиваемого интерфейса API вы получаете больше возможностей для управления сообщениями, в том числе для чтения и установки заголовков HTTP-сообщений, а также определения форматов текста сообщений, отличных от JSON.
 
@@ -72,14 +72,14 @@
 <!-- Anchors. -->
 <!-- URLs. -->
 
-  [Магазин Windows C\#]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api "Магазин Windows C#"
-  [Магазин Windows JavaScript]: /en-us/documentation/articles/mobile-services-windows-store-javascript-call-custom-api "Магазин Windows JavaScript"
-  [Windows Phone]: /en-us/documentation/articles/mobile-services-windows-phone-call-custom-api "Windows Phone"
-  [iOS]: /en-us/documentation/articles/mobile-services-ios-call-custom-api "iOS"
-  [Android]: /en-us/documentation/articles/mobile-services-android-call-custom-api "Android"
-  [HTML]: /en-us/documentation/articles/mobile-services-html-call-custom-api "HTML"
-  [Приступая к работе с мобильными службами]: /en-us/documentation/articles/mobile-services-html-get-started
-  [Приступая к работе с данными]: /en-us/documentation/articles/mobile-services-html-get-started-data
+  [Магазин Windows C\#]: /ru-ru/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api "Магазин Windows C#"
+  [Магазин Windows JavaScript]: /ru-ru/documentation/articles/mobile-services-windows-store-javascript-call-custom-api "Магазин Windows JavaScript"
+  [Windows Phone]: /ru-ru/documentation/articles/mobile-services-windows-phone-call-custom-api "Windows Phone"
+  [iOS]: /ru-ru/documentation/articles/mobile-services-ios-call-custom-api "iOS"
+  [Android]: /ru-ru/documentation/articles/mobile-services-android-call-custom-api "Android"
+  [HTML]: /ru-ru/documentation/articles/mobile-services-html-call-custom-api "HTML"
+  [Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/mobile-services-html-get-started
+  [Приступая к работе с данными]: /ru-ru/documentation/articles/mobile-services-html-get-started-data
   [Определение настраиваемого интерфейса API]: #define-custom-api
   [Обновление приложения для вызова настраиваемого API]: #update-app
   [Тестирование приложения]: #test-app

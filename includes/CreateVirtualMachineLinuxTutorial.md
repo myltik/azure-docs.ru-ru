@@ -227,7 +227,7 @@
   [Знакомство с Azure]: http://go.microsoft.com/fwlink/p/?LinkId=311926
   [портал управления]: http://manage.windowsazure.com
   [Управление расширениями]: http://go.microsoft.com/FWLink/p/?LinkID=390493
-  [Настройка конечных точек с виртуальной машиной]: http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-set-up-endpoints/
+  [Настройка конечных точек с виртуальной машиной]: http://azure.microsoft.com/ru-ru/documentation/articles/virtual-machines-set-up-endpoints/
   [странице загрузки PuTTY]: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
   [OpenSSH]: http://www.openssh.org/
   [Найдите сведения об SSH]: ./media/CreateVirtualMachineLinuxTutorial/SSHdetails.png
@@ -242,5 +242,5 @@
   [Просмотр сведений о диске]: ./media/CreateVirtualMachineLinuxTutorial/diskinfo.png
   [Запись изменений на диске]: ./media/CreateVirtualMachineLinuxTutorial/diskwrite.png
   [Создание файловой системы]: ./media/CreateVirtualMachineLinuxTutorial/diskfilesystem.png
-  [Введение в Linux в Azure]: http://www.windowsazure.com/en-us/documentation/articles/introduction-linux/
-  [Использование средств командной строки Azure для Mac и Linux]: http://www.windowsazure.com/en-us/documentation/articles/xplat-cli/
+  [Введение в Linux в Azure]: http://www.windowsazure.com/ru-ru/documentation/articles/introduction-linux/
+  [Использование средств командной строки Azure для Mac и Linux]: http://www.windowsazure.com/ru-ru/documentation/articles/xplat-cli/

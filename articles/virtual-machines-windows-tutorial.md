@@ -4,7 +4,7 @@
 
 # Создание виртуальной машины под управлением Windows Server
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/virtual-machines-windows-tutorial/" title="Портал Аzure" class="current"> Портал Аzure</a><a href="/en-us/documentation/articles/virtual-machines-windows-tutorial-azure-preview/" title=" Портал предварительной версии Azure"> Портал предварительной версии Azure</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/ru-ru/documentation/articles/virtual-machines-windows-tutorial/" title="Портал Аzure" class="current"> Портал Аzure</a><a href="/ru-ru/documentation/articles/virtual-machines-windows-tutorial-azure-preview/" title=" Портал предварительной версии Azure"> Портал предварительной версии Azure</a></div>
 
 В этом учебнике показано, насколько просто создавать виртуальные машины Azure (ВМ) под управлением Windows Server с использованием коллекции образов на портале управления Azure. Коллекция образов содержит широкое разнообразие образов, в том числе операционные системы Windows, операционные системы на основе Linux, а также образы приложений.
 
@@ -102,8 +102,8 @@
 
 [Управление доступностью виртуальных машин][]
 
-  [Портал Аzure]: /en-us/documentation/articles/virtual-machines-windows-tutorial/ "Портал Аzure"
-  [Портал предварительной версии Azure]: /en-us/documentation/articles/virtual-machines-windows-tutorial-azure-preview/ " Портал предварительной версии Azure"
+  [Портал Аzure]: /ru-ru/documentation/articles/virtual-machines-windows-tutorial/ "Портал Аzure"
+  [Портал предварительной версии Azure]: /ru-ru/documentation/articles/virtual-machines-windows-tutorial-azure-preview/ " Портал предварительной версии Azure"
   [Создание учетной записи Azure]: http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/
   [Создание виртуальной машины]: #createvirtualmachine
   [Как войти в систему на виртуальной машине после ее создания]: #logon
@@ -112,7 +112,7 @@
   [Портал предварительной версии Аzure]: https://portal.azure.com
   [виртуальные-машины-создание-WindowsVM]: ../includes/virtual-machines-create-WindowsVM.md
   [виртуальные-машины-вход-win-сервер]: ../includes/virtual-machines-log-on-win-server.md
-  [учебнике «Присоединение диска данных»]: http://www.windowsazure.com/en-us/documentation/articles/storage-windows-attach-disk/
+  [учебнике «Присоединение диска данных»]: http://www.windowsazure.com/ru-ru/documentation/articles/storage-windows-attach-disk/
   [Портал управления]: http://manage.windowsazure.com
   [Выбрать MyTestVM]: ./media/virtual-machines-windows-tutorial/selectvm.png
   [Выбрать панель мониторинга]: ./media/virtual-machines-windows-tutorial/dashboard.png
@@ -125,6 +125,6 @@
   [Продолжить инициализацию]: ./media/virtual-machines-windows-tutorial/yesinitialize.png
   [Создание тома]: ./media/virtual-machines-windows-tutorial/initializediskvolume.png
   [2]: ./media/virtual-machines-windows-tutorial/newvolumecreated.png
-  [Подключение к виртуальным машинам в облачной службе]: http://www.windowsazure.com/en-us/documentation/articles/cloud-services-connect-virtual-machine/
-  [Создание и отправка собственного виртуального жесткого диска, содержащего операционную систему Windows]: http://www.windowsazure.com/en-us/documentation/articles/virtual-machines-create-upload-vhd-windows-server/
-  [Управление доступностью виртуальных машин]: http://www.windowsazure.com/en-us/documentation/articles/manage-availability-virtual-machines/
+  [Подключение к виртуальным машинам в облачной службе]: http://www.windowsazure.com/ru-ru/documentation/articles/cloud-services-connect-virtual-machine/
+  [Создание и отправка собственного виртуального жесткого диска, содержащего операционную систему Windows]: http://www.windowsazure.com/ru-ru/documentation/articles/virtual-machines-create-upload-vhd-windows-server/
+  [Управление доступностью виртуальных машин]: http://www.windowsazure.com/ru-ru/documentation/articles/manage-availability-virtual-machines/

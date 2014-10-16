@@ -5,11 +5,11 @@
 # Приступая к работе с синхронизацией автономных данных в мобильных службах
 
 <div class="dev-center-tutorial-selector sublanding">
-<a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data" title="Магазин Windows C#">Магазин Windows C#</a>
-<a href="/en-us/documentation/articles/mobile-services-windows-phone-get-started-offline-data" title="Windows Phone" class="current">Windows Phone</a>
-<a href="/en-us/documentation/articles/mobile-services-ios-get-started-offline-data" title="iOS">iOS</a>
-<a href="/en-us/documentation/articles/mobile-services-xamarin-ios-get-started-offline-data" title="Xamarin.iOS">Xamarin.iOS</a>
-<a href="/en-us/documentation/articles/mobile-services-xamarin-android-get-started-offline-data" title="Xamarin.Android">Xamarin.Android</a>
+<a href="/ru-ru/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data" title="Магазин Windows C#">Магазин Windows C#</a>
+<a href="/ru-ru/documentation/articles/mobile-services-windows-phone-get-started-offline-data" title="Windows Phone" class="current">Windows Phone</a>
+<a href="/ru-ru/documentation/articles/mobile-services-ios-get-started-offline-data" title="iOS">iOS</a>
+<a href="/ru-ru/documentation/articles/mobile-services-xamarin-ios-get-started-offline-data" title="Xamarin.iOS">Xamarin.iOS</a>
+<a href="/ru-ru/documentation/articles/mobile-services-xamarin-android-get-started-offline-data" title="Xamarin.Android">Xamarin.Android</a>
 </div>
 
 В этом разделе показано, как использовать автономные возможности мобильных служб Azure. Автономные функции мобильных служб Azure позволяют взаимодействовать с локальной базой данных при работе с мобильной службой в автономном сценарии. Автономные функции позволяют синхронизировать локальные изменения с мобильной службой после подключения к сети.
@@ -245,13 +245,13 @@
 <!-- Images -->
 <!-- URLs. -->
 
-  [Магазин Windows C\#]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data "Магазин Windows C#"
-  [Windows Phone]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-offline-data "Windows Phone"
-  [iOS]: /en-us/documentation/articles/mobile-services-ios-get-started-offline-data "iOS"
-  [Xamarin.iOS]: /en-us/documentation/articles/mobile-services-xamarin-ios-get-started-offline-data "Xamarin.iOS"
-  [Xamarin.Android]: /en-us/documentation/articles/mobile-services-xamarin-android-get-started-offline-data "Xamarin.Android"
-  [Приступая к работе с мобильными службами]: /en-us/documentation/articles/mobile-services-windows-phone-get-started/
-  [Приступая к работе с данными]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-data/
+  [Магазин Windows C\#]: /ru-ru/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data "Магазин Windows C#"
+  [Windows Phone]: /ru-ru/documentation/articles/mobile-services-windows-phone-get-started-offline-data "Windows Phone"
+  [iOS]: /ru-ru/documentation/articles/mobile-services-ios-get-started-offline-data "iOS"
+  [Xamarin.iOS]: /ru-ru/documentation/articles/mobile-services-xamarin-ios-get-started-offline-data "Xamarin.iOS"
+  [Xamarin.Android]: /ru-ru/documentation/articles/mobile-services-xamarin-android-get-started-offline-data "Xamarin.Android"
+  [Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/mobile-services-windows-phone-get-started/
+  [Приступая к работе с данными]: /ru-ru/documentation/articles/mobile-services-windows-phone-get-started-data/
   [Обновление приложения для поддержки автономных функций]: #enable-offline-app
   [Тестирование приложения в автономном сценарии]: #test-offline-app
   [Обновление приложения для повторного подключения мобильной службы]: #update-online-app
@@ -272,4 +272,4 @@
   [7]: ./media/mobile-services-windows-phone-get-started-offline-data/mobile-services-online-app-run2.png
   [8]: ./media/mobile-services-windows-phone-get-started-offline-data/mobile-services-online-app-run3.png
   [9]: ./media/mobile-services-windows-phone-get-started-offline-data/mobile-data-browse3.png
-  [Обработка конфликтов с автономной поддержкой мобильных служб]: /en-us/documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data/
+  [Обработка конфликтов с автономной поддержкой мобильных служб]: /ru-ru/documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data/

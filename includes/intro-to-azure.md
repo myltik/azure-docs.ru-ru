@@ -125,7 +125,7 @@ Azure содержит веб-интерфейс, который называе�
 
 #### Выбор модели вычислений
 
-На странице сравнения веб-сайтов, облачных служб и виртуальных машин Azure (<http://azure.microsoft.com/en-us/documentation/articles/choose-web-site-cloud-service-vm/>) предоставлены более подробные сведения о выборе модели вычислений.
+На странице сравнения веб-сайтов, облачных служб и виртуальных машин Azure (<http://azure.microsoft.com/ru-ru/documentation/articles/choose-web-site-cloud-service-vm/>) предоставлены более подробные сведения о выборе модели вычислений.
 
 ## <span id="data"></span></a>Управление данными
 
@@ -588,7 +588,7 @@ SendGrid — это приложение в Магазине Azure, которо
   [Служба мультимедиа]: #media
   [Приложения для коммерции]: #commerce
   [Приступая к работе]: #start
-  [Инфографика «Что такое Windows Azure»]: http://azure.microsoft.com/en-us/documentation/infographics/azure/ "Инфографика заставки «Что такое Microsoft Azure» "
+  [Инфографика «Что такое Windows Azure»]: http://azure.microsoft.com/ru-ru/documentation/infographics/azure/ "Инфографика заставки «Что такое Microsoft Azure» "
   [1]: ./media/intro-to-azure/AzureComponentsIntroNew800.png
   [Виртуальные машины Azure ]: ./media/intro-to-azure/VirtualMachinesIntroNew.png
   [Веб-сайты Azure]: ./media/intro-to-azure/AzureWebsitesIntroNew.png
@@ -617,7 +617,7 @@ SendGrid — это приложение в Магазине Azure, которо
   [Azure CDN]: ./media/intro-to-azure/CDNIntroNew.png
   [HDInsight]: ./media/intro-to-azure/HDInsightIntroNew.png
   [Службы мультимедиа Azure]: ./media/intro-to-azure/MediaServicesIntroNew.png
-  [афишу служб мультимедиа Azure]: http://azure.microsoft.com/en-us/documentation/infographics/media-services/
+  [афишу служб мультимедиа Azure]: http://azure.microsoft.com/ru-ru/documentation/infographics/media-services/
   [Azure Marketplace]: http://datamarket.azure.com/
   [Магазина Azure]: /en-us/store/overview/
   [Коммерческие предложения Azure]: ./media/intro-to-azure/CommerceIntroNew.png

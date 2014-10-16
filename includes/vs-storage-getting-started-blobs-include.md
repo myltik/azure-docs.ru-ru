@@ -90,5 +90,5 @@
     // Delete the blob.
     blockBlob.Delete();
 
-  [Как использовать хранилище больших двоичных объектов из .NET]: http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-blobs/#list-blob
-  [1]: http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-blobs/#download-blobs
+  [Как использовать хранилище больших двоичных объектов из .NET]: http://azure.microsoft.com/ru-ru/documentation/articles/storage-dotnet-how-to-use-blobs/#list-blob
+  [1]: http://azure.microsoft.com/ru-ru/documentation/articles/storage-dotnet-how-to-use-blobs/#download-blobs

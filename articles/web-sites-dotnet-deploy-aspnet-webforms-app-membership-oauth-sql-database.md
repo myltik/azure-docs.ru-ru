@@ -870,7 +870,7 @@ ASP.NET Identity — система членства, используемая �
 
 Пожалуйста, оставьте отзыв о том, что вам понравилось или что вы хотели бы улучшить, не только о самом учебнике, но и о продуктах, которые он демонстрирует. Ваши отзывы помогут нам определить, какие улучшения наиболее приоритетные. Вы также можете запросить и проголосовать за новые темы на странице [Покажите, как это сделать в коде][].
 
-  [Развертывание безопасного приложения ASP.NET MVC 5 с членством, OAuth и базой данных SQL на веб-сайте Azure]: http://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/
+  [Развертывание безопасного приложения ASP.NET MVC 5 с членством, OAuth и базой данных SQL на веб-сайте Azure]: http://azure.microsoft.com/ru-ru/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/
   [Страница Контакты — изменить]: ./media/web-sites-dotnet-web-forms-secure/SecureWebForms00.png
   [активировать преимущества для подписчиков MSDN]: /en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
   [подписаться на бесплатную пробную версию]: /en-us/pricing/free-trial/?WT.mc_id=A261C142F
@@ -944,7 +944,7 @@ ASP.NET Identity — система членства, используемая �
   [ Данные AspNetUserRoles]: ./media/web-sites-dotnet-web-forms-secure/SecureWebForms36.png
   [9]: ./media/web-sites-dotnet-web-forms-secure/SecureWebForms37.png
   [Знакомьтесь с веб-формами ASP.NET]: http://www.asp.net/web-forms
-  [Microsoft Azure: учебники и руководства]: http://azure.microsoft.com/en-us/documentation/services/web-sites/#net
+  [Microsoft Azure: учебники и руководства]: http://azure.microsoft.com/ru-ru/documentation/services/web-sites/#net
   [@RickAndMSFT]: https://twitter.com/RickAndMSFT
   [@blowdart]: https://twitter.com/blowdart
   [Покажите, как это сделать в коде]: http://aspnet.uservoice.com/forums/228522-show-me-how-with-code

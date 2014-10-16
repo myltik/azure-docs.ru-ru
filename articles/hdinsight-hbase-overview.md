@@ -58,7 +58,7 @@ HBase полезна для записи данных, накопленных п
 [Bigtable: Распределенная система хранения структурированных данных][]
 
   [Подготовка кластеров HDInsight в виртуальной сети Azure]: ../hdinsight-hbase-provision-vnet/
-  [Приступая к работе с Hadoop в HDInsight]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-get-started/
+  [Приступая к работе с Hadoop в HDInsight]: http://azure.microsoft.com/ru-ru/documentation/articles/hdinsight-hbase-get-started/
   [Phoenix]: http://phoenix.apache.org/
   [Анализ мнений пользователей Twitter с использованием HBase в HDInsight]: ../hdinsight-hbase-analyze-twitter-sentiment/
   [Использование Maven для сборки приложений Java, которые используют HBase с HDInsight (Hadoop)]: ../hdinsight-hbase-build-java-maven/

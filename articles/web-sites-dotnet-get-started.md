@@ -339,23 +339,23 @@
   [Портал управления Azure]: /en-us/services/management-portal/
   [Вызывается главная страница портала с новым веб-сайтом]: ./media/web-sites-dotnet-get-started-vs2013/portalhome.png
   [Вкладка панели мониторинга веб-сайта портала]: ./media/web-sites-dotnet-get-started-vs2013/portaldashboard.png
-  [Настройка]: /en-us/documentation/articles/web-sites-configure//
+  [Настройка]: /ru-ru/documentation/articles/web-sites-configure//
   [WebSockets]: /blog/2013/11/14/introduction-to-websockets-on-windows-azure-web-sites/
-  [ведение журнала диагностики]: /en-us/documentation/articles/web-sites-enable-diagnostic-log/
+  [ведение журнала диагностики]: /ru-ru/documentation/articles/web-sites-enable-diagnostic-log/
   [значения строки подключения]: /blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
   [Вкладка настройки веб-сайта портала]: ./media/web-sites-dotnet-get-started-vs2013/portalconfigure.png
-  [Масштаб]: /en-us/documentation/articles/web-sites-scale/
+  [Масштаб]: /ru-ru/documentation/articles/web-sites-scale/
   [Вкладка Масштаб веб-сайта портала]: ./media/web-sites-dotnet-get-started-vs2013/portalscale.png
   [Предварительная версия портала Azure]: /en-us/overview/preview-portal/
   [автоматизации развертывания]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery
   [системы управления версиями]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control
-  [Развертывание веб-сайта Azure]: /en-us/documentation/articles/web-sites-deploy/"
+  [Развертывание веб-сайта Azure]: /ru-ru/documentation/articles/web-sites-deploy/"
   [Полная автоматизация (создание реальных облачных приложений в Azure)]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything
   [Устранение неполадок веб-сайтов Azure в Visual Studio]: /en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/
   [Развертывание безопасного приложения ASP.NET MVC с членством, OAuth и базой данных SQL на веб-сайте Azure]: /en-us/develop/net/tutorials/web-site-with-sql-database/
-  [Настройка пользовательского имени домена для веб-сайта Azure]: /en-us/documentation/articles/web-sites-custom-domain-name/
-  [Включение HTTPS для веб-сайта Azure]: http://azure.microsoft.com/en-us/documentation/articles/web-sites-configure-ssl-certificate/
-  [Настройка веб-сайтов]: http://azure.microsoft.com/en-us/documentation/articles/web-sites-configure/
+  [Настройка пользовательского имени домена для веб-сайта Azure]: /ru-ru/documentation/articles/web-sites-custom-domain-name/
+  [Включение HTTPS для веб-сайта Azure]: http://azure.microsoft.com/ru-ru/documentation/articles/web-sites-configure-ssl-certificate/
+  [Настройка веб-сайтов]: http://azure.microsoft.com/ru-ru/documentation/articles/web-sites-configure/
   [ASP.NET SignalR]: http://www.asp.net/signalr
   [Использование SignalR с веб-сайтами Windows Azure]: http://www.asp.net/signalr/overview/signalr-20/getting-started-with-signalr-20/using-signalr-with-windows-azure-web-sites
   [Модели выполнения Azure]: /en-us/develop/net/fundamentals/compute/

@@ -42,12 +42,12 @@
 <td align="left"><p>200</p></td>
 </tr>
 <tr class="odd">
-<td align="left"><p><a href="http://azure.microsoft.com/en-us/documentation/articles/storage-whatis-account/">Учетные записи хранилища</a> на подписку</p></td>
+<td align="left"><p><a href="http://azure.microsoft.com/ru-ru/documentation/articles/storage-whatis-account/">Учетные записи хранилища</a> на подписку</p></td>
 <td align="left"><p>20</p></td>
 <td align="left"><p>50</p></td>
 </tr>
 <tr class="even">
-<td align="left"><p><a href="http://azure.microsoft.com/en-us/documentation/articles/cloud-services-what-is/">Облачные службы</a> на подписку</p></td>
+<td align="left"><p><a href="http://azure.microsoft.com/ru-ru/documentation/articles/cloud-services-what-is/">Облачные службы</a> на подписку</p></td>
 <td align="left"><p>20</p></td>
 <td align="left"><p>200</p></td>
 </tr>
@@ -105,7 +105,7 @@
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><p><a href="http://azure.microsoft.com/en-us/documentation/articles/cloud-services-what-is/">Веб- и рабочие роли на развертывание<sup>1</sup></a></p></td>
+<td align="left"><p><a href="http://azure.microsoft.com/ru-ru/documentation/articles/cloud-services-what-is/">Веб- и рабочие роли на развертывание<sup>1</sup></a></p></td>
 <td align="left"><p>25</p></td>
 <td align="left"><p>25</p></td>
 </tr>
@@ -146,7 +146,7 @@
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><p><a href="http://azure.microsoft.com/en-us/documentation/services/virtual-machines/">Виртуальные машины</a> на облачную службу<sup>1</sup></p></td>
+<td align="left"><p><a href="http://azure.microsoft.com/ru-ru/documentation/services/virtual-machines/">Виртуальные машины</a> на облачную службу<sup>1</sup></p></td>
 <td align="left"><p>50</p></td>
 <td align="left"><p>50</p></td>
 </tr>
@@ -289,15 +289,15 @@
   [службу поддержки]: http://azure.microsoft.com/en-us/support/faq/
   [подписку]: http://msdn.microsoft.com/en-us/library/azure/hh531793.aspx
   [Дополнительные администраторы]: http://msdn.microsoft.com/en-us/library/azure/gg456328.aspx
-  [Учетные записи хранилища]: http://azure.microsoft.com/en-us/documentation/articles/storage-whatis-account/
-  [Облачные службы]: http://azure.microsoft.com/en-us/documentation/articles/cloud-services-what-is/
+  [Учетные записи хранилища]: http://azure.microsoft.com/ru-ru/documentation/articles/storage-whatis-account/
+  [Облачные службы]: http://azure.microsoft.com/ru-ru/documentation/articles/cloud-services-what-is/
   [Виртуальные сети]: http://msdn.microsoft.com/library/azure/jj156007.aspx
   [Локальные сети]: http://msdn.microsoft.com/en-us/library/jj157100.aspx
   [Территориальные группы]: http://msdn.microsoft.com/en-us/library/azure/jj156085.aspx
   [Входные конечные точки экземпляра]: http://msdn.microsoft.com/en-us/library/gg557552.aspx#InstanceInputEndpoint
   [Входные конечные точки]: http://msdn.microsoft.com/en-us/library/gg557552.aspx#InputEndpoint
   [Внутренние конечные точки]: http://msdn.microsoft.com/en-us/library/gg557552.aspx#InternalEndpoint
-  [Виртуальные машины]: http://azure.microsoft.com/en-us/documentation/services/virtual-machines/
+  [Виртуальные машины]: http://azure.microsoft.com/ru-ru/documentation/services/virtual-machines/
   [виртуальный сетевой шлюз]: http://msdn.microsoft.com/en-us/library/azure/jj156210.aspx
   [Цели масштабирования и производительности хранилища Azure]: http://msdn.microsoft.com/library/azure/dn249410.aspx
   [Уровни службы базы данных SQL Azure (выпуски)]: http://msdn.microsoft.com/en-us/library/azure/dn741340.aspx

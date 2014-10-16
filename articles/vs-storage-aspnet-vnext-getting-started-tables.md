@@ -6,7 +6,7 @@
 
 # Начало работы с хранилищем Azure
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/vs-storage-aspnet-vnext-getting-started-blobs" title="Большие двоичные объекты" class="current">Большие двоичные объекты</a><a href="/en-us/documentation/articles/vs-storage-aspnet-vnext-getting-started-queues" title="Очереди">Очереди</a><a href="/en-us/documentation/articles/vs-storage-aspnet-vnext-getting-started-tables" title="Таблицы">Таблицы</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/ru-ru/documentation/articles/vs-storage-aspnet-vnext-getting-started-blobs" title="Большие двоичные объекты" class="current">Большие двоичные объекты</a><a href="/ru-ru/documentation/articles/vs-storage-aspnet-vnext-getting-started-queues" title="Очереди">Очереди</a><a href="/ru-ru/documentation/articles/vs-storage-aspnet-vnext-getting-started-tables" title="Таблицы">Таблицы</a></div>
 
 В службе хранилища таблиц Azure хранятся большие объемы структурированных данных. Эта служба — хранилище данных NoSQL, которое принимает вызовы внутри и снаружи облака Azure с проверкой подлинности. Таблицы Azure идеально подходят для хранения нереляционных структурированных данных. Дополнительные сведения см. в статье [Как использовать хранилище таблиц из .NET][Как использовать хранилище таблиц из .NET].
 
@@ -33,8 +33,8 @@
 [WACOM.INCLUDE [vs-storage-getting-started-tables-include][vs-storage-getting-started-tables-include]]
 
   [vs-storage-aspnet-vnext-getting-started-intro]: ../includes/vs-storage-aspnet-vnext-getting-started-intro.md
-  [Большие двоичные объекты]: /en-us/documentation/articles/vs-storage-aspnet-vnext-getting-started-blobs "Большие двоичные объекты"
-  [Очереди]: /en-us/documentation/articles/vs-storage-aspnet-vnext-getting-started-queues "Очереди"
-  [Таблицы]: /en-us/documentation/articles/vs-storage-aspnet-vnext-getting-started-tables "Таблицы"
-  [Как использовать хранилище таблиц из .NET]: http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-tables/#create-table "Как использовать хранилище таблиц из .NET"
+  [Большие двоичные объекты]: /ru-ru/documentation/articles/vs-storage-aspnet-vnext-getting-started-blobs "Большие двоичные объекты"
+  [Очереди]: /ru-ru/documentation/articles/vs-storage-aspnet-vnext-getting-started-queues "Очереди"
+  [Таблицы]: /ru-ru/documentation/articles/vs-storage-aspnet-vnext-getting-started-tables "Таблицы"
+  [Как использовать хранилище таблиц из .NET]: http://azure.microsoft.com/ru-ru/documentation/articles/storage-dotnet-how-to-use-tables/#create-table "Как использовать хранилище таблиц из .NET"
   [vs-storage-getting-started-tables-include]: ../includes/vs-storage-getting-started-tables-include.md

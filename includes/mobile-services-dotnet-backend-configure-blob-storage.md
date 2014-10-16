@@ -136,7 +136,7 @@
 <!-- URLs. -->
 
   []: ./media/mobile-services-configure-blob-storage/mobile-add-storage-nuget-package-dotnet.png
-  [Как использовать Code First Migrations для обновления модели данных]: /en-us/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations
+  [Как использовать Code First Migrations для обновления модели данных]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations
   [Создание учетной записи хранения]: /en-us/manage/services/storage/how-to-create-a-storage-account
   [1]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-account.png
   [2]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-account-keys.png

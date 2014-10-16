@@ -416,10 +416,10 @@ ACL реализуется с помощью массива политик до�
   [Практическое руководство. Работа с подписями общего доступа]: #sas
   [руководство-таблица-хранилище]: ../includes/howto-table-storage.md
   [создание-хранилище-учетная запись]: ../includes/create-storage-account.md
-  [Создание и развертывание приложения Node.js на веб-сайте Azure]: /en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/
-  [Облачная служба Node.js]: /en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/
-  [Веб-сайт с WebMatrix]: /en-us/documentation/articles/web-sites-nodejs-use-webmatrix/
-  [Веб-приложение Node.js с хранилищем]: /en-us/documentation/articles/storage-nodejs-use-table-storage-web-site/
+  [Создание и развертывание приложения Node.js на веб-сайте Azure]: /ru-ru/documentation/articles/web-sites-nodejs-develop-deploy-mac/
+  [Облачная служба Node.js]: /ru-ru/documentation/articles/cloud-services-nodejs-develop-deploy-app/
+  [Веб-сайт с WebMatrix]: /ru-ru/documentation/articles/web-sites-nodejs-use-webmatrix/
+  [Веб-приложение Node.js с хранилищем]: /ru-ru/documentation/articles/storage-nodejs-use-table-storage-web-site/
   [Общие сведения о модели данных службы таблиц]: http://msdn.microsoft.com/library/azure/dd179338.aspx
   [ETag]: http://en.wikipedia.org/wiki/HTTP_ETag
   [Хранение данных и доступ к ним в Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx

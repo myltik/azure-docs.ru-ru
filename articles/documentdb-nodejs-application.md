@@ -506,7 +506,7 @@ DocumentDB.
   [Git]: http://git-scm.com/
   [Visual Studio 2013]: http://msdn.microsoft.com/en-us/vstudio/cc136611.aspx
   [Средства Node.js для Visual Studio]: https://nodejstools.codeplex.com/
-  [средства командной строки]: http://azure.microsoft.com/en-us/documentation/articles/xplat-cli/
+  [средства командной строки]: http://azure.microsoft.com/ru-ru/documentation/articles/xplat-cli/
   [портал управления Azure]: http://portal.azure.com
   [1]: ./media/documentdb-nodejs-application/image2.png
   [2]: ./media/documentdb-nodejs-application/image3.png

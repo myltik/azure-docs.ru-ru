@@ -547,7 +547,7 @@ HDInsight использует контейнер хранилища BLOB-объ
 -   [Отправка заданий Hadoop программными средствами][]
 -   [Документация по пакету Azure HDInsight SDK][]
 
-  [Подготовка кластера HBase в HDInsight]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-get-started/
+  [Подготовка кластера HBase в HDInsight]: http://azure.microsoft.com/ru-ru/documentation/articles/hdinsight-hbase-get-started/
   [В чем разница между Hadoop и HBase?]: http://go.microsoft.com/fwlink/?LinkId=510237
   [Apache Hadoop]: http://go.microsoft.com/fwlink/?LinkId=510084
   [Введение для Hadoop в HDInsight]: ../hdinsight-introduction/

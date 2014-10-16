@@ -134,7 +134,7 @@ Docker и контейнеры Linux не являются [гипервизор
 
   [Docker]: https://www.docker.com/
   [контейнеры Linux]: http://en.wikipedia.org/wiki/LXC
-  [агенте Linux для Azure]: http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-agent-user-guide/
+  [агенте Linux для Azure]: http://azure.microsoft.com/ru-ru/documentation/articles/virtual-machines-linux-agent-user-guide/
   [объявлением в блоге MS Open Tech]: http://msopentech.com/blog/2014/08/15/getting_started_docker_on_microsoft_azure/
   [Расширение Docker и контейнеры Linux]: #Docker-and-Linux-Containers
   [Использование расширения виртуальных машин Docker в Azure]: #How-to-use-the-Docker-VM-Extension-with-Azure
@@ -149,11 +149,11 @@ Docker и контейнеры Linux не являются [гипервизор
   [AppArmor]: http://wiki.apparmor.net/index.php/Main_Page
   [azure-cli]: https://github.com/Azure/azure-sdk-tools-xplat
   [Boot2Docker]: https://docs.docker.com/installation/windows/
-  [здесь]: http://azure.microsoft.com/en-us/documentation/articles/xplat-cli/#install
+  [здесь]: http://azure.microsoft.com/ru-ru/documentation/articles/xplat-cli/#install
   [диспетчер пакетов Node (NPM)]: http://en.wikipedia.org/wiki/Npm_%28software%29
   [1]: https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-an-ubuntu-14-04-server
   [пакетом установки для Mac]: http://go.microsoft.com/fwlink/?linkid=252249&clcid=0x409
-  [Подключение к подписке Azure]: http://azure.microsoft.com/en-us/documentation/articles/xplat-cli/#configure
+  [Подключение к подписке Azure]: http://azure.microsoft.com/ru-ru/documentation/articles/xplat-cli/#configure
   [инструкции по установке Docker]: https://docs.docker.com/installation/#installation
   [!@\#$%^&+=]: mailto:!@#$%^&+=
   []: ./media/virtual-machines-docker/dockercreateresults.png

@@ -303,7 +303,7 @@
   [Настройка кэша]: #enable-caching
   [Новый кэш]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-new-cache-menu.png
   [1]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-cache-create.png
-  [Использование групп ресурсов для управления ресурсами Azure]: http://azure.microsoft.com/en-us/documentation/articles/azure-preview-portal-using-resource-groups/
+  [Использование групп ресурсов для управления ресурсами Azure]: http://azure.microsoft.com/ru-ru/documentation/articles/azure-preview-portal-using-resource-groups/
   [Кэш создан]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-cache-created.png
   [Лезвие "Обзор"]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-browse-caches.png
   [Кэши]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-caches.png

@@ -55,6 +55,6 @@
   [Операции с территориальными группами]: http://msdn.microsoft.com/en-us/library/windowsazure/ee460798.aspx
   [хранение-репликация-параметры]: ../includes/storage-replication-options.md
   [StoragePage]: ./media/storage-create-storage-account/Storage_StoragePage.png
-  [azure.com]: http://azure.microsoft.com/en-us/documentation/services/storage/
+  [azure.com]: http://azure.microsoft.com/ru-ru/documentation/services/storage/
   [MSDN]: http://msdn.microsoft.com/en-us/library/gg433040.aspx
   [блог команды разработчиков хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/

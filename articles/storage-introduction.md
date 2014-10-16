@@ -178,7 +178,7 @@
   [бесплатную пробную версию]: /en-us/pricing/free-trial/
   [вариантов приобретения]: /en-us/pricing/purchase-options/
   [подписчиком MSDN]: /en-us/pricing/member-offers/msdn-benefits-details/
-  [службы импорта и экспорта Azure]: http://azure.microsoft.com/en-us/documentation/articles/storage-import-export-service/
+  [службы импорта и экспорта Azure]: http://azure.microsoft.com/ru-ru/documentation/articles/storage-import-export-service/
   [подпись общего доступа]: ../storage-dotnet-shared-access-signature-part-1/
   [хранение-репликация-параметры]: ../includes/storage-replication-options.md
   [Сведения о ценах на хранилище]: /en-us/pricing/details/storage/
@@ -193,7 +193,7 @@
   [Ruby]: /en-us/develop/ruby/
   [Python]: /en-us/develop/python/
   [PowerShell]: http://msdn.microsoft.com/library/dn495240.aspx
-  [Хранилище Azure — документация]: /en-us/documentation/services/storage/
+  [Хранилище Azure — документация]: /ru-ru/documentation/services/storage/
   [Использование хранилища BLOB-объектов из .NET]: ../storage-dotnet-how-to-use-blobs/
   [Использование табличного хранилища из .NET]: ../storage-dotnet-how-to-use-tables/
   [Использование хранилища очередей из .NET]: ../storage-dotnet-how-to-use-queues/

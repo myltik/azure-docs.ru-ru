@@ -377,9 +377,9 @@ ACL реализуется с помощью массива политик до�
   [руководство-блоб-объект-хранилище]: ../includes/howto-blob-storage.md
   [создание-хранилище-учетная запись]: ../includes/create-storage-account.md
   [Создание и развертывание приложения Node.js на веб-сайте Azure]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
-  [Облачная служба Node.js]: /en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/
-  [Веб-сайт с WebMatrix]: /en-us/documentation/articles/web-sites-nodejs-use-webmatrix/
-  [Веб-приложение Node.js с хранилищем]: /en-us/documentation/articles/storage-nodejs-use-table-storage-web-site/
+  [Облачная служба Node.js]: /ru-ru/documentation/articles/cloud-services-nodejs-develop-deploy-app/
+  [Веб-сайт с WebMatrix]: /ru-ru/documentation/articles/web-sites-nodejs-use-webmatrix/
+  [Веб-приложение Node.js с хранилищем]: /ru-ru/documentation/articles/storage-nodejs-use-table-storage-web-site/
   [ETag]: http://en.wikipedia.org/wiki/HTTP_ETag
   [Что такое BLOB-блоки и BLOB-страницы]: http://msdn.microsoft.com/en-us/library/azure/ee691964.aspx
   [Хранение данных и доступ к ним в Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx

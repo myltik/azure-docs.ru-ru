@@ -76,7 +76,7 @@
   [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
   [Создание универсальных приложений Windows для Windows и Windows Phone]: http://msdn.microsoft.com/en-us/library/windows/apps/xaml/dn609832.aspx
   [Краткое руководство: Добавление мобильной службы (серверная часть JavaScript)]: http://msdn.microsoft.com/en-us/library/windows/apps/xaml/dn263180.aspx
-  [Приступая к работе с данными для Windows Phone]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-data
+  [Приступая к работе с данными для Windows Phone]: /ru-ru/documentation/articles/mobile-services-windows-phone-get-started-data
   [mobile-services-windows-universal-get-started]: ../includes/mobile-services-windows-universal-get-started.md
   [Бесплатная пробная версия Azure]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-store-javascript-get-started%2F
   [Visual Studio 2013 Express для Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
@@ -84,7 +84,7 @@
   []: ./media/mobile-services-javascript-backend-windows-store-dotnet-get-started/mobile-portal-quickstart.png
   [1]: ./media/mobile-services-javascript-backend-windows-store-dotnet-get-started/mobile-quickstart-steps.png
   [mobile-services-javascript-backend-run-app]: ../includes/mobile-services-javascript-backend-run-app.md
-  [Приступая к работе с данными]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-data
-  [Приступая к работе с аутентификацией]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-users
-  [Приступая к работе с push-уведомлениями]: /en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push
-  [Поддержка нескольких клиентов из одной мобильной службы]: /en-us/documentation/articles/mobile-services-how-to-use-multiple-clients-single-service#shared-vs
+  [Приступая к работе с данными]: /ru-ru/documentation/articles/mobile-services-windows-store-dotnet-get-started-data
+  [Приступая к работе с аутентификацией]: /ru-ru/documentation/articles/mobile-services-windows-store-dotnet-get-started-users
+  [Приступая к работе с push-уведомлениями]: /ru-ru/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push
+  [Поддержка нескольких клиентов из одной мобильной службы]: /ru-ru/documentation/articles/mobile-services-how-to-use-multiple-clients-single-service#shared-vs

@@ -85,9 +85,9 @@
 <!-- Images. -->
 <!-- URLs. -->
 
-  [Начало работы с push-уведомлениями]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/
-  [Использование концентраторов уведомлений из Java/PHP]: /en-us/documentation/articles/notification-hubs-java-backend-how-to/
+  [Начало работы с push-уведомлениями]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/
+  [Использование концентраторов уведомлений из Java/PHP]: /ru-ru/documentation/articles/notification-hubs-java-backend-how-to/
   [интерфейса REST концентраторов уведомлений]: http://msdn.microsoft.com/en-us/library/windowsazure/dn223264.aspx
-  [Приступая к работе с концентраторами уведомлений]: /en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+  [Приступая к работе с концентраторами уведомлений]: /ru-ru/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
   []: ./media/notification-hubs-back-end/notification-hub-create-console-app.png
   [пакета NuGet WindowsAzure.ServiceBus]: http://nuget.org/packages/WindowsAzure.ServiceBus/

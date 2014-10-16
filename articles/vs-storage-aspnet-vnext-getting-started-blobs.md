@@ -6,7 +6,7 @@
 
 ### Начало работы с хранилищем Azure
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/vs-storage-aspnet-vnext-getting-started-blobs" title="Большие двоичные объекты" class="current">Большие двоичные объекты</a><a href="/en-us/documentation/articles/vs-storage-aspnet-vnext-getting-started-queues" title="Очереди">Очереди</a><a href="/en-us/documentation/articles/vs-storage-aspnet-vnext-getting-started-tables" title="Таблицы">Таблицы</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/ru-ru/documentation/articles/vs-storage-aspnet-vnext-getting-started-blobs" title="Большие двоичные объекты" class="current">Большие двоичные объекты</a><a href="/ru-ru/documentation/articles/vs-storage-aspnet-vnext-getting-started-queues" title="Очереди">Очереди</a><a href="/ru-ru/documentation/articles/vs-storage-aspnet-vnext-getting-started-tables" title="Таблицы">Таблицы</a></div>
 
 Хранилище больших двоичных объектов Azure — это служба хранения большого количества неструктурированных данных, к которым можно получить доступ практически из любой точки мира по протоколу HTTP или HTTPS. Один большой двоичный объект может быть любого размера. Большими двоичными объектами могут быть изображения, аудио- и видеофайлы, необработанные данные и файлы документов.
 
@@ -35,8 +35,8 @@
 [WACOM.INCLUDE [vs-storage-getting-started-blobs-include][vs-storage-getting-started-blobs-include]]
 
   [vs-storage-aspnet-vnext-getting-started-intro]: ../includes/vs-storage-aspnet-vnext-getting-started-intro.md
-  [Большие двоичные объекты]: /en-us/documentation/articles/vs-storage-aspnet-vnext-getting-started-blobs "Большие двоичные объекты"
-  [Очереди]: /en-us/documentation/articles/vs-storage-aspnet-vnext-getting-started-queues "Очереди"
-  [Таблицы]: /en-us/documentation/articles/vs-storage-aspnet-vnext-getting-started-tables "Таблицы"
-  [Как использовать хранилище больших двоичных объектов из .NET]: http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-blobs/ "Как использовать хранилище больших двоичных объектов из .NET"
+  [Большие двоичные объекты]: /ru-ru/documentation/articles/vs-storage-aspnet-vnext-getting-started-blobs "Большие двоичные объекты"
+  [Очереди]: /ru-ru/documentation/articles/vs-storage-aspnet-vnext-getting-started-queues "Очереди"
+  [Таблицы]: /ru-ru/documentation/articles/vs-storage-aspnet-vnext-getting-started-tables "Таблицы"
+  [Как использовать хранилище больших двоичных объектов из .NET]: http://azure.microsoft.com/ru-ru/documentation/articles/storage-dotnet-how-to-use-blobs/ "Как использовать хранилище больших двоичных объектов из .NET"
   [vs-storage-getting-started-blobs-include]: ../includes/vs-storage-getting-started-blobs-include.md

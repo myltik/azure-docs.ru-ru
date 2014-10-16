@@ -192,4 +192,4 @@
   [Модуль «Оценка модели»]: ./media/machine-learning-create-experiment/screen8a.png
   [Результаты оценки]: ./media/machine-learning-create-experiment/screen9.png
   [Завершенный эксперимент]: ./media/machine-learning-create-experiment/screen10.png
-  [Пошаговое руководство: Разработка прогнозного решения с помощью машинного обучения Azure]: http://azure.microsoft.com/en-us/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/
+  [Пошаговое руководство: Разработка прогнозного решения с помощью машинного обучения Azure]: http://azure.microsoft.com/ru-ru/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/

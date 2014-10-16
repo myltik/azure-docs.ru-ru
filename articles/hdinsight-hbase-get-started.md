@@ -198,7 +198,7 @@ Marlin представляет собой тонкую надстройку п�
   [Варианты приобретения]: http://azure.microsoft.com/en-us/pricing/purchase-options/
   [Предложения для участников]: http://azure.microsoft.com/en-us/pricing/member-offers/
   [Бесплатное пробное использование]: http://azure.microsoft.com/en-us/pricing/free-trial/
-  [Создание учетной записи хранения]: http://azure.microsoft.com/en-us/documentation/articles/storage-create-storage-account/
+  [Создание учетной записи хранения]: http://azure.microsoft.com/ru-ru/documentation/articles/storage-create-storage-account/
   [Подготовка кластера HBase на портале Azure]: #create-hbase-cluster
   [Создание примера таблицы HBase в оболочке HBase]: #create-sample-table
   [Использование Hive для формирования запросов к таблице HBase]: #hive-query

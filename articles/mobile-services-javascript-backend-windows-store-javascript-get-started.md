@@ -78,7 +78,7 @@
   []: ./media/mobile-services-javascript-backend-windows-store-javascript-get-started/mobile-portal-quickstart.png
   [1]: ./media/mobile-services-javascript-backend-windows-store-javascript-get-started/mobile-quickstart-steps.png
   [mobile-services-javascript-backend-run-app]: ../includes/mobile-services-javascript-backend-run-app.md
-  [Приступая к работе с данными]: /en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-data
-  [Приступая к работе с аутентификацией]: /en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-users
-  [Приступая к работе с push-уведомлениями]: /en-us/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push
-  [Поддержка нескольких клиентов из одной мобильной службы]: /en-us/documentation/articles/mobile-services-how-to-use-multiple-clients-single-service#shared-vs
+  [Приступая к работе с данными]: /ru-ru/documentation/articles/mobile-services-windows-store-javascript-get-started-data
+  [Приступая к работе с аутентификацией]: /ru-ru/documentation/articles/mobile-services-windows-store-javascript-get-started-users
+  [Приступая к работе с push-уведомлениями]: /ru-ru/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push
+  [Поддержка нескольких клиентов из одной мобильной службы]: /ru-ru/documentation/articles/mobile-services-how-to-use-multiple-clients-single-service#shared-vs

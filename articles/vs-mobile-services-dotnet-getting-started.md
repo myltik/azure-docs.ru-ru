@@ -67,4 +67,4 @@
 
     await todoTable.DeleteAsync(item);
 
-  [Начало работы с проверкой подлинности]: http://azure.microsoft.com/en-us/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users/
+  [Начало работы с проверкой подлинности]: http://azure.microsoft.com/ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users/

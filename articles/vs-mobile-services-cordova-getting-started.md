@@ -82,6 +82,6 @@
         items.splice(items.indexOf(todoItem), 1);
     });
 
-  [Начало работы с проверкой подлинности]: http://azure.microsoft.com/en-us/documentation/articles/mobile-services-html-get-started-users/
+  [Начало работы с проверкой подлинности]: http://azure.microsoft.com/ru-ru/documentation/articles/mobile-services-html-get-started-users/
   [done]: 
   [query]: (http://msdn.microsoft.com/library/azure/jj613353.aspx)
