@@ -1,330 +1,253 @@
-<properties linkid="develop-mobile-tutorials-get-started-with-data-html" urlDisplayName="Приступая к работе с данными (HTML5)" pageTitle="Приступая к работе с данными (HTML5) | Центр разработчиков для мобильных служб" metaKeywords="" description="Сведения о том, как приступить к работе с помощью мобильных служб для более эффективного использования данных в вашем HTML-приложении." metaCanonical="" services="" documentationCenter="Mobile" title="Приступая к работе с данными в мобильных службах" authors="glenga" solutions="" manager="" editor="" />
+<properties linkid="develop-mobile-tutorials-get-started-with-data-html" urlDisplayName="Get Started with Data (HTML5)" pageTitle="Get started with data (HTML 5) | Mobile Dev Center" metaKeywords="" description="Learn how to get started using Mobile Services to leverage data in your HTML app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
 
-
-
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="09/24/2014" ms.author="glenga"></tags>
 
 # Приступая к работе с данными в мобильных службах
-<div class="dev-center-tutorial-selector sublanding"> 
-	<a href="/ru-ru/develop/mobile/tutorials/get-started-with-data-dotnet" title="Магазин Windows C#">Магазин Windows C#</a><a href="/ru-ru/develop/mobile/tutorials/get-started-with-data-js" title="Магазин Windows JavaScript">Магазин Windows JavaScript</a><a href="/ru-ru/develop/mobile/tutorials/get-started-with-data-wp8" title="Windows Phone">Windows Phone</a><a href="/ru-ru/develop/mobile/tutorials/get-started-with-data-ios" title="iOS">iOS</a><a href="/ru-ru/develop/mobile/tutorials/get-started-with-data-android" title="Android">Android</a><a href="/ru-ru/develop/mobile/tutorials/get-started-with-data-html" title="HTML" class="current">HTML</a><a href="/ru-ru/develop/mobile/tutorials/get-started-with-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/ru-ru/develop/mobile/tutorials/get-started-with-data-xamarin-android" title="Xamarin.Android">Xamarin.Android</a> 
-</div>	
 
+[WACOM.INCLUDE [mobile-services-selector-get-started-data][mobile-services-selector-get-started-data]]
 
-<p>В этом разделе показано, как использовать мобильные службы Azure для эффективного использования данных в HTML-приложении. В этом учебнике предстоит загрузить проект для приложения, которое хранит данные в памяти, создать новые услуги мобильной связи, интегрировать мобильную службу с приложением, а затем выполнить вход на портал управления Azure для просмотра изменений, внесенных в данные в ходе выполнения приложения.</p>
+В этом разделе показано, как с помощью мобильных служб Azure эффективно использовать данные в приложении на HTML. В этом учебнике предстоит загрузить проект для приложения, которое хранит данные в памяти, создать новые услуги мобильной связи, интегрировать мобильную службу с приложением, а затем выполнить вход на портал управления Azure для просмотра изменений, внесенных в данные в ходе выполнения приложения.
 
-
-<div class="dev-callout"><b>Примечание.</b>
-<p>Этот учебник поможет вам лучше понять, как с помощью мобильных службы можно использовать Azure для хранения и извлечения данных из HTML-приложения. Так в этом разделе рассматриваются многие действия, которые выполняются в кратком руководстве по использованию мобильных служб. Если это ваш первый опыт работы с мобильными службами, сначала ознакомьтесь с учебником <a href="/ru-ru/develop/mobile/tutorials/get-started-html">Приступая к работе с мобильными службами</a>.</p>
-</div>
+> [WACOM.NOTE]Этот учебник поможет вам лучше понять, как с помощью мобильных служб можно использовать Azure для хранения и извлечения данных из приложения на HTML. В этом разделе рассматриваются многие действия, которые выполняются в кратком руководстве по использованию мобильных служб. Если это ваш первый опыт работы с мобильными службами, сначала ознакомьтесь с учебником [Приступая к работе с мобильными службами][Приступая к работе с мобильными службами].
 
 В этом учебнике рассматриваются следующие основные действия:
 
-1. [Загрузка проекта HTML-приложения]
-2. [Создание мобильной службы]
-3. [Добавление таблицы для хранения данных]
-4. [Обновление приложения для использования мобильных служб]
-5. [Тестирование работы приложения с мобильными службами]
+1.  [Загрузка проекта HTML-приложения][Загрузка проекта HTML-приложения]
+2.  [Создание мобильной службы][Создание мобильной службы]
+3.  [Добавление таблицы для хранения данных][Добавление таблицы для хранения данных]
+4.  [Обновление приложения для использования мобильных служб][Обновление приложения для использования мобильных служб]
+5.  [Тестирование работы приложения с мобильными службами][Тестирование работы приложения с мобильными службами]
 
-<div class="dev-callout"><strong>Примечание.</strong> <p>Для работы с этим учебником необходима учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://www.windowsazure.com/ru-ru/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fru-ru%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-html%2F" target="_blank">Бесплатная пробная версия Azure</a>.</p></div> 
+<div class="dev-callout"><strong>Примечание.</strong> <p>Для работы с этим учебником требуется учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://www.windowsazure.com/ru-ru/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fru-ru%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-html%2F" target="_blank">Бесплатная пробная версия Azure</a>.</p></div>
 
-###Дополнительные требования
+### Дополнительные требования
 
-Приложение GetStartedWithData можно разместить на любом веб-сервере. Тем не менее, для вашего удобства предоставлены скрипты, которые позволяют запускать приложение по адресу `http://localhost: 8000`.
- 
-+ Для использования localhost в этом учебнике требуется наличие одного из следующих веб-серверов, запущенных на локальном компьютере:
+Приложение GetStartedWithData можно разместить на любом веб-сервере. Тем не менее, для удобства представлены сценарии, которые позволяют запускать приложение по адресу `http://localhost:8000`.
 
-	+  **В Windows**: IIS Express. IIS Express устанавливается [программой установки веб-платформы Майкрософт].   
-	+  **В MacOS X**: Python, который уже должен быть установлен.
-	+  **В системе Linux**: Python. Необходимо установить [последнюю версию Python]. 
-	
-	Можно использовать любой веб-сервер для размещения приложения, однако ниже приведены веб-серверы, которые поддерживаются доступными для загрузки сценариями.  
+-   Чтобы использовать localhost, в этом учебнике требуется наличие одного из следующих веб-серверов, запущенных на локальном компьютере:
 
-+ Веб-браузер, который поддерживает HTML5.
+    -   **В Windows**: IIS Express. IIS Express устанавливается [установщиком веб-платформы Майкрософт].
+    -   **В MacOS X**: Python, который уже должен быть установлен.
+    -   **В Linux**: Python. Необходимо установить [последнюю версию Python].
 
-<h2><a name="download-app"></a><span class="short-header">Загрузка проекта</span>Загрузка проекта GetStartedWithData</h2>
+    Можно использовать любой веб-сервер для размещения приложения, однако ниже приведены веб-серверы, которые поддерживаются доступными для загрузки сценариями.
 
-Этот учебник основан на HTML5-[приложении GetStartedWithData]. Пользовательский интерфейс приложения совпадает с интерфейсом приложения, созданного кратким руководством по мобильным службам. Отличие заключается в том, что добавленные элементы хранятся локально в памяти. 
+-   Браузер, который поддерживает HTML5.
 
-1. [Загрузите файлы проекта HTML-приложения][приложении GetStartedWithData].
+## <a name="download-app"></a><span class="short-header">Загрузка проекта</span>Загрузка проекта GetStartedWithData
 
-2. В HTML-редакторе откройте загруженный проект и просмотрите файл app.js.
+Этот учебник основан на [HTML5-приложении GetStartedWithData][HTML5-приложении GetStartedWithData]. Пользовательский интерфейс для этого приложения совпадает с интерфейсом приложения, созданного в кратком руководстве по использованию мобильных служб. Отличие заключается в том, что добавленные элементы хранятся локально в памяти.
 
-   	Обратите внимание, что элементы хранятся в памяти в объекте **Array** (**staticItems**). Обновите страницу, после чего данные исчезнут. Они не сохраняются.
+1.  [Загрузите файлы проекта HTML-приложения][HTML5-приложении GetStartedWithData].
 
-3. Запустите один из следующих командных файлов во вложенной папке **server**.
+2.  В редакторе HTML откройте скачанный проект и просмотрите файл app.js.
 
-	+ **launch-windows** (Компьютеры Windows) 
-	+ **launch-mac.command** (Компьютеры Mac OS X)
-	+ **launch-linux.sh** (Компьютеры Linux)
+    Обратите внимание, что элементы хранятся в памяти в объекте **Array** (**staticItems**). Обновите страницу, после чего данные исчезнут. Они не сохраняются.
 
-	<div class="dev-callout"><b>Примечание.</b>
-		<p>На компьютере Windows нажмите клавишу `R`, когда в PowerShell появится запрос на запуск скрипта. Веб-браузер может предупредить о том, что не следует запускать этот сценарий, так как он был загружен из Интернета. В этом случае необходимо указать, что браузеру следует продолжить загрузку сценария.</p>
-	</div>
-	
-	Это приведет к запуску веб-сервера на локальном компьютере, где и будет размещено новое приложение.
+3.  Запустите один из следующих командных файлов во вложенной папке **server**.
 
-4. Откройте URL-адрес <a href="http://localhost:8000/" target="_blank">http://localhost: 8000/</a> в веб-браузере, чтобы запустить приложение.
+    -   **launch-windows** (компьютеры с ОС Windows)
+    -   **launch-mac.command** (компьютеры с ОС Mac OS X)
+    -   **launch-linux.sh** (компьютеры с ОС Linux)
 
-5. В разделе **Введите новую задачу** введите содержательный текст в приложении, например _Complete the tutorial_, и нажмите кнопку **Добавить**.
+    <div class="dev-callout"><b>Примечание.</b>
+    <p>На компьютере с операционной системой Windows в ответ на запрос PowerShell на запуск сценария нажмите клавишу R. Веб-браузер может предупредить о том, что не следует запускать этот сценарий, так как он был загружен из Интернета. В этом случае необходимо указать, что браузеру следует продолжить загрузку сценария.</p>
+</div>
 
-   	![][0]  
+    Это приведет к запуску веб-сервера на локальном компьютере, где и будет размещено новое приложение.
 
-   	Обратите внимание, что сохраненный текст добавляется в массив **staticItems**, а страница обновляется для отображения нового элемента.
+4.  Откройте URL-адрес [http://localhost: 8000/][http://localhost: 8000/] в веб-браузере, чтобы запустить приложение.
 
-<h2><a name="create-service"></a><span class="short-header">Создание мобильной службы</span>Создание новой мобильной службы на портале управления</h2>
+5.  В приложении в поле **Введите новую задачу** введите осмысленный текст, например *Завершение работы с учебником*, и нажмите кнопку **Добавить**.
 
-[WACOM.INCLUDE [mobile-services-create-new-service-data](../includes/mobile-services-create-new-service-data.md)]
+    ![][]
 
-<h2><a name="add-table"></a><span class="short-header">Добавление новой таблицы</span>Добавление новой таблицы в мобильную службу</h2>
+    Обратите внимание, что сохраненный текст добавляется в массив **staticItems**, а страница обновляется для отображения нового элемента.
+
+## <a name="create-service"></a><span class="short-header">Создание мобильной службы</span>Создание новой мобильной службы на портале управления
+
+[WACOM.INCLUDE [mobile-services-create-new-service-data][mobile-services-create-new-service-data]]
+
+## <a name="add-table"></a><span class="short-header">Добавление новой таблицы</span>Добавление новой таблицы в мобильную службу
 
 Чтобы иметь возможность сохранять данные приложения в новой мобильной службе, необходимо сначала создать новую таблицу в соответствующем экземпляре базы данных SQL.
 
-1. На портале управления щелкните **Мобильные службы**, а затем выберите только что созданную мобильную службу.
+1.  В портале управления нажмите **Мобильные службы**, затем нажмите только что созданную мобильную службу.
 
-2. Щелкните вкладку **Данные**, а затем нажмите **+Создать**.
+2.  Нажмите вкладку **Данные**, а затем нажмите **+Создать**.
 
-   	![][5]
+    ![][1]
 
-   	Откроется диалоговое окно **Создание новой таблицы**.
+    Откроется диалоговое окно **Создание новой таблицы**.
 
-3. В поле **Имя таблицы** введите __TodoItem_, а затем нажмите кнопку "Проверить".
+3.  В поле **Имя таблицы** введите *TodoItem* и нажмите кнопку проверки.
 
-  	![][6]
+    ![][2]
 
-  	Это создает новую таблицу хранения данных **TodoItem** с установленными по умолчанию разрешениями. Это означает, что любой пользователь, имеющий ключ приложения, который входит в состав приложения, имеет доступ и может изменять данные в таблице.
+    Это создает новую таблицу хранения данных **TodoItem** с установленными по умолчанию разрешениями. Это означает, что любой пользователь, имеющий ключ приложения, который входит в состав приложения, имеет доступ и может изменять данные в таблице.
 
     <div class="dev-callout"> 
-	<b>Примечание</b> 
-	<p>То же имя таблицы используется при быстром запуске мобильных служб. Однако каждая таблица создается в схеме, которая относится к данной мобильной службе. Это необходимо для предотвращения конфликтов данных, когда несколько мобильных служб используют одну и ту же базу данных.</p> 
-	</div>
+<b>Примечание.</b> 
+<p>То же имя таблицы используется при быстром запуске мобильных служб. Однако каждая таблица создается в схеме, которая относится к данной мобильной службе. Это необходимо для предотвращения конфликтов данных, когда несколько мобильных служб используют одну и ту же базу данных.</p> 
+</div>
 
-4. Щелкните новую таблицу **TodoItem** и убедитесь, что в ней нет ни одной строки данных.
+4.  Нажмите новую таблицу **TodoItem** и убедитесь, что нет ни одной строки данных.
 
-5. Щелкните вкладку **Столбцы**. Убедитесь, что следующие столбцы по умолчанию автоматически создаются: 
-	
-	<table border="1" cellpadding="10">
- 	<tr>
- 	<th>Имя столбца</th>
- 	<th>Тип</th>
- 	<th>Индекс</th>
- 	</tr>
- 	<tr>
- 	<td>id</td>
- 	<td>string</td>
- 	<td>Индексировано</td>
- 	</tr>
- 	<tr>
- 	<td>__createdAt</td>
- 	<td>date</td>
- 	<td>Индексировано</td>
- 	</tr>
- 	<tr>
- 	<td>__updatedAt</td>
- 	<td>date</td>
- 	<td><font color="transparent">-</font></td>
- 	</tr>
- 	<tr>
- 	<td>__version</td>
- 	<td>timestamp (MSSQL)</td>
- 	<td><font color="transparent">-</font></td>
- 	</tr> 	
- 	</table> 
+5.  Нажмите вкладку **Столбцы**. Убедитесь, что следующие столбцы по умолчанию автоматически создаются:
 
-  	Это минимальные требования для таблицы в мобильных службах. 
+    | Имя столбца   | Тип                   | Индекс                             |
+    |---------------|-----------------------|------------------------------------|
+    | ид            | string                | Индексировано                      |
+    | \_\_createdAt | дата                  | Индексировано                      |
+    | \_\_updatedAt | дата                  | <font color="transparent">-</font> |
+    | \_\_version   | штамп времени (MSSQL) | <font color="transparent">-</font> |
+
+    Это минимальные требования для таблицы в мобильных службах.
 
     <div class="dev-callout"><b>Примечание.</b>
-	<p>Если в вашей мобильной службе появится динамическая схема, новые столбцы будут создаваться автоматически при отправлении объектов JSON в мобильную службу при операции вставки или обновления.</p>
-    </div>
+<p>Если в вашей мобильной службе появится динамическая схема, новые столбцы будут создаваться автоматически при отправлении объектов JSON в мобильную службу при операции вставки или обновления.</p>
+</div>
 
-6. На вкладке **Настройка** убедитесь, что в списке **Разрешить запросы от имен узлов** в разделе **Общий доступ к ресурсам независимо от источника (CORS)** уже имеется значение `localhost`. В противном случае введите `localhost` в поле **Имя узла**, затем нажмите кнопку **Сохранить**.
+6.  На вкладке **Настройка** убедитесь, что элемент `localhost` уже указан в списке **Разрешить запросы от имен узлов** в разделе **Общий доступ к ресурсам независимо от источника (CORS)**. Если он не указан, введите `localhost` в поле **Имя узла** и щелкните кнопку **Сохранить**.
 
-  	![][11]
+    ![][3]
 
-	<div class="dev-callout"><b>Примечание.</b>
-		<p>Если развернуть приложение quickstart на веб-сервере, отличном от localhost, необходимо добавить имя узла веб-сервера в список <strong>Разрешить запросы имен узлов</strong>. Дополнительные сведения см. в разделе <a href="http://msdn.microsoft.com/ru-ru/library/windowsazure/dn155871.aspx" target="_blank">Общий доступ к ресурсам независимо от источника</a>.</p>
-	</div>
+    <div class="dev-callout"><b>Примечание.</b>
+    <p>Если развернуть приложение быстрого запуска на веб-сервере, отличном от localhost, необходимо добавить имя узла веб-сервера в список <strong>Разрешить запросы имен узлов</strong>. Дополнительную информацию см. в разделе <a href="http://msdn.microsoft.com/ru-ru/library/windowsazure/dn155871.aspx" target="_blank">Общий доступ к ресурсам независимо от источника</a>.</p>
+</div>
 
 Теперь вы готовы использовать новую мобильную службу как хранилище данных для приложения.
 
-<h2><a name="update-app"></a><span class="short-header">Обновление приложения</span>Обновление приложения для использования мобильной службы для доступа к данным</h2>
+## <a name="update-app"></a><span class="short-header">Обновление приложения</span>Обновление приложения для использования мобильной службы для доступа к данным
 
-После настройки мобильной службы вы можете обновить приложение, чтобы хранить элементы в мобильных службах, а не в локальной коллекции. 
+После настройки мобильной службы вы можете обновить приложение, чтобы хранить элементы в мобильных службах, а не в локальной коллекции.
 
-3. На портале управления щелкните **Мобильные службы** и выберите только что созданную мобильную службу.
+1.  На портале управления щелкните **Мобильные службы** и выберите только что созданную мобильную службу.
 
-4. Щелкните вкладку **Панель мониторинга** и запишите **URL-адрес сайта**. Нажмите кнопку **Управление ключами** и запишите **ключ приложения**.
+2.  Щелкните вкладку **Панель мониторинга** и запишите **URL-адрес** сайта, затем щелкните **Управление ключами** и запишите **Ключ приложения**.
 
-   	![][8]
+    ![][4]
 
-  	Эти значения потребуются при обращении к мобильной службе из кода приложения.
+    Эти значения потребуются при обращении к мобильной службе из кода приложения.
 
-1. В веб-редакторе откройте файл проекта index.html и добавьте следующую строку в ссылки на скрипты на странице:
+3.  В редакторе веб-страниц откройте файл проекта index.html и добавьте следующую строку в ссылки сценария для страницы:
 
         <script src='http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.1.2.min.js'></script>
 
-5. В редакторе откройте файл app.js, раскомментируйте следующий код, который определяет переменную **MobileServiceClient** и укажите URL-адрес и ключ приложения мобильной службы в конструкторе **MobileServiceClient** в указанном порядке:
+4.  В редакторе откройте файл app.js, раскомментируйте следующий код, который определяет переменную **MobileServiceClient**, и укажите URL-адрес и ключ приложения мобильной службы в конструкторе **MobileServiceClient** в указанном порядке:
 
-	    var MobileServiceClient = WindowsAzure.MobileServiceClient,
-			client = new MobileServiceClient('AppUrl', 'AppKey'),   		    
+        var MobileServiceClient = WindowsAzure.MobileServiceClient,
+            client = new MobileServiceClient('AppUrl', 'AppKey'),               
 
-  	Код создает экземпляр MobileServiceClient, используемый для доступа к мобильной службе.
+    Код создает экземпляр MobileServiceClient, используемый для доступа к мобильной службе.
 
-6. Закомментируйте следующие строки кода:
+5.  Закомментируйте следующие строки кода:
 
-		var itemCount = 0;
-		var staticItems = [];
+        var itemCount = 0;
+        var staticItems = [];
 
-	Данные будут храниться в мобильной службе, а не в массиве в памяти.
+    Данные будут храниться в мобильной службе, а не в массиве в памяти.
 
-6. Раскомментируйте следующую строку кода:
+6.  Раскомментируйте следующую строку кода:
 
         todoItemTable = client.getTable('todoitem');
 
-   	Этот код создает прокси-объект (**todoItemTable**) для базы данных SQL **TodoItem**. 
+    Этот код создает прокси-объект (**todoItemTable**) для базы данных SQL **TodoItem**.
 
-7. Замените обработчик событий **$('#add-item').submit** следующим кодом:
+7.  Замените обработчик событий **$('\#add-item').submit** следующим кодом:
 
-		$('#add-item').submit(function(evt) {
-			var textbox = $('#new-item-text'),
-				itemText = textbox.val();
-			if (itemText !== '') {
-				todoItemTable.insert({ text: itemText, complete: false })
-					.then(refreshTodoItems);
-			}
-			textbox.val('').focus();
-			evt.preventDefault();
-		});
+        $('#add-item').submit(function(evt) {
+            var textbox = $('#new-item-text'),
+                itemText = textbox.val();
+            if (itemText !== '') {
+                todoItemTable.insert({ text: itemText, complete: false })
+                    .then(refreshTodoItems);
+            }
+            textbox.val('').focus();
+            evt.preventDefault();
+        });
 
+    Этот код вставляет новый элемент в таблицу.
 
-  	Этот код вставляет новый элемент в таблицу.
+8.  Замените метод **refreshTodoItems** следующим кодом:
 
-8. Замените метод **refreshTodoItems** следующим кодом:
-
-		function refreshTodoItems() {
-
-			var query = todoItemTable;
-
-			query.read().then(function(todoItems) {
-				listItems = $.map(todoItems, function(item) {
-					return $('<li>')
-						.attr('data-todoitem-id', item.id)
-						.append($('<button class="item-delete">Delete</button>'))
-						.append($('<input type="checkbox" class="item-complete">').prop('checked', item.complete))
-						.append($('<div>').append($('<input class="item-text">').val(item.text)));
-				});
-					   
-				$('#todo-items').empty().append(listItems).toggle(listItems.length > 0);
-				$('#summary').html('<strong>' + todoItems.length + '</strong> item(s)');
-			});
-		}
-	   
-
-   Этот код отправляет запрос мобильной службе, который возвращает все элементы. Выполняется итерация по результатам, а данные отображаются на странице. 
-
-9. Замените обработчики событий **$(document.body).on('change', '.item-text')** и **$(document.body).on('change', '.item-complete')** следующим кодом:
-        
-		$(document.body).on('change', '.item-text', function() {
-			var newText = $(this).val();
-			todoItemTable.update({ id: getTodoItemId(this), text: newText });
-		});
-
-		$(document.body).on('change', '.item-complete', function() {
-			var isComplete = $(this).prop('checked');
-			todoItemTable.update({ id: getTodoItemId(this), complete: isComplete })
-				.then(refreshTodoItems);
-		});
- 
-   	Этот код отправляет обновление элемента мобильной службе при изменении текста или установке флажка.
-
-10. Замените обработчик событий **$(document.body).on('click', '.item-delete')** следующим кодом:
-
-		$(document.body).on('click', '.item-delete', function () {
-			todoItemTable.del({ id: getTodoItemId(this) }).then(refreshTodoItems);
-		});
-
-	Этот код отправляет мобильной службе запрос на удаление службы при нажатии кнопки **Delete**.
-
-Теперь, когда приложение обновлено для хранения данных на сервере с использованием мобильных служб, настало время протестировать приложение на работу с мобильными службами.
-
+        function refreshTodoItems() {
+            var query = todoItemTable;
+            query.read().then(function(todoItems) {
+                listItems = $.map(todoItems, function(item) {
+                    return $('<li>')
+                        .attr('data-todoitem-id', item.id)
+                        .append($('<button class="item-delete">Delete</button>'))
+                        .append($('<input type="checkbox" class="item-complete">').prop('checked', item.complete))
+                        .append($('<div class="dev-callout"><b>Примечание.</b>
+<p>Если требуется перезапустить веб-сервера, повторите действия, описанные в первом разделе.</p>
+<li><p>Замените обработчики событий <strong>$(document.body).on('change', '.item-text')</strong> и <strong>$(document.body).on('change', '.item-complete')</strong> следующим кодом:</p>
+<pre><code>$(document.body).on(&#39;change&#39;, &#39;.item-text&#39;, function() {
+    var newText = $(this).val();
+    todoItemTable.update({ id: getTodoItemId(this), text: newText });
+});
+$(document.body).on(&#39;change&#39;, &#39;.item-complete&#39;, function() {
+    var isComplete = $(this).prop(&#39;checked&#39;);
+    todoItemTable.update({ id: getTodoItemId(this), complete: isComplete })
+        .then(refreshTodoItems);
+});</code></pre>
+<p>Этот код отправляет обновление элемента мобильной службе при изменении текста или установке флажка.</p></li>
+<li><p>Замените обработчик событий <strong>$(document.body).on('click', '.item-delete')</strong> следующим кодом:</p>
+<pre><code>$(document.body).on(&#39;click&#39;, &#39;.item-delete&#39;, function () {
+    todoItemTable.del({ id: getTodoItemId(this) }).then(refreshTodoItems);
+});</code></pre>
+<p>Этот код отправляет мобильной службе запрос на удаление службы при нажатии кнопки <strong>Delete</strong>.</p></li>
+</ol>
+<p>Теперь, когда приложение обновлено для хранения данных на сервере с использованием мобильных служб, настало время протестировать приложение на работу с мобильными службами.</p>
 <h2><a name="test-app"></a><span class="short-header">Тестирование приложения</span>Тестирование работы приложения с новой мобильной службой</h2>
-
-4. Повторно откройте URL-адрес <a href="http://localhost:8000/" target="_blank">http://localhost: 8000/</a> в веб-браузере, чтобы запустить приложение.
-
-    <div class="dev-callout"><b>Примечание.</b>
-	<p>Если требуется перезапустить веб-сервера, повторите действия, описанные в первом разделе.</p>
-    </div>
-
-2. Как и ранее, введите текст в поле **Введите новую задачу** и нажмите кнопку **Добавить**. 
-
-   	В результате в мобильную службу будет отправлен новый элемент в качестве вставки.
-
-3. На [портале управления] щелкните **Мобильные службы** и выберите свою мобильную службу.
-
-4. Откройте вкладку **Данные**, а затем нажмите **Обзор**.
-
-   	![][9]
-  
-   	Обратите внимание, что таблица **TodoItem** теперь содержит данные со значениями идентификаторов, которые созданы мобильными службами, и в таблицу были автоматически добавлены столбцы, соответствующие классу TodoItem в приложении.
-
-5. В приложении отметьте один из элементов списка, а затем вернитесь на вкладку "Обзор" на портале и нажмите кнопку **Обновить**. 
-
-  	Обратите внимание, что значение выполнения изменилось с **false** на **true**.
-
-6. Найдите в файле проекта app.js метод **RefreshTodoItems** и замените строку кода, которая определяет переменную `query`, на следующую строку:
-
-   		var query = todoItemTable.where({ complete: false });
-
-7. Снова загрузите страницу и проверьте другой элемент в списке.
-
-   	Обратите внимание, что отмеченный элемент теперь исчез из списка. Каждое обновление ведет к обмену данными с мобильной службой, которая теперь будет возвращать отфильтрованные данные.
-
-Это заключительный шаг учебника **Приступая к работе с данными**.
-
-## <a name="next-steps"> </a>Дальнейшие действия
-
-В этом учебнике показаны основы включения в HTML-приложении возможностей работы с данными в мобильных службах. Далее рассмотрите выполнение одного из следующих учебников, которые основаны на приложении GetStartedWithData, созданном в этом учебнике:
-
-* [Проверка и изменение данных с помощью скриптов]
-  <br/>Дополнительные сведения об использовании серверных скриптов в мобильных службах для проверки и изменения данных, отправляемых из приложения.
-
-* [Уточнение запросов посредством разбиения по страницам]
-  <br/>Сведения об использовании разбиения по страницам в запросах для управления объемом данных, обрабатываемым в одном запросе.
- 
-После ознакомления с работой с данными, узнайте, как проверять подлинность пользователей приложения, изучив один из следующих учебников и статью [Приступая к работе с проверкой подлинности].
-
-<!-- Anchors. -->
-[Загрузка проекта HTML-приложения]: #download-app
-[Создание мобильной службы]: #create-service
-[Добавление таблицы для хранения данных]: #add-table
-[Обновление приложения для использования мобильных служб]: #update-app
-[Тестирование работы приложения с мобильными службами]: #test-app
-[Дальнейшие действия]:#next-steps
-
-<!-- Images. -->
-[0]: ./media/mobile-services-html-get-started-data/mobile-quickstart-startup-html.png
+<ol>
+<li><p>Повторно откройте URL-адрес <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a> в браузере, чтобы запустить приложение.</p>
+<div class="dev-callout"><b>Примечание.</b>
+<p>Если требуется перезапустить веб-сервера, повторите действия, описанные в первом разделе.</p>
+</div></li>
+<li><p>Как и ранее, введите текст в поле <strong>Введите новую задачу</strong> и нажмите кнопку <strong>Добавить</strong>.</p>
+<p>В результате в мобильную службу будет отправлен новый элемент в качестве вставки.</p></li>
+<li><p>На <a href="https://manage.windowsazure.com/">Портале управления</a> щелкните <strong>Мобильные службы</strong>, затем щелкните свою мобильную службу.</p></li>
+<li><p>Откройте вкладку <strong>Данные</strong>, а затем щелкните <strong>Обзор</strong>.</p>
+<p><img src="./media/mobile-services-html-get-started-data/mobile-todoitem-data-browse.png" /></p>
+<p>Обратите внимание, что таблица <strong>TodoItem</strong> теперь содержит данные со значениями идентификаторов, которые созданы мобильными службами, и в таблицу были автоматически добавлены столбцы, соответствующие классу TodoItem в приложении.</p></li>
+<li><p>В приложении отметьте один из элементов списка, а затем вернитесь на вкладку &quot;Обзор&quot; на портале и нажмите кнопку <strong>Обновить</strong></p>
+<p>Обратите внимание, что значение выполнения изменилось с <strong>false</strong> на <strong>true</strong>.</p></li>
+<li><p>Найдите в файле проекта app.js метод <strong>RefreshTodoItems</strong> и замените строку кода, которая определяет <code data-inline="1">query</code>, следующим:</p>
+<pre><code data-inline="1">var query = todoItemTable.where({ complete: false });</code></pre></li>
+<li><p>Снова загрузите страницу и проверьте другой элемент в списке.</p>
+<p>Обратите внимание, что отмеченный элемент теперь исчез из списка. Каждое обновление ведет к обмену данными с мобильной службой, которая теперь будет возвращать отфильтрованные данные.</p></li>
+</ol>
+<p>Это заключительный шаг учебника <strong>Приступая к работе с данными</strong>.</p>
+<h2 id="next-steps"><a name="next-steps"> </a>Дальнейшие действия</h2>
+<p>В этом учебнике показаны основы включения в HTML-приложении возможностей работы с данными в мобильных службах. Далее рассмотрите выполнение одного из следующих учебников, которые основаны на приложении GetStartedWithData, созданном в этом учебнике:</p>
+<ul>
+<li><p><a href="/ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-html">Проверка и изменение данных с помощью скриптов</a><br /> <br/>Дополнительные сведения об использовании серверных скриптов в мобильных службах для проверки и изменения данных, отправляемых из приложения.</p></li>
+<li><p><a href="/ru-ru/develop/mobile/tutorials/add-paging-to-data-html">Уточнение запросов посредством разбиения по страницам</a><br /> <br/>Сведения об использовании разбиения по страницам в запросах для управления объемом данных, обрабатываемых в одном запросе.</p></li>
+</ul>
+<p>После ознакомления с работой с данными, узнайте, как проверять подлинность пользователей приложения, изучив один из следующих учебников и статью <a href="/ru-ru/develop/mobile/tutorials/get-started-with-users-html">Приступая к работе с проверкой подлинности</a>.</p>
 
 
 
-
-[5]: ./media/mobile-services-html-get-started-data/mobile-data-tab-empty.png
-[6]: ./media/mobile-services-html-get-started-data/mobile-create-todoitem-table.png
-
-[8]: ./media/mobile-services-html-get-started-data/mobile-dashboard-tab.png
-[9]: ./media/mobile-services-html-get-started-data/mobile-todoitem-data-browse.png
-
-[11]: ./media/mobile-services-html-get-started-data/mobile-services-set-cors-localhost.png
-
-<!-- URLs. -->
-[Проверка и изменение данных с помощью скриптов]: /ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-html
-[Уточнение запросов посредством разбиения по страницам]: /ru-ru/develop/mobile/tutorials/add-paging-to-data-html
-[Приступая к работе с мобильными службами]: /ru-ru/develop/mobile/tutorials/get-started
-[Приступая к работе с проверкой подлинности]: /ru-ru/develop/mobile/tutorials/get-started-with-users-html
-
-[Портал управления Azure]: https://manage.windowsazure.com/
-[портале управления]: https://manage.windowsazure.com/
-[приложении GetStartedWithData]:  http://go.microsoft.com/fwlink/?LinkID=286345
-
-[Справочник принципов использования мобильных служб HTML/JavaScript]: /ru-ru/develop/mobile/how-to-guides/work-with-html-js-client
-
-[Общий доступ к ресурсам независимо от источника]: http://msdn.microsoft.com/ru-ru/library/windowsazure/dn155871.aspx
-
-
+  [mobile-services-selector-get-started-data]: ../includes/mobile-services-selector-get-started-data.md
+  [Приступая к работе с мобильными службами]: /ru-ru/develop/mobile/tutorials/get-started-html
+  [Загрузка проекта HTML-приложения]: #download-app
+  [Создание мобильной службы]: #create-service
+  [Добавление таблицы для хранения данных]: #add-table
+  [Обновление приложения для использования мобильных служб]: #update-app
+  [Тестирование работы приложения с мобильными службами]: #test-app
+  [Бесплатная пробная версия Azure]: http://www.windowsazure.com/ru-ru/pricing/free-trial/?WT.mc_id=A756A2826&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fru-ru%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-html%2F
+  [HTML5-приложении GetStartedWithData]: http://go.microsoft.com/fwlink/?LinkID=286345
+  [http://localhost: 8000/]: http://localhost:8000/
+  []: ./media/mobile-services-html-get-started-data/mobile-quickstart-startup-html.png
+  [mobile-services-create-new-service-data]: ../includes/mobile-services-create-new-service-data.md
+  [1]: ./media/mobile-services-html-get-started-data/mobile-data-tab-empty.png
+  [2]: ./media/mobile-services-html-get-started-data/mobile-create-todoitem-table.png
+  [3]: ./media/mobile-services-html-get-started-data/mobile-services-set-cors-localhost.png
+  [Общий доступ к ресурсам независимо от источника]: http://msdn.microsoft.com/ru-ru/library/windowsazure/dn155871.aspx
+  [4]: ./media/mobile-services-html-get-started-data/mobile-dashboard-tab.png
+  [Портале управления]: https://manage.windowsazure.com/
+  [5]: ./media/mobile-services-html-get-started-data/mobile-todoitem-data-browse.png
+  [Проверка и изменение данных с помощью скриптов]: /ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-html
+  [Уточнение запросов посредством разбиения по страницам]: /ru-ru/develop/mobile/tutorials/add-paging-to-data-html
+  [Приступая к работе с проверкой подлинности]: /ru-ru/develop/mobile/tutorials/get-started-with-users-html

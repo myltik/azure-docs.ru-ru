@@ -1,28 +1,24 @@
-<properties linkid="develop-mobile-how-to-guides-register-windows-store-app-server-auth" urlDisplayName="Подпись общего доступа. Часть 1" pageTitle="Регистрация пакета приложения Магазина Windows для проверки подлинности Майкрософт" metaKeywords="" description="Узнайте, как зарегистрировать приложение Магазина Windows для проверки подлинности Майкрософт в приложении мобильных служб Azure" metaCanonical="" services="" documentationCenter="Mobile" title="Регистрация пакета приложения Магазина Windows для проверки подлинности Майкрософт" authors="glenga" solutions="" manager="" editor="" />
+<properties linkid="develop-mobile-how-to-guides-register-windows-store-app-server-auth" urlDisplayName="Shared Access Signature Part 1" pageTitle="Register your Windows Store app package for Microsoft authentication" metaKeywords="" description="Learn how to register your Windows Store app for Microsoft authentication in your Azure Mobile Services application" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Register your Windows Store app package for Microsoft authentication" authors="glenga" solutions="" manager="" editor="" />
 
-# Регистрация пакета приложения для Магазина Windows для проверки подлинности Майкрософт
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
 
-Мобильные службы Azure поддерживают методы проверки подлинности как со стороны клиента, так и со стороны сервера. Проверка подлинности со стороны сервера использует поставщиков удостоверений, включая учетную запись Майкрософт. При использовании учетной записи Майкрософт для проверки подлинности со стороны сервера без регистрации приложения с помощью мобильных служб пользователям предлагается вводить учетные данные при каждом запросе проверки подлинности. Если приложение зарегистрировано, учетные данные для входа учетной записи Майкрософт кэшируются и могут использоваться для проверки подлинности без запроса пользователю ввести их снова. В этом разделе показано, как зарегистрировать пакет приложения Магазина Windows, чтобы было удобнее пользоваться учетной записью Майкрософт при применении для проверки подлинности мобильных служб Azure. 
+# Регистрация пакета приложения для магазина Windows для проверки подлинности Microsoft
 
-Проверка подлинности со стороны клиента может использоваться для обеспечения работы единого входа на устройстве Windows с помощью Live Connect. При использовании интерфейсов API подключения Live Connect вам не нужно выполнять действия, описанные в этом разделе. Дополнительные сведения см. в разделе [Проверка подлинности приложения Магазина Windows с помощью единого входа Live Connect].   
+Мобильные службы Azure поддерживают методы проверки подлинности как со стороны клиента, так и со стороны сервера. Проверка подлинности со стороны сервера использует поставщиков удостоверений, включая учетную запись Майкрософт. При использовании учетной записи Майкрософт для проверки подлинности со стороны сервера без регистрации приложения с помощью мобильных служб пользователям предлагается вводить учетные данные при каждом запросе проверки подлинности. Если приложение зарегистрировано, учетные данные для входа учетной записи Майкрософт кэшируются и могут использоваться для проверки подлинности без запроса пользователю ввести их снова. В этом разделе показано, как зарегистрировать пакет приложения Магазина Windows, чтобы было удобнее пользоваться учетной записью Майкрософт при применении для проверки подлинности мобильных служб Azure.
 
-Регистрация приложения также позволит отправлять в приложение push-уведомления. Если вы уже прошли учебник [Приступая к работе с push-уведомлениями] для своего приложения, вы уже выполнили действия, описанные в этом разделе.
+> [WACOM.NOTE]Visual Studio 2013 позволяет легко регистрировать пакет приложения для Магазина Windows в мобильных службах. Дополнительные сведения см. на странице [Краткое руководство: добавление push-уведомлений в мобильную службу][Краткое руководство: добавление push-уведомлений в мобильную службу] в Центре разработки для Windows.
 
-<div class="dev-callout"><b>Примечание.</b>
-	<p><em>Предварительная версия Visual Studio 2013</em> включает новые возможности, которые позволяют легко зарегистрировать пакет приложения Магазина Windows с помощью мобильных служб. Дополнительные сведения см. в разделе <a href="http://go.microsoft.com/fwlink/p/?LinkId=309101">Быстрый запуск: добавление push-уведомлений в мобильную службу</a> в Центре разработчиков Windows.</p>
-</div>
+Аутентификацию со стороны клиента можно использовать, чтобы обеспечить работу единого входа на устройстве Windows с помощью Live Connect. При использовании интерфейсов API подключения Live Connect вам не нужно выполнять действия, описанные в этом разделе. Дополнительные сведения см. в разделе [Проверка подлинности приложения Магазина Windows с помощью единого входа Live Connect][Проверка подлинности приложения Магазина Windows с помощью единого входа Live Connect].
 
-[WACOM.INCLUDE [mobile-services-register-windows-store-app](../includes/mobile-services-register-windows-store-app.md)]
+> [WACOM.NOTE]Аутентификация со стороны клиента с использованием Live Connect пока еще не поддерживается серверной мобильной службой для .NET.
 
-После регистрации пакета приложения не забудьте указать значение <strong>истина</strong> для параметра <em>useSingleSignOn</em> при вызове метода <a href="http://go.microsoft.com/fwlink/p/?LinkId=311594" target="_blank">LoginAsync</a>. Это предоставит пользователям ускоренную процедуру входа при использовании учетной записи Майкрософт.
+[WACOM.INCLUDE [mobile-services-register-windows-store-app][mobile-services-register-windows-store-app]]
 
-<!-- Anchors. -->
-<!-- Images. -->
+После регистрации пакета приложения не забудьте указать значение **истина** для параметра *useSingleSignOn* при вызове метода [LoginAsync][LoginAsync]. Это предоставит пользователям ускоренную процедуру входа при использовании учетной записи Майкрософт.
 
 
-<!-- URLs. -->
-[Приступая к работе с push-уведомлениями]: /ru-ru/develop/mobile/tutorials/get-started-with-push-dotnet/
-[Проверка подлинности приложения Магазина Windows с помощью единого входа Live Connect]: /ru-ru/develop/mobile/tutorials/single-sign-on-windows-8-dotnet
-[Приступая к работе с пользователями C#]: /ru-ru/develop/mobile/tutorials/get-started-with-users-dotnet/
-[Приступая к работе с пользователями JavaScript]: /ru-ru/develop/mobile/tutorials/get-started-with-users-js/
 
+  [Краткое руководство: добавление push-уведомлений в мобильную службу]: http://go.microsoft.com/fwlink/p/?LinkId=309101
+  [Проверка подлинности приложения Магазина Windows с помощью единого входа Live Connect]: /ru-ru/develop/mobile/tutorials/single-sign-on-windows-8-dotnet
+  [mobile-services-register-windows-store-app]: ../includes/mobile-services-register-windows-store-app.md
+  [LoginAsync]: http://go.microsoft.com/fwlink/p/?LinkId=311594

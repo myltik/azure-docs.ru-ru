@@ -5,67 +5,65 @@
 <p>Функции безопасности MongoDB, такие как проверка подлинности и привязка IP-адреса, не включены по умолчанию. Функции безопасности необходимо включить перед развертыванием MongoDB в рабочей среде.  Дополнительные сведения см. в документе <a href="http://www.mongodb.org/display/DOCS/Security+and+Authentication">Безопасность и проверка подлинности</a>.</p>
 </div>
 
-1. Настройте систему управления пакетами (YUM), чтобы можно было установить MongoDB. Создайте файл */etc/yum.repos.d/10gen.repo* для хранения сведений о репозитории и добавьте в него следующее:
+1.  Настройте систему управления пакетами (YUM), чтобы можно было установить MongoDB. Создайте файл */etc/yum.repos.d/10gen.repo* для хранения информации о репозитории и добавьте в него следующее:
 
-		[10gen]
-		name=10gen Repository
-		baseurl=http://downloads-distro.mongodb.org/repo/redhat/os/x86_64
-		gpgcheck=0
-		enabled=1
+        [10gen]
+        name=10gen Repository
+        baseurl=http://downloads-distro.mongodb.org/repo/redhat/os/x86_64
+        gpgcheck=0
+        enabled=1
 
-2. Сохраните REPO-файл и выполните следующую команду, чтобы обновить локальную базу данных пакетов:
+2.  Сохраните REPO-файл и выполните следующую команду, чтобы обновить локальную базу данных пакетов:
 
-		$ sudo yum update
-3. Чтобы установить последнюю стабильную версию MongoDB и связанные с ней средства, выполните следующую команду:
+        $ sudo yum update
 
-		$ sudo yum install mongo-10gen mongo-10gen-server
+3.  Чтобы установить последнюю стабильную версию MongoDB и связанные с ней средства, выполните следующую команду:
 
-	Подождите, пока MongoDB загрузится и установится.
+        $ sudo yum install mongo-10gen mongo-10gen-server
 
-4. Создайте каталог данных. По умолчанию MongoDB хранит данные в каталоге */data/db*, но этот каталог необходимо создать. Чтобы создать каталог, выполните следующую команду:
+    Подождите, пока MongoDB загрузится и установится.
 
-		$ sudo mkdir -p /mnt/datadrive/data
-		$ sudo chown `id -u` /mnt/datadrive/data
+4.  Создайте каталог данных. По умолчанию MongoDB хранит данные в каталоге */data/db*, но этот каталог необходимо создать. Чтобы создать каталог, выполните следующую команду:
 
-	Дополнительные сведения об установке MongoDB на Linux см. в документе [Quickstart Unix][QuickstartUnix].
+        $ sudo mkdir -p /srv/datadrive/data
+        $ sudo chown `id -u` /srv/datadrive/data
 
-5. Чтобы запустить базу данных, введите:
+    Дополнительные сведения об установке MongoDB на Linux см. в документе [Quickstart Unix][Quickstart Unix].
 
-		$ mongod --dbpath /mnt/datadrive/data --logpath /mnt/datadrive/data/mongod.log
+5.  Чтобы запустить базу данных, введите:
 
-	Все сообщения журнала будут направляться в файл */mnt/datadrive/data/mongod.log*, когда сервер MongoDB запустится и выделит место для файлов журналов. Может пройти несколько минут, пока MongoDB выделит место для файлов журналов и начнет прослушивать подключения.
+        $ mongod --dbpath /srv/datadrive/data --logpath /srv/datadrive/data/mongod.log
 
-6. Чтобы запустить консоль управления MongoDB, откройте отдельное окно SSH или PuTTY и введите:
+    Все сообщения журнала будут направляться в файл */srv/datadrive/data/mongod.log*, когда сервер MongoDB запустится и выделит место для файлов журналов. Может пройти несколько минут, пока MongoDB выделит место для файлов журналов и начнет прослушивать подключения.
 
-		$ mongo
-		> db.foo.save ( { a:1 } )
-		> db.foo.find()
-		{ _id : ..., a : 1 }
-		> show dbs  
-		...
-		> show collections  
-		...  
-		> help  
+6.  Чтобы запустить консоль управления MongoDB, откройте отдельное окно SSH или PuTTY и введите:
 
-	База данных создается путем вставки.
+        $ mongo
+        > db.foo.save ( { a:1 } )
+        > db.foo.find()
+        { _id : ..., a : 1 }
+        > show dbs  
+        ...
+        > show collections  
+        ...  
+        > help  
 
-7. После установки MongoDB необходимо настроить конечную точку для удаленного доступа к MongoDB. На портале управления щелкните **Виртуальные машины** и выберите имя новой виртуальной машины, а затем щелкните **Конечные точки**.
-	
-	![Конечные точки][Image7]
+    База данных создается путем вставки.
 
-8. Щелкните **Добавить конечную точку** в нижней части страницы.
-	
-	![Конечные точки][Image8]
+7.  После установки MongoDB необходимо настроить конечную точку для удаленного доступа к MongoDB. На портале управления щелкните **Виртуальные машины** и выберите имя новой виртуальной машины, а затем щелкните **Конечные точки**.
 
-9. Добавьте конечную точку с именем "Mongo", протоколом **TCP** и портами **Общий** и **Частный** со значением "27017". Это позволит получать удаленный доступ к MongoDB.
-	
-	![Конечные точки][Image9]
+    ![Конечные точки][Конечные точки]
 
+8.  Щелкните **Добавить конечную точку** в нижней части страницы.
 
-[QuickStartUnix]: http://www.mongodb.org/display/DOCS/Quickstart+Unix
+    ![Конечные точки][1]
 
+9.  Добавьте конечную точку с именем Mongo, протоколом **TCP** и портами **Общий** и **Частный** со значением "27017". Это позволит получать удаленный доступ к MongoDB.
 
-[Image7]: ./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint.png
-[Image8]: ./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint2.png
-[Image9]: ./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint3.png
+    ![Конечные точки][2]
 
+  [Безопасность и проверка подлинности]: http://www.mongodb.org/display/DOCS/Security+and+Authentication
+  [Quickstart Unix]: http://www.mongodb.org/display/DOCS/Quickstart+Unix
+  [Конечные точки]: ./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint.png
+  [1]: ./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint2.png
+  [2]: ./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint3.png

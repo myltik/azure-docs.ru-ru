@@ -1,19 +1,21 @@
-<properties linkid="develop-mobile-tutorials-schedule-backend-tasks" urlDisplayName="Планирование серверных задач" pageTitle="Планирование серверных задач с помощью планировщика - мобильные службы" metaKeywords="" description="Использование планировщика мобильных служб Azure для планирования заданий для мобильного приложения." metaCanonical="" services="" documentationCenter="Mobile" title="Планирование повторяющихся заданий в мобильных службах" authors="glenga" solutions="" manager="" editor="" />
+<properties linkid="develop-mobile-tutorials-schedule-backend-tasks" urlDisplayName="Schedule Backend Tasks" pageTitle="Schedule Backend Tasks with Scheduler - Mobile Services" metaKeywords="" description="Use the Azure Mobile Services Scheduler to schedule jobs for your mobile app." metaCanonical="" services="" documentationCenter="Mobile" title="Schedule recurring jobs in Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-# Планирование повторяющихся заданий в мобильных службах 
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
 
-<!--<div class="dev-center-tutorial-subselector">
-	<a href="/ru-ru/documentation/articles/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/" title="Сервер .NET">Сервер .NET</a> | <a href="/ru-ru/documentation/articles/articles/mobile-services-schedule-recurring-tasks/"  title="Сервер JavaScript" class="current">Сервер JavaScript</a>
-</div>-->
- 
+# Планирование повторяющихся заданий в мобильных службах
+
+<div class="dev-center-tutorial-subselector">
+    <a href="/ru-ru/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/" title="Серверная часть .NET">Серверная часть .NET</a> | <a href="/ru-ru/documentation/articles/mobile-services-schedule-recurring-tasks/"  title="Серверная часть JavaScript" class="current">Серверная часть JavaScript</a>
+</div>
+
 В этом разделе показано, как использовать функциональные возможности планировщика заданий на портале управления для определения кода серверного сценария, который выполняется на основе определенного расписания. В этом случае сценарий периодически проверяет удаленную службу (в данном случае Twitter) и сохраняет результаты в новой таблице. В число других периодических задач, которые могут быть запланированы, входят следующие:
 
-+ Архивация старых или повторяющихся записей.
-+ Запрос и сохранение внешних данных, например твитов, RSS-записей и сведений о расположении.
-+ Обработка или изменение размеров сохраненных изображений.
+-   Архивация старых или повторяющихся записей.
+-   Запрос и сохранение внешних данных, например твитов, RSS-записей и сведений о расположении.
+-   Обработка или изменение размеров сохраненных изображений.
 
 <!-- // Removed because this shortcode b/c it's old and doesn't use the new Twitter v1.1. APIs
->[WACOM.VIDEO Windows-Store-app-Getting-Started-with-the-Windows-Azure-Mobile-Services-Scheduler]
+>[AZURE.VIDEO Windows-Store-app-Getting-Started-with-the-Windows-Azure-Mobile-Services-Scheduler]
 -->
 
 <!-- // Original video HTML code for reference.
@@ -26,51 +28,51 @@
 
 В этом учебнике подробно описаны все действия, необходимые для использования планировщика заданий в целях создания запланированного задания, которое запрашивает данные твита из Twitter и сохраняет твиты в новой таблице Updates:
 
-+ [Зарегистрируйтесь для доступа к Twitter и сохранения учетных данных]
-+ [Создание новой таблицы Updates]
-+ [Создание нового запланированного задания]
+-   [Зарегистрируйтесь для доступа к Twitter и сохранения учетных данных][Зарегистрируйтесь для доступа к Twitter и сохранения учетных данных]
+-   [Создание новой таблицы Updates][Создание новой таблицы Updates]
+-   [Создание нового запланированного задания][Создание нового запланированного задания]
 
-##<a name="get-oauth-credentials"></a>Регистрация для доступа к API-интерфейсам Twitter v1.1 и сохранение учетных данных
+## <a name="get-oauth-credentials"></a>Зарегистрируйтесь для доступа к Twitter v1.1 API и сохранения учетных данных
 
-[WACOM.INCLUDE [mobile-services-register-twitter-access](../includes/mobile-services-register-twitter-access.md)]
+[WACOM.INCLUDE [mobile-services-register-twitter-access][mobile-services-register-twitter-access]]
 
-##<a name="create-table"></a>Создание новой таблицы Updates
+## <a name="create-table"></a>Создание новой таблицы Updates
 
 Затем необходимо создать новую таблицу, в которой будут храниться твиты.
 
-2. На портале управления щелкните вкладку **Данные** своей мобильной службы, затем нажмите кнопку **+Создать**.
+1.  На портале управления откройте вкладку **Данные** своей мобильной службы, затем щелкните **+Создать**.
 
-   	![][2]
+    ![][]
 
-   	Откроется диалоговое окно **Создание новой таблицы**.
+    Откроется диалоговое окно **Создание новой таблицы**.
 
-3. В поле **Имя таблицы** введите _Updates_ и нажмите кнопку проверки.
+2.  В поле **Имя таблицы** введите *Updates* и нажмите кнопку проверки.
 
-   	![][3]
+    ![][1]
 
-  	Это приведет к созданию новой таблицы хранения **Updates** 
+    Это приведет к созданию новой таблицы хранения **Updates**
 
-##<a name="add-job"></a>Создание нового запланированного задания  
+## <a name="add-job"></a>Создание нового запланированного задания
 
 Теперь можно создать запланированное задание, которое получает доступ к Twitter и сохраняет данные твитов в новой таблице Updates.
 
-2. Щелкните вкладку **Планировщик**, а затем нажмите кнопку **+Создать**. 
+1.  Щелкните вкладку **Планировщик**, а затем нажмите кнопку **+Создать**.
 
-   	![][4]
+    ![][2]
 
-    >[WACOM.NOTE]При выполнении вашей мобильной службы на уровне <em>Бесплатный</em> одновременно может выполняться только одно запланированное задание. На платных уровнях можно выполнять одновременно до десяти запланированных заданий.
+    > [WACOM.NOTE]При работе вашей мобильной службы на *бесплатном* уровне вы можете выполнить одновременно только одно запланированное задание. На оплачиваемых уровнях можно выполнять одновременно до десяти запланированных заданий.
 
-3. В диалоговом окне планировщика введите _getUpdates_ для поля **Имя задания**, задайте интервал и единицы планирования, затем нажмите кнопку проверки. 
-   
-   	![][5]
+2.  В диалоговом окне планировщика для параметра **Имя задания** введите значение *getUpdates*, задайте интервал и единицы планирования, а затем нажмите кнопку «Проверить».
 
-   	В результате создается новое задание **getUpdates**. 
+    ![][3]
 
-4. Щелкните новое, только что созданное задание, затем перейдите на вкладку **Скрипт**.
+    В результате создается новое задание **getUpdates**.
 
-   	![][6] 
+3.  Щелкните новое, только что созданное задание, затем перейдите на вкладку **Сценарий**.
 
-5. Замените функцию заполнителя **getUpdates** на следующий код:
+    ![][4]
+
+4.  Замените функцию-заполнитель **getUpdates** на следующий код:
 
 		var updatesTable = tables.getTable('Updates');
 		var request = require('request');
@@ -145,59 +147,48 @@
 		    return (tweet.text.indexOf('RT') === 0 || tweet.to_user_id);
 		}
 
+    Этот сценарий вызывает API запроса Twitter с использованием сохраненных учетных данных для запроса недавних твитов, содержащих хэш-тег `#mobileservices`. Повторяющиеся твиты и ответы исключаются из результатов еще до того, как они сохраняются в таблице.
 
-   	Этот скрипт вызывает API запроса Twitter с использованием сохраненных учетных данных для запроса недавних твитов, содержащих хэш-тег `#mobileservices`. Повторяющиеся твиты и ответы исключаются из результатов еще до того, как они сохраняются в таблице.
+    > [WACOM.NOTE]В этом примере предполагается, что во время каждого запланированного выполнения в таблицу вставляется только несколько строк. В случае вставки большого количества строк в цикле при работе на бесплатном уровне могут закончиться подключения. В этом случае следует выполнить операции массовой вставки. Дополнительные сведения см. в разделе [Практическое руководство. Выполнение массовой вставки][Практическое руководство. Выполнение массовой вставки].
 
-    >[WACOM.NOTE]В этом примере предполагается, что во время каждого запланированного выполнения в таблицу вставляются только несколько строк. В случае вставки большого количества строк в цикле при работе на бесплатном уровне могут закончиться подключения. В этом случае следует выполнить операции массовой вставки. Дополнительные сведения см. в разделе <a href="/ru-ru/develop/mobile/how-to-guides/work-with-server-scripts/#bulk-inserts">Практическое руководство. Выполнение массовой вставки</a>.
+5.  Щелкните **Запустить один раз** для проверки сценария.
 
-6. Щелкните **Запустить один раз** для проверки сценария. 
+    ![][5]
 
-  	![][7]
+    Это приведет к сохранению и выполнению задания, несмотря на то, что оно отключено в планировщике.
 
-   	Это приведет к сохранению и выполнению задания, несмотря на то, что оно отключено в планировщике.
+6.  Нажмите кнопку "Назад", щелкните **Данные**, щелкните таблицу **Updates**, щелкните **Обзор** и убедитесь, что данные Twitter были вставлены в таблицу.
 
-7. Нажмите кнопку "Назад", щелкните **Данные**, щелкните таблицу **Updates**, нажмите кнопку **Обзор** и убедитесь, что данные Twitter были вставлены в таблицу.
+    ![][6]
 
-   	![][8]
+7.  Нажмите кнопку «Назад», щелкните **Планировщик**, выберите **getUpdates**, затем щелкните **Включить**.
 
-8. Нажмите кнопку "Назад", щелкните **Планировщик**, выберите **getUpdates**, затем щелкните **Включить**.
+    ![][7]
 
-   	![][9]
-
-   	Это приведет к включению задания для работы по определенному расписанию: в данном случае каждый час.
+    Это приведет к включению задания для работы по определенному расписанию: в данном случае каждый час.
 
 Поздравляем, новое запланированное задание успешно создано в вашей мобильной службе. Это задание будет выполняться как запланированное, пока не будет отключено или изменено.
 
-## <a name="nextsteps"> </a>Дальнейшие действия
+## <a name="nextsteps"> </a> Дальнейшие действия
 
-* [Справочник серверных скриптов мобильных служб]
-  <br/>Дополнительные сведения о регистрации и использовании серверных скриптов.
+-   [Справочник серверных сценариев мобильных служб][Справочник серверных сценариев мобильных служб]
+    Узнайте больше о регистрации и использовании серверных сценариев.
 
-<!-- Anchors. -->
-[Зарегистрируйтесь для доступа к Twitter и сохранения учетных данных]: #get-oauth-credentials
-[Создание новой таблицы Updates]: #create-table
-[Создание нового запланированного задания]: #add-job
-[Дальнейшие действия]: #next-steps
+<!-- Anchors. Images.  URLs. -->
 
-<!-- Images. -->
-[0]: ./media/mobile-services-schedule-recurring-tasks/mobile-twitter-my-apps.png
-[1]: ./media/mobile-services-schedule-recurring-tasks/mobile-twitter-app-secrets.png
-[2]: ./media/mobile-services-schedule-recurring-tasks/mobile-data-tab-empty-cli.png
-[3]: ./media/mobile-services-schedule-recurring-tasks/mobile-create-updates-table.png
-[4]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-new-job-cli.png
-[5]: ./media/mobile-services-schedule-recurring-tasks/mobile-create-job-dialog.png
-[6]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-job-script-new.png
-[7]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-job-script.png
-[8]: ./media/mobile-services-schedule-recurring-tasks/mobile-browse-updates-table.png
-[9]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-job-enabled.png
-[10]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-job-app-settings.png
-[11]: ./media/mobile-services-schedule-recurring-tasks/mobile-identity-tab-twitter-only.png
-
-<!-- URLs. -->
-[Справочник серверных скриптов мобильных служб]: http://go.microsoft.com/fwlink/?LinkId=262293
-[WindowsAzure.com]: http://www.windowsazure.com/
-[Портал управления Azure]: https://manage.windowsazure.com/
-[Регистрация приложений для входа в Twitter с помощью мобильных служб]: /ru-ru/develop/mobile/how-to-guides/register-for-twitter-authentication
-[Разработчики Twitter]: http://go.microsoft.com/fwlink/p/?LinkId=268300
-[Параметры приложения]: http://msdn.microsoft.com/ru-ru/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
-
+  [Серверная часть .NET]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/ "Серверная часть .NET"
+  [Серверная часть JavaScript]: /ru-ru/documentation/articles/mobile-services-schedule-recurring-tasks/ "Серверная часть JavaScript"
+  [Зарегистрируйтесь для доступа к Twitter и сохранения учетных данных]: #get-oauth-credentials
+  [Создание новой таблицы Updates]: #create-table
+  [Создание нового запланированного задания]: #add-job
+  [mobile-services-register-twitter-access]: ../includes/mobile-services-register-twitter-access.md
+  []: ./media/mobile-services-schedule-recurring-tasks/mobile-data-tab-empty-cli.png
+  [1]: ./media/mobile-services-schedule-recurring-tasks/mobile-create-updates-table.png
+  [2]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-new-job-cli.png
+  [3]: ./media/mobile-services-schedule-recurring-tasks/mobile-create-job-dialog.png
+  [4]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-job-script-new.png
+  [Практическое руководство. Выполнение массовой вставки]: /ru-ru/develop/mobile/how-to-guides/work-with-server-scripts/#bulk-inserts
+  [5]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-job-script.png
+  [6]: ./media/mobile-services-schedule-recurring-tasks/mobile-browse-updates-table.png
+  [7]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-job-enabled.png
+  [Справочник серверных сценариев мобильных служб]: http://go.microsoft.com/fwlink/?LinkId=262293

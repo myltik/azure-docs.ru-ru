@@ -1,136 +1,133 @@
-<properties linkid="develop-mobile-tutorials-validate-modify-and-augment-data-Xamarin-iOS" urlDisplayName="" pageTitle="Использование серверных скриптов для проверки данных (Xamarin iOS) | Центр разработчиков для мобильных устройств" metaKeywords="" description="Узнайте, как проверять и изменять данные с помощью серверных скриптов в вашем приложении Xamarin iOS." metaCanonical="" services="" documentationCenter="Mobile" title="Проверка и изменение данных в мобильных службах путем использования серверных скриптов" authors="" solutions="" manager="" editor="" />
+<properties linkid="develop-mobile-tutorials-validate-modify-and-augment-data-Xamarin-iOS" urlDisplayName="" pageTitle="Use server scripts to validate and modify data (Xamarin iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to validate and modify data sent using server scripts from your Xamarin iOS app." metaCanonical="" services="" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="donnam" solutions="" manager="dwrede" editor="" />
 
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam"></tags>
 
 # Проверка и изменение данных в мобильных службах с помощью серверных скриптов
-<div class="dev-center-tutorial-selector sublanding"><a href="/ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet" title="Магазин Windows C#">Магазин Windows C#</a><a href="/ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-js" title="Магазин Windows JavaScript">Магазин Windows JavaScript</a><a href="/ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-wp8" title="Windows Phone">Windows Phone</a><a href="/ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-ios" title="iOS">iOS</a><a href="/ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-android" title="Android">Android</a><a href="/ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-html" title="HTML">HTML</a><a href="/ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios" title="Xamarin.iOS" class="current">Xamarin.iOS</a><a href="/ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android" title="Xamarin.Android">Xamarin.Android</a></div>
 
+<div class="dev-center-tutorial-selector sublanding"><a href="/ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet" title="Магазин Windows &mdash; C#">Магазин Windows &mdash; C#</a><a href="/ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-js" title="Магазин Windows &mdash; JavaScript">Магазин Windows &mdash;JavaScript</a><a href="/ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-wp8" title="Windows Phone">Windows Phone</a><a href="/ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-ios" title="iOS">iOS</a><a href="/ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-android" title="Android">Android</a><a href="/ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-html" title="HTML">HTML</a><a href="/ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios" title="Xamarin.iOS" class="current">Xamarin.iOS</a><a href="/ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android" title="Xamarin.Android" class="current">Xamarin.Android</a></div>
 
-В этом разделе показано, как использовать серверные скрипты в мобильных службах Azure. Серверные скрипты зарегистрированы в мобильной службе и могут использоваться для выполнения различных операций со вставляемыми и обновляемыми данными, включая проверку и изменение данных. В этом руководстве вы определите и зарегистрируете серверные скрипты, которые проверяют и изменяют данные. Так как поведение серверных скриптов часто влияет на клиента, также понадобится обновить приложение iOS, чтобы воспользоваться преимуществом этого нового поведения. Готовый код доступен в примере [ValidateModifyData app][GitHub].
+В этом разделе показано, как использовать серверные скрипты в мобильных службах Azure. Серверные скрипты зарегистрированы в мобильной службе и могут использоваться для выполнения различных операций со вставляемыми и обновляемыми данными, включая проверку и изменение данных. В этом руководстве вы определите и зарегистрируете серверные скрипты, которые проверяют и изменяют данные. Так как поведение серверных скриптов часто влияет на клиента, также понадобится обновить приложение iOS, чтобы воспользоваться преимуществом этого нового поведения. Готовый код доступен в примере [ValidateModifyData app][ValidateModifyData app].
 
 В этом учебнике рассматриваются следующие основные действия:
 
-1. [Добавление проверки длины строки]
-2. [Обновление клиента для поддержки проверки]
-3. [Добавление отметки времени при вставке]
-4. [Обновление клиента для отображения отметки времени]
+1.  [Добавление проверки длины строки][Добавление проверки длины строки]
+2.  [Обновление клиента для поддержки проверки][Обновление клиента для поддержки проверки]
+3.  [Добавление отметки времени при вставке][Добавление отметки времени при вставке]
+4.  [Обновление клиента для отображения отметки времени][Обновление клиента для отображения отметки времени]
 
-Этот учебник основан на инструкциях и примере приложения предыдущего учебника, [Приступая к работе с данными]. Перед началом работы с учебником необходимо пройти задания учебника [Приступая к работе с данными].  
+Этот учебник основан на инструкциях и примере приложения предыдущего учебника, [Приступая к работе с данными][Приступая к работе с данными]. Перед началом работы с учебником необходимо пройти задания учебника [Приступая к работе с данными][Приступая к работе с данными].
 
 ## <a name="string-length-validation"></a>Добавление проверки
 
 Рекомендуется всегда проверять длину данных, предоставляемых пользователями. Сначала необходимо зарегистрировать скрипт, который проверяет длину строки данных, отправленных в мобильную службу, и отклоняет слишком длинны строки; в этом случае отклоняются строки длиной более 10 знаков.
 
-1. Выполните вход на [портал управления Azure], щелкните элемент **Мобильные службы**, а затем щелкните свое приложение. 
+1.  Выполните вход на [портал управления Azure][портал управления Azure], щелкните элемент **Мобильные службы**, а затем выберите свое приложение.
 
-	![][0]
+    ![][]
 
-2. Откройте вкладку **Данные** и щелкните таблицу **TodoItem**.
+2.  Откройте вкладку **Данные** и щелкните таблицу **TodoItem**.
 
-   	![][1]
+    ![][1]
 
-3. Щелкните элемент **Скрипт** и выберите операцию **Вставить**.
+3.  Щелкните **Сценарий** и выберите операцию **Вставить**.
 
-   	![][2]
+    ![][2]
 
-4. Замените имеющийся скрип следующей функцией и нажмите кнопку **Сохранить**.
+4.  Замените имеющийся сценарий следующей функцией и нажмите кнопку **Сохранить**:
 
-    function insert(item, user, request) {
-        if (item.text.length > 10) {
-                request.respond(statusCodes.BAD_REQUEST, 'Text length must be 10 characters or less.');
-            } else {
-                request.execute();
-            }
+        function insert(item, user, request) {
+        if (item.text.length \> 10) {
+        request.respond(statusCodes.BAD\_REQUEST, 'Text length must be 10 characters or less.');
+        } else {
+        request.execute();
+        }
         }
 
     Этот скрипт проверяет длину свойства **text** и отправляет ответ с сообщением об ошибке, если длина превышает 10 символов. В противном случае вызывается метод **execute** для завершения вставки.
 
     <div class="dev-callout"> 
-	<b>Примечание</b> 
-	<p>Можно удалить зарегистрированный скрипт на вкладке <strong>Скрипт</strong>, щелкнув <strong>Очистить</strong> и <strong>Сохранить</strong>.</p></div>
+<b>Примечание.</b> 
+<p>Можно удалить зарегистрированный сценарий на вкладке <strong>Сценарий</strong>, щелкнув <strong>Очистить</strong> и <strong>Сохранить</strong>.</p></div>
 
 ## <a name="update-client-validation"></a>Обновление клиента
 
 Теперь, когда мобильная служба выполняет проверку данных и отправляет сообщения об ошибках на стороне сервера, необходимо обновить приложение для обработки сообщений об ошибках, полученных при выполнении проверки.
 
-1. В Xamarin Studio откройте проект, измененный после изучения учебника [Приступая к работе с данными].
+1.  Откройте в Xamarin Studio проект, измененный при завершении изучения учебника [Приступая к работе с данными][Приступая к работе с данными].
 
-2. Нажмите кнопку **Запуск**, чтобы построить проект и запустить приложение, а затем введите текст длиннее 10 символов в текстовом поле и нажмите значок (**+**).
+2.  Нажмите кнопку **Запуск**, чтобы выполнить сборку проекта и запустить приложение, а затем введите в текстовое поле текст длиной более 10 символов и щелкните значок «плюс» (**+**).
 
-	Обратите внимание, что приложение вызывает необработанную ошибку в результате ответа 400 (Неверный запрос), возвращенного мобильной службой.	
+    Обратите внимание, что приложение вызывает необработанную ошибку в результате ответа 400 (Неверный запрос), возвращенного мобильной службой.
 
-3. В файле TodoService.cs найдите текущее исключение обработки <code>try/catch</code> в методе **InsertTodoItemAsync** и замените <code>catch</code> на:
-    
-    catch (Exception ex) {
+3.  В файле TodoService.cs найдите текущий оператор обработки исключений `try/catch` в методе **InsertTodoItemAsync** и замените `catch` на:
+
+        catch (Exception ex) {
         var exDetail = (ex.InnerException.InnerException as MobileServiceInvalidOperationException);
         Console.WriteLine(exDetail.Message);
-                                
         UIAlertView alert = new UIAlertView() { 
-            	Title = "Error", 
-            	Message = exDetail.Message
+                Title = "Error", 
+                Message = exDetail.Message
         } ;
         alert.AddButton("Ok");
         alert.Show();
-
         return -1;
-		}
+        }
 
-	Появится всплывающее окно, которое отображает сообщение об ошибке для пользователя. 
+    Появится всплывающее окно, которое отображает сообщение об ошибке для пользователя.
 
-4. Найдите метод **OnAdd** в **TodoListViewController.cs**. Обновите метод и убедитесь в том, что возвращаемый <code>index</code> не совпадает со значением <code>-1</code>, возвращаемым при обработке исключений в **InsertTodoItemAsync**. В этом случае не нужно добавить новую строку для <code>TableView</code>.
+4.  Найдите метод **OnAdd** в файле **TodoListViewController.cs**. Обновите метод и убедитесь в том, что возвращаемый `index` не совпадает со значением `-1`, возвращаемым при обработке исключений в **InsertTodoItemAsync**. В этом случае не нужно добавить новую строку для `TableView`.
 
-    if (index != -1) {
+        if (index != -1) {
         TableView.InsertRows(new [] { NSIndexPath.FromItemSection(index, 0) },
-            UITableViewRowAnimation.Top);
+        UITableViewRowAnimation.Top);
         itemText.Text = "";
-    }
+        }
 
+5.  Повторно выполните сборку и запустите приложение.
 
-5. Повторно выполните построение и запустите приложение. 
+    ![][3]
 
-	![][4]
-
-	Обратите внимание, что ошибка будет обработана и для пользователя отобразится сообщение об ошибке.
-
+    Обратите внимание, что ошибка будет обработана и для пользователя отобразится сообщение об ошибке.
 
 ## <a name="next-steps"> </a>Дальнейшие действия
 
-Теперь, когда вы завершили работу с этим учебником, проработайте последний учебник в серии работы с данными: [Уточнение запросов посредством разбиения по страницам].
+Теперь, когда вы завершили работу с этим учебником, проработайте последний учебник в серии работы с данными: [Уточнение запросов c разбиением по страницам][Уточнение запросов c разбиением по страницам].
 
 Серверные скрипты используются также при авторизации пользователей для отправки push-уведомлений. Дополнительные сведения см. в следующих учебниках:
 
-* [Авторизация пользователей с помощью скриптов]
-  <br/>Сведения о фильтрации данных на основе идентификатора пользователя, прошедшего проверку.
+-   [Авторизация пользователей с помощью сценариев][Авторизация пользователей с помощью сценариев]
+    Узнайте, как фильтровать данные на основании идентификатора аутентифицированного пользователя.
 
-* [Приступая к работе с push-уведомлениями] 
-  <br/>Сведения об отправке в приложение простейших push-уведомлений.
+-   [Приступая к работе с push-уведомлениями][Приступая к работе с push-уведомлениями]
+    Сведения об отправке в приложение простейших push-уведомлений.
 
-* [Справочник серверных скриптов мобильных служб]
-  <br/>Дополнительные сведения о регистрации и использовании серверных скриптов.
+-   [Справочник серверных сценариев мобильных служб][Справочник серверных сценариев мобильных служб]
+    Узнайте больше о регистрации и использовании серверных сценариев.
 
-<!-- Anchors. -->
-[Добавление проверки длины строки]: #string-length-validation
-[Обновление клиента для поддержки проверки]: #update-client-validation
-[Добавление отметки времени при вставке]: #add-timestamp
-[Обновление клиента для отображения отметки времени]: #update-client-timestamp
-[Дальнейшие действия]: #next-steps
-
-<!-- Images. -->
-[0]: ./media/partner-xamarin-mobile-services-ios-validate-modify-data-server-scripts/mobile-services-selection.png
-[1]: ./media/partner-xamarin-mobile-services-ios-validate-modify-data-server-scripts/mobile-portal-data-tables.png
-[2]: ./media/partner-xamarin-mobile-services-ios-validate-modify-data-server-scripts/mobile-insert-script-users.png
-
-[4]: ./media/partner-xamarin-mobile-services-ios-validate-modify-data-server-scripts/mobile-quickstart-data-error-ios.png
-
+<!-- Anchors. --> 
+<!-- Images. --> 
 <!-- URLs. -->
-[Справочник серверных скриптов мобильных служб]: http://go.microsoft.com/fwlink/?LinkId=262293
-[Приступая к работе с мобильными службами]: /ru-ru/develop/mobile/tutorials/get-started-xamarin-ios
-[Авторизация пользователей с помощью скриптов]: /ru-ru/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios
-[Уточнение запросов посредством разбиения по страницам]: /ru-ru/develop/mobile/tutorials/add-paging-to-data-xamarin-ios
-[Приступая к работе с данными]: /ru-ru/develop/mobile/tutorials/get-started-with-data-xamarin-ios
-[Приступая к работе с аутентификацией]: /ru-ru/develop/mobile/tutorials/get-started-with-users-xamarin-ios
-[Приступая к работе с push-уведомлениями]: /ru-ru/develop/mobile/tutorials/get-started-with-push-xamarin-ios
 
-[Портал управления]: https://manage.windowsazure.com/
-[Портал управления Azure]: https://manage.windowsazure.com/
-[GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331330
-
+  [Магазин Windows — C#]: /ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet "Магазин Windows — C#"
+  [Магазин Windows —JavaScript]: /ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-js "Магазин Windows — JavaScript"
+  [Windows Phone]: /ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-wp8 "Windows Phone"
+  [iOS]: /ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-ios "iOS"
+  [Android]: /ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-android "Android"
+  [HTML]: /ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-html "HTML"
+  [Xamarin.iOS]: /ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios "Xamarin.iOS"
+  [Xamarin.Android]: /ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android "Xamarin.Android"
+  [ValidateModifyData app]: http://go.microsoft.com/fwlink/p/?LinkId=331330
+  [Добавление проверки длины строки]: #string-length-validation
+  [Обновление клиента для поддержки проверки]: #update-client-validation
+  [Добавление отметки времени при вставке]: #add-timestamp
+  [Обновление клиента для отображения отметки времени]: #update-client-timestamp
+  [Приступая к работе с данными]: /ru-ru/develop/mobile/tutorials/get-started-with-data-xamarin-ios
+  [портал управления Azure]: https://manage.windowsazure.com/
+  []: ./media/partner-xamarin-mobile-services-ios-validate-modify-data-server-scripts/mobile-services-selection.png
+  [1]: ./media/partner-xamarin-mobile-services-ios-validate-modify-data-server-scripts/mobile-portal-data-tables.png
+  [2]: ./media/partner-xamarin-mobile-services-ios-validate-modify-data-server-scripts/mobile-insert-script-users.png
+  [3]: ./media/partner-xamarin-mobile-services-ios-validate-modify-data-server-scripts/mobile-quickstart-data-error-ios.png
+  [Уточнение запросов c разбиением по страницам]: /ru-ru/develop/mobile/tutorials/add-paging-to-data-xamarin-ios
+  [Авторизация пользователей с помощью сценариев]: /ru-ru/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios
+  [Приступая к работе с push-уведомлениями]: /ru-ru/develop/mobile/tutorials/get-started-with-push-xamarin-ios
+  [Справочник серверных сценариев мобильных служб]: http://go.microsoft.com/fwlink/?LinkId=262293

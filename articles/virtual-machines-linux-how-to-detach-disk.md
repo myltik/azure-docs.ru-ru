@@ -1,7 +1,7 @@
-<properties linkid="manage-linux-how-to-guides-detach-a-disk" urlDisplayName="Отсоединение диска" pageTitle="Отсоединение диска от виртуальной машины Linux в Azure" metaKeywords="отсоединение диска Azure, отсоединенный диск виртуальной машины" description="Узнайте, как отсоединить диск данных от виртуальной машины Azure." metaCanonical="http://www.windowsazure.com/ru-ru/manage/windows/how-to-guides/detach-a-disk/" services="virtual-machines" documentationCenter="" title="" authors="" solutions="" manager="" editor="" />
+<properties linkid="manage-linux-how-to-guides-detach-a-disk" urlDisplayName="Detach a Disk" pageTitle="Detach a disk from a Linux Virtual Machine in Azure" metaKeywords="Azure detaching disk, vm detached disk" description="Learn how to detach a data disk from an Azure virtual machine." metaCanonical="http://www.windowsazure.com/ru-ru/manage/windows/how-to-guides/detach-a-disk/" services="virtual-machines" documentationCenter="" title="" authors="timlt" solutions="" manager="timlt" editor="" />
 
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timlt"></tags>
 
+[WACOM.INCLUDE [руководство-отсоединение-диск-windows-linux][руководство-отсоединение-диск-windows-linux]]
 
-
-[WACOM.INCLUDE [howto-detach-disk-windows-linux](../includes/howto-detach-disk-windows-linux.md)]
-
+  [руководство-отсоединение-диск-windows-linux]: ../includes/howto-detach-disk-windows-linux.md

@@ -1,8 +1,7 @@
-<properties linkid="dev-net-common-tasks-sql-azure-management" urlDisplayName="Управление базой данных SQL" pageTitle="Управление базой данных SQL с использованием среды SSMS — Azure" metaKeywords="Azure SQL Server Management Studio SSMS " description="Сведения об использовании SQL Server Management Studio для управления серверами баз данных SQL и базами данных." metaCanonical="" services="sql-database" documentationCenter=".NET" title="" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="dev-net-common-tasks-sql-azure-management" urlDisplayName="SQL Database Management" pageTitle="Manage a SQL Database with SSMS - Azure" metaKeywords="Azure SQL Server Management Studio SSMS " description="Learn how to use SQL Server Management Studio to manage SQL Database servers and databases." metaCanonical="" services="sql-database" documentationCenter=".NET" title="" authors="jeffreyg" solutions="" manager="jeffreyg" editor="tysonn" />
 
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jeffreyg"></tags>
 
+[WACOM.INCLUDE [sql-azure-management][sql-azure-management]]
 
-
-
-[WACOM.INCLUDE [sql-azure-management](../includes/sql-azure-management.md)] 
-
+  [sql-azure-management]: ../includes/sql-azure-management.md

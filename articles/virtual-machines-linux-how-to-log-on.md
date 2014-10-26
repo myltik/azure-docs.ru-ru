@@ -1,32 +1,45 @@
-<properties linkid="manage-linux-howto-logon-linux-vm" urlDisplayName="Вход на виртуальную машину" pageTitle="Вход на виртуальную машину, работающую под управлением ОС Linux, в Azure" metaKeywords="виртуальная машина Linux в Azure, Linux SSH" description="Узнайте, как войти на виртуальную машину Azure, работающую под управлением ОС Linux, с помощью клиента SSH." metaCanonical="" services="virtual-machines" documentationCenter="" title="Как войти на виртуальную машину, работающую под управлением Linux" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="manage-linux-howto-logon-linux-vm" urlDisplayName="Log on to a VM" pageTitle="Log on to a virtual machine running Linux in Azure" metaKeywords="Azure Linux vm, Linux SSH" description="Learn how to log on to an Azure virtual machine running Linux by using a Secure Shell (SSH) client." metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Log on to a Virtual Machine Running Linux" authors="kathydav" solutions="" manager="timlt" editor="" />
 
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav"></tags>
 
-
-
-#Как войти в виртуальную машину под управлением Linux #
+# Как войти в виртуальную машину под управлением Linux
 
 Для входа на виртуальную машину под управлением операционной системы Linux используется клиент SSH.
 
-Необходимо установить клиент SSH на компьютер, который будет использоваться для входа на виртуальную машину. Существует множество клиентских программ SSH. Вы можете выбрать один из следующих вариантов.
+Вам понадобится установить клиент SSH на компьютер, который вы будете использовать для входа на виртуальную машину. Существует множество клиентских программ SSH. Вы можете выбрать один из следующих вариантов.
 
-- При использовании компьютера под управлением Windows вы можете использовать такой клиент SSH, как PuTTY. Дополнительные сведения см. на [странице загрузки PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
-- При использовании компьютера под управлением Linux вы можете использовать такой клиент SSH, как OpenSSH. Дополнительные сведения см. на странице [OpenSSH](http://www.openssh.org/).
+-   На компьютере под управлением Windows вы можете использовать такой клиент SSH, как PuTTY. Дополнительные сведения см. на [странице загрузки PuTTY][странице загрузки PuTTY].
+-   На компьютере под управлением Linux вы можете использовать такой клиент SSH, как OpenSSH. Дополнительные сведения см. на странице [OpenSSH][OpenSSH].
+
+> [WACOM.NOTE] Дополнительную информацию о требованиях и устранении неполадок см. в разделе [Подключение к виртуальной машине Azure по RDP или SSH][Подключение к виртуальной машине Azure по RDP или SSH].
 
 В этой процедуре рассматривается использование программы PuTTY для доступа к виртуальной машине.
 
-1. Найдите **Имя узла** и **Данные порта** с [портала управления](http://manage.windowsazure.com). Необходимые сведения можно найти на панели мониторинга виртуальной машины. Щелкните имя виртуальной машины и найдите **Сведения об SSH** в разделе **Сводка** панели мониторинга.
+1.  Найдите **Имя узла** и **Данные порта** с [портала управления][портала управления]. Необходимые сведения можно найти на панели мониторинга виртуальной машины. Щелкните имя виртуальной машины и найдите **Сведения об SSH** в разделе **Сводка** панели мониторинга.
 
-	![Получить сведения о SSH](./media/virtual-machines-linux-how-to-log-on/sshdetails.png)
+    ![Получить сведения о SSH][Получить сведения о SSH]
 
-2. Откройте программу PuTTY.
+2.  Откройте программу PuTTY.
 
-3. Введите "Имя узла" и "Данные порта" с панели мониторинга и щелкните **Открыть**.
+3.  Введите "Имя узла" и "Данные порта" с панели мониторинга и щелкните **Открыть**.
 
-	![Открыть PuTTY](./media/virtual-machines-linux-how-to-log-on/putty.png)
+    ![Открыть PuTTY][Открыть PuTTY]
 
-4. Войдите на виртуальную машину с помощью учетной записи, указанной при создании машины.
+4.  Войдите на виртуальную машину с помощью учетной записи, указанной при создании машины. Имя пользователя по умолчанию — azureuser.
 
-	![Вход на виртуальную машину](./media/virtual-machines-linux-how-to-log-on/sshlogin.png)
+    ![Вход на виртуальную машину][Вход на виртуальную машину]
 
-	Теперь вы сможете работать с виртуальной машиной, так же как и с любым сервером.
+> [WACOM.NOTE] Расширение VMAccess поможет вам сбросить значения ключа или пароля SSH, если вы их забыли. Если вы забыли имя пользователя, то можете воспользоваться этим расширением для создания нового имени с полномочиями sudo. Инструкции см. в разделе [Использование расширения VMAccess для сброса учетных данных входа в виртуальную машину Linux][Использование расширения VMAccess для сброса учетных данных входа в виртуальную машину Linux].
 
+Теперь вы сможете работать с виртуальной машиной, так же как и с любым сервером.
+
+<!-- LINKS -->
+
+  [странице загрузки PuTTY]: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
+  [OpenSSH]: http://www.openssh.org/
+  [Подключение к виртуальной машине Azure по RDP или SSH]: http://go.microsoft.com/fwlink/p/?LinkId=398294
+  [портала управления]: http://manage.windowsazure.com
+  [Получить сведения о SSH]: ./media/virtual-machines-linux-how-to-log-on/sshdetails.png
+  [Открыть PuTTY]: ./media/virtual-machines-linux-how-to-log-on/putty.png
+  [Вход на виртуальную машину]: ./media/virtual-machines-linux-how-to-log-on/sshlogin.png
+  [Использование расширения VMAccess для сброса учетных данных входа в виртуальную машину Linux]: http://go.microsoft.com/fwlink/p/?LinkId=512138

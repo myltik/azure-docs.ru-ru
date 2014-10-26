@@ -4,12 +4,12 @@
 
 # Анализ мнений пользователей Twitter в режиме реального времени с использованием HBase в HDInsight
 
-Узнайте, как проводить [анализ мнений][анализ мнений] в режиме реального времени на основе данных большого размера с помощью HBase в кластере HDInsight (Hadoop).
+Узнайте, как проводить [анализ мнений](http://en.wikipedia.org/wiki/Sentiment_analysis) в режиме реального времени на основе данных большого размера с помощью HBase в кластере HDInsight (Hadoop).
 
 
 Социальные веб-сайты являются одной из основных движущих сил для внедрения данных большого размера. Общедоступные API, предоставляемые сайтами, такими как Twitter, — полезный источник данных для анализа и понимания популярных тенденций. В этом учебнике вы создадите консольное приложение-службу, работающее в потоковом режиме, и веб-приложение ASP.NET для выполнения следующих задач:
 
-![][]
+![][img-app-arch]
 
 - получение твитов с геотегами в режиме реального времени с помощью API потоковой передачи Twitter;
 - оценка мнений на основе этих твитов;
@@ -20,7 +20,7 @@
 	
 	You will be able to query tweets with certain keywords to get a sense of the expressed opinion in tweets is positive, negative, or neutral.
 
-Пример готового решения Visual Studio можно найти на странице по адресу [][]<https://github.com/maxluk/tweet-sentiment></a>.
+Пример готового решения Visual Studio можно найти на странице по адресу [https://github.com/maxluk/tweet-sentiment](https://github.com/maxluk/tweet-sentiment).
 
 
 
@@ -53,16 +53,16 @@
 
 ## Содержание
 
-- [Предварительные требования][Предварительные требования]
-- [Создание приложения Twitter][Создание приложения Twitter]
-- [Создание простой службы потоковой передачи данных Twitter][Создание простой службы потоковой передачи данных Twitter]
-- [Создание веб-сайта Azure для визуализации мнений пользователей Twitter][Создание веб-сайта Azure для визуализации мнений пользователей Twitter]
-- [Дальнейшие действия][Дальнейшие действия]
+- [Предварительные требования](#prerequisites)
+- [Создание приложения Twitter](#twitter)
+- [Создание простой службы потоковой передачи данных Twitter](#streaming)
+- [Создание веб-сайта Azure для визуализации мнений пользователей Twitter](#web)
+- [Дальнейшие действия](#nextsteps)
 
 ## <a id="prerequisites"></a> Предварительные требования
 Перед началом работы с этим учебником необходимо иметь следующее:
 
-- **Кластер HBase в HDInsight**. Инструкции по подготовке кластера см. в разделе [Приступая к использованию HBase с Hadoop в HDInsight][Приступая к использованию HBase с Hadoop в HDInsight]. Для выполнения учебника необходимы следующие данные:
+- **Кластер HBase в HDInsight**. Инструкции по подготовке кластера см. в разделе [Приступая к использованию HBase с Hadoop в HDInsight][hBase-get-started]. Для выполнения учебника необходимы следующие данные:
 
 	<table border="1">
 	<tr><th>Свойство кластера</th><th>Описание</th></tr>
@@ -71,7 +71,7 @@
 	<tr><td>Пароль пользователя кластера</td><td>Пароль пользователя кластера Hadoop.</td></tr>
 	</table>
 
-- **Рабочая станция**, на которой установлено программное обеспечение Visual Studio 2013. Инструкции см. в разделе [Установка Visual Studio][Установка Visual Studio].
+- **Рабочая станция**, на которой установлено программное обеспечение Visual Studio 2013. Инструкции см. в разделе [Установка Visual Studio](http://msdn.microsoft.com/en-us/library/e2h7fzkw.aspx).
 
 
 
@@ -79,13 +79,13 @@
 
 ## <a id="twitter"></a> Создание идентификатора и секретов приложения Twitter
 
-В интерфейсах API потоковой передачи Twitter для авторизации запросов используется протокол [OAuth][OAuth].
+В интерфейсах API потоковой передачи Twitter для авторизации запросов используется протокол [OAuth](http://oauth.net/).
 
 Первый шаг для начала использования OAuth состоит в создании нового приложения на сайте разработчиков Twitter.
 
 **Создание идентификатора и секретов приложения Twitter**
 
-1.  Войдите на веб-сайт [][1]<https://apps.twitter.com/></a>. Перейдите по ссылке **Войти сейчас**, если у вас нет учетной записи Twitter.
+1.  Войдите на веб-сайт [https://apps.twitter.com/](https://apps.twitter.com/). Перейдите по ссылке **Войти сейчас**, если у вас нет учетной записи Twitter.
 2.  Щелкните **Создать новое приложение**.
 3.  Введите **Имя**, **Описание**, **Веб-сайт**. Поле "Веб-сайт" на самом деле не используется. В нем не обязательно указывать действительный URL-адрес. В следующей таблице приведены некоторые примеры значений:
 
@@ -157,12 +157,12 @@
 **Установка пакетов Nuget и добавление ссылок SDK**
 
 1. В меню **Средства** щелкните **Диспетчер пакетов Nuget**, а затем щелкните **Консоль диспетчера пакетов**. В нижней части страницы откроется консольная панель.
-2. Чтобы установить пакет [Tweetinvi][Tweetinvi], используемый для доступа к API Twitter, и пакет [Protobuf-net][Protobuf-net], который служит для сериализиции и десериализации объектов, выполните следующие команды:
+2. Чтобы установить пакет [Tweetinvi](https://www.nuget.org/packages/TweetinviAPI/), используемый для доступа к API Twitter, и пакет [Protobuf-net](https://www.nuget.org/packages/protobuf-net/), который служит для сериализиции и десериализации объектов, выполните следующие команды:
 
 		Install-Package TweetinviAPI
 		Install-Package protobuf-net 
 
-	> [WACOM.NOTE] На 26 августа 2014 г. пакет Microsoft Hbase SDK Nuget был недоступен. Репозиторий Github — [][2]<https://github.com/hdinsight/hbase-sdk-for-net></a>. Пока этот пакет SDK не станет доступен, выполнять сборку библиотеки DLL необходимо самостоятельно. Инструкции см. в разделе [Приступая к использованию HBase с Hadoop в HDInsight][Приступая к использованию HBase с Hadoop в HDInsight].
+	> [WACOM.NOTE] На 26 августа 2014 г. пакет Microsoft Hbase SDK Nuget был недоступен. Репозиторий Github — [https://github.com/hdinsight/hbase-sdk-for-net](https://github.com/hdinsight/hbase-sdk-for-net). Пока этот пакет SDK не станет доступен, выполнять сборку библиотеки DLL необходимо самостоятельно. Инструкции см. в разделе [Приступая к использованию HBase с Hadoop в HDInsight][hdinsight-hbase-get-started].
 
 3. В **обозревателе решений** щелкните правой кнопкой мыши папку **Ссылки** и выберите пункт **Добавить ссылку**.
 4. В левой области разверните узел **Сборки**, а затем щелкните **Платформа**.
@@ -481,7 +481,7 @@
 
 **Загрузка файла словаря мнений**
 
-1. Перейдите на страницу [][]<https://github.com/maxluk/tweet-sentiment></a>.
+1. Перейдите на страницу [https://github.com/maxluk/tweet-sentiment](https://github.com/maxluk/tweet-sentiment).
 2. Нажмите кнопку **Download ZIP** (Загрузить ZIP-файл).
 3. Распакуйте архив на локальном компьютере.
 4. Скопируйте файл **../tweet-sentiment/SimpleStreamingService/data/dictionary/dictionary.tsv**.
@@ -547,11 +547,11 @@
 **Установка пакетов Nuget**
 
 1. В меню **Средства** щелкните **Диспетчер пакетов Nuget**, а затем щелкните **Консоль диспетчера пакетов**. В нижней части страницы откроется консольная панель.
-2. Чтобы установить пакет [Protobuf-net][Protobuf-net], используемый для сериализиции и десериализации объектов, используйте следующую команду:
+2. Чтобы установить пакет [Protobuf-net](https://www.nuget.org/packages/protobuf-net/), используемый для сериализиции и десериализации объектов, используйте следующую команду:
 
         Install-Package protobuf-net 
 
-    > [WACOM.NOTE] На 20 августа 2014 г. пакет Microsoft Hbase SDK Nuget был недоступен. Репозиторий Github — [][2]<https://github.com/hdinsight/hbase-sdk-for-net></a>. Пока этот пакет SDK не станет доступен, выполнять сборку библиотеки DLL необходимо самостоятельно. Инструкции см. в разделе [Приступая к использованию HBase с Hadoop в HDInsight][Приступая к использованию HBase с Hadoop в HDInsight].
+    > [WACOM.NOTE] На 20 августа 2014 г. пакет Microsoft Hbase SDK Nuget был недоступен. Репозиторий Github — [https://github.com/hdinsight/hbase-sdk-for-net](https://github.com/hdinsight/hbase-sdk-for-net). Пока этот пакет SDK не станет доступен, выполнять сборку библиотеки DLL необходимо самостоятельно. Инструкции см. в разделе [Приступая к использованию HBase с Hadoop в HDInsight][hdinsight-hbase-get-started].
 
 **Добавление класса HBaseReader**
 
@@ -716,7 +716,7 @@
 1. В **обозревателе решений** разверните элемент **TweetSentimentWeb**.
 2. Щелкните правой кнопкой мыши элемент **Скрипты**, выберите пункт **Добавить** и щелкните **Файл JavaScript**.
 3. В поле имени элемента введите **heatmap.js**.
-4. Скопируйте приведенный ниже код и вставьте его в файл. Код был создан Аластером Эйтчисоном (Alastair Aitchison). Дополнительные сведения см. на странице [][3]<http://alastaira.wordpress.com/2011/04/15/bing-maps-ajax-v7-heatmap-library/></a>.
+4. Скопируйте приведенный ниже код и вставьте его в файл. Код был создан Аластером Эйтчисоном (Alastair Aitchison). Дополнительные сведения см. на странице [http://alastaira.wordpress.com/2011/04/15/bing-maps-ajax-v7-heatmap-library/](http://alastaira.wordpress.com/2011/04/15/bing-maps-ajax-v7-heatmap-library/).
 
 		/*******************************************************************************
 		* Author: Alastair Aitchison
@@ -1289,27 +1289,28 @@
 1. Убедитесь в том, что консольное приложение-служба потоковой передачи по-прежнему работает. Это позволит вам видеть изменения в режиме реального времени.
 2. Нажмите клавишу **F5**, чтобы запустить веб-приложение.
 
-    ![hdinsight.hbase.twitter.sentiment.bing.map][hdinsight.hbase.twitter.sentiment.bing.map]
+    ![hdinsight.hbase.twitter.sentiment.bing.map][img-bing-map]
 3. Введите в текстовом поле ключевое слово и нажмите кнопку **Go** (Найти). В зависимости от того, какие данные собраны в таблице HBase, некоторые ключевые слова, возможно, не будут найдены. Попробуйте использовать распространенные ключевые слова, такие как "нравится", "xbox", "playstation" и т. д.
 4. Переключитесь между категориями **Positive** (Положительное), **Neutral** (Нейтральное) и **Negative** (Отрицательное), чтобы сравнить мнения.
 5.  Дайте службе потоковой передачи поработать еще час, а затем выполните поиск по тому же ключевому слову и сравните результаты.
 
 
-При желании вы можете также развернуть приложение на веб-сайте Azure. Инструкции см. в разделе [Начало работы с Azure и ASP.NET][Начало работы с Azure и ASP.NET].
+При желании вы можете также развернуть приложение на веб-сайте Azure. Инструкции см. в разделе [Начало работы с Azure и ASP.NET][website-get-started].
 
 ## <a id="nextsteps"></a> Дальнейшие действия
 
 Из этого учебника вы узнали, как получать твиты, анализировать мнения на их основе, сохранять полученные оценки мнений в HBase и представлять данные по мнениям пользователей Twitter на картах Bing в режиме реального времени. Дополнительные сведения см. на следующих ресурсах:
 
-- [Приступая к работе с HDInsight][Приступая к работе с HDInsight]
-- [Анализ данных Twitter с помощью Hadoop в HDInsight][Анализ данных Twitter с помощью Hadoop в HDInsight]
-- [Анализ данных о задержке рейсов с помощью HDInsight][Анализ данных о задержке рейсов с помощью HDInsight]
-- [Разработка программ потоковой передачи Hadoop на C# для HDInsight][Разработка программ потоковой передачи Hadoop на C# для HDInsight]
-- [Разработка программ MapReduce на Java для HDInsight][Разработка программ MapReduce на Java для HDInsight]
+- [Приступая к работе с HDInsight][hdinsight-get-started]
+- [Анализ данных Twitter с помощью Hadoop в HDInsight][hdinsight-analyze-twitter-data]
+- [Анализ данных о задержке рейсов с помощью HDInsight][hdinsight-analyze-flight-delay-data]
+- [Разработка программ потоковой передачи Hadoop на C# для HDInsight][hdinsight-develop-streaming]
+- [Разработка программ MapReduce на Java для HDInsight][hdinsight-develop-mapreduce]
 
 
-[анализ мнений]: http://en.wikipedia.org/wiki/Sentiment_analysis
-[]: ./media/hdinsight-hbase-analyze-twitter-sentiment/AppArchitecture.png
+
+[img-app-arch]: ./media/hdinsight-hbase-analyze-twitter-sentiment/AppArchitecture.png
+[img-bing-map]: ./media/hdinsight-hbase-analyze-twitter-sentiment/TwitterSentimentBingMap.png
 [hdinsight.hbase.twitter.sentiment.bing.map]: ./media/hdinsight-hbase-analyze-twitter-sentiment/TwitterSentimentBingMap.png
 []: https://github.com/maxluk/tweet-sentiment
 [Предварительные требования]: #prerequisites
@@ -1317,7 +1318,7 @@
 [Создание простой службы потоковой передачи данных Twitter]: #streaming
 [Создание веб-сайта Azure для визуализации мнений пользователей Twitter]: #web
 [Дальнейшие действия]: #nextsteps
-[Приступая к использованию HBase с Hadoop в HDInsight]: ../hdinsight-hbase-get-started/
+[hBase-get-started]: ../hdinsight-hbase-get-started/
 [Установка Visual Studio]: http://msdn.microsoft.com/en-us/library/e2h7fzkw.aspx
 [OAuth]: http://oauth.net/
 [1]: https://apps.twitter.com/
@@ -1327,9 +1328,10 @@
 [2]: https://github.com/hdinsight/hbase-sdk-for-net
 [hdinsight.hbase.twitter.sentiment.streaming.service]: ./media/hdinsight-hbase-analyze-twitter-sentiment/StreamingService.png
 [3]: http://alastaira.wordpress.com/2011/04/15/bing-maps-ajax-v7-heatmap-library/
-[Начало работы с Azure и ASP.NET]: ../web-sites-dotnet-get-started/
-[Приступая к работе с HDInsight]: ../hdinsight-get-started/
-[Анализ данных Twitter с помощью Hadoop в HDInsight]: ../hdinsight-analyze-twitter-data/
-[Анализ данных о задержке рейсов с помощью HDInsight]: ../hdinsight-analyze-flight-delay-data/
-[Разработка программ потоковой передачи Hadoop на C# для HDInsight]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
-[Разработка программ MapReduce на Java для HDInsight]: ../hdinsight-develop-deploy-java-mapreduce/
+[website-get-started]: ../web-sites-dotnet-get-started/
+[hdinsight-get-started]: ../hdinsight-get-started/
+[hdinsight-analyze-twitter-data]: ../hdinsight-analyze-twitter-data/
+[hdinsight-analyze-flight-delay-data]: ../hdinsight-analyze-flight-delay-data/
+[hdinsight-develop-streaming]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
+[hdinsight-develop-mapreduce]: ../hdinsight-develop-deploy-java-mapreduce/
+[hdinsight-hbase-get-started]: ../hdinsight-hbase-get-started/

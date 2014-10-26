@@ -1,54 +1,44 @@
-<properties linkid="develop-mobile-how-to-guides-register-for-google-authentication" urlDisplayName="Регистрация для проверки подлинности Google" pageTitle="Регистрация для проверки подлинности Google — мобильные службы" metaKeywords="Регистрация приложения Azure, проверки подлинности Google в Azure, проверка подлинности приложения, проверка подлинности мобильных служб" description="Узнайте, как зарегистрировать ваше приложение для использования Google при проверке подлинности в службах мультимедиа Azure." metaCanonical="" services="" documentationCenter="" title="Регистрация приложений для входа в Google с помощью мобильных служб" authors="" solutions="" manager="" editor="" />
+<properties linkid="develop-mobile-how-to-guides-register-for-google-authentication" urlDisplayName="Register for Google Authentication" pageTitle="Register for Google authentication - Mobile Services" metaKeywords="Azure registering application, Azure authentication, Google application authenticate, authenticate mobile services" description="Learn how to register your apps to use Google to authenticate with Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Register your apps for Google login with Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-# Регистрация приложений для входа в Google с помощью мобильных служб
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+
+# Регистрация приложений для входа в мобильные службы с помощью Google
 
 В этом разделе показано, как зарегистрировать приложения, чтобы иметь возможность использовать Google для проверки подлинности с помощью мобильных служб Azure.
 
-<div class="dev-callout"><b>Примечание.</b>
-<p>Чтобы выполнить процедуру, описанную в этом разделе, необходимо иметь учетную запись Google с проверенным адресом электронной почты. Чтобы создать новую учетную запись Google, перейдите по ссылке <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.</p>
-</div> 
+<div class="dev-callout"><b>Примечание</b>
+<p>Чтобы выполнить процедуру, описанную в этом разделе, необходимо иметь учетную запись Google с проверенным электронным адресом. Чтобы создать новую учетную запись Google, перейдите по ссылке <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.</p>
+</div>
 
-1. Перейдите на веб-сайт <a href="http://go.microsoft.com/fwlink/p/?LinkId=268303" target="_blank">Google apis</a> и войдите с помощью учетной записи Google. Нажмите кнопку **Создать проект...**.
+1.  Перейдите на веб-сайт [Google apis][Google apis], войдите с учетными данными Google, выберите **Create Project** (Создать проект), укажите имя проекта в поле **Project name** (Имя проекта), а затем нажмите кнопку **Create** (Создать).
 
-   	![][1]   
+    ![][]
 
-2. Нажмите кнопку **Доступ к API** и затем нажмите **Создать идентификатор клиента OAuth 2.0.**.
+2.  Щелкните **API & Auth** (API и авторизация), затем **Credentials** (Учетные данные), а потом **Create new Client ID** (Создать новый идентификатор клиента).
 
-   	![][2]
+    ![][1]
 
-3. В поле **Сведения о фирменном стиле** введите **имя продукта** и нажмите кнопку **Далее**.  
+3.  Выберите **Web application** (Веб-приложение), введите URL-адрес мобильной службы в поле **Authorized JavaScript Origins** (Авторизованные источники JavaScript), замените созданный URL-адрес в поле **Authorized Redirect URI** (Авторизованный универсальный код ресурса (URI) перенаправления) на URL-адрес мобильной службы, к которому добавлен путь */login/google*, а затем нажмите кнопку **Create client ID** (Создать идентификатор клиента).
 
-   	![][3]
+    > [WACOM.NOTE]Для серверной мобильной службы для .NET, опубликованной в Azure с помощью Visual Studio, URL-адресом перенаправления является URL-адрес вашей мобильной службы, дополненный путем *signin-google* мобильной службы как службы .NET, например <code><a href="https://todolist.azure-mobile.net/signin-google" class="uri">https://todolist.azure-mobile.net/signin-google</a></code>.
 
-4. В разделе **Параметры кода клиента** выберите **Веб-приложение**, введите URL-адрес мобильной службы в поле **Сайт или имя узла**, нажмите кнопку **Дополнительные параметры**, замените созданный URL-адрес в поле **Авторизованные URI перенаправления** на URL-адрес вашей мобильной службы, дополненный путем _/login/google_, и нажмите кнопку **Создать код клиента**.
+    ![][2]
 
-   	![][4]
+4.  В разделе **Client ID for web applications** (Идентификатор клиента для веб-приложений) запишите значения полей **Client ID** (Идентификатор клиента) и **Client secret** (Секрет клиента).
 
-	>[WACOM.NOTE]Для серверной мобильной службы .NET, опубликованной в Azure с помощью Visual Studio, URL-адресом перенаправления является URL-адрес вашей мобильной службы, дополненный путем __Hlk384692799signin-google__Hlk384692799 мобильной службы в качестве службы .NET, например <code>https://todolist.azure-mobile.net/signin-google</code>.
-
-6. В разделе **Код клиента для веб-приложений** запишите значения полей **Код клиента** и **Секрета клиент**. 
-
-   	![][5]
+    ![][3]
 
     <div class="dev-callout"><b>Примечание о безопасности</b>
-	<p>Секрет клиента — это важные учетные данные безопасности. Не сообщайте никому этот секрет и не распространяйте его вместе с вашим приложением.</p>
-    </div>
+<p>Секрет клиента &mdash; это важные учетные данные безопасности. Не сообщайте никому этот секрет и не распространяйте его вместе со своим приложением.</p>
+</div>
 
 Теперь вы готовы использовать имя входа Google для проверки подлинности в вашем приложении, предоставляя мобильным службам код клиента и секрет клиента приложения.
 
-<!-- Anchors. -->
 
-<!-- Images. -->
-[1]: ./media/mobile-services-how-to-register-google-authentication/mobile-services-google-developers.png
-[2]: ./media/mobile-services-how-to-register-google-authentication/mobile-services-google-create-client.png
-[3]: ./media/mobile-services-how-to-register-google-authentication/mobile-services-google-create-client2.png
-[4]: ./media/mobile-services-how-to-register-google-authentication/mobile-services-google-create-client3.png
-[5]: ./media/mobile-services-how-to-register-google-authentication/mobile-services-google-app-details.png
 
-<!-- URLs. -->
-
-[API-интерфейсы Google]: http://go.microsoft.com/fwlink/p/?LinkId=268303
-[Приступая к работе с аутентификацией]: /ru-ru/develop/mobile/tutorials/get-started-with-users-dotnet/
-
-[Портал управления Azure]: https://manage.windowsazure.com/
-
+  [accounts.google.com]: http://go.microsoft.com/fwlink/p/?LinkId=268302
+  [Google apis]: http://go.microsoft.com/fwlink/p/?LinkId=268303
+  []: ./media/mobile-services-how-to-register-google-authentication/mobile-services-google-new-project.png
+  [1]: ./media/mobile-services-how-to-register-google-authentication/mobile-services-google-create-client.png
+  [2]: ./media/mobile-services-how-to-register-google-authentication/mobile-services-google-create-client2.png
+  [3]: ./media/mobile-services-how-to-register-google-authentication/mobile-services-google-create-client3.png

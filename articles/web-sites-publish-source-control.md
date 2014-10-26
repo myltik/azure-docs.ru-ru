@@ -1,8 +1,7 @@
-<properties linkid="develop-dotnet-publishing-with-git" urlDisplayName="Публикации из системы управления версиями для веб-сайтов Azure" pageTitle="Публикации из системы управления версиями для веб-сайтов Azure" metaKeywords="GitHub для веб-сайтов Azure, GitHub для веб-сайтов Azure, Git для веб-сайтов Azure, CodePlex для веб-сайтов Azure, непрерывная публикация веб-сайтов Azure, BitBucket, Dropbox, GitHub, Mercurial" description="Сведения о применении Git для публикации веб-сайтов Azure и последующем обеспечении непрерывного развертывания с использованием Bitbucket, CodePlex, Dropbox, GitHub или Mercurial." metaCanonical="" services="web-sites" documentationCenter=".NET" title="" authors="" solutions="" manager="" editor="" />
+<properties linkid="develop-dotnet-publishing-with-git" urlDisplayName="Publishing from Source Control to Azure Websites" pageTitle="Publishing from Source Control to Azure Websites" metaKeywords="Azure web site GitHub, Azure website GitHub, Azure website Git, Azure website CodePlex, Azure website continuous publishing, BitBucket, Dropbox, GitHub, Mercurial" description="Learn how to use Git to publish an Azure website, and then enable continuous deployment from Bitbucket, CodePlex, Dropbox, GitHub, or Mercurial." metaCanonical="" services="web-sites" documentationCenter=".NET" title="" authors="cephalin" solutions="" manager="wpickett" editor="mollybos" />
 
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/29/2014" ms.author="cephalin"></tags>
 
+[WACOM.INCLUDE [publishing-with-git][publishing-with-git]]
 
-
-
-[WACOM.INCLUDE [publishing-with-git](../includes/publishing-with-git.md)]
-
+  [publishing-with-git]: ../includes/publishing-with-git.md

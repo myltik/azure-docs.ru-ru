@@ -1,85 +1,106 @@
-<properties linkid="manage-linux-common-tasks-lampstack" urlDisplayName="Установка стека LAMP" pageTitle="Установка стека LAMP на виртуальную машину Linux" metaKeywords="" description="Узнайте, как установить стек LAMP на виртуальную машину (ВМ) Linux в Azure. Установку можно выполнить на Ubuntu или CentOS." metaCanonical="" services="virtual-machines" documentationCenter="" title="Установка стека LAMP на виртуальную машину Linux в Azure" authors="" solutions="" manager="" editor="" />
+<properties linkid="manage-linux-common-tasks-lampstack" urlDisplayName="Install LAMP stack" pageTitle="Install the LAMP stack on a Linux virtual machine" metaKeywords="" description="Learn how to install the LAMP stack on a Linux virtual machine (VM) in Azure. You can install on Ubuntu or CentOS." metaCanonical="" services="virtual-machines" documentationCenter="" title="Install the LAMP Stack on a Linux virtual machine in Azure" authors="szark" solutions="" manager="timlt" editor="" />
 
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="szark"></tags>
 
-
-
-#Установка стека LAMP на виртуальную машину Linux в Azure
+# Установка стека LAMP на виртуальную машину Linux в Azure
 
 Стек LAMP состоит из следующих элементов:
 
-- **L**inux - операционная система
-- **A**pache - веб-сервер
-- **M**ySQL - сервер БД
-- **P**HP - язык программирования
+-   **L**inux — операционная система.
+-   **A**pache — веб-сервер.
+-   **M**ySQL — сервер БД.
+-   **P**HP — язык программирования.
 
-
-##Установка на Ubuntu
-
-Необходимо установить следующие пакеты:
-
-- `apache2`
-- `mysql-server`
-- `php5`
-- `php5-mysql`
-- `libapache2-mod-auth-mysql`
-- `libapache2-mod-php5`
-- `php5-xsl`
-- `php5-gd`
-- `php-pear`
-
-Можно выполнить в виде единой команды `apt-get install`:
-
-	apt-get install apache2 mysql-server php5 php5-mysql libapache2-mod-auth-mysql libapache2-mod-php5 php5-xsl php5-gd php-pear
-
-
-##Установка на CentOS
+## Установка на Ubuntu
 
 Необходимо установить следующие пакеты:
 
-- `httpd`
-- `mysql`
-- `mysql-server`
-- `php`
-- `php-mysql`
+-   `apache2`
+-   `mysql-server`
+-   `php5`
+-   `php5-mysql`
 
-Можно выполнить в виде единой команды `yum install`:
+После выполнения команды `apt-get update` для обновления локального списка пакетов вы сможете установить эти пакеты с помощью одной команды `apt-get install`:
 
-	yum install httpd mysql mysql-server php-php-mysql
+    # sudo apt-get update
+    # sudo apt-get install apache2 mysql-server php5 php5-mysql
 
+После выполнения приведенной выше команды вам будет предложено установить эти пакеты и некоторые другие зависимости. Нажмите «y», а затем клавишу ВВОД, чтобы продолжить, и следуйте остальным указаниям по установке административного пароля для MySQL.
 
-Настройка
-----------
+Это позволит вам установить минимальный набор расширений PHP, необходимый для использования PHP с MySQL. Выполните следующую команду, чтобы увидеть другие расширения PHP, доступные как пакеты:
 
-1. Настройка **Apache**
+    # apt-cache search php5
 
-	1. Необходимо будет перезапустить веб-сервер Apache. Выполните следующую команду:
+## Установка на CentOS и Oracle Linux
 
-			sudo /etc/init.d/apache2 restart
+Необходимо установить следующие пакеты:
 
-	2. Убедитесь, что установка выполняется. Введите в браузере [http://localhost](http://localhost). Должно появиться сообщение "It works!".
+-   `httpd`
+-   `mysql`
+-   `mysql-server`
+-   `php`
+-   `php-mysql`
 
-2. Настройка **MySQL**.
-	1. Задайте корневой пароль для mysql, запустив следующую команду
-	
-			mysqladmin -u root -p password yourpassword
+Вы можете установить эти пакеты с помощью одной команды `yum install`:
 
-	2. Войдите в консоль, используя `mysql` или один из клиентов MySQL.
+    # sudo yum install httpd mysql mysql-server php php-mysql
 
-3. Настройка **PHP**.
+После выполнения приведенной выше команды вам будет предложено установить эти пакеты и некоторые другие зависимости. Нажмите «y», а затем клавишу ВВОД, чтобы продолжить.
 
-	1. Включите модуль Apache PHP, выполнив следующую команду:
+Это позволит вам установить минимальный набор расширений PHP, необходимый для использования PHP с MySQL. Выполните следующую команду, чтобы увидеть другие расширения PHP, доступные как пакеты:
 
-			sudo a2enmod php5
+    # yum search php
 
-	2. Перезапустите Apache, выполнив следующую команду:
+## Установка на SUSE Linux Enterprise Server
 
-			sudo service apache2 restart
+Необходимо установить следующие пакеты:
 
+-   apache2
+-   mysql
+-   apache2-mod\_php53
+-   php53-mysql
 
-##Дополнительные материалы
+Вы можете установить эти пакеты с помощью одной команды `zypper install`:
+
+    # sudo zypper install apache2 mysql apache2-mod_php53 php53-mysql
+
+После выполнения приведенной выше команды вам будет предложено установить эти пакеты и некоторые другие зависимости. Нажмите «y», а затем клавишу ВВОД, чтобы продолжить.
+
+Это позволит вам установить минимальный набор расширений PHP, необходимый для использования PHP с MySQL. Выполните следующую команду, чтобы увидеть другие расширения PHP, доступные как пакеты:
+
+    # zypper search php
+
+## Настройка
+
+1.  Настройка **Apache**
+
+    -   Выполните следующую команду, чтобы убедиться, что веб-сервер Apache запущен:
+
+        -   Ubuntu и SLES: `sudo service apache2 restart`
+
+        -   CentOS и Oracle: `sudo service httpd restart`
+
+    -   Apache по умолчанию прослушивает порт 80. Возможно, для удаленного доступа к серверу Apache вам необходимо будет открыть конечную точку. Подробные инструкции см. в документации по [настройке конечных точек][настройке конечных точек].
+
+    -   Вы можете сделать проверку, чтобы убедиться, что Apache запущен и обрабатывает содержимое. Введите в браузере `http://[MYSERVICE].cloudapp.net`, где **[MYSERVICE]** — это имя облачной службы, в которой находится ваша виртуальная машина. На некоторых дистрибутивах может открыться веб-страница по умолчанию с простым сообщением «It works!». На других вы можете увидеть более полную веб-страницу со ссылками на дополнительную документацию и содержимое для настройки сервера Apache.
+
+2.  Настройка **MySQL**
+
+    -   Обратите внимание, что этот шаг необязателен на Ubuntu, где пароль `root` MySQL запрашивается при установке пакета mysql-server.
+
+    -   На других дистрибутивах задайте корневой пароль для MySQL, выполнив следующую команду:
+
+            # mysqladmin -u root -p password yourpassword
+
+    -   Далее можете управлять MySQL с помощью служебных программ `mysql` или `mysqladmin`.
+
+## Дополнительные материалы
 
 Существует множество ресурсов, описывающих установку стека LAMP на Ubuntu.
 
-- [https://help.ubuntu.com/community/ApacheMySQLPHP](https://help.ubuntu.com/community/ApacheMySQLPHP)
-- [http://fedorasolved.org/server-solutions/lamp-stack](http://fedorasolved.org/server-solutions/lamp-stack)
+-   [][]<https://help.ubuntu.com/community/ApacheMySQLPHP></a>
+-   [][1]<http://fedorasolved.org/server-solutions/lamp-stack></a>
 
+  [настройке конечных точек]: http://azure.microsoft.com/ru-ru/documentation/articles/virtual-machines-set-up-endpoints/
+  []: https://help.ubuntu.com/community/ApacheMySQLPHP
+  [1]: http://fedorasolved.org/server-solutions/lamp-stack

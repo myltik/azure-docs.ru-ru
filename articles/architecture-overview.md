@@ -1,56 +1,63 @@
-<properties linkid="" urlDisplayName="" pageTitle="Архитектура" metaKeywords="" description="Общие сведения об архитектуре, которая охватывает общие шаблоны разработки" metaCanonical="" services="" documentationCenter="" videoId="" scriptId="" title="Обзор архитектуры" authors="" solutions="" writer="waltpo" manager="bjsmith" editor="mattshel"  />
+<properties linkid="develop-net-architecture sublanding" urlDisplayName="" pageTitle="Architecture" metaKeywords="" description="Architecture overview that covers common design patterns" metaCanonical="" services="" documentationCenter="" videoId="" scriptId="" title="Architecture Overview" authors="robb" solutions="" manager="johndaw" editor="mattshel" />
 
-#Архитектура
-Способы реализации общих шаблонов разработки в Azure.
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="robb"></tags>
 
-###Набор символов и значков Azure
+# Архитектура
 
-[Загрузите набор символов и значков Azure](http://www.microsoft.com/ru-ru/download/details.aspx?id=41937) для создания технических материалов, которые описывают (или используют) в Azure схемы архитектуры, учебные материалы, презентации, таблицы, инфографику и технические документы. Можно загрузить символы в форматах PPT, Visio и PNG. Мы хотели бы знать ваше мнение, поэтому предлагаем для загрузки инструкции по обратной связи.
+Узнайте, как реализовать общие шаблоны разработки в Azure.
 
-![Набор символов и значков Azure][azure_symbols]
+### Набор символов и значков Azure
 
-##Шаблоны проектирования
+[Скачайте набор символов и значков Azure][Скачайте набор символов и значков Azure] для создания технических материалов, которые описывают (или используют) в Azure схемы архитектуры, учебные материалы, презентации, таблицы, инфографику и технические документы. Можно загрузить символы в форматах PPT, Visio и PNG. Мы хотели бы знать ваше мнение, поэтому предлагаем для загрузки инструкции по обратной связи.
 
-###[Конкурирующие потребители](http://msdn.microsoft.com/ru-ru/library/dn568101.aspx)
+![Набор символов и значков Azure][Набор символов и значков Azure]
 
-![Конкурирующие потребители][competing_consumers]
+## Шаблоны проектирования
 
-Включение нескольких одновременных пользователей для обработки полученных сообщений на один и тот же канал обмена сообщениями. Этот шаблон позволяет обрабатывать несколько сообщений одновременно, чтобы оптимизировать пропускную способность для повышения масштабируемости и доступности, а также для распределения рабочей нагрузки в системе. 
+### [Конкурирующие потребители][Конкурирующие потребители]
 
-###[Выделение ответственности команды и запроса](http://msdn.microsoft.com/ru-ru/library/dn568103.aspx)
+![Конкурирующие потребители][1]
 
-![Выделение ответственности команды и запроса][cqrs]
+Включение нескольких одновременных пользователей для обработки полученных сообщений на один и тот же канал обмена сообщениями. Этот шаблон позволяет обрабатывать несколько сообщений одновременно, чтобы оптимизировать пропускную способность для повышения масштабируемости и доступности, а также для распределения рабочей нагрузки в системе.
+
+### [Выделение ответственности команды и запроса][Выделение ответственности команды и запроса]
+
+![Выделение ответственности команды и запроса][2]
 
 Выделяют операции чтения данных из операций обновления данных с помощью отдельных интерфейсов. Этот шаблон может повысить производительность, масштабируемость и безопасность; поддерживает развитие системы с течением времени благодаря более высокой гибкости; и предотвращает возникновение конфликтов слияния из-за команд обновления на уровне домена.
 
-###[Выбор лидера](http://msdn.microsoft.com/ru-ru/library/dn568104.aspx)
+### [Выбор лидера][Выбор лидера]
 
-![Выбор лидера][leader_election]
+![Выбор лидера][3]
 
 Координирует действия, выполняемые коллекцией совместных экземпляров заданий в распределенном приложении путем выбора одного экземпляра как лидера, который несет ответственность за управление другими экземплярами. Этот шаблон помогает убедиться, что экземпляры задач не противоречат друг другу, не вызывают конфликты для общих ресурсов или помехи для работы, которую выполняют другие экземпляры задач.
 
-###[Каналы и фильтры](http://msdn.microsoft.com/ru-ru/library/dn568100.aspx)
+### [Каналы и фильтры][Каналы и фильтры]
 
-![Каналы и фильтры][pipes_and_filters]
+![Каналы и фильтры][4]
 
 Делит задачу, выполняющую сложную обработку, на ряд отдельных элементов, которые могут быть использованы повторно. Этот шаблон может повысить производительность, масштабируемость и возможность многократного использования, позволяя элементам задач, выполняющим обработку, развертываться и масштабироваться независимо друг от друга.
 
-###[Ключ Valet](http://msdn.microsoft.com/ru-ru/library/dn568102.aspx)
+### [Ключ Valet][Ключ Valet]
 
-![Ключ Valet][valet_key]
+![Ключ Valet][5]
 
 Используйте маркер или ключ, который предоставляет клиентам с ограниченным доступом, прямой конкретный ресурс или службу для разгрузки операций передачи данных из кода приложения. Этот шаблон полезен в приложениях, использующих системы хранения данных, размещенные в облаке или очередях, и может свести к минимуму затраты и повысить производительность и масштабируемость.
 
 ### Дополнительные рекомендации
 
-Сведения о других общих шаблонах разработки в Azure см. в разделе [Облачные шаблоны разработки](http://msdn.microsoft.com/ru-ru/library/dn568099.aspx).
+Информацию о других общих шаблонах разработки в Azure см. в разделе[Cloud Design Patterns][Cloud Design Patterns] (Облачные шаблоны разработки).
 
-
-[competing_consumers]: ./media/architecture-overview/CompetingConsumers.png
-[cqrs]: ./media/architecture-overview/CQRS.png
-[leader_election]: ./media/architecture-overview/LeaderElection.png
-[pipes_and_filters]: ./media/architecture-overview/PipesAndFilters.png
-[valet_key]: ./media/architecture-overview/ValetKey.png
-[azure_symbols]: ./media/architecture-overview/AzureSymbols.png
-
-
+  [Скачайте набор символов и значков Azure]: http://www.microsoft.com/ru-ru/download/details.aspx?id=41937
+  [Набор символов и значков Azure]: ./media/architecture-overview/AzureSymbols.png
+  [Конкурирующие потребители]: http://msdn.microsoft.com/ru-ru/library/dn568101.aspx
+  [1]: ./media/architecture-overview/CompetingConsumers.png
+  [Выделение ответственности команды и запроса]: http://msdn.microsoft.com/ru-ru/library/dn568103.aspx
+  [2]: ./media/architecture-overview/CQRS.png
+  [Выбор лидера]: http://msdn.microsoft.com/ru-ru/library/dn568104.aspx
+  [3]: ./media/architecture-overview/LeaderElection.png
+  [Каналы и фильтры]: http://msdn.microsoft.com/ru-ru/library/dn568100.aspx
+  [4]: ./media/architecture-overview/PipesAndFilters.png
+  [Ключ Valet]: http://msdn.microsoft.com/ru-ru/library/dn568102.aspx
+  [5]: ./media/architecture-overview/ValetKey.png
+  [Cloud Design Patterns]: http://msdn.microsoft.com/ru-ru/library/dn568099.aspx
