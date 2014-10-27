@@ -2,5 +2,5 @@
 
 
 [@AzureMobile]: https://twitter.com/AzureMobile
-[форумах]: http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azuremobile
+[форумах]: http://social.msdn.microsoft.com/Forums/windowsazure/ru-ru/home?forum=azuremobile
 [отзывах]: http://feedback.azure.com/forums/216254-mobile-services

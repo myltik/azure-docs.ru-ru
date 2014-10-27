@@ -10,7 +10,7 @@
 
 4.  В приложении введите какой-либо текст в поле **Вставить в TodoItem**, а затем нажмите кнопку **Сохранить**
 
-    ![][]
+    ![][0]
 
     Обратите внимание на то, что сохраненный текст отображается.
 
@@ -21,5 +21,5 @@
 6.  Повторите шаги 3 и 4, чтобы убедиться в том, что пример ведет себя аналогичным образом.
 
   [приложение GetStartedWithMobileServices]: http://go.microsoft.com/fwlink/p/?LinkID=510826
-  []: ./media/mobile-services-windows-universal-dotnet-download-project/mobile-quickstart-startup.png
+  [0]: ./media/mobile-services-windows-universal-dotnet-download-project/mobile-quickstart-startup.png
   [1]: ./media/mobile-services-windows-universal-dotnet-download-project/mobile-quickstart-startup-wp8.png

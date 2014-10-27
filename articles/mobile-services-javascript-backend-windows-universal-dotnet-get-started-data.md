@@ -5,7 +5,7 @@
 
 # Приступая к работе с данными в мобильных службах
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-data][mobile-services-selector-get-started-data]]
+[WACOM.INCLUDE [mobile-services-selector-get-started-data](../includes/mobile-services-selector-get-started-data.md)]
 
 В этом разделе показано, как применять мобильные службы Azure для эффективного использования данных в универсальном приложении Windows. Решения для универсальных приложений Windows включают проекты для приложений Магазинов Windows 8.1 и Windows Phone 8.1 и общий проект. Дополнительные сведения см. в разделе [Создание универсальных приложений Windows для Windows и Windows Phone][Создание универсальных приложений Windows для Windows и Windows Phone].
 
@@ -32,12 +32,12 @@
 
 ## <a name="download-app"></a> Загрузка проекта GetStartedWithData
 
-[WACOM.INCLUDE [mobile-services-windows-universal-dotnet-download-project][mobile-services-windows-universal-dotnet-download-project]]
+[WACOM.INCLUDE [mobile-services-windows-universal-dotnet-download-project](../includes/mobile-services-windows-universal-dotnet-download-project.md)]
 
 
 ## <a name="create-service"></a> Создание мобильной службы в Visual Studio
 
-[WACOM.INCLUDE [mobile-services-create-new-service-vs2013][mobile-services-create-new-service-vs2013]]
+[WACOM.INCLUDE [mobile-services-create-new-service-vs2013](../includes/mobile-services-create-new-service-vs2013.md)]
 
 <ol start="8"><li><p>В обозревателе решений откройте файл кода App.xaml.cs в папке проекта GetStartedWithData.Shared и обратите внимание на новое статическое поле, добавленное в класс <strong>App</strong> в блоке условной компиляции приложения Магазина Windows, которое выглядит как в следующем примере:</p> 
 
@@ -57,19 +57,19 @@
 
 ## <a name="add-table"></a> Добавление новой таблицы в мобильную службу
 
-[WACOM.INCLUDE [mobile-services-create-new-table-vs2013][mobile-services-create-new-table-vs2013]]
+[WACOM.INCLUDE [mobile-services-create-new-table-vs2013](../includes/mobile-services-create-new-table-vs2013.md)]
 
 > [WACOM.NOTE]Новые таблицы создаются со столбцами Id, __createdAt, __updatedAt и __version. Если динамическая схема включена, мобильные службы автоматически создают новые столбцы на основе JSON-объекта в запросе вставки или обновления. Дополнительные сведения см. в разделе [Динамическая схема][Динамическая схема].
 
 # <a name="update-app"></a> Обновление приложения для использования мобильной службы
 
-[WACOM.INCLUDE [mobile-services-windows-dotnet-update-data-app][mobile-services-windows-dotnet-update-data-app]]
+[WACOM.INCLUDE [mobile-services-windows-dotnet-update-data-app](../includes/mobile-services-windows-dotnet-update-data-app.md)]
 
 ## <a name="test-azure-hosted"></a> Тестирование мобильной службы, размещенной в Azure
 
 Теперь мы можем протестировать обе версии универсального приложения Windows с мобильной службой, размещенной в Azure.
 
-[WACOM.INCLUDE [mobile-services-windows-universal-test-app][mobile-services-windows-universal-test-app]]
+[WACOM.INCLUDE [mobile-services-windows-universal-test-app](../includes/mobile-services-windows-universal-test-app.md)]
 
 <ol start="4">
 <li><p>На [Портале управления][Портале управления] щелкните <strong>Мобильные службы</strong>, затем щелкните свою мобильную службу.<p></li>
@@ -77,7 +77,7 @@
 <p>Обратите внимание, что таблица <strong>TodoItem</strong> теперь содержит данные со значениями идентификаторов, которые созданы мобильными службами, и в таблицу были автоматически добавлены столбцы, соответствующие классу TodoItem в приложении.</p></li>
 </ol>
 
-![][]
+![][0]
 
 Это заключительный шаг учебника <strong>Приступая к работе с данными</strong>.
 
@@ -110,7 +110,7 @@
 
 
 [mobile-services-selector-get-started-data]: ../includes/mobile-services-selector-get-started-data.md
-[Создание универсальных приложений Windows для Windows и Windows Phone]: http://msdn.microsoft.com/en-us/library/windows/apps/xaml/dn609832.aspx
+[Создание универсальных приложений Windows для Windows и Windows Phone]: http://msdn.microsoft.com/ru-ru/library/windows/apps/xaml/dn609832.aspx
 [Приступая к работе с данными для Windows Phone]: /ru-ru/documentation/articles/mobile-services-windows-phone-get-started-data
 [эту версию]: /ru-ru/documentation/articles/mobile-services-windows-store-dotnet-get-started-data
 [Загрузка проекта приложения для Магазина Windows]: #download-app
@@ -119,17 +119,17 @@
 [Обновление приложения для использования мобильной службы]: #update-app
 [Тестирование работы приложения с мобильными службами]: #test-app
 [Просмотр переданных данных на портале управления Azure]: #view-data
-[Бесплатная пробная версия Azure]: http://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-universal-dotnet-get-started-data%2F
+[Бесплатная пробная версия Azure]: http://azure.microsoft.com/ru-ru/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fazure.microsoft.com%2Fru-ru%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-universal-dotnet-get-started-data%2F
 [Visual Studio Express 2013 для Windows]: https://go.microsoft.com/fwLink/p/?LinkID=257546
 [mobile-services-windows-universal-dotnet-download-project]: ../includes/mobile-services-windows-universal-dotnet-download-project.md
 [mobile-services-create-new-service-vs2013]: ../includes/mobile-services-create-new-service-vs2013.md
 [класса MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
 [mobile-services-create-new-table-vs2013]: ../includes/mobile-services-create-new-table-vs2013.md
-[Динамическая схема]: http://msdn.microsoft.com/en-us/library/windowsazure/jj193175.aspx
+[Динамическая схема]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj193175.aspx
 [mobile-services-windows-dotnet-update-data-app]: ../includes/mobile-services-windows-dotnet-update-data-app.md
 [mobile-services-windows-universal-test-app]: ../includes/mobile-services-windows-universal-test-app.md
 [Портале управления]: https://manage.windowsazure.com/
-[]: ./media/mobile-services-javascript-backend-windows-universal-dotnet-get-started-data/mobile-todoitem-data-browse.png
+[0]: ./media/mobile-services-javascript-backend-windows-universal-dotnet-get-started-data/mobile-todoitem-data-browse.png
 [Проверка и изменение данных с помощью скриптов]: /ru-ru/documentation/articles/mobile-services-windows-store-dotnet-validate-modify-data-server-scripts/
 [Уточнение запросов посредством разбиения по страницам]: /ru-ru/documentation/articles/mobile-services-windows-store-dotnet-add-paging-data/
 [Приступая к работе с проверкой подлинности]: /ru-ru/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/

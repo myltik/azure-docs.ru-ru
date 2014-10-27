@@ -16,4 +16,4 @@
 
 [Вход для управления базой данных SQL]: ./media/mobile-services-dotnet-backend-view-sql-data/manage-sql-azure-database.png
 [Запрос к базе данных SQL для получения хранящихся в ней элементов]: ./media/mobile-services-dotnet-backend-view-sql-data/sql-azure-query.png
-[EntityData]: http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.mobile.service.entitydata.aspx
+[EntityData]: http://msdn.microsoft.com/ru-ru/library/microsoft.windowsazure.mobile.service.entitydata.aspx

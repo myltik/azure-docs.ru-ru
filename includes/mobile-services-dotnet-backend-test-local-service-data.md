@@ -7,7 +7,7 @@
 
 3. Введите новый текст элемента todoitem. Нажмите кнопку **Сохранить**. При этом новый элемент todoItem вставляется в базу данных, которая создается мобильной службой, размещенной локально в IIS Express.
 
-    ![][]
+    ![][0]
 
 4. Установите флажок для одного из элементов, чтобы пометить его как завершенный.
 
@@ -17,6 +17,6 @@
 
     ![][2]
 
-[]: ./media/mobile-services-dotnet-backend-test-local-service-data/new-local-todoitem.png
+[0]: ./media/mobile-services-dotnet-backend-test-local-service-data/new-local-todoitem.png
 [1]: ./media/mobile-services-dotnet-backend-test-local-service-data/local-item-checked.png
 [2]: ./media/mobile-services-dotnet-backend-test-local-service-data/vs-show-local-table-data.png

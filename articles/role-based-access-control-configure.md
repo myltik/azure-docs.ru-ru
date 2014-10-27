@@ -234,8 +234,8 @@ Microsoft.Authorization/ * /Write, Microsoft.Authorization/ * /Delete
 -   [Управление доступом на основе ролей с помощью межплатформенного интерфейса командной строки](http://azure.microsoft.com/ru-ru/documentation/articles/role-based-access-control-xplat-cli/)
 -   [Устранение неполадок при управлении доступом на основе ролей](http://azure.microsoft.com/ru-ru/documentation/articles/role-based-access-control-troubleshooting/)
 -   [Azure Active Directory](http://msdn.microsoft.com/library/azure/jj673460.aspx)
--   [Azure Active Directory Premium и Basic](http://msdn.microsoft.com/en-us/library/azure/dn532272.aspx)
--   [Как подписки Azure связаны с Azure AD](http://msdn.microsoft.com/en-us/library/azure/dn629581.aspx)
+-   [Azure Active Directory Premium и Basic](http://msdn.microsoft.com/ru-ru/library/azure/dn532272.aspx)
+-   [Как подписки Azure связаны с Azure AD](http://msdn.microsoft.com/ru-ru/library/azure/dn629581.aspx)
 -   Базовые сведения о самостоятельном управлении группами безопасности в [блоге группы разработчиков Active Directory](http://blogs.technet.com/b/ad/archive/2014/02/24/more-preview-enhancements-for-windows-azure-ad-premium.aspx)
 
 <!--Image references-->

@@ -20,7 +20,7 @@ Azure RemoteApp использует образ шаблона Windows Server 20
 
 Перед созданием службы необходимо выполнить следующие действия.
 
--   Зарегистрироваться для предварительной версии RemoteApp. Это можно сделать на странице [][][http://azure.microsoft.com/ru-ru/services/remoteapp/](http://azure.microsoft.com/ru-ru/services/remoteapp/)</a>.
+-   Зарегистрироваться для предварительной версии RemoteApp. Это можно сделать на странице [][0][http://azure.microsoft.com/ru-ru/services/remoteapp/](http://azure.microsoft.com/ru-ru/services/remoteapp/)</a>.
 -   создать учетную запись пользователя в Active Directory для использования в качестве учетной записи службы RemoteApp. ограничить разрешения для этой учетной записи, чтобы она могла только присоединять машины к домену.
 -   собрать информацию о своей локальной сети: информацию об IP-адресе и сведения о VPN-устройстве.
 -   установить модуль [Azure PowerShell][Azure PowerShell].
@@ -113,7 +113,7 @@ Azure RemoteApp использует образ шаблона Windows Server 20
 -   [Как создать гибридное развертывание RemoteApp][Как создать гибридное развертывание RemoteApp]
 -   [Создание облачного развертывания RemoteApp][Создание облачного развертывания RemoteApp]
 
-  []: http://azure.microsoft.com/en-us/services/remoteapp/
+  [0]: http://azure.microsoft.com/ru-ru/services/remoteapp/
   [Azure PowerShell]: http://azure.microsoft.com/ru-ru/documentation/articles/install-configure-powershell/
   [Как создать гибридное развертывание RemoteApp]: http://azure.microsoft.com/ru-ru/documentation/articles/remoteapp-create-hybrid-deployment/
   [Создание облачного развертывания RemoteApp]: http://azure.microsoft.com/ru-ru/documentation/articles/remoteapp-create-cloud-deployment/

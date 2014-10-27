@@ -83,7 +83,7 @@
 <!--Link references-->
 
 [start]: ../app-insights-start-monitoring-app-health-usage/
-[]: ./media/appinsights/appinsights-47usage.png
+[0]: ./media/appinsights/appinsights-47usage.png
 [1]: ./media/appinsights/appinsights-49usage.png
 [2]: ./media/appinsights/appinsights-63usermetrics.png
 [3]: ./media/appinsights/appinsights-51searchpageviews.png

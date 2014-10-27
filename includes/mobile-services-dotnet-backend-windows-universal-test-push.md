@@ -9,7 +9,7 @@
 
 3. Запустите приложение Магазина Windows и введите текст в поле **Insert a TodoItem** (Вставить TodoItem), после чего нажмите кнопку **Save** (Сохранить).
 
-    ![][]
+    ![][0]
 
     Обратите внимание: после завершения вставки как приложение Магазина Windows, так и приложение Windows Phone получают push-уведомление из WNS.
 
@@ -20,6 +20,6 @@
     ![][2]
 
 
-[]: ./media/mobile-services-javascript-backend-windows-universal-test-push/mobile-quickstart-push1.png
+[0]: ./media/mobile-services-javascript-backend-windows-universal-test-push/mobile-quickstart-push1.png
 [1]: ./media/mobile-services-javascript-backend-windows-universal-test-push/mobile-quickstart-push2.png
 [2]: ./media/mobile-services-javascript-backend-windows-universal-test-push/mobile-quickstart-push5-wp8.png

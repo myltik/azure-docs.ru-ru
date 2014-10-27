@@ -84,7 +84,7 @@
   [В ходе эксплуатации веб-сайта]: #while-your-website-is-running
   [При обновлении веб-сайта]: #when-you-update-your-website
   [Управление веб-сайтами с помощью портала управления Azure]: http://azure.microsoft.com/ru-ru/documentation/articles/web-sites-manage/
-  [Сведения о ценах]: http://azure.microsoft.com/en-us/pricing/details/websites/
+  [Сведения о ценах]: http://azure.microsoft.com/ru-ru/pricing/details/websites/
   [Планы размещения веб-сайтов]: http://azure.microsoft.com/ru-ru/documentation/articles/azure-web-sites-web-hosting-plans-in-depth-overview
   [сменить уровни]: http://azure.microsoft.com/ru-ru/documentation/articles/web-sites-scale/
   [портале управления Azure]: https://manage.windowsazure.com/
@@ -99,7 +99,7 @@
   [Управление производительностью приложений New Relic на веб-сайтах Azure]: http://azure.microsoft.com/ru-ru/documentation/articles/store-new-relic-web-sites-dotnet-application-performance-management/
   [автоматическое резервное копирование]: http://azure.microsoft.com/ru-ru/documentation/articles/web-sites-backup/
   [этом видео]: http://azure.microsoft.com/ru-ru/documentation/videos/azure-websites-automatic-and-easy-backup/
-  [восстановления базы данных]: http://msdn.microsoft.com/en-us/library/azure/hh852669.aspx
+  [восстановления базы данных]: http://msdn.microsoft.com/ru-ru/library/azure/hh852669.aspx
   [устранять в Visual Studio]: http://azure.microsoft.com/ru-ru/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/#remotedebug
   [Включение ведения журналов диагностики для веб-сайтов Azure]: http://azure.microsoft.com/ru-ru/documentation/articles/web-sites-enable-diagnostic-log/
   [Отладка приложения Node.js для веб-сайтов Azure]: http://azure.microsoft.com/ru-ru/documentation/articles/web-sites-nodejs-debug/

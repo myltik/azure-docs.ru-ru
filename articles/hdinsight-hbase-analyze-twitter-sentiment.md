@@ -71,7 +71,7 @@
 	<tr><td>Пароль пользователя кластера</td><td>Пароль пользователя кластера Hadoop.</td></tr>
 	</table>
 
-- **Рабочая станция**, на которой установлено программное обеспечение Visual Studio 2013. Инструкции см. в разделе [Установка Visual Studio](http://msdn.microsoft.com/en-us/library/e2h7fzkw.aspx).
+- **Рабочая станция**, на которой установлено программное обеспечение Visual Studio 2013. Инструкции см. в разделе [Установка Visual Studio](http://msdn.microsoft.com/ru-ru/library/e2h7fzkw.aspx).
 
 
 
@@ -1304,7 +1304,7 @@
 - [Приступая к работе с HDInsight][hdinsight-get-started]
 - [Анализ данных Twitter с помощью Hadoop в HDInsight][hdinsight-analyze-twitter-data]
 - [Анализ данных о задержке рейсов с помощью HDInsight][hdinsight-analyze-flight-delay-data]
-- [Разработка программ потоковой передачи Hadoop на C# для HDInsight][hdinsight-develop-streaming]
+- [Разработка программ потоковой передачи Hadoop на C\# для HDInsight][hdinsight-develop-streaming]
 - [Разработка программ MapReduce на Java для HDInsight][hdinsight-develop-mapreduce]
 
 
@@ -1319,7 +1319,7 @@
 [Создание веб-сайта Azure для визуализации мнений пользователей Twitter]: #web
 [Дальнейшие действия]: #nextsteps
 [hBase-get-started]: ../hdinsight-hbase-get-started/
-[Установка Visual Studio]: http://msdn.microsoft.com/en-us/library/e2h7fzkw.aspx
+[Установка Visual Studio]: http://msdn.microsoft.com/ru-ru/library/e2h7fzkw.aspx
 [OAuth]: http://oauth.net/
 [1]: https://apps.twitter.com/
 [hdi.hbase.twitter.sentiment.twitter.app]: ./media/hdinsight-hbase-analyze-twitter-sentiment/TwitterApp.png

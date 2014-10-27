@@ -19,7 +19,7 @@
 
 4. Щелкните ссылку **GET tables/TodoItem** (Таблицы GET/TodoItem).
 
-    ![][]
+    ![][0]
 
     Откроется страница ответа GET для API.
 
@@ -35,7 +35,7 @@
 [Локальный запуск проекта мобильной службы]: ./media/mobile-services-dotnet-backend-test-local-service-api-documentation/vs-start-debug-service-project.png
 [Проверка мобильной службы на панели задач]: ./media/mobile-services-dotnet-backend-test-local-service-api-documentation/iis-express-tray.png
 [Начальная страница мобильной службы]: ./media/mobile-services-dotnet-backend-test-local-service-api-documentation/service-welcome-page.png
-[]: ./media/mobile-services-dotnet-backend-test-local-service-api-documentation/service-api-documentation-page.png
+[0]: ./media/mobile-services-dotnet-backend-test-local-service-api-documentation/service-api-documentation-page.png
 [1]: ./media/mobile-services-dotnet-backend-test-local-service-api-documentation/service-try-this-out-get-todoitems.png
 [Изменение модели данных в мобильной службе серверной части .NET]: ./ru-ru/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations/
 [2]: ./media/mobile-services-dotnet-backend-test-local-service-api-documentation/service-try-this-out-get-response.png

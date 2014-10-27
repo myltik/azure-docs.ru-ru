@@ -150,10 +150,10 @@ RBAC работает только с диспетчером ресурсов Az
 
   [Windows PowerShell]: /ru-ru/documentation/articles/powershell-rbac.md "Windows PowerShell"
   [Межплатформенный интерфейс командной строки]: /ru-ru/documentation/articles/xplat-cli-rbac.md "Межплатформенный интерфейс командной строки"
-  [Windows Management Framework 3.0]: http://www.microsoft.com/en-us/download/details.aspx?id=34595
-  [Windows Management Framework 4.0]: http://www.microsoft.com/en-us/download/details.aspx?id=40855
+  [Windows Management Framework 3.0]: http://www.microsoft.com/ru-ru/download/details.aspx?id=34595
+  [Windows Management Framework 4.0]: http://www.microsoft.com/ru-ru/download/details.aspx?id=40855
   [Установка и настройка Windows Azure PowerShell]: http://www.windowsazure.com/ru-ru/documentation/articles/install-configure-powershell/
-  [Начало работы с Windows PowerShell]: http://technet.microsoft.com/en-us/library/hh857337.aspx
+  [Начало работы с Windows PowerShell]: http://technet.microsoft.com/ru-ru/library/hh857337.aspx
   [Установка и настройка Azure PowerShell]: http://azure.microsoft.com/ru-ru/documentation/articles/install-configure-powershell/
   [Использование Windows PowerShell с диспетчером ресурсов]: http://azure.microsoft.com/ru-ru/documentation/articles/powershell-azure-resource-manager/
   [Подключение к подпискам]: #connect

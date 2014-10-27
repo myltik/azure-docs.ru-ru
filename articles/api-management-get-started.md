@@ -1,4 +1,4 @@
-<properties pageTitle="Get started with Azure API Management" metaKeywords="" description="Learn how to create APIs, operations, and get started with API Management." metaCanonical="" services="" documentationCenter="API Management" title="Get started with Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+	<properties pageTitle="Get started with Azure API Management" metaKeywords="" description="Learn how to create APIs, operations, and get started with API Management." metaCanonical="" services="" documentationCenter="API Management" title="Get started with Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
 
 <tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie"/>
 
@@ -37,9 +37,9 @@
 
 Установите флажок для создания экземпляра службы.
 
-![Новая служба API Management][1]
+![Новая служба API Management][Новая служба API Management]
 
-![Новая служба API Management][2]
+![Новая служба API Management][Новая служба API Management]
 
 После создания службы на следующем шаге создается API.
 
@@ -57,7 +57,7 @@ API создаются и настраиваются из консоли API Man
 
 Для создания **My Echo API** щелкните **API** из меню **Управление API** слева и затем щелкните **Добавить API**.
 
-![Создание API][3]
+![Создание API][Создание API]
 
 ![Добавление нового API][Добавление нового API]
 
@@ -118,7 +118,7 @@ API создаются и настраиваются из консоли API Man
 
 При выборе **200 OK** новый код ответа добавляется к операции, и выводится окно ответа. Наберите **Возвращаемое во всех случаях.** в текстовом поле **Описание**.
 
-![Добавление ответа][4]
+![Добавление ответа][Добавление ответа]
 
 > **Добавить представление** используется для настройки ответов в нескольких представлениях. Для получения дополнительной информации см. раздел [Ответы][Ответы].
 
@@ -143,7 +143,7 @@ API создаются и настраиваются из консоли API Man
 
 Щелкните **Добавить API к продукту**.
 
-![Добавление API][5]
+![Добавление API][Добавление API]
 
 Установите флажок **My Echo API** и щелкните **Сохранить**.
 
@@ -169,7 +169,7 @@ API создаются и настраиваются из консоли API Man
 
 Нажмите кнопку **Добавить подписку**.
 
-![Добавление подписки][6]
+![Добавление подписки][Добавление подписки]
 
 Установите флажок **Начальный** и щелкните **Подписать**.
 
@@ -185,7 +185,7 @@ API создаются и настраиваются из консоли API Man
 
 Щелкните **Интерфейсы API** в меню вверху и затем щелкните **My Echo API** для просмотра доступных операций.
 
-![Портал разработчика][7]
+![Портал разработчика][Портал разработчика]
 
 Обратите внимание, что показаны описание и параметры, добавленные при создании операции, что предоставляет документацию разработчикам, которые будут использовать эту операцию.
 

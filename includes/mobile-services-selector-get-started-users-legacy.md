@@ -1,8 +1,8 @@
 > [AZURE.SELECTOR-LIST (Платформа | Сервер )]
 -   [(iOS | .NET)][(iOS | .NET)]
 -   [(iOS | JavaScript)][(iOS | JavaScript)]
--   [(Магазин Windows C# | .NET)][(Магазин Windows C# | .NET)]
--   [(Магазин Windows C# | Javascript)][(Магазин Windows C# | Javascript)]
+-   [(Магазин Windows C\# | .NET)][(Магазин Windows C\# | .NET)]
+-   [(Магазин Windows C\# | Javascript)][(Магазин Windows C\# | Javascript)]
 -   [(Магазин Windows JavaScript | .NET)][(Магазин Windows JavaScript | .NET)]
 -   [(Магазин Windows JavaScript | Javascript)][(Магазин Windows JavaScript | Javascript)]
 -   [(Windows Phone | .NET)][(Windows Phone | .NET)]
@@ -18,8 +18,8 @@
 
   [(iOS | .NET)]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users/
   [(iOS | JavaScript)]: /ru-ru/documentation/articles/mobile-services-ios-get-started-users/
-  [(Магазин Windows C# | .NET)]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/
-  [(Магазин Windows C# | Javascript)]: /ru-ru/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-users/
+  [(Магазин Windows C\# | .NET)]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/
+  [(Магазин Windows C\# | Javascript)]: /ru-ru/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-users/
   [(Магазин Windows JavaScript | .NET)]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users/
   [(Магазин Windows JavaScript | Javascript)]: /ru-ru/documentation/articles/mobile-services-windows-store-javascript-get-started-users/
   [(Windows Phone | .NET)]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users/

@@ -1,6 +1,6 @@
 Основой для этого учебника служит [приложение GetStartedWithMobileServices][приложение GetStartedWithMobileServices] — проект универсального приложения Windows в Visual Studio 2013. Пользовательский интерфейс этого приложения такой же, как у приложения, которое создается при быстром начале работы с мобильными службами, за исключением того, что добавленные элементы хранятся локально в памяти.
 
-1.  Загрузите версию примера приложения GetStartedWithMobileServices на C# с [веб-сайта с примерами кода для разработчиков].
+1.  Загрузите версию примера приложения GetStartedWithMobileServices на C\# с [веб-сайта с примерами кода для разработчиков].
 
 2.  В Visual Studio 2013 откройте загруженный проект и просмотрите файл MainPage.xaml.cs в папке проекта GetStartedWithData.Shared.
 
@@ -10,7 +10,7 @@
 
 4.  В приложении введите какой-либо текст в поле **Вставить в TodoItem**, а затем нажмите кнопку **Сохранить**
 
-    ![][]
+    ![][0]
 
     Обратите внимание на то, что сохраненный текст отображается.
 
@@ -21,5 +21,5 @@
 6.  Повторите шаги 3 и 4, чтобы убедиться в том, что пример ведет себя аналогичным образом.
 
   [приложение GetStartedWithMobileServices]: http://go.microsoft.com/fwlink/p/?LinkID=510826
-  []: ./media/mobile-services-windows-universal-dotnet-download-project/mobile-quickstart-startup.png
+  [0]: ./media/mobile-services-windows-universal-dotnet-download-project/mobile-quickstart-startup.png
   [1]: ./media/mobile-services-windows-universal-dotnet-download-project/mobile-quickstart-startup-wp8.png

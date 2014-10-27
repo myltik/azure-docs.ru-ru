@@ -78,7 +78,7 @@
 - **Уровень** восстанавливаемой службы **должен соответствовать** уровню службы в резервной копии.
 - **Изменения**, внесенные в конфигурацию службы (например, интерфейсы API, политики, внешний вид портала разработчика) во время восстановления, **могут быть перезаписаны**.
 
-[Проверка подлинности запросов к диспетчеру ресурсов Azure]: http://msdn.microsoft.com/en-us/library/dn790557.aspx
+[Проверка подлинности запросов к диспетчеру ресурсов Azure]: http://msdn.microsoft.com/ru-ru/library/dn790557.aspx
 [Резервное копирование службы API Management]: #step1
 [Восстановление службы API Management]: #step2
-[API REST Azure API Management]: http://msdn.microsoft.com/en-us/library/azure/dn781421.aspx
+[API REST Azure API Management]: http://msdn.microsoft.com/ru-ru/library/azure/dn781421.aspx
