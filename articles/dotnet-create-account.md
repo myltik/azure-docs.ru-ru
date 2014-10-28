@@ -1,4 +1,7 @@
-<properties title="Создание учетной записи Azure" pageTitle="Создание учетной записи Azure" description="Создание ученой записи" authors="waltpo" />
+<properties title="Create an Azure account" pageTitle="Create an Azure account" description="Create an account" authors="wpickett" />
 
-[WACOM.INCLUDE [create-an-azure-account](../includes/create-an-azure-account.md)]
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="wpickett"></tags>
 
+[WACOM.INCLUDE [создание-учетной записи azure][создание-учетной записи azure]]
+
+  [создание-учетной записи azure]: ../includes/create-an-azure-account.md

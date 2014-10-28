@@ -1,0 +1,31 @@
+<properties linkid="manage-windows-howto-logon" urlDisplayName="Log on to a VM" pageTitle="Log on to a virtual machine running Windows Server" metaKeywords="Azure logging on vm, vm portal" description="Learn how to log on to a virtual machine running Windows Server 2008 R2 by using the Azure Management Portal." metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Log on to a Virtual Machine Running Windows Server" authors="kathydav" solutions="" manager="dongill" editor="tysonn" />
+
+> [WACOM.NOTE] Требования и советы по устранению неполадок см. в разделе [Подключение к виртуальной машине Azure по протоколу RDP или SSH][Подключение к виртуальной машине Azure по протоколу RDP или SSH].
+
+1.  Войдите на [портал управления Azure][портал управления Azure], если вы этого еще не сделали.
+
+2.  Нажмите кнопку **Виртуальные машины**, а затем выберите соответствующую виртуальную машину.
+
+3.  На панели команд щелкните **Подключить**.
+
+    ![Вход на виртуальную машину][Вход на виртуальную машину]
+
+4.  Щелкните **Открыть**, чтобы использовать файл протокола удаленного рабочего стола, автоматически созданного для виртуальной машины.
+
+5.  Чтобы продолжить процесс подключения, нажмите кнопку **Подключиться**.
+
+    ![Продолжайте подключение][Продолжайте подключение]
+
+6.  Введите имя пользователя и пароль для учетной записи администратора виртуальной машины, а затем нажмите **ОК**.
+
+7.  Щелкните **Да** для проверки удостоверения виртуальной машины.
+
+    ![Проверьте удостоверение машины][Проверьте удостоверение машины]
+
+    Теперь вы сможете работать с виртуальной машиной, так же как и с любым сервером.
+
+  [Подключение к виртуальной машине Azure по протоколу RDP или SSH]: http://go.microsoft.com/fwlink/p/?LinkId=398294
+  [портал управления Azure]: http://manage.windowsazure.com
+  [Вход на виртуальную машину]: ./media/virtual-machines-log-on-win-server/connectwindows.png
+  [Продолжайте подключение]: ./media/virtual-machines-log-on-win-server/connectpublisher.png
+  [Проверьте удостоверение машины]: ./media/virtual-machines-log-on-win-server/connectverify.png

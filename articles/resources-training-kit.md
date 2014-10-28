@@ -1,8 +1,7 @@
-<properties linkid="dev-net-training-kit" urlDisplayName="Учебный набор" pageTitle="Учебный набор Azure — ресурсы Azure" metaKeywords="учебный набор Azure, набор для обучения по Azure, загрузка учебного набора Azure" description="Загрузите и установите учебный набор Azure, который предоставляет обширный технический контент и поможет вам больше узнать о Azure." metaCanonical="" services="" documentationCenter=".NET" title="" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="dev-net-training-kit" urlDisplayName="Training Kit" pageTitle="Azure Readiness - Azure resources" metaKeywords="Azure training kit, Azure trainingkit, Azure training download, Azure Readiness, azurereadiness" description="The Azure Readiness Content provides a set of presentations and demos designed to help learn the latest Microsoft Azure features and services." metaCanonical="" services="" documentationCenter=".NET" title="" authors="cfowler" solutions="" manager="carolz" editor="mollybos" />
 
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="site-section-home-page" ms.date="01/01/1900" ms.author="cfowler"></tags>
 
+[WACOM.INCLUDE [учебный-набор][учебный-набор]]
 
-
-
-[WACOM.INCLUDE [training-kit](../includes/training-kit.md)]
-
+  [учебный-набор]: ../includes/training-kit.md

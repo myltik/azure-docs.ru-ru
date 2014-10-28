@@ -1,7 +1,7 @@
-<properties linkid="develop-net-how-to-guides-service-bus-amqp-overview" urlDisplayName="Основные сведения о протоколе AMQP для Service Bus" pageTitle="Основные сведения о протоколе AMQP для Service Bus - Azure " metaKeywords="" description="Узнайте, как использовать протокол AMQP (Advanced Message Queuing Protocol) 1.0 в Azure." metaCanonical="" services="service-bus" documentationCenter=".NET" title="" authors="" solutions="" manager="" editor="" />
+<properties linkid="develop-net-how-to-guides-service-bus-amqp-overview" urlDisplayName="Service Bus AMQP Overview" pageTitle="Service Bus AMQP overview - Azure " metaKeywords="" description="Learn about using the Advanced Message Queuing Protocol (AMQP) 1.0 in Azure." metaCanonical="" services="service-bus" documentationCenter=".NET" title="" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="09/24/2014" ms.author="sethm"></tags>
 
+[WACOM.INCLUDE [обзор-шины-обслуживания-amqp][обзор-шины-обслуживания-amqp]]
 
-
-[WACOM.INCLUDE [service-bus-amqp-overview](../includes/service-bus-amqp-overview.md)]
-
+  [обзор-шины-обслуживания-amqp]: ../includes/service-bus-amqp-overview.md

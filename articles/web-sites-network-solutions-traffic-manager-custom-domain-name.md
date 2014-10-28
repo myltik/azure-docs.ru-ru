@@ -1,60 +1,95 @@
-<properties title="Узнайте, как настроить веб-сайт Azure, использующий Traffic Manager, на использование доменного имени, зарегистрированного в Network Solutions" pageTitle="Настройка доменного имени Network Solutions для веб-сайта Azure, использующего Traffic Manager" metaKeywords="Azure, веб-сайты Azure, доменное имя" description="" services="web-sites" documentationCenter="" authors="larryfr, jroth" />
+<properties title="Learn how to configure an Azure website that uses Traffic Manager to use a domain name registered with Network Solutions" pageTitle="Configure a Network Solutions domain name for an Azure website that uses Traffic Manager" metaKeywords="Azure, Azure Web Sites, domain name" description="" services="web-sites" documentationCenter="" authors="larryfr, jroth" />
 
-#Настройка имени пользовательского домена для веб-сайта Azure, использующего Traffic Manager (Network Solutions)
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr, jroth"></tags>
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/ru-ru/documentation/articles/web-sites-custom-domain-name" title="Пользовательский домен">Пользовательский домен</a><a href="/ru-ru/documentation/articles/web-sites-godaddy-custom-domain-name" title="GoDaddy">GoDaddy</a><a href="/ru-ru/documentation/articles/web-sites-network-solutions-custom-domain-name" title="Network Solutions" class="current">Network Solutions</a><a href="/ru-ru/documentation/articles/web-sites-registerdotcom-custom-domain-name" title="Register.com">Register.com</a><a href="/ru-ru/documentation/articles/web-sites-enom-custom-domain-name" title="Enom">Enom</a><a href="/ru-ru/documentation/articles/web-sites-moniker-custom-domain-name" title="Moniker">Moniker</a><a href="/ru-ru/documentation/articles/web-sites-dotster-custom-domain-name" title="Dotster">Dotster</a><a href="/ru-ru/documentation/articles/web-sites-domaindiscover-custom-domain-name" title="DomainDiscover">DomainDiscover</a><a href="/ru-ru/documentation/articles/web-sites-directnic-custom-domain-name" title="Directnic">Directnic</a></div>
-<div class="dev-center-tutorial-subselector"><a href="/ru-ru/documentation/articles/web-sites-network-solutions-custom-domain-name/" title="Веб-сайты">Веб-сайт</a> | <a href="/ru-ru/documentation/articles/web-sites-network-solutions-traffic-manager-custom-domain-name/" title="Использование Traffic Manager веб-сайтом" class="current">Использование Traffic Manager веб-сайтом</a></div>
+# Настройка имени пользовательского домена для веб-сайта Azure, использующего Traffic Manager (Network Solutions)
 
-[WACOM.INCLUDE [intro](../includes/custom-dns-web-site-intro-traffic-manager.md)]
+<div class="dev-center-tutorial-selector sublanding"><a href="/ru-ru/documentation/articles/web-sites-custom-domain-name" title="Пользовательский домен">Пользовательский домен</a><a href="/ru-ru/documentation/articles/web-sites-godaddy-custom-domain-name" title="GoDaddy">GoDaddy</a><a href="/ru-ru/documentation/articles/web-sites-network-solutions-custom-domain-name" title="Network Solutions" class="current">Network Solutions</a><a href="/ru-ru/documentation/articles/web-sites-registerdotcom-custom-domain-name" title="Register.com" class="current">Register.com</a><a href="/ru-ru/documentation/articles/web-sites-enom-custom-domain-name" title="Enom" class="current">Enom</a><a href="/ru-ru/documentation/articles/web-sites-moniker-custom-domain-name" title="Moniker" class="current">Moniker</a><a href="/ru-ru/documentation/articles/web-sites-dotster-custom-domain-name" title="Dotster" class="current">Dotster</a><a href="/ru-ru/documentation/articles/web-sites-domaindiscover-custom-domain-name" title="DomainDiscover" class="current">DomainDiscover</a><a href="/ru-ru/documentation/articles/web-sites-directnic-custom-domain-name" title="Directnic" class="current">Directnic</a></div>
 
-В данной статье приводятся инструкции по использованию имени пользовательского домена, приобретенного у [Network Solutions](https://networksolutions.com), для веб-сайтов Azure.
+<div class="dev-center-tutorial-subselector"><a href="/ru-ru/documentation/articles/web-sites-network-solutions-custom-domain-name/" title="Веб-сайты">Веб-сайт</a> | <a href="/ru-ru/documentation/articles/web-sites-network-solutions-traffic-manager-custom-domain-name/" title="Веб-сайт, использующий Traffic Manager" class="current">Веб-сайт, использующий Traffic Manager</a></div>
 
-[WACOM.INCLUDE [tmwebsitefooter](../includes/custom-dns-web-site-traffic-manager-notes.md)]
+[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough][websites-cloud-services-css-guided-walkthrough]]
 
-[WACOM.INCLUDE [introfooter](../includes/custom-dns-web-site-intro-notes.md)]
+[WACOM.INCLUDE [intro][intro]]
+
+В данной статье приводятся инструкции по использованию имени пользовательского домена, приобретенного у [Network Solutions][1], для веб-сайтов Azure.
+
+[WACOM.INCLUDE [tmwebsitefooter][tmwebsitefooter]]
+
+[WACOM.INCLUDE [introfooter][introfooter]]
 
 Содержание:
 
--   [Общие сведения о записях DNS](#understanding-records)
--   [Настройка веб-сайтов для стандартного режима](#bkmk_configsharedmode)
--   [Добавление записи DNS для пользовательского домена](#bkmk_configurecname)
--   [Включение Traffic Manager для веб-сайта](#enabledomain)
+-   [Общие сведения о записях DNS][Общие сведения о записях DNS]
+-   [Настройка веб-сайтов для стандартного режима][Настройка веб-сайтов для стандартного режима]
+-   [Добавление записи DNS для пользовательского домена][Добавление записи DNS для пользовательского домена]
+-   [Включение Traffic Manager для веб-сайта][Включение Traffic Manager для веб-сайта]
 
-<h2><a name="understanding-records"></a>Общие сведения о записях DNS</h2>
+## <a name="understanding-records"></a>Общие сведения о записях DNS
 
-[WACOM.INCLUDE [understandingdns](../includes/custom-dns-web-site-understanding-dns-traffic-manager.md)]
+[WACOM.INCLUDE [understandingdns][understandingdns]]
 
-<h2><a name="bkmk_configsharedmode"></a>Настройка веб-сайтов для стандартного режима</h2>
+## <a name="bkmk_configsharedmode"></a>Настройка веб-сайтов для стандартного режима
 
-[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes-traffic-manager.md)]
+[WACOM.INCLUDE [modes][modes]]
 
-<a name="bkmk_configurecname"></a><h2>Добавление записи DNS для пользовательского домена</h2>
+<a name="bkmk_configurecname"></a>
 
-Чтобы сопоставить пользовательский домен с веб-сайтом Azure, необходимо добавить новую запись в таблицу DNS для этого настраиваемого домена с помощью средств, предоставляемых Network Solutions. Выполните следующие действия, чтобы найти и использовать средства DNS.
+## Добавление записи DNS для пользовательского домена
 
-1. Выполните вход на networksolutions.com с использованием своей учетной записи и выберите **Моя учетная запись** в правом верхнем углу.
+</p>
+Чтобы связать пользовательский домен с веб-сайтом Azure, необходимо добавить новую запись в таблицу DNS для этого настраиваемого домена с помощью средств, предоставляемых Network Solutions. Выполните следующие действия, чтобы найти и использовать средства DNS.
 
-3. На вкладке **Мои продукты и услуги** выберите **Изменить DNS**.
+1.  Выполните вход на networksolutions.com с использованием своей учетной записи и выберите **Моя учетная запись** в правом верхнем углу.
 
-	![страница изменения DNS](./media/web-sites-custom-domain-name/ns-editdns.png)
+2.  На вкладке **Мои продукты и услуги** выберите **Изменить DNS**.
 
-2. В разделе **Управление <yourdomainname>** страницы **Доменные имена** выберите **Изменить дополнительные записи DNS**.
+    ![страница изменения DNS][страница изменения DNS]
 
-	![страница доменных имен с выбранным элементом изменения дополнительных записей DNS](./media/web-sites-custom-domain-name/ns-editadvanced.png)
+3.  В разделе **Управление <yourdomainname>** страницы **Доменные имена** выберите **Изменить дополнительные записи DNS**.
 
-4. Страница **Обновление дополнительных записей DNS** содержит раздел для каждого типа записи с расположенной ниже кнопкой **Изменить**. Для записей CNAME используйте раздел **Псевдоним узла (записи CNAME)**.
+    ![страница доменных имен с выбранным элементом изменения дополнительных записей DNS][страница доменных имен с выбранным элементом изменения дополнительных записей DNS]
 
-	![страница обновления дополнительных записей DNS](./media/web-sites-custom-domain-name/ns-updatecnameadvanced.png)
+4.  **Страница** Обновление дополнительных записей DNS **содержит раздел для каждого типа записи с расположенной ниже кнопкой** Изменить</strong>. Для записей CNAME используйте раздел **Псевдоним узла (записи CNAME)**.
 
-5. При нажатии кнопки **Изменить** появляется форма, позволяющая изменять существующие записи или добавлять новые. 
+    ![страница обновления дополнительных записей DNS][страница обновления дополнительных записей DNS]
 
-	При добавлении записи CNAME необходимо задать в поле **Псевдоним** тот поддомен, который вы хотите использовать. Например, **www**. Необходимо выбрать круглое поле рядом с полем **Другой узел**, а также задать в поле **Другой узел** доменное имя **.trafficmanager.net** профиля Traffic Manager, используемого с вашим веб-сайтом Azure. Например, **contoso.trafficmanager.net**. Оставьте значение **Выбрать** в поле **Ссылается на имя узла**, так как это поле не требуется при создании записи CNAME для использования с веб-сайтами Azure.
-	
-	![форма CNAME](./media/web-sites-custom-domain-name/ns-cnametm.png)
+5.  При нажатии кнопки **Изменить** появляется форма, позволяющая изменять существующие записи или добавлять новые.
 
-5. По завершении добавления или изменения записей нажмите кнопку **Продолжить** для просмотра изменений. Выберите **Сохранить только изменения** для сохранения изменений.
+    При добавлении записи CNAME необходимо задать в поле **Псевдоним** тот поддомен, который вы хотите использовать. Например, **www**. Необходимо выбрать круглое поле рядом с полем **Другой узел**, а также задать в поле **Другой узел** доменное имя **.trafficmanager.net** профиля Traffic Manager, используемого с вашим веб-сайтом Azure. Например, **contoso.trafficmanager.net**. Оставьте значение **Выбрать** в поле **Ссылается на имя узла**, так как это поле не требуется при создании записи CNAME для использования с веб-сайтами Azure.
 
-<h2><a name="enabledomain"></a>Включение Traffic Manager для веб-сайта</h2>
+    ![форма CNAME][форма CNAME]
 
-[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-enable-on-traffic-manager.md)]
+6.  По завершении добавления или изменения записей нажмите кнопку **Продолжить**, чтобы просмотреть изменения. Выберите **Сохранить только изменения** для сохранения изменений.
 
+## <a name="enabledomain"></a>Включение Traffic Manager на веб-сайте
+
+[WACOM.INCLUDE [modes][2]]
+
+  [Пользовательский домен]: /ru-ru/documentation/articles/web-sites-custom-domain-name "Пользовательский домен"
+  [GoDaddy]: /ru-ru/documentation/articles/web-sites-godaddy-custom-domain-name "GoDaddy"
+  [Network Solutions]: /ru-ru/documentation/articles/web-sites-network-solutions-custom-domain-name "Network Solutions"
+  [Register.com]: /ru-ru/documentation/articles/web-sites-registerdotcom-custom-domain-name "Register.com"
+  [Enom]: /ru-ru/documentation/articles/web-sites-enom-custom-domain-name "Enom"
+  [Moniker]: /ru-ru/documentation/articles/web-sites-moniker-custom-domain-name "Moniker"
+  [Dotster]: /ru-ru/documentation/articles/web-sites-dotster-custom-domain-name "Dotster"
+  [DomainDiscover]: /ru-ru/documentation/articles/web-sites-domaindiscover-custom-domain-name "DomainDiscover"
+  [Directnic]: /ru-ru/documentation/articles/web-sites-directnic-custom-domain-name "Directnic"
+  [Веб-сайт]: /ru-ru/documentation/articles/web-sites-network-solutions-custom-domain-name/ "Веб-сайты"
+  [Веб-сайт, использующий Traffic Manager]: /ru-ru/documentation/articles/web-sites-network-solutions-traffic-manager-custom-domain-name/ "Веб-сайт, использующий Traffic Manager"
+  [websites-cloud-services-css-guided-walkthrough]: ../includes/websites-cloud-services-css-guided-walkthrough.md
+  [intro]: ../includes/custom-dns-web-site-intro-traffic-manager.md
+  [1]: https://www.networksolutions.com
+  [tmwebsitefooter]: ../includes/custom-dns-web-site-traffic-manager-notes.md
+  [introfooter]: ../includes/custom-dns-web-site-intro-notes.md
+  [Общие сведения о записях DNS]: #understanding-records
+  [Настройка веб-сайтов для стандартного режима]: #bkmk_configsharedmode
+  [Добавление записи DNS для пользовательского домена]: #bkmk_configurecname
+  [Включение Traffic Manager для веб-сайта]: #enabledomain
+  [understandingdns]: ../includes/custom-dns-web-site-understanding-dns-traffic-manager.md
+  [modes]: ../includes/custom-dns-web-site-modes-traffic-manager.md
+  [страница изменения DNS]: ./media/web-sites-custom-domain-name/ns-editdns.png
+  [страница доменных имен с выбранным элементом изменения дополнительных записей DNS]: ./media/web-sites-custom-domain-name/ns-editadvanced.png
+  [страница обновления дополнительных записей DNS]: ./media/web-sites-custom-domain-name/ns-updatecnameadvanced.png
+  [форма CNAME]: ./media/web-sites-custom-domain-name/ns-cnametm.png
+  [2]: ../includes/custom-dns-web-site-enable-on-traffic-manager.md

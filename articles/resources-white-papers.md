@@ -1,10 +1,9 @@
-<properties linkid="dev-net-white-papers" urlDisplayName="Технические документы" pageTitle="Технические документы,- ресурсы Azure" metaKeywords="Технические документы Azure" description="Загрузка популярных технических документов Azure." metaCanonical="" services="" documentationCenter=".NET" title="" authors="" solutions="" manager="" editor="" />
+<properties linkid="dev-net-white-papers" urlDisplayName="White Papers" pageTitle="White Papers,- Azure resources" metaKeywords="Azure whitepapers" description="Download popular Azure white papers." metaCanonical="" services="" documentationCenter=".NET" title="" authors="" solutions="" manager="" editor="" />
 
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
 
+<properties linkid="dev-net-white-papers" urldisplayname="White Papers" headerexpose pagetitle="White Papers on Azure" metakeywords footerexpose metadescription umbraconavihide="0" disquscomments="1"></properties>
 
+[WACOM.INCLUDE [publishsettingsfilewarningchunk][publishsettingsfilewarningchunk]]
 
-  <properties linkid="dev-net-white-papers" urlDisplayName="Технические документы" headerExpose="" pageTitle="Технические документы Azure" metaKeywords="" footerExpose="" metaDescription="" umbracoNaviHide="0" disqusComments="1" />
-
-
- [WACOM.INCLUDE [white-papers](../includes/white-papers.md)]
-
+  [publishsettingsfilewarningchunk]: ../includes/white-papers.md

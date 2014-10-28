@@ -1,78 +1,86 @@
-<properties linkid="develop-dotnet-website-from-gallery" urlDisplayName="Веб-сайт из коллекции" pageTitle="Создание веб-сайта на CMS Orchard в Azure" metaKeywords="Azure — создание веб-сайта, управление веб-сайтом Azure" description="Учебный курс по созданию нового веб-сайта в Azure. Вы также узнаете, как запустить веб-сайт и управлять им с помощью портала управления." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Создание веб-сайта на CMS Orchard из коллекции в Azure" authors="" solutions="" manager="" editor="" />
+<properties linkid="develop-dotnet-website-from-gallery" urlDisplayName="Website from Gallery" pageTitle="Create an Orchard CMS website from the gallery in Azure" metaKeywords="Azure build website, manage website Azure" description="A tutorial that teaches you how to create a new website in Azure. Also learn how to launch and manage your site using the Management Portal." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Create an Orchard CMS website from the gallery in Azure" authors="cephalin" solutions="" manager="wpickett" editor="" />
+
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin"></tags>
 
 # Создание веб-сайта на CMS Orchard из коллекции в Azure
 
-Коллекция предоставляет широкий спектр популярных веб-приложений, разработанных корпорацией Майкрософт, сторонними компаниями и группами разработки программного обеспечения с открытым исходным кодом. Веб-приложения, созданные из коллекции, не требуют установки программного обеспечения помимо браузера, используемого для подключения к порталу управления [Azure](http://manage.windowsazure.com). Дополнительные сведения о веб-приложениях в коллекции см. в разделе [Коллекция веб-приложений Windows](http://www.microsoft.com/web/gallery/categories.aspx)
+Коллекция предоставляет широкий спектр популярных веб-приложений, разработанных корпорацией Майкрософт, сторонними компаниями и группами разработки программного обеспечения с открытым исходным кодом. Веб-приложения, созданные из коллекции, не требуют установки программного обеспечения помимо браузера, используемого для подключения к порталу управления [Windows Azure][Windows Azure]. Дополнительные сведения о веб-приложениях в коллекции см. в разделе [Коллекция веб-приложений Windows][Коллекция веб-приложений Windows]
 
 В этом учебнике вы узнаете следующее:
 
-- Создание нового веб-сайта из коллекции
+-   Как создать новый веб-сайт из коллекции.
 
-- Запуск веб-сайта и управление им с помощью портала управления
- 
-Вам предстоит создать сайт на CMS Orchard, который использует шаблон по умолчанию. [Orchard](http://www.orchardproject.net/) — это бесплатное CMS-приложение на платформе .NET с открытым исходным кодом, которое позволяет создавать настраиваемые веб-сайты на основе содержимого. CMS Orchard включает платформу расширения, при помощи которой можно [загружать дополнительные модули и темы](http://gallery.orchardproject.net/) для настройки вашего веб-сайта. На следующем рисунке показан сайт CMS Orchard, который вам предстоит создать.
+-   Как запустить веб-сайт и управлять им с помощью портала управления.
 
-![Блог Orchard][13]
+Вам предстоит создать сайт на CMS Orchard, который использует шаблон по умолчанию. [Orchard][Orchard] — это бесплатное CMS-приложение на платформе .NET с открытым исходным кодом, которое позволяет создавать настраиваемые веб-сайты на основе содержимого. CMS Orchard включает платформу расширения, при помощи которой можно [загружать дополнительные модули и темы][загружать дополнительные модули и темы] для настройки вашего веб-сайта. На следующем рисунке показан сайт CMS Orchard, который вам предстоит создать.
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+![Блог Orchard][Блог Orchard]
 
-<h2>Создание веб-сайта на CMS Orchard из коллекции</h2>
+[WACOM.INCLUDE [создать-учетная запись-и-веб-сайт-примечание][создать-учетная запись-и-веб-сайт-примечание]]
 
-1. Выполните вход на [портал управления Azure](http://manage.windowsazure.com).
+## Создание веб-сайта на CMS Orchard из коллекции
 
-2. Щелкните значок **Создать** в нижнем левом углу портала.
-	
-	![Создать][1]
+1.  Войдите на [портал управления Azure][Windows Azure].
 
-3. Щелкните значок **Веб-сайт**, а затем — **Из коллекции**.
-	
-	![Создание из коллекции][2]
+2.  Щелкните значок **Создать** в нижнем левом углу портала.
 
-4. Найдите и выберите значок **CMS Orchard** в списке, а затем нажмите кнопку со стрелкой, чтобы продолжить.
-	
-	![Orchard из списка][3]
+    ![Создать][Создать]
 
-5. На странице **Настройка приложения** введите или выберите значения для всех полей:
-	
-- Введите URL-адрес по своему выбору.	
-- Выберите ближайший к вашим пользователям регион. (Это обеспечит лучшую производительность).
+3.  Щелкните по значку **Веб-сайт** и выберите **Из коллекции**.
 
-	![настройка приложения][4]
+    ![Создание из коллекции][Создание из коллекции]
 
-6. Установите флажок в правом нижнем углу окна, чтобы запустить развертывание нового веб-сайта на CMS Orchard.
+4.  Найдите и выберите значок **CMS Orchard** в списке, а затем нажмите кнопку со стрелкой, чтобы продолжить.
 
-В Azure будут начаты операции построения и развертывания. Во время построения и развертывания веб-сайта состояние этих операций отображается в нижней части портала управления веб-сайтами. После выполнения всех операций появляется сообщение о том, что веб-сайт был создан.
+    ![Orchard из списка][Orchard из списка]
 
-<h2>Запуск сайта Orchard и управление им</h2>
+5.  На странице **Настройка приложения** введите или выберите значения для всех полей:
 
-1. Выберите имя нового сайта на странице **Веб-сайты** и нажмите кнопку **Обзор** в нижней части портала, чтобы открыть начальную страницу веб-сайта.
+-   Введите имя URL-адреса по вашему выбору.
+-   Выберите ближайший к вашим пользователям регион. (Это обеспечит лучшую производительность).
 
-	![запуск панели мониторинга][5]
+    ![настройка приложения][настройка приложения]
 
-	![Кнопка "Обзор"][12]
+1.  Установите флажок в правом нижнем углу окна, чтобы запустить развертывание нового веб-сайта на CMS Orchard.
 
-2. Введите необходимые сведения о конфигурации, запрошенные Orchard, и нажмите кнопку **Завершить установку**, чтобы завершить настройку и открыть главную страницу веб-сайта.
+В Azure будут начаты операции построения и развертывания. Во время создания и развертывания веб-сайта состояние этих операций отображается в нижней части портала управления веб-сайтами. После выполнения всех операций появляется сообщение о том, что веб-сайт был создан.
 
-	![вход в Orchard][7]
+## Запуск сайта Orchard и управление им
 
-	Вы создадите новый сайт Orchard, похожий на тот, что показан на снимок экрана ниже.  
+1.  Выберите имя нового сайта на странице **Веб-сайты** и нажмите кнопку **Обзор** в нижней части портала, чтобы открыть начальную страницу веб-сайта.
 
-	![Ваш сайт Orchard][13]
+    ![запуск панели мониторинга][запуск панели мониторинга]
 
-3. Дополнительные сведения о платформе Orchard и настройке нового сайта см. в [Документации по Orchard](http://docs.orchardproject.net/).
+    ![Кнопка "Обзор"][Кнопка "Обзор"]
 
-<h2><span class="short-header">Дальнейшие действия</span>Дальнейшие действия</h2>
-* [Разработка и развертывание веб-сайта с помощью Microsoft WebMatrix](/ru-ru/develop/net/tutorials/website-with-webmatrix/) -- Узнайте, как редактировать веб-сайт Azure в WebMatrix. 
-* [Развертывание безопасного приложения ASP.NET MVC с Membership, OAuth и базой данных SQL на веб-сайте Azure](/ru-ru/develop/net/tutorials/web-site-with-sql-database/)-- Узнайте, как создать веб-сайт в Visual Studio.
+2.  Введите необходимые сведения о конфигурации, запрошенные Orchard, и нажмите кнопку **Завершить установку**, чтобы завершить настройку и открыть главную страницу веб-сайта.
 
-[1]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-01.png
-[2]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-02.png
-[3]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-03.png
-[4]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-04.png
-[5]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-05.png
-[7]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-07.png
-[12]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-12.png
-[13]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-08.png
+    ![вход в Orchard][вход в Orchard]
 
+    Вы создадите новый сайт Orchard, похожий на тот, что показан на снимок экрана ниже.
 
+    ![Ваш сайт Orchard][Блог Orchard]
 
+3.  Дополнительные сведения о платформе Orchard и настройке нового сайта см. в [документации по Orchard][документации по Orchard].
+
+## <span class="short-header">Дальнейшие действия</span>Дальнейшие действия
+
+-   [Разработка и развертывание веб-сайта с помощью Microsoft WebMatrix][Разработка и развертывание веб-сайта с помощью Microsoft WebMatrix] -- Узнайте, как редактировать веб-сайт Azure в WebMatrix.
+-   [Развертывание безопасного приложения ASP.NET MVC с Membership, OAuth и базой данных SQL на веб-сайте Azure][Развертывание безопасного приложения ASP.NET MVC с Membership, OAuth и базой данных SQL на веб-сайте Azure]-- Узнайте, как создать веб-сайт в Visual Studio.
+
+  [Windows Azure]: http://manage.windowsazure.com
+  [Коллекция веб-приложений Windows]: http://www.microsoft.com/web/gallery/categories.aspx
+  [Orchard]: http://www.orchardproject.net/
+  [загружать дополнительные модули и темы]: http://gallery.orchardproject.net/
+  [Блог Orchard]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-08.png
+  [создать-учетная запись-и-веб-сайт-примечание]: ../includes/create-account-and-websites-note.md
+  [Создать]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-01.png
+  [Создание из коллекции]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-02.png
+  [Orchard из списка]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-03.png
+  [настройка приложения]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-04.png
+  [запуск панели мониторинга]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-05.png
+  [Кнопка "Обзор"]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-12.png
+  [вход в Orchard]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-07.png
+  [документации по Orchard]: http://docs.orchardproject.net/
+  [Разработка и развертывание веб-сайта с помощью Microsoft WebMatrix]: /ru-ru/develop/net/tutorials/website-with-webmatrix/
+  [Развертывание безопасного приложения ASP.NET MVC с Membership, OAuth и базой данных SQL на веб-сайте Azure]: /ru-ru/develop/net/tutorials/web-site-with-sql-database/

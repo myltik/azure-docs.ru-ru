@@ -1,41 +1,49 @@
-<properties linkid="notification-hubs-how-to-guides-howto-register-user-with-mobile-service-windowsphonedotnet" urlDisplayName="Уведомление пользователей приложения Магазина Windows с помощью мобильных служб" pageTitle="Регистрация текущего пользователя для push-уведомлений с помощью мобильной службы" metaKeywords="Концентраторы уведомлений" description="Регистрация приложения Azure, концентраторы уведомлений, push-уведомления Azure, push-уведомления приложения Магазина Windows" metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Узнайте, как запросить регистрацию push-уведомления в приложении Магазина Windows с помощью концентраторов уведомлений Azure, когда регистрация выполняется с помощью мобильных служб Azure." authors="" solutions="" manager="" editor="" />Регистрация текущего пользователя для push-уведомлений с помощью мобильной службы
+<properties linkid="notification-hubs-how-to-guides-howto-register-user-with-mobile-service-windowsphonedotnet" urlDisplayName="Notify Windows Store app users by using Mobile Services" pageTitle="Register the current user for push notifications by using a mobile service - Notification Hubs" metaKeywords="Azure registering application, Notification Hubs, Azure push notifications, push notification Windows Store app" description="Learn how to request push notification registration in a Windows Store app with Azure Notification Hubs when registeration is performed by Azure Mobile Services." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Register the current user for push notifications by using a mobile service" authors="glenga" solutions="" manager="dwrede" editor="" />
+
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+
 # Регистрация текущего пользователя для push-уведомлений мобильной службы
 
 <div class="dev-center-tutorial-selector sublanding">
-    <a href="/ru-ru/documentation/articles/notification-hubs-windows-store-mobile-services-register-user-push-notifications/" title="Магазин Windows C#" class="current">Магазин Windows C#</a><a href="/ru-ru/documentation/articles/notification-hubs-ios-mobile-services-register-user-push-notifications/" title="iOS">iOS</a>
+
+[Магазин Windows C#][Магазин Windows C#][iOS][iOS]
+
 </div>
 
-В этом разделе показано, как запросить регистрацию push-уведомления с помощью концентраторов уведомлений Azure, когда регистрация выполняется с помощью мобильных служб Azure. Этот раздел расширяет учебник [Уведомление пользователей с помощью концентраторов уведомлений]. Чтобы создать прошедшую проверку подлинности мобильную службу, вы должны завершить требуемые действия в этом учебнике. Дополнительные сведения о сценарии уведомления пользователей см. в учебнике [Уведомление пользователей с помощью концентраторов уведомлений].  
+В этом разделе показано, как запросить регистрацию push-уведомления с помощью концентраторов уведомлений Azure, когда регистрация выполняется с помощью мобильных служб Azure. Этот раздел расширяет учебник [Уведомление пользователей с помощью концентраторов уведомлений][Уведомление пользователей с помощью концентраторов уведомлений]. Чтобы создать прошедшую проверку подлинности мобильную службу, вы должны завершить требуемые действия в этом учебнике. Дополнительные сведения о сценарии уведомления пользователей см. в учебнике [Уведомление пользователей с помощью концентраторов уведомлений][Уведомление пользователей с помощью концентраторов уведомлений].
 
-1. Откройте в Visual Studio 2012 Express для Windows 8 проект, созданный при завершении необходимого учебника [Приступая к работе с аутентификацией].
+1.  Откройте в Visual Studio 2012 Express для Windows 8 проект, созданный при завершении необходимого учебника [Приступая к работе с аутентификацией][Приступая к работе с аутентификацией].
 
-2. В обозревателе решений щелкните правой кнопкой мыши проект, щелкните **Магазин** и затем щелкните **Связать приложение с магазином...**. 
+2.  В обозревателе решений щелкните правой кнопкой мыши проект, щелкните **Магазин** и затем щелкните **Связать приложение с магазином...**.
 
-  	![][1]
+    ![][]
 
-   	Откроется мастер **Связь приложений с Магазином Windows**.
+    Откроется мастер **Связь приложений с Магазином Windows**.
 
-3. В окне мастера щелкните **Вход** и затем войдите в систему с учетной записью Майкрософт.
+3.  В окне мастера щелкните **Вход** и затем войдите в систему с учетной записью Майкрософт.
 
-4. Выберите приложение, которое зарегистрировано на шаге [Уведомление пользователей с помощью концентраторов уведомлений], щелкните **Далее** и затем щелкните **Связать**.
+4.  Выберите приложение, которое зарегистрировано на шаге [Уведомление пользователей с помощью концентраторов уведомлений][Уведомление пользователей с помощью концентраторов уведомлений], щелкните **Далее** и затем **Связать**.
 
-   	![][2]
+    ![][1]
 
-   	Это добавляет необходимые регистрационные данные Магазина Windows в манифест приложения.  
+    Это добавляет необходимые регистрационные данные Магазина Windows в манифест приложения.
 
-	<div class="dev-callout"><b>Примечание.</b>
-	<p>При этом для этого приложения мобильных служб повторно используется регистрация Магазина Windows из приложения учебника "Концентраторы уведомлений". Это может помешать получению уведомлений приложения учебника "Концентраторы уведомлений"</p>.
-	</div>
+    <div class="dev-callout">
 
-5. В окне "Обозреватель решений" дважды щелкните файл проекта Package.appxmanifest, чтобы открыть его в редакторе Visual Studio.
+    **Примечание.**
+    При этом для этого приложения мобильных служб повторно используется регистрация Магазина Windows из приложения учебника "Концентраторы уведомлений". Это может помешать получению уведомлений приложения учебника "Концентраторы уведомлений".
 
-6. Выполните прокрутку вниз до элемента **Все активы изображений** и щелкните **Эмблема**. В поле **Уведомления** установите для параметра **Всплывающие уведомления** значение **Да**.
+    </div>
 
-   	![][3]
+5.  В окне "Обозреватель решений" дважды щелкните файл проекта Package.appxmanifest, чтобы открыть его в редакторе Visual Studio.
 
-	Это позволяет этому приложению учебника "Мобильные службы" получать всплывающие уведомления.
+6.  Выполните прокрутку вниз до элемента **Все активы изображений** и щелкните **Эмблема**. В поле **Уведомления** установите для параметра **Всплывающие уведомления** значение **Да**.
 
-7. В Visual Studio откройте файл MainPage.xaml.cs и добавьте следующий код, который определяет классы **NotificationRequest** и **RegistrationResult**:
+    ![][2]
+
+    Это позволяет этому приложению учебника "Мобильные службы" получать всплывающие уведомления.
+
+7.  В Visual Studio откройте файл MainPage.xaml.cs и добавьте следующий код, который определяет классы **NotificationRequest** и **RegistrationResult**:
 
         public class NotificationRequest
         {
@@ -49,9 +57,9 @@
             public string ExpirationTime { get; set; }
         }
 
-	В этих классах будут содержаться соответственно текст запроса и идентификатор регистрации, возвращаемые при вызове настраиваемого интерфейса API.
+    Эти классы будут содержать тело запроса и идентификатор регистрации, возвращенный при вызове настраиваемого интерфейса API соответственно.
 
-8. Добавьте следующий метод в класс **MainPage**:
+8.  Добавьте в класс **MainPage** следующий метод:
 
         private async System.Threading.Tasks.Task RegisterNotification()
         {
@@ -92,28 +100,27 @@
             await dialog.ShowAsync();
         }
 
-	Этот метод создает канал для push-уведомлений и отправляет его, вместе с типом устройства, методу настраиваемого интерфейса API, который создает регистрацию в концентраторах уведомлений. Этот метод настраиваемого интерфейса API был определен в учебнике [Уведомление пользователей с помощью концентраторов уведомлений].
+    Этот метод создает канал для push-уведомлений и отправляет его, вместе с типом устройства, методу настраиваемого интерфейса API, который создает регистрацию в концентраторах уведомлений. Этот метод настраиваемого интерфейса API был определен в учебнике [Уведомление пользователей с помощью концентраторов уведомлений][Уведомление пользователей с помощью концентраторов уведомлений].
 
-9. Добавьте следующую строку кода в метод **OnNavigatedTo** сразу после вызова метода **проверки подлинности**:
+9.  Добавьте следующую строку кода в метод **OnNavigatedTo** сразу после вызова метода **Authenticate**:
 
-		await RegisterNotification();
+        await RegisterNotification();
 
-	<div class="dev-callout"><b>Примечание.</b>
-	<p>Это гарантирует, что регистрация запрашивается каждый раз при загрузке страницы. Может потребоваться выполнять эту регистрацию в приложении только периодически, чтобы гарантировать, что регистрация актуальна.</p>
-	</div>
+    <div class="dev-callout">
 
-Теперь, когда клиентское приложение было обновлено, вернитесь к учебнику [Уведомление пользователей с помощью концентраторов уведомлений] и обновите мобильную службу для отправки уведомлений с помощью концентраторов уведомлений.
+    **Примечание.**
+    Это гарантирует, что регистрация запрашивается каждый раз при загрузке страницы. В вашем приложении можно сделать так, чтобы эта регистрация выполнялась только время от времени для гарантии актуальности регистрации.
 
-<!-- Anchors. -->
+    </div>
 
-<!-- Images. -->
-[1]: ./media/notification-hubs-windows-store-mobile-services-register-user-push-notifications/mobile-services-select-app-name.png
-[2]: ./media/notification-hubs-windows-store-mobile-services-register-user-push-notifications/notification-hub-associate-win8-app.png
-[3]: ./media/notification-hubs-windows-store-mobile-services-register-user-push-notifications/notification-hub-win8-app-toast.png
+Теперь, когда клиентское приложение было обновлено, вернитесь к учебнику [Уведомление пользователей с помощью концентраторов уведомлений][Уведомление пользователей с помощью концентраторов уведомлений] и обновите мобильную службу для отправки уведомлений с помощью концентраторов уведомлений.
 
-<!-- URLs. -->
-[Уведомление пользователей с помощью концентраторов уведомлений]: /ru-ru/manage/services/notification-hubs/notify-users
-[Приступая к работе с аутентификацией]: /ru-ru/develop/mobile/tutorials/get-started-with-users-dotnet/
+<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
 
-[Портал управления Azure]: https://manage.windowsazure.com/
-
+  [Магазин Windows C#]: /ru-ru/documentation/articles/notification-hubs-windows-store-mobile-services-register-user-push-notifications/ "Магазин Windows C#"
+  [iOS]: /ru-ru/documentation/articles/notification-hubs-ios-mobile-services-register-user-push-notifications/ "iOS"
+  [Уведомление пользователей с помощью концентраторов уведомлений]: /ru-ru/manage/services/notification-hubs/notify-users
+  [Приступая к работе с аутентификацией]: /ru-ru/develop/mobile/tutorials/get-started-with-users-dotnet/
+  []: ./media/notification-hubs-windows-store-mobile-services-register-user-push-notifications/mobile-services-select-app-name.png
+  [1]: ./media/notification-hubs-windows-store-mobile-services-register-user-push-notifications/notification-hub-associate-win8-app.png
+  [2]: ./media/notification-hubs-windows-store-mobile-services-register-user-push-notifications/notification-hub-win8-app-toast.png

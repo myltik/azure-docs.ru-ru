@@ -10,104 +10,104 @@
 
 Некоторые из этих сообщений об ошибке также могут отображаться на портале Azure, когда он используется для управления кластерами HDinsight. Существуют и другие сообщения об ошибках, которые менее подробны в связи с ограниченными возможностями по устранению таких ошибок в данном контексте. В контекстах, где подобные действия осуществимы, выводятся другие сообщения об ошибках. Например, при нарушении ограничений для параметра выводится всплывающее сообщение в правой стороне поля, где было введено значение. В этом случае было запрошено избыточное число узлов данных. Для устранения ошибки следует снизить это число до разрешенного значения (не более 22).
 
-![HDI.Debugging.ErrorMessages.Portal][]
+![HDI.Debugging.ErrorMessages.Portal][HDI.Debugging.ErrorMessages.Portal]
 
-Ошибки, с которыми пользователь может столкнуться в Azure PowerShell или на портале Azure, отображаются в списке, упорядоченном по алфавиту, в разделе [Ошибки HDInsight][]. Там они связаны с записью в разделе [Описание и устранение ошибок][], где приводятся следующие сведения об ошибке:
+Ошибки, с которыми пользователь может столкнуться в Azure PowerShell или на портале Azure, отображаются в списке, упорядоченном по алфавиту, в разделе [Ошибки HDInsight][Ошибки HDInsight]. Там они связаны с записью в разделе [Описание и устранение ошибок][Описание и устранение ошибок], где приводятся следующие сведения об ошибке:
 
 -   **Описание**: сообщение об ошибке, отображаемое для пользователя
 -   **Устранение**: действия, которые требуется выполнить для устранения этой ошибки.
 
 ### Ошибки HDInsight
 
-[AtleastOneSqlMetastoreMustBeProvided][]
+[AtleastOneSqlMetastoreMustBeProvided][AtleastOneSqlMetastoreMustBeProvided]
 
-[AzureRegionNotSupported][]
+[AzureRegionNotSupported][AzureRegionNotSupported]
 
-[ClusterContainerRecordNotFound][]
+[ClusterContainerRecordNotFound][ClusterContainerRecordNotFound]
 
-[ClusterDnsNameInvalidReservedWord][]
+[ClusterDnsNameInvalidReservedWord][ClusterDnsNameInvalidReservedWord]
 
-[ClusterNameUnavailable][]
+[ClusterNameUnavailable][ClusterNameUnavailable]
 
-[ClusterUserNameInvalid][]
+[ClusterUserNameInvalid][ClusterUserNameInvalid]
 
-[ClusterUserNameInvalidReservedWord][]
+[ClusterUserNameInvalidReservedWord][ClusterUserNameInvalidReservedWord]
 
-[ContainerNameMisMatchWithDnsName][]
+[ContainerNameMisMatchWithDnsName][ContainerNameMisMatchWithDnsName]
 
-[DataNodeDefinitionNotFound][]
+[DataNodeDefinitionNotFound][DataNodeDefinitionNotFound]
 
-[DeploymentDeletionFailure][]
+[DeploymentDeletionFailure][DeploymentDeletionFailure]
 
-[DnsMappingNotFound][]
+[DnsMappingNotFound][DnsMappingNotFound]
 
-[DuplicateClusterContainerRequest][]
+[DuplicateClusterContainerRequest][DuplicateClusterContainerRequest]
 
-[DuplicateClusterInHostedService][]
+[DuplicateClusterInHostedService][DuplicateClusterInHostedService]
 
-[FailureToUpdateDeploymentStatus][]
+[FailureToUpdateDeploymentStatus][FailureToUpdateDeploymentStatus]
 
-[HdiRestoreClusterAltered][]
+[HdiRestoreClusterAltered][HdiRestoreClusterAltered]
 
-[HeadNodeConfigNotFound][]
+[HeadNodeConfigNotFound][HeadNodeConfigNotFound]
 
-[HeadNodeConfigNotFound][]
+[HeadNodeConfigNotFound][HeadNodeConfigNotFound]
 
-[HostedServiceCreationFailure][]
+[HostedServiceCreationFailure][HostedServiceCreationFailure]
 
-[HostedServiceHasProductionDeployment][]
+[HostedServiceHasProductionDeployment][HostedServiceHasProductionDeployment]
 
-[HostedServiceNotFound][]
+[HostedServiceNotFound][HostedServiceNotFound]
 
-[HostedServiceWithNoDeployment][]
+[HostedServiceWithNoDeployment][HostedServiceWithNoDeployment]
 
-[InsufficientResourcesCores][]
+[InsufficientResourcesCores][InsufficientResourcesCores]
 
-[InsufficientResourcesHostedServices][]
+[InsufficientResourcesHostedServices][InsufficientResourcesHostedServices]
 
-[InternalErrorRetryRequest][]
+[InternalErrorRetryRequest][InternalErrorRetryRequest]
 
-[InvalidAzureStorageLocation][]
+[InvalidAzureStorageLocation][InvalidAzureStorageLocation]
 
-[InvalidNodeSizeForDataNode][]
+[InvalidNodeSizeForDataNode][InvalidNodeSizeForDataNode]
 
-[InvalidNodeSizeForHeadNode][]
+[InvalidNodeSizeForHeadNode][InvalidNodeSizeForHeadNode]
 
-[InvalidRightsForDeploymentDeletion][]
+[InvalidRightsForDeploymentDeletion][InvalidRightsForDeploymentDeletion]
 
-[InvalidStorageAccountBlobContainerName][]
+[InvalidStorageAccountBlobContainerName][InvalidStorageAccountBlobContainerName]
 
-[InvalidStorageAccountConfigurationSecretKey][]
+[InvalidStorageAccountConfigurationSecretKey][InvalidStorageAccountConfigurationSecretKey]
 
-[InvalidVersionHeaderFormat][]
+[InvalidVersionHeaderFormat][InvalidVersionHeaderFormat]
 
-[MoreThanOneHeadNode][]
+[MoreThanOneHeadNode][MoreThanOneHeadNode]
 
-[OperationTimedOutRetryRequest][]
+[OperationTimedOutRetryRequest][OperationTimedOutRetryRequest]
 
-[ParameterNullOrEmpty][]
+[ParameterNullOrEmpty][ParameterNullOrEmpty]
 
-[PreClusterCreationValidationFailure][]
+[PreClusterCreationValidationFailure][PreClusterCreationValidationFailure]
 
-[RegionCapabilityNotAvailable][]
+[RegionCapabilityNotAvailable][RegionCapabilityNotAvailable]
 
-[StorageAccountNotColocated][]
+[StorageAccountNotColocated][StorageAccountNotColocated]
 
-[SubscriptionIdNotActive][]
+[SubscriptionIdNotActive][SubscriptionIdNotActive]
 
-[SubscriptionIdNotFound][]
+[SubscriptionIdNotFound][SubscriptionIdNotFound]
 
-[UnableToResolveDNS][]
+[UnableToResolveDNS][UnableToResolveDNS]
 
-[UnableToVerifyLocationOfResource][]
+[UnableToVerifyLocationOfResource][UnableToVerifyLocationOfResource]
 
-[VersionCapabilityNotAvailable][]
+[VersionCapabilityNotAvailable][VersionCapabilityNotAvailable]
 
-[VersionNotSupported][]
+[VersionNotSupported][VersionNotSupported]
 
-[VersionNotSupportedInRegion][]
+[VersionNotSupportedInRegion][VersionNotSupportedInRegion]
 
-[WasbAccountConfigNotFound][]
+[WasbAccountConfigNotFound][WasbAccountConfigNotFound]
 
 ## <span id="discription-mitigation-errors"></span></a>Диагностика и устранение ошибок
 
@@ -338,7 +338,7 @@
 
 ## <span id="resources"></span></a>Дополнительные ресурсы для отладки
 
--   [Документация по пакету Azure HDInsight SDK][]
+-   [Документация по пакету Azure HDInsight SDK][Документация по пакету Azure HDInsight SDK]
 
   [HDI.Debugging.ErrorMessages.Portal]: ./media/hdinsight-debug-jobs/hdi-debug-errormessages-portal.png
   [Ошибки HDInsight]: #hdinsight-error-messages
@@ -387,4 +387,4 @@
   [VersionNotSupported]: #VersionNotSupported
   [VersionNotSupportedInRegion]: #VersionNotSupportedInRegion
   [WasbAccountConfigNotFound]: #WasbAccountConfigNotFound
-  [Документация по пакету Azure HDInsight SDK]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx
+  [Документация по пакету Azure HDInsight SDK]: http://msdnstage.redmond.corp.microsoft.com/ru-ru/library/dn479185.aspx

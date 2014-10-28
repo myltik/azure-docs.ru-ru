@@ -1,32 +1,30 @@
-<properties linkid="develop-net-how-to-guides-service-bus-amqp" urlDisplayName="Service Bus AMQP" pageTitle="Использование протокола AMQP 1.0 с API .NET Service Bus — Azure" metaKeywords="" description="Узнайте, как использовать протокол AMQP (Advanced Message Queuing Protodol) 1.0 с API Azure .NET Service Bus." metaCanonical="" services="service-bus" documentationCenter=".NET" title="Использование протокола AMQP 1.0 с API Service Bus .NET" authors="sethm" solutions="" manager="dwrede" editor="mattshel" />
+<properties linkid="develop-net-how-to-guides-service-bus-amqp" urlDisplayName="Service Bus AMQP" pageTitle="How to use AMQP 1.0 with the .NET Service Bus API - Azure" metaKeywords="" description="Learn how to use Advanced Message Queuing Protodol (AMQP) 1.0 with the Azure .NET Service Bus API." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to use AMQP 1.0 with the Service Bus .NET API" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
-
-
-
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm"></tags>
 
 # Использование протокола AMQP 1.0 с API Service Bus .NET
 
-<h2><span class="short-header">Введение</span>Введение</h2>
+## <span class="short-header">Введение</span>Введение
 
 AMQP 1.0 — это эффективный и надежный протокол обмена сообщениями на уровне соединения, который можно использовать для создания надежных кроссплатформенных приложений для обмена сообщениями.
 
-Поддержка AMQP 1.0 в Service Bus означает, что с помощью эффективного двоичного протокола можно на различных платформах использовать возможности очередей и обмена сообщениями через посредника с публикацией/подпиской. Кроме того, можно создавать приложения, содержащие компоненты, созданные с использованием разнообразных языков, платформ и операционных систем.
+Поддержка AMQP 1.0 в Service Bus означает, что с помощью эффективного двоичного протокола можно на различных платформах использовать возможности очередей и обмена сообщениями с публикацией/подпиской у брокера. Кроме того, можно создавать приложения, содержащие компоненты, созданные с использованием разнообразных языков, платформ и операционных систем.
 
 В этом практическом руководстве описывается использование функций обмена сообщениями при посредстве Service Bus (очереди и разделы публикации/подписки) из приложений .NET с помощью API-интерфейса Service Bus .NET. В связанном руководстве объясняется, как выполнить те же действия, используя стандартный API службы JMS (Java Message Service). Эти два руководства можно использовать совместно для изучения обмена сообщениями между различными платформами с помощью AMQP 1.0.
 
-<h2><span class="short-header">Начало работы</span>Начало работы с Service Bus</h2>
+## <span class="short-header">Начало работы</span>Начало работы с Service Bus
 
-В этом руководстве предполагается, что уже создано пространство имен Service Bus, содержащее очередь с именем "queue1". Если это не так, можно создать пространство имен и в очередь, используя [портал управления Azure](http://manage.windowsazure.com). Дополнительные сведения о создании пространства имен и очередей Service Bus см. в практическом руководстве "[Использование очередей Service Bus](https://www.windowsazure.com/ru-ru/develop/net/how-to-guides/service-bus-queues/)".
+В этом руководстве предполагается, что уже создано пространство имен Service Bus, содержащее очередь с именем "queue1". Если это не так, можно создать пространство имен и в очередь, используя [портал управления Azure][портал управления Azure]. Дополнительные сведения о создании пространства имен и очередей Service Bus см. в практическом руководстве "[Использование очередей Service Bus][Использование очередей Service Bus]".
 
-<h2><span class="short-header">Загрузка пакета SDK</span>Загрузка пакета SDK для Service Bus.</h2>
+## <span class="short-header">Загрузка пакета SDK</span>Загрузка пакета SDK для Service Bus.
 
-AMQP 1.0 поддерживается в SDK для Service Bus версии 2.1 или более поздней. Новейшую версию пакета SDK можно загрузить из NuGet по адресу [http://nuget.org/packages/WindowsAzure.ServiceBus/](http://nuget.org/packages/WindowsAzure.ServiceBus/)
+AMQP 1.0 поддерживается в SDK для Service Bus версии 2.1 или более поздней. Новейшую версию пакета SDK можно загрузить из NuGet по адресу [][]<http://nuget.org/packages/WindowsAzure.ServiceBus/></a>
 
-<h2><span class="short-header">Программирование приложений .NET</span>Программирование приложений .NET</h2>
+## <span class="short-header">Программирование приложений .NET</span>Программирование приложений .NET
 
 По умолчанию клиентская библиотека .NET для Service Bus взаимодействует со службой Service Bus, используя выделенный протокол на основе SOAP. Чтобы использовать протокол AMQP 1.0 вместо протокола по умолчанию, требуется явно настроить строку подключения Service Bus, как описано в следующем разделе. За исключением этого изменения код приложения при использовании AMQP 1.0 остается практически неизменным.
 
-В текущем выпуске есть несколько функций API, не поддерживаемых при использовании AMQP. Эти неподдерживаемые функции перечислены ниже в разделе "Неподдерживаемые функции и ограничения". Кроме того, при использовании AMQP отличается значение некоторых дополнительных параметров конфигурации. Ни один из этих параметров не используется в этом кратком руководстве, но дополнительные сведения доступны в [Руководстве разработчика AMQP 1.0 для Service Bus](http://msdn.microsoft.com/ru-ru/library/windowsazure/jj841071.aspx)
+В текущем выпуске есть несколько функций API, не поддерживаемых при использовании AMQP. Эти неподдерживаемые функции перечислены ниже в разделе "Неподдерживаемые функции и ограничения". Кроме того, при использовании AMQP отличается значение некоторых дополнительных параметров конфигурации. Ни один из этих параметров не используется в этом кратком руководстве, но дополнительные сведения доступны в [Руководстве разработчика AMQP 1.0 для Service Bus][Руководстве разработчика AMQP 1.0 для Service Bus]
 
 ### Настройка с помощью App.config
 
@@ -34,22 +32,22 @@ AMQP 1.0 поддерживается в SDK для Service Bus версии 2.1
 
 Ниже приводится пример файла App.config:
 
-	<?xml version="1.0" encoding="utf-8" ?>
-	<configuration>
-	  	<appSettings>
-		    <add key="Microsoft.ServiceBus.ConnectionString"
-        	     value="Endpoint=sb://[namespace].servicebus.windows.net;SharedSecretIssuer=[issuer name];SharedSecretValue=[issuer key];TransportType=Amqp" />
-	    	<add key="EntityName" value="queue1" />
-  		</appSettings>
-	</configuration>
+    <?xml version="1.0" encoding="utf-8" ?>
+    <configuration>
+        <appSettings>
+            <add key="Microsoft.ServiceBus.ConnectionString"
+                 value="Endpoint=sb://[namespace].servicebus.windows.net;SharedSecretIssuer=[issuer name];SharedSecretValue=[issuer key];TransportType=Amqp" />
+            <add key="EntityName" value="queue1" />
+        </appSettings>
+    </configuration>
 
 ### Настройка строки подключения Service Bus
 
 Значение **Microsoft.ServiceBus.ConnectionString** представляет собой строку подключения Service Bus, используемую для настройки подключения к Service Bus. Используется следующий формат:
 
-	Endpoint=sb://[namespace].servicebus.windows.net;SharedSecretIssuer=[issuer name];SharedSecretValue=[issuer key];TransportType=Amqp
+    Endpoint=sb://[namespace].servicebus.windows.net;SharedSecretIssuer=[issuer name];SharedSecretValue=[issuer key];TransportType=Amqp
 
-где [namespace], [issuer name] и [issuer key] получаются с портала управления Azure. Дополнительные сведения см. в разделе [Использование очередей Service Bus][].
+где [namespace], [issuer name] и [issuer key] получаются с портала управления Azure. Дополнительные сведения см. в разделе [Использование очередей Service Bus][1].
 
 При использовании AMQP в конец строки подключения добавляется ";TransportType=Amqp", указывая клиентской библиотеке на использование AMQP 1.0 для подключения к Service Bus.
 
@@ -61,241 +59,245 @@ AMQP 1.0 поддерживается в SDK для Service Bus версии 2.1
 
 В следующем примере выполняется обмен сообщениями (отправка и получение) с очередью Service Bus.
 
-	// SimpleSenderReceiver.cs
-	
-	using System;
-	using System.Configuration;
-	using System.Threading;
-	using Microsoft.ServiceBus.Messaging;
-	
-	namespace SimpleSenderReceiver
-	{
-	    class SimpleSenderReceiver
-	    {
-	        private static string connectionString;
-	        private static string entityName;
-	        private static Boolean runReceiver = true;
-	        private MessagingFactory factory;
-	        private MessageSender sender;
-	        private MessageReceiver receiver;
-	        private MessageListener messageListener;
-	        private Thread listenerThread;
-	
-	        static void Main(string[] args)
-	        {
-	            try
-	            {
-	                if ((args.Length > 0) && args[0].ToLower().Equals("sendonly"))
-	                    runReceiver = false;
-	                
-	                string ConnectionStringKey = "Microsoft.ServiceBus.ConnectionString";
-	                string entityNameKey = "EntityName";
-	                entityName = ConfigurationManager.AppSettings[entityNameKey];
-	                connectionString = ConfigurationManager.AppSettings[ConnectionStringKey];
-	                SimpleSenderReceiver simpleSenderReceiver = new SimpleSenderReceiver();
-	
-	                Console.WriteLine("Press [enter] to send a message. " +
-	                    "Type 'exit' + [enter] to quit.");
-	
-	                while (true)
-	                {
-	                    string s = Console.ReadLine();
-	                    if (s.ToLower().Equals("exit"))
-	                    {
-	                        simpleSenderReceiver.Close();
-	                        System.Environment.Exit(0);
-	                    }
-	                    else
-	                        simpleSenderReceiver.SendMessage();
-	                }
-	            }
-	            catch (Exception e)
-	            {
-	                Console.WriteLine("Caught exception: " + e.Message);
-	            }
-	        }
-	
-	        public SimpleSenderReceiver()
-	        {
-	            factory = MessagingFactory.CreateFromConnectionString(connectionString);
-	            sender = factory.CreateMessageSender(entityName);
-	
-	            if (runReceiver)
-	            {
-	                receiver = factory.CreateMessageReceiver(entityName);
-	                messageListener = new MessageListener(receiver);
-	                listenerThread = new Thread(messageListener.Listen);
-	                listenerThread.Start();
-	            }
-	        }
-	
-	        public void Close()
-	        {
-	            messageListener.RequestStop();
-	            listenerThread.Join();
-	            factory.Close();
-	        }
-	
-	        private void SendMessage()
-	        {
-	            BrokeredMessage message = 
-	                new BrokeredMessage("Test AMQP message from .NET");
-	            sender.Send(message);
-	            Console.WriteLine("Sent message with MessageID = " 
-	                + message.MessageId);
-	        }
-	
-	    }
-	
-	    public class MessageListener
-	    {
-	        private MessageReceiver messageReceiver;
-	        public MessageListener(MessageReceiver receiver)
-	        {
-	            messageReceiver = receiver;
-	        }
-	
-	        public void Listen()
-	        {
-	            while (!_shouldStop)
-	            {
-	                try
-	                {
-	                    BrokeredMessage message = 
-	                        messageReceiver.Receive(new TimeSpan(0, 0, 10));
-	                    if (message != null)
-	                    {
-	                        Console.WriteLine("Received message with MessageID = " + 
-	                            message.MessageId);
-	                        message.Complete();
-	                    }
-	                }
-	                catch (Exception e)
-	                {
-	                    Console.WriteLine("Caught exception: " + e.Message);
-	                    break;
-	                }
-	            }
-	        }
-	
-	        public void RequestStop()
-	        {
-	            _shouldStop = true;
-	        }
-	
-	        private volatile bool _shouldStop;
-	    }
-	}
+    // SimpleSenderReceiver.cs
+
+    using System;
+    using System.Configuration;
+    using System.Threading;
+    using Microsoft.ServiceBus.Messaging;
+
+    namespace SimpleSenderReceiver
+    {
+        class SimpleSenderReceiver
+        {
+            private static string connectionString;
+            private static string entityName;
+            private static Boolean runReceiver = true;
+            private MessagingFactory factory;
+            private MessageSender sender;
+            private MessageReceiver receiver;
+            private MessageListener messageListener;
+            private Thread listenerThread;
+
+            static void Main(string[] args)
+            {
+                try
+                {
+                    if ((args.Length > 0) && args[0].ToLower().Equals("sendonly"))
+                        runReceiver = false;
+                    
+                    string ConnectionStringKey = "Microsoft.ServiceBus.ConnectionString";
+                    string entityNameKey = "EntityName";
+                    entityName = ConfigurationManager.AppSettings[entityNameKey];
+                    connectionString = ConfigurationManager.AppSettings[ConnectionStringKey];
+                    SimpleSenderReceiver simpleSenderReceiver = new SimpleSenderReceiver();
+
+                    Console.WriteLine("Press [enter] to send a message. " +
+                        "Type 'exit' + [enter] to quit.");
+
+                    while (true)
+                    {
+                        string s = Console.ReadLine();
+                        if (s.ToLower().Equals("exit"))
+                        {
+                            simpleSenderReceiver.Close();
+                            System.Environment.Exit(0);
+                        }
+                        else
+                            simpleSenderReceiver.SendMessage();
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Caught exception: " + e.Message);
+                }
+            }
+
+            public SimpleSenderReceiver()
+            {
+                factory = MessagingFactory.CreateFromConnectionString(connectionString);
+                sender = factory.CreateMessageSender(entityName);
+
+                if (runReceiver)
+                {
+                    receiver = factory.CreateMessageReceiver(entityName);
+                    messageListener = new MessageListener(receiver);
+                    listenerThread = new Thread(messageListener.Listen);
+                    listenerThread.Start();
+                }
+            }
+
+            public void Close()
+            {
+                messageListener.RequestStop();
+                listenerThread.Join();
+                factory.Close();
+            }
+
+            private void SendMessage()
+            {
+                BrokeredMessage message = 
+                    new BrokeredMessage("Test AMQP message from .NET");
+                sender.Send(message);
+                Console.WriteLine("Sent message with MessageID = " 
+                    + message.MessageId);
+            }
+
+        }
+
+        public class MessageListener
+        {
+            private MessageReceiver messageReceiver;
+            public MessageListener(MessageReceiver receiver)
+            {
+                messageReceiver = receiver;
+            }
+
+            public void Listen()
+            {
+                while (!_shouldStop)
+                {
+                    try
+                    {
+                        BrokeredMessage message = 
+                            messageReceiver.Receive(new TimeSpan(0, 0, 10));
+                        if (message != null)
+                        {
+                            Console.WriteLine("Received message with MessageID = " + 
+                                message.MessageId);
+                            message.Complete();
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("Caught exception: " + e.Message);
+                        break;
+                    }
+                }
+            }
+
+            public void RequestStop()
+            {
+                _shouldStop = true;
+            }
+
+            private volatile bool _shouldStop;
+        }
+    }
 
 ### Запуск приложения
 
 Запущенное приложение выводит следующие данные:
 
-	> SimpleSenderReceiver.exe
-	Press [enter] to send a message. Type 'exit' + [enter] to quit.
-	
-	Sent message with MessageID = fb7f5d3733704e4ba4bd55f759d9d7cf
-	Received message with MessageID = fb7f5d3733704e4ba4bd55f759d9d7cf
-	
-	Sent message with MessageID = d00e2e088f06416da7956b58310f7a06
-	Received message with MessageID = d00e2e088f06416da7956b58310f7a06
-	
-	Received message with MessageID = f27f79ec124548c196fd0db8544bca49
-	Sent message with MessageID = f27f79ec124548c196fd0db8544bca49
-	exit
+    > SimpleSenderReceiver.exe
+    Press [enter] to send a message. Type 'exit' + [enter] to quit.
 
-<h2><span class="short-header">Межплатформенный обмен сообщениями</span>Межплатформенный обмен сообщениями между JMS и .NET</h2>
+    Sent message with MessageID = fb7f5d3733704e4ba4bd55f759d9d7cf
+    Received message with MessageID = fb7f5d3733704e4ba4bd55f759d9d7cf
+
+    Sent message with MessageID = d00e2e088f06416da7956b58310f7a06
+    Received message with MessageID = d00e2e088f06416da7956b58310f7a06
+
+    Received message with MessageID = f27f79ec124548c196fd0db8544bca49
+    Sent message with MessageID = f27f79ec124548c196fd0db8544bca49
+    exit
+
+## <span class="short-header">Межплатформенный обмен сообщениями</span>Межплатформенный обмен сообщениями между JMS и .NET
 
 В этом руководстве показано, как отправлять сообщения в Service Bus с помощью .NET, а также как получать эти сообщения, используя .NET. Однако одно из основных преимуществ использования AMQP 1.0 состоит в том, что этот протокол позволяет приложениям, созданным из компонентов, написанных на разных языках, надежно и точно обмениваться сообщениями.
 
-Используя приведенный выше пример приложения .NET и аналогичное приложение Java, взятое из связанного руководства [Использование API JMS с Service Bus и AMQP 1.0](http://aka.ms/ll1fm3), можно организовать обмен сообщениями между .NET и Java. 
+Используя приведенный выше пример приложения .NET и аналогичное приложение Java, взятое из связанного руководства [Использование API JMS с Service Bus и AMQP 1.0][Использование API JMS с Service Bus и AMQP 1.0], можно организовать обмен сообщениями между .NET и Java.
 
-Дополнительные сведения о межплатформенном обмене сообщениями с помощью Service Bus и AMQP 1.0 см. в статье [Руководство разработчика AMQP 1.0 для Service Bus](http://msdn.microsoft.com/ru-ru/library/windowsazure/jj841071.aspx).
+Дополнительные сведения о межплатформенном обмене сообщениями с помощью Service Bus и AMQP 1.0 см. в статье [Руководство разработчика AMQP 1.0 для Service Bus][Руководстве разработчика AMQP 1.0 для Service Bus].
 
 ### Из JMS в .NET
 
 Для демонстрации отправки сообщении из JMS в .NET выполните следующее:
 
-* Запустите пример приложения .NET без параметров командной строки.
-* Запустите пример приложения Java с параметром командной строки "sendonly". В этом режиме приложение не будет получать сообщения из очереди, оно будет только отправлять сообщения.
-* В консоли приложения Java несколько раз нажмите клавишу **ВВОД**, что приведет к отправке сообщений.
-* Эти сообщения принимаются приложением .NET.
+-   Запустите пример приложения .NET без параметров командной строки.
+-   Запустите пример приложения Java с параметром командной строки sendonly. В этом режиме приложение не будет получать сообщения из очереди, оно будет только отправлять сообщения.
+-   В консоли приложения Java несколько раз нажмите клавишу **ВВОД**, что приведет к отправке сообщений.
+-   Эти сообщения принимаются приложением .NET.
 
 #### Вывод приложения JMS
 
-	> java SimpleSenderReceiver sendonly
-	Press [enter] to send a message. Type 'exit' + [enter] to quit.
-	Sent message with JMSMessageID = ID:4364096528752411591
-	Sent message with JMSMessageID = ID:459252991689389983
-	Sent message with JMSMessageID = ID:1565011046230456854
-	exit
+    > java SimpleSenderReceiver sendonly
+    Press [enter] to send a message. Type 'exit' + [enter] to quit.
+    Sent message with JMSMessageID = ID:4364096528752411591
+    Sent message with JMSMessageID = ID:459252991689389983
+    Sent message with JMSMessageID = ID:1565011046230456854
+    exit
 
 #### Вывод приложения .NET
 
-	> SimpleSenderReceiver.exe	
-	Press [enter] to send a message. Type 'exit' + [enter] to quit.
-	Received message with MessageID = 4364096528752411591
-	Received message with MessageID = 459252991689389983
-	Received message with MessageID = 1565011046230456854
-	exit
+    > SimpleSenderReceiver.exe  
+    Press [enter] to send a message. Type 'exit' + [enter] to quit.
+    Received message with MessageID = 4364096528752411591
+    Received message with MessageID = 459252991689389983
+    Received message with MessageID = 1565011046230456854
+    exit
 
 ### Из .NET в JMS
 
 Для демонстрации отправки сообщений из .NET в JMS выполните следующее:
 
-* Запустите пример приложения .NET с параметром командной строки "sendonly". В этом режиме приложение не будет получать сообщения из очереди, оно будет только отправлять сообщения.
-* Запустите пример приложения Java без параметров командной строки.
-* В консоли приложения .NET несколько раз нажмите клавишу **ВВОД**, что приведет к отправке сообщений.
-* Эти сообщения принимаются приложением Java.
+-   Запустите пример приложения .NET с параметром командной строки sendonly. В этом режиме приложение не будет получать сообщения из очереди, оно будет только отправлять сообщения.
+-   Запустите пример приложения Java без параметров командной строки.
+-   В консоли приложения .NET несколько раз нажмите клавишу **ВВОД**, что приведет к отправке сообщений.
+-   Эти сообщения принимаются приложением Java.
 
 #### Вывод приложения .NET
 
-	> SimpleSenderReceiver.exe sendonly
-	Press [enter] to send a message. Type 'exit' + [enter] to quit.
-	Sent message with MessageID = d64e681a310a48a1ae0ce7b017bf1cf3	
-	Sent message with MessageID = 98a39664995b4f74b32e2a0ecccc46bb
-	Sent message with MessageID = acbca67f03c346de9b7893026f97ddeb
-	exit
-
+    > SimpleSenderReceiver.exe sendonly
+    Press [enter] to send a message. Type 'exit' + [enter] to quit.
+    Sent message with MessageID = d64e681a310a48a1ae0ce7b017bf1cf3  
+    Sent message with MessageID = 98a39664995b4f74b32e2a0ecccc46bb
+    Sent message with MessageID = acbca67f03c346de9b7893026f97ddeb
+    exit
 
 #### Вывод приложения JMS
 
-	> java SimpleSenderReceiver	
-	Press [enter] to send a message. Type 'exit' + [enter] to quit.
-	Received message with JMSMessageID = ID:d64e681a310a48a1ae0ce7b017bf1cf3
-	Received message with JMSMessageID = ID:98a39664995b4f74b32e2a0ecccc46bb
-	Received message with JMSMessageID = ID:acbca67f03c346de9b7893026f97ddeb
-	exit
+    > java SimpleSenderReceiver 
+    Press [enter] to send a message. Type 'exit' + [enter] to quit.
+    Received message with JMSMessageID = ID:d64e681a310a48a1ae0ce7b017bf1cf3
+    Received message with JMSMessageID = ID:98a39664995b4f74b32e2a0ecccc46bb
+    Received message with JMSMessageID = ID:acbca67f03c346de9b7893026f97ddeb
+    exit
 
-<h2><span class="short-header">Неподдерживаемые функции</span>Неподдерживаемые функции и ограничения</h2>
+## <span class="short-header">Неподдерживаемые функции</span>Неподдерживаемые функции и ограничения
 
 Следующие функции API-интерфейса Service Bus .NET при использовании AMQP не поддерживаются:
 
-* Транзакции
-* Отправка через место назначения передачи
-* Получение по порядковому номеру сообщения
-* Обзор сообщений и сеансов
-* Состояние сеанса
-* API-интерфейсы на основе пакетов
-* Масштабируемый прием
-* Изменение правил подписки во время выполнения
-* Возобновление блокировки сеанса
-* Ряд незначительных отличий в поведении
+-   Транзакции
+-   Отправка через место назначения передачи
+-   Получение по порядковому номеру сообщения
+-   Обзор сообщений и сеансов
+-   Состояние сеанса
+-   API-интерфейсы на основе пакетов
+-   Масштабируемый прием
+-   Изменение правил подписки во время выполнения
+-   Возобновление блокировки сеанса
+-   Ряд незначительных отличий в поведении
 
-Дополнительные сведения см. в [Руководстве разработчика AMQP 1.0 для Service Bus](http://msdn.microsoft.com/ru-ru/library/windowsazure/jj841071.aspx). Этот раздел содержит подробный список неподдерживаемых интерфейсов API.
+Дополнительные сведения см. в [руководстве разработчика AMQP 1.0 для Service Bus][Руководстве разработчика AMQP 1.0 для Service Bus]. Этот раздел содержит подробный список неподдерживаемых интерфейсов API.
 
-<h2><span class="short-header">Сводка</span>Сводка</h2>
+## <span class="short-header">Сводка</span>Сводка
 
 В этом практическом руководстве показывается, как получать доступ к функциям обмена сообщениями при посредстве Service Bus (очереди и разделы публикации/подписки) из приложений .NET с помощью AMQP 1.0 и API Service Bus .NET.
 
-Протокол AMQP 1.0 Service Bus можно также использовать из других языков, в числе которых Java, C, Python и PHP. Компоненты, созданные с помощью этих языков, могут надежно и точно обмениваться сообщениями, используя AMQP 1.0 в Service Bus. Дополнительные сведения см. в [Руководстве разработчика AMQP 1.0 для Service Bus](http://msdn.microsoft.com/ru-ru/library/windowsazure/jj841071.aspx)
+Протокол AMQP 1.0 Service Bus можно также использовать из других языков, в числе которых Java, C, Python и PHP. Компоненты, созданные с помощью этих языков, могут надежно и точно обмениваться сообщениями, используя AMQP 1.0 в Service Bus. Дополнительные сведения см. в [руководстве разработчика Service Bus AMQP 1.0][Руководстве разработчика AMQP 1.0 для Service Bus].
 
-<h2><span class="short-header">Дополнительные сведения</span>Дополнительные сведения</h2>
+## <span class="short-header">Дополнительные сведения</span>Дополнительные сведения
 
-* [Поддержка AMQP 1.0 в Azure Service Bus](http://aka.ms/pgr3dp)
-* [Использование API JMS с Service Bus и AMQP 1.0](http://aka.ms/ll1fm3)
-* [Руководство разработчика AMQP 1.0 для Service Bus](http://msdn.microsoft.com/ru-ru/library/windowsazure/jj841071.aspx)
-* [Использование очередей Service Bus](http://www.windowsazure.com/ru-ru/develop/net/how-to-guides/service-bus-queues/)
+-   [Поддержка AMQP 1.0 в Azure Service Bus][Поддержка AMQP 1.0 в Azure Service Bus]
+-   [Использование API JMS с Service Bus и AMQP 1.0][Использование API JMS с Service Bus и AMQP 1.0]
+-   [Руководство разработчика AMQP 1.0 для Service Bus][Руководстве разработчика AMQP 1.0 для Service Bus]
+-   [Использование очередей Service Bus][1]
 
-[Использование очередей Service Bus]: http://www.windowsazure.com/ru-ru/develop/net/how-to-guides/service-bus-queues/
-
+  [портал управления Azure]: http://manage.windowsazure.com
+  [Использование очередей Service Bus]: https://www.windowsazure.com/ru-ru/develop/net/how-to-guides/service-bus-queues/
+  []: http://nuget.org/packages/WindowsAzure.ServiceBus/
+  [Руководстве разработчика AMQP 1.0 для Service Bus]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj841071.aspx
+  [1]: http://www.windowsazure.com/ru-ru/develop/net/how-to-guides/service-bus-queues/
+  [Использование API JMS с Service Bus и AMQP 1.0]: http://aka.ms/ll1fm3
+  [Поддержка AMQP 1.0 в Azure Service Bus]: http://aka.ms/pgr3dp

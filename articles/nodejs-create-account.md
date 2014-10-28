@@ -1,4 +1,7 @@
-<properties linkid="nodejs-create-account" urlDisplayName="Установка версии Node.js" pageTitle="Центр разработчиков Azure Node.js - Учебники - Создание учетной записи" metaKeywords="" description="Центр разработчиков Azure Node.js - Учебники - Создание учетной записи Azure" metaCanonical="" services="" documentationCenter="Node.js" title="Создание учетной записи и включение предварительных версий компонентов" authors="larryfr" solutions="" manager="paulettm" editor="mollybos" />
+<properties linkid="nodejs-create-account" urlDisplayName="Specifying a Node.js Version" pageTitle="Azure Node.js Dev Center - Tutorials - Create an Account" metaKeywords="" description="Azure Node.js Dev Center - Tutorials - Create an Azure Account" metaCanonical="" services="" documentationCenter="nodejs" title="Create an account and enable preview features" authors="larryfr" solutions="" manager="paulettm" editor="mollybos" />
 
-[WACOM.INCLUDE [create-an-azure-account](../includes/create-an-azure-account.md)]
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
 
+[WACOM.INCLUDE [создание-учетной-записи-azure][создание-учетной-записи-azure]]
+
+  [создание-учетной-записи-azure]: ../includes/create-an-azure-account.md

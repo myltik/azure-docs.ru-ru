@@ -1,101 +1,101 @@
-<properties linkid="dev-node-remotedesktop" urlDisplayName="Включение удаленного рабочего стола" pageTitle="Включение удаленного рабочего стола для облачных служб (.)" metaKeywords="Удаленный доступ Azure Node.js, удаленное подключение Azure Node.js, доступ к ВМ Azure Node.js, доступ к виртуальной машине Azure Node.js" description="Узнайте, как включить доступ к удаленному рабочему столу для виртуальных машин, на которых размещено приложение Azure Node.js. " metaCanonical="" services="cloud-services" documentationCenter="Node.js" title="Включение удаленного рабочего стола в Azure" authors="" solutions="" manager="" editor="" />
+<properties linkid="dev-node-remotedesktop" urlDisplayName="Enable Remote Desktop" pageTitle="Enable remote desktop for cloud services (Node.js)" metaKeywords="Azure Node.js remote access, Azure Node.js remote connection, Azure Node.js VM access, Azure Node.js virtual machine access" description="Learn how to enable remote-desktop access for the virtual machines hosting your Azure Node.js application. " metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Enabling Remote Desktop in Azure" authors="larryfr" solutions="" manager="" editor="" />
 
-
-
-
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
 
 # Включение удаленного рабочего стола в Azure
 
-С помощью удаленного рабочего стола обеспечивается доступ к рабочему столу экземпляра,
+Удаленный рабочий стол обеспечивает доступ к рабочему столу экземпляра,
 работающего в Azure. Можно использовать подключение к удаленному рабочему столу для
 настройки виртуальной машины или устранения неполадок,
 связанных с приложением.
 
 <div class="dev-callout">
-	<b>Примечание.</b>
-	<p>Действия, приведенные в этой статье, применяются только к приложениям узла, размещенным в качестве облачной службы Azure.</p>
-	</div>
+    <b>Примечание.</b>
+    <p>Действия, приведенные в этой статье, применяются только к приложениям узла, размещенным в качестве облачной службы Azure.</p>
+    </div>
 
 Эта задача включает следующие шаги:
 
--   [Действие 1. Настройте службу для доступа к удаленному рабочему столу с использованием Azure PowerShell]
--   [Действие 2. Подключитесь к экземпляру роли]
--   [Действие 3. Настройте службу для отключения доступа к удаленному рабочему столу с использованием Azure PowerShell]
+-   [Шаг 1: Настройка службы для доступа к удаленному рабочему столу с использованием Azure PowerShell][Шаг 1: Настройка службы для доступа к удаленному рабочему столу с использованием Azure PowerShell]
+-   [Шаг 2: Подключение к экземпляру роли][Шаг 2: Подключение к экземпляру роли]
+-   [Шаг 3: Настройка службы для доступа к удаленному рабочему столу с
+    использованием Azure PowerShell][Шаг 3: Настройка службы для доступа к удаленному рабочему столу с
+    использованием Azure PowerShell]
 
-## <a name="step1"> </a>Действие 1. Настройте службу для доступа к удаленному рабочему столу с использованием Azure PowerShell
+## <a name="step1"> </a>Шаг 1: Настройка службы для доступа к удаленному рабочему столу с использованием Azure PowerShell
 
 Чтобы использовать удаленный рабочий стол, необходимо настроить определение службы
-и конфигурацию службы с использованием имени пользователя, пароля и сертификации
-для проверки подлинности с использованием экземпляров ролей в облаке. [Azure PowerShell] содержит командлет **Enable-AzureServiceProjectRemoteDesktop**,
+и конфигурацию службы с использованием имени пользователя, пароля и
+сертификата для проверки подлинности с использованием экземпляров ролей в облаке. [Azure PowerShell][Azure PowerShell] содержит командлет **Enable-AzureServiceProjectRemoteDesktop**,
 который выполняет эту конфигурацию.
 
-Выполните следующие действия с компьютера, где было создано
+Выполните следующие действия с компьютера, на котором было создано
 определение службы.
 
 1.  В меню **Пуск** выберите **Azure PowerShell**.
 
-	![Запись меню запуска Azure PowerShell][powershell-menu]
+    ![Запись меню запуска Azure PowerShell][Запись меню запуска Azure PowerShell]
 
 2.  Измените каталог на каталог службы, введите
     **Enable-AzureServiceProjectRemoteDesktop**, затем введите имя пользователя и
     пароль, которые будут использоваться для проверки подлинности
     в экземплярах служб в облаке.
 
-	![enable-azureserviceprojectremotedesktop][enable-rdp]
+    ![enable-azureserviceprojectremotedesktop][enable-azureserviceprojectremotedesktop]
 
 3.  Опубликуйте изменения конфигурации службы в облаке. В окне
     **Azure PowerShell** введите
     **Publish-AzureServiceProject**.
 
-	![publish-azureserviceproject][publish-project]
+    ![publish-azureserviceproject][publish-azureserviceproject]
 
 После выполнения этих действий экземпляры роли службы
 в облаке будут настроены для доступа к удаленному рабочему столу.
 
-## <a name="step2"> </a>Действие 2. Подключитесь к экземпляру роли
+## <a name="step2"> </a>Шаг 2: Подключение к экземпляру роли
 
-Теперь, когда развертывание запущено в Azure, вы можете подключиться
+После выполнения развертывания в Azure вы можете подключиться
 к экземпляру роли.
 
-1.  На [портале управления Azure] выберите **Облачные службы**, затем выберите службу, развернутую в приведенном выше действии 1
+1.  На [портале управления Azure][портале управления Azure] выберите **Облачные службы**, затем выберите службу, развернутую в приведенном выше действии 1.
 
-	![портал управления azure][cloud-services]
+    ![портал управления azure][портал управления azure]
 
-2.  Щелкните **Экземпляры**, затем щелкните **Рабочая среда** или **Промежуточная среда** для просмотра экземпляров службы. Выберите экземпляр и щелкните **Подключиться** в нижней части страницы.
+2.  Щелкните **Экземпляры**, затем **Рабочая среда** или **Промежуточная среда** для просмотра экземпляров службы. Выберите экземпляр и щелкните **Подключиться** в нижней части страницы.
 
-    ![Страница экземпляров][3]
+    ![Страница экземпляров][Страница экземпляров]
 
-2.  При щелчке пункта **Подключиться** в веб-браузере появляется запрос о сохранении
+3.  При нажатии пункта **Подключиться** в веб-браузере появляется запрос на сохранение
     RDP-файла. При использовании Internet Explorer щелкните **Открыть**.
 
-    ![запрос на открытие или сохранение RDP-файла][4]
+    ![запрос на открытие или сохранение RDP-файла][запрос на открытие или сохранение RDP-файла]
 
-3.  При открытии файла появится следующий запрос безопасности:
+4.  При открытии файла появится следующий запрос безопасности:
 
-    ![Запрос безопасности Windows][5]
+    ![Запрос безопасности Windows][Запрос безопасности Windows]
 
-4.  Щелкните **Подключиться**, после чего появится запрос безопасности
-    на ввод учетных данных для доступа к экземпляру. Введите пароль, созданный
-    в [Действии 1][Действие 1. Настройте службу для доступа к удаленному рабочему столу с использованием Azure PowerShell], затем нажмите кнопку **ОК**.
+5.  Нажмите **Подключиться**, после чего появится запрос безопасности
+    на ввод учетных данных для доступа к экземпляру. Введите пароль, который вы создали
+    на [шаге 1][Шаг 1: Настройка службы для доступа к удаленному рабочему столу с использованием Azure PowerShell] и нажмите **OK**.
 
-    ![запрос имени пользователя/пароля][6]
+    ![запрос имени пользователя/пароля][запрос имени пользователя/пароля]
 
-При установлении подключения к удаленному рабочему столу отображается
+После установки подключения к удаленному рабочему столу отображается
 удаленный рабочий стол экземпляра в Azure. Вы успешно получили удаленный
-доступ к экземпляру и теперь можете выполнить любые необходимые задачи
+доступ к экземпляру и теперь можете выполнять любые необходимые задачи
 для управления приложением.
 
-![Сеанс удаленного рабочего стола][7]
+![Сеанс удаленного рабочего стола][Сеанс удаленного рабочего стола]
 
-## <a name="step3"> </a>Действие 3. Настройте службу для отключения доступа к удаленному рабочему столу с использованием Azure PowerShell
+## <a name="step3"> </a>Шаг 3: Настройка службы для доступа к удаленному рабочему столу с использованием Azure PowerShell
 
-Если больше не требуется подключений к удаленным рабочим столам экземпляров
-ролей в облаке, отключите доступ к удаленным рабочим столам с помощью [Azure PowerShell]
+Если вам больше не требуется подключение к удаленным рабочим столам экземпляров
+ролей в облаке, отключите доступ к удаленным рабочим столам с помощью [Azure PowerShell][Azure PowerShell].
 
 1.  В меню **Пуск** выберите **Azure PowerShell**.
 
 2.  Измените каталог на каталог службы и введите
-    **Disable-AzureServiceProjectRemoteDesktop**:
+    **Disable-AzureServiceProjectRemoteDesktop**.
 
 3.  Опубликуйте изменения конфигурации службы в облаке. В окне
     **Azure PowerShell** введите
@@ -103,25 +103,23 @@
 
 ## Дополнительные ресурсы
 
-- [Получение удаленного доступа к экземплярам ролей в Azure] 
-- [Использование удаленного рабочего стола с ролями Azure]
+-   [Получение удаленного доступа к экземплярам ролей в Azure][Получение удаленного доступа к экземплярам ролей в Azure]
+-   [Использование удаленного рабочего стола с ролями Azure][Использование удаленного рабочего стола с ролями Azure]
 
-  [Действие 1. Настройте службу для доступа к удаленному рабочему столу с использованием Azure PowerShell]: #step1
-  [Действие 2. Подключитесь к экземпляру роли]: #step2
-  [Действие 3. Настройте службу для отключения доступа к удаленному рабочему столу с использованием Azure PowerShell]: #step3
+  [Шаг 1: Настройка службы для доступа к удаленному рабочему столу с использованием Azure PowerShell]: #step1
+  [Шаг 2: Подключение к экземпляру роли]: #step2
+  [Шаг 3: Настройка службы для доступа к удаленному рабочему столу с
+  использованием Azure PowerShell]: #step3
   [Azure PowerShell]: http://go.microsoft.com/?linkid=9790229&clcid=0x409
-
-[Портал управления Azure]: http://manage.windowsazure.com
-[powershell-menu]: ./media/cloud-services-nodejs-enable-remote-desktop/azure-powershell-menu.png
-[publish-project]: ./media/cloud-services-nodejs-enable-remote-desktop/publish-rdp.png
-[enable-rdp]: ./media/cloud-services-nodejs-enable-remote-desktop/enable-rdp.png
-[cloud-services]: ./media/cloud-services-nodejs-enable-remote-desktop/cloud-services-remote.png
-  [3]: ./media/cloud-services-nodejs-enable-remote-desktop/cloud-service-instance.png
-  [4]: ./media/cloud-services-nodejs-enable-remote-desktop/rdp-open.png
-  [5]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-12.png
-  [6]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-13.png
-  [7]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-14.png
-  
+  [Запись меню запуска Azure PowerShell]: ./media/cloud-services-nodejs-enable-remote-desktop/azure-powershell-menu.png
+  [enable-azureserviceprojectremotedesktop]: ./media/cloud-services-nodejs-enable-remote-desktop/enable-rdp.png
+  [publish-azureserviceproject]: ./media/cloud-services-nodejs-enable-remote-desktop/publish-rdp.png
+  [портале управления Azure]: http://manage.windowsazure.com
+  [портал управления azure]: ./media/cloud-services-nodejs-enable-remote-desktop/cloud-services-remote.png
+  [Страница экземпляров]: ./media/cloud-services-nodejs-enable-remote-desktop/cloud-service-instance.png
+  [запрос на открытие или сохранение RDP-файла]: ./media/cloud-services-nodejs-enable-remote-desktop/rdp-open.png
+  [Запрос безопасности Windows]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-12.png
+  [запрос имени пользователя/пароля]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-13.png
+  [Сеанс удаленного рабочего стола]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-14.png
   [Получение удаленного доступа к экземплярам ролей в Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/hh124107.aspx
   [Использование удаленного рабочего стола с ролями Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/gg443832.aspx
-

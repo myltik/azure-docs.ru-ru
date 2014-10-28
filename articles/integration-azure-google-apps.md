@@ -1,10 +1,13 @@
-<properties umbracoNaviHide="0" pageTitle="Интеграция Azure AD с Google Apps" metaKeywords="интеграция Azure Google Apps" description="Узнайте, как можно интегрировать Azure AD с Google Apps." linkid="documentation-services-identity-windows-azure-ad-integration-with-google=apps" urlDisplayName="Интеграция Azure AD с Google Apps" headerExpose="" footerExpose="" disqusComments="0" editor="lisatoft" manager="terrylan" title="Интеграция Azure AD с Google Apps" authors="" />
+<properties umbracoNaviHide="0" pageTitle="Azure AD Integration with Google Apps" metaKeywords="Azure Google Apps Integration" description="Learn about integrating Azure AD with Google Apps." linkid="documentation-services-identity-windows-azure-ad-integration-with-google=apps" urlDisplayName="Azure AD Integration with Google Apps" headerExpose="" footerExpose="" disqusComments="0" editor="lisatoft" manager="terrylan" title="Azure AD Integration with Google Apps" authors="" />
+
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
 
 # Интеграция Azure AD с Google Apps
+
 Цель данного учебника — показать интеграцию Azure и Google Apps. Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
-- Действующая подписка на Azure
-- Тестовый клиент в Google Apps
+-   Действующая подписка на Azure
+-   Тестовый клиент в Google Apps
 
 Если у вас еще нет действительного клиента в Google Apps, вы можете, например, зарегистрироваться и получить пробную учетную запись на веб-сайте Google Apps для бизнеса.
 
@@ -16,160 +19,189 @@
 Добавление пользовательских доменов
 Настройка подготовки учетных записей пользователей
 
-# Включение интеграции приложений для Google Apps #
+# Включение интеграции приложений для Google Apps
+
 В этом разделе показано, как включить интеграцию приложений для Google Apps.
 
-## Чтобы включить интеграцию приложений для Google Apps, выполните следующие действия: ##
+## Чтобы включить интеграцию приложений для Google Apps, выполните следующие действия:
 
-1.  На портале управления Azure в левой области навигации щелкните **Active Directory**.
-2.  В списке **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
-3.  Чтобы открыть представление приложений, в представлении каталога щелкните **Приложения** в верхнем меню.
-4.  Внизу щелкните **Добавить**, чтобы открыть диалоговое окно **Добавить приложение**.
-5.  В диалоговом окне **Интегрировать приложение с Azure AD** щелкните **Управление доступом к приложению**.
-6.  На странице управления **Выберите приложение** в списке приложений выберите **Google Apps**.
+1.  На портале управления Azure в левой области навигации нажмите **Active Directory**.
+2.  Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
+3.  Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
+4.  Внизу нажмите кнопку **Добавить**, чтобы открыть диалоговое окно **Добавить приложение**.
+5.  В диалоговом окне **Интегрировать приложение с Azure AD** нажмите **Управление доступом к приложению**.
+6.  На странице управления **Выберите приложение** из списка приложений выберите **Google Apps**.
 7.  Нажмите кнопку **Завершить**, чтобы добавить приложение и закрыть диалоговое окно.
 
-# Настройка единого входа #
+# Настройка единого входа
+
 В этом разделе показано, как разрешить пользователям проходить проверку подлинности в Google Apps со своей учетной записью Azure AD, используя федерацию на основе протокола SAML.
 
-## Чтобы настроить федеративный единый вход, выполните следующие действия:
+## Чтобы настроить федеративный единый вход, выполните следующие действия.
 
-1. На портале управления Azure в левой области навигации выберите <strong>Active Directory</strong>, чтобы открыть страницу диалогового окна Active Directory.
-2. В списке каталогов выберите каталог, чтобы открыть страницу настройки каталога.
-3. В меню верхнего уровня выберите <strong>ПРИЛОЖЕНИЯ</strong>.
-4. В списке приложений выберите <strong>Google Apps</strong>, чтобы открыть окно настройки Google Apps.
-5. Чтобы открыть диалоговое окно <strong>НАСТРОЙКА ЕДИНОГО ВХОДА</strong>, щелкните <strong>Настройка единого входа</strong>.
+1.  На портале управления Azure в левой области навигации выберите **Active Directory**, чтобы открыть страницу диалогового окна Active Directory.
+2.  Из списка каталогов выберите каталог, чтобы открыть страницу настройки каталога.
+3.  В меню верхнего уровня выберите **ПРИЛОЖЕНИЯ**.
+4.  Из списка приложений выберите **Google Apps**, чтобы открыть окно настройки Google Apps.
+5.  Чтобы открыть диалоговое окно **НАСТРОЙКА ЕДИНОГО ВХОДА**, нажмите **Настройка единого входа**.
 
-	![Google_Tutorial_01](./media/integration-azure-google-apps/Google_Tutorial_01.png)
+    ![Google\_Tutorial\_01][Google\_Tutorial\_01]
 
-6. На странице диалогового окна "Выбрать режим единого входа для этого приложения" выберите РЕЖИМ "Пользователи проходят проверку подлинности с помощью своей учетной записи Azure AD", а затем нажмите кнопку "Далее".
+6.  На странице диалогового окна "Выбрать режим единого входа для этого приложения" выберите РЕЖИМ "Пользователи проходят проверку подлинности с помощью своей учетной записи Azure AD", а затем нажмите кнопку "Далее".
 
-	![Google_Tutorial_02](./media/integration-azure-google-apps/Google_Tutorial_02.png)
+    ![Google\_Tutorial\_02][Google\_Tutorial\_02]
 
-7. На странице диалогового окна <strong>Настроить URL-адрес приложения</strong> в текстовом поле <strong>URL-АДРЕС КЛИЕНТА GOOGLE APPS</strong> введите URL-адрес клиента Google Apps и нажмите кнопку <strong>Далее</strong>.
+7.  На странице диалогового окна **Настроить URL-адрес приложения** в текстовом поле **URL-АДРЕС КЛИЕНТА GOOGLE APPS** введите URL-адрес клиента Google Apps и нажмите кнопку **Далее**.
 
-	![Google_Tutorial_03](./media/integration-azure-google-apps/Google_Tutorial_03.png)
+    ![Google\_Tutorial\_03][Google\_Tutorial\_03]
 
-8. На странице диалогового окна <strong>Настройка единого входа в Google Apps</strong> выполните приведенные ниже действия и нажмите кнопку <strong>Завершить</strong>.
-		
-	+ Щелкните <strong>Загрузить сертификат</strong> и сохраните сертификат как <strong>c:\googleapps.cer</strong>.
-	+ Откройте страницу входа в Google Apps и выполните вход.
+8.  На странице диалогового окна **Настройка единого входа в Google Apps** выполните приведенные ниже действия и нажмите кнопку **Завершить**.
 
-	![Google_Tutorial_04](./media/integration-azure-google-apps/Google_Tutorial_04.png)
+    -   Нажмите **Загрузить сертификат** и сохраните сертификат как **c:\\googleapps.cer**.
+    -   Откройте страницу входа в Google Apps и выполните вход.
 
-	+ На <strong>консоли администрирования</strong> щелкните "Безопасность".
+    ![Google\_Tutorial\_04][Google\_Tutorial\_04]
 
-	![Google_Tutorial_05](./media/integration-azure-google-apps/Google_Tutorial_05.png)
+    -   На **консоли администрирования** выберите пункт "Безопасность".
 
-	Если значок "Безопасность" не отображается, щелкните элементы управления "Дополнительно" в нижней части страницы.
+    ![Google\_Tutorial\_05][Google\_Tutorial\_05]
 
-9. На странице <strong>Безопасность</strong> щелкните параметры <strong>Дополнительно</strong>.
+    Если значок "Безопасность" не отображается, щелкните элементы управления "Дополнительно" в нижней части страницы.
 
-	![Google_Tutorial_06](./media/integration-azure-google-apps/Google_Tutorial_06.png)
+9.  На странице **Безопасность** выберите параметры **Дополнительно**.
 
-10. В разделе параметров <strong>Дополнительно</strong> выберите <strong>Настроить единый вход</strong>.
+    ![Google\_Tutorial\_06][Google\_Tutorial\_06]
 
-	![Google_Tutorial_07](./media/integration-azure-google-apps/Google_Tutorial_07.png)
+10. В разделе параметров **Дополнительно** выберите **Настроить единый вход**.
 
-11. На странице настройки единого входа выполните следующие действия:
+    ![Google\_Tutorial\_07][Google\_Tutorial\_07]
 
-	![Google_Tutorial_08](./media/integration-azure-google-apps/Google_Tutorial_08.png)
+11. На странице настройки единого входа выполните следующие действия.
 
-		+ Выберите <strong>Включить единый вход</strong>.
-		+ На странице <strong>Настройка единого входа в Google Apps</strong> на портале Azure AD скопируйте <strong>URL-АДРЕС ЕДИНОГО ВХОДА</strong> и вставьте его в соответствующее текстовое поле на странице <strong>Безопасность</strong> <strong>консоли администрирования</strong> в Google Apps.
-		+ На странице <strong>Настройка единого входа в Google Apps</strong> на портале Azure AD скопируйте <strong>URL-адрес службы единого выхода</strong> и вставьте его в соответствующее текстовое поле на странице <strong>Безопасность</strong> <strong>консоли администрирования</strong> в Google Apps.
-		+ На странице <strong>Настройка единого входа в Google Apps</strong> на портале Azure AD скопируйте значение <strong>Изменить URL-адрес пароля</strong> и вставьте его в соответствующее текстовое поле на странице <strong>Безопасность</strong> <strong>консоли администрирования</strong> в Google Apps.
-		+ Нажмите кнопку <strong>Обзор</strong>, чтобы найти <strong>Сертификат проверки</strong>, затем щелкните "Отправить".
-		+ Щелкните <strong>Сохранить</strong>, чтобы сохранить изменения.
+    ![Google\_Tutorial\_08][Google\_Tutorial\_08]
 
+        + Select <strong>Enable Single Sign-on</strong>.
+        + On the <strong>Configure single sign-on at Google Apps</strong> page in the Azure AD Portal, copy the <strong>SINGLE SIGN-ON URL</strong>, and then paste it into the related textbox on the <strong>Security page</strong> in the Google Apps <strong>Admin console</strong>.
+        + On the <strong>Configure single sign-on at Google Apps</strong> page in the Azure AD Portal, copy the <strong>Single sign-out service URL</strong>, and then paste it into the related textbox on the <strong>Security</strong> page in the Google Apps <strong>Admin console</strong>.
+        + On the <strong>Configure single sign-on at Google Apps</strong> page in the Azure AD Portal, copy the <strong>Change password URL</strong>, and then paste it into the related textbox on the <strong>Security</strong> page in the Google Apps <strong>Admin console</strong>.
+        + Click the <strong>Browse</strong> button to locate the <strong>Verification certificate</strong>, and then click Upload.
+        + Click <strong>Save</strong> changes.
 
-12. На странице <strong>Настройка единого входа в Google Apps</strong> на портале Azure AD нажмите кнопку "Завершить".
+12. На странице **Настройка единого входа в Google Apps** на портале Azure AD нажмите кнопку "Завершить".
 
-Теперь можно открыть [панель доступа](https://login.microsoftonline.com/login.srf?wa=wsignin1.0&rpsnv=2&ct=1384289458&rver=6.1.6206.0&wp=MCMBI&wreply=https:%2F%2Faccount.activedirectory.windowsazure.com%2Flanding.aspx%3Ftarget%3D%252fapplications%252fdefault.aspx&lc=1033&id=500633) и протестировать единый вход в Google Apps.
+Теперь можно открыть [панель доступа][панель доступа] и протестировать единый вход в Google Apps.
 
 # Включение доступа к API Google Apps
+
 При интеграции Azure Active Directory с Google Apps для подготовки учетных записей пользователей необходимо включить доступ к API для вашего клиента в Google Apps.
 
-## Чтобы включить доступ к API Google Apps, выполните следующие действия:
+## Чтобы включить доступ к API Google Apps, выполните следующие действия.
 
-1. Войдите в клиент Google Apps.
-1. На <strong>консоли администрирования</strong> щелкните <strong>Безопасность</strong>.
-<p></p>
-	![Google_Tutorial_05](./media/integration-azure-google-apps/Google_Tutorial_05.png)
+1.  Войдите в клиент Google Apps.
+2.  На **консоли администрирования** выберите пункт **Безопасность**.
 
-	Если значок "Безопасность" не отображается, щелкните элементы управления "Дополнительно" в нижней части консоли администрирования.
-1. На странице "Безопасность" щелкните <strong>Справочник по API</strong>, чтобы открыть соответствующую страницу диалогового окна настройки.
-1. Выберите <strong>Включить доступ к API</strong>.
-<p></p>
-	![Google_Tutorial_09](./media/integration-azure-google-apps/Google_Tutorial_09.png)
+    ![Google\_Tutorial\_05][Google\_Tutorial\_05]
 
+    </p>
+    Если значок "Безопасность" не отображается, щелкните элементы управления "Дополнительно" в нижней части консоли администрирования.
+
+3.  На странице "Безопасность" нажмите **Справочник по API**, чтобы открыть соответствующую страницу диалогового окна настройки.
+4.  Выберите **Включить доступ к API**.
+
+    ![Google\_Tutorial\_09][Google\_Tutorial\_09]
+
+    </p>
 
 # Добавление пользовательских доменов
-Чтобы настроить подготовку учетных записей пользователей в Google Apps, домен Azure AD и домен Google Apps должны иметь одинаковое полное доменное имя (FQDN). Однако, например, при использовании пробных клиентов для тестирования сценария в этом учебнике, полные доменные имена клиентов обычно не совпадают. Чтобы устранить эту проблему, можно настроить пользовательские домены в Azure AD и Google Apps. 
-Для настройки пользовательского домена требуется доступ к файлу зоны DNS общедоступного домена. 
 
-![Google_Tutorial_10](./media/integration-azure-google-apps/Google_Tutorial_10.png)
+Чтобы настроить подготовку учетных записей пользователей в Google Apps, домен Azure AD и домен Google Apps должны иметь одинаковое полное доменное имя (FQDN). Однако, например, при использовании пробных клиентов для тестирования сценария в этом учебнике, полные доменные имена клиентов обычно не совпадают. Чтобы устранить эту проблему, можно настроить пользовательские домены в Azure AD и Google Apps.
+Для настройки пользовательского домена требуется доступ к файлу зоны DNS общедоступного домена.
 
-##Чтобы добавить пользовательский домен в Azure AD, выполните следующие действия:
+![Google\_Tutorial\_10][Google\_Tutorial\_10]
 
-1. На портале управления Azure в левой области навигации выберите <strong>Active Directory</strong>, чтобы открыть страницу диалогового окна <strong>Active Directory</strong>.
-1. В списке каталогов выберите каталог, чтобы открыть страницу настройки каталога.
-1. В меню верхнего уровня выберите <strong>ДОМЕНЫ</strong>.
-1. Чтобы открыть текстовое поле <strong>ДОБАВИТЬ ИМЯ ДОМЕНА</strong>, введите имя домена и щелкните <strong>Добавить</strong>.
-1. Нажмите кнопку <strong>Далее</strong>, чтобы открыть страницу диалогового окна <strong>Проверить имя домена</strong>.
+## Чтобы добавить пользовательский домен в Azure AD, выполните следующие действия.
 
-	![Google_Tutorial_11](./media/integration-azure-google-apps/Google_Tutorial_11.png)
-1. Выберите <strong>ТИП ЗАПИСИ</strong>, а затем зарегистрируйте выбранную запись в файле зоны DNS.
+1.  На портале управления Azure в левой области навигации выберите **Active Directory**, чтобы открыть страницу диалогового окна **Active Directory**.
+2.  Из списка каталогов выберите каталог, чтобы открыть страницу настройки каталога.
+3.  В меню верхнего уровня выберите **ДОМЕНЫ**.
+4.  Чтобы открыть текстовое поле **ДОБАВИТЬ ИМЯ ДОМЕНА**, введите имя домена и нажмите кнопку **Добавить**.
+5.  Нажмите кнопку **Далее**, чтобы открыть страницу диалогового окна **Проверить имя домена**.
 
-	![Google_Tutorial_12](./media/integration-azure-google-apps/Google_Tutorial_12.png)
-1. С помощью <strong>команды nslookup</strong> необходимо проверить, удалось ли успешно зарегистрировать DNS-запись.
+    ![Google\_Tutorial\_11][Google\_Tutorial\_11]
 
-	![Google_Tutorial_13](./media/integration-azure-google-apps/Google_Tutorial_13.png)
+6.  Выберите **ТИП ЗАПИСИ**, а затем зарегистрируйте выбранную запись в файле зоны DNS.
 
-## Чтобы добавить пользовательский домен в Google Apps, выполните следующие действия:
+    ![Google\_Tutorial\_12][Google\_Tutorial\_12]
 
-1. Войдите в клиент Google Apps.
-1. На **консоли администрирования** щелкните **Домены**.
+7.  С помощью **команды nslookup** необходимо проверить, удалось ли успешно зарегистрировать DNS-запись.
 
-	![Google_Tutorial_14](./media/integration-azure-google-apps/Google_Tutorial_14.png)
+    ![Google\_Tutorial\_13][Google\_Tutorial\_13]
 
-1. Щелкните <strong>Добавить пользовательский домен</strong>.
+## Чтобы добавить пользовательский домен в Google Apps, выполните следующие действия.
 
-	![Google_Tutorial_15](./media/integration-azure-google-apps/Google_Tutorial_15.png)
+1.  Войдите в клиент Google Apps.
+2.  На **консоли администрирования** выберите пункт **Домены**.
 
-1. Щелкните <strong>Использовать уже имеющийся домен</strong> и нажмите кнопку <strong>Продолжить</strong>.
+    ![Google\_Tutorial\_14][Google\_Tutorial\_14]
 
-	![Google_Tutorial_16](./media/integration-azure-google-apps/Google_Tutorial_16.png)
+3.  Нажмите **Добавить пользовательский домен**.
 
-1. Введите имя для пользовательского домена и нажмите кнопку <strong>Продолжить</strong>.
+    ![Google\_Tutorial\_15][Google\_Tutorial\_15]
 
-	![Google_Tutorial_17](./media/integration-azure-google-apps/Google_Tutorial_17.png)
+4.  Выберите **Использовать уже имеющийся домен** и нажмите кнопку **Продолжить**.
 
-1. Выполните действия по проверке владельца домена.
-	
-	Если у вас уже настроен федеративный единый вход, необходимо обновить URL-адрес клиента Google Apps в конфигурации федеративного единого входа.
+    ![Google\_Tutorial\_16][Google\_Tutorial\_16]
 
+5.  Введите имя для пользовательского домена и нажмите кнопку **Продолжить**.
 
+    ![Google\_Tutorial\_17][Google\_Tutorial\_17]
 
-# Настройка подготовки учетных записей пользователей 
+6.  Выполните действия по проверке владельца домена.
+
+    Если у вас уже настроен федеративный единый вход, необходимо обновить URL-адрес клиента Google Apps в конфигурации федеративного единого входа.
+
+# Настройка подготовки учетных записей пользователей
+
 В этом разделе показано, как включить подготовку учетных записей пользователей Active Directory для Google Apps.
 
-## Чтобы настроить подготовку учетных записей пользователей, выполните следующие действия:
+## Чтобы настроить подготовку учетных записей пользователей, выполните следующие действия.
 
-1. На портале управления Azure в левой области навигации выберите <strong>Active Directory</strong>, чтобы открыть страницу диалогового окна <strong>Active Directory</strong>.
-1. В списке каталогов выберите каталог, чтобы открыть страницу настройки каталога.
-1. В меню верхнего уровня выберите <strong>ПРИЛОЖЕНИЯ</strong>.
-В списке приложений выберите <strong>Google Apps</strong>, чтобы открыть диалоговое окно настройки <strong>Google Apps</strong>.
-1. Чтобы открыть диалоговое окно <strong>НАСТРОИТЬ СИНХРОНИЗАЦИЮ УЧЕТНЫХ ЗАПИСЕЙ</strong>, щелкните <strong>Настроить синхронизацию учетных записей</strong>.
-1. На странице диалогового окна <strong>НАСТРОИТЬ СИНХРОНИЗАЦИЮ УЧЕТНЫХ ЗАПИСЕЙ</strong> укажите имя домена Google Apps, имя пользователя Google Apps и пароль Google Apps, а затем нажмите кнопку <strong>Далее</strong>.
+1.  На портале управления Azure в левой области навигации выберите **Active Directory**, чтобы открыть страницу диалогового окна **Active Directory**.
+2.  Из списка каталогов выберите каталог, чтобы открыть страницу настройки каталога.
+3.  В меню верхнего уровня выберите **ПРИЛОЖЕНИЯ**.
+    Из списка приложений выберите **Google Apps**, чтобы открыть диалоговое окно настройки **google apps**.
+4.  Чтобы открыть диалоговое окно **НАСТРОИТЬ СИНХРОНИЗАЦИЮ УЧЕТНЫХ ЗАПИСЕЙ**, нажмите **Настроить синхронизацию учетных записей**.
+5.  На странице диалогового окна **НАСТРОИТЬ СИНХРОНИЗАЦИЮ УЧЕТНЫХ ЗАПИСЕЙ** укажите имя домена Google Apps, имя пользователя Google Apps и пароль Google Apps, а затем нажмите кнопку **Далее**.
 
-	![Google_Tutorial_18](./media/integration-azure-google-apps/Google_Tutorial_18.png)
+    ![Google\_Tutorial\_18][Google\_Tutorial\_18]
 
-1. На странице диалогового окна <strong>Подтверждение</strong> нажмите кнопку <strong>Завершить</strong>, чтобы закрыть диалоговое окно <strong>НАСТРОИТЬ СИНХРОНИЗАЦИЮ УЧЕТНЫХ ЗАПИСЕЙ</strong>.
+6.  На странице диалогового окна **Подтверждение** нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **НАСТРОИТЬ СИНХРОНИЗАЦИЮ УЧЕТНЫХ ЗАПИСЕЙ**.
 
 Теперь можно создать тестовую учетную запись, подождать 10 минут и проверить, синхронизирована ли учетная запись в Google Apps.
 
-См. также
-[Рекомендации по управлению улучшениями для доступа приложений к Azure Active Directory](http://social.technet.microsoft.com/wiki/contents/articles/18409.best-practices-for-managing-the-application-access-enhancements-for-windows-azure-active-directory.aspx)
- 
+См. также статью
+[Рекомендации по управлению улучшениями
+для доступа приложений к Azure Active Directory][Рекомендации по управлению улучшениями
+для доступа приложений к Azure Active Directory].
 
+  [Google\_Tutorial\_01]: ./media/integration-azure-google-apps/Google_Tutorial_01.png
+  [Google\_Tutorial\_02]: ./media/integration-azure-google-apps/Google_Tutorial_02.png
+  [Google\_Tutorial\_03]: ./media/integration-azure-google-apps/Google_Tutorial_03.png
+  [Google\_Tutorial\_04]: ./media/integration-azure-google-apps/Google_Tutorial_04.png
+  [Google\_Tutorial\_05]: ./media/integration-azure-google-apps/Google_Tutorial_05.png
+  [Google\_Tutorial\_06]: ./media/integration-azure-google-apps/Google_Tutorial_06.png
+  [Google\_Tutorial\_07]: ./media/integration-azure-google-apps/Google_Tutorial_07.png
+  [Google\_Tutorial\_08]: ./media/integration-azure-google-apps/Google_Tutorial_08.png
+  [панель доступа]: https://login.microsoftonline.com/login.srf?wa=wsignin1.0&rpsnv=2&ct=1384289458&rver=6.1.6206.0&wp=MCMBI&wreply=https:%2F%2Faccount.activedirectory.windowsazure.com%2Flanding.aspx%3Ftarget%3D%252fapplications%252fdefault.aspx&lc=1033&id=500633
+  [Google\_Tutorial\_09]: ./media/integration-azure-google-apps/Google_Tutorial_09.png
+  [Google\_Tutorial\_10]: ./media/integration-azure-google-apps/Google_Tutorial_10.png
+  [Google\_Tutorial\_11]: ./media/integration-azure-google-apps/Google_Tutorial_11.png
+  [Google\_Tutorial\_12]: ./media/integration-azure-google-apps/Google_Tutorial_12.png
+  [Google\_Tutorial\_13]: ./media/integration-azure-google-apps/Google_Tutorial_13.png
+  [Google\_Tutorial\_14]: ./media/integration-azure-google-apps/Google_Tutorial_14.png
+  [Google\_Tutorial\_15]: ./media/integration-azure-google-apps/Google_Tutorial_15.png
+  [Google\_Tutorial\_16]: ./media/integration-azure-google-apps/Google_Tutorial_16.png
+  [Google\_Tutorial\_17]: ./media/integration-azure-google-apps/Google_Tutorial_17.png
+  [Google\_Tutorial\_18]: ./media/integration-azure-google-apps/Google_Tutorial_18.png
+  [Рекомендации по управлению улучшениями
+  для доступа приложений к Azure Active Directory]: http://social.technet.microsoft.com/wiki/contents/articles/18409.best-practices-for-managing-the-application-access-enhancements-for-windows-azure-active-directory.aspx

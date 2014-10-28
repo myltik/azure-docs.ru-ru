@@ -1,69 +1,95 @@
-<properties title="Узнайте, как настроить веб-сайт Azure на использование доменного имени, зарегистрированного в GoDaddy" pageTitle="Настройка доменного имени GoDaddy для веб-сайта Azure" metaKeywords="Azure, веб-сайты Azure, доменное имя" description="" services="web-sites" documentationCenter="" authors="larryfr, jroth" />
+<properties title="Learn how to configure an Azure website to use a domain name registered with GoDaddy" pageTitle="Configure a GoDaddy domain name for an Azure website" metaKeywords="Azure, Azure Web Sites, domain name" description="" services="web-sites" documentationCenter="" authors="larryfr, jroth" />
 
-#Настройка имени пользовательского домена для веб-сайта Azure (GoDaddy)
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr, jroth"></tags>
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/ru-ru/documentation/articles/web-sites-custom-domain-name" title="Пользовательский домен">Пользовательский домен</a><a href="/ru-ru/documentation/articles/web-sites-godaddy-custom-domain-name" title="GoDaddy" class="current">GoDaddy</a><a href="/ru-ru/documentation/articles/web-sites-network-solutions-custom-domain-name" title="Network Solutions">Network Solutions</a><a href="/ru-ru/documentation/articles/web-sites-registerdotcom-custom-domain-name" title="Register.com">Register.com</a><a href="/ru-ru/documentation/articles/web-sites-enom-custom-domain-name" title="Enom">Enom</a><a href="/ru-ru/documentation/articles/web-sites-moniker-custom-domain-name" title="Moniker">Moniker</a><a href="/ru-ru/documentation/articles/web-sites-dotster-custom-domain-name" title="Dotster">Dotster</a><a href="/ru-ru/documentation/articles/web-sites-domaindiscover-custom-domain-name" title="DomainDiscover">DomainDiscover</a><a href="/ru-ru/documentation/articles/web-sites-directnic-custom-domain-name" title="Directnic">Directnic</a></div>
-<div class="dev-center-tutorial-subselector"><a href="/ru-ru/documentation/articles/web-sites-godaddy-custom-domain-name/" title="Веб-сайты" class="current">Веб-сайт</a> | <a href="/ru-ru/documentation/articles/web-sites-godaddy-traffic-manager-custom-domain-name/" title="Использование Traffic Manager веб-сайтом">Использование Traffic Manager веб-сайтом</a></div>
+# Настройка пользовательского имени домена для веб-сайта Azure (GoDaddy)
 
-[WACOM.INCLUDE [intro](../includes/custom-dns-web-site-intro.md)]
+<div class="dev-center-tutorial-selector sublanding"><a href="/ru-ru/documentation/articles/web-sites-custom-domain-name" title="Пользовательский домен">Пользовательский домен</a><a href="/ru-ru/documentation/articles/web-sites-godaddy-custom-domain-name" title="GoDaddy" class="current">GoDaddy</a><a href="/ru-ru/documentation/articles/web-sites-network-solutions-custom-domain-name" title="Network Solutions" class="current">Network Solutions</a><a href="/ru-ru/documentation/articles/web-sites-registerdotcom-custom-domain-name" title="Register.com" class="current">Register.com</a><a href="/ru-ru/documentation/articles/web-sites-enom-custom-domain-name" title="Enom" class="current">Enom</a><a href="/ru-ru/documentation/articles/web-sites-moniker-custom-domain-name" title="Moniker" class="current">Moniker</a><a href="/ru-ru/documentation/articles/web-sites-dotster-custom-domain-name" title="Dotster" class="current">Dotster</a><a href="/ru-ru/documentation/articles/web-sites-domaindiscover-custom-domain-name" title="DomainDiscover" class="current">DomainDiscover</a><a href="/ru-ru/documentation/articles/web-sites-directnic-custom-domain-name" title="Directnic" class="current">Directnic</a></div>
 
-В данной статье приводятся инструкции по использованию имени пользовательского домена, приобретенного у [Go Daddy](https://godaddy.com), для веб-сайтов Azure.
+<div class="dev-center-tutorial-subselector"><a href="/ru-ru/documentation/articles/web-sites-godaddy-custom-domain-name/" title="Веб-сайты" class="current">Веб-сайт</a> | <a href="/ru-ru/documentation/articles/web-sites-godaddy-traffic-manager-custom-domain-name/" title="Веб-сайт, использующий Traffic Manager">Веб-сайт, использующий Traffic Manager</a></div>
 
-[WACOM.INCLUDE [introfooter](../includes/custom-dns-web-site-intro-notes.md)]
+[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough][websites-cloud-services-css-guided-walkthrough]]
+
+[WACOM.INCLUDE [intro][intro]]
+
+В данной статье приводятся инструкции по использованию имени пользовательского домена, приобретенного у [Go Daddy][Go Daddy], для веб-сайтов Azure.
+
+[WACOM.INCLUDE [introfooter][introfooter]]
 
 Содержание:
 
--   [Общие сведения о записях DNS](#understanding-records)
--   [Настройка веб-сайтов для базового режима, режима общего доступа или стандартного режима](#bkmk_configsharedmode)
--   [Добавление записи DNS для пользовательского домена](#bkmk_configurecname)
--   [Включение домена на веб-сайте](#enabledomain)
+-   [Общие сведения о записях DNS][Общие сведения о записях DNS]
+-   [Добавление записи DNS для пользовательского домена][Добавление записи DNS для пользовательского домена]
+-   [Включение домена на веб-сайте][Включение домена на веб-сайте]
 
-<h2><a name="understanding-records"></a>Общие сведения о записях DNS</h2>
+## <a name="understanding-records"></a>Общие сведения о записях DNS
 
-[WACOM.INCLUDE [understandingdns](../includes/custom-dns-web-site-understanding-dns-raw.md)]
+[WACOM.INCLUDE [understandingdns][understandingdns]]
 
+## <a name="bkmk_configurecname"></a>Добавление записи DNS для пользовательского домена
 
-<h2><a name="bkmk_configsharedmode"></a>Настройка веб-сайтов для базового режима, режима общего доступа или стандартного режима</h2>
+Чтобы сопоставить пользовательский домен с веб-сайтом Azure, необходимо добавить новую запись в таблицу DNS для этого настраиваемого домена с помощью средств, предоставляемых GoDaddy. Выполните следующие действия, чтобы найти средства DNS для GoDaddy.com.
 
-[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes.md)]
+1.  Выполните вход на GoDaddy.com с использованием своей учетной записи и выберите **Моя учетная запись** и **Управление доменами**. Выберите имя домена, которое вы хотите использовать для веб-сайта Azure и выберите **Управление DNS**.
 
-<h2><a name="bkmk_configurecname"></a>Добавление записи DNS для пользовательского домена</h2>
+    ![страница пользовательского домена для GoDaddy][страница пользовательского домена для GoDaddy]
 
-Чтобы сопоставить пользовательский домен с веб-сайтом Azure, необходимо добавить новую запись в таблицу DNS для этого настраиваемого домена с помощью средств, предоставляемых Go Daddy. Выполните следующие действия, чтобы найти средства DNS для GoDaddy.com.
+2.  На странице **Сведения о домене** откройте вкладку **Файл зоны DNS**. Этот раздел используется в целях добавления и изменения записей DNS для доменного имени.
 
-1. Выполните вход на GoDaddy.com с использованием своей учетной записи и выберите **Моя учетная запись** и **Управление доменами**. Выберите имя домена, которое вы хотите использовать для веб-сайта Azure.
+    ![Вкладка файла зоны DNS][Вкладка файла зоны DNS]
 
-	![страница пользовательского домена для GoDaddy](./media/web-sites-custom-domain-name/godaddy-customdomain.png)
+    Выберите **Добавить запись**, чтобы добавить существующую запись.
 
-2. На странице **Сведения о домене** откройте вкладку **Файл зоны DNS**. Этот раздел используется в целях добавления и изменения записей DNS для доменного имени. Нажмите кнопку **Изменить**, чтобы отобразить **редактор файлов зоны**.
+    Чтобы **отредактировать** существующую запись, выберите значок с карандашом и бумагой рядом с записью.
 
-	![Вкладка файла зоны DNS](./media/web-sites-custom-domain-name/godaddy-zonetab.png)
+    > [WACOM.NOTE] Перед добавлением новых записей обратите внимание, что GoDaddy уже создал записи DNS для таких популярных поддоменов (**Узел** в редакторе), как **email**, **files**, **mail** и др. Если имя, которое вы хотите использовать, уже существует, измените существующую запись вместо того, чтобы создавать новую.
 
-4. **Редактор файлов зоны** разбит на разделы для каждого типа записи, начиная с записей A (указанных как **A (узел)**) в начале списка, и заканчивая записями CNAME (указанными как **CNAME (псевдоним)**). Чтобы добавить новую запись, используйте кнопку **Быстрое добавление**, расположенную под соответствующим разделом. Чтобы изменить существующую запись, выберите ее и измените существующие данные.
+3.  При добавлении записи необходимо сначала выбрать тип записи.
 
-	> [WACOM.NOTE] Перед добавлением записей в файл зоны обратите внимание, что GoDaddy уже создал записи DNS для таких популярных поддоменов (**Узел** в редакторе), как **email**, **files**, **mail** и другие. Если имя, которое вы хотите использовать, уже существует, измените существующую запись вместо того, чтобы создавать новую.
+    ![выберите тип записи][выберите тип записи]
 
-	* При добавлении записи CNAME необходимо задать в поле **Узел** тот поддомен, который вы хотите использовать. Например, **www**. Необходимо задать в поле **Указывает на** имя домена **.azurewebsites.net** вашего веб-сайта Azure. Например, **contoso.azurwebsites.net**.
+    Далее вы должны ввести **Хост** (пользовательский домен или поддомен) и то, что будет значиться в поле **Указывает на**.
 
-		![редактор файлов зоны](./media/web-sites-custom-domain-name/godaddy-quickaddcname.png)
-	
-		> [WACOM.NOTE] Если вы будете использовать запись A, необходимо также добавить запись CNAME с одной из следующих конфигураций:
-		> 
-		> * Значение **www** в поле **Узел** и значение **&lt;имя_вашего_веб-сайта&gt;.azurewebsites.net** в поле **Указывает на**.
-		> 
-		> ИЛИ
-		> 
-		> * Значение **awverify.www** в поле **Узел** и значение **awverify.&lt;имя_вашего_веб-сайта&gt;.azurewebsites.net** в поле **Указывает на**.
-		> 
-		> Запись CNAME позволяет Azure проверить, что именно вы являетесь владельцем домена, описанного в записи A.
+    ![добавление записи о зоне][добавление записи о зоне]
 
-	* При добавлении записи A необходимо задать в поле **Узел** либо символ **@** (представляющий имя корневого домена, например **contoso.com**), * (подстановочный знак для сопоставления с несколькими поддоменами), либо поддомен, который вы хотите использовать (например, **www**.) Необходимо задать в поле **Указывает на** IP-адрес вашего веб-сайта Azure.
+    -   При добавлении **записи A хоста** необходимо задать в поле **Узел** либо символ **\*\*@\***\* (представляющий имя корневого домена, например [contoso.com][contoso.com]), \* (подстановочный символ для сопоставления нескольких поддоменов) либо поддомен, который вы хотите использовать (например, [www][contoso.com]). Необходимо задать в поле **Указывает на** IP-адрес вашего веб-сайта Azure.
 
-		![редактор файлов зоны для записи](./media/web-sites-custom-domain-name/godaddy-quickaddarecord.png)
+        > [WACOM.NOTE] При добавлении записи A (узла) необходимо также добавить запись CNAME со следующей конфигурацией:
+        >
+        > -   Значение **хоста** **awverify**, которое **Указывает на** значение **\<yourwebsitename\>.azurewebsites.net**.
+        >
+        > Запись CNAME позволяет Azure проверить, что именно вы являетесь владельцем домена, описанного в записи A.
 
-5. По завершении добавления или изменения записей нажмите кнопку **Сохранить файл зоны** для сохранения изменений.
+    -   При добавлении записи (псевдонима) CNAME необходимо задать в поле **Узел** тот поддомен, который вы хотите использовать. Например, **www**. Необходимо задать в поле **Указывает на** имя домена **.azurewebsites.net** вашего веб-сайта Azure. Например, **contoso.azurwebsites.net**.
 
-<h2><a name="enabledomain"></a>Включение доменного имени на веб-сайте</h2>
+4.  По завершении добавления или изменения записей нажмите кнопку **Завершить** для сохранения изменений.
 
-[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-enable-on-web-site.md)]
+## <a name="enabledomain"></a>Включение доменного имени на веб-сайте
 
+[WACOM.INCLUDE [modes][modes]]
+
+  [Пользовательский домен]: /ru-ru/documentation/articles/web-sites-custom-domain-name "Пользовательский домен"
+  [GoDaddy]: /ru-ru/documentation/articles/web-sites-godaddy-custom-domain-name "GoDaddy"
+  [Network Solutions]: /ru-ru/documentation/articles/web-sites-network-solutions-custom-domain-name "Network Solutions"
+  [Register.com]: /ru-ru/documentation/articles/web-sites-registerdotcom-custom-domain-name "Register.com"
+  [Enom]: /ru-ru/documentation/articles/web-sites-enom-custom-domain-name "Enom"
+  [Moniker]: /ru-ru/documentation/articles/web-sites-moniker-custom-domain-name "Moniker"
+  [Dotster]: /ru-ru/documentation/articles/web-sites-dotster-custom-domain-name "Dotster"
+  [DomainDiscover]: /ru-ru/documentation/articles/web-sites-domaindiscover-custom-domain-name "DomainDiscover"
+  [Directnic]: /ru-ru/documentation/articles/web-sites-directnic-custom-domain-name "Directnic"
+  [Веб-сайт]: /ru-ru/documentation/articles/web-sites-godaddy-custom-domain-name/ "Веб-сайты"
+  [Веб-сайт, использующий Traffic Manager]: /ru-ru/documentation/articles/web-sites-godaddy-traffic-manager-custom-domain-name/ "Веб-сайт, использующий Traffic Manager"
+  [websites-cloud-services-css-guided-walkthrough]: ../includes/websites-cloud-services-css-guided-walkthrough.md
+  [intro]: ../includes/custom-dns-web-site-intro.md
+  [Go Daddy]: https://godaddy.com
+  [introfooter]: ../includes/custom-dns-web-site-intro-notes.md
+  [Общие сведения о записях DNS]: #understanding-records
+  [Добавление записи DNS для пользовательского домена]: #bkmk_configurecname
+  [Включение домена на веб-сайте]: #enabledomain
+  [understandingdns]: ../includes/custom-dns-web-site-understanding-dns-raw.md
+  [страница пользовательского домена для GoDaddy]: ./media/web-sites-custom-domain-name/godaddy-customdomain.png
+  [Вкладка файла зоны DNS]: ./media/web-sites-custom-domain-name/godaddy-zonetab.png
+  [выберите тип записи]: ./media/web-sites-custom-domain-name/godaddy-selectrecordtype.png
+  [добавление записи о зоне]: ./media/web-sites-custom-domain-name/godaddy-addzonerecord.png
+  [contoso.com]: mailto:**@*
+  [modes]: ../includes/custom-dns-web-site-enable-on-web-site.md

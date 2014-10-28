@@ -14,44 +14,42 @@
 
 В этом учебнике рассматриваются следующие действия.
 
-1.  [Включение Google Cloud Messaging][]
-2.  [Настройка мобильных служб для отправки push-запросов][]
-3.  [Обновление сервера для отправки push-уведомлений][]
-4.  [Добавление push-уведомлений в приложение][]
-5.  [Включение push-уведомлений для локального тестирования][]
-6.  [Тестирование приложения с помощью опубликованной мобильной службы][]
+1.  [Включение Google Cloud Messaging][Включение Google Cloud Messaging]
+2.  [Настройка мобильных служб для отправки push-запросов][Настройка мобильных служб для отправки push-запросов]
+3.  [Обновление сервера для отправки push-уведомлений][Обновление сервера для отправки push-уведомлений]
+4.  [Добавление push-уведомлений в приложение][Добавление push-уведомлений в приложение]
+5.  [Включение push-уведомлений для локального тестирования][Включение push-уведомлений для локального тестирования]
+6.  [Тестирование приложения с помощью опубликованной мобильной службы][Тестирование приложения с помощью опубликованной мобильной службы]
 
-Этот учебник создан на основе краткого руководства по мобильным службам. Перед работой с этим учебником необходимо сначала пройти учебник [Приступая к работе с мобильными службами][] или [Приступая к работе с данными][], чтобы подключить свой проект к мобильной службе. Таким образом, для работы с этим учебником требуется Visual Studio 2013.
+Этот учебник создан на основе краткого руководства по мобильным службам. Перед работой с этим учебником необходимо сначала пройти учебник [Приступая к работе с мобильными службами][Приступая к работе с мобильными службами] или [Приступая к работе с данными][Приступая к работе с данными], чтобы подключить свой проект к мобильной службе. Таким образом, для работы с этим учебником требуется Visual Studio 2013.
 
-> [WACOM.NOTE] Чтобы выполнить работу с этим учебником, необходимо использовать учетную запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure][].
+> [WACOM.NOTE] Чтобы выполнить работу с этим учебником, необходимо использовать учетную запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure][Бесплатная пробная версия Azure].
 
 ## <span id="register"></span></a>Включение Google Cloud Messaging
 
-[WACOM.INCLUDE [Enable GCM][]]
+[WACOM.INCLUDE [Enable GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
 ## <span id="configure"></span></a>Настройка мобильных служб для отправки push-запросов
 
-1.  Выполните вход на [портал управления Azure][], щелкните элемент **Мобильные службы**, а затем щелкните свое приложение.
+1.  Выполните вход на [портал управления Azure][портал управления Azure], щелкните элемент **Мобильные службы**, а затем щелкните свое приложение.
 
-    ![][]
+    ![][0]
 
 2.  Перейдите на вкладку **Push-уведомления**, введите значение **ключа API**, полученное от GCM при выполнении предыдущей процедуры, а затем нажмите кнопку **Сохранить**.
 
     ![][1]
 
-    <div class="dev-callout"><b>Важно!</b>
-<p>При задании учетных данных GCM для улучшенных push-уведомлений на вкладке Push-уведомления портала эти сведения передаются в концентраторы уведомлений в целях настройки концентратора уведомлений с вашим приложением.</p>
-</div>
+    <div class="dev-callout"><b>Важно!</b><p>При задании учетных данных GCM для улучшенных push-уведомлений на вкладке Push-уведомления портала эти сведения передаются в концентраторы уведомлений в целях настройки концентратора уведомлений с вашим приложением.</p></div>
 
 Ваша мобильная служба теперь настроена для работы с GCM и концентраторами уведомлений.
 
 ## <a name="download-the-service"></a><span class="short-header"> Загрузка службы</span>Загрузка службы на локальный компьютер
 
-[WACOM.INCLUDE [mobile-services-download-service-locally][]]
+[WACOM.INCLUDE [mobile-services-download-service-locally](../includes/mobile-services-download-service-locally.md)]
 
 ## <a name="test-the-service"></a><span class="short-header">Тестирование службы</span>Тестирование мобильной службы
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service](../includes/mobile-services-dotnet-backend-test-local-service.md)]
 
 ## <span id="update-server"></span></a> Обновление сервера для отправки push-уведомлений
 
@@ -88,13 +86,13 @@
 
 ## <a name="publish-the-service"></a><span class="short-header">Публикация службы</span>Публикация мобильной службы в Azure
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
 ## <a name="update-app"></a>Добавление push-уведомлений в приложение
 
 ### Проверка версии Android SDK
 
-[WACOM.INCLUDE [mobile-services-verify-android-sdk-version][]]
+[WACOM.INCLUDE [mobile-services-verify-android-sdk-version](../includes/mobile-services-verify-android-sdk-version.md)]
 
 Далее следует установить службы Google Play. Google Cloud Messaging предъявляет некоторые требования к минимальному уровню API для разработки и тестирования, которым должно удовлетворять свойство **minSdkVersion** в манифесте.
 
@@ -102,11 +100,11 @@
 
 ### Добавление служб Google Play в проект
 
-[WACOM.INCLUDE [Add Play Services][]]
+[WACOM.INCLUDE [Add Play Services](../includes/mobile-services-add-Google-play-services.md)]
 
 ### Добавление кода
 
-[WACOM.INCLUDE [mobile-services-android-getting-started-with-push][]]
+[WACOM.INCLUDE [mobile-services-android-getting-started-with-push](../includes/mobile-services-android-getting-started-with-push.md)]
 
 ## <a name="test-app"></a><span class="short-header">Тестирование приложения</span>Тестирование работы приложения с опубликованной мобильной службой
 
@@ -128,7 +126,7 @@
 
 ### <span id="local-testing"></span></a> Включение push-уведомлений для локального тестирования
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-configure-local-push][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-configure-local-push](../includes/mobile-services-dotnet-backend-configure-local-push.md)]
 
 ### Выполнение теста
 
@@ -151,18 +149,20 @@
 -   [Приступая к работе с данными (][Приступая к работе с данными]
     Дополнительные сведения о хранении данных и запросах к ним при помощи мобильных служб.
 
--   [Приступая к работе с проверкой подлинности][]
+-   [Приступая к работе с проверкой подлинности][Приступая к работе с проверкой подлинности]
     Дополнительные сведения о проверке подлинности пользователей приложения с разными типами учетных записей с помощью мобильных служб.
 
--   [Что такое концентраторы уведомлений?][]
+-   [Что такое концентраторы уведомлений?][Что такое концентраторы уведомлений?]
     Дополнительные сведения о работе концентраторов уведомлений по доставке уведомлений в приложения на всех основных клиентских платформах.
 
--   [Использование библиотеки клиента Android для мобильных служб][]
+-   [Использование библиотеки клиента Android для мобильных служб][Использование библиотеки клиента Android для мобильных служб]
     Дополнительные сведения об использовании мобильных служб с Android.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
+<!-- Anchors. --> 
+<!-- Images. --> 
+<!-- URLs. -->
 
-  [Магазин Windows C\#]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/ "Магазин Windows C#"
+  [Магазин Windows C#]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/ "Магазин Windows C#"
   [Магазин Windows JavaScript]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/ "Магазин Windows JavaScript"
   [Windows Phone]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/ "Windows Phone"
   [iOS]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/ "iOS"
@@ -177,10 +177,10 @@
   [Тестирование приложения с помощью опубликованной мобильной службы]: #test-app
   [Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-android-get-started
   [Приступая к работе с данными]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-android-get-started-data
-  [Бесплатная пробная версия Azure]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F
+  [Бесплатная пробная версия Azure]: http://www.windowsazure.com/ru-ru/pricing/free-trial/?WT.mc_id=AE564AB28&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fru-ru%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F
   [Enable GCM]: ../includes/mobile-services-enable-Google-cloud-messaging.md
   [портал управления Azure]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-android-get-started-push/mobile-services-selection.png
+  [0]: ./media/mobile-services-android-get-started-push/mobile-services-selection.png
   [1]: ./media/mobile-services-android-get-started-push/mobile-push-tab-android.png
   [mobile-services-download-service-locally]: ../includes/mobile-services-download-service-locally.md
   [mobile-services-dotnet-backend-test-local-service]: ../includes/mobile-services-dotnet-backend-test-local-service.md

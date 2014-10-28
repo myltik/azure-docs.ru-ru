@@ -1,65 +1,97 @@
-<properties title="Узнайте, как настроить веб-сайт Azure на использование доменного имени, зарегистрированного в Directnic" pageTitle="Настройка доменного имени Directnic для веб-сайта Azure" metaKeywords="Azure, веб-сайты Azure, Directnic" description="Узнайте, как настроить веб-сайт Azure на использование доменного имени, зарегистрированного в Directnic" services="web-sites" documentationCenter="" authors="larryfr,jroth" />
+<properties title="Learn how to configure an Azure website to use a domain name registered with Directnic" pageTitle="Configure a Directnic domain name for an Azure website" metaKeywords="Azure, Azure Web Sites, Directnic" description="Learn how to configure an Azure website to use a domain name registered with Directnic" services="web-sites" documentationCenter="" authors="larryfr,jroth" />
 
-#Настройка имени пользовательского домена для веб-сайта Azure (Directnic)
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr,jroth"></tags>
+
+# Настройка пользовательского имени домена для веб-сайта Azure (Directnic)
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/ru-ru/documentation/articles/web-sites-custom-domain-name" title="Пользовательский домен">Пользовательский домен</a><a href="/ru-ru/documentation/articles/web-sites-godaddy-custom-domain-name" title="GoDaddy">GoDaddy</a><a href="/ru-ru/documentation/articles/web-sites-network-solutions-custom-domain-name" title="Network Solutions">Network Solutions</a><a href="/ru-ru/documentation/articles/web-sites-registerdotcom-custom-domain-name" title="Register.com">Register.com</a><a href="/ru-ru/documentation/articles/web-sites-enom-custom-domain-name" title="Enom">Enom</a><a href="/ru-ru/documentation/articles/web-sites-moniker-custom-domain-name" title="Moniker">Moniker</a><a href="/ru-ru/documentation/articles/web-sites-dotster-custom-domain-name" title="Dotster">Dotster</a><a href="/ru-ru/documentation/articles/web-sites-domaindiscover-custom-domain-name" title="DomainDiscover">DomainDiscover</a><a href="/ru-ru/documentation/articles/web-sites-directnic-custom-domain-name" title="Directnic" class="current">Directnic</a></div>
-<div class="dev-center-tutorial-subselector"><a href="/ru-ru/documentation/articles/web-sites-directnic-custom-domain-name/" title="Веб-сайты" class="current">Веб-сайт</a> | <a href="/ru-ru/documentation/articles/web-sites-directnic-traffic-manager-custom-domain-name/" title="Использование Traffic Manager веб-сайтом">Использование Traffic Manager веб-сайтом</a></div>
 
-[WACOM.INCLUDE [intro](../includes/custom-dns-web-site-intro.md)]
+<div class="dev-center-tutorial-subselector"><a href="/ru-ru/documentation/articles/web-sites-directnic-custom-domain-name/" title="Веб-сайты" class="current">Веб-сайт</a> | <a href="/ru-ru/documentation/articles/web-sites-directnic-traffic-manager-custom-domain-name/" title="Веб-сайт, использующий Traffic Manager">Веб-сайт, использующий Traffic Manager</a></div>
 
-В данной статье приводятся инструкции по использованию имени пользовательского домена, приобретенного у [DirectNic.com](https://directnic.com), для веб-сайтов Azure.
+[WACOM.INCLUDE [пошаговое-css-руководство-по-облачным-службам-веб-сайтов][пошаговое-css-руководство-по-облачным-службам-веб-сайтов]]
 
-[WACOM.INCLUDE [introfooter](../includes/custom-dns-web-site-intro-notes.md)]
+[WACOM.INCLUDE [введение][введение]]
+
+В данной статье приводятся инструкции по использованию имени пользовательского домена, приобретенного у [DirectNic.com][DirectNic.com], для веб-сайтов Azure.
+
+[WACOM.INCLUDE [нижний-колонтитул-введения][нижний-колонтитул-введения]]
 
 Содержание:
 
--   [Общие сведения о записях DNS](#understanding-records)
--   [Настройка веб-сайтов для базового режима, режима общего доступа или стандартного режима](#bkmk_configsharedmode)
--   [Добавление записи DNS для пользовательского домена](#bkmk_configurecname)
--   [Включение домена на веб-сайте](#enabledomain)
+-   [Общие сведения о записях DNS][Общие сведения о записях DNS]
+-   [Настройка веб-сайтов для базового режима, режима общего доступа или стандартного режима][Настройка веб-сайтов для базового режима, режима общего доступа или стандартного режима]
+-   [Добавление записи DNS для пользовательского домена][Добавление записи DNS для пользовательского домена]
+-   [Включение домена на веб-сайте][Включение домена на веб-сайте]
 
-<h2><a name="understanding-records"></a>Общие сведения о записях DNS</h2>
+## <a name="understanding-records"></a>Общие сведения о записях DNS
 
-[WACOM.INCLUDE [understandingdns](../includes/custom-dns-web-site-understanding-dns-raw.md)]
+[WACOM.INCLUDE [общие-сведения-о-dns][общие-сведения-о-dns]]
 
-<h2><a name="bkmk_configsharedmode"></a>Настройка веб-сайтов для базового режима, режима общего доступа или стандартного режима</h2>
+## <a name="bkmk_configsharedmode"></a>Настройка веб-сайтов для базового режима, режима общего доступа или стандартного режима
 
-[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes.md)]
+[WACOM.INCLUDE [режимы][режимы]]
 
-<a name="bkmk_configurecname"></a><h2>Добавление записи DNS для пользовательского домена</h2>
+<a name="bkmk_configurecname"></a>
 
-Чтобы сопоставить пользовательский домен с веб-сайтом Azure, необходимо добавить новую запись в таблицу DNS для этого настраиваемого домена с помощью средств, предоставляемых Directnic. Выполните следующие действия, чтобы найти средства DNS для Directnic.com.
+## Добавление записи DNS для пользовательского домена
 
-1. Выполните вход на Directnic.com с использованием своей учетной записи и выберите **Мои службы** и **Домены**. 
+</p>
+Чтобы связать пользовательский домен с веб-сайтом Azure, необходимо добавить новую запись в таблицу DNS для настраиваемого домена с помощью средств, предоставляемых Directnic. Выполните следующие действия, чтобы найти средства DNS для Directnic.com.
 
-    ![Меню служб Directnic](.\media\web-sites-directnic-custom-domain-name\Directnic_DomainMenu.png)
+1.  Выполните вход на Directnic.com с использованием своей учетной записи и выберите **Мои службы** и **Домены**.
 
-2. Щелкните имя домена, которое вы хотите использовать для веб-сайта Azure.
+    ![Меню служб Directnic][Меню служб Directnic]
 
-2. На странице управления для вашего домена нажмите кнопку **Управление** для **DNS** в области **Службы**.
+2.  Выберите имя домена, которое вы хотите использовать для веб-сайта Azure.
 
-    ![Панель служб](.\media\web-sites-directnic-custom-domain-name\Directnic_DomainManagement.png)
+3.  На странице управления вашим доменом нажмите кнопку **Управление** для **DNS** в области **Службы**.
 
-4. Добавьте записи DNS, заполнив поля **Тип**, **Имя** и **Данные**. Закончив, нажмите кнопку **Добавить запись**.
+    ![Панель служб][Панель служб]
 
-    ![](.\media\web-sites-directnic-custom-domain-name\Directnic_DNS.png)
+4.  Добавьте записи DNS, заполнив поля **Тип**, **Имя** и **Данные**. Закончив, нажмите кнопку **Добавить запись**.
 
-    * При добавлении записи CNAME необходимо задать в поле **Имя** тот поддомен, который вы хотите использовать. Например, **www**. Необходимо задать в поле **Данные** имя домена **.azurewebsites.net** вашего веб-сайта Azure. Например, **contoso.azurwebsites.net**.
+    ![][]
 
-    * При добавлении записи A необходимо задать в поле **Имя** либо символ **@** (представляющий имя корневого домена, например **contoso.com**), либо поддомен, который вы хотите использовать (например, **www**). Необходимо задать в поле **Данные** IP-адрес вашего веб-сайта Azure.
+    -   При добавлении записи CNAME необходимо задать в поле **Имя** тот поддомен, который вы хотите использовать. Например, **www**. Необходимо задать в поле **Данные** имя домена **.azurewebsites.net** вашего веб-сайта Azure. Например, **contoso.azurwebsites.net**.
 
-		> [WACOM.NOTE] Если вы будете использовать запись A, необходимо также добавить запись CNAME с одной из следующих конфигураций:
-		> 
-		> * Значение **www** в поле **Имя** и значение **&lt;имя_вашего_веб-сайта&gt;.azurewebsites.net** в поле **Данные**.
-		> 
-		> ИЛИ
-		> 
-		> * Значение **awverify.www** в поле **Имя** и значение **awverify.&lt;имя_вашего_веб-сайта&gt;.azurewebsites.net** в поле **Данные**.
-		> 
-		> Запись CNAME позволяет Azure проверить, что именно вы являетесь владельцем домена, описанного в записи A.
+    -   При добавлении записи A необходимо задать в поле **Имя** символ **@** (представляющий имя корневого домена, например **contoso.com**) либо поддомен, который вы хотите использовать (например, **www**). В поле **Данные** необходимо задать IP-адрес вашего веб-сайта Azure.
 
+        > [WACOM.ПРИМЕЧАНИЕ] Если вы будете использовать запись A, необходимо также добавить запись CNAME в одну из следующих конфигураций:
+        >
+        > -   Значение **Имя** поддомена **www** со значением **Данные** поддомена **\<yourwebsitename\>.azurewebsites.net**.
+        >
+        > ИЛИ
+        >
+        > -   Значение **Имя** поддомена **awverify.www** со значением **Данные** поддомена **awverify.\<yourwebsitename\>.azurewebsites.net**.
+        >
+        > Запись CNAME позволяет Azure проверить, что именно вы являетесь владельцем домена, описанного в записи A.
 
-<h2><a name="enabledomain"></a>Включение доменного имени на веб-сайте</h2>
+## <a name="enabledomain"></a>Включение доменного имени на веб-сайте
 
-[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-enable-on-web-site.md)]
+[WACOM.INCLUDE [режимы][1]]
 
+  [Пользовательский домен]: /ru-ru/documentation/articles/web-sites-custom-domain-name "Пользовательский домен"
+  [GoDaddy]: /ru-ru/documentation/articles/web-sites-godaddy-custom-domain-name "GoDaddy"
+  [Network Solutions]: /ru-ru/documentation/articles/web-sites-network-solutions-custom-domain-name "Network Solutions"
+  [Register.com]: /ru-ru/documentation/articles/web-sites-registerdotcom-custom-domain-name "Register.com"
+  [Enom]: /ru-ru/documentation/articles/web-sites-enom-custom-domain-name "Enom"
+  [Moniker]: /ru-ru/documentation/articles/web-sites-moniker-custom-domain-name "Moniker"
+  [Dotster]: /ru-ru/documentation/articles/web-sites-dotster-custom-domain-name "Dotster"
+  [DomainDiscover]: /ru-ru/documentation/articles/web-sites-domaindiscover-custom-domain-name "DomainDiscover"
+  [Directnic]: /ru-ru/documentation/articles/web-sites-directnic-custom-domain-name "Directnic"
+  [Веб-сайт]: /ru-ru/documentation/articles/web-sites-directnic-custom-domain-name/ "Веб-сайты"
+  [Веб-сайт, использующий Traffic Manager]: /ru-ru/documentation/articles/web-sites-directnic-traffic-manager-custom-domain-name/ "Веб-сайт, использующий Traffic Manager"
+  [пошаговое-css-руководство-по-облачным-службам-веб-сайтов]: ../includes/websites-cloud-services-css-guided-walkthrough.md
+  [введение]: ../includes/custom-dns-web-site-intro.md
+  [DirectNic.com]: https://directnic.com
+  [нижний-колонтитул-введения]: ../includes/custom-dns-web-site-intro-notes.md
+  [Общие сведения о записях DNS]: #understanding-records
+  [Настройка веб-сайтов для базового режима, режима общего доступа или стандартного режима]: #bkmk_configsharedmode
+  [Добавление записи DNS для пользовательского домена]: #bkmk_configurecname
+  [Включение домена на веб-сайте]: #enabledomain
+  [общие-сведения-о-dns]: ../includes/custom-dns-web-site-understanding-dns-raw.md
+  [режимы]: ../includes/custom-dns-web-site-modes.md
+  [Меню служб Directnic]: .\media\web-sites-directnic-custom-domain-name\Directnic_DomainMenu.png
+  [Панель служб]: .\media\web-sites-directnic-custom-domain-name\Directnic_DomainManagement.png
+  []: .\media\web-sites-directnic-custom-domain-name\Directnic_DNS.png
+  [1]: ../includes/custom-dns-web-site-enable-on-web-site.md

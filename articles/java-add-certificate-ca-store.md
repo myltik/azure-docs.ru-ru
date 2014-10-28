@@ -1,39 +1,45 @@
-<properties linkid="develop-java-how-to-add-a-certificate" urlDisplayName="Добавление сертификата в хранилище ЦС" pageTitle="Добавление сертификата в хранилище ЦС Java – Azure" metaKeywords="Сертификат Azure Twilio Java, Twilio Java Certificate, Azure Service Bus" description="Сведения о добавлении сертификата в центр сертификации (ЦС) в хранилище сертификатов (cacerts) центра сертификации Java для службы Twilio или Azure Service Bus." metaCanonical="" services="" documentationCenter="Java" title="Добавление сертификата в хранилище сертификатов ЦС Java" authors=""  solutions="" writer="waltpo" manager="bjsmith" editor="mollybos"  />
+<properties linkid="develop-java-how-to-add-a-certificate" urlDisplayName="Add a Cert to the CA Store" pageTitle="Add a certificate to the Java CA store - Azure" metaKeywords="Azure Twilio Java, Twilio Java Certificate, Azure Service Bus Certificate" description="Learn how to add a certificate authority (CA) certificate to the Java CA certificate (cacerts) store for Twilio service or Azure Service Bus." metaCanonical="" services="" documentationCenter="Java" title="Adding a Certificate to the Java CA Certificates Store" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
 
 # Добавление сертификата в хранилище сертификатов ЦС Java
-Ниже показано, как добавить сертификат центра сертификации (ЦС) в хранилище сертификатов (cacerts) центра сертификации Java. Приведен пример использования сертификата ЦС, требуемого службой Twilio. Сведения, приведенные ниже в разделе, описывают, как установить сертификат ЦС для Azure Service Bus. 
 
-Чтобы добавить сертификат ЦС перед сжатием JDK и добавлением его в папку **approot** проекта Azure, можно использовать keytool, или можно запустить задачу запуска Azure, которая использует keytool для добавления сертификата. В этом примере предполагается, что сертификат ЦС будет добавлен перед сжатием JDK. Также в примере будет использоваться конкретный сертификат ЦС, но действия, необходимые для получения различных сертификатов центра сертификации и их импорта в хранилище cacerts, будут такими же.
+Ниже показано, как добавить сертификат центра сертификации (ЦС) в хранилище сертификатов (cacerts) центра сертификации Java. Приведен пример использования сертификата ЦС, требуемого службой Twilio. Сведения, приведенные ниже в разделе, описывают процесс установки сертификата ЦС для Azure Service Bus.
+
+Чтобы добавить сертификат ЦС перед сжатием JDK и добавлением его в папку **approot** проекта Azure, можно использовать keytool или выполнить задачу запуска Azure, которая использует keytool для добавления сертификата. В этом примере предполагается, что сертификат ЦС будет добавлен перед сжатием JDK. Также в примере будет использоваться конкретный сертификат ЦС, но действия, необходимые для получения различных сертификатов центра сертификации и их импорта в хранилище cacerts, будут такими же.
 
 ## Добавление сертификата в хранилище cacerts
 
-1. В командной строке для папки JDK **jdk\jre\lib\security** выполните следующие действия, чтобы узнать, какие сертификаты установлены:
+1.  В командной строке для папки JDK **jdk\\jre\\lib\\security** выполните следующие действия, чтобы узнать, какие сертификаты установлены:
 
-	`keytool -list -keystore cacerts`
+    `keytool -list -keystore cacerts`
 
-	Вам будет предложено ввести пароль хранилища. Пароль по умолчанию – **changeit**. (Если вы хотите изменить пароль, обратитесь к документации keytool по адресу <http://docs.oracle.com/javase/7/docs/technotes/tools/windows/keytool.html>). В этом примере предполагается, что сертификат с MD5 устройства отпечатков пальцев 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4 отсутствует в списке и вы хотите его импортировать (этот конкретный сертификат необходим для службы API Twilio).
-2. Получение сертификата из списка сертификатов, перечисленных в [корневых сертификатах GeoTrust](http://www.geotrust.com/resources/root-certificates/). Щелкните правой кнопкой мыши ссылку сертификата с серийным номером 35:DE:F4:CF и сохраните его в папку **jdk\jre\lib\security**. Для целей этого примера он был сохранен в файл с именем **Equifax\_Secure\_Certificate\_Authority.cer**.
-3. Импортируйте сертификат с помощью следующей команды:
+    Вам будет предложено ввести пароль хранилища. Пароль по умолчанию – **changeit**. (Если вы хотите изменить пароль, обратитесь к документации keytool по адресу <http://docs.oracle.com/javase/7/docs/technotes/tools/windows/keytool.html>.) В этом примере предполагается, что сертификат с MD5 устройства отпечатков пальцев 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4 отсутствует в списке и вы хотите его импортировать (этот конкретный сертификат необходим для службы API Twilio).
 
-	`keytool -keystore cacerts -importcert -alias equifaxsecureca -file Equifax_Secure_Certificate_Authority.cer`
+2.  Получение сертификата из списка сертификатов, перечисленных в [корневых сертификатах GeoTrust][корневых сертификатах GeoTrust]. Щелкните правой кнопкой мыши ссылку сертификата с серийным номером 35:DE:F4:CF и сохраните его в папку **jdk\\jre\\lib\\security**. Для целей этого примера он был сохранен в файл с именем **Equifax\_Secure\_Certificate\_Authority.cer**.
+3.  Импортируйте сертификат с помощью следующей команды:
 
-	Если выводится приглашение подтвердить доверие этому сертификату, если сертификат имеет отпечаток пальцев MD5 67:CB:9 D: C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4, введите **y**.
-4. Выполните следующую команду, чтобы убедиться, что сертификат СЦ был успешно импортирован:
+    `keytool -keystore cacerts -importcert -alias equifaxsecureca -file Equifax_Secure_Certificate_Authority.cer`
 
-	`keytool -list -keystore cacerts`
+    Если выводится приглашение подтвердить доверие этому сертификату, если сертификат имеет отпечаток пальцев MD5 67:CB:9 D: C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4, введите **y**.
 
-5. Сожмите JDK и добавьте его в папку **approot** проекта Azure.
+4.  Выполните следующую команду, чтобы убедиться, что сертификат СЦ был успешно импортирован:
 
-Дополнительные сведения о keytool см. разделе <http://docs.oracle.com/javase/7/docs/technotes/tools/windows/keytool.html>.
+    `keytool -list -keystore cacerts`
+
+5.  Сожмите JDK и добавьте его в папку **approot** проекта Azure.
+
+Дополнительные сведения о keytool см. по адресу <http://docs.oracle.com/javase/7/docs/technotes/tools/windows/keytool.html>.
 
 # Корневые сертификаты Azure
 
-Приложения, использующие службы Azure (например, Azure Service Bus) должны доверять сертификату Baltimore CyberTrust Root. (С 15 апреля 2013 года Azure начала миграцию с глобальной основы GTE CyberTrust в Baltimore CyberTrust Root. Такая миграция продолжается несколько месяцев).
+Приложения, использующие службы Azure (например, Azure Service Bus), должны доверять сертификату Baltimore CyberTrust Root. (С 15 апреля 2013 года Azure начала миграцию с глобальной основы GTE CyberTrust в Baltimore CyberTrust Root. Такая миграция продолжается несколько месяцев).
 
 Сертификат Baltimore может быть установлен в вашем хранилище cacerts, поэтому не забудьте выполнить команду **keytool -list**, чтобы проверить, существует ли он уже.
 
 Если требуется добавить Baltimore CyberTrust Root, он имеет серийный номер 02:00:00:b9 и отпечаток пальца SHA1 d4:de:20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74. Его можно загрузить с <https://cacert.omniroot.com/bc2025.crt>, сохранить в локальном файле с расширением **.cer**, а затем импортировать с помощью **keytool**, как показано выше.
 
-Дополнительные сведения о корневых сертификатах, используемых Azure, см. в разделе [Перенос корневых сертификатов Azure](http://blogs.msdn.com/b/windowsazure/archive/2013/03/15/windows-azure-root-certificate-migration.aspx).
+Дополнительные сведения о корневых сертификатах, используемых Azure, см. в разделе [Перенос корневых сертификатов Windows Azure][Перенос корневых сертификатов Windows Azure].
 
-
+  [корневых сертификатах GeoTrust]: http://www.geotrust.com/resources/root-certificates/
+  [Перенос корневых сертификатов Windows Azure]: http://blogs.msdn.com/b/windowsazure/archive/2013/03/15/windows-azure-root-certificate-migration.aspx

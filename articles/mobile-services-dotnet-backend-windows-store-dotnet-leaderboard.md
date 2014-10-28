@@ -1,0 +1,758 @@
+<properties urlDisplayName=".NET Client Library" pageTitle="Creating a Leaderboard App with Azure Mobile Services .NET Backend" metaKeywords="Azure Mobile Services, Mobile Service .NET client, .NET client" description="Learn how to build a Windows Store app using Azure Mobile Services with a .NET backend." documentationCenter="Mobile" title="Creating a Leaderboard App with Azure Mobile Services .NET Backend" authors="mwasson" solutions="" manager="" editor="" />
+
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="mwasson"></tags>
+
+# Создание приложения списка лидеров с помощью внутреннего сервера .NET мобильных служб Azure
+
+В этом учебнике показано, как создать приложение Магазина Windows с помощью мобильных служб Azure с внутренним сервером .NET. Мобильные службы Azure предоставляют масштабируемый и безопасный внутренний сервер со встроенной проверкой подлинности, мониторингом, push-уведомлениями и другими функциями, включая кроссплатформенную клиентскую библиотеку для создания мобильных приложений. Внутренний сервер .NET для мобильных служб основан на [веб-интерфейсе API ASP.NET][веб-интерфейсе API ASP.NET] и предоставляет разработчикам .NET лучший способ создания API REST.
+
+-   [Обзор][Обзор]
+-   [Сведения о примере приложения][Сведения о примере приложения]
+-   [Добавление моделей данных][Добавление моделей данных]
+-   [Добавление контроллеров веб-интерфейса API][Добавление контроллеров веб-интерфейса API]
+-   [Использование DTO для получения связанных сущностей][Использование DTO для получения связанных сущностей]
+-   [Определение пользовательского API для отправки оценок][Определение пользовательского API для отправки оценок]
+-   [Создание приложения Магазина Windows][Создание приложения Магазина Windows]
+-   [Добавление классов модели][Добавление классов модели]
+-   [Создание модели представления][Создание модели представления]
+-   [Добавление экземпляра MobileServiceClient][Добавление экземпляра MobileServiceClient]
+-   [Создание главной страницы][Создание главной страницы]
+-   [Публикация мобильной службы][Публикация мобильной службы]
+-   [Дальнейшие действия][Дальнейшие действия]
+
+## Обзор
+
+Веб-интерфейс API — это платформа с открытым исходным кодом, которая предоставляет разработчикам .NET лучший способ создания API REST. Вы можете разместить решение веб-интерфейса API на веб-сайтах Azure, в мобильных службах Azure, использующих внутренний сервер .NET, или даже автономно в пользовательском процессе. Мобильные службы — это среда размещения, разработанная специально для мобильных приложений. При размещении службы веб-интерфейсов API в мобильных службах кроме хранилища данных вы получаете следующие преимущества.
+
+-   Встроенная проверка подлинности с помощью поставщиков социальных сетей и Azure Active Directory (AAD).
+-   Push-уведомления в приложениях, использующих службы уведомлений устройства.
+-   Полный набор клиентских библиотек, который упрощает доступ к службе из любого приложения.
+-   Встроенный вход и диагностика.
+
+Изучив данный учебник, вы научитесь:
+
+-   создавать API REST, используя мобильные службы Azure;
+-   публиковать службы в Azure;
+-   создавать приложения Магазина Windows, использующие службу;
+-   использовать Entity Framework (EF) для создания отношений между внешними ключами и объектами передачи данных (DTO);
+-   использовать веб-интерфейсы API ASP.NET для определения пользовательского API.
+
+В этом учебнике используется [Visual Studio 2013 с обновлением 2][Visual Studio 2013 с обновлением 2].
+
+## Сведения о примере приложения
+
+*Список лидеров* отображает список игроков с их баллами и рейтингом. Список лидеров может быть частью крупной игры или отдельным приложением. Список лидеров — это реальное приложение, но оно достаточно простое для использования в учебнике. Вот снимок экрана приложения:
+
+![][]
+
+Для простоты приложение не связано с реальной игрой. Вместо этого вы можете добавлять игроков и отправлять баллы для каждого из них. При отправке баллов мобильная служба подсчитывает новые рейтинги. На внутреннем сервере мобильная служба создает базу данных с двумя таблицами:
+
+-   Player. Содержит идентификатор игрока и имя.
+-   PlayerRank. Содержит баллы и рейтинг игрока.
+
+PlayerRank содержит внешний ключ к Player. У каждого игрока может быть один параметр PlayerRank или ни одного.
+
+В приложении списка лидеров значение PlayerRank может также содержать идентификатор игры, чтобы игрок мог отправлять баллы для нескольких игр.
+
+![][1]
+
+Клиентское приложение может выполнять все операции CRUD применительно к игрокам. Оно может читать или удалять существующие сущности PlayerRank, но не может создавать или обновлять их напрямую. Это связано с тем, что значение рейтинга подсчитывает служба. Вместо этого клиент отправляет баллы, а служба обновляет рейтинги для всех игроков.
+
+Скачайте весь проект [здесь][здесь].
+
+## Создание проекта
+
+Запустите Visual Studio и создайте новый проект веб-приложения ASP.NET. Назовите проект "Список лидеров".
+
+![][2]
+
+В Visual Studio 2013 с обновлением 2 в проект веб-приложения ASP.NET будет включен шаблон для мобильной службы Microsoft Azure. Выберите этот шаблон и нажмите кнопку **ОК**.
+
+![][3]
+
+В шаблон проекта входит пример контроллера и объект данных.
+
+![][4]
+
+Они не нужны для учебника, поэтому вы можете удалить их из проекта. Также удалите ссылки на приложение TodoItem в файлах WebApiConfig.cs и LeaderboardContext.cs.
+
+## Добавление моделей данных
+
+Для определения таблиц баз данных будет использоваться [EF Code First][EF Code First]. В папке DataObjects добавьте класс с именем `Player`.
+
+    using Microsoft.WindowsAzure.Mobile.Service;
+
+    namespace Leaderboard.DataObjects
+    {
+        public class Player : EntityData
+        {
+            public string Name { get; set; }
+        }
+    }
+
+Добавьте еще один класс с именем `PlayerRank`.
+
+    using Microsoft.WindowsAzure.Mobile.Service;
+    using System.ComponentModel.DataAnnotations.Schema;
+
+    namespace Leaderboard.DataObjects
+    {
+        public class PlayerRank : EntityData
+        {
+            public int Score { get; set; }
+            public int Rank { get; set; }
+
+            [ForeignKey("Id")]
+            public virtual Player Player { get; set; }
+        }
+    }
+
+Обратите внимание, что оба класса наследуются из класса **EntityData**. Наследование из класса **EntityData** упрощает использование данных приложением с помощью кроссплатформенной клиентской библиотеки для мобильных служб Azure. **EntityData** также упрощает [обработку конфликтов записи базы данных][обработку конфликтов записи базы данных] для приложения.
+
+Класс `PlayerRank` содержит [свойство навигации][свойство навигации], которое указывает на связанную сущность `Player`. Атрибут **[ForeignKey]** сообщает EF, что свойство `Player` представляет внешний ключ.
+
+# Добавление контроллеров веб-интерфейса API
+
+Далее будет показано, как добавить контроллеры веб-интерфейса API для `Player` и `PlayerRank`. Вместо простых контроллеров веб-интерфейса API будет добавлен контроллер с именем *контроллер таблиц*, разработанный специально для мобильных служб Azure.
+
+Щелкните правой кнопкой мыши папку "Контроллеры", нажмите кнопку "Добавить" и выберите "Создать элемент Scaffolded".
+
+![][5]
+
+В диалоговом окне **Добавление Scaffold** откройте вкладку **Общие** слева и выберите **Мобильные службы Microsoft Azure**. Затем выберите **Контроллер таблиц мобильных служб Microsoft Azure**. Щелкните **Добавить**.
+
+В диалоговом окне **Добавление контроллера**:
+
+1.  В поле **Класс модели** выберите Player.
+2.  В поле **Класс контекста данных** выберите LeaderboardContext.
+3.  Назовите контроллер “PlayerContoller”.
+4.  Щелкните **Добавить**.
+
+![][6]
+
+В этом шаге в проект добавляется файл с именем PlayerController.cs.
+
+![][7]
+
+Контроллер наследуется из **TableController<t>**. Этот класс наследует **ApiController**, но он специализирован для мобильных служб Azure.
+
+-   Маршрутизация. Маршрут по умолчанию для **TableController** — `/tables/{table_name}/{id}`, где *table\_name* совпадает с именем сущности. Поэтому маршрут для контроллера Player — */tables/player/{id}*. Это соглашение о маршрутизации выполняет согласование **TableController** с [API REST][API REST] мобильных служб.
+-   Доступ к данным. Для операций баз данных класс **TableController** использует интерфейс **IDomainManager**, который определяет абстракцию для доступа к данным. Для формирования шаблонов используется параметр **EntityDomainManager**, который является конкретной реализацией интерфейса **IDomainManager**, заключающего в оболочку контекст EF.
+
+Теперь добавьте второй контроллер для сущностей PlayerRank. Выполните те же действия, но выберите класс модели PlayerRank. Используйте тот же класс контекста данных, а не создавайте новый. Назовите контроллер “PlayerRankController”.
+
+## Использование DTO для получения связанных сущностей
+
+Обратите внимание, что `PlayerRank` содержит связанную сущность `Player`.
+
+    public class PlayerRank : EntityData
+    {
+        public int Score { get; set; }
+        public int Rank { get; set; }
+
+        [ForeignKey("Id")]
+        public virtual Player Player { get; set; }
+    }
+
+Клиентская библиотека мобильной службы не поддерживает свойства навигации, и они не будут сериализованы. Вот пример необработанного ответа HTTP для GET `/tables/PlayerRank`:
+
+    HTTP/1.1 200 OK
+    Cache-Control: no-cache
+    Pragma: no-cache
+    Content-Length: 97
+    Content-Type: application/json; charset=utf-8
+    Expires: 0
+    Server: Microsoft-IIS/8.0
+    Date: Mon, 21 Apr 2014 17:58:43 GMT
+
+    [{"id":"1","rank":1,"score":150},{"id":"2","rank":3,"score":100},{"id":"3","rank":1,"score":150}]
+
+Обратите внимание, что `Player` не включается в граф объекта. Чтобы включить игрока, можно выполнить сведение графа объекта, определив *объект передачи данных* (DTO).
+
+DTO — это объект, который определяет способ отправки данных по сети. DTO полезны, если нужно, чтобы формат подключения отличался от модели базы данных. Чтобы создать DTO для `PlayerRank`, добавьте новый класс с именем `PlayerRankDto` в папку DataObjects.
+
+    namespace Leaderboard.DataObjects
+    {
+        public class PlayerRankDto
+        {
+            public string Id { get; set; }
+            public string PlayerName { get; set; }
+            public int Score { get; set; }
+            public int Rank { get; set; }
+        }
+    }
+
+В классе `PlayerRankController` метод **Select** LINQ будет использоваться для преобразования экземпляров `PlayerRank` в экземпляры `PlayerRankDto`. Обновите методы контроллера `GetAllPlayerRank` и `GetPlayerRank` следующим образом:
+
+    // GET tables/PlayerRank
+    public IQueryable<PlayerRankDto> GetAllPlayerRank()
+    {
+        return Query().Select(x => new PlayerRankDto()
+        {
+            Id = x.Id,
+            PlayerName = x.Player.Name,
+            Score = x.Score,
+            Rank = x.Rank
+        });
+    }
+
+    // GET tables/PlayerRank/48D68C86-6EA6-4C25-AA33-223FC9A27959
+    public SingleResult<PlayerRankDto> GetPlayerRank(string id)
+    {
+        var result = Lookup(id).Queryable.Select(x => new PlayerRankDto()
+        {
+            Id = x.Id,
+            PlayerName = x.Player.Name,
+            Score = x.Score,
+            Rank = x.Rank
+        });
+
+        return SingleResult<PlayerRankDto>.Create(result);
+    }
+
+С этими изменениями два метода GET вернут объекты `PlayerRankDto` в клиент. Свойство `PlayerRankDto.PlayerName` задается для имени игрока. Вот пример ответа после внесения этого изменения:
+
+    HTTP/1.1 200 OK
+    Cache-Control: no-cache
+    Pragma: no-cache
+    Content-Length: 160
+    Content-Type: application/json; charset=utf-8
+    Expires: 0
+    Server: Microsoft-IIS/8.0
+    Date: Mon, 21 Apr 2014 19:57:08 GMT
+
+    [{"id":"1","playerName":"Alice","score":150,"rank":1},{"id":"2","playerName":"Bob","score":100,"rank":3},{"id":"3","playerName":"Charles","score":150,"rank":1}]
+
+Обратите внимание, что полезная нагрузка JSON теперь включает имена игроков.
+
+Вместо операторов Select LINQ можно использовать AutoMapper. Этот параметр возвращает дополнительный код настройки, но включает автоматическое сопоставление из сущностей домена в DTO. Дополнительные сведения см. в разделе [Сопоставление между типами базы данных и типами клиентов на внутреннем сервере .NET с помощью AutoMapper][Сопоставление между типами базы данных и типами клиентов на внутреннем сервере .NET с помощью AutoMapper].
+
+## Определение пользовательского API для отправки оценок
+
+Сущность `PlayerRank` включает свойство `Rank`. Это значение рассчитывает сервер, не нужно, чтобы клиенты задавали его. Вместо этого клиенты будут использовать пользовательский API для отправки баллов игрока. При получении сервером нового количества баллов он обновит все рейтинги игрока.
+
+Сначала добавьте в папку DataObjects класс с именем `PlayerScore`.
+
+    namespace Leaderboard.DataObjects
+    {
+        public class PlayerScore
+        {
+            public string PlayerId { get; set; }
+            public int Score { get; set; }
+        }
+    }
+
+В классе `PlayerRankController` переместите переменную `LeaderboardContext` из конструктора в переменную класса:
+
+    public class PlayerRankController : TableController<PlayerRank>
+    {
+        // Add this:
+        LeaderboardContext context = new LeaderboardContext();
+
+        protected override void Initialize(HttpControllerContext controllerContext)
+        {
+            base.Initialize(controllerContext);
+
+            // Delete this:
+            // LeaderboardContext context = new LeaderboardContext();
+            DomainManager = new EntityDomainManager<PlayerRank>(context, Request, Services);
+        }
+
+Удалите следующие методы из `PlayerRankController`:
+
+-   `PatchPlayerRank`
+-   `PostPlayerRank`
+-   `DeletePlayerRank`
+
+Затем добавьте следующий код в `PlayerRankController`:
+
+    [Route("api/score")]
+    public async Task<IHttpActionResult> PostPlayerScore(PlayerScore score)
+    {
+        // Does this player exist?
+        var count = context.Players.Where(x => x.Id == score.PlayerId).Count();
+        if (count < 1)
+        {
+            return BadRequest();
+        }
+
+        // Try to find the PlayerRank entity for this player. If not found, create a new one.
+        PlayerRank rank = await context.PlayerRanks.FindAsync(score.PlayerId);
+        if (rank == null)
+        {
+            rank = new PlayerRank { Id = score.PlayerId };
+            rank.Score = score.Score;
+            context.PlayerRanks.Add(rank);
+        }
+        else
+        {
+            rank.Score = score.Score;
+        }
+
+        await context.SaveChangesAsync();
+
+        // Update rankings
+        // See http://stackoverflow.com/a/575799
+        const string updateCommand =
+            "UPDATE r SET Rank = ((SELECT COUNT(*)+1 from {0}.PlayerRanks " +
+            "where Score > (select score from {0}.PlayerRanks where Id = r.Id)))" +
+            "FROM {0}.PlayerRanks as r";
+
+        string command = String.Format(updateCommand, ServiceSettingsDictionary.GetSchemaName());
+        await context.Database.ExecuteSqlCommandAsync(command);
+
+        return Ok();
+    }
+
+Метод `PostPlayerScore` получает входящий экземпляр `PlayerScore`. (Клиент отправит `PlayerScore` в HTTP-запрос POST.) Метод делает следующее:
+
+1.  добавляет новый `PlayerRank` для игрока, если его еще нет в базе данных;
+2.  обновляет баллы игрока;
+3.  запускает SQL-запрос, который массово обновляет все рейтинги игрока.
+
+Атрибут **[Route]** для определения пользовательского маршрута для этого метода:
+
+    [Route("api/score")]
+
+Можно также поместить метод в отдельный контроллер. В любом случае никаких значительных преимуществ не предоставляется, это просто зависит от нужного способа организации кода.
+Дополнительные сведения об атрибуте **[Route]** см. в разделе [Маршрутизация атрибутов в веб-интерфейсе API][Маршрутизация атрибутов в веб-интерфейсе API].
+
+## Создание приложения Магазина Windows
+
+В этом разделе описывается приложение Магазина Windows, использующее мобильную службу. Однако здесь не будут подробно рассматриваться XAML или пользовательский интерфейс. Вместо этого будут приведены сведения о логике приложения. Скачать весь проект можно [здесь][здесь].
+
+Добавьте новый проект приложения Магазина Windows в решение. Здесь используется шаблон "Пустое приложение (Windows)".
+
+![][8]
+
+С помощью диспетчера пакетов NuGet добавьте клиентскую библиотеку мобильных служб. В Visual Studio в меню **Сервис** выберите **Диспетчер пакетов NuGet**. Затем щелкните **Консоль диспетчера пакетов**. В окне "Консоль диспетчера пакетов" введите следующую команду.
+
+    Install-Package WindowsAzure.MobileServices -Project LeaderboardApp
+
+Переключатель -Project указывает, в какой проект следует установить пакет.
+
+## Добавление классов модели
+
+Создайте папку с именем "Модели" и добавьте следующие классы:
+
+    namespace LeaderboardApp.Models
+    {
+        public class Player
+        {
+            public string Id { get; set; }
+            public string Name { get; set; }
+        }
+
+        public class PlayerRank
+        {
+            public string Id { get; set; }
+            public string PlayerName { get; set; }
+            public int Score { get; set; }
+            public int Rank { get; set; }
+        }
+
+        public class PlayerScore
+        {
+            public string PlayerId { get; set; }
+            public int Score { get; set; }
+        }
+    }
+
+Эти классы соответствуют непосредственным сущностям данных в мобильной службе.
+
+## Создание модели представления
+
+Model-View-ViewModel (MVVM) является вариантом Model-View-Controller (MVC). Шаблон MVVM позволяет отделить логику приложения от презентации.
+
+-   Модель представляет данные домена (игрок, рейтинг игрока и баллы игрока).
+-   Модель представления является абстрактным представлением.
+-   Представление отображает модель представления и отправляет входные данные пользователя в модель представления. Представление для приложения Магазина Windows определено в XAML.
+
+![][9]
+
+Добавьте класс с именем `LeaderboardViewModel`.
+
+    using LeaderboardApp.Models;
+    using Microsoft.WindowsAzure.MobileServices;
+    using System.ComponentModel;
+    using System.Net.Http;
+    using System.Threading.Tasks;
+
+    namespace LeaderboardApp.ViewModel
+    {
+        class LeaderboardViewModel : INotifyPropertyChanged
+        {
+            MobileServiceClient _client;
+
+            public LeaderboardViewModel(MobileServiceClient client)
+            {
+                _client = client;
+            }
+        }
+    }
+
+Реализуйте **INotifyPropertyChanged** в модели представления, чтобы модель представления могла участвовать в привязке данных.
+
+    class LeaderboardViewModel : INotifyPropertyChanged
+    {
+        MobileServiceClient _client;
+
+        public LeaderboardViewModel(MobileServiceClient client)
+        {
+            _client = client;
+        }
+
+        // New code:
+        // INotifyPropertyChanged implementation
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void NotifyPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this,
+                    new PropertyChangedEventArgs(propertyName));
+            }
+        }    
+    }
+
+Далее добавьте наблюдаемые свойства. XAML привяжет данные к этим свойствам.
+
+    class LeaderboardViewModel : INotifyPropertyChanged
+    {
+        // ...
+
+        // New code:
+        // View model properties
+        private MobileServiceCollection<Player, Player> _Players;
+        public MobileServiceCollection<Player, Player> Players
+        {
+            get { return _Players; }
+            set
+            {
+                _Players = value;
+                NotifyPropertyChanged("Players");
+            }
+        }
+
+        private MobileServiceCollection<PlayerRank, PlayerRank> _Ranks;
+        public MobileServiceCollection<PlayerRank, PlayerRank> Ranks
+        {
+            get { return _Ranks; }
+            set
+            {
+                _Ranks = value;
+                NotifyPropertyChanged("Ranks");
+            }
+        }
+
+        private bool _IsPending;
+        public bool IsPending
+        {
+            get { return _IsPending; }
+            set
+            {
+                _IsPending = value;
+                NotifyPropertyChanged("IsPending");
+            }
+        }
+
+        private string _ErrorMessage = null;
+        public string ErrorMessage
+        {
+            get { return _ErrorMessage; }
+            set
+            {
+                _ErrorMessage = value;
+                NotifyPropertyChanged("ErrorMessage");
+            }
+        }
+    }
+
+Свойство `IsPending` имеет значение true, когда асинхронная операция находится в режиме ожидания в службе. Свойство `ErrorMessage` сохраняет все сообщения об ошибках из службы.
+
+Наконец, добавьте методы, которые вызывают слой службы.
+
+    class LeaderboardViewModel : INotifyPropertyChanged
+    {
+        // ...
+
+        // New code:
+        // Service operations
+        public async Task GetAllPlayersAsync()
+        {
+            IsPending = true;
+            ErrorMessage = null;
+
+            try
+            {
+                IMobileServiceTable<Player> table = _client.GetTable<Player>();
+                Players = await table.OrderBy(x => x.Name).ToCollectionAsync();
+            }
+            catch (MobileServiceInvalidOperationException ex)
+            {
+                ErrorMessage = ex.Message;
+            }
+            catch (HttpRequestException ex2)
+            {
+                ErrorMessage = ex2.Message;
+            }
+            finally
+            {
+                IsPending = false;
+            }
+        }
+
+        public async Task AddPlayerAsync(Player player)
+        {
+            IsPending = true;
+            ErrorMessage = null;
+
+            try
+            {
+                IMobileServiceTable<Player> table = _client.GetTable<Player>();
+                await table.InsertAsync(player);
+                Players.Add(player);
+            }
+            catch (MobileServiceInvalidOperationException ex)
+            {
+                ErrorMessage = ex.Message;
+            }
+            catch (HttpRequestException ex2)
+            {
+                ErrorMessage = ex2.Message;
+            }
+            finally
+            {
+                IsPending = false;
+            }
+        }
+
+        public async Task SubmitScoreAsync(Player player, int score)
+        {
+            IsPending = true;
+            ErrorMessage = null;
+
+            var playerScore = new PlayerScore()
+            {
+                PlayerId = player.Id,
+                Score = score
+            }; 
+            
+            try
+            {
+                await _client.InvokeApiAsync<PlayerScore, object>("score", playerScore);
+                await GetAllRanksAsync();
+            }
+            catch (MobileServiceInvalidOperationException ex)
+            {
+                ErrorMessage = ex.Message;
+            }
+            catch (HttpRequestException ex2)
+            {
+                ErrorMessage = ex2.Message;
+            }
+            finally
+            {
+                IsPending = false;
+            }
+        }
+
+        public async Task GetAllRanksAsync()
+        {
+            IsPending = true;
+            ErrorMessage = null;
+
+            try
+            {
+                IMobileServiceTable<PlayerRank> table = _client.GetTable<PlayerRank>();
+                Ranks = await table.OrderBy(x => x.Rank).ToCollectionAsync();
+            }
+            catch (MobileServiceInvalidOperationException ex)
+            {
+                ErrorMessage = ex.Message;
+            }
+            catch (HttpRequestException ex2)
+            {
+                ErrorMessage = ex2.Message;
+            }
+            finally
+            {
+                IsPending = false;
+            }
+         }    
+    }
+
+## Добавление экземпляра MobileServiceClient
+
+Откройте файл App.xaml.cs и добавьте экземпляр **MobileServiceClient** в класс `App`.
+
+    // New code:
+    using Microsoft.WindowsAzure.MobileServices;
+
+    namespace LeaderboardApp
+    {
+        sealed partial class App : Application
+        {
+            // New code.
+            // TODO: Replace 'port' with the actual port number.
+            const string serviceUrl = "http://localhost:port/";
+            public static MobileServiceClient MobileService = new MobileServiceClient(serviceUrl);
+
+
+            // ...
+        }
+    }
+
+После локальной отладки мобильная служба запускается в IIS Express. Visual Studio назначает случайный номер порта, поэтому локальный URL-адрес указывается как <http://localhost>:*port*, где *port* — номер порта. Чтобы получить номер порта, запустите службу в Visual Studio, нажав клавишу F5 для отладки. Visual Studio запустит браузер и перейдет по URL-адресу службы. Локальный URL-адрес можно также найти в свойствах проекта в разделе **Веб-служба**.
+
+## Создание главной страницы
+
+На главной странице добавьте экземпляр модели представления. Затем задайте модель представления как **DataContext** для страницы.
+
+    public sealed partial class MainPage : Page
+    {
+        // New code:
+        LeaderboardViewModel viewModel = new LeaderboardViewModel(App.MobileService);
+
+        public MainPage()
+        {
+            this.InitializeComponent();
+            // New code:
+            this.DataContext = viewModel;
+        }
+
+       // ...
+
+Как упоминалось ранее, здесь не будет показан весь XAML для приложения. Одним из преимуществ шаблона MVVM является возможность отделить презентацию от логики приложения, чтобы можно было легко изменить пользовательский интерфейс, если вам не нравится пример приложения.
+
+Список игроков отображается в поле **ListBox**:
+
+    <ListBox Width="200" Height="400" x:Name="PlayerListBox" 
+        ItemsSource="{Binding Players}" DisplayMemberPath="Name"/>
+
+Рейтинги отображаются в поле **ListView**:
+
+    <ListView x:Name="RankingsListView" ItemsSource="{Binding Ranks}" SelectionMode="None">
+        <!-- Header and styles not shown -->
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="{Binding Path=Rank}"/>
+                    <TextBlock Text="{Binding Path=PlayerName}" Grid.Column="1"/>
+                    <TextBlock Text="{Binding Path=Score}" Grid.Column="2"/>
+                </Grid>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+
+Все привязки данных осуществляются через модель представлений.
+
+## Публикация мобильной службы
+
+В этом шаге предстоит опубликовать мобильную службу в Microsoft Azure и изменить приложение для использования веб-службы.
+
+В обозревателе решений щелкните правой кнопкой мыши проект "Список лидеров" и нажмите **Опубликовать**.
+
+![][10]
+
+В диалоговом окне **Публикация** щелкните **Мобильные службы Microsoft Azure**.
+
+![][11]
+
+Если вы еще не вошли в учетную запись Azure, щелкните кнопку **Войти**.
+
+![][12]
+
+Выберите существующую мобильную службу или нажмите кнопку **Создать**, чтобы создать новую. Затем нажмите кнопку **ОК** для публикации.
+
+![][13]
+
+В процессе публикации будет автоматически создана база данных. Вам не нужно настраивать строку подключения.
+
+Теперь вы можете подключить приложение списка лидеров к веб-службе. Потребуется следующее.
+
+-   URL-адрес службы
+-   Ключ приложения
+
+И то, и другое можно получить на портале управления Azure. На портале управления щелкните **Мобильные службы**, а затем выберите мобильную службу. URL-адрес службы указан на вкладке "Панель мониторинга". Чтобы получить ключ приложения, щелкните **Управление ключами**.
+
+![][14]
+
+В диалоговом окне **Управление ключами доступа** скопируйте значение для ключа приложения.
+
+![][15]
+
+Передайте URL-адрес службы и ключ приложения в конструктор **MobileServiceClient**.
+
+    sealed partial class App : Application
+    {
+        // TODO: Replace these strings with the real URL and key.
+        const string serviceUrl = "https://yourapp.azure-mobile.net/";
+        const string appKey = "YOUR ACCESSS KEY";
+
+        public static MobileServiceClient MobileService = new MobileServiceClient(serviceUrl, appKey);
+
+       // ...
+
+После запуска приложение подключается к реальной службе.
+
+## Дальнейшие действия
+
+-   [Дополнительные сведения о мобильных службах Azure][Дополнительные сведения о мобильных службах Azure]
+-   [Дополнительные сведения о веб-интерфейсах API][веб-интерфейсе API ASP.NET]
+-   [Обработка конфликтов записи базы данных][Обработка конфликтов записи базы данных]
+-   [Добавление push-уведомлений][Добавление push-уведомлений]; например, при добавлении нового игрока или обновлении баллов.
+-   [Приступая к работе с аутентификацией][Приступая к работе с аутентификацией]
+
+<!-- Anchors. --> 
+!-- Images. -->
+<!-- URLs. -->
+
+  [веб-интерфейсе API ASP.NET]: http://asp.net/web-api
+  [Обзор]: #overview
+  [Сведения о примере приложения]: #about-the-sample-app
+  [Добавление моделей данных]: #add-data-models
+  [Добавление контроллеров веб-интерфейса API]: #add-web-api-controllers
+  [Использование DTO для получения связанных сущностей]: #use-a-dto-to-return-related-entities
+  [Определение пользовательского API для отправки оценок]: #define-a-custom-api-to-submit-scores
+  [Создание приложения Магазина Windows]: #create-the-windows-store-app
+  [Добавление классов модели]: #add-model-classes
+  [Создание модели представления]: #create-a-view-model
+  [Добавление экземпляра MobileServiceClient]: #add-a-mobileserviceclient-instance
+  [Создание главной страницы]: #create-the-main-page
+  [Публикация мобильной службы]: #publish-your-mobile-service
+  [Дальнейшие действия]: #next-steps
+  [Visual Studio 2013 с обновлением 2]: http://go.microsoft.com/fwlink/p/?LinkID=390465
+  []: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/01leaderboard.png
+  [1]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/02leaderboard.png
+  [здесь]: http://code.msdn.microsoft.com/Leaderboard-App-with-Azure-9acf63af
+  [2]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/03leaderboard.png
+  [3]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/04leaderboard.png
+  [4]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/05leaderboard.png
+  [EF Code First]: http://msdn.microsoft.com/en-US/data/ee712907#codefirst
+  [обработку конфликтов записи базы данных]: http://azure.microsoft.com/ru-ru/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/
+  [свойство навигации]: http://msdn.microsoft.com/ru-ru/data/jj713564.aspx
+  [5]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/06leaderboard.png
+  [6]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/07leaderboard.png
+  [7]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/08leaderboard.png
+  [API REST]: http://msdn.microsoft.com/ru-ru/library/azure/jj710104.aspx
+  [Сопоставление между типами базы данных и типами клиентов на внутреннем сервере .NET с помощью AutoMapper]: http://blogs.msdn.com/b/azuremobile/archive/2014/05/19/mapping-between-database-types-and-client-type-in-the-net-backend-using-automapper.aspx
+  [Маршрутизация атрибутов в веб-интерфейсе API]: http://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2
+  [8]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/10leaderboard.png
+  [9]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/11leaderboard.png
+  [10]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/12leaderboard.png
+  [11]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/13leaderboard.png
+  [12]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/14leaderboard.png
+  [13]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/15leaderboard.png
+  [14]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/16leaderboard.png
+  [15]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/17leaderboard.png
+  [Дополнительные сведения о мобильных службах Azure]: /ru-ru/develop/mobile/resources/
+  [Обработка конфликтов записи базы данных]: /ru-ru/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/
+  [Добавление push-уведомлений]: /ru-ru/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+  [Приступая к работе с аутентификацией]: /ru-ru/develop/mobile/tutorials/get-started-with-users-dotnet

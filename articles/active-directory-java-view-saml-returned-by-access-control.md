@@ -1,194 +1,190 @@
-<properties linkid="develop-java-how-to-guides-view-saml-returned-by-acs" urlDisplayName="Просмотр кода SAML, возвращаемого службой ACS" pageTitle="Просмотр кода SAML, возвращаемого службой контроля доступа (Java)" metaKeywords="" description="Узнайте, как просмотреть код SAML, возвращаемый службой контроля доступа в приложениях Java, размещенных на платформе Azure." metaCanonical="" services="" documentationCenter="Java" title="Просмотр кода SAML, возвращаемого службой контроля доступа Azure" authors="waltpo" videoId="" scriptId="" solutions="" manager="" editor="mollybos" />
+<properties linkid="develop-java-how-to-guides-view-saml-returned-by-acs" urlDisplayName="View ACS SAML" pageTitle="View SAML Returned by the Access Control Service (Java)" metaKeywords="" description="Learn how to view SAML returned by the Access Control Service in Java applications hosted on Azure." metaCanonical="" services="" documentationCenter="Java" title="How to view SAML returned by the Azure Access Control Service" authors="robmcm" videoId="" scriptId="" solutions="" manager="wpickett" editor="mollybos" />
 
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
 
+# Как просматривать SAML, возвращенный службой Azure Access Control
 
+В этом руководстве показано, как просмотреть базовый код SAML, который возвращается в ваше приложение службой контроля доступа Azure (ACS). В этом руководстве используются материалы раздела [Проверка подлинности веб-пользователей с помощью службы контроля доступа Azure и Eclipse][Проверка подлинности веб-пользователей с помощью службы контроля доступа Azure и Eclipse], в частности, код, позволяющий отображать данные SAML. Ниже приводится пример завершенного приложения.
 
+![Пример выходных данных SAML][Пример выходных данных SAML]
 
-# Просмотр кода SAML, возвращаемого службой контроля доступа Azure
-
-В этом руководстве показано, как просмотреть базовый код SAML, который возвращается в ваше приложение службой контроля доступа Azure (ACS). В этом руководстве используются материалы раздела [Проверка подлинности веб-пользователей с помощью службы контроля доступа Azure и Eclipse][], в частности, код, позволяющий отображать данные SAML. Ниже приводится пример завершенного приложения.
-
-![Пример выходных данных SAML][saml_output]
-
-Дополнительные сведения об ACS см. в разделе [Дальнейшие действия](#next_steps).
+Дополнительные сведения об ACS см. в разделе [Дальнейшие действия][Дальнейшие действия].
 
 > [WACOM.NOTE]
 > Фильтр служб Azure Access Control (от Microsoft Open Technologies) — это CTP-версия. Эта предварительная версия программного обеспечения не располагает официальной поддержкой со стороны Microsoft Open Technologies, Inc. и корпорации Майкрософт.
 
 ## Оглавление
 
--   [Предварительные требования][]
--   [Добавление библиотеки JspWriter к пути построения и сборке развертывания][]
--   [Изменение JSP-файла для отображения кода SAML][]
--   [Выполнение приложения][]
--   [Следующие шаги][]
-
+-   [Предварительные требования][Предварительные требования]
+-   [Добавление библиотеки JspWriter к пути построения и сборке развертывания][Добавление библиотеки JspWriter к пути построения и сборке развертывания]
+-   [Изменение JSP-файла для отображения кода SAML][Изменение JSP-файла для отображения кода SAML]
+-   [Выполнение приложения][Выполнение приложения]
+-   [Дальнейшие действия][Дальнейшие действия]
 
 ## <a name="pre"></a>Предварительные требования
 
-Прежде чем выполнять задачи данного руководства, выполните образец, представленный в разделе [Проверка подлинности веб-пользователей с помощью службы контроля доступа Azure и Eclipse][], и используйте его в качестве отправной точки для дальнейшей работы.
+Прежде чем выполнять задачи данного руководства, выполните образец, представленный в разделе [Проверка подлинности веб-пользователей с помощью службы контроля доступа Azure и Eclipse][Проверка подлинности веб-пользователей с помощью службы контроля доступа Azure и Eclipse], и используйте его в качестве отправной точки для дальнейшей работы.
 
 ## <a name="add_library"></a>Добавление библиотеки JspWriter к пути построения и сборке развертывания
 
 Добавьте библиотеку, содержащую класс **javax.servlet.jsp.JspWriter**, к пути построения и сборке развертывания. Библиотека **jsp-api.jar** для сервера Tomcat размещается в папке Apache **lib**.
 
-1. В обозревателе проектов Eclipse щелкните правой кнопкой мыши **MyACSHelloWorld**, выберите **Путь построения**, затем щелкните **Настроить путь построения**, откройте вкладку **Библиотеки** и выберите **Добавить внешние JAR-файлы**.
-2. В диалоговом окне **Выбор JAR-файла** выберите нужный JAR-файл и нажмите кнопку **Открыть**.
-3. Не закрывайте диалоговое окно **Свойства MyACSHelloWorld** и щелкните **Сборка развертывания**.
-4. В диалоговом окне **Сборка веб-развертывания** нажмите кнопку **Добавить**.
-5. В диалоговом окне **Новая директива сборки** щелкните **Записи пути построения Java** и нажмите кнопку **Далее**.
-6. Выберите соответствующую библиотеку и нажмите кнопку **Готово**.
-7. Нажмите кнопку **ОК**, чтобы закрыть диалоговое окно **Свойства MyACSHelloWorld**.
+1.  В обозревателе проектов Eclipse щелкните правой кнопкой мыши по проекту **MyACSHelloWorld**, выберите **Путь построения**, затем щелкните **Настроить путь построения**, откройте вкладку **Библиотеки** и выберите **Добавить внешние JAR-файлы**.
+2.  В диалоговом окне **Выбор JAR-файла** выберите нужный JAR-файл и нажмите кнопку **Открыть**.
+3.  Не закрывайте диалоговое окно **Свойства MyACSHelloWorld** и щелкните **Сборка развертывания**.
+4.  В диалоговом окне **Сборка веб-развертывания** нажмите кнопку **Добавить**.
+5.  В диалоговом окне **Новая директива сборки** щелкните **Записи пути построения Java** и нажмите кнопку **Далее**.
+6.  Выберите соответствующую библиотеку и нажмите кнопку **Готово**.
+7.  Нажмите кнопку **ОК**, чтобы закрыть диалоговое окно **Свойства MyACSHelloWorld**.
 
 ## <a name="modify_jsp"></a>Изменение JSP-файла для отображения кода SAML
 
 Измените файл **index.jsp**, используя следующий код.
 
-	<%@ page language="java" contentType="text/html; charset=UTF-8"
-	    pageEncoding="UTF-8"%>
-	    <%@ page import="javax.xml.parsers.*"
-	             import="javax.xml.transform.*"
-	             import="org.w3c.dom.*"
-	             import="java.io.*"
-	             import="javax.xml.transform.stream.*"
-	             import="javax.xml.transform.dom.*"
-	             import="javax.xml.xpath.*"
-	             import="javax.servlet.jsp.JspWriter" %>
-	<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-	<html>
-	<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Sample ACS Filter</title>
-	</head>
-	<body>
-		<h3>SAML information from sample ACS program</h3>
-		<%!
-	    void displaySAMLInfo(Node node, String parent, JspWriter out)
-	    {
-	    
-		    try
-		    {
-				String nodeName;
-			    int nChild, i;
-			    
-			    nodeName = node.getNodeName();
-			    out.println("<br>");
-			    out.println("<u>Examining <b>" + parent + nodeName + "</b></u><br>");
-			       
-			       // Attributes.
-			       NamedNodeMap attribsMap = node.getAttributes();
-			       if (null != attribsMap)
-			       {
-	                     for (i=0; i < attribsMap.getLength(); i++)
-	                     {
-	                            Node attrib = attribsMap.item(i);
-	                            out.println("Attribute: <b>" + attrib.getNodeName() + "</b>: " + attrib.getNodeValue()  + "<br>");
-	                     }
-			       }
-			       
-			       // Child nodes.
-			       NodeList list = node.getChildNodes();
-			       if (null != list)
-	 		       {
-			              nChild = list.getLength();
-			              if (nChild > 0)
-			              {                    
-	
-				                 // If it is a text node, just print the text.
-				                 if (list.item(0).getNodeName() == "#text")
-				                 {
-	                                 out.println("Text value: <b>" + list.item(0).getTextContent() + "</b><br>");
-				                 }
-				                 else
-				                 {
-				                	 // Print out the child node names.
-				                	 out.print("Contains " + nChild + " child node(s): ");   
-		   		                     for (i=0; i < nChild; i++)
-				                     {
-					                    Node temp = list.item(i);
-					                    
-					                    out.print("<b>" + temp.getNodeName() + "</b>");
-					                    if (i < nChild - 1)
-					                    {
-					                    	// Separate the names.
-					                    	out.print(", ");
-					                    }
-					                    else
-					                    {
-					                    	// Finish the sentence.
-					                    	out.print(".");
-					                    }
-					                    	
-				                     }
-					                 out.println("<br>");
-					                 
-					                 // Process the child nodes.
-					                 for (i=0; i < nChild; i++)
-				                     {
-					                    Node temp = list.item(i);
-					                    displaySAMLInfo(temp, parent + nodeName + "\\", out);
-				                     }
-				               }
-			              }
-			          }
-			      }
-			    catch (Exception e)
-			    {
-			    	System.out.println("Exception encountered.");
-			    	e.printStackTrace();	    	
-			    }
-		    }
-	    %>
-	
-	    <%
-	    try 
-	    {
-		    String data  = (String) request.getAttribute("ACSSAML");
-		    
-		    DocumentBuilder docBuilder;
-			Document doc = null;
-			DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
-			docBuilderFactory.setIgnoringElementContentWhitespace(true);
-			docBuilder = docBuilderFactory.newDocumentBuilder();
-			byte[] xmlDATA = data.getBytes();
-			
-			ByteArrayInputStream in = new ByteArrayInputStream(xmlDATA); 
-			doc = docBuilder.parse(in);
-			doc.getDocumentElement().normalize();
-			
-			// Iterate the child nodes of the doc.
-	        NodeList list = doc.getChildNodes();
-	
-	        for (int i=0; i < list.getLength(); i++)
-	        {
-	        	displaySAMLInfo(list.item(i), "", out);
-	        }
-		}
-	    catch (Exception e) 
-	    {
-	    	out.println("Exception encountered.");
-	    	e.printStackTrace();
-		}
-	    
-	    %>
-	</body>
-	</html>
+    <%@ page language="java" contentType="text/html; charset=UTF-8"
+        pageEncoding="UTF-8"%>
+        <%@ page import="javax.xml.parsers.*"
+                 import="javax.xml.transform.*"
+                 import="org.w3c.dom.*"
+                 import="java.io.*"
+                 import="javax.xml.transform.stream.*"
+                 import="javax.xml.transform.dom.*"
+                 import="javax.xml.xpath.*"
+                 import="javax.servlet.jsp.JspWriter" %>
+    <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+    <html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <title>Sample ACS Filter</title>
+    </head>
+    <body>
+        <h3>SAML information from sample ACS program</h3>
+        <%!
+        void displaySAMLInfo(Node node, String parent, JspWriter out)
+        {
+        
+            try
+            {
+                String nodeName;
+                int nChild, i;
+                
+                nodeName = node.getNodeName();
+                out.println("<br>");
+                out.println("<u>Examining <b>" + parent + nodeName + "</b></u><br>");
+                   
+                   // Attributes.
+                   NamedNodeMap attribsMap = node.getAttributes();
+                   if (null != attribsMap)
+                   {
+                         for (i=0; i < attribsMap.getLength(); i++)
+                         {
+                                Node attrib = attribsMap.item(i);
+                                out.println("Attribute: <b>" + attrib.getNodeName() + "</b>: " + attrib.getNodeValue()  + "<br>");
+                         }
+                   }
+                   
+                   // Child nodes.
+                   NodeList list = node.getChildNodes();
+                   if (null != list)
+                   {
+                          nChild = list.getLength();
+                          if (nChild > 0)
+                          {                    
 
-## <a name="run_application"></a>Выполнение приложения
+                                 // If it is a text node, just print the text.
+                                 if (list.item(0).getNodeName() == "#text")
+                                 {
+                                     out.println("Text value: <b>" + list.item(0).getTextContent() + "</b><br>");
+                                 }
+                                 else
+                                 {
+                                     // Print out the child node names.
+                                     out.print("Contains " + nChild + " child node(s): ");   
+                                     for (i=0; i < nChild; i++)
+                                     {
+                                        Node temp = list.item(i);
+                                        
+                                        out.print("<b>" + temp.getNodeName() + "</b>");
+                                        if (i < nChild - 1)
+                                        {
+                                            // Separate the names.
+                                            out.print(", ");
+                                        }
+                                        else
+                                        {
+                                            // Finish the sentence.
+                                            out.print(".");
+                                        }
+                                            
+                                     }
+                                     out.println("<br>");
+                                     
+                                     // Process the child nodes.
+                                     for (i=0; i < nChild; i++)
+                                     {
+                                        Node temp = list.item(i);
+                                        displaySAMLInfo(temp, parent + nodeName + "\\", out);
+                                     }
+                               }
+                          }
+                      }
+                  }
+                catch (Exception e)
+                {
+                    System.out.println("Exception encountered.");
+                    e.printStackTrace();            
+                }
+            }
+        %>
 
-1. Запустите свое приложение в эмуляторе среды выполнения приложений или разверните его в среде Azure, следуя инструкциям раздела [Проверка подлинности веб-пользователей с помощью службы контроля доступа Azure и Eclipse][].
-2. Запустите браузер и откройте в нем свое веб-приложение. После того, как вы войдете в приложение, будут показаны данные SAML, включая утверждения безопасности, предоставляемые поставщиком удостоверений.
+        <%
+        try 
+        {
+            String data  = (String) request.getAttribute("ACSSAML");
+            
+            DocumentBuilder docBuilder;
+            Document doc = null;
+            DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
+            docBuilderFactory.setIgnoringElementContentWhitespace(true);
+            docBuilder = docBuilderFactory.newDocumentBuilder();
+            byte[] xmlDATA = data.getBytes();
+            
+            ByteArrayInputStream in = new ByteArrayInputStream(xmlDATA); 
+            doc = docBuilder.parse(in);
+            doc.getDocumentElement().normalize();
+            
+            // Iterate the child nodes of the doc.
+            NodeList list = doc.getChildNodes();
+
+            for (int i=0; i < list.getLength(); i++)
+            {
+                displaySAMLInfo(list.item(i), "", out);
+            }
+        }
+        catch (Exception e) 
+        {
+            out.println("Exception encountered.");
+            e.printStackTrace();
+        }
+        
+        %>
+    </body>
+    </html>
+
+## <a name="run_application"></a>Выполните приложение
+
+1.  Запустите свое приложение в эмуляторе среды выполнения приложений или разверните его в среде Azure, следуя инструкциям раздела [Проверка подлинности веб-пользователей с помощью службы контроля доступа Azure и Eclipse][Проверка подлинности веб-пользователей с помощью службы контроля доступа Azure и Eclipse].
+2.  Запустите браузер и откройте в нем свое веб-приложение. После того, как вы войдете в приложение, будут показаны данные SAML, включая утверждения безопасности, предоставляемые поставщиком удостоверений.
 
 ## <a name="next_steps"></a>Дальнейшие действия
 
-Чтобы продолжить изучение функций ACS и поэкспериментировать с более сложными сценариями, см. раздел [Служба Access Control 2.0][].
+Чтобы продолжить изучение функций ACS и поэкспериментировать с более сложными сценариями, см. раздел [Служба Access Control 2.0][Служба Access Control 2.0].
 
-[Предварительные требования]: #pre
-[Изменение JSP-файла для отображения кода SAML]: #modify_jsp
-[Добавление библиотеки JspWriter к пути построения и сборке развертывания]: #add_library
-[Выполнение приложения]: #run_application
-[Следующие шаги]: #next_steps
-[Служба Access Control 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
-[Проверка подлинности веб-пользователей с помощью службы контроля доступа Azure и Eclipse]: ../active-directory-java-authenticate-users-access-control-eclipse
-[saml_output]: ./media/active-directory-java-view-saml-returned-by-access-control/SAML_Output.png
-
+  [Проверка подлинности веб-пользователей с помощью службы контроля доступа Azure и Eclipse]: ../active-directory-java-authenticate-users-access-control-eclipse
+  [Пример выходных данных SAML]: ./media/active-directory-java-view-saml-returned-by-access-control/SAML_Output.png
+  [Дальнейшие действия]: #next_steps
+  [Предварительные требования]: #pre
+  [Добавление библиотеки JspWriter к пути построения и сборке развертывания]: #add_library
+  [Изменение JSP-файла для отображения кода SAML]: #modify_jsp
+  [Выполнение приложения]: #run_application
+  [Служба Access Control 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360

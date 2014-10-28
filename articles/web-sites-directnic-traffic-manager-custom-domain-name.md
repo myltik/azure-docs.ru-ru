@@ -1,57 +1,90 @@
-<properties title="Узнайте, как настроить веб-сайт Azure, использующий Traffic Manager, на использование доменного имени, зарегистрированного в Directnic" pageTitle="Настройка доменного имени Directnic для веб-сайта Azure, использующего Traffic Manager" metaKeywords="Windows Azure, веб-сайты Windows Azure, Directnic, Traffic Manager" description="Узнайте, как настроить веб-сайт Azure, использующий Traffic Manager, на использование доменного имени, зарегистрированного в Directnic" services="web-sites" documentationCenter="" authors="larryfr,jroth" />
+<properties title="Learn how to configure an Azure website that uses Traffic Manager to use a domain name registered with Directnic" pageTitle="Configure a Directnic domain name for an Azure website using Traffic Manager" metaKeywords="Windows Azure, Windows Azure Web Sites, Directnic, Traffic Manager" description="Learn how to configure an Azure website that uses Traffic Manager to use a domain name registered with Directnic" services="web-sites" documentationCenter="" authors="larryfr,jroth" />
 
-#Настройка имени пользовательского домена для веб-сайта Windows Azure, использующего Traffic Manager (Directnic)
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr,jroth"></tags>
+
+# Настройка имени пользовательского домена для веб-сайта Windows Azure, использующего Traffic Manager (Directnic)
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/ru-ru/documentation/articles/web-sites-custom-domain-name" title="Пользовательский домен">Пользовательский домен</a><a href="/ru-ru/documentation/articles/web-sites-godaddy-custom-domain-name" title="GoDaddy">GoDaddy</a><a href="/ru-ru/documentation/articles/web-sites-network-solutions-custom-domain-name" title="Network Solutions">Network Solutions</a><a href="/ru-ru/documentation/articles/web-sites-registerdotcom-custom-domain-name" title="Register.com">Register.com</a><a href="/ru-ru/documentation/articles/web-sites-enom-custom-domain-name" title="Enom">Enom</a><a href="/ru-ru/documentation/articles/web-sites-moniker-custom-domain-name" title="Moniker">Moniker</a><a href="/ru-ru/documentation/articles/web-sites-dotster-custom-domain-name" title="Dotster">Dotster</a><a href="/ru-ru/documentation/articles/web-sites-domaindiscover-custom-domain-name" title="DomainDiscover">DomainDiscover</a><a href="/ru-ru/documentation/articles/web-sites-directnic-custom-domain-name" title="Directnic" class="current">Directnic</a></div>
-<div class="dev-center-tutorial-subselector"><a href="/ru-ru/documentation/articles/web-sites-directnic-custom-domain-name/" title="Веб-сайты">Веб-сайт</a> | <a href="/ru-ru/documentation/articles/web-sites-directnic-traffic-manager-custom-domain-name/" title="Использование Traffic Manager веб-сайтом" class="current">Использование Traffic Manager веб-сайтом</a></div>
 
+<div class="dev-center-tutorial-subselector"><a href="/ru-ru/documentation/articles/web-sites-directnic-custom-domain-name/" title="Веб-сайты">Веб-сайт</a> | <a href="/ru-ru/documentation/articles/web-sites-directnic-traffic-manager-custom-domain-name/" title="Веб-сайт, использующий Traffic Manager" class="current">Веб-сайт, использующий Traffic Manager</a></div>
 
-[WACOM.INCLUDE [intro](../includes/custom-dns-web-site-intro-traffic-manager.md)]
+[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough][websites-cloud-services-css-guided-walkthrough]]
 
-В данной статье приводятся инструкции по использованию имени пользовательского домена, приобретенного у [DirectNic.com](https://directnic.com), для веб-сайтов Azure.
+[WACOM.INCLUDE [intro][intro]]
 
-[WACOM.INCLUDE [tmwebsitefooter](../includes/custom-dns-web-site-traffic-manager-notes.md)]
+В данной статье приводятся инструкции по использованию имени пользовательского домена, приобретенного у [DirectNic.com][DirectNic.com], для веб-сайтов Azure.
 
-[WACOM.INCLUDE [introfooter](../includes/custom-dns-web-site-intro-notes.md)]
+[WACOM.INCLUDE [tmwebsitefooter][tmwebsitefooter]]
+
+[WACOM.INCLUDE [introfooter][introfooter]]
 
 Содержание:
 
--   [Общие сведения о записях DNS](#understanding-records)
--   [Настройка веб-сайтов для стандартного режима](#bkmk_configsharedmode)
--   [Добавление записи DNS для пользовательского домена](#bkmk_configurecname)
--   [Включение Traffic Manager для веб-сайта](#enabledomain)
+-   [Общие сведения о записях DNS][Общие сведения о записях DNS]
+-   [Настройка веб-сайтов для стандартного режима][Настройка веб-сайтов для стандартного режима]
+-   [Добавление записи DNS для пользовательского домена][Добавление записи DNS для пользовательского домена]
+-   [Включение Traffic Manager для веб-сайта][Включение Traffic Manager для веб-сайта]
 
-<h2><a name="understanding-records"></a>Общие сведения о записях DNS</h2>
+## <a name="understanding-records"></a>Общие сведения о записях DNS
 
-[WACOM.INCLUDE [understandingdns](../includes/custom-dns-web-site-understanding-dns-traffic-manager.md)]
+[WACOM.INCLUDE [understandingdns][understandingdns]]
 
-<h2><a name="bkmk_configsharedmode"></a>Настройка веб-сайтов для стандартного режима</h2>
+## <a name="bkmk_configsharedmode"></a>Настройка веб-сайтов для стандартного режима
 
-[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes-traffic-manager.md)]
+[WACOM.INCLUDE [modes][modes]]
 
-<a name="bkmk_configurecname"></a><h2>Добавление записи DNS для пользовательского домена</h2>
+<a name="bkmk_configurecname"></a>
 
+## Добавление записи DNS для пользовательского домена
+
+</p>
 Чтобы сопоставить пользовательский домен с веб-сайтом Azure, необходимо добавить новую запись в таблицу DNS для этого настраиваемого домена с помощью средств, предоставляемых Directnic. Выполните следующие действия, чтобы найти средства DNS для Directnic.com.
 
-1. Выполните вход на Directnic.com с использованием своей учетной записи и выберите **Мои службы** и **Домены**. 
+1.  Выполните вход на Directnic.com с использованием своей учетной записи и выберите **Мои службы** и **Домены**.
 
-    ![Меню служб Directnic](.\media\web-sites-directnic-custom-domain-name\Directnic_DomainMenu.png)
+    ![Меню служб Directnic][Меню служб Directnic]
 
-2. Щелкните имя домена, которое вы хотите использовать для веб-сайта Azure.
+2.  Щелкните по имени домена, которое вы хотите использовать для веб-сайта Azure.
 
-2. На странице управления для вашего домена нажмите кнопку **Управление** для **DNS** в области **Службы**.
+3.  На странице управления для вашего домена нажмите кнопку **Управление** для **DNS** в области **Службы**.
 
-    ![Панель служб](.\media\web-sites-directnic-custom-domain-name\Directnic_DomainManagement.png)
+    ![Панель служб][Панель служб]
 
-4. Добавьте записи DNS, заполнив поля **Тип**, **Имя** и **Данные**. Закончив, нажмите кнопку **Добавить запись**.
+4.  Добавьте записи DNS, заполнив поля **Тип**, **Имя** и **Данные**. Закончив, нажмите кнопку **Добавить запись**.
 
-    ![](.\media\web-sites-directnic-custom-domain-name\Directnic_DNS_TM.png)
+    ![][]
 
-    * При добавлении записи CNAME необходимо задать в поле **Имя** тот поддомен, который вы хотите использовать. Например, **www**. Необходимо задать в поле **Данные** доменное имя **.trafficmanager.net** профиля Traffic Manager, используемого для веб-сайта Azure. Например, **contoso.trafficmanager.net**.
+    -   При добавлении записи CNAME необходимо задать в поле **Имя** тот поддомен, который вы хотите использовать. Например, **www**. Необходимо задать в поле **Данные** доменное имя **.trafficmanager.net** профиля Traffic Manager, используемого для веб-сайта Azure. Например, **contoso.trafficmanager.net**.
 
-	    > [WACOM.NOTE] Записи CNAME необходимо использовать только при сопоставлении имени пользовательского домена с веб-сайтом, для которого реализована балансировка нагрузки с помощью Traffic Manager.
+        > [WACOM.NOTE] Записи CNAME необходимо использовать только при сопоставлении имени пользовательского домена с веб-сайтом, для которого реализована балансировка нагрузки с помощью Traffic Manager.
 
-<h2><a name="enabledomain"></a>Включение Traffic Manager для веб-сайта</h2>
+## <a name="enabledomain"></a>Включение Traffic Manager на веб-сайте
 
-[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-enable-on-traffic-manager.md)]
+[WACOM.INCLUDE [modes][1]]
 
+  [Пользовательский домен]: /ru-ru/documentation/articles/web-sites-custom-domain-name "Пользовательский домен"
+  [GoDaddy]: /ru-ru/documentation/articles/web-sites-godaddy-custom-domain-name "GoDaddy"
+  [Network Solutions]: /ru-ru/documentation/articles/web-sites-network-solutions-custom-domain-name "Network Solutions"
+  [Register.com]: /ru-ru/documentation/articles/web-sites-registerdotcom-custom-domain-name "Register.com"
+  [Enom]: /ru-ru/documentation/articles/web-sites-enom-custom-domain-name "Enom"
+  [Moniker]: /ru-ru/documentation/articles/web-sites-moniker-custom-domain-name "Moniker"
+  [Dotster]: /ru-ru/documentation/articles/web-sites-dotster-custom-domain-name "Dotster"
+  [DomainDiscover]: /ru-ru/documentation/articles/web-sites-domaindiscover-custom-domain-name "DomainDiscover"
+  [Directnic]: /ru-ru/documentation/articles/web-sites-directnic-custom-domain-name "Directnic"
+  [Веб-сайт]: /ru-ru/documentation/articles/web-sites-directnic-custom-domain-name/ "Веб-сайты"
+  [Веб-сайт, использующий Traffic Manager]: /ru-ru/documentation/articles/web-sites-directnic-traffic-manager-custom-domain-name/ "Веб-сайт, использующий Traffic Manager"
+  [websites-cloud-services-css-guided-walkthrough]: ../includes/websites-cloud-services-css-guided-walkthrough.md
+  [intro]: ../includes/custom-dns-web-site-intro-traffic-manager.md
+  [DirectNic.com]: https://directnic.com
+  [tmwebsitefooter]: ../includes/custom-dns-web-site-traffic-manager-notes.md
+  [introfooter]: ../includes/custom-dns-web-site-intro-notes.md
+  [Общие сведения о записях DNS]: #understanding-records
+  [Настройка веб-сайтов для стандартного режима]: #bkmk_configsharedmode
+  [Добавление записи DNS для пользовательского домена]: #bkmk_configurecname
+  [Включение Traffic Manager для веб-сайта]: #enabledomain
+  [understandingdns]: ../includes/custom-dns-web-site-understanding-dns-traffic-manager.md
+  [modes]: ../includes/custom-dns-web-site-modes-traffic-manager.md
+  [Меню служб Directnic]: .\media\web-sites-directnic-custom-domain-name\Directnic_DomainMenu.png
+  [Панель служб]: .\media\web-sites-directnic-custom-domain-name\Directnic_DomainManagement.png
+  []: .\media\web-sites-directnic-custom-domain-name\Directnic_DNS_TM.png
+  [1]: ../includes/custom-dns-web-site-enable-on-traffic-manager.md

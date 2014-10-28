@@ -1,47 +1,50 @@
-<properties linkid="develop-notificationhubs-tutorials-get-started-kindle" urlDisplayName="Приступая к работе" pageTitle="Приступая к работе с концентраторами уведомлений Azure" metaKeywords="" description="Узнайте, как использовать концентраторы уведомлений Azure для отправки push-уведомлений." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Приступая к работе с концентраторами уведомлений" authors="sethm" solutions="" manager="dwrede" editor="" />
+<properties linkid="develop-notificationhubs-tutorials-get-started-kindle" urlDisplayName="Get Started" pageTitle="Get Started with Azure Notification Hubs" metaKeywords="" description="Learn how to use Azure Notification Hubs to send push notifications." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Get started with Notification Hubs" authors="sethm" solutions="" manager="dwrede" editor="" />
+
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-kindle" ms.devlang="Java" ms.topic="article" ms.date="09/24/2014" ms.author="sethm"></tags>
+
 # Приступая к работе с концентраторами уведомлений
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/ru-ru/manage/services/notification-hubs/getting-started-windows-dotnet" title="Магазин Windows C#">Магазин Windows C#</a><a href="/ru-ru/documentation/articles/notification-hubs-windows-phone-get-started/" title="Windows Phone">Windows Phone</a><a href="/ru-ru/documentation/articles/notification-hubs-ios-get-started/" title="iOS">iOS</a><a href="/ru-ru/documentation/articles/notification-hubs-android-get-started/" title="Android">Android</a><a href="/ru-ru/documentation/articles/notification-hubs-kindle-get-started/" title="Kindle" class="current">Kindle</a><a href="/ru-ru/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/" title="Xamarin.iOS">Xamarin.iOS</a><a href="/ru-ru/documentation/articles/partner-xamarin-notification-hubs-android-get-started/" title="Xamarin.Android">Xamarin.Android</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/ru-ru/documentation/articles/notification-hubs-windows-store-dotnet-get-started/" title="Windows Universal">Windows Universal</a><a href="/ru-ru/documentation/articles/notification-hubs-windows-phone-get-started/" title="Windows Phone">Windows Phone</a><a href="/ru-ru/documentation/articles/notification-hubs-ios-get-started/" title="iOS">iOS</a><a href="/ru-ru/documentation/articles/notification-hubs-android-get-started/" title="Android">Android</a><a href="/ru-ru/documentation/articles/notification-hubs-kindle-get-started/" title="Kindle" class="current">Kindle</a><a href="/ru-ru/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/" title="Xamarin.iOS">Xamarin.iOS</a><a href="/ru-ru/documentation/articles/partner-xamarin-notification-hubs-android-get-started/" title="Xamarin.Android">Xamarin.Android</a></div>
 
-В этом разделе показано, как использовать концентраторы уведомлений Azure для отправки push-уведомлений в приложение Kindle. 
+В этом разделе показано, как использовать концентраторы уведомлений Azure для отправки push-уведомлений в приложение Kindle.
 В этом учебнике вы создаете пустое приложение Kindle, которое получает push-уведомления с помощью Google Cloud Messaging (GCM).
 
 Для работы с данным учебником требуется следующее:
 
-+ Пакет Android SDK (предполагается, что вы будете использовать Eclipse), который можно загрузить <a href="http://go.microsoft.com/fwlink/?LinkId=389797">здесь</a>.
-+ Настройка среды разработки для Kindle, для чего нужно выполнить действия <a href="https://developer.amazon.com/appsandservices/resources/development-tools/ide-tools/tech-docs/01-setting-up-your-development-environment">здесь</a>.
+-   Пакет Android SDK (предполагается, что вы будете использовать Eclipse), который можно загрузить [здесь][здесь].
+-   Настройка среды разработки для Kindle, для чего нужно выполнить действия [здесь][1].
 
-##Добавление нового приложения на портал разработчика
+## Добавление нового приложения на портал разработчика
 
-1. Для начала создайте приложение на [портале разработчика].
+1.  Для начала создайте приложение на [портале разработчика][портале разработчика].
 
-	![][0]
+    ![][]
 
-2. Скопируйте **Ключ приложения**.
+2.  Скопируйте **ключ приложения**.
 
-	![][1]
+    ![][2]
 
-3. На портале щелкните название вашего приложения, затем перейдите на вкладку **Device Messaging**.
+3.  На портале щелкните название вашего приложения, затем перейдите на вкладку **Device Messaging**.
 
-	![][2]
+    ![][3]
 
-4. Щелкните **Создать новый профиль безопасности**, затем создайте профиль безопасности (например, **профиль безопасности TestAdm**). Нажмите кнопку **Сохранить**.
+4.  Щелкните **Создать новый профиль безопасности**, затем создайте профиль безопасности (например, **профиль безопасности TestAdm**). Нажмите кнопку **Сохранить**.
 
-	![][3]
+    ![][4]
 
-5. Щелкните "Профили безопасности" для просмотра только что созданного профиля. Скопируйте значения **Код клиента** и **Секрет клиента** для последующего использования.
+5.  Щелкните "Профили безопасности" для просмотра только что созданного профиля. Скопируйте значения **Код клиента** и **Секрет клиента** для последующего использования.
 
-	![][4]
+    ![][5]
 
 ## Создание ключа API
 
-1. Откройте командную строку с привилегиями администратора.
-2. Перейдите в папку пакета Android SDK.
-3. Введите следующую команду:
+1.  Откройте командную строку с привилегиями администратора.
+2.  Перейдите в папку пакета Android SDK.
+3.  Введите следующую команду:
 
-    	keytool -list -v -alias androiddebugkey -keystore ./debug.keystore
+        keytool -list -v -alias androiddebugkey -keystore ./debug.keystore
 
-	![][5]
+    ![][6]
 
 4.  Для пароля **keystore** введите **android**.
 
@@ -60,207 +63,215 @@
 
 Добавьте библиотеки ADM в проект Eclipse.
 
-1. Чтобы получить библиотеку ADM, [загрузите пакет SDK]. Распакуйте ZIP-файл пакета SDK.
-2. В Eclipse щелкните правой кнопкой мыши проект и выберите **Свойства**. Слева выберите **Путь построения Java**, затем сверху выберите **Библиотеки **. Щелкните **Добавить внешний JAR-файл** и выберите файл `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` из каталога, в который вы распаковали пакет Amazon SDK.
-3. Загрузите пакет NotificationHubs Android SDK (ссылка).
-4. Извлеките содержимое пакета, а затем перетащите файл `notification-hubs-sdk.jar` в папку `libs `в Eclipse.
+1.  Чтобы получить библиотеку ADM, [загрузите пакет SDK][загрузите пакет SDK]. Распакуйте ZIP-файл пакета SDK.
+2.  В Eclipse щелкните правой кнопкой мыши по проекту и выберите **Свойства**. Слева выберите **Путь построения Java**, затем сверху выберите **Библиотеки** . Щелкните **Добавить внешний JAR-файл** и выберите файл `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` из каталога, в который вы распаковали пакет Amazon SDK.
+3.  Загрузите пакет NotificationHubs Android SDK (ссылка).
+4.  Извлеките содержимое пакета, а затем перетащите файл `notification-hubs-sdk.jar` в папку `libs` в Eclipse.
 
 Изменение манифеста приложения для поддержки ADM
 
-1. Добавьте пространство имен Amazon в корневом элементе манифеста.
+1.  Добавьте пространство имен Amazon в корневом элементе манифеста.
 
+        xmlns:amazon="http://schemas.amazon.com/apk/res/android"
 
-		xmlns:amazon="http://schemas.amazon.com/apk/res/android"
+2.  Добавьте разрешения в качестве первого элемента в элементе манифеста. Вместо **[YOUR PACKAGE NAME]** укажите пакет, который используется для создания приложения.
 
-2. Добавьте разрешения в качестве первого элемента в элементе манифеста. Вместо **[YOUR PACKAGE NAME]** укажите пакет, который используется для создания приложения. 
+        <permission
+         android:name="[YOUR PACKAGE NAME].permission.RECEIVE_ADM_MESSAGE"
+         android:protectionLevel="signature" />
 
-		<permission
-	     android:name="[YOUR PACKAGE NAME].permission.RECEIVE_ADM_MESSAGE"
-	     android:protectionLevel="signature" />
+        <uses-permission android:name="android.permission.INTERNET"/>
 
-		<uses-permission android:name="android.permission.INTERNET"/>
+        <uses-permission android:name="[YOUR PACKAGE NAME].permission.RECEIVE_ADM_MESSAGE" />
 
-		<uses-permission android:name="[YOUR PACKAGE NAME].permission.RECEIVE_ADM_MESSAGE" />
- 
-		<!-- This permission allows your app access to receive push notifications
-		from ADM. -->
-		<uses-permission android:name="com.amazon.device.messaging.permission.RECEIVE" />
- 
-		<!-- ADM uses WAKE_LOCK to keep the processor from sleeping when a message is received. -->
-		<uses-permission android:name="android.permission.WAKE_LOCK" />
+        <!-- This permission allows your app access to receive push notifications
+        from ADM. -->
+        <uses-permission android:name="com.amazon.device.messaging.permission.RECEIVE" />
 
-3. Вставьте приведенный ниже элемент в качестве первого потомка элемента приложения. Не забудьте заменить **[YOUR SERVICE NAME]** именем обработчика сообщений ADM, который будет создан в следующем разделе (включая пакет), а **[YOUR PACKAGE NAME]** — именем пакета, с помощью которого создается приложение.
+        <!-- ADM uses WAKE_LOCK to keep the processor from sleeping when a message is received. -->
+        <uses-permission android:name="android.permission.WAKE_LOCK" />
 
-		<amazon:enable-feature
-		      android:name="com.amazon.device.messaging"
-		             android:required="true"/>
-		<service
-		    android:name="[YOUR SERVICE NAME]"
-		    android:exported="false" />
-		 
-		<receiver
-		    android:name="[YOUR SERVICE NAME]$Receiver"
-		 
-		    <!-- This permission ensures that only ADM can send your app registration broadcasts. -->
-		    android:permission="com.amazon.device.messaging.permission.SEND" >
-		 
-		    <!-- To interact with ADM, your app must listen for the following intents. -->
-		    <intent-filter>
-		  <action android:name="com.amazon.device.messaging.intent.REGISTRATION" />
-		  <action android:name="com.amazon.device.messaging.intent.RECEIVE" />
-		 
-		  <!-- Replace the name in the category tag with your app's package name. -->
-		  <category android:name="[YOUR PACKAGE NAME]" />
-		    </intent-filter>
-		</receiver>
+3.  Вставьте приведенный ниже элемент в качестве первого потомка элемента приложения. Не забудьте заменить **[YOUR SERVICE NAME]** именем обработчика сообщений ADM, который будет создан в следующем разделе (включая пакет), а **[YOUR PACKAGE NAME]** именем пакета, с помощью которого создается приложение.
+
+        <amazon:enable-feature
+              android:name="com.amazon.device.messaging"
+                     android:required="true"/>
+        <service
+            android:name="[YOUR SERVICE NAME]"
+            android:exported="false" />
+
+        <receiver
+            android:name="[YOUR SERVICE NAME]$Receiver"
+
+            <!-- This permission ensures that only ADM can send your app registration broadcasts. -->
+            android:permission="com.amazon.device.messaging.permission.SEND" >
+
+            <!-- To interact with ADM, your app must listen for the following intents. -->
+            <intent-filter>
+          <action android:name="com.amazon.device.messaging.intent.REGISTRATION" />
+          <action android:name="com.amazon.device.messaging.intent.RECEIVE" />
+
+          <!-- Replace the name in the category tag with your app's package name. -->
+          <category android:name="[YOUR PACKAGE NAME]" />
+            </intent-filter>
+        </receiver>
 
 ## Создание обработчика сообщений ADM
 
-1. Создайте новый класс с наследованием из `com.amazon.device.messaging.ADMMessageHandlerBase` и назовите его `MyADMMessageHandler`, как показано на следующем рисунке:
+1.  Создайте новый класс с наследованием от `com.amazon.device.messaging.ADMMessageHandlerBase` и назовите его `MyADMMessageHandler`, как показано на следующем рисунке.
 
-	![][6]
+    ![][7]
 
-2. Добавьте следующие инструкции `import`:
+2.  Добавьте следующие операторы `import`:
 
-		import android.app.NotificationManager;
-		import android.app.PendingIntent;
-		import android.content.Context;
-		import android.content.Intent;
-		import android.support.v4.app.NotificationCompat;
-		import com.amazon.device.messaging.ADMMessageReceiver;
-		import com.microsoft.windowsazure.messaging.NotificationHub
+        import android.app.NotificationManager;
+        import android.app.PendingIntent;
+        import android.content.Context;
+        import android.content.Intent;
+        import android.support.v4.app.NotificationCompat;
+        import com.amazon.device.messaging.ADMMessageReceiver;
+        import com.microsoft.windowsazure.messaging.NotificationHub
 
-3. Добавьте в созданный класс приведенный ниже код. Не забудьте подставить имя концентратора и строку подключения (listen).
+3.  Добавьте в созданный класс приведенный ниже код. Не забудьте подставить имя концентратора и строку подключения (listen).
 
-		public static final int NOTIFICATION_ID = 1;
-		private NotificationManager mNotificationManager;
-		NotificationCompat.Builder builder;
-      	private static NotificationHub hub;
-		public static NotificationHub getNotificationHub(Context context) {
-			Log.v("com.wa.hellokindlefire", "getNotificationHub");
-			if (hub == null) {
-				hub = new NotificationHub("[hub name]", "[listen connection string]", context);
-			}
-			return hub;
-		}
+        public static final int NOTIFICATION_ID = 1;
+        private NotificationManager mNotificationManager;
+        NotificationCompat.Builder builder;
+        private static NotificationHub hub;
+        public static NotificationHub getNotificationHub(Context context) {
+            Log.v("com.wa.hellokindlefire", "getNotificationHub");
+            if (hub == null) {
+                hub = new NotificationHub("[hub name]", "[listen connection string]", context);
+            }
+            return hub;
+        }
 
-		public MyADMMessageHandler() {
-				super("MyADMMessageHandler");
-			}
-	
-			public static class Receiver extends ADMMessageReceiver
-    		{
-        		public Receiver()
-        		{
-            		super(MyADMMessageHandler.class);
-        		}
-    		}
-	
-			private void sendNotification(String msg) {
-				Context ctx = getApplicationContext();
-		
-	   		 mNotificationManager = (NotificationManager)
-	    			ctx.getSystemService(Context.NOTIFICATION_SERVICE);
+        public MyADMMessageHandler() {
+                super("MyADMMessageHandler");
+            }
 
-	    	PendingIntent contentIntent = PendingIntent.getActivity(ctx, 0,
-	          	new Intent(ctx, MainActivity.class), 0);
+            public static class Receiver extends ADMMessageReceiver
+            {
+                public Receiver()
+                {
+                    super(MyADMMessageHandler.class);
+                }
+            }
 
-	    	NotificationCompat.Builder mBuilder =
-	          	new NotificationCompat.Builder(ctx)
-	          	.setSmallIcon(R.drawable.ic_launcher)
-	          	.setContentTitle("Notification Hub Demo")
-	          	.setStyle(new NotificationCompat.BigTextStyle()
-	                     .bigText(msg))
-	          	.setContentText(msg);
+            private void sendNotification(String msg) {
+                Context ctx = getApplicationContext();
 
-	     	mBuilder.setContentIntent(contentIntent);
-	     	mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
-		}
+             mNotificationManager = (NotificationManager)
+                    ctx.getSystemService(Context.NOTIFICATION_SERVICE);
 
-4. В метод `OnMessage()` добавьте следующий код:
-	
-		String nhMessage = intent.getExtras().getString("msg");
-		sendNotification(nhMessage);
- 
-5. В метод `OnRegistered` добавьте следующий код:
+            PendingIntent contentIntent = PendingIntent.getActivity(ctx, 0,
+                new Intent(ctx, MainActivity.class), 0);
 
-			try {
-		getNotificationHub(getApplicationContext()).register(registrationId);
-			} catch (Exception e) {
-		Log.e("[your package name]", "Fail onRegister: " + e.getMessage(), e);
-			}
+            NotificationCompat.Builder mBuilder =
+                new NotificationCompat.Builder(ctx)
+                .setSmallIcon(R.drawable.ic_launcher)
+                .setContentTitle("Notification Hub Demo")
+                .setStyle(new NotificationCompat.BigTextStyle()
+                         .bigText(msg))
+                .setContentText(msg);
 
-6.	В метод `OnUnregistered` добавьте следующий код:
+            mBuilder.setContentIntent(contentIntent);
+            mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
+        }
 
-			try {
-				getNotificationHub(getApplicationContext()).unregister();
-			} catch (Exception e) {
-				Log.e("[your package name]", "Fail onUnregister: " + e.getMessage(), e);
-			}
+4.  Добавьте в метод `OnMessage()` следующий код:
 
-7. Затем в методе `MainActivity` добавьте следующую инструкцию import:
+        String nhMessage = intent.getExtras().getString("msg");
+        sendNotification(nhMessage);
 
-		import com.amazon.device.messaging.ADM;				
+5.  Добавьте в метод `OnRegistered` следующий код:
 
-8. Теперь в конце метода `OnCreate` добавьте следующий код:
+            try {
+        getNotificationHub(getApplicationContext()).register(registrationId);
+            } catch (Exception e) {
+        Log.e("[your package name]", "Fail onRegister: " + e.getMessage(), e);
+            }
 
-		final ADM adm = new ADM(this);
-		if (adm.getRegistrationId() == null)
-		{
-		   adm.startRegister();
-		} else {
-			new AsyncTask() {
-			      @Override
-			      protected Object doInBackground(Object... params) {
-			         try {			        	 MyADMMessageHandler.getNotificationHub(getApplicationContext()).register(adm.getRegistrationId());
-			         } catch (Exception e) {
-			        	 Log.e("com.wa.hellokindlefire", "Failed registration with hub", e);
-			        	 return e;
-			         }
-			         return null;
-			     }
-			   }.execute(null, null, null);
-		}
+6.  Добавьте в метод `OnUnregistered` следующий код:
+
+            try {
+                getNotificationHub(getApplicationContext()).unregister();
+            } catch (Exception e) {
+                Log.e("[your package name]", "Fail onUnregister: " + e.getMessage(), e);
+            }
+
+7.  Затем в методе `MainActivity` добавьте следующую инструкцию import:
+
+        import com.amazon.device.messaging.ADM;             
+
+8.  Теперь в конце метода `OnCreate` добавьте следующий код:
+
+        final ADM adm = new ADM(this);
+        if (adm.getRegistrationId() == null)
+        {
+           adm.startRegister();
+        } else {
+            new AsyncTask() {
+                  @Override
+                  protected Object doInBackground(Object... params) {
+                     try {                       MyADMMessageHandler.getNotificationHub(getApplicationContext()).register(adm.getRegistrationId());
+                     } catch (Exception e) {
+                         Log.e("com.wa.hellokindlefire", "Failed registration with hub", e);
+                         return e;
+                     }
+                     return null;
+                 }
+               }.execute(null, null, null);
+        }
 
 ## Добавление ключа API в приложение
 
-1. В Eclipse создайте новый файл с именем **api_key.txt** в активах каталога проекта.
-2. Откройте файл и скопируйте **Ключ API**, созданный на портале разработчика Amazon.
+1.  В Eclipse создайте новый файл с именем **api\_key.txt** в активах каталога проекта.
+2.  Откройте файл и скопируйте **Ключ API**, созданный на портале разработчика Amazon.
 
 ## Запуск приложения
 
-1. Запустите эмулятор.
-2. В эмуляторе сверху щелкните **Параметры**, затем щелкните **Моя учетная запись** и зарегистрируйтесь с использованием действующей учетной записи Amazon.
-3. В Eclipse запустите приложение.
+1.  Запустите эмулятор.
+2.  В эмуляторе сверху щелкните **Параметры**, затем **Моя учетная запись** и зарегистрируйтесь с использованием действующей учетной записи Amazon.
+3.  В Eclipse запустите приложение.
 
 <div class="dev-callout"><b>Примечание.</b>
-    <p>Если возникает проблема, проверьте время эмулятора (или устройства). Значение времени должно быть точным. Для изменения времени эмулятора Kindle выполните следующую команду из каталога средств для платформы Android SDK: </p>
+    <p>Если возникает проблема, проверьте время эмулятора (или устройства). Значение времени должно быть точным. Для изменения времени эмулятора Kindle выполните следующую команду из каталога средств для платформы Android SDK:  </p>
 </div>
-		adb shell  date -s "yyyymmdd.hhmmss"
+
+        adb shell  date -s "yyyymmdd.hhmmss"
 
 ## Отправка сообщения
 
 Чтобы отправить сообщение с использованием .NET, используйте следующий код:
 
-		static void Main(string[] args)
+        static void Main(string[] args)
         {
             NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("[conn string]", "[hub name]");
 
             hub.SendAdmNativeNotificationAsync("{\"data\":{\"msg\" : \"Hello from .NET!\"}}").Wait();
         }
 
-![][7]
+![][8]
 
 <!-- URLs. -->
-[портале разработчика]: https://developer.amazon.com/home.html
-[загрузите пакет SDK]: https://developer.amazon.com/public/resources/development-tools/sdk
 
-[0]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal1.png
-[1]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal2.png
-[2]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal3.png
-[3]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal4.png
-[4]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal5.png
-[5]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-cmd-window.png
-[6]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-new-java-class.png
-[7]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-notification.png
-
+  [Windows Universal]: /ru-ru/documentation/articles/notification-hubs-windows-store-dotnet-get-started/ "Windows Universal"
+  [Windows Phone]: /ru-ru/documentation/articles/notification-hubs-windows-phone-get-started/ "Windows Phone"
+  [iOS]: /ru-ru/documentation/articles/notification-hubs-ios-get-started/ "iOS"
+  [Android]: /ru-ru/documentation/articles/notification-hubs-android-get-started/ "Android"
+  [Kindle]: /ru-ru/documentation/articles/notification-hubs-kindle-get-started/ "Kindle"
+  [Xamarin.iOS]: /ru-ru/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/ "Xamarin.iOS"
+  [Xamarin.Android]: /ru-ru/documentation/articles/partner-xamarin-notification-hubs-android-get-started/ "Xamarin.Android"
+  [здесь]: http://go.microsoft.com/fwlink/?LinkId=389797
+  [1]: https://developer.amazon.com/appsandservices/resources/development-tools/ide-tools/tech-docs/01-setting-up-your-development-environment
+  [портале разработчика]: https://developer.amazon.com/home.html
+  []: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal1.png
+  [2]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal2.png
+  [3]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal3.png
+  [4]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal4.png
+  [5]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal5.png
+  [6]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-cmd-window.png
+  [загрузите пакет SDK]: https://developer.amazon.com/public/resources/development-tools/sdk
+  [7]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-new-java-class.png
+  [8]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-notification.png

@@ -1,0 +1,113 @@
+<properties linkid="Azure Site Recovery Overview" urlDisplayName="Azure Site Recovery Overview" pageTitle="Azure Site Recovery Overview" metaKeywords="Azure Site Recovery, on-premises, clouds, Azure, VMM, Hyper-V" description="Deploy Azure Site Recovery to protect virtual machines on Hyper-V host servers that are located in VMM clouds. You can deploy from one on-premises site to another, or from an on-premises site to Azure." metaCanonical="" umbracoNaviHide="0" disqusComments="1" title="Azure Site Recovery Overview" editor="jimbe" manager="cfreeman" authors="raynew" />
+
+<tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="raynew"></tags>
+
+# Обзор Azure Site Recovery
+
+<div class="dev-callout">
+
+Разверните Azure Site Recovery для защиты виртуальных машин, работающих на серверах узлов Hyper-V, которые размещены в облаках System Center Virtual Machine Manager (VMM). Существует два способа развертывания Azure Site Recovery.
+<ul>
+<li><b>Защита локальной среды в локальной среде</b> — репликация виртуальных машин выполняется с одного локального сайта на другой. Параметры защиты настраиваются и включаются в хранилищах Azure Site Recovery. Данные виртуальной машины реплицируются с исходного сервера узла Hyper-V на целевой сервер узла. Azure Site Recovery выполняет оркестрацию этого процесса. Учебник для этого сценария см. в статье <a href="http://go.microsoft.com/fwlink/?LinkId=398765">Развертывание Azure Site Recovery: защита от локальной среды до локальной среды</a>.</li>
+<li><b>Защита локальной среды в Azure</b> — репликация виртуальных машин выполняется с локального сайта в Microsoft Azure. Параметры защиты настраиваются и включаются в хранилищах Azure Site Recovery. Azure Site Recovery выполняет оркестрацию этого процесса, и реплицированные данные виртуальных машин сохраняются в хранилище Azure. Учебник для этого сценария см. в статье <a href="http://go.microsoft.com/fwlink/?LinkId=398764">Развертывание Azure Site Recovery: из локальной среды в среду Azure: защита</a>.</li>
+</ul>
+
+<p>В следующей таблице сравниваются эти два варианта развертывания.</p>
+
+<table>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Функция</th>
+<th align="left">Защита локальной среды в Azure</th>
+<th align="left">Защита локальной среды в локальной среде</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Данные в Azure Site Recovery</td>
+<td align="left">Облачные метаданные отправляются в Azure Site Recovery. Реплицированные данные хранятся в хранилище Azure.</td>
+<td align="left">Облачные метаданные отправляются в Azure Site Recovery. Реплицированные данные хранятся на целевом сервере узла Hyper-V.</td>
+</tr>
+<tr class="even">
+<td align="left">Требования к хранилищу</td>
+<td align="left"><p>Хранилищу необходим сертификат, соответствующий <a href="%20http://go.microsoft.com/fwlink/?LinkId=386485">требованиям к хранилищу</a>.</p>
+<p>Ключ хранилища создается автоматически. Этот ключ обеспечивает целостность трафика между поставщиком Azure Site Recovery на сервере VMM и Azure Site Recovery.</p></td>
+<td align="left"><p>Хранилищу необходим сертификат, соответствующий <a href="%20http://go.microsoft.com/fwlink/?LinkId=386485">требованиям к хранилищу</a>.</p>
+<p>Ключ хранилища создается автоматически. Этот ключ обеспечивает целостность трафика между поставщиком Azure Site Recovery на сервере VMM и Azure Site Recovery.</p></td>
+</tr>
+<tr class="odd">
+<td align="left">Репликация</td>
+<td align="left">Репликация виртуальных машин выполняется с локального сервера Hyper-V в хранилище Azure.</td>
+<td align="left">Репликация виртуальных машин выполняется с одного локального сервера Hyper-V на другой.</td>
+</tr>
+<tr class="even">
+<td align="left">Хранилище виртуальных машин</td>
+<td align="left">Жесткий диск виртуальной машины хранится в хранилище Azure.</td>
+<td align="left">Жесткий диск виртуальной машины хранится в узле Hyper-V.</td>
+</tr>
+<tr class="odd">
+<td align="left">Хранилище Azure</td>
+<td align="left"><p>Требуется учетная запись хранения Azure.</p>
+<p>Эта учетная запись должна иметь включенную георепликацию, размещаться в одном регионе со службой Azure Site Recovery и быть связана с той же подпиской.</p></td>
+<td align="left">Не применяется</td>
+</tr>
+<tr class="even">
+<td align="left">Сервер VMM</td>
+<td align="left">Требуется только исходный сервер VMM</td>
+<td align="left">Требуются исходный и целевой серверы VMM, каждый из которых имеет хотя бы одно облако, или единственный сервер VMM с двумя облаками.</td>
+</tr>
+<tr class="odd">
+<td align="left">Версия System Center сервера VMM</td>
+<td align="left">System Center 2012 R2</td>
+<td align="left"><p>System Center 2012 с пакетом обновления 1 (SP1)</p>
+<p>System Center 2012 R2</p></td>
+</tr>
+<tr class="even">
+<td align="left">Поставщик Azure Site Recovery</td>
+<td align="left">Устанавливается на исходном сервере VMM</td>
+<td align="left">Устанавливается как на исходном, так и на целевом сервере VMM</td>
+</tr>
+<tr class="odd">
+<td align="left">Агент служб восстановления Azure</td>
+<td align="left">Устанавливается на серверах узла Hyper-V, расположенных в облаках VMM</td>
+<td align="left">Не требуется</td>
+</tr>
+<tr class="even">
+<td align="left">Точки восстановления виртуальных машин</td>
+<td align="left"><p>Установка времени точек восстановления.</p>
+<p>Указывает длительность сохранения точки восстановления (от 0 до 24 часов). Точка восстановления создается с помощью формулы 90/частота_копирования в течение первого часа, а затем раз в час.</p></td>
+<td align="left"><p>Установка количества точек восстановления.</p>
+<p>Указывает количество дополнительных сохраняемых точек восстановления (от 0 до 15). По умолчанию точка восстановления создается каждый час. Если установлено значение 0, то на сервере-реплике узла Hyper-V сохраняется только последняя точка восстановления.</p></td>
+</tr>
+<tr class="odd">
+<td align="left">Сетевое сопоставление</td>
+<td align="left"><p>Сопоставление сетей ВМ с сетями Azure.</p>
+<p>Сетевое сопоставление гарантирует возможность подключения после отработки отказа всех виртуальных машин, которые переключаются на другой ресурс в границах одной исходной сети ВМ. Кроме того, при наличии сетевого шлюза в целевой сети Azure виртуальные машины могут подключиться к локальным виртуальным машинам.</p>
+<p>Если сопоставление не включено, то после отработки отказа в Azure могут подключаться друг к другу только виртуальные машины, переключающиеся на другой ресурс в рамках одного плана восстановления.</p></td>
+<td align="left"><p>Сопоставление исходных сетей ВМ с целевыми сетями ВМ.</p>
+<p>Сетевое сопоставление используется для размещения реплицированных виртуальных машин на оптимальных серверах узлов Hyper-V и обеспечения соответствия виртуальных машин, связанных с исходной сетью ВМ, назначенной целевой сети после отработки отказа.</p>
+<p>Если сопоставление не включено, реплицированные виртуальные машины не могут быть связаны с сетью.</p></td>
+</tr>
+<tr class="even">
+<td align="left">Сопоставление хранилищ</td>
+<td align="left">Не применяется</td>
+<td align="left"><p>Сопоставление классификаций хранилища на исходных серверах VMM с классификациями хранилища на целевых серверах VMM.</p>
+<p>Если сопоставление включено, то жесткие диски виртуальных машин в классификации исходного хранилища после отработки отказа будут располагаться в классификации целевого хранилища.</p>
+<p>Если сопоставление хранилищ не включено, то жесткие диски реплицированных виртуальных машин будут храниться в расположении по умолчанию на целевом сервере узла Hyper-V.</p></td>
+</tr>
+</tbody>
+</table>
+
+<p>При наличии вопросов обращайтесь на <a href="http://go.microsoft.com/fwlink/?LinkId=313628">форум по службам восстановления Azure</a>.</p>
+
+</div>
+
+  [Развертывание Azure Site Recovery: защита от локальной среды до локальной среды]: http://go.microsoft.com/fwlink/?LinkId=398765
+  [Развертывание Azure Site Recovery: из локальной среды в среду Azure: защита]: http://go.microsoft.com/fwlink/?LinkId=398764
+  [требованиям к хранилищу]: %20http://go.microsoft.com/fwlink/?LinkId=386485
+  [форум по службам восстановления Azure]: http://go.microsoft.com/fwlink/?LinkId=313628

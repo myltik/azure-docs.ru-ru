@@ -1,170 +1,184 @@
-<properties linkid="develop-python-django-with-visual-studio" urlDisplayName="Django с Visual Studio" pageTitle="Django с Visual Studio (Python) — Учебник по Azure" metaKeywords="Веб-приложение Azure Django, виртуальная машина Azure Django" description="Руководство, в котором показано создание веб-приложения Django, размещенного на виртуальной машине Azure." metaCanonical="" services="cloud-services" documentationCenter="Python" title="Создание приложения Django с использованием средств Python для Visual Studio 1.5" authors="" solutions="" manager="" editor="" />
+<properties linkid="develop-python-django-with-visual-studio" urlDisplayName="Django with Visual Studio" pageTitle="Django with Visual Studio (Python) - Azure tutorial" metaKeywords="Azure Django web app, Azure Django virtual machine" description="A tutorial that teaches you how to build a Django web application hosted in an Azure virtual machine." metaCanonical="" services="cloud-services" documentationCenter="Python" title="Creating Django applications with Python Tools for Visual Studio 1.5" authors="huvalo" solutions="" manager="" editor="" />
 
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
 
+# Создание приложений Django с помощью средств Python для Visual Studio 1.5
 
+**Примечание.** Этот учебник также доступен как [видеоролик Youtube][видеоролик Youtube].
 
+**Примечание.** Доступен [более новый и более сложный учебник][более новый и более сложный учебник] по бета-версии PTVS 2.0.
 
-#Создание приложений Django с помощью средств Python для Visual Studio 1.5
-
-**Примечание.** Этот учебник также доступен как [видеоролик Youtube](http://www.youtube.com/watch?v=UsLti4KlgAY).
-
-**Примечание.** Доступен [более новый и более сложный учебник][] по бета-версии 2.0 PTVS.
-
-Разработка для Azure выполняется очень просто с помощью доступных средств.
+Разработка в Azure очень проста благодаря работе с доступными средствами.
 В данном учебнике предполагается, что у читателя нет опыта использования платформы Azure.
 По завершении изучения этого учебника вы получите приложение на основе Django, выполняемое в облаке.
 
-Вы узнаете следующее:
+Вы узнаете:
 
--   Как создавать основное приложение на Django
--   Как запускать и отлаживать приложения Django локально с помощью тестового сервера Django
--   Как выполнять приложение Django локально в эмуляторах вычисления
+-   Как создавать основное приложение на Django.
+-   Как запускать и отлаживать приложения Django локально с помощью тестового сервера Django.
+-   Как выполнять приложение Django локально в эмуляторах вычисления.
 -   Как опубликовать и повторно опубликовать свое приложение в Azure.
 
-Руководствуясь этим учебником, вы создадите простое веб-приложение Hello
-World. Приложение будет размещаться в экземпляре веб-роли, который при выполнении в Azure сам размещается в выделенной виртуальной машине (VM).
+Руководствуясь этим учебником,
+вы создадите простое веб-приложение HelloWorld. Приложение будет размещаться в экземпляре веб-роли,
+который при выполнении в Azure сам размещается
+в выделенной виртуальной машине (VM).
 
 Снимок экрана завершенного приложения приведен ниже:
 
-![](./media/python-django-app-tools-visual-studio/ptvs-dj-FirstAppInCloud.png)
+![][]
 
-[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
+[WACOM.INCLUDE [create-account-note][create-account-note]]
 
-## <a id="setup"> </a>Настройка среды разработки
+## <span id="setup"></span> </a>Настройка среды разработки
 
-Прежде чем начать разработку приложения для Azure, вам необходимо подготовить нужные инструменты и настроить среду разработки. Дополнительные сведения о получении и установке Azure SDK для Python см. в разделе [Как установить Python][].
+Прежде чем начать разработку приложения для Azure, вам необходимо подготовить нужные инструменты и настроить среду разработки. Дополнительные сведения о получении и установке Azure SDK для Python см. в разделе [Как установить Python][Как установить Python].
 
-**Примечание.** В этом учебном руководстве используются Python 2.7 и Django 1.4. Эти версии включены в текущий Azure SDK для Python.
+**Примечание.** Для выполнения задач этого учебника требуются Python 2.7 и Django 1.4. Эти версии включены в текущий Azure SDK для Python.
 
 **Примечание.** Развертывание эмулятора вычислений или Azure требует полной версии Visual Studio (интегрированная оболочка не поддерживается).
 
 ## Создание нового приложения Django
 
-Для создания нового приложения Django сначала запустите Visual Studio и создайте новый проект, выбрав **Файл > Новый проект**.  Найдите вкладку Python (или на верхнем уровне, или в области "Другие языки") и выберите шаблон приложения Django:
+Для создания нового приложения Django сначала запустите Visual Studio и создайте новый проект, выбрав **Файл \> Новый проект**. Найдите вкладку Python (или на верхнем уровне, или в области "Другие языки") и выберите шаблон приложения Django:
 
-
-
-![Шаблоны новых проектов Python](./media/python-django-app-tools-visual-studio/ptvs-dj-NewProject.png)
-
-
+![Шаблоны новых проектов Python][Шаблоны новых проектов Python]
 
 **Нажмите кнопку ОК;** ваше первое приложение Django будет создано.
 
+![Visual Studio открыт для вашего первого проекта Django][Visual Studio открыт для вашего первого проекта Django]
 
-![Visual Studio открыт для вашего первого проекта Django](./media/python-django-app-tools-visual-studio/ptvs-dj-FirstProject.png)
+Далее необходимо начать разработку первого приложения Django. Можно щелкнуть правой кнопкой мыши узел модуля **Добавить новое приложение Django**... для установки нового приложения в проекте:
 
-Далее необходимо начать разработку первого приложения Django.  Можно щелкнуть правой кнопкой мыши узел модуля **Добавить новое приложение Django**... для установки нового приложения в проекте:
-
-![Пункт меню "Добавление нового приложения"](./media/python-django-app-tools-visual-studio/ptvs-dj-AddNewApp.png)
+![Пункт меню "Добавление нового приложения"][Пункт меню "Добавление нового приложения"]
 
 После чего можно ввести новое имя для приложения:
 
-![Запрос на добавление нового имени приложения](./media/python-django-app-tools-visual-studio/ptvs-dj-AddNewAppPrompt.png)
+![Запрос на добавление нового имени приложения][Запрос на добавление нового имени приложения]
 
 После ввода имени приложения нажмите кнопку **ОК**; в проект будет добавлено новое приложение:
 
-![Обозреватель решений с добавленным новым приложением](./media/python-django-app-tools-visual-studio/ptvs-dj-MyFirstApp.png)
+![Обозреватель решений с добавленным новым приложением][Обозреватель решений с добавленным новым приложением]
 
-Теперь обновите **settings.py**, чтобы зарегистрировать приложение.  Это приведет к тому, что Django выполнит автоматическое обнаружение файлов шаблонов, которые добавляются в каталог шаблонов приложений. Добавьте имя приложения в раздел УСТАНОВЛЕННЫЕ_ПРИЛОЖЕНИЯ:
+Теперь обновите **settings.py**, чтобы зарегистрировать приложение. Это приведет к тому, что Django выполнит автоматическое обнаружение файлов шаблонов, которые добавляются в каталог шаблонов приложений. Добавьте имя приложения в раздел INSTALLED\_APPS.
 
-	'DjangoApplication.MyFirstApp',
+    'DjangoApplication.MyFirstApp',
 
-![Добавьте приложение в settings.py в УСТАНОВЛЕННЫХ_ПРИЛОЖЕНИЯХ](./media/python-django-app-tools-visual-studio/ptvs-dj-InstallApp.png)
+![Добавьте приложение в settings.py в разделе INSTALLED\_APPS][Добавьте приложение в settings.py в разделе INSTALLED\_APPS]
 
 Теперь добавим код в **views.py** приложения, чтобы получить простой файл шаблона:
 
-	from django.http import HttpResponse
-	from django.template.loader import render_to_string
-	def home(request):
-		return HttpResponse(render_to_string(
-											'index.html',
-											{'content': 'Hello World'}
-											))
+    from django.http import HttpResponse
+    from django.template.loader import render_to_string
+    def home(request):
+        return HttpResponse(render_to_string(
+                                            'index.html',
+                                            {'content': 'Hello World'}
+                                            ))
 
+![Добавьте приложение в settings.py в разделе INSTALLED\_APPS][1]
 
-![Добавьте приложение в settings.py в УСТАНОВЛЕННЫХ_ПРИЛОЖЕНИЯХ](./media/python-django-app-tools-visual-studio/ptvs-dj-FirstView.png)
+А теперь добавим простой файл шаблона, который будет отображаться при посещении данного представления. Для этого мы можем щелкнуть правой кнопкой мыши папку "Шаблоны" и выбрать пункт **"Добавить новый элемент"**:
 
-А теперь добавим простой файл шаблона, который будет отображаться при посещении данного представления.  Для этого мы можем щелкнуть правой кнопкой мыши папку "Шаблоны" и выбрать пункт **"Добавить новый элемент"**:
-
-![Добавление нового элемента в папку "Шаблоны"](./media/python-django-app-tools-visual-studio/ptvs-dj-AddFirstTemplate.png)
+![Добавление нового элемента в папку "Шаблоны"][Добавление нового элемента в папку "Шаблоны"]
 
 Теперь выберите из списка шаблон "Django HTML Template" и введите **index.html** в качестве имени файла:
 
-![Добавление нового элемента в папку "Шаблоны"](./media/python-django-app-tools-visual-studio/ptvs-dj-NewDjangoTemplate.png)
+![Добавление нового элемента в папку "Шаблоны"][2]
 
-После чего шаблон будет добавлен в проект и открыт.  Здесь можно увидеть начало синтаксиса с выделением тегов шаблона:
+После чего шаблон будет добавлен в проект и открыт. Здесь можно увидеть начало синтаксиса с выделением тегов шаблона:
 
-![Шаблон добавлен в обозреватель решений](./media/python-django-app-tools-visual-studio/ptvs-dj-TemplateAdded.png)
+![Шаблон добавлен в обозреватель решений][Шаблон добавлен в обозреватель решений]
 
 Можно продолжить и начать обновление шаблона в данный момент для того, чтобы изменить отображаемый HTML-код; при этом будет получен хороший intellisense:
 
-![Шаблон Intellisense для фильтров Django](./media/python-django-app-tools-visual-studio/ptvs-dj-TemplateIntellisense.png)
+![Шаблон Intellisense для фильтров Django][Шаблон Intellisense для фильтров Django]
 
-Заглавные буквы можно включить или отключить; это действие не повлияет на результаты работы с этим учебником.  Наконец необходимо зарегистрировать представление с шаблонами URL-адресов в **urls.py**.  Добавьте это в **urlpatterns**:
+Заглавные буквы можно включить или отключить; это действие не повлияет на результаты работы с этим учебником. Наконец необходимо зарегистрировать представление с шаблонами URL-адресов в **urls.py**. Добавьте это в **urlpatterns**:
 
-	url(r'^$', 'DjangoApplication.MyFirstApp.views.home', name='home'),
+    url(r'^$', 'DjangoApplication.MyFirstApp.views.home', name='home'),
 
-![Зарегистрировать URL](./media/python-django-app-tools-visual-studio/ptvs-dj-RegisterUrl.png)
+![Зарегистрировать URL][Зарегистрировать URL]
 
 ## Выполнение приложения на тестовом сервере
 
-На этом этапе вы создали свое первое приложение Django.  Теперь можно запустить его локально, просто нажав **клавишу F5**.  
+На этом этапе вы создали свое первое приложение Django. Теперь можно запустить его локально, просто нажав **клавишу F5**.
 
-![Django Hello World в веб-обозревателе и тестовый сервер](./media/python-django-app-tools-visual-studio/ptvs-dj-DjangoHelloWorldTestServer.png)
+![Django Hello World в веб-обозревателе и тестовый сервер][Django Hello World в веб-обозревателе и тестовый сервер]
 
-При этом будет запущен интерпретатор Python под управлением Django **manage.py** для запуска тестового сервера.  После успешного запуска тестового сервера также будет запущен веб-браузер для просмотра веб-сайта.  Поскольку при нажатии F5 запуск выполняется в отладчике, мы также можем установить точки останова в любой код Python, например код просмотра или сами файлы шаблонов:
+При этом будет запущен интерпретатор Python под управлением Django **manage.py** для запуска тестового сервера. После успешного запуска тестового сервера также будет запущен веб-браузер для просмотра веб-сайта. Поскольку при нажатии F5 запуск выполняется в отладчике, мы также можем установить точки останова в любой код Python, например код просмотра или сами файлы шаблонов:
 
-![Отладчик останавливается в точке останова шаблона](./media/python-django-app-tools-visual-studio/ptvs-dj-TemplateBreakpoint.png)
+![Отладчик останавливается в точке останова шаблона][Отладчик останавливается в точке останова шаблона]
 
 Теперь можно **нажать кнопку "Остановить"** и перейти к работе в эмуляторе вычислений Azure.
 
-## Выполнение приложения в эмуляторе локально	
+## Выполнение приложения в эмуляторе локально
 
-Для запуска в эмуляторе вычислений необходимо просто добавить развертываемый проект Azure в решение для проекта Django.  
+Для запуска в эмуляторе вычислений необходимо просто добавить развертываемый проект Azure в решение для проекта Django.
 
 **Примечание.** Развертывание эмулятора вычислений или Azure требует полной версии Visual Studio (интегрированная оболочка не поддерживается).
 
 Это можно сделать, щелкнув правой кнопкой мыши узел проекта Django в обозревателе решений и выбрав **"Добавить проект облачной службы Azure"**:
 
-![Добавить проект развертывания](./media/python-django-app-tools-visual-studio/ptvs-dj-AddDeploymentProject.png)
+![Добавить проект развертывания][Добавить проект развертывания]
 
 После выполнения этой команды появится вновь добавленный проект в обозревателе решений.
 
-![После добавления проекта развертывания](./media/python-django-app-tools-visual-studio/ptvs-dj-AfterDeployProjAdded.png)
+![После добавления проекта развертывания][После добавления проекта развертывания]
 
-Этот новый проект также помечается как запускаемый проект в решении.  На этом этапе необходимо **перезапустить Visual Studio с правами администратора**, чтобы получить возможность запуска в эмуляторе вычислений; после этого мы можем просто **нажать клавишу F5** для запуска приложения и развертывания в эмуляторе вычислений:
+Этот новый проект также помечается как запускаемый проект в решении. На этом этапе необходимо **перезапустить Visual Studio с правами администратора**, чтобы получить возможность запуска в эмуляторе вычислений; после этого мы можем просто **нажать клавишу F5** для запуска приложения и развертывания в эмуляторе вычислений:
 
-![После добавления проекта развертывания](./media/python-django-app-tools-visual-studio/ptvs-dj-ComputeEmulator.png)
+![После добавления проекта развертывания][3]
 
-Теперь вы видите, что отображается такая же веб-страница, но ее URL-адрес немного отличается.  Также видно, что на тестовом сервере не выполняется Django python.exe.  Вместо этого Django выполняется через IIS с помощью шлюза FastCGI, который автоматически включается и устанавливается при работе в Visual Studio.  
+Теперь вы видите, что отображается такая же веб-страница, но ее URL-адрес немного отличается. Также видно, что на тестовом сервере не выполняется Django python.exe. Вместо этого Django выполняется через IIS с помощью шлюза FastCGI, который автоматически включается и устанавливается при работе в Visual Studio.
 
-При выполнении в эмуляторе вычислений можно быстро возвращаться к приложению; - просто переключитесь в Visual Studio, обновите файлы и нажмите "Обновить" в веб-браузере.  Вы увидите результаты немедленно.
+При выполнении в эмуляторе вычислений можно быстро возвращаться к приложению — просто переключитесь в Visual Studio, обновите файлы и нажмите "Обновить" в веб-браузере. Вы увидите результаты немедленно.
 
 ## Развертывание приложения в Azure
 
 Теперь все готово для развертывания проекта в Azure. Для этого нужно всего лишь щелкнуть правой кнопкой мыши проект развертывания Azure в обозревателе решений и выбрать **Опубликовать**:
 
-![Меню пакета приложений](./media/python-django-app-tools-visual-studio/ptvs-dj-publish1.png)
+![Меню пакета приложений][Меню пакета приложений]
 
-После нажатия кнопки "Опубликовать" будет предложено войти в Azure.  Здесь можно импортировать существующие учетные данные или настроить новые учетные данные.
+После нажатия кнопки "Опубликовать" будет предложено войти в Azure. Здесь можно импортировать существующие учетные данные или настроить новые учетные данные.
 
-![Подписка на пакет](./media/python-django-app-tools-visual-studio/ptvs-dj-publish2.png)
+![Подписка на пакет][Подписка на пакет]
 
-После выбора учетных данных вы увидите на экране настройки публикации Azure.  Можно выбрать различные параметры, влияющие на способ развертывания, либо же просто нажать кнопку **Опубликовать**:
+После выбора учетных данных вы увидите на экране настройки публикации Azure. Можно выбрать различные параметры, влияющие на способ развертывания, либо же просто нажать кнопку **Опубликовать**:
 
-![Параметры пакета](./media/python-django-app-tools-visual-studio/ptvs-dj-publish3.png)
+![Параметры пакета][Параметры пакета]
 
 Теперь нужно дождаться установки и развертывания приложения.
 
-![Развертывание пакета](./media/python-django-app-tools-visual-studio/ptvs-dj-publish4.png)
+![Развертывание пакета][Развертывание пакета]
 
-После завершения установок можно щелкнуть ссылку имени DNS для просмотра веб-сайта, выполняемого в облаке:
+Завершив установки, вы можете перейти по ссылке под именем DNS для просмотра веб-сайта, выполняемого в облаке:
 
+![Ваше приложение Django в облаке][Ваше приложение Django в облаке]
 
-![Ваше приложение Django в облаке](./media/python-django-app-tools-visual-studio/ptvs-dj-FirstAppInCloud.png)
-
-
-[Как установить Python]: ../python-how-to-install/
-[более новый и более сложный учебник]: ../web-sites-python-create-deploy-django-app/
-
-
+  [видеоролик Youtube]: http://www.youtube.com/watch?v=UsLti4KlgAY
+  [более новый и более сложный учебник]: ../web-sites-python-create-deploy-django-app/
+  []: ./media/python-django-app-tools-visual-studio/ptvs-dj-FirstAppInCloud.png
+  [create-account-note]: ../includes/create-account-note.md
+  [Как установить Python]: ../python-how-to-install/
+  [Шаблоны новых проектов Python]: ./media/python-django-app-tools-visual-studio/ptvs-dj-NewProject.png
+  [Visual Studio открыт для вашего первого проекта Django]: ./media/python-django-app-tools-visual-studio/ptvs-dj-FirstProject.png
+  [Пункт меню "Добавление нового приложения"]: ./media/python-django-app-tools-visual-studio/ptvs-dj-AddNewApp.png
+  [Запрос на добавление нового имени приложения]: ./media/python-django-app-tools-visual-studio/ptvs-dj-AddNewAppPrompt.png
+  [Обозреватель решений с добавленным новым приложением]: ./media/python-django-app-tools-visual-studio/ptvs-dj-MyFirstApp.png
+  [Добавьте приложение в settings.py в разделе INSTALLED\_APPS]: ./media/python-django-app-tools-visual-studio/ptvs-dj-InstallApp.png
+  [1]: ./media/python-django-app-tools-visual-studio/ptvs-dj-FirstView.png
+  [Добавление нового элемента в папку "Шаблоны"]: ./media/python-django-app-tools-visual-studio/ptvs-dj-AddFirstTemplate.png
+  [2]: ./media/python-django-app-tools-visual-studio/ptvs-dj-NewDjangoTemplate.png
+  [Шаблон добавлен в обозреватель решений]: ./media/python-django-app-tools-visual-studio/ptvs-dj-TemplateAdded.png
+  [Шаблон Intellisense для фильтров Django]: ./media/python-django-app-tools-visual-studio/ptvs-dj-TemplateIntellisense.png
+  [Зарегистрировать URL]: ./media/python-django-app-tools-visual-studio/ptvs-dj-RegisterUrl.png
+  [Django Hello World в веб-обозревателе и тестовый сервер]: ./media/python-django-app-tools-visual-studio/ptvs-dj-DjangoHelloWorldTestServer.png
+  [Отладчик останавливается в точке останова шаблона]: ./media/python-django-app-tools-visual-studio/ptvs-dj-TemplateBreakpoint.png
+  [Добавить проект развертывания]: ./media/python-django-app-tools-visual-studio/ptvs-dj-AddDeploymentProject.png
+  [После добавления проекта развертывания]: ./media/python-django-app-tools-visual-studio/ptvs-dj-AfterDeployProjAdded.png
+  [3]: ./media/python-django-app-tools-visual-studio/ptvs-dj-ComputeEmulator.png
+  [Меню пакета приложений]: ./media/python-django-app-tools-visual-studio/ptvs-dj-publish1.png
+  [Подписка на пакет]: ./media/python-django-app-tools-visual-studio/ptvs-dj-publish2.png
+  [Параметры пакета]: ./media/python-django-app-tools-visual-studio/ptvs-dj-publish3.png
+  [Развертывание пакета]: ./media/python-django-app-tools-visual-studio/ptvs-dj-publish4.png

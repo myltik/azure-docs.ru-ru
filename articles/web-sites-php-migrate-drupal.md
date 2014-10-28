@@ -1,30 +1,31 @@
-<properties linkid="migrating-drupal-to-azure-websites" urlDisplayName="Миграция Drupal на веб-сайты Azure" pageTitle="Миграция Drupal на веб-сайты Azure" metaKeywords="Drupal, PHP, веб-сайты" description="Перенесите сайт PHP Drupal на веб-сайты Azure." metaCanonical="" services="web-sites" documentationCenter="PHP" title="Миграция Drupal на веб-сайты Azure" authors="jroth" solutions="" manager="paulettm" editor="mollybos" />
+<properties linkid="migrating-drupal-to-azure-websites" urlDisplayName="Migrating Drupal to Azure Websites" pageTitle="Migrating Drupal to Azure Websites" metaKeywords="Drupal, PHP, Web Sites" description="Migrate a Drupal PHP site to Azure Websites." metaCanonical="" services="web-sites" documentationCenter="PHP" title="Migrating Drupal to Azure Websites" authors="cephalin; jroth" solutions="" manager="wpickett" editor="mollybos" />
 
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin; jroth"></tags>
 
 # Миграция Drupal на веб-сайты Azure
 
-Поскольку веб-сайты Azure поддерживают PHP и MySQL, миграция сайта Drupal на веб-сайты Azure не вызывает особых сложностей. И поскольку Drupal и PHP работают на любой платформе, данный процесс должен обеспечивать перемещение Drupal на веб-сайты Azure вне зависимости от вашей текущей платформы. Учитывая это, установки Drupal могут значительно отличаться друг от друга, поэтому возможно наличие некоторых уникальных этапов миграции, которые не рассматриваются в приведенном ниже материале. Обратите внимание, что средство Drush не используется, так как оно не поддерживается на веб-сайтах Azure.
+Поскольку веб-сайты Azure поддерживают PHP и MySQL, миграция сайта Drupal на веб-сайты Azure не вызывает особых сложностей. И поскольку Drupal и PHP работают на любой платформе, данный процесс должен обеспечивать перемещение Drupal на веб-сайты Azure вне зависимости от текущей платформы. Учитывая это, установки Drupal могут значительно отличаться друг от друга, поэтому возможно наличие некоторых уникальных этапов миграции, которые не рассматриваются в приведенном ниже материале. Обратите внимание, что средство Drush не используется, так как оно не поддерживается на веб-сайтах Azure.
 
 > [WACOM.NOTE]
-> При перемещении большого и сложного приложения Drupal можно также рассмотреть использование облачных служб Azure. Дополнительные сведения о различиях между веб-сайтами и облачными службами см. в разделе <a href="http://go.microsoft.com/fwlink/?LinkId=310123">Веб-сайты Azure, облачные службы и виртуальные машины: когда они используются?</a>. Справку по перемещению Drupal в облачные службы см. в разделе <a href="http://blogs.msdn.com/b/brian_swan/archive/2012/03/19/azure-real-world-migrating-drupal-from-lamp-to-windows-azure.aspx">Перенос сайта Drupal из LAMP в Azure</a>.
+> При перемещении большого и сложного приложения Drupal можно также рассмотреть использование облачных служб Azure. Дополнительные сведения о различиях между веб-сайтами и облачными службами см. в разделе [Веб-сайты Azure, облачные службы и виртуальные машины: когда они используются?][Веб-сайты Azure, облачные службы и виртуальные машины: когда они используются?] Справку по перемещению Drupal в облачные службы см. в разделе [Перенос сайта Drupal из LAMP в Windows Azure][Перенос сайта Drupal из LAMP в Windows Azure].
 
 ## Оглавление
 
-- [Создание веб-сайта Azure][]
-- [Копирование базы данных][]
-- [Изменение Settings.php][]
-- [Развертывание кода Drupal][]
-- [Связанные сведения][]
- 
-##<a name="create-siteanddb"></a><span class="short-header">Создание веб-сайта Azure и базы данных MySQL</span>1. Создание веб-сайта Azure и базы данных MySQL
+-   [Создание веб-сайта Azure][Создание веб-сайта Azure]
+-   [Копирование базы данных][Копирование базы данных]
+-   [Изменение Settings.php][Изменение Settings.php]
+-   [Развертывание кода Drupal][Развертывание кода Drupal]
+-   [Связанные сведения][Связанные сведения]
 
-Во-первых, изучите пошаговое руководство, чтобы узнать, как создать новый веб-сайт с MySQL: [Создание и развертывание веб-сайта Azure с PHP и MySQL с помощью Git][]. Если вы планируете использовать Git для публикации сайта Drupal, то выполните действия из учебника, где объясняется, как настроить репозиторий Git. Обязательно следуйте инструкциям из раздела **Получение сведений об удаленном подключении к MySQL**, так как эта информация потребуется вам позже. Вы можете пропустить оставшуюся часть учебника, если интересуетесь исключительно развертыванием веб-сайта Drupal, но если вы впервые столкнулись с веб-сайтами Azure (и Git), эта информация может оказаться полезной для вас.
+## <a name="create-siteanddb"></a><span class="short-header">Создание веб-сайта Azure и базы данных MySQL</span>1. Создание веб-сайта Azure и базы данных MySQL
+
+Во-первых, изучите этот пошаговый учебник, чтобы узнать, как создать новый веб-сайт с MySQL: [Создание веб-сайта PHP-MySQL Azure и его развертывание с помощью Git][Создание веб-сайта PHP-MySQL Azure и его развертывание с помощью Git]. Если вы планируете использовать Git для публикации сайта Drupal, то выполните действия из учебника, где объясняется, как настроить репозиторий Git. Обязательно следуйте инструкциям из раздела **Получение сведений об удаленном подключении к MySQL**, так как эта информация потребуется вам позже. Вы можете пропустить оставшуюся часть учебника, если интересуетесь исключительно развертыванием веб-сайта Drupal, но, если вы впервые столкнулись с веб-сайтами Azure (и Git), эта информация может оказаться полезной.
 
 После установки нового веб-сайта с базой данных MySQL вы получаете данные о подключении к базе данных MySQL и (необязательно) репозиторий Git. Следующим шагом является копирование базы данных в MySQL на веб-сайтах Azure.
 
-##<a name="copy-database"></a><span class="short-header">Копирование базы данных в MySQL на веб-сайтах Azure</span>2. Копирование базы данных в MySQL на веб-сайтах Azure
+## <a name="copy-database"></a><span class="short-header">Копирование базы данных в MySQL на веб-сайтах Azure</span>2. Копирование базы данных в MySQL на веб-сайтах Azure
 
-Существует множество способов переноса базы данных в Azure. Один из способов хорошо подходит для баз данных MySQL и заключается в использовании средства [MySqlDump][]. Следующая команда предоставляет пример того, как осуществить копирование с локального компьютера на веб-сайты Azure:
+Существует множество способов переноса базы данных в Azure. Один из способов, который хорошо подходит для баз данных MySQL, заключается в использовании средства MySqlDump. Следующая команда предоставляет пример того, как осуществить копирование с локального компьютера на веб-сайты Azure:
 
     mysqldump -u local_username --password=local_password  drupal | mysql -h remote_host -u remote_username --password=remote_password remote_db_name
 
@@ -36,9 +37,9 @@
 
 Теперь база данных Drupal находится на веб-сайтах Azure. Перед развертыванием кода Drupal необходимо изменить его, чтобы он мог подключиться к новой базе данных.
 
-##<a name="modify-settingsphp"></a><span class="short-header">Изменение сведений о подключении к базе данных в settings.php</span>3. Изменение сведений о подключении к базе данных в settings.php
+## <a name="modify-settingsphp"></a><span class="short-header">Изменение сведений о подключении к базе данных в settings.php</span>3. Изменение сведений о подключении к базе данных в settings.php
 
-Здесь вам снова понадобятся сведения о подключении к новой базе данных. Откройте файл **/drupal/sites/default/setting.php** в текстовом редакторе и замените значения "database", "username", "password" и "host" в массиве **$databases** на правильные значения для новой базы данных. По завершении должно получиться следующее:
+Здесь вам снова понадобятся сведения о подключении к новой базе данных. Откройте файл **/drupal/sites/default/setting.php** в текстовом редакторе и замените значения database, username, password и host в массиве **$databases** на правильные значения для новой базы данных. По завершении должно получиться следующее:
 
     $databases = array (
        'default' => 
@@ -58,7 +59,7 @@
 
 Сохраните файл **settings.php**. Теперь все готово к развертыванию.
 
-##<a name="deploy-drupalcode"></a><span class="short-header">Развертывание кода Drupal с помощью Git или FTP</span>4. Развертывание кода Drupal с помощью Git или FTP
+## <a name="deploy-drupalcode"></a><span class="short-header">Развертывание кода Drupal с помощью Git или FTP</span>4. Развертывание кода Drupal с помощью Git или FTP
 
 Последний шаг заключается в развертывании кода на веб-сайтах Azure с помощью Git или FTP.
 
@@ -71,25 +72,25 @@
 
 После развертывания Drupal на веб-сайтах Azure можно продолжить развертывание обновлений через Git или FTP.
 
-##<a name="related-information"></a><span class="short-header">Связанные сведения</span>Связанные сведения
+## <a name="related-information"></a><span class="short-header">Связанные сведения</span>Связанные сведения
 
 Дополнительные сведения см. в следующих записях и разделах:
 
-- [Веб-сайты Azure с точки зрения PHP][]
-- [Веб-сайты Azure, облачные службы и виртуальные машины: когда они используются?][]
-- [Настройка PHP на веб-сайтах Azure с помощью файлов .user.ini][]
-- [Модуль интеграции Azure](https://drupal.org/project/azure_auth)
-- [Модуль хранилища BLOB-объектов Azure](https://drupal.org/project/azure_blob)
+-   [Веб-сайты Azure с точки зрения PHP][Веб-сайты Azure с точки зрения PHP]
+-   [Веб-сайты Windows Azure, облачные службы и виртуальные машины: когда они используются?][Веб-сайты Azure, облачные службы и виртуальные машины: когда они используются?]
+-   [Настройка PHP на веб-сайтах Azure с помощью файлов .user.ini][Настройка PHP на веб-сайтах Azure с помощью файлов .user.ini]
+-   [Модуль интеграции Azure][Модуль интеграции Azure]
+-   [Модуль хранилища BLOB-объектов Azure][Модуль хранилища BLOB-объектов Azure]
 
+  [Веб-сайты Azure, облачные службы и виртуальные машины: когда они используются?]: http://go.microsoft.com/fwlink/?LinkId=310123
+  [Перенос сайта Drupal из LAMP в Windows Azure]: http://blogs.msdn.com/b/brian_swan/archive/2012/03/19/azure-real-world-migrating-drupal-from-lamp-to-windows-azure.aspx
   [Создание веб-сайта Azure]: #create-siteanddb
   [Копирование базы данных]: #copy-database
   [Изменение Settings.php]: #modify-settingsphp
   [Развертывание кода Drupal]: #deploy-drupalcode
   [Связанные сведения]: #related-information
-  [Создание и развертывание веб-сайта Azure с PHP и MySQL с помощью Git]: http://www.windowsazure.com/ru-ru/develop/php/tutorials/website-w-mysql-and-git/
-  
+  [Создание веб-сайта PHP-MySQL Azure и его развертывание с помощью Git]: http://www.windowsazure.com/ru-ru/develop/php/tutorials/website-w-mysql-and-git/
   [Веб-сайты Azure с точки зрения PHP]: http://blogs.msdn.com/b/silverlining/archive/2012/06/12/windows-azure-websites-a-php-perspective.aspx
-  [Веб-сайты Azure, облачные службы и виртуальные машины: когда они используются?]: http://go.microsoft.com/fwlink/?LinkId=310123
   [Настройка PHP на веб-сайтах Azure с помощью файлов .user.ini]: http://blogs.msdn.com/b/silverlining/archive/2012/07/10/configuring-php-in-windows-azure-websites-with-user-ini-files.aspx
-  [Модуль интеграции Azure]: http://drupal.org/project/azure
-
+  [Модуль интеграции Azure]: https://drupal.org/project/azure_auth
+  [Модуль хранилища BLOB-объектов Azure]: https://drupal.org/project/azure_blob

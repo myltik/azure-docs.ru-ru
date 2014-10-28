@@ -1,83 +1,116 @@
-<properties linkid="manage-services-biztalk-services-editions-chart" urlDisplayName="Диаграмма выпусков" pageTitle="Ознакомьтесь с функциями выпусков службы BizTalk | Azure" metaKeywords="службы BizTalk, приступая к работе, Azure, выпуски" description="Сравните возможности выпусков служб BizTalk: Developer, Basic, Standard и Premium." metaCanonical="" services="biztalk-services" documentationCenter="" title=" Basic" authors="mandia" solutions="" manager="paulettm" editor="cgronlun" />
+<properties linkid="manage-services-biztalk-services-editions-chart" urlDisplayName="Editions chart" pageTitle="Learn about features in BizTalk Services editions | Azure" metaKeywords="BizTalk Services, get started, Azure, editions" description="Compare the capabilities of the BizTalk Services editions: Free, Developer, Basic, Standard, and Premium." metaCanonical="" services="biztalk-services" documentationCenter="" title=" Basic" authors="mandia" solutions="" manager="dwrede" editor="cgronlun" />
 
+<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia"></tags>
 
+# Службы BizTalk: диаграмма выпусков
 
+Доступны следующие выпуски служб BizTalk Azure: Free, Developer, Basic, Standard и Premium.
 
-# Службы BizTalk: диаграмма выпусков Developer, Basic, Standard и Premium
+**Free (предварительный просмотр)**. Предполагает возможность создания гибридных подключений и управления ими. Гибридное подключение — это простой способ соединения веб-сайта Azure с такими локальными системами, как сервер SQL Server.
 
-Предлагаются четыре выпуска служб BizTalk Azure: Developer, Basic, Standard и Premium.
+**Developer**. Включает создание гибридных подключений, обработку сообщений EAI и EDI с помощью простого портала управления для торговых партнеров, поддержку общих схем EDI и обширные возможности обработки EDI через X12 и AS2. Допускает создание типовых служб подключения по сценариям EAI в облаке с протоколами HTTP/S, REST, FTP, WCF и SFTP для чтения и записи сообщений. Использует возможности подключения к локальным бизнес-системам с адаптерами для SAP, Oracle eBusiness, Oracle DB, Siebel и SQL Server. Все это в ориентированной на разработчиков среде с использованием средств Visual Studio, упрощающих разработку и развертывание. Ограничено только для разработки и тестирования без соглашения об уровне обслуживания.
 
-**Developer** включает следующие возможности: обработка сообщений EAI и EDI, гибридное подключение с помощью пакета BizTalk Adapter Pack, а также типовые службы подключения по сценариям EAI в облаке с протоколами HTTP/S, REST, FTP, WCF и SFTP для чтения и записи сообщений. Все это в ориентированной на разработчиков среде с использованием средств Visual Studio, упрощающих разработку и развертывание. Ограничено только для целей разработки и тестирования без соглашения об уровне обслуживания.
+**Basic**. Включает большинство возможностей выпуска Developer с расширением гибридных подключений, мостов EAI, соглашений EDI и подключений пакета BizTalk Adapter Pack. Отличается широкой доступностью и возможностью масштабирования с соглашением об уровне обслуживания.
 
-**Basic** включает следующие возможности: обработка сообщений EAI и EDI с помощью простого в использовании портала управления для торговых партнеров, поддержка общих схем EDI и обширные возможности обработки EDI через X12 и AS2. Можно создавать типовые службы подключения по сценариям EAI в облаке с протоколами HTTP/S, REST, FTP, WCF и SFTP для чтения и записи сообщений. Полнофункциональная обработка и передача сообщений поддерживается средствами разработки на основе конфигурации. Используйте гибридные возможности подключения к локальным бизнес-системам с готовыми к использованию адаптерами для SAP, Oracle eBusiness, Oracle DB, Siebel и SQL Server.
+**Standard**. Включает большинство возможностей выпуска Basic с расширением гибридных подключений, мостов EAI, соглашений EDI и подключений пакета BizTalk Adapter Pack. Отличается широкой доступностью и возможностью масштабирования с соглашением об уровне обслуживания.
 
-**Standard** включает все возможности выпуска Basic, а также возможность масштабировать развертывание в соответствии с растущими потребностями.
-
-**Premium** включает все возможности выпуска Standard, а также увеличение масштаба, мосты EAI, соглашения EDI, гибридное подключение и функцию архивирования.
-
+**Premium**. Включает большинство возможностей выпуска Standard с расширением гибридных подключений, мостов EAI, соглашений EDI и подключений пакета BizTalk Adapter Pack. Также включает архивирование, широкую доступность и возможность масштабирования с соглашением об уровне обслуживания.
 
 Различия показаны в следующей таблице:
 
-<table border="1">
-<tr bgcolor="FAF9F9">
-        <th> </th>
-        <th>Developer</th>
-        <th>Basic</th>
-        <th>Standard</th>
-        <th>Premium</th>
+<table>
+<colgroup>
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">Free (предварительный просмотр)</th>
+<th align="left">Developer</th>
+<th align="left">Basic</th>
+<th align="left">Standard</th>
+<th align="left">Premium</th>
 </tr>
-<tr>
-<td><strong>Начальная цена</strong></td>
-<td>См. <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011"> Сведения о ценах на службы BizTalk Azure</a>.</td>
-<td>См. <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011"> Сведения о ценах на службы BizTalk Azure</a>.</td>
-<td>См. <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011"> Сведения о ценах на службы BizTalk Azure</a>.</td>
-<td>См. <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011"> Сведения о ценах на службы BizTalk Azure</a>.</td>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Начальная цена</strong></td>
+<td align="left">См. <a href="http://go.microsoft.com/fwlink/p/?LinkID=304011">Сведения о ценах на службы BizTalk Azure</a>.</td>
+<td align="left">См. <a href="http://go.microsoft.com/fwlink/p/?LinkID=304011">Сведения о ценах на службы BizTalk Azure</a>.</td>
+<td align="left">См. <a href="http://go.microsoft.com/fwlink/p/?LinkID=304011">Сведения о ценах на службы BizTalk Azure</a>.</td>
+<td align="left">См. <a href="http://go.microsoft.com/fwlink/p/?LinkID=304011">Сведения о ценах на службы BizTalk Azure</a>.</td>
+<td align="left">См. <a href="http://go.microsoft.com/fwlink/p/?LinkID=304011">Сведения о ценах на службы BizTalk Azure</a>.</td>
 </tr>
-<tr>
-<td><strong>Минимальная конфигурация по умолчанию</strong></td>
-<td>1 Модуль Developer</td>
-<td>1 Модуль Basic</td>
-<td>1 Модуль Standard</td>
-<td>1 Модуль Premium</td>
+<tr class="even">
+<td align="left"><strong>Минимальная конфигурация по умолчанию</strong></td>
+<td align="left">Один модуль Free</td>
+<td align="left">1 Модуль Developer</td>
+<td align="left">1 Модуль Basic</td>
+<td align="left">1 Модуль Standard</td>
+<td align="left">1 Модуль Premium</td>
 </tr>
-<tr>
-<td><strong>Масштаб</strong></td>
-<td>Без масштабирования</td>
-<td>Без масштабирования</td>
-<td>Да, с шагом в 1 модуль Standard</td>
-<td>Да, с шагом в 1 модуль Premium</td>
+<tr class="odd">
+<td align="left"><strong>Масштаб</strong></td>
+<td align="left">Без масштабирования</td>
+<td align="left">Без масштабирования</td>
+<td align="left">Да, с шагом в 1 модуль Basic</td>
+<td align="left">Да, с шагом в 1 модуль Standard</td>
+<td align="left">Да, с шагом в 1 модуль Premium</td>
 </tr>
-<tr>
-<td><strong>Максимально разрешенный масштаб</strong></td>
-<td>Без масштабирования</td>
-<td>Без масштабирования</td>
-<td>До 4 единиц</td>
-<td>До 8 единиц</td>
+<tr class="even">
+<td align="left"><strong>Максимально разрешенный масштаб</strong></td>
+<td align="left">Без масштабирования</td>
+<td align="left">Без масштабирования</td>
+<td align="left">До 8 единиц</td>
+<td align="left">До 8 единиц</td>
+<td align="left">До 8 единиц</td>
 </tr>
-<tr>
-<td><strong>Мостов EAI за единицу</strong></td>
-<td>30</td>
-<td>50</td>
-<td>125</td>
-<td>500</td>
+<tr class="odd">
+<td align="left"><strong>Мостов EAI за единицу</strong></td>
+<td align="left">Не включено</td>
+<td align="left">25</td>
+<td align="left">25</td>
+<td align="left">125</td>
+<td align="left">500</td>
 </tr>
-<tr>
-<td><strong>EDI, AS2
-<br/><br/>
-Включает соглашения, типы сообщений, портал служб BizTalk</strong></td>
-<td>Включено. 10 соглашений на единицу.</td>
-<td>Включено. 25 соглашений на единицу.</td>
-<td>Включено. 250 соглашений на единицу.</td>
-<td>Включено. 1000 соглашений на единицу.</td>
+<tr class="even">
+<td align="left"><strong>EDI, AS2</strong><br /><br /> Включает соглашения об управлении торговыми партнерами.</td>
+<td align="left">Не включено</td>
+<td align="left">Включено. 10 соглашений на единицу.</td>
+<td align="left">Включено. 50 соглашений на единицу.</td>
+<td align="left">Включено. 250 соглашений на единицу.</td>
+<td align="left">Включено. 1000 соглашений на единицу.</td>
 </tr>
-<tr>
-<td><strong>Подключения службы адаптера BizTalk к локальным бизнес-системам</strong></td>
-<td>1 подключение</td>
-<td>2 подключений</td>
-<td>5 подключений</td>
-<td>25 подключений</td>
+<tr class="odd">
+<td align="left"><strong>Количество гибридных подключений на единицу</strong></td>
+<td align="left">5</td>
+<td align="left">5</td>
+<td align="left">10</td>
+<td align="left">50</td>
+<td align="left">100</td>
 </tr>
-<tr>
+<tr class="even">
+<td align="left"><strong>Объем передачи данных гибридных подключений (ГБ) на единицу</strong></td>
+<td align="left">5</td>
+<td align="left">5</td>
+<td align="left">50</td>
+<td align="left">250</td>
+<td align="left">500</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Подключения службы адаптера BizTalk к локальным бизнес-системам</strong></td>
+<td align="left">Не включено</td>
+<td align="left">1 подключение</td>
+<td align="left">2 подключений</td>
+<td align="left">5 подключений</td>
+<td align="left">25 подключений</td>
+</tr>
+<tr class="even">
 <td align="left"><strong>Поддерживаемые протоколы и системы:</strong>
 <ul>
 <li>HTTP</li>
@@ -88,105 +121,126 @@
 <li>Шина обслуживания (SB)</li>
 <li>BLOB-объект Azure</li>
 <li>Интерфейсы API REST</li>
-</ul>
-</td>
-<td>Включено</td>
-<td>Включено</td>
-<td>Включено</td>
-<td>Включено</td>
+</ul></td>
+<td align="left">Не включено</td>
+<td align="left">Включено</td>
+<td align="left">Включено</td>
+<td align="left">Включено</td>
+<td align="left">Включено</td>
 </tr>
-<tr>
-<td><strong>Высокая доступность</strong>
-<br/><br/>
-Для соглашения об уровне обслуживания (SLA) см. <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011"> Сведения о ценах на службы BizTalk Azure</a>.
-</td>
-<td>Не включено</td>
-<td>Включено</td>
-<td>Включено</td>
-<td>Включено</td>
+<tr class="odd">
+<td align="left"><strong>Высокая доступность</strong><br /><br /> Для соглашения об уровне обслуживания (SLA) см. <a href="http://go.microsoft.com/fwlink/p/?LinkID=304011">Сведения о ценах на службы BizTalk Azure</a>.</td>
+<td align="left">Не включено</td>
+<td align="left">Не включено</td>
+<td align="left">Включено</td>
+<td align="left">Включено</td>
+<td align="left">Включено</td>
 </tr>
-<tr>
-<td><strong>Архивация и восстановление</strong></td>
-<td>Не включено</td>
-<td>Включено</td>
-<td>Включено</td>
-<td>Включено</td>
+<tr class="even">
+<td align="left"><strong>Архивация и восстановление</strong></td>
+<td align="left">Не включено</td>
+<td align="left">Включено</td>
+<td align="left">Включено</td>
+<td align="left">Включено</td>
+<td align="left">Включено</td>
 </tr>
-<tr>
-<td><strong>Отслеживание</strong></td>
-<td>Включено</td>
-<td>Включено</td>
-<td>Включено</td>
-<td>Включено</td>
+<tr class="odd">
+<td align="left"><strong>Отслеживание</strong></td>
+<td align="left">Не включено</td>
+<td align="left">Включено</td>
+<td align="left">Включено</td>
+<td align="left">Включено</td>
+<td align="left">Включено</td>
 </tr>
-<tr>
-<td><strong>Архивация</strong><br/><br/>
-Включает неотрекаемость получения (NRR) и загрузку отслеживаемых сообщений</td>
-<td>Включено</td>
-<td>Не включено</td>
-<td>Не включено</td>
-<td>Включено</td>
+<tr class="even">
+<td align="left"><strong>Архивация</strong><br /><br /> Включает невозможность отказа на получение (NRR) и возможность загрузки отслеживаемых сообщений.</td>
+<td align="left">Не включено</td>
+<td align="left">Включено</td>
+<td align="left">Не включено</td>
+<td align="left">Не включено</td>
+<td align="left">Включено</td>
 </tr>
-<tr>
-<td><strong>Использование пользовательского кода</strong></td>
-<td>Включено</td>
-<td>Включено</td>
-<td>Включено</td>
-<td>Включено</td>
+<tr class="odd">
+<td align="left"><strong>Использование пользовательского кода</strong></td>
+<td align="left">Не включено</td>
+<td align="left">Включено</td>
+<td align="left">Включено</td>
+<td align="left">Включено</td>
+<td align="left">Включено</td>
 </tr>
-<tr>
-<td><strong>Использование преобразований, включая настраиваемые XSLT</strong></td>
-<td>Включено</td>
-<td>Включено</td>
-<td>Включено</td>
-<td>Включено</td>
+<tr class="even">
+<td align="left"><strong>Использование преобразований, включая настраиваемые XSLT</strong></td>
+<td align="left">Не включено</td>
+<td align="left">Включено</td>
+<td align="left">Включено</td>
+<td align="left">Включено</td>
+<td align="left">Включено</td>
 </tr>
+</tbody>
 </table>
 
 **Примечание.**
-<br/>Для обеспечения устойчивости к сбоям оборудования высокая доступность предполагает наличие нескольких виртуальных машин в одной единице BizTalk.
+ Для обеспечения устойчивости к сбоям оборудования высокая доступность предполагает наличие нескольких виртуальных машин в одной единице BizTalk.
 
 ## Часто задаваемые вопросы
+
 #### Что такое "единица BizTalk"?
+
 "Единица" — это атомарный уровень развертывания служб BizTalk Azure. Выпуски поставляются с модулями, которые различаются вычислительной мощностью и объемом памяти. Например, единица в выпуске Basic имеет больше возможностей, чем в Developer, единица в выпуске Standard — больше возможностей, чем в Basic, и т. д. Масштабирование службы BizTalk выполняется относительно единиц.
 
 #### В чем разница между службами BizTalk и виртуальной машиной BizTalk Azure?
+
 Службы BizTalk предоставляют подлинную архитектуру "платформа как услуга" (PaaS) для создания решений интеграции в облаке. Модель PaaS позволяет вам полностью сосредоточиться на логике приложения и оставить корпорации Майкрософт все аспекты управления инфраструктурой, в том числе:
 
-- Не требуется управлять виртуальными машинами или исправлять их
-- Майкрософт обеспечивает доступность
-- Вы управляете масштабом по запросу, просто запрашивая большую или меньшую нагрузку на портале управления Azure
+-   Вам не требуется управлять виртуальными машинами или настраивать их.
+-   Майкрософт обеспечивает доступность.
+-   Управлять масштабом легко — просто запросите необходимую нагрузку на портале Azure.
 
-BizTalk Server на виртуальных машинах Azure предоставляет архитектуру "инфраструктура как услуга" (IaaS). Вы создаете виртуальные машины и настраиваете их точно так же, как локальную среду, упрощая запуск существующих приложений в облаке без изменения кода. При использовании модели IaaS вы сами отвечаете за настройку виртуальных машин, управление виртуальными машинами (например, за установку исправлений ПО и ОС) и обеспечение высокой доступности приложения. 
+BizTalk Server на виртуальных машинах Azure предоставляет архитектуру "инфраструктура как услуга" (IaaS). Вы создаете виртуальные машины и настраиваете их точно так же, как локальную среду, упрощая запуск существующих приложений в облаке без изменения кода. При использовании модели IaaS вы сами отвечаете за настройку виртуальных машин, управление виртуальными машинами (например, за установку исправлений ПО и ОС) и обеспечение высокой доступности приложения.
 
 Если вы хотите создавать новые решения интеграции, требующие минимальных издержек на управление инфраструктурой, используйте службы BizTalk. Если вы хотите быстро перенести существующие решения BizTalk или вам нужна среда по запросу для разработки и тестирования приложений BizTalk Server, используйте BizTalk Server на виртуальной машине Azure.
 
-#### Почему, когда я создаю соглашение в службах BizTalk, число мостов увеличивается на два, а не на один? 
+#### В чем разница между службой адаптера BizTalk и гибридными подключениями?
+
+Служба адаптера BizTalk используется службой BizTalk Azure, что необходимо для подключения к локальной бизнес-системе с помощью пакета BizTalk Adapter Pack. Гибридное подключение — это простой и удобный способ запуска приложений веб-сайтов и мобильных служб на локальном ресурсе.
+
+#### Почему, когда я создаю соглашение в службах BizTalk, число мостов увеличивается на два, а не на один?
 
 Каждое соглашение состоит из двух разных мостов: моста стороны отправки и моста стороны приема.
 
-#### Что происходит при достижении ограничения квоты для числа мостов или соглашений? 
+#### Что происходит при достижении ограничения квоты для числа мостов или соглашений?
 
 Вы не сможете развернуть новые мосты или создать новые соглашения. Для дополнительных развертываний вам потребуется масштабировать среду до большего числа единиц службы BizTalk или выполнить обновление до выпуска более высокого уровня.
 
-#### Как перейти от одного уровня служб BizTalk к другому? 
+#### Как перейти от одного уровня служб BizTalk к другому?
 
-Используйте резервное копирование и восстановление данных для перехода с одного уровня на другой. Поддерживаются только некоторые пути миграции. Дополнительные сведения о поддерживаемых путях миграции см. в разделе [Службы BizTalk: резервное копирование и восстановление](http://go.microsoft.com/fwlink/p/?LinkID=329873).
+Используйте резервное копирование и восстановление данных для перехода с одного уровня на другой. Поддерживаются только некоторые пути миграции. Более подробную информацию о поддерживаемых путях миграции см. в разделе [Службы BizTalk: архивация и восстановление][Службы BizTalk: архивация и восстановление].
 
-#### Включена ли служба адаптера BizTalk в данную службу? Как получить это программное обеспечение?
+#### Включена ли сюда служба адаптера BizTalk? Как получить это программное обеспечение?
 
-Да, служба адаптера BizTalk вместе с пакетом BizTalk Adapter Pack включена в пакет SDK для служб BizTalk Azure [загрузить](http://www.microsoft.com/download/details.aspx?id=39087).
+Да, служба адаптера BizTalk вместе с пакетом BizTalk Adapter Pack включена в пакет SDK для служб BizTalk Azure [загрузить][загрузить].
 
 ## Далее
 
-Чтобы подготовить службы BizTalk Azure на портале управления Azure, перейдите по ссылке [Службы BizTalk: подготовка с использованием портала управления Azure](http://go.microsoft.com/fwlink/p/?LinkID=302280). Чтобы приступить к созданию приложений, перейдите по ссылке [Службы BizTalk Azure](http://go.microsoft.com/fwlink/p/?LinkID=235197).
+Сведения о подготовке служб BizTalk Windows Azure на портале управления Windows Azure см. в разделе [Службы BizTalk: подготовка с использованием портала управления Azure][Службы BizTalk: подготовка с использованием портала управления Azure]. Чтобы приступить к созданию приложений, перейдите по ссылке [Службы BizTalk Azure][Службы BizTalk Azure].
 
 ## См. также
-- [Службы BizTalk: подготовка с использованием портала управления Azure](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
-- [Службы BizTalk: диаграмма состояния подготовки](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
-- [Службы BizTalk: вкладки "Панель мониторинга", "Монитор" и "Масштаб"](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
-- [Службы BizTalk: резервное копирование и восстановление](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
-- [Службы BizTalk: регулирование](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
-- [Службы BizTalk: имя и ключ издателя](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
-- [Как приступить к работе с пакетом SDK для служб BizTalk Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 
+-   [Службы BizTalk: подготовка с использованием портала управления Azure][Службы BizTalk: подготовка с использованием портала управления Azure]
+-   [Службы BizTalk: диаграмма состояния подготовки][Службы BizTalk: диаграмма состояния подготовки]
+-   [Службы BizTalk: вкладки "Панель мониторинга", "Монитор" и "Масштаб"][Службы BizTalk: вкладки "Панель мониторинга", "Монитор" и "Масштаб"]
+-   [Службы BizTalk: архивация и восстановление][Службы BizTalk: архивация и восстановление]
+-   [Службы BizTalk: регулирование][Службы BizTalk: регулирование]
+-   [Службы BizTalk: имя и ключ издателя][Службы BizTalk: имя и ключ издателя]
+-   [Как приступить к работе с пакетом SDK для служб BizTalk Azure][Как приступить к работе с пакетом SDK для служб BizTalk Azure]
+
+  [Сведения о ценах на службы BizTalk Azure]: http://go.microsoft.com/fwlink/p/?LinkID=304011
+  [Службы BizTalk: архивация и восстановление]: http://go.microsoft.com/fwlink/p/?LinkID=329873
+  [загрузить]: http://www.microsoft.com/download/details.aspx?id=39087
+  [Службы BizTalk: подготовка с использованием портала управления Azure]: http://go.microsoft.com/fwlink/p/?LinkID=302280
+  [Службы BizTalk Azure]: http://go.microsoft.com/fwlink/p/?LinkID=235197
+  [Службы BizTalk: диаграмма состояния подготовки]: http://go.microsoft.com/fwlink/p/?LinkID=329870
+  [Службы BizTalk: вкладки "Панель мониторинга", "Монитор" и "Масштаб"]: http://go.microsoft.com/fwlink/p/?LinkID=302281
+  [Службы BizTalk: регулирование]: http://go.microsoft.com/fwlink/p/?LinkID=302282
+  [Службы BizTalk: имя и ключ издателя]: http://go.microsoft.com/fwlink/p/?LinkID=303941
+  [Как приступить к работе с пакетом SDK для служб BizTalk Azure]: http://go.microsoft.com/fwlink/p/?LinkID=302335

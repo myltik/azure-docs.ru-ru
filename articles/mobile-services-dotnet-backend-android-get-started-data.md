@@ -19,7 +19,7 @@
 
 В этом разделе показывается, как использовать мобильные службы Azure в качестве серверного источника данных для приложения Android. В этом учебнике вы будете создавать новую мобильную службу, загружать проект Eclipse Android для приложения, которое хранит данные в памяти, интегрировать мобильную службу с приложением и просматривать изменения, внесенные в данные во время работы приложения.
 
-Создаваемая в этом учебнике мобильная служба будет поддерживать среду выполнения .NET в компоненте мобильных служб. Это позволит использовать языки .NET и Visual Studio для серверной бизнес-логики в мобильной службе. Сведения о создании мобильной службы, которая позволит создавать в JavaScript серверную бизнес-логику, см. в подразделе [Серверная версия JavaScript][] этого раздела.
+Создаваемая в этом учебнике мобильная служба будет поддерживать среду выполнения .NET в компоненте мобильных служб. Это позволит использовать языки .NET и Visual Studio для серверной бизнес-логики в мобильной службе. Сведения о создании мобильной службы, которая позволит создавать в JavaScript серверную бизнес-логику, см. в подразделе [Серверная версия JavaScript][Серверная версия JavaScript] этого раздела.
 
 <div class="dev-callout"><b>Примечание.</b>
 <p>Для работы с этим учебником требуется Visual Studio 2013.</p>
@@ -27,31 +27,31 @@
 
 В этом учебнике рассматриваются следующие основные действия:
 
-1.  [Создание мобильной службы][]
-2.  [Локальная загрузка мобильной службы][]
-3.  [Тестирование мобильной службы][]
-4.  [Публикация мобильной службы в Azure][]
-5.  [Загрузка пакета GetStartedWithData][]
-6.  [Обновление приложения для использования мобильной службы для доступа к данным][]
-7.  [Тестирование приложения с помощью опубликованной мобильной службы][]
+1.  [Создание мобильной службы][Создание мобильной службы]
+2.  [Локальная загрузка мобильной службы][Локальная загрузка мобильной службы]
+3.  [Тестирование мобильной службы][Тестирование мобильной службы]
+4.  [Публикация мобильной службы в Azure][Публикация мобильной службы в Azure]
+5.  [Загрузка пакета GetStartedWithData][Загрузка пакета GetStartedWithData]
+6.  [Обновление приложения для использования мобильной службы для доступа к данным][Обновление приложения для использования мобильной службы для доступа к данным]
+7.  [Тестирование приложения с помощью опубликованной мобильной службы][Тестирование приложения с помощью опубликованной мобильной службы]
 
 <div class="dev-callout"><strong>Примечание.</strong> <p>Для работы с этим учебником требуется учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F" target="_blank">Бесплатная пробная версия Azure</a>.</p></div>
 
 ## <a name="create-service"></a><span class="short-header">Создание новой мобильной службы</span>Создание новой мобильной службы
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service][mobile-services-dotnet-backend-create-new-service]]
 
 ## <a name="download-the-service"></a><span class="short-header"> Загрузка службы</span>Загрузка службы на локальный компьютер
 
-[WACOM.INCLUDE [mobile-services-download-service-locally][]]
+[WACOM.INCLUDE [mobile-services-download-service-locally][mobile-services-download-service-locally]]
 
 ## <a name="test-the-service"></a><span class="short-header">Тестирование службы</span>Тестирование мобильной службы
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service][mobile-services-dotnet-backend-test-local-service]]
 
 ## <a name="publish-the-service"></a><span class="short-header">Публикация службы</span>Публикация мобильной службы в Azure
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service][mobile-services-dotnet-backend-publish-service]]
 
 ## <a name="download-app"></a><span class="short-header">Загрузка проекта</span>Загрузка проекта GetStartedWithData
 
@@ -61,15 +61,15 @@
 
 ### Проверка версии Android SDK
 
-[WACOM.INCLUDE [mobile-services-verify-android-sdk-version][]]
+[WACOM.INCLUDE [mobile-services-verify-android-sdk-version][mobile-services-verify-android-sdk-version]]
 
 ### Проверка и запуск примера кода
 
-[WACOM.INCLUDE [mobile-services-android-run-sample-code][]]
+[WACOM.INCLUDE [mobile-services-android-run-sample-code][mobile-services-android-run-sample-code]]
 
 ## <a name="update-app"></a><span class="short-header">Обновление приложения</span>Обновление приложения для использования мобильной службы для доступа к данным
 
-[WACOM.INCLUDE [mobile-services-android-getting-started-with-data][]]
+[WACOM.INCLUDE [mobile-services-android-getting-started-with-data][mobile-services-android-getting-started-with-data]]
 
 ## <a name="test-app"></a><span class="short-header">Тестирование приложения</span>Тестирование работы приложения с опубликованной мобильной службой
 
@@ -105,13 +105,13 @@
 
 Попробуйте один из следующих учебников:
 
--   [Приступая к работе с проверкой подлинности][]
+-   [Приступая к работе с проверкой подлинности][Приступая к работе с проверкой подлинности]
     Дополнительные сведения о проверке подлинности пользователей приложения.
 
--   [Приступая к работе с push-уведомлениями][]
+-   [Приступая к работе с push-уведомлениями][Приступая к работе с push-уведомлениями]
     Сведения об отправке в приложение простейших push-уведомлений.
 
--   [Справочник принципов использования мобильных служб .NET][]
+-   [Справочник принципов использования мобильных служб .NET][Справочник принципов использования мобильных служб .NET]
     Дополнительные сведения об использовании мобильных служб в .NET.
 
 <!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
