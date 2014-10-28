@@ -6,41 +6,41 @@
 
 > [AZURE.SELECTOR-LIST (Платформа | Сервер )]
 
--   [(iOS | .NET)][(iOS | .NET)]
--   [(iOS | JavaScript)][(iOS | JavaScript)]
--   [(Windows C# | .NET)][(Windows C# | .NET)]
--   [(Windows C# | Javascript)][(Windows C# | Javascript)]
--   [(Windows JavaScript | .NET)][(Windows JavaScript | .NET)]
--   [(Windows JavaScript | Javascript)][(Windows JavaScript | Javascript)]
--   [(Windows Phone | .NET)][(Windows Phone | .NET)]
--   [(Windows Phone | Javascript)][(Windows Phone | Javascript)]
--   [(Android | .NET)][(Android | .NET)]
--   [(Android | Javascript)][(Android | Javascript)]
--   [(Xamarin iOS | .NET)][(Xamarin iOS | .NET)]
--   [(Xamarin iOS | Javascript)][(Xamarin iOS | Javascript)]
--   [(HTML | Javascript)][(HTML | Javascript)]
--   [(Xamarin Android | .NET)][(Xamarin Android | .NET)]
--   [(Xamarin Android | Javascript)][(Xamarin Android | Javascript)]
--   [(Appcelerator | Javascript)][(Appcelerator | Javascript)]
+- [(iOS | .NET)](/ru-ru/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users/)
+- [(iOS | JavaScript)](/ru-ru/documentation/articles/mobile-services-ios-get-started-users/)
+- [(Windows C# | .NET)](/ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users/)
+- [(Windows C# | Javascript)](/ru-ru/documentation/articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-users/)
+- [(Windows JavaScript | .NET)](/ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users/)
+- [(Windows JavaScript | Javascript)](/ru-ru/documentation/articles/mobile-services-windows-store-javascript-get-started-users/)
+- [(Windows Phone | .NET)](/ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users/)
+- [(Windows Phone | Javascript)](/ru-ru/documentation/articles/mobile-services-windows-phone-get-started-users/)
+- [(Android | .NET)](/ru-ru/documentation/articles/mobile-services-dotnet-backend-android-get-started-users/)
+- [(Android | Javascript)](/ru-ru/documentation/articles/mobile-services-android-get-started-users/)
+- [(Xamarin iOS | .NET)](/ru-ru/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started-users/)
+- [(Xamarin iOS | Javascript)](/ru-ru/documentation/articles/partner-xamarin-mobile-services-ios-get-started-users/)
+- [(HTML | Javascript)](/ru-ru/documentation/articles/mobile-services-html-get-started-users/)
+- [(Xamarin Android | .NET)](/ru-ru/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started-users/)
+- [(Xamarin Android | Javascript)](/ru-ru/documentation/articles/partner-xamarin-mobile-services-android-get-started-users/)
+- [(Appcelerator | Javascript)](/ru-ru/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users/)
 
 В этом разделе показано, как выполнять проверку подлинности пользователей в мобильных службах Azure в приложении. В этом учебнике вы добавите проверку подлинности к проекту быстрого запуска, используя поставщик удостоверений, поддерживаемый мобильными службами. После выполнения успешной проверки подлинности и авторизации мобильными службами отображается значение идентификатора пользователя.
 
 В этом учебнике рассматриваются следующие основные шаги для включения проверки подлинности в приложении:
 
-1.  [Регистрация приложения для проверки подлинности и конфигурация мобильных служб][Регистрация приложения для проверки подлинности и конфигурация мобильных служб]
-2.  [Ограничение разрешений таблицы пользователями, прошедшими проверку подлинности][Ограничение разрешений таблицы пользователями, прошедшими проверку подлинности]
-3.  [Добавление проверки подлинности к приложению][Добавление проверки подлинности к приложению]
-4.  [Хранение маркеров аутентификации в клиенте][Хранение маркеров аутентификации в клиенте]
+1.  [Регистрация приложения для проверки подлинности и конфигурация мобильных служб]
+2.  [Ограничение разрешений таблицы пользователями, прошедшими проверку подлинности]
+3.  [Добавление проверки подлинности к приложению]
+4.  [Хранение маркеров аутентификации в клиенте]
 
-Этот учебник создан на основе краткого руководства по мобильным службам. Вам также необходимо сначала ознакомиться с учебником [Приступая к работе с мобильными службами][Приступая к работе с мобильными службами].
+Этот учебник создан на основе краткого руководства по мобильным службам. Вам также необходимо сначала ознакомиться с учебником [Приступая к работе с мобильными службами]
 
-> [WACOM.NOTE]В этом учебнике показан поток аутентификации, которым управляют мобильные службы с помощью различных поставщиков удостоверений. Этот метод можно легко настроить, и он поддерживает нескольких поставщиков. Информацию о том, как вместо этого использовать Live Connect для аутентификации, управляемой клиентом, и предоставления единого входа в приложении для Windows Phone, см. в разделе [Единый вход для приложений Windows Phone с использованием Live Connect][Единый вход для приложений Windows Phone с использованием Live Connect]. В случае применения аутентификации, управляемой клиентом, ваше приложение получает доступ к дополнительным данным о пользователе, управляемым поставщиком удостоверений. Чтобы получить те же данные о пользователе в мобильной службе, вызовите в серверных сценариях функцию **user.getIdentities()**. Дополнительную информацию см. в [этой записи][этой записи].
+> [WACOM.NOTE]В этом учебнике показан поток аутентификации, которым управляют мобильные службы с помощью различных поставщиков удостоверений. Этот метод можно легко настроить, и он поддерживает нескольких поставщиков. Информацию о том, как вместо этого использовать Live Connect для аутентификации, управляемой клиентом, и предоставления единого входа в приложении для Windows Phone, см. в разделе [Единый вход для приложений Windows Phone с использованием Live Connect]. В случае применения аутентификации, управляемой клиентом, ваше приложение получает доступ к дополнительным данным о пользователе, управляемым поставщиком удостоверений. Чтобы получить те же данные о пользователе в мобильной службе, вызовите в серверных сценариях функцию **user.getIdentities()**. Дополнительную информацию см. в [этой записи](http://go.microsoft.com/fwlink/p/?LinkId=506605).
 
 ## <a name="register"></a>Регистрация приложения для проверки подлинности и настройка мобильных служб
 
-[WACOM.INCLUDE [mobile-services-register-authentication][mobile-services-register-authentication]]
+[WACOM.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
-1.  (Необязательно) Выполните шаги, указанные в пункте [Регистрация пакета приложения магазина Windows для проверки подлинности Microsoft][Регистрация пакета приложения магазина Windows для проверки подлинности Microsoft].
+1.  (Необязательно) Выполните шаги, указанные в пункте <a href="/ru-ru/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication/">Регистрация пакета приложения магазина Windows для проверки подлинности Microsoft</a>.
 
     <div class="dev-callout"><b>Примечание.</b>
     <p>Этот шаг является необязательным, так как он применяется только к поставщику входа учетной записи Майкрософт. При регистрации сведений пакета приложений магазина Windows с помощью мобильных служб клиент сможет повторно использовать учетные данные для входа в учетную запись Майкрософт для осуществления единого входа. Если этого не сделать, пользователям входа учетной записи Майкрософт придется осуществлять вход в систему при каждом вызове метода входа в систему. Выполните этот шаг, если вы планируете использовать поставщик удостоверений учетной записи Майкрософт.</p>
@@ -50,9 +50,9 @@
 
 ## <a name="permissions"></a>Ограничение разрешений для пользователей, прошедших проверку подлинности
 
-[WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend][mobile-services-restrict-permissions-javascript-backend]]
+[WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
 
-1.  Откройте проект, созданный после завершения обучения, в Visual Studio 2012 Express для Windows 8 [Приступая к работе с мобильными службами][1].
+1.  Откройте проект, созданный после завершения обучения, в Visual Studio 2012 Express для Windows 8 <a href="/ru-ru/develop/mobile/tutorials/get-started/">Приступая к работе с мобильными службами</a>.
 
 2.  Нажмите клавишу F5 для запуска этого приложения на основе быстрого запуска; убедитесь, что после запуска приложения возникает необработанное исключение с кодом состояния 401 (неавторизованный).
 
@@ -62,11 +62,11 @@
 
 ## <a name="add-authentication"></a>Добавление проверки подлинности в приложение
 
-[WACOM.INCLUDE [mobile-services-windows-store-javascript-authenticate-app][mobile-services-windows-store-javascript-authenticate-app]]
+[WACOM.INCLUDE [mobile-services-windows-store-javascript-authenticate-app](../includes/mobile-services-windows-store-javascript-authenticate-app.md)] 
 
 ## <a name="tokens"></a>Хранение маркеров авторизации в клиенте
 
-[WACOM.INCLUDE [mobile-services-windows-store-javascript-authenticate-app-with-token][mobile-services-windows-store-javascript-authenticate-app-with-token]]
+[WACOM.INCLUDE [mobile-services-windows-store-javascript-authenticate-app-with-token](../includes/mobile-services-windows-store-javascript-authenticate-app-with-token.md)] 
 
 ## <a name="next-steps"> </a>Дальнейшие действия
 

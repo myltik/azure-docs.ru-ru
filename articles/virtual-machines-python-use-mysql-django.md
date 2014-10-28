@@ -18,9 +18,9 @@
 
 Файлы проекта для этого учебника будут храниться в папке **C:\\django\\helloworld**, а завершенное приложение будет выглядеть примерно следующим образом:
 
-![][]
+![][0]
 
-[WACOM.INCLUDE [create-account-and-vms-note][create-account-and-vms-note]]
+[WACOM.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
 
 ## Настройка виртуальной машины для размещения MySQL и Django
 
@@ -74,15 +74,15 @@
 
   Вы должны увидеть ответ, аналогичный приведенному ниже:
 
-  ![][1]
+  ![][2]
 
-1.  Перед началом разработки своего приложения Django, разумеется, необходимо установить Python+Django на виртуальной машине. Это можно сделать с помощью [Установщика веб-платформы][Установщика веб-платформы]. После установки установщика веб-платформы с его помощью выполните поиск «Django» и установите продукт Django (Python).
+1.  Перед началом разработки своего приложения Django, разумеется, необходимо установить Python+Django на виртуальной машине. Это можно сделать с помощью [Установщика веб-платформы](http://www.microsoft.com/web/downloads/platform.aspx). После установки установщика веб-платформы с его помощью выполните поиск «Django» и установите продукт Django (Python).
 
  **Примечание.** Для работы по этому учебнику достаточно просто установить продукт *Django* из установщика веб-платформы. Для наших целей **не** требуются *инструменты Python для Visual Studio* или даже пакет SDK для Python для Azure.
 
 1.  Установите пакет клиента MySQL Python. Его можно установить непосредственно [по этой ссылке][по этой ссылке]. После завершения выполните следующую команду, чтобы проверить установку:
 
-![][2]
+  ![][1]
 
 ## Расширение приложения Django Hello World
 
@@ -217,9 +217,9 @@
         Development server is running at http://123.34.56.78:80
         Quit the server with CTRL-BREAK.
 
-2.  В локальном браузере откройте \*\*<http://*yourVmName>\*.cloudapp.net\*\* (где *yourVmName* — имя, которое было указано при создании виртуальной машины). Должно быть выведено значение «Hello... !" , как показано на приведенном ниже снимке экрана. Это означает, что Django выполняется на виртуальной машине и работает правильно.
+2.  В локальном браузере откройте **http://*yourVmName*.cloudapp.net** (где *yourVmName* — имя, которое было указано при создании виртуальной машины). Должно быть выведено значение «Hello... !" , как показано на приведенном ниже снимке экрана. Это означает, что Django выполняется на виртуальной машине и работает правильно.
 
-    ![][]
+    ![][5]
 
   Обновите браузер несколько раз, и вы увидите, что сообщение изменится с *«Hello **\<country abc\>**»* на *«Hello **\<другая страна\>**»*.
 
@@ -232,13 +232,14 @@
   [Django Hello World]: http://windowsazure.com/ru-ru/documentation/articles/virtual-machines-python-django-web-app-windows-server
   [Веб-сайт с MySQL]: http://dev.mysql.com/doc/
   [драйвера MySQL]: http://pypi.python.org/pypi/MySQL-python/1.2.3
-  []: ./media/virtual-machines-python-use-mysql-django/mysql_tutorial01.png
-  [create-account-and-vms-note]: ../includes/create-account-and-vms-note.md
   [здесь]: /ru-ru/manage/windows/tutorials/virtual-machine-from-gallery/
   [MySQL Community Server]: http://dev.mysql.com/downloads/mysql/
   [базы данных «world»]: http://dev.mysql.com/doc/index-other.html
   [этот]: http://downloads.mysql.com/docs/world.sql.zip
-  [1]: ./media/virtual-machines-python-use-mysql-django/mysql_tutorial01-2.png
-  [Установщика веб-платформы]: http://www.microsoft.com/web/downloads/platform.aspx
   [по этой ссылке]: http://code.google.com/p/soemin/downloads/detail?name=MySQL-python-1.2.3.win32-py2.7.exe&can=2&q=
-  [2]: ./media/virtual-machines-python-use-mysql-django/mysql_tutorial01-1.png
+
+
+[0]: ./media/virtual-machines-python-use-mysql-django/mysql_tutorial01.png
+[1]: ./media/virtual-machines-python-use-mysql-django/mysql_tutorial01-1.png
+[2]: ./media/virtual-machines-python-use-mysql-django/mysql_tutorial01-2.png
+[5]: ./media/virtual-machines-python-use-mysql-django/mysql_tutorial01.png

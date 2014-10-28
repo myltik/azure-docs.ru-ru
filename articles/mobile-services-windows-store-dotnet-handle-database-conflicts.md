@@ -10,31 +10,31 @@
 
 В этом учебнике вы добавите функции в приложение быстрого запуска для обработки разногласий, которые возникают при обновлении базы данных TodoItem. В этом учебнике рассматриваются следующие основные действия:
 
-1.  [Обновите приложение, чтобы разрешить обновления][Обновите приложение, чтобы разрешить обновления]
-2.  [Включите в приложении обнаружение конфликтов][Включите в приложении обнаружение конфликтов]
-3.  [Протестируйте в приложении конфликты записи базы данных][Протестируйте в приложении конфликты записи базы данных]
-4.  [Автоматическое разрешение конфликтов в серверных скриптах][Автоматическое разрешение конфликтов в серверных скриптах]
+1.  [Обновите приложение, чтобы разрешить обновления]
+2.  [Включите в приложении обнаружение конфликтов]
+3.  [Протестируйте в приложении конфликты записи базы данных]
+4.  [Автоматическое разрешение конфликтов в серверных скриптах]
 
 Для работы с данным учебником требуется следующее
 
 -   Microsoft Visual Studio 2012 Express для Windows или более поздней версии.
--   Этот учебник создан на основе краткого руководства по мобильным службам. Перед началом работы с учебником необходимо пройти задания учебника [Приступая к работе с мобильными службами][Приступая к работе с мобильными службами].
--   [Учетная запись Azure][Учетная запись Azure]
+-   Этот учебник создан на основе краткого руководства по мобильным службам. Перед началом работы с учебником необходимо пройти задания учебника [Приступая к работе с мобильными службами].
+-   [Учетная запись Azure]
 -   Пакет NuGet для мобильных служб Azure 1.1.0 или более поздней версии. Для получения последней версии выполните следующие действия:
 
     1.  Откройте проект в Visual Studio, щелкните его правой кнопкой мыши в обозревателе решений, а затем щелкните **Управление пакетами NuGet**.
 
-        ![][]
+        ![][19]
 
     2.  Разверните раздел **В сети** и щелкните **Microsoft и .NET**. В поле "Поиск" введите **Мобильные службы Azure**. Нажмите **Установка** в пакете NuGet **Мобильных служб Azure**.
 
-        ![][1]
+        ![][20]
 
 ## <a name="uiupdate"></a><span class="short-header">Обновление пользовательского интерфейса</span>Обновление приложения для предоставления разрешения на выполнение обновлений
 
 В этом разделе вы обновите пользовательский интерфейс TodoList, что позволит обновлять текст для каждого элемента в элементе управления «поле со списком». Поле со списком будет содержать поле флажка и текстовое поле для каждого элемента в таблице базы данных. Можно будет обновить текстовое поле TodoItem. Приложение будет обрабатывать событие `LostFocus` из этого текстового поля для обновления элемента в базе данных.
 
-1.  Откройте в Visual Studio проект, скачанный во время работы с учебником [Приступая к работе с мобильными службами][Приступая к работе с мобильными службами].
+1.  Откройте в Visual Studio проект, скачанный во время работы с учебником [Приступая к работе с мобильными службами].
 2.  В обозревателе решений Visual Studio откройте файл MainPage.xaml, замените определение `ListView` на приведенный ниже элемент управления `ListView` и сохраните изменения.
 
         <ListView Name="ListItems" Margin="62,10,0,0" Grid.Row="1">
@@ -90,7 +90,7 @@
 
 ## <a name="enableOC"></a><span class="short-header">Включение оптимистичного параллелизма</span>Включение в приложении функции обнаружения конфликтов
 
-В некоторых сценариях два и более клиента могут одновременно записывать изменения в один и тот же элемент. Без какого либо определения конфликтов последняя запись должна переопределять любые предыдущие обновления, даже если они привели к нежелательным результатам. При [управлении оптимистичным параллелизмом][управлении оптимистичным параллелизмом] предполагается, что каждая транзакция может фиксироваться, поэтому не использует блокировки каких-либо ресурсов. Перед фиксацией транзакции управление оптимистичным параллелизмом проверяет, что никакие другие транзакции не изменили данные. Если данные были изменены, фиксирующая транзакция откатывается. Мобильные службы Azure поддерживают управление оптимистичным параллелизмом за счет отслеживания изменений каждого элемента с помощью столбца системного свойства `__version`, который добавляется к каждой таблице. В этом разделе описано, как сделать так, чтобы приложение определяло эти конфликты записи с помощью системного свойства `__version`. Приложение будет получать уведомления от `MobileServicePreconditionFailedException` во время попытки обновления, если запись была изменена с момента последнего запроса. Затем оно сможет выбрать, зафиксировать свои изменения в базе данных или оставить без изменений последнее изменение в базе данных. Дополнительные сведения о системных свойствах мобильных служб см. в [Системные свойства][Системные свойства]
+В некоторых сценариях два и более клиента могут одновременно записывать изменения в один и тот же элемент. Без какого либо определения конфликтов последняя запись должна переопределять любые предыдущие обновления, даже если они привели к нежелательным результатам. При [управлении оптимистичным параллелизмом] предполагается, что каждая транзакция может фиксироваться, поэтому не использует блокировки каких-либо ресурсов. Перед фиксацией транзакции управление оптимистичным параллелизмом проверяет, что никакие другие транзакции не изменили данные. Если данные были изменены, фиксирующая транзакция откатывается. Мобильные службы Azure поддерживают управление оптимистичным параллелизмом за счет отслеживания изменений каждого элемента с помощью столбца системного свойства `__version`, который добавляется к каждой таблице. В этом разделе описано, как сделать так, чтобы приложение определяло эти конфликты записи с помощью системного свойства `__version`. Приложение будет получать уведомления от `MobileServicePreconditionFailedException` во время попытки обновления, если запись была изменена с момента последнего запроса. Затем оно сможет выбрать, зафиксировать свои изменения в базе данных или оставить без изменений последнее изменение в базе данных. Дополнительные сведения о системных свойствах мобильных служб см. в [Системные свойства]
 
 1.  В файле MainPage.xaml.cs обновите определение класса **TodoItem** с помощью приведенного ниже кода, чтобы добавить в него системное свойство **__version**. Благодаря этому будет включена поддержка обнаружения конфликтов записи.
 
@@ -180,66 +180,66 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 
 1.  Создайте пакет приложения для Магазина Windows для установки приложения на втором компьютере или виртуальной машине. Чтобы сделать это, нажмите **Проект**-\>**Магазин**-\>**Создание пакетов приложений** в Visual Studio.
 
-    ![][2]
+    ![][0]
 
 2.  На странице «Создать свои пакеты» щелкните **Нет**, поскольку этот пакет не будет загружен в Магазин Windows. Нажмите кнопку **Далее**.
 
-    ![][3]
+    ![][1]
 
 3.  На странице «Выбор и настройка пакетов» оставьте значения по умолчанию и нажмите кнопку **Создать**.
 
-    ![][4]
+    ![][10]
 
 4.  На странице «Завершение создания пакета» щелкните ссылку **Расположение вывода**, чтобы открыть расположение пакета.
 
-    ![][5]
+    ![][11]
 
 5.  Скопируйте папку пакета todolist\_1.0.0.0\_AnyCPU\_Debug\_Test на второй компьютер. На этом компьютере откройте папку пакета и щелкните правой кнопкой мыши скрипт PowerShell **Add-AppDevPackage.ps1** и нажмите кнопку **Запуск с помощью PowerShell**, как показано ниже. Следуйте инструкциям на экране для установки приложения.
 
-    ![][6]
+    ![][12]
 
 6.  Запустите экземпляр 1 приложения в Visual Studio, щелкнув **Отладка**-\>**Начать отладку**. На экране запуска второго компьютера щелкните стрелку вниз, чтобы увидеть "Приложения по имени". Затем щелкните приложение **todolist** для запуска экземпляра 2 приложения.
 
     Экземпляр 1 приложения
 
-    ![][7]
+    ![][2]
 
     Экземпляр 2 приложения
 
-    ![][7]
+    ![][2]
 
 
 7.  В экземпляре 1 приложения измените значение последнего элемента на **Тест записи 1**, затем выберите второе текстовое поле, чтобы обработчик событий `LostFocus` обновил базу данных. На следующем снимке экрана показан пример.
 
     Экземпляр 1 приложения
 
-    ![][8]
+    ![][3]
 
     Экземпляр 2 приложения
 
-    ![][7]
+    ![][2]
 
 
 8.  На этом этапе последний элемент в экземпляре 2 приложения содержит старую версию элемента. В этом экземпляре приложения введите значение **Тест записи 2** для свойства `text`. Затем выберите второе текстовое поле, чтобы обработчик событий `LostFocus` попытался обновить базу данных со старым свойством `_version`.
 
     Экземпляр 1 приложения
 
-    ![][9]
+    ![][4]
 
     Экземпляр 2 приложения
 
-    ![][10]
+    ![][5]
 
 
 9.  Поскольку значение `__version`, использованное при попытке обновления, не соответствует значению `__version` сервера, пакет SDK для мобильных служб высылает уведомление `MobileServicePreconditionFailedException`, позволяющее приложению разрешить этот конфликт. Чтобы разрешить конфликт, нажмите **Принять локальный текст** для сохранения значений из экземпляра 2. Или же нажмите **Оставить текст сервера** для отклонения значений в экземпляре 2 и использования значений из экземпляра 1 приложения.
 
     Экземпляр 1 приложения
 
-    ![][9]
+    ![][4]
 
     Экземпляр 2 приложения
 
-    ![][11]
+    ![][6]
 
 
 ## <a name="scriptsexample"></a><span class="short-header">Обработка конфликтов при помощи сценариев</span>Автоматическое разрешение конфликтов в серверных сценариях
@@ -251,17 +251,17 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 
 Дальнейшие действия описывают добавление серверного скрипта обновления и его тестирование.
 
-1.  Выполните вход на [портал управления Azure][портал управления Azure], щелкните элемент **Мобильные службы**, а затем выберите свое приложение.
+1.  Выполните вход на [портал управления Azure], щелкните элемент **Мобильные службы**, а затем выберите свое приложение.
 
-    ![][12]
+    ![][7]
 
 2.  Откройте вкладку **Данные** и щелкните таблицу **TodoItem**.
 
-    ![][13]
+    ![][8]
 
 3.  Щелкните элемент **Сценарий** и выберите операцию **Обновление**.
 
-    ![][14]
+    ![][9]
 
 4.  Замените имеющийся сценарий следующей функцией и нажмите кнопку **Сохранить**:
 
@@ -285,14 +285,25 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 
     Экземпляр 1 приложения
 
-    ![][9]
+    ![][4]
 
     Экземпляр 2 приложения
 
-    ![][10]
+    ![][5]
 
 
 6.  В экземпляре 1 приложения введите отличающееся значение для последнего текстового свойства. Затем выберите второе текстовое поле, чтобы обработчик событий `LostFocus` попытался обновить базу данных с неправильным свойством `__version`.
+
+    Экземпляр 1 приложения
+
+    ![][13]
+
+    Экземпляр 2 приложения
+
+    ![][14]
+
+
+7.  Обратите внимание, что, поскольку серверный сценарий разрешил конфликт, позволив обновление, так как соответствующий элемент не был помечен как завершенный, в приложении не было обнаружено исключение. Чтобы увидеть, что обновление действительно успешно, нажмите кнопку **Обновить** в экземпляре 2 для повторного запроса к базе данных.
 
     Экземпляр 1 приложения
 
@@ -300,58 +311,47 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 
     Экземпляр 2 приложения
 
-    ![][16]
-
-
-7.  Обратите внимание, что, поскольку серверный сценарий разрешил конфликт, позволив обновление, так как соответствующий элемент не был помечен как завершенный, в приложении не было обнаружено исключение. Чтобы увидеть, что обновление действительно успешно, нажмите кнопку **Обновить** в экземпляре 2 для повторного запроса к базе данных.
-
-    Экземпляр 1 приложения
-
-    ![][17]
-
-    Экземпляр 2 приложения
-
-    ![][17]
+    ![][15]
 
 
 8.  В экземпляре 1 установите флажок для завершения последнего элемента TodoItem.
 
     Экземпляр 1 приложения
 
-    ![][18]
+    ![][16]
 
     Экземпляр 2 приложения
 
-    ![][17]
+    ![][15]
 
 
 9.  В экземпляре 2 попытайтесь обновить текст последнего элемента TodoItem и вызвать событие `LostFocus`. В ответ на конфликт сценарий разрешил его, отказавшись от обновления, потому что элемент уже завершен.
 
     Экземпляр 1 приложения
 
-    ![][19]
+    ![][17]
 
     Экземпляр 2 приложения
 
-    ![][20]
+    ![][18]
 
 
 ## <a name="next-steps"> </a>Дальнейшие действия
 
 В этом учебнике показано, как сделать так, чтобы приложение для Магазина Windows обрабатывало конфликты записи при работе с данными в мобильных службах. Далее проработайте один из следующих учебников в серии, посвященной работе с данными:
 
--   [Проверка и изменение данных с помощью скриптов][Проверка и изменение данных с помощью скриптов]
+-   [Проверка и изменение данных с помощью скриптов]
     <br/>Дополнительные сведения об использовании серверных скриптов в мобильных службах для проверки и изменения данных, отправляемых из приложения.
 
--   [Уточнение запросов посредством разбиения по страницам][Уточнение запросов посредством разбиения по страницам]
+-   [Уточнение запросов посредством разбиения по страницам]
     <br/>Сведения об использовании разбиения по страницам в запросах для управления объемом данных, обрабатываемых в одном запросе.
 
 После завершения серии, посвященной работе с данными, можно также пройти один из следующих учебников по Магазину Windows:
 
--   [Приступая к работе с проверкой подлинности][Приступая к работе с проверкой подлинности]
+-   [Приступая к работе с проверкой подлинности]
     <br/>Дополнительные сведения о проверке подлинности пользователей приложения.
 
--   [Приступая к работе с push-уведомлениями][Приступая к работе с push-уведомлениями]
+-   [Приступая к работе с push-уведомлениями]
     <br/>Сведения об отправке в приложение простейших push-уведомлений с помощью мобильных служб.
 
 <!-- Anchors.  Images.  URLs. -->
@@ -365,31 +365,32 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
   [Автоматическое разрешение конфликтов в серверных скриптах]: #scriptsexample
   [Приступая к работе с мобильными службами]: /ru-ru/develop/mobile/tutorials/get-started
   [Учетная запись Azure]: http://www.windowsazure.com/ru-ru/pricing/free-trial/
-  []: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/mobile-manage-nuget-packages-VS.png
-  [1]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/mobile-manage-nuget-packages-dialog.png
   [управлении оптимистичным параллелизмом]: http://go.microsoft.com/fwlink/?LinkId=330935
   [Системные свойства]: http://go.microsoft.com/fwlink/?LinkId=331143
-  [2]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-create-app-package1.png
-  [3]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-create-app-package2.png
-  [4]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-create-app-package3.png
-  [5]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-create-app-package4.png
-  [6]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-install-app-package.png
-  [7]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-app1.png
-  [8]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-app1-write1.png
-  [9]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-app1-write2.png
-  [10]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-app2-write2.png
-  [11]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-app2-write2-conflict.png
   [портал управления Azure]: https://manage.windowsazure.com/
-  [12]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/mobile-services-selection.png
-  [13]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/mobile-portal-data-tables.png
-  [14]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/mobile-insert-script-users.png
-  [15]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-app1-write3.png
-  [16]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-app2-write3.png
-  [17]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-write3.png
-  [18]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-checkbox.png
-  [19]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-2-items.png
-  [20]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-already-complete.png
   [Проверка и изменение данных с помощью скриптов]: /ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
   [Уточнение запросов посредством разбиения по страницам]: /ru-ru/develop/mobile/tutorials/add-paging-to-data-dotnet
   [Приступая к работе с проверкой подлинности]: /ru-ru/develop/mobile/tutorials/get-started-with-users-dotnet
   [Приступая к работе с push-уведомлениями]: /ru-ru/develop/mobile/tutorials/get-started-with-push-dotnet
+<!-- Images. -->
+[0]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-create-app-package1.png
+[1]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-create-app-package2.png
+[2]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-app1.png 
+[3]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-app1-write1.png
+[4]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-app1-write2.png
+[5]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-app2-write2.png
+[6]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-app2-write2-conflict.png
+[7]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/mobile-services-selection.png
+[8]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/mobile-portal-data-tables.png
+[9]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/mobile-insert-script-users.png
+[10]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-create-app-package3.png
+[11]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-create-app-package4.png
+[12]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-install-app-package.png
+[13]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-app1-write3.png
+[14]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-app2-write3.png
+[15]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-write3.png
+[16]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-checkbox.png
+[17]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-2-items.png
+[18]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-already-complete.png
+[19]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/mobile-manage-nuget-packages-VS.png
+[20]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/mobile-manage-nuget-packages-dialog.png
