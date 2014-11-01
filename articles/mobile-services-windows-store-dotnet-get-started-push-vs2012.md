@@ -76,7 +76,7 @@
            await registrationsTable.InsertAsync(registration);
         }
 
-    Этот код вставляет текущий канал в таблицу «Registrations».
+    Этот код вставляет текущий канал в таблицу «Регистрации».
 
 4.  В верхней части обработчика событий **OnLaunched** в файле App.xaml.cs добавьте в новый метод **AcquirePushChannel** следующий вызов:
 
