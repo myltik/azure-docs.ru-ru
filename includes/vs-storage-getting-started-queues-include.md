@@ -1,33 +1,29 @@
-###### Создание очереди
+##### Создание очереди
 
 Объект **CloudQueueClient** позволяет ссылаться на объекты очередей. Следующий код создает объект **CloudQueueClient**. Для всего кода в этой статье используется строка подключения к хранилищу, сохраненная в конфигурации службы приложения Azure. Существуют также другие способы создания объекта **CloudStorageAccount**. Дополнительные сведения см. в документации по [CloudStorageAccount][CloudStorageAccount].
-
-    // Get the storage account from its connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-      CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
     // Create the queue client.
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-С помощью объекта **queueClient** получите ссылку на очередь, которую необходимо использовать. Очередь можно создать, если она не существует.
+С помощью объекта **queueClient** получите ссылку на очередь, которую необходимо использовать. Код ссылается на очередь под названием myqueue. Если очередь с таким именем отсутствует, она будет создана.
 
     // Get a reference to a queue named “myqueue”.
     CloudQueue queue = queueClient.GetQueueReference("myqueue");
 
     // If the queue isn’t already there, then create it.
-    queue.CreateIfNotExist();
+    queue.CreateIfNotExists();
 
-**Примечание.** Используйте этот блок кода перед кодом из следующих разделов.
+**ПРИМЕЧАНИЕ.** Используйте этот блок кода перед кодом из следующих разделов.
 
-###### Вставка сообщения в очередь
+##### Вставка сообщения в очередь
 
-Чтобы вставить сообщение в существующую очередь, сначала создайте новый объект**CloudQueueMessage** Затем вызовите метод addMessage(). Для создания объекта **CloudQueueMessage** можно использовать либо строку (в формате UTF-8), либо массив типа byte. Ниже приведен код, который создает очередь (если она не существует) и вставляет сообщение "Привет всем":
+Чтобы вставить сообщение в существующую очередь, сначала создайте новый объект **CloudQueueMessage**. Затем вызовите метод addMessage(). Для создания объекта **CloudQueueMessage** можно использовать либо строку (в формате UTF-8), либо массив типа byte. Ниже приведен код, который создает очередь (если она не существует) и вставляет сообщение "Привет всем":
 
     // Create a message and add it to the queue.
     CloudQueueMessage message = new CloudQueueMessage("Hello, World");
     queue.AddMessage(message);
 
-###### Просмотр следующего сообщения
+##### Просмотр следующего сообщения
 
 Можно просмотреть сообщение в начале очереди, не удаляя его из очереди, вызвав метод PeekMessage().
 
@@ -37,7 +33,7 @@
     // Display the message.
     Console.WriteLine(peekedMessage.AsString);
 
-###### Удаление следующего сообщения
+##### Удаление следующего сообщения
 
 Ваш код может удалить (из очереди) сообщение в два этапа.
 
@@ -52,4 +48,9 @@
     // Process the message in less than 30 seconds, and then delete the message.
     queue.DeleteMessage(retrievedMessage);
 
-  [CloudStorageAccount]: http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx "CloudStorageAccount"
+[Дополнительные сведения о службе хранилища Azure][Дополнительные сведения о службе хранилища Azure]
+См. также [Обзор ресурсов хранения в обозревателе сервера][Обзор ресурсов хранения в обозревателе сервера].
+
+  [CloudStorageAccount]: http://msdn.microsoft.com/ru-ru/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx "CloudStorageAccount"
+  [Дополнительные сведения о службе хранилища Azure]: http://azure.microsoft.com/documentation/services/storage/
+  [Обзор ресурсов хранения в обозревателе сервера]: http://msdn.microsoft.com/ru-ru/library/azure/ff683677.aspx

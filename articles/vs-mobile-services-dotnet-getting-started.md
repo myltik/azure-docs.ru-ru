@@ -1,20 +1,21 @@
-<properties title="Getting Started with Mobile Services" pageTitle="" metaKeywords="Azure, Getting Started, Mobile Services" description="" services="mobile-services" documentationCenter="" authors="ghogen, kempb" />
+<properties title="Приступая к работе с мобильными службами" pageTitle="" metaKeywords="Azure, Getting Started, Mobile Services" description="" services="mobile-services" documentationCenter="" authors="ghogen, kempb" />
 
 <tags ms.service="mobile-services" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/8/2014" ms.author="ghogen, kempb"></tags>
 
-### Что произошло?
+> [AZURE.SELECTOR]
+>
+> -   [Приступая к работе][Приступая к работе]
+> -   [Что произошло?][Что произошло?]
 
-###### Добавлены ссылки
+## Приступая к работе с мобильными службами (проекты .NET)
 
-В проект добавлен пакет NuGet мобильных служб Azure. В результате в проект добавлены следующие ссылки на .NET: Microsoft.WindowsAzure.Mobile, Microsoft.WindowsAzure.Mobile.Ext, Newtonsoft.Json, System.Net.Http.Extensions, System.Net.Http.Primitives
+Первое действие, необходимое для использования этих примеров кода, зависит от типа мобильной службы, к которой вы подключились.
 
-###### Значения строк подключения для мобильных служб
+Для серверной мобильной службы JavaScript создайте таблицу под названием TodoItem. Чтобы создать таблицу, найдите мобильную службу в узле Azure (в обозревателе сервера), щелкните узел этой службы правой кнопкой мыши, чтобы открыть контекстное меню, и выберите команду **Создать таблицу**. Введите имя таблицы TodoItem.
 
-В файле App.xaml.cs был создан объект MobileServiceClient, содержащий ключ и URL-адрес выбранного приложения мобильной службы.
+Если же вы подключились к серверной мобильной службе .NET, среда Visual Studio уже создала в шаблоне проекта по умолчанию таблицу TodoItem, но ее нужно опубликовать в Azure. Чтобы опубликовать таблицу, откройте контекстное меню проекта мобильной службы в обозревателе решений и выберите команду **Опубликовать веб-сайт**. Примите предлагаемые по умолчанию параметры и нажмите кнопку **Опубликовать**.
 
-### Приступая к работе с мобильными службами
-
-###### Получение ссылку на таблицу
+##### Получение ссылку на таблицу
 
 Следующий код получает ссылку на таблицу, содержащую данные для TodoItem, которые можно использовать в последующих операциях чтения и обновления данных таблицы. Необходим класс TodoItem с атрибутами, настроенными на интерпретацию JSON, который мобильный службы отправляют в ответ на запросы.
 
@@ -33,38 +34,43 @@
 
 Чтобы эти примеры работали, необходимо установить уровень разрешений таблицы на **Кто угодно с ключом приложения**. Если изменить разрешения для повышения безопасности мобильного устройства, необходимо будет добавить поддержку проверки подлинности пользователей. См. [Начало работы с проверкой подлинности][Начало работы с проверкой подлинности].
 
-###### Добавление записи
+##### Добавление записи
 
 Вставьте новый элемент в таблицу данных.
 
     TodoItem todoItem = new TodoItem() { Text = "My first to do item", Complete = false };
     await todoTable.InsertAsync(todoItem);
 
-###### Чтение таблицы и запросы к ней
+##### Чтение таблицы и запросы к ней
 
 Следующий код позволяет выполнить запрос ко всем элементам таблицы. Обратите внимание, возвращается только первая страница данных, которая по умолчанию содержит 50 элементов. Можно указать необходимый размер, так как это дополнительный параметр.
 
-    List<TodoItem> items = await todoTable.ToListAsync();
+    List<TodoItem> items;
     try
     {
         // Query that returns all items.   
-        items = await todoTable.ToCollectionAsync();             
+        items = await todoTable.ToListAsync();             
     }
     catch (MobileServiceInvalidOperationException e)
     {
         // handle exception
     }
 
-###### Обновление записи
+##### Обновление записи
 
 Обновите строку в таблице данных. Элемент параметра является обновляемым объектом TodoItem.
 
     await todoTable.UpdateAsync(item);
 
-###### Удаление записи
+##### Удаление записи
 
 Удалите строку из базы данных. Элемент параметра является удаляемым объектом TodoItem.
 
     await todoTable.DeleteAsync(item);
 
+[Дополнительные сведения о мобильных службах][Дополнительные сведения о мобильных службах]
+
+  [Приступая к работе]: /documentation/articles/vs-mobile-services-dotnet-getting-started/
+  [Что произошло?]: /documentation/articles/vs-mobile-services-dotnet-what-happened/
   [Начало работы с проверкой подлинности]: http://azure.microsoft.com/ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users/
+  [Дополнительные сведения о мобильных службах]: http://azure.microsoft.com/documentation/services/mobile-services/

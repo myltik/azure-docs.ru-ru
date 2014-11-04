@@ -1,93 +1,69 @@
-<properties title="Getting Started with Active Directory Authentication" pageTitle="" metaKeywords="Azure, Getting Started, Active Directory" description="" services="active-directory" documentationCenter="" authors="ghogen, kempb" />
+<properties title="Приступая к работе с проверкой подлинности на основе Active Directory" pageTitle="" metaKeywords="Azure, Getting Started, Active Directory" description="" services="active-directory" documentationCenter="" authors="ghogen, kempb" />
 
 <tags ms.service="active-directory" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/8/2014" ms.author="ghogen, kempb"></tags>
 
-### Что произошло?
+> [AZURE.SELECTOR]
+>
+> -   [Приступая к работе][Приступая к работе]
+> -   [Что произошло?][Что произошло?]
 
-В проект добавлены ссылки
+## Приступая к работе с Azure Active Directory (проекты .NET)
 
-###### Ссылки на пакет NuGet
+##### Требование проверки подлинности для доступа к контроллерам
 
-Microsoft.IdentityModel.Protocol.Extensions, Microsoft.Owin, Microsoft.Owin.Host.SystemWeb, Microsoft.Owin.Security, Microsoft.Owin.Security.Cookies, Microsoft.Owin.Security.OpenIdConnect, Owin, System.IdentityModel.Tokens.Jwt
+Ко всем контроллерам в проекте добавлен атрибут **Authorize**. Этот атрибут обеспечивает проверку подлинности пользователей перед их доступом к контроллерам. Для анонимного доступа к контроллеру удалить с него этот атрибут. Если необходимо задать разрешения на более детальном уровне, примените атрибут к каждому методу, требующему проверки подлинности, а не к классу контроллера.
 
-###### Ссылки на .NET
+##### Добавление элементов управления SignIn и SignOut
 
-Microsoft.IdentityModel.Protocol.Extensions, Microsoft.Owin, Microsoft.Owin.Host.SystemWeb, Microsoft.Owin.Security, Microsoft.Owin.Security.Cookies, Microsoft.Owin.Security.OpenIdConnect, Owin, System, System.Data, System.Drawing, System.IdentityModel, System.IdentityModel.Tokens.Jwt, System.Runtime.Serialization
+Чтобы добавить элементы управления SignIn и SignOut, можно использовать частичное представление \*\*\_LoginPartial.cshtml\*\* для добавления функций к одному из представлений. Вот пример функций, добавленных к стандартному представлению \*\*\_Layout.cshtml\*\* (обратите внимание на последний элемент в теге div с классом navbar-collapse):
 
-###### В проект добавлены файлы с кодом
+<pre class="prettyprint">
+    &lt;!DOCTYPE html&gt; 
+     &lt;html&gt; 
+     &lt;head&gt; 
+         &lt;meta charset=&quot;utf-8&quot; /&gt; 
+        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt; 
+        &lt;title&gt;@ViewBag.Title - My ASP.NET Application&lt;/title&gt; 
+        @Styles.Render(&quot;~/Content/css&quot;) 
+        @Scripts.Render(&quot;~/bundles/modernizr&quot;) 
+    &lt;/head&gt; 
+    &lt;body&gt; 
+        &lt;div class=&quot;navbar navbar-inverse navbar-fixed-top&quot;&gt; 
+            &lt;div class=&quot;container&quot;&gt; 
+                &lt;div class=&quot;navbar-header&quot;&gt; 
+                    &lt;button type=&quot;button&quot; class=&quot;navbar-toggle&quot; data-toggle=&quot;collapse&quot; data-target=&quot;.navbar-collapse&quot;&gt; 
+                        &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt; 
+                        &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt; 
+                        &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt; 
+                    &lt;/button&gt; 
+                    @Html.ActionLink(&quot;Application name&quot;, &quot;Index&quot;, &quot;Home&quot;, new { area = &quot;&quot; }, new { @class = &quot;navbar-brand&quot; }) 
+                &lt;/div&gt; 
+                &lt;div class=&quot;navbar-collapse collapse&quot;&gt; 
+                    &lt;ul class=&quot;nav navbar-nav&quot;&gt; 
+                        &lt;li&gt;@Html.ActionLink(&quot;Home&quot;, &quot;Index&quot;, &quot;Home&quot;)&lt;/li&gt; 
+                        &lt;li&gt;@Html.ActionLink(&quot;About&quot;, &quot;About&quot;, &quot;Home&quot;)&lt;/li&gt; 
+                        &lt;li&gt;@Html.ActionLink(&quot;Contact&quot;, &quot;Contact&quot;, &quot;Home&quot;)&lt;/li&gt; 
+                    &lt;/ul&gt; 
+                    @Html.Partial(&quot;_LoginPartial&quot;) 
+                &lt;/div&gt; 
+            &lt;/div&gt; 
+        &lt;/div&gt; 
+        &lt;div class=&quot;container body-content&quot;&gt; 
+            @RenderBody() 
+            &lt;hr /&gt; 
+            &lt;footer&gt; 
+                &lt;p&gt;© @DateTime.Now.Year - My ASP.NET Application&lt;/p&gt; 
+            &lt;/footer&gt; 
+        &lt;/div&gt; 
+        @Scripts.Render(&quot;~/bundles/jquery&quot;) 
+        @Scripts.Render(&quot;~/bundles/bootstrap&quot;) 
+        @RenderSection(&quot;scripts&quot;, required: false) 
+    &lt;/body&gt; 
+    &lt;/html&gt;
+</pre>
 
-Класс запуска проверки подлинности App\_Start/Startup.Auth.cs добавлен в проект, содержащий логикой запуска для проверки подлинности Azure AD. Также добавлен класс контроллера Controllers/AccountController.cs, который содержит методы SignIn() и SignOut(). Наконец, добавлено частичное представление Views/Shared/\_LoginPartial.cshtml, содержащее ссылку действия для SignIn и SignOut.
+[Дополнительные сведения о службе Azure Active Directory][Дополнительные сведения о службе Azure Active Directory]
 
-###### В проект добавлен код запуска
-
-Если в проекте уже был класс запуска, к нему добавляется обновленный метод Configuration(), содержащий вызов ConfigureAuth(app). В противном случает в проект добавляется класс запуска.
-
-###### Один из файлов app.config или web.config имеет новое значение конфигурации
-
-Были добавлены следующие записи конфигурации.
-	<pre>
-	`<appSettings>
-	    <add key="ida:ClientId" value="ClientId from the new Azure AD App" /> 
-	    <add key="ida:Tenant" value="Your selected Azure AD Tenant" /> 
-	    <add key="ida:AADInstance" value="https://login.windows.net/{0}" /> 
-	    <add key="Ida:PostLogoutRedirectURI" value="Your project start page" /> 
-	</appSettings>` </pre>
-
-###### Было создано приложение Azure Active Directory (AD)
-
-Было создано приложение Azure AD в указанно в мастере каталоге.
-
-## Начало работы с Azure Active Directory (AD)
-
-Варианты возможных действий с добавленным кодом.
-
-###### Требование проверки подлинности для доступа к контроллерам
-
-Во всем контроллерам в проекте добавлен атрибут [Authorize]. Этот атрибут обеспечивает проверку подлинности пользователей перед их доступом к контроллерам. Для анонимного доступа к контроллеру удалить с него этот атрибут.
-
-###### Добавление элементов управления SignIn и SignOut
-
-Чтобы добавить элементы управления SignIn и SignOut, можно использовать частичное представление \_LoginPartial.cshtml для добавления функциональности одному из представлений. Вот пример функциональности, добавленной стандартному представлению \_Layout.cshtml view:
-	<pre> 
-	`<!DOCTYPE html> 
-	<html> 
-	<head> 
-	    <meta charset="utf-8" /> 
-	    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-	    <title>@ViewBag.Title - My ASP.NET Application</title> 
-	    @Styles.Render("~/Content/css") 
-	    @Scripts.Render("~/bundles/modernizr") 
-	</head> 
-	<body> 
-	    <div class="navbar navbar-inverse navbar-fixed-top"> 
-	        <div class="container"> 
-	            <div class="navbar-header"> 
-	                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> 
-	                    <span class="icon-bar"></span> 
-	                    <span class="icon-bar"></span> 
-	                    <span class="icon-bar"></span> 
-	                </button> 
-	                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" }) 
-	            </div> 
-	            <div class="navbar-collapse collapse"> 
-	                <ul class="nav navbar-nav"> 
-	                    <li>@Html.ActionLink("Home", "Index", "Home")</li> 
-	                    <li>@Html.ActionLink("About", "About", "Home")</li> 
-	                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li> 
-	                </ul> 
-	                @Html.Partial("_LoginPartial") 
-	            </div> 
-	        </div> 
-	    </div> 
-	    <div class="container body-content"> 
-	        @RenderBody() 
-	        <hr /> 
-	        <footer> 
-	            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p> 
-	        </footer> 
-	    </div> 
-	    @Scripts.Render("~/bundles/jquery") 
-	    @Scripts.Render("~/bundles/bootstrap") 
-	    @RenderSection("scripts", required: false) 
-	</body> 
-	</html>` </pre>
+  [Приступая к работе]: /documentation/articles/vs-active-directory-dotnet-getting-started/
+  [Что произошло?]: /documentation/articles/vs-active-directory-dotnet-what-happened/
+  [Дополнительные сведения о службе Azure Active Directory]: http://azure.microsoft.com/services/active-directory/

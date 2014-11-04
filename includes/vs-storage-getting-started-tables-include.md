@@ -1,12 +1,8 @@
-###### Создание таблицы
+##### Создание таблицы
 
-Объект **CloudTableClient** позволяет ссылаться на объекты таблиц и сущностей. Следующий код создает объект **CloudTableClient** и использует его для создания новой таблицы.
+Объект **CloudTableClient** позволяет ссылаться на объекты таблиц и сущностей. Следующий код создает объект **CloudTableClient** и использует его для создания новой таблицы. Код ссылается на таблицу под названием people. Если таблица с таким именем отсутствует, она будет создана.
 
-**Примечание.** Во всем коде этого руководства предполагается, что приложение создается как проект облачной службы Azure и использует строку подключения к хранилищу, хранимые в конфигурации службы приложения Azure.
-
-    // Get the storage account from the connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-      CloudConfigurationManager.GetSetting("StorageConnectionString"));
+**ПРИМЕЧАНИЕ.** Во всем коде этого руководства предполагается, что приложение создается как проект облачной службы Azure и использует строку подключения к хранилищу, хранимые в конфигурации службы приложения Azure.
 
     // Create the table client.
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
@@ -15,7 +11,7 @@
     CloudTable table = tableClient.GetTableReference("people");
     table.CreateIfNotExists();
 
-###### Добавление сущности в таблицу
+##### Добавление сущности в таблицу
 
 Чтобы добавить сущность в таблицу, создайте класс, который определяет свойства сущности. Следующий код определяет класс сущностей с именем **CustomerEntity** который использует имя клиента как ключ строки, а фамилию клиента — как ключ раздела.
 
@@ -36,13 +32,6 @@
 
 Табличные операций, включающие сущности, выполняются с использованием объекта **CloudTable**, созданного в разделе "Создание таблицы". Объект **TableOperation** представляет операции, которые необходимо выполнить. В следующем примере кода показано создание объекта **CloudTable** и объекта **CustomerEntity**. Чтобы подготовить операцию, создается **TableOperation** для вставки сущности customer в таблицу. Наконец, операция выполняется путем вызова CloudTable.Execute.
 
-    // Get the storage account from the connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-      CloudConfigurationManager.GetSetting("StorageConnectionString"));
-
-    // Create the table client.
-    CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
-
     // Create the CloudTable object that represents the "people" table.
     CloudTable table = tableClient.GetTableReference("people");
 
@@ -57,16 +46,9 @@
     // Execute the insert operation.
     table.Execute(insertOperation);
 
-###### Вставка пакета сущностей
+##### Вставка пакета сущностей
 
 В таблицу можно вставить несколько сущностей с помощью одной операции записи. В следующем примере кода показано создание двух объектов сущностей ("Jeff Smith" и "Ben Smith"), добавление их в объект **TableBatchOperation** с помощью метода Insert и запуск операции с помощью вызова CloudTable.Execute.
-
-    // Get the storage account from the connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-      CloudConfigurationManager.GetSetting("StorageConnectionString"));
-
-    // Create the table client.
-    CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
     // Create the CloudTable object that represents the "people" table.
     CloudTable table = tableClient.GetTableReference("people");
@@ -91,16 +73,9 @@
     // Execute the batch operation.
     table.ExecuteBatch(batchOperation);
 
-###### Получение всех сущностей в разделе
+##### Получение всех сущностей в разделе
 
 Чтобы запросить все сущности из таблицы, используйте объект **TableQuery**. Следующий пример кода задает фильтр для сущностей с ключом раздела "Smith". Этот пример выводит на консоль поля каждой сущности в результатах запроса.
-
-    // Get the storage account from the connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
-
-    // Create the table client.
-    CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
     // Create the CloudTable object that represents the "people" table.
     CloudTable table = tableClient.GetTableReference("people");
@@ -115,16 +90,9 @@
             entity.Email, entity.PhoneNumber);
     }
 
-###### Получение одной сущности
+##### Получение одной сущности
 
 Можно написать запрос для получения отдельной сущности. Следующий пример кода использует **TableOperation** для указания клиента "Ben Smith". Этот метод возвращает только одну сущность, а не коллекцию, а возвращаемое значение в TableResult.Result является объектом **CustomerEntity**. Указание ключа раздела и ключа строки в запросе — самый быстрый способ для получения одной сущности из службы **таблиц**.
-
-    // Get the storage account from the connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
-
-    // Create the table client.
-    CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
     // Create the CloudTable object that represents the "people" table.
     CloudTable table = tableClient.GetTableReference("people");
@@ -141,16 +109,9 @@
     else
        Console.WriteLine("The phone number could not be retrieved.");
 
-###### Удаление сущности
+##### Удаление сущности
 
 После нахождения сущности ее можно удалить. В следующем примере код выполняет поиск сущности с именем "Ben Smith" и при нахождении удаляет ее.
-
-    // Get the storage account from the connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-      CloudConfigurationManager.GetSetting("StorageConnectionString"));
-
-    // Create the table client.
-    CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
     // Create the CloudTable that represents the "people" table.
     CloudTable table = tableClient.GetTableReference("people");
@@ -177,3 +138,9 @@
 
     else
        Console.WriteLine("Couldn't delete the entity.");
+
+[Дополнительные сведения о службе хранилища Azure][Дополнительные сведения о службе хранилища Azure]
+См. также [Обзор ресурсов хранения в обозревателе сервера][Обзор ресурсов хранения в обозревателе сервера].
+
+  [Дополнительные сведения о службе хранилища Azure]: http://azure.microsoft.com/documentation/services/storage/
+  [Обзор ресурсов хранения в обозревателе сервера]: http://msdn.microsoft.com/ru-ru/library/azure/ff683677.aspx
