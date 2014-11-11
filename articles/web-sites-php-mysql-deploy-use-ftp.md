@@ -1,6 +1,7 @@
 <properties linkid="develop-php-website-with-mysql-and-ftp" urlDisplayName="Web w/ MySQL + FTP" pageTitle="PHP website with MySQL and FTP - Azure tutorial" metaKeywords="" description="A tutorial that demonstrates how to create a PHP website that stores data in MySQL and use FTP deployment to Azure." metaCanonical="" services="web-sites" documentationCenter="PHP" title="Create a PHP-MySQL Azure Website and Deploy Using FTP" authors="cephalin" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
+
 
 # Создание веб-сайта PHP-MySQL Azure и его развертывание с помощью FTP
 
@@ -15,7 +16,7 @@
 
 ![Веб-сайт Azure на PHP][Веб-сайт Azure на PHP]
 
-[WACOM.INCLUDE [создать-учетная запись-и-веб-сайт-примечание][создать-учетная запись-и-веб-сайт-примечание]]
+[WACOM.INCLUDE [создать-учетная запись-и-веб-сайт-примечание](../includes/create-account-and-websites-note.md)]
 
 ## Создание веб-сайта Azure и настройка публикации на FTP
 
@@ -92,7 +93,7 @@
         echo "<h3>Table created.</h3>";
         ?>
 
-    > [WACOM.ПРИМЕЧАНИЕ]
+    > [WACOM.NOTE]
     > Потребуется обновить значения для `$user` и `$pwd` с использованием имени пользователя и пароля локальной базы данных MySQL.
 
 4.  Откройте веб-браузер и перейдите по адресу [][]<http://localhost/registration/createtable.php></a>. В результате в базе данных будет создана таблица `registration_tbl`.
@@ -146,7 +147,7 @@
             die(var_dump($e));
         }
 
-    > [WACOM.ПРИМЕЧАНИЕ]
+    > [WACOM.NOTE]
     > Как было сказано ранее, необходимо обновить значения для `$user` и `$pwd` с использованием имени пользователя и пароля локальной базы данных MySQL.
 
 7.  После кода подключения к базе данных добавьте код для вставки регистрационных данных в базу данных.
@@ -240,7 +241,7 @@
 
 После подключения можно будет отправлять и загружать файлы. Убедитесь, что файлы передаются в корневой каталог, т. е. в каталог `/site/wwwroot`.
 
-После загрузки `index.php` и `createtable.php` перейдите по адресу **[http://[имя][http://[имя] веб-сайта].azurewebsites.net/createtable.php**, чтобы создать таблицу базы данных MySQL для приложения, а затем перейдите по адресу **[http://[имя][http://[имя] веб-сайта].azurewebsites.net/index.php**, чтобы начать работу с приложением.
+После загрузки `index.php` и `createtable.php` перейдите по адресу **http://[имя веб-сайта].azurewebsites.net/createtable.php**, чтобы создать таблицу базы данных MySQL для приложения, а затем перейдите по адресу **http://[имя веб-сайта].azurewebsites.net/index.php**, чтобы начать работу с приложением.
 
   [PHP]: http://www.php.net/manual/en/install.php
   [MySQL]: http://dev.mysql.com/doc/refman/5.6/en/installing.html
@@ -259,4 +260,4 @@
   [1]: http://localhost/tasklist/index.php
   [Получение сведений о подключении к базе данных]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/connection_string_info.png
   [Загрузить профиль публикации]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/download_publish_profile_2.png
-  [http://[имя]: http://[site
+

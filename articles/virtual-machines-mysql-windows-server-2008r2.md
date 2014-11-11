@@ -14,11 +14,11 @@
 
 ## Создание виртуальной машины под управлением ОС Windows Server 2008 R2
 
-[WACOM.INCLUDE [create-and-configure-windows-server-2008-vm-in-portal][create-and-configure-windows-server-2008-vm-in-portal]]
+[WACOM.INCLUDE [create-and-configure-windows-server-2008-vm-in-portal](../includes/create-and-configure-windows-server-2008-vm-in-portal.md)]
 
 ## Присоединение диска данных
 
-[WACOM.INCLUDE [attach-data-disk-windows-server-2008-vm-in-portal][attach-data-disk-windows-server-2008-vm-in-portal]]
+[WACOM.INCLUDE [attach-data-disk-windows-server-2008-vm-in-portal](../includes/attach-data-disk-windows-server-2008-vm-in-portal.md)]
 
 ## Установка и запуск MySQL Community Server на виртуальной машине
 
@@ -26,7 +26,7 @@
 
 1.  После подключения к виртуальной машине с помощью удаленного рабочего стола откройте **Internet Explorer** из меню **Пуск**.
 
-2.  Нажмите кнопку **Сервис** в правом верхнем углу. В окне **Свойства браузера** выберите вкладку **Безопасность**, выберите значок **Надежные сайты**, а затем нажмите кнопку **Сайты**. Добавьте *<http://>\*.mysql.com* в список надежных сайтов.
+2.  Нажмите кнопку **Сервис** в правом верхнем углу. В окне **Свойства браузера** выберите вкладку **Безопасность**, выберите значок **Надежные сайты**, а затем нажмите кнопку **Сайты**. Добавьте *http://\*.mysql.com* в список надежных сайтов.
 
 3.  Перейдите на страницу [Download MySQL Community Server][Download MySQL Community Server].
 

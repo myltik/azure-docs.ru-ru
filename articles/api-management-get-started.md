@@ -1,6 +1,6 @@
-	<properties pageTitle="Get started with Azure API Management" metaKeywords="" description="Learn how to create APIs, operations, and get started with API Management." metaCanonical="" services="" documentationCenter="API Management" title="Get started with Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+<properties pageTitle="Get started with Azure API Management" metaKeywords="" description="Learn how to create APIs, operations, and get started with API Management." metaCanonical="" services="" documentationCenter="API Management" title="Get started with Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie"/>
+<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
 
 # Начало работы с Azure API Management
 
@@ -37,9 +37,9 @@
 
 Установите флажок для создания экземпляра службы.
 
-![Новая служба API Management][Новая служба API Management]
+![Новая служба API Management][1]
 
-![Новая служба API Management][Новая служба API Management]
+![Новая служба API Management][2]
 
 После создания службы на следующем шаге создается API.
 
@@ -49,7 +49,7 @@ API в API Management представляет набор операций, ко
 
 Каждый экземпляр службы API Management поставляется предварительно настроенным с примером программного интерфейса Echo, который возвращает назад данные, которые ему переданы. Для его использования можно вызвать команду HTTP, и возвращаемое значение будет содержать заголовки и содержимое, переданное ранее.
 
-Это руководство использует веб-службу <http://echoapi.cloudapp.net/api> для создания нового API в API Management с именем **My Echo Service**.
+Это руководство использует веб-службу http://echoapi.cloudapp.net/api для создания нового API в API Management с именем **My Echo Service**.
 
 API создаются и настраиваются из консоли API Management, которая доступна на портале управления Azure. Чтобы открыть консоль API Management, щелкните **Консоль управления** на портале Azure Portal службы API Management.
 
@@ -57,14 +57,14 @@ API создаются и настраиваются из консоли API Man
 
 Для создания **My Echo API** щелкните **API** из меню **Управление API** слева и затем щелкните **Добавить API**.
 
-![Создание API][Создание API]
+![Create API][api-management-create-api]
 
-![Добавление нового API][Добавление нового API]
+![Add new API][Добавление нового API]
 
 Следующие три поля используются для настройки нового API.
 
 -   Введите **My Echo API** в текстовом поле **Название веб-API**. **Название веб-API** обеспечивает уникальное описательное имя для API. Оно выводится на порталах разработчика и управления.
--   Наберите **<http://echoapi.cloudapp.net/api>** в поле **URL веб-службы**. **URL-адрес веб-службы** ссылается на реализующую API HTTP-службу. Портал управления API направит запросы по этому адресу.
+-   Наберите **http://echoapi.cloudapp.net/api** в поле **URL веб-службы**. **URL-адрес веб-службы** ссылается на реализующую API HTTP-службу. Портал управления API направит запросы по этому адресу.
 -   Введите **myecho** в поле **Суффикс URL-адреса веб-API**. **Суффикс URL-адреса веб-API** добавляется к основному URL-адресу для службы управления API. Ваши интерфейсы API используют общий основной URL-адрес и отличаются уникальным суффиксом, добавляемым после основного адреса.
 
 Щелкните **Сохранить**, чтобы создать API. После создания нового API на портале управления выводится страница сводных данных для API.
@@ -118,7 +118,7 @@ API создаются и настраиваются из консоли API Man
 
 При выборе **200 OK** новый код ответа добавляется к операции, и выводится окно ответа. Наберите **Возвращаемое во всех случаях.** в текстовом поле **Описание**.
 
-![Добавление ответа][Добавление ответа]
+![Добавление ответа][4]
 
 > **Добавить представление** используется для настройки ответов в нескольких представлениях. Для получения дополнительной информации см. раздел [Ответы][Ответы].
 
@@ -143,7 +143,7 @@ API создаются и настраиваются из консоли API Man
 
 Щелкните **Добавить API к продукту**.
 
-![Добавление API][Добавление API]
+![Добавление API][5]
 
 Установите флажок **My Echo API** и щелкните **Сохранить**.
 
@@ -169,7 +169,7 @@ API создаются и настраиваются из консоли API Man
 
 Нажмите кнопку **Добавить подписку**.
 
-![Добавление подписки][Добавление подписки]
+![Добавление подписки][6]
 
 Установите флажок **Начальный** и щелкните **Подписать**.
 
@@ -185,7 +185,7 @@ API создаются и настраиваются из консоли API Man
 
 Щелкните **Интерфейсы API** в меню вверху и затем щелкните **My Echo API** для просмотра доступных операций.
 
-![Портал разработчика][Портал разработчика]
+![Портал разработчика][7]
 
 Обратите внимание, что показаны описание и параметры, добавленные при создании операции, что предоставляет документацию разработчикам, которые будут использовать эту операцию.
 
@@ -244,7 +244,7 @@ API создаются и настраиваются из консоли API Man
   [Вызов операции из портала разработчика]: #call-operation
   [Обзор аналитики]: #view-analytics
   [Дальнейшие действия]: #next-steps
-  [Бесплатная пробная версия Azure]: http://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=api_management_hero_a
+  [Бесплатная пробная версия Azure]: http://azure.microsoft.com/ru-ru/pricing/free-trial/?WT.mc_id=api_management_hero_a
   [Портал управления]: https://manage.windowsazure.com/
   [Новый экземпляр API Management]: ./media/api-management-get-started/api-management-create-instance-menu.png
   [Новая служба API Management]: ./media/api-management-get-started/api-management-create-instance-step1.png
@@ -252,8 +252,8 @@ API создаются и настраиваются из консоли API Man
   [1]: ./media/api-management-get-started/api-management-create-instance-step2.png
   [2]: ./media/api-management-get-started/api-management-instance-created.png
   [Новая консоль API Management]: ./media/api-management-get-started/api-management-management-console.png
-  [3]: ./media/api-management-get-started/api-management-create-api.png
-  [Добавление нового API]: ./media/api-management-get-started/api-management-add-new-api.png
+  [api-management-create-api]: ./media/api-management-get-started/api-management-create-api.png
+  [Add new API]: ./media/api-management-get-started/api-management-add-new-api.png
   [Сводные данные API]: ./media/api-management-get-started/api-management-new-api-summary.png
   [Задание настроек API]: ../api-management-howto-create-apis/#configure-api-settings
   [Операции]: ./media/api-management-get-started/api-management-myecho-operations.png

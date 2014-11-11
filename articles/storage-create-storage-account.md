@@ -53,7 +53,6 @@
   [Портал управления]: https://manage.windowsazure.com
   [NewStorageAccount]: ./media/storage-create-storage-account/storage_NewStorageAccount.png
   [Операции с территориальными группами]: http://msdn.microsoft.com/ru-ru/library/windowsazure/ee460798.aspx
-  [хранение-репликация-параметры]: ../includes/storage-replication-options.md
   [StoragePage]: ./media/storage-create-storage-account/Storage_StoragePage.png
   [azure.com]: http://azure.microsoft.com/ru-ru/documentation/services/storage/
   [MSDN]: http://msdn.microsoft.com/ru-ru/library/gg433040.aspx

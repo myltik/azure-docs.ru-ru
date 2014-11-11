@@ -5,7 +5,6 @@
 # Приступая к работе с проверкой подлинности в мобильных службах
 
 > [AZURE.SELECTOR-LIST (Платформа | Сервер )]
-
 - [(iOS | .NET)](/ru-ru/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users/)
 - [(iOS | JavaScript)](/ru-ru/documentation/articles/mobile-services-ios-get-started-users/)
 - [(Windows C# | .NET)](/ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users/)
@@ -27,14 +26,14 @@
 
 В этом учебнике рассматриваются следующие основные шаги для включения проверки подлинности в приложении:
 
-1.  [Регистрация приложения для проверки подлинности и конфигурация мобильных служб]
-2.  [Ограничение разрешений таблицы пользователями, прошедшими проверку подлинности]
-3.  [Добавление проверки подлинности к приложению]
-4.  [Хранение маркеров аутентификации в клиенте]
+1.  [Регистрация приложения для проверки подлинности и конфигурация мобильных служб][Регистрация приложения для проверки подлинности и конфигурация мобильных служб]
+2.  [Ограничение разрешений таблицы пользователями, прошедшими проверку подлинности][Ограничение разрешений таблицы пользователями, прошедшими проверку подлинности]
+3.  [Добавление проверки подлинности к приложению][Добавление проверки подлинности к приложению]
+4.  [Хранение маркеров аутентификации в клиенте][Хранение маркеров аутентификации в клиенте]
 
-Этот учебник создан на основе краткого руководства по мобильным службам. Вам также необходимо сначала ознакомиться с учебником [Приступая к работе с мобильными службами]
+Этот учебник создан на основе краткого руководства по мобильным службам. Вам также необходимо сначала ознакомиться с учебником [Приступая к работе с мобильными службами][Приступая к работе с мобильными службами]
 
-> [WACOM.NOTE]В этом учебнике показан поток аутентификации, которым управляют мобильные службы с помощью различных поставщиков удостоверений. Этот метод можно легко настроить, и он поддерживает нескольких поставщиков. Информацию о том, как вместо этого использовать Live Connect для аутентификации, управляемой клиентом, и предоставления единого входа в приложении для Windows Phone, см. в разделе [Единый вход для приложений Windows Phone с использованием Live Connect]. В случае применения аутентификации, управляемой клиентом, ваше приложение получает доступ к дополнительным данным о пользователе, управляемым поставщиком удостоверений. Чтобы получить те же данные о пользователе в мобильной службе, вызовите в серверных сценариях функцию **user.getIdentities()**. Дополнительную информацию см. в [этой записи](http://go.microsoft.com/fwlink/p/?LinkId=506605).
+> [WACOM.NOTE]В этом учебнике показан поток аутентификации, которым управляют мобильные службы с помощью различных поставщиков удостоверений. Этот метод можно легко настроить, и он поддерживает нескольких поставщиков. Информацию о том, как вместо этого использовать Live Connect для аутентификации, управляемой клиентом, и предоставления единого входа в приложении для Windows Phone, см. в разделе [Единый вход для приложений Windows Phone с использованием Live Connect][Единый вход для приложений Windows Phone с использованием Live Connect]. В случае применения аутентификации, управляемой клиентом, ваше приложение получает доступ к дополнительным данным о пользователе, управляемым поставщиком удостоверений. Чтобы получить те же данные о пользователе в мобильной службе, вызовите в серверных сценариях функцию **user.getIdentities()**. Дополнительную информацию см. в [этой записи](http://go.microsoft.com/fwlink/p/?LinkId=506605).
 
 ## <a name="register"></a>Регистрация приложения для проверки подлинности и настройка мобильных служб
 
@@ -75,22 +74,7 @@
 <!-- Anchors. --> 
 <!-- URLs. -->
 
-  [(iOS | .NET)]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users/
-  [(iOS | JavaScript)]: /ru-ru/documentation/articles/mobile-services-ios-get-started-users/
-  [(Windows C# | .NET)]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users/
-  [(Windows C# | Javascript)]: /ru-ru/documentation/articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-users/
-  [(Windows JavaScript | .NET)]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users/
-  [(Windows JavaScript | Javascript)]: /ru-ru/documentation/articles/mobile-services-windows-store-javascript-get-started-users/
-  [(Windows Phone | .NET)]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users/
-  [(Windows Phone | Javascript)]: /ru-ru/documentation/articles/mobile-services-windows-phone-get-started-users/
-  [(Android | .NET)]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-android-get-started-users/
-  [(Android | Javascript)]: /ru-ru/documentation/articles/mobile-services-android-get-started-users/
-  [(Xamarin iOS | .NET)]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started-users/
-  [(Xamarin iOS | Javascript)]: /ru-ru/documentation/articles/partner-xamarin-mobile-services-ios-get-started-users/
-  [(HTML | Javascript)]: /ru-ru/documentation/articles/mobile-services-html-get-started-users/
-  [(Xamarin Android | .NET)]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started-users/
-  [(Xamarin Android | Javascript)]: /ru-ru/documentation/articles/partner-xamarin-mobile-services-android-get-started-users/
-  [(Appcelerator | Javascript)]: /ru-ru/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users/
+
   [Регистрация приложения для проверки подлинности и конфигурация мобильных служб]: #register
   [Ограничение разрешений таблицы пользователями, прошедшими проверку подлинности]: #permissions
   [Добавление проверки подлинности к приложению]: #add-authentication
@@ -98,10 +82,6 @@
   [Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/mobile-services-windows-store-get-started/
   [Единый вход для приложений Windows Phone с использованием Live Connect]: /ru-ru/documentation/articles/mobile-services-windows-store-javascript-single-sign-on
   [этой записи]: http://go.microsoft.com/fwlink/p/?LinkId=506605
-  [mobile-services-register-authentication]: ../includes/mobile-services-register-authentication.md
   [Регистрация пакета приложения магазина Windows для проверки подлинности Microsoft]: /ru-ru/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication/
-  [mobile-services-restrict-permissions-javascript-backend]: ../includes/mobile-services-restrict-permissions-javascript-backend.md
   [1]: /ru-ru/develop/mobile/tutorials/get-started/
-  [mobile-services-windows-store-javascript-authenticate-app]: ../includes/mobile-services-windows-store-javascript-authenticate-app.md
-  [mobile-services-windows-store-javascript-authenticate-app-with-token]: ../includes/mobile-services-windows-store-javascript-authenticate-app-with-token.md
   [Авторизация пользователей мобильных служб на стороне службы]: /ru-ru/documentation/articles/mobile-services-windows-store-javascript-authorize-users-in-scripts

@@ -4,7 +4,7 @@
 
 # Приступая к работе с данными в мобильных службах
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-data][mobile-services-selector-get-started-data]]
+[WACOM.INCLUDE [mobile-services-selector-get-started-data](../includes/mobile-services-selector-get-started-data.md)]
 
 В этом разделе показано, как с помощью мобильных служб Azure эффективно использовать данные в приложении на HTML. В этом учебнике предстоит загрузить проект для приложения, которое хранит данные в памяти, создать новые услуги мобильной связи, интегрировать мобильную службу с приложением, а затем выполнить вход на портал управления Azure для просмотра изменений, внесенных в данные в ходе выполнения приложения.
 
@@ -60,13 +60,13 @@
 
 5.  В приложении в поле **Введите новую задачу** введите осмысленный текст, например *Завершение работы с учебником*, и нажмите кнопку **Добавить**.
 
-    ![][]
+    ![][0]
 
     Обратите внимание, что сохраненный текст добавляется в массив **staticItems**, а страница обновляется для отображения нового элемента.
 
 ## <a name="create-service"></a><span class="short-header">Создание мобильной службы</span>Создание новой мобильной службы на портале управления
 
-[WACOM.INCLUDE [mobile-services-create-new-service-data][mobile-services-create-new-service-data]]
+[WACOM.INCLUDE [mobile-services-create-new-service-data](../includes/mobile-services-create-new-service-data.md)]
 
 ## <a name="add-table"></a><span class="short-header">Добавление новой таблицы</span>Добавление новой таблицы в мобильную службу
 
@@ -229,7 +229,6 @@ $(document.body).on(&#39;change&#39;, &#39;.item-complete&#39;, function() {
 
 
 
-  [mobile-services-selector-get-started-data]: ../includes/mobile-services-selector-get-started-data.md
   [Приступая к работе с мобильными службами]: /ru-ru/develop/mobile/tutorials/get-started-html
   [Загрузка проекта HTML-приложения]: #download-app
   [Создание мобильной службы]: #create-service
@@ -239,8 +238,7 @@ $(document.body).on(&#39;change&#39;, &#39;.item-complete&#39;, function() {
   [Бесплатная пробная версия Azure]: http://www.windowsazure.com/ru-ru/pricing/free-trial/?WT.mc_id=A756A2826&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fru-ru%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-html%2F
   [HTML5-приложении GetStartedWithData]: http://go.microsoft.com/fwlink/?LinkID=286345
   [http://localhost: 8000/]: http://localhost:8000/
-  []: ./media/mobile-services-html-get-started-data/mobile-quickstart-startup-html.png
-  [mobile-services-create-new-service-data]: ../includes/mobile-services-create-new-service-data.md
+  [0]: ./media/mobile-services-html-get-started-data/mobile-quickstart-startup-html.png
   [1]: ./media/mobile-services-html-get-started-data/mobile-data-tab-empty.png
   [2]: ./media/mobile-services-html-get-started-data/mobile-create-todoitem-table.png
   [3]: ./media/mobile-services-html-get-started-data/mobile-services-set-cors-localhost.png

@@ -1,6 +1,6 @@
 <properties linkid="develop-php-website-with-storage" urlDisplayName="Web w/ Storage" pageTitle="PHP website with table storage - Azure tutorial" metaKeywords="Azure table storage PHP, Azure PHP website, Azure PHP web site, Azure PHP tutorial, Azure PHP example" description="This tutorial shows you how to create a PHP website and use the Azure Tables storage service in the back-end." metaCanonical="" services="web-sites,storage" documentationCenter="PHP" title="Create a PHP Website using Azure Storage" authors="cephalin" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
 
 # Создание веб-сайта на PHP с помощью хранилища Azure
 
@@ -17,7 +17,7 @@
 
 ![Веб-сайт Azure на PHP][Веб-сайт Azure на PHP]
 
-[WACOM.INCLUDE [создать-учетная запись-и-веб-сайт-примечание][создать-учетная запись-и-веб-сайт-примечание]]
+[WACOM.INCLUDE [создать-учетная запись-и-веб-сайт-примечание](../includes/create-account-and-websites-note.md)]
 
 ## Установка клиентских библиотек Azure
 
@@ -395,8 +395,8 @@
 
     Появится запрос на ввод ранее заданного пароля.
 
-3.  Перейдите по адресу **[http://[ваш][http://[ваш] домен веб-сайта]/createtable.php**, чтобы создать таблицу для приложения.
-4.  Перейдите по адресу **[http://][http://[ваш]домен веб-сайта]/index.php**, чтобы начать работу с приложением.
+3.  Перейдите по адресу **http://[ваш домен веб-сайта]/createtable.php**, чтобы создать таблицу для приложения.
+4.  Перейдите по адресу **http://[ваш домен веб-сайта]/index.php**, чтобы начать работу с приложением.
 
 После публикации приложения можно начать вносить изменения и публиковать их с помощью Git.
 
@@ -413,7 +413,7 @@
 
     Появится запрос на ввод ранее заданного пароля.
 
-3.  Перейдите по адресу **[http://][http://[ваш]домен веб-сайта]/index.php**, чтобы увидеть изменения.
+3.  Перейдите по адресу **http://[ваш домен веб-сайта]/index.php**, чтобы увидеть изменения.
 
   [PHP]: http://www.php.net/manual/en/install.php
   [Веб-сайт Azure на PHP]: ./media/web-sites-php-storage/ws-storage-app.png
@@ -435,4 +435,3 @@
   [где находится исходный код]: ./media/web-sites-php-storage/where_is_code.png
   [Создание учетных данных для публикации]: ./media/web-sites-php-storage/git-deployment-credentials.png
   [Инструкции по развертыванию Git, возвращенные после создания репозитория для веб-сайта.]: ./media/web-sites-php-storage/git-instructions.png
-  [http://[ваш]: http://[your

@@ -1,6 +1,6 @@
 <properties linkid="manage-services-hdinsight-debug-error-messages" urlDisplayName="Debug HDInsight Hadoop Errors" pageTitle="Debug Hadoop in HDInsight: Error messages | Azure" metaKeywords="hdinsight, hdinsight service, hdinsight azure, debug, error messages, errors" description="Learn about the error messages you might receive when administering HDInsight using PowerShell, and steps you can take to recover." services="hdinsight" title="Debug Hadoop in HDInsight: Error messages" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" authors="bradsev" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
 
 # Отладка Hadoop в HDInsight: Сообщения об ошибках
 
@@ -309,12 +309,12 @@
 ### <span id="UnableToResolveDNS"></span></a>UnableToResolveDNS
 
 -   **Описание**: Не удается разрешить DNS *URLВашегоDNS*. Убедитесь, что для конечной точки большого двоичного объекта указан полный URL-адрес.
--   **Устранение**: Укажите допустимый URL-адрес двоичного объекта большого размера. Этот URL-адрес должен быть записан полностью, включая префикс *<http://>* и заканчивая доменом *.com* Полный URL-адрес обычно находится на вкладке хранилища на портале manage.windowsazure.com.
+-   **Устранение**: Укажите допустимый URL-адрес двоичного объекта большого размера. Этот URL-адрес должен быть записан полностью, включая префикс *http://* и заканчивая доменом *.com* Полный URL-адрес обычно находится на вкладке хранилища на портале manage.windowsazure.com.
 
 ### <span id="UnableToVerifyLocationOfResource"></span></a>UnableToVerifyLocationOfResource
 
 -   **Описание**: Невозможно проверить расположение ресурса *URLВашегоDNS*. Убедитесь, что для конечной точки большого двоичного объекта указан полный URL-адрес.
--   **Устранение**: Укажите допустимый URL-адрес двоичного объекта большого размера. Этот URL-адрес должен быть записан полностью, включая префикс *<http://>* и заканчивая доменом *.com* Полный URL-адрес обычно находится на вкладке хранилища на портале manage.windowsazure.com.
+-   **Устранение**: Укажите допустимый URL-адрес двоичного объекта большого размера. Этот URL-адрес должен быть записан полностью, включая префикс *http://* и заканчивая доменом *.com* Полный URL-адрес обычно находится на вкладке хранилища на портале manage.windowsazure.com.
 
 ### <span id="VersionCapabilityNotAvailable"></span></a>VersionCapabilityNotAvailable
 

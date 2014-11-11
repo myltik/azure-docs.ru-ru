@@ -36,7 +36,7 @@
 
 Если у вас нет одного из них, Visual Studio 2013 Express для Web установится автоматически, когда будет установлен Azure SDK.
 
-[WACOM.INCLUDE [free-trial-note][free-trial-note]]
+[WACOM.INCLUDE [free-trial-note](../includes/free-trial-note.md)]
 
 ## <span id="learn"></span></a>Содержание обучения
 
@@ -137,7 +137,7 @@ public static void ProcessQueueMessage([QueueTrigger(&quot;webjobsqueue&quot;)]]
 
 В этом учебнике показано, как запустить внешний сервер на веб-сайте и внутренний сервер как веб-задание на одном веб-сайте. Сведения о том, как выбрать оптимальную среду для вашего сценария см. в разделе [Сравнение веб-сайтов, облачных служб и виртуальных машин Azure][Сравнение веб-сайтов, облачных служб и виртуальных машин Azure].
 
-[WACOM.INCLUDE [установка-sdk-2013-только][установка-sdk-2013-только]]
+[WACOM.INCLUDE [установка-sdk-2013-только](../includes/install-sdk-2013-only.md)]
 
 ## <span id="storage"></span></a>Создайте учетную запись хранения Azure
 
@@ -663,7 +663,7 @@ public static void ProcessQueueMessage([QueueTrigger(&quot;webjobsqueue&quot;)]]
 
 ### ContosoAdsWeb - \_Layout.cshtml
 
-Файл \*\_Layout.cshtml\* устанавливает имя приложения в заголовке и нижнем колонтитуле и создает запись меню "Ads".
+Файл *\_Layout.cshtml* устанавливает имя приложения в заголовке и нижнем колонтитуле и создает запись меню "Ads".
 
 ### ContosoAdsWeb - Views\\Home\\Index.cshtml
 
@@ -929,7 +929,6 @@ public static void ProcessQueueMessage([QueueTrigger(&quot;webjobsqueue&quot;)]]
   [HttpPostedFileBase]: http://msdn.microsoft.com/ru-ru/library/system.web.httppostedfilebase.aspx
   [Объявление о бета-версии пакета SDK 0.3.0 веб-заданий]: http://azure.microsoft.com/blog/2014/06/18/announcing-the-0-3-0-beta-preview-of-microsoft-azure-webjobs-sdk/http://azure.microsoft.com/blog/2014/06/18/announcing-the-0-3-0-beta-preview-of-microsoft-azure-webjobs-sdk/
   [версии облачной службы приложения]: /ru-ru/documentation/articles/cloud-services-dotnet-get-started/
-  [https://{websitename}.scm.azurewebsites.net/azurejobs/\#/functions]: https://{websitename}.scm.azurewebsites.net/azurejobs/#/functions
   [Получение панели мониторинга для локальной разработки с помощью пакета SDK веб-заданий]: http://blogs.msdn.com/b/jmstall/archive/2014/01/27/getting-a-dashboard-for-local-development-with-the-webjobs-sdk.aspx
   [вставку зависимостей]: http://www.asp.net/mvc/tutorials/hands-on-labs/aspnet-mvc-4-dependency-injection
   [репозиторий и блок рабочих шаблонов]: http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application#repo

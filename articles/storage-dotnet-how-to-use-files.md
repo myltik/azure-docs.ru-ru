@@ -1,6 +1,6 @@
 <properties linkid="dev-net-how-to-file-storage" urlDisplayName="File Service" pageTitle="How to use Azure File storage | Microsoft Azure" metaKeywords="Get started Azure file  Azure file share  Azure file shares  Azure file   Azure file storage   Azure file .NET   Azure file C#   Azure file PowerShell" description="Learn how to use Microsoft Azure File storage to create file shares and manage file content. Samples are written in PowerShell and C#." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title="How to use Microsoft Azure File storage in .NET" authors="tamram" manager="mbaldwin" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # Использование хранилища файлов Azure
 
@@ -55,7 +55,7 @@
 
 -   **Формат URL-адреса.** К файлам можно обратиться, используя URL-адреса
     в следующем формате:
-    <https://>`<storage account>`.file.core.windows.net/`<share>`/`<directory/directories>`/`<file>`
+    `https://<storage account>.file.core.windows.net/<share>/<directory/directories>/<file>`
 
     Следующий пример URL-адреса можно использовать для обращения к одному из файлов в
     схеме выше:
@@ -69,7 +69,7 @@
 
 > [WACOM.NOTE] Хранилище файлов в настоящее время доступно только для новых учетных записей хранения. После предоставления доступа подписки к хранилищу файлов создайте новую учетную запись хранения для использования в данном руководстве.
 
-[WACOM.INCLUDE [создание-хранилище-учетная запись][создание-хранилище-учетная запись]]
+[WACOM.INCLUDE [создание-хранилище-учетная запись](../includes/create-storage-account.md)]
 
 ## <a name="use-cmdlets"></a><span class="short-header">Использование PowerShell для создания файлов для общего доступа</span>Использование PowerShell для создания файлов для общего доступа
 
@@ -251,7 +251,6 @@ Windows автоматически восстановит подключение
 </p>
 
   [NuGet]: https://www.nuget.org/packages/WindowsAzure.Storage/
-  [Что такое хранилище файлов?]: #what-is-file-storage
   [Принципы хранилища файлов]: #file-storage-concepts
   [Создание учетной записи хранения Azure]: #create-account
   [Использование PowerShell для создания файлов для общего доступа]: #use-cmdlets

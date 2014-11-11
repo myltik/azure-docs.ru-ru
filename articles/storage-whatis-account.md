@@ -1,6 +1,6 @@
 <properties linkid="manage-services-what-is-a-storage-account" urlDisplayName="What is a Storage Account" pageTitle="What is a storage account? | Microsoft Azure" metaKeywords="" description="Learn about the different types of storage accounts available in Azure, and get definitions for key storage terms." metaCanonical="" services="storage" documentationCenter="" title="What is a Storage Account?" authors="tamram" solutions="" manager="mbaldwin" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # Что такое учетная запись хранения?
 
@@ -32,7 +32,7 @@
 
 -   Служба файлов:http://*mystorageaccount*.file.core.windows.net
 
-URL-адрес для доступа к объекту в учетной записи хранения строится путем добавления местоположения объекта в учетной записи хранения к конечной точке. Например, адрес blob-объекта может иметь следующий формат: <http://*mystorageaccount>*.blob.core.windows.net/*mycontainer*/*myblob\*.
+URL-адрес для доступа к объекту в учетной записи хранения строится путем добавления местоположения объекта в учетной записи хранения к конечной точке. Например, адрес blob-объекта может иметь следующий формат: http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob\*.
 
 ### Безопасность учетной записи хранения
 
@@ -55,7 +55,6 @@ URL-адрес для доступа к объекту в учетной зап�
   [Целевые показатели масштабируемости и производительности хранилища Azure]: http://msdn.microsoft.com/ru-ru/library/dn249410.aspx
   [Сведения о ценах на хранилище]: http://www.windowsazure.com/ru-ru/pricing/details/#storage
   [Сведения о ценах на передачу данных]: http://www.windowsazure.com/ru-ru/pricing/details/data-transfers/
-  [хранение-репликация-параметры]: ../includes/storage-replication-options.md
   [учебник по подписи коллективного доступа]: ../storage-dotnet-shared-access-signature-part-1/
   [Схема таблицы показателей аналитики хранения]: http://msdn.microsoft.com/ru-ru/library/windowsazure/hh343264.aspx
   [Общие сведения о показателях аналитики хранилищ]: http://msdn.microsoft.com/ru-ru/library/windowsazure/hh343258.aspx

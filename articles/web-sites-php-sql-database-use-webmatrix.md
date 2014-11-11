@@ -1,6 +1,10 @@
 <properties linkid="develop-php-website-with-sql-database-and-webmatrix" urlDisplayName="Web w/ SQL + WebMatrix" pageTitle="PHP website with SQL Database and WebMatrix - Azure" metaKeywords="" description="A tutorial that demonstrates how to use the free WebMatrix IDE to create and deploy a PHP website that stores data in SQL Database." metaCanonical="" services="" documentationCenter="" title="Create and Deploy a PHP Website and SQL Database using WebMatrix" authors="cephalin" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
+
+
+
+
 
 # Создание и развертывание веб-сайта на PHP и базы данных SQL с использованием WebMatrix
 
@@ -20,7 +24,7 @@
 
 ![Веб-сайт Azure на PHP][Веб-сайт Azure на PHP]
 
-[WACOM.INCLUDE [создать-учетная запись-и-веб-сайт-примечание][создать-учетная запись-и-веб-сайт-примечание]]
+[WACOM.INCLUDE [создать-учетная запись-и-веб-сайт-примечание](../includes/create-account-and-websites-note.md)]
 
 ## Предварительные требования
 
@@ -143,9 +147,9 @@ WebMatrix можно установить на [портале управлен�
 
     ![WebMatrix — опубликовать][WebMatrix — опубликовать]
 
-3.  Перейдите по адресу [http://[your][http://[your]имя вашего веб-сайта].azurewebsites.net/createtable.php, чтобы создать таблицу `items`.
+3.  Перейдите по адресу http://[имя вашего веб-сайта].azurewebsites.net/createtable.php, чтобы создать таблицу `items`.
 
-4.  Наконец, перейдите по адресу [http://[][http://[your]имя вашего веб-сайта].azurewebsites.net/index.php, чтобы использовать приложение.
+4.  Наконец, перейдите по адресу http://[имя вашего веб-сайта].azurewebsites.net/index.php, чтобы использовать приложение.
 
 ## Изменение и повторная публикация приложения
 
@@ -172,7 +176,6 @@ WebMatrix можно установить на [портале управлен�
 
   [SQL Server Express]: http://www.microsoft.com/ru-ru/download/details.aspx?id=29062
   [Веб-сайт Azure на PHP]: ./media/web-sites-php-sql-database-use-webmatrix/tasklist_app_windows.png
-  [создать-учетная запись-и-веб-сайт-примечание]: ../includes/create-account-and-websites-note.md
   [Загрузите]: http://go.microsoft.com/fwlink/?LinkId=252504
   [портал управления]: https://manage.windowsazure.com
   [Создание нового веб-сайта Azure]: ./media/web-sites-php-sql-database-use-webmatrix/NewWebSite1.jpg
@@ -190,7 +193,6 @@ WebMatrix можно установить на [портале управлен�
   [WebMatrix — запуск файла createtable.php в браузере]: ./media/web-sites-php-sql-database-use-webmatrix/edit_run.png
   [Создание веб-сайта Azure и базы данных SQL]: #CreateWebsite
   [WebMatrix — опубликовать]: ./media/web-sites-php-sql-database-use-webmatrix/edit_publish.png
-  [http://[your]: http://[your
   [WebMatrix — открыть удаленное представление]: ./media/web-sites-php-sql-database-use-webmatrix/OpenRemoteView.png
   [WebMatrix — открытие файла индекса]: ./media/web-sites-php-sql-database-use-webmatrix/Remote_editIndex.png
   [ WebMatrix — удаленный запуск сайта]: ./media/web-sites-php-sql-database-use-webmatrix/Remote_run.png

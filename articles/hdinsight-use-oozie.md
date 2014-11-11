@@ -572,7 +572,7 @@ Invoke-RestMethod PowerShell для вызова веб-служб Oozie. API-и
 
         Write-Host "$(Get-Date -format 'G'): $oozieJobId is in $JobStatus state!" -ForegroundColor Green
 
-7.  Если ваш кластер HDinsight имеет версию 2.1, замените "<https://$clusterName.azurehdinsight.net:443/oozie/v2/>" на "<https://$clusterName.azurehdinsight.net:443/oozie/v1/>". Кластер HDInsight версии 2.1 не поддерживает веб-службы версии 2.
+7.  Если ваш кластер HDinsight имеет версию 2.1, замените "https://$clusterName.azurehdinsight.net:443/oozie/v2/" на "https://$clusterName.azurehdinsight.net:443/oozie/v1/". Кластер HDInsight версии 2.1 не поддерживает веб-службы версии 2.
 
 8.  Для выполнения скрипта щелкните **Выполнить скрипт** или нажмите клавишу **F5**. Результат должен быть аналогичен приведенному ниже:
 

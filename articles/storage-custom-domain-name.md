@@ -1,10 +1,10 @@
 <properties linkid="manage-services-storage-custom-dns-storage" urlDisplayName="custom dns storage" pageTitle="Configure a domain name for blob data in a storage account | Microsoft Azure" metaKeywords="" description="Learn how to configure a custom domain for accessing blob data in an Azure storage account." metaCanonical="" services="storage" documentationCenter="" title="Configure a custom domain name for blob data in a storage account" solutions="" authors="tamram" manager="mbaldwin" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # Настройка имени домена для BLOB-данных в учетной записи хранения Azure
 
-Можно настроить пользовательский домен для доступа к BLOB-данным в учетной записи хранения Azure. Конечная точка по умолчанию для службы Blob-объектов: <https://>\<*mystorageaccount*\>.blob.core.windows.net. Если сопоставить пользовательский домен и поддомен, например, **www.contoso.com** с конечной точкой blob-объектов учетной записи хранения, ваши пользователи смогут получить доступ к blob-данным в учетной записи хранения с помощью этого домена.
+Можно настроить пользовательский домен для доступа к BLOB-данным в учетной записи хранения Azure. Конечная точка по умолчанию для службы Blob-объектов: https://<*mystorageaccount*>.blob.core.windows.net. Если сопоставить пользовательский домен и поддомен, например, **www.contoso.com** с конечной точкой blob-объектов учетной записи хранения, ваши пользователи смогут получить доступ к blob-данным в учетной записи хранения с помощью этого домена.
 
 <div class="dev-callout"> 
 <b>Примечание.</b> 
@@ -121,8 +121,6 @@
 
 -   [Сопоставление содержимого CDN с пользовательским доменом][Сопоставление содержимого CDN с пользовательским доменом]
 
-  [Настройка пользовательского имени домена для облачной службы Azure]: /ru-ru/develop/net/common-tasks/custom-dns/
-  [Настройка пользовательского имени домена для веб-сайта Azure]: /ru-ru/develop/net/common-tasks/custom-dns-web-site/
   [Регистрация пользовательского домена для используемой учетной записи хранения]: #register-domain
   [Регистрация пользовательского домена для учетной записи хранения с помощью промежуточного поддомена asverify]: #register-asverify
   [Сопоставление содержимого CDN с пользовательским доменом]: http://msdn.microsoft.com/ru-ru/library/windowsazure/gg680307.aspx

@@ -1,6 +1,6 @@
 <properties linkid="develop-java-how-to-twilio-phone-call" urlDisplayName="How to Make a Phone Call from Twilio in Java" pageTitle="How to Make a phone call from Twilio (Java) - Azure" metaKeywords="Azure Twilio call, Twilio call website, Azure Twilio Java" description="Learn how to make a phone call from a web page using Twilio in a Java application on Azure." metaCanonical="" services="" documentationCenter="Java" title="How to Make a Phone Call Using Twilio in a Java Application on Azure" authors="MicrosoftHelp@twilio.com; robmcm" videoId="" scriptId="" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="MicrosoftHelp@twilio.com; robmcm"></tags>
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="MicrosoftHelp@twilio.com; robmcm" />
 
 # Осуществление телефонных звонков с использованием Twilio в Java-приложении Azure
 
@@ -160,10 +160,10 @@
 2.  Измените файл **startup.cmd**, чтобы распаковать WAR-файл TwilioCloud.
 3.  Выполните компиляцию приложения для эмулятора среды выполнения приложений.
 4.  Запустите развертывание в эмуляторе среды выполнения приложений.
-5.  Откройте браузер и введите адрес **<http://localhost:8080/TwilioCloud/callform.jsp>**.
+5.  Откройте браузер и введите адрес **http://localhost:8080/TwilioCloud/callform.jsp**.
 6.  Введите в форму значения, нажмите **Выполнить звонок** и просмотрите результаты в файле makecall.jsp.
 
-Завершив подготовку к развертыванию в Azure, выполните повторную компиляцию для развертывания в облаке, далее выполните развертывание в Azure и запустите <http://*your_hosted_name>*.cloudapp.net/TwilioCloud/callform.jsp в браузере (замените атрибут* именем\_вашего\_размещенного\_приложения\*).
+Завершив подготовку к развертыванию в Azure, выполните повторную компиляцию для развертывания в облаке, далее выполните развертывание в Azure и запустите http://*your_hosted_name*.cloudapp.net/TwilioCloud/callform.jsp в браузере (замените атрибут *именем\_вашего\_размещенного\_приложения*).
 
 ## Дальнейшие действия
 

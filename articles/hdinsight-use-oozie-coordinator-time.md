@@ -275,17 +275,16 @@ Apache Oozie — это система рабочих процессов и ко
 
 1.  Создайте текстовый файл со следующим содержимым:
 
-        <coordinator-app name="my_coord_app" frequency="${coordFrequency}" start="${coordStart}" end="${coordEnd}" timezone="${coordTimezone}" xmlns="uri:oozie:coordinator:0.4">
-           <action>
-              <workflow>
-                 <app-path>${wfPath}</app-path>
-              </workflow>
-           </action>
-        </coordinator-app>
+		<coordinator-app name="my_coord_app" frequency="${coordFrequency}" start="${coordStart}" end="${coordEnd}" timezone="${coordTimezone}" xmlns="uri:oozie:coordinator:0.4">
+		   <action>
+		      <workflow>
+		         <app-path>${wfPath}</app-path>
+		      </workflow>
+		   </action>
+		</coordinator-app>
 
     В файле определения используется пять переменных:
-
-    <table>
+	<table>
 <thead>
 <tr class="header">
 <th align="left">Переменная</th>
@@ -314,7 +313,7 @@ Apache Oozie — это система рабочих процессов и ко
 <td align="left">Путь рабочего процесса workflow.xml.Если имя файла рабочего процесса не является именем файла по умолчанию (workflow.xml), необходимо его указать.</td>
 </tr>
 </tbody>
-</table></li>
+</table>
 
 2.  Сохраните файл как **C:\\Tutorials\\UseOozie\\coordinator.xml** с кодировкой ANSI (ASCII) (если текстовый редактор не позволяет сделать это, используйте Блокнот).
 
@@ -716,7 +715,7 @@ Invoke-RestMethod PowerShell для вызова веб-служб Oozie. API-и
 
     Удалите значки \#, если нужно выполнить дополнительные функции.
 
-9.  Если ваш кластер HDinsight имеет версию 2.1, замените "<https://$clusterName.azurehdinsight.net:443/oozie/v2/>" на "<https://$clusterName.azurehdinsight.net:443/oozie/v1/>". Кластер HDInsight версии 2.1 не поддерживает веб-службы версии 2.
+9.  Если ваш кластер HDinsight имеет версию 2.1, замените "https://$clusterName.azurehdinsight.net:443/oozie/v2/" на "https://$clusterName.azurehdinsight.net:443/oozie/v1/". Кластер HDInsight версии 2.1 не поддерживает веб-службы версии 2.
 
 10. Для выполнения скрипта щелкните **Выполнить скрипт** или нажмите клавишу **F5**. Результат должен быть аналогичен приведенному ниже:
 

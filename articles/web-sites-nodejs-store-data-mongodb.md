@@ -1,6 +1,7 @@
 <properties linkid="develop-node-website-with-mongodb-mac" urlDisplayName="Website with MongoDB" pageTitle="Node.js website with MongoDB on a VM - Azure tutorial" metaKeywords="Azure tutorial MongoDB, MongoDB store data, access data MongoDB Node, Azure Node app" description="A tutorial that teaches you how to use MongoDB to store and access data from a Node application hosted on Azure." metaCanonical="http://www.windowsazure.com/ru-ru/develop/nodejs/tutorials/website-with-mongodb-mongolab/" services="web-sites,virtual-machines" documentationCenter="nodejs" title="Node.js Web Application with Storage on MongoDB (Virtual Machine)" authors="larryfr"  solutions="" writer="" manager="" editor=""  />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+
 
 # Создание приложения Node.js в Azure с MongoDB на виртуальной машине
 
@@ -28,7 +29,7 @@
 
 Кроме того, репозиторий [Git][Git] должен быть доступен из командной строки в среде разработки, так как он используется для развертывания приложения на веб-сайте Azure.
 
-[WACOM.INCLUDE [создать-учетная запись-и-веб-сайт-примечание][создать-учетная запись-и-веб-сайт-примечание]]
+[WACOM.INCLUDE [создать-учетная запись-и-веб-сайт-примечание](../includes/create-account-and-websites-note.md)]
 
 ## Создание виртуальной машины
 
@@ -94,7 +95,7 @@
 
     ![снимок экрана настройки конечной точки][снимок экрана настройки конечной точки]
 
-9.  После изменения состояния виртуальной машины на **Выполняется** вы сможете открыть в браузере адрес [http://\<YourVMDNSName\>.cloudapp.net:28017/\_\_][http://\<YourVMDNSName\>.cloudapp.net:28017/\_\_], чтобы проверить работу MongoDB. В нижней части страницы должен отображаться журнал со сведениями о службе, аналогично следующим данным:
+9.  После изменения состояния виртуальной машины на **Выполняется** вы сможете открыть в браузере адрес **http://\<YourVMDNSName\>.cloudapp.net:28017/**, чтобы проверить работу MongoDB. В нижней части страницы должен отображаться журнал со сведениями о службе, аналогично следующим данным:
 
         Fri Mar  7 18:57:16 [initandlisten] MongoDB starting : pid=1019 port=27017 dbpath=/var/lib/mongodb 64-bit host=localhost.localdomain
            18:57:16 [initandlisten] db version v2.2.3, pdfile version 4.5
@@ -339,9 +340,9 @@
 2.  Добавьте следующий код в начало файла **app.js**. Он инициализирует **TaskList** со строкой подключения для сервера MongoDB:
 
         var TaskList = require('./routes/tasklist');
-        var taskList = new TaskList(process.env.MONGODB_URI);
+		var taskList = new TaskList(process.env.MONGODB_URI);
 
-    Обратите внимание на вторую строку. Выполняется доступ к переменной среды, которая содержит сведения о подключении для экземпляра mongo и будет настроена позднее. При наличии локального экземпляра Mongo, работающего в целях разработки, может понадобиться временно задать для этого параметра значение localhost вместо process.env.MONGODB\_URI.
+	Обратите внимание на вторую строку. Выполняется доступ к переменной среды, которая содержит сведения о подключении для экземпляра mongo и будет настроена позднее. При наличии локального экземпляра Mongo, работающего в целях разработки, может понадобиться временно задать для этого параметра значение localhost вместо process.env.MONGODB\_URI.
 
 3.  Добавьте следующие строки:
 
@@ -441,7 +442,7 @@
         info:   Executing `git remote add azure http://username@mongodbtasklist.azurewebsites.net/mongodbtasklist.git`
         info:   site create command OK
 
-    > [WACOM.NOTE\> Если это первый веб-сайт Azure для вашей подписки, необходимо использовать портал для создания веб-сайта. Дополнительные сведения см. в статье [Создание и развертывание приложения Node.js на веб-сайте Azure][Создание и развертывание приложения Node.js на веб-сайте Azure].
+    > [WACOM.NOTE] Если это первый веб-сайт Azure для вашей подписки, необходимо использовать портал для создания веб-сайта. Дополнительные сведения см. в статье [Создание и развертывание приложения Node.js на веб-сайте Azure][Создание и развертывание приложения Node.js на веб-сайте Azure].
 
 ### Задание переменной среды MONGODB\_URI
 
@@ -502,7 +503,6 @@
   [Создание приложения Node.js в Azure с MongoDB с помощью надстройки MongoLab]: /ru-ru/develop/nodejs/tutorials/website-with-mongodb-mongolab/
   [Веб-страница, показывающая пустой список задач]: ./media/store-mongodb-web-sites-nodejs-use-mac/todo_list_empty.png
   [Git]: http://git-scm.com
-  [создать-учетная запись-и-веб-сайт-примечание]: ../includes/create-account-and-websites-note.md
   [руководству по установке MongoDB]: http://docs.mongodb.org/manual/installation/
   [Установка MongoDB под Linux в Azure]: http://docs.mongodb.org/ecosystem/tutorial/install-mongodb-on-linux-in-azure/
   [портал управления Azure]: https://manage.windowsazure.com/
@@ -515,7 +515,6 @@
   [Как использовать SSH с Linux на Azure]: http://www.windowsazure.com/ru-ru/documentation/articles/linux-use-ssh-key/
   [снимок экрана конфигурации ВМ]: ./media/web-sites-nodejs-store-data-mongodb/vmconfig.png
   [снимок экрана настройки конечной точки]: ./media/web-sites-nodejs-store-data-mongodb/endpoints.png
-  [http://\<YourVMDNSName\>.cloudapp.net:28017/\_\_]: http://<YourVMDNSName>.cloudapp.net:28017/__
   [документации MongoDB]: http://docs.mongodb.org/manual/
   [Express]: http://expressjs.com
   [Mongoose]: http://mongoosejs.com
