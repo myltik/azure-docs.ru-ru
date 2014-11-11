@@ -1,6 +1,6 @@
 <properties title="Get started with SQL database auditing" pageTitle="Get started with SQL database auditing | Azure" description="Get started with SQL database auditing" metaKeywords="" services="sql-database" solutions="data-management" documentationCenter="" authors="jeffreyg" videoId="" scriptId=""  />
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jeffreyg"></tags>
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jeffreyg" />
 
 # Приступая к работе с аудитом базы данных SQL
 
@@ -90,7 +90,6 @@
   [Основы аудита баз данных SQL Azure]: #subheading-1
   [Настройка аудита базы данных]: #subheading-2
   [Анализ журналов и отчетов аудита]: #subheading-3
-  [Справочник по формату журнала аудита (файл в формате doc)]: http://go.microsoft.com/fwlink/?LinkId=506733
   [подпишитесь на предварительную версию новых уровней обслуживания]: https://account.windowsazure.com/PreviewFeatures?fid=premiumdb
   [портал предварительной версии Azure]: https://portal.azure.com
   [0]: ./media/sql-database-auditing-get-started/sql-database-get-started-auditingpreview.png
@@ -101,5 +100,4 @@
   [Обозреватель хранилищ Azure]: http://azurestorageexplorer.codeplex.com/
   [таблицы Excel]: http://go.microsoft.com/fwlink/?LinkId=403540
   [этой ссылке]: http://www.microsoft.com/ru-ru/download/details.aspx?id=39379
-  [Практическом руководстве (файл в формате doc)]: http://go.microsoft.com/fwlink/?LinkId=506731
   [5]: ./media/sql-database-auditing-get-started/sql-database-auditing-dashboard.png

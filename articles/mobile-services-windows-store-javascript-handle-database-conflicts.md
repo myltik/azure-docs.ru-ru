@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-optimistic-concurrent-data-javascript" urlDisplayName="Optimistic concurrency" pageTitle="Handle database write conflicts with optimistic concurrency (Windows Store) | Mobile Dev Center" metaKeywords="" writer="wesmc" description="Learn how to handle database write conflicts on both the server and in your Windows Store application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Handling database write conflicts" authors="wesmc" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 
 # Обработка конфликтов записи базы данных
 
@@ -30,7 +30,7 @@
 
     2.  Разверните раздел **В сети** и щелкните **Microsoft и .NET**. В поле "Поиск" введите **WindowsAzure.MobileServices.WinJS**. Нажмите кнопку **Установить** для пакета **Мобильные службы Windows Azure для WinJS**.
 
-        ![][]
+        ![][0]
 
 ## <a name="uiupdate"></a><span class="short-header">Обновление пользовательского интерфейса</span>Обновление приложения для предоставления разрешения на выполнение обновлений
 
@@ -292,16 +292,13 @@
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Магазин Windows C#]: /ru-ru/develop/mobile/tutorials/handle-database-write-conflicts-dotnet/ "Магазин Windows C#"
-  [Магазин Windows JavaScript]: /ru-ru/documentation/articles/mobile-services-windows-store-javascript-handle-database-conflicts/ "Магазин Windows JavaScript"
-  [Windows Phone]: /ru-ru/develop/mobile/tutorials/handle-database-write-conflicts-wp8/ "Windows Phone"
   [Обновите приложение, чтобы разрешить обновления]: #uiupdate
   [Включите в приложении обнаружение конфликтов]: #enableOC
   [Протестируйте в приложении конфликты записи базы данных]: #test-app
   [Автоматическое разрешение конфликтов в серверных скриптах]: #scriptsexample
   [Приступая к работе с мобильными службами]: /ru-ru/develop/mobile/tutorials/get-started
   [Учетная запись Azure]: http://www.windowsazure.com/ru-ru/pricing/free-trial/
-  []: ./media/mobile-services-windows-store-javascript-handle-database-conflicts/mobile-manage-nuget-packages-dialog.png
+  [0]: ./media/mobile-services-windows-store-javascript-handle-database-conflicts/mobile-manage-nuget-packages-dialog.png
   [Системные свойства]: http://go.microsoft.com/fwlink/?LinkId=331143
   [1]: ./media/mobile-services-windows-store-javascript-handle-database-conflicts/Mobile-oc-store-create-app-package1.png
   [2]: ./media/mobile-services-windows-store-javascript-handle-database-conflicts/Mobile-oc-store-create-app-package2.png

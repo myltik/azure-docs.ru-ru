@@ -1,6 +1,6 @@
 <properties linkid="dev-net-common-tasks-publishing-with-vso" urlDisplayName="Publishing with TFS" pageTitle="Continuous delivery with Visual Studio Online in Azure" metaKeywords="" description="Learn how to configure your Visual Studio Online team projects to automatically build and deploy to Azure websites or cloud services." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Continuous delivery to Azure using Visual Studio Online and Git" authors="ghogen" solutions="" manager="" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ghogen"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ghogen" />
 
 # Непрерывная доставка в Azure с использованием Visual Studio Online и Git
 
@@ -29,7 +29,7 @@
 1.  Если у вас еще нет учетной записи Visual Studio Online, выполните инструкции из [этой статьи][этой статьи]. При создании командного проекта выберите Git в качестве системы управления версиями. Выполните следующие инструкции для подключения Visual Studio к командному проекту.
 
 2.  В Team Explorer нажмите ссылку **Клонировать этот репозиторий**.
-    ![][]
+    ![][0]
 
 3.  Укажите расположение локальной копии и нажмите кнопку **Клонировать**.
 
@@ -252,11 +252,10 @@
   [Шаг 2: создание проекта и отправка его в репозиторий Git.]: #step2
   [Шаг 3: подключение проекта к Azure.]: #step3
   [Шаг 4: внесение необходимых изменений и запуск процессов повторного построения и развертывания.]: #step4
-  [Шаг 5: повторное развертывание предыдущей сборки (необязательно)]: #step5
   [Шаг 6: изменение развертывания в рабочей среде.]: #step6
   [Шаг 7: развертывание из рабочей ветви.]: #step7
   [этой статьи]: http://go.microsoft.com/fwlink/?LinkId=397665
-  []: ./media/cloud-services-continuous-delivery-use-vso-git/CloneThisRepository.PNG
+  [0]: ./media/cloud-services-continuous-delivery-use-vso-git/CloneThisRepository.PNG
   [1]: ./media/cloud-services-continuous-delivery-use-vso-git/CreateNewSolutionInClonedRepo.PNG
   [Начало работы с Azure и ASP.NET]: http://www.windowsazure.com/ru-ru/documentation/articles/web-sites-dotnet-get-started/
   [2]: ./media/cloud-services-continuous-delivery-use-vso-git/CommitMenuItem.PNG

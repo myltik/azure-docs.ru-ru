@@ -1,10 +1,10 @@
 <properties umbracoNaviHide="0" pageTitle="How To Configure Cloud Services" metaKeywords="Azure cloud services, cloud service, configure cloud service" description="Learn how to configure Azure cloud services." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" title="Sign up for Azure as an organization" authors="terrylan" manager="terrylan" />
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="terrylan"></tags>
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="terrylan" />
 
 # Подпишитесь на Azure как организация
 
-[WACOM.INCLUDE [отказ от ответственности][отказ от ответственности]]
+[WACOM.INCLUDE [отказ от ответственности](../includes/disclaimer.md)]
 
 До недавнего времени пользователь мог получить доступ к новой подписке Azure только под своей учетной записью Майкрософт (Windows Live ID). Теперь Azure поддерживает один из двух методов входа по учетным записям:
 
@@ -27,7 +27,7 @@
 Если в организации уже используется локальная служба каталогов Active Directory, можно использовать возможности интеграции каталогов Azure AD, такие как синхронизация каталогов и единый вход, так что локальные удостоверения можно будет использовать для входа в облако, тем самым упрощая работу как пользователей, так и администраторов. [Подробнее][3]
 
   [отказ от ответственности]: ../includes/disclaimer.md
-  [Подробнее]: http://windows.microsoft.com/en-US/windows-live/sign-in-what-is-microsoft-account
+  [Подробнее]: http://windows.microsoft.com/ru-ru/windows-live/sign-in-what-is-microsoft-account
   [1]: http://technet.microsoft.com/ru-ru/library/jj573650
   [2]: http://technet.microsoft.com/ru-ru/library/hh967619
   [3]: http://technet.microsoft.com/ru-ru/library/jj573653

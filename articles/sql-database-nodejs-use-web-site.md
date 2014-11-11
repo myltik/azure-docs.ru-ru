@@ -418,7 +418,7 @@
         To https://username@tabletasklist.azurewebsites.net/TableTasklist.git
          * [new branch]      master -> master
 
-3.  После завершения операции передачи перейдите на страницу **http://[имя сайта].azurewebsites.net/**, чтобы просмотреть ваше приложение.
+3.  После завершения операции передачи перейдите на страницу **http://имя сайта].azurewebsites.net/**, чтобы просмотреть ваше приложение.
 
 ### Переключение на переменную среды
 
@@ -470,7 +470,6 @@
   [Создание веб-сайта Azure]: ./media/sql-database-nodejs-use-web-site/new_website.jpg
   [Настраиваемое создание нового веб-сайта]: ./media/sql-database-nodejs-use-web-site/custom_create.png
   [Заполните сведения о веб-сайте]: ./media/sql-database-nodejs-use-web-site/website_details_sqlazure.jpg
-  [(WEB или BUSINESS)]: http://msdn.microsoft.com/ru-ru/library/windowsazure/ee621788.aspx
   [Заполните параметры базы данных SQL]: ./media/sql-database-nodejs-use-web-site/database_settings.jpg
   [Создать новый сервер базы данных SQL]: ./media/sql-database-nodejs-use-web-site/create_server.jpg
   [Откройте панель мониторинга веб-сайта]: ./media/sql-database-nodejs-use-web-site/go_to_dashboard.png
@@ -491,10 +490,8 @@
   [1]: http://getbootstrap.com/
   [2]: ./media/sql-database-nodejs-use-web-site/sql_todo_empty.png
   [Изображение нового элемента в списке задач]: ./media/sql-database-nodejs-use-web-site/sql_todo_list.png
-  [http://[имя]: http://[site
   [ссылка настройки]: ./media/sql-database-nodejs-use-web-site/sql-task-configure.png
   [параметры приложения]: ./media/sql-database-nodejs-use-web-site/appsettings.png
   [сохранение параметров приложения]: ./media/sql-database-nodejs-use-web-site/savebutton.png
   [Веб-приложение Node.js с MongoDB]: ../store-mongolab-web-sites-nodejs-store-data-mongodb/
-  [Публикация на веб-сайтах Azure с использованием репозитория Git]: ../CommonTasks/publishing-with-git
   [Веб-приложение Node.js с табличным хранилищем]: /ru-ru/develop/nodejs/tutorials/web-site-with-storage/

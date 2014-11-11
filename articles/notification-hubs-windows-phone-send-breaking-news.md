@@ -1,6 +1,6 @@
 <properties linkid="notification-hubs-windows-phone-send-breaking-news" pageTitle="Use Notification Hubs to send breaking news (Windows Phone)" metaKeywords="" description="Use  Azure Notification Hubs to use tag in registrations to send breaking news to a Windows Phone app." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Use Notification Hubs to send breaking news" authors="glenga" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Использование концентраторов уведомлений для передачи экстренных новостей
 
@@ -192,13 +192,13 @@
 ## <a name="send"></a><span class="short-header">Отправка уведомлений</span>Отправка уведомлений из серверной части
 
 </h2>
-[WACOM.INCLUDE [концентраторы-уведомлений-серверная-часть][концентраторы-уведомлений-серверная-часть]]
+[WACOM.INCLUDE [концентраторы-уведомлений-серверная-часть](../includes/notification-hubs-back-end.md)]
 
 ## <a name="test-app"></a>Запуск приложения и создание уведомлений
 
 1.  В Visual Studio нажмите клавишу F5, чтобы скомпилировать и запустить приложение.
 
-    ![][]
+    ![][0]
 
     Обратите внимание, что в пользовательском интерфейсе присутствует набор переключателей, позволяющий выбрать категории для подписки.
 
@@ -234,6 +234,6 @@
   [Запуск приложения и создание уведомлений]: #test-app
   [Приступая к работе с концентраторами уведомлений]: /ru-ru/manage/services/notification-hubs/get-started-notification-hubs-wp8/
   [концентраторы-уведомлений-серверная-часть]: ../includes/notification-hubs-back-end.md
-  []: ./media/notification-hubs-windows-phone-send-breaking-news/notification-hub-breakingnews.png
+  [0]: ./media/notification-hubs-windows-phone-send-breaking-news/notification-hub-breakingnews.png
   [2]: ./media/notification-hubs-windows-phone-send-breaking-news/notification-hub-registration.png
   [3]: ./media/notification-hubs-windows-phone-send-breaking-news/notification-hub-toast.png

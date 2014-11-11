@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-how-to-guides-register-windows-store-app-server-auth" urlDisplayName="Shared Access Signature Part 1" pageTitle="Register your Windows Store app package for Microsoft authentication" metaKeywords="" description="Learn how to register your Windows Store app for Microsoft authentication in your Azure Mobile Services application" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Register your Windows Store app package for Microsoft authentication" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Регистрация пакета приложения для магазина Windows для проверки подлинности Microsoft
 
@@ -12,7 +12,7 @@
 
 > [WACOM.NOTE]Аутентификация со стороны клиента с использованием Live Connect пока еще не поддерживается серверной мобильной службой для .NET.
 
-[WACOM.INCLUDE [mobile-services-register-windows-store-app][mobile-services-register-windows-store-app]]
+[WACOM.INCLUDE [mobile-services-register-windows-store-app](../includes/mobile-services-register-windows-store-app.md)]
 
 После регистрации пакета приложения не забудьте указать значение **истина** для параметра *useSingleSignOn* при вызове метода [LoginAsync][LoginAsync]. Это предоставит пользователям ускоренную процедуру входа при использовании учетной записи Майкрософт.
 

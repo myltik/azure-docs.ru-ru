@@ -1,6 +1,6 @@
 <properties linkid="dev-nodejs-getting-started" urlDisplayName="Cloud Service" pageTitle="Node.js Getting Started Guide - Azure Tutorial" metaKeywords="Azure node.js getting started, Azure Node.js tutorial, Azure Node.js tutorial" description="An end-to-end tutorial that helps you develop a simple Node.js web application and deploy it to Azure." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Build and deploy a Node.js application to an Azure Cloud Service" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Построение и развертывание приложения Node.js в облачной службе Azure
 
@@ -24,7 +24,7 @@
 
     ![Значок Azure PowerShell][Значок Azure PowerShell]
 
-    [WACOM.INCLUDE [install-dev-tools][install-dev-tools]]
+    [WACOM.INCLUDE [install-dev-tools](../includes/install-dev-tools.md)]
 
 2.  Создайте новый каталог **узла** на диске C и перейдите в c:\\каталог узла:
 
@@ -186,11 +186,9 @@
 </div>
 
   [Сравнение веб-сайтов Azure, облачных служб и виртуальных машин]: http://azure.microsoft.com/ru-ru/documentation/articles/choose-web-site-cloud-service-vm/
-  [использования упрощенного веб-сайта Azure.]: /ru-ru/documentation/articles/web-sites-nodejs-develop-deploy-mac/
   [В окне браузера отображается страница hello world. URL-адрес указывает, что страница размещается в Azure.]: https://wacomdpsstablestorage.blob.core.windows.net/articlesmedia/demo-ppe.windowsazure.com/ru-ru/documentation/articles/cloud-services-nodejs-develop-deploy-app/20140107035927/node21.png
   [Значок Azure PowerShell]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
   [install-dev-tools]: ../includes/install-dev-tools.md
-  [В командной строке отображаются команды "mkdir c:\\node" и "cd node".]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-6.png
   [Результат выполнения команды New-AzureService helloworld]: ./media/cloud-services-nodejs-develop-deploy-app/node9.png
   [Обзор создания размещенной службы для Windows Azure.]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj155995.aspx
   [Вывод команды Add-AzureNodeWebRole.]: ./media/cloud-services-nodejs-develop-deploy-app/node11.png
@@ -201,7 +199,6 @@
   [1]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
   [Состояние команды Stop-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
   [Состояние команды Remove-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
-  [Как удалить учетную запись хранения из подписки Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/hh531562.aspx
 [The Windows Start menu with the Azure SDK Node.js entry expanded]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-menu.png
 [mkdir]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-6.png
 [nodejs.org]: http://nodejs.org/

@@ -1,6 +1,6 @@
 <properties linkid="develop-dotnet-performance" urlDisplayName="Performance" pageTitle="Performance best practices - Azure" metaKeywords="Azure optimization, Azure best practice performance" description="Learn about best practices for performance in Azure." metaCanonical="" services="cloud-services,sql-database,storage,service-bus,virtual-network" documentationCenter=".NET" title="" authors="robb" solutions="" manager="johndaw" editor="" />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="robb"></tags>
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="robb" />
 
 # Рекомендации по улучшению производительности в приложениях Azure
 
@@ -348,7 +348,6 @@ Azure позволяет существенно сократить усилия 
   [Способы секционирования с использованием базы данных SQL]: http://go.microsoft.com/fwlink/?LinkId=252678
   [Библиотека сегментов баз данных SQL и SQL Server]: http://go.microsoft.com/fwlink/?LinkId=252679
   [Введение в службу Azure Caching]: http://go.microsoft.com/fwlink/?LinkId=252680
-  [Вопросы производительности Caching в Windows \#Azure]: http://go.microsoft.com/fwlink/?LinkId=252681
   [Очереди Azure и очереди Azure Service Bus — сходства и отличия]: http://go.microsoft.com/fwlink/?LinkId=252682
   [Советы и рекомендации по повышению производительности с помощью управляемых сообщений Service Bus]: http://go.microsoft.com/fwlink/?LinkID=252683
   [Данные большого размера]: /ru-ru/solutions/big-data/

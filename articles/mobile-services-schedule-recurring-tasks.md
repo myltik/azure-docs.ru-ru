@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-schedule-backend-tasks" urlDisplayName="Schedule Backend Tasks" pageTitle="Schedule Backend Tasks with Scheduler - Mobile Services" metaKeywords="" description="Use the Azure Mobile Services Scheduler to schedule jobs for your mobile app." metaCanonical="" services="" documentationCenter="Mobile" title="Schedule recurring jobs in Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Планирование повторяющихся заданий в мобильных службах
 
@@ -34,7 +34,7 @@
 
 ## <a name="get-oauth-credentials"></a>Зарегистрируйтесь для доступа к Twitter v1.1 API и сохранения учетных данных
 
-[WACOM.INCLUDE [mobile-services-register-twitter-access][mobile-services-register-twitter-access]]
+[WACOM.INCLUDE [mobile-services-register-twitter-access](../includes/mobile-services-register-twitter-access.md)]
 
 ## <a name="create-table"></a>Создание новой таблицы Updates
 
@@ -42,7 +42,7 @@
 
 1.  На портале управления откройте вкладку **Данные** своей мобильной службы, затем щелкните **+Создать**.
 
-    ![][]
+    ![][0]
 
     Откроется диалоговое окно **Создание новой таблицы**.
 
@@ -176,13 +176,11 @@
 
 <!-- Anchors. Images.  URLs. -->
 
-  [Серверная часть .NET]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/ "Серверная часть .NET"
-  [Серверная часть JavaScript]: /ru-ru/documentation/articles/mobile-services-schedule-recurring-tasks/ "Серверная часть JavaScript"
   [Зарегистрируйтесь для доступа к Twitter и сохранения учетных данных]: #get-oauth-credentials
   [Создание новой таблицы Updates]: #create-table
   [Создание нового запланированного задания]: #add-job
   [mobile-services-register-twitter-access]: ../includes/mobile-services-register-twitter-access.md
-  []: ./media/mobile-services-schedule-recurring-tasks/mobile-data-tab-empty-cli.png
+  [0]: ./media/mobile-services-schedule-recurring-tasks/mobile-data-tab-empty-cli.png
   [1]: ./media/mobile-services-schedule-recurring-tasks/mobile-create-updates-table.png
   [2]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-new-job-cli.png
   [3]: ./media/mobile-services-schedule-recurring-tasks/mobile-create-job-dialog.png

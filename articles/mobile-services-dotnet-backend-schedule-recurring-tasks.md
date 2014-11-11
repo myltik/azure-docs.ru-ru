@@ -1,6 +1,6 @@
 <properties  pageTitle="Schedule Backend Tasks with Scheduler - Mobile Services" metaKeywords="" description="Use the Windows Azure Mobile Services Scheduler to schedule jobs for your mobile app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Schedule recurring jobs in Mobile Services" authors="glenga"  solutions="mobile" writer="" manager="" editor=""  />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Планирование повторяющихся заданий в мобильных службах
 
@@ -27,7 +27,7 @@
 
 ## <a name="get-oauth-credentials"></a>Зарегистрируйтесь для доступа к Twitter v1.1 API и сохранения учетных данных
 
-[WACOM.INCLUDE [mobile-services-register-twitter-access][mobile-services-register-twitter-access]]
+[WACOM.INCLUDE [mobile-services-register-twitter-access](../includes/mobile-services-register-twitter-access.md)]
 
 1.  В обозревателе решений в Visual Studio откройте файл web.config для проекта мобильной службы, найдите параметры **MS\_TwitterConsumerKey** и **MS\_TwitterConsumerSecret** и замените их значения на ключ клиента и секрет клиента Twitter, заданные на портале.
 
@@ -44,7 +44,7 @@
 
 2.  В левой области выберите категорию **Интернет**, выполните поиск `linq2twitter`, щелкните пункт **Установить**, выделив пакет **linqtotwitter**, а затем прочитайте и примите лицензионные соглашения.
 
-    ![][]
+    ![][0]
 
     При этом библиотека Linq to Twitter добавляется в проект мобильной службы.
 
@@ -273,8 +273,6 @@
 
 
 
-  [Серверная часть .NET]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/ "Серверная часть .NET"
-  [Серверная часть JavaScript]: /ru-ru/documentation/articles/mobile-services-schedule-recurring-tasks/ "Серверная часть JavaScript"
   [Зарегистрируйтесь для доступа к Twitter и сохранения учетных данных]: #get-oauth-credentials
   [Загрузите и установите библиотеку Twitter LINQ]: #install-linq2twitter
   [Создание новой таблицы Updates]: #create-table
@@ -283,7 +281,7 @@
   [Публикация службы и регистрация задания]: #register-job
   [Проект LINQ to Twitter CodePlex]: http://linqtotwitter.codeplex.com/
   [mobile-services-register-twitter-access]: ../includes/mobile-services-register-twitter-access.md
-  []: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/add-linq2twitter-nuget-package.png
+  [0]: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/add-linq2twitter-nuget-package.png
   [1]: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/add-component-model-reference.png
   [Как использовать Code First Migrations для обновления модели данных]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-use-code-first-migrations
   [2]: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/mobile-service-start-page.png

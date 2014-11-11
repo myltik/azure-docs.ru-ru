@@ -1,6 +1,6 @@
 <properties pageTitle="Azure Spring 2014 release highlights - .NET Dev Center" metaKeywords="azure .net sdk 2.3" description="Learn about the new tools and features available for Azure .NET developers." documentationCenter=".NET" title="Azure Spring 2014 release highlights" authors="mollybos" solutions="" manager="carolz" editor="mollybos" />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="mollybos"></tags>
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="mollybos" />
 
 # Основные моменты выпуска Azure, весна 2014
 
@@ -123,7 +123,6 @@ Azure SDK 2.3 предлагает обновленный эмулятор хр�
   [Приступая к работе с Azure и ASP.NET]: http://azure.microsoft.com/ru-ru/documentation/articles/web-sites-dotnet-get-started/
   [Приступая к работе с инструментами Azure для Visual Studio]: http://msdn.microsoft.com/ru-ru/library/azure/ff687127.aspx
   [Создание веб-проектов ASP.NET в Visual Studio 2013]: http://asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio
-  [Build 2014: новые возможности для ASP.NET и веб в Visual Studio 2013 обновление 2 и далее (видео)]: http://channel9.msdn.com/Events/Build/2014/3-602
   [Отладка облачной службы или виртуальной машины в Visual Studio]: http://msdn.microsoft.com/ru-ru/library/azure/ff683670.aspx
   [Использование эмулятора Express для запуска и отладки облачных служб]: http://msdn.microsoft.com/ru-ru/library/windowsazure/dn339018.aspx
   [Устранение неполадок, связанных с веб-сайтами Azure, в Visual Studio]: http://www.windowsazure.com/ru-ru/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio
@@ -133,17 +132,13 @@ Azure SDK 2.3 предлагает обновленный эмулятор хр�
   [Обзор ресурсов хранилища с помощью обозревателя сервера]: http://msdn.microsoft.com/ru-ru/library/windowsazure/ff683677.aspx
   [Установка и настройка Azure PowerShell]: http://www.windowsazure.com/ru-ru/documentation/articles/install-configure-powershell/
   [Документация Azure PowerShell]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj156055.aspx
-  [Build 2014: комплексная автоматизация с помощью новых SDK, инструментов и служб в Azure (видео)]: http://channel9.msdn.com/Events/Build/2014/3-621
   [Использование скриптов Windows PowerShell для публикации в средах разработки и тестирования]: http://msdn.microsoft.com/ru-ru/library/windowsazure/dn642480.aspx
-  [Облачное покрытие: серверные приложения .NET для мобильных служб Azure (видео)]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-137-The-Azure-Mobile-Services-NET-Backend-with-Yavor-Georgiev
   [Центр разработки мобильных-приложений Azure]: /ru-ru/develop/mobile/
   [Быстрый запуск: добавление мобильной службы]: http://msdn.microsoft.com/ru-ru/library/windows/apps/xaml/dn629482.aspx
   [Отправка push-уведомлений для запуска приложений с помощью Visual Studio]: http://msdn.microsoft.com/ru-ru/library/windows/apps/xaml/dn614131.aspx
   [Создание настраиваемых API и запланированных заданий в мобильной службе]: http://msdn.microsoft.com/ru-ru/library/windows/apps/xaml/dn614130.aspx
   [Клиентская библиотека хранения Azure 3.0]: http://go.microsoft.com/fwlink/?LinkId=394927
   [Введение в хранилище Azure]: /ru-ru/documentation/articles/storage-introduction/
-  [Build 2014: хранилище Microsoft Azure – новые возможности, передовой опыт и шаблоны (видео)]: http://channel9.msdn.com/Events/Build/2014/3-628
   [Хранилище Microsoft Azure @ BUILD 2014]: http://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/08/microsoft-azure-storage-build-2014.aspx
   [Использование Windows PowerShell с диспетчером ресурсов]: http://go.microsoft.com/fwlink/?LinkID=394767
   [Использование межплатформенного интерфейса командной строки Azure совместно с диспетчером ресурсов]: /ru-ru/documentation/articles/xplat-cli-azure-resource-manager/
-  [Build 2014: модель группы ресурсов Azure: современное управление для современного облака (видео)]: http://channel9.msdn.com/Events/Build/2014/2-607

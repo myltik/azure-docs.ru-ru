@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-store-scripts-in-source-control" urlDisplayName="Store server scripts in source control" pageTitle="Store server scripts in source control - Azure Mobile Services" metaKeywords="" description="Learn how to store your server script files and modules in a local Git repo on your computer." metaCanonical="" services="" documentationCenter="Mobile" title="Store server scripts in source control" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Хранение серверных скриптов системе управления версиями
 
@@ -19,7 +19,7 @@
 
 1.  Выполните вход на [портал управления Azure][портал управления Azure], щелкните **Мобильные службы**, а затем щелкните свою мобильную службу.
 
-    ![][]
+    ![][0]
 
 2.  Откройте вкладку **Панель мониторинга**, а затем в области **Сводка** щелкните пункт **Настроить систему управления версиями** и нажмите кнопку **Да** для подтверждения.
 
@@ -172,7 +172,7 @@
   [Приступая к работе с мобильными службами]: /ru-ru/develop/mobile/tutorials/get-started
   [Приступая к работе с данными]: /ru-ru/develop/mobile/tutorials/get-started-with-data-dotnet
   [портал управления Azure]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-store-scripts-source-control/mobile-services-selection.png
+  [0]: ./media/mobile-services-store-scripts-source-control/mobile-services-selection.png
   [1]: ./media/mobile-services-store-scripts-source-control/mobile-setup-source-control.png
   [2]: ./media/mobile-services-store-scripts-source-control/mobile-source-control-credentials.png
   [3]: ./media/mobile-services-store-scripts-source-control/mobile-source-control-configure.png

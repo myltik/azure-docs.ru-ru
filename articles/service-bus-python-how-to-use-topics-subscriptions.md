@@ -1,6 +1,6 @@
 <properties linkid="develop-python-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (Python) - Azure" metaKeywords="Get started Azure Service Bus topics publising subscribe messaging Python" description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Python applications." metaCanonical="" services="service-bus" documentationCenter="Python" title="How to Use Service Bus Topics/Subscriptions" authors="huvalo" solutions="" manager="" editor="" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 # Использование разделов и подписок Service Bus
 
@@ -24,7 +24,7 @@
 -   [Практическое руководство. Удаление разделов и подписок][Практическое руководство. Удаление разделов и подписок]
 -   [Дальнейшие действия][Дальнейшие действия]
 
-[WACOM.INCLUDE [руководство-разделы-service-bus][руководство-разделы-service-bus]]
+[WACOM.INCLUDE [руководство-разделы-service-bus](../includes/howto-service-bus-topics.md)]
 
 **Примечание.** Если нужно установить клиентские библиотеки или Python, см. [Руководство по установке Python][Руководство по установке Python].
 
@@ -241,7 +241,6 @@ Service Bus предоставляет функции,
 -   Справочник API для [SqlFilter][SqlFilter].
 
   [Дальнейшие действия]: #Next_Steps
-  [Что такое разделы и подписки Service Bus?]: #what-are-service-bus-topics
   [Создание пространства имен службы]: #create-a-service-namespace
   [Получение учетных данных управления по умолчанию для пространства имен]: #obtain-default-credentials
   [Практическое руководство. Создание раздела]: #How_to_Create_a_Topic

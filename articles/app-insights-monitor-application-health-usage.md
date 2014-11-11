@@ -1,6 +1,6 @@
 <properties title="Monitor your app's health and usage with Application Insights" pageTitle="Monitor your app's health and usage with Application Insights" description="Get started with Application Insights. Analyze usage, availability and performance of your on-premises or Microsoft Azure applications." metaKeywords="analytics monitoring application insights" authors="awills"  />
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="awills"></tags>
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="awills" />
 
 # Наблюдение за работоспособностью и использованием приложения
 
@@ -45,7 +45,7 @@ Application Insights может наблюдать за приложениями
 
 В Visual Studio появится подсчет полученных событий.
 
-![][]
+![][0]
 
 ## <a name="monitor"></a>3. Просмотр данных мониторинга
 
@@ -98,7 +98,7 @@ Application Insights может наблюдать за приложениями
   [установить агент на сервере]: ../app-insights-monitor-performance-live-website-now/
   [Создание проекта ASP.NET]: ./media/appinsights/appinsights-01-vsnewp1.png
   [Выбор команды "Добавить Application Insights"]: ./media/appinsights/appinsights-03-addExisting.png
-  []: ./media/appinsights/appinsights-09eventcount.png
+  [0]: ./media/appinsights/appinsights-09eventcount.png
   [Щелкните проект правой кнопкой мыши и откройте портал Azure]: ./media/appinsights/appinsights-04-openPortal.png
   [Щелкните для получения дополнительных данных]: ./media/appinsights/appinsights-05-usageTiles.png
   [Дополнительные сведения о плитках и отчетах.]: ../app-insights-explore-metrics/

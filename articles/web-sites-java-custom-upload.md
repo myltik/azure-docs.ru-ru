@@ -1,6 +1,6 @@
 <properties linkid="develop-java-tutorials-web-site-custom_upload" urlDisplayName="Upload custom Java website" pageTitle="Upload a custom Java website to Azure" metaKeywords="" description="This tutorial shows you how to upload a custom Java website to Azure." metaCanonical="" services="web-sites" documentationCenter="Java" title="Upload a custom Java website to Azure" videoId="" scriptId="" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # Отправка настраиваемого веб-сайта Java в Azure
 
@@ -217,10 +217,8 @@ Liferay поддерживается веб-сайтами Azure. Посколь
 Дополнительные сведения о Liferay см. по адресу [][1]<http://www.liferay.com></a>.
 
   [Приступая к работе с веб-сайтами Azure и Java]: ../web-sites-java-get-started
-  [http://ваш\_сайт/hudson]: http://yoursite/hudson
   [Hudson]: ./media/web-sites-java-custom-upload/hudson1.png
   [Конфигурация Hudson]: ./media/web-sites-java-custom-upload/hudson2.png
   [Конфигурация Maven]: ./media/web-sites-java-custom-upload/maven.png
   []: http://hudson-ci.org
-  [http://ваш\_сайт]: http://yoursite
   [1]: http://www.liferay.com

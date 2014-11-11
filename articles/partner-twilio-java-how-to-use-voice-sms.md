@@ -1,6 +1,6 @@
 <properties linkid="develop-java-how-to-twilio-sms-service" urlDisplayName="Twilio Voice/SMS Service" pageTitle="How to Use Twilio for Voice and SMS (Java) - Azure" metaKeywords="Twilio, Twilio API, phone calls, SMS message, TwiML responses, Azure Twilio Java" description="Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in Java." metaCanonical="" services="" videoId="" scriptId="" documentationCenter="Java" title="How to Use Twilio for Voice and SMS Capabilities in Java" authors="MicrosoftHelp@twilio.com; robmcm" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="MicrosoftHelp@twilio.com; robmcm"></tags>
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="MicrosoftHelp@twilio.com; robmcm" />
 
 # Использование Twilio для поддержки голосовых возможностей и SMS в Java
 
@@ -233,7 +233,6 @@ TwiML — это набор инструкций на основе XML и с и�
 -   [Обращение в службу поддержки Twilio][Обращение в службу поддержки Twilio]
 
   [Дальнейшие действия]: #NextSteps
-  [Что такое Twilio?]: #WhatIs
   [Цены на Twilio]: #Pricing
   [Основные понятия]: #Concepts
   [Создание учетной записи Twilio]: #CreateAccount

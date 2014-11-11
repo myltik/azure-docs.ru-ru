@@ -1,6 +1,6 @@
 <properties linkid="develop-node-create-a-website-mac" urlDisplayName="Website" pageTitle="Create a Node.js website on Mac - Azure tutorials" metaKeywords="Azure create website Node, Azure deploy website Node, website Node.js, Node website" description="Learn how to build and deploy a Node.js website in Azure. Sample code is written in Java." metaCanonical="" services="web-sites" documentationCenter="nodejs" title="Build and deploy a Node.js website to Azure" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Выполнение сборки и развертывание веб-сайта Node.js в Azure
 
@@ -157,9 +157,7 @@ Node.js предоставляет обширную экосистему мод�
   [Node]: http://nodejs.org
   [Git]: http://git-scm.com
   [Браузер, в котором отображается сообщение Hello World.]: ./media/web-sites-nodejs-develop-deploy-mac/helloazure.png
-  [Бесплатная пробная версия Azure]: http://www.windowsazure.com/ru-ru/pricing/free-trial/?WT.mc_id=A7171371E
   [портал управления Azure]: http://manage.windowsazure.com
-  [Портал Azure с выделенной ссылкой «+СОЗДАТЬ».]: ./media/web-sites-nodejs-develop-deploy-mac/plus-new.png
   [Диалоговое окно "Быстрое создание"]: ./media/web-sites-nodejs-develop-deploy-mac/create-quick-website.png
   [Откройте панель мониторинга веб-сайта]: ./media/web-sites-nodejs-develop-deploy-mac/go_to_dashboard.png
   [Настроить публикацию Git]: ./media/web-sites-nodejs-develop-deploy-mac/setup_git_publishing.png
@@ -167,8 +165,6 @@ Node.js предоставляет обширную экосистему мод�
   [Диалоговое окно с запросом на ввод имени пользователя и пароля.]: ./media/web-sites-nodejs-develop-deploy-mac/git-deployment-credentials.png
   [Инструкции по развертыванию Git, возвращенные после создания репозитория для веб-сайта.]: ./media/web-sites-nodejs-develop-deploy-mac/git-instructions.png
   [1]: ./media/web-sites-nodejs-develop-deploy-mac/helloworldlocal.png
-  [2]: http://git-scm.com/
-  [странице скачивания Git]: http://git-scm.com/download
   [Состояние развертывания Git на портале]: ./media/web-sites-nodejs-develop-deploy-mac/git_deployments_first.png
   [Обновленное состояние развертывания Git на портале]: ./media/web-sites-nodejs-develop-deploy-mac/git_deployments_second.png
   [программы командой строки Azure для Mac и Linux]: /ru-ru/documentation/articles/xplat-cli/

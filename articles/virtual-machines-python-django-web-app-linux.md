@@ -1,6 +1,6 @@
 <properties linkid="develop-python-web-app-with-django-mac" urlDisplayName="Web with Django" pageTitle="Python web app with Django on Mac - Azure tutorial" metaKeywords="" description="A tutorial that shows how to host a Django-based website on Azure using a Linux virtual machine." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="Django Hello World Web Application (mac-linux)" authors="huvalo" solutions="" manager="" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-linux" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-linux" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 # Веб-приложение Hello World на Django (Mac и Linux)
 
@@ -21,7 +21,7 @@ HelloWorld. Приложение будет размещаться в вирту
 
 ![В окне браузера в Azure отображается страница hello world.][В окне браузера в Azure отображается страница hello world.]
 
-[WACOM.INCLUDE [create-account-and-vms-note][create-account-and-vms-note]]
+[WACOM.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
 
 ## Создание и настройка виртуальной машины Azure для размещения Django
 
@@ -114,8 +114,6 @@ HelloWorld. Приложение будет размещаться в вирту
 
 После завершения этого учебного курса завершите работу созданной вами виртуальной машины Azure и/или удалите ее, чтобы освободить ресурсы для других учебных курсов и избежать платы за использование Azure.
 
-  [Windows]: /ru-ru/develop/python/tutorials/web-app-with-django/ "Windows"
-  [Mac/Linux]: /ru-ru/develop/python/tutorials/django-hello-world-(maclinux)/ "Mac/Linux"
   [В окне браузера в Azure отображается страница hello world.]: ./media/virtual-machines-python-django-web-app-linux/mac-linux-django-helloworld-browser.png
   [create-account-and-vms-note]: ../includes/create-account-and-vms-note.md
   [здесь]: /ru-ru/manage/linux/tutorials/virtual-machine-from-gallery/

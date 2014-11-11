@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-validate-modify-and-augment-data-ios" urlDisplayName="Validate Data" pageTitle="Use server scripts to validate and modify data (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to validate and modify data sent using server scripts from your iOS app." metaCanonical="" services="" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="krisragh" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
 
 # Проверка и изменение данных в мобильных службах с помощью серверных скриптов
 
@@ -21,7 +21,7 @@
 
 1.  Выполните вход на [портал управления Azure][портал управления Azure], щелкните элемент **Мобильные службы**, а затем выберите свое приложение.
 
-    ![][]
+    ![][0]
 
 2.  Откройте вкладку **Данные** и щелкните таблицу **TodoItem**.
 
@@ -116,19 +116,11 @@
 
 <!-- Anchors.  Images. URLs. -->
 
-  [Магазин Windows — C#]: /ru-ru/documentation/articles/mobile-services-windows-store-dotnet-validate-modify-data-server-scripts "Магазин Windows — C#"
-  [Магазин Windows —JavaScript]: /ru-ru/documentation/articles/mobile-services-windows-store-javascript-validate-modify-data-server-scripts "Магазин Windows — JavaScript"
-  [Windows Phone]: /ru-ru/documentation/articles/mobile-services-windows-phone-validate-modify-data-server-scripts "Windows Phone"
-  [iOS]: /ru-ru/documentation/articles/mobile-services-ios-validate-modify-data-server-scripts "iOS"
-  [Android]: /ru-ru/documentation/articles/mobile-services-android-validate-modify-data-server-scripts "Android"
-  [HTML]: /ru-ru/documentation/articles/mobile-services-html-validate-modify-data-server-scripts "HTML"
-  [Xamarin.iOS]: /ru-ru/documentation/articles/partner-xamarin-mobile-services-ios-validate-modify-data-server-scripts "Xamarin.iOS"
-  [Xamarin.Android]: /ru-ru/documentation/articles/partner-xamarin-mobile-services-android-validate-modify-data-server-scripts "Xamarin.Android"
   [Добавление проверки длины строки]: #string-length-validation
   [Обновление клиента для поддержки проверки]: #update-client-validation
   [Приступая к работе с данными]: /ru-ru/develop/mobile/tutorials/get-started-with-data-ios
   [портал управления Azure]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-ios-validate-modify-data-server-scripts/mobile-services-selection.png
+  [0]: ./media/mobile-services-ios-validate-modify-data-server-scripts/mobile-services-selection.png
   [1]: ./media/mobile-services-ios-validate-modify-data-server-scripts/mobile-portal-data-tables.png
   [2]: ./media/mobile-services-ios-validate-modify-data-server-scripts/mobile-insert-script-users.png
   [3]: ./media/mobile-services-ios-validate-modify-data-server-scripts/mobile-quickstart-data-error-ios.png

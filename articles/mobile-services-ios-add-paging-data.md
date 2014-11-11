@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-add-paging-to-data-ios" urlDisplayName="Add paging to data" pageTitle="Add paging to data (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use paging to manage the amount of data returned to your iOS app from Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Refine Mobile Services queries with paging" authors="krisragh" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
 
 # Уточнение запросов мобильных служб c разбиением по страницам
 
@@ -74,13 +74,5 @@
 
 
 
-  [Магазин Windows — C#]: /ru-ru/develop/mobile/tutorials/add-paging-to-data-dotnet "Магазин Windows — C#"
-  [Магазин Windows —JavaScript]: /ru-ru/develop/mobile/tutorials/add-paging-to-data-js "Магазин Windows — JavaScript"
-  [Windows Phone]: /ru-ru/develop/mobile/tutorials/add-paging-to-data-wp8 "Windows Phone"
-  [iOS]: /ru-ru/develop/mobile/tutorials/add-paging-to-data-ios "iOS"
-  [Android]: /ru-ru/develop/mobile/tutorials/add-paging-to-data-android "Android"
-  [HTML]: /ru-ru/develop/mobile/tutorials/add-paging-to-data-html "HTML"
-  [Xamarin.iOS]: /ru-ru/develop/mobile/tutorials/add-paging-to-data-xamarin-ios "Xamarin.iOS"
-  [Xamarin.Android]: /ru-ru/develop/mobile/tutorials/add-paging-to-data-xamarin-android "Xamarin.Android"
   [Приступая к работе с данными]: /ru-ru/develop/mobile/tutorials/get-started-with-data-ios
   [Приступая к работе с аутентификацией]: /ru-ru/develop/mobile/tutorials/get-started-with-users-ios

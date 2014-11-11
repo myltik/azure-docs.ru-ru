@@ -1,6 +1,6 @@
 <properties pageTitle="Using Windows PowerShell with Resource Manager" metaKeywords="ResourceManager, PowerShell, Azure PowerShell" description="Use Windows PowerShell to create a resource group" metaCanonical="" services="" documentationCenter="" title="Using Windows PowerShell with Resource Manager" authors="stevenka; juneb" solutions="" manager="stevenka" editor="mollybos" />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="powershell" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="stevenka; juneb"></tags>
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="powershell" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="stevenka; juneb" />
 
 # Использование Windows PowerShell с диспетчером ресурсов
 
@@ -472,8 +472,6 @@ Windows PowerShell дополняет имя параметра. Для цикл
 -   [Блог Windows PowerShell][Блог Windows PowerShell]: сведения о новых возможностях в Windows PowerShell.
 -   [Блог "Hey, Scripting Guy!"][Блог "Hey, Scripting Guy!"]: реальные советы и рекомендации от сообщества Windows PowerShell.
 
-  [Windows PowerShell]: /ru-ru/documentation/articles/powershell-azure-resource-manager.md "Windows PowerShell"
-  [Межплатформенный интерфейс командной строки]: /ru-ru/documentation/articles/xplat-cli-azure-resource-manager.md "Межплатформенный интерфейс командной строки"
   [Windows Management Framework 3.0]: http://www.microsoft.com/ru-ru/download/details.aspx?id=34595
   [Windows Management Framework 4.0]: http://www.microsoft.com/ru-ru/download/details.aspx?id=40855
   [Установка и настройка Windows Azure PowerShell]: http://www.windowsazure.com/ru-ru/documentation/articles/install-configure-powershell/
@@ -487,7 +485,6 @@ Windows PowerShell дополняет имя параметра. Для цикл
   [Командлеты диспетчера ресурсов Azure]: http://go.microsoft.com/fwlink/?LinkID=394765
   [Командлеты профиля Azure]: http://go.microsoft.com/fwlink/?LinkID=394766
   [Switch-AzureMode]: http://go.microsoft.com/fwlink/?LinkID=394398
-  [1]: http://go.microsoft.com/fwlink/?LinkID=394765&clcid=0x409
   [Использование групп ресурсов для управления ресурсами Azure]: http://azure.microsoft.com/ru-ru/documentation/articles/azure-preview-portal-using-resource-groups
   [Использование межплатформенного интерфейса командной строки Microsoft Azure совместно с диспетчером ресурсов]: http://www.windowsazure.com/ru-ru/documentation/articles/xplat-cli-azure-resource-manager/
   [Блог Azure]: http://blogs.msdn.com/windowsazure

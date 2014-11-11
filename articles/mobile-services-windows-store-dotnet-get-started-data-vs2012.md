@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-data-dotnet" urlDisplayName="Get Started with Data" pageTitle="Get started with data - Azure Mobile Services" metaKeywords="" description="Learn how to get started using data with Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="Get started with data in Mobile Services using Visual Studio 2012" documentationCenter="Mobile" authors="glenga" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Приступая к работе с данными в мобильных службах с помощью Visual Studio 2012
 
@@ -36,7 +36,7 @@
 
 1.  Скачайте версию примера приложения GetStartedWithData, созданную на C#, с веб-сайта [примеров кода для разработчиков][GetStartedWithData].
 
-    ![][]
+    ![][0]
 
 2.  В Visual Studio 2012 Express для Windows 8 откройте скачанный проект и просмотрите файл MainPage.xaml.cs.
 
@@ -52,11 +52,11 @@
 
 ## <a name="create-service"></a><span class="short-header">Создание мобильной службы</span>Создание новой мобильной службы на портале управления
 
-[WACOM.INCLUDE [mobile-services-create-new-service-data][mobile-services-create-new-service-data]]
+[WACOM.INCLUDE [mobile-services-create-new-service-data](../includes/mobile-services-create-new-service-data.md)]
 
 ## <a name="add-table"></a><span class="short-header">Добавление новой таблицы</span>Добавление новой таблицы в мобильную службу
 
-[WACOM.INCLUDE [mobile-services-create-new-service-data-2][mobile-services-create-new-service-data-2]]
+[WACOM.INCLUDE [mobile-services-create-new-service-data-2](../includes/mobile-services-create-new-service-data-2.md)]
 
 ## <a name="update-app"></a><span class="short-header">Обновление приложения</span>Обновление приложения для использования мобильной службы для доступа к данным
 
@@ -200,24 +200,13 @@
 <!-- Images. -->
 <!-- URLs. -->
 
-  [Магазин Windows — C#]: /ru-ru/develop/mobile/tutorials/get-started-with-data-dotnet-vs2012 "Магазин Windows — C#"
-  [Магазин Windows —JavaScript]: /ru-ru/develop/mobile/tutorials/get-started-with-data-js-vs2012 "Магазин Windows — JavaScript"
-  [Windows Phone]: /ru-ru/develop/mobile/tutorials/get-started-with-data-wp8 "Windows Phone"
-  [iOS]: /ru-ru/develop/mobile/tutorials/get-started-with-data-ios "iOS"
-  [Android]: /ru-ru/develop/mobile/tutorials/get-started-with-data-android "Android"
-  [HTML]: /ru-ru/develop/mobile/tutorials/get-started-with-data-html "HTML"
-  [Xamarin.iOS]: /ru-ru/develop/mobile/tutorials/get-started-with-data-xamarin-ios "Xamarin.iOS"
-  [Xamarin.Android]: /ru-ru/develop/mobile/tutorials/get-started-with-data-xamarin-android "Xamarin.Android"
-  [Просмотр учебника]: http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Windows-Store-app-Getting-Started-with-Data-Connecting-your-app-to-Windows-Azure-Mobile-Services
-  [Приступая к работе с данными в мобильных службах]: /ru-ru/develop/mobile/tutorials/get-started-with-data-dotnet/
   [Загрузка проекта приложения для Магазина Windows]: #download-app
   [Создание мобильной службы]: #create-service
   [Добавление таблицы для хранения данных]: #add-table
   [Обновление приложения для использования мобильных служб]: #update-app
   [Тестирование работы приложения с мобильными службами]: #test-app
-  [Бесплатная пробная версия Azure]: http://www.windowsazure.com/ru-ru/pricing/free-trial/?WT.mc_id=AE564AB28
   [GetStartedWithData]: http://go.microsoft.com/fwlink/?LinkId=262308
-  []: ./media/mobile-services-windows-store-dotnet-get-started-data-vs2012/mobile-data-sample-download-dotnet.png
+  [0]: ./media/mobile-services-windows-store-dotnet-get-started-data-vs2012/mobile-data-sample-download-dotnet.png
   [1]: ./media/mobile-services-windows-store-dotnet-get-started-data-vs2012/mobile-quickstart-startup.png
   [mobile-services-create-new-service-data]: ../includes/mobile-services-create-new-service-data.md
   [mobile-services-create-new-service-data-2]: ../includes/mobile-services-create-new-service-data-2.md

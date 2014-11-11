@@ -1,6 +1,6 @@
 <properties linkid="dev-net-tutorials-web-app-with-sql-azure-vs2013" urlDisplayName="Website with SQL Database" pageTitle="Deploy a Secure ASP.NET MVC app with Membership, OAuth, and SQL Database to an Azure Website" metaKeywords="Azure hello world tutorial, Azure getting started tutorial, SQL Database tutorial, Azure .NET hello world tutorial, Azure C# hello world tutorial, SQL Azure C# tutorial" description="Learn how to develop an ASP.NET MVC 5 website with a SQL Database back-end deploy it to Azure." metaCanonical="" services="web-sites,sql-database" documentationCenter=".NET" title="Deploy a Secure ASP.NET MVC 5 app with Membership, OAuth, and SQL Database to an Azure Website" authors="riande"  solutions="" writer="riande" manager="wpickett" editor="mollybos"  />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="riande"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="riande" />
 
 # Развертывание безопасного приложения ASP.NET MVC 5 с членством, OAuth и базой данных SQL на веб-сайте Azure.
 
@@ -37,7 +37,7 @@
 -   [Развертывание приложения в Azure][1]
 -   [Дальнейшие действия][Дальнейшие действия]
 
-[WACOM.INCLUDE [установка-sdk-2013-только][установка-sdk-2013-только]]
+[WACOM.INCLUDE [установка-sdk-2013-только](../includes/install-sdk-2013-only.md)]
 
 Чтобы использовать новый сертификат SSL для localhost, необходимо установить [обновление Visual Studio 2013 2 RC][обновление Visual Studio 2013 2 RC] или более позднюю версию.
 
@@ -698,12 +698,12 @@ Visual Studio создает методы и представления конт
 <!-- bookmarks --> 
 <!-- images-->
 
-  [предыдущей версией этого учебника]: /en-us/develop/net/tutorials/web-site-with-sql-database-vs2012/
+  [предыдущей версией этого учебника]: /ru-ru/develop/net/tutorials/web-site-with-sql-database-vs2012/
   [OAuth]: http://oauth.net/ "http://oauth.net/"
   [OpenID]: http://openid.net/
   [Страница входа]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rxb.png
-  [активировать преимущества для подписчиков MSDN]: /en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
-  [подписаться на бесплатную пробную версию]: /en-us/pricing/free-trial/?WT.mc_id=A261C142F
+  [активировать преимущества для подписчиков MSDN]: /ru-ru/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
+  [подписаться на бесплатную пробную версию]: /ru-ru/pricing/free-trial/?WT.mc_id=A261C142F
   [Настройка среды разработки]: #setupdevenv
   [Настройка среды Azure]: #bkmk_setupwindowsazure
   [Создание приложения ASP.NET MVC 5]: #bkmk_createmvc4app
@@ -724,7 +724,6 @@ Visual Studio создает методы и представления конт
   ["Новый проект" в меню "Файл"]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/gs13newproj.png
   [Диалоговое окно "Новый проект"]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/GS13newprojdb.png
   [Диалоговое окно "Новый проект ASP.NET"]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss1.PNG
-  [\_Layout.cshtml в обозревателе решений]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/dntutmobile-createapp-004.png
   [Изменения кода]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rs3.png
   [Веб-сайт, работающий локально]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rr2.png
   ["Опубликовать" в контекстном меню проекта]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/GS13publish.png
@@ -740,7 +739,6 @@ Visual Studio создает методы и представления конт
   [Диалоговое окно "Новый контекст данных"]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss5.PNG
   [Code First Migrations]: http://msdn.microsoft.com/library/hh770484.aspx
   [Консоль диспетчера пакетов в меню Средства]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/SS6.png
-  [Инициализация и отладка баз данных Entity Framework (EF)]: http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx
   [Команды консоли диспетчера пакетов]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/dntutmobile-migrations-package-manager-console.png
   [Представление MVC для данных]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rx2.png
   [Создание приложения ASP.NET MVC 5 с использованием OAuth2 и OpenID для входа с Facebook и Google]: http://www.asp.net/mvc/tutorials/mvc-5/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on
@@ -749,10 +747,10 @@ Visual Studio создает методы и представления конт
   [Регистрация]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss8.PNG
   [изображение кода]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss24.PNG
   [странице ресурсов ASP.NET Identity]: http://curah.microsoft.com/55636/aspnet-identity
-  [WSAT]: http://msdn.microsoft.com/en-us/library/ms228053.aspx
+  [WSAT]: http://msdn.microsoft.com/ru-ru/library/ms228053.aspx
   [Код]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss9.PNG
-  [Authorize]: http://msdn.microsoft.com/en-us/library/system.web.mvc.authorizeattribute.aspx
-  [RequireHttps]: http://msdn.microsoft.com/en-us/library/system.web.mvc.requirehttpsattribute.aspx
+  [Authorize]: http://msdn.microsoft.com/ru-ru/library/system.web.mvc.authorizeattribute.aspx
+  [RequireHttps]: http://msdn.microsoft.com/ru-ru/library/system.web.mvc.requirehttpsattribute.aspx
   [Защита приложений ASP.NET MVC и новый атрибут AllowAnonymous]: http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx
   [4]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss10.PNG
   [5]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss11.PNG
@@ -791,7 +789,6 @@ Visual Studio создает методы и представления конт
   [Удобные кнопки входа социальных сетей для ASP.NET MVC 5]: http://www.beabigrockstar.com/pretty-social-login-buttons-for-asp-net-mvc-5/
   [Начало работы с ASP.NET MVC 5]: http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started
   [Начало работы с EF и MVC]: http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
-  [Риком Андерсоном (Rick Anderson)]: http://blogs.msdn.com/b/rickandy/
   [@RickAndMSFT]: https://twitter.com/RickAndMSFT
   [@blowdart]: https://twitter.com/blowdart
   [Покажите, как это сделать в коде]: http://aspnet.uservoice.com/forums/228522-show-me-how-with-code

@@ -1,6 +1,6 @@
 <properties linkid="develop-net-how-to-guides-blitline-image-processing-service" urlDisplayName="Blitline Image Processing Service" pageTitle="How to use Blitline for image processing - Azure feature guide " metaKeywords="" description="Learn how to use the Blitline service to process images within an Azure application." metaCanonical="" services="" documentationCenter=".NET" title="How to use Blitline with Azure and Azure Storage" authors="pennij" solutions="" manager="" editor="" />
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="pennij"></tags>
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="pennij" />
 
 # Как использовать Blitline с Azure и службой хранилища Azure
 
@@ -37,7 +37,7 @@ Blitline — это облачная служба обработки изобр�
 
 ## <span id="createaccount"></span></a>Создание учетной записи Blitline
 
-[WACOM.INCLUDE [blitline-signup][blitline-signup]]
+[WACOM.INCLUDE [blitline-signup](../includes/blitline-signup.md)]
 
 ## <span id="createjob"></span></a>Как создать задание Blitline
 
@@ -125,7 +125,6 @@ Blitline использует JSON для определения действи�
 -   Примеры API Blitline <http://www.blitline.com/docs/examples>
 -   Библиотека Nuget стороннего поставщика <http://nuget.org/packages/Blitline.Net>
 
-  [Что такое Blitline?]: #whatis
   [Чем Blitline НЕ является]: #whatisnot
   [Создание учетной записи Blitline]: #createaccount
   [Как создать задание Blitline]: #createjob
@@ -133,5 +132,4 @@ Blitline использует JSON для определения действи�
   [Дальнейшие действия]: #nextsteps
   []: http://www.blitline.com
   [blitline-signup]: ../includes/blitline-signup.md
-  [https://s3.amazonaws.com/dev.blitline/2011110722/YOUR\\\_APP\\\_ID/CK3f0xBF\_2bV6wf7gEZE8w.jpg]: https://s3.amazonaws.com/dev.blitline/2011110722/YOUR\_APP\_ID/CK3f0xBF_2bV6wf7gEZE8w.jpg
   [здесь]: http://www.blitline.com/docs/azure_storage

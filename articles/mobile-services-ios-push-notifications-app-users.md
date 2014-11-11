@@ -1,6 +1,6 @@
 <properties linkid="develop-net-tutorials-push-notifications-to-users-ios" urlDisplayName="Push Notifications to Users (iOS)" pageTitle="Push notifications to users (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Mobile Services to push notifications to users of your iOS app." metaCanonical="" services="" documentationCenter="Mobile" title="Push notifications to users by using Mobile Services" authors="krisragh" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
 
 # Отправка push-уведомлений пользователям с использованием мобильных служб
 
@@ -25,7 +25,7 @@
 
 1.  Выполните вход на [портал управления Azure][портал управления Azure], щелкните элемент **Мобильные службы**, а затем выберите свое приложение.
 
-    ![][]
+    ![][0]
 
 2.  Щелкните вкладку **Данные**, а затем нажмите **Создать**.
 
@@ -210,16 +210,13 @@
 
 <!-- Anchors.  Images. URLs. -->
 
-  [Windows Phone]: /ru-ru/develop/mobile/tutorials/push-notifications-to-users-wp8 "Windows Phone"
-  [iOS]: /ru-ru/develop/mobile/tutorials/push-notifications-to-users-ios "iOS"
-  [Android]: /ru-ru/develop/mobile/tutorials/push-notifications-to-users-android "Android"
   [предыдущего учебника по push-уведомлениям]: /ru-ru/develop/mobile/tutorials/get-started-with-push-ios
   [Создание таблицы устройств]: #create-table
   [Обновление приложения]: #update-app
   [Обновление серверных скриптов]: #update-scripts
   [Проверка режима работы push-уведомлений]: #test-app
   [портал управления Azure]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-ios-push-notifications-app-users/mobile-services-selection.png
+  [0]: ./media/mobile-services-ios-push-notifications-app-users/mobile-services-selection.png
   [1]: ./media/mobile-services-ios-push-notifications-app-users/mobile-create-table.png
   [2]: ./media/mobile-services-ios-push-notifications-app-users/mobile-create-devices-table.png
   [3]: ./media/mobile-services-ios-push-notifications-app-users/mobile-portal-data-tables-devices.png

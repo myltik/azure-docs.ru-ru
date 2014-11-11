@@ -1,6 +1,6 @@
 <properties linkid="dev-nodejs-how-to-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (Node.js) - Azure" metaKeywords="Get started Azure Service Bus topics, Get Started Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions, Service Bus topic Node.js" description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Node.js applications." metaCanonical="" services="service-bus" documentationCenter="nodejs" title="How to Use Service Bus Topics/Subscriptions" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Использование разделов и подписок Service Bus
 
@@ -26,7 +26,7 @@
 -   [Практическое руководство. Удаление разделов и подписок][Практическое руководство. Удаление разделов и подписок]
 -   [Дальнейшие действия][1]
 
-[WACOM.INCLUDE [howto-service-bus-topics][howto-service-bus-topics]]
+[WACOM.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
 
 ## <a name="create-app"></a>Создание приложения Node.js
 
@@ -418,7 +418,6 @@ HighMessages из раздела MyTopic.
 -   Посетите репозиторий [Пакет SDK хранилища Azure для Node][Пакет SDK хранилища Azure для Node] на веб-сайте GitHub.
 
   [Дальнейшие действия]: #nextsteps
-  [Что такое разделы и подписки Service Bus?]: #what-are-service-bus-topics
   [Создание пространства имен службы]: #create-a-service-namespace
   [Получение учетных данных управления по умолчанию для пространства имен]: #obtain-default-credentials
   [Создание приложения Node.js]: #create-app

@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-single-sign-on-windows-8-wp8" urlDisplayName="Authenticate with single sign-on" pageTitle="Authenticate your app with Live Connect (Windows Phone) | Mobile Dev Center" metaKeywords="" description="Learn how to use Live Connect single sign-on in Azure Mobile Services from a Windows Phone application." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Authenticate your Windows Phone 8 app with Live Connect single sign-on" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Аутентификация приложения для Windows Phone 8 с помощью единого входа Live Connect
 
@@ -33,7 +33,7 @@
 
 1.  Выполните вход на [портал управления Azure][портал управления Azure], щелкните **Мобильные службы**, а затем щелкните свою мобильную службу.
 
-    ![][]
+    ![][0]
 
 2.  Откройте вкладку **Панель мониторинга** и запишите значение **URL-адрес сайта**.
 
@@ -166,9 +166,6 @@
 <!-- Images. -->
 <!-- URLs. -->
 
-  [Магазин Windows — C#]: /ru-ru/develop/mobile/tutorials/single-sign-on-windows-8-dotnet "Магазин Windows — C#"
-  [Магазин Windows — JavaScript]: /ru-ru/develop/mobile/tutorials/single-sign-on-windows-8-js "Магазин Windows — JavaScript"
-  [Windows Phone]: /ru-ru/develop/mobile/tutorials/single-sign-on-wp8/ "Windows Phone"
   [Приступая к работе с проверкой подлинности]: /ru-ru/develop/mobile/tutorials/get-started-with-users-wp8/
   [Регистрация приложения для проверки подлинности и конфигурация мобильных служб]: #register
   [Ограничение разрешений таблицы пользователями, прошедшими проверку подлинности]: #permissions
@@ -176,7 +173,7 @@
   [Live SDK для Windows и Windows Phone]: http://go.microsoft.com/fwlink/p/?LinkId=262253
   [Приступая к работе с мобильными службами]: /ru-ru/develop/mobile/tutorials/get-started-wp8
   [портал управления Azure]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-windows-phone-single-sign-on/mobile-services-selection.png
+  [0]: ./media/mobile-services-windows-phone-single-sign-on/mobile-services-selection.png
   [1]: ./media/mobile-services-windows-phone-single-sign-on/mobile-service-uri.png
   [Мои приложения]: http://go.microsoft.com/fwlink/p/?LinkId=262039
   [2]: ./media/mobile-services-windows-phone-single-sign-on/mobile-services-live-connect-add-app.png
@@ -185,6 +182,5 @@
   [5]: ./media/mobile-services-windows-phone-single-sign-on/mobile-portal-data-tables.png
   [6]: ./media/mobile-services-windows-phone-single-sign-on/mobile-portal-change-table-perms.png
   [7]: ./media/mobile-services-windows-phone-single-sign-on/mobile-add-reference-live-wp8.png
-  [приложении для Магазина Windows]: /ru-ru/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/
   [Авторизация пользователей с помощью скриптов]: /ru-ru/develop/mobile/tutorials/authorize-users-in-scripts-wp8
   [8]: /ru-ru/develop/mobile/tutorials/get-started-with-users-wp8

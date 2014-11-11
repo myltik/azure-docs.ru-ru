@@ -1,6 +1,6 @@
 <properties linkid="obile-services-how-to-dotnet-client" urlDisplayName=".NET Client Library" pageTitle="Working with the Mobile Services .NET Client Library" metaKeywords="Azure Mobile Services, Mobile Service .NET client, .NET client" description="Learn how to use an .NET client for Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="How to use a .NET client for Azure Mobile Services" authors="krisragh" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
 
 # Как использовать клиент .NET для мобильных служб Azure
 
@@ -38,7 +38,7 @@
     -   [Настройка сериализации][Настройка сериализации]
 -   [Дальнейшие действия][Дальнейшие действия]
 
-[WACOM.INCLUDE [mobile-services-concepts][mobile-services-concepts]]
+[WACOM.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
 
 ## <a name="setup"></a><span class="short-header">Настройка</span>Настройка и предварительные требования
 
@@ -660,17 +660,11 @@
 
 <!-- Anchors.  Images.  URLs. -->
 
-  [.NET Framework]: /ru-ru/develop/mobile/how-to-guides/work-with-net-client-library/ ".NET Framework"
-  [HTML/JavaScript]: /ru-ru/develop/mobile/how-to-guides/work-with-html-js-client/ "HTML/JavaScript"
-  [iOS]: /ru-ru/develop/mobile/how-to-guides/work-with-ios-client-library/ "iOS"
-  [Android]: /ru-ru/develop/mobile/how-to-guides/work-with-android-client-library/ "Android"
-  [Xamarin]: /ru-ru/develop/mobile/how-to-guides/work-with-xamarin-client-library/ "Xamarin"
   [Учебник быстрого запуска для Магазина Windows]: http://www.windowsazure.com/ru-ru/develop/mobile/tutorials/get-started/
   [учебник быстрого запуска для Windows Phone]: http://www.windowsazure.com/ru-ru/develop/mobile/tutorials/get-started-wp8/
   [Учебник по данным Магазина Windows]: http://www.windowsazure.com/ru-ru/develop/mobile/tutorials/get-started-with-data-dotnet/
   [Учебник по данным Windows Phone]: http://www.windowsazure.com/ru-ru/develop/mobile/tutorials/get-started-with-data-wp8/
   [SDK для мобильных служб]: http://nuget.org/packages/WindowsAzure.MobileServices/
-  [Что такое мобильные службы?]: #what-is
   [Основные понятия]: #concepts
   [Практическое руководство. Создание клиента мобильных служб]: #create-client
   [Практическое руководство. Создание ссылки на таблицу]: #instantiating
@@ -717,7 +711,6 @@
   [userId]: http://msdn.microsoft.com/ru-ru/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx
   [MobileServiceAuthenticationToken]: http://msdn.microsoft.com/ru-ru/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx
   [Кэширование маркера проверки подлинности]: #caching
-  [Регистрация пакета приложения Магазина Windows для проверки подлинности Майкрософт]: /ru-ru/develop/mobile/how-to-guides/register-windows-store-app-package/
   [LoginAsync]: http://go.microsoft.com/fwlink/p/?LinkId=311594
   [1]: /ru-ru/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/
   [2]: /ru-ru/develop/mobile/tutorials/single-sign-on-wp8/

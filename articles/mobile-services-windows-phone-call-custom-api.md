@@ -1,6 +1,6 @@
 <properties linkid="mobile-services-call-custom-api-wp8" urlDisplayName="Call a custom API from the client" pageTitle="Call a custom API from a Windows Phone client - Mobile Services" metaKeywords="" description="Learn how to define a custom API and then call it from a Windows Phone app that use Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Call a custom API from the client" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Вызов из клиента настраиваемого интерфейса API
 
@@ -22,9 +22,9 @@
 
 ## <a name="define-custom-api"></a>Определение настраиваемого интерфейса API
 
-[WACOM.INCLUDE [mobile-services-create-custom-api][mobile-services-create-custom-api]]
+[WACOM.INCLUDE [mobile-services-create-custom-api](../includes/mobile-services-create-custom-api.md)]
 
-[WACOM.INCLUDE [mobile-services-windows-phone-call-custom-api][mobile-services-windows-phone-call-custom-api]]
+[WACOM.INCLUDE [mobile-services-windows-phone-call-custom-api](../includes/mobile-services-windows-phone-call-custom-api.md)]
 
 ## Дальнейшие действия
 
@@ -40,14 +40,6 @@
 <!-- Images. -->
 <!-- URLs. -->
 
-  [Магазин Windows C#]: /ru-ru/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api "Магазин Windows C#"
-  [Магазин Windows JavaScript]: /ru-ru/documentation/articles/mobile-services-windows-store-javascript-call-custom-api "Магазин Windows JavaScript"
-  [Windows Phone]: /ru-ru/documentation/articles/mobile-services-windows-phone-call-custom-api "Windows Phone"
-  [iOS]: /ru-ru/documentation/articles/mobile-services-ios-call-custom-api "iOS"
-  [Android]: /ru-ru/documentation/articles/mobile-services-android-call-custom-api "Android"
-  [HTML]: /ru-ru/documentation/articles/mobile-services-html-call-custom-api "HTML"
-  [Серверная часть .NET]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-phone-call-custom-api "Серверная часть .NET"
-  [Серверная часть JavaScript]: /ru-ru/documentation/articles/mobile-services-windows-phone-call-custom-api "Серверная часть JavaScript"
   [Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/mobile-services-windows-phone-get-started/
   [Приступая к работе с данными]: /ru-ru/documentation/articles/mobile-services-windows-phone-get-started-data/
   [Определение настраиваемого интерфейса API]: #define-custom-api

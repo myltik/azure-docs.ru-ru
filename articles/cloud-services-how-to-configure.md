@@ -1,10 +1,10 @@
 <properties linkid="manage-services-how-to-configure-a-cloud-service" urlDisplayName="How to configure" pageTitle="How to configure a cloud service - Azure" metaKeywords="Configuring cloud services" description="Learn how to configure cloud services in Azure. Learn to update the cloud service configuration and configure remote access to role instances." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Configure Cloud Services" authors="davidmu" solutions="" manager="" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="davidmu"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="davidmu" />
 
 # <span id="configurecloudservice"></span></a>Как настроить облачные службы
 
-[WACOM.INCLUDE [отказ от ответственности][отказ от ответственности]]
+[WACOM.INCLUDE [отказ от ответственности](../includes/disclaimer.md)]
 
 Часто используемые параметры облачной службы можно настроить на портале управления Azure. Также можно напрямую изменить файлы конфигурации. Для этого загрузите и измените нужный файл, а затем отправьте его для обновления конфигурации облачной службы. В любом случае обновления конфигурации применяются ко всем экземплярам ролей.
 
@@ -147,4 +147,3 @@
   [1]: http://www.windowsazure.com/ru-ru/support/legal/sla/
   [Настройка удаленного подключения к рабочему столу для роли в Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/hh124107.aspx
   [Удаленный доступ к облачным службам]: ./media/cloud-services-how-to-configure/CloudServices_Remote.png
-  [CloudServices\_CreateNewCertDropDown]: ./media/cloud-services-how-to-configure/CloudServices_CreateNewCertDropDown.png

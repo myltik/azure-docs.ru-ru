@@ -1,6 +1,6 @@
 <properties linkid="manage-services-hdinsight-howto-social-data" urlDisplayName="Analyze realt-time Twitter sentiment with Hbase in HDInsight" pageTitle="Analyze real-time Twitter sentiment with HBase in HDInsight | Azure" metaKeywords="" description="Learn how to do real-time analysis of big data using HBase in an HDInsight (Hadoop) cluster." metaCanonical="" services="hdinsight" documentationCenter="" title="Analyze real-time Twitter sentiment with HBase in HDInsight" authors="jgao" solutions="big-data" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/21/2014" ms.author="jgao"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/21/2014" ms.author="jgao" />
 
 # Анализ мнений пользователей Twitter в режиме реального времени с использованием HBase в HDInsight
 
@@ -1304,7 +1304,7 @@
 - [Приступая к работе с HDInsight][hdinsight-get-started]
 - [Анализ данных Twitter с помощью Hadoop в HDInsight][hdinsight-analyze-twitter-data]
 - [Анализ данных о задержке рейсов с помощью HDInsight][hdinsight-analyze-flight-delay-data]
-- [Разработка программ потоковой передачи Hadoop на C\# для HDInsight][hdinsight-develop-streaming]
+- [Разработка программ потоковой передачи Hadoop на C# для HDInsight][hdinsight-develop-streaming]
 - [Разработка программ MapReduce на Java для HDInsight][hdinsight-develop-mapreduce]
 
 

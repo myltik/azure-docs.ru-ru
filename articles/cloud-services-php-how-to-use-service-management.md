@@ -1,6 +1,6 @@
 <properties linkid="develop-php-how-to-guides-service-management" urlDisplayName="Service Management" pageTitle="How to use Azure service management APIs (PHP)" metaKeywords="" description="Learn how to use the Azure PHP Service Management APIs to manage cloud services and other Azure applications." metaCanonical="" services="" documentationCenter="PHP" title="How to use Service Management from PHP" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # Использование управления службами в PHP
 
@@ -43,7 +43,7 @@ API управления службой обеспечивает програм�
 
 ## <span id="GetClientLibraries"></span></a>Получение клиентских библиотек Azure
 
-[WACOM.INCLUDE [получение-клиент-библиотеки][получение-клиент-библиотеки]]
+[WACOM.INCLUDE [получение-клиент-библиотеки](../includes/get-client-libraries.md)]
 
 ## <span id="Connect"></span></a>Практическое руководство. Подключение к управлению службами
 
@@ -564,7 +564,6 @@ Azure предоставляет две среды для развертыван
   [пакета служб]: http://msdn.microsoft.com/ru-ru/library/windowsazure/gg433093
   [командлетов Azure PowerShell]: ../install-configure-powershell/
   [средства командной строки cspack]: http://msdn.microsoft.com/ru-ru/library/windowsazure/gg432988.aspx
-  [Схема конфигурации служб Azure (CSCFG)]: http://msdn.microsoft.com/ru-ru/library/windowsazure/ee758710.aspx
   [Обзор управления развертываниями в Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/hh386336.aspx
   [хранилища]: ../storage-whatis-account/
   [Blob-объектам]: ../storage-php-how-to-use-blobs/

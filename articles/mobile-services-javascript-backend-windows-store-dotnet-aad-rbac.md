@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-js-rbac-with-aad" urlDisplayName="Role Based Access Control with Azure Active Directory" pageTitle="Role Based Access Control in Mobile Services and Azure Active Directory (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to control access based on Azure Active Directory roles in your Windows Store application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Role Based Access Control in Mobile Services and Azure Active Directory" authors="wesmc" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="08/21/2014" ms.author="wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="08/21/2014" ms.author="wesmc" />
 
 # Управление доступом на основе ролей в мобильных службах и Azure Active Directory
 
@@ -35,13 +35,13 @@
 
 ## <a name="create-group"></a>Создание группы продаж с членством
 
-[WACOM.INCLUDE [mobile-services-aad-rbac-create-sales-group][mobile-services-aad-rbac-create-sales-group]]
+[WACOM.INCLUDE [mobile-services-aad-rbac-create-sales-group](../includes/mobile-services-aad-rbac-create-sales-group.md)]
 
 ## <a name="generate-key"></a>Создание ключа для встроенного приложения
 
 В учебнике [Начало работы с проверкой подлинности][Начало работы с проверкой подлинности] во время выполнения шага [Регистрация для использования входа Azure Active Directory][Регистрация для использования входа Azure Active Directory] вы создали регистрацию для встроенного приложения. В этом разделе предстоит создать ключ для использования при чтении сведений каталога с помощью идентификатора клиента встроенного приложения.
 
-[WACOM.INCLUDE [mobile-services-generate-aad-app-registration-access-key][mobile-services-generate-aad-app-registration-access-key]]
+[WACOM.INCLUDE [mobile-services-generate-aad-app-registration-access-key](../includes/mobile-services-generate-aad-app-registration-access-key.md)]
 
 ## <a name="add-shared-script"></a>Добавление в мобильную службу общего скрипта, который проверяет членство
 
@@ -153,7 +153,7 @@
 
 По завершении учебника [Начало работы с проверкой подлинности][Начало работы с проверкой подлинности] вы сможете задать требование проверки подлинности в операциях таблиц, как показано ниже.
 
-![][]
+![][0]
 
 С каждой операцией базы данных, требующей проверки подлинности, можно добавить скрипты, которые используют объект пользователя для проверок доступа.
 
@@ -237,15 +237,12 @@
 
 ## <a name="test-client"></a>Тестирование клиентского доступа
 
-[WACOM.INCLUDE [mobile-services-aad-rbac-test-app][mobile-services-aad-rbac-test-app]]
+[WACOM.INCLUDE [mobile-services-aad-rbac-test-app](../includes/mobile-services-aad-rbac-test-app.md)]
 
 <!-- Anchors. -->
 <!-- Images -->
 <!-- URLs. -->
 
-  [Магазин Windows C#]: /ru-ru/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/ "Магазин Windows C#"
-  [Сервер .NET]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/ "Сервер .NET"
-  [Сервер JavaScript]: /ru-ru/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/ "Сервер JavaScript"
   [API Graph]: http://msdn.microsoft.com/library/azure/hh974478.aspx
   [Начало работы с проверкой подлинности]: /ru-ru/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
   [Создание группы продаж с членством]: #create-group
@@ -259,7 +256,7 @@
   [mobile-services-generate-aad-app-registration-access-key]: ../includes/mobile-services-generate-aad-app-registration-access-key.md
   [справочнике по ошибкам API Graph]: http://msdn.microsoft.com/ru-ru/library/azure/hh974480.aspx
   [IsMemberOf]: http://msdn.microsoft.com/ru-ru/library/azure/dn151601.aspx
-  []: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/table-perms.png
+  [0]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/table-perms.png
   [портале управления Azure]: https://manage.windowsazure.com/
   [1]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/insert-table-op-view.png
   [mobile-services-aad-rbac-test-app]: ../includes/mobile-services-aad-rbac-test-app.md

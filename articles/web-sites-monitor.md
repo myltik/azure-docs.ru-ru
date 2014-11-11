@@ -1,6 +1,6 @@
 <properties linkid="manage-services-how-to-monitor-websites" urlDisplayName="How to monitor" pageTitle="How to monitor websites - Azure service management" metaKeywords="Azure monitoring web sites, Azure Management Portal Monitor, Azure monitoring" description="Learn how to monitor Azure websites by using the Monitor page in the Management Portal." metaCanonical="" services="web-sites" documentationCenter="" title="How to Monitor Websites" authors="cephalin" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
 
 # <a name="howtomonitor"></a>Мониторинг веб-сайтов
 
@@ -312,13 +312,7 @@ HTM-файлы содержат следующие разделы:
   [Практическое руководство. Получение уведомлений об оповещениях и управление правилами оповещения в Azure]: http://go.microsoft.com/fwlink/?LinkId=309356
   [Размеры виртуальных машин и облачных служб для Azure]: http://go.microsoft.com/fwlink/?LinkID=309169
   [Управление учетными записями хранения]: https://www.windowsazure.com/ru-ru/manage/services/storage/how-to-manage-a-storage-account/
-  [Как использовать Azure PowerShell]: http://www.windowsazure.com/ru-ru/develop/nodejs/how-to-guides/powershell-cmdlets/
-  [Включение ведения журналов диагностики для веб-сайтов Azure]: /ru-ru/develop/net/common-tasks/diagnostics-logging-and-instrumentation/
-  [Как выполнять отладку приложения Node.js для веб-сайтов Azure]: /ru-ru/develop/nodejs/how-to-guides/Debug-Website/
   [FileZilla]: http://go.microsoft.com/fwlink/?LinkId=247914
-  [Начало работы с командлетами Azure PowerShell]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj554332.aspx
-  [Как использовать средства командной строки Azure]: http://www.windowsazure.com/ru-ru/develop/nodejs/how-to-guides/command-line-tools/
   [расширенного формата журналов консорциума W3C]: http://go.microsoft.com/fwlink/?LinkID=90561
   []: http://contoso.cloudapp.net
   [Скотт Гатри представляет веб-сайты Azure и настраивает мониторинг конечных точек]: http://www.windowsazure.com/ru-ru/documentation/videos/websites-and-endpoint-monitoring-scottgu/
-  [Поддержка работы веб-сайтов Azure с помощью мониторинга конечных точек — со Стефаном Щаков (Stefan Schackow)]: http://www.windowsazure.com/ru-ru/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/

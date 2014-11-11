@@ -1,6 +1,6 @@
 <properties linkid="manage-services-hdinsight-sample-wordcount" urlDisplayName="Hadoop Samples in HDInsight" pageTitle="The WordCount Hadoop sample in HDInsight | Azure" metaKeywords="hdinsight, hdinsight sample, hadoop, mapreduce" description="Learn how to run a simple MapReduce sample on HDInsight." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="The WordCount Hadoop sample in HDInsight" authors="bradsev" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
 
 # Пример счетчика слов Hadoop в HDInsight
 
@@ -15,26 +15,26 @@
 
 **Предварительные требования**:
 
--   Необходимо иметь учетную запись Azure. Возможности регистрации учетной записи см. на странице [Бесплатное пробное использование Azure][].
+-   Необходимо иметь учетную запись Azure. Возможности регистрации учетной записи см. на странице [Бесплатное пробное использование Azure][Бесплатное пробное использование Azure].
 
--   Вы должны были подготовить кластер HDInsight. Инструкции по различным способам создания таких кластеров см. в разделе [Приступая к работе с Azure HDInsight][] или [Подготовка кластеров HDInsight][].
+-   Вы должны были подготовить кластер HDInsight. Инструкции по различным способам создания таких кластеров см. в разделе [Приступая к работе с Azure HDInsight][Приступая к работе с Azure HDInsight] или [Подготовка кластеров HDInsight][Подготовка кластеров HDInsight].
 
--   Необходимо установить Azure PowerShell и настроить эту среду для поддержки вашей учетной записи. Инструкции по выполнению этой задачи см. в разделе [Установка и настройка Azure PowerShell][].
+-   Необходимо установить Azure PowerShell и настроить эту среду для поддержки вашей учетной записи. Инструкции по выполнению этой задачи см. в разделе [Установка и настройка Azure PowerShell][Установка и настройка Azure PowerShell].
 
 ## Содержание
 
 В этом разделе демонстрируется выполнение примера, предоставляется код Java для программы MapReduce, обобщаются полученные знания и кратко описываются некоторые дальнейшие действия. Здесь содержатся следующие разделы:
 
-1.  [Выполнение примера с использованием Azure PowerShell][]
-2.  [Код Java для программы MapReduce WordCount][]
-3.  [Сводка][]
-4.  [Дальнейшие действия][]
+1.  [Выполнение примера с использованием Azure PowerShell][Выполнение примера с использованием Azure PowerShell]
+2.  [Код Java для программы MapReduce WordCount][Код Java для программы MapReduce WordCount]
+3.  [Сводка][Сводка]
+4.  [Дальнейшие действия][Дальнейшие действия]
 
 ## <span id="run-sample"></span></a>Выполнение примера с использованием Azure PowerShell
 
 **Отправка задания MapReduce**
 
-1.  Откройте **Azure PowerShell**. Инструкции по открытию окна консоли Azure PowerShell см. в разделе [Установка и настройка Azure PowerShell][].
+1.  Откройте **Azure PowerShell**. Инструкции по открытию окна консоли Azure PowerShell см. в разделе [Установка и настройка Azure PowerShell][Установка и настройка Azure PowerShell].
 
 2.  Задайте две переменные в следующих командах, а затем выполните команды:
 
@@ -101,7 +101,7 @@
 
 Результат выполнения сценария WordCount должен появиться в окне cmd:
 
-![HDI.Sample.WordCount.Output][]
+![HDI.Sample.WordCount.Output][HDI.Sample.WordCount.Output]
 
 Обратите внимание, что выходные файлы задания MapReduce являются неизменяемыми. Поэтому при повторном выполнении этого примера потребуется изменить имя выходного файла.
 
@@ -183,15 +183,15 @@
 
 Учебники по выполнению других примеров и инструкции по использованию заданий Pig, Hive и MapReduce в Azure HDInsight с использованием Azure PowerShell см. в следующих разделах:
 
--   [Приступая к работе с Azure HDInsight][]
--   [Пример: сортировка GraySort 10 ГБ][]
--   [Пример: оценка числа пи][]
--   [Пример: потоковая передача на C#][]
--   [Использование Pig с HDInsight][]
--   [Использование Hive с HDInsight][]
--   [Документация по пакету Azure HDInsight SDK][]
+-   [Приступая к работе с Azure HDInsight][Приступая к работе с Azure HDInsight]
+-   [Пример: сортировка GraySort 10 ГБ][Пример: сортировка GraySort 10 ГБ]
+-   [Пример: оценка числа пи][Пример: оценка числа пи]
+-   [Пример: потоковая передача на C#][Пример: потоковая передача на C#]
+-   [Использование Pig с HDInsight][Использование Pig с HDInsight]
+-   [Использование Hive с HDInsight][Использование Hive с HDInsight]
+-   [Документация по пакету Azure HDInsight SDK][Документация по пакету Azure HDInsight SDK]
 
-  [Бесплатное пробное использование Azure]: http://azure.microsoft.com/en-us/pricing/free-trial/
+  [Бесплатное пробное использование Azure]: http://azure.microsoft.com/ru-ru/pricing/free-trial/
   [Приступая к работе с Azure HDInsight]: ../hdinsight-get-started/
   [Подготовка кластеров HDInsight]: ../hdinsight-provision-clusters/
   [Установка и настройка Azure PowerShell]: ../install-configure-powershell/
@@ -205,4 +205,4 @@
   [Пример: потоковая передача на C#]: ../hdinsight-sample-csharp-streaming/
   [Использование Pig с HDInsight]: ../hdinsight-use-pig/
   [Использование Hive с HDInsight]: ../hdinsight-use-hive/
-  [Документация по пакету Azure HDInsight SDK]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx
+  [Документация по пакету Azure HDInsight SDK]: http://msdnstage.redmond.corp.microsoft.com/ru-ru/library/dn479185.aspx

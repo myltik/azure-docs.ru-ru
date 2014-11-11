@@ -1,6 +1,6 @@
 <properties title="Azure Notification Hubs Secure Push" pageTitle="Azure Notification Hubs Secure Push" metaKeywords="Azure push notifications, Azure notification hubs, secure push" description="Learn how to send secure push notifications to an iOS app from Azure. Code samples written in Objective-C and C#." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="sethm" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="sethm"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="sethm" />
 
 # Безопасные push-уведомления для концентраторов уведомлений Azure
 
@@ -31,7 +31,7 @@
 
 > [AZURE.NOTE] В данном учебнике предполагается, что вы создали и настроили концентратор уведомлений, как описано в разделе [Приступая к работе с концентраторами уведомлений (iOS)][Приступая к работе с концентраторами уведомлений (iOS)].
 
-[WACOM.INCLUDE [notification-hubs-aspnet-backend-securepush][notification-hubs-aspnet-backend-securepush]]
+[WACOM.INCLUDE [notification-hubs-aspnet-backend-securepush](../includes/notification-hubs-aspnet-backend-securepush.md)]
 
 ## Внесение изменений в проект iOS
 
@@ -98,7 +98,7 @@
 
 4.  Затем щелкните вкладку **Capabilities (Возможности)** в верхней части центральной панели и щелкните флажок **Remote Notifications (удаленные уведомления)**.
 
-    ![][]
+    ![][0]
 
 5.  В файле **AppDelegate.m** добавьте следующий метод для обработки push-уведомлений:
 
@@ -137,9 +137,5 @@
 
 4.  В пользовательском интерфейсе приложения iOS нажмите **Вход**. Затем нажмите **Отправить push-уведомление**. Вы должны увидеть конфиденциальное уведомление, которое будет отображено в центре уведомлений.
 
-  [Windows Phone]: /ru-ru/documentation/articles/notification-hubs-windows-dotnet-secure-push/ "Windows Phone"
-  [iOS]: /ru-ru/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/ "iOS"
-  [Android]: /ru-ru/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/ "Android"
-  [Приступая к работе с концентраторами уведомлений (iOS)]: http://azure.microsoft.com/ru-ru/documentation/articles/notification-hubs-ios-get-started/
   [notification-hubs-aspnet-backend-securepush]: ../includes/notification-hubs-aspnet-backend-securepush.md
-  []: ./media/notification-hubs-aspnet-backend-ios-secure-push/secure-push-ios-1.png
+  [0]: ./media/notification-hubs-aspnet-backend-ios-secure-push/secure-push-ios-1.png

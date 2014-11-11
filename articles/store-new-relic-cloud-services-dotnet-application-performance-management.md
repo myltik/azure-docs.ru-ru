@@ -1,6 +1,6 @@
 <properties linkid="develop-net-how-to-guides-new-relic" urlDisplayName="New Relic" pageTitle="Using New Relic with Azure - Azure feature guides" metaKeywords="" description="Learn how to use the New Relic service to manage and monitor your Azure application." metaCanonical="" services="" documentationCenter=".NET" title="New Relic Application Performance Management on Azure" authors="" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="new relic"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="new="" relic" />
 
 # Инструмент управления производительностью приложений New Relic для Azure
 
@@ -186,10 +186,6 @@ New Relic тесно интегрируется с веб-ролями и раб
   [стандартного пользовательского интерфейса New Relic]: https://newrelic.com/docs/site/the-new-relic-ui#functions
   [детализации панели мониторинга]: https://newrelic.com/docs/site/the-new-relic-ui#drilldown
   [Apdex]: https://newrelic.com/docs/site/apdex
-  [География]: https://docs.newrelic.com/docs/new-relic-browser/geography-dashboard
-  [Веб-транзакции]: https://newrelic.com/docs/applications-dashboards/web-transactions
-  [Ключевые транзакции]: https://newrelic.com/docs/site/key-transactions
-  [Ошибки]: https://newrelic.com/docs/site/errors
   [1]: ./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelic_app_browser.png
   [Установка агента .NET в Azure]: https://newrelic.com/docs/dotnet/installing-the-net-agent-on-azure
   [Пользовательский интерфейс New Relic]: https://newrelic.com/docs/site/the-new-relic-ui

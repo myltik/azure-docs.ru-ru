@@ -1,6 +1,6 @@
 <properties linkid="develop-notificationhubs-tutorials-send-breaking-news-ios" urlDisplayName="Breaking News" pageTitle="Notification Hubs Breaking News Tutorial - iOS" metaKeywords="" description="Learn how to use Azure Service Bus Notification Hubs to send breaking news notifications to iOS devices." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send breaking news" authors="elioda" solutions="" manager="" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="01/01/1900" ms.author="elioda"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="01/01/1900" ms.author="elioda" />
 
 # Использование концентраторов уведомлений для передачи экстренных новостей
 
@@ -89,7 +89,7 @@
 
     Основная графическая структура main\_activity.xml должна выглядеть следующим образом:
 
-    ![][]
+    ![][0]
 
 3.  Теперь создайте класс **Notifications** в том же пакете, в котором создан класс **MainActivity**.
 
@@ -267,7 +267,7 @@
 
 ## <a name="send"></a><span class="short-header">Отправка уведомлений</span>Отправка уведомлений из серверной части
 
-[WACOM.INCLUDE [notification-hubs-back-end][notification-hubs-back-end]]
+[WACOM.INCLUDE [notification-hubs-back-end](../includes/notification-hubs-back-end.md)]
 
 ## <a name="test-app"></a>Запуск приложения и создание уведомлений
 
@@ -313,7 +313,7 @@
   [Отправка уведомлений из серверной части]: #send
   [Запуск приложения и создание уведомлений]: #test-app
   [Приступая к работе с концентраторами уведомлений]: /ru-ru/documentation/articles/notification-hubs-android-get-started/
-  []: ./media/notification-hubs-aspnet-backend-android-breaking-news/android-breaking-news1.PNG
+  [0]: ./media/notification-hubs-aspnet-backend-android-breaking-news/android-breaking-news1.PNG
   [notification-hubs-back-end]: ../includes/notification-hubs-back-end.md
   [раздел Использование концентраторов уведомлений для передачи локализованных экстренных новостей]: /ru-ru/manage/services/notification-hubs/breaking-news-localized-dotnet/
   [Уведомление пользователей с помощью концентраторов уведомлений]: /ru-ru/manage/services/notification-hubs/notify-users

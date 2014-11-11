@@ -1,6 +1,6 @@
 <properties linkid="manage-windows-other-resource-sharepoint-wp" urlDisplayName="SharePoint on Azure" pageTitle="SharePoint 2010 Deployment on Azure Virtual Machines" metaKeywords="" description="Understand the supported scenarios for using SharePoint 2010 on Azure virtual machines." metaCanonical="" services="virtual-machines" documentationCenter="" title="SharePoint Deployment on Azure Virtual Machines" authors="josephd" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="josephd"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="josephd" />
 
 # Развертывание SharePoint на виртуальных машинах Azure
 
@@ -418,7 +418,6 @@ Microsoft SharePoint Server 2010 обеспечивает большую гиб�
   [Установка SQL Server 2012 с помощью SysPrep]: http://msdn.microsoft.com/ru-ru/library/ee210664.aspx
   [Установка SQL Server 2012 из командной строки]: http://msdn.microsoft.com/ru-ru/library/ms144259.aspx#SysPrep
   [Создание фермы серверов Microsoft SharePoint]: http://technet.microsoft.com/ru-ru/library/ee805948.aspx#CreateConfigure
-  [Добавление веб-сервера или сервера приложений к ферме (SharePoint Server 2010)]: http://technet.microsoft.com/ru-ru/library/cc261752.aspx
   [Добавление сервера базы данных к существующей ферме]: http://technet.microsoft.com/ru-ru/library/cc262781
   [Пакет обновления 1 для SharePoint Server 2010]: http://www.microsoft.com/ru-ru/download/details.aspx?id=26623
   [Установка компонентов бизнес-аналитики SQL Server 2012]: http://technet.microsoft.com/ru-ru/library/hh231681(v=sql.110).aspx
@@ -428,7 +427,6 @@ Microsoft SharePoint Server 2010 обеспечивает большую гиб�
   [Создание виртуальных жестких дисков]: http://technet.microsoft.com/ru-ru/library/cc742509
   [Использование Sysprep: введение]: http://technet.microsoft.com/ru-ru/library/bb457073.aspx
   [azure-sharepoint-wp-11]: ./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-11.png
-  [Виртуальная сеть Azure (вопросы проектирования и сценарии установки безопасного подключения)]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj156007.aspx
   [Сценарий простой настройки SharePoint 2010]: http://www.microsoft.com/ru-ru/download/details.aspx?id=23415
   [Установка Visual Studio]: http://msdn.microsoft.com/ru-ru/library/e2h7fzkw.aspx
   [Настройка SQL Server 2012 для SharePoint в Azure]: https://github.com/WindowsAzure-TrainingKit/HOL-DeployingSQLServerForSharePoint
@@ -437,7 +435,6 @@ Microsoft SharePoint Server 2010 обеспечивает большую гиб�
   [azure-sharepoint-wp-12]: ./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-12.png
   [Рекомендациях по развертыванию Active Directory на виртуальных машинах в Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj156090
   [Создание виртуальных сетей]: https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectory/blob/master/HOL.md
-  [Развертывание Active Directory в Azure (Windows PowerShell)]: https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectoryPS
   [Установка нового леса Active Directory в Azure]: /ru-ru/manage/services/networking/active-directory-forest/
   [Центр управления безопасностью Azure]: /ru-ru/support/trust-center/compliance/
   [azure-sharepoint-wp-13]: ./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-13.png

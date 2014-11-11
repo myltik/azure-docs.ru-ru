@@ -1,10 +1,10 @@
 <properties linkid="manage-services-how-to-manage-a-cloud-service" urlDisplayName="How to manage" pageTitle="How to manage a cloud service - Azure" metaKeywords="Azure manage cloud services, Azure Management Portal cloud services" description="Learn how to manage cloud services in the Azure Management Portal." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Manage Cloud Services" authors="ryanwi" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi" />
 
 # Управление облачными службами
 
-[WACOM.INCLUDE [отказ от ответственности][отказ от ответственности]]
+[WACOM.INCLUDE [отказ от ответственности](../includes/disclaimer.md)]
 
 В области **Облачные службы** портала управления Azure можно обновить роль службы или развертывание, перенести промежуточное развертывание в рабочую среду, привязать ресурсы к облачной службе для просмотра их зависимостей и масштабирования, а также удалить облачную службу или развертывание.
 

@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-offline-data-android" urlDisplayName="Getting Started with Offline Data" pageTitle="Get started with offline data in Mobile Services (Xamarin Android) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to cache and sync offline data in your Xamarin Android application" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get started with offline data in Mobile Services" authors="donnam,wesmc" editor="wesmc" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam,wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam,wesmc" />
 
 # Приступая к работе с синхронизацией автономных данных в мобильных службах
 
@@ -116,7 +116,7 @@
 
 3.  Добавьте элементы в список дел.
 
-    ![][]
+    ![][0]
 
 4.  Войдите на портал управления Microsoft Azure и посмотрите на базу данных мобильной службы. Если ваша служба использует серверную часть JavaScript для мобильных служб, вы можете просмотреть данные на вкладке **Данные** мобильной службы. При использовании серверной части .NET для мобильной службы можно нажать кнопку **Управление** для вашей базы данных в расширении SQL Azure, чтобы выполнить запрос к таблице.
 
@@ -160,11 +160,6 @@
 <!-- Images -->
 <!-- URLs. -->
 
-  [Магазин Windows C#]: /ru-ru/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data "Магазин Windows C#"
-  [Windows Phone]: /ru-ru/documentation/articles/mobile-services-windows-phone-get-started-offline-data "Windows Phone"
-  [iOS]: /ru-ru/documentation/articles/mobile-services-ios-get-started-offline-data "iOS"
-  [Xamarin.iOS]: /ru-ru/documentation/articles/mobile-services-xamarin-ios-get-started-offline-data "Xamarin.iOS"
-  [Xamarin.Android]: /ru-ru/documentation/articles/mobile-services-xamarin-android-get-started-offline-data "Xamarin.Android"
   [Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/partner-xamarin-mobile-services-android-get-started/
   [Приступая к работе с данными]: /ru-ru/documentation/articles/partner-xamarin-mobile-services-android-get-started-data/
   [Бесплатная пробная версия Azure]: http://www.windowsazure.com/ru-ru/pricing/free-trial/?WT.mc_id=AE564AB28
@@ -175,7 +170,7 @@
   [Azure Mobile Services SDK версия 1.3.0-alpha3]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0-alpha3
   [Azure Mobile Services SQLite Store версия 1.0.0-alpha2]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0-alpha2
   [дополнение NuGet для Xamarin]: https://github.com/mrward/monodevelop-nuget-addin
-  []: ./media/mobile-services-xamarin-android-get-started-offline-data/mobile-quickstart-startup-android.png
+  [0]: ./media/mobile-services-xamarin-android-get-started-offline-data/mobile-quickstart-startup-android.png
   [1]: ./media/mobile-services-xamarin-android-get-started-offline-data/mobile-quickstart-completed-android.png
   [2]: ./media/mobile-services-xamarin-android-get-started-offline-data/mobile-data-browse.png
   [Использование клиентского компонента Xamarin для мобильных служб Azure]: /ru-ru/documentation/articles/partner-xamarin-mobile-services-how-to-use-client-library/

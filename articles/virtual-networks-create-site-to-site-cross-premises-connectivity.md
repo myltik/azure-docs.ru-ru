@@ -1,6 +1,6 @@
 <properties linkid="manage-services-cross-premises-connectivity" urlDisplayName="Tutorial: Create a Cross-Premises Virtual Network for Site-to-Site Connectivity" pageTitle="Tutorial: Create a Cross-Premises Virtual Network for Site-to-Site Connectivity" metaKeywords="" description="Learn how to create an Azure Virtual Network with cross-premises connectivity in this tutorial." metaCanonical="" services="virtual-network" documentationCenter="" title="Create a Virtual Network for Site-to-Site Cross-Premises Connectivity" authors="cherylmc" solutions="" manager="adinah" editor="" />
 
-<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/23/2014" ms.author="cherylmc"></tags>
+<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/23/2014" ms.author="cherylmc" />
 
 # Учебник. Создание виртуальной сети для подключений между организациями по типу «сеть-сеть»
 
@@ -65,7 +65,7 @@
 
 2.  В нижнем левом углу экрана нажмите кнопку **Создать**. В области навигации нажмите **Сети**, а затем **Виртуальная сеть**. Нажмите кнопку **Настраиваемое создание** для запуска мастера настройки.
 
-    ![][]
+    ![][0]
 
 3.  На странице **Сведения о виртуальной сети** укажите следующие сведения и нажмите кнопку "Далее" в правом нижнем углу. Дополнительные сведения о настройке параметров на странице сведений см. в пункте **Сведения о виртуальной сети** раздела [Информация о настройке виртуальной сети с использованием портала управления][Информация о настройке виртуальной сети с использованием портала управления].
 
@@ -236,7 +236,7 @@
   [Запустите шлюз и соберите информацию для администратора сети]: #StartGateway
   [Настройте устройство VPN]: #ConfigVPN
   [портал управления Azure]: http://manage.windowsazure.com/
-  []: ./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVnet_01_OpenVirtualNetworkWizard.png
+  [0]: ./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVnet_01_OpenVirtualNetworkWizard.png
   [Информация о настройке виртуальной сети с использованием портала управления]: http://go.microsoft.com/fwlink/?LinkID=248092
   [1]: ./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVNet_03_DNSServersandVPNConnectivity.png
   [2]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj156075.aspx

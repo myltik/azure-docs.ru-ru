@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-add-paging-to-data-html" urlDisplayName="Add paging to data (HTML5)" pageTitle="Add paging to data (HTML 5) | Mobile Dev Center" metaKeywords="" description="Learn how to use paging to manage the amount of data returned to your HTML app from Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Refine Mobile Services queries with paging" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Уточнение запросов мобильных служб c разбиением по страницам
 
@@ -67,14 +67,6 @@
 Это заключительный раздел учебников, в которых демонстрируются основные принципы работы с данными в мобильных службах. Далее узнайте, как проверить подлинность пользователей приложения, изучив учебник [Приступая к работе с проверкой подлинности][Приступая к работе с проверкой подлинности]. Дополнительные сведения об использовании мобильных служб с помощью HTML/JavaScript см. в разделе [Справочник принципов использования мобильных служб HTML/JavaScript][Справочник принципов использования мобильных служб HTML/JavaScript].
 
 
-  [Магазин Windows — C#]: /ru-ru/develop/mobile/tutorials/add-paging-to-data-dotnet "Магазин Windows — C#"
-  [Магазин Windows —JavaScript]: /ru-ru/develop/mobile/tutorials/add-paging-to-data-js "Магазин Windows — JavaScript"
-  [Windows Phone]: /ru-ru/develop/mobile/tutorials/add-paging-to-data-wp8 "Windows Phone"
-  [iOS]: /ru-ru/develop/mobile/tutorials/add-paging-to-data-ios "iOS"
-  [Android]: /ru-ru/develop/mobile/tutorials/add-paging-to-data-android "Android"
-  [HTML]: /ru-ru/develop/mobile/tutorials/add-paging-to-data-html "HTML"
-  [Xamarin.iOS]: /ru-ru/develop/mobile/tutorials/add-paging-to-data-xamarin-ios "Xamarin.iOS"
-  [Xamarin.Android]: /ru-ru/develop/mobile/tutorials/add-paging-to-data-xamarin-android "Xamarin.Android"
   [Приступая к работе с данными]: /ru-ru/develop/mobile/tutorials/get-started-with-data-html
   [Приступая к работе с проверкой подлинности]: /ru-ru/develop/mobile/tutorials/get-started-with-users-html
   [Справочник принципов использования мобильных служб HTML/JavaScript]: /ru-ru/develop/mobile/how-to-guides/work-with-html-js-client

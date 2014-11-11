@@ -1,6 +1,6 @@
 <properties linkid="develop-dotnet-website-with-webmatrix" urlDisplayName="Website with WebMatrix" pageTitle=".NET website with WebMatrix - Azure tutorials" metaKeywords="WebMatrix Azure, WebMatrix Azure, Azure web site WebMatrix, Azure website WebMatrix, Web Matrix Azure, WebMatrix Azure" description="Learn how to develop and deploy an Azure website with WebMatrix." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Develop and deploy a website with Microsoft WebMatrix" authors="cephalin" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
 
 # Разработка и развертывание веб-сайта с помощью Microsoft WebMatrix
 
@@ -12,7 +12,7 @@
 -   Как создать сайт, используя встроенный шаблон, с помощью WebMatrix.
 -   Как выполнить развертывание настраиваемого веб-сайта непосредственно из WebMatrix в Azure.
 
-[WACOM.INCLUDE [создать-учетная запись-и-веб-сайт-примечание][создать-учетная запись-и-веб-сайт-примечание]]
+[WACOM.INCLUDE [создать-учетная запись-и-веб-сайт-примечание](../includes/create-account-and-websites-note.md)]
 
 ## Вход в Azure
 
@@ -49,7 +49,7 @@
 
 1.  На левой навигационной панели WebMatrix разверните папку **bakerysample**.
 
-    ![][]
+    ![][0]
 
 2.  Откройте страницу *Order.cshtml*, дважды щелкнув имя файла.
 
@@ -152,7 +152,7 @@
   [Создание веб-сайта на основе шаблона]: ./media/web-sites-dotnet-using-webmatrix/webmatrix-site-from-template-details.png
   [Создание сайта в Azure]: ./media/web-sites-dotnet-using-webmatrix/webmatrix-site-from-template-azure.png
   [Интегрированная среда разработки WebMatrix]: ./media/web-sites-dotnet-using-webmatrix/howtowebmatrixide.png
-  []: ./media/web-sites-dotnet-using-webmatrix/website-with-webmatrix-sample-mod-1-1.png
+  [0]: ./media/web-sites-dotnet-using-webmatrix/website-with-webmatrix-sample-mod-1-1.png
   [1]: ./media/web-sites-dotnet-using-webmatrix/website-with-webmatrix-sample-mod-1-2.png
   [2]: ./media/web-sites-dotnet-using-webmatrix/website-with-webmatrix-sample-mod-1-3.png
   [3]: ./media/web-sites-dotnet-using-webmatrix/website-with-webmatrix-sample-mod-1-4.png

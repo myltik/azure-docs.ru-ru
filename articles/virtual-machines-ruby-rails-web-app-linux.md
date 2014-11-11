@@ -1,6 +1,6 @@
 <properties linkid="dev-ruby-web-app-with-linux-vm" urlDisplayName="Ruby on Rails Web App on Azure using Linux VM" pageTitle="Ruby on Rails Web App on Azure using Linux VM" metaKeywords="Azure Ruby web application, Azure Ruby application, Ruby app Azure, Ruby azure vm, ruby virthal machine, ruby linux vm" description="Host a Ruby on Rails-based website on Azure using a Linux virtual machine. " metaCanonical="" services="virtual-machines" documentationCenter="Ruby" title="Ruby on Rails Web application on an Azure VM" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-linux" ms.devlang="ruby" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-linux" ms.devlang="ruby" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Веб-приложение Ruby on Rails на виртуальной машине Azure
 
@@ -289,13 +289,11 @@
   [страница Rails по умолчанию]: ./media/virtual-machines-ruby-rails-web-app-linux/basicrailslocal.png
   [страница со списком записей]: ./media/virtual-machines-ruby-rails-web-app-linux/blograilslocal.png
   [здесь]: /ru-ru/documentation/articles/virtual-machines-linux-tutorial
-  [страницы скачивания PuTTY]: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
   [портал управления Azure]: https://manage.windowsazure.com/
   [список виртуальных машин]: ./media/virtual-machines-ruby-rails-web-app-linux/vmlist.png
   [страница конечных точек]: ./media/virtual-machines-ruby-rails-web-app-linux/endpoints.png
   [диалоговое окно добавления конечной точки]: ./media/virtual-machines-ruby-rails-web-app-linux/newendpoint.png
   [2]: ./media/virtual-machines-ruby-rails-web-app-linux/basicrailscloud.png
-  [Unicorn+NginX+Capistrano с виртуальной машиной Azure]: /ru-ru/documentation/articles/virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn/
   [Руководства по Ruby on Rails]: http://guides.rubyonrails.org/
   [Хранение неструктурированных данных с использованием BLOB-объектов]: /ru-ru/documentation/articles/storage-ruby-how-to-use-blob-storage
   [Хранение пар "ключ/значение" с использованием таблиц]: /ru-ru/develop/ruby/how-to-guides/table-service/

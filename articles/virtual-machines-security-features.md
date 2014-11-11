@@ -1,6 +1,6 @@
 <properties title="Security offerings for Azure Virtual Machines" pageTitle="Security offerings for Azure Virtual Machines" description="Quick overview of key security features for Azure VMs and links to details" metaKeywords="" services="virtual machines" solutions="" documentationCenter="" authors="kathydav" videoId="" scriptId="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav" />
 
 # Предложения в области безопасности для виртуальных машин Azure
 
@@ -25,4 +25,3 @@ Azure предлагает несколько вариантов решений 
   [Установка и настройка Symantec Endpoint Protection на виртуальной машине Azure]: http://go.microsoft.com/fwlink/p/?LinkId=404207
   [Установка и настройка Trend Micro Deep Security как услуги на ВМ Azure]: http://go.microsoft.com/fwlink/p/?LinkId=404206
   [Развертывание решений по защите от вредоносных программ на виртуальных машинах Azure]: http://azure.microsoft.com/blog/2014/05/13/deploying-antimalware-solutions-on-azure-virtual-machines/
-  [О сетевых списках управления доступом (ACL)]: http://go.microsoft.com/fwlink/?LinkId=506655

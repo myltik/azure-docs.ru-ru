@@ -1,6 +1,6 @@
 <properties linkid="mobile-services-monitor-new-relic" urlDisplayName="Use New Relic to monitor Mobile Services" pageTitle="Store server scripts in source control - Azure Mobile Services" metaKeywords="" description="Learn how to use the New Relic add-on to monitor your mobile service." metaCanonical="" disqusComments="1" umbracoNaviHide="0" documentationCenter="Mobile" title="Use New Relic to monitor Mobile Services" authors="new relic" manager="dwrede" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="new relic"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="new="" relic" />
 
 # Использование New Relic для мониторинга мобильных служб
 
@@ -68,7 +68,7 @@
 
 1.  На [портале управления][портале управления] выберите свою мобильную службу и откройте вкладку **Настройка**.
 
-    ![][]
+    ![][0]
 
 2.  Перейдите к расположенному ниже элементу **Аналитические средства для разработчиков** и выполните одно из следующих действий в зависимости от того, как вы купили подписку New Relic:
 
@@ -121,10 +121,9 @@
   [Приступая к работе с данными]: /ru-ru/develop/mobile/tutorials/get-started-with-data-dotnet
   [портал управления Azure]: https://manage.windowsazure.com
   [Хранение серверных скриптов в системе управления версиями]: /ru-ru/develop/mobile/tutorials/store-scripts-in-source-control/
-  [диспетчер пакетов Node (NPM)]: http://nodejs.org/
   [модуль New Relic]: https://npmjs.org/package/newrelic
   [портале управления]: https://manage.windowsazure.com/
-  []: ./media/store-new-relic-mobile-services-monitor/mobile-configure-tab.png
+  [0]: ./media/store-new-relic-mobile-services-monitor/mobile-configure-tab.png
   [1]: ./media/store-new-relic-mobile-services-monitor/mobile-configure-new-relic-monitoring.png
   [2]: ./media/store-new-relic-mobile-services-monitor/mobile-configure-new-relic-monitoring-custom.png
   [3]: ./media/store-new-relic-mobile-services-monitor/mobile-configure-new-relic-monitoring-complete.png

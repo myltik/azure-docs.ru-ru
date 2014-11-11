@@ -1,6 +1,6 @@
 <properties pageTitle="Work with a JavaScript backend mobile service" metaKeywords="server scripts, mobile devices, Azure, scheduler" description="Provides examples on how to define, register, and use server scripts in Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Work with server scripts in Mobile Services" authors="ricksal" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
 
 # Работа с серверной мобильной службой JavaScript
 
@@ -882,8 +882,6 @@
 
 
 
-  [Серверная часть .NET]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-how-to-use/ "Серверная часть .NET"
-  [Серверная часть JavaScript]: /ru-ru/documentation/articles/mobile-services-how-to-use-server-scripts/ "Серверная часть JavaScript"
   [Введение]: #intro
   [Операции с таблицами]: #table-scripts
   [Практическое руководство. Регистрация для операций с таблицами]: #register-table-scripts
@@ -961,6 +959,5 @@
   [Практическое руководство. Выполнение статического запроса]: #static-query
   [Практическое руководство. Выполнение динамического запроса]: #dynamic-query
   [Практическое руководство. Объединение реляционных таблиц]: #joins
-  [Практическое руководство. Выполнение запроса, который возвращает *необработанные* результаты]: #raw
   [Практическое руководство. Доступ для подключения к базе данных]: #connection
   [консольный объект]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj554209.aspx

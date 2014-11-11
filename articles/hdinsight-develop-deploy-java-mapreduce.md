@@ -1,6 +1,6 @@
 <properties linkid="manage-services-hdinsight-develop-Java-MapReduce-programs-for-HDInsight-Hadoop" urlDisplayName="HDInsight Tutorials" pageTitle="Develop Java MapReduce programs for Hadoop in HDInsight | Azure" metaKeywords="hdinsight, hdinsight development, hadoop development, hdinsight deployment, development, deployment, tutorial, MapReduce, Java" description="Learn how to develop Java MapReduce programs on HDInsight emulator, how to deploy them to HDInsight." services="hdinsight" title="Develop Java MapReduce programs for Hadoop in HDInsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" authors="jgao" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="jgao"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
 # Разработка программ MapReduce на Java для Hadoop в HDInsight
 
@@ -10,18 +10,18 @@
 
 Перед началом работы с этим учебником необходимо иметь следующее:
 
--   Установите эмулятор Azure HDInsight. Инструкции см. в разделе [Приступая к работе с эмулятором HDInsight][].
--   Установите среду Azure PowerShell на компьютере с эмулятором. Инструкции см. в разделе [Установка и настройка Azure PowerShell][].
--   Получите подписку Azure. Инструкции см. в разделе [Варианты приобретения][], [Предложения для участников][] или [Бесплатное пробное использование][].
+-   Установите эмулятор Azure HDInsight. Инструкции см. в разделе [Приступая к работе с эмулятором HDInsight][Приступая к работе с эмулятором HDInsight].
+-   Установите среду Azure PowerShell на компьютере с эмулятором. Инструкции см. в разделе [Установка и настройка Azure PowerShell][Установка и настройка Azure PowerShell].
+-   Получите подписку Azure. Инструкции см. в разделе [Варианты приобретения][Варианты приобретения], [Предложения для участников][Предложения для участников] или [Бесплатное пробное использование][Бесплатное пробное использование].
 
 ## Содержание
 
--   [Разработка программы счетчика слов MapReduce на Java][]
--   [Тестирование программы в эмуляторе][]
--   [Передача файлов данных и приложения в хранилище BLOB-объектов Azure][]
--   [Выполнение программы MapReduce в Azure HDInsight][]
--   [Извлечение результатов MapReduce][]
--   [Дальнейшие действия][]
+-   [Разработка программы счетчика слов MapReduce на Java][Разработка программы счетчика слов MapReduce на Java]
+-   [Тестирование программы в эмуляторе][Тестирование программы в эмуляторе]
+-   [Передача файлов данных и приложения в хранилище BLOB-объектов Azure][Передача файлов данных и приложения в хранилище BLOB-объектов Azure]
+-   [Выполнение программы MapReduce в Azure HDInsight][Выполнение программы MapReduce в Azure HDInsight]
+-   [Извлечение результатов MapReduce][Извлечение результатов MapReduce]
+-   [Дальнейшие действия][Дальнейшие действия]
 
 ## <a name="develop"></a>Разработка программы счетчика слов MapReduce на Java
 
@@ -128,7 +128,7 @@
 
     Команда создает файл WordCount.jar в текущей папке.
 
-    ![HDI.EMulator.WordCount.Compile][]
+    ![HDI.EMulator.WordCount.Compile][HDI.EMulator.WordCount.Compile]
 
 ## <a name="test"></a>Тестирование программы в эмуляторе
 
@@ -141,7 +141,7 @@
 
 В эмуляторе HDInsight используется HDFS в качестве файловой системы по умолчанию. При желании вы можете настроить эмулятор HDInsight на использование хранилища BLOB-объектов Azure. Подробные сведения см. в разделе [Приступая к работе с эмулятором HDInsight][1].
 
-В этом учебнике для передачи файлов данных в HDFS будет использоваться команда HDFS *copyFromLocal*. В следующем разделе показано, как с помощью Azure PowerShell передавать файлы в хранилище BLOB-объектов Azure. Сведения о других способах передачи файлов в хранилище BLOB-объектов Azure см. в разделе [Передача данных в HDInsight][].
+В этом учебнике для передачи файлов данных в HDFS будет использоваться команда HDFS *copyFromLocal*. В следующем разделе показано, как с помощью Azure PowerShell передавать файлы в хранилище BLOB-объектов Azure. Сведения о других способах передачи файлов в хранилище BLOB-объектов Azure см. в разделе [Передача данных в HDInsight][Передача данных в HDInsight].
 
 Для работы с этим учебником используется следующая структура папок HDFS:
 
@@ -193,11 +193,11 @@
 
     При успешном завершении задания вы должны получить выходные данные следующего вида:
 
-    ![HDI.EMulator.WordCount.Run][]
+    ![HDI.EMulator.WordCount.Run][HDI.EMulator.WordCount.Run]
 
     На снимке экрана видно, что процедуры map и reduce завершены на 100 %. Здесь также указан идентификатор задания: job\_201312092021\_0002. Для получения того же отчета можно открыть ярлык **Состояние Hadoop MapReduce** на вашем рабочем столе и найти идентификатор задания.
 
-Для запуска задания MapReduce можно также использовать Azure PowerShell. Инструкции см. в разделе [Приступая к работе с эмулятором HDInsight][].
+Для запуска задания MapReduce можно также использовать Azure PowerShell. Инструкции см. в разделе [Приступая к работе с эмулятором HDInsight][Приступая к работе с эмулятором HDInsight].
 
 **Отображение выходных данных из HDFS**
 
@@ -229,7 +229,7 @@ Azure HDInsight использует для хранения данных хра
         $containerName_Data = "<ContainerName>"
         $location = "<MicrosoftDataCenter>"  # For example, "East US"
 
-    **$subscripionName** относится к вашей подписке Azure. Необходимо указать имя для **$storageAccountName\_Data** и **$containerName\_Data**. Ограничения именования см. в разделе [Присвоение имен и ссылки на контейнеры, BLOB-объекты и метаданные][].
+    **$subscripionName** относится к вашей подписке Azure. Необходимо указать имя для **$storageAccountName\_Data** и **$containerName\_Data**. Ограничения именования см. в разделе [Присвоение имен и ссылки на контейнеры, BLOB-объекты и метаданные][Присвоение имен и ссылки на контейнеры, BLOB-объекты и метаданные].
 
 3.  Выполните следующие команды, чтобы создать учетную запись хранения и контейнер хранилища BLOB-объектов в учетной записи
 
@@ -444,11 +444,11 @@ Azure HDInsight использует для хранения данных хра
 
         PowerShell -File <FileName> -ExecutionPolicy RemoteSigned
 
-8.  При появлении запроса введите имя пользователя и пароль для кластера HDInsight. Поскольку в конце сценария кластер будет удален, а имя пользователя и пароль больше не потребуются, в качестве имени пользователя и пароля можно использовать любые строки. Если вы не хотите, чтобы появлялся запрос на ввод учетных данных, см. раздел [Работа с паролями, защищенными строками и учетными данными в Windows PowerShell][]
+8.  При появлении запроса введите имя пользователя и пароль для кластера HDInsight. Поскольку в конце сценария кластер будет удален, а имя пользователя и пароль больше не потребуются, в качестве имени пользователя и пароля можно использовать любые строки. Если вы не хотите, чтобы появлялся запрос на ввод учетных данных, см. раздел [Работа с паролями, защищенными строками и учетными данными в Windows PowerShell][Работа с паролями, защищенными строками и учетными данными в Windows PowerShell]
 
 ## <a name="retrieve"></a>Извлечение выходных данных задания MapReduce
 
-В этом разделе показано, как загружать и отображать выходные данные. Сведения об отображении результатов в Excel см. в разделах [Подключение Excel к HDInsight с помощью драйвера Microsoft Hive ODBC][] и [Подключение Excel к HDInsight с помощью Power Query][].
+В этом разделе показано, как загружать и отображать выходные данные. Сведения об отображении результатов в Excel см. в разделах [Подключение Excel к HDInsight с помощью драйвера Microsoft Hive ODBC][Подключение Excel к HDInsight с помощью драйвера Microsoft Hive ODBC] и [Подключение Excel к HDInsight с помощью Power Query][Подключение Excel к HDInsight с помощью Power Query].
 
 **Извлечение результатов**
 
@@ -472,28 +472,28 @@ Azure HDInsight использует для хранения данных хра
         Get-AzureStorageBlobContent -Container $containerName_Data -Blob $blobName -Context $storageContext -Force
         cat "./$blobName" | findstr "there"
 
-После завершения задания можно экспортировать данные в базу данных SQL Server или Azure SQL с помощью [Sqoop][] либо экспортировать данные в Excel.
+После завершения задания можно экспортировать данные в базу данных SQL Server или Azure SQL с помощью [Sqoop][Sqoop] либо экспортировать данные в Excel.
 
 ## <span id="nextsteps"></span></a>Дальнейшие действия
 
 В этом учебнике вы узнали, как разработать задание MapReduce на Java, протестировать приложение в эмуляторе HDInsight, написать сценарий PowerShell для подготовки кластера HDInsight и выполнения MapReduce в кластере. Для получения дополнительных сведений ознакомьтесь со следующими статьями:
 
--   [Разработка программ MapReduce потоковой передачи Hadoop на C# для HDInsight][]
--   [Приступая к работе с Azure HDInsight][]
--   [Приступая к работе с эмулятором HDInsight][]
--   [Использование хранилища BLOB-объектов Azure с HDInsight][]
--   [Администрирование HDInsight с использованием PowerShell][]
+-   [Разработка программ MapReduce потоковой передачи Hadoop на C# для HDInsight][Разработка программ MapReduce потоковой передачи Hadoop на C# для HDInsight]
+-   [Приступая к работе с Azure HDInsight][Приступая к работе с Azure HDInsight]
+-   [Приступая к работе с эмулятором HDInsight][Приступая к работе с эмулятором HDInsight]
+-   [Использование хранилища BLOB-объектов Azure с HDInsight][Использование хранилища BLOB-объектов Azure с HDInsight]
+-   [Администрирование HDInsight с использованием PowerShell][Администрирование HDInsight с использованием PowerShell]
 -   [Отправка данных в HDInsight][Передача данных в HDInsight]
--   [Использование Hive с HDInsight][]
--   [Использование Pig с HDInsight][]
--   [Подключение Excel к HDInsight с помощью Power Query][]
--   [Подключение Excel к HDInsight с помощью драйвера Microsoft Hive ODBC][]
+-   [Использование Hive с HDInsight][Использование Hive с HDInsight]
+-   [Использование Pig с HDInsight][Использование Pig с HDInsight]
+-   [Подключение Excel к HDInsight с помощью Power Query][Подключение Excel к HDInsight с помощью Power Query]
+-   [Подключение Excel к HDInsight с помощью драйвера Microsoft Hive ODBC][Подключение Excel к HDInsight с помощью драйвера Microsoft Hive ODBC]
 
   [Приступая к работе с эмулятором HDInsight]: ../hdinsight-get-started-emulator/
   [Установка и настройка Azure PowerShell]: ../install-configure-powershell/
-  [Варианты приобретения]: http://azure.microsoft.com/en-us/pricing/purchase-options/
-  [Предложения для участников]: http://azure.microsoft.com/en-us/pricing/member-offers/
-  [Бесплатное пробное использование]: http://azure.microsoft.com/en-us/pricing/free-trial/
+  [Варианты приобретения]: http://azure.microsoft.com/ru-ru/pricing/purchase-options/
+  [Предложения для участников]: http://azure.microsoft.com/ru-ru/pricing/member-offers/
+  [Бесплатное пробное использование]: http://azure.microsoft.com/ru-ru/pricing/free-trial/
   [Разработка программы счетчика слов MapReduce на Java]: #develop
   [Тестирование программы в эмуляторе]: #test
   [Передача файлов данных и приложения в хранилище BLOB-объектов Azure]: #upload
@@ -504,7 +504,7 @@ Azure HDInsight использует для хранения данных хра
   [1]: ../hdinsight-get-started-emulator/#blobstorage
   [Передача данных в HDInsight]: ../hdinsight-upload-data/
   [HDI.EMulator.WordCount.Run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
-  [Присвоение имен и ссылки на контейнеры, BLOB-объекты и метаданные]: http://msdn.microsoft.com/en-us/library/windowsazure/dd135715.aspx
+  [Присвоение имен и ссылки на контейнеры, BLOB-объекты и метаданные]: http://msdn.microsoft.com/ru-ru/library/windowsazure/dd135715.aspx
   [Работа с паролями, защищенными строками и учетными данными в Windows PowerShell]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
   [Подключение Excel к HDInsight с помощью драйвера Microsoft Hive ODBC]: ../hdinsight-connect-excel-hive-ODBC-driver/
   [Подключение Excel к HDInsight с помощью Power Query]: ../hdinsight-connect-excel-power-query/

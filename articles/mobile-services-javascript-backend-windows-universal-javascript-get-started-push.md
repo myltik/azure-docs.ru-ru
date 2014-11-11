@@ -1,6 +1,6 @@
 <properties pageTitle="Get started with push notification using a JavaScript backend mobile service" metaKeywords="" description="Learn how to use Azure Mobile Services and Notification Hubs to send push notifications to your universal Windows app." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="glenga" solutions="mobile-services,notification-hubs" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/15/2014" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/15/2014" ms.author="glenga" />
 
 # Приступая к работе с push-уведомлениями в мобильных службах
 
@@ -57,7 +57,7 @@
 
 Дополнительные сведения о мобильных службах и концентраторах уведомлений см. в следующих разделах.
 
--   [Приступая к работе с данными (][Приступая к работе с данными (]
+-   [Приступая к работе с данными][Приступая к работе с данными]
     Дополнительные сведения о хранении данных и запросах к ним при помощи мобильных служб.
 
 -   [Приступая к работе с проверкой подлинности][Приступая к работе с проверкой подлинности]
@@ -82,7 +82,6 @@
   [mobile-services-javascript-update-script-notification-hubs]: ../includes/mobile-services-javascript-update-script-notification-hubs.md
   [mobile-services-javascript-backend-windows-universal-test-push]: ../includes/mobile-services-javascript-backend-windows-universal-test-push.md
   [Отправка push-уведомлений прошедшим проверку пользователям]: /ru-ru/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-push-notifications-app-users/
-  [Приступая к работе с данными (]: /ru-ru/documentation/articles/mobile-services-javascript-backend-windows-universal-javascript-get-started-data
+  [Приступая к работе с данными]: /ru-ru/documentation/articles/mobile-services-javascript-backend-windows-universal-javascript-get-started-data
   [Приступая к работе с проверкой подлинности]: /ru-ru/documentation/articles/mobile-services-javascript-backend-windows-universal-javascript-get-started-users
-  [Что такое концентраторы уведомлений?]: /ru-ru/documentation/articles/notification-hubs-overview/
   [Использование клиента HTML/JavaScript для мобильных служб Azure]: /ru-ru/documentation/articles/mobile-services-html-how-to-use-client-library

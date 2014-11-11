@@ -1,6 +1,6 @@
 <properties linkid="manage-services-notification-hubs-notify-users-xplat-mobile-services" urlDisplayName="notify users xplat mobile services" pageTitle="Send cross-platform notifications to users with Notification Hubs (Mobile Services)" metaKeywords="" description="Learn how to use Notification Hubs templates to send, in a single request, a platform-agnostic notification that targets all platforms." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Send cross-platform notifications to users with Notification Hubs" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Отправка кроссплатформенных уведомлений пользователям с помощью концентраторов уведомлений
 
@@ -19,7 +19,7 @@
 
 1.  Выполните вход на [портал управления Azure][портал управления Azure], щелкните элемент **Мобильные службы**, а затем выберите свое приложение.
 
-    ![][]
+    ![][0]
 
 2.  Щелкните по вкладке **API**, после чего щелкните по записи **register\_notifications** в таблице API.
 
@@ -110,14 +110,12 @@
 -   **[Инструкции по использованию концентраторов уведомлений для магазина Windows][Инструкции по использованию концентраторов уведомлений для магазина Windows]**
     Включает ссылку на язык выражения шаблона.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
 
-  [Мобильные службы]: /ru-ru/documentation/articles/notification-hubs-mobile-services-cross-platform-notify-users/ "Мобильные службы"
-  [ASP.NET]: /ru-ru/documentation/articles/notification-hubs-aspnet-cross-platform-notify-users/ "ASP.NET"
+
   [Уведомление пользователей с помощью концентраторов уведомлений]: /ru-ru/manage/services/notification-hubs/notify-users
   [Обзор концентраторов уведомлений Windows Azure]: http://go.microsoft.com/fwlink/p/?LinkId=317339
   [портал управления Azure]: https://manage.windowsazure.com/
-  []: ./media/notification-hubs-mobile-services-cross-platform-notify-users/mobile-services-selection.png
+  [0]: ./media/notification-hubs-mobile-services-cross-platform-notify-users/mobile-services-selection.png
   [1]: ./media/notification-hubs-mobile-services-cross-platform-notify-users/mobile-custom-api-select.png
   [2]: ./media/notification-hubs-mobile-services-cross-platform-notify-users/mobile-portal-data-tables.png
   [3]: ./media/notification-hubs-mobile-services-cross-platform-notify-users/mobile-insert-script-push2.png

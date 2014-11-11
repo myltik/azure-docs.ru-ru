@@ -1,6 +1,6 @@
 <properties linkid="manage-services-create-a-virtual-network" urlDisplayName="Tutorial: Create a cloud-only virtual network" pageTitle="Tutorial: Create a cloud-only virtual network" metaKeywords="" description="Learn how to create an example cloud-only Azure Virtual Network in this tutorial." metaCanonical="" services="virtual-machines,virtual-network" documentationCenter="" title="Tutorial: Create a Clound-only Virtual Network in Azure" authors="cherylmc" solutions="" manager="adinah" editor="" />
 
-<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/29/2014" ms.author="cherylmc"></tags>
+<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/29/2014" ms.author="cherylmc" />
 
 # Учебник. Создание в Azure виртуальной сети только для облака
 
@@ -33,7 +33,7 @@
 
 2.  В левом нижнем углу экрана щелкните **Создать** \> **Сетевые службы** \> **Виртуальная сеть**, затем щелкните **Настраиваемое создание**, что запустит мастер конфигурации.
 
-    ![][]
+    ![][0]
 
 3.  На странице **Описание виртуальной сети** укажите следующие сведения.
 
@@ -92,11 +92,10 @@
   [createvnet]: ./media/create-virtual-network/createVNet_06_VNetExample.png
   [Конфигурация облачной виртуальной облачной сети на портале управления]: http://msdn.microsoft.com/library/azure/dn631643.aspx
   [Обзор виртуальной сети Windows Azure]: http://msdn.microsoft.com/library/windowsazure/jj156007.aspx
-  [Учебник. Создание локальной виртуальной сети для подключений между организациями по типу "сеть-сеть"]: /ru-ru/manage/services/networking/cross-premises-connectivity/
   [Try Azure]: http://www.windowsazure.com/pricing/free-trial/
   [Специальные предложения Microsoft Azure: преимущества для подписчиков MSDN, MPN и Bizspark]: http://azure.microsoft.com/ru-ru/pricing/member-offers/msdn-benefits-details/
   [портал управления Azure]: http://manage.windowsazure.com/
-  []: ./media/create-virtual-network/createVNet_01_OpenVirtualNetworkWizard.png
+  [0]: ./media/create-virtual-network/createVNet_01_OpenVirtualNetworkWizard.png
   [1]: ./media/create-virtual-network/createVNet_02_VirtualNetworkDetails.png
   [Информация о настройке виртуальной сети с использованием портала управления]: http://go.microsoft.com/fwlink/?linkid=248092&clcid=0x409
   [2]: ./media/create-virtual-network/createVNet_04_VirtualNetworkAddressSpaces.png

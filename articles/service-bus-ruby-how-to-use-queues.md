@@ -1,6 +1,6 @@
 <properties linkid="dev-ruby-how-to-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (Ruby) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues Ruby" description="Learn how to use Service Bus queues in Azure. Code samples written in Ruby." metaCanonical="" services="service-bus" documentationCenter="Ruby" title="How to Use Service Bus Queues" authors="guayan" solutions="" manager="" editor="" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan" />
 
 # Использование очередей Service Bus
 
@@ -23,7 +23,7 @@
 -   [Обработка сбоев приложения и нечитаемых сообщений][Обработка сбоев приложения и нечитаемых сообщений]
 -   [Дальнейшие действия][Дальнейшие действия]
 
-[WACOM.INCLUDE [howto-service-bus-queues][howto-service-bus-queues]]
+[WACOM.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
 ## <span id="create-a-ruby-application"></span></a>Создание приложения Ruby
 
@@ -117,7 +117,6 @@ Service Bus предоставляет функции, помогающие ко
 Сравнение очередей Service Bus Azure, описанных в этой статье, и очередей Service Bus Azure, описанных в статье [Использование службы очередей Azure][Использование службы очередей Azure], см. в статье [Очереди Azure и очереди Service Bus Azure — сходство и отличия][Очереди Azure и очереди Service Bus Azure — сходство и отличия]
 
   [Дальнейшие действия]: #next-steps
-  [Что такое очереди Service Bus?]: #what-are-service-bus-queues
   [Создание пространства имен службы]: #create-a-service-namespace
   [Получение учетных данных управления по умолчанию для пространства имен]: #obtain-default-credentials
   [Создание приложения Ruby]: #create-a-ruby-application

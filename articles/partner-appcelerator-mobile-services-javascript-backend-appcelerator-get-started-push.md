@@ -1,6 +1,6 @@
 <properties pageTitle="Get started with push notifications (Appcelerator) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your Appcelerator app." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="Appcelerator team;mahender"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="Appcelerator="" team;mahender" />
 
 # Приступая к работе с push-уведомлениями в мобильных службах (старые push-уведомления)
 
@@ -40,13 +40,13 @@
 
 Этот учебник создан на основе краткого руководства по мобильным службам. Перед началом работы с учебником необходимо пройти задания учебника [Приступая к работе с мобильными службами][Приступая к работе с мобильными службами].
 
-[WACOM.INCLUDE [Включение push-уведомлений Apple][Включение push-уведомлений Apple]]
+[WACOM.INCLUDE [Включение push-уведомлений Apple](../includes/enable-apple-push-notifications.md)]
 
 ## <a name="register-gcm"></a>Включение Google Cloud Messaging
 
 > [WACOM.NOTE] Чтобы выполнить процедуру, описанную в этом разделе, необходимо иметь учетную запись Google с проверенным адресом электронной почты. Чтобы создать новую учетную запись Google, перейдите по ссылке [accounts.google.com][accounts.google.com].
 
-[WACOM.INCLUDE [Enable GCM][Enable GCM]]
+[WACOM.INCLUDE [Enable GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
 ## <a name="gcm-module"></a>Создание модуля GCM для Titanium
 
@@ -62,7 +62,7 @@
 
 2.  Щелкните File -\> New -\> Mobile Module Project (Файл -\> Создать -\> Проект мобильного модуля).
 
-    ![][]
+    ![][0]
 
 3.  В следующем окне введите данных параметров проекта:
 
@@ -213,7 +213,7 @@
 
 ## <a name="configure"></a>Настройка мобильных служб для отправки push-запросов
 
-[WACOM.INCLUDE [mobile-services-create-new-service][mobile-services-create-new-service]]
+[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-apns-configure-push.md)]
 
 1.  Введите значение ключа API, полученное от GCM при выполнении предыдущей процедуры, а затем нажмите кнопку Сохранить.
 
@@ -446,12 +446,6 @@
 <!-- Anchors. -->
 <!-- URLs. -->
 
-  [Магазин Windows C#]: /ru-ru/documentation/articles/mobile-services-windows-store-dotnet-get-started-push "Магазин Windows C#"
-  [Магазин Windows JavaScript]: /ru-ru/documentation/articles/mobile-services-windows-store-javascript-get-started-push "Магазин Windows JavaScript"
-  [Windows Phone]: /ru-ru/documentation/articles/mobile-services-windows-phone-get-started-push "Windows Phone"
-  [iOS]: /ru-ru/documentation/articles/mobile-services-ios-get-started-push "iOS"
-  [Android]: /ru-ru/documentation/articles/mobile-services-android-get-started-push "Android"
-  [Appcelerator]: /ru-ru/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push "Appcelerator"
   [Создание запроса подписи сертификата]: #certificates
   [Регистрация приложения и включение push-уведомлений]: #register
   [Создание профиля подготовки для приложения]: #profile
@@ -466,8 +460,8 @@
   [accounts.google.com]: http://go.microsoft.com/fwlink/p/?LinkId=268302
   [Enable GCM]: ../includes/mobile-services-enable-Google-cloud-messaging.md
   [Установка средств разработки Java]: http://docs.appcelerator.com/titanium/latest/#!/guide/Installing_the_Java_Development_Tools
-  []: http://developer.android.com/sdk/ndk/index.html
-  []: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image0011.png
+  [0]: http://developer.android.com/sdk/ndk/index.html
+  [0]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image0011.png
   [1]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image0031.png
   [2]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image0041.png
   [3]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image0061.png

@@ -1,6 +1,6 @@
 <properties pageTitle="Use Mobile Services to upload images to blob storage (Windows Phone) | Mobile Services" metaKeywords="" description="Learn how to use Mobile Services to upload images to Azure Blob Storage." metaCanonical="" disqusComments="0" umbracoNaviHide="1" documentationCenter="Mobile" title="Upload images to Azure Storage by using Mobile Services" authors="wesmc" writer="wesmc" services="mobile-services,storage"  />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 
 # Отправка образов в хранилище Azure с помощью мобильных служб
 
@@ -36,7 +36,7 @@
 
 2.  В левой области выберите категорию **Интернет**, выберите **Включить предварительный выпуск**, выполните поиск пакета **WindowsAzure.Storage-Preview**, щелкните **Установить** для пакета **Хранилище Windows Azure**, затем примите условия лицензионных соглашений.
 
-    ![][]
+    ![][0]
 
     Это приведет к добавлению в проект библиотеки клиента для служб хранилища Azure.
 
@@ -44,11 +44,11 @@
 
 ## <a name="update-scripts"></a>Обновление зарегистрированных скриптов вставки на портале управления
 
-[WACOM.INCLUDE [mobile-services-configure-blob-storage][mobile-services-configure-blob-storage]]
+[WACOM.INCLUDE [mobile-services-configure-blob-storage](../includes/mobile-services-configure-blob-storage.md)]
 
 > [WACOM.NOTE]Для добавления новых свойств к объекту TodoItem необходимо включить динамическую схему в мобильной службе. После включения динамической схемы в таблицу TodoItem автоматически добавляются новые столбцы, которые соответствуют этим новым свойствам.
 
-[WACOM.INCLUDE [mobile-services-windows-phone-upload-to-blob-storage][mobile-services-windows-phone-upload-to-blob-storage]]
+[WACOM.INCLUDE [mobile-services-windows-phone-upload-to-blob-storage](../includes/mobile-services-windows-phone-upload-to-blob-storage.md)]
 
 ## <a name="next-steps"> </a>Дальнейшие действия
 
@@ -74,10 +74,6 @@
 <!-- Images. -->
 <!-- URLs. -->
 
-  [Магазин Windows C#]: /ru-ru/documentation/articles/mobile-services-windows-store-dotnet-upload-data-blob-storage "Магазин Windows C#"
-  [Windows Phone]: /ru-ru/documentation/articles/mobile-services-windows-phone-upload-data-blob-storage "Windows Phone"
-  [Серверная часть .NET]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-phone-upload-data-blob-storage "Серверная часть .NET"
-  [Серверная часть JavaScript]: /ru-ru/documentation/articles/mobile-services-windows-phone-upload-data-blob-storage "Серверная часть JavaScript"
   [Установите библиотеку клиента хранилища]: #install-storage-client
   [Обновите сценарий вставки для создания учетных данных SAS]: #update-scripts
   [Обновите клиентское приложение для захвата изображений]: #add-select-images
@@ -85,7 +81,7 @@
   [Windows Phone SDK 8.0]: http://www.microsoft.com/ru-ru/download/details.aspx?id=35471
   [Учетная запись хранения Azure]: /ru-ru/manage/services/storage/how-to-create-a-storage-account
   [Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/mobile-services-windows-phone-get-started
-  []: ./media/mobile-services-windows-phone-upload-data-blob-storage/mobile-add-storage-nuget-package-dotnet.png
+  [0]: ./media/mobile-services-windows-phone-upload-data-blob-storage/mobile-add-storage-nuget-package-dotnet.png
   [mobile-services-configure-blob-storage]: ../includes/mobile-services-configure-blob-storage.md
   [mobile-services-windows-phone-upload-to-blob-storage]: ../includes/mobile-services-windows-phone-upload-to-blob-storage.md
   [Отправить сообщение электронной почты с мобильных служб с помощью SendGrid]: /ru-ru/develop/mobile/tutorials/send-email-with-sendgrid/

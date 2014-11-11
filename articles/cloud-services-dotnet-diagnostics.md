@@ -1,6 +1,6 @@
 <properties linkid="dev-net-commons-tasks-diagnostics" urlDisplayName="Diagnostics" pageTitle="How to use diagnostics (.NET) - Azure feature guide" metaKeywords="Azure diagnostics monitoring,logs crash dumps C#" description="Learn how to use diagnostic data in Azure for debugging, measuring performance, monitoring, traffic analysis, and more." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="Enabling Diagnostics in Azure" authors="ryanwi" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi" />
 
 # Включение диагностики в облачных службах и виртуальных машинах Azure
 
@@ -754,12 +754,7 @@
   [класса EventSource]: http://msdn.microsoft.com/ru-ru/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
   [бесплатной пробной версии]: http://azure.microsoft.com/ru-ru/pricing/free-trial/
   [установить и настроить Azure PowerShell версии 0.8.7 или более поздней]: http://azure.microsoft.com/ru-ru/documentation/articles/install-configure-powershell/
-  [CloudServices\_diag\_add\_xml]: ./media/cloud-services-dotnet-diagnostics/AddXmlFile.png
-  [CloudServices\_diag\_tables]: ./media/cloud-services-dotnet-diagnostics/WadExampleTables.png
-  [CloudServices\_diag\_new\_project]: ./media/cloud-services-dotnet-diagnostics/NewProject.png
-  [CloudServices\_diag\_wadexamplevm\_tables]: ./media/cloud-services-dotnet-diagnostics/WadExampleVMTables.png
   [Azure Diagnostics 1.2 Configuration Schema]: http://msdn.microsoft.com/ru-ru/library/azure/dn782207.aspx
-  [раскодировать их]: http://www.bing.com/search?q=base64+decoder
   [Сбор данных журнала с помощью системы диагностики Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/gg433048.aspx
   [Отладка приложения Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/ee405479.aspx
   [Настройка системы диагностики Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/dn186185.aspx

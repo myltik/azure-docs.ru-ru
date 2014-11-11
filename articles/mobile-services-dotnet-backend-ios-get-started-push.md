@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-push-ios" urlDisplayName="Get Started with Push (iOS)" pageTitle="Get started with push notifications (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your iOS app." metaCanonical="http://www.windowsazure.com/ru-ru/develop/mobile/tutorials/get-started-with-push-dotnet/" services="" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" solutions="" manager="dwrede" editor="" authors="krisragh" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
 
 # Приступая к работе с push-уведомлениями в мобильных службах
 
@@ -37,19 +37,19 @@
 
 Этот учебник создан на основе краткого руководства по мобильным службам. Перед началом работы с учебником необходимо пройти задания учебника [Приступая к работе с мобильными службами][Приступая к работе с мобильными службами].
 
-[WACOM.INCLUDE [Включение push-уведомлений Apple][Включение push-уведомлений Apple]]
+[WACOM.INCLUDE [Включение push-уведомлений Apple](../includes/enable-apple-push-notifications.md)]
 
 ## Настройка мобильных служб для отправки push-запросов
 
-[WACOM.INCLUDE [mobile-services-apns-configure-push][mobile-services-apns-configure-push]]
+[WACOM.INCLUDE [mobile-services-apns-configure-push](../includes/mobile-services-apns-configure-push.md)]
 
 ## <a name="download-the-service"></a><span class="short-header"> Загрузка службы</span>Загрузка службы на локальный компьютер
 
-[WACOM.INCLUDE [mobile-services-ios-download-service-locally][mobile-services-ios-download-service-locally]]
+[WACOM.INCLUDE [mobile-services-ios-download-service-locally](../includes/mobile-services-ios-download-service-locally.md)]
 
 ## <a name="test-the-service"></a><span class="short-header">Тестирование службы</span>Тестирование мобильной службы
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service][mobile-services-dotnet-backend-test-local-service]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service](../includes/mobile-services-dotnet-backend-test-local-service.md)]
 
 ## <span id="update-server"></span></a> Обновление сервера для отправки push-уведомлений
 
@@ -82,7 +82,7 @@
 
 ## <a name="publish-the-service"></a><span class="short-header">Публикация службы</span>Публикация мобильной службы в Azure
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service][mobile-services-dotnet-backend-publish-service]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
 ## Добавление push-уведомлений в приложение
 
@@ -153,13 +153,13 @@
 
 ## <span id="local-testing"></span></a> Включение push-уведомлений для локального тестирования
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-configure-local-push][mobile-services-dotnet-backend-configure-local-push]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-configure-local-push](../includes/mobile-services-dotnet-backend-configure-local-push.md)]
 
 ## Тестирование push-уведомлений в приложении
 
 1.  Нажмите кнопку **Выполнить**, чтобы построить проект и запустить приложение на устройстве с iOS, а затем нажмите кнопку **ОК**, чтобы разрешить прием push-уведомлений.
 
-    ![][]
+    ![][0]
 
     > [WACOM.NOTE] Необходимо явным образом принимать push-уведомления из своего приложения. Этот запрос отображается только при первом запуске приложения.
 
@@ -185,7 +185,7 @@
 
 Дополнительные сведения о мобильных службах и концентраторах уведомлений см. в следующих разделах.
 
--   [Приступая к работе с данными (][Приступая к работе с данными (]
+-   [Приступая к работе с данными][Приступая к работе с данными]
     Дополнительные сведения о хранении данных и запросах к ним при помощи мобильных служб.
 
 -   [Приступая к работе с проверкой подлинности][Приступая к работе с проверкой подлинности]
@@ -198,13 +198,6 @@
 <!-- Images. -->
 <!-- URLs. -->
 
-  [Магазин Windows C#]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/ "Магазин Windows C#"
-  [Магазин Windows JavaScript]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/ "Магазин Windows JavaScript"
-  [Windows Phone]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/ "Windows Phone"
-  [iOS]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/ "iOS"
-  [Android]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/ "Android"
-  [Серверная часть .NET]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/ "Серверная часть .NET"
-  [Серверная часть JavaScript]: /ru-ru/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/ "Серверная часть JavaScript"
   [Создание запроса подписи сертификата]: #certificates
   [Регистрация приложения и включение push-уведомлений]: #register
   [Создание профиля подготовки для приложения]: #profile
@@ -225,11 +218,10 @@
   [mobile-services-dotnet-backend-test-local-service]: ../includes/mobile-services-dotnet-backend-test-local-service.md
   [mobile-services-dotnet-backend-publish-service]: ../includes/mobile-services-dotnet-backend-publish-service.md
   [mobile-services-dotnet-backend-configure-local-push]: ../includes/mobile-services-dotnet-backend-configure-local-push.md
-  []: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push1-ios.png
+  [0]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push1-ios.png
   [1]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push2-ios.png
   [2]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push3-ios.png
   [3]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push4-ios.png
   [Отправка push-уведомлений пользователям, прошедшим проверку подлинности]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-ios-push-notifications-app-users/
-  [Приступая к работе с данными (]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data
+  [Приступая к работе с данными]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data
   [Приступая к работе с проверкой подлинности]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users
-  [Что такое концентраторы уведомлений?]: /ru-ru/documentation/articles/notification-hubs-overview/

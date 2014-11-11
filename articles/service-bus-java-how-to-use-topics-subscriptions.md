@@ -1,6 +1,6 @@
 <properties linkid="dev-java-how-to-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (Java) - Azure" metaKeywords="Get started Azure Service Bus topics, Get Started Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions, Service Bus topic Java" description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Java applications." metaCanonical="" services="service-bus" documentationCenter="Java" title="How to Use Service Bus Topics/Subscriptions" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # Использование разделов и подписок Service Bus
 
@@ -24,7 +24,7 @@
 -   [Практическое руководство. Удаление разделов и подписок][Практическое руководство. Удаление разделов и подписок]
 -   [Дальнейшие действия][Дальнейшие действия]
 
-[WACOM.INCLUDE [howto-service-bus-topics][howto-service-bus-topics]]
+[WACOM.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
 
 ## <a name="bkmk_ConfigYourApp"> </a>Настройка приложения для использования Service Bus
 
@@ -324,7 +324,6 @@ Bus разблокирует сообщение автоматически и с
 Дополнительные сведения см. в статье [Очереди, разделы и подписки Service Bus][Очереди, разделы и подписки Service Bus] на портале MSDN.
 
   [Пакет Azure SDK для Java]: http://www.windowsazure.com/ru-ru/develop/java/
-  [Что такое разделы и подписки Service Bus?]: #what-are-service-bus-topics
   [Создание пространства имен службы]: #create-a-service-namespace
   [Получение учетных данных управления по умолчанию для пространства имен]: #obtain-default-credentials
   [Настройка приложения для использования шины обслуживания]: #bkmk_ConfigYourApp

@@ -1,6 +1,6 @@
 <properties linkid="manage-services-recovery-configure-backup-vault" urlDisplayName="Configure a Backup Vault" pageTitle="Configure Azure Recovery Services to quickly and easily back-up Windows Server" metaKeywords="disaster recovery" description="Use this tutorial to learn how to use the Backup service in Microsoft's Azure cloud offering to back up Windows Server to the cloud." metaCanonical="" services="recovery-services" documentationCenter="" title="Configure Azure Backup to quickly and easily back-up Windows Server" authors="raynew" solutions="" manager="johndaw" editor="tysonn" />
 
-<tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="raynew"></tags>
+<tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="raynew" />
 
 # <span id="configure-a-backup-vault-tutorial"></span></a>Настройка службы архивации Azure для быстрой и простой архивации Windows Server
 
@@ -87,11 +87,9 @@
 
 -   Посетите [форум о службе архивации Azure][форум о службе архивации Azure].
 
-  [Бесплатная пробная версия Azure]: /ru-ru/pricing/free-trial/
   [Портал управления]: https://manage.windowsazure.com
   [Новое хранилище архивации]: http://i.imgur.com/506c7ch.png
   [создание хранилища архивации]: http://i.imgur.com/grtLcKM.png
-  [Установка Azure Backup Agent для Windows Server 2012 и System Center 2012 с пакетом обновления 1 (SP1) — Data Protection Manager]: http://technet.microsoft.com/ru-ru/library/hh831761.aspx#BKMK_installagent
   [Установка Azure Backup Agent для Windows Server 2012 Essentials]: http://technet.microsoft.com/ru-ru/library/jj884318.aspx
   [Защищенные элементы]: ./media/backup-configure-vault/RS_protecteditems.png
   [Удаленный сервер]: ./media/backup-configure-vault/RS_deletedserver.png

@@ -1,6 +1,6 @@
 <properties linkid="service-bus-manage-messaging-entitites" urlDisplayName="Traffic Manager" pageTitle="Manage Service Bus Messaging Entities - Azure" metaKeywords="" description="Learn how to create and manage your Service Bus entities using the Azure Management Portal." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="service-bus" documentationCenter="" title="How to Manage Service Bus Messaging Entities" authors="sethm" solutions="" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="sethm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="sethm" />
 
 # Управление сущностями обмена сообщениями Service Bus
 
@@ -34,7 +34,7 @@
 
     а. Если в области или подписке Azure не определены пространства имен, автоматически создается новое пространство имен. В этом случае вы получите два сообщения об успехе: одно из них будет подтверждать создание пространства имен, а другое — создание сущности.
 
-    ![][]
+    ![][0]
 
 Щелкните значок **Service Bus** на панели навигации слева. Откроется список пространств имен. Щелкните созданное пространство имен в этом списке. На экране появится созданная вами в этом пространстве имен сущность.
 
@@ -107,7 +107,7 @@
   [Практическое руководство. Удаление сущности Service Bus]: #delete
   [Практическое руководство. Отключение и включение сущности Service Bus]: #disableenable
   [Дополнительные ресурсы]: #seealso
-  []: ./media/service-bus-manage-message-entities/QueueQuickCreate.png
+  [0]: ./media/service-bus-manage-message-entities/QueueQuickCreate.png
   [документации по Service Bus]: http://www.windowsazure.com/ru-ru/develop/net/how-to-guides/service-bus-relay/
   [1]: ./media/service-bus-manage-message-entities/AddQueue1.png
   [2]: ./media/service-bus-manage-message-entities/ConfigureQueue.png

@@ -1,6 +1,6 @@
 <properties linkid="develop-php-sql-database" urlDisplayName="SQL Database" pageTitle="How to use SQL Database (PHP) - Azure feature guides" metaKeywords="Azure SQL Database PHP, SQL Database PHP" description="Learn how to create and connect to an Azure SQL Database from PHP." metaCanonical="" services="sql-database" documentationCenter="PHP" title="How to Access Azure SQL Database from PHP" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # Доступ к базе данных SQL Azure из PHP
 
@@ -118,7 +118,6 @@
   [Практическое руководство. Создание базы данных SQL]: #CreateServer
   [Практическое руководство. Получение сведений о подключении к базе данных SQL]: #ConnectionInfo
   [Практическое руководство. Подключение к экземпляру базы данных SQL]: #Connect
-  [Рекомендации и ограничения (база данных SQL)]: http://msdn.microsoft.com/ru-ru/library/windowsazure/ff394102.aspx
   [драйверы корпорации Майкрософт для PHP и SQL Server]: http://www.microsoft.com/download/en/details.aspx?id=20098
   [Установщик веб-платформы корпорации Майкрософт]: http://go.microsoft.com/fwlink/?LinkId=253447
   []: http://php.net/manual/en/install.windows.iis7.php

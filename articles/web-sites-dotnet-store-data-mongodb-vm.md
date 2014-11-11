@@ -1,12 +1,12 @@
 <properties linkid="develop-dotnet-website-with-mongodb-vm" urlDisplayName="Website with MongoDB VM" pageTitle=".NET website with MongoDB on a virtual machine - Azure" metaKeywords="Azure Git ASP.NET MongoDB, Git .NET, Git MongoDB, ASP.NET MongoDB, Azure MongoDB, Azure ASP.NET, Azure tutorial" description="A tutorial that teaches you how to use Git to deploy an ASP.NET app to an Azure website connected to MongoDB on a virtual machine." metaCanonical="" services="web-sites,virtual-machines" documentationCenter=".NET" title="Create an Azure website that connects to MongoDB running on a virtual machine in Azure" authors="cephalin" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
 
 # Создание веб-сайта Azure, который подключается к базе данных MongoDB, выполняющейся на виртуальной машине в Azure
 
 С помощью Git можно развернуть приложение ASP.NET на веб-сайте Azure. В этом учебнике будет создано простое приложение списка задач MVC ASP.NET, которое подключается к базе данных MongoDB, запущенной на виртуальной машине в Azure. [MongoDB][MongoDB] является популярной, высокопроизводительной базой данных NoSQL с открытым исходным кодом. После запуска и тестирования приложения ASP.NET на компьютере разработчика вы отправите приложение на веб-сайт Azure с помощью Git.
 
-[WACOM.INCLUDE [create-account-and-websites-and-vms-note][create-account-and-websites-and-vms-note]]
+[WACOM.INCLUDE [create-account-and-websites-and-vms-note](../includes/create-account-and-websites-and-vms-note.md)]
 
 ## Обзор
 

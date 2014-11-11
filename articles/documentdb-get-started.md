@@ -1,6 +1,6 @@
 <properties title="Get started with a DocumentDB account" pageTitle="Get started with a DocumentDB account | Azure" description="Learn how to create and configure an Azure DocumentDB account, create databases, create collections, and store JSON documents within the account." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, getting started"   services="documentdb" solutions="data-management" documentationCenter=""  authors="bradsev" manager="paulettm" editor="cgronlun" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev"></tags>
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev" />
 
 # Начало работы с учетной записью DocumentDB
 
@@ -33,7 +33,7 @@
 
 Конечную точку и ключи учетной записи DocumentDB можно получить в выноске учетной записи DocumentDB на портале управления Azure предварительной версии.
 
-![][]
+![][0]
 
 > Обратите внимание, что ключи доступа DocumentDB, размещенные на выноске, предоставляют административный доступ к учетной записи DocumentDB и к ее ресурсам. DocumentDB также поддерживает использование ключей ресурсов, позволяющих клиентам читать, записывать и удалять ресурсы в учетной записи DocumentDB в соответствии с предоставленными вами разрешениями без необходимости использования ключа учетной записи.
 
@@ -196,7 +196,7 @@ DocumentDB поддерживает функционально богатые з
   [Создание документов]: #CreateDoc
   [Запрос ресурсов DocumentDB]: #Query
   [Дальнейшие действия]: #NextSteps
-  []: ./media/documentdb-get-started/gs1.png
+  [0]: ./media/documentdb-get-started/gs1.png
   [Веб-сайты Windows Azure: как работают строки приложений и строки подключения]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
   [контролировать учетную запись DocumentDB]: http://go.microsoft.com/fwlink/p/?LinkId=402378
   [странице документации DocumentDB]: http://go.microsoft.com/fwlink/p/?LinkID=402319

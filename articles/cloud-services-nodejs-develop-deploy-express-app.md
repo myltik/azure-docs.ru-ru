@@ -1,6 +1,6 @@
 <properties linkid="dev-nodejs-basic-web-app-with-express" urlDisplayName="Web App with Express" pageTitle="Web App with Express (Node.js) - Azure Tutorial" metaKeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" description="An tutorial that builds on the cloud service tutorial, and demonstrates how to use the Express module." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Build a Node.js web application using Express on an Azure Cloud Service" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Создание веб-приложения Node.js с использованием модуля Express в облачной службе Azure
 
@@ -21,7 +21,7 @@ Node.js включает в себя минимальный набор функ�
 
     ![Значок Azure PowerShell][Значок Azure PowerShell]
 
-    [WACOM.INCLUDE [установка-средств-разработки][установка-средств-разработки]]
+    [WACOM.INCLUDE [установка-средств-разработки](../includes/install-dev-tools.md)]
 
 2.  Перейдите в каталог **c:\\node**, а затем введите указанные ниже команды для создания нового решения с именем **expressapp** и рабочей роли с именем **WebRole1**.
 
@@ -125,5 +125,4 @@ Node.js включает в себя минимальный набор функ�
   [Веб-страница, содержащая приветствие модуля express.]: ./media/cloud-services-nodejs-develop-deploy-express-app/node28.png
   [Содержимое файла index.jade.]: ./media/cloud-services-nodejs-develop-deploy-express-app/getting-started-19.png
   []: http://jade-lang.com
-  [Последняя строка в файле index.jade содержит сообщение: p Welcome to \#{title} in Azure]: ./media/cloud-services-nodejs-develop-deploy-express-app/node31.png
   [Окно браузера со страницей приветствия Express в Azure]: ./media/cloud-services-nodejs-develop-deploy-express-app/node32.png

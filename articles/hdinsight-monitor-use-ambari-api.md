@@ -1,6 +1,6 @@
 <properties linkid="manage-services-hdinsight-use-Ambari" urlDisplayName="Monitor Hadoop clusters  in HDInsight using the Ambari API" pageTitle="Monitor Hadoop clusters in HDInsight using the Ambari API | Azure" metaKeywords="" description="Use the Apache Ambari APIs for provisioning, managing, and monitoring Hadoop clusters. Ambari's intuitive operator tools and APIs hide the complexity of Hadoop." services="hdinsight" documentationCenter="" title="Monitor Hadoop clusters in HDInsight using the Ambari API" umbracoNaviHide="0" disqusComments="1" authors="jgao" editor="cgronlun" manager="paulettm" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
 # Отслеживание кластеров Hadoop в HDInsight с помощью интерфейса Ambari API
 
@@ -10,15 +10,15 @@
 
 ## Содержание
 
--   [Что такое Ambari?][]
--   [Предварительные требования][]
--   [Приступая к работе][]
--   [Интерфейсы Ambari API для мониторинга][]
--   [Дальнейшие действия][]
+-   [Что такое Ambari?][Что такое Ambari?]
+-   [Предварительные требования][Предварительные требования]
+-   [Приступая к работе][Приступая к работе]
+-   [Интерфейсы Ambari API для мониторинга][Интерфейсы Ambari API для мониторинга]
+-   [Дальнейшие действия][Дальнейшие действия]
 
 ## <span id="whatisambari"></span></a>Что такое Ambari?
 
-[Проект Apache Ambari][] используется для подготовки, отслеживания кластеров Apache Hadoop и управления ими. Он включает в себя набор удобных средств и надежных интерфейсов API, который упрощают работу с кластерами Hadoop. Дополнительные сведения об интерфейсах API см. в [справочнике по Ambari API][].
+[Проект Apache Ambari][Проект Apache Ambari] используется для подготовки, отслеживания кластеров Apache Hadoop и управления ими. Он включает в себя набор удобных средств и надежных интерфейсов API, который упрощают работу с кластерами Hadoop. Дополнительные сведения об интерфейсах API см. в [справочнике по Ambari API][справочнике по Ambari API].
 
 В настоящее время HDInsight поддерживает только функцию мониторинга Ambari. Ambari API 1.0 поддерживается кластерами HDInsight версии 2.1 и 3.0. В этой статье описывается только использование Ambari API в кластерах HDInsight версии 2.1.
 
@@ -26,13 +26,13 @@
 
 Перед началом работы с этим учебником необходимо иметь следующее:
 
--   **Рабочая станция**, на которой установлена и настроена среда Azure PowerShell. Инструкции см. в разделе [Установка и настройка Azure PowerShell][]. Для выполнения скриптов PowerShell необходимо запустить Azure PowerShell с правами администратора и задать политику выполнения *RemoteSigned*. См. раздел [Выполнение скриптов Windows PowerShell][].
+-   **Рабочая станция**, на которой установлена и настроена среда Azure PowerShell. Инструкции см. в разделе [Установка и настройка Azure PowerShell][Установка и настройка Azure PowerShell]. Для выполнения скриптов PowerShell необходимо запустить Azure PowerShell с правами администратора и задать политику выполнения *RemoteSigned*. См. раздел [Выполнение скриптов Windows PowerShell][Выполнение скриптов Windows PowerShell].
 
-    [Curl][] использовать необязательно. Это средство можно установить [здесь][].
+    [Curl][Curl] использовать необязательно. Это средство можно установить [здесь][здесь].
 
     > [WACOM.NOTE] При использовании команды Curl в Windows указывайте двойные кавычки вместо одинарных кавычек для значений параметров.
 
--   **Кластер Azure HDInsight**. Инструкции по подготовке кластеров см. в разделе [Приступая к работе с HDInsight][] или [Подготовка кластеров HDInsight][]. Для выполнения учебника необходимы следующие данные:
+-   **Кластер Azure HDInsight**. Инструкции по подготовке кластеров см. в разделе [Приступая к работе с HDInsight][Приступая к работе с HDInsight] или [Подготовка кластеров HDInsight][Подготовка кластеров HDInsight]. Для выполнения учебника необходимы следующие данные:
 
     <table>
     <colgroup>
@@ -97,7 +97,7 @@
 
 Результаты:
 
-![Вывод Jobtracker][]
+![Вывод Jobtracker][Вывод Jobtracker]
 
 **Использование Curl**
 
@@ -124,7 +124,7 @@
 
 ## <span id="monitor"></span></a>Интерфейсы Ambari API для мониторинга
 
-В следующей таблице перечислены некоторые наиболее распространенные вызовы Ambari API для мониторинга. Дополнительные сведения об интерфейсах API см. в [справочнике по Ambari API][].
+В следующей таблице перечислены некоторые наиболее распространенные вызовы Ambari API для мониторинга. Дополнительные сведения об интерфейсах API см. в [справочнике по Ambari API][справочнике по Ambari API].
 
 <table>
 <colgroup>
@@ -207,13 +207,12 @@
 
 Теперь вы узнали, как использовать Ambari API для мониторинга. Дополнительные сведения см. на следующих ресурсах:
 
--   [Администрирование кластеров HDInsight с помощью портала управления][]
--   [Администрирование кластеров HDInsight с помощью Azure PowerShell][]
--   [Администрирование кластеров HDInsight с помощью интерфейса командной строки][]
--   [Документация по HDInsight][]
--   [Приступая к работе с HDInsight][]
+-   [Администрирование кластеров HDInsight с помощью портала управления][Администрирование кластеров HDInsight с помощью портала управления]
+-   [Администрирование кластеров HDInsight с помощью Azure PowerShell][Администрирование кластеров HDInsight с помощью Azure PowerShell]
+-   [Администрирование кластеров HDInsight с помощью интерфейса командной строки][Администрирование кластеров HDInsight с помощью интерфейса командной строки]
+-   [Документация по HDInsight][Документация по HDInsight]
+-   [Приступая к работе с HDInsight][Приступая к работе с HDInsight]
 
-  [Что такое Ambari?]: #whatisambari
   [Предварительные требования]: #prerequisites
   [Приступая к работе]: #jumpstart
   [Интерфейсы Ambari API для мониторинга]: #monitor
@@ -221,7 +220,7 @@
   [Проект Apache Ambari]: http://ambari.apache.org/
   [справочнике по Ambari API]: https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md
   [Установка и настройка Azure PowerShell]: ../install-configure-powershell/
-  [Выполнение скриптов Windows PowerShell]: http://technet.microsoft.com/en-us/library/ee176949.aspx
+  [Выполнение скриптов Windows PowerShell]: http://technet.microsoft.com/ru-ru/library/ee176949.aspx
   [Curl]: http://curl.haxx.se
   [здесь]: http://curl.haxx.se/download.html
   [Приступая к работе с HDInsight]: ../hdinsight-get-started/

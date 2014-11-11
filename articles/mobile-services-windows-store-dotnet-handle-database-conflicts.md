@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-optimistic-concurrent-data-dotnet" urlDisplayName="Optimistic concurrency" pageTitle="Handle database write conflicts with optimistic concurrency (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to handle database write conflicts on both the server and in your Windows Store application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Handling database write conflicts" authors="wesmc" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 
 # Обработка конфликтов записи базы данных
 
@@ -356,9 +356,6 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 
 <!-- Anchors.  Images.  URLs. -->
 
-  [Магазин Windows C#]: /ru-ru/develop/mobile/tutorials/handle-database-write-conflicts-dotnet/ "Магазин Windows C#"
-  [Магазин Windows JavaScript]: /ru-ru/documentation/articles/mobile-services-windows-store-javascript-handle-database-conflicts/ "Магазин Windows JavaScript"
-  [Windows Phone]: /ru-ru/develop/mobile/tutorials/handle-database-write-conflicts-wp8/ "Windows Phone"
   [Обновите приложение, чтобы разрешить обновления]: #uiupdate
   [Включите в приложении обнаружение конфликтов]: #enableOC
   [Протестируйте в приложении конфликты записи базы данных]: #test-app

@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-push-dotnet" urlDisplayName="Get Started with Push Notifications" pageTitle="Get started with push notifications - Mobile Services" metaKeywords="push notifications c#" description="Learn how to use push notifications with Azure Mobile Services." metaCanonical="http://www.windowsazure.com/ru-ru/develop/mobile/tutorials/get-started-with-push-dotnet/" disqusComments="0" umbracoNaviHide="1" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services using Visual Studio 2012" authors="glenga" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Приступая к работе с push-уведомлениями в мобильных службах с помощью Visual Studio 2012
 
@@ -40,13 +40,13 @@
 
 Чтобы отправлять push-уведомления в приложения Магазина Windows из мобильных служб, необходимо отправить приложение в Магазин Windows. После этого необходимо настроить мобильную службу на интеграцию с WNS.
 
-[WACOM.INCLUDE [mobile-services-register-windows-store-app][mobile-services-register-windows-store-app]]
+[WACOM.INCLUDE [mobile-services-register-windows-store-app](../includes/mobile-services-register-windows-store-app.md)]
 
 Мобильная служба и приложение теперь настроены для работы с WNS. Далее нужно создать таблицу для хранения регистраций.
 
 ## <a name="create-table"></a>Создание новой таблицы
 
-[WACOM.INCLUDE [mobile-services-create-new-push-table][mobile-services-create-new-push-table]]
+[WACOM.INCLUDE [mobile-services-create-new-push-table](../includes/mobile-services-create-new-push-table.md)]
 
 ## <a name="add-push"></a><span class="short-header">Добавление push-уведомлений</span>Добавление push-уведомлений в приложение
 
@@ -92,7 +92,7 @@
 
 ## <a name="update-scripts"></a><span class="short-header">Обновление сценария вставки</span>Обновление зарегистрированных сценариев вставки на портале управления
 
-[WACOM.INCLUDE [mobile-services-update-registrations-script][mobile-services-update-registrations-script]]
+[WACOM.INCLUDE [mobile-services-update-registrations-script](../includes/mobile-services-update-registrations-script.md)]
 
 1.  Последовательно щелкните **TodoItem**, **Скрипт** и **Вставить**.
 
@@ -176,14 +176,6 @@
 <!-- Images. -->
 <!-- URLs. -->
 
-  [Магазин Windows C#]: /ru-ru/develop/mobile/tutorials/get-started-with-push-dotnet-vs2012 "Магазин Windows C#"
-  [Магазин Windows JavaScript]: /ru-ru/develop/mobile/tutorials/get-started-with-push-js-vs2012 "Магазин Windows JavaScript"
-  [Windows Phone]: /ru-ru/develop/mobile/tutorials/get-started-with-push-wp8 "Windows Phone"
-  [iOS]: /ru-ru/develop/mobile/tutorials/get-started-with-push-ios "iOS"
-  [Android]: /ru-ru/develop/mobile/tutorials/get-started-with-push-android "Android"
-  [Xamarin.iOS]: /ru-ru/develop/mobile/tutorials/get-started-with-push-xamarin-ios "Xamarin.iOS"
-  [Xamarin.Android]: /ru-ru/develop/mobile/tutorials/get-started-with-push-xamarin-android "Xamarin.Android"
-  [Приступая к работе с push-уведомлениями]: /ru-ru/develop/mobile/tutorials/get-started-with-push-dotnet
   [Регистрация приложения для push-уведомлений и конфигурация мобильных служб]: #register
   [Создание таблицы регистраций]: #create-table
   [Добавление push-уведомлений в приложение]: #add-push
@@ -198,7 +190,6 @@
   [2]: ./media/mobile-services-windows-store-dotnet-get-started-push-vs2012/mobile-quickstart-push1.png
   [3]: ./media/mobile-services-windows-store-dotnet-get-started-push-vs2012/mobile-quickstart-push2.png
   [Приступая к работе с центрами уведомлений]: /ru-ru/manage/services/notification-hubs/getting-started-windows-dotnet/
-  [Что такое центры уведомлений?]: /ru-ru/develop/net/how-to-guides/service-bus-notification-hubs/
   [Рассылка уведомлений подписчикам]: /ru-ru/manage/services/notification-hubs/breaking-news-dotnet/
   [Рассылка уведомлений пользователям]: /ru-ru/manage/services/notification-hubs/notify-users/
   [Отправка пользователям уведомлений между различными платформами]: /ru-ru/manage/services/notification-hubs/notify-users-xplat-mobile-services/

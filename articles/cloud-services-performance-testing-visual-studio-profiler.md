@@ -1,6 +1,6 @@
 <properties linkid="dev-net-common-tasks-profiling-in-compute-emulator" urldisplayname="Team Foundation Service" headerexpose="" pageTitle="Profiling a Cloud Service Locally in the Compute Emulator" metakeywords="" footerexpose="" description="" umbraconavihide="0" disquscomments="1" title="Testing the Performance of a Cloud Service Locally in the Azure Compute Emulator Using the Visual Studio Profiler" authors="ghogen" manager="douge" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ghogen"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ghogen" />
 
 # Локальное тестирование производительности облачной службы в эмуляторе вычислений Azure с помощью профилировщика Visual Studio
 
@@ -35,7 +35,7 @@
 
 Во-первых, есть несколько параметров настройки Visual Studio, которые могут быть полезны при выполнении профилирования. Для работы с отчетами профилирования потребуются символы (PDB-файлы) для вашего приложения, а также символы для системных библиотек. Потребуется убедиться, что указаны доступные серверы символов. Для этого в меню **Средства** в Visual Studio выберите **Параметры**, а затем **Отладка** и **Символы**. Убедитесь, что в **Местоположение файла символов (PDB)** указаны серверы символов корпорации Майкрософт. Также можно указать адрес <http://referencesource.microsoft.com/symbols>, который может содержать дополнительные файлы символов.
 
-![][]
+![][0]
 
 При желании можно упростить создаваемые профилировщиком отчеты, установив флажок "Только мой код". При включенном параметре "Только мой код" стеки вызова функции упрощаются благодаря скрытию в отчетах вызовов в пределах библиотек и платформы .NET Framework. В меню **Средства** выберите **Параметры**. Затем разверните узел **Средства производительности** и выберите команду **Общие**. Установите флажок **Включить только мой код для отчетов профилировщика**.
 
@@ -183,7 +183,7 @@
   [Шаг 4: Внесение изменений и сравнение производительности]: #step4
   [Устранение неполадок]: #troubleshooting
   [Дальнейшие действия]: #nextSteps
-  []: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally09.png
+  [0]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally09.png
   [1]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally08.png
   [2]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally10.png
   [3]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally02.png

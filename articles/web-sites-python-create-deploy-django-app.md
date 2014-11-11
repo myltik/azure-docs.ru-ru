@@ -1,6 +1,6 @@
 <properties linkid="develop-python-web-site-with-django" urlDisplayName="Websites with Django" pageTitle="Python Websites with Django - Azure tutorial" metaKeywords="Azure django, django website" description="A tutorial that introduces you to running a Python website on Azure." metaCanonical="" services="web-sites" documentationCenter="Python" title="Creating Websites with Django" authors="huvalo" solutions="" manager="" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 # Создание веб-сайтов с помощью Django
 
@@ -8,7 +8,7 @@
 
 В этом учебном курсе показано, как развертывать приложение, созданное с помощью веб-платформы Django. В этом учебном курсе также описываются действия для развертывания приложения и всех требуемых библиотек, включая Django. Все это будет помещено в репозиторий Git, который позволяет быстро и просто помещать обновления на веб-сайт. И наконец, вновь созданный сайт будет настроен через Azure таким образом, чтобы на нем выполнялось приложение Python.
 
-[WACOM.INCLUDE [создать-учетная запись-и-веб-сайт-примечание][создать-учетная запись-и-веб-сайт-примечание]]
+[WACOM.INCLUDE [создать-учетная запись-и-веб-сайт-примечание](../includes/create-account-and-websites-note.md)]
 
 В этом учебном руководстве используются Python 2.7 и Django 1.4. Можно либо получить эти компоненты самостоятельно, либо быстро и легко установить их с помощью ссылки установщика Windows на странице [][]<http://www.windowsazure.com/ru-ru/develop/python/></a>.
 
@@ -26,7 +26,7 @@
 
 Первым этапом в создании приложения является создание веб-сайта с помощью портала управления Azure. Для этого понадобится войти на портал и нажать кнопку СОЗДАТЬ в нижнем левом углу. Откроется окно. Нажмите кнопку **Быстрое создание**, введите URL-адрес и выберите **Создать веб-сайт**.
 
-![][]
+![][0]
 
 Веб-сайт будет быстро создан. Далее, можно добавить поддержку публикации с помощью Git. Это можно сделать, выбрав **Настроить развертывания в системе управления версиями**.
 
@@ -133,9 +133,9 @@
 Теперь можно перейти в каталог DjangoApplication и использовать manage.py, как обычно, чтобы начать добавлять новые приложения в проект Django.
 
   [создать-учетная запись-и-веб-сайт-примечание]: ../includes/create-account-and-websites-note.md
-  []: http://www.windowsazure.com/ru-ru/develop/python/
+  [0]: http://www.windowsazure.com/ru-ru/develop/python/
   [msysgit]: http://code.google.com/p/msysgit/
-  []: ./media/web-sites-python-create-deploy-django-app/django-ws-003.png
+  [0]: ./media/web-sites-python-create-deploy-django-app/django-ws-003.png
   [1]: ./media/web-sites-python-create-deploy-django-app/django-ws-004.png
   [2]: ./media/web-sites-python-create-deploy-django-app/django-ws-005.png
   [3]: ./media/web-sites-python-create-deploy-django-app/django-ws-006.png

@@ -1,6 +1,6 @@
 <properties linkid="develop-php-how-to-guides-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (PHP) - Azure" metaKeywords="" description="Learn how to use Service Bus topics with PHP in Azure." metaCanonical="" services="service-bus" documentationCenter="PHP" title="How to Use Service Bus Topics/Subscriptions" authors="sethm" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="sethm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="sethm" />
 
 # Использование разделов и подписок Service Bus
 
@@ -23,7 +23,7 @@
 -   [Практическое руководство. Удаление разделов и подписок][Практическое руководство. Удаление разделов и подписок]
 -   [Дальнейшие действия][Дальнейшие действия]
 
-[WACOM.INCLUDE [руководство-разделы-service-bus][руководство-разделы-service-bus]]
+[WACOM.INCLUDE [руководство-разделы-service-bus](../includes/howto-service-bus-topics.md)]
 
 ## <span id="CreateApplication"></span></a>Создание приложения на PHP
 
@@ -36,7 +36,7 @@
 
 ## <span id="GetClientLibrary"></span></a>Получение клиентских библиотек Azure
 
-[WACOM.INCLUDE [получение-клиент-библиотеки][получение-клиент-библиотеки]]
+[WACOM.INCLUDE [получение-клиент-библиотеки](../includes/get-client-libraries.md)]
 
 ## <span id="ConfigureApp"></span></a>Настройка приложения для использования Service Bus
 
@@ -321,7 +321,6 @@ Service Bus предоставляет функции, помогающие ко
 Дополнительные сведения см. в статье [Очереди, разделы и подписки][Очереди, разделы и подписки] на портале MSDN.
 
   [пакет Azure SDK для PHP]: http://go.microsoft.com/fwlink/?LinkId=252473
-  [Что такое разделы и подписки Service Bus?]: #what-are-service-bus-topics
   [Создание пространства имен службы]: #create-a-service-namespace
   [Получение учетных данных управления по умолчанию для пространства имен]: #obtain-default-credentials
   [Создание приложения PHP]: #CreateApplication
@@ -337,6 +336,5 @@ Service Bus предоставляет функции, помогающие ко
   [руководство-разделы-service-bus]: ../includes/howto-service-bus-topics.md
   [расширение OpenSSL]: http://php.net/openssl
   [получение-клиент-библиотеки]: ../includes/get-client-libraries.md
-  [require\_once]: http://php.net/require_once
   [свойства SqlFilter.SqlExpression]: http://msdn.microsoft.com/ru-ru/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [Очереди, разделы и подписки]: http://msdn.microsoft.com/ru-ru/library/windowsazure/hh367516.aspx

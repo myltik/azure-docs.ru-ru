@@ -1,6 +1,6 @@
 <properties urlDisplayName="" pageTitle="Using Resource groups to manage your Azure resources" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Using Resource groups to manage your Azure resources" authors="Nafisa Bhojawala"  solutions="" writer="" manager="" editor=""  />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Nafisa Bhojawala"></tags>
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Nafisa="" Bhojawala" />
 
 # Использование групп ресурсов для управления ресурсами Azure
 
@@ -16,7 +16,7 @@
 
 При создании ресурса на портале (предварительная версия) ресурс всегда создается в группе ресурсов. Можно создать новую группу ресурсов или использовать существующую группу ресурсов при создании потока.
 
-![][]
+![][0]
 
 При создании приложения, состоящего из нескольких совместно работающих ресурсов (например, веб-сайт + база данных), оно всегда создается в собственной группе ресурсов, что позволяет управлять жизненным циклом всех связанных с приложением ресурсов с помощью группы ресурсов. По мере развития приложения можно добавить дополнительные ресурсы или удалить их из группы ресурсов.
 
@@ -51,7 +51,7 @@
 
 ![][6]
 
-  []: http://i.imgur.com/USKkQdW.png
+  [0]: http://i.imgur.com/USKkQdW.png
   [1]: http://i.imgur.com/Me0jbio.png
   [2]: http://i.imgur.com/PhJeLZQ.png
   [3]: http://i.imgur.com/5Wqv2XR.png

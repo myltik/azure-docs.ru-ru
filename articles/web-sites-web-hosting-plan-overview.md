@@ -1,6 +1,6 @@
 <properties pageTitle="What is a web hosting plan?" description="Web hosting plan overview" title="What is a web hosting plan?" services="web-sites" authors="adamab" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="adamab"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="adamab" />
 
 # Что такое план размещения веб-сайтов?
 
@@ -34,7 +34,7 @@
 
 Можно просмотреть все планы размещения веб-сайтов для всех ваших подписок, нажав кнопку **Обзор** в левой строке меню, а затем щелкнув элемент **Все** в верхней правой части области действия, которая появилась на экране.
 
-![][]
+![][0]
 ![][1]
 
 Можно также узнать, какому плану размещения веб-сайтов соответствует каждый веб-сайт, просмотрев графическое представление группы ресурсов, отображаемое в верхней части выноски вашего веб-сайта.
@@ -53,7 +53,7 @@
 
   [Здесь]: http://go.microsoft.com/fwlink/?LinkID=394421
   [Дополнительные сведения об управлении планами размещения веб-сайтов]: http://go.microsoft.com/fwlink/?LinkID=394411
-  []: ./media/web-sites-web-hosting-plan-overview/browse-everything.png
+  [0]: ./media/web-sites-web-hosting-plan-overview/browse-everything.png
   [1]: ./media/web-sites-web-hosting-plan-overview/browse-web-hosting-plans.png
   [2]: ./media/web-sites-web-hosting-plan-overview/web-hosting-plan-resource-map.png
   [3]: ./media/web-sites-web-hosting-plan-overview/web-hosting-plan-blade.png

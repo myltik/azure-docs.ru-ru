@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-validate-modify-and-augment-data-android" urlDisplayName="Validate Data - Android" pageTitle="Use server scripts to validate and modify data (Android) | Mobile Dev Center" metaKeywords="" description="Learn how to validate and modify data sent using server scripts from your Android app." metaCanonical="" services="" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="ricksal" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
 
 # Проверка и изменение данных в мобильных службах с помощью серверных скриптов
 
@@ -25,7 +25,7 @@
 
 1.  Выполните вход на [портал управления Azure][портал управления Azure], щелкните элемент **Мобильные службы**, а затем выберите свое приложение.
 
-    ![][]
+    ![][0]
 
 2.  Откройте вкладку **Данные** и щелкните таблицу **TodoItem**.
 
@@ -216,21 +216,13 @@
 
 
 
-  [Магазин Windows — C#]: /ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet "Магазин Windows — C#"
-  [Магазин Windows —JavaScript]: /ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-js "Магазин Windows — JavaScript"
-  [Windows Phone]: /ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-wp8 "Windows Phone"
-  [iOS]: /ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-ios "iOS"
-  [Android]: /ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-android "Android"
-  [HTML]: /ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-html "HTML"
-  [Xamarin.iOS]: /ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios "Xamarin.iOS"
-  [Xamarin.Android]: /ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android "Xamarin.Android"
   [Добавление проверки длины строки]: #string-length-validation
   [Обновление клиента для поддержки проверки]: #update-client-validation
   [Добавление отметки времени при вставке]: #add-timestamp
   [Обновление клиента для отображения отметки времени]: #update-client-timestamp
   [Приступая к работе с данными]: /ru-ru/develop/mobile/tutorials/get-started-with-data-android
   [портал управления Azure]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-android-validate-modify-data-server-scripts/mobile-services-selection.png
+  [0]: ./media/mobile-services-android-validate-modify-data-server-scripts/mobile-services-selection.png
   [1]: ./media/mobile-services-android-validate-modify-data-server-scripts/mobile-portal-data-tables.png
   [2]: ./media/mobile-services-android-validate-modify-data-server-scripts/mobile-insert-script-users.png
   [Уточнение запросов c разбиением по страницам]: /ru-ru/develop/mobile/tutorials/add-paging-to-data-android

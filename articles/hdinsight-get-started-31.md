@@ -1,6 +1,6 @@
 <properties linkid="manage-services-hdinsight-get-started-hdinsight-hadoop-3.0" urlDisplayName="Get Started" pageTitle="Get started using Hadoop in HDInsight | Azure" metaKeywords="" description="Get started using Hadoop in HDInsight, a big data solution. Learn how to provision clusters, run hive jobs, and output data to Excel for analysis." metaCanonical="" services="hdinsight" documentationCenter="" title="Get started using Hadoop in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
 # Приступая к работе с Hadoop 2.4 в HDInsight (предварительная версия)
 
@@ -200,9 +200,6 @@ HDInsight использует для хранения данных хранил
 -   [Разработка программ потоковой передачи Hadoop на C# для HDInsight][Разработка программ потоковой передачи Hadoop на C# для HDInsight]
 -   [Разработка программ MapReduce на Java для HDInsight][Разработка программ MapReduce на Java для HDInsight]
 
-  [Hadoop 2.2]: ../hdinsight-get-started "Начало работы с Hadoop 2.2 в HDInsight"
-  [Hadoop 2.4]: ../hdinsight-get-started-31 "Начало работы с Hadoop 2.4 в HDInsight"
-  [Hadoop 1.2]: ../hdinsight-get-started-21 "Приступая к работе с Hadoop 1.2 в HDInsight"
   [Apache Hadoop]: http://hadoop.apache.org/
   [Новые возможности версий кластеров, предоставляемых HDInsight.]: ../hdinsight-component-versioning/
   [![HDI.getstarted.video][img-hdi-getstarted-video]]: https://www.youtube.com/watch?v=Y4aNjnoeaHA&list=PLDrz-Fkcb9WWdY-Yp6D4fTC1ll_3lU-QS

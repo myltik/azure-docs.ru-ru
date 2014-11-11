@@ -1,29 +1,29 @@
 <properties linkid="manage-services-hdinsight-administer-hdinsight-hadoop-clusters-using-powershell" urlDisplayName="HDInsight Administration" pageTitle="Manage Hadoop clusters in HDInsight with Azure PowerShell | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure, Hadoop, administration, administer" description="Learn how to perform administrative tasks for the Hadoop clusters in HDInsight using Azure PowerShell." services="hdinsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="Manage Hadoop clusters in HDInsight using Azure PowerShell" authors="jgao" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
 # Управление кластерами Hadoop в HDInsight с использованием Azure PowerShell
 
-Azure PowerShell — это полнофункциональная среда сценариев, которую можно использовать для контроля и автоматизации развертывания и управления вашей рабочей нагрузкой в Azure. В этой статье вы узнаете, как управлять кластерами Hadoop в HDInsight с помощью локальной консоли Azure PowerShell, используя Windows PowerShell. Список командлетов HDInsight PowerShell см. в [Справочнике по командлетам HDInsight][].
+Azure PowerShell — это полнофункциональная среда сценариев, которую можно использовать для контроля и автоматизации развертывания и управления вашей рабочей нагрузкой в Azure. В этой статье вы узнаете, как управлять кластерами Hadoop в HDInsight с помощью локальной консоли Azure PowerShell, используя Windows PowerShell. Список командлетов HDInsight PowerShell см. в [Справочнике по командлетам HDInsight][Справочнике по командлетам HDInsight].
 
 **Предварительные требования:**
 
 Перед началом работы с этой статьей необходимо иметь следующее:
 
--   Подписка Azure. Azure — это платформа на основе подписок. Командлеты HDInsight PowerShell предназначены для выполнения задач по подписке. Дополнительные сведения о получении подписки см. в разделах [Варианты приобретения][], [Предложения для участников][] или [Бесплатное пробное использование][].
+-   Подписка Azure. Azure — это платформа на основе подписок. Командлеты HDInsight PowerShell предназначены для выполнения задач по подписке. Дополнительные сведения о получении подписки см. в разделах [Варианты приобретения][Варианты приобретения], [Предложения для участников][Предложения для участников] или [Бесплатное пробное использование][Бесплатное пробное использование].
 
--   Рабочая станция с Azure PowerShell. Инструкции см. в разделе [Установка и настройка Azure PowerShell][].
+-   Рабочая станция с Azure PowerShell. Инструкции см. в разделе [Установка и настройка Azure PowerShell][Установка и настройка Azure PowerShell].
 
 ## Содержание
 
--   [Подготовка кластера][]
--   [Отображение кластеров][]
--   [Удаление кластера][]
--   [Предоставление и отмена доступа к службам HTTP][]
--   [Отправка заданий MapReduce][]
--   [Отправка заданий Hive][]
--   [Отправка данных в хранилище BLOB-объектов][]
--   [Загрузка выходных данных MapReduce из хранилища BLOB-объектов][]
+-   [Подготовка кластера][Подготовка кластера]
+-   [Отображение кластеров][Отображение кластеров]
+-   [Удаление кластера][Удаление кластера]
+-   [Предоставление и отмена доступа к службам HTTP][Предоставление и отмена доступа к службам HTTP]
+-   [Отправка заданий MapReduce][Отправка заданий MapReduce]
+-   [Отправка заданий Hive][Отправка заданий Hive]
+-   [Отправка данных в хранилище BLOB-объектов][Отправка данных в хранилище BLOB-объектов]
+-   [Загрузка выходных данных MapReduce из хранилища BLOB-объектов][Загрузка выходных данных MapReduce из хранилища BLOB-объектов]
 
 ## <span id="provision"></span></a>Подготовка кластера HDInsight
 
@@ -47,7 +47,7 @@ HDInsight использует контейнер хранилища BLOB-объ
 > -   Восток США
 > -   Запад США
 
-Сведения о создании учетной записи хранения Azure с помощью портала управления см. в разделе [Создание учетной записи хранения][].
+Сведения о создании учетной записи хранения Azure с помощью портала управления см. в разделе [Создание учетной записи хранения][Создание учетной записи хранения].
 
 Если у вас уже есть учетная запись хранения, но вы не знаете имени и ключа учетной записи, можно использовать следующие команды для получения нужных сведений:
 
@@ -56,7 +56,7 @@ HDInsight использует контейнер хранилища BLOB-объ
     # List the keys for a storage account
     Get-AzureStorageKey <StorageAccountName>
 
-Подробную информацию о получении сведений с использованием портала управления см. в *Практическом руководстве: Просмотр, копирование и повторное создание ключей доступа к хранилищу*, раздел [Управление учетными записями хранения][].
+Подробную информацию о получении сведений с использованием портала управления см. в *Практическом руководстве: Просмотр, копирование и повторное создание ключей доступа к хранилищу*, раздел [Управление учетными записями хранения][Управление учетными записями хранения].
 
 **Создание контейнера хранилища Azure**
 
@@ -92,7 +92,7 @@ PowerShell не может создать контейнер BLOB-объекто
 
 На следующем снимке экрана показано выполнение сценария:
 
-![HDI.PS.Provision][]
+![HDI.PS.Provision][HDI.PS.Provision]
 
 ## <span id="listshow"></span></a> Отображение сведений о кластере
 
@@ -130,7 +130,7 @@ PowerShell не может создать контейнер BLOB-объекто
 
 > [WACOM.NOTE] Предоставляя или отменяя доступ, вы переопределяете имя пользователя и пароль кластера.
 
-Это можно сделать также с помощью портала управления Windows Azure. См. раздел [Администрирование кластеров HDInsight с использованием портала управления][].
+Это можно сделать также с помощью портала управления Windows Azure. См. раздел [Администрирование кластеров HDInsight с использованием портала управления][Администрирование кластеров HDInsight с использованием портала управления].
 
 ## <span id="mapreduce"></span></a> Отправка заданий MapReduce
 
@@ -170,7 +170,7 @@ PowerShell не может создать контейнер BLOB-объекто
     # Display the output
     cat ./example/data/WordCountOutput/part-r-00000 | findstr "there"
 
-Дополнительные сведения о разработке и выполнении заданий MapReduce см. в разделе [Использование MapReduce с HDInsight][].
+Дополнительные сведения о разработке и выполнении заданий MapReduce см. в разделе [Использование MapReduce с HDInsight][Использование MapReduce с HDInsight].
 
 ## <span id="hive"></span></a> Отправка заданий Hive
 
@@ -195,30 +195,30 @@ PowerShell не может создать контейнер BLOB-объекто
 
 Задание Hive сначала отобразит таблицы Hive, созданные в кластере, и данные, возвращенные из таблицы hivesampletable.
 
-Дополнительные сведения об использовании Hive см. в разделе [Использование Hive с HDInsight][].
+Дополнительные сведения об использовании Hive см. в разделе [Использование Hive с HDInsight][Использование Hive с HDInsight].
 
 ## <span id="upload"></span></a>Отправка данных в хранилище BLOB-объектов
 
-См. раздел [Отправка данных в HDInsight][].
+См. раздел [Отправка данных в HDInsight][Отправка данных в HDInsight].
 
 ## <span id="download"></span></a>Загрузка выходных данных MapReduce из хранилища BLOB-объектов
 
-См. раздел [Отправка заданий MapReduce][] в этой статье.
+См. раздел [Отправка заданий MapReduce][Отправка заданий MapReduce] в этой статье.
 
 ## См. также
 
 -   [Справочная документация по командлетам HDInsight][Справочнике по командлетам HDInsight]
 -   [Администрирование HDInsight с использованием портала управления][Администрирование кластеров HDInsight с использованием портала управления]
--   [Администрирование HDInsight с использованием интерфейса командной строки][]
--   [Подготовка кластеров HDInsight к работе][]
--   [Отправка данных в HDInsight][]
--   [Отправка заданий Hadoop программными средствами][]
--   [Приступая к работе с Azure HDInsight][]
+-   [Администрирование HDInsight с использованием интерфейса командной строки][Администрирование HDInsight с использованием интерфейса командной строки]
+-   [Подготовка кластеров HDInsight к работе][Подготовка кластеров HDInsight к работе]
+-   [Отправка данных в HDInsight][Отправка данных в HDInsight]
+-   [Отправка заданий Hadoop программными средствами][Отправка заданий Hadoop программными средствами]
+-   [Приступая к работе с Azure HDInsight][Приступая к работе с Azure HDInsight]
 
-  [Справочнике по командлетам HDInsight]: http://msdn.microsoft.com/en-us/library/windowsazure/dn479228.aspx
-  [Варианты приобретения]: http://azure.microsoft.com/en-us/pricing/purchase-options/
-  [Предложения для участников]: http://azure.microsoft.com/en-us/pricing/member-offers/
-  [Бесплатное пробное использование]: http://azure.microsoft.com/en-us/pricing/free-trial/
+  [Справочнике по командлетам HDInsight]: http://msdn.microsoft.com/ru-ru/library/windowsazure/dn479228.aspx
+  [Варианты приобретения]: http://azure.microsoft.com/ru-ru/pricing/purchase-options/
+  [Предложения для участников]: http://azure.microsoft.com/ru-ru/pricing/member-offers/
+  [Бесплатное пробное использование]: http://azure.microsoft.com/ru-ru/pricing/free-trial/
   [Установка и настройка Azure PowerShell]: ../install-configure-powershell/
   [Подготовка кластера]: #provision
   [Отображение кластеров]: #listshow

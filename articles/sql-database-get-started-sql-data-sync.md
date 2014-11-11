@@ -1,6 +1,6 @@
 <properties linkid="manage-services-sql-databases-datasync" urlDisplayName="How to sync data" pageTitle="Getting started with SQL Databases Data Sync" metaKeywords="" description="" metaCanonical="" services="sql-database" documentationCenter="" title="Getting Started with Azure SQL Data Sync" authors="spelleru" solutions="" manager="" editor="" />
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelleru"></tags>
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelleru" />
 
 # Приступая к работе с синхронизацией данных SQL Azure
 
@@ -176,7 +176,6 @@
 -   [Жизненный цикл базы данных SQL Server][Жизненный цикл базы данных SQL Server]
 
   [Шаг 1: подключение к базе данных SQL Azure]: #Connect
-  [Шаг 2: добавление агента клиента ()]: #AddAgent
   [Шаг 3: регистрация базы данных SQL Server в агенте клиента]: #RegisterSSDB
   [Шаг 4: создание группы синхронизации]: #CreateSG
   [Шаг 5: выбор данных для синхронизации]: #SyncRules
@@ -185,7 +184,6 @@
   [рисунок 1]: ./media/sql-database-get-started-data-sync/SQLDatabaseScreen-Figure1.PNG
   [отсюда]: http://go.microsoft.com/fwlink/?linkid=205836
   [1]: http://www.microsoft.com/download/en/details.aspx?id=26728
-  [Установка агента клиента (синхронизация данных SQL)]: http://msdn.microsoft.com/ru-ru/library/jj823137.aspx
   [Как зарегистрировать базу данных SQL Server в клиентском агенте]: http://msdn.microsoft.com/ru-ru/library/jj823138.aspx
   [рисунок 2]: ./media/sql-database-get-started-data-sync/NewSyncGroup-Figure2.png
   [рисунок 3]: ./media/sql-database-get-started-data-sync/NewSyncGroupName-Figure3.PNG
@@ -193,6 +191,5 @@
   [рисунок 5]: ./media/sql-database-get-started-data-sync/NewSyncGroupReference-Figure5.PNG
   [рисунок 6]: ./media/sql-database-get-started-data-sync/NewSyncGroupSyncRules-Figure6.PNG
   [рисунок 7]: ./media/sql-database-get-started-data-sync/NewSyncGroupConfigure-Figure7.PNG
-  [Синхронизация данных SQL (портал WA)]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj856263.aspx
   [Приступая к работе с базой данных SQL Azure]: ../getting-started-w-sql-databases/
   [Жизненный цикл базы данных SQL Server]: http://go.microsoft.com/fwlink/?LinkId=275193

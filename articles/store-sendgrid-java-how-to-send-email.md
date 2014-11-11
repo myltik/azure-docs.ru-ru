@@ -1,6 +1,6 @@
 <properties linkid="dev-java-how-to-access-control" urlDisplayName="SendGrid Email Service" pageTitle="How to use the SendGrid email service (Java) - Azure" metaKeywords="Azure SendGrid, Azure email service, Azure SendGrid Java, Azure email Java" description="Learn how send email with the SendGrid email service on Azure. Code samples written in Java." metaCanonical="" services="" documentationCenter="Java" title="How to Send Email Using SendGrid from Java" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # Как отправлять электронную почту с помощью SendGrid из Java
 
@@ -36,7 +36,7 @@ SendGrid — это [облачная служба электронной поч
 
 ## <a name="bkmk_CreateSendGridAcct"> </a> Создание учетной записи SendGrid
 
-[WACOM.INCLUDE [sendgrid-sign-up][sendgrid-sign-up]]
+[WACOM.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
 ## <a name="bkmk_HowToUseJavax"> </a>Практическое руководство. Использование библиотек javax.mail
 
@@ -190,7 +190,6 @@ SendGrid поддерживает различные веб-API, с помощь
 -   Специальное предложение SendGrid для клиентов Azure: <http://sendgrid.com/azure.html>
 
   [Дальнейшие действия]: #bkmk_NextSteps
-  [Что такое служба электронной почты SendGrid?]: #bkmk_WhatIsSendGrid
   [Создание учетной записи SendGrid]: #bkmk_CreateSendGridAcct
   [Практическое руководство. Использование библиотек javax.mail]: #bkmk_HowToUseJavax
   [Практическое руководство. Создание электронного сообщения]: #bkmk_HowToCreateEmail

@@ -1,6 +1,6 @@
 <properties title="HDInsight Release Notes" pageTitle="HDInsight Release Notes | Azure" description="HDInsight release notes." metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure, release notes" services="HDInsight" solutions="" documentationCenter="" editor="cgronlun" manager="paulettm"  authors="bradsev" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
 
 # Заметки о выпуске Microsoft HDInsight
 
@@ -44,7 +44,7 @@
 -   **Доступность HDP 2.1**: Служба HDInsight 3.1, содержащая HDP 2.1, теперь общедоступна и представляет собой версию по умолчанию для новых кластеров.
 -   **HBase – улучшения портала управления Azure**: Кластеры HBase становятся доступны в предварительной версии. Теперь можно создавать кластеры HBase из портала с помощью всего 3 щелчков.
 
-![][]
+![][0]
 
 Благодаря кластерам HBase можно создавать различные рабочие нагрузки на HDInsight в реальном времени, начиная от интерактивных веб-сайтов с большими наборами данных до служб, сохраняющих данные датчиков и телеметрии от миллионов конечных точек. На следующем шаге было бы необходимо проанализировать данные в этих рабочих нагрузках с помощью заданий Hadoop. Это можно сделать прямо в службе HDInsight через такие представленные интерфейсы, как PowerShell и панель мониторинга кластеров Hive.
 
@@ -428,7 +428,7 @@ templeton.port
   [New-AzureHDInsightCluster]: http://msdn.microsoft.com/ru-ru/library/dn593744.aspx
   [HDInsight SDK]: http://msdn.microsoft.com/ru-ru/library/azure/dn469975.aspx
   [Версии компонентов HDInsight]: http://azure.microsoft.com/ru-ru/documentation/articles/hdinsight-component-versioning/
-  []: http://i.imgur.com/cmOl5fM.png
+  [0]: http://i.imgur.com/cmOl5fM.png
   [Mahout]: http://hortonworks.com/hadoop/mahout/
   [Пример Breiman]: https://mahout.apache.org/users/classification/breiman-example.html
   [Тест производительности Apache Hive 13 для Enterprise Hadoop]: http://hortonworks.com/blog/benchmarking-apache-hive-13-enterprise-hadoop/

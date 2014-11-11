@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-authorize-users-in-scripts-xamarin-ios" urlDisplayName="Authorize Users in Scripts (Xamarin.iOS)" pageTitle="Authorize users in scripts (Xamarin.iOS) - Azure Mobile Services" metaKeywords="Azure authorizing user, Xamarin.iOS scripts authorization, authorize mobile services" description="Learn how to authorize users with scripts in your Azure Mobile Services app for Xamarin.iOS." metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="Use scripts to authorize users in Mobile Services" documentationCenter="Mobile" authors="donnam" manager="dwrede" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam" />
 
 # Авторизация пользователей в мобильных службах с помощью сценариев
 
@@ -18,7 +18,7 @@
 
 1.  Выполните вход на [портал управления Azure][портал управления Azure], щелкните элемент **Мобильные службы**, а затем щелкните свое приложение.
 
-    ![][]
+    ![][0]
 
 2.  Откройте вкладку **Данные** и щелкните таблицу **TodoItem**.
 
@@ -85,17 +85,9 @@
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Версия C# Магазина Windows]: /ru-ru/develop/mobile/tutorials/authorize-users-in-scripts-dotnet "Версия C# Магазина Windows"
-  [Версия JavaScript Магазина Windows]: /ru-ru/develop/mobile/tutorials/authorize-users-in-scripts-js "Версия JavaScript Магазина Windows"
-  [Windows Phone]: /ru-ru/develop/mobile/tutorials/authorize-users-in-scripts-wp8 "Windows Phone"
-  [iOS]: /ru-ru/develop/mobile/tutorials/authorize-users-in-scripts-ios "iOS"
-  [Android]: /ru-ru/develop/mobile/tutorials/authorize-users-in-scripts-android "Android"
-  [HTML]: /ru-ru/develop/mobile/tutorials/authorize-users-in-scripts-html "HTML"
-  [iOS C#]: /ru-ru/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios "Xamarin.iOS"
-  [Android C#]: /ru-ru/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android "Xamarin.Android"
   [Приступая к работе с аутентификацией]: /ru-ru/develop/mobile/tutorials/get-started-with-users-xamarin-ios
   [портал управления Azure]: https://manage.windowsazure.com/
-  []: ./media/partner-xamarin-mobile-services-ios-authorize-users-in-scripts/mobile-services-selection.png
+  [0]: ./media/partner-xamarin-mobile-services-ios-authorize-users-in-scripts/mobile-services-selection.png
   [1]: ./media/partner-xamarin-mobile-services-ios-authorize-users-in-scripts/mobile-portal-data-tables.png
   [2]: ./media/partner-xamarin-mobile-services-ios-authorize-users-in-scripts/mobile-insert-script-users.png
   [3]: ./media/partner-xamarin-mobile-services-ios-authorize-users-in-scripts/mobile-quickstart-startup-ios.png

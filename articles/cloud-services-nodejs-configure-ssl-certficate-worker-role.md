@@ -1,6 +1,6 @@
 <properties linkid="dev-nodejs-enablesslworker" urlDisplayName="Enable SSL worker role" pageTitle="Configure SSL for a cloud service (Node.js) worker role" metaKeywords="Node.js Azure SSL, Node.js Azure, SSL worker role" description="" metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Configuring SSL for a Node.js Application in an Azure Worker Role" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Настройка SSL для приложения Node.js в рабочей роли Azure
 
@@ -34,7 +34,7 @@ world" с помощью оболочки Azure PowerShell, выполните �
 
 2.  Создайте новую службу с помощью командлета **New-AzureServiceProject**.
 
-    ![][]
+    ![][0]
 
 3.  Добавьте в службу рабочую роль с помощью командлета **Add-AzureNodeWorkerRole**.
 
@@ -168,7 +168,7 @@ SSL-сертификатов в Azure.
   [Шаг 4: Файл определения службы]: #step4
   [Шаг 5: Подключение к экземпляру роли с использованием HTTPS]: #step5
   [Значок Azure PowerShell]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/azure-powershell-start.png
-  []: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-01.png
+  [0]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-01.png
   [1]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-02-worker.png
   [2]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-03-worker.png
   [Использование Azure PowerShell для Node.js]: https://www.windowsazure.com/ru-ru/develop/nodejs/how-to-guides/powershell-cmdlets/#ImportPubSettings

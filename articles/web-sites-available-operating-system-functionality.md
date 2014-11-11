@@ -1,6 +1,6 @@
 <properties title="Operating System Functionality Available to Applications on Azure Websites" pageTitle="Operating System Functionality Available to Applications on Azure Websites" description="Learn about the OS functionality available to web applications on Azure Websites" metaKeywords="Azure,Web Sites,web applications,operating system functionality" services="web-sites" solutions="web" documentationCenter="" authors="cephalin" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
 
 # Функциональные возможности операционной системы, доступные приложениям на веб-сайтах Azure
 
@@ -133,7 +133,6 @@
   [Платформы разработки]: #developmentframeworks
   [Доступ к файлам]: #FileAccess
   [Локальные диски]: #LocalDrives
-  [Сетевые диски (общие UNC-ресурсы)]: #NetworkDrives
   [Доступ к файлам в нескольких экземплярах]: #multipleinstances
   [Типы доступа к файлам для веб-приложения]: #TypesOfFileAccess
   [Доступ к сети]: #NetworkAccess

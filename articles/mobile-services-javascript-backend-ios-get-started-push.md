@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-push-ios" urlDisplayName="Get Started with Push (iOS)" pageTitle="Get started with push notifications (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your iOS app." metaCanonical="http://www.windowsazure.com/ru-ru/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" solutions="" manager="dwrede" editor="" authors="krisragh" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
 
 # Приступая к работе с push-уведомлениями в мобильных службах
 
@@ -33,11 +33,11 @@
 
 Этот учебник создан на основе краткого руководства по мобильным службам. Перед началом работы с учебником необходимо пройти задания учебника [Приступая к работе с мобильными службами][Приступая к работе с мобильными службами].
 
-[WACOM.INCLUDE [Включение push-уведомлений Apple][Включение push-уведомлений Apple]]
+[WACOM.INCLUDE [Включение push-уведомлений Apple](../includes/enable-apple-push-notifications.md)]
 
 ## Настройка мобильных служб для отправки push-запросов
 
-[WACOM.INCLUDE [mobile-services-apns-configure-push][mobile-services-apns-configure-push]]
+[WACOM.INCLUDE [mobile-services-apns-configure-push](../includes/mobile-services-apns-configure-push.md)]
 
 ## Добавление push-уведомлений в приложение
 
@@ -110,7 +110,7 @@
 
 1.  На портале управления щелкните вкладку **Данные**, а затем щелкните таблицу **TodoItem**.
 
-    ![][]
+    ![][0]
 
 2.  В **todoitem** перейдите на вкладку **Скрипт** и выберите **Вставка**.
 
@@ -172,7 +172,7 @@
     <!--- + [Send template-based notifications to subscribers]     <br/>Learn how to use templates to send push notifications from a Mobile Service, without having to craft platform-specific payloads in your back-end. -->
     Дополнительные сведения о мобильных службах и концентраторах уведомлений см. в следующих разделах:
 
--   [Приступая к работе с данными (][Приступая к работе с данными (]
+-   [Приступая к работе с данными][Приступая к работе с данными]
     Дополнительные сведения о хранении данных и запросах к ним при помощи мобильных служб.
 
 -   [Приступая к работе с проверкой подлинности][Приступая к работе с проверкой подлинности]
@@ -191,14 +191,6 @@
 <!-- Images. -->
 <!-- URLs.   -->
 
-  [Магазин Windows C#]: /ru-ru/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push "Магазин Windows C#"
-  [Магазин Windows JavaScript]: /ru-ru/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push "Магазин Windows JavaScript"
-  [Windows Phone]: /ru-ru/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push "Windows Phone"
-  [iOS]: /ru-ru/documentation/articles/mobile-services-javascript-backend-ios-get-started-push "iOS"
-  [Android]: /ru-ru/documentation/articles/mobile-services-javascript-backend-android-get-started-push "Android"
-  [Серверная часть .NET]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/ "Серверная часть .NET"
-  [Серверная часть JavaScript]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/ "Серверная часть JavaScript"
-  [Начало работы с push-уведомлениями (устаревшая версия)]: /ru-ru/documentation/articles/mobile-services-ios-get-started-push/
   [Создание запроса подписи сертификата]: #certificates
   [Регистрация приложения и включение push-уведомлений]: #register
   [Создание профиля подготовки для приложения]: #profile
@@ -211,7 +203,7 @@
   [Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/mobile-services-ios-get-started
   [Включение push-уведомлений Apple]: ../includes/enable-apple-push-notifications.md
   [mobile-services-apns-configure-push]: ../includes/mobile-services-apns-configure-push.md
-  []: ./media/mobile-services-ios-get-started-push/mobile-portal-data-tables.png
+  [0]: ./media/mobile-services-ios-get-started-push/mobile-portal-data-tables.png
   [1]: ./media/mobile-services-ios-get-started-push/mobile-insert-script-push2.png
   [объект apns]: http://go.microsoft.com/fwlink/p/?LinkId=272333
   [2]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push1-ios.png
@@ -220,8 +212,7 @@
   [5]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push4-ios.png
   [Отправка push-уведомлений выполнившим проверку подлинности пользователям]: /ru-ru/documentation/articles/mobile-services-javascript-backend-ios-push-notifications-app-users/
   [Рассылка уведомлений подписчикам]: /ru-ru/documentation/articles/notification-hubs-ios-send-breaking-news/
-  [Приступая к работе с данными (]: /ru-ru/documentation/articles/mobile-services-ios-get-started-data
+  [Приступая к работе с данными]: /ru-ru/documentation/articles/mobile-services-ios-get-started-data
   [Приступая к работе с проверкой подлинности]: /ru-ru/documentation/articles/mobile-services-ios-get-started-users
-  [Что такое концентраторы уведомлений?]: /ru-ru/documentation/articles/notification-hubs-overview/
   [Справочник принципов использования мобильных служб Objective-C]: /ru-ru/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
   [Справочник скриптов сервера мобильных служб]: http://go.microsoft.com/fwlink/?LinkId=262293

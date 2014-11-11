@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-push-js" urlDisplayName="Get Started with Push (JS)" pageTitle="Get started with push notifications (JavaScript)" metaKeywords="" description="Learn how to use push notifications in your Windows Store app with Azure Mobile Services." metaCanonical="http://www.windowsazure.com/ru-ru/develop/mobile/tutorials/get-started-with-push-dotnet/" disqusComments="1" umbracoNaviHide="1" title="Get started with push notifications in Mobile Services using Visual Studio 2012" documentationCenter="Mobile" authors="glenga" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Приступая к работе с push-уведомлениями в мобильных службах с помощью Visual Studio 2012
 
@@ -34,13 +34,13 @@
 
 Чтобы отправлять push-уведомления в приложения Магазина Windows из мобильных служб, необходимо отправить приложение в Магазин Windows. После этого необходимо настроить мобильную службу на интеграцию с WNS.
 
-[WACOM.INCLUDE [mobile-services-register-windows-store-app][mobile-services-register-windows-store-app]]
+[WACOM.INCLUDE [mobile-services-register-windows-store-app](../includes/mobile-services-register-windows-store-app.md)]
 
 Мобильная служба и приложение теперь настроены для работы с WNS. Далее нужно создать таблицу для хранения регистраций.
 
 ## <a name="create-table"></a>Создание новой таблицы
 
-[WACOM.INCLUDE [mobile-services-create-new-push-table][mobile-services-create-new-push-table]]
+[WACOM.INCLUDE [mobile-services-create-new-push-table](../includes/mobile-services-create-new-push-table.md)]
 
 ## <a name="add-push"></a><span class="short-header">Добавление push-уведомлений</span>Добавление push-уведомлений в приложение
 
@@ -67,13 +67,13 @@
 
 3.  Откройте файл Package.appxmanifest и убедитесь, что на вкладке **Пользовательский интерфейс приложения** для параметра **Всплывающие уведомления** установлено значение **Да**.
 
-    ![][]
+    ![][0]
 
     Это гарантирует, что приложение сможет создавать всплывающие уведомления.
 
 ## <a name="update-scripts"></a><span class="short-header">Обновление сценария вставки</span>Обновление зарегистрированного сценария вставки на портале управления
 
-[WACOM.INCLUDE [mobile-services-update-registrations-script][mobile-services-update-registrations-script]]
+[WACOM.INCLUDE [mobile-services-update-registrations-script](../includes/mobile-services-update-registrations-script.md)]
 
 1.  Последовательно щелкните **TodoItem**, **Скрипт** и **Вставить**.
 
@@ -155,14 +155,6 @@
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Магазин Windows: C#]: /ru-ru/develop/mobile/tutorials/get-started-with-push-dotnet-vs2012 "Магазин Windows: C#"
-  [Магазин Windows: JavaScript]: /ru-ru/develop/mobile/tutorials/get-started-with-push-js-vs2012 "Магазин Windows: JavaScript"
-  [Windows Phone]: /ru-ru/develop/mobile/tutorials/get-started-with-push-wp8 "Windows Phone"
-  [iOS]: /ru-ru/develop/mobile/tutorials/get-started-with-push-ios "iOS"
-  [Android]: /ru-ru/develop/mobile/tutorials/get-started-with-push-android "Android"
-  [Xamarin.iOS]: /ru-ru/develop/mobile/tutorials/get-started-with-push-xamarin-ios "Xamarin.iOS"
-  [Xamarin.Android]: /ru-ru/develop/mobile/tutorials/get-started-with-push-xamarin-android "Xamarin.Android"
-  [Приступая к работе с push-уведомлениями]: /ru-ru/develop/mobile/tutorials/get-started-with-push-js
   [Регистрация приложения для push-уведомлений и конфигурация мобильных служб]: #register
   [Создание таблицы регистраций]: #create-table
   [Добавление push-уведомлений в приложение]: #add-push
@@ -171,7 +163,7 @@
   [Приступая к работе с данными]: /ru-ru/develop/mobile/tutorials/get-started-with-data-js
   [mobile-services-register-windows-store-app]: ../includes/mobile-services-register-windows-store-app.md
   [mobile-services-create-new-push-table]: ../includes/mobile-services-create-new-push-table.md
-  []: ./media/mobile-services-windows-store-javascript-get-started-push-vs2012/mobile-app-enable-toast-win8.png
+  [0]: ./media/mobile-services-windows-store-javascript-get-started-push-vs2012/mobile-app-enable-toast-win8.png
   [mobile-services-update-registrations-script]: ../includes/mobile-services-update-registrations-script.md
   [1]: ./media/mobile-services-windows-store-javascript-get-started-push-vs2012/mobile-insert-script-push2.png
   [2]: ./media/mobile-services-windows-store-javascript-get-started-push-vs2012/mobile-quickstart-push1.png

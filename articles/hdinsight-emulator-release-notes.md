@@ -1,6 +1,6 @@
 <properties linkid="hdinsight-emulator-release-notes" urlDisplayName="HDInsight Emulator release notes" pageTitle="Release notes: Microsoft HDInsight Emulator for Azure | Azure" metaKeywords="hdinsight, Azure hdinsight, hdinsight azure, get started hdinsight, emulator, hdinsight emulator" description="Get late-breaking information about the most recent releases of the HDInsight Hadoop Emulator." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" title="Release notes: Microsoft HDInsight Emulator for Azure" authors="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cgronlun"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cgronlun" />
 
 # Заметки о выпуске: эмулятор Microsoft HDInsight для Azure
 
@@ -133,7 +133,7 @@
 
             %HADOOP_NODE%\stop-onebox.cmd && %HADOOP_NODE%\start-onebox.cmd
 
-    3.  Доступ к любому файлу этой учетной записи с использованием полного URI: asv:[//{container}@{account}/{path][]} (или asvs://, если для доступа к данным необходимо использовать HTTPS). Пример:
+    3.  Доступ к любому файлу этой учетной записи с использованием полного URI: asv:[//{container}@{account}/{path][//{container}@{account}/{path]} (или asvs://, если для доступа к данным необходимо использовать HTTPS). Пример:
 
             hadoop fs -lsr 
             asvs://MyHadoopOnAzureContainerName@MyHadoopOnAzureAccountName/example/data/
@@ -243,7 +243,7 @@
 
 ## <a name="nextsteps"></a>Дальнейшие действия
 
--   [Приступая к работе с эмулятором HDInsight][]
+-   [Приступая к работе с эмулятором HDInsight][Приступая к работе с эмулятором HDInsight]
 
   []: http://azure.microsoft.com/ru-ru/documentation/services/hdinsight/
   [//{container}@{account}/{path]: mailto://{container}@{account}/{path

@@ -1,6 +1,6 @@
 <properties linkid="develop-python-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (Python) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues Python" description="Learn how to use Service Bus queues in Azure. Code samples written in Python." metaCanonical="" services="service-bus" documentationCenter="Python" title="How to Use Service Bus Queues" authors="huvalo" solutions="" manager="" editor="" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 # Использование очередей Service Bus
 
@@ -17,7 +17,7 @@
 -   [Практическое руководство. Обработка сбоев приложения и нечитаемых сообщений][Практическое руководство. Обработка сбоев приложения и нечитаемых сообщений]
 -   [Дальнейшие действия][Дальнейшие действия]
 
-[WACOM.INCLUDE [обслуживание-очередей-шины][обслуживание-очередей-шины]]
+[WACOM.INCLUDE [обслуживание-очередей-шины](../includes/howto-service-bus-queues.md)]
 
 **Примечание.** Если нужно установить клиентские библиотеки или Python, см. [Руководство по установке Python][Руководство по установке Python].
 
@@ -91,7 +91,6 @@
 -   См. справочник MSDN: [Очереди, разделы и подписки.][Очереди, разделы и подписки.]
 
   [Дальнейшие действия]: #next-steps
-  [Что такое очереди Service Bus?]: #what-are-service-bus-queues
   [Создание пространства имен службы]: #create-a-service-namespace
   [Получение учетных данных управления по умолчанию для пространства имен]: #obtain-default-credentials
   [Практическое руководство. Создать очередь]: #create-queue

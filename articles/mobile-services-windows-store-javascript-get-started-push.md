@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-push-js-vs2013" urlDisplayName="Get Started with Push (JS)" pageTitle="Get started with push notifications (legacy push) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your Windows Store JavaScript app (legacy push)." metaCanonical="http://www.windowsazure.com/ru-ru/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Приступая к работе с push-уведомлениями в мобильных службах (принудительная отправка устаревшего типа)
 
@@ -32,7 +32,7 @@
 
 ## <a name="register"></a><span class="short-header">Регистрация приложения</span>Добавление и настройка push-уведомлений в приложении
 
-[WACOM.INCLUDE [mobile-services-create-new-push-vs2013][mobile-services-create-new-push-vs2013]]
+[WACOM.INCLUDE [mobile-services-create-new-push-vs2013](../includes/mobile-services-create-new-push-vs2013.md)]
 
 1.  Откройте созданный файл кода push.register.js и проверьте код, который получает идентификатор установки и канал для устройства и вставляет эти данные в таблицу новых **каналов**.
 
@@ -54,7 +54,7 @@
 
 ## <a name="update-scripts"></a><span class="short-header">Обновление кода</span>Обновление созданного кода push-уведомлений
 
-[WACOM.INCLUDE [mobile-services-create-new-push-vs2013-2][mobile-services-create-new-push-vs2013-2]]
+[WACOM.INCLUDE [mobile-services-create-new-push-vs2013-2](../includes/mobile-services-create-new-push-vs2013-2.md)]
 
 ## <a name="test"></a><span class="short-header">Тестирование приложения</span>Тестирование push-уведомлений в приложении
 
@@ -62,7 +62,7 @@
 
 2.  В приложении введите текст в поле **Вставить в TodoItem**, а затем нажмите кнопку **Сохранить**
 
-    ![][]
+    ![][0]
 
     Обратите внимание, что после завершения вставки приложение получает push-уведомление из WNS.
 
@@ -102,14 +102,6 @@
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Магазин Windows C#]: /ru-ru/documentation/articles/mobile-services-windows-store-dotnet-get-started-push "Магазин Windows C#"
-  [Магазин Windows JavaScript]: /ru-ru/documentation/articles/mobile-services-windows-store-javascript-get-started-push "Магазин Windows JavaScript"
-  [Windows Phone]: /ru-ru/documentation/articles/mobile-services-windows-phone-get-started-push "Windows Phone"
-  [iOS]: /ru-ru/documentation/articles/mobile-services-ios-get-started-push "iOS"
-  [Android]: /ru-ru/documentation/articles/mobile-services-android-get-started-push "Android"
-  [Appcelerator]: /ru-ru/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push "Appcelerator"
-  [Серверная часть .NET]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/ "Серверная часть .NET"
-  [Серверная часть JavaScript]: /ru-ru/documentation/articles/mobile-services-windows-store-javascript-get-started-push/ "Серверная часть JavaScript"
   [Приступая к работе с push-уведомлениями]: /ru-ru/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push/
   [Регистрация приложения для push-уведомлений и конфигурация мобильных служб]: #register
   [Обновление созданного кода push-уведомлений]: #update-scripts
@@ -117,9 +109,8 @@
   [Приступая к работе с мобильными службами]: /ru-ru/develop/mobile/tutorials/get-started/
   [Приступая к работе с данными]: /ru-ru/develop/mobile/tutorials/get-started-with-data-js/
   [mobile-services-create-new-push-vs2013]: ../includes/mobile-services-create-new-push-vs2013.md
-  [Работа с серверными сценариями в мобильных службах]: http://go.microsoft.com/fwlink/p/?LinkID=287178
   [mobile-services-create-new-push-vs2013-2]: ../includes/mobile-services-create-new-push-vs2013-2.md
-  []: ./media/mobile-services-windows-store-javascript-get-started-push/mobile-quickstart-push1.png
+  [0]: ./media/mobile-services-windows-store-javascript-get-started-push/mobile-quickstart-push1.png
   [1]: ./media/mobile-services-windows-store-javascript-get-started-push/mobile-quickstart-push2.png
   [Приступая к работе с центрами уведомлений]: /ru-ru/manage/services/notification-hubs/getting-started-windows-dotnet/
   [Рассылка уведомлений подписчикам]: /ru-ru/manage/services/notification-hubs/breaking-news-dotnet/

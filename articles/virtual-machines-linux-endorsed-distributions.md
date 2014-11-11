@@ -1,6 +1,6 @@
 <properties linkid="manage-linux-other-resources-endorsed-distributions" urlDisplayName="Endorsed distributions" pageTitle="Endorsed distributions of Linux in Azure" metaKeywords="" description="Learn about Linux on Azure-endorsed distributions, including guidelines for Ubuntu, OpenLogic, and SUSE." metaCanonical="" services="virtual-machines" documentationCenter="" title="Linux on Azure-Endorsed Distributions" authors="kathydav" solutions="" manager="jeffreyg" editor="tysonn" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav" />
 
 # Linux в Azure — рекомендованные дистрибутивы
 
@@ -99,8 +99,3 @@ SUSE Linux Enterprise Server в Azure — проверенная платфор�
   [здесь]: http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409
   [Github]: https://github.com/azure/walinuxagent
   [исправление для совместимости ядра Linux]: http://go.microsoft.com/fwlink/?LinkID=403027&clcid=0x409
-  [Требуется только для версии 12.04 или 12.04.01]: http://go.microsoft.com/fwlink/?LinkID=275152&clcid=0x409
-  [GitHub]: http://go.microsoft.com/fwlink/p/?LinkID=250998
-  [Требуется только для версии 6.3]: http://go.microsoft.com/fwlink/?LinkID=275153&clcid=0x409
-  [в репозитории пакетов Open Logic]: http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/
-  [Cloud:Tools]: https://build.opensuse.org/project/show/Cloud:Tools

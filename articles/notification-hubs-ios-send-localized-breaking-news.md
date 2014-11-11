@@ -1,6 +1,6 @@
 <properties linkid="develop-notificationhubs-tutorials-send-localized-breaking-news-iOS" urlDisplayName="Localized Breaking News" pageTitle="Notification Hubs Localized Breaking News Tutorial for iOS" metaKeywords="" description="Learn how to use Azure Service Bus Notification Hubs to send localized breaking news notifications (iOS)." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send localized breaking news to iOS devices" authors="krisragh" solutions="" manager="" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
 
 # Использование концентраторов уведомлений для передачи локализованных экстренных новостей на устройства iOS
 
@@ -61,7 +61,7 @@
 
 В своем файле MainStoryboard\_iPhone.storyboard добавьте Segmented Control для трех языков, которые мы поддерживаем: английского, французского и китайского.
 
-![][]
+![][0]
 
 Затем обязательно добавьте IBOutlet в свой файл ViewController.h, как показано ниже:
 
@@ -156,7 +156,7 @@
 
 ## <a name="send"></a><span class="short-header">Отправка локализованных уведомлений</span>Отправка локализованных уведомлений из серверной части
 
-[WACOM.INCLUDE [концентраторы-уведомлений-локализованный-сервер][концентраторы-уведомлений-локализованный-сервер]]
+[WACOM.INCLUDE [концентраторы-уведомлений-локализованный-сервер](../includes/notification-hubs-localized-back-end.md)]
 
 ## Дальнейшие действия
 
@@ -168,18 +168,15 @@
 
 Справочник по языку выражений шаблона см. в учебнике [Инструкции по использованию концентраторов уведомлений для iOS][Практическое руководство. Использование концентраторов уведомлений Service Bus (приложения iOS)].
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
 
-  [Магазин Windows C#]: /ru-ru/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/ "Магазин Windows C#"
-  [iOS]: /ru-ru/documentation/articles/notification-hubs-ios-send-localized-breaking-news/ "iOS"
+
   [Использование концентраторов уведомлений для передачи экстренных новостей]: /ru-ru/manage/services/notification-hubs/breaking-news-ios
   [Основные сведения о шаблонах]: #concepts
   [Пользовательский интерфейс приложения]: #ui
   [Создание приложения iOS]: #building-client
   [Отправка уведомлений из серверной части]: #send
   [Руководстве по использованию концентраторов уведомлений]: http://msdn.microsoft.com/ru-ru/library/jj927170.aspx
-  [Практическое руководство. Использование концентраторов уведомлений Service Bus (приложения iOS)]: http://msdn.microsoft.com/ru-ru/library/jj927168.aspx
-  []: ./media/notification-hubs-ios-send-localized-breaking-news/ios_localized1.png
+  [0]: ./media/notification-hubs-ios-send-localized-breaking-news/ios_localized1.png
   [1]: ./media/notification-hubs-ios-send-localized-breaking-news/ios_localized2.png
   [концентраторы-уведомлений-локализованный-сервер]: ../includes/notification-hubs-localized-back-end.md
   [Уведомление пользователей с помощью концентраторов уведомлений: ASP.NET]: /ru-ru/manage/services/notification-hubs/notify-users-aspnet

@@ -1,6 +1,6 @@
 <properties linkid="manage-services-manage-acs" urlDisplayName="Manage ACS" pageTitle="Access Control Service - Azure service management" metaKeywords="" description="Learn how to manage your Azure Access Control Service (ACS) using certificates and keys." metaCanonical="" services="active-directory" documentationCenter="" title="Managing Your ACS Namespace" authors="mbaldwin" solutions="" manager="mbaldwin" editor="" />
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="mbaldwin"></tags>
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="mbaldwin" />
 
 # Управление пространством имен ACS
 
@@ -74,7 +74,7 @@
 
 3.  После входа с идентификатором Windows Live ID вы будете перенаправлены на страницу портала управления. В нижней левой части этой страницы щелкните **Service Bus и Access Control**.
 
-    ![][]
+    ![][0]
 
 4.  Чтобы открыть портал управления ACS, щелкните **Access Control** в дереве в левой части экрана, выберите пространство имен службы ACS, которое требуется настроить, и нажмите кнопку **Служба Access Control** на панели инструментов в верхней части страницы.
 
@@ -124,7 +124,7 @@
 
 3.  После входа с идентификатором Windows Live ID вы будете перенаправлены на страницу портала управления. В нижней левой части этой страницы щелкните **Service Bus и Access Control**.
 
-    ![][]
+    ![][0]
 
 4.  Чтобы открыть портал управления ACS, щелкните **Access Control** в дереве в левой части экрана, выберите пространство имен службы ACS, которое требуется настроить, и нажмите кнопку **Служба Access Control** на панели инструментов в верхней части страницы.
 
@@ -174,7 +174,7 @@
 
 3.  После входа с идентификатором Windows Live ID вы будете перенаправлены на страницу портала управления. В нижней левой части этой страницы щелкните **Service Bus и Access Control**.
 
-    ![][]
+    ![][0]
 
 4.  Чтобы открыть портал управления ACS, щелкните **Access Control** в дереве в левой части экрана, выберите пространство имен службы ACS, которое требуется настроить, и нажмите кнопку **Служба Access Control** на панели инструментов в верхней части страницы.
 
@@ -218,7 +218,7 @@
 
 3.  После входа с идентификатором Windows Live ID вы будете перенаправлены на страницу портала управления. В нижней левой части этой страницы щелкните **Service Bus и Access Control**.
 
-    ![][]
+    ![][0]
 
 4.  Чтобы открыть портал управления ACS, щелкните **Access Control** в дереве в левой части экрана, выберите пространство имен службы ACS, которое требуется настроить, и нажмите кнопку **Служба Access Control** на панели инструментов в верхней части страницы.
 
@@ -269,7 +269,7 @@
 
 3.  После входа с идентификатором Windows Live ID вы будете перенаправлены на страницу портала управления. В нижней левой части этой страницы щелкните **Service Bus и Access Control**.
 
-    ![][]
+    ![][0]
 
 4.  Чтобы открыть портал управления ACS, щелкните **Access Control** в дереве в левой части экрана, выберите пространство имен службы ACS, которое требуется настроить, и нажмите кнопку **Служба Access Control** на панели инструментов в верхней части страницы.
 
@@ -342,7 +342,7 @@
 
 3.  После входа с идентификатором Windows Live ID вы будете перенаправлены на страницу портала управления. В нижней левой части этой страницы щелкните **Service Bus и Access Control**.
 
-    ![][]
+    ![][0]
 
 4.  Чтобы открыть портал управления ACS, щелкните **Access Control** в дереве в левой части экрана, выберите пространство имен службы ACS, которое требуется настроить, и нажмите кнопку **Служба Access Control** на панели инструментов в верхней части страницы.
 
@@ -420,8 +420,8 @@
   [IdentityProviderKey]: http://msdn.microsoft.com/ru-ru/library/hh124084.aspx
   [кодов ошибок ACS]: http://msdn.microsoft.com/ru-ru/library/gg185949.aspx
   [Пример кода: служба управления]: http://msdn.microsoft.com/ru-ru/library/gg185970.aspx
-  []: http://go.microsoft.com/fwlink/?LinkID=129428
-  []: ./media/manage-acs-namespace/ACS1.png
+  [0]: http://go.microsoft.com/fwlink/?LinkID=129428
+  [0]: ./media/manage-acs-namespace/ACS1.png
   [1]: ./media/manage-acs-namespace/ACS2.png
   [2]: ./media/manage-acs-namespace/ACS3.png
   [3]: ./media/manage-acs-namespace/ACS4.png

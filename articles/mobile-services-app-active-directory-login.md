@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-how-to-guides-register-for-microsoft-waad-authentication" urlDisplayName="Register for Azure Active Directory Authentication" pageTitle="Register for Azure Active Directory authentication - Mobile Services" metaKeywords="Azure registering application, Azure Active Directory authentication, application authenticate, authenticate mobile services" description="Learn how to register for Azure Active Directory authentication in your Azure Mobile Services application." metaCanonical="" disqusComments="0" umbracoNaviHide="1" title="Register your apps to use an Azure Active Directory Account login" authors="dwrede" manager="dwrede" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="dwrede"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="dwrede" />
 
 # Регистрация приложений для входа с использованием учетной записи Azure Active Directory
 
@@ -14,7 +14,7 @@
 
 2.  Перейдите к **Active Directory** на портале управления и щелкните свой каталог.
 
-    ![][]
+    ![][0]
 
 1.  Щелкните вкладку **Приложения**, а затем выберите **Добавить приложение**.
 
@@ -28,7 +28,6 @@
 
 
 
-  [Регистрация приложений Магазина Windows для проверки подлинности Windows Live Connect]: /ru-ru/develop/mobile/how-to-guides/register-for-single-sign-on
   [портал управления Azure]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-app-active-directory-login/mobile-services-live-connect-add-app.png
+  [0]: ./media/mobile-services-app-active-directory-login/mobile-services-live-connect-add-app.png
   [1]: ./media/mobile-services-app-active-directory-login/mobile-live-connect-app-api-settings.png

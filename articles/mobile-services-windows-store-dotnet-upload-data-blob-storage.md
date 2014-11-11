@@ -1,6 +1,6 @@
 <properties pageTitle="Use Mobile Services to upload images to blob storage (Windows Store) | Mobile Services" metaKeywords="" description="Learn how to use Mobile Services to upload images to Azure Blob Storage and access the images from your Windows Store app." metaCanonical="" services="mobile-services,storage" documentationCenter="Mobile" title="Upload images to Azure Storage by using Mobile Services" authors="glenga" solutions="mobile" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Отправка образов в хранилище Azure с помощью мобильных служб
 
@@ -35,7 +35,7 @@
 
 2.  На левой панели выберите категорию **В сети**, выполните поиск `WindowsAzure.Storage`, щелкните пункт **Установить** для пакета **службы хранилище Azure**, а затем примите условия лицензионного соглашения.
 
-    ![][]
+    ![][0]
 
     Это приведет к добавлению в проект библиотеки клиента для служб хранилища Azure.
 
@@ -43,9 +43,9 @@
 
 ## <a name="update-scripts"></a>Обновление зарегистрированных скриптов вставки на портале управления
 
-[WACOM.INCLUDE [mobile-services-configure-blob-storage][mobile-services-configure-blob-storage]]
+[WACOM.INCLUDE [mobile-services-configure-blob-storage](../includes/mobile-services-configure-blob-storage.md)]
 
-[WACOM.INCLUDE [mobile-services-windows-store-dotnet-upload-to-blob-storage][mobile-services-windows-store-dotnet-upload-to-blob-storage]]
+[WACOM.INCLUDE [mobile-services-windows-store-dotnet-upload-to-blob-storage](../includes/mobile-services-windows-store-dotnet-upload-to-blob-storage.md)]
 
 ## <a name="next-steps"> </a>Дальнейшие действия
 
@@ -69,17 +69,13 @@
 
 <!-- Anchors.  Images. URLs. -->
 
-  [Магазин Windows C#]: /ru-ru/documentation/articles/mobile-services-windows-store-dotnet-upload-data-blob-storage "Магазин Windows C#"
-  [Windows Phone]: /ru-ru/documentation/articles/mobile-services-windows-phone-upload-data-blob-storage "Windows Phone"
-  [Серверная часть .NET]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage "Серверная часть .NET"
-  [Серверная часть JavaScript]: /ru-ru/documentation/articles/mobile-services-windows-store-dotnet-upload-data-blob-storage "Серверная часть JavaScript"
   [Установите библиотеку клиента хранилища]: #install-storage-client
   [Обновите сценарий вставки для создания учетных данных SAS]: #update-scripts
   [Обновите клиентское приложение для захвата изображений]: #add-select-images
   [Передайте изображения для проверки приложения]: #test
   [Учетная запись хранения Azure]: /ru-ru/manage/services/storage/how-to-create-a-storage-account
   [Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/mobile-services-windows-store-get-started
-  []: ./media/mobile-services-windows-store-dotnet-upload-data-blob-storage/mobile-add-storage-nuget-package-dotnet.png
+  [0]: ./media/mobile-services-windows-store-dotnet-upload-data-blob-storage/mobile-add-storage-nuget-package-dotnet.png
   [mobile-services-configure-blob-storage]: ../includes/mobile-services-configure-blob-storage.md
   [mobile-services-windows-store-dotnet-upload-to-blob-storage]: ../includes/mobile-services-windows-store-dotnet-upload-to-blob-storage.md
   [Отправить сообщение электронной почты с мобильных служб с помощью SendGrid]: /ru-ru/develop/mobile/tutorials/send-email-with-sendgrid/

@@ -1,6 +1,6 @@
 <properties linkid="develop-python-web-app-with-django" urlDisplayName="Web with Django (Windows)" pageTitle="Python web app with Django - Azure tutorial" metaKeywords="Azure Django web app, Azure Django virtual machine" description="A tutorial that teaches you how to host a Django-based website on Azure using a Windows Server 2008 R2 virtual machine." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="Django Hello World Web Application" authors="huvalo" solutions="" manager="" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-windows" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-windows" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 # Веб-приложение Hello World на Django
 
@@ -19,7 +19,7 @@
 
 ![В окне браузера в Azure отображается страница hello world.][В окне браузера в Azure отображается страница hello world.]
 
-[WACOM.INCLUDE [create-account-and-vms-note][create-account-and-vms-note]]
+[WACOM.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
 
 ## Создание и настройка виртуальной машины Azure для размещения Django
 
@@ -32,7 +32,7 @@
     ![добавление конечной точки][добавление конечной точки]
 
  - Откройте *ОБЩИЙ ПОРТ 80* протокола *TCP* как *ЧАСТНЫЙ ПОРТ 80*.
-    ![][]
+    ![][0]
 
 1.  С помощью *Удаленного рабочего стола* Windows удаленно войдите в созданную виртуальную машину Azure.
 
@@ -119,13 +119,11 @@
 
 После завершения этого учебного курса завершите работу созданной вами виртуальной машины Azure и/или удалите ее, чтобы освободить ресурсы для других учебных курсов и избежать платы за использование Azure.
 
-  [Windows]: /ru-ru/develop/python/tutorials/web-app-with-django/ "Windows"
-  [Mac/Linux]: /ru-ru/develop/python/tutorials/django-hello-world-(maclinux)/ "MacLinux"
   [В окне браузера в Azure отображается страница hello world.]: ./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-browser-azure.png
   [create-account-and-vms-note]: ../includes/create-account-and-vms-note.md
   [здесь]: /ru-ru/manage/windows/tutorials/virtual-machine-from-gallery/
   [добавление конечной точки]: ./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-addendpoint.png
-  []: ./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-port80.png
+  [0]: ./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-port80.png
   [руководстве по установке]: ../python-how-to-install/
   [IIS config1]: ./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-iis1.png
   [codeplex]: http://go.microsoft.com/fwlink/?LinkID=316392&clcid=0x409

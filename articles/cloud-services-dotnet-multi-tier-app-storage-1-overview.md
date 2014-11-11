@@ -1,6 +1,6 @@
 <properties linkid="develop-net-tutorials-multi-tier-web-site-1-overview" pageTitle="Azure Cloud Service Tutorial: ASP.NET MVC Web Role, Worker Role, Azure Storage Tables, Queues, and Blobs" metaKeywords="Azure tutorial, Azure storage tutorial, Azure multi-tier tutorial, MVC Web Role tutorial, Azure worker role tutorial, Azure blobs tutorial, Azure tables tutorial, Azure queues tutorial" description="Learn how to create a multi-tier app using ASP.NET MVC and Azure. The app runs in a cloud service, with web role and worker roles, and uses Azure storage tables, queues, and blobs." metaCanonical="" services="cloud-services,storage" documentationCenter=".NET" title="Azure Cloud Service Tutorial: ASP.NET MVC Web Role, Worker Role, Azure Storage Tables, Queues, and Blobs" authors="tdykstra,riande" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="cloud-services" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tdykstra,riande"></tags>
+<tags ms.service="cloud-services" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tdykstra,riande" />
 
 # Учебник по облачной службе Azure: веб-роль ASP.NET MVC, рабочая роль, а также таблицы, очереди и большие двоичные объекты службы хранилища Azure — 1 из 5
 
@@ -1108,8 +1108,6 @@ $60.43
   [Get Started with the Azure WebJobs SDK]: /ru-ru/documentation/articles/websites-dotnet-webjobs-sdk-get-started/
   [Настройка и развертывание приложения службы электронной почты Azure]: /ru-ru/develop/net/tutorials/multi-tier-web-site/2-download-and-run/
   [Создание веб-роли для приложения службы электронной почты Azure]: /ru-ru/develop/net/tutorials/multi-tier-web-site/3-web-role/
-  [Создание рабочей роли A (планировщик электронной почты) для приложения службы электронной почты Azure]: /ru-ru/develop/net/tutorials/multi-tier-web-site/4-worker-role-a/
-  [Создание рабочей роли B (отправитель электронной почты) для приложения службы электронной почты Azure]: /ru-ru/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/
   [Предварительные требования]: #prerequisites
   [Обзор внешнего интерфейса]: #frontend
   [Обзор серверной части]: #backend
@@ -1134,7 +1132,6 @@ $60.43
   [Предотвращение дублирования сообщений электронной почты]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-overview/mtas-message-processing.png
   [Обработка сообщений очереди подписки]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-overview/mtas-subscribe-diagram.png
   [база данных SQL Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/ee336279.aspx
-  [Real World: Designing a Scalable Partitioning Strategy for Azure Table Storage]: http://msdn.microsoft.com/ru-ru/library/windowsazure/hh508997.aspx
   [Схема данных для приложения службы электронной почты Azure]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-overview/mtas-datadiagram.png
   [Обзор архитектуры приложения]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-overview/mtas-architecture-overview.png
   [Альтернативная архитектура приложения]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-overview/mtas-alternative-architecture.png

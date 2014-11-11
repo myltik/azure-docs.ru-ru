@@ -1,6 +1,6 @@
 <properties linkid="dev-nodejs-how-to-debug-website" urlDisplayName="Debug Websites (Node)" pageTitle="How to Debug Azure Websites in Node.js" metaKeywords="debug website azure, debugging azure, troubleshooting azure web site, troubleshoot azure website node" description="Learn how to debug an Azure website in Node.js." metaCanonical="" services="web-sites" documentationCenter="nodejs" title="How to debug a Node.js application in Azure Websites" authors="larryfr" solutions="" manager="paulettm" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Настройка приложения Node.js для веб-сайтов Windows Azure
 
@@ -108,7 +108,6 @@ URL-адрес FTP, возвращаемый в панели мониторин�
   [Справка по IISNode]: https://github.com/tjanczuk/iisnode#readme
   [портале управления Azure]: https://manage.windowsazure.com/
   [кнопка перезагрузки]: ./media/web-sites-nodejs-debug/restartbutton.png
-  [iisnode\_schema.xml]: https://github.com/tjanczuk/iisnode/blob/master/src/config/iisnode_schema.xml
   [Использование средств командной строки Azure]: /ru-ru/documentation/articles/xplat-cli/
   [Использование модулей Node.js с приложениями Azure]: /ru-ru/documentation/articles/nodejs-use-node-modules-azure-apps/
   [Установка версии Node.js в приложении Azure]: /ru-ru/documentation/articles/nodejs-specify-node-version-azure-apps/

@@ -1,6 +1,6 @@
 <properties linkid="automation-create-runbook-from-samples" urlDisplayName="Get Started with Azure Automation" pageTitle="Get Started with Azure Automation" metaKeywords="" description="Learn how to import and run an automation job in Azure." metaCanonical="" services="automation" documentationCenter="" title="Get Started with Azure Automation" authors="bwren" solutions="" manager="stevenka" editor="" />
 
-<tags ms.service="automation" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bwren"></tags>
+<tags ms.service="automation" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bwren" />
 
 # Начало работы со службой автоматизации Azure
 
@@ -26,7 +26,7 @@
 
 **Обратная связь!** Если нужен модуль Runbook для автоматизации или модуль интеграции, отправьте запрос сценария в Центр сценариев. Если у вас есть идея для новой функции автоматизации, поместите ее в раздел [Голос пользователя][Голос пользователя].
 
-[WACOM.INCLUDE [create-account-note][create-account-note]]
+[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
 ## Высокоуровневое описание действий для этого руководства
 

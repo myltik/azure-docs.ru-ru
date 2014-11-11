@@ -1,6 +1,6 @@
 <properties title="How To Change the Drive Letter of the Windows Temporary Disk" pageTitle="How To Change the Drive Letter of the Windows Temporary Disk" description="Describes how to remap the temporary disk on a Windows VM in Azure" metaKeywords="" services="virtual machines" solutions="" documentationCenter="" authors="kathydav" videoId="" scriptId="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav" />
 
 # Изменение буквы диска для временного диска Windows
 
@@ -44,4 +44,3 @@
   [портале управления Azure]: http://manage.windowsazure.com
   [Как войти в виртуальную машину под управлением Windows Server]: ../virtual-machines-log-on-windows-server/
   [Отключение диска данных от виртуальной машины]: ../storage-windows-detach-disk/
-  [Что такое учетная запись хранения?]: ../storage-whatis-account/

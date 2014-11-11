@@ -1,10 +1,10 @@
 <properties linkid="manage-services-how-to-monitor-a-cloud-service" urlDisplayName="How to monitor" pageTitle="How to monitor a cloud service - Azure" metaKeywords="Azure monitoring cloud services, Azure Management Portal cloud services" description="Learn how to monitor cloud services by using the Azure Management Portal." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Monitor Cloud Services" authors="ryanwi" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi" />
 
 # Мониторинг облачных служб
 
-[WACOM.INCLUDE [отказ от ответственности][отказ от ответственности]]
+[WACOM.INCLUDE [отказ от ответственности](../includes/disclaimer.md)]
 
 Вы можете отслеживать ключевые метрики производительности облачных служб на портале управления Azure. Для каждой роли службы можно задать минимальный или подробный уровень, а также настроить отображение данных мониторинга. Подробные данные мониторинга размещаются в учетной записи хранения, которая доступна вне портала.
 

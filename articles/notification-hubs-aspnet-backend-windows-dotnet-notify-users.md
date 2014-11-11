@@ -1,6 +1,6 @@
 <properties title="Azure Notification Hubs Notify Users" pageTitle="Azure Notification Hubs Notify Users" metaKeywords="Azure push notifications, Azure notification hubs" description="Learn how to send secure push notifications in Azure. Code samples written in C# using the .NET API." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="sethm" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="sethm"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="sethm" />
 
 # Уведомление пользователей посредством концентраторов уведомлений
 
@@ -20,7 +20,7 @@
 
 Перед началом работы с этим учебников необходимо зарезервировать имя приложения, затем создать концентратор уведомлений Azure и подключить его к этому приложению. Выполните шаги в учебнике [Приступая к работе с концентраторами уведомлений (Магазин Windows)][Приступая к работе с концентраторами уведомлений (Магазин Windows)], в частности, в разделах [Регистрация приложения для Магазина Windows][Регистрация приложения для Магазина Windows] и [Настройка концентратора уведомлений][Настройка концентратора уведомлений]. В частности, убедитесь, что вы ввели значения полей **SID пакета** и **Секрет клиента** на портале, на вкладке **Настройка** концентратора уведомлений. Эта процедура настройки описывается в разделе [Настройка концентратора уведомлений][Настройка концентратора уведомлений]. Этот шаг имеет большое значение: если учетные данные на портале не соответствуют учетным данным, указанным для выбранного имени приложения, push-уведомление не будет успешно выполнено.
 
-[WACOM.INCLUDE [notification-hubs-aspnet-backend-notifyusers][notification-hubs-aspnet-backend-notifyusers]]
+[WACOM.INCLUDE [notification-hubs-aspnet-backend-notifyusers](../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
 ## Создание проекта для Windows Phone
 
@@ -30,7 +30,7 @@
 
 2.  Разверните пункт **Приложения Магазина**, затем щелкните **Приложения Windows Phone** и выберите **Пустое приложение (Windows Phone)**.
 
-    ![][]
+    ![][0]
 
 3.  В поле **Имя** введите **NotifyUserWindowsPhone**, затем нажмите **ОК**, чтобы сформировать проект.
 
@@ -236,15 +236,11 @@
 
 4.  В пользовательском интерфейсе приложения **NotifyUserWindowsPhone** щелкните **Вход и регистрация**. Затем нажмите кнопку **Отправить push-уведомление**.
 
-  [Windows Universal]: /ru-ru/documentation/articles/notification-hubs-windows-dotnet-notify-users/ "Windows Universal"
-  [iOS]: /ru-ru/documentation/articles/notification-hubs-aspnet-backend-ios-notify-users/ "iOS"
-  [Android]: /ru-ru/documentation/articles/notification-hubs-aspnet-backend-android-notify-users/ "Android"
   [Регистрация из серверной части приложения]: http://msdn.microsoft.com/ru-ru/library/dn743807.aspx
-  [Приступая к работе с концентраторами уведомлений (Магазин Windows)]: http://azure.microsoft.com/ru-ru/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
   [Регистрация приложения для Магазина Windows]: http://azure.microsoft.com/ru-ru/documentation/articles/notification-hubs-windows-store-dotnet-get-started/#register
   [Настройка концентратора уведомлений]: http://azure.microsoft.com/ru-ru/documentation/articles/notification-hubs-windows-store-dotnet-get-started/#configure-hub
   [notification-hubs-aspnet-backend-notifyusers]: ../includes/notification-hubs-aspnet-backend-notifyusers.md
-  []: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push9.png
+  [0]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push9.png
   [1]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push10.png
   [2]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push11.png
   [Центра разработки Windows]: http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409

@@ -1,6 +1,6 @@
 <properties title="Azure Notification Hubs Notify Users" pageTitle="Azure Notification Hubs Notify Users" metaKeywords="Azure push notifications, Azure notification hubs" description="Learn how to send secure push notifications in Azure. Code samples written in Objective-C using the .NET API." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="sethm" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="sethm"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="sethm" />
 
 # Уведомление пользователей посредством концентраторов уведомлений
 
@@ -19,7 +19,7 @@
 
 Перед началом работы с этим учебником необходимо создать профиль подготовки и push-сертификат разработки, после чего следует создать концентратор уведомлений Azure и подключить его к этому приложению. Выполните шаги в учебнике [Приступая к работе с концентраторами уведомлений (iOS)][Приступая к работе с концентраторами уведомлений (iOS)], в частности, разделы с 1 по 5.
 
-[WACOM.INCLUDE [notification-hubs-aspnet-backend-notifyusers][notification-hubs-aspnet-backend-notifyusers]]
+[WACOM.INCLUDE [notification-hubs-aspnet-backend-notifyusers](../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
 ## Изменение приложения iOS
 
@@ -36,7 +36,7 @@
 
     Раскадровка должна выглядеть следующим образом:
 
-    ![][]
+    ![][0]
 
 2.  Создайте выходы для всех компонентов UITextField и UIButton в разделе интерфейса вашего ViewController.m
 
@@ -329,10 +329,6 @@
 
 4.  В пользовательском интерфейсе приложения iOS щелкните **Вход**. Затем щелкните **Отправить push-уведомление**.
 
-  [Windows Universal]: /ru-ru/documentation/articles/notification-hubs-windows-dotnet-notify-users/ "Windows Universal"
-  [iOS]: /ru-ru/documentation/articles/notification-hubs-/ "iOS"
-  [Android]: /ru-ru/documentation/articles/notification-hubs-aspnet-backend-android-notify-users/ "Android"
   [Регистрация из серверной части приложения]: http://msdn.microsoft.com/ru-ru/library/dn743807.aspx
-  [Приступая к работе с концентраторами уведомлений (iOS)]: http://azure.microsoft.com/ru-ru/documentation/articles/notification-hubs-ios-get-started/
   [notification-hubs-aspnet-backend-notifyusers]: ../includes/notification-hubs-aspnet-backend-notifyusers.md
-  []: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users1.png
+  [0]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users1.png

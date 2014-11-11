@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-twilio-for-voice-and-sms" pageTitle="Use Twilio for Voice and SMS Capabilities | Mobile Dev Center" metaKeywords="" description="Learn how to perform common tasks using the Twilio API with Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="How to use Twilio for voice and SMS capabilities from Mobile Services" authors="MicrosoftHelp@twilio.com" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="MicrosoftHelp@twilio.com"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="MicrosoftHelp@twilio.com" />
 
 # Использование Twilio для поддержки голосовых вызовов и SMS в мобильных службах
 
@@ -202,7 +202,7 @@ Twilio предоставляет библиотеку Node.js, содержащ
         });
     };
 
-[WACOM.INCLUDE [twilio\_additional\_services\_and\_next\_steps][twilio\_additional\_services\_and\_next\_steps]]
+[WACOM.INCLUDE [twilio_additional_services_and_next_steps](../includes/twilio_additional_services_and_next_steps.md)]
 
   [специальное предложение]: http://ahoy.twilio.com/azure
   [Цены на Twilio]: http://www.twilio.com/pricing
@@ -224,7 +224,5 @@ Twilio предоставляет библиотеку Node.js, содержащ
   [Консоль мобильных служб]: ./media/partner-twilio-mobile-services-how-to-use-voice-sms/twilio-kuduconsole.png
   []: http://www.twilio.com/docs/api/rest/making-calls
   [Практическое руководство. Предоставление ответа TwiML с собственного веб-сайта]: #howto_provide_twiml_responses
-  [twimlet\_message\_url]: http://twimlets.com/message
-  [twimlet\_message\_url\_hello\_world]: http://twimlets.com/message?Message%5B0%5D=Hello%20World
   [1]: https://www.twilio.com/docs/api/twiml
-  [twilio\_additional\_services\_and\_next\_steps]: ../includes/twilio_additional_services_and_next_steps.md
+  [twilio_additional_services_and_next_steps]: ../includes/twilio_additional_services_and_next_steps.md

@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-optimistic-concurrent-data-wp8" urlDisplayName="Optimistic concurrency" pageTitle="Handle database write conflicts with optimistic concurrency (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to handle database write conflicts on both the server and in your Windows Store application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Handling database write conlicts" authors="wesmc" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 
 # Обработка конфликтов записи базы данных
 
@@ -29,7 +29,7 @@
 
     1.  Откройте проект в Visual Studio, щелкните его правой кнопкой мыши в обозревателе решений, а затем щелкните **Управление пакетами NuGet**.
 
-        ![][]
+        ![][0]
 
     2.  Разверните раздел **В сети** и щелкните **Microsoft и .NET**. В поле "Поиск" введите **Мобильные службы Azure**. Нажмите **Установка** в пакете NuGet **Мобильных служб Azure**.
 
@@ -292,9 +292,6 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 <!-- Images. -->
 <!-- URLs. -->
 
-  [Магазин Windows C#]: /ru-ru/develop/mobile/tutorials/handle-database-write-conflicts-dotnet/ "Магазин Windows C#"
-  [Магазин Windows JavaScript]: /ru-ru/documentation/articles/mobile-services-windows-store-javascript-handle-database-conflicts/ "Магазин Windows JavaScript"
-  [Windows Phone]: /ru-ru/develop/mobile/tutorials/handle-database-write-conflicts-wp8/ "Windows Phone"
   [Обновите приложение, чтобы разрешить обновления]: #uiupdate
   [Включите в приложении обнаружение конфликтов]: #enableOC
   [Протестируйте в приложении конфликты записи базы данных]: #test-app
@@ -302,7 +299,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
   [Пакет SDK для Windows Phone 8]: http://go.microsoft.com/fwlink/p/?LinkID=268374
   [Учетная запись Azure]: http://www.windowsazure.com/ru-ru/pricing/free-trial/
   [Приступая к работе с мобильными службами]: /ru-ru/develop/mobile/tutorials/get-started-wp8
-  []: ./media/mobile-services-windows-phone-handle-database-conflicts/mobile-manage-nuget-packages-VS.png
+  [0]: ./media/mobile-services-windows-phone-handle-database-conflicts/mobile-manage-nuget-packages-VS.png
   [1]: ./media/mobile-services-windows-phone-handle-database-conflicts/mobile-manage-nuget-packages-dialog.png
   [управлении оптимистичным параллелизмом]: http://go.microsoft.com/fwlink/?LinkId=330935
   [Системные свойства]: http://go.microsoft.com/fwlink/?LinkId=331143

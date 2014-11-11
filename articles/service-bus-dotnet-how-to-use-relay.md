@@ -1,12 +1,12 @@
 <properties linkid="dev-net-how-to-service-bus-relay" urlDisplayName="Service Bus Relay" pageTitle="How to use Service Bus relay (.NET) - Azure" metaKeywords="get started azure Service Bus Relay C# " description="Learn how to use the Azure Service Bus relay service to connect two applications hosted in different locations." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use the Service Bus Relay Service" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
 # Как использовать службу ретрансляции Service Bus
 
 В этом руководстве показано, как использовать службу ретрансляции Service Bus. Примеры написаны на языке C# и используют интерфейс API Windows Communication Foundation с расширениями, содержащимися в сборке Service Bus, которая входит в состав библиотек .NET для Azure. Дополнительную информацию о ретрансляторе Service Bus см. в разделе [Дальнейшие действия][Дальнейшие действия].
 
-[WACOM.INCLUDE [create-account-note][create-account-note]]
+[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
 ## <span class="short-header">Что такое ретранслятор Service Bus</span>Что такое ретранслятор Service Bus
 
@@ -30,7 +30,7 @@
 
 3.  В нижней части портала управления нажмите кнопку **Создать**.
 
-    ![][]
+    ![][0]
 
 4.  В диалоговом окне **Добавление нового пространства имен** введите имя пространства имен. Система сразу проверит, доступно ли имя.
 
@@ -52,7 +52,7 @@
 
 1.  В левой области навигации щелкните узел **Служебная шина**, чтобы отобразить список доступных пространств имен:
 
-    ![][]
+    ![][0]
 
 2.  Выберите из отображенного списка пространство имен, которое вы только что создали.
 
@@ -247,7 +247,7 @@
   [create-account-note]: ../includes/create-account-note.md
   [Основные понятия ретрансляции]: ./media/service-bus-dotnet-how-to-use-relay/sb-relay-01.png
   [портал управления Azure]: http://manage.windowsazure.com
-  []: ./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png
+  [0]: ./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png
   [1]: ./media/service-bus-dotnet-how-to-use-relay/sb-queues-04.png
   [2]: ./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-27.png
   [3]: ./media/service-bus-dotnet-how-to-use-relay/sb-queues-09.png

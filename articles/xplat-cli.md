@@ -1,6 +1,6 @@
 <properties linkid="script-xplat-intro" urlDisplayName="Azure Cross-Platform Command-Line Interface" pageTitle="The Azure Cross-Platform Command-Line Interface" title="The Azure Cross-Platform Command-Line Interface" metaKeywords="Azure cross-platform command-line interface, Azure command-line, azure command-line, azure cli" description="Install and configure the Azure Cross-Platform Command-Line Interface to manage Azure Services" metaCanonical="http://www.windowsazure.com/ru-ru/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="paulettm" documentationCenter="" solutions="" authors="carolz" services="" />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="carolz"></tags>
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="carolz" />
 
 # Установка и настройка межплатформенного интерфейса командной строки Azure
 
@@ -385,8 +385,6 @@ Xplat-cli позволяет без труда управлять службам
 
 -   Дополнительную информацию об Azure см. на сайте [][2]<http://azure.microsoft.com/></a>.
 
-  [PowerShell]: /ru-ru/manage/install-and-configure-windows-powershell/ "PowerShell"
-  [Межплатформенный интерфейс командной строки]: /ru-ru/manage/install-and-configure-cli/ "Межплатформенный интерфейс командной строки"
   []: https://github.com/WindowsAzure/azure-sdk-tools-xplat
   [Установка межплатформенного интерфейса командной строки Azure]: #install
   [Подключение к подписке Azure]: #configure
@@ -406,5 +404,5 @@ Xplat-cli позволяет без труда управлять службам
   [Справочник по командной строке от А до Я]: http://technet.microsoft.com/ru-ru/library/bb490890.aspx
   [jsawk]: https://github.com/micha/jsawk
   [jq]: http://stedolan.github.io/jq/
-  [форумы Azure]: http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home
+  [форумы Azure]: http://social.msdn.microsoft.com/Forums/windowsazure/ru-ru/home
   [2]: http://azure.microsoft.com

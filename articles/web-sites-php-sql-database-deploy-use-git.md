@@ -6,7 +6,7 @@
 
 В этом учебном курсе рассматривается создание веб-сайта Azure на PHP с базой данных Azure SQL и ее развертывание с помощью Git. В этом учебнике предполагается, что на компьютере установлены [PHP][PHP], [SQL Server Express][SQL Server Express], [драйверы Microsoft SQL Server для PHP][драйверы Microsoft SQL Server для PHP], веб-сервер и [Git][Git]. После завершения работы с этим учебным курсом у вас будет веб-сайт PHP-SQL в Azure.
 
-> [WACOM.NOTE]
+> [WACOM.ПРИМЕЧАНИЕ]
 > Для установки и настройки PHP, SQL Server Express, драйверов Майкрософт для SQL Server для PHP, а также служб IIS можно воспользоваться [установщиком веб-платформы Майкрософт][установщиком веб-платформы Майкрософт].
 
 Вы узнаете:
@@ -126,7 +126,7 @@
 
     Обратите внимание, что потребуется обновить значения для `$user` и `$pwd` с использованием имени пользователя и пароля локального сервера SQL Server.
 
-4.  Откройте веб-браузер и перейдите по адресу **http://localhost/registration/createtable.php**. В результате в базе данных будет создана таблица `registration_tbl`.
+4.  Откройте веб-браузер и перейдите по адресу **<http://localhost/registration/createtable.php>**. В результате в базе данных будет создана таблица `registration_tbl`.
 
 5.  Откройте файл **index.php** в текстовом редакторе или в интегрированной среде разработки и добавьте базовый HTML-код и CSS для страницы (PHP-код будет добавлен позднее).
 
@@ -234,12 +234,12 @@
     $pwd = "<your password>";
     $db = "<value of DATABASE>";
 
-> [WACOM.NOTE]
-> В коде `$host` значение параметра SERVER должно начинаться с `tcp:`, а значение `$user` является объединением значения параметра USERNAME, знака '@' и идентификатора сервера. ИД сервера — первые 10 символов значения параметра SERVER.
+> [WACOM.ПРИМЕЧАНИЕ]
+> В коде `$host` значение параметра SERVER должно начинаться с `tcp:`, а значение `$user` является объединением значения параметра USERNAME, знака @ и идентификатора сервера. ИД сервера — первые 10 символов значения параметра SERVER.
 
 Теперь все готово для настройки публикации Git и публикации приложения.
 
-> [WACOM.NOTE]
+> [WACOM.ПРИМЕЧАНИЕ]
 > Для этого используются те же действия, которые были указаны в конце вышеприведенного раздела "Создание веб-сайта Azure и настройка публикации в Git".
 
 1.  Откройте GitBash (или терминал, если Git включен в переменную `PATH`), измените каталог на корневой каталог приложения и выполните следующие команды:
@@ -252,8 +252,8 @@
 
     Появится запрос на ввод ранее заданного пароля.
 
-2.  Перейдите по адресу **http://[имя веб-сайта].azurewebsites.net/createtable.php**, чтобы создать таблицу MySQL для приложения.
-3.  Перейдите по адресу **http://[имя веб-сайта].azurewebsites.net/index.php**, чтобы начать работу с приложением.
+2.  Перейдите по адресу **http://имя веб-сайта.azurewebsites.net/createtable.php**, чтобы создать таблицу MySQL для приложения.
+3.  Перейдите по адресу **http://имя веб-сайта.azurewebsites.net/index.php**, чтобы начать работу с приложением.
 
 После публикации приложения можно начать вносить изменения и публиковать их с помощью Git.
 
@@ -270,7 +270,7 @@
 
     Появится запрос на ввод ранее заданного пароля.
 
-3.  Перейдите по адресу **http://[имя веб-сайта].azurewebsites.net/index.php**, чтобы просмотреть изменения.
+3.  Перейдите по адресу **http://имя веб-сайта.azurewebsites.net/index.php**, чтобы просмотреть изменения.
 
   [PHP]: http://www.php.net/manual/en/install.php
   [SQL Server Express]: http://www.microsoft.com/ru-ru/download/details.aspx?id=29062
@@ -278,11 +278,11 @@
   [Git]: http://git-scm.com/
   [установщиком веб-платформы Майкрософт]: http://www.microsoft.com/web/downloads/platform.aspx
   [Веб-сайт Azure на PHP]: ./media/web-sites-php-sql-database-deploy-use-git/running_app_3.png
+  [создать-учетная запись-и-веб-сайт-примечание]: ../includes/create-account-and-websites-note.md
   [портал управления Azure]: https://manage.windowsazure.com/
   [Создать новый веб-сайт Azure]: ./media/web-sites-php-sql-database-deploy-use-git/new_website.jpg
   [Настраиваемое создание нового веб-сайта]: ./media/web-sites-php-sql-database-deploy-use-git/custom_create.png
   [Заполните сведения о веб-сайте]: ./media/web-sites-php-sql-database-deploy-use-git/website_details_sqlazure.jpg
-  [(WEB или BUSINESS)]: http://msdn.microsoft.com/ru-ru/library/windowsazure/ee621788.aspx
   [Заполните параметры базы данных SQL]: ./media/web-sites-php-sql-database-deploy-use-git/database_settings.jpg
   [Создать новый сервер базы данных SQL]: ./media/web-sites-php-sql-database-deploy-use-git/create_server.jpg
   [Откройте панель мониторинга веб-сайта]: ./media/web-sites-php-sql-database-deploy-use-git/go_to_dashboard.png
@@ -293,4 +293,3 @@
   [Связанные ресурсы]: ./media/web-sites-php-sql-database-deploy-use-git/linked_resources.jpg
   [Строка подключения]: ./media/web-sites-php-sql-database-deploy-use-git/connection_string.jpg
   [расширения PDO для SQL Server]: http://php.net/pdo_sqlsrv
- 

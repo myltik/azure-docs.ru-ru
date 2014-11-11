@@ -1,6 +1,6 @@
 <properties linkid="develop-php-how-to-guides-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (PHP) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues PHP" description="Learn how to use Service Bus queues in Azure. Code samples written in PHP." metaCanonical="" services="service-bus" documentationCenter="PHP" title="How to Use Service Bus Queues" authors="" solutions="" manager="" editor="" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
 # Использование очередей Service Bus
 
@@ -23,7 +23,7 @@
 -   [Практическое руководство. Обработка сбоев приложения и нечитаемых сообщений][Практическое руководство. Обработка сбоев приложения и нечитаемых сообщений]
 -   [Дальнейшие действия][Дальнейшие действия]
 
-[WACOM.INCLUDE [howto-service-bus-queues][howto-service-bus-queues]]
+[WACOM.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
 ## <span id="CreateApplication"></span></a>Создание приложения на PHP
 
@@ -36,7 +36,7 @@
 
 ## <span id="GetClientLibrary"></span></a>Получение клиентских библиотек Azure
 
-[WACOM.INCLUDE [получение-клиент-библиотеки][получение-клиент-библиотеки]]
+[WACOM.INCLUDE [получение-клиент-библиотеки](../includes/get-client-libraries.md)]
 
 ## <span id="ConfigureApp"></span></a>Настройка приложения для использования Service Bus
 
@@ -240,7 +240,6 @@ Bus разблокирует сообщение автоматически и с
 Дополнительные сведения см. в статье [Очереди, разделы и подписки][Очереди, разделы и подписки] на портале MSDN.
 
   [Azure SDK for PHP]: http://go.microsoft.com/fwlink/?LinkId=252473
-  [Что такое очереди Service Bus?]: #what-are-service-bus-queues
   [Создание пространства имен службы]: #create-a-service-namespace
   [Получение учетных данных управления по умолчанию для пространства имен]: #obtain-default-credentials
   [Создание приложения PHP]: #CreateApplication
@@ -254,5 +253,4 @@ Bus разблокирует сообщение автоматически и с
   [howto-service-bus-queues]: ../includes/howto-service-bus-queues.md
   [расширение OpenSSL]: http://php.net/openssl
   [получение-клиент-библиотеки]: ../includes/get-client-libraries.md
-  [require\_once]: http://php.net/require_once
   [Очереди, разделы и подписки]: http://msdn.microsoft.com/ru-ru/library/windowsazure/hh367516.aspx

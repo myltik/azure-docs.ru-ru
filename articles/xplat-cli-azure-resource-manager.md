@@ -1,6 +1,6 @@
 <properties linkid="script-xplat-intro" urlDisplayName="Microsoft Azure Cross-Platform Command-Line Interface" pageTitle="Using Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" title="Using Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" metaKeywords="windows azure cross-platform command-line interface Resource Manager, windows azure command-line resource manager, azure command-line resource manager, azure cli resource manager" description="Use the Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" metaCanonical="http://www.windowsazure.com/ru-ru/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="paulettm" documentationCenter="" solutions="" authors="larryfr" services="" />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Использование межплатформенного интерфейса командной строки Microsoft Azure совместно с диспетчером ресурсов
 
@@ -162,7 +162,5 @@
 -   Дополнительные сведения об использовании межплатформенного интерфейса командной строки Azure см. в разделе [Установка и настройка межплатформенного интерфейса командной строки Microsoft Azure][Установка и настройка межплатформенного интерфейса командной строки Microsoft Azure].
 -   Информацию о работе с диспетчером ресурсов с помощью Windows Azure PowerShell см. в разделе [Начало работы с Windows PowerShell совместно с диспетчером ресурсов][Начало работы с Windows PowerShell совместно с диспетчером ресурсов].
 
-  [PowerShell]: /ru-ru/documentation/articles/powershell-azure-resource-manager.md "PowerShell"
-  [Межплатформенный интерфейс командной строки]: /ru-ru/documentation/articles/xplat-cli-azure-resource-manager.md "Межплатформенный интерфейс командной строки"
   [Установка и настройка межплатформенного интерфейса командной строки Microsoft Azure]: /ru-ru/documentation/articles/xplat-cli/
   [Начало работы с Windows PowerShell совместно с диспетчером ресурсов]: http://go.microsoft.com/fwlink/?LinkId=394760

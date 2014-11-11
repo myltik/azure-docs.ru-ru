@@ -1,6 +1,6 @@
 <properties title="How to Configure PHP in Azure Websites" pageTitle="How to Configure PHP in Azure Websites" metaKeywords="Azure, Azure Web Sites, configuration, PHP" description="Learn how to configure the default PHP installation or add a custom PHP installation in Azure Websites." services="Web Sites" documentationCenter="PHP" authors="cephalin" manager="wpickett" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
 
 # Настройка PHP на веб-сайтах Windows Azure
 
@@ -100,18 +100,15 @@ PHP 5.5 также доступна по умолчанию, но не вклю�
   [бесплатное пробное использование]: https://www.windowsazure.com/ru-ru/pricing/free-trial/
   [Центр разработчиков PHP — учебные курсы]: https://www.windowsazure.com/ru-ru/develop/php/tutorials/
   [Настройка веб-сайтов]: https://www.windowsazure.com/ru-ru/manage/services/web-sites/how-to-configure-websites/
-  [Что такое веб-сайт Azure?]: #WhatIs
   [Практическое руководство. Изменение конфигурации PHP по умолчанию]: #ChangeBuiltInPHP
   [Практическое руководство. Включение расширений во встроенной среде выполнения PHP]: #EnableExtDefaultPHP
   [Практическое руководство. Использование пользовательской среды PHP]: #UseCustomPHP
   [Дальнейшие действия]: #NextSteps
-  [phpinfo()]: http://php.net/manual/en/function.phpinfo.php
   [Вкладка "Настройка" на панели мониторинга веб-сайта]: ./media/web-sites-php-configure/configure.png
   [Выберите версию PHP]: ./media/web-sites-php-configure/select-php-version.png
   [Сохранение параметров конфигурации]: ./media/web-sites-php-configure/save-button.png
   [Список директив php.ini]: http://www.php.net/manual/en/ini.list.php
   [.user.ini]: http://www.php.net/manual/en/configuration.file.per-user.php
-  [ini\_set()]: http://www.php.net/manual/en/function.ini-set.php
   [Включение расширения в параметрах приложения]: ./media/web-sites-php-configure/app-settings.png
   []: http://windows.php.net/download/
   [1]: http://windows.php.net/downloads/releases/archives/

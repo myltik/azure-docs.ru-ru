@@ -1,6 +1,6 @@
 <properties linkid="develop-net-tutorials-multi-tier-web-site-5-worker-role-b" pageTitle="Azure Cloud Service Tutorial: Worker Role with Azure Storage Tables, Queues, and Blobs" metaKeywords="Azure tutorial, Azure storage tutorial, Azure multi-tier tutorial, Azure worker role tutorial, Azure blobs tutorial, Azure tables tutorial, Azure queues tutorial" description="Learn how to create a multi-tier app using ASP.NET MVC and Azure. The app runs in a cloud service, with web role and worker roles, and uses Azure storage tables, queues, and blobs." metaCanonical="" services="cloud-services,storage" documentationCenter=".NET" title="Azure Cloud Service Tutorial: ASP.NET MVC Web Role, Worker Role, Azure Storage Tables, Queues, and Blobs" authors="tdykstra,riande" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="cloud-services" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tdykstra,riande"></tags>
+<tags ms.service="cloud-services" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tdykstra,riande" />
 
 # Создание рабочей роли B (отправитель электронной почты) для приложения службы электронной почты Azure – 5 из 5.
 
@@ -604,10 +604,8 @@
   [How to use the Table Storage Service in .NET]: http://www.windowsazure.com/ru-ru/develop/net/how-to-guides/table-services/
   [Microsoft Azure Storage Client Library 2.0 Tables Deep Dive]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/11/06/windows-azure-storage-client-library-2-0-tables-deep-dive.aspx
   [Real World: Designing a Scalable Partitioning Strategy for Azure Table Storage]: http://msdn.microsoft.com/ru-ru/library/windowsazure/hh508997.aspx
-  [Шаблон работы на основе очередей (создание реальных облачных приложений в Windows Azure)]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern
   [Azure Queues and Azure Service Bus Queues - Compared and Contrasted]: http://msdn.microsoft.com/ru-ru/library/windowsazure/hh767287.aspx
   [Использование службы хранилища очередей в .NET]: /ru-ru/develop/net/how-to-guides/queue-service/
-  [Неструктурированное хранилище BLOB-объектов (создание реальных облачных приложений в Windows Azure)]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage
   [Использование службы хранения BLOB-объектов Azure в .NET]: /ru-ru/develop/net/how-to-guides/blob-storage/
   [Практическое руководство по использованию блока приложения автомасштабирования]: /ru-ru/develop/net/how-to-guides/autoscaling/
   [Автоматическое масштабирование и Azure]: http://msdn.microsoft.com/ru-ru/library/hh680945(v=PandP.50).aspx

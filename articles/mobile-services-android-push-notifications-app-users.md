@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-push-notifications-to-users-android" urlDisplayName="" pageTitle="Push notifications to users (Android ) | Mobile Dev Center" metaKeywords="" description="Learn how to use Mobile Services to push notifications to users of your Android app." metaCanonical="" services="" documentationCenter="Mobile" title="Push notifications to users by using Mobile Services" authors="ricksal" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
 
 # Отправка push-уведомлений пользователям с использованием мобильных служб
 
@@ -25,7 +25,7 @@
 
 1.  Выполните вход на [портал управления Azure][портал управления Azure], щелкните элемент **Мобильные службы**, а затем выберите свое приложение.
 
-    ![][]
+    ![][0]
 
 2.  Щелкните вкладку **Данные**, а затем нажмите **Создать**.
 
@@ -243,16 +243,13 @@
 
 
 
-  [Windows Phone]: /ru-ru/develop/mobile/tutorials/push-notifications-to-users-wp8 "Windows Phone"
-  [iOS]: /ru-ru/develop/mobile/tutorials/push-notifications-to-users-ios "iOS"
-  [Android]: /ru-ru/develop/mobile/tutorials/push-notifications-to-users-android "Android"
   [предыдущий учебник по push-уведомлениям]: /ru-ru/develop/mobile/tutorials/get-started-with-push-android
   [Создание таблицы регистраций]: #create-table
   [Обновление приложения]: #update-app
   [Обновление серверных скриптов]: #update-scripts
   [Проверка режима работы push-уведомлений]: #test-app
   [портал управления Azure]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-android-push-notifications-app-users/mobile-services-selection.png
+  [0]: ./media/mobile-services-android-push-notifications-app-users/mobile-services-selection.png
   [1]: ./media/mobile-services-android-push-notifications-app-users/mobile-create-table.png
   [2]: ./media/mobile-services-android-push-notifications-app-users/mobile-create-registration-table.png
   [3]: ./media/mobile-services-android-push-notifications-app-users/mobile-create-registration-class.png

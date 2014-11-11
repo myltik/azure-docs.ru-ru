@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-javascript-aad-graph-info" urlDisplayName="Accessing Azure Active Directory Graph Information" pageTitle="Accessing Azure Active Directory Graph Information (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to access Azure Active Directory information using the Graph API in your Windows Store application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Accessing Azure Active Directory Graph Information" authors="wesmc" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="08/20/2014" ms.author="wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="08/20/2014" ms.author="wesmc" />
 
 # Получение доступа к сведениям Graph Azure Active Directory
 
@@ -38,7 +38,7 @@
 
 В учебнике [Начало работы с проверкой подлинности][Начало работы с проверкой подлинности] во время выполнения шага [Регистрация для использования входа Azure Active Directory][Регистрация для использования входа Azure Active Directory] вы создали регистрацию для встроенного приложения. В этом разделе предстоит создать ключ для использования при чтении сведений каталога с помощью идентификатора клиента встроенного приложения.
 
-[WACOM.INCLUDE [mobile-services-generate-aad-app-registration-access-key][mobile-services-generate-aad-app-registration-access-key]]
+[WACOM.INCLUDE [mobile-services-generate-aad-app-registration-access-key](../includes/mobile-services-generate-aad-app-registration-access-key.md)]
 
 ## <a name="create-api"></a>Создание пользовательского интерфейса API GetUserInfo
 
@@ -48,7 +48,7 @@
 
 1.  На [портале управления Azure][портале управления Azure] создайте новый пользовательский API GetUserInfo для мобильной службы и задайте для метода get разрешение **Только выполнившие проверку подлинности пользователи**.
 
-    ![][]
+    ![][0]
 
 2.  Откройте редактор скриптов для нового API GetUserInfo и добавьте в начало скрипта следующие переменные.
 
@@ -131,11 +131,11 @@
 
 В этом разделе предстоит обновить метод `AuthenticateAsync`, реализованный в учебнике [Начало работы с проверкой подлинности][Начало работы с проверкой подлинности] для вызова пользовательского API и возвращения дополнительных сведений о пользователе из AAD.
 
-[WACOM.INCLUDE [mobile-services-aad-graph-info-update-app][mobile-services-aad-graph-info-update-app]]
+[WACOM.INCLUDE [mobile-services-aad-graph-info-update-app](../includes/mobile-services-aad-graph-info-update-app.md)]
 
 ## <a name="test-app"></a> Тестирование приложения
 
-[WACOM.INCLUDE [mobile-services-aad-graph-info-test-app][mobile-services-aad-graph-info-test-app]]
+[WACOM.INCLUDE [mobile-services-aad-graph-info-test-app](../includes/mobile-services-aad-graph-info-test-app.md)]
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
@@ -145,9 +145,6 @@
 <!-- Images -->
 <!-- URLs. -->
 
-  [Магазин Windows C#]: /ru-ru/documentation/articles/mobile-services-javascript-backend-windows-store-aad-graph-info/ "Магазин Windows C#"
-  [Сервер .NET]: ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-graph-info/ "Сервер .NET"
-  [Сервер JavaScript]: /ru-ru/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info/ "Сервер JavaScript"
   [API Graph]: http://msdn.microsoft.com/library/azure/hh974478.aspx
   [Начало работы с проверкой подлинности]: /ru-ru/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
   [Создание ключа доступа для регистрации приложения в AAD]: #generate-key
@@ -159,7 +156,7 @@
   [mobile-services-generate-aad-app-registration-access-key]: ../includes/mobile-services-generate-aad-app-registration-access-key.md
   [API REST Graph]: http://msdn.microsoft.com/ru-ru/library/azure/hh974478.aspx
   [портале управления Azure]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info/create-getuserinfo.png
+  [0]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info/create-getuserinfo.png
   [Get User]: http://msdn.microsoft.com/ru-ru/library/azure/dn151678.aspx
   [mobile-services-aad-graph-info-update-app]: ../includes/mobile-services-aad-graph-info-update-app.md
   [mobile-services-aad-graph-info-test-app]: ../includes/mobile-services-aad-graph-info-test-app.md

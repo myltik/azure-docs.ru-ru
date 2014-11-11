@@ -1,6 +1,6 @@
 <properties linkid="develop-java-sql-azure" urlDisplayName="SQL Database" pageTitle="How to use SQL Azure (Java) - Azure feature guide" metaKeywords="" description="Learn how to use the Azure SQL Database from Java code. " metaCanonical="" services="sql-database" documentationCenter="Java" title="How to Use Azure SQL Database in Java" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # Использование базы данных SQL Azure в Java
 
@@ -724,16 +724,12 @@
   [Удаление таблицы]: #to_drop_table
   [Использование базы данных SQL в Java в развертывании Azure]: #using_in_azure
   [Дальнейшие действия]: #nextsteps
-  [Рекомендации и ограничения (база данных SQL)]: http://msdn.microsoft.com/ru-ru/library/windowsazure/ff394102.aspx
-  [Установка подключаемого модуля Azure для Eclipse с Java (от Microsoft Open Technologies)]: http://msdn.microsoft.com/ru-ru/library/windowsazure/hh690946.aspx
   [портал управления Azure]: https://manage.windowsazure.com
   [Создание новой базы данных SQL]: ./media/sql-data-java-how-to-use-sql-database/WA_New.png
   [Создание настраиваемой базы данных SQL]: ./media/sql-data-java-how-to-use-sql-database/WA_SQL_DB_Create.png
   [Параметры базы данных SQL]: ./media/sql-data-java-how-to-use-sql-database/WA_CustomCreate_1.png
   [Параметры SQL Server]: ./media/sql-data-java-how-to-use-sql-database/WA_CustomCreate_2.png
   [Определение строки подключения JDBC]: ./media/sql-data-java-how-to-use-sql-database/WA_SQL_JDBC_ConnectionString.png
-  ["user=MySQLAdmin@\*your\_server\*]: mailto:"user=MySQLAdmin@*your_server*
   [Диалоговое окно "Разрешенные IP-адреса"]: ./media/sql-data-java-how-to-use-sql-database/WA_Allowed_IPs.png
-  [Создание приложения Hello World с использованием подключаемого модуля Azure для Eclipse с помощью Java (Microsoft Open Technologies)]: http://msdn.microsoft.com/ru-ru/library/windowsazure/hh690944.aspx
   [Обзор драйвера JDBC]: http://msdn.microsoft.com/ru-ru/library/ms378749.aspx
   [Обзор базы данных SQL]: http://msdn.microsoft.com/ru-ru/library/windowsazure/ee336241.aspx

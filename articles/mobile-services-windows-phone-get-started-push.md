@@ -1,6 +1,6 @@
 <properties pageTitle="Get started with push notifications (legacy push) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your Windows Phone app (legacy push)." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services (legacy push)" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Приступая к работе с push-уведомлениями в мобильных службах (принудительная отправка устаревшего типа)
 
@@ -39,7 +39,7 @@
 
 ## <a name="create-table"></a>Создание новой таблицы
 
-[WACOM.INCLUDE [mobile-services-create-new-push-table][mobile-services-create-new-push-table]]
+[WACOM.INCLUDE [mobile-services-create-new-push-table](../includes/mobile-services-create-new-push-table.md)]
 
 ## <a name="add-push"></a><span class="short-header">Добавление push-уведомлений</span>Добавление push-уведомлений в приложение
 
@@ -89,13 +89,13 @@
 
 5.  В обозревателе решений разверните узел **Свойства**, откройте файл WMAppManifest.xml, откройте вкладку **Возможности** и убедитесь, что установлен флажок для возможности **ID___CAP___PUSH_NOTIFICATION**.
 
-    ![][]
+    ![][0]
 
     Это гарантирует, что приложение сможет получать push-уведомления.
 
 ## <a name="update-scripts"></a><span class="short-header">Обновление сценария вставки</span>Обновление зарегистрированных сценариев вставки на портале управления
 
-[WACOM.INCLUDE [mobile-services-update-registrations-script][mobile-services-update-registrations-script]]
+[WACOM.INCLUDE [mobile-services-update-registrations-script](../includes/mobile-services-update-registrations-script.md)]
 
 1.  Последовательно щелкните **TodoItem**, **Скрипт** и **Вставить**.
 
@@ -191,14 +191,6 @@
 <!-- Images. -->
 <!-- URLs. -->
 
-  [Магазин Windows C#]: /ru-ru/documentation/articles/mobile-services-windows-store-dotnet-get-started-push "Магазин Windows C#"
-  [Магазин Windows JavaScript]: /ru-ru/documentation/articles/mobile-services-windows-store-javascript-get-started-push "Магазин Windows JavaScript"
-  [Windows Phone]: /ru-ru/documentation/articles/mobile-services-windows-phone-get-started-push "Windows Phone"
-  [iOS]: /ru-ru/documentation/articles/mobile-services-ios-get-started-push "iOS"
-  [Android]: /ru-ru/documentation/articles/mobile-services-android-get-started-push "Android"
-  [Appcelerator]: /ru-ru/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push "Appcelerator"
-  [Серверная часть .NET]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/ "Серверная часть .NET"
-  [Серверная часть JavaScript]: /ru-ru/documentation/articles/mobile-services-windows-phone-get-started-push/ "Серверная часть JavaScript"
   [Приступая к работе с push-уведомлениями]: /ru-ru/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/
   [Создание таблицы регистраций]: #create-table
   [Добавление push-уведомлений в приложение]: #add-push
@@ -208,7 +200,7 @@
   [Приступая к работе с мобильными службами]: /ru-ru/develop/mobile/tutorials/get-started-wp8
   [Приступая к работе с концентраторами уведомлений]: /ru-ru/manage/services/notification-hubs/getting-started-windows-dotnet/
   [mobile-services-create-new-push-table]: ../includes/mobile-services-create-new-push-table.md
-  []: ./media/mobile-services-windows-phone-get-started-push/mobile-app-enable-push-wp8.png
+  [0]: ./media/mobile-services-windows-phone-get-started-push/mobile-app-enable-push-wp8.png
   [mobile-services-update-registrations-script]: ../includes/mobile-services-update-registrations-script.md
   [1]: ./media/mobile-services-windows-phone-get-started-push/mobile-insert-script-push2.png
   [2]: ./media/mobile-services-windows-phone-get-started-push/mobile-quickstart-push1-wp8.png
@@ -216,7 +208,6 @@
   [4]: ./media/mobile-services-windows-phone-get-started-push/mobile-quickstart-push3-wp8.png
   [5]: ./media/mobile-services-windows-phone-get-started-push/mobile-quickstart-push4-wp8.png
   [Приступая к работе с центрами уведомлений]: /ru-ru/manage/services/notification-hubs/get-started-notification-hubs-wp8/
-  [Что такое центры уведомлений?]: /ru-ru/develop/net/how-to-guides/service-bus-notification-hubs/
   [Рассылка уведомлений подписчикам]: /ru-ru/manage/services/notification-hubs/breaking-news-wp8/
   [Приступая к работе с данными]: /ru-ru/develop/mobile/tutorials/get-started-with-data-wp8
   [Приступая к работе с аутентификацией]: /ru-ru/develop/mobile/tutorials/get-started-with-users-wp8

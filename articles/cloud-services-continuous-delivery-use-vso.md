@@ -1,6 +1,6 @@
 <properties linkid="dev-net-common-tasks-publishing-with-vso" urlDisplayName="Publishing with Visual Studio Online" pageTitle="Continuous delivery with Visual Studio Online in Azure" metaKeywords="" description="Learn how to configure your Visual Studio Online team projects to automatically build and deploy to Azure websites or cloud services." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Continuous delivery to Azure using Visual Studio Online" authors="ghogen" solutions="" manager="douge" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="ghogen"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="ghogen" />
 
 # Непрерывная доставка в Azure с использованием Visual Studio Online
 
@@ -40,7 +40,7 @@
 
 2.  Откройте контекстное меню решения и выберите **Добавить решение в систему управления версиями**.
 
-    ![][]
+    ![][0]
 
 3.  Примите предлагаемые по умолчанию параметры или измените их, после чего нажмите кнопку **ОК**. По завершении обработки в обозревателе решений появится значок системы управления версиями.
 
@@ -269,18 +269,14 @@
   [Непрерывная доставка для облачных служб в Azure]: ../cloud-services-dotnet-continuous-delivery
   [www.visualstudio.com]: http://www.visualstudio.com
   [этой ссылке]: http://go.microsoft.com/fwlink/?LinkId=239540
-  [бесплатно зарегистрировать учетную запись Visual Studio Online]: http://go.microsoft.com/fwlink/p/?LinkId=512979
   [Шаг 1: создание командного проекта.]: #step1
   [Шаг 2: регистрация проекта в системе управления версиями.]: #step2
   [Шаг 3: подключение проекта к Azure.]: #step3
   [Шаг 4: внесение необходимых изменений и запуск процессов повторного построения и развертывания.]: #step4
-  [Шаг 5: повторное развертывание предыдущей сборки (необязательно).]: #step5
-  [Шаг 6: изменение рабочего развертывания (только для облачных служб).]: #step6
-  [Шаг 7: запуск модульных тестов (необязательно).]: #step7
   [здесь]: http://go.microsoft.com/fwlink/?LinkId=512980
   [версию этого руководства для Git]: http://go.microsoft.com/fwlink/p/?LinkId=397358
   [Начало работы с Azure и ASP.NET]: http://www.windowsazure.com/ru-ru/documentation/articles/web-sites-dotnet-get-started/
-  []: ./media/cloud-services-continuous-delivery-use-vso/tfs5.png
+  [0]: ./media/cloud-services-continuous-delivery-use-vso/tfs5.png
   [1]: ./media/cloud-services-continuous-delivery-use-vso/tfs6.png
   [2]: ./media/cloud-services-continuous-delivery-use-vso/tfs7.png
   [3]: ./media/cloud-services-continuous-delivery-use-vso/tfs8.png

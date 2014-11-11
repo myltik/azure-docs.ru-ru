@@ -1,6 +1,6 @@
 <properties linkid="mobile-services-how-to-html-client" urlDisplayName="HTML Client" pageTitle="How to use an HTML client - Azure Mobile Services" metaKeywords="Azure Mobile Services, Mobile Service HTML client, HTML client" description="Learn how to use an HTML client for Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="How to use an HTML/JavaScript client for Azure Mobile Services" authors="krisragh" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
 
 # Использование клиента HTML/JavaScript для мобильных служб Azure
 
@@ -33,7 +33,7 @@
 -   [Практическое руководство. Использование общего доступа к ресурсам независимо от источника][Практическое руководство. Использование общего доступа к ресурсам независимо от источника]
 -   [Дальнейшие действия][Дальнейшие действия]
 
-[WACOM.INCLUDE [mobile-services-concepts][mobile-services-concepts]]
+[WACOM.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
 
 ## <a name="create-client"></a>Практическое руководство. Создание клиента мобильных служб
 
@@ -589,14 +589,8 @@
 
 
 
-  [.NET Framework]: /ru-ru/develop/mobile/how-to-guides/work-with-net-client-library/ ".NET Framework"
-  [HTML/JavaScript]: /ru-ru/develop/mobile/how-to-guides/work-with-html-js-client/ "HTML/JavaScript"
-  [iOS]: /ru-ru/develop/mobile/how-to-guides/work-with-ios-client-library/ "iOS"
-  [Android]: /ru-ru/develop/mobile/how-to-guides/work-with-android-client-library/ "Android"
-  [Xamarin]: /ru-ru/develop/mobile/how-to-guides/work-with-xamarin-client-library/ "Xamarin"
   [Windows Store JavaScript quickstart]: http://www.windowsazure.com/ru-ru/develop/mobile/tutorials/get-started
   [HTML quickstart]: http://www.windowsazure.com/ru-ru/develop/mobile/tutorials/get-started-html
-  [Что такое мобильные службы?]: #what-is
   [Основные понятия]: #concepts
   [Практическое руководство. Создание клиента мобильных служб]: #create-client
   [Практическое руководство. Запрос данных от мобильной службы]: #querying
@@ -623,12 +617,9 @@
   [Управляющие коды ASCII C0 и C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
   [Интерфейс командной строки для управления таблицами мобильных служб]: http://www.windowsazure.com/ru-ru/manage/linux/other-resources/command-line-tools/#Mobile_Tables
   [ListView]: http://msdn.microsoft.com/ru-ru/library/windows/apps/br211837.aspx
-  [Привязка данных (приложения Магазина Windows с использованием JavaScript и HTML)]: http://msdn.microsoft.com/ru-ru/library/windows/apps/hh758311.aspx
   [Приступая к работе с проверкой подлинности]: /ru-ru/develop/mobile/tutorials/get-started-with-users-html
   [Магазин Windows]: /ru-ru/develop/mobile/tutorials/get-started-with-users-js
   [login]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj554236.aspx
-  [Регистрация пакета приложения Магазина Windows для проверки подлинности Майкрософт]: /ru-ru/develop/mobile/how-to-guides/register-windows-store-app-package/
-  [1]: http://go.microsoft.com/fwlink/p/?LinkId=322050
   [Проверка подлинности приложения с помощью единого входа]: /ru-ru/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/
   [sessionStorage]: http://msdn.microsoft.com/ru-ru/library/cc197062(v=vs.85).aspx
   [done]: http://msdn.microsoft.com/ru-ru/library/windows/apps/hh701079.aspx

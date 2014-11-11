@@ -1,6 +1,6 @@
 <properties linkid="provisioning-biztalk-service" urlDisplayName="Provision BizTalk Services in management portal" pageTitle="Create BizTalk Services in management portal | Azure" metaKeywords="Get started Azure biztalk services, provision, Azure unstructured data" description="Learn how to provision a BizTalk service in the Azure Management Portal, as well as create an optional SQL database server and Storage account." metaCanonical="http://www.windowsazure.com/ru-ru/manage/services/biztalk-services/provisioning-biztalk-service" services="biztalk-services" documentationCenter="" title="BizTalk Services: Provisioning Using Azure Management Portal" authors="mandia" solutions="" manager="dwrede" editor="cgronlun" />
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia"></tags>
+<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
 
 # Создание службы BizTalk с помощью портала управления Azure
 
@@ -327,7 +327,6 @@
   [Действия после подготовки]: #PostProv
   [Пояснение требований]: #Requirements
   [Гибридные подключения — новое!]: #HC
-  [Бесплатная пробная версия Azure]: http://go.microsoft.com/fwlink/p/?LinkID=239738
   [портал управления Azure]: http://go.microsoft.com/fwlink/p/?LinkID=213885
   [нажмите кнопку "Создать"]: ./media/biztalk-provision-services/WABS_New.png
   [выберите пункт "Служба BizTalk", а затем "Настраиваемое создание"]: ./media/biztalk-provision-services/WABS_NewBizTalkService.png
@@ -342,10 +341,6 @@
   [выбрать сведения о подключении]: ./media/biztalk-provision-services/WABS_ACSConnectInformation.png
   [идентификаторы службы ACS на портале управления доступом]: ./media/biztalk-provision-services/WABS_ACSServiceIdentities.png
   [Управление пространством имен ACS]: http://go.microsoft.com/fwlink/p/?LinkID=285670
-  [Подписки Azure]: https://account.windowsazure.com/Subscriptions
-  [Дополнительные сведения см. в разделе Управление подписками и учетными записями хранилища на портале управления Azure]: http://go.microsoft.com/fwlink/p/?LinkID=267577
-  [Учетные записи и выставление счетов в базе данных SQL Azure]: http://go.microsoft.com/fwlink/p/?LinkID=234930
-  [Хранилище]: http://go.microsoft.com/fwlink/p/?LinkID=285671
   [вкладка "Гибридные подключения"]: ./media/biztalk-provision-services/WABS_HybridConnectionTab.png
   [Гибридные подключения]: http://go.microsoft.com/fwlink/p/?LinkID=397274
   [Службы BizTalk Azure]: http://go.microsoft.com/fwlink/p/?LinkID=235197

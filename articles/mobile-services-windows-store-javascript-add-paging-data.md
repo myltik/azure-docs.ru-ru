@@ -1,6 +1,6 @@
 <properties pageTitle="Add paging to data (JavaScript) - Azure Mobile Services" metaKeywords="" description="Learn how to use paging to manage the amount of data returned to your Windows Store JavaScript app from Mobile Services." metaCanonical="http://www.windowsazure.com/ru-ru/develop/mobile/tutorials/add-paging-to-data-dotnet/" services="" documentationCenter="Mobile" title="Refine Mobile Services queries with paging" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Уточнение запросов мобильных служб c разбиением по страницам
 
@@ -15,7 +15,7 @@
 
 Этот учебник основан на инструкциях и примере приложения предыдущего учебника, [Приступая к работе с данными][Приступая к работе с данными]. Перед началом этого учебника необходимо изучить хотя бы первый учебник из серии по работе с данными, [Приступая к работе с данными][Приступая к работе с данными].
 
-[WACOM.INCLUDE [mobile-services-javascript-paging][mobile-services-javascript-paging]]
+[WACOM.INCLUDE [mobile-services-javascript-paging](../includes/mobile-services-javascript-paging.md)]
 
 ## <a name="next-steps"> </a> Дальнейшие действия
 
@@ -31,16 +31,6 @@
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Магазин Windows — C#]: /ru-ru/documentation/articles/mobile-services-windows-store-dotnet-add-paging-data "Магазин Windows — C#"
-  [Магазин Windows —JavaScript]: /ru-ru/documentation/articles/mobile-services-windows-store-javascript-add-paging-data "Магазин Windows — JavaScript"
-  [Windows Phone]: /ru-ru/documentation/articles/mobile-services-windows-phone-add-paging-data "Windows Phone"
-  [iOS]: /ru-ru/documentation/articles/mobile-services-ios-add-paging-data "iOS"
-  [Android]: /ru-ru/documentation/articles/mobile-services-android-add-paging-data "Android"
-  [HTML]: /ru-ru/documentation/articles/mobile-services-html-add-paging-data "HTML"
-  [Xamarin.iOS]: /ru-ru/documentation/articles/partner-xamarin-mobile-services-ios-add-paging-data "Xamarin.iOS"
-  [Xamarin.Android]: /ru-ru/documentation/articles/partner-xamarin-mobile-services-android-add-paging-data "Xamarin.Android"
-  [Серверная часть .NET]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-add-paging-data "Серверная часть .NET"
-  [Серверная часть JavaScript]: /ru-ru/documentation/articles/mobile-services-windows-store-javascript-add-paging-data "Серверная часть JavaScript"
   [Приступая к работе с данными]: /ru-ru/documentation/articles/mobile-services-windows-store-javascript-get-started-data/
   [mobile-services-javascript-paging]: ../includes/mobile-services-javascript-paging.md
   [Приступая к работе с аутентификацией]: /ru-ru/documentation/articles/mobile-services-windows-store-javascript-get-started-users/

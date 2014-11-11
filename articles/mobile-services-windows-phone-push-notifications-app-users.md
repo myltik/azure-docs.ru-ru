@@ -1,6 +1,6 @@
 <properties linkid="develop-net-tutorials-push-notifications-to-users-wp8" urlDisplayName="Push Notifications to Users (WP8)" pageTitle="Push notifications to users (Windows Phone) | Mobile Dev Center" metaKeywords="" description="Learn how to use Mobile Services to push notifications to users of your Windows Phone app." metaCanonical="" services="" documentationCenter="" title="Push notifications to users by using Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Отправка push-уведомлений пользователям с использованием мобильных служб
 
@@ -23,7 +23,7 @@
 
 1.  Выполните вход на [портал управления Azure][портал управления Azure], щелкните элемент **Мобильные службы**, а затем выберите свое приложение.
 
-    ![][]
+    ![][0]
 
 2.  Щелкните вкладку **Данные**, а затем нажмите **Создать**.
 
@@ -191,16 +191,13 @@
 <!-- Images. -->
 <!-- URLs. -->
 
-  [Windows Phone]: /ru-ru/develop/mobile/tutorials/push-notifications-to-users-wp8 "Windows Phone"
-  [iOS]: /ru-ru/develop/mobile/tutorials/push-notifications-to-users-ios "iOS"
-  [Android]: /ru-ru/develop/mobile/tutorials/push-notifications-to-users-android "Android"
   [предыдущего учебника по push-уведомлениям]: /ru-ru/develop/mobile/tutorials/get-started-with-push-wp8
   [Создание таблицы Channel]: #create-table
   [Обновление приложения]: #update-app
   [Обновление серверных скриптов]: #update-scripts
   [Проверка режима работы push-уведомлений]: #test-app
   [портал управления Azure]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-windows-phone-push-notifications-app-users/mobile-services-selection.png
+  [0]: ./media/mobile-services-windows-phone-push-notifications-app-users/mobile-services-selection.png
   [1]: ./media/mobile-services-windows-phone-push-notifications-app-users/mobile-create-table.png
   [2]: ./media/mobile-services-windows-phone-push-notifications-app-users/mobile-create-channel-table.png
   [3]: ./media/mobile-services-windows-phone-push-notifications-app-users/mobile-portal-data-tables-channel.png

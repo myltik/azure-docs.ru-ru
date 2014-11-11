@@ -1,6 +1,6 @@
 <properties linkid="biztalk-backup-restore" urlDisplayName="BizTalk Services: Backup and Restore" pageTitle="BizTalk Services: Backup and Restore | Azure" metaKeywords="" description="BizTalk Services includes Backup and Restore capabilities. When creating a Backup, a snapshot of the BizTalk Services configuration is taken." metaCanonical="" services="" documentationCenter="" title="BizTalk Services: Backup and Restore" authors="mandia"  solutions="" writer="mandia" manager="dwrede" editor="cgronlun"  />
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia"></tags>
+<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
 
 # Службы BizTalk: Архивация и восстановление
 
@@ -57,7 +57,7 @@
 2. Параметр **Состояние резервного копирования** установите на **Автоматически**. 
 3. Выберите пункт **Учетная запись хранения**, чтобы сохранить резервную копию, задайте параметр **Частота** резервного копирования и время хранения резервных копий (в разделе **Хранение (дни)**).
 
-	![][]
+	![][0]
 
 	**Примечания** 	
 - Указанный в поле **Хранение (дни)** период хранения должен превышать заданную частоту резервного копирования.
@@ -245,7 +245,7 @@
   [Службы BizTalk: диаграмма выпусков]: http://azure.microsoft.com/ru-ru/documentation/articles/biztalk-editions-feature-chart/
   [Резервное копирование по запросу]: #backupnow
   [Планирование резервного копирования]: #backupschedule
-  []: ./media/biztalk-backup-restore/AutomaticBU.png
+  [0]: ./media/biztalk-backup-restore/AutomaticBU.png
   [Состояние последней запланированной архивации]: ./media/biztalk-backup-restore/status-last-backup.png
   [Службы BizTalk: устранение неполадок с помощью журналов операций]: http://go.microsoft.com/fwlink/?LinkId=391211
   [API REST восстановления служб BizTalk]: http://go.microsoft.com/fwlink/p/?LinkID=325582

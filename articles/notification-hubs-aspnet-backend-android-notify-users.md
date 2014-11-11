@@ -1,6 +1,6 @@
 <properties title="Azure Notification Hubs Notify Users" pageTitle="Azure Notification Hubs Notify Users" metaKeywords="Azure push notifications, Azure notification hubs" description="Learn how to send secure push notifications in Azure. Code samples written in C# using the .NET API." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="elioda" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="01/01/1900" ms.author="elioda"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="01/01/1900" ms.author="elioda" />
 
 # Уведомление пользователей посредством концентраторов уведомлений
 
@@ -13,7 +13,7 @@
 
 > [AZURE.NOTE] В этом учебнике подразумевается, что вы создали и настроили концентратор уведомлений в соответствии с описанием в учебнике [Приступая к работе с концентраторами уведомлений (Android)][Приступая к работе с концентраторами уведомлений (Android)].
 
-[WACOM.INCLUDE [notification-hubs-aspnet-backend-notifyusers][notification-hubs-aspnet-backend-notifyusers]]
+[WACOM.INCLUDE [notification-hubs-aspnet-backend-notifyusers](../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
 ## Создание проекта Android
 
@@ -70,7 +70,7 @@
 
     Основная графическая структура main\_activity.xml должна выглядеть следующим образом:
 
-    ![][]
+    ![][0]
 
 4.  Теперь создайте класс **RegisterClient** в том же пакете, в котором создан класс **MainActivity**. Обязательно замените код `{backend endpoint}` конечной точкой серверной части, полученной в предыдущем разделе.
 
@@ -276,10 +276,6 @@
 
 4.  В пользовательском интерфейсе приложения Android щелкните **Вход**. Затем щелкните **Отправить push-уведомление**.
 
-  [Windows Universal]: /ru-ru/documentation/articles/notification-hubs-windows-dotnet-notify-users/ "Windows Universal"
-  [iOS]: /ru-ru/documentation/articles/notification-hubs-aspnet-backend-ios-notify-users/ "iOS"
-  [Android]: /ru-ru/documentation/articles/notification-hubs-aspnet-backend-android-notify-users/ "Android"
   [Регистрация из серверной части приложения]: http://msdn.microsoft.com/ru-ru/library/dn743807.aspx
-  [Приступая к работе с концентраторами уведомлений (Android)]: /ru-ru/documentation/articles/notification-hubs-android-get-started/
   [notification-hubs-aspnet-backend-notifyusers]: ../includes/notification-hubs-aspnet-backend-notifyusers.md
-  []: ./media/notification-hubs-aspnet-backend-android-notify-users/android-notify-users1.PNG
+  [0]: ./media/notification-hubs-aspnet-backend-android-notify-users/android-notify-users1.PNG

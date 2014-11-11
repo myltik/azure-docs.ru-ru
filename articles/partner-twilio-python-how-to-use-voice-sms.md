@@ -1,6 +1,6 @@
 <properties linkid="develop-php-how-to-twilio-sms-service" urlDisplayName="Twilio Voice/SMS Service" pageTitle="How to Use Twilio for Voice and SMS (PHP) - Azure" metaKeywords="Azure PHP Twilio, Azure phone calls, Azure phone calls, Azure twilio, Azure SMS, Azure SMS, Azure voice calls, azure voice calls, Azure text messages, Azure text messages" description="Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in PHP." metaCanonical="" services="" documentationCenter="" title="How to Use Twilio for Voice and SMS Capabilities in PHP" authors="MicrosoftHelp@twilio.com" solutions="" manager="" editor="" />
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="MicrosoftHelp@twilio.com"></tags>
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="MicrosoftHelp@twilio.com" />
 
 # Использование Twilio для поддержки голосовых возможностей и SMS в PHP
 
@@ -257,7 +257,6 @@ TwiML — это набор инструкций на основе XML и с и�
 -   [Обращение в службу поддержки Twilio][Обращение в службу поддержки Twilio]
 
   [Дальнейшие действия]: #NextSteps
-  [Что такое Twilio?]: #WhatIs
   [Цены на Twilio]: #Pricing
   [Основные понятия]: #Concepts
   [Создание учетной записи Twilio]: #CreateAccount

@@ -1,6 +1,6 @@
 <properties linkid="dev-net-how-to-sendgrid-email-service" urlDisplayName="SendGrid Email Service" pageTitle="How to use the SendGrid email service (.NET) - Azure" metaKeywords="Azure SendGrid, Azure email service, Azure SendGrid .NET, Azure email .NET, Azure SendGrid C#, Azure email C#" description="Learn how send email with the SendGrid email service on Azure. Code samples written in C# and use the .NET API." metaCanonical="" services="" documentationCenter=".NET" title="How to Send Email Using SendGrid with Azure" authors="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork" solutions="" manager="carolz" editor="" />
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork"></tags>
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork" />
 
 # Как отправлять электронную почту с помощью SendGrid и Azure
 
@@ -36,7 +36,7 @@ SendGrid — это [облачная служба электронной поч
 
 ## <a name="createaccount"></a><span class="short-header">Создание учетной записи SendGrid</span>
 
-[WACOM.INCLUDE [sendgrid-sign-up][sendgrid-sign-up]]
+[WACOM.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
 ## <a name="reference"></a><span class="short-header">Справочник по библиотеке классов SendGrid .NET</span>Справочник по библиотеке классов SendGrid .NET
 
@@ -199,7 +199,6 @@ SendGrid поддерживает различные веб-API, с помощь
 -   Специальное предложение SendGrid для клиентов Azure: [][]<http://sendgrid.com></a>
 
   [Дальнейшие действия]: #nextsteps
-  [Что такое служба электронной почты SendGrid?]: #whatis
   [Создание учетной записи SendGrid]: #createaccount
   [Справочник по библиотеке классов SendGrid .NET]: #reference
   [Практическое руководство. Создание электронного сообщения]: #createemail

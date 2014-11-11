@@ -1,6 +1,6 @@
 <properties pageTitle="Register for single sign-on - Azure Mobile Services" metaKeywords="" description="Learn how to register for single sign-on authentication in your Azure Mobile Services application." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Register your Windows Store apps to use Windows Live Connect single sign-on" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Регистрация приложений для Магазина Windows для использования единого входа Windows Live Connect
 
@@ -12,7 +12,7 @@
 
 1.  Если вы еще не зарегистрировали свое приложение, перейдите к разделу [Отправить страницу приложения][Отправить страницу приложения] в центре разработчиков приложений для Магазина Windows, выполните вход с использованием учетной записи Майкрософт и затем щелкните **Имя приложения**.
 
-    ![][]
+    ![][0]
 
 2.  Введите имя приложения в поле **Имя приложения**, щелкните **Зарезервировать имя приложения** и затем щелкните **Сохранить**.
 
@@ -58,9 +58,8 @@
 
 
 
-  [Регистрация приложений для Магазина Windows для входа с использованием учетной записи Майкрософт]: /ru-ru/develop/mobile/how-to-guides/register-for-microsoft-authentication
   [Отправить страницу приложения]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-  []: ./media/mobile-services-how-to-register-windows-live-connect-single-sign-on/mobile-services-submit-win8-app.png
+  [0]: ./media/mobile-services-how-to-register-windows-live-connect-single-sign-on/mobile-services-submit-win8-app.png
   [1]: ./media/mobile-services-how-to-register-windows-live-connect-single-sign-on/mobile-services-win8-app-name.png
   [Приступая к работе с мобильными службами]: /ru-ru/develop/mobile/tutorials/get-started
   [2]: ./media/mobile-services-how-to-register-windows-live-connect-single-sign-on/mobile-services-store-association.png

@@ -1,10 +1,10 @@
 <properties linkid="manage-services-storage-net-shared-access-signature-part-2" urlDisplayName="" pageTitle="Create and use a SAS with the Blob Service | Microsoft Azure" metaKeywords="Azure blob, shared access signatures, stored access policy" description="Explore generating and using shared access signatures with the Blob service" metaCanonical="" services="storage" documentationCenter="" title="Part 2: Create and Use a SAS with the Blob Service" solutions="" authors="tamram" manager="mbaldwin" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # Подписи общего доступа, часть 2: Создание и использование подписи общего доступа с помощью службы BLOB-объектов
 
-[В части 1][] этого учебника приведен обзор подписей общего доступа (SAS), а также даны советы и рекомендации по их использованию. В части 2 показано, как создать и затем использовать подписи общего доступа с помощью службы BLOB-объектов Azure. Примеры написаны на C# и используют библиотеку клиента хранения Azure для .NET. Рассмотренные здесь сценарии включают в себя следующие аспекты работы с подписями общего доступа:
+[В части 1][В части 1] этого учебника приведен обзор подписей общего доступа (SAS), а также даны советы и рекомендации по их использованию. В части 2 показано, как создать и затем использовать подписи общего доступа с помощью службы BLOB-объектов Azure. Примеры написаны на C# и используют библиотеку клиента хранения Azure для .NET. Рассмотренные здесь сценарии включают в себя следующие аспекты работы с подписями общего доступа:
 
 -   Создание подписи общего доступа для контейнера
 -   Создание подписи общего доступа для BLOB-объекта
@@ -17,11 +17,11 @@
 
 # Часть 1: Создание консольного приложения для создания подписей общего доступа
 
-Прежде всего убедитесь, что установлена библиотека клиента хранения Azure для .NET. Можно установить [пакет NuGet][], содержащий самые новые сборки для клиентской библиотеки; этот способ рекомендуется использовать, чтобы обеспечить наличие самых актуальных исправлений. Можно также загрузить клиентскую библиотеку в составе последней версии [пакета Azure SDK для .NET][].
+Прежде всего убедитесь, что установлена библиотека клиента хранения Azure для .NET. Можно установить [пакет NuGet][пакет NuGet], содержащий самые новые сборки для клиентской библиотеки; этот способ рекомендуется использовать, чтобы обеспечить наличие самых актуальных исправлений. Можно также загрузить клиентскую библиотеку в составе последней версии [пакета Azure SDK для .NET][пакета Azure SDK для .NET].
 
 В Visual Studio создайте новое консольное приложение Windows и назовите его **GenerateSharedAccessSignatures**. Добавьте ссылки на **Microsoft.WindowsAzure.Configuration.dll** и **Microsoft.WindowsAzure.Storage.dll**, используя один из следующих подходов:
 
--   Если нужно установить пакет NuGet, сначала установите [расширение диспетчера пакетов NuGet для Visual Studio][]. В Visual Studio выберите **Проект | Управление пакетами NuGet**, выполните в Интернете поиск значения **Хранилище Azure** и следуйте инструкциям по установке.
+-   Если нужно установить пакет NuGet, сначала установите [расширение диспетчера пакетов NuGet для Visual Studio][расширение диспетчера пакетов NuGet для Visual Studio]. В Visual Studio выберите **Проект | Управление пакетами NuGet**, выполните в Интернете поиск значения **Хранилище Azure** и следуйте инструкциям по установке.
 -   Можно также найти нужные сборки в установленных файлах пакета SDK Azure и добавить ссылки на них.
 
 Добавьте в начало файла Program.cs следующие инструкции **using**:
@@ -273,7 +273,7 @@
 
 При запуске консольного приложения GenerateSharedAccessSignatures его результат в окне консоли должен быть похож на следующее. Это подписи общего доступа, которые используются во второй части учебника.
 
-![sas-console-output-1][]
+![sas-console-output-1][sas-console-output-1]
 
 # Часть 2: Создание консольного приложения для тестирования подписей общего доступа
 
@@ -508,24 +508,23 @@
 
 Запустите консольное приложение и просмотрите выходные данные, чтобы узнать, какие операции разрешены для разных подписей. Выходные данные в окне консоли будут выглядеть следующим образом:
 
-![sas-console-output-2][]
+![sas-console-output-2][sas-console-output-2]
 
 # Дальнейшие действия
 
 [Подписи общего доступа, часть 1: Общие сведения о модели SAS][В части 1]
 
-[Управление доступом к ресурсам хранилища Azure][]
+[Управление доступом к ресурсам хранилища Azure][Управление доступом к ресурсам хранилища Azure]
 
-[Делегирование доступа с помощью подписи общего доступа (REST API)][]
+[Делегирование доступа с помощью подписи общего доступа (REST API)][Делегирование доступа с помощью подписи общего доступа (REST API)]
 
-[Знакомство с подписью общего доступа для таблиц и очередей][]
+[Знакомство с подписью общего доступа для таблиц и очередей][Знакомство с подписью общего доступа для таблиц и очередей]
 
   [В части 1]: ../storage-dotnet-shared-access-signature-part-1/
   [пакет NuGet]: http://nuget.org/packages/WindowsAzure.Storage/ "пакет NuGet"
-  [пакета Azure SDK для .NET]: http://www.windowsazure.com/en-us/downloads/
+  [пакета Azure SDK для .NET]: http://www.windowsazure.com/ru-ru/downloads/
   [расширение диспетчера пакетов NuGet для Visual Studio]: http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c
   [sas-console-output-1]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-1.PNG
   [sas-console-output-2]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-2.PNG
-  [Управление доступом к ресурсам хранилища Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/ee393343.aspx
-  [Делегирование доступа с помощью подписи общего доступа (REST API)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee395415.aspx
+  [Управление доступом к ресурсам хранилища Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/ee393343.aspx
   [Знакомство с подписью общего доступа для таблиц и очередей]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx

@@ -1,6 +1,6 @@
 <properties linkid="notification-hubs-how-to-guides-howto-register-user-with-aspnet-webapi-windowsphonedotnet" urlDisplayName="Notify Windows Store app users by using Web API" pageTitle="Register the current user for push notifications by using Web API - Notification Hubs" metaKeywords="Azure registering application, Notification Hubs, Azure push notifications, push notification Windows Store app" description="Learn how to request push notification registration in a Windows Store app with Azure Notification Hubs when registeration is performed by ASP.NET Web API." metaCanonical="" services="notification-hubs" documentationCenter="" title="Register the current user for push notifications by using ASP.NET" authors="glenga" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Регистрация текущего пользователя для push-уведомлений с помощью ASP.NET
 
@@ -20,7 +20,7 @@
 
 4.  В левой области выберите категорию **Интернет**, выполните поиск `json.net`, щелкните пункт **Установить** в пакете **Json.NET**, а затем примите условия лицензионного соглашения.
 
-    ![][]
+    ![][0]
 
     При этом в проект добавляется сторонняя сборка Newtonsoft.Json.dll.
 
@@ -171,10 +171,8 @@
 
 Теперь, когда клиентское приложение было обновлено, вернитесь к учебнику [Уведомление пользователей с помощью концентраторов уведомлений][Уведомление пользователей с помощью концентраторов уведомлений] и обновите мобильную службу для отправки уведомлений с помощью концентраторов уведомлений.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
 
-  [Магазин Windows C#]: /ru-ru/documentation/articles/notification-hubs-windows-store-aspnet-register-user-push-notifications/ "Магазин Windows C#"
-  [iOS]: /ru-ru/documentation/articles/notification-hubs-ios-aspnet-register-user-push-notifications/ "iOS"
+
   [Уведомление пользователей с помощью концентраторов уведомлений]: /ru-ru/manage/services/notification-hubs/notify-users-aspnet
-  []: ./media/notification-hubs-windows-store-aspnet-register-user-push-notifications/notification-hub-add-nuget-package-json.png
+  [0]: ./media/notification-hubs-windows-store-aspnet-register-user-push-notifications/notification-hub-add-nuget-package-json.png
   [1]: ./media/notification-hubs-windows-store-aspnet-register-user-push-notifications/notification-hub-create-aspnet-class.png

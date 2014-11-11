@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-add-paging-to-data-xamarin-android" urlDisplayName="Add paging to data" pageTitle="Add paging to data (Xamarin Android) | Mobile Dev Center" metaKeywords="" description="Learn how to use paging to manage the amount of data returned to your Xamarin Android app from Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Refine Mobile Services queries with paging" authors="donnam" manager="dwrede" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam" />
 
 # Уточнение запросов мобильных служб c разбиением по страницам
 
@@ -69,14 +69,6 @@
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Версия C# Магазина Windows]: /ru-ru/develop/mobile/tutorials/add-paging-to-data-dotnet "Версия C# Магазина Windows"
-  [Версия JavaScript Магазина Windows]: /ru-ru/develop/mobile/tutorials/add-paging-to-data-js "Версия JavaScript Магазина Windows"
-  [Windows Phone]: /ru-ru/develop/mobile/tutorials/add-paging-to-data-wp8 "Windows Phone"
-  [iOS]: /ru-ru/develop/mobile/tutorials/add-paging-to-data-ios "iOS"
-  [Android]: /ru-ru/develop/mobile/tutorials/add-paging-to-data-android "Android"
-  [HTML]: /ru-ru/develop/mobile/tutorials/add-paging-to-data-html "HTML"
-  [iOS C#]: /ru-ru/develop/mobile/tutorials/add-paging-to-data-xamarin-ios "Xamarin.iOS"
-  [Android C#]: /ru-ru/develop/mobile/tutorials/add-paging-to-data-xamarin-android "Xamarin.Android"
   [Приступая к работе с данными]: /ru-ru/develop/mobile/tutorials/get-started-with-data-xamarin-android
   [Приступая к работе с аутентификацией]: /ru-ru/develop/mobile/tutorials/get-started-with-users-xamarin-android
   [Приступая к работе с push-уведомлениями]: /ru-ru/develop/mobile/tutorials/get-started-with-push-xamarin-android

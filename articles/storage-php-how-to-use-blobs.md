@@ -1,32 +1,32 @@
 <properties title="How to use blob storage (PHP) - Azure feature guide" pageTitle="How to use blob storage (PHP) | Microsoft Azure" metaKeywords="Azure blob service PHP, Azure blobs PHP" description="Learn how to use the Azure Blob service to upload, list, download, and delete blobs. Code samples are written in PHP." documentationCenter="PHP" services="storage" videoId="" scriptId="" solutions="" authors="robmcm" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # Использование службы BLOB-объектов в PHP
 
-В этом руководстве показано, как реализовать типичные сценарии с использованием службы BLOB-объектов Azure. Примеры написаны на PHP и используют [пакет Azure SDK для PHP][]. Здесь описаны такие сценарии, как **отправка**, **перечисление**,**загрузка** и **удаление** BLOB-объектов. Дополнительные сведения о BLOB-объектах см. в разделе [Дальнейшие действия][].
+В этом руководстве показано, как реализовать типичные сценарии с использованием службы BLOB-объектов Azure. Примеры написаны на PHP и используют [пакет Azure SDK для PHP][пакет Azure SDK для PHP]. Здесь описаны такие сценарии, как **отправка**, **перечисление**,**загрузка** и **удаление** BLOB-объектов. Дополнительные сведения о BLOB-объектах см. в разделе [Дальнейшие действия][Дальнейшие действия].
 
 ## Оглавление
 
--   [Что такое хранилище BLOB-объектов][]
--   [Основные понятия][]
--   [Создание учетной записи хранения Azure][]
--   [Создание приложения PHP][]
--   [Настройка приложения для доступа к службе BLOB-объектов][]
--   [Настройка подключения к хранилищу Azure][]
--   [Практическое руководство. Создание контейнера][]
--   [Практическое руководство. Отправка BLOB-объекта в контейнер][]
--   [Практическое руководство. Перечисление BLOB-объектов в контейнере][]
--   [Практическое руководство. Загрузка blob-объектов][]
--   [Практическое руководство. Удаление BLOB-объекта][]
--   [Практическое руководство. Удаление контейнера blob-объектов][]
--   [Дальнейшие действия][]
+-   [Что такое хранилище BLOB-объектов][Что такое хранилище BLOB-объектов]
+-   [Основные понятия][Основные понятия]
+-   [Создание учетной записи хранения Azure][Создание учетной записи хранения Azure]
+-   [Создание приложения PHP][Создание приложения PHP]
+-   [Настройка приложения для доступа к службе BLOB-объектов][Настройка приложения для доступа к службе BLOB-объектов]
+-   [Настройка подключения к хранилищу Azure][Настройка подключения к хранилищу Azure]
+-   [Практическое руководство. Создание контейнера][Практическое руководство. Создание контейнера]
+-   [Практическое руководство. Отправка BLOB-объекта в контейнер][Практическое руководство. Отправка BLOB-объекта в контейнер]
+-   [Практическое руководство. Перечисление BLOB-объектов в контейнере][Практическое руководство. Перечисление BLOB-объектов в контейнере]
+-   [Практическое руководство. Загрузка blob-объектов][Практическое руководство. Загрузка blob-объектов]
+-   [Практическое руководство. Удаление BLOB-объекта][Практическое руководство. Удаление BLOB-объекта]
+-   [Практическое руководство. Удаление контейнера blob-объектов][Практическое руководство. Удаление контейнера blob-объектов]
+-   [Дальнейшие действия][Дальнейшие действия]
 
-[WACOM.INCLUDE [руководство-блоб-объект-хранилище][]]
+[WACOM.INCLUDE [руководство-блоб-объект-хранилище](../includes/howto-blob-storage.md)]
 
 ## <span id="CreateAccount"></span></a>Создание учетной записи хранения Azure
 
-[WACOM.INCLUDE [создание-хранилище-учетная запись][]]
+[WACOM.INCLUDE [создание-хранилище-учетная запись](../includes/create-storage-account.md)]
 
 ## <span id="CreateApplication"></span></a>Создание приложения на PHP
 
@@ -36,13 +36,13 @@
 
 ## <span id="GetClientLibrary"></span></a>Получение клиентских библиотек Azure
 
-[WACOM.INCLUDE [получение-клиент-библиотеки][]]
+[WACOM.INCLUDE [получение-клиент-библиотеки](../includes/get-client-libraries.md)]
 
 ## <span id="ConfigureStorage"></span></a>Настройка приложения для доступа к службе BLOB-объектов
 
 Чтобы использовать интерфейсы API службы BLOB-объектов Azure, необходимо следующее:
 
-1.  Ссылка на файл автозагрузчика с использованием инструкции [require\_once][] и
+1.  Ссылка на файл автозагрузчика с использованием инструкции [require\_once][require\_once] и
 2.  Ссылка на любые классы, которые могут использоваться.
 
 В следующем примере показано, как включить файл автозагрузчика и сослаться на класс **ServicesBuilder**.
@@ -129,19 +129,19 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
+        // http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179439.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
     }
 
-Вызов **setPublicAccess(PublicAccessType::CONTAINER\_AND\_BLOBS)** делает контейнер и данные BLOB-объектов доступными через анонимные запросы. Вызов **setPublicAccess(PublicAccessType::BLOBS\_ONLY)** делает доступными через анонимные запросы только данные BLOB-объектов. Дополнительные сведения о ACL контейнера см. в разделе [Определение ACL контейнера (REST API)][]
+Вызов **setPublicAccess(PublicAccessType::CONTAINER\_AND\_BLOBS)** делает контейнер и данные BLOB-объектов доступными через анонимные запросы. Вызов **setPublicAccess(PublicAccessType::BLOBS\_ONLY)** делает доступными через анонимные запросы только данные BLOB-объектов. Дополнительные сведения о ACL контейнера см. в разделе [Определение ACL контейнера (REST API)][Определение ACL контейнера (REST API)]
 
-Дополнительные сведения о кодах ошибок службы Blob-объектов см. в разделе [Коды ошибок службы Blob-объектов][].
+Дополнительные сведения о кодах ошибок службы Blob-объектов см. в разделе [Коды ошибок службы Blob-объектов][Коды ошибок службы Blob-объектов].
 
 ## <span id="UploadBlob"></span></a>Практическое руководство. Отправка BLOB-объекта в контейнер
 
-Чтобы передать файл в виде BLOB-объекта, используйте метод **BlobRestProxy-\>createBlockBlob**. Эта операция создает BLOB-объект, если он еще не существует, или заменяет его, если он существует. В примере кода предполагается, что контейнер уже был создан и использует [fopen][] для открытия файла в виде потока.
+Чтобы передать файл в виде BLOB-объекта, используйте метод **BlobRestProxy-\>createBlockBlob**. Эта операция создает BLOB-объект, если он еще не существует, или заменяет его, если он существует. В примере кода предполагается, что контейнер уже был создан и использует [fopen][fopen] для открытия файла в виде потока.
 
     require_once 'vendor\autoload.php';
 
@@ -162,13 +162,13 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
+        // http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179439.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
     }
 
-Обратите внимание, что в приведенном выше примере BLOB-объект передается в виде потока. Однако BLOB-объект может быть передан как строка с помощью, к примеру, функции [file\_get\_contents][]. Для этого измените в приведенном выше примере `$content = fopen("c:\myfile.txt", "r");` на `$content = file_get_contents("c:\myfile.txt");`.
+Обратите внимание, что в приведенном выше примере BLOB-объект передается в виде потока. Однако BLOB-объект может быть передан как строка с помощью, к примеру, функции [file\_get\_contents][file\_get\_contents]. Для этого измените в приведенном выше примере `$content = fopen("c:\myfile.txt", "r");` на `$content = file_get_contents("c:\myfile.txt");`.
 
 ## <span id="ListBlobs"></span></a>Практическое руководство. Перечисление BLOB-объектов в контейнере
 
@@ -196,7 +196,7 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
+        // http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179439.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -223,13 +223,13 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
+        // http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179439.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
     }
 
-Обратите внимание, что приведенный выше пример получает BLOB-объект как ресурс потока (поведение по умолчанию). Однако можно использовать функцию [stream\_get\_contents][] для преобразования возвращенного потока в строку.
+Обратите внимание, что приведенный выше пример получает BLOB-объект как ресурс потока (поведение по умолчанию). Однако можно использовать функцию [stream\_get\_contents][stream\_get\_contents] для преобразования возвращенного потока в строку.
 
 ## <span id="DeleteBlob"></span></a>Практическое руководство. Удаление BLOB-объекта
 
@@ -251,7 +251,7 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
+        // http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179439.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -277,7 +277,7 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
+        // http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179439.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -287,7 +287,7 @@
 
 Вы изучили основные сведения о службе BLOB-объектов Azure. Дополнительные сведения о более сложных задачах по использованию хранилища можно найти по следующим ссылкам.
 
--   См. справочник MSDN: [Хранение данных и доступ к ним в Azure][]
+-   См. справочник MSDN: [Хранение данных и доступ к ним в Azure][Хранение данных и доступ к ним в Azure]
 -   Посетите блог команды разработчиков хранилища Azure <http://blogs.msdn.com/b/windowsazurestorage/>
 -   См. пример блочного blob-объекта РНР по адресу: <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/BlockBlobExample.php>.
 -   См. пример страничного blob-объекта РНР по адресу: <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/PageBlobExample.php>
@@ -309,10 +309,6 @@
   [руководство-блоб-объект-хранилище]: ../includes/howto-blob-storage.md
   [создание-хранилище-учетная запись]: ../includes/create-storage-account.md
   [получение-клиент-библиотеки]: ../includes/get-client-libraries.md
-  [require\_once]: http://php.net/require_once
-  [Определение ACL контейнера (REST API)]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179391.aspx
-  [Коды ошибок службы Blob-объектов]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
+  [Коды ошибок службы Blob-объектов]: http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179439.aspx
   [fopen]: http://www.php.net/fopen
-  [file\_get\_contents]: http://php.net/file_get_contents
-  [stream\_get\_contents]: http://www.php.net/stream_get_contents
-  [Хранение данных и доступ к ним в Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [Хранение данных и доступ к ним в Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/gg433040.aspx

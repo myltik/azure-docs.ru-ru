@@ -1,6 +1,6 @@
 <properties linkid="manage-services-hdinsight-administer-hdinsight-hadoop-clusters-using-command-line" urlDisplayName="HDInsight Administration" pageTitle="Manage Hadoop clusters using Cross-Platform Command-Line | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure, hadoop, administration" description="Learn how to use the Cross-Platform Command-Line Interface to manage Hadoop clusters in HDIsight on any platform that supports Node.js, including Windows, Mac, and Linux." services="hdinsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="Administer Hadoop clusters using the Cross-platform Command-line Interface" authors="jgao" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
 # Управление кластерами Hadoop в HDInsight с использованием межплатформенного интерфейса командной строки
 
@@ -8,23 +8,23 @@
 
 Средство командной строки имеет открытый исходный код. Исходный код управляется с помощью GitHub по адресу <https://github.com/WindowsAzure/azure-sdk-tools-xplat>.
 
-Эта статья посвящена только интерфейсу командной строки в ОС Windows. Общее руководство по использованию интерфейса командной строки см. в разделе [Использование средств командной строки Azure для Mac и Linux][]. Полную справочную документацию см. в разделе [Средства командной строки Windows Azure для Mac и Linux][].
+Эта статья посвящена только интерфейсу командной строки в ОС Windows. Общее руководство по использованию интерфейса командной строки см. в разделе [Использование средств командной строки Azure для Mac и Linux][Использование средств командной строки Azure для Mac и Linux]. Полную справочную документацию см. в разделе [Средства командной строки Windows Azure для Mac и Linux][Средства командной строки Windows Azure для Mac и Linux].
 
 **Предварительные требования:**
 
 Перед началом работы с этой статьей необходимо иметь следующее:
 
--   **Подписка Azure**. Azure — это платформа на основе подписок. Дополнительные сведения о получении подписки см. в разделах [Варианты приобретения][], [Предложения для участников][] или [Бесплатное пробное использование][].
+-   **Подписка Azure**. Azure — это платформа на основе подписок. Дополнительные сведения о получении подписки см. в разделах [Варианты приобретения][Варианты приобретения], [Предложения для участников][Предложения для участников] или [Бесплатное пробное использование][Бесплатное пробное использование].
 
 ## Содержание
 
--   [Установка][]
--   [Загрузка и импорт файла publishsettings учетной записи Azure][]
--   [Подготовка кластера][]
--   [Подготовка кластера с использованием файла конфигурации][]
--   [Отображение кластеров][]
--   [Удаление кластера][]
--   [Дальнейшие действия][]
+-   [Установка][Установка]
+-   [Загрузка и импорт файла publishsettings учетной записи Azure][Загрузка и импорт файла publishsettings учетной записи Azure]
+-   [Подготовка кластера][Подготовка кластера]
+-   [Подготовка кластера с использованием файла конфигурации][Подготовка кластера с использованием файла конфигурации]
+-   [Отображение кластеров][Отображение кластеров]
+-   [Удаление кластера][Удаление кластера]
+-   [Дальнейшие действия][Дальнейшие действия]
 
 ## <span id="installation"></span></a> Установка
 
@@ -54,7 +54,7 @@
 
 **Чтобы установить интерфейс командной строки с помощью установщика windows, выполните следующие действия**
 
-1.  Перейдите по адресу: **<http://azure.microsoft.com/en-us/downloads/>**.
+1.  Перейдите по адресу: **<http://azure.microsoft.com/ru-ru/downloads/>**.
 2.  Прокрутите вниз до раздела **Средства командной строки**, щелкните **Кроссплатформенный интерфейс командной строки** и следуйте инструкциям мастера установщика веб-платформы.
 
 ## <span id="importsettings"></span></a> Загрузка и импорт файла publishsettings учетной записи Azure
@@ -70,7 +70,7 @@
 
         azure account download
 
-    ![HDI.CLIAccountDownloadImport][]
+    ![HDI.CLIAccountDownloadImport][HDI.CLIAccountDownloadImport]
 
     Команда отображает инструкции по загрузке файла, включая URL-адрес.
 
@@ -98,7 +98,7 @@ HDInsight использует контейнер хранилища BLOB-объ
 > -   Восток США
 > -   Запад США
 
-Сведения о создании новой учетной записи хранения Azure с помощью портала управления Azure см. в разделе [Создание учетной записи хранения][].
+Сведения о создании новой учетной записи хранения Azure с помощью портала управления Azure см. в разделе [Создание учетной записи хранения][Создание учетной записи хранения].
 
 Если у вас уже есть учетная запись хранения, но вы не знаете имени и ключа учетной записи, можно использовать следующие команды для получения нужных сведений:
 
@@ -109,7 +109,7 @@ HDInsight использует контейнер хранилища BLOB-объ
     -- Lists the keys for a storage account
     azure account storage keys list <StorageAccountName>
 
-Подробную информацию о получении сведений с использованием портала управления см. в *Практическом руководстве: Просмотр, копирование и повторное создание ключей доступа к хранилищу*, раздел [Управление учетными записями хранения][].
+Подробную информацию о получении сведений с использованием портала управления см. в *Практическом руководстве: Просмотр, копирование и повторное создание ключей доступа к хранилищу*, раздел [Управление учетными записями хранения][Управление учетными записями хранения].
 
 Команда *azure hdinsight cluster create* создает контейнер, если таковой еще не существует. Если контейнер создан заранее, можно использовать следующую команду:
 
@@ -120,7 +120,7 @@ HDInsight использует контейнер хранилища BLOB-объ
 
     azure hdinsight cluster create --clusterName <ClusterName> --storageAccountName <StorageAccountName> --storageAccountKey <storageAccountKey> --storageContainer <StorageContainer> --nodes <NumberOfNodes> --location <DataCenterLocation> --username <HDInsightClusterUsername> --clusterPassword <HDInsightClusterPassword>
 
-![HDI.CLIClusterCreation][]
+![HDI.CLIClusterCreation][HDI.CLIClusterCreation]
 
 ## <span id="provisionconfigfile"></span></a> Подготовка кластера HDInsight с использованием файла конфигурации
 
@@ -142,7 +142,7 @@ HDInsight использует контейнер хранилища BLOB-объ
     azure hdinsight cluster create --config <file>
          
 
-![HDI.CLIClusterCreationConfig][]
+![HDI.CLIClusterCreationConfig][HDI.CLIClusterCreationConfig]
 
 ## <span id="listshow"></span></a> Отображение сведений о кластере
 
@@ -151,7 +151,7 @@ HDInsight использует контейнер хранилища BLOB-объ
     azure hdinsight cluster list
     azure hdinsight cluster show <ClusterName>
 
-![HDI.CLIListCluster][]
+![HDI.CLIListCluster][HDI.CLIListCluster]
 
 ## <span id="delete"></span></a> Удаление кластера
 
@@ -163,17 +163,17 @@ HDInsight использует контейнер хранилища BLOB-объ
 
 В этой статье вы узнали, как выполнять различные административные задачи в кластере HDInsight. Для получения дополнительных сведений ознакомьтесь со следующими статьями:
 
--   [Администрирование HDInsight с использованием портала управления][]
--   [Администрирование HDInsight с использованием PowerShell][]
--   [Приступая к работе с Azure HDInsight][]
--   [Использование средств командной строки Azure для Mac и Linux][]
+-   [Администрирование HDInsight с использованием портала управления][Администрирование HDInsight с использованием портала управления]
+-   [Администрирование HDInsight с использованием PowerShell][Администрирование HDInsight с использованием PowerShell]
+-   [Приступая к работе с Azure HDInsight][Приступая к работе с Azure HDInsight]
+-   [Использование средств командной строки Azure для Mac и Linux][Использование средств командной строки Azure для Mac и Linux]
 -   [Средства командной строки Azure для Mac и Linux][Средства командной строки Windows Azure для Mac и Linux]
 
   [Использование средств командной строки Azure для Mac и Linux]: ../xplat-cli/
   [Средства командной строки Windows Azure для Mac и Linux]: ../command-line-tools/
-  [Варианты приобретения]: http://azure.microsoft.com/en-us/pricing/purchase-options/
-  [Предложения для участников]: http://azure.microsoft.com/en-us/pricing/member-offers/
-  [Бесплатное пробное использование]: http://azure.microsoft.com/en-us/pricing/free-trial/
+  [Варианты приобретения]: http://azure.microsoft.com/ru-ru/pricing/purchase-options/
+  [Предложения для участников]: http://azure.microsoft.com/ru-ru/pricing/member-offers/
+  [Бесплатное пробное использование]: http://azure.microsoft.com/ru-ru/pricing/free-trial/
   [Установка]: #installation
   [Загрузка и импорт файла publishsettings учетной записи Azure]: #importsettings
   [Подготовка кластера]: #provision

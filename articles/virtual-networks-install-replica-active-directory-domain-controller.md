@@ -1,6 +1,6 @@
 <properties linkid="manage-services-networking-replica-domain-controller" urlDisplayName="Replica domain controller" pageTitle="Install a replica domain controller in Azure" metaKeywords="" description="A tutorial that teaches you how to install a domain controller from your Corp Active Directory forest on your Azure virtual machine." metaCanonical="" services="virtual-network" documentationCenter="" title="Install a Replica Active Directory Domain Controller in Azure Virtual Networks" authors="Justinha" solutions="" writer="Justinha" manager="TerryLan" editor="LisaToft" />
 
-<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="Justinha"></tags>
+<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="Justinha" />
 
 # Установка реплики контроллера домена Active Directory в виртуальных сетях Azure
 
@@ -296,8 +296,6 @@
   [Настройте VPN «сеть-сеть» на портале управления]: http://msdn.microsoft.com/ru-ru/library/dn133795.aspx
   [Добавление виртуальной машины к виртуальной сети]: http://azure.microsoft.com/ru-ru/documentation/articles/virtual-networks-add-virtual-machine/
   [Создание делегирования зоны]: http://technet.microsoft.com/library/cc753500.aspx
-  [Установка нового леса Active Directory в Azure]: /ru-ru/manage/services/networking/active-directory-forest/
-  [Удаление контроллера домена из домена]: http://technet.microsoft.com/ru-ru/library/cc771844(v=WS.10).aspx
   [VerifystaticIPaddressyourPrimaryDC1]: ./media/virtual-networks-install-replica-active-directory-domain-controller/VerifystaticIP.png
   [InstallCorpForest1]: ./media/virtual-networks-install-replica-active-directory-domain-controller/InstallCorpForest1.png
   [InstallCorpForest2]: ./media/virtual-networks-install-replica-active-directory-domain-controller/InstallCorpForest2.png
@@ -335,5 +333,3 @@
   [Начало работы с Azure PowerShell]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj156055.aspx
   [Командлеты для управления Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj152841
   [BackupDC]: ./media/virtual-networks-install-replica-active-directory-domain-controller/BackupDC.png
-  [Windows Azure IT Pro IaaS: (01) основы работы с виртуальной машиной]: http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01
-  [Windows Azure IT Pro IaaS: (05) создание виртуальных сетей и подключений между организациями]: http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05

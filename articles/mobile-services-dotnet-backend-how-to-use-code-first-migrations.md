@@ -1,6 +1,6 @@
 <properties pageTitle="How to use Code First Migrations .NET backend (Mobile Services)" metaKeywords="" description="" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Considerations for supporting multiple clients from a single mobile service" authors="glenga" solutions="mobile" writer="glenga" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Изменение модели данных в серверной мобильной службе для .NET
 
@@ -80,7 +80,7 @@
 
 11. (Необязательно). На [портале управления Azure][портала управления Azure] выберите свою мобильную службу, откройте вкладку **Настройка** и щелкните ссылку **База данных SQL**.
 
-    ![][]
+    ![][0]
 
     При этом откроется страница базы данных SQL для базы данных вашей мобильной службы.
 
@@ -127,7 +127,7 @@
   [DbContext]: http://msdn.microsoft.com/ru-ru/library/system.data.entity.dbcontext(v=vs.113).aspx
   [портала управления Azure]: https://manage.windowsazure.com/
   [Заполнение данных при миграции]: #seeding
-  []: ./media/mobile-services-dotnet-backend-how-to-use-code-first-migrations/navagate-to-sql-database.png
+  [0]: ./media/mobile-services-dotnet-backend-how-to-use-code-first-migrations/navagate-to-sql-database.png
   [1]: ./media/mobile-services-dotnet-backend-how-to-use-code-first-migrations/manage-sql-database.png
   [Seed]: http://msdn.microsoft.com/ru-ru/library/hh829453(v=vs.113).aspx
   [AddOrUpdate]: http://msdn.microsoft.com/ru-ru/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx

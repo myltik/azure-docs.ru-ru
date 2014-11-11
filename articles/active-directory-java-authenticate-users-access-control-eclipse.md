@@ -1,6 +1,6 @@
 <properties linkid="develop-java-how-to-guides-access-control" urlDisplayName="Access Control" pageTitle="How to use Access Control (Java) - Azure feature guide" metaKeywords="" description="Learn how to develop and use Access Control with Java in Azure." metaCanonical="" services="active-directory" documentationCenter="Java" title="How to Authenticate Web Users with Azure Access Control Service Using Eclipse" videoId="" scriptId="" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # Проверка подлинности веб-пользователей с помощью службы контроля доступа Azure и Eclipse
 
@@ -353,7 +353,6 @@ ACS для копирования типов и значений входных 
 <!-- Eclipse-specific -->
 
   [Дальнейшие действия]: #next_steps
-  [Что такое ACS?]: #what-is
   [Основные понятия]: #concepts
   [Предварительные требования]: #pre
   [Создание пространства имен ACS]: #create-namespace
@@ -368,7 +367,6 @@ ACS для копирования типов и значений входных 
   [Развертывание в Azure]: #deploy_azure
   [Служба Access Control 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
   [Рабочая схема ACS]: ./media/active-directory-java-authenticate-users-access-control-eclipse/ACSFlow.png
-  [Установка подключаемого модуля Azure для Eclipse с Java (от Microsoft Open Technologies)]: http://msdn.microsoft.com/ru-ru/library/windowsazure/hh690946.aspx
   [Создание приложения Hello World для Azure в Eclipse]: http://msdn.microsoft.com/ru-ru/library/windowsazure/hh690944.aspx
   [портал управления Azure]: https://manage.windowsazure.com
   [Область действия проверяющей стороны для использования в эмуляторе среды выполнения приложений]: ./media/active-directory-java-authenticate-users-access-control-eclipse/RelyingPartyRealmEmulator.png

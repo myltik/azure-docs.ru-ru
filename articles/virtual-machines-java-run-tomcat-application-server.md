@@ -1,6 +1,6 @@
 <properties linkid="dev-java-vm-application-server" urlDisplayName="Tomcat on Virtual Machine" pageTitle="Tomcat on a virtual machine - Azure tutorial" metaKeywords="Azure vm, creating vm Tomcat, configuring vm Tomcat" description="Learn how to create a Windows Virtual machine and configure the machine to run a Apache Tomcat application server." metaCanonical="" services="virtual-machines" documentationCenter="Java" title="How to run a Java application server on a virtual machine" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
-<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-windows" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-windows" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # Использование сервера приложений Java на виртуальной машине
 
@@ -18,7 +18,7 @@
 
 ![Виртуальная машина с Apache Tomcat][Виртуальная машина с Apache Tomcat]
 
-[WACOM.INCLUDE [create-account-and-vms-note][create-account-and-vms-note]]
+[WACOM.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
 
 ## Создание виртуальной машины
 
@@ -146,5 +146,4 @@
   [Действие нового правила для входящего подключения]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleAction.png
   [Профиль нового правила для входящего подключения]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
   [Имя нового правила для входящего подключения]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleName.png
-  [http://\*your\\\_DNS\\\_name]: http://*your\_DNS\_name
   [Настройка службы для автоматического запуска]: ./media/virtual-machines-java-run-tomcat-application-server/WA_TomcatServiceAutomaticStart.png

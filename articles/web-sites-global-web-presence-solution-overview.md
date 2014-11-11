@@ -1,6 +1,6 @@
 <properties linkid="websites-global-web-presence" urlDisplayName="Create a Global Web Presence on Azure Websites" pageTitle="Create a Global Web Presence on Azure Websites" metaKeywords="" description="This guide provides a technical overview of how to host your organization's (.COM) site on Azure Websites. This includes deployment, custom domains, SSL, and monitoring." metaCanonical="http://www.windowsazure.com/ru-ru/documentation/articles/web-sites-global-web-presence-solution-overview/" services="" documentationCenter="" title="Create a Global Web Presence on Azure Websites" authors="jroth" solutions="" manager="paulettm" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jroth"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jroth" />
 
 # Создание глобального веб-присутствия на веб-сайтах Azure
 
@@ -205,10 +205,8 @@
   [веб-сайтов Azure]: /ru-ru/documentation/services/web-sites/
   [облачных службах Azure]: /ru-ru/documentation/services/cloud-services/
   [виртуальных машинах Azure]: /ru-ru/documentation/services/virtual-machines/
-  [Веб-сайты Windows Azure, облачные службы и виртуальные машины: когда они используются?]: /ru-ru/manage/services/web-sites/choose-web-app-service
 
   [Цифровая маркетинговая кампания]: http://www.windowsazure.com/ru-ru/manage/services/web-sites/digital-marketing-campaign-solution-overview
-  [Бизнес-приложения]: http://www.windowsazure.com/ru-ru/manage/services/web-sites/business-application-solution-overview
   [GlobalWebCreate]: ./media/web-sites-global-web-presence-solution-overview/GlobalWeb_Create.png
   [Начало работы с веб-сайтами Azure и ASP.NET]: /ru-ru/documentation/articles/web-sites-dotnet-get-started
   [WebMatrix]: http://www.microsoft.com/web/webmatrix/

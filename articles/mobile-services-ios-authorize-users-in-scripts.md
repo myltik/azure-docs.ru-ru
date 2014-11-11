@@ -1,6 +1,6 @@
 <properties pageTitle="Service-side authorization (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to authorize users in the JavaScript backend of Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Service-side authorization of Mobile Services users" authors="krisragh" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
 
 # Авторизация пользователей мобильных служб на стороне службы
 
@@ -18,7 +18,7 @@
 
 1.  Выполните вход на [портал управления Azure][портал управления Azure], щелкните элемент **Мобильные службы**, а затем щелкните свое приложение.
 
-    ![][]
+    ![][0]
 
 2.  Откройте вкладку **Данные** и щелкните таблицу **TodoItem**.
 
@@ -86,19 +86,9 @@
 
 
 
-  [Магазин Windows — C#]: /ru-ru/documentation/articles/mobile-services-windows-store-dotnet-authorize-users-in-scripts "Магазин Windows — C#"
-  [Магазин Windows —JavaScript]: /ru-ru/documentation/articles/mobile-services-windows-store-javascript-authorize-users-in-scripts "Магазин Windows — JavaScript"
-  [Windows Phone]: /ru-ru/documentation/articles/mobile-services-windows-phone-authorize-users-in-scripts "Windows Phone"
-  [iOS]: /ru-ru/documentation/articles/mobile-services-ios-authorize-users-in-scripts "iOS"
-  [Android]: /ru-ru/documentation/articles/mobile-services-android-authorize-users-in-scripts "Android"
-  [HTML]: /ru-ru/documentation/articles/mobile-services-html-authorize-users-in-scripts "HTML"
-  [Xamarin.iOS]: /ru-ru/documentation/articles/partner-xamarin-mobile-services-ios-authorize-users-in-scripts "Xamarin.iOS"
-  [Xamarin.Android]: /ru-ru/documentation/articles/partner-xamarin-mobile-services-android-authorize-users-in-scripts "Xamarin.Android"
-  [Серверная часть .NET]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-ios-authorize-users-in-scripts/ "Серверная часть .NET"
-  [Серверная часть JavaScript]: /ru-ru/documentation/articles/mobile-services-ios-authorize-users-in-scripts/ "Серверная часть JavaScript"
   [Приступая к работе с аутентификацией]: /ru-ru/develop/mobile/tutorials/get-started-with-users-ios
   [портал управления Azure]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-ios-authorize-users-in-scripts/mobile-services-selection.png
+  [0]: ./media/mobile-services-ios-authorize-users-in-scripts/mobile-services-selection.png
   [1]: ./media/mobile-services-ios-authorize-users-in-scripts/mobile-portal-data-tables.png
   [2]: ./media/mobile-services-ios-authorize-users-in-scripts/mobile-insert-script-users.png
   [3]: ./media/mobile-services-ios-authorize-users-in-scripts/mobile-quickstart-startup-ios.png

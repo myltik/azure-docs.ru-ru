@@ -1,6 +1,6 @@
 <properties title="Learn how to configure an Azure website to use a custom domain name" pageTitle="Configure a custom domain name for an Azure website" metaKeywords="Azure, Azure Web Sites, domain name" description="" services="web-sites" documentationCenter="" authors="larryfr, jroth" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr, jroth, mwasson"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr, jroth, mwasson" />
 
 # Настройка пользовательского имени домена для веб-сайта Azure
 
@@ -8,7 +8,7 @@
 
 <div class="dev-center-tutorial-subselector"><a href="/ru-ru/documentation/articles/web-sites-custom-domain-name/" title="Веб-сайты" class="current">Веб-сайт</a> | <a href="/ru-ru/documentation/articles/web-sites-traffic-manager-custom-domain-name/" title="Использование диспетчера трафика веб-сайтом">Использование диспетчера трафика веб-сайтом</a></div>
 
-[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough][websites-cloud-services-css-guided-walkthrough]]
+[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough](../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
 Когда вы создаете веб-сайт, Azure назначает ему поддомен azurewebsites.net. Например, если имя вашего веб-сайта — **contoso**, то URL-адрес — **contoso.azurewebsites.net**. Azure также назначает виртуальный IP-адрес.
 
@@ -16,7 +16,7 @@
 
 Для рабочего веб-сайта вы, возможно, хотите, чтобы пользователи видели имя пользовательского домена. В данной статье разъясняется, как настроить пользовательский домен для веб-сайтов Azure. (В данной статье приводятся общие инструкции для любого регистратора доменных имен. Вкладки в верхней части этой статьи содержат ссылки на несколько статей, посвященных отдельным регистраторам.)
 
-[WACOM.INCLUDE [introfooter][introfooter]]
+[WACOM.INCLUDE [introfooter](../includes/custom-dns-web-site-intro-notes.md)]
 
 Содержание:
 
@@ -41,7 +41,7 @@
 -   Сопоставление поддомена. Например, **blogs.contoso.com**. Вы можете сопоставить разные поддомены с разными веб-сайтами.
 -   Сопоставление подстановочного знака. Например, **.contoso.com**. Запись с подстановочным знаком применяется ко всем поддоменам вашего домена.
 
-[WACOM.INCLUDE [modes][modes]]
+[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes.md)]
 
 ## Типы записей DNS
 
@@ -62,7 +62,7 @@
 2.  На вкладке **Веб-сайты** щелкните имя своего сайта и выберите **Панель мониторинга**.
 3.  В нижней части страницы выберите **Управление доменами**. (Если этот параметр отключен, убедитесь, что вы используете режим общего доступа, базовый или стандартный режим. Дополнительную информацию см. в разделе [Масштабирование веб-сайтов][Масштабирование веб-сайтов].)
 
-    ![][]
+    ![][0]
 
 4.  IP-адрес приведен в нижней части диалогового окна.
 
@@ -106,17 +106,6 @@
 
 
 
-  [Пользовательский домен]: /ru-ru/documentation/articles/web-sites-custom-domain-name "Пользовательский домен"
-  [GoDaddy]: /ru-ru/documentation/articles/web-sites-godaddy-custom-domain-name "GoDaddy"
-  [Network Solutions]: /ru-ru/documentation/articles/web-sites-network-solutions-custom-domain-name "Network Solutions"
-  [Register.com]: /ru-ru/documentation/articles/web-sites-registerdotcom-custom-domain-name "Register.com"
-  [Enom]: /ru-ru/documentation/articles/web-sites-enom-custom-domain-name "Enom"
-  [Moniker]: /ru-ru/documentation/articles/web-sites-moniker-custom-domain-name "Moniker"
-  [Dotster]: /ru-ru/documentation/articles/web-sites-dotster-custom-domain-name "Dotster"
-  [DomainDiscover]: /ru-ru/documentation/articles/web-sites-domaindiscover-custom-domain-name "DomainDiscover"
-  [Directnic]: /ru-ru/documentation/articles/web-sites-directnic-custom-domain-name "Directnic"
-  [Веб-сайт]: /ru-ru/documentation/articles/web-sites-custom-domain-name/ "Веб-сайты"
-  [Использование диспетчера трафика веб-сайтом]: /ru-ru/documentation/articles/web-sites-traffic-manager-custom-domain-name/ "Использование диспетчера трафика веб-сайтом"
   [websites-cloud-services-css-guided-walkthrough]: ../includes/websites-cloud-services-css-guided-walkthrough.md
   [поддомен contoso.azurewebsites.net]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
   [introfooter]: ../includes/custom-dns-web-site-intro-notes.md
@@ -124,11 +113,10 @@
   [Типы записей DNS]: #dns-record-types
   [Поиск виртуального IP-адреса]: #find-the-virtual-ip-address
   [Создание записей DNS]: #create-the-dns-records
-  [Создание записи «awverify» (только записи A)]: #awverify
   [Включение доменного имени на веб-сайте]: #enable-the-domain-name-on-your-website
   [modes]: ../includes/custom-dns-web-site-modes.md
   [портал управления Azure]: https://manage.windowsazure.com
   [Масштабирование веб-сайтов]: http://www.windowsazure.com/ru-ru/documentation/articles/web-sites-scale/
-  []: media/web-sites-custom-domain-name/dncmntask-cname-6.png
+  [0]: media/web-sites-custom-domain-name/dncmntask-cname-6.png
   [1]: media/web-sites-custom-domain-name/ipaddress.png
   [2]: ../includes/custom-dns-web-site-enable-on-web-site.md

@@ -1,35 +1,35 @@
 <properties linkid="develop-php-table-service" urlDisplayName="Table Service" pageTitle="How to use table storage (PHP) | Microsoft Azure" metaKeywords="Azure Table service PHP, Azure creating table, Azure deleting table, Azure insert table, Azure query table" description="Learn how to use the Table service from PHP to create and delete a table, and insert, delete, and query the table." metaCanonical="" services="storage" documentationCenter="PHP" title="How to use the Table service from PHP" authors="" solutions="" manager="" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
 # Использование службы таблиц в PHP
 
-В этом руководстве показано, как реализовать типичные сценарии с использованием службы таблиц Azure. Примеры написаны на PHP и используют [пакет Azure SDK для PHP][]. Здесь описаны такие сценарии, как **создание и удаление таблицы, а также вставка, удаление и запрос сущностей в таблице**. Дополнительные сведения о службе таблиц Azure см. в разделе [Дальнейшие действия][].
+В этом руководстве показано, как реализовать типичные сценарии с использованием службы таблиц Azure. Примеры написаны на PHP и используют [пакет Azure SDK для PHP][пакет Azure SDK для PHP]. Здесь описаны такие сценарии, как **создание и удаление таблицы, а также вставка, удаление и запрос сущностей в таблице**. Дополнительные сведения о службе таблиц Azure см. в разделе [Дальнейшие действия][Дальнейшие действия].
 
 ## Оглавление
 
--   [Что такое служба таблиц][]
--   [Основные понятия][]
--   [Создание учетной записи хранения Azure][]
--   [Создание приложения PHP][]
--   [Настройка приложения для доступа к службе таблиц][]
--   [Настройка подключения к хранилищу Azure][]
--   [Практическое руководство. Создание таблицы][]
--   [Практическое руководство. Добавление сущности в таблицу][]
--   [Практическое руководство. Извлечение одной сущности][]
--   [Практическое руководство. Получение всех сущностей в разделе][]
--   [Практическое руководство. Получение диапазона сущностей в разделе][]
--   [Практическое руководство. Запрос подмножества свойств сущности][]
--   [Практическое руководство. Обновление сущности][]
--   [Практическое руководство. Пакетные операции с таблицами][]
--   [Практическое руководство. Удаление таблицы][]
--   [Дальнейшие действия][]
+-   [Что такое служба таблиц][Что такое служба таблиц]
+-   [Основные понятия][Основные понятия]
+-   [Создание учетной записи хранения Azure][Создание учетной записи хранения Azure]
+-   [Создание приложения PHP][Создание приложения PHP]
+-   [Настройка приложения для доступа к службе таблиц][Настройка приложения для доступа к службе таблиц]
+-   [Настройка подключения к хранилищу Azure][Настройка подключения к хранилищу Azure]
+-   [Практическое руководство. Создание таблицы][Практическое руководство. Создание таблицы]
+-   [Практическое руководство. Добавление сущности в таблицу][Практическое руководство. Добавление сущности в таблицу]
+-   [Практическое руководство. Извлечение одной сущности][Практическое руководство. Извлечение одной сущности]
+-   [Практическое руководство. Получение всех сущностей в разделе][Практическое руководство. Получение всех сущностей в разделе]
+-   [Практическое руководство. Получение диапазона сущностей в разделе][Практическое руководство. Получение диапазона сущностей в разделе]
+-   [Практическое руководство. Запрос подмножества свойств сущности][Практическое руководство. Запрос подмножества свойств сущности]
+-   [Практическое руководство. Обновление сущности][Практическое руководство. Обновление сущности]
+-   [Практическое руководство. Пакетные операции с таблицами][Практическое руководство. Пакетные операции с таблицами]
+-   [Практическое руководство. Удаление таблицы][Практическое руководство. Удаление таблицы]
+-   [Дальнейшие действия][Дальнейшие действия]
 
-[WACOM.INCLUDE [руководство-таблица-хранилище][]]
+[WACOM.INCLUDE [руководство-таблица-хранилище](../includes/howto-table-storage.md)]
 
 ## <span id="CreateAccount"></span></a>Создание учетной записи хранения Azure
 
-[WACOM.INCLUDE [создание-хранилище-учетная запись][]]
+[WACOM.INCLUDE [создание-хранилище-учетная запись](../includes/create-storage-account.md)]
 
 ## <span id="CreateApplication"></span></a>Создание приложения на PHP
 
@@ -39,13 +39,13 @@
 
 ## <span id="GetClientLibrary"></span></a>Получение клиентских библиотек Azure
 
-[WACOM.INCLUDE [получение-клиент-библиотеки][]]
+[WACOM.INCLUDE [получение-клиент-библиотеки](../includes/get-client-libraries.md)]
 
 ## <span id="ConfigureStorage"></span></a>Настройка приложения для доступа к службе таблиц
 
 Чтобы использовать интерфейсы API службы таблиц Azure, необходимо следующее:
 
-1.  Ссылка на файл автозагрузчика с использованием инструкции [require\_once][] и
+1.  Ссылка на файл автозагрузчика с использованием инструкции [require\_once][require\_once] и
 2.  Ссылка на любые классы, которые могут использоваться.
 
 В следующем примере показано, как включить файл автозагрузчика и сослаться на класс **ServicesBuilder**.
@@ -88,7 +88,7 @@
 
 ## <span id="CreateTable"></span></a>Практическое руководство. Создание таблицы
 
-Объект **TableRestProxy** позволяет создать таблицу с помощью метода **createTable**. При создании таблицы можно задать время ожидания службы таблиц. (Дополнительные сведения о времени ожидания службы таблиц см. в разделе [Настройка времени ожидания для операций службы таблиц][].)
+Объект **TableRestProxy** позволяет создать таблицу с помощью метода **createTable**. При создании таблицы можно задать время ожидания службы таблиц. (Дополнительные сведения о времени ожидания службы таблиц см. в разделе [Настройка времени ожидания для операций службы таблиц][Настройка времени ожидания для операций службы таблиц].)
 
     require_once 'vendor\autoload.php';
 
@@ -107,10 +107,10 @@
         $error_message = $e->getMessage();
         // Handle exception based on error codes and messages.
         // Error codes and messages can be found here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179438.aspx
     }
 
-Дополнительные сведения об ограничениях на имена таблиц см. в разделе [Общие сведения о модели данных службы таблиц][].
+Дополнительные сведения об ограничениях на имена таблиц см. в разделе [Общие сведения о модели данных службы таблиц][Общие сведения о модели данных службы таблиц].
 
 ## <span id="AddEntity"></span></a>Практическое руководство. Добавление сущности в таблицу
 
@@ -141,12 +141,12 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179438.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
     }
 
-Дополнительные сведения о типах и свойствах таблиц см. в разделе [Общие сведения о модели данных службы таблиц][].
+Дополнительные сведения о типах и свойствах таблиц см. в разделе [Общие сведения о модели данных службы таблиц][Общие сведения о модели данных службы таблиц].
 
 Класс **TableRestProxy** предлагает два альтернативных способа вставки сущностей: **insertOrMergeEntity** и **insertOrReplaceEntity**. Чтобы использовать эти методы, создайте новый объект **Entity** и передайте его в качестве параметра в любой из этих методов. Каждый метод вставит эту сущность, если она не существует. Если сущность уже существует, **insertOrMergeEntity** будет обновлять значения свойств, если свойства уже существуют, и добавлять новые свойства, если они не существуют, в то время как **insertOrReplaceEntity** полностью заменяет имеющуюся сущность. Следующий пример показывает, как использовать **insertOrMergeEntity**. Если сущность с `PartitionKey` "tasksSeattle" и `RowKey` "1" еще не существует, она будет вставлена. Тем не менее если она была вставлена ранее (как показано в приведенном выше примере), будет обновлено свойство `DueDate` и добавлено свойство `Status`. Свойства `Description` и `Location` также будут обновлены, однако на такие значения, которые фактически равны предыдущим. Если эти два последних свойства не были добавлены, как показано в примере, но существовали в целевой сущности, их текущие значения остаются без изменений.
 
@@ -182,7 +182,7 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179438.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -207,7 +207,7 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179438.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -219,7 +219,7 @@
 
 ## <span id="RetEntitiesInPartition"></span></a>Практическое руководство. Получение всех сущностей в разделе
 
-Запросы сущностей создаются с помощью фильтров (дополнительные сведения см. в разделе [Запросы таблиц и сущностей][]). Для получения всех сущностей в разделе используйте фильтр "PartitionKey eq *имя\_раздела*". Следующий пример показывает, как получить все сущности в разделе `tasksSeattle`, передав фильтр в метод **queryEntities**.
+Запросы сущностей создаются с помощью фильтров (дополнительные сведения см. в разделе [Запросы таблиц и сущностей][Запросы таблиц и сущностей]). Для получения всех сущностей в разделе используйте фильтр "PartitionKey eq *имя\_раздела*". Следующий пример показывает, как получить все сущности в разделе `tasksSeattle`, передав фильтр в метод **queryEntities**.
 
     require_once 'vendor\autoload.php';
 
@@ -237,7 +237,7 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179438.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -251,7 +251,7 @@
 
 ## <span id="RetrieveSubset"></span></a>Практическое руководство. Получение диапазона сущностей в разделе
 
-Процедуру, аналогичную приведенной в предыдущем примере, можно использовать для получения любого подмножества сущностей в разделе. Получаемое подмножество сущностей определяется с помощью используемого фильтра (дополнительные сведения см. в разделе [Запросы таблиц и сущностей][]). Следующий пример показывает, как использовать фильтр для получения всех сущностей с определенным значением `Location` и со значением `DueDate`, которое меньше указанной даты.
+Процедуру, аналогичную приведенной в предыдущем примере, можно использовать для получения любого подмножества сущностей в разделе. Получаемое подмножество сущностей определяется с помощью используемого фильтра (дополнительные сведения см. в разделе [Запросы таблиц и сущностей][Запросы таблиц и сущностей]). Следующий пример показывает, как использовать фильтр для получения всех сущностей с определенным значением `Location` и со значением `DueDate`, которое меньше указанной даты.
 
     require_once 'vendor\autoload.php';
 
@@ -269,7 +269,7 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179438.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -303,7 +303,7 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179438.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -349,7 +349,7 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179438.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -374,7 +374,7 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179438.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -430,13 +430,13 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179438.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
     }
 
-Дополнительные сведения о пакетной обработке операций с таблицами см. в разделе [Выполнение групповых транзакций для сущности][].
+Дополнительные сведения о пакетной обработке операций с таблицами см. в разделе [Выполнение групповых транзакций для сущности][Выполнение групповых транзакций для сущности].
 
 ## <span id="DeleteTable"></span></a>Практическое руководство. Удаление таблицы
 
@@ -457,7 +457,7 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179438.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -467,7 +467,7 @@
 
 Вы изучили основные сведения о службе таблиц Azure. Дополнительные сведения о более сложных задачах по использованию хранилища можно найти по следующим ссылкам.
 
--   См. справочник MSDN: [Хранение данных и доступ к ним в Azure][]
+-   См. справочник MSDN: [Хранение данных и доступ к ним в Azure][Хранение данных и доступ к ним в Azure]
 -   Посетите блог команды разработчиков хранилища Azure <http://blogs.msdn.com/b/windowsazurestorage/>
 
   [пакет Azure SDK для PHP]: http://go.microsoft.com/fwlink/?LinkID=252473
@@ -490,9 +490,8 @@
   [руководство-таблица-хранилище]: ../includes/howto-table-storage.md
   [создание-хранилище-учетная запись]: ../includes/create-storage-account.md
   [получение-клиент-библиотеки]: ../includes/get-client-libraries.md
-  [require\_once]: http://php.net/require_once
-  [Настройка времени ожидания для операций службы таблиц]: http://msdn.microsoft.com/en-us/library/windowsazure/dd894042.aspx
-  [Общие сведения о модели данных службы таблиц]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179338.aspx
-  [Запросы таблиц и сущностей]: http://msdn.microsoft.com/en-us/library/windowsazure/dd894031.aspx
-  [Выполнение групповых транзакций для сущности]: http://msdn.microsoft.com/en-us/library/windowsazure/dd894038.aspx
-  [Хранение данных и доступ к ним в Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [Настройка времени ожидания для операций службы таблиц]: http://msdn.microsoft.com/ru-ru/library/windowsazure/dd894042.aspx
+  [Общие сведения о модели данных службы таблиц]: http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179338.aspx
+  [Запросы таблиц и сущностей]: http://msdn.microsoft.com/ru-ru/library/windowsazure/dd894031.aspx
+  [Выполнение групповых транзакций для сущности]: http://msdn.microsoft.com/ru-ru/library/windowsazure/dd894038.aspx
+  [Хранение данных и доступ к ним в Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/gg433040.aspx

@@ -1,6 +1,6 @@
 <properties linkid="dev-nodejs-cloud9" urlDisplayName="Deploying with Cloud9" pageTitle="Node.js deploying with Cloud9 - Azure tutorial" metaKeywords="Cloud9 IDE Azure, Azure node.js, Azure node apps" description="Learn how to use Cloud9 IDE to develop, build, and deploy a Node.js application to Azure." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Deploying an Azure App from Cloud9" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Развертывание приложения Azure из Cloud9
 
@@ -129,7 +129,7 @@ Cloud9 также интегрируется со службами репози�
 у вас еще нет учетной записи Azure, вы можете подписаться
 на бесплатную ознакомительную программу, выполнив следующие шаги.
 
-[WACOM.INCLUDE [создание-учетной-записи azure][создание-учетной-записи azure]]
+[WACOM.INCLUDE [создание-учетной-записи azure](../includes/create-azure-account.md)]
 
 ## Создание развертывания
 

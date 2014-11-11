@@ -1,6 +1,6 @@
 <properties linkid="manage-services-cache-net-how-to-cache-service" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="cache" documentationCenter="" title="How to Use Azure Managed Cache Service" authors="sdanie" solutions="" manager="" editor="" />
 
-<tags ms.service="cache" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie"></tags>
+<tags ms.service="cache" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
 
 # Как использовать управляемую службу кэша Azure
 
@@ -436,8 +436,6 @@
 
 
   [Дальнейшие действия]: #next-steps
-  [Какой кэш Azure подходит мне лучше всего?]: http://msdn.microsoft.com/ru-ru/library/azure/dn766201.aspx
-  [Что такое управляемая служба кэша Azure?]: #what-is
   [Приступая к работе с управляемой службой кэша]: #getting-started-cache-service
   [Создание кэша]: #create-cache
   [Настройка кэша]: #enable-caching

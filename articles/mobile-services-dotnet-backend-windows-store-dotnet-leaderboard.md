@@ -1,6 +1,6 @@
 <properties urlDisplayName=".NET Client Library" pageTitle="Creating a Leaderboard App with Azure Mobile Services .NET Backend" metaKeywords="Azure Mobile Services, Mobile Service .NET client, .NET client" description="Learn how to build a Windows Store app using Azure Mobile Services with a .NET backend." documentationCenter="Mobile" title="Creating a Leaderboard App with Azure Mobile Services .NET Backend" authors="mwasson" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="mwasson"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="mwasson" />
 
 # Создание приложения списка лидеров с помощью внутреннего сервера .NET мобильных служб Azure
 
@@ -43,7 +43,7 @@
 
 *Список лидеров* отображает список игроков с их баллами и рейтингом. Список лидеров может быть частью крупной игры или отдельным приложением. Список лидеров — это реальное приложение, но оно достаточно простое для использования в учебнике. Вот снимок экрана приложения:
 
-![][]
+![][0]
 
 Для простоты приложение не связано с реальной игрой. Вместо этого вы можете добавлять игроков и отправлять баллы для каждого из них. При отправке баллов мобильная служба подсчитывает новые рейтинги. На внутреннем сервере мобильная служба создает базу данных с двумя таблицами:
 
@@ -729,13 +729,13 @@ Model-View-ViewModel (MVVM) является вариантом Model-View-Contr
   [Публикация мобильной службы]: #publish-your-mobile-service
   [Дальнейшие действия]: #next-steps
   [Visual Studio 2013 с обновлением 2]: http://go.microsoft.com/fwlink/p/?LinkID=390465
-  []: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/01leaderboard.png
+  [0]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/01leaderboard.png
   [1]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/02leaderboard.png
   [здесь]: http://code.msdn.microsoft.com/Leaderboard-App-with-Azure-9acf63af
   [2]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/03leaderboard.png
   [3]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/04leaderboard.png
   [4]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/05leaderboard.png
-  [EF Code First]: http://msdn.microsoft.com/en-US/data/ee712907#codefirst
+  [EF Code First]: http://msdn.microsoft.com/ru-ru/data/ee712907#codefirst
   [обработку конфликтов записи базы данных]: http://azure.microsoft.com/ru-ru/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/
   [свойство навигации]: http://msdn.microsoft.com/ru-ru/data/jj713564.aspx
   [5]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/06leaderboard.png

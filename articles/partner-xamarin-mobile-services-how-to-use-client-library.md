@@ -1,6 +1,6 @@
 <properties linkid="mobile-services-how-to-xamarin-client" urlDisplayName="Xamarin" pageTitle="How to use the Xamarin Component client - Azure Mobile Services feature guide" metaKeywords="Azure Mobile Services, Xamarin, iOS, Android, .NET client" description="Learn how to use the Xamarin Component client for Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="How to use the Xamarin Component client for Azure Mobile Services" authors="donnam" manager="dwrede" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam" />
 
 # Использование клиентского компонента Xamarin для мобильных служб Azure
 
@@ -33,7 +33,7 @@
 -   [Практическое руководство. Разработка модульных тестов][Практическое руководство. Разработка модульных тестов]
 -   [Дальнейшие действия][Дальнейшие действия]
 
-[WACOM.INCLUDE [mobile-services-concepts][mobile-services-concepts]]
+[WACOM.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
 
 ## <a name="setup"></a><span class="short-header">Настройка</span>Настройка и предварительные требования
 
@@ -428,10 +428,6 @@
 <!-- Anchors. --> 
 <!-- URLs. -->
 
-  [.NET Framework]: /ru-ru/develop/mobile/how-to-guides/work-with-net-client-library/ ".NET Framework"
-  [HTML/JavaScript]: /ru-ru/develop/mobile/how-to-guides/work-with-html-js-client/ "HTML/JavaScript"
-  [iOS]: /ru-ru/develop/mobile/how-to-guides/work-with-ios-client-library/ "iOS"
-  [Android]: /ru-ru/develop/mobile/how-to-guides/work-with-android-client-library/ "Android"
   [Xamarin]: /ru-ru/develop/mobile/how-to-guides/work-with-xamarin-client-library/ "Xamarin"
   [Xamarin.iOS]: /ru-ru/develop/mobile/tutorials/get-started-xamarin-ios/
   [Xamarin.Android]: /ru-ru/develop/mobile/tutorials/get-started-xamarin-android/
@@ -439,7 +435,6 @@
   [2]: /ru-ru/develop/mobile/tutorials/get-started-with-data-xamarin-android/
   [3]: http://xamarin.com/download/
   [Mobile Services SDK]: http://nuget.org/packages/WindowsAzure.MobileServices/
-  [Что такое мобильные службы?]: #what-is
   [Основные понятия]: #concepts
   [Практическое руководство. Создание клиента мобильных служб]: #create-client
   [Практическое руководство. Создание ссылки на таблицу]: #instantiating

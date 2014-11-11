@@ -1,6 +1,6 @@
 <properties linkid="dev-net-how-to-access-control" urlDisplayName="Access Control" pageTitle="How to use Access Control (.NET) - Azure feature guide" metaKeywords="Azure Access Control Service authentication C#" description="Learn how to use Access Control Service (ACS) in your Azure application to authenticate users when they try to gain access to a web app." metaCanonical="" services="active-directory" documentationCenter=".NET" title="How to Authenticate Web Users with Azure Active Directory Access Control" authors="mbaldwin, juneb" solutions="" manager="mbaldwin" editor="" />
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="mbaldwin, juneb"></tags>
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="mbaldwin, juneb" />
 
 # Как аутентифицировать веб-пользователей с помощью службы Azure Active Directory Access Control
 
@@ -58,7 +58,7 @@
 
 На следующем рисунке показано, как работает проверка подлинности ACS с веб-приложением:
 
-![][]
+![][0]
 
 1.  Клиент (в данном случае браузер) запрашивает страницу у проверяющей стороны.
 2.  Поскольку запрос еще не прошел аутентификацию, проверяющая сторона перенаправляет
@@ -357,7 +357,6 @@ Azure создает и активирует пространство имен.
 
 Чтобы продолжить изучение функций ACS и поэкспериментировать с другими сценариями, см. раздел [Служба Access Control 2.0][Служба Access Control 2.0].
 
-  [Что такое ACS?]: #what-is
   [Основные понятия]: #concepts
   [Предварительные требования]: #pre
   [Создание пространства имен Access Control]: #create-namespace
@@ -367,9 +366,8 @@ Azure создает и активирует пространство имен.
   [Просмотр утверждений, отправленных службой ACS]: #bkmk_viewClaims
   [Просмотр приложения на портале управления ACS]: #bkmk_VP
   [Добавление поставщика удостоверений]: #add-IP
-  [Что дальше?]: #whats-next
   [Служба Access Control 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
-  []: ./media/active-directory-dotnet-how-to-use-access-control/acs-01.png
+  [0]: ./media/active-directory-dotnet-how-to-use-access-control/acs-01.png
   [Средство идентификации и доступа]: http://go.microsoft.com/fwlink/?LinkID=245849
   [портал управления Azure]: http://manage.WindowsAzure.com
   [1]: ./media/active-directory-dotnet-how-to-use-access-control/acsCreateNamespace.png

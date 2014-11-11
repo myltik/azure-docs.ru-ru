@@ -1,6 +1,6 @@
 <properties linkid="dev-net-how-to-autoscaling" urlDisplayName="Autoscaling" pageTitle="Use the autoscaling application block (.NET) - Azure" metaKeywords="Azure autoscaling, Azure autoscaling C#, Azure autoscaling .NET" description="Learn how to use the Autoscaling Application for Azure. Code samples are written in C# and use the .NET API." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="How to Use the Autoscaling Application Block" authors="timlt" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="timlt"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="timlt" />
 
 # Практическое руководство по использованию блока приложения автомасштабирования
 
@@ -514,10 +514,7 @@ Visual Studio. В следующем разделе показано, как н�
 -   [Как Sage уменьшает расходы на размещение в Azure с помощью автомасштабирования][Как Sage уменьшает расходы на размещение в Azure с помощью автомасштабирования]
 -   [Снижение затрат на размещение TechNet и MSDN и воздействия на окружающую среду с помощью автомасштабирования в среде Azure][Снижение затрат на размещение TechNet и MSDN и воздействия на окружающую среду с помощью автомасштабирования в среде Azure]
 
-  [Microsoft Enterprise Library 5.0
-  Integration Pack для Azure]: http://go.microsoft.com/fwlink/?LinkID=235134
   [Дальнейшие действия]: #NextSteps
-  [Что такое блок приложения автомасштабирования?]: #WhatIs
   [Основные понятия]: #Concepts
   [Сбор данных счетчика производительности из целевого приложения Azure]: #PerfCounter
   [Настройка ведущего приложения для блока приложения автомасштабирования]: #CreateHost

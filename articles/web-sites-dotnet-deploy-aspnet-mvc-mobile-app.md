@@ -1,19 +1,19 @@
 <properties linkid="develop-dotnet-aspnet-mvc-4-mobile-website" urlDisplayName="ASP.NET MVC 5 mobile website" pageTitle=".NET ASP.NET MVC 5 mobile website - Azure tutorials" metaKeywords="Azure tutorial, Azure web app tutorial, Azure mobile app, Azure ASP.NET MVC 5,,ASP.NET MVC" description="A tutorial that teaches you how to deploy a web application to an Azure website using mobile features in ASP.NET MVC 5 web application." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Deploy an ASP.NET MVC Mobile Web Application on Azure Websites" authors="cephalin,riande" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="08/19/2014" ms.author="cephalin,riande"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="08/19/2014" ms.author="cephalin,riande" />
 
 # Развертывание веб-приложения для мобильных устройств ASP.NET MVC 5 на веб-сайтах Azure
 
 Этот учебник поможет вам освоить основы создания адаптированного для мобильных устройств веб-приложения ASP.NET MVC 5, а также его развертывания в Microsoft Azure. Для работы с этим учебником вам потребуется [Visual Studio Express 2013 для Web][Visual Studio Express 2013 для Web] или профессиональная версия Visual Studio, если она у вас уже есть.
 
-[WACOM.INCLUDE [создать-учетная запись-и-веб-сайт-примечание][создать-учетная запись-и-веб-сайт-примечание]]
+[WACOM.INCLUDE [создать-учетная запись-и-веб-сайт-примечание](../includes/create-account-and-websites-note.md)]
 
 ### Что вы создадите
 
 В данном учебнике предстоит добавить компоненты для мобильных устройств в простое приложение списка конференции, приведенное в [начальном проекте][начальном проекте]. На следующем снимке экрана показаны сеансы ASP.NET в готовом приложении, отображаемые в эмуляторе браузера в средствах разработчика F12 Internet Explorer 11.
 
 
-![][]
+![][0]
 
 <p>Вы можете воспользоваться средствами разработчика F12 Internet Explorer 11 и <a href="http://www.fiddler2.com/fiddler2/">инструментом Fiddler</a>, чтобы упростить отладку своего приложения.&nbsp;</p>
 
@@ -464,7 +464,7 @@
 
 Вы также можете коснуться ссылки на заголовок, чтобы перейти к соответствующему сеансу. На следующем рисунке показаны изменения кода.
 
-![][]
+![][0]
 
 Система сетки Bootstrap, которую вы применили, автоматически упорядочит сеансы в браузере мобильного устройства по вертикали. Кроме того, обратите внимание, что теги не отображаются. Переключитесь в классический браузер.
 
@@ -482,7 +482,7 @@
 
 Коснитесь ссылки **ASP.NET**. Отобразятся сеансы для тега ASP.NET.
 
-![][]
+![][0]
 
 Щелкните ссылку **Building a Single Page Application with ASP.NET and AngularJS** (Создание приложения на одной странице с помощью ASP.NET и AngularJS).
 
@@ -565,7 +565,7 @@
   [Visual Studio Express 2013 для Web]: http://www.visualstudio.com/downloads/download-visual-studio-vs#d-express-web
   [создать-учетная запись-и-веб-сайт-примечание]: ../includes/create-account-and-websites-note.md
   [начальном проекте]: http://go.microsoft.com/fwlink/?LinkID=398780&clcid=0x409
-  []: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionsByTag-ASP.NET-Fixed.png
+  [0]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionsByTag-ASP.NET-Fixed.png
   [Пакет Azure SDK для Visual Studio 2013]: http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409
   [Установщик веб-платформы — Azure SDK для .NET]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/WebPIAzureSdk23NetVS13.png
   [средствах разработчика F12 Internet Explorer 11]: http://msdn.microsoft.com/ru-ru/library/ie/dn255001.aspx

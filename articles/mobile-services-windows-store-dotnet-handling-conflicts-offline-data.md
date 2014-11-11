@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-handle-conflcits-offline-data-dotnet" urlDisplayName="Handle Conflicts with Offline Data" pageTitle="Handle Conflicts with offline data in Mobile Services (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services handle conflicts when syncing offline data in your Windows Store application" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Handling conflicts with offline data in Mobile Services" authors="wesmc" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 
 # Обработка конфликтов синхронизации автономных данных в мобильных службах
 
@@ -36,7 +36,7 @@
 
 ## <a name="download-app"></a>Загрузка примера проекта
 
-![][]
+![][0]
 
 Этот учебник построен на [примере кода обработки конфликтов][примере кода обработки конфликтов], который является проектом приложения для Магазина Windows в Visual Studio 2013. Пользовательский интерфейс этого приложения аналогичен приложению в учебнике [Приступая к работе с автономными данными][Приступая к работе с автономными данными] за исключением того, что для каждого элемента TodoItem имеется новый столбец даты.
 
@@ -116,7 +116,7 @@
 
 4.  Как и ранее, введите текст в текстовом поле и нажмите кнопку **Сохранить**. При этом данные сохраняются в локальной таблице синхронизации, но не на сервере.
 
-    ![][]
+    ![][0]
 
 5.  Для просмотра текущего состояния базы данных войдите на [портал управления Azure][портал управления Azure], щелкните элемент **Мобильные службы** и выберите вашу мобильную службу.
 
@@ -193,9 +193,6 @@
 
 <!-- Anchors. Images  URLs -->
 
-  [Магазин Windows C#]: /ru-ru/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data "Магазин Windows C#"
-  [Windows Phone]: /ru-ru/documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data "Windows Phone"
-  [Просмотр учебника]: http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Build-offline-apps-Azure-Mobile-Services
   [Приступая к работе с автономными данными]: /ru-ru/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data
   [Загрузка проекта приложения для Магазина Windows]: #download-app
   [Добавление столбца даты выполнения для базы данных]: #add-column
@@ -203,7 +200,7 @@
   [Обновление базы данных для мобильных служб JavaScript]: #javascript-backend
   [Тестирование приложения с мобильной службой]: #test-app
   [Ручное обновление данных в серверной части для создания конфликта]: #handle-conflict
-  []: ./media/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/mobile-services-handling-conflicts-app-run1.png
+  [0]: ./media/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/mobile-services-handling-conflicts-app-run1.png
   [примере кода обработки конфликтов]: http://go.microsoft.com/fwlink/?LinkId=394787
   [SQLite для Windows Phone 8.1]: http://go.microsoft.com/fwlink/?LinkId=394776
   [Как использовать Code First Migrations для обновления модели данных]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations

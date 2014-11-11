@@ -1,34 +1,34 @@
 <properties title="How to use the queue service (PHP) - Azure feature guide" pageTitle="How to use the queue service (PHP) | Microsoft Azure" metaKeywords="Azure Queue Service messaging PHP" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in PHP." documentationCenter="PHP" services="storage" authors="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
 # Использование службы очередей из PHP
 
-В этом руководстве показано, как реализовать типичные сценарии с использованием службы очередей Azure. Примеры написаны с использованием классов из пакета Windows SDK для PHP. Здесь описаны такие сценарии, как **вставка**, **просмотр**, **получение** и **удаление** сообщений очереди, а также **создание и удаление очередей**. Дополнительные сведения об очередях см. в разделе [Дальнейшие действия][].
+В этом руководстве показано, как реализовать типичные сценарии с использованием службы очередей Azure. Примеры написаны с использованием классов из пакета Windows SDK для PHP. Здесь описаны такие сценарии, как **вставка**, **просмотр**, **получение** и **удаление** сообщений очереди, а также **создание и удаление очередей**. Дополнительные сведения об очередях см. в разделе [Дальнейшие действия][Дальнейшие действия].
 
 ## Оглавление
 
--   [Что такое хранилище очередей?][]
--   [Основные понятия][]
--   [Создание учетной записи хранения Azure][]
--   [Создание приложения PHP][]
--   [Настройка приложения для использования службы очередей][]
--   [Настройка подключения к хранилищу Azure][]
--   [Практическое руководство. Создание очереди][]
--   [Практическое руководство. Добавление сообщения в очередь][]
--   [Практическое руководство. Просмотр следующего сообщения][]
--   [Практическое руководство. Удаление следующего сообщения из очереди][]
--   [Практическое руководство. Изменение содержимого сообщения в очереди][]
--   [Дополнительные параметры для удаления сообщений из очереди][]
--   [Практическое руководство. Получение длины очереди][]
--   [Практическое руководство. Удаление очереди][]
+-   [Что такое хранилище очередей?][Что такое хранилище очередей?]
+-   [Основные понятия][Основные понятия]
+-   [Создание учетной записи хранения Azure][Создание учетной записи хранения Azure]
+-   [Создание приложения PHP][Создание приложения PHP]
+-   [Настройка приложения для использования службы очередей][Настройка приложения для использования службы очередей]
+-   [Настройка подключения к хранилищу Azure][Настройка подключения к хранилищу Azure]
+-   [Практическое руководство. Создание очереди][Практическое руководство. Создание очереди]
+-   [Практическое руководство. Добавление сообщения в очередь][Практическое руководство. Добавление сообщения в очередь]
+-   [Практическое руководство. Просмотр следующего сообщения][Практическое руководство. Просмотр следующего сообщения]
+-   [Практическое руководство. Удаление следующего сообщения из очереди][Практическое руководство. Удаление следующего сообщения из очереди]
+-   [Практическое руководство. Изменение содержимого сообщения в очереди][Практическое руководство. Изменение содержимого сообщения в очереди]
+-   [Дополнительные параметры для удаления сообщений из очереди][Дополнительные параметры для удаления сообщений из очереди]
+-   [Практическое руководство. Получение длины очереди][Практическое руководство. Получение длины очереди]
+-   [Практическое руководство. Удаление очереди][Практическое руководство. Удаление очереди]
 -   [Дальнейшие действия][1]
 
-[WACOM.INCLUDE [руководство-очередь-хранилище][]]
+[WACOM.INCLUDE [руководство-очередь-хранилище](../includes/howto-queue-storage.md)]
 
 ## <span id="create-account"></span></a>Создание учетной записи хранения Azure
 
-[WACOM.INCLUDE [создание-хранилище-учетная запись][]]
+[WACOM.INCLUDE [создание-хранилище-учетная запись](../includes/create-storage-account.md)]
 
 ## <span id="create-app"></span></a>Создание приложения на PHP
 
@@ -38,13 +38,13 @@
 
 ## <span id="GetClientLibrary"></span></a>Получение клиентских библиотек Azure
 
-[WACOM.INCLUDE [получение-клиент-библиотеки][]]
+[WACOM.INCLUDE [получение-клиент-библиотеки](../includes/get-client-libraries.md)]
 
 ## <span id="configure-app"></span></a>Настройка приложения для доступа к службе очередей
 
 Чтобы использовать интерфейсы API службы очередей Azure, необходимо следующее:
 
-1.  Ссылка на файл автозагрузчика с использованием инструкции [require\_once][] и
+1.  Ссылка на файл автозагрузчика с использованием инструкции [require\_once][require\_once] и
 2.  Ссылка на любые классы, которые могут использоваться.
 
 В следующем примере показано, как включить файл автозагрузчика и сослаться на класс **ServicesBuilder**.
@@ -110,7 +110,7 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -140,7 +140,7 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -169,7 +169,7 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -223,7 +223,7 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -265,7 +265,7 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -312,7 +312,7 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -338,7 +338,7 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -365,7 +365,7 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -375,11 +375,10 @@
 
 Вы изучили основные сведения о службе очередей Azure. Дополнительные сведения о более сложных задачах по использованию хранилища можно найти по следующим ссылкам.
 
--   См. справочник MSDN: [Хранение данных и доступ к ним в Azure][]
+-   См. справочник MSDN: [Хранение данных и доступ к ним в Azure][Хранение данных и доступ к ним в Azure]
 -   Посетите блог команды разработчиков хранилища Azure <http://blogs.msdn.com/b/windowsazurestorage/>
 
   [Дальнейшие действия]: #NextSteps
-  [Что такое хранилище очередей?]: #what-is
   [Основные понятия]: #concepts
   [Создание учетной записи хранения Azure]: #create-account
   [Создание приложения PHP]: #create-app
@@ -397,5 +396,4 @@
   [руководство-очередь-хранилище]: ../includes/howto-queue-storage.md
   [создание-хранилище-учетная запись]: ../includes/create-storage-account.md
   [получение-клиент-библиотеки]: ../includes/get-client-libraries.md
-  [require\_once]: http://www.php.net/manual/en/function.require-once.php
-  [Хранение данных и доступ к ним в Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [Хранение данных и доступ к ним в Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/gg433040.aspx

@@ -1,36 +1,36 @@
 <properties linkid="dev-net-how-to-blob-storage" urlDisplayName="Blob Service" pageTitle="How to use blob storage from .NET | Azure" metaKeywords="Get started Azure blob   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage   Azure blob .NET   Azure blob C#   Azure blob C#" description="Learn how to use Microsoft Azure Blob storage to upload,  download, list, and delete blob content. Samples are written in C#." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title="How to use Microsoft Azure Blob storage in .NET" authors="tamram" manager="mbaldwin" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # Использование хранилища BLOB-объектов из .NET
 
-В этом руководстве показано, как реализовать типичные сценарии с использованием службы хранения BLOB-объектов Windows Azure. Примеры написаны на C# и используют библиотеку клиента хранения Azure для .NET. Здесь описаны такие сценарии, как **отправка**, **перечисление**,**загрузка** и **удаление** BLOB-объектов. Дополнительные сведения о BLOB-объектах см. в разделе [Дальнейшие действия][].
+В этом руководстве показано, как реализовать типичные сценарии с использованием службы хранения BLOB-объектов Windows Azure. Примеры написаны на C# и используют библиотеку клиента хранения Azure для .NET. Здесь описаны такие сценарии, как **отправка**, **перечисление**,**загрузка** и **удаление** BLOB-объектов. Дополнительные сведения о BLOB-объектах см. в разделе [Дальнейшие действия][Дальнейшие действия].
 
-> [WACOM.NOTE] В этом руководстве используется библиотека клиента хранения Azure для .NET 2.x и выше. Рекомендуется использовать библиотеку клиента хранения 4.x, которая доступна через [NuGet][] или как часть [Пакета Azure SDK для .NET][]. См. [Практическое руководство. Программный доступ к хранилищу BLOB-объектов][] ниже для дополнительной информации о получении библиотеки клиента хранения.
+> [WACOM.NOTE] В этом руководстве используется библиотека клиента хранения Azure для .NET 2.x и выше. Рекомендуется использовать библиотеку клиента хранения 4.x, которая доступна через [NuGet][NuGet] или как часть [Пакета Azure SDK для .NET][Пакета Azure SDK для .NET]. См. [Практическое руководство. Программный доступ к хранилищу BLOB-объектов][Практическое руководство. Программный доступ к хранилищу BLOB-объектов] ниже для дополнительной информации о получении библиотеки клиента хранения.
 
 ## Оглавление
 
--   [Что такое хранилище BLOB-объектов][]
--   [Основные понятия][]
--   [Создание учетной записи хранения Azure][]
--   [Настройка строки подключения к хранилищу][]
--   [Практическое руководство. Программный доступ к хранилищу BLOB-объектов][]
--   [Практическое руководство. Создание контейнера][]
--   [Практическое руководство. Отправка BLOB-объекта в контейнер][]
--   [Практическое руководство. Перечисление BLOB-объектов в контейнере][]
--   [Практическое руководство. Загрузка BLOB-объектов][]
--   [Практическое руководство. Удаление blob-объектов][]
--   [Дальнейшие действия][]
+-   [Что такое хранилище BLOB-объектов][Что такое хранилище BLOB-объектов]
+-   [Основные понятия][Основные понятия]
+-   [Создание учетной записи хранения Azure][Создание учетной записи хранения Azure]
+-   [Настройка строки подключения к хранилищу][Настройка строки подключения к хранилищу]
+-   [Практическое руководство. Программный доступ к хранилищу BLOB-объектов][Практическое руководство. Программный доступ к хранилищу BLOB-объектов]
+-   [Практическое руководство. Создание контейнера][Практическое руководство. Создание контейнера]
+-   [Практическое руководство. Отправка BLOB-объекта в контейнер][Практическое руководство. Отправка BLOB-объекта в контейнер]
+-   [Практическое руководство. Перечисление BLOB-объектов в контейнере][Практическое руководство. Перечисление BLOB-объектов в контейнере]
+-   [Практическое руководство. Загрузка BLOB-объектов][Практическое руководство. Загрузка BLOB-объектов]
+-   [Практическое руководство. Удаление blob-объектов][Практическое руководство. Удаление blob-объектов]
+-   [Дальнейшие действия][Дальнейшие действия]
 
-[WACOM.INCLUDE [руководство-блоб-объект-хранилище][]]
+[WACOM.INCLUDE [руководство-блоб-объект-хранилище](../includes/howto-blob-storage.md)]
 
 ## <a name="create-account"></a><span class="short-header">Создание учетной записи</span>Создание учетной записи хранения Azure
 
-[WACOM.INCLUDE [создание-хранилище-учетная запись][]]
+[WACOM.INCLUDE [создание-хранилище-учетная запись](../includes/create-storage-account.md)]
 
 ## <a name="setup-connection-string"></a><span class="short-header">Настройка строки подключения</span>Настройка строки подключения к хранилищу
 
-[WACOM.INCLUDE [хранилище-настройка-подключение-строка][]]
+[WACOM.INCLUDE [хранилище-настройка-подключение-строка](../includes/storage-configure-connection-string.md)]
 
 ## <a name="configure-access"> </a><span class="short-header">Программный доступ</span>Практическое руководство: Программный доступ к хранилищу BLOB-объектов
 
@@ -38,7 +38,7 @@
 
 Можно использовать NuGet для получения сборки `Microsoft.WindowsAzure.Storage.dll`. Щелкните правой кнопкой мыши проект в **Обозревателе решений** и выберите **Управление пакетами NuGet**. Выполните в Интернете поиск "WindowsAzure.Storage" и нажмите кнопку **Установить**, чтобы установить пакет хранилища Azure и зависимые компоненты.
 
-`Microsoft.WindowsAzure.Storage.dll` также включена в состав пакета Azure SDK для .NET, который можно загрузить из [Центра разработчиков .NET][]. Сборка устанавливается в каталог `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\<sdk-version>\ref\`lt;sdk-version\>\\ref\\</code>.
+`Microsoft.WindowsAzure.Storage.dll` также включена в состав пакета Azure SDK для .NET, который можно загрузить из [Центра разработчиков .NET][Центра разработчиков .NET]. Сборка устанавливается в каталог `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\<sdk-version>\ref\`lt;sdk-version\>\\ref\\</code>.
 
 ### Объявления пространств имен
 
@@ -70,7 +70,7 @@
 
 ### Зависимости ODataLib
 
-Зависимости ODataLib в клиентской библиотеке хранения для .NET разрешаются через пакеты ODataLib (версия 5.0.2), доступные через NuGet, а не через службы данных WCF. Библиотеки ODataLib можно загрузить напрямую или указать на них ссылку в проекте через NuGet. Мы используем пакеты ODataLib [OData][], [Edm][] и [Spatial][].
+Зависимости ODataLib в клиентской библиотеке хранения для .NET разрешаются через пакеты ODataLib (версия 5.0.2), доступные через NuGet, а не через службы данных WCF. Библиотеки ODataLib можно загрузить напрямую или указать на них ссылку в проекте через NuGet. Мы используем пакеты ODataLib [OData][OData], [Edm][Edm] и [Spatial][Spatial].
 
 ## <a name="create-container"> </a><span class="short-header">Создание контейнера</span>Практическое руководство: Создание контейнера
 
@@ -197,7 +197,7 @@
     Block blob of length 399751: https://<accountname>.blob.core.windows.net/photos/2011/photo7.jpg
     Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
 
-Дополнительные сведения см. в описании метода [CloudBlobContainer.ListBlobs][].
+Дополнительные сведения см. в описании метода [CloudBlobContainer.ListBlobs][CloudBlobContainer.ListBlobs].
 
 ## <a name="download-blobs"> </a><span class="short-header">Загрузка BLOB-объектов</span>Практическое руководство: Загрузка BLOB-объектов
 
@@ -269,20 +269,20 @@
 Вы изучили основные сведения о хранилище BLOB-объектов. Дополнительные сведения о более сложных задачах по использованию хранилища можно найти по следующим ссылкам.
 
 -   Дополнительные сведения о доступных API-интерфейсах см. в справочной документации по службе BLOB-объектов:
-    -   [Справочник по клиентской библиотеке хранения для .NET][]
-    -   [Справочник по REST API][]
--   Дополнительные сведения о более сложных задачах, которые можно выполнить с хранилищем Azure, см. в статье [Хранение данных и доступ к ним в Azure][].
--   Дополнительные сведения о работе с хранилищем Azure в серверных процессах для веб-сайтов Azure см. в статье [Начиная работу с пакетом Azure WebJobs SDK][].
+    -   [Справочник по клиентской библиотеке хранения для .NET][Справочник по клиентской библиотеке хранения для .NET]
+    -   [Справочник по REST API][Справочник по REST API]
+-   Дополнительные сведения о более сложных задачах, которые можно выполнить с хранилищем Azure, см. в статье [Хранение данных и доступ к ним в Azure][Хранение данных и доступ к ним в Azure].
+-   Дополнительные сведения о работе с хранилищем Azure в серверных процессах для веб-сайтов Azure см. в статье [Начиная работу с пакетом Azure WebJobs SDK][Начиная работу с пакетом Azure WebJobs SDK].
 -   Просмотрите дополнительные руководства, чтобы изучить дополнительные возможности хранения данных в Azure.
-    -   Использование [Табличного хранилища][] для хранения структурированных данных.
-    -   Использование [Хранилища очередей][] для хранения неструктурированных данных.
-    -   Использование [Базы данных SQL][] для хранения реляционных данных.
+    -   Использование [Табличного хранилища][Табличного хранилища] для хранения структурированных данных.
+    -   Использование [Хранилища очередей][Хранилища очередей] для хранения неструктурированных данных.
+    -   Использование [Базы данных SQL][Базы данных SQL] для хранения реляционных данных.
 
 </p>
 
   [Дальнейшие действия]: #next-steps
   [NuGet]: https://www.nuget.org/packages/WindowsAzure.Storage/
-  [Пакета Azure SDK для .NET]: /en-us/downloads/
+  [Пакета Azure SDK для .NET]: /ru-ru/downloads/
   [Практическое руководство. Программный доступ к хранилищу BLOB-объектов]: #configure-access
   [Что такое хранилище BLOB-объектов]: #what-is
   [Основные понятия]: #concepts
@@ -296,13 +296,13 @@
   [руководство-блоб-объект-хранилище]: ../includes/howto-blob-storage.md
   [создание-хранилище-учетная запись]: ../includes/create-storage-account.md
   [хранилище-настройка-подключение-строка]: ../includes/storage-configure-connection-string.md
-  [Центра разработчиков .NET]: http://www.windowsazure.com/en-us/develop/net/#
+  [Центра разработчиков .NET]: http://www.windowsazure.com/ru-ru/develop/net/#
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [Справочник по клиентской библиотеке хранения для .NET]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-  [Справочник по REST API]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179355
-  [Хранение данных и доступ к ним в Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [Справочник по REST API]: http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179355
+  [Хранение данных и доступ к ним в Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/gg433040.aspx
   [Начиная работу с пакетом Azure WebJobs SDK]: /ru-ru/documentation/articles/websites-dotnet-webjobs-sdk-get-started/
   [Табличного хранилища]: /ru-ru/documentation/articles/storage-dotnet-how-to-use-tables/
   [Хранилища очередей]: /ru-ru/documentation/articles/storage-dotnet-how-to-use-queues/

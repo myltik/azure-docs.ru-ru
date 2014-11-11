@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-build-realtime-apps-with-pusher-ios" urlDisplayName="Build Realtime Apps with Pusher" pageTitle="Build Realtime Apps with Pusher (iOS) - Mobile Services" metaKeywords="" description="Learn how to use Pusher to send notifications to your Azure Media Services app on iOS." metaCanonical="" services="" documentationCenter="Mobile" title="Build Real-time Apps with Mobile Services and Pusher" authors="krisragh" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
 
 # Создание приложений, работающих в режиме реального времени, с помощью мобильных служб и Pusher
 
@@ -25,7 +25,7 @@ Pusher — это облачная служба, которая, как и мо�
 
 ## <a name="sign-up"></a>Создание учетной записи Pusher
 
-[WACOM.INCLUDE [pusher-sign-up][pusher-sign-up]]
+[WACOM.INCLUDE [pusher-sign-up](../includes/pusher-sign-up.md)]
 
 ## <a name="update-app"></a>Обновление приложения
 
@@ -43,7 +43,7 @@ Pusher — это облачная служба, которая, как и мо�
 
 4.  Установите флажок **Копировать элементы в папку конечной группы** и нажмите кнопку **Готово**
 
-    ![][]
+    ![][0]
 
    При этом файлы LibPusher будут скопированы в ваш проект.
 
@@ -349,9 +349,8 @@ Pusher — это облачная служба, которая, как и мо�
 
 
 
-  [iOS]:  "iOS"
   [Push-уведомления для пользователей]: /ru-ru/develop/mobile/tutorials/push-notifications-to-users-ios
-  []: http://pusher.com
+  [0]: http://pusher.com
   [Создание учетной записи Pusher]: #sign-up
   [Обновление приложения]: #update-app
   [Установка серверных скриптов]: #install-scripts
@@ -360,7 +359,7 @@ Pusher — это облачная служба, которая, как и мо�
   [pusher-sign-up]: ../includes/pusher-sign-up.md
   [LibPusher]: http://go.microsoft.com/fwlink/p?LinkId=276999
   [по этой ссылке]: http://go.microsoft.com/fwlink/p/?LinkId=276998
-  []: ./media/mobile-services-ios-build-realtime-apps-pusher/pusher-ios-add-files-to-group.png
+  [0]: ./media/mobile-services-ios-build-realtime-apps-pusher/pusher-ios-add-files-to-group.png
   [1]: ./media/mobile-services-ios-build-realtime-apps-pusher/pusher-ios-add-build-phase.png
   [2]: ./media/mobile-services-ios-build-realtime-apps-pusher/pusher-ios-add-linker-flag.png
   [портал управления Azure]: https://manage.windowsazure.com/

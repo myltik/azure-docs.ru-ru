@@ -1,6 +1,6 @@
 <properties title="Using the Docker Virtual Machines Extension for Linux on Azure" pageTitle="Using the Docker VM Extension for Linux on Azure" description="Describes Docker and the Azure Virtual Machines extensions, and shows how to programmatically create Virtual Machines on Azure that are docker hosts from the command line using the azure-cli command interface." metaKeywords="linux, virtual machines, vm, azure, docker, linux containers,  lxc, virtualization" services="virtual-machines" solutions="dev-test" documentationCenter="virtual-machines" authors="rasquill" videoId="" scriptId="" />
 
-<tags ms.service="virtual-machines" ms.devlang="multiple" ms.topic="article" ms.tgt_pltfrm="vm-linux" ms.workload="infrastructure-services" ms.date="08/21/2014" ms.author="ralph.squillace@microsoft.com"></tags>
+<tags ms.service="virtual-machines" ms.devlang="multiple" ms.topic="article" ms.tgt_pltfrm="vm-linux" ms.workload="infrastructure-services" ms.date="08/21/2014" ms.author="ralph.squillace@microsoft.com" />
 
 # Использование расширения виртуальных машин Docker для Linux в Azure
 
@@ -142,7 +142,6 @@ Docker и контейнеры Linux не являются [гипервизор
   [Ресурсы для контейнеров и управления ими в Azure]: #Container-and-Container-Management-Resources-for-Azure
   [гипервизорами]: http://en.wikipedia.org/wiki/Hypervisor
   [KVM]: http://www.linux-kvm.org/page/Main_Page
-  [Что такое Docker?]: https://www.docker.com/whatisdocker/
   [Docker рекомендует]: https://docs.docker.com/articles/security/
   [обеспечение безопасности на основе ролей]: http://en.wikipedia.org/wiki/Role-based_access_control
   [SELinux]: http://selinuxproject.org/page/Main_Page
@@ -150,12 +149,10 @@ Docker и контейнеры Linux не являются [гипервизор
   [azure-cli]: https://github.com/Azure/azure-sdk-tools-xplat
   [Boot2Docker]: https://docs.docker.com/installation/windows/
   [здесь]: http://azure.microsoft.com/ru-ru/documentation/articles/xplat-cli/#install
-  [диспетчер пакетов Node (NPM)]: http://en.wikipedia.org/wiki/Npm_%28software%29
   [1]: https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-an-ubuntu-14-04-server
   [пакетом установки для Mac]: http://go.microsoft.com/fwlink/?linkid=252249&clcid=0x409
   [Подключение к подписке Azure]: http://azure.microsoft.com/ru-ru/documentation/articles/xplat-cli/#configure
   [инструкции по установке Docker]: https://docs.docker.com/installation/#installation
-  [!@\#$%^&+=]: mailto:!@#$%^&+=
   [0]: ./media/virtual-machines-docker/dockercreateresults.png
   [2]: ./media/virtual-machines-docker/connectingtodockerhost.png
   [Руководстве пользователя Docker]: https://docs.docker.com/userguide/

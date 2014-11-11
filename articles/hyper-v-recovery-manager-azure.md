@@ -1,6 +1,6 @@
 <properties linkid="configure-hyper-v-recovery-vault" urlDisplayName="configure-Azure-Site-Recovery" pageTitle="Configure Azure Site Recovery to protect virtual machines on Hyper-V server located in VMM clouds" metaKeywords="Azure Site Recovery, VMM, clouds, disaster recovery" description="Azure Site Recovery coordinates the replication, failover and recovery of Hyper-V virtual machines located in VMM clouds from one on-premises site to another. Azure Site Recovery can also replicate, failover, and recover Hyper-V virtual machine data between VMM clouds and Microsoft Azure." metaCanonical="" umbracoNaviHide="0" disqusComments="1" title="Getting Started with Azure Site Recovery: On-Premises to Azure Protection" editor="jimbe" manager="cfreeman" authors="" />
 
-<tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
 # Приступая к работе с Azure Site Recovery: защита локальной среды в Azure
 
@@ -368,29 +368,9 @@ makecert.exe -r -pe -n CN=CertificateName -ss my -sr localmachine -eku 1.3.6.1.5
 -   Чтобы запланировать и развернуть Azure Site Recovery в полной производственной среде см. [Руководство по планированию для Azure Site Recovery][Планирование развертывания Azure Site Recovery] и [Руководство по развертыванию для Azure Site Recovery][Руководство по развертыванию для Azure Site Recovery].
 -   При наличии вопросов обращайтесь на [форум по службам восстановления Azure][форуме службы восстановления Azure].
 
-  [Начиная работу с Azure Site Recovery: Защита локальной среды в локальной среде]: http://go.microsoft.com/fwlink/?LinkId=398765
   [Планирование развертывания Azure Site Recovery]: http://go.microsoft.com/fwlink/?LinkId=321294
-  [Развертывание Azure Site Recovery: Защита локальной среды в Azure]: http://go.microsoft.com/fwlink/?LinkId=402679
-  [Администрирование и мониторинг Azure Site Recovery]: http://go.microsoft.com/fwlink/?LinkId=378272
-  [Azure Site Recovery: распространенные ошибки и решения]: http://go.microsoft.com/fwlink/?LinkId=389879
   [форуме службы восстановления Azure]: http://go.microsoft.com/fwlink/?LinkId=313628
-  [Бесплатная пробная версия Azure]: http://aka.ms/try-azure
-  [Сведения о ценах на диспетчер Azure Site Recovery]: http://go.microsoft.com/fwlink/?LinkId=378268
-  [Введение в хранилище Microsoft Azure]: http://go.microsoft.com/fwlink/?LinkId=398704
   [Предварительные требования и поддержка]: http://go.microsoft.com/fwlink/?LinkId=402602
-  [Шаг 1: Получение и настройка сертификатов]: #createcert
-  [Шаг 2: Создание хранилища]: #vault
-  [Шаг 3: Настройка хранилища]: #upload
-  [Шаг 4: Установка приложения поставщика]: #download
-  [Шаг 5: Установка приложения агента]: #agent
-  [Шаг 6: Настройка защиты облаков]: #clouds
-  [Шаг 7: Настройка сетевого сопоставления]: #NetworkMapping
-  [Шаг 8: Включение защиты виртуальных машин]: #virtualmachines
-  [Шаг 9: Настройка и запуск планов восстановления]: #recovery%20plans
-  [Получение самозаверяющего сертификата для пошагового руководства]: #obtaincert
-  [Экспорт сертификата в формате PFX-файла]: #exportcert
-  [Импорт сертификата в формате PFX-файла на сервер VMM]: #importcert
-  [Windows SDK]: http://go.microsoft.com/fwlink/?LinkId=378269
   [Портал управления]: https://manage.windowsazure.com
   [Новое хранилище]: ./media/hyper-v-recovery-manager-configure-vault/SR_HvVault.png
   [Значок быстрого запуска]: ./media/hyper-v-recovery-manager-configure-vault/SR_QuickStartIcon.png

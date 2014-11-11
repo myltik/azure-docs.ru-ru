@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-create-pull-notifications-js" urlDisplayName="Define a custom API that supports pull notifications" pageTitle="Define a custom API that supports pull notifications - Azure Mobile Services" metaKeywords="" description="Learn how to Define a custom API that supports periodic notifications in Windows Store apps that use Azure Mobile Services." metaCanonical="" services="" documentationCenter="" title="Define a custom API that supports periodic notifications" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Определение настраиваемого интерфейса API с поддержкой периодических уведомлений
 
@@ -22,7 +22,7 @@
 
 1.  Выполните вход на [портал управления Azure][портал управления Azure], щелкните элемент **Мобильные службы**, а затем выберите свое приложение.
 
-    ![][]
+    ![][0]
 
 2.  Нажмите вкладку **API**, затем нажмите **Создать настраиваемый API**.
 
@@ -126,8 +126,6 @@
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Магазин Windows C#]: /ru-ru/develop/mobile/tutorials/create-pull-notifications-dotnet "Магазин Windows C#"
-  [Магазин Windows JavaScript]: /ru-ru/develop/mobile/tutorials/create-pull-notifications-js "Магазин Windows JavaScript"
   [Периодические уведомления]: http://msdn.microsoft.com/ru-ru/library/windows/apps/jj150587.aspx
   [Приступая к работе с мобильными службами]: /ru-ru/develop/mobile/tutorials/get-started/#create-new-service
   [Приступая к работе с данными]: /ru-ru/develop/mobile/tutorials/started-with-data-js
@@ -135,13 +133,10 @@
   [Обновление приложения для включения периодических уведомлений]: #update-app
   [Тестирование приложения]: #test-app
   [портал управления Azure]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-windows-store-javascript-create-pull-notifications/mobile-services-selection.png
+  [0]: ./media/mobile-services-windows-store-javascript-create-pull-notifications/mobile-services-selection.png
   [1]: ./media/mobile-services-windows-store-javascript-create-pull-notifications/mobile-custom-api-create.png
   [2]: ./media/mobile-services-windows-store-javascript-create-pull-notifications/mobile-custom-api-create-dialog.png
   [3]: ./media/mobile-services-windows-store-javascript-create-pull-notifications/mobile-custom-api-select.png
-  [модуль wns]: http://go.microsoft.com/fwlink/p/?LinkId=306750
-  [объекта wns]: http://go.microsoft.com/fwlink/p/?LinkId=260591
-  [push-объектом]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj554217.aspx
   [4]: ./media/mobile-services-windows-store-javascript-create-pull-notifications/mobile-custom-api-live-tile.png
   [Приступая к работе с push-уведомлениями]: /ru-ru/develop/mobile/tutorials/get-started-with-push-js
   [Справочник серверных скриптов мобильных служб]: http://go.microsoft.com/fwlink/?LinkId=262293
