@@ -286,7 +286,7 @@
 -   См. документацию по [redis][redis]: прочитайте [статью о типах данных redis][статью о типах данных redis] и [пятнадцатиминутное введение в типы данных Redis][пятнадцатиминутное введение в типы данных Redis].
 -   См. справочник MSDN: [кэш Azure Redis][кэш Azure Redis]
 
-<!-- INTRA-TOPIC LINKS --> <!-- IMAGES --> <!-- LINKS -->
+
 
   [Дальнейшие действия]: #next-steps
   [Что такое кэш Azure Redis]: #what-is
@@ -298,7 +298,7 @@
   [Добавление и извлечение объектов из кэша]: #add-object
   [Указание срока действия объекта в кэше]: #specify-expiration
   [Сохранение состояния сеанса ASP.NET в кэше]: #store-session
-  [Сведения о ценах — кэш]: http://www.windowsazure.com/en-us/pricing/details/cache/
+  [Сведения о ценах — кэш]: http://www.windowsazure.com/ru-ru/pricing/details/cache/
   [Обзор кэша Azure Redis]: http://go.microsoft.com/fwlink/?LinkId=320830
   [Настройка кэша]: #enable-caching
   [Новый кэш]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-new-cache-menu.png
@@ -315,7 +315,7 @@
   [Модель конфигурации StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Configuration.md
   [Свойства кэша]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-properties.png
   [Управление ключами]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-manage-keys.png
-  [Работа с объектами .NET в кэше]: http://msdn.microsoft.com/en-us/library/dn690521.aspx#Objects
+  [Работа с объектами .NET в кэше]: http://msdn.microsoft.com/ru-ru/library/dn690521.aspx#Objects
   [Пакет Redis NuGet для состояний сеансов]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-session-state-provider.png
   [Поставщик состояний сеансов Azure Redis]: http://go.microsoft.com/fwlink/?LinkId=398249
   [redis]: http://redis.io/documentation

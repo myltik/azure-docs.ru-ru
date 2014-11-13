@@ -4,22 +4,22 @@
 # Определение настраиваемого интерфейса API с поддержкой периодических уведомлений
 
 <div class="dev-center-tutorial-selector"> 
-    <a href="/en-us/develop/mobile/tutorials/create-pull-notifications-dotnet" title="Магазин Windows C#" class="current">Магазин Windows C#</a><a href="/en-us/develop/mobile/tutorials/create-pull-notifications-js" title="Магазин Windows JavaScript">Магазин Windows JavaScript</a>
+    <a href="/ru-ru/develop/mobile/tutorials/create-pull-notifications-dotnet" title="Магазин Windows C#" class="current">Магазин Windows C#</a><a href="/ru-ru/develop/mobile/tutorials/create-pull-notifications-js" title="Магазин Windows JavaScript">Магазин Windows JavaScript</a>
 </div>
 
-В этом разделе показано, как использовать настраиваемый интерфейс API для поддержки периодических уведомлений в приложениях Магазина Windows. Если периодические уведомления включены, Windows будет периодически обращаться к конечной точке настраиваемого интерфейса API и использовать полученный XML в формате для плиток, чтобы обновить плитку приложения в меню "Пуск". Дополнительные сведения см. в разделе [Периодические уведомления][].
+В этом разделе показано, как использовать настраиваемый интерфейс API для поддержки периодических уведомлений в приложениях Магазина Windows. Если периодические уведомления включены, Windows будет периодически обращаться к конечной точке настраиваемого интерфейса API и использовать полученный XML в формате для плиток, чтобы обновить плитку приложения в меню "Пуск". Дополнительные сведения см. в разделе [Периодические уведомления][Периодические уведомления].
 
-Вы добавите эту функцию в приложение, созданное в учебнике [Приступая к работе с мобильными службами][] или [Приступая к работе с данными][]. Для этого требуются следующие действия:
+Вы добавите эту функцию в приложение, созданное в учебнике [Приступая к работе с мобильными службами][Приступая к работе с мобильными службами] или [Приступая к работе с данными][Приступая к работе с данными]. Для этого требуются следующие действия:
 
-1.  [Определение настраиваемого интерфейса API][]
-2.  [Обновление приложения для включения периодических уведомлений][]
-3.  [Тестирование приложения][]
+1.  [Определение настраиваемого интерфейса API][Определение настраиваемого интерфейса API]
+2.  [Обновление приложения для включения периодических уведомлений][Обновление приложения для включения периодических уведомлений]
+3.  [Тестирование приложения][Тестирование приложения]
 
-Этот учебник создан на основе краткого руководства по мобильным службам. Перед работой с этим учебником необходимо сначала пройти учебник [Приступая к работе с мобильными службами][] или [Приступая к работе с данными][].
+Этот учебник создан на основе краткого руководства по мобильным службам. Перед работой с этим учебником необходимо сначала пройти учебник [Приступая к работе с мобильными службами][Приступая к работе с мобильными службами] или [Приступая к работе с данными][Приступая к работе с данными].
 
 ## <a name="define-custom-api"></a>Определение настраиваемого интерфейса API
 
-1.  Выполните вход на [портал управления Azure][], щелкните элемент **Мобильные службы**, а затем выберите свое приложение.
+1.  Выполните вход на [портал управления Azure][портал управления Azure], щелкните элемент **Мобильные службы**, а затем выберите свое приложение.
 
     ![](./media/mobile-services-windows-store-dotnet-create-pull-notifications/mobile-services-selection.png)
 
@@ -82,7 +82,7 @@
     Используется функция **exports.get**, так как клиент отправляет запрос GET, чтобы открыть шаблон плитки.
 
     <div class="dev-callout"><b>Примечание.</b>
-    <p>Этот пользовательский скрипт API использует <a href="http://go.microsoft.com/fwlink/p/?LinkId=306750">модуль wns</a> Node.js, на который можно ссылаться с помощью функции <strong>require</strong> . Этот модуль отличается от <a href="http://go.microsoft.com/fwlink/p/?LinkId=260591">объекта wns</a>, возвращаемого <a href="http://msdn.microsoft.com/en-us/library/windowsazure/jj554217.aspx">push-объектом</a>, который используется для отправки push-уведомлений из серверных скриптов.</p>
+    <p>Этот пользовательский скрипт API использует <a href="http://go.microsoft.com/fwlink/p/?LinkId=306750">модуль wns</a> Node.js, на который можно ссылаться с помощью функции <strong>require</strong> . Этот модуль отличается от <a href="http://go.microsoft.com/fwlink/p/?LinkId=260591">объекта wns</a>, возвращаемого <a href="http://msdn.microsoft.com/ru-ru/library/windowsazure/jj554217.aspx">push-объектом</a>, который используется для отправки push-уведомлений из серверных скриптов.</p>
 </div>
 
 Затем вам предстоит изменить пример приложения для запуска периодических уведомлений, которые обновляют динамическую плитку, отправляя запросы к новому настраиваемому интерфейсу API.
@@ -120,34 +120,33 @@
 
 После создания периодического уведомления изучите следующие статьи о мобильных службах:
 
--   [Приступая к работе с push-уведомлениями][]
+-   [Приступая к работе с push-уведомлениями][Приступая к работе с push-уведомлениями]
     Периодическими уведомлениями управляет Windows, и они создаются только на основе стандартного расписания. Push-уведомления могут отправляться мобильной службой по требованию и могут быть всплывающими, необработанными и уведомлениями плитки.
 
--   [Справочник серверных скриптов мобильных служб][]
+-   [Справочник серверных скриптов мобильных служб][Справочник серверных скриптов мобильных служб]
     Дополнительные сведения о создании настраиваемых API.
 
--   [Справочник принципов использования мобильных служб .NET][]
+-   [Справочник принципов использования мобильных служб .NET][Справочник принципов использования мобильных служб .NET]
     Дополнительные сведения об использовании мобильных служб в .NET.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
+<!-- Anchors. --> 
 
-  [Магазин Windows C\#]: /en-us/develop/mobile/tutorials/create-pull-notifications-dotnet "Магазин Windows C#"
-  [Магазин Windows JavaScript]: /en-us/develop/mobile/tutorials/create-pull-notifications-js "Магазин Windows JavaScript"
-  [Периодические уведомления]: http://msdn.microsoft.com/en-us/library/windows/apps/jj150587.aspx
-  [Приступая к работе с мобильными службами]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
-  [Приступая к работе с данными]: /en-us/develop/mobile/tutorials/get-started-with-data-dotnet
+  [Периодические уведомления]: http://msdn.microsoft.com/ru-ru/library/windows/apps/jj150587.aspx
+  [Приступая к работе с мобильными службами]: /ru-ru/develop/mobile/tutorials/get-started/#create-new-service
+  [Приступая к работе с данными]: /ru-ru/develop/mobile/tutorials/get-started-with-data-dotnet
   [Определение настраиваемого интерфейса API]: #define-custom-api
   [Обновление приложения для включения периодических уведомлений]: #update-app
   [Тестирование приложения]: #test-app
   [портал управления Azure]: https://manage.windowsazure.com/
-  
+
+<!-- Images. -->   
   [1]: ./media/mobile-services-windows-store-dotnet-create-pull-notifications/mobile-custom-api-create.png
   [2]: ./media/mobile-services-windows-store-dotnet-create-pull-notifications/mobile-custom-api-create-dialog.png
   [3]: ./media/mobile-services-windows-store-dotnet-create-pull-notifications/mobile-custom-api-select.png
-  [модуль wns]: http://go.microsoft.com/fwlink/p/?LinkId=306750
-  [объекта wns]: http://go.microsoft.com/fwlink/p/?LinkId=260591
-  [push-объектом]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554217.aspx
   [4]: ./media/mobile-services-windows-store-dotnet-create-pull-notifications/mobile-custom-api-live-tile.png
-  [Приступая к работе с push-уведомлениями]: /en-us/develop/mobile/tutorials/get-started-with-push-dotnet
+
+<!-- URLs. -->
+
+  [Приступая к работе с push-уведомлениями]: /ru-ru/develop/mobile/tutorials/get-started-with-push-dotnet
   [Справочник серверных скриптов мобильных служб]: http://go.microsoft.com/fwlink/?LinkId=262293
-  [Справочник принципов использования мобильных служб .NET]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library
+  [Справочник принципов использования мобильных служб .NET]: /ru-ru/develop/mobile/how-to-guides/work-with-net-client-library
