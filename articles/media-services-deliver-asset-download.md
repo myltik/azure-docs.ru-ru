@@ -1,10 +1,10 @@
-<properties linkid="develop-media-services-how-to-guides-deliver-media-assets" urlDisplayName="Delivering Media Assets" pageTitle="How to Deliver Media Assets - Azure" metaKeywords="" description="Learn about options for delivering media assets that have been uploaded to Media Services in Azure. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Deliver an Asset by Download" authors="migree" solutions="" manager="" editor="" />
+<properties urlDisplayName="Delivering Media Assets" pageTitle="Доставка мультимедийных активов &mdash; Azure" metaKeywords="" description="Узнайте о вариантах доставки мультимедийных активов, переданных в службы мультимедиа в Azure. Примеры кода написаны на языке C# и используют пакет SDK служб мультимедиа для .NET." metaCanonical="" services="media-services" documentationCenter="" title="Практическое руководство: Доставка актива путем загрузки" authors="juliako" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree"/>
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
 
 # Практическое руководство: Доставка актива путем загрузки
 
-Эта статья является частью серии вводных статей о программировании служб мультимедиа в Azure. Предыдущий раздел [Практическое руководство: Управление активами][].
+Эта статья является частью серии вводных статей о программировании служб мультимедиа в Azure. Предыдущий раздел [Практическое руководство: Управление активами][Практическое руководство: Управление активами].
 
 В этом разделе обсуждаются возможности доставки мультимедийных активов, переданных в службы мультимедиа. Для доставки контента служб мультимедиа можно использовать различные сценарии. Можно загрузить мультимедийные активы или получить к ним доступ с помощью указателя. Можно отправить мультимедийный контент в другое приложение или другой поставщик контента. Для повышения производительности и масштабируемости можно также доставлять контент с помощью сети доставки содержимого (CDN), например Azure CDN.
 
@@ -62,15 +62,15 @@
 
 Дополнительные сведения о доставке активов см. в следующих статьях:
 
--   [Доставка ресурсов с помощью служб носителей для .NET][]
--   [Доставка ресурсов с помощью API-интерфейса REST служб носителей][]
+-   [Доставка ресурсов с помощью служб носителей для .NET][Доставка ресурсов с помощью служб носителей для .NET]
+-   [Доставка ресурсов с помощью API-интерфейса REST служб носителей][Доставка ресурсов с помощью API-интерфейса REST служб носителей]
 
 </p>
 ## Дальнейшие действия
 
-В этом разделе описана загрузка актива из хранилища Azure. Для получения сведений о других способах доставки активов перейдите в раздел [Практическое руководство. Доставка контента потоковой передачи][].
+В этом разделе описана загрузка актива из хранилища Azure. Для получения сведений о других способах доставки активов перейдите в раздел [Практическое руководство. Доставка контента потоковой передачи][Практическое руководство. Доставка контента потоковой передачи].
 
-  [Практическое руководство: Управление активами]: http://go.microsoft.com/fwlink/?LinkID=301815&clcid=0x409
-  [Доставка ресурсов с помощью служб носителей для .NET]: http://msdn.microsoft.com/en-us/library/jj129575.aspx
-  [Доставка ресурсов с помощью API-интерфейса REST служб носителей]: http://msdn.microsoft.com/en-us/library/jj129578.aspx
-  [Практическое руководство. Доставка контента потоковой передачи]: http://go.microsoft.com/fwlink/?LinkID=301942
+  [Практическое руководство: Управление активами]: ../media-services-manage-assets/
+  [Доставка ресурсов с помощью служб носителей для .NET]: http://msdn.microsoft.com/ru-ru/library/jj129575.aspx
+  [Доставка ресурсов с помощью API-интерфейса REST служб носителей]: http://msdn.microsoft.com/ru-ru/library/jj129578.aspx
+  [Практическое руководство. Доставка контента потоковой передачи]: ../media-services-deliver-streaming-content/

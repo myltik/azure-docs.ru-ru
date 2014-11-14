@@ -1,4 +1,4 @@
-<properties linkid="manage-windows-common-task-mongodb-vm" urlDisplayName="Install MongoDB" pageTitle="Install MongoDB on a Windows Server virtual machine" metaKeywords="Azure vm, Azure MongoDB, Azure remote desktop" description="Learn how to install MongoDB on an Azure VM running Windows Server." metaCanonical="" services="virtual-machines" documentationCenter="" title="Install MongoDB on a virtual machine running Windows Server in Azure" authors="kathydav" solutions="" manager="dongill" editor="tysonn" />
+<properties urlDisplayName="Install MongoDB" pageTitle="Установка MongoDB на виртуальной машине под управлением Windows Server" metaKeywords="Azure vm, Azure MongoDB, Azure remote desktop" description="Узнайте, как установить MongoDB на виртуальной машине Azure под управлением Windows Server." metaCanonical="" services="virtual-machines" documentationCenter="" title="Установка MongoDB на виртуальной машине под управлением Windows Server в Azure" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav" />
 
@@ -23,13 +23,13 @@
 
 [WACOM.INCLUDE [виртуальные-машины-создание-WindowsVM](../includes/virtual-machines-create-WindowsVM.md)]
 
-## Подключение диска данных
+## Присоединение диска данных
 
 Чтобы предоставить хранилище для виртуальной машины, подключите диск данных, а затем инициализируйте, чтобы его можно было использовать в Windows. Можно подключать как существующий диск, если имеются данные, которые планируется использовать, так и пустой диск.
 
 [WACOM.INCLUDE [руководство-присоединение-диск-windows-linux](../includes/howto-attach-disk-windows-linux.md)]
 
-Инструкции по инициализации диска см. в разделе "Практическое руководство. Инициализация нового диска данных в Windows Server" в статье [Как присоединить диск данных к виртуальной машине][Как присоединить диск данных к виртуальной машине].
+Инструкции по инициализации диска см. в "Практическом руководстве: Инициализация нового диска данных в Windows Server" в статье [Как присоединить диск данных к виртуальной машине][Как присоединить диск данных к виртуальной машине].
 
 ## Установка и запуск MongoDB на виртуальной машине
 
@@ -41,8 +41,5 @@
 
   [MongoDB]: http://www.mongodb.org/
   [портала управления Azure]: http://manage.windowsazure.com
-  [виртуальные-машины-создание-WindowsVM]: ../includes/virtual-machines-create-WindowsVM.md
-  [руководство-присоединение-диск-windows-linux]: ../includes/howto-attach-disk-windows-linux.md
   [Как присоединить диск данных к виртуальной машине]: http://azure.microsoft.com/ru-ru/documentation/articles/storage-windows-attach-disk/
-  [install-and-run-mongo-on-win2k8-vm]: ../includes/install-and-run-mongo-on-win2k8-vm.md
   [документации по MongoDB]: http://www.mongodb.org/display/DOCS/Home

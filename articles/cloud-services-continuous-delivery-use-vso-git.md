@@ -1,6 +1,6 @@
-<properties linkid="dev-net-common-tasks-publishing-with-vso" urlDisplayName="Publishing with TFS" pageTitle="Continuous delivery with Visual Studio Online in Azure" metaKeywords="" description="Learn how to configure your Visual Studio Online team projects to automatically build and deploy to Azure websites or cloud services." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Continuous delivery to Azure using Visual Studio Online and Git" authors="ghogen" solutions="" manager="" editor="" />
+<properties urlDisplayName="Publishing with Visual Studio Online" pageTitle="Непрерывная доставка с использованием Visual Studio Online в Azure" metaKeywords="" description="В данном разделе приводится информация о том, как настроить командные проекты Visual Studio Online для автоматического создания и развертывания веб-сайтов или облачных служб Azure." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Непрерывная доставка в Azure с использованием Visual Studio Online и Git" authors="ghogen" solutions="" manager="douge" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ghogen" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="ghogen" />
 
 # Непрерывная доставка в Azure с использованием Visual Studio Online и Git
 
@@ -8,9 +8,15 @@
 
 В данном учебнике требуются установленные Visual Studio 2013 и пакет SDK Azure. Чтобы загрузить Visual Studio 2013, щелкните ссылку **Начните работу бесплатно** на сайте [www.visualstudio.com][www.visualstudio.com]. Пакет SDK Azure можно установить по [этой ссылке][этой ссылке].
 
+<div class="wa-note">
+  <span class="wa-icon-bulb"></span>
+  <h5><a name="note"></a>Для работы с этим учебником необходима учетная запись Visual Studio Online:</h5>
+<p>Вы можете <a href="http://go.microsoft.com/fwlink/p/?LinkId=512979">бесплатно зарегистрировать учетную запись Visual Studio Online</a>.</p>
+</div>
+
 Чтобы настроить облачную службу для автоматического построения и развертывания в Azure с использованием Visual Studio Online, выполните следующие действия:
 
--   [Шаг 1: регистрация в Visual Studio Online и создание репозитория Git.][Шаг 1: регистрация в Visual Studio Online и создание репозитория Git.]
+-   [Шаг 1: Создание Git-репозитория][Шаг 1: Создание Git-репозитория]
 
 -   [Шаг 2: создание проекта и отправка его в репозиторий Git.][Шаг 2: создание проекта и отправка его в репозиторий Git.]
 
@@ -24,7 +30,7 @@
 
 -   [Шаг 7: развертывание из рабочей ветви.][Шаг 7: развертывание из рабочей ветви.]
 
-## <a name="step1"></a><span class="short-header">Шаг 1: регистрация в Visual Studio Online и создание репозитория Git</span>Шаг 1: регистрация в Visual Studio Online и создание репозитория Git
+## <a name="step1"></a><span class="short-header">Шаг 1: Создание Git-репозитория.</span>Шаг 1: создание Git-репозитория
 
 1.  Если у вас еще нет учетной записи Visual Studio Online, выполните инструкции из [этой статьи][этой статьи]. При создании командного проекта выберите Git в качестве системы управления версиями. Выполните следующие инструкции для подключения Visual Studio к командному проекту.
 
@@ -114,76 +120,76 @@
 
     <tr>
     <td>
-    <b>Свойство</b>
+    **Свойство**
 
     </td>
     <td>
-    <b>Значение по умолчанию</b>
+    **Значение по умолчанию**
 
     </td>
     </tr>
     </p>
-     <tr>
-     <td>
-     Разрешить недоверенные сертификаты
-    
-     </td>
-     <td>
-     Если установлено значение false, то SSL-сертификаты должны быть подписаны корневым центром сертификации.
-    
-     </td>
-     </tr>
-     <tr>
-     <td>
-     Разрешить обновление
-    
-     </td>
-     <td>
-     Разрешает обновление существующего развертывания вместо создания нового. Сохраняет IP-адрес.
-    
-     </td>
-     </tr>
-     <tr>
-     <td>
-     Не удалять
-    
-     </td>
-     <td>
-     Если установлено значение true, не разрешена перезапись существующего несвязанного развертывания (обновление разрешено).
-    
-     </td>
-     </tr>
-     <tr>
-     <td>
-     Путь к параметрам развертывания
-    
-     </td>
-     <td>
-     Путь к PUBXML-файлу для веб-сайта относительно корневой папки репозитория. Для облачных служб игнорируется.
-    
-     </td>
-     </tr>
-     <tr>
-     <td>
-     Среда развертывания Sharepoint
-    
-     </td>
-     <td>
-     Совпадает с именем службы.
-    
-     </td>
-     </tr>
-     <tr>
-     <td>
-     Среда развертывания Microsoft Azure
-    
-     </td>
-     <td>
-     Имя веб-сайта или облачной службы
-    
-     </td>
-     </tr>
-     </table>
+    > <tr>
+    > <td>
+    > Разрешить недоверенные сертификаты
+    >
+    > </td>
+    > <td>
+    > Если установлено значение false, то SSL-сертификаты должны быть подписаны корневым центром сертификации.
+    >
+    > </td>
+    > </tr>
+    > <tr>
+    > <td>
+    > Разрешить обновление
+    >
+    > </td>
+    > <td>
+    > Разрешает обновление существующего развертывания вместо создания нового. Сохраняет IP-адрес.
+    >
+    > </td>
+    > </tr>
+    > <tr>
+    > <td>
+    > Не удалять
+    >
+    > </td>
+    > <td>
+    > Если установлено значение true, не разрешена перезапись существующего несвязанного развертывания (обновление разрешено).
+    >
+    > </td>
+    > </tr>
+    > <tr>
+    > <td>
+    > Путь к параметрам развертывания
+    >
+    > </td>
+    > <td>
+    > Путь к PUBXML-файлу для веб-сайта относительно корневой папки репозитория. Для облачных служб игнорируется.
+    >
+    > </td>
+    > </tr>
+    > <tr>
+    > <td>
+    > Среда развертывания Sharepoint
+    >
+    > </td>
+    > <td>
+    > Совпадает с именем службы.
+    >
+    > </td>
+    > </tr>
+    > <tr>
+    > <td>
+    > Среда развертывания Microsoft Azure
+    >
+    > </td>
+    > <td>
+    > Имя веб-сайта или облачной службы
+    >
+    > </td>
+    > </tr>
+    > </table>
 
 11. К этому моменту процесс построения должен быть успешно завершен.
     ![][19]
@@ -248,10 +254,11 @@
 
   [www.visualstudio.com]: http://www.visualstudio.com
   [этой ссылке]: http://go.microsoft.com/fwlink/?LinkId=239540
-  [Шаг 1: регистрация в Visual Studio Online и создание репозитория Git.]: #step1
+  [Шаг 1: Создание Git-репозитория]: #step1
   [Шаг 2: создание проекта и отправка его в репозиторий Git.]: #step2
   [Шаг 3: подключение проекта к Azure.]: #step3
   [Шаг 4: внесение необходимых изменений и запуск процессов повторного построения и развертывания.]: #step4
+  [Шаг 5: повторное развертывание предыдущей сборки (необязательно)]: #step5
   [Шаг 6: изменение развертывания в рабочей среде.]: #step6
   [Шаг 7: развертывание из рабочей ветви.]: #step7
   [этой статьи]: http://go.microsoft.com/fwlink/?LinkId=397665

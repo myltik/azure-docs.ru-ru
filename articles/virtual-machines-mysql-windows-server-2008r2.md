@@ -1,4 +1,4 @@
-<properties linkid="manage-windows-common-tasks-install-mysql" urlDisplayName="Install MySQL" pageTitle="Create a virtual machine running MySQL in Azure " metaKeywords="Azure virtual machines, Azure Windows Server, Azure installing MySQL, Azure configuring MySQL, Azure databases" description="Create an Azure virtual machine running Windows Server 2008 R2, and then install and configure a MySQL database on the virtual machine." metaCanonical="" services="virtual-machines" documentationCenter="" title="Install MySQL on a virtual machine running Windows Server 2008 R2 in Azure" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
+<properties urlDisplayName="Install MySQL" pageTitle="Создание виртуальной машины с MySQL в Azure" metaKeywords="Azure virtual machines, Azure Windows Server, Azure installing MySQL, Azure configuring MySQL, Azure databases" description="Создание виртуальной машины Azure под управлением Windows Server 2008 R2 и последующая установка и настройка базы данных MySQL на виртуальной машине." metaCanonical="" services="virtual-machines" documentationCenter="" title="Установка MySQL на виртуальной машине под управлением Windows Server 2008 R2 в Azure" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="12/15/2013" ms.author="kathydav" />
 
@@ -26,7 +26,7 @@
 
 1.  После подключения к виртуальной машине с помощью удаленного рабочего стола откройте **Internet Explorer** из меню **Пуск**.
 
-2.  Нажмите кнопку **Сервис** в правом верхнем углу. В окне **Свойства браузера** выберите вкладку **Безопасность**, выберите значок **Надежные сайты**, а затем нажмите кнопку **Сайты**. Добавьте *http://\*.mysql.com* в список надежных сайтов.
+2.  Нажмите кнопку **Сервис** в правом верхнем углу. В окне **Свойства браузера** выберите вкладку **Безопасность**, выберите значок **Надежные сайты**, а затем нажмите кнопку **Сайты**. Добавьте *<http://>\*.mysql.com* в список надежных сайтов.
 
 3.  Перейдите на страницу [Download MySQL Community Server][Download MySQL Community Server].
 
@@ -155,8 +155,6 @@
 
   [MySQL]: http://www.mysql.com
   [портала управления Azure]: http://manage.windowsazure.com
-  [create-and-configure-windows-server-2008-vm-in-portal]: ../includes/create-and-configure-windows-server-2008-vm-in-portal.md
-  [attach-data-disk-windows-server-2008-vm-in-portal]: ../includes/attach-data-disk-windows-server-2008-vm-in-portal.md
   [Download MySQL Community Server]: http://www.mysql.com/downloads/mysql/
   [Установка MySQL]: ./media/virtual-machines-mysql-windows-server-2008r2/MySQLInstall1.png
   [1]: ./media/virtual-machines-mysql-windows-server-2008r2/MySQLInstall2.png

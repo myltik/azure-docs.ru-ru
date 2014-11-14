@@ -1,6 +1,6 @@
-<properties linkid="dev-net-how-to-use-queue-storage-service-java" urlDisplayName="Queue Service" pageTitle="How to use the queue service (Java) | Microsoft Azure" metaKeywords="Azure Queue Service, Azure Queue storage service, queues peeking, queues insert messages, queues get messages, queues delete messages, create queues, delete queues, Queue service Java" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Java." metaCanonical="" services="storage" documentationCenter="Java" title="How to use the Queue storage service from Java" authors="" solutions="" manager="" editor="" />
+<properties urlDisplayName="Queue Service" pageTitle="Использование службы очередей (Java) &mdash;  Microsoft Azure" metaKeywords="Azure Queue Service, Azure Queue storage service, queues peeking, queues insert messages, queues get messages, queues delete messages, create queues, delete queues, Queue service Java" description="Вы узнаете, как использовать службы очередей Azure для создания и удаления очередей, вставки, получения и удаления сообщений. Примеры кода написаны на Java." metaCanonical="" services="storage" documentationCenter="Java" title="Использование службы хранилища очередей из Java" authors="tamram" solutions="" manager="adinah" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # Использование хранилища очередей из Java
 
@@ -67,7 +67,7 @@
 
 ## <a name="create-queue"> </a>Практическое руководство. Создание очереди
 
-Объект **CloudQueueClient** позволяет ссылаться на объекты очередей. Следующий код создает объект **CloudQueueClient**. (Примечание: Существуют также другие способы создания объектов **CloudStorageAccount**. Дополнительную информацию см. в разделе **CloudStorageAccount** статьи [Справочник по пакету SDK для клиента хранилища Azure][Справочник по пакету SDK для клиента хранилища Azure].)
+Объект **CloudQueueClient** позволяет ссылаться на объекты очередей. Следующий код создает объект **CloudQueueClient**. (Примечание. Существуют также другие способы создания объектов **CloudStorageAccount**. Дополнительную информацию см. в разделе **CloudStorageAccount** статьи [Справочник по пакету SDK для клиента хранилища Azure][Справочник по пакету SDK для клиента хранилища Azure].)
 
 С помощью объекта **CloudqueueClient** получите ссылку на очередь, которую необходимо использовать. Очередь можно создать, если она не существует.
 
@@ -389,6 +389,7 @@
   [Пакет SDK хранилища Azure для Java]: https://github.com/azure/azure-storage-java
   [Дальнейшие действия]: #NextSteps
   [Пакет SDK хранилища Azure для Android]: https://github.com/azure/azure-storage-android
+  [Что такое хранилище очередей?]: #what-is
   [Основные понятия]: #Concepts
   [Создание учетной записи хранения Azure]: #CreateAccount
   [Создание приложения Java]: #CreateApplication
@@ -403,8 +404,6 @@
   [Дополнительные параметры для удаления сообщений из очереди]: #additional-options
   [Практическое руководство. Перечисление очередей]: #list-queues
   [Практическое руководство. Удаление очереди]: #delete-queue
-  [руководство-очередь-хранилище]: ../includes/howto-queue-storage.md
-  [создание-хранилище-учетная запись]: ../includes/create-storage-account.md
   [Справочник по пакету SDK для клиента хранилища Azure]: http://dl.windowsazure.com/storage/javadoc/
   [REST API хранилища Azure]: http://msdn.microsoft.com/ru-ru/library/azure/gg433040.aspx
   [Блог команды разработчиков хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/

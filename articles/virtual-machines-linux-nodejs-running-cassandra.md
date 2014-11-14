@@ -1,4 +1,4 @@
-<properties linkid="services-linux-cassandra-with-linux" urlDisplayName="Cassandra with Linux" pageTitle="Run Cassandra with Linux on Azure" metaKeywords="" description="Explains how to run a Cassandra cluster on Linux in Azure Virtual Machines." metaCanonical="" services="virtual-machines" documentationCenter="nodejs" title="Running Cassandra with Linux on Azure and Accessing it from Node.js" authors="hanuk" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="Cassandra with Linux" pageTitle="Запуск Cassandra под управлением Linux в Azure" metaKeywords="" description="Описывается, как запустить кластер Cassandra под управлением Linux в виртуальных машинах Azure." metaCanonical="" services="virtual-machines" documentationCenter="nodejs" title="Запуск Cassandra под управлением Linux в Azure и доступ к нему из Node.js" authors="hanuk" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="hanuk" />
 
@@ -228,6 +228,7 @@ TCP
 </table>
 После завершения описанной выше работы первая виртуальная машина отображает конечную точку cassandra, а в поле «БАЛАНСИРОВКА НАГРУЗКИ ВКЛЮЧЕНА» стоит значение «НЕТ». Пока проигнорируйте это, так как значение изменится на "ДА", когда мы добавим эту конечную точку в последующие виртуальные машины
 
+</p>
 д) Теперь выберите вторую виртуальную машину и добавьте конечную точку, повторив описанный выше процесс за тем лишь небольшим отличием, что нужно выбрать «Выполнять балансировку нагрузки трафика на существующей конечной точке» и указать в раскрывающемся списке значение «cassandra-960». На этом этапе сопоставление конечной точки с обеими виртуальными машинами приведет к изменению параметра "БАЛАНСИРОВКА НАГРУЗКИ ВКЛЮЧЕНА" со значения "НЕТ" на значение "ДА".
 
 Повторите пункт "e" для последующих узлов в кластере.
@@ -497,9 +498,11 @@ TCP
     function populateCustomerData() {
        var params = ['John','Infinity Dr, TX', 1];
        updateCustomer(ksConOptions,params);
+
        params = ['Tom','Fermat Ln, WA', 2];
        updateCustomer(ksConOptions,params);
     }
+
     //update will also insert the record if none exists
     function updateCustomer(ksConOptions,params)
     {
@@ -522,6 +525,7 @@ populateCustomerData() вставляет несколько строк в СЕ�
     var ksName = "custsupport_ks";
     var ksConOptions = { hosts: ['<azure_svc_name>.cloudapp.net:9160'], 
                          keyspace: ksName, use_bigints: false };
+
     createKeyspace(createColumnFamily);
     //rest of the not shown
 
@@ -555,6 +559,7 @@ populateCustomerData() вставляет несколько строк в СЕ�
     var ksName = "custsupport_ks";
     var ksConOptions = { hosts: ['<azure_svc_name>.cloudapp.net:9160'], 
                          keyspace: ksName, use_bigints: false };
+
     //createKeyspace(createColumnFamily);
     readCustomer(ksConOptions)
     //rest of the code below not shown
@@ -584,3 +589,4 @@ populateCustomerData() вставляет несколько строк в СЕ�
   [1]: http://wiki.apache.org/cassandra/GettingStarted
   [cassandra-client]: https://github.com/racker/node-cassandra-client
   [Строки и столбцы]: ./media/virtual-machines-linux-nodejs-running-cassandra/cassandra-linux3.png
+  [Язык запросов Cassandra (CQL)]: http://cassandra.apache.org/doc/cql/CQL.html

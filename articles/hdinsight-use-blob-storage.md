@@ -1,6 +1,6 @@
-<properties linkid="manage-services-hdinsight-howto-blob-store" urlDisplayName="Blob Storage with  Hadoop in HDInsight" pageTitle="Use Blob storage with Hadoop in HDInsight | Azure" metaKeywords="" description="Learn how HDInsight uses Blob storage as the underlying data store for HDFS and how you can query data from the store." metaCanonical="" services="storage,hdinsight" documentationCenter="" title="Use Azure Blob storage with Hadoop in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="mollybos" />
+<properties urlDisplayName="Blob Storage with  Hadoop in HDInsight" pageTitle="Использование хранилища BLOB-объектов Hadoop в HDInsight на платформе Azure" metaKeywords="" description="Вы узнаете, как использовать хранилище BLOB-объектов в HDInsight в качестве базового хранилища для HDFS, а также о том, как создавать запросы на получение данных из хранилища." metaCanonical="" services="storage,hdinsight" documentationCenter="" title="Использование хранилища BLOB-объектов Azure с HDInsight" authors="jgao" solutions="" manager="paulettm" editor="mollybos" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
 # Использование хранилища BLOB-объектов Azure с HDInsight
 
@@ -117,7 +117,7 @@ HDInsight предоставляет доступ к распределенно�
 
     wasb[s]://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>
 
-> [WACOM.NOTE] Для обращения к файлам в эмуляторе хранилища (эмуляторе, работающем в HDInsight) используется синтаксис: <i>wasb://&lt;ContainerName&gt;@storageemulator</i>.
+> [WACOM.NOTE] Для обращения к файлам в эмуляторе хранилища (эмуляторе, работающем в HDInsight) используется синтаксис: *wasb:[//\<ContainerName\>@storageemulator][//\<ContainerName\>@storageemulator]*.
 
 Схема URI предоставляет как незашифрованный доступ с префиксом *wasb:* так и доступ с использованием SSL-шифрования и префикса *wasbs*. Мы рекомендуем использовать *wasbs* везде, где это возможно, даже при обращении к данным, расположенным внутри того же центра обработки данных Azure.
 
@@ -262,6 +262,7 @@ The \<StorageAccountName\> определяет имя учетной запис
   [HDI.QuickCreate]: ./media/hdinsight-use-blob-storage/HDI.QuickCreateCluster.png
   [HDI.CustomCreateStorageAccount]: ./media/hdinsight-use-blob-storage/HDI.CustomCreateStorageAccount.png
   [Azure PowerShell]: ../install-configure-powershell/
+  [//\<ContainerName\>@storageemulator]: mailto://<ContainerName>@storageemulator
   [Blob.PowerShell.cmdlets]: ./media/hdinsight-use-blob-storage/HDI.PowerShell.BlobCommands.png
   [Отправка данных в HDInsight]: ../hdinsight-upload-data/
   [Использование Hive с HDInsight]: ../hdinsight-use-hive/

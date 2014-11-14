@@ -1,4 +1,4 @@
-<properties linkid="manage-services-recovery-configure-backup-vault" urlDisplayName="Configure a Backup Vault" pageTitle="Configure Azure Recovery Services to quickly and easily back-up Windows Server" metaKeywords="disaster recovery" description="Use this tutorial to learn how to use the Backup service in Microsoft's Azure cloud offering to back up Windows Server to the cloud." metaCanonical="" services="recovery-services" documentationCenter="" title="Configure Azure Backup to quickly and easily back-up Windows Server" authors="raynew" solutions="" manager="johndaw" editor="tysonn" />
+<properties urlDisplayName="Configure a Backup Vault" pageTitle="Настройка службы архивации Azure для быстрой и удобной архивации Windows Server" metaKeywords="disaster recovery" description="С помощью данного учебника можно получить необходимые навыки по использованию службы архивации в облачных решениях Microsoft Azure для архивирования Windows Server в облачную среду." metaCanonical="" services="recovery-services" documentationCenter="" title="Настройка службы архивации Azure для быстрой и удобной архивации Windows Server" authors="raynew" solutions="" manager="johndaw" editor="tysonn" />
 
 <tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="raynew" />
 
@@ -11,8 +11,10 @@
 <ul> 
 <li>Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="/ru-ru/pricing/free-trial/">Бесплатная пробная версия Azure</a>.</li> 
  
+
 </ul>
  
+
 </div>
 
 Для архивации файлов и данных из Windows Server в Azure необходимо создать хранилище архивации в том географическом регионе, где вы хотите хранить данные. В этом учебнике описывается процедура создания хранилища для архивов, скачивания учетных данных хранилища, установки агента архивации, а также приводится обзор задач управления архивацией, доступных на портале управления.
@@ -32,6 +34,7 @@
 
     Для создания резервного хранилища может потребоваться некоторое время. Для проверки состояния можно отслеживать уведомления в нижней части портала. После создания хранилища архивации отображается сообщение об успешном выполнении данной операции, а самому хранилищу в ресурсах служб восстановления назначается состояние **Активно**.
     ![создание хранилища архивации][создание хранилища архивации].
+
 6.  Если с учетной записью вашей организации связано несколько подписок, выберите учетную запись, которую следует связать с хранилищем архивации.
 
 ## <span id="upload"></span></a>Скачивание учетных данных хранилища
@@ -71,7 +74,7 @@
     -   **Удалить**. Удаляет текущее хранилище архивации. Если хранилище архивации больше не используется, его можно удалить для освобождения места. Элемент **Удалить** становится доступен только после удаления из хранилища всех зарегистрированных серверов.
     -   **Учетные данные хранилища**. Используйте этот элемент меню «Быстрый просмотр» для настройки учетных данных хранилища.
 
-4.  Щелкните элемент **Защищенные элементы** для просмотра элементов, заархивированных с серверов. Этот список предназначен только для информационных целей.<br />
+4.  Щелкните элемент **Защищенные элементы** для просмотра элементов, заархивированных с серверов. Этот список предназначен только для информационных целей.
     ![Защищенные элементы][Защищенные элементы]
 
 5.  Щелкните элемент **Серверы** для просмотра имен серверов, зарегистрированных в этом хранилище. Отсюда можно выполнять следующие задачи:
@@ -90,6 +93,7 @@
   [Портал управления]: https://manage.windowsazure.com
   [Новое хранилище архивации]: http://i.imgur.com/506c7ch.png
   [создание хранилища архивации]: http://i.imgur.com/grtLcKM.png
+  [Установка Azure Backup Agent для Windows Server 2012 и System Center 2012 с пакетом обновления 1 (SP1) — Data Protection Manager]: http://technet.microsoft.com/ru-ru/library/hh831761.aspx#BKMK_installagent
   [Установка Azure Backup Agent для Windows Server 2012 Essentials]: http://technet.microsoft.com/ru-ru/library/jj884318.aspx
   [Защищенные элементы]: ./media/backup-configure-vault/RS_protecteditems.png
   [Удаленный сервер]: ./media/backup-configure-vault/RS_deletedserver.png

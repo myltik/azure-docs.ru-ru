@@ -1,4 +1,4 @@
-<properties linkid="manage-linux-other-resources-partners" urlDisplayName="Partner solutions" pageTitle="Linux partners for Azure" metaKeywords="" description="Learn about the endorsed Linux images available for Azure virtual machines, including Ubuntu, OpenLogic, and SUSE." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Partner solutions for Linux in Azure" authors="timlt" manager="timlt" />
+<properties urlDisplayName="Partner solutions" pageTitle="Партнеры, предоставляющие ОС Linux для Azure" metaKeywords="" description="В данном разделе приводится информация об образах дистрибутивов ОС Linux, включая Ubuntu, OpenLogic и SUSE, одобренных к использованию в виртуальных машинах Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Партнерские решения для Linux в Azure" authors="timlt" manager="timlt" />
 
 <tags ms.service="cloud-services" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timlt" />
 
@@ -42,9 +42,9 @@ ScaleXtreme предлагает эффективные функции упра�
 
 ## SUSE Studio
 
-[![SUSE][![SUSE]][]
+[![SUSE ][![SUSE ]][]
 
-[www.susestudio.com][![SUSE][![SUSE]]
+[www.susestudio.com][![SUSE ][![SUSE ]]
 
 SUSE позволяет использовать приложения на базе SUSE Linux Enterprise Server в среде Azure благодаря функциям развертывания одним щелчком мыши в SUSE Studio. С помощью SUSE Studio заказчики получают возможность разрабатывать готовые к работе в облачное среде приложения, включающие предварительно настроенную, интегрированную и полностью поддерживаемую операционную систему Linux корпоративного класса, а также автоматически запускать их в среде Azure, фактически устраняя неэффективные процессы ручной настройки.
 
@@ -67,8 +67,8 @@ Juju charm — это коллекция стандартных текстовы
   [Rightscale]: ./media/cloud-services-linux-partners/rightscale-tagline-white-bg.png
   [ScaleXtreme]: ./media/cloud-services-linux-partners/scaleXtreme.png
   [![ScaleXtreme][![ScaleXtreme]]: http://www.scalextreme.com/partners-windows-azure
-  [SUSE]: ./media/cloud-services-linux-partners/suse.png
-  [![SUSE][![SUSE]]: http://www.susestudio.com
+  [SUSE ]: ./media/cloud-services-linux-partners/suse.png
+  [![SUSE ][![SUSE ]]: http://www.susestudio.com
   [Juju]: ./media/cloud-services-linux-partners/juju.png
   [![Juju][![Juju]]: https://juju.ubuntu.com/
   []: http://www.ubuntu.com/cloud/azure

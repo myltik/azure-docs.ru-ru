@@ -1,12 +1,12 @@
-<properties linkid="python-hdinsight" urlDisplayName="Python with HDInsight" pageTitle="Use Python with Hive and Pig in Azure HDInsight" metaKeywords="" description="Learn how to use Python User Defined Functions (UDF) from Hive and Pig in Azure HDInsight." metaCanonical="" services="hdinsight" documentationCenter="" title="Use Python with Hive and Pig in HDInsight" authors="larryfr" solutions="" manager="paulettm" editor="cgronlun" />
+<properties urlDisplayName="Python with HDInsight" pageTitle="Использование Python с Hive и Pig в Azure HDInsight" metaKeywords="" description="Вы узнаете, как использовать пользовательские функции (UDF) на Python с Hive и Pig в Azure HDInsight" metaCanonical="" services="hdinsight" documentationCenter="" title="Использование Python с Hive и Pig в HDInsight" authors="larryfr" solutions="" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Использование Python с Hive и Pig в HDInsight
 
 Hive и Pig отлично подходят для работы с данными в HDInsight, но в некоторых случаях вам может понадобиться язык программирования более общего назначения. Как Hive, так и Pig позволяют вам создавать пользовательские функции (UDF) с использованием различных языков программирования. В этой статье вы узнаете, как использовать пользовательские функции на Python из Hive и Pig.
 
-> [WACOM.NOTE] Шаги, указанные в данной статье, относятся к кластеру HDInsight версий 2.1, 3.0 и предварительной версии 3.1.
+> [WACOM.NOTE] Шаги, указанные в данной статье, относятся к кластеру HDInsight версий 2.1, 3.0 и версии 3.1.
 
 ## Оглавление
 
@@ -128,7 +128,7 @@ Hive и Pig отлично подходят для работы с данным�
 
 5.  И результаты возвращаются в Pig.
 
-Когда данные возвращаются в Pig, они будут иметь согласованную схему, определенную инструкцией <b>@outputSchema</b>.
+Когда данные возвращаются в Pig, они будут иметь согласованную схему, определенную инструкцией <**@outputSchema*>\*.
 
 См. раздел [Выполнение примеров][Выполнение примеров] для получения сведений о выполнении данного примера на вашем кластере HDInsight.
 

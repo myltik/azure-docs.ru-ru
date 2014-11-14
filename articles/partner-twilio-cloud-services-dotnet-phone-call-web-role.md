@@ -1,4 +1,4 @@
-<properties linkid="develop-net-how-to-twilio-phone-call" urlDisplayName="Twilio Phone Call" pageTitle="How to make a phone call from Twilio (.NET) - Azure" metaKeywords="Azure .NET Twilio, Azure Twilio, Azure phone calls, Azure twilio, Azure SMS, Azure SMS, Azure voice calls, azure voice calls, Azure text messages, Azure text messages, ASP.NET twilio Azure" description="Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in .NET." metaCanonical="" services="" documentationCenter=".NET" title="How to make a phone call using Twilio in a web role on Azure" authors="MicrosoftHelp@twilio.com; larryf" solutions="" manager="" editor="" />
+<properties urlDisplayName="Twilio Phone Call" pageTitle="Как выполнять телефонные звонки из Twilio (.NET) &mdash; Azure" metaKeywords="Azure .NET Twilio, Azure Twilio, Azure phone calls, Azure twilio, Azure SMS, Azure SMS, Azure voice calls, azure voice calls, Azure text messages, Azure text messages, ASP.NET twilio Azure" description="Узнайте, как осуществлять телефонные вызовы и отправку SMS-сообщений с помощью службы Twilio API в Azure. Примеры программного кода написаны в .NET." metaCanonical="" services="" documentationCenter=".NET" title="Осуществление телефонных звонков с использованием Twilio в веб-роли Azure" authors="MicrosoftHelp@twilio.com" solutions="" manager="twilio" editor="" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="MicrosoftHelp@twilio.com; larryf" />
 
@@ -20,8 +20,8 @@
 
 Чтобы использовать код, представленный в этом разделе, выполните следующие действия:
 
-1.  Получите учетную запись Twilio и маркер проверки подлинности. Чтобы начать работу в службе Twilio, пройдите регистрацию на странице [][]<https://www.twilio.com/try-twilio></a>. Ценовая политика описывается на странице [][1]<http://www.twilio.com/pricing></a>. Дополнительные сведения о предоставляемых службой Twilio API-интерфейсах см. на странице [][2]<http://www.twilio.com/voice/api></a>.
-2.  Проверьте свой номер телефона с помощью службы Twilio. Дополнительные сведения о проверке номера телефона см. на странице [][3]<https://www.twilio.com/user/account/phone-numbers/verified>\#</a>. Вместо уже существующего номера вы можете приобрести телефонный номер Twilio.
+1.  Получение учетной записи Twilio и токена подтверждения подлинности. Чтобы начать работу в службе Twilio, пройдите регистрацию на странице [][]<https://www.twilio.com/try-twilio></a>. Ценовая политика описывается на странице [][1]<http://www.twilio.com/pricing></a>. Дополнительные сведения о предоставляемых службой Twilio API-интерфейсах см. на странице [][2]<http://www.twilio.com/voice/api></a>.
+2.  Проверьте свой номер телефона с помощью службы Twilio. Для получения сведений о подтверждении своего номера телефона см. [][3]<https://www.twilio.com/user/account/phone-numbers/verified>\#</a>. Вместо уже существующего номера вы можете приобрести телефонный номер Twilio.
     В этом примере для отправки сообщений на проверенный номер телефона используется номер телефона в изолированной среде Twilio. Номер телефона в изолированной среде можно использовать только для отправки сообщений на проверенные номера телефона.
 3.  Добавьте библиотеку Twilio .NET в свою веб-роль. Дополнительные сведения см. далее в разделе "Добавление библиотек Twilio в проект веб-роли".
 
@@ -157,7 +157,7 @@
 
 -   Вместо веб-формы для хранения номеров телефона и текста звонков вы можете использовать хранилище BLOB-объектов Azure или экземпляр базы данных SQL Azure. Дополнительные сведения об использовании BLOB-объектов в Azure см. в разделе [Использование службы хранения BLOB-объектов Azure в .NET][Использование службы хранения BLOB-объектов Azure в .NET]. Дополнительные сведения об использовании базы данных SQL см. в разделе [Использование базы данных SQL Azure в приложениях .NET][Использование базы данных SQL Azure в приложениях .NET].
 -   С помощью RoleEnvironment.getConfigurationSettings вы можете извлечь идентификатор учетной записи Twilio и маркер проверки подлинности из параметров конфигурации развертывания, не прописывая их в форме в виде фиксированных значений. Дополнительные сведения о классе RoleEnvironment см. в разделе [Пространство имен Microsoft.WindowsAzure.ServiceRuntime][Пространство имен Microsoft.WindowsAzure.ServiceRuntime].
--   Рекомендации по безопасности Twilio приведены на странице [][6]<https://www.twilio.com/docs/security></a>.
+-   Руководства по безопасности работы с Twilio — [][6]<https://www.twilio.com/docs/security></a>.
 -   Дополнительные сведения о службе Twilio см. на странице [][7]<https://www.twilio.com/docs></a>.
 
 ## <a name="seealso"></a>Дополнительные материалы

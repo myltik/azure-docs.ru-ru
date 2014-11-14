@@ -1,10 +1,16 @@
-<properties linkid="dev-ruby-how-to-service-bus-queues" urlDisplayName="Queue Service" pageTitle="How to use the queue service (Ruby) | Microsoft Azure" metaKeywords="Azure Queue Service get messages Ruby" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Ruby." metaCanonical="" services="storage" documentationCenter="Ruby" title="How to Use the Queue Storage Service from Ruby" authors="guayan" solutions="" manager="" editor="" />
+<properties urlDisplayName="Queue Service" pageTitle="Использование службы очередей (Ruby) &mdash;  Microsoft Azure" metaKeywords="Azure Queue Service get messages Ruby" description="Вы узнаете, как использовать службы очередей Azure для создания и удаления очередей, вставки, получения и удаления сообщений. Примеры кода написаны на Ruby." metaCanonical="" services="storage" documentationCenter="Ruby" title="Использование службы хранения очередей в Ruby" authors="guayan" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan" />
 
 # Использование службы хранения очередей в Ruby
 
-В этом руководстве показано, как реализовать типичные сценарии с использованием службы хранения очередей Windows Azure. Примеры написаны с помощью Ruby Azure API. Здесь описаны такие сценарии, как **вставка**, **просмотр**, **получение** и **удаление** сообщений очереди а также **создание и удаление очередей**. Дополнительные сведения об очередях см. в разделе [Дальнейшие действия][Дальнейшие действия].
+В этом руководстве показано, как реализовать типичные сценарии с использованием службы хранения очередей Windows
+Azure. Примеры написаны с помощью Ruby Azure API.
+Здесь описаны такие сценарии, как **вставка**, **просмотр**, **получение**
+и **удаление** сообщений очереди а также **создание и удаление
+очередей**. Дополнительные сведения об очередях см. в разделе [Дальнейшие
+действия][Дальнейшие
+действия].
 
 ## Оглавление
 
@@ -22,7 +28,8 @@
 -   [Практическое руководство. Дополнительные параметры для удаления сообщений из очереди][Практическое руководство. Дополнительные параметры для удаления сообщений из очереди]
 -   [Практическое руководство. Получение длины очереди][Практическое руководство. Получение длины очереди]
 -   [Практическое руководство. Удаление очереди][Практическое руководство. Удаление очереди]
--   [Дальнейшие действия][Дальнейшие действия]
+-   [Дальнейшие действия][Дальнейшие
+    действия]
 
 [WACOM.INCLUDE [руководство-очередь-хранилище](../includes/howto-queue-storage.md)]
 
@@ -54,14 +61,15 @@
 ## <span id="setup-a-windows-azure-storage-connection"></span></a>Настройка подключения к хранилищу Azure
 
 Модуль Azure считывает переменные среды **AZURE\_STORAGE\_ACCOUNT** и **AZURE\_STORAGE\_ACCESS\_KEY**
-для получения сведений, необходимых для подключения к учетной записи хранения Azure. Если эти переменные среды не заданы, необходимо указать сведения об учетной записи перед использованием **Azure::QueueService** с помощью следующего кода:
+для получения сведений, необходимых для подключения к учетной записи хранения Azure. Если эти переменные среды не заданы,
+необходимо указать сведения об учетной записи перед использованием **Azure::QueueService** с помощью следующего кода:
 
     Azure.config.storage_account_name = "<your azure storage account>"
     Azure.config.storage_access_key = "<your Azure storage access key>"
 
 Для получения этих значений:
 
-1.  Выполните вход в [Портал управления Azure][Портал управления Azure].
+1.  Выполните вход на [портал управления Azure][портал управления Azure].
 2.  Перейдите к учетной записи хранения, которая будет использоваться.
 3.  Щелкните **УПРАВЛЕНИЕ КЛЮЧАМИ** в нижней части области навигации.
 4.  В открывшемся диалоговом окне вы увидите имя учетной записи хранения, первичный ключ доступа и вторичный ключ доступа. В качестве ключа доступа можно использовать либо первичный, либо вторичный ключ.
@@ -155,7 +163,7 @@
 
 Сравнение службы очередей Azure, описанной в этой статье, и очередей Service Bus Azure, описанных в статье [Использование очередей Service Bus][Использование очередей Service Bus], см. в статье [Очереди Azure и очереди Service Bus Azure — сходство и отличия][Очереди Azure и очереди Service Bus Azure — сходство и отличия]
 
-  [Дальнейшие действия]: #next-steps
+  [Что такое хранилище очередей?]: #what-is
   [Основные понятия]: #concepts
   [Создание учетной записи хранения Azure]: #CreateAccount
   [Создание приложения Ruby]: #create-a-ruby-application
@@ -169,10 +177,8 @@
   [Практическое руководство. Дополнительные параметры для удаления сообщений из очереди]: #how-to-additional-options-for-dequeuing-messages
   [Практическое руководство. Получение длины очереди]: #how-to-get-the-queue-length
   [Практическое руководство. Удаление очереди]: #how-to-delete-a-queue
-  [руководство-очередь-хранилище]: ../includes/howto-queue-storage.md
-  [создание-хранилище-учетная запись]: ../includes/create-storage-account.md
   [Создание приложений Ruby в Azure]: /ru-ru/develop/ruby/tutorials/web-app-with-linux-vm/
-  [Портал управления Azure]: https://manage.windowsazure.com/
+  [портал управления Azure]: https://manage.windowsazure.com/
   [Хранение данных и доступ к ним в Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/gg433040.aspx
   [блог команды разработчиков хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
   [Azure SDK для Ruby]: https://github.com/WindowsAzure/azure-sdk-for-ruby

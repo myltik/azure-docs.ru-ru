@@ -1,4 +1,4 @@
-<properties linkid="hdinsight-dotnet-avro-serialization" urlDisplayName="HDInsight Microsoft .NET Library for Serialization with Avro" pageTitle="Serialize data with the Microsoft .NET Library for Avro | Azure" metaKeywords="" description="Learn how Azure HDInsight uses Avro to serialize big data." metaCanonical="" services="hdinsight" documentationCenter="" title="Serialize data with the Microsoft .NET Library for Avro " authors="bradsev" solutions="" manager="paulettm" editor="cgronlun" />
+<properties urlDisplayName="HDInsight Microsoft .NET Library for Serialization with Avro" pageTitle="Сериализация данных с помощью библиотеки Microsoft .NET для Avro | Azure" metaKeywords="" description="Узнайте, как HDInsight с помощью Avro выполняет сериализацию данных большого размера." metaCanonical="" services="hdinsight" documentationCenter="" title="Сериализация данных с помощью библиотеки Microsoft .NET для Avro " authors="bradsev" solutions="" manager="paulettm" editor="cgronlun" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
 
@@ -1304,11 +1304,22 @@
 
   [JSON]: http://www.json.org
   [Спецификации Аpache Avro]: http://avro.apache.org/docs/current/spec.html
+  [**AvroRecord**]: http://msdn.microsoft.com/ru-ru/library/microsoft.hadoop.avro.avrorecord.aspx
   [Microsoft .NET Framework v4.0]: http://www.microsoft.com/ru-ru/download/details.aspx?id=17851
   [Newtonsoft Json.NET]: http://james.newtonking.com/json
   [Примеры кода Azure]: http://code.msdn.microsoft.com/windowsazure/Serialize-data-with-the-86055923
   [1]: http://code.msdn.microsoft.com/windowsazure/Serialize-data-with-the-67159111
+  [**Сериализация с помощью отражения**]: #Scenario1
+  [**Сериализация с помощью универсальной записи**]: #Scenario2
+  [**Сериализация с использованием файлов контейнеров объектов с помощью отражения**]: #Scenario3
+  [**Сериализация с использованием файлов контейнеров объектов с помощью универсальной записи**]: #Scenario4
+  [**Сериализация с использованием файлов контейнеров объектов с помощью настраиваемого кодека сжатия**]: #Scenario5
+  [**IAvroSeralizer<t>**]: http://msdn.microsoft.com/ru-ru/library/dn627341.aspx
+  [**AvroContainer**]: http://msdn.microsoft.com/ru-ru/library/microsoft.hadoop.avro.container.avrocontainer.aspx
+  [**SequentialWriter<sensordata>**]: http://msdn.microsoft.com/ru-ru/library/dn627340.aspx
+  [**Deflate**]: http://msdn.microsoft.com/ru-ru/library/system.io.compression.deflatestream(v=vs.100).aspx
   [2]: http://msdn.microsoft.com/ru-ru/library/system.io.compression.deflatestream(v=vs.110).aspx
+  [**Codex.Null**]: http://msdn.microsoft.com/ru-ru/library/microsoft.hadoop.avro.container.codec.null.aspx
   [Спецификация Avro]: http://avro.apache.org/docs/current/spec.html#Required+Codecs
   [Спецификации Аvro]: http://avro.apache.org/docs/current/spec.html#snappy
   [zlib]: http://zlib.net/

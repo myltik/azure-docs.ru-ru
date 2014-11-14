@@ -1,4 +1,4 @@
-<properties linkid="manage-services-storage-net-shared-access-signature-part-2" urlDisplayName="" pageTitle="Create and use a SAS with the Blob Service | Microsoft Azure" metaKeywords="Azure blob, shared access signatures, stored access policy" description="Explore generating and using shared access signatures with the Blob service" metaCanonical="" services="storage" documentationCenter="" title="Part 2: Create and Use a SAS with the Blob Service" solutions="" authors="tamram" manager="mbaldwin" editor="cgronlun" />
+<properties urlDisplayName="" pageTitle="Вы научитесь создавать и использовать подписи общего доступа с помощью службы BLOB-объектов для хранилища Microsoft Azure" metaKeywords="Azure blob, shared access signatures, stored access policy" description="Вы узнаете больше о создании и использовании подписей общего доступа для службы BLOB-объектов." metaCanonical="" services="storage" documentationCenter="" title="Часть 2: Создание и использование подписи общего доступа с помощью службы BLOB-объектов" solutions="" authors="tamram" manager="adinah" editor="cgronlun" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
@@ -527,4 +527,5 @@
   [sas-console-output-1]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-1.PNG
   [sas-console-output-2]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-2.PNG
   [Управление доступом к ресурсам хранилища Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/ee393343.aspx
+  [Делегирование доступа с помощью подписи общего доступа (REST API)]: http://msdn.microsoft.com/ru-ru/library/windowsazure/ee395415.aspx
   [Знакомство с подписью общего доступа для таблиц и очередей]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx

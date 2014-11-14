@@ -1,10 +1,8 @@
-<properties linkid="manage-services-how-to-scale-a-cloud-service" urlDisplayName="How to scale" pageTitle="How to scale a cloud service - Azure" metaKeywords="Azure link resource, scaling cloud service" description="Learn how to scale a cloud service and linked resources in Azure." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Scale an Application" authors="davidmu" solutions="" manager="jeffreyg" editor="mattshel" />
+<properties urlDisplayName="How to scale" pageTitle="Масштабирование облачной службы &mdash; Azure" metaKeywords="Azure link resource, scaling cloud service" description="Узнайте, как можно выполнить масштабирование облачной службы и связанных ресурсов в Azure." metaCanonical="" services="cloud-services" documentationCenter="" title="Масштабирование приложения" authors="davidmu" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="davidmu" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/21/2014" ms.author="davidmu" />
 
 # Масштабирование приложения
-
-[WACOM.INCLUDE [отказ от ответственности](../includes/disclaimer.md)]
 
 На странице «Масштаб» портала управления Azure можно вручную масштабировать приложение или задать параметры для автоматического масштабирования. Можно масштабировать приложения, которые выполняют веб-роли, рабочие роли или виртуальные машины. Чтобы масштабировать приложение, которое выполняет экземпляры веб-ролей или рабочих ролей, необходимо распределить рабочую нагрузку путем добавления или удаления экземпляров.
 
@@ -192,7 +190,6 @@
 
 7.  После сохранения расписаний они появятся в списке. Можно выбрать график, который требуется использовать, а затем изменить настройки масштабирования. Эти настройки масштабирования будут действовать только во время выбранного расписания. Расписания можно изменить, нажав кнопку **Настройка расписания**
 
-  [отказ от ответственности]: ../includes/disclaimer.md
   [Управление доступностью виртуальных машин]: http://www.windowsazure.com/ru-ru/manage/windows/common-tasks/manage-vm-availability/
   [Размеры виртуальных машин и облачных служб для Azure]: http://msdn.microsoft.com/ru-ru/library/dn197896.aspx
   [How to use the Queue Storage Service]: http://www.windowsazure.com/ru-ru/develop/net/how-to-guides/queue-service

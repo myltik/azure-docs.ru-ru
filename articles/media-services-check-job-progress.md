@@ -1,10 +1,10 @@
-<properties linkid="develop-media-services-how-to-guides-check-job-progress" urlDisplayName="Check Job Progress" pageTitle="How to Check Job Progress in Media Services - Azure" metaKeywords="" description="Learn how to use event handler code to track job progress and send status updates. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Check Job Progress" authors="migree" solutions="" manager="" editor="" />
+<properties urlDisplayName="Check Job Progress" pageTitle="Проверка хода выполнения задания в службах мультимедиа &mdash; Azure" metaKeywords="" description="Узнайте, как использовать код обработчика событий для проверки хода выполнения задания и отправки сведений об обновлении состояния. Примеры кода написаны на языке C# и используют пакет SDK служб мультимедиа для .NET." metaCanonical="" services="media-services" documentationCenter="" title="Практическое руководство: проверка хода выполнения задания" authors="juliako" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree"/>
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
 
 # Практическое руководство: проверка хода выполнения задания
 
-Эта статья является частью серии вводных статей о программировании служб мультимедиа в Azure. Предыдущий раздел [Практическое руководство: кодировка активов][].
+Эта статья является частью серии вводных статей о программировании служб мультимедиа в Azure. Предыдущий раздел [Практическое руководство: кодировка активов][Практическое руководство: кодировка активов].
 
 При выполнении заданий часто требуется способ отслеживания хода выполнения задачи. Следующий пример кода определяет обработчик событий StateChanged. Этот обработчик отслеживает ход выполнения задачи и предоставляет обновленное состояние. Кроме того, код определяет метод LogJobStop. Этот вспомогательный метод заносит в журнал сведения об ошибках.
 
@@ -83,9 +83,9 @@
         return jobID.Replace(":", "_");
     }
 
-# Дальнейшие действия
+## Дальнейшие действия
 
-Теперь, когда вы знаете, как создать задание и отслеживать ход его выполнения, следующим действием будет защита активов. Дополнительные сведения см. в разделе [Практическое руководство. Защита актива с помощью служб мультимедиа в Azure][].
+Теперь, когда вы знаете, как создать задание и отслеживать ход его выполнения, следующим действием будет защита активов. Дополнительные сведения см. в разделе [Практическое руководство. Защита актива с помощью служб мультимедиа в Azure][Практическое руководство. Защита актива с помощью служб мультимедиа в Azure].
 
   [Практическое руководство: кодировка активов]: http://go.microsoft.com/fwlink/?LinkID=301753&clcid=0x409
   [Практическое руководство. Защита актива с помощью служб мультимедиа в Azure]: http://go.microsoft.com/fwlink/?LinkID=301813&clcid=0x409

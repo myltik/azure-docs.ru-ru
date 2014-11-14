@@ -1,6 +1,6 @@
-<properties linkid="dev-net-how-to-use-blog-storage-service-java" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Java) | Microsoft Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Java" description="Learn how to use the Azure blob service to upload, download, list, and delete blob content. Samples written in Java." metaCanonical="" services="storage" documentationCenter="Java" title="How to use Blob Storage from Java" authors="" solutions="" manager="" editor="" />
+<properties urlDisplayName="Blob Service" pageTitle="Использование хранилища BLOB-объектов (Java) &mdash; Microsoft Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Java" description="Вы узнаете, как использовать службы BLOB-объектов Azure для передачи, загрузки, отображения и удаления содержимого BLOB-объектов. Примеры кода написаны на Java." metaCanonical="" services="storage" documentationCenter="Java" title="Использование хранилища BLOB-объектов из Java" authors="tamram" solutions="" manager="adinah" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # Использование хранилища BLOB-объектов из Java
 
@@ -65,7 +65,7 @@
 
 ## <a name="CreateContainer"> </a>Практическое руководство. Создание контейнера
 
-Объект CloudQueueClient позволяет ссылаться на объекты контейнеров и BLOB-объектов. Следующий код создает объект **CloudBlobClient**. (Примечание: Существуют также другие способы создания объектов **CloudStorageAccount**. Дополнительную информацию см. в разделе **CloudStorageAccount** статьи [Справочник по пакету SDK для клиента хранилища Azure][Справочник по пакету SDK для клиента хранилища Azure].)
+Объект CloudQueueClient позволяет ссылаться на объекты контейнеров и BLOB-объектов. Следующий код создает объект **CloudBlobClient**. (Примечание. Существуют также другие способы создания объектов **CloudStorageAccount**. Дополнительную информацию см. в разделе **CloudStorageAccount** статьи [Справочник по пакету SDK для клиента хранилища Azure][Справочник по пакету SDK для клиента хранилища Azure].)
 
 Все BLOB-объекты содержатся в контейнере. С помощью объекта **CloudBlobClient** получите ссылку контейнер, который собираетесь использовать. Если контейнер не существует, его можно создать с помощью метода **createIfNotExist**, который в противном случае возвратит существующий контейнер. По умолчанию новый контейнер является закрытым, поэтому необходимо указать ключ доступа к хранилищу (как делалось раньше), чтобы загрузить BLOB-объекты из этого контейнера.
 
@@ -162,7 +162,10 @@
 
 Например, можно использовать контейнер с именем "photos", в который можно отправить BLOB-объекты с именами "rootphoto1", "2010/photo1", "2010/photo2" и "2011/photo1". При этом в контейнере "photos" будут созданы виртуальные каталоги "2010" и "2011". При вызове метода **ListBlobs** в контейнере "photos" (как в примере выше) возвращаемая коллекция будет содержать объекты **CloudBlobDirectory** и **CloudBlob**, представляющие собой каталоги и BLOB-объекты верхнего уровня. В этом случае будут возвращены каталоги "2010" и "2011", а также "rootphoto1". Чтобы различать эти объекты, можно использовать оператор **instanceof**.
 
-При необходимости можно передать параметры в метод **listBlobs**, установив для параметра **useFlatBlobListing** значение "true". Это приведет к возвращению каждого BLOB-объекта независимо от каталога. Для получения дополнительной  информации см. **CloudBlobContainer.listBlobs** в [Справочник по пакету SDK для клиента хранилища Azure][Справочник по пакету SDK для клиента хранилища Azure].
+При необходимости можно передать параметры в метод **listBlobs**, установив для параметра
+**useFlatBlobListing** значение "true". Это приведет к
+возвращению каждого BLOB-объекта независимо от каталога. Для получения дополнительной
+ информации см. **CloudBlobContainer.listBlobs** в [Справочник по пакету SDK для клиента хранилища Azure][Справочник по пакету SDK для клиента хранилища Azure].
 
 ## <a name="DownloadBlob"> </a>Практическое руководство. Загрузка blob-объектов
 
@@ -224,7 +227,8 @@
 
 ## <a name="DeleteContainer"> </a>Практическое руководство. Удаление контейнера blob-объектов
 
-Наконец, для удаления контейнера BLOB-объектов нужно получить ссылку на контейнер BLOB-объектов, а затем вызвать метод **deleteIfExists**.
+Наконец, для удаления контейнера BLOB-объектов нужно получить ссылку на контейнер BLOB-объектов, а затем вызвать метод
+ **deleteIfExists**.
 
     try
     {
@@ -270,8 +274,6 @@
   [Практическое руководство. Загрузка blob-объектов]: #DownloadBlob
   [Практическое руководство. Удаление blob-объектов]: #DeleteBlob
   [Практическое руководство. Удаление контейнера blob-объектов]: #DeleteContainer
-  [руководство-блоб-объект-хранилище]: ../includes/howto-blob-storage.md
-  [создание-хранилище-учетная запись]: ../includes/create-storage-account.md
   [Справочник по пакету SDK для клиента хранилища Azure]: http://dl.windowsazure.com/storage/javadoc/
   [REST API хранилища Azure]: http://msdn.microsoft.com/ru-ru/library/azure/gg433040.aspx
   [Блог команды разработчиков хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/

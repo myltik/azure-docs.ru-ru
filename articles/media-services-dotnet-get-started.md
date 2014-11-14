@@ -1,6 +1,6 @@
-<properties linkid="develop-media-services-tutorials-get-started" urlDisplayName="Get Started with Media Services" pageTitle="Get Started with Media Services - Azure" metaKeywords="Azure media services" description="An introduction to using Media Services with Azure." metaCanonical="" services="media-services" documentationCenter="" title="Get started with Media Services" authors="" solutions="" manager="" editor="" />
+<properties urlDisplayName="Get Started with Media Services" pageTitle="Приступая к работе со службами мультимедиа &mdash; Azure" metaKeywords="Azure media services" description="Введение в использование служб мультимедиа на платформе Azure." metaCanonical="" services="media-services" documentationCenter="" title="Приступая к работе со службами мультимедиа" authors="juliako" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author/>
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
 
 # <a name="getting-started"></a>Начало работы со службами мультимедиа
 
@@ -20,12 +20,13 @@
 Следующие компоненты необходимы для изучения пошагового руководства, а также для разработки с использованием пакета SDK для служб мультимедиа Azure.
 
 -   Учетная запись служб мультимедиа в новой или существующей подписке Azure. Дополнительные сведения см. в разделе [Как создать учетную запись служб мультимедиа][Как создать учетную запись служб мультимедиа]
--   Операционные системы: Windows 7, Windows 2008 R2 или Windows 8.
+-   Операционные системы: Windows 7, Windows 2008 R2, Windows 8 или более поздняя версия.
 -   .NET Framework 4.5 или .NET Framework 4.
--   Visual Studio 2012 или Visual Studio 2010 с пакетом обновления 1 (Professional, Premium, Ultimate или Express).
+-   Visual Studio 2012, Visual Studio 2010 SP1 (Professional, Premium, Ultimate или Express) или более поздняя версия.
 -   Установите **Пакет Windows Azure SDK для .NET.**, **Пакет служб мультимедиа Windows Azure SDK для .NET** и **службы данных WCF 5.0 для библиотек OData V3**, а также добавьте ссылки на проект с помощью пакета [Nuget windowsazure.mediaservices][Nuget windowsazure.mediaservices]. Ниже показано, как установить компоненты и добавить эти ссылки.
 
-<div class="dev-callout"><strong>Примечание.</strong> <p>Для работы с этим учебником требуется учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://www.windowsazure.com/ru-ru/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Бесплатная пробная версия Azure</a>.</p></div>
+> [WACOM.NOTE]
+> Для работы с этим учебником требуется учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure][Бесплатная пробная версия Azure].
 
 ## <span id="Step1"></span></a>Настройка проекта
 
@@ -112,10 +113,12 @@
     -   **AssetCreationOptions.CommonEncryptionProtected**: для файлов CENC. Примером служит набор файлов, уже зашифрованных PlayReady.
     -   **AssetCreationOptions.StorageEncrypted**: шифрование хранилища. Шифрование входного файла до его загрузки в хранилище Azure.
 
-        <div class="dev-callout"> 
-<strong>Примечание.</strong> 
-<p>Службы мультимедиа обеспечивают шифрование на диске, а не по сети, как технология управления цифровыми правами (DRM).</p> 
-</div>
+        <div class="dev-callout">
+
+        **Примечание.**
+        Службы мультимедиа обеспечивают шифрование на диске, а не по сети, как технология управления цифровыми правами (DRM).
+
+        </div>
 
 2.  Создает экземпляр AssetFile, который нужно связать с активом.
 3.  Создает экземпляр AccessPolicy, определяющий разрешения и длительность доступа к активам.
@@ -288,15 +291,15 @@
         CreateEncodingJob(asset, _singleInputFilePath, _outputFilesFolder);
 
 3.  Добавьте в класс следующие вспомогательные методы. Они необходимы для поддержки метода **CreateEncodingJob**. Ниже приведено описание этих вспомогательных методов.
-    -   Метод **GetLatestMediaProcessorByName** возвращает соответствующий процессор мультимедиа для обработки кодировки, шифрования и других связанных задач обработки. Мультимедийный процессор можно создать, используя строковое имя процессора. В параметре mediaProcessor методу можно передать следующие строки: **Azure Media Encoder**, **Azure Media Packager**, **Azure Media Encryptor**, **Storage Decryption**.
+    -   Метод **GetLatestMediaProcessorByName** возвращает соответствующий процессор мультимедиа для обработки кодировки, шифрования и других связанных задач обработки. Мультимедийный процессор можно создать, используя строковое имя процессора. В параметре mediaProcessor методу можно передать следующие строки: **Azure Media Encoder**, **Windows Azure Media Packager**, **Windows Azure Media Encryptor**, **Storage Decryption**.
 
             private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
             {
                 // The possible strings that can be passed into the 
                 // method for the mediaProcessor parameter:
                 //   Azure Media Encoder
-                //   Azure Media Packager
-                //   Azure Media Encryptor
+                //   Windows Azure Media Packager
+                //   Windows Azure Media Encryptor
                 //   Storage Decryption
 
                 var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
@@ -609,10 +612,8 @@
 
 5.  MP4-файл и файл \_metadata.xml загружаются в папку outputFiles.
 
-<div class="dev-callout"> 
-<strong>Примечание.</strong> 
-<p>В объектной модели служб мультимедиа актив является объектом коллекции контента служб мультимедиа, который представляет отношение &quot;один ко многим файлам&quot;. Путь локатора предоставляет URL-адрес BLOB-объекта Azure, т. е. базовый путь к этому активу в хранилище Windows Azure. Для доступа к конкретным файлам в активе добавьте имя файла в путь базового локатора.</p> 
-</div>
+> [WACOM.NOTE]
+> В объектной модели служб мультимедиа актив — это объект коллекции контента служб мультимедиа, который представляет один или несколько файлов. Путь локатора предоставляет URL-адрес BLOB-объекта Azure, т. е. базовый путь к этому активу в хранилище Windows Azure. Для доступа к конкретным файлам в активе добавьте имя файла в путь базового локатора.
 
 ## Дальнейшие действия
 
@@ -630,8 +631,9 @@
   [Кодировка актива и загрузка выходного актива]: #Step4
   [Как создать учетную запись служб мультимедиа]: http://go.microsoft.com/fwlink/?LinkId=256662
   [Nuget windowsazure.mediaservices]: http://nuget.org/packages/windowsazure.mediaservices
+  [Бесплатная пробная версия Azure]: http://www.windowsazure.com/ru-ru/pricing/free-trial/?WT.mc_id=A8A8397B5
   [Строки предустановок задачи для программы Windows Azure Media Encoder]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj129582.aspx
   [Поддерживаемые типы файлов для служб мультимедиа]: http://msdn.microsoft.com/ru-ru/library/windowsazure/hh973634.aspx
   [1]: http://msdn.microsoft.com/library/windowsazure/jj129582.aspx
-  [Использование служб мультимедиа]: http://www.windowsazure.com/ru-ru/develop/net/how-to-guides/media-services/
+  [Использование служб мультимедиа]: http://azure.microsoft.com/ru-ru/develop/media-services/resources/
   [Создание приложений с помощью API REST служб мультимедиа]: http://msdn.microsoft.com/ru-ru/library/windowsazure/hh973618.aspx

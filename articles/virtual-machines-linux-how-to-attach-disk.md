@@ -1,4 +1,4 @@
-<properties linkid="manage-linux-howto-attach-a-disk" urlDisplayName="Attach a disk" pageTitle="Attach a disk to a virtual machine running Linux in Azure" metaKeywords="disk VM Azure, initialize new disk Azure, initialize disk Azure Linux, attaching empty disk Azure" description="Learn how to attach a data disk to an Azure virtual machine and initialize it so it's ready for use." metaCanonical="http://www.windowsazure.com/ru-ru/manage/windows/how-to-guides/attach-a-disk/" services="virtual-machines" documentationCenter="" title="" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
+<properties urlDisplayName="Attach a disk" pageTitle="Присоединение диска к виртуальной машине Linux в Azure" metaKeywords="disk VM Azure, initialize new disk Azure, initialize disk Azure Linux, attaching empty disk Azure" description="Узнайте, как присоединить диск данных к виртуальной машине Azure и инициализировать, чтобы подготовить к использованию." metaCanonical="http://www.windowsazure.com/ru-ru/manage/windows/how-to-guides/attach-a-disk/" services="virtual-machines" documentationCenter="" title="" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="7/29/2014" ms.author="kathydav" />
 
@@ -106,7 +106,6 @@
   [Практическое руководство. Присоединение пустого диска]: #attachempty
   [Практическое руководство. Присоединение существующего диска]: #attachexisting
   [Практическое руководство. Инициализация нового диска данных в Linux]: #initializeinlinux
-  [руководство-присоединение-диск-windows-linux]: ../includes/howto-attach-disk-windows-linux.md
   [Как войти в систему на виртуальной машине, работающей под управлением Linux]: ../virtual-machines-linux-how-to-log-on/
   [Получение сообщений диска]: ./media/virtual-machines-linux-how-to-attach-disk/DiskMessages.png
   [Создание нового устройства]: ./media/virtual-machines-linux-how-to-attach-disk/DiskPartition.png

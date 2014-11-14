@@ -1,6 +1,6 @@
-<properties linkid="manage-services-how-to-create-a-storage-account" urlDisplayName="How to create" pageTitle="How to create a storage account | Azure" metaKeywords="" description="Learn how to create a storage account in the Azure management portal." metaCanonical="" services="storage" documentationCenter="" title="How To Create a Storage Account" solutions="" authors="tamram" manager="mbaldwin" editor="cgronlun" />
+<properties urlDisplayName="How to create" pageTitle="Как создать учетную запись хранения | Azure" metaKeywords="" description="Узнайте, как создать учетную запись хранения на портале управления Azure." metaCanonical="" services="storage" documentationCenter="" title="Создание учетной записи хранения" solutions="" authors="tamram" manager="adinah" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"/>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # <span id="createstorageaccount"></span></a>Создание учетной записи хранения
 
@@ -33,7 +33,7 @@
 
 6.  В поле **Репликация** выберите тип репликации, необходимый для вашей учетной записи хранения.
 
-    [WACOM.INCLUDE [storage-replication-options](../includes/storage-replication-options.md)]
+    [WACOM.INCLUDE [хранение-репликация-параметры](../includes/storage-replication-options.md)]
 
 7.  Щелкните **Создать учетную запись хранения**.
 

@@ -1,6 +1,6 @@
-<properties title="Security offerings for Azure Virtual Machines" pageTitle="Security offerings for Azure Virtual Machines" description="Quick overview of key security features for Azure VMs and links to details" metaKeywords="" services="virtual machines" solutions="" documentationCenter="" authors="kathydav" videoId="" scriptId="" />
+<properties title="Предложения в области безопасности для виртуальных машин Azure" pageTitle="Предложения в области безопасности для виртуальных машин Azure" description="Краткий обзор основных функций безопасности для виртуальных машин Azure, а также ссылки на подробную информацию" metaKeywords="" services="virtual machines" solutions="" documentationCenter="" authors="kathydav" manager="timlt" videoId="" scriptId="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="7/29/2014" ms.author="kathydav" />
 
 # Предложения в области безопасности для виртуальных машин Azure
 
@@ -22,6 +22,12 @@ Azure предлагает несколько вариантов решений 
 
 Сетевые списки управления доступом (ACL) позволяют выборочно разрешать или отклонять входящий трафик в конечной точке виртуальной машины. Эта возможность фильтрации пакетов обеспечивает дополнительный уровень безопасности. Дополнительные сведения о том, как это работает, и ссылки на инструкции см. в статье [О сетевых списках управления доступом (ACL)][О сетевых списках управления доступом (ACL)].
 
+## Дополнительные ресурсы
+
+[Ресурсы][Ресурсы] в центре управления безопасностью Microsoft Azure
+
   [Установка и настройка Symantec Endpoint Protection на виртуальной машине Azure]: http://go.microsoft.com/fwlink/p/?LinkId=404207
   [Установка и настройка Trend Micro Deep Security как услуги на ВМ Azure]: http://go.microsoft.com/fwlink/p/?LinkId=404206
   [Развертывание решений по защите от вредоносных программ на виртуальных машинах Azure]: http://azure.microsoft.com/blog/2014/05/13/deploying-antimalware-solutions-on-azure-virtual-machines/
+  [О сетевых списках управления доступом (ACL)]: http://go.microsoft.com/fwlink/?LinkId=506655
+  [Ресурсы]: http://azure.microsoft.com/ru-ru/support/trust-center/resources/

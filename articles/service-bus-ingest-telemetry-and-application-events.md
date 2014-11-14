@@ -1,6 +1,6 @@
-<properties pageTitle="Ingest Telemetry and Application Events at Scale" metaKeywords="Service Bus, telemetry, events" description="Learn how to ingest telemetry and application events at scale across your business solutions." services="service-bus" documentationCenter=".NET" title="Ingest Telemetry and Application Events at Scale" authors="sethm" solutions="" manager="dwrede" editor="dwrede" />
+<properties pageTitle="Получение данных телеметрии и событий приложения в нужном масштабе" metaKeywords="Service Bus, telemetry, events" description="Узнайте, как при реализации собственных бизнес-решений получить данные телеметрии и событий приложения в нужном масштабе." services="service-bus" documentationCenter=".NET" title="Получение данных телеметрии и событий приложения в нужном масштабе" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="sethm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
 # Масштабирование получения данных телеметрии и событий приложения
 

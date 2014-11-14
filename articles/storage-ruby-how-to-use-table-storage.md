@@ -1,10 +1,14 @@
-<properties linkid="dev-ruby-how-to-table-services" urlDisplayName="Table Service" pageTitle="How to use table storage (Ruby) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Ruby, table storage Ruby" description="Learn how to use the table storage service in Azure. Code samples are written using the Ruby API." metaCanonical="" services="storage" documentationCenter="Ruby" title="How to Use the Table Service from Ruby" authors="guayan" solutions="" manager="" editor="" />
+<properties urlDisplayName="Table Service" pageTitle="Использование табличного хранилища (Ruby) &mdash; Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Ruby, table storage Ruby" description="Вы узнаете, как использовать службу табличного хранилища в Azure. Примеры написаны с помощью Ruby API." metaCanonical="" services="storage" documentationCenter="Ruby" title="Использование службы таблиц в Ruby" authors="guayan" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan" />
 
 # Использование службы таблиц в Ruby
 
-В этом руководстве показано, как реализовать типичные сценарии с использованием службы таблиц Windows Azure. Примеры написаны с помощью Ruby API. Здесь описаны такие сценарии, как **создание и удаление таблицы, вставка и запрос сущностей в таблице**. Дополнительные сведения о таблицах см. в разделе [Дальнейшие действия][Дальнейшие действия].
+В этом руководстве показано, как реализовать типичные сценарии с использованием службы таблиц Windows
+Azure. Примеры написаны с помощью
+Ruby API. Здесь описаны такие сценарии, как **создание и удаление
+таблицы, вставка и запрос сущностей в таблице**. Дополнительные
+сведения о таблицах см. в разделе [Дальнейшие действия][Дальнейшие действия].
 
 ## Оглавление
 
@@ -38,7 +42,8 @@
 
 ## <span id="configure-your-application-to-access-storage"></span></a>Настройка приложения для доступа к хранилищу
 
-Для использования хранилища Azure необходимо загрузить и использовать пакет Ruby Azure, который содержит набор библиотек, взаимодействующих со службами REST хранилища.
+Для использования хранилища Azure необходимо загрузить и использовать пакет
+Ruby Azure, который содержит набор библиотек, взаимодействующих со службами REST хранилища.
 
 ### Использование RubyGems для получения пакета
 
@@ -62,7 +67,7 @@
 
 Для получения этих значений:
 
-1.  Выполните вход в [Портал управления Azure][Портал управления Azure].
+1.  Выполните вход на [портал управления Azure][портал управления Azure].
 
 2.  Перейдите к учетной записи хранения, которая будет использоваться.
 
@@ -163,6 +168,7 @@
 -   Посетите репозиторий [Azure SDK для Ruby][Azure SDK для Ruby] на веб-сайте GitHub
 
   [Дальнейшие действия]: #next-steps
+  [Что такое служба таблиц?]: #what-is
   [Основные понятия]: #concepts
   [Создание учетной записи хранения Azure]: #create-a-windows-azure-storage-account
   [Создание приложения Ruby]: #create-a-ruby-application
@@ -177,10 +183,8 @@
   [Практическое руководство. Запрос подмножества свойств сущности]: #how-to-query-a-subset-of-entity-properties
   [Практическое руководство. Удаление сущности]: #how-to-delete-an-entity
   [Практическое руководство. Удаление таблицы]: #how-to-delete-a-table
-  [руководство-таблица-хранилище]: ../includes/howto-table-storage.md
-  [создание-хранилище-учетная запись]: ../includes/create-storage-account.md
   [Создание приложений Ruby в Azure]: /ru-ru/develop/ruby/tutorials/web-app-with-linux-vm/
-  [Портал управления Azure]: https://manage.windowsazure.com/
+  [портал управления Azure]: https://manage.windowsazure.com/
   [Хранение данных и доступ к ним в Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/gg433040.aspx
   [блог команды разработчиков хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
   [Azure SDK для Ruby]: http://github.com/WindowsAzure/azure-sdk-for-ruby

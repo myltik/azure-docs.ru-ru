@@ -62,7 +62,6 @@
 
     ![Конечные точки][2]
 
-  [Безопасность и проверка подлинности]: http://www.mongodb.org/display/DOCS/Security+and+Authentication
   [Quickstart Unix]: http://www.mongodb.org/display/DOCS/Quickstart+Unix
   [Конечные точки]: ./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint.png
   [1]: ./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint2.png

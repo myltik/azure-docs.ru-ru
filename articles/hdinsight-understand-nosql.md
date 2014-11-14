@@ -1,6 +1,6 @@
-<properties linkid="manage-hdinsight-understand-nosql" urlDisplayName="Understand NoSQL technologies" pageTitle="Understanding NoSQL Technologies on Azure | Azure" metaKeywords="" description="Learn how NoSQL technologies on HDInsight can help you manage data not suited to relational databases, such as big data sets and JSON documents or graphs." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="storage,hdinsight" documentationCenter="" title="Data management: Understanding NoSQL technologies on Azure" authors="dchappell" />
+<properties urlDisplayName="Understand NoSQL technologies" pageTitle="Общие сведения о технологиях NoSQL в Azure" metaKeywords="" description="Вы узнаете, как технологии NoSQL в HDInsight могут помочь вам с управлением данными, для хранения которых не подходят реляционные базы данных. К таким данным можно отнести неструктурированные данные большого размера, документы JSON или графы." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="storage,hdinsight" documentationCenter="" title="Управление данными: общие сведения о технологиях NoSQL в Azure" authors="dchappell" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="dchappell"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="dchappell" />
 
 # Управление данными: общие сведения о технологиях NoSQL в Azure
 
@@ -29,6 +29,6 @@
 
 **Версия:** 1.0
 
-**Загрузить:** [Общие сведения о технологиях NoSQL в Azure (PDF-файл)][]
+**Загрузить:** [Общие сведения о технологиях NoSQL в Azure (PDF-файл)][Общие сведения о технологиях NoSQL в Azure (PDF-файл)]
 
   [Общие сведения о технологиях NoSQL в Azure (PDF-файл)]: http://go.microsoft.com/fwlink/p/?LinkId=330292

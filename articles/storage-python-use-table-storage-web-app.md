@@ -1,4 +1,4 @@
-<properties linkid="develop-python-web-app-with-blob-storage" urlDisplayName="Web App with Blob Storage" pageTitle="Python web app with table storage | Microsoft Azure" metaKeywords="Azure table storage Python, Azure Python application, Azure Python tutorial, Azure Python example" description="A tutorial that teaches you how to create a Python web application using the Azure Client Libraries. Django is used as the web framework." metaCanonical="" services="storage" documentationCenter="Python" title="Python Web Application using Table Storage" authors="huvalo" solutions="" videoId="" scriptId="" manager="" editor="mollybos" />
+<properties urlDisplayName="Web App with Blob Storage" pageTitle="Веб-приложение на Python с хранилищем для таблиц &mdash; Microsoft Azure" metaKeywords="Azure table storage Python, Azure Python application, Azure Python tutorial, Azure Python example" description="В этом уроке вы узнаете, как создать веб-приложение на Python с использованием клиентских библиотек Azure. В качестве фреймворка для веб-приложения используется Django." metaCanonical="" services="storage" documentationCenter="Python" title="Веб-приложение Python, использующее хранилище таблиц" authors="huvalo" solutions="" videoId="" scriptId="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
@@ -19,7 +19,7 @@ API-интерфейсы REST. Дополнительные сведения с�
 
 ![][0]
 
-[WACOM.INCLUDE [создание-учетная запись-примечание](../includes/create-account-note.md)]
+[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
 ## <span id="setup"></span> </a>Настройка среды разработки
 
@@ -178,6 +178,4 @@ API-интерфейсы REST. Дополнительные сведения с�
   [веб-приложение Hello World на Django]: http://windowsazure.com/ru-ru/documentation/articles/virtual-machines-python-django-web-app-windows-server
   [Хранение данных и доступ к ним в Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/gg433040.aspx
   [0]: ./media/storage-python-use-table-storage-web-app/web-app-with-storage-Finaloutput-mac.png
-  [создание-учетная запись-примечание]: ../includes/create-account-note.md
   [Руководство по установке Python]: http://windowsazure.com/ru-ru/documentation/articles/python-how-to-install
-  [создание-хранилище-учетная запись]: ../includes/create-storage-account.md

@@ -1,10 +1,13 @@
-<properties linkid="dev-ruby-how-to-blob-storage" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Ruby) | Microsoft Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Ruby" description="Learn how to use the Azure blob service to upload, download, list, and delete blob content. Samples written in Ruby." metaCanonical="" services="storage" documentationCenter="Ruby" title="How to Use the Blob Service from Ruby" authors="guayan" solutions="" manager="" editor="" />
+<properties urlDisplayName="Blob Service" pageTitle="Использование хранилища BLOB-объектов (Ruby) &mdash; Microsoft Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Ruby" description="Вы узнаете, как использовать службы BLOB-объектов Azure для передачи, загрузки, отображения и удаления содержимого BLOB-объектов. Примеры кода написаны на Ruby." metaCanonical="" services="storage" documentationCenter="Ruby" title="Использование службы BLOB-объектов в Ruby" authors="guayan" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan" />
 
 # Использование службы BLOB-объектов в Ruby
 
-В этом руководстве показано, как реализовать типичные сценарии с использованием службы BLOB-объектов Azure. Примеры написаны с помощью Ruby API. Здесь описаны такие сценарии, как **отправка, перечисление, загрузка** и **удаление** blob-объектов. Дополнительные сведения о blob-объектах см. в разделе [Дальнейшие действия][Дальнейшие действия].
+В этом руководстве показано, как реализовать типичные сценарии с использованием
+службы BLOB-объектов Azure. Примеры написаны с помощью Ruby API.
+Здесь описаны такие сценарии, как **отправка, перечисление, загрузка** и **удаление** blob-объектов.
+Дополнительные сведения о blob-объектах см. в разделе [Дальнейшие действия][Дальнейшие действия].
 
 ## Оглавление
 
@@ -50,14 +53,15 @@
 
 ## <span id="SetupStorageConnection"></span></a>Настройка подключения к хранилищу Azure
 
-Модуль Azure считывает переменные среды **AZURE\_STORAGE\_ACCOUNT** и **AZURE\_STORAGE\_ACCESS\_KEY** для получения сведений, необходимых для подключения к учетной записи хранения Azure. Если эти переменные среды не заданы, необходимо указать сведения об учетной записи перед использованием **Azure::BlobService** с помощью следующего кода:
+Модуль Azure считывает переменные среды **AZURE\_STORAGE\_ACCOUNT** и **AZURE\_STORAGE\_ACCESS\_KEY**
+для получения сведений, необходимых для подключения к учетной записи хранения Azure. Если эти переменные среды не заданы, необходимо указать сведения об учетной записи перед использованием **Azure::BlobService** с помощью следующего кода:
 
     Azure.config.storage_account_name = "<your azure storage account>"
     Azure.config.storage_access_key = "<your azure storage access key>"
 
 Для получения этих значений:
 
-1.  Выполните вход в [Портал управления Azure][Портал управления Azure].
+1.  Выполните вход на [портал управления Azure][портал управления Azure].
 2.  Перейдите к учетной записи хранения, которая будет использоваться.
 3.  Щелкните **УПРАВЛЕНИЕ КЛЮЧАМИ** в нижней части области навигации.
 4.  В открывшемся диалоговом окне вы увидите имя учетной записи хранения, первичный ключ доступа и вторичный ключ доступа. В качестве ключа доступа можно использовать либо первичный, либо вторичный ключ.
@@ -144,6 +148,7 @@
 -   Посетите репозиторий [Azure SDK для Ruby][Azure SDK для Ruby] на веб-сайте GitHub
 
   [Дальнейшие действия]: #next-steps
+  [Что такое служба BLOB-объектов?]: #what-is
   [Основные понятия]: #concepts
   [Создание учетной записи хранения Azure]: #CreateAccount
   [Создание приложения Ruby]: #CreateRubyApp
@@ -155,10 +160,8 @@
   [Практическое руководство. Загрузка BLOB-объектов]: #DownloadBlobs
   [Практическое руководство. Удаление BLOB-объекта]: #DeleteBlob
   [1]: #NextSteps
-  [руководство-блоб-объект-хранилище]: ../includes/howto-blob-storage.md
-  [создание-хранилище-учетная запись]: ../includes/create-storage-account.md
   [Создание приложений Ruby в Azure]: /ru-ru/develop/ruby/tutorials/web-app-with-linux-vm/
-  [Портал управления Azure]: https://manage.windowsazure.com/
+  [портал управления Azure]: https://manage.windowsazure.com/
   [Хранение данных и доступ к ним в Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/gg433040.aspx
   [блог команды разработчиков хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
   [Azure SDK для Ruby]: https://github.com/WindowsAzure/azure-sdk-for-ruby

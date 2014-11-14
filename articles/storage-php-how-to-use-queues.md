@@ -1,6 +1,6 @@
-<properties title="How to use the queue service (PHP) - Azure feature guide" pageTitle="How to use the queue service (PHP) | Microsoft Azure" metaKeywords="Azure Queue Service messaging PHP" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in PHP." documentationCenter="PHP" services="storage" authors="" />
+<properties title="Использование службы очередей (PHP) &mdash; руководство по функциям Azure" pageTitle="Использование службы очередей (PHP) &mdash;  Microsoft Azure" metaKeywords="Azure Queue Service messaging PHP" description="Вы узнаете, как использовать службы очередей Azure для создания и удаления очередей, вставки, получения и удаления сообщений. Примеры кода написаны на PHP." documentationCenter="PHP" services="storage" authors="tamram" manager="adinah" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # Использование службы очередей из PHP
 
@@ -379,6 +379,7 @@
 -   Посетите блог команды разработчиков хранилища Azure <http://blogs.msdn.com/b/windowsazurestorage/>
 
   [Дальнейшие действия]: #NextSteps
+  [Что такое хранилище очередей?]: #what-is
   [Основные понятия]: #concepts
   [Создание учетной записи хранения Azure]: #create-account
   [Создание приложения PHP]: #create-app
@@ -393,7 +394,5 @@
   [Практическое руководство. Получение длины очереди]: #get-queue-length
   [Практическое руководство. Удаление очереди]: #delete-queue
   [1]: #next-steps
-  [руководство-очередь-хранилище]: ../includes/howto-queue-storage.md
-  [создание-хранилище-учетная запись]: ../includes/create-storage-account.md
-  [получение-клиент-библиотеки]: ../includes/get-client-libraries.md
+  [require\_once]: http://www.php.net/manual/en/function.require-once.php
   [Хранение данных и доступ к ним в Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/gg433040.aspx

@@ -1,4 +1,4 @@
-<properties linkid="manage-services-hdinsight-debug-error-messages" urlDisplayName="Debug HDInsight Hadoop Errors" pageTitle="Debug Hadoop in HDInsight: Error messages | Azure" metaKeywords="hdinsight, hdinsight service, hdinsight azure, debug, error messages, errors" description="Learn about the error messages you might receive when administering HDInsight using PowerShell, and steps you can take to recover." services="hdinsight" title="Debug Hadoop in HDInsight: Error messages" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" authors="bradsev" />
+<properties urlDisplayName="Debug HDInsight Hadoop Errors" pageTitle="Отладка Hadoop в HDInsight: Сообщения об ошибках | Azure" metaKeywords="hdinsight, hdinsight service, hdinsight azure, debug, error messages, errors" description="Познакомьтесь с сообщениями об ошибках, которые могут поступать во время администрирования HDInsight с помощью PowerShell, а также с мерами, которые следует предпринять для восстановления нормальной работоспособности." services="hdinsight" title="Отладка Hadoop в HDInsight: Сообщения об ошибках" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" authors="bradsev" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
 
@@ -20,93 +20,49 @@
 ### Ошибки HDInsight
 
 [AtleastOneSqlMetastoreMustBeProvided][AtleastOneSqlMetastoreMustBeProvided]
-
 [AzureRegionNotSupported][AzureRegionNotSupported]
-
 [ClusterContainerRecordNotFound][ClusterContainerRecordNotFound]
-
 [ClusterDnsNameInvalidReservedWord][ClusterDnsNameInvalidReservedWord]
-
 [ClusterNameUnavailable][ClusterNameUnavailable]
-
 [ClusterUserNameInvalid][ClusterUserNameInvalid]
-
 [ClusterUserNameInvalidReservedWord][ClusterUserNameInvalidReservedWord]
-
 [ContainerNameMisMatchWithDnsName][ContainerNameMisMatchWithDnsName]
-
 [DataNodeDefinitionNotFound][DataNodeDefinitionNotFound]
-
 [DeploymentDeletionFailure][DeploymentDeletionFailure]
-
 [DnsMappingNotFound][DnsMappingNotFound]
-
 [DuplicateClusterContainerRequest][DuplicateClusterContainerRequest]
-
 [DuplicateClusterInHostedService][DuplicateClusterInHostedService]
-
 [FailureToUpdateDeploymentStatus][FailureToUpdateDeploymentStatus]
-
 [HdiRestoreClusterAltered][HdiRestoreClusterAltered]
-
 [HeadNodeConfigNotFound][HeadNodeConfigNotFound]
-
 [HeadNodeConfigNotFound][HeadNodeConfigNotFound]
-
 [HostedServiceCreationFailure][HostedServiceCreationFailure]
-
 [HostedServiceHasProductionDeployment][HostedServiceHasProductionDeployment]
-
 [HostedServiceNotFound][HostedServiceNotFound]
-
 [HostedServiceWithNoDeployment][HostedServiceWithNoDeployment]
-
 [InsufficientResourcesCores][InsufficientResourcesCores]
-
 [InsufficientResourcesHostedServices][InsufficientResourcesHostedServices]
-
 [InternalErrorRetryRequest][InternalErrorRetryRequest]
-
 [InvalidAzureStorageLocation][InvalidAzureStorageLocation]
-
 [InvalidNodeSizeForDataNode][InvalidNodeSizeForDataNode]
-
 [InvalidNodeSizeForHeadNode][InvalidNodeSizeForHeadNode]
-
 [InvalidRightsForDeploymentDeletion][InvalidRightsForDeploymentDeletion]
-
 [InvalidStorageAccountBlobContainerName][InvalidStorageAccountBlobContainerName]
-
 [InvalidStorageAccountConfigurationSecretKey][InvalidStorageAccountConfigurationSecretKey]
-
 [InvalidVersionHeaderFormat][InvalidVersionHeaderFormat]
-
 [MoreThanOneHeadNode][MoreThanOneHeadNode]
-
 [OperationTimedOutRetryRequest][OperationTimedOutRetryRequest]
-
 [ParameterNullOrEmpty][ParameterNullOrEmpty]
-
 [PreClusterCreationValidationFailure][PreClusterCreationValidationFailure]
-
 [RegionCapabilityNotAvailable][RegionCapabilityNotAvailable]
-
 [StorageAccountNotColocated][StorageAccountNotColocated]
-
 [SubscriptionIdNotActive][SubscriptionIdNotActive]
-
 [SubscriptionIdNotFound][SubscriptionIdNotFound]
-
 [UnableToResolveDNS][UnableToResolveDNS]
-
 [UnableToVerifyLocationOfResource][UnableToVerifyLocationOfResource]
-
 [VersionCapabilityNotAvailable][VersionCapabilityNotAvailable]
-
 [VersionNotSupported][VersionNotSupported]
-
 [VersionNotSupportedInRegion][VersionNotSupportedInRegion]
-
 [WasbAccountConfigNotFound][WasbAccountConfigNotFound]
 
 ## <span id="discription-mitigation-errors"></span></a>Диагностика и устранение ошибок
@@ -309,12 +265,12 @@
 ### <span id="UnableToResolveDNS"></span></a>UnableToResolveDNS
 
 -   **Описание**: Не удается разрешить DNS *URLВашегоDNS*. Убедитесь, что для конечной точки большого двоичного объекта указан полный URL-адрес.
--   **Устранение**: Укажите допустимый URL-адрес двоичного объекта большого размера. Этот URL-адрес должен быть записан полностью, включая префикс *http://* и заканчивая доменом *.com* Полный URL-адрес обычно находится на вкладке хранилища на портале manage.windowsazure.com.
+-   **Устранение**: Укажите допустимый URL-адрес двоичного объекта большого размера. Этот URL-адрес должен быть записан полностью, включая префикс *<http://>* и заканчивая доменом *.com* Полный URL-адрес обычно находится на вкладке хранилища на портале manage.windowsazure.com.
 
 ### <span id="UnableToVerifyLocationOfResource"></span></a>UnableToVerifyLocationOfResource
 
 -   **Описание**: Невозможно проверить расположение ресурса *URLВашегоDNS*. Убедитесь, что для конечной точки большого двоичного объекта указан полный URL-адрес.
--   **Устранение**: Укажите допустимый URL-адрес двоичного объекта большого размера. Этот URL-адрес должен быть записан полностью, включая префикс *http://* и заканчивая доменом *.com* Полный URL-адрес обычно находится на вкладке хранилища на портале manage.windowsazure.com.
+-   **Устранение**: Укажите допустимый URL-адрес двоичного объекта большого размера. Этот URL-адрес должен быть записан полностью, включая префикс *<http://>* и заканчивая доменом *.com* Полный URL-адрес обычно находится на вкладке хранилища на портале manage.windowsazure.com.
 
 ### <span id="VersionCapabilityNotAvailable"></span></a>VersionCapabilityNotAvailable
 

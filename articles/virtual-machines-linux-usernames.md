@@ -1,6 +1,6 @@
-<properties linkid="services-linux-user-names" urlDisplayName="User Names in Linux" pageTitle="Selecting User Names for Linux on Azure" metaKeywords="" description="Learn how to select user names for a Linux virtual machine in Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Selecting User Names for Linux on Azure" authors="szark" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="User Names in Linux" pageTitle="Выбор имен пользователей для Linux в Azure" metaKeywords="" description="Узнайте, как выбирать имена пользователей для виртуальной машины Linux в Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Выбор имен пользователей для Linux в Azure" authors="szark" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="szark"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="szark" />
 
 # Выбор имен пользователей для Linux в Azure
 

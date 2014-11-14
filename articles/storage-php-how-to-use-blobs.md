@@ -1,4 +1,4 @@
-<properties title="How to use blob storage (PHP) - Azure feature guide" pageTitle="How to use blob storage (PHP) | Microsoft Azure" metaKeywords="Azure blob service PHP, Azure blobs PHP" description="Learn how to use the Azure Blob service to upload, list, download, and delete blobs. Code samples are written in PHP." documentationCenter="PHP" services="storage" videoId="" scriptId="" solutions="" authors="robmcm" manager="wpickett" editor="mollybos" />
+<properties title="Использование хранилища BLOB-объектов (PHP) &mdash; руководство по компонентам Azure" pageTitle="Использование хранилища BLOB-объектов (PHP) &mdash; Microsoft Azure" metaKeywords="Azure blob service PHP, Azure blobs PHP" description="Вы узнаете, как использовать службы BLOB-объектов Azure для передачи, перечисления, загрузки и удаления содержимого BLOB-объектов. Примеры кода написаны на PHP." documentationCenter="PHP" services="storage" videoId="" scriptId="" solutions="" authors="robmcm" manager="adinah" editor="mollybos" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
@@ -306,9 +306,10 @@
   [Практическое руководство. Загрузка blob-объектов]: #DownloadBlob
   [Практическое руководство. Удаление BLOB-объекта]: #DeleteBlob
   [Практическое руководство. Удаление контейнера blob-объектов]: #DeleteContainer
-  [руководство-блоб-объект-хранилище]: ../includes/howto-blob-storage.md
-  [создание-хранилище-учетная запись]: ../includes/create-storage-account.md
-  [получение-клиент-библиотеки]: ../includes/get-client-libraries.md
+  [require\_once]: http://php.net/require_once
+  [Определение ACL контейнера (REST API)]: http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179391.aspx
   [Коды ошибок службы Blob-объектов]: http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179439.aspx
   [fopen]: http://www.php.net/fopen
+  [file\_get\_contents]: http://php.net/file_get_contents
+  [stream\_get\_contents]: http://www.php.net/stream_get_contents
   [Хранение данных и доступ к ним в Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/gg433040.aspx

@@ -1,12 +1,12 @@
-<properties linkid="hdinsight-use-time-based-oozie-coordinator-with-hdinsight" urlDisplayName="Use time-based Hadoop Oozie Coordinator in HDInsight" pageTitle="Use time-based Hadoop Oozie Coordinator in HDInsight | Azure" metaKeywords="" description="Use time-based Hadoop Oozie Coordinator in HDInsight, a big data solution. Learn how to define Oozie workflows and coordinators, and submit coordinator jobs." metaCanonical="" services="hdinsight" documentationCenter="" title="Use time-based Hadoop Oozie Coordinator in HDInsight" authors="jgao" solutions="big-data" manager="paulettm" editor="cgronlun" />
+<properties urlDisplayName="Use time-based Hadoop Oozie Coordinator in HDInsight" pageTitle="Использование временного координатора Oozie с Hadoop в  Azure HDInsight" metaKeywords="" description="Использование временного координатора Oozie с Hadoop в  Azure HDInsight &mdash; решение для работы с данными большого размера. Вы узнаете, как задать настройки потока данных и координаторов в Oozie, а также как отправить координатору задачу." metaCanonical="" services="hdinsight" documentationCenter="" title="Использование временного координатора Oozie с Hadoop в HDInsight" authors="jgao" solutions="big-data" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao"/>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
 # Использование временного координатора Oozie с Hadoop в HDInsight
 
 Узнайте, как определять рабочие процессы и координаторы, а также как по времени запускать задания координатора заданий. Перед чтением этой статьи рекомендуется изучить [Использование Oozie с HDInsight][Использование Oozie с HDInsight].
 
-**Предполагаемое время выполнения:** 40 минут
+**Предполагаемое время выполнения:**40 минут
 
 ## Содержание
 
@@ -248,72 +248,49 @@ Apache Oozie — это система рабочих процессов и ко
 
     RunHiveScript имеет несколько переменных. Вы передадите эти значения при отправке задания Oozie с рабочей станции с помощью Azure PowerShell.
 
-<table border = "1">
-<tr><th>Переменные рабочего процесса</th><th>Описание</th></tr>
-<tr><td>${jobTracker}</td><td>Укажите URL-адрес средства отслеживания заданий Hadoop. Используйте <strong>jobtrackerhost:9010</strong> в кластере HDInsight версии 2.0 и 3.0.</td></tr>
-<tr><td>${nameNode}</td><td>Укажите URL-адрес узла имен заданий Hadoop. Используйте адрес WASB файловой системы по умолчанию. Напрмер, <i>wasb://&lt;containerName&gt;@&lt;storageAccountName&gt;.blob.core.windows.net</i>.</td></tr>
-<tr><td>${queueName}</td><td>Указывает имя очереди, в которую будет отправлено задание. Используйте <strong>значение по умолчанию</strong>.</td></tr>
-</table>
-<table border = "1">
-<tr><th>Переменная действия Hive</th><th>Описание</th></tr>
-<tr><td>${hiveDataFolder}</td><td>Исходный каталог для команды создания таблицы Hive.</td></tr>
-<tr><td>${hiveOutputFolder}</td><td>Папка результатов для инструкции INSERT OVERWRITE.</td></tr>
-<tr><td>${hiveTableName}</td><td>Имя таблицы Hive, ссылающейся на файлы данных log4j.</td></tr>
-</table>
-<table border = "1">
-<tr><th>Переменная действия Sqoop</th><th>Описание</th></tr>
-<tr><td>${sqlDatabaseConnectionString}</td><td>Строка подключения для базы данных SQL.</td></tr>
-<tr><td>${sqlDatabaseTableName}</td><td>Таблица базы данных SQL, в которую будут экспортированы данные.</td></tr>
-<tr><td>${hiveOutputFolder}</td><td>Папка результатов для инструкции Hive INSERT OVERWRITE. Это та же папка, что и каталог для экспорта Sqoop export-dir.</td></tr>
-</table>
+    | Переменные рабочего процесса | Описание                                                                                                                                                                            |
+    |------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | ${jobTracker}                | Укажите URL-адрес средства отслеживания заданий Hadoop. Используйте **jobtrackerhost:9010** в кластере HDInsight версии 2.0 и 3.0.                                                  |
+    | ${nameNode}                  | Укажите URL-адрес узла имен заданий Hadoop. Используйте адрес WASB файловой системы по умолчанию. Напрмер, *wasb://\<containerName\>@\<storageAccountName\>.blob.core.windows.net*. |
+    | ${queueName}                 | Указывает имя очереди, в которую будет отправлено задание. Используйте **значение по умолчанию**.                                                                                   |
 
-   Дополнительные сведения о рабочем процессе Oozie и использовании его действий см. в разделе [Документация по Apache Oozie 4.0][Документация по Apache Oozie 4.0] (для кластера HDInsight версии 3.0) или [Документация по Apache Oozie 3.3.2][Документация по Apache Oozie 3.3.2] (для кластера HDInsight версии 2.1).
+    | Переменная действия Hive | Описание                                             |
+    |--------------------------|------------------------------------------------------|
+    | ${hiveDataFolder}        | Исходный каталог для команды создания таблицы Hive.  |
+    | ${hiveOutputFolder}      | Папка результатов для инструкции INSERT OVERWRITE.   |
+    | ${hiveTableName}         | Имя таблицы Hive, ссылающейся на файлы данных log4j. |
 
-2.Сохраните файл как **C:\\Tutorials\\UseOozie\\workflow.xml** с кодировкой ANSI (ASCII) (если текстовый редактор не позволяет сделать это, используйте Блокнот).
+    | Переменная действия Sqoop      | Описание                                                                                                              |
+    |--------------------------------|-----------------------------------------------------------------------------------------------------------------------|
+    | ${sqlDatabaseConnectionString} | Строка подключения для базы данных SQL.                                                                               |
+    | ${sqlDatabaseTableName}        | Таблица базы данных SQL, в которую будут экспортированы данные.                                                       |
+    | ${hiveOutputFolder}            | Папка результатов для инструкции Hive INSERT OVERWRITE. Это та же папка, что и каталог для экспорта Sqoop export-dir. |
+
+    Дополнительные сведения о рабочем процессе Oozie и использовании его действий см. в разделе [Документация по Apache Oozie 4.0][Документация по Apache Oozie 4.0] (для кластера HDInsight версии 3.0) или [Документация по Apache Oozie 3.3.2][Документация по Apache Oozie 3.3.2] (для кластера HDInsight версии 2.1).
+
+2.  Сохраните файл как **C:\\Tutorials\\UseOozie\\workflow.xml** с кодировкой ANSI (ASCII) (если текстовый редактор не позволяет сделать это, используйте Блокнот).
 
 **Определение координатора**
 
 1.  Создайте текстовый файл со следующим содержимым:
 
-		<coordinator-app name="my_coord_app" frequency="${coordFrequency}" start="${coordStart}" end="${coordEnd}" timezone="${coordTimezone}" xmlns="uri:oozie:coordinator:0.4">
-		   <action>
-		      <workflow>
-		         <app-path>${wfPath}</app-path>
-		      </workflow>
-		   </action>
-		</coordinator-app>
+        <coordinator-app name="my_coord_app" frequency="${coordFrequency}" start="${coordStart}" end="${coordEnd}" timezone="${coordTimezone}" xmlns="uri:oozie:coordinator:0.4">
+           <action>
+              <workflow>
+                 <app-path>${wfPath}</app-path>
+              </workflow>
+           </action>
+        </coordinator-app>
 
     В файле определения используется пять переменных:
-	<table>
-<thead>
-<tr class="header">
-<th align="left">Переменная</th>
-<th align="left">Описание</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">${coordFrequency}</td>
-<td align="left">Время приостановки заданий. Частота всегда выражается в минутах.</td>
-</tr>
-<tr class="even">
-<td align="left">${coordStart}</td>
-<td align="left">Время запуска задания.</td>
-</tr>
-<tr class="odd">
-<td align="left">${coordEnd}</td>
-<td align="left">Время окончания задания.</td>
-</tr>
-<tr class="even">
-<td align="left">${coordTimezone}</td>
-<td align="left">Oozie обрабатывает задания координатора в фиксированном часовом поясе без DST (обычно UTC), этот часовой пояс называется &quot;Часовой пояс обработки Oozie&quot;.</td>
-</tr>
-<tr class="odd">
-<td align="left">${wfPath}</td>
-<td align="left">Путь рабочего процесса workflow.xml.Если имя файла рабочего процесса не является именем файла по умолчанию (workflow.xml), необходимо его указать.</td>
-</tr>
-</tbody>
-</table>
+
+    | Переменная        | Описание                                                                                                                                                 |
+    |-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | ${coordFrequency} | Время приостановки заданий. Частота всегда выражается в минутах.                                                                                         |
+    | ${coordStart}     | Время запуска задания.                                                                                                                                   |
+    | ${coordEnd}       | Время окончания задания.                                                                                                                                 |
+    | ${coordTimezone}  | Oozie обрабатывает задания координатора в фиксированном часовом поясе без DST (обычно UTC), этот часовой пояс называется "Часовой пояс обработки Oozie". |
+    | ${wfPath}         | Путь рабочего процесса workflow.xml.Если имя файла рабочего процесса не является именем файла по умолчанию (workflow.xml), необходимо его указать.       |
 
 2.  Сохраните файл как **C:\\Tutorials\\UseOozie\\coordinator.xml** с кодировкой ANSI (ASCII) (если текстовый редактор не позволяет сделать это, используйте Блокнот).
 
@@ -715,7 +692,7 @@ Invoke-RestMethod PowerShell для вызова веб-служб Oozie. API-и
 
     Удалите значки \#, если нужно выполнить дополнительные функции.
 
-9.  Если ваш кластер HDinsight имеет версию 2.1, замените "https://$clusterName.azurehdinsight.net:443/oozie/v2/" на "https://$clusterName.azurehdinsight.net:443/oozie/v1/". Кластер HDInsight версии 2.1 не поддерживает веб-службы версии 2.
+9.  Если ваш кластер HDinsight имеет версию 2.1, замените "<https://$clusterName.azurehdinsight.net:443/oozie/v2/>" на "<https://$clusterName.azurehdinsight.net:443/oozie/v1/>". Кластер HDInsight версии 2.1 не поддерживает веб-службы версии 2.
 
 10. Для выполнения скрипта щелкните **Выполнить скрипт** или нажмите клавишу **F5**. Результат должен быть аналогичен приведенному ниже:
 

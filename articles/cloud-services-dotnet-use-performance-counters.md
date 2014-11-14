@@ -1,6 +1,6 @@
-<properties linkid="dev-net-commons-tasks-profiling" urlDisplayName="Performance Profiling" pageTitle="Use Performance Counters in Azure (.NET)" metaKeywords="Azure performance counters, Azure performance profiling, Azure performance counters C#, Azure performance profiling C#" description="Learn how to enable and collect data from performance counters in Azure applications. " metaCanonical="" services="cloud-services" documentationCenter=".NET" title="Using performance counters in Azure" authors="ryanwi" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="Performance Profiling" pageTitle="Использование счетчиков производительности в Azure (.NET)" metaKeywords="Azure performance counters, Azure performance profiling, Azure performance counters C#, Azure performance profiling C#" description="Узнайте, как включить и обеспечить сбор данных от счетчиков производительности в приложениях Azure. " metaCanonical="" services="cloud-services" documentationCenter=".NET" title="Использование счетчиков производительности в Azure" authors="ryanwi" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi" />
 
 # Использование счетчиков производительности в Azure
 
@@ -8,7 +8,7 @@
 для сбора данных, которые позволят определить узкие места системы
 и точно оптимизировать производительность системы и приложения. Счетчики производительности, доступные для Windows Server 2008, Windows Server 2012, IIS и ASP.NET, могут быть собраны и использованы для определения работоспособности приложения Azure.
 
-Счетчики производительности можно настроить перед развертыванием или во время выполнения в Visual Studio 2012 или Visual Studio 2013 с помощью пакета Azure SDK 2.0 или более поздней версии. Дополнительные сведения см. в разделе [Настройка системы диагностики Azure][Настройка системы диагностики Azure]. Сведения о ручной настройке счетчиков производительности в приложении см. в разделе [Настройка счетчиков производительности][Настройка счетчиков производительности].
+Счетчики производительности можно настроить перед развертыванием или во время выполнения в Visual Studio 2012 или Visual Studio 2013 с помощью пакета Azure SDK 2.0 или более поздней версии. Дополнительную информацию см. в разделе [Настройка системы диагностики Azure][Настройка системы диагностики Azure]. Сведения о ручной настройке счетчиков производительности в приложении см. в разделе [Настройка счетчиков производительности][Настройка счетчиков производительности].
 
 Подробнее о создании стратегии ведения журналов и трассировки и об использовании средств диагностики и других методик для устранения неполадок см. в разделе [Советы и рекомендации по устранению неполадок при разработке приложений Azure][Советы и рекомендации по устранению неполадок при разработке приложений Azure].
 

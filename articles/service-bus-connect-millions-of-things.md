@@ -1,6 +1,6 @@
-<properties pageTitle="Connect Millions of Things to the Cloud" metaKeywords="Service Bus, internet of things" description="Learn how to connect millions of things to the cloud using Microsoft Azure." services="service-bus" documentationCenter=".NET" title="Connect Millions of Things to the Cloud" authors="sethm" solutions="" manager="dwrede" editor="mattshel" />
+<properties pageTitle="Подключение миллионов &quot;вещей&quot; к облаку" metaKeywords="Service Bus, internet of things" description="Узнайте, как подключить миллионы &quot;вещей&quot; к облаку с помощью Microsoft Azure." services="service-bus" documentationCenter=".NET" title="Подключение миллионов &quot;вещей&quot; к облаку" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="sethm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
 # Подключение миллионов "вещей" к облаку
 

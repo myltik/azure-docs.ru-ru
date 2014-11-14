@@ -1,6 +1,6 @@
-<properties linkid="develop-php-table-service" urlDisplayName="Table Service" pageTitle="How to use table storage (PHP) | Microsoft Azure" metaKeywords="Azure Table service PHP, Azure creating table, Azure deleting table, Azure insert table, Azure query table" description="Learn how to use the Table service from PHP to create and delete a table, and insert, delete, and query the table." metaCanonical="" services="storage" documentationCenter="PHP" title="How to use the Table service from PHP" authors="" solutions="" manager="" editor="" />
+<properties urlDisplayName="Table Service" pageTitle="Использование табличного хранилища (PHP) &mdash; Microsoft Azure" metaKeywords="Azure Table service PHP, Azure creating table, Azure deleting table, Azure insert table, Azure query table" description="Вы узнаете, как использовать службу таблиц в PHP для создания и удаления таблиц, вставки, удаления строк и создания запросов для таблиц." metaCanonical="" services="storage" documentationCenter="PHP" title="Использование службы таблиц в PHP" authors="tamram" solutions="" manager="adinah" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # Использование службы таблиц в PHP
 
@@ -487,9 +487,7 @@
   [Практическое руководство. Обновление сущности]: #UpdateEntity
   [Практическое руководство. Пакетные операции с таблицами]: #BatchOperations
   [Практическое руководство. Удаление таблицы]: #DeleteTable
-  [руководство-таблица-хранилище]: ../includes/howto-table-storage.md
-  [создание-хранилище-учетная запись]: ../includes/create-storage-account.md
-  [получение-клиент-библиотеки]: ../includes/get-client-libraries.md
+  [require\_once]: http://php.net/require_once
   [Настройка времени ожидания для операций службы таблиц]: http://msdn.microsoft.com/ru-ru/library/windowsazure/dd894042.aspx
   [Общие сведения о модели данных службы таблиц]: http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179338.aspx
   [Запросы таблиц и сущностей]: http://msdn.microsoft.com/ru-ru/library/windowsazure/dd894031.aspx

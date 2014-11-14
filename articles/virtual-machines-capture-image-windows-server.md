@@ -1,6 +1,6 @@
-<properties linkid="manage-windows-howto-capture-an-image" urlDisplayName="Capture an image" pageTitle="Capture an image of a virtual machine running Windows Server" metaKeywords="Azure capture image vm, capturing vm" description="Learn how to capture an image of an Azure virtual machine (VM) running Windows Server 2008 R2. " metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Capture an Image of a Virtual Machine Running Windows Server" authors="kathydav" solutions="" manager="jeffreyg" editor="tysonn" />
+<properties urlDisplayName="Capture an image" pageTitle="Запись образа виртуальной машины под управлением Windows Server" metaKeywords="Azure capture image vm, capturing vm" description="Узнайте, как записать образ виртуальной машины (ВМ) Azure под управлением Windows Server 2008 R2. " metaCanonical="" services="virtual-machines" documentationCenter="" title="Как записать образ виртуальной машины под управлением Windows Server" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav" />
 
 # Как записать виртуальную машину Windows, чтобы использовать в качестве шаблона
 

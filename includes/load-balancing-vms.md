@@ -1,6 +1,6 @@
-<properties title="Load Balancing for Azure Infrastructure Services" pageTitle="Load Balancing for Azure Infrastructure Services" description="Describes the facilities to perform load balancing with Traffic Manager and load balancer." metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="josephd" videoId="" scriptId="" manager="timlt" />
+<properties title="Балансировка нагрузки для служб инфраструктуры Azure" pageTitle="Балансировка нагрузки для служб инфраструктуры Azure" description="Описываются возможности для осуществления балансировки нагрузки с помощью Traffic Manager и специализированных средств балансировки нагрузки." metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="cherylmc" videoId="" scriptId="" manager="adinah" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="josephd"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="cherylmc" />
 
 # Балансировка нагрузки для служб инфраструктуры Azure
 
@@ -17,8 +17,8 @@
 
 Диспетчер трафика Azure использует три метода балансировки нагрузки для распределения трафика:
 
--   **Отработка отказа**: применяйте этот метод, если хотите использовать первичную конечную точку для всего трафика, но обеспечьте резервное копирование на случай, если первичная точка станет недоступной.
--   **Производительность**: применяйте этот метод, если у вас есть конечные точки в разных географических расположениях, и вы хотите, чтобы запрашивающие клиенты использовали «ближайшую» конечную точку, что обеспечивает минимальную задержку.
+-   **Отработка отказа**. применяйте этот метод, если хотите использовать первичную конечную точку для всего трафика, но обеспечьте резервное копирование на случай, если первичная точка станет недоступной.
+-   **Производительность**. применяйте этот метод, если у вас есть конечные точки в разных географических расположениях, и вы хотите, чтобы запрашивающие клиенты использовали «ближайшую» конечную точку, что обеспечивает минимальную задержку.
 -   **Циклический перебор:** применяйте этот метод, если хотите распределять нагрузку по набору облачных служб в одном центре обработки данных или между облачными службами и веб-сайтами в разных центрах обработки данных.
 
 Дополнительную информацию см. в разделе [О методах балансировки нагрузки диспетчера трафика][О методах балансировки нагрузки диспетчера трафика].

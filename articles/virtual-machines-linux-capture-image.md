@@ -1,8 +1,8 @@
-<properties linkid="manage-linux-howto-capture-an-image" urlDisplayName="Capture an image" pageTitle="Capture an image of a virtual machine running Linux" metaKeywords="Azure Linux vm, Linux vm" description="Learn how to capture an image of an Azure virtual machine (VM) running Linux. " metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Capture an Image of a Virtual Machine Running Linux" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
+<properties urlDisplayName="Capture an image" pageTitle="Запись образа виртуальной машины под управлением Linux" metaKeywords="Azure Linux vm, Linux vm" description="Узнайте, как записать образ виртуальной машины (ВМ) Azure под управлением Linux. " metaCanonical="" services="virtual-machines" documentationCenter="" title="Как записать образ виртуальной машины под управлением Linux" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav" />
 
-# Как записать виртуальную машину Linux, чтобы использовать в качестве шаблона
+# Запись образа виртуальной машины Linux для использования в качестве шаблона
 
 В этой статье показано, как записать виртуальную машину Linux, чтобы использовать ее в качестве шаблона при создании других виртуальных машин. Данный шаблон виртуальной машины включает в себя диск операционной системы и прочие диски данных, присоединенные к виртуальной машине. Он не включает в себя сетевую конфигурацию, поэтому ее необходимо настроить при создании других виртуальных машин, использующих шаблон.
 

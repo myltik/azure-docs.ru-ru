@@ -1,10 +1,10 @@
-<properties linkid="develop-media-services-how-to-guides-create-assets" urlDisplayName="Create Encrypted Asset and Upload to Storage" pageTitle="Create Encrypted Asset and Upload to Storage Azure" metaKeywords="" description="Learn how to get media content into Media Services by creating and uploading an encrypted asset." metaCanonical="" services="media-services" documentationCenter="" title="How to: Create an encrypted Asset and upload to storage" authors="migree" solutions="" manager="" editor="" />
+<properties urlDisplayName="Create Encrypted Asset and Upload to Storage" pageTitle="Создание зашифрованного актива и его отправка в хранилище Azure" metaKeywords="" description="Узнайте, как включить контент мультимедиа в службы мультимедиа, создав и отправив зашифрованный актив." metaCanonical="" services="media-services" documentationCenter="" title="Практическое руководство: Создание зашифрованного актива и его отправка в хранилище" authors="juliako" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree"/>
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
 
 # <a name="create-asset"> </a><span class="short header">Практическое руководство. Создание зашифрованного актива и его отправка в хранилище</span>
 
-Эта статья является частью серии вводных статей о программировании служб мультимедиа в Azure. Предыдущая статья: [Настройка компьютера для служб мультимедиа][].
+Эта статья является частью серии вводных статей о программировании служб мультимедиа в Azure. Предыдущая статья: [Настройка компьютера для служб мультимедиа][Настройка компьютера для служб мультимедиа].
 
 Чтобы загрузить мультимедиа-контент в службы мультимедиа, сначала создайте актив и добавьте в него файлы, а затем отправьте актив в службы мультимедиа. Этот процесс называется "потреблением контента".
 
@@ -14,7 +14,8 @@
 -   **AssetCreationOptions.CommonEncryptionProtected**: для файлов CENC. Примером служит набор файлов, уже зашифрованных PlayReady.
 -   **AssetCreationOptions.StorageEncrypted**: шифрование хранилища. Шифрование входного файла до его загрузки в хранилище Azure.
 
-**ПРИМЕЧАНИЕ**: Службы мультимедиа обеспечивают шифрование хранилища на диске, а не по сети, как технология управления цифровыми правами (DRM).
+> WACOM.NOTE
+> Службы мультимедиа обеспечивают шифрование активов на диске в хранилище, в отличие от шифрования при передаче по сети, как в Digital Rights Manager (DRM).
 
 Пример кода ниже выполняет следующие действия:
 
@@ -113,7 +114,7 @@
 
 ## Дальнейшие действия
 
-После загрузки актива в службы мультимедиа перейдите к статье [Получение процессора мультимедиа][].
+После загрузки актива в службы мультимедиа перейдите к статье [Получение процессора мультимедиа][Получение процессора мультимедиа].
 
   [Настройка компьютера для служб мультимедиа]: http://go.microsoft.com/fwlink/?LinkID=301751&clcid=0x409
-  [Получение процессора мультимедиа]: http://go.microsoft.com/fwlink/?LinkID=301732&clcid=0x409
+  [Получение процессора мультимедиа]: ../media-services-get-media-processor/

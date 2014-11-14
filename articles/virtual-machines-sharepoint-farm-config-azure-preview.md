@@ -1,13 +1,13 @@
-<properties title="SharePoint Server Farm Configuration Details" pageTitle="SharePoint Server Farm Configuration Details" description="Describes the default configuration of SharePoint farms" metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="josephd" videoId="" scriptId="" />
+<properties title="Сведения о конфигурации фермы серверов SharePoint" pageTitle="Сведения о конфигурации фермы серверов SharePoint" description="Описывается конфигурация по умолчанию для ферм SharePoint." metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="josephd" videoId="" scriptId="" manager="timlt"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-sharepoint" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="josephd"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-sharepoint" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="josephd" />
 
 # Сведения о конфигурации фермы серверов SharePoint
 
 Ферма серверов SharePoint — это компонент портала предварительной версии Microsoft Azure, автоматически создающий предварительно настроенную ферму SharePoint Server 2013. Существует две следующих конфигурации фермы:
 
 -   базовая;
--   высокодоступная.
+-   Высокодоступная ферма SharePoint
 
 В следующих сценариях предоставляются сведения о конфигурации для каждой фермы.
 
@@ -26,7 +26,7 @@
 -   Учетная запись хранения: задается при первоначальной настройке.
 -   Виртуальная сеть
 
-    -   Тип: только для облака
+    -   Введите: только для облака
     -   Адресное пространство: 192.168.16.0/26
 -   Виртуальные машины
 
@@ -69,7 +69,7 @@
 -   Учетная запись хранения: задается при первоначальной настройке.
 -   Виртуальная сеть
 
-    -   Тип: только для облака
+    -   Введите: только для облака
     -   Адресное пространство: 192.168.16.0/26
 -   Виртуальные машины
 

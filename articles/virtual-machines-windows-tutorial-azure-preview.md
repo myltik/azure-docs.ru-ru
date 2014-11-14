@@ -1,12 +1,12 @@
-<properties linkid="virtual-machines-windows-tutorial-azure-preview" urlDisplayName="Create a virtual machine in the Preview Portal" pageTitle="Create a virtual machine running Windows Server in the Azure Preview Portal" metaKeywords="Azure image gallery vm" description="Learn how to create an Azure virtual machine (VM) running Windows Server, using the VM Gallery in the Azure Preview Portal" metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="danlep,kathydav" solutions="" manager="dongill" editor="tysonn" />
+<properties urlDisplayName="Create a virtual machine in the Preview Portal" pageTitle="Создание виртуальной машины под управлением Windows на портале предварительной версии Azure" metaKeywords="Azure image gallery vm" description="Узнайте, как создать виртуальную машину Azure под управлением Windows, используя коллекцию виртуальных машин на портале предварительной версии Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Создание виртуальной машины под управлением Windows на портале предварительной версии Azure" authors="danlep,kathydav,rasquill" solutions="" manager="timlt" editor="tysonn" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="danlep,kathydav"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="09/16/2014" ms.author="danlep,kathydav,rasquill" />
 
-# Создание виртуальной машины под управлением Windows Server на портале предварительной версии Azure
+# Создание виртуальной машины под управлением Windows на портале предварительной версии Azure
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/ru-ru/documentation/articles/virtual-machines-windows-tutorial/" title="Портал Аzure"> Портал Аzure</a><a href="/ru-ru/documentation/articles/virtual-machines-windows-tutorial-azure-preview/" title=" Портал предварительной версии Azure" class="current"> Портал предварительной версии Azure</a></div>
 
-В этом учебнике показано, насколько просто создавать виртуальные машины Azure (ВМ) под управлением Windows Server с использованием коллекции образов ВМ на портале предварительной версии Azure. Коллекция образов содержит широкое разнообразие образов, в том числе операционные системы Windows, операционные системы на основе Linux, а также образы приложений.
+В этом учебнике показано, насколько просто создавать виртуальные машины Azure (ВМ) под управлением Windows, используя в качестве примера образ Windows Server из коллекции образов на портале предварительной версии Azure. Коллекция образов содержит широкое разнообразие образов, в том числе операционные системы Windows, операционные системы на основе Linux, а также образы приложений.
 
 > [WACOM.NOTE] Вам не требуется опыт работы с виртуальными машинами Azure при использовании этого руководства. Однако необходимо иметь учетную запись Azure. Вы можете создать бесплатную пробную учетную запись всего за несколько минут. Подробную информацию см. в разделе [Создание учетной записи Azure][Создание учетной записи Azure].
 
@@ -19,7 +19,9 @@
 
 ## <span id="createvirtualmachine"></span> </a>Создание виртуальной машины
 
-В этом разделе показывается использование портала предварительной версии для создания ВМ под управлением Windows Server. Для большей части параметров конфигурации можно использовать значения по умолчанию Azure и создать ВМ буквально за несколько минут.
+В этом разделе показывается использование портала предварительной версии для создания виртуальной машины, используя в качестве примера Windows Server. Для большей части параметров конфигурации можно использовать значения по умолчанию Azure и создать ВМ буквально за несколько минут.
+
+> [WACOM.NOTE] Количество и тип образов, доступных в коллекции, зависит от вашей подписки. В этом учебнике используется образ Windows Server, однако для подписки MSDN могут быть доступны дополнительные образы, включая образы рабочего стола.
 
 1.  Выполните вход на [портал предварительной версии Azure][портал предварительной версии Azure]. Если у вас еще нет подписки, см. предложение [бесплатной пробной версии][бесплатной пробной версии].
 
@@ -89,8 +91,8 @@
 
 [Управление доступностью виртуальных машин][Управление доступностью виртуальных машин]
 
-  [Портал Аzure]: /ru-ru/documentation/articles/virtual-machines-windows-tutorial/ "Портал Аzure"
-  [Портал предварительной версии Azure]: /ru-ru/documentation/articles/virtual-machines-windows-tutorial-azure-preview/ " Портал предварительной версии Azure"
+[Сведения о параметрах конфигурации виртуальной машины Azure][Сведения о параметрах конфигурации виртуальной машины Azure]
+
   [Создание учетной записи Azure]: http://www.windowsazure.com/ru-ru/develop/php/tutorials/create-a-windows-azure-account/
   [Создание виртуальной машины]: #createvirtualmachine
   [Как войти в систему на виртуальной машине после ее создания]: #logon
@@ -111,3 +113,4 @@
   [Создание и отправка собственного виртуального жесткого диска, содержащего операционную систему Windows]: http://www.windowsazure.com/ru-ru/documentation/articles/virtual-machines-create-upload-vhd-windows-server/
   [Присоединение диска данных к виртуальной машине]: http://www.windowsazure.com/ru-ru/documentation/articles/storage-windows-attach-disk/
   [Управление доступностью виртуальных машин]: http://www.windowsazure.com/ru-ru/documentation/articles/manage-availability-virtual-machines/
+  [Сведения о параметрах конфигурации виртуальной машины Azure]: http://msdn.microsoft.com/library/azure/dn763935.aspx

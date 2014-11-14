@@ -1,6 +1,6 @@
-<properties linkid="manage-services-hdinsight-hbase-provision-on-vnet" urlDisplayName="Provision HBase clusters on Azure Virtual Network" pageTitle="Provision HBase clusters on Azure Virtual Network | Azure" metaKeywords="" description="Learn how to create HDInsight clusters on Azure Virtual Network." metaCanonical="" services="hdinsight" documentationCenter="" title="Provision HBase clusters on Azure Virtual Network" authors="jgao" solutions="big-data" manager="paulettm" editor="cgronlun" />
+<properties urlDisplayName="Provision HBase clusters on Azure Virtual Network" pageTitle="Подготовка кластеров HBase в виртуальной сети Azure | Azure" metaKeywords="" description="Узнайте, как создать кластеры HDInsight в виртуальной сети Azure." metaCanonical="" services="hdinsight" documentationCenter="" title="Подготовка кластеров HBase в виртуальной сети Azure" authors="jgao" solutions="big-data" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/21/2014" ms.author="jgao"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/21/2014" ms.author="jgao" />
 
 # Подготовка кластеров HBase в виртуальной сети Azure
 
@@ -12,22 +12,21 @@
 -   повышение производительности без необходимости организации пропуска трафика через множество шлюзов и балансировки нагрузки;
 -   обработка конфиденциальной информации более безопасным способом, без необходимости организации общедоступной конечной точки.
 
-> [WACOM.NOTE] В настоящее время в виртуальных сетях Azure могут быть подготовлены только кластеры HBase. Кластеры Hadoop не поддерживаются.
-
 ## Содержание
 
--   [Предварительные требования][]
--   [Подготовка кластеров HBase в виртуальной сети Azure][]
--   [Подключайтесь к подготовленному в виртуальной сети кластеру HBase с помощью интерфейсов API Java RPC для HBase.][]
--   [Дальнейшие действия][]
+-   [Предварительные требования][Предварительные требования]
+-   [Подготовка кластеров HBase в виртуальной сети Azure][Подготовка кластеров HBase в виртуальной сети Azure]
+-   [Подключайтесь к подготовленному в виртуальной сети кластеру HBase с помощью интерфейсов API Java RPC для HBase.][Подключайтесь к подготовленному в виртуальной сети кластеру HBase с помощью интерфейсов API Java RPC для HBase.]
+-   [Подготовка кластера HBase с помощью PowerShell][Подготовка кластера HBase с помощью PowerShell]
+-   [Дальнейшие действия][Дальнейшие действия]
 
 ## <span id="prerequisites"></span></a>Предварительные требования
 
 Перед началом работы с этим учебником необходимо иметь следующее:
 
--   **Подписка Azure.**. Azure — это платформа на основе подписок. Дополнительные сведения о получении подписки см. в разделах [Варианты приобретения][], [Предложения для участников][] или [Бесплатное пробное использование][].
+-   **Подписка Azure.**. Azure — это платформа на основе подписок. Дополнительные сведения о получении подписки см. в разделах [Варианты приобретения][Варианты приобретения], [Предложения для участников][Предложения для участников] или [Бесплатное пробное использование][Бесплатное пробное использование].
 
--   **Рабочая станция, на которой установлена и настроена среда Azure PowerShell**. Инструкции см. в разделе [Установка и настройка Azure PowerShell][]. Для выполнения скриптов PowerShell необходимо запустить Azure PowerShell с правами администратора и задать политику выполнения *RemoteSigned*. См. раздел [Выполнение скриптов Windows PowerShell][].
+-   **Рабочая станция, на которой установлена и настроена среда Azure PowerShell**. Инструкции см. в разделе [Установка и настройка Azure PowerShell][Установка и настройка Azure PowerShell]. Для выполнения скриптов PowerShell необходимо запустить Azure PowerShell с правами администратора и задать политику выполнения *RemoteSigned*. См. раздел [Выполнение скриптов Windows PowerShell][Выполнение скриптов Windows PowerShell].
 
     Перед выполнением скриптов PowerShell убедитесь, что вы подключены к подписке Azure, с помощью следующего командлета:
 
@@ -41,7 +40,7 @@
 
 **Чтобы создать виртуальную сеть с помощью портала управления:**
 
-1.  Выполните вход на [портал управления Azure][].
+1.  Выполните вход на [портал управления Azure][портал управления Azure].
 2.  В нижней части страницы щелкните **НОВЫЙ**, щелкните **СЕТЕВЫЕ СЛУЖБЫ**, щелкните **ВИРТУАЛЬНАЯ СЕТЬ** и затем **БЫСТРОЕ СОЗДАНИЕ**.
 3.  Введите или выберите следующие значения:
 
@@ -63,11 +62,11 @@
 
 11. Нажмите **Сохранить** в нижней части страницы в том случае, если вы изменяли значения для подсети.
 
-> [WACOM.NOTE] Кластеры HDInsight используют хранилища BLOB-объектов Azure для хранения данных. Дополнительные сведения см. в разделе [Использование хранилища BLOB-объектов Azure с Hadoop в HDInsight][]. Вам понадобится учетная запись хранения и контейнер для хранения BLOB-объектов. Расположение учетной записи хранения должно соответствовать расположению виртуальной сети и кластера.
+> [WACOM.NOTE] Кластеры HDInsight используют хранилища BLOB-объектов Azure для хранения данных. Дополнительные сведения см. в разделе [Использование хранилища BLOB-объектов Azure с Hadoop в HDInsight][Использование хранилища BLOB-объектов Azure с Hadoop в HDInsight]. Вам понадобится учетная запись хранения и контейнер для хранения BLOB-объектов. Расположение учетной записи хранения должно соответствовать расположению виртуальной сети и кластера.
 
 **Чтобы создать учетную запись хранения Azure Storage и контейнер для хранения BLOB-объектов:**
 
-1.  Выполните вход на [портал управления Azure][].
+1.  Выполните вход на [портал управления Azure][портал управления Azure].
 2.  Щелкните **СОЗДАТЬ** в левом нижнем углу, выберите **СЛУЖБЫ ДАННЫХ**, **ХРАНИЛИЩЕ**, а затем щелкните **БЫСТРО СОЗДАТЬ**.
 
 3.  Введите или выберите следующие значения:
@@ -86,7 +85,164 @@
 11. Введите имя контейнера. Этот контейнер будет использоваться в качестве контейнера по умолчанию для кластера HBase. По умолчанию имя контейнера по умолчанию соответствует имени кластера. Значение поля **ДОСТУП** оставьте **Частный**.
 12. Чтобы создать контейнер, поставьте галочку.
 
-**Чтобы подготовить кластер HBase с использованием Azure PowerShell:**
+**Подготовка кластера HBase с помощью портала Azure:**
+
+> [WACOM.NOTE] Для получения информации о подготовке кластера HBase с помощью PowerShell см. раздел [Подготовка кластера HBase с помощью PowerShell][Подготовка кластера HBase с помощью PowerShell].
+
+1.  Выполните вход на [портал управления Azure][портал управления Azure].
+2.  Нажмите кнопку **СОЗДАТЬ** в нижнем левом углу, укажите **СЛУЖБЫ ДАННЫХ**, укажите **HDINSIGHT**, а затем нажмите кнопку **НАСТРАИВАЕМОЕ СОЗДАНИЕ**.
+3.  Введите **ИМЯ КЛАСТЕРА** и выберите пункт **ВЕРСИЯ HDINSIGHT**, чтобы использовать его для кластера.
+
+    ![поля для указания имени кластера и его версии][поля для указания имени кластера и его версии]
+
+4.  Выберите количество **УЗЛЫ ДАННЫХ**, чтобы создать кластер и регион или виртуальную сеть Azure (**РЕГИОН/ВИРТУАЛЬНАЯ СЕТЬ**), чтобы использовать для этого кластера.
+
+    ![поля для указания количества узлов и региона][поля для указания количества узлов и региона]
+
+5.  Введите **ИМЯ ПОЛЬЗОВАТЕЛЯ** и **ПАРОЛЬ** администратора, чтобы использовать их для этого кластера.
+
+    ![поля для указания имени и пароля администратора][поля для указания имени и пароля администратора]
+
+6.  Выберите, какую следует использовать учетную запись хранения: новую или существующую. Если новую, введите **ИМЯ УЧЕТНОЙ ЗАПИСИ** и **КОНТЕЙНЕР ПО УМОЛЧАНИЮ**, чтобы ее создать. Наконец, установите флажок, чтобы создать кластер.
+
+    ![выбор учетной записи хранения][выбор учетной записи хранения]
+
+Чтобы начать работу с новым HBase кластером, можно использовать процедуры, которые представлены в разделе [Приступая к работе с HBase с Hadoop в HDInsight][Приступая к работе с HBase с Hadoop в HDInsight].
+
+## <span id="connect"></span></a>Подключайтесь к подготовленному в виртуальной сети кластеру HBase с помощью интерфейсов API Java RPC для HBase.
+
+1.  Подготовка виртуальной машины IaaS в той же виртуальной сети Azure и той же подсети. Поэтому виртуальная машина и кластер HBase будут использовать один и тот же внутренний сервер DNS для разрешения имен узлов. Чтобы сделать это, необходимо вызвать выбор вариантов из коллекции и выбрать виртуальную сеть вместо центра обработки данных. Инструкции см. в разделе [Создание виртуальной машины под управлением Windows Server][Создание виртуальной машины под управлением Windows Server]. Достаточно стандартного образа Windows Server 2012 с виртуальной машиной небольшого размера.
+
+2.  При использовании Java-приложения для удаленного подключения к HBase необходимо использовать полное доменное имя (FQDN). Чтобы это определить, мы должны получить DNS-суффикс для подключения HBase кластера. Для этого используется программа Curl, предназначенная для формирования запроса Ambari, или удаленный рабочий стол для подключения к кластеру.
+
+    -   **Curl** — используйте следующую команду:
+
+            curl -u <username>:<password> -k https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/services/hbase/components/hbrest
+
+        В возвращенных данных JSON найдите запись "host\_name" (имя хоста). Она будет содержать полное доменное имя (FQDN) для узлов кластера. Например:
+
+            ...
+            "host_name": "wordkernode0.<clustername>.b1.cloudapp.net
+            ...
+
+        Часть доменного имени, начинающаяся с имени кластера, является DNS-суффиксом. Например, mycluster.b1.cloudapp.net.
+
+    -   **PowerShell** — используйте следующий скрипт PowerShell для регистрации функции **Get-ClusterDetail**, которая может быть использована для возвращения DNS-суффикса.
+
+            function Get-ClusterDetail(
+                [String]
+                [Parameter( Position=0, Mandatory=$true )]
+                $ClusterDnsName,
+                [String]
+                [Parameter( Position=1, Mandatory=$true )]
+                $Username,
+                [String]
+                [Parameter( Position=2, Mandatory=$true )]
+                $Password,
+                [String]
+                [Parameter( Position=3, Mandatory=$true )]
+                $PropertyName
+                )
+            {
+            <#
+                .SYNOPSIS 
+                 Displays information to facilitate HDInsight cluster to cluster scinario within same virtual network.
+                .Description
+                 This command shows following 4 properties of an HDInsight cluster.
+                 1. ZookeeperQuorum (only support HBase type cluster)
+                    Shows the value of hbase property "hbase.zookeeper.quorum".
+                 2. ZookeeperClientPort (only support HBase type cluster)
+                    Shows the value of hbase property "hbase.zookeeper.property.clientPort".
+                 3. HBaseRestServers (only support HBase type cluster)
+                    Shows a list of host FQDNs which run HBase rest server.
+                 4. FQDNSuffix (support all type cluster)
+                    Shows FQDN suffix of hosts in the cluster.
+                .EXAMPLE
+                 Get-ClusterDetail -ClusterDnsName {clusterDnsName} -Username {username} -Password {password} -PropertyName ZookeeperQuorum
+                 This command shows the value of hbase property "hbase.zookeeper.quorum".
+                .EXAMPLE
+                 Get-ClusterDetail -ClusterDnsName {clusterDnsName} -Username {username} -Password {password} -PropertyName ZookeeperClientPort
+                 This command shows the value of hbase property "hbase.zookeeper.property.clientPort".
+                .EXAMPLE
+                 Get-ClusterDetail -ClusterDnsName {clusterDnsName} -Username {username} -Password {password} -PropertyName HBaseRestServers
+                 This command shows a list of host FQDNs which run HBase rest server.
+                .EXAMPLE
+                 Get-ClusterDetail -ClusterDnsName {clusterDnsName} -Username {username} -Password {password} -PropertyName FQDNSuffix
+                 This command shows FQDN suffix of hosts in the cluster.
+            #>
+
+                $DnsSuffix = ".azurehdinsight.net"
+
+                $ClusterFQDN = $ClusterDnsName + $DnsSuffix
+                $webclient = new-object System.Net.WebClient
+                $webclient.Credentials = new-object System.Net.NetworkCredential($Username, $Password)
+
+                if($PropertyName -eq "ZookeeperQuorum")
+                {
+                    $Url = "https://" + $ClusterFQDN + "/ambari/api/v1/clusters/" + $ClusterFQDN + "/configurations?type=hbase-site&tag=default&fields=items/properties/hbase.zookeeper.quorum"
+                    $Response = $webclient.DownloadString($Url)
+                    $JsonObject = $Response | ConvertFrom-Json
+                    Write-host $JsonObject.items[0].properties.'hbase.zookeeper.quorum'
+                }
+                if($PropertyName -eq "ZookeeperClientPort")
+                {
+                    $Url = "https://" + $ClusterFQDN + "/ambari/api/v1/clusters/" + $ClusterFQDN + "/configurations?type=hbase-site&tag=default&fields=items/properties/hbase.zookeeper.property.clientPort"
+                    $Response = $webclient.DownloadString($Url)
+                    $JsonObject = $Response | ConvertFrom-Json
+                    Write-host $JsonObject.items[0].properties.'hbase.zookeeper.property.clientPort'
+                }
+                if($PropertyName -eq "HBaseRestServers")
+                {
+                    $Url1 = "https://" + $ClusterFQDN + "/ambari/api/v1/clusters/" + $ClusterFQDN + "/configurations?type=hbase-site&tag=default&fields=items/properties/hbase.rest.port"
+                    $Response1 = $webclient.DownloadString($Url1)
+                    $JsonObject1 = $Response1 | ConvertFrom-Json
+                    $PortNumber = $JsonObject1.items[0].properties.'hbase.rest.port'
+
+                    $Url2 = "https://" + $ClusterFQDN + "/ambari/api/v1/clusters/" + $ClusterFQDN + "/services/hbase/components/hbrest"
+                    $Response2 = $webclient.DownloadString($Url2)
+                    $JsonObject2 = $Response2 | ConvertFrom-Json
+                    foreach ($host_component in $JsonObject2.host_components)
+                    {
+                        $ConnectionString = $host_component.HostRoles.host_name + ":" + $PortNumber
+                        Write-host $ConnectionString
+                    }
+                }
+                if($PropertyName -eq "FQDNSuffix")
+                {
+                    $Url = "https://" + $ClusterFQDN + "/ambari/api/v1/clusters/" + $ClusterFQDN + "/services/yarn/components/resourcemanager"
+                    $Response = $webclient.DownloadString($Url)
+                    $JsonObject = $Response | ConvertFrom-Json
+                    $FQDN = $JsonObject.host_components[0].HostRoles.host_name
+                    $pos = $FQDN.IndexOf(".")
+                    $Suffix = $FQDN.Substring($pos + 1)
+                    Write-host $Suffix
+                }
+            }
+
+        После запуска сценария PowerShell используйте следующую команду, чтобы вернуть DNS-суффикс с помощью функции Get-ClusterDetail. При использовании этой команды укажите имя кластера HDInsight HBase, имя и пароль администратора.
+
+            Get-ClusterDetail -ClusterDnsName <yourclustername> -PropertyName FQDNSuffix -Username <clusteradmin> -Password <clusteradminpassword>
+
+        В результате будет возвращен DNS-суффикс. Например, **yourclustername.b4.internal.cloudapp.net**.
+
+    > [WACOM.NOTE] Для подключения к кластеру HBase (вы будете подключены к headnode) и запуска команды **ipconfig** из командной строки с целью получения DNS-суффикса также может использоваться удаленный рабочий стол. Для получения инструкций по включению удаленного рабочего стола и подключению к кластеру, см. раздел [Управление кластерами Hadoop в HDInsight с помощью портала управления Azure][Управление кластерами Hadoop в HDInsight с помощью портала управления Azure].
+    >
+    > ![hdinsight.hbase.dns.surffix][hdinsight.hbase.dns.surffix]
+
+<!--  3.  Change the Primary DNS Suffix configuration of the virtual machine. This enables virtual machine to automatically resolve the host name of the HBase cluster without explicit specification of the suffix. For example, the *workernode0* host name will be correctly resolved to the workernode0 of the HBase cluster.       To make the configuration change:      1. RDP into the virtual machine.      2. Open **Local Group Policy Editor**. The executable is gpedit.msc.     3. Expand **Computer Configuration**, expand **Administrative Templates**, expand **Network**, and then click **DNS Client**.      - Set **Primary DNS Suffix** to the value obtained in the step 2:           ![hdinsight.hbase.primary.dns.suffix][img-primary-dns-suffix]     4. Click **OK**.      5. Reboot the virtual machine. -->
+
+Для обеспечения обмена данными между виртуальной машиной и кластером HBase используйте следующую команду `ping headnode0.<dns suffix>`, запущенную на виртуальной машине. Например, ping headnode0.mycluster.b1.cloudapp.net
+
+Чтобы использовать эту информацию в Java-приложении, для создания приложения можно придерживаться шагов, представленных в разделе [Использование Maven для создания Java-приложений, использующих HBase с HDInsight (Hadoop)][Использование Maven для создания Java-приложений, использующих HBase с HDInsight (Hadoop)]. Для того чтобы приложение подключилось к удаленному серверу HBase, измените в этом примере файл **hbase-site.xml**, чтобы использовать полное доменное имя для ZooKeeper. Например:
+
+    <property>
+        <name>hbase.zookeeper.quorum</name>
+        <value>zookeeper0.<dns suffix>,zookeeper1.<dns suffix>,zookeeper2.<dns suffix></value>
+    </property>
+
+> [WACOM.NOTE] Для получения дополнительной информации о разрешении имен в виртуальных сетях Azure, а также об использовании своего ​​собственного сервера DNS см. раздел [Разрешение имен (DNS)][Разрешение имен (DNS)].
+
+## <span id="powershell"></span></a>Подготовка кластера HBase с помощью Azure PowerShell:\*\*
 
 1.  Откройте интегрированную среду сценариев PowerShell.
 2.  Скопируйте следующую команду и вставьте ее в окно запроса.
@@ -122,58 +278,39 @@
 
     Get-AzureHDInsightCluster
 
-Для тестирования нового кластера HBase вы можете использовать процедуры, указанные в разделе [Приступая к использованию HBase с Hadoop в HDInsight][].
-
-## <span id="connect"></span></a>Подключайтесь к подготовленному в виртуальной сети кластеру HBase с помощью интерфейсов API Java RPC для HBase.
-
-1.  Подготовка виртуальной машины IaaS в той же виртуальной сети Azure и той же подсети. Поэтому виртуальная машина и кластер HBase будут использовать один и тот же внутренний сервер DNS для разрешения имен узлов. Чтобы сделать это, необходимо вызвать выбор вариантов из коллекции и выбрать виртуальную сеть вместо центра обработки данных. Инструкции см. в разделе [Создание виртуальной машины под управлением Windows Server][]. Достаточно стандартного образа Windows Server 2012 с виртуальной машиной небольшого размера.
-
-2.  Получите для кластера HBase суффикс DNS, зависящий от подключения. Для этого подключитесь к кластеру HBase с помощью удаленного рабочего стола (вы подключитесь к головному узлу) и запустите команду **ipconfig** в командной строке. Для получения инструкций по включению удаленного рабочего стола и подключению к кластеру, см. раздел [Управление кластерами Hadoop в HDInsight с помощью портала управления Azure][].
-
-    ![hdinsight.hbase.dns.surffix][]
-
-3.  Измените настройку «Основной DNS-суффикс» виртуальной машины. Это позволяет виртуальной машине автоматически разрешить имя узла кластера HBase без явного задания суффикса. Например, имя узла *workernode0* будет корректно разрешено в workernode0 кластера HBase.
-    Для изменения настройки:
-
-    1.  подключитесь с помощью удаленного рабочего стола к виртуальной машине.
-    2.  Откройте **Редактор локальной групповой политики**. Он запускается командой gpedit.msc.
-    3.  Раскройте **Конфигурация компьютера**, раскройте **Административные шаблоны**, раскройте **Сеть** и выберите**Клиент DNS**.
-    4.  Установите для **Основной DNS-суффикс** значение, полученное на втором шаге:
-
-        ![hdinsight.hbase.primary.dns.suffix][]
-
-    1.  Нажмите кнопку **ОК**.
-    2.  Перезапустите виртуальную машину.
-
-    Теперь виртуальная машина может обмениваться информацией с кластером HBase. Для того чтобы проверить подключение, запустите команду ping headnode0 из виртуальной машины.
-
 ## <span id="nextsteps"></span></a> Дальнейшие действия
 
 В этом учебнике мы изучили способ подготовки кластера HBase. Дополнительные сведения см. на следующих ресурсах:
 
--   [Приступая к работе с HDInsight][]
--   [Подготовка кластеров Hadoop в HDInsight][]
--   [Приступая к использованию HBase с Hadoop в HDInsight][]
--   [Анализ мнений пользователей Twitter с использованием HBase в HDInsight][]
--   [Обзор виртуальной сети][].
+-   [Приступая к работе с HDInsight][Приступая к работе с HDInsight]
+-   [Подготовка кластеров Hadoop в HDInsight][Подготовка кластеров Hadoop в HDInsight]
+-   [Начало работы с использованием HBase с Hadoop в HDInsight][Приступая к работе с HBase с Hadoop в HDInsight]
+-   [Анализ мнений пользователей Twitter с использованием HBase в HDInsight][Анализ мнений пользователей Twitter с использованием HBase в HDInsight]
+-   [Обзор виртуальной сети][Обзор виртуальной сети].
 
   [Предварительные требования]: #prerequisites
   [Подготовка кластеров HBase в виртуальной сети Azure]: #hbaseprovision
   [Подключайтесь к подготовленному в виртуальной сети кластеру HBase с помощью интерфейсов API Java RPC для HBase.]: #connect
+  [Подготовка кластера HBase с помощью PowerShell]: #powershell
   [Дальнейшие действия]: #nextsteps
-  [Варианты приобретения]: http://azure.microsoft.com/en-us/pricing/purchase-options/
-  [Предложения для участников]: http://azure.microsoft.com/en-us/pricing/member-offers/
-  [Бесплатное пробное использование]: http://azure.microsoft.com/en-us/pricing/free-trial/
+  [Варианты приобретения]: http://azure.microsoft.com/ru-ru/pricing/purchase-options/
+  [Предложения для участников]: http://azure.microsoft.com/ru-ru/pricing/member-offers/
+  [Бесплатное пробное использование]: http://azure.microsoft.com/ru-ru/pricing/free-trial/
   [Установка и настройка Azure PowerShell]: ../install-configure-powershell
-  [Выполнение скриптов Windows PowerShell]: http://technet.microsoft.com/en-us/library/ee176949.aspx
+  [Выполнение скриптов Windows PowerShell]: http://technet.microsoft.com/ru-ru/library/ee176949.aspx
   [портал управления Azure]: https://manage.windowsazure.com
   []: http://msdn.microsoft.com/library/azure/jj156088.aspx
   [Использование хранилища BLOB-объектов Azure с Hadoop в HDInsight]: ../hdinsight-use-blob-storage/
-  [Приступая к использованию HBase с Hadoop в HDInsight]: ../hdinsight-hbase-get-started/
+  [поля для указания имени кластера и его версии]: ./media/hdinsight-hbase-provision-vnet/hbasewizard1.png
+  [поля для указания количества узлов и региона]: ./media/hdinsight-hbase-provision-vnet/hbasewizard2.png
+  [поля для указания имени и пароля администратора]: ./media/hdinsight-hbase-provision-vnet/hbasewizard3.png
+  [выбор учетной записи хранения]: ./media/hdinsight-hbase-provision-vnet/hbasewizard4.png
+  [Приступая к работе с HBase с Hadoop в HDInsight]: ../hdinsight-hbase-get-started/
   [Создание виртуальной машины под управлением Windows Server]: ../virtual-machines-windows-tutorial/
   [Управление кластерами Hadoop в HDInsight с помощью портала управления Azure]: ../hdinsight-administer-use-management-portal/#rdp
   [hdinsight.hbase.dns.surffix]: ./media/hdinsight-hbase-provision-vnet/DNSSuffix.png
-  [hdinsight.hbase.primary.dns.suffix]: ./media/hdinsight-hbase-provision-vnet/PrimaryDNSSuffix.png
+  [Использование Maven для создания Java-приложений, использующих HBase с HDInsight (Hadoop)]: azure.microsoft.com/ru-ru/documentation/articles/hdinsight-hbase-build-java-maven/
+  [Разрешение имен (DNS)]: http://msdn.microsoft.com/ru-ru/library/azure/jj156088.aspx
   [Приступая к работе с HDInsight]: ../hdinsight-get-started/
   [Подготовка кластеров Hadoop в HDInsight]: ../hdinsight-provision-clusters/
   [Анализ мнений пользователей Twitter с использованием HBase в HDInsight]: ../hdinsight-hbase-twitter-sentiment/

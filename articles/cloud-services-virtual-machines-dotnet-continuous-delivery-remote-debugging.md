@@ -1,12 +1,12 @@
-<properties linkid="cloud-services-virtual-machines-dotnet-continuous-delivery-remote-debugging" urlDisplayName="Enable remote debugging with continuous delivery" pageTitle="Enable remote debugging with continuous delivery" metaKeywords="" description="Learn how to enable remote debugging when using continuous delivery to deploy to Azure." metaCanonical="" services="cloud-services,virtual machines" documentationCenter=".NET" title="Enable remote debugging when using continuous delivery to publish to Azure" authors="ghogen" solutions="" manager="" editor="" />
+<properties urlDisplayName="Enable remote debugging with continuous delivery" pageTitle="Включение удаленной отладки при использовании непрерывной доставки" metaKeywords="" description="Узнайте, как можно включить удаленную отладку при использовании непрерывной доставки, чтобы выполнять развертывание на Azure." metaCanonical="" services="cloud-services,virtual machines" documentationCenter=".NET" title="Включение удаленной отладки при использовании непрерывной доставки для публикации на Azure" authors="kempb" solutions="" manager="douge" editor="" />
 
-<tags ms.service="multiple" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ghogen"></tags>
+<tags ms.service="multiple" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="kempb" />
 
 # Включение удаленной отладки при использовании непрерывной доставки для публикации на Azure
 
 При использовании [непрерывной доставки][непрерывной доставки] для публикации на Azure в службе Azure можно включить удаленную отладку. Для этого следует выполнить рассмотренную ниже процедуру.
 
-Содержание раздела:
+Содержание раздела
 
 [Включение удаленной отладки для облачных служб][Включение удаленной отладки для облачных служб]
 

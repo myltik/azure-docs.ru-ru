@@ -1,4 +1,4 @@
-<properties linkid="dev-net-how-to-file-storage" urlDisplayName="File Service" pageTitle="How to use Azure File storage | Microsoft Azure" metaKeywords="Get started Azure file  Azure file share  Azure file shares  Azure file   Azure file storage   Azure file .NET   Azure file C#   Azure file PowerShell" description="Learn how to use Microsoft Azure File storage to create file shares and manage file content. Samples are written in PowerShell and C#." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title="How to use Microsoft Azure File storage in .NET" authors="tamram" manager="mbaldwin" editor="cgronlun" />
+<properties urlDisplayName="File Service" pageTitle="Использование хранилища файлов Azure &mdash; Microsoft Azure " metaKeywords="Get started Azure file  Azure file share  Azure file shares  Azure file   Azure file storage   Azure file .NET   Azure file C#   Azure file PowerShell" description="Вы узнаете, как использовать хранилище файлов Microsoft Azure для создания общих ресурсов файлов и управления содержанием файла.  Примеры написаны на PowerShell и C#. " metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title="Использование хранилища файлов Microsoft Azure в .NET " authors="tamram" manager="adinah" editor="cgronlun" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
@@ -55,7 +55,7 @@
 
 -   **Формат URL-адреса.** К файлам можно обратиться, используя URL-адреса
     в следующем формате:
-    `https://<storage account>.file.core.windows.net/<share>/<directory/directories>/<file>`
+    <https://>`<storage account>`.file.core.windows.net/`<share>`/`<directory/directories>`/`<file>`
 
     Следующий пример URL-адреса можно использовать для обращения к одному из файлов в
     схеме выше:
@@ -239,7 +239,7 @@ Windows автоматически восстановит подключение
     -   [Справочник API REST службы файлов][Справочник API REST службы файлов]
 
 -   Просмотрите записи в блоге группы хранилища Azure, относящиеся к службе файлов:
-    -   [Введение в службы хранилища файлов Microsoft Azure][Введение в службы хранилища файлов Microsoft Azure]
+    -   [Введение в службы файлов Microsoft Azure][Введение в службы файлов Microsoft Azure]
     -   [Сохраняемые подключения к хранилищу файлов Microsoft Azure][Сохраняемые подключения к хранилищу файлов Microsoft Azure]
 
 -   Просмотрите дополнительные руководства, чтобы изучить дополнительные возможности хранения данных в Azure.
@@ -251,6 +251,7 @@ Windows автоматически восстановит подключение
 </p>
 
   [NuGet]: https://www.nuget.org/packages/WindowsAzure.Storage/
+  [Что такое хранилище файлов?]: #what-is-file-storage
   [Принципы хранилища файлов]: #file-storage-concepts
   [Создание учетной записи хранения Azure]: #create-account
   [Использование PowerShell для создания файлов для общего доступа]: #use-cmdlets
@@ -261,14 +262,13 @@ Windows автоматически восстановит подключение
   [Цели масштабируемости хранилища и производительности Azure]: http://msdn.microsoft.com/ru-ru/library/dn249410.aspx
   [Присвоение имен и ссылки на совместно используемые ресурсы, каталоги, файлы и метаданные]: http://msdn.microsoft.com/ru-ru/library/azure/dn167011.aspx
   [предварительной версии Microsoft Azure]: /ru-ru/services/preview/
-  [создание-хранилище-учетная запись]: ../includes/create-storage-account.md
   [Установка и настройка Azure PowerShell]: /ru-ru/documentation/articles/install-configure-powershell/
   [Создание виртуальной машины под управлением Windows Server]: /ru-ru/documentation/articles/virtual-machines-windows-tutorial/
   [Как войти в систему на виртуальной машине, работающей под управлением Windows Server]: /ru-ru/documentation/articles/virtual-machines-log-on-windows-server/
   [пространствами имен System.IO]: http://msdn.microsoft.com/ru-ru/library/gg145019(v=vs.110).aspx
   [клиентскую библиотеку.NET хранилища Azure]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [Справочник API REST службы файлов]: http://msdn.microsoft.com/ru-ru/library/azure/dn167006.aspx
-  [Введение в службы хранилища файлов Microsoft Azure]: http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx
+  [Введение в службы файлов Microsoft Azure]: http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx
   [Сохраняемые подключения к хранилищу файлов Microsoft Azure]: http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx
   [Хранилища Blob-объектов]: /ru-ru/documentation/articles/storage-dotnet-how-to-use-blobs/
   [Табличного хранилища]: /ru-ru/documentation/articles/storage-dotnet-how-to-use-tables/

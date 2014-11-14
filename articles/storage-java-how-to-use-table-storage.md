@@ -1,6 +1,6 @@
-<properties linkid="dev-java-how-to-use-table-storage" urlDisplayName="Table Service" pageTitle="How to use table storage (Java) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Java, table storage Java" description="Learn how to use the table storage service in Azure. Code samples are written in Java code." metaCanonical="" services="storage" documentationCenter="Java" title="How to use the Table storage service from Java" authors="" solutions="" manager="" editor="" />
+<properties urlDisplayName="Table Service" pageTitle="Использование хранилища таблиц (Java) &mdash; Windows Azure" metaKeywords="Azure table storage service, Azure table service Java, table storage Java" description="Вы узнаете, как использовать службу хранилища таблиц в Azure. Примеры кода написаны на Java." metaCanonical="" services="storage" documentationCenter="Java" title="Вы узнаете, как использовать службы хранилища таблиц, созданные на Java" authors="tamram" solutions="" manager="adinah" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # Использование табличного хранилища из Java
 
@@ -71,7 +71,9 @@
 
 ## <a name="CreateTable"> </a>Практическое руководство. Создание таблицы
 
-Объект **CloudTableClient** позволяет ссылаться на объекты таблиц и сущностей. Следующий код создает объект **CloudTableClient** и использует его для создания нового объекта **CloudTable**, который представляет таблицу с именем "people". (Примечание: Существуют также другие способы создания объектов **CloudStorageAccount**. Дополнительную информацию см. в разделе **CloudStorageAccount** статьи [Справочник по пакету SDK для клиента хранилища Azure][Справочник по пакету SDK для клиента хранилища Azure].)
+Объект **CloudTableClient** позволяет ссылаться на объекты таблиц
+и сущностей. Следующий код создает объект **CloudTableClient** и использует
+его для создания нового объекта **CloudTable**, который представляет таблицу с именем "people". (Примечание. Существуют также другие способы создания объектов **CloudStorageAccount**. Дополнительную информацию см. в разделе **CloudStorageAccount** статьи [Справочник по пакету SDK для клиента хранилища Azure][Справочник по пакету SDK для клиента хранилища Azure].)
 
     try
     {
@@ -578,8 +580,6 @@
   [Практическое руководство. Вставка или замена сущности]: #InsertOrReplace
   [Практическое руководство. Удаление сущности]: #DeleteEntity
   [Практическое руководство. Удаление таблицы]: #DeleteTable
-  [руководство-таблица-хранилище]: ../includes/howto-table-storage.md
-  [создание-хранилище-учетная запись]: ../includes/create-storage-account.md
   [Справочник по пакету SDK для клиента хранилища Azure]: http://dl.windowsazure.com/storage/javadoc/
   [записи блога]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
   [REST API хранилища Azure]: http://msdn.microsoft.com/ru-ru/library/azure/gg433040.aspx

@@ -1,10 +1,14 @@
-<properties linkid="develop-python-blob-service" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Python) | Microsoft Azure" metaKeywords="Azure blob service Python, Azure blobs Python" description="Learn how to use the Azure Blob service to upload, list, download, and delete blobs." metaCanonical="" disqusComments="1" umbracoNaviHide="0" services="storage" documentationCenter="Python" title="How to use the Blob service from Python" authors="huvalo" videoId="" scriptId="" />
+<properties urlDisplayName="Blob Service" pageTitle="Использование хранилища BLOB-объектов (Python) &mdash; Microsoft Azure" metaKeywords="Azure blob service Python, Azure blobs Python" description="Вы узнаете, как использовать службы BLOB-объектов Azure для передачи, перечисления, загрузки и удаления содержимого BLOB-объектов." metaCanonical="" disqusComments="1" umbracoNaviHide="0" services="storage" documentationCenter="Python" title="Использование службы BLOB-объектов в Python" authors="huvalo" videoId="" scriptId="" manager="wpickett" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/19/2014" ms.author="huvalo" />
 
 # Использование службы BLOB-объектов в Python
 
-В этом руководстве показано, как реализовать типичные сценарии с использованием службы BLOB-объектов Azure. Примеры написаны с помощью Python API. Здесь описаны такие сценарии, как **отправка**, **перечисление**, **загрузка** и **удаление** BLOB-объектов. Дополнительные сведения о  BLOB-объектах см. в разделе [Дальнейшие действия][Дальнейшие действия].
+В этом руководстве показано, как реализовать типичные сценарии с использованием
+службы BLOB-объектов Azure. Примеры написаны с помощью
+Python API. Здесь описаны такие сценарии, как **отправка**, **перечисление**,
+**загрузка** и **удаление** BLOB-объектов. Дополнительные сведения о
+ BLOB-объектах см. в разделе [Дальнейшие действия][Дальнейшие действия].
 
 ## Оглавление
 
@@ -29,9 +33,11 @@
 
 **Примечание.** Если нужно установить клиентские библиотеки или Python, см. [Руководство по установке Python][Руководство по установке Python].
 
-Объект **BlobService** позволяет работать с контейнерами и BLOB-объектами. Следующий код создает объект **BlobService**. Добавьте следующий код в начало любого файла Python, из которого планируется получать доступ к хранилищу Azure программным способом:
+Объект **BlobService** позволяет работать с контейнерами и BLOB-объектами.
+Следующий код создает объект **BlobService**. Добавьте следующий код в
+начало любого файла Python, из которого планируется получать доступ к хранилищу Azure программным способом:
 
-    from azure.storage import *
+    from azure.storage import BlobService
 
 Следующий код создает объект **BlobService**, используя имя и ключ доступа учетной записи. Замените "myaccount" и "mykey" на фактические значения учетной записи и ключа.
 
@@ -49,7 +55,8 @@
 
     blob_service.set_container_acl('mycontainer', x_ms_blob_public_access='container')
 
-После этого изменения любой пользователь в Интернете может видеть BLOB-объекты в открытом контейнере, но изменить или удалить их можете только вы.
+После этого изменения любой пользователь в Интернете может видеть BLOB-объекты в открытом
+ контейнере, но изменить или удалить их можете только вы.
 
 ## <a name="upload-blob"> </a>Практическое руководство. Отправка BLOB-объекта в контейнер
 
@@ -63,7 +70,9 @@
 
 ## <a name="list-blob"> </a>Практическое руководство. Перечисление BLOB-объектов в контейнере
 
-Чтобы получить список BLOB-объектов в контейнере, используйте метод **list\_blobs** в цикле **for** для отображения имени каждого BLOB-объекта в контейнере. Следующий код выводит на консоль **имя** и **url-адрес** каждого blob-объекта в контейнере
+Чтобы получить список BLOB-объектов в контейнере, используйте метод **list\_blobs** в цикле
+**for** для отображения имени каждого BLOB-объекта в контейнере. Следующий
+код выводит на консоль **имя** и **url-адрес** каждого blob-объекта в контейнере
 .
 
     blobs = blob_service.list_blobs('mycontainer')
@@ -87,12 +96,14 @@
 
 ## <a name="next-steps"> </a> Дальнейшие действия
 
-Вы изучили основные сведения о хранилище BLOB-объектов. Дополнительные сведения о более сложных задачах по использованию хранилища можно найти по следующим ссылкам.
+Вы изучили основные сведения о хранилище BLOB-объектов. Дополнительные сведения о более сложных задачах по использованию хранилища можно найти по следующим ссылкам
+.
 
 -   См. справочник MSDN: [Хранение данных и доступ к ним в Azure][Хранение данных и доступ к ним в Azure]
 -   Посетите [блог команды разработчиков хранилища Azure][блог команды разработчиков хранилища Azure].
 
   [Дальнейшие действия]: #next-steps
+  [Что такое хранилище BLOB-объектов?]: #what-is
   [Основные понятия]: #concepts
   [Создание учетной записи хранения Azure]: #create-account
   [Практическое руководство: Создание контейнера]: #create-container
@@ -101,8 +112,6 @@
   [Практическое руководство: Загрузка BLOB-объектов]: #download-blobs
   [Практическое руководство: Удаление BLOB-объекта]: #delete-blobs
   [Практическое руководство: Отправка и загрузка больших BLOB-объектов]: #large-blobs
-  [руководство-блоб-объект-хранилище]: ../includes/howto-blob-storage.md
-  [создание-хранилище-учетная запись]: ../includes/create-storage-account.md
   [Руководство по установке Python]: ../python-how-to-install/
   [Хранение данных и доступ к ним в Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/gg433040.aspx
   [блог команды разработчиков хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/

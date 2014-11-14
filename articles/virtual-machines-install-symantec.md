@@ -1,6 +1,6 @@
-<properties title="How to install and configure Symantec Endpoint Protection on an Azure VM" pageTitle="How to install and configure Symantec Endpoint Protection on an Azure VM" description="Describes installing and configuring Symantec Endpoint Protection on a VM in Azure" metaKeywords="" services="virtual machines" solutions="" documentationCenter="" authors="kathydav" videoId="" scriptId="" />
+<properties title="Установка и настройка Symantec Endpoint Protection на виртуальной машине Azure" pageTitle="Установка и настройка Symantec Endpoint Protection на виртуальной машине Azure" description="Описывается установка и настройка Symantec Endpoint Protection на виртуальной машине в Azure" metaKeywords="" services="virtual machines" solutions="" documentationCenter="" authors="kathydav" manager="timlt" videoId="" scriptId="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="7/16/2014" ms.author="kathydav" />
 
 # Установка и настройка Symantec Endpoint Protection на виртуальной машине Azure
 
@@ -8,7 +8,7 @@
 
 Клиент устанавливается как модуль безопасности с помощью агента ВМ. На новой виртуальной машине этот агент будет устанавливаться вместе с клиентом конечной точки. на существующей виртуальной машине без агента необходимо сначала загрузить и установить этот агент. В данной статье рассматриваются обе ситуации.
 
-Если имеется действительная подписка от Symantec, <for an on-premises solution, you can use it to protect your azure virtual machines> Если вы еще не являетесь клиентом, можно зарегистрироваться для получения пробной подписки. Дополнительные сведения об этом решении см. в статье [Symantec Endpoint Protection на платформе Microsoft Azure][Symantec Endpoint Protection на платформе Microsoft Azure]. В этой статье также предоставляются ссылки на сведения о лицензировании и другие инструкции по установке клиента для тех, кто уже является клиентом Symantec.
+При наличии действительной подписки от Symantec для локального решения можно использовать ее для защиты виртуальных машин Azure. Если у вас еще нет подписки, можно зарегистрироваться для получения пробной подписки. Дополнительные сведения об этом решении см. в статье [Symantec Endpoint Protection на платформе Microsoft Azure][Symantec Endpoint Protection на платформе Microsoft Azure]. В этой статье также предоставляются ссылки на сведения о лицензировании и другие инструкции по установке клиента для тех, кто уже является клиентом Symantec.
 
 ## Установка Symantec Endpoint Protection на новой виртуальной машине
 

@@ -1,6 +1,6 @@
-<properties linkid="develop-media-services-tutorials-smooth-streaming-windows-store-app" urlDisplayName="Smooth Streaming Windows Store App" pageTitle="Smooth Streaming Windows Store App - Azure .NET tutorials" metaKeywords="" description="Learn how to use Azure Media Services to create a C# Windows Store application with a XML MediaElement control to playback Smooth Stream content." metaCanonical="" services="media-services" documentationCenter="" title="How to Build a Smooth Streaming Windows Store Application" authors="Michael Greenn" solutions="" manager="" editor="" />
+<properties urlDisplayName="Smooth Streaming Windows Store App" pageTitle="Приложение для магазина Windows с бесперебойной потоковой передачей &mdash; учебники по Azure .NET" metaKeywords="" description="Сведения об использовании служб мультимедиа Azure для создания приложения для магазина Windows на C# с управляющим элементом XML MediaElement для воспроизведения контента Smooth Stream" metaCanonical="" services="media-services" documentationCenter="" title="Создание приложения для магазина Windows с бесперебойной потоковой передачей" authors="juliako" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Michael Greenn"/>
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
 
 # Создание приложения для магазина Windows с бесперебойной потоковой передачей
 
@@ -39,41 +39,18 @@
 
 **Создание проекта для магазина Windows**
 
-1.  Запустите Visual Studio 2012
+1.  Запустите Visual Studio 2012 или более поздней версии.
 2.  В меню **ФАЙЛ** выберите команду **Создать**, а затем — **Проект**.
 3.  В окне "Новый проект" введите или выберите следующие значения:
 
-    <table border="1">
-<tr>
-    <th>Имя</th>
-    <th>Значение</th>
-</tr>
-<tr>
-    <td>Группа шаблонов</td>
-    <td>Installed/Templates/Visual C#/Windows Store</td>
-</tr>
-<tr>
-    <td>Шаблон</td>
-    <td>Пустое приложение (XAML)</td>
-</tr>
-<tr>
-    <td>Имя</td>
-    <td>SSPlayer</td>
-</tr>
-<tr>
-    <td>Расположение</td>
-    <td>C:\SSTutorials</td>
-</tr>
-<tr>
-    <td>Имя решения</td>
-    <td>SSPlayer</td>
-</tr>
-<tr>
-    <td>Создать каталог для решения</td>
-    <td>(выбрано)</td>
-</tr>
-</table></li>
-
+    | Имя                         | Значение                                     |
+    |-----------------------------|----------------------------------------------|
+    | Группа шаблонов             | Installed/Templates/Visual C#/Windows Store |
+    | Шаблон                      | Пустое приложение (XAML)                     |
+    | Имя                         | SSPlayer                                     |
+    | Расположение                | C:\\SSTutorials                              |
+    | Имя решения                 | SSPlayer                                     |
+    | Создать каталог для решения | (выбрано)                                    |
 
 4.  Нажмите кнопку **ОК**.
 
@@ -82,21 +59,10 @@
 1.  В "Обозревателе решений" щелкните правой кнопкой мыши папку **SSPlayer** и выберите **Добавить ссылку**.
 2.  Введите или выберите следующие значения:
 
-    <table border="1">
-<tr>
-    <th>Имя</th>
-    <th>Значение</th>
-</tr>
-<tr>
-    <td>Ссылочная группа</td>
-    <td>Windows/Расширения</td>
-</tr>
-<tr>
-    <td>Справочные материалы</td>
-    <td>Выберите клиентский пакет SDK бесперебойной потоковой передачи Microsoft для Windows 8 и пакет среды выполнения Microsoft Visual C++ 
-    </td>
-</tr>
-</table></li>
+    | Имя                  | Значение                                                                                                                             |
+    |----------------------|--------------------------------------------------------------------------------------------------------------------------------------|
+    | Ссылочная группа     | Windows/Расширения                                                                                                                   |
+    | Справочные материалы | Выберите клиентский пакет SDK бесперебойной потоковой передачи Microsoft для Windows 8 и пакет среды выполнения Microsoft Visual C++ |
 
 3.  Нажмите кнопку **ОК**.
 

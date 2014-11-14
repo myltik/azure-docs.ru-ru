@@ -1,10 +1,8 @@
-<properties linkid="develop-net-tutorials-get-started-vs2013" pageTitle="Get started with Azure Websites for ASP.NET" metaKeywords="" description="This tutorial shows you how to create an ASP.NET web project in Visual Studio 2013 and deploy it to an Azure Website. In less than 15 minutes you'll have an app up and running in the cloud." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Get started with Azure Websites and ASP.NET" authors="tdykstra"  solutions="" manager="wpickett" editor="mollybos"  />
+<properties pageTitle="Приступая к работе с веб-сайтами Azure для ASP.NET" metaKeywords="" description="В данном учебнике демонстрируется, как создать веб-проект ASP.NET в Visual Studio 2013 и развернуть его на веб-сайте Azure. Менее чем за 15 минут вы получите приложение, которое работает в облаке." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Начало работы с веб-сайтами Azure и ASP.NET" authors="tdykstra"  solutions="" manager="wpickett" editor="mollybos"  />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="hero-article" ms.date="01/01/1900" ms.author="tdykstra"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="hero-article" ms.date="09/24/2014" ms.author="tdykstra" />
 
 # Начало работы с веб-сайтами Azure и ASP.NET
-
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/net/tutorials/get-started/" title="Visual Studio 2013" class="current">Visual Studio 2013</a><a href="/en-us/develop/net/tutorials/get-started-vs2012/" title="Visual Studio 2012">Visual Studio 2012</a></div>
 
 В этом учебнике показано, как создать веб-приложение ASP.NET и развернуть его на веб-сайте Azure с помощью Visual Studio 2013 или Visual Studio 2013 для Web Express. Этот учебник разработан для читателей, не имеющих опыта использования Azure или ASP.NET. По завершении изучения этого учебника вы получите простое веб-приложение, работающее в облаке.
 
@@ -25,8 +23,8 @@
   <span class="wa-icon-bulb"></span>
   <h5><a name="note"></a>Для работы с этим учебником требуется учетная запись Azure.</h5>
   <ul>
-    <li>Вы можете <a href="/en-us/pricing/free-trial/?WT.mc_id=A261C142F">открыть учетную запись Azure бесплатно</a> &mdash; вы получаете кредиты, которые можно использовать для опробования платных служб Azure, и даже после израсходования кредитов вы сохраняете учетную запись и возможность использовать бесплатные службы Azure, такие как веб-сайты.</li>
-    <li>Вы имеете возможность <a href="/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F">активировать преимущества подписчика MSDN</a> &mdash; ваша подписка MSDN каждый месяц приносит вам кредиты, которые можно использовать для оплаты за службы Azure.</li>
+    <li>Вы можете <a href="/ru-ru/pricing/free-trial/?WT.mc_id=A261C142F">открыть учетную запись Azure бесплатно</a> &mdash; вы получаете кредиты, которые можно использовать для опробования платных служб Azure, и даже после израсходования кредитов вы сохраняете учетную запись и возможность использовать бесплатные службы Azure, такие как веб-сайты.</li>
+    <li>Вы имеете возможность <a href="/ru-ru/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F">активировать преимущества подписчика MSDN</a> &mdash; ваша подписка MSDN каждый месяц приносит вам кредиты, которые можно использовать для оплаты за службы Azure.</li>
   <ul>
 </div>
 
@@ -39,7 +37,7 @@
 -   [Мониторинг веб-сайта и его управление с помощью портала управления][Мониторинг веб-сайта и его управление с помощью портала управления]
 -   [Дальнейшие действия][Дальнейшие действия]
 
-[WACOM.INCLUDE [установка-sdk-2013-только][установка-sdk-2013-только]]
+[WACOM.INCLUDE [установка-sdk-2013-только](../includes/install-sdk-2013-only.md)]
 
 ## Создание веб-приложения ASP.NET
 
@@ -51,7 +49,7 @@
 
 2.  В меню **Файл** выберите **Новый проект**.
 
-3.  В диалоговом окне **Новый проект** щелкните **C\#** \> **Интернет** \> **Веб-приложение ASP.NET**. При желании вы можете выбрать **Visual Basic**.
+3.  В диалоговом окне **Новый проект** щелкните **C#** \> **Интернет** \> **Веб-приложение ASP.NET**. При желании вы можете выбрать **Visual Basic**.
 
 4.  Убедитесь, что в качестве целевой платформы выбрана **.NET Framework 4.5**.
 
@@ -224,7 +222,7 @@
 
 [Портал управления Azure][Портал управления Azure] — это веб-интерфейс, который позволяет отслеживать службы Azure, например только что созданный вами веб-сайт, и управлять ими. В этом разделе мы познакомимся с тем, что можно сделать в портале.
 
-1.  В браузере перейдите по адресу <http://manage.windowsazure.com></a> и выполните вход с вашими учетными данными Azure.
+1.  В браузере перейдите по адресу [][]<http://manage.windowsazure.com></a> и выполните вход с вашими учетными данными Azure.
 
     Портал отображает список ваших служб Azure.
 
@@ -298,18 +296,13 @@
 
     Веб-приложения в Azure можно выполнять на веб-сайтах, как показано в этом учебнике, а также в облачных службах и на виртуальных машинах. Дополнительные сведения см. в статьях [Модели выполнения Azure][Модели выполнения Azure] и [Веб-сайты Azure, облачные службы и виртуальные машины: когда они используются?][Веб-сайты Azure, облачные службы и виртуальные машины: когда они используются?]
 
-  [Visual Studio 2013]: /en-us/develop/net/tutorials/get-started/ "Visual Studio 2013"
-  [Visual Studio 2012]: /en-us/develop/net/tutorials/get-started-vs2012/ "Visual Studio 2012"
   [Главная страница веб-сайта]: ./media/web-sites-dotnet-get-started-vs2013/deployedandazure.png
-  [открыть учетную запись Azure бесплатно]: /en-us/pricing/free-trial/?WT.mc_id=A261C142F
-  [активировать преимущества подписчика MSDN]: /en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
   [Настройка среды разработки]: #set-up-the-development-environment
   [Создание веб-приложения ASP.NET в Visual Studio]: #create-an-aspnet-web-application
   [Развертывание приложения в Azure]: #deploy-the-application-to-azure
   [Внесение изменений и повторное развертывание]: #make-a-change-and-redeploy
   [Мониторинг веб-сайта и его управление с помощью портала управления]: #monitor-and-manage-the-site-in-the-management-portal
   [Дальнейшие действия]: #next-steps
-  [установка-sdk-2013-только]: ../includes/install-sdk-2013-only.md
   [Схема демонстрирует шаги по созданию проекта и его развертыванию]: ./media/web-sites-dotnet-get-started-vs2013/createdeploydiagram.png
   [Диалоговое окно "Новый проект"]: ./media/web-sites-dotnet-get-started-vs2013/GS13newprojdb.png
   [MVC и Web Forms]: http://www.asp.net/get-started/websites
@@ -336,7 +329,8 @@
   [Выберите "Опубликовать"]: ./media/web-sites-dotnet-get-started-vs2013/choosepublish.png
   [Нажмите кнопку "Опубликовать"]: ./media/web-sites-dotnet-get-started-vs2013/clickpublish.png
   [Панель инструментов веб-публикации одним щелчком]: ./media/web-sites-dotnet-get-started-vs2013/weboneclickpublish.png
-  [Портал управления Azure]: /en-us/services/management-portal/
+  [Портал управления Azure]: /ru-ru/services/management-portal/
+  []: 
   [Вызывается главная страница портала с новым веб-сайтом]: ./media/web-sites-dotnet-get-started-vs2013/portalhome.png
   [Вкладка панели мониторинга веб-сайта портала]: ./media/web-sites-dotnet-get-started-vs2013/portaldashboard.png
   [Настройка]: /ru-ru/documentation/articles/web-sites-configure//
@@ -346,17 +340,17 @@
   [Вкладка настройки веб-сайта портала]: ./media/web-sites-dotnet-get-started-vs2013/portalconfigure.png
   [Масштаб]: /ru-ru/documentation/articles/web-sites-scale/
   [Вкладка Масштаб веб-сайта портала]: ./media/web-sites-dotnet-get-started-vs2013/portalscale.png
-  [Предварительная версия портала Azure]: /en-us/overview/preview-portal/
+  [Предварительная версия портала Azure]: /ru-ru/overview/preview-portal/
   [автоматизации развертывания]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery
   [системы управления версиями]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control
   [Развертывание веб-сайта Azure]: /ru-ru/documentation/articles/web-sites-deploy/"
   [Полная автоматизация (создание реальных облачных приложений в Azure)]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything
-  [Устранение неполадок веб-сайтов Azure в Visual Studio]: /en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/
-  [Развертывание безопасного приложения ASP.NET MVC с членством, OAuth и базой данных SQL на веб-сайте Azure]: /en-us/develop/net/tutorials/web-site-with-sql-database/
+  [Устранение неполадок веб-сайтов Azure в Visual Studio]: /ru-ru/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/
+  [Развертывание безопасного приложения ASP.NET MVC с членством, OAuth и базой данных SQL на веб-сайте Azure]: /ru-ru/develop/net/tutorials/web-site-with-sql-database/
   [Настройка пользовательского имени домена для веб-сайта Azure]: /ru-ru/documentation/articles/web-sites-custom-domain-name/
   [Включение HTTPS для веб-сайта Azure]: http://azure.microsoft.com/ru-ru/documentation/articles/web-sites-configure-ssl-certificate/
   [Настройка веб-сайтов]: http://azure.microsoft.com/ru-ru/documentation/articles/web-sites-configure/
   [ASP.NET SignalR]: http://www.asp.net/signalr
   [Использование SignalR с веб-сайтами Windows Azure]: http://www.asp.net/signalr/overview/signalr-20/getting-started-with-signalr-20/using-signalr-with-windows-azure-web-sites
-  [Модели выполнения Azure]: /en-us/develop/net/fundamentals/compute/
-  [Веб-сайты Azure, облачные службы и виртуальные машины: когда они используются?]: /en-us/manage/services/web-sites/choose-web-app-service/
+  [Модели выполнения Azure]: /ru-ru/develop/net/fundamentals/compute/
+  [Веб-сайты Azure, облачные службы и виртуальные машины: когда они используются?]: /ru-ru/manage/services/web-sites/choose-web-app-service/

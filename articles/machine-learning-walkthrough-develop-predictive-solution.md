@@ -1,6 +1,6 @@
-<properties title="Develop a predictive solution with Azure Machine Learning" pageTitle="Develop a predictive solution with Machine Learning | Azure" description="Walkthrough of how to create a predictive analytics experiment in Azure Machine Learning Studio" metaKeywords="" services="" solutions="" documentationCenter="" authors="garye" videoId="" scriptId="" />
+<properties title="Разработка прогнозирующего решения с помощью машинного обучения Azure" pageTitle="Разработка прогнозирующего решения с помощью машинного обучения | Azure" description="Пошаговое руководство по созданию эксперимента прогнозирующей аналитики в Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye"/>
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
 
 # Разработка прогнозирующего решения с помощью машинного обучения Azure
 
@@ -12,15 +12,15 @@
 
 Будут выполняться следующие действия.
 
-1.  [Создание рабочего пространства ML][]
-2.  [Отправка существующих данных][]
-3.  [Создание нового эксперимента][]
-4.  [Подготовка и оценка моделей][]
-5.  [Публикация веб-службы][]
-6.  [Доступ к веб-службе][]
+1.  [Создание рабочего пространства ML][Создание рабочего пространства ML]
+2.  [Отправка существующих данных][Отправка существующих данных]
+3.  [Создание нового эксперимента][Создание нового эксперимента]
+4.  [Подготовка и оценка моделей][Подготовка и оценка моделей]
+5.  [Публикация веб-службы][Публикация веб-службы]
+6.  [Доступ к веб-службе][Доступ к веб-службе]
 
 Это пошаговое руководство построено на упрощенной версии
-[эксперимента с примером прогнозирования кредитных рисков][], включенного в ML Studio.
+[эксперимента с примером прогнозирования кредитных рисков][эксперимента с примером прогнозирования кредитных рисков], включенного в ML Studio.
 
   [Создание рабочего пространства ML]: ../machine-learning-walkthrough-1-create-ml-workspace/
   [Отправка существующих данных]: ../machine-learning-walkthrough-2-upload-data/

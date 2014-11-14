@@ -1,6 +1,6 @@
-<properties linkid="dev-nodejs-cloud9" urlDisplayName="Deploying with Cloud9" pageTitle="Node.js deploying with Cloud9 - Azure tutorial" metaKeywords="Cloud9 IDE Azure, Azure node.js, Azure node apps" description="Learn how to use Cloud9 IDE to develop, build, and deploy a Node.js application to Azure." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Deploying an Azure App from Cloud9" authors="larryfr" solutions="" manager="" editor="" />
+<properties urlDisplayName="Deploying with Cloud9" pageTitle="Развертывание приложений Node.js с помощью Cloud9 &mdash; Учебник Azure" metaKeywords="Cloud9 IDE Azure, Azure node.js, Azure node apps" description="Узнайте, как использовать Cloud9 IDE для разработки, построения и развертывания приложений Node.js в Azure." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Развертывание приложения Azure из Cloud9" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="wpickett" />
 
 # Развертывание приложения Azure из Cloud9
 
@@ -99,7 +99,7 @@ Cloud9 также интегрируется со службами репози�
 
     ![сохранение файла server.js][сохранение файла server.js]
 
-## Выполнение приложения
+## Запустите приложение
 
 <div class="dev-callout">
 
@@ -327,7 +327,6 @@ Cloud9 специализируется на предоставлении инт
   [запуск в отладчике]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_debug.png
   [окно вывода]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_output.png
   [приложение, выполняющееся в браузере]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_debug_browser.png
-  [создание-учетной-записи azure]: ../includes/create-azure-account.md
   [загрузка параметров публикации]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_choosetypeandcert.png
   [Обзор создания размещенной службы для Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj155995.aspx
   [создание нового развертывания]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_createdeployment.png

@@ -1,12 +1,12 @@
-<properties linkid="manage-windows-tutorial-virtual-machine-gallery" urlDisplayName="Create a virtual machine" pageTitle="Create a virtual machine running Windows Server in Azure" metaKeywords="Azure capture image vm, capturing vm" description="Learn how to capture an image of an Azure virtual machine (VM) running Windows Server. " metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="kathydav" solutions="" manager="dongill" editor="tysonn" />
+<properties urlDisplayName="Create a virtual machine" pageTitle="Создание виртуальной машины под управлением Windows в Azure" metaKeywords="Azure capture image vm, capturing vm" description="Узнайте, как создать виртуальную машину под управлением Windows в Azure, а затем выполнить вход в систему и подключить диск данных." metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="kathydav, rasquill" solutions="" manager="timlt" editor="tysonn" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="09/12/2014" ms.author="kathydav" />
 
-# Создание виртуальной машины под управлением Windows Server
+# Создание виртуальной машины под управлением Windows
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/ru-ru/documentation/articles/virtual-machines-windows-tutorial/" title="Портал Аzure" class="current"> Портал Аzure</a><a href="/ru-ru/documentation/articles/virtual-machines-windows-tutorial-azure-preview/" title=" Портал предварительной версии Azure"> Портал предварительной версии Azure</a></div>
 
-В этом учебнике показано, насколько просто создавать виртуальные машины Azure (ВМ) под управлением Windows Server с использованием коллекции образов на портале управления Azure. Коллекция образов содержит широкое разнообразие образов, в том числе операционные системы Windows, операционные системы на основе Linux, а также образы приложений.
+В этом учебнике показано, насколько просто создавать виртуальные машины Azure (ВМ) под управлением Windows, используя в качестве примера образ Windows Server из коллекции образов на портале управления Azure. Коллекция образов содержит широкое разнообразие образов, в том числе операционные системы Windows, операционные системы на основе Linux, а также образы приложений.
 
 > [WACOM.NOTE] Вам не требуется опыт работы с виртуальными машинами Azure при использовании этого руководства. Однако необходимо иметь учетную запись Azure. Вы можете создать бесплатную пробную учетную запись всего за несколько минут. Подробную информацию см. в разделе [Создание учетной записи Azure][Создание учетной записи Azure].
 
@@ -22,15 +22,17 @@
 
 В этом руководстве рассматривается использование метода **Из коллекции** на портале управления для создания виртуальной машины. Указанный вариант предлагает больший выбор настроек, чем метод **Быстрое создание**. Например, при необходимости присоединить виртуальную машину к виртуальной сети следует использовать параметр **Из коллекции**.
 
-> [WACOM.NOTE] У вас также есть возможность использовать более богатый функционально, настраиваемый [Портал предварительной версии Аzure][Портал предварительной версии Аzure] для создания виртуальной машины, автоматизации развертывания многомашинных шаблонов приложений, применения расширенного мониторинга ВМ, а также диагностических функций и не только. Доступные параметры конфигурации ВМ на двух порталах в значительной степени перекрываются, но не полностью.
+> [WACOM.NOTE] Количество и тип образов, доступных в коллекции, зависит от вашей подписки. В этом учебнике используется образ Windows Server, однако для подписки MSDN могут быть доступны дополнительные образы, включая образы рабочего стола.
 
-[WACOM.INCLUDE [виртуальные-машины-создание-WindowsVM][виртуальные-машины-создание-WindowsVM]]
+> У вас также есть возможность использовать более богатый функционально, настраиваемый [Портал предварительной версии Аzure][Портал предварительной версии Аzure] для создания виртуальной машины, автоматизации развертывания многомашинных шаблонов приложений, применения расширенного мониторинга ВМ, а также диагностических функций и не только. Доступные параметры конфигурации ВМ на двух порталах в значительной степени перекрываются, но не полностью.
+
+[WACOM.INCLUDE [виртуальные-машины-создание-WindowsVM](../includes/virtual-machines-create-WindowsVM.md)]
 
 ## <span id="logon"></span> </a>Как войти в виртуальную машину после ее создания
 
 В настоящем разделе показано, как войти в виртуальную машину для управления ее настройками и приложениями, которые будут на ней выполняться.
 
-[WACOM.INCLUDE [виртуальные-машины-вход-win-сервер][виртуальные-машины-вход-win-сервер]]
+[WACOM.INCLUDE [виртуальные-машины-вход-win-сервер](../includes/virtual-machines-log-on-win-server.md)]
 
 ## <span id="attachdisk"></span> </a>Как присоединить диск данных к новой виртуальной машине
 
@@ -51,6 +53,8 @@
     ![Выбрать «Присоединить» на панели команд][Выбрать «Присоединить» на панели команд]
 
 5.  Значения **Имя виртуальной машины**, **Расположение хранилища**, **Имя файла** и **Настройки кэша узла** уже определены. Достаточно ввести размер диска. Введите **5** в поле **Размер**. Установите флажок, чтобы присоединить пустой диск данных к виртуальной машине.
+
+    > [WACOM.NOTE] Следует заметить, что образы дисков в Azure хранятся в виде BLOB-объектов страниц в хранилище Azure. За пределами Azure для виртуальных жестких дисков может использоваться формат VHD или VHDX. Они также могут быть фиксированными, динамически расширяемыми или дифференцированными. Azure поддерживает диски фиксированного размера в формате VHD. Фиксированный формат размещает логический диск в файле линейно, то есть смещение диска X хранится в смещении BLOB-объекта X. Небольшая сноска в конце BLOB-объекта описывает свойства VHD-файла. Часто фиксированный формат занимает лишнее пространство, поскольку в большинстве дисков есть большие неиспользуемые диапазоны. Однако в Azure VHD-файлы хранятся в разреженном формате. Это позволяет одновременно использовать преимущества и фиксированных, и динамически изменяемых дисков. Дополнительную информацию см. в разделе [Сведения о виртуальных жестких дисках в Azure][Сведения о виртуальных жестких дисках в Azure]
 
     ![Задайте размер виртуальной машины][Задайте размер виртуальной машины]
 
@@ -98,25 +102,34 @@
 
 [Создание и отправка собственного виртуального жесткого диска, содержащего операционную систему Windows][Создание и отправка собственного виртуального жесткого диска, содержащего операционную систему Windows]
 
-[Присоединение диска данных к виртуальной машине][учебнике «Присоединение диска данных»]
-
 [Управление доступностью виртуальных машин][Управление доступностью виртуальных машин]
 
-  [Портал Аzure]: /ru-ru/documentation/articles/virtual-machines-windows-tutorial/ "Портал Аzure"
-  [Портал предварительной версии Azure]: /ru-ru/documentation/articles/virtual-machines-windows-tutorial-azure-preview/ " Портал предварительной версии Azure"
-  [Создание учетной записи Azure]: http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/
+[Сведения о параметрах конфигурации виртуальной машины Azure][Сведения о параметрах конфигурации виртуальной машины Azure]
+
+[ВИДЕО: Приступая к работе с виртуальными жестким дисками — что происходит на самом деле][ВИДЕО: Приступая к работе с виртуальными жестким дисками — что происходит на самом деле]
+
+[ВИДЕО: Вопросы и ответы с Марком Руссиновичем — работает ли ОС Windows в Windows Azure?][ВИДЕО: Вопросы и ответы с Марком Руссиновичем — работает ли ОС Windows в Windows Azure?]
+
+[ВИДЕО: Добавление новой виртуальной машины в веб-ферму с помощью многократно используемых образов][ВИДЕО: Добавление новой виртуальной машины в веб-ферму с помощью многократно используемых образов]
+
+[ВИДЕО: Добавление виртуальных жестких дисков, учетных записей хранения и масштабирование виртуальных машин][ВИДЕО: Добавление виртуальных жестких дисков, учетных записей хранения и масштабирование виртуальных машин]
+
+[ВИДЕО: Скотт Гатри (Scott Guthrie) приступает к работе с виртуальными машинами][ВИДЕО: Скотт Гатри (Scott Guthrie) приступает к работе с виртуальными машинами]
+
+[ВИДЕО: Основные сведения о хранилище и дисках с виртуальными машинами Azure][ВИДЕО: Основные сведения о хранилище и дисках с виртуальными машинами Azure]
+
+  [Создание учетной записи Azure]: http://www.windowsazure.com/ru-ru/develop/php/tutorials/create-a-windows-azure-account/
   [Создание виртуальной машины]: #createvirtualmachine
   [Как войти в систему на виртуальной машине после ее создания]: #logon
   [Как присоединить диск данных к новой виртуальной машине]: #attachdisk
   [Виртуальные машины]: http://go.microsoft.com/fwlink/p/?LinkID=271224
   [Портал предварительной версии Аzure]: https://portal.azure.com
-  [виртуальные-машины-создание-WindowsVM]: ../includes/virtual-machines-create-WindowsVM.md
-  [виртуальные-машины-вход-win-сервер]: ../includes/virtual-machines-log-on-win-server.md
   [учебнике «Присоединение диска данных»]: http://www.windowsazure.com/ru-ru/documentation/articles/storage-windows-attach-disk/
   [Портал управления]: http://manage.windowsazure.com
   [Выбрать MyTestVM]: ./media/virtual-machines-windows-tutorial/selectvm.png
   [Выбрать панель мониторинга]: ./media/virtual-machines-windows-tutorial/dashboard.png
   [Выбрать «Присоединить» на панели команд]: ./media/virtual-machines-windows-tutorial/commandbarattach.png
+  [Сведения о виртуальных жестких дисках в Azure]: http://msdn.microsoft.com/ru-ru/library/azure/dn790344.aspx
   [Задайте размер виртуальной машины]: ./media/virtual-machines-windows-tutorial/emptydisksize.png
   [Присоединить пустой диск]: ./media/virtual-machines-windows-tutorial/disklistwithdatadisk.png
   [Разверните файловые службы и службы хранилища в диспетчере сервера.]: ./media/virtual-machines-windows-tutorial/fileandstorageservices.png
@@ -128,3 +141,10 @@
   [Подключение к виртуальным машинам в облачной службе]: http://www.windowsazure.com/ru-ru/documentation/articles/cloud-services-connect-virtual-machine/
   [Создание и отправка собственного виртуального жесткого диска, содержащего операционную систему Windows]: http://www.windowsazure.com/ru-ru/documentation/articles/virtual-machines-create-upload-vhd-windows-server/
   [Управление доступностью виртуальных машин]: http://www.windowsazure.com/ru-ru/documentation/articles/manage-availability-virtual-machines/
+  [Сведения о параметрах конфигурации виртуальной машины Azure]: http://msdn.microsoft.com/library/azure/dn763935.aspx
+  [ВИДЕО: Приступая к работе с виртуальными жестким дисками — что происходит на самом деле]: http://azure.microsoft.com/ru-ru/documentation/videos/getting-started-with-azure-virtual-machines
+  [ВИДЕО: Вопросы и ответы с Марком Руссиновичем — работает ли ОС Windows в Windows Azure?]: http://azure.microsoft.com/ru-ru/documentation/videos/mark-russinovich-windows-on-azure
+  [ВИДЕО: Добавление новой виртуальной машины в веб-ферму с помощью многократно используемых образов]: http://azure.microsoft.com/ru-ru/documentation/videos/adding-virtual-machines-web-farm
+  [ВИДЕО: Добавление виртуальных жестких дисков, учетных записей хранения и масштабирование виртуальных машин]: http://azure.microsoft.com/ru-ru/documentation/videos/adding-drives-scaling-virtual-machines
+  [ВИДЕО: Скотт Гатри (Scott Guthrie) приступает к работе с виртуальными машинами]: http://azure.microsoft.com/ru-ru/documentation/videos/virtual-machines-scottgu
+  [ВИДЕО: Основные сведения о хранилище и дисках с виртуальными машинами Azure]: http://azure.microsoft.com/ru-ru/documentation/videos/storage-and-disks-virtual-machines

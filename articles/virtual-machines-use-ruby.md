@@ -1,6 +1,6 @@
-<properties linkid="manage-services-identity-multi-factor-authentication" urlDisplayName="What is Azure Multi-Factor Authentication?" pageTitle="What is Azure Multi-Factor Authentication?" metaKeywords="" description="Learn more about Azure Multi-Factor Authentication, a method of authentication that requires the use of more than one verification method and adds a critical second layer of security to user sign-ins and transactions." metaCanonical="" services="active-directory,multi-factor-authentication" documentationCenter="" title="How to Manage Azure Virtual Machines using Ruby" authors="larryfr" solutions="" manager="" editor="" />
+<properties urlDisplayName="What is Azure Multi-Factor Authentication?" pageTitle="Что такое многофакторная проверка подлинности Azure?" metaKeywords="" description="Подробные сведения о многофакторной проверке подлинности в Azure, методе проверки подлинности, который требует применения более одного метода проверки и добавляет критически важный второй уровень безопасности для операций входа и транзакций пользователя." metaCanonical="" services="active-directory,multi-factor-authentication" documentationCenter="" title="Как управлять виртуальными машинами Azure с использованием Ruby" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Как управлять виртуальными машинами Azure с использованием Ruby
 
@@ -89,9 +89,11 @@ Azure предоставляет [интерфейсы API REST для опер�
         7 gems installed
 
     <div class="dev-callout">
-<b>Примечание.</b>
-<p>Если появляется ошибка, связанная с разрешениями, используйте взамен команду <code data-inline="1">sudo gem install azure</code>.</p>
-</div>
+
+    **Примечание.**
+    Если появляется ошибка, связанная с разрешениями, используйте взамен команду `sudo gem install azure`.
+
+    </div>
 
 ### Требование пакета
 
@@ -220,8 +222,10 @@ Azure предоставляет [интерфейсы API REST для опер�
     vm = vm_mgr.delete_virtual_machine('myvm', 'mycloudservice')
 
 <div class="dev-callout">
-<b>Предупреждение</b>
-<p>Метод <b>delete_virtual_machine</b> удаляет облачную службу и все диски, связанные с виртуальной машиной:</p>
+
+**Предупреждение**
+Метод **delete\_virtual\_machine** удаляет облачную службу и все диски, связанные с виртуальной машиной:
+
 </div>
 
 ### Практическое руководство: завершение работы виртуальной машины

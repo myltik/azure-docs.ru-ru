@@ -1,6 +1,6 @@
-<properties linkid="dev-nodejs-basic-web-app-with-express" urlDisplayName="Web App with Express" pageTitle="Web App with Express (Node.js) - Azure Tutorial" metaKeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" description="An tutorial that builds on the cloud service tutorial, and demonstrates how to use the Express module." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Build a Node.js web application using Express on an Azure Cloud Service" authors="larryfr" solutions="" manager="" editor="" />
+<properties urlDisplayName="Web App with Express" pageTitle="Веб-приложения с помощью Express (Node.js) &mdash; учебник Azure" metaKeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" description="Настоящий учебник основывается на учебнике по облачным службам, и здесь демонстрируется использование модуля Express." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Создание веб-приложения Node.js с использованием модуля Express в облачной службе Azure" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="wpickett" />
 
 # Создание веб-приложения Node.js с использованием модуля Express в облачной службе Azure
 
@@ -118,11 +118,11 @@ Node.js включает в себя минимальный набор функ�
   [Express]: http://expressjs.com/
   [Веб-браузер, отображающий приветствие модуля Express в Azure]: ./media/cloud-services-nodejs-develop-deploy-express-app/node36.png
   [Значок Azure PowerShell]: ./media/cloud-services-nodejs-develop-deploy-express-app/azure-powershell-start.png
-  [установка-средств-разработки]: ../includes/install-dev-tools.md
   [Windows PowerShell с выходными данными команды npm install express.]: ./media/cloud-services-nodejs-develop-deploy-express-app/express-g.png
   [Результат команды express]: ./media/cloud-services-nodejs-develop-deploy-express-app/node23.png
   [Результат команды npm install]: ./media/cloud-services-nodejs-develop-deploy-express-app/node26.png
   [Веб-страница, содержащая приветствие модуля express.]: ./media/cloud-services-nodejs-develop-deploy-express-app/node28.png
   [Содержимое файла index.jade.]: ./media/cloud-services-nodejs-develop-deploy-express-app/getting-started-19.png
   []: http://jade-lang.com
+  [Последняя строка в файле index.jade содержит сообщение: p Welcome to \#{title} in Azure]: ./media/cloud-services-nodejs-develop-deploy-express-app/node31.png
   [Окно браузера со страницей приветствия Express в Azure]: ./media/cloud-services-nodejs-develop-deploy-express-app/node32.png

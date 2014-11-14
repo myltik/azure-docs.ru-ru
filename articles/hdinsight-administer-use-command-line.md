@@ -1,4 +1,4 @@
-<properties linkid="manage-services-hdinsight-administer-hdinsight-hadoop-clusters-using-command-line" urlDisplayName="HDInsight Administration" pageTitle="Manage Hadoop clusters using Cross-Platform Command-Line | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure, hadoop, administration" description="Learn how to use the Cross-Platform Command-Line Interface to manage Hadoop clusters in HDIsight on any platform that supports Node.js, including Windows, Mac, and Linux." services="hdinsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="Administer Hadoop clusters using the Cross-platform Command-line Interface" authors="jgao" />
+<properties urlDisplayName="HDInsight Administration" pageTitle="Управление кластерами Hadoop с помощью кроссплатформенного интерфейса командной строки | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure, hadoop, administration" description="Узнайте, как использовать кроссплатформенный интерфейс командной строки для управления кластерами Hadoop в HDIsight на любой платформе, поддерживающей Node.js, включая Windows, Mac и Linux." services="hdinsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="Управление кластерами Hadoop с помощью кроссплатформенного интерфейса командной строки" authors="jgao" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
@@ -83,6 +83,8 @@
     На предыдущем снимке файл publishsettings был сохранен в папку C:\\HDInsight на рабочей станции.
 
 ## <span id="provision"></span></a>Подготовка кластера HDInsight
+
+[WACOM.INCLUDE [готовящееся примечание](../includes/hdinsight-provisioning.md)]
 
 HDInsight использует контейнер хранилища BLOB-объектов Azure в качестве файловой системы по умолчанию. Перед созданием кластера HDInsight требуются учетная запись хранения Azure.
 

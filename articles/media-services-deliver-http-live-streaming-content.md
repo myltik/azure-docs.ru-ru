@@ -1,10 +1,10 @@
-<properties linkid="develop-media-services-how-to-guides-deliver-apple-live-streaming" urlDisplayName="Deliver Apple HTTP Live Streaming (HLS)" pageTitle="How to Deliver Apple HTTP Live Streaming (HLS) - Azure" metaKeywords="" description="Learn how to create a locator to Apple HTTP Live Stream (HLS) content on Media Services origin server. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Deliver Apple HLS streaming content" authors="migree" solutions="" manager="" editor="" />
+<properties urlDisplayName="Deliver Apple HTTP Live Streaming (HLS)" pageTitle="Доставка контента потоковой передачи Apple HTTP &mdash; Azure" metaKeywords="" description="Узнайте, как создать локатор контента потоковой передачи Apple HTTP (HLS) на исходном сервере служб мультимедиа. Примеры кода написаны на языке C# и используют пакет SDK служб мультимедиа для .NET." metaCanonical="" services="media-services" documentationCenter="" title="Практическое руководство: Доставка контента потоковой передачи Apple HLS" authors="juliako" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree"/>
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
 
 # Практическое руководство: Доставка контента потоковой передачи Apple HLS
 
-Эта статья является частью серии вводных статей о программировании служб мультимедиа в Azure. Предыдущий раздел [Практическое руководство: Доставка потокового контента][].
+Эта статья является частью серии вводных статей о программировании служб мультимедиа в Azure. Предыдущий раздел [Практическое руководство: Доставка потокового контента][Практическое руководство: Доставка потокового контента].
 
 В этом разделе демонстрируется, как создать локатор контента Apple HTTP Live Streaming (HLS) на исходном сервере служб мультимедиа. С помощью такого подхода можно создать URL-адрес контента Apple HLS и передать его на устройства Apple iOS для воспроизведения. В основе создания URL-адреса локатора лежит тот же подход. Это построение локатора пути ресурса потоковой передачи Apple HLS на исходном сервере с последующим построением полного URL-адреса, указывающий на манифест для контента потоковой передачи.
 
@@ -59,29 +59,29 @@
 
 Дополнительные сведения о доставке активов см. в следующих статьях:
 
--   [Доставка ресурсов с помощью служб носителей для .NET][]
--   [Доставка ресурсов с помощью API-интерфейса REST служб носителей][]
+-   [Доставка ресурсов с помощью служб носителей для .NET][Доставка ресурсов с помощью служб носителей для .NET]
+-   [Доставка ресурсов с помощью API-интерфейса REST служб носителей][Доставка ресурсов с помощью API-интерфейса REST служб носителей]
 
 </p>
 ## Дальнейшие действия
 
 Этот раздел завершает серию разделов, посвященных использованию служб мультимедиа Azure. Мы рассмотрели настройку компьютера для разработки служб мультимедиа и выполнения типичных задач программирования. Дополнительные сведения о программировании служб мультимедиа см. в следующих ресурсах:
 
--   [Документация по службам мультимедиа Azure][]
--   [Приступая к работе с пакетом SDK служб мультимедиа для .NET][]
--   [Создание приложений с помощью пакета SDK служб мультимедиа для .NET][]
--   [Создание приложений с помощью API-интерфейса REST служб мультимедиа Azure][]
--   [Форум по службам мультимедиа][]
--   [Мониторинг учетной записи служб мультимедиа][]
--   [Управление контентом в службах мультимедиа][]
+-   [Документация по службам мультимедиа Azure][Документация по службам мультимедиа Azure]
+-   [Приступая к работе с пакетом SDK служб мультимедиа для .NET][Приступая к работе с пакетом SDK служб мультимедиа для .NET]
+-   [Создание приложений с помощью пакета SDK служб мультимедиа для .NET][Создание приложений с помощью пакета SDK служб мультимедиа для .NET]
+-   [Создание приложений с помощью API-интерфейса REST служб мультимедиа Azure][Создание приложений с помощью API-интерфейса REST служб мультимедиа Azure]
+-   [Форум по службам мультимедиа][Форум по службам мультимедиа]
+-   [Мониторинг учетной записи служб мультимедиа][Мониторинг учетной записи служб мультимедиа]
+-   [Управление контентом в службах мультимедиа][Управление контентом в службах мультимедиа]
 
-  [Практическое руководство: Доставка потокового контента]: http://go.microsoft.com/fwlink/?LinkID=301942&clcid=0x409
-  [Доставка ресурсов с помощью служб носителей для .NET]: http://msdn.microsoft.com/en-us/library/jj129575.aspx
-  [Доставка ресурсов с помощью API-интерфейса REST служб носителей]: http://msdn.microsoft.com/en-us/library/jj129578.aspx
+  [Практическое руководство: Доставка потокового контента]: ../media-services-deliver-streaming-content/
+  [Доставка ресурсов с помощью служб носителей для .NET]: http://msdn.microsoft.com/ru-ru/library/jj129575.aspx
+  [Доставка ресурсов с помощью API-интерфейса REST служб носителей]: http://msdn.microsoft.com/ru-ru/library/jj129578.aspx
   [Документация по службам мультимедиа Azure]: http://go.microsoft.com/fwlink/?linkid=245437
   [Приступая к работе с пакетом SDK служб мультимедиа для .NET]: http://go.microsoft.com/fwlink/?linkid=252966
   [Создание приложений с помощью пакета SDK служб мультимедиа для .NET]: http://go.microsoft.com/fwlink/?linkid=247821
   [Создание приложений с помощью API-интерфейса REST служб мультимедиа Azure]: http://go.microsoft.com/fwlink/?linkid=252967
   [Форум по службам мультимедиа]: http://social.msdn.microsoft.com/Forums/en-US/MediaServices/threads
-  [Мониторинг учетной записи служб мультимедиа]: http://www.windowsazure.com/en-us/manage/services/media-services/how-to-monitor-a-media-services-account/
-  [Управление контентом в службах мультимедиа]: http://www.windowsazure.com/en-us/manage/services/media-services/how-to-manage-content-in-media-services/
+  [Мониторинг учетной записи служб мультимедиа]: ../media-services-monitor-services-account/
+  [Управление контентом в службах мультимедиа]: ../media-services-manage-content/

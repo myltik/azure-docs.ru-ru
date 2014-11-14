@@ -1,11 +1,21 @@
-<properties linkid="hdinsight-emulator-release-notes" urlDisplayName="HDInsight Emulator release notes" pageTitle="Release notes: Microsoft HDInsight Emulator for Azure | Azure" metaKeywords="hdinsight, Azure hdinsight, hdinsight azure, get started hdinsight, emulator, hdinsight emulator" description="Get late-breaking information about the most recent releases of the HDInsight Hadoop Emulator." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" title="Release notes: Microsoft HDInsight Emulator for Azure" authors="cgronlun" />
+<properties urlDisplayName="HDInsight Emulator release notes" pageTitle="Заметки о выпуске: Эмулятор Microsoft HDInsight для Azure | Azure" metaKeywords="hdinsight, Azure hdinsight, hdinsight azure, get started hdinsight, emulator, hdinsight emulator" description="Получите самую свежую информацией о новейших версиях эмулятора Hadoop в HDInsight." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" title="Заметки о выпуске: эмулятор Microsoft HDInsight для Azure" authors="jgao" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cgronlun" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/03/2014" ms.author="jgao" />
 
 # Заметки о выпуске: эмулятор Microsoft HDInsight для Azure
 
 > [WACOM.NOTE]
 > Самый простой способ проверить номер версии заключается в поиске записи "Эмулятор Microsoft HDInsight для Azure" (для версии 1.0.0.0 или более поздней версии) или "Microsoft HDInsight Developer Preview" (для версий младше 1.0.0.0) в окне "Установка и удаление программ".
+
+## Версия 2.0.0.0 от 29.08.2014
+
+-   Данная версия содержит обновления эмулятора HDInsight и предназначена для проектов Hadoop, в настоящее время используемых в версии 3.1.
+
+-   Как и в случае с предварительными выпусками этого продукта, данный выпуск ориентирован на сценарии разработчиков и поэтому поддерживает только развертывания на одном узле.
+
+### Новые возможности
+
+-   [Обновленные версии компонентов Hadoop][Обновленные версии компонентов Hadoop], соответствующие версии 3.1 данной службы. Сюда входит поддержка Hive версии 0.13 и Tez.
 
 ## Версия 1.0.0.0, выпущенная 28.10.2013
 
@@ -245,6 +255,7 @@
 
 -   [Приступая к работе с эмулятором HDInsight][Приступая к работе с эмулятором HDInsight]
 
+  [Обновленные версии компонентов Hadoop]: http://azure.microsoft.com/ru-ru/documentation/articles/hdinsight-component-versioning/
   []: http://azure.microsoft.com/ru-ru/documentation/services/hdinsight/
   [//{container}@{account}/{path]: mailto://{container}@{account}/{path
   [Приступая к работе с эмулятором HDInsight]: ../hdinsight-get-started-emulator/

@@ -1,6 +1,6 @@
-<properties linkid="develop-python-django-with-visual-studio" urlDisplayName="Django with Visual Studio" pageTitle="Django with Visual Studio (Python) - Azure tutorial" metaKeywords="Azure Django web app, Azure Django virtual machine" description="A tutorial that teaches you how to build a Django web application hosted in an Azure virtual machine." metaCanonical="" services="cloud-services" documentationCenter="Python" title="Creating Django applications with Python Tools for Visual Studio 1.5" authors="huvalo" solutions="" manager="" editor="" />
+<properties urlDisplayName="Django with Visual Studio" pageTitle="Django с помощью Visual Studio (Python) &mdash; учебник для Azure" metaKeywords="Azure Django web app, Azure Django virtual machine" description="Данный учебник позволяет научиться создавать веб-приложения Django, размещаемые на виртуальных машинах Azure." metaCanonical="" services="cloud-services" documentationCenter="Python" title="Создание приложений Django с помощью средств Python для Visual Studio 1.5" authors="huvalo" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 # Создание приложений Django с помощью средств Python для Visual Studio 1.5
 
@@ -19,16 +19,16 @@
 -   Как выполнять приложение Django локально в эмуляторах вычисления.
 -   Как опубликовать и повторно опубликовать свое приложение в Azure.
 
-Руководствуясь этим учебником,
-вы создадите простое веб-приложение HelloWorld. Приложение будет размещаться в экземпляре веб-роли,
+Руководствуясь этим учебником, вы создадите простое веб-приложение
+HelloWorld. Приложение будет размещаться в экземпляре веб-роли,
 который при выполнении в Azure сам размещается
 в выделенной виртуальной машине (VM).
 
 Снимок экрана завершенного приложения приведен ниже:
 
-![][]
+![][0]
 
-[WACOM.INCLUDE [create-account-note][create-account-note]]
+[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
 ## <span id="setup"></span> </a>Настройка среды разработки
 
@@ -158,8 +158,7 @@
 
   [видеоролик Youtube]: http://www.youtube.com/watch?v=UsLti4KlgAY
   [более новый и более сложный учебник]: ../web-sites-python-create-deploy-django-app/
-  []: ./media/python-django-app-tools-visual-studio/ptvs-dj-FirstAppInCloud.png
-  [create-account-note]: ../includes/create-account-note.md
+  [0]: ./media/python-django-app-tools-visual-studio/ptvs-dj-FirstAppInCloud.png
   [Как установить Python]: ../python-how-to-install/
   [Шаблоны новых проектов Python]: ./media/python-django-app-tools-visual-studio/ptvs-dj-NewProject.png
   [Visual Studio открыт для вашего первого проекта Django]: ./media/python-django-app-tools-visual-studio/ptvs-dj-FirstProject.png

@@ -1,14 +1,14 @@
-<properties linkid="manage-services-hdinsight-run-Hadoop samples" urlDisplayName="Run Hadoop Samples in HDInsight" pageTitle="Run the Hadoop samples in HDInsight | Azure" metaKeywords="hdinsight, hdinsight sample,  hadoop, mapreduce" description="Get started using the Azure HDInsight service with the samples provided. Use PowerShell scripts that run MapReduce programs on data clusters." metaCanonical="" services="hdinsight" documentationCenter="" title="Run the Hadoop samples in HDInsight" authors="bradsev" solutions="" manager="paulettm" editor="cgronlun" />
+<properties urlDisplayName="Run Hadoop Samples in HDInsight" pageTitle="Выполнение учебных задач Hadoop в Azure HDInsight" metaKeywords="hdinsight, hdinsight sample,  hadoop, mapreduce" description="Вы начнете использовать службу Azure HDInsight с помощью представленных примеров. Использование сценариев PowerShell, которые запускают программы MapReduce в кластерах данных." metaCanonical="" services="hdinsight" documentationCenter="" title="Выполнение примеров Hadoop в HDInsight" authors="bradsev" solutions="" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
 
 # Выполнение примеров Hadoop в HDInsight
 
 Предоставляется ряд примеров, которые помогут начать работу с заданиями MapReduce на кластерах Hadoop с использованием Azure HDInsight. Эти примеры доступны на каждом создаваемом управляемом кластере HDInsight. Выполнение примеров позволит познакомиться с использованием командлетов Azure PowerShell HDInsight для запуска заданий на кластерах Hadoop.
 
-Программы MapReduce также могут выполняться программно из приложения с использованием интерфейса API Microsoft .NET для HDInsight. Сведения об использовании интерфейсов API HDInsight для отправки заданий см. в разделе [Отправка заданий Hadoop программными средствами][].
+Программы MapReduce также могут выполняться программно из приложения с использованием интерфейса API Microsoft .NET для HDInsight. Сведения об использовании интерфейсов API HDInsight для отправки заданий см. в разделе [Отправка заданий Hadoop программными средствами][Отправка заданий Hadoop программными средствами].
 
-В Интернете есть большой объем дополнительной документации по технологиям, связанным с Hadoop, например программирование и потоковая передачи MapReduce на основе Java, а также документация по командлетам, используемым в сценариях PowerShell. Дополнительные сведения об этих ресурсах см. в итоговом разделе **Ресурсы для HDInsight** темы [Введение в Azure HDInsight][].
+В Интернете есть большой объем дополнительной документации по технологиям, связанным с Hadoop, например программирование и потоковая передачи MapReduce на основе Java, а также документация по командлетам, используемым в сценариях PowerShell. Дополнительные сведения об этих ресурсах см. в итоговом разделе **Ресурсы для HDInsight** темы [Введение в Azure HDInsight][Введение в Azure HDInsight].
 
 **Что представляют собой эти примеры**
 
@@ -16,20 +16,20 @@
 
 **Предварительные требования**:
 
--   Необходимо иметь учетную запись Azure. Возможности регистрации учетной записи см. на странице [Бесплатное пробное использование Azure][].
+-   Необходимо иметь учетную запись Azure. Возможности регистрации учетной записи см. на странице [Бесплатное пробное использование Azure][Бесплатное пробное использование Azure].
 
--   Вы должны были подготовить кластер HDInsight. Сведения по различным способам создания таких кластеров см. в разделе [Подготовка кластеров HDInsight][]
+-   Вы должны были подготовить кластер HDInsight. Сведения по различным способам создания таких кластеров см. в разделе [Подготовка кластеров HDInsight][Подготовка кластеров HDInsight]
 
--   Необходимо установить Azure PowerShell и настроить эту среду для поддержки вашей учетной записи. Инструкции по выполнению этой задачи см. в разделе [Установка и настройка Azure PowerShell][].
+-   Необходимо установить Azure PowerShell и настроить эту среду для поддержки вашей учетной записи. Инструкции по выполнению этой задачи см. в разделе [Установка и настройка Azure PowerShell][Установка и настройка Azure PowerShell].
 
 ## Примеры
 
 HDInsight поставляется вместе со следующими примерами.
 
--   [**Пример оценки числа пи**][] В этом учебнике демонстрируется, как создать программу MapReduce с HDInsight, в которой используется статистический метод (квази-Монте-Карло) для оценки числа пи.
--   [**Пример счетчика слов**][] В этом учебнике демонстрируется, как использовать кластер HDInsight для выполнения программы MapReduce, которая подсчитывает количество вхождений слова в текстовом файле.
--   [**Пример сортировки Graysort 10 ГБ**][] В этом учебнике показано, как запускать сортировку GraySort общего назначения для 10-ГБ файла с помощью HDInsight. Необходимо выполнить три задания: Teragen для создания данных, Terasort для сортировки данных и Teravalidate для подтверждения правильности сортировки данных.
--   [**Пример потоковой передачи, написанный на C#**][] В этом учебнике показано, как использовать C# для написания программы MapReduce, в которой используется интерфейс потоковой передачи Hadoop.
+-   [**Пример оценки числа пи**][**Пример оценки числа пи**] В этом учебнике демонстрируется, как создать программу MapReduce с HDInsight, в которой используется статистический метод (квази-Монте-Карло) для оценки числа пи.
+-   [**Пример счетчика слов**][**Пример счетчика слов**] В этом учебнике демонстрируется, как использовать кластер HDInsight для выполнения программы MapReduce, которая подсчитывает количество вхождений слова в текстовом файле.
+-   [**Пример сортировки Graysort 10 ГБ**][**Пример сортировки Graysort 10 ГБ**] В этом учебнике показано, как запускать сортировку GraySort общего назначения для 10-ГБ файла с помощью HDInsight. Необходимо выполнить три задания: Teragen для создания данных, Terasort для сортировки данных и Teravalidate для подтверждения правильности сортировки данных.
+-   [**Пример потоковой передачи, написанный на C#**][**Пример потоковой передачи, написанный на C#**] В этом учебнике показано, как использовать C# для написания программы MapReduce, в которой используется интерфейс потоковой передачи Hadoop.
 
 ## Как выполнять примеры
 
@@ -39,16 +39,16 @@ HDInsight поставляется вместе со следующими при
 
 В этой статье, а также в статьях, сопровождающих каждый пример, вы узнаете, как выполнять примеры, сопровождающие каждый кластер HDInsight, с помощью Azure PowerShell. Учебники по использованию Pig, Hive и MapReduce с HDInsight см. в следующих разделах:
 
--   [Начало работы со службой Azure HDInsight][]
--   [Использование Pig с HDInsight][]
--   [Использование Hive с HDInsight][]
--   [Отправка заданий Hadoop программными средствами][]
--   [Документация по пакету Azure HDInsight SDK][]
--   [Отладка HDInsight: Сообщения об ошибках][]
+-   [Начало работы со службой Azure HDInsight][Начало работы со службой Azure HDInsight]
+-   [Использование Pig с HDInsight][Использование Pig с HDInsight]
+-   [Использование Hive с HDInsight][Использование Hive с HDInsight]
+-   [Отправка заданий Hadoop программными средствами][Отправка заданий Hadoop программными средствами]
+-   [Документация по пакету Azure HDInsight SDK][Документация по пакету Azure HDInsight SDK]
+-   [Отладка HDInsight: Сообщения об ошибках][Отладка HDInsight: Сообщения об ошибках]
 
   [Отправка заданий Hadoop программными средствами]: ../hdinsight-submit-hadoop-jobs-programmatically/
-  [Введение в Azure HDInsight]: ../hdinsight-introduction/
-  [Бесплатное пробное использование Azure]: http://azure.microsoft.com/en-us/pricing/free-trial/
+  [Введение в Azure HDInsight]: ../hdinsight-hadoop-introduction/
+  [Бесплатное пробное использование Azure]: http://azure.microsoft.com/ru-ru/pricing/free-trial/
   [Подготовка кластеров HDInsight]: ../hdinsight-provision-clusters/
   [Установка и настройка Azure PowerShell]: ../install-configure-powershell/
   [**Пример оценки числа пи**]: ../hdinsight-sample-pi-estimator/
@@ -58,5 +58,5 @@ HDInsight поставляется вместе со следующими при
   [Начало работы со службой Azure HDInsight]: ../hdinsight-get-started/
   [Использование Pig с HDInsight]: ../hdinsight-use-pig/
   [Использование Hive с HDInsight]: ../hdinsight-use-hive/
-  [Документация по пакету Azure HDInsight SDK]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx
+  [Документация по пакету Azure HDInsight SDK]: http://msdnstage.redmond.corp.microsoft.com/ru-ru/library/dn479185.aspx
   [Отладка HDInsight: Сообщения об ошибках]: ../hdinsight-debug-jobs/

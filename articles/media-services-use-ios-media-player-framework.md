@@ -1,6 +1,6 @@
-<properties linkid="develop-media-services-how-to-guides-ios-media-player-framework" urlDisplayName="iOS Media Player Framework" pageTitle="Use the iOS Media Player Framework with Azure Media Services" metaKeywords="" description="Learn how to use the Media Services iOS Media Player Framework library to create rich, dynamic apps.," metaCanonical="" services="media-services" documentationCenter="" title="How to use the Azure Media Services iOS Media Player Framework" authors="migree" solutions="" manager="" editor="" />
+<properties urlDisplayName="iOS Media Player Framework" pageTitle="Использование платформы iOS Media Player для служб мультимедиа Azure" metaKeywords="" description="Сведения об использовании библиотеки платформы iOS Media Player для служб мультимедиа с целью создания многофункциональных динамических приложений" metaCanonical="" services="media-services" documentationCenter="" title="Использование платформы iOS Media Player для служб мультимедиа Azure" authors="juliako" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="mobile-ios" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree"/>
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="mobile-ios" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
 
 # Использование платформы iOS Media Player для служб мультимедиа Azure
 
@@ -31,7 +31,7 @@
 
 3.  Ниже приведена структура образца проигрывателя:
 
-![Структура кода примера HLS][]
+![Структура кода примера HLS][Структура кода примера HLS]
 
 1.  В папке iPad имеется два файла .xib: **SeekbarViewController** и **SamplePlayerViewController**. Они создают макет пользовательского интерфейса приложения iPad. Аналогичным образом, в папке iPhone есть два XLB-файла, которые определяют поле поиска и контроллер.
 
@@ -43,7 +43,7 @@
 
 ### SamplePlayerViewController\_iPad.xib
 
-![Адресная строка примера проигрывателя][]
+![Адресная строка примера проигрывателя][Адресная строка примера проигрывателя]
 
 -   Для загрузки потока мультимедиа используется URL-адрес, указанный в поле **URL-адрес мультимедиа**. Приложение содержит готовый список URL-адресов мультимедиа, которые можно использовать с помощью кнопок выбора URL-адреса. Кроме того, можно ввести собственный URL-адрес контента HTTP Live (HLS). Этот мультимедийный контент будет использоваться в качестве первого основного контента.
     **Примечание: В поле URL-адреса следует указать значение.**
@@ -52,13 +52,13 @@
 
 ### SeekbarViewController\_iPad.xib
 
-![Контроллер строки поиска][]
+![Контроллер строки поиска][Контроллер строки поиска]
 
 -   Кнопка **Воспроизведение** используется для воспроизведения и приостановки воспроизведения мультимедиа.
 
 -   Поле **Строка поиска** охватывает всю шкалу воспроизведения. Для выполнения поиска нажмите и удерживайте элемент, перетащите его в нужное место, а затем отпустите кнопку поиска на панели поиска.
 
-**Примечание**: Если средство просмотра ведет поиск в рекламном объявлении, отображается новая строка поиска с длительностью этого объявления. Основная строка поиска отображает только длительность основного контента (другими словами, в основной панели поиска указывается, что реклама имеет длительность 0).
+**Примечание**. Если средство просмотра ведет поиск в рекламном объявлении, отображается новая строка поиска с длительностью этого объявления. Основная строка поиска отображает только длительность основного контента (другими словами, в основной панели поиска указывается, что реклама имеет длительность 0).
 
 -   Элемент управления **Время проигрывателя** показывает два значения времени (`Label:playerTime`), например, 00:23/02:10. В этом случае 00:23 — это текущее время воспроизведения, а 02:10 — общая продолжительность мультимедиа.
 
@@ -215,7 +215,7 @@
 
 Как показано в предыдущем примере, если установить для свойства **deleteAfterPlay** значение **YES**, объявление воспроизводится только один раз. Если же установить для свойства **deleteAfterPlay** значение **NO**, объявление будет воспроизводиться непрерывно (из чего и следует название таких объявлений).
 
-### Дополнительные сведения см. в [вики по платформе Azure Media Player][].
+### Дополнительные сведения см. в [вики по платформе Azure Media Player][вики по платформе Azure Media Player].
 
   [Структура кода примера HLS]: http://mingfeiy.com/wp-content/uploads/2013/01/HLS-Structure.png
   [Адресная строка примера проигрывателя]: http://mingfeiy.com/wp-content/uploads/2013/01/addressbar.png

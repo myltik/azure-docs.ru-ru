@@ -1,26 +1,26 @@
-<properties umbracoNaviHide="0" pageTitle="Storage Account Concepts | Azure" metaKeywords="Azure storage, storage service, service, storage account, account, create storage account, create account" description="Learn about storage account concepts." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" title="Storage Account Concepts" services="storage" authors="tamram" manager="mbaldwin" editor="cgronlun" />
+<properties umbracoNaviHide="0" pageTitle="Основные понятия для учетных записей хранения | Azure" metaKeywords="Azure storage, storage service, service, storage account, account, create storage account, create account" description="Узнайте об основных понятиях для учетных записей хранения." urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" title="Основные понятия для учетных записей хранения" services="storage" authors="tamram" manager="adinah" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"/>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # Основные понятия для учетных записей хранения
 
 ## Параметры репликации учетной записи хранения
 
-[WACOM.INCLUDE [storage-replication-options](../includes/storage-replication-options.md)]
+[WACOM.INCLUDE [хранение-репликация-параметры](../includes/storage-replication-options.md)]
 
 ## Конечные точки учетной записи хранения
 
 *конечные точки* учетной записи хранения представляют собой наивысший уровень пространства имен для доступа к BLOB-объектам, таблицам, очередям или файлам. Конечные точки для учетной записи хранения по умолчанию имеют следующие форматы:
 
--   Служба BLOB-объектов: http://*mystorageaccount\*.blob.core.windows.net
+-   Служба BLOB-объектов: <http://*mystorageaccount>\*.blob.core.windows.net
 
--   Служба таблиц: http://*mystorageaccount\*.table.core.windows.net
+-   Служба таблиц: <http://*mystorageaccount>\*.table.core.windows.net
 
--   Служба очередей: http://*mystorageaccount\*.queue.core.windows.net
+-   Служба очередей: <http://*mystorageaccount>\*.queue.core.windows.net
 
--   Служба файлов: http://*mystorageaccount\*.file.core.windows.net
+-   Служба файлов: <http://*mystorageaccount>\*.file.core.windows.net
 
-URL-адрес для доступа к объекту в учетной записи хранения строится путем добавления местоположения объекта в учетной записи хранения к конечной точке. Например, адрес blob-объекта может иметь следующий формат: http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob\*.
+URL-адрес для доступа к объекту в учетной записи хранения строится путем добавления местоположения объекта в учетной записи хранения к конечной точке. Например, адрес blob-объекта может иметь следующий формат: <http://*mystorageaccount>*.blob.core.windows.net/*mycontainer*/*myblob\*.
 
 ## Безопасность учетной записи хранения
 
