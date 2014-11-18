@@ -569,7 +569,7 @@ Invoke-RestMethod PowerShell для вызова веб-служб Oozie. API-и
 
         Write-Host "$(Get-Date -format 'G'): $oozieJobId is in $JobStatus state!" -ForegroundColor Green
 
-7.  Если ваш кластер HDinsight имеет версию 2.1, замените "<https://$clusterName.azurehdinsight.net:443/oozie/v2/>" на "<https://$clusterName.azurehdinsight.net:443/oozie/v1/>". Кластер HDInsight версии 2.1 не поддерживает веб-службы версии 2.
+7.  При наличии кластера HDinsight версии 2.1 замените "https://$clusterName.azurehdinsight.net:443/oozie/v2/" на "https://$clusterName.azurehdinsight.net:443/oozie/v1/". Кластер HDInsight версии 2.1 не поддерживает веб-службы версии 2.
 
 8.  Для выполнения скрипта щелкните **Выполнить скрипт** или нажмите клавишу **F5**. Результат должен быть аналогичен приведенному ниже:
 
@@ -630,7 +630,7 @@ Invoke-RestMethod PowerShell для вызова веб-служб Oozie. API-и
 -   [Использование Sqoop вместе с HDInsight][Использование Sqoop с HDInsight]
 -   [Использование Hive с HDInsight][Использование Hive с HDInsight]
 -   [Использование Pig с HDInsight][Использование Pig с HDInsight]
--   [Разработка заданий потоковой передачи Hadoop на C# для HDInsight][Разработка заданий потоковой передачи Hadoop на C# для HDInsight]
+-   [Разработка заданий потоковой передачи Hadoop на C\# для HDInsight][Разработка заданий потоковой передачи Hadoop на C\# для HDInsight]
 -   [Разработка программ MapReduce на Java для HDInsight][Разработка программ MapReduce на Java для HDInsight]
 
   [Использование временного координатора Oozie с HDInsight]: ../hdinsight-use-oozie-coordinator-time/
@@ -663,5 +663,5 @@ Invoke-RestMethod PowerShell для вызова веб-служб Oozie. API-и
   [Администрирование HDInsight с использованием PowerShell]: ../hdinsight-administer-use-powershell/
   [Отправка данных в HDInsight]: ../hdinsight-upload-data/
   [Использование Pig с HDInsight]: ../hdinsight-use-pig/
-  [Разработка заданий потоковой передачи Hadoop на C# для HDInsight]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
+  [Разработка заданий потоковой передачи Hadoop на C\# для HDInsight]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
   [Разработка программ MapReduce на Java для HDInsight]: ../hdinsight-develop-deploy-java-mapreduce/

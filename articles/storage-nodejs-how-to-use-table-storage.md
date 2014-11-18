@@ -1,4 +1,4 @@
-<properties urlDisplayName="Table Service" pageTitle="Использование хранилища таблиц (Node.js) &mdash; Windows Azure" metaKeywords="Azure table storage service, Azure table service Node.js, table storage Node.js" description="Вы узнаете, как использовать службу хранилища таблиц для хранилища Azure. Примеры написаны с помощью Node.js API." metaCanonical="" services="storage" documentationCenter="nodejs" title="Использование службы таблиц из Node.js" authors="larryfr" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Table Service" pageTitle="Использование хранилища таблиц (Node.js) &mdash; Windows Azure" metaKeywords="Azure table storage service, Azure table service Node.js, table storage Node.js" description="Вы узнаете, как использовать службу табличного хранилища в Azure. Примеры написаны с помощью Node.js API." metaCanonical="" services="storage" documentationCenter="nodejs" title="Использование службы таблиц из Node.js" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 

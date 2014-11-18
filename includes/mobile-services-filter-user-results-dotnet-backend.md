@@ -22,7 +22,6 @@
 
         // Get the logged-in user.
         var currentUser = User as ServiceUser;
-
         // Set the user ID on the item.
         item.UserId = currentUser.Id;
 
@@ -32,7 +31,6 @@
 
         // Get the logged-in user.
         var currentUser = User as ServiceUser;
-
         return Query().Where(todo => todo.UserId == currentUser.Id);
 
     Этот запрос фильтрует возвращаемые объекты TodoItem таким образом, чтобы каждый пользователь получил только элементы, которые он вставил. Вы можете при необходимости

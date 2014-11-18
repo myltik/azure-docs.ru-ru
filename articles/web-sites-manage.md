@@ -1,6 +1,6 @@
 <properties linkid="manage-scenarios-how-to-manage-websites" urlDisplayName="How to manage" pageTitle="How to manage websites - Microsoft Azure service management" metaKeywords="Azure portal website management" description="A reference for the Portal website management pages in Microsoft Azure. Details are provided for each website management page." metaCanonical="" services="web-sites" documentationCenter="" title="How to Manage Websites" authors="cephalin"  solutions="" writer="mwasson" manager="wpickett" editor=""  />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/18/2014" ms.author="mwasson"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/18/2014" ms.author="mwasson" />
 
 # <a name="howtomanage"></a>Управление веб-сайтами с помощью портала управления Azure
 
@@ -154,42 +154,46 @@
 
 Файл профиля публикации имеет формат XML. Он содержит два профиля: для Web Deploy и для FTP.
 
-    <publishData>
-      <publishProfile
-        profileName="contoso - Web Deploy"
-        publishMethod="MSDeploy"
-        publishUrl="contoso.scm.azurewebsites.net:443"
-        msdeploySite="contoso"
-        userName="$contoso"
-        userPWD="abc1234..."
-        destinationAppUrl="http://contoso.azurewebsites.net"
-        SQLServerDBConnectionString=""
-        mySQLDBConnectionString=""
-        hostingProviderForumLink="" 
-        controlPanelLink="http://windows.azure.com">
-        <databases/>
-      </publishProfile>
-      <publishProfile 
-        profileName="contoso - FTP" 
-        publishMethod="FTP" 
-        publishUrl="ftp://waws-prod-bay-003.ftp.azurewebsites.windows.net/site/wwwroot" 
-        ftpPassiveMode="True" 
-        userName="contoso\$contoso" 
-        userPWD=" abc1234..."  
-        destinationAppUrl="http://contoso.azurewebsites.net" 
-        SQLServerDBConnectionString="" 
-        mySQLDBConnectionString="" 
-        hostingProviderForumLink="" 
-        controlPanelLink="http://windows.azure.com">
-        <databases/>
-      </publishProfile>
-    </publishData>
+<pre>
+&lt;publishData&gt;
+  &lt;publishProfile
+    profileName="contoso - Web Deploy"
+    publishMethod="MSDeploy"
+    publishUrl="contoso.scm.azurewebsites.net:443"
+    msdeploySite="contoso"
+    userName="$contoso"
+    userPWD="abc1234..."
+    destinationAppUrl="http://contoso.azurewebsites.net"
+    SQLServerDBConnectionString=""
+    mySQLDBConnectionString=""
+    hostingProviderForumLink="" 
+    controlPanelLink="http://windows.azure.com"&gt;
+    &lt;databases/&gt;
+  &lt;/publishProfile&gt;
+  &lt;publishProfile 
+    profileName="contoso - FTP" 
+    <mark>publishMethod="FTP"</mark> 
+    publishUrl="ftp://waws-prod-bay-003.ftp.azurewebsites.windows.net/site/wwwroot" 
+    ftpPassiveMode="True" 
+    <mark>userName="contoso\$contoso"</mark> 
+    <mark>userPWD=" abc1234..."</mark>  
+    destinationAppUrl="http://contoso.azurewebsites.net" 
+    SQLServerDBConnectionString="" 
+    mySQLDBConnectionString="" 
+    hostingProviderForumLink="" 
+    controlPanelLink="http://windows.azure.com"&gt;
+    &lt;databases/&gt;
+  &lt;/publishProfile&gt;
+&lt;/publishData&gt;
+</pre>
 
 Поиск профиля выполняется посредством `publishMethod="FTP"`. Имя пользователя отображается в `userName`, а пароль — в `userPWD`.
 
 Для сброса пароля нажмите **Сбросить учетные данные профиля публикации**. Чтобы получить новые учетные данные, загрузите профиль публикации заново. Учетные данные профиля публикации связаны с веб-сайтом. У каждого веб-сайта свой профиль публикации.
 
-<!-- LINKS --> <!-- Anchors. -->
+<!-- LINKS --> 
+
+<!-- Anchors. -->
 
   [установку WebMatrix]: http://go.microsoft.com/fwlink/?LinkID=226244
   [Microsoft Azure SDK]: http://go.microsoft.com/fwlink/?LinkId=246928

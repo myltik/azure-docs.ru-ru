@@ -1,4 +1,4 @@
-<properties urlDisplayName="Install MongoDB" pageTitle="Установка MongoDB на виртуальную машину под управлением CentOS Linux в Azure" metaKeywords="Azure, MongoDB" description="Узнайте, как установить Mongo DB на виртуальную машину в Azure." metaCanonical="" services="" documentationCenter="" title="Установка MongoDB на виртуальную машину под управлением CentOS Linux в Azure" authors="bbenz, MSOpenTech" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="Install MongoDB" pageTitle="Установка MongoDB на виртуальную машину под управлением CentOS Linux в Azure" metaKeywords="Azure, MongoDB" description="Узнайте, как установить MongoDB на виртуальную машину в Azure." metaCanonical="" services="" documentationCenter="" title="Установка MongoDB на виртуальную машину под управлением CentOS Linux в Azure" authors="bbenz, MSOpenTech" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="" ms.topic="article" ms.date="01/01/1900" ms.author="bbenz, MSOpenTech" />
 

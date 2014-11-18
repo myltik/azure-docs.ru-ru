@@ -149,7 +149,7 @@
 
 ### <a name="scenarios"></a>Сценарии данных журнала IIS w3c
 
-Сценарий w3c создает и импортирует данные журнала IIS W3C трех размеров в HDFS или WASB: 1 МБ (маленький), 500 МБ (средний) и 2 ГБ (большой). Он предоставляет три типа заданий и реализует каждое из них на C#, Java, Pig и Hive.
+Сценарий w3c создает и импортирует данные журнала IIS W3C трех размеров в HDFS или WASB: 1 МБ (маленький), 500 МБ (средний) и 2 ГБ (большой). Он предоставляет три типа заданий и реализует каждое из них на C\#, Java, Pig и Hive.
 
 -   **totalhits**: вычисление общего числа запросов для конкретной страницы
 -   **avgtime**: вычисление среднего времени (в секундах) для запроса на страницу
@@ -194,7 +194,7 @@
 
 ### <a name="javamapreduce"></a>Выполнение заданий MapReduce на Java
 
-MapReduce — основной механизм вычислений для Hadoop. По умолчанию он реализован на языке Java, но существуют также примеры, в которых используются .NET и Hadoop Streaming, использующие C#. Синтаксис для выполнения задания MapReduce :
+MapReduce — основной механизм вычислений для Hadoop. По умолчанию он реализован на языке Java, но существуют также примеры, в которых используются .NET и Hadoop Streaming, использующие C\#. Синтаксис для выполнения задания MapReduce :
 
     hadoop jar <jarFileName>.jar <className> <inputFiles> <outputFolder>
 
@@ -547,7 +547,7 @@ JAR-файл и исходные файлы находятся в папке C:\
     $hdinsightJob = <JobDefinition>
     Start-AzureHDInsightJob -Cluster http://localhost:50111 -Credential $creds -JobDefinition $hdinsightJob
 
-Будет выведен запрос при вызове Get-Credential. Необходимо использовать **hadoop** в качестве имени пользователя. Паролем может быть любая строка. Имя кластера всегда — **<http://localhost:50111>**.
+Будет выведен запрос при вызове Get-Credential. Необходимо использовать **hadoop** в качестве имени пользователя. Паролем может быть любая строка. Имя кластера всегда — **http://localhost:50111**.
 
 Дополнительные сведения об отправке заданий Hadoop см. в разделе [Отправка заданий Hadoop программным способом][Отправка заданий Hadoop программным способом]. Дополнительные сведения о командлетах HDInsight PowerShell см. в разделе [Справочник командлетов HDInsight][Справочник командлетов HDInsight].
 
@@ -557,7 +557,7 @@ JAR-файл и исходные файлы находятся в папке C:\
 
 -   [Приступая к работе с Azure HDInsight][Приступая к работе с Azure HDInsight]
 -   [Разработка программ MapReduce на Java для HDInsight][Разработка программ MapReduce на Java для HDInsight]
--   [Разработка программ MapReduce потоковой передачи Hadoop на C# для HDInsight][Разработка программ MapReduce потоковой передачи Hadoop на C# для HDInsight]
+-   [Разработка программ MapReduce потоковой передачи Hadoop на C\# для HDInsight][Разработка программ MapReduce потоковой передачи Hadoop на C\# для HDInsight]
 -   [Комментарии к выпуску эмулятора HDInsight][Заметки к версии для эмулятора HDInsight]
 -   [Форум MSDN с обсуждением HDInsight][Форум MSDN с обсуждением HDInsight]
 
@@ -586,5 +586,5 @@ JAR-файл и исходные файлы находятся в папке C:\
   [Справочник командлетов HDInsight]: http://msdn.microsoft.com/ru-ru/library/windowsazure/dn479228.aspx
   [Приступая к работе с Azure HDInsight]: ../hdinsight-get-started/
   [Разработка программ MapReduce на Java для HDInsight]: ../hdinsight-develop-deploy-java-mapreduce/
-  [Разработка программ MapReduce потоковой передачи Hadoop на C# для HDInsight]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
+  [Разработка программ MapReduce потоковой передачи Hadoop на C\# для HDInsight]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
   [Форум MSDN с обсуждением HDInsight]: http://social.msdn.microsoft.com/Forums/en-US/hdinsight

@@ -61,7 +61,7 @@ Azure: службам BLOB-объектов, службам очередей и 
     URI в следующем формате, где *\<StorageAccountLabel\>* указывает
     значение, введенное в поле **Введите URL-адрес**:
 
-    <http://>*\<StorageAcountLabel\>*.blob.core.windows.net/*\<мой\_контейнер\>*
+    http://*\<StorageAcountLabel\>*.blob.core.windows.net/*\<mycontainer\>*
 
     **Важно!** Метка URL-адреса образует поддомен URI учетной записи
     хранения и должна быть уникальной на уровне всех размещенных служб
@@ -117,7 +117,7 @@ Azure: службам BLOB-объектов, службам очередей и 
 </p>
 Для доступа к кэшированному содержимому в сети CDN воспользуйтесь URL-адресом CDN, отображаемым в портале. Адрес для кэшированного BLOB-объекта будет иметь следующий вид:
 
-<http://>\<*CDNNamespace*\>.vo.msecnd.net/\<*myPublicContainer*\>/\<*BlobName*\>
+http://\<*CDNNamespace*\>.vo.msecnd.net/\<*myPublicContainer*\>/\<*BlobName*\>
 
 <span id="Step4"></span> </a>
 

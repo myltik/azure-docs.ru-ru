@@ -1,6 +1,6 @@
 <properties linkid="notification-hubs-how-to-guides-howto-register-user-with-mobile-service-ios" urlDisplayName="Notify iOS app users by using Mobile Services" pageTitle="Register the current user for push notifications by using a mobile service - Notification Hubs" metaKeywords="Azure registering application, Notification Hubs, Azure push notifications, push notification iOS app" description="Learn how to request push notification registration in an iOS app with Azure Notification Hubs when registeration is performed by Azure Mobile Services." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Register the current user for push notifications by using a mobile service" authors="krisragh" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
 
 # Регистрация текущего пользователя для push-уведомлений мобильной службы
 
@@ -98,16 +98,17 @@
                 }];
             }
 
-    <div class="dev-callout">
-
-    **Примечание.**
-    Это гарантирует, что регистрация запрашивается каждый раз при загрузке страницы. В вашем приложении можно сделать так, чтобы эта регистрация выполнялась только время от времени для гарантии актуальности регистрации.
-
+    <div class="dev-callout"><b>Примечание.</b>
+    <p>Это гарантирует, что регистрация запрашивается каждый раз при загрузке страницы. В вашем приложении можно сделать так, чтобы эта регистрация выполнялась только время от времени для гарантии актуальности регистрации.</p>
     </div>
 
 Теперь, когда клиентское приложение было обновлено, вернитесь к учебнику [Уведомление пользователей с помощью концентраторов уведомлений][Уведомление пользователей с помощью концентраторов уведомлений] и обновите мобильную службу для отправки уведомлений с помощью концентраторов уведомлений.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
+<!-- Anchors. --> 
+
+<!-- Images. --> 
+
+<!-- URLs. -->
 
   [Магазин Windows C#]: /ru-ru/documentation/articles/notification-hubs-windows-store-mobile-services-register-user-push-notifications/ "Магазин Windows C#"
   [iOS]: /ru-ru/documentation/articles/notification-hubs-ios-mobile-services-register-user-push-notifications/ "iOS"

@@ -29,7 +29,7 @@ Azure PowerShell — это полнофункциональная среда с
 
 HDInsight использует контейнер хранилища BLOB-объектов Azure в качестве файловой системы по умолчанию. Перед созданием кластера HDInsight требуются учетная запись хранения Azure и контейнер хранилища.
 
-[WACOM.INCLUDE [готовящееся примечание](../includes/hdinsight-provisioning.md)]
+[WACOM.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
 
 **Создание учетной записи хранения Azure**
 

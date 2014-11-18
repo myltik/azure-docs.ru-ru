@@ -19,10 +19,10 @@
 ![Queue1][Queue1]
 
 -   **Формат URL-адреса.** К очередям можно обратиться, используя следующий формат URL-адреса:
-    <http://>`<storage account>`.queue.core.windows.net/`<queue>`
+    http://`<storage account>`.queue.core.windows.net/`<queue>`
 
 Следующий URL-адрес позволяет обратиться к одной из очередей на схеме:
- <http://myaccount.queue.core.windows.net/imagesToDownload>
+ http://myaccount.queue.core.windows.net/imagesToDownload
 
 -**Учетная запись хранения.** Весь доступ к хранилищу Azure осуществляется с помощью учетной записи хранения. Сведения о емкости учетной записи хранения см. на странице [Цели масштабируемости хранилища и производительности Azure][Цели масштабируемости хранилища и производительности Azure].
 

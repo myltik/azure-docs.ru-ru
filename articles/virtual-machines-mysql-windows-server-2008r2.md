@@ -1,4 +1,4 @@
-<properties urlDisplayName="Install MySQL" pageTitle="Создание виртуальной машины с MySQL в Azure" metaKeywords="Azure virtual machines, Azure Windows Server, Azure installing MySQL, Azure configuring MySQL, Azure databases" description="Создание виртуальной машины Azure под управлением Windows Server 2008 R2 и последующая установка и настройка базы данных MySQL на виртуальной машине." metaCanonical="" services="virtual-machines" documentationCenter="" title="Установка MySQL на виртуальной машине под управлением Windows Server 2008 R2 в Azure" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
+<properties urlDisplayName="Install MySQL" pageTitle="Создание виртуальной машины с MySQL в Azure " metaKeywords="Azure virtual machines, Azure Windows Server, Azure installing MySQL, Azure configuring MySQL, Azure databases" description="Создание виртуальной машины Azure под управлением Windows Server 2008 R2 и последующая установка и настройка базы данных MySQL на виртуальной машине." metaCanonical="" services="virtual-machines" documentationCenter="" title="Установка MySQL на виртуальной машине под управлением Windows Server 2008 R2 в Azure" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="12/15/2013" ms.author="kathydav" />
 
@@ -26,7 +26,7 @@
 
 1.  После подключения к виртуальной машине с помощью удаленного рабочего стола откройте **Internet Explorer** из меню **Пуск**.
 
-2.  Нажмите кнопку **Сервис** в правом верхнем углу. В окне **Свойства браузера** выберите вкладку **Безопасность**, выберите значок **Надежные сайты**, а затем нажмите кнопку **Сайты**. Добавьте *<http://>\*.mysql.com* в список надежных сайтов.
+2.  Нажмите кнопку **Сервис** в правом верхнем углу. В окне **Свойства браузера** выберите вкладку **Безопасность**, выберите значок **Надежные сайты**, а затем нажмите кнопку **Сайты**. Добавьте *http://\*.mysql.com* к списку наджных сайтов.
 
 3.  Перейдите на страницу [Download MySQL Community Server][Download MySQL Community Server].
 

@@ -1,6 +1,6 @@
 <properties linkid="websites-digital-marketing" urlDisplayName="Resources" pageTitle="Create a Digital Marketing Campaign on Azure Websites" metaKeywords="" description="This guide provides a technical overview of how to use Azure Websites to create digital marketing campaigns. This includes deployment, social media integration, scaling strategies, and monitoring." metaCanonical="" services="" documentationCenter="" title="Create a Digital Marketing Campaign on Azure Websites" authors="jroth" solutions="" manager="paulettm" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jroth"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jroth" />
 
 # Создание цифровой маркетинговой кампании на веб-сайтах Azure
 
@@ -116,31 +116,51 @@
 
 Веб-сайты Azure — это хороший вариант для многократного использования веб-контента, настраиваемого для отдельных маркетинговых кампаний. Веб-сайты поддерживает множество популярных языков, платформ и систем управления версиями, упрощая перенос этих ресурсов и процессов в облако. Данный шаблон приложения ASP.NET Facebook облегчает создание приложений для Facebook, но можно использовать интеграцию практически с любыми сторонними социальными сетями, поддерживающими веб-интерфейсы. Службы мультимедиа Azure и другие связанные службы Azure предоставляют дополнительные средства для создания хорошо разработанного сайта кампании. А несколько вариантов ручного и автоматического масштабирования полезны для обработки пользовательского спроса, который может оказаться трудно предсказуемым. Дополнительные сведения см. в следующих технических статьях:
 
-| Область                             | Ресурсы                                                                                                                                                                                       |
-|-------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **План**                            | - [Веб-сайты Azure, облачные службы и виртуальные машины: когда они используются?][1]                                                                                                         |
-| **Создание**                        | - [Создание и развертывание веб-сайта][Создание и развертывание веб-сайта]                                                                                                                                                      |
-| **Развертывание**                   | - [Развертывание веб-сайта Azure][Развертывание веб-сайта Azure]                                                                                                                                                           
-                                       - [Публикации из системы управления версиями для веб-сайтов Azure][Публикации из системы управления версиями для веб-сайтов Azure]                                                                                                                           |
-| **Социальные сети**                 | - [Развертывание безопасного приложения ASP.NET MVC с членством, OAuth и базой данных SQL][Развертывание безопасного приложения ASP.NET MVC с членством, OAuth и базой данных SQL]                                                                                                  
-                                       - [Создание приложения Facebook с помощью шаблонов ASP.NET MVC Facebook][Создание приложения Facebook с помощью шаблонов ASP.NET MVC Facebook и их бесплатное размещение на веб-сайтах Azure]  
-                                       - [Шаблон и библиотека приложения Facebook для ASP.NET MVC][Новый шаблон приложения Facebook и библиотека для ASP.NET MVC]                                                                     |
-| **Масштаб**                         | - [Инструкции по масштабированию веб-сайтов][Инструкции по масштабированию веб-сайтов]                                                                                                                                                |
-| **Широкие возможности мультимедиа** | - [Введение в основные понятия и сценарии служб мультимедиа Azure][Введение в основные понятия и сценарии служб мультимедиа Azure]                                                                                                                          |
-| **Монитор**                         | - [Мониторинг веб-сайтов][2]                                                                                                                                                                  
-                                       - [Практическое руководство. Получение уведомлений об оповещениях и управление правилами оповещения в Azure][Практическое руководство. Получение уведомлений об оповещениях и управление правилами оповещения в Azure]                                                                                 |
+<table cellspacing="0" border="1">
+<tr>
+   <th align="left" valign="top">Область</th>
+   <th align="left" valign="top">Ресурсы</th>
+</tr>
+<tr>
+   <td valign="middle"><strong>План</strong></td>
+   <td valign="top">- <a href="http://www.windowsazure.com/ru-ru/manage/services/web-sites/choose-web-app-service">Веб-сайты Azure, облачные службы и виртуальные машины: когда они используются?</a></td>
+</tr>
+<tr>
+   <td valign="middle"><strong>Создание</strong></td>
+   <td valign="top">- <a href="http://www.windowsazure.com/ru-ru/manage/services/web-sites/how-to-create-websites/">Создание и развертывание веб-сайта</a></td>
+</tr>
+<tr>
+   <td valign="middle"><strong>Развертывание</strong></td>
+   <td valign="top">- <a href="http://azure.microsoft.com/ru-ru/documentation/articles/web-sites-deploy/">Развертывание веб-сайта Azure</a><br/>- <a href="http://www.windowsazure.com/ru-ru/develop/net/common-tasks/publishing-with-git/">Публикации из системы управления версиями для веб-сайтов Azure</a></td>
+</tr>
+<tr>
+   <td valign="middle"><strong>Социальные сети</strong></td>
+   <td valign="top">- <a href="http://www.windowsazure.com/ru-ru/develop/net/tutorials/web-site-with-sql-database/">Развертывание безопасного приложения ASP.NET MVC с членством, OAuth и базой данных SQL</a><br/>- <a href="http://blogs.msdn.com/b/africaapps/archive/2013/02/20/creating-a-facebook-app-using-asp-net-mvc-facebook-templates-and-hosting-them-for-free-on-windows-azure-websites.aspx">Создание приложения Facebook с помощью шаблонов ASP.NET MVC Facebook</a><br/>- <a href="http://blogs.msdn.com/b/webdev/archive/2012/12/13/the-new-facebook-application-template-and-library-for-asp.net-mvc.aspx">Шаблон и библиотека приложения Facebook для ASP.NET MVC</a></td>
+</tr>
+<tr>
+   <td valign="middle"><strong>Масштаб</strong></td>
+   <td valign="top">- <a href="http://www.windowsazure.com/ru-ru/manage/services/web-sites/how-to-scale-websites/">Инструкции по масштабированию веб-сайтов</a></td>
+</tr>
+<tr>
+   <td valign="middle"><strong>Широкие возможности мультимедиа</strong></td>
+   <td valign="top">- <a href="http://msdn.microsoft.com/ru-ru/library/windowsazure/dn223282.aspx">Введение в основные понятия и сценарии служб мультимедиа Azure</a></td>
+</tr>
+<tr>
+   <td valign="middle"><strong>Монитор</strong></td>
+   <td valign="top">- <a href="http://www.windowsazure.com/ru-ru/manage/services/web-sites/how-to-monitor-websites/">Мониторинг веб-сайтов</a><br/>- <a href="http://msdn.microsoft.com/library/windowsazure/dn306638.aspx">Практическое руководство. Получение уведомлений об оповещениях и управление правилами оповещения в Azure</a></td>
+</tr>
+</table>
+
 
   [Веб-сайты Azure]: /ru-ru/documentation/services/web-sites/
   [облачные службы Azure]: /ru-ru/documentation/services/cloud-services/
   [виртуальные машины Azure]: /ru-ru/documentation/services/virtual-machines/
-  [Веб-сайты Azure, облачные службы и виртуальные машины: когда они используются?]: /ru-ru/manage/services/web-sites/choose-web-app-service
   [Развертывание существующих веб-сайтов]: #deployexisting
   [Интеграция с социальными сетями]: #socialmedia
   [Масштабирование в соответствии с пользовательским спросом]: #scale
   [Интеграция с другими службами]: #integrate
   [Монитор кампании]: #monitor
   [Глобальное веб-присутствие]: http://www.windowsazure.com/ru-ru/manage/services/web-sites/global-web-presence-solution-overview/
-  [Бизнес-приложения]: http://www.windowsazure.com/ru-ru/manage/services/web-sites/business-application-solution-overview
   [ознакомиться с этой информацией]: /ru-ru/manage/services/web-sites/global-web-presence-solution-overview/
   [DigitalMarketingDeploy1]: ./media/web-sites-digital-marketing-application-solution-overview/DigitalMarketing_Deploy1.png
   [DigitalMarketingDeploy2]: ./media/web-sites-digital-marketing-application-solution-overview/DigitalMarketing_Deploy2.png
@@ -160,18 +180,10 @@
   [Правилах ценообразования для веб-сайтов]: https://www.windowsazure.com/ru-ru/pricing/details/web-sites/
   [DigitalMarketingAutoScale]: ./media/web-sites-digital-marketing-application-solution-overview/DigitalMarketing_AutoScale.png
   [Масштабирование веб-сайтов]: /ru-ru/manage/services/web-sites/how-to-scale-websites/
-  [Масштабирование облачной службы]: http://www.windowsazure.com/ru-ru/manage/services/cloud-services/how-to-scale-a-cloud-service/
   [Введение в основные понятия и сценарии служб мультимедиа Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/dn223282.aspx
-  [службой кэша Azure (предварительная версия)]: http://msdn.microsoft.com/ru-ru/library/windowsazure/dn386094.aspx
   [DigitalMarketingMonitor]: ./media/web-sites-digital-marketing-application-solution-overview/DigitalMarketing_Monitor.png
   [Мониторинг веб-сайтов]: /ru-ru/manage/services/web-sites/how-to-monitor-websites/
   [DigitalMarketingUsageOverview]: ./media/web-sites-digital-marketing-application-solution-overview/DigitalMarketing_UsageOverview.png
   [Средство управления производительностью приложений New Relic для Azure]: /ru-ru/develop/net/how-to-guides/new-relic/
   [Практическое руководство. Получение уведомлений об оповещениях и управление правилами оповещения в Azure]: http://msdn.microsoft.com/library/windowsazure/dn306638.aspx
-  [1]: http://www.windowsazure.com/ru-ru/manage/services/web-sites/choose-web-app-service
-  [Создание и развертывание веб-сайта]: http://www.windowsazure.com/ru-ru/manage/services/web-sites/how-to-create-websites/
-  [Развертывание веб-сайта Azure]: http://azure.microsoft.com/ru-ru/documentation/articles/web-sites-deploy/
-  [Публикации из системы управления версиями для веб-сайтов Azure]: http://www.windowsazure.com/ru-ru/develop/net/common-tasks/publishing-with-git/
-  [Развертывание безопасного приложения ASP.NET MVC с членством, OAuth и базой данных SQL]: http://www.windowsazure.com/ru-ru/develop/net/tutorials/web-site-with-sql-database/
-  [Инструкции по масштабированию веб-сайтов]: http://www.windowsazure.com/ru-ru/manage/services/web-sites/how-to-scale-websites/
-  [2]: http://www.windowsazure.com/ru-ru/manage/services/web-sites/how-to-monitor-websites/
+  [службой кэша Azure (предварительная версия)]: http://msdn.microsoft.com/ru-ru/library/windowsazure/dn386094.aspx

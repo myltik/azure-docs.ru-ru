@@ -400,7 +400,7 @@
 -   [Приступая к работе с Azure HDInsight][Приступая к работе с Azure HDInsight]
 -   [Пример: оценка числа пи][Пример: оценка числа пи]
 -   [Пример: счетчик слов][Пример: счетчик слов]
--   [Пример: потоковая передача на C#][Пример: потоковая передача на C#]
+-   [Пример: потоковая передача на C\#][Пример: потоковая передача на C\#]
 -   [Использование Pig с HDInsight][Использование Pig с HDInsight]
 -   [Использование Hive с HDInsight][Использование Hive с HDInsight]
 -   [Документация по пакету Azure HDInsight SDK][Документация по пакету Azure HDInsight SDK]
@@ -416,7 +416,7 @@
   [Приступая к работе с Azure HDInsight]: ../hdinsight-get-started/
   [Пример: оценка числа пи]: ../hdinsight-sample-pi-estimator/
   [Пример: счетчик слов]: ../hdinsight-sample-wordcount/
-  [Пример: потоковая передача на C#]: ../hdinsight-sample-csharp-streaming/
+  [Пример: потоковая передача на C\#]: ../hdinsight-sample-csharp-streaming/
   [Использование Pig с HDInsight]: ../hdinsight-use-pig/
   [Использование Hive с HDInsight]: ../hdinsight-use-hive/
   [Документация по пакету Azure HDInsight SDK]: http://msdnstage.redmond.corp.microsoft.com/ru-ru/library/dn479185.aspx

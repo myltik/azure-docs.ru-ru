@@ -1,6 +1,6 @@
 <properties linkid="manage-services-notification-hubs-notify-users-xplat-aspnet" urlDisplayName="Notify Users xplat aspnet" pageTitle="Send cross-platform notifications to users with Notification Hubs (ASP.NET)" metaKeywords="" description="Learn how to use Notification Hubs templates to send, in a single request, a platform-agnostic notification that targets all platforms." metaCanonical="" services="notification-hubs" documentationCenter="" title="Send cross-platform notifications to users with Notification Hubs" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Отправка кроссплатформенных уведомлений пользователям с помощью концентраторов уведомлений
 
@@ -81,7 +81,11 @@
 -   **[Инструкции по использованию концентраторов уведомлений для магазина Windows][Инструкции по использованию концентраторов уведомлений для магазина Windows]**
     Включает ссылку на язык выражения шаблона.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
+<!-- Anchors. --> 
+
+<!-- Images. --> 
+
+<!-- URLs. -->
 
   [Уведомление пользователей с помощью концентраторов уведомлений]: /ru-ru/manage/services/notification-hubs/notify-users-aspnet
   [Обзор концентраторов уведомлений Windows Azure]: http://go.microsoft.com/fwlink/p/?LinkId=317339

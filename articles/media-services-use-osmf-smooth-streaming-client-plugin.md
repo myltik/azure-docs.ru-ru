@@ -329,7 +329,7 @@ SS для OSMF включает в себя две версии подключа
 Динамический подключаемый модуль Smooth Streaming для OSMF совместим с проигрывателем [Strobe Media Playback (SMP)][Strobe Media Playback (SMP)]. Подключаемый модуль SS для OSMF можно использовать для поддержки воспроизведения контента в SMP. Для этого скопируйте "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf" на веб-сервер, чтобы выполнять загрузку по протоколу HTTP, и выполните следующие действия:
 
 1.  Откройте [страницу настройки Strobe Media Playback][страницу настройки Strobe Media Playback].
-2.  Задайте в параметре src источник Smooth Streaming (например,<http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest>)
+2.  Задайте src в качестве значения для источника Smooth Streaming, (например, http://devplatem.vo.msecnd.net/Sintel/Sintel\_H264.ism/manifest)
 3.  Внесите требуемые изменения и нажмите кнопку "Предварительный просмотр и обновление".
 
     **Примечание.** На веб-сервере должен размещаться допустимый файл crossdomain.xml.

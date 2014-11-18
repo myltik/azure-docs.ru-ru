@@ -8,7 +8,7 @@
 
 ## Canonical
 
-[][]<http://www.ubuntu.com/cloud/azure></a>
+<http://www.ubuntu.com/cloud/azure>
 
 Инженерно-техническое открытое сообщество Canonical способствует успешному распространению Ubuntu в клиентских, серверных и облачных средах, включая персональные облачные службы для потребителей. Canonical представляет Ubuntu как единую бесплатную платформу, от телефона до облака, с семейством согласованных интерфейсов для телефона, планшета, ТВ и рабочего стола, что делает Ubuntu лучшим вариантом для различных учреждений, от поставщиков общедоступных облаков до создателей бытовой электроники, и фаворитом среди частных специалистов.
 
@@ -16,19 +16,19 @@
 
 ## OpenLogic
 
-[][1]<http://www.openlogic.com/azure></a>
+<http://www.openlogic.com/azure>
 
 OpenLogic — ведущий поставщик корпоративных решений с открытым исходным кодом для облака и центра обработки данных. OpenLogic помогает сотням ведущих предприятий в различных отраслях безопасно получать, поддерживать и контролировать программное обеспечение с открытым исходным кодом. Опираясь на экспертное сообщество, OpenLogic предлагает техническую поддержку коммерческого уровня и гарантии возмещения для 600 пакетов с открытым исходным кодом, в том числе поддержку корпоративного уровня для CentOS, а также является партнером по запуску для предоставления образов Centos в Azure.
 
 ## Oracle
 
-[][2]<http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html></a>
+<http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html>
 
 Oracle предлагает широкий набор решений для общедоступных и частных облаков, предоставляя при этом клиентам свободу выбора и гибкость при развертывании программного обеспечения Oracle в облаках Oracle, а также в других облаках. Партнерство Oracle с корпорацией Майкрософт позволяет клиентам развертывать программное обеспечение Oracle в общедоступных и частных облаках Майкрософт при обеспечении сертификации и поддержки от Oracle. Заинтересованность компании Oracle и ее инвестиции в решения для общедоступных и частных облаков Oracle остаются неизменными.
 
 ## SUSE
 
-[][3]<http://www.suse.com/suse-linux-enterprise-server-on-azure></a>
+<http://www.suse.com/suse-linux-enterprise-server-on-azure>
 
 SUSE Linux Enterprise Server в Azure — проверенная платформа, предоставляющая высокую степень надежности и безопасности для работы в облаке. Универсальная платформа SUSE Linux легко интегрируется с облачными службами Azure, создавая облачную среду с простым управлением. Более 9200 сертифицированных приложений для SUSE Linux Enterprise Server от свыше 1800 независимых поставщиков программного обеспечения гарантируют, что рабочие нагрузки, поддерживаемые в центре обработки данных, могут быть беспрепятственно развернуты в Azure.
 
@@ -125,7 +125,7 @@ CoreOS
 
 </td>
 <td>
-Источник: [GitHub][4]
+Источник: [GitHub][1]
 
 </td>
 </tr>
@@ -202,10 +202,6 @@ openSUSE 13.1+
 <sup>1</sup> **Примечание.** Для CoreOS в Azure в настоящее время предоставляется версия Developer Preview (*alpha*).
 
   [этой странице]: ../virtual-machines-linux-create-upload-vhd/
-  []: http://www.ubuntu.com/cloud/azure
-  [1]: http://www.openlogic.com/azure
-  [2]: http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html
-  [3]: http://www.suse.com/suse-linux-enterprise-server-on-azure
   [здесь]: http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409
   [Github]: https://github.com/azure/walinuxagent
   [исправление для совместимости ядра Linux]: http://go.microsoft.com/fwlink/?LinkID=403027&clcid=0x409
@@ -213,5 +209,5 @@ openSUSE 13.1+
   [GitHub]: http://go.microsoft.com/fwlink/p/?LinkID=250998
   [Требуется только для версии 6.3]: http://go.microsoft.com/fwlink/?LinkID=275153&clcid=0x409
   [в репозитории пакетов Open Logic]: http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/
-  [4]: https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent
+  [1]: https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent
   [Cloud:Tools]: https://build.opensuse.org/project/show/Cloud:Tools

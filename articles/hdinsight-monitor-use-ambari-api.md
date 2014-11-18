@@ -79,7 +79,7 @@
 
 **Использование Azure PowerShell**
 
-Ниже приведен сценарий PowerShell для получения сведений о контролере заданий MapReduce *в кластере версии 3.1.* Основное отличие заключается в том, что мы получаем подробные данные от службы YARN (а не от Map Reduce).
+Далее представлен скрипт PowerShell для получения информации MapReduce jobtracker*в кластере 3.1.* Основное отличие заключается в том, что мы получаем подробные данные от службы YARN (а не от Map Reduce).
 
     $clusterName = "<HDInsightClusterName>"
     $clusterUsername = "<HDInsightClusterUsername>"
@@ -138,8 +138,8 @@
         "Hosts":{"cluster_name":"hdi0211v2.azurehdinsight.net",
                  "host_name":"headnode0.{ClusterDNS}.azurehdinsight.net"}}]}
 
-Примечание для версии от 10.8.2014:
-При использовании конечной точки Ambari, "[https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}][https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}]", поле *host\_name* теперь возвращает полное доменное имя (FQDN) узла вместо имени хоста. До версии от 10.8.2014 этот пример возвращал "просто значение **headnode0**". После 10.8.2014 поле возвращает вам полное доменное имя "**headnode0.{ClusterDNS}.azurehdinsight.net**” , как это показано в примере выше. Это изменение было продиктовано необходимостью использовать сценарии, в которых кластеры различного типа; например, кластеры HBase и Hadoop можно было бы размещать в одной виртуальной сети (VNET). Такая необходимость может возникнуть, например, при использовании HBase в качестве вспомогательной платформы для Hadoop.
+Примечание к выпуску от 8.10.2014.
+При использовании конечной точки Ambari, "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}", поле *host\_name* в настоящее время возвращает полное доменное имя (FQDN) узла вместо имени хоста. До версии от 10.8.2014 этот пример возвращал "просто значение **headnode0**". После 10.8.2014 поле возвращает вам полное доменное имя "**headnode0.{ClusterDNS}.azurehdinsight.net**” , как это показано в примере выше. Это изменение было продиктовано необходимостью использовать сценарии, в которых кластеры различного типа, например кластеры HBase и Hadoop, можно было бы размещать в одной виртуальной сети (VNET). Такая необходимость может возникнуть, например, при использовании HBase в качестве вспомогательной платформы для Hadoop.
 
 ## <span id="monitor"></span></a>Интерфейсы Ambari API для мониторинга
 
@@ -347,7 +347,6 @@ HostRoles, component, host, metrics
   [Приступая к работе с HDInsight]: ../hdinsight-get-started/
   [Подготовка кластеров HDInsight]: ../hdinsight-provision-clusters/
   [Вывод Jobtracker]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
-  [https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}]: https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}
   [Администрирование кластеров HDInsight с помощью портала управления]: ../hdinsight-administer-use-management-portal/
   [Администрирование кластеров HDInsight с помощью Azure PowerShell]: ../hdinsight-administer-use-powershell/
   [Администрирование кластеров HDInsight с помощью интерфейса командной строки]: ../hdinsight-administer-use-command-line/

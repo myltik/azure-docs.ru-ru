@@ -54,7 +54,7 @@
 
 **Чтобы установить интерфейс командной строки с помощью установщика windows, выполните следующие действия**
 
-1.  Перейдите по адресу: **<http://azure.microsoft.com/ru-ru/downloads/>**.
+1.  Перейдите по адресу: **http://azure.microsoft.com/ru-ru/downloads/**.
 2.  Прокрутите вниз до раздела **Средства командной строки**, щелкните **Кроссплатформенный интерфейс командной строки** и следуйте инструкциям мастера установщика веб-платформы.
 
 ## <span id="importsettings"></span></a> Загрузка и импорт файла publishsettings учетной записи Azure
@@ -84,7 +84,7 @@
 
 ## <span id="provision"></span></a>Подготовка кластера HDInsight
 
-[WACOM.INCLUDE [готовящееся примечание](../includes/hdinsight-provisioning.md)]
+[WACOM.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
 
 HDInsight использует контейнер хранилища BLOB-объектов Azure в качестве файловой системы по умолчанию. Перед созданием кластера HDInsight требуются учетная запись хранения Azure.
 

@@ -186,7 +186,7 @@
 -   [Приступая к работе с Azure HDInsight][Приступая к работе с Azure HDInsight]
 -   [Пример: сортировка GraySort 10 ГБ][Пример: сортировка GraySort 10 ГБ]
 -   [Пример: оценка числа пи][Пример: оценка числа пи]
--   [Пример: потоковая передача на C#][Пример: потоковая передача на C#]
+-   [Пример: потоковая передача на C\#][Пример: потоковая передача на C\#]
 -   [Использование Pig с HDInsight][Использование Pig с HDInsight]
 -   [Использование Hive с HDInsight][Использование Hive с HDInsight]
 -   [Документация по пакету Azure HDInsight SDK][Документация по пакету Azure HDInsight SDK]
@@ -202,7 +202,7 @@
   [HDI.Sample.WordCount.Output]: ./media/hdinsight-sample-wordcount/HDI.Sample.WordCount.Output.png
   [Пример: сортировка GraySort 10 ГБ]: ../hdinsight-sample-10gb-graysort/
   [Пример: оценка числа пи]: ../hdinsight-sample-pi-estimator/
-  [Пример: потоковая передача на C#]: ../hdinsight-sample-csharp-streaming/
+  [Пример: потоковая передача на C\#]: ../hdinsight-sample-csharp-streaming/
   [Использование Pig с HDInsight]: ../hdinsight-use-pig/
   [Использование Hive с HDInsight]: ../hdinsight-use-hive/
   [Документация по пакету Azure HDInsight SDK]: http://msdnstage.redmond.corp.microsoft.com/ru-ru/library/dn479185.aspx

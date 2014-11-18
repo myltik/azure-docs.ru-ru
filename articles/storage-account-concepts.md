@@ -12,15 +12,15 @@
 
 *конечные точки* учетной записи хранения представляют собой наивысший уровень пространства имен для доступа к BLOB-объектам, таблицам, очередям или файлам. Конечные точки для учетной записи хранения по умолчанию имеют следующие форматы:
 
--   Служба BLOB-объектов: <http://*mystorageaccount>\*.blob.core.windows.net
+-   Служба BLOB-объектов: http://*mystorageaccount*.blob.core.windows.net
 
--   Служба таблиц: <http://*mystorageaccount>\*.table.core.windows.net
+-   Служба таблиц: http://*mystorageaccount*.table.core.windows.net
 
--   Служба очередей: <http://*mystorageaccount>\*.queue.core.windows.net
+-   Служба очередей: http://*mystorageaccount*.queue.core.windows.net
 
--   Служба файлов: <http://*mystorageaccount>\*.file.core.windows.net
+-   Служба файлов: http://*mystorageaccount*.file.core.windows.net
 
-URL-адрес для доступа к объекту в учетной записи хранения строится путем добавления местоположения объекта в учетной записи хранения к конечной точке. Например, адрес blob-объекта может иметь следующий формат: <http://*mystorageaccount>*.blob.core.windows.net/*mycontainer*/*myblob\*.
+URL-адрес для доступа к объекту в учетной записи хранения строится путем добавления местоположения объекта в учетной записи хранения к конечной точке. Например, адрес blob-объекта может иметь следующий формат: http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*.
 
 ## Безопасность учетной записи хранения
 

@@ -38,7 +38,7 @@
 <tr class="odd">
 <td align="left"><p>Ядер на <a href="http://msdn.microsoft.com/ru-ru/library/azure/hh531793.aspx">подписку</a><sup>1</sup></p></td>
 <td align="left"><p>20</p></td>
-<td align="left"><p>10 000</p></td>
+<td align="left"><p>10,000</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p><a href="http://msdn.microsoft.com/ru-ru/library/azure/gg456328.aspx">Дополнительные администраторы</a> на подписку</p></td>
@@ -234,7 +234,7 @@
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">Ресурсы<sup>1</sup></th>
+<th align="left">Ресурс<sup>1</sup></th>
 <th align="left">Ограничение по умолчанию</th>
 </tr>
 </thead>
@@ -285,7 +285,7 @@
 </tr>
 <tr class="even">
 <td align="left"><p>Максимум входов на учетную запись хранилища (регион — США)</p></td>
-<td align="left"><p>10 Гбит/c, если включен GRS<sup>3</sup>, 20 Гбит/c для LRS</p></td>
+<td align="left"><p>10 Гбит/с, если включена служба GRS<sup>3</sup>, 20 Гбит/с для LRS</p></td>
 </tr>
 <tr class="odd">
 <td align="left"><p>Максимум выходов на учетную запись хранилища (регион — США)</p></td>
@@ -297,16 +297,16 @@
 </tr>
 <tr class="odd">
 <td align="left"><p>Максимум выходов на учетную запись хранилища (регионы — Европа и Азия)</p></td>
-<td align="left"><p>10 Гбит/c, если включен GRS<sup>3</sup>, 15 Гбит/c для LRS</p></td>
+<td align="left"><p>10 Гбит/c, если включена службаGRS<sup>3</sup>, 15 Гбит/c для LRS</p></td>
 </tr>
 </tbody>
 </table>
 
 <sup>1</sup>Для получения дополнительной информации см. раздел [Цели масштабирования и производительности хранилища Azure][Цели масштабирования и производительности хранилища Azure].
 
-<sup>2</sup>Для виртуальных машин на уровне Basic не рекомендуется размещать в учетной записи хранилища более 66 виртуальных жестких дисков с интенсивной нагрузкой, чтобы избежать возможного превышения предельного значения в 20 000 тысяч запросов (20 000/300). Для виртуальных машин на уровне Standard не рекомендуется размещать в учетной записи хранилища более 40 виртуальных жестких дисков (20 000/500). Дополнительные сведения см. в разделе [Размеры виртуальных машин и облачных служб в Azure][Размеры виртуальных машин и облачных служб в Azure].
+<sup>2</sup>Для виртуальных машин на уровне Basic Tier не размещайте более 66 часто используемых виртуальных жестких дисков в учетной записи хранилища, чтобы не превышать ограничения на общую частоту запросов 20 000 (20 000/300). Для виртуальных машин на уровне Standard не рекомендуется размещать в учетной записи хранилища более 40 виртуальных жестких дисков (20 000/500). Дополнительные сведения см. в разделе [Размеры виртуальных машин и облачных служб в Azure][Размеры виртуальных машин и облачных служб в Azure].
 
-<sup>3</sup>GRS означает [Geo Redundant Storage (Геоизбыточное хранилище)][Geo Redundant Storage (Геоизбыточное хранилище)]. LRS означает [Locally Redundant Storage (Локально избыточное хранилище)][Locally Redundant Storage (Локально избыточное хранилище)]. Следует иметь в виду, что GRS обладает также и локальной избыточностью.
+<sup>3</sup>GRS означает [геоизбыточное хранилище][геоизбыточное хранилище] (Geo Redundant Storage, GRS). LRS означает [Locally Redundant Storage (Локально избыточное хранилище)][Locally Redundant Storage (Локально избыточное хранилище)]. Следует иметь в виду, что GRS обладает также и локальной избыточностью.
 
 ## <a name="documentdblimits"></a>Ограничения DocumentDB (предварительная версия)
 
@@ -349,7 +349,7 @@
   [виртуальный сетевой шлюз]: http://msdn.microsoft.com/ru-ru/library/azure/jj156210.aspx
   [Цели масштабирования и производительности хранилища Azure]: http://msdn.microsoft.com/library/azure/dn249410.aspx
   [Размеры виртуальных машин и облачных служб в Azure]: http://msdn.microsoft.com/ru-ru/library/azure/dn197896.aspx
-  [Geo Redundant Storage (Геоизбыточное хранилище)]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/introducing-geo-replication-for-windows-azure-storage.aspx
+  [геоизбыточное хранилище]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/introducing-geo-replication-for-windows-azure-storage.aspx
   [Locally Redundant Storage (Локально избыточное хранилище)]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/08/introducing-locally-redundant-storage-for-windows-azure-storage.aspx
   [Уровни службы базы данных SQL Azure (выпуски)]: http://msdn.microsoft.com/ru-ru/library/azure/dn741340.aspx
   [Уровни и уровни производительности службы базы данных SQL Azure]: http://msdn.microsoft.com/ru-ru/library/azure/dn741336.aspx

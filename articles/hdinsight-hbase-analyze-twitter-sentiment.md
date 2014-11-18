@@ -19,7 +19,7 @@
 
     Вы сможете выполнять запросы, используя определенные ключевые слова, чтобы получить представление о том, является ли выражаемое в твитах мнение в целом положительным, отрицательным или нейтральным.
 
-Пример готового решения Visual Studio можно найти на странице по адресу [][]<https://github.com/maxluk/tweet-sentiment></a>.
+Пример готового решения Visual Studio можно найти на странице по адресу <https://github.com/maxluk/tweet-sentiment>.
 
 ## Содержание
 
@@ -51,7 +51,7 @@
 
 **Создание идентификатора и секретов приложения Twitter**
 
-1.  Войдите на веб-сайт [][1]<https://apps.twitter.com/></a>. Перейдите по ссылке **Войти сейчас**, если у вас нет учетной записи Twitter.
+1.  Войдите на веб-сайт <https://apps.twitter.com/>. Перейдите по ссылке **Войти сейчас**, если у вас нет учетной записи Twitter.
 2.  Щелкните **Создать новое приложение**.
 3.  Введите **Имя**, **Описание**, **Веб-сайт**. Поле "Веб-сайт" на самом деле не используется. В нем не обязательно указывать действительный URL-адрес. В следующей таблице приведены некоторые примеры значений:
 
@@ -80,7 +80,7 @@
 2.  В меню **Файл** выберите команду **Создать**, а затем — **Проект**.
 3.  Введите или выберите следующие значения:
 
-    -   Шаблоны: **Visual C#**
+    -   Шаблоны: **Visual C\#**
     -   Шаблон: **Консольное приложение**
     -   Имя: **TweetSentimentStreaming**
     -   Расположение: **C:\\Tutorials**
@@ -96,7 +96,7 @@
         Install-Package TweetinviAPI
         Install-Package protobuf-net 
 
-    > [WACOM.NOTE] На 26 августа 2014 г. пакет Microsoft Hbase SDK Nuget был недоступен. Репозиторий Github — [][2]<https://github.com/hdinsight/hbase-sdk-for-net></a>. Пока этот пакет SDK не станет доступен, выполнять сборку библиотеки DLL необходимо самостоятельно. Инструкции см. в разделе [Приступая к использованию HBase с Hadoop в HDInsight][Приступая к использованию HBase с Hadoop в HDInsight].
+    > [WACOM.NOTE] На 26 августа 2014 г. пакет Microsoft Hbase SDK Nuget был недоступен. Репозиторий Github — <https://github.com/hdinsight/hbase-sdk-for-net>. Пока этот пакет SDK не станет доступен, выполнять сборку библиотеки DLL необходимо самостоятельно. Инструкции см. в разделе [Приступая к использованию HBase с Hadoop в HDInsight][Приступая к использованию HBase с Hadoop в HDInsight].
 
 3.  В **обозревателе решений** щелкните правой кнопкой мыши папку **Ссылки** и выберите пункт **Добавить ссылку**.
 4.  В левой области разверните узел **Сборки**, а затем щелкните **Платформа**.
@@ -413,7 +413,7 @@
 
 **Загрузка файла словаря мнений**
 
-1.  Перейдите на страницу [][]<https://github.com/maxluk/tweet-sentiment></a>.
+1.  Перейдите на страницу <https://github.com/maxluk/tweet-sentiment>.
 2.  Нажмите кнопку **Download ZIP** (Загрузить ZIP-файл).
 3.  Распакуйте архив на локальном компьютере.
 4.  Скопируйте файл **../tweet-sentiment/SimpleStreamingService/data/dictionary/dictionary.tsv**.
@@ -437,7 +437,7 @@
 2.  В меню **Файл** выберите пункт **Создать**, а затем щелкните **Проект**.
 3.  Введите следующие данные:
 
-    -   Категория шаблона: **Visual C#/Веб-сайт**
+    -   Категория шаблона: **Visual C\#/Веб-сайт**
     -   Шаблон: **Веб-приложение ASP.NET**
     -   Имя: **TweetSentimentWeb**
     -   Расположение: **C:\\Tutorials**
@@ -459,7 +459,7 @@
 
         Install-Package protobuf-net 
 
-    > [WACOM.NOTE] На 20 августа 2014 г. пакет Microsoft Hbase SDK Nuget был недоступен. Репозиторий Github — [][2]<https://github.com/hdinsight/hbase-sdk-for-net></a>. Пока этот пакет SDK не станет доступен, выполнять сборку библиотеки DLL необходимо самостоятельно. Инструкции см. в разделе [Приступая к использованию HBase с Hadoop в HDInsight][Приступая к использованию HBase с Hadoop в HDInsight].
+    > [WACOM.NOTE] На 20 августа 2014 г. пакет Microsoft Hbase SDK Nuget был недоступен. Репозиторий Github — <https://github.com/hdinsight/hbase-sdk-for-net>. Пока этот пакет SDK не станет доступен, выполнять сборку библиотеки DLL необходимо самостоятельно. Инструкции см. в разделе [Приступая к использованию HBase с Hadoop в HDInsight][Приступая к использованию HBase с Hadoop в HDInsight].
 
 **Добавление класса HBaseReader**
 
@@ -577,7 +577,7 @@
 
 5.  В классе **HBaseReader** измените значения констант:
 
-    -   **CLUSTERNAME**: имя кластера HBase, например *<https://><hbaseclustername>.azurehdinsight.net/*.
+    -   **CLUSTERNAME**: имя кластера HBase, например *https://<hbaseclustername>.azurehdinsight.net/*.
     -   **HADOOPUSERNAME**: имя пользователя Hadoop в кластере HBase. Имя по умолчанию — *admin*.
     -   **HADOOPUSERPASSWORD**: пароль пользователя Hadoop в кластере HBase.
     -   **HBASETABLENAME** = "tweets\_by\_words".
@@ -621,7 +621,7 @@
 1.  В **обозревателе решений** разверните элемент **TweetSentimentWeb**.
 2.  Щелкните правой кнопкой мыши элемент **Скрипты**, выберите пункт **Добавить** и щелкните **Файл JavaScript**.
 3.  В поле имени элемента введите **heatmap.js**.
-4.  Скопируйте приведенный ниже код и вставьте его в файл. Код был создан Аластером Эйтчисоном (Alastair Aitchison). Дополнительные сведения см. на странице [][3]<http://alastaira.wordpress.com/2011/04/15/bing-maps-ajax-v7-heatmap-library/></a>.
+4.  Скопируйте приведенный ниже код и вставьте его в файл. Код был создан Аластером Эйтчисоном (Alastair Aitchison). Дополнительные сведения см. на странице <http://alastaira.wordpress.com/2011/04/15/bing-maps-ajax-v7-heatmap-library/>.
 
         /*******************************************************************************
         * Author: Alastair Aitchison
@@ -1205,13 +1205,12 @@
 -   [Приступая к работе с HDInsight][Приступая к работе с HDInsight]
 -   [Анализ данных Twitter с помощью Hadoop в HDInsight][Анализ данных Twitter с помощью Hadoop в HDInsight]
 -   [Анализ данных о задержке рейсов с помощью HDInsight][Анализ данных о задержке рейсов с помощью HDInsight]
--   [Разработка программ потоковой передачи Hadoop на C# для HDInsight][Разработка программ потоковой передачи Hadoop на C# для HDInsight]
+-   [Разработка программ потоковой передачи Hadoop на C\# для HDInsight][Разработка программ потоковой передачи Hadoop на C\# для HDInsight]
 -   [Разработка программ MapReduce на Java для HDInsight][Разработка программ MapReduce на Java для HDInsight]
 
   [анализ мнений]: http://en.wikipedia.org/wiki/Sentiment_analysis
   [0]: ./media/hdinsight-hbase-analyze-twitter-sentiment/AppArchitecture.png
   [hdinsight.hbase.twitter.sentiment.bing.map]: ./media/hdinsight-hbase-analyze-twitter-sentiment/TwitterSentimentBingMap.png
-  [0]: https://github.com/maxluk/tweet-sentiment
   [Предварительные требования]: #prerequisites
   [Создание приложения Twitter]: #twitter
   [Создание простой службы потоковой передачи данных Twitter]: #streaming
@@ -1220,16 +1219,13 @@
   [Приступая к использованию HBase с Hadoop в HDInsight]: ../hdinsight-hbase-get-started/
   [Установка Visual Studio]: http://msdn.microsoft.com/ru-ru/library/e2h7fzkw.aspx
   [OAuth]: http://oauth.net/
-  [1]: https://apps.twitter.com/
   [hdi.hbase.twitter.sentiment.twitter.app]: ./media/hdinsight-hbase-analyze-twitter-sentiment/TwitterApp.png
   [Tweetinvi]: https://www.nuget.org/packages/TweetinviAPI/
   [Protobuf-net]: https://www.nuget.org/packages/protobuf-net/
-  [2]: https://github.com/hdinsight/hbase-sdk-for-net
   [hdinsight.hbase.twitter.sentiment.streaming.service]: ./media/hdinsight-hbase-analyze-twitter-sentiment/StreamingService.png
-  [3]: http://alastaira.wordpress.com/2011/04/15/bing-maps-ajax-v7-heatmap-library/
   [Начало работы с Azure и ASP.NET]: ../web-sites-dotnet-get-started/
   [Приступая к работе с HDInsight]: ../hdinsight-get-started/
   [Анализ данных Twitter с помощью Hadoop в HDInsight]: ../hdinsight-analyze-twitter-data/
   [Анализ данных о задержке рейсов с помощью HDInsight]: ../hdinsight-analyze-flight-delay-data/
-  [Разработка программ потоковой передачи Hadoop на C# для HDInsight]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
+  [Разработка программ потоковой передачи Hadoop на C\# для HDInsight]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
   [Разработка программ MapReduce на Java для HDInsight]: ../hdinsight-develop-deploy-java-mapreduce/

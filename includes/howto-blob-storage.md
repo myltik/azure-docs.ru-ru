@@ -38,7 +38,7 @@ HTTP или HTTPS. Хранилища больших двоичных объек
 
 -   **Формат URL-адреса.** К BLOB-объектам можно обратиться, используя следующий формат
     URL-адреса:
-    <http://>`<storage account>`.blob.core.windows.net/`<container>`/`<blob>`
+    http://`<storage account>`.blob.core.windows.net/`<container>`/`<blob>`
 
     Следующий пример URL-адреса можно использовать для обращения к одному из BLOB-объектов в
     схеме выше:

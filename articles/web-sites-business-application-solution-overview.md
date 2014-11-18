@@ -1,6 +1,6 @@
 <properties linkid="websites-business-application" urlDisplayName="Create a Line-of-Business Application on Azure Websites" pageTitle="Create a Line-of-Business Application on Azure Websites" metaKeywords="Web Sites" description="This guide provides a technical overview of how to use Azure Websites to create intranet, line-of-business applications. This includes authentication strategies, service bus relay, and monitoring." umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="paulettm" title="Create a Line-of-Business Application on Azure Websites" authors="jroth" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jroth"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jroth" />
 
 # Создание бизнес-приложения на веб-сайтах Azure
 
@@ -132,27 +132,37 @@
 
 Azure позволяет размещать в облаке защищенные приложения интрасети. Azure Active Directory предоставляет возможность проверки подлинности пользователей, чтобы только члены организации могли получать доступ к приложениям. Служба ретрансляции Service Bus предоставляет веб-приложениям механизм взаимодействия с локальными службами и данными. Этот гибридный подход к приложениям упрощает публикацию бизнес-приложения в облаке без переноса всех зависимых данных и служб. Для развернутых бизнес-приложений можно использовать преимущества стандартных возможностей масштабирования и мониторинга, предоставляемых веб-сайтами Azure. Дополнительные сведения см. в следующих технических статьях:
 
-| Область                      | Ресурсы                                                                                                                |
-|------------------------------|------------------------------------------------------------------------------------------------------------------------|
-| **План**                     | - [Веб-сайты Windows Azure, облачные службы и виртуальные машины: когда они используются?][2]                          |
-| **Создание и развертывание** | - [Развертывание веб-приложения ASP.NET на веб-сайте Azure][Развертывание веб-приложения ASP.NET на веб-сайте Azure]                                                          
-                                - [Развертывание защищенного приложения ASP.NET MVC в Azure][Развертывание защищенного приложения ASP.NET MVC в Azure]                                                          |
-| **Проверка подлинности**     | - [Общие сведения о вариантах удостоверений Azure][Общие сведения о вариантах удостоверений Azure]                                                                   
-                                - [Служба Azure Active Directory][Служба Azure Active Directory]                                                                                     
-                                - [Что такое клиент Azure AD?][Что такое клиент Azure AD?]                                                                                        
-                                - [Добавление входа в веб-приложение с помощью Azure AD][Добавление единого входа в веб-приложение с помощью Azure AD]  
-                                - [Учебник по проверке подлинности Azure][Проверка подлинности Azure]                                                   |
-| **Ретрансляция Service Bus** | - [Использование службы ретрансляции Service Bus][3]                                                                   
-                                - [Учебник по ретранслируемому обмену сообщениями Service Bus][Учебник по ретранслируемому обмену сообщениями Service Bus]                                                        |
-| **Монитор**                  | - [Мониторинг веб-сайтов][Мониторинг веб-сайтов]                                                                                            
-                                - [Практическое руководство. Получение уведомлений об оповещениях и управление правилами оповещения в Azure][Практическое руководство. Получение уведомлений об оповещениях и управление правилами оповещения в Azure]          
-                                - [Практическое руководство. Настройка диагностики и загрузка журналов для веб-сайта][4]                                
-                                - [Поиск и устранение неисправностей веб-сайтов Azure в Visual Studio][Поиск и устранение неисправностей веб-сайтов Azure в Visual Studio]                                                |
+<table cellspacing="0" border="1">
+<tr>
+   <th align="left" valign="top">Область</th>
+   <th align="left" valign="top">Ресурсы</th>
+</tr>
+<tr>
+   <td valign="middle"><strong>План</strong></td>
+   <td valign="top">- <a href="http://www.windowsazure.com/ru-ru/manage/services/web-sites/choose-web-app-service">Веб-сайты Windows Azure, облачные службы и виртуальные машины: когда они используются?</a></td>
+</tr>
+<tr>
+   <td valign="middle"><strong>Создание и развертывание</strong></td>
+   <td valign="top">- <a href ="http://www.windowsazure.com/ru-ru/develop/net/tutorials/get-started/">Развертывание веб-приложения ASP.NET на веб-сайте Azure</a><br/>- <a href="http://www.windowsazure.com/ru-ru/develop/net/tutorials/web-site-with-sql-database/">Развертывание защищенного приложения ASP.NET MVC в Azure</a></td>
+</tr>
+<tr>
+   <td valign="middle"><strong>Проверка подлинности</strong></td>
+   <td valign="top">- <a href ="http://www.windowsazure.com/ru-ru/manage/windows/fundamentals/identity/">Общие сведения о вариантах удостоверений Azure</a><br/>- <a href="http://www.windowsazure.com/ru-ru/documentation/services/active-directory/">Служба Azure Active Directory</a><br/>- <a href="http://technet.microsoft.com/ru-ru/library/jj573650.aspx">Что такое клиент Azure AD?</a><br/>- <a href="http://msdn.microsoft.com/library/windowsazure/dn151790.aspx">Добавление входа в веб-приложение с помощью Azure AD</a><br/>- <a href="http://www.asp.net/aspnet/overview/aspnet-and-visual-studio-2012/windows-azure-authentication">Учебник по проверке подлинности Azure</a></td>
+</tr>
+<tr>
+   <td valign="middle"><strong>Ретрансляция Service Bus</strong></td>
+   <td valign="top">- <a href="http://www.windowsazure.com/ru-ru/develop/net/how-to-guides/service-bus-relay/">Использование службы ретрансляции Service Bus</a><br/>- <a href="http://msdn.microsoft.com/ru-ru/library/windowsazure/ee706736.aspx">Учебник по ретранслируемому обмену сообщениями Service Bus</a></td>
+</tr>
+<tr>
+   <td valign="middle"><strong>Монитор</strong></td>
+   <td valign="top">- <a href ="http://www.windowsazure.com/ru-ru/manage/services/web-sites/how-to-monitor-websites/">Мониторинг веб-сайтов</a><br/>- <a href="http://msdn.microsoft.com/library/windowsazure/dn306638.aspx">Практическое руководство. Получение уведомлений об оповещениях и управление правилами оповещения в Azure</a><br/>- <a href="http://www.windowsazure.com/ru-ru/manage/services/web-sites/how-to-monitor-websites/#howtoconfigdiagnostics">Практическое руководство. Настройка диагностики и загрузка журналов для веб-сайта</a><br/>- <a href="http://www.windowsazure.com/ru-ru/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/">Поиск и устранение неисправностей веб-сайтов Azure в Visual Studio</a></td>
+</tr>
+</table>
+
 
   [веб-сайтах Azure]: /ru-ru/documentation/services/web-sites/
   [облачные службы Azure]: /ru-ru/documentation/services/cloud-services/
   [виртуальные машины Azure]: /ru-ru/documentation/services/virtual-machines/
-  [Веб-сайты Windows Azure, облачные службы и виртуальные машины: когда они используются?]: /ru-ru/manage/services/web-sites/choose-web-app-service
   [Преимущества]: #benefits
   [Выбор стратегии проверки подлинности]: #authentication
   [Создание веб-сайта Azure, поддерживающего проверку подлинности]: #createintranetsite
@@ -166,7 +176,6 @@ Azure позволяет размещать в облаке защищенные
   [Руководства по развертыванию Windows Server Active Directory на виртуальных машинах Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj156090.aspx
   [служба Azure Access Control Service]: http://msdn.microsoft.com/library/windowsazure/hh147631.aspx
   [Использование Azure Active Directory Access Control]: /ru-ru/manage/windows/fundamentals/identity/#ac
-  [Что такое клиент Azure AD?]: http://technet.microsoft.com/ru-ru/library/jj573650.aspx
   [BusinessApplicationsAzureAD]: ./media/web-sites-business-application-solution-overview/BusinessApplications_AzureAD.png
   [BusinessApplicationsADUsers]: ./media/web-sites-business-application-solution-overview/BusinessApplications_AD_Users.png
   [Добавление единого входа в веб-приложение с помощью Azure AD]: http://msdn.microsoft.com/library/windowsazure/dn151790.aspx
@@ -197,13 +206,3 @@ Azure позволяет размещать в облаке защищенные
   [BusinessApplicationsDiagRetention]: ./media/web-sites-business-application-solution-overview/BusinessApplications_Diag_Retention.png
   [Практическое руководство. Настройка диагностики и загрузка журналов для веб-сайта]: /ru-ru/manage/services/web-sites/how-to-monitor-websites/#howtoconfigdiagnostics
   [Устранение неполадок, связанных с веб-сайтами Azure, в Visual Studio]: /ru-ru/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/
-  [2]: http://www.windowsazure.com/ru-ru/manage/services/web-sites/choose-web-app-service
-  [Развертывание веб-приложения ASP.NET на веб-сайте Azure]: http://www.windowsazure.com/ru-ru/develop/net/tutorials/get-started/
-  [Развертывание защищенного приложения ASP.NET MVC в Azure]: http://www.windowsazure.com/ru-ru/develop/net/tutorials/web-site-with-sql-database/
-  [Общие сведения о вариантах удостоверений Azure]: http://www.windowsazure.com/ru-ru/manage/windows/fundamentals/identity/
-  [Служба Azure Active Directory]: http://www.windowsazure.com/ru-ru/documentation/services/active-directory/
-  [3]: http://www.windowsazure.com/ru-ru/develop/net/how-to-guides/service-bus-relay/
-  [Мониторинг веб-сайтов]: http://www.windowsazure.com/ru-ru/manage/services/web-sites/how-to-monitor-websites/
-  [Практическое руководство. Получение уведомлений об оповещениях и управление правилами оповещения в Azure]: http://msdn.microsoft.com/library/windowsazure/dn306638.aspx
-  [4]: http://www.windowsazure.com/ru-ru/manage/services/web-sites/how-to-monitor-websites/#howtoconfigdiagnostics
-  [Поиск и устранение неисправностей веб-сайтов Azure в Visual Studio]: http://www.windowsazure.com/ru-ru/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/

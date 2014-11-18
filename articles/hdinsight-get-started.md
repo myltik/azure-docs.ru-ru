@@ -206,7 +206,7 @@ HDInsight использует для хранения данных хранил
 -   [Использование Hive с HDInsight][Использование Hive с HDInsight]
 -   [Использование Pig с HDInsight][Использование Pig с HDInsight]
 -   [Использование Oozie с HDInsight][Использование Oozie с HDInsight]
--   [Разработка программ потоковой передачи Hadoop на C# для HDInsight][Разработка программ потоковой передачи Hadoop на C# для HDInsight]
+-   [Разработка программ потоковой передачи Hadoop на C\# для HDInsight][Разработка программ потоковой передачи Hadoop на C\# для HDInsight]
 -   [Разработка программ MapReduce на Java для HDInsight][Разработка программ MapReduce на Java для HDInsight]
 
   [Apache Hadoop]: http://go.microsoft.com/fwlink/?LinkId=510084
@@ -251,5 +251,5 @@ HDInsight использует для хранения данных хранил
   [Использование Hive с HDInsight]: ../hdinsight-use-hive/
   [Использование Pig с HDInsight]: ../hdinsight-use-pig/
   [Использование Oozie с HDInsight]: ../hdinsight-use-oozie/
-  [Разработка программ потоковой передачи Hadoop на C# для HDInsight]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
+  [Разработка программ потоковой передачи Hadoop на C\# для HDInsight]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
   [Разработка программ MapReduce на Java для HDInsight]: ../hdinsight-develop-deploy-java-mapreduce/

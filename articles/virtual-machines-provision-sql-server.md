@@ -1,4 +1,4 @@
-<properties urlDisplayName="Install SQL Server" pageTitle="Подготовка виртуальной машины SQL Server в Azure" metaKeywords="Azure tutorial creating SQL Server, SQL Server vm, configuring SQL Server" description="В этом учебнике показано, как создать и настроить виртуальную машину SQL Server в Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Подготовка виртуальной машины SQL Server в Azure" authors="selcint" solutions="" manager="jeffreyg" editor="tyson" />
+<properties urlDisplayName="Install SQL Server" pageTitle="Подготовка виртуальной машины SQL Server в Azure " metaKeywords="Azure tutorial creating SQL Server, SQL Server vm, configuring SQL Server" description="В этом учебнике показано, как создать и настроить виртуальную машину SQL Server в Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Подготовка виртуальной машины SQL Server в Azure" authors="selcint" solutions="" manager="jeffreyg" editor="tyson" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="selcint" />
 
@@ -250,7 +250,7 @@
 
 1.  На портале управления Azure (или на предыдущем этапе) выберите **ВИРТУАЛЬНЫЕ МАШИНЫ**.
 
-2.  На странице**ЭКЗЕМПЛЯРЫ ВИРТУАЛЬНОЙ МАШИНЫ** в столбце **DNS-ИМЯ** найдите и скопируйте DNS-имя для виртуальной машины, перед которым стоит **<http://>**. (Имя в интерфейсе пользователя может отображаться не полностью, однако вы можете щелкнуть правой кнопкой мыши и выбрать команду "Копировать").
+2.  На странице**ЭКЗЕМПЛЯРЫ ВИРТУАЛЬНОЙ МАШИНЫ** в столбце **DNS-ИМЯ** найдите и скопируйте DNS-имя для виртуальной машины, перед которым стоит **http://**. (Имя в интерфейсе пользователя может отображаться не полностью, однако вы можете щелкнуть правой кнопкой мыши и выбрать команду "Копировать").
 
 ### <span id="cde"></span>Подключение к ядру СУБД с другого компьютера</a>
 

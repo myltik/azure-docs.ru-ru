@@ -62,18 +62,18 @@
 
 ### Использование msysgit
 
-1.  Загрузите и установите msysgit из следующего расположения: [][]<http://msysgit.github.com/></a>
+1.  Загрузите и установите msysgit из следующего расположения: <http://msysgit.github.com/>
 2.  Запустите `msys` из установленного каталога (например: c:\\msysgit\\msys.exe)
 3.  Перейдите в каталог `bin`, введя команду `cd bin`
 
 ### Использование GitHub для Windows
 
-1.  Загрузите и установите GitHub для Windows из следующего расположения: [][1]<http://windows.github.com/></a>
+1.  Загрузите и установите GitHub для Windows из следующего расположения: <http://windows.github.com/>
 2.  Запустите оболочку Git из меню "Пуск" \> "Все программы" GitHub, Inc
 
 ### Использование cygwin
 
-1.  Загрузите и установите Cygwin из следующего расположения: [][2]<http://cygwin.com/></a>
+1.  Загрузите и установите Cygwin из следующего расположения: <http://cygwin.com/>
 2.  Проверьте установку пакета OpenSSL и всех его зависимостей.
 3.  Запустите `cygwin`
 
@@ -96,7 +96,7 @@
 
 ## Создание PPK для Putty
 
-1.  Загрузите и установите Puttygen из следующего расположения: [][3]<http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html></a>
+1.  Загрузите и установите Puttygen из следующего расположения: <http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html>
 
 2.  Puttygen, возможно, не удастся прочитать закрытый ключ, созданный ранее (`myPrivateKey.key`). Выполните следующую команду для его преобразования в закрытый ключ RSA, который распознается Puttygen:
 
@@ -125,7 +125,7 @@
 
 ## Использование Putty для подключения к компьютеру Linux
 
-1.  Загрузите и установите putty из следующего расположения: [][3]<http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html></a>
+1.  Загрузите и установите putty из следующего расположения: <http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html>
 2.  Запустите putty.exe
 3.  Заполните имя узла, используя IP с портала управления.
 
@@ -133,16 +133,12 @@
 
 4.  Перед выбором **Открыть** щелкните вкладку Подключение \> SSH \> Проверка подлинности, чтобы указать ключ. Ниже см. снимок экрана поля для заполнения.
 
-    ![linuxputtyprivatekey][4]
+    ![linuxputtyprivatekey][1]
 
 5.  Щелкните **Открыть**, чтобы подключится к виртуальной машине.
 
-  []: http://msysgit.github.com/
-  [1]: http://windows.github.com/
-  [2]: http://cygwin.com/
   [linuxwelcomegit]: ./media/virtual-machines-linux-use-ssh-key/linuxwelcomegit.png
-  [3]: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
   [linuxgoodforeignkey]: ./media/virtual-machines-linux-use-ssh-key/linuxgoodforeignkey.png
   [linuxputtyprivatekey]: ./media/virtual-machines-linux-use-ssh-key/linuxputtygenprivatekey.png
   [linuxputtyconfig]: ./media/virtual-machines-linux-use-ssh-key/linuxputtyconfig.png
-  [4]: ./media/virtual-machines-linux-use-ssh-key/linuxputtyprivatekey.png
+  [1]: ./media/virtual-machines-linux-use-ssh-key/linuxputtyprivatekey.png

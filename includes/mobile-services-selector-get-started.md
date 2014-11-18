@@ -2,8 +2,8 @@
 
 -   [(iOS | .NET)][(iOS | .NET)]
 -   [(iOS | JavaScript)][(iOS | JavaScript)]
--   [(Магазин Windows C# | .NET)][(Магазин Windows C# | .NET)]
--   [(Магазин Windows C# | Javascript)][(Магазин Windows C# | Javascript)]
+-   [(Магазин Windows C\# | .NET)][(Магазин Windows C\# | .NET)]
+-   [(Магазин Windows C\# | Javascript)][(Магазин Windows C\# | Javascript)]
 -   [(Магазин Windows JavaScript | .NET)][(Магазин Windows JavaScript | .NET)]
 -   [(Магазин Windows JavaScript | Javascript)][(Магазин Windows JavaScript | Javascript)]
 -   [(Android | .NET)][(Android | .NET)]
@@ -19,8 +19,8 @@
 
   [(iOS | .NET)]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-ios-get-started/
   [(iOS | JavaScript)]: /ru-ru/documentation/articles/mobile-services-ios-get-started/
-  [(Магазин Windows C# | .NET)]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
-  [(Магазин Windows C# | Javascript)]: /ru-ru/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started/
+  [(Магазин Windows C\# | .NET)]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
+  [(Магазин Windows C\# | Javascript)]: /ru-ru/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started/
   [(Магазин Windows JavaScript | .NET)]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started/
   [(Магазин Windows JavaScript | Javascript)]: /ru-ru/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started/
   [(Android | .NET)]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-android-get-started/

@@ -98,9 +98,7 @@
 
 Существует множество ресурсов, описывающих установку стека LAMP на Ubuntu.
 
--   [][]<https://help.ubuntu.com/community/ApacheMySQLPHP></a>
--   [][1]<http://fedorasolved.org/server-solutions/lamp-stack></a>
+-   <https://help.ubuntu.com/community/ApacheMySQLPHP>
+-   <http://fedorasolved.org/server-solutions/lamp-stack>
 
   [настройке конечных точек]: http://azure.microsoft.com/ru-ru/documentation/articles/virtual-machines-set-up-endpoints/
-  []: https://help.ubuntu.com/community/ApacheMySQLPHP
-  [1]: http://fedorasolved.org/server-solutions/lamp-stack

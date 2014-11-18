@@ -361,11 +361,11 @@
 
 -   [API REST Поиска Azure][API REST Поиска Azure]
 
--   [Видеоканал № 9: Введение в Поиск Azure][Видеоканал № 9: Введение в Поиск Azure]
+-   [Видео на канале 9. Введение в Поиск Azure][Видео на канале 9. Введение в Поиск Azure]
 
--   [Видеоканал № 9: Поиск Azure и геопространственные данные][Видеоканал № 9: Поиск Azure и геопространственные данные]
+-   [Видео на канале 9. Поиск Azure и геопространственные данные][Видео на канале 9. Поиск Azure и геопространственные данные]
 
--   [Видеоролик № 152 об облачном покрытии: Создание индекса в Поиске Azure][Видеоролик № 152 об облачном покрытии: Создание индекса в Поиске Azure]
+-   [Видеоролик № 152 об облачном покрытии. Создание индекса в Поиске Azure][Видеоролик № 152 об облачном покрытии. Создание индекса в Поиске Azure]
 
 <!--Anchors--> <!--Image references--> <!--Link references-->
 
@@ -402,6 +402,6 @@
   [Управление решением Поиска в Microsoft Azure]: ../search-manage/
   [Технические сведения о Поиске Azure]: http://msdn.microsoft.com/ru-ru/library/dn798933.aspx
   [API REST Поиска Azure]: http://msdn.microsoft.com/ru-ru/library/dn798935.aspx
-  [Видеоканал № 9: Введение в Поиск Azure]: http://channel9.msdn.com/Shows/Data-Exposed/Introduction-To-Azure-Search
-  [Видеоканал № 9: Поиск Azure и геопространственные данные]: http://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data
-  [Видеоролик № 152 об облачном покрытии: Создание индекса в Поиске Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Cloud-Cover-152-Azure-Search-with-Liam-Cavanagh
+  [Видео на канале 9. Введение в Поиск Azure]: http://channel9.msdn.com/Shows/Data-Exposed/Introduction-To-Azure-Search
+  [Видео на канале 9. Поиск Azure и геопространственные данные]: http://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data
+  [Видеоролик № 152 об облачном покрытии. Создание индекса в Поиске Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Cloud-Cover-152-Azure-Search-with-Liam-Cavanagh

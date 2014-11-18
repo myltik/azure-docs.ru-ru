@@ -204,7 +204,7 @@ Hadoop MapReduce — это программная платформа для с�
 
 -   [Приступая к работе с Azure HDInsight][Приступая к работе с Azure HDInsight]
 -   [Разработка программ MapReduce на Java для HDInsight][Разработка программ MapReduce на Java для HDInsight]
--   [Разработка программ MapReduce потоковой передачи Hadoop на C# для HDInsight][Разработка программ MapReduce потоковой передачи Hadoop на C# для HDInsight]
+-   [Разработка программ MapReduce потоковой передачи Hadoop на C\# для HDInsight][Разработка программ MapReduce потоковой передачи Hadoop на C\# для HDInsight]
 -   [Использование Hive с HDInsight][Использование Hive с HDInsight]
 -   [Использование Pig с HDInsight][Использование Pig с HDInsight]
 -   [Выполнение примеров HDInsight][Выполнение примеров HDInsight]
@@ -219,7 +219,7 @@ Hadoop MapReduce — это программная платформа для с�
   [Разработка программ MapReduce на Java для HDInsight]: ../hdinsight-develop-deploy-java-mapreduce/
   [Отправка данных в HDInsight]: ../hdinsight-upload-data/
   [Приступая к работе с Azure HDInsight]: ../hdinsight-get-started/
-  [Разработка программ MapReduce потоковой передачи Hadoop на C# для HDInsight]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
+  [Разработка программ MapReduce потоковой передачи Hadoop на C\# для HDInsight]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
   [Использование Hive с HDInsight]: ../hdinsight-use-hive/
   [Использование Pig с HDInsight]: ../hdinsight-use-pig/
   [Выполнение примеров HDInsight]: ../hdinsight-run-samples/

@@ -91,7 +91,7 @@ Node.js включает в себя минимальный набор функ�
     ![Содержимое файла index.jade.][Содержимое файла index.jade.]
 
     Jade — это обработчик представлений по умолчанию, используемый приложениями Express. Дополнительные сведения об обработчике представлений Jade
-    см. на веб-сайте [][]<http://jade-lang.com></a>.
+    см. на веб-сайте <http://jade-lang.com>.
 
 2.  Измените последнюю строку текста, добавив слова **in Azure**.
 
@@ -123,6 +123,5 @@ Node.js включает в себя минимальный набор функ�
   [Результат команды npm install]: ./media/cloud-services-nodejs-develop-deploy-express-app/node26.png
   [Веб-страница, содержащая приветствие модуля express.]: ./media/cloud-services-nodejs-develop-deploy-express-app/node28.png
   [Содержимое файла index.jade.]: ./media/cloud-services-nodejs-develop-deploy-express-app/getting-started-19.png
-  []: http://jade-lang.com
   [Последняя строка в файле index.jade содержит сообщение: p Welcome to \#{title} in Azure]: ./media/cloud-services-nodejs-develop-deploy-express-app/node31.png
   [Окно браузера со страницей приветствия Express в Azure]: ./media/cloud-services-nodejs-develop-deploy-express-app/node32.png
