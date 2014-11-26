@@ -713,7 +713,6 @@ Visual Studio создает методы и представления конт
   [Использование API членства]: #mbrDB
   [1]: #bkmk_deploytowindowsazure11
   [Дальнейшие действия]: #nextsteps
-  [установка-sdk-2013-только]: ../includes/install-sdk-2013-only.md
   [обновление Visual Studio 2013 2 RC]: http://go.microsoft.com/fwlink/?LinkId=390521
   [портале управления Azure]: https://manage.windowsazure.com
   [Кнопка "Создать" на портале управления]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rxWSnew2.png

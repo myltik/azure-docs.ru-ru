@@ -56,7 +56,7 @@
 
     Это приведет к запуску веб-сервера на локальном компьютере, где и будет размещено новое приложение.
 
-4.  Откройте URL-адрес [http://localhost: 8000/][http://localhost: 8000/] в веб-браузере, чтобы запустить приложение.
+4.  Откройте URL-адрес http://localhost: 8000/ в веб-браузере, чтобы запустить приложение.
 
 5.  В приложении в поле **Введите новую задачу** введите осмысленный текст, например *Завершение работы с учебником*, и нажмите кнопку **Добавить**.
 
@@ -236,7 +236,6 @@ $(document.body).on(&#39;change&#39;, &#39;.item-complete&#39;, function() {
   [Обновление приложения для использования мобильных служб]: #update-app
   [Тестирование работы приложения с мобильными службами]: #test-app
   [HTML5-приложении GetStartedWithData]: http://go.microsoft.com/fwlink/?LinkID=286345
-  [http://localhost: 8000/]: http://localhost:8000/
   [0]: ./media/mobile-services-html-get-started-data/mobile-quickstart-startup-html.png
   [1]: ./media/mobile-services-html-get-started-data/mobile-data-tab-empty.png
   [2]: ./media/mobile-services-html-get-started-data/mobile-create-todoitem-table.png

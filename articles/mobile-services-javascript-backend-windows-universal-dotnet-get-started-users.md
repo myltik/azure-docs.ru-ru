@@ -67,9 +67,8 @@
 
 В следующем учебнике, который называется [Авторизация пользователей мобильных служб на стороне службы][Авторизация пользователей мобильных служб на стороне службы], значение ИД пользователя, предоставляемое мобильными службами на основе пользователя, прошедшего проверку подлинности, будет использоваться для фильтрации данных, возвращаемых мобильными службами. Дополнительные сведения об использовании мобильных служб с помощью .NET см. в разделе [Справочник принципов использования мобильных служб .NET][Справочник принципов использования мобильных служб .NET].
 
-<!-- Anchors. --> <!-- URLs. -->
+ 
 
-  [mobile-services-selector-get-started-users]: ../includes/mobile-services-selector-get-started-users.md
   [Регистрация приложения для проверки подлинности и конфигурация мобильных служб]: #register
   [Ограничение разрешений таблицы пользователями, прошедшими проверку подлинности]: #permissions
   [Добавление проверки подлинности к приложению]: #add-authentication
@@ -78,11 +77,7 @@
   [Приступая к работе с проверкой подлинности в мобильных службах]: /ru-ru/documentation/articles/mobile-services-windows-phone-get-started-users
   [Единый вход для приложений магазина Windows с использованием Live Connect]: /ru-ru/documentation/articles/mobile-services-windows-store-dotnet-single-sign-on
   [этой записи блога]: http://go.microsoft.com/fwlink/p/?LinkId=506605
-  [mobile-services-register-authentication]: ../includes/mobile-services-register-authentication.md
   [Регистрация пакета приложения магазина Windows для проверки подлинности Microsoft]: /ru-ru/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication/
-  [mobile-services-restrict-permissions-javascript-backend]: ../includes/mobile-services-restrict-permissions-javascript-backend.md
   [MobileServiceClient]: http://msdn.microsoft.com/ru-ru/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx
-  [mobile-services-windows-universal-dotnet-authenticate-app]: ../includes/mobile-services-windows-universal-dotnet-authenticate-app.md
-  [mobile-services-windows-store-dotnet-authenticate-app-with-token]: ../includes/mobile-services-windows-store-dotnet-authenticate-app-with-token.md
   [Авторизация пользователей мобильных служб на стороне службы]: /ru-ru/documentation/articles/mobile-services-windows-store-dotnet-authorize-users-in-scripts
   [Справочник принципов использования мобильных служб .NET]: /ru-ru/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/

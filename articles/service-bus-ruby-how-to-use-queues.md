@@ -126,7 +126,6 @@ Service Bus предоставляет функции, помогающие ко
   [Отправка сообщений в очередь]: #how-to-send-messages-to-a-queue
   [Получение сообщений из очереди]: #how-to-receive-messages-from-a-queue
   [Обработка сбоев приложения и нечитаемых сообщений]: #how-to-handle-application-crashes-and-unreadable-messages
-  [howto-service-bus-queues]: ../includes/howto-service-bus-queues.md
   [Создание приложения Ruby в Azure]: /ru-ru/develop/ruby/tutorials/web-app-with-linux-vm/
   [очереди, разделы и подписки]: http://msdn.microsoft.com/ru-ru/library/windowsazure/hh367516.aspx
   [Azure SDK для Ruby]: https://github.com/WindowsAzure/azure-sdk-for-ruby

@@ -1,6 +1,6 @@
 <properties title="Build a Node.js web application using DocumentDB" pageTitle="Build a Node.js web application using DocumentDB | Azure" description="Learn how to use Azure DocumentDB to store and access data from a Node.js application hosted on Azure." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, getting started"   services="documentdb" solutions="data-management" documentationCenter=""  authors="ryancraw" manager="jhubbard" editor="cgronlun" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="ryancraw"></tags>
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="ryancraw" />
 
 # <a name="_Toc395783175">Создание веб-приложения Node.js с использованием DocumentDB</a>
 
@@ -24,29 +24,29 @@ Node.js Express, размещенного на веб-сайтах Azure.
  выполнять задачи. Задачи будут храниться в виде документов JSON в Azure
 DocumentDB.
 
-![Альтернативный текст][]
+![Альтернативный текст][Альтернативный текст]
 
 ## <a name="_Toc395783176">Предварительные требования</a>
 
 Перед выполнением инструкций, приведенных в этой статье, следует убедиться,
  что установлены следующие компоненты:
 
-[Node.js][] версии v0.10.29 или более поздней версии
+[Node.js][Node.js] версии v0.10.29 или более поздней версии
 
-[Git][]
+[Git][Git]
 
-[Visual Studio 2013][] с обновлением 3
+[Visual Studio 2013][Visual Studio 2013] с обновлением 3
 
-[Средства Node.js для Visual Studio][]
+[Средства Node.js для Visual Studio][Средства Node.js для Visual Studio]
 
 **Примечание.** Несмотря на то, что мы используем Visual Studio для создания, отладки и развертывания нашего проекта Node.js
  в этом учебнике, вы можете использовать любой предпочтительный редактор
  и запускать Node.js непосредственно на выбранной вами платформе,
- как это обычно происходит. Для развертывания приложения на веб-сайтах Azure можно использовать [средства командной строки][] Azure
+ как это обычно происходит. Для развертывания приложения на веб-сайтах Azure можно использовать [средства командной строки][средства командной строки] Azure
 
 # <a name="_Toc395637761">Создание учетной записи базы данных DocumentDB</a>
 
-Для подготовки учетной записи базы данных DocumentDB в Azure, откройте[портал управления Azure][]
+Для подготовки учетной записи базы данных DocumentDB в Azure, откройте[портал управления Azure][портал управления Azure]
  и, либо щелкните плитку «Коллекция Azure» на домашней странице, либо нажмите «+» в левом нижнем углу экрана.
 
 ![Альтернативный текст][1]
@@ -84,7 +84,7 @@ DocumentDB.
  экране запуска появится главная выноска для этой вновь созданной
 DocumentDB.
 
-![Альтернативный текст ][]
+![Альтернативный текст ][Альтернативный текст ]
 ![Альтернативный текст ][7]
 
 При помощи кнопки «Ключи», получите URL-адрес вашей конечной точки и первичный ключ,
@@ -497,14 +497,14 @@ DocumentDB.
 Поздравляем! Вы только что создали свое первое веб-приложение Node.js Express с использованием
  Azure DocumentDB и опубликовали его на веб-сайтах Azure.
 
-Исходный код завершенного учебного приложения можно загрузить [здесь][].
+Исходный код завершенного учебного приложения можно загрузить [здесь][здесь].
 
 </h1>
 
   [Альтернативный текст]: ./media/documentdb-nodejs-application/image1.png
   [Node.js]: http://nodejs.org/
   [Git]: http://git-scm.com/
-  [Visual Studio 2013]: http://msdn.microsoft.com/en-us/vstudio/cc136611.aspx
+  [Visual Studio 2013]: http://msdn.microsoft.com/ru-ru/vstudio/cc136611.aspx
   [Средства Node.js для Visual Studio]: https://nodejstools.codeplex.com/
   [средства командной строки]: http://azure.microsoft.com/ru-ru/documentation/articles/xplat-cli/
   [портал управления Azure]: http://portal.azure.com

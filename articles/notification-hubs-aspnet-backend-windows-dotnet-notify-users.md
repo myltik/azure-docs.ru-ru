@@ -239,7 +239,6 @@
   [Регистрация из серверной части приложения]: http://msdn.microsoft.com/ru-ru/library/dn743807.aspx
   [Регистрация приложения для Магазина Windows]: http://azure.microsoft.com/ru-ru/documentation/articles/notification-hubs-windows-store-dotnet-get-started/#register
   [Настройка концентратора уведомлений]: http://azure.microsoft.com/ru-ru/documentation/articles/notification-hubs-windows-store-dotnet-get-started/#configure-hub
-  [notification-hubs-aspnet-backend-notifyusers]: ../includes/notification-hubs-aspnet-backend-notifyusers.md
   [0]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push9.png
   [1]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push10.png
   [2]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push11.png

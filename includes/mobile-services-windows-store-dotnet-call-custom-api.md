@@ -62,9 +62,9 @@
 
 4.  Нажмите кнопку **Выполнить все**.
 
-    ![][]
+    ![][0]
 
     Отображается диалоговое окно сообщения, в котором указывается количество элементов, помеченных как завершенные; снова выполняется отфильтрованный запрос, что приводит к удалению из списка всех элементов.
 
   [InvokeApiAsync]: http://msdn.microsoft.com/ru-ru/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
-  []: ./media/mobile-services-windows-store-dotnet-call-custom-api/mobile-custom-api-windows-store-completed.png
+  [0]: ./media/mobile-services-windows-store-dotnet-call-custom-api/mobile-custom-api-windows-store-completed.png

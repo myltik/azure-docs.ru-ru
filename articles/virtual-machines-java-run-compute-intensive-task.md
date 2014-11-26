@@ -1,4 +1,4 @@
-<properties urlDisplayName="TSP on Virtual Machine" pageTitle="Выполнение ресурсоемкого приложения Java на виртуальной машине &mdash; Azure" metaKeywords="Azure virtual machine Java, Azure Java app, Azure Java application" description="Узнайте, как создать виртуальную машину Azure для выполнения ресурсоемкого приложения Java, за работой которого может следить другое приложение Java." metaCanonical="" services="virtual-machines" documentationCenter="Java" title="Выполнение ресурсоемкой задачи в Java-коде на виртуальной машине" authors="robmcm" videoId="" scriptId="" solutions="" manager="wpickett" editor="mollybos" />
+<properties linkid="dev-java-compute-load" urlDisplayName="TSP on Virtual Machine" pageTitle="Compute-intensive Java application on a VM - Azure" metaKeywords="Azure virtual machine Java, Azure Java app, Azure Java application" description="Learn how to create an Azure virtual machine that runs a compute-intensive Java application that can be monitored by another Java application." metaCanonical="" services="virtual-machines" documentationCenter="Java" title="How to run a compute-intensive task in Java on a virtual machine" authors="robmcm" videoId="" scriptId="" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
@@ -30,18 +30,17 @@
 
 ## Создание виртуальной машины
 
-1.  Выполните вход на [портал управления Azure][портал управления Azure].
-2.  Нажмите **Создать**, **Среда выполнения приложений**, **Виртуальная машина**, а затем **Из галереи**.
-3.  В диалоговом окне **Выбор образа виртуальной машины** выберите **JDK 7 Windows Server 2012**.
+1. Выполните вход на [портал управления Azure][портал управления Azure].
+2. Нажмите **Создать**, **Среда выполнения приложений**, **Виртуальная машина**, а затем **Из галереи**.
+3. В диалоговом окне **Выбор образа виртуальной машины** выберите **JDK 7 Windows Server 2012**.
     Обратите внимание, что вариант **JDK 6 Windows Server 2012** доступен только в случае использования устаревших приложений, которые не готовы к выполнению JDK 7.
-4.  Нажмите кнопку **Далее**.
-5.  В диалоговом окне **Конфигурация виртуальной машины**:
-
-    1.  Укажите имя виртуальной машины.
-    2.  Укажите размер виртуальной машины.
-    3.  Введите имя администратора в поле **Имя пользователя**. Запомните это имя и пароль, которые вы будете вводить далее. Они понадобятся для удаленного входа в виртуальную машину.
-    4.  Введите пароль в поле **Новый пароль** и повторно введите его в поле **Подтверждение**. Это пароль учетной записи администратора.
-    5.  Нажмите кнопку **Далее**.
+4. Нажмите кнопку **Далее**.
+4. В диалоговом окне **Конфигурация виртуальной машины**:
+    1. Укажите имя виртуальной машины.
+    2. Укажите размер виртуальной машины.
+    3. Введите имя администратора в поле **Имя пользователя**. Запомните это имя и пароль, которые вы будете вводить далее. Они понадобятся для удаленного входа в виртуальную машину.
+    4. Введите пароль в поле **Новый пароль** и повторно введите его в поле **Подтверждение**. Это пароль учетной записи администратора.
+    5. Нажмите кнопку **Далее**.
 
 6.  В следующем диалоговом окне **Конфигурация виртуальной машины**:
 
@@ -69,9 +68,7 @@
 
 ## Создание пространства имен Service Bus
 
-Чтобы начать использование очередей служебной шины в Azure, необходимо сначала
-создать пространство имен службы. Это пространство имен службы предоставляет
-контейнер для адресации ресурсов служебной шины в вашем приложении.
+Чтобы начать использование очередей служебной шины в Azure, необходимо сначала создать пространство имен службы. Это пространство имен службы предоставляет контейнер для адресации ресурсов служебной шины в вашем приложении.
 
 Создание пространства имен службы:
 
@@ -117,7 +114,9 @@
 2.  Создайте консольное приложение Java с помощью примера кода в конце этого раздела. Для целей этого учебника мы будем использовать имя файла Java **TSPSolver.java**. Измените заполнители **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** и **your\_service\_bus\_key** на значения **Пространство имен**, **Издатель по умолчанию** и **Ключ по умолчанию** для Service Bus соответственно.
 3.  После написания кода экспортируйте приложение в готовый к запуску архив Java (JAR) и упакуйте необходимые библиотеки в созданный JAR-файл. Для целей этого учебника мы будем использовать в качестве созданного имени JAR-файла **TSPSolver.jar**.
 
-    // TSPSolver.java
+<p/>
+
+	// TSPSolver.java
 
     import com.microsoft.windowsazure.services.core.Configuration;
     import com.microsoft.windowsazure.services.core.ServiceException;
@@ -131,7 +130,6 @@
     import java.util.List;
 
     public class TSPSolver {
-
         //  Value specifying how often to provide an update to the console.
         private static long loopCheck = 100000000;  
 
@@ -163,9 +161,7 @@
                 throw e;
             }
         }
-
         private static void permutation(List<Integer> startCities, double distSoFar, List<Integer> restCities) throws Exception {
-
             try
             {
                 nTimes++;
@@ -199,7 +195,6 @@
                 throw e;
             }
         }
-
         private static void newBestDistance(List<Integer> cities, double distance) throws ServiceException, Exception {
             try 
             {
@@ -223,19 +218,14 @@
                 throw e;
             }
         }
-
         public static void main(String args[]){
-
             try {
-
                 Configuration config = ServiceBusConfiguration.configureWithWrapAuthentication(
                         "your_service_bus_namespace", "your_service_bus_owner",
                         "your_service_bus_key",
                         ".servicebus.windows.net",
                         "-sb.accesscontrol.windows.net/WRAPv0.9");
-
                 service = ServiceBusService.create(config);
-
                 int numCities = 10;  // Use as the default, if no value is specified at command line. 
                 if (args.length != 0) 
                 {
@@ -243,31 +233,22 @@
                     {
                         // No processing to occur other than creating the queue.
                         QueueInfo queueInfo = new QueueInfo("TSPQueue");
-
                         service.createQueue(queueInfo);
-
                         System.out.println("Queue named TSPQueue was created.");
-
                         System.exit(0);
                     }
-
                     if (args[0].toLowerCase().compareTo("deletequeue")==0)
                     {
                         // No processing to occur other than deleting the queue.
                         service.deleteQueue("TSPQueue");
-
                         System.out.println("Queue named TSPQueue was deleted.");
-
                         System.exit(0);
                     }
-
                     // Neither creating or deleting a queue.
                     // Assume the value passed in is the number of cities to solve.
                     numCities = Integer.valueOf(args[0]);  
                 }
-
                 System.out.println("Running for " + numCities + " cities.");
-
                 List<Integer> startCities = new ArrayList<Integer>();
                 List<Integer> restCities = new ArrayList<Integer>();
                 startCities.add(0);
@@ -295,7 +276,6 @@
                 System.exit(-1);
             }
         }
-
     }
 
 ## Как создать приложение Java, отслеживающее ход выполнения ресурсоемкой задачи
@@ -303,72 +283,54 @@
 1.  На компьютере для разработки создайте консольное приложение Java с помощью примера кода в конце этого раздела. Для целей этого учебника мы будем использовать имя файла Java **TSPClient.java**. Как и раньше, измените заполнители **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** и **your\_service\_bus\_key** на значения **Пространство имен**, **Издатель по умолчанию** и **Ключ по умолчанию** для Service Bus соответственно.
 2.  Экспортируйте приложение в готовый к запуску JAR-файл и упакуйте в него необходимые библиотеки. Для целей этого учебника мы будем использовать в качестве созданного имени JAR-файла **TSPClient.jar**.
 
-    // TSPClient.java
+<p/>
 
+	// TSPClient.java
     import java.util.Date;
     import java.text.DateFormat;
     import java.text.SimpleDateFormat;
     import com.microsoft.windowsazure.services.serviceBus.*;
     import com.microsoft.windowsazure.services.serviceBus.models.*;
     import com.microsoft.windowsazure.services.core.*;
-
     public class TSPClient 
     {
-
         public static void main(String[] args) 
         {
                 try
                 {
-
                     DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
                     Date date = new Date();
                     System.out.println("Starting at " + dateFormat.format(date) + ".");
-
                     String namespace = "your_service_bus_namespace";
                     String issuer = "your_service_bus_owner";
                     String key = "your_service_bus_key";
-
                     Configuration config;
                     config = ServiceBusConfiguration.configureWithWrapAuthentication(
                             namespace, issuer, key,
                             ".servicebus.windows.net",
                             "-sb.accesscontrol.windows.net/WRAPv0.9");
-
                     ServiceBusContract service = ServiceBusService.create(config);
-
                     BrokeredMessage message;
-
                     int waitMinutes = 3;  // Use as the default, if no value is specified at command line. 
                     if (args.length != 0) 
                     {
                         waitMinutes = Integer.valueOf(args[0]);  
                     }
-
                     String waitString;
-
                     waitString = (waitMinutes == 1) ? "minute." : waitMinutes + " minutes."; 
-
                     // This queue must have previously been created.
                     service.getQueue("TSPQueue");
-
                     int numRead;
-
                     String s = null;
-
                     while (true)
                     {
-
                         ReceiveQueueMessageResult resultQM = service.receiveQueueMessage("TSPQueue");
                         message = resultQM.getValue();
-
                         if (null != message && null != message.getMessageId())
                         {                        
-
                             // Display the queue message.
                             byte[] b = new byte[200];
-
                             System.out.print("From queue: ");
-
                             s = null;
                             numRead = message.getBody().read(b);
                             while (-1 != numRead)
@@ -394,7 +356,6 @@
                             Thread.sleep(60000 * waitMinutes);
                         }
                     } 
-
             }
             catch (ServiceException se)
             {
@@ -408,7 +369,6 @@
                 e.printStackTrace();
                 System.exit(-1);
             }
-
         }
         
     }
@@ -485,7 +445,7 @@
 
         java -jar TSPSolver.jar 8
 
-Если число не указано, выполняется поиск для 10 городов. Когда средство поиска решения находит кратчайшие маршруты, оно добавляет их в очередь.
+ Если число не указано, выполняется поиск для 10 городов. Когда средство поиска решения находит кратчайшие маршруты, оно добавляет их в очередь.
 
 > [WACOM.NOTE]
 > Чем больше указываемое число, тем дольше будет выполняться поиск. Например, поиск для 14 городов может занять несколько минут, а для 15 городов — несколько часов. Поиск для 16 и более городов может занять несколько дней (а потом недель, месяцев и лет). Это вызвано резким ростом числа перестановок, которое приходится оценивать средству поиска решения по мере увеличения числа городов.

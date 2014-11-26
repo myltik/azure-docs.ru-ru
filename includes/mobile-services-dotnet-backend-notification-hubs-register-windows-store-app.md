@@ -1,6 +1,6 @@
 1.  Если вы еще не зарегистрировали свое приложение, перейдите к разделу [Отправить страницу приложения][Отправить страницу приложения] в центре разработчиков для приложений Магазина Windows, выполните вход с использованием вашей учетной записи Майкрософт и затем щелкните **Имя приложения**.
 
-    ![][]
+    ![][0]
 
 2.  Введите имя приложения в поле **Имя приложения**, щелкните **Зарезервировать имя приложения** и затем щелкните **Сохранить**.
 
@@ -55,10 +55,10 @@
 
     > [WACOM.NOTE]При задании учетных данных WNS для расширенных push-уведомлений во вкладке **Push-уведомления** портала эти сведения передаются в концентраторы уведомлений в целях настройки концентратора уведомлений с вашим приложением.
 
-<!-- URLs. -->
+
 
   [Отправить страницу приложения]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-  []: ./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-submit-win8-app.png
+  [0]: ./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-submit-win8-app.png
   [1]: ./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-win8-app-name.png
   [2]: ./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-store-association.png
   [3]: ./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-select-app-name.png

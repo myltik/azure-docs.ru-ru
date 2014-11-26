@@ -1,30 +1,30 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-data-xamarin-android" urlDisplayName="Get Started with Data" pageTitle="Get started with data (Xamarin.Android) - Azure Mobile Services" metaKeywords="Azure Xamarin.Android data, Azure mobile services data" description="Learn how to store and access data from your Azure Mobile Services Xamarin.Android app." metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="Get started with data in Mobile Services" documentationCenter="Mobile" authors="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
 # Приступая к работе с данными в мобильных службах
 
 <div class="dev-center-tutorial-selector sublanding">    
-    <a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet" title="Магазин Windows &mdash; C#">Магазин Windows &mdash; C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-js" title="Магазин Windows &mdash; JavaScript">Магазин Windows &mdash;JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android" title="Xamarin.Android" class="current">Xamarin.Android</a>
+    <a href="/ru-ru/develop/mobile/tutorials/get-started-with-data-dotnet" title="Магазин Windows &mdash; C#">Магазин Windows &mdash; C#</a><a href="/ru-ru/develop/mobile/tutorials/get-started-with-data-js" title="Магазин Windows &mdash; JavaScript">Магазин Windows &mdash;JavaScript</a><a href="/ru-ru/develop/mobile/tutorials/get-started-with-data-wp8" title="Windows Phone">Windows Phone</a><a href="/ru-ru/develop/mobile/tutorials/get-started-with-data-ios" title="iOS">iOS</a><a href="/ru-ru/develop/mobile/tutorials/get-started-with-data-android" title="Android">Android</a><a href="/ru-ru/develop/mobile/tutorials/get-started-with-data-html" title="HTML">HTML</a><a href="/ru-ru/develop/mobile/tutorials/get-started-with-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/ru-ru/develop/mobile/tutorials/get-started-with-data-xamarin-android" title="Xamarin.Android" class="current">Xamarin.Android</a>
 </div>
 
 В этом разделе показано, как использовать мобильные службы Azure для эффективного использования данных в приложении Xamarin.Android. В этом учебнике предстоит загрузить проект для приложения, которое хранит данные в памяти, создать новые услуги мобильной связи, интегрировать мобильную службу с приложением, а затем выполнить вход на портал управления Azure для просмотра изменений, внесенных в данные в ходе выполнения приложения.
 
 <div class="dev-callout"><b>Примечание.</b>
-<p>Этот учебник поможет вам лучше понять, как с помощью мобильных службы можно использовать Azure для хранения и извлечения данных из приложения Xamarin.Android. В этом разделе рассматриваются многие действия, которые выполняются в кратком руководстве по использованию мобильных служб. Если это ваш первый опыт работы с мобильными службами, сначала ознакомьтесь с учебником <a href="/en-us/develop/mobile/tutorials/get-started-xamarin-android">Приступая к работе с мобильными службами</a>.</p>
+<p>Этот учебник поможет вам лучше понять, как с помощью мобильных службы можно использовать Azure для хранения и извлечения данных из приложения Xamarin.Android. В этом разделе рассматриваются многие действия, которые выполняются в кратком руководстве по использованию мобильных служб. Если это ваш первый опыт работы с мобильными службами, сначала ознакомьтесь с учебником <a href="/ru-ru/develop/mobile/tutorials/get-started-xamarin-android">Приступая к работе с мобильными службами</a>.</p>
 </div>
 
 В этом учебнике рассматриваются следующие основные действия:
 
-1.  [Загрузка проекта приложения Xamarin.Android][]
-2.  [Создание мобильной службы][]
-3.  [Добавление таблицы для хранения данных][]
-4.  [Обновление приложения для использования мобильных служб][]
-5.  [Тестирование работы приложения с мобильными службами][]
+1.  [Загрузка проекта приложения Xamarin.Android][Загрузка проекта приложения Xamarin.Android]
+2.  [Создание мобильной службы][Создание мобильной службы]
+3.  [Добавление таблицы для хранения данных][Добавление таблицы для хранения данных]
+4.  [Обновление приложения для использования мобильных служб][Обновление приложения для использования мобильных служб]
+5.  [Тестирование работы приложения с мобильными службами][Тестирование работы приложения с мобильными службами]
 
-<div class="dev-callout"><strong>Примечание.</strong> <p>Для работы с этим учебником требуется учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A9C9624B5" target="_blank">Бесплатная пробная версия Azure</a>.</p></div>
+<div class="dev-callout"><strong>Примечание.</strong> <p>Для работы с этим учебником требуется учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://www.windowsazure.com/ru-ru/pricing/free-trial/?WT.mc_id=A9C9624B5" target="_blank">Бесплатная пробная версия Azure</a>.</p></div>
 
-Для этого учебника требуется [компонент мобильных служб Azure][], [Xamarin.Android] и Android SDK 4.2 или более поздней версии.
+Для этого учебника требуется [компонент мобильных служб Azure][компонент мобильных служб Azure], [Xamarin.Android] и Android SDK 4.2 или более поздней версии.
 
 <div class="dev-callout"><b>Примечание.</b>
 <p>Загружаемый проект GetStartedWithData требует Android 4.2 или более поздней версии. Однако для пакета SDK для мобильных служб требуется только Android 2.2 или более поздней версии.</p>
@@ -48,13 +48,13 @@
 
 5.  В приложении введите содержательный текст, например *Завершение работы с учебником*, и нажмите кнопку **Добавить**.
 
-    ![][]
+    ![][0]
 
     Обратите внимание, что сохраненный текст хранится в памяти и отображается в списке ниже.
 
 ## <a name="create-service"></a><span class="short-header">Создание мобильной службы</span>Создание новой мобильной службы на портале управления
 
-[WACOM.INCLUDE [mobile-services-create-new-service-data][]]
+[WACOM.INCLUDE [mobile-services-create-new-service-data](../includes/mobile-services-create-new-service-data.md)]
 
 ## <a name="add-table"></a><span class="short-header">Добавление новой таблицы</span>Добавление новой таблицы в мобильную службу
 
@@ -209,7 +209,7 @@
 
     В результате в мобильную службу будет отправлен новый элемент в качестве вставки.
 
-3.  На [Портале управления][] щелкните **Мобильные службы**, затем щелкните свою мобильную службу.
+3.  На [Портале управления][Портале управления] щелкните **Мобильные службы**, затем щелкните свою мобильную службу.
 
 4.  Откройте вкладку **Данные**, а затем щелкните **Обзор**.
 
@@ -229,48 +229,38 @@
 
 Далее рассмотрите выполнение одного из следующих учебников, которые основаны на приложении GetStartedWithData, созданном в этом учебнике:
 
--   [Проверка и изменение данных с помощью скриптов][]
+-   [Проверка и изменение данных с помощью скриптов][Проверка и изменение данных с помощью скриптов]
     Дополнительные сведения об использовании серверных скриптов в мобильных службах для проверки и изменения данных, отправляемых из приложения.
 
--   [Уточнение запросов посредством разбиения по страницам][]
+-   [Уточнение запросов посредством разбиения по страницам][Уточнение запросов посредством разбиения по страницам]
     Сведения об использовании разбиения по страницам в запросах для управления объемом данных, обрабатываемых в одном запросе.
 
 После завершения серии учебников по работе с данными попробуйте один из следующих учебников Xamarin.Android:
 
--   [Приступая к работе с проверкой подлинности][]
+-   [Приступая к работе с проверкой подлинности][Приступая к работе с проверкой подлинности]
     Дополнительные сведения о проверке подлинности пользователей приложения.
 
--   [Приступая к работе с push-уведомлениями][]
+-   [Приступая к работе с push-уведомлениями][Приступая к работе с push-уведомлениями]
     Сведения об отправке в приложение простейших push-уведомлений с помощью мобильных служб.
 
-<!-- Anchors. -->
-<!-- Images. -->
+
+
 <!-- URLs. TODO:: update 'Download the Android app project' download link, 'GitHub', completed project, etc. -->
 
-  [Магазин Windows — C\#]: /en-us/develop/mobile/tutorials/get-started-with-data-dotnet "Магазин Windows — C#"
-  [Магазин Windows —JavaScript]: /en-us/develop/mobile/tutorials/get-started-with-data-js "Магазин Windows — JavaScript"
-  [Windows Phone]: /en-us/develop/mobile/tutorials/get-started-with-data-wp8 "Windows Phone"
-  [iOS]: /en-us/develop/mobile/tutorials/get-started-with-data-ios "iOS"
-  [Android]: /en-us/develop/mobile/tutorials/get-started-with-data-android "Android"
-  [HTML]: /en-us/develop/mobile/tutorials/get-started-with-data-html "HTML"
-  [Xamarin.iOS]: /en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios "Xamarin.iOS"
-  [Xamarin.Android]: /en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android "Xamarin.Android"
-  [Приступая к работе с мобильными службами]: /en-us/develop/mobile/tutorials/get-started-xamarin-android
+  [Xamarin.Android]: /ru-ru/develop/mobile/tutorials/get-started-with-data-xamarin-android "Xamarin.Android"
   [Загрузка проекта приложения Xamarin.Android]: http://go.microsoft.com/fwlink/p/?LinkId=331302
   [Создание мобильной службы]: #create-service
   [Добавление таблицы для хранения данных]: #add-table
   [Обновление приложения для использования мобильных служб]: #update-app
   [Тестирование работы приложения с мобильными службами]: #test-app
-  [Бесплатная пробная версия Azure]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A9C9624B5
   [компонент мобильных служб Azure]: http://components.xamarin.com/view/azure-mobile-services/
-  []: ./media/partner-xamarin-mobile-services-android-get-started-data/mobile-quickstart-startup-android.png
-  [mobile-services-create-new-service-data]: ../includes/mobile-services-create-new-service-data.md
+  [0]: ./media/partner-xamarin-mobile-services-android-get-started-data/mobile-quickstart-startup-android.png
   [1]: ./media/partner-xamarin-mobile-services-android-get-started-data/mobile-data-tab-empty.png
   [2]: ./media/partner-xamarin-mobile-services-android-get-started-data/mobile-create-todoitem-table.png
   [3]: ./media/partner-xamarin-mobile-services-android-get-started-data/mobile-dashboard-tab.png
   [Портале управления]: https://manage.windowsazure.com/
   [4]: ./media/partner-xamarin-mobile-services-android-get-started-data/mobile-todoitem-data-browse.png
-  [Проверка и изменение данных с помощью скриптов]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android
-  [Уточнение запросов посредством разбиения по страницам]: /en-us/develop/mobile/tutorials/add-paging-to-data-xamarin-android
-  [Приступая к работе с проверкой подлинности]: /en-us/develop/mobile/tutorials/get-started-with-users-xamarin-android
-  [Приступая к работе с push-уведомлениями]: /en-us/develop/mobile/tutorials/get-started-with-push-xamarin-android
+  [Проверка и изменение данных с помощью скриптов]: /ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android
+  [Уточнение запросов посредством разбиения по страницам]: /ru-ru/develop/mobile/tutorials/add-paging-to-data-xamarin-android
+  [Приступая к работе с проверкой подлинности]: /ru-ru/develop/mobile/tutorials/get-started-with-users-xamarin-android
+  [Приступая к работе с push-уведомлениями]: /ru-ru/develop/mobile/tutorials/get-started-with-push-xamarin-android

@@ -1,6 +1,6 @@
 <properties title="Azure Machine Learning Sample: Color quantization using K-Means clustering" pageTitle="Machine Learning Sample: Color quantization using K-Means clustering | Azure" description="A sample Azure Machine Learning experiment that evaluates using different K-Means clustering values for quantizing a color image." metaKeywords="" services="" solutions="" documentationCenter="" authors="garye" videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye"></tags>
+<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye" />
 
 # Пример машинного обучения Azure: квантование цвета с помощью кластеризации K-средних
 
@@ -147,10 +147,4 @@
 
   [Квантование цвета]: http://en.wikipedia.org/wiki/Color_quantization "Квантование цвета"
   [Модель]: ./media/machine-learning-sample-color-quantization-using-k-means-clustering/image1.png
-  [Оригинал]: ./media/machine-learning-sample-color-quantization-using-k-means-clustering/image2a.jpg
-  [K=10]: ./media/machine-learning-sample-color-quantization-using-k-means-clustering/image2b.png
-  [K=20]: ./media/machine-learning-sample-color-quantization-using-k-means-clustering/image2c.png
-  [K=50]: ./media/machine-learning-sample-color-quantization-using-k-means-clustering/image2d.png
-  [K=100]: ./media/machine-learning-sample-color-quantization-using-k-means-clustering/image2e.png
-  [K=500]: ./media/machine-learning-sample-color-quantization-using-k-means-clustering/image2f.png
   [Выход модуля «Выполнение скрипта R»]: ./media/machine-learning-sample-color-quantization-using-k-means-clustering/image3.png

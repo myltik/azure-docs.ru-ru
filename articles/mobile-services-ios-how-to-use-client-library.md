@@ -1,11 +1,11 @@
 <properties linkid="mobile-services-how-to-ios-client" urlDisplayName="iOS Client Library" pageTitle="How to use the iOS client library - Azure Mobile Services" metaKeywords="Azure Mobile Services, Mobile Service iOS client library, iOS client library" description="Learn how to use the iOS client library for Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="How to use the iOS client library for Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Использование клиентской библиотеки iOS для мобильных служб
 
 <div class="dev-center-tutorial-selector sublanding"> 
-  <a href="/en-us/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework">.NET Framework</a><a href="/en-us/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript">HTML/JavaScript</a><a href="/en-us/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS" class="current">iOS</a><a href="/en-us/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android" class="current">Android</a><a href="/en-us/develop/mobile/how-to-guides/work-with-xamarin-client-library/" title="Xamarin" class="current">Xamarin</a>
+  <a href="/ru-ru/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework">.NET Framework</a><a href="/ru-ru/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript">HTML/JavaScript</a><a href="/ru-ru/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS" class="current">iOS</a><a href="/ru-ru/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android" class="current">Android</a><a href="/ru-ru/develop/mobile/how-to-guides/work-with-xamarin-client-library/" title="Xamarin" class="current">Xamarin</a>
 </div>
 
 В этом руководстве показано, как реализовать типичные сценарии с использованием клиента iOS для мобильных служб Azure. Примеры написаны на objective-C и используют [пакет Mobile Services SDK][пакет Mobile Services SDK]. Для работы с данным учебником также требуется пакет [iOS SDK][iOS SDK]. В сценарии входят запрос данных, вставка, обновление и удаление данных, проверка подлинности пользователей и обработка ошибок. Если вы не знакомы с мобильными службами, сначала мы рекомендуем прочитать [краткое руководство по мобильным службам][краткое руководство по мобильным службам]. Учебник quickstart поможет вам настроить учетную запись и создать свою первую мобильную службу.
@@ -30,7 +30,7 @@
 
 <!--- [How to: Design unit tests] - [How to: Customize the client]     - [Customize request headers]     - [Customize data type serialization] - [Next steps][Next steps]-->
 
-[WACOM.INCLUDE [mobile-services-concepts][mobile-services-concepts]]
+[WACOM.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
 
 ## <a name="Setup"></a>Настройка и необходимые компоненты
 
@@ -437,18 +437,13 @@
 
 <!-- 
 <h2><a name="#unit-testing"></a><span class="short-header">Designing tests</span>How to: Design unit tests</h2>  _(Optional) This section shows how to write unit test when using the client library (info from Yavor)._  <h2><a name="#customizing"></a><span class="short-header">Customizing the client</span>How to: Customize the client</h2>  _(Optional) This section shows how to send customize client behaviors._  ###<a name="custom-headers"></a>How to: Customize request headers  _(Optional) This section shows how to send custom request headers._  For more information see, New topic about processing headers in the server-side.  ###<a name="custom-serialization"></a>How to: Customize serialization  _(Optional) This section shows how to use attributes to customize how data types are serialized._  For more information see, New topic about processing headers in the server-side.  ## <a name="next-steps"></a>Next steps -->
-<!-- Anchors. -->
-<!-- Images. -->
-<!-- URLs. -->
 
-  [.NET Framework]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library/ ".NET Framework"
-  [HTML/JavaScript]: /en-us/develop/mobile/how-to-guides/work-with-html-js-client/ "HTML/JavaScript"
-  [iOS]: /en-us/develop/mobile/how-to-guides/work-with-ios-client-library/ "iOS"
-  [Android]: /en-us/develop/mobile/how-to-guides/work-with-android-client-library/ "Android"
-  [Xamarin]: /en-us/develop/mobile/how-to-guides/work-with-xamarin-client-library/ "Xamarin"
+
+
+
   [пакет Mobile Services SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
   [iOS SDK]: https://developer.apple.com/xcode
-  [краткое руководство по мобильным службам]: /en-us/develop/mobile/tutorials/get-started-ios
+  [краткое руководство по мобильным службам]: /ru-ru/develop/mobile/tutorials/get-started-ios
   [Что такое мобильные службы?]: #what-is
   [Основные понятия]: #concepts
   [Настройка и необходимые компоненты]: #Setup
@@ -463,18 +458,17 @@
   [Практическое руководство. Привязка данных к пользовательскому интерфейсу]: #binding
   [Практическое руководство. Проверка подлинности пользователей]: #authentication
   [Практическое руководство. Обработка ошибок]: #errors
-  [mobile-services-concepts]: ../includes/mobile-services-concepts.md
-  [Создание таблицы]: http://msdn.microsoft.com/en-us/library/windowsazure/jj193162.aspx
+  [Создание таблицы]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj193162.aspx
   [**Связать двоичные файлы с библиотеками**]: https://developer.apple.com/library/ios/recipes/xcode_help-project_editor/Articles/AddingaLibrarytoaTarget.html
   [Возврат данных на страницах]: #paging
-  [Доступ к настраиваемым параметрам]: /en-us/develop/mobile/how-to-guides/work-with-server-scripts#access-headers
+  [Доступ к настраиваемым параметрам]: /ru-ru/develop/mobile/how-to-guides/work-with-server-scripts#access-headers
   [NSDictionary]: http://go.microsoft.com/fwlink/p/?LinkId=301965
   [Управляющие коды ASCII C0 и C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-  [Интерфейс командной строки для управления таблицами мобильных служб]: http://www.windowsazure.com/en-us/manage/linux/other-resources/command-line-tools/#Mobile_Tables
+  [Интерфейс командной строки для управления таблицами мобильных служб]: http://www.windowsazure.com/ru-ru/manage/linux/other-resources/command-line-tools/#Mobile_Tables
   [Динамическая схема]: http://go.microsoft.com/fwlink/p/?LinkId=296271
-  [Приступая к работе с проверкой подлинности]: /en-us/develop/mobile/tutorials/get-started-with-users-ios
-  [Использование скриптов для авторизации пользователей]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-ios
-  [Разрешения]: http://msdn.microsoft.com/en-us/library/windowsazure/jj193161.aspx
+  [Приступая к работе с проверкой подлинности]: /ru-ru/develop/mobile/tutorials/get-started-with-users-ios
+  [Использование скриптов для авторизации пользователей]: /ru-ru/develop/mobile/tutorials/authorize-users-in-scripts-ios
+  [Разрешения]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj193161.aspx
   [Live Connect SDK]: http://go.microsoft.com/fwlink/p/?LinkId=301960
   [Обработка токенов с истекшим сроком действия]: http://go.microsoft.com/fwlink/p/?LinkId=301955
-  [Проверка и изменение данных в мобильных службах с помощью серверных скриптов]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-ios
+  [Проверка и изменение данных в мобильных службах с помощью серверных скриптов]: /ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-ios

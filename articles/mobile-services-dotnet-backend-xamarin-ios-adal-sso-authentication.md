@@ -122,8 +122,8 @@
 
 ![][0]
 
-<!-- Anchors. -->
-<!-- URLs. -->
+
+
 
   [Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started/
   [Регистрация мобильной службы в Azure Active Directory]: #register-mobile-service-aad
@@ -135,9 +135,6 @@
   [Xamarin Studio]: http://xamarin.com/download
   [Приступая к работе с данными]: /ru-ru/documentation/articles/partner-xamarin-mobile-services-ios-get-started-data/
   [Привязка Xamarin для библиотеки проверки подлинности Active Directory для iOS]: https://github.com/AzureADSamples/NativeClient-Xamarin-iOS
-  [mobile-services-dotnet-adal-register-service]: ../includes/mobile-services-dotnet-adal-register-service.md
-  [mobile-services-dotnet-adal-register-client]: ../includes/mobile-services-dotnet-adal-register-client.md
-  [mobile-services-restrict-permissions-dotnet-backend]: ../includes/mobile-services-restrict-permissions-dotnet-backend.md
   [портале управления Azure]: https://manage.windowsazure.com/
   [Регистрация в Azure Active Directory]: /ru-ru/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
   [0]: ./media/mobile-services-dotnet-backend-xamarin-ios-adal-sso-authentication/mobile-services-app-run.png

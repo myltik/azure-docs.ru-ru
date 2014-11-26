@@ -73,7 +73,6 @@
   [Orchard]: http://www.orchardproject.net/
   [загружать дополнительные модули и темы]: http://gallery.orchardproject.net/
   [Блог Orchard]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-08.png
-  [создать-учетная запись-и-веб-сайт-примечание]: ../includes/create-account-and-websites-note.md
   [Создать]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-01.png
   [Создание из коллекции]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-02.png
   [Orchard из списка]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-03.png

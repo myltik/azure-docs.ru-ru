@@ -1,6 +1,6 @@
 <properties linkid="develop-nodejs-common-tasks-working-with-node-modules" urlDisplayName="Working with Node.js Modules" pageTitle="Working with Node.js Modules" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="nodejs" title="Using Node.js Modules with Azure applications" authors="larryfr" solutions="" manager="paulettm" editor="mollybos" />
 
-<tags ms.service="na" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="na" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Использование модулей Node.js с приложениями Azure
 
@@ -69,7 +69,6 @@
 
 Теперь, когда вы научились использовать модули Node.js с Azure, узнайте, как [указать версию Node.js][указать версию Node.js], [построить и развернуть веб-сайт Node.js][построить и развернуть веб-сайт Node.js] и [использовать средства командной строки Azure для Mac и Linux][использовать средства командной строки Azure для Mac и Linux].
 
-  [Задача запуска Azure для выполнения установки npm во избежание развертывания модулей узла]: http://nodeblog.azurewebsites.net/startup-task-to-run-npm-in-azure
   [npm-install]: https://npmjs.org/doc/install.html
   [указать версию Node.js]: /ru-ru/documentation/articles/nodejs-specify-node-version-azure-apps/
   [построить и развернуть веб-сайт Node.js]: /ru-ru/documentation/articles/web-sites-nodejs-develop-deploy-mac/

@@ -1,6 +1,6 @@
 1.  Запустите в Visual Studio клиентское приложение и попробуйте выполнить проверку подлинности с помощью учетной записи пользователя с именем Дэйв.
 
-    ![][]
+    ![][0]
 
 2.  Дэйв не является участником группы продаж. Поэтому проверка доступа на основе роли запретит доступ к операциям таблицы. Закройте клиентское приложение.
 
@@ -14,7 +14,7 @@
 
     ![][3]
 
-  []: ./media/mobile-services-aad-rbac-test-app/dave-login.png
+  [0]: ./media/mobile-services-aad-rbac-test-app/dave-login.png
   [1]: ./media/mobile-services-aad-rbac-test-app/unauthorized.png
   [2]: ./media/mobile-services-aad-rbac-test-app/bob-login.png
   [3]: ./media/mobile-services-aad-rbac-test-app/success.png

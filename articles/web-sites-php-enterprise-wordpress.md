@@ -347,14 +347,6 @@
   [Магазине Azure]: http://azure.microsoft.com/ru-ru/gallery/store/
   [Веб-сайт Azure, размещенный в нескольких регионах с помощью маршрутизатора высокой доступности CDBR для MySQL, с управляемой службой кэша, хранилищем больших двоичных объектов и CDN]: ./media/web-sites-enterprise-wordpress/performance-diagram.png
   [Content Distribution Network (CDN)]: http://azure.microsoft.com/ru-ru/documentation/articles/cdn-how-to-use/
-  [Подключаемый модуль WordPress для использования хранилища больших двоичных объектов]: https://wordpress.org/plugins/windows-azure-storage/
-  [SendGrid]: http://azure.microsoft.com/ru-ru/gallery/store/sendgrid/sendgrid-azure/
-  [Подключаемый модуль WordPress для использования SendGrid]: http://wordpress.org/plugins/sendgrid-email-delivery-simplified/
-  [Пользовательские доменные имена с веб-сайтами Azure]: http://azure.microsoft.com/ru-ru/documentation/articles/web-sites-custom-domain-name/
-  [Поддержка HTTPS в веб-сайтах Azure]: http://azure.microsoft.com/ru-ru/documentation/articles/web-sites-configure-ssl-certificate/
-  [Поддержка промежуточной публикации для веб-сайтов Azure]: http://azure.microsoft.com/ru-ru/documentation/articles/web-sites-staged-publishing/
-  [Диагностика входа с помощью веб-сайтов Azure]: http://azure.microsoft.com/ru-ru/documentation/articles/web-sites-enable-diagnostic-log/
-  [Мониторинг веб-сайтов Azure]: http://azure.microsoft.com/ru-ru/documentation/articles/web-sites-monitor/
   [Развертывание веб-сайта Azure]: http://azure.microsoft.com/ru-ru/documentation/articles/web-sites-deploy/
   [Архивация веб-сайтов Azure]: http://azure.microsoft.com/ru-ru/documentation/articles/web-sites-backup/
   [Восстановление веб-сайта Azure]: http://azure.microsoft.com/ru-ru/documentation/articles/web-sites-restore/
@@ -371,12 +363,6 @@
   [подключаемый модуль обновления URL-адресов Velvet Blues]: https://wordpress.org/plugins/velvet-blues-update-urls/
   [MySQL Workbench]: http://www.mysql.com/products/workbench/
   [поиска и замены скрипта баз данных WordPress]: http://interconnectit.com/124/search-and-replace-for-wordpress-databases/
-  [Общие сведения о веб-заданиях]: http://www.hanselman.com/blog/IntroducingWindowsAzureWebJobs.aspx
-  [Отключение ARR-файла cookie]: http://blogs.msdn.com/b/windowsazure/archive/2013/11/18/disabling-arr-s-instance-affinity-in-windows-azure-web-sites.aspx
-  [подключаемым модулем WordPress кэша объектов Redis]: https://wordpress.org/plugins/redis-object-cache/
-  [Ускорение работы WordPress с Wincache]: http://ruslany.net/2010/03/make-wordpress-faster-on-iis-with-wincache-1-1/
-  [Создание учетной записи хранения Azure]: http://azure.microsoft.com/ru-ru/documentation/articles/storage-create-storage-account/
-  [руководстве пользователя]: http://plugins.svn.wordpress.org/windows-azure-storage/trunk/UserGuide.docx
   []: resources
   [Оптимизация WordPress]: http://codex.wordpress.org/WordPress_Optimization
   [Преобразование сайта WordPress в мультисайт]: http://azure.microsoft.com/ru-ru/documentation/articles/web-sites-php-convert-wordpress-multisite/

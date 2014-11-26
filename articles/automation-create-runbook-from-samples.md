@@ -1,4 +1,4 @@
-<properties urlDisplayName="Get Started with Azure Automation" pageTitle="Начало работы со службой автоматизации Azure" metaKeywords="" description="Узнайте, как импортировать и выполнять задания по автоматизации в Azure." metaCanonical="" services="automation" documentationCenter="" title="Начало работы со службой автоматизации Azure" authors="bwren" solutions="" manager="stevenka" editor="" />
+<properties linkid="automation-create-runbook-from-samples" urlDisplayName="Get Started with Azure Automation" pageTitle="Get Started with Azure Automation" metaKeywords="" description="Learn how to import and run an automation job in Azure." metaCanonical="" services="automation" documentationCenter="" title="Get Started with Azure Automation" authors="bwren" solutions="" manager="stevenka" editor="" />
 
 <tags ms.service="automation" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bwren" />
 
@@ -18,11 +18,11 @@
 
 > [WACOM.NOTE] Рекомендуется создавать небольшие и предусматривающие повторное использование модули Runbook. После знакомства с автоматизацией также настоятельно рекомендуется создать собственные вспомогательные модули Runbook для часто используемых сценариев.
 
-Посмотреть и загрузить примеры и вспомогательные модули Runbook, подготовленные командой ответственных за автоматизацию специалистов, можно в [Центре сценариев][Центре сценариев] или можно импортировать их непосредственно из [Коллекции Runbook][Коллекции Runbook].
+Примеры модулей Runbook и вспомогательные модули Runbook, созданные командой автоматизации, можно просмотреть и загрузить, используя [Центр сценариев][Центр сценариев].
 
 ## Сообщество, отзывы и предложения по службе автоматизации
 
-Модули Runbook, созданные сообществом и другими рабочими группами корпорации Майкрософт, также публикуются в [Центре сценариев][1] и в [Runbook Gallery][Коллекции Runbook].
+Модули Runbook, созданные сообществом и другими рабочими группами корпорации Майкрософт, также публикуются в [Центре сценариев][Центре сценариев].
 
 **Обратная связь!** Если нужен модуль Runbook для автоматизации или модуль интеграции, отправьте запрос сценария в Центр сценариев. Если у вас есть идея для новой функции автоматизации, поместите ее в раздел [Голос пользователя][Голос пользователя].
 
@@ -31,9 +31,8 @@
 ## Высокоуровневое описание действий для этого руководства
 
 1.  [Регистрация для предварительной версии службы автоматизации][Регистрация для предварительной версии службы автоматизации]
-2.  [Импортировать модули Runbook из Коллекции Runbook][Импортировать модули Runbook из Коллекции Runbook]
-3.  [Опубликовать модуль Runbook][Опубликовать модуль Runbook]
-4.  [Запустить модуль Runbook][Запустить модуль Runbook]
+2.  [Скачивание примера модуля Runbook][Скачивание примера модуля Runbook]
+3.  [Импорт, запуск и просмотр вывода примера модуля Runbook][Импорт, запуск и просмотр вывода примера модуля Runbook]
 
 ## <a name="preview"></a>Регистрация для предварительной версии службы автоматизации Azure
 
@@ -43,7 +42,13 @@
 
     ![Включить предварительную версию][Включить предварительную версию]
 
-## <a name="automationaccount"></a>Создание учетной записи автоматизации
+## <a name="download-sample"></a> Загрузка примера модуля Runbook из Центра сценариев
+
+1.  Перейдите в [Центр сценариев][Центр сценариев] и щелкните **Hello World для автоматизации Azure**.
+
+2.  Щелкните имя файла **Write-HelloWorld.ps1**, затем нажмите кнопку **Скачать** и сохраните файл на своем компьютере.
+
+## <a name="import-sample"></a>Импорт, запуск и просмотр примера модуля Runbook в службе автоматизации Azure
 
 1.  Выполните вход на [портал управления Azure][портал управления Azure].
 
@@ -57,102 +62,84 @@
 
     ![Добавление новой учетной записи][Добавление новой учетной записи]
 
-## <a name="importrunbook"></a>Импорт модулей Runbook из галереи модулей Runbook
-
-1.  На странице **Автоматизация** щелкните только что созданную новую учетную запись.
+4.  На странице **Автоматизация** щелкните только что созданную новую учетную запись.
 
     ![Новая учетная запись][Новая учетная запись]
 
-2.  Щелкните **МОДУЛИ RUNBOOK**.
+5.  Щелкните **МОДУЛИ RUNBOOK**.
 
     ![Вкладка "Модули Runbook"][Вкладка "Модули Runbook"]
 
-3.  Щелкните **Создать** \> **Модуль Runbook** \> **Из Коллекции**.
+6.  Щелкните **ИМПОРТ**.
 
-    ![Коллекция Runbook][Коллекция Runbook]
+    ![Импорт][Импорт]
 
-4.  Выберите категорию **Учебные**, а затем **"Hello World" для службы автоматизации Azure** . Нажмите кнопку со стрелкой, направленной вправо.
+7.  Перейдите к загруженному сценарию **Write-HelloWorld.ps1** и установите флажок.
 
-    ![Импортировать модуль Runbook][Импортировать модуль Runbook]
+    ![Обзор][Обзор]
 
-5.  Ознакомьтесь с содержанием модуля Runbook, а затем нажмите кнопку со стрелкой вправо.
-
-    ![Определение модуля Runbook][Определение модуля Runbook]
-
-6.  Ознакомьтесь с информацией о модуле Runbook, а затем нажмите на кнопку флажка.
-
-    ![Информация о модуле Runbook][Информация о модуле Runbook]
-
-## <a name="publishrunbook"></a>Публикация модулей Runbook
-
-1.  После завершения импорта модуля Runbook щелкните **Write-HelloWorld**.
+8.  Щелкните **Write-HelloWorld**.
 
     ![Импортированный модуль Runbook][Импортированный модуль Runbook]
 
-2.  Щелкните **АВТОР**, а затем щелкните **ЧЕРНОВИК**.
+9.  Щелкните **АВТОР**, а затем щелкните **ЧЕРНОВИК**. Для этого модуля Runbook вносить изменения не потребуется.
 
-    Изменить содержимое модуля Runbook можно в режиме черновика. Для этого модуля Runbook вносить изменения не потребуется.
+    Теперь можно просмотреть содержимое **Write-HelloWorld.ps1**. Изменить содержимое модуля Runbook можно в режиме черновика.
 
     ![Автор Черновик][Автор Черновик]
 
-3.  Нажмите кнопку **ОПУБЛИКОВАТЬ**, чтобы пометить модуль Runbook как готовый для использования в производственной среде.
+10. Нажмите кнопку **ОПУБЛИКОВАТЬ**, чтобы пометить модуль Runbook как готовый для использования в производственной среде.
 
     ![Опубликовать][Опубликовать]
 
-4.  В ответ на предложение сохранить и опубликовать модуль Runbook нажмите кнопку **Да**.
+11. В ответ на предложение сохранить и опубликовать модуль Runbook нажмите кнопку **Да**.
 
     ![Предложение сохранить и опубликовать][Предложение сохранить и опубликовать]
 
-## <a name="startrunbook"></a>Запуск модулей Runbook
-
-1.  После открытия модуля Runbook **Write-HelloWorld** щелкните **ЗАПУСТИТЬ**.
+12. Щелкните **ОПУБЛИКОВАНО**, а затем щелкните **ЗАПУСК**.
 
     ![Опубликовано][Опубликовано]
 
-2.  На странице **Укажите значения параметров Runbook** введите **Имя**, которое будет использоваться в качестве входного параметра для сценария Write-HelloWorld.ps1, и установите флажок.
+13. На странице **Укажите значения параметров Runbook** введите **Имя**, которое будет использоваться в качестве входного параметра для сценария Write-HelloWorld.ps1, и установите флажок.
 
     ![Параметры модуля Runbook][Параметры модуля Runbook]
 
-3.  Щелкните **ЗАДАНИЯ**, чтобы проверить состояние только что запущенного задания Runbook, и щелкните метку времени в столбце **ЗАПУСК ЗАДАНИЯ** для просмотра информации о заданиях.
+14. Щелкните **ЗАДАНИЯ**, чтобы проверить состояние только что запущенного задания Runbook, и щелкните метку времени в столбце **ЗАПУСК ЗАДАНИЯ** для просмотра информации о заданиях.
 
     ![Состояние модуля Runbook][Состояние модуля Runbook]
 
-4.  На странице **СВОДКА** можно просмотреть сводку, введенные параметры и результат задания.
+15. На странице **СВОДКА** можно просмотреть сводку, введенные параметры и результат задания.
 
     ![Сводка для модуля Runbook][Сводка для модуля Runbook]
 
 # Управление службами Azure из модуля Runbook
 
-В приведенном выше примере показан простой модуль Runbook, который не управляет службами Azure. [Командлетам Azure][командлетов Azure PowerShell] необходима аутентификация в Azure. Вы можете следовать указаниям в разделе [Azure Automation: Authenticating to Azure using Azure Active Directory][Azure Automation: Authenticating to Azure using Azure Active Directory] (Служба автоматизации Azure: аутентификация в Azure с помощью Azure Active Directory), чтобы настроить подписку Azure для управления с помощью службы автоматизации Azure.
+В приведенном выше примере показан простой модуль Runbook, который не управляет службами Azure. [Командлетам Azure][командлетов Azure PowerShell] необходима аутентификация в Azure. Вы можете следовать указаниям в разделе [Azure Automation:Authenticating to Azure using Azure Active Directory][Azure Automation: Authenticating to Azure using Azure Active Directory] (Служба автоматизации Azure: аутентификация в Azure с помощью Azure Active Directory), чтобы настроить подписку Azure для управления с помощью службы автоматизации Azure.
 
 # См. также
 
 -   [Обзор автоматизации][Обзор автоматизации]
 -   [Руководство по созданию модулей Runbook][Руководство по созданию модулей Runbook]
 -   [Форум автоматизации][Форум автоматизации]
--   [Azure Automation: Authenticating to Azure using Azure Active Directory][Azure Automation: Authenticating to Azure using Azure Active Directory] (Служба автоматизации Azure: аутентификация в Azure с помощью Azure Active Directory)
+-   [Служба автоматизации Azure: аутентификация в Azure с помощью Azure Active Directory][Служба автоматизации Azure: аутентификация в Azure с помощью Azure Active Directory] 
 
   [руководстве, содержащем обзор автоматизации]: http://go.microsoft.com/fwlink/p/?LinkId=392861
   [командлетов Azure PowerShell]: http://msdn.microsoft.com/ru-ru/library/jj156055.aspx
-  [Azure Automation: Authenticating to Azure using Azure Active Directory]: http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/
-  [Центре сценариев]: http://go.microsoft.com/fwlink/p/?LinkId=393029
-  [Коллекции Runbook]: http://aka.ms/runbookgallery
-  [1]: http://go.microsoft.com/fwlink/?LinkID=391681
+  [Служба автоматизации Azure: аутентификация в Azure с помощью Azure Active Directory]: http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/
+  [Центр сценариев]: http://go.microsoft.com/fwlink/p/?LinkId=393029
+  [Центре сценариев]: http://go.microsoft.com/fwlink/?LinkID=391681
   [Голос пользователя]: http://feedback.windowsazure.com/forums/34192--general-feedback
-  [Регистрация для предварительной версии службы автоматизации]: #automationaccount
-  [Импортировать модули Runbook из Коллекции Runbook]: #importrunbook
-  [Опубликовать модуль Runbook]: #publishrunbook
-  [Запустить модуль Runbook]: #startrunbook
+  [Регистрация для предварительной версии службы автоматизации]: #preview
+  [Скачивание примера модуля Runbook]: #download-sample
+  [Импорт, запуск и просмотр вывода примера модуля Runbook]: #import-sample
   [Включить предварительную версию]: ./media/automation/automation_00_EnablePreview.png
   [портал управления Azure]: http://manage.windowsazure.com
   [Создание учетной записи]: ./media/automation/automation_01_CreateAccount.png
   [Добавление новой учетной записи]: ./media/automation/automation_02_addnewautoacct.png
   [Новая учетная запись]: ./media/automation/automation_03_NewAutoAcct.png
   [Вкладка "Модули Runbook"]: ./media/automation/automation_04_RunbooksTab.png
-  [Коллекция Runbook]: ./media/automation/automation_05_ImportGallery.png
-  [Импортировать модуль Runbook]: ./media/automation/automation_06_ImportRunbook.png
-  [Определение модуля Runbook]: ./media/automation/automation_07_RunbookDefinition.png
-  [Информация о модуле Runbook]: ./media/automation/automation_08_RunbookDetails.png
+  [Импорт]: ./media/automation/automation_05_Import.png
+  [Обзор]: ./media/automation/automation_06_Browse.png
   [Импортированный модуль Runbook]: ./media/automation/automation_07_ImportedRunbook.png
   [Автор Черновик]: ./media/automation/automation_08_AuthorDraft.png
   [Опубликовать]: ./media/automation/automation_085_Publish.png

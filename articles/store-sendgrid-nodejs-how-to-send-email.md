@@ -229,7 +229,6 @@ SendGrid поддерживает различные веб-API, с помощь
   [облачная служба электронной почты]: http://sendgrid.com/solutions
   [доставки электронной почты]: http://sendgrid.com/transactional-email
   []: http://sendgrid.com
-  [sendgrid-sign-up]: ../includes/sendgrid-sign-up.md
   [sendgrid-nodejs]: https://github.com/sendgrid/sendgrid-nodejs
   [SMTP и веб-API]: http://docs.sendgrid.com/documentation/get-started/integrate/examples/smtp-vs-rest/
   [Параметры фильтрации]: http://docs.sendgrid.com/documentation/api/smtp-api/filter-settings/

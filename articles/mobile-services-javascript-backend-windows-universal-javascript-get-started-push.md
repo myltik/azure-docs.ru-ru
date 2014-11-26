@@ -71,16 +71,12 @@
 
 
 
-  [mobile-services-selector-get-started-push]: ../includes/mobile-services-selector-get-started-push.md
   [эту версию]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push
   [Регистрация приложения для получения push-уведомлений]: #register
   [Обновление службы для отправки push-уведомлений]: #update-service
   [Тестирование push-уведомлений в приложении]: #test
   [учетная запись Microsoft Store]: http://go.microsoft.com/fwlink/p/?LinkId=280045
   [Visual Studio Express 2013 для Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
-  [mobile-services-create-new-push-vs2013]: ../includes/mobile-services-create-new-push-vs2013.md
-  [mobile-services-javascript-update-script-notification-hubs]: ../includes/mobile-services-javascript-update-script-notification-hubs.md
-  [mobile-services-javascript-backend-windows-universal-test-push]: ../includes/mobile-services-javascript-backend-windows-universal-test-push.md
   [Отправка push-уведомлений прошедшим проверку пользователям]: /ru-ru/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-push-notifications-app-users/
   [Приступая к работе с данными]: /ru-ru/documentation/articles/mobile-services-javascript-backend-windows-universal-javascript-get-started-data
   [Приступая к работе с проверкой подлинности]: /ru-ru/documentation/articles/mobile-services-javascript-backend-windows-universal-javascript-get-started-users

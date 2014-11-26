@@ -1,6 +1,6 @@
 <properties linkid="develop-python-tutorials-django-with-python-tools-for-visual-studio" urlDisplayName="Django with Python Tools for Visual Studio 2.0" pageTitle="Creating Django applications with Python Tools for Visual Studio 2.0" metaKeywords="" description="Learn how to use the Python Tools for Visual Studio to create a Django application that stores data in a SQL Database or MySQL database instance and can be deployed to a website or cloud service." metaCanonical="" services="web-sites,cloud-services" documentationCenter="Python" title="Creating Django applications with Python Tools 2.0 for Visual Studio" authors="huvalo" solutions="" manager="" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 # Создание приложений Django с помощью средств Python 2.0 для Visual Studio
 
@@ -16,7 +16,7 @@
 
 Этот учебник рассматривает использование средств Python для Visual Studio и Azure. Дополнительные сведения о Django и приложении для опросов, созданном в этом учебнике, см. на веб-сайте [][]<https://www.djangoproject.com/></a>.
 
-[WACOM.INCLUDE [создать-учетная запись-и-веб-сайт-примечание][создать-учетная запись-и-веб-сайт-примечание]]
+[WACOM.INCLUDE [создать-учетная запись-и-веб-сайт-примечание](../includes/create-account-and-websites-note.md)]
 
 ## Требования
 
@@ -306,7 +306,7 @@
 
 8.  Перейдите по ссылке **http://localhost:{port}/**. Вы увидите индекс добавленных опросов.
 
-    ![][]
+    ![][0]
 
 9.  Щелкните один из опросов, чтобы перейти на страницу голосования.
 
@@ -566,9 +566,7 @@
 
 В этом учебнике мы разработали приложение Django с помощью [средств Python для Visual Studio][Средства Python 2.0 для Visual Studio]. Мы использовали 3 разные базы данных: sqlite3, SQL Server и MySQL. И наконец, мы опубликовали приложение на веб-сайтах и в облачных службах Azure.
 
-  [Просмотр учебника]: http://www.youtube.com/watch?v=wkqjafvvU5w
-  []: https://www.djangoproject.com/
-  [создать-учетная запись-и-веб-сайт-примечание]: ../includes/create-account-and-websites-note.md
+  [0]: https://www.djangoproject.com/
   [Средства Python 2.0 для Visual Studio]: http://pytools.codeplex.com
   [Python 2.7 (32-разрядная версия)]: http://www.python.org/download/
   [загрузить исходный код для этого проекта]: http://download-codeplex.sec.s-msft.com/Download?ProjectName=pytools&DownloadId=783376
@@ -585,7 +583,7 @@
   [Веб-браузер]: ./media/cloud-services-python-create-deploy-django-app/django-tutorial-008-dev-server.png
   [Добавление опроса]: ./media/cloud-services-python-create-deploy-django-app/django-tutorial-009-admin-login.png
   [Индекс опроса]: ./media/cloud-services-python-create-deploy-django-app/django-tutorial-009-admin-add-poll.png
-  []: ./media/cloud-services-python-create-deploy-django-app/django-tutorial-010-index.png
+  [0]: ./media/cloud-services-python-create-deploy-django-app/django-tutorial-010-index.png
   [Сведения об опросе]: ./media/cloud-services-python-create-deploy-django-app/django-tutorial-011-detail.png
   [Результаты опроса]: ./media/cloud-services-python-create-deploy-django-app/django-tutorial-012-results.png
   [1]: ./media/cloud-services-python-create-deploy-django-app/django-tutorial-013-solution-explorer.png

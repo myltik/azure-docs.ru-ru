@@ -1,10 +1,10 @@
-<properties urlDisplayName="Create a custom VM" pageTitle=" Создание настраиваемой виртуальной машины под управлением Linux в Azure" metaKeywords="Azure custom vm, creating custom vm" description="Узнайте, как создать настраиваемую виртуальную машину в Azure." metaCanonical="http://www.windowsazure.com/ru-ru/manage/windows/how-to-guides/custom-create-a-vm/" services="virtual-machines" documentationCenter="" title="" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
+<properties linkid="manage-linux-howto-custom-create-vm" urlDisplayName="Create a custom VM" pageTitle=" Create a custom virtual machine running Linux in Azure" metaKeywords="Azure custom vm, creating custom vm" description="Learn how to create a custom virtual machine in Azure." metaCanonical="http://www.windowsazure.com/ru-ru/manage/windows/how-to-guides/custom-create-a-vm/" services="virtual-machines" documentationCenter="" title="" authors="kathydav" solutions="" manager="dongill" editor="tysonn" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav" />
 
 # Как создать настраиваемую виртуальную машину
 
-*Настраиваемая* виртуальная машина — это виртуальная машина, созданная с помощью метода **Из коллекции**, что дает больший выбор настроек, чем метод **Быстрое создание**. В частности, описаны такие возможности:
+*Настраиваемая* виртуальная машина — это виртуальная машина, созданная с помощью метода **Из коллекции**, что дает больший выбор настроек, чем метод **Быстрое создание**. К ним относятся:
 
 -   Больший выбор образов для создания виртуальной машины (ВМ).
 -   Подключение виртуальной машины к виртуальной сети.

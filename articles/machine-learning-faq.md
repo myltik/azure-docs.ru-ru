@@ -116,4 +116,4 @@ ML Studio предоставляет современные алгоритмы �
   [Учебный центр машинного обучения Azure]: http://azure.microsoft.com/ru-ru/documentation/services/machine-learning/
   [форумы обратной связи]: http://go.microsoft.com/fwlink/?LinkId=404231
   [форум обратной связи]: https://windowsazure.uservoice.com/forums/257792-machine-learning
-  [форум Azure]: http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=MachineLearning
+  [форум Azure]: http://social.msdn.microsoft.com/Forums/windowsazure/ru-ru/home?forum=MachineLearning

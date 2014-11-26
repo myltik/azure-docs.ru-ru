@@ -70,9 +70,9 @@
 
     Дополнительные сведения об использовании мобильных служб с .NET
 
-<!-- Anchors. -->
-<!-- Images. -->
-<!-- URLs. -->
+
+
+
 
   [Установите библиотеку клиента хранилища]: #install-storage-client
   [Обновите сценарий вставки для создания учетных данных SAS]: #update-scripts
@@ -82,8 +82,6 @@
   [Учетная запись хранения Azure]: /ru-ru/manage/services/storage/how-to-create-a-storage-account
   [Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/mobile-services-windows-phone-get-started
   [0]: ./media/mobile-services-windows-phone-upload-data-blob-storage/mobile-add-storage-nuget-package-dotnet.png
-  [mobile-services-configure-blob-storage]: ../includes/mobile-services-configure-blob-storage.md
-  [mobile-services-windows-phone-upload-to-blob-storage]: ../includes/mobile-services-windows-phone-upload-to-blob-storage.md
   [Отправить сообщение электронной почты с мобильных служб с помощью SendGrid]: /ru-ru/develop/mobile/tutorials/send-email-with-sendgrid/
   [Планирование серверных заданий в мобильных службах]: /ru-ru/develop/mobile/tutorials/schedule-backend-tasks/
   [Справочник серверных скриптов мобильных служб]: http://go.microsoft.com/fwlink/p/?LinkId=262293

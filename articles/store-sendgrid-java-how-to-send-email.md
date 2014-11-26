@@ -200,7 +200,6 @@ SendGrid поддерживает различные веб-API, с помощь
   [Практическое руководство. Использование дополнительных служб SendGrid]: #bkmk_HowToUseAdditionalSvcs
   [облачная служба электронной почты]: http://sendgrid.com/solutions
   [доставки электронной почты]: http://sendgrid.com/transactional-email
-  [sendgrid-sign-up]: ../includes/sendgrid-sign-up.md
   [Параметры фильтрации]: http://sendgrid.com/docs/API_Reference/Web_API/filter_settings.html
   [документации по интерфейсу API SendGrid]: http://sendgrid.com/docs/API_Reference/index.html
   [Как отправлять электронную почту с помощью SendGrid из Java в развертывании Azure]: ../store-sendgrid-java-how-to-send-email-example/

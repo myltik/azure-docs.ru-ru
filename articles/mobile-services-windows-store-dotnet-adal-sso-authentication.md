@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-sso-with-adal" urlDisplayName="Active Directory SSO Authentication with ADAL" pageTitle="Authenticate your app with Active Directory Authentication Library Single Sign-On (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to authentication users for single sign-on with ADAL in your Windows Store application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Authenticate your app with Active Directory Authentication Library Single Sign-On" authors="wesmc" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="wesmc" />
 
 # Проверка подлинности приложения с помощью единого входа библиотеки проверки подлинности Active Directory
 
@@ -31,7 +31,7 @@
 -   Пакет NuGet пакета SDK мобильных служб Microsoft Azure
 -   Пакет NuGet библиотеки проверки подлинности Active Directory
 
-[WACOM.INCLUDE [mobile-services-dotnet-adal-register-service][mobile-services-dotnet-adal-register-service]]
+[WACOM.INCLUDE [mobile-services-dotnet-adal-register-service](../includes/mobile-services-dotnet-adal-register-service.md)]
 
 ## <a name="register-app-aad"></a>Регистрация приложения в Azure Active Directory
 
@@ -41,7 +41,7 @@
 
 1.  В Visual Studio щелкните правой кнопкой мыши проект клиентского приложения, а затем выберите пункты **Магазин** и **Связать приложение с Магазином**.
 
-    ![][]
+    ![][0]
 
 2.  Войдите в свою учетную запись в Центре разработки.
 
@@ -105,13 +105,13 @@
 
 ## <a name="require-authentication"></a>Настройка мобильной службы для требования проверки подлинности
 
-[WACOM.INCLUDE [mobile-services-restrict-permissions-dotnet-backend][mobile-services-restrict-permissions-dotnet-backend]]
+[WACOM.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
 
 ## <a name="add-authentication-code"></a>Добавление кода проверки подлинности в клиентское приложение
 
 1.  Откройте проект клиентского приложения Магазина Windows в Visual Studio.
 
-[WACOM.INCLUDE [mobile-services-dotnet-adal-install-nuget][mobile-services-dotnet-adal-install-nuget]]
+[WACOM.INCLUDE [mobile-services-dotnet-adal-install-nuget](../includes/mobile-services-dotnet-adal-install-nuget.md)]
 
 1.  В окне обозревателя решений Visual Studio откройте файл MainPage.xaml.cs и добавьте следующие директивы using.
 
@@ -177,13 +177,10 @@
 
     ![][13]
 
-<!-- Anchors. -->
-<!-- Images -->
-<!-- URLs. -->
 
-  [Магазин Windows C\#]: /ru-ru/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication "Магазин Windows C#"
-  [iOS]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-ios-adal-sso-authentication "iOS"
-  [Xamarin.iOS]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-adal-sso-authentication "Xamarin.iOS"
+<!-- Images -->
+
+
   [Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
   [Регистрация мобильной службы в Azure Active Directory]: #register-mobile-service-aad
   [Регистрация приложения в Azure Active Directory]: #register-app-aad
@@ -191,8 +188,7 @@
   [Добавление кода проверки подлинности в клиентское приложение]: #add-authentication-code
   [Тестирование клиента с использованием проверки подлинности]: #test-client
   [Приступая к работе с данными]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/
-  [mobile-services-dotnet-adal-register-service]: ../includes/mobile-services-dotnet-adal-register-service.md
-  []: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-vs-associate-app.png
+  [0]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-vs-associate-app.png
   [1]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-vs-reserve-store-appname.png
   [панель мониторинга Центра разработки для Windows]: http://go.microsoft.com/fwlink/p/?LinkID=266734
   [2]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-store-app-edit.png
@@ -206,8 +202,6 @@
   [9]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-native-sid-redirect-uri.png
   [10]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-native-client-id.png
   [11]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-native-add-permissions.png
-  [mobile-services-restrict-permissions-dotnet-backend]: ../includes/mobile-services-restrict-permissions-dotnet-backend.md
-  [mobile-services-dotnet-adal-install-nuget]: ../includes/mobile-services-dotnet-adal-install-nuget.md
   [Регистрация в Azure Active Directory]: /ru-ru/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
   [12]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-package-appxmanifest.png
   [13]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-app-run.png

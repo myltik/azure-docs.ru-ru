@@ -6,4 +6,3 @@
 
 [WACOM.INCLUDE [publishsettingsfilewarningchunk](../includes/white-papers.md)]
 
-  [publishsettingsfilewarningchunk]: ../includes/white-papers.md

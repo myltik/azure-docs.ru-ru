@@ -113,13 +113,13 @@
 Теперь, когда клиентское приложение было обновлено, вернитесь к учебнику [Уведомление пользователей с помощью концентраторов уведомлений][Уведомление пользователей с помощью концентраторов уведомлений] и обновите мобильную службу для отправки уведомлений с помощью концентраторов уведомлений.
 
 
-<!-- URLs. -->
+
   [Магазин Windows C#]: /ru-ru/documentation/articles/notification-hubs-windows-store-mobile-services-register-user-push-notifications/ "Магазин Windows C#"
   [iOS]: /ru-ru/documentation/articles/notification-hubs-ios-mobile-services-register-user-push-notifications/ "iOS"
   [Уведомление пользователей с помощью концентраторов уведомлений]: /ru-ru/manage/services/notification-hubs/notify-users
   [Приступая к работе с аутентификацией]: /ru-ru/develop/mobile/tutorials/get-started-with-users-dotnet/
 
-<!-- Images. -->
+
   [0]: ./media/notification-hubs-windows-store-mobile-services-register-user-push-notifications/mobile-services-select-app-name.png
   [1]: ./media/notification-hubs-windows-store-mobile-services-register-user-push-notifications/notification-hub-associate-win8-app.png
   [2]: ./media/notification-hubs-windows-store-mobile-services-register-user-push-notifications/notification-hub-win8-app-toast.png

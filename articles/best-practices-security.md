@@ -4,4 +4,3 @@
 
 [WACOM.INCLUDE [Безопасность-RX](../includes/SecurityRX.md)]
 
-  [Безопасность-RX]: ../includes/SecurityRX.md

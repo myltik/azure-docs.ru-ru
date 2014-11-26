@@ -239,9 +239,9 @@
 
 [WACOM.INCLUDE [mobile-services-aad-rbac-test-app](../includes/mobile-services-aad-rbac-test-app.md)]
 
-<!-- Anchors. -->
+
 <!-- Images -->
-<!-- URLs. -->
+
 
   [API Graph]: http://msdn.microsoft.com/library/azure/hh974478.aspx
   [Начало работы с проверкой подлинности]: /ru-ru/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
@@ -251,12 +251,9 @@
   [Добавление проверки доступа на основе ролей в операции базы данных]: #add-access-checking
   [Тестирование клиентского доступа]: #test-client
   [Скрипты сервера хранилища]: /ru-ru/documentation/articles/mobile-services-store-scripts-source-control/
-  [mobile-services-aad-rbac-create-sales-group]: ../includes/mobile-services-aad-rbac-create-sales-group.md
   [Регистрация для использования входа Azure Active Directory]: /ru-ru/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
-  [mobile-services-generate-aad-app-registration-access-key]: ../includes/mobile-services-generate-aad-app-registration-access-key.md
   [справочнике по ошибкам API Graph]: http://msdn.microsoft.com/ru-ru/library/azure/hh974480.aspx
   [IsMemberOf]: http://msdn.microsoft.com/ru-ru/library/azure/dn151601.aspx
   [0]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/table-perms.png
   [портале управления Azure]: https://manage.windowsazure.com/
   [1]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/insert-table-op-view.png
-  [mobile-services-aad-rbac-test-app]: ../includes/mobile-services-aad-rbac-test-app.md

@@ -6,7 +6,7 @@
 
 2.  Перейдите на веб-сайт [разработчиков Twitter][разработчиков Twitter], войдите, используя данные учетной записи Twitter, перейдите к пункту **Мои приложения** и выберите свое приложение Twitter.
 
-    ![][]
+    ![][0]
 
 3.  На вкладке **Сведения** приложения обратите внимание на следующие значения:
 
@@ -32,11 +32,11 @@
 
     Это сохраняет маркер доступа Twitter в параметрах приложения. Как и учетные данные клиента на вкладке **Удостоверение**, учетные данные доступа также хранятся в параметрах приложения в зашифрованном виде, и вы можете получить к ним доступ в своих серверных сценариях без жесткого кодирования их в файле сценария. Дополнительные сведения см. в разделе [Параметры приложения][Параметры приложения].
 
-<!-- URLs. -->
+
 
   [Регистрация приложений для входа в Twitter с помощью мобильных служб]: /ru-ru/documentation/articles/mobile-services-how-to-register-twitter-authentication/
   [разработчиков Twitter]: http://go.microsoft.com/fwlink/p/?LinkId=268300
-  []: ./media/mobile-services-register-twitter-access/mobile-twitter-my-apps.png
+  [0]: ./media/mobile-services-register-twitter-access/mobile-twitter-my-apps.png
   [1]: ./media/mobile-services-register-twitter-access/mobile-twitter-app-secrets.png
   [Портал управления Windows Azure]: https://manage.windowsazure.com/
   [2]: ./media/mobile-services-register-twitter-access/mobile-identity-tab-twitter-only.png

@@ -1,6 +1,6 @@
 <properties linkid="dev-nodejs-website-with-socketio" urlDisplayName="Website Using Socket.IO" pageTitle="Node.js Website using Socket.io - Azure tutorial" metaKeywords="Azure Node.js socket.io tutorial, Azure Node.js socket.io, Azure Node.js tutorial" description="A tutorial that demonstrates using socket.io in a node.js website hosted on Azure." metaCanonical="" services="web-sites" documentationCenter="nodejs" title="Build a Node.js Chat Application with Socket.IO on an Azure Website" authors="larryfr" solutions="" videoId="" scriptId="" manager="paulettm" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Создание приложения для разговора Node.js с Socket.IO на веб-сайте Azure
 
@@ -277,8 +277,6 @@ Socket.IO обеспечивает связь в режиме реального
 
   []: http://socket.io/
   [Cоздание приложения разговора Node.js с Socket.IO в облачной службе Azure]: http://www.windowsazure.com/ru-ru/develop/nodejs/tutorials/app-using-socketio/
-  [репозитория Socket.IO
-  в GitHub]: https://github.com/Automattic/socket.io
   [в архиве ZIP или GZ]: https://github.com/Automattic/socket.io/releases
   [Бесплатная пробная версия Azure]: http://www.windowsazure.com/ru-ru/pricing/free-trial/?WT.mc_id=A7171371E
   [портала управления Azure]: https://manage.windowsazure.com

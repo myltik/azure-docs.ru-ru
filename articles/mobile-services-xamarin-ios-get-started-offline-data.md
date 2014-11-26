@@ -198,9 +198,9 @@
 
 -   [Использование клиентского компонента Xamarin для мобильных служб Azure][Использование клиентского компонента Xamarin для мобильных служб Azure]
 
-<!-- Anchors. -->
+
 <!-- Images -->
-<!-- URLs. -->
+
 
   [Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/partner-xamarin-mobile-services-ios-get-started/
   [Приступая к работе с данными]: /ru-ru/documentation/articles/partner-xamarin-mobile-services-ios-get-started-data/

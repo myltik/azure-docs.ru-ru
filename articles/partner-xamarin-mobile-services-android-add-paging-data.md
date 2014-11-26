@@ -65,9 +65,9 @@
 -   [Приступая к работе с push-уведомлениями][Приступая к работе с push-уведомлениями]
     Сведения об отправке в приложение простейших push-уведомлений.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Приступая к работе с данными]: /ru-ru/develop/mobile/tutorials/get-started-with-data-xamarin-android
   [Приступая к работе с аутентификацией]: /ru-ru/develop/mobile/tutorials/get-started-with-users-xamarin-android

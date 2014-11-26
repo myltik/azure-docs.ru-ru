@@ -1,12 +1,12 @@
 <properties urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Get started with Azure Websites and ASP.NET" authors="tdykstra" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tdykstra"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tdykstra" />
 
 # Начало работы с веб-сайтами Azure и ASP.NET
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/net/tutorials/get-started/" title="Visual Studio 2013">Visual Studio 2013</a><a href="/en-us/develop/net/tutorials/get-started-vs2012/" title="Visual Studio 2012" class="current">Visual Studio 2012</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/ru-ru/develop/net/tutorials/get-started/" title="Visual Studio 2013">Visual Studio 2013</a><a href="/ru-ru/develop/net/tutorials/get-started-vs2012/" title="Visual Studio 2012" class="current">Visual Studio 2012</a></div>
 
-<div class="dev-callout"><strong>Примечание.</strong><p>Доступна <a href="/en-us/develop/net/tutorials/get-started/">новая версия этого учебника</a>. Вы можете продолжить использование этой версии при работе с Visual Studio 2012, однако в ней не представлены все новые возможности Azure SDK.</p></div>
+<div class="dev-callout"><strong>Примечание.</strong><p>Доступна <a href="/ru-ru/develop/net/tutorials/get-started/">новая версия этого учебника</a>. Вы можете продолжить использование этой версии при работе с Visual Studio 2012, однако в ней не представлены все новые возможности Azure SDK.</p></div>
 
 В этом учебнике показано, как развернуть веб-приложение ASP.NET на веб-сайте Azure с помощью мастера публикации веб-сайта в Visual Studio 2012 или Visual Studio 2012 for Web Express. При желании вы можете выполнить действия, описанные в учебнике, в Visual Studio 2010 или Visual Web Developer Express 2010.
 
@@ -23,7 +23,7 @@
 
 ![Пример веб-сайта][Пример веб-сайта]
 
-<div class="dev-callout"><p><strong>Примечание.</strong> Для работы с этим учебником необходима учетная запись Azure. Если у вас нет учетной записи, можно <a href="/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">активировать преимущества для подписчиков MSDN</a> или <a href="/en-us/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">подписаться на бесплатную пробную версию</a>.</p></div>
+<div class="dev-callout"><p><strong>Примечание.</strong> Для работы с этим учебником необходима учетная запись Azure. Если у вас нет учетной записи, можно <a href="/ru-ru/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">активировать преимущества для подписчиков MSDN</a> или <a href="/ru-ru/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">подписаться на бесплатную пробную версию</a>.</p></div>
 
 ### Сегменты учебника
 
@@ -33,7 +33,7 @@
 4.  [Развертывание приложения в Azure][Развертывание приложения в Azure]
 5.  [Дальнейшие действия][Дальнейшие действия]
 
-[WACOM.INCLUDE [установка-sdk-2012-только][установка-sdk-2012-только]]
+[WACOM.INCLUDE [установка-sdk-2012-только](../includes/install-sdk-2012-only.md)]
 
 ## <a name="setupwindowsazure"></a><span class="short-header">Создание сайта</span> Создание веб-сайта
 
@@ -209,18 +209,12 @@
 
 В некоторых ситуациях может потребоваться, чтобы приложение работало не на веб-сайте Azure, а в облачной службе Azure. Дополнительные сведения см. в статьях [Модели выполнения Azure][Модели выполнения Azure] и [Сравнение веб-сайтов, облачных служб и виртуальных машин Azure][Сравнение веб-сайтов, облачных служб и виртуальных машин Azure]. Серию учебников, показывающих, как создать многоуровневое веб-приложение ASP.NET и развернуть его в облачной службе, см. в статье [Многоуровневое приложение .NET, использующее таблицы хранилища, очереди и BLOB-объекты][Многоуровневое приложение .NET, использующее таблицы хранилища, очереди и BLOB-объекты]
 
-  [Visual Studio 2013]: /en-us/develop/net/tutorials/get-started/ "Visual Studio 2013"
-  [Visual Studio 2012]: /en-us/develop/net/tutorials/get-started-vs2012/ "Visual Studio 2012"
-  [новая версия этого учебника]: /en-us/develop/net/tutorials/get-started/
   [Пример веб-сайта]: ./media/web-sites-dotnet-get-started-vs2012/DeployedWebSite.png
-  [активировать преимущества для подписчиков MSDN]: /en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
-  [подписаться на бесплатную пробную версию]: /en-us/pricing/free-trial/?WT.mc_id=A261C142F
   [Настройка среды разработки]: #setupdevenv
   [Создание веб-сайта в Azure]: #setupwindowsazure
   [Создание приложения ASP.NET MVC 4]: #createmvc4app
   [Развертывание приложения в Azure]: #deploytowindowsazure
   [Дальнейшие действия]: #nextsteps
-  [установка-sdk-2012-только]: ../includes/install-sdk-2012-only.md
   [портале управления Azure]: http://manage.windowsazure.com
   [Новый веб-сайт]: ./media/web-sites-dotnet-get-started-vs2012/WebSiteNew.png
   [Быстро создать]: ./media/web-sites-dotnet-get-started-vs2012/ClickQuickCreate.png
@@ -247,12 +241,12 @@
   [Веб-сайты Azure в обозревателе сервера]: ./media/web-sites-dotnet-get-started-vs2012/ServerExplorerWSSettings.png
   [Конфигурация веб-сайта в Visual Studio.]: ./media/web-sites-dotnet-get-started-vs2012/WSConfigurationInVS.png
   [Вкладка "Панель мониторинга" портала управления]: ./media/web-sites-dotnet-get-started-vs2012/MPStopStartDelete.png
-  [Как управлять веб-сайтами]: /en-us/manage/services/web-sites/how-to-manage-websites/
+  [Как управлять веб-сайтами]: /ru-ru/manage/services/web-sites/how-to-manage-websites/
   [Вкладка "Масштаб" портала управления]: ./media/web-sites-dotnet-get-started-vs2012/MPScale.png
-  [Как масштабировать веб-сайт]: /en-us/manage/services/web-sites/how-to-scale-websites/
+  [Как масштабировать веб-сайт]: /ru-ru/manage/services/web-sites/how-to-scale-websites/
   [Журналы в Visual Studio]: ./media/web-sites-dotnet-get-started-vs2012/LogsInVS.png
-  [Устранение неполадок веб-сайтов Azure в Visual Studio]: /en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/
-  [Развертывание безопасного приложения ASP.NET MVC с членством, OAuth и базой данных SQL на веб-сайте Azure]: /en-us/develop/net/tutorials/web-site-with-sql-database/
-  [Модели выполнения Azure]: /en-us/develop/net/fundamentals/compute/
+  [Устранение неполадок веб-сайтов Azure в Visual Studio]: /ru-ru/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/
+  [Развертывание безопасного приложения ASP.NET MVC с членством, OAuth и базой данных SQL на веб-сайте Azure]: /ru-ru/develop/net/tutorials/web-site-with-sql-database/
+  [Модели выполнения Azure]: /ru-ru/develop/net/fundamentals/compute/
   [Сравнение веб-сайтов, облачных служб и виртуальных машин Azure]: http://azure.microsoft.com/ru-ru/documentation/articles/choose-web-site-cloud-service-vm/
-  [Многоуровневое приложение .NET, использующее таблицы хранилища, очереди и BLOB-объекты]: /en-us/develop/net/tutorials/multi-tier-web-site/1-overview/
+  [Многоуровневое приложение .NET, использующее таблицы хранилища, очереди и BLOB-объекты]: /ru-ru/develop/net/tutorials/multi-tier-web-site/1-overview/

@@ -2,20 +2,20 @@
 
 1.  На портале Azure нажмите кнопку **Веб-сайты**.
 2.  Выберите имя веб-сайта в списке веб-сайтов.
-    ![WebSiteEntry][]
+    ![WebSiteEntry][WebSiteEntry]
     Появится панель мониторинга веб-сайта.
 
 3.  Нажмите кнопку **Настройка** в строке меню.  
-    ![WebSiteDashboardConfig][]
+    ![WebSiteDashboardConfig][WebSiteDashboardConfig]
 
 4.  Перейдите ниже к разделу Строки подключения.
-    ![WebSiteConnectionStrings][]
+    ![WebSiteConnectionStrings][WebSiteConnectionStrings]
 
 5.  В качестве **Имени** введите MONGOLAB\_URI.
 6.  В качестве **Значение** вставьте строку подключения, полученную в предыдущем разделе.
 7.  Выберите **Настраиваемый** в выпадающем списке **Тип** (вместо используемого по умолчанию **SQLAzure**).
 8.  Нажмите кнопку **Сохранить** на панели инструментов.  
-    ![SaveWebSite][]
+    ![SaveWebSite][SaveWebSite]
 
 **Примечание.**Azure добавляет к этой переменной префикс **CUSTOMCONNSTR\_**, поэтому приведенный выше код ссылается на **CUSTOMCONNSTR\_MONGOLAB\_URI.**
 

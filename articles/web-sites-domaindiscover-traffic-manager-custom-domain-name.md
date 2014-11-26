@@ -66,23 +66,16 @@
 
 ## <a name="enabledomain"></a>Включение веб-сайта Traffic Manager
 
-[WACOM.INCLUDE [режимы][3]]
+[WACOM.INCLUDE [режимы](../includes/custom-dns-web-site-modes-traffic-manager.md)]
 
-  [пошаговое-css-руководство-по-облачным-службам-веб-сайтов]: ../includes/websites-cloud-services-css-guided-walkthrough.md
-  [введение]: ../includes/custom-dns-web-site-intro-traffic-manager.md
   [DomainDiscover.com]: https://domaindiscover.com
   [TierraNet]: https://www.tierra.net/
-  [нижний-колонтитул-веб-сайта-tm]: ../includes/custom-dns-web-site-traffic-manager-notes.md
-  [нижний-колонтитул-введения]: ../includes/custom-dns-web-site-intro-notes.md
   [Общие сведения о записях DNS]: #understanding-records
   [Настройка веб-сайтов для стандартного режима]: #bkmk_configsharedmode
   [Добавление записи DNS для пользовательского домена]: #bkmk_configurecname
   [Включение Traffic Manager для веб-сайта]: #enabledomain
-  [общие-сведения-о-dns]: ../includes/custom-dns-web-site-understanding-dns-traffic-manager.md
-  [режимы]: ../includes/custom-dns-web-site-modes-traffic-manager.md
   [Меню "Вход" DomainDiscover]: .\media\web-sites-domaindiscover-custom-domain-name\DomainDiscover_LoginMenu.png
   [Страница управления доменом]: .\media\web-sites-domaindiscover-custom-domain-name\DomainDiscover_DomainManagement.png
   [Кнопка изменения DNS]: .\media\web-sites-domaindiscover-custom-domain-name\DomainDiscover_DNSEditButton.png
   [1]: .\media\web-sites-domaindiscover-custom-domain-name\DomainDiscover_DNSAddRecords.png
   [2]: .\media\web-sites-domaindiscover-custom-domain-name\DomainDiscover_DNSRecords_TM.png
-  [3]: ../includes/custom-dns-web-site-enable-on-traffic-manager.md

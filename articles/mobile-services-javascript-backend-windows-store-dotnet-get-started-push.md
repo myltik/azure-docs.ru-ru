@@ -106,7 +106,6 @@
 
 <!-- Anchors.   Images. URLs. -->
 
-  [mobile-services-selector-get-started-push-legacy]: ../includes/mobile-services-selector-get-started-push-legacy.md
   [Универсальная версия приложения для Windows]: /ru-ru/documentation/articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-data
   [Регистрация приложения с помощью WNS и настройка мобильных служб]: #register
   [Обновление приложения: регистрация для получения уведомлений]: #update-app
@@ -115,10 +114,7 @@
   [Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/mobile-services-windows-store-get-started
   [Приступая к работе с данными]: /ru-ru/documentation/articles/mobile-services-windows-store-dotnet-get-started-data
   [Приступая к работе с push-уведомлениями в мобильных службах]: /ru-ru/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push
-  [mobile-services-notification-hubs-register-windows-store-app]: ../includes/mobile-services-notification-hubs-register-windows-store-app.md
   [0]: ./media/mobile-services-windows-store-dotnet-get-started-push-vs2012/mobile-app-enable-toast-win8.png
-  [mobile-services-javascript-update-script-notification-hubs]: ../includes/mobile-services-javascript-update-script-notification-hubs.md
-  [mobile-services-windows-store-test-push]: ../includes/mobile-services-windows-store-test-push.md
   [Отправка push-уведомлений аутентифицированным пользователям]: /ru-ru/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users/
   [Рассылка широковещательных уведомлений подписчикам]: /ru-ru/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
   [Отправка подписчикам уведомлений на основе шаблонов]: /ru-ru/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/

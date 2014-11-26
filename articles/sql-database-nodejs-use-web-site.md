@@ -418,7 +418,7 @@
         To https://username@tabletasklist.azurewebsites.net/TableTasklist.git
          * [new branch]      master -> master
 
-3.  После завершения операции передачи перейдите на страницу **http://имя сайта].azurewebsites.net/**, чтобы просмотреть ваше приложение.
+3.  После завершения операции передачи перейдите на страницу **http://[имя сайта].azurewebsites.net/**, чтобы просмотреть ваше приложение.
 
 ### Переключение на переменную среды
 
@@ -470,6 +470,7 @@
   [Создание веб-сайта Azure]: ./media/sql-database-nodejs-use-web-site/new_website.jpg
   [Настраиваемое создание нового веб-сайта]: ./media/sql-database-nodejs-use-web-site/custom_create.png
   [Заполните сведения о веб-сайте]: ./media/sql-database-nodejs-use-web-site/website_details_sqlazure.jpg
+  [(WEB или BUSINESS)]: http://msdn.microsoft.com/ru-ru/library/windowsazure/ee621788.aspx
   [Заполните параметры базы данных SQL]: ./media/sql-database-nodejs-use-web-site/database_settings.jpg
   [Создать новый сервер базы данных SQL]: ./media/sql-database-nodejs-use-web-site/create_server.jpg
   [Откройте панель мониторинга веб-сайта]: ./media/sql-database-nodejs-use-web-site/go_to_dashboard.png

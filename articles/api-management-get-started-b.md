@@ -1,6 +1,4 @@
-<properties pageTitle="Начало работы с Azure API Management" metaKeywords="" description="Узнайте, как создавать API, операции и как начать работу с API Management." metaCanonical="" services="api-management" documentationCenter="API Management" title="Начало работы с Azure API Management" authors="sdanie" solutions="" manager="dwrede" editor="" />
-
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<properties pageTitle="Get started with Azure API Management" metaKeywords="" description="Learn how to create APIs, operations, and get started with API Management." metaCanonical="" services="" documentationCenter="API Management" title="Get started with Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
 
 # Начало работы с Azure API Management
 
@@ -49,7 +47,7 @@ API создаются и настраиваются из консоли API Man
 Следующие три поля используются для настройки нового API.
 
 -   Введите **My Echo API** в текстовом поле **Название веб-API**. **Название веб-API** обеспечивает уникальное описательное имя для API. Оно выводится на порталах разработчика и управления.
--   Наберите **http://echoapi.cloudapp.net/api** в поле **URL веб-службы**. **URL-адрес веб-службы** ссылается на реализующую API HTTP-службу. Портал управления API направит запросы по этому адресу.
+-   Наберите **<http://echoapi.cloudapp.net/api>** в поле **URL веб-службы**. **URL-адрес веб-службы** ссылается на реализующую API HTTP-службу. Портал управления API направит запросы по этому адресу.
 -   Введите **myecho** в поле **Суффикс URL-адреса веб-API**. **Суффикс URL-адреса веб-API** добавляется к основному URL-адресу для службы управления API. Ваши интерфейсы API используют общий основной URL-адрес и отличаются уникальным суффиксом, добавляемым после основного адреса.
 
 Щелкните **Сохранить**, чтобы создать API. После создания нового API на портале управления выводится страница сводных данных для API.

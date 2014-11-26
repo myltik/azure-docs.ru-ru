@@ -94,7 +94,7 @@
 -   Канал 9: [Обзор технологии эластичного масштабирования][1]
 -   Форум для обсуждений: [Форум по базе данным SQL Azure][Форум по базе данным SQL Azure]
 
-<!--Anchors--> <!--Image references-->
+<!--Anchors-->\r\n<!--Image references-->
 
   [Обзор технологии эластичного масштабирования]: http://go.microsoft.com/?linkid=9862592
   [Карту документации по эластичному масштабированию]: ./sql-database-elastic-scale-documentation-map.md
@@ -118,4 +118,4 @@
   [Эластичность сегментов в Центре сценариев]: http://go.microsoft.com/?linkid=9862617
   [Объявления, касающиеся эластичного масштабирования]: http://go.microsoft.com/?linkid=9862608
   [1]: http://go.microsoft.com/?linkid=9862609
-  [Форум по базе данным SQL Azure]: http://social.msdn.microsoft.com/forums/azure/en-US/home?forum=ssdsgetstarted
+  [Форум по базе данным SQL Azure]: http://social.msdn.microsoft.com/forums/azure/ru-ru/home?forum=ssdsgetstarted

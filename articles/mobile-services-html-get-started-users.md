@@ -34,7 +34,7 @@
 
     Это приведет к запуску веб-сервера на локальном компьютере, где и будет размещено новое приложение.
 
-2.  Откройте URL-адрес [http://localhost: 8000/][http://localhost: 8000/] в веб-браузере, чтобы запустить приложение.
+2.  Откройте URL-адрес http://localhost: 8000/ в веб-браузере, чтобы запустить приложение.
 
     Данные не загружаются. Это происходит, потому что приложение пытается получить доступ к мобильным службам как пользователь, не прошедший проверку подлинности, а таблица *TodoItem* теперь требует выполнения проверки подлинности.
 
@@ -109,13 +109,9 @@
 
 
 
-  [mobile-services-selector-get-started-users]: ../includes/mobile-services-selector-get-started-users.md
   [Регистрация приложения для проверки подлинности и конфигурация мобильных служб]: #register
   [Ограничение разрешений таблицы пользователями, прошедшими проверку подлинности]: #permissions
   [Добавление проверки подлинности к приложению]: #add-authentication
   [Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/mobile-services-html-get-started
-  [mobile-services-register-authentication]: ../includes/mobile-services-register-authentication.md
-  [mobile-services-restrict-permissions-javascript-backend]: ../includes/mobile-services-restrict-permissions-javascript-backend.md
-  [http://localhost: 8000/]: http://localhost:8000/
   [Авторизация пользователей с помощью скриптов]: /ru-ru/documentation/articles/mobile-services-html-authorize-users-in-scripts
   [Справочник принципов использования мобильных служб HTML/JavaScript]: /ru-ru/documentation/articles/mobile-services-html-how-to-use-client-library

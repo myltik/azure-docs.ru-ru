@@ -20,5 +20,4 @@
 
   [Краткое руководство: добавление push-уведомлений в мобильную службу]: http://go.microsoft.com/fwlink/p/?LinkId=309101
   [Проверка подлинности приложения Магазина Windows с помощью единого входа Live Connect]: /ru-ru/develop/mobile/tutorials/single-sign-on-windows-8-dotnet
-  [mobile-services-register-windows-store-app]: ../includes/mobile-services-register-windows-store-app.md
   [LoginAsync]: http://go.microsoft.com/fwlink/p/?LinkId=311594

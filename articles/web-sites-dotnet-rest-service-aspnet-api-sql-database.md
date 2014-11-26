@@ -1,6 +1,6 @@
 <properties linkid="develop-dotnet-rest-service-using-web-api" urlDisplayName="REST service using Web API" pageTitle=".NET REST service using Web API - Azure tutorial" metaKeywords="Azure tutorial web site, ASP.NET API web site, Azure VS" description="A tutorial that teaches you how to deploy an app that uses the ASP.NET Web API to an Azure website by using Visual Studio." metaCanonical="" services="web-sites" documentationCenter=".NET" title="REST service using ASP.NET Web API and SQL Database" authors="riande" solutions="" manager="" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="riande"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="riande" />
 
 # Служба REST с использованием веб-API ASP.NET и базы данных SQL
 
@@ -37,7 +37,7 @@
 
 <a name="bkmk_setupdevenv"></a>
 <!-- the next line produces the "Set up the development environment" section as see at http://www.windowsazure.com/ru-ru/documentation/articles/web-sites-dotnet-get-started/ -->
-[WACOM.INCLUDE [create-account-and-websites-note][create-account-and-websites-note]]
+[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ## <a name="bkmk_setupwindowsazure"></a>Настройка среды Azure
 
@@ -818,7 +818,6 @@
   [Добавление веб-интерфейса API Restful]: #bkmk_addwebapi
   [Добавление защиты XSRF]: #xsrf
   [Публикация обновления приложения в Azure и базе данных SQL]: #bkmk_deploydatabaseupdate
-  [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
   [портале управления Azure]: https://manage.windowsazure.com
   [Ссылка "Создать с базой данных" на портале управления]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr6.PNG
   [Шаг создания нового веб-сайта в мастере «Новый веб-сайт — создать с базой данных»]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rrCWS.png

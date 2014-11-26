@@ -141,9 +141,9 @@
 
 В следующем учебнике, [Управление доступом в мобильных службах на основе ролей с помощью AAD][Управление доступом в мобильных службах на основе ролей с помощью AAD], предстоит использовать управление доступом на основе ролей с помощью Azure Active Directory (AAD) для проверки членства в группе перед разрешением доступа.
 
-<!-- Anchors. -->
+
 <!-- Images -->
-<!-- URLs. -->
+
 
   [API Graph]: http://msdn.microsoft.com/library/azure/hh974478.aspx
   [Начало работы с проверкой подлинности]: /ru-ru/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
@@ -153,11 +153,8 @@
   [Тестирование приложения]: #test-app
   [Учебник по пользовательским API]: /ru-ru/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api/
   [Регистрация для использования входа Azure Active Directory]: /ru-ru/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
-  [mobile-services-generate-aad-app-registration-access-key]: ../includes/mobile-services-generate-aad-app-registration-access-key.md
   [API REST Graph]: http://msdn.microsoft.com/ru-ru/library/azure/hh974478.aspx
   [портале управления Azure]: https://manage.windowsazure.com/
   [0]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info/create-getuserinfo.png
   [Get User]: http://msdn.microsoft.com/ru-ru/library/azure/dn151678.aspx
-  [mobile-services-aad-graph-info-update-app]: ../includes/mobile-services-aad-graph-info-update-app.md
-  [mobile-services-aad-graph-info-test-app]: ../includes/mobile-services-aad-graph-info-test-app.md
   [Управление доступом в мобильных службах на основе ролей с помощью AAD]: /ru-ru/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/

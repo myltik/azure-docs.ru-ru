@@ -64,22 +64,15 @@
 
 ## <a name="enabledomain"></a>Включение Traffic Manager на веб-сайте
 
-[WACOM.INCLUDE [modes][2]]
+[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes-traffic-manager.md)]
 
   [Network Solutions]: /ru-ru/documentation/articles/web-sites-network-solutions-custom-domain-name "Network Solutions"
-  [websites-cloud-services-css-guided-walkthrough]: ../includes/websites-cloud-services-css-guided-walkthrough.md
-  [intro]: ../includes/custom-dns-web-site-intro-traffic-manager.md
   [1]: https://www.networksolutions.com
-  [tmwebsitefooter]: ../includes/custom-dns-web-site-traffic-manager-notes.md
-  [introfooter]: ../includes/custom-dns-web-site-intro-notes.md
   [Общие сведения о записях DNS]: #understanding-records
   [Настройка веб-сайтов для стандартного режима]: #bkmk_configsharedmode
   [Добавление записи DNS для пользовательского домена]: #bkmk_configurecname
   [Включение Traffic Manager для веб-сайта]: #enabledomain
-  [understandingdns]: ../includes/custom-dns-web-site-understanding-dns-traffic-manager.md
-  [modes]: ../includes/custom-dns-web-site-modes-traffic-manager.md
   [страница изменения DNS]: ./media/web-sites-custom-domain-name/ns-editdns.png
   [страница доменных имен с выбранным элементом изменения дополнительных записей DNS]: ./media/web-sites-custom-domain-name/ns-editadvanced.png
   [страница обновления дополнительных записей DNS]: ./media/web-sites-custom-domain-name/ns-updatecnameadvanced.png
   [форма CNAME]: ./media/web-sites-custom-domain-name/ns-cnametm.png
-  [2]: ../includes/custom-dns-web-site-enable-on-traffic-manager.md

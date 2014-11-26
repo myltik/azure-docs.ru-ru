@@ -1,6 +1,6 @@
 <properties pageTitle="Managing Role-Based Access Control with Windows PowerShell" metaKeywords="ResourceManager, PowerShell, Azure PowerShell, RBAC" description="Managing role-based access control with Windows PowerShell" metaCanonical="" services="" documentationCenter="" title="Managing Role-Based Access Control with Windows PowerShell" authors="guayan" solutions="" manager="terrylan" editor="mollybos" />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="powershell" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="guayan"></tags>
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="powershell" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="guayan" />
 
 # Управление доступом на основе ролей с помощью Windows PowerShell
 
@@ -148,8 +148,6 @@ RBAC работает только с диспетчером ресурсов Az
 -   [Управление доступом на основе ролей с помощью межплатформенного интерфейса командной строки][Управление доступом на основе ролей с помощью межплатформенного интерфейса командной строки]
 -   [Устранение неполадок при управлении доступом на основе ролей][Устранение неполадок при управлении доступом на основе ролей]
 
-  [Windows PowerShell]: /ru-ru/documentation/articles/powershell-rbac.md "Windows PowerShell"
-  [Межплатформенный интерфейс командной строки]: /ru-ru/documentation/articles/xplat-cli-rbac.md "Межплатформенный интерфейс командной строки"
   [Windows Management Framework 3.0]: http://www.microsoft.com/ru-ru/download/details.aspx?id=34595
   [Windows Management Framework 4.0]: http://www.microsoft.com/ru-ru/download/details.aspx?id=40855
   [Установка и настройка Windows Azure PowerShell]: http://www.windowsazure.com/ru-ru/documentation/articles/install-configure-powershell/

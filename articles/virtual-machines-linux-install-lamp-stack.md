@@ -1,4 +1,4 @@
-<properties urlDisplayName="Install LAMP stack" pageTitle="Установка стека LAMP на виртуальную машину Linux" metaKeywords="" description="Узнайте, как установить стек LAMP на виртуальную машину Linux в Azure. Можно выполнить установку в Ubuntu или CentOS." metaCanonical="" services="virtual-machines" documentationCenter="" title="Установка стека LAMP на виртуальную машину Linux в Azure" authors="szark" solutions="" manager="timlt" editor="" />
+<properties linkid="manage-linux-common-tasks-lampstack" urlDisplayName="Install LAMP stack" pageTitle="Install the LAMP stack on a Linux virtual machine" metaKeywords="" description="Learn how to install the LAMP stack on a Linux virtual machine (VM) in Azure. You can install on Ubuntu or CentOS." metaCanonical="" services="virtual-machines" documentationCenter="" title="Install the LAMP Stack on a Linux virtual machine in Azure" authors="szark" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="szark" />
 
@@ -98,7 +98,9 @@
 
 Существует множество ресурсов, описывающих установку стека LAMP на Ubuntu.
 
--   <https://help.ubuntu.com/community/ApacheMySQLPHP>
--   <http://fedorasolved.org/server-solutions/lamp-stack>
+-   [][]<https://help.ubuntu.com/community/ApacheMySQLPHP></a>
+-   [][1]<http://fedorasolved.org/server-solutions/lamp-stack></a>
 
   [настройке конечных точек]: http://azure.microsoft.com/ru-ru/documentation/articles/virtual-machines-set-up-endpoints/
+  []: https://help.ubuntu.com/community/ApacheMySQLPHP
+  [1]: http://fedorasolved.org/server-solutions/lamp-stack

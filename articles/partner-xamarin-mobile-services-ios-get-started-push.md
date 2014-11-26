@@ -8,4 +8,3 @@
 
 > [WACOM.NOTE]В push-уведомления в мобильных службах были внесены некоторые изменения. Следите за информацией об обновленном учебнике для Xamarin iOS!
 
-  [mobile-services-selector-get-started-push-xamarin]: ../includes/mobile-services-selector-get-started-push-xamarin.md

@@ -1,6 +1,6 @@
 # Настройка пользовательского имени домена для веб-сайта Azure
 
-При создании веб-сайта Azure предоставляет удобный поддомен в домене azurewebsites.net, чтобы пользователи могли обращаться к веб-сайту с помощью URL-адреса вида [http://\<мой\_сайт][http://\<мой\_сайт]\>.azurewebsites.net. Однако, если ваш веб-сайт настроен для общего или стандартного режима, вы можете сопоставить его с собственным именем домена.
+При создании веб-сайта Azure предоставляет удобный поддомен в домене azurewebsites.net, чтобы пользователи могли обращаться к веб-сайту с помощью URL-адреса вида http://\<мой\_сайт\>.azurewebsites.net. Однако, если ваш веб-сайт настроен для общего или стандартного режима, вы можете сопоставить его с собственным именем домена.
 
 При необходимости можно использовать Azure Traffic Manager для балансировки нагрузки входящего трафика на вашем веб-сайте. Дополнительные сведения о работе Traffic Manager с веб-сайтами Azure см. в статье [Управление трафиком веб-сайтов Azure с помощью Azure Traffic Manager][Управление трафиком веб-сайтов Azure с помощью Azure Traffic Manager].
 
@@ -44,7 +44,7 @@
 1.  Откройте в браузере [портал управления][портал управления]
 2.  Во вкладке **Веб-сайты** щелкните по имени вашего сайта.
 
-    ![][]
+    ![][0]
 
 3.  Щелкните вкладку **МАСШТАБ**.
 
@@ -268,9 +268,6 @@
 
 -   [Настройка сертификата SSL для веб-сайтов][Настройка сертификата SSL для веб-сайтов]
 
-<!-- Bookmarks --> <!-- Links --> <!-- images --> <!-- images -->
-
-  [http://\<мой\_сайт]: http://<mysite
   [Управление трафиком веб-сайтов Azure с помощью Azure Traffic Manager]: /ru-ru/documentation/articles/web-sites-traffic-manager/
   [Настройка имени пользовательского домена в Azure]: /ru-ru/develop/net/common-tasks/custom-dns/
   [Сведения о ценах — веб-сайты]: /ru-ru/pricing/details/web-sites/
@@ -283,7 +280,7 @@
   [Доменные имена IETF — реализация и спецификация]: http://tools.ietf.org/html/rfc1035
   [Сведения о ценах]: /ru-ru/pricing/details/
   [портал управления]: http://manage.windowsazure.com
-  []: ./media/custom-dns-web-site/dncmntask-cname-1.png
+  [0]: ./media/custom-dns-web-site/dncmntask-cname-1.png
   [1]: ./media/custom-dns-web-site/dncmntask-cname-2.png
   [2]: ./media/custom-dns-web-site/dncmntask-cname-3.png
   [Создание профиля Traffic Manager с помощью "Быстрого создания"]: http://msdn.microsoft.com/ru-ru/library/windowsazure/dn339012.aspx

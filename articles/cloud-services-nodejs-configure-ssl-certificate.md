@@ -1,6 +1,6 @@
-<properties urlDisplayName="Enable SSL" pageTitle="Настройка SSL для облачной службы(Node.js) &mdash;  Azure" metaKeywords="Node.js Azure SSL, Node.js Azure HTTPS" description="Узнайте, как определить конечную точку HTTPS для веб-роли Node.js и как передать SSL-сертификат, чтобы обеспечить безопасность приложения." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Настройка SSL для приложения Node.js в веб-роли Azure" authors="larryfr" solutions="" manager="wpickett" editor="" />
+<properties linkid="dev-nodejs-enablessl" urlDisplayName="Enable SSL" pageTitle="Configure SSL for a cloud service (Node.js) - Azure" metaKeywords="Node.js Azure SSL, Node.js Azure HTTPS" description="Learn how to specify an HTTPS endpoint for a Node.js web role and how to upload an SSL certificate to secure your application." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Configuring SSL for a Node.js Application in an Azure Web Role" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="wpickett" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Настройка SSL для приложения Node.js в веб-роли Azure
 
@@ -26,11 +26,11 @@ SSL-шифрование — это наиболее распространен�
 
 При развертывании приложения Node.js в веб-роли Azure сертификат сервера и SSL-подключение управляются IIS, поэтому служба Node.js может быть записана в качестве http-службы. Чтобы создать простую службу Node.js "hello world" с помощью оболочки Azure PowerShell, выполните следующие действия.
 
-1.  В меню **Пуск** или на **Начальном экране** найдите **Azure PowerShell**. Щелкните правой кнопкой мыши **Azure PowerShell** и выберите **Запуск от имени администратора**.
+1.  В меню **Пуск** или на **начальном экране** выполните поиск **Azure PowerShell**. Щелкните правой кнопкой мыши **Azure PowerShell** и выберите **Запуск от имени администратора**.
 
     ![Значок Azure PowerShell][Значок Azure PowerShell]
 
-[WACOM.INCLUDE [установка-средств-разработки](../includes/install-dev-tools.md)]
+[WACOM.INCLUDE [mobile-services-concepts](../includes/install-dev-tools.md)]
 
 1.  Создайте новый проект службы с помощью командлета **New-AzureServiceProject**.
 

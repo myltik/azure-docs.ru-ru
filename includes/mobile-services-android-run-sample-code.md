@@ -1,6 +1,6 @@
 1.  В обозревателе решений разверните **GetStartedWithData**, **src** и **.com.example.GetStartedWithData**, затем изучите файл ToDoActivity.java.
 
-    ![][]
+    ![][0]
 
     Обратите внимание на комментарии `//TODO`, указывающие на действия, которые необходимо выполнить, чтобы приложение работало с вашей мобильной службой.
 
@@ -14,5 +14,5 @@
 
     Обратите внимание, что сохраненный текст хранится в памяти и отображается в списке ниже.
 
-  []: ./media/download-android-sample-code/mobile-eclipse-project.png
+  [0]: ./media/download-android-sample-code/mobile-eclipse-project.png
   [1]: ./media/download-android-sample-code/mobile-quickstart-startup-android.png

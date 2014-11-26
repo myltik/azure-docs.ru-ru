@@ -256,7 +256,6 @@ Service Bus предоставляет функции, помогающие ко
   [Практическое руководство. Отправка сообщений в очередь]: #send-messages
   [Практическое руководство. Получение сообщений из очереди]: #receive-messages
   [Практическое руководство. Обработка сбоев приложений и нечитаемые сообщения]: #handle-crashes
-  [howto-service-bus-queues]: ../includes/howto-service-bus-queues.md
   [Создание и развертывание приложения Node.js на веб-сайте Azure]: /ru-ru/develop/nodejs/tutorials/create-a-website-(mac)/
   [Облачная служба Node.js]: /ru-ru/documentation/articles/cloud-services-nodejs-develop-deploy-app/
   [Веб-сайт с WebMatrix]: /ru-ru/develop/nodejs/tutorials/web-site-with-webmatrix/

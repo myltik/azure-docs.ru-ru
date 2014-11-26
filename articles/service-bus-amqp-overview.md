@@ -4,4 +4,3 @@
 
 [WACOM.INCLUDE [обзор-шины-обслуживания-amqp](../includes/service-bus-amqp-overview.md)]
 
-  [обзор-шины-обслуживания-amqp]: ../includes/service-bus-amqp-overview.md

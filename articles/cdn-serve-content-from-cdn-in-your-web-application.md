@@ -1,6 +1,6 @@
 <properties linkid="cdn-serve-content-from-cdn-in-your-web-application" urlDisplayName="Use Content from a CDN in Your Web Application" pageTitle="Use Content from a CDN in Your Web Application" metaKeywords="Azure tutorial, Azure web app tutorial, ASP.NET, CDN" description="A tutorial that teaches you how to use content from a CDN to improve the performance of your Web application." metaCanonical="" services="cdn" documentationCenter=".NET" title="Use Content from a CDN in Your Web Application" authors="cephalin" solutions="" manager="wpickett" editor="tysonn" />
 
-<tags ms.service="cdn" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin"></tags>
+<tags ms.service="cdn" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
 
 # Обслуживание содержимого из CDN Azure в вашем веб-приложении
 
@@ -58,7 +58,7 @@
 1.  Чтобы создать конечную точку CDN, войдите на [портал управления Azure][портал управления Azure].
 2.  Создайте учетную запись хранения, последовательно выбрав **Создать \> Службы данных \> Хранилище \> Быстрое создание**. Укажите URL-адрес, местоположение и нажмите кнопку **Создать учетную запись хранения**.
 
-    ![][]
+    ![][0]
 
     > [WACOM.NOTE] Обратите внимание, что в качестве региона выбрана Восточная Азия, поскольку тестирование CDN из Северной Америки было бы весьма затруднительным.
 
@@ -275,10 +275,8 @@
   [учетной записи Microsoft Azure]: http://azure.microsoft.com/ru-ru/account/
   [пакетом SDK Azure]: http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409
   [Azure PowerShell]: http://go.microsoft.com/?linkid=9811175&clcid=0x409
-  [открыть учетную запись Azure бесплатно]: http://azure.microsoft.com/ru-ru/pricing/free-trial/?WT.mc_id=A261C142F
-  [активировать преимущества подписчика MSDN]: http://azure.microsoft.com/ru-ru/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
   [портал управления Azure]: http://manage.windowsazure.com/
-  []: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-1.PNG
+  [0]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-1.PNG
   [1]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-2.PNG
   [2]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-3-fail.PNG
   [3]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-3-succeed.PNG

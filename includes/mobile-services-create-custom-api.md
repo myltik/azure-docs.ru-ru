@@ -1,4 +1,4 @@
-1.  Выполните вход на [портал управления Azure][], щелкните элемент **Мобильные службы**, а затем выберите свое приложение.
+1.  Выполните вход на [портал управления Azure][портал управления Azure], щелкните элемент **Мобильные службы**, а затем выберите свое приложение.
 
     ![][ ]
 
@@ -34,22 +34,22 @@
             })
         };
 
-    Этот код использует [объект mssql][] для непосредственного доступа к таблице **todoitem**, чтобы задать флаг завершения для всех элементов. Поскольку используется функция **exports.post**, клиенты отправляют запрос POST для выполнения операции. Число измененных строк возвращается клиенту как целое значение.
+    Этот код использует [объект mssql][объект mssql] для непосредственного доступа к таблице **todoitem**, чтобы задать флаг завершения для всех элементов. Поскольку используется функция **exports.post**, клиенты отправляют запрос POST для выполнения операции. Число измененных строк возвращается клиенту как целое значение.
 
 > [WACOM.NOTE]
-> Объекты [запрос][] и [ответ][], предоставленные функциям пользовательского API, реализуются [Express.js library][]. Дополнительные сведения см. в разделе [Настраиваемый интерфейс API][].
+> Объекты [запрос][запрос] и [ответ][ответ], предоставленные функциям пользовательского API, реализуются [Express.js library][Express.js library]. Дополнительные сведения см. в разделе [Настраиваемый интерфейс API][Настраиваемый интерфейс API].
 
 Далее предстоит изменить приложение быстрого запуска, чтобы добавить новую кнопку и код, который асинхронно вызывает новый пользовательский интерфейс API.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
+  
 
   [портал управления Azure]: https://manage.windowsazure.com/
   [ ]: ./media/mobile-services-create-custom-api/mobile-services-selection.png
   [1]: ./media/mobile-services-create-custom-api/mobile-custom-api-create.png
   [2]: ./media/mobile-services-create-custom-api/mobile-custom-api-create-dialog2.png
   [3]: ./media/mobile-services-create-custom-api/mobile-custom-api-select2.png
-  [объект mssql]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554212.aspx
-  [запрос]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554218.aspx
-  [ответ]: http://msdn.microsoft.com/en-us/library/windowsazure/dn303373.aspx
+  [объект mssql]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj554212.aspx
+  [запрос]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj554218.aspx
+  [ответ]: http://msdn.microsoft.com/ru-ru/library/windowsazure/dn303373.aspx
   [Express.js library]: http://go.microsoft.com/fwlink/p/?LinkId=309046
-  [Настраиваемый интерфейс API]: http://msdn.microsoft.com/en-us/library/windowsazure/dn280974.aspx
+  [Настраиваемый интерфейс API]: http://msdn.microsoft.com/ru-ru/library/windowsazure/dn280974.aspx

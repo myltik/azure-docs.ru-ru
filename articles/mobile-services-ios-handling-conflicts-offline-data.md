@@ -439,7 +439,7 @@
 
 Был добавлен вспомогательный класс **QSUIAlertViewWithBlock** для отображения предупреждений для пользователей. В конце был добавлен код в **QSTodoListViewController** для вывода предложения пользователю согласовать конфликт одним из трех способов.
 
-<!-- URLs. -->
+
 
   [Приступая к работе с автономными данными]: /ru-ru/documentation/articles/mobile-services-ios-get-started-offline-data/
   [Бесплатная пробная версия Azure]: http://www.windowsazure.com/ru-ru/pricing/free-trial/?WT.mc_id=AE564AB28

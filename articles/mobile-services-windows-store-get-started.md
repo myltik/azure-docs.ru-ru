@@ -109,14 +109,13 @@
 -   **Приступая к работе с push-уведомлениями** ( [C#][8] / [JavaScript][9] )
     Узнайте больше об отправке в приложение простых push-уведомлений.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [0]: ./media/mobile-services-windows-store-get-started/mobile-quickstart-completed.png
   [Бесплатная пробная версия Azure]: http://www.windowsazure.com/ru-ru/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fru-ru%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F
   [Приступая к работе с данными в мобильных службах с помощью Visual Studio 2012]: /ru-ru/develop/mobile/tutorials/get-started-with-data-dotnet-vs2012/
-  [mobile-services-create-new-service]: ../includes/mobile-services-create-new-service.md
   [1]: ./media/mobile-services-windows-store-get-started/mobile-portal-quickstart.png
   [2]: ./media/mobile-services-windows-store-get-started/mobile-quickstart-steps.png
   [Visual Studio 2013 Express для Windows]: http://go.microsoft.com/fwlink/?LinkId=257546

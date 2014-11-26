@@ -1,6 +1,6 @@
 <properties title="Начало работы с хранилищем Azure" pageTitle="Начало работы с хранилищем Azure" metaKeywords="Azure, Getting Started, Storage" description="" services="storage" documentationCenter="" authors="ghogen, kempb" />
 
-<tags ms.service="storage" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/10/2014" ms.author="ghogen, kempb"></tags>
+<tags ms.service="storage" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/10/2014" ms.author="ghogen, kempb" />
 
 > [AZURE.SELECTOR]
 >
@@ -46,5 +46,4 @@
   [Очереди]: /documentation/articles/vs-storage-aspnet-vnext-getting-started-queues/
   [Таблицы]: /documentation/articles/vs-storage-aspnet-vnext-getting-started-tables/
   [Как использовать хранилище больших двоичных объектов из .NET]: http://azure.microsoft.com/ru-ru/documentation/articles/storage-dotnet-how-to-use-blobs/ "Как использовать хранилище больших двоичных объектов из .NET"
-  [vs-storage-getting-started-blobs-include]: ../includes/vs-storage-getting-started-blobs-include.md
   [ASP.NET vNext]: http://www.asp.net/vnext

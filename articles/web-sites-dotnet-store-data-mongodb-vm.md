@@ -484,7 +484,6 @@ MongoDB обеспечивает поддержку приложений C# на
 
 
   [MongoDB]: http://www.mongodb.org
-  [create-account-and-websites-and-vms-note]: ../includes/create-account-and-websites-and-vms-note.md
   [Создание виртуальной машины и установка MongoDB]: #virtualmachine
   [Создание и запуск приложения "My Task List" ASP.NET на компьютере разработчика]: #createapp
   [Создание веб-сайта Azure]: #createwebsite

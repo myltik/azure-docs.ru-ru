@@ -808,7 +808,6 @@
   [Настройка заголовков запроса]: #headers
   [Настройка сериализации]: #serialization
   [Дальнейшие действия]: #next-steps
-  [mobile-services-concepts]: ../includes/mobile-services-concepts.md
   [Создание таблицы]: http://go.microsoft.com/fwlink/p/?LinkId=298592
   [Динамическая схема]: http://go.microsoft.com/fwlink/p/?LinkId=296271
   [MobileServiceClient]: http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html

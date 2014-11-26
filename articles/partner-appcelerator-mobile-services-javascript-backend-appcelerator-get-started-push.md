@@ -442,9 +442,9 @@
 
 При этом регистрируется новый скрипт вставки, в котором используется [Push-объект мобильных служб][Push-объект мобильных служб] для отправки push-уведомления (вставленный текст) на устройство, указанное в запросе вставки.
 
-<!-- Images. -->
-<!-- Anchors. -->
-<!-- URLs. -->
+
+
+
 
   [Создание запроса подписи сертификата]: #certificates
   [Регистрация приложения и включение push-уведомлений]: #register
@@ -456,9 +456,7 @@
   [Обновление скриптов для отправки push-уведомлений]: #update-scripts
   [Вставка данных для получения уведомлений]: #test
   [Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started
-  [Включение push-уведомлений Apple]: ../includes/enable-apple-push-notifications.md
   [accounts.google.com]: http://go.microsoft.com/fwlink/p/?LinkId=268302
-  [Enable GCM]: ../includes/mobile-services-enable-Google-cloud-messaging.md
   [Установка средств разработки Java]: http://docs.appcelerator.com/titanium/latest/#!/guide/Installing_the_Java_Development_Tools
   [0]: http://developer.android.com/sdk/ndk/index.html
   [0]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image0011.png
@@ -466,7 +464,6 @@
   [2]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image0041.png
   [3]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image0061.png
   [Использование модулей Titanium]: http://docs.appcelerator.com/titanium/latest/#!/guide/Using_Titanium_Modules
-  [mobile-services-create-new-service]: ../includes/mobile-services-apns-configure-push.md
   [4]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image062.png
   [5]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image064.png
   [6]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image066.png

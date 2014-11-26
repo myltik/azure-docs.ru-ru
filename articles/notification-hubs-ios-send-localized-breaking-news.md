@@ -178,6 +178,5 @@
   [Руководстве по использованию концентраторов уведомлений]: http://msdn.microsoft.com/ru-ru/library/jj927170.aspx
   [0]: ./media/notification-hubs-ios-send-localized-breaking-news/ios_localized1.png
   [1]: ./media/notification-hubs-ios-send-localized-breaking-news/ios_localized2.png
-  [концентраторы-уведомлений-локализованный-сервер]: ../includes/notification-hubs-localized-back-end.md
   [Уведомление пользователей с помощью концентраторов уведомлений: ASP.NET]: /ru-ru/manage/services/notification-hubs/notify-users-aspnet
   [Уведомление пользователей с помощью концентраторов уведомлений: мобильные службы]: /ru-ru/manage/services/notification-hubs/notify-users

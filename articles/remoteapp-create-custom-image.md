@@ -1,6 +1,6 @@
 <properties title="How to create a custom template image for RemoteApp" pageTitle="How to create a custom template nimage for RemoteApp" description="Learn how to create a custom template image for RemoteApp. You can use this template with either a hybrid or cloud deployment." metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo" manager="kathyw" />
 
-<tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/12/2014" ms.author="elizapo" ms.manager="kathyw"></tags>
+<tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/12/2014" ms.author="elizapo" ms.manager="kathyw" />
 
 # Создание настраиваемого образа шаблона для службы RemoteApp
 
@@ -20,7 +20,7 @@ Azure RemoteApp использует образ шаблона Windows Server 20
 
 Перед созданием службы необходимо выполнить следующие действия.
 
--   Зарегистрироваться для предварительной версии RemoteApp. Это можно сделать на странице [][0][http://azure.microsoft.com/ru-ru/services/remoteapp/](http://azure.microsoft.com/ru-ru/services/remoteapp/)</a>.
+-   Зарегистрироваться для предварительной версии RemoteApp. Это можно сделать на странице [http://azure.microsoft.com/ru-ru/services/remoteapp/](http://azure.microsoft.com/ru-ru/services/remoteapp/).
 -   создать учетную запись пользователя в Active Directory для использования в качестве учетной записи службы RemoteApp. ограничить разрешения для этой учетной записи, чтобы она могла только присоединять машины к домену.
 -   собрать информацию о своей локальной сети: информацию об IP-адресе и сведения о VPN-устройстве.
 -   установить модуль [Azure PowerShell][Azure PowerShell].
@@ -113,7 +113,6 @@ Azure RemoteApp использует образ шаблона Windows Server 20
 -   [Как создать гибридное развертывание RemoteApp][Как создать гибридное развертывание RemoteApp]
 -   [Создание облачного развертывания RemoteApp][Создание облачного развертывания RemoteApp]
 
-  [0]: http://azure.microsoft.com/ru-ru/services/remoteapp/
   [Azure PowerShell]: http://azure.microsoft.com/ru-ru/documentation/articles/install-configure-powershell/
   [Как создать гибридное развертывание RemoteApp]: http://azure.microsoft.com/ru-ru/documentation/articles/remoteapp-create-hybrid-deployment/
   [Создание облачного развертывания RemoteApp]: http://azure.microsoft.com/ru-ru/documentation/articles/remoteapp-create-cloud-deployment/

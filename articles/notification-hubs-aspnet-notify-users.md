@@ -311,13 +311,13 @@
 
 Дополнительные сведения о концентраторах уведомлений см. в разделе [Концентраторы уведомлений Azure].
 
-<!-- Anchors. -->
+
 [Создание приложения ASP.NET с проверкой подлинности]: #create-application
 [Обновление вашего приложения ASP.NET для регистрации уведомлений]: #register-notification
 [Обновление приложения для выполнения входа и запроса регистрации]: #update-app
 [Обновление вашего приложения ASP.NET отправки уведомлений]: #send-notifications
 
-<!-- Images. -->
+
 [0]: ./media/notification-hubs-aspnet-notify-users/notification-hub-create-mvc-app.png
 [1]: ./media/notification-hubs-aspnet-notify-users/notification-hub-create-aspnet-class.png
 [2]: ./media/notification-hubs-aspnet-notify-users/notification-hub-add-nuget-package.png
@@ -326,7 +326,7 @@
 [7]: ./media/notification-hubs-aspnet-notify-users/notification-hub-connection-strings.png
 
 
-<!-- URLs. -->
+
 [Приступая к работе с Магазином Windows]: /ru-ru/manage/services/notification-hubs/getting-started-windows-dotnet
 [Приступая к работе с iOS]: /ru-ru/manage/services/notification-hubs/get-started-notification-hubs-ios
 [Приступая к работе с Android]: /ru-ru/manage/services/notification-hubs/get-started-notification-hubs-android

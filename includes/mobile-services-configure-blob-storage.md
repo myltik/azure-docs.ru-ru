@@ -4,7 +4,7 @@
 
 2.  В портале управления нажмите **Хранилище**, выберите учетную запись хранения, нажмите **Управление ключами**.
 
-    ![][]
+    ![][0]
 
 3.  Запишите **имя учетной записи хранения** и **ключ доступа к хранилищу**.
 
@@ -93,7 +93,7 @@
 
 
   [Создание учетной записи хранения]: /ru-ru/manage/services/storage/how-to-create-a-storage-account
-  []: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-account.png
+  [0]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-account.png
   [1]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-account-keys.png
   [2]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-app-settings.png
   [Параметры приложения]: http://msdn.microsoft.com/ru-ru/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7

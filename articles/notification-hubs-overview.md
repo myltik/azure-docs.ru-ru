@@ -1,6 +1,6 @@
 <properties linkid="dev-net-service-bus-amqp-overview" urlDisplayName="Azure Notification Hubs" pageTitle="Azure Notification Hubs" metaKeywords="Azure push notifications, Azure notification hubs, Azure messaging" description="Learn how to use push notifications in Azure. Code samples written in C# using the .NET API." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Azure Notification Hubs" authors="sethm" manager="dwrede" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/24/2014" ms.author="sethm"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
 # Концентраторы уведомлений Azure
 
@@ -29,7 +29,7 @@ Push-уведомления доставляются через инфрастр
 3.  Для отправки push-уведомления серверная часть приложения обращается к PNS, используя дескриптор, чтобы указать определенный экземпляр клиентского приложения.
 4.  PNS перенаправляет уведомление на устройство, указанное дескриптором.
 
-![][]
+![][0]
 
 ## <span class="short-header">Проблемы использования push-уведомлений</span>Проблемы использования push-уведомлений
 
@@ -73,7 +73,7 @@ Push-уведомления являются одним из наиболее в
 -   [Концентратор.уведомлений.для.обмена.сообщениями.Мicrosoft.WindowsAzure][Концентратор.уведомлений.для.обмена.сообщениями.Мicrosoft.WindowsAzure]
 -   [Уведомления.Мicrosoft.ServiceBus][Уведомления.Мicrosoft.ServiceBus]
 
-  []: ./media/notification-hubs-overview/SBPushNotifications1.gif
+  [0]: ./media/notification-hubs-overview/SBPushNotifications1.gif
   [1]: ./media/notification-hubs-overview/SBPushNotifications2.gif
   [Как концентраторы уведомлений используются клиентами]: http://azure.microsoft.com/ru-ru/services/notification-hubs
   [Учебники и руководства по работе с концентраторами уведомлений]: http://azure.microsoft.com/ru-ru/documentation/services/notification-hubs

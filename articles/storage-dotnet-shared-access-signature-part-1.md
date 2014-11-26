@@ -1,4 +1,4 @@
-<properties urlDisplayName="" pageTitle="Подписи общего доступа: общие сведения о модели SAS | Microsoft Azure" metaKeywords="Azure blob, Azure table, Azure queue, shared access signatures" description="Вы узнаете том, как делегировать доступ к BLOB-объектам, очереди и ресурсам таблиц с помощью подписей общего доступа" metaCanonical="" services="storage" documentationCenter="" title="Часть 1: Общие сведения о модели SAS" solutions="" authors="tamram" manager="adinah" editor="cgronlun" />
+<properties linkid="manage-services-storage-net-shared-access-signature-part-1" urlDisplayName="" pageTitle="Shared access signatures: Understanding the SAS Model | Microsoft Azure" metaKeywords="Azure blob, Azure table, Azure queue, shared access signatures" description="Learn about delegating access to blob, queue, and table resources with shared access signatures" metaCanonical="" services="storage" documentationCenter="" title="Part 1: Understanding the SAS Model" solutions="" authors="tamram" manager="mbaldwin" editor="cgronlun" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
@@ -16,11 +16,11 @@
 
 Распространенным сценарием использования подписей общего доступа является служба, где пользователи считывают и записывают собственные данные в вашей учетной записи хранения. В сценарии, где в учетной записи хранения хранятся пользовательские данные, существует два направления разработки:
 
-1. Клиенты отправляют и загружают данные с помощью службы интерфейсного прокси-сервера, выполняющей проверку подлинности. Эта служба интерфейсного прокси-сервера позволяет проверять бизнес-правила, однако для больших объемов данных или крупных транзакций создание службы, поддерживающей масштабирование в соответствии с потребностями, может оказаться дорогостоящей или сложной задачей.
+1\. Клиенты отправляют и загружают данные с помощью службы интерфейсного прокси-сервера, выполняющей проверку подлинности. Эта служба интерфейсного прокси-сервера позволяет проверять бизнес-правила, однако для больших объемов данных или крупных транзакций создание службы, поддерживающей масштабирование в соответствии с потребностями, может оказаться дорогостоящей или сложной задачей.
 
 [sas-storage-fe-proxy-service][sas-storage-fe-proxy-service]
 
-2. Облегченная служба проверяет подлинность клиента по мере необходимости и затем создает подпись общего доступа. Клиент, получив эту подпись общего доступа, может осуществлять прямой доступ к ресурсам учетной записи хранения с разрешениями, определенными в подписи, и в течение разрешенного подписью периода времени. Подпись общего доступа уменьшает потребность в маршрутизации всех данных через службу интерфейсного прокси-сервера.
+2\. Облегченная служба проверяет подлинность клиента по мере необходимости и затем создает подпись общего доступа. Клиент, получив эту подпись общего доступа, может осуществлять прямой доступ к ресурсам учетной записи хранения с разрешениями, определенными в подписи, и в течение разрешенного подписью периода времени. Подпись общего доступа уменьшает потребность в маршрутизации всех данных через службу интерфейсного прокси-сервера.
 
 [sas-storage-provider-service][sas-storage-provider-service]
 
@@ -39,7 +39,7 @@
 
 Вот пример URI подписи общего доступа, который предоставляет разрешения на чтение и запись в BLOB-объект. В таблице описана каждая из частей URI, чтобы можно было понять ее роль в работе подписи общего доступа:
 
-https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&st=2013-04-29T22%3A18%3A26Z&se=2013-04-30T02%3A23%3A26Z&sr=b&sp=rw&sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D
+<https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&st=2013-04-29T22%3A18%3A26Z&se=2013-04-30T02%3A23%3A26Z&sr=b&sp=rw&sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D>
 
 <table>
 <colgroup>
@@ -139,5 +139,4 @@ https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&s
   [Часть 2]: ../storage-dotnet-shared-access-signature-part-2/
   [блоге группы разработчиков хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx
   [Управление доступом к ресурсам хранилища Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/ee393343.aspx
-  [Делегирование доступа с помощью подписи общего доступа (REST API)]: http://msdn.microsoft.com/ru-ru/library/windowsazure/ee395415.aspx
   [Знакомство с подписью общего доступа для таблиц и очередей]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx

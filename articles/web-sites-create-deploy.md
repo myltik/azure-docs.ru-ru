@@ -75,4 +75,3 @@
   [Практическое руководство. Удаление веб-сайта]: #deleteawebsite
   [Дальнейшие действия]: #nextsteps
   [портал управления Azure]: http://manage.windowsazure.com/
-  [веб-сайт_из_коллекции]: ../includes/website-from-gallery.md

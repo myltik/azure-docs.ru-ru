@@ -244,7 +244,6 @@
 -   Примеры Service Bus можно скачать с веб-сайта [примеров Azure][примеров Azure].
 
   [Дальнейшие действия]: #next_steps
-  [create-account-note]: ../includes/create-account-note.md
   [Основные понятия ретрансляции]: ./media/service-bus-dotnet-how-to-use-relay/sb-relay-01.png
   [портал управления Azure]: http://manage.windowsazure.com
   [0]: ./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png

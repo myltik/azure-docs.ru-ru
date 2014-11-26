@@ -1,6 +1,6 @@
 <properties linkid="service-bus-monitor-messaging-entitites" urlDisplayName="Traffic Manager" pageTitle="Monitor Service Bus Messaging Entities - Azure" metaKeywords="" description="Learn how to monitor your Service Bus entities using the Azure Management Portal." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="service-bus" documentationCenter="" title="How to Monitor Service Bus Messaging Entities" authors="sethm" solutions="" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="sethm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="sethm" />
 
 # Отслеживание сущностей обмена сообщениями Service Bus
 
@@ -28,7 +28,7 @@
 
 В разделе **Сводка** на панели мониторинга отображается параметр **Длина очереди**, определяющий ее текущий размер. Также здесь показываются другие свойства очереди или раздела, значения которых обновляются каждые 10 секунд.
 
-![][]
+![][0]
 
 ## Отслеживание операций в разделах Service Bus
 
@@ -45,5 +45,5 @@
 ![][1]
 
   [портала управления Azure]: http://manage.windowsazure.com
-  []: ./media/service-bus-monitor-message-entities/QueueDashboard.png
+  [0]: ./media/service-bus-monitor-message-entities/QueueDashboard.png
   [1]: ./media/service-bus-monitor-message-entities/AddMetrics.png

@@ -4,4 +4,3 @@
 
 [WACOM.INCLUDE [создание-учетной записи azure](../includes/create-an-azure-account.md)]
 
-  [создание-учетной записи azure]: ../includes/create-an-azure-account.md

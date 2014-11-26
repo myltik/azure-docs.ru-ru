@@ -102,8 +102,8 @@
 
 ![][0]
 
-<!-- Anchors. -->
-<!-- URLs. -->
+
+
 
   [Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-ios-get-started/
   [Регистрация мобильной службы в Azure Active Directory]: #register-mobile-service-aad
@@ -113,9 +113,6 @@
   [Тестирование клиента с использованием проверки подлинности]: #test-client
   [Приступая к работе с данными]: /ru-ru/documentation/articles/mobile-services-ios-get-started-data/
   [Active Directory для iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
-  [mobile-services-dotnet-adal-register-service]: ../includes/mobile-services-dotnet-adal-register-service.md
-  [mobile-services-dotnet-adal-register-client]: ../includes/mobile-services-dotnet-adal-register-client.md
-  [mobile-services-restrict-permissions-dotnet-backend]: ../includes/mobile-services-restrict-permissions-dotnet-backend.md
   [портале управления Azure]: https://manage.windowsazure.com/
   [Регистрация в Azure Active Directory]: /ru-ru/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
   [0]: ./media/mobile-services-dotnet-backend-ios-adal-sso-authentication/mobile-services-app-run.png

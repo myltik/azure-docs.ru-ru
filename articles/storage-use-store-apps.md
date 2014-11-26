@@ -72,6 +72,6 @@
   [Средства служб данных WCF для приложений Магазина Windows]: http://www.microsoft.com/ru-ru/download/details.aspx?id=30714
   [store-apps-storage-vs-project]: ./media/storage-use-store-apps/store-apps-storage-vs-project.png
   [store-apps-storage-choose-library]: ./media/storage-use-store-apps/store-apps-storage-choose-library.png
-  [ключевого слова async]: http://msdn.microsoft.com/en-US/library/vstudio/hh156513.aspx
+  [ключевого слова async]: http://msdn.microsoft.com/ru-ru/library/vstudio/hh156513.aspx
   [store-apps-storage-package-manager]: ./media/storage-use-store-apps/store-apps-storage-package-manager.png
   [Управление пакетами NuGet с помощью диалогового окна]: http://docs.nuget.org/docs/start-here/Managing-NuGet-Packages-Using-The-Dialog

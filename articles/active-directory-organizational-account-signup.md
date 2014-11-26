@@ -26,7 +26,6 @@
 
 Если в организации уже используется локальная служба каталогов Active Directory, можно использовать возможности интеграции каталогов Azure AD, такие как синхронизация каталогов и единый вход, так что локальные удостоверения можно будет использовать для входа в облако, тем самым упрощая работу как пользователей, так и администраторов. [Подробнее][3]
 
-  [отказ от ответственности]: ../includes/disclaimer.md
   [Подробнее]: http://windows.microsoft.com/ru-ru/windows-live/sign-in-what-is-microsoft-account
   [1]: http://technet.microsoft.com/ru-ru/library/jj573650
   [2]: http://technet.microsoft.com/ru-ru/library/hh967619

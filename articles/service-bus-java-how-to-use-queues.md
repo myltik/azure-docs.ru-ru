@@ -181,5 +181,4 @@
   [Практическое руководство. Получение сообщений из очереди]: #bkmk_HowToReceiveMsgs
   [Практическое руководство. Обработка сбоев приложения и нечитаемых сообщений]: #bkmk_HowToHandleAppCrashes
   [Дальнейшие действия]: #bkmk_NextSteps
-  [howto-service-bus-queues]: ../includes/howto-service-bus-queues.md
   [Очереди, разделы и подписки]: http://msdn.microsoft.com/ru-ru/library/windowsazure/hh367516.aspx

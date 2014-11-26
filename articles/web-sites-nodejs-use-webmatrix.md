@@ -1,6 +1,6 @@
 <properties linkid="web-site-with-webmatrix" urlDisplayName="Website with WebMatrix" pageTitle="Node.js website with WebMatrix - Azure tutorial" metaKeywords="" description="A tutorial that teaches you how to WebMatrix to develop and deploy a Node.js application to an Azure website." metaCanonical="" services="web-sites" documentationCenter="nodejs" title="Build and deploy a Node.js website to Azure using WebMatrix" authors="larryfr" solutions="" manager="paulettm" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Создание и развертывание веб-сайта Node.js в Azure с использованием WebMatrix
 
@@ -12,7 +12,7 @@
 
 ![Веб-сайт Node в Azure][Веб-сайт Node в Azure]
 
-[WACOM.INCLUDE [создать-учетная запись-и-веб-сайт-примечание][создать-учетная запись-и-веб-сайт-примечание]]
+[WACOM.INCLUDE [создать-учетная запись-и-веб-сайт-примечание](../includes/create-account-and-websites-note.md)]
 
 ## Вход в Azure
 
@@ -92,8 +92,6 @@
 
   [WebMatrix для Azure]: http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409
   [Веб-сайт Node в Azure]: ./media/web-sites-nodejs-use-webmatrix/webmatrix-node-complete.png
-  [создать-учетная запись-и-веб-сайт-примечание]: ../includes/create-account-and-websites-note.md
-  [Бесплатная пробная версия Azure]: http://www.windowsazure.com/ru-ru/pricing/free-trial/?WT.mc_id=A7171371E
   [Добавление учетной записи]: ./media/web-sites-nodejs-use-webmatrix/webmatrix-add-account.png
   [Вход в Azure]: ./media/web-sites-nodejs-use-webmatrix/webmatrix-sign-in.png
   [Новый сайт из коллекции шаблонов]: ./media/web-sites-nodejs-use-webmatrix/webmatrix-site-from-template.png

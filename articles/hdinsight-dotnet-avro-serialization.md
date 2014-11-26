@@ -1,4 +1,4 @@
-<properties urlDisplayName="HDInsight Microsoft .NET Library for Serialization with Avro" pageTitle="Сериализация данных с помощью библиотеки Microsoft .NET для Avro | Azure" metaKeywords="" description="Узнайте, как HDInsight с помощью Avro выполняет сериализацию данных большого размера." metaCanonical="" services="hdinsight" documentationCenter="" title="Сериализация данных с помощью библиотеки Microsoft .NET для Avro " authors="bradsev" solutions="" manager="paulettm" editor="cgronlun" />
+<properties linkid="hdinsight-dotnet-avro-serialization" urlDisplayName="HDInsight Microsoft .NET Library for Serialization with Avro" pageTitle="Serialize data with the Microsoft .NET Library for Avro | Azure" metaKeywords="" description="Learn how Azure HDInsight uses Avro to serialize big data." metaCanonical="" services="hdinsight" documentationCenter="" title="Serialize data with the Microsoft .NET Library for Avro " authors="bradsev" solutions="" manager="paulettm" editor="cgronlun" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
 
@@ -10,7 +10,7 @@
 
 ### Apache Avro
 
-В библиотеке Microsoft .NET для Avro реализуется система сериализации данных Apache Avro для среды Microsoft.NET. Apache Avro обеспечивает компактный формат обмена двоичными данными для сериализации. Библиотека использует [JSON][JSON] для определения не зависящей от языка схемы, которая гарантирует взаимодействие языков. Данные, сериализованные в одном языке, могут быть прочитаны в другом. В настоящее время поддерживаются C, C++, C\#, Java, PHP, Python и Ruby. Подробные сведения об этом формате см. в [Спецификации Аpache Avro][Спецификации Аpache Avro]. Обратите внимание, что текущая версия библиотеки Microsoft .NET для Avro не поддерживает часть удаленных вызовов процедур (RPC) этой спецификации.
+В библиотеке Microsoft .NET для Avro реализуется система сериализации данных Apache Avro для среды Microsoft.NET. Apache Avro обеспечивает компактный формат обмена двоичными данными для сериализации. Библиотека использует [JSON][JSON] для определения не зависящей от языка схемы, которая гарантирует взаимодействие языков. Данные, сериализованные в одном языке, могут быть прочитаны в другом. В настоящее время поддерживаются C, C++, C#, Java, PHP, Python и Ruby. Подробные сведения об этом формате см. в [Спецификации Аpache Avro][Спецификации Аpache Avro]. Обратите внимание, что текущая версия библиотеки Microsoft .NET для Avro не поддерживает часть удаленных вызовов процедур (RPC) этой спецификации.
 
 Сериализованное представление объекта в системе Avro состоит из двух частей: схемы и фактического значения. Схема Avro описывает независимую от языка модель сериализованных данных с помощью JSON. Она существует параллельно с двоичным представлением данных. Наличие отдельной от двоичного представления схемы позволяет записывать каждый объект без нагрузок в зависимости от значения, что ускоряет сериализацию и обеспечивает небольшой размер представления.
 
@@ -66,7 +66,7 @@
 
 ## <a name="Scenario1"></a>Сериализация с помощью отражения
 
-Схема JSON для типов может создаваться автоматически библиотекой Microsoft .NET для Avro с использованием отражения атрибутов контракта данных объектов C\#, которые необходимо сериализовать. Библиотека Microsoft .NET для Avro создает сериализатор [**IAvroSeralizer<t>**][**IAvroSeralizer<t>**] для определения сериализуемых полей.
+Схема JSON для типов может создаваться автоматически библиотекой Microsoft .NET для Avro с использованием отражения атрибутов контракта данных объектов C#, которые необходимо сериализовать. Библиотека Microsoft .NET для Avro создает сериализатор [**IAvroSeralizer<t>**][**IAvroSeralizer<t>**] для определения сериализуемых полей.
 
 В этом примере объекты (класс **SensorData** c членом структуры **Location**) сериализуются в поток в памяти, а этот поток, в свою очередь, десериализуется. Далее результат сравнивается с исходным экземпляром для подтверждения, что объект **SensorData** был восстановлен в полном соответствии с оригиналом.
 
@@ -190,7 +190,7 @@
 
 ## <a name="Scenario2"></a>Сериализация с помощью универсальной записи
 
-Схема JSON может быть явно задана в универсальной записи, если нельзя использовать отражение, когда данные не могут быть представлены при помощи классов .NET с контрактом данных. Этот метод как правило медленнее, чем использование отражения и сериализаторов для определенного класса C\#. В подобных случаях схема для данных может быть также динамичной, поскольку оно неизвестна до выполнения компиляции. В качестве примера подобного рода динамического сценария можно привести данные, представленные в виде файлов значений, разделенных запятыми (CSV), с неизвестной заранее схемой до ее преобразования в формат Avro во время выполнения.
+Схема JSON может быть явно задана в универсальной записи, если нельзя использовать отражение, когда данные не могут быть представлены при помощи классов .NET с контрактом данных. Этот метод как правило медленнее, чем использование отражения и сериализаторов для определенного класса C#. В подобных случаях схема для данных может быть также динамичной, поскольку оно неизвестна до выполнения компиляции. В качестве примера подобного рода динамического сценария можно привести данные, представленные в виде файлов значений, разделенных запятыми (CSV), с неизвестной заранее схемой до ее преобразования в формат Avro во время выполнения.
 
 В этом примере показано, как создавать и использовать запись [**AvroRecord**][**AvroRecord**] для явного определения схемы JSON, как заполнять ее данными, а затем сериализовать и десериализовать. Далее результат сравнивается с исходным экземпляром для подтверждения, что запись была восстановлена в полном соответствии с оригиналом.
 
@@ -1304,22 +1304,11 @@
 
   [JSON]: http://www.json.org
   [Спецификации Аpache Avro]: http://avro.apache.org/docs/current/spec.html
-  [**AvroRecord**]: http://msdn.microsoft.com/ru-ru/library/microsoft.hadoop.avro.avrorecord.aspx
   [Microsoft .NET Framework v4.0]: http://www.microsoft.com/ru-ru/download/details.aspx?id=17851
   [Newtonsoft Json.NET]: http://james.newtonking.com/json
   [Примеры кода Azure]: http://code.msdn.microsoft.com/windowsazure/Serialize-data-with-the-86055923
   [1]: http://code.msdn.microsoft.com/windowsazure/Serialize-data-with-the-67159111
-  [**Сериализация с помощью отражения**]: #Scenario1
-  [**Сериализация с помощью универсальной записи**]: #Scenario2
-  [**Сериализация с использованием файлов контейнеров объектов с помощью отражения**]: #Scenario3
-  [**Сериализация с использованием файлов контейнеров объектов с помощью универсальной записи**]: #Scenario4
-  [**Сериализация с использованием файлов контейнеров объектов с помощью настраиваемого кодека сжатия**]: #Scenario5
-  [**IAvroSeralizer<t>**]: http://msdn.microsoft.com/ru-ru/library/dn627341.aspx
-  [**AvroContainer**]: http://msdn.microsoft.com/ru-ru/library/microsoft.hadoop.avro.container.avrocontainer.aspx
-  [**SequentialWriter<sensordata>**]: http://msdn.microsoft.com/ru-ru/library/dn627340.aspx
-  [**Deflate**]: http://msdn.microsoft.com/ru-ru/library/system.io.compression.deflatestream(v=vs.100).aspx
   [2]: http://msdn.microsoft.com/ru-ru/library/system.io.compression.deflatestream(v=vs.110).aspx
-  [**Codex.Null**]: http://msdn.microsoft.com/ru-ru/library/microsoft.hadoop.avro.container.codec.null.aspx
   [Спецификация Avro]: http://avro.apache.org/docs/current/spec.html#Required+Codecs
   [Спецификации Аvro]: http://avro.apache.org/docs/current/spec.html#snappy
   [zlib]: http://zlib.net/

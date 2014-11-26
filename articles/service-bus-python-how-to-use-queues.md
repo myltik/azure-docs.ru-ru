@@ -97,6 +97,5 @@
   [Практическое руководство. Отправка сообщений в очередь]: #send-messages
   [Практическое руководство. Получение сообщений из очереди]: #receive-messages
   [Практическое руководство. Обработка сбоев приложения и нечитаемых сообщений]: #handle-crashes
-  [обслуживание-очередей-шины]: ../includes/howto-service-bus-queues.md
   [Руководство по установке Python]: ../python-how-to-install/
   [Очереди, разделы и подписки.]: http://msdn.microsoft.com/ru-ru/library/windowsazure/hh367516.aspx

@@ -1,6 +1,6 @@
 <properties title="Manage an Azure website" pageTitle="Manage an Azure website" description="Links to resources for managing a Microsoft Azure website." services="web-sites" solutions="web" documentationCenter="" authors="mwasson" videoId="" scriptId="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/16/2014" ms.author="mwasson"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/16/2014" ms.author="mwasson" />
 
 # Управление веб-сайтом Azure
 
@@ -78,7 +78,7 @@
 -   [С помощью системы управления версиями Team Foundation][С помощью системы управления версиями Team Foundation]
 -   [С помощью Git][С помощью Git]
 
-<!-- Anchors. -->
+
 
   [Перед развертыванием сайта в рабочей среде]: #before-you-deploy-your-site-to-production
   [В ходе эксплуатации веб-сайта]: #while-your-website-is-running

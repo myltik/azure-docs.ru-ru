@@ -151,9 +151,9 @@
 -   [Справочник принципов использования мобильных служб HTML/JavaScript][Справочник принципов использования мобильных служб HTML/JavaScript]
     Узнайте больше о том, как использовать мобильные службы с HTML и JavaScript.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Регистрация приложения для push-уведомлений и конфигурация мобильных служб]: #register
   [Создание таблицы регистраций]: #create-table
@@ -161,10 +161,7 @@
   [Обновление скриптов для отправки push-уведомлений]: #update-scripts
   [Вставка данных для получения уведомлений]: #test
   [Приступая к работе с данными]: /ru-ru/develop/mobile/tutorials/get-started-with-data-js
-  [mobile-services-register-windows-store-app]: ../includes/mobile-services-register-windows-store-app.md
-  [mobile-services-create-new-push-table]: ../includes/mobile-services-create-new-push-table.md
   [0]: ./media/mobile-services-windows-store-javascript-get-started-push-vs2012/mobile-app-enable-toast-win8.png
-  [mobile-services-update-registrations-script]: ../includes/mobile-services-update-registrations-script.md
   [1]: ./media/mobile-services-windows-store-javascript-get-started-push-vs2012/mobile-insert-script-push2.png
   [2]: ./media/mobile-services-windows-store-javascript-get-started-push-vs2012/mobile-quickstart-push1.png
   [3]: ./media/mobile-services-windows-store-javascript-get-started-push-vs2012/mobile-quickstart-push2.png

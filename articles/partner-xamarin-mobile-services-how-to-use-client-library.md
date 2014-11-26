@@ -425,8 +425,8 @@
 -   Авторизация пользователей с помощью сценариев ([Xamarin.iOS][16] и [Xamarin.Android][17])
     Узнайте о том, как использовать значение идентификатора пользователя, предоставляемого мобильными службами на основе пользователя, прошедшего аутентификацию, для фильтрации данных, возвращаемых мобильными службами.
 
-<!-- Anchors. --> 
-<!-- URLs. -->
+ 
+
 
   [Xamarin]: /ru-ru/develop/mobile/how-to-guides/work-with-xamarin-client-library/ "Xamarin"
   [Xamarin.iOS]: /ru-ru/develop/mobile/tutorials/get-started-xamarin-ios/
@@ -452,7 +452,6 @@
   [Практическое руководство. Работа с нетипизированными данными]: #untyped
   [Практическое руководство. Разработка модульных тестов]: #unit-testing
   [Дальнейшие действия]: #nextsteps
-  [mobile-services-concepts]: ../includes/mobile-services-concepts.md
   [Создание таблицы]: http://go.microsoft.com/fwlink/?LinkId=298592
   [Динамическая схема]: http://go.microsoft.com/fwlink/?LinkId=296271
   [GetTable]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj554275.aspx

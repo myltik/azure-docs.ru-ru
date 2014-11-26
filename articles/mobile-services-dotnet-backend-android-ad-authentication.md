@@ -13,6 +13,6 @@
 
 Узнайте о проверке подлинности приложений и доступе к ресурсам с помощью Active Directory. Ознакомьтесь с учебником Криса Ризнера (Chris Risner) [Доступ к ресурсам, защищенным с помощью Azure Active Directory, на платформах iOS и Android][Доступ к ресурсам, защищенным с помощью Azure Active Directory, на платформах iOS и Android].
 
-<!-- URLs. -->
+
 
   [Доступ к ресурсам, защищенным с помощью Azure Active Directory, на платформах iOS и Android]: http://chrisrisner.com/Accessing-Resources-Secured-by-Azure-Active-Directory-with-iOS-and-Android

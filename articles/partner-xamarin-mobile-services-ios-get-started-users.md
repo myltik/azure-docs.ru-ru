@@ -107,16 +107,13 @@
 
 В следующем учебном курсе, который называется [Авторизация пользователей с помощью скриптов][Авторизация пользователей с помощью скриптов], значение ИД пользователя, предоставляемое мобильными службами на основе пользователя, прошедшего проверку подлинности, будет использоваться для фильтрации данных, возвращаемых мобильными службами.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
+ 
+ 
 <!-- URLs. TODO:: update completed example project link with project download -->
 
-  [mobile-services-selector-get-started-users]: ../includes/mobile-services-selector-get-started-users.md
   [Регистрация приложения для проверки подлинности и конфигурация мобильных служб]: #register
   [Ограничение разрешений таблицы пользователями, прошедшими проверку подлинности]: #permissions
   [Добавление проверки подлинности к приложению]: #add-authentication
   [Приступая к работе с мобильными службами]: /ru-ru/develop/mobile/tutorials/get-started-xamarin-ios
-  [mobile-services-register-authentication]: ../includes/mobile-services-register-authentication.md
-  [mobile-services-restrict-permissions-javascript-backend]: ../includes/mobile-services-restrict-permissions-javascript-backend.md
   [полный пример проекта]: http://go.microsoft.com/fwlink/p/?LinkId=331328
   [Авторизация пользователей с помощью скриптов]: /ru-ru/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios

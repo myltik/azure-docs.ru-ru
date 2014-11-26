@@ -50,8 +50,8 @@
 
 <!---## <a name="next-steps"> </a>Next steps  In the next tutorial, [Service-side authorization of Mobile Services users][Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. Learn more about how to use Mobile Services with .NET in [Mobile Services .NET How-to Conceptual Reference]--> 
 
-<!-- Anchors. --> 
-<!-- URLs. -->
+ 
+
 
   [push-уведомлениям]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/
   [Обновление службы, чтобы для регистрации требовалась проверка подлинности]: #register
@@ -59,6 +59,3 @@
   [Тестирование приложения]: #test
   [версию этой статьи для Магазина Windows]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users
   [Приступая к работе с аутентификацией в мобильных службах]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users/
-  [mobile-services-dotnet-backend-push-notifications-app-users]: ../includes/mobile-services-dotnet-backend-push-notifications-app-users.md
-  [mobile-services-windows-phone-push-notifications-app-users]: ../includes/mobile-services-windows-phone-push-notifications-app-users.md
-  [mobile-services-windows-test-push-users]: ../includes/mobile-services-windows-test-push-users.md

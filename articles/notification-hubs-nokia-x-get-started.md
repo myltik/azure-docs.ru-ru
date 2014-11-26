@@ -1,6 +1,6 @@
 <properties linkid="develop-notificationhubs-tutorials-get-started-nokia-x" urlDisplayName="Get Started" pageTitle="Get Started with Azure Notification Hubs" metaKeywords="" description="Learn how to use Azure Notification Hubs to push notifications." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Get started with Notification Hubs" authors="piyushjo" solutions="" manager="kirillg" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-nokia-x" ms.devlang="java" ms.topic="article" ms.date="01/01/1900" ms.author="piyushjo"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-nokia-x" ms.devlang="java" ms.topic="article" ms.date="01/01/1900" ms.author="piyushjo" />
 
 # Приступая к работе с концентраторами уведомлений
 
@@ -41,7 +41,7 @@
 
 2.  Откройте вкладку **Создать службы** и создайте новую службу, указав **Идентификатор отправителя** и **Описание службы**
 
-    ![][]
+    ![][0]
 
 3.  Запишите **Идентификатор отправителя** и **Ключ авторизации** после успешного создания службы.
 
@@ -358,8 +358,8 @@
 
 4.  Чтобы отправить контрольное уведомление при использовании консольного приложения .Net, просто нажмите клавишу F5 в Visual Studio, чтобы запустить приложение. Данное приложение отправит уведомление, которое отобразится в верхней области уведомлений вашего устройства или эмулятора.
 
-<!-- Images. -->
-<!-- URLs. -->
+
+
 
   [Windows Universal]: /ru-ru/documentation/articles/notification-hubs-windows-store-dotnet-get-started/ "Windows Universal"
   [Windows Phone]: /ru-ru/documentation/articles/notification-hubs-windows-phone-get-started/ "Windows Phone"
@@ -371,7 +371,6 @@
   [Xamarin.Android]: /ru-ru/documentation/articles/partner-xamarin-notification-hubs-android-get-started/ "Xamarin.Android"
   [Настройка службы уведомлений Nokia]: #register
   [Настройка концентратора уведомлений]: #configure-hub
-  [Подключение приложения концентратору уведомлений]: #connect-hub
   [Отправка уведомления в приложение]: #send
   [Тестирование приложения]: #test-app
   [Бесплатная пробная версия Azure]: http://www.windowsazure.com/ru-ru/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fru-ru%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F
@@ -380,7 +379,7 @@
   [2]: http://go.microsoft.com/fwlink/?linkid=389797&clcid=0x409
   [3]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
   [консоль разработчика API уведомлений Nokia]: https://console.push.nokia.com/ncm/Web/index.jsp
-  []: ./media/notification-hubs-nokia-x-get-started/NokiaConsole.png
+  [0]: ./media/notification-hubs-nokia-x-get-started/NokiaConsole.png
   [4]: ./media/notification-hubs-nokia-x-get-started/NokiaConsoleService.png
   [5]: http://developer.nokia.com/resources/library/nokia-x/nokia-notifications/nokia-notifications-developer-guide.html
   [портал управления Azure]: https://manage.windowsazure.com/

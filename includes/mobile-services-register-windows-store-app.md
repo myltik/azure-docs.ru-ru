@@ -1,6 +1,6 @@
 1.  Если вы еще не зарегистрировали свое приложение, перейдите к разделу [Отправить страницу приложения][Отправить страницу приложения] в центре разработчиков для приложений Магазина Windows, выполните вход с использованием вашей учетной записи Майкрософт и затем щелкните **Имя приложения**.
 
-    ![][]
+    ![][0]
 
 2.  Введите имя приложения в поле **Имя приложения**, щелкните **Зарезервировать имя приложения** и затем щелкните **Сохранить**.
 
@@ -61,7 +61,7 @@
 <!-- Anchors. Images.  URLs. -->
 
   [Отправить страницу приложения]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-  []: ./media/mobile-services-register-windows-store-app/mobile-services-submit-win8-app.png
+  [0]: ./media/mobile-services-register-windows-store-app/mobile-services-submit-win8-app.png
   [1]: ./media/mobile-services-register-windows-store-app/mobile-services-win8-app-name.png
   [Приступая к работе с мобильными службами]: /ru-ru/develop/mobile/tutorials/get-started/#create-new-service
   [2]: ./media/mobile-services-register-windows-store-app/mobile-services-store-association.png

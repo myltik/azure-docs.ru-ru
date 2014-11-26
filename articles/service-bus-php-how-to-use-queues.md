@@ -250,7 +250,5 @@ Bus разблокирует сообщение автоматически и с
   [Практическое руководство. Получение сообщений из очереди]: #ReceiveMessages
   [Практическое руководство. Обработка сбоев приложения и нечитаемых сообщений]: #HandleCrashes
   [Дальнейшие действия]: #NextSteps
-  [howto-service-bus-queues]: ../includes/howto-service-bus-queues.md
   [расширение OpenSSL]: http://php.net/openssl
-  [получение-клиент-библиотеки]: ../includes/get-client-libraries.md
   [Очереди, разделы и подписки]: http://msdn.microsoft.com/ru-ru/library/windowsazure/hh367516.aspx

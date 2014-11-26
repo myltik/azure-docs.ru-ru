@@ -258,9 +258,9 @@
 
 -   [Обработка конфликтов с автономной поддержкой мобильных служб][Обработка конфликтов с автономной поддержкой мобильных служб]
 
-<!-- Anchors. -->
+
 <!-- Images -->
-<!-- URLs. -->
+
 
   [Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/mobile-services-windows-store-get-started/
   [Приступая к работе с данными]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/

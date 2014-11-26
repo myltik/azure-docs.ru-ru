@@ -220,7 +220,7 @@
 
 Вы завершили эту тему.
 
-<!--## <a name="next-steps"> </a>Next steps  In this tutorial we learned how to broadcast breaking news by category. Consider completing one of the following tutorials that highlight other advanced Notification Hubs scenarios:  + [Use Notification Hubs to broadcast localized breaking news]      Learn how to expand the breaking news app to enable sending localized notifications.   + [Notify users with Notification Hubs]      Learn how to push notifications to specific authenticated users. This is a good solution for sending notifications only to specific users. --> <!-- Anchors. --> <!-- Images. --> <!-- URLs.-->
+<!--## <a name="next-steps"> </a>Next steps  In this tutorial we learned how to broadcast breaking news by category. Consider completing one of the following tutorials that highlight other advanced Notification Hubs scenarios:  + [Use Notification Hubs to broadcast localized breaking news]      Learn how to expand the breaking news app to enable sending localized notifications.   + [Notify users with Notification Hubs]      Learn how to push notifications to specific authenticated users. This is a good solution for sending notifications only to specific users. -->   <!-- URLs.-->
 
   [Windows Universal]: /ru-ru/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/ "Windows Universal"
   [Windows Phone]: /ru-ru/documentation/articles/notification-hubs-windows-phone-send-breaking-news/ "Windows Phone"
@@ -233,7 +233,6 @@
   [Отправка уведомлений из серверной части]: #send
   [Запуск приложения и создание уведомлений]: #test-app
   [Приступая к работе с концентраторами уведомлений]: /ru-ru/manage/services/notification-hubs/get-started-notification-hubs-wp8/
-  [концентраторы-уведомлений-серверная-часть]: ../includes/notification-hubs-back-end.md
   [0]: ./media/notification-hubs-windows-phone-send-breaking-news/notification-hub-breakingnews.png
   [2]: ./media/notification-hubs-windows-phone-send-breaking-news/notification-hub-registration.png
   [3]: ./media/notification-hubs-windows-phone-send-breaking-news/notification-hub-toast.png

@@ -182,9 +182,9 @@
 -   [Приступая к работе с push-уведомлениями][Приступая к работе с push-уведомлениями]
     Сведения об отправке в приложение простейших push-уведомлений.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Загрузка проекта приложения для Магазина Windows]: #download-app
   [Создание мобильной службы]: #create-service
@@ -194,8 +194,6 @@
   [GetStartedWithData]: http://go.microsoft.com/fwlink/?LinkId=262308
   [0]: ./media/mobile-services-windows-store-javascript-get-started-data-vs2012/mobile-data-sample-download-js.png
   [1]: ./media/mobile-services-windows-store-javascript-get-started-data-vs2012/mobile-quickstart-startup.png
-  [mobile-services-create-new-service-data]: ../includes/mobile-services-create-new-service-data.md
-  [mobile-services-create-new-service-data-2]: ../includes/mobile-services-create-new-service-data-2.md
   [2]: ./media/mobile-services-windows-store-javascript-get-started-data-vs2012/mobile-add-nuget-package-js.png
   [3]: ./media/mobile-services-windows-store-javascript-get-started-data-vs2012/mobile-dashboard-tab.png
   [Портале управления]: https://manage.windowsazure.com/

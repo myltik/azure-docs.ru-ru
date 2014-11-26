@@ -563,7 +563,6 @@
 <!-- Images -->
 
   [Visual Studio Express 2013 для Web]: http://www.visualstudio.com/downloads/download-visual-studio-vs#d-express-web
-  [создать-учетная запись-и-веб-сайт-примечание]: ../includes/create-account-and-websites-note.md
   [начальном проекте]: http://go.microsoft.com/fwlink/?LinkID=398780&clcid=0x409
   [0]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionsByTag-ASP.NET-Fixed.png
   [Пакет Azure SDK для Visual Studio 2013]: http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409

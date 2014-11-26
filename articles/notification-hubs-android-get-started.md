@@ -305,7 +305,7 @@
 
 В этом простом примере осуществляется рассылка уведомлений на все устройства Android. Для охвата определенных пользователей см. учебник [Использование концентраторов уведомлений для отправки push-уведомлений пользователям][Использование концентраторов уведомлений для отправки push-уведомлений пользователям], если же требуется разделить пользователей по группам интересов, см. [Использование концентраторов уведомлений для передачи экстренных новостей][Использование концентраторов уведомлений для передачи экстренных новостей]. Дополнительные сведения об использовании концентраторов уведомлений см. в [руководстве по использованию концентраторов уведомлений][руководстве по использованию концентраторов уведомлений].
 
-<!-- Images. --> <!-- URLs. -->
+ 
 
   [Windows Universal]: /ru-ru/documentation/articles/notification-hubs-windows-store-dotnet-get-started/ "Windows Universal"
   [Windows Phone]: /ru-ru/documentation/articles/notification-hubs-windows-phone-get-started/ "Windows Phone"
@@ -322,7 +322,6 @@
   [здесь]: http://go.microsoft.com/fwlink/?LinkId=389797
   [пакет Android SDK для мобильных служб]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
   [Бесплатная пробная версия Azure]: http://www.windowsazure.com/ru-ru/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fru-ru%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F
-  [Enable GCM]: ../includes/mobile-services-enable-Google-cloud-messaging.md
   [портал управления Azure]: https://manage.windowsazure.com/
   [0]: ./media/notification-hubs-android-get-started/notification-hub-create-from-portal.png
   [1]: ./media/notification-hubs-android-get-started/notification-hub-create-from-portal2.png
@@ -331,7 +330,6 @@
   [4]: ./media/notification-hubs-android-get-started/notification-hub-configure-android.png
   [5]: ./media/notification-hubs-android-get-started/notification-hub-create-android-app.png
   [6]: ./media/notification-hubs-android-get-started/notification-hub-create-android-app2.png
-  [Add Play Services]: ../includes/mobile-services-add-Google-play-services.md
   [7]: ./media/notification-hubs-android-get-started/notification-hub-android-new-class.png
   [интерфейса REST]: http://msdn.microsoft.com/ru-ru/library/windowsazure/dn223264.aspx
   [серверная часть .NET]: /ru-ru/documentation/articles/mobile-services-javascript-backend-android-get-started-push/

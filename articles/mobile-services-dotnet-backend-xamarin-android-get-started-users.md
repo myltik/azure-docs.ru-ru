@@ -85,8 +85,8 @@
 
 <!-- ## <a name="next-steps">
 </a>Next steps  In the next tutorial, [Service-side authorization of Mobile Services users][Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services.   -->
-<!-- Anchors. -->
-<!-- URLs. -->
+
+
 
   [Магазин Windows C#]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users "Магазин Windows C#"
   [Магазин Windows JavaScript]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users "Магазин Windows JavaScript"
@@ -101,6 +101,3 @@
   [Ограничение разрешений таблицы пользователями, прошедшими проверку подлинности]: #permissions
   [Добавление проверки подлинности к приложению]: #add-authentication
   [Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started/
-  [mobile-services-register-authentication]: ../includes/mobile-services-register-authentication.md
-  [mobile-services-dotnet-backend-aad-server-extension]: ../includes/mobile-services-dotnet-backend-aad-server-extension.md
-  [mobile-services-restrict-permissions-dotnet-backend]: ../includes/mobile-services-restrict-permissions-dotnet-backend.md

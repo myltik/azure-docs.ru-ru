@@ -1,6 +1,6 @@
 <properties linkid="mobile-services-dotnet-backend-how-to-use" urlDisplayName="Use the Mobile Services .NET Backend" pageTitle="Use the Mobile Services .NET Backend - Azure Mobile Services" metaKeywords="" description="Learn the details of the .NET Backend programming model for Azure Mobile Services, including how to work with table data, APIs, authentication, and scheduled jobs" metaCanonical="" services="" documentationCenter="Mobile" title="Use the Mobile Services .NET Backend" authors="yavorg" solutions="" manager="" editor="mollybos" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="yavorg"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="yavorg" />
 
 # Использование серверной части .NET мобильных служб
 
@@ -21,8 +21,6 @@
 
 В основе данной модели программирования лежит класс [**TableController<t>**][**TableController<t>**], представляющий собой просто обычный [**ApiController**][**ApiController**] интерфейса веб-API, который настраивается для шаблона доступа к данным CRUD. Класс **TableController** может использовать различные хранилища данных, включая SQL (через [Entity Framework][Entity Framework]), [хранилище таблиц Azure][хранилище таблиц Azure], [MongoDB][MongoDB] или ваше собственное хранилище).
 
-  [Серверная часть .NET]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-how-to-use/ "Серверная часть .NET"
-  [Серверная часть JavaScript]: /ru-ru/documentation/articles/mobile-services-how-to-use-server-scripts/ "Серверная часть JavaScript"
   [Введение]: #intro
   [Операции с таблицами]: #table-scripts
   [Веб-API ASP.NET]: http://www.asp.net/web-api

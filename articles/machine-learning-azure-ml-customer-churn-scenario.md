@@ -1,6 +1,6 @@
 <properties title="Analyzing Customer Churn using Microsoft Azure Machine Learning" pageTitle="Analyzing Customer Churn using Microsoft Machine Learning | Azure" description="Case study of developing an integrated model for analyzing and scoring customer churn" metaKeywords="" services="" solutions="" documentationCenter="" authors="barga" videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="barga"></tags>
+<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="barga" />
 
 # Анализ оттока клиентов с помощью машинного обучения Microsoft Azure
 
@@ -24,7 +24,7 @@
 2.  Модель вмешательства позволяет узнать, каким образом уровень вмешательства может повлиять на вероятность оттока и значение показателя ценности жизненного цикла клиента (CLV).
 3.  Этот анализ способствует проведению качественного анализа, выходящего на уровень активной маркетинговой кампании, целью которой является предоставление клиентам оптимальных предложений.
 
-![][]
+![][0]
 
 Такой рассчитанный на перспективу подход остается оптимальным способом решения вопросов оттока. Однако его реализация связана с определенной сложностью: требуется разработать многомодельный архетип и отследить зависимости между моделями. Взаимодействие между моделями может выглядеть следующим образом.
 
@@ -215,7 +215,7 @@ AUC обычно используется в качестве меры ценн�
 
 *Рис. 12. Снимок экрана с представлением прототипа оттока*
 
-  []: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-1.png
+  [0]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-1.png
   [1]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-2.png
   [2]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-3.png
   [3]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-4.png

@@ -257,8 +257,6 @@ Service Bus поддерживает функции, помогающие кор
 -   Сборка рабочего приложения, способного отправлять сообщения в очередь Service Bus и получать их из нее: [Учебник по обмену сообщениями .NET через посредника в Service Bus][Учебник по обмену сообщениями .NET через посредника в Service Bus].
 
   [Дальнейшие действия]: #nextsteps
-  [create-account-note]: ../includes/create-account-note.md
-  [howto-service-bus-topics]: ../includes/howto-service-bus-topics.md
   [0]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
   [Очереди, разделы и подписки]: http://msdn.microsoft.com/ru-ru/library/hh367516.aspx
   [SqlFilter]: http://msdn.microsoft.com/ru-ru/library/microsoft.servicebus.messaging.sqlfilter.aspx

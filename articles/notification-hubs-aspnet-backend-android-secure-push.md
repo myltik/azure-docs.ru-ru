@@ -118,4 +118,3 @@
 
 4.  В пользовательском интерфейсе приложения Android нажмите **Вход**. Затем нажмите **Отправить push-уведомление**.
 
-  [notification-hubs-aspnet-backend-securepush]: ../includes/notification-hubs-aspnet-backend-securepush.md

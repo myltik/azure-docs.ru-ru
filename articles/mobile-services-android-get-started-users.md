@@ -62,16 +62,10 @@
 
 
 
-  [mobile-services-selector-get-started-users]: ../includes/mobile-services-selector-get-started-users.md
   [Регистрация приложения для проверки подлинности и конфигурация мобильных служб]: #register
   [Ограничение разрешений таблицы пользователями, прошедшими проверку подлинности]: #permissions
   [Добавление проверки подлинности к приложению]: #add-authentication
   [Хранение маркеров аутентификации в клиенте]: #cache-tokens
   [Обновление маркеров с истекшим сроком действия]: #refresh-tokens
   [Приступая к работе с мобильными службами]: /ru-ru/develop/mobile/tutorials/get-started-android
-  [mobile-services-register-authentication]: ../includes/mobile-services-register-authentication.md
-  [mobile-services-restrict-permissions-javascript-backend]: ../includes/mobile-services-restrict-permissions-javascript-backend.md
-  [mobile-services-android-authenticate-app]: ../includes/mobile-services-android-authenticate-app.md
-  [mobile-services-android-authenticate-app-with-token]: ../includes/mobile-services-android-authenticate-app-with-token.md
-  [mobile-services-android-authenticate-app-refresh-token]: ../includes/mobile-services-android-authenticate-app-refresh-token.md
   [Авторизация пользователей с помощью скриптов]: /ru-ru/develop/mobile/tutorials/authorize-users-in-scripts-android

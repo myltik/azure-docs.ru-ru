@@ -4,7 +4,7 @@
 
 1.  В обозревателе решений для Visual Studio в проекте разверните пункт **Свойства**. Затем откройте файл WMAppManifest.xml и на вкладке **Возможности** включите камеру, щелкнув **ID\_CAP\_ISV\_CAMERA**. Закройте файл, чтобы сохранить изменения.
 
-    ![][]
+    ![][0]
 
     Это позволит приложению использовать камеру, подключенную к компьютеру. Пользователям необходимо будет разрешить доступ к камере при первом запуске приложения.
 
@@ -177,7 +177,7 @@
   [Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/mobile-services-windows-phone-get-started
   [CameraCaptureTask]: http://msdn.microsoft.com/ru-ru/library/windowsphone/develop/microsoft.phone.tasks.cameracapturetask(v=vs.105).aspx
   [PhotoCamera]: http://msdn.microsoft.com/ru-ru/library/windowsphone/develop/microsoft.devices.photocamera(v=vs.105).aspx
-  []: ./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-WMAppmanifest-wp8.png
+  [0]: ./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-WMAppmanifest-wp8.png
   [1]: ./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-view-wp8.png
   [2]: ./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-view-camera-wp8.png
   [3]: ./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-view-camera-accept-wp8.png

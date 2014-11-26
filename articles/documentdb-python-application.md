@@ -1,6 +1,6 @@
 <properties title="Build a web application with Python and Flask (MVC) using DocumentDB" pageTitle="Build a web app with Python and Flask using DocumentDB | Azure" description="Learn how to use DocumentDB to store and access data from an Python and Flask (MVC) web application hosted on Azure."  metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, account" services="documentdb"  solutions="data-management" documentationCenter=""  authors="hawong" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="hawong"></tags>
+<tags ms.service="documentdb" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="hawong" />
 
 # <a name="_Toc395888515"></a><a name="_Toc395809324">Создание веб-приложения Python и Flask (MVC) с использованием DocumentDB</a>
 
@@ -33,23 +33,24 @@ Python и веб-сайтов Azure.
 В ходе учебного курса вы создадите простое веб-приложение
 для голосования, позволяющее проводить голосование на выборах.
 
-![Alt text][]
+![Alt text][Alt text]
 
 <a name="_Toc395888520"></a><a name="_Toc395809329">Предварительные требования</a>
 
 Перед выполнением инструкций, приведенных в этой статье, следует убедиться,
 что установлены следующие компоненты:
 
-Visual Studio 2013 (или [Visual Studio Express][], бесплатная
+Visual Studio 2013 (или [Visual Studio Express][Visual Studio Express], бесплатная
 версия)
 
-Средства Python для Visual Studio [отсюда][]
+Средства Python для Visual Studio [отсюда][отсюда]
 
 Пакет Azure SDK для Visual Studio 2013, версия 2.4 и выше
 [отсюда][1]
 
 Межплатформенные средства командной строки Azure, доступны в [Установщике веб-платформы
-Майкрософт][]
+Майкрософт][Установщике веб-платформы
+Майкрософт]
 
 # <a name="_Toc395888519"></a><a name="_Toc395809328">Создание учетной записи базы данных DocumentDB</a>
 
@@ -110,7 +111,7 @@ DocumentDB.
 для вашего проекта.
 
 Для тех, кто плохо знаком с Flask: это веб-фреймворк, который позволяет ускорить разработку веб
--приложений на Python. [Учебники по Flask доступны здесь][].
+-приложений на Python. [Учебники по Flask доступны здесь][Учебники по Flask доступны здесь].
 
 ![Alt text][10]
 
@@ -436,17 +437,16 @@ DocumentDB, мы собираемся развернуть его на веб-с
 Поздравляем! Вы только что создали свое первое приложение Python с использованием
 Azure DocumentDB и опубликовали его на веб-сайтах Azure.
 
-Скачать завершенное решение можно [здесь][]. (Примечание. Вам по-прежнему необходимо
+Скачать завершенное решение можно [здесь][здесь]. (Примечание. Вам по-прежнему необходимо
 добавить виртуальную среду, установить средства и
 пакеты Python, как упоминалось выше)
 
 </h1>
 
   [Alt text]: ./media/documentdb-python-application/image1.png
-  [Visual Studio Express]: http://www.visualstudio.com/en-us/products/visual-studio-express-vs.aspx
+  [Visual Studio Express]: http://www.visualstudio.com/ru-ru/products/visual-studio-express-vs.aspx
   [отсюда]: https://pytools.codeplex.com/releases/view/123624
   [1]: http://go.microsoft.com/fwlink/?linkid=254281&clcid=0x409
-  [Установщике веб-платформы Майкрософт]: http://www.microsoft.com/web/downloads/platform.aspx
   [2]: ./media/documentdb-python-application/image2.png
   [3]: ./media/documentdb-python-application/image3.png
   [4]: ./media/documentdb-python-application/image4.png

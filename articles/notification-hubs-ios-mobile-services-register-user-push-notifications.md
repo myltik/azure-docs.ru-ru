@@ -104,11 +104,11 @@
 
 Теперь, когда клиентское приложение было обновлено, вернитесь к учебнику [Уведомление пользователей с помощью концентраторов уведомлений][Уведомление пользователей с помощью концентраторов уведомлений] и обновите мобильную службу для отправки уведомлений с помощью концентраторов уведомлений.
 
-<!-- Anchors. --> 
+ 
 
-<!-- Images. --> 
+ 
 
-<!-- URLs. -->
+
 
   [Магазин Windows C#]: /ru-ru/documentation/articles/notification-hubs-windows-store-mobile-services-register-user-push-notifications/ "Магазин Windows C#"
   [iOS]: /ru-ru/documentation/articles/notification-hubs-ios-mobile-services-register-user-push-notifications/ "iOS"

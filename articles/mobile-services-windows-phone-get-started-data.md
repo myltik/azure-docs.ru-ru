@@ -172,11 +172,10 @@
 -   [Приступая к работе с push-уведомлениями][Приступая к работе с push-уведомлениями]
     <br/>Сведения об отправке в приложение простейших push-уведомлений с помощью мобильных служб.
 
-<!-- Anchors. -->
-<!-- Images. -->
-<!-- URLs. -->
 
-  [mobile-services-selector-get-started-data-legacy]: ../includes/mobile-services-selector-get-started-data-legacy.md
+
+
+
   [Загрузка проекта приложения Windows Phone 8]: #download-app
   [Создание мобильной службы]: #create-service
   [Добавление таблицы для хранения данных]: #add-table
@@ -187,8 +186,6 @@
   [GetStartedWithData app]: http://go.microsoft.com/fwlink/p/?LinkId=271146
   [приложения для Магазина Windows Phone]: http://go.microsoft.com/fwlink/p/?LinkId=397372
   [0]: ./media/mobile-services-windows-phone-get-started-data/mobile-quickstart-startup-wp8.png
-  [mobile-services-create-new-service-data]: ../includes/mobile-services-create-new-service-data.md
-  [mobile-services-create-new-service-data-2]: ../includes/mobile-services-create-new-service-data-2.md
   [1]: ./media/mobile-services-windows-phone-get-started-data/mobile-add-nuget-package-wp.png
   [2]: ./media/mobile-services-windows-phone-get-started-data/mobile-dashboard-tab.png
   [Портале управления]: https://manage.windowsazure.com/

@@ -104,9 +104,9 @@
 
 
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
 
 [mobile-services-selector-get-started-data]: ../includes/mobile-services-selector-get-started-data.md

@@ -463,7 +463,7 @@ IPrincipal.IsInRole("MyRole"). В большинстве случаев необ
 в приложение или службу WIF могла проанализировать это утверждение роли
 для успешного вызова метода IsInRole.
 
-![][]
+![][0]
 
 **WIF ClaimsAuthenticationManager**. Эта реализация использует
 ClaimsAuthenticationManager как точку расширения WIF. При таком подходе
@@ -802,18 +802,12 @@ ACS] и [Рекомендации по управлению сертификат
 -   [Жизненный цикл разработки средств безопасности][Жизненный цикл разработки средств безопасности Майкрософт]
 -   [Центр разработчиков средств безопасности (MSDN)][Центр разработчиков средств безопасности (MSDN)]
 
-  [Заметки о безопасности
-  Azure (PDF)]: http://blogs.msdn.com/b/jmeier/archive/2010/08/03/now-available-azure-security-notes-pdf.aspx
   [Защита приложения]: ./media/SecurityRX/01_SecuringTheApplication.gif
-  [Памятка: механизм
-  безопасности веб-приложения]: http://msdn.microsoft.com/ru-ru/library/ff649461.aspx
   [Руководство по безопасности для приложений]: http://msdn.microsoft.com/ru-ru/library/ff650760.aspx
   [Угрозы, уязвимости и атаки]: ./media/SecurityRX/02_ThreatsVulnerabilitiesandAttacks.gif
   [Примеры Windows Identity Foundation 4.5]: http://code.msdn.microsoft.com/site/search?f%5B0%5D.Type=SearchText&f%5B0%5D.Value=wif&f%5B1%5D.Type=Topic&f%5B1%5D.Value=claims-based%20authentication
   [Средства Windows Identity Foundation 4.5 для Visual Studio 11 Beta]: http://visualstudiogallery.msdn.microsoft.com/e21bf653-dfe1-4d81-b3d3-795cb104066e
   [Среда выполнения Windows Identity Foundation (.Net 3.5/4.0)]: http://www.microsoft.com/ru-ru/download/details.aspx?id=17331
-  [Примеры Windows Identity Foundation 3.5/4.0 и шаблоны Visual Studio
-  2008/2010]: http://www.microsoft.com/ru-ru/download/details.aspx?displaylang=en&id=4451
   [Служба Access Control 2.0]: http://msdn.microsoft.com/library/gg429786.aspx
   [Сценарии и решения с использованием ACS]: http://msdn.microsoft.com/ru-ru/library/gg185920.aspx
   [Практические руководства по работе со службой Service Bus]: http://msdn.microsoft.com/ru-ru/library/windowsazure/gg185939.aspx
@@ -830,49 +824,25 @@ ACS] и [Рекомендации по управлению сертификат
   [Практическое руководство. Создание первого приложения ASP.NET с поддержкой утверждений с помощью ACS]: http://msdn.microsoft.com/ru-ru/library/gg429779.aspx
   [Практическое руководство. Размещение страниц входа в веб-приложении ASP.NET]: http://msdn.microsoft.com/ru-ru/library/gg185926.aspx
   [Практическое руководство. Реализация авторизации на основе утверждений в приложении ASP.NET с поддержкой утверждений с помощью WIF и ACS]: http://msdn.microsoft.com/ru-ru/library/gg185907.aspx
-  [Практическое руководство. Реализация управления доступом на основе ролей (RBAC) в приложении ASP.NET
-  с поддержкой утверждений с помощью WIF и ACS]: http://msdn.microsoft.com/ru-ru/library/gg185914.aspx
-  [Практическое руководство. Настройка доверия между службой ACS и веб-приложениями ASP.NET
-  с помощью сертификатов X.509]: http://msdn.microsoft.com/ru-ru/library/gg185947.aspx
   [Пример кода: простые формы ASP.NET]: http://msdn.microsoft.com/ru-ru/library/gg185938.aspx
   [Служба WCF (SOAP)]: ./media/SecurityRX/04_WCF(SOAP)Service.gif
-  [Практическое руководство. Добавление удостоверений службы с сертификатом X.509, паролем
-  или симметричным ключом]: http://msdn.microsoft.com/ru-ru/library/gg185924.aspx
-  [Практическое руководство. Проверка подлинности с помощью сертификата клиента в службе WCF,
-  защищенной ACS]: http://msdn.microsoft.com/ru-ru/library/hh289316.aspx
-  [Практическое руководство. Проверка подлинности с помощью имени пользователя и пароля в службе WCF,
-  защищенной ACS]: http://msdn.microsoft.com/ru-ru/library/gg185954.aspx
   [Пример кода: проверка подлинности с использованием сертификата WCF]: http://msdn.microsoft.com/ru-ru/library/gg185952.aspx
   [Пример кода: проверка подлинности с помощью имени пользователя WCF]: http://msdn.microsoft.com/ru-ru/library/gg185927.aspx
   [Служба WCF (SOAP) с AD]: ./media/SecurityRX/05_AzureADAccessControl.gif
   [Практическое руководство. Настройка служб AD FS 2.0 как поставщика удостоверений]: http://msdn.microsoft.com/ru-ru/library/gg185961.aspx
-  [Практическое руководство. Использование службы управления для настройки служб AD FS 2.0 как
-  корпоративного поставщика удостоверений]: http://msdn.microsoft.com/ru-ru/library/gg185905.aspx
   [Пример кода: федеративная проверка подлинности WCF с использованием служб AD FS 2.0]: http://msdn.microsoft.com/ru-ru/library/hh127796.aspx
   [Служба REST]: ./media/SecurityRX/06_RESTService.gif
-  [Практическое руководство. Настройка доверия между службой ACS и службой WCF с помощью симметричных
-  ключей]: http://msdn.microsoft.com/ru-ru/library/gg185958.aspx
-  [Практическое руководство. Проверка подлинности REST-службы WCF, развернутой в Azure,
-  с помощью ACS]: http://msdn.microsoft.com/ru-ru/library/hh289317.aspx
   [Пример кода: веб-служба ASP.NET]: http://msdn.microsoft.com/ru-ru/library/gg983271.aspx
-  [Служба REST WCF с использованием маркера SWT, выданного службой
-  контроля доступа Azure (ACS)]: http://code.msdn.microsoft.com/REST-WCF-With-SWT-Token-123d93c0
   [WIF использовать необязательно.]: ./media/SecurityRX/07_WIFisOptional.gif
   [Практическое руководство. Настройка Google как поставщика удостоверений]: http://msdn.microsoft.com/ru-ru/library/gg185976.aspx
   [Практическое руководство. Настройка Facebook как поставщика удостоверений]: http://msdn.microsoft.com/ru-ru/library/gg185919.aspx
   [Практическое руководство. Настройка Yahoo! как поставщика удостоверений]: http://msdn.microsoft.com/ru-ru/library/gg185977.aspx
   [Веб-приложение ASP.NET]: ./media/SecurityRX/08_ASPNETWebApptoREST.gif
-  [Делегирование веб-приложения ASP.NET REST-службе WCF с использованием общего
-  маркера SWT]: http://code.msdn.microsoft.com/ASPNET-Web-App-To-REST-WCF-b2b95f82
-  []: ./media/SecurityRX/09_RBAC.gif
+  [0]: ./media/SecurityRX/09_RBAC.gif
   [1]: ./media/SecurityRX/10_WIFClaimsAuthenticationManager.gif
   [2]: ./media/SecurityRX/11_SecurityTokenRequriementmapping.gif
   [3]: ./media/SecurityRX/12_CustomRoleManager.gif
   [Практическое руководство. Реализация логики преобразования маркеров с помощью правил]: http://msdn.microsoft.com/ru-ru/library/gg185955.aspx
-  [Авторизация с использованием RoleManager для веб-приложений ASP.NET (WIF)
-  с поддержкой утверждений]: http://blogs.msdn.com/b/alikl/archive/2010/11/18/authorization-with-rolemanager-for-claims-aware-wif-asp-net-web-applications.aspx
-  [Windows Identity
-  Foundation SDK]: http://www.microsoft.com/downloads/details.aspx?FamilyID=c148b2df-c7af-46bb-9162-2c9422208504
   [4]: ./media/SecurityRX/13_ClaimsAuthorizationManager.gif
   [5]: ./media/SecurityRX/14_WindowsAzurestorage.gif
   [6]: ./media/SecurityRX/15_SQLAzureIdentityandAccessScenarios.gif
@@ -887,13 +857,7 @@ ACS] и [Рекомендации по управлению сертификат
   [7]: ./media/SecurityRX/16_WindowsAzureServiceBusIdentity.gif
   [Защита Service Bus с помощью службы ACS]: http://channel9.msdn.com/posts/Securing-Service-Bus-with-ACS
   [8]: https://skydrive.live.com/view.aspx?cid=123CCD2A7AB10107&resid=123CCD2A7AB10107%211849
-  [Проверка подлинности и авторизация Service Bus с помощью службы
-  контроля доступа]: http://msdn.microsoft.com/ru-ru/library/hh403962.aspx
   [9]: ./media/SecurityRX/17_WindowsAzureCacheIdentity.gif
-  [Практическое руководство. Настройка кэша клиента программным способом для
-  Azure Caching]: http://msdn.microsoft.com/ru-ru/library/windowsazure/gg618003.aspx
-  [Практическое руководство. Настройка клиента кэша с помощью файла конфигурации приложения
-  для Azure Caching]: http://msdn.microsoft.com/ru-ru/library/windowsazure/gg278346.aspx
   [Примеры использования Azure Service Bus и Caching]: http://msdn.microsoft.com/ru-ru/library/ee706741.aspx
   [10]: ./media/SecurityRX/18_IAccessMyDataset.gif
   [Использование обычной проверки подлинности HTTP в приложении Marketplace]: http://msdn.microsoft.com/ru-ru/library/gg193417.aspx
@@ -904,12 +868,6 @@ ACS] и [Рекомендации по управлению сертификат
   [Загрузка комплекта публикации приложения]: http://go.microsoft.com/fwlink/?LinkId=221323
   [Представляем Azure Marketplace для приложений]: https://datamarket.azure.com/
   [Вопросы проектирования WIF]: http://msdn.microsoft.com/ru-ru/library/ee517298.aspx
-  [Безопасность Windows Identity Foundation
-  (WIF) для веб-приложений ASP.NET — угрозы и контрмеры]: http://blogs.msdn.com/b/alikl/archive/2010/12/02/windows-identity-foundation-wif-security-for-asp-net-web-applications-threats-amp-countermeasures.aspx
-  [Windows Identity Foundation (WIF): обнаружено потенциально
-  опасное значение Request.Form от клиента]: http://social.technet.microsoft.com/wiki/contents/articles/1725.windows-identity-foundation-wif-a-potentially-dangerous-request-form-value-was-detected-from-the-client-wresult-t-requestsecurityto.aspx
-  [Рекомендации по безопасности
-  ACS]: http://msdn.microsoft.com/ru-ru/library/gg185962.aspx
   [Рекомендации по управлению сертификатами и ключами]: http://msdn.microsoft.com/ru-ru/library/hh204521.aspx
   [13]: http://go.microsoft.com/fwlink/?LinkId=214555
   [14]: http://go.microsoft.com/fwlink/?LinkId=214561

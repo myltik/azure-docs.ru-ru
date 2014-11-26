@@ -1,6 +1,6 @@
 <properties linkid="mobile-services-sql-scale-guidance" urlDisplayName="Scale mobile services backed by Azure SQL Database" pageTitle="Scale mobile services backed by Azure SQL Database - Azure Mobile Services" metaKeywords="" description="Learn how to diagnose and fix scalability issues in your mobile services backed by SQL Database" metaCanonical="" services="" documentationCenter="Mobile" title="Scale mobile services backed by Azure SQL Database" authors="yavorg" solutions="" manager="" editor="mollybos" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="yavorg"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="yavorg" />
 
 # Масштабирование мобильных служб, поддерживаемых базой данных Azure SQL
 
@@ -473,11 +473,11 @@ SQL-запросы можно создавать в динамических а�
   [Архитектура службы]: #Architecture
   [Расширенный поиск проблем]: #Advanced
   [портале управления Azure]: http://manage.windowsazure.com
-  [Вопросы и ответы по остановке выпусков Web и Business]: http://msdn.microsoft.com/en-US/library/azure/dn741330.aspx
+  [Вопросы и ответы по остановке выпусков Web и Business]: http://msdn.microsoft.com/ru-ru/library/azure/dn741330.aspx
   [Функции предварительной версии]: https://account.windowsazure.com/previewfeatures
-  [Причины применения новых уровней служб]: http://msdn.microsoft.com/en-US/library/azure/dn369873.aspx#Reasons
+  [Причины применения новых уровней служб]: http://msdn.microsoft.com/ru-ru/library/azure/dn369873.aspx#Reasons
   [Портал управления Azure - Метрики базы данных SQL]: ./media/mobile-services-sql-scale-guidance/3.png
-  [Основные сведения об использовании ресурсов]: http://msdn.microsoft.com/en-US/library/azure/dn369873.aspx#Resource
+  [Основные сведения об использовании ресурсов]: http://msdn.microsoft.com/ru-ru/library/azure/dn369873.aspx#Resource
   [Портал управления Azure - Масштаб базы данных SQL]: ./media/mobile-services-sql-scale-guidance/4.png
   [Портал управления Azure - Предупреждение SQL]: ./media/mobile-services-sql-scale-guidance/5.png
   [Портал управления Azure - Имя и описание предупреждения SQL]: ./media/mobile-services-sql-scale-guidance/6.png

@@ -88,14 +88,11 @@
 
 <!---## <a name="next-steps"> </a>Next steps  In the next tutorial, [Service-side authorization of Mobile Services users][Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. Learn more about how to use Mobile Services with .NET in [Mobile Services .NET How-to Conceptual Reference]--> 
 
-<!-- Anchors. --> 
-<!-- URLs. -->
+ 
+
 
   [push-уведомлениям]: /ru-ru/documentation/articles/mobile-services-javascript-backend-android-get-started-push/
   [Обновление службы, чтобы для регистрации требовалась проверка подлинности]: #register
   [Обновление приложения для выполнения входа перед регистрацией]: #update-app
   [Тестирование приложения]: #test
   [Приступая к работе с аутентификацией в мобильных службах]: /ru-ru/documentation/articles/mobile-services-android-get-started-users/
-  [mobile-services-javascript-backend-push-notifications-app-users]: ../includes/mobile-services-javascript-backend-push-notifications-app-users.md
-  [mobile-services-android-push-notifications-app-users]: ../includes/mobile-services-android-push-notifications-app-users.md
-  [mobile-services-android-test-push-users]: ../includes/mobile-services-android-test-push-users.md

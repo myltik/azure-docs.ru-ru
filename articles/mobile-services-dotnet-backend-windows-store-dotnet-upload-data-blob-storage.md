@@ -29,7 +29,7 @@
 
 Этот учебник создан на основе краткого руководства по мобильным службам. Перед началом работы с учебником необходимо пройти задания учебника [Приступая к работе с мобильными службами][Приступая к работе с мобильными службами].
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-configure-blob-storage][mobile-services-dotnet-backend-configure-blob-storage]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-configure-blob-storage](../includes/mobile-services-dotnet-backend-configure-blob-storage.md)]
 
 ## <a name="install-storage-client"></a>Установка клиента хранения для приложений Магазина Windows
 
@@ -45,14 +45,10 @@
 
 Далее необходимо будет обновить приложение quickstart для захвата и сохранения изображений.
 
-[WACOM.INCLUDE [mobile-services-windows-store-dotnet-upload-to-blob-storage][mobile-services-windows-store-dotnet-upload-to-blob-storage]]
+[WACOM.INCLUDE [mobile-services-windows-store-dotnet-upload-to-blob-storage](../includes/mobile-services-windows-store-dotnet-upload-to-blob-storage.md)]
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
+  
 
-  [Магазин Windows C\#]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage "Магазин Windows C#"
-  [Windows Phone]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-phone-upload-data-blob-storage "Windows Phone"
-  [Серверная часть .NET]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage "Серверная часть .NET"
-  [Серверная часть JavaScript]: /ru-ru/documentation/articles/mobile-services-windows-store-dotnet-upload-data-blob-storage "Серверная часть JavaScript"
   [Установите библиотеку клиента хранилища]: #install-storage-client
   [Обновите клиентское приложение для захвата изображений]: #add-select-images
   [Установка клиента хранилища в проекте мобильных служб]: #storage-client-server
@@ -61,6 +57,4 @@
   [Передайте изображения для проверки приложения]: #test
   [Учетная запись хранения Azure]: /ru-ru/documentation/articles/storage-create-storage-account/
   [Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/mobile-services-windows-store-dotnet-get-started
-  [mobile-services-dotnet-backend-configure-blob-storage]: ../includes/mobile-services-dotnet-backend-configure-blob-storage.md
  
-  [mobile-services-windows-store-dotnet-upload-to-blob-storage]: ../includes/mobile-services-windows-store-dotnet-upload-to-blob-storage.md

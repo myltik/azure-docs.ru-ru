@@ -1,6 +1,6 @@
 <properties linkid="dev-net-tutorials-hybrid-solution" urlDisplayName="Hybrid Application" pageTitle="Hybrid On-Premises/ Cloud Application (.NET) - Azure" metaKeywords="Azure Service Bus tutorial,hybrid .NET" description="Learn how to create a .NET On-Premises/Cloud Hybrid Application Using the Azure Service Bus Relay." metaCanonical="" services="service-bus" documentationCenter=".NET" title=".NET On-Premises/Cloud Hybrid Application Using Service Bus Relay" authors="sethm" solutions="" manager="dwrede" editor="mattshel" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="sethm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="sethm" />
 
 # Создание локального или облачного гибридного приложения .NET с использованием ретрансляции служебной шины
 
@@ -19,7 +19,7 @@ Azure и выполняется в облаке.
 -   Как использовать ретрансляцию служебной шины Azure для обмена данными между приложением
     Azure и веб-службой, которая размещается в другом месте.
 
-[WACOM.INCLUDE [create-account-note][create-account-note]]
+[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
 ### КАК РЕТРАНСЛЯЦИЯ СЛУЖЕБНОЙ ШИНЫ ПОМОГАЕТ РАБОТАТЬ С ГИБРИДНЫМИ РЕШЕНИЯМИ
 
@@ -51,7 +51,7 @@ Windows Communication Foundation (WCF) безопасно предоставля
 В этом учебнике вы создадите веб-сайт ASP.NET MVC 4, который
 позволит просматривать список продуктов на странице складских запасов.
 
-![][]
+![][0]
 
 В учебнике предполагается, что имеются сведения о продуктах в существующей
 локальной системе, для доступа к
@@ -493,7 +493,7 @@ Windows Communication Foundation (WCF) безопасно предоставля
 
     ## <span class="short-header">РАЗВЕРТЫВАНИЕ В AZURE</span>ПОДГОТОВКА ПРИЛОЖЕНИЯ К РАЗВЕРТЫВАНИЮ В AZURE
 
-    Можно развернуть приложение в облачной службе Azure или на веб-узле Azure. Дополнительные сведения о различиях между веб-узлами и облачными службами см. в статье [Модели выполнения Azure][Модели выполнения Azure]. Дополнительные сведения о развертывании приложения на веб-узле Azure содержатся в разделе [[Развертывание веб-приложения ASP.NET на веб-сайте Azure][[Развертывание веб-приложения ASP.NET на веб-сайте Azure]](http://www.windowsazure.com/en-us/develop/net/tutorials/get-started/). Этот раздел содержит подробные инструкции по развертыванию приложения в облачной службе Azure.
+    Можно развернуть приложение в облачной службе Azure или на веб-узле Azure. Дополнительные сведения о различиях между веб-узлами и облачными службами см. в статье [Модели выполнения Azure][Модели выполнения Azure]. Дополнительные сведения о развертывании приложения на веб-узле Azure содержатся в разделе [[Развертывание веб-приложения ASP.NET на веб-сайте Azure][[Развертывание веб-приложения ASP.NET на веб-сайте Azure]](http://www.windowsazure.com/ru-ru/develop/net/tutorials/get-started/). Этот раздел содержит подробные инструкции по развертыванию приложения в облачной службе Azure.
 
     Для развертывания приложения в облачной службе, нужно добавить проект развертывания проекта облачной службу в решение.
     Проект развертывания содержит
@@ -728,8 +728,7 @@ Windows Communication Foundation (WCF) безопасно предоставля
 -   [Практические руководства по работе со служебной шиной][Практические руководства по работе со служебной шиной]
 -   [Использование очередей Service Bus][Использование очередей Service Bus]
 
-  [create-account-note]: ../includes/create-account-note.md
-  []: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hybrid.png
+  [0]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hybrid.png
   [1]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/App2.png
   [Получить инструменты и SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
   [2]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-41.png
@@ -741,7 +740,7 @@ Windows Communication Foundation (WCF) безопасно предоставля
   [7]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-27.png
   [8]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/sb-queues-09.png
   [9]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/sb-queues-06.png
-  [здесь]: http://http://msdn.microsoft.com/en-us/library/windowsazure/ff687127.aspx
+  [здесь]: http://http://msdn.microsoft.com/ru-ru/library/windowsazure/ff687127.aspx
   [10]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/VSProperties.png
   [Использование пакета NuGet для служебной шины]: http://go.microsoft.com/fwlink/?LinkId=234589
   [11]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-web-1.png
@@ -758,8 +757,8 @@ Windows Communication Foundation (WCF) безопасно предоставля
   [20]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-40.png
   [21]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-web-11.png
   [22]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/App1.png
-  [Модели выполнения Azure]: http://www.windowsazure.com/en-us/develop/net/fundamentals/compute/
-  [Развертывание веб-приложения ASP.NET на веб-сайте Azure]: http://www.windowsazure.com/en-us/develop/net/tutorials/get-started/
+  [Модели выполнения Azure]: http://www.windowsazure.com/ru-ru/develop/net/fundamentals/compute/
+  [Развертывание веб-приложения ASP.NET на веб-сайте Azure]: http://www.windowsazure.com/ru-ru/develop/net/tutorials/get-started/
   [23]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-21.png
   [24]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-22.png
   [25]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-web-12.png
@@ -772,6 +771,6 @@ Windows Communication Foundation (WCF) безопасно предоставля
   [32]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-41.png
   [33]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-service1.png
   [34]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-43.png
-  [Azure Service Bus]: http://msdn.microsoft.com/en-us/library/windowsazure/ee732537.aspx
+  [Azure Service Bus]: http://msdn.microsoft.com/ru-ru/library/windowsazure/ee732537.aspx
   [Практические руководства по работе со служебной шиной]: /ru-ru/documentation/services/service-bus/
-  [Использование очередей Service Bus]: /en-us/develop/net/how-to-guides/service-bus-queues/
+  [Использование очередей Service Bus]: /ru-ru/develop/net/how-to-guides/service-bus-queues/

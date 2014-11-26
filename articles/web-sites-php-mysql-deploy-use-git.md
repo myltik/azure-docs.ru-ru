@@ -1,6 +1,6 @@
 <properties linkid="develop-php-website-with-mysql-and-git" urlDisplayName="Web w/ MySQL + Git" pageTitle="PHP website with MySQL and Git - Azure tutorial" metaKeywords="" description="A tutorial that demonstrates how to create a PHP website that stores data in MySQL and use Git deployment to Azure." metaCanonical="" services="web-sites" documentationCenter="PHP" title="Create a PHP-MySQL Azure website and deploy using Git" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # Создание веб-сайта PHP-MySQL Azure и его развертывание с помощью Git
 
@@ -242,7 +242,6 @@
   [PHP]: http://www.php.net/manual/en/install.php
   [Git]: http://git-scm.com/
   [Веб-сайт Azure на PHP]: ./media/web-sites-php-mysql-deploy-use-git/running_app_2.png
-  [Бесплатная пробная версия Azure]: http://www.windowsazure.com/ru-ru/pricing/free-trial/?WT.mc_id=A74E0F923
   [пакет SDK для Azure для PHP]: http://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/azurephpsdk.appids
   [портал управления Azure]: https://manage.windowsazure.com
   [Создание нового веб-сайта Azure]: ./media/web-sites-php-mysql-deploy-use-git/new_website.jpg
@@ -256,6 +255,5 @@
   [Получение сведений о подключении к базе данных]: ./media/web-sites-php-mysql-deploy-use-git/connection_string_info.png
   [расширения PDO для MySQL]: http://www.php.net/manual/en/ref.pdo-mysql.php
   [Исходная отправка в Azure через Git]: ./media/web-sites-php-mysql-deploy-use-git/php-git-initial-push.png
-  [http://[имя]: http://[site
   [Отправка изменений сайта в Azure через Git]: ./media/web-sites-php-mysql-deploy-use-git/php-git-change-push.png
   [Список развертываний веб-сайтов]: ./media/web-sites-php-mysql-deploy-use-git/php-deployments-list.png

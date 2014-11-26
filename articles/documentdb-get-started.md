@@ -1,14 +1,14 @@
-<properties title="Начало работы с учетной записью DocumentDB" pageTitle="Начало работы с учетной записью DocumentDB | Azure" description="Узнайте, как создавать и настраивать учетную запись DocumentDB, создавать базы данных и коллекции, а также сохранять в учетной записи документы JSON." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, getting started"   services="documentdb" solutions="data-management" documentationCenter=""  authors="bradsev" manager="jhubbard" editor="cgronlun" scriptId="" />
+<properties title="Get started with a DocumentDB account" pageTitle="Get started with a DocumentDB account | Azure" description="Learn how to create and configure an Azure DocumentDB account, create databases, create collections, and store JSON documents within the account." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, getting started"   services="documentdb" solutions="data-management" documentationCenter=""  authors="bradsev" manager="paulettm" editor="cgronlun" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev" />
 
 # Начало работы с учетной записью DocumentDB
 
-Это руководство демонстрирует, как начать работу с **Azure DocumentDB (предварительная версия)**. Примеры написаны на C\# и используют пакет SDK .NET DocumentDB. Здесь описаны такие сценарии, как создание и настройка учетной записи DocumentDB, создание баз данных, создание коллекций и сохранение документов JSON в учетной записи. За дополнительной информацией по использованию Azure DocumentDB обратитесь к разделу Дальнейшие действия.
+Это руководство демонстрирует, как начать работу с **Azure DocumentDB (предварительная версия)**. Примеры написаны на C# и используют пакет SDK .NET DocumentDB. Здесь описаны такие сценарии, как создание и настройка учетной записи DocumentDB, создание баз данных, создание коллекций и сохранение документов JSON в учетной записи. За дополнительной информацией по использованию Azure DocumentDB обратитесь к разделу Дальнейшие действия.
 
 Для использования данного руководства по началу работы необходимо иметь учетную запись DocumentDB и ключ доступа (первичный или вторичной) к этой учетной записи. Дополнительные сведения см. в разделе:
 
--   [Создание учетной записи DocumentDB][Создание учетной записи DocumentDB]
+-   [Создание учетной записи Document DB][Создание учетной записи Document DB]
 
 ## Оглавление
 
@@ -21,13 +21,13 @@
 
 ## <span id="Connect"></span></a>Подключение к учетной записи DocumentDB
 
-Для программной работы с DocumentDB доступны несколько пакетов SDK и интерфейсов API. Ниже приведены примеры, написанные на C\# и использующие пакет SDK .NET DocumentDB.
+Для программной работы с DocumentDB доступны несколько пакетов SDK и интерфейсов API. Ниже приведены примеры, написанные на C# и использующие пакет SDK .NET DocumentDB.
 
-Мы начнем с создания DocumentClient для подключения к нашей учетной записи DocumentDB. Нам в нашем приложении C\# потребуются следующие ссылки:
+Мы начнем с создания DocumentClient для подключения к нашей учетной записи DocumentDB. Нам в нашем приложении C# потребуются следующие ссылки:
 
-    using Microsoft.Azure.Documents;
     using Microsoft.Azure.Documents.Client;
     using Microsoft.Azure.Documents.Linq;
+    using Microsoft.Azure.Documents;  
 
 Экземпляр DocumentClient может быть создан с использованием конечной точки учетной записи DocumentDB и первичного или вторичного ключа, связанного с учетной записью.
 
@@ -39,11 +39,11 @@
 
 Создайте клиентское приложение с использованием кода из следующего примера.
 
-    private static string EndpointUrl = "<your endpoint URI>";
-    private static string AuthorizationKey = "<your key>";
+    private static string endpointUrl = "<your endpoint URI>";
+    private static string authorizationKey = "<your key>";
 
-    // Create a new instance of the DocumentClient
-    var client = new DocumentClient(new Uri(EndpointUrl), AuthorizationKey);  
+    //Create a new instance of the DocumentClient
+    var client = new DocumentClient(new Uri(endpointUrl), authorizationKey);  
 
 **Предупреждение:**Никогда не сохраняйте учетные данные в исходном коде. Для сохранения простоты примера они показаны в исходном коде. См. раздел [Веб-сайты Windows Azure: как работают строки приложений и строки подключения][Веб-сайты Windows Azure: как работают строки приложений и строки подключения] для получения информации о том, как хранить учетные данные.
 
@@ -53,154 +53,143 @@
 
 Базу данных DocumentDB можно создать с помощью метода CreateDatabaseAsync класса DocumentClient с использованием пакета SDK .NET.
 
-    // Create a Database
-    Database database = await client.CreateDatabaseAsync(
+    //Create a Database
+     Database database = await client.CreateDatabaseAsync(
         new Database
-            {
-                Id = "FamilyRegistry"
-            });
+        {
+        Id = "FamilyRegistry"
+        });
 
 ## <span id="CreateColl"></span></a>Создание коллекции
 
-Коллекцию DocumentDB можно создать с помощью метода CreateDocumentCollectionAsync класса DocumentClient с использованием пакета SDK .NET. База данных, созданная на предыдущем этапе, имеет несколько свойств, среди которых есть CollectionsLink. Имея данную информацию, мы можем создать коллекцию.
+Коллекцию DocumentDB можно создать с помощью метода CreateDocumentCollectionAsync класса DocumentClient с использованием пакета SDK .NET. База данных, созданная на предыдущем этапе, имеет несколько свойств, среди которых есть SelfLink. Имея данную информацию, мы можем создать коллекцию.
 
-    // Create a document collection
-    DocumentCollection documentCollection = await client.CreateDocumentCollectionAsync(database.CollectionsLink,
-        new DocumentCollection
-            {
-                Id = "FamilyCollection"
-            });
+        //Create a document collection 
+    documentCollection = new DocumentCollection
+        {
+            Id = "FamilyCollection"
+        };
+
+        documentCollection = await client.CreateDocumentCollectionAsync(database.SelfLink,documentCollection); 
 
 ## <span id="CreateDoc"></span></a>Создание документов
 
-Документ DocumentDB можно создать с помощью метода CreateDocumentAsync класса DocumentClient с использованием пакета SDK .NET. Коллекция, созданная на предыдущем этапе, имеет несколько свойств, среди которых есть DocumentsLink. Располагая этой информацией, мы можем добавить один или несколько документов. В целях данного примера, мы подразумеваем, что у нас имеется класс Family, описывающий атрибуты членов семьи, такие как имя, пол и возраст.
+Документ DocumentDB можно создать с помощью метода CreateDocumentAsync класса DocumentClient с использованием пакета SDK .NET. Коллекция, созданная на предыдущем этапе, имеет несколько свойств, среди которых есть DocumentsLink. Имея данную информацию, мы можем добавить один или несколько документов. В целях данного примера, мы подразумеваем, что у нас имеется класс Family, описывающий атрибуты членов семьи, такие как имя, пол и возраст.
 
-    // Create the Andersen Family document
-    Family andersenFamily = new Family
+    private static async Task CreateDocuments(string    colSelfLink)
     {
-        Id = "AndersenFamily",
-        LastName = "Andersen",
-        Parents =  new Parent[] {
-            new Parent { FirstName = "Thomas" },
-            new Parent { FirstName = "Mary Kay"}
-        },
-        Children = new Child[] {
-            new Child { 
-                FirstName = "Henriette Thaulow", 
-                Gender = "female", 
-                Grade = 5, 
-                Pets = new Pet[] {
-                    new Pet { GivenName = "Fluffy" } 
-                }
-            } 
-        },
-        Address = new Address { State = "WA", County = "King", City = "Seattle" },
-        IsRegistered = true
-    };
+        Family AndersonFamily = new Family
+        {
+            Id = "AndersenFamily",
+            LastName = "Andersen",
+            Parents =  new Parent[] {
+                new Parent { FirstName = "Thomas" },
+                new Parent { FirstName = "Mary Kay"}
+            },
+            Children = new Child[] {
+                new Child
+                { 
+                    FirstName = "Henriette Thaulow", 
+                    Gender = "female", 
+                    Grade = 5, 
+                    Pets = new [] {
+                        new Pet { GivenName = "Fluffy" } 
+                    }
+                } 
+            },
+            Address = new Address { State = "WA", County = "King", City = "Seattle" },
+            IsRegistered = true
+        };
 
-    await client.CreateDocumentAsync(documentCollection.DocumentsLink, andersenFamily);
+        await client.CreateDocumentAsync(colSelfLink, AndersonFamily);
 
-    // Create the WakeField Family document
-    Family wakefieldFamily = new Family
-    {
-        Id = "WakefieldFamily",
-        Parents = new Parent[] {
-            new Parent { FamilyName= "Wakefield", FirstName= "Robin" },
-            new Parent { FamilyName= "Miller", FirstName= "Ben" }
-        },
-        Children = new Child[] {
-            new Child {
-                FamilyName= "Merriam", 
-                FirstName= "Jesse", 
-                Gender= "female", 
-                Grade= 8,
-                Pets= new Pet[] {
-                    new Pet { GivenName= "Goofy" },
-                    new Pet { GivenName= "Shadow" }
+        Family WakefieldFamily = new Family
+        {
+            Id = "WakefieldFamily",
+            Parents = new [] {
+                new Parent { FamilyName= "Wakefield", FirstName= "Robin" },
+                new Parent { FamilyName= "Miller", FirstName= "Ben" }
+            },
+            Children = new Child[] {
+                new Child
+                {
+                    FamilyName= "Merriam", 
+                    FirstName= "Jesse", 
+                    Gender= "female", 
+                    Grade= 8,
+                    Pets= new Pet[] {
+                        new Pet { GivenName= "Goofy" },
+                        new Pet { GivenName= "Shadow" }
+                    }
+                },
+                new Child
+                {
+                    FamilyName= "Miller", 
+                    FirstName= "Lisa", 
+                    Gender= "female", 
+                    Grade= 1
                 }
             },
-            new Child {
-                FamilyName= "Miller", 
-                FirstName= "Lisa", 
-                Gender= "female", 
-                Grade= 1
-            }
-        },
-        Address = new Address { State = "NY", County = "Manhattan", City = "NY" },
-        IsRegistered = false
-    };
+            Address = new Address { State = "NY", County = "Manhattan", City = "NY" },
+            IsRegistered = false
+        };
 
-    await client.CreateDocumentAsync(documentCollection.DocumentsLink, wakefieldFamily);
+        await client.CreateDocumentAsync(colSelfLink, WakefieldFamily);
+
+	}
 
 ## <span id="Query"></span></a>Запрос ресурсов DocumentDB
 
 DocumentDB поддерживает функционально богатые запросы документов JSON, хранящихся в каждой коллекции. Ниже приведены примеры разнообразных запросов с использованием как синтаксиса SQL DocumentDB, так и LINQ, которые можно запускать на добавленных на предыдущем этапе документах.
 
-    // Query the documents using DocumentDB SQL for the Andersen family
-    var families = client.CreateDocumentQuery(documentCollection.DocumentsLink,
-        "SELECT * " +
-        "FROM Families f " +
-        "WHERE f.id = \"AndersenFamily\"");
-
-    foreach (var family in families)
+    //
+    //Querying the documents using DocumentDB SQL for the Andersen family
+    //
+    foreach (var family in client.CreateDocumentQuery(collectionLink, 
+    "SELECT * FROM Families f WHERE f.id = \"AndersenFamily\""))
     {
-        Console.WriteLine("\tRead {0} from SQL", family);
+    Console.WriteLine("\tRead {0} from SQL", family);
     }
 
-    // Query the documents using LINQ for the Andersen family
-    families =
-        from f in client.CreateDocumentQuery(documentCollection.DocumentsLink)
+    //
+    //Querying the documents using LINQ for the Andersen family
+    //
+    foreach (var family in (
+        from f in client.CreateDocumentQuery(collectionLink)
         where f.Id == "AndersenFamily"
-        select f;
-
-    foreach (var family in families)
+        select f))
     {
-        Console.WriteLine("\tRead {0} from LINQ", family);
+     Console.WriteLine("\tRead {0} from LINQ", family);
     }
 
-    // Query the documents using LINQ lambdas for the Andersen family
-    families = client.CreateDocumentQuery(documentCollection.DocumentsLink)
-        .Where(f => f.Id == "AndersenFamily")
-        .Select(f => f);
-
-    foreach (var family in families)
+    //
+    //Querying the documents using LINQ lambdas for the Andersen family
+    //
+    foreach (var family in client.CreateDocumentQuery(collectionLink)
+    .Where(f => f.Id == "AndersenFamily")
+    .Select(f => f))
     {
         Console.WriteLine("\tRead {0} from LINQ query", family);
     }
 
-    // Query the documents using DocumentSQl with one join
-    var items = client.CreateDocumentQuery<dynamic>(documentCollection.DocumentsLink,
-        "SELECT f.id, c.FirstName AS child " +
-        "FROM Families f " +
-        "JOIN c IN f.Children");
+    //
+    //DocumentDB SQL -  using <> interchangably with != for "not equals"
+    //
+    families = client.CreateDocumentQuery<Family>(colSelfLink, "SELECT * FROM Families f WHERE f.id <> 'AndersenFamily'");
 
-    foreach (var item in items.ToList())
-    {
-        Console.WriteLine(item);
-    }
-
-    // Query the documents using LINQ with one join
-    items = client.CreateDocumentQuery<Family>(documentCollection.DocumentsLink)
-        .SelectMany(family => family.Children
-            .Select(children => new
-            {
-                family = family.Id,
-                child = children.FirstName
-            }));
-
-    foreach (var item in items.ToList())
-    {
-        Console.WriteLine(item);
-    }
-
-С полной версией примера начального уровня можно ознакомиться [здесь][здесь].
+    //   
+    // LINQ - combine equality and inequality
+    //
+    families = from f in client.CreateDocumentQuery<Family>(colSelfLink)
+           where f.Id == "Wakefield" && f.Address.City != "NY"
+           select f; 
 
 ## <span id="NextSteps"></span></a>Дальнейшие действия
 
 -   Узнайте, как [контролировать учетную запись DocumentDB][контролировать учетную запись DocumentDB].
 -   Подробную информацию о модели программирования см. раздел Разработка на [странице документации DocumentDB][странице документации DocumentDB]
 
-  [Создание учетной записи DocumentDB]: ../documentdb-create-account/
+  [Создание учетной записи Document DB]: ../documentdb-create-account/
   [Подключение к учетной записи DocumentDB]: #Connect
   [Создание базы данных]: #CreateDB
   [Создание коллекции]: #CreateColl
@@ -209,6 +198,5 @@ DocumentDB поддерживает функционально богатые з
   [Дальнейшие действия]: #NextSteps
   [0]: ./media/documentdb-get-started/gs1.png
   [Веб-сайты Windows Azure: как работают строки приложений и строки подключения]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
-  [здесь]: https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started
   [контролировать учетную запись DocumentDB]: http://go.microsoft.com/fwlink/p/?LinkId=402378
   [странице документации DocumentDB]: http://go.microsoft.com/fwlink/p/?LinkID=402319

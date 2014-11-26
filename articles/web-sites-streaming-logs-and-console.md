@@ -1,6 +1,6 @@
 <properties pageTitle="Streaming logs and console" description="Streaming logs and console overview" title="Streaming logs and console" authors="adamab" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="adamab"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="adamab" />
 
 ## Журналы потоковой передачи и консоль
 
@@ -34,7 +34,7 @@
 
 Диагностика включается отдельно для каждого веб-сайта. На [портале][портале] нажмите кнопку **Обзор** в левой строке меню, а затем щелкните элемент **Веб-сайты** для получения списка всех веб-сайтов.
 
-![][]
+![][0]
 
 Щелкните имя настраиваемого веб-сайта. Щелкните часть **ЖУРНАЛЫ ДИАГНОСТИКИ** и задайте для параметра **Ведение журнала приложения (файловая система)** значение **ВКЛ**. Отображается параметр **Уровень**, позволяющий изменять уровень серьезности регистрируемых трассировок. Здесь следует задать значение **Подробно**, если вы хотите ознакомиться с данным компонентом, поскольку это обеспечит регистрацию всех инструкций трассировки.
 
@@ -58,9 +58,9 @@
 
     cd
 
-<!-- Images. -->
+
 
   [портале]: https://portal.azure.com
-  []: ./media/web-sites-streaming-logs-and-console/browse-sites.png
+  [0]: ./media/web-sites-streaming-logs-and-console/browse-sites.png
   [1]: ./media/web-sites-streaming-logs-and-console/streaming-logs.png
   [2]: ./media/web-sites-streaming-logs-and-console/console.png

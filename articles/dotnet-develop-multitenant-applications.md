@@ -1,6 +1,6 @@
 <properties linkid="develop-net-architecture-multi-tenant-web-application" urlDisplayName="Multi-Tenant Web Application Pattern" pageTitle="Multi-Tenant Web Application Pattern - Azure Architecture" metaKeywords="" description="Find architectural overviews and design patterns that describe how to implement a multi-tenant web application on Azure." metaCanonical="" services="" documentationCenter=".NET" title="Multitenant Applications in Azure" authors="" solutions="" manager="" editor="" />
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
 <div>
 <div class="left-nav">
@@ -108,16 +108,4 @@ Azure предоставляет ряд способов подготовки н
 
 <!--links-->
 
-  [Среда выполнения приложений]: /ru-ru/develop/net/compute/
-  [Службы данных]: /ru-ru/develop/net/data/
-  [Службы приложений]: /ru-ru/develop/net/app-services/
-  [Справочные материалы]: /ru-ru/develop/net/reference/
-  [Руководство]: /ru-ru/develop/net/guidance/
-  [Архитектура]: /ru-ru/develop/net/architecture/
-  [Примеры]: /ru-ru/develop/net/samples/
-  [Учебники на базе сценариев]: /ru-ru/develop/net/end-to-end-Apps/
-  [Форумы]: /ru-ru/support/forums/
-  [Обзоры архитектуры приложения]: /ru-ru/develop/net/architecture/#overviews
-  [Шаблон приложения: нагрузочное тестирование]: /ru-ru/develop/net/architecture/load-testing-pattern/
-  [Шаблоны проектирования]: /ru-ru/develop/net/architecture/#designpatterns
   [Размещение мультитенантного приложения в Azure]: http://msdn.microsoft.com/ru-ru/library/hh534480.aspx

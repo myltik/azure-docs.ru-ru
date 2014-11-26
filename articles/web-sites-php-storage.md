@@ -395,8 +395,8 @@
 
     Появится запрос на ввод ранее заданного пароля.
 
-3.  Перейдите по адресу **http://ваш домен веб-сайта/createtable.php**, чтобы создать таблицу для приложения.
-4.  Перейдите по адресу **http://ваш домен веб-сайта/index.php**, чтобы начать работу с приложением.
+3.  Перейдите по адресу **http://[ваш домен веб-сайта]/createtable.php**, чтобы создать таблицу для приложения.
+4.  Перейдите по адресу **http://[ваш домен веб-сайта]/index.php**, чтобы начать работу с приложением.
 
 После публикации приложения можно начать вносить изменения и публиковать их с помощью Git.
 
@@ -413,11 +413,10 @@
 
     Появится запрос на ввод ранее заданного пароля.
 
-3.  Перейдите по адресу **http://ваш домен веб-сайта/index.php**, чтобы увидеть изменения.
+3.  Перейдите по адресу **http://[ваш домен веб-сайта]/index.php**, чтобы увидеть изменения.
 
   [PHP]: http://www.php.net/manual/en/install.php
   [Веб-сайт Azure на PHP]: ./media/web-sites-php-storage/ws-storage-app.png
-  [создать-учетная запись-и-веб-сайт-примечание]: ../includes/create-account-and-websites-note.md
   [Установка Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
   [composer.phar]: http://getcomposer.org/composer.phar
   []: http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179438.aspx

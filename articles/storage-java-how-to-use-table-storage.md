@@ -1,38 +1,38 @@
-<properties urlDisplayName="Table Service" pageTitle="Использование хранилища таблиц (Java) &mdash; Windows Azure" metaKeywords="Azure table storage service, Azure table service Java, table storage Java" description="Вы узнаете, как использовать службу табличного хранилища в Azure. Примеры кода написаны на Java." metaCanonical="" services="storage" documentationCenter="Java" title="Вы узнаете, как использовать службы хранилища таблиц, созданные на Java" authors="tamram" solutions="" manager="adinah" editor="" />
+﻿<properties urlDisplayName="Table Service" pageTitle="Использование хранилища таблиц (Java) - Windows Azure" metaKeywords="Azure table storage service, Azure table service Java, table storage Java" description="Learn how to use the table storage service in Azure. Code samples are written in Java code." metaCanonical="" services="storage" documentationCenter="Java" title="How to use the Table storage service from Java" authors="tamram" solutions="" manager="adinah" editor="" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # Использование табличного хранилища из Java
 
-В этом руководстве показано, как реализовать типичные сценарии с использованием службы табличного хранилища Azure. Примеры написаны на Java и используют [Пакет SDK хранилища Azure для Java][Пакет SDK хранилища Azure для Java]. Рассматриваются сценарии **создание**, **перечисление** и **удаление**таблиц, а также **вставка**, **запрос**, **изменение** и **удаление** сущностей в таблице. Дополнительные сведения о таблицах см. в разделе [Дальнейшие действия][Дальнейшие действия].
+В этом руководстве показано, как реализовать типичные сценарии с использованием службы табличного хранилища Azure. Примеры написаны на Java и используют [Пакет SDK хранилища Azure для Java][Пакет SDK хранилища Azure для Java]. Рассматриваются сценарии **создание**, **перечисление** и **удаление** таблиц, а также **вставка**, **запрос**, **изменение** и **удаление** сущностей в таблице. Дополнительные сведения о таблицах см. в разделе [Дальнейшие действия](#NextSteps).
 
-Примечание. Пакет SDK доступен разработчикам, использующим хранилище Azure на устройствах Android. Дополнительные сведения см. в разделе [Пакет SDK хранилища Azure для Android][Пакет SDK хранилища Azure для Android].
+Примечание. Пакет SDK доступен разработчикам, использующим хранилище Azure на устройствах Android. Дополнительные сведения см. в разделе [Пакет SDK хранилища Azure для Android][Пакет SDK хранилища Azure для Android]. 
 
-## <a name="Contents"> </a> Оглавление
+## <a name="Contents"> </a>Оглавление
 
--   [Что такое хранилище таблиц][Что такое хранилище таблиц]
--   [Основные понятия][Основные понятия]
--   [Создание учетной записи хранения Azure][Создание учетной записи хранения Azure]
--   [Создание приложения Java][Создание приложения Java]
--   [Настройка приложения для доступа к хранилищу таблиц][Настройка приложения для доступа к хранилищу таблиц]
--   [Настройка строки подключения к хранилищу Azure][Настройка строки подключения к хранилищу Azure]
--   [Практическое руководство. Создание таблицы][Практическое руководство. Создание таблицы]
--   [Практическое руководство. Перечисление таблиц][Практическое руководство. Перечисление таблиц]
--   [Практическое руководство. Добавление сущности в таблицу][Практическое руководство. Добавление сущности в таблицу]
--   [Практическое руководство. Вставка пакета сущностей][Практическое руководство. Вставка пакета сущностей]
--   [Практическое руководство. Получение всех сущностей в разделе][Практическое руководство. Получение всех сущностей в разделе]
--   [Практическое руководство. Получение диапазона сущностей в разделе][Практическое руководство. Получение диапазона сущностей в разделе]
--   [Практическое руководство. Извлечение одной сущности][Практическое руководство. Извлечение одной сущности]
--   [Практическое руководство. Изменение сущности][Практическое руководство. Изменение сущности]
--   [Практическое руководство. Запрос подмножества свойств сущности][Практическое руководство. Запрос подмножества свойств сущности]
--   [Практическое руководство. Вставка или замена сущности][Практическое руководство. Вставка или замена сущности]
--   [Практическое руководство. Удаление сущности][Практическое руководство. Удаление сущности]
--   [Практическое руководство. Удаление таблицы][Практическое руководство. Удаление таблицы]
--   [Дальнейшие действия][Дальнейшие действия]
+* [Что такое хранилище таблиц](#what-is)
+* [Основные понятия](#Concepts)
+* [Создание учетной записи хранения Azure](#CreateAccount)
+* [Создание приложения Java](#CreateApplication)
+* [Настройка приложения для доступа к хранилищу таблиц](#ConfigureStorage)
+* [Настройка строки подключения к хранилищу Azure](#ConnectionString)
+* [Практическое руководство. Создание таблицы](#CreateTable)
+* [Практическое руководство. Перечисление таблиц](#ListTables)
+* [Практическое руководство. Добавление сущности в таблицу](#AddEntity)
+* [Практическое руководство. Вставка пакета сущностей](#InsertBatch)
+* [Практическое руководство. Получение всех сущностей в разделе](#RetrieveEntities)
+* [Практическое руководство. Получение диапазона сущностей в разделе](#RetrieveRange)
+* [Практическое руководство. Извлечение одной сущности](#RetriveSingle)
+* [Практическое руководство. Изменение сущности](#ModifyEntity)
+* [Практическое руководство. Запрос подмножества свойств сущности](#QueryProperties)
+* [Практическое руководство. Вставка или замена сущности](#InsertOrReplace)
+* [Практическое руководство. Удаление сущности](#DeleteEntity)
+* [Практическое руководство. Удаление таблицы](#DeleteTable)
+* [Дальнейшие действия](#NextSteps)
 
 [WACOM.INCLUDE [руководство-таблица-хранилище](../includes/howto-table-storage.md)]
 
-## <a name="CreateAccount"></a>Создание учетной записи хранения Azure
+##<a name="CreateAccount"></a>Создание учетной записи хранения Azure
 
 [WACOM.INCLUDE [создание-хранилище-учетная запись](../includes/create-storage-account.md)]
 
@@ -46,7 +46,7 @@
 
 Если нужно использовать API-интерфейсы Azure для доступа к таблицам, добавьте следующие инструкции импорта в верхнюю часть файла Java:
 
-    // Include the following imports to use table APIs
+    // Включите следующий импорт для интерфейсов API BLOB-объектов.
     import com.microsoft.azure.storage.*;
     import com.microsoft.azure.storage.table.*;
     import com.microsoft.azure.storage.table.TableQuery.*;
@@ -55,15 +55,15 @@
 
 Клиент хранилища Azure использует строку подключения с целью хранения конечных точек и учетных данных для доступа к службам управления данными. При работе в клиентском приложении необходимо указать для хранилища строку подключения в следующем формате, используя имя своей учетной записи хранения и первичный ключ доступа для учетной записи хранения, указанные на портале управления значениями *AccountName* и *AccountKey*. В этом примере показано, как объявить статическое поле для размещения строки подключения:
 
-    // Define the connection-string with your values.
+    // Определить строку подключения с вашим значением.
     public static final String storageConnectionString = 
         "DefaultEndpointsProtocol=http;" + 
         "AccountName=your_storage_account;" + 
         "AccountKey=your_storage_account_key";
 
-Если приложение выполняется в роли на платформе Microsoft Azure, эта строка может храниться в файле конфигурации службы *ServiceConfiguration.cscfg*, для доступа к которой можно использовать вызов метода **RoleEnvironment.getConfigurationSettings**. Ниже приведен пример получения строки подключения из элемента **Setting** с именем *StorageConnectionString* в файле конфигурации службы:
+Если приложение выполняется в роли Azure, эта строка может храниться в файле конфигурации службы, *ServiceConfiguration.cscfg*, и для доступа к ней можно использовать вызов метода **RoleEnvironment.getConfigurationSettings**. Ниже приведен пример получения строки подключения из элемента **Setting** с именем *StorageConnectionString* в файле конфигурации службы:
 
-    // Retrieve storage account from connection-string.
+    // Получить учетную запись хранения из строки подключения.
     String storageConnectionString = 
         RoleEnvironment.getConfigurationSettings().get("StorageConnectionString");
 
@@ -71,27 +71,27 @@
 
 ## <a name="CreateTable"> </a>Практическое руководство. Создание таблицы
 
-Объект **CloudTableClient** позволяет ссылаться на объекты таблиц
-и сущностей. Следующий код создает объект **CloudTableClient** и использует
-его для создания нового объекта **CloudTable**, который представляет таблицу с именем "people". (Примечание. Существуют также другие способы создания объектов **CloudStorageAccount**. Дополнительную информацию см. в разделе **CloudStorageAccount** статьи [Справочник по пакету SDK для клиента хранилища Azure][Справочник по пакету SDK для клиента хранилища Azure].)
+Объект **CloudTableClient** позволяет ссылаться на объекты очередей
+и сущностей. Следующий код создает объект **CloudTableClient**
+и использует его для создания нового объекта **CloudTable** который представляет таблицу с именем "people". (Примечание. Существуют также другие способы создания объектов **CloudStorageAccount**. Дополнительную информацию см. в разделе **CloudStorageAccount** in the [Справочник по пакету SDK для клиента хранилища Azure].)
 
     try
     {
-        // Retrieve storage account from connection-string.
-        CloudStorageAccount storageAccount =
-           CloudStorageAccount.parse(storageConnectionString);
+    	// Получить учетную запись хранения из строки подключения.
+    	CloudStorageAccount storageAccount =
+	       CloudStorageAccount.parse(storageConnectionString);
 
-       // Create the table client.
-       CloudTableClient tableClient = storageAccount.createCloudTableClient();
+	   // Создать клиент таблицы.
+	   CloudTableClient tableClient = storageAccount.createCloudTableClient();
 
-       // Create the table if it doesn't exist.
-       String tableName = "people";
-       CloudTable cloudTable = new CloudTable(tableName,tableClient);
-       cloudTable.createIfNotExists();
+	   // Создать таблицу, если она не существует.
+	   String tableName = "people";
+	   CloudTable cloudTable = new CloudTable(tableName,tableClient);
+	   cloudTable.createIfNotExists();
     }
     catch (Exception e)
     {
-        // Output the stack trace.
+        // Вывод трассировки стека.
         e.printStackTrace();
     }
 
@@ -101,29 +101,29 @@
 
     try
     {
-        // Retrieve storage account from connection-string.
-        CloudStorageAccount storageAccount =
-           CloudStorageAccount.parse(storageConnectionString);
+    	// Получить учетную запись хранения из строки подключения.
+    	CloudStorageAccount storageAccount =
+	       CloudStorageAccount.parse(storageConnectionString);
 
-        // Create the table client.
-        CloudTableClient tableClient = storageAccount.createCloudTableClient();
+    	// Создать клиент таблицы.
+    	CloudTableClient tableClient = storageAccount.createCloudTableClient();
 
-        // Loop through the collection of table names.
-        for (String table : tableClient.listTables())
-        {
-          // Output each table name.
-          System.out.println(table);
-       }
+    	// Пройтись через набор имен таблиц.
+    	for (String table : tableClient.listTables())
+    	{
+		  // Вывести каждое имя таблицы.
+		  System.out.println(table);
+	   }
     }
     catch (Exception e)
     {
-        // Output the stack trace.
+        // Вывод трассировки стека.
         e.printStackTrace();
     }
 
 ## <a name="AddEntity"> </a>Практическое руководство. Добавление сущности в таблицу
 
-Сущности сопоставляются с объектами Java с помощью настраиваемого класса, реализующего **TableEntity**. Для удобства класс **TableServiceEntity** реализует **TableEntity** и использует отражение для сопоставления свойств с указанными для свойства методами geteer и setter. Чтобы добавить сущность в таблицу, сначала создайте класс, который определяет свойства сущности. Следующий код определяет класс сущностей, который использует имя клиента как ключ строки, а фамилию клиента — как ключ раздела. Вместе ключ раздела и ключ строки сущности уникальным образом идентифицируют сущность в таблице. Сущности с одним ключом раздела можно запрашивать быстрее, чем сущности с разными ключами раздела.
+Сущности сопоставляются с объектами Java с помощью настраиваемого класса, реализующего **TableEntity**. Для удобства класс **TableServiceEntity** реализует **TableEntity** и использует отражение для сопоставления свойств с указанными для свойства методами geteer и setter. Чтобы добавить сущность в таблицу, сначала создайте класс, который определяет свойства сущности. Следующий код определяет класс сущностей, который использует имя клиента как ключ строки, а фамилию клиента - как ключ раздела. Вместе ключ раздела и ключ строки сущности уникальным образом идентифицируют сущность в таблице. Сущности с одним ключом раздела можно запрашивать быстрее, чем сущности с разными ключами раздела.
 
     public class CustomerEntity extends TableServiceEntity {
         public CustomerEntity(String lastName, String firstName) {
@@ -153,133 +153,133 @@
         }
     }
 
-Табличные операций, включающие сущности, требуют объект **TableOperation**. Этот объект определяет выполняемую для сущности операцию, которую можно запустить с помощью объекта **CloudTable**. В следующем коде создается новый экземпляр класса **CustomerEntity** с сохраняемыми данными клиента. Далее код вызывает **TableOperation.insert**, чтобы создать объект **TableOperation** для вставки сущности в таблицу, а также связывает с ним новый **CustomerEntity**. Наконец, код вызывает метод **execute** объекта **CloudTable**, определяя таблицу "people" и новый **TableOperation**, который затем отправляет запрос в службу хранилища для вставки новой сущности клиента в таблицу "people" или замены сущности, если она уже существует.
+Табличные операций, включающие сущности, требуют объект **TableOperation**. Этот объект определяет выполняемую для сущности операцию, которую можно запустить с помощью объекта **CloudTable**. В следующем коде создается новый экземпляр класса **CustomerEntity** с сохраняемыми данными клиента. Далее код вызывает **TableOperation.insert**, чтобы создать объект **TableOperation** для вставки сущности в таблицу, а также связывает с ним новый **CustomerEntity**. Наконец, код вызывает метод **execute** объекта **CloudTable** определяя таблицу "people" и новый **TableOperation**, который затем отправляет запрос в службу хранилища для вставки новой сущности клиента в таблицу "people" или замены сущности, если она уже существует.
 
     try
     {
-        // Retrieve storage account from connection-string.
-        CloudStorageAccount storageAccount =
-           CloudStorageAccount.parse(storageConnectionString);
+    	// Получить учетную запись хранения из строки подключения.
+    	CloudStorageAccount storageAccount =
+	       CloudStorageAccount.parse(storageConnectionString);
 
-        // Create the table client.
-        CloudTableClient tableClient = storageAccount.createCloudTableClient();
-            
-        // Create a cloud table object for the table.
-        CloudTable cloudTable = tableClient.getTableReference("people");
-            
-        // Create a new customer entity.
-        CustomerEntity customer1 = new CustomerEntity("Harp", "Walter");
-        customer1.setEmail("Walter@contoso.com");
-        customer1.setPhoneNumber("425-555-0101");
-            
-        // Create an operation to add the new customer to the people table.
-        TableOperation insertCustomer1 = TableOperation.insertOrReplace(customer1);
+    	// Создать клиент таблицы.
+    	CloudTableClient tableClient = storageAccount.createCloudTableClient();
+			
+    	// Создать объект облачной таблицы для таблицы.
+    	CloudTable cloudTable = tableClient.getTableReference("people");
+			
+    	// Создать новую сущность customer.
+    	CustomerEntity customer1 = new CustomerEntity("Harp", "Walter");
+    	customer1.setEmail("Walter@contoso.com");
+    	customer1.setPhoneNumber("425-555-0101");
+			
+    	// Создать операцию по добавлению нового клиента в таблицу с людьми.
+    	TableOperation insertCustomer1 = TableOperation.insertOrReplace(customer1);
 
-        // Submit the operation to the table service.
-        cloudTable.execute(insertCustomer1);
+    	// Отправить операцию в службу таблиц.
+    	cloudTable.execute(insertCustomer1);
     }
     catch (Exception e)
     {
-        // Output the stack trace.
+        // Вывод трассировки стека.
         e.printStackTrace();
     }
 
 ## <a name="InsertBatch"> </a>Практическое руководство. Вставка пакета сущностей
 
-Вы можете вставить пакет сущностей в таблицу в одной операции записи. Следующий код создает объект **TableBatchOperation**, а затем добавляет в него три операции вставки. Каждая операция вставки добавляется путем создания нового объекта сущности, установки его значений и последующего вызова метода **insert** для объекта **TableBatchOperation**, чтобы связать сущность с новой операцией вставки. Затем код вызывает метод **execute** объекта **CloudTable**, определяя таблицу "people" и объект **TableBatchOperation**, который отправляет пакет операций таблицы в службу хранилища в одном запросе.
+Вы можете вставить пакет сущностей в таблицу в одной операции записи. Следующий код создает объект **TableBatchOperation**, а затем добавляет в него три операции вставки. Каждая операция вставки добавляется путем создания нового объекта сущности, установки его значений и последующего вызова метода **insert** для объекта **TableBatchOperation**, чтобы связать сущность с новой операцией вставки. Затем код вызывает **execute** для  объекта **CloudTable** указав таблицу "people", и **TableBatchOperation** объект, который отправляет пакет операций таблицы в службу хранилища в одном запросе.
 
     try
     {
-        // Retrieve storage account from connection-string.
-        CloudStorageAccount storageAccount =
-           CloudStorageAccount.parse(storageConnectionString);
+    	// Получить учетную запись хранения из строки подключения.
+    	CloudStorageAccount storageAccount =
+	       CloudStorageAccount.parse(storageConnectionString);
 
-        // Create the table client.
-        CloudTableClient tableClient = storageAccount.createCloudTableClient();
+    	// Создать клиент таблицы.
+    	CloudTableClient tableClient = storageAccount.createCloudTableClient();
 
-        // Define a batch operation.
-        TableBatchOperation batchOperation = new TableBatchOperation();
+    	// Определить пакетную операцию.
+    	TableBatchOperation batchOperation = new TableBatchOperation();
 
-        // Create a cloud table object for the table.
-        CloudTable cloudTable = tableClient.getTableReference("people");
+    	// Создать объект облачной таблицы для таблицы.
+    	CloudTable cloudTable = tableClient.getTableReference("people");
 
-        // Create a customer entity to add to the table.
-        CustomerEntity customer = new CustomerEntity("Smith", "Jeff");
-        customer.setEmail("Jeff@contoso.com");
-        customer.setPhoneNumber("425-555-0104");
-        batchOperation.insertOrReplace(customer);
+    	// Создать сущность клиента и добавить в таблицу.
+    	CustomerEntity customer = new CustomerEntity("Smith", "Jeff");
+    	customer.setEmail("Jeff@contoso.com");
+    	customer.setPhoneNumber("425-555-0104");
+    	batchOperation.insertOrReplace(customer);
 
-       // Create another customer entity to add to the table.
-       CustomerEntity customer2 = new CustomerEntity("Smith", "Ben");
-       customer2.setEmail("Ben@contoso.com");
-       customer2.setPhoneNumber("425-555-0102");
-       batchOperation.insertOrReplace(customer2);
+	   // Создать еще одну сущность клиента и добавить в таблицу.
+	   CustomerEntity customer2 = new CustomerEntity("Smith", "Ben");
+	   customer2.setEmail("Ben@contoso.com");
+	   customer2.setPhoneNumber("425-555-0102");
+	   batchOperation.insertOrReplace(customer2);
 
-       // Create a third customer entity to add to the table.
-       CustomerEntity customer3 = new CustomerEntity("Smith", "Denise");
-       customer3.setEmail("Denise@contoso.com");
-       customer3.setPhoneNumber("425-555-0103");
-       batchOperation.insertOrReplace(customer3);
+	   // Создать сущность третьего клиента и добавить в таблицу.
+	   CustomerEntity customer3 = new CustomerEntity("Smith", "Denise");
+	   customer3.setEmail("Denise@contoso.com");
+	   customer3.setPhoneNumber("425-555-0103");
+	   batchOperation.insertOrReplace(customer3);
 
-       // Execute the batch of operations on the "people" table.
-       cloudTable.execute(batchOperation);
+	   // Выполнить пакет операций в таблице people".
+	   cloudTable.execute(batchOperation);
     }
     catch (Exception e)
     {
-        // Output the stack trace.
+        // Вывод трассировки стека.
         e.printStackTrace();
     }
 
 Некоторые другие примечания к пакетным операциям:
 
--   В отдельном пакете можно выполнить до 100 операций вставки, удаления, объединения, замены, вставки или замены и вставки или замены операций в любом сочетании.
--   Пакетная операция может иметь операцию извлечения, если она является единственной операцией в пакете.
--   У всех сущностей в одной пакетной операции должен быть одинаковый ключ раздела.
--   Объем полезных данных пакетной операции ограничен размером 4 МБ.
+- В отдельном пакете можно выполнить до 100 операций вставки, удаления, объединения, замены, вставки или замены и вставки или замены операций в любом сочетании.
+- Пакетная операция может иметь операцию извлечения, если она является единственной операцией в пакете.
+- У всех сущностей в одной пакетной операции должен быть одинаковый ключ раздела.
+- Объем полезных данных пакетной операции ограничен размером 4 МБ.
 
 ## <a name="RetrieveEntities"> </a>Практическое руководство. Получение всех сущностей в разделе
 
-Чтобы запросить из таблицы сущности раздела, можно использовать **TableQuery** Вызовите **TableQuery.from**, чтобы создать запрос для определенной таблицы, который возвращает результаты заданного типа. Следующий код задает фильтр для сущностей с ключомраздела "Smith". **TableQuery.generateFilterCondition** — это вспомогательный метод для создания фильтров запросов. Вызовите **where** по ссылке, которую вернул метод **TableQuery.from**, чтобы применить фильтр к запросу. При выполнении запроса с помощью вызова **execute** для объекта **CloudTable** он возвращает **Iterator** с указанным типом результата**CustomerEntity**. Затем можно использовать возвращенное значение **Iterator** в каждом цикле для получения результатов. Этот код выводит на консоль поля каждой сущности в результатах запроса.
+Чтобы запросить из таблицы сущности раздела, можно использовать **TableQuery**. Вызовите **TableQuery.from**, чтобы создать запрос для определенной таблицы, который возвращает результаты заданного типа. Следующий код задает фильтр для сущностей с ключом раздела "Smith". **TableQuery.generateFilterCondition** - это вспомогательный метод для создания фильтров запросов. Вызовите **where** по ссылке, которую вернул метод **TableQuery.from**, чтобы применить фильтр к запросу. При выполнении запроса с помощью вызова **execute** для объекта **CloudTable** он возвращает **Iterator** с указанным типом результата **CustomerEntity**. Затем можно использовать возвращенное значение **Iterator** в каждом цикле для получения результатов. Этот код выводит на консоль поля каждой сущности в результатах запроса.
 
     try
     {
-        // Define constants for filters.
-        final String PARTITION_KEY = "PartitionKey";
-        final String ROW_KEY = "RowKey";
-        final String TIMESTAMP = "Timestamp";
+    	// Определить константу для фильтров.
+    	final String PARTITION_KEY = "PartitionKey";
+    	final String ROW_KEY = "RowKey";
+    	final String TIMESTAMP = "Timestamp";
 
-        // Retrieve storage account from connection-string.
-        CloudStorageAccount storageAccount =
-           CloudStorageAccount.parse(storageConnectionString);
+    	// Получить учетную запись хранения из строки подключения.
+    	CloudStorageAccount storageAccount =
+	       CloudStorageAccount.parse(storageConnectionString);
 
-        // Create the table client.
-        CloudTableClient tableClient = storageAccount.createCloudTableClient();
-            
-       // Create a cloud table object for the table.
-       CloudTable cloudTable = tableClient.getTableReference("people");
+    	// Создать клиент таблицы.
+    	CloudTableClient tableClient = storageAccount.createCloudTableClient();
+			
+	   // Создать объект облачной таблицы для таблицы.
+	   CloudTable cloudTable = tableClient.getTableReference("people");
 
-        // Create a filter condition where the partition key is "Smith".
-        String partitionFilter = TableQuery.generateFilterCondition(
-           PARTITION_KEY, 
-           QueryComparisons.EQUAL,
-           "Smith");
+    	// Создать условия фильтра с ключом раздела "Smith". 
+    	String partitionFilter = TableQuery.generateFilterCondition(
+	       PARTITION_KEY, 
+	       QueryComparisons.EQUAL,
+	       "Smith");
 
-       // Specify a partition query, using "Smith" as the partition key filter.
-       TableQuery<CustomerEntity> partitionQuery =
-           TableQuery.from(CustomerEntity.class)
-           .where(partitionFilter);
+	   // Указать запрос раздел с использованием "Smith" в качестве ключевого фильтра.
+	   TableQuery<CustomerEntity> partitionQuery =
+	       TableQuery.from(CustomerEntity.class)
+	       .where(partitionFilter);
 
-        // Loop through the results, displaying information about the entity.
+        // Выполнить цикл по результатам с отображением информации о сущности.
         for (CustomerEntity entity : cloudTable.execute(partitionQuery)) {
             System.out.println(entity.getPartitionKey() +
                 " " + entity.getRowKey() + 
                 "\t" + entity.getEmail() +
                 "\t" + entity.getPhoneNumber());
-       }
+	   }
     }
     catch (Exception e)
     {
-        // Output the stack trace.
+        // Вывод трассировки стека.
         e.printStackTrace();
     }
 
@@ -289,44 +289,44 @@
 
     try
     {
-        // Define constants for filters.
-        final String PARTITION_KEY = "PartitionKey";
-        final String ROW_KEY = "RowKey";
-        final String TIMESTAMP = "Timestamp";
-            
-        // Retrieve storage account from connection-string.
-        CloudStorageAccount storageAccount =
-           CloudStorageAccount.parse(storageConnectionString);
+    	// Определить константу для фильтров.
+    	final String PARTITION_KEY = "PartitionKey";
+    	final String ROW_KEY = "RowKey";
+    	final String TIMESTAMP = "Timestamp";
+			
+    	// Получить учетную запись хранения из строки подключения.
+    	CloudStorageAccount storageAccount =
+	       CloudStorageAccount.parse(storageConnectionString);
 
-       // Create the table client.
-       CloudTableClient tableClient = storageAccount.createCloudTableClient();
+	   // Создать клиент таблицы.
+	   CloudTableClient tableClient = storageAccount.createCloudTableClient();
 
-       // Create a cloud table object for the table.
-       CloudTable cloudTable = tableClient.getTableReference("people");
+	   // Создать объект облачной таблицы для таблицы.
+	   CloudTable cloudTable = tableClient.getTableReference("people");
 
-        // Create a filter condition where the partition key is "Smith".
-        String partitionFilter = TableQuery.generateFilterCondition(
-           PARTITION_KEY, 
-           QueryComparisons.EQUAL,
-           "Smith");
+    	// Создать условия фильтра с ключом раздела "Smith".
+    	String partitionFilter = TableQuery.generateFilterCondition(
+	       PARTITION_KEY, 
+	       QueryComparisons.EQUAL,
+	       "Smith");
 
-        // Create a filter condition where the row key is less than the letter "E".
-        String rowFilter = TableQuery.generateFilterCondition(
-           ROW_KEY, 
-           QueryComparisons.LESS_THAN,
-           "E");
+    	// Создать условие для фильтра, где где ключ строки (имя) начинается с буквы до "E" в алфавите.
+    	String rowFilter = TableQuery.generateFilterCondition(
+	       ROW_KEY, 
+	       QueryComparisons.LESS_THAN,
+	       "E");
 
-        // Combine the two conditions into a filter expression.
-        String combinedFilter = TableQuery.combineFilters(partitionFilter, 
-            Operators.AND, rowFilter);
+    	// Объединить оба условия в критерий фильтра.
+    	String combinedFilter = TableQuery.combineFilters(partitionFilter, 
+	        Operators.AND, rowFilter);
 
-        // Specify a range query, using "Smith" as the partition key,
-        // with the row key being up to the letter "E".
-        TableQuery<CustomerEntity> rangeQuery =
-           TableQuery.from(CustomerEntity.class)
-           .where(combinedFilter);
+    	// Указать запрос раздела с использованием "Smith" в качестве ключа раздела, 
+    	// с ключом строки, расположенным до буквы "E"
+    	TableQuery<CustomerEntity> rangeQuery =
+	       TableQuery.from(CustomerEntity.class)
+	       .where(combinedFilter);
 
-        // Loop through the results, displaying information about the entity
+    	// Выполнить цикл по результатам с отображением информации о сущности
         for (CustomerEntity entity : cloudTable.execute(rangeQuery)) {
             System.out.println(entity.getPartitionKey() +
                 " " + entity.getRowKey() +
@@ -336,46 +336,46 @@
     }
     catch (Exception e)
     {
-        // Output the stack trace.
+        // Вывод трассировки стека.
         e.printStackTrace();
     }
 
 ## <a name="RetriveSingle"> </a>Практическое руководство. Извлечение одной сущности
 
-Можно написать запрос для получения отдельной сущности. В следующем коде выполняется вызов **TableOperation.retrieve** с параметрами ключа раздела и ключа строки для указания клиента "Jeff Smith" вместо создания **TableQuery** и применения фильтров с таким же результатом. При выполнении операция извлечения возвращает только одну сущность, а не коллекцию. Метод **GetResultAsType** приводит результат к типу назначенной цели — объекту **CustomerEntity**. Если этот тип не совместим с типом, указанным в запросе, возникает исключение. Значение NULL возвращается, если ни одна сущность не подходит по ключам раздела и строки. Указание ключа раздела и ключа строки в запросе — самый быстрый способ для получения одной сущности из службы таблиц.
+Можно написать запрос для получения отдельной сущности. В следующем коде выполняется вызов **TableOperation.retrieve** с параметрами ключа раздела и ключа строки для указания клиента "Jeff Smith" вместо создания **TableQuery** и применения фильтров с таким же результатом. При выполнении операция извлечения возвращает только одну сущность, а не коллекцию. Метод **GetResultAsType** приводит результат к типу назначенной цели - объекту **CustomerEntity**. Если этот тип не совместим с типом, указанным в запросе, возникает исключение. Значение NULL возвращается, если ни одна сущность не подходит по ключам раздела и строки. Указание ключа раздела и ключа строки в запросе - самый быстрый способ для получения одной сущности из службы таблиц.
 
     try
     {
-        // Retrieve storage account from connection-string.
-        CloudStorageAccount storageAccount =
-           CloudStorageAccount.parse(storageConnectionString);
+    	// Получить учетную запись хранения из строки подключения.
+    	CloudStorageAccount storageAccount =
+	       CloudStorageAccount.parse(storageConnectionString);
 
-        // Create the table client.
-        CloudTableClient tableClient = storageAccount.createCloudTableClient();
+    	// Создать клиент таблицы.
+    	CloudTableClient tableClient = storageAccount.createCloudTableClient();
 
-        // Create a cloud table object for the table.
-        CloudTable cloudTable = tableClient.getTableReference("people");
+    	// Создать объект облачной таблицы для таблицы.
+    	CloudTable cloudTable = tableClient.getTableReference("people");
 
-        // Retrieve the entity with partition key of "Smith" and row key of "Jeff"
-        TableOperation retrieveSmithJeff = 
-           TableOperation.retrieve("Smith", "Jeff", CustomerEntity.class);
+    	// Извлечь сущность с ключом раздела "Smith" и ключом строки "Jeff"
+    	TableOperation retrieveSmithJeff = 
+	       TableOperation.retrieve("Smith", "Jeff", CustomerEntity.class);
 
-       // Submit the operation to the table service and get the specific entity.
-       CustomerEntity specificEntity =
-            cloudTable.execute(retrieveSmithJeff).getResultAsType();
-            
-        // Output the entity.
-        if (specificEntity != null)
-        {
+	   // Отправить операцию в службу таблиц и получить определенную сущность. 
+	   CustomerEntity specificEntity =
+    		cloudTable.execute(retrieveSmithJeff).getResultAsType();
+			
+    	// Вывести сущность
+    	if (specificEntity != null)
+    	{
             System.out.println(specificEntity.getPartitionKey() +
                 " " + specificEntity.getRowKey() +
                 "\t" + specificEntity.getEmail() +
                 "\t" + specificEntity.getPhoneNumber());
-       }
+	   }
     }
     catch (Exception e)
     {
-        // Output the stack trace.
+        // Вывод трассировки стека.
         e.printStackTrace();
     }
 
@@ -385,36 +385,36 @@
 
     try
     {
-        // Retrieve storage account from connection-string.
-        CloudStorageAccount storageAccount =
-           CloudStorageAccount.parse(storageConnectionString);
+    	// Получить учетную запись хранения из строки подключения.
+    	CloudStorageAccount storageAccount =
+	       CloudStorageAccount.parse(storageConnectionString);
 
-        // Create the table client.
-        CloudTableClient tableClient = storageAccount.createCloudTableClient();
+    	// Создать клиент таблицы.
+    	CloudTableClient tableClient = storageAccount.createCloudTableClient();
 
-        // Create a cloud table object for the table.
-        CloudTable cloudTable = tableClient.getTableReference("people");
+    	// Создать объект облачной таблицы для таблицы.
+    	CloudTable cloudTable = tableClient.getTableReference("people");
 
-        // Retrieve the entity with partition key of "Smith" and row key of "Jeff".
-        TableOperation retrieveSmithJeff = 
-           TableOperation.retrieve("Smith", "Jeff", CustomerEntity.class);
+    	// Извлечь сущность с ключом раздела "Smith" и ключом строки "Jeff".
+    	TableOperation retrieveSmithJeff = 
+	       TableOperation.retrieve("Smith", "Jeff", CustomerEntity.class);
 
-        // Submit the operation to the table service and get the specific entity.
-        CustomerEntity specificEntity =
-          cloudTable.execute(retrieveSmithJeff).getResultAsType();
+    	// Отправить операцию в службу таблиц и получить определенную сущность.
+    	CustomerEntity specificEntity =
+		  cloudTable.execute(retrieveSmithJeff).getResultAsType();
 
-        // Specify a new phone number.
-        specificEntity.setPhoneNumber("425-555-0105");
+    	// Указать новый номера телефона
+    	specificEntity.setPhoneNumber("425-555-0105");
 
-        // Create an operation to replace the entity.
-        TableOperation replaceEntity = TableOperation.replace(specificEntity);
+    	// Создать операцию по замене сущности.
+    	TableOperation replaceEntity = TableOperation.replace(specificEntity);
 
-        // Submit the operation to the table service.
-        cloudTable.execute(replaceEntity);
+    	// Отправить операцию в службу таблиц.
+    	cloudTable.execute(replaceEntity);
     }
     catch (Exception e)
     {
-        // Output the stack trace.
+        // Вывод трассировки стека.
         e.printStackTrace();
     }
 
@@ -424,30 +424,30 @@
 
     try
     {
-        // Retrieve storage account from connection-string.
+        // Получить учетную запись хранения из строки подключения.
         CloudStorageAccount storageAccount =
             CloudStorageAccount.parse(storageConnectionString);
 
-        // Create the table client.
-        CloudTableClient tableClient = storageAccount.createCloudTableClient();
+    	// Создать клиент таблицы.
+    	CloudTableClient tableClient = storageAccount.createCloudTableClient();
 
-        // Create a cloud table object for the table.
-        CloudTable cloudTable = tableClient.getTableReference("people");
+    	// Создать объект облачной таблицы для таблицы.
+    	CloudTable cloudTable = tableClient.getTableReference("people");
 
-        // Define a projection query that retrieves only the Email property
-        TableQuery<CustomerEntity> projectionQuery = 
-           TableQuery.from(CustomerEntity.class)
-           .select(new String[] {"Email"});
+    	// Определить запрос проекции, который извлекает свойство Email
+    	TableQuery<CustomerEntity> projectionQuery = 
+	       TableQuery.from(CustomerEntity.class)
+	       .select(new String[] {"Email"});
 
-        // Define a Entity resolver to project the entity to the Email value.
-        EntityResolver<String> emailResolver = new EntityResolver<String>() {
+    	// Определить арбитр сущностей для проектирования сущностей в значении Email.
+    	EntityResolver<String> emailResolver = new EntityResolver<String>() {
             @Override
             public String resolve(String PartitionKey, String RowKey, Date timeStamp, HashMap<String, EntityProperty> properties, String etag) {
                 return properties.get("Email").getValueAsString();
             }
         };
 
-        // Loop through the results, displaying the Email values.
+        // Выполнить цикл по результатам с отображением значения Email.
         for (String projectedString : 
             cloudTable.execute(projectionQuery, emailResolver)) {
                 System.out.println(projectedString);
@@ -455,7 +455,7 @@
     }
     catch (Exception e)
     {
-        // Output the stack trace.
+        // Вывод трассировки стека.
         e.printStackTrace();
     }
 
@@ -465,30 +465,30 @@
 
     try
     {
-        // Retrieve storage account from connection-string.
+        // Получить учетную запись хранения из строки подключения.
         CloudStorageAccount storageAccount =
             CloudStorageAccount.parse(storageConnectionString);
 
-        // Create the table client.
+        // Создать клиент таблицы.
         CloudTableClient tableClient = storageAccount.createCloudTableClient();
 
-        // Create a cloud table object for the table.
+        // Создать объект облачной таблицы для таблицы.
         CloudTable cloudTable = tableClient.getTableReference("people");
 
-        // Create a new customer entity.
+        // Создать новую сущность customer.
         CustomerEntity customer5 = new CustomerEntity("Harp", "Walter");
         customer5.setEmail("Walter@contoso.com");
         customer5.setPhoneNumber("425-555-0106");
 
-        // Create an operation to add the new customer to the people table.
+        // Создать операцию по добавлению нового клиента в таблицу с людьми.
         TableOperation insertCustomer5 = TableOperation.insertOrReplace(customer5);
 
-        // Submit the operation to the table service.
+        // Отправить операцию в службу таблиц.
         cloudTable.execute(insertCustomer5);
     }
     catch (Exception e)
     {
-        // Output the stack trace.
+        // Вывод трассировки стека.
         e.printStackTrace();
     }
 
@@ -498,32 +498,32 @@
 
     try
     {
-        // Retrieve storage account from connection-string.
+        // Получить учетную запись хранения из строки подключения.
         CloudStorageAccount storageAccount =
             CloudStorageAccount.parse(storageConnectionString);
 
-        // Create the table client.
+        // Создать клиент таблицы.
         CloudTableClient tableClient = storageAccount.createCloudTableClient();
 
-        // Create a cloud table object for the table.
+        // Создать объект облачной таблицы для таблицы.
         CloudTable cloudTable = tableClient.getTableReference("people");
 
-        // Create an operation to retrieve the entity with partition key of "Smith" and row key of "Jeff".
+        // СОздать операцию по извлечению сущности с ключом раздела "Smith" и ключом строки "Jeff".
         TableOperation retrieveSmithJeff = TableOperation.retrieve("Smith", "Jeff", CustomerEntity.class);
 
-        // Retrieve the entity with partition key of "Smith" and row key of "Jeff".
+        // Извлечь сущность с ключом раздела "Smith" и ключом строки "Jeff".
         CustomerEntity entitySmithJeff =
             cloudTable.execute(retrieveSmithJeff).getResultAsType();
 
-        // Create an operation to delete the entity.
+        // Создать операцию по удалению сущности.
         TableOperation deleteSmithJeff = TableOperation.delete(entitySmithJeff);
 
-        // Submit the delete operation to the table service.
+        // Отправить операцию по удалению в службу таблиц.
         cloudTable.execute(deleteSmithJeff);
     }
     catch (Exception e)
     {
-        // Output the stack trace.
+        // Вывод трассировки стека.
         e.printStackTrace();
     }
 
@@ -533,20 +533,20 @@
 
     try
     {
-        // Retrieve storage account from connection-string.
+        // Получить учетную запись хранения из строки подключения.
         CloudStorageAccount storageAccount =
             CloudStorageAccount.parse(storageConnectionString);
 
-        // Create the table client.
+        // Создать клиент таблицы.
         CloudTableClient tableClient = storageAccount.createCloudTableClient();
 
-        // Delete the table and all its data if it exists.
+        // Удалить таблицу и все данные в ней, если они существуют.
         CloudTable cloudTable = new CloudTable("people",tableClient);
         cloudTable.deleteIfExists();
     }
     catch (Exception e)
     {
-        // Output the stack trace.
+        // Вывод трассировки стека.
         e.printStackTrace();
     }
 
@@ -554,33 +554,15 @@
 
 Вы изучили основные сведения о табличном хранилище. Дополнительные сведения о более сложных задачах по использованию хранилища можно найти по следующим ссылкам.
 
--   [Пакет Azure SDK для Java][Пакет SDK хранилища Azure для Java]
--   [Справочник по пакету SDK для клиента хранилища Azure][Справочник по пакету SDK для клиента хранилища Azure]
--   [REST API хранилища Azure][REST API хранилища Azure]
--   [Блог команды разработчиков хранилища Azure][Блог команды разработчиков хранилища Azure]
+- [Пакет Azure SDK для Java]
+- [Справочник по пакету SDK для клиента хранилища Azure]
+- [REST API хранилища Azure]
+- [Блог команды разработчиков хранилища Azure]
 
-  [Пакет SDK хранилища Azure для Java]: https://github.com/azure/azure-storage-java
-  [Дальнейшие действия]: #NextSteps
-  [Пакет SDK хранилища Azure для Android]: https://github.com/azure/azure-storage-android
-  [Что такое хранилище таблиц]: #what-is
-  [Основные понятия]: #Concepts
-  [Создание учетной записи хранения Azure]: #CreateAccount
-  [Создание приложения Java]: #CreateApplication
-  [Настройка приложения для доступа к хранилищу таблиц]: #ConfigureStorage
-  [Настройка строки подключения к хранилищу Azure]: #ConnectionString
-  [Практическое руководство. Создание таблицы]: #CreateTable
-  [Практическое руководство. Перечисление таблиц]: #ListTables
-  [Практическое руководство. Добавление сущности в таблицу]: #AddEntity
-  [Практическое руководство. Вставка пакета сущностей]: #InsertBatch
-  [Практическое руководство. Получение всех сущностей в разделе]: #RetrieveEntities
-  [Практическое руководство. Получение диапазона сущностей в разделе]: #RetrieveRange
-  [Практическое руководство. Извлечение одной сущности]: #RetriveSingle
-  [Практическое руководство. Изменение сущности]: #ModifyEntity
-  [Практическое руководство. Запрос подмножества свойств сущности]: #QueryProperties
-  [Практическое руководство. Вставка или замена сущности]: #InsertOrReplace
-  [Практическое руководство. Удаление сущности]: #DeleteEntity
-  [Практическое руководство. Удаление таблицы]: #DeleteTable
-  [Справочник по пакету SDK для клиента хранилища Azure]: http://dl.windowsazure.com/storage/javadoc/
-  [записи блога]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
-  [REST API хранилища Azure]: http://msdn.microsoft.com/ru-ru/library/azure/gg433040.aspx
-  [Блог команды разработчиков хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
+[Пакет Azure SDK для Java]: http://www.windowsazure.com/ru-ru/develop/java/
+[Пакет SDK хранилища Azure для Java]: https://github.com/azure/azure-storage-java
+[Пакет SDK хранилища Azure для Android]: https://github.com/azure/azure-storage-android
+[Справочник по пакету SDK для клиента хранилища Azure]: http://dl.windowsazure.com/storage/javadoc/
+[REST API хранилища Azure]: http://msdn.microsoft.com/ru-ru/library/azure/gg433040.aspx
+[Блог команды разработчиков хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
+[записи блога]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx

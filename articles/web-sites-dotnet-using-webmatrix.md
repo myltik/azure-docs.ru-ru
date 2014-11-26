@@ -145,7 +145,6 @@
 
 -   [Веб-сайт WebMatrix][Веб-сайт WebMatrix]
 
-  [создать-учетная запись-и-веб-сайт-примечание]: ../includes/create-account-and-websites-note.md
   [Добавление учетной записи]: ./media/web-sites-dotnet-using-webmatrix/webmatrix-add-account.png
   [Вход в Azure]: ./media/web-sites-dotnet-using-webmatrix/webmatrix-sign-in.png
   [Новый сайт из коллекции шаблонов]: ./media/web-sites-dotnet-using-webmatrix/webmatrix-site-from-template.png

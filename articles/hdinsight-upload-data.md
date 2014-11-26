@@ -1,4 +1,4 @@
-<properties urlDisplayName="Upload Data" pageTitle="Отправка данных для заданий Hadoop в Azure HDInsight" metaKeywords="" description="Вы узнаете, как отправить и получить доступ к данным в HDInsight с помощью обозревателя хранилищ Azure, Azure PowerShell, командной строки Hadoop или Sqoop." metaCanonical="" services="storage,hdinsight" documentationCenter="" title="Отправка данных для заданий Hadoop в HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
+<properties linkid="manage-services-hdinsight-upload-data-for-hadoop-jobs-in-hdinsight" urlDisplayName="Upload Data" pageTitle="Upload data for Hadoop jobs in HDInsight | Azure" metaKeywords="" description="Learn how to upload and access data in HDInsight using Azure Storage Explorer, Azure PowerShell, the Hadoop command line, or Sqoop." metaCanonical="" services="storage,hdinsight" documentationCenter="" title="Upload data for Hadoop jobs in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
@@ -77,7 +77,7 @@ Azure PowerShell — это полнофункциональная среда с
 
 ## <span id="storageexplorer"></span></a>Отправка данных в хранилище BLOB-объектов с использованием обозревателя хранилищ Azure
 
-*Обозреватель хранилищ Azure* — это полезное средство для проверки и изменения данных в хранилище Azure. Это бесплатное средство, которое можно загрузить на сайте <http://azurestorageexplorer.codeplex.com/>.
+*Обозреватель хранилищ Azure* — это полезное средство для проверки и изменения данных в хранилище Azure. Это бесплатное средство, которое можно загрузить на сайте [][]<http://azurestorageexplorer.codeplex.com/></a>.
 
 Прежде чем использовать средство, необходимо узнать ваше имя учетной записи хранения Azure и ключ учетной записи. Инструкции по получению этой информации см. в "Практическом руководстве: Просмотр, копирование и повторное создание ключей доступа к хранилищу, раздел [Управление учетными записями хранения][Управление учетными записями хранения].
 
@@ -198,6 +198,7 @@ Sqoop — это средство, предназначенное для пер�
   [Импорт данных из базы данных SQL Azure в хранилище BLOB-объектов с использованием Sqoop]: #sqoop
   [Загрузка AzCopy]: http://aka.ms/WaCopy
   [Установка и настройка Azure PowerShell]: ../install-configure-powershell/
+  []: http://azurestorageexplorer.codeplex.com/ "Обозреватель хранилищ Azure"
   [Управление учетными записями хранения]: ../storage-manage-storage-account/
   [HDI.AzureStorageExplorer]: ./media/hdinsight-upload-data/HDI.AzureStorageExplorer.png
   [HDI.ASEAddAccount]: ./media/hdinsight-upload-data/HDI.ASEAddAccount.png

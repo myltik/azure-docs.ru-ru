@@ -1,4 +1,4 @@
-<properties urlDisplayName="Ruby on Rails Web App on Azure using Linux VM" pageTitle="Веб-приложение Ruby on Rails на виртуальной машине Azure с ОС Linux" metaKeywords="Azure Ruby web application, Azure Ruby application, Ruby app Azure, Ruby azure vm, ruby virthal machine, ruby linux vm" description="Размещение веб-сайта на основе Ruby on Rails в Azure с помощью виртуальной машины Linux. " metaCanonical="" services="virtual-machines" documentationCenter="Ruby" title="Веб-приложение Ruby on Rails на виртуальной машине Azure" authors="larryfr" solutions="" manager="wpickett" editor="" />
+<properties linkid="dev-ruby-web-app-with-linux-vm" urlDisplayName="Ruby on Rails Web App on Azure using Linux VM" pageTitle="Ruby on Rails Web App on Azure using Linux VM" metaKeywords="Azure Ruby web application, Azure Ruby application, Ruby app Azure, Ruby azure vm, ruby virthal machine, ruby linux vm" description="Host a Ruby on Rails-based website on Azure using a Linux virtual machine. " metaCanonical="" services="virtual-machines" documentationCenter="Ruby" title="Ruby on Rails Web application on an Azure VM" authors="larryfr" solutions="" manager="" editor="" />
 
 <tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-linux" ms.devlang="ruby" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
@@ -40,7 +40,7 @@
 
 1.  Установка Ruby в среде разработки. Действия, необходимые для установки, зависят от операционной системы.
 
-    -   **Apple OS X** — для OS X существует несколько выпусков Ruby. Данное руководство было проверено на OS X с использованием [Homebrew][Homebrew] для установки **rbenv** и **ruby-build**. Сведения об установке можно найти на веб-сайте <https://github.com/sstephenson/rbenv/>.
+    -   **Apple OS X** — для OS X существует несколько выпусков Ruby. Данное руководство было проверено на OS X с использованием [Homebrew][Homebrew] для установки **rbenv** и **ruby-build**. Сведения об установке можно найти на веб-сайте [][]<https://github.com/sstephenson/rbenv/></a>.
 
     -   **Linux** — используйте собственную систему управления пакетами распространения. Данное руководство было проверено на системе Ubuntu 12.10 с использованием пакетов ruby1.9.1 и ruby1.9.1-dev.
 
@@ -51,24 +51,17 @@
         gem install rails --no-rdoc --no-ri
 
     <div class="dev-callout">
-
-    **Примечание.**
-    Для выполнения этой команды в некоторых операционных системах могут потребоваться привилегии администратора или корня. Если при выполнении этой команды возникла ошибка, попробуйте использовать sudo следующим образом:
-
-    ``` prettyprint
-    sudo gem install rails
-    ```
-
-    </div>
+<strong>Примечание.</strong>
+<p>Для выполнения этой команды в некоторых операционных системах могут потребоваться привилегии администратора или корня. Если при выполнении этой команды возникла ошибка, попробуйте использовать sudo следующим образом:</p>
+<pre class="prettyprint">sudo gem install rails</pre>
+</div>
 
     <div class="dev-callout">
+<strong>Примечание.</strong>
+<p>Для этого руководства использовался пакет Rails версии 3.2.12.</p>
+</div>
 
-    **Примечание.**
-    Для этого руководства использовался пакет Rails версии 3.2.12.
-
-    </div>
-
-3.  Кроме того, необходимо установить интерпретатор JavaScript, который будет использоваться Rails для компиляции активов CoffeeScript, используемых приложением Rails. Список поддерживаемых интерпретаторов доступен на веб-сайте <https://github.com/sstephenson/execjs#readme>.
+3.  Кроме того, необходимо установить интерпретатор JavaScript, который будет использоваться Rails для компиляции активов CoffeeScript, используемых приложением Rails. Список поддерживаемых интерпретаторов доступен на веб-сайте [][1]<https://github.com/sstephenson/execjs#readme></a>.
 
     При проверке этого руководства использовалась библиотека [Node.js][Node.js], поскольку она доступна для OS X, Linux и Windows.
 
@@ -81,11 +74,9 @@
     Эта команда создает новый каталог с именем **blog\_app** и заполняет его файлами и вложенными каталогами, необходимыми приложению Rails.
 
     <div class="dev-callout">
-
-    **Примечание.**
-    Для выполнения этой команды может потребоваться от одной до нескольких минут. Она выполняет автоматическую установку пакетов, необходимых для приложения по умолчанию. В это время может показаться, что система перестала отвечать на запросы.
-
-    </div>
+<strong>Примечание.</strong>
+<p>Для выполнения этой команды может потребоваться от одной до нескольких минут. Она выполняет автоматическую установку пакетов, необходимых для приложения по умолчанию. В это время может показаться, что система перестала отвечать на запросы.</p>
+</div>
 
 2.  Измените каталоги на **blog\_app**, а затем используйте следующую команду, чтобы создать базовый шаблон блога:
 
@@ -117,11 +108,11 @@
         [2013-03-12 19:11:31] INFO  ruby 1.9.3 (2012-04-20) [x86_64-linux]
         [2013-03-12 19:11:31] INFO  WEBrick::HTTPServer#start: pid=9789 port=3000
 
-2.  Откройте браузер и перейдите по адресу http://localhost:3000/. Вы должны увидеть страницу, аналогичную показанной ниже:
+2.  Откройте браузер и перейдите по адресу <http://localhost:3000/>. Вы должны увидеть страницу, аналогичную показанной ниже:
 
     ![страница Rails по умолчанию][страница Rails по умолчанию]
 
-    Это статическая страница приветствия. Чтобы просмотреть формы, создаваемые командой формирования шаблонов, перейдите по адресу http://localhost:3000/posts. Вы должны увидеть страницу, аналогичную показанной ниже:
+    Это статическая страница приветствия. Чтобы просмотреть формы, создаваемые командой формирования шаблонов, перейдите по адресу <http://localhost:3000/posts>. Вы должны увидеть страницу, аналогичную показанной ниже:
 
     ![страница со списком записей][страница со списком записей]
 
@@ -132,17 +123,12 @@
 Следуйте инструкциям, указанным [здесь][здесь], чтобы создать виртуальную машину Windows Azure с операционной системой Linux.
 
 <div class="dev-callout">
-
-**Примечание.**
-Шаги в этом учебнике были выполнены на виртуальной машине Azure с размещенной ОС Ubuntu 12.10. При использовании другого дистрибутива Linux для выполнения тех же задач могут потребоваться другие действия.
-
-</div>
+<strong>Примечание.</strong>
+<p>Шаги в этом учебнике были выполнены на виртуальной машине Azure с размещенной ОС Ubuntu 12.10. При использовании другого дистрибутива Linux для выполнения тех же задач могут потребоваться другие действия.</p></div>
 
 <div class="dev-callout">
-
-**Примечание.**
-Необходимо **только** создать виртуальную машину. Остановитесь, когда узнаете, как подключиться к виртуальной машине с помощью SSH.
-
+<strong>Примечание.</strong>
+<p>Необходимо <strong>только</strong> создать виртуальную машину. Остановитесь, когда узнаете, как подключиться к виртуальной машине с помощью SSH.</p>
 </div>
 
 После создания виртуальной машины Azure выполните следующие действия, чтобы установить Ruby and Rails на виртуальной машине:
@@ -156,11 +142,9 @@
         ssh railsdev@railsvm.cloudapp.net -p 61830
 
     <div class="dev-callout">
-
-    **Примечание.**
-    Если вы используете Windows как среду разработки, для применения функций SSH можно воспользоваться служебной программой, например **PuTTY**. PuTTY можно скачать со [страницы скачивания PuTTY][страницы скачивания PuTTY].
-
-    </div>
+<strong>Примечание.</strong>
+<p>Если вы используете Windows как среду разработки, для применения функций SSH можно воспользоваться служебной программой, например <b>PuTTY</b>. PuTTY можно скачать со <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">страницы скачивания PuTTY</a>.</p>
+</div>
 
 2.  В сеансе SSH выполните следующие команды, чтобы установить Ruby на виртуальной машине:
 
@@ -191,10 +175,8 @@
     scp -r -P 54822 -C ~/blog_app railsdev@railsvm.cloudapp.net:
 
 <div class="dev-callout">
-
-**Примечание.**
-Если вы используете Windows как среду разработки, для применения функций scp можно воспользоваться служебной программой, например **pscp**. Pscp можно скачать со [страницы скачивания PuTTY][страницы скачивания PuTTY].
-
+<strong>Примечание.</strong>
+<p>Если вы используете Windows как среду разработки, для применения функций scp можно воспользоваться служебной программой, например <b>pscp</b>. Pscp можно скачать со <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">страницы скачивания PuTTY</a>.</p>
 </div>
 
 Параметры, используемые для этой команды, приводят к получению следующих результатов:
@@ -207,7 +189,7 @@
 
 -   **directory-to-copy**: локальный каталог, который необходимо скопировать.
 
--   **user@vmdns**: адрес компьютера, на который копируются файлы, а также учетная запись пользователя для входа в систему.
+-   <**user@vmdns**>: адрес компьютера, на который копируются файлы, а также учетная запись пользователя для входа в систему.
 
 После завершения копирования каталог **blog\_app** будет расположен в домашнем каталоге пользователей. Используйте следующие команды в сеансе SSH-подключения к виртуальной машине для просмотра скопированных файлов:
 
@@ -266,7 +248,7 @@
 
 8.  Должно появиться сообщение **ВЫПОЛНЯЕТСЯ ОБНОВЛЕНИЕ**. После того как сообщение исчезнет, конечная точка будет активирована. Теперь вы можете протестировать приложение, перейдя к имени DNS виртуальной машины. Веб-сайт должен выглядеть аналогично следующему:
 
-    ![страница Rails по умолчанию][1]
+    ![страница Rails по умолчанию][2]
 
     Если добавить **/posts** к URL-адресу, вы увидите страницы, созданные командой формирования шаблонов.
 
@@ -288,7 +270,7 @@
 
 -   [Обслуживание контента, передаваемого по каналам с высокой пропускной способностью, с помощью сети CDN][Обслуживание контента, передаваемого по каналам с высокой пропускной способностью, с помощью сети CDN]
 
-<!-- WA.com links --> <!-- External Links --> <!-- Images -->
+
 
   [записи с описанием приложения в браузере]: ./media/virtual-machines-ruby-rails-web-app-linux/blograilscloud.png
   [Настройка среды разработки]: #setup
@@ -299,19 +281,19 @@
   [Установка пакетов и запуск приложения]: #start
   [Дальнейшие действия]: #next
   [Homebrew]: http://brew.sh/
+  []: https://github.com/sstephenson/rbenv/
   [RailsInstaller]: http://railsinstaller.org/
+  [1]: https://github.com/sstephenson/execjs#readme
   [Node.js]: http://nodejs.org/
   [базу данных SQLite3]: http://www.sqlite.org/
   [страница Rails по умолчанию]: ./media/virtual-machines-ruby-rails-web-app-linux/basicrailslocal.png
   [страница со списком записей]: ./media/virtual-machines-ruby-rails-web-app-linux/blograilslocal.png
   [здесь]: /ru-ru/documentation/articles/virtual-machines-linux-tutorial
-  [страницы скачивания PuTTY]: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
   [портал управления Azure]: https://manage.windowsazure.com/
   [список виртуальных машин]: ./media/virtual-machines-ruby-rails-web-app-linux/vmlist.png
   [страница конечных точек]: ./media/virtual-machines-ruby-rails-web-app-linux/endpoints.png
   [диалоговое окно добавления конечной точки]: ./media/virtual-machines-ruby-rails-web-app-linux/newendpoint.png
-  [1]: ./media/virtual-machines-ruby-rails-web-app-linux/basicrailscloud.png
-  [Unicorn+NginX+Capistrano с виртуальной машиной Azure]: /ru-ru/documentation/articles/virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn/
+  [2]: ./media/virtual-machines-ruby-rails-web-app-linux/basicrailscloud.png
   [Руководства по Ruby on Rails]: http://guides.rubyonrails.org/
   [Хранение неструктурированных данных с использованием BLOB-объектов]: /ru-ru/documentation/articles/storage-ruby-how-to-use-blob-storage
   [Хранение пар "ключ/значение" с использованием таблиц]: /ru-ru/develop/ruby/how-to-guides/table-service/

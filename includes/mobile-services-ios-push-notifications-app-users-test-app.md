@@ -1,6 +1,6 @@
 1.  Нажмите кнопку **Выполнить**, чтобы построить проект и запустить приложение на устройстве с iOS, а затем нажмите кнопку **ОК**, чтобы разрешить прием push-уведомлений. Убедитесь в успешном входе в систему и успешной проверке подлинности.
 
-    ![][]
+    ![][0]
 
     > [WACOM.NOTE] Необходимо явно разрешить прием push-уведомлений от вашего приложения. Этот запрос отображается только при первом запуске приложения.
 
@@ -18,7 +18,7 @@
 
 Вы успешно завершили ознакомление с данным учебником.
 
-  []: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push1-ios.png
+  [0]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push1-ios.png
   [1]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push2-ios.png
   [2]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push3-ios.png
   [3]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push4-ios.png

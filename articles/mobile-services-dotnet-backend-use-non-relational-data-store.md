@@ -1,6 +1,6 @@
 <properties linkid="mobile-services-dotnet-backend-use-non-relational-data-store" urlDisplayName="Build a Service Using a Non-Relational Data Store" pageTitle="Build a Service Using a Non-Relational Data Store - Azure Mobile Services" metaKeywords="" description="Learn how to use a non-relational data store such as MongoDB or Azure Table Storage with your .NET based mobile service" metaCanonical="" services="" documentationCenter="Mobile" title="Build a Service Using a Non-Relational Data Store" authors="yavorg, mahender" solutions="" manager="" editor="mollybos" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="yavorg, mahender"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="yavorg, mahender" />
 
 # Построение службы с использованием MongoDB в качестве источника данных на внутреннем сервере .NET
 
@@ -20,7 +20,7 @@
 
 2.  Выберите надстройку **MongoLab** и пройдите мастер для регистрации учетной записи. Дополнительные сведения о MongoDB см. на [странице надстройки MongoLab][странице надстройки MongoLab].
 
-    ![][]
+    ![][0]
 
 3.  После настройки учетной записи выберите пункт **Сведения о подключении** и скопируйте строку подключения.
 
@@ -85,9 +85,9 @@
 
 3.  Создайте новый элемент. Приложение должно вести себя как и прежде, за исключением того, что теперь данные будут поступать в нереляционное хранилище.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Создание нереляционного хранилища]: #create-store
   [Изменение данных и контроллеров]: #modify-service
@@ -96,5 +96,5 @@
   [Приступая к работе с данными]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data
   [портале управления Azure]: https://manage.windowsazure.com/
   [странице надстройки MongoLab]: /ru-ru/gallery/store/mongolab/mongolab
-  []: ./media/mobile-services-dotnet-backend-use-non-relational-data-store/create-mongo-lab.png
+  [0]: ./media/mobile-services-dotnet-backend-use-non-relational-data-store/create-mongo-lab.png
   [1]: ./media/mobile-services-dotnet-backend-use-non-relational-data-store/mongo-connection-string.png

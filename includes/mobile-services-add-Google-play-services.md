@@ -2,7 +2,7 @@
 
 2.  Прокрутите вниз до элемента**Дополнительно**, разверните его и выберите **Службы Google Play**, как показано ниже. Щелкните элемент **Install Packages** (Установить пакеты). Запомните путь к пакету SDK для использования в следующем шаге. Перезапустите Eclipse.
 
-    ![][]
+    ![][0]
 
 3.  Установите пакет SDK служб Google Play в вашем проекте. В Eclipse щелкните **Файл**, а затем — **Импорт**. Выберите **Android**, затем — **Существующий код Android в рабочую область** и нажмите кнопку **Далее**. Щелкните кнопку **Обзор**, откройте папку пакета SDK для Android (обычно она называется `adt-bundle-windows-x86_64`), перейдите в подпапку `\extras\google\google_play_services\libproject`, выберите папку «google-play-services-lib» и нажмите кнопку **ОК**. Установите флажок **Копировать проекты в рабочую область** и нажмите кнопку **Готово**.
 
@@ -22,6 +22,6 @@
 
 9.  Нажмите кнопку **Применить**, а затем **ОК**.
 
-  []: ./media/notification-hubs-android-get-started/notification-hub-create-android-app4.png
+  [0]: ./media/notification-hubs-android-get-started/notification-hub-create-android-app4.png
   [1]: ./media/mobile-services-android-get-started-push/mobile-eclipse-import-Play-library.png
   [2]: ./media/mobile-services-android-get-started-push/mobile-google-set-project-properties.png

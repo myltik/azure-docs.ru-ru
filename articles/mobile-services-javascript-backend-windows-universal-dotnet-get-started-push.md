@@ -67,9 +67,9 @@
   <br/>Дополнительные сведения об использовании мобильных служб из приложений для Windows, созданных на языке C#.
 
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
 [mobile-services-selector-get-started-push]: ../includes/mobile-services-selector-get-started-push.md
 [Приступая к работе с push-уведомлениями в мобильных службах]: /ru-ru/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push

@@ -420,12 +420,8 @@ API управления службами Azure, Azure создает экзем
   [3]: ./media/application-model/application-model-6.jpg
   [4]: ./media/application-model/application-model-7.jpg
   [Общие сведения о ценах на Azure]: http://www.windowsazure.com/ru-ru/pricing/calculator/
-  [Управление сертификатами
-  в Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/gg981929.aspx
   []: http://msdn.microsoft.com/ru-ru/library/windowsazure/ee758710.aspx
   [5]: http://msdn.microsoft.com/ru-ru/library/hh560567.aspx
-  [Управление обновлениями
-  гостевой ОС Azure]: http://msdn.microsoft.com/ru-ru/library/ee924680.aspx
   [портал управления Azure]: http://manage.windowsazure.com/
   [6]: ./media/application-model/application-model-8.jpg
   [Развертывание и обновление приложений Azure]: http://www.windowsazure.com/ru-ru/develop/net/fundamentals/deploying-applications/

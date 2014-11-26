@@ -86,9 +86,9 @@ var todolistClient = new WindowsAzure.MobileServiceClient(
   <br/>Дополнительные сведения об использовании мобильных служб из приложений HTML и JavaScript.
 
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
 [mobile-services-selector-get-started-push]: ../includes/mobile-services-selector-get-started-push.md
 [эту версию]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push

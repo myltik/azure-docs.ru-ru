@@ -182,9 +182,9 @@
 
     Дополнительные сведения об использовании мобильных служб в .NET.
 
-<!-- Anchors. -->
-<!-- Images. -->
-<!-- URLs. -->
+
+
+
 
   [Магазин Windows — C#]: /ru-ru/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/ "Магазин Windows — C#"
   [Магазин Windows —JavaScript]: /ru-ru/documentation/articles/mobile-services-windows-store-javascript-get-started-data/ "Магазин Windows — JavaScript"
@@ -202,9 +202,7 @@
   [Приложение GetStartedWithMobileServices]: http://go.microsoft.com/fwlink/p/?LinkId=328660
   [0]: ./media/mobile-services-windows-store-dotnet-get-started-data-vs2013/mobile-data-sample-download-dotnet-vs12.png
   [1]: ./media/mobile-services-windows-store-dotnet-get-started-data-vs2013/mobile-quickstart-startup.png
-  [mobile-services-create-new-service-vs2013]: ../includes/mobile-services-create-new-service-vs2013.md
   [класса MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
-  [mobile-services-create-new-table-vs2013]: ../includes/mobile-services-create-new-table-vs2013.md
   [Динамическая схема]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj193175.aspx
   [Портале управления]: https://manage.windowsazure.com/
   [2]: ./media/mobile-services-windows-store-dotnet-get-started-data-vs2013/mobile-todoitem-data-browse.png

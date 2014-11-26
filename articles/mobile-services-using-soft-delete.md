@@ -129,7 +129,7 @@
 
 Дополнительные сведения о запланированных заданиях в мобильных службах серверной части JavaScript см. в разделе [Планирование повторяющихся заданий в мобильных службах сервера JavaScript][3].
 
-<!-- Anchors. --> <!-- Images --> <!-- URLs. -->
+ <!-- Images --> 
 
   [SQL bit]: http://msdn.microsoft.com/ru-ru/library/ms177603.aspx
   [операции запроса REST]: http://msdn.microsoft.com/ru-ru/library/azure/jj677199.aspx

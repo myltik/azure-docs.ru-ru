@@ -13,6 +13,5 @@
 -   [Создание веб-сайта Azure PHP MySQL и его развертывание с помощью Git][Создание веб-сайта Azure PHP MySQL и его развертывание с помощью Git] — создание веб-сайта PHP с нуля и его развертывание на веб-сайте Azure с помощью Git.
 -   [Дополнительные учебники по PHP][Дополнительные учебники по PHP] — создание дополнительных типов приложений с помощью PHP и Azure.
 
-  [website-from-gallery]: ../includes/website-from-gallery.md
   [Создание веб-сайта Azure PHP MySQL и его развертывание с помощью Git]: /ru-ru/develop/php/tutorials/website-w-mysql-and-git/
   [Дополнительные учебники по PHP]: /ru-ru/develop/php/tutorials/

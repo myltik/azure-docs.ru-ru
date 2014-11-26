@@ -1,10 +1,10 @@
 <properties linkid="create-vso-project-setup-continuous-deployment" urlDisplayName="How to create a VSO project and setup Continuous Deployment" pageTitle="How to create a Visual Studio Online team project and setup Continuous Deployment - Windows Azure" metaKeywords="Visual Studio Online create team project, continuous deployment to Azure" description="Learn how to create a Visual Studio Online team project and configure it for continuous deployment to Windows Azure." metaCanonical="" services="cloud-services, visual-studio-online" documentationCenter="" title="How to Create and Deploy a Cloud Service" authors="jimlamb" solutions="" writer="jimlamb" manager="" editor=""  />
 
-<tags ms.service="visual-studio-online" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jimlamb"></tags>
+<tags ms.service="visual-studio-online" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jimlamb" />
 
 # Создание проекта Visual Studio Online и настройка непрерывного развертывания в Windows Azure
 
-[WACOM.INCLUDE [отказ от ответственности][отказ от ответственности]]
+[WACOM.INCLUDE [отказ от ответственности](../includes/disclaimer.md)]
 
 На портале управления Windows Azure можно создать командный проект в Visual Studio Online и настроить веб-приложение для непрерывного развертывания на веб-сайте.
 
@@ -57,7 +57,6 @@
 3.  На выноске построения щелкните по первому элементу в части **Развертывание**, чтобы открыть соответствующий веб-сайт.
 4.  На выноске веб-сайта щелкните по команде уровня выноски **Обзор**, чтобы просмотреть веб-сайт и проверить развертывание своего веб-приложения.
 
-  [отказ от ответственности]: ../includes/disclaimer.md
   [Создание командного проекта]: #create_team_project
   [Создание нового веб-приложения и добавление его в систему управления версиями Git]: #create_web_app
   [Настройка непрерывного развертывания]: #continuous_deployment

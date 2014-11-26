@@ -181,7 +181,6 @@
   [Отправка уведомлений из серверной части]: #send
   [SDK мобильных служб для iOS]: http://go.microsoft.com/fwLink/?LinkID=266533
   [XCode 4.5]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-  [Включение службы push-уведомлений Apple]: ../includes/enable-apple-push-notifications.md
   [0]: ./media/notification-hubs-ios-get-started/mobile-services-ios-push-27.png
   [портал управления Аzure]: https://manage.windowsazure.com/
   [1]: ./media/notification-hubs-ios-get-started/notification-hub-create-from-portal.png

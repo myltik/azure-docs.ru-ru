@@ -146,12 +146,10 @@ PhoneGap поддерживает разработку для нескольки
 
 <!-- Images. URLs. -->
 
-  [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
   [0]: ./media/mobile-services-javascript-backend-phonegap-get-started/mobile-portal-quickstart-ios.png
   [Visual Studio 2012 Express для Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
   [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
   [средства разработчика Android]: https://go.microsoft.com/fwLink/p/?LinkID=280125
-  [mobile-services-create-new-service]: ../includes/mobile-services-create-new-service.md
   [1]: ./media/mobile-services-javascript-backend-phonegap-get-started/portal-screenshot1.png
   [2]: ./media/mobile-services-javascript-backend-phonegap-get-started/portal-screenshot2.png
   [3]: ./media/mobile-services-javascript-backend-phonegap-get-started/mobile-portal-quickstart-wp8.png

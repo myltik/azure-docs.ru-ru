@@ -1,6 +1,6 @@
 <properties title="Azure Machine Learning API service operations" pageTitle="Machine Learning API service operations | Azure" description="Creating and managing Azure Machine Learning web services" metaKeywords="" services="" solutions="" documentationCenter="" authors="derrickv" videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="derrickv"></tags>
+<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="derrickv" />
 
 # Операции со службой API машинного обучения Azure
 
@@ -28,7 +28,7 @@ Azure ML позволяет создавать веб-службы на осно
 
 На рис. ниже показаны высокоуровневые шаги, выполняемые на двух этапах: сначала формируется модель, а затем выполняется ее публикация в виде веб-службы. В этом документе подробно рассматривается правая часть рис. 1 (публикация веб-службы оценки) и объясняются концепции, задействуемые в данном процессе.
 
-![][]
+![][0]
 
 Рис. 1. Провизионирование, формирование и публикация веб-службы оценки
 
@@ -219,7 +219,7 @@ Azure ML Studio предоставляет приложение на основ�
 <!--Image references-->
 <!--Link references-->
 
-  []: ./media/machine-learning-overview-of-azure-ml-process/oamlp1.png
+  [0]: ./media/machine-learning-overview-of-azure-ml-process/oamlp1.png
   [1]: ./media/machine-learning-overview-of-azure-ml-process/oamlp2.png
   [2]: ./media/machine-learning-overview-of-azure-ml-process/oamlp3.png
   [3]: ./media/machine-learning-overview-of-azure-ml-process/oamlp4.png

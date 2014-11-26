@@ -1,6 +1,6 @@
 1.  На портале управления щелкните вкладку **Данные** и затем щелкните таблицу **Регистрации**.
 
-    ![][]
+    ![][0]
 
 2.  В таблице **Регистрации** щелкните вкладку **Скрипт** и выберите команду **Вставить**.
 
@@ -26,5 +26,5 @@
 
 Это регистрирует новый скрипт вставки, который хранит сведения о регистрации в новой таблице.
 
-  []: ./media/mobile-services-update-registrations-script/mobile-portal-data-tables-registrations.png
+  [0]: ./media/mobile-services-update-registrations-script/mobile-portal-data-tables-registrations.png
   [1]: ./media/mobile-services-update-registrations-script/mobile-insert-script-registrations.png

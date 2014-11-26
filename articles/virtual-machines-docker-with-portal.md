@@ -113,7 +113,7 @@
 
 Переходите к [Руководству пользователя Docker][Руководству пользователя Docker] и использованию виртуальной машины Docker. Для быстрого и многократного создания виртуальных машин Docker на Azure см. раздел [Использование расширения виртуальных машин Docker в межплатформенном интерфейсе Azure (xplat-cli)][Использование расширения виртуальных машин Docker в межплатформенном интерфейсе Azure (xplat-cli)]
 
-<!--Anchors--> <!--Image references--> <!--Link references-->
+<!--Anchors-->\r\n<!--Image references-->\r\n<!--Link references-->
 
   [Docker]: https://www.docker.com/
   [контейнеры Linux]: http://en.wikipedia.org/wiki/LXC

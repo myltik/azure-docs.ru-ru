@@ -2,7 +2,7 @@
 
 1.  Откройте в Visual Studio 2012 файл Package.appxmanifest и на вкладке **Возможности** включите функции **Веб-камера** и **Микрофон**.
 
-    ![][]
+    ![][0]
 
     Это позволит приложению использовать камеру, подключенную к компьютеру. Пользователям необходимо будет разрешить доступ к камере при первом запуске приложения.
 
@@ -142,7 +142,7 @@
 
     > [WACOM.NOTE]Изображение скачивается автоматически из службы хранилища BLOB-объектов, когда свойство `imageUri` нового элемента привязано к элементу управления **Изображение**.
 
-  []: ./media/mobile-services-windows-store-dotnet-upload-to-blob-storage/mobile-app-manifest-camera.png
+  [0]: ./media/mobile-services-windows-store-dotnet-upload-to-blob-storage/mobile-app-manifest-camera.png
   [1]: ./media/mobile-services-windows-store-dotnet-upload-to-blob-storage/mobile-quickstart-blob-appbar.png
   [2]: ./media/mobile-services-windows-store-dotnet-upload-to-blob-storage/mobile-quickstart-blob-camera.png
   [3]: ./media/mobile-services-windows-store-dotnet-upload-to-blob-storage/mobile-quickstart-blob-appbar2.png

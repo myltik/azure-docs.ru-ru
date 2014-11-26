@@ -1,4 +1,4 @@
-<properties urlDisplayName="Hadoop Samples in HDInsight" pageTitle="Пример счетчика слов Hadoop в HDInsight | Azure" metaKeywords="hdinsight, hdinsight sample, hadoop, mapreduce" description="Узнайте, как выполнить простейший пример с использованием счетчика слов MapReduce в HDInsight." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="Пример счетчика слов Hadoop в HDInsight" authors="bradsev" />
+<properties linkid="manage-services-hdinsight-sample-wordcount" urlDisplayName="Hadoop Samples in HDInsight" pageTitle="The WordCount Hadoop sample in HDInsight | Azure" metaKeywords="hdinsight, hdinsight sample, hadoop, mapreduce" description="Learn how to run a simple MapReduce sample on HDInsight." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="The WordCount Hadoop sample in HDInsight" authors="bradsev" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
 
@@ -186,7 +186,7 @@
 -   [Приступая к работе с Azure HDInsight][Приступая к работе с Azure HDInsight]
 -   [Пример: сортировка GraySort 10 ГБ][Пример: сортировка GraySort 10 ГБ]
 -   [Пример: оценка числа пи][Пример: оценка числа пи]
--   [Пример: потоковая передача на C\#][Пример: потоковая передача на C\#]
+-   [Пример: потоковая передача на C#][Пример: потоковая передача на C#]
 -   [Использование Pig с HDInsight][Использование Pig с HDInsight]
 -   [Использование Hive с HDInsight][Использование Hive с HDInsight]
 -   [Документация по пакету Azure HDInsight SDK][Документация по пакету Azure HDInsight SDK]
@@ -202,7 +202,7 @@
   [HDI.Sample.WordCount.Output]: ./media/hdinsight-sample-wordcount/HDI.Sample.WordCount.Output.png
   [Пример: сортировка GraySort 10 ГБ]: ../hdinsight-sample-10gb-graysort/
   [Пример: оценка числа пи]: ../hdinsight-sample-pi-estimator/
-  [Пример: потоковая передача на C\#]: ../hdinsight-sample-csharp-streaming/
+  [Пример: потоковая передача на C#]: ../hdinsight-sample-csharp-streaming/
   [Использование Pig с HDInsight]: ../hdinsight-use-pig/
   [Использование Hive с HDInsight]: ../hdinsight-use-hive/
   [Документация по пакету Azure HDInsight SDK]: http://msdnstage.redmond.corp.microsoft.com/ru-ru/library/dn479185.aspx

@@ -1,6 +1,6 @@
-<properties urlDisplayName="Smooth Streaming Plugin" pageTitle="Подключаемый модуль Smooth Streaming для платформы Open Source Media Framework" metaKeywords="" description="Узнайте, как использовать подключаемый модуль Smooth Streaming служб мультимедиа Azure для платформы Open Source Media Framework." metaCanonical="" services="media-services" documentationCenter="" title="Использование подключаемого модуля Smooth Streaming Майкрософт для платформы Adobe Open Source Media Framework" authors="juliako" solutions="" manager="dwrede" editor="" />
+<properties linkid="develop-media-services-tutorials-smooth-streaming-plugin-for-open-source-media-framework" urlDisplayName="Smooth Streaming Plugin" pageTitle="Smooth Streaming Plugin for the Open Source Media Framework" metaKeywords="" description="Learn how to use the Azure Media Services Smooth Streaming plugin for the Adobe Open Source Media Framework." metaCanonical="" services="media-services" documentationCenter="" title="How to Use the Microsoft Smooth Streaming Plugin for the Adobe Open Source Media Framework" authors="" solutions="" manager="" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
 # Использование подключаемого модуля Smooth Streaming Майкрософт для платформы Adobe Open Source Media Framework
 
@@ -329,7 +329,7 @@ SS для OSMF включает в себя две версии подключа
 Динамический подключаемый модуль Smooth Streaming для OSMF совместим с проигрывателем [Strobe Media Playback (SMP)][Strobe Media Playback (SMP)]. Подключаемый модуль SS для OSMF можно использовать для поддержки воспроизведения контента в SMP. Для этого скопируйте "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf" на веб-сервер, чтобы выполнять загрузку по протоколу HTTP, и выполните следующие действия:
 
 1.  Откройте [страницу настройки Strobe Media Playback][страницу настройки Strobe Media Playback].
-2.  Задайте src в качестве значения для источника Smooth Streaming, (например, http://devplatem.vo.msecnd.net/Sintel/Sintel\_H264.ism/manifest)
+2.  Задайте в параметре src источник Smooth Streaming (например,<http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest>)
 3.  Внесите требуемые изменения и нажмите кнопку "Предварительный просмотр и обновление".
 
     **Примечание.** На веб-сервере должен размещаться допустимый файл crossdomain.xml.
@@ -387,6 +387,5 @@ SS для OSMF включает в себя две версии подключа
   [Использование проигрывателя Flash]: http://forums.adobe.com/message/4483498#4483498
   [Проигрыватель Adobe Flash11.3 — Ошибка 3210964]: https://bugbase.adobe.com/index.cfm?event=bug&id=3210964
   [странице подключаемого модуля OSMF]: http://osmf.org/dev/osmf/OtherPDFs/osmf_plugin_dev_guide.pdf
-  [Strobe Media Playback (SMP)]: http://osmf.org/strobe_mediaplayback.html
   [страницу настройки Strobe Media Playback]: http://osmf.org/dev/2.0gm/setup.html
   [странице разработки OSMF]: http://osmf.org/resources.html

@@ -1,6 +1,6 @@
 <properties linkid="develop-notificationhubs-tutorials-get-started-xamarin-ios" urlDisplayName="Get Started" pageTitle="Get Started with Notification Hubs for Xamarin iOS apps" metaKeywords="" description="Learn how to use Azure Notification Hubs to send push notifications to a Xamarin iOS application." metaCanonical="" disqusComments="0" umbracoNaviHide="1" services="mobile-services,notification-hubs" documentationCenter="" title="Get started with Notification Hubs" authors="donnam" manager="dwrede" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam" />
 
 # Приступая к работе с концентраторами уведомлений
 
@@ -43,7 +43,7 @@
 
 2.  Щелкните **Keychain Access**, разверните **Помощник по сертификатам**, а затем щелкните **Запросить сертификат в центре сертификации...**.
 
-    ![][]
+    ![][0]
 
 3.  Выберите **Адрес электронной почты пользователя**, введите значения **Общее имя**  и **Адрес электронной почты ЦС**, убедитесь, что установлен флажок **Сохранено на диск**, а затем щелкните **Продолжить**.
 
@@ -402,13 +402,7 @@
 
 
 
-  [Windows Universal]: /ru-ru/documentation/articles/notification-hubs-windows-store-dotnet-get-started/ "Windows Universal"
-  [Windows Phone]: /ru-ru/documentation/articles/notification-hubs-windows-phone-get-started/ "Windows Phone"
-  [iOS]: /ru-ru/documentation/articles/notification-hubs-ios-get-started/ "iOS"
-  [Android]: /ru-ru/documentation/articles/notification-hubs-android-get-started/ "Android"
-  [Kindle]: /ru-ru/documentation/articles/notification-hubs-kindle-get-started/ "Kindle"
   [Xamarin.iOS]: /ru-ru/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/ "Xamarin.iOS"
-  [Xamarin.Android]: /ru-ru/documentation/articles/partner-xamarin-notification-hubs-android-get-started/ "Xamarin.Android"
   [приложения NotificationHubs]: http://go.microsoft.com/fwlink/p/?LinkId=331329
   [Создание запроса подписи сертификата]: #certificates
   [Регистрация приложения и включение push-уведомлений]: #register
@@ -419,9 +413,8 @@
   [XCode 5.0]: https://go.microsoft.com/fwLink/p/?LinkID=266532
   [1]: http://xamarin.com/download
   [Компонент мобильных служб Azure]: http://components.xamarin.com/view/azure-mobile-services/
-  [Бесплатная пробная версия Azure]: http://www.windowsazure.com/ru-ru/pricing/free-trial/?WT.mc_id=A643EE910&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fru-ru%2Fmanage%2Fservices%2Fnotification-hubs%2Fgetting-started-xamarin-ios%2F
   [Служба push-уведомлений Apple]: http://go.microsoft.com/fwlink/p/?LinkId=272584
-  []: ./media/partner-xamarin-notification-hubs-ios-get-started/mobile-services-ios-push-step5.png
+  [0]: ./media/partner-xamarin-notification-hubs-ios-get-started/mobile-services-ios-push-step5.png
   [2]: ./media/partner-xamarin-notification-hubs-ios-get-started/mobile-services-ios-push-step6.png
   [3]: ./media/partner-xamarin-notification-hubs-ios-get-started/mobile-services-ios-push-step7.png
   [портал подготовки iOS]: http://go.microsoft.com/fwlink/p/?LinkId=272456

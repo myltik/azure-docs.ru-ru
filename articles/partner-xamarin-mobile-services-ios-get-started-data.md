@@ -201,11 +201,10 @@
 -   [Приступая к работе с push-уведомлениями][Приступая к работе с push-уведомлениями]
     Сведения об отправке в приложение простейших push-уведомлений с помощью мобильных служб.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
+ 
+ 
 <!-- URLs. TODO:: update download link, github link, and completed example project with new Xamarin.iOs projects -->
 
-  [mobile-services-selector-get-started-data]: ../includes/mobile-services-selector-get-started-data.md
   [Скачивание проекта приложения Xamarin.iOS]: http://go.microsoft.com/fwlink/p/?LinkId=331302
   [Создание мобильной службы]: #create-service
   [Добавление таблицы для хранения данных]: #add-table
@@ -214,7 +213,6 @@
   [компонент мобильных служб Azure]: http://components.xamarin.com/view/azure-mobile-services/
   [XCode 5.0]: https://go.microsoft.com/fwLink/p/?LinkID=266532
   [0]: ./media/partner-xamarin-mobile-services-ios-get-started-data/mobile-quickstart-startup-ios.png
-  [mobile-services-create-new-service-data]: ../includes/mobile-services-create-new-service-data.md
   [1]: ./media/partner-xamarin-mobile-services-ios-get-started-data/mobile-data-tab-empty.png
   [2]: ./media/partner-xamarin-mobile-services-ios-get-started-data/mobile-create-todoitem-table.png
   [3]: ./media/partner-xamarin-mobile-services-ios-get-started-data/mobile-dashboard-tab.png

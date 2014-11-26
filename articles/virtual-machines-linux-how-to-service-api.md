@@ -1,4 +1,4 @@
-<properties urlDisplayName="Service Management API" pageTitle="Как использовать API управления службой для виртуальных машин &mdash; Azure" metaKeywords="" description="Узнайте, как использовать API управления службой Azure для виртуальной машины Linux." metaCanonical="" services="virtual-machines" documentationCenter="" title="Как использовать API управления службой" authors="timlt" solutions="" manager="timlt" editor="" />
+<properties linkid="manage-linux-howto-service-management-api" urlDisplayName="Service Management API" pageTitle="How to use the service management API for VMs - Azure" metaKeywords="" description="Learn how to use the Azure Service Management API for a Linux virtual machine." metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Use the Service Management API" authors="timlt" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timlt" />
 
@@ -81,6 +81,7 @@ SetProxyUrl вызывается для явного задания узла и 
     -   Расположение
     -   RoleSize
 -   callback — обязательный параметр. (Это может быть третий параметр, если объект imageOptions не задан.)
+
 -   В случае успеха объект ответа будет содержать свойства созданного образа.
 
 **iaasClient.ListHostedServices(callback)**
@@ -98,7 +99,6 @@ SetProxyUrl вызывается для явного задания узла и 
 
 -   serviceName — обязательное строковое имя размещенной службы.
 -   serviceOptions — необязательный объект. Он может содержать следующие свойства:
-
     -   Description — по умолчанию принимает значение «Service host».
     -   Label — по умолчанию принимает значение serviceName, если оно не задано.
     -   Location — область, в которой необходимо создать службу.
@@ -130,7 +130,6 @@ SetProxyUrl вызывается для явного задания узла и 
 -   deploymentName — обязательное строковое имя развертывания.
 -   VMRole — обязательный объект, имеющий свойства роли, которую необходимо создать для развертывания.
 -   deployOptions — необязательный объект. Он может содержать следующие свойства:
-
     -   DeploymentSlot — по умолчанию принимает значение «Production»
     -   Label — по умолчанию принимает значение deploymentName, если оно не задано.
     -   UpgradeDomainCount — нет значения по умолчанию.
@@ -211,7 +210,6 @@ SetProxyUrl вызывается для явного задания узла и 
 -   deploymentName — обязательное строковое имя развертывания.
 -   roleInstance — обязательное строковое имя экземпляра роли.
 -   captOptions — обязательный объект, определяющий действия перенаправления.
-
     -   PostCaptureActions
     -   ProvisioningConfiguration
     -   SupportsStatelessDeployment

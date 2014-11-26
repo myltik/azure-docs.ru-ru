@@ -1,6 +1,6 @@
 <properties linkid="develop-net-how-to-twilio-sms-service" urlDisplayName="Twilio Voice/SMS Service" pageTitle="How to Use Twilio for Voice and SMS (.NET) - Azure" metaKeywords="Azure Twilio, Azure phone calls, Azure phone calls, Azure twilio, Azure SMS, Azure SMS, Azure voice calls, azure voice calls, Azure text messages, Azure text messages" description="Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in .NET." metaCanonical="" services="" documentationCenter=".NET" title="How to use Twilio for voice and SMS capabilities from Azure" authors="MicrosoftHelp@twilio.com" solutions="" manager="" editor="" />
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="MicrosoftHelp@twilio.com"></tags>
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="MicrosoftHelp@twilio.com" />
 
 # Использование Twilio для поддержки голосовых вызовов и SMS в Azure
 
@@ -268,7 +268,7 @@ Twilio.Client.Capability
 
 <div class="dev-callout">
 <b>Примечание.</b>
-<p>Хотя TwiML предназначается для использования веб-службами, TwiML можно также просмотреть в браузере. Например, щелкните [http://twimlets.com/message](twimlet_message_url) для просмотра пустого элемента &lt;Response&gt;; в качестве другого примера щелкните [http://twimlets.com/message?Message%5B0%5D=Hello%20World](twimlet_message_url_hello_world) для просмотра элемента &lt;Response&gt;, содержащего элемент &lt;Say&gt;.</p>
+<p>Хотя TwiML предназначается для использования веб-службами, TwiML можно также просмотреть в браузере. Например, щелкните [http://twimlets.com/message](http://twimlets.com/message) для просмотра пустого элемента &lt;Response&gt;; в качестве другого примера щелкните [http://twimlets.com/message?Message%5B0%5D=Hello%20World](http://twimlets.com/message?Message%5B0%5D=Hello%20World) для просмотра элемента &lt;Response&gt;, содержащего элемент &lt;Say&gt;.</p>
 </div>
 
 Вместо того, чтобы использовать URL-адрес, предоставленный Twilio, можно создать собственный URL-адрес для возврата HTTP-ответов. Веб-сайт можно создавать на любом языке, который возвращает HTTP-ответы. В этом разделе предполагается, что URL-адрес будет размещаться из универсального обработчика ASP.NET.
@@ -352,17 +352,16 @@ Twilio.Client.Capability
     // This sample uses the sandbox number provided by Twilio to make the call.
     options.From = "NNNNNNNNNN";
     options.To = "NNNNNNNNNN";
-    options.Url = "http://<your_hosted_service>.cloudapp.net/MyTwiML/mytwiml.ashx";
+    options.Url = "http://your_hosted_service.cloudapp.net/MyTwiML/mytwiml.ashx";
 
     // Place the call.
     var call = client.InitiateOutboundCall(options);
 
 Дополнительные сведения об использовании Twilio в Azure с ASP.NET см. в разделе [Осуществление телефонных звонков с использованием Twilio в веб-роли Azure][Осуществление телефонных звонков с использованием Twilio в веб-роли Azure].
 
-[WACOM.INCLUDE [twilio\_additional\_services\_and\_next\_steps][twilio\_additional\_services\_and\_next\_steps]]
+[WACOM.INCLUDE [twilio_additional_services_and_next_steps](../includes/twilio_additional_services_and_next_steps.md)]
 
   [Дальнейшие действия]: #NextSteps
-  [Что такое Twilio?]: #WhatIs
   [Цены на Twilio]: #Pricing
   [Основные понятия]: #Concepts
   [Создание учетной записи Twilio]: #CreateAccount
@@ -383,7 +382,7 @@ Twilio.Client.Capability
   [странице учетной записи Twilio]: https://www.twilio.com/user/account
   [Управление номерами]: https://www.twilio.com/user/account/phone-numbers/verified#
   [Справка по телефонным номерам Twilio]: https://www.twilio.com/help/faq/phone-numbers
-  [Создание проекта Azure с помощью Visual Studio]: http://msdn.microsoft.com/en-us/library/windowsazure/ee405487.aspx
+  [Создание проекта Azure с помощью Visual Studio]: http://msdn.microsoft.com/ru-ru/library/windowsazure/ee405487.aspx
   [установлены с помощью расширения диспетчера пакетов NuGet]: http://www.twilio.com/docs/csharp/install
   [GitHub]: https://github.com/twilio/twilio-csharp
   []: http://nuget.org/
@@ -391,4 +390,3 @@ Twilio.Client.Capability
   [3]: http://twimlets.com/message
   [4]: https://www.twilio.com/docs/api/twiml
   [Осуществление телефонных звонков с использованием Twilio в веб-роли Azure]: ../partner-twilio-cloud-services-dotnet-phone-call-web-role/
-  [twilio\_additional\_services\_and\_next\_steps]: ../includes/twilio_additional_services_and_next_steps.md

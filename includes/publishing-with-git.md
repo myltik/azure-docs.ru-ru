@@ -91,7 +91,7 @@
 
 7.  Если репозиторий в Azure настраивается вами впервые, потребуется создать для него учетную запись. Вы будете использовать данные этой учетной записи для входа в репозиторий Azure и отправки изменений из локального репозитория Git.
 
-    ![][]
+    ![][0]
 
 8.  После небольшой задержки должно появиться сообщение о том, что ваш репозиторий готов.
 
@@ -324,7 +324,7 @@
   [портал Azure]: http://manage.windowsazure.com
   [Изображение, на котором показан выбранный веб-сайт]: ./media/publishing-with-git/git-select-website.png
   [git-WhereIsYourSourceCode]: ./media/publishing-with-git/git-WhereIsYourSourceCode.png
-  []: ./media/publishing-with-git/git_credentials.png
+  [0]: ./media/publishing-with-git/git_credentials.png
   [git-instructions]: ./media/publishing-with-git/git-instructions.png
   [Веб-страница с текстом "Hello Git!"]: ./media/publishing-with-git/git-hello-git.png
   [Веб-страница с текстом "Yay!"]: ./media/publishing-with-git/git-yay.png

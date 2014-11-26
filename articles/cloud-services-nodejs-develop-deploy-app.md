@@ -1,29 +1,18 @@
-<properties urlDisplayName="Cloud Service" pageTitle="Руководство по началу работы с Node.js &mdash; Учебник по Azure" metaKeywords="Azure node.js getting started, Azure Node.js tutorial, Azure Node.js tutorial" description="Полноценный учебник, в котором объясняется процесс разработки простого веб-приложения и  его развертывания на Azure." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Построение и развертывание приложения Node.js в облачной службе Azure" authors="larryfr" solutions="" manager="wpickett" editor="" />
+<properties linkid="dev-nodejs-getting-started" urlDisplayName="Cloud Service" pageTitle="Node.js Getting Started Guide - Azure Tutorial" metaKeywords="Azure node.js getting started, Azure Node.js tutorial, Azure Node.js tutorial" description="An end-to-end tutorial that helps you develop a simple Node.js web application and deploy it to Azure." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Build and deploy a Node.js application to an Azure Cloud Service" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="wpickett" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Построение и развертывание приложения Node.js в облачной службе Azure
 
-После изучения этого руководства вы получите простое приложение Node.js,
-работающее в облачной службе Azure. Облачные службы являются основой для
-построения масштабируемых облачных приложений в Azure. Они позволяют осуществлять разделение,
-независимое управление и масштабирование интерфейсных и серверных компонентов приложения. Облачные службы
-предоставляют надежную выделенную виртуальную машину для надежного размещения каждой роли.
+После изучения этого руководства вы получите простое приложение Node.js, работающее в облачной службе Azure. Облачные службы являются основой для построения масштабируемых облачных приложений в Azure. Они позволяют осуществлять разделение, независимое управление и масштабирование интерфейсных и серверных компонентов приложения. Облачные службы предоставляют надежную выделенную виртуальную машину для надежного размещения каждой роли.
 
 Дополнительную информацию об облачных службах и сравнении их с веб-сайтами Azure и виртуальными машинами см. раздел [Сравнение веб-сайтов Azure, облачных служб и виртуальных машин][Сравнение веб-сайтов Azure, облачных служб и виртуальных машин].
+<p />
+<div class="dev-callout"><strong>Требуется собрать простой веб-сайт?</strong>
+<p>Если ваш сценарий включает только простой интерфейсный сервер веб-сайта, следует рассмотреть возможность <a href="/ru-ru/documentation/articles/web-sites-nodejs-develop-deploy-mac/">использования упрощенного веб-сайта Azure.</a> По мере роста веб-сайта и изменения требований можно легко выполнить обновление к облачной службе.</p>
+<p><br /></p>
 
-<div class="dev-callout">
-
-**Требуется собрать простой веб-сайт?**
-Если ваш сценарий включает только простой интерфейсный сервер веб-сайта, следует рассмотреть возможность [использования упрощенного веб-сайта Azure.][использования упрощенного веб-сайта Azure.] По мере роста веб-сайта и изменения требований можно легко выполнить обновление к облачной службе.
-
-</div>
-
-Руководствуясь этим учебником, вы соберете простое веб-приложение, размещенное в веб-роли. В
-эмуляторе среды выполнения приложений вы будете тестировать приложение локально, а
-затем развернете его с помощью программ командной строки PowerShell.
-
-Снимок экрана завершенного приложения приведен ниже:
+Руководствуясь этим учебником, вы соберете простое веб-приложение, размещенное в веб-роли. В эмуляторе среды выполнения приложений вы будете тестировать приложение локально, а затем развернете его с помощью программ командной строки PowerShell. Снимок экрана завершенного приложения приведен ниже:
 
 ![В окне браузера отображается страница hello world. URL-адрес указывает, что страница размещается в Azure.][В окне браузера отображается страница hello world. URL-адрес указывает, что страница размещается в Azure.]
 
@@ -35,16 +24,15 @@
 
     ![Значок Azure PowerShell][Значок Azure PowerShell]
 
-    [WACOM.INCLUDE [установка-средств-разработки](../includes/install-dev-tools.md)]
+    [WACOM.INCLUDE [install-dev-tools](../includes/install-dev-tools.md)]
 
 2.  Создайте новый каталог **узла** на диске C и перейдите в c:\\каталог узла:
 
-    ![В командной строке отображаются команды "mkdir c:\node" и "cd node".][В командной строке отображаются команды "mkdir c:\node" и "cd node".]
+	![A command prompt displaying the commands 'mkdir c:\\node' and 'cd node'.][mkdir]
 
 3.  Введите следующий командлет, чтобы создать новое решение:
 
         PS C:\node> New-AzureServiceProject helloworld
-
         You will see the following response:
 
     ![Результат выполнения команды New-AzureService helloworld][Результат выполнения команды New-AzureService helloworld]
@@ -58,14 +46,12 @@
         специальными файлами Azure, необходимыми для публикации вашего
         приложения.
 
-    Дополнительную информацию об этих файлах см. в разделе
-     [Обзор создания размещенной службы для Windows Azure.][Обзор создания размещенной службы для Windows Azure.]
+    Дополнительную информацию об этих файлах см. в разделе [Обзор создания размещенной службы для Windows Azure.][Обзор создания размещенной службы для Windows Azure.]
 
     -   **deploymentSettings.json** хранит локальные параметры, используемые командлетами развертывания
         Azure PowerShell.
 
-4.  Введите следующую команду, чтобы добавить новую веб-роль с помощью командлета
-    **Add-AzureNodeWebRole**:
+4.  Введите следующую команду, чтобы добавить новую веб-роль с помощью командлета **Add-AzureNodeWebRole**:
 
         PS C:\node\helloworld> Add-AzureNodeWebRole
 
@@ -76,11 +62,9 @@
     Командлет **Add-AzureNodeWebRole** создает новый каталог для приложения и генерирует формирование шаблонов для базового приложения Node.js. Также он изменяет файлы **ServiceConfiguration.Cloud.csfg**, **ServiceConfiguration.Local.csfg** и **ServiceDefinition.csdef**, созданные на предыдущем шаге, чтобы добавить записи о конфигурации к новой роли.
 
     <div class="dev-callout">
-
-    **Примечание.**
-    По умолчанию, если не указано имя роли, одно имя будет создано для вас. Можно указать имя как первый параметр для **Add-AzureNodeWebRole**. Например, `Add-AzureNodeWebRole MyRole`
-
-    </div>
+<b>Примечание.</b>
+<p>По умолчанию, если не указано имя роли, одно имя будет создано для вас. Можно указать имя как первый параметр для <b>Add-AzureNodeWebRole</b>. Например, <code data-inline="1">Add-AzureNodeWebRole MyRole</code></p>
+</div>
 
 5.  Используйте следующие команды для перехода к каталогу **WebRole1**, а затем откройте файл **server.js** в блокноте.
 
@@ -97,13 +81,10 @@
 
 ## Выполнение приложения в эмуляторе локально
 
-Одним из средств, установленных с помощью пакета Azure SDK,
-является эмулятор среды выполнения приложений Azure для тестирования приложения локально. Эмулятор
-среды выполнения приложений имитирует среду выполнения приложения,
-развернутого в облаке. Выполните следующие действия, чтобы проверить приложение в эмуляторе.
+Одним из средств, установленных с помощью пакета Azure SDK, является эмулятор среды выполнения приложений Azure для тестирования приложения локально. Эмулятор среды выполнения приложений имитирует среду выполнения приложения, развернутого в облаке. Выполните следующие действия, чтобы проверить приложение в эмуляторе.
 
-1.  Закройте Блокнот и переключитесь в окно командной оболочки Windows PowerShell.
-    Введите следующий командлет, чтобы запустить службу в эмуляторе:
+1.  Закройте Блокнот и вернитесь в окно Windows PowerShell.
+    Введите следующий командлет для запуска службы в эмуляторе:
 
         PS C:\node\helloworld\WebRole1> Start-AzureEmulator -Launch
 
@@ -136,11 +117,9 @@
         PS C:\node\helloworld\WebRole1> Import-AzurePublishSettingsFile [path to file]
 
     <div class="dev-callout">
-
-    **Примечание.**
-    После импорта настроек публикации удалите загруженный файл .publishSettings, поскольку он содержит информацию, которая может использоваться другими пользователями для доступа к вашей учетной записи.
-
-    </div>
+<b>Примечание.</b>
+<p>После импорта настроек публикации удалите загруженный файл .publishSettings, поскольку он содержит информацию, которая может использоваться другими пользователями для доступа к вашей учетной записи.</p>
+</div>
 
 ### Публикация приложения
 
@@ -201,14 +180,12 @@
     ![Состояние команды Remove-AzureService][Состояние команды Remove-AzureService]
 
     <div class="dev-callout">
-
-    **Примечание.**
-    При удалении службы учетная запись хранения, созданная при первоначальной публикации службы, не удаляется. Оплата за использование хранилища будет насчитываться. Дополнительную информацию об удалении учетной записи хранения см. в разделе [Как удалить учетную запись хранения из подписки Azure][Как удалить учетную запись хранения из подписки Azure].
-
-    </div>
+<strong>Примечание.</strong>
+<p>При удалении службы учетная запись хранения, созданная при первоначальной публикации службы, не удаляется. Оплата за использование хранилища будет насчитываться. Дополнительную информацию об удалении учетной записи хранения см. в разделе
+<a href="http://msdn.microsoft.com/ru-ru/library/windowsazure/hh531562.aspx">Как удалить учетную запись хранения из подписки Azure</a>.</p>
+</div>
 
   [Сравнение веб-сайтов Azure, облачных служб и виртуальных машин]: http://azure.microsoft.com/ru-ru/documentation/articles/choose-web-site-cloud-service-vm/
-  [использования упрощенного веб-сайта Azure.]: /ru-ru/documentation/articles/web-sites-nodejs-develop-deploy-mac/
   [В окне браузера отображается страница hello world. URL-адрес указывает, что страница размещается в Azure.]: https://wacomdpsstablestorage.blob.core.windows.net/articlesmedia/demo-ppe.windowsazure.com/ru-ru/documentation/articles/cloud-services-nodejs-develop-deploy-app/20140107035927/node21.png
   [Значок Azure PowerShell]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
   [Результат выполнения команды New-AzureService helloworld]: ./media/cloud-services-nodejs-develop-deploy-app/node9.png
@@ -221,4 +198,17 @@
   [1]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
   [Состояние команды Stop-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
   [Состояние команды Remove-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
-  [Как удалить учетную запись хранения из подписки Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/hh531562.aspx
+[The Windows Start menu with the Azure SDK Node.js entry expanded]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-menu.png
+[mkdir]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-6.png
+[nodejs.org]: http://nodejs.org/
+[A directory listing of the helloworld folder.]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-7.png
+[Overview of Creating a Hosted Service for Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj155995.aspx
+[A directory listing of the WebRole1 folder]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-8.png
+[The menu displayed when right-clicking the Azure emulator from the task bar.]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-11.png
+[A browser window displaying http://www.windowsazure.com/ with the Free Trial link highlighted]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-12.png
+[A browser window displaying the liveID sign in page]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-13.png
+[Internet Explorer displaying the save as dialog for the publishSettings file.]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-14.png
+
+[The full status output of the Publish-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node20.png
+[How to Delete a Storage Account from an Azure Subscription]: https://www.windowsazure.com/ru-ru/manage/services/storage/how-to-manage-a-storage-account/
+[powershell-menu]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png

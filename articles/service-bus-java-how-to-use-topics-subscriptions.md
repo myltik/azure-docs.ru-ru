@@ -334,5 +334,4 @@ Bus разблокирует сообщение автоматически и с
   [Практическое руководство. Обработка сбоев приложения и нечитаемых сообщений]: #bkmk_HowToHandleAppCrash
   [Практическое руководство. Удаление разделов и подписок]: #bkmk_HowToDeleteTopics
   [Дальнейшие действия]: #bkmk_NextSteps
-  [howto-service-bus-topics]: ../includes/howto-service-bus-topics.md
   [Очереди, разделы и подписки Service Bus]: http://msdn.microsoft.com/library/windowsazure/hh367516.aspx

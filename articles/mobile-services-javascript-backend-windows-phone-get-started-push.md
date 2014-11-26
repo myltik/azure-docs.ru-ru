@@ -164,7 +164,6 @@
 
 <!-- Anchors.  Images.- URLs. -->
 
-  [mobile-services-selector-get-started-push-legacy]: ../includes/mobile-services-selector-get-started-push-legacy.md
   [Обновление приложения: регистрация для получения уведомлений]: #update-app
   [Обновление серверных скриптов для отправки push-уведомлений]: #update-scripts
   [Вставка данных для получения push-уведомлений]: #test

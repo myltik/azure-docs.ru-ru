@@ -94,12 +94,10 @@
 -   [Приступая к работе с push-уведомлениями][Приступая к работе с push-уведомлениями]
     Сведения об отправке в приложение простейших push-уведомлений.
 
-<!-- Images. -->
-<!-- URLs. -->
 
-  [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
+
+
   [Appcelerator Titanium]: http://go.microsoft.com/fwlink/p/?LinkID=509987
-  [mobile-services-create-new-service]: ../includes/mobile-services-create-new-service.md
   [приложение Todolist]: http://go.microsoft.com/fwlink/p/?LinkId=506859
   [0]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started/image007.png
   [1]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started/image008.png

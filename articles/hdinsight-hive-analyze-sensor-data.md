@@ -39,5 +39,5 @@
 
   [Схема архитектуры решения]: ./media/hdinsight-use-hive-sensor-data-analysis/hvac-architecture.png
   [Подготовка кластеров Hadoop в HDInsight]: /ru-ru/documentation/articles/hdinsight-provision-clusters/
-  [Power View]: https://support.office.com/en-US/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=en-US&rs=en-US&ad=US
+  [Power View]: https://support.office.com/ru-ru/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=ru-ru&rs=ru-ru&ad=US
   [Microsoft Hive ODBC драйвер]: http://www.microsoft.com/ru-ru/download/details.aspx?id=40886

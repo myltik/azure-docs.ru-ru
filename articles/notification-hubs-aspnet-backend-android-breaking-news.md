@@ -299,8 +299,8 @@
 
     Узнайте, как рассылать push-уведомления определенным пользователям, прошедшим проверку подлинности. Это хорошее решение для отправки уведомлений только определенным пользователям.
 
-<!-- Anchors. -->
-<!-- Images. -->
+
+
 <!-- URLs.-->
 
   [Windows Universal]: /ru-ru/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/ "Windows Universal"
@@ -314,6 +314,5 @@
   [Запуск приложения и создание уведомлений]: #test-app
   [Приступая к работе с концентраторами уведомлений]: /ru-ru/documentation/articles/notification-hubs-android-get-started/
   [0]: ./media/notification-hubs-aspnet-backend-android-breaking-news/android-breaking-news1.PNG
-  [notification-hubs-back-end]: ../includes/notification-hubs-back-end.md
   [раздел Использование концентраторов уведомлений для передачи локализованных экстренных новостей]: /ru-ru/manage/services/notification-hubs/breaking-news-localized-dotnet/
   [Уведомление пользователей с помощью концентраторов уведомлений]: /ru-ru/manage/services/notification-hubs/notify-users

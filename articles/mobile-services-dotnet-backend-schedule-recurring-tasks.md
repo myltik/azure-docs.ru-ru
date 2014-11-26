@@ -280,7 +280,6 @@
   [Локальное тестирование запланированного задания]: #run-job-locally
   [Публикация службы и регистрация задания]: #register-job
   [Проект LINQ to Twitter CodePlex]: http://linqtotwitter.codeplex.com/
-  [mobile-services-register-twitter-access]: ../includes/mobile-services-register-twitter-access.md
   [0]: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/add-linq2twitter-nuget-package.png
   [1]: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/add-component-model-reference.png
   [Как использовать Code First Migrations для обновления модели данных]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-use-code-first-migrations

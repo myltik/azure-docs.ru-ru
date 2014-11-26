@@ -39,7 +39,7 @@
 
 Вы создали новую мобильную службу, которая может использоваться вашими мобильными приложениями.
 
-<!-- URLs. -->
+
 
   [портал управления]: https://manage.windowsazure.com/
   [0]: ./media/mobile-services-create-new-service/plus-new.png

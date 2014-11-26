@@ -26,7 +26,7 @@
 
     > [WACOM.NOTE]Код, который добавляется в ваше решение для универсальных приложений Windows мастером добавления push-уведомлений, зависит от платформы. Далее в этом разделе вы узнаете, как устранить данную избыточность, сделав код клиента мобильных служб общим, тем самым упростив поддержку универсального приложения.
 
-<!-- URLs. -->
+
 
   [Мастер добавления push-уведомлений в Visual Studio 2013]: ../includes/media/mobile-services-create-new-push-vs2013/mobile-add-push-notifications-vs2013.png
   [Выберите имя приложения в мастере добавления push-уведомлений]: ../includes/media/mobile-services-create-new-push-vs2013/mobile-add-push-notifications-vs2013-2.png

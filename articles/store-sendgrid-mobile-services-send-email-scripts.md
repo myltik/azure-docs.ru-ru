@@ -98,9 +98,9 @@ SendGrid — это [облачная служба электронной поч
 -   Специальное предложение SendGrid для клиентов Azure:
     <http://sendgrid.com/azure.html>
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [облачная служба электронной почты]: http://sendgrid.com/solutions
   [доставки электронной почты]: http://sendgrid.com/transactional-email
@@ -108,7 +108,6 @@ SendGrid — это [облачная служба электронной поч
   [Добавление скрипта для отправки сообщения электронной почты]: #add-script
   [Вставка данных для получения сообщения электронной почты]: #insert-data
   [Приступая к работе с мобильными службами]: /ru-ru/develop/mobile/tutorials/get-started
-  [sendgrid-sign-up]: ../includes/sendgrid-sign-up.md
   [портал управления Azure]: https://manage.windowsazure.com/
   [0]: ./media/store-sendgird-mobile-services-send-email-scripts/mobile-portal-data-tables.png
   [1]: ./media/store-sendgird-mobile-services-send-email-scripts/mobile-insert-script-push2.png

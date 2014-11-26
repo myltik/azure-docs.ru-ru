@@ -1,6 +1,6 @@
 <properties linkid="manage-services-how-to-deploy-websites" pageTitle="How to deploy an Azure Website" metaKeywords="Azure deploy publish web site" description="Learn what methods are available for deploying content to an Azure Website." metaCanonical="" services="web-sites" documentationCenter="" title="How to Deploy an Azure Website" authors="tdykstra" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/02/2014" ms.author="tdykstra"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/02/2014" ms.author="tdykstra" />
 
 # Как развернуть веб-сайт Azure
 
@@ -211,7 +211,7 @@ Azure упрощает задачи управления сайтом, кото�
   [BitBucket]: https://bitbucket.org/
   [Публикация из системы управления версиями на веб-сайты Azure]: /ru-ru/documentation/articles/web-sites-publish-source-control/
   [Развертывание на веб-сайтах с GitHub с помощью Kudu]: /ru-ru/documentation/videos/deploying-to-azure-from-github/
-  [Форум Azure для Git, Mercurial и DropBox]: http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azuregit
+  [Форум Azure для Git, Mercurial и DropBox]: http://social.msdn.microsoft.com/Forums/windowsazure/ru-ru/home?forum=azuregit
   [Mercurial]: http://mercurial.selenic.com/
   [DropBox]: https://www.dropbox.com/
   [Развертывание в Windows Azure с использованием Dropbox]: http://blogs.msdn.com/b/windowsazure/archive/2013/03/19/new-deploy-to-windows-azure-web-sites-from-dropbox.aspx

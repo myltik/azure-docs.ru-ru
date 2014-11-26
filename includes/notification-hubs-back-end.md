@@ -1,19 +1,19 @@
 В этом разделе показано, как отправлять уведомления из приложения консоли .NET и других приложений.
-Если вы используете мобильные службы, см. учебники [Начало работы с push-уведомлениями][]. Если вы хотите использовать Java или PHP, см. раздел [Использование концентраторов уведомлений из Java/PHP][]. Можно отправлять уведомления из любого серверного компонента с помощью [интерфейса REST концентраторов уведомлений][].
+Если вы используете мобильные службы, см. учебники [Начало работы с push-уведомлениями][Начало работы с push-уведомлениями]. Если вы хотите использовать Java или PHP, см. раздел [Использование концентраторов уведомлений из Java/PHP][Использование концентраторов уведомлений из Java/PHP]. Можно отправлять уведомления из любого серверного компонента с помощью [интерфейса REST концентраторов уведомлений][интерфейса REST концентраторов уведомлений].
 
 Следующий код отправляет уведомления в Магазин Windows, на устройства Windows Phone, iOS и Android.
 
-Пропустите шаги 1-3, если создано консольное приложение при завершении раздела [Приступая к работе с концентраторами уведомлений][].
+Пропустите шаги 1-3, если создано консольное приложение при завершении раздела [Приступая к работе с концентраторами уведомлений][Приступая к работе с концентраторами уведомлений].
 
 1.  В Visual Studio создайте новое консольное приложение Visual C\#:
 
-    ![][]
+    ![][0]
 
 2.  В главном меню Visual Studio выберите пункт **Сервис**, **Диспетчер пакетов библиотеки** и **Консоль диспетчера пакетов**, затем в окне консоли введите следующую команду и нажмите клавишу **Ввод**:
 
         Install-Package WindowsAzure.ServiceBus
 
-    Это добавляет ссылку на пакет SDK служебной шины Azure с помощью [пакета NuGet WindowsAzure.ServiceBus][].
+    Это добавляет ссылку на пакет SDK служебной шины Azure с помощью [пакета NuGet WindowsAzure.ServiceBus][пакета NuGet WindowsAzure.ServiceBus].
 
 3.  Откройте файл Program.cs и добавьте следующий оператор `using`:
 
@@ -82,12 +82,12 @@
          Console.ReadLine();
 
 <!-- Anchors -->
-<!-- Images. -->
-<!-- URLs. -->
+
+
 
   [Начало работы с push-уведомлениями]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/
   [Использование концентраторов уведомлений из Java/PHP]: /ru-ru/documentation/articles/notification-hubs-java-backend-how-to/
-  [интерфейса REST концентраторов уведомлений]: http://msdn.microsoft.com/en-us/library/windowsazure/dn223264.aspx
+  [интерфейса REST концентраторов уведомлений]: http://msdn.microsoft.com/ru-ru/library/windowsazure/dn223264.aspx
   [Приступая к работе с концентраторами уведомлений]: /ru-ru/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-  []: ./media/notification-hubs-back-end/notification-hub-create-console-app.png
+  [0]: ./media/notification-hubs-back-end/notification-hub-create-console-app.png
   [пакета NuGet WindowsAzure.ServiceBus]: http://nuget.org/packages/WindowsAzure.ServiceBus/

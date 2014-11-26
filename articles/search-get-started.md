@@ -367,7 +367,7 @@
 
 -   [Видеоролик № 152 об облачном покрытии. Создание индекса в Поиске Azure][Видеоролик № 152 об облачном покрытии. Создание индекса в Поиске Azure]
 
-<!--Anchors--> <!--Image references--> <!--Link references-->
+<!--Anchors-->\r\n<!--Image references-->\r\n<!--Link references-->
 
   [Поисковые сценарии и возможности Azure]: http://azure.microsoft.com/blog/2014/08/28/azure-search-scenarios-and-capabilities/
   [Приступая к работе с бесплатной службой]: #sub-1

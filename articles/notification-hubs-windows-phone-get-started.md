@@ -1,6 +1,6 @@
 <properties linkid="develop-notificationhubs-tutorials-get-started-windowsphone" urlDisplayName="Get Started" pageTitle="Get Started with Azure Notification Hubs" metaKeywords="" description="Learn how to use Azure Notification Hubs to push notifications." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Get started with Notification Hubs" authors="glenga" solutions="" manager="dwrede" editor="dwrede" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="glenga"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="glenga" />
 
 # Приступая к работе с концентраторами уведомлений
 
@@ -31,7 +31,7 @@
 
 2.  Последовательно щелкните элементы **Службы приложений**, **Service Bus**, **Концентратор уведомлений** и **Быстрое создание**.
 
-    ![][]
+    ![][0]
 
 3.  Введите имя для концентратора уведомлений, выберите нужный регион и щелкните элемент **Создать новый концентратор уведомлений**.
 
@@ -176,12 +176,6 @@
 
 
   [Windows Universal]: /ru-ru/documentation/articles/notification-hubs-windows-store-dotnet-get-started/ "Windows Universal"
-  [Windows Phone]: /ru-ru/documentation/articles/notification-hubs-windows-phone-get-started/ "Windows Phone"
-  [iOS]: /ru-ru/documentation/articles/notification-hubs-ios-get-started/ "iOS"
-  [Android]: /ru-ru/documentation/articles/notification-hubs-android-get-started/ "Android"
-  [Kindle]: /ru-ru/documentation/articles/notification-hubs-kindle-get-started/ "Kindle"
-  [Xamarin.iOS]: /ru-ru/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/ "Xamarin.iOS"
-  [Xamarin.Android]: /ru-ru/documentation/articles/partner-xamarin-notification-hubs-android-get-started/ "Xamarin.Android"
   [1]: /ru-ru/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
   [Уведомление пользователей]: /ru-ru/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-notify-users/
   [API концентраторов уведомлений для REST]: http://msdn.microsoft.com/ru-ru/library/dn223264.aspx
@@ -189,15 +183,13 @@
   [Подключение приложения к концентратору уведомлений]: #connecting-app
   [Отправка уведомлений из серверной части]: #send
   [Microsoft Visual Studio 2012 Express для Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
-  [Бесплатная пробная версия Azure]: http://www.windowsazure.com/ru-ru/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fru-ru%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F
   [управления Windows Azure]: https://manage.windowsazure.com/
-  []: ./media/notification-hubs-windows-phone-get-started/notification-hub-create-from-portal.png
+  [0]: ./media/notification-hubs-windows-phone-get-started/notification-hub-create-from-portal.png
   [2]: ./media/notification-hubs-windows-phone-get-started/notification-hub-create-from-portal2.png
   [3]: ./media/notification-hubs-windows-phone-get-started/notification-hub-select-from-portal.png
   [4]: ./media/notification-hubs-windows-phone-get-started/notification-hub-select-from-portal2.png
   [5]: ./media/notification-hubs-windows-phone-get-started/notification-hub-connection-strings.png
   [6]: ./media/notification-hubs-windows-phone-get-started/notification-hub-pushauth.png
-  [режим работы MPNS с проверкой подлинности]: http://msdn.microsoft.com/ru-ru/library/windowsphone/develop/ff941099(v=vs.105).aspx
   [7]: ./media/notification-hubs-windows-phone-get-started/notification-hub-create-wp-app.png
   [8]: ./media/notification-hubs-windows-phone-get-started/notification-hub-create-wp-silverlight-app.png
   [9]: ./media/notification-hubs-windows-phone-get-started/notification-hub-windows-universal-app-install-package.png

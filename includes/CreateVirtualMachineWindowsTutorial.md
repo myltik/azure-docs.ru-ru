@@ -18,7 +18,7 @@
 
 В этом руководстве рассматривается использование метода **Из коллекции** на портале управления для создания виртуальной машины. Указанный вариант предлагает больший выбор настроек, чем метод **Быстрое создание**. Например, при необходимости присоединить виртуальную машину к виртуальной сети следует использовать параметр **Из коллекции**.
 
-[WACOM.INCLUDE [виртуальные-машины-создание-WindowsVM][виртуальные-машины-создание-WindowsVM]]
+[WACOM.INCLUDE [виртуальные-машины-создание-WindowsVM](../includes/virtual-machines-create-WindowsVM.md)]
 
 ## <span id="logon"></span> </a>Как войти в виртуальную машину после ее создания
 
@@ -125,7 +125,6 @@
   [Как войти в систему на виртуальной машине после ее создания]: #logon
   [Как присоединить диск данных к новой виртуальной машине]: #attachdisk
   [Виртуальные машины]: http://go.microsoft.com/fwlink/p/?LinkID=271224
-  [виртуальные-машины-создание-WindowsVM]: ../includes/virtual-machines-create-WindowsVM.md
   [Портал управления]: http://manage.windowsazure.com
   [Выбрать MyTestVM]: ./media/CreateVirtualMachineWindowsTutorial/selectvm.png
   [Подключение к MyTestVM]: ./media/CreateVirtualMachineWindowsTutorial/commandbarconnect.png

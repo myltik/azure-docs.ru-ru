@@ -1,6 +1,6 @@
 <properties title="Interact with DocumentDB resources" pageTitle="Interact with DocumentDB resources | Azure" description="DocumentDB manages resources--uniquely identified by logical URIs--that developers can interact with using HTTP verbs, request/response headers, and status codes." metaKeywords="" services="documentdb" solutions="data-management"  authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev"></tags>
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev" />
 
 # Взаимодействие с ресурсами DocumentDB
 
@@ -12,7 +12,7 @@ DocumentDB предлагает простую и открытую модель 
 
 Сущности, которыми управляет DocumentDB, называются **ресурсами**, которые однозначно идентифицируются своими логическими URI. Разработчики могут взаимодействовать с ресурсами, используя стандартные команды HTTP, заголовки запросов/ответов и коды состояний. Как показано на нижеприведенном рисунке, **модель ресурсов** DocumentDB состоит из наборов ресурсов под учетной записью базы данных, каждый из которых адресуется логическим постоянным URI. Набор ресурсов в данном документе называется **каналом**.
 
-![][]
+![][0]
 
 ## Иерархическая модель ресурсов под учетной записью базы данных
 
@@ -283,14 +283,14 @@ DocumentDB предлагает модель логической адресац
 -   Спецификация JSON [][2]<http://-www.ietf.org/rfc/rfc4627.txt></a>
 -   Спецификация HTTP [][3]<http://www.w3.org/Protocols/rfc2616/rfc2616.html></a>
 -   Идентификаторы ETag [][4]<http://en.wikipedia.org/wiki/HTTP_ETag></a>
--   [Запросы DocumentDB][]
--   [Справочник по DocumentDB SQL][]
--   [Программирование DocumentDB: Хранимые процедуры, триггеры и определяемые пользователем функции][]
--   [Справочная документация DocumentDB][]
+-   [Запросы DocumentDB][Запросы DocumentDB]
+-   [Справочник по DocumentDB SQL][Справочник по DocumentDB SQL]
+-   [Программирование DocumentDB: Хранимые процедуры, триггеры и определяемые пользователем функции][Программирование DocumentDB: Хранимые процедуры, триггеры и определяемые пользователем функции]
+-   [Справочная документация DocumentDB][Справочная документация DocumentDB]
 
-  []: ./media/documentdb-interactions-with-resources/interactions-with-resources1.png
+  [0]: ./media/documentdb-interactions-with-resources/interactions-with-resources1.png
   [1]: ./media/documentdb-interactions-with-resources/interactions-with-resources2.png
-  []: http://en.wikipedia.org/wiki/Representational_state_transfer
+  [0]: http://en.wikipedia.org/wiki/Representational_state_transfer
   [2]: http://-www.ietf.org/rfc/rfc4627.txt
   [3]: http://www.w3.org/Protocols/rfc2616/rfc2616.html
   [4]: http://en.wikipedia.org/wiki/HTTP_ETag

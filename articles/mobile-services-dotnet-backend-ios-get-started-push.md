@@ -195,8 +195,8 @@
     Дополнительные сведения о работе концентраторов уведомлений по доставке уведомлений в приложения на всех основных клиентских платформах.
 
 <!-- Anchors.  -->
-<!-- Images. -->
-<!-- URLs. -->
+
+
 
   [Создание запроса подписи сертификата]: #certificates
   [Регистрация приложения и включение push-уведомлений]: #register
@@ -212,12 +212,6 @@
   [SDK мобильных служб для iOS]: https://go.microsoft.com/fwLink/p/?LinkID=266533
   [XCode 4.5]: https://go.microsoft.com/fwLink/p/?LinkID=266532
   [Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-ios-get-started
-  [Включение push-уведомлений Apple]: ../includes/enable-apple-push-notifications.md
-  [mobile-services-apns-configure-push]: ../includes/mobile-services-apns-configure-push.md
-  [mobile-services-ios-download-service-locally]: ../includes/mobile-services-ios-download-service-locally.md
-  [mobile-services-dotnet-backend-test-local-service]: ../includes/mobile-services-dotnet-backend-test-local-service.md
-  [mobile-services-dotnet-backend-publish-service]: ../includes/mobile-services-dotnet-backend-publish-service.md
-  [mobile-services-dotnet-backend-configure-local-push]: ../includes/mobile-services-dotnet-backend-configure-local-push.md
   [0]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push1-ios.png
   [1]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push2-ios.png
   [2]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push3-ios.png

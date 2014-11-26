@@ -58,21 +58,14 @@
 
 ## <a name="enabledomain"></a>Включение Traffic Manager на веб-сайте
 
-[WACOM.INCLUDE [modes][2]]
+[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes-traffic-manager.md)]
 
   [Register.com]: /ru-ru/documentation/articles/web-sites-registerdotcom-custom-domain-name "Register.com"
-  [websites-cloud-services-css-guided-walkthrough]: ../includes/websites-cloud-services-css-guided-walkthrough.md
-  [intro]: ../includes/custom-dns-web-site-intro-traffic-manager.md
   [1]: https://www.register.com
-  [tmwebsitefooter]: ../includes/custom-dns-web-site-traffic-manager-notes.md
-  [introfooter]: ../includes/custom-dns-web-site-intro-notes.md
   [Общие сведения о записях DNS]: #understanding-records
   [Настройка веб-сайтов для стандартного режима]: #bkmk_configsharedmode
   [Добавление записи DNS для пользовательского домена]: #bkmk_configurecname
   [Включение Traffic Manager для веб-сайта]: #enabledomain
-  [understandingdns]: ../includes/custom-dns-web-site-understanding-dns-traffic-manager.md
-  [modes]: ../includes/custom-dns-web-site-modes-traffic-manager.md
   [страница моей учетной записи]: ./media/web-sites-custom-domain-name/rdotcom-myaccount.png
   [Дополнительные технические параметры]: ./media/web-sites-custom-domain-name/rdotcom-advancedsettingstm.png
   [форма CNAME]: ./media/web-sites-custom-domain-name/rdotcom-editcnamerecordtm.png
-  [2]: ../includes/custom-dns-web-site-enable-on-traffic-manager.md

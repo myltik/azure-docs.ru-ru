@@ -396,9 +396,9 @@
 
     Поддержка асинхронного выполнения добавлена для всех методов.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
+  
 
-  [форуме MSDN по службам мультимедиа Azure]: http://social.msdn.microsoft.com/forums/azure/en-US/home?forum=MediaServices
+  [форуме MSDN по службам мультимедиа Azure]: http://social.msdn.microsoft.com/forums/azure/ru-ru/home?forum=MediaServices
   [Известные проблемы]: #issues
   [Журнал версий интерфейса API REST]: #rest_version_history
   [Выпуск: октябрь 2014 г.]: #october_changes_14

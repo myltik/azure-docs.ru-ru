@@ -196,8 +196,6 @@ Service Bus поддерживает функции, помогающие кор
 -   Сборка рабочего приложения, способного отправлять сообщения в очередь Service Bus и получать их из нее: [Учебник по обмену сообщениями .NET через посредника в Service Bus][Учебник по обмену сообщениями .NET через посредника в Service Bus].
 
   [Дальнейшие действия]: #next-steps
-  [create-account-note]: ../includes/create-account-note.md
-  [howto-service-bus-queues]: ../includes/howto-service-bus-queues.md
   [0]: ./media/service-bus-dotnet-how-to-use-queues/getting-started-multi-tier-13.png
   [Очереди, разделы и подписки.]: http://msdn.microsoft.com/ru-ru/library/windowsazure/hh367516.aspx
   [Учебник по обмену сообщениями .NET через посредника в Service Bus]: http://msdn.microsoft.com/ru-ru/library/windowsazure/hh367512.aspx

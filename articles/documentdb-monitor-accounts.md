@@ -1,6 +1,6 @@
 <properties title="Monitor a DocumentDB Account" pageTitle="Monitor a DocumentDB account | Azure" description="Learn how to monitor your DocumentDB account for performance metrics (such as requests and server errors) and usage metrics (such as storage consumption)." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, monitor, accounts" services="documentdb" solutions="data-management" documentationCenter=""  authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="brradsev"></tags>
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="brradsev" />
 
 # Мониторинг учетной записи DocumentDB
 
@@ -23,7 +23,7 @@
     -   общее число запросов для текущего дня;
     -   среднее число запросов в секунду для текущего дня.
 
-    ![][]
+    ![][0]
 
 3.  Если щелкнуть раздел **общего числа запросов или среднего числа запросов в секунду**, откроется подробная выноска **Метрика**.
 4.  Выноска "Метрика" содержит сведения о выбранных метриках. В верхней части выноски находится график, а под ним — таблица статистических показателей для этих метрик, таких как среднее, минимальное и максимальное значения. На выноске "Метрика" также отображается список заданных оповещений, отфильтрованных по метрикам, отображающимся в текущей выноске "Метрика" (таким образом при наличии большого числа оповещений вы увидите только те, которые относятся к представленным здесь метрикам).
@@ -106,7 +106,7 @@
   [Практическое руководство. Просмотр метрик использования для учетной записи DocumentDB]: #view
   [Практическое руководство. Настройка оповещений метрик производительности для учетной записи DocumentDB]: #setup
   [Дальнейшие действия]: #next
-  []: http://i.imgur.com/y7pigTT.png
+  [0]: http://i.imgur.com/y7pigTT.png
   [1]: http://i.imgur.com/6rBNPBL.png
   [2]: http://i.imgur.com/tRZEHk1.png
   [3]: http://i.imgur.com/G4UTi5U.png

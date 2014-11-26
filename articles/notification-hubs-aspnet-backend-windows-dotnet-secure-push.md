@@ -169,7 +169,6 @@
 
 4.  В пользовательском интерфейсе приложения **NotifyUserWindowsPhone** щелкните **Вход и регистрация**. Затем нажмите кнопку **Отправить push-уведомление**.
 
-  [notification-hubs-aspnet-backend-securepush]: ../includes/notification-hubs-aspnet-backend-securepush.md
   [0]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push12.png
   [1]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push3.png
   [2]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push13.png

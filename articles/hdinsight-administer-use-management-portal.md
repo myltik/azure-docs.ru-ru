@@ -1,4 +1,4 @@
-<properties urlDisplayName="Administration" pageTitle="Управление кластерами Hadoop в HDInsight с использованием портала Azure | Azure" metaKeywords="" description="Сведения об управлении службой HDInsight. Создайте кластер HDInsight, откройте интерактивную консоль JavaScript и командную консоль Hadoop." metaCanonical="" services="hdinsight" documentationCenter="" title="Управление кластерами Hadoop в HDInsight с использованием портала управления Azure" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
+<properties linkid="manage-services-hdinsight-howto-administer-hdinsight" urlDisplayName="Administration" pageTitle="Manage Hadoop clusters in HDInsight using Azure Portal | Azure" metaKeywords="" description="Learn how to administer HDInsight Service. Create an HDInsight cluster, open the interactive JavaScript console, and open the Hadoop command console." metaCanonical="" services="hdinsight" documentationCenter="" title="Manage Hadoop clusters in HDInsight using the Azure Management Portal" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
@@ -22,7 +22,6 @@
 -   [Настройка кластеров HDInsight][Настройка кластеров HDInsight]
 -   [Изменение имени пользователя и пароля для кластера HDInsight][Изменение имени пользователя и пароля для кластера HDInsight]
 -   [Подключение к кластерам HDInsight с использованием RDP][Подключение к кластерам HDInsight с использованием RDP]
--   [Создание самозаверяющего сертификата][Создание самозаверяющего сертификата]
 -   [Предоставление и отмена доступа к службам HTTP][Предоставление и отмена доступа к службам HTTP]
 -   [Открытие командной консоли Hadoop][Открытие командной консоли Hadoop]
 -   [Дальнейшие действия][Дальнейшие действия]
@@ -45,7 +44,7 @@
 
 **Подготовка кластера HDInsight**
 
-1.  Выполните вход на [портал управления Azure][портал управления Azure].
+1.  Выполните вход на [Портал управления Azure][Портал управления Azure].
 2.  В нижней части страницы щелкните **СОЗДАТЬ**, затем последовательно щелкните **СЛУЖБЫ ДАННЫХ**, **HDINSIGHT** и **БЫСТРО СОЗДАТЬ**.
 
 3.  Укажите значения **Имя кластера**, **Размер кластера**, **Пароль администратора кластера** и **Учетная запись хранения** Azure, а затем щелкните **Создать кластер HDInsight**. После создания и запуска кластера отображается статус *Выполняется*.
@@ -81,7 +80,7 @@ HDInsight работает со множеством компонентов Hado
 
 **Изменение имени пользователя и пароля для кластера HDInsight**
 
-1.  Выполните вход на [портал управления Azure][портал управления Azure].
+1.  Выполните вход на [Портал управления Azure][Портал управления Azure].
 2.  На левой панели щелкните **HDINSIGHT**. Появится список развернутых кластеров HDInsight.
 3.  Щелкните кластер HDInsight, для которого хотите переопределить имя пользователя и пароль.
 4.  В верхней части страницы щелкните **КОНФИГУРАЦИЯ**.
@@ -97,7 +96,7 @@ HDInsight работает со множеством компонентов Hado
 
 **Включение удаленного рабочего стола**
 
-1.  Выполните вход на [портал управления Azure][портал управления Azure].
+1.  Выполните вход на [Портал управления Azure][Портал управления Azure].
 2.  На левой панели щелкните **HDINSIGHT**. Появится список развернутых кластеров HDInsight.
 3.  Щелкните кластер HDInsight, к которому хотите подключиться.
 4.  В верхней части страницы щелкните **КОНФИГУРАЦИЯ**.
@@ -112,25 +111,11 @@ HDInsight работает со множеством компонентов Hado
 
 **Подключение к кластеру с помощью RDP**
 
-1.  Выполните вход на [портал управления Azure][портал управления Azure].
+1.  Выполните вход на [Портал управления Azure][Портал управления Azure].
 2.  На левой панели щелкните **HDINSIGHT**. Появится список развернутых кластеров HDInsight.
 3.  Щелкните кластер HDInsight, к которому хотите подключиться.
 4.  В верхней части страницы щелкните **КОНФИГУРАЦИЯ**.
 5.  Щелкните **ПОДКЛЮЧИТЬСЯ**, а затем следуйте инструкциям.
-
-## <span id="cert"></span></a>Создание самозаверяющего сертификата
-
-Для выполнения любых операций на кластере с использование .NET SDK требуется создать на рабочей станции самозаверяющий сертификат, а также загрузить его в подписку Azure. Выполнить данную операцию достаточно всего один раз. Один и тот же сертификат можно устанавливать и на других машинах в течение всего срока его действия.
-
-**Создание самозаверяющего сертификата**
-
-1.  Создайте самозаверяющий сертификат, который используется для проверки подлинности запросов. Чтобы создать сертификат, можно использовать IIS или команду [makecert][makecert].
-
-2.  Выполните обзор местоположения сертификата, щелкните сертификат правой кнопкой мыши, щелкните **Установить сертификат** и установите сертификат в личное хранилище компьютера. Измените свойства сертификата, чтобы назначить ему понятное имя.
-
-3.  Выполните импорт сертификата в портал управления Azure. В портале управления щелкните **Параметры** в нижней левой части страницы, а затем нажмите **Управление сертификатами**. В нижней части страницы щелкните **Отправить** и выполните указания для отправки файла .cer, созданного на предыдущем шаге
-
-    ![HDI.ClusterCreate.UploadCert][HDI.ClusterCreate.UploadCert]
 
 ## <span id="httpservice"></span></a> Предоставление и отмена доступа к службам HTTP
 
@@ -148,7 +133,7 @@ HDInsight работает со множеством компонентов Hado
 
 **Предоставление или отмена доступа к веб-службам HTTP**
 
-1.  Выполните вход на [портал управления Azure][портал управления Azure].
+1.  Выполните вход на [Портал управления Azure][Портал управления Azure].
 2.  На левой панели щелкните **HDINSIGHT**. Появится список развернутых кластеров HDInsight.
 3.  Щелкните кластер HDInsight, который хотите настроить.
 4.  В верхней части страницы щелкните **КОНФИГУРАЦИЯ**.
@@ -169,7 +154,7 @@ HDInsight работает со множеством компонентов Hado
 
 **Открытие командной строки Hadoop**
 
-1.  Выполните вход на [портал управления Azure][портал управления Azure].
+1.  Выполните вход на [Портал управления Azure][Портал управления Azure].
 2.  На левой панели щелкните **HDINSIGHT**. Вы увидите список развернутых кластеров Hadoop.
 3.  Щелкните кластер HDInsight, к которому хотите подключиться.
 4.  В верхней части страницы щелкните **КОНФИГУРАЦИЯ**.
@@ -211,23 +196,19 @@ HDInsight работает со множеством компонентов Hado
   [Настройка кластеров HDInsight]: #customize
   [Изменение имени пользователя и пароля для кластера HDInsight]: #password
   [Подключение к кластерам HDInsight с использованием RDP]: #rdp
-  [Создание самозаверяющего сертификата]: #cert
   [Предоставление и отмена доступа к службам HTTP]: #httpservice
   [Открытие командной консоли Hadoop]: #hadoopcmd
   [Дальнейшие действия]: #nextsteps
   [Подготовка кластеров HDInsight]: ../hdinsight-provision-clusters/
   [Использование хранилища BLOB-объектов Azure с HDInsight]: ../hdinsight-use-blob-storage/
   [Создание учетной записи хранения]: ../storage-create-storage-account/
-  [портал управления Azure]: https://manage.windowsazure.com/
+  [Портал управления Azure]: https://manage.windowsazure.com/
   [HDI.QuickCreate]: ./media/hdinsight-administer-use-management-portal/HDI.QuickCreateCluster.png
   [HDI.ClusterLanding]: ./media/hdinsight-administer-use-management-portal/HDI.ClusterLanding.PNG "Главная страница кластера"
-  [Какая версия Hadoop включена в Azure HDInsight?]: ../hdinsight-component-versioning/
   [Отправка заданий Hadoop программными средствами]: ../hdinsight-submit-hadoop-jobs-programmatically/
   [службу поддержки Майкрософт]: http://azure.microsoft.com/ru-ru/support/options/
   [Включение удаленного рабочего стола]: #enablerdp
   [HDI.CreateRDPUser]: ./media/hdinsight-administer-use-management-portal/HDI.CreateRDPUser.png
-  [makecert]: http://msdn.microsoft.com/ru-ru/library/bfsktky3(v=vs.110).aspx
-  [HDI.ClusterCreate.UploadCert]: ./media/hdinsight-administer-use-management-portal/HDI.ClusterCreate.UploadCert.png
   [HDI.HadoopCommandLine]: ./media/hdinsight-administer-use-management-portal/HDI.HadoopCommandLine.PNG "Командная строка Hadoop"
   [Справочнике по командам Hadoop]: http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CommandsManual.html
   [Приступая к работе с Azure HDInsight]: ../hdinsight-get-started/

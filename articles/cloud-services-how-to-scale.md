@@ -1,8 +1,10 @@
-<properties urlDisplayName="How to scale" pageTitle="Масштабирование облачной службы &mdash; Azure" metaKeywords="Azure link resource, scaling cloud service" description="Узнайте, как можно выполнить масштабирование облачной службы и связанных ресурсов в Azure." metaCanonical="" services="cloud-services" documentationCenter="" title="Масштабирование приложения" authors="davidmu" solutions="" manager="timlt" editor="" />
+<properties linkid="manage-services-how-to-scale-a-cloud-service" urlDisplayName="How to scale" pageTitle="How to scale a cloud service - Azure" metaKeywords="Azure link resource, scaling cloud service" description="Learn how to scale a cloud service and linked resources in Azure." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Scale an Application" authors="davidmu" solutions="" manager="jeffreyg" editor="mattshel" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/21/2014" ms.author="davidmu" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="davidmu" />
 
 # Масштабирование приложения
+
+[WACOM.INCLUDE [отказ от ответственности](../includes/disclaimer.md)]
 
 На странице «Масштаб» портала управления Azure можно вручную масштабировать приложение или задать параметры для автоматического масштабирования. Можно масштабировать приложения, которые выполняют веб-роли, рабочие роли или виртуальные машины. Чтобы масштабировать приложение, которое выполняет экземпляры веб-ролей или рабочих ролей, необходимо распределить рабочую нагрузку путем добавления или удаления экземпляров.
 

@@ -208,7 +208,7 @@
 
     Узнайте, как рассылать push-уведомления определенным пользователям, прошедшим проверку подлинности. Это хорошее решение для отправки уведомлений только определенным пользователям.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs.-->
+  <!-- URLs.-->
 
   [Windows Universal]: /ru-ru/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/ "Windows Universal"
   [Windows Phone]: /ru-ru/documentation/articles/notification-hubs-windows-phone-send-breaking-news/ "Windows Phone"
@@ -221,7 +221,6 @@
   [Отправка уведомлений из серверной части]: #send
   [Запуск приложения и создание уведомлений]: #test-app
   [Приступая к работе с концентраторами уведомлений]: /ru-ru/manage/services/notification-hubs/getting-started-windows-dotnet/
-  [notification-hubs-back-end]: ../includes/notification-hubs-back-end.md
   [0]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-breakingnews-win1.png
   [2]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-reg-2.png
   [3]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-toast-2.png

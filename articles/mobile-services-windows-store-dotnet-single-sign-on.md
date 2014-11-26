@@ -128,8 +128,6 @@
   [Добавление проверки подлинности к приложению]: #add-authentication
   [Live SDK для Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
   [Приступая к работе с мобильными службами]: /ru-ru/develop/mobile/tutorials/get-started
-  [mobile-services-register-windows-store-app]: ../includes/mobile-services-register-windows-store-app.md
-  [mobile-services-restrict-permissions-javascript-backend]: ../includes/mobile-services-restrict-permissions-javascript-backend.md
   [1]: /ru-ru/documentation/articles/mobile-services-windows-store-get-started
   [0]: ./media/mobile-services-windows-store-dotnet-single-sign-on/mobile-add-reference-live-dotnet.png
   [Приступая к работе с аутентификацией]: /ru-ru/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/#tokens

@@ -882,13 +882,11 @@ public static void ProcessQueueMessage([QueueTrigger(&quot;webjobsqueue&quot;)]]
   [Дальнейшие действия]: #next-steps
   [ASP.NET MVC]: http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started
   [веб-форм]: http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview
-  [free-trial-note]: ../includes/free-trial-note.md
   [Веб-задания]: /ru-ru/documentation/articles/web-sites-create-web-jobs/
   [AlwaysOn]: http://weblogs.asp.net/scottgu/archive/2014/01/16/windows-azure-staging-publishing-support-for-web-sites-monitoring-improvements-hyper-v-recovery-manager-ga-and-pci-compliance.aspx
   [Таблица рекламы]: ./media/websites-dotnet-webjobs-sdk-get-started/adtable.png
   [Архитектура Contoso Ads]: ./media/websites-dotnet-webjobs-sdk-get-started/apparchitecture.png
   [Сравнение веб-сайтов, облачных служб и виртуальных машин Azure]: /ru-ru/documentation/articles/choose-web-site-cloud-service-vm/
-  [установка-sdk-2013-только]: ../includes/install-sdk-2013-only.md
   [портале управления Azure]: http://manage.windowsazure.com
   [Управление учетными записями хранения]: /ru-ru/documentation/articles/storage-manage-storage-account/
   [Новая учетная запись хранения]: ./media/websites-dotnet-webjobs-sdk-get-started/newstorage.png

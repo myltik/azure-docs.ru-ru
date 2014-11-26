@@ -1,6 +1,6 @@
 <properties linkid="mobile-services-html-call-custom-api" urlDisplayName="Call a custom API from the client" pageTitle="Call a custom API from an HTML client - Mobile Services" metaKeywords="" description="Learn how to define a custom API and then call it from an HTML app that uses Windows Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Call a custom API from the client" authors="glenga"  solutions="" writer="jparrel" manager="" editor=""  />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Вызов настраиваемого API из приложения HTM
 
@@ -20,7 +20,7 @@
 
 ## <a name="define-custom-api"></a>Определение настраиваемого интерфейса API
 
-[WACOM.INCLUDE [mobile-services-create-custom-api][mobile-services-create-custom-api]]
+[WACOM.INCLUDE [mobile-services-create-custom-api](../includes/mobile-services-create-custom-api.md)]
 
 ## <a name="update-app"></a><span class="short-header">Обновление приложения </span>Обновление приложения для вызова настраиваемого API
 
@@ -69,19 +69,12 @@
 -   [Справочник серверных скриптов мобильных служб][Справочник серверных скриптов мобильных служб]
     Дополнительные сведения о создании настраиваемых API.
 
-<!-- Anchors. -->
-<!-- URLs. -->
 
-  [Магазин Windows C\#]: /ru-ru/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api "Магазин Windows C#"
-  [Магазин Windows JavaScript]: /ru-ru/documentation/articles/mobile-services-windows-store-javascript-call-custom-api "Магазин Windows JavaScript"
-  [Windows Phone]: /ru-ru/documentation/articles/mobile-services-windows-phone-call-custom-api "Windows Phone"
-  [iOS]: /ru-ru/documentation/articles/mobile-services-ios-call-custom-api "iOS"
-  [Android]: /ru-ru/documentation/articles/mobile-services-android-call-custom-api "Android"
-  [HTML]: /ru-ru/documentation/articles/mobile-services-html-call-custom-api "HTML"
+
+
   [Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/mobile-services-html-get-started
   [Приступая к работе с данными]: /ru-ru/documentation/articles/mobile-services-html-get-started-data
   [Определение настраиваемого интерфейса API]: #define-custom-api
   [Обновление приложения для вызова настраиваемого API]: #update-app
   [Тестирование приложения]: #test-app
-  [mobile-services-create-custom-api]: ../includes/mobile-services-create-custom-api.md
   [Справочник серверных скриптов мобильных служб]: http://go.microsoft.com/fwlink/?LinkId=262293

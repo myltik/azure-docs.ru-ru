@@ -610,7 +610,6 @@
   [Практическое руководство. Настройка заголовков запроса]: #customizing
   [Практическое руководство. Использование общего доступа к ресурсам независимо от источника]: #hostnames
   [Дальнейшие действия]: #nextsteps
-  [mobile-services-concepts]: ../includes/mobile-services-concepts.md
   [Приступая к работе с данными в Магазине Windows JavaScript]: http://www.windowsazure.com/ru-ru/develop/mobile/tutorials/get-started-with-data-js
   [Приступая к работе с данными в HTML/JavaScript]: http://www.windowsazure.com/ru-ru/develop/mobile/tutorials/get-started-with-data-html/
   [справочнике по параметрам системных запросов OData]: http://go.microsoft.com/fwlink/p/?LinkId=444502

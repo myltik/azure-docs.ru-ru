@@ -175,7 +175,7 @@
 
 Также можно ознакомиться с документацией [API REST для службы Поиска Azure][документации API REST для службы Поиска Azure] в MSDN.
 
-<!--Anchors--> <!--Image references-->
+<!--Anchors-->\r\n<!--Image references-->
 
   [Предварительные требования]: #sub-1
   [Создание индекса Поиска Azure]: #sub-2

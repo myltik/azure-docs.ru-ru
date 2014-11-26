@@ -19,7 +19,7 @@
             </intent-filter>
         </receiver>
 
-4.  Загрузите и распакуйте [Android SDK мобильных служб][], откройте папку **notifications**, скопируйте файл **notifications-1.0.1.jar** в папку *libs* вашего проекта Eclipse и обновите папку *libs*.
+4.  Загрузите и распакуйте [Android SDK мобильных служб][Android SDK мобильных служб], откройте папку **notifications**, скопируйте файл **notifications-1.0.1.jar** в папку *libs* вашего проекта Eclipse и обновите папку *libs*.
 
     <div class="dev-callout"><b>Примечание.</b>
 <p>Числа в конце этого имени файла могут меняться в последующих выпусках SDK.</p>
@@ -43,7 +43,7 @@
 
 9.  В поле **Имя** введите `MyHandler`, в поле **Суперкласс** укажите `com.microsoft.windowsazure.notifications.NotificationsHandler`, затем щелкните кнопку **Готово**
 
-    ![][]
+    ![][0]
 
     При этом создается новый класс MyHandler.
 
@@ -113,7 +113,7 @@
 
 Ваше приложение теперь обновлено для поддержки push-уведомлений.
 
-<!-- URLs. -->
+
 
   [Android SDK мобильных служб]: http://go.microsoft.com/fwlink/p/?LinkID=280126
-  []: ./media/mobile-services-android-get-started-push/mobile-services-android-create-class.png
+  [0]: ./media/mobile-services-android-get-started-push/mobile-services-android-create-class.png

@@ -1,6 +1,6 @@
 1.  Обязательно остановите мобильную службу, если она запущена в IIS Express. Щелкните правой кнопкой мыши значок IIS Express на панели задач и выберите пункт **Остановить** для мобильной службы.
 
-    ![][]
+    ![][0]
 
 2.  В окне командной строки выполните команду **ipconfig**, чтобы найти допустимый локальный IP-адрес для рабочей станции.
 
@@ -32,8 +32,8 @@
 
     > [WACOM.NOTE] После завершения локального тестирования службы следует удалить созданное правило брандмауэра Windows.
 
-<!-- URLs. -->
 
-  []: ./media/mobile-services-how-to-configure-iis-express/iis-express-tray-stop-site.png
+
+  [0]: ./media/mobile-services-how-to-configure-iis-express/iis-express-tray-stop-site.png
   [1]: ./media/mobile-services-how-to-configure-iis-express/ipconfig.png
   [Добавление нового правила для порта в брандмауэре Windows]: http://go.microsoft.com/fwlink/?LinkId=392240

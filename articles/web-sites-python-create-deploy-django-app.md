@@ -132,7 +132,6 @@
 
 Теперь можно перейти в каталог DjangoApplication и использовать manage.py, как обычно, чтобы начать добавлять новые приложения в проект Django.
 
-  [создать-учетная запись-и-веб-сайт-примечание]: ../includes/create-account-and-websites-note.md
   [0]: http://www.windowsazure.com/ru-ru/develop/python/
   [msysgit]: http://code.google.com/p/msysgit/
   [0]: ./media/web-sites-python-create-deploy-django-app/django-ws-003.png

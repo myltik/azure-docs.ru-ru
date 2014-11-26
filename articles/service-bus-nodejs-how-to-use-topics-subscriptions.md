@@ -429,7 +429,6 @@ HighMessages из раздела MyTopic.
   [Практическое руководство. Обработка сбоев приложения и нечитаемых сообщений]: #handle-crashes
   [Практическое руководство. Удаление разделов и подписок]: #delete
   [1]: #next-steps
-  [howto-service-bus-topics]: ../includes/howto-service-bus-topics.md
   [Создание и развертывание приложения Node.js на веб-сайте Azure]: /ru-ru/develop/nodejs/tutorials/create-a-website-(mac)/
   [Облачная служба Node.js]: /ru-ru/documentation/articles/cloud-services-nodejs-develop-deploy-app/
   [Веб-сайт с WebMatrix]: /ru-ru/develop/nodejs/tutorials/web-site-with-webmatrix/

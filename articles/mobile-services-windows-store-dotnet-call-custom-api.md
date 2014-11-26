@@ -39,16 +39,14 @@
 -   [Хранение серверных сценариев в системе управления версиями][Хранение серверных сценариев в системе управления версиями]
     <br/>Узнайте, как использовать функцию управления версиями, чтобы легко и надежно разрабатывать и публиковать код сценариев настраиваемого API.
 
-<!-- Anchors. -->
-<!-- URLs. -->
+
+
 
   [Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/mobile-services-windows-store-get-started/
   [Приступая к работе с данными]: /ru-ru/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/
   [Определение настраиваемого интерфейса API]: #define-custom-api
   [Обновление приложения для вызова настраиваемого API]: #update-app
   [Тестирование приложения]: #test-app
-  [mobile-services-create-custom-api]: ../includes/mobile-services-create-custom-api.md
-  [mobile-services-windows-store-dotnet-call-custom-api]: ../includes/mobile-services-windows-store-dotnet-call-custom-api.md
   [Определение настраиваемого интерфейса API с поддержкой периодических уведомлений]: /ru-ru/documentation/articles/mobile-services-windows-store-dotnet-create-pull-notifications
   [Справочник серверных скриптов мобильных служб]: http://go.microsoft.com/fwlink/?LinkId=262293
   [Хранение серверных сценариев в системе управления версиями]: /ru-ru/documentation/articles/mobile-services-store-scripts-source-control

@@ -8,7 +8,7 @@
 4.  Создайте другого пользователя с именем **Дэйв**. Обратите внимание на временный пароль для пользователя.
 5.  Новые пользователи должны выглядеть аналогичным образом.
 
-    ![][]
+    ![][0]
 
 ### Создание группы продаж
 
@@ -28,7 +28,7 @@
 
     ![][3]
 
-  []: ./media/mobile-services-aad-rbac-create-sales-group/users.png
+  [0]: ./media/mobile-services-aad-rbac-create-sales-group/users.png
   [1]: ./media/mobile-services-aad-rbac-create-sales-group/sales-group.png
   [2]: ./media/mobile-services-aad-rbac-create-sales-group/group-membership.png
   [3]: ./media/mobile-services-aad-rbac-create-sales-group/sales-group-id.png

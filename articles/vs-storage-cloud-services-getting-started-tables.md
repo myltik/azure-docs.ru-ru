@@ -1,6 +1,6 @@
 <properties title="Начало работы с хранилищем Azure" pageTitle="Начало работы с хранилищем Azure" metaKeywords="Azure, Getting Started, Storage" description="" services="storage" documentationCenter="" authors="ghogen, kempb" />
 
-<tags ms.service="storage" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="ghogen, kempb"></tags>
+<tags ms.service="storage" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="ghogen, kempb" />
 
 > [AZURE.SELECTOR]
 >
@@ -37,4 +37,3 @@
   [BLOB-объекты]: /documentation/articles/vs-storage-cloud-services-getting-started-blobs/
   [Очереди]: /documentation/articles/vs-storage-cloud-services-getting-started-queues/
   [Как использовать хранилище таблиц из .NET]: http://azure.microsoft.com/ru-ru/documentation/articles/storage-dotnet-how-to-use-tables/#create-table "Как использовать хранилище таблиц из .NET"
-  [vs-storage-getting-started-tables-include]: ../includes/vs-storage-getting-started-tables-include.md

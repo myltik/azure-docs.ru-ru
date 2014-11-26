@@ -137,5 +137,4 @@
 
 4.  В пользовательском интерфейсе приложения iOS нажмите **Вход**. Затем нажмите **Отправить push-уведомление**. Вы должны увидеть конфиденциальное уведомление, которое будет отображено в центре уведомлений.
 
-  [notification-hubs-aspnet-backend-securepush]: ../includes/notification-hubs-aspnet-backend-securepush.md
   [0]: ./media/notification-hubs-aspnet-backend-ios-secure-push/secure-push-ios-1.png

@@ -1,6 +1,6 @@
 1.  Выполните вход на [портал управления Azure], щелкните пункт **Мобильные службы**, а затем выберите свою мобильную службу.
 
-    ![][]
+    ![][0]
 
 2.  Щелкните вкладку **Push-уведомления**, выберите значение **Только прошедшие проверку пользователи** для параметра **Разрешения**, а затем нажмите кнопку **Правка скрипта**.
 
@@ -45,5 +45,5 @@
 
 4.  Щелкните стрелку назад, затем вкладку **Данные**, **TodoItem**, **Скрипт** и выберите пункт **Вставка**.
 
-  []: ./media/mobile-services-javascript-backend-push-notifications-app-users/mobile-services-selection.png
+  [0]: ./media/mobile-services-javascript-backend-push-notifications-app-users/mobile-services-selection.png
   [1]: ./media/mobile-services-javascript-backend-push-notifications-app-users/mobile-services-push-registration-endpoint.png

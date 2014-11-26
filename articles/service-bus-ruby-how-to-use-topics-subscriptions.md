@@ -195,7 +195,6 @@ Service Bus предоставляет функции, помогающие ко
   [Получение сообщений от подписки]: #how-to-receive-messages-from-a-subscription
   [Обработка сбоев приложения и нечитаемых сообщений]: #how-to-handle-application-crashes-and-unreadable-messages
   [Удаление разделов и подписок]: #how-to-delete-topics-and-subscriptions
-  [howto-service-bus-topics]: ../includes/howto-service-bus-topics.md
   [Создание приложения Ruby в Azure]: /ru-ru/develop/ruby/tutorials/web-app-with-linux-vm/
   [SqlFilter.SqlExpression]: http://msdn.microsoft.com/ru-ru/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [портале управления Azure]: https://manage.windowsazure.com

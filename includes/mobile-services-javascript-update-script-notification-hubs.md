@@ -2,7 +2,7 @@
 
 1.  Последовательно щелкните **TodoItem**, **Скрипт** и **Вставить**.
 
-    ![][]
+    ![][0]
 
 2.  Замените функцию вставки следующим кодом и нажмите кнопку **Сохранить**:
 
@@ -31,4 +31,4 @@
 
     Этот скрипт вставки отправляет push-уведомление (с текстом вставленного элемента) во все регистрации приложения Магазина Windows после успешной вставки.
 
-  []: ./media/mobile-services-javascript-update-script-notification-hubs/mobile-insert-script-push2.png
+  [0]: ./media/mobile-services-javascript-update-script-notification-hubs/mobile-insert-script-push2.png

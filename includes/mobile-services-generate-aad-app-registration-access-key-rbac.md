@@ -1,4 +1,4 @@
-1.  Выберите вкладку **Приложения** на странице каталогов [портала управления Azure][]
+1.  Выберите вкладку **Приложения** на странице каталогов [портала управления Azure][портала управления Azure]
 
 2.  Выберите регистрацию интегрированного вами приложения.
 
@@ -6,7 +6,7 @@
 4.  Выберите длительность нового ключа **1 год**. Затем нажмите **Сохранить**, в портале отобразится значение нового ключа.
 5.  Скопируйте **идентификатор клиента** и **Ключ**, которые будут показаны после сохранения. Обратите внимание, что значение ключа будет показано лишь один раз при сохранении.
 
-    ![][]
+    ![][0]
 
 6.  Пролистайте к концу страницы конфигурации интегрированного приложения и включите разрешение **Чтение данных каталога** для приложения, затем нажмите **Сохранить**.
 
@@ -24,6 +24,6 @@
     ![][2]
 
   [портала управления Azure]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-generate-aad-app-registration-access-key-rbac/client-id-and-key.png
+  [0]: ./media/mobile-services-generate-aad-app-registration-access-key-rbac/client-id-and-key.png
   [1]: ./media/mobile-services-generate-aad-app-registration-access-key-rbac/app-perms.png
   [2]: ./media/mobile-services-generate-aad-app-registration-access-key-rbac/aad-app-settings.png

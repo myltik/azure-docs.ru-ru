@@ -1,6 +1,6 @@
 <properties linkid="manage-services-biztalk-services-editions-chart" urlDisplayName="Editions chart" pageTitle="Learn about features in BizTalk Services editions | Azure" metaKeywords="BizTalk Services, get started, Azure, editions" description="Compare the capabilities of the BizTalk Services editions: Free, Developer, Basic, Standard, and Premium." metaCanonical="" services="biztalk-services" documentationCenter="" title=" Basic" authors="mandia" solutions="" manager="dwrede" editor="cgronlun" />
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia"></tags>
+<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
 
 # Службы BizTalk: диаграмма выпусков
 
@@ -234,7 +234,6 @@ BizTalk Server на виртуальных машинах Azure предоста
 -   [Службы BizTalk: имя и ключ издателя][Службы BizTalk: имя и ключ издателя]
 -   [Как приступить к работе с пакетом SDK для служб BizTalk Azure][Как приступить к работе с пакетом SDK для служб BizTalk Azure]
 
-  [Сведения о ценах на службы BizTalk Azure]: http://go.microsoft.com/fwlink/p/?LinkID=304011
   [Службы BizTalk: архивация и восстановление]: http://go.microsoft.com/fwlink/p/?LinkID=329873
   [загрузить]: http://www.microsoft.com/download/details.aspx?id=39087
   [Службы BizTalk: подготовка с использованием портала управления Azure]: http://go.microsoft.com/fwlink/p/?LinkID=302280

@@ -160,10 +160,10 @@
 2.  Измените файл **startup.cmd**, чтобы распаковать WAR-файл TwilioCloud.
 3.  Выполните компиляцию приложения для эмулятора среды выполнения приложений.
 4.  Запустите развертывание в эмуляторе среды выполнения приложений.
-5.  Откройте браузер и введите адрес **<http://localhost:8080/TwilioCloud/callform.jsp>**.
+5.  Откройте браузер и введите адрес **http://localhost:8080/TwilioCloud/callform.jsp**.
 6.  Введите в форму значения, нажмите **Выполнить звонок** и просмотрите результаты в файле makecall.jsp.
 
-Завершив подготовку к развертыванию в Azure, выполните повторную компиляцию для развертывания в облаке, далее выполните развертывание в Azure и запустите <http://*your_hosted_name>*.cloudapp.net/TwilioCloud/callform.jsp в браузере (замените атрибут* именем\_вашего\_размещенного\_приложения\*).
+Завершив подготовку к развертыванию в Azure, выполните повторную компиляцию для развертывания в облаке, далее выполните развертывание в Azure и запустите http://*your_hosted_name*.cloudapp.net/TwilioCloud/callform.jsp в браузере (замените атрибут *именем\_вашего\_размещенного\_приложения*).
 
 ## Дальнейшие действия
 
@@ -189,6 +189,7 @@
   [4]: http://github.com/twilio/twilio-java
   [5]: http://api.twilio.com
   [Добавление сертификата в хранилище сертификатов ЦС Java]: ../java-add-certificate-ca-store
+  [Создание приложения "Hello World" с использованием подключаемого модуля Azure для Eclipse с помощью Java (Microsoft Open Technologies)]: http://msdn.microsoft.com/ru-ru/library/windowsazure/hh690944.aspx
   [Ответ на звонок Azure с помощью Twilio и Java]: ./media/partner-twilio-java-phone-call-example/WA_TwilioJavaMakeCall.jpg
   [Использование службы хранилища BLOB-объектов Azure из Java]: http://www.windowsazure.com/ru-ru/develop/java/how-to-guides/blob-storage/
   [Использование базы данных SQL в Java]: http://msdn.microsoft.com/ru-ru/library/windowsazure/hh749029.aspx

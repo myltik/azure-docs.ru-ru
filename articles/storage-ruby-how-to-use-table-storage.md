@@ -1,190 +1,172 @@
-<properties urlDisplayName="Table Service" pageTitle="Использование табличного хранилища (Ruby) &mdash; Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Ruby, table storage Ruby" description="Вы узнаете, как использовать службу табличного хранилища в Azure. Примеры написаны с помощью Ruby API." metaCanonical="" services="storage" documentationCenter="Ruby" title="Использование службы таблиц в Ruby" authors="guayan" solutions="" manager="wpickett" editor="" />
+﻿<properties urlDisplayName="Table Service" pageTitle="Использование табличного хранилища (Ruby) - Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Ruby, table storage Ruby" description="Learn how to use the table storage service in Azure. Code samples are written using the Ruby API." metaCanonical="" services="storage" documentationCenter="Ruby" title="How to Use the Table Service from Ruby" authors="guayan" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan" />
 
+
+
+
+
 # Использование службы таблиц в Ruby
 
-В этом руководстве показано, как реализовать типичные сценарии с использованием службы таблиц Windows
-Azure. Примеры написаны с помощью
+В этом руководстве показано, как реализовать типичные сценарии с использованием службы
+табличного хранилища Azure. Примеры написаны с помощью
 Ruby API. Здесь описаны такие сценарии, как **создание и удаление
 таблицы, вставка и запрос сущностей в таблице**. Дополнительные
-сведения о таблицах см. в разделе [Дальнейшие действия][Дальнейшие действия].
+сведения о таблицах см. в разделе [Дальнейшие действия](#next-steps).
 
 ## Оглавление
 
--   [Что такое служба таблиц?][Что такое служба таблиц?]
--   [Основные понятия][Основные понятия]
--   [Создание учетной записи хранения Azure][Создание учетной записи хранения Azure]
--   [Создание приложения Ruby][Создание приложения Ruby]
--   [Настройка приложения для доступа к хранилищу][Настройка приложения для доступа к хранилищу]
--   [Настройка подключения к хранилищу Azure][Настройка подключения к хранилищу Azure]
--   [Практическое руководство. Создание таблицы][Практическое руководство. Создание таблицы]
--   [Практическое руководство. Добавление сущности в таблицу][Практическое руководство. Добавление сущности в таблицу]
--   [Практическое руководство. Обновление сущности][Практическое руководство. Обновление сущности]
--   [Практическое руководство. Работа с группами сущностей][Практическое руководство. Работа с группами сущностей]
--   [Практическое руководство. Запрос сущности][Практическое руководство. Запрос сущности]
--   [Практическое руководство. Запрос набора сущностей][Практическое руководство. Запрос набора сущностей]
--   [Практическое руководство. Запрос подмножества свойств сущности][Практическое руководство. Запрос подмножества свойств сущности]
--   [Практическое руководство. Удаление сущности][Практическое руководство. Удаление сущности]
--   [Практическое руководство. Удаление таблицы][Практическое руководство. Удаление таблицы]
--   [Дальнейшие действия][Дальнейшие действия]
+* [Что такое служба таблиц?](#what-is)
+* [Основные понятия](#concepts)
+* [Создание учетной записи хранения Azure](#create-a-windows-azure-storage-account)
+* [Создание приложения Ruby](#create-a-ruby-application)
+* [Настройка приложения для доступа к хранилищу](#configure-your-application-to-access-storage)
+* [Настройка подключения к хранилищу Azure](#setup-a-windows-azure-storage-connection)
+* [Практическое руководство. Создание таблицы](#how-to-create-a-table)
+* [Практическое руководство. Добавление сущности в таблицу](#how-to-add-an-entity-to-a-table)
+* [Практическое руководство. Обновление сущности](#how-to-update-an-entity)
+* [Практическое руководство. Работа с группами сущностей](#how-to-work-with-groups-of-entities)
+* [Практическое руководство. Запрос сущности](#how-to-query-for-an-entity)
+* [Практическое руководство. Запрос набора сущностей](#how-to-query-a-set-of-entities)
+* [Практическое руководство. Запрос подмножества свойств сущности](#how-to-query-a-subset-of-entity-properties)
+* [Практическое руководство. Удаление сущности](#how-to-delete-an-entity)
+* [Практическое руководство. Удаление таблицы](#how-to-delete-a-table)
+* [Дальнейшие действия](#next-steps)
 
 [WACOM.INCLUDE [руководство-таблица-хранилище](../includes/howto-table-storage.md)]
 
-## <span id="create-a-windows-azure-storage-account"></span></a> Создание учетной записи хранения Azure
+## <a id="create-a-windows-azure-storage-account"></a>Создание учетной записи хранения Azure
 
 [WACOM.INCLUDE [создание-хранилище-учетная запись](../includes/create-storage-account.md)]
 
-## <span id="create-a-ruby-application"></span></a>Создание приложения Ruby
+## <a id="create-a-ruby-application"></a>Создание приложения Ruby
 
-Создайте приложение Ruby. Инструкции см. в разделе
-[Создание приложений Ruby в Azure][Создание приложений Ruby в Azure].
+Создайте приложение Ruby. Инструкции 
+см. в разделе [Создание приложения Ruby в Azure](/ru-ru/develop/ruby/tutorials/web-app-with-linux-vm/).
 
-## <span id="configure-your-application-to-access-storage"></span></a>Настройка приложения для доступа к хранилищу
+## <a id="configure-your-application-to-access-storage"></a>Настройка приложения для доступа к хранилищу
 
-Для использования хранилища Azure необходимо загрузить и использовать пакет
-Ruby Azure, который содержит набор библиотек, взаимодействующих со службами REST хранилища.
+Для использования хранилища Azure необходимо загрузить и использовать пакет Ruby Azure,  
+который содержит набор библиотек, взаимодействующих со службами REST хранилища.
 
 ### Использование RubyGems для получения пакета
 
-1.  Используйте интерфейс командной строки, например **PowerShell** (Windows), **Terminal** (Mac) или **Bash** (Unix).
+1. Используйте интерфейс командной строки, например **PowerShell** (Windows), **Terminal** (Mac) или **Bash** (Unix).
 
-2.  Введите **gem install azure** в окне командной строки, чтобы установить пакеты и зависимости.
+2. Введите **gem install azure** в окне командной строки, чтобы установить пакеты и зависимости.
 
 ### Импорт пакета
 
 Используйте свой любимый текстовый редактор, чтобы добавить следующий код в начало файла Ruby, где планируется использовать хранилище.
 
-    require "azure"
+	требует "azure"
 
-## <span id="setup-a-windows-azure-storage-connection"></span></a>Настройка подключения к хранилищу Azure
+## <a id="setup-a-windows-azure-storage-connection"></a>Настройка подключения к хранилищу Azure
 
-Модуль Azure считывает переменные среды **AZURE\_STORAGE\_ACCOUNT** и **AZURE\_STORAGE\_ACCESS\_KEY**
+Модуль Azure считывает переменные среды  **AZURE\_STORAGE\_ACCOUNT** и **AZURE\_STORAGE\_ACCESS\_KEY** 
 для получения сведений, необходимых для подключения к учетной записи хранения Azure. Если эти переменные среды не заданы, необходимо указать сведения об учетной записи перед использованием **Azure::TableService** с помощью следующего кода:
 
-    Azure.config.storage_account_name = "<your azure storage account>"
-    Azure.config.storage_access_key = "<your azure storage access key>"
+	Azure.config.storage_account_name = "<your azure storage account>"
+	Azure.config.storage_access_key = "<your azure storage access key>"
 
 Для получения этих значений:
 
-1.  Выполните вход на [портал управления Azure][портал управления Azure].
+1. Выполните вход на [портал управления Azure](https://manage.windowsazure.com/).
 
-2.  Перейдите к учетной записи хранения, которая будет использоваться.
+2. Перейдите к учетной записи хранения, которая будет использоваться.
 
-3.  Щелкните **УПРАВЛЕНИЕ КЛЮЧАМИ** в нижней части области навигации.
+3. Щелкните **УПРАВЛЕНИЕ КЛЮЧАМИ** в нижней части области навигации.
 
-4.  В открывшемся диалоговом окне вы увидите имя учетной записи хранения, первичный ключ доступа и вторичный ключ доступа. В качестве ключа доступа можно использовать либо первичный, либо вторичный ключ.
+4. В открывшемся диалоговом окне вы увидите имя учетной записи хранения, первичный ключ доступа и вторичный ключ доступа. В качестве ключа доступа можно использовать либо первичный, либо вторичный ключ.
 
-## <span id="how-to-create-a-table"></span></a>Создание таблицы
+## <a id="how-to-create-a-table"></a>Создание таблицы
 
 Объект **Azure::TableService** позволяет работать с таблицами и сущностями. Чтобы создать таблицу, используйте метод **create\_table()**. В следующем примере создается таблица или выводится ошибка, если она возникла.
 
-    azure_table_service = Azure::TableService.new
-    begin
-      azure_table_service.create_table("testtable")
-    rescue
-      puts $!
-    end
+	azure_table_service = Azure::TableService.new
+	begin
+	  azure_table_service.create_table("testtable")
+	rescue
+	  puts $!
+	end
 
-## <span id="how-to-add-an-entity-to-a-table"></span></a>Добавление сущности в таблицу
+## <a id="how-to-add-an-entity-to-a-table"></a>Добавление сущности в таблицу
 
-Чтобы добавить сущность, сначала создайте хэш-объект, который определяет свойства сущности. Обратите внимание, что для каждой сущности необходимо задать свойства **PartitionKey** и **RowKey**. Это уникальные идентификаторы сущностей, которые можно запросить гораздо быстрее, чем для других свойств. Служба хранилища Azure использует **PartitionKey**, чтобы автоматически распространять сущности таблицы на множество узлов хранилища. Сущности с одним значением **PartitionKey** хранятся на одном узле. **RowKey** — это уникальный идентификатор сущности в разделе, которому она принадлежит.
+Чтобы добавить сущность, сначала создайте хэш-объект, который определяет свойства сущности. Обратите внимание, что для каждой сущности необходимо задать свойства **PartitionKey** и **RowKey**. Это уникальные идентификаторы сущностей, которые можно запросить гораздо быстрее, чем для других свойств. Служба хранилища Azure использует **PartitionKey**, чтобы автоматически распространять сущности таблицы на множество узлов хранилища. Сущности с одним значением **PartitionKey** хранятся на одном узле. **RowKey** - это уникальный идентификатор сущности в разделе, которому она принадлежит. 
 
-    entity = { "content" => "test entity", 
-      :PartitionKey => "test-partition-key", :RowKey => "1" }
-    azure_table_service.insert_entity("testtable", entity)
+	entity = { "content" => "test entity", 
+	  :PartitionKey => "test-partition-key", :RowKey => "1" }
+	azure_table_service.insert_entity("testtable", entity)
 
-## <span id="how-to-update-an-entity"></span></a>Практическое руководство. Обновление сущности
+## <a id="how-to-update-an-entity"></a>Практическое руководство. Обновление сущности
 
 Для обновления имеющейся сущности доступно несколько методов:
 
--   **update\_entity():** обновление имеющейся сущности с ее заменой.
--   **merge\_entity():** обновление сущности посредством объединения новых значений свойств с имеющейся сущностью.
--   **insert\_or\_merge\_entity():** обновление имеющейся сущности с ее заменой. Если сущность не существует, будет вставлена новая сущность.
--   **insert\_or\_replace\_entity():** обновление сущности посредством объединения новых значений свойств с имеющейся сущностью. Если сущность не существует, будет вставлена новая сущность.
+* **update\_entity():** обновление имеющейся сущности с ее заменой.
+* **merge\_entity():** обновление сущности посредством объединения новых значений свойств с имеющейся сущностью.
+* **insert\_or\_merge\_entity():** обновление имеющейся сущности с ее заменой. Если сущность не существует, будет вставлена новая сущность.
+* **insert\_or\_replace\_entity():** обновление сущности посредством объединения новых значений свойств с имеющейся сущностью. Если сущность не существует, будет вставлена новая сущность.
 
 В следующем примере показано обновление сущности с помощью метода **update\_entity()**:
 
-    entity = { "content" => "test entity with updated content", 
-      :PartitionKey => "test-partition-key", :RowKey => "1" }
-    azure_table_service.update_entity("testtable", entity)
+	entity = { "content" => "test entity with updated content", 
+	  :PartitionKey => "test-partition-key", :RowKey => "1" }
+	azure_table_service.update_entity("testtable", entity)
 
 Если сущность, которая обновляется, не существует, при использовании **update\_entity()** и **merge\_entity()** операция обновления завершается ошибкой. Поэтому если вам необходимо сохранить сущность независимо от того, существует ли она, следует использовать **insert\_or\_replace\_entity()** или **insert\_or\_merge\_entity()**.
 
-## <span id="how-to-work-with-groups-of-entities"></span></a>Практическое руководство. Работа с группами сущностей
+## <a id="how-to-work-with-groups-of-entities"></a>Практическое руководство. Работа с группами сущностей
 
-Иногда имеет смысл отправлять совместно несколько операций в пакете для атомарной обработки сервером. Для этого сначала требуется создать объект **Batch**, а затем использовать метод **execute\_batch()** для **TableService**. В следующем примере показана отправка двух сущностей с RowKey 2 и 3 в пакете. Обратите внимание, что пример работает только для сущностей с одинаковым значением PartitionKey.
+Иногда имеет смысл отправлять несколько операций вместе в пакете для атомарной обработки сервером. Для этого сначала требуется создать объект **Batch**, а затем использовать метод **execute\_batch()** для **TableService**. В следующем примере показана отправка двух сущностей с RowKey 2 и 3 в пакете. Обратите внимание, что пример работает только для сущностей с одинаковым значением PartitionKey.
 
-    azure_table_service = Azure::TableService.new
-    batch = Azure::Storage::Table::Batch.new("testtable", 
-      "test-partition-key") do
-      insert "2", { "content" => "new content 2" }
-      insert "3", { "content" => "new content 3" }
-    end
-    results = azure_table_service.execute_batch(batch)
+	azure_table_service = Azure::TableService.new
+	batch = Azure::Storage::Table::Batch.new("testtable", 
+	  "test-partition-key") do
+	  insert "2", { "content" => "new content 2" }
+	  insert "3", { "content" => "new content 3" }
+	end
+	results = azure_table_service.execute_batch(batch)
 
-## <span id="how-to-query-for-an-entity"></span></a>Практическое руководство. Запрос сущности
+## <a id="how-to-query-for-an-entity"></a>Практическое руководство. Запрос сущности
 
-Для запроса сущности в таблице используйте метод **get\_entity()**, передав имя таблицы, **PartitionKey** и **RowKey**.
+Для запроса сущности в таблице используйте метод **get\_entity()**, передав имя таблицы **PartitionKey** и **RowKey**.
 
-    result = azure_table_service.get_entity("testtable", "test-partition-key", 
-      "1")
+	result = azure_table_service.get_entity("testtable", "test-partition-key", 
+	  "1")
 
-## <span id="how-to-query-a-set-of-entities"></span></a>Практическое руководство. Запрос набора сущностей
+## <a id="how-to-query-a-set-of-entities"></a>Практическое руководство. Запрос набора сущностей
 
-Для запроса набора сущностей в таблице создайте хэш-объект запроса и используйте метод **query\_entities()**. В следующем примере показано, как получить все сущности с одним значением **PartitionKey**:
+Для запроса набора сущностей в таблице создайте хэш-объект запроса и используйте метод **query\_entities()**. В следующем примере показано, как получать все сущности с одним значением **PartitionKey**:
 
-    query = { :filter => "PartitionKey eq 'test-partition-key'" }
-    result, token = azure_table_service.query_entities("testtable", query)
+	query = { :filter => "PartitionKey eq 'test-partition-key'" }
+	result, token = azure_table_service.query_entities("testtable", query)
 
-**Обратите внимание,** что если результирующий набор слишком велик и не может быть возвращен в одном запросе, возвращается маркер продолжения, который можно использовать для извлечения последующих страниц.
+**Обратите внимание**, что если результирующий набор слишком велик и не может быть возвращен в одном запросе, возвращается маркер продолжения, который можно использовать для извлечения последующих страниц.
 
-## <span id="how-to-query-a-subset-of-entity-properties"></span></a>Практическое руководство. Запрос подмножества свойств сущности
+## <a id="how-to-query-a-subset-of-entity-properties"></a>Практическое руководство. Запрос подмножества свойств сущности
 
 Запрос к таблице может получить лишь несколько свойств сущности. Этот метод, который называется "проекцией", снижает потребление пропускной способности и может повысить производительность запросов, особенно для крупных сущностей. Используйте предложение select и передайте имена свойств, которые необходимо передать клиенту.
 
-    query = { :filter => "PartitionKey eq 'test-partition-key'", 
-      :select => ["content"] }
-    result, token = azure_table_service.query_entities("testtable", query)
+	query = { :filter => "PartitionKey eq 'test-partition-key'", 
+	  :select => ["content"] }
+	result, token = azure_table_service.query_entities("testtable", query)
 
-## <span id="how-to-delete-an-entity"></span></a>Практическое руководство. Удаление сущности
+## <a id="how-to-delete-an-entity"></a>Практическое руководство. Удаление сущности
 
 Для удаления сущности используйте метод **delete\_entity()**. Необходимо передать имя таблицы, содержащей сущность, а также свойства PartitionKey и RowKey сущности.
 
-        azure_table_service.delete_entity("testtable", "test-partition-key", "1")
+		azure_table_service.delete_entity("testtable", "test-partition-key", "1")
 
-## <span id="how-to-delete-a-table"></span></a>Практическое руководство. Удаление таблицы
+## <a id="how-to-delete-a-table"></a>Практическое руководство. Удаление таблицы
 
 Для удаления таблицы используйте метод **delete\_table()** и передайте имя таблицы, которую нужно удалить.
 
-        azure_table_service.delete_table("testtable")
+		azure_table_service.delete_table("testtable")
 
-## <span id="next-steps"></span></a> Дальнейшие действия
+## <a id="next-steps"></a>Дальнейшие действия
 
 Вы изучили основные сведения о табличном хранилище. Дополнительные сведения о более сложных задачах по использованию хранилища можно найти по следующим ссылкам.
 
--   См. справочник MSDN: [Хранение данных и доступ к ним в Azure][Хранение данных и доступ к ним в Azure]
--   Посетите [блог команды разработчиков хранилища Azure][блог команды разработчиков хранилища Azure].
--   Посетите репозиторий [Azure SDK для Ruby][Azure SDK для Ruby] на веб-сайте GitHub
-
-  [Дальнейшие действия]: #next-steps
-  [Что такое служба таблиц?]: #what-is
-  [Основные понятия]: #concepts
-  [Создание учетной записи хранения Azure]: #create-a-windows-azure-storage-account
-  [Создание приложения Ruby]: #create-a-ruby-application
-  [Настройка приложения для доступа к хранилищу]: #configure-your-application-to-access-storage
-  [Настройка подключения к хранилищу Azure]: #setup-a-windows-azure-storage-connection
-  [Практическое руководство. Создание таблицы]: #how-to-create-a-table
-  [Практическое руководство. Добавление сущности в таблицу]: #how-to-add-an-entity-to-a-table
-  [Практическое руководство. Обновление сущности]: #how-to-update-an-entity
-  [Практическое руководство. Работа с группами сущностей]: #how-to-work-with-groups-of-entities
-  [Практическое руководство. Запрос сущности]: #how-to-query-for-an-entity
-  [Практическое руководство. Запрос набора сущностей]: #how-to-query-a-set-of-entities
-  [Практическое руководство. Запрос подмножества свойств сущности]: #how-to-query-a-subset-of-entity-properties
-  [Практическое руководство. Удаление сущности]: #how-to-delete-an-entity
-  [Практическое руководство. Удаление таблицы]: #how-to-delete-a-table
-  [Создание приложений Ruby в Azure]: /ru-ru/develop/ruby/tutorials/web-app-with-linux-vm/
-  [портал управления Azure]: https://manage.windowsazure.com/
-  [Хранение данных и доступ к ним в Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/gg433040.aspx
-  [блог команды разработчиков хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
-  [Azure SDK для Ruby]: http://github.com/WindowsAzure/azure-sdk-for-ruby
+* Справочник MSDN: [Хранение данных и доступ к ним в Azure](http://msdn.microsoft.com/ru-ru/library/windowsazure/gg433040.aspx)
+* Посетите блог [команды разработчиков хранилища Azure](http://blogs.msdn.com/b/windowsazurestorage/)
+* Посетите репозиторий [Azure SDK для Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) на веб-сайте GitHub

@@ -1,10 +1,10 @@
-<properties urlDisplayName="" pageTitle="Вы научитесь создавать и использовать подписи общего доступа с помощью службы BLOB-объектов для хранилища Microsoft Azure" metaKeywords="Azure blob, shared access signatures, stored access policy" description="Вы узнаете больше о создании и использовании подписей общего доступа для службы BLOB-объектов." metaCanonical="" services="storage" documentationCenter="" title="Часть 2: Создание и использование подписи общего доступа с помощью службы BLOB-объектов" solutions="" authors="tamram" manager="adinah" editor="cgronlun" />
+<properties linkid="manage-services-storage-net-shared-access-signature-part-2" urlDisplayName="" pageTitle="Create and use a SAS with the Blob Service | Microsoft Azure" metaKeywords="Azure blob, shared access signatures, stored access policy" description="Explore generating and using shared access signatures with the Blob service" metaCanonical="" services="storage" documentationCenter="" title="Part 2: Create and Use a SAS with the Blob Service" solutions="" authors="tamram" manager="mbaldwin" editor="cgronlun" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # Подписи общего доступа, часть 2: Создание и использование подписи общего доступа с помощью службы BLOB-объектов
 
-[В части 1][В части 1] этого учебника приведен обзор подписей общего доступа (SAS), а также даны советы и рекомендации по их использованию. В части 2 показано, как создать и затем использовать подписи общего доступа с помощью службы BLOB-объектов Azure. Примеры написаны на C\# и используют библиотеку клиента хранения Azure для .NET. Рассмотренные здесь сценарии включают в себя следующие аспекты работы с подписями общего доступа:
+[В части 1][В части 1] этого учебника приведен обзор подписей общего доступа (SAS), а также даны советы и рекомендации по их использованию. В части 2 показано, как создать и затем использовать подписи общего доступа с помощью службы BLOB-объектов Azure. Примеры написаны на C# и используют библиотеку клиента хранения Azure для .NET. Рассмотренные здесь сценарии включают в себя следующие аспекты работы с подписями общего доступа:
 
 -   Создание подписи общего доступа для контейнера
 -   Создание подписи общего доступа для BLOB-объекта
@@ -91,7 +91,7 @@
 
 Скомпилируйте и запустите выходные данные URI подписи общего доступа для нового контейнера. Этот URI будет похож на следующий URI:
 
-https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2013-04-13T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3D
+<https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2013-04-13T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3D>
 
 После выполнения кода созданная для контейнера подпись общего доступа будет действительна в течение следующих четырех часов. Эта подпись предоставляет клиенту разрешение на перечисление BLOB-объектов в контейнере и на запись нового BLOB-объекта в контейнер.
 
@@ -139,7 +139,7 @@ https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2013-
 
 Скомпилируйте и запустите выходные данные URI подписи общего доступа для нового BLOB-объекта. Этот URI будет похож на следующий URI:
 
-https://storageaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&st=2013-04-12T23%3A37%3A08Z&se=2013-04-13T00%3A12%3A08Z&sr=b&sp=rw&sig=dF2064yHtc8RusQLvkQFPItYdeOz3zR8zHsDMBi4S30%3D
+<https://storageaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&st=2013-04-12T23%3A37%3A08Z&se=2013-04-13T00%3A12%3A08Z&sr=b&sp=rw&sig=dF2064yHtc8RusQLvkQFPItYdeOz3zR8zHsDMBi4S30%3D>
 
 ## Создание хранимой политики доступа для контейнера
 
@@ -527,5 +527,4 @@ https://storageaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02
   [sas-console-output-1]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-1.PNG
   [sas-console-output-2]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-2.PNG
   [Управление доступом к ресурсам хранилища Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/ee393343.aspx
-  [Делегирование доступа с помощью подписи общего доступа (REST API)]: http://msdn.microsoft.com/ru-ru/library/windowsazure/ee395415.aspx
   [Знакомство с подписью общего доступа для таблиц и очередей]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx

@@ -1,6 +1,6 @@
 <properties pageTitle="Managing Role-Based Access Control with Azure Cross-Platform Command-Line Interface" metaKeywords="ResourceManager, Azure cross-platform command-line interface, Azure command-line, azure command-line, azure cli, RBAC" description="Managing role-based access control with cross-platform command-line interface" metaCanonical="" services="" documentationCenter="" title="Managing Role-Based Access Control with Cross-Platform Command-Line Interface" authors="guayan" solutions="" manager="terrylan" editor="mollybos" />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="guayan"></tags>
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="guayan" />
 
 # Управление доступом на основе ролей с помощью межплатформенного интерфейса командной строки
 
@@ -133,8 +133,6 @@ RBAC работает только с диспетчером ресурсов Az
 -   [Настройка управления доступом на основе ролей с помощью Windows PowerShell][Настройка управления доступом на основе ролей с помощью Windows PowerShell]
 -   [Устранение неполадок при управлении доступом на основе ролей][Устранение неполадок при управлении доступом на основе ролей]
 
-  [Windows PowerShell]: /ru-ru/documentation/articles/powershell-rbac.md "Windows PowerShell"
-  [Межплатформенный интерфейс командной строки]: /ru-ru/documentation/articles/xplat-cli-rbac.md "Межплатформенный интерфейс командной строки"
   [Установка и настройка межплатформенного интерфейса командной строки Azure]: http://azure.microsoft.com/ru-ru/documentation/articles/xplat-cli/
   [Использование межплатформенного интерфейса командной строки Microsoft Azure совместно с диспетчером ресурсов]: http://azure.microsoft.com/ru-ru/documentation/articles/xplat-cli-azure-resource-manager/
   [Подключение к подпискам]: #connect

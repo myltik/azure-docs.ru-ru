@@ -4,7 +4,7 @@
 
 > [AZURE.NOTE] **Важно!** Перед тем как начать этот учебник, убедитесь, что у вас установлена последняя версия диспетчера пакетов NuGet. Чтобы проверить, запустите Visual Studio. В меню **Средства** щелкните пункт **Расширения и обновления**. Найдите **Диспетчер пакетов NuGet для Visual Studio 2013** и убедитесь, что у вас версия 2.8.50313.46 или более поздняя. Если это не так, переустановите диспетчер пакетов NuGet.
 >
-> ![][]
+> ![][0]
 
 1.  Запустите Visual Studio с повышенным уровнем привилегий (от имени администратора).
 2.  В Visual Studio или Visual Studio Express щелкните пункт **Файл**, затем **Создать**, **Проект**, откройте **Шаблоны**, **Visual C\#**, выберите **Веб-приложение** и **Веб-приложение ASP.NET**, введите имя **AppBackend** и нажмите кнопку **ОК**.
@@ -50,7 +50,7 @@
 
         using Microsoft.ServiceBus.Notifications;
 
-12. В методе `Notifications()` замените два заполнителя в следующей строке кода на строку подключения (с полным доступом) для концентратора уведомлений и имени концентратора. Эти значения можно получить на [портале управления Azure][]:
+12. В методе `Notifications()` замените два заполнителя в следующей строке кода на строку подключения (с полным доступом) для концентратора уведомлений и имени концентратора. Эти значения можно получить на [портале управления Azure][портале управления Azure]:
 
         Hub = NotificationHubClient.CreateClientFromConnectionString("{conn string with full access}", "{hub name}");
 
@@ -280,7 +280,7 @@
 
     ![][10]
 
-  []: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push4.png
+  [0]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push4.png
   [1]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push1.png
   [2]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push2.png
   [3]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push5.png

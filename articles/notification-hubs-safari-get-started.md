@@ -1,6 +1,6 @@
 <properties linkid="notification-hubs-safari-get-started" urlDisplayName="Get Started" pageTitle="Get Started with Azure Notification Hubs" metaKeywords="" description="Learn how to use Azure Notification Hubs to push notifications." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Get started with Notification Hubs" authors="mahender" solutions="" manager="" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="08/19/2014" ms.author="mahender"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="08/19/2014" ms.author="mahender" />
 
 # Приступая к работе с концентраторами уведомлений
 
@@ -16,18 +16,9 @@
 <a href="/ru-ru/documentation/articles/notification-hubs-safari-get-started" title="Safari" class="current">Safari</a>
 </div>
 
-> По всей видимости, в настоящий момент у нас нет этой информации, но мы хотим, чтобы вы имели возможность узнать, когда она появится! Если вы заинтересовались данной темой, сообщите нам в @AzureMobile или оставьте сообщение на [форумах][] или [UserVoice][].
+> По всей видимости, в настоящий момент у нас нет этой информации, но мы хотим, чтобы вы имели возможность узнать, когда она появится! Если вы заинтересовались данной темой, сообщите нам в @AzureMobile или оставьте сообщение на [форумах][форумах] или [UserVoice][UserVoice].
 
-<!-- URLs. -->
 
-  [Windows Universal]: /ru-ru/documentation/articles/notification-hubs-windows-store-dotnet-get-started/ "Windows Universal"
-  [Windows Phone]: /ru-ru/documentation/articles/notification-hubs-windows-phone-get-started/ "Windows Phone"
-  [iOS]: /ru-ru/documentation/articles/notification-hubs-ios-get-started/ "iOS"
-  [Android]: /ru-ru/documentation/articles/notification-hubs-android-get-started/ "Android"
-  [Kindle]: /ru-ru/documentation/articles/notification-hubs-kindle-get-started/ "Kindle"
-  [Xamarin.iOS]: /ru-ru/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/ "Xamarin.iOS"
-  [Xamarin.Android]: /ru-ru/documentation/articles/partner-xamarin-notification-hubs-android-get-started/ "Xamarin.Android"
-  [Chrome]: /ru-ru/documentation/articles/notification-hubs-chrome-get-started "Chrome"
-  [Safari]: /ru-ru/documentation/articles/notification-hubs-safari-get-started "Safari"
-  [форумах]: http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=notificationhubs&filter=alltypes&sort=lastpostdesc
+
+  [форумах]: http://social.msdn.microsoft.com/Forums/windowsazure/ru-ru/home?forum=notificationhubs&filter=alltypes&sort=lastpostdesc
   [UserVoice]: http://feedback.azure.com/forums/218849-notification-hubs

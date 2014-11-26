@@ -187,9 +187,9 @@
 -   [Справочник принципов использования мобильных служб .NET][Справочник принципов использования мобильных служб .NET]
 	<br/>Дополнительные сведения об использовании мобильных служб в .NET.
 
-<!-- Anchors. -->
-<!-- Images. -->
-<!-- URLs. -->
+
+
+
 
   [Приступая к работе с push-уведомлениями]: /ru-ru/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/
   [Создание таблицы регистраций]: #create-table
@@ -199,9 +199,7 @@
   [Visual Studio 2012 Express для Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
   [Приступая к работе с мобильными службами]: /ru-ru/develop/mobile/tutorials/get-started-wp8
   [Приступая к работе с концентраторами уведомлений]: /ru-ru/manage/services/notification-hubs/getting-started-windows-dotnet/
-  [mobile-services-create-new-push-table]: ../includes/mobile-services-create-new-push-table.md
   [0]: ./media/mobile-services-windows-phone-get-started-push/mobile-app-enable-push-wp8.png
-  [mobile-services-update-registrations-script]: ../includes/mobile-services-update-registrations-script.md
   [1]: ./media/mobile-services-windows-phone-get-started-push/mobile-insert-script-push2.png
   [2]: ./media/mobile-services-windows-phone-get-started-push/mobile-quickstart-push1-wp8.png
   [3]: ./media/mobile-services-windows-phone-get-started-push/mobile-quickstart-push2-wp8.png

@@ -82,6 +82,6 @@
   [Приступая к работе с пакетом SDK служб мультимедиа для .NET]: http://go.microsoft.com/fwlink/?linkid=252966
   [Создание приложений с помощью пакета SDK служб мультимедиа для .NET]: http://go.microsoft.com/fwlink/?linkid=247821
   [Создание приложений с помощью API-интерфейса REST служб мультимедиа Azure]: http://go.microsoft.com/fwlink/?linkid=252967
-  [Форум по службам мультимедиа]: http://social.msdn.microsoft.com/Forums/en-US/MediaServices/threads
+  [Форум по службам мультимедиа]: http://social.msdn.microsoft.com/Forums/ru-ru/MediaServices/threads
   [Мониторинг учетной записи служб мультимедиа]: ../media-services-monitor-services-account/
   [Управление контентом в службах мультимедиа]: ../media-services-manage-content/

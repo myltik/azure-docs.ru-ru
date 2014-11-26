@@ -1,6 +1,6 @@
 <properties linkid="mobile-services-dotnet-backend-calling-sharepoint-on-behalf-of-user" urlDisplayName="Access SharePoint on behalf of the user" pageTitle="Access SharePoint on behalf of the user | Mobile Dev Center" metaKeywords="" description="Learn how to make calls to SharePoint on behalf of the user" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Access SharePoint on behalf of the user" authors="mahender" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="mahender"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="mahender" />
 
 # Доступ к SharePoint от имени пользователя
 
@@ -36,7 +36,7 @@
 
 1.  В разделе **Active Directory** на [портале управления Azure][портале управления Azure] выберите свой клиент. Перейдите в веб-приложение, которое вы создали для мобильной службы.
 
-    ![][]
+    ![][0]
 
 2.  На вкладке **Настройка** прокрутите страницу вниз до раздела прав для других приложений. Выберите **Office 365 SharePoint Online** и назначьте делегированное разрешение **Редактирование или удаление файлов пользователей**. Нажмите кнопку **Сохранить**.
 
@@ -72,7 +72,7 @@
 
 1.  Откройте свой серверный проект мобильных служб в Visual Studio.
 
-[WACOM.INCLUDE [mobile-services-dotnet-adal-install-nuget][mobile-services-dotnet-adal-install-nuget]]
+[WACOM.INCLUDE [mobile-services-dotnet-adal-install-nuget](../includes/mobile-services-dotnet-adal-install-nuget.md)]
 
 1.  В вашем серверном проекте мобильных служб создайте новый класс с именем SharePointUploadContext. Добавьте в него следующую информацию:
 
@@ -185,11 +185,10 @@
 
     ![][4]
 
-<!-- Images. -->
-<!-- Anchors. -->
-<!-- URLs. -->
 
-  [Просмотр учебника]: http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Azure-Mobile-Services-AAD-O365-Authentication-identity-across-services
+
+
+
   [Регистрация своего приложения для делегированного доступа к SharePoint]: #configure-permissionss
   [Добавление информации SharePoint к своей мобильной службе]: #store-credentials
   [Получение токена доступа и вызов SharePoint API]: #obtain-token
@@ -198,9 +197,8 @@
   [SharePoint Online]: http://office.microsoft.com/ru-ru/sharepoint/
   [Проверка подлинности приложения с помощью единого входа библиотеки проверки подлинности Active Directory]: http://azure.microsoft.com/ru-ru/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/
   [портале управления Azure]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-dotnet-backend-calling-sharepoint-on-behalf-of-user/aad-web-application.png
+  [0]: ./media/mobile-services-dotnet-backend-calling-sharepoint-on-behalf-of-user/aad-web-application.png
   [1]: ./media/mobile-services-dotnet-backend-calling-sharepoint-on-behalf-of-user/aad-sharepoint-permissions.png
   [2]: ./media/mobile-services-dotnet-backend-calling-sharepoint-on-behalf-of-user/aad-manage-secret-key.png
   [3]: ./media/mobile-services-dotnet-backend-calling-sharepoint-on-behalf-of-user/mobile-services-app-settings-sharepoint.png
-  [mobile-services-dotnet-adal-install-nuget]: ../includes/mobile-services-dotnet-adal-install-nuget.md
   [4]: ./media/mobile-services-dotnet-backend-calling-sharepoint-on-behalf-of-user/sharepoint-document-created.png

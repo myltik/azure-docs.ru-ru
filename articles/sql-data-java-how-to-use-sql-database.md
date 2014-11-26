@@ -35,7 +35,7 @@
 
 ## <span id="concepts"></span></a>Основные понятия
 
-Поскольку база данных SQL Azure построена на основе технологий SQL Server, доступ к базе данных SQL из Java очень похож на доступ из Java к SQL Server. Можно разработать приложение локально (с использованием SQL Server), а затем подключиться к базе данных SQL, изменив только строку подключения. Вы можете использовать для своего приложения драйвер JDBC для SQL Server. Но существует ряд различий между базой данных SQL и SQL Server, которые могут повлиять на работу приложения. Дополнительные сведения см. в разделе [Рекомендации и ограничения (база данных SQL)][Рекомендации и ограничения (база данных SQL)].
+Поскольку база данных SQL Azure построена на основе технологий SQL Server, доступ к базе данных SQL из Java очень похож на доступ из Java к SQL Server. Можно разработать приложение локально (с использованием SQL Server), а затем подключиться к базе данных SQL, изменив только строку подключения. Вы можете использовать для своего приложения драйвер JDBC для SQL Server. Но существует ряд различий между базой данных SQL и SQL Server, которые могут повлиять на работу приложения. Дополнительные сведения см. в разделе [Рекомендации и ограничения (база данных SQL)](http://msdn.microsoft.com/ru-ru/library/windowsazure/ff394102.aspx).
 
 Дополнительные ресурсы для базы данных SQL см. в разделе [Дальнейшие действия][Дальнейшие действия].
 
@@ -45,7 +45,7 @@
 
 -   Java Developer Kit (JDK), версия 1.6 или более поздняя.
 -   Подписка на Azure, которую можно получить на веб-странице <http://www.microsoft.com/windowsazure/offers/>.
--   Если вы используете Eclipse, потребуется интегрированная среда разработки Eclipse для разработчиков Java EE, версии Indigo или более поздней. Можно загрузить с веб-страницы <http://www.eclipse.org/downloads/>. Вам также понадобится подключаемый модуль Azure для Eclipse с Java (от Microsoft Open Technologies). В процессе установки этого подключаемого модуля убедитесь, что в его состав входит Microsoft JDBC Driver 4.0 для SQL Server. Дополнительные сведения см. в разделе [Установка подключаемого модуля Azure для Eclipse с Java (от Microsoft Open Technologies)][Установка подключаемого модуля Azure для Eclipse с Java (от Microsoft Open Technologies)].
+-   Если вы используете Eclipse, потребуется интегрированная среда разработки Eclipse для разработчиков Java EE, версии Indigo или более поздней. Можно загрузить с веб-страницы <http://www.eclipse.org/downloads/>. Вам также понадобится подключаемый модуль Azure для Eclipse с Java (от Microsoft Open Technologies). В процессе установки этого подключаемого модуля убедитесь, что в его состав входит Microsoft JDBC Driver 4.0 для SQL Server. Дополнительные сведения см. в разделе [Установка подключаемого модуля Azure для Eclipse с Java (от Microsoft Open Technologies)](http://msdn.microsoft.com/ru-ru/library/windowsazure/hh690946.aspx).
 -   Если вы не используете Eclipse, вам потребуется Microsoft JDBC Driver 4.0 для SQL Server, который можно загрузить по адресу <http://www.microsoft.com/ru-ru/download/details.aspx?id=11774>.
 
 ## <span id="create_db"></span></a>Создание базы данных SQL Azure
@@ -87,13 +87,13 @@
 7.  Теперь это значение можно вставить в файл кода, чтобы создать строку подключения в следующей форме. Замените *your\_server* (в двух местах) на текст, скопированный в предыдущем шаге, и замените *your\_password* на значение пароля, указанное при создании учетной записи базы данных SQL. (Также замените значения, присвоенные **database=** и **user=**, если вы не использовали **gettingstarted** и **MySQLAdmin**, соответственно.)
 
     String connectionString =
-     "jdbc:sqlserver://*your\_server*.database.windows.net:1433" + ";" +
-     "database=gettingstarted" + ";" +
-     ["user=MySQLAdmin@\*your\_server\*]["user=MySQLAdmin@\*your\_server\*]" + ";" +
-     "password=*your\_password*" + ";" +
-     "encrypt=true" + ";" +
-     "hostNameInCertificate=\*.int.mscds.com" + ";" +
-     "loginTimeout=30";
+		"jdbc:sqlserver://*your_server*.database.windows.net:1433" + ";" +  
+    	"database=gettingstarted" + ";" + 
+    	"user=MySQLAdmin@*your_server*" + ";" +  
+    	"password=*your_password*" + ";" +  
+        "encrypt=true" + ";" +
+        "hostNameInCertificate=*.int.mscds.com" + ";" +  
+        "loginTimeout=30";
 
 Эта строка понадобится нам позднее, а пока важно узнать о тех действиях, которые позволяют определить строку подключения. Кроме того, в зависимости от потребностей приложения вам может не понадобиться использовать параметры **encrypt** и **hostNameInCertificate** и может потребоваться изменить параметр **loginTimeout**.
 
@@ -117,15 +117,15 @@
 2.  Добавьте в проект файл класса Java с именем **HelloSQLAzure.java**.
 3.  Добавьте **Microsoft JDBC Driver для SQL Server** в путь построения.
 
-Если вы используете Eclipse:
+   Если вы используете Eclipse:
 
-    1. Within Eclipse's Project Explorer, right-click the **HelloSQLAzure** project and click **Properties**.
-    2. In the left-hand pane of the **Properties** dialog, click **Java Build Path**.
-    3. Click the **Libraries** tab, and then click **Add Library**.
-    4. In the **Add Library** dialog, select **Microsoft JDBC Driver 4.0 for SQL Server**, click **Next**, and then click **Finish**.
-    5. Click **OK** to close the **Properties** dialog.
+    1. В обозревателе проектов Eclipse щелкните правой кнопкой мыши проект **HelloSQLAzure** и выберите пункт **Свойства**.
+    2. На левой панели диалогового окна **Свойства** щелкните элемент **Путь построения Java**.
+    3. Выберите вкладку **Библиотеки**, а затем щелкните **Добавить библиотеку**.
+    4. В диалоговом окне **Добавить библиотеку** выберите **Microsoft JDBC Driver 4.0 для SQL Server**, нажмите кнопку **Далее** и затем кнопку **Готово**.
+    5. Чтобы закрыть диалоговое окно **Свойства**, нажмите **ОК**.
 
-    If you are not using Eclipse, add the Microsoft JDBC Driver 4.0 for SQL Server JAR to your class path. For related information, see [Using the JDBC Driver](http://msdn.microsoft.com/ru-ru/library/ms378526.aspx).
+    Если вы не используете Eclipse, добавьте JAR-файл Microsoft JDBC Driver 4.0 для SQL Server в путь класса. Дополнительные сведения см. в разделе [Using the JDBC Driver](http://msdn.microsoft.com/ru-ru/library/ms378526.aspx).
 
 1.  Добавьте инструкции `import` в код **HelloSQLAzure.java**, как показано ниже.
 
@@ -693,7 +693,7 @@
 3.  В диалоговом окне **Новая директива сборки** щелкните **Записи пути построения Java** и нажмите кнопку **Далее**.
 4.  Выберите **Microsoft JDBC Driver 4.0 для SQL Server** и нажмите кнопку **Готово**.
 5.  Нажмите **OK**, чтобы закрыть диалоговое окно **Свойства**.
-6.  Экспортируйте WAR-файл проекта в папку approot и заново постройте проект Azure в соответствии с процедурой, описанной в разделе [Создание приложения Hello World с использованием подключаемого модуля Azure для Eclipse с помощью Java (Microsoft Open Technologies)][Создание приложения Hello World с использованием подключаемого модуля Azure для Eclipse с помощью Java (Microsoft Open Technologies)]. В этом разделе также описывается выполнение приложения в эмуляторе вычислений и в Azure.
+6.  Экспортируйте WAR-файл проекта в папку approot и заново постройте проект Azure в соответствии с процедурой, описанной в разделе [Создание приложения Hello World с использованием подключаемого модуля Azure для Eclipse с помощью Java (Microsoft Open Technologies)](http://msdn.microsoft.com/ru-ru/library/windowsazure/hh690944.aspx). В этом разделе также описывается выполнение приложения в эмуляторе вычислений и в Azure.
 
 **Упаковка Microsoft JDBC Driver 4.0 для SQL Server, когда Eclipse не используется**
 

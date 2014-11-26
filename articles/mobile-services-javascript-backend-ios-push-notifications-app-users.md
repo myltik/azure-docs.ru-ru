@@ -67,8 +67,8 @@
 
 [WACOM.INCLUDE [mobile-services-ios-push-notifications-app-users-test-app](../includes/mobile-services-ios-push-notifications-app-users-test-app.md)]
 
-<!-- Anchors. --> 
-<!-- URLs. -->
+ 
+
 
   [push-уведомлениям]: /ru-ru/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/
   [Обновление службы, чтобы для регистрации требовалась проверка подлинности]: #register
@@ -76,6 +76,3 @@
   [Тестирование приложения]: #test
   [версию этой статьи для Магазина Windows]: /ru-ru/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users
   [Приступая к работе с аутентификацией в мобильных службах]: /ru-ru/documentation/articles/mobile-services-ios-get-started-users/
-  [mobile-services-javascript-backend-push-notifications-app-users]: ../includes/mobile-services-javascript-backend-push-notifications-app-users.md
-  [mobile-services-ios-push-notifications-app-users-login]: ../includes/mobile-services-ios-push-notifications-app-users-login.md
-  [mobile-services-ios-push-notifications-app-users-test-app]: ../includes/mobile-services-ios-push-notifications-app-users-test-app.md

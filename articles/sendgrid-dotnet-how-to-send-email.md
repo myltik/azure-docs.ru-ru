@@ -209,7 +209,6 @@ SendGrid поддерживает различные веб-API, с помощь
   [облачная служба электронной почты]: http://sendgrid.com/solutions
   [доставки электронной почты]: http://sendgrid.com/transactional-email
   []: http://sendgrid.com
-  [sendgrid-sign-up]: ../includes/sendgrid-sign-up.md
   [Пакет NuGet для SendGrid]: https://www.nuget.org/packages/Sendgrid
   [Пакет SendGrid NuGet]: ./media/sendgrid-dotnet-how-to-send-email/sendgrid01.png
   [sendgrid-csharp]: https://github.com/sendgrid/sendgrid-csharp

@@ -2,7 +2,7 @@
 
 1.  Выполните вход на [портал управления Azure][портал управления Azure], щелкните по пункту **Мобильные службы**, а затем щелкните по своей мобильной службе.
 
-    ![][]
+    ![][0]
 
 2.  Щелкните вкладку **Панель мониторинга** и запишите значение **URL-адрес мобильной службы**.
 
@@ -33,10 +33,10 @@
 
     Мобильная служба и приложение теперь настроены для работы с выбранным поставщиком проверки подлинности.
 
-<!-- URLs. -->
+
 
   [портал управления Azure]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-register-authentication/mobile-services-selection.png
+  [0]: ./media/mobile-services-register-authentication/mobile-services-selection.png
   [1]: ./media/mobile-services-register-authentication/mobile-service-uri.png
   [Учетная запись Майкрософт]: /ru-ru/documentation/articles/mobile-services-how-to-register-microsoft-authentication/
   [Вход в Facebook]: /ru-ru/documentation/articles/mobile-services-how-to-register-facebook-authentication/

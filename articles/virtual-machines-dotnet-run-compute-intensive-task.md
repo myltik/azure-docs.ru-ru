@@ -1,4 +1,4 @@
-<properties urlDisplayName="Compute Intensive .NET Task" pageTitle="Ресурсоемкая задача .NET на виртуальной машине &mdash; Azure" metaKeywords="deploying compute .NET application, vm .NET application, Service Bus queue monitoring, remote monitoring" description="Узнайте, как развернуть и запустить ресурсоемкое приложение .NET на виртуальной машине Azure и использовать очереди служебной шины для удаленного мониторинга хода выполнения." metaCanonical="" services="virtual-machines" documentationCenter=".NET" title="Выполнение ресурсоемкой задачи в .NET на виртуальной машине Azure" authors="wpickett" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+<properties linkid="develop-net-tutorials-compute-intensive-task-on-a-virtual-machine" urlDisplayName="Compute Intensive .NET Task" pageTitle="Compute intensive .NET task on a virtual machine - Azure" metaKeywords="deploying compute .NET application, vm .NET application, Service Bus queue monitoring, remote monitoring" description="Learn how to deploy and run a compute-intensive .NET app on an Azure virtual machine and use Service Bus queues to monitor progress remotely." metaCanonical="" services="virtual-machines" documentationCenter=".NET" title="How to run a compute-intensive task in .NET on an Azure virtual machine" authors="wpickett" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="wpickett" />
 
@@ -69,12 +69,8 @@
 
 5.  Проверив доступность имени пространства имен, выберите регион, в котором будет размещаться пространство имен (убедитесь, что используется тот же регион, где размещается виртуальная машина).
     <div class="dev-callout">
-
-    **Важно!**
-    Выберите **тот же регион**, который вы используете или собираетесь использовать для своей виртуальной машины. Это обеспечит наилучшую производительность.
-
+    <strong>Важно!</strong><br /><p>Выберите <strong>тот же регион</strong>, который вы используете или собираетесь использовать для своей виртуальной машины. Это обеспечит наилучшую производительность.</p><br />
     </div>
-
 6.  Если у вас несколько подписок Azure для активной учетной записи, выберите ту, которую следует использовать для данного пространства имен. (При наличии только одной подписки в активной учетной записи раскрывающийся список с подписками не отображается.)
 7.  Щелкните значок галочки. Теперь система создает пространство имен службы и включает его. Возможно, вам придется подождать несколько минут, пока система выделит ресурсы для вашей учетной записи.
 
@@ -107,15 +103,15 @@
 6.  Измените заполнители **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** и **your\_service\_bus\_key** на значения **Пространство имен**, **Издатель по умолчанию** и **Ключ по умолчанию** для Service Bus соответственно.
 7.  Скомпилируйте приложение. Это приводит к созданию **TSPSolver.exe** в папке **bin** вашего проекта (либо **bin\\release**, либо **bin\\debug**, в зависимости от ориентации на построение выпуска или отладочное построение). Позднее вы скопируете этот исполняемый файл и Microsoft.ServiceBus.dll на виртуальную машину.
 
-    using System;
+<p/>
+
+	using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
     using System.IO;
-
     using Microsoft.ServiceBus;
     using Microsoft.ServiceBus.Messaging;
-
     namespace TSPSolver
     {
         class Program
@@ -123,26 +119,20 @@
             // Value specifying how often to provide an update to the console.
             private static long loopCheck = 100000000;
             private static long nTimes = 0, nLoops = 0;
-
             private static double[,] distances;
             private static String[] cityNames;
             private static int[] bestOrder;
             private static double minDistance;
-
             private static NamespaceManager namespaceManager;
             private static QueueClient queueClient;
             private static String queueName = "TSPQueue";
-
             private static void BuildDistances(String fileLocation, int numCities)
             {
-
                 try
                 {
                     StreamReader sr = new StreamReader(fileLocation);
                     String[] sep1 = { ", " };
-
                     double[,] cityLocs = new double[numCities, 2];
-
                     for (int i = 0; i < numCities; i++)
                     {
                         String[] line = sr.ReadLine().Split(sep1, StringSplitOptions.None);
@@ -151,7 +141,6 @@
                         cityLocs[i, 1] = Convert.ToDouble(line[2]);
                     }
                     sr.Close();
-
                     for (int i = 0; i < numCities; i++)
                     {
                         for (int j = i; j < numCities; j++)
@@ -166,17 +155,14 @@
                     throw e;
                 }
             }
-
             private static double hypot(double x, double y)
             {
                 return Math.Sqrt(x * x + y * y);
             }
-
             private static void permutation(List<int> startCities, double distSoFar, List<int> restCities)
             {
                 try
                 {
-
                     nTimes++;
                     if (nTimes == loopCheck)
                     {
@@ -186,7 +172,6 @@
                         Console.Write("Current time is {0}.", dateTime);
                         Console.WriteLine(" Completed {0} iterations of size of {1}.", nLoops, loopCheck);
                     }
-
                     if ((restCities.Count == 1) && ((minDistance == -1) || (distSoFar + distances[restCities[0], startCities[0]] + distances[restCities[0], startCities[startCities.Count - 1]] < minDistance)))
                     {
                         startCities.Add(restCities[0]);
@@ -210,14 +195,12 @@
                     throw e;
                 }
             }
-
             private static void newBestDistance(List<int> cities, double distance)
             {
                 try
                 {
                     minDistance = distance;
                     String cityList = "Shortest distance is " + minDistance + ", with route: ";
-
                     for (int i = 0; i < bestOrder.Length; i++)
                     {
                         bestOrder[i] = cities[i];
@@ -233,26 +216,21 @@
                     throw e;
                 }
             }
-
             static void Main(string[] args)
             {
                 try
                 {
-
                     String serviceBusNamespace = "your_service_bus_namespace";
                     String issuer = "your_service_bus_owner";
                     String key = "your_service_bus_key";
-
                     String connectionString = @"Endpoint=sb://" +
                            serviceBusNamespace +
                            @".servicebus.windows.net/;SharedSecretIssuer=" +
                            issuer + @";SharedSecretValue=" + key;
-
                     int numCities = 10; // Use as the default, if no value is specified
                     // at the command line.
                     if (args.Count() != 0)
                     {
-
                         if (args[0].ToLower().CompareTo("createqueue") == 0)
                         {
                             // No processing to occur other than creating the queue.
@@ -261,7 +239,6 @@
                             Console.WriteLine("Queue named {0} was created.", queueName);
                             Environment.Exit(0);
                         }
-
                         if (args[0].ToLower().CompareTo("deletequeue") == 0)
                         {
                             // No processing to occur other than deleting the queue.
@@ -270,19 +247,14 @@
                             Console.WriteLine("Queue named {0} was deleted.", queueName);
                             Environment.Exit(0);
                         }
-
                         // Neither creating or deleting a queue.
                         // Assume the value passed in is the number of cities to solve.
                         numCities = Convert.ToInt32(args[0]);
                     }
-
                     Console.WriteLine("Running for {0} cities.", numCities);
-
                     queueClient = QueueClient.CreateFromConnectionString(connectionString, "TSPQueue");
-
                     List<int> startCities = new List<int>();
                     List<int> restCities = new List<int>();
-
                     startCities.Add(0);
                     for (int i = 1; i < numCities; i++)
                     {
@@ -296,10 +268,8 @@
                     permutation(startCities, 0, restCities);
                     Console.WriteLine("Final solution found!");
                     queueClient.Send(new BrokeredMessage("Complete"));
-
                     queueClient.Close();
                     Environment.Exit(0);
-
                 }
                 catch (ServerBusyException serverBusyException)
                 {
@@ -335,7 +305,9 @@
 5.  Измените заполнители **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** и **your\_service\_bus\_key** на значения **Пространство имен**, **Издатель по умолчанию** и **Ключ по умолчанию** для Service Bus соответственно.
 6.  Скомпилируйте приложение. Это приводит к созданию **TSPClient.exe** в папке **bin** вашего проекта (либо **bin\\release**, либо **bin\\debug**, в зависимости от ориентации на построение выпуска или отладочное построение). Вы можете выполнить этот код на компьютере разработчика или скопировать этот исполняемый файл и Microsoft.ServiceBus.dll на машину, где будет выполняться клиентское приложение (это необязательно должна быть ваша виртуальная машина).
 
-    using System;
+<p/>
+
+	using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
@@ -349,19 +321,14 @@
     {
         class Program
         {
-
             static void Main(string[] args)
             {
-
                 try
                 {
-
                     Console.WriteLine("Starting at {0}", DateTime.Now);
-
                     String serviceBusNamespace = "your_service_bus_namespace";
                     String issuer = "your_service_bus_owner";
                     String key = "your_service_bus_key";
-
                     String connectionString = @"Endpoint=sb://" +
                            serviceBusNamespace +
                            @".servicebus.windows.net/;SharedSecretIssuer=" +
@@ -378,24 +345,19 @@
                     {
                         waitMinutes = Convert.ToInt16(args[0]);
                     }
-
                     String waitString;
                     waitString = (waitMinutes == 1) ? "minute" : waitMinutes.ToString() + " minutes";
-
                     while (true)
                     {
                         message = queueClient.Receive();
-
                         if (message != null)
                         {
                             try
                             {
                                 string str = message.GetBody<string>();
                                 Console.WriteLine(str);
-
                                 // Remove message from queue
                                 message.Complete();
-
                                 if ("Complete" == str)
                                 {
                                     Console.WriteLine("Finished at {0}.", DateTime.Now);
@@ -515,7 +477,7 @@
 
         TSPSolver 8
 
-Если число не указано, средство поиска решения выполняет поиск для 10 городов. Когда средство поиска решения находит кратчайшие маршруты, оно добавляет их в очередь.
+ Если число не указано, средство поиска решения выполняет поиск для 10 городов. Когда средство поиска решения находит кратчайшие маршруты, оно добавляет их в очередь.
 
 Средство поиска решения будет выполняться до завершения проверки всех маршрутов.
 

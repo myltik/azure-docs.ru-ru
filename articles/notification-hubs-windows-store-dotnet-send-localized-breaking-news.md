@@ -167,6 +167,5 @@
   [Отправка уведомлений из серверной части]: #send
   [Руководстве по использованию концентраторов уведомлений]: http://msdn.microsoft.com/ru-ru/library/jj927170.aspx
   [Инструкциях по использованию концентраторов уведомлений для Магазина Windows]: http://msdn.microsoft.com/ru-ru/library/jj927172.aspx
-  [notification-hubs-localized-back-end]: ../includes/notification-hubs-localized-back-end.md
   [Уведомление пользователей с помощью концентраторов уведомлений: ASP.NET]: /ru-ru/manage/services/notification-hubs/notify-users-aspnet
   [Уведомление пользователей с помощью концентраторов уведомлений: мобильные службы]: /ru-ru/manage/services/notification-hubs/notify-users

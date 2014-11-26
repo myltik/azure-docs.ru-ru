@@ -4,7 +4,7 @@
 
 2.  В окне обозревателя решений разверните проект службы списка дел и разверните элемент **Contollers**. Откройте файл TodoItemController.cs, который является частью проекта мобильной службы.
 
-    ![][]
+    ![][0]
 
 3.  Замените метод `PostTodoItem` следующим методом, который будет проверять, чтобы текстовая строка не содержала больше 10 символов. Для элементов, которые имеют длину более 10 символов текста, этот метод возвращает код 400 ошибочного запроса состояния HTTP с описательным сообщением, включенным в качестве содержимого.
 
@@ -31,10 +31,10 @@
 
     ![][2]
 
-<!-- URLs. -->
+
 
   [Приступая к работе]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
   [Приступая к работе с данными]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/
-  []: ./media/mobile-services-dotnet-backend-add-validation/mobile-services-open-todoitemcontroller.png
+  [0]: ./media/mobile-services-dotnet-backend-add-validation/mobile-services-open-todoitemcontroller.png
   [1]: ./media/mobile-services-dotnet-backend-add-validation/mobile-services-build-dotnet-service.png
   [2]: ./media/mobile-services-dotnet-backend-add-validation/mobile-services-publish-dotnet-service.png

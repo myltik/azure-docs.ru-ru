@@ -233,12 +233,12 @@
 
 Дополнительные сведения о концентраторах уведомлений см. в разделе [Концентраторы уведомлений Azure].
 
-<!-- Anchors. -->
+
 [Обновление вашей мобильной службы для регистрации уведомлений]: #register-notification
 [Обновление приложения для выполнения входа и запроса регистрации]: #update-app
 [Обновление вашей мобильной службы для отправки уведомлений]: #send-notifications
 
-<!-- Images. -->
+
 [0]: ./media/notification-hubs-mobile-services-notify-users/mobile-services-selection.png
 [1]: ./media/notification-hubs-mobile-services-notify-users/mobile-custom-api-create.png
 [2]: ./media/notification-hubs-mobile-services-notify-users/mobile-custom-api-create2.png
@@ -248,7 +248,7 @@
 [6]: ./media/notification-hubs-mobile-services-notify-users/notification-hub-select-hub-connection.png
 [7]: ./media/notification-hubs-mobile-services-notify-users/notification-hub-connection-strings.png
 
-<!-- URLs. -->
+
 [Get started Windows Store]: /ru-ru/manage/services/notification-hubs/getting-started-windows-dotnet
 [Get started iOS]: /ru-ru/manage/services/notification-hubs/get-started-notification-hubs-ios
 [Get started Android]: /ru-ru/manage/services/notification-hubs/get-started-notification-hubs-android

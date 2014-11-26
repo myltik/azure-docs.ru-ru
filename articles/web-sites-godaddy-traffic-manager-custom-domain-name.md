@@ -62,20 +62,13 @@
 
 ## <a name="enabledomain"></a>Включение веб-сайта Traffic Manager
 
-[WACOM.INCLUDE [режимы][1]]
+[WACOM.INCLUDE [режимы](../includes/custom-dns-web-site-modes-traffic-manager.md)]
 
-  [пошаговое-css-руководство-по-облачным-службам-веб-сайтов]: ../includes/websites-cloud-services-css-guided-walkthrough.md
-  [введение]: ../includes/custom-dns-web-site-intro-traffic-manager.md
   [Go Daddy]: https://godaddy.com
-  [нижний-колонтитул-веб-сайта-tm]: ../includes/custom-dns-web-site-traffic-manager-notes.md
-  [нижний-колонтитул-введения]: ../includes/custom-dns-web-site-intro-notes.md
   [Общие сведения о записях DNS]: #understanding-records
   [Настройка веб-сайтов для стандартного режима]: #bkmk_configsharedmode
   [Добавление записи DNS для пользовательского домена]: #bkmk_configurecname
   [Включение Traffic Manager для веб-сайта]: #enabledomain
-  [общие-сведения-о-dns]: ../includes/custom-dns-web-site-understanding-dns-traffic-manager.md
-  [режимы]: ../includes/custom-dns-web-site-modes-traffic-manager.md
   [страница пользовательского домена для GoDaddy]: ./media/web-sites-custom-domain-name/godaddy-customdomain.png
   [Вкладка файла зоны DNS]: ./media/web-sites-custom-domain-name/godaddy-zonetab.png
   [редактор файлов зоны]: ./media/web-sites-custom-domain-name/godaddy-quickaddcname.png
-  [1]: ../includes/custom-dns-web-site-enable-on-traffic-manager.md

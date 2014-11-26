@@ -64,7 +64,7 @@
 
  	openssl.exe pkcs12 -in publicAndprivate.pfx -nocerts -out privateKey.pem 
 
-В Windows можно декодировать и извлечь PFX-файл с помощью powershell или бесплатного декодера windows base 64, например [http://www.fourmilab.ch/webtools/base64/base64.zip](), выполнив команду: 
+В Windows можно декодировать и извлечь PFX-файл с помощью powershell или бесплатного декодера windows base 64, например [http://www.fourmilab.ch/webtools/base64/base64.zip](http://www.fourmilab.ch/webtools/base64/base64.zip), выполнив команду: 
 
 	base64 -d key.txt ->key.pfx
 

@@ -98,9 +98,9 @@
 -   [Справочник принципов использования мобильных служб .NET][Справочник принципов использования мобильных служб .NET]
 	<br/>Дополнительные сведения об использовании мобильных служб в .NET.
 
-<!-- Anchors. -->
-<!-- Images. -->
-<!-- URLs. -->
+
+
+
 
   [Приступая к работе с push-уведомлениями]: /ru-ru/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push/
   [Регистрация приложения для push-уведомлений и конфигурация мобильных служб]: #register
@@ -108,8 +108,6 @@
   [Вставка данных для получения уведомлений]: #test
   [Приступая к работе с мобильными службами]: /ru-ru/develop/mobile/tutorials/get-started/
   [Приступая к работе с данными]: /ru-ru/develop/mobile/tutorials/get-started-with-data-dotnet/
-  [mobile-services-create-new-push-vs2013]: ../includes/mobile-services-create-new-push-vs2013.md
-  [mobile-services-create-new-push-vs2013-2]: ../includes/mobile-services-create-new-push-vs2013-2.md
   [0]: ./media/mobile-services-windows-store-dotnet-get-started-push/mobile-quickstart-push1.png
   [1]: ./media/mobile-services-windows-store-dotnet-get-started-push/mobile-quickstart-push2.png
   [Приступая к работе с центрами уведомлений]: /ru-ru/manage/services/notification-hubs/getting-started-windows-dotnet/

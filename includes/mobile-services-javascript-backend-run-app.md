@@ -14,11 +14,11 @@
 
 5.  На портале управления перейдите на вкладку **Данные**, а затем щелкните таблицу **TodoItems**.
 
-    ![][]
+    ![][0]
 
     Это позволяет просматривать данные, добавленные в таблицу приложением.
 
     ![][1]
 
-  []: ./media/mobile-services-javascript-backend-run-app/mobile-data-tab.png
+  [0]: ./media/mobile-services-javascript-backend-run-app/mobile-data-tab.png
   [1]: ./media/mobile-services-javascript-backend-run-app/mobile-data-browse.png

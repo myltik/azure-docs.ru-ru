@@ -249,7 +249,6 @@ Service Bus предоставляет функции,
   [Практическое руководство. Получение сообщений от подписки]: #How_to_Receive_Messages_from_a_Subscription
   [Практическое руководство. Обработка сбоев приложения и нечитаемых сообщений]: #How_to_Handle_Application_Crashes_and_Unreadable_Messages
   [Практическое руководство. Удаление разделов и подписок]: #How_to_Delete_Topics_and_Subscriptions
-  [руководство-разделы-service-bus]: ../includes/howto-service-bus-topics.md
   [Руководство по установке Python]: ../python-how-to-install/
   [Очереди, разделы и подписки]: http://msdn.microsoft.com/ru-ru/library/hh367516.aspx
   [SqlFilter]: http://msdn.microsoft.com/ru-ru/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx

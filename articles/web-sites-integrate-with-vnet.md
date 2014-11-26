@@ -1,6 +1,6 @@
 <properties title="Integrate your Azure Website with an Azure Virtual Network" pageTitle="Integrate Azure Website with Azure VNet" description="Shows you how to connect an Azure Website to a new or existing Azure virtual network" metaKeywords="" services="web-sites,virtual-network" solutions="web,integration,infrastructure" documentationCenter="" authors="cephalin" videoId="" scriptId="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/24/2014" ms.author="cephalin"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/24/2014" ms.author="cephalin" />
 
 # Интеграция веб-сайта Azure с виртуальной сетью Azure
 
@@ -94,11 +94,3 @@
 Кроме того, на сегодняшний день эти функции доступны в разных ценовых категориях. Это связано с тем, что гибридные подключения, доступные на уровнях с самыми низкими ценами, особенно полезны при разработке и тестировании и предоставляют доступ только к небольшому числу конечных точек. Функция виртуальных сетей предоставляет доступ ко всем ресурсам, содержащимся в виртуальной сети или подключенным к ней.
 
   []: ./media/web-sites-integrate-with-vnet/upgrade-to-standard.png
-  [1]: ./media/web-sites-integrate-with-vnet/how-it-works.png
-  [2]: ./media/web-sites-integrate-with-vnet/connect-to-existing-vnet.png
-  [3]: ./media/web-sites-integrate-with-vnet/create-new-vnet.png
-  [4]: ./media/web-sites-integrate-with-vnet/new-vnet-progress.png
-  [5]: ./media/web-sites-integrate-with-vnet/vnet-status-portal.png
-  [6]: ./media/web-sites-integrate-with-vnet/vpn-to-onpremise.png
-  [7]: ./media/web-sites-integrate-with-vnet/vpn-to-onpremise-certificate.png
-  [8]: ./media/web-sites-integrate-with-vnet/vnet-sync-connection.png

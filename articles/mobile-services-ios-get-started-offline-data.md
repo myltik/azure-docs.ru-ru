@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-offline-data-ios" urlDisplayName="Getting Started with Offline Data" pageTitle="Get started with offline data in Mobile Services (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to cache and sync offline data in your iOS application" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get started with offline data sync in Mobile Services" authors="wesmc" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="wesmc" />
 
 # Приступая к работе с синхронизацией автономных данных в мобильных службах
 
@@ -31,13 +31,8 @@
 
 <!-- ## Next steps  * [How to use the Mobile Services client library for iOS]    --> 
 
-<!-- URLs. -->
 
-  [Магазин Windows C#]: /ru-ru/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data "Магазин Windows C#"
-  [Windows Phone]: /ru-ru/documentation/articles/mobile-services-windows-phone-get-started-offline-data "Windows Phone"
-  [iOS]: /ru-ru/documentation/articles/mobile-services-ios-get-started-offline-data "iOS"
-  [Xamarin.iOS]: /ru-ru/documentation/articles/mobile-services-xamarin-ios-get-started-offline-data "Xamarin.iOS"
-  [Xamarin.Android]: /ru-ru/documentation/articles/mobile-services-xamarin-android-get-started-offline-data "Xamarin.Android"
+
   [Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/mobile-services-ios-get-started/
   [Приступая к работе с данными]: /ru-ru/documentation/articles/mobile-services-ios-get-started-data/
   [Бесплатная пробная версия Azure]: http://www.windowsazure.com/ru-ru/pricing/free-trial/?WT.mc_id=AE564AB28

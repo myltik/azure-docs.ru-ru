@@ -1,4 +1,4 @@
-<properties urlDisplayName="HDInsight Administration" pageTitle="Отправка заданий Hadoop в HDInsight для платформы Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure, hive, mapreduce, HDInsight .NET SDK, powershell, submit mapreduce jobs, submit hive jobs, development, hadoop, apache" description="Вы узнаете, как отправлять задания Hadoop в HDInsight для платформы Azure." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="Отправка заданий Hadoop в HDInsight" authors="jgao" />
+<properties linkid="manage-services-hdinsight-submit-hadoop-jobs" urlDisplayName="HDInsight Administration" pageTitle="Submit Hadoop jobs in HDInsight | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure, hive, mapreduce, HDInsight .NET SDK, powershell, submit mapreduce jobs, submit hive jobs, development, hadoop, apache" description="Learn how to submit Hadoop jobs to Azure HDInsight Hadoop." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="Submit  Hadoop jobs in HDInsight" authors="jgao" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
@@ -43,7 +43,7 @@ Hadoop MapReduce — это программная платформа для с�
 3.  Выполните следующие команды, чтобы создать определение задания MapReduce:
 
         # Define the word count MapReduce job
-        $wordCountJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" -ClassName "wordcount" -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput"
+        $wordCountJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-examples.jar" -ClassName "wordcount" -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput"
 
     Существует два аргумента. Первый из них — имя исходного файла, а второй — путь выходного файла. Дополнительные сведения о префиксе wasb см. в разделе [Использование хранилища BLOB-объектов Azure с HDInsight][Использование хранилища BLOB-объектов Azure с HDInsight].
 
@@ -164,7 +164,7 @@ Apache [hdinsight-use-hive][hdinsight-use-hive] предоставляет ср�
 
     | Свойство  | Значение                     |
     |-----------|------------------------------|
-    | Категория | Templates/Visual C\#/Windows |
+    | Категория | Templates/Visual C#/Windows |
     | Шаблон    | Консольное приложение        |
     | Имя       | SubmitMapReduceJob           |
 
@@ -282,11 +282,11 @@ Apache [hdinsight-use-hive][hdinsight-use-hive] предоставляет ср�
 
 ## <span id="streaming-sdk"></span></a> Отправка заданий MapReduce для потоковой передачи Hadoop с использованием пакета SDK для HDInsight .NET
 
-Кластеры HDInsight поставляются с программой потоковой передачи Hadoop для счетчика слов, разработанной на C\#. Программа mapper — */example/apps/cat.exe*, а программа reduce — */example/apps/wc.exe*. В этом сеансе вы узнаете, как создать приложение .NET для запуска примера подсчета слов.
+Кластеры HDInsight поставляются с программой потоковой передачи Hadoop для счетчика слов, разработанной на C#. Программа mapper — */example/apps/cat.exe*, а программа reduce — */example/apps/wc.exe*. В этом сеансе вы узнаете, как создать приложение .NET для запуска примера подсчета слов.
 
 Более подробную информацию о создании приложения .Net для отправки заданий MapReduce см. в разделе [Отправка заданий MapReduce с использованием пакета SDK для HDInsight .NET][Отправка заданий MapReduce с использованием пакета SDK для HDInsight .NET].
 
-Более подробную информацию о разработке и развертывании потоковых заданий Hadoop см. в разделе [Разработка программ потоковой передачи Hadoop на C\# для HDInsight][Разработка программ потоковой передачи Hadoop на C\# для HDInsight].
+Более подробную информацию о разработке и развертывании потоковых заданий Hadoop см. в разделе [Разработка программ потоковой передачи Hadoop на C# для HDInsight][Разработка программ потоковой передачи Hadoop на C# для HDInsight].
 
     using System;
     using System.Collections.Generic;
@@ -402,7 +402,7 @@ Apache [hdinsight-use-hive][hdinsight-use-hive] предоставляет ср�
 
     | Свойство  | Значение                     |
     |-----------|------------------------------|
-    | Категория | Templates/Visual C\#/Windows |
+    | Категория | Templates/Visual C#/Windows |
     | Шаблон    | Консольное приложение        |
     | Имя       | SubmitHiveJob                |
 
@@ -536,6 +536,6 @@ Apache [hdinsight-use-hive][hdinsight-use-hive] предоставляет ср�
   [NuGet]: http://nuget.codeplex.com/wikipage?title=Getting%20Started
   [портале управления Azure]: http://manage.windowsazure.com/
   [Создание и отправка сертификата управления для Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/gg551722.aspx
-  [Разработка программ потоковой передачи Hadoop на C\# для HDInsight]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
+  [Разработка программ потоковой передачи Hadoop на C# для HDInsight]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
   [Справочная документация по командлетам HDInsight]: http://msdn.microsoft.com/ru-ru/library/windowsazure/dn479228.aspx
   [Использование Pig с HDInsight]: ../hdinsight-use-pig/

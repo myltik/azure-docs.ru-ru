@@ -10,10 +10,9 @@
 
 Теперь значение этого ключа API можно использовать, чтобы службы могли проверять подлинность с помощью службы GCM и отправлять push-уведомления от имени вашего приложения.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [портале управления Azure]: https://manage.windowsazure.com/
   [Приступая к работе с push-уведомлениями]: /ru-ru/documentation/articles/mobile-services-javascript-backend-android-get-started-push/
-  [Enable GCM]: ../includes/mobile-services-enable-Google-cloud-messaging.md

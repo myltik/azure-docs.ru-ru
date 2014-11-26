@@ -129,7 +129,7 @@
 -   [Справочник принципов использования мобильных служб .NET][Справочник принципов использования мобильных служб .NET]
     Дополнительные сведения об использовании мобильных служб в .NET.
 
-<!-- Anchors. --> 
+ 
 
   [Периодические уведомления]: http://msdn.microsoft.com/ru-ru/library/windows/apps/jj150587.aspx
   [Приступая к работе с мобильными службами]: /ru-ru/develop/mobile/tutorials/get-started/#create-new-service
@@ -139,13 +139,13 @@
   [Тестирование приложения]: #test-app
   [портал управления Azure]: https://manage.windowsazure.com/
 
-<!-- Images. -->   
+   
   [1]: ./media/mobile-services-windows-store-dotnet-create-pull-notifications/mobile-custom-api-create.png
   [2]: ./media/mobile-services-windows-store-dotnet-create-pull-notifications/mobile-custom-api-create-dialog.png
   [3]: ./media/mobile-services-windows-store-dotnet-create-pull-notifications/mobile-custom-api-select.png
   [4]: ./media/mobile-services-windows-store-dotnet-create-pull-notifications/mobile-custom-api-live-tile.png
 
-<!-- URLs. -->
+
 
   [Приступая к работе с push-уведомлениями]: /ru-ru/develop/mobile/tutorials/get-started-with-push-dotnet
   [Справочник серверных скриптов мобильных служб]: http://go.microsoft.com/fwlink/?LinkId=262293

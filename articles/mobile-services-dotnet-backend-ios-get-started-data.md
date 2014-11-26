@@ -120,9 +120,9 @@
 -   [Приступая к работе с push-уведомлениями][Приступая к работе с push-уведомлениями]
     Сведения об отправке в приложение простейших push-уведомлений с помощью мобильных служб.
 
-<!-- Anchors. -->
-<!-- Images. -->
-<!-- URLs. -->
+
+
+
 
   [Серверная версия JavaScript]: /ru-ru/develop/mobile/tutorials/get-started-with-data-ios
   [Загрузка проекта приложения iOS]: #download-app
@@ -138,11 +138,6 @@
   [Бесплатная пробная версия Azure]: http://www.windowsazure.com/ru-ru/pricing/free-trial/?WT.mc_id=A756A2826&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fru-ru%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-ios%2F
   [GetStartedWithData]: http://go.microsoft.com/fwlink/p/?LinkId=268622
   [0]: ./media/mobile-services-dotnet-backend-ios-get-started-data/mobile-quickstart-startup-ios.png
-  [mobile-services-dotnet-backend-create-new-service]: ../includes/mobile-services-dotnet-backend-create-new-service.md
-  [mobile-services-ios-download-service-locally]: ../includes/mobile-services-ios-download-service-locally.md
-  [mobile-services-dotnet-backend-test-local-service]: ../includes/mobile-services-dotnet-backend-test-local-service.md
-  [mobile-services-dotnet-backend-publish-service]: ../includes/mobile-services-dotnet-backend-publish-service.md
-  [mobile-services-ios-enable-mobile-service-access]: ../includes/mobile-services-ios-enable-mobile-service-access.md
   [Портал управления Azure]: https://manage.windowsazure.com/
   [1]: ./media/mobile-services-dotnet-backend-ios-get-started-data/manage-sql-azure-database.png
   [2]: ./media/mobile-services-dotnet-backend-ios-get-started-data/sql-azure-query.png

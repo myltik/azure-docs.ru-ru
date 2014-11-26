@@ -12,7 +12,7 @@
 
 3.  На портале управления щелкните управление для базы данных, связанной с вашей мобильной службой.
 
-    ![][]
+    ![][0]
 
 4.  На портале управления выполните запрос для просмотра изменений, внесенных приложением Магазина Windows. Ваш запрос будет аналогичен показанному ниже, но вместо `todolist` укажите имя вашей базы данных.
 
@@ -22,5 +22,5 @@
 
 Это заключительный шаг учебника **Приступая к работе с данными** для Android.
 
-  []: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/manage-sql-azure-database.png
+  [0]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/manage-sql-azure-database.png
   [1]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/sql-azure-query.png

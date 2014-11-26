@@ -60,8 +60,8 @@
 
 4.  Коснитесь кнопки **Выполнить все**.
 
-    ![][]
+    ![][0]
 
     Отображается окно сообщения, в котором указывается количество элементов, помеченных как завершенные; снова выполняется отфильтрованный запрос, что приводит к удалению из списка всех элементов.
 
-  []: ./media/mobile-services-windows-phone-call-custom-api/mobile-custom-api-windows-phone-completed.png
+  [0]: ./media/mobile-services-windows-phone-call-custom-api/mobile-custom-api-windows-phone-completed.png

@@ -131,5 +131,4 @@ Blitline использует JSON для определения действи�
   [Как сохранить изображение в службе хранилища Azure]: #saveazure
   [Дальнейшие действия]: #nextsteps
   []: http://www.blitline.com
-  [blitline-signup]: ../includes/blitline-signup.md
   [здесь]: http://www.blitline.com/docs/azure_storage

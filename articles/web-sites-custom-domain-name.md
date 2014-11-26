@@ -102,21 +102,17 @@
 
 ## Включение доменного имени на веб-сайте
 
-[WACOM.INCLUDE [modes][2]]
+[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes.md)]
 
 
 
-  [websites-cloud-services-css-guided-walkthrough]: ../includes/websites-cloud-services-css-guided-walkthrough.md
   [поддомен contoso.azurewebsites.net]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
-  [introfooter]: ../includes/custom-dns-web-site-intro-notes.md
   [Обзор]: #overview
   [Типы записей DNS]: #dns-record-types
   [Поиск виртуального IP-адреса]: #find-the-virtual-ip-address
   [Создание записей DNS]: #create-the-dns-records
   [Включение доменного имени на веб-сайте]: #enable-the-domain-name-on-your-website
-  [modes]: ../includes/custom-dns-web-site-modes.md
   [портал управления Azure]: https://manage.windowsazure.com
   [Масштабирование веб-сайтов]: http://www.windowsazure.com/ru-ru/documentation/articles/web-sites-scale/
   [0]: media/web-sites-custom-domain-name/dncmntask-cname-6.png
   [1]: media/web-sites-custom-domain-name/ipaddress.png
-  [2]: ../includes/custom-dns-web-site-enable-on-web-site.md

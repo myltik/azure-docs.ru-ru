@@ -193,7 +193,7 @@
 
 <!-- LINKS --> 
 
-<!-- Anchors. -->
+
 
   [установку WebMatrix]: http://go.microsoft.com/fwlink/?LinkID=226244
   [Microsoft Azure SDK]: http://go.microsoft.com/fwlink/?LinkId=246928

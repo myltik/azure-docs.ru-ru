@@ -197,8 +197,6 @@
   [SDK мобильных служб для iOS]: https://go.microsoft.com/fwLink/p/?LinkID=266533
   [Xcode 4.5]: https://go.microsoft.com/fwLink/p/?LinkID=266532
   [Приступая к работе с мобильными службами]: /ru-ru/develop/mobile/tutorials/get-started-ios
-  [Включение push-уведомлений Apple]: ../includes/enable-apple-push-notifications.md
-  [mobile-services-apns-configure-push]: ../includes/mobile-services-apns-configure-push.md
   [0]: ./media/mobile-services-ios-get-started-push/mobile-portal-data-tables.png
   [1]: ./media/mobile-services-ios-get-started-push/mobile-insert-script-push2.png
   [объект apns]: http://go.microsoft.com/fwlink/p/?LinkId=272333

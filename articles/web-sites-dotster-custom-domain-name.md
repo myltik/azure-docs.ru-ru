@@ -1,6 +1,6 @@
 <properties title="Learn how to configure an Azure website to use a domain name registered with Dotster" pageTitle="Configure a Dotster domain name for an Azure website" metaKeywords="Azure, Azure Web Sites, Dotster" description="Learn how to configure an Azure website to use a domain name registered with Dotster" services="web-sites" documentationCenter="" authors="larryfr,jroth" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr,jroth"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr,jroth" />
 
 # Настройка пользовательского имени домена для веб-сайта Azure (Dotster)
 
@@ -8,13 +8,13 @@
 
 <div class="dev-center-tutorial-subselector"><a href="/ru-ru/documentation/articles/web-sites-dotster-custom-domain-name/" title="Веб-сайты" class="current">Веб-сайт</a> | <a href="/ru-ru/documentation/articles/web-sites-dotster-traffic-manager-custom-domain-name/" title="Веб-сайт, использующий Traffic Manager">Веб-сайт, использующий Traffic Manager</a></div>
 
-[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough][websites-cloud-services-css-guided-walkthrough]]
+[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough](../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
-[WACOM.INCLUDE [intro][intro]]
+[WACOM.INCLUDE [intro](../includes/custom-dns-web-site-intro.md)]
 
 В данной статье приводятся инструкции по использованию имени пользовательского домена, приобретенного у [Dotster.com][Dotster.com], для веб-сайтов Azure.
 
-[WACOM.INCLUDE [introfooter][introfooter]]
+[WACOM.INCLUDE [introfooter](../includes/custom-dns-web-site-intro-notes.md)]
 
 Содержание:
 
@@ -25,11 +25,11 @@
 
 ## <a name="understanding-records"></a>Общие сведения о записях DNS
 
-[WACOM.INCLUDE [understandingdns][understandingdns]]
+[WACOM.INCLUDE [understandingdns](../includes/custom-dns-web-site-understanding-dns-raw.md)]
 
 ## <a name="bkmk_configsharedmode"></a>Настройка веб-сайтов для базового режима, режима общего доступа или стандартного режима
 
-[WACOM.INCLUDE [modes][modes]]
+[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes.md)]
 
 <a name="bkmk_configurecname"></a>
 
@@ -76,32 +76,15 @@
 
 ## <a name="enabledomain"></a>Включение доменного имени на веб-сайте
 
-[WACOM.INCLUDE [modes][4]]
+[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes.md)]
 
-  [Пользовательский домен]: /ru-ru/documentation/articles/web-sites-custom-domain-name "Пользовательский домен"
-  [GoDaddy]: /ru-ru/documentation/articles/web-sites-godaddy-custom-domain-name "GoDaddy"
-  [Network Solutions]: /ru-ru/documentation/articles/web-sites-network-solutions-custom-domain-name "Network Solutions"
-  [Register.com]: /ru-ru/documentation/articles/web-sites-registerdotcom-custom-domain-name "Register.com"
-  [Enom]: /ru-ru/documentation/articles/web-sites-enom-custom-domain-name "Enom"
-  [Moniker]: /ru-ru/documentation/articles/web-sites-moniker-custom-domain-name "Moniker"
-  [Dotster]: /ru-ru/documentation/articles/web-sites-dotster-custom-domain-name "Dotster"
-  [DomainDiscover]: /ru-ru/documentation/articles/web-sites-domaindiscover-custom-domain-name "DomainDiscover"
-  [Directnic]: /ru-ru/documentation/articles/web-sites-directnic-custom-domain-name "Directnic"
-  [Веб-сайт]: /ru-ru/documentation/articles/web-sites-dotster-custom-domain-name/ "Веб-сайты"
-  [Веб-сайт, использующий Traffic Manager]: /ru-ru/documentation/articles/web-sites-dotster-traffic-manager-custom-domain-name/ "Веб-сайт, использующий Traffic Manager"
-  [websites-cloud-services-css-guided-walkthrough]: ../includes/websites-cloud-services-css-guided-walkthrough.md
-  [intro]: ../includes/custom-dns-web-site-intro.md
   [Dotster.com]: https://dotster.com
-  [introfooter]: ../includes/custom-dns-web-site-intro-notes.md
   [Общие сведения о записях DNS]: #understanding-records
   [Настройка веб-сайтов для базового режима, режима общего доступа или стандартного режима]: #bkmk_configsharedmode
   [Добавление записи DNS для пользовательского домена]: #bkmk_configurecname
   [Включение домена на веб-сайте]: #enabledomain
-  [understandingdns]: ../includes/custom-dns-web-site-understanding-dns-raw.md
-  [modes]: ../includes/custom-dns-web-site-modes.md
   [Меню центрального домена Dotster]: .\media\web-sites-dotster-custom-domain-name\Dotster_DomainCentralMenu.png
   [Параметры конфигурации домена Dotster]: .\media\web-sites-dotster-custom-domain-name\Dotster_DomainMenu.png
   [1]: .\media\web-sites-dotster-custom-domain-name\Dotster_Nameservers.png
   [2]: .\media\web-sites-dotster-custom-domain-name\Dotster_DNS.png
   [3]: .\media\web-sites-dotster-custom-domain-name\Dotster_DNS_CNAME.png
-  [4]: ../includes/custom-dns-web-site-enable-on-web-site.md

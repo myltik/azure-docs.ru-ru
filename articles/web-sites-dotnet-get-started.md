@@ -330,7 +330,7 @@
   [Нажмите кнопку "Опубликовать"]: ./media/web-sites-dotnet-get-started-vs2013/clickpublish.png
   [Панель инструментов веб-публикации одним щелчком]: ./media/web-sites-dotnet-get-started-vs2013/weboneclickpublish.png
   [Портал управления Azure]: /ru-ru/services/management-portal/
-  [http://manage.windowsazure.com]: 
+  [http://manage.windowsazure.com]: http://manage.windowsazure.com
   [Вызывается главная страница портала с новым веб-сайтом]: ./media/web-sites-dotnet-get-started-vs2013/portalhome.png
   [Вкладка панели мониторинга веб-сайта портала]: ./media/web-sites-dotnet-get-started-vs2013/portaldashboard.png
   [Настройка]: /ru-ru/documentation/articles/web-sites-configure//

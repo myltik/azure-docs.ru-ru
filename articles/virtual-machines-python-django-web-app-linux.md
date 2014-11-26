@@ -1,6 +1,6 @@
-<properties urlDisplayName="Web with Django" pageTitle="Веб-приложение Python на Django на платформе Mac &mdash; учебник Azure" metaKeywords="" description="В этом учебнике описывается, как разместить веб-сайт на основе Django в Azure с помощью виртуальной машины Linux." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="Веб-приложение Hello World на Django (Mac и Linux)" authors="huvalo" solutions="" manager="wpickett" editor="" />
+<properties linkid="develop-python-web-app-with-django-mac" urlDisplayName="Web with Django" pageTitle="Python web app with Django on Mac - Azure tutorial" metaKeywords="" description="A tutorial that shows how to host a Django-based website on Azure using a Linux virtual machine." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="Django Hello World Web Application (mac-linux)" authors="huvalo" solutions="" manager="" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-linux" ms.devlang="python" ms.topic="article" ms.date="09/25/2014" ms.author="huvalo" />
+<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-linux" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 # Веб-приложение Hello World на Django (Mac и Linux)
 
@@ -25,14 +25,14 @@ HelloWorld. Приложение будет размещаться в вирту
 
 ## Создание и настройка виртуальной машины Azure для размещения Django
 
-1.  Следуйте приведенным [здесь][здесь] указаниям, чтобы создать виртуальную машину с дистрибутивом *Ubuntu Server 14.04 LTS*.
+1.  Следуйте приведенным [здесь][здесь] указаниям, чтобы создать виртуальную машину с дистрибутивом *Ubuntu Server 14.04*.
 
-**Примечание.** Необходимо *только* создать виртуальную машину. Остановитесь у раздела с заголовком *Как войти в систему на виртуальной машине после ее создания*.
+ **Примечание.** Необходимо *только* создать виртуальную машину. Остановитесь у раздела с заголовком *Как войти в систему на виртуальной машине после ее создания*.
 
 1.  Дайте Azure команду для перенаправления трафика порта **80** из Интернета на порт **80** на виртуальной машине:
 
     -   Перейдите к только что созданной виртуальной машине на портале Azure и откройте вкладку *КОНЕЧНЫЕ ТОЧКИ*.
-    -   Нажмите кнопку *ДОБАВИТЬ* в нижней части экрана.
+    -   Нажмите кнопку *ДОБАВИТЬ КОНЕЧНУЮ ТОЧКУ* в нижней части экрана.
         ![добавление конечной точки][добавление конечной точки]
     -   Откройте *ОБЩИЙ ПОРТ 80* протокола *TCP* как *ЧАСТНЫЙ ПОРТ 80*.
         ![port80][port80]
@@ -73,18 +73,19 @@ HelloWorld. Приложение будет размещаться в вирту
     -   **helloworld/helloworld/settings.py** содержит параметры Django для приложения.
     -   **helloworld/helloworld/urls.py** содержит код сопоставления между каждым URL-адресом и его представлением.
 
-3.  Создайте новый файл с именем **views.py** в каталоге **/var/www/helloworld/helloworld**. Он будет содержать представление, которое осуществляет отрисовку страницы "hello world". Запустите редактор и введите следующую команду:
+3.  Создайте новый файл с именем **views.py** в каталоге **/var/www/helloworld/helloworld** (как элемент одного уровня с **urls.py**). Он будет содержать представление, которое осуществляет отрисовку страницы "hello world". Запустите редактор и введите следующую команду:
 
         from django.http import HttpResponse
-        def home(request):
+        def hello(request):
             html = "<html><body>Hello World!</body></html>"
             return HttpResponse(html)
 
 4.  Замените содержимое файла **urls.py** на код, приведенный ниже:
 
-        from django.conf.urls import patterns, url
+        from django.conf.urls.defaults import patterns, include, url
+        from helloworld.views import hello
         urlpatterns = patterns('',
-            url(r'^$', 'helloworld.views.home', name='home'),
+            (r'^$',hello),
         )
 
 ## Настройка Apache

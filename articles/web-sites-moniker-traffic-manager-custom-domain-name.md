@@ -72,22 +72,15 @@
 
 ## <a name="enabledomain"></a>Включение Traffic Manager для веб-сайта
 
-[WACOM.INCLUDE [modes][3]]
+[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes-traffic-manager.md)]
 
   [Moniker]: /ru-ru/documentation/articles/web-sites-moniker-custom-domain-name "Moniker"
-  [websites-cloud-services-css-guided-walkthrough]: ../includes/websites-cloud-services-css-guided-walkthrough.md
-  [intro]: ../includes/custom-dns-web-site-intro-traffic-manager.md
   [1]: https://moniker.com
-  [tmwebsitefooter]: ../includes/custom-dns-web-site-traffic-manager-notes.md
-  [introfooter]: ../includes/custom-dns-web-site-intro-notes.md
   [Общие сведения о записях DNS]: #understanding-records
   [Настройка веб-сайтов для стандартного режима]: #bkmk_configsharedmode
   [Добавление записи DNS для пользовательского домена]: #bkmk_configurecname
   [Включение Traffic Manager для веб-сайта]: #enabledomain
-  [understandingdns]: ../includes/custom-dns-web-site-understanding-dns-traffic-manager.md
-  [modes]: ../includes/custom-dns-web-site-modes-traffic-manager.md
   [Страница моих доменов для Moniker]: .\media\web-sites-moniker-custom-domain-name\Moniker_MyDomains.png
   [Управление шаблонами зоны Moniker]: .\media\web-sites-moniker-custom-domain-name\Moniker_ZoneManager.png
   [Создание шаблона зоны Moniker]: .\media\web-sites-moniker-custom-domain-name\Moniker_CreateZoneTemplate_TM.png
   [2]: .\media\web-sites-moniker-custom-domain-name\Moniker_ZoneAssignment.png
-  [3]: ../includes/custom-dns-web-site-enable-on-traffic-manager.md

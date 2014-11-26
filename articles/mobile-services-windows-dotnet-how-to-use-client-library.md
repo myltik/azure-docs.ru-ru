@@ -688,7 +688,6 @@
   [Настройка заголовков запроса]: #headers
   [Настройка сериализации]: #serialization
   [Дальнейшие действия]: #nextsteps
-  [mobile-services-concepts]: ../includes/mobile-services-concepts.md
   [Создание таблицы]: http://go.microsoft.com/fwlink/?LinkId=298592
   [Динамическая схема]: http://go.microsoft.com/fwlink/?LinkId=296271
   [GetTable]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj554275.aspx

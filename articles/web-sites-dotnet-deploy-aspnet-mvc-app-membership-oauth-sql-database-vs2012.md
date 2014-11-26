@@ -1,14 +1,14 @@
 <properties linkid="dev-net-tutorials-web-app-with-sql-azure" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title=" OAuth" authors="riande" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="riande"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="riande" />
 
 # Развертывание безопасного приложения ASP.NET MVC с членством, OAuth и базой данных SQL на веб-сайте Azure.
 
 ***Обновление: 15 октября 2013 г.***
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/net/tutorials/web-site-with-sql-database/" title="Visual Studio 2013">Visual Studio 2013</a><a href="/en-us/develop/net/tutorials/web-site-with-sql-database-vs2012/" title="Visual Studio 2012" class="current">Visual Studio 2012</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/ru-ru/develop/net/tutorials/web-site-with-sql-database/" title="Visual Studio 2013">Visual Studio 2013</a><a href="/ru-ru/develop/net/tutorials/web-site-with-sql-database-vs2012/" title="Visual Studio 2012" class="current">Visual Studio 2012</a></div>
 
-<div class="dev-callout"><strong>Примечание.</strong><p>Доступна <a href="/en-us/develop/net/tutorials/web-site-with-sql-database/">новая версия этого учебника</a>. Этой версией можно продолжать пользоваться, если планируется использовать Visual Studio 2012, но работать с новой версией намного проще.</p></div>
+<div class="dev-callout"><strong>Примечание.</strong><p>Доступна <a href="/ru-ru/develop/net/tutorials/web-site-with-sql-database/">новая версия этого учебника</a>. Этой версией можно продолжать пользоваться, если планируется использовать Visual Studio 2012, но работать с новой версией намного проще.</p></div>
 
 В этом учебнике показано, как создать безопасное веб-приложение ASP.NET MVC 4, которое позволяет пользователям входить в систему, используя учетные данные из Facebook, Yahoo и Google. Вы также узнаете, как развернуть приложение в Azure.
 
@@ -29,7 +29,7 @@
 
 ![Страница входа][Страница входа]
 
-[WACOM.INCLUDE [создать-учетная запись-и-веб-сайт-примечание][создать-учетная запись-и-веб-сайт-примечание]]
+[WACOM.INCLUDE [создать-учетная запись-и-веб-сайт-примечание](../includes/create-account-and-websites-note.md)]
 
 В этом учебнике рассматриваются следующие темы:
 
@@ -155,7 +155,7 @@
 
     ![сохранение файла .publishsettings][сохранение файла .publishsettings]
 
-    [WACOM.INCLUDE [publishsettingsfilewarningchunk][publishsettingsfilewarningchunk]]
+    [WACOM.INCLUDE [publishsettingsfilewarningchunk](../includes/publishsettingsfilewarningchunk.md)]
 
 5.  В Visual Studio щелкните правой кнопкой мыши проект в **обозревателе решений** и выберите **Опубликовать** в контекстном меню.
 
@@ -703,11 +703,7 @@ Visual Studio создает методы и представления конт
 <!-- links from Tom's hopefully no collisions -->
 <!-- images-->
 
-  [Visual Studio 2013]: /en-us/develop/net/tutorials/web-site-with-sql-database/ "Visual Studio 2013"
-  [Visual Studio 2012]: /en-us/develop/net/tutorials/web-site-with-sql-database-vs2012/ "Visual Studio 2012"
-  [новая версия этого учебника]: /en-us/develop/net/tutorials/web-site-with-sql-database/
   [Страница входа]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxb.png
-  [создать-учетная запись-и-веб-сайт-примечание]: ../includes/create-account-and-websites-note.md
   [Настройка среды разработки]: #bkmk_setupdevenv
   [Настройка среды Azure]: #bkmk_setupwindowsazure
   [Создание приложения ASP.NET MVC 4]: #bkmk_createmvc4app
@@ -735,7 +731,6 @@ Visual Studio создает методы и представления конт
   [Приложение диспетчера контактов на вкладке веб-сайтов портала управления]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/dntutmobile-setup-azure-site-006.png
   [Вкладка быстрого запуска и кнопка "Загрузить профиль публикации"]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/dntutmobile-deploy1-download-profile.png
   [сохранение файла .publishsettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/dntutmobile-deploy1-save-profile.png
-  [publishsettingsfilewarningchunk]: ../includes/publishsettingsfilewarningchunk.md
   ["Опубликовать" в контекстном меню проекта]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/PublishVSSolution.png
   [Параметры импорта публикации]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/ImportPublishSettings.png
   [add win az sub]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rzAddWAsub.png
@@ -753,7 +748,7 @@ Visual Studio создает методы и представления конт
   [Code First Migrations]: http://msdn.microsoft.com/library/hh770484.aspx
   ["Консоль диспетчера пакетов" в меню "Сервис"]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/dntutmobile-migrations-package-manager-menu.png
   [enable-migrations]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxE.png
-  [DbContext]: http://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext(v=VS.103).aspx
+  [DbContext]: http://msdn.microsoft.com/ru-ru/library/system.data.entity.dbcontext(v=VS.103).aspx
   [Инициализация и отладка баз данных Entity Framework (EF)]: http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx
   [Команды консоли диспетчера пакетов]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/dntutmobile-migrations-package-manager-console.png
   [Представление MVC для данных]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rx2.png
@@ -769,18 +764,16 @@ Visual Studio создает методы и представления конт
   [Идентификаторы пользователей]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxUid.png
   [roleID]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxRoleID.png
   [usr role ID tbl]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxUR.png
-  [Authorize]: http://msdn.microsoft.com/en-us/library/system.web.mvc.authorizeattribute(v=vs.100).aspx
-  [RequireHttps]: http://msdn.microsoft.com/en-us/library/system.web.mvc.requirehttpsattribute(v=vs.108).aspx
+  [Authorize]: http://msdn.microsoft.com/ru-ru/library/system.web.mvc.authorizeattribute(v=vs.100).aspx
+  [RequireHttps]: http://msdn.microsoft.com/ru-ru/library/system.web.mvc.requirehttpsattribute(v=vs.108).aspx
   [Защита приложения ASP.NET MVC 4 и новый атрибут AllowAnonymous]: http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx
   [CAPTCHA]: http://www.asp.net/web-pages/tutorials/security/16-adding-security-and-membership
   [Включение SSL]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxSSL.png
   [4]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxS2.png
   [Предупреждение о сертификате]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxNOT.png
   [5]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxNOT2.png
-  [dbDacFx]: http://msdn.microsoft.com/en-us/library/dd394698.aspx
-  [Центра загрузки Microsoft SQL Server 2012 Express]: http://www.microsoft.com/en-us/download/details.aspx?id=29062
-  [ENU\\x64\\SQLManagementStudio\_x64\_ENU.exe]: http://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x64/SQLManagementStudio_x64_ENU.exe
-  [ENU\\x86\\SQLManagementStudio\_x86\_ENU.exe]: http://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x86/SQLManagementStudio_x86_ENU.exe
+  [dbDacFx]: http://msdn.microsoft.com/ru-ru/library/dd394698.aspx
+  [Центра загрузки Microsoft SQL Server 2012 Express]: http://www.microsoft.com/ru-ru/download/details.aspx?id=29062
   [Установка SQL]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxSS.png
   [con to srvr dlg]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxC2S.png
   [Создать скрипты]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxGenScripts.png
@@ -806,15 +799,15 @@ Visual Studio создает методы и представления конт
   [@blowdart]: https://twitter.com/blowdart
   [Настройка кнопок внешнего входа в ASP.NET MVC 4]: http://www.beabigrockstar.com/customizing-external-login-buttons-in-asp-net-mvc-4/
   [Проверка подлинности Azure]: http://www.asp.net/vnext/overview/fall-2012-update/windows-azure-authentication
-  [Создание сайта интрасети с помощью ASP.NET MVC]: http://msdn.microsoft.com/en-us/library/gg703322(v=vs.98).aspx
-  [Многоуровневое приложение .NET, использующее таблицы, очереди и BLOB-объекты хранилища]: http://www.windowsazure.com/en-us/develop/net/tutorials/multi-tier-web-site/1-overview/
+  [Создание сайта интрасети с помощью ASP.NET MVC]: http://msdn.microsoft.com/ru-ru/library/gg703322(v=vs.98).aspx
+  [Многоуровневое приложение .NET, использующее таблицы, очереди и BLOB-объекты хранилища]: http://www.windowsazure.com/ru-ru/develop/net/tutorials/multi-tier-web-site/1-overview/
   [Введение в ASP.NET MVC 4]: http://www.asp.net/mvc/tutorials/mvc-4/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4
   [Общие сведения о работе с Entity Framework с использованием MVC]: http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
   [OAuth 2.0 и вход]: http://blogs.msdn.com/b/vbertocci/archive/2013/01/02/oauth-2-0-and-sign-in.aspx
-  [Типичные задачи]: http://www.windowsazure.com/en-us/develop/net/common-tasks/
-  [Устранение неполадок веб-сайтов Azure в Visual Studio]: /en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/
-  [версии этого учебника для облачной службы]: http://www.windowsazure.com/en-us/develop/net/tutorials/cloud-service-with-sql-database/
-  [Разработка веб-приложений с использованием Azure]: http://msdn.microsoft.com/en-us/library/Hh674484
+  [Типичные задачи]: http://www.windowsazure.com/ru-ru/develop/net/common-tasks/
+  [Устранение неполадок веб-сайтов Azure в Visual Studio]: /ru-ru/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/
+  [версии этого учебника для облачной службы]: http://www.windowsazure.com/ru-ru/develop/net/tutorials/cloud-service-with-sql-database/
+  [Разработка веб-приложений с использованием Azure]: http://msdn.microsoft.com/ru-ru/library/Hh674484
   [Предлагаемые варианты хранения данных для платформы Azure]: http://social.technet.microsoft.com/wiki/contents/articles/data-storage-offerings-on-the-windows-azure-platform.aspx
   [Работа с базой данных SQL Azure в карте содержимого доступа к данным ASP.NET]: http://go.microsoft.com/fwlink/p/?LinkId=282414#ssdb
-  [11]: http://msdn.microsoft.com/en-us/library/hh770484
+  [11]: http://msdn.microsoft.com/ru-ru/library/hh770484

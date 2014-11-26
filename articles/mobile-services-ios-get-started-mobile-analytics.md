@@ -76,7 +76,7 @@
 
 Дополнительные сведения о возможностях Capptain для вашего приложения см. на веб-сайте <http://www.capptain.com>
 
-<!-- Anchors. --> <!-- URLs. -->
+ 
 
   [Capptain]: http://www.capptain.com
   [Запуск пакета SDK Capptain]: #initialize

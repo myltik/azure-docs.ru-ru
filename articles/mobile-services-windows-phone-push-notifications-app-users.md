@@ -188,8 +188,8 @@
     <br/>Узнайте больше о регистрации и использовании серверных сценариев.
 
 <!-- anchors -->
-<!-- Images. -->
-<!-- URLs. -->
+
+
 
   [предыдущего учебника по push-уведомлениям]: /ru-ru/develop/mobile/tutorials/get-started-with-push-wp8
   [Создание таблицы Channel]: #create-table

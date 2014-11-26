@@ -1,6 +1,6 @@
 <properties linkid="manage-services-biztalk-services-dashboard-monitor-scale-tabs" urlDisplayName="Dashboard, Monitor, Scale, Configure and Hybrid Connections tabs" pageTitle="Dashboard, Monitor, and Scale in BizTalk Services | Azure" metaKeywords="BizTalk Services, Azure, dashboard, monitor, scale, wabs, mabs" description="Learn about the controls on the Management Portal tabs for BizTalk Services: Dashboard, Monitor, and Scale." metaCanonical="" services="biztalk-services" documentationCenter="" title=" Monitor and Scale tabs" authors="mandia" solutions="" manager="dwrede" editor="cgronlun" />
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia"></tags>
+<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
 
 # Службы BizTalk: вкладки "Панель мониторинга", "Монитор", "Масштаб" и "Настройка"
 
@@ -307,8 +307,6 @@
   [Настройка]: #Configure
   [Гибридные подключения]: #HybridConnections
   [центр обучения]: http://azure.microsoft.com/ru-ru/documentation/services/biztalk-services/
-  [Настройка компонентов для обмена сообщениями EDI на портале служб BizTalk]: http://go.microsoft.com/fwlink/p/?LinkID=303653
-  [Управление пространством имен ACS]: http://go.microsoft.com/fwlink/p/?LinkID=285670
   [Доступные метрики]: #Metrics
   [создании службы BizTalk]: http://go.microsoft.com/fwlink/p/?LinkID=302280
   [Службы BizTalk: диаграмма состояния службы]: http://go.microsoft.com/fwlink/p/?LinkID=329870

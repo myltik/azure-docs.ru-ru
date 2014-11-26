@@ -1,6 +1,6 @@
 <properties linkid="Install-Config-Windows-Azure-PowerShell" urlDisplayName="Azure PowerShell" pageTitle="How to install and configure Azure PowerShell" description="Learn how to install and configure Azure PowerShell." umbracoNaviHide="0" disqusComments="1" editor="tysonn" manager="stevenka" documentationCenter="" services="" solutions="" authors="stevenka" title="How to install and configure Azure PowerShell" />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="powershell" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="stevenka;juneb"></tags>
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="powershell" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="stevenka;juneb" />
 
 # Установка и настройка Azure PowerShell
 
@@ -257,8 +257,6 @@ Azure — это платформа на основе подписок. Это �
 
 -   Информацию о командлетах для Azure AD см. в статье [Управление Azure AD с помощью Windows PowerShell][Управление Azure AD с помощью Windows PowerShell].
 
-  [PowerShell]: /ru-ru/manage/install-and-configure-windows-powershell/ "PowerShell"
-  [Межплатформенный интерфейс командной строки]: /ru-ru/manage/install-and-configure-cli/ "Межплатформенный интерфейс командной строки"
   [репозитории кода Azure PowerShell]: https://github.com/WindowsAzure/azure-sdk-tools
   [Необходимые компоненты для использования Azure PowerShell]: #Prereq
   [Практическое руководство. Установка Azure PowerShell]: #Install
@@ -272,9 +270,6 @@ Azure — это платформа на основе подписок. Это �
   [Управление учетными записями, подписками и административными ролями]: http://go.microsoft.com/fwlink/?LinkId=324796
   [портал управления Azure]: https://manage.windowsazure.com
   [Подпишитесь на Microsoft Azure как организация]: http://azure.microsoft.com/ru-ru/documentation/articles/sign-up-organization/
-  [Azure Resource Manager Cmdlets]: http://go.microsoft.com/fwlink/?LinkID=394765
-  [портале управления Windows Azure]: http://manage.windowsazure.com/
-  [портале клиента Microsoft Online Services]: http://go.microsoft.com/fwlink/p/?LinkId=324875
   [портал управления Windows Azure]: http://manage.windowsazure.com
   [Добавление и удаление соадминистраторов для подписки Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/gg456328.aspx
   [справочнике по командлетам Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj554330.aspx

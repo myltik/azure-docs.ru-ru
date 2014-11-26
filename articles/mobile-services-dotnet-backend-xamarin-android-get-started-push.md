@@ -1,6 +1,6 @@
 <properties linkid="mobile-services-dotnet-backend-xamarin-android-get-started-push" urlDisplayName="Get started with push notifications using .NET runtime mobile services for Xamarin Android apps" pageTitle="Get Started with Mobile Services for Xamarin Android apps - Azure Mobile Services" metaKeywords="" description="Learn how to use Azure Mobile Services and Notification Hubs to send push notifications to your Xamarin Android app" metaCanonical="" services="" documentationCenter="Mobile" title="Get started with push notifications using .NET runtime mobile services" authors="donnam" solutions="" manager="" editor="mollybos" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam" />
 
 # Приступая к работе с push-уведомлениями в мобильных службах
 
@@ -12,12 +12,3 @@
     <a href="/ru-ru/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started-push/" title="Серверная часть .NET" class="current">Серверная часть .NET</a> | <a href="partner-xamarin-mobile-services-android-get-started-push/"  title="Серверная часть JavaScript" >Серверная часть JavaScript</a>
 </div>
 
-  [Магазин Windows: C#]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push "Магазин Windows: C#"
-  [Магазин Windows: JavaScript]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push "Магазин Windows: JavaScript"
-  [Windows Phone]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push "Windows Phone"
-  [Android]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/ "Android"
-  [iOS]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/ "iOS"
-  [Xamarin.iOS]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started-push "Xamarin.iOS"
-  [Xamarin.Android]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started-push "Xamarin.Android"
-  [Серверная часть .NET]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started-push/ "Серверная часть .NET"
-  [Серверная часть JavaScript]: partner-xamarin-mobile-services-android-get-started-push/ "Серверная часть JavaScript"

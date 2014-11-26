@@ -1,4 +1,4 @@
-<properties urlDisplayName="HDInsight Administration" pageTitle="Управление кластерами Hadoop в HDInsight с использованием Azure PowerShell | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure, Hadoop, administration, administer" description="Узнайте, как осуществлять управление кластерами Hadoop в HDInsight с использованием Azure PowerShell." services="hdinsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="Управление кластерами Hadoop в HDInsight с использованием Azure PowerShell" authors="jgao" />
+<properties linkid="manage-services-hdinsight-administer-hdinsight-hadoop-clusters-using-powershell" urlDisplayName="HDInsight Administration" pageTitle="Manage Hadoop clusters in HDInsight with Azure PowerShell | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure, Hadoop, administration, administer" description="Learn how to perform administrative tasks for the Hadoop clusters in HDInsight using Azure PowerShell." services="hdinsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="Manage Hadoop clusters in HDInsight using Azure PowerShell" authors="jgao" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
@@ -28,8 +28,6 @@ Azure PowerShell — это полнофункциональная среда с
 ## <span id="provision"></span></a>Подготовка кластера HDInsight
 
 HDInsight использует контейнер хранилища BLOB-объектов Azure в качестве файловой системы по умолчанию. Перед созданием кластера HDInsight требуются учетная запись хранения Azure и контейнер хранилища.
-
-[WACOM.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
 
 **Создание учетной записи хранения Azure**
 

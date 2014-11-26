@@ -10,10 +10,9 @@
 
 Теперь этот сертификат .p12 можно использовать, чтобы службы могли проверять подлинность с помощью APNS и отправлять push-уведомления от имени вашего приложения.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [портале управления Azure]: https://manage.windowsazure.com/
   [Приступая к работе с push-уведомлениями]: /ru-ru/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/
-  [Включение push-уведомлений Apple]: ../includes/enable-apple-push-notifications.md

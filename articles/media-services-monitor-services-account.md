@@ -1,6 +1,6 @@
-<properties urlDisplayName="How to monitor" pageTitle="Мониторинг учетной записи служб мультимедиа &mdash; Azure" metaKeywords="" description="Описание настройки мониторинга учетной записи служб мультимедиа в Azure." metaCanonical="" services="media-services" documentationCenter="" title="Мониторинг учетной записи служб мультимедиа" authors="juliako" solutions="" manager="dwrede" editor="" />
+<properties linkid="manage-services-mediaservices-monitor-a-media-services-account" urlDisplayName="How to monitor" pageTitle="Monitor a Media Services Account - Azure" metaKeywords="" description="Describes how to configure monitoring for your Media Services account in Azure." metaCanonical="" services="media-services" documentationCenter="" title="How to Monitor a Media Services Account" authors="migree" solutions="" manager="" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree"/>
 
 # <span id="monitormediaservicesaccount"></span></a>Мониторинг учетной записи служб мультимедиа
 
@@ -8,7 +8,7 @@
 
 Можно отслеживать количество заданий кодирования в очереди, сбои задач кодирования, активные задания кодирования, представленные входными и выходными данными кодировщика, а также использование хранилища BLOB-объектов, связанного с вашей учетной записью служб мультимедиа. Кроме того, если вы выполняете доставку потокового контента клиентам, можно также получить различные потоковые метрики. Можно отслеживать данные за последние 6 часов, 24 часа или 7 дней.
 
-> [WACOM.NOTE] За хранение данных мониторинга на портале управления Azure взимается дополнительная плата. Дополнительные сведения см. в разделе [Аналитика и выставление счетов для хранилища][Аналитика и выставление счетов для хранилища].
+**Примечание.** За хранение данных мониторинга на портале управления Azure взимается дополнительная плата. Дополнительные сведения см. в разделе [Аналитика и выставление счетов для хранилища][Аналитика и выставление счетов для хранилища].
 
 ## <span id="configuremonitoring"></span></a>Практическое руководство. Создание учетной записи служб мультимедиа
 
@@ -23,7 +23,7 @@
 1.  Щелкните имя **УЧЕТНОЙ ЗАПИСИ ХРАНЕНИЯ** в разделе **сводка**.
 2.  На странице учетной записи хранилища щелкните ссылку **страница настройки** и прокрутите вниз до настроек **мониторинга** служб BLOB-объектов, таблиц и очередей, как показано ниже.
 
-    > [WACOM.NOTE] BLOB-объекты — это единственный поддерживаемый тип хранилища в службах мультимедиа.
+    **Примечание.** BLOB-объекты — это единственный поддерживаемый тип хранилища в службах мультимедиа.
 
     ![StorageOptions][StorageOptions]
 
@@ -47,6 +47,5 @@
 
   [Аналитика и выставление счетов для хранилища]: http://go.microsoft.com/fwlink/?LinkId=256667
   [Портале управления]: http://go.microsoft.com/fwlink/?LinkID=256666
-  [MediaServices\_Dashboard]: ./media/media-services-monitor-services-account/media-services-dashboard.png
   [StorageOptions]: ./media/media-services-monitor-services-account/storagemonitoringoptions_scoped.png
   [Метрики аналитик хранения]: http://go.microsoft.com/fwlink/?LinkId=256668

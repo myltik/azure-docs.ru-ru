@@ -49,15 +49,10 @@
 
 <!-- Anchors. Images.  URLs. -->
 
-  [mobile-services-selector-get-started-users]: ../includes/mobile-services-selector-get-started-users.md
   [Регистрация приложения для проверки подлинности и конфигурация мобильных служб]: #register
   [Ограничение разрешений таблицы пользователями, прошедшими проверку подлинности]: #permissions
   [Добавление проверки подлинности к приложению]: #add-authentication
   [Сохранение маркеров аутентификации в своем приложении]: #store-authentication
   [Приступая к работе с мобильными службами]: /ru-ru/develop/mobile/tutorials/get-started-ios
-  [mobile-services-register-authentication]: ../includes/mobile-services-register-authentication.md
-  [mobile-services-restrict-permissions-javascript-backend]: ../includes/mobile-services-restrict-permissions-javascript-backend.md
   [1]: /ru-ru/documentation/articles/mobile-services-ios-get-started
-  [mobile-services-ios-authenticate-app]: ../includes/mobile-services-ios-authenticate-app.md
-  [mobile-services-ios-authenticate-app-with-token]: ../includes/mobile-services-ios-authenticate-app-with-token.md
   [Авторизация пользователей мобильных служб на стороне службы]: /ru-ru/develop/mobile/tutorials/authorize-users-in-scripts-ios

@@ -87,9 +87,9 @@ public static MobileServiceClient todolistClient = new MobileServiceClient(
 
 
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
 [mobile-services-selector-get-started-push]: ../includes/mobile-services-selector-get-started-push.md
 [Приступая к работе с push-уведомлениями в мобильных службах]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push

@@ -87,6 +87,6 @@
 
 4.  Коснитесь кнопки **Все**. Отображается окно с предупреждением, в котором указывается количество элементов, помеченных как завершенные, после чего снова выполняется фильтрованный запрос, что приводит к удалению всех элементов из списка.
 
-    ![][]
+    ![][0]
 
-  []: ./media/mobile-services-ios-call-custom-api/mobile-custom-api-ios-completed.png
+  [0]: ./media/mobile-services-ios-call-custom-api/mobile-custom-api-ios-completed.png

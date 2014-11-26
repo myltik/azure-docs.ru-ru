@@ -100,7 +100,7 @@
 
 Переходите к [Руководству пользователя Docker][Руководству пользователя Docker] и использованию виртуальной машины Docker. Для создания виртуальной машины с поддержкой Docker на новом портале см. раздел [Использование расширения виртуальных машин Docker на портале][Использование расширения виртуальных машин Docker на портале].
 
-<!--Anchors--> <!--Image references--> <!--Link references-->
+<!--Anchors-->\r\n<!--Image references-->\r\n<!--Link references-->
 
   [Docker]: https://www.docker.com/
   [контейнеры Linux]: http://en.wikipedia.org/wiki/LXC

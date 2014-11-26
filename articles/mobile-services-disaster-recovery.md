@@ -1,6 +1,6 @@
 <properties linkid="mobile-services-recovery-disaster" urlDisplayName="Recover your mobile service in the event of a disaster" pageTitle="Recover your mobile service in the event of a disaster - Azure Mobile Services" metaKeywords="" description="Learn how to recover your mobile service in the event of a disaster." metaCanonical="" services="" documentationCenter="Mobile" title="Recover your mobile service in the event of a disaster" authors="yavorg" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="yavorg"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="yavorg" />
 
 # Восстановление мобильной службы в случае аварии
 
@@ -75,9 +75,9 @@
 
 Теперь вы должны получить состояние, при котором ваша мобильная служба была восстановлена в новой области Azure, и теперь она принимает трафик из ваших приложений хранилища с использованием исходного URL-адреса.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [руководстве по обеспечению непрерывности бизнеса на основе базы данных SQL]: http://msdn.microsoft.com/ru-ru/library/windowsazure/hh852669.aspx
   [Team Foundation Service]: http://tfs.visualstudio.com/

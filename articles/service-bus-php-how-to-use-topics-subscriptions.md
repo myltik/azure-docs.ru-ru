@@ -333,8 +333,6 @@ Service Bus предоставляет функции, помогающие ко
   [Практическое руководство. Обработка сбоев приложения и нечитаемых сообщений]: #HandleCrashes
   [Практическое руководство. Удаление разделов и подписок]: #DeleteTopicsAndSubscriptions
   [Дальнейшие действия]: #NextSteps
-  [руководство-разделы-service-bus]: ../includes/howto-service-bus-topics.md
   [расширение OpenSSL]: http://php.net/openssl
-  [получение-клиент-библиотеки]: ../includes/get-client-libraries.md
   [свойства SqlFilter.SqlExpression]: http://msdn.microsoft.com/ru-ru/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [Очереди, разделы и подписки]: http://msdn.microsoft.com/ru-ru/library/windowsazure/hh367516.aspx

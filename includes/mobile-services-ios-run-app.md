@@ -2,7 +2,7 @@
 
 1.  Перейдите в расположение, где были сохранены сжатые файлы проекта, извлеките файлы на компьютер и откройте файл проекта с помощью Xcode.
 
-    ![][]
+    ![][0]
 
 2.  Нажмите кнопку **Запуск**, чтобы создать проект и запустить приложение в эмуляторе iPhone, используемом по умолчанию для этого проекта.
 
@@ -17,5 +17,5 @@
     > </div>
     > </p>
 
-  []: ./media/mobile-services-ios-run-app/mobile-xcode-project.png
+  [0]: ./media/mobile-services-ios-run-app/mobile-xcode-project.png
   [1]: ./media/mobile-services-ios-run-app/mobile-quickstart-startup-ios.png

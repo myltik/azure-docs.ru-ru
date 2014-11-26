@@ -274,9 +274,9 @@
 
 [WACOM.INCLUDE [mobile-services-aad-rbac-test-app](../includes/mobile-services-aad-rbac-test-app.md)]
 
-<!-- Anchors. -->
+
 <!-- Images -->
-<!-- URLs. -->
+
 
   [клиентской библиотеки Graph]: http://go.microsoft.com/fwlink/?LinkId=510536
   [Начало работы с проверкой подлинности]: /ru-ru/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
@@ -286,8 +286,5 @@
   [Добавление проверки доступа на основе ролей в операции базы данных]: #add-access-checking
   [Тестирование клиентского доступа]: #test-client
   [Скрипты сервера хранилища]: /ru-ru/documentation/articles/mobile-services-store-scripts-source-control/
-  [mobile-services-aad-rbac-create-sales-group]: ../includes/mobile-services-aad-rbac-create-sales-group.md
   [Регистрация для использования входа Azure Active Directory]: /ru-ru/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
-  [mobile-services-generate-aad-app-registration-access-key]: ../includes/mobile-services-generate-aad-app-registration-access-key.md
   [0]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/add-authorize-aad-role-class.png
-  [mobile-services-aad-rbac-test-app]: ../includes/mobile-services-aad-rbac-test-app.md

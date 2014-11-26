@@ -60,20 +60,13 @@
 
 ## <a name="enabledomain"></a>Включение Traffic Manager на веб-сайте
 
-[WACOM.INCLUDE [modes][1]]
+[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes-traffic-manager.md)]
 
-  [websites-cloud-services-css-guided-walkthrough]: ../includes/websites-cloud-services-css-guided-walkthrough.md
-  [intro]: ../includes/custom-dns-web-site-intro-traffic-manager.md
   [DirectNic.com]: https://directnic.com
-  [tmwebsitefooter]: ../includes/custom-dns-web-site-traffic-manager-notes.md
-  [introfooter]: ../includes/custom-dns-web-site-intro-notes.md
   [Общие сведения о записях DNS]: #understanding-records
   [Настройка веб-сайтов для стандартного режима]: #bkmk_configsharedmode
   [Добавление записи DNS для пользовательского домена]: #bkmk_configurecname
   [Включение Traffic Manager для веб-сайта]: #enabledomain
-  [understandingdns]: ../includes/custom-dns-web-site-understanding-dns-traffic-manager.md
-  [modes]: ../includes/custom-dns-web-site-modes-traffic-manager.md
   [Меню служб Directnic]: .\media\web-sites-directnic-custom-domain-name\Directnic_DomainMenu.png
   [Панель служб]: .\media\web-sites-directnic-custom-domain-name\Directnic_DomainManagement.png
   [0]: .\media\web-sites-directnic-custom-domain-name\Directnic_DNS_TM.png
-  [1]: ../includes/custom-dns-web-site-enable-on-traffic-manager.md

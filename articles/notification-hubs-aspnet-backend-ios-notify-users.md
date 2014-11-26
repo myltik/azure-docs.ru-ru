@@ -330,5 +330,4 @@
 4.  В пользовательском интерфейсе приложения iOS щелкните **Вход**. Затем щелкните **Отправить push-уведомление**.
 
   [Регистрация из серверной части приложения]: http://msdn.microsoft.com/ru-ru/library/dn743807.aspx
-  [notification-hubs-aspnet-backend-notifyusers]: ../includes/notification-hubs-aspnet-backend-notifyusers.md
   [0]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users1.png

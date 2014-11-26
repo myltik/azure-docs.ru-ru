@@ -1,6 +1,6 @@
 1.  Выполните вход на [портал управления Azure][портал управления Azure], щелкните элемент **Мобильные службы**, а затем выберите свое приложение.
 
-    ![][]
+    ![][0]
 
 2.  Щелкните вкладку **Данные**, а затем нажмите **Создать**.
 
@@ -19,6 +19,6 @@
 <!-- URLs -->
 
   [портал управления Azure]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-create-new-push-table/mobile-services-selection.png
+  [0]: ./media/mobile-services-create-new-push-table/mobile-services-selection.png
   [1]: ./media/mobile-services-create-new-push-table/mobile-create-table.png
   [2]: ./media/mobile-services-create-new-push-table/mobile-create-registrations-table.png

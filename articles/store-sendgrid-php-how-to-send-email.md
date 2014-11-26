@@ -1,6 +1,6 @@
 <properties title="How to use the SendGrid email service (PHP) - Azure" pageTitle="How to use the SendGrid email service (PHP) - Azure" metaKeywords="Azure SendGrid, Azure email service, Azure SendGrid PHP, Azure email PHP" description="Learn how send email with the SendGrid email service on Azure. Code samples written in PHP." documentationCenter="PHP" services="" manager="wpickett" editor="mollybos" authors="robmcm" scriptId="" videoId="" />
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # Как использовать службу электронной почты SendGrid в языке PHP
 
@@ -36,7 +36,7 @@ SendGrid — это [облачная служба электронной поч
 
 ## <a name="bkmk_CreateSendGrid"> </a>Создание учетной записи SendGrid
 
-[WACOM.INCLUDE [sendgrid-sign-up][sendgrid-sign-up]]
+[WACOM.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
 ## <a name="bkmk_UsingSendGridfromPHP"> </a>Использование SendGrid в своем приложении PHP
 
@@ -451,6 +451,5 @@ SendGrid предоставляет дополнительные функцио�
   [облачная служба электронной почты]: http://sendgrid.com/solutions
   [доставки электронной почты]: http://sendgrid.com/transactional-email
   []: http://sendgrid.com
-  [sendgrid-sign-up]: ../includes/sendgrid-sign-up.md
   [1]: http://swiftmailer.org/download
   [curl]: http://php.net/curl

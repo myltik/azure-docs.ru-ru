@@ -356,7 +356,6 @@ Pusher — это облачная служба, которая, как и мо�
   [Установка серверных скриптов]: #install-scripts
   [Тестирование приложения]: #test-app
   [Приступая к работе с мобильными службами]: /ru-ru/develop/mobile/tutorials/get-started
-  [pusher-sign-up]: ../includes/pusher-sign-up.md
   [LibPusher]: http://go.microsoft.com/fwlink/p?LinkId=276999
   [по этой ссылке]: http://go.microsoft.com/fwlink/p/?LinkId=276998
   [0]: ./media/mobile-services-ios-build-realtime-apps-pusher/pusher-ios-add-files-to-group.png

@@ -49,7 +49,7 @@
 
 Чтобы начать работу с Azure, см. раздел [Бесплатная пробная версия Microsoft Azure][Бесплатная пробная версия Microsoft Azure].
 
-<!-- Images. -->
+
 
   [Здесь]: http://go.microsoft.com/fwlink/?LinkID=394421
   [Дополнительные сведения об управлении планами размещения веб-сайтов]: http://go.microsoft.com/fwlink/?LinkID=394411

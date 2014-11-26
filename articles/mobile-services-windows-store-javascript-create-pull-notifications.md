@@ -122,9 +122,9 @@
 -   [Справочник серверных скриптов мобильных служб][Справочник серверных скриптов мобильных служб]
     Дополнительные сведения о создании настраиваемых API.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Периодические уведомления]: http://msdn.microsoft.com/ru-ru/library/windows/apps/jj150587.aspx
   [Приступая к работе с мобильными службами]: /ru-ru/develop/mobile/tutorials/get-started/#create-new-service

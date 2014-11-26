@@ -225,4 +225,3 @@ Twilio предоставляет библиотеку Node.js, содержащ
   []: http://www.twilio.com/docs/api/rest/making-calls
   [Практическое руководство. Предоставление ответа TwiML с собственного веб-сайта]: #howto_provide_twiml_responses
   [1]: https://www.twilio.com/docs/api/twiml
-  [twilio_additional_services_and_next_steps]: ../includes/twilio_additional_services_and_next_steps.md

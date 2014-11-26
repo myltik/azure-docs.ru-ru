@@ -1,6 +1,6 @@
-<properties urlDisplayName="Website with Storage" pageTitle="Веб-сайт на Node.js с табличным хранилищем &mdash; Microsoft Azure" metaKeywords="Azure table storage Node.js, Azure Node.js application, Azure Node.js tutorial, Azure Node.js example" description="В этом уроке вы узнаете, как использовать службу таблиц Azure для сохранения данных из приложения Node на веб-сайте Azure." metaCanonical="" services="web-sites,storage" documentationCenter="nodejs" title="Веб-приложение Node.js, использующее службу таблиц Azure" authors="larryfr" solutions="" manager="wpickett" editor="" />
+<properties linkid="dev-nodejs-tutorials-web-site-with-storage" urlDisplayName="Website with Storage" pageTitle="Node.js website with table storage | Microsoft Azure" metaKeywords="Azure table storage Node.js, Azure Node.js application, Azure Node.js tutorial, Azure Node.js example" description="A tutorial that teaches you how to use the Azure Table service to store data from a Node application hosted on an Azure website." metaCanonical="" services="web-sites,storage" documentationCenter="Node.js" title="Node.js Web Application using the Azure Table Service" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
 
 # Веб-приложение Node.js, использующее службу таблиц Azure
 
@@ -36,7 +36,7 @@
 
 -   Веб-браузер
 
-[WACOM.INCLUDE [создать-учетная запись-и-веб-сайт-примечание](../includes/create-account-and-websites-note.md)]
+[WACOM.INCLUDE [создание-учетная запись-и-веб-сайты-примечание](../includes/create-account-and-websites-note.md)]
 
 ## Создание учетной записи хранения
 
@@ -470,7 +470,7 @@
 
         npm start
 
-3.  Окройте веб-браузер и перейдите по адресу http://127.0.0.1:3000. При этом отобразится веб-страница, аналогичная следующей.
+3.  Откройте веб-браузер и перейдите по адресу <http://127.0.0.1:3000>. Должна появиться веб-страница, похожая на следующую:
 
     ![Веб-страница, показывающая пустой список задач][Веб-страница, показывающая пустой список задач]
 
@@ -636,15 +636,16 @@
 
 ## Дополнительные ресурсы
 
-[Средства командной строки Azure для Mac и Linux] [Создание и развертывание приложения Node.js на веб-сайтах Azure]: /ru-ru/documentation/articles/web-sites-nodejs-develop-deploy-mac/
-[Публикация на веб-сайтах Azure с использованием репозитория Git][Публикация на веб-сайтах Azure с использованием репозитория Git]: /ru-ru/documentation/articles/web-sites-publish-source-control/
+[Средства командной строки Azure для Mac и Linux]
+
+[Создание и развертывание приложения Node.js на веб-сайтах Azure]: /ru-ru/documentation/articles/web-sites-nodejs-develop-deploy-mac/
+[Публикация на веб-сайтах Azure с использованием репозитория Git]: /ru-ru/documentation/articles/web-sites-publish-source-control/
 [Центре разработчиков Azure]: /ru-ru/develop/nodejs/
 
   [node]: http://nodejs.org
   [Git]: http://git-scm.com
   [Веб-страница, показывающая пустой список задач]: ./media/storage-nodejs-use-table-storage-web-site/table_todo_empty.png
   [Портал Azure]: http://windowsazure.com
-  [+Создать]: ./media/storage-nodejs-use-table-storage-web-site/plus-new.png
   [учетная запись хранения]: ./media/storage-nodejs-use-table-storage-web-site/new-storage.png
   [Быстро создать]: ./media/storage-nodejs-use-table-storage-web-site/quick-storage.png
   [ключи доступа]: ./media/storage-nodejs-use-table-storage-web-site/manage-access-keys.png
@@ -655,6 +656,7 @@
   [Изображение нового элемента в списке задач]: ./media/storage-nodejs-use-table-storage-web-site/table_todo_list.png
   [Создание и развертывание приложения Node.js на веб-сайте Azure]: /ru-ru/documentation/articles/web-sites-nodejs-develop-deploy-mac/
   [Установка и настройка межплатформенного интерфейса командной строки Azure]: /ru-ru/documentation/articles/xplat-cli/
+  [Средства командной строки Azure для Mac и Linux]: /ru-ru/documentation/articles/xplat-cli/
   [Страница загрузки]: ./media/storage-nodejs-use-table-storage-web-site/azure-account-download-cli.png
   [удаленный репозиторий Git]: http://git-scm.com/docs/git-remote
   [Откройте панель мониторинга веб-сайта]: ./media/storage-nodejs-use-table-storage-web-site/go_to_dashboard.png
@@ -662,4 +664,3 @@
   [параметры приложения]: ./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png
   [сохранение параметров приложения]: ./media/storage-nodejs-use-table-storage-web-site/savebutton.png
   [Веб-приложение Node.js с MongoDB]: /ru-ru/documentation/articles/web-sites-nodejs-store-data-mongodb/
-  [Публикация на веб-сайтах Azure с использованием репозитория Git]: /ru-ru/documentation/articles/web-sites-publish-source-control/

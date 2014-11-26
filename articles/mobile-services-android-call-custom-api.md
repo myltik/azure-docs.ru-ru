@@ -48,7 +48,5 @@
   [Определение настраиваемого интерфейса API]: #define-custom-api
   [Обновление приложения для вызова настраиваемого API]: #update-app
   [Тестирование приложения]: #test-app
-  [mobile-services-create-custom-api]: ../includes/mobile-services-create-custom-api.md
-  [mobile-services-android-call-custom-api]: ../includes/mobile-services-android-call-custom-api.md
   [Справочник серверных скриптов мобильных служб]: http://go.microsoft.com/fwlink/?LinkId=262293
   [Хранение серверных скриптов в системе управления версиями]: /ru-ru/documentation/articles/mobile-services-store-scripts-source-control

@@ -10,11 +10,10 @@
 
 [WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [портал управления Azure]: https://manage.windowsazure.com/
   [Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/
   [Бесплатная пробная версия Azure]: http://www.windowsazure.com/ru-ru/pricing/free-trial/?WT.mc_id=A30A4DDE2&returnurl=http%3A%2F%2FFru-ru%2Fdocumentation%2Farticles%2Fmobile-services-how-to-create-new-service%2F
-  [mobile-services-create-new-service]: ../includes/mobile-services-create-new-service.md

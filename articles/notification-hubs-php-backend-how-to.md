@@ -1,6 +1,6 @@
 <properties linkid="notification-hubs-php-back-end-how-to" urlDisplayName="How to use Notification Hubs with PHP" pageTitle="How to use Notification Hubs with PHP" metaKeywords="" description="Learn how to use Azure Notification Hubs from a PHP back-end." metaCanonical="" services="mobile-services,notification-hubs,push,php" documentationCenter="" title="How to use Notification Hubs with PHP" authors="elioda" solutions="" manager="" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="php" ms.topic="article" ms.date="01/01/1900" ms.author="elioda"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="php" ms.topic="article" ms.date="01/01/1900" ms.author="elioda" />
 
 # Использование концентраторов уведомлений из Java/PHP
 
@@ -247,8 +247,6 @@
 -   Продолжить изучение функции тегов в концентраторах уведомлений в [учебнике "Срочные новости"]
 -   Изучить отправку уведомлений отдельным пользователям в [учебнике "Уведомление пользователей"]
 
-  [Java]: /ru-ru/documentation/articles/notification-hubs-java-backend-how-to/ "Java"
-  [PHP]: /ru-ru/documentation/articles/notification-hubs-php-backend-how-to/ "PHP"
   [Интерфейсы REST концентраторов уведомлений]: http://msdn.microsoft.com/ru-ru/library/dn223264.aspx
   [Учебника по началу работы]: http://azure.microsoft.com/ru-ru/documentation/articles/notification-hubs-ios-get-started/
   [SDK концентраторов уведомлений .NET]: http://msdn.microsoft.com/ru-ru/library/jj933431.aspx
