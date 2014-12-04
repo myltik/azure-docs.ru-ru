@@ -121,7 +121,8 @@
 
     Обратите внимание, что при этом не используется HTTPS-адрес, указанный в интерфейсе управления BLOB-объектами в Visual Studio. С помощью HTTP выполняется проверка общего доступа к содержимому, что является требованием для Azure CDN.
 
-16. Если BLOB-объект отображается в браузере надлежащим образом, замените URL-адрес с `http://<yourStorageAccountName>.blob.core.windows.net` на URL-адрес Azure CDN. В приведенном примере для тестирование первого образа в конечной точке CDN используется `http://az623979.vo.msecnd.net/cdn/cephas_lin.png`.
+16. Если BLOB-объект отображается в браузере надлежащим образом, замените URL-адрес с `http://
+17. <yourStorageAccountName>.blob.core.windows.net` на URL-адрес Azure CDN. В приведенном примере для тестирование первого образа в конечной точке CDN используется `http://az623979.vo.msecnd.net/cdn/cephas_lin.png`.
 
     > [WACOM.NOTE] URL-адрес конечной точки CDN можно найти на портале управления Azure на вкладке CDN.
 
@@ -155,7 +156,7 @@
 
     > [WACOM.NOTE] Импортированный файл параметров публикации будет выступать в качестве учетной записи Azure по умолчанию, используемой для всех сеансов Azure PowerShell. Это значит, что приведенные выше действия нужно выполнить только один раз.
 
-4.  Загрузите скрипт с [страница загрузки]((<http://gallery.technet.microsoft.com/scriptcenter/Upload-Content-Files-from-41c2142a>). Сохраните его в папке проекта приложения ASP.NET.
+4.  Загрузите скрипт с [страница загрузки](http://gallery.technet.microsoft.com/scriptcenter/Upload-Content-Files-from-41c2142a). Сохраните его в папке проекта приложения ASP.NET.
 5.  Щелкните загруженный скрипт правой кнопкой мыши и выберите пункт **Свойства**.
 6.  Нажмите кнопку **Снять блокировку**.
 7.  Откройте PowerShell и запустите следующий файл:
@@ -267,38 +268,38 @@
 -   [Интеграция облачного приложения с Azure CDN][16]
 -   [Использование CDN для Azure][Использование CDN для Azure]
 
-  [Bundling and Minification (Объединение и минификация)]: http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification
-  [Обслуживание статического содержимого из конечной точки CDN Azure]: #deploy
-  [Автоматизация отправки содержимого из приложения ASP.NET в конечную точку CDN]: #upload
-  [Настройка кэша CDN для отражения требуемого обновления содержимого]: #update
-  [Быстрое обслуживание нового содержимого с помощью строк запросов]: #query
-  [учетной записи Microsoft Azure]: http://azure.microsoft.com/ru-ru/account/
-  [пакетом SDK Azure]: http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409
-  [Azure PowerShell]: http://go.microsoft.com/?linkid=9811175&clcid=0x409
-  [портал управления Azure]: http://manage.windowsazure.com/
-  [0]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-1.PNG
-  [1]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-2.PNG
-  [2]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-3-fail.PNG
-  [3]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-3-succeed.PNG
-  [www.ip-address.org]: http://www.ip-address.org
-  [4]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-4.PNG
-  [Расположение узлов сети доставки содержимого Azure (CDN)]: http://msdn.microsoft.com/ru-ru/library/azure/gg680302.aspx
-  [5]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-2-enablequerya.PNG
-  [6]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-2-enablequeryb.PNG
-  [7]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-5.PNG
-  [8]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-6.PNG
-  [9]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-7.PNG
-  [10]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-8.PNG
-  [11]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-9.PNG
-  [12]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-10.PNG
-  [13]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-11-blob.PNG
-  [14]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-11-cdn.PNG
-  [Непрерывная доставка для облачных служб в Azure]: http://azure.microsoft.com/ru-ru/documentation/articles/cloud-services-dotnet-continuous-delivery/
-  [Отправка файлов содержимого из приложения ASP.NET в BLOB-объекты Azure]: http://gallery.technet.microsoft.com/scriptcenter/Upload-Content-Files-from-41c2142a
-  [15]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-updates-1.PNG
-  [облачных службах Azure]: http://azure.microsoft.com/ru-ru/services/cloud-services/
-  [stackoverflow]: http://stackoverflow.com/a/13736433
-  [Интеграция облачного приложения с Azure CDN]: http://azure.microsoft.com/ru-ru/documentation/articles/cloud-services-how-to-create-deploy/
-  [Общие сведения о сети доставки контента (CDN) Azure]: http://msdn.microsoft.com/library/azure/ff919703.aspx
-  [16]: http://azure.microsoft.com/ru-ru/Documentation/Articles/cdn-cloud-service-with-cdn/
-  [Использование CDN для Azure]: http://azure.microsoft.com/ru-ru/documentation/articles/cdn-how-to-use/
+[Bundling and Minification (Объединение и минификация)]: http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification
+[Обслуживание статического содержимого из конечной точки CDN Azure]: #deploy
+[Автоматизация отправки содержимого из приложения ASP.NET в конечную точку CDN]: #upload
+[Настройка кэша CDN для отражения требуемого обновления содержимого]: #update
+[Быстрое обслуживание нового содержимого с помощью строк запросов]: #query
+[учетной записи Microsoft Azure]: http://azure.microsoft.com/ru-ru/account/
+[пакетом SDK Azure]: http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409
+[Azure PowerShell]: http://go.microsoft.com/?linkid=9811175&clcid=0x409
+[портал управления Azure]: http://manage.windowsazure.com/
+[0]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-1.PNG
+[1]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-2.PNG
+[2]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-3-fail.PNG
+[3]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-3-succeed.PNG
+[www.ip-address.org]: http://www.ip-address.org
+[4]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-4.PNG
+[Расположение узлов сети доставки содержимого Azure (CDN)]: http://msdn.microsoft.com/ru-ru/library/azure/gg680302.aspx
+[5]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-2-enablequerya.PNG
+[6]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-2-enablequeryb.PNG
+[7]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-5.PNG
+[8]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-6.PNG
+[9]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-7.PNG
+[10]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-8.PNG
+[11]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-9.PNG
+[12]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-10.PNG
+[13]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-11-blob.PNG
+[14]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-11-cdn.PNG
+[Непрерывная доставка для облачных служб в Azure]: http://azure.microsoft.com/ru-ru/documentation/articles/cloud-services-dotnet-continuous-delivery/
+[Отправка файлов содержимого из приложения ASP.NET в BLOB-объекты Azure]: http://gallery.technet.microsoft.com/scriptcenter/Upload-Content-Files-from-41c2142a
+[15]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-updates-1.PNG
+[облачных службах Azure]: http://azure.microsoft.com/ru-ru/services/cloud-services/
+[stackoverflow]: http://stackoverflow.com/a/13736433
+[Интеграция облачного приложения с Azure CDN]: http://azure.microsoft.com/ru-ru/documentation/articles/cloud-services-how-to-create-deploy/
+[Общие сведения о сети доставки контента (CDN) Azure]: http://msdn.microsoft.com/library/azure/ff919703.aspx
+[16]: http://azure.microsoft.com/ru-ru/Documentation/Articles/cdn-cloud-service-with-cdn/
+[Использование CDN для Azure]: http://azure.microsoft.com/ru-ru/documentation/articles/cdn-how-to-use/

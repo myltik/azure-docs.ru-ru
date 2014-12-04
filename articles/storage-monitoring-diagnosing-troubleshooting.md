@@ -1185,11 +1185,9 @@ Wireshark — это анализатор сетевых протоколов, 
   [Приложение 3. Отслеживание сетевого трафика с помощью Microsoft Message Analyzer]: #appendix-3
   [Приложение 4. Просмотр метрик и данных журналов с помощью Excel]: #appendix-4
   [Приложение 5. Мониторинг с использованием Application Insights для Visual Studio Online]: #appendix-5
-  []: ./media/storage-monitoring-diagnosing-troubleshooting/overview.png
   [1]: ./media/storage-monitoring-diagnosing-troubleshooting/overview.png
   [2]: ./media/storage-monitoring-diagnosing-troubleshooting/portal-screenshot.png
-  []: http://msdn.microsoft.com/ru-ru/library/azure/hh343260.aspx
-  [3]: ../media/storage-monitoring-diagnosing-troubleshooting/hour-minute-metrics.png
+  [3]: ./media/storage-monitoring-diagnosing-troubleshooting/hour-minute-metrics.png
   [Временное увеличение метрики PercentThrottlingError]: #transient-increase-in-PercentThrottlingError
   [Постоянное увеличение метрики PercentThrottlingError]: #permanent-increase-in-PercentThrottlingError
   [4]: ./media/storage-monitoring-diagnosing-troubleshooting/high-e2e-latency.png

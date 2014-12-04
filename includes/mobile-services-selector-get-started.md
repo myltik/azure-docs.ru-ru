@@ -1,5 +1,4 @@
 > [AZURE.SELECTOR-LIST (Платформа | Сервер )]
-
 -   [(iOS | .NET)][(iOS | .NET)]
 -   [(iOS | JavaScript)][(iOS | JavaScript)]
 -   [(Магазин Windows C\# | .NET)][(Магазин Windows C\# | .NET)]

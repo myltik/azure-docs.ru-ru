@@ -649,29 +649,29 @@
 
 ## Очереди
 
-### <a name="subheading39&quot;"></a>Scalability Limits
+### <a name="subheading39&quot;"></a>Ограничение масштабируемости
 
-A single queue can process approximately 2,000 messages (1KB each) per second (each AddMessage, GetMessage, and DeleteMessage count as a message here). If this is insufficient for your application, you should use multiple queues and spread the messages across them.
+Одна очередь может обрабатывать около 2000 сообщений (размером 1 КБ каждое) в секунду (здесь каждая операция AddMessage, GetMessage и DeleteMessage считается сообщением). Если для вашего приложения этого недостаточно, следует распределить сообщения по нескольким очередям.
 
-You can view the current scalability targets on the page [Azure Storage Scalability and Performance Targets][странице целевых показателей масштабируемости] on MSDN.
+Текущие целевые значения масштабируемости см. на странице [Целевые значения масштабируемости и производительности службы хранилища Azure][странице целевых показателей масштабируемости] на веб-сайте MSDN.
 
 ### <a name="subheading40&quot;"></a>Отключение алгоритма Nagle
 
 См. раздел по конфигурации таблицы, в котором обсуждается алгоритм Nagle. Алгоритм Nagle, как правило, плохо влияет на производительность запросов в очереди, поэтому его следует отключать.
 
-### <a name="subheading41&quot;"></a>Message Size
+### <a name="subheading41&quot;"></a>Размер сообщения
 
-Queue performance and scalability decreases as message size increases. You should place only the information the receiver needs in a message.
+Производительность и масштабируемость очередей уменьшается по мере увеличения размера сообщения. В сообщении следует размещать только те сведения, которые необходимы получателю.
 
 ### <a name="subheading42&quot;"></a>Пакетное извлечение
 
 В одной операции из очереди можно извлечь до 32 сообщений. Это может уменьшить количество циклов обработки клиентского приложения, что особенно полезно в таких средах с большой задержкой, как мобильные устройства.
 
-### <a name="subheading43&quot;"></a>Queue Polling Interval
+### <a name="subheading43&quot;"></a>Интервал опроса очередей
 
-Most applications poll for messages from a queue, which can be one of the largest sources of transactions for that application. Select your polling interval wisely: polling too frequently could cause your application to approach the scalability targets for the queue. However, at 200,000 transactions for $0.01 (at the time of writing), a single processor polling once every second for a month would cost less than 15 cents so cost is not typically a factor that affects your choice of polling interval.
+Большинство приложений опрашивают сообщения из такой очереди, которая может быть одним из самых крупных источников транзакций для этих приложений. Выбирайте интервал опроса тщательно: слишком высокая частота опросов может привести к тому, что будет достигнуто целевое значений масштабируемости очереди. Но при тарифе 0,01 долл. США за 200 000 транзакций (во время записи) опрос одного процессора с интервалом один раз в секунду будет стоить меньше 15 центов в месяц, поэтому стоимость обычно не влияет на выбор интервала опроса.
 
-For up to date cost information, see [Storage Pricing Details][Storage Pricing Details].
+Актуальную информацию см. в разделе [Сведения о ценах на хранилище][Storage Pricing Details].
 
 ### <a name="subheading44&quot;"></a>UpdateMessage
 

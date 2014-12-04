@@ -1,5 +1,4 @@
 > [AZURE.SELECTOR-LIST (Платформа | Сервер )]
-
 -   [(iOS | .NET)][(iOS | .NET)]
 -   [(iOS | JavaScript)][(iOS | JavaScript)]
 -   [(Магазин Windows C\# | .NET)][(Магазин Windows C\# | .NET)]
@@ -11,7 +10,6 @@
 -   [(Android | JavaScript)][(Android | JavaScript)]
 -   [(HTML | JavaScript)][(HTML | JavaScript)]
 -   [(Xamarin iOS | JavaScript)][(Xamarin iOS | JavaScript)]
-    data/)
 -   [(Xamarin Android | JavaScript)][(Xamarin Android | JavaScript)]
 
   [(iOS | .NET)]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-ios-authorize-users-in-scripts/
