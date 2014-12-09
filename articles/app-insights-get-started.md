@@ -1,65 +1,53 @@
-<properties title="Application Insights" pageTitle="Application Insights" description="Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights." metaKeywords="analytics monitoring application insights" authors="awills"  />
+﻿<properties title="Application Insights" pageTitle="Application Insights - начните отслеживать работоспособность и использование приложения" description="Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights." metaKeywords="analytics monitoring application insights" authors="awills"  manager="kamrani" />
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="awills" />
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-24" ms.author="awills" />
 
-# Application Insights - Приступая к работе
+# Application Insights - начните отслеживать работоспособность и использование приложения
 
-*В настоящее время Application Insights представляет собой предварительную версию.*
+*Служба Application Insights доступна в предварительной версии.*
 
-Application Insights позволяет отслеживать доступность, производительность и использование вашего активного приложения. (Это не должно быть приложение Microsoft Azure.) Процесс работы очень простой. Результаты вы сможете увидеть через несколько минут.
+С помощью Application Insights можно отслеживать следующие показатели работающего приложения:
 
--   **Доступность** - Убедитесь, что ваше веб-приложение доступно и реагирует. Мы будем тестировать ваши URL-адреса раз в несколько минут из разных стран и сообщим, если возникнут проблемы.
--   **Производительность** - Диагностирование любых проблем, связанных с производительностью или исключениями в вашей веб-службе. Проверяйте, как время ответа меняется в зависимости от количества запросов. Выясняйте, существуют ли проблемы на уровне ЦП или других ресурсов. Получайте трассировки содержимого стека из исключений. Выполняйте поиск по трассировкам в журналах.
--   **Использование** - Выясняйте, что пользователи делают с вашим приложением, чтобы в дальнейшем основное внимание в ходе разработки смогли уделить тем моментам, которые оказываются наиболее полезными. В настоящее время можно отслеживать веб-приложения, магазин Windows и приложения Windows Phone.
+* **доступность** - мы будем тестировать ваши URL-адреса каждые несколько минут из разных точек мира;
+* **производительность** - обнаружение и диагностика проблем с производительностью и исключений;
+* **использование** - узнайте, что пользователи делают с вашим приложением, чтобы улучшить его.
+
+Настроить службу очень легко, так что вы увидите результаты через несколько минут. На сегодняшний день мы поддерживаем веб-приложения ASP.NET (на ваших собственных серверах или в Azure).
+
 
 ## Приступая к работе
 
-Чтобы начать работу, можно использовать два способа:
+Начните с любого сочетания и любого порядка точек входа, приведенных в левой части диаграммы. Выберите требуемые маршруты. При разработке веб-приложения ASP.NET следует начать с добавления Application Insights в веб-проект. Остальные инструменты будет несложно добавить позже.
 
--   [Добавление Application Insights в свой проект в Visual Studio][Добавление Application Insights в свой проект в Visual Studio]
+Вам потребуется учетная запись в [Microsoft Azure](http://azure.com) (если только вы не используете версию VSO).
 
-    Добавьте Application Insights в свои проекты для отслеживания использования, производительности и доступности, а также анализа журналов диагностики. Информацию вы сможете увидеть через несколько минут, после чего развернуть проект для получения динамических данных.
+<table >
+<tr valign="top"><th>Что вам нужно</th><th colspan="2">Что следует делать</th><th>Что вы получаете</th></tr>
+<tr valign="top"><td>Получить аналитику производительности и использования для моего приложения ASP.NET</td><td colspan="2"><a href="../app-insights-start-monitoring-app-health-usage/">Добавить Application Insights в свой веб-проект</a></td><td>Метрики производительности: счетчики загрузки, время отклика...</td></tr>
+<tr valign="top"><td></td><td></td><td><a href="../app-insights-web-track-usage-custom-events-metrics/">Отправить события и метрику из своего серверного кода</a></td><td>Пользовательская бизнес-аналитика</td></tr>
+<tr valign="top"><td></td><td></td><td><a href="../app-insights-search-diagnostic-logs/">Отправить данные телеметрии по трассировке и исключениям со своего сервера или записывать данные сторонних журналов.</td><td>Диагностика серверного приложения. Поиск и фильтрация данных журнала.</a></td></tr>
+<tr valign="top"><td>Получить аналитику использования моих веб-страниц (для любой платформы)</td><td colspan="2"><a href="../app-insights-web-track-usage/">Вставить скрипт AI на свои веб-страницы</a></td><td>Аналитика использования: просмотры страниц, вернувшиеся пользователи, счетчики сеансов</td></tr>
+<tr valign="top"><td></td><td>&nbsp;&nbsp;</td><td><a href="../app-insights-web-track-usage-custom-events-metrics/">Добавить вызовы метрик и событий в скрипты своей веб-страницы</a></td><td>Настраиваемая аналитика взаимодействия с пользователем</td></tr>
+<tr valign="top"><td></td><td></td><td><a href="../app-insights-search-diagnostic-logs/">Добавить вызовы метрик и событий в скрипты своей веб-страницы</a></td><td>Поиск и фильтрация данных журнала.</td></tr>
+<tr valign="top"><td>Диагностировать проблемы в приложении ASP.NET, работающем на моем веб-сервере</td><td colspan="2"><a href="../app-insights-monitor-performance-live-website-now/">Установить монитор состояния на свой веб-сервер</a></td><td>Продолжительность и счетчики вызовов зависимостей; счетчики ЦП, памяти и сети; счетчики загрузки, время отклика</td></tr>
+<tr valign="top"><td>Наблюдать за доступностью любой веб-страницы</td><td colspan="2"><a href="../app-insights-monitor-web-app-availability/">Настроить веб-тесты в Application Insights</a></td><td>Данные о доступности и оповещения</td></tr>
+<tr valign="top"><td>Получать аналитику производительности и использования для приложений Windows Phone, магазина Windows или веб-сайтов Java</td><td colspan="2"><a href="http://msdn.microsoft.com/library/dn481095.aspx">Сейчас следует использовать более раннюю версию VSO Application Insights</a></td><td>Аналитика использования и производительности. <a href="http://msdn.microsoft.com/library/dn793604.aspx">Мы постепенно добавляем функции к новой версии Azure.</a></td></tr>
+</table>
 
-    Используйте данный вариант, если вы обновляете или создаете проект.
 
-    [Приступая к работе путем добавления Application Insights в проект][Добавление Application Insights в свой проект в Visual Studio]
+## <a name="video"></a>Видео
 
--   [Диагностика проблем в активной веб-службе сейчас][Диагностика проблем в активной веб-службе сейчас]
+####  Введение
 
-    Установите агент Application Insights на своем сервере IIS и получите сведения о производительности через несколько минут. Отслеживайте количество запросов, время ответа, уровень нагрузки на ресурсы. Получите трассировки исключений.
+> [AZURE.VIDEO application-insights-introduction]
 
-    Используйте этот вариант, если вам нужно понять, что именно происходит на вашем веб-сервере прямо сейчас. При этом повторно развертывать свой код не нужно. Но вам будет нужен административный доступ к своему серверу, а также учетная запись Microsoft Azure.
+#### Приступая к работе
 
-    Функцию мониторинга доступности можно добавить в любое время.
+> [AZURE.VIDEO getting-started-with-application-insights]
 
-    Впоследствии можно выбрать другой вариант для добавления Application Insights в свой проект с целью анализа журналов диагностики и отслеживания использования.
 
-    [Приступая к работе путем установки Application Insights на веб-сервере.][Диагностика проблем в активной веб-службе сейчас]
 
-> [WACOM.NOTE] В Visual Studio Online имеется [более старая версия Application Insights][более старая версия Application Insights]. Мы серьезно переделываем данную службу, чтобы она стала частью Microsoft Azure, и здесь вы знакомитесь с ее новой версией.
 
-![Пример монитора приложений в Application Insights][Пример монитора приложений в Application Insights]
+[AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
 
-## Подробнее
 
--   [Application Insights][Application Insights]
--   [Добавление Application Insights в свой проект][Добавление Application Insights в свой проект в Visual Studio]
--   [Отслеживание активного веб-сервера сейчас][Диагностика проблем в активной веб-службе сейчас]
--   [Изучение метрик в Application Insights][Изучение метрик в Application Insights]
--   [Поиск по журналу диагностики][Поиск по журналу диагностики]
--   [Отслеживание доступности с помощью веб-тестов][Отслеживание доступности с помощью веб-тестов]
--   [Отслеживание использования с помощью событий и метрик][Отслеживание использования с помощью событий и метрик]
--   [Вопросы и ответы, устранение неполадок][Вопросы и ответы, устранение неполадок]
-
-<!--Link references-->
-
-  [Добавление Application Insights в свой проект в Visual Studio]: ../app-insights-monitor-application-health-usage/
-  [Диагностика проблем в активной веб-службе сейчас]: ../app-insights-monitor-performance-live-website-now/
-  [более старая версия Application Insights]: http://msdn.microsoft.com/ru-ru/library/dn481095.aspx
-  [Пример монитора приложений в Application Insights]: ./media/appinsights/appinsights-00-appblade.png
-  [Application Insights]: ../app-insights-get-started/
-  [Изучение метрик в Application Insights]: ../app-insights-explore-metrics/
-  [Поиск по журналу диагностики]: ../app-insights-search-diagnostic-logs/
-  [Отслеживание доступности с помощью веб-тестов]: ../app-insights-monitor-web-app-availability/
-  [Отслеживание использования с помощью событий и метрик]: ../app-insights-web-track-usage-custom-events-metrics/
-  [Вопросы и ответы, устранение неполадок]: ../app-insights-troubleshoot-faq/

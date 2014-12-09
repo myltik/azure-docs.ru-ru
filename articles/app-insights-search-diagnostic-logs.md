@@ -1,121 +1,158 @@
-<properties title="Search diagnostic logs with Application Insights" pageTitle="Search diagnostic logs" description="Search logs generated with Trace, NLog, or Log4Net." metaKeywords="analytics web test" authors="awills"  />
+﻿<properties title="Search diagnostic logs with Application Insights" pageTitle="Поиск по журналам диагностики" description="Search logs generated with Trace, NLog, or Log4Net." metaKeywords="analytics web test" authors="awills"  manager="kamrani" />
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="awills" />
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-24" ms.author="awills" />
+ 
+# Поиск по журналам диагностики в Application Insights
 
-# Журналы диагностики поиска в Application Insights
+Одним из наиболее традиционных методов отладки является вставка строк программного кода, которые генерируют записи в журнале трассировки. [Application Insights][start] позволяет записывать журналы вашего веб-сервера, а также выполнять в них поиск и фильтрацию. Если вы уже используете log4Net, NLog или System.Diagnostics.Trace, вы можете записать эти журналы с помощью нашего адаптера. Кроме того, можно использовать методы TrackTrace и TrackException, встроенные в Application Insights SDK.
 
-Можно записывать и выполнять поиск в диагностических данных System.Diagnostics.Trace, NLog и Log4Net. Application Insights предоставляет эффективное и удобное средство для сбора и изучения занесенных в журнал событий, полученных из одного или нескольких источников. Эта функциональность дополняет средства мониторинга работоспособности приложений.
+Результаты поиска могут также включать представления обычных страниц и запросы событий, которые используются для построения отчетов об [использовании][usage] и [производительности][perf], а также все [пользовательские вызовы TrackEvent][track], которые вы записали.
 
-Отслеживаемое веб-приложение может быть размещено в локальной среде, на виртуальной машине или на веб-сайте Microsoft Azure.
 
-1.  [Добавление адаптера ведения журнала][Добавление адаптера ведения журнала]
+2. [Установка адаптера для вашей платформы ведения журнала](#capture)
++ [Вставка вызовов журнала диагностики](#pepper)
++ [Исключения](#exceptions)
++ [Просмотр данных журнала](#view)
++ [Поиск по данным журнала](#search)
++ [Устранение неполадок](#questions)
++ [Дальнейшие действия](#next)
 
--   [Настройка сбора диагностики][Настройка сбора диагностики]
--   [Вставка инструкций журнала, сборка и развертывание][Вставка инструкций журнала, сборка и развертывание]
--   [Просмотр данных журнала][Просмотр данных журнала]
--   [Поиск в данных][Поиск в данных]
--   [Дальнейшие действия][Дальнейшие действия]
 
-## <a name="add"></a>1. Добавление адаптера ведения журнала
 
-1.  Если это еще не сделано, [добавьте Application Insights в свой проект][добавьте Application Insights в свой проект] В Visual Studio.
+## <a name="capture"></a> Установка адаптера для вашей платформы ведения журнала
 
-    Если добавить Application Insights после добавления журналов в проект, то адаптер ведения журналов уже будет установлен и настроен. Достаточно лишь [заново развернуть проект][Вставка инструкций журнала, сборка и развертывание] и [просмотреть данные][Просмотр данных журнала].
+Если [Application Insights еще не установлен в вашем проекте][start], установите его сейчас.
 
-2.  В обозревателе решений щелкните правой кнопкой мыши свой проект и выберите **Управление пакетами NuGet**.
-3.  Выберите Online \> All, выберите **Include Prerelease** и выполните поиск по тексту «Microsoft.ApplicationInsights»
+Если планируется использовать встроенные вызовы Application Insights SDK Track *(), адаптер не требуется - [перейдите к следующему разделу.](#pepper).
 
-    ![Получите предварительную версию соответствующего адаптера][Получите предварительную версию соответствующего адаптера]
+Для поиска по журналам, созданным с помощью log4Net, NLog или System.Diagnostics.Trace, необходимо установить соответствующий адаптер.
 
-4.  Выберите предварительную версию соответствующего пакета — одного из следующих:
+1. Если вы планируете использовать log4Net или NLog, установите его в свой проект. 
+2. В обозревателе решений щелкните правой кнопкой мыши ваш проект и выберите **Управление пакетами NuGet**.
+3. Выберите "В сети" > "Все", затем выберите **Включить предварительный выпуск** и выполните поиск по запросу Microsoft.ApplicationInsights.
 
--   Microsoft.ApplicationInsights.TraceListener
--   Microsoft.ApplicationInsights.NLogTarget
--   Microsoft.ApplicationInsights.Log4NetAppender
+    ![Get the prerelease version of the appropriate adapter](./media/appinsights/appinsights-36nuget.png)
 
-## <a name="configure"></a>2. Настройка сбора диагностики
+4. Выберите соответствующий пакет из списка.
+  + Microsoft.ApplicationInsights.TraceListener (для захвата вызовов System.Diagnostics.Trace)
+  + Microsoft.ApplicationInsights.NLogTarget
+  + Microsoft.ApplicationInsights.Log4NetAppender
 
-### Для System.Diagnostics.Trace
+Пакет NuGet устанавливает необходимые сборки, а также вносит изменения в файл web.config или app.config.
 
-В Web.config вставьте следующий код в раздел `<configuration>`:
+## <a name="pepper"></a>3. Вставка вызовов журнала диагностики
 
-    <system.diagnostics>
-     <trace autoflush="true" indentsize="0">
-      <listeners>
-       <add name="myAppInsightsListener"  
-          type="Microsoft.ApplicationInsights.TraceListener.ApplicationInsightsTraceListener, 
-         Microsoft.ApplicationInsights.TraceListener" />
-      </listeners>
-     </trace>
-    </system.diagnostics> 
+Вставьте вызовы журналов событий с помощью предпочитаемой платформы ведения журнала. 
 
-### Для NLog
+Например, если используется Application Insights SDK, можно вставить:
 
-В файле Nlog.config объедините следующие фрагменты с разделами `<extensions>`, `<targets>` и `<rules>`. При необходимости создайте эти разделы
+    var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
+    telemetry.TrackTrace("Slow response - database01");
 
-    <extensions> 
-     <add  assembly="Microsoft.ApplicationInsights.NLogTarget" /> 
-    </extensions> 
+если же используется System.Diagnostics.Trace:
 
-    <targets>
-     <target xsi:type="ApplicationInsightsTarget" name="aiTarget"/>
-    </targets>
+    System.Diagnostics.Trace.TraceWarning("Slow response - database01");
 
-    <rules>
-     <logger name="*" minlevel="Trace" writeTo="aiTarget"/>
-    </rules>
+если вы предпочитаете log4net или NLog:
 
-### Для Log4Net
+    logger.Warn("Slow response - database01");
 
-В файле Web.config объедините следующие фрагменты с разделами `<configsections>` и `<log4net>`:
+запустите приложение в режиме отладки или разверните его на своем веб-сервере.
 
-    <configSections>
-      <section name="log4net" type="log4net.Config.Log4NetConfigurationSectionHandler, log4net" />
-    </configSections>
+### <a name="exceptions"></a>Исключения
 
-    <log4net>
-     <root>
-      <level value="ALL" /> <appender-ref ref="aiAppender" />
-     </root>
-     <appender name="aiAppender" type="Microsoft.ApplicationInsights.Log4NetAppender.ApplicationInsightsAppender, Microsoft.ApplicationInsights.Log4NetAppender">
-      <layout type="log4net.Layout.PatternLayout">
-       <conversionPattern value="%date [%thread] %-5level %logger - %message%newline" />
-      </layout>
-     </appender>
-    </log4net>
+Чтобы отправить исключения в журнал, необходимо сделать следующее.
 
-## <a name="deploy"></a>3. Вставка инструкций журнала, сборка и развертывание
+JavaScript на стороне клиента
 
-Вставьте вызовы журналов событий с помощью предпочитаемой платформы ведения журнала. Например, при использовании Log4Net вызовы могут выглядеть так:
+    try 
+    { ...
+    }
+    catch (ex)
+    {
+      appInsights.TrackException(ex, "handler loc",
+        {Game: currentGame.Name, 
+         State: currentGame.State.ToString()});
+    }
 
-    log.Warn("Slow response - database01");
+C# на стороне сервера
 
-Занесенные в журнал события будут отправлены в Application Insights и в среде разработки, и в рабочей среде.
+    var telemetry = new TelemetryClient();
+    ...
+    try 
+    { ...
+    }
+    catch (Exception ex)
+    {
+       // Set up some properties:
+       var properties = new Dictionary <string, string> 
+         {{"Game", currentGame.Name}};
+
+       var measurements = new Dictionary <string, double>
+         {{"Users", currentGame.Users.Count}};
+
+       // Send the exception telemetry:
+       telemetry.TrackException(ex, properties, measurements);
+    }
+
+VB на стороне сервера
+
+    Dim telemetry = New TelemetryClient
+    ...
+    Try
+      ...
+    Catch ex as Exception
+      ' Set up some properties:
+      Dim properties = New Dictionary (Of String, String)
+      properties.Add("Game", currentGame.Name)
+
+      Dim measurements = New Dictionary (Of String, Double)
+      measurements.Add("Users", currentGame.Users.Count)
+  
+      ' Send the exception telemetry:
+      telemetry.TrackException(ex, properties, measurements)
+    End Try
+
+Свойства и значения параметров не являются обязательными, но они полезны для фильтрации и добавления дополнительной информации. Например, если у вас есть приложение, которое запускает несколько игр, вы можете просматривать все отчеты об исключениях для каждой конкретной игры. Вы можете добавить в каждый словарь столько элементов, сколько вам нужно.
 
 ## <a name="view"></a>4. Просмотр данных журнала
 
-В Application Insights откройте поиск по журналу диагностики.
 
-![Откройте поиск по журналу диагностики][Откройте поиск по журналу диагностики]
+1. В Application Insights откройте поиск по журналу диагностики.
 
-Выберите любой журнал для просмотра содержащихся в нем данных.
+    ![Open diagnostic search](./media/appinsights/appinsights-30openDiagnostics.png)
+   
+2. Установите фильтр для типов событий, которые вы хотите просмотреть.
 
-![Откройте поиск по журналу диагностики][1]
+    ![Open diagnostic search](./media/appinsights/appinsights-331filterTrace.png)
 
-Доступные поля зависят от платформы ведения журнала и от параметров, использованных в вызове.
+
+Ниже приведены типы событий.
+
+* **Отслеживание** - поиск по журналам диагностики, созданным на вашем веб-сервере. Сюда входят вызовы log4Net, NLog, System.Diagnostic.Trace и ApplicationInsights TrackTrace.
+* **Запрос** - HTTP-запросы на поиск, полученные серверным компонентом вашего веб-приложения, включая запросы страниц, запросы данных, изображений и т. д. Отображаемые события являются телеметрией, отправляемой сервером Application Insights SDK, которая используется для создания отчета о количестве запросов.
+* **Просмотр страниц** - поиск событий просмотра страниц. Эти события отправляются веб-клиентом и используются для создания отчетов о просмотре страниц. (Если здесь ничего не отображается, необходимо установить [наблюдение за веб-клиентами][usage].)
+* **Настраиваемое событие** - если вы вставили вызовы в TrackEvent() и TrackMetric() для [наблюдения за использованием][track], то здесь вы сможете осуществлять их поиск.
+
+Выберите любой журнал для просмотра содержащихся в нем данных. 
+
+![Open diagnostic search](./media/appinsights/appinsights-32detail.png)
 
 Для фильтрации данных внутри элементов можно использовать простые строки (без подстановочных знаков).
 
-## <a name="search"></a>5. Поиск в данных
+Доступные поля зависят от платформы ведения журнала и от параметров, использованных в вызове.
 
-Задайте диапазон времени и выполните поиск. Чем короче диапазон, тем быстрее поиск.
 
-![Откройте поиск по журналу диагностики][2]
+## <a name="search"></a>5. Поиск данных
 
-Обратите внимание, что поиск ведется по словам, а не по словосочетаниям. Слова — это последовательности букв и цифр с определенными знаками пунктуации, например, «.» и «\_». Например:
+Задайте диапазон времени и выполните поиск терминов. Чем меньше диапазон, тем быстрее выполняется поиск. 
+
+![Open diagnostic search](./media/appinsights/appinsights-311search.png)
+
+Обратите внимание, что поиск ведется по терминам, а не по подстрокам. Слова - это последовательности букв и цифр с определенными знаками пунктуации, например, "." и "_". Например: 
 
 <table>
-  <tr><th>Слово</th><th>НЕ совпадает</th><th>Но следующие слова совпадают:</th></tr>
+  <tr><th>термин</th><th>НЕ совпадает с</th><th>, но эти термины совпадают</th></tr>
   <tr><td>HomeController.About</td><td>about<br/>home</td><td>h*about<br/>home*</td></tr>
   <tr><td>IsLocal</td><td>local<br/>is<br/>*local</td><td>isl*<br/>islocal<br/>i*l</td></tr>
   <tr><td>New Delay</td><td>w d</td><td>new<br/>delay<br/>n* AND d*</td></tr>
@@ -124,96 +161,148 @@
 Вот доступные поисковые выражения:
 
 <table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left"><p>Пример запроса</p></th>
-<th align="left"><p>Результат</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left"><p><span class="code">slow</span></p></td>
-<td align="left"><p>Поиск всех элементов в диапазоне дат, поля которых включают слово «slow»</p></td>
-</tr>
-<tr class="even">
-<td align="left"><p><span class="code">database??</span></p></td>
-<td align="left"><p>Совпадения — database01, databaseAB, ...</p>
-<p>? нельзя использовать в начале поискового запроса.</p></td>
-</tr>
-<tr class="odd">
-<td align="left"><p><span class="code">database*</span></p></td>
-<td align="left"><p>Совпадения — database, database01, databaseNNNN</p>
-<p>* нельзя использовать в начале поискового запроса</p></td>
-</tr>
-<tr class="even">
-<td align="left"><p><span class="code">яблоко AND банан</span></p></td>
-<td align="left"><p>Находит события, содержащие оба этих слова. Используйте «AND» заглавными буквами, а не «and».</p></td>
-</tr>
-<tr class="odd">
-<td align="left"><p><span class="code">яблоко OR банан</span></p>
-<p><span class="code">яблоко банан</span></p></td>
-<td align="left"><p>Находит события, содержащие любое из этих слов. Используйте «OR» заглавными буквами, а не «or».</p>
-<p>Краткая форма.</p></td>
-</tr>
-<tr class="even">
-<td align="left"><p><span class="code">яблоко NOT банан</span></p>
-<p><span class="code">яблоко -банан</span></p></td>
-<td align="left"><p>Находит события, содержащие только одно из этих слов, но не содержащие второе.</p>
-<p>Краткая форма.</p></td>
-</tr>
-<tr class="odd">
-<td align="left"><p>ябл* AND банан NOT (виноград OR груша)</p>
-<p><span class="code">ябл* AND банан -(виноград груша)</span></p></td>
-<td align="left"><p>Логические операторы и скобки</p>
-<p>Более краткая форма</p></td>
-</tr>
-<tr class="even">
-<td align="left"><p><span class="code">message:slow</span></p>
-<p><span class="code">ipaddress:(10.0.0.* OR 192.168.0.*)</span></p>
-<p><span class="code">properties.logEventInfo.level:Error</span></p></td>
-<td align="left"><p>Совпадение с указанным полем. По умолчанию поиск ведется по всем полям. Чтобы посмотреть, какие поля доступны, выберите событие для просмотра его данных.</p></td>
-</tr>
-</tbody>
+                    <tr>
+                      <th>
+                        <p>Пример запроса</p>
+                      </th>
+                      <th>
+                        <p>Результат</p>
+                      </th>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p>
+                          <span class="code">slow</span>
+                        </p>
+                      </td>
+                      <td>
+                        <p>Поиск всех элементов в диапазоне дат, поля которых включают слово "slow"</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p>
+                          <span class="code">database??</span>
+                        </p>
+                      </td>
+                      <td>
+                        <p>Совпадения - database01, databaseAB, ...</p>
+                        <p>? нельзя использовать в начале поискового запроса.</p>
+                      </td>
+                    </tr>
+                     <tr>
+                      <td>
+                        <p>
+                          <span class="code">database*</span>
+                        </p>
+                      </td>
+                      <td>
+                        <p>Совпадения - database, database01, databaseNNNN</p>
+                        <p>* нельзя использовать в начале поискового запроса</p>
+                      </td>
+                    </tr>
+                   <tr>
+                      <td>
+                        <p>
+                          <span class="code">яблоко AND банан</span>
+                        </p>
+                      </td>
+                      <td>
+                        <p>Поиск событий, содержащих оба этих слова. Используйте AND, а не and.</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p>
+                          <span class="code">яблоко OR банан</span>
+                        </p>
+                        <p>
+                          <span class="code">яблоко банан</span>
+                        </p>
+                      </td>
+                      <td>
+                        <p>Поиск событий, содержащих любое из этих слов. Используйте OR, а не or.</p>
+                        <p>Краткая форма.</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p>
+                          <span class="code">яблоко NOT банан</span>
+                        </p>
+                        <p>
+                          <span class="code">яблоко -банан</span>
+                        </p>
+                      </td>
+                      <td>
+                        <p>Находит события, содержащие только одно из этих слов, но не содержащие второе.</p>
+                        <p>Краткая форма.</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p>ябл* AND банан NOT (виноград OR груша)</p>
+                        <p>
+                          <span class="code">ябл* AND банан -(виноград груша)</span>
+                        </p>
+                      </td>
+                      <td>
+                        <p>Логические операторы и скобки</p>
+                        <p>Более краткая форма</p>
+                      </td>
+                    </tr>
+       <!-- -- fielded search feature not ready yet --
+                    <tr>
+                      <td>
+                        <p>
+                          <span class="code">message:slow</span>
+                        </p>
+                        <p>
+                          <span class="code">ipaddress:(10.0.0.* OR 192.168.0.*)</span>
+                        </p>
+                        <p>
+                          <span class="code">properties.logEventInfo.level:Error</span>
+                        </p>
+                      </td>
+                      <td>
+                        <p>Совпадение с указанным полем. По умолчанию поиск ведется по всем полям. Чтобы посмотреть, какие поля доступны, выберите событие и просмотрите его сведения.</p>
+                      </td>
+                    </tr>
+ -->
 </table>
+
+
+## <a name="questions"></a>Вопросы и ответы
+
+### <a name="emptykey"></a>Появляется сообщение об ошибке "ключ инструментирования не может быть пустым"
+
+Вероятно, установка пакета Nuget адаптера ведения журнала была выполнена без установки Application Insights.
+
+В обозревателе решений щелкните правой кнопкой мыши `ApplicationInsights.config` и выберите **Обновить Application Insights**. Появится диалоговое окно с предложением войти в Azure и создать новый ресурс Application Insights или повторно использовать уже существующий. Это должно исправить проблему.
+
+### <a name="limits"></a>Какой объем данных сохраняется?
+
+До 500 событий в секунду от каждого приложения. События сохраняются в течение семи дней.
+
+### <a name="cani"></a>Можно ли...
+
+- настроить оповещения для событий и исключений?
+- экспортировать журналы для дальнейшего анализа?
+- выполнять поиск по определенным свойствам?
+
+Пока нет, но все эти функции находятся в разработке.
 
 ## <a name="add"></a>Дальнейшие действия
 
--   [Добавление Application Insights в проект][добавьте Application Insights в свой проект]
--   [Настройка тестов доступности и скорости реагирования][Настройка тестов доступности и скорости реагирования]
--   [Устранение неполадок][Устранение неполадок]
+* [Настройка тестов доступности и скорости реагирования][availability]
+* [Устранение неполадок][qna]
 
-## Подробнее
 
--   [Application Insights][Application Insights]
--   [Добавление Application Insights в ваш проект][добавьте Application Insights в свой проект]
--   [Наблюдение за текущим состоянием веб-сервера][Наблюдение за текущим состоянием веб-сервера]
--   [Исследование метрик в Application Insights][Исследование метрик в Application Insights]
--   [Поиск журналов диагностики][Поиск журналов диагностики]
--   [Отслеживание доступности с помощью веб-тестов][Настройка тестов доступности и скорости реагирования]
--   [Отслеживание использования с помощью событий и метрик][Отслеживание использования с помощью событий и метрик]
--   [Вопросы и ответы, устранение неполадок][Устранение неполадок]
 
-<!--Link references-->
 
-  [Добавление адаптера ведения журнала]: #add
-  [Настройка сбора диагностики]: #configure
-  [Вставка инструкций журнала, сборка и развертывание]: #deploy
-  [Просмотр данных журнала]: #view
-  [Поиск в данных]: #search
-  [Дальнейшие действия]: #next
-  [добавьте Application Insights в свой проект]: ../app-insights-monitor-application-health-usage/
-  [Получите предварительную версию соответствующего адаптера]: ./media/appinsights/appinsights-36nuget.png
-  [Откройте поиск по журналу диагностики]: ./media/appinsights/appinsights-30openDiagnostics.png
-  [1]: ./media/appinsights/appinsights-32detail.png
-  [2]: ./media/appinsights/appinsights-31search.png
-  [Настройка тестов доступности и скорости реагирования]: ../app-insights-monitor-web-app-availability/
-  [Устранение неполадок]: ../app-insights-troubleshoot-faq/
-  [Application Insights]: ../app-insights-get-started/
-  [Наблюдение за текущим состоянием веб-сервера]: ../app-insights-monitor-performance-live-website-now/
-  [Исследование метрик в Application Insights]: ../app-insights-explore-metrics/
-  [Поиск журналов диагностики]: ../app-insights-search-diagnostic-logs/
-  [Отслеживание использования с помощью событий и метрик]: ../app-insights-track-usage-custom-events-metrics/
+
+[AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
+
+
+
+

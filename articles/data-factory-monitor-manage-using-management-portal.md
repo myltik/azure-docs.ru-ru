@@ -1,0 +1,158 @@
+﻿<properties title="Monitor and manage Azure Data Factory using Azure Preview Portal" pageTitle="Мониторинг фабрики данных Azure и управление ею с помощью портала предварительной версии Azure" description="Learn how to use Azure Management Portal to monitor and manage Azure data factories you have created." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+
+<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelluru" />
+
+# Мониторинг фабрики данных Azure с помощью портала предварительной версии Azure
+
+- [Просмотр всех фабрик данных в подписке Azure](#AllDataFactories)
+- [Просмотр информации о фабрике данных](#DataFactoryDetails)
+- [Просмотр представления схемы фабрики данных](#DataFactoryDiagram)
+- [Просмотр связанных служб в фабрике данных](#DataFactoryLinkedServices)
+- [Просмотр информации о связанной службе](#DataFactoryLinkedService) 
+- [Просмотр наборов данных в фабрике данных](#DataFactoryDatasets)
+- [Просмотр информации о наборе данных](#DataFactoryDataset)
+- [Просмотр информации о срезе](#DataFactorySlice) 
+- [Просмотр выполнения всех действий для среза](#DataFactoryActivtyRuns) 
+- [Просмотр информации о выполнения действия](#DataFactoryActivtyRunDetails)
+- [Детальный обзор операций - события за прошлую неделю](#EventsInThePastweek)  
+   
+
+
+## <a name="AllDataFactories"></a> Просмотр всех фабрик данных в подписке Azure
+
+- Войдите на [портал предварительной версии Azure][azure-preview-portal].
+- Щелкните раздел **ОБЗОР** слева и выберите команду **Фабрики данных**.  
+
+	![BROWSE hub -> Data Factories][image-data-factory-browse-datafactories]
+
+	Если вы не видите пункт **Фабрики данных**, щелкните **Все**, а затем в колонке **Обзор** выберите **Фабрики данных**.
+
+	![BROWSE hub -> Everything] [image-data-factory-browse-everything]
+
+- После этого все фабрики данных должны быть доступны для просмотра в колонке **Фабрики данных**.
+
+	![Data factories blade][image-data-factory-datafactories-blade]
+
+    
+## <a name="DataFactoryDetails"></a> Просмотр информации о фабрике данных
+
+Для просмотра информации о фабрике данных выполните одно из следующих действий: 
+
+
+- Щелкните фабрику данных в колонке **Фабрики данных**, которая показана выше.
+- Щелкните ссылку для фабрики данных в **начальной панели**. **Начальная панель** - это колонка, которая отображается при входе на портал предварительной версии Azure. Если при создании фабрики данных выбран параметр **Добавить на начальную панель**(по умолчанию), вы должны увидеть ссылку на фабрику данных на начальной панели, как показано на рисунке ниже. В этом примере на **начальной панели** доступны ссылки на фабрики данных **ADFTutorialDataFactory**, **ADFTutorialDataFactoryDF** и **LogProcessingFactory**.
+
+
+![Data factory from the Startboard][image-data-factory-datafactory-from-startboard]
+
+В любом случае вы увидите колонку **ФАБРИКА ДАННЫХ** для выбранной фабрики данных, как показано на рисунке ниже. 
+
+ ![Data Factory Home Page][image-data-factory-datafactory-home-page]
+ 
+## <a name="DataFactoryDiagram"></a> Просмотр представления схемы фабрики данных
+В колонке **ФАБРИКА ДАННЫХ** для фабрики данных щелкните плитку **Схема**, чтобы увидеть представление схемы фабрики данных. 
+
+![Data Factory Diagram View][image-data-factory-diagram-view]
+ 
+
+## <a name="DataFactoryLinkedServices"></a> Просмотр связанных служб в фабрике данных
+В колонке **ФАБРИКА ДАННЫХ** для фабрики данных щелкните плитку **Связанные службы**, чтобы увидеть все связанные службы в виде списка. 
+
+![Linked Services Blade][image-data-factory-linked-services]
+
+## <a name="DataFactoryLinkedService"></a> Просмотр информации о связанной службе
+В колонке **СВЯЗАННЫЕ СЛУЖБЫ** щелкните связанную службу в списке, чтобы просмотреть информацию о ней. 
+
+![Linked Service Blade][image-data-factory-linked-service]
+
+## <a name="DataFactoryDatasets"></a> Просмотр наборов данных в фабрике данных 
+В колонке **ФАБРИКА ДАННЫХ** для фабрики данных щелкните плитку **Наборы данных**, чтобы увидеть все таблицы в фабрике данных.
+
+![Data Sets Blade][image-data-factory-datasets] 
+
+## <a name="DataFactoryDataset"></a>  Просмотр информации о наборе данных
+Выберите один набор данных из списка наборов данных в колонке наборов данных, чтобы просмотреть подробную информацию об этом наборе. Обратите внимание, что таблица представляет собой прямоугольный набор данных, для которого имеется схема. Сейчас это единственный поддерживаемый тип набора данных. 
+
+![Table Blade][image-data-factory-table]
+
+В колонке **ТАБЛИЦА** выше вы увидите **Последние срезы** и **Проблемные срезы**. Щелкните **... (многоточие)**, чтобы просмотреть все срезы. 
+
+![All Slices of a Table][image-data-factory-all-slices]
+
+В колонке **Срезы данных** можно использовать фильтр, чтобы просмотреть определенные срезы отдельно.
+
+
+## <a name="DataFactorySlice"></a> Просмотр информации о срезе
+Щелкните срез в списке срезов в колонке **Таблица** или в колонке **Срезы данных**, чтобы просмотреть информацию об этом срезе. 
+
+![Data Slice][image-data-factory-dataslice]
+
+
+### <a name="DataFactoryActivtyRuns"></a> Просмотр выполнения всех действий для среза
+Для среза может быть несколько выполнений. Например, если получить срез не удалось, служба может повторить попытку через некоторое время. Кроме того, если все попытки выполнить срез были неудачными, срез можно выполнить повторно. Все выполнения действий можно увидеть в колонке **Срез данных** в списке ниже. 
+
+## <a name="DataFactoryActivtyRunDetails"></a>  Просмотр информации о выполнения действия
+Щелкните выполнение действия в списке выполнений в колонке **Срез данных**, чтобы просмотреть информацию о выполнении действия. 
+
+![Activity Run Details][image-data-factory-activity-run-details]
+
+## <a name="EventsInThePastweek"></a> Детальный обзор операций - события за прошлую неделю
+В колонке **ФАБРИКА ДАННЫХ** (или на домашней странице) для фабрики данных выберите **События за неделю** в разделе обзора **операций**, чтобы просмотреть события за прошлую неделю. Благодаря этому можно получить общее представление об операциях, выполненных фабрикой данных на прошлой неделе. Это также поможет устранить любые ошибки, связанные с перемещением или обработкой данных. 
+
+![ Data Factory Events][image-data-factory-events]
+
+
+## См. также
+
+Статья | Описание
+------ | ---------------
+[Мониторинг фабрики данных Azure и управление ею с помощью среды PowerShell][monitor-manage-using-powershell] | В этой статье описывается, как осуществлять мониторинг фабрики данных Azure с помощью командлетов Azure PowerShell. 
+[Работа конвейеров с локальными данными][use-onpremises-datasources] | В этой статье представлены пошаговые указания по копированию данных из локальной базы данных SQL Server в большой двоичный объект Azure.
+[Использование сценариев pig и hive с фабрикой данных][use-pig-and-hive-with-data-factory] | В этой статье показано, как использовать действия HDInsight для выполнения сценариев hive и pig, чтобы обработать входные данные и получить выходные данные. 
+[Учебник. Перемещение и обработка файлов журналов с помощью фабрики данных][adf-tutorial] | В этой статье рассматриваются все стороны реализации близкого к реалистичному сценария с использованием фабрики данных Azure для преобразования данных из файлов журналов в аналитику.
+[Использование настраиваемых действий в фабрике данных][use-custom-activities] | Эта статья представляет собой пошаговое руководство с указаниями по созданию настраиваемых действий и их использованию в конвейере. 
+[Устранение неполадок фабрики данных][troubleshoot] | В этой статье описывается, как устранять неполадки фабрик данных Azure.
+[Справочник разработчика фабрик данных Azure][developer-reference] | Справочник разработчика содержит разнообразные материалы по использованию командлетов, сценариев JSON, функций и т. д. 
+[Справочник по командлетам фабрик данных Azure][cmdlet-reference] | Этот справочник содержит информацию о всех **командлетах фабрики данных**.
+
+
+[use-onpremises-datasources]: ../data-factory-use-onpremises-datasources
+[use-pig-and-hive-with-data-factory]: ../data-factory-pig-hive-activities
+[adf-tutorial]: ../data-factory-tutorial
+[use-custom-activities]: ../data-factory-use-custom-activities
+[monitor-manage-using-powershell]: ../data-factory-monitor-manage-using-powershell
+[troubleshoot]: ../data-factory-troubleshoot
+[developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
+[cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
+
+[azure-preview-portal]: http://portal.azure.com/
+
+[image-data-factory-browse-everything]: ./media/data-factory-monitor-manage-using-management-portal/BrowseEverything.png
+
+[image-data-factory-browse-datafactories]: ./media/data-factory-monitor-manage-using-management-portal/BrowseDataFactories.png
+
+[image-data-factory-datafactories-blade]: ./media/data-factory-monitor-manage-using-management-portal/DataFactories.png
+
+[image-data-factory-datafactory-from-startboard]: ./media/data-factory-monitor-manage-using-management-portal/DataFactoryFromStartboard.png
+
+[image-data-factory-datafactory-home-page]: ./media/data-factory-monitor-manage-using-management-portal/DataFactoryHomePage.png
+
+[image-data-factory-diagram-view]: ./media/data-factory-monitor-manage-using-management-portal/DiagramView.png
+
+[image-data-factory-linked-services]: ./media/data-factory-monitor-manage-using-management-portal/LinkedServicesBlade.png
+
+[image-data-factory-linked-service]: ./media/data-factory-monitor-manage-using-management-portal/LinkedServiceBlade.png
+
+[image-data-factory-datasets]: ./media/data-factory-monitor-manage-using-management-portal/Datasets.png
+
+[image-data-factory-table]: ./media/data-factory-monitor-manage-using-management-portal/Table.png
+
+[image-data-factory-all-slices]: ./media/data-factory-monitor-manage-using-management-portal/AllSlices.png
+
+[image-data-factory-filter]: ./media/data-factory-monitor-manage-using-management-portal/Filter.png
+
+[image-data-factory-dataslice]: ./media/data-factory-monitor-manage-using-management-portal/DataSlice.png
+
+[image-data-factory-activity-run-details]: ./media/data-factory-monitor-manage-using-management-portal/ActivityRunDetails.png
+
+[image-data-factory-events]: ./media/data-factory-monitor-manage-using-management-portal/Events.png
