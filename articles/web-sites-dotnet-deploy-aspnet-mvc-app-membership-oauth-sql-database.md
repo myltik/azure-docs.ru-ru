@@ -113,7 +113,7 @@
 
 1.  В **обозревателе решений** откройте файл *Layout.cshtml* в папке *Views\\Shared*.
 
-    ![\_Layout.cshtml в обозревателе решений][\_Layout.cshtml в обозревателе решений]
+    ![\_Layout.cshtml в обозревателе решений][newapp004]
 
 2.  Замените два вхождения элемента "Мое приложение ASP.NET MVC" с именем "Contact Manager".
 3.  Измените "Имя приложения" на "CM Demo".
@@ -480,7 +480,7 @@ Visual Studio создает методы и представления конт
 
     ![средство выбора браузера][средство выбора браузера]
 
-    You can select multiple browsers and have Visual Studio update each browser when you make changes. For more information see [Using Browser Link in Visual Studio 2013](http://www.asp.net/visual-studio/overview/2013/using-browser-link).
+    Можно выбрать несколько браузеров и обновлять их при внесении изменений. Дополнительные сведения см. в разделе [Использование ссылки на браузер в Visual Studio 2013](http://www.asp.net/visual-studio/overview/2013/using-browser-link).
 
 1.  Для запуска приложения нажмите сочетание клавиш CTRL+F5. Следуйте инструкциям, чтобы подтвердить доверие к самозаверяющему сертификату, созданному IIS Express.
 
@@ -691,7 +691,7 @@ Visual Studio создает методы и представления конт
 
 Дополнительные сведения об ASP.NET MVC можно найти в учебнике [Начало работы с ASP.NET MVC 5][Начало работы с ASP.NET MVC 5]. В отличном учебнике Тома Дейкстры [Начало работы с EF и MVC][Начало работы с EF и MVC] показаны более сложные методы программирования MVC и EF.
 
-Этот учебник и пример приложения были написаны [Риком Андерсоном (Rick Anderson)][Риком Андерсоном (Rick Anderson)] (Twitter [@RickAndMSFT][@RickAndMSFT]) в соавторстве с Томом Дейкстрой (Tom Dykstra) и Бэрри Доррансом (Barry Dorrans)(Twitter [@blowdart][@blowdart]).
+Этот учебник и пример приложения были написаны [Риком Андерсоном (Rick Anderson)] (Twitter [@RickAndMSFT][@RickAndMSFT]) в соавторстве с Томом Дейкстрой (Tom Dykstra) и Бэрри Доррансом (Barry Dorrans)(Twitter [@blowdart][@blowdart]).
 
 Пожалуйста, оставьте отзыв о том, что вам понравилось или что вы хотели бы улучшить, не только о самом учебнике, но и о продуктах, которые он демонстрирует. Ваши отзывы помогут нам определить, какие улучшения наиболее приоритетные. Вы также можете запросить и проголосовать за новые темы на странице [Покажите, как это сделать в коде][Покажите, как это сделать в коде].
 
@@ -791,3 +791,4 @@ Visual Studio создает методы и представления конт
   [@RickAndMSFT]: https://twitter.com/RickAndMSFT
   [@blowdart]: https://twitter.com/blowdart
   [Покажите, как это сделать в коде]: http://aspnet.uservoice.com/forums/228522-show-me-how-with-code
+  [newapp004]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/dntutmobile-createapp-004.png

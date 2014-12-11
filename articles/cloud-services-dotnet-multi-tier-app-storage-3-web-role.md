@@ -1222,11 +1222,7 @@ BLOB-объекты хранятся в контейнерах BLOB-объект
 
 Ссылки на дополнительные ресурсы по работе с таблицами, очередями и BLOB-объектами хранилища Azure приведены [в конце последнего учебника данной серии][в конце последнего учебника данной серии].
 
-<div>
-
-[Учебник 4][следующем учебнике]
-
-</div>
+<div><a href="/en-us/develop/net/tutorials/multi-tier-web-site/4-worker-role-a/" class="site-arrowboxcta download-cta">Учебник 4</a></div>
 
   [первом учебнике серии]: /ru-ru/develop/net/tutorials/multi-tier-web-site/1-overview/
   [Создание решения Visual Studio]: #cloudproject
