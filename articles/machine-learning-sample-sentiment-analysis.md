@@ -1,39 +1,55 @@
-<properties title="Azure Machine Learning Sample: Sentiment analysis" pageTitle="Machine Learning Sample: Sentiment analysis | Azure" description="A sample Azure Machine Learning experiment that uses sentiment classification to predict product reviews." metaKeywords="" services="" solutions="" documentationCenter="" authors="garye" videoId="" scriptId="" />
+﻿<properties title="Azure Machine Learning Sample: Sentiment analysis" pageTitle="Пример машинного обучения: анализ мнений | Azure" description="A sample Azure Machine Learning experiment that uses sentiment classification to predict product reviews." metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye" />
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/23/2014" ms.author="garye" />
+ 
 
-# Пример машинного обучения Azure: Анализ мнений
+# Пример машинного обучения Azure: анализ мнений
 
-*Пример эксперимента, связанный с этой моделью в ML Studio, можно найти в разделе **ЭКСПЕРИМЕНТЫ** на вкладке **ПРИМЕРЫ**. Имя эксперимента:*
+>[AZURE.NOTE]
+>[Пример эксперимента] и [образец набора данных], связанные с этой моделью, доступны в ML Studio. См. дополнительные сведения ниже.
+[Пример эксперимента]: #sample-experiment
+[Образец набора данных]: #sample-dataset
 
-    Sample Experiment - Sentiment Classification - Development
 
-## Описание проблемы
+##Описание проблемы
+Прогнозирование рейтинга обзора продукции. Рейтинги: 1, 2, 3, 4, 5. Это проблема порядковой регрессии, которую также можно решать и как проблему регрессии, и как проблему многоклассовой классификации.
+ 
+##Данные
+Обзоры книг на Amazon, отобранные на сайте Amazon исследователями из UPenn ([http://www.cs.jhu.edu/~mdredze/datasets/sentiment/](http://www.cs.jhu.edu/~mdredze/datasets/sentiment/)). Исходный набор данных включал в себя 975 000 обзоров с рейтингами 1, 2, 3, 4, 5. Для ускорения эксперимента мы сузили набор данных до 10 000 обзоров. Все обзоры подготовлены на английском языке. Обзоры были созданы в период с 1997 по 2007 гг. 
+ 
+##Модель
+Мы использовали модуль хэширования функций для преобразования английского текста в целочисленные функции. Мы сравнили три модели:  
+ 
+1. Линейная регрессия   
+2. Порядковая регрессия с помощью двухклассовой логистической регрессии в качестве основного классификатора
+3. Многоклассовая классификация с помощью многоклассового логистического регрессионного классификатора
+ 
+##Результаты
 
-Прогнозирование рейтинга обзора продукции. Рейтинги — 1,2,3,4,5. Это проблема порядковой регрессии, которую также можно решать и как проблему регрессии, и как проблему мультиклассовой классификации.
+Алгоритм                 | Среднее абсолютное отклонение | Среднеквадратическое отклонение
+:---------                | :-----------------: | :--------------------:
+Порядковая регрессия        | 0,82                | 1,41
+Линейная регрессия         | 1,04                | 1,36
+Многоклассовая классификация | 0,85                | 1,57
+ 
+На основании этих результатов мы выбрали модель порядковой регрессии и на ее основе построили веб-службу.
+ 
+<!-- Removed until this part is fixed
+##API
+We have built a web service that takes a plain text review and predicts its rating.
+-->
 
-## Данные
 
-Обзоры книг на Amazon, отобранные на сайте Amazon исследователями из UPenn ([][]<http://www.cs.jhu.edu/~mdredze/datasets/sentiment/></a>). Исходный набор данных включал в себя 975 000 обзоров с рейтингами 1,2,3,4,5. Для ускорения эксперимента мы сузили набор данных до 10 000 обзоров. Все обзоры подготовлены на английском языке. Обзоры были созданы в период с 1997 по 2007 гг.
+## Пример эксперимента
 
-## Модель
+Следующий пример эксперимента, связанный с этой моделью, доступен в ML Studio в разделе **ЭКСПЕРИМЕНТЫ** на вкладке **ПРИМЕРЫ**.
 
-Мы использовали модуль хэширования функций для преобразования английского текста в целочисленные функции. Мы сравнили три модели:
+> **Пример эксперимента - Классификация мнений - Разработка**
 
-1.  линейная регрессия
-2.  порядковая регрессия с помощью двухклассовой логистической регрессии в качестве основного классификатора
-3.  мультиклассовая классификация с помощью мультиклассового логистического регрессивного классификатора
 
-## Результат
+## Образец набора данных
 
-Алгоритм| Средняя абсолютная погрешность| Среднеквадратическая ошибка
----------|---------|---------|
-Порядковая регрессия | 0.82| 1.41|
-Линейная регрессия | 1.04| 1.36|
-Мультиклассовая классификация | 0.85 | 1.57
+Следующий образец набора данных, используемый для этого эксперимента, доступен в ML Studio в палитре модулей в разделе **Сохраненные наборы данных**.
 
-На основании этих результатов мы выбрали порядковую регрессивную модель и на ее основе построили веб-службу.
-
-<!-- Removed until this part is fixed ##API We have built a web service that takes a plain text review and predicts its rating. -->
-
-  []: http://www.cs.jhu.edu/~mdredze/datasets/sentiment/
+###Обзоры книг на Amazon
+[AZURE.INCLUDE [machine-learning-sample-dataset-book-reviews-from-amazon](../includes/machine-learning-sample-dataset-book-reviews-from-amazon.md)]

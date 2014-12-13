@@ -1,55 +1,55 @@
-<properties title="Troubleshooting Guide: Creating and connecting to an Azure Machine Learning workspace" pageTitle="Troubleshooting Guide: Creating and connecting to an Azure Machine Learning workspace | Azure" description="Solutions for common issues in creating and connecting to an Azure Machine Learning workspace " metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" videoId="" scriptId="" />
+﻿<properties title="Troubleshooting Guide: Creating and connecting to an Azure Machine Learning workspace" pageTitle="Руководство по поиску и устранению проблем: создание и подключение к рабочей области машинного обучения Azure | Azure" description="Solutions for common issues in creating and connecting to an Azure Machine Learning workspace " metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
 
-# Руководство по поиску и устранению проблем: Создание и подключение к рабочей области машинного обучения Azure
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/25/2014" ms.author="garye" />
 
-В этом руководстве приведены решения некоторых часто возникающих проблем при настройке рабочих областей для Azure ML.
 
-## Владелец рабочей области
+#Руководство по поиску и устранению проблем: создание и подключение к рабочей области машинного обучения Azure
 
-При создании новой рабочей области Azure ML вводимый вами в поле WORKSPACE OWNER идентификатор должен являться действующей учетной записью Майкрософт (ранее она называлась Windows Live ID), например <john-contoso@live.com> или <john-contoso@hotmail.com>. Нельзя использовать другие учетные записи, например учетную запись корпоративной электронной почты. Чтобы создать новую учетную запись Майкрософт, перейдите по ссылке [www.live.com][www.live.com].
+В этом руководстве приведены решения некоторых проблем, часто возникающих при настройке рабочих областей для Azure ML.
 
-## Разрешенные регионы
+##Владелец рабочей области
 
-Azure ML в настоящий момент находится в общедоступной предварительной версии для Южно-Центрального региона США. Если в вашу подписку не входит Южно-Центральный регион США, вы можете получить сообщение об ошибке «У вас нет подписки в разрешенных регионах. Разрешенные регионы: Южно-центральный регион США».
+При создании новой рабочей области Azure ML идентификатор, вводимый в поле "ВЛАДЕЛЕЦ РАБОЧЕЙ ОБЛАСТИ", должен быть действующей учетной записью Майкрософт (ранее она называлась Windows Live ID), например john-contoso@live.com или john-contoso@hotmail.com. Нельзя использовать другие учетные записи, например учетную запись корпоративной электронной почты. Чтобы создать бесплатную учетную запись Майкрософт, посетите сайт [www.live.com](http://www.live.com). 
 
-Чтобы решить эту проблему, выберите «Обратиться в службу поддержки Майкрософт» (показано ниже) в портале Azure и выберите **Выставление счетов** в **группе типа поддержки**, чтобы добавить данный регион в свою подписку. В дальнейшем для Azure ML будут добавлены другие регионы.
+##Разрешенные регионы
 
-![Обратиться в службу поддержки Майкрософт][Обратиться в службу поддержки Майкрософт]
+Azure ML в настоящий момент находится в общедоступной предварительной версии для Южно-Центрального региона США. Если в вашу подписку не входит Южно-Центральный регион США, вы можете получить сообщение об ошибке "У вас нет подписки в разрешенных регионах. Разрешенные регионы: Южно-Центральный регион США". 
 
-## Учетная запись хранения
+Чтобы решить эту проблему, выберите "Обратиться в службу поддержки Майкрософт" (см. ниже) на портале Azure, а затем выберите **Выставление счетов** в разделе **ТИП ПОДДЕРЖКИ**, чтобы добавить данный регион в свою подписку. В дальнейшем для Azure ML будут добавлены другие регионы.
 
-Для хранения данных Azure ML требуется учетная запись хранения. Можно использовать имеющуюся учетную запись хранения в Южно-центральном регионе США либо создать новую учетную запись хранения при создании новой рабочей области ML (если есть квота на ее создание). Чтобы узнать, можете ли вы создать новую учетную запись хранения, в портале Azure перейдите в **Настройки**, а затем в **Использование**.
+![Contact Microsoft support][screen1]
 
-![Создание рабочей области][Создание рабочей области]
+##Учетная запись хранения
+ 
+Для хранения данных Azure ML требуется учетная запись хранения. Можно использовать имеющуюся учетную запись хранения в Южно-Центральном регионе США либо создать новую учетную запись хранения при создании новой рабочей области ML (если есть квота на ее создание). Чтобы узнать, можете ли вы создать новую учетную запись хранения, на портале Azure выберите **Настройки**, а затем **Использование**.
 
-После создания рабочей области Azure ML вы сможете войти в ML Studio, используя учетную запись Майкрософт, которая была указана в качестве владельца рабочей области. Если появится сообщение об ошибке «Рабочая область не найдена», аналогичная приведенному ниже снимку экрана, для исправления проблемы выполните следующие шаги.
+![Create workspace][screen2]
 
-![Рабочая область не найдена.][Рабочая область не найдена.]
+После создания новой рабочей области ML вы сможете войти в ML Studio, используя учетную запись Майкрософт, которая была указана в качестве владельца рабочей области. Если появится сообщение об ошибке "Рабочая область не найдена", аналогичное приведенному ниже снимку экрана, для исправления проблемы выполните следующие шаги.
 
-1.  Удаление файлов cookie из браузера.
+![Workspace not found][screen3]
 
-    Если вы используете Internet Explorer, нажмите кнопку **Сервис** в правом верхнем углу и выберите пункт **Свойства браузера**.
+1. Удаление файлов cookie из браузера.
 
-    ![Свойства браузера][Свойства браузера]
+	Если вы используете Internet Explorer, нажмите кнопку **Сервис** в правом верхнем углу и выберите **Свойства браузера**.  
 
-    На вкладке **Общие**, нажмите кнопку **Удалить…**
+	![Internet options][screen4]
 
-    ![Вкладка «Общие»][Вкладка «Общие»]
+	На вкладке **Общие** нажмите кнопку **Удалить...**.
 
-    В диалоговом окне **Удаление истории обзора** убедитесь, что флажок **Файлы cookie и данные веб-сайтов** выбран, и нажмите **Удалить**.
+	![General tab][screen5]
 
-    ![Удалить файлы cookie][Удалить файлы cookie]
+	В диалоговом окне **Удаление истории обзора** убедитесь, что флажок **Файлы cookie и данные веб-сайтов** выбран, и нажмите кнопку **Удалить**.
 
-2.  После удаления файлов cookie перезапустите браузер и перейдите по адресу [][]<https://studio.azureml.net></a>. Введите данные той же учетной записи Майкрософт, которая была указана в качестве владельца рабочей области.
+	![Delete cookies][screen6]
 
-Мы стараемся сделать опыт использования Azure ML как можно более удобным. Все комментарии и проблемы описывайте ниже или на [форуме Azure ML][форуме Azure ML], чтобы мы смогли оказать вам помощь на более высоком уровне.
+2. После удаления файлов cookie перезапустите браузер и перейдите по адресу [https://studio.azureml.net](https://studio.azureml.net). Когда появится запрос имени пользователя и пароля, введите данные учетной записи Майкрософт, которая была указана в качестве владельца рабочей области.
 
-  [www.live.com]: http://www.live.com
-  [Обратиться в службу поддержки Майкрософт]: ./media/machine-learning-troubleshooting-creating-ml-workspace/screen1.png
-  [Создание рабочей области]: ./media/machine-learning-troubleshooting-creating-ml-workspace/screen2.png
-  [Рабочая область не найдена.]: ./media/machine-learning-troubleshooting-creating-ml-workspace/screen3.png
-  [Свойства браузера]: ./media/machine-learning-troubleshooting-creating-ml-workspace/screen4.png
-  [Вкладка «Общие»]: ./media/machine-learning-troubleshooting-creating-ml-workspace/screen5.png
-  [Удалить файлы cookie]: ./media/machine-learning-troubleshooting-creating-ml-workspace/screen6.png
-  []: https://studio.azureml.net
-  [форуме Azure ML]: http://social.msdn.microsoft.com/Forums/windowsazure/ru-ru/home?forum=MachineLearning
+Наша цель - сделать работу с Azure ML как можно более удобной и бесперебойной. Публикуйте свои комментарии и описывайте проблемы ниже или на [форуме Azure ML](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=MachineLearning), чтобы мы смогли оказать вам помощь на более высоком уровне. 
+
+[screen1]:./media/machine-learning-troubleshooting-creating-ml-workspace/screen1.png
+[screen2]:./media/machine-learning-troubleshooting-creating-ml-workspace/screen2.png
+[screen3]:./media/machine-learning-troubleshooting-creating-ml-workspace/screen3.png
+[screen4]:./media/machine-learning-troubleshooting-creating-ml-workspace/screen4.png
+[screen5]:./media/machine-learning-troubleshooting-creating-ml-workspace/screen5.png
+[screen6]:./media/machine-learning-troubleshooting-creating-ml-workspace/screen6.png
