@@ -1,174 +1,157 @@
-<properties linkid="develop-notificationhubs-tutorials-get-started-android" urlDisplayName="Get Started" pageTitle="Get Started with Azure Notification Hubs" metaKeywords="" description="Learn how to use Azure Notification Hubs to push notifications." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Get started with Notification Hubs" authors="ricksal" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="Get Started" pageTitle="Начало работы с концентраторами уведомлений Azure "metaKeywords ="" description="Learn how to use Azure Notification Hubs to push notifications." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Get started with Notification Hubs" authors="ricksal" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
-
 # Приступая к работе с концентраторами уведомлений
 
-<div class="dev-center-tutorial-selector sublanding">
+<div class="dev-center-tutorial-selector sublanding"><a href="/ru-ru/documentation/articles/notification-hubs-windows-store-dotnet-get-started/" title="Windows Universal">Windows Universal</a><a href="/ru-ru/documentation/articles/notification-hubs-windows-phone-get-started/" title="Windows Phone">Windows Phone</a><a href="/ru-ru/documentation/articles/notification-hubs-ios-get-started/" title="iOS">iOS</a><a href="/ru-ru/documentation/articles/notification-hubs-android-get-started/" title="Android" class="current">Android</a><a href="/ru-ru/documentation/articles/notification-hubs-kindle-get-started/" title="Kindle">Kindle</a><a href="/ru-ru/documentation/articles/notification-hubs-baidu-get-started/" title="Baidu">Baidu</a><a href="/ru-ru/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/" title="Xamarin.iOS">Xamarin.iOS</a><a href="/ru-ru/documentation/articles/partner-xamarin-notification-hubs-android-get-started/" title="Xamarin.Android">Xamarin.Android</a></div>
 
-[Windows Universal][Windows Universal][Windows Phone][Windows Phone][iOS][iOS][Android][Android][Kindle][Kindle][Xamarin.iOS][Xamarin.iOS][Xamarin.Android][Xamarin.Android]
-
-</div>
-
-В данном разделе показано, как использовать концентраторы уведомлений Azure для отправки push-уведомлений Android-приложению.
-В данном учебнике будет создано пустое Android-приложение, получающее push-уведомления с помощью технологии Google Cloud Messaging (GCM). По завершении вы сможете рассылать push-уведомления на все устройства, где запущено ваше приложение, с помощью концентратора уведомлений.
+В этом разделе показано, как использовать концентраторы уведомлений Azure для отправки push-уведомлений в приложение на платформе Android. 
+В этом учебнике вы создаете пустое приложение Android, которое получает push-уведомления с помощью Google Cloud Messaging (GCM). По завершении вы сможете рассылать push-уведомления на все устройства, где запущено ваше приложение, с помощью концентратора уведомлений.
 
 В этом учебнике рассматриваются следующие основные шаги для включения push-уведомлений:
 
--   [Включение Google Cloud Messaging][Включение Google Cloud Messaging]
--   [Настройка концентратора уведомлений][Настройка концентратора уведомлений]
--   [Подключение приложения к концентратору уведомлений][Подключение приложения к концентратору уведомлений]
--   [Отправка уведомлений в приложение][Отправка уведомлений в приложение]
--   [Тестирование приложения][Тестирование приложения]
+* [Включение Google Cloud Messaging](#register)
+* [Настройка концентратора уведомлений](#configure-hub)
+* [Подключение приложения к концентратору уведомлений](#connecting-app)
+* [Отправка уведомлений в приложение](#send)
+* [Тестирование приложения](#run-app)
 
-В этом учебнике описывается простой сценарий вещания с использованием концентраторов уведомлений. Рекомендуем вам изучить следующий учебник, чтобы узнать об использовании концентраторов уведомлений для охвата определенных пользователей и групп устройств.
+В этом учебнике описывается простой сценарий вещания с использованием концентраторов уведомлений. Рекомендуем вам изучить следующий учебник, чтобы узнать об использовании концентраторов уведомлений для охвата определенных пользователей и групп устройств. 
 
 Для работы с данным учебником требуется следующее:
 
--   пакет Android SDK (предполагается, что будет использоваться среда разработки Eclipse), который можно загрузить [здесь][здесь];
--   [пакет Android SDK для мобильных служб][пакет Android SDK для мобильных служб].
++ Пакет Android SDK (предполагается использование Eclipse), который можно загрузить  <a href="http://go.microsoft.com/fwlink/?LinkId=389797">отсюда</a>
++  [пакет Android SDK для мобильных служб]
 
-Завершение изучения этого учебника является необходимым условием для работы со всеми другими учебниками, посвященными концентраторам уведомлений для приложений Android.
+Завершение изучения этого учебника является необходимым условием для работы со всеми другими учебниками, посвященными концентраторам уведомлений для приложений Android. 
 
-<div class="dev-callout">
+<div class="dev-callout"><strong>Примечание</strong> <p>Для работы с этим учебником необходима активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://www.windowsazure.com/ru-ru/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fru-ru%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Бесплатная пробная версия Azure</a>.</p></div>
 
-**Примечание.**
-Для работы с этим учебником требуется учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure][Бесплатная пробная версия Azure].
-
-</div>
-
-## <span id="register"></span></a>Включение Google Cloud Messaging
+##<a id="register"></a>Включение Google Cloud Messaging
 
 [WACOM.INCLUDE [Enable GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
 Далее вы будете использовать это значение ключа API, чтобы дать концентратору уведомлений возможность выполнять проверку подлинности с использованием GCM и отправлять push-уведомления от имени вашего приложения.
 
-## <span id="configure-hub"></span></a>Настройка концентратора уведомлений
+##<a id="configure-hub"></a>Настройка концентратора уведомлений
 
-1.  Выполните вход на [портал управления Azure][портал управления Azure] и щелкните по элементу **+СОЗДАТЬ** в нижней части экрана.
+1. Войдите на [портал управления Azure] и щелкните элемент **+СОЗДАТЬ** в нижней части экрана.
 
-2.  Последовательно щелкните по элементам **Службы приложений**, **Шина обслуживания**, затем **Концентратор уведомлений** и **Быстрое создание**.
+2. Последовательно щелкните элементы **Службы приложений**, **Service Bus**, **Концентратор уведомлений** и **Быстрое создание**.
 
-    ![][0]
+   	![][7]
 
-3.  Введите имя для концентратора уведомлений, выберите желаемый регион и нажмите кнопку **Создать новый концентратор уведомлений**.
+3. Введите имя для концентратора уведомлений, выберите нужный регион и щелкните элемент **Создать новый концентратор уведомлений**.
 
-    ![][1]
+   	![][8]
 
-4.  Выберите недавно созданное пространство имен (обычно это ***имя концентратора уведомлений*-ns**) и щелкните расположенный сверху элемент **Настройка**.
+4. Выберите недавно созданное пространство имен (обычно это ***имя концентратора уведомлений*-ns**) и щелкните расположенный сверху элемент **Настройка**.
 
-    ![][2]
+   	![][9]
 
-5.  Откройте расположенную сверху вкладку **Концентраторы уведомлений** и выберите недавно созданный концентратор уведомлений.
+5. Откройте расположенную сверху вкладку **Концентраторы уведомлений** и выберите недавно созданный концентратор уведомлений.
 
-    ![][3]
+   	![][10]
 
-6.  Перейдите на расположенную сверху вкладку **Настройка**, введите значение **Ключ API**, полученное в предыдущем разделе, а затем нажмите кнопку **Сохранить**.
+6. Перейдите на расположенную сверху вкладку **Настройка**, введите значение **Ключ API**, полученное в предыдущем разделе, а затем нажмите кнопку **Сохранить**.
 
-    ![][4]
+   	![][11]
 
-7.  Откройте расположенную сверху вкладку **Панель мониторинга** и щелкните по элементу **Просмотреть строку подключения**. Запишите значения двух строк подключения.
+7. Откройте расположенную сверху вкладку **Панель мониторинга** и щелкните элемент **Просмотреть строку подключения**. Запишите значения двух строк подключения.
+
 
 Концентратор уведомлений теперь настроен для работы с GCM, и у вас есть строки подключения, чтобы зарегистрировать приложение и отправлять push-уведомления.
 
-## <span id="connecting-app"></span></a>Подключение приложения к концентратору уведомлений
+##<a id="connecting-app"></a>Подключение приложения к концентратору уведомлений
 
-### Создание нового проекта Android
+###Создание нового проекта Android
 
-1.  В ADT Eclipse создайте новый проект Android (пункты меню — "Файл", "Создать", "Приложение Android").
+1. В ADT Eclipse создайте новый проект Android (пункты меню - "Файл", "Создать", "Приложение Android").
 
-    ![][5]
+   	![][13]
 
-2.  Убедитесь, что параметр **Минимальная требуемая версия SDK** задан как *API 8: Android 2.2 (Froyo)* и что следующие две записи SDK заданы как последняя доступная версия. Нажмите кнопку "Next" (Далее) и следуйте указаниям мастера, убедившись, что выбран параметр **Create activity** (Создать действие) для создания нового действия. Подтвердите значок запуска по умолчанию в следующем окне и нажмите кнопку **Finish** (Готово) в последнем окне.
+Убедитесь, что параметр 2. Минимальная требуемая версия SDK** задан как ***API 8: Android 2.2 (Froyo)* и что следующие две записи SDK заданы как последняя доступная версия. Нажмите кнопку "Next" (Далее) и следуйте указаниям мастера, убедившись, что выбран параметр **Create activity** (Создать действие) для создания нового действия. Подтвердите значок запуска по умолчанию в следующем окне и нажмите кнопку **Готово** в последнем окне.
 
-    ![][6]
+   	![][14]
 
-### Добавление служб Google Play в проект
+###Добавление служб Google Play в проект
 
 [WACOM.INCLUDE [Add Play Services](../includes/mobile-services-add-Google-play-services.md)]
 
-### Добавление кода
+###Добавление кода
 
-1.  Загрузите пакет Notification Hubs Android SDK [отсюда][пакет Android SDK для мобильных служб]. Извлеките ZIP-файл и скопируйте файл notificationhubs\\notification-hubs-0.1.jar в каталог \\libs проекта в обозревателе пакетов.
+1. Загрузите пакет SDK Android для концентраторов уведомлений  <a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">отсюда</a>. Извлеките ZIP-файл и скопируйте файл notificationhubs\notification-hubs-0.1.jar в каталог \libs проекта в обозревателе пакетов.
 
-2.  Загрузите и распакуйте [Android SDK мобильных служб][пакет Android SDK для мобильных служб], откройте папку **notifications**, скопируйте файл **notifications-1.0.1.jar** в папку *libs* вашего проекта Eclipse и обновите папку *libs*.
+2. Загрузите и распакуйте [Android SDK мобильных служб], откройте папку **notifications**, скопируйте файл **notifications-1.0.1.jar** в папку *libs* своего проекта Eclipse и обновите папку *libs*.
 
-    <div class="dev-callout">
-
-    **Примечание.**
-    Числа в конце этого имени файла могут меняться в последующих выпусках SDK.
-
+    <div class="dev-callout"><b>Примечание.</b>
+	<p>Числа в конце этого имени файла могут меняться в последующих выпусках SDK.</p>
     </div>
 
-    Теперь настройте приложение для получения *registrationId* из GCM и используйте его, чтобы зарегистрировать экземпляр приложения в концентраторе уведомлений.
+	Теперь настройте приложение для получения *registrationId* из GCM и используйте его, чтобы зарегистрировать экземпляр приложения в концентраторе уведомлений.
 
-3.  Добавьте следующую строку в файл AndroidManifest.xml прямо под элементом <uses-sdk></uses-sdk>. Обязательно замените `<your package>` на пакет, выбранный для приложения на шаге 1 (в данном примере это `com.yourCompany.wams_notificationhubs`).
+3. Добавьте следующую строку в файл AndroidManifest.xml прямо под элементом <uses-sdk/>. Обязательно замените `<your package>` на пакет, выбранный для приложения на шаге 1 (в данном примере это `com.yourCompany.wams_notificationhubs`).
 
         <uses-permission android:name="android.permission.INTERNET"/>
-        <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
-        <uses-permission android:name="android.permission.WAKE_LOCK"/>
-        <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+		<uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+		<uses-permission android:name="android.permission.WAKE_LOCK"/>
+		<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 
-        <permission android:name="<your package>.permission.C2D_MESSAGE" android:protectionLevel="signature" />
-        <uses-permission android:name="<your package>.permission.C2D_MESSAGE"/>
+		<permission android:name="<your package>.permission.C2D_MESSAGE" android:protectionLevel="signature" />
+		<uses-permission android:name="<your package>.permission.C2D_MESSAGE"/>
 
-4.  В классе **MainActivity** добавьте следующие операторы.
+4. В **MainActivity** добавьте следующие операторы:
 
-        import android.os.AsyncTask;    
-        import com.google.android.gms.gcm.*;
-        import com.microsoft.windowsazure.messaging.*;
-        import com.microsoft.windowsazure.notifications.NotificationsManager;
+		import android.os.AsyncTask;	
+		import com.google.android.gms.gcm.*;
+		import com.microsoft.windowsazure.messaging.*;
+		import com.microsoft.windowsazure.notifications.NotificationsManager;
 
-5.  В верхней части класса добавьте следующие частные члены.
 
-    <div class="dev-callout">
+5. В верхней части класса добавьте следующие частные члены.
 
-    **Примечание.**
-    Обязательно установите для значения SENDER\_ID номер проекта, полученный ранее.
+	<div class="dev-callout"><b>Примечание.</b>
+    <p>Обязательно установите для значения SENDER_ID номер проекта, полученный ранее.</p>
+    </div> 
 
-    </div>
+		private String SENDER_ID = "<your project number>";
+		private GoogleCloudMessaging gcm;
+		private NotificationHub hub;
 
-        private String SENDER_ID = "<your project number>";
-        private GoogleCloudMessaging gcm;
-        private NotificationHub hub;
+6. Добавьте в метод **OnCreate** следующий код и обязательно замените заполнители своей строкой подключения с доступом к прослушиванию, полученной в предыдущем разделе, и именем концентратора уведомлений, отображаемым в верхней части страницы в Azure для вашего концентратора (**не** полный URL-адрес).
 
-6.  Добавьте в метод **OnCreate** следующий код и обязательно подставьте свою строку подключения с доступом к прослушиванию, полученным в предыдущем разделе, и именем концентратора уведомлений, отображаемым в верхней части страницы в Azure для вашего концентратора (а **не** полный URL-адрес).
+		NotificationsManager.handleNotifications(this, SENDER_ID, MyHandler.class);
 
-        NotificationsManager.handleNotifications(this, SENDER_ID, MyHandler.class);
+		gcm = GoogleCloudMessaging.getInstance(this);
+        
+		String connectionString = "<your listen access connection string>";
+		hub = new NotificationHub("<your notification hub name>", connectionString, this);
+		
+		registerWithNotificationHubs();
 
-        gcm = GoogleCloudMessaging.getInstance(this);
+7. В MainActivity.java создайте следующий метод:
 
-        String connectionString = "<your listen access connection string>";
-        hub = new NotificationHub("<your notification hub name>", connectionString, this);
+		@SuppressWarnings("unchecked")
+		private void registerWithNotificationHubs() {
+		   new AsyncTask() {
+		      @Override
+		      protected Object doInBackground(Object... params) {
+		         try {
+		            String regid = gcm.register(SENDER_ID);
+		            hub.register(regid);
+		         } catch (Exception e) {
+		            return e;
+		         }
+		         return null;
+		     }
+		   }.execute(null, null, null);
+		}
 
-        registerWithNotificationHubs();
+8. Поскольку Android не отображает уведомления, необходимо создать собственный приемник. В **AndroidManifest.xml** добавьте следующий элемент внутрь элемента `<application/>`.
 
-7.  В MainActivity.java создайте следующий метод:
-
-        @SuppressWarnings("unchecked")
-        private void registerWithNotificationHubs() {
-           new AsyncTask() {
-              @Override
-              protected Object doInBackground(Object... params) {
-                 try {
-                    String regid = gcm.register(SENDER_ID);
-                    hub.register(regid);
-                 } catch (Exception e) {
-                    return e;
-                 }
-                 return null;
-             }
-           }.execute(null, null, null);
-        }
-
-8.  Поскольку Android не отображает уведомлений, необходимо написать собственный приемник. В **AndroidManifest.xml** добавьте следующий элемент внутрь элемента `<application/>`.
-
-    <div class="dev-callout">
-
-    **Примечание.**
-    Замените заполнитель на имя своего пакета.
-
-    </div>
+	<div class="dev-callout"><b>Примечание.</b>
+    <p>Замените заполнитель на имя своего пакета.</p>
+    </div> 
 
         <receiver android:name="com.microsoft.windowsazure.notifications.NotificationsBroadcastReceiver"
             android:permission="com.google.android.c2dm.permission.SEND">
@@ -178,83 +161,86 @@
             </intent-filter>
         </receiver>
 
-9.  В обозревателе пакетов щелкните правой кнопкой мыши пакет (под узлом `src`), щелкните команду **Создать**, выберите **Класс**.
 
-10. В поле **Имя** введите `MyHandler`, в поле **Суперкласс** укажите `com.microsoft.windowsazure.notifications.NotificationsHandler`, затем щелкните кнопку **Готово**
+9. В обозревателе пакетов щелкните правой кнопкой мыши пакет (под узлом "src"), выберите **Создать** и **Класс**.
 
-    ![][7]
+10. В поле **Имя** введите `MyHandler`, в поле **Суперкласс** введите `com.microsoft.windowsazure.notifications.NotificationsHandler` и нажмите кнопку **Готово**
 
-    При этом создается новый класс MyHandler.
+	![][6]
 
-11. Добавьте следующие операторы импорта:
+	При этом создается новый класс MyHandler.
 
-        import android.app.NotificationManager;
-        import android.app.PendingIntent;
-        import android.content.Context;
-        import android.content.Intent;
-        import android.os.Bundle;
-        import android.support.v4.app.NotificationCompat;
+11. Добавьте следующие инструкции импорта:
+
+		import android.app.NotificationManager;
+		import android.app.PendingIntent;
+		import android.content.Context;
+		import android.content.Intent;
+		import android.os.Bundle;
+		import android.support.v4.app.NotificationCompat;
+		
 
 12. Добавьте в класс следующий код:
 
-        public static final int NOTIFICATION_ID = 1;
-        private NotificationManager mNotificationManager;
-        NotificationCompat.Builder builder;
-        Context ctx;
+		public static final int NOTIFICATION_ID = 1;
+		private NotificationManager mNotificationManager;
+		NotificationCompat.Builder builder;
+		Context ctx;
+	
+		
+		@Override
+		public void onReceive(Context context, Bundle bundle) {
+		    ctx = context;
+		    String nhMessage = bundle.getString("msg");
+	
+		    sendNotification(nhMessage);
+		}
+	
+		private void sendNotification(String msg) {
+			mNotificationManager = (NotificationManager)
+		              ctx.getSystemService(Context.NOTIFICATION_SERVICE);
+	
+		    PendingIntent contentIntent = PendingIntent.getActivity(ctx, 0,
+		          new Intent(ctx, MainActivity.class), 0);
+	
+		    NotificationCompat.Builder mBuilder =
+		          new NotificationCompat.Builder(ctx)
+		          .setSmallIcon(R.drawable.ic_launcher)
+		          .setContentTitle("Notification Hub Demo")
+		          .setStyle(new NotificationCompat.BigTextStyle()
+		                     .bigText(msg))
+		          .setContentText(msg);
+	
+		     mBuilder.setContentIntent(contentIntent);
+		     mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
+		}
+	
 
+##<a name="send"></a>Отправка уведомления в приложение
 
-        @Override
-        public void onReceive(Context context, Bundle bundle) {
-            ctx = context;
-            String nhMessage = bundle.getString("msg");
+Уведомления можно отправлять с помощью концентраторов уведомлений из любого серверного компонента с помощью <a href="http://msdn.microsoft.com/ru-ru/library/windowsazure/dn223264.aspx">интерфейса REST</a>. В этом учебнике мы будем отправлять уведомления с помощью консольного приложения .NET. Примеры отправки уведомлений с сервера мобильных служб Azure, интегрированного с интегрированными концентраторами уведомлений, см. в статье **Приступая к работе с push-уведомлениями в мобильных службах** ([Сервер .NET](/ru-ru/documentation/articles/mobile-services-javascript-backend-android-get-started-push/) | [Сервер JavaScript](/ru-ru/documentation/articles/mobile-services-javascript-backend-android-get-started-push/)).  Примеры отправки уведомлений с помощью API REST см. в статье **Использование концентраторов уведомлений из Java/PHP** ([Java](/ru-ru/documentation/articles/notification-hubs-java-backend-how-to/) | [PHP](/ru-ru/documentation/articles/notification-hubs-php-backend-how-to/)).
 
-            sendNotification(nhMessage);
-        }
+1. В Visual Studio из меню **Файл** последовательно выберите **Создать** и **Проект...**, затем в области **Visual C#** щелкните **Windows** и **Консольные приложения**, после чего нажмите кнопку **OK**.  
 
-        private void sendNotification(String msg) {
-            mNotificationManager = (NotificationManager)
-                      ctx.getSystemService(Context.NOTIFICATION_SERVICE);
+   	![][20]
 
-            PendingIntent contentIntent = PendingIntent.getActivity(ctx, 0,
-                  new Intent(ctx, MainActivity.class), 0);
+	Будет создан новый проект консольного приложения.
 
-            NotificationCompat.Builder mBuilder =
-                  new NotificationCompat.Builder(ctx)
-                  .setSmallIcon(R.drawable.ic_launcher)
-                  .setContentTitle("Notification Hub Demo")
-                  .setStyle(new NotificationCompat.BigTextStyle()
-                             .bigText(msg))
-                  .setContentText(msg);
+2. В меню **Инструменты** щелкните **Диспетчер пакетов библиотеки** и далее **Консоль диспетчера пакетов**. 
 
-             mBuilder.setContentIntent(contentIntent);
-             mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
-        }
+	Отобразится консоль диспетчера пакетов.
 
-## <a name="send"></a>Отправка уведомления в приложение
-
-Уведомления можно отправлять с помощью концентраторов уведомлений из любого серверного компонента с помощью [интерфейса REST][интерфейса REST]. В данном учебнике уведомления будут отправляться с помощью консольного приложения .NET. Пример отправки уведомлений из серверного компонента мобильных служб Azure, интегрированого с концентраторами уведомлений, приведен в разделе **Приступая к работе с push-уведомлениями в мобильных службах** ([серверная часть .NET][серверная часть .NET] | [серверная часть JavaScript][серверная часть .NET]). Пример отправки уведомлений с помощью REST API-интерфейсов приведен в разделе **Использование концентраторов уведомлений в Java/PHP** ([Java][Java] | [PHP][PHP]).
-
-1.  В среде Visual Studio выберите в меню **Файл** команду **Создать** и затем **Проект...**, а потом в разделе **Visual C#** выберите **Windows** и **Консольное приложение**, после чего нажмите кнопку **OK**.
-
-    ![][8]
-
-    Это создаст новый проект консольного приложения.
-
-2.  В меню **Сервис** выберите **Диспетчер пакетов библиотеки**, затем **Консоль диспетчера пакетов**.
-
-    Это откроет консоль диспетчера пакетов.
-
-3.  В окне консоли выполните следующую команду:
+3. В окне консоли выполните следующую команду:
 
         Install-Package WindowsAzure.ServiceBus
+    
+	Будет добавлена ссылка на пакет Azure Service Bus SDK с помощью <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">пакета NuGet WindowsAzure.ServiceBus</a>. 
 
-    Это добавит ссылку на пакет Azure Service Bus SDK с помощью [пакета NuGet WindowsAzure.ServiceBus][пакета NuGet WindowsAzure.ServiceBus].
-
-4.  Откройте файл Program.cs и добавьте следующий оператор `using`:
+4. Откройте файл Program.cs и добавьте следующий оператор `using`:
 
         using Microsoft.ServiceBus.Notifications;
 
-5.  В классе **Program** добавьте следующий метод:
+5. Добавьте следующий метод в класс **Program**:
 
         private static async void SendNotificationAsync()
         {
@@ -262,84 +248,97 @@
             await hub.SendGcmNativeNotificationAsync("{ \"data\" : {\"msg\":\"Hello from Azure!\"}}");
         }
 
-    Обязательно замените заполнитель "имя концентратора" на имя концентратора уведомлений, отображаемое на портале на вкладке **Концентраторы уведомлений**. Также замените заполнитель строки подключения на строку под названием **DefaultFullSharedAccessSignature**, полученную в разделе "Настройка концентратора уведомлений".
+   	Обязательно замените заполнитель "имя концентратора" на имя концентратора уведомлений, отображаемое на вкладке **Концентраторы уведомлений** портала. Замените разделитель строки подключения строкой с именем **DefaultFullSharedAccessSignature**, полученной в разделе "Настройка концентратора уведомлений". 
 
-    > [WACOM.NOTE]Обратите внимание, что эта строка подключения имеет **полный** доступ, а не доступ к **прослушиванию**. Доступ к прослушиванию не дает права отправлять уведомления.
+	>[WACOM.NOTE]Обязательно используйте строку подключения с **полным** доступом, а не с доступом к **прослушиванию**. У строки с доступом к прослушиванию нет прав на отправку уведомлений.
 
-6.  Затем добавьте следующие строки в метод **Main**:
+5. Затем добавьте следующие строки в метод **Main**:
 
          SendNotificationAsync();
-         Console.ReadLine();
+		 Console.ReadLine();
 
-## <a name="run-app"></a>Тестирование приложения
+##<a name="run-app"></a>Тестирование приложения
 
 Перед тестированием приложения на эмуляторе нужно выполнить следующие действия по его настройке (пропустите их, если будете тестировать на физическом устройстве).
 
-1.  Убедитесь, что используется виртуальное устройство на платформе Android (AVD), поддерживающее API-интерфейсы Google.
+1. Убедитесь, что используется виртуальное устройство на платформе Android (AVD), поддерживающее API-интерфейсы Google.
 
-2.  В меню **Окно** щелкните по команде **Диспетчер виртуальных устройств Android**, выберите ваше устройство и нажмите кнопку **Изменить**.
+2. В поле **Окно** щелкните **Диспетчер виртуальных устройств Android**, выберите ваше устройство и нажмите кнопку **Изменить**.
 
-    ![][9]
+   	![][18]
 
-3.  Выберите **API-интерфейсы Google** в поле **Цель**, а затем нажмите кнопку **ОК**.
+3. Выберите **API-интерфейсы Google** в разделе **Цель**, а затем нажмите кнопку **OK**.
 
-    ![][10]
+   	![][19]
 
-4.  Чтобы получать push-уведомления, необходимо настроить учетную запись Google на виртуальном устройстве Google Android (в эмуляторе выберите **Параметры** и **Добавить учетную запись**). Кроме того, убедитесь, что эмулятор подключен к Интернету.
+4. 	Чтобы получать push-уведомления, необходимо настроить учетную запись Google на виртуальном устройстве Google Android (в эмуляторе выберите <strong>Параметры</strong> и щелкните <strong>Добавить учетную запись</strong>). Кроме того, убедитесь, что эмулятор подключен к Интернету.
+
 
 Следуйте дальнейшим инструкциям, чтобы запустить приложение на устройстве или в эмуляторе.
 
-1.  На верхней панели инструментов Eclipse нажмите кнопку **Запуск** и выберите свое приложение.
+1. В верхней панели инструментов Eclipse нажмите кнопку **Запуск** и выберите приложение. 
+ 
+	Это запустит эмулятор (если используется эмулятор), загрузит и запустит приложение. Приложение получает значение *registrationId* из GCM и регистрируется в концентраторе уведомлений.
 
-    Это запустит эмулятор (если используется именно он), загрузит туда и запустит приложение. Приложение получает значение *registrationId* из GCM и регистрируется в концентраторе уведомлений.
+3. Нажмите в Visual Studio клавишу F5, чтобы запустить консольное приложение. 
 
-2.  Нажмите в Visual Studio клавишу F5, чтобы запустить консольное приложение.
+	На ваше приложение будет отправлено уведомление.  
+ 
+5. Когда в области уведомлений (верхний левый угол) появится значок, опустите панель уведомлений, чтобы просмотреть его.  
 
-    Вашему приложению будет отправлено уведомление.
-
-3.  Когда в области уведомлений (верхний левый угол) появится значок, опустите панель уведомлений, чтобы просмотреть его.
-
-    ![][11]
+   	![][21]
 
 ## <a name="next-steps"> </a>Дальнейшие действия
 
-В этом простом примере осуществляется рассылка уведомлений на все устройства Android. Для охвата определенных пользователей см. учебник [Использование концентраторов уведомлений для отправки push-уведомлений пользователям][Использование концентраторов уведомлений для отправки push-уведомлений пользователям], если же требуется разделить пользователей по группам интересов, см. [Использование концентраторов уведомлений для передачи экстренных новостей][Использование концентраторов уведомлений для передачи экстренных новостей]. Дополнительные сведения об использовании концентраторов уведомлений см. в [руководстве по использованию концентраторов уведомлений][руководстве по использованию концентраторов уведомлений].
+В этом простом примере осуществляется рассылка уведомлений на все устройства Android. Для охвата определенных пользователей см. учебник [Использование концентраторов уведомлений для отправки push-уведомлений пользователям], если же требуется разделить пользователей по группам интересов, см. [Использование концентраторов уведомлений для передачи экстренных новостей]. Дополнительные сведения об использовании концентраторов уведомлений см. в [руководстве по использованию концентраторов уведомлений].
 
- 
 
-  [Windows Universal]: /ru-ru/documentation/articles/notification-hubs-windows-store-dotnet-get-started/ "Windows Universal"
-  [Windows Phone]: /ru-ru/documentation/articles/notification-hubs-windows-phone-get-started/ "Windows Phone"
-  [iOS]: /ru-ru/documentation/articles/notification-hubs-ios-get-started/ "iOS"
-  [Android]: /ru-ru/documentation/articles/notification-hubs-android-get-started/ "Android"
-  [Kindle]: /ru-ru/documentation/articles/notification-hubs-kindle-get-started/ "Kindle"
-  [Xamarin.iOS]: /ru-ru/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/ "Xamarin.iOS"
-  [Xamarin.Android]: /ru-ru/documentation/articles/partner-xamarin-notification-hubs-android-get-started/ "Xamarin.Android"
-  [Включение Google Cloud Messaging]: #register
-  [Настройка концентратора уведомлений]: #configure-hub
-  [Подключение приложения к концентратору уведомлений]: #connecting-app
-  [Отправка уведомлений в приложение]: #send
-  [Тестирование приложения]: #run-app
-  [здесь]: http://go.microsoft.com/fwlink/?LinkId=389797
-  [пакет Android SDK для мобильных служб]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
-  [Бесплатная пробная версия Azure]: http://www.windowsazure.com/ru-ru/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fru-ru%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F
-  [портал управления Azure]: https://manage.windowsazure.com/
-  [0]: ./media/notification-hubs-android-get-started/notification-hub-create-from-portal.png
-  [1]: ./media/notification-hubs-android-get-started/notification-hub-create-from-portal2.png
-  [2]: ./media/notification-hubs-android-get-started/notification-hub-select-from-portal.png
-  [3]: ./media/notification-hubs-android-get-started/notification-hub-select-from-portal2.png
-  [4]: ./media/notification-hubs-android-get-started/notification-hub-configure-android.png
-  [5]: ./media/notification-hubs-android-get-started/notification-hub-create-android-app.png
-  [6]: ./media/notification-hubs-android-get-started/notification-hub-create-android-app2.png
-  [7]: ./media/notification-hubs-android-get-started/notification-hub-android-new-class.png
-  [интерфейса REST]: http://msdn.microsoft.com/ru-ru/library/windowsazure/dn223264.aspx
-  [серверная часть .NET]: /ru-ru/documentation/articles/mobile-services-javascript-backend-android-get-started-push/
-  [Java]: /ru-ru/documentation/articles/notification-hubs-java-backend-how-to/
-  [PHP]: /ru-ru/documentation/articles/notification-hubs-php-backend-how-to/
-  [8]: ./media/notification-hubs-android-get-started/notification-hub-create-console-app.png
-  [пакета NuGet WindowsAzure.ServiceBus]: http://nuget.org/packages/WindowsAzure.ServiceBus/
-  [9]: ./media/notification-hubs-android-get-started/notification-hub-create-android-app7.png
-  [10]: ./media/notification-hubs-android-get-started/notification-hub-create-android-app8.png
-  [11]: ./media/notification-hubs-android-get-started/notification-hub-android-toast.png
-  [Использование концентраторов уведомлений для отправки push-уведомлений пользователям]: /ru-ru/manage/services/notification-hubs/notify-users-aspnet
-  [Использование концентраторов уведомлений для передачи экстренных новостей]: /ru-ru/manage/services/notification-hubs/breaking-news-dotnet
-  [руководстве по использованию концентраторов уведомлений]: http://msdn.microsoft.com/ru-ru/library/jj927170.aspx
+<!-- Images. -->
+[1]: ./media/notification-hubs-android-get-started/mobile-services-google-new-project.png
+[2]: ./media/notification-hubs-android-get-started/mobile-services-google-create-server-key.png
+[3]: ./media/notification-hubs-android-get-started/mobile-services-google-create-server-key2.png
+[4]: ./media/notification-hubs-android-get-started/mobile-services-google-create-server-key3.png
+[5]: ./media/notification-hubs-android-get-started/mobile-services-google-enable-GCM.png
+[6]: ./media/notification-hubs-android-get-started/notification-hub-android-new-class.png
+[7]: ./media/notification-hubs-android-get-started/notification-hub-create-from-portal.png
+[8]: ./media/notification-hubs-android-get-started/notification-hub-create-from-portal2.png
+[9]: ./media/notification-hubs-android-get-started/notification-hub-select-from-portal.png
+[10]: ./media/notification-hubs-android-get-started/notification-hub-select-from-portal2.png
+[11]: ./media/notification-hubs-android-get-started/notification-hub-configure-android.png
+[12]: ./media/notification-hubs-android-get-started/notification-hub-connection-strings.png
+
+[13]: ./media/notification-hubs-android-get-started/notification-hub-create-android-app.png
+[14]: ./media/notification-hubs-android-get-started/notification-hub-create-android-app2.png
+[15]: ./media/notification-hubs-android-get-started/notification-hub-create-android-app4.png
+[16]: ./media/notification-hubs-android-get-started/notification-hub-create-android-app5.png
+[17]: ./media/notification-hubs-android-get-started/notification-hub-create-android-app6.png
+
+[18]: ./media/notification-hubs-android-get-started/notification-hub-create-android-app7.png
+[19]: ./media/notification-hubs-android-get-started/notification-hub-create-android-app8.png
+
+[20]: ./media/notification-hubs-android-get-started/notification-hub-create-console-app.png
+[21]: ./media/notification-hubs-android-get-started/notification-hub-android-toast.png
+[22]: ./media/notification-hubs-android-get-started/notification-hub-scheduler1.png
+[23]: ./media/notification-hubs-android-get-started/notification-hub-scheduler2.png
+[29]: ./media/mobile-services-android-get-started-push/mobile-eclipse-import-Play-library.png
+
+<!-- URLs. -->
+[Android SDK для мобильных служб]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
+[Отправить страницу приложения]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[Мои приложения]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK для Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Приступая к работе с мобильными службами]: /ru-ru/develop/mobile/tutorials/get-started/#create-new-service
+[Приступая к работе с данными]: /ru-ru/develop/mobile/tutorials/get-started-with-data-android
+[Приступая к работе с аутентификацией]: /ru-ru/develop/mobile/tutorials/get-started-with-users-android
+[Приступая к работе с push-уведомлениями]: /ru-ru/develop/mobile/tutorials/get-started-with-push-android
+[Push-уведомлений для пользователей приложений]: /ru-ru/develop/mobile/tutorials/push-notifications-to-users-android
+[Авторизация пользователей с помощью скриптов]: /ru-ru/develop/mobile/tutorials/authorize-users-in-scripts-android
+[JavaScript и HTML]: /ru-ru/develop/mobile/tutorials/get-started-with-push-js
+[Ссылки на проект библиотеки]: http://go.microsoft.com/fwlink/?LinkId=389800
+[Портал управления Azure]: https://manage.windowsazure.com/
+[Объект wns]: http://go.microsoft.com/fwlink/p/?LinkId=260591
+[Руководства по использованию концентраторов уведомлений]: http://msdn.microsoft.com/ru-ru/library/jj927170.aspx
+
+[Использование концентраторов уведомлений для отправки push-уведомлений пользователям]: /ru-ru/manage/services/notification-hubs/notify-users-aspnet
+[Использование концентраторов уведомлений для передачи экстренных новостей]: /ru-ru/manage/services/notification-hubs/breaking-news-dotnet
+

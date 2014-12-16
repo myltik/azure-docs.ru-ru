@@ -1,23 +1,22 @@
-<properties linkid="mobile-services-dotnet-backend-xamarin-android-get-started" urlDisplayName="Get Started with Mobile Services for Xamarin Android apps" pageTitle="Get Started with Mobile Services for Xamarin Android apps - Azure Mobile Services" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for Xamarin Android development" metaCanonical="" services="" documentationCenter="Mobile" title="Get Started with Mobile Services for Xamarin Android apps" authors="donnam" solutions="" manager="" editor="mollybos" />
+﻿<properties urlDisplayName="Get Started with Mobile Services for Xamarin Android apps" pageTitle="Приступая к работе с мобильными службами в приложениях Xamarin для Android - мобильные службы Azure" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for Xamarin Android development" metaCanonical="" services="" documentationCenter="Mobile" title="Get Started with Mobile Services for Xamarin Android apps" authors="donnam" solutions="" manager="dwrede" editor="mollybos" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="11/11/2014" ms.author="donnam" />
 
 # <a name="getting-started"> </a>Приступая к работе с мобильными службами
 
 [WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
-В этом учебнике показано, как добавить облачную серверную службу в приложение Xamarin Android с помощью мобильных служб Azure. В этом учебнике вы создадите новую мобильную службу и простое приложение *To do list*, хранящее данные приложения в новой мобильной службе. В создаваемой мобильной службе с помощью Visual Studio используются поддерживаемые языки .NET для серверной бизнес-логики, а также для управления мобильной службой. Сведения о создании мобильной службы, которая позволит создавать в JavaScript серверную бизнес-логику, см. в подразделе [Серверная версия JavaScript][Серверная версия JavaScript] этого раздела.
+В этом учебнике показано, как добавить облачную серверную службу в приложение Xamarin Android с помощью мобильных служб Azure. В этом учебнике будет создана новая мобильная служба и простое приложение _Список заданий_, которое хранит данные приложения в новой мобильной службе. В создаваемой мобильной службе с помощью Visual Studio используются поддерживаемые языки .NET для серверной бизнес-логики, а также для управления мобильной службой. Для создания мобильной службы, которая позволяет писать серверную бизнес-логику на языке JavaScript, ознакомьтесь с разделом [Серверная версия базы данных JavaScript] этого раздела.
 
-> [WACOM.NOTE]В этом разделе показано, как создать новый проект мобильной службы с помощью портала управления Azure. Используя Visual Studio 2013 с обновлением 2, можно также добавить новый проект мобильной службы в существующее решение Visual Studio. Дополнительные сведения см. на странице [Краткое руководство: Добавление мобильной службы (внутренний сервер .NET)][Краткое руководство: Добавление мобильной службы (внутренний сервер .NET)]
+>[WACOM.NOTE]В этом разделе показано, как создать новый проект мобильной службы с помощью портала управления Azure. Используя Visual Studio 2013 с обновлением 2, можно также добавить новый проект мобильной службы в существующее решение Visual Studio. Дополнительные сведения см. на странице [Краткое руководство: Добавление мобильной службы (внутренний сервер .NET)](http://msdn.microsoft.com/ru-ru/library/windows/apps/dn629482.aspx)
 
 Снимок экрана завершенного приложения приведен ниже:
 
 ![][0]
 
-Завершение изучения этого учебника является необходимым условием для работы со всеми другими учебниками, посвященными приложениям Xamarin Android.
+Завершение изучения этого учебника является необходимым условием для работы со всеми другими учебниками, посвященными приложениям Xamarin Android. 
 
-> [WACOM.NOTE] Чтобы выполнить работу с этим учебником, необходимо использовать учетную запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Сведения см. в разделе [Бесплатная пробная версия Azure][Бесплатная пробная версия Azure].
-> Для работы с этим учебником требуется [Visual Studio Professional 2013][Visual Studio Professional 2013]. Доступна бесплатная пробная версия.
+>[WACOM.NOTE]Для работы с этим учебником требуется учетная запись Azure. Если у вас нет учетной записи, можно зарегистрироваться для получения бесплатной пробной версии Azure и получить до 10 бесплатных мобильных служб, которые можно использовать и после окончания пробного периода. Сведения см. в разделе <a href="http://www.windowsazure.com/ru-ru/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fru-ru%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-xamarin-android-get-started" target="_blank">Бесплатная пробная версия Azure</a>.<br />Для работы с этим учебником требуется <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>. Доступна бесплатная пробная версия.
 
 ## Создание мобильной службы
 
@@ -25,29 +24,29 @@
 
 ## Создание нового приложения Xamarin Android
 
-После создания мобильной службы вы можете следовать простым шагам быстрого запуска на портале управления, чтобы создать новое приложение или изменить существующее приложение и подключить его к вашей мобильной службе.
+После создания мобильной службы вы можете следовать простым шагам быстрого запуска на портале управления, чтобы создать новое приложение или изменить существующее приложение и подключить его к вашей мобильной службе. 
 
 В этом разделе предстоит скачать новое приложение Xamarin Android и проект службы для мобильной службы.
 
-1.  В портале управления нажмите **Мобильные службы**, затем нажмите только что созданную мобильную службу.
+1. На портале управления щелкните **Мобильные службы**, затем щелкните только что созданную вами мобильную службу.
+   
+2. На вкладке быстрого запуска нажмите кнопку **Xamarin** в разделе **Выбор платформы**, а затем разверните раздел **Создать новое приложение Xamarin**.
 
-2.  На вкладке быстрого запуска нажмите кнопку **Xamarin** в разделе **Выбор платформы**, а затем разверните раздел **Создание нового приложения Xamarin**.
+   	![][6]
 
-    ![][1]
+   	Здесь показаны три простых шага для создания приложения на Xamarin Android, подключенного к вашей мобильной службе.
 
-    Здесь показаны три простых шага для создания приложения на Xamarin Android, подключенного к вашей мобильной службе.
+  	![][7]
 
-    ![][2]
+3. Если вы еще не сделали этого, загрузите и установите <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a> на локальном компьютере или виртуальной машине.  
 
-3.  Если вы еще не сделали этого, скачайте и установите [Visual Studio Professional 2013][Visual Studio Professional 2013] на локальном компьютере или виртуальной машине.
+4. Если вы еще не сделали этого, скачайте и установите [Xamarin Studio] или Xamarin для Visual Studio.
 
-4.  Если вы еще не сделали этого, скачайте и установите [Xamarin Studio][Xamarin Studio] или Xamarin для Visual Studio.
+5. В разделе **Скачивание и публикация службы в облаке** выберите **Android** и нажмите кнопку **Загрузить**. 
 
-5.  В разделе **Скачивание и публикация службы в облаке** выберите **Android** и щелкните кнопку **Скачать**.
+  	При этом загружается решение, содержащее проекты для мобильной службы и примера приложения "To do list", которое подключается к вашей мобильной службе. Сохраните упакованный файл проекта на своем локальном компьютере и зафиксируйте, в каком месте он был сохранен.
 
-    При этом загружается решение, содержащее проекты для мобильной службы и примера приложения *To do list*, которое подключается к вашей мобильной службе. Сохраните сжатый файл проекта на локальном компьютере и запомните путь к нему.
-
-6.  Скачайте профиль публикации, сохраните скачанный файл на локальный компьютер и запомните путь к нему.
+6. Скачайте профиль публикации, сохраните скачанный файл на локальный компьютер и запомните путь к нему.
 
 ## Тестирование мобильной службы
 
@@ -59,57 +58,72 @@
 
 ## Запуск приложения Xamarin Android
 
-Последний раздел учебника — построение и выполнение нового приложения.
+Последний раздел учебника - построение и выполнение нового приложения.
 
-1.  Перейдите к проекту клиента в решении мобильной службы в Visual Studio или Xamarin Studio.
+1. Перейдите к проекту клиента в решении мобильной службы в Visual Studio или Xamarin Studio.
 
-    ![][3]
+	![][8]
 
-    ![][4]
+	![][9]
 
-2.  Нажмите кнопку **Запуск**, чтобы создать проект и запустить приложение. Вам будет предложено выбрать эмулятор или подключенное USB-устройство.
+2.  Нажмите клавишу **Запуск** для построения проекта, после чего запустите приложение. Вам будет предложено выбрать эмулятор или подключенное USB-устройство. 
 
-    <div class="dev-callout">
+	<div class="dev-callout">
+	<strong>Примечание.</strong>
+	<p>Чтобы запустить проект в эмуляторе Android, необходимо определить как минимум одно виртуальное устройство Android (AVD). Для создания и управления этими устройствами используйте диспетчер AVD.</p></div>
 
-    **Примечание.**
-    Чтобы запустить проект в эмуляторе Android, необходимо определить как минимум одно виртуальное устройство Android (AVD). Для создания этих устройств и управления ими используйте диспетчер AVD.
+3.  В приложении введите содержательный текст, например "Завершить работу с учебником", и щелкните значок "плюс" (**+**).
 
-    </div>
+	![][10]
 
-3.  В приложении введите содержательный текст, например, *Работа с учебником* и щелкните значок "плюс" (**+**).
+	Запрос POST отправляется в новую мобильную службу, размещенную в Azure. Данные из запроса вставляются в таблицу TodoItem. Элементы, хранящиеся в таблице, возвращаются мобильной службой, а данные отображаются в списке.
 
-    ![][5]
-
-    Отправляет запрос POST в новую мобильную службу, размещенную в Azure. Данные из запроса вставляются в таблицу TodoItem. Элементы, хранящиеся в таблице, возвращаются мобильной службой, а данные отображаются в списке.
-
-    > [WACOM.NOTE]
-    > Код, который обращается к вашей мобильной службе для запроса и вставки данных, можно просмотреть в файле C# ToDoActivity.cs.
-
+	> [WACOM.NOTE] 
+   	> Код, который обращается к вашей мобильной службе для запроса и вставки данных, можно просмотреть в файле C# ToDoActivity.cs.
+    
 ## Дальнейшие действия
+Теперь, когда вы закончили быстрый запуск, узнайте, как выполнять дополнительные важные задачи в мобильных службах: 
 
-Теперь, когда вы закончили быстрый запуск, узнайте, как выполнять дополнительные важные задачи в мобильных службах:
+* [Начало работы с автономной синхронизацией данных]
+  <br/>Использование автономной синхронизации данных для повышения быстроты отклика и надежности приложения.
 
--   [Приступая к работе с аутентификацией][Приступая к работе с аутентификацией]
+* [Приступая к работе с аутентификацией]
+  <br/>Проверка подлинности пользователей приложения с помощью поставщика идентификации.
 
-    Дополнительные сведения об аутентификации учетных данных пользователей приложения с помощью поставщика удостоверений.
+* [Приступая к работе с push-уведомлениями] 
+  <br/>Отправка очень простого push-уведомления в приложение.
 
--   [Приступая к работе с push-уведомлениями][Приступая к работе с push-уведомлениями]
+* [Устранение неполадок сервера базы данных мобильных служб .NET]
+  <br/> Диагностирование и устранение проблем, которые могут возникать при работе сервера базы данных мобильных служб .NET. 
 
-    Сведения об отправке в приложение простейших push-уведомлений.
+<!-- Anchors. -->
+[Приступая к работе с мобильными службами]:#getting-started
+[Создание мобильной службы]:#create-new-service
+[Дальнейшие действия]:#next-steps
 
 
 
+<!-- Images. -->
+[0]: ./media/mobile-services-dotnet-backend-xamarin-android-get-started/mobile-quickstart-completed-android.png
+[6]: ./media/mobile-services-dotnet-backend-xamarin-android-get-started/mobile-portal-quickstart-xamarin.png
+[7]: ./media/mobile-services-dotnet-backend-xamarin-android-get-started/mobile-quickstart-steps-xamarin-android.png
+[8]: ./media/mobile-services-dotnet-backend-xamarin-android-get-started/mobile-xamarin-project-android-vs.png
+[9]: ./media/mobile-services-dotnet-backend-xamarin-android-get-started/mobile-xamarin-project-android-xs.png
+[10]: ./media/mobile-services-dotnet-backend-xamarin-android-get-started/mobile-quickstart-startup-android.png
+
+<!-- URLs. -->
+[Начало работы с автономной синхронизацией данных]: /ru-ru/documentation/articles/mobile-services-xamarin-android-get-started-offline-data
+[Приступая к работе с аутентификацией]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started-users
+[Приступая к работе с push-уведомлениями]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started-push
+[Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
+[Пакет SDK для мобильных служб]: http://go.microsoft.com/fwlink/?LinkId=257545
+[JavaScript и HTML ]: mobile-services-win8-javascript/
+[Портал управления]: https://manage.windowsazure.com/
+[Серверная версия JavaScript]: /ru-ru/documentation/articles/partner-xamarin-mobile-services-android-get-started
+[Приступая к работе с данными в мобильных службах с помощью Visual Studio 2012]: /ru-ru/documentation/articles/mobile-services-windows-store-dotnet-get-started-data-vs2012
+[Устранение неполадок сервера базы данных мобильных служб .NET]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-how-to-troubleshoot/
 
 
-  [Серверная версия JavaScript]: /ru-ru/documentation/articles/partner-xamarin-mobile-services-android-get-started
-  [0]: ./media/mobile-services-dotnet-backend-xamarin-android-get-started/mobile-quickstart-completed-android.png
-  [Бесплатная пробная версия Azure]: http://www.windowsazure.com/ru-ru/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fru-ru%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-xamarin-android-get-started
-  [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
-  [1]: ./media/mobile-services-dotnet-backend-xamarin-android-get-started/mobile-portal-quickstart-xamarin.png
-  [2]: ./media/mobile-services-dotnet-backend-xamarin-android-get-started/mobile-quickstart-steps-xamarin-android.png
-  [Xamarin Studio]: http://xamarin.com/download
-  [3]: ./media/mobile-services-dotnet-backend-xamarin-android-get-started/mobile-xamarin-project-android-vs.png
-  [4]: ./media/mobile-services-dotnet-backend-xamarin-android-get-started/mobile-xamarin-project-android-xs.png
-  [5]: ./media/mobile-services-dotnet-backend-xamarin-android-get-started/mobile-quickstart-startup-android.png
-  [Приступая к работе с аутентификацией]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started-users
-  [Приступая к работе с push-уведомлениями]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started-push
+[Xamarin Studio]: http://xamarin.com/download
+[Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532&clcid=0x409
+[Xamarin для Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409

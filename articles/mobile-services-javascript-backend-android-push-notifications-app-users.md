@@ -1,50 +1,36 @@
-<properties linkid="/documentation/articles/mobile-services-javascript-backend-android-push-notifications-app-users" pageTitle="Send push notifications to authenticated users" metaKeywords="push notifications, authentication, users, Notification Hubs, Mobile Services" description="Learn how to send push notifications to specific " metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Send push notifications to authenticated users" authors="wesmc" solutions="Mobile" manager="" editor="" />
+﻿<properties pageTitle="Рассылка push-уведомлений проверенным пользователям" metaKeywords="push notifications, authentication, users, Notification Hubs, Mobile Services" description="Learn how to send push notifications to specific " metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Send push notifications to authenticated users" authors="wesmc" solutions="Mobile" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="01/01/1900" ms.author="wesmc" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="09/29/2014" ms.author="wesmc" />
 
 # Рассылка push-уведомлений проверенным пользователям
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="/ru-ru/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users" title="Магазин Windows C#">Магазин Windows C#</a>
-<a href="/ru-ru/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-push-notifications-app-users" title="Магазин Windows JavaScript">Магазин Windows JavaScript</a>
-<a href="/ru-ru/documentation/articles/mobile-services-javascript-backend-windows-phone-push-notifications-app-users" title="Windows Phone">Windows Phone</a>
-<a href="/ru-ru/documentation/articles/mobile-services-javascript-backend-ios-push-notifications-app-users" title="iOS">iOS</a>
-<a href="/ru-ru/documentation/articles/mobile-services-javascript-backend-android-push-notifications-app-users" title="Android" class="current">Android</a>
-</div>
+[WACOM.INCLUDE [mobile-services-selector-push-users](../includes/mobile-services-selector-push-users.md)]
 
-<div class="dev-center-tutorial-subselector">
-<a href="/ru-ru/documentation/articles/mobile-services-dotnet-backend-android-push-notifications-app-users/" title="Сервер .NET">Сервер .NET</a> | 
-<a href="/ru-ru/documentation/articles/mobile-services-javascript-backend-android-push-notifications-app-users/"  title="Сервер JavaScript" class="current">Сервер JavaScript</a>
-</div>
-
-В этом разделе демонстрируется отправка push-уведомлений прошедшему проверку подлинности пользователю на любом зарегистрированном устройстве. В отличие от предыдущего учебника по [push-уведомлениям][push-уведомлениям], в данном учебнике будет изменяться мобильная служба, чтобы она требовала выполнение проверки подлинности пользователя перед регистрацией клиента в концентраторе уведомлений для получения push-уведомлений. Регистрация также изменяется — добавляется тег на основе идентификатора назначенного пользователя. Наконец, обновляется скрипт сервера, чтобы уведомление отправлялось не всем зарегистрированным пользователям, а только тем, кто прошел проверку подлинности.
+В этом разделе показано, как передавать push-уведомления пользователю, прошедшему проверку подлинности, на любом зарегистрированном устройстве. В отличие от предыдущего учебника [Push-уведомление][Начало работы с push-уведомлениями], в данном учебнике внесены изменения в мобильную службу, чтобы пользователю предъявлялось требование пройти проверку подлинности перед регистрацией клиента на концентраторе уведомлений для получения push-уведомлений. Регистрация также изменяется - добавляется тег на основе идентификатора назначенного пользователя. Наконец, обновляется скрипт сервера, чтобы уведомление отправлялось не всем зарегистрированным пользователям, а только тем, кто прошел проверку подлинности.
 
 В этом учебнике выполняются следующие действия.
 
--   [Обновление службы, чтобы для регистрации требовалась проверка подлинности][Обновление службы, чтобы для регистрации требовалась проверка подлинности]
--   [Обновление приложения для выполнения входа перед регистрацией][Обновление приложения для выполнения входа перед регистрацией]
--   [Тестирование приложения][Тестирование приложения]
-
++ [Обновление службы, чтобы для регистрации требовалась проверка подлинности]
++ [Обновление приложения для выполнения входа перед регистрацией]
++ [Тестирование приложения]
+ 
 Этот учебник поддерживает приложения Android.
 
-## Предварительные требования
+##Предварительные требования 
 
 Перед началом работы с этим учебником необходимо изучить следующие учебники по мобильным службам.
 
--   [Приступая к работе с аутентификацией в мобильных службах][Приступая к работе с аутентификацией в мобильных службах]
-    В этом учебнике в демонстрационное приложение TodoList добавляется требование входа.
++ [Начало работы с проверкой подлинности]<br/>Добавление требования по регистрации в пример приложения TodoList.
 
--   [Приступая к работе с push-уведомлениями в мобильных службах][push-уведомлениям]
-    В этом учебнике выполняется настройка демонстрационного приложения TodoList для push-уведомлений с использованием концентратора уведомлений.
++ [Начало работы с push-уведомлениями]<br/>Настройка примера приложения TodoList для отправки push-уведомлений с использованием концентраторов уведомлений. 
 
 После выполнения обоих учебников можно приступить к запрету регистрации непроверенных пользователей для получения push-уведомлений от мобильной службы.
 
-## <a name="register"></a>Обновление службы, чтобы для регистрации требовалась проверка подлинности
+##<a name="register"></a>Обновление службы с учетом требования по проверке подлинности для регистрации
 
-[WACOM.INCLUDE [mobile-services-javascript-backend-push-notifications-app-users](../includes/mobile-services-javascript-backend-push-notifications-app-users.md)]
+[WACOM.INCLUDE [mobile-services-javascript-backend-push-notifications-app-users](../includes/mobile-services-javascript-backend-push-notifications-app-users.md)] 
 
-<ol start="5"><li><p>Замените функцию вставки следующим кодом и нажмите кнопку <b>Сохранить</b>.</p>
-
+<ol start="5"><li><p>Замените функцию вставки следующим кодом и нажмите <strong>Сохранить</strong>:</p>
 <pre><code>function insert(item, user, request) {
 
     // Define a payload for the Google Cloud Messaging toast notification.
@@ -76,23 +62,30 @@
             });
 }</code></pre>
 
-    <p>Этот скрипт вставки использует тег идентификатора пользователя для отправки push-уведомления (с текстом вставленного элемента) во все регистрации Google Cloud Messaging, созданные выполнившим вход пользователем.</p></li></ol>
+<p>Этот скрипт вставки использует тег идентификатора пользователя для отправки push-уведомления (с текстом вставленного элемента) во все регистрации Google Cloud Messaging, созданные выполнившим вход пользователем.</p></li></ol>
 
-## <a name="update-app"></a>Обновление приложения для выполнения входа перед регистрацией
+##<a name="update-app"></a>Обновление приложения с учетом требования по входу в систему перед регистрацией
 
-[WACOM.INCLUDE [mobile-services-android-push-notifications-app-users](../includes/mobile-services-android-push-notifications-app-users.md)]
+[WACOM.INCLUDE [mobile-services-android-push-notifications-app-users](../includes/mobile-services-android-push-notifications-app-users.md)] 
 
-## <a name="test"></a> Тестирование приложения
+##<a name="test"></a>Тестирование приложения
 
-[WACOM.INCLUDE [mobile-services-android-test-push-users](../includes/mobile-services-android-test-push-users.md)]
+[WACOM.INCLUDE [mobile-services-android-test-push-users](../includes/mobile-services-android-test-push-users.md)] 
 
-<!---## <a name="next-steps"> </a>Next steps  In the next tutorial, [Service-side authorization of Mobile Services users][Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. Learn more about how to use Mobile Services with .NET in [Mobile Services .NET How-to Conceptual Reference]--> 
+<!---## <a name="next-steps"> </a>Дальнейшие действия
 
- 
+В следующем учебнике, [Авторизация пользователей мобильных служб с помощью этих служб][Проверка подлинности пользователей на основе скриптов], показано, как идентификатор пользователя, прошедшего проверку подлинности, который предоставлен мобильными службами, применяется для фильтрации данных, возвращаемых мобильными службами. Сведения об использовании мобильных службах на платформа .NET приведены в [Концептуальном справочнике по мобильным службам на платформе .NET]-->
+
+<!-- Anchors. -->
+[Обновление службы, чтобы для регистрации требовалась проверка подлинности]: #register
+[Обновление приложения для выполнения входа перед регистрацией]: #update-app
+[Тестирование приложения]: #test
+[Дальнейшие действия]:#next-steps
 
 
-  [push-уведомлениям]: /ru-ru/documentation/articles/mobile-services-javascript-backend-android-get-started-push/
-  [Обновление службы, чтобы для регистрации требовалась проверка подлинности]: #register
-  [Обновление приложения для выполнения входа перед регистрацией]: #update-app
-  [Тестирование приложения]: #test
-  [Приступая к работе с аутентификацией в мобильных службах]: /ru-ru/documentation/articles/mobile-services-android-get-started-users/
+<!-- URLs. -->
+[Приступая к работе с аутентификацией]: /ru-ru/documentation/articles/mobile-services-android-get-started-users/
+[Приступая к работе с push-уведомлениями]: /ru-ru/documentation/articles/mobile-services-javascript-backend-android-get-started-push/
+
+[Портал управления Azure]: https://manage.windowsazure.com/
+[Справочник принципов использования мобильных служб .NET]: /ru-ru/develop/mobile/how-to-guides/work-with-net-client-library

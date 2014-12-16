@@ -1,57 +1,59 @@
-<properties pageTitle="Call a custom API from a Windows Store client - Mobile Services" metaKeywords="" description="Learn how to define a custom API and then call it from a Windows Store app that use Windows Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Call a custom API from the client" authors="glenga"  solutions="" writer="glenga" manager="" editor=""  />
+﻿	<properties pageTitle="Вызов пользовательского API-интерфейса из клиента Магазина Windows - мобильные службы" metaKeywords="" description="Learn how to define a custom API and then call it from a Windows Store app that use Windows Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Call a custom API from the client" authors="glenga"  solutions="" writer="glenga" manager="dwrede" editor=""  />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/26/2014" ms.author="glenga" />
 
 # Вызов из клиента настраиваемого интерфейса API
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api" title="Магазин Windows C#" class="current">Магазин Windows C#</a><a href="/ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-call-custom-api" title="Магазин Windows JavaScript">Магазин Windows JavaScript</a><a href="/ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-phone-call-custom-api" title="Windows Phone" class="current">Windows Phone</a><a href="/ru-ru/documentation/articles/mobile-services-dotnet-backend-ios-call-custom-api" title="iOS" class="current">iOS</a><a href="/ru-ru/documentation/articles/mobile-services-dotnet-backend-android-call-custom-api" title="Android" class="current">Android</a>
-</div>
+[WACOM.INCLUDE [mobile-services-selector-call-custom-api](../includes/mobile-services-selector-call-custom-api.md)]
 
-<div class="dev-center-tutorial-subselector"><a href="/ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api" title="Серверная часть .NET" class="current">Серверная часть .NET</a> | <a href="/ru-ru/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api"  title="Серверная часть JavaScript">Серверная часть JavaScript</a></div>
+В этом разделе показано, как вызвать пользовательский API-интерфейс из приложения для Магазина Windows. Настраиваемый интерфейс API позволяет определить пользовательские конечные точки, которые предоставляют функциональные возможности сервера, не сопоставляемые с операциями вставки, обновления, удаления или чтения. Настраиваемый API позволяет получить больший контроль над передачей сообщений, включая чтение и задание заголовков сообщений HTTP и определение формата текста сообщения, отличного от JSON.
 
-В этом разделе показано, как вызывать настраиваемый API из приложений Магазина Windows. Настраиваемый интерфейс API позволяет определить пользовательские конечные точки, которые предоставляют функциональные возможности сервера, не сопоставляемые с операциями вставки, обновления, удаления или чтения. При использовании настраиваемого интерфейса API вы получаете больше возможностей для управления сообщениями, в том числе для чтения и установки заголовков HTTP-сообщений, а также определения форматов текста сообщений, отличных от JSON.
+Пользовательский API, созданный в этом разделе, позволяет отправить единственный запрос POST, который устанавливает флаг completed равным `true` для всех подлежащих выполнению элементов в таблице. Без этого настраиваемого API клиенту пришлось бы отправлять отдельные запросы для обновления в таблице каждого элемента, подлежащего выполнению.
 
-Настраиваемый API, созданный в данном разделе, дает возможность отправить один запрос POST, который устанавливает для флага завершения значение `true` для всех элементов задач в таблице. Без настраиваемого интерфейса API клиенту требуется отправлять отдельные просьбы, чтобы обновить флаг для каждого элемента списка дел в таблице.
+Добавьте эту функциональную возможность в приложение, созданное при прохождении учебника [Начало работы с мобильными службами] или [Начало работы с данными]. Для этого выполните следующие шаги:
 
-Вы добавите эту функцию в приложение, созданное в учебнике [Приступая к работе с мобильными службами][Приступая к работе с мобильными службами] или [Приступая к работе с данными][Приступая к работе с данными]. Для этого требуются следующие действия:
+1. [Определение настраиваемого интерфейса API]
+2. [Обновление приложения для вызова настраиваемого API]
+3. [Тестирование приложения] 
 
-1.  [Определение настраиваемого интерфейса API][Определение настраиваемого интерфейса API]
-2.  [Обновление приложения для вызова настраиваемого API][Обновление приложения для вызова настраиваемого API]
-3.  [Тестирование приложения][Тестирование приложения]
-
-Этот учебник создан на основе краткого руководства по мобильным службам. Перед работой с этим учебником необходимо сначала пройти учебник [Приступая к работе с мобильными службами][Приступая к работе с мобильными службами] или [Приступая к работе с данными][Приступая к работе с данными].
+Этот учебник создан на основе краткого руководства по мобильным службам. Перед началом работы с этим учебником необходимо сначала пройти учебник [Приступая к работе с мобильными службами] или [Приступая к работе с данными]. 
 
 ## <a name="define-custom-api"></a>Определение настраиваемого интерфейса API
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-create-custom-api](../includes/mobile-services-dotnet-backend-create-custom-api.md)]
 
-## <a name="update-app"></a>Обновление приложения для вызова настраиваемого интерфейса API
+## <a name="update-app"></a>Обновление приложения для вызова настраиваемого API
 
 [WACOM.INCLUDE [mobile-services-windows-store-dotnet-call-custom-api](../includes/mobile-services-windows-store-dotnet-call-custom-api.md)]
+
 
 ## Дальнейшие действия
 
 Узнав, как создать настраиваемый API и вызывать его из приложения для Магазина Windows, изучите следующие разделы о мобильных службах:
 
--   [Определение настраиваемого интерфейса API с поддержкой периодических уведомлений][Определение настраиваемого интерфейса API с поддержкой периодических уведомлений]
+* [Определение настраиваемого интерфейса API с поддержкой периодических уведомлений]
+	<br/>Узнайте, как использовать настраиваемый API для поддержки периодических уведомлений в приложениях Магазина Windows. Если периодические уведомления включены, Windows будет периодически обращаться к конечной точке пользовательского API-интерфейса и использовать полученный XML в формате для плиток, чтобы обновить плитку приложения в меню "Пуск".
 
-    Узнайте, как использовать настраиваемый API для поддержки периодических уведомлений в приложении для Магазина Windows. Если периодические уведомления включены, Windows будет периодически обращаться к конечной точке настраиваемого интерфейса API и использовать полученный XML в формате для плиток, чтобы обновить плитку приложения в меню "Пуск".
+* [Справочник серверных скриптов мобильных служб]
+  <br/>Дополнительные сведения о создании настраиваемых API.
 
--   [Справочник серверных скриптов мобильных служб][Справочник серверных скриптов мобильных служб]
+* [Хранение серверных скриптов системе управления версиями]
+  <br/> Узнайте, как использовать функцию управления версиями, чтобы легко и надежно разрабатывать и публиковать код сценариев настраиваемого API.
 
-    Дополнительные сведения о создании настраиваемых API.
+<!-- Anchors. -->
+[Определение настраиваемого интерфейса API]: #define-custom-api
+[Обновление приложения для вызова настраиваемого API]: #update-app
+[Тестирование приложения]: #test-app
+[Дальнейшие действия]: #next-steps
 
--   [Хранение серверных сценариев в системе управления версиями][Хранение серверных сценариев в системе управления версиями]
+<!-- Images. -->
 
-    Узнайте, как использовать функцию управления версиями, чтобы легко и надежно разрабатывать и публиковать код сценариев настраиваемого API.
+<!-- URLs. -->
+[Справочник серверных скриптов мобильных служб]: http://go.microsoft.com/fwlink/?LinkId=262293
+[Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/mobile-services-windows-store-get-started/
+[Приступая к работе с данными]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/
+[Приступая к работе с аутентификацией]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/
+[Приступая к работе с push-уведомлениями]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/
 
-
-
-  [Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/mobile-services-windows-store-get-started/
-  [Приступая к работе с данными]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/
-  [Определение настраиваемого интерфейса API]: #define-custom-api
-  [Обновление приложения для вызова настраиваемого API]: #update-app
-  [Тестирование приложения]: #test-app
-  [Определение настраиваемого интерфейса API с поддержкой периодических уведомлений]: /ru-ru/documentation/articles/mobile-services-windows-store-dotnet-create-pull-notifications
-  [Справочник серверных скриптов мобильных служб]: http://go.microsoft.com/fwlink/?LinkId=262293
-  [Хранение серверных сценариев в системе управления версиями]: /ru-ru/documentation/articles/mobile-services-store-scripts-source-control
+[Определение настраиваемого интерфейса API с поддержкой периодических уведомлений]: /ru-ru/documentation/articles/mobile-services-windows-store-dotnet-create-pull-notifications
+[Хранение серверных скриптов системе управления версиями]: /ru-ru/documentation/articles/mobile-services-store-scripts-source-control

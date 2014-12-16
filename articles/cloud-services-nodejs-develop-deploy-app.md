@@ -186,7 +186,7 @@
 </div>
 
   [Сравнение веб-сайтов Azure, облачных служб и виртуальных машин]: http://azure.microsoft.com/ru-ru/documentation/articles/choose-web-site-cloud-service-vm/
-  [В окне браузера отображается страница hello world. URL-адрес указывает, что страница размещается в Azure.]: https://wacomdpsstablestorage.blob.core.windows.net/articlesmedia/demo-ppe.windowsazure.com/ru-ru/documentation/articles/cloud-services-nodejs-develop-deploy-app/20140107035927/node21.png
+  [В окне браузера отображается страница hello world. URL-адрес указывает, что страница размещается в Azure.]: https://wacomdpsstablestorage.blob.core.windows.net/articlesmedia/demo-ppe.windowsazure.com/en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/20140107035927/node21.png
   [Значок Azure PowerShell]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
   [Результат выполнения команды New-AzureService helloworld]: ./media/cloud-services-nodejs-develop-deploy-app/node9.png
   [Обзор создания размещенной службы для Windows Azure.]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj155995.aspx

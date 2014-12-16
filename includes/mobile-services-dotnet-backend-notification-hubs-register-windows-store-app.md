@@ -1,70 +1,59 @@
-1.  Если вы еще не зарегистрировали свое приложение, перейдите к разделу [Отправить страницу приложения][Отправить страницу приложения] в центре разработчиков для приложений Магазина Windows, выполните вход с использованием вашей учетной записи Майкрософт и затем щелкните **Имя приложения**.
+﻿
 
-    ![][0]
+1. Если ваше приложение еще не зарегистрировано, перейдите к разделу [Отправить страницу приложения] в Центре разработчиков для приложений Магазина Windows, выполните вход с использованием вашей учетной записи Microsoft и затем щелкните **Имя приложения**.
 
-2.  Введите имя приложения в поле **Имя приложения**, щелкните **Зарезервировать имя приложения** и затем щелкните **Сохранить**.
+   	![](./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-submit-win8-app.png)
 
-    ![][1]
+2.  Введите имя приложения в поле **Имя приложения**, выберите **Зарезервировать имя приложения**, а затем щелкните **Сохранить**.
 
-    При этом создается новая регистрация в Магазине Windows для вашего приложения.
+   	![](./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-win8-app-name.png)
 
-3.  В Visual Studio откройте проект Windows Store, созданный в ходе работы с учебником **Начало работы с мобильными службами**.
+   	При этом создается новая регистрация в Магазине Windows для вашего приложения.
 
-4.  В обозревателе решений щелкните правой кнопкой мыши проект, щелкните **Магазин** и затем щелкните **Связать приложение с магазином...**.
+3. В среде Visual Studio откройте проект Магазина Windows, созданный в ходе работы с учебником **Приступая к работе с мобильными службами**.
 
-    ![][2]
+4. В обозревателе решений щелкните правой кнопкой мыши проект, щелкните **Магазин** и затем щелкните **Связать приложение с магазином...**. 
 
-    Откроется мастер **Связь приложений с Магазином Windows**.
+  	![](./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-store-association.png)
 
-5.  В окне мастера щелкните **Вход** и затем войдите в систему с учетной записью Майкрософт.
+   	Откроется мастер **Связи приложений с Магазином Windows**.
 
-6.  Выберите приложение, которое зарегистрировано на шаге 2, щелкните **Далее**и затем щелкните **Связать**.
+5. В окне мастера щелкните **Вход** и затем войдите в систему с учетной записью Microsoft.
 
-    ![][3]
+6.  Выберите приложение, которое зарегистрировано на шаге 2, щелкните **Далее**, а затем щелкните **Связать**.
 
-    Это добавляет необходимые регистрационные данные Магазина Windows в манифест приложения.
+   	![](./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-select-app-name.png)
 
-7.  (Необязательно) Повторите шаги 4–6, чтобы зарегистрировать проект для магазина Windows Phone из универсального приложения Windows.
+При этом в манифест приложения добавляются необходимые регистрационные данные Магазина Windows.    
 
-8.  На странице Центра разработчиков Windows для нового приложения щелкните **Службы**.
+7. (Необязательно) Повторите шаги 4-6, чтобы зарегистрировать проект для магазина Windows Phone из универсального приложения Windows.
 
-    ![][4]
+8. На странице Центра разработки для Windows для нового приложения щелкните **Службы**. 
 
-9.  На странице "Службы" щелкните по **узлу службы Live** в разделе **Мобильные службы Azure**.
+   	![](./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-win8-edit-app.png) 
 
-    ![][5]
+9. На странице "Службы" щелкните **Сайт служб Live** в разделе **Мобильные службы Windows Azure**.
 
-10. Щелкните **Аутентификация службы** и запишите значения полей **Секрет клиента** и **Идентификатор безопасности пакета (SID)**.
+	![](./media/mobile-services-javascript-backend-register-windows-store-app/mobile-services-win8-edit2-app.png)
 
-    ![][6]
+10. Щелкните **Проверка подлинности службы** и запишите значения полей **Секрет клиента** и **Идентификатор безопасности пакета**. 
 
-    <div class="dev-callout">
+   	![](./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-win8-app-push-auth.png)
 
-    **Примечание о безопасности**
-    Секрет клиента и идентификатор безопасности (SID) пакета — это важные учетные данные для безопасного доступа. Не сообщайте никому эти секреты и не распространяйте их вместе с вашим приложением.
+    <div class="dev-callout"><b>Примечание о безопасности</b>
+	<p>Секрет клиента и ИД безопасности пакета - это важные учетные данные для безопасного доступа. Не сообщайте никому эти секреты и не распространяйте их вместе с вашим приложением.</p>
+    </div> 
 
-    </div>
+11. Войдите в [Портал управления Azure], щелкните **Мобильные службы**, затем щелкните свое приложение.
 
-11. Выполните вход на [портал управления Azure][портал управления Azure], щелкните элемент **Мобильные службы**, а затем щелкните свое приложение.
+   	![](./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-selection.png)
 
-    ![][7]
+12. Откройте вкладку **Push-уведомления**, введите **секрет клиента** и **SID пакета**, полученные из WNS на шаге 4, а затем нажмите **Сохранить**.	
 
-12. Щелкните по вкладке **Push-уведомления**, введите значения **секрета клиента** и **SID пакета**, полученные из WNS на шаге 4, затем щелкните **Сохранить**.
+   	![](./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-push-tab.png)
 
-    ![][8]
+	>[WACOM.NOTE]При задании учетных данных WNS для расширенных push-уведомлений на вкладке **Push-уведомления** портала эти сведения передаются в концентраторы уведомлений, чтобы настроить их для вашего приложения.
 
-    > [WACOM.NOTE]При задании учетных данных WNS для расширенных push-уведомлений во вкладке **Push-уведомления** портала эти сведения передаются в концентраторы уведомлений в целях настройки концентратора уведомлений с вашим приложением.
-
-
-
-  [Отправить страницу приложения]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-  [0]: ./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-submit-win8-app.png
-  [1]: ./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-win8-app-name.png
-  [2]: ./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-store-association.png
-  [3]: ./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-select-app-name.png
-  [4]: ./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-win8-edit-app.png
-  [5]: ./media/mobile-services-javascript-backend-register-windows-store-app/mobile-services-win8-edit2-app.png
-  [6]: ./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-win8-app-push-auth.png
-  [портал управления Azure]: https://manage.windowsazure.com/
-  [7]: ./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-selection.png
-  [8]: ./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-push-tab.png
+<!-- URLs. -->
+[Отправить страницу приложения]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[Портал управления Azure]: https://manage.windowsazure.com/

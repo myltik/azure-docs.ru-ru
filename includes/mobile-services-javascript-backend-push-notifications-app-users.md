@@ -1,49 +1,47 @@
-1.  Выполните вход на [портал управления Azure], щелкните пункт **Мобильные службы**, а затем выберите свою мобильную службу.
+﻿
+1. Выполните вход на [портал управления Azure], щелкните пункт **Мобильные службы**, а затем щелкните свою мобильную службу.
 
-    ![][0]
+   	![](./media/mobile-services-javascript-backend-push-notifications-app-users/mobile-services-selection.png)
 
-2.  Щелкните вкладку **Push-уведомления**, выберите значение **Только прошедшие проверку пользователи** для параметра **Разрешения**, а затем нажмите кнопку **Правка скрипта**.
+2. Щелкните вкладку **Push-уведомления**, выберите значение **Только прошедшие проверку пользователи** для параметра **Разрешения**, а затем нажмите кнопку **Правка скрипта**.
 
-    ![][1]
+   	![](./media/mobile-services-javascript-backend-push-notifications-app-users/mobile-services-push-registration-endpoint.png)
+	
+	Это позволит настроить функцию обратного вызова для регистрации push-уведомлений. Если для редактирования кода используется Git, ту же функцию регистрации можно найти в файле .\service\extensions\push.js.
 
-    Это позволит настроить функцию обратного вызова для регистрации push-уведомлений. Если для редактирования кода используется Git, ту же функцию регистрации можно найти в `.\service\extensions\push.js`.
+3. Замените имеющуюся функцию **register** следующим кодом:
 
-3.  Замените имеющуюся функцию **register** следующим кодом:
+		exports.register = function (registration, registrationContext, done) {   
+		    // Get the ID of the logged-in user.
+			var userId = registrationContext.user.userId;    
+		    
+			// Perform a check here for any disallowed tags.
+			if (!validateTags(registration))
+			{
+				// Return a service error when the client tries 
+		        // to set a user ID tag, which is not allowed.		
+				done("You cannot supply a tag that is a user ID");		
+			}
+			else{
+				// Add a new tag that is the user ID.
+				registration.tags.push(userId);
+				
+				// Complete the callback as normal.
+				done();
+			}
+		};
+		
+		function validateTags(registration){
+		    for(var i = 0; i < registration.tags.length; i++) { 
+		        console.log(registration.tags[i]);           
+				if (registration.tags[i]
+				.search(/facebook:|twitter:|google:|microsoft:/i) !== -1){
+					return false;
+				}
+				return true;
+			}
+		}
 
-        exports.register = function (registration, registrationContext, done) {   
-            // Get the ID of the logged-in user.
-            var userId = registrationContext.user.userId;    
+	К регистрации будет добавлен тег, представляющий собой идентификатор вошедшего в систему пользователя. Указанные теги проверяются, чтобы исключить возможность регистрации пользователя с идентификатором другого пользователя. Когда данному пользователю отправляется уведомление, оно приходит на данное устройство и все прочие устройства, зарегистрированные за пользователем.
 
-            // Perform a check here for any disallowed tags.
-            if (!validateTags(registration))
-            {
-                // Return a service error when the client tries 
-                // to set a user ID tag, which is not allowed.      
-                done("You cannot supply a tag that is a user ID");      
-            }
-            else{
-                // Add a new tag that is the user ID.
-                registration.tags.push(userId);
-
-                // Complete the callback as normal.
-                done();
-            }
-        };
-
-        function validateTags(registration){
-            for(var i = 0; i < registration.tags.length; i++) { 
-                console.log(registration.tags[i]);           
-                if (registration.tags[i]
-                .search(/facebook:|twitter:|google:|microsoft:/i) !== -1){
-                    return false;
-                }
-                return true;
-            }
-        }
-
-    К регистрации будет добавлен тег, представляющий собой идентификатор вошедшего в систему пользователя. Указанные теги проверяются, чтобы исключить возможность регистрации пользователя с идентификатором другого пользователя. Когда данному пользователю отправляется уведомление, оно приходит на данное устройство и все прочие устройства, зарегистрированные за пользователем.
-
-4.  Щелкните стрелку назад, затем вкладку **Данные**, **TodoItem**, **Скрипт** и выберите пункт **Вставка**.
-
-  [0]: ./media/mobile-services-javascript-backend-push-notifications-app-users/mobile-services-selection.png
-  [1]: ./media/mobile-services-javascript-backend-push-notifications-app-users/mobile-services-push-registration-endpoint.png
+4. Щелкните стрелку назад, затем вкладку **Данные**, **TodoItem**, **Скрипт** и выберите пункт **Вставка**. 

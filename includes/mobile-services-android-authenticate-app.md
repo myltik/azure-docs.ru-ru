@@ -1,65 +1,69 @@
-1.  В обозревателе пакетов в Eclipse откройте файл ToDoActivity.java и добавьте следующие инструкции импорта.
+﻿
+1. В обозревателе пакетов в Eclipse откройте файл ToDoActivity.java и добавьте следующие инструкции импорта.
 
-        import com.microsoft.windowsazure.mobileservices.MobileServiceUser;
-        import com.microsoft.windowsazure.mobileservices.MobileServiceAuthenticationProvider;
-        import com.microsoft.windowsazure.mobileservices.UserAuthenticationCallback;
+		import java.util.concurrent.ExecutionException;
+		import java.util.concurrent.atomic.AtomicBoolean;
 
-2.  Добавьте в класс **ToDoActivity** следующий метод:
+		import android.content.Context;
+		import android.content.SharedPreferences;
+		import android.content.SharedPreferences.Editor;
 
-        private void authenticate() {
+		import com.microsoft.windowsazure.mobileservices.authentication.MobileServiceAuthenticationProvider;
+		import com.microsoft.windowsazure.mobileservices.authentication.MobileServiceUser;
 
-            // Login using the Google provider.
-            mClient.login(MobileServiceAuthenticationProvider.Google,
-                    new UserAuthenticationCallback() {
+2. Добавьте в класс **TodoActivity** следующий метод: 
+	
+	private void authenticate() {
+	    // Login using the Google provider.
+	    
+		ListenableFuture<MobileServiceUser> mLogin = mClient.login(MobileServiceAuthenticationProvider.Google);
 
-                        @Override
-                        public void onCompleted(MobileServiceUser user,
-                                Exception exception, ServiceFilterResponse response) {
+    	Futures.addCallback(mLogin, new FutureCallback<MobileServiceUser>() {
+    		@Override
+    		public void onFailure(Throwable exc) {
+    			createAndShowDialog((Exception) exc, "Error");
+    		}   		
+    		@Override
+    		public void onSuccess(MobileServiceUser user) {
+    			createAndShowDialog(String.format(
+                        "You are now logged in - %1$2s",
+                        user.getUserId()), "Success");
+    			createTable();	
+    		}
+    	});   	
+	}
 
-                            if (exception == null) {
-                                createAndShowDialog(String.format(
-                                                "You are now logged in - %1$2s",
-                                                user.getUserId()), "Success");
-                                createTable();
-                            } else {
-                                createAndShowDialog("You must log in. Login Required", "Error");
-                            }
-                        }
-                    });
-        }
 
-    При этом создается новый метод для обработки процесса проверки подлинности. Пользователь прошел проверку подлинности с использованием имени входа в Google. Открывается диалоговое окно, в котором отображается идентификатор пользователя, прошедшего проверку подлинности. Без успешной проверки подлинности продолжение невозможно.
+	При этом создается новый метод для обработки процесса проверки подлинности. Пользователь прошел проверку подлинности с использованием имени входа в Google. Открывается диалоговое окно, в котором отображается идентификатор пользователя, прошедшего проверку подлинности. Не получив положительные результаты проверки подлинности, нельзя продолжить работу.
 
     <div class="dev-callout"><b>Примечание.</b>
-<p>Если используется поставщик удостоверений, отличный от Google, измените значение, передаваемое в метод <strong>login</strong> выше, на одно из следующих:. <em>MicrosoftAccount</em>, <em>Facebook</em>, <em>Twitter</em> или <em>windowsazureactivedirectory</em>.</p>
-</div>
+	<p>Если используется поставщик идентификации, отличный от Google, измените значение, передаваемое выше методу <strong>login</strong>, на одно из следующих: <em>MicrosoftAccount</em>, <em>Facebook</em>, <em>Twitter</em> или <em>windowsazureactivedirectory</em>.</p>
+    </div>
 
-3.  Добавьте в метод **onCreate** следующую строку после кода, который формирует экземпляр объекта `MobileServiceClient`.
+3. В методе **OnCreate** добавьте следующую строку после кода, который создает объект MobileServiceClient.
 
-        authenticate();
+		authenticate();
 
-    Этот вызов запускает процесс проверки подлинности.
+	Этот вызов запускает процесс проверки подлинности.
 
-4.  Переместите оставшийся код после `authenticate();` в методе **onCreate** в новый метод **createTable**, который выглядит следующим образом:
+4. Переместите оставшийся код после `authenticate();` в методе **onCreate** в новый метод **createTable**, который выглядит следующим образом:
 
-        private void createTable() {
+		private void createTable() {
+	
+			// Get the Mobile Service Table instance to use
+			mToDoTable = mClient.getTable(ToDoItem.class);
+	
+			mTextNewToDo = (EditText) findViewById(R.id.textNewToDo);
+	
+			// Create an adapter to bind the items with the view
+			mAdapter = new ToDoItemAdapter(this, R.layout.row_list_to_do);
+			ListView listViewToDo = (ListView) findViewById(R.id.listViewToDo);
+			listViewToDo.setAdapter(mAdapter);
+	
+			// Load the items from the Mobile Service
+			refreshItemsFromTable();
+		}
 
-            // Get the Mobile Service Table instance to use
-            mToDoTable = mClient.getTable(ToDoItem.class);
+9. В меню **Запуск** щелкните **Запуск**, чтобы запустить приложение и выполнить вход с помощью выбранного поставщика удостоверений. 
 
-            mTextNewToDo = (EditText) findViewById(R.id.textNewToDo);
-
-            // Create an adapter to bind the items with the view
-            mAdapter = new ToDoItemAdapter(this, R.layout.row_list_to_do);
-            ListView listViewToDo = (ListView) findViewById(R.id.listViewToDo);
-            listViewToDo.setAdapter(mAdapter);
-
-            // Load the items from the Mobile Service
-            refreshItemsFromTable();
-        }
-
-5.  В меню **Запуск** щелкните **Запуск**, чтобы запустить приложение и выполнить вход с помощью выбранного поставщика удостоверений.
-
-    После успешного входа в систему приложение должно работать без ошибок, а вы должны быть в состоянии выполнять запросы мобильных служб и обновлять данные.
-
-
+   	После успешного входа в систему приложение должно работать без ошибок, а вы должны быть в состоянии выполнять запросы мобильных служб и обновлять данные.

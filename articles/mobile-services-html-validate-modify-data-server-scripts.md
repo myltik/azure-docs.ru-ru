@@ -1,41 +1,39 @@
-<properties linkid="develop-mobile-tutorials-validate-modify-and-augment-data-html" urlDisplayName="Validate Data - HTML5" pageTitle="User server scripts to validate and modify data (HTML 5) | Mobile Dev Center" metaKeywords="" description="Learn how to validate and modify data sent using server scripts from your HTML app." metaCanonical="" services="" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="glenga" solutions="" manager="" editor="" />
+﻿<properties urlDisplayName="Validate Data - HTML5" pageTitle="Использование серверных скриптов для проверки и изменения данных (HTML 5) | Центр мобильных разработок" metaKeywords="" description="Learn how to validate and modify data sent using server scripts from your HTML app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="glenga" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="09/26/2014" ms.author="glenga" />
 
-# Проверка и изменение данных в мобильных службах с помощью серверных скриптов
+# Проверка и изменение данных в мобильных службах с помощью серверных скриптов 
 
-<div class="dev-center-tutorial-selector sublanding"> 
-    <a href="/ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet" title="Магазин Windows &mdash; C#">Магазин Windows &mdash; C#</a><a href="/ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-js" title="Магазин Windows &mdash; JavaScript">Магазин Windows &mdash;JavaScript</a><a href="/ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-wp8" title="Windows Phone">Windows Phone</a><a href="/ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-ios" title="iOS">iOS</a><a href="/ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-android" title="Android">Android</a><a href="/ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-html" title="HTML" class="current">HTML</a><a href="/ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios" title="Xamarin.iOS" class="current">Xamarin.iOS</a><a href="/ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android" title="Xamarin.Android" class="current">Xamarin.Android</a>
-</div>
+[WACOM.INCLUDE [mobile-services-selector-validate-modify-data](../includes/mobile-services-selector-validate-modify-data.md)]
 
-В этом разделе показано, как использовать серверные скрипты в мобильных службах Azure. Серверные скрипты зарегистрированы в мобильной службе и могут использоваться для выполнения различных операций со вставляемыми и обновляемыми данными, включая проверку и изменение данных. В этом руководстве вы определите и зарегистрируете серверные скрипты, которые проверяют и изменяют данные. Так как поведение серверных скриптов часто влияет на клиента, также понадобится обновить приложение HTML, чтобы воспользоваться преимуществом этого нового поведения.
+В этом разделе показано, как использовать серверные скрипты в мобильных службах Azure. Серверные скрипты зарегистрированы в мобильной службе и могут использоваться для выполнения различных операций со вставляемыми и обновляемыми данными, включая проверку и изменение данных. В этом руководстве вы определите и зарегистрируете серверные скрипты, которые проверяют и изменяют данные. Поскольку поведение скриптов на стороне сервера часто влияет на клиентскую сторону, также потребуется обновить ваше HTML-приложение, чтобы воспользоваться преимуществами нового поведения.
 
 В этом учебнике рассматриваются следующие основные действия:
 
-1.  [Добавление проверки длины строки][Добавление проверки длины строки]
-2.  [Обновление клиента для поддержки проверки][Обновление клиента для поддержки проверки]
-3.  [Добавление отметки времени при вставке][Добавление отметки времени при вставке]
-4.  [Обновление клиента для отображения отметки времени][Обновление клиента для отображения отметки времени]
+1. [Добавление проверки длины строки]
+2. [Обновление клиента для поддержки проверки]
+3. [Добавление отметки времени при вставке]
+4. [Обновление клиента для отображения отметки времени]
 
-Этот учебник основан на инструкциях и примере приложения предыдущего учебника, [Приступая к работе с данными][Приступая к работе с данными]. Перед началом работы с учебником необходимо пройти задания учебника [Приступая к работе с данными][Приступая к работе с данными].
+В основе этого учебника лежат инструкции и образец приложения из предыдущего учебника [Начало работы с данными]. Прежде чем начать работу с этим учебником, необходимо пройти [Начало работы с данными].  
 
-## <a name="string-length-validation"></a>Добавление проверки
+## <a name="string-length-validation"></a>Добавить проверку
 
-Рекомендуется всегда проверять длину данных, предоставляемых пользователями. Сначала необходимо зарегистрировать скрипт, который проверяет длину строки данных, отправленных в мобильную службу, и отклоняет слишком длинны строки; в этом случае отклоняются строки длиной более 10 знаков.
+Всегда рекомендуется проверять длину данных, отправляемых пользователям. Вначале регистрируется скрипт для проверки значений длины данных строк, отправляемых мобильной службе, и удаления слишком длинных строк, в данном случае - превышающих 10 символов.
 
-1.  Выполните вход на [портал управления Azure][портал управления Azure], щелкните элемент **Мобильные службы**, а затем выберите свое приложение.
+1. Зарегистрируйтесь на [Портале управления Azure], щелкните **Мобильные службы**, затем щелкните свое приложение. 
 
-    ![][0]
+   	![][0]
 
-2.  Откройте вкладку **Данные** и щелкните таблицу **TodoItem**.
+2. Откройте вкладку **Данные**, затем щелкните таблицу **TodoItem**.
 
-    ![][1]
+   	![][1]
 
-3.  Щелкните **Сценарий** и выберите операцию **Вставить**.
+3. Щелкните **Скрипт**, затем выберите операцию **Вставить**.
 
-    ![][2]
+   	![][2]
 
-4.  Замените имеющийся сценарий следующей функцией и нажмите кнопку **Сохранить**:
+4. Замените существующий скрипт следующей функцией, затем нажмите кнопку **Сохранить**.
 
         function insert(item, user, request) {
             if (item.text.length > 10) {
@@ -47,56 +45,56 @@
             }
         }
 
-    Этот скрипт проверяет длину свойства **TodoItem.text** и отправляет ответ с сообщением об ошибке, если длина превышает 10 символов. В противном случае вызывается функция **execute** для завершения вставки.
+    Этот сценарий проверяет длину свойства **TodoItem.text** и отправляет ответ с сообщением об ошибке, если длина превышает 10 символов. В противном случае вызывается функция **Выполнить** для завершения ввода.
 
     <div class="dev-callout"> 
-<b>Примечание.</b> 
-<p>Можно удалить зарегистрированный сценарий на вкладке <strong>Сценарий</strong>, щелкнув <strong>Очистить</strong> и <strong>Сохранить</strong>.</p></div>
+	<b>Примечание.</b> 
+	<p>Можно удалить зарегистрированный скрипт на вкладке <strong>Скрипт</strong>, щелкнув <strong>Очистить</strong> и <strong>Сохранить</strong>.</p></div>	
 
 ## <a name="update-client-validation"></a>Обновление клиента
 
 Теперь, когда мобильная служба выполняет проверку данных и отправляет сообщения об ошибках на стороне сервера, необходимо обновить приложение для обработки сообщений об ошибках, полученных при выполнении проверки.
 
-1.  Запустите один из следующих командных файлов во вложенной папке **server** проекта, измененного в ходе изучения материала учебника [Приступая к работе с данными][Приступая к работе с данными].
+1. Выполните один из следующих командных файлов из вложенной папки **server** проекта, которые вы изменили после завершения учебника [Приступая к работе с данными].
 
-    -   **launch-windows** (компьютеры с ОС Windows)
-    -   **launch-mac.command** (компьютеры с ОС Mac OS X)
-    -   **launch-linux.sh** (компьютеры с ОС Linux)
+	+ **launch-windows** (компьютеры с ОС Windows) 
+	+ **launch-mac.command** (компьютеры с ОС Mac OS X)
+	+ **launch-linux.sh** (компьютеры с ОС Linux)
 
-    <div class="dev-callout"><b>Примечание.</b>
-    <p>На компьютере с операционной системой Windows в ответ на запрос PowerShell на запуск сценария нажмите клавишу R. Веб-браузер может предупредить о том, что не следует запускать этот сценарий, так как он был загружен из Интернета. В этом случае необходимо указать, что браузеру следует продолжить загрузку сценария.</p>
-</div>
+	<div class="dev-callout"><b>Примечание.</b>
+		<p>На компьютере Windows нажмите клавишу `R`, когда в PowerShell появится запрос на запуск скрипта. Веб-браузер может предупредить о том, что не следует запускать этот сценарий, так как он был загружен из Интернета. В этом случае необходимо указать, что браузеру следует продолжить загрузку скрипта.</p>
+	</div>
 
-    Это приведет к запуску веб-сервера на локальном компьютере, где и будет размещено приложение.
+	Это приведет к запуску веб-сервера на локальном компьютере, где и будет размещено приложение.
 
-2.  Откройте файл app.js, а затем замените обработчик событий **$('\#add-item').submit()** следующим кодом:
+1. 	Откройте файл app.js, затем замените обработчик событий **$('#add-item').submit()** следующим кодом:
 
-        $('#add-item').submit(function(evt) {
-            var textbox = $('#new-item-text'),
-                itemText = textbox.val();
-            if (itemText !== '') {
-                todoItemTable.insert({ text: itemText, complete: false })
-                    .then(refreshTodoItems, function(error){
-                    alert(JSON.parse(error.request.responseText).error);
-                });
-            }
-            textbox.val('').focus();
-            evt.preventDefault();
-        });
+		$('#add-item').submit(function(evt) {
+			var textbox = $('#new-item-text'),
+				itemText = textbox.val();
+			if (itemText !== '') {
+				todoItemTable.insert({ text: itemText, complete: false })
+					.then(refreshTodoItems, function(error){
+					alert(JSON.parse(error.request.responseText).error);
+				});
+			}
+			textbox.val('').focus();
+			evt.preventDefault();
+		});
 
-3.  В веб-браузере перейдите по адресу <http://localhost:8000/>, введите текст в поле **Добавить новую задачу** и нажмите **Добавить**.
+2. В веб-браузере откройте адрес <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a>, введите текст в поле **Добавить задачу** и нажмите **Добавить**.
 
-    Обратите внимание, что операция завершается неудачей и в диалоговом окне отображается ответ с сообщением об ошибке.
+   	Обратите внимание, что операция завершается неудачей и в диалоговом окне отображается ответ с сообщением об ошибке.
 
-## <a name="add-timestamp"></a>Добавление отметки времени
+## <a name="add-timestamp"></a>Добавление временной метки
 
-Предыдущие задачи проверили вставку и приняли или отклонили ее. Теперь можно обновить вставленные данные путем использования серверного скрипта, который добавляет свойство отметки времени в объект до его вставки.
+В предыдущих задачах проверялась операция вставки, после чего была принята или отклонена. Теперь будет проводиться обновление вставленных данных с использованием серверного скрипта, который добавляет свойство временной метки к объекту перед его вставкой.
 
 <div class="dev-callout"><b>Примечание.</b>
-<p>Продемонстрированное здесь свойство метки времени <b>createdAt</b> теперь является избыточным. Мобильные службы автоматически создают системное свойство <b>__createdAt</b> для каждой таблицы.</p>
+<p>Продемонстрированное здесь свойство отметки времени <b>createdAt</b> теперь является избыточным. Мобильные службы автоматически создают системное свойство <b>__createdAt</b> для каждой таблицы.</p>
 </div>
 
-1.  На вкладке **Сценарии** [портала управления][портал управления Azure] замените текущий сценарий **вставки** следующей функцией, затем нажмите кнопку **Сохранить**.
+1. На вкладке **Скрипты** на [Портале управления] замените текущий скрипт **Вставка** следующей функцией, затем щелкните ** Сохранить**.
 
         function insert(item, user, request) {
             if (item.text.length > 10) {
@@ -109,95 +107,109 @@
             }
         }
 
-    Эта функция расширяет предыдущий скрипт вставки путем добавления нового свойства отметки времени **createdAt** в объект до его вставки путем вызова **request**.**execute**.
+    Эта функция дополняет предыдущий скрипт вставки, добавляя новое свойство временной метки **createdAt** к объекту перед его вставкой путем вызова **request**.**execute**. 
 
     <div class="dev-callout"><b>Примечание.</b>
-<p>При первом выполнении этого сценария вставки должна быть включена динамическая схема. При включенной динамической схеме мобильные службы автоматически добавляют столбец <strong>createdAt</strong> в таблицу <strong>TodoItem</strong> при первом выполнении. Для новой мобильной службы динамическая схема включена по умолчанию, и перед публикацией приложения ее следует отключить.</p>
-</div>
+	<p>При первом выполнении этого скрипта вставки должна быть включена динамическая схема. При включенной динамической схеме мобильные службы автоматически добавляют столбец <strong>createdAt</strong> в таблицу <strong>TodoItem</strong> при первом выполнении. Для новой мобильной службы динамическая схема включена по умолчанию, и перед публикацией приложения ее следует отключить.</p>
+    </div>
 
-2.  В браузере перезагрузите страницу, затем в поле **Добавить новую задачу** введите текст (менее 10 символов) и нажмите кнопку **Добавить**.
+2. Перезагрузите страницу в веб-браузере, затем введите текст (менее 10 символов) в окне **Добавить новое задание** и щелкните **Добавить**.
 
-    Обратите внимание, что новая отметка времени не отображается в пользовательском интерфейсе приложения.
+   	Обратите внимание, что новая отметка времени не отображается в пользовательском интерфейсе приложения.
 
-3.  На портале управления щелкните вкладку **Обзор** в таблице **todoitem**.
-
-    Обратите внимание на появление столбца **createdAt** и на то, что новый вставленный элемент имеет значение отметки времени.
-
+3. Возвратившись на портал управления, откройте вкладку **Обзор** в таблице **todoitem**.
+   
+   	Обратите внимание, что теперь появился столбец **createdAt**, а вновь вставленный элемент имеет значение временной метки.
+  
 Далее необходимо обновить приложение для отображения этого нового столбца.
 
-## <a name="update-client-timestamp"></a>Повторное обновление клиента
+## <a name="update-client-timestamp"></a>Снова обновите клиент
 
-Клиент мобильной службы игнорирует любые данные в ответе, которые не могут быть сериализованы в свойства определенного типа. Последним шагом является обновление клиента для отображения новых данных.
+Клиент мобильной службы будет пропускать любые данные в ответе, которые не сможет сериализовать в свойства согласно заданному типу. Последним шагом является обновление клиента для отображения этих новых данных.
 
-1.  В редакторе откройте файл app.js и замените функцию **refreshTodoItems** следующим кодом:
+1. Откройте в редакторе файл app.js, затем замените функцию **refreshTodoItems** следующим кодом:
 
-        function refreshTodoItems() {
-            var query = todoItemTable.where(function () {
+		function refreshTodoItems() {
+			var query = todoItemTable.where(function () {
                 return (this.complete === false && this.createdAt !== null);
             });
-            query.read().then(function(todoItems) {
-                var listItems = $.map(todoItems, function(item) {
-                    return $('<li>')
-                        .attr('data-todoitem-id', item.id)
-                        .append($('<button class="item-delete">Delete</button>'))
-                        .append($('<input type="checkbox" class="item-complete">')
-                            .prop('checked', item.complete))
-                        .append($('<div>').append($('<input class="item-text">').val(item.text))
-                        .append($('<span class="timestamp">' 
-                            + (item.createdAt && item.createdAt.toDateString() + ' '
-                            + item.createdAt.toLocaleTimeString() || '') 
-                            + '</span>')));
-                });
-                $('#todo-items').empty().append(listItems).toggle(listItems.length > 0);
-                $('#summary').html('<strong>' + todoItems.length + '</strong> item(s)');
-            });
-        }
 
-    Это приведет к отображению раздела даты в новом свойстве **createdAt**.
+			query.read().then(function(todoItems) {
+				var listItems = $.map(todoItems, function(item) {
+					return $('<li>')
+						.attr('data-todoitem-id', item.id)
+						.append($('<button class="item-delete">Delete</button>'))
+						.append($('<input type="checkbox" class="item-complete">')
+							.prop('checked', item.complete))
+						.append($('<div>').append($('<input class="item-text">').val(item.text))
+						.append($('<span class="timestamp">' 
+							+ (item.createdAt && item.createdAt.toDateString() + ' '
+							+ item.createdAt.toLocaleTimeString() || '') 
+							+ '</span>')));
 
-2.  В редакторе откройте файл style.css и замените стили класса `item-text` следующим кодом:
+				});
 
-        .item-text { width: 70%; height: 26px; line-height: 24px; 
-            border: 1px solid transparent; background-color: transparent; }
-        .timestamp { width: 30%; height: 40px; font-size: .75em; }
+				$('#todo-items').empty().append(listItems).toggle(listItems.length > 0);
+				$('#summary').html('<strong>' + todoItems.length + '</strong> item(s)');
+			});
+		}
 
-    В результате изменятся размеры текстового поля и стили нового текста метки.
+   	Это отображает часть нового свойства **createdAt**, отвечающую за дату. 
 
-3.  Перезагрузите страницу.
+2. Откройте в редакторе файл style.css и замените стили в классе `item-text` следующим:
 
-    Обратите внимание, что отметка времени отображается только для вставленных элементов после обновления скрипта вставки.
+		.item-text { width: 70%; height: 26px; line-height: 24px; 
+			border: 1px solid transparent; background-color: transparent; }
+		.timestamp { width: 30%; height: 40px; font-size: .75em; }
 
-4.  В функции **refreshTodoItems** снова замените строку кода, которая определяет запрос, следующим:
+	В результате изменятся размеры текстового поля и стили нового текста метки.
+	
+6. Перезагрузите страницу. 	
+
+   	Обратите внимание, что отметка времени отображается только для вставленных элементов после обновления скрипта вставки.
+
+7. Еще раз замените строку кода, определяющую запрос в функции **refreshTodoItems**, следующим:
 
          var query = todoItemTable.where(function () {
                 return (this.complete === false && this.createdAt !== null);
             });
 
-    Эта функция обновляет запрос для исключения тех элементов, которые не имеют значения отметки времени.
+   	Эта функция обновляет запрос для исключения тех элементов, которые не имеют значения отметки времени.
+	
+8. Перезагрузите страницу.
 
-5.  Перезагрузите страницу.
-
-    Обратите внимание, что все элементы, созданные без значения отметки времени, исключаются из пользовательского интерфейса.
+   	Обратите внимание, что все элементы, созданные без значения отметки времени, исключаются из пользовательского интерфейса.
 
 Вы завершили работу с учебником данных.
 
 ## <a name="next-steps"> </a>Дальнейшие действия
 
-Теперь, когда вы завершили работу с этим учебником, проработайте последний учебник в серии работы с данными: [Уточнение запросов c разбиением по страницам][Уточнение запросов c разбиением по страницам].
+Теперь, после прохождения этого учебника, рассмотрите возможность перехода к заключительному учебнику в этом ряду, касающемся данных: [Уточнение запросов с постраничным просмотром].
 
-Дополнительные сведения см. в разделах [Работа с серверными скриптами в мобильных службах][Работа с серверными скриптами в мобильных службах] и [Справочник принципов использования мобильных служб HTML/JavaScript][Справочник принципов использования мобильных служб HTML/JavaScript]
+Для получения дополнительной информации см. разделы [Работа с серверными скриптами] и [Мобильные службы HTML/JavaScript, как создавать концептуальные ссылки]
 
 
+<!-- Anchors. -->
+[Добавление проверки длины строки]: #string-length-validation
+[Обновление клиента для поддержки проверки]: #update-client-validation
+[Добавление отметки времени при вставке]: #add-timestamp
+[Обновление клиента для отображения отметки времени]: #update-client-timestamp
+[Дальнейшие действия]: #next-steps
 
-  [Добавление проверки длины строки]: #string-length-validation
-  [Обновление клиента для поддержки проверки]: #update-client-validation
-  [Добавление отметки времени при вставке]: #add-timestamp
-  [Обновление клиента для отображения отметки времени]: #update-client-timestamp
-  [Приступая к работе с данными]: /ru-ru/develop/mobile/tutorials/get-started-with-data-html
-  [портал управления Azure]: https://manage.windowsazure.com/
-  [0]: ./media/mobile-services-html-validate-modify-data-server-scripts/mobile-services-selection.png
-  [1]: ./media/mobile-services-html-validate-modify-data-server-scripts/mobile-portal-data-tables.png
-  [2]: ./media/mobile-services-html-validate-modify-data-server-scripts/mobile-insert-script-users.png
-  [Уточнение запросов c разбиением по страницам]: /ru-ru/develop/mobile/tutorials/add-paging-to-data-html
-  [Работа с серверными скриптами в мобильных службах]: /ru-ru/develop/mobile/how-to-guides/work-with-server-scripts
-  [Справочник принципов использования мобильных служб HTML/JavaScript]: /ru-ru/develop/mobile/how-to-guides/work-with-html-js-client
+<!-- Images. -->
+[0]: ./media/mobile-services-html-validate-modify-data-server-scripts/mobile-services-selection.png
+[1]: ./media/mobile-services-html-validate-modify-data-server-scripts/mobile-portal-data-tables.png
+[2]: ./media/mobile-services-html-validate-modify-data-server-scripts/mobile-insert-script-users.png
+
+
+<!-- URLs. -->
+[Работа с серверными скриптами]: /ru-ru/develop/mobile/how-to-guides/work-with-server-scripts
+[Приступая к работе с мобильными службами]: /ru-ru/develop/mobile/tutorials/get-started-html
+[Авторизация пользователей с помощью скриптов]: /ru-ru/develop/mobile/tutorials/authorize-users-html
+[Уточнение запросов посредством разбиения по страницам]: /ru-ru/develop/mobile/tutorials/add-paging-to-data-html
+[Приступая к работе с данными]: /ru-ru/develop/mobile/tutorials/get-started-with-data-html
+[Приступая к работе с аутентификацией]: /ru-ru/develop/mobile/tutorials/get-started-with-users-html
+
+[Портал управления]: https://manage.windowsazure.com/
+[Портал управления Azure]: https://manage.windowsazure.com/
+[Справочник принципов использования мобильных служб HTML/JavaScript]: /ru-ru/develop/mobile/how-to-guides/work-with-html-js-client

@@ -1,107 +1,108 @@
-<properties linkid="develop-mobile-tutorials-sso-with-adal" urlDisplayName="Active Directory SSO Authentication with ADAL" pageTitle="Authenticate your app with Active Directory Authentication Library Single Sign-On (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to authentication users for single sign-on with ADAL in your Windows Store application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Authenticate your app with Active Directory Authentication Library Single Sign-On" authors="wesmc" />
+﻿<properties urlDisplayName="Active Directory SSO Authentication with ADAL" pageTitle="Проверка подлинности приложения с помощью библиотеки проверки подлинности Active Directory с единым входом (Магазин Windows) | Центр мобильных разработок" metaKeywords="" description="Learn how to authentication users for single sign-on with ADAL in your Windows Store application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Authenticate your app with Active Directory Authentication Library Single Sign-On" authors="wesmc" manager="dwrede" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="wesmc" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="10/14/2014" ms.author="wesmc" />
 
 # Проверка подлинности приложения с помощью единого входа библиотеки проверки подлинности Active Directory
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="/ru-ru/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication" title="Магазин Windows C#" class="current">Магазин Windows C#</a>
-<a href="/ru-ru/documentation/articles/mobile-services-dotnet-backend-ios-adal-sso-authentication" title="iOS" >iOS</a>
-<a href="/ru-ru/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-adal-sso-authentication" title="Xamarin.iOS">Xamarin.iOS</a>
-</div>
+[WACOM.INCLUDE [mobile-services-selector-adal-sso](../includes/mobile-services-selector-adal-sso.md)]
 
-В этом руководстве в проект быстрого запуска будет добавляться проверка подлинности с помощью библиотеки проверки подлинности Active Directory.
+В этом учебнике вы научитесь добавлять проверку подлинности в проект быстрого запуска с помощью библиотеки проверки подлинности Active Directory, чтобы оказывать поддержку [операциям входа, ориентированным на клиента,](http://msdn.microsoft.com/ru-ru/library/azure/jj710106.aspx) с помощью Azure Active Directory. Чтобы научиться с помощью Azure Active Directory оказывать поддержку [операциям входа, ориентированным на службы,](http://msdn.microsoft.com/ru-ru/library/azure/dn283952.aspx) пройдите учебник [Добавление проверки подлинности в приложение мобильных служб](/ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/).
 
-Чтобы иметь возможность проверки подлинности пользователей необходимо зарегистрировать приложение в Azure Active Directory (AAD). Это делается в два этапа. Сначала следует зарегистрировать мобильную службу и предоставить в ней разрешения. Затем нужно зарегистрировать приложение Магазина Windows и предоставить ему доступ к этим разрешениям.
+Чтобы проверять подлинность пользователей, необходимо зарегистрировать свое приложение в службе Azure Active Directory (AAD). Это делается в два этапа. Сначала следует зарегистрировать мобильную службу и предоставить в ней разрешения. Затем нужно зарегистрировать приложение магазина Windows и предоставить ему доступ к этим разрешениям.
 
-> [WACOM.NOTE] Это руководство поможет лучше понять, как мобильные службы позволяют выполнять проверку подлинности Azure Active Directory единого входа для приложений Магазина Windows. Если это ваш первый опыт работы с мобильными службами, сначала ознакомьтесь с учебником [Приступая к работе с мобильными службами][Приступая к работе с мобильными службами].
+
+>[AZURE.NOTE] Этот учебник поможет вам понять, как мобильные службы открывают вам проверку подлинности Azure Active Directory с единым входом для приложений магазина Windows, используя [операции входа, ориентированные на клиента](http://msdn.microsoft.com/ru-ru/library/azure/jj710106.aspx). Если ранее вы на работали с мобильными службами, пройдите учебник [Начало работы с мобильными службами].
 
 В этом учебнике рассматриваются следующие основные действия:
 
-1.  [Регистрация мобильной службы в Azure Active Directory][Регистрация мобильной службы в Azure Active Directory]
-2.  [Регистрация приложения в Azure Active Directory][Регистрация приложения в Azure Active Directory]
-3.  [Настройка мобильной службы для требования проверки подлинности][Настройка мобильной службы для требования проверки подлинности]
-4.  [Добавление кода проверки подлинности в клиентское приложение][Добавление кода проверки подлинности в клиентское приложение]
-5.  [Тестирование клиента с использованием проверки подлинности][Тестирование клиента с использованием проверки подлинности]
+1. [Регистрация мобильной службы в Azure Active Directory]
+2. [Регистрация приложения в Azure Active Directory] 
+3. [Настройка мобильной службы для требования проверки подлинности]
+4. [Добавление кода проверки подлинности в клиентское приложение]
+5. [Тестирование клиента с использованием проверки подлинности]
 
 Для работы с данным учебником требуется следующее:
 
--   Visual Studio 2013 в Windows 8.1.
--   Изучение учебника [Приступая к работе с мобильными службами][Приступая к работе с мобильными службами] или [Приступая к работе с данными][Приступая к работе с данными].
--   Пакет NuGet пакета SDK мобильных служб Microsoft Azure
--   Пакет NuGet библиотеки проверки подлинности Active Directory
+* Visual Studio 2013 в Windows 8.1.
+* Прохождение учебника [Начало работы с мобильными службами] или [Начало работы с данными].
+* Пакет NuGet пакета SDK мобильных служб Microsoft Azure
+* Пакет NuGet библиотеки проверки подлинности Active Directory 
 
 [WACOM.INCLUDE [mobile-services-dotnet-adal-register-service](../includes/mobile-services-dotnet-adal-register-service.md)]
 
 ## <a name="register-app-aad"></a>Регистрация приложения в Azure Active Directory
 
-Чтобы зарегистрировать приложение в Azure Active Directory, необходимо сопоставить его с Магазином Windows и получить идентификатор безопасности пакета (SID) для приложения. SID пакета регистрируется с параметрами собственного приложения в Azure Active Directory.
+Чтобы зарегистрировать приложение в Azure Active Directory, необходимо связать его с Магазином Windows и получить идентификатор безопасности пакета (SID) для приложения. SID пакета регистрируется с параметрами собственного приложения в Azure Active Directory.
+
 
 ### Сопоставление приложения с новым именем приложения Магазина
 
-1.  В Visual Studio щелкните правой кнопкой мыши проект клиентского приложения, а затем выберите пункты **Магазин** и **Связать приложение с Магазином**.
-
-    ![][0]
-
-2.  Войдите в свою учетную запись в Центре разработки.
-
-3.  Введите имя, которое планируется зарезервировать для приложения, и нажмите кнопку **Зарезервировать**.
+1. В Visual Studio щелкните правой кнопкой мыши проект клиентского приложения, а затем выберите пункты **Магазин** и **Связать приложение с магазином**.
 
     ![][1]
 
-4.  Выберите новое имя приложения и нажмите кнопку **Далее**.
+2. Войдите в свою учетную запись в Центре разработки.
 
-5.  Нажмите **Сопоставить**, чтобы сопоставить приложение с именем в Магазине.
+3. Введите имя, которое планируется зарезервировать для приложения, и нажмите кнопку **Зарезервировать**.
+
+    ![][2]
+
+4. Выберите новое имя приложения и нажмите кнопку **Далее**.
+
+5. Нажмите **Сопоставить**, чтобы сопоставить приложение с именем в магазине.
+
 
 ### Получение SID пакета для приложения
 
 Теперь необходимо получить SID пакета, который будет настроен с параметрами собственного приложения.
 
-1.  Войдите в свою [панель мониторинга Центра разработки для Windows][панель мониторинга Центра разработки для Windows] и нажмите кнопку **Правка** в приложении.
-
-    ![][2]
-
-2.  Затем нажмите **Службы**.
+1. Войдите в свою [панель мониторинга центра разработки для Windows] и нажмите кнопку **Правка** в приложении.
 
     ![][3]
 
-3.  Затем нажмите **Сайт служб Live**.
+2. Затем нажмите **Службы**
 
     ![][4]
 
-4.  Скопируйте SID пакета, который находится вверху страницы.
+3. Нажмите **Веб-сайт служб Live**. 
 
     ![][5]
 
-### Создание регистрации собственного приложения
-
-1.  На [портале управления Azure][портале управления Azure] перейдите в раздел **Active Directory** и щелкните свой каталог.
+4. Скопируйте SID пакета, который находится вверху страницы.
 
     ![][6]
 
-2.  Щелкните вкладку **Приложения** наверху, затем нажмите кнопку **ДОБАВИТЬ**, чтобы добавить приложение.
+### Создание регистрации собственного приложения
 
-    ![][7]
+1. Перейдите к **Active Directory** на [портале управления Azure] и выберите свой каталог.
 
-3.  Выберите команду **Добавить приложение, разрабатываемое моей организацией**.
+    ![][7] 
 
-4.  В мастере добавления приложения введите **имя** для приложения и выберите тип **Собственное клиентское приложение**. Затем щелкните "Далее".
+2. Щелкните вкладку **Приложения** наверху, а затем нажмите кнопку, чтобы **Добавить** приложение. 
 
     ![][8]
 
-5.  В поле **URI перенаправления** вставьте SID пакета приложения, скопированный ранее, а затем нажмите кнопку завершения регистрации собственного приложения.
+3. Щелкните пункт **Добавить приложение, разрабатываемое моей организацией**.
+
+4. В мастере добавления приложений введите **имя** для приложения и выберите тип **Собственное клиентское приложение**. Затем щелкните "Далее".
 
     ![][9]
 
-6.  Перейдите на вкладку **Конфигурация** собственного приложения и скопируйте **ИД клиента**. Этот идентификатор потребуется позднее.
+5. В поле **URI перенаправления** вставьте SID пакета приложения, скопированный ранее, а затем нажмите кнопку завершения регистрации собственного приложения.
 
     ![][10]
 
-7.  Прокрутите страницу вниз до раздела **разрешений для других приложений** и предоставьте полный доступ к приложению мобильной службы, зарегистрированному ранее. Затем нажмите кнопку **Сохранить**.
+6. Перейдите на вкладку **Конфигурация** собственного приложения и скопируйте **идентификатор клиента**. Этот идентификатор потребуется позже.
 
     ![][11]
 
+7. Прокрутите страницу вниз до раздела **разрешений для других приложений** и предоставьте полный доступ к приложению мобильной службы, зарегистрированному ранее. Затем нажмите кнопку **Сохранить**.
+
+    ![][12]
+
 Теперь мобильная служба настроена в AAD для принятия попыток единого входа из приложения.
+
+
 
 ## <a name="require-authentication"></a>Настройка мобильной службы для требования проверки подлинности
 
@@ -109,17 +110,18 @@
 
 ## <a name="add-authentication-code"></a>Добавление кода проверки подлинности в клиентское приложение
 
-1.  Откройте проект клиентского приложения Магазина Windows в Visual Studio.
+1. Откройте проект клиентского приложения Магазина Windows в Visual Studio.
 
 [WACOM.INCLUDE [mobile-services-dotnet-adal-install-nuget](../includes/mobile-services-dotnet-adal-install-nuget.md)]
 
-1.  В окне обозревателя решений Visual Studio откройте файл MainPage.xaml.cs и добавьте следующие директивы using.
+4. В окне обозревателя решений Visual Studio откройте файл MainPage.xaml.cs и добавьте следующие директивы using.
 
         using Windows.UI.Popups;
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
         using Newtonsoft.Json.Linq;
 
-2.  Добавьте следующий фрагмент кода в класс MainPage, объявляющий метод `AuthenticateAsync`.
+
+5. Добавьте следующий фрагмент кода в класс MainPage, объявляющий метод `AuthenticateAsync`.
 
         private MobileServiceUser user; 
         private async Task AuthenticateAsync()
@@ -133,7 +135,7 @@
                 try
                 {
                   AuthenticationContext ac = new AuthenticationContext(authority);
-                  AuthenticationResult ar = await ac.AcquireTokenAsync(resourceURI, clientID);
+                  AuthenticationResult ar = await ac.AcquireTokenAsync(resourceURI, clientID, (Uri) null);
                   JObject payload = new JObject();
                   payload["access_token"] = ar.AccessToken;
                   user = await App.MobileService.LoginAsync(MobileServiceAuthenticationProvider.WindowsAzureActiveDirectory, payload);
@@ -149,59 +151,64 @@
             } 
         }
 
-3.  В коде для метода `AuthenticateAsync` выше замените **INSERT-AUTHORITY-HERE** именем клиента, в котором подготавливалось приложение, используя формат <https://login.windows.net/tenant-name.onmicrosoft.com>. Это значение можно скопировать со вкладки "Домен" в Azure Active Directory на [портале управления Azure][портале управления Azure].
+6. В коде для метода `AuthenticateAsync` замените **INSERT-AUTHORITY-HERE** на имя клиента, в пространстве которого подготовили свое приложение. Формат должен быть таким - https://login.windows.net/tenant-name.onmicrosoft.com. Это значение можно скопировать из вкладки "Домен" Azure Active Directory на [портале управления Azure].
 
-4.  В коде для метода `AuthenticateAsync` выше замените **INSERT-RESOURCE-URI-HERE** на **Универсальный код ресурса (URI) идентификатора приложения** для вашей мобильной службы. Если выполнялись инструкции из раздела [Регистрация в Azure Active Directory][Регистрация в Azure Active Directory], то URI ИД приложения должен быть аналогичен <https://todolist.azure-mobile.net/login/aad>.
+7. В коде для метода `AuthenticateAsync` замените **INSERT-RESOURCE-URI-HERE** на **App ID URI** для вашей мобильной службы. Если вы прошли раздел [Регистрация в Azure Active Directory], то полученный вами URI идентификатора приложения должен быть аналогичным https://todolist.azure-mobile.net/login/aad.
 
-5.  В коде для метода `AuthenticateAsync` выше замените **INSERT-CLIENT-ID-HERE** идентификатором клиента, скопированным из собственного клиентского приложения.
+8. В коде для упомянутого выше метода `AuthenticateAsync` замените **INSERT-CLIENT-ID-HERE** на идентификатор клиента, скопированный из собственного клиентского приложения.
 
-6.  В окне обозревателя решений в Visual Studio откройте файл Package.appxmanifest в клиентском проекте. Перейдите на вкладку **Возможности** и установите флажки **Корпоративное приложение** и **Частные сети (клиент и сервер)**. Сохраните файл.
+9. В окне обозревателя решений в Visual Studio откройте файл Package.appxmanifest в клиентском проекте. Перейдите на вкладку **Возможности** и установите флажки **Корпоративное приложение** и **Частные сети (клиент и сервер)**. Сохраните файл.
 
-    ![][12]
+    ![][14]
 
-7.  В файле MainPage.cs обновите обработчик событий `OnNavigatedTo` для вызова метода `AuthenticateAsync` следующим образом.
+10. В файле MainPage.cs обновите обработчик событий `OnNavigatedTo` для вызова метода `AuthenticateAsync` следующим образом.
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
-            if (user == null)
-                await AuthenticateAsync();
-
-            RefreshTodoItems();
+            await AuthenticateAsync();
+            await RefreshTodoItems();
         }
+
 
 ## <a name="test-client"></a>Тестирование клиента с использованием проверки подлинности
 
-1.  Запустите клиентское приложение в Visual Studio.
-2.  Появится приглашение выполнить вход в Azure Active Directory.
-3.  Приложение выполняет проверку подлинности и возвращает элементы списка дел.
+1. Запустите клиентское приложение в Visual Studio.
+2. Появится приглашение выполнить вход в Azure Active Directory.  
+3. Приложение выполняет проверку подлинности и возвращает элементы списка дел.
 
-    ![][13]
+    ![][15]
 
+
+
+<!-- Anchors. -->
+[Регистрация мобильной службы в Azure Active Directory]: #register-mobile-service-aad
+[Регистрация приложения в Azure Active Directory]: #register-app-aad
+[Настройка мобильной службы для требования проверки подлинности]: #require-authentication
+[Серверная мобильная служба JavaScript]: #javascript-authentication
+[Серверная мобильная служба .NET]: #dotnet-authentication
+[Добавление кода проверки подлинности в клиентское приложение]: #add-authentication-code
+[Тестирование клиента с использованием проверки подлинности]: #test-client
 
 <!-- Images -->
+[0]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-aad-app-manage-manifest.png
+[1]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-vs-associate-app.png
+[2]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-vs-reserve-store-appname.png
+[3]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-store-app-edit.png
+[4]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-store-app-services.png
+[5]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-live-services-site.png
+[6]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-store-app-package-sid.png
+[7]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-select-aad.png
+[8]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-aad-applications-tab.png
+[9]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-native-selection.png
+[10]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-native-sid-redirect-uri.png
+[11]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-native-client-id.png
+[12]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-native-add-permissions.png
+[14]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-package-appxmanifest.png
+[15]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-app-run.png
 
-
-  [Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
-  [Регистрация мобильной службы в Azure Active Directory]: #register-mobile-service-aad
-  [Регистрация приложения в Azure Active Directory]: #register-app-aad
-  [Настройка мобильной службы для требования проверки подлинности]: #require-authentication
-  [Добавление кода проверки подлинности в клиентское приложение]: #add-authentication-code
-  [Тестирование клиента с использованием проверки подлинности]: #test-client
-  [Приступая к работе с данными]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/
-  [0]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-vs-associate-app.png
-  [1]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-vs-reserve-store-appname.png
-  [панель мониторинга Центра разработки для Windows]: http://go.microsoft.com/fwlink/p/?LinkID=266734
-  [2]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-store-app-edit.png
-  [3]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-store-app-services.png
-  [4]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-live-services-site.png
-  [5]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-store-app-package-sid.png
-  [портале управления Azure]: https://manage.windowsazure.com/
-  [6]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-select-aad.png
-  [7]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-aad-applications-tab.png
-  [8]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-native-selection.png
-  [9]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-native-sid-redirect-uri.png
-  [10]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-native-client-id.png
-  [11]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-native-add-permissions.png
-  [Регистрация в Azure Active Directory]: /ru-ru/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
-  [12]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-package-appxmanifest.png
-  [13]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-app-run.png
+<!-- URLs. -->
+[Регистрация в службе Azure Active Directory]: /ru-ru/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
+[Портал управления Azure]: https://manage.windowsazure.com/
+[Приступая к работе с данными]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/
+[Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
+[Панель мониторинга центра разработок для Windows]: http://go.microsoft.com/fwlink/p/?LinkID=266734

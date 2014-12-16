@@ -1,52 +1,58 @@
-<properties writer="ricksal" pageTitle="Call a custom API from an Android client | Mobile Dev Center" metaKeywords="" description="Learn how to define a custom API and then call it from an Android app that uses Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="mobile-services" documentationCenter="Mobile" title="Call a custom API from the client" authors="glenga"  />
+﻿<properties writer="ricksal" pageTitle="Вызов пользовательского API из клиента Android | Центр мобильных разработок" metaKeywords="" description="Learn how to define a custom API and then call it from an Android app that uses Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="mobile-services" documentationCenter="Mobile" title="Call a custom API from the client" authors="ricksal,glenga" manager="dwrede" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="10/16/2014" ms.author="ricksal,glenga" />
 
 # Вызов из клиента настраиваемого интерфейса API
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/ru-ru/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api" title="Магазин Windows C#">Магазин Windows C#</a><a href="/ru-ru/documentation/articles/mobile-services-windows-store-javascript-call-custom-api" title="Магазин Windows JavaScript">Магазин Windows JavaScript</a><a href="/ru-ru/documentation/articles/mobile-services-windows-phone-call-custom-api" title="Windows Phone">Windows Phone</a><a href="/ru-ru/documentation/articles/mobile-services-ios-call-custom-api" title="iOS">iOS</a><a href="/ru-ru/documentation/articles/mobile-services-android-call-custom-api" title="Android" class="current">Android</a><a href="/ru-ru/documentation/articles/mobile-services-html-call-custom-api" title="HTML">HTML</a></div>
+[WACOM.INCLUDE [mobile-services-selector-call-custom-api](../includes/mobile-services-selector-call-custom-api.md)]
 
-<div class="dev-center-tutorial-subselector"><a href="/ru-ru/documentation/articles/mobile-services-dotnet-backend-android-call-custom-api" title="Серверная часть .NET">Серверная часть .NET</a> | <a href="/ru-ru/documentation/articles/mobile-services-android-call-custom-api"  title="Серверная часть JavaScript" class="current">Серверная часть JavaScript</a></div>
+В этом разделе показано, как вызвать пользовательский API из приложения Android. Настраиваемый интерфейс API позволяет определить пользовательские конечные точки, которые предоставляют функциональные возможности сервера, не сопоставляемые с операциями вставки, обновления, удаления или чтения. Настраиваемый API позволяет получить больший контроль над передачей сообщений, включая чтение и задание заголовков сообщений HTTP и определение формата текста сообщения, отличного от JSON.
 
-В этом разделе показано, как вызывать настраиваемый интерфейс API из приложений Android. Настраиваемый интерфейс API позволяет определить пользовательские конечные точки, которые предоставляют функциональные возможности сервера, не сопоставляемые с операциями вставки, обновления, удаления или чтения. При использовании настраиваемого интерфейса API вы получаете больше возможностей для управления сообщениями, в том числе для чтения и установки заголовков HTTP-сообщений, а также определения форматов текста сообщений, отличных от JSON.
+Настраиваемый API, создаваемый в этом разделе, позволяет отправить единственный запрос POST, который устанавливает флажок *completed* равным `true` для всех элементов, подлежащих выполнению, в таблице мобильной службы. Без этого настраиваемого API клиенту пришлось бы отправлять отдельные запросы для обновления в таблице каждого элемента, подлежащего выполнению.
 
-Настраиваемый API, созданный в данном разделе, дает возможность отправить один запрос POST, который устанавливает для флага *completed* значение `true` для всех элементов списка дел в таблице мобильной службы. Без настраиваемого интерфейса API клиенту требуется отправлять отдельные просьбы, чтобы обновить флаг для каждого элемента списка дел в таблице.
+Добавьте эту функциональную возможность в приложение, созданное при прохождении учебника [Начало работы с мобильными службами] или [Начало работы с данными]. Для этого выполните следующие шаги:
 
-Вы добавите эту функцию в приложение, созданное в учебнике [Приступая к работе с мобильными службами][Приступая к работе с мобильными службами] или [Приступая к работе с данными][Приступая к работе с данными]. Для этого требуются следующие действия:
+1. [Определение настраиваемого интерфейса API]
+2. [Обновление приложения для вызова настраиваемого API]
+3. [Тестирование приложения] 
 
-1.  [Определение настраиваемого интерфейса API][Определение настраиваемого интерфейса API]
-2.  [Обновление приложения для вызова настраиваемого API][Обновление приложения для вызова настраиваемого API]
-3.  [Тестирование приложения][Тестирование приложения]
+Этот учебник создан на основе краткого руководства по мобильным службам. Перед началом работы с этим учебником необходимо сначала пройти учебник [Приступая к работе с мобильными службами] или [Приступая к работе с данными]. 
 
-Этот учебник создан на основе краткого руководства по мобильным службам. Перед работой с этим учебником необходимо сначала пройти учебник [Приступая к работе с мобильными службами][Приступая к работе с мобильными службами] или [Приступая к работе с данными][Приступая к работе с данными].
-
+>[AZURE.NOTE] Если требуется просмотреть исходный код завершенного приложения, см. <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures/CallCustomApi/Android" target="_blank">здесь</a>.
+>
 ## <a name="define-custom-api"></a>Определение настраиваемого интерфейса API
 
 [WACOM.INCLUDE [mobile-services-create-custom-api](../includes/mobile-services-create-custom-api.md)]
 
+
 [WACOM.INCLUDE [mobile-services-android-call-custom-api](../includes/mobile-services-android-call-custom-api.md)]
+
 
 ## Дальнейшие действия
 
 Узнав, как создать настраиваемый API и вызывать его из приложения для Android, изучите следующие статьи о мобильных службах:
 
--   [Справочник серверных скриптов мобильных служб][Справочник серверных скриптов мобильных служб]
-   
-    Дополнительные сведения о создании настраиваемых API.
 
--   [Хранение серверных скриптов в системе управления версиями][Хранение серверных скриптов в системе управления версиями]
-   
-     Узнайте, как использовать функцию управления версиями, чтобы легко и надежно разрабатывать и публиковать код сценариев настраиваемого API.
 
-<br/>
-<br/>
-<br/>
-<br/>
+* [Справочник серверных скриптов мобильных служб]
+  <br/>Дополнительные сведения о создании настраиваемых API.
 
-  [Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/mobile-services-android-get-started/
-  [Приступая к работе с данными]: /ru-ru/documentation/articles/mobile-services-android-get-started-data/
-  [Определение настраиваемого интерфейса API]: #define-custom-api
-  [Обновление приложения для вызова настраиваемого API]: #update-app
-  [Тестирование приложения]: #test-app
-  [Справочник серверных скриптов мобильных служб]: http://go.microsoft.com/fwlink/?LinkId=262293
-  [Хранение серверных скриптов в системе управления версиями]: /ru-ru/documentation/articles/mobile-services-store-scripts-source-control
+* [Хранение серверных скриптов системе управления версиями]
+  <br/> Узнайте, как использовать функцию управления версиями, чтобы легко и надежно разрабатывать и публиковать код сценариев настраиваемого API.
+
+<!-- Anchors. -->
+[Определение настраиваемого интерфейса API]: #define-custom-api
+[Обновление приложения для вызова настраиваемого API]: #update-app
+[Тестирование приложения]: #test-app
+[Дальнейшие действия]: #next-steps
+
+<!-- URLs. -->
+[Android SDK для мобильных служб]: http://go.microsoft.com/fwlink/p/?LinkID=280126
+[Справочник серверных скриптов мобильных служб]: http://go.microsoft.com/fwlink/?LinkId=262293
+[Панель мониторинга "Мои приложения"]: http://go.microsoft.com/fwlink/?LinkId=262039
+[Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/mobile-services-android-get-started/
+[Приступая к работе с данными]: /ru-ru/documentation/articles/mobile-services-android-get-started-data/
+[Приступая к работе с аутентификацией]: /ru-ru/documentation/articles/mobile-services-android-get-started-users/
+[Приступая к работе с push-уведомлениями]: /ru-ru/documentation/articles/mobile-services-android-get-started-push/
+
+[Хранение серверных скриптов системе управления версиями]: /ru-ru/documentation/articles/mobile-services-store-scripts-source-control

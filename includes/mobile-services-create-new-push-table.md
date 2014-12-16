@@ -1,24 +1,21 @@
-1.  Выполните вход на [портал управления Azure][портал управления Azure], щелкните элемент **Мобильные службы**, а затем выберите свое приложение.
+﻿
+1. Зарегистрируйтесь на [Портале управления Azure], щелкните **Мобильные службы**, затем щелкните свое приложение.
 
-    ![][0]
+	![](./media/mobile-services-create-new-push-table/mobile-services-selection.png)
 
-2.  Щелкните вкладку **Данные**, а затем нажмите **Создать**.
+2. Щелкните вкладку **Данные**, а затем нажмите **Создать**.
 
-    ![][1]
+	![](./media/mobile-services-create-new-push-table/mobile-create-table.png)
 
-    Откроется диалоговое окно **Создание новой таблицы**.
+	Откроется диалоговое окно **Создание новой таблицы**.
 
-3.  Сохранив параметр по умолчанию **Все с ключом приложения** для всех разрешений, введите *Регистрации* в поле **Имя таблицы** и нажмите кнопку «Проверить».
+3. Сохранив параметр по умолчанию **Все с ключом приложения** для всех разрешений, введите _Registrations_ в поле **Имя таблицы** и нажмите кнопку "Проверить".
 
-    ![][2]
+	![](./media/mobile-services-create-new-push-table/mobile-create-registrations-table.png)
 
-   При этом создается таблица **Регистрации**, где хранятся идентификаторы URI, используемые для отправки push-уведомлений.
+  При этом создается таблица **Регистрации**, где хранятся URI каналов, используемые для отправки push-уведомлений.
 
 Далее следует изменить приложение, чтобы включить push-уведомления.
 
 <!-- URLs -->
-
-  [портал управления Azure]: https://manage.windowsazure.com/
-  [0]: ./media/mobile-services-create-new-push-table/mobile-services-selection.png
-  [1]: ./media/mobile-services-create-new-push-table/mobile-create-table.png
-  [2]: ./media/mobile-services-create-new-push-table/mobile-create-registrations-table.png
+[Портал управления Azure]: https://manage.windowsazure.com/

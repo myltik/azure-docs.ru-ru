@@ -1,46 +1,36 @@
-<properties linkid="develop-mobile-tutorials-dotnet-backend-validate-modify-and-augment-data-javascript" urlDisplayName="Validate and Modify Data" pageTitle="Use the .Net backend to validate and modify data (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to validate, modify, and augment data for your Javascript Windows Store app with .Net backend Windows Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using the .Net backend" authors="wesmc" solutions="" manager="" editor="" />
+﻿<properties urlDisplayName="Validate and Modify Data" pageTitle="Использование серверной части .Net для проверки и изменения данных (Магазин Windows) | Центр разработчиков для мобильных устройств" metaKeywords="" description="Learn how to validate, modify, and augment data for your Javascript Windows Store app with .Net backend Windows Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using the .Net backend" authors="wesmc" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/26/2014" ms.author="wesmc" />
 
 # Проверка и изменение данных в мобильных службах с помощью серверной части .NET
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="/ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-validate-modify-data/" title="Магазин Windows C#">Магазин Windows C#</a>
-<a href="/ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-validate-modify-data/" title="Магазин Windows JavaScript" class="current">Магазин Windows JavaScript</a>
-<a href="/ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-phone-validate-modify-data/" title="Windows Phone">Windows Phone</a><a href="/ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-ios" title="iOS">iOS</a>
-<a href="/ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-android" title="Android">Android</a>
-<a href="/ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-html" title="HTML">HTML</a><a href="/ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a>
-<a href="/ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>
-</div>
-<div class="dev-center-tutorial-subselector">
-    <a href="/ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-validate-modify-data/" title="Сервер .NET" class="current">Сервер .NET</a> | 
-    <a href="/ru-ru/documentation/articles/mobile-services-windows-store-javascript-validate-modify-data-server-scripts/"  title="Сервер JavaScript">Сервер JavaScript</a>
-</div>
+[WACOM.INCLUDE [mobile-services-selector-validate-modify-data](../includes/mobile-services-selector-validate-modify-data.md)]
 
-
-В этом разделе показано, как использовать код в мобильных службах Azure на основе .NET для проверки и изменения данных. Серверная служба .NET — это HTTP-служба, созданная с помощью платформы Web API. Если вам знаком класс `ApiController`, определенный с помощью платформы веб-API, класс `TableController`, предоставляемый мобильными службами, будет вам интуитивно понятен. `TableController` является производным от класса `ApiController` и предоставляет дополнительные возможности для взаимодействия с таблицей базы данных. Его можно использовать для выполнения различных операций со вставляемыми и обновляемыми данными, включая проверку и изменение данных, что показано в этом учебнике.
+В этом разделе показано, как использовать код в мобильных службах Azure на основе .NET для проверки и изменения данных. Серверная служба .NET - это HTTP-служба, созданная с помощью платформы Web API. Если вы знакомы с классом `ApiController`, определенным с помощью платформы Web API, то предоставляемый мобильными службами класс `TableController` будет интуитивно понятным. `TableController` является производным от класса `ApiController`. Он предоставляет дополнительные возможности для взаимодействия с таблицей базы данных. Ее можно использовать для выполнения различных операций со вставляемыми и обновляемыми данными, включая проверку и изменение данных, что показано в этом учебнике. 
 
 В этом учебнике рассматриваются следующие основные действия:
 
-1.  [Добавление проверки длины строки][Добавление проверки длины строки]
-2.  [Обновление клиента для поддержки проверки][Обновление клиента для поддержки проверки]
-3.  [Проверка длины теста][Проверка длины теста]
-4.  [Добавление метки времени для CompleteDate][Добавление метки времени для CompleteDate]
-5.  [Обновление клиента для отображения CompleteDate][Обновление клиента для отображения CompleteDate]
+1. [Добавление проверки длины строки]
+2. [Обновление клиента для поддержки проверки]
+3. [Проверка длины теста]
+4. [Добавление метки времени для CompleteDate]
+5. [Обновление клиента для отображения CompleteDate]
 
-Этот учебник основан на инструкциях и примере приложения предыдущего учебника, [Приступая к работе][Приступая к работе] или [Приступая к работе с данными][Приступая к работе с данными]. Перед работой с этим учебником необходимо сначала пройти учебник [Приступая к работе][Приступая к работе] или [Приступая к работе с данными][Приступая к работе с данными].
+Этот учебник основан на инструкциях и образце приложения из предыдущего учебника [Приступая к работе] или [Приступая к работе с данными](/ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/). Перед работой с этим учебником необходимо сначала пройти учебник [Приступая к работе] или [Приступая к работе с данными](/ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/).  
 
 ## <a name="string-length-validation"></a>Добавление кода проверки в мобильную службу
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-add-validation](../includes/mobile-services-dotnet-backend-add-validation.md)]
 
+
 ## <a name="update-client-validation"></a>Обновление клиента
 
-Теперь, когда мобильная служба настроена для проверки данных и отправки сообщений об ошибках при недопустимой длине текста, необходимо обновить приложение для обработки сообщений об ошибках, полученных при выполнении проверки. Ошибка будет перехвачена из вызова клиентского приложения в `IMobileServiceTable<TodoItem].InsertAsync()`.
+Теперь, когда мобильная служба настроена для проверки данных и отправки сообщений об ошибках при недопустимой длине текста, необходимо обновить приложение для обработки сообщений об ошибках, полученных при выполнении проверки. Ошибка будет перехвачена из вызова клиентского приложения, направленного к `IMobileServiceTable<TodoItem].InsertAsync()`.
 
-1.  В окне обозревателя решений в Visual Studio откройте проект клиентского приложения на JavaScript и разверните папку **js**. Затем откройте файл default.js.
+1. В обозревателе решений в среде Visual Studio откройте проект клиентского приложения на JavaScript и разверните папку **js**. Затем откройте файл default.js.
 
-2.  В файле default.js замените существующую функцию **insertTodoItem** на следующее определение функции:
+2. В файле default.js замените существующую функцию **insertTodoItem** следующим определением функции:
+
 
         var insertTodoItem = function (todoItem) {
             // This code inserts a new TodoItem into the database. When the operation completes
@@ -57,30 +47,32 @@
                 });
         };
 
-    Эта версия функции содержит обработку ошибок и отображает `MessageDialog` с сообщением об ошибке из ответа, текст состояния и код состояния.
+   	Эта версия функции содержит обработку ошибок и отображает `MessageDialog` с сообщением об ошибке из ответа, текст состояния и код состояния.
 
 ## <a name="test-length-validation"></a>Проверка длины теста
 
-1.  В обозревателе решений в Visual Studio щелкните правой кнопкой мыши проект клиентского приложения на JavaScript и щелкните **Отладка**, затем **Запустить новый экземпляр**.
+1. В обозревателе решений в Visual Studio щелкните правой кнопкой мыши проект клиентского приложения на JavaScript, затем выберите **Отладка**, **Запустить новый экземпляр**.
 
-2.  Введите текст для нового элемента списка дел длиной более 10 символов и нажмите кнопку **Сохранить**.
-
-    ![][0]
-
-3.  В ответ на ввод недопустимого текста появится следующее диалоговое окно.
+2. Введите текст для нового элемента списка дел длиной более 10 символов, затем нажмите кнопку **Сохранить**.
 
     ![][1]
 
-## <a name="add-timestamp"></a>Добавление поля метки времени для CompleteDate
+3. В ответ на ввод недопустимого текста появится следующее диалоговое окно.
+
+    ![][2]
+
+## <a name="add-timestamp"></a>Добавление метки времени для CompleteDate
+
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-add-completedate](../includes/mobile-services-dotnet-backend-add-completedate.md)]
 
-## <a name="update-client-timestamp"></a>Изменение клиента для отображения completeDate
+## <a name="update-client-timestamp"></a>Обновление клиента для отображения completeDate
 
-Последним шагом является обновление клиента для отображения новых данных **CompleteDate**.
+Последний шаг - обновление клиента с целью отображения новых данных **completeDate**. 
 
-1.  В обозревателе решений для Visual Studio, в проекте клиентского приложения на JavaScript откройте файл default.html. Замените элемент тега `div` шаблона привязки на следующее определение. Затем сохраните файл. При этом будет добавлен тег `div` со свойством innerText, привязанным к **completeDate**.
 
+1. В обозревателе решений в Visual Studio откройте проект клиентского приложения JavaScript и откройте файл default.html. Замените элемент тега `div` шаблона привязки на следующее определение. Затем сохраните файл. При этом будет добавлен тег `div` со свойством innerText, привязанным к **completeDate**.
+	      
         <div id="TemplateItem" data-win-control="WinJS.Binding.Template">
           <div style="display: -ms-grid; -ms-grid-columns: 3">
             <input class="itemCheckbox" type="checkbox" data-win-bind="checked: complete; 
@@ -94,7 +86,9 @@
           </div>
         </div>
 
-2.  В файле default.js удалите функцию с предложением `.Where` в существующей функции **refreshTodoItems**, чтобы включить завершенные элементы todoitem в результаты.
+
+
+2. В файле default.js удалите функцию `.Where` в существующей функции **refreshTodoItems**, чтобы добавить в результаты завершенные элементы todoitem.
 
             var refreshTodoItems = function () {
                 // This code refreshes the entries in the list view be querying the TodoItems table.
@@ -106,7 +100,8 @@
                     });
             };
 
-3.  В файле default.js обновите функцию **updateCheckedTodoItem**, как показано ниже, чтобы элементы обновлялись после изменения, а завершенные элементы не удалялись из списка. Затем сохраните файл.
+
+3. В файле default.js обновите функцию **updateCheckedTodoItem**, как показано ниже, чтобы элементы обновлялись после изменения, а завершенные элементы не удалялись из списка. Затем сохраните файл.	
 
             var updateCheckedTodoItem = function (todoItem) {
                 // This code takes a freshly completed TodoItem and updates the database. 
@@ -115,50 +110,62 @@
                 });
             };
 
-4.  В окне обозревателя решений в Visual Studio щелкните правой кнопкой мыши **Решение** и выберите пункт **Перестроить решение**, чтобы повторить сборку клиента и серверной службы .NET. Убедитесь, что построение выполнено без ошибок.
 
-    ![][2]
-
-5.  Нажмите клавишу **F5**, чтобы локально запустить клиентское приложение и службу. Добавьте новые элементы и отметьте некоторые элементы как завершенные, чтобы убедиться, что временная метка **CompleteDate** обновляется.
+4. В окне обозревателя решений в Visual Studio щелкните правой кнопкой мыши **Решение** и выберите команду **Перестроить решение** для перестройки клиента и серверной службы .NET. Убедитесь, что оба проекта были построены без ошибок.
 
     ![][3]
+	
+5. Нажмите клавишу **F5**, чтобы запустить клиентское приложение и службу локально. Добавьте новые элементы и отметьте некоторые как завершенные, чтобы убедиться, что метка времени **CompleteDate** обновляется.
 
-6.  В обозревателе решений в Visual Studio щелкните правой кнопкой мыши проект службы todolist и выберите **Опубликовать**. Опубликуйте службу .NET в Microsoft Azure с помощью файла настроек публикации, загруженного с портала Azure.
+    ![][4]
 
-7.  Обновите файл default.js для проекта клиентского приложения, раскомментировав подключение к адресу мобильной службы. Проверьте приложения со службой .NET, размещенной в учетной записи Azure.
+6. В обозревателе решений в Visual Studio щелкните правой кнопкой мыши проект службы todolist и выберите **Опубликовать**. Опубликуйте службу .NET в Microsoft Azure с помощью файла настроек публикации, загруженного с портала Azure.
+
+7. Обновите файл default.js для проекта клиентского приложения, раскомментировав подключение к адресу мобильной службы. Проверьте приложение на серверной части .NET, размещенной в вашей учетной записи Azure.
+
+
+
 
 ## <a name="next-steps"> </a>Дальнейшие действия
 
-Теперь, когда вы завершили работу с этим учебником, проработайте последний учебник в серии работы с данными: [Уточнение запросов c разбиением по страницам][Уточнение запросов c разбиением по страницам].
+Теперь, после прохождения этого учебника, рассмотрите возможность перехода к заключительному учебнику в этом ряду, касающемся данных: [Уточнение запросов с постраничным просмотром].
 
-Серверные скрипты используются также при авторизации пользователей для отправки push-уведомлений. Дополнительные сведения см. в следующих учебниках:
+Серверный скрипт также используются при авторизации пользователей и для отправки push-уведомлений. Дополнительные сведения см. в следующих учебниках:
 
--   [Авторизация пользователей мобильных служб на стороне службы][Авторизация пользователей мобильных служб на стороне службы]
+* [Авторизация пользователей на стороне службы]
+  <br/>Фильтрация данных с учетом идентификатора пользователя, прошедшего проверку подлинности.
 
-    Узнайте, как фильтровать данные на основании идентификатора аутентифицированного пользователя.
+* [Приступая к работе с push-уведомлениями] 
+  <br/>Отправка очень простого push-уведомления в приложение.
 
--   [Приступая к работе с push-уведомлениями][Приступая к работе с push-уведомлениями]
+* [Справочник принципов использования мобильных служб .NET]
+  <br/>Использование мобильных служб с .NET.
 
-    Сведения об отправке в приложение простейших push-уведомлений.
+<!-- Anchors. -->
+[Добавление проверки длины строки]: #string-length-validation
+[Обновление клиента с целью поддержки проверки]: #update-client-validation
+[Проверка длины теста]: #test-length-validation
+[Добавление поля метки времени для CompleteDate]: #add-timestamp
+[Обновление клиента с целью отображения CompleteDate]: #update-client-timestamp
+[Следующие шаги]: #next-steps
 
--   [Справочник принципов использования мобильных служб .NET][Справочник принципов использования мобильных служб .NET]
+<!-- Images. -->
+[1]: ./media/mobile-services-dotnet-backend-windows-store-javascript-validate-modify-data/mobile-services-invalid-text-length.png
+[2]: ./media/mobile-services-dotnet-backend-windows-store-javascript-validate-modify-data/mobile-services-invalid-text-length-exception-dialog.png
+[3]: ./media/mobile-services-dotnet-backend-windows-store-javascript-validate-modify-data/mobile-services-rebuild-solution.png
+[4]: ./media/mobile-services-dotnet-backend-windows-store-javascript-validate-modify-data/mobile-services-final-local-app-run.png
 
-    Дополнительные сведения об использовании мобильных служб в .NET.
 
 
+<!-- URLs. -->
+[Приступая к работе с мобильными службами]: /ru-ru/develop/mobile/tutorials/get-started/#create-new-service
+[Авторизация пользователей на стороне службы]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-authorize-users-in-scripts/
+[Уточнение запросов посредством разбиения на страницы]: /ru-ru/develop/mobile/tutorials/add-paging-to-data-dotnet
+[Приступая к работе]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started/
+[Знакомство с механизмом проверки подлинности]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users/
+[Приступая к работе с push-уведомлениями]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/
+[JavaScript и HTML]: /ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-js
 
-  [Добавление проверки длины строки]: #string-length-validation
-  [Обновление клиента для поддержки проверки]: #update-client-validation
-  [Проверка длины теста]: #test-length-validation
-  [Добавление метки времени для CompleteDate]: #add-timestamp
-  [Обновление клиента для отображения CompleteDate]: #update-client-timestamp
-  [Приступая к работе]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started/
-  [Приступая к работе с данными]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/
-  [0]: ./media/mobile-services-dotnet-backend-windows-store-javascript-validate-modify-data/mobile-services-invalid-text-length.png
-  [1]: ./media/mobile-services-dotnet-backend-windows-store-javascript-validate-modify-data/mobile-services-invalid-text-length-exception-dialog.png
-  [2]: ./media/mobile-services-dotnet-backend-windows-store-javascript-validate-modify-data/mobile-services-rebuild-solution.png
-  [3]: ./media/mobile-services-dotnet-backend-windows-store-javascript-validate-modify-data/mobile-services-final-local-app-run.png
-  [Уточнение запросов c разбиением по страницам]: /ru-ru/develop/mobile/tutorials/add-paging-to-data-dotnet
-  [Авторизация пользователей мобильных служб на стороне службы]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-authorize-users-in-scripts/
-  [Приступая к работе с push-уведомлениями]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/
-  [Справочник принципов использования мобильных служб .NET]: /ru-ru/develop/mobile/how-to-guides/work-with-net-client-library
+[Портал управления]: https://manage.windowsazure.com/
+[Портал управления Azure]: https://manage.windowsazure.com/
+[Концептуальный справочник по мобильным службам на платформе .NET]: /ru-ru/develop/mobile/how-to-guides/work-with-net-client-library

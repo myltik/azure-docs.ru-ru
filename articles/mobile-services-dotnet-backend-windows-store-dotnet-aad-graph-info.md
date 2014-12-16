@@ -1,65 +1,65 @@
-<properties linkid="develop-mobile-tutorials-dotnet-aad-graph-info" urlDisplayName="Accessing Azure Active Directory Graph Information" pageTitle="Accessing Azure Active Directory Graph Information (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to access Azure Active Directory information using the Graph API in your Windows Store application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Accessing Azure Active Directory Graph Information" authors="wesmc" />
+﻿<properties urlDisplayName="Accessing Azure Active Directory Graph Information" pageTitle="Доступ к сведениям в Azure Active Directory Graph (Магазин Windows) | Центр разработчиков для мобильных устройств" metaKeywords="" description="Learn how to access Azure Active Directory information using the Graph API in your Windows Store application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Accessing Azure Active Directory Graph Information" authors="wesmc" manager="dwrede" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="08/20/2014" ms.author="wesmc" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="10/14/2014" ms.author="wesmc" />
 
 # Получение доступа к сведениям Graph Azure Active Directory
 
-<div class="dev-center-tutorial-selector sublanding">
-    <a href="/ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-aad-graph-info/" title="Магазин Windows C#" class="current">Магазин Windows C#</a>
-</div>
+[WACOM.INCLUDE [mobile-services-selector-aad-graph](../includes/mobile-services-selector-aad-graph.md)]
 
-<div class="dev-center-tutorial-subselector">
-    <a href="/ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-graph-info/" title="Сервер .NET" class="current">Сервер .NET</a> |
-    <a href="/ru-ru/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info/" title="Сервер JavaScript">Сервер JavaScript</a>
-</div>
 
-Как и другие поставщики удостоверений, которые предлагаются в мобильных службах, поставщик Azure Active Directory (AAD) также поддерживает обширную [клиентскую библиотеку Graph][клиентскую библиотеку Graph], которую можно использовать для программного доступа к каталогу. В этом учебнике предстоит обновить приложение ToDoList, персонализировав интерфейс приложения прошедшего проверку подлинности пользователя на основе сведений о пользователях, полученных из каталога с помощью [клиентской библиотеки Graph][клиентскую библиотеку Graph].
 
-> [WACOM.NOTE] Цель этого учебника — предоставить дополнительные сведения о проверке подлинности с помощью Azure Active Directory. Предполагается, что вы прошли учебник [Начало работы с проверкой подлинности][Начало работы с проверкой подлинности], используя поставщика проверки подлинности Azure Active Directory. В этом учебнике обновляется приложение TodoItem, использованное в учебнике [Начало работы с проверкой подлинности][Начало работы с проверкой подлинности].
+Как и другие поставщики удостоверений, которые предлагаются в мобильных службах, поставщик Azure Active Directory (AAD) также поддерживает обширную [клиентскую библиотеку Graph], которую можно использовать для программного доступа к каталогу. В этом учебнике приложение ToDoList будет обновлено для персонализации интерфейса, который видит пользователь, прошедший проверку подлинности. Это будет делаться на основе сведений о пользователе, получаемых из каталога с помощью [клиентской библиотеки Graph].
+
+>[AZURE.NOTE] Цель этого учебника - предоставить дополнительные сведения о проверке подлинности с помощью Azure Active Directory. Предполагается, что вы прошли учебник [Добавление проверки подлинности в приложение], используя поставщика проверки подлинности Azure Active Directory. В этом учебнике продолжается обновление приложения TodoItem, которое использовалось в учебнике [Добавление проверки подлинности в приложение]. 
+
+
 
 Данный учебник включает в себя следующие этапы.
 
-1.  [Создание ключа доступа для регистрации приложения в AAD][Создание ключа доступа для регистрации приложения в AAD]
-2.  [Создание пользовательского интерфейса API GetUserInfo][Создание пользовательского интерфейса API GetUserInfo]
-3.  [Обновление приложения для использования пользовательского API][Обновление приложения для использования пользовательского API]
-4.  [Тестирование приложения][Тестирование приложения]
 
-## Предварительные требования
+1. [Создание ключа доступа для регистрации приложения в AAD] 
+2. [Создание пользовательского интерфейса API GetUserInfo] 
+3. [Обновление приложения для использования пользовательского API]
+4. [Тестирование приложения]
+
+##Предварительные требования 
 
 Перед началом работы с этим учебником необходимо изучить следующие учебники по мобильным службам.
 
--   [Начало работы с проверкой подлинности][Начало работы с проверкой подлинности]
-    Добавление обязательного входа в демонстрационное приложение TodoList.
++ [Начало работы с проверкой подлинности]<br/>Добавление требования по регистрации в пример приложения TodoList.
 
--   [Учебник по пользовательским API][Учебник по пользовательским API]
-    Способ вызова пользовательского API.
++ [Учебник по пользовательским API-интерфейсам]<br/>Показывает способ вызова пользовательского API-интерфейса. 
+
+
 
 ## <a name="generate-key"></a>Создание ключа доступа для регистрации приложения в AAD
 
-В учебнике [Начало работы с проверкой подлинности][Начало работы с проверкой подлинности] во время выполнения шага [Регистрация для использования входа Azure Active Directory][Регистрация для использования входа Azure Active Directory] вы создали регистрацию для встроенного приложения. В этом разделе предстоит создать ключ для использования при чтении сведений каталога с помощью идентификатора клиента встроенного приложения.
+
+В учебнике [Добавление проверки подлинности в приложение] во время выполнения шага [Регистрация для использования имени входа Azure Active Directory] вы создали регистрацию для встроенного приложения. В этом разделе предстоит создать ключ, который будет использоваться при чтении сведений каталога с помощью идентификатора клиента встроенного приложения. 
 
 [WACOM.INCLUDE [mobile-services-generate-aad-app-registration-access-key](../includes/mobile-services-generate-aad-app-registration-access-key.md)]
 
+
 ## <a name="create-api"></a>Создание пользовательского интерфейса API GetUserInfo
 
-В этом разделе предстоит создать пользовательский API GetUserInfo, который будет использовать [клиентскую библиотеку Graph][клиентскую библиотеку Graph] для получения дополнительных сведений о пользователе из AAD.
+В этом разделе вы создадите свой API под названием GetUserInfo, который будет использовать [клиентскую библиотеку Graph] для получения дополнительных сведений о пользователе из AAD.
 
-Если вы не использовали пользовательские API с мобильными службами, ознакомьтесь с [учебником по пользовательским API][Учебник по пользовательским API], перед тем как переходить к этому разделу.
+Если вы еще не использовали собственные API с мобильными службами, ознакомьтесь с [учебником по пользовательским API-интерфейсам ] прежде, чем перейти к этому разделу.
 
-1.  В Visual Studio щелкните правой кнопкой мыши проект внутреннего сервера .NET мобильной службы и щелкните кнопку **Управление пакетами NuGet**.
-2.  В диалоговом окне диспетчера пакетов NuGet введите условие поиска **ADAL**, чтобы найти и установить **библиотеку проверки подлинности Active Directory** для мобильной службы.
-3.  В диспетчере пакетов NuGet также установите **клиентскую библиотеку Graph Microsoft Azure Active Directory** для мобильной службы.
+1. В Visual Studio щелкните правой кнопкой мыши проект внутреннего сервера .NET мобильной службы и выберите пункт **Управление пакетами NuGet**.
+2. В диалоговом окне диспетчера пакетов NuGet введите условие поиска **ADAL**, чтобы найти и установить **библиотеку проверки подлинности Active Directory** для мобильной службы.
+3. В диспетчере пакетов NuGet также установите **клиентскую библиотеку Graph Microsoft Azure Active Directory** для мобильной службы.
 
-4.  В Visual Studio щелкните правой кнопкой мыши папку **Контроллеры** проекта мобильной службы и нажмите кнопку **Добавить**, чтобы добавить новый **пользовательский контроллер мобильных служб Microsoft Azure** с именем `GetUserInfoController`. Клиент будет вызывать этот API для получения сведений о пользователе из Active Directory.
+4. В Visual Studio щелкните правой кнопкой мыши папку **Контроллеры** проекта мобильной службы и нажмите кнопу **Добавить**, чтобы добавить новый **пользовательский контроллер мобильных служб Microsoft Azure** с именем `GetUserInfoController`. Клиент будет вызывать этот API-интерфейс для получения сведений о пользователе из Active Directory.
 
-5.  В новом файле GetUserInfoController.cs добавьте следующие операторы `using`.
+5. В новом файле CompleteAllController.cs добавьте следующие операторы `using`:
 
         using Microsoft.WindowsAzure.Mobile.Service.Security;
         using Microsoft.Azure.ActiveDirectory.GraphClient;
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
         using System.Globalization;
 
-6.  В файле GetUserInfoController.cs добавьте в класс следующий метод `GetAADToken`.
+6. В файле GetUserInfoController.cs добавьте в класс следующий метод `GetAADToken`.
 
         private string GetAADToken()
         {
@@ -83,7 +83,7 @@
             ClientCredential clientCred = new ClientCredential(clientid, clientkey);
             string authority = String.Format(CultureInfo.InvariantCulture, AadInstance, tenantdomain);
             AuthenticationContext authContext = new AuthenticationContext(authority);
-            AuthenticationResult result = authContext.AcquireToken(GraphResourceId, clientCred);
+            AuthenticationResult result = await authContext.AcquireTokenAsync(GraphResourceId, clientid, clientCred);
 
             if (result != null)            
                 token = result.AccessToken;
@@ -91,9 +91,9 @@
             return token;
         }
 
-    Этот метод использует параметры приложения, которые вы настроили в мобильной службе на [портале управления Azure][портале управления Azure], чтобы получить токен для доступа к Active Directory.
+    Этот метод использует параметры приложения, которые вы настроили в мобильной службе на [портале управления Azure], для получения маркера доступа к Active Directory.
 
-7.  В файле GetUserInfoController.cs добавьте в класс следующий метод `GetAADUser`.
+7. В файле GetUserInfoController.cs добавьте в класс следующий метод `GetAADUser`.
 
         private User GetAADUser()
         {
@@ -130,7 +130,8 @@
 
     Этот метод получает идентификатор объекта Active Directory для авторизованного пользователя, а затем использует клиентскую библиотеку Graph для получения сведений о пользователе из Active Diretory.
 
-8.  В файле GetUserInfoController.cs замените метод `Get` на следующий метод. Этот метод возвращает объект `User` клиентской библиотеки Graph и требует, чтобы авторизованный пользователь вызвал API.
+
+8. В файле GetUserInfoController.cs замените метод `Get` на следующий. Этот метод возвращает объект `User` клиентской библиотеки Graph и требует, чтобы авторизованный пользователь вызвал API-интерфейс.
 
         // GET api/GetUserInfo
         [AuthorizeLevel(AuthorizationLevel.User)]
@@ -140,34 +141,49 @@
             return GetAADUser();
         }
 
-9.  Сохраните изменения и создайте службу для проверки отсутствия ошибок в синтаксисе.
-10. Опубликуйте проект мобильной службы в учетной записи Azure.
+9. Сохраните изменения и создайте службу для проверки отсутствия ошибок в синтаксисе.
+10. Опубликуйте проект мобильной службы в учетной записи Azure. 
+
 
 ## <a name="update-app"></a>Обновление приложения для использования GetUserInfo
 
-В этом разделе предстоит обновить метод `AuthenticateAsync`, реализованный в учебнике [Начало работы с проверкой подлинности][Начало работы с проверкой подлинности] для вызова пользовательского API и возвращения дополнительных сведений о пользователе из AAD.
+В этом разделе будет обновлен метод `AuthenticateAsync`, реализованный в учебнике [Добавление проверки подлинности в приложение] для вызова пользовательского API и возвращения дополнительных сведений о пользователе из AAD. 
 
 [WACOM.INCLUDE [mobile-services-aad-graph-info-update-app](../includes/mobile-services-aad-graph-info-update-app.md)]
+  
 
-## <a name="test-app"></a> Тестирование приложения
+
+## <a name="test-app"></a>Тестирование приложения
 
 [WACOM.INCLUDE [mobile-services-aad-graph-info-test-app](../includes/mobile-services-aad-graph-info-test-app.md)]
 
-## <a name="next-steps"></a>Дальнейшие действия
 
-В следующем учебнике, [Управление доступом в мобильных службах на основе ролей с помощью AAD][Управление доступом в мобильных службах на основе ролей с помощью AAD], предстоит использовать управление доступом на основе ролей с помощью Azure Active Directory (AAD) для проверки членства в группе перед разрешением доступа.
 
+
+
+##<a name="next-steps"></a>Дальнейшие действия
+
+В следующем учебнике [Управление доступом в мобильных службах на основе ролей с помощью AAD], предстоит перед разрешением доступа использовать управление доступом на основе ролей с помощью Azure Active Directory (AAD) для проверки членства в группе. 
+
+
+
+<!-- Anchors. -->
+[Создание ключа доступа для регистрации приложения в AAD]: #generate-key
+[Создание пользовательского интерфейса API GetUserInfo]: #create-api
+[Обновление приложения для использования пользовательского API]: #update-app
+[Тестирование приложения]: #test-app
+[Дальнейшие действия]:#next-steps
 
 <!-- Images -->
 
 
-  [клиентскую библиотеку Graph]: http://go.microsoft.com/fwlink/?LinkId=510536
-  [Начало работы с проверкой подлинности]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/
-  [Создание ключа доступа для регистрации приложения в AAD]: #generate-key
-  [Создание пользовательского интерфейса API GetUserInfo]: #create-api
-  [Обновление приложения для использования пользовательского API]: #update-app
-  [Тестирование приложения]: #test-app
-  [Учебник по пользовательским API]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api/
-  [Регистрация для использования входа Azure Active Directory]: /ru-ru/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
-  [портале управления Azure]: https://manage.windowsazure.com/
-  [Управление доступом в мобильных службах на основе ролей с помощью AAD]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/
+<!-- URLs. -->
+[Добавление проверки подлинности в приложение]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/
+[Регистрация в службе Azure Active Directory]: /ru-ru/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
+[Портал управления Azure]: https://manage.windowsazure.com/
+[Учебник по применению пользовательского API-интерфейса]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api/
+[Хранение серверных скриптов]: /ru-ru/documentation/articles/mobile-services-store-scripts-source-control/
+[Регистрация для использования имени входа Azure Active Directory]: /ru-ru/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
+[Клиентская библиотека графа]: http://go.microsoft.com/fwlink/?LinkId=510536
+[Получение пользователя]: http://msdn.microsoft.com/ru-ru/library/azure/dn151678.aspx
+[Управление доступом в мобильных службах с помощью AAD на основе ролей]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/

@@ -1,88 +1,90 @@
-<properties pageTitle="Get started with push notifications (Appcelerator) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your Appcelerator app." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="" editor="" />
+﻿<properties pageTitle="Приступая к работе с push-уведомлениями (Appcelerator) | Центр разработчиков для мобильных устройств" metaKeywords ="" description="Learn how to use Azure Mobile Services to send push notifications to your Appcelerator app." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="Appcelerator="" team;mahender" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="Appcelerator team;mahender" />
 
-# Приступая к работе с push-уведомлениями в мобильных службах (старые push-уведомления)
-
+# Приступая к работе с push-уведомлениями в мобильных службах (принудительная отправка устаревшего типа)
 <div class="dev-center-tutorial-selector sublanding">
-    <a href="/ru-ru/documentation/articles/mobile-services-windows-store-dotnet-get-started-push" title="Магазин Windows C#">Магазин Windows C#</a>
-    <a href="/ru-ru/documentation/articles/mobile-services-windows-store-javascript-get-started-push" title="Магазин Windows JavaScript">Магазин Windows JavaScript</a>
-    <a href="/ru-ru/documentation/articles/mobile-services-windows-phone-get-started-push" title="Windows Phone">Windows Phone</a>
-    <a href="/ru-ru/documentation/articles/mobile-services-ios-get-started-push" title="iOS">iOS</a>
-    <a href="/ru-ru/documentation/articles/mobile-services-android-get-started-push" title="Android">Android</a>
-<!--    <a href="/ru-ru/documentation/articles/partner-xamarin-mobile-services-ios-get-started-push" title="Xamarin.iOS">Xamarin.iOS</a>     <a href="/ru-ru/documentation/articles/partner-xamarin-mobile-services-android-get-started-push" title="Xamarin.Android">Xamarin.Android</a> -->
-    <a href="/ru-ru/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push" title="Appcelerator" class="current">Appcelerator</a>
+	<a href="/ru-ru/documentation/articles/mobile-services-windows-store-dotnet-get-started-push" title="Windows Store C#">C# в Магазине Windows</a>
+	<a href="/ru-ru/documentation/articles/mobile-services-windows-store-javascript-get-started-push" title="Windows Store JavaScript">JavaScript в Магазине Windows</a>
+	<a href="/ru-ru/documentation/articles/mobile-services-windows-phone-get-started-push" title="Windows Phone">Windows Phone</a>
+	<a href="/ru-ru/documentation/articles/mobile-services-ios-get-started-push" title="iOS">iOS</a>
+	<a href="/ru-ru/documentation/articles/mobile-services-android-get-started-push" title="Android">Android</a>
+<!--    <a href="/ru-ru/documentation/articles/partner-xamarin-mobile-services-ios-get-started-push" title="Xamarin.iOS">Xamarin.iOS</a>
+    <a href="/ru-ru/documentation/articles/partner-xamarin-mobile-services-android-get-started-push" title="Xamarin.Android">Xamarin.Android</a> -->
+	<a href="/ru-ru/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push" title="Appcelerator" class="current">Appcelerator</a>
 </div>
 
-В этом разделе показано, как использовать мобильные службы Windows Azure для отправки push-уведомлений в приложения на платформах iOS и Android, разработанные в Appcelerator Titanium Studio. В этом учебнике вам предстоит добавить push-уведомления в проект быстрого начала работы с помощью службы push-уведомлений Apple (APNS) и Google Cloud Messaging. По завершении работы ваша мобильная служба будет отправлять push-уведомление каждый раз при вставке записи.
+В этом разделе показано, как использовать мобильные службы Windows Azure для отправки push-уведомлений в приложения на платформах iOS и Android, разработанные в Appcelerator Titanium Studio. В этом учебнике вам предстоит добавить push-уведомления в проект быстрого начала работы с помощью службы push-уведомлений Apple (APNS) и Google Cloud Messaging. В результате ваша мобильная служба будет отправлять push-уведомление каждый раз при вставке записи.
 
-> [WACOM.NOTE] Мобильные службы теперь интегрируются с концентраторами уведомлений Azure для поддержки дополнительных функций push-уведомлений, таких как шаблоны, использование нескольких платформ и улучшенное масштабирование. В этом разделе рассматривается поддержка существующих мобильных служб, которые еще не были обновлены для использования интеграции с концентраторами уведомлений. При создании новой мобильной службы эта встроенная функция включается автоматически. По возможности необходимо обновить службу для использования концентраторов уведомлений. **Мы подготавливаем к выпуску учебник по использованию push-уведомлений концентраторов уведомлений с Appcelerator.**
+>[WACOM.NOTE] Мобильные службы теперь интегрируются с центрами уведомлений Azure для поддержки дополнительных функций push-уведомлений, таких как шаблоны, использование нескольких платформ и улучшенное масштабирование. В этом разделе рассматривается поддержка существующих мобильных служб, которые еще не были обновлены для использования интеграции с концентраторами уведомлений. При создании новой мобильной службы эта встроенная функция включается автоматически. По возможности необходимо обновить службу для использования концентраторов уведомлений. **Мы подготавливаем к выпуску учебник по использованию push-уведомлений концентраторов уведомлений с Appcelerator.**
 
-1.  [Создание запроса подписи сертификата][Создание запроса подписи сертификата]
-2.  [Регистрация приложения и включение push-уведомлений][Регистрация приложения и включение push-уведомлений]
-3.  [Создание профиля подготовки для приложения][Создание профиля подготовки для приложения]
-4.  [Включение Google Cloud Messaging][Включение Google Cloud Messaging]
-5.  [Создание модуля GCM для Titanium][Создание модуля GCM для Titanium]
-6.  [Настройка мобильных служб][Настройка мобильных служб]
-7.  [Добавление push-уведомлений в приложение][Добавление push-уведомлений в приложение]
-8.  [Обновление скриптов для отправки push-уведомлений][Обновление скриптов для отправки push-уведомлений]
-9.  [Вставка данных для получения уведомлений][Вставка данных для получения уведомлений]
+1.	[Создание запроса подписи сертификата]
+2.	[Регистрация приложения и включение push-уведомлений]
+3.	[Создание профиля подготовки для приложения]
+4.	[Включение Google Cloud Messaging]
+5.  [Создание модуля GCM для Titanium]
+6.	[Настройка мобильных служб]
+7.	[Добавление push-уведомлений в приложение]
+8.	[Обновление скриптов для отправки push-уведомлений]
+9.	[Вставка данных для получения уведомлений]
 
 Для работы с данным учебником требуется следующее:
 
--   Модуль мобильных служб Appcelerator Azure
--   Appcelerator Titanium Studio 3.2.1 или выше
--   Устройство с поддержкой iOS 7.0 (или более поздней версии) и Android 4.3 (или более поздней версии)
--   Участие в программе для разработчиков на платформе iOS
--   Активная учетная запись Google
+* Модуль мобильных служб Appcelerator Azure
+* Appcelerator Titanium Studio 3.2.1 или выше
+* Устройство с поддержкой iOS 7.0 (или более поздней версии) и Android 4.3 (или более поздней версии)
+* Участие в программе для разработчиков на платформе iOS
+* Активная учетная запись Google
 
 > [WACOM.NOTE] В соответствии с требованиями к конфигурации push-уведомлений необходимо развернуть и протестировать push-уведомления на устройстве с iOS (iPhone или iPad), а не в эмуляторе.
 
-Этот учебник создан на основе краткого руководства по мобильным службам. Перед началом работы с учебником необходимо пройти задания учебника [Приступая к работе с мобильными службами][Приступая к работе с мобильными службами].
+Этот учебник создан на основе краткого руководства по мобильным службам. Прежде чем приступать к этому учебнику, необходимо пройти до конца учебник [Начало работы с мобильными службами].
 
-[WACOM.INCLUDE [Включение push-уведомлений Apple](../includes/enable-apple-push-notifications.md)]
+[WACOM.INCLUDE [Enable Apple Push Notifications](../includes/enable-apple-push-notifications.md)]
 
 ## <a name="register-gcm"></a>Включение Google Cloud Messaging
 
-> [WACOM.NOTE] Чтобы выполнить процедуру, описанную в этом разделе, необходимо иметь учетную запись Google с проверенным адресом электронной почты. Чтобы создать новую учетную запись Google, перейдите по ссылке [accounts.google.com][accounts.google.com].
+>[WACOM.NOTE]Для выполнения этой процедуры необходима учетная запись Google с проверенным электронным адресом. Чтобы создать новую учетную запись Google, перейдите по ссылке <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
 
 [WACOM.INCLUDE [Enable GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
-## <a name="gcm-module"></a>Создание модуля GCM для Titanium
+
+##  <a name="gcm-module"></a>Создание модуля GCM для Titanium
 
 ### Подготовка Appcelerator Titanium Studio для создания модуля
 
-Для создания модулей Android необходимо установить поддержку Java в Appcelerator Titanium Studio. См. раздел [Установка средств разработки Java][Установка средств разработки Java] для Appcelerator с кратким описанием необходимых действий, если вы этого еще не сделали.
+Для создания модулей Android необходимо установить поддержку Java в среде Appcelerator Titanium Studio. См. раздел [Установка средств разработки Java] для Appcelerator с кратким описанием необходимых действий, если это еще не сделано.
 
-Кроме этого, понадобится установить пакет Android NDK. Загрузите соответствующий ZIP-файл с веб-сайта [][]<http://developer.android.com/sdk/ndk/index.html></a> и распакуйте его в любое место на диске. Запомните это местоположение.
+Кроме этого, понадобится установить пакет Android NDK. Загрузите соответствующий ZIP-файл с веб-сайта [http://developer.android.com/sdk/ndk/index.html](http://developer.android.com/sdk/ndk/index.html) и распакуйте его в любое место на диске. Запомните это местоположение. 
 
 ### Создание нового модуля
 
-1.  Откройте Appcelerator Titanium Studio.
+1. Откройте Appcelerator Titanium Studio.
 
-2.  Щелкните File -\> New -\> Mobile Module Project (Файл -\> Создать -\> Проект мобильного модуля).
+2. Щелкните File -> New -> Mobile Module Project (Файл -> Создать -> Проект мобильного модуля).
 
     ![][0]
 
-3.  В следующем окне введите данных параметров проекта:
+3. В следующем окне введите данных параметров проекта: 
 
-    -   **Имя проекта:** в нашем случае используется "notificationhub" (можно его оставить).
+    * **Имя проекта:** в нашем случае используется &quot;notificationhub&quot; (можно его оставить).
 
-    -   **Идентификатор модуля:** в примере используется "com.winwire.notificationhub". Он должен совпадать с "идентификатором приложения".
+    * **Идентификатор модуля:** в примере используется &quot;com.winwire.notificationhub&quot;. Он должен также совпадать с "идентификатором приложения".
 
-    -   **Цели развертывания:** в нашем примере выбираем Android.
+    * **Цели развертывания:** в нашем примере выбираем Android.
 
-    > [WACOM.NOTE] Важно, чтобы имя рабочей области WorkSpace не содержало пробелы, в противном случае у нас будут проблемы при создании компиляции.
+    > [WACOM.NOTE] Важно, чтобы имя рабочей области WorkSpace не содержало пробелы, в противном случае возникнут проблемы при создании компиляции.
 
     ![][1]
 
-4.  Нажмите кнопку «Далее» и введите информацию для модуля.
+4. Нажмите кнопку "Далее" и введите информацию для модуля.
 
     ![][2]
 
-5.  Наконец, нажмите кнопку «Готово».
+5. Наконец, нажмите кнопку "Готово". 
 
-6.  Откройте файл timodule.xml. И добавьте следующие изменения в тег Android.
+6. Откройте файл timodule.xml. И добавьте следующие изменения в тег Android.
+
 
         <manifest package="com.winwire.notificationhub" android:versionCode="1" android:versionName="1.0">
         <supports-screens android:anyDensity="true"/>
@@ -118,104 +120,110 @@
         </application>
         </manifest>
 
-> [WACOM.NOTE] В указанном выше коде необходимо заменить все случаи текста *com.winwire.notificationhub* на имя пакета приложения (идентификатор модуля).
 
-1.  В модуле концентратора уведомлений щелкните на папку "src", перейдите к элементу "Создать" и выберите "папка" . Присвойте папке имя com.google.android.gcm.
 
-> [WACOM.NOTE] Если элемент "папка" в параметрах "Создать" не виден, выберите "Другие", разверните "Общие" и выберите "Папка".
 
-1.  Теперь загрузите отсюда файлы ".java" (gcm.zip) и скопируйте эти файлы во вновь созданную папку (com.google.android.gcm).
+> [WACOM.NOTE] В указанном выше коде необходимо заменить все фрагменты текста *com.winwire.notificationhub* на имя пакета приложения (идентификатор модуля).
 
-2.  Далее найдите папку с именем идентификатора модуля и разверните ее. В этой папке можно увидеть список файлов ".java". Среди этих файлов откройте файл в именем вашего проекта +module.java (например, если имя проекта notificationhub, то это будет выглядеть как "NotificationhubModule.java") и добавьте приведенные ниже строки кода в верхней части.
+7. В модуле центра уведомлений щелкните правой кнопкой мыши папку &quot;src&quot;, выберите &quot;Создать&quot; и щелкните &quot;Папка&quot;. Присвойте папке имя com.google.android.gcm.
+
+> [WACOM.NOTE] Если вы не видите элемент &quot;Папка&quot; в параметрах команды &quot;Создать&quot;, выберите &quot;Другое&quot;, разверните узел "Общие", и выберите &quot;Папка&quot;.
+
+8. Теперь загрузите отсюда файлы ".java" (gcm.zip) и скопируйте эти файлы во вновь созданную папку (com.google.android.gcm).
+
+9. Теперь найдите папку с именем идентификатора модуля и разверните ее. В этой папке можно увидеть список файлов ".java". Среди этих файлов откройте файл в именем вашего проекта +module.java (например, если имя проекта notificationhub, то это будет выглядеть как "NotificationhubModule.java") и добавьте приведенные ниже строки кода в верхней части.
 
         private static NotificationhubModule _THIS;
         private KrollFunction successCallback;
         private KrollFunction errorCallback;
         private KrollFunction messageCallback;
 
-3.  В том же файле найдите конструктор и замените его указанным ниже кодом.
+10. В том же файле найдите конструктор и замените его указанным ниже кодом.
 
         public NotificationhubModule() {
-            super();
-            _THIS = this;
+	        super();
+	        _THIS = this;
         }
 
-4.  В этом же файле добавьте следующие строки кода в его нижней части.
+11. В этом же файле добавьте следующие строки кода в его нижней части.
 
         @Kroll.method
         public void registerC2dm(HashMap options) {
-            successCallback = (KrollFunction) options.get("success");
-            errorCallback = (KrollFunction) options.get("error");
-            messageCallback = (KrollFunction) options.get("callback");
-            String registrationId = getRegistrationId();
-            if (registrationId != null && registrationId.length() > 0) {
-                sendSuccess(registrationId);
-            } else {
-                GCMRegistrar.register(TiApplication.getInstance(), getSenderId());
-            }
+	        successCallback = (KrollFunction) options.get("success");
+	        errorCallback = (KrollFunction) options.get("error");
+	        messageCallback = (KrollFunction) options.get("callback");
+	        String registrationId = getRegistrationId();
+	        if (registrationId != null && registrationId.length() > 0) {
+		        sendSuccess(registrationId);
+	        } else {
+		        GCMRegistrar.register(TiApplication.getInstance(), getSenderId());
+	        }
         }
         @Kroll.method
         public void unregister() {
-            GCMRegistrar.unregister(TiApplication.getInstance());
+	        GCMRegistrar.unregister(TiApplication.getInstance());
         }
         @Kroll.method
         public String getRegistrationId() {
-            return GCMRegistrar.getRegistrationId(TiApplication.getInstance());
+	        return GCMRegistrar.getRegistrationId(TiApplication.getInstance());
         }
         @Kroll.method
         public String getSenderId() {
-            return TiApplication.getInstance().getAppProperties()
-            .getString("com.winwire.notificationhub.sender_id", "");
+	        return TiApplication.getInstance().getAppProperties()
+	        .getString("com.winwire.notificationhub.sender_id", "");
         }
 
         public void sendSuccess(String registrationId) {
-            if (successCallback != null) {
-                HashMap data = new HashMap();
-                data.put("registrationId", registrationId);
-                successCallback.callAsync(getKrollObject(), data);
-            }
+	        if (successCallback != null) {
+		        HashMap data = new HashMap();
+		        data.put("registrationId", registrationId);
+		        successCallback.callAsync(getKrollObject(), data);
+	        }
         }
 
         public void sendError(String error) {
-            if (errorCallback != null) {
-                HashMap data = new HashMap();
-                data.put("error", error);
-                errorCallback.callAsync(getKrollObject(), data);
-            }
+	        if (errorCallback != null) {
+		        HashMap data = new HashMap();
+		        data.put("error", error);
+		        errorCallback.callAsync(getKrollObject(), data);
+	        }
         }
 
         public void sendMessage(HashMap messageData) {
-            if (messageCallback != null) {
-                HashMap data = new HashMap();
-                data.put("data", messageData);
-                messageCallback.call(getKrollObject(), data);
-            }
+	        if (messageCallback != null) {
+		        HashMap data = new HashMap();
+		        data.put("data", messageData);
+		        messageCallback.call(getKrollObject(), data);
+	        }
         }
         public static NotificationhubModule getInstance() {
-            return _THIS;
+	        return _THIS;
         }
 
-5.  Теперь загрузите module.zip и скопируйте файлы в папку с идентификатором модуля в качестве имени.
+12. Теперь загрузите module.zip и скопируйте файлы в папку с идентификатором модуля в качестве имени.
 
-> [WACOM.NOTE] В указанных выше файлах необходимо заменить все случаи текста *com.winwire.notificationhub* на имя пакета приложения (идентификатор модуля). Также замените "NotificationhubModule" на ProjectName+Module (например, "NotificationhubModule").
+> [WACOM.NOTE] В указанных выше файлах необходимо заменить все фрагменты текста *com.winwire.notificationhub* на имя пакета приложения (идентификатор модуля). Также замените "NotificationhubModule" на ProjectName+Module (например, "NotificationhubModule").
 
 ### Создание/ упаковка модуля
 
-Выберите **Deploy \> Package - Android Module** (Развернуть \> Упаковать - Модуль Android). Модуль BlackBerry с помощью Studio создать нельзя. Используйте средства BlackBerry NDK CLI либо Momentics IDE.
+Выберите **Deploy > Package - Android Module** (Развернуть > Упаковать - Модуль Android). Модуль BlackBerry с помощью Studio создать нельзя. Используйте средства BlackBerry NDK CLI либо Momentics IDE. 
 
 ![][3]
 
-Далее можно выбрать развертывание модуля для все проектов или для определенного проекта. Эта процедура выполняется согласно правилам установки, приведенным в разделе [Использование модулей Titanium][Использование модулей Titanium]. Тем не менее, кратко их обобщим:
 
--   Для всех проектов: ZIP-файл модуля вставляется в корневую папку местоположения установки Titanium SDK.
+Затем можно выбрать развертывание модуля для всех проектов или для определенного проекта. Эта процедура выполняется согласно правилам установки, приведенным в разделе [Использование модулей Titanium]. Тем не менее, кратко их обобщим:
 
--   Для конкретного проекта: ZIP-файл модуля вставляется в корневую папку вашего проекта.
+- Для всех проектов: ZIP-файл модуля вставляется в корневую папку местоположения установки Titanium SDK. 
+
+- Для конкретного проекта: ZIP-файл модуля вставляется в корневую папку вашего проекта. 
+
 
 ## <a name="configure"></a>Настройка мобильных служб для отправки push-запросов
 
-[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-apns-configure-push.md)]
 
-1.  Введите значение ключа API, полученное от GCM при выполнении предыдущей процедуры, а затем нажмите кнопку Сохранить.
+[WACOM.INCLUDE [mobile-services-apns-configure-push](../includes/mobile-services-apns-configure-push.md)]
+
+5.	Введите значение ключа API, полученное от GCM при выполнении предыдущей процедуры, а затем нажмите кнопку Сохранить.
 
     ![][4]
 
@@ -223,7 +231,7 @@
 
 ## <a name="add-push"></a>Добавление push-уведомлений в приложение
 
-1.  В tiapp.xml перейдите на вкладку tiapp.xml (эту вкладку можно найти в низу рядом с вкладкой "Обзор") и найдите тег `<android>`. Ниже тега добавьте следующий код:
+1.	В tiapp.xml перейдите на вкладку tiapp.xml (эту вкладку можно найти в низу рядом с вкладкой "Обзор") и найдите тег `<android>`. Ниже тега добавьте следующий код:
 
         <modules>
             <module platform="android">ModuleId</module>
@@ -232,58 +240,41 @@
         <property name="ApplicationId.icon type="int">2130837504</property>
         <property name="ApplicationId.component" type="string">ApplicationId/ApplicationId.AppNameActivity</property>
 
-> [WACOM.NOTE] В указанном выше коде необходимо заменить **ModuleId** (Идентификатор модуля), **ApplicationId** (Идентификатор приложения). Идентификатор модуля получен во время создания модуля GCM, а идентификатор приложения вводится во время создания проекта. Значения **ModuleId** и **ApplicationId** должны быть одинаковы. Кроме того, необходимо изменить **ApplicationId.AppNameActivity**. Оно должно выглядеть так : com.winwire.notificationhub/ com.winwire.notificationhub.NotificationhubActivity.
+>[WACOM.NOTE] В указанном выше коде необходимо заменить **Идентификатор модуля**, **Идентификатор приложения**. Идентификатор модуля получен во время создания модуля GCM, а идентификатор приложения вводится во время создания проекта.  Значения **ModuleId** и **ApplicationId** должны быть одинаковы. Кроме того, необходимо изменить **ApplicationId.AppNameActivity**. Оно должно выглядеть так : com.winwire.notificationhub/ com.winwire.notificationhub.NotificationhubActivity.
 
-1.  Скопируйте созданный ранее модуль GCM и разместите его в указанном ниже месте.
 
-    <table>
-    <tr>
-    <td>
-    OSX
+2.	Скопируйте созданный ранее модуль GCM и разместите его в указанном ниже месте.	
 
+    <table><tr>
+    <td>OSX
     </td>
-    <td>
-    /Library/Application Support/Titanium или ~/Library/Application Support/Titanium
-
+    <td>/Library/Application Support/Titanium или  ~/Library/Application Support/Titanium
     </td>
     </tr>
-    <td>
-    Windows 7
-
+    <td>Windows 7
     </td>
-    <td>
-    C:\\Users\\username\\AppData\\Roaming (или C:\\ProgramData\\Titanium на Titanium Studio 1.0.1 и более ранних версиях)
-
+    <td>C:\Users\username\AppData\Roaming (или C:\ProgramData\Titanium на Titanium Studio 1.0.1 и более ранних версиях)
     </td>
-    </tr>
-    <td>
-    Windows XP
-
+    </tr><td>Windows XP
     </td>
-    <td>
-    C:\\Documents and Settings\\username\\Application Data (или C:\\Documents and Settings\\All Users\\Application Data\\Titanium на Titanium Studio 1.0.1 и более ранних версиях)
-
+    <td>C:\Documents and Settings\username\Application Data (или C:\Documents and Settings\All Users\Application Data\Titanium на Titanium Studio 1.0.1 и более ранних версиях)
     </td>
-    </tr>
-    <td>
-    Linux
-
+    </tr><td>Linux
     </td>
-    <td>
-    ~/.titanium
-
+    <td>~/.titanium
     </td>
     </tr>
     </tr>
+    
     </table>
 
-> [WACOM.NOTE] В Mac OS библиотека представляет собой скрытую папку. Чтобы сделать ее видимой, необходимо выполнить следующую команду, а затем перезапустить поисковик. `**defaults write com.apple.finder AppleShowAllFiles TRUE**`
+>[WACOM.NOTE]  В Mac OS библиотека представляет собой скрытую папку. Чтобы сделать ее видимой, необходимо выполнить следующую команду, а затем перезапустить поисковик. `**defaults write com.apple.finder AppleShowAllFiles TRUE**`
 
-1.  В Appcelerator Titanium Studio откройте файл index.js и добавьте следующий код в нижней части. Этот код выполняет регистрацию устройства для получения push-уведомлений.
+3.	В среде Appcelerator Titanium Studio откройте файл index.js и добавьте внизу следующий код. Этот код выполняет регистрацию устройства для получения push-уведомлений.
 
             Alloy.Globals.tempRegId = '';
-                if (OS_ANDROID) {
-                var gcm = require('com.winwire.notificationhub');
+    	        if (OS_ANDROID) {
+    	        var gcm = require('com.winwire.notificationhub');
             gcm.registerC2dm({
             success : function(e) {
             var regId = e.registrationId;
@@ -353,56 +344,62 @@
             }
             });
             }
+   
 
-2.  Теперь откройте файл TableData.js и найдите следующие строки в функции **addOrUpdateDataFromAndroid**
+4.	Откройте файл TableData.js и найдите следующие строки в функции **addOrUpdateDataFromAndroid**
 
         var request = {
-            'text' : alertTextField.getValue(),
-            'complete' : false
+    	    'text' : alertTextField.getValue(),
+    	    'complete' : false
         };
+  
 
-    Замените указанный выше код только в условии «else» (для вставки нового элемента).
+    Замените указанный выше код только в условии "else" (для вставки нового элемента).
 
-3.  Для Android замените указанный выше код на следующий:
+5.	Для Android замените указанный выше код на следующий:
 
-    var request = {
-     'text' : alertTextField.getValue(),
-     'complete' : false,
-     'handle' : Alloy.Globals.tempRegId
-    };
+       var request = {
+    	'text' : alertTextField.getValue(),
+    	'complete' : false,
+    	'handle' : Alloy.Globals.tempRegId
+    }; 
+    
+    
 
-4.  Теперь найдите следующие строки в функции **updateOrAddData**
+6.	Теперь найдите следующие строки в функции **updateOrAddData**
 
            var request = {
-            'text' : alertTextField.getValue(),
-            'complete' : false
+    	    'text' : alertTextField.getValue(),
+    	    'complete' : false
         };
+    
+    Замените указанный выше код только в условии "else" (для вставки нового элемента).
 
-    Замените указанный выше код только в условии «else» (для вставки нового элемента).
+7.	Для iOS замените указанный выше код на следующий:
 
-5.  Для iOS замените указанный выше код на следующий:
-
-    var request = {
-     'text' : alertTextField.getValue(),
-     'complete' : false,
-     'deviceToken' : Alloy.Globals.tempRegId
+       var request = {
+    	'text' : alertTextField.getValue(),
+    	'complete' : false,
+    	'deviceToken' : Alloy.Globals.tempRegId
     };
-
+    
+ 
 Приложение теперь обновлено и поддерживает push-уведомления на платформах iOS и Android.
 
-## <a name="update-scripts"></a>Обновление зарегистрированных скриптов вставки на портале управления
 
-1.  На портале управления щелкните вкладку Данные, а затем щелкните таблицу TodoItem.
+## <a name="update-scripts"></a>Обновление зарегистрированных сценариев вставки на портале управления
+
+1.	На портале управления щелкните вкладку Данные, а затем щелкните таблицу TodoItem.
 
     ![][5]
 
-2.  В таблице todoitem щелкните вкладку Скрипт и выберите Вставить.
+2.	В таблице todoitem щелкните вкладку Скрипт и выберите Вставить.
 
     ![][6]
 
     При этом отображается функция, вызываемая при выполнении вставки в таблице TodoItem.
 
-3.  Замените функцию вставки следующим кодом и нажмите кнопку **Сохранить**:
+3.	Замените функцию вставки следующим кодом и щелкните **Сохранить**:
 
 **Для iOS:**
 
@@ -419,8 +416,8 @@
                  }); 
             }, 2500);
         }
-
-    > [WACOM.NOTE] This script delays sending the notification to give you time to close the app to receive a push notification.  
+  
+   	> [WACOM.NOTE] Этот скрипт задерживает отправку уведомления, чтобы вы успели закрыть приложение для получения push-уведомления.  
 
 **Для Android:**
 
@@ -440,31 +437,34 @@
           });  
         }
 
-При этом регистрируется новый скрипт вставки, в котором используется [Push-объект мобильных служб][Push-объект мобильных служб] для отправки push-уведомления (вставленный текст) на устройство, указанное в запросе вставки.
 
 
+При этом регистрируется новый скрипт вставки, в котором [push-объект мобильных служб] используется для отправки push-уведомления (вставленный текст) на устройство, указанное в запросе вставки.
 
 
+<!-- Images. -->
+[0]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image0011.png
+[1]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image0031.png
+[2]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image0041.png
+[3]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image0061.png
+[4]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image062.png
+[5]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image064.png
+[6]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image066.png
 
-  [Создание запроса подписи сертификата]: #certificates
-  [Регистрация приложения и включение push-уведомлений]: #register
-  [Создание профиля подготовки для приложения]: #profile
-  [Включение Google Cloud Messaging]: #register-gcm
-  [Создание модуля GCM для Titanium]: #gcm-module
-  [Настройка мобильных служб]: #configure
-  [Добавление push-уведомлений в приложение]: #add-push
-  [Обновление скриптов для отправки push-уведомлений]: #update-scripts
-  [Вставка данных для получения уведомлений]: #test
-  [Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started
-  [accounts.google.com]: http://go.microsoft.com/fwlink/p/?LinkId=268302
-  [Установка средств разработки Java]: http://docs.appcelerator.com/titanium/latest/#!/guide/Installing_the_Java_Development_Tools
-  [0]: http://developer.android.com/sdk/ndk/index.html
-  [0]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image0011.png
-  [1]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image0031.png
-  [2]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image0041.png
-  [3]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image0061.png
-  [Использование модулей Titanium]: http://docs.appcelerator.com/titanium/latest/#!/guide/Using_Titanium_Modules
-  [4]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image062.png
-  [5]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image064.png
-  [6]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image066.png
-  [Push-объект мобильных служб]: http://go.microsoft.com/fwlink/p/?linkid=272333&clcid=0x409
+<!-- Anchors. -->
+[Создание запроса подписи сертификата]: #certificates
+[Регистрация приложения и включение push-уведомлений]: #register
+[Создание профиля подготовки для приложения]: #profile
+[Включение Google Cloud Messaging]: #register-gcm
+[Создание модуля GCM для Titanium]: #gcm-module
+[Настройка мобильных служб]: #configure
+[Добавление push-уведомлений в приложение]: #add-push
+[Обновление скриптов для отправки push-уведомлений]: #update-scripts
+[Вставка данных для получения уведомлений]: #test
+
+<!-- URLs. -->
+[Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started
+[Использование модулей Titanium]: http://docs.appcelerator.com/titanium/latest/#!/guide/Using_Titanium_Modules
+[Портал управления Windows Azure]: https://manage.windowsazure.com/
+[Push-объект мобильных служб]: http://go.microsoft.com/fwlink/p/?linkid=272333&clcid=0x409
+[Установка средств разработки Java]: http://docs.appcelerator.com/titanium/latest/#!/guide/Installing_the_Java_Development_Tools

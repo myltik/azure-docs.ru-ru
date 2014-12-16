@@ -1,8 +1,13 @@
-1.  В Visual Studio откройте файл MainPage.xaml.cs и добавьте следующий оператор `using` в верхнюю часть файла.
+﻿
 
+Приведенные ниже инструкции и снимки экрана применимы для тестирования клиента Магазина Windows, но ими можно воспользоваться на любой из платформ, поддерживаемых мобильными службами Azure. 
+
+
+1. В Visual Studio откройте файл MainPage.xaml.cs и добавьте следующую инструкцию using в верхнюю часть файла.
+ 
         using System.Net.Http;
 
-2.  В файле MainPage.xaml.cs добавьте в пространство имен следующее определение класса, чтобы помочь сериализировать сведения пользователя.
+2. В файле MainPage.xaml.cs добавьте в пространство имен следующее определение класса, чтобы помочь сериализировать сведения пользователя.
 
         public class UserInfo
         {
@@ -13,7 +18,8 @@
             public String postalCode { get; set; }
         }
 
-3.  В файле MainPage.xaml.cs обновите метод `AuthenticateAsync` для вызова пользовательского API, чтобы вернуть дополнительные сведения о пользователе из AAD.
+
+3. В файле MainPage.xaml.cs обновите метод AuthenticateAsync для вызова пользовательского API, чтобы вернуть дополнительные сведения о пользователе из AAD. 
 
         private async System.Threading.Tasks.Task AuthenticateAsync()
         {
@@ -34,13 +40,12 @@
                 {
                     message = "You must log in. Login Required";
                 }
-
+                
                 var dialog = new MessageDialog(message);
                 dialog.Commands.Add(new UICommand("OK"));
                 await dialog.ShowAsync();
             }
         }
 
-4.  Сохраните изменения и создайте службу для проверки отсутствия ошибок в синтаксисе.
 
-
+4. Сохраните изменения и создайте службу для проверки отсутствия ошибок в синтаксисе.  

@@ -1,57 +1,62 @@
-<properties pageTitle="Service-side authorization (Windows Phone) | Mobile Dev Center" metaKeywords="" description="Learn how to authorize users in the .NET backend of Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Service-side authorization of Mobile Services users" authors="glenga" solutions="" manager="" editor="" />
+﻿<properties pageTitle="Авторизация с помощью службы (Windows Phone) | Центр мобильных разработок" metaKeywords="" description="Learn how to authorize users in the .NET backend of Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Service-side authorization of Mobile Services users" authors="glenga" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/29/2014" ms.author="glenga" />
 
 # Авторизация пользователей мобильных служб на стороне службы
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts" title="Магазин Windows &mdash; C#">Магазин Windows &mdash; C#</a><a href="/ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-authorize-users-in-scripts" title="Магазин Windows &mdash; JavaScript">Магазин Windows &mdash; JavaScript</a><a href="/ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-phone-authorize-users-in-scripts" title="Windows Phone" class="current">Windows Phone</a><a href="/ru-ru/documentation/articles/mobile-services-dotnet-backend-ios-authorize-users-in-scripts" title="iOS" class="current">iOS</a></div>
+[WACOM.INCLUDE [mobile-services-selector-service-auth-users](../includes/mobile-services-selector-service-auth-users.md)]
 
-<div class="dev-center-tutorial-subselector"><a href="/ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-phone-authorize-users-in-scripts/" title="Серверная часть .NET" class="current">Серверная часть .NET</a> | <a href="/ru-ru/documentation/articles/mobile-services-windows-phone-authorize-users-in-scripts/"  title="Серверная часть JavaScript">Серверная часть JavaScript</a></div>
 
-В этом разделе показано, как осуществить авторизацию пользователей, прошедших проверку подлинности, для доступа к данным в мобильных службах Azure из приложения Windows Phone. В этом учебнике вы добавите код в методы доступа к данным контроллера, которые используются для фильтрации запросов по userId пользователя, прошедшего проверку подлинности, удостоверяясь, что каждый пользователь может просматривать только свои собственные данные.
+В этом разделе показано, как выполнить авторизацию пользователей, прошедших проверку подлинности, для доступа к данным в мобильных службах Azure из приложения Windows Phone. В этом учебнике показано, как добавить код к методам доступа к данным в своем контроллере, который фильтрует запросы с учетом идентификатора пользователя, прошедшего проверку подлинности, чтобы каждый пользователь мог видеть только собственные данные.
 
-Этот учебник описывает быстрый запуск мобильных служб и основан на материале предыдущего учебника [Приступая к работе с аутентификацией][Приступая к работе с аутентификацией]. Перед началом работы с учебником необходимо пройти задания учебника [Приступая к работе с аутентификацией][Приступая к работе с аутентификацией].
+Этот учебник описывает быстрый запуск мобильных служб и основан на материале предыдущего учебника [Приступая к работе с проверкой подлинности]. Перед началом работы с учебником необходимо пройти задания учебника [Приступая к работе с проверкой подлинности].  
 
 ## <a name="register-scripts"></a>Изменение методов доступа к данным
 
-[WACOM.INCLUDE [mobile-services-filter-user-results-dotnet-backend](../includes/mobile-services-filter-user-results-dotnet-backend.md)]
+[WACOM.INCLUDE [mobile-services-filter-user-results-dotnet-backend](../includes/mobile-services-filter-user-results-dotnet-backend.md)] 
+
 
 ## Тестирование приложения
 
-1.  Откройте в Visual Studio 2013 для Windows Phone проект, измененный при выполнении учебника [Приступая к работе с аутентификацией][Приступая к работе с аутентификацией].
+1. Откройте в Visual Studio 2013 для Windows Phone проект, в который внесены изменения при прохождении учебника [Приступая к работе с проверкой подлинности].
 
-2.  Нажмите клавишу F5, чтобы запустить приложение, а затем выполните вход с использованием выбранного поставщика удостоверений.
+2. Нажмите клавишу F5, чтобы запустить приложение, а затем выполните вход с использованием выбранного поставщика удостоверений. 
 
-    Обратите внимание, что в этом случае не возвращается никаких элементов, хотя в таблице TodoItem уже есть элементы из предыдущих учебников. Это вызвано тем, что предыдущие элементы были вставлены без столбца userId и теперь имеют значения NULL.
+   	Обратите внимание, что несмотря на наличие элементов, уже сохраненных в таблице TodoItem после прохождения предыдущих учебников, возврат элементов не происходит. Причина этого состоит в том, что предыдущие элементы были вставлены без столбца идентификатора пользователя и теперь имеют значения NULL.
 
-3.  В приложении введите текст в текстовом поле и нажмите кнопку **Сохранить**.
+3. В приложении введите текст в текстовом поле и щелкните **Сохранить**.
 
-    ![][0]
+   	![][3]
 
-    При этом в таблицу TodoItem мобильной службы вставляется текст и идентификатор пользователя. Так как новый элемент имеет правильное значение userId, он возвращается мобильной службой.
+   	Это приведет к вставке текста и идентификатора пользователя в таблицу TodoItem в мобильной службе. Новый элемент имеет правильное значение идентификатора пользователя, поэтому происходит его возврат мобильной службой.
 
-4.  (Необязательно) При наличии дополнительных учетных записей вы можете проверить, что пользователи могут просмотреть только свои собственные данные. Для этого можно закрыть приложение (Alt+F4) и затем запустить его снова. Когда появится диалоговое окно учетных данных входа, введите другое имя входа и убедитесь, что элементы, введенные с использованием предыдущей учетной записи, не отображаются.
+6. (Необязательно) При наличии дополнительных учетных записей можно проверить, что пользователи могут просмотреть только свои собственные данные, закрыв приложение (ALT+F4) и затем запустив его снова. Открыв диалоговое окно ввода учетных данных для входа, задайте другое имя входа, затем проверьте, не отображаются ли элементы, введенные в предыдущей учетной записи. 
 
 ## Дальнейшие действия
 
-Это заключительный раздел учебников, в которых демонстрируются основные принципы работы с проверкой подлинности. Просмотрите следующие разделы, посвященные мобильным службам:
+На этом завершаются учебники, демонстрирующие основы работы с проверкой подлинности. Рассмотрите возможность лучше ознакомиться со следующими темами, касающимися мобильных служб:
 
--   [Приступая к работе с данными][Приступая к работе с данными]
+* [Приступая к работе с данными]
+  <br/>Узнайте больше о хранении и передаче запросов к данным с использованием мобильных служб.
 
-    Дополнительные сведения о хранении данных и запросах к ним при помощи мобильных служб.
+* [Приступая к работе с push-уведомлениями] 
+  <br/>Отправка очень простого push-уведомления в приложение.
+  
+* [Справочник принципов использования мобильных служб .NET]
+  <br/>Использование мобильных служб с .NET.
 
--   [Приступая к работе с push-уведомлениями][Приступая к работе с push-уведомлениями]
+<!-- Anchors. -->
+[Регистрация серверных скриптов]: #register-scripts
+[Дальнейшие действия]:#next-steps
 
-    Сведения об отправке в приложение простейших push-уведомлений.
+<!-- Images. -->
 
--   [Справочник принципов использования мобильных служб .NET][Справочник принципов использования мобильных служб .NET]
+[3]: ./media/mobile-services-dotnet-backend-windows-phone-authorize-users-in-scripts/mobile-quickstart-startup.png
 
-    Дополнительные сведения об использовании мобильных служб в .NET.
+<!-- URLs. -->
+[Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started
+[Приступая к работе с данными]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data
+[Приступая к работе с аутентификацией]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users
+[Приступая к работе с push-уведомлениями]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push
 
-
-
-  [Приступая к работе с аутентификацией]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users
-  [0]: ./media/mobile-services-dotnet-backend-windows-phone-authorize-users-in-scripts/mobile-quickstart-startup.png
-  [Приступая к работе с данными]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data
-  [Приступая к работе с push-уведомлениями]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push
-  [Справочник принципов использования мобильных служб .NET]: /ru-ru/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/
+[Справочник принципов использования мобильных служб .NET]: /ru-ru/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/

@@ -1,140 +1,140 @@
-<properties title="Azure Notification Hubs Secure Push" pageTitle="Azure Notification Hubs Secure Push" metaKeywords="Azure push notifications, Azure notification hubs, secure push" description="Learn how to send secure push notifications to an iOS app from Azure. Code samples written in Objective-C and C#." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="sethm" />
+﻿<properties title="Azure Notification Hubs Secure Push" pageTitle="Концентраторы уведомлений Azure, безопасные push-уведомления" metaKeywords="push-уведомления Azure, концентраторы уведомлений Azure, безопасные push-уведомления" description="Learn how to send secure push notifications to an iOS app from Azure. Code samples written in Objective-C and C#." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="yuaxu" manager="dwrede" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="sethm" />
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="yuaxu" />
 
-# Безопасные push-уведомления для концентраторов уведомлений Azure
+#Безопасные push-уведомления посредством концентраторов уведомлений Azure
 
-<div class="dev-center-tutorial-selector sublanding"> 
-        <a href="/ru-ru/documentation/articles/notification-hubs-windows-dotnet-secure-push/" title="Windows Phone">Windows Phone</a><a href="/ru-ru/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS" class="current">iOS</a>
-        <a href="/ru-ru/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/" title="Android">Android</a>
+<div class="dev-center-tutorial-selector sublanding">
+    	<a href="/ru-ru/documentation/articles/notification-hubs-windows-dotnet-secure-push/" title="Windows Universal">Windows Universal</a><a href="/ru-ru/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS" class="current">iOS</a>
+		<a href="/ru-ru/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/" title="Android">Android</a>
 </div>
 
-Поддержка push-уведомлений в Azure позволяет получить доступ к простой в использовании, многоплатформенной и масштабируемой инфраструктуре для отправки push-уведомлений, которая значительно упрощает реализацию push-уведомлений как для индивидуальных пользователей, так и для корпоративных приложений для мобильных платформ.
+Поддержка push-уведомлений в Microsoft Azure позволяет получить доступ к простой в использовании, многоплатформенной и масштабируемой инфраструктуре для отправки push-уведомлений, которая значительно упрощает реализацию push-уведомлений как для индивидуальных пользователей, так и для корпоративных приложений для мобильных платформ.
 
-В связи с законодательными ограничениями или из соображений безопасности, приложениям иногда может потребоваться включить в уведомление информацию, которая не может быть передана через стандартную инфраструктуру push-уведомлений. В этом руководстве описываются действия для достижения того же результата, путем отправки конфиденциальной информации через безопасное подключение с проверкой подлинности между клиентским устройством и серверной частью приложения.
+Из-за ограничений, связанных с правовыми нормами или обеспечением безопасности, иногда в уведомлении могут присутствовать данные, которые нельзя передать через стандартную инфраструктуру push-уведомлений. В этом учебнике рассказывается о том, как реализовать этот принцип при отправке важной информации через защищенное соединение с проверкой подлинности, установленное между устройством клиента и серверной частью приложения.
 
-На верхнем уровне процесс выглядит так:
+На высоком уровне поток можно представить следующим образом.
 
-1.  Серверная часть приложения:
+1. Серверная часть приложения:
+	- Сохраняет полезную нагрузку в базе данных серверной части.
+	- Отправляет идентификатор этого уведомления устройству (защищаемые сведения не передаются).
+2. Приложение на устройстве при получении уведомления:
+	- Устройство связывается с серверной частью и запрашивает полезную нагрузку.
+	- Приложение может показывать полезную нагрузку в виде уведомления на устройстве.
 
-    -   Хранит конфиденциальную информацию в базе данных серверной части.
-    -   Отправляет идентификаторы этой информации на устройство (конфиденциальная информация не пересылается).
+Важно отметить, что в предыдущем потоке (и в этом учебнике) подразумевается, что устройство сохраняет маркер проверки подлинности в локальном хранилище после входа пользователя. Это гарантирует совершенно беспрепятственную работу, так как устройство может получать полезную нагрузку с использованием этого маркера. Если приложение не сохраняет маркеры проверки подлинности на устройстве, или если истек срок действия маркеров, приложение устройства, после получения уведомления, должно отобразить общее уведомление, предлагая пользователю запустить приложение. Затем приложение выполняет проверку подлинности пользователя и отображает полезную нагрузку уведомления.
 
-2.  Приложение на устройстве при получении уведомления:
+В этом учебнике по работе с безопасными push-уведомлениями показано, как безопасно отправлять push-уведомление. Данное руководство является продолжением другого учебника под названием **Уведомление пользователей**, поэтому необходимо сначала выполнить шаги в указанном учебнике.
 
-    -   Устройство связывается с серверной частью и запрашивает конфиденциальную информацию.
-    -   Приложение может показать информацию в виде уведомления на устройстве.
-
-Важно отметить, что в предыдущем процессе (и в учебнике), мы предполагаем, что устройство хранит маркер проверки подлинности в локальном хранилище после того, как пользователь выполнит вход. Это гарантирует полностью удобную работу, так как устройство сможет получить конфиденциальную информацию уведомления с помощью этого маркера. Если приложение не хранит маркеры проверки подлинности на устройстве, либо срок их действия истек, приложение при получении уведомления должно вывести стандартное уведомление с предложением пользователю запустить приложение. Затем приложение производит проверку подлинности пользователя и отображает конфиденциальную информацию.
-
-В этом учебнике по безопасным push-уведомлениям показано, как отправлять push-уведомления безопасно. Учебник основан на учебнике **Уведомление пользователей**, поэтому вам необходимо сначала выполнить этапы указанного учебника.
-
-> [AZURE.NOTE] В данном учебнике предполагается, что вы создали и настроили концентратор уведомлений, как описано в разделе [Приступая к работе с концентраторами уведомлений (iOS)][Приступая к работе с концентраторами уведомлений (iOS)].
+> [AZURE.NOTE] В этом учебнике подразумевается, что вы создали и настроили концентратор уведомлений в соответствии с описанием в учебнике [Приступая к работе с концентраторами уведомлений (iOS)](http://azure.microsoft.com/ru-ru/documentation/articles/notification-hubs-ios-get-started/).
 
 [WACOM.INCLUDE [notification-hubs-aspnet-backend-securepush](../includes/notification-hubs-aspnet-backend-securepush.md)]
 
 ## Внесение изменений в проект iOS
 
-После того, как вы изменили серверную часть приложения для отправки только *идентификатора* уведомления, необходимо внести изменения в приложение iOS для обработки этого уведомления и осуществления обратного вызова к серверной части для извлечения конфиденциального сообщения, которое должно быть отображено.
+После того как вы изменили серверную часть приложения для отправки только идентификатора уведомления, необходимо внести изменения в приложение iOS для обработки этого уведомления и осуществления обратного вызова к внутреннему компоненту для извлечения конфиденциального сообщения, которое должно быть отображено.
 
 Для достижения этой цели мы напишем логику извлечения безопасного содержимого из серверной части приложения.
 
-1.  В файле **AppDelegate.m** добавьте в начало файла реализационную часть со следующим объявлением:
+1. В файле **AppDelegate.m** убедитесь, что приложение зарегистрировано для автоматических уведомлений, чтобы оно обрабатывало идентификатор уведомления, отправленный из внутреннего компонента. Добавьте параметр **UIRemoteNotificationTypeNewsstandContentAvailability** в didFinishLaunchingWithOptions:
 
-        @interface AppDelegate ()
-        - (void) retrieveSecurePayloadWithId:(int)payloadId completion: (void(^)(NSString*, NSError*)) completion;
-        @end
+		[[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeNewsstandContentAvailability];
 
-2.  Затем добавьте в реализационную часть следующий код, подставив вместо `{back-end endpoint}` конечную точку серверной части, которая была получена ранее:
+2. В начало файла **AppDelegate.m** добавьте реализационную часть со следующим объявлением:
 
-        NSString *const GetNotificationEndpoint = @"{back-end endpoint}/api/notifications";
+		@interface AppDelegate ()
+		- (void) retrieveSecurePayloadWithId:(int)payloadId completion: (void(^)(NSString*, NSError*)) completion;
+		@end
 
-        - (void) retrieveSecurePayloadWithId:(int)payloadId completion: (void(^)(NSString*, NSError*)) completion;
-        {
-            // check if authenticated
-            ANHViewController* rvc = (ANHViewController*) self.window.rootViewController;
-            NSString* authenticationHeader = rvc.registerClient.authenticationHeader;
-            if (!authenticationHeader) return;
+3. Затем добавьте в реализационную часть следующий код, подставив вместо `{back-end endpoint}` конечную точку серверной части, которая была получена ранее:
 
+		NSString *const GetNotificationEndpoint = @"{back-end endpoint}/api/notifications";
 
-            NSURLSession* session = [NSURLSession
-                                     sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]
-                                     delegate:nil
-                                     delegateQueue:nil];
+		- (void) retrieveSecurePayloadWithId:(int)payloadId completion: (void(^)(NSString*, NSError*)) completion;
+		{
+		    // check if authenticated
+		    ANHViewController* rvc = (ANHViewController*) self.window.rootViewController;
+		    NSString* authenticationHeader = rvc.registerClient.authenticationHeader;
+		    if (!authenticationHeader) return;
 
 
-            NSURL* requestURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/%d", GetNotificationEndpoint, payloadId]];
-            NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:requestURL];
-            [request setHTTPMethod:@"GET"];    
-            NSString* authorizationHeaderValue = [NSString stringWithFormat:@"Basic %@", authenticationHeader];
-            [request setValue:authorizationHeaderValue forHTTPHeaderField:@"Authorization"];
+		    NSURLSession* session = [NSURLSession
+		                             sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]
+		                             delegate:nil
+		                             delegateQueue:nil];
 
-            NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) response;
-                if (!error && httpResponse.statusCode == 200)
-                {
-                    NSLog(@"Received secure payload: %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
 
-                    NSMutableDictionary *json = [NSJSONSerialization JSONObjectWithData:data options: NSJSONReadingMutableContainers error: &error];
+		    NSURL* requestURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/%d", GetNotificationEndpoint, payloadId]];
+		    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:requestURL];
+		    [request setHTTPMethod:@"GET"];
+		    NSString* authorizationHeaderValue = [NSString stringWithFormat:@"Basic %@", authenticationHeader];
+		    [request setValue:authorizationHeaderValue forHTTPHeaderField:@"Authorization"];
 
-                    completion([json objectForKey:@"Payload"], nil);
-                }
-                else
-                {
-                    NSLog(@"Error status: %ld, request: %@", (long)httpResponse.statusCode, error);
-                    if (error)
-                        completion(nil, error);
-                    else {
-                        completion(nil, [NSError errorWithDomain:@"APICall" code:httpResponse.statusCode userInfo:nil]);
-                    }
-                }
-            }];
-            [dataTask resume];
-        }
+		    NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+		        NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) response;
+		        if (!error && httpResponse.statusCode == 200)
+		        {
+		            NSLog(@"Received secure payload: %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
 
-    Этот метод вызывает серверную часть вашего приложения для извлечения содержимого уведомления с использованием учетных данных, хранящихся в общих настройках.
+		            NSMutableDictionary *json = [NSJSONSerialization JSONObjectWithData:data options: NSJSONReadingMutableContainers error: &error];
 
-3.  Теперь мы обработаем входящее уведомление и используем вышеуказанный метод для извлечения содержимого и его отображения. Во-первых, мы должны создать для приложения iOS возможность работы в фоновом режиме при получении push-уведомления. В **XCode** выберите проект приложения в панели слева, затем выберите основную платформу в разделе **Targets (Платформы)** центральной панели.
+		            completion([json objectForKey:@"Payload"], nil);
+		        }
+		        else
+		        {
+		            NSLog(@"Error status: %ld, request: %@", (long)httpResponse.statusCode, error);
+		            if (error)
+		                completion(nil, error);
+		            else {
+		                completion(nil, [NSError errorWithDomain:@"APICall" code:httpResponse.statusCode userInfo:nil]);
+		            }
+		        }
+		    }];
+		    [dataTask resume];
+		}
 
-4.  Затем щелкните вкладку **Capabilities (Возможности)** в верхней части центральной панели и щелкните флажок **Remote Notifications (удаленные уведомления)**.
+	Этот метод вызывает серверную часть вашего приложения для извлечения содержимого уведомления с использованием учетных данных, хранящихся в общих настройках.
 
-    ![][0]
+4. Теперь мы обработаем входящее уведомление и используем вышеуказанный метод для извлечения содержимого и его отображения. Во-первых, мы должны создать для приложения iOS возможность работы в фоновом режиме при получении push-уведомления. В **XCode** выберите проект приложения на панели слева, затем выберите основное целевое приложение в разделе **Целевые объекты** центральной панели.
 
-5.  В файле **AppDelegate.m** добавьте следующий метод для обработки push-уведомлений:
+5. Затем щелкните вкладку **Возможности** в верхней части центральной панели и щелкните флажок **Удаленные уведомления**.
 
-        -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
-        {
-            NSLog(@"%@", userInfo);
+	![][IOS1]
 
-            [self retrieveSecurePayloadWithId:[[userInfo objectForKey:@"secureId"] intValue] completion:^(NSString * payload, NSError *error) {
-                if (!error) {
-                    // show local notification
-                    UILocalNotification* localNotification = [[UILocalNotification alloc] init];
-                    localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:0];
-                    localNotification.alertBody = payload;
-                    localNotification.timeZone = [NSTimeZone defaultTimeZone];
-                    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
 
-                    completionHandler(UIBackgroundFetchResultNewData);
-                } else {
-                    completionHandler(UIBackgroundFetchResultFailed);
-                }
-            }];
+6. В файле **AppDelegate.m** добавьте следующий метод для обработки push-уведомлений:
 
-        }
+		-(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
+		{
+		    NSLog(@"%@", userInfo);
 
-    Обратите внимание, что случаи отсутствующего свойства заголовки проверки подлинности или отклонения предпочтительнее обрабатывать на серверной части. Обработка в таких случаях в основном зависит от пользовательского опыта на целевой платформе. Одним из вариантов является отображение уведомления с обычным предложением пользователю для проверки подлинности, чтобы получить текущее уведомление.
+		    [self retrieveSecurePayloadWithId:[[userInfo objectForKey:@"secureId"] intValue] completion:^(NSString * payload, NSError *error) {
+		        if (!error) {
+		            // show local notification
+		            UILocalNotification* localNotification = [[UILocalNotification alloc] init];
+		            localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:0];
+		            localNotification.alertBody = payload;
+		            localNotification.timeZone = [NSTimeZone defaultTimeZone];
+		            [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
 
-## Запуск приложения
+		            completionHandler(UIBackgroundFetchResultNewData);
+		        } else {
+		            completionHandler(UIBackgroundFetchResultFailed);
+		        }
+		    }];
+
+		}
+
+	Обратите внимание, что случаи отсутствующего или отклоненного свойства заголовков проверки подлинности предпочтительнее обрабатывать на серверном компоненте. Обработка в таких случаях в основном зависит от пользовательского опыта на целевой платформе. Один из таких вариантов - отображение уведомления с обычным предложением проверки подлинности для получения текущего уведомления.
+
+## Запустите приложение
 
 Для запуска приложения выполните следующие действия:
 
-1.  Убедитесь, что **AppBackend** развернут в Azure. При использовании Visual Studio, запустите приложение веб-API **AppBackend**. Отобразится веб-страница ASP.NET.
+1. В XCode запустите приложение на физическом устройстве под управлением iOS (push-уведомления не будут работать в симуляторе).
 
-2.  В XCode запустите приложение на физическом устройстве iOS (push-уведомления не работают в симуляторе).
+2. В пользовательском интерфейсе приложения iOS введите имя пользователя и пароль. Это может быть любая строка, но имя и пароль должны быть одинаковыми.
 
-3.  В пользовательском интерфейсе приложения iOS введите имя пользователя и пароль. Это могут быть любые совпадающие строки.
+3. В пользовательском интерфейсе приложения iOS нажмите **Вход**. Затем нажмите кнопку **Отправить push-уведомление**. Вы должны увидеть конфиденциальное уведомление, которое будет отображено в центре уведомлений.
 
-4.  В пользовательском интерфейсе приложения iOS нажмите **Вход**. Затем нажмите **Отправить push-уведомление**. Вы должны увидеть конфиденциальное уведомление, которое будет отображено в центре уведомлений.
-
-  [0]: ./media/notification-hubs-aspnet-backend-ios-secure-push/secure-push-ios-1.png
+[IOS1]: ./media/notification-hubs-aspnet-backend-ios-secure-push/secure-push-ios-1.png
