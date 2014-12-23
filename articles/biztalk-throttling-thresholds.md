@@ -1,8 +1,12 @@
-<properties linkid="manage-services-biztalk-services-throttling" urlDisplayName="Throttling" pageTitle="Throttling thresholds in BizTalk Services | Azure" metaKeywords="BizTalk Services, throttling, Azure" description="Learn about throttling thresholds and resulting runtime behaviors for BizTalk Services. Throttling is based on memory usage and number of simultaneous messages." metaCanonical="" services="biztalk-services" documentationCenter="" title="BizTalk Services: Throttling" authors="mandia" solutions="" manager="dwrede" editor="cgronlun" />
+﻿<properties urlDisplayName="Throttling" pageTitle="Пороговые значения регулирования в службах BizTalk | Azure" metaKeywords="BizTalk Services, throttling, Azure" description="Learn about throttling thresholds and resulting runtime behaviors for BizTalk Services. Throttling is based on memory usage and number of simultaneous messages." metaCanonical="" services="biztalk-services" documentationCenter="" title="BizTalk Services: Throttling" authors="mandia" solutions="" manager="dwrede" editor="cgronlun" />
 
 <tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
 
-# Службы BizTalk: Регулирование
+
+
+
+
+# Службы BizTalk: регулирование
 
 Службы BizTalk реализуют регулирование службы на базе двух условий: потребление памяти и число потоков параллельной обработки сообщений. В этом разделе содержатся сведения о пороговых значениях регулирования и описывается поведение среды выполнения при возникновении условия регулирования.
 
@@ -10,107 +14,65 @@
 
 В следующей таблице перечислены источник и пороговые значения регулирования:
 
+
 <table border="1">
+
 <tr bgcolor="FAF9F9">
-<th>
-</th>
-<td>
-**Описание**
-
-</td>
-<td>
-**Нижнее пороговое значение**
-
-</td>
-<td>
-**Верхнее пороговое значение**
-
-</td>
+        <th> </th>
+        <td><strong>Описание</strong></td>
+        <td><strong>Нижнее пороговое значение</strong></td>
+        <td><strong>Верхнее пороговое значение</strong></td>
 </tr>
-<tr>
-<td>
-Память
-
-</td>
-<td>
-% всей доступной системной памяти/PageFileBytes (количество байтов файла подкачки).
- Итоговое доступное количество байтов файла подкачки приблизительно в 2 раза превышает ОЗУ в системе.
-
-</td>
-<td>
-60%
-
-</td>
-<td>
-70%
-
-</td>
-</tr>
-<tr>
-<td>
-Обработка сообщений
-
-</td>
-<td>
-Число сообщений, обрабатываемых одновременно
-
-</td>
-<td>
-40 \* число ядер
-
-</td>
-<td>
-100 \* число ядер
-
-</td>
-</tr>
+    <tr>
+        <td>Память</td>
+        <td>% всей доступной системной памяти/PageFileBytes (количество байтов файла подкачки). 
+<br/><br/>
+Итоговое доступное количество байтов файла подкачки приблизительно в 2 раза превышает ОЗУ в системе.</td>
+        <td>60 %</td>
+        <td>70 %</td>
+    </tr>
+    <tr>
+        <td>Обработка сообщений</td>
+        <td>Число сообщений, обрабатываемых одновременно</td>
+        <td>40 * число ядер</td>
+        <td>100 * число ядер</td>
+    </tr>
 </table>
+
 При достижении верхнего порогового значения в службах BizTalk для Azure запускается регулирование. Регулирование прекращается при достижении нижнего порогового значения. Например, служба использует 65 % системной памяти. В этом случае служба не ведет регулирование. Использование системной памяти повышается до 70 %. В этом случае служба начинает регулирование, которое продолжается до того момента, пока загрузка системной памяти не снизится до 60 % (нижнее пороговое значение).
 
 Службы BizTalk для Azure отслеживают состояние регулирования (обычный режим и регулируемый режим), а также продолжительность регулирования.
+
 
 ## Поведение во время выполнения
 
 Когда службы BizTalk для Azure переключаются в состояние регулирования, происходит следующее:
 
--   Регулирование осуществляется для отдельных экземпляров роли. Например,
-    ведется регулирование экземпляра RoleInstanceA. RoleInstanceB не ведет регулирование. В этом случае сообщения в RoleInstanceB обрабатываются как ожидалось. Сообщения в RoleInstanceA отклоняются и завершаются со следующей ошибкой:
-    Сервер занят. Повторите попытку позже.
--   Ни один запрашивающий источник не ведет опрос и не загружает сообщение. Например,
-    конвейер извлекает сообщения из внешнего FTP-источника. Экземпляр роли, посылающий запрос на извлечение, переходит в состояние регулирования. В этом случае загрузка дополнительных сообщений в конвейере приостанавливается до прекращения регулирования для этого экземпляра роли.
--   Клиенту отправляется ответ, чтобы он мог повторно отправить это сообщение.
--   Необходимо дождаться, когда регулирование будет завершено. В частности, следует дождаться момента достижения нижнего порогового значения.
+- Регулирование осуществляется по конкретным экземплярам роли. Например: <br/>
+RoleInstanceA выполняет регулирование. RoleInstanceB не ведет регулирование. В этом случае сообщения в RoleInstanceB обрабатываются как ожидалось. Сообщения в RoleInstanceA отклоняются и завершаются со следующей ошибкой:<br/><br/>
+Сервер занят. Повторите попытку позже.<br/><br/>
+- Ни один запрашивающий источник не проводит опрос и не загружает сообщение. Например: <br/>
+Конвейер извлекает сообщения из внешнего FTP-источника. Экземпляр роли, посылающий запрос на извлечение, переходит в состояние регулирования. В этом случае загрузка дополнительных сообщений в конвейере приостанавливается до прекращения регулирования для этого экземпляра роли.
+- Клиенту отправляется ответ, чтобы он мог повторно отправить это сообщение.
+- Необходимо дождаться, когда регулирование будет разрешено. В частности, следует дождаться момента достижения нижнего порогового значения.
 
 ## Важные примечания
-
--   Регулирование нельзя отключить.
--   Пороговые значения регулирования нельзя изменить.
--   Регулирование реализуется на уровне всей системы.
--   Сервер базы данных SQL Azure имеет также и встроенное регулирование.
+- Регулирование нельзя отключить.
+- Пороговые значения регулирования нельзя изменить.
+- Регулирование реализуется на уровне всей системы.
+- Сервер базы данных SQL Azure имеет также и встроенное регулирование.
 
 ## Дополнительные разделы по службам BizTalk в Azure
 
--   [Установка пакета служб BizTalk в Azure][Установка пакета служб BizTalk в Azure]
--   [Учебники. Службы Azure BizTalk][Учебники. Службы Azure BizTalk]
--   [Как приступить к работе с пакетом SDK для служб BizTalk Azure][Как приступить к работе с пакетом SDK для служб BizTalk Azure]
--   [Службы Azure BizTalk][Службы Azure BizTalk]
+-  [Установка пакета служб BizTalk в Azure](http://go.microsoft.com/fwlink/p/?LinkID=241589)<br/>
+-  [Учебники. Службы Azure BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=236944)<br/>
+-  [Как приступить к работе с пакетом SDK для служб BizTalk Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
+-  [Службы Azure BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=303664)<br/>
 
 ## См. также
-
--   [Службы BizTalk: диаграмма выпусков Developer, Basic, Standard и Premium][Службы BizTalk: диаграмма выпусков Developer, Basic, Standard и Premium]
--   [Службы BizTalk: подготовка с использованием портала управления Windows Azure][Службы BizTalk: подготовка с использованием портала управления Windows Azure]
--   [Службы BizTalk: диаграмма состояния подготовки][Службы BizTalk: диаграмма состояния подготовки]
--   [Службы BizTalk: вкладки "Панель мониторинга", "Монитор" и "Масштаб"][Службы BizTalk: вкладки "Панель мониторинга", "Монитор" и "Масштаб"]
--   [Службы BizTalk: архивация и восстановление][Службы BizTalk: архивация и восстановление]
--   [Службы BizTalk: имя и ключ издателя][Службы BizTalk: имя и ключ издателя]
-
-  [Установка пакета служб BizTalk в Azure]: http://go.microsoft.com/fwlink/p/?LinkID=241589
-  [Учебники. Службы Azure BizTalk]: http://go.microsoft.com/fwlink/p/?LinkID=236944
-  [Как приступить к работе с пакетом SDK для служб BizTalk Azure]: http://go.microsoft.com/fwlink/p/?LinkID=302335
-  [Службы Azure BizTalk]: http://go.microsoft.com/fwlink/p/?LinkID=303664
-  [Службы BizTalk: диаграмма выпусков Developer, Basic, Standard и Premium]: http://go.microsoft.com/fwlink/p/?LinkID=302279
-  [Службы BizTalk: подготовка с использованием портала управления Windows Azure]: http://go.microsoft.com/fwlink/p/?LinkID=302280
-  [Службы BizTalk: диаграмма состояния подготовки]: http://go.microsoft.com/fwlink/p/?LinkID=329870
-  [Службы BizTalk: вкладки "Панель мониторинга", "Монитор" и "Масштаб"]: http://go.microsoft.com/fwlink/p/?LinkID=302281
-  [Службы BizTalk: архивация и восстановление]: http://go.microsoft.com/fwlink/p/?LinkID=329873
-  [Службы BizTalk: имя и ключ издателя]: http://go.microsoft.com/fwlink/p/?LinkID=303941
+- [Службы BizTalk: диаграмма выпусков Developer, Basic, Standard и Premium](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
+- [Службы BizTalk: подготовка с использованием портала управления Azure](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
+- [Службы BizTalk: диаграмма состояния подготовки](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
+- [Службы BizTalk: вкладки "Панель мониторинга", "Монитор" и "Масштаб"](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
+- [Службы BizTalk: архивация и восстановление](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
+- [Службы BizTalk: имя и ключ издателя](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>

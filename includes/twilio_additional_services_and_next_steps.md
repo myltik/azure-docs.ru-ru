@@ -1,20 +1,20 @@
-## <span id="AdditionalServices"></span></a><span class="short-header">Использование дополнительных служб Twilio</span> Практическое руководство. Использование дополнительных служб Twilio
+﻿<h2><a id="AdditionalServices"></a>Практическое руководство. Использование дополнительных служб Twilio</h2>
+В дополнение к приведенным примерам, Twilio предлагает веб-интерфейсы API для использования дополнительных функций Twilio в вашем приложении Azure. Для получения всей информации, см. [Документация по Twilio API] [twilio_api_documentation].
 
-Помимо примеров, перечисленных здесь, Twilio предлагает веб-интерфейсы API, с помощью которых вы можете использовать дополнительные функции Twilio из вашего приложения Azure. Дополнительные сведения см. в [документации по интерфейсу API Twilio][документации по интерфейсу API Twilio].
-
-## <span id="NextSteps"></span></a><span class="short-header">Дальнейшие действия </span>Дальнейшие действия
-
+<h2><a id="NextSteps"></a>Дальнейшие действия</h2>
 Вы узнали основные сведения о службе Twilio. Для получения дополнительных сведений используйте следующие ссылки.
 
--   [Рекомендации по безопасности Twilio][Рекомендации по безопасности Twilio]
--   [Практические руководства и примеры кода Twilio][Практические руководства и примеры кода Twilio]
--   [Краткие учебники по Twilio][Краткие учебники по Twilio]
--   [Twilio на GitHub][Twilio на GitHub]
--   [Обращение в службу поддержки Twilio][Обращение в службу поддержки Twilio]
+* [Рекомендации по безопасности Twilio] [twilio_security_guidelines]
+* [Практические руководства и примеры кода Twilio] [twilio_howtos]
+* [Учебники по быстрому запуску Twilio][twilio_quickstarts] 
+* [Twilio на GitHub] [twilio_on_github]
+* [Обращение в службу поддержки Twilio] [twilio_support]
 
-  [документации по интерфейсу API Twilio]: http://www.twilio.com/api
-  [Рекомендации по безопасности Twilio]: http://www.twilio.com/docs/security
-  [Практические руководства и примеры кода Twilio]: http://www.twilio.com/docs/howto
-  [Краткие учебники по Twilio]: http://www.twilio.com/docs/quickstart
-  [Twilio на GitHub]: https://github.com/twilio
-  [Обращение в службу поддержки Twilio]: http://www.twilio.com/help/contact
+[twilio_api_documentation]: http://www.twilio.com/api
+[twilio_security_guidelines]: http://www.twilio.com/docs/security
+[twilio_howtos]: http://www.twilio.com/docs/howto
+[twilio_on_github]: https://github.com/twilio
+[twilio_support]: http://www.twilio.com/help/contact
+[twilio_quickstarts]: http://www.twilio.com/docs/quickstart
+
+
