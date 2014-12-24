@@ -1,4 +1,4 @@
-<properties urlDisplayName="Validate Data" pageTitle="Использование скриптов на сервере для проверки и изменения данных (iOS) | Центр разработчиков для мобильных устройств" metaKeywords="" description="Learn how to validate and modify data sent using server scripts from your iOS app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="krisragh" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="Validate Data" pageTitle="Использование скриптов на сервере для проверки и изменения данных (iOS) | Центр разработчиков для мобильных устройств" metaKeywords="" description="Learn how to validate and modify data sent using server scripts from your iOS app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="krisragh" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh" />
 
@@ -14,25 +14,25 @@
 2. [Обновление клиента для поддержки проверки]
 
 
-В основе этого учебника лежат инструкции и образец приложения из предыдущего учебника [Приступая к работе с данными]. Прежде чем начать работу с этим учебником, необходимо пройти [Приступая к работе с данными].  
+В основе этого учебника лежат инструкции и образец приложения из предыдущего учебника [Начало работы с данными]. Прежде чем начать работу с этим учебником, необходимо пройти [Начало работы с данными].  
 
-## <a name="string-length-validation"></a>Добавление проверки
+## <a name="string-length-validation"></a>Add validation
 
-Рекомендуется всегда проверять длину данных, предоставляемых пользователями. Сначала необходимо зарегистрировать скрипт, который проверяет длину строки данных, отправленных в мобильную службу, и отклоняет слишком длинны строки; в этом случае отклоняются строки длиной более 10 знаков.
+It is always a good practice to validate the length of data that is submitted by users. First, you register a script that validates the length of string data sent to the mobile service and rejects strings that are too long, in this case longer than 10 characters.
 
-1. Выполните вход на [портал управления Azure][портал управления Azure], щелкните элемент **Мобильные службы**, а затем выберите свое приложение.
+1. Log into the [Azure Management Portal], click **Mobile Services**, and then click your app.
 
    	![][0]
 
-2. Откройте вкладку **Данные** и щелкните таблицу **TodoItem**.
+2. Click the **Data** tab, then click the **TodoItem** table.
 
    	![][1]
 
-3. Щелкните **Сценарий** и выберите операцию **Вставить**.
+3. Click **Script**, then select the **Insert** operation.
 
    	![][2]
 
-4. Замените имеющийся сценарий следующей функцией и нажмите кнопку **Сохранить**:
+4. Replace the existing script with the following function, and then click **Save**.
 
         function insert(item, user, request) {
             if (item.text.length > 10) {
@@ -42,27 +42,27 @@
             }
         }
 
-    Этот скрипт проверяет длину свойства **text** и отправляет ответ с сообщением об ошибке, если длина превышает 10 символов. В противном случае вызывается метод **execute** для завершения вставки.
+    This script checks the length of the **text** property and sends an error response when the length exceeds 10 characters. Otherwise, the **execute** method is called to complete the insert.
 
     <div class="dev-callout">
-	<b>Примечание.</b>
-	<p>Можно удалить зарегистрированный сценарий на вкладке <strong>Сценарий</strong>, щелкнув <strong>Очистить</strong> и <strong>Сохранить</strong>.</p>.</p></div>
+	<b>Note</b>
+	<p>You can remove a registered script on the <strong>Script</strong> tab by clicking <strong>Clear</strong> and then <strong>Save</strong>.</p></div>
 
-## <a name="update-client-validation"></a>Обновление клиента
+## <a name="update-client-validation"></a>Update the client
 
-Теперь, когда мобильная служба выполняет проверку данных и отправляет сообщения об ошибках на стороне сервера, необходимо обновить приложение для обработки сообщений об ошибках, полученных при выполнении проверки.
+Now that the mobile service is validating data and sending error responses, you need to update your app to be able to handle error responses from validation.
 
-1. В Xcode откройте проект, измененный после завершения учебника [Приступая к работе с данными][Приступая к работе с данными].
+1. In Xcode, open the project that you modified when you completed the tutorial [Get started with data].
 
-2. Нажмите кнопку **Запуск** (или клавиши Command+R), чтобы выполнить сборку проекта и запустить приложение, а затем введите в текстовом поле текст длиннее 10 символов и нажмите значок (**+**).
+2. Press the **Run** button (Command + R) to build the project and start the app, then type text longer than 10 characters in the textbox and click the  plus (**+**) icon.
 
-   	Обратите внимание, что приложение вызывает необработанную ошибку в результате ответа 400 (Неверный запрос), возвращенного мобильной службой.
+   	Notice that the app raises an unhandled error as a result of the 400 response (Bad Request) returned by the mobile service.
 
-3. В файле QSTodoService.m найдите следующую строку кода в методе **addItem**:
+3. In the QSTodoService.m file, locate the following line of code in the **addItem** method:
 
         [self logErrorIfNotNil:error];
 
-   	После этой строки кода замените оставшуюся части блока выполнения следующим кодом:
+   	After this line of code, replace the remainder of the completion block with the following code:
 
         BOOL goodRequest = !((error) && (error.code == MSErrorMessageErrorCode));
 
@@ -93,13 +93,13 @@
             }
         }
 
-   	При этом ошибка записывается в окне вывода, оно отображается для пользователя.
+   	This logs the error to the output window and displays it to the user.
 
-4. Повторно выполните сборку и запустите приложение.
+4. Rebuild and start the app.
 
    	![][4]
 
-  	Обратите внимание, что ошибка будет обработана и для пользователя отобразится сообщение об ошибке.
+  	Notice that error is handled and the error messaged is displayed to the user.
 
 <!--## <a name="add-timestamp"></a>Add a timestamp
 
@@ -192,7 +192,7 @@ The Mobile Service client will ignore any data in a response that it cannot seri
 
 ## <a name="next-steps"> </a>Дальнейшие действия
 
-Теперь, после прохождения этого учебника, рассмотрите возможность перехода к заключительному учебнику в этом ряду, касающемся данных: [Уточнение запросов с постраничным просмотром][Уточнение запросов посредством разбиения по страницам].
+Теперь, после прохождения этого учебника, рассмотрите возможность перехода к заключительному учебнику в этом ряду, касающемся данных: [Уточнение запросов с постраничным просмотром].
 
 Серверный скрипт также используются при авторизации пользователей и для отправки push-уведомлений. Дополнительные сведения см. в следующих учебниках:
 
@@ -228,5 +228,5 @@ The Mobile Service client will ignore any data in a response that it cannot seri
 [Приступая к работе с аутентификацией]: /ru-ru/develop/mobile/tutorials/get-started-with-users-ios
 [Приступая к работе с push-уведомлениями]: /ru-ru/develop/mobile/tutorials/get-started-with-push-ios
 
-[портал управления Azure]: https://manage.windowsazure.com/
+[Портал управления]: https://manage.windowsazure.com/
 [Портал управления Azure]: https://manage.windowsazure.com/
