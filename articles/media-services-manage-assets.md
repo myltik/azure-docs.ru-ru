@@ -1,27 +1,44 @@
-<properties urlDisplayName="Manage Assets in Media Services" pageTitle="Управление активами в службах мультимедиа &mdash; Azure" metaKeywords="" description="Сведения об управлении активами в службах мультимедиа. Можно также управлять заданиями, задачами, политиками доступа, указателями и многим другим. Примеры кода написаны на языке C# и используют пакет SDK служб мультимедиа для .NET." metaCanonical="" services="media-services" documentationCenter="" title="Практическое руководство: Управление активами в хранилище" authors="juliako" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="Manage Assets in Media Services" pageTitle="Как управлять ресурсами в службах мультимедиа - Azure" metaKeywords="" description="Learn how to manage assets on Media Services. You can also manage jobs, tasks, access policies, locators, and more. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Manage Assets in storage" authors="juliako" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
 
-# Практическое руководство: Управление активами в хранилище
 
-Эта статья является частью серии вводных статей о программировании служб мультимедиа в Azure. Предыдущий раздел [Практическое руководство: Защита активов][Практическое руководство: Защита активов].
+
+
+<h1>Практическое руководство: Управление активами в хранилище</h1>
+
+Эта статья является частью серии вводных статей о программировании служб мультимедиа в Azure. Предыдущая статья: [Практическое руководство. Защита ресурсов](../media-services-protect-asset/).
 
 После создания активов мультимедиа и их передачи службам мультимедиа можно получить доступ к активам и управлять ими на сервере. Можно также управлять другими объектами на сервере, являющиеся частью служб мультимедиа, включая задания, задачи, политики доступа, указатели и многое другое.
 
-В следующем примере показано, как запрашивать актив по его идентификатору assetId.
+В следующем примере показано, как запрашивать актив по его коду. 
+<pre><code>
+static IAsset GetAsset(string assetId)
+{
+    // Use a LINQ Select query to get an asset.
+    var assetInstance =
+        from a in _context.Assets
+        where a.Id == assetId
+        select a;
+    // Reference the asset as an IAsset.
+    IAsset asset = assetInstance.FirstOrDefault();
 
-    static IAsset GetAsset(string assetId){ // Use a LINQ Select query to get an asset. var assetInstance = from a in _context.Assets where a.Id == assetId select a; // Reference the asset as an IAsset. IAsset asset = assetInstance.FirstOrDefault();
     return asset;
-
-<p>
 }
-</code>
+</code></pre> 
 
-</pre>
-</p>
 Чтобы получить список всех активов, доступных на сервере, можно использовать следующий метод, при котором выполняются итерации по коллекции активов и отображаются подробные сведения о каждом активе.
+<pre><code> 
+static void ListAssets()
+{
+    string waitMessage = "Building the list. This may take a few "
+        + "seconds to a few minutes depending on how many assets "
+        + "you have."
+        + Environment.NewLine + Environment.NewLine
+        + "Please wait..."
+        + Environment.NewLine;
+    Console.Write(waitMessage);
 
-    static void ListAssets(){ string waitMessage = "Building the list. This may take a few " + "seconds to a few minutes depending on how many assets " + "you have." + Environment.NewLine + Environment.NewLine + "Please wait..." + Environment.NewLine; Console.Write(waitMessage);
     // Create a Stringbuilder to store the list that we build. 
     StringBuilder builder = new StringBuilder();
 
@@ -46,28 +63,23 @@
 
     // Display output in console.
     Console.Write(builder.ToString());
-
-<p>
 }
-</code>
-
-</pre>
+</code></pre>
 В следующем фрагменте кода удаляются все активы из учетной записи служб мультимедиа.
+<pre><code>
+foreach (IAsset asset in _context.Assets)
+{
+    asset.Delete();
+}
+</code></pre>
 
-    foreach (IAsset asset in _context.Assets){ asset.Delete();}
-
-</p>
 Дополнительные сведения об управлении активами см. в следующих статьях:
+<ul>
+<li><a href="http://msdn.microsoft.com/ru-ru/library/jj129589.aspx">Управление активами с помощью пакета служб мультимедиа для .NET</a></li>
+<li><a href="http://msdn.microsoft.com/ru-ru/library/jj129583.aspx">Управление активами с помощью API REST служб мультимедиа</a></li></ul>
 
--   [Управление активами с помощью пакета служб мультимедиа для .NET][Управление активами с помощью пакета служб мультимедиа для .NET]
--   [Управление активами с помощью API REST служб мультимедиа][Управление активами с помощью API REST служб мультимедиа]
 
-</p>
-## Дальнейшие действия
+<h2>Дальнейшие действия</h2>
+Теперь, когда вы знаете, как управлять ресурсами, перейдите к статье [Практическое руководство. Доставка ресурса путем скачивания](../media-services-deliver-asset-download/) .
 
-Теперь, когда вы знаете, как управлять активами, перейдите к разделу [Доставка актива путем загрузки][Доставка актива путем загрузки].
-
-  [Практическое руководство: Защита активов]: ../media-services-protect-asset/
-  [Управление активами с помощью пакета служб мультимедиа для .NET]: http://msdn.microsoft.com/ru-ru/library/jj129589.aspx
-  [Управление активами с помощью API REST служб мультимедиа]: http://msdn.microsoft.com/ru-ru/library/jj129583.aspx
-  [Доставка актива путем загрузки]: ../media-services-deliver-asset-download/
+<!--HONumber=35_1-->

@@ -2,28 +2,30 @@
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="10/16/2014" ms.author="ricksal" />
 
-# Добавление push-уведомлений к приложению мобильных служб
+# Добавление push-уведомлений в приложение мобильной службы
 
 [WACOM.INCLUDE [mobile-services-selector-get-started-push](../includes/mobile-services-selector-get-started-push.md)]
 
-В этом разделе описано, как использовать мобильные службы Azure для отправки push-уведомлений в приложение Android, используя облачную службу передачи сообщений Google (GCM). В этом учебнике объясняется включение push-уведомлений с помощью концентраторов уведомлений Azure в проекте быстрого запуска. В результате ваша мобильная служба будет отправлять push-уведомление каждый раз при вставке записи.
+В этом разделе показано, как использовать мобильные службы Azure для отправки push-уведомлений в приложение Android с помощью Google Cloud Messaging (GCM). В этом учебнике вам предстоит использовать push-уведомления с помощью центров уведомлений Azure в проекте быстрого запуска. По завершении работы ваша мобильная служба будет отправлять push-уведомление каждый раз при вставке записи.
 
 В этом учебнике рассматриваются следующие основные шаги для включения push-уведомлений:
 
 1. [Включение Google Cloud Messaging](#register)
 2. [Настройка мобильных служб](#configure)
 3. [Добавление push-уведомлений в приложение](#add-push)
-4. [Обновление скриптов для отправки push-уведомлений](#update-scripts)
+4. [Обновление сценариев для отправки push-уведомлений](#update-scripts)
 5. [Вставка данных для получения уведомлений](#test)
 
-Этот учебник создан на основе краткого руководства по мобильным службам. Перед началом работы с этим учебником необходимо сначала пройти учебник [Приступая к работе с мобильными службами] или [Приступая к работе с данными], чтобы подключить свой проект к мобильной службе.  
 
->[AZURE.NOTE] Если требуется просмотреть исходный код завершенного приложения, см. <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures/GettingStartedWithPush/Android" target="_blank">здесь</a>.
+>[AZURE.NOTE] Если вы хотите посмотреть исходный код готового приложения, перейдите <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures/GettingStartedWithPush/Android" target="_blank">здесь</a>.
 
+##Предварительные требования
+
+[WACOM.INCLUDE [mobile-services-android-prerequisites](../includes/mobile-services-android-prerequisites.md)]
 
 ##<a id="register"></a>Включение Google Cloud Messaging
 
->[WACOM.NOTE]Для выполнения этой процедуры необходима учетная запись Google с проверенным электронным адресом. Чтобы создать новую учетную запись Google, перейдите по ссылке <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
+>[WACOM.NOTE]Для выполнения этой процедуры необходима учетная запись Google с проверенным электронным адресом. Чтобы создать учетную запись Google, перейдите по ссылке <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
 
 [WACOM.INCLUDE [Включение GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
@@ -31,13 +33,13 @@
 
 ##<a id="configure"></a>Настройка мобильных служб для отправки push-запросов
 
-1. Войдите в [Портал управления Azure], щелкните **Мобильные службы**, затем щелкните свое приложение.
+1. Войдите на [портал управления Azure], щелкните **Мобильные службы**, а затем щелкните свое приложение.
 
    	![](./media/mobile-services-android-get-started-push/mobile-services-selection.png)
 
-2. Откройте вкладку **Push-уведомления**, введите значение **ключа API**, полученное от GCM в предыдущей процедуре, затем щелкните **Сохранить**.
+2. Перейдите на вкладку **Push-уведомления**, введите значение параметра **Ключ API**, полученное от GCM при выполнении предыдущей процедуры, а затем нажмите кнопку **Сохранить**.
 
-	>[WACOM.NOTE]При изучении этого учебника с использованием старой мобильной службы вы можете увидеть внизу вкладки **Push-уведомления** ссылку **Включение улучшенных push-уведомлений**. Щелкните по ней, чтобы обновить мобильную службу и интегрировать ее с концентраторами уведомлений. Это изменение нельзя будет отменить. Подробности включения улучшенных push-уведомлений в рабочей мобильной службе см. в <a href="http://go.microsoft.com/fwlink/p/?LinkId=391951">этом руководстве</a>.
+	>[WACOM.NOTE]При изучении этого учебника с использованием старой мобильной службы вы можете увидеть внизу вкладки **Push-уведомления** ссылку **Включение улучшенных push-уведомлений**. Щелкните по ней, чтобы обновить мобильную службу и интегрировать ее с центрами уведомлений. Это изменение нельзя будет отменить. Подробности включения улучшенных push-уведомлений в рабочей мобильной службе см. <a href="http://go.microsoft.com/fwlink/p/?LinkId=391951">в этом руководстве</a>.
 
    	![](./media/mobile-services-android-get-started-push/mobile-push-tab-android.png)
 
@@ -46,7 +48,7 @@
     </div>
 
 
-Мобильная служба и приложение теперь настроены для работы с GCM и концентраторами уведомлений.
+Мобильная служба и приложение теперь настроены для работы с GCM и центрами уведомлений.
 
 ##<a id="add-push"></a>Добавление push-уведомлений в приложение
 
@@ -54,13 +56,13 @@
 
 [WACOM.INCLUDE [Проверка пакета SDK](../includes/mobile-services-verify-android-sdk-version.md)]
 
-На следующем шаге необходимо установить службы Google Play. Облачные средства передачи сообщений Google задают определенные минимальные требования уровня API по разработке и тестированию, которым должно соответствовать свойство **minSdkVersion** в манифесте. 
+Далее следует установить службы Google Play. Google Cloud Messaging предъявляет некоторые требования к минимальному уровню API для разработки и тестирования, которым должно удовлетворять свойство **minSdkVersion** в манифесте. 
 
-Если тестирование будет проводиться на более старом устройстве, проверьте раздел [Установка SDK служб Google Play], чтобы определить, насколько низким может быть установлено это значение, и задайте его должным образом.
+Если вы будете тестировать приложение на более старом устройстве, обратитесь к руководству [Set Up Google Play Services SDK] (Настройка пакета SDK служб Google Play), чтобы определить, насколько малым можно задать это значение.
 
 ###Добавление служб Google Play в проект
 
-[WACOM.INCLUDE [Добавление служб воспроизведения](../includes/mobile-services-add-Google-play-services.md)]
+[WACOM.INCLUDE [Добавление служб Google Play](../includes/mobile-services-add-Google-play-services.md)]
 
 ###Добавление кода
 
@@ -69,17 +71,17 @@
 
 ##<a id="update-scripts"></a>Обновление зарегистрированных сценариев вставки на портале управления
 
-1. На портале управления откройте вкладку **Данные**, а затем щелкните таблицу **TodoItem**. 
+1. На портале управления щелкните вкладку **Данные**, а затем щелкните таблицу **TodoItem**. 
 
    	![](./media/mobile-services-android-get-started-push/mobile-portal-data-tables.png)
 
-2. В **todoitem** откройте вкладку **Скрипт** и выберите **Вставка**.
+2. В **todoitem** перейдите на вкладку **Сценарий** и выберите **Вставка**.
    
   	![](./media/mobile-services-android-get-started-push/mobile-insert-script-push2.png)
 
    	При этом отображается функция, вызываемая при выполнении вставки в таблице **TodoItem**.
 
-3. Замените функцию вставки следующим кодом и щелкните **Сохранить**:
+3. Замените функцию вставки следующим кодом и нажмите кнопку **Сохранить**:
 
 		function insert(item, user, request) {
 		// Define a payload for the Google Cloud Messaging toast notification.
@@ -109,7 +111,7 @@
 		  });
 		}
 
-   	Тем самым будет зарегистрирован новый сценарий вставки, который использует [gcm-объект] для отправки push-уведомлений всем зарегистрированным устройствам после успешного выполнения вставки. 
+   	При этом регистрируется новый сценарий вставки, в котором [объект gcm] используется для отправки push-уведомлений на все зарегистрированные устройства после успешной вставки данных. 
 
 ##<a id="test"></a>Тестирование push-уведомлений в приложении
 
@@ -125,11 +127,11 @@
 
   	Проект будет предназначен для API-интерфейсов Google.
 
-2. В разделе **Окно** выберите **Диспетчер виртуальных устройств Android**, выберите ваше устройство и щелкните **Изменить**.
+2. В разделе **Window** (Окно) выберите **Android Virtual Device Manager** (Диспетчер виртуальных устройств Android), выберите ваше устройство и щелкните **Edit** (Изменить).
 
 	![](./media/mobile-services-android-get-started-push/mobile-services-android-virtual-device-manager.png)
 
-3. Выберите **API-интерфейсы Google** в разделе **Цель**, а затем нажмите кнопку "ОК".
+3. Выберите **Google APIs** (API-интерфейсы Google) в разделе **Target** (Цель), а затем нажмите кнопку ОК.
 
    	![](./media/mobile-services-android-get-started-push/mobile-services-android-virtual-device-manager-edit.png)
 
@@ -137,9 +139,9 @@
 
 ###Выполнение теста
 
-1. Откройте меню **Выполнить** в Eclipse и щелкните **Выполнить**, чтобы запустить приложение.
+1. В меню **Run** (Выполнить) в Eclipse щелкните **Run** (Выполнить) для запуска приложения.
 
-2. В приложении введите значимый текст, такой как _Новая задача мобильных служб_, затем щелкните кнопку **Добавить**.
+2. В приложении введите содержательный текст (например, _Новая задача для мобильных служб_) и нажмите кнопку **Добавить**.
 
   	![](./media/mobile-services-android-get-started-push/mobile-quickstart-push1-android.png)
 
@@ -154,34 +156,34 @@
 <!---This tutorial demonstrated the basics of enabling an Android app to use Mobile Services and Notification Hubs to send push notifications. Next, consider completing the next tutorial, [Send push notifications to authenticated users], which shows how to use tags to send push notifications from a Mobile Service to only an authenticated user.
 
 + [Send push notifications to authenticated users]
-	<br/>Применение тегов для отправки push-уведомлений из мобильной службы только пользователю, прошедшему проверку подлинности.
+	<br/>Learn how to use tags to send push notifications from a Mobile Service to only an authenticated user.
 
-+ [Отправка широковещательных уведомлений подписчикам]
-	<br/>Предоставление пользователям возможности регистрироваться и получать push-уведомления только по интересующим их категориям.
++ [Send broadcast notifications to subscribers]
+	<br/>Learn how users can register and receive push notifications for categories they're interested in.
 
-+ [Отправка подписчикам уведомлений на основе шаблона]
-	<br/>Использование шаблонов для отправки push-уведомлений из мобильной службы без создания зависящих от платформы полезных данных на сервере.
++ [Send template-based notifications to subscribers]
+	<br/>Learn how to use templates to send push notifications from a Mobile Service, without having to craft platform-specific payloads in your back-end.
 -->
 
 Дополнительные сведения о мобильных службах и концентраторах уведомлений см. в следующих разделах.
 
 * [Приступая к работе с данными]
-  <br/>Узнайте больше о хранении и передаче запросов к данным с использованием мобильных служб.
+  <br/>Дополнительная информация о хранении данных и запросах к ним при помощи мобильных служб.
 
 * [Приступая к работе с аутентификацией]
-  <br/>Проверка подлинности пользователей приложения с различными типами учетных записей с использованием мобильных служб.
+  <br/>Дополнительная информация об аутентификации учетных данных пользователей приложения с другими типами учетных записей с использованием мобильных служб.
 
-* [Что такое концентраторы уведомлений?]
-  <br/>Применение концентраторов уведомлений для доставки уведомлений в приложения на всех основных клиентских платформах.
+* [Что такое центры уведомлений?]
+  <br/>Дополнительные сведения о работе центров уведомлений по доставке уведомлений в приложения на всех основных клиентских платформах.
 
-* [Отладка приложений концентраторов уведомлений](http://go.microsoft.com/fwlink/p/?linkid=386630)
-  </br>Устранение неполадок и отладка решений на основе концентраторов уведомлений. 
+* [Отладочные приложения для центров уведомлений](http://go.microsoft.com/fwlink/p/?linkid=386630)
+  </br>Руководство по устранению неполадок и решения по отладке центров уведомлений. 
 
 * [Использование клиентской библиотеки Android для мобильных служб]
-  <br/>Использование мобильных служб с Android.
+  <br/>Дополнительная информация об использовании мобильных служб с Android.
 
-* [Справочник серверных скриптов мобильных служб]
-  <br/>Дополнительные сведения о способах реализации бизнес-логики в мобильной службе.
+* [Mobile Services server script reference]
+  <br/>Дополнительная информация о реализации бизнес-логики в вашей мобильной службе.
 
 
 <!-- Anchors. -->
@@ -196,7 +198,7 @@
 
 
 <!-- URLs. -->
-[Отправить страницу приложения]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[Отправка страницы приложения]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Мои приложения]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK для Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/mobile-services-android-get-started/
@@ -204,18 +206,20 @@
 [Приступая к работе с аутентификацией]: /ru-ru/documentation/articles/mobile-services-android-get-started-users
 [Приступая к работе с push-уведомлениями]: /ru-ru/develop/mobile/tutorials/get-started-with-push-js
 [Push-уведомлений для пользователей приложений]: /ru-ru/develop/mobile/tutorials/push-notifications-to-users-js
-[Авторизация пользователей с помощью скриптов]: /ru-ru/develop/mobile/tutorials/authorize-users-in-scripts-js
+[Авторизация пользователей с помощью сценариев]: /ru-ru/develop/mobile/tutorials/authorize-users-in-scripts-js
 [JavaScript и HTML]: /ru-ru/develop/mobile/tutorials/get-started-with-push-js
-[Настройка пакета SDK служб Google Play]: http://go.microsoft.com/fwlink/?LinkId=389801
+[Set Up Google Play Services SDK] (Настройка пакета SDK служб Google Play): http://go.microsoft.com/fwlink/?LinkId=389801
 [Портал управления Azure]: https://manage.windowsazure.com/
 [Использование клиентской библиотеки Android для мобильных служб]: /ru-ru/documentation/articles/mobile-services-android-how-to-use-client-library
 
 [Объект gcm]: http://go.microsoft.com/fwlink/p/?LinkId=282645
 
-[Справочник серверных скриптов мобильных служб]: http://go.microsoft.com/fwlink/?LinkId=262293
+[Справочник серверных сценариев мобильных служб]: http://go.microsoft.com/fwlink/?LinkId=262293
 
 [Рассылка push-уведомлений проверенным пользователям]: /ru-ru/documentation/articles/mobile-services-javascript-backend-android-push-notifications-app-users/
 
-[Что такое концентраторы уведомлений?]: /ru-ru/documentation/articles/notification-hubs-overview/
-[Отправка широковещательных уведомлений подписчикам]: /ru-ru/documentation/articles/notification-hubs-android-send-breaking-news/
-[Отправка подписчикам уведомлений на основе шаблона]: /ru-ru/documentation/articles/notification-hubs-android-send-localized-breaking-news/
+[Что такое центры уведомлений?]: /ru-ru/documentation/articles/notification-hubs-overview/
+[Рассылка уведомлений подписчикам]: /ru-ru/documentation/articles/notification-hubs-android-send-breaking-news/
+[Рассылка уведомлений по шаблону подписчикам]: /ru-ru/documentation/articles/notification-hubs-android-send-localized-breaking-news/
+
+<!--HONumber=35_1-->

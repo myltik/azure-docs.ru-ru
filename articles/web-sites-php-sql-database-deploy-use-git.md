@@ -1,108 +1,95 @@
-﻿<properties urlDisplayName="Web w/ SQL + Git" pageTitle="PHP website with SQL Database and Git - Azure tutorial" metaKeywords="" description="A tutorial that demonstrates how to create a PHP website that stores data in SQL Database and use Git deployment to Azure." metaCanonical="" services="web-sites,sql-database" documentationCenter="PHP" title="Create a PHP website with a SQL Database and deploy using Git" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+﻿<properties urlDisplayName="Web w/ SQL + Git" pageTitle="Веб-сайт на PHP с базой данных SQL и развертыванием с помощью Git - учебник Azure" metaKeywords="" description="A tutorial that demonstrates how to create a PHP website that stores data in SQL Database and use Git deployment to Azure." metaCanonical="" services="web-sites,sql-database" documentationCenter="PHP" title="Create a PHP website with a SQL Database and deploy using Git" authors="tomfitz" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/18/2014" ms.author="tomfitz" />
 
-#Create a PHP website with a SQL Database and deploy using Git
+#Создание веб-сайта PHP с базой данных SQL и развертывание с помощью Git
 
-This tutorial shows you how to create a PHP Azure Website with an Azure SQL Database and how to deploy it using Git. This tutorial assumes you have [PHP][install-php], [SQL Server Express][install-SQLExpress], the [Microsoft Drivers for SQL Server for PHP][install-drivers], a web server, and [Git][install-git] installed on your computer. Upon completing this guide, you will have a PHP-SQL Database website running in Azure.
+В этом учебном курсе рассматривается создание веб-сайта Azure на PHP с базой данных Azure SQL и ее развертывание с помощью Git. В этом учебнике подразумевается, что на вашем компьютере уже установлен [PHP][install-php], [SQL Server Express][install-SQLExpress], [драйвера Майкрософт для SQL Server для PHP][install-drivers], веб-сервер и [Git][install-git]. После завершения работы с этим учебным курсом у вас будет веб-сайт PHP-SQL в Windows Azure.
 
 > [WACOM.NOTE]
-> You can install and configure PHP, SQL Server Express, the Microsoft Drivers for SQL Server for PHP, and Internet Information Services (IIS) using the <a href="http://www.microsoft.com/web/downloads/platform.aspx">Microsoft Web Platform Installer</a>.
+> Для установки и настройки PHP, SQL Server Express, драйверов Майкрософт для SQL Server для PHP, а также служб IIS можно воспользоваться <a href="http://www.microsoft.com/web/downloads/platform.aspx"> Установщиком веб-платформы Майкрософт.
 
-You will learn:
+Вы узнаете:
 
-* How to create an Azure Website and a SQL Database using the Azure Management Portal. Because PHP is enabled in Azure Websites by default, nothing special is required to run your PHP code.
-* How to publish and re-publish your application to Azure using Git.
+* Как создать веб-сайт Azure и базу данных SQL с помощью портала управления Azure. Поскольку PHP для веб-сайтов Azure включен по умолчанию, никаких дополнительных действий для выполнения PHP-кода не требуется.
+* Как опубликовать и повторно опубликовать свое приложение в Azure с помощью Git.
  
-By following this tutorial, you will build a simple registration web application in PHP. The application will be hosted in an Azure Website. A screenshot of the completed application is below:
+Руководствуясь этим учебником, вы создадите в PHP простое веб-приложение регистрации. Приложение будет размещаться на веб-сайте Azure. Снимок экрана завершенного приложения приведен ниже:
 
 ![Azure PHP Web Site][running-app]
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+> [WACOM.NOTE]
+> Для работы с этим учебником требуется учетная запись Azure. Вы можете <a href="http://azure.microsoft.com/ru-ru/pricing/member-offers/msdn-benefits-details/">активировать преимущества подписки MSDN</a> или <a href="http://azure.microsoft.com/ru-ru/pricing/free-trial/">подписаться на бесплатный пробный период использования</a>.
+> 
+> Если вы хотите ознакомиться с веб-сайтами Azure до создания учетной записи, перейдите по адресу <a href="https://trywebsites.azurewebsites.net/?language=php">https://trywebsites.azurewebsites.net</a>, где вы можете быстро создать краткосрочный начальный сайт ASP.NET на веб-сайтах Azure бесплатно. Не требуется вводить данные кредитной карты или брать на себя какие-либо обязательства.
 
+##Создание веб-сайта Azure и настройка публикации в Git
 
-##Create an Azure Website and set up Git publishing
+Для создания веб-сайта Azure и базы данных SQL выполните следующие действия.
 
-Follow these steps to create an Azure Website and a SQL Database:
-
-1. Login to the [Azure Management Portal][management-portal].
-2. Click the **New** icon on the bottom left of the portal.
+1. Войдите на [портал управления Azure][management-portal].
+2. Щелкните значок **Создать** в нижнем левом углу портала.
 ![Create New Azure Web Site][new-website]
 
-3. Click **Website**, then **Custom Create**.
+3. Щелкните **Веб-сайт**, а затем выберите **Настраиваемое создание**.
 
 	![Custom Create a new Web Site][custom-create]
 
-	Enter a value for **URL**, select **Create a New SQL Database** from the **Database** dropdown,  and select the data center for your website in the **Region** dropdown. Click the arrow at the bottom of the dialog.
+	Введите значение в поле **URL-адрес**, выберите **Создать новую базу данных SQL** из раскрывающегося списка **База данных**, и щелкните **Публикация из системы управления версиями**. Щелкните стрелку в нижней части диалогового окна.
 
 	![Fill in web site details][website-details-sqlazure]
 
-4. Enter a value for the **Name** of your database, select the **Edition** [(WEB or BUSINESS)][sql-database-editions], select the **Max Size** for your database, choose the **Collation**, and select **NEW SQL Database server**. Click the arrow at the bottom of the dialog.
+4. Введите имя базы данных в поле **Имя**, выберите **Создать новый сервер базы данных SQL**, укажите учетные данные и выберите регион. Щелкните стрелку в нижней части диалогового окна.
 
 	![Fill in SQL Database settings][database-settings]
 
-5. Enter an administrator name and password (and confirm the password), choose the region in which your new SQL Database server will be created, and check the `Allow Azure Services to access the server` box.
-
-	![Create new SQL Database server][create-server]
-
-	When the website has been created you will see the text **Creation of Website "[SITENAME]" completed successfully**. Now, you can enable Git publishing.
-
-6. Click the name of the website displayed in the list of websites to open the website's Quick Start dashboard.
-
-	![Open web site dashboard][go-to-dashboard]
-
-
-7. At the bottom of the Quick Start page, click **Set up deployment from source control**. 
-
-	![Set up Git publishing][setup-git-publishing]
-
-6. When asked "Where is your source code?" select **Local Git repository**, and then click the arrow.
+5. Выберите **Локальный репозиторий Git** для исходного кода.
 
 	![where is your source code][where-is-code]
 
-8. To enable Git publishing, you must provide a user name and password. Make a note of the user name and password you create. (If you have set up a Git repository before, this step will be skipped.)
+	Если репозиторий Git не был настроен предварительно, необходимо указать имя пользователя и пароль.
 
-	![Create publishing credentials][credentials]
+6. После создания сайта откройте его панель мониторинга и выберите **Просмотреть развертывания**.
 
-	It will take a few seconds to set up your repository.
+	![Web site dashboard][go-to-dashboard]
 
-9. When your repository is ready, you will see instructions for pushing your application files to the repository. Make note of these instructions - they will be needed later.
+9. Вы увидите инструкции для передачи ваших файлов приложений в репозиторий. Запишите эти инструкции - они потребуются позже.
 
 	![Git instructions][git-instructions]
 
-##Get SQL Database connection information
+##Получение сведений о подключении к базе данных SQL
 
-To connect to the SQL Database instance that is running in Azure Websites, your will need the connection information. To get SQL Database connection information, follow these steps:
+Чтобы подключиться к экземпляру базы данных SQL, которая работает на веб-сайтах Azure, необходимо знать сведения о подключении. Чтобы получить сведения о подключении к базе данных SQL, выполните следующие действия:
 
-1. From the Azure Management Portal, click **Linked Resources**, then click the database name.
+1. На портале управления Azure щелкните **Связанные ресурсы**, а затем щелкните имя нужной базы данных.
 
 	![Linked Resources][linked-resources]
 
-2. Click **View connection strings**.
+2. Щелкните **Просмотреть строки подключения**.
 
 	![Connection string][connection-string]
 	
-3. From the **PHP** section of the resulting dialog, make note of the values for `SERVER`, `DATABASE`, and `USERNAME`.
+3. В разделе **PHP** открывшегося диалогового окна запишите значения UID, PWD, Database и $serverName.
 
-##Build and test your application locally
+##Построение и тестирование приложения на локальном ресурсе
 
-The Registration application is a simple PHP application that allows you to register for an event by providing your name and email address. Information about previous registrants is displayed in a table. Registration information is stored in a SQL Database instance. The application consists of two files (copy/paste code available below):
+Приложение регистрации представляет собой простое приложение PHP, которое позволяет регистрироваться на мероприятие, предоставляя свое имя и адрес электронной почты. Сведения о ранее зарегистрировавшихся пользователях отображаются в таблице. Сведения о регистрации хранятся в экземпляре базы данных SQL. Приложение состоит из двух файлов (код для копирования и вставки приведен ниже):
 
-* **index.php**: Displays a form for registration and a table containing registrant information.
-* **createtable.php**: Creates the SQL Database table for the application. This file will only be used once.
+* **index.php**: отображает форму для регистрации и таблицу, содержащую сведения о зарегистрировавшихся пользователях.
+* **createtable.php**: создает таблицу SQL для приложения. Этот файл будет использоваться только один раз.
 
-To run the application locally, follow the steps below. Note that these steps assume you have PHP, SQL Server Express, and a web server set up on your local machine, and that you have enabled the [PDO extension for SQL Server][pdo-sqlsrv].
+Чтобы запустить приложение локально, выполните приведенные ниже действия. Обратите внимание, что предполагается наличие на локальном компьютере PHP, SQL Server Express и веб-сервера, а также включение [расширения PDO для SQL Server][pdo-sqlsrv].
 
-1. Create a SQL Server database called `registration`. You can do this from the `sqlcmd` command prompt with these commands:
+1. Создайте базу данных SQL Server под названием registration. Это можно сделать в командной строке sqlcmd с помощью следующих команд:
 
 		>sqlcmd -S localhost\sqlexpress -U <local user name> -P <local password>
 		1> create database registration
 		2> GO	
 
 
-2. In your web server's root directory, create a folder called `registration` and create two files in it - one called `createtable.php` and one called `index.php`.
+2. В корневом каталоге веб-сервера создайте папку с именем registration, а в ней два файла один с именем createtable.php, а другой с именем index.php.
 
-3. Open the `createtable.php` file in a text editor or IDE and add the code below. This code will be used to create the `registration_tbl` table in the `registration` database.
+3. Откройте файл createtable.php в текстовом редакторе или интегрированной среде разработки и добавьте приведенный ниже код. Этот код будет использоваться для создания таблицы registration_tbl в базе данных registration.
 
 		<?php
 		// DB connection info
@@ -127,11 +114,11 @@ To run the application locally, follow the steps below. Note that these steps as
 		echo "<h3>Table created.</h3>";
 		?>
 
-	Note that you will need to update the values for <code>$user</code> and <code>$pwd</code> with your local SQL Server user name and password.
+	Вам понадобится обновить значения <code>$user</code> и <code>$pwd</code> именем пользователя и паролем вашего локального SQL Server.
 
-4. Open a web browser and browse to **http://localhost/registration/createtable.php**. This will create the `registration_tbl` table in the database.
+4. Откройте веб-браузер и перейдите по адресу **http://localhost/registration/createtable.php**. В результате в базе данных будет создана таблица registration_tbl.
 
-5. Open the **index.php** file in a text editor or IDE and add the basic HTML and CSS code for the page (the PHP code will be added in later steps).
+5. Откройте файл **index.php** в текстовом редакторе или в интегрированной среде разработки и добавьте базовый HTML-код и CSS для страницы (PHP-код будет добавлен позднее).
 
 		<html>
 		<head>
@@ -164,7 +151,7 @@ To run the application locally, follow the steps below. Note that these steps as
 		</body>
 		</html>
 
-6. Within the PHP tags, add PHP code for connecting to the database.
+6. Внутри тегов PHP добавьте PHP-код для подключения к базе данных.
 
 		// DB connection info
 		$host = "localhost\sqlexpress";
@@ -180,9 +167,9 @@ To run the application locally, follow the steps below. Note that these steps as
 			die(var_dump($e));
 		}
 
-    Again, you will need to update the values for <code>$user</code> and <code>$pwd</code> with your local MySQL user name and password.
+    Вам понадобится снова обновить значения <code>$user</code> и <code>$pwd</code> именем пользователя и паролем своей локальной базы данных MySQL.
 
-7. Following the database connection code, add code for inserting registration information into the database.
+7. После кода подключения к базе данных добавьте код для вставки регистрационных данных в базу данных.
 
 		if(!empty($_POST)) {
 		try {
@@ -204,7 +191,7 @@ To run the application locally, follow the steps below. Note that these steps as
 		echo "<h3>Your're registered!</h3>";
 		}
 
-8. Finally, following the code above, add code for retrieving data from the database.
+8. Наконец, после вышеприведенного кода добавьте код для извлечения данных из базы данных.
 
 		$sql_select = "SELECT * FROM registration_tbl";
 		$stmt = $conn->query($sql_select);
@@ -225,11 +212,11 @@ To run the application locally, follow the steps below. Note that these steps as
 			echo "<h3>No one is currently registered.</h3>";
 		}
 
-You can now browse to **http://localhost/registration/index.php** to test the application.
+Теперь можно перейти по адресу **http://localhost/registration/index.php** для тестирования приложения.
 
-##Publish your application
+##Публикация приложения
 
-After you have tested your application locally, you can publish it to your Azure Website using Git. However, you first need to update the database connection information in the application. Using the database connection information you obtained earlier (in the **Get SQL Database connection information** section), update the following information in **both** the `createdatabase.php` and `index.php` files with the appropriate values:
+После локального тестирования приложения его можно опубликовать на веб-сайте Azure с использованием Git. Тем не менее, необходимо сначала обновить в приложении сведения подключения к базе данных. При помощи полученной ранее информации о подключении к базе данных (см. раздел **Получение сведений о подключении к базе данных SQL**) обновите следующие данные в **обоих** файлах, createdatabase.php и index.php, соответствующими значениями:
 
 	// DB connection info
 	$host = "tcp:<value of SERVER>";
@@ -238,16 +225,16 @@ After you have tested your application locally, you can publish it to your Azure
 	$db = "<value of DATABASE>";
 
 > [WACOM.NOTE]
-> In the <code>$host</code>, the value of SERVER must be prepended with <code>tcp:</code>, and the value of <code>$user</code> is the concatenation of the value of USERNAME, '@', and your server ID. Your server ID is the first 10 characters of the value of SERVER.
+> В диалоговом окне <code>$host</code>значение SERVER должно быть должно быть указано с префиксом <code>tcp:</code>, а значение <code>$user</code> должно быть указано как USERNAME, "@" и идентификатор вашего сервера. ИД сервера - первые 10 символов значения параметра SERVER.
 
 
-Now, you are ready to set up Git publishing and publish the application.
+Теперь все готово для настройки публикации Git и публикации приложения.
 
 > [WACOM.NOTE]
-> These are the same steps noted at the end of the Create an Azure Website and Set up Git Publishing section above.
+> Для этого используются те же действия, которые были указаны в конце вышеприведенного раздела "Создание веб-сайта Azure и настройка публикации в Git".
 
 
-1. Open GitBash (or a terminal, if Git is in your `PATH`), change directories to the root directory of your application, and run the following commands:
+1. Откройте GitBash (или терминал, если Git включен в переменную `PATH`), измените каталог на корневой каталог приложения и выполните следующие команды:
 
 		git init
 		git add .
@@ -255,27 +242,27 @@ Now, you are ready to set up Git publishing and publish the application.
 		git remote add azure [URL for remote repository]
 		git push azure master
 
-	You will be prompted for the password you created earlier.
+	Появится запрос на ввод ранее заданного пароля.
 
-2. Browse to **http://[site name].azurewebsites.net/createtable.php** to create the MySQL table for the application.
-3. Browse to **http://[site name].azurewebsites.net/index.php** to begin using the application.
+2. Перейдите по адресу **http://[имя веб-сайта].azurewebsites.net/createtable.php**, чтобы создать таблицу MySQL для приложения.
+3. Перейдите по адресу **http://[имя веб-сайта].azurewebsites.net/index.php**, чтобы начать работу с приложением.
 
-After you have published your application, you can begin making changes to it and use Git to publish them. 
+После публикации приложения можно начать вносить изменения и публиковать их с помощью Git. 
 
-##Publish changes to your application
+##Публикация изменений в приложении
 
-To publish changes to application, follow these steps:
+Чтобы опубликовать изменения в приложение, выполните следующие действия.
 
-1. Make changes to your application locally.
-2. Open GitBash (or a terminal, it Git is in your `PATH`), change directories to the root directory of your application, and run the following commands:
+1. Внесите изменения в приложение локально.
+2. Откройте GitBash (или терминал, если Git включен в переменную `PATH`), измените каталог на корневой каталог приложения и выполните следующие команды:
 
 		git add .
 		git commit -m "comment describing changes"
 		git push azure master
 
-	You will be prompted for the password you created earlier.
+	Появится запрос на ввод ранее заданного пароля.
 
-3. Browse to **http://[site name].azurewebsites.net/index.php** to see your changes.
+3. Перейдите по адресу **http://[имя веб-сайта].azurewebsites.net/index.php**, чтобы просмотреть внесенные изменения.
 
 [install-php]: http://www.php.net/manual/en/install.php
 [install-SQLExpress]: http://www.microsoft.com/ru-ru/download/details.aspx?id=29062
@@ -285,17 +272,19 @@ To publish changes to application, follow these steps:
 [running-app]: ./media/web-sites-php-sql-database-deploy-use-git/running_app_3.png
 [new-website]: ./media/web-sites-php-sql-database-deploy-use-git/new_website.jpg
 [custom-create]: ./media/web-sites-php-sql-database-deploy-use-git/custom_create.png
-[website-details-sqlazure]: ./media/web-sites-php-sql-database-deploy-use-git/website_details_sqlazure.jpg
-[database-settings]: ./media/web-sites-php-sql-database-deploy-use-git/database_settings.jpg
+[website-details-sqlazure]: ./media/web-sites-php-sql-database-deploy-use-git/createphpgitsite.png
+[database-settings]: ./media/web-sites-php-sql-database-deploy-use-git/setupdb.png
 [create-server]: ./media/web-sites-php-sql-database-deploy-use-git/create_server.jpg
-[go-to-dashboard]: ./media/web-sites-php-sql-database-deploy-use-git/go_to_dashboard.png
+[go-to-dashboard]: ./media/web-sites-php-sql-database-deploy-use-git/viewdeploy.png
 [setup-git-publishing]: ./media/web-sites-php-sql-database-deploy-use-git/setup_git_publishing.png
 [credentials]: ./media/web-sites-php-sql-database-deploy-use-git/git-deployment-credentials.png
 
 
-[git-instructions]: ./media/web-sites-php-sql-database-deploy-use-git/git-instructions.png
+[git-instructions]: ./media/web-sites-php-sql-database-deploy-use-git/gitsettings.png
 [linked-resources]: ./media/web-sites-php-sql-database-deploy-use-git/linked_resources.jpg
 [connection-string]: ./media/web-sites-php-sql-database-deploy-use-git/connection_string.jpg
 [management-portal]: https://manage.windowsazure.com/
 [sql-database-editions]: http://msdn.microsoft.com/ru-ru/library/windowsazure/ee621788.aspx
-[where-is-code]: ./media/web-sites-php-sql-database-deploy-use-git/where_is_code.png
+[where-is-code]: ./media/web-sites-php-sql-database-deploy-use-git/setupgit.png
+
+<!--HONumber=35_1-->

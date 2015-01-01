@@ -1,6 +1,6 @@
-﻿<properties pageTitle="Приступая к работе с мобильными службами Azure для приложений HTML 5" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for HTML development. " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Приступая к работе с мобильными службами Azure для приложений HTML 5" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for HTML development. " metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="hero-article" ms.date="01/01/1900" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="hero-article" ms.date="11/21/2014" ms.author="glenga" />
 
 
 # <a name="getting-started"> </a>Приступая к работе с мобильными службами
@@ -9,9 +9,9 @@
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
-<p>В этом учебнике показано, как добавить облачную серверную службу в приложение на HTML с помощью мобильных служб Azure. В этом учебнике вы создадите новую мобильную службу и простое приложение <em>To do list</em>, хранящее данные приложения в новой мобильной службе. Можно смотреть видеоверсию данного учебника, щелкнув клип справа.</p>
+<p>В этом учебнике показано, как добавить облачную серверную службу в приложение на HTML с помощью мобильных служб Azure. В этом учебнике вы создадите новую мобильную службу и простое приложение <em>To do list</em> , хранящее данные приложения в новой мобильной службе. Чтобы просмотреть видеоверсию данного учебника, щелкните расположенный справа клип.</p>
 </div>
-<div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkId=287040" target="_blank" class="label">Просмотр учебника</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-html-get-started-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkId=287040" target="_blank" class="dev-onpage-video"><span class="icon">Воспроизведение видео</span></a> <span class="time">03:51:00</span></div>
+<div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkId=287040" target="_blank" class="label">просмотреть учебник</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-html-get-started-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkId=287040" target="_blank" class="dev-onpage-video"><span class="icon">Воспроизвести видео</span></a> <span class="time">3:51</span></div>
 </div>
  
 Снимок экрана завершенного приложения приведен ниже:
@@ -20,13 +20,13 @@
 
 Завершение изучения этого учебника является необходимым условием для работы со всеми другими учебниками, посвященными приложениям HTML. 
 
-<div class="dev-callout"><strong>Примечание.</strong> <p>Для работы с этим учебником необходима учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://www.windowsazure.com/ru-ru/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fru-ru%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F" target="_blank">Бесплатная пробная версия Azure</a>.</p></div>
+<div class="dev-callout"><strong>Примечание.</strong> <p>Для работы с этим учебником требуется учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительную информацию см. в разделе <a href="http://www.windowsazure.com/ru-ru/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fru-ru%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F" target="_blank">Бесплатное пробное использование Azure</a>.</p></div>
 
 ###Дополнительные требования
 
 + В этом учебнике требуется наличие одного из следующих веб-серверов, запущенных на локальном компьютере:
 
-	+  **В Windows**: IIS Express. IIS Express устанавливается [установщиком веб-платформы Майкрософт].   
+	+  **В Windows**: IIS Express. IIS Express устанавливается [программой установки веб-платформы Майкрософт].   
 	+  **В MacOS X**: Python, который уже должен быть установлен.
 	+  **В Linux**: Python. Необходимо установить [последнюю версию Python]. 
 	
@@ -39,16 +39,16 @@
 
 [WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
-## <h2><span class="short-header">Создание приложения</span>Создание приложения на HTML</h2>
+## <h2>Создание нового приложения HTML</h2>
 
 После создания мобильной службы вы можете следовать простым шагам быстрого запуска на портале управления, чтобы создать новое приложение или изменить существующее приложение и подключить его к вашей мобильной службе. 
 
 В этом разделе будет создано новое приложение HTML, которое будет подключено к вашей мобильной службе.
 
-1.  На портале управления щелкните  **Мобильные службы**, затем выберите только что созданную мобильную службу.
+1.  На портале управления нажмите **Мобильные службы**, затем щелкните только что созданную мобильную службу.
 
    
-2. На вкладке быстрого запуска щелкните **Windows** в разделе **Выбор платформы** , а затем разверните пункт **Создать новое приложение HTML**.
+2. На вкладке быстрого запуска нажмите кнопку **Windows** в разделе **Выбор платформы**, а затем разверните пункт **Создать HTML-приложение**.
 
    	![][6]
 
@@ -60,14 +60,14 @@
 
 4. В разделе **Загрузка и запуск приложения** щелкните **Загрузить**. 
 
-  	При этом загружаются файлы веб-сайта для примера приложения To do list, которое подключается к вашей мобильной службе. Сохраните сжатый файл на локальном компьютере и запомните путь к нему.
+  	При этом будут скачаны файлы веб-сайта для примера приложения _To do list_, которое подключается к вашей мобильной службе. Сохраните сжатый файл на локальном компьютере и запомните путь к нему.
 
-5. На вкладке **Настройка** убедитесь, что в списке **Разрешить запросы от имен узлов** в разделе **Общий доступ к ресурсам независимо от источника (CORS)** уже имеется значение `localhost`. В противном случае введите `localhost` в поле **Имя узла** , затем щелкните пункт **Сохранить**.
+5. На вкладке **Настройка** убедитесь, что в списке **Разрешить запросы от имен узлов** в разделе **Общий доступ к ресурсам независимо от источника (CORS)** уже имеется значение localhost. В противном случае введите localhost в поле **Имя узла**, а затем щелкните **Сохранить**.
 
   	![][9]
 
 	<div class="dev-callout"><b>Примечание.</b>
-		<p>Если развернуть приложение quickstart на веб-сервере, отличном от localhost, необходимо добавить имя узла веб-сервера в список <strong>Разрешить запросы имен узлов</strong>. Дополнительные сведения см. в разделе <a href="http://msdn.microsoft.com/ru-ru/library/windowsazure/dn155871.aspx" target="_blank">Общий доступ к ресурсам независимо от источника</a>.</p>
+		<p>Если развернуть приложение quickstart на веб-сервере, отличном от localhost, необходимо добавить имя узла веб-сервера в список <strong>Разрешить запросы от имен узлов</strong> . Дополнительную информацию см. в разделе <a href="http://msdn.microsoft.com/ru-ru/library/windowsazure/dn155871.aspx" target="_blank">Общий доступ к ресурсам независимо от источника</a>.</p>
 	</div>
 
 ## Размещение и запуск приложения на HTML
@@ -81,18 +81,18 @@
 	+ **launch-linux.sh** (компьютеры с ОС Linux)
 
 	<div class="dev-callout"><b>Примечание.</b>
-		<p>На компьютере Windows нажмите клавишу `R`, когда в PowerShell появится запрос на запуск скрипта. Веб-браузер может предупредить о том, что не следует запускать этот сценарий, так как он был загружен из Интернета. В этом случае необходимо указать, что браузеру следует продолжить загрузку скрипта.</p>
+		<p>На компьютере с операционной системой Windows в ответ на запрос PowerShell на запуск сценария нажмите клавишу R. Веб-браузер может предупредить о том, что не следует запускать этот сценарий, так как он был загружен из Интернета. В этом случае необходимо указать, что браузеру следует продолжить загрузку сценария.</p>
 	</div>
 
 	Это приведет к запуску веб-сервера на локальном компьютере, где и будет размещено новое приложение.
 
-2. Откройте URL-адрес <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a> в веб-браузере, чтобы запустить приложение.
+2. Перейдите по URL-адресу <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a> в браузере, чтобы запустить приложение.
 
-3. В разделе **Введите новую задачу** введите содержательный текст в приложении, например _Завершить работу с учебником_ in и нажмите кнопку **Добавить**.
+3. В разделе **Введите новую задачу** введите содержательный текст в приложении, например _Завершить работу с учебником_, и нажмите кнопку **Добавить**.
 
    	![][10]
 
-   	Запрос POST отправляется в новую мобильную службу, размещенную в Azure. Данные из запроса вставляются в таблицу TodoItem. Элементы, хранящиеся в таблице, возвращаются мобильной службой, а данные отображаются во втором столбце в приложении.
+   	Отправляет запрос POST в новую мобильную службу, размещенную в Azure. Данные из запроса вставляются в таблицу TodoItem. Элементы, хранящиеся в таблице, возвращаются мобильной службой, а данные отображаются во втором столбце в приложении.
 
 	<div class="dev-callout"> 
 	<b>Примечание.</b> 
@@ -111,10 +111,10 @@
 Теперь, когда вы закончили быстрый запуск, узнайте, как выполнять дополнительные важные задачи в мобильных службах: 
 
 * **[Приступая к работе с данными]**
-  <br/>Дополнительные сведения о хранении данных и запросах к ним при помощи мобильных служб.
+  <br/>Дополнительная информация о хранении данных и запросах к ним при помощи мобильных служб.
   
-* **[Вызов настраиваемого API из приложения HTM]**
-  <br/>Подключение приложения на HTML к настраиваемому API, размещенному в мобильных службах.
+* **[Вызов настраиваемого API из приложения HTML]**
+  <br/>Подключите HTML-приложение к настраиваемому API, размещенному в мобильных службах.
 
 * **[Приступая к работе с аутентификацией]**
   <br/>Дополнительные сведения о проверке подлинности пользователей приложения с использованием поставщика удостоверений.
@@ -122,13 +122,13 @@
 * **[Справочник принципов использования мобильных служб HTML/JavaScript]**
   <br/>Дополнительные сведения об использовании мобильных служб с HTML/JavaScript 
 
-
+<!-- Anchors. -->
 [Приступая к работе с мобильными службами]:#getting-started
-[Создать мобильную службу]:#create-new-service
+[Создание мобильной службы]:#create-new-service
 [Определение экземпляра мобильной службы]:#define-mobile-service-instance
 [Дальнейшие действия]:#next-steps
 
-
+<!-- Images. -->
 [0]: ./media/mobile-services-html-get-started/mobile-quickstart-completed-html.png
 
 
@@ -144,13 +144,15 @@
 [12]: ./media/mobile-services-html-get-started/mobile-data-browse.png
 
 
-
+<!-- URLs. -->
 [Приступая к работе с данными]: /ru-ru/develop/mobile/tutorials/get-started-with-data-html
-[Приступая к работе с проверкой подлинности]: /ru-ru/develop/mobile/tutorials/get-started-with-users-html
-[Вызов настраиваемого API из приложения HTM]: /ru-ru/documentation/articles/mobile-services-html-call-custom-api 
+[Приступая к работе с аутентификацией]: /ru-ru/develop/mobile/tutorials/get-started-with-users-html
+[Вызов настраиваемого API из приложения HTML]: /ru-ru/documentation/articles/mobile-services-html-call-custom-api 
 
 [Портал управления]: https://manage.windowsazure.com/
 [Установщик веб-платформы Майкрософт]:  http://go.microsoft.com/fwlink/p/?LinkId=286333
 [последняя версия Python]: http://go.microsoft.com/fwlink/p/?LinkId=286342
 [Справочник принципов использования мобильных служб HTML/JavaScript]: /ru-ru/develop/mobile/how-to-guides/work-with-html-js-client
 [Общий доступ к ресурсам независимо от источника]: http://msdn.microsoft.com/ru-ru/library/windowsazure/dn155871.aspx
+
+<!--HONumber=35_1-->

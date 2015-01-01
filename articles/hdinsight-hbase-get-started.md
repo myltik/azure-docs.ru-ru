@@ -1,221 +1,283 @@
-<properties urlDisplayName="Get Started" pageTitle="Приступая к работе с HBase на базе Hadoop в HDInsight | Azure" metaKeywords="" description="Начало работы с использованием HBase с Hadoop в HDInsight. Узнайте, как создавать HBase таблицы и формировать запросы к ним с помощью Hive." metaCanonical="" services="hdinsight" documentationCenter="" title="Начало работы с использованием HBase с Hadoop в HDInsight" authors="bradsev" solutions="big-data" manager="paulettm" editor="cgronlun" />
+﻿<properties urlDisplayName="Get Started" pageTitle="Настройка таблиц HBase и выполнение запросов к ним с помощью Hive в HDInsight - Azure" metaKeywords="" description="Get started using HBase with Hadoop in HDInsight. Learn how to create HBase tables and query them using Hive." metaCanonical="" services="hdinsight" documentationCenter="" title="Set up HBase clusters and query them using Hive on Hadoop in HDInsight" authors="bradsev" solutions="big-data" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/21/2014" ms.author="bradsev" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/9/2014" ms.author="bradsev" />
 
-# Начало работы с использованием HBase с Hadoop в HDInsight
 
-HBase — это база данных NoSQL с низким уровнем задержки, позволяющая производить транзакционную обработку больших объемов данных. HBase предлагается в форме управляемого кластера, интегрированного в среду Azure. Кластеры настроены на хранение данных непосредственно в хранилище BLOB-объектов Azure, что обеспечивает небольшую задержку и повышенную гибкость в выборе соотношения производительность/стоимость. Это позволяет клиентам создавать интерактивные веб-сайты, работающие с большими наборами данных, создавать службы, которые хранят данные с датчиков и телеметрию миллионов конечных точек, и анализировать эти данные с помощью заданий Hadoop.
 
-В этом уроке вы узнаете, как создавать и формировать запросы к таблицам HBase с HDInsight. Описаны следующие процедуры:
+# Настройка кластеров HBase и выполнение запросов к ним с помощью Hive на Hadoop в HDInsight
 
--   Подготовка кластера HBase с использованием портала Azure.
--   Добавление и использование удаленного рабочего стола для доступа к оболочке HBase, использование оболочки HBase для создания таблицы HBase, добавления строк и вывода строк таблицы.
--   Создание таблицы Hive, которая сопоставляется существующей таблице HBase, использование HiveQL для формирования запросов к таблице HBase.
--   Использование пакета SDK для .NET для создания новой таблицы HBase, вывод списка таблиц HBase в учетной записи, добавление и получение содержимого строк из таблиц.
+Узнайте, как создавать таблицы HBase и выполнять к ним запросы с помощью Hive на Hadoop в HDInsight. 
 
-> [WACOM.NOTE] HBase (версия 0.98.0) доступна только для использования с кластерами HDInsight версии 3.1 в HDInsight (на основе Apache Hadoop и YARN версии 2.4.0). Для получения информации о версиях ПО см. раздел [Новые возможности версий кластеров, предоставляемых HDInsight.][Новые возможности версий кластеров, предоставляемых HDInsight.]
+##Содержание
 
-**Предварительные требования:**
+* [Что такое HBase?](#hbaseintro)
+* [Предварительные требования](#prerequisites)
+* [Подготовка кластеров HBase с помощью портала управления Azure](#create-hbase-cluster)
+* [Управление таблицами HBase с помощью оболочки HBase](#create-sample-table)
+* [Использование HiveQL для формирования запросов к таблицам HBase](#hive-query)
+* [Использование клиентской библиотеки Microsoft HBase REST для управления таблицами HBase](#hbase-powershell)
+* [См. также](#seealso)
+
+##<a name="hbaseintro"></a>Что такое HBase?
+
+HBase - это база данных NoSQL с низким уровнем задержки, позволяющая производить транзакционную обработку больших объемов данных. HBase предлагается в форме управляемого кластера, интегрированного в среду Azure. Кластеры настроены на хранение данных непосредственно в хранилище BLOB-объектов Azure, что обеспечивает небольшую задержку и повышенную гибкость в выборе соотношения производительность/стоимость. Это позволяет клиентам создавать интерактивные веб-сайты, работающие с большими наборами данных, создавать службы, которые хранят данные с датчиков и телеметрию миллионов конечных точек, и анализировать эти данные с помощью заданий Hadoop. Дополнительную информацию о базе данных HBase и сценариях, для которых она может использоваться, см. в разделе [Обзор HDInsight HBase](http://azure.microsoft.com/ru-ru/documentation/articles/hdinsight-hbase-overview/).
+
+> [WACOM.NOTE] HBase (версия 0.98.0) доступна только для использования с кластерами HDInsight версии 3.1 в HDInsight (на основе Apache Hadoop и YARN версии 2.4.0). Для получения информации о версиях см. раздел [Новые возможности в версиях кластеров Hadoop, предоставляемых в HDInsight][hdinsight-versions]
+
+##<a name="prerequisites"></a>Предварительные требования
 
 Перед началом работы с этим учебником необходимо иметь следующее:
 
--   Подписка Azure. Дополнительные сведения о получении подписки см. в разделах [Варианты приобретения][Варианты приобретения], [Предложения для участников][Предложения для участников] или [Бесплатное пробное использование][Бесплатное пробное использование].
--   Учетная запись хранения Azure. Инструкции см. в разделе [Создание учетной записи хранения][Создание учетной записи хранения].
--   Установленная Visual Studio.
+- **Подписка Azure** Дополнительную информацию о получении подписки см. в разделах [Варианты приобретения][azure-purchase-options], [Предложения для участников][azure-member-offers] или[Бесплатное пробное использование][azure-free-trial].
+- **Учетная запись хранения Azure** Указания см. в разделе [Создание учетной записи хранения][azure-create-storageaccount].
+- **Рабочая станция**, на которой установлено программное обеспечение Visual Studio 2013. Указание см. в разделе [Установка Visual Studio](http://msdn.microsoft.com/ru-ru/library/e2h7fzkw.aspx).
+- Скачайте [клиентскую библиотеку Microsoft HBase REST для .NET](https://github.com/hdinsight/hbase-sdk-for-net). 
 
-**Предполагаемое время выполнения:**30 минут
 
-## В этом учебнике рассматриваются следующие темы:
-
--   [Подготовка кластера HBase на портале Azure][Подготовка кластера HBase на портале Azure]
--   [Создание примера таблицы HBase в оболочке HBase][Создание примера таблицы HBase в оболочке HBase]
--   [Использование Hive для формирования запросов к таблице HBase][Использование Hive для формирования запросов к таблице HBase]
--   [Использование интерфейсов API HBase для C\# для создания таблицы HBase и получения из нее данных][Использование интерфейсов API HBase для C\# для создания таблицы HBase и получения из нее данных]
--   [Сводка][Сводка]
--   [Что дальше?][Что дальше?]
-
-## <a name="create-hbase-cluster"></a>Подготовка кластера HBase на портале Azure
+##<a name="create-hbase-cluster"></a>Подготовка кластера HBase на портале Azure
 
 В данном разделе описана подготовка кластера HBase с использованием портала Azure.
 
+
 [WACOM.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
 
-**Чтобы подготовить кластер HBase на портале Azure:**
+**Чтобы подготовить кластер HBase на портале Azure:** 
 
-1.  Выполните вход на [портал управления Azure][портал управления Azure].
 
-2.  щелкните **HDInsight** слева от списка состояний кластеров в вашей учетной записи, затем щелкните значок **+NEW** слева внизу;
+1. Войдите на [портал управления Azure][azure-management-portal]. 
 
-    ![][0]
+2. щелкните **HDInsight** слева от списка состояний кластеров в вашей учетной записи, затем щелкните значок **+СОЗДАТЬ** слева внизу; 
 
-3.  щелкните значок HDInsight во втором столбце слева и параметр HBase в следующем столбце; укажите значения ИМЯ КЛАСТЕРА и РАЗМЕР КЛАСТЕРА, имя учетной записи хранения и пароль для нового кластера HBase;
+	![Creating an HBase cluster in HDInsight in the Azure portal.](http://i.imgur.com/PmGynKZ.jpg)
 
-    ![][1]
+3. щелкните значок HDInsight во втором столбце слева и параметр HBase в следующем столбце; укажите значения ИМЯ КЛАСТЕРА и РАЗМЕР КЛАСТЕРА, имя учетной записи хранения и пароль для нового кластера HBase;
+ 
+	![Choosing and HBase cluster type and entering cluster login credentials.](http://i.imgur.com/ecxbB9K.jpg)
 
-4.  щелкните значок галочки слева внизу для создания кластера HBase.
+4. щелкните значок галочки слева внизу для создания кластера HBase.
 
-## <a name="create-sample-table"></a>Создание примера таблицы HBase в оболочке HBase
 
+##<a name="create-sample-table"></a>Создание примера таблицы HBase в оболочке HBase
 В данном разделе описано добавление и использование удаленного рабочего стола для доступа к оболочке HBase, использование оболочки HBase для создания таблицы HBase, добавления строк и вывода строк таблицы.
 
 Предполагается, что описанная в первом разделе процедура вами выполнена и у вас уже имеется успешно созданный кластер HBase.
 
 **Включение подключения к удаленному рабочему столу для кластера HBase**
 
-1.  Чтобы включить возможность подключения к удаленному рабочему столу для кластера HDInsight, выберите созданный вам кластер HBase и щелкните вкладку **КОНФИГУРАЦИЯ**. Щелкните кнопку **ВКЛЮЧИТЬ УДАЛЕННЫЙ ДОСТУП** внизу страницы, чтобы включить возможность подключения к удаленному рабочему столу кластера.
-2.  Введите учетные данные и дату прекращения в мастере **НАСТРОЙКА УДАЛЕННОГО РАБОЧЕГО СТОЛА**, щелкните круг с галочкой справа внизу. (Эта операция может занять несколько минут.)
-3.  Чтобы подключиться к кластеру HDInsight, щелкните кнопку **ПОДКЛЮЧИТЬ** в нижней части вкладки **КОНФИГУРАЦИЯ**.
+1. Чтобы включить возможность подключения к удаленному рабочему столу для кластера HDInsight, выберите созданный вами кластер HBase и щелкните вкладку **КОНФИГУРАЦИЯ**. Нажмите кнопку **ВКЛЮЧИТЬ УДАЛЕННЫЙ ДОСТУП** внизу страницы, чтобы включить возможность подключения к удаленному рабочему столу кластера.
+2. Введите учетные данные и дату прекращения в мастере **НАСТРОЙКА УДАЛЕННОГО РАБОЧЕГО СТОЛА**, щелкните круг с галочкой справа внизу. (Эта операция может занять несколько минут.)
+3. Чтобы подключиться к кластеру HDInsight, нажмите кнопку **ПОДКЛЮЧИТЬ** в нижней части вкладки **КОНФИГУРАЦИЯ**.
 
+ 
 **Откройте оболочку HBase**
 
-1.  В сеансе удаленного рабочего стола щелкните по ссылке **Командная строка Hadoop**, расположенной на Рабочем столе.
+1. В сеансе удаленного рабочего стола щелкните по ссылке **Командная строка Hadoop**, расположенной на рабочем столе.
 
-2.  Измените папку на домашнюю папку HBase:
+2. Измените папку на домашнюю папку HBase:
+		
+		cd %HBASE_HOME%\bin
 
-        cd %HBASE_HOME%\bin
+3. Откройте оболочку HBase:
 
-3.  Откройте оболочку HBase:
+		hbase shell
 
-        hbase shell
 
 **Создание таблицы, добавление и извлечение данных**
 
-1.  Создание таблицы:
+1. Создание таблицы:
 
-        create 'sampletable', 'cf1'
+		create 'sampletable', 'cf1'
 
-2.  Добавление строки в таблицу:
+2. Добавление строки в таблицу:
 
-        put 'sampletable', 'row1', 'cf1:col1', 'value1'
+		put 'sampletable', 'row1', 'cf1:col1', 'value1'
 
-3.  Вывод списка строк в таблице:
+3. Вывод списка строк в таблице:
+	
+		scan 'sampletable'
 
-        scan 'sampletable'
-
-## <a name="hive-query"></a>Использование Hive для формирования запросов к таблице HBase
+##<a name="hive-query"></a>Использование Hive для формирования запросов к таблице HBase
 
 Теперь, когда вы подготовили кластер HBase и создали таблицу, вы можете запросить его с помощью Hive. В данном разделе будет создана таблица Hive, которая сопоставляется существующей таблице HBase и используется для формирования запросов к таблице HBase.
 
-**Чтобы открыть панель мониторинга кластера**
+**Вот как можно открыть панель мониторинга кластера:**
 
-1.  Выполните вход на [портал управления Azure][портал управления Azure].
-2.  На левой панели щелкните **HDINSIGHT**. Вы увидите список созданных кластеров, включая только что созданный в последнем разделе.
-3.  Щелкните имя кластера, в котором вы хотите запустить задание Hive.
-4.  Щелкните **УПРАВЛЕНИЕ КЛАСТЕРОМ** внизу страницы, чтобы открыть панель мониторинга кластера. В новой вкладке браузера откроется веб-страница.
-5.  Введите имя пользователя и пароль учетной записи Hadoop. По умолчанию имя пользователя **admin**, пароль вы вводили в процессе подготовки. Панель мониторинга имеет следующий вид:
+1. Войдите на [портал управления Azure][azure-management-portal]. 
+2. На левой панели щелкните **HDINSIGHT**. Вы увидите список созданных кластеров, включая только что созданный в последнем разделе.
+3. Щелкните имя кластера, в котором вы хотите запустить задание Hive.
+4. Щелкните **УПРАВЛЕНИЕ КЛАСТЕРОМ** внизу страницы, чтобы открыть панель мониторинга кластера. Откроется веб-страница на отдельной вкладке браузера.   
+5. Введите имя пользователя и пароль учетной записи Hadoop.  По умолчанию имя пользователя **admin**, пароль вы вводили в процессе подготовки.  Панель мониторинга имеет следующий вид:
 
-    ![][2]
+	![HDInsight cluster dashboard.](http://i.imgur.com/tMwXlj9.jpg)
+
 
 **Чтобы выполнить запрос Hive**
 
-1.  Чтобы создать таблицу Hive с отображением на таблицу HBase, введите приведенный ниже сценарий HiveQL в окне консоли Hive и нажмите кнопку **ОТПРАВИТЬ**. Убедитесь, что вы создали упомянутую таблицу в HBase с помощью оболочки HBase перед выполнением этого сценария.
+1. Чтобы создать таблицу Hive с отображением на таблицу HBase, введите приведенный ниже сценарий HiveQL в окне консоли Hive и нажмите кнопку **ОТПРАВИТЬ**. Убедитесь, что вы создали упомянутую таблицу в HBase с помощью оболочки HBase перед выполнением этого сценария.
+ 
+    	CREATE EXTERNAL TABLE hbasesampletable(rowkey STRING, col1 STRING, col2 STRING)
+    	STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler'
+    	WITH SERDEPROPERTIES ('hbase.columns.mapping' = ':key,cf1:col1,cf1:col2')
+    	TBLPROPERTIES ('hbase.table.name' = 'sampletable');
 
-        CREATE EXTERNAL TABLE hbasesampletable(rowkey STRING, col1 STRING, col2 STRING)
-        STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler'
-        WITH SERDEPROPERTIES ('hbase.columns.mapping' = ':key,cf1:col1,cf1:col2')
-        TBLPROPERTIES ('hbase.table.name' = 'sampletable');
+ 
+2. Чтобы выполнить запрос Hive к данным в HBase, введите приведенный ниже сценарий HiveQL в окне консоли Hive и нажмите кнопку **ОТПРАВИТЬ**.
 
-2.  Чтобы выполнить запрос Hive к данным в HBase, введите приведенный ниже сценарий HiveQL в окне консоли Hive и нажмите кнопку **SUBMIT**.
+     	SELECT count(*) FROM hbasesampletable;
+ 
+4. Для получения результата запроса Hive щелкните ссылку **Подробнее** в окне **Сеанс задания** после окончания выполнения задания.
 
-        SELECT count(*) FROM hbasesampletable;
 
-3.  Для получения результата запроса Hive щелкните ссылку **Подробнее** в окне **Сеанс задания** после окончания выполнения задания.
+Примечание. Ссылка на оболочку HBase переключает вкладку на **Оболочку HBase Shell**.
 
-Примечание. Ссылка на оболочку HBase переключает вкладку на **Оболочка HBase**.
 
-**Для просмотра файла с результатами**
 
-1.  В верхней части панели мониторинга щелкните **Файлы**.
-2.  Щелкните **Templeton-Job-Status**.
-3.  Щелкните номер GUID, у которого указано самое последнее время изменения, чуть больше времени запуска задания, которые вы записали ранее. Запишите этот GUID. Он понадобится в следующем разделе.
-4.  В файле **stdout** содержатся данные, которые потребуются в следующем разделе. Вы можете щелкнуть **stdout** для загрузки копии данных, если хотите.
+**Для просмотра файла с результатами выполните следующие действия:**
 
-## <a name="hbase-powershell"></a>Использование интерфейсов API HBase для C\# для создания таблицы HBase и получения из нее данных
+1. В верхней части панели мониторинга кластера щелкните **Файлы**.
+2. Щелкните **Templeton-Job-Status**.
+3. Щелкните номер GUID, у которого указано самое последнее время изменения, чуть больше времени запуска задания, которые вы записали ранее. Запишите этот GUID.  Он понадобится в следующем разделе.
+4. В файле **stdout** содержатся данные, которые потребуются в следующем разделе. Вы можете щелкнуть **stdout**, чтобы скачать копию файла данных, если хотите.
 
-Marlin представляет собой тонкую надстройку поверх интерфейса API REST, которая взаимодействует с HBase с использованием ProtoBuf в C\#. Проект Marlin необходимо загрузить с github и собрать его для использования с пакетом SDK HBase .NET.
+	
+##<a name="hbase-powershell"></a>Использование интерфейсов API для C# клиентской библиотеки HBase REST для .NET при создании таблицы HBase и получении из нее данных
 
-1.  Выполните шаги по сборке, описанные на странице загрузки проекта [страницы проекта Marlin][страницы проекта Marlin]. Распакуйте его в локальную папку.
+Проект клиентской библиотеки Microsoft HBase REST для .NET необходимо скачать с GitHub и выполнить его сборку для использования с пакетом SDK для HBase .NET. Описанная далее процедура включает в себя инструкции по выполнению этой задачи.
 
-2.  Откройте проект в Visual Studio. Откройте мастер диспетчера пакетов NuGet, выбрав меню **СЕРВИС** -\> **Диспетчер пакетов библиотеки** и **Управление пакетами NuGet для решения ...**
+1. Скачайте [клиентскую библиотеку Microsoft HBase REST для .NET](https://github.com/hdinsight/hbase-sdk-for-net) , если вы еще не выполнили это предварительное требование.
 
-    ![][3]
+2. Откройте файл Marlin.sln в Visual Studio (**Файл** > **Открыть** > **Проект/Решение ...**) из расположения, в которое он был скачан. Чтобы увидеть решение Marlin и соответствующий проект Microsoft.HBase.Client, выберите **Просмотр** > **Обозреватель решений**. Выполните сборку проекта **Marlin**, щелкнув его правой кнопкой мыши в **обозревателе решений** и выбрав **Собрать решение**. 
 
-3.  В расположенном справа вверху поле «Поиск в Интернете» найдите пакет protobuf-net и установите версию v2.0.0.68. Создайте проект Marlin, щелкнув правой кнопкой мыши проект **Marlin** в **обозревателе решений** и выбрав **Создать**.
+4. Создайте новое консольное приложение Visual C#. Извлеките полученные в результате сборки файлы Microsoft.HBase.Client.dll и protobuf.dll (из каталога ...\bin\debug\Microsoft.HBase.Client) и добавьте их в свой проект C#: Щелкните правой кнопкой мыши пункт**Ссылки**, выберите **Добавить ссылки...**, перейдите к этим двум сборкам и передайте их. [protobuf-net](http://code.google.com/p/protobuf-net/) - это реализация .NET двоичного сериализатора буферов протокола Google, используемого для передачи данных.
 
-4.  Добавьте в ваш проект C\# полученную в результате библиотеку marlin.dll.
+5. Добавьте в начало файла следующие инструкции using:
+		
+		using Microsoft.HBase.Client;
+		using org.apache.hadoop.hbase.rest.protobuf.generated;
 
-5.  Создайте новый экземпляр Marlin с использованием учетных данных кластера и получите его версию:
+6. Создайте новый экземпляр клиента HBase с использованием учетных данных кластера и получите его версию:
 
-        var credentials = ClusterCredentials.Create("https://yourclustername.azurehdinsight.net/", "user", "password");
-            var marlin = new Marlin(credentials);
-        // retrieve the version as a test
-        var version = marlin.GetVersion();
-        Console.WriteLine(version);
+		// Create a new instance of an HBase client.
+		var creds = new ClusterCredentials(new Uri("https://myclustername.azurehdinsight.net"), "myusername", "mypassword");
+		var client = new HBaseClient(creds);
 
-6.  Чтобы получить список таблиц в кластере, вы можете использовать следующий код:
+		// Retrieve the cluster version
+		var version = client.GetVersion();
+		Console.WriteLine(version);
 
-        var tables = marlin.ListTables();
-        foreach(var tableName in tables.name) 
-                Console.WriteLine(tableName);
+7. Чтобы создать новую таблицу HBase, используйте этот код:
 
-7.  Чтобы создать новую таблицу HBase, используйте этот код:
+		// Create a new HBase table.
+		var testTableSchema = new TableSchema();
+		testTableSchema.name = "mytablename";
+		testTableSchema.columns.Add(new ColumnSchema() { name = "d" });
+		testTableSchema.columns.Add(new ColumnSchema() { name = "f" });
+		client.CreateTable(testTableSchema);
 
-        var schema = new TableSchema();
-        schema.name = "sampletable";
-        schema.columns.Add(new ColumnSchema() { name = "cf1" });
-        schema.columns.Add(new ColumnSchema() { name = "cf2" });
-        marlin.CreateTable(schema);
+8. Вставьте данные в таблицу с этим кодом:
 
-8.  Для извлечения строки по ее ключу укажите имя таблицы и ключ строки для извлечения значения строки.
+		// Insert data into a table.
+		var tableName = "mytablename";
+		var testKey = "content";
+		var testValue = "the force is strong in this column";
+		var set = new CellSet();
+		var row = new CellSet.Row { key = Encoding.UTF8.GetBytes(testKey) };
+		set.rows.Add(row);
 
-        var cells = marlin.GetCells("sampletable", "row1");
-        var row = cells.rows[0];
-            foreach(var val in row.values) 
-            {
-               Console.WriteLine(Encoding.UTF8.GetString(val.data));
-            }
+		var value = new Cell { column = Encoding.UTF8.GetBytes("d:starwars"), data = Encoding.UTF8.GetBytes(testValue) };
+		row.values.Add(value);
+		client.StoreCells(tableName, set);
 
-9.  Чтобы сохранить новую строку данных, можно использовать следующий код:
+9. Для извлечения ячейки с ее ключом используйте этот код: 
 
-        CellSet set = new CellSet();
-        CellSet.Row row = new CellSet.Row() { key = BitConverter.GetBytes(1337) };
-            var value = new Cell()
-                    {
-                        column = Encoding.UTF8.GetBytes("cf1:d"),
-                        data = Encoding.UTF8.GetBytes("Hello World!")
-                    };
-            row.values.Add(value);
-            set.rows.Add(row);
-        marlin.StoreCells("sampletable", set);
+		// Retrieve a cell with its key.
+		var testKey = "content";
+		var tableName = "mytablename";
 
-## <a name="summary"></a>Сводка
+		var cells = client.GetCells(tableName, testKey);
+		// get the first value from the row.
+		.WriteLine(Encoding.UTF8.GetString(cells.rows[0].values[0].data));
+		// with the previous insert, it should yield: "the force is strong in this column"
 
-В этом уроке вы узнали, как подготовить кластер HBase, как создавать таблицы и просматривать данные в этих таблицах из оболочки HBase. Вы также узнали, как использовать Hive для запроса данных из таблиц HBase и как использовать API-интерфейсы HBase C\# для создания и извлечения данных из таблицы HBase.
+10. Выполните сканирование строк в таблице с использованием следующего кода:
 
-## <a name="next"></a> Что дальше?
+		//Scan over rows in a table.
+		var creds = new ClusterCredentials(new Uri("https://myclustername.azurehdinsight.net"), "myusername", "mypassword");
+		var client = new HBaseClient(creds);
 
-[Обзор HDInsight HBase][Обзор HDInsight HBase]:
-HBase – это NoSQL (нереляционная распределенная) база данных с открытым исходным кодом Apache, разработанная в рамках проекта Hadoop, которая обеспечивает произвольный доступ и строгую согласованность больших объемов неструктурированных и полуструктурированных данных.
+		var tableName = "mytablename";
 
-[Подготовка кластеров HBase в виртуальной сети Azure][Подготовка кластеров HBase в виртуальной сети Azure]:
-благодаря интеграции виртуальной сети HBase кластеры могут быть развернуты в одной виртуальной сети, что и приложения, поэтому эти приложения могут напрямую обмениваться данными с HBase.
+		// assume the table has integer keys and we want data between keys 25 and 35
+		var scanSettings = new Scanner()
+		{
+    		batch = 10,
+    		startRow = BitConverter.GetBytes(25),
+    		endRow = BitConverter.GetBytes(35)
+		};
 
-  [Новые возможности версий кластеров, предоставляемых HDInsight.]: ../hdinsight-component-versioning/
-  [Варианты приобретения]: http://azure.microsoft.com/ru-ru/pricing/purchase-options/
-  [Предложения для участников]: http://azure.microsoft.com/ru-ru/pricing/member-offers/
-  [Бесплатное пробное использование]: http://azure.microsoft.com/ru-ru/pricing/free-trial/
-  [Создание учетной записи хранения]: http://azure.microsoft.com/ru-ru/documentation/articles/storage-create-storage-account/
-  [Подготовка кластера HBase на портале Azure]: #create-hbase-cluster
-  [Создание примера таблицы HBase в оболочке HBase]: #create-sample-table
-  [Использование Hive для формирования запросов к таблице HBase]: #hive-query
-  [Использование интерфейсов API HBase для C\# для создания таблицы HBase и получения из нее данных]: #hbase-powershell
-  [Сводка]: #summary
-  [Что дальше?]: #next
-  [портал управления Azure]: https://manage.windowsazure.com/
-  [0]: http://i.imgur.com/PmGynKZ.jpg
-  [1]: http://i.imgur.com/ecxbB9K.jpg
-  [2]: http://i.imgur.com/tMwXlj9.jpg
-  [страницы проекта Marlin]: https://github.com/thomasjungblut/marlin
-  [3]: http://i.imgur.com/hUNoJDJ.jpg
-  [Обзор HDInsight HBase]: ../hdinsight-hbase-overview/
-  [Подготовка кластеров HBase в виртуальной сети Azure]: ../hdinsight-hbase-provision-vnet
+		var scannerInfo = client.CreateScanner(tableName, scanSettings);
+		CellSet next = null;
+		while ((next = client.ScannerGetNext(scannerInfo)) != null)
+		{
+    		foreach (var row in next.rows)
+    		{
+        		// ... read the rows
+    		}
+		}
+
+
+
+##<a name="summary"></a>Сводка
+В этом уроке вы узнали, как подготовить кластер HBase, как создавать таблицы и просматривать данные в этих таблицах из оболочки HBase. Вы также узнали, как использовать Hive для запроса данных из таблиц HBase и как использовать API-интерфейсы HBase C# для создания и извлечения данных из таблицы HBase.
+
+##<a name="next"></a> Что дальше?
+
+[Обзор HDInsight HBase][hdinsight-hbase-overview]:
+HBase - это Apache база данных NoSQL с открытым исходным кодом, созданная на основе Hadoop, обеспечивающая случайную выборку и строгую согласованность для больших объемов неструктурированных и слабоструктурированных данных.
+
+[Подготовка кластеров HBase в виртуальной сети Azure][hdinsight-hbase-provision-vnet]:
+Благодаря интеграции виртуальной сети кластеры HBase могут быть развернуты в той же виртуальной сети, что и приложения. Это позволяет приложениям взаимодействовать с HBase непосредственно.
+
+[Анализ мнений пользователей Twitter с использованием HBase в HDInsight][hbase-twitter-sentiment]:
+Узнайте, как в режиме реального времени выполнять[анализ мнений пользователей](http://en.wikipedia.org/wiki/Sentiment_analysis) большого объема данных с помощью HBase в кластере Hadoop в HDInsight.
+
+[hdinsight-hbase-overview]: ../hdinsight-hbase-overview/
+[hdinsight-hbase-provision-vnet]: ../hdinsight-hbase-provision-vnet
+[hdinsight-versions]: ../hdinsight-component-versioning/
+
+[hdinsight-get-started-30]: ../hdinsight-get-started-30/
+
+[hdinsight-admin-powershell]: ../hdinsight-administer-use-powershell/
+
+[hbase-twitter-sentiment]: ../hdinsight-hbase-analyze-twitter-sentiment/
+
+[hdinsight-use-hive]: ../hdinsight-use-hive/
+
+[hdinsight-storage]: ../hdinsight-use-blob-storage/
+
+
+
+[azure-purchase-options]: http://azure.microsoft.com/ru-ru/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/ru-ru/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/ru-ru/pricing/free-trial/
+[azure-management-portal]: https://manage.windowsazure.com/
+[azure-create-storageaccount]: http://azure.microsoft.com/ru-ru/documentation/articles/storage-create-storage-account/ 
+
+[apache-hadoop]: http://hadoop.apache.org/
+
+[powershell-download]: http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
+[powershell-install-configure]: ../install-configure-powershell/
+[powershell-open]: ../install-configure-powershell/#Install
+
+
+[img-hdi-dashboard]: ./media/hdinsight-get-started/HDI.dashboard.png
+[img-hdi-dashboard-query-select]: ./media/hdinsight-get-started/HDI.dashboard.query.select.png
+[img-hdi-dashboard-query-select-result]: ./media/hdinsight-get-started/HDI.dashboard.query.select.result.png
+
+
+
+
+
+
+
+<!--HONumber=35_1-->

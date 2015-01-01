@@ -1,192 +1,188 @@
-﻿<properties urlDisplayName="Blob Service" pageTitle="Использование хранилища BLOB-объектов (Java) - Microsoft Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Java" description="Learn how to use the Azure blob service to upload, download, list, and delete blob content. Samples written in Java." metaCanonical="" services="storage" documentationCenter="Java" title="How to use Blob Storage from Java" authors="tamram" solutions="" manager="adinah" editor="" />
+﻿<properties urlDisplayName="Blob Service" pageTitle="Как использовать хранилище больших двоичных объектов (Java) - Microsoft Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Java" description="Learn how to use the Azure blob service to upload, download, list, and delete blob content. Samples written in Java." metaCanonical="" services="storage" documentationCenter="Java" title="How to use Blob Storage from Java" authors="robmcm" solutions="" manager="adinah" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
 
 # Использование хранилища BLOB-объектов из Java
 
-В этом руководстве показано, как реализовать типичные сценарии с использованием службы BLOB-объектов Microsoft Azure. Примеры написаны на Java и используют [Пакет SDK хранилища Azure для Java][Пакет SDK хранилища Azure для Java]. Здесь описаны такие сценарии, как **отправка**, **перечисление**, **загрузка** и **удаление** BLOB-объектов. Дополнительные сведения о BLOB-объектах см. в разделе [Дальнейшие действия](#NextSteps).
+В этом руководстве показано, как реализовать типичные сценарии с использованием службы BLOB-объектов Microsoft Azure. Примеры написаны на Java и используют [пакет SDK для службы хранилища Azure для Java][]. Здесь описаны такие сценарии, как **отправка**, **перечисление**,**скачивание** и **удаление** больших двоичных объектов. Дополнительную информацию о больших двоичных объектах см. в разделе [Дальнейшие действия](#NextSteps) .
 
-Примечание. Пакет SDK доступен разработчикам, использующим хранилище Azure на устройствах Android. Дополнительные сведения см. в разделе [Пакет SDK хранилища Azure для Android][Пакет SDK хранилища Azure для Android]. 
+Примечание. Пакет SDK доступен разработчикам, использующим хранилище Azure на устройствах Android. Дополнительную информацию см. в разделе [Пакет SDK для службы хранилища Azure для Android][]. 
 
 ## <a name="Contents"> </a>Оглавление
 
-* [Что такое хранилище BLOB-объектов](#what-is)
+* [Что такое хранилище больших двоичных объектов](#what-is)
 * [Основные понятия](#Concepts)
 * [Создание учетной записи хранения Azure](#CreateAccount)
 * [Создание приложения Java](#CreateApplication)
-* [Настройка приложения для доступа к хранилищу BLOB-объектов](#ConfigureStorage)
-* [Настройка строки подключения к хранилищу Azure](#ConnectionString)
+* [Настройка приложения для доступа к хранилищу больших двоичных объектов](#ConfigureStorage)
+* [Настройка строки подключения к службе хранилища Azure](#ConnectionString)
 * [Практическое руководство. Создание контейнера](#CreateContainer)
-* [Практическое руководство. Отправка BLOB-объекта в контейнер](#UploadBlob)
-* [Практическое руководство. Перечисление BLOB-объектов в контейнере](#ListBlobs)
-* [Практическое руководство. Загрузка BLOB-объектов](#DownloadBlob)
-* [Практическое руководство. Удаление BLOB-объектов](#DeleteBlob)
-* [Практическое руководство. Удаление контейнера blob-объектов](#DeleteContainer)
+* [Практическое руководство. Отправка большого двоичного объекта в контейнер](#UploadBlob)
+* [Практическое руководство. Перечисление больших двоичных объектов в контейнере](#ListBlobs)
+* [Практическое руководство. Скачивание большого двоичного объекта](#DownloadBlob)
+* [Практическое руководство. Удаление большого двоичного объекта](#DeleteBlob)
+* [Практическое руководство. Удаление контейнера большого двоичного объекта](#DeleteContainer)
 * [Дальнейшие действия](#NextSteps)
 
-[WACOM.INCLUDE [руководство-блоб-объект-хранилище](../includes/howto-blob-storage.md)]
+[WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
 
 <h2><a id="CreateAccount"></a>Создание учетной записи хранения Azure</h2>
 
-[WACOM.INCLUDE [создание-хранилище-учетная запись](../includes/create-storage-account.md)]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a name="CreateApplication"> </a>Создание приложения Java
 
 В этом руководстве будут использоваться компоненты хранилища, которые могут быть вызваны локально в приложении Java или в коде, работающем в веб-роли или рабочей роли в Azure.
 
-Чтобы это сделать, необходимо установить комплект разработчика Java (JDK) и создать учетную запись Azure в подписке Azure. После того, как это будет сделано, необходимо убедиться, что ваша система разработки отвечает минимальным требованиям и зависимостям, указанным в репозитории [Пакет SDK хранилища Azure для Java][Пакет SDK хранилища Azure для Java] в GitHub. Если ваша система отвечает указанным требованиям можно приступить к выполнению инструкций по загрузке библиотек хранилища Azure для Java из репозитория и их установке на своей системе. После завершение этих задач вы сможете приступить к созданию приложения Java с использованием примеров из данной статьи.
+Чтобы это сделать, необходимо установить комплект разработчика Java (JDK) и создать учетную запись Azure в подписке Azure. После того, как это будет сделано, необходимо убедиться, что ваша система разработки отвечает минимальным требованиям и зависимостям, указанным в репозитории [Пакет SDK для службы хранилища Azure для Java][] в GitHub. Если ваша система отвечает указанным требованиям можно приступить к выполнению инструкций по загрузке библиотек хранилища Azure для Java из репозитория и их установке на своей системе. После завершение этих задач вы сможете приступить к созданию приложения Java с использованием примеров из данной статьи.
 
 ## <a name="ConfigureStorage"> </a>Настройка приложения для доступа к хранилищу BLOB-объектов
 
 Если нужно использовать API-интерфейсы Azure для доступа к BLOB-объектам, добавьте следующие инструкции импорта в верхнюю часть файла Java:
 
-    // Включите следующий импорт для интерфейсов API BLOB-объектов.
+    // Include the following imports to use blob APIs.
     import com.microsoft.azure.storage.*;
     import com.microsoft.azure.storage.blob.*;
 
 ## <a name="ConnectionString"> </a>Настройка строки подключения к хранилищу Azure
 
-Клиент хранилища Azure использует строку подключения с целью
-хранения конечных точек и учетных данных для доступа к службам управления данными. При работе в клиентском приложении необходимо указать для хранилища строку подключения в следующем формате, используя имя своей учетной записи хранения и первичный ключ доступа для учетной записи хранения, указанные на портале управления значениями *AccountName* и *AccountKey*. В этом примере показано, как объявить статическое поле для размещения строки подключения:
+Клиент хранилища Azure использует строку подключения с целью хранения конечных точек и учетных данных для доступа к службам управления данными. При работе в клиентском приложении необходимо указать для хранилища строку подключения в следующем формате, используя имя своей учетной записи хранения и первичный ключ доступа для учетной записи хранения, указанные на портале управления значениями AccountName и AccountKey. В этом примере показано, как объявить статическое поле для размещения строки подключения:
 
-    // Определить строку подключения с вашим значением
+    // Define the connection-string with your values
     public static final String storageConnectionString = 
         "DefaultEndpointsProtocol=http;" + 
         "AccountName=your_storage_account;" + 
         "AccountKey=your_storage_account_key";
 
-Если приложение выполняется в роли Azure, эта строка может храниться в файле конфигурации службы, *ServiceConfiguration.cscfg*, и для доступа к ней можно использовать вызов метода **RoleEnvironment.getConfigurationSettings**. Ниже приведен пример получения строки подключения из элемента **Setting** с именем *StorageConnectionString* в файле конфигурации службы:
+Если приложение выполняется в роли на платформе Microsoft Azure, эта строка может храниться в файле конфигурации службы **RoleEnvironment.getConfigurationSettings**, для доступа к которой можно использовать вызов метода RoleEnvironment.getConfigurationSettings. Ниже приведен пример получения строки подключения из элемента **Setting** с именем StorageConnectionString в файле конфигурации службы:
 
-    // Получить учетную запись хранения из строки подключения.
+    // Retrieve storage account from connection-string.
     String storageConnectionString = 
         RoleEnvironment.getConfigurationSettings().get("StorageConnectionString");
 
 В приведенных ниже примерах предполагается, что вы использовали одно из этих двух определений для получения строки подключения к хранилищу.
 
-## <a name="CreateContainer"> </a>Практическое руководство. Создание контейнера
+## <a name="CreateContainer"> </a>Практическое руководство: Создание контейнера
 
-Объект CloudQueueClient позволяет ссылаться на объекты контейнеров и BLOB-объектов. Следующий код создает объект **CloudBlobClient**. (Примечание. Существуют также другие способы создания объектов **CloudStorageAccount**. Дополнительную информацию см. в разделе **CloudStorageAccount** in the [Справочник по пакету SDK для клиента хранилища Azure].)
+Объект CloudQueueClient позволяет ссылаться на объекты контейнеров и BLOB-объектов. Следующий код создает объект **CloudBlobClient**. (Примечание. Существуют также другие способы создания объектов **CloudStorageAccount**. Дополнительную информацию см. в разделе **CloudStorageAccount** статьи [Справочник по пакету SDK для клиента службы хранилища Azure].)
 
-Все BLOB-объекты содержатся в контейнере. С помощью объекта **CloudBlobClient** получите ссылку контейнер, который собираетесь использовать. Если контейнер не существует, его можно создать с помощью метода **createIfNotExist**, который в противном случае возвратит существующий контейнер. По умолчанию новый контейнер является закрытым, поэтому вам необходимо указать ключ доступа к хранилищу (как в уже делали раньше), чтобы загрузить BLOB-объекты из этого контейнера.
+Все BLOB-объекты содержатся в контейнере. С помощью объекта **CloudBlobClient** получите ссылку на контейнер, который необходимо использовать. Если контейнер не существует, его можно создать с помощью метода **createIfNotExists**, который в противном случае возвратит существующий контейнер. По умолчанию новый контейнер является закрытым, поэтому необходимо указать ключ доступа к хранилищу (как делалось раньше), чтобы загрузить BLOB-объекты из этого контейнера.
 
 	try
     {
-        // Получить учетную запись хранения из строки подключения.
+        // Retrieve storage account from connection-string.
     	CloudStorageAccount storageAccount = CloudStorageAccount.parse(storageConnectionString);
 
-    	// Создать клиент службы BLOB-объектов.
+    	// Create the blob client.
 	   CloudBlobClient blobClient = storageAccount.createCloudBlobClient();
 
-	   // Получить ссылку на контейнер.
-	   // Имя контейнера должно быть в нижнем регистре
+	   // Get a reference to a container.
+	   // The container name must be lower case
 	   CloudBlobContainer container = blobClient.getContainerReference("mycontainer");
 
-	   // Создать контейнер, если он не существует.
+	   // Create the container if it does not exist.
     	container.createIfNotExists();
     }
     catch (Exception e)
     {
-        // Вывод трассировки стека.
+        // Output the stack trace.
         e.printStackTrace();
     }
 
-###Необязательно: Настройка контейнера для открытого доступа ###
+###Необязательно: Настройка контейнера для открытого доступа
 
-Разрешения контейнера по умолчанию настроены для закрытого доступа. Однако, можно легко настроить разрешения контейнера на открытый доступ с правами только на чтение для всех пользователей в Интернете. 
+Разрешения контейнера по умолчанию настроены для закрытого доступа. Однако, можно легко настроить разрешения контейнера на открытый доступ с правами только на чтение для всех пользователей в Интернете.
 
-    // Создание объекта разрешений.
+    // Create a permissions object.
     BlobContainerPermissions containerPermissions = new BlobContainerPermissions();
 
-    // Ввести открытый доступ в объект разрешения.
+    // Include public access in the permissions object.
     containerPermissions.setPublicAccess(BlobContainerPublicAccessType.CONTAINER);
 
-    // задать разрешения на контейнер.
+    // Set the permissions on the container.
     container.uploadPermissions(containerPermissions);
 
-## <a name="UploadBlob"> </a>Практическое руководство. Отправка BLOB-объекта в контейнер
+## <a name="UploadBlob"> </a>Практическое руководство: Отправка BLOB-объекта в контейнер
 
 Для отправки файла в BLOB-объект получите ссылку на контейнер и используйте ее для получения ссылки на BLOB-объект. Получив ссылку на BLOB-объект, можно отправить в него любой поток данных, вызывая передачу по ссылке для BLOB-объекта. Эта операция создает BLOB-объект, если он еще не существует, или заменяет его, если он существует. Ниже приведен соответствующий пример кода, в котором предполагается,что контейнер уже создан.
 
 	try
     {
-        // Получить учетную запись хранения из строки подключения.
+        // Retrieve storage account from connection-string.
     	CloudStorageAccount storageAccount = CloudStorageAccount.parse(storageConnectionString);
 
-    	// Создать клиент службы BLOB-объектов.
+    	// Create the blob client.
     	CloudBlobClient blobClient = storageAccount.createCloudBlobClient();
 
-	   // Получить ссылку на ранее созданный контейнер.
+	   // Retrieve reference to a previously created container.
     	CloudBlobContainer container = blobClient.getContainerReference("mycontainer");
 			
-        // Определить путь к локальному файлу.
+        // Define the path to a local file.
         final String filePath = "C:\\myimages\\myimage.jpg";
 
-    	// Создать или заменить BLOB-объект "myimage.jpg" содержимым из локального файла.
+    	// Create or overwrite the "myimage.jpg" blob with contents from a local file.
     	CloudBlockBlob blob = container.getBlockBlobReference("myimage.jpg");
     	File source = new File(filePath);
     	blob.upload(new FileInputStream(source), source.length());
     }
     catch (Exception e)
     {
-        // Вывод трассировки стека.
+        // Output the stack trace.
         e.printStackTrace();
     }
 
-## <a name="ListBlobs"> </a>Практическое руководство. Перечисление BLOB-объектов в контейнере
+## <a name="ListBlobs"> </a>Практическое руководство: Перечисление BLOB-объектов в контейнере
 
 Для перечисления BLOB-объектов в контейнере сначала необходимо получить ссылку на контейнер, как при отправке BLOB-объекта. Можно использовать метод **listBlobs** контейнера с циклом **for**. Следующий код выводит на консоль URI каждого BLOB-объекта в контейнере.
 
 	try
     {
-        // Получить учетную запись хранения из строки подключения.
+        // Retrieve storage account from connection-string.
     	CloudStorageAccount storageAccount = CloudStorageAccount.parse(storageConnectionString);
 
-    	// Создать клиент службы BLOB-объектов.
+    	// Create the blob client.
     	CloudBlobClient blobClient = storageAccount.createCloudBlobClient();
 
-    	// Получить ссылку на ранее созданный контейнер.
+    	// Retrieve reference to a previously created container.
     	CloudBlobContainer container = blobClient.getContainerReference("mycontainer");
 			
-    	// Выполнение цикла по BLOB-объектам в контейнере и вывод URI для каждого из них.
+    	// Loop over blobs within the container and output the URI to each of them.
     	for (ListBlobItem blobItem : container.listBlobs()) {
 	       System.out.println(blobItem.getUri());
 	   }
     }
     catch (Exception e)
     {
-        // Вывод трассировки стека.
+        // Output the stack trace.
         e.printStackTrace();
     }
 
 Служба BLOB-объектов также использует концепцию каталогов внутри контейнеров. Таким образом, можно организовать BLOB-объекты в структуре, похожей на папки.
 
-Например, можно использовать контейнер с именем "photos", в который можно отправить BLOB-объекты с именами "rootphoto1", "2010/photo1", "2010/photo2" и "2011/photo1". При этом в контейнере "photos" будут созданы виртуальные каталоги "2010" и "2011". При вызове метода **ListBlobs** в контейнере "photos" (как в примере выше) возвращаемая коллекция будет содержать объекты **CloudBlobDirectory** и **CloudBlob**, представляющие собой каталоги и BLOB-объекты верхнего уровня. В этом случае будут возвращены каталоги "2010" и "2011", а также "rootphoto1". Чтобы различать эти объекты, можно использовать оператор **instanceof**.
+Например, можно использовать контейнер с именем "photos", в который можно отправить BLOB-объекты с именами "rootphoto1", "2010/photo1", "2010/photo2" и "2011/photo1". При этом в контейнере "photos" будут созданы виртуальные каталоги "2010" и "2011". При вызове метода **listBlobs** в контейнере photos (как в примере выше) возвращаемая коллекция будет содержать объекты **CloudBlobDirectory** и **CloudBlob**, представляющие собой каталоги и большие двоичные объекты верхнего уровня. В этом случае будут возвращены каталоги "2010" и "2011", а также "rootphoto1". Чтобы различать эти объекты, можно использовать оператор **instanceof**.
 
-При необходимости можно передать параметры в метод **listBlobs**, установив для
-параметра **useFlatBlobListing** значение "true". Это приведет к
-возвращению каждого BLOB-объекта независимо от каталога. Для получения дополнительной
-информации см. **CloudBlobContainer.listBlobs** в разделе [Справочник по пакету SDK для клиента хранилища Azure].
+При необходимости можно передать параметры в метод **listBlobs**, установив для параметра **useFlatBlobListing** значение true. Это приведет к возвращению всех больших двоичных объектов независимо от каталога. Для получения дополнительной информации см. **CloudBlobContainer.listBlobs** в [Справочнике по пакету SDK для клиента хранилища Azure].
 
-## <a name="DownloadBlob"> </a>Практическое руководство. Загрузка blob-объектов
+## <a name="DownloadBlob"> </a>Практическое руководство: Загрузка blob-объектов
 
-Для загрузки BLOB-объектов выполните те же действия, что и для отправки BLOB-объекта, чтобы получить ссылку на BLOB-объект. В приведенном примере отправки вызывалась передача BLOB-объекта. В следующем примере вызовите загрузку для передачи содержимого BLOB-объекта в потоковый объект, например в **FileOutputStream**, который можно использовать для сохранения BLOB-объекта в локальном файле.
+Для загрузки BLOB-объектов выполните те же действия, что и для отправки BLOB-объекта, чтобы получить ссылку на BLOB-объект. В приведенном примере отправки вызывалась передача BLOB-объекта. В следующем примере вызовите скачивание для передачи содержимого большого двоичного объекта в потоковый объект, например в **FileOutputStream**, который можно использовать для сохранения большого двоичного объекта в локальном файле.
 
     try
     {
-    	// Получить учетную запись хранения из строки подключения.
+    	// Retrieve storage account from connection-string.
 	   CloudStorageAccount storageAccount = CloudStorageAccount.parse(storageConnectionString);
 
-	   // Создать клиент службы BLOB-объектов.
+	   // Create the blob client.
 	   CloudBlobClient blobClient = storageAccount.createCloudBlobClient();
 
-	   // Получить ссылку на ранее созданный контейнер.
+	   // Retrieve reference to a previously created container.
 	   CloudBlobContainer container = blobClient.getContainerReference("mycontainer");
 			
-	   // ПРойдитесь по всем BLOB-объектам в контейнере.
+	   // Loop through each blob item in the container.
 	   for (ListBlobItem blobItem : container.listBlobs()) {
-	       // Если это BLOB-объект, а не виртуальный каталог.
+	       // If the item is a blob, not a virtual directory.
 	       if (blobItem instanceof CloudBlob) {
-	           // Скачать объект и сохранить в файле с тем же именем.
+	           // Download the item and save it to a file with the same name.
     	        CloudBlob blob = (CloudBlob) blobItem;
     	        blob.download(new FileOutputStream("C:\\mydownloads\\" + blob.getName()));
     	    }
@@ -194,59 +190,58 @@
     }
     catch (Exception e)
     {
-        // Вывод трассировки стека.
+        // Output the stack trace.
         e.printStackTrace();
     }
 
-## <a name="DeleteBlob"> </a>Практическое руководство. Удаление BLOB-объектов
+## <a name="DeleteBlob"> </a>Практическое руководство: Удаление BLOB-объекта
 
-Чтобы удалить BLOB-объект, получите ссылку на BLOB-объект и вызовите метод **deleteIfExists**.
+Чтобы удалить большой двоичный объект, получите ссылку на него и вызовите метод **deleteIfExists**.
 
     try
     {
-	   // Получить учетную запись хранения из строки подключения.
+	   // Retrieve storage account from connection-string.
 	   CloudStorageAccount storageAccount = CloudStorageAccount.parse(storageConnectionString);
 
-	   // Создать клиент службы BLOB-объектов.
+	   // Create the blob client.
 	   CloudBlobClient blobClient = storageAccount.createCloudBlobClient();
 
-	   // Получить ссылку на ранее созданный контейнер.
+	   // Retrieve reference to a previously created container.
 	   CloudBlobContainer container = blobClient.getContainerReference("mycontainer");
 			
-	   // Получить ссылку на BLOB-объект с именем "myimage.jpg".
+	   // Retrieve reference to a blob named "myimage.jpg".
 	   CloudBlockBlob blob = container.getBlockBlobReference("myimage.jpg");
 
-	   // Удалить BLOB-объект.
+	   // Delete the blob.
 	   blob.deleteIfExists();
     }
     catch (Exception e)
     {
-        // Вывод трассировки стека.
+        // Output the stack trace.
         e.printStackTrace();
     }
 
-## <a name="DeleteContainer"> </a>Практическое руководство. Удаление контейнера blob-объектов
+## <a name="DeleteContainer"> </a>Практическое руководство: Удаление контейнера blob-объектов
 
-Наконец, для удаления контейнера BLOB-объектов нужно получить ссылку на контейнер BLOB-объектов, а затем
-вызвать метод **deleteIfExists**.
+Наконец, чтобы удалить контейнер больших двоичных объектов, необходимо получить ссылку на контейнер больших двоичных объектов, а затем вызвать метод **deleteIfExists**.
 
     try
     {
-	   // Получить учетную запись хранения из строки подключения.
+	   // Retrieve storage account from connection-string.
 	   CloudStorageAccount storageAccount = CloudStorageAccount.parse(storageConnectionString);
 
-	   // Создать клиент службы BLOB-объектов.
+	   // Create the blob client.
 	   CloudBlobClient blobClient = storageAccount.createCloudBlobClient();
 
-	   // Получить ссылку на ранее созданный контейнер.
+	   // Retrieve reference to a previously created container.
 	   CloudBlobContainer container = blobClient.getContainerReference("mycontainer");
 			
-	   // Удалить контейнер blob-объектов
+	   // Delete the blob container.
 	   container.deleteIfExists();
     }
     catch (Exception e)
     {
-        // Вывод трассировки стека.
+        // Output the stack trace.
         e.printStackTrace();
     }
 
@@ -254,14 +249,16 @@
 
 Вы изучили основные сведения о хранилище BLOB-объектов. Дополнительные сведения о более сложных задачах по использованию хранилища можно найти по следующим ссылкам.
 
-- [Пакет Azure SDK для Java]
-- [Справочник по пакету SDK для клиента хранилища Azure]
-- [REST API хранилища Azure]
-- [Блог команды разработчиков хранилища Azure]
+- [Пакет SDK для хранилища Azure для Java]
+- [Справочник по пакету SDK для клиента службы хранилища Azure]
+- [REST API службы хранилища Azure]
+- [Блог команды разработчиков службы хранилища Azure]
 
-[Пакет Azure SDK для Java]: http://www.windowsazure.com/ru-ru/develop/java/
-[Пакет SDK хранилища Azure для Java]: https://github.com/azure/azure-storage-java
-[Пакет SDK хранилища Azure для Android]: https://github.com/azure/azure-storage-android
-[Справочник по пакету SDK для клиента хранилища Azure]: http://dl.windowsazure.com/storage/javadoc/
-[REST API хранилища Azure]: http://msdn.microsoft.com/ru-ru/library/azure/gg433040.aspx
-[Блог команды разработчиков хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
+[Пакет SDK для Azure для Java]: http://www.windowsazure.com/ru-ru/develop/java/
+[Пакет SDK для хранилища Azure для Java]: https://github.com/azure/azure-storage-java
+[Пакет SDK для хранилища Azure для Android]: https://github.com/azure/azure-storage-android
+[Справочник по пакету SDK для клиента службы хранилища Azure]: http://dl.windowsazure.com/storage/javadoc/
+[REST API службы хранилища Azure]: http://msdn.microsoft.com/ru-ru/library/azure/gg433040.aspx
+[Блог команды разработчиков службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
+
+<!--HONumber=35_1-->

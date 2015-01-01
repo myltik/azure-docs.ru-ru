@@ -1,30 +1,30 @@
-﻿<properties title="Enterprise class WordPress on Azure Websites" pageTitle="WordPress корпоративного уровня на веб-сайтах Azure" description="Learn how to host an enterprise class WordPress site on Azure Websites" metaKeywords="wordpress azure, wordpress website, wordpress azure website" services="web-sites" solutions="web" documentationCenter="" authors="cephalin" manager="wpickett" videoId="" scriptId="" />
+﻿<properties title="Enterprise class WordPress on Azure Websites" pageTitle="WordPress корпоративного уровня на веб-сайтах Azure" description="Узнайте о размещении сайта WordPress корпоративного уровня на веб-сайтах Azure" metaKeywords="wordpress azure, wordpress website, wordpress azure website" services="web-sites" solutions="web" documentationCenter="" authors="tomfitz" manager="wpickett" videoId="" scriptId="" />
 
-<tags ms.service="web-sites" ms.devlang="php" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="web" ms.date="01/01/1900" ms.author="cephalin" />
+<tags ms.service="web-sites" ms.devlang="php" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="web" ms.date="11/11/2014" ms.author="tomfitz" />
 
 #WordPress корпоративного уровня на веб-сайтах Azure
 
-Веб-сайты Azure предоставляют масштабируемую, безопасную и простую в использовании среду для критически важных, крупных масштабируемых сайтов [WordPress][wordpress]. Microsoft также располагает сайтами корпоративного класса, такими как блоги [Office][officeblog] и [Bing][bingblog]. В этом документе показано, как можно использовать веб-сайты Azure для установки и обслуживания корпоративного облачного сайта WordPress, который может справляться с большим количеством посетителей.
+Веб-сайты Azure предоставляют масштабируемую, безопасную и простую в использовании среду для критически важных, крупных масштабируемых сайтов [WordPress][wordpress]. Корпорация Майкрософт запускает сайты корпоративного класса, такие как блоги [Office][officeblog] и [Bing][bingblog]. В этом документе показано, как можно использовать веб-сайты Azure для установки и обслуживания корпоративного облачного сайта WordPress, который может обрабатывать большой объем посетителей.
 
 ##Содержание 
 
-* [Архитектура и планирование](#planning). Предварительные рекомендации по архитектуре, требованиям к сайту и производительности.
+* [Архитектура и планирование](#planning) - предварительные рекомендации по архитектуре, требованиям и производительности.
 
-* [Пошаговые инструкции](#howto). Создание, развертывание и настройка сайта.
+* [Практическое руководство.](#howto) Создание, развертывание и настройка сайта.
 
-* [Дополнительные ресурсы](#resources). Дополнительные ресурсы и информация.
+* [Дополнительные ресурсы](#resources) - информация о дополнительных ресурсах
 
 ##<a id="plan"></a>Архитектура и планирование
 
 К базовой установке WordPress предъявляются только два требования.
 
-* **База данных MySQL** доступна в [ClearDB в Магазине Azure][cdbnstore]. Вы можете также управлять собственной установкой MySQL в виртуальных машинах Azure с помощью [Windows][mysqlwindows] или [Linux][mysqllinux].
+* **База данных MySQL** - доступна в [ClearDB в Магазине Azure][cdbnstore]. Вы также можете управлять собственной установкой MySQL в виртуальных машинах Azure с помощью [Windows][mysqlwindows] или [Linux][mysqllinux].
 
-    > [WACOM.NOTE] ClearDB обеспечивает несколько конфигураций MySQL, каждая из которых имеет разные характеристики производительности. Сведения о предложениях магазина Azure см. в [Магазине Azure][cdbnstore], предложения непосредственно из ClearDB см. в разделе [Цены ClearDB](http://www.cleardb.com/pricing.view).
+    > [WACOM.NOTE] ClearDB предоставляет несколько конфигураций MySQL с разными характеристиками производительности для каждой конфигурации. Перейдите в [Магазин Azure][cdbnstore], чтобы получить информацию о доступных предложениях от магазина Azure или о [стоимости хранения для ClearDB](http://www.cleardb.com/pricing.view) непосредственно от ClearDB.
     
-* **PHP 5.2.4 или выше** - веб-сайты Azure в настоящее время включают [версии PHP 5.3, 5.4 и 5.5][phpwebsite].
+* **PHP 5.2.4 или выше** - веб-сайты Azure в настоящее время предоставляют [версии PHP 5.3, 5.4 и 5.5][phpwebsite].
 
-	> [WACOM.NOTE] Рекомендуется всегда работать на последней версии PHP, чтобы вы были уверены в установке самых последних исправлений безопасности.
+	> [WACOM.NOTE] Рекомендуется всегда выполнять запуск на последней версии PHP, чтобы гарантированно получить все исправления безопасности.
 
 ###Базовое развертывание
 
@@ -32,142 +32,142 @@
 
 ![an Azure Website and MySQL Database hosted in a single Azure region][basic-diagram]
 
-Хотя это позволит вам масштабировать приложение, создавая несколько экземпляров веб-сайта, все будет размещено в центрах обработки данных на территории одного географического региона. При использовании сайта у посетителей из других регионов может увеличиться время отклика, а при сбое в центрах обработки данных этого региона также произойдет сбой работы вашего приложения.
+Хотя это позволит вам развернуть приложение, создав несколько экземпляров веб-сайта, все сведения размещается в центрах обработки данных в определенном географическом регионе. При использовании сайта у посетителей из других регионов может быть увеличен отклик, а при сбое центров обработки данных в этом регионе также произойдет сбой приложения.
 
 
 ###Развертывание в нескольких регионах
 
-С помощью [диспетчера трафика][trafficmanager] Azure можно масштабировать сайт WordPress в нескольких географических регионах, предоставив посетителям только один URL-адрес. Все посетители проходят через диспетчер трафика, а затем маршрутизируются на регион в зависимости от конфигурации балансировки нагрузки.
+С помощью [диспетчера трафика][trafficmanager] Azure можно масштабировать сайт WordPress в нескольких географических регионах, указав только один URL-адрес для посетителей. Все посетители проходят через диспетчер трафика, а затем перенаправляются в регион в зависимости от конфигурации балансировки нагрузки.
 
 ![an Azure Website, hosted in multiple regions, using CDBR High Availability router to route to MySQL across regions][multi-region-diagram]
 
 В каждом регионе сайт WordPress будет масштабироваться на нескольких экземплярах веб-сайта, но масштабирование зависит от региона. Масштабирование регионов с высоким трафиком отличается от масштабирования в регионах с низким трафиком.
 
-Репликацию и маршрутизацию для нескольких баз данных MySQL можно выполнить с помощью [маршрутизатора высокой доступности CDBR High ][cleardbscale] ClearDB (показан слева) или [MySQL Cluster CGE][cge]. 
+Репликацию и маршрутизацию на несколько баз данных MySQL можно выполнить с помощью [маршрутизатора высокой доступности CDBR][cleardbscale] ClearDB (показан слева) или [MySQL Cluster CGE][cge]. 
 
 ###Развертывание с хранилищем мультимедиа и кэшированием в нескольких регионах
 
-Если сайт принимает переданные данные или хранит мультимедиа, пользуйтесь хранилищем больших двоичных объектов Azure. Если вам необходимо кэширование, подумайте над использованием [Redis cache][rediscache], [Memcache Cloud](http://azure.microsoft.com/ru-ru/gallery/store/garantiadata/memcached/), [MemCachier](http://azure.microsoft.com/ru-ru/gallery/store/memcachier/memcachier/) или другим предложением для кэширования данных в [Azure Store](http://azure.microsoft.com/ru-ru/gallery/store/).
+Если сайт принимает отправки или размещает файлы мультимедиа, используйте хранилище больших двоичных объектов Azure. Если вам необходимо кэширование, рассмотрите варианты использования [Redis][rediscache], [Memcache Cloud](http://azure.microsoft.com/ru-ru/gallery/store/garantiadata/memcached/), [MemCachier](http://azure.microsoft.com/ru-ru/gallery/store/memcachier/memcachier/) или другие предложения по кэшированию в [Магазине Azure](http://azure.microsoft.com/ru-ru/gallery/store/).
 
 ![an Azure Website, hosted in multiple regions, using CDBR High Availability router for MySQL, with Managed Cache, Blob storage, and CDN][performance-diagram]
 
-Хранилище больших двоичных объектов по умолчанию географически распределено по регионам, поэтому вам не придется беспокоиться о репликации файлов на всех сайтах. Вы можете также включить для хранения больших двоичных объектов сеть Azure [Content Distribution Network (CDN)][cdn], которая распределяет файлы по конечным узлам, находящимся ближе к посетителям.
+Хранилище больших двоичных объектов географически распределено по регионам по умолчанию, поэтому вам не нужно беспокоиться о репликации файлов на всех сайтах. Можно также включить Azure [Content Distribution Network (CDN)][cdn] для хранилища больших двоичных объектов, которое распределяет файлы на конечные узлы, находящиеся ближе к посетителям.
 
 ###Планирование
 
 ####Дополнительные требования
 
-Чтобы сделать... | Используйте...
+Для этого... | Используйте это...
 ------------------------|-----------
-**Передача или хранение больших файлов ** | [Подключаемый модуль WordPress для использования хранилища больших двоичных объектов][storageplugin]
+**Скачивание или хранение больших файлов** | [Подключаемый модуль WordPress для использования хранилища больших двоичных объектов][storageplugin]
 **Отправка электронной почты** | [SendGrid][storesendgrid] и [подключаемый модуль WordPress для использования SendGrid][sendgridplugin]
-**Пользовательские имена доменов** | [Пользовательские имена доменов с веб-сайтами Azure][customdomain]
+**Настраиваемые имена доменов** | [Настраиваемые имена доменов на веб-сайтах Azure][customdomain]
 **HTTPS** | [Поддержка HTTPS на веб-сайтах Azure][httpscustomdomain]
-**Проверка перед передачей в рабочую среду** | [Поддержка публикации в промежуточной среде для веб-сайтов Azure][staging] <p>Обратите внимание, что переключение сайта с промежуточной на рабочую среду также приведет к переносу конфигурации WordPress. Перед переключением с промежуточной среды в рабочую следует убедиться, что все параметры обновлены и соответствуют требованиям к рабочей среде.</p> 
-**Мониторинг и устранение неполадок** | [Ведение журнала диагностики на веб-сайтах Azure][log] и [мониторинг веб-сайтов Azure][monitor]
-**Развертывание сайта** | [Развертывание веб-сайтов Azure][deploy]
+**Предварительная проверка** | [Предварительная публикация на веб-сайтах Azure][staging] <p>Обратите внимание, что переключение сайта с промежуточной на рабочую публикацию также перемещает конфигурацию WordPress. Перед переключением с промежуточного сайта на рабочий следует убедиться, что все параметры обновлены и соответствуют требованиям к рабочему сайту.</p> 
+**Мониторинг и устранение неполадок** | [Сбор данных диагностики на веб-сайтах Azure][log] и [Мониторинг веб-сайтов Azure][monitor]
+**Развертывание сайта** | [Развертывание веб-сайта Azure][deploy]
 
 ####Доступность и аварийное восстановление
 
-Чтобы сделать... | Используйте...
+Для этого... | Используйте это...
 ------------------------|-----------
-**Сайты балансировки нагрузки** или **сайты географического распространения** | [Маршрутизация трафика с помощью диспетчера трафика Azure][trafficmanager]
-**Резервное копирование и восстановление ** | [Резервное копирование веб-сайтов Azure][backup] и [восстановление веб-сайтов Azure][restore]
+**Балансировка нагрузки на сайт** или **геораспределение сайтов** | [Маршрутизация трафика с помощью диспетчера трафика Azure][trafficmanager]
+**Резервное копирование и восстановление** | [Резервное копирование веб-сайтов Azure][backup] и [Восстановление веб-сайтов Azure][restore]
 
 ####Производительность
 
 Производительность в облаке достигается в основном через кэширование и развертывание, однако, память, пропускная способность и другие атрибуты веб-сайта размещения также следует учитывать.
 
-Чтобы сделать... | Используйте...
+Для этого... | Используйте это...
 ------------------------|-----------
-**Понимание возможностей экземпляра веб-сайта** |  [Подробные сведения о ценах и возможностях для разных размеров и режимов веб-сайтов][websitepricing]
-**Ресурсы кэширования** | [Redis cache][rediscache], [Memcache Cloud](http://azure.microsoft.com/ru-ru/gallery/store/garantiadata/memcached/), [MemCachier](http://azure.microsoft.com/ru-ru/gallery/store/memcachier/memcachier/) или другое предложение для кэширования в [Магазине Azure](http://azure.microsoft.com/ru-ru/gallery/store/)
-**Масштабирование приложения** | [Масштабирование веб-сайта Azure][websitescale] и [маршрутизатор высокой доступности ClearDB High Availability Routing][cleardbscale]. Если вы выбрали размещение и управление собственной установкой MySQL, то при масштабировании вам необходимо учесть [MySQL Cluster CGE][cge]
+**Характеристики и возможности веб-сайта** |  [Информация о стоимости, включая характеристики размеров и режимов веб-сайта][websitepricing]
+**Кэширование** | [Redis][rediscache], [Memcache Cloud](http://azure.microsoft.com/ru-ru/gallery/store/garantiadata/memcached/), [MemCachier](http://azure.microsoft.com/ru-ru/gallery/store/memcachier/memcachier/) или другие предложения по кэшированию в [Магазине Azure](http://azure.microsoft.com/ru-ru/gallery/store/)
+**Масштабирование приложения** | [Масштабирование веб-сайта Azure][websitescale] и [Маршрутизация высокой доступности ClearDB][cleardbscale]. Если вы решите разместить собственную установку MySQL и управлять ей, следует рассмотреть [MySQL Cluster CGE][cge]
 
 ####Миграция
 
 Существует два метода миграции существующего сайта WordPress на веб-сайты Azure.
 
-* **[Экспорт WordPress][export]**. Экспорт контента блога, который затем можно будет импортировать на новый сайт WordPress в Azure с помощью [подключаемого модуля экспорта WordPress][import]..
+* **[Экспорт WordPress][export]**. Экспорт содержимого блога, которое затем можно будет импортировать на новый сайт WordPress в Azure с помощью [подключаемого модуля импорта WordPress][import].
 
-	> [WACOM.NOTE] Хотя этот процесс позволяет переносить контент, он не перемещает подключаемые модули, темы и другие настройки. Его следует установить повторно вручную.
+	> [WACOM.NOTE] Этот процесс позволяет переносить содержимое, но он не переносит подключаемые модули, темы или другие настройки. Его следует установить повторно вручную.
 
-* **Миграция вручную**. [Выполните резервное копирование сайта][wordpressbackup] и [базы данных][wordpressdbbackup], а затем вручную восстановите их на веб-сайте Azure и в связанной базе данных MySQL, чтобы перенести настраиваемые сайты и избежать долгой установки подключаемых модулей, тем и других настроек вручную.
+* **Миграция вручную**. [Выполните резервное копирование сайта][wordpressbackup] и [базы данных][wordpressdbbackup], затем вручную восстановите их на веб-сайте Azure и в связанной базе данных MySQL, чтобы перенести настраиваемые сайты и избежать долгой установки подключаемых модулей, тем и других настроек вручную.
 
 ##Практическое руководство
 
 ###<a id="create"></a>Создание нового сайта WordPress
 
-1. Воспользуйтесь [Магазином Azure][cdbnstore], чтобы создать базу данных MySQL с размером, который вы определили в разделе [Архитектура и планирование](#planning), в регионах, где вы будете размещать свой сайт.
+1. Воспользуйтесь [Магазином Azure][cdbnstore], чтобы создать базу данных MySQL с указанным в разделе [Архитектура и планирование] размером(#planning) и в нужном регионе, в котором размещен ваш сайт.
 
-2. Выполните шаги раздела [Создание веб-сайта WordPress из коллекции в Azure][createwordpress], чтобы создать новый сайт WordPress. При создании сайта установите флажок **Использовать существующую базу данных MySQL**, а затем выберите базу данных, созданную на шаге 1.
+2. Выполните инструкции в разделе [Создание веб-сайта WordPress из коллекции в Azure][createwordpress], чтобы создать новый сайт WordPress. При создании сайта установите флажок **Использовать существующую базу данных MySQL** и выберите базу данных, созданную в шаге 1.
 
-Если вы переносите существующий сайт WordPress, после создания нового сайта см. раздел [Миграция существующего сайта WordPress](#migrate).
+Если вы переносите существующий сайт WordPress, после создания нового сайта см. раздел [Миграция существующего сайта WordPress](#migrate) .
 
 ###<a id="migrate"></a>Миграция существующего сайта WordPress в Azure
 
-Как уже говорилось в разделе [Архитектура и планирование](#planning), существует два способа миграции веб-сайта WordPress.
+Как было отмечено в разделе [Архитектура и планирование](#planning) , существует два способа переноса веб-сайта WordPress.
 
-* **Экспорт и импорт** - для сайтов, не требующих многих настроек, или если вы хотите перенести только контент.
+* **Экспорт и импорт** - для сайтов, не требующих детальной настройки, или если нужно перенести только содержимое.
 
-* **Архивация и восстановление** - для сайтов со множеством настроек, если вы хотите перенести все.
+* **Архивация и восстановление** - для сайтов со множеством настроек, где требуется переместить все.
 
 Воспользуйтесь одним из следующих разделов для миграции сайта.
 
 ####Метод экспорта и импорта
 
-1. Воспользуйтесь [функцией экспорта WordPress][export] для экспорта существующего сайта.
+1. Используйте [экспорт WordPress][export], чтобы экспортировать существующий сайт.
 
-2. Создайте новый веб-сайт, выполнив шаги, приведенные в разделе [Создание нового сайта WordPress](#create).
+2. Создайте новый веб-сайт, следуя шагам в разделе [Создание нового сайта WordPress](#create) .
 
-3. Выполните вход на свой сайт WordPress в веб-сайтах Azure и выберите **Подключаемые модули** -> **Добавить**. Найдите и установите подключаемый модуль **Импорт WordPress**.
+3. Войдите на сайт WordPress в службе веб-сайтов Azure и выберите **Подключаемые модули** > **Создать**. Найдите и установите подключаемый модуль **Программа импорта WordPress**.
 
-4. После установки подключаемого модуля импорта выберите **Сервис** -> **Импорт**, а затем выберите **WordPress**, чтобы вызвать модуль импорта WordPress.
+4. После установки подключаемого модуля программы импорта последовательно выберите пункты меню **Сервис** > **Импорт**, а затем выберите **WordPress**, чтобы использовать подключаемый модуль программы импорта WordPress.
 
-5. На странице **Импорт WordPress** нажмите **Выбрать файл**. Откройте WXR-файл, экспортированный с существующего сайта WordPress, и выберите **Передать файл и импортировать**.
+5. На странице **Импорт WordPress** щелкните кнопку **Выбрать файл**. Откройте WXR-файл, экспортированный из существующего сайта WordPress, и нажмите кнопку **Отправить файл и импортировать**.
 
-6. Нажмите кнопку **Отправить**. Вы увидите сообщение о том, что импорт успешно выполнен.
+6. Нажмите кнопку **Отправить**. Появится сообщение, что импорт успешно выполнен.
 
-8. После выполнения всех этих шагов перезапустите веб-сайт на панели мониторинга веб-сайта на [портале управления Azure][mgmtportal].
+8. После выполнения этих действий перезапустите веб-сайт на панели мониторинга веб-сайта на [портале управления Azure][mgmtportal].
 
 После импорта сайта может потребоваться выполнить следующие действия, чтобы включить параметры, которые не содержатся в файле импорта.
 
-Если вы использовали... | Выполните следующие действия...
+Если вы использовали... | Для этого...
 ------------------ | ----------
-**Постоянные ссылки** | С панели управления WordPress нового сайта нажмите **Настройки** -> **Постоянные ссылки** и внесите изменения в структуру постоянных ссылок
-**Ссылки на изображения и мультимедиа** | Чтобы изменить ссылки, воспользуйтесь подключаемым модулем [Velvet Blues Update URLs][velvet], средством поиска и замены, либо вручную внесите изменения в базу данных
-**Темы** | Перейдите в **Оформление** -> **Тема** и при необходимости измените тему веб-сайта
-**Меню** | Если тема поддерживает меню, в ссылки на домашнюю страницу может быть все еще встроен старый подкаталог. Перейдите в меню **Оформление** -> **Меню** и внесите изменения
+**Постоянные ссылки** | На панели мониторинга WordPress нового сайта щелкните кнопку **Параметры** > **Постоянные ссылки** и обновите структуру постоянных ссылок
+**Ссылки на изображения и файлы** | Чтобы обновить ссылки на новое расположение, используйте [подключаемый модуль обновления URL-адресов Velvet Blues][velvet], инструмент поиска и замены, или обновите их вручную в базе данных
+**Темы** | Выберите **Внешний вид** > **Тема** и обновите тему веб-сайта
+**Меню** | Если тема поддерживает меню, ссылки на домашнюю страницу могут содержат старый подкаталог. Выберите **Внешний вид** > **Меню** и обновите их
 
 ####Метод резервного копирования и восстановления
 
-1. Сделайте резервную копию существующего сайта WordPress, используя сведения в разделе [Резервное копирование WordPress][wordpressbackup].
+1. Создайте резервную копию существующего сайта WordPress, используя информацию из раздела [Резервное копирование WordPress][wordpressbackup].
 
-2. Создайте резервную копию существующей базы данных, используя сведения в разделе [Создание резервной копии базы данных][wordpressdbbackup].
+2. Создайте резервную копию существующей базы данных, используя информацию из раздела [Резервное копирование базы данных][wordpressdbbackup].
 
 3. Создайте новую базу данных и восстановите резервную копию.
 
-	1. Приобретите новую базу данных в [Магазине Azure][cdbnstore] или установите базу данных MySQL на виртуальной машине [Windows][mysqlwindows] или [Linux][mysqllinux].
+	1. Приобретите новую базу данных в [Магазине Azure][cdbnstore] либо настройте базу данных MySQL в виртуальной машине [Windows][mysqlwindows] или [Linux][mysqllinux].
 
-	2. С помощью клиента MySQL, например [MySQL Workbench][workbench], подключитесь к новой базе данных и импортируйте базу данных WordPress.
+	2. С помощью клиента MySQL, например, [MySQL Workbench][workbench], подключитесь к новой базе данных и импортируйте базу данных WordPress.
 
-	3. Обновите базу данных, чтобы изменить записи домена на новом домене веб-сайта Azure. Например, mywordpress.azurewebsites.net. Используйте инструмент [поиска и замены скрипта баз данных WordPress][searchandreplace], чтобы безопасно изменить все экземпляры.
+	3. Обновите базу данных, чтобы изменить записи домена на новом домене веб-сайта Azure. Например, mywordpress.azurewebsites.net. Используйте инструмент [поиска и замены для сценария баз данных WordPress][searchandreplace], чтобы безопасно изменить все экземпляры.
 
 4. Создайте новый веб-сайт и опубликуйте резервную копию WordPress.
 
-	1. Создайте новый веб-сайт на [портале управления Azure][mgmtportal] с базой данных, выбрав пункт **Создать** -> **Веб-сайт** -> **Пользовательское создание**. Будет создан пустой сайт.
+	1. Создайте новый веб-сайт с базой данных на [портале управления Azure][mgmtportal], выбрав **Создать** > **Веб-сайт** > **Настраиваемое создание**. Будет создан пустой сайт.
 
-	2. В резервной копии WordPress найдите файл **wp-config.php** и откройте его в текстовом редакторе. Замените следующие записи на сведения для новой базы данных MySQL.
+	2. В резервной копии WordPress найдите файл **wp-config.php** и откройте его в редакторе. Замените следующие записи на сведения для новой базы данных MySQL.
 
-		* **DB_NAME** - имя пользователя базы данных
+		* **DB_NAME** - имя пользователя базы данных.
 
-		* **DB_USER** - имя пользователя, используемое для доступа к базе данных
+		* **DB_USER** - имя пользователя для доступа к базе данных.
 
-		* **DB_PASSWORD** - пароль пользователя
+		* **DB_PASSWORD** - пароль пользователя.
 
-		После внесения этих изменений сохраните и закройте файл **wp-config.php**.
+		После изменения этих записей сохраните и закройте файл **wp-config.php**.
 
-	3. Согласно указаниям в разделе [Как развернуть веб-сайт Azure][deploy], выберите метод развертывания и разверните резервную копию WordPress на своем веб-сайте Azure.
+	3. Используйте информацию из раздела [Развертывание веб-сайта Azure][deploy], чтобы включить метод развертывания, который вы хотите использовать, а затем разверните резервную копию WordPress на веб-сайте Azure.
 
 5. После развертывания сайта WordPress вы сможете получить доступ к новому сайту, используя URL-адрес *.azurewebsite.net сайта.
 
@@ -175,18 +175,18 @@
 
 После создания или миграции сайта WordPress используйте следующие сведения, чтобы повысить производительность или включить дополнительные функции.
 
-Чтобы сделать... | Используйте...
+Для этого... | Используйте это...
 ------------- | -----------
-**Выбрать режим, размер и масштабирование веб-сайта** | [Как масштабировать веб-сайты][websitescale]
-**Включить постоянные подключения к базе данных** <p>По умолчанию WordPress не использует постоянные подключения к базе данных, что может привести к тому, что может привести к регулированию подключения к базе данных через несколько подключений.</p>  | <ol><li><p>Edit the <strong>wp-includes/wp-db.php</strong> file.</p></li><li><p>Find the following line.</p><code>$this->dbh = mysql_connect( $this->dbhost, $this->dbuser, $this->dbpassword, $new_link, $client_flags );</code></li><li><p>Replace the previous line with the following.</p><code>$this->dbh = mysql_pconnect( $this->dbhost, $this->dbuser, $this->dbpassword,  $client_flags ); <br/>if ( false !== $error_reporting ) { /br/>&nbsp;&nbsp;error_reporting( $error_reporting ); <br/>} </code></li><li><p>Find the following line.</p><code>$this->dbh = @mysql_connect( $this->dbhost, $this->dbuser, $this->dbpassword, $new_link, $client_flags ); </code></li><li><p>Replace the above line with the following.</p><code>$this->dbh = @mysql_pconnect( $this->dbhost, $this->dbuser, $this->dbpassword,  $client_flags ); </code></li><li><p>Save the file <strong>wp-includes/wp-db.php</strong> file and redeploy the site.</p></li></ol><div class="wa-note"><span class="wa-icon-bulb"></span><h5><a name="note"></a>Примечание.</h5><p>Эти изменения могут быть перезаписаны при обновлении WordPress.</p><p>Параметры WordPress сбрасываются в значения по умолчанию в результате автоматического обновления, которое можно отключить в файле <strong>wp-config.php</strong>, добавив в него строку <code>define ( 'WP_AUTO_UPDATE_CORE', false );</code></p><p>Другой способ решения этой проблемы - использование WebJob для мониторинга файла <strong>wp-db.php</strong> и внесения приведенного выше обновления при каждом его обновлении. Подробнее см. в разделе <a href="http://www.hanselman.com/blog/IntroducingWindowsAzureWebJobs.aspx">Введение в WebJobs</a>.</p></div>
-**Повышение производительности** | <ul><li><p><a href="http://blogs.msdn.com/b/windowsazure/archive/2013/11/18/disabling-arr-s-instance-affinity-in-windows-azure-web-sites.aspx">Отключите cookie-файлы ARR</a> - это позволит повысить производительность работы WordPress на нескольких экземплярах веб-сайтов</p></li><li><p>Включите кэширование. <a href="http://msdn.microsoft.com/ru-ru/library/azure/dn690470.aspx">Redis cache</a> (предварительная версия) может быть использован в сочетании с <a href="https://wordpress.org/plugins/redis-object-cache/">подключаемым модулем кэширования объектов Redis для WordPress</a>, либо воспользуйтесь другим предложением из <a href="http://azure.microsoft.com/ru-ru/gallery/store/">Магазина Azure</a></p></li><li><p><a href="http://ruslany.net/2010/03/make-wordpress-faster-on-iis-with-wincache-1-1/">Как ускорить работу WordPress с помощью Wincache</a> - Wincache по умолчанию включен для веб-сайтов</p></li><li><p><a href="http://azure.microsoft.com/ru-ru/documentation/articles/web-sites-scale/">Масштабируйте свой веб-сайт Azure</a> и воспользуйтесь <a href="http://www.cleardb.com/developers/cdbr/introduction">маршрутизатором высокой доступности ClearDB</a> или <a href="http://www.mysql.com/products/cluster/">MySQL Cluster CGE</a></p></li></ul>
-**Использование больших двоичных объектов для хранения данных** | <ol><li><p><a href="http://azure.microsoft.com/ru-ru/documentation/articles/storage-create-storage-account/">Создайте учетную запись хранилища Azure</a></p></li><li><p>Как <a href="http://azure.microsoft.com/ru-ru/documentation/articles/cdn-how-to-use/">использовать сеть Content Distribution Network (CDN)</a> для географического распространения данных, хранящихся в больших двоичных объектах.</p></li><li><p>Установите и настройте <a href="https://wordpress.org/plugins/windows-azure-storage/">подключаемый модуль хранилища Azure для WordPress</a>.</p><p>Подробности об установке и настройке подключаемого модуля см. в <a href="http://plugins.svn.wordpress.org/windows-azure-storage/trunk/UserGuide.docx">руководстве пользователя</a>.</p> </li></ol>
-**Включение электронной почты** | <ol><li><p><a href="http://azure.microsoft.com/ru-ru/gallery/store/sendgrid/sendgrid-azure/">Включите SendGrid, </a></p></li><li><p><a href="http://wordpress.org/plugins/sendgrid-email-delivery-simplified/">установив подключаемый модуль SendGrid для WordPress</a></p></li></ol> из Магазина Azure
-**Настройка пользовательского имени домена** | [Используйте пользовательское имя домена для веб-сайта Azure][customdomain]
-**Включение HTTPS для пользовательского имени домена** | [Используйте HTTPS для веб-сайта Azure][httpscustomdomain]
-**Балансировка нагрузи и географическое распространение сайта** | [Маршрутизируйте трафик с помощью диспетчера трафика Azure][trafficmanager]. Если вы используете пользовательский домен, сведения об использовании диспетчера трафика с пользовательскими доменными именами см. в разделе [Использование пользовательского имени домена для веб-сайта Azure][customdomain].
+**Настройка режима и размера веб-сайта, включение масштабирования** | [Как использовать масштабирование для веб-сайтов][websitescale]
+**Включение постоянных подключений базы данных** <p>По умолчанию WordPress не использует постоянные подключения базы данных, что может вызвать замедление подключения к базе данных после нескольких подключений.</p>  | <ol><li><p>Edit the <strong>wp-includes/wp-db.php</strong> file.</p></li><li><p>Find the following line.</p><code>$this->dbh = mysql_connect( $this->dbhost, $this->dbuser, $this->dbpassword, $new_link, $client_flags );</code></li><li><p>Replace the previous line with the following.</p><code>$this->dbh = mysql_pconnect( $this->dbhost, $this->dbuser, $this->dbpassword,  $client_flags ); <br/>if ( false !== $error_reporting ) { /br/>&nbsp;&nbsp;error_reporting( $error_reporting ); <br/>} </code></li><li><p>Find the following line.</p><code>$this->dbh = @mysql_connect( $this->dbhost, $this->dbuser, $this->dbpassword, $new_link, $client_flags ); </code></li><li><p>Replace the above line with the following.</p><code>$this->dbh = @mysql_pconnect( $this->dbhost, $this->dbuser, $this->dbpassword,  $client_flags ); </code></li><li><p>Save the file <strong>wp-includes/wp-db.php</strong> file and redeploy the site.</p></li></ol><div class="wa-note"><span class="wa-icon-bulb"></span><h5><a name="note"></a>ПРИМЕЧАНИЕ.</h5><p>Эти изменения можно перезаписать после обновления WordPress.</p><p>По умолчанию WordPress обновляется автоматически; это можно отключить, изменив файл <strong>wp-config.php</strong> и добавив <code>define ( 'WP_AUTO_UPDATE_CORE', false );</code></p><p>Другой способ настройки обновлений - использование инструмента WebJob, который отслеживает файл <strong>wp-db.php</strong> и вносит необходимые изменения при каждом обновлении файла. См. раздел <a href="http://www.hanselman.com/blog/IntroducingWindowsAzureWebJobs.aspx">Введение в WebJobs</a> для получения дополнительной информации.</p></div>
+**Повышение производительности** | <ul><li><p><a href="http://ppe.blogs.msdn.com/b/windowsazure/archive/2013/11/18/disabling-arr-s-instance-affinity-in-windows-azure-web-sites.aspx">Отключение ARR-файла cookie</a> - может повысить производительность при запуске WordPress на нескольких экземплярах веб-сайта.</p></li><li><p>Включите кэширование. <a href="http://msdn.microsoft.com/ru-ru/library/azure/dn690470.aspx">Кэш Redis</a> (предварительная версия) может использоваться с <a href="https://wordpress.org/plugins/redis-object-cache/">подключаемым модулем WordPress для объекта кэширования Redis</a>или воспользуйтесь другими предложениями по кэшированию из <a href="http://azure.microsoft.com/ru-ru/gallery/store/">Магазин Azure</a></p></li><li><p><a href="http://ruslany.net/2010/03/make-wordpress-faster-on-iis-with-wincache-1-1/">Как ускорить работу WordPress с помощью Wincache</a> - Wincache по умолчанию включен для веб-сайтов</p></li><li><p><a href="http://azure.microsoft.com/ru-ru/documentation/articles/web-sites-scale/">Масштабирование веб-сайта Azure</a> и использует <a href="http://www.cleardb.com/developers/cdbr/introduction">маршрутизацию высокой доступности CDBR</a> или <a href="http://www.mysql.com/products/cluster/">MySQL Cluster CGE</a></p></li></ul>
+**Использование больших двоичных объектов для хранилища** | <ol><li><p><a href="http://azure.microsoft.com/ru-ru/documentation/articles/storage-create-storage-account/">Создание учетной записи хранения Azure</a></p></li><li><p>Узнайте, как <a href="http://azure.microsoft.com/ru-ru/documentation/articles/cdn-how-to-use/">использовать Content Distribution Network (CDN)</a> для геораспределения данных, хранимых в больших двоичных объектах.</p></li><li><p>Установите и настройте <a href="https://wordpress.org/plugins/windows-azure-storage/">подключаемый модуль WordPress для хранилища Azure</a>.</p><p>Детальную информацию о настройке и конфигурации подключаемого модуля см. в <a href="http://plugins.svn.wordpress.org/windows-azure-storage/trunk/UserGuide.docx">руководстве пользователя</a>.</p> </li></ol>
+**Включение электронной почты** | <ol><li><p><a href="http://azure.microsoft.com/ru-ru/gallery/store/sendgrid/sendgrid-azure/">Включение SendGrid с помощью Магазина Azure</a></p></li><li><p><a href="http://wordpress.org/plugins/sendgrid-email-delivery-simplified/">Установка подключаемого модуля SendGrid для WordPress</a></p></li></ol>
+**Настройка пользовательского доменного имени** | [Настройте пользовательское доменное имя с помощью веб-сайта Azure][customdomain]
+**Включение HTTPS для пользовательского доменного имени** | [Используйте HTTPS с помощью веб-сайта Azure][httpscustomdomain]
+**Балансировка нагрузки или настройка геораспределенного сайта** | [Настройте маршрутизацию трафика с помощью диспетчера трафика Azure][trafficmanager]. Если вы используете пользовательский домен, информация об использовании диспетчера трафика с настраиваемыми доменными именами см. в разделе [Использование пользовательского доменного имени с веб-сайтом Azure][customdomain]
 **Включение автоматического резервного копирования веб-сайта** | [Резервное копирование веб-сайтов Azure][backup]
-**Включение ведение журнала диагностики** | [Включите ведение журнала диагностики для веб-сайтов][log]
+**Включение сбор данных диагностики** | [Включение сбора данных диагностики для веб-сайтов][log]
 
 ##<a href="resources"></a>Дополнительные ресурсы
 
@@ -210,15 +210,15 @@
 
 * [WordPress в Azure за 2 минуты или меньше](http://www.sitepoint.com/wordpress-windows-azure-2-minutes-less/)
 
-* [Перемещение блога WordPress в Azure - часть 1: создание блога WordPress в Azure](http://www.davebost.com/2013/07/10/moving-a-wordpress-blog-to-windows-azure-part-1)
+* [Перемещение блога WordPress в Azure - часть 1: Создание блога WordPress в Azure](http://www.davebost.com/2013/07/10/moving-a-wordpress-blog-to-windows-azure-part-1)
 
-* [Перемещение блога WordPress в Azure - часть 2: перемещение контента](http://www.davebost.com/2013/07/11/moving-a-wordpress-blog-to-windows-azure-transferring-your-content)
+* [Перемещение блога WordPress в Azure - часть 2: перемещение содержимого](http://www.davebost.com/2013/07/11/moving-a-wordpress-blog-to-windows-azure-transferring-your-content)
 
-* [Перемещение блога WordPress в Azure - часть 3: настройка пользовательского домена](http://www.davebost.com/2013/07/11/moving-a-wordpress-blog-to-windows-azure-part-3-setting-up-your-custom-domain)
+* [Перемещение блога WordPress в Azure - часть 3: Настройка пользовательского домена](http://www.davebost.com/2013/07/11/moving-a-wordpress-blog-to-windows-azure-part-3-setting-up-your-custom-domain)
 
-* [Перемещение блога WordPress в Azure - часть 4: постоянные ссылки и правила переопределения URL-адресов](http://www.davebost.com/2013/07/11/moving-a-wordpress-blog-to-windows-azure-part-4-pretty-permalinks-and-url-rewrite-rules)
+* [Перемещение блога WordPress в Azure - часть 4: Постоянные ссылки и правила переопределения URL-адресов](http://www.davebost.com/2013/07/11/moving-a-wordpress-blog-to-windows-azure-part-4-pretty-permalinks-and-url-rewrite-rules)
 
-* [Перемещение блога WordPress в Azure - часть 5: перемещение подпапки в корень](http://www.davebost.com/2013/07/11/moving-a-wordpress-blog-to-windows-azure-part-5-moving-from-a-subfolder-to-the-root)
+* [Перемещение блога WordPress в Azure - часть 5: Перемещение подпапки в корень](http://www.davebost.com/2013/07/11/moving-a-wordpress-blog-to-windows-azure-part-5-moving-from-a-subfolder-to-the-root)
 
 * [Настройка веб-сайта WordPress в учетной записи Azure](http://www.itexperience.net/2014/01/20/how-to-set-up-a-wordpress-website-in-your-windows-azure-account/)
 
@@ -254,10 +254,10 @@
 [cge]: http://www.mysql.com/products/cluster/
 [websitepricing]: https://azure.microsoft.com/ru-ru/pricing/details/web-sites/
 [export]: http://en.support.wordpress.com/export/
-[импорт]: http://wordpress.org/plugins/wordpress-importer/
+[import]: http://wordpress.org/plugins/wordpress-importer/
 [wordpressbackup]: http://wordpress.org/plugins/wordpress-importer/
 [wordpressdbbackup]: http://codex.wordpress.org/Backing_Up_Your_Database
-[createwordpress]: (http://azure.microsoft.com/ru-ru/documentation/articles/web-sites-php-web-site-gallery/)
+[createwordpress]: http://azure.microsoft.com/ru-ru/documentation/articles/web-sites-php-web-site-gallery/
 [velvet]: https://wordpress.org/plugins/velvet-blues-update-urls/
 [mgmtportal]: https://manage.windowsazure.com/
 [wordpressbackup]: http://codex.wordpress.org/WordPress_Backups
@@ -269,3 +269,5 @@
 [xplat-cli]: http://azure.microsoft.com/ru-ru/documentation/articles/xplat-cli/
 [storesendgrid]: http://azure.microsoft.com/ru-ru/gallery/store/sendgrid/sendgrid-azure/
 [cdn]: http://azure.microsoft.com/ru-ru/documentation/articles/cdn-how-to-use/
+
+<!--HONumber=35_1-->

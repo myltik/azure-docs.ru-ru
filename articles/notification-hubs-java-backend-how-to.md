@@ -1,23 +1,23 @@
-﻿<properties urlDisplayName="How to use Notification Hubs with Java" pageTitle="Как использовать концентраторы уведомлений с Java" metaKeywords="" description="Learn how to use Azure Notification Hubs from a Java back-end." metaCanonical="" services="mobile-services,notification-hubs,push,java" documentationCenter="" title="How to use Notification Hubs with Java" authors="elioda" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="How to use Notification Hubs with Java" pageTitle="Использование центров уведомлений с Java" metaKeywords="" description="Learn how to use Azure Notification Hubs from a Java back-end." metaCanonical="" services="mobile-services,notification-hubs,push,java" documentationCenter="" title="How to use Notification Hubs with Java" authors="piyushjo" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="java" ms.topic="article" ms.date="01/01/1900" ms.author="elioda" />
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="java" ms.topic="article" ms.date="11/14/2014" ms.author="piyushjo" />
 
-# Использование концентраторов уведомлений из Java/PHP
+# Использование центров уведомлений из Java/PHP
 <div class="dev-center-tutorial-selector sublanding"> 
     	<a href="/ru-ru/documentation/articles/notification-hubs-java-backend-how-to/" title="Java" class="current">Java</a><a href="/ru-ru/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a>
 </div>
 
-Вы можете обращаться ко всем функциям концентраторов уведомлений из серверной части Java/PHP/Ruby, используя интерфейс REST концентраторов уведомлений в соответствии с описанием в разделе MSDN [Интерфейсы REST концентраторов уведомлений](http://msdn.microsoft.com/ru-ru/library/dn223264.aspx).
+Вы можете обращаться ко всем функциям центров уведомлений из серверной части Java/PHP/Ruby, используя интерфейс REST центров уведомлений в соответствии с описанием в разделе MSDN [Интерфейсы REST API центров уведомлений](http://msdn.microsoft.com/ru-ru/library/dn223264.aspx).
 
 В этом разделе описывается:
 
-* построение клиента REST для функций концентраторов уведомлений на языке JAVA;
-* Следуйте инструкциям [учебника по началу работы](http://azure.microsoft.com/ru-ru/documentation/articles/notification-hubs-ios-get-started/) с выбранной вами мобильной платформой, и реализуйте серверную часть на языке Java.
+* построение клиента REST для функций центров уведомлений на языке JAVA;
+* Следуйте учебнику [Приступая к работе](http://azure.microsoft.com/ru-ru/documentation/articles/notification-hubs-ios-get-started/) с выбранной мобильной платформой, реализация серверной части на языке Java.
 
 ##<a name="client-interface"></a>Интерфейс клиента
-Основной интерфейс клиента может предоставлять те же методы, которые доступны в [SDK концентраторов уведомлений .NET](http://msdn.microsoft.com/ru-ru/library/jj933431.aspx). Это позволяет напрямую переводить все руководства и примеры, доступные на этом сайте в настоящий момент и пополняемые интернет-сообществом.
+Интерфейс основного клиента предоставляет те же методы, что и [пакет SDK для центров уведомлений для .NET](http://msdn.microsoft.com/ru-ru/library/jj933431.aspx), это позволит вам напрямую переводить все учебники и примеры, доступные на данном сайте, а также предоставленные сообществом пользователей из Интернета.
 
-Весь доступный код находится в [Образце оболочки Java REST].
+Весь доступный код находится в [Примере оболочки Java REST].
 
 Например, чтобы создать клиента, необходимо выполнить следующие действия.
 
@@ -37,10 +37,10 @@
 	hub.sendNotification(n);
 
 ##<a name="implementation"></a>Реализация
-Если вы еще не сделали этого, следуйте инструкциям [учебника по началу работы] до последнего раздела о реализации серверной части.
-Кроме того, при желании вы можете использовать код из примера [Программы-оболочки Java REST] и перейти непосредственно к разделу [Завершение учебника](#complete-tutorial).
+Завершите учебник [Приступая к работе], в последней секции которого осуществляется реализация серверной части (если вы еще не сделали этого).
+Кроме того, при желании вы можете использовать код из [образца оболочки Java REST] и сразу перейти к разделу [Завершение работы с учебником](#complete-tutorial) .
 
-Подробные сведения о реализации полноценной оболочки REST можно найти в [MSDN](http://msdn.microsoft.com/ru-ru/library/dn530746.aspx). В этом разделе описывается реализация основных действий на языке Java, необходимых для доступа к конечным точкам REST концентраторов уведомлений.
+Подробную информацию о реализации полноценной оболочки REST можно найти на сайте [MSDN](http://msdn.microsoft.com/ru-ru/library/dn530746.aspx). В этом разделе описывается реализация основных действий на языке Java, необходимых для доступа к конечным точкам REST центров уведомлений.
 
 1. Проанализируйте строку подключения
 2. Создайте маркер проверки подлинности
@@ -90,8 +90,8 @@
 
 
 ### Создание маркера безопасности
-Дополнительные сведения о создании маркеров безопасности можно получить [здесь](http://msdn.microsoft.com/ru-ru/library/dn495627.aspx).
-Следующий метод был добавлен в класс **NotificationHub** для создания маркера на основе URI текущего запроса и учетных данных, полученных из строки подключения.
+Информацию о создании маркера безопасности можно найти [здесь](http://msdn.microsoft.com/ru-ru/library/dn495627.aspx).
+Для создания маркера безопасности на основе URI текущего запроса и учетных данных, извлеченных из строки подключения, необходимо добавить следующий метод в класс **NotificationHub**.
 
 	private String generateSasToken(URI uri) {
 		String targetUri;
@@ -237,9 +237,9 @@
 
 Этот класс представляет собой контейнер для собственного тела уведомления, либо набор свойств, в случае с шаблонным уведомлением, а также набор заголовков, содержащих свойства формата (собственная платформа или шаблон) и специальные свойства платформы (например, свойство срока действия Apple и заголовки WNS). Кроме того, происходит определение некоторых вспомогательных конструкторов для создания уведомлений часто используемых типов.
 
-Обратитесь к [документации по REST API для концентраторов уведомлений](http://msdn.microsoft.com/ru-ru/library/dn495827.aspx) и изучите форматы специализированных платформ уведомлений, чтобы узнать обо всех доступных параметрах.
+См. раздел [Документация по REST API центров уведомлений](http://msdn.microsoft.com/ru-ru/library/dn495827.aspx) и специальным форматам платформ уведомлений для всех доступных вариантов.
 
-Имея этот класс, вы можете создавать методы отправки уведомлений внутри класса **NotificationHub**.
+Имея этот класс, мы можем создавать методы отправки уведомлений внутри класса **NotificationHub**.
 
 	public void sendNotification(Notification notification) {
 		sendNotification(notification, "");
@@ -301,14 +301,14 @@
 ##<a name="complete-tutorial"></a>Завершение работы с учебником
 Теперь вы можете завершить работу с учебником по началу работы, отправив уведомление из серверной части Java.
 
-Инициализируйте клиент концентратора уведомлений (замените строку подключения и имя концентратора в соответствии с инструкциями в [учебнике по началу работы]):
+Инициализируйте клиент центра уведомлений (замените строку подключения и имя центра в соответствии с инструкциями в учебнике [Приступая к работе]):
 	NotificationHub hub = new NotificationHub("{connection string}", "{hubname}");
 
 Затем добавьте код отправки, определяемый целевой мобильной платформой.
 
 ### Магазин Windows и Windows Phone 8.1 (без Silverlight)
 
-	String toast = "<toast><visual><binding template=\"ToastText01\"><text id=\"1\">Hello from Java!</text></binding></visual></toast>";
+
 	Notification n = Notification.createWindowsNotification(toast);
 	hub.sendNotification(n);
 
@@ -343,14 +343,16 @@
 
 
 ##<a name="next-steps"></a>Дальнейшие действия
-В этом разделе было показано, как создать простой клиент Java REST для концентраторов уведомлений. На данном этапе можно сделать следующее.
+В этом разделе было показано, как создать простой клиент Java REST для центров уведомлений. На данном этапе можно сделать следующее.
 
-* Загрузить полный [Образец оболочки Java REST], содержащий весь указанный выше код, а также схему управления регистрацией.
-* Продолжить изучение функции тегов в концентраторах уведомлений в [учебнике "Срочные новости"]
-* Изучить отправку уведомлений отдельным пользователям в учебнике [Уведомление пользователей]
-
-
+* Скачать полный [Образец оболочки Java REST], содержащий весь указанный выше код, а также схему управления регистрацией.
+* Продолжить изучение функции тегов в центрах уведомлений в учебнике [Срочные новости]
+* Дополнительная информация об отправке уведомлений отдельным пользователям в учебнике [Уведомление пользователей]
 
 
-[Образец оболочки на Java REST]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-java
-[Учебник по началу работы]: http://azure.microsoft.com/ru-ru/documentation/articles/notification-hubs-ios-get-started/
+
+
+[Образец оболочки Java REST]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-java
+Учебник [Приступая к работе]: http://azure.microsoft.com/ru-ru/documentation/articles/notification-hubs-ios-get-started/
+
+<!--HONumber=35_1-->

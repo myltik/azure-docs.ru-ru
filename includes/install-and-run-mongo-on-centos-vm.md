@@ -1,68 +1,78 @@
-Выполните следующие действия, чтобы установить и запустить MongoDB на виртуальной машине CentOS Linux.
+﻿Выполните следующие действия, чтобы установить и запустить MongoDB на виртуальной машине CentOS Linux.
 
 <div class="dev-callout">
 <b>Предупреждение</b>
-<p>Функции безопасности MongoDB, такие как проверка подлинности и привязка IP-адреса, не включены по умолчанию. Функции безопасности необходимо включить перед развертыванием MongoDB в рабочей среде.  Дополнительные сведения см. в документе <a href="http://www.mongodb.org/display/DOCS/Security+and+Authentication">Безопасность и проверка подлинности</a>.</p>
+<p>Функции безопасности MongoDB, такие как проверка подлинности и привязка IP-адреса, не включены по умолчанию. Функции безопасности необходимо включить перед развертыванием MongoDB в рабочей среде.  Дополнительную информацию см. в разделе <a href="http://www.mongodb.org/display/DOCS/Security+and+Authentication">"Безопасность и доступность".</a> .</p>
 </div>
 
-1.  Настройте систему управления пакетами (YUM), чтобы можно было установить MongoDB. Создайте файл */etc/yum.repos.d/10gen.repo* для хранения информации о репозитории и добавьте в него следующее:
+1. Настройте систему управления пакетами (YUM), чтобы можно было установить MongoDB. Создайте файл /etc/yum.repos.d/10gen.repo для хранения информации о репозитории и добавьте в него следующее:
 
-        [10gen]
-        name=10gen Repository
-        baseurl=http://downloads-distro.mongodb.org/repo/redhat/os/x86_64
-        gpgcheck=0
-        enabled=1
+		[10gen]
+		name=10gen Repository
+		baseurl=http://downloads-distro.mongodb.org/repo/redhat/os/x86_64
+		gpgcheck=0
+		enabled=1
 
-2.  Сохраните REPO-файл и выполните следующую команду, чтобы обновить локальную базу данных пакетов:
+2. Сохраните REPO-файл и выполните следующую команду, чтобы обновить локальную базу данных пакетов:
 
-        $ sudo yum update
+		$ sudo yum update
 
-3.  Чтобы установить последнюю стабильную версию MongoDB и связанные с ней средства, выполните следующую команду:
+3. Чтобы установить последнюю стабильную версию MongoDB и связанные с ней средства, выполните следующую команду:
 
-        $ sudo yum install mongo-10gen mongo-10gen-server
+		$ sudo yum install mongo-10gen mongo-10gen-server
 
-    Подождите, пока MongoDB загрузится и установится.
+	Подождите, пока MongoDB загрузится и установится.
 
-4.  Создайте каталог данных. По умолчанию MongoDB хранит данные в каталоге */data/db*, но этот каталог необходимо создать. Чтобы создать каталог, выполните следующую команду:
+4. Создайте каталог данных. По умолчанию MongoDB хранит данные в каталоге /data/db, но этот каталог необходимо создать. Чтобы создать каталог, выполните следующую команду:
 
-        $ sudo mkdir -p /srv/datadrive/data
-        $ sudo chown `id -u` /srv/datadrive/data
+		$ sudo mkdir -p /srv/datadrive/data
+		$ sudo chown `id -u` /srv/datadrive/data
 
-    Дополнительные сведения об установке MongoDB на Linux см. в документе [Quickstart Unix][Quickstart Unix].
+	Дополнительную информацию об установке MongoDB на Linux см. в документе [Quickstart Unix][QuickstartUnix].
 
-5.  Чтобы запустить базу данных, введите:
+5. Чтобы запустить базу данных, введите:
 
-        $ mongod --dbpath /srv/datadrive/data --logpath /srv/datadrive/data/mongod.log
+		$ mongod --dbpath /srv/datadrive/data --logpath /srv/datadrive/data/mongod.log
 
-    Все сообщения журнала будут направляться в файл */srv/datadrive/data/mongod.log*, когда сервер MongoDB запустится и выделит место для файлов журналов. Может пройти несколько минут, пока MongoDB выделит место для файлов журналов и начнет прослушивать подключения.
+	Все сообщения журнала будут направляться в файл /srv/datadrive/data/mongod.log, когда сервер MongoDB запустится и выделит место для файлов журналов. Может пройти несколько минут, пока MongoDB выделит место для файлов журналов и начнет прослушивать подключения.
 
-6.  Чтобы запустить консоль управления MongoDB, откройте отдельное окно SSH или PuTTY и введите:
+6. Чтобы запустить консоль управления MongoDB, откройте отдельное окно SSH или PuTTY и введите:
 
-        $ mongo
-        > db.foo.save ( { a:1 } )
-        > db.foo.find()
-        { _id : ..., a : 1 }
-        > show dbs  
-        ...
-        > show collections  
-        ...  
-        > help  
+		$ mongo
+		> db.foo.save ( { a:1 } )
+		> db.foo.find()
+		{ _id : ..., a : 1 }
+		> show dbs  
+		...
+		> show collections  
+		...  
+		> help  
 
-    База данных создается путем вставки.
+	База данных создается путем вставки.
 
-7.  После установки MongoDB необходимо настроить конечную точку для удаленного доступа к MongoDB. На портале управления щелкните **Виртуальные машины** и выберите имя новой виртуальной машины, а затем щелкните **Конечные точки**.
+7. После установки MongoDB необходимо настроить конечную точку для удаленного доступа к MongoDB. На портале управления щелкните **Виртуальные машины** и выберите имя новой виртуальной машины, а затем щелкните **Конечные точки**.
+	
+	![Endpoints][Image7]
 
-    ![Конечные точки][Конечные точки]
+8. Щелкните **Добавить конечную точку** в нижней части страницы.
+	
+	![Endpoints][Image8]
 
-8.  Щелкните **Добавить конечную точку** в нижней части страницы.
+9. Добавьте конечную точку со следующими параметрами:
 
-    ![Конечные точки][1]
+ - **Имя**: Mongo
+ - **Протокол**: TCP
+ - **Общий порт**: 27017
+ - **Частный порт**: 27017
+ 
+ Это позволит получать удаленный доступ к MongoDB.
 
-9.  Добавьте конечную точку с именем Mongo, протоколом **TCP** и портами **Общий** и **Частный** со значением "27017". Это позволит получать удаленный доступ к MongoDB.
 
-    ![Конечные точки][2]
 
-  [Quickstart Unix]: http://www.mongodb.org/display/DOCS/Quickstart+Unix
-  [Конечные точки]: ./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint.png
-  [1]: ./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint2.png
-  [2]: ./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint3.png
+[QuickStartUnix]: http://www.mongodb.org/display/DOCS/Quickstart+Unix
+
+
+[Image7]: ./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint.png
+[Image8]: ./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint2.png
+
+<!--HONumber=35_1-->

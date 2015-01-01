@@ -1,4 +1,4 @@
-<properties urlDisplayName="Get Started with Mobile Analytics" pageTitle="Приступая к работе с мобильной аналитикой | Центр мобильных разработок" metaKeywords="" description="Начало работы с мобильной аналитикой." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Приступая к работе с мобильной аналитикой" authors="mahender" manager="kirillg"/>
+﻿<properties urlDisplayName="Get Started with Mobile Analytics" pageTitle="Приступая к работе с мобильной аналитикой | Центр мобильных разработок" metaKeywords="" description="Get Started with Mobile Analytics." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get Started with Mobile Analytics" authors="mahender" manager="dwrede"/>
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="10/10/2014" ms.author="mahender" />
 
@@ -8,42 +8,45 @@
 <a href="/ru-ru/documentation/articles/mobile-services-ios-get-started-mobile-analytics" title="iOS" class="current">iOS</a>
 </div>
 
-В этом учебнике описывается добавление возможностей мобильной аналитики в приложение с помощью [Capptain][Capptain]. С помощью мобильной аналитики можно определить, как пользователи взаимодействуют с приложением и какие разделы используются чаще всего. Чтобы приступить к сбору этих данных, необходимо добавить в приложение возможность работы с пакетом SDK Capptain.
+В этом учебнике описывается добавление возможностей мобильной аналитики в приложение с помощью [Capptain]. С помощью мобильной аналитики можно определить, как пользователи взаимодействуют с приложением и какие разделы используются чаще всего. Чтобы приступить к сбору этих данных, необходимо добавить в приложение возможность работы с пакетом SDK для Capptain.
 
-> [AZURE.NOTE] Принадлежащий Майкрософт сайт Capptain.com предоставляет заказчикам мобильных служб Azure уровня Standard бесплатные возможности аналитики мобильных приложений, охватывающие до 100 000 активных пользователей в месяц. Чтобы воспользоваться преимуществами этого предложения, свяжитесь с нами по адресу mobileservices@microsoft.com, и мы сообщим вам дальнейшие инструкции. В этом учебнике описываются функции и возможности Capptain.com и приводятся инструкции по их использованию.
+
+>[AZURE.NOTE] Принадлежащий Майкрософт сайт Capptain.com предоставляет заказчикам мобильных служб Azure уровня Standard бесплатные возможности аналитики мобильных приложений, охватывающие до 100 000 активных пользователей в месяц. Чтобы воспользоваться преимуществами этого предложения, свяжитесь с нами по адресу mobileservices@microsoft.com, и мы сообщим вам дальнейшие инструкции. В этом учебнике описываются функции и возможности Capptain.com и приводятся инструкции по их использованию.
+
 
 В этом учебнике рассматриваются следующие основные действия:
 
-1.  [Запуск пакета SDK Capptain][Запуск пакета SDK Capptain]
-2.  [Перезагрузка UIViewController][Перезагрузка UIViewController]
+1. [Запуск пакета SDK для Capptain]
+2. [Перезагрузка UIViewController]
 
 Для работы с данным учебником требуется следующее:
 
--   Учетная запись [Capptain][Capptain]
--   Приложение типа [Мобильные службы уровня Standard][Мобильные службы уровня Standard]
+* Учетная запись [Capptain]
+* Приложение типа [Мобильные службы уровня Standard]
 
-## <a name="initialize"></a>Запуск пакета SDK Capptain
+## <a name="initialize"></a>Запуск пакета SDK для Capptain
 
-1.  Откройте страницу **Сведения о приложении** вашего приложения, зарегистрированного в Capptain. Перейдите на вкладку SDK и загрузите пакет.
+1. Откройте страницу **Сведения о приложении** своего приложения, зарегистрированного в Capptain. Перейдите на вкладку SDK и загрузите пакет.
 
-2.  В XCode добавьте пакет SDK Capptain в ваш проект. Для этого щелкните правой кнопкой мыши на проекте и выберите "Добавить файлы в...". Выберите папку CapptainSDK.
+2. В XCode добавьте пакет SDK для Capptain в ваш проект. Для этого щелкните правой кнопкой мыши на проекте и выберите "Добавить файлы в...". Выберите папку CapptainSDK.
 
-3.  Выберите проект. На вкладке **Этапы построения** выберите **Связать двоичные файлы с библиотеками** и добавьте следующие среды:
+3. Выберите проект. На вкладке **Этапы построения** выберите **Связать двоичные файлы с библиотеками** и добавьте следующие среды:
+    * AdSupport.framework - укажите связь как необязательную (Optional)
+    * SystemConfiguration.framework
+    * CoreTelephony.framework
+    * CFNetwork.framework
+    * CoreLocation.framework
+    * libxml2.dylib
 
-    -   AdSupport.framework — укажите связь как необязательную (Optional)
-    -   SystemConfiguration.framework
-    -   CoreTelephony.framework
-    -   CFNetwork.framework
-    -   CoreLocation.framework
-    -   libxml2.dylib
+    >[AZURE.NOTE] Среду AdSupport можно удалить. В Capptain она используется для сбора IDFA. Однако сбор IDFA можно отключить для соблюдения политики Apple в отношении данного ИД.
 
-    > [AZURE.NOTE] Среду AdSupport можно удалить. В Capptain она используется для сбора IDFA. Однако сбор IDFA можно отключить для соблюдения политики Apple в отношении данного ИД.
+4. В файле реализации делегирования приложения импортируйте агент Capptain.
 
-4.  В файле реализации делегирования приложения импортируйте агент Capptain.
 
         #import "CapptainAgent.h"
 
-5.  В `applicationDidFinishLaunching:` или `application:didFinishLaunchingWithOptions:` запустите агент Capptain Agent, передав `registerapp:identifiedby:` с ИД вашего приложения и ключом SDK.
+
+5. Запустите агент Capptain в "applicationDidFinishLaunching:" или "application:didFinishLaunchingWithOptions:", передав "registerapp:identifiedby:" с идентификатором приложения и ключом SDK.
 
          - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         {
@@ -54,7 +57,7 @@
 
 ## <a name="instrument"></a>Перезагрузка UIViewController
 
-1.  Найдите все дочерние элементы `UIViewController` в вашем проекте и убедитесь, что каждый из них наследуется от `CapptainViewController`.
+1. Найдите все дочерние элементы UIViewController в своем проекте и убедитесь, что каждый из них наследуется от CapptainViewController.
 
         #import <UIKit/UIKit.h>
         #import "CapptainViewController.h"
@@ -68,17 +71,20 @@
         @property (nonatomic, retain) IBOutlet UITextField* myTextField1;
         @property (nonatomic, retain) IBOutlet UITextField* myTextField2;
 
-2.  Найдите все дочерние элементы `UITableViewController` в вашем проекте и убедитесь, что каждый из них наследуется от `CapptainTableViewController`.
+2. Найдите все дочерние элементы UITableViewController в своем проекте и убедитесь, что каждый из них наследуется от CapptainTableViewController.
 
     Теперь ваше приложение настроено для отправки данных аналитики в Capptain.
 
 ## Дальнейшие действия
+Дополнительную информацию о возможностях Capptain для вашего приложения см. на веб-сайте [http://www.capptain.com](http://www.capptain.com)
 
-Дополнительные сведения о возможностях Capptain для вашего приложения см. на веб-сайте <http://www.capptain.com>
+<!-- Anchors. -->
+[Запуск пакета SDK для Capptain]: #initialize
+[Перезагрузка UIViewController]: #instrument
 
- 
 
-  [Capptain]: http://www.capptain.com
-  [Запуск пакета SDK Capptain]: #initialize
-  [Перезагрузка UIViewController]: #instrument
-  [Мобильные службы уровня Standard]: /ru-ru/pricing/details/mobile-services/
+<!-- URLs. -->
+[Capptain]: http://www.capptain.com
+[Мобильные службы уровня Standard]: /ru-ru/pricing/details/mobile-services/
+
+<!--HONumber=35_1-->

@@ -1,134 +1,169 @@
-<properties urlDisplayName="How to Encode an Asset" pageTitle="Кодировка актива для служб мультимедиа &mdash; Azure" metaKeywords="" description="Узнайте, как использовать кодировщик мультимедиа Azure для кодировки мультимедийного контента в службах мультимедиа. Примеры кода написаны на языке C# и используют пакет SDK служб мультимедиа для .NET." metaCanonical="" services="media-services" documentationCenter="" title="Практическое руководство: кодировка активов" authors="juliako" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="How to Encode an Asset" pageTitle="Кодировка ресурса для служб мультимедиа - Azure" metaKeywords="" description="Learn how to use the Azure Media Encoder to encode media content on Media Services. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Encode an Asset" authors="juliako" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
 
-# Практическое руководство: кодировка активов
 
-Эта статья является частью серии вводных статей о программировании служб мультимедиа в Azure. Предыдущий раздел [Практическое руководство: Получение процессора мультимедиа][Практическое руководство: Получение процессора мультимедиа].
+#Практическое руководство: кодировка активов
+Эта статья является частью серии вводных статей о программировании служб мультимедиа в Azure. Предыдущая статья: [Практическое руководство. Получение обработчика мультимедиа](../media-services-get-media-processor/).
 
-Мультимедийный контент на сервере можно закодировать в разных форматах и кодировках, используя кодировщик мультимедиа Azure. Также можно использовать кодировщик, предоставленный партнером служб мультимедиа, кодировщики сторонних производителей доступны в [Магазине Azure][Магазине Azure]. Сведения о задачах кодировки можно указать с помощью строк [предустановок кодировщика][предустановок кодировщика] или файлов конфигурации.
+Мультимедийный контент на сервере можно закодировать в разных форматах и кодировках, используя кодировщик мультимедиа Azure. Также можно использовать кодировщик, предоставленный партнером служб мультимедиа. Кодировщики сторонних производителей доступны в [Azure Marketplace][]. Вы можете указать данные о задачах кодировки с помощью строк [предустановок кодировщика][] или файлов конфигурации. 
 
-## Кодировка в формате MP4
+##Кодирование в набор MP4-файлов с адаптивной скоростью
+Мы советуем кодировать мезонинный файл в наборы MP4-файлов с адаптивной скоростью, а затем использовать динамическую упаковку для доставки содержимого. Дополнительную информацию см. в разделах [Создание задания кодирования с помощью пакета SDK служб мультимедиа для .NET](http://msdn.microsoft.com/ru-ru/library/azure/dn282273.aspx), [Динамическое упаковывание](http://msdn.microsoft.com/ru-ru/library/azure/jj889436.aspx) и [Доставка содержимого](http://msdn.microsoft.com/ru-ru/library/azure/hh973618.aspx).
 
-Следующий метод отправляет один актив и создает задание для его кодирования в формате MP4 с помощью предустановки "H264 Broadband 720p", которая создает один MP4-файл с кодировкой H264 и разрешением 720p:
+##Кодировка в формате MP4
+Следующий метод отправляет один ресурс и создает задание для его кодирования в формате MP4 с помощью предустановки H264 Broadband 720p, которая создает один MP4-файл с кодировкой H264 и разрешением 720 пикселей:
+<pre><code>
+	static IJob CreateEncodingJob(string inputMediaFilePath, string outputFolder)
+	{
+    	//Create an encrypted asset and upload to storage.
+		IAsset asset = CreateAssetAndUploadSingleFile(AssetCreationOptions.StorageEncrypted, 
+			inputMediaFilePath);
 
-     static IJob CreateEncodingJob(string inputMediaFilePath, string outputFolder) { //Create an encrypted asset and upload to storage. IAsset asset = CreateAssetAndUploadSingleFile(AssetCreationOptions.StorageEncrypted, inputMediaFilePath);
-        // Declare a new job.
+		// Declare a new job.
 
-        IJob job = _context.Jobs.Create("My encoding job");
+    	IJob job = _context.Jobs.Create("My encoding job");
+	
+		// Get a reference to the Azure Media Encoder
+		IMediaProcessor processor = GetLatestMediaProcessorByName("Azure Media Encoder");
+    
+		// Create a task with the encoding details, using a string preset.
+    	ITask task = job.Tasks.AddNew("My encoding task",
+        	processor,
+	        "H264 Broadband 720p",
+        	_protectedConfig);
+    
+		// Specify the input asset to be encoded.
+    	task.InputAssets.Add(asset);
+    
+		// Add an output asset to contain the results of the job. 
+    	// This output is specified as AssetCreationOptions.None, which 
+    	// means the output asset is in the clear (unencrypted). 
+    	task.OutputAssets.AddNew("Output asset", AssetCreationOptions.None);
+    
+		// Use the following event handler to check job progress.  
+    	job.StateChanged += new EventHandler&ltJobStateChangedEventArgs&gt(StateChanged);
+    
+		// Launch the job.
+    	job.Submit();
+    
+		// Optionally log job details. This displays basic job details
+    	// to the console and saves them to a JobDetails-JobId.txt file 
+    	// in your output folder.
+    	LogJobDetails(job.Id);
+    
+		// Check job execution and wait for job to finish. 
+    	Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
+    	progressJobTask.Wait();
+    
+		// If job state is Error, the event handling 
+    	// method for job progress should log errors.  Here we check 
+    	// for error state and exit if needed.
+    	if (job.State == JobState.Error)
+    	{
+	        Console.WriteLine("\nExiting method due to job error.");
+        	return job;
+    	}
+    
+		// Perform other tasks. For example, access the assets that are the output of a job, 
+    	// either by creating URLs to the asset on the server, or by downloading. 
+    	return job;
+	}
 
-        // Get a reference to the Azure Media Encoder
-        IMediaProcessor processor = GetLatestMediaProcessorByName("Azure Media Encoder");
+	private static void StateChanged(object sender, JobStateChangedEventArgs e)
+	{
+		Console.WriteLine("Job state changed event:");
+	    Console.WriteLine("  Previous state: " + e.PreviousState);
+	    Console.WriteLine("  Current state: " + e.CurrentState);
+	    switch (e.CurrentState)
+	    {
+        	case JobState.Finished:
+           	Console.WriteLine();
+           	Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
+           	break;
+        	case JobState.Canceling:
+        	case JobState.Queued:
+        	case JobState.Scheduled:
+        	case JobState.Processing:
+	            Console.WriteLine("Please wait...\n");
+            	break;
+        	case JobState.Canceled:
+        	case JobState.Error:
 
-        // Create a task with the encoding details, using a string preset.
-        ITask task = job.Tasks.AddNew("My encoding task",
-            processor,
-            "H264 Broadband 720p",
-            _protectedConfig);
+	            // Cast sender as a job.
+            	IJob job = (IJob)sender;
 
-        // Specify the input asset to be encoded.
-        task.InputAssets.Add(asset);
-
-        // Add an output asset to contain the results of the job. 
-        // This output is specified as AssetCreationOptions.None, which 
-        // means the output asset is in the clear (unencrypted). 
-        task.OutputAssets.AddNew("Output asset", AssetCreationOptions.None);
-
-        // Use the following event handler to check job progress.  
-        job.StateChanged += new EventHandler&ltJobStateChangedEventArgs&gt(StateChanged);
-
-        // Launch the job.
-        job.Submit();
-
-        // Optionally log job details. This displays basic job details
-        // to the console and saves them to a JobDetails-JobId.txt file 
-        // in your output folder.
-        LogJobDetails(job.Id);
-
-        // Check job execution and wait for job to finish. 
-        Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
-        progressJobTask.Wait();
-
-        // If job state is Error, the event handling 
-        // method for job progress should log errors.  Here we check 
-        // for error state and exit if needed.
-        if (job.State == JobState.Error)
-        {
-            Console.WriteLine("\nExiting method due to job error.");
-            return job;
-        }
-
-        // Perform other tasks. For example, access the assets that are the output of a job, 
-        // either by creating URLs to the asset on the server, or by downloading. 
-        return job;
-    }
-
-    private static void StateChanged(object sender, JobStateChangedEventArgs e)
-    {
-        Console.WriteLine("Job state changed event:");
-        Console.WriteLine("  Previous state: " + e.PreviousState);
-        Console.WriteLine("  Current state: " + e.CurrentState);
-        switch (e.CurrentState)
-        {
-            case JobState.Finished:
-            Console.WriteLine();
-            Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
-            break;
-            case JobState.Canceling:
-            case JobState.Queued:
-            case JobState.Scheduled:
-            case JobState.Processing:
-                Console.WriteLine("Please wait...\n");
-                break;
-            case JobState.Canceled:
-            case JobState.Error:
-
-                // Cast sender as a job.
-                IJob job = (IJob)sender;
-
-                // Display or log error details as needed.
-                LogJobStop(job.Id);
-                break;
-            default:
-                break;
-        }
-    }
-
-<p>
-</code>
-
-</pre>
-
-## Кодировка в формате Smooth Streaming
-
+	            // Display or log error details as needed.
+            	LogJobStop(job.Id);
+            	break;
+        	default:
+	            break;
+    	}
+	}
+</code></pre>
+<h2>Кодировка в формате Smooth Streaming</h2>
 Закодировать видео в формате Smooth Streaming можно двумя способами:
+<ul>
+<li> напрямую в формате Smooth Streaming; </li>
+<li> кодировка в формате MP4 и преобразование в Smooth Streaming.</li>
+</ul>
 
--   напрямую в формате Smooth Streaming;
--   кодировка в формате MP4 и преобразование в Smooth Streaming.
+Для кодирования непосредственно в формате Smooth Streaming используйте код, показанный выше, но при этом воспользуйтесь одной из предустановок кодировщика Smooth Streaming. Полный список предустановок кодировщика см. в разделе [Строки предустановок задачи для кодировщика мультимедиа Azure](http://msdn.microsoft.com/ru-ru/library/jj129582.aspx). 
 
-</p>
-Для кодирования непосредственно в формате Smooth Streaming используйте код, показанный выше, но при этом воспользуйтесь одной из предустановок кодировщика Smooth Streaming. Полный список предустановок кодировщика см. в статье [Строки предустановок задачи для программы Windows Azure Media Encoder][Строки предустановок задачи для программы Windows Azure Media Encoder].
+Чтобы преобразовать MP4-файл в формат Smooth Streaming, используйте Azure Media Packager. Azure Media Packager не поддерживает строковые предустановки, поэтому необходимо задать параметры конфигурации в формате XML. XML-код, необходимый для преобразования MP4 в Smooth Streaming, можно найти в разделе [Предустановка задачи для Azure Media Packager][]. Скопируйте и вставьте XML в файл с именем MediaPackager_MP4ToSmooth.xml в вашем проекте. В следующем примере показано, как преобразовать MP4-актив в формат Smooth Streaming. Метод, приведенный ниже, принимает существующий актив и преобразует его. 
+<pre><code>
+private static IJob ConvertMP4toSmooth(IAsset assetToConvert, string configFilePath)
+ {
+	// Declare a new job to contain the tasks
+    IJob job = _context.Jobs.Create("Convert to Smooth Streaming job");
+    // Set up the first Task to convert from MP4 to Smooth Streaming. 
+    // Read in task configuration XML
+    string configMp4ToSmooth = File.ReadAllText(Path.GetFullPath(configFilePath + @"\MediaPackager_MP4ToSmooth.xml"));
+    // Get a media packager reference
+    IMediaProcessor processor = GetLatestMediaProcessorByName("Azure Media Packager");
+    // Create a task with the conversion details, using the configuration data
+    ITask task = job.Tasks.AddNew("My Mp4 to Smooth Task",
+           processor,
+           configMp4ToSmooth,
+           TaskOptions.None);
+    // Specify the input asset to be converted.
+    task.InputAssets.Add(assetToConvert);
+    // Add an output asset to contain the results of the job.
+    task.OutputAssets.AddNew("Streaming output asset", AssetCreationOptions.None);
+    // Use the following event handler to check job progress. 
+	// The StateChange method is the same as the one in the previous sample
+    job.StateChanged += new EventHandler&ltJobStateChangedEventArgs&gt(StateChanged);
+    // Launch the job.
+    job.Submit();
+    // Check job execution and wait for job to finish. 
+    Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
+    progressJobTask.Wait();
+    // Get a refreshed job reference after waiting on a thread.
+    job = GetJob(job.Id);
+    // Check for errors
+    if (job.State == JobState.Error)
+    {
+        Console.WriteLine("\nExiting method due to job error.");
+    }
+    return job;
+}
+</code></pre>
 
-Чтобы преобразовать MP4-файл в формат Smooth Streaming, используйте Azure Media Packager. Azure Media Packager не поддерживает строковые предустановки, поэтому необходимо задать параметры конфигурации в формате XML. XML-код, необходимый для преобразования MP4 в Smooth Streaming, можно найти в статье [Предустановка задачи для Azure Media Packager][Предустановка задачи для Azure Media Packager]. Скопируйте и вставьте XML в файл с именем MediaPackager\_MP4ToSmooth.xml в вашем проекте. В следующем примере показано, как преобразовать MP4-актив в формат Smooth Streaming. Метод, приведенный ниже, принимает существующий актив и преобразует его.
-
-    private static IJob ConvertMP4toSmooth(IAsset assetToConvert, string configFilePath) { // Declare a new job to contain the tasks IJob job = _context.Jobs.Create("Convert to Smooth Streaming job"); // Set up the first Task to convert from MP4 to Smooth Streaming. // Read in task configuration XML string configMp4ToSmooth = File.ReadAllText(Path.GetFullPath(configFilePath + @"\MediaPackager_MP4ToSmooth.xml")); // Get a media packager reference IMediaProcessor processor = GetLatestMediaProcessorByName("Azure Media Packager"); // Create a task with the conversion details, using the configuration data ITask task = job.Tasks.AddNew("My Mp4 to Smooth Task", processor, configMp4ToSmooth, TaskOptions.None); // Specify the input asset to be converted. task.InputAssets.Add(assetToConvert); // Add an output asset to contain the results of the job. task.OutputAssets.AddNew("Streaming output asset", AssetCreationOptions.None); // Use the following event handler to check job progress. // The StateChange method is the same as the one in the previous sample job.StateChanged += new EventHandler&ltJobStateChangedEventArgs&gt(StateChanged); // Launch the job. job.Submit(); // Check job execution and wait for job to finish. Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None); progressJobTask.Wait(); // Get a refreshed job reference after waiting on a thread. job = GetJob(job.Id); // Check for errors if (job.State == JobState.Error) { Console.WriteLine("\nExiting method due to job error."); } return job;}
-
-</p>
 Дополнительные сведения об обработке активов см. в следующих статьях:
+<ul>
+<li><a href="http://msdn.microsoft.com/ru-ru/library/jj129580.aspx">Обработка активов с помощью пакета Media Services SDK для .NET</a></li>
+<li><a href="http://msdn.microsoft.com/ru-ru/library/jj129574.aspx">Обработка активов с помощью API REST служб мультимедиа</a></li>
+</ul>
 
--   [Обработка активов с помощью пакета Media Services SDK для .NET][Обработка активов с помощью пакета Media Services SDK для .NET]
--   [Обработка активов с помощью API REST служб мультимедиа][Обработка активов с помощью API REST служб мультимедиа]
+##Дальнейшие действия
+Теперь, когда вы узнали, как создать задание для кодирования ресурса, перейдите к статье [Проверка хода выполнения задания с помощью служб мультимедиа](../media-services-check-job-progress/) .
 
-</p>
-## Дальнейшие действия
+[Azure Marketplace]: https://datamarket.azure.com/
+[Предустановка кодировщика]: http://msdn.microsoft.com/ru-ru/library/dn619392.aspx
+[Практическое руководство. Получение экземпляра обработчика мультимедиа]:http://go.microsoft.com/fwlink/?LinkId=301732
+[Практическое руководство. Отправка зашифрованного ресурса]:http://go.microsoft.com/fwlink/?LinkId=301733
+[Практическое руководство. Доставка ресурса путем скачивания]:http://go.microsoft.com/fwlink/?LinkId=301734
+[Проверка хода выполнения задания]:http://go.microsoft.com/fwlink/?LinkId=301737
+[Предустановка задачи для Azure Media Packager]:http://msdn.microsoft.com/ru-ru/library/windowsazure/hh973635.aspx
 
-Вы узнали, как создать задание для кодирования актива. Теперь вы можете приступить к изучению статьи [Проверка хода выполнения задания с помощью служб мультимедиа][Проверка хода выполнения задания с помощью служб мультимедиа].
-
-  [Практическое руководство: Получение процессора мультимедиа]: ../media-services-get-media-processor/
-  [Магазине Azure]: https://datamarket.azure.com/
-  [предустановок кодировщика]: http://msdn.microsoft.com/ru-ru/library/hh973610.aspx
-  [Строки предустановок задачи для программы Windows Azure Media Encoder]: http://msdn.microsoft.com/ru-ru/library/jj129582.aspx
-  [Предустановка задачи для Azure Media Packager]: http://msdn.microsoft.com/ru-ru/library/windowsazure/hh973635.aspx
-  [Обработка активов с помощью пакета Media Services SDK для .NET]: http://msdn.microsoft.com/ru-ru/library/jj129580.aspx
-  [Обработка активов с помощью API REST служб мультимедиа]: http://msdn.microsoft.com/ru-ru/library/jj129574.aspx
-  [Проверка хода выполнения задания с помощью служб мультимедиа]: ../media-services-check-job-progress/
+<!--HONumber=35_1-->

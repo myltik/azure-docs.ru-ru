@@ -1,24 +1,25 @@
-﻿<properties title="Azure Notification Hubs Notify Users" pageTitle="Концентраторы уведомлений Azure уведомляют пользователей" metaKeywords="push-уведомления Azure, концентраторы уведомлений Azure" description="Learn how to send secure push notifications in Azure. Code samples written in C# using the .NET API." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="sethm" manager="dwrede" />
+﻿<properties title="Azure Notification Hubs Notify Users" pageTitle="Уведомление пользователей посредством центров уведомлений" metaKeywords="Azure push notifications, Azure notification hubs" description="Learn how to send secure push notifications in Azure. Code samples written in C# using the .NET API." documentationCenter="" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="glenga" manager="dwrede" services="notification-hubs" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows" ms.devlang="dotnet" ms.topic="article" ms.date="11/22/2014" ms.author="glenga" />
 
-#Уведомление пользователей посредством концентраторов уведомлений
+#Уведомление пользователей посредством центров уведомлений
 
 <div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/ru-ru/documentation/articles/notification-hubs-windows-dotnet-notify-users/" title="Windows Universal" class="current">Windows Universal</a><a href="/ru-ru/documentation/articles/notification-hubs-aspnet-backend-ios-notify-users/" title="iOS">iOS</a>
+    	<a href="/ru-ru/documentation/articles/notification-hubs-windows-dotnet-notify-users/" title="Windows Universal" class="current">Универсальное приложение Windows</a><a href="/ru-ru/documentation/articles/notification-hubs-aspnet-backend-ios-notify-users/" title="iOS">iOS</a>
 		<a href="/ru-ru/documentation/articles/notification-hubs-aspnet-backend-android-notify-users/" title="Android">Android</a>
 </div>
 
-Поддержка push-уведомлений в Azure позволяет получить доступ к простой в использовании многоплатформенной и масштабируемой инфраструктуре для отправки push-уведомлений, которая значительно упрощает реализацию push-уведомлений как для отдельных пользователей, так и для корпоративных приложений для мобильных платформ. В этом учебнике показано, как использовать концентраторы уведомлений Azure для отправки push-уведомлений пользователю определенного приложения на конкретном устройстве. Серверная часть ASP.NET WebAPI используется для проверки подлинности клиентов и создания уведомлений, как показано в разделе руководства [Регистрация из серверной части вашего приложения](http://msdn.microsoft.com/ru-ru/library/dn743807.aspx). Материал этого учебника основан на концентраторе уведомлений, созданном вами в учебнике **Приступая к работе с концентраторами уведомлений**.
+Поддержка push-уведомлений в Azure позволяет получить доступ к простой в использовании, многоплатформенной и масштабируемой инфраструктуре для отправки push-уведомлений, которая значительно упрощает реализацию push-уведомлений как для индивидуальных пользователей, так и для корпоративных приложений для мобильных платформ. В этом учебнике показано, как использовать концентраторы уведомлений Azure для отправки push-уведомлений пользователю определенного приложения на конкретном устройстве. Серверная часть веб-API ASP.NET используется для аутентификации клиентов и создания уведомлений, как показано в разделе руководства [Регистрация из серверной части приложения](http://msdn.microsoft.com/ru-ru/library/dn743807.aspx). Материал этого учебника основан на центре уведомлений, созданном вами в учебнике **Приступая к работе с центрами уведомлений**.
 
-Этот учебник также необходимо изучить перед обращением к учебнику **Безопасные push-уведомления**. После выполнения шагов учебника **Уведомление пользователей** можно приступать к работе с учебником **Безопасные push-уведомления**, в котором показано, как следует изменять код **Уведомления пользователей** для безопасной отправки push-уведомлений. 
+Этот учебник также необходимо изучить перед прохождением учебника **Безопасные push-уведомления**. После выполнения шагов учебника "Уведомление пользователей" можно приступать к работе с учебником **Безопасные push-уведомления** в котором показано, как следует изменять код **Уведомления пользователей** для безопасной отправки push-уведомлений. 
 
-> [AZURE.NOTE] В этом учебнике подразумевается, что вы создали и настроили концентратор уведомлений в соответствии с описанием в учебнике [Приступая к работе с концентраторами уведомлений (Магазин Windows)](http://azure.microsoft.com/ru-ru/documentation/articles/notification-hubs-windows-store-dotnet-get-started/).
-Также обратите внимание, что по описанию в этом учебнике вы создадите приложение для Windows Phone 8.1. Такой же код можно использовать для приложений Магазина Windows и Windows Universal. Во всех таких приложениях необходимо использовать учетные данные Windows (а не Windows Phone).
+> [AZURE.NOTE] В этом учебнике подразумевается, что вы создали и настроили центр уведомлений в соответствии с описанием в учебнике [Приступая к работе с центрами уведомлений (Магазин Windows)](http://azure.microsoft.com/ru-ru/documentation/articles/notification-hubs-windows-store-dotnet-get-started/).
+> Если вы используете мобильные службы в качестве серверной службы, см. раздел [Версии мобильных служб](/ru-ru/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users/) из этого учебника.
+>Также обратите внимание, что при прохождении этого учебника вы создадите приложение для Магазина Windows Phone 8.1. Такой же код можно использовать для приложений Магазина Windows и Windows Universal. Во всех таких приложениях необходимо использовать учетные данные Windows (а не Windows Phone).
 
 ## Создание и настройка концентратора уведомлений
 
-Перед началом работы с этим учебников вам необходимо зарезервировать имя приложения, затем создать концентратор уведомлений Azure и подключить его к этому приложению. Выполните шаги в учебнике [Приступая к работе с концентраторами уведомлений (Магазин Windows)](http://azure.microsoft.com/ru-ru/documentation/articles/notification-hubs-windows-store-dotnet-get-started/), в частности, в разделах [Регистрация приложения для Магазина Windows](http://azure.microsoft.com/ru-ru/documentation/articles/notification-hubs-windows-store-dotnet-get-started/#register) и [Настройка концентратора уведомлений](http://azure.microsoft.com/ru-ru/documentation/articles/notification-hubs-windows-store-dotnet-get-started/#configure-hub). В частности, убедитесь, что вы ввели значения полей **SID пакета** и **Секрет клиента** на портале, на вкладке **Настройка** концентратора уведомлений. Эта процедура настройки описывается в разделе [Настройка концентратора уведомлений](http://azure.microsoft.com/ru-ru/documentation/articles/notification-hubs-windows-store-dotnet-get-started/#configure-hub). Этот шаг имеет большое значение: если учетные данные на портале не соответствуют учетным данным, указанным для выбранного имени приложения, push-уведомление не будет успешно отправлено.
+Перед началом работы с этим учебников необходимо зарезервировать имя приложения, затем создать центр уведомлений Azure и подключить его к этому приложению. Следуйте указаниям в учебнике [Приступая к работе с центрами уведомлений (Магазин Windows)](http://azure.microsoft.com/ru-ru/documentation/articles/notification-hubs-windows-store-dotnet-get-started/)в том числе указаниям в разделе [Регистрация приложения для Магазина Windows](http://azure.microsoft.com/ru-ru/documentation/articles/notification-hubs-windows-store-dotnet-get-started/#register) и разделе [Настройка центров уведомлений](http://azure.microsoft.com/ru-ru/documentation/articles/notification-hubs-windows-store-dotnet-get-started/#configure-hub). В частности, убедитесь, что вы ввели значения полей **SID пакета** и **Секрет клиента** на портале, на вкладке **Настройка** центра уведомлений. Эта процедура настройки описывается в разделе [Настройка центра уведомлений](http://azure.microsoft.com/ru-ru/documentation/articles/notification-hubs-windows-store-dotnet-get-started/#configure-hub). Этот шаг имеет большое значение: если учетные данные на портале не соответствуют учетным данным, указанным для выбранного имени приложения, push-уведомление не будет успешно выполнено.
 
 [WACOM.INCLUDE [notification-hubs-aspnet-backend-notifyusers](../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
@@ -26,16 +27,16 @@
 
 Следующий шаг заключается в создании приложения Windows Phone. Чтобы добавить этот проект в текущее решение, выполните следующие действия:
 
-1. В Обозревателе решений нажмите правой кнопкой узел самого верхнего уровня решения (в данном случае **Solution NotifyUsers**), затем нажмите **Добавить**, после чего нажмите **Создать проект**.
+1. В обозревателе решений щелкните правой кнопкой узел верхнего уровня решения (в данном случае - **Solution NotifyUsers**), затем нажмите кнопку **Добавить**, после чего щелкните **Создать проект**.
 
-2. Разверните **Сохранить приложения**, затем нажмите **Приложения Windows Phone**, после чего нажмите **Пустое приложение (Windows Phone)**.
+2. Разверните **Приложения для Магазина**, затем щелкните **Приложения Windows Phone**, а затем - **Пустое приложение (Windows Phone)**.
 
 	![][9]
 
-3. В поле **Имя** наберите **NotifyUserWindowsPhone**, затем нажмите **OK**, чтобы создать проект.
+3. В поле **Имя** введите **NotifyUserWindowsPhone** и нажмите кнопку **ОК**, чтобы создать проект.
 
  
-4. Свяжите это приложение с Магазином Windows Phone: В Обозревателе решений нажмите правой кнопкой **NotifyUserWindowsPhone (Windows Phone 8.1)**, затем нажмите **Магазин**, после чего нажмите **Связать приложение с магазином...**.
+4. Свяжите это приложение с Магазином Windows Phone. Для этого в обозревателе решений щелкните правой кнопкой мыши **NotifyUserWindowsPhone (Windows Phone 8.1)**, затем щелкните **Магазин** и выберите **Связать приложение с Магазином...**
 
 	![][10]
  
@@ -43,9 +44,9 @@
 
 	![][11]
 	
-	> [AZURE.NOTE] Обязательно запишите имя приложения, выбранное вами при выполнении этой процедуры. Необходимо настроить концентратор уведомлений на портале с использованием учетных данных, полученных от [Центра разработки Windows](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409), для данного зарезервированного имени приложения. Эта процедура настройки описывается в разделе [Настройка концентратора уведомлений](http://azure.microsoft.com/ru-ru/documentation/articles/notification-hubs-windows-store-dotnet-get-started/#configure-hub). Этот шаг имеет большое значение: если учетные данные на портале не соответствуют учетным данным, указанным для выбранного имени приложения, push-уведомление не будет успешно отправлено.
+	> [AZURE.NOTE] Обязательно запишите имя приложения, выбранное при выполнении этой процедуры. Для этого зарезервированного имени приложения необходимо настроить центр уведомлений на портале, используя учетные данные, полученные в [Центре разработки для Windows](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409) . Эта процедура настройки описывается в разделе [Настройка центра уведомлений](http://azure.microsoft.com/ru-ru/documentation/articles/notification-hubs-windows-store-dotnet-get-started/#configure-hub). Этот шаг имеет большое значение: если учетные данные на портале не соответствуют учетным данным, указанным для выбранного имени приложения, push-уведомление не будет успешно выполнено.
 
-6. В Обозревателе решений нажмите правой кнопкой проект **NotifyUserWindowsPhone (Windows Phone 8.1)**, а затем нажмите **Управление пакетами NuGet**.
+6. В обозревателе решений щелкните правой кнопкой мыши проект **NotifyUserWindowsPhone (Windows Phone 8.1)**, а затем щелкните **Управление пакетами NuGet**.
 
 7. В левой части окна выберите **В сети**.
 
@@ -53,11 +54,11 @@
 
 9. В списке результатов выберите **Клиентские библиотеки Microsoft HTTP**, после чего выберите **Установить**. Выполните установку.
 
-10. Вернитесь к полю NuGet **Поиск**, введите **Json.net**. Установите пакет **Json.NET**, затем закройте окно диспетчера пакетов NuGet.
+10. Вернитесь к полю NuGet **Поиск**, введите **Json.net**. Установите пакет **Json.NET**, а затем закройте окно диспетчера пакетов NuGet.
 
-11. Открыв Обозреватель решений, в проекте **NotifyUserWindowsPhone (Windows Phone 8.1)** дважды щелкните файл **MainPage.xaml**, чтобы открыть его в редакторе Visual Studio.
+11. В обозревателе решений в проекте **NotifyUserWindowsPhone (Windows Phone 8.1)** дважды щелкните файл **MainPage.xaml**, чтобы открыть его в редакторе Visual Studio.
 
-12. В XML-коде файла **MainPage.xaml** замените содержимое раздела `<Grid>`, набрав следующий код:
+12. В XML-коде **MainPage.xaml** замените раздел <Grid> следующим кодом:
 
 		<Grid>
 	        <Grid.RowDefinitions>
@@ -90,9 +91,9 @@
     	</Grid>
 
 
-13. В Обозревателе решений нажмите правой кнопкой проект **NotifyUserWindowsPhone (Windows Phone 8.1)**, затем нажмите **Добавить**, после чего нажмите **Class**. Присвойте классу имя **RegisterClient.cs**, затем нажмите кнопку **ОК**, чтобы создать класс. Этот компонент реализует вызовы REST, необходимые для связи с серверной частью приложения с целью регистрации в службе push-уведомлений. В данном случае также происходит локальное сохранение идентификаторов *registrationIds*, созданных концентратором уведомлений в соответствии с описанием в разделе [Регистрация из серверного компонента приложения](http://msdn.microsoft.com/ru-ru/library/dn743807.aspx). Обратите внимание, что в данном случае используется маркер авторизации, сохраненный в локальном хранилище при нажатии кнопки **Вход и регистрация**.
+13. В обозревателе решений щелкните правой кнопкой мыши проект **NotifyUserWindowsPhone (Windows Phone 8.1)**, затем щелкните **Добавить** и выберите **Класс**. Присвойте классу имя **RegisterClient.cs**, затем нажмите кнопку **ОК**, чтобы создать класс. Этот компонент реализует вызовы REST, необходимые для связи с серверной частью приложения с целью регистрации в службе push-уведомлений. В данном случае также происходит локальное сохранение идентификаторов registrationId, созданных центром уведомлений в соответствии с описанием в разделе [Регистрация из серверной части приложения](http://msdn.microsoft.com/ru-ru/library/dn743807.aspx). Обратите внимание, что в данном случае используется маркер аутентификации, сохраненный в локальном хранилище при нажатии кнопки **Вход и регистрация**.
 
-14. Добавьте в определение класса `RegisterClient` следующий код: Обязательно замените код `{backend endpoint}` вашей конечной точкой серверной части, полученной в предыдущем разделе:
+14. Добавьте следующий код в определение класса "RegisterClient". Обязательно замените код "{backend endpoint}" конечной точкой серверной части, полученной в предыдущем разделе:
 
 		private string POST_URL = "{backend endpoint}/api/register";
 
@@ -173,7 +174,7 @@
         }
 
 
-15. Добавьте следующие инструкции `using` в начало файла RegisterClient.cs:
+15. Добавьте в начало файла RegisterClient.cs следующие инструкции "using":
 
 		using Windows.Storage;
 		using System.Net;
@@ -181,9 +182,9 @@
 		using System.Net.Http.Headers;
 		using Newtonsoft.Json;
 		
-16. Добавьте код для кнопок в MainPage.xaml.cs. Обратный вызов для **Войти и зарегистрироваться** сохраняет основной маркер проверки подлинности в локальной памяти (обратите внимание, что здесь подразумевается любой маркер, который используется в вашей схеме проверки подлинности), а затем использует `RegisterClient` для вызова серверной части. При обратном вызове **AppBackend** происходит вызов серверной части с целью инициировать безопасные уведомления на все устройства пользователя. 
+16. Добавьте код кнопок в файле MainPage.xaml.cs. При обратном вызове действия **Вход и регистрация** происходит сохранение маркера аутентификации в локальном хранилище (обратите внимание, что это относится к любому маркеру, используемому в данной схеме аутентификации), затем с помощью кода "RegisterClient" вызывается серверная часть. При обратном вызове **AppBackend** происходит вызов серверной части. Это позволяет инициировать безопасные уведомления на все устройства пользователя. 
 
-	Добавьте следующий код в файл MainPage.xaml.cs после метода `OnNavigatedTo()`: Обязательно замените код `{backend endpoint}` конечной точкой серверной части, полученной в предыдущем разделе:
+	Добавьте следующий код в файле MainPage.xaml.cs после метода "OnNavigatedTo()": Обязательно замените код "{backend endpoint}" конечной точкой серверной части, полученной в предыдущем разделе:
 
 		private async void PushClick(object sender, RoutedEventArgs e)
         {
@@ -220,7 +221,7 @@
         }
 
 
-17. Добавьте следующие инструкции `using` в начало файла MainPage.xaml.cs:
+17. Добавьте в начало файла MainPage.xaml.cs следующие инструкции "using":
 
 		using System.Net.Http;
 		using Windows.Storage;
@@ -228,7 +229,7 @@
 		using Windows.Networking.PushNotifications;
 		using Windows.UI.Popups;
 
-## Запустите приложение
+## Выполнение приложения
 
 Для запуска приложения выполните следующие действия:
 
@@ -244,3 +245,5 @@
 [11]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push11.png
 [12]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push12.png
 [13]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push13.png
+
+<!--HONumber=35_1-->

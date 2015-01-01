@@ -1,7 +1,7 @@
-1.  В окне обозревателя решений Visual Studio щелкните правой кнопкой мыши проект и нажмите кнопку **Управление пакетами NuGet**.
+﻿1. В окне обозревателя решений Visual Studio щелкните правой кнопкой мыши проект и выберите команду **Управление пакетами NuGet**.
 
-2.  Щелкните в диспетчере пакетов NuGet пункты **В сети** и **Включить предварительный выпуск**. Введите в поиск **Microsoft.IdentityModel.Clients.ActiveDirectory**. Затем щелкните команду **Установить**, чтобы установить пакет NuGet библиотеки проверки подлинности Active Directory.
+2. В диспетчере пакетов NuGet щелкните **В сети**. Введите **Microsoft.IdentityModel.Clients.ActiveDirectory** в качестве условия поиска. Затем щелкните **Установить**, чтобы установить пакет NuGet библиотеки для аутентификации Active Directory. 
 
-![][ ]
+   ![](./media/mobile-services-dotnet-adal-install-nuget/mobile-services-adal-nuget-package.png)
 
-  [ ]: ./media/mobile-services-dotnet-adal-install-nuget/mobile-services-adal-nuget-package.png
+<!--HONumber=35_1-->

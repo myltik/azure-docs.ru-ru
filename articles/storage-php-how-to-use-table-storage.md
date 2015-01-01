@@ -1,45 +1,45 @@
-﻿<properties urlDisplayName="Table Service" pageTitle="Использование табличного хранилища (PHP) - Microsoft Azure" metaKeywords="Azure Table service PHP, Azure creating table, Azure deleting table, Azure insert table, Azure query table" description="Learn how to use the Table service from PHP to create and delete a table, and insert, delete, and query the table." metaCanonical="" services="storage" documentationCenter="PHP" title="How to use the Table service from PHP" authors="tamram" solutions="" manager="adinah" editor="" />
+﻿<properties urlDisplayName="Table Service" pageTitle="Как использовать табличное хранилище (PHP) - Microsoft Azure" metaKeywords="Azure Table service PHP, Azure creating table, Azure deleting table, Azure insert table, Azure query table" description="Learn how to use the Table service from PHP to create and delete a table, and insert, delete, and query the table." metaCanonical="" services="storage" documentationCenter="PHP" title="How to use the Table service from PHP" authors="tamram" solutions="" manager="adinah" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/24/2014" ms.author="tomfitz" />
 
 # Использование службы таблиц в PHP
 
-В этом руководстве показано, как реализовать типичные сценарии с использованием службы таблиц Azure. Примеры написаны на PHP и используют пакет [Azure SDK для PHP][загрузить]. Здесь описаны такие сценарии, как **создание и удаление таблицы, а также вставка, удаление и запрос сущностей в таблице**. Дополнительные сведения о службе таблиц Azure см. в разделе [Дальнейшие действия](#NextSteps).
+В этом руководстве показано, как реализовать типичные сценарии с использованием службы таблиц Azure. Примеры написаны на PHP и используют [пакет SDK для Azure для PHP][download]. Здесь описаны такие сценарии, как **создание и удаление таблицы, а также вставка и запрос сущностей в таблице и удаление сущностей из нее**. Дополнительную информацию о службе таблиц Azure см. в разделе [Дальнейшие действия](#NextSteps) .
 
 ##Оглавление
 
 * [Что такое служба таблиц](#what-is)
 * [Основные понятия](#concepts)
 * [Создание учетной записи хранения Azure](#CreateAccount)
-* [Создание приложения PHP](#CreateApplication)
+* [Создание приложения на PHP](#CreateApplication)
 * [Настройка приложения для доступа к службе таблиц](#ConfigureStorage)
-* [Настройка подключения к хранилищу Azure](#ConnectionString)
+* [Настройка подключения к службе хранилища Azure](#ConnectionString)
 * [Практическое руководство. Создание таблицы](#CreateTable)
 * [Практическое руководство. Добавление сущности в таблицу](#AddEntity)
 * [Практическое руководство. Извлечение одной сущности](#RetrieveEntity)
 * [Практическое руководство. Получение всех сущностей в разделе](#RetEntitiesInPartition)
-* [Практическое руководство. Получение диапазона сущностей в разделе](#RetrieveSubset)
+* [Практическое руководство. Получение подмножества сущностей в разделе](#RetrieveSubset)
 * [Практическое руководство. Запрос подмножества свойств сущности](#RetPropertiesSubset)
 * [Практическое руководство. Обновление сущности](#UpdateEntity)
 * [Практическое руководство. Пакетные операции с таблицами](#BatchOperations)
 * [Практическое руководство. Удаление таблицы](#DeleteTable)
 * [Дальнейшие действия](#NextSteps)
 
-[WACOM.INCLUDE [руководство-таблица-хранилище](../includes/howto-table-storage.md)]
+[WACOM.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
 
 ##<a id="CreateAccount"></a>Создание учетной записи хранения Azure
 
-[WACOM.INCLUDE [создание-хранилище-учетная запись](../includes/create-storage-account.md)]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
-##<a id="CreateApplication"></a>Создание приложения PHP
+##<a id="CreateApplication"></a>Создание приложения на PHP
 
-Единственным требованием для создания приложения PHP, которое получает доступ к службе таблиц Azure, является ссылка на классы в пакете Azure SDK для PHP непосредственно из кода. Для создания приложения можно использовать любые средства разработки, включая Блокнот.
+Единственным требованием для создания приложения PHP, которое получает доступ к службе таблиц Azure, является ссылка на классы в пакете Azure SDK для PHP непосредственно из кода. Можно использовать любые средства разработки для создания приложения, включая программу "Блокнот".
 
 В этом руководстве будут использоваться компоненты службы таблиц, которые могут быть вызваны локально из приложения PHP или в коде, работающем в веб-роли, рабочей роли или на веб-сайте Azure.
 
 ##<a id="GetClientLibrary"></a>Получение клиентских библиотек Azure
 
-[WACOM.INCLUDE [получение-клиент-библиотеки](../includes/get-client-libraries.md)]
+[WACOM.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
 
 ##<a id="ConfigureStorage"></a>Настройка приложения для доступа к службе таблиц
 
@@ -51,13 +51,13 @@
 В следующем примере показано, как включить файл автозагрузчика и сослаться на класс **ServicesBuilder**.
 
 > [WACOM.NOTE]
-> При работе с этим примером (и другими примерами в этой статье) предполагается, что установлены клиентские библиотеки PHP для Azure через Composer. При установке библиотек вручную или в качестве пакета PEAR необходимо сослаться на файл автозагрузчика <code>WindowsAzure.php</code>.
+> При работе с этим примером (и другими примерами в этой статье) предполагается, что установлены клиентские библиотеки PHP для Azure через Composer. При установке библиотек вручную или в качестве пакета PEAR необходимо сослаться на файл автозагрузчика <code>WindowsAzure.php</code> .
 
 	require_once 'vendor\autoload.php';
 	use WindowsAzure\Common\ServicesBuilder;
 
 
-В приведенных ниже примерах инструкция `require_once` всегда будет отображаться, однако ссылки будут приводиться только на классы, которые необходимы для выполнения этого примера.
+В приведенных ниже примерах инструкция require_once будет отображаться всегда, однако ссылки будут приводиться только на классы, которые необходимы для выполнения этого примера.
 
 ##<a id="ConnectionString"></a>Настройка подключения к хранилищу Azure
 
@@ -72,12 +72,12 @@
 	UseDevelopmentStorage=true
 
 
-Для создания клиента службы Azure необходимо использовать класс **ServicesBuilder**. Вы можете:
+Чтобы создать клиент службы Azure, необходимо использовать класс **ServicesBuilder**. Вы можете:
 
 * передать строку подключения напрямую или
-* использовать **CloudConfigurationManager (CCM)** для проверки нескольких внешних источников на наличие строки подключения:
-	* по умолчанию предоставляется поддержка одного внешнего источника - переменных среды
-	* можно добавить новые источники, расширив класс **ConnectionStringSource**
+* использовать **CloudConfigurationManager (CCM)**, чтобы проверить несколько внешних источников на наличие строки подключения:
+	* по умолчанию предоставляется поддержка одного внешнего источника - переменных среды;
+	* можно добавить новые источники, расширив класс **ConnectionStringSource**.
 
 В приведенных здесь примерах строка подключения передается напрямую.
 
@@ -90,33 +90,33 @@
 
 ##<a id="CreateTable"></a>Практическое руководство. Создание таблицы
 
-Объект **TableRestProxy** позволяет создать таблицу с помощью метода **createTable**. При создании таблицы можно задать время ожидания службы таблиц. (Дополнительные сведения о времени ожидания службы таблиц см. в разделе [Настройка времени ожидания для операций службы таблиц][table-service-timeouts]).
+Объект **TableRestProxy** позволяет создать таблицу с помощью метода **createTable**. При создании таблицы можно задать время ожидания службы таблиц. (Дополнительную информацию о времени ожидания службы таблиц см. в разделе [Настройка времени ожидания для операций службы таблиц][table-service-timeouts].)
 
 	require_once 'vendor\autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\Common\ServiceException;
 
-	// Создание прокси-сервера REST для таблицы
+	// Create table REST proxy.
 	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
 
 	try	{
-		// Создание таблицы.
+		// Create table.
 		$tableRestProxy->createTable("mytable");
 	}
 	catch(ServiceException $e){
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
-		// Обработка исключений на основе кодов ошибок и сообщений об ошибках.
-		// Коды ошибок и соответствующие сообщения см. здесь: 
+		// Handle exception based on error codes and messages.
+		// Error codes and messages can be found here: 
 		// http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179438.aspx
 	}
 
-Дополнительные сведения об ограничениях на имена таблиц см. в разделе [Общие сведения о модели данных службы таблиц][table-data-model].
+Дополнительную информацию об ограничениях для имен таблиц см. в разделе [Основные сведения о модели данных службы таблиц][table-data-model].
 
-##<a id="AddEntity"></a>Практическое руководство. Добавление сущности в таблицу
+##<a id="AddEntity"></a>Практическое руководство: Добавление сущности в таблицу
 
-Чтобы добавить сущность в таблицу, создайте новый объект **Entity** и передайте его в **TableRestProxy->insertEntity**. Обратите внимание, что при создании сущности необходимо задать свойства `PartitionKey` и `RowKey`. Это уникальные идентификаторы сущности и значения, которые можно запросить гораздо быстрее, чем другие свойства сущности. Система использует `PartitionKey`, чтобы автоматически распространять сущности таблиц на множество узлов хранилища. Сущности с одним значением `PartitionKey` хранятся на одном узле. (Операции над несколькими сущностями, хранящимися на одном узле, будут выполняться лучше, чем для сущностей на разных узлах.) `RowKey` - это уникальный идентификатор сущности в разделе
+Чтобы добавить сущность в таблицу, создайте новый объект **Entity** и передайте его в **TableRestProxy->insertEntity**. Обратите внимание, что при создании сущности необходимо задать свойства PartitionKey и RowKey. Это уникальные идентификаторы сущности и значения, которые можно запросить гораздо быстрее, чем другие свойства сущности. Система использует PartitionKey, чтобы автоматически распространять сущности таблицы на множество узлов хранилища. Сущности с одним значением PartitionKey хранятся на одном узле. (Операции над несколькими сущностями, хранящимися на одном узле, будут выполняться лучше, чем для сущностей на разных узлах.) RowKey - это уникальный идентификатор сущности в разделе.
 
 	require_once 'vendor\autoload.php';
 
@@ -125,7 +125,7 @@
 	use WindowsAzure\Table\Models\Entity;
 	use WindowsAzure\Table\Models\EdmType;
 
-	// Создание прокси-сервера REST для таблицы
+	// Create table REST proxy.
 	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
 	
 	$entity = new Entity();
@@ -141,16 +141,16 @@
 		$tableRestProxy->insertEntity("mytable", $entity);
 	}
 	catch(ServiceException $e){
-		// Обработка исключений на основе кодов ошибок и сообщений об ошибках.
-		// // Коды ошибок и сообщения об ошибках приведены здесь: 
+		// Handle exception based on error codes and messages.
+		// Error codes and messages are here: 
 		// http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 	}
 
-Дополнительные сведения о типах и свойствах таблиц см. в разделе [Общие сведения о модели данных службы таблиц][table-data-model].
+Дополнительную информацию о типах и свойствах таблиц см. в разделе [Основные сведения о модели данных службы таблиц][table-data-model].
 
-Класс **TableRestProxy** предлагает два альтернативных способа вставки сущностей: **insertOrMergeEntity** и **insertOrReplaceEntity**. Чтобы использовать эти методы, создайте новый объект **Entity** и передайте его в качестве параметра в любой из этих методов. Каждый метод вставит эту сущность, если она не существует. Если сущность уже существует, **insertOrMergeEntity** будет обновлять значения свойств, если свойства уже существуют, и добавлять новые свойства, если они не существуют, в то время как **insertOrReplaceEntity** полностью заменяет имеющуюся сущность. Следующий пример показывает, как использовать **insertOrMergeEntity**. Если сущность с `PartitionKey`, равным "tasksSeattle", и `RowKey`, равным "1", еще не существует, она будет вставлена. Тем не менее если она была вставлена ранее (как показано в приведенном выше примере), будет обновлено свойство `DueDate` и добавлено свойство `Status`. Свойства `Description` и `Location` также будут обновлены, однако на такие значения, которые фактически равны предыдущим. Если эти два последних свойства не были добавлены, как показано в примере, но существовали в целевой сущности, их текущие значения остаются без изменений.
+Существует два альтернативных метода вставки сущностей для класса **TableRestProxy**: **insertOrMergeEntity** и **insertOrReplaceEntity**. Чтобы использовать их, создайте новый объект **Entity** и передайте его в качестве параметра в любой из этих методов. Каждый метод вставит эту сущность, если она не существует. Если сущность существует, метод **insertOrMergeEntity** обновляет значения свойств при их наличии и добавляет новые свойства в случае их отсутствия, в то время как **insertOrReplaceEntity** полностью заменяет имеющуюся сущность. В следующем примере показано, как использовать **insertOrMergeEntity**. Если сущность со свойством PartitionKey со значением tasksSeattle и RowKey со значением 1 еще не существует, она будет вставлена. Тем не менее, если она была вставлена ранее (как показано в приведенном выше примере), будет обновлено свойство DueDate и добавлено свойство Status. Свойства Description и Location также будут обновлены, но на такие значения, которые фактически равны предыдущим. Если эти два последних свойства не были добавлены, как показано в примере, но существовали в целевой сущности, их текущие значения остаются без изменений.
 
 	require_once 'vendor\autoload.php';
 
@@ -159,31 +159,31 @@
 	use WindowsAzure\Table\Models\Entity;
 	use WindowsAzure\Table\Models\EdmType;
 
-	// Создание прокси-сервера REST для таблицы
+	// Create table REST proxy.
 	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
 	
-	//Создание новой сущности.
+	//Create new entity.
 	$entity = new Entity();
 	
-	// PartitionKey и RowKey являются обязательными.
+	// PartitionKey and RowKey are required.
 	$entity->setPartitionKey("tasksSeattle");
 	$entity->setRowKey("1");
 	
-	// Если сущность уже имеется, существующие свойства обновляются новыми значениями, а также
-	// добавляются новые свойства. Отсутствующие свойства остаются без изменений.
+	// If entity exists, existing properties are updated with new values and
+	// new properties are added. Missing properties are unchanged.
 	$entity->addProperty("Description", null, "Take out the trash.");
 	$entity->addProperty("DueDate", EdmType::DATETIME, new DateTime()); // Modified the DueDate field.
 	$entity->addProperty("Location", EdmType::STRING, "Home");
-	$entity->addProperty("Status", EdmType::STRING, "Complete"); // Добавляется поле "Status" (Состояние).
+	$entity->addProperty("Status", EdmType::STRING, "Complete"); // Added Status field.
 	
 	try	{
-		// При вызове insertOrReplaceEntity вместо продемонстрированного здесь insertOrMergeEntity
-		// необходима простая замена в сущности  следующих значений: PartitionKey "tasksSeattle" и RowKey "1".
+		// Calling insertOrReplaceEntity, instead of insertOrMergeEntity as shown,
+		// would simply replace the entity with PartitionKey "tasksSeattle" and RowKey "1".
 		$tableRestProxy->insertOrMergeEntity("mytable", $entity);
 	}
 	catch(ServiceException $e){
-		// Обработка исключений на основе кодов ошибок и сообщений об ошибках.
-		// // Коды ошибок и сообщения об ошибках приведены здесь: 
+		// Handle exception based on error codes and messages.
+		// Error codes and messages are here: 
 		// http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -191,24 +191,24 @@
 	}
 	   
 
-##<a id="RetrieveEntity"></a>Практическое руководство. Извлечение одной сущности
+##<a id="RetrieveEntity"></a>Практическое руководство: Извлечение одной сущности
 
-Метод **TableRestProxy->getEntity** позволяет получить одну сущность, запрашивая ее значения `PartitionKey` и `RowKey`. В примере ниже ключ раздела `tasksSeattle` и ключ строки `1` передаются в метод **getEntity**.
+Метод **TableRestProxy->getEntity** позволяет получить одну сущность, запрашивая ее значения PartitionKey и RowKey. В примере ниже ключ раздела tasksSeattle и ключ строки 1 передаются в метод **getEntity**.
 
 	require_once 'vendor\autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\Common\ServiceException;
 
-	// Создание прокси-сервера REST для таблицы
+	// Create table REST proxy.
 	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
 	
 	try	{
 		$result = $tableRestProxy->getEntity("mytable", "tasksSeattle", 1);
 	}
 	catch(ServiceException $e){
-		// Обработка исключений на основе кодов ошибок и сообщений об ошибках.
-		// // Коды ошибок и сообщения об ошибках приведены здесь: 
+		// Handle exception based on error codes and messages.
+		// Error codes and messages are here: 
 		// http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -219,16 +219,16 @@
 
 	echo $entity->getPartitionKey().":".$entity->getRowKey();
 
-##<a id="RetEntitiesInPartition"></a>Практическое руководство. Получение всех сущностей в разделе
+##<a id="RetEntitiesInPartition"></a>Практическое руководство: Получение всех сущностей в разделе
 
-Запросы сущностей создаются с помощью фильтров (дополнительные сведения см. в разделе [Запросы таблиц и сущностей][filters]). Для получения всех сущностей в разделе используйте фильтр "PartitionKey eq *имя_раздела*". Следующий пример показывает, как получить все сущности в разделе `tasksSeattle`, передав фильтр в метод **queryEntities**.
+Запросы сущностей создаются с помощью фильтров (дополнительную информацию см. в разделе [Запросы к таблицам и сущностям][filters]). Чтобы получить все сущности в разделе, используйте фильтр "PartitionKey eq имя_раздела". В следующем примере показано, как получить все сущности в разделе tasksSeattle, передав фильтр в метод **queryEntities**.
 
 	require_once 'vendor\autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\Common\ServiceException;
 
-	// Создание прокси-сервера REST для таблицы
+	// Create table REST proxy.
 	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
 	
 	$filter = "PartitionKey eq 'tasksSeattle'";
@@ -237,8 +237,8 @@
 		$result = $tableRestProxy->queryEntities("mytable", $filter);
 	}
 	catch(ServiceException $e){
-		// Обработка исключений на основе кодов ошибок и сообщений об ошибках.
-		// // Коды ошибок и сообщения об ошибках приведены здесь: 
+		// Handle exception based on error codes and messages.
+		// Error codes and messages are here: 
 		// http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -251,16 +251,16 @@
 		echo $entity->getPartitionKey().":".$entity->getRowKey()."<br />";
 	}
 
-##<a id="RetrieveSubset"></a>Практическое руководство. Получение диапазона сущностей в разделе
+##<a id="RetrieveSubset"></a>Практическое руководство: Получение диапазона сущностей в разделе
 
-Процедуру, аналогичную приведенной в предыдущем примере, можно использовать для получения любого подмножества сущностей в разделе. Получаемое подмножество сущностей определяется с помощью используемого фильтра (дополнительные сведения см. в разделе [Запросы таблиц и сущностей][filters]). Следующий пример показывает, как использовать фильтр для получения всех сущностей с определенным значением `Location` и со значением `DueDate`, которое меньше указанной даты.  
+Процедуру, аналогичную приведенной в предыдущем примере, можно использовать для получения любого подмножества сущностей в разделе. Получаемое подмножество сущностей определяется с помощью используемого фильтра (дополнительную информацию см. в разделе [Запросы к таблицам и сущностям][filters]). В следующем примере показано, как использовать фильтр для получения всех сущностей с определенным значением Location и со значением DueDate, которое меньше указанной даты.
 
 	require_once 'vendor\autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\Common\ServiceException;
 
-	// Создание прокси-сервера REST для таблицы
+	// Create table REST proxy.
 	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
 	
 	$filter = "Location eq 'Office' and DueDate lt '2012-11-5'";
@@ -269,8 +269,8 @@
 		$result = $tableRestProxy->queryEntities("mytable", $filter);
 	}
 	catch(ServiceException $e){
-		// Обработка исключений на основе кодов ошибок и сообщений об ошибках.
-		// // Коды ошибок и сообщения об ошибках приведены здесь: 
+		// Handle exception based on error codes and messages.
+		// Error codes and messages are here: 
 		// http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -283,9 +283,9 @@
 		echo $entity->getPartitionKey().":".$entity->getRowKey()."<br />";
 	}
 
-##<a id="RetPropertiesSubset"></a>Практическое руководство. Запрос подмножества свойств сущности
+##<a id="RetPropertiesSubset"></a>Практическое руководство: Запрос подмножества свойств сущности
 
-Запрос позволяет получить подмножество свойств сущности. Этот метод, который называется *проекцией*, снижает потребление полосы пропускания и может повысить производительность запросов, особенно для крупных сущностей. Чтобы задать свойство для извлечения, передайте имя этого свойства в метод **Query->addSelectField**. Этот метод можно вызывать несколько раз для добавления дополнительных свойств. После выполнения **TableRestProxy->queryEntities** возвращаемые сущности будут иметь только выбранные свойства. (Если вы хотите вернуть подмножество сущностей таблицы, используйте фильтр из приведенных выше запросов.)
+Запрос позволяет получить подмножество свойств сущности. Этот метод, который называется "проекцией", снижает потребление пропускной способности и может повысить производительность запросов, особенно для больших сущностей. Чтобы задать свойство для извлечения, передайте его имя в метод **Query->addSelectField**. Этот метод можно вызывать несколько раз для добавления дополнительных свойств. После выполнения метода **TableRestProxy->queryEntities** возвращаемым сущностям будут присвоены только выбранные свойства. (Если вы хотите вернуть подмножество сущностей таблицы, используйте фильтр из приведенных выше запросов.)
 
 	require_once 'vendor\autoload.php';
 
@@ -293,7 +293,7 @@
 	use WindowsAzure\Common\ServiceException;
 	use WindowsAzure\Table\Models\QueryEntitiesOptions;
 
-	// Создание прокси-сервера REST для таблицы
+	// Create table REST proxy.
 	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
 	
 	$options = new QueryEntitiesOptions();
@@ -303,17 +303,17 @@
 		$result = $tableRestProxy->queryEntities("mytable", $options);
 	}
 	catch(ServiceException $e){
-		// Обработка исключений на основе кодов ошибок и сообщений об ошибках.
-		// // Коды ошибок и сообщения об ошибках приведены здесь: 
+		// Handle exception based on error codes and messages.
+		// Error codes and messages are here: 
 		// http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
 	}
 	
-	// Возвращаются все сущности в таблице, не зависимо от того, 
-	// имеется ли у них поле "Description" (Описание).
-	// Для ограничения возвращаемых результатов используется фильтр.
+	// All entities in the table are returned, regardless of whether 
+	// they have the Description field.
+	// To limit the results returned, use a filter.
 	$entities = $result->getEntities();
 
 	foreach($entities as $entity){
@@ -321,9 +321,9 @@
 		echo $description."<br />";
 	}
 
-##<a id="UpdateEntity"></a>Практическое руководство. Обновление сущности
+##<a id="UpdateEntity"></a>Практическое руководство: Обновление сущности
 
-Существующие сущности можно обновить, воспользовавшись методами **Entity->setProperty** и **Entity->addProperty** для сущности, а затем вызвав **TableRestProxy->updateEntity**. Следующий пример извлекает сущность, изменяет одно свойство, удаляет другое свойство и добавляет новое свойство. Обратите внимание, что удаление свойства выполняется путем установки его в значение **null**. 
+Имеющиеся сущности можно обновить, воспользовавшись методами **Entity->setProperty** и **Entity->addProperty** для сущности, а затем вызвав метод **TableRestProxy->updateEntity**. Следующий пример извлекает сущность, изменяет одно свойство, удаляет другое свойство и добавляет новое свойство. Обратите внимание, что удаление свойства выполняется путем установки для него значения **null**. 
 
 	require_once 'vendor\autoload.php';
 	
@@ -332,7 +332,7 @@
 	use WindowsAzure\Table\Models\Entity;
 	use WindowsAzure\Table\Models\EdmType;
 
-	// Создание прокси-сервера REST для таблицы
+	// Create table REST proxy.
 	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
 	
 	$result = $tableRestProxy->getEntity("mytable", "tasksSeattle", 1);
@@ -349,33 +349,33 @@
 		$tableRestProxy->updateEntity("mytable", $entity);
 	}
 	catch(ServiceException $e){
-		// Обработка исключений на основе кодов ошибок и сообщений об ошибках.
-		// // Коды ошибок и сообщения об ошибках приведены здесь: 
+		// Handle exception based on error codes and messages.
+		// Error codes and messages are here: 
 		// http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
 	}
 
-##<a id="DeleteEntity"></a>Практическое руководство. Удаление сущности
+##<a id="DeleteEntity"></a>Практическое руководство: Удаление сущности
 
-Чтобы удалить сущность, передайте имя таблицы, а также значения `PartitionKey` и `RowKey` сущности в метод **TableRestProxy->deleteEntity**.
+Чтобы удалить сущность, передайте имя таблицы и значения PartitionKey и RowKey сущности в метод **TableRestProxy->deleteEntity**.
 
 	require_once 'vendor\autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\Common\ServiceException;
 
-	// Создание прокси-сервера REST для таблицы
+	// Create table REST proxy.
 	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
 	
 	try	{
-		// Удаление сущности.
+		// Delete entity.
 		$tableRestProxy->deleteEntity("mytable", "tasksSeattle", "2");
 	}
 	catch(ServiceException $e){
-		// Обработка исключений на основе кодов ошибок и сообщений об ошибках.
-		// // Коды ошибок и сообщения об ошибках приведены здесь: 
+		// Handle exception based on error codes and messages.
+		// Error codes and messages are here: 
 		// http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -384,18 +384,18 @@
 
 Обратите внимание, что для проверки на наличие конфликтов можно задать Etag для удаляемой сущности, воспользовавшись методом **DeleteEntityOptions->setEtag** и передав объект **DeleteEntityOptions** в **deleteEntity** в качестве четвертого параметра.
 
-##<a id="BatchOperations"></a>Практическое руководство. Пакетные операции с таблицами
+##<a id="BatchOperations"></a>Практическое руководство: Пакетные операции с таблицами
 
-Метод **TableRestProxy->batch** позволяет выполнять несколько операций в одном запросе. Здесь шаблон включает в себя добавление операций в объект **BatchRequest** и последующую передачу объекта **BatchRequest** в метод **TableRestProxy->batch**. Чтобы добавить операцию в объект **BatchRequest**, можно вызвать любой из следующих методов несколько раз:
+Метод **TableRestProxy->batch** позволяет выполнять несколько операций в одном запросе. Указанный шаблон включает в себя добавление операций в объект **BatchRequest** и последующую передачу объекта **BatchRequest** в метод **TableRestProxy->batch**. Чтобы добавить операцию в объект **BatchRequest**, можно несколько раз вызвать любой из следующих методов:
 
-* **addInsertEntity** (добавляет операцию insertEntity)
-* **addUpdateEntity** (добавляет операцию updateEntity)
-* **addMergeEntity** (добавляет операцию mergeEntity)
-* **addInsertOrReplaceEntity** (добавляет операцию insertOrReplaceEntity)
-* **addInsertOrMergeEntity** (добавляет операцию insertOrMergeEntity)
-* **addDeleteEntity** (добавляет операцию deleteEntity)
+* **addInsertEntity** (добавляет операцию insertEntity);
+* **addUpdateEntity** (добавляет операцию updateEntity);
+* **addMergeEntity** (добавляет операцию mergeEntity);
+* **addInsertOrReplaceEntity** (добавляет операцию insertOrReplaceEntity);
+* **addInsertOrMergeEntity** (добавляет операцию insertOrMergeEntity);
+* **addDeleteEntity** (добавляет операцию deleteEntity);
 
-Следующий пример показывает, как выполнить операции **insertEntity** и **deleteEntity** в одном запросе:
+В следующем примере показано, как выполнить операции **insertEntity** и **deleteEntity** в одном запросе:
 
 	require_once 'vendor\autoload.php';
 	
@@ -405,10 +405,10 @@
 	use WindowsAzure\Table\Models\EdmType;
 	use WindowsAzure\Table\Models\BatchOperations;
 
- 	// Создание прокси-сервера REST для таблицы
+ 	// Create table REST proxy.
 	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
 	
-	// Создать список пакетной операции.
+	// Create list of batch operation.
 	$operations = new BatchOperations();
 	
 	$entity1 = new Entity();
@@ -420,27 +420,27 @@
 						  new DateTime("2012-11-05T08:15:00-08:00"));
 	$entity1->addProperty("Location", EdmType::STRING, "Home");
 	
-	// Добавление операции к списку пакетных операций.
+	// Add operation to list of batch operations.
     $operations->addInsertEntity("mytable", $entity1);
 
-	// Добавление операции к списку пакетных операций.
+	// Add operation to list of batch operations.
 	$operations->addDeleteEntity("mytable", "tasksSeattle", "1");
 	
 	try	{
 		$tableRestProxy->batch($operations);
 	}
 	catch(ServiceException $e){
-		// Обработка исключений на основе кодов ошибок и сообщений об ошибках.
-		// // Коды ошибок и сообщения об ошибках приведены здесь: 
+		// Handle exception based on error codes and messages.
+		// Error codes and messages are here: 
 		// http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
 	}
 
-Дополнительные сведения о пакетной обработке операций с таблицами см. в разделе [Выполнение групповых транзакций для сущности][entity-group-transactions].
+Дополнительную информацию о пакетной обработке операций с таблицами см. в разделе [Выполнение транзакций группы сущности][entity-group-transactions].
 
-##<a id="DeleteTable"></a>Практическое руководство. Удаление таблицы
+##<a id="DeleteTable"></a>Практическое руководство: Удаление таблицы
 
 Наконец, чтобы удалить таблицу, следует передать имя таблицы в метод **TableRestProxy->deleteTable**.
 
@@ -449,16 +449,16 @@
 	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\Common\ServiceException;
 
-	// Создание прокси-сервера REST для таблицы
+	// Create table REST proxy.
 	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
 	
 	try	{
-		// Удаление таблицы.
+		// Delete table.
 		$tableRestProxy->deleteTable("mytable");
 	}
 	catch(ServiceException $e){
-		// Обработка исключений на основе кодов ошибок и сообщений об ошибках.
-		// // Коды ошибок и сообщения об ошибках приведены здесь: 
+		// Handle exception based on error codes and messages.
+		// Error codes and messages are here: 
 		// http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -469,10 +469,10 @@
 
 Вы изучили основные сведения о службе таблиц Azure. Дополнительные сведения о более сложных задачах по использованию хранилища можно найти по следующим ссылкам.
 
-- Справочник MSDN: [Хранение данных и доступ к ним в Azure] []
+- См. справочник MSDN: [Хранение данных и доступ к ним в Azure] []
 - Посетите блог команды разработчиков хранилища Azure <http://blogs.msdn.com/b/windowsazurestorage/>
 
-[Загрузить]: http://go.microsoft.com/fwlink/?LinkID=252473
+[скачать]: http://go.microsoft.com/fwlink/?LinkID=252473
 [Хранение данных и доступ к ним в Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/gg433040.aspx
 [require_once]: http://php.net/require_once
 [table-service-timeouts]: http://msdn.microsoft.com/ru-ru/library/windowsazure/dd894042.aspx
@@ -480,3 +480,5 @@
 [table-data-model]: http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179338.aspx
 [filters]: http://msdn.microsoft.com/ru-ru/library/windowsazure/dd894031.aspx
 [entity-group-transactions]: http://msdn.microsoft.com/ru-ru/library/windowsazure/dd894038.aspx
+
+<!--HONumber=35_1-->

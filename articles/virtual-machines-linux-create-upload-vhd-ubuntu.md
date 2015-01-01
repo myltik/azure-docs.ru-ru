@@ -1,110 +1,113 @@
-<properties urlDisplayName="Upload an Ubuntu Linux VHD" pageTitle="Создание и передача виртуального жесткого диска с ОС Ubuntu Linux в Azure" metaKeywords="Azure VHD, uploading Linux VHD, Ubuntu" description="Узнайте, как создать и передать виртуальный жесткий диск (VHD-файл) Azure, содержащий операционную систему Ubuntu Linux." metaCanonical="" services="virtual-machines" documentationCenter="" title="Создание и передача виртуального жесткого диска с операционной системой Ubuntu Linux" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
+﻿<properties urlDisplayName="Upload an Ubuntu Linux VHD" pageTitle="Создание и передача виртуального жесткого диска с ОС Ubuntu Linux в Azure" metaKeywords="Azure VHD, uploading Linux VHD, Ubuntu" description="Learn to create and upload an Azure virtual hard disk (VHD) that contains an Ubuntu Linux operating system." metaCanonical="" services="virtual-machines" documentationCenter="" title="Creating and Uploading a Virtual Hard Disk that Contains an Ubuntu Linux Operating System" authors="szarkos" solutions="" manager="timlt" editor="tysonn" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="06/05/2014" ms.author="kathydav, szarkos" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="06/05/2014" ms.author="szarkos" />
+
 
 # Подготовка виртуальной машины Ubuntu для Azure
 
-## Предварительные требования
+##Необходимые компоненты
 
-В этой статье предполагается, что вы уже установили операционную систему Ubuntu Linux на виртуальный жесткий диск. Для создания VHD-файлов существует несколько средств, например решение виртуализации, такое как Hyper-V. Инструкции см. в разделе [Установка роли Hyper-V и настройка виртуальной машины][Установка роли Hyper-V и настройка виртуальной машины].
+В этой статье предполагается, что вы уже установили операционную систему Ubuntu Linux на виртуальный жесткий диск. Для создания VHD-файлов существует несколько средств, например решение виртуализации, такое как Hyper-V. Указания см. в разделе [Установка роли Hyper-V и настройка виртуальной машины](http://technet.microsoft.com/library/hh846766.aspx). 
 
 **Замечания по установке Ubuntu**
 
--   Более новый формат VHDX не поддерживается в Azure. Можно преобразовать диск в формат VHD с помощью диспетчера Hyper-V или командлета convert-vhd.
+- Более новый формат VHDX не поддерживается в Azure. Можно преобразовать диск в формат VHD с помощью диспетчера Hyper-V или командлета convert-vhd.
 
--   При установке системы Linux рекомендуется использовать стандартные разделы, а не LVM (как правило, значение по умолчанию во многих дистрибутивах). Это позволит избежать конфликта имен LVM при клонировании виртуальных машин, особенно если диск с OC может быть подключен к другой ВМ в целях устранения неполадок. Для дисков данных можно использовать LVM или [RAID][RAID].
+- При установке системы Linux рекомендуется использовать стандартные разделы, а не LVM (как правило, значение по умолчанию во многих дистрибутивах). Это позволит избежать конфликта имен LVM при клонировании виртуальных машин, особенно если диск с OC может быть подключен к другой ВМ в целях устранения неполадок.  LVM или [RAID](../virtual-machines-linux-configure-raid) можно использовать на дисках с данными.
 
--   Не настраивайте раздел подкачки на диске с ОС. Можно настроить агент Linux для создания файла подкачки на временном диске ресурсов. Дополнительные сведения описаны далее.
+- Не настраивайте раздел подкачки на диске с ОС. Можно настроить агент Linux для создания файла подкачки на временном диске ресурсов.  Дополнительные сведения описаны далее.
 
--   Все VHD-диски должны иметь размер, кратный 1 МБ.
+- Все VHD-диски должны иметь размер, кратный 1 МБ.
 
-## <span id="ubuntu"></span> </a> Ubuntu 12.04+
 
-1.  На центральной панели диспетчера Hyper-V выберите виртуальную машину.
+## <a id="ubuntu"> </a>Ubuntu 12.04+
 
-2.  Щелкните **Подключение**, чтобы открыть окно виртуальной машины.
+1. На центральной панели диспетчера Hyper-V выберите виртуальную машину.
 
-3.  Замените текущие репозитории в образе на репозитории Ubuntu Azure. Эти действия могут незначительно отличаться в зависимости от версии Ubuntu.
+2. Щелкните **Подключение**, чтобы открыть окно виртуальной машины.
 
-    Перед редактированием файла /etc/apt/sources.list рекомендуется сделать резервную копию
+3.	Замените текущие репозитории в образе на репозитории Ubuntu Azure. Эти действия могут незначительно отличаться в зависимости от версии Ubuntu.
 
-        # sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
+	Перед редактированием файла /etc/apt/sources.list рекомендуется сделать резервную копию
 
-    Ubuntu 12,04:
+		# sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
 
-        # sudo sed -i "s/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g" /etc/apt/sources.list
-        # sudo apt-add-repository 'http://archive.canonical.com/ubuntu precise-backports main'
-        # sudo apt-get update
+	Ubuntu 12.04:
 
-    Ubuntu 12.10:
+		# sudo sed -i "s/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g" /etc/apt/sources.list
+		# sudo apt-add-repository 'http://archive.canonical.com/ubuntu precise-backports main'
+		# sudo apt-get update
 
-        # sudo sed -i "s/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g" /etc/apt/sources.list
-        # sudo apt-add-repository 'http://archive.canonical.com/ubuntu quantal-backports main'
-        # sudo apt-get update
+	Ubuntu 12.10:
 
-    Ubuntu 14.04+
+		# sudo sed -i "s/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g" /etc/apt/sources.list
+		# sudo apt-add-repository 'http://archive.canonical.com/ubuntu quantal-backports main'
+		# sudo apt-get update
 
-        # sudo sed -i "s/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g" /etc/apt/sources.list
-        # sudo apt-get update
+	Ubuntu 14.04+:
 
-4.  Обновите операционную систему до последней версии ядра, выполнив следующие команды:
+		# sudo sed -i "s/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g" /etc/apt/sources.list
+		# sudo apt-get update
 
-    Ubuntu 12,04:
+4. Обновите операционную систему до последней версии ядра, выполнив следующие команды: 
 
-        # sudo apt-get update
-        # sudo apt-get install hv-kvp-daemon-init linux-backports-modules-hv-precise-virtual
-        (recommended) sudo apt-get dist-upgrade
+	Ubuntu 12.04:
 
-        # sudo reboot
+		# sudo apt-get update
+		# sudo apt-get install hv-kvp-daemon-init linux-backports-modules-hv-precise-virtual
+		(recommended) sudo apt-get dist-upgrade
 
-    Ubuntu 12.10:
+		# sudo reboot
 
-        # sudo apt-get update
-        # sudo apt-get install hv-kvp-daemon-init linux-backports-modules-hv-quantal-virtual
-        (recommended) sudo apt-get dist-upgrade
+	Ubuntu 12.10:
 
-        # sudo reboot
+		# sudo apt-get update
+		# sudo apt-get install hv-kvp-daemon-init linux-backports-modules-hv-quantal-virtual
+		(recommended) sudo apt-get dist-upgrade
 
-    Ubuntu 14.04+
+		# sudo reboot
+	
+	Ubuntu 14.04+:
 
-        # sudo apt-get update
-        # sudo apt-get install hv-kvp-daemon-init
-        (recommended) sudo apt-get dist-upgrade
+		# sudo apt-get update
+		# sudo apt-get install hv-kvp-daemon-init
+		(recommended) sudo apt-get dist-upgrade
 
-        # sudo reboot
+		# sudo reboot
 
-5.  (дополнительно) Если система Ubuntu обнаруживает ошибку и перезагружается, она будет ожидать пользовательского ввода на экране загрузчика grub, что предотвращает правильную загрузку системы. Во избежание этого выполните следующие действия:
+5.	(дополнительно) Если система Ubuntu обнаруживает ошибку и перезагружается, она будет ожидать пользовательского ввода на экране загрузчика grub, что предотвращает правильную загрузку системы. Во избежание этого выполните следующие действия:
 
-    а) Откройте файл /etc/grub.d/00\_header.
+	а) Откройте файл /etc/grub.d/00_header.
 
-    б) В функции **make\_timeout()** выполните поиск строки **if ["\\${recordfail}" = 1 ]; then**
+	b) В функции **make_timeout()** выполните поиск строки **if ["\${recordfail}" = 1 ]; then**
 
-    c) Измените инструкцию ниже этой строки на **set timeout=5**.
+	c) Измените инструкцию ниже этой строки на **set timeout=5**.
 
-    d) Выполните 'sudo update-grub'.
+	d) Выполните 'sudo update-grub'.
 
-6.  Измените строку загрузки ядра в конфигурации Grub, чтобы включить дополнительные параметры ядра для Azure. Для этого откройте файл /etc/default/grub в текстовом редакторе, найдите переменную `GRUB_CMDLINE_LINUX_DEFAULT` (или добавьте ее, если это необходимо) и измените эту переменную, включив в нее следующие параметры:
+6. Измените строку загрузки ядра в конфигурации Grub, чтобы включить дополнительные параметры ядра для Azure. Для этого откройте файл /etc/default/grub в текстовом редакторе, найдите переменную GRUB_CMDLINE_LINUX_DEFAULT (или добавьте ее, если это необходимо) и измените эту переменную, включив в нее следующие параметры:
 
-        GRUB_CMDLINE_LINUX_DEFAULT="console=ttyS0 earlyprintk=ttyS0 rootdelay=300"
+		GRUB_CMDLINE_LINUX_DEFAULT="console=ttyS0 earlyprintk=ttyS0 rootdelay=300"
 
-    Сохраните и закройте файл, а затем выполните '`sudo update-grub`'. Это гарантирует отправку всех сообщений консоли на первый последовательный порт, что может помочь технической поддержке Azure в плане отладки.
+	Сохраните и закройте этот файл, затем выполните sudo update-grub. Это гарантирует отправку всех сообщений консоли на первый последовательный порт, что может помочь технической поддержке Azure в плане отладки. 
 
-7.  Убедитесь, что SSH-сервер установлен и настроен для включения во время загрузки. Обычно это сделано по умолчанию.
+8.	Убедитесь, что SSH-сервер установлен и настроен для включения во время загрузки.  Обычно это сделано по умолчанию.
 
-8.  Установите агент Linux для Azure:
+9.	Установите агент Linux для Azure:
 
-        # sudo apt-get update
-        # sudo apt-get install walinuxagent
+		# sudo apt-get update
+		# sudo apt-get install walinuxagent
 
-    Обратите внимание, что установка пакета `walinuxagent` приведет к удалению пакетов `NetworkManager` и `NetworkManager-gnome`, если таковые установлены.
+	Обратите внимание, что установка пакета walinuxagent приведет к удалению пакетов NetworkManager и NetworkManager-gnome, если таковые установлены.
 
-9.  Выполните следующие команды, чтобы отменить подготовку виртуальной машины и подготовить ее в Azure:
+10.	Выполните следующие команды, чтобы отменить подготовку виртуальной машины и подготовить ее в Azure:
 
-        # sudo waagent -force -deprovision
-        # export HISTSIZE=0
-        # logout
+		# sudo waagent -force -deprovision
+		# export HISTSIZE=0
+		# logout
 
-10. В диспетчере Hyper-V выберите **Действие -\> Завершение работы**. Виртуальный жесткий диск Linux готов к передаче в Azure.
+11. В диспетчере Hyper-V выберите **Действие > Завершение работы**. Виртуальный жесткий диск Linux готов к передаче в Azure.
 
-  [Установка роли Hyper-V и настройка виртуальной машины]: http://technet.microsoft.com/library/hh846766.aspx
-  [RAID]: ../virtual-machines-linux-configure-raid
+
+
+<!--HONumber=35_1-->

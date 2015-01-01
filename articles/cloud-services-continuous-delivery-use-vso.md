@@ -1,12 +1,13 @@
-<properties linkid="dev-net-common-tasks-publishing-with-vso" urlDisplayName="Publishing with Visual Studio Online" pageTitle="Continuous delivery with Visual Studio Online in Azure" metaKeywords="" description="Learn how to configure your Visual Studio Online team projects to automatically build and deploy to Azure websites or cloud services." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Continuous delivery to Azure using Visual Studio Online" authors="ghogen" solutions="" manager="douge" editor="" />
+﻿<properties urlDisplayName="Publishing with Visual Studio Online" pageTitle="Непрерывная доставка с использованием Visual Studio Online в Azure" metaKeywords="" description="Learn how to configure your Visual Studio Online team projects to automatically build and deploy to Azure websites or cloud services." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Continuous delivery to Azure using Visual Studio Online" authors="ghogen" solutions="" manager="douge" editor="" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="ghogen" />
 
+
 # Непрерывная доставка в Azure с использованием Visual Studio Online
 
-Вы можете настроить командные проекты Visual Studio Online для автоматического построения облачных служб или веб-сайтов Azure. (Дополнительную информацию о настройке непрерывного процесса построения и развертывания системы с использованием *локального* решения Team Foundation Server см. в разделе [Непрерывная доставка для облачных служб в Azure][Непрерывная доставка для облачных служб в Azure].)
+  Вы можете настроить командные проекты Visual Studio Online для автоматического построения облачных служб или веб-сайтов Azure.  (Дополнительную информацию о настройке непрерывного процесса построения и развертывания системы с использованием *локального* решения Team Foundation Server см. в разделе [Непрерывная доставка для облачных служб в Azure](../cloud-services-dotnet-continuous-delivery).)
 
-В данном учебнике предполагается, что у вас установлены решения Visual Studio 2013 и пакет SDK Azure. Чтобы загрузить Visual Studio 2013, щелкните ссылку **Начните работу бесплатно** на сайте [www.visualstudio.com][www.visualstudio.com]. Пакет SDK Azure можно установить по [этой ссылке][этой ссылке].
+В данном учебнике предполагается, что у вас установлены решения Visual Studio 2013 и пакет SDK Azure. Чтобы скачать Visual Studio 2013, щелкните ссылку **Начните работу бесплатно** на сайте [www.visualstudio.com](http://www.visualstudio.com). Пакет SDK Azure можно установить по [этой ссылке](http://go.microsoft.com/fwlink/?LinkId=239540).
 
 <div class="wa-note">
   <span class="wa-icon-bulb"></span>
@@ -16,312 +17,278 @@
 
 Чтобы настроить облачную службу для автоматического построения и развертывания в Azure с использованием Visual Studio Online, выполните следующие действия:
 
--   [Шаг 1: создание командного проекта.][Шаг 1: создание командного проекта.]
+-   [Шаг 1. Создание командного проекта.][]
 
--   [Шаг 2: регистрация проекта в системе управления версиями.][Шаг 2: регистрация проекта в системе управления версиями.]
+-   [Шаг 2. Регистрация проекта в системе управления версиями.][]
 
--   [Шаг 3: подключение проекта к Azure.][Шаг 3: подключение проекта к Azure.]
+-   [Шаг 3. Подключение проекта к Azure.][]
 
--   [Шаг 4: внесение необходимых изменений и запуск процессов повторного построения и развертывания.][Шаг 4: внесение необходимых изменений и запуск процессов повторного построения и развертывания.]
+-   [Шаг 4. Внесение необходимых изменений и запуск процессов повторного построения и развертывания.][]
 
--   [Шаг 5: повторное развертывание предыдущей сборки (необязательно).][Шаг 5: повторное развертывание предыдущей сборки (необязательно).]
+-   [Шаг 5. Повторное развертывание предыдущей сборки (необязательно)][]
 
--   [Шаг 6: изменение рабочего развертывания (только для облачных служб).][Шаг 6: изменение рабочего развертывания (только для облачных служб).]
+-   [Шаг 6. Изменение рабочего развертывания (только для облачных служб)][]
 
--   [Шаг 7: запуск модульных тестов (необязательно).][Шаг 7: запуск модульных тестов (необязательно).]
+-	[Шаг 7. Запуск модульных тестов (необязательно)][]
 
-## <a name="step1"></a><span class="short-header">Создание командного проекта</span>Шаг 1: создание командного проекта.
+<h2> <a name="step1"></a>Шаг 1. Создание командного проекта.</h2>
 
-Следуйте указаниям, приведенным [здесь][здесь], чтобы создать командный проект и связать его с Visual Studio. В этом руководстве в качестве системы управления версиями применяется Team Foundation Version Control (TFVC). Если для управления версиями вы хотите использовать Git, см. [версию этого руководства для Git][версию этого руководства для Git].
+Следуйте указаниям, приведенным [здесь](http://go.microsoft.com/fwlink/?LinkId=512980) , чтобы создать командный проект и связать его с Visual Studio. В этом руководстве в качестве системы управления версиями применяется Team Foundation Version Control (TFVC). Если для управления версиями вы хотите использовать Git, см. [версию этого руководства для Git](http://go.microsoft.com/fwlink/p/?LinkId=397358).
 
-## <a name="step2"> </a><span class="short-header">Регистрация проекта в системе управления версиями.</span>Шаг 2: регистрация проекта в системе управления версиями.
+<h2><a name="step2"> </a>Шаг 2. Регистрация проекта в системе управления версиями</h2>
 
-1.  В Visual Studio откройте решение, которое вы хотите развернуть, или создайте новое. В этом пошаговом руководстве представлены указания по развертыванию веб-сайта или облачной службы (приложения Azure). Чтобы создать новое решение, создайте новый проект облачной службы Azure или новый проект ASP.NET MVC. Убедитесь, что в проекте используется платформа .NET Framework 4 или 4.5 и создается проект облачной службы, добавьте рабочую роль и веб-роль ASP.NET MVC, после чего выберите интернет приложение для веб-роли. При появлении запроса выберите **Интернетприложение**. Чтобы создать веб-сайт, выберите шаблон проекта «Веб-приложение ASP.NET» и затем выберите MVC. См. раздел [Начало работы с Azure и ASP.NET][Начало работы с Azure и ASP.NET].
+1. В Visual Studio откройте решение, которое вы хотите развернуть, или создайте новое.
+В этом пошаговом руководстве представлены указания по развертыванию веб-сайта или облачной службы (приложения Azure).
+Чтобы создать новое решение, создайте новый проект облачной службы Azure
+или новый проект ASP.NET MVC. Убедитесь, что в проекте используется платформа .NET Framework 4 или 4.5 и создается проект облачной службы, добавьте рабочую роль и веб-роль ASP.NET MVC, после чего выберите интернет-приложение для веб-роли. При появлении запроса выберите **Интернет-приложение**.
+Чтобы создать веб-сайт, выберите шаблон проекта "Веб-приложение ASP.NET" и затем выберите MVC. См. раздел [Начало работы с Azure и ASP.NET](http://www.windowsazure.com/ru-ru/documentation/articles/web-sites-dotnet-get-started/).
 
-2.  Откройте контекстное меню решения и выберите **Добавить решение в систему управления версиями**.
+2. Откройте контекстное меню решения и выберите **Добавить решение в систему управления версиями**.<br/>
+![][5]
 
-    ![][0]
+3. Примите предлагаемые по умолчанию параметры или измените их, после чего нажмите кнопку **ОК**. По завершении обработки в обозревателе решений появится значок системы управления версиями.<br/>
+![][6]
 
-3.  Примите предлагаемые по умолчанию параметры или измените их, после чего нажмите кнопку **ОК**. По завершении обработки в обозревателе решений появится значок системы управления версиями.
+4. Откройте контекстное меню решения и выберите **Регистрация**.<br/>
+![][7]
 
-    ![][1]
-
-4.  Откройте контекстное меню решения и выберите **Регистрация**.
-
-    ![][2]
-
-5.  В области «Ожидающие изменения» в обозревателе Team Explorer введите примечания к регистрации и нажмите кнопку **Регистрация**.
-
-    ![][3]
+5. В области "Ожидающие изменения" в обозревателе Team Explorer введите примечания к регистрации и нажмите кнопку **Регистрация**.<br/>
+![][8]
 
 <br/>
+Обратите внимание на параметры, позволяющие включить или исключить отдельные изменения при регистрации. Если нужные изменения исключены, щелкните ссылку **Включить все**.<br/>
+![][9]
 
-Обратите внимание на параметры, позволяющие включить или исключить отдельные изменения при регистрации. Если нужные изменения исключены, щелкните ссылку **Включить все**.
+<h2> <a name="step3"> </a>Шаг 3. Подключение проекта к Azure</h2>
 
-![][4]
+1. После того как был создан командный проект VSO с определенным исходным кодом, вы можете подключить его к Azure.  На [портале Azure](http://manage.windowsazure.com) выберите существующую облачную службу или веб-сайт либо создайте новую с помощью значка "+" в нижнем левом углу, после чего выберите **Облачная служба** или **Веб-сайт** и щелкните **Быстрое создание**. Выберите ссылку **Настройка публикации в Visual Studio Online**.<br/>
+![][10]
 
-## <a name="step3"> </a><span class="short-header">Подключение проекта к Azure.</span>Шаг 3: подключение проекта к Azure
+2. В текстовом поле в мастере введите имя своей учетной записи Visual Studio Online и щелкните ссылку **Авторизовать сейчас**. Может появиться запрос на вход в систему.<br/>
+![][11]
 
-1.  После того как был создан командный проект VSO с определенным исходным кодом, вы можете подключить его к Azure. Выполните вход на [портал Azure][портал Azure], выберите существующую облачную службу или веб-сайт либо создайте новую с помощью значка «+» в нижнем левом углу, после чего выберите **Облачная служба** или **Веб-сайт** и щелкните **Быстрое создание**. Щелкните ссылку **Настройка публикации в Visual Studio Online**.
+3. Во всплывающем диалоговом окне OAuth щелкните **Принять**, чтобы предоставить Azure полномочия для настройки командного проекта в VSO.<br/>
+![][12]
 
-    ![][5]
+4. После успешной авторизации появится раскрывающийся список, в котором будут представлены ваши командные проекты Visual Studio Online.  Щелкните имя созданного на предыдущих шагах командного проекта и нажмите кнопку с галочкой в мастере.<br/>
+![][13]
 
-2.  В текстовом поле в мастере введите имя своей учетной записи Visual Studio Online и щелкните ссылку **Авторизовать сейчас**. Может появиться запрос на вход в систему.
+5. После привязки проекта появятся инструкции по проверке изменений в командном проекте Visual Studio Online.  При следующей регистрации Visual Studio Online будет строить и развертывать ваш проект в Azure.  Чтобы проверить реализованное поведение, щелкните ссылку **Регистрация из Visual Studio**, а затем ссылку **Запустить Visual Studio** (или аналогичную кнопку **Visual Studio** в нижней части окна портала).<br/>
+![][14]
 
-    ![][6]
+<h2><a name="step4"> </a>Шаг 4. Запуск процессов повторного построения и развертывания проекта</h2>
 
-3.  Во всплывающем диалоговом окне OAuth щелкните **Принять**, чтобы предоставить Azure полномочия для настройки командного проекта в VSO.
+1. В обозревателе Visual Studio Team Explorer щелкните ссылку **Обозреватель управления исходным кодом**.<br/>
+![][15]
 
-    ![][7]
+2. Перейдите к файлу решения и откройте его.<br/>
+![][16]
 
-4.  После успешной авторизации появится раскрывающийся список, в котором будут представлены ваши командные проекты Visual Studio Online. Щелкните имя созданного на предыдущих шагах командного проекта и нажмите кнопку с галочкой в мастере.
+3. Откройте и измените файл в обозревателе решений. Например, измените файл _Layout.cshtml в папке Views\Shared веб-роли MVC.<br/>
+![][17]
 
-    ![][8]
+4. Измените логотип сайта и сохраните файл с помощью клавиш CTRL+S.<br/>
+![][18]
 
-5.  После привязки проекта появятся инструкции по проверке изменений в командном проекте Visual Studio Online. При следующей регистрации Visual Studio Online будет строить и развертывать ваш проект в Azure. Чтобы проверить реализованное поведение, щелкните ссылку **Регистрация из Visual Studio**, а затем ссылку **Запустить Visual Studio** (или аналогичную кнопку **Visual Studio** в нижней части окна портала).
+5. В обозревателе Team Explorer щелкните ссылку **Ожидающие изменения**.<br/>
+![][19]
 
-    ![][9]
+6. Введите примечания и нажмите кнопку **Регистрация**.<br/>
+![][20]
 
-## <a name="step4"> </a><span class="short-header">Запуск повторного построения</span>Шаг 4:запуск повторного построения и развертывания проекта
+7. Нажмите кнопку "Главная", чтобы вернуться на главную страницу Team Explorer.<br/>
+![][21]
 
-1.  В обозревателе Visual Studio Team Explorer щелкните ссылку **Обозреватель управления исходным кодом**.
-
-    ![][10]
-
-2.  Перейдите к файлу решения и откройте его.
-
-    ![][11]
-
-3.  Откройте и измените файл в обозревателе решений. Например, измените файл \_Layout.cshtml в папке Views\\Shared веб-роли MVC.
-
-    ![][12]
-
-4.  Измените логотип сайта и сохраните файл с помощью клавиш CTRL+S.
-
-    ![][13]
-
-5.  В обозревателе Team Explorer щелкните ссылку **Ожидающие изменения**.
-
-    ![][14]
-
-6.  Введите примечания и нажмите кнопку **Регистрация**.
-
-    ![][15]
-
-7.  Нажмите кнопку «Главная», чтобы вернуться на главную страницу Team Explorer.
-
-    ![][16]
-
-8.  Щелкните ссылку **Сборки**, чтобы просмотреть выполняющиеся сборки.
-
-    ![][17]
+8. Щелкните ссылку **Сборки**, чтобы просмотреть выполняющиеся сборки.<br/>
+![][22]
 <br/>
-    В обозревателе Team Explorer будут показаны сведения о том, что для вашей регистрации был запущен процесс сборки.
+В обозревателе Team Explorer будет показана информация о том, что для вашей регистрации был запущен процесс сборки.<br/>
+![][23]
 
-    ![][18]
+9. Дважды щелкните имя выполняемой сборки, чтобы просмотреть подробный журнал процесса построения.<br/>
+![][24]
 
-9.  Дважды щелкните имя выполняемой сборки, чтобы просмотреть подробный журнал процесса сборки.
-
-    ![][19]
-
-10. В процессе построения вы можете просмотреть определение сборки, созданное во время привязки TFS к Azure с помощью мастера. Откройте контекстное меню определения сборки и выберите **Редактировать определение сборки**.
-
-    ![][20]
+10. В процессе построения вы можете просмотреть определение сборки, созданное во время привязки TFS к Azure с помощью мастера.  Откройте контекстное меню определения сборки и выберите **Редактировать определение сборки**.<br/>
+![][25]
 <br/>
-    На вкладке **Триггер** указывается, что в определении сборки по умолчанию настроено выполнение сборки при каждой регистрации.
-
-    ![][21]
+На вкладке **Триггер** указывается, что в определении сборки по умолчанию настроено выполнение сборки при каждой регистрации.<br/>
+![][26]
 <br/>
-    На вкладке **Процесс** указывается, что в среде разработки настроено имя вашей облачной веб-службы или веб-сайта. При работе с веб-сайтами здесь будут показаны другие свойства.
-
-    ![][22]
+На вкладке **Процесс** указывается, что в среде разработки настроено имя вашей облачной веб-службы или веб-сайта. При работе с веб-сайтами здесь будут показаны другие свойства.<br/>
+![][27]
 <br/>
-При необходимости измените установленные по умолчанию значения свойств. Свойства публикации Azure находятся в разделе «Развертывание». В следующей таблице приводятся доступные свойства в разделе «Развертывание»:
+При необходимости измените установленные по умолчанию значения свойств. Свойства публикации Azure находятся в разделе "Развертывание".
+В следующей таблице приводятся доступные свойства в разделе "Развертывание":
 	<table>
 <tr><td><b>Свойство</b></td><td><b>Значение по умолчанию</b></td></tr>
-><tr><td>Разрешить ненадежные сертификаты</td><td>Если значение false, SSL-сертификаты должны быть подписаны корневым центром сертификации.</td></tr>
-<tr><td>Разрешить обновление</td><td>Разрешает развертывание обновить существующее развертывание, а не создавать новое. Сохраняет IP-адрес. </td></tr>
-><tr><td>Разрешает развертывание обновить существующее развертывание, а не создавать новое. Сохраняет IP-адрес. </td><td>Если значение true, не перезаписывать существующее развертывание (обновление разрешается).</td></tr>
-<tr><td>Если значение true, не перезаписывать существующее развертывание (обновление разрешается).</td><td>Путь к вашему PUBXML-файлу для веб-сайта относительно корневой папки репозитория. Игнорируется для облачных служб.</td></tr>
-<tr><td>Среда развертывания SharePoint</td><td>Такая же, как и имя службы.</td></tr>
-<tr><td>Такая же, как и имя службы.</td><td>Имя веб-сайта или облачной службы.</td></tr>
+><tr><td>Разрешить недоверенные сертификаты</td><td>Если установлено значение false, то SSL-сертификаты должны быть подписаны корневым центром сертификации.</td></tr>
+<tr><td>Разрешить обновление</td><td>Разрешает обновление существующего развертывания вместо создания нового. Сохраняет IP-адрес.</td></tr>
+><tr><td>Не удалять</td><td>Если установлено значение true, не разрешена перезапись существующего несвязанного развертывания (обновление разрешено).</td></tr>
+<tr><td>Путь к параметрам развертывания</td><td>Путь к PUBXML-файлу для веб-сайта относительно корневой папки репозитория. Для облачных служб игнорируется.</td></tr>
+<tr><td>Среда развертывания SharePoint</td><td>Совпадает с именем службы.</td></tr>
+<tr><td>Среда развертывания Microsoft Azure</td><td>Имя веб-сайта или облачной службы</td></tr>
 </table>
 <br/>
 
+Если вы используете несколько конфигураций служб (CSCFG-файлов), можете указать желаемую конфигурацию службы в параметрах **Сборка, Дополнительно, Аргументы MSBuild**. Например, чтобы использовать файл ServiceConfiguration.Test.cscfg, задайте аргумент командной строки MSBuild /p:TargetProfile=Test.<br/>
+![][37]
 
-Если используется несколько конфигураций служб (CSCFG-файлов), можно указать желаемую конфигурацию службы в параметрах **Сборка, Дополнительно, Аргументы MSBuild**. Например, чтобы использовать файл ServiceConfiguration.Test.cscfg, задайте аргумент командной строки MSBuild /p:TargetProfile=Test.
+11. К этому моменту процесс построения должен быть успешно завершен.<br/>
+![][28]
 
-![][23]
+12. Чтобы открыть окно **Сводка сборки** в Visual Studio и просмотреть результаты проверки из связанных проектов модульного тестирования, дважды щелкните имя сборки.<br/>
+![][29]
 
-1.  К этому моменту процесс сборки должен быть успешно завершен.
-
-    ![][24]
-
-2.  Чтобы открыть окно **Сводка сборки** в Visual Studio и просмотреть результаты проверки из связанных проектов модульного тестирования, дважды щелкните имя сборки.
-
-    ![][25]
-
-3.  Если выбрана промежуточная среда, на вкладке «Развертывания» [портала Azure][портал Azure] вы можете просмотреть связанные развертывания.
-
-    ![][26]
-
-4.  Перейдите по URL-адресу вашего сайта. Для веб-сайта достаточно нажать кнопку «Обзор» на панели команд. Для облачной службы выберите URL-адрес в разделе **Сводка** на странице **Панель мониторинга**, где отображается промежуточная среда для облачной службы. Развертывания из решений непрерывной интеграции для облачных служб по умолчанию публикуются в промежуточной среде. Чтобы изменить это поведение, присвойте свойству "Альтернативная среда облачной службы" значение "Рабочая". На этом снимке экрана показано местонахождение URL-адреса сайта на странице «Панель мониторинга» облачной службы:
-
-    ![][27]
-<br />
-    Сайт откроется на новой вкладке браузера.
-
-    ![][28]
-
-5.  При внесении других изменений в проект для облачных служб запускаются дополнительные процессы построения, в результате чего создается несколько развертываний, последнее из которых отмечается как активное.
-
-    ![][29]
-
-## <a name="step5"> </a><span class="short-header"> Повторное развертывание предыдущей сборки</span>Шаг 5: повторное развертывание предыдущей сборки
-
-Этот шаг необязателен и применяется к облачным службам. Чтобы восстановить состояние сайта на момент более ранней регистрации, выберите предыдущее развертывание на портале управления и нажмите кнопку **Повторное развертывание**. Обратите внимание, что при этом в TFS будет запущен новый процесс построения, а в историю развертывания будет добавлена новая запись.
-
+13. На [портале Azure](http://manage.windowsazure.com)вы можете видеть соответствующее развертывание на вкладке развертываний, выбрав промежуточную среду.<br/>
 ![][30]
 
-## <a name="step6"> </a><span class="short-header">Изменение рабочего развертывания</span>Шаг 6: изменение рабочего развертывания
-
-Этот шаг применяется только к облачным службам и недоступен для веб-сайтов. Выполнив все необходимые действия, вы можете повысить промежуточную среду до рабочей с помощью кнопки "Переключить" портала управления. Вновь развернутая промежуточная среда повышается до уровня рабочей, а ранее установленная рабочая среда становится промежуточной. Рабочая и промежуточная среды могут использовать разные активные развертывания, однако история развертывания последних сборок будет содержать одинаковые записи независимо от выбранной среды.
-
+14.	Перейдите по URL-адресу вашего сайта. Для веб-сайта достаточно нажать кнопку "Обзор" на панели команд. Для облачной службы выберите URL-адрес в разделе **Сводка** на странице **Панель мониторинга**, где отображается промежуточная среда для облачной службы. Развертывания из решений непрерывной интеграции для облачных служб по умолчанию публикуются в промежуточной среде. Чтобы изменить это поведение, присвойте свойству "Альтернативная среда облачной службы" значение "Рабочая". На этом снимке экрана показано местонахождение URL-адреса сайта на странице "Панель мониторинга" облачной службы: <br/>
 ![][31]
+<br/>
+Сайт откроется на новой вкладке браузера.<br/>
+![][32]
 
-## <a name="step7"> </a><span class="short-header">Запуск модульных тестов</span>Шаг 7: запуск модульных тестов
+15.	При внесении других изменений в проект для облачных служб запускаются дополнительные процессы построения, в результате чего создается несколько развертываний, последнее из которых отмечается как активное.<br/>
+![][33]
+
+<h2> <a name="step5"> </a>Шаг 5. Повторное развертывание предыдущей сборки</h2>
+
+Этот шаг необязателен и применяется к облачным службам. На портале управления выберите более раннее развертывание и нажмите кнопку **Повторить развертывание**, чтобы вернуть ваш сайт к более ранней регистрации. Учтите, что при этом запустится новая сборка в TFS и будет создана новая запись в журнале развертываний.<br/>
+![][34]
+
+<h2> <a name="step6"> </a>Шаг 6. Изменение развертывания в рабочей среде</h2>
+
+Этот шаг применяется только к облачным службам и недоступен для веб-сайтов. Выполнив все необходимые действия, вы можете повысить промежуточную среду до рабочей с помощью кнопки "Переключить" портала управления. Вновь развернутая промежуточная среда повышается до уровня рабочей, а ранее установленная рабочая среда становится промежуточной. Рабочая и промежуточная среды могут использовать разные активные развертывания, однако история развертывания последних сборок будет содержать одинаковые записи независимо от выбранной среды.<br/>
+![][35]
+
+<h2> <a name="step7"> </a>Шаг 7. Выполнение модульных тестов</h2>
 
 Чтобы обеспечить контроль качества производственных или промежуточных развертываний, можно запустить модульные тесты, и если они не пройдут успешно, остановить развертывание.
 
-1.  В Visual Studio добавьте проект модульного теста.
+1.  В Visual Studio добавьте проект модульного теста.<br/>
+![][39]
 
-    ![][32]
-
-2.  Добавьте ссылки на те проекты, которые необходимо протестировать.
- 
-   ![][33]
+2.  Добавьте ссылки на те проекты, которые необходимо протестировать.<br/>
+![][40]
 
 3.  Добавьте модульные тесты. Сначала попробуйте фиктивный тест, который всегда выдает положительный результат.
 
-        using System;
-        using Microsoft.VisualStudio.TestTools.UnitTesting;
-        namespace UnitTestProject1
-        {
-            [TestClass]
-            public class UnitTest1
-            {
-                [TestMethod]
-                [ExpectedException(typeof(NotImplementedException))]
-                public void TestMethod1()
-                {
-                    throw new NotImplementedException();
-                }
-            }
-        }
+		using System;
+		using Microsoft.VisualStudio.TestTools.UnitTesting;
+		
+		namespace UnitTestProject1
+		{
+		    [TestClass]
+		    public class UnitTest1
+		    {
+		        [TestMethod]
+		        [ExpectedException(typeof(NotImplementedException))]
+		        public void TestMethod1()
+		        {
+		            throw new NotImplementedException();
+		        }
+		    }
+		}
 
-4.  Измените определение сборки, выберите вкладку «Процессы» и разверните узел «Test».
+4.  Измените определение сборки, выберите вкладку "Процессы" и разверните узел "Test".
 
-5.  Установите для параметра **Завершить сборку при ошибке теста** значение True. Это означает, что развертывание не будет происходить, если тест не будет пройдет положительно.
 
-    ![][34]
+5.  Установите для параметра **Завершить сборку при ошибке теста** значение True. Это означает, что развертывание не будет происходить, если тест не будет пройден положительно.<br/>
+![][41]
 
-6.  Поставьте новую сборку в очередь.
-
-    ![][35]
+6.  Поставьте новую сборку в очередь.<br/>
+![][42]
 <br/>
-    ![][36]
+![][43]
 
-7.  По мере обработки сборки проверяйте ход выполнения.
-
-    ![][37]
+7. По мере обработки сборки проверяйте ход выполнения.<br/>
+![][44]
 <br/>
-    ![][38]
+![][45]
 
-8.  По завершению сборки проверьте результаты теста.
-
-    ![][39]
+7. По завершению сборки проверьте результаты теста.<br/>
+![][46]
 <br/>
-    ![][40]
+![][47]
 
-9.  Попробуйте создать тест, который выдаст отрицательный результат. Добавьте новый тест, скопировав первый, переименовав его и закомментировав строку кода, которая выдает исключение NotImplementedException.
+8.  Попробуйте создать тест, который выдаст отрицательный результат. Добавьте новый тест, скопировав первый, переименовав его и закомментировав строку кода, которая выдает исключение NotImplementedException. 
 
-        [TestMethod]
-        [ExpectedException(typeof(NotImplementedException))]
-        public void TestMethod2()
-        {
-            //throw new NotImplementedException();
-        }
+		[TestMethod]
+		[ExpectedException(typeof(NotImplementedException))]
+		public void TestMethod2()
+		{
+		    //throw new NotImplementedException();
+		}
 
-10. Примените изменения, чтобы поставить в очередь новую сборку.
+9. Примените изменения, чтобы поставить в очередь новую сборку.<br/>
+![][48]
 
-    ![][41]
-
-11. Просмотрите результаты теста и подробности отрицательного результата.
-
-    ![][42]
+10. Просмотрите результаты теста и подробности отрицательного результата.<br/>
+![][49]
 <br/>
-    ![][43]
+![][50]
 
-Дополнительную информацию о модульном тестировании в Visual Studio Online см. в разделе [Выполнение тестов в процессе сборки][Выполнение тестов в процессе сборки].
+Дополнительную информацию о модульном тестировании в Visual Studio Online см. в разделе [Выполнение тестов в процессе сборки](http://go.microsoft.com/fwlink/p/?LinkId=510474).
 
-Дополнительные сведения см. в разделе [Visual Studio Online][Visual Studio Online]. При работе с Git см. разделы [Совместный доступ к коду с помощью Git][Совместный доступ к коду с помощью Git] и [Публикация из системы управления версиями на веб-сайты Azure][Публикация из системы управления версиями на веб-сайты Azure].
+Дополнительную информацию см. в разделе [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861). Если вы используете Git, см. разделы [Совместный доступ к коду с помощью Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) и [Публикация из системы управления версиями на веб-сайты Azure](http://www.windowsazure.com/ru-ru/documentation/articles/web-sites-publish-source-control).
 
-  [Непрерывная доставка для облачных служб в Azure]: ../cloud-services-dotnet-continuous-delivery
-  [www.visualstudio.com]: http://www.visualstudio.com
-  [этой ссылке]: http://go.microsoft.com/fwlink/?LinkId=239540
-  [Шаг 1: создание командного проекта.]: #step1
-  [Шаг 2: регистрация проекта в системе управления версиями.]: #step2
-  [Шаг 3: подключение проекта к Azure.]: #step3
-  [Шаг 4: внесение необходимых изменений и запуск процессов повторного построения и развертывания.]: #step4
-  [здесь]: http://go.microsoft.com/fwlink/?LinkId=512980
-  [версию этого руководства для Git]: http://go.microsoft.com/fwlink/p/?LinkId=397358
-  [Начало работы с Azure и ASP.NET]: http://www.windowsazure.com/ru-ru/documentation/articles/web-sites-dotnet-get-started/
-  [0]: ./media/cloud-services-continuous-delivery-use-vso/tfs5.png
-  [1]: ./media/cloud-services-continuous-delivery-use-vso/tfs6.png
-  [2]: ./media/cloud-services-continuous-delivery-use-vso/tfs7.png
-  [3]: ./media/cloud-services-continuous-delivery-use-vso/tfs8.png
-  [4]: ./media/cloud-services-continuous-delivery-use-vso/tfs9.png
-  [портал Azure]: http://manage.windowsazure.com
-  [5]: ./media/cloud-services-continuous-delivery-use-vso/tfs10.png
-  [6]: ./media/cloud-services-continuous-delivery-use-vso/tfs11.png
-  [7]: ./media/cloud-services-continuous-delivery-use-vso/tfs12.png
-  [8]: ./media/cloud-services-continuous-delivery-use-vso/tfs13.png
-  [9]: ./media/cloud-services-continuous-delivery-use-vso/tfs14.png
-  [10]: ./media/cloud-services-continuous-delivery-use-vso/tfs15.png
-  [11]: ./media/cloud-services-continuous-delivery-use-vso/tfs16.png
-  [12]: ./media/cloud-services-continuous-delivery-use-vso/tfs17.png
-  [13]: ./media/cloud-services-continuous-delivery-use-vso/tfs18.png
-  [14]: ./media/cloud-services-continuous-delivery-use-vso/tfs19.png
-  [15]: ./media/cloud-services-continuous-delivery-use-vso/tfs20.png
-  [16]: ./media/cloud-services-continuous-delivery-use-vso/tfs21.png
-  [17]: ./media/cloud-services-continuous-delivery-use-vso/tfs22.png
-  [18]: ./media/cloud-services-continuous-delivery-use-vso/tfs23.png
-  [19]: ./media/cloud-services-continuous-delivery-use-vso/tfs24.png
-  [20]: ./media/cloud-services-continuous-delivery-use-vso/tfs25.png
-  [21]: ./media/cloud-services-continuous-delivery-use-vso/tfs26.png
-  [22]: ./media/cloud-services-continuous-delivery-use-vso/tfs27.png
-  [23]: ./media/cloud-services-continuous-delivery-use-vso/tfs37.PNG
-  [24]: ./media/cloud-services-continuous-delivery-use-vso/tfs28.png
-  [25]: ./media/cloud-services-continuous-delivery-use-vso/tfs29.png
-  [26]: ./media/cloud-services-continuous-delivery-use-vso/tfs30.png
-  [27]: ./media/cloud-services-continuous-delivery-use-vso/tfs31.png
-  [28]: ./media/cloud-services-continuous-delivery-use-vso/tfs32.png
-  [29]: ./media/cloud-services-continuous-delivery-use-vso/tfs33.png
-  [30]: ./media/cloud-services-continuous-delivery-use-vso/tfs34.png
-  [31]: ./media/cloud-services-continuous-delivery-use-vso/tfs35.png
-  [32]: ./media/cloud-services-continuous-delivery-use-vso/AddUnitTestProject.PNG
-  [33]: ./media/cloud-services-continuous-delivery-use-vso/AddProjectReferences.PNG
-  [34]: ./media/cloud-services-continuous-delivery-use-vso/EditBuildDefinitionForTest.PNG
-  [35]: ./media/cloud-services-continuous-delivery-use-vso/QueueNewBuild.PNG
-  [36]: ./media/cloud-services-continuous-delivery-use-vso/QueueBuildDialog.PNG
-  [37]: ./media/cloud-services-continuous-delivery-use-vso/BuildInTeamExplorer.PNG
-  [38]: ./media/cloud-services-continuous-delivery-use-vso/BuildRequestInfo.PNG
-  [39]: ./media/cloud-services-continuous-delivery-use-vso/BuildSucceeded.PNG
-  [40]: ./media/cloud-services-continuous-delivery-use-vso/TestResultsPassed.PNG
-  [41]: ./media/cloud-services-continuous-delivery-use-vso/CheckInChangeToMakeTestsFail.PNG
-  [42]: ./media/cloud-services-continuous-delivery-use-vso/TestsFailed.PNG
-  [43]: ./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG
-  [Выполнение тестов в процессе сборки]: http://go.microsoft.com/fwlink/p/?LinkId=510474
-  [Visual Studio Online]: http://go.microsoft.com/fwlink/?LinkId=253861
-  [Совместный доступ к коду с помощью Git]: http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx
-  [Публикация из системы управления версиями на веб-сайты Azure]: http://www.windowsazure.com/ru-ru/documentation/articles/web-sites-publish-source-control
+[Шаг 1. Создание командного проекта.]: #step1
+[Шаг 2. Регистрация проекта в системе управления версиями.]: #step2
+[Шаг 3. Подключение проекта к Azure.]: #step3
+[Шаг 4. Внесение необходимых изменений и запуск процессов повторного построения и развертывания.]: #step4
+[Шаг 5. Повторное развертывание предыдущей сборки (необязательно)]: #step5
+[Шаг 6. Изменение рабочего развертывания (только для облачных служб)]: #step6
+[Шаг 7. Запуск модульных тестов (необязательно)]: #step7
+[0]: ./media/cloud-services-continuous-delivery-use-vso/tfs0.PNG
+[1]: ./media/cloud-services-continuous-delivery-use-vso/tfs1.png
+[2]: ./media/cloud-services-continuous-delivery-use-vso/tfs2.png
+
+
+[5]: ./media/cloud-services-continuous-delivery-use-vso/tfs5.png
+[6]: ./media/cloud-services-continuous-delivery-use-vso/tfs6.png
+[7]: ./media/cloud-services-continuous-delivery-use-vso/tfs7.png
+[8]: ./media/cloud-services-continuous-delivery-use-vso/tfs8.png
+[9]: ./media/cloud-services-continuous-delivery-use-vso/tfs9.png
+[10]: ./media/cloud-services-continuous-delivery-use-vso/tfs10.png
+[11]: ./media/cloud-services-continuous-delivery-use-vso/tfs11.png
+[12]: ./media/cloud-services-continuous-delivery-use-vso/tfs12.png
+[13]: ./media/cloud-services-continuous-delivery-use-vso/tfs13.png
+[14]: ./media/cloud-services-continuous-delivery-use-vso/tfs14.png
+[15]: ./media/cloud-services-continuous-delivery-use-vso/tfs15.png
+[16]: ./media/cloud-services-continuous-delivery-use-vso/tfs16.png
+[17]: ./media/cloud-services-continuous-delivery-use-vso/tfs17.png
+[18]: ./media/cloud-services-continuous-delivery-use-vso/tfs18.png
+[19]: ./media/cloud-services-continuous-delivery-use-vso/tfs19.png
+[20]: ./media/cloud-services-continuous-delivery-use-vso/tfs20.png
+[21]: ./media/cloud-services-continuous-delivery-use-vso/tfs21.png
+[22]: ./media/cloud-services-continuous-delivery-use-vso/tfs22.png
+[23]: ./media/cloud-services-continuous-delivery-use-vso/tfs23.png
+[24]: ./media/cloud-services-continuous-delivery-use-vso/tfs24.png
+[25]: ./media/cloud-services-continuous-delivery-use-vso/tfs25.png
+[26]: ./media/cloud-services-continuous-delivery-use-vso/tfs26.png
+[27]: ./media/cloud-services-continuous-delivery-use-vso/tfs27.png
+[28]: ./media/cloud-services-continuous-delivery-use-vso/tfs28.png
+[29]: ./media/cloud-services-continuous-delivery-use-vso/tfs29.png
+[30]: ./media/cloud-services-continuous-delivery-use-vso/tfs30.png
+[31]: ./media/cloud-services-continuous-delivery-use-vso/tfs31.png
+[32]: ./media/cloud-services-continuous-delivery-use-vso/tfs32.png
+[33]: ./media/cloud-services-continuous-delivery-use-vso/tfs33.png
+[34]: ./media/cloud-services-continuous-delivery-use-vso/tfs34.png
+[35]: ./media/cloud-services-continuous-delivery-use-vso/tfs35.png
+[36]: ./media/cloud-services-continuous-delivery-use-vso/tfs36.PNG
+[37]: ./media/cloud-services-continuous-delivery-use-vso/tfs37.PNG
+[38]: ./media/cloud-services-continuous-delivery-use-vso/AdvancedMSBuildSettings.PNG
+[39]: ./media/cloud-services-continuous-delivery-use-vso/AddUnitTestProject.PNG
+[40]: ./media/cloud-services-continuous-delivery-use-vso/AddProjectReferences.PNG
+[41]: ./media/cloud-services-continuous-delivery-use-vso/EditBuildDefinitionForTest.PNG
+[42]: ./media/cloud-services-continuous-delivery-use-vso/QueueNewBuild.PNG
+[43]: ./media/cloud-services-continuous-delivery-use-vso/QueueBuildDialog.PNG
+[44]: ./media/cloud-services-continuous-delivery-use-vso/BuildInTeamExplorer.PNG
+[45]: ./media/cloud-services-continuous-delivery-use-vso/BuildRequestInfo.PNG
+[46]: ./media/cloud-services-continuous-delivery-use-vso/BuildSucceeded.PNG
+[47]: ./media/cloud-services-continuous-delivery-use-vso/TestResultsPassed.PNG
+[48]: ./media/cloud-services-continuous-delivery-use-vso/CheckInChangeToMakeTestsFail.PNG
+[49]: ./media/cloud-services-continuous-delivery-use-vso/TestsFailed.PNG
+[50]: ./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG
+
+<!--HONumber=35_1-->

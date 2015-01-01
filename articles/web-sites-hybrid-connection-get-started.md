@@ -1,209 +1,195 @@
-<properties linkid="web-sites-hybrid-connection" title="Hybrid Connection: Connect an Azure Website to an On-Premises Resource" pageTitle="Hybrid Connection: Connect an Azure Website to an On-Premises Resource" description="Create a connection between an Azure website and an on-premises resource that uses a static TCP port" metaKeywords="" services="web-sites" solutions="web" documentationCenter="" authors="timamm" manager="paulettm" editor="mollybos" videoId="" scriptId="" />
+﻿<properties title="Hybrid Connection: Connect an Azure Website to an On-Premises Resource" pageTitle="Гибридные подключения: подключение веб-сайта Azure к локальному ресурсу" description="Create a connection between an Azure website and an on-premises resource that uses a static TCP port" metaKeywords="" services="web-sites" solutions="web" documentationCenter="" authors="cephalin" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timamm" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/24/2014" ms.author="cephalin" />
 
-# Подключение веб-сайта Azure к локальным ресурсам с помощью гибридных подключений
+#Подключение веб-сайта Azure к локальным ресурсам с помощью гибридных подключений
 
 Вы можете подключить веб-сайт Microsoft Azure к любому локальному ресурсу, который использует статический TCP-порт: например, SQL Server, MySQL, веб-интерфейсы API HTTP, мобильные службы и самые настраиваемые веб-службы. В этой статье показано, как создать гибридное подключение между веб-сайтом Azure и локальной базой данных SQL Server.
 
-> [WACOM.NOTE] Часть «Веб-сайты» функции гибридных подключений доступна только на [портале Azure (предварительная версия)][портале Azure (предварительная версия)]. Сведения о создании подключения в службах BizTalk см. в разделе [Гибридные подключения][Гибридные подключения].
+> [WACOM.NOTE] Часть функции "Веб-сайты" гибридных подключений доступна только на [портале предварительной версии Azure](https://portal.azure.com). Сведения о создании подключения в службах BizTalk см. в разделе [Гибридные подключения](http://go.microsoft.com/fwlink/p/?LinkID=397274).  
 
-## Предварительные требования
+##Предварительные требования
+- Подписка Azure. Бесплатную подписку можно найти на сайте [Бесплатная пробная версия Azure](http://azure.microsoft.com/ru-ru/pricing/free-trial/). 
 
--   Подписка Azure. Бесплатную подписку можно найти на сайте [Бесплатная пробная версия Azure][Бесплатная пробная версия Azure].
+- Для использования локальной базы данных SQL Server или SQL Server Express с помощью гибридного подключения в статическом порте должен быть включен протокол TCP/IP. Мы рекомендуем использовать экземпляр SQL Server по умолчанию, так как он использует статический порт 1433. Информацию об установке и настройке экспресс-выпуска SQL Server для использования с гибридными подключениями см. в разделе [Подключение к локальному SQL Server с веб-сайта Azure с помощью гибридных подключений](http://go.microsoft.com/fwlink/?LinkID=397979).
 
--   Для использования локальной базы данных SQL Server или SQL Server Express с помощью гибридного подключения в статическом порте должен быть включен протокол TCP/IP. Рекомендуется использовать экземпляр SQL Server по умолчанию, поскольку он использует статический порт 1433. Сведения об установке и настройке SQL Server Express для использования с гибридными подключениями см. в разделе [Подключение к локальному SQL Server с веб-сайта Azure с помощью гибридных подключений][Подключение к локальному SQL Server с веб-сайта Azure с помощью гибридных подключений].
+- Компьютер, на котором установлен локальный агент диспетчера гибридных подключений, описан далее в этой статье:
 
--   Компьютер, на котором установлен локальный агент диспетчера гибридных подключений, описан далее в этой статье:
-
-    -   должен подключаться к Azure через порт 5671;
-    -   должен подключаться к *hostname*:*portnumber* локального источника.
+	- должен подключаться к Azure через порт 5671;
+	- Должен подключаться к hostname:portnumber локального источника. 
 
 > [WACOM.NOTE] В шагах этой статьи предполагается, что вы используете браузер с компьютера, на котором размещается локальный агент гибридного подключения.
 
-## Содержание
 
-[Создание веб-сайта Azure (предварительная версия)][Создание веб-сайта Azure (предварительная версия)]
+##В этой статье
 
-[Создание гибридного подключения и службы BizTalk][Создание гибридного подключения и службы BizTalk]
 
-[Установка локального диспетчера гибридных подключений для выполнения подключения][Установка локального диспетчера гибридных подключений для выполнения подключения]
+[Создание веб-сайта на портале Azure (предварительная версия)](#CreateSite)
 
-[Дальнейшие действия][Дальнейшие действия]
+[Создание гибридного подключения и службы BizTalk](#CreateHC)
 
-## Создание веб-сайта Azure (предварительная версия)
+[Установка локального диспетчера гибридных подключений для завершения подключения](#InstallHCM)
 
-> [WACOM.NOTE] Если вы уже создали веб-сайт на портале Azure (предварительная версия), который хотите использовать в этом учебнике, можно пропустить этот шаг и начать с раздела [Создание гибридного подключения и службы BizTalk][Создание гибридного подключения и службы BizTalk].
+[Дальнейшие действия](#NextSteps)
 
-1.  В левом нижнем углу [портала Azure (предварительная версия)][портале Azure (предварительная версия)] щелкните кнопку **Создать** и выберите **Веб-сайт**.
 
-    ![Кнопка «Создать»][Кнопка «Создать»]
+## Создание веб-сайта на портале предварительной версии Azure
 
-    ![Создание веб-сайта][Создание веб-сайта]
+> [WACOM.NOTE] Если вы уже создали веб-сайт на портале предварительной версии Azure, который хотите использовать в этом учебнике, можно пропустить этот шаг и начать с раздела [Создание гибридного подключения и службы BizTalk](#CreateHC) .
 
-2.  На выноске **Веб-сайт** укажите имя веб-сайта и щелкните кнопку **Создать**.
-
-    ![Имя веб-сайта][Имя веб-сайта]
-
-3.  Через несколько мгновений будет создан веб-сайт и появится выноска веб-сайта. Выноска — это вертикальная панель мониторинга, которую можно прокручивать и которая позволяет управлять сайтом.
-
-    ![Запущенный веб-сайт][Запущенный веб-сайт]
-
-4.  Чтобы проверить, что веб-сайт работает, можно щелкнуть значок **Обзор** для отображения страницы по умолчанию.
-
-    ![Щелкните кнопку «Обзор», чтобы посмотреть веб-сайт][Щелкните кнопку «Обзор», чтобы посмотреть веб-сайт]
-
-    ![Страница веб-сайта по умолчанию][Страница веб-сайта по умолчанию]
-
+1. В левом нижнем углу [портала предварительной версии Azure](https://portal.azure.com) щелкните **Создать** и затем выберите **Веб-сайт**.
+	
+	![New button][New]
+	
+	![New website][NewWebsite]
+	
+2. В колонке **Веб­сайт** укажите имя веб-сайта и щелкните кнопку **Создать**. 
+	
+	![Website name][WebsiteCreationBlade]
+	
+3. Через несколько мгновений будет создан веб-сайт и появится выноска веб-сайта. Выноска - это вертикальная панель мониторинга, которую можно прокручивать и которая позволяет управлять сайтом.
+	
+	![Website running][WebSiteRunningBlade]
+	
+4. Чтобы проверить, что веб-сайт работает, можно щелкнуть значок **Обзор** для отображения страницы по умолчанию.
+	
+	![Click browse to see your website][Browse]
+	
+	![Default website page][DefaultWebSitePage]
+	
 Далее вы создадите гибридное подключение и службу BizTalk для веб-сайта.
 
 <a name="CreateHC"></a>
-
 ## Создание гибридного подключения и службы BizTalk
 
-1.  На портале (предварительная версия) прокрутите вниз выноску для веб-сайта и выберите пункт **Гибридные подключения**.
+1. На портале (предварительная версия) прокрутите вниз колонку для веб-сайта и выберите пункт **Гибридные подключения**.
+	
+	![Hybrid connections][CreateHCHCIcon]
+	
+2. В колонке "Гибридные подключения" щелкните кнопку **Добавить**.
+	
+	![Add a hybrid connnection][CreateHCAddHC]
+	
+3. Откроется колонка **Добавление гибридного подключения**.  Поскольку это ваше первое гибридное подключение, параметр **Новое гибридное подключение** выбран автоматически, и откроется колонка **Создание гибридного подключения**.
+	
+	![Create a hybrid connection][TwinCreateHCBlades]
+	
+	В колонке **Создание гибридного подключения**:
+	- В поле **Имя** укажите имя подключения.
+	- В поле **Имя узла** введите имя локального компьютера, на котором размещается ваш ресурс.
+	- В поле **Порт** введите номер порта, который использует ваш локальный ресурс (1433 для экземпляра SQL Server по умолчанию).
+	- Щелкните кнопку **Служба BizTalk**
 
-    ![Гибридные подключения][1]
 
-2.  На выноске «Гибридные подключения» щелкните кнопку **Добавить**.
-
-    ![Добавление гибридного подключения][Добавление гибридного подключения]
-
-3.  Откроется выноска **Добавление гибридного подключения**. Поскольку это ваше первое гибридное подключение, параметр **Новое гибридное подключение** выбран автоматически, и откроется выноска **Создание гибридного подключения**.
-
-    ![Создание гибридного подключения][Создание гибридного подключения]
-
-    На **выноске Создание гибридного подключения**:
-
-    -   в поле **Имя** укажите имя подключения;
-    -   в поле **Имя узла** введите имя локального компьютера, на котором размещается ваш ресурс;
-    -   в поле **Порт** введите номер порта, который использует ваш локальный ресурс (1433 для экземпляра SQL Server по умолчанию).
-    -   Щелкните кнопку **Служба BizTalk**
-
-4.  Откроется выноска **Создание службы BizTalk**. Введите имя службы BizTalk и нажмите кнопку **ОК**.
-
-    ![Создание службы BizTalk][Создание службы BizTalk]
-
-    Выноска **Создание службы BizTalk** закроется, и вы вернетесь к выноске **Создание гибридного подключения**.
-
-5.  На выноске «Создание гибридного подключения» щелкните кнопку **ОК**.
-
-    ![Щелкните кнопку «ОК»][Щелкните кнопку «ОК»]
-
-6.  По завершении процесса в области «Уведомления» на портале появится сообщение, что подключение успешно создано.
-
-    ![Уведомление о выполнении][Уведомление о выполнении]
-
-7.  В выноске веб-сайта значок **Гибридные подключения** теперь покажет, что создано 1 гибридное подключение.
-
-    ![Создано одно гибридное подключение][Создано одно гибридное подключение]
-
+4. Откроется колонка **Создание службы BizTalk**. Введите имя службы BizTalk и нажмите кнопку **ОК**.
+	
+	![Create BizTalk service][CreateHCCreateBTS]
+	
+	Колонка **Создание службы BizTalk** закроется, и вы вернетесь к колонке **Создание гибридного подключения**.
+	
+5. В колонке "Создание гибридного подключения" щелкните кнопку **ОК**. 
+	
+	![Click OK][CreateBTScomplete]
+	
+6. По завершении процесса в области "Уведомления" на портале появится сообщение, что подключение успешно создано.
+	
+	![Success notification][CreateHCSuccessNotification]
+	
+7. В колонке веб-сайта значок **Гибридные подключения** теперь покажет, что создано 1 гибридное подключение.
+	
+	![One hybrid connection created][CreateHCOneConnectionCreated]
+	
 На этот момент вы завершили важную часть облачной инфраструктуры гибридных подключений. Далее вы создадите соответствующую локальную часть.
 
 <a name="InstallHCM"></a>
+## Установка локального диспетчера гибридных подключений для завершения подключения
 
-## Установка локального диспетчера гибридных подключений для выполнения подключения
+1. На выноске веб-сайта щелкните значок "Гибридные подключения". 
+	
+	![Hybrid connections icon][HCIcon]
+	
+2. В колонке **Гибридные подключения** в столбце **Состояние** для недавно добавленной конечной точки показано **Не подключено**. Щелкните подключение, чтобы настроить его.
+	
+	![Not connected][NotConnected]
+	
+	Откроется выноска гибридного подключения.
+	
+	![NotConnectedBlade][NotConnectedBlade]
+	
+3. Щелкните колонку **Установка прослушивателя**.
+	
+	![Click Listener Setup][ClickListenerSetup]
+	
+4. Откроется колонка **Свойства гибридного подключения**. Нажмите в **локальном диспетчере гибридных подключений** кнопку **Щелкните здесь, чтобы установить**.
+	
+	![Click here to install][ClickToInstallHCM]
+	
+5. В диалоговом окне предупреждения системы безопасности "Запуск приложения" нажмите кнопку **Запустить**, чтобы продолжить.
+	
+	![Choose Run to continue][ApplicationRunWarning]
+	
+6.	В диалоговом окне **Элемент управления учетной записью пользователя** щелкните **Да**.
+	
+	![Choose Yes][UAC]
+	
+7. Диспетчер гибридных подключений скачан и установлен. 
+	
+	![Installing][HCMInstalling]
+	
+8. После завершения установки щелкните кнопку **Закрыть**.
+	
+	![Click Close][HCMInstallComplete]
+	
+	В колонке **Гибридные подключения** в столбце **Состояние** теперь отображается **Подключено**. 
+	
+	![Connected Status][HCStatusConnected]
 
-1.  На выноске веб-сайта щелкните значок «Гибридные подключения».
-
-    ![Значок «Гибридные подключения»][Значок «Гибридные подключения»]
-
-2.  На выноске **Гибридные подключения** в столбце **Состояние** для недавно добавленных конечных точек показано **Не подключено**. Щелкните подключение, чтобы настроить его.
-
-    ![Не подключено][Не подключено]
-
-    Откроется выноска гибридного подключения.
-
-    ![NotConnectedBlade][NotConnectedBlade]
-
-3.  Щелкните на выноске **Установка прослушивателя**.
-
-    ![Щелкните «Установка прослушивателя»][Щелкните «Установка прослушивателя»]
-
-4.  Откроется выноска **Свойства гибридного подключения**. Нажмите в **локальном диспетчере гибридных подключений** кнопку **Щелкните здесь, чтобы установить**.
-
-    ![Щелкните здесь, чтобы установить][Щелкните здесь, чтобы установить]
-
-5.  В диалоговом окне предупреждения системы безопасности «Запуск приложения» нажмите кнопку **Запустить**, чтобы продолжить.
-
-    ![Нажмите кнопку «Запустить», чтобы продолжить][Нажмите кнопку «Запустить», чтобы продолжить]
-
-6.  В диалоговом окне **Элемент управления учетной записью пользователя** щелкните **Да**.
-
-    ![Щелкните «Да»][Щелкните «Да»]
-
-7.  Диспетчер гибридных подключений скачан и установлен.
-
-    ![Установка][Установка]
-
-8.  После завершения установки щелкните кнопку **Закрыть**.
-
-    ![Щелкните кнопку «Закрыть»][Щелкните кнопку «Закрыть»]
-
-    На выноске **Гибридные подключения** в столбце **Состояние** теперь отображается **Подключено**.
-
-    ![Состояние «Подключено»][Состояние «Подключено»]
-
-Теперь по завершении инфраструктуры гибридных подключений вы можете создать гибридное приложение, которое использует ее.
+Теперь по завершении инфраструктуры гибридных подключений вы можете создать гибридное приложение, которое использует ее. 
 
 <a name="NextSteps"></a>
-
 ## Дальнейшие действия
 
--   Сведения о создании веб-приложения ASP.NET, которое использует гибридное подключение, см. в разделе [Подключение в локальному SQL Server с веб-сайта Azure с помощью гибридных подключений][Подключение к локальному SQL Server с веб-сайта Azure с помощью гибридных подключений].
+- Информацию о создании веб-приложения ASP.NET, которое использует гибридное подключение, см. в разделе [Подключение к локальному SQL Server с веб-сайта Azure с помощью гибридных подключений](http://go.microsoft.com/fwlink/?LinkID=397979).
 
--   Сведения о создании гибридного подключения с мобильной службой см. в разделе [Подключение к локальному SQL Server с мобильной службы Azure с помощью гибридных подключений][Подключение к локальному SQL Server с мобильной службы Azure с помощью гибридных подключений].
+- Информацию об использовании гибридного подключения с мобильной службой см. в разделе [Подключение к локальному SQL Server из мобильной службы Azure с помощью гибридных подключений](http://azure.microsoft.com/ru-ru/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started/).
 
-### Дополнительные ресурсы
+###Дополнительные ресурсы
 
-[Обзор гибридных подключений][Гибридные подключения]
+[Обзор гибридных подключений](http://go.microsoft.com/fwlink/p/?LinkID=397274)
 
-[Джош Твист (Josh Twist) представляет гибридные подключения (видео Channel 9)][Джош Твист (Josh Twist) представляет гибридные подключения (видео Channel 9)]
+[Джош Твист (Josh Twist) представляет гибридные подключения (видео Channel 9)](http://channel9.msdn.com/Shows/Azure-Friday/Josh-Twist-introduces-hybrid-connections)
 
-[Веб-сайт гибридных подключений][Веб-сайт гибридных подключений]
+[Веб-сайт гибридных подключений](http://azure.microsoft.com/ru-ru/services/biztalk-services/)
 
-[Службы BizTalk: вкладки "Панель мониторинга", "Монитор" и "Масштаб"][Службы BizTalk: вкладки "Панель мониторинга", "Монитор" и "Масштаб"]
+[Службы BizTalk: Вкладки "Панель мониторинга", "Монитор", "Масштаб", "Настройка" и "Гибридные подключения"](http://azure.microsoft.com/ru-ru/documentation/articles/biztalk-dashboard-monitor-scale-tabs/)
 
-[Создание реального облака с гибридным подключением с помощью простой переносимости приложений (видео Channel 9)][Создание реального облака с гибридным подключением с помощью простой переносимости приложений (видео Channel 9)]
+[Создание реального облака с гибридным подключением с помощью простой переносимости приложений (видео Channel 9)](http://channel9.msdn.com/events/TechEd/NorthAmerica/2014/DCIM-B323#fbid=)
 
-[Подключение к локальному SQL Server с мобильных служб Azure с помощью гибридных подключений (видео Channel 9)][Подключение к локальному SQL Server с мобильных служб Azure с помощью гибридных подключений (видео Channel 9)]
+[Подключение к локальному SQL Server с мобильных служб Azure с помощью гибридных подключений (видео Channel 9)](http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Connect-to-an-on-premises-SQL-Server-from-Azure-Mobile-Services-using-Hybrid-Connections)
 
 <!-- IMAGES -->
+[New]:./media/web-sites-hybrid-connection-get-started/B01New.png
+[NewWebsite]:./media/web-sites-hybrid-connection-get-started/B02NewWebsite.png
+[WebsiteCreationBlade]:./media/web-sites-hybrid-connection-get-started/B03WebsiteCreationBlade.png
+[WebSiteRunningBlade]:./media/web-sites-hybrid-connection-get-started/B04WebSiteRunningBlade.png
+[Browse]:./media/web-sites-hybrid-connection-get-started/B05Browse.png
+[DefaultWebSitePage]:./media/web-sites-hybrid-connection-get-started/B06DefaultWebSitePage.png
+[CreateHCHCIcon]:./media/web-sites-hybrid-connection-get-started/C01CreateHCHCIcon.png
+[CreateHCAddHC]:./media/web-sites-hybrid-connection-get-started/C02CreateHCAddHC.png
+[TwinCreateHCBlades]:./media/web-sites-hybrid-connection-get-started/C03TwinCreateHCBlades.png
+[CreateHCCreateBTS]:./media/web-sites-hybrid-connection-get-started/C04CreateHCCreateBTS.png
+[CreateBTScomplete]:./media/web-sites-hybrid-connection-get-started/C05CreateBTScomplete.png
+[CreateHCSuccessNotification]:./media/web-sites-hybrid-connection-get-started/C06CreateHCSuccessNotification.png
+[CreateHCOneConnectionCreated]:./media/web-sites-hybrid-connection-get-started/C07CreateHCOneConnectionCreated.png
+[HCIcon]:./media/web-sites-hybrid-connection-get-started/D01HCIcon.png
+[NotConnected]:./media/web-sites-hybrid-connection-get-started/D02NotConnected.png
+[NotConnectedBlade]:./media/web-sites-hybrid-connection-get-started/D03NotConnectedBlade.png
+[ClickListenerSetup]:./media/web-sites-hybrid-connection-get-started/D04ClickListenerSetup.png
+[ClickToInstallHCM]:./media/web-sites-hybrid-connection-get-started/D05ClickToInstallHCM.png
+[ApplicationRunWarning]:./media/web-sites-hybrid-connection-get-started/D06ApplicationRunWarning.png
+[UAC]:./media/web-sites-hybrid-connection-get-started/D07UAC.png
+[HCMInstalling]:./media/web-sites-hybrid-connection-get-started/D08HCMInstalling.png
+[HCMInstallComplete]:./media/web-sites-hybrid-connection-get-started/D09HCMInstallComplete.png
+[HCStatusConnected]:./media/web-sites-hybrid-connection-get-started/D10HCStatusConnected.png
 
-  [портале Azure (предварительная версия)]: https://portal.azure.com
-  [Гибридные подключения]: http://go.microsoft.com/fwlink/p/?LinkID=397274
-  [Бесплатная пробная версия Azure]: http://azure.microsoft.com/ru-ru/pricing/free-trial/
-  [Подключение к локальному SQL Server с веб-сайта Azure с помощью гибридных подключений]: http://go.microsoft.com/fwlink/?LinkID=397979
-  [Создание веб-сайта Azure (предварительная версия)]: #CreateSite
-  [Создание гибридного подключения и службы BizTalk]: #CreateHC
-  [Установка локального диспетчера гибридных подключений для выполнения подключения]: #InstallHCM
-  [Дальнейшие действия]: #NextSteps
-  [Кнопка «Создать»]: ./media/web-sites-hybrid-connection-get-started/B01New.png
-  [Создание веб-сайта]: ./media/web-sites-hybrid-connection-get-started/B02NewWebsite.png
-  [Имя веб-сайта]: ./media/web-sites-hybrid-connection-get-started/B03WebsiteCreationBlade.png
-  [Запущенный веб-сайт]: ./media/web-sites-hybrid-connection-get-started/B04WebSiteRunningBlade.png
-  [Щелкните кнопку «Обзор», чтобы посмотреть веб-сайт]: ./media/web-sites-hybrid-connection-get-started/B05Browse.png
-  [Страница веб-сайта по умолчанию]: ./media/web-sites-hybrid-connection-get-started/B06DefaultWebSitePage.png
-  [1]: ./media/web-sites-hybrid-connection-get-started/C01CreateHCHCIcon.png
-  [Добавление гибридного подключения]: ./media/web-sites-hybrid-connection-get-started/C02CreateHCAddHC.png
-  [Создание гибридного подключения]: ./media/web-sites-hybrid-connection-get-started/C03TwinCreateHCBlades.png
-  [Создание службы BizTalk]: ./media/web-sites-hybrid-connection-get-started/C04CreateHCCreateBTS.png
-  [Щелкните кнопку «ОК»]: ./media/web-sites-hybrid-connection-get-started/C05CreateBTScomplete.png
-  [Уведомление о выполнении]: ./media/web-sites-hybrid-connection-get-started/C06CreateHCSuccessNotification.png
-  [Создано одно гибридное подключение]: ./media/web-sites-hybrid-connection-get-started/C07CreateHCOneConnectionCreated.png
-  [Значок «Гибридные подключения»]: ./media/web-sites-hybrid-connection-get-started/D01HCIcon.png
-  [Не подключено]: ./media/web-sites-hybrid-connection-get-started/D02NotConnected.png
-  [NotConnectedBlade]: ./media/web-sites-hybrid-connection-get-started/D03NotConnectedBlade.png
-  [Щелкните «Установка прослушивателя»]: ./media/web-sites-hybrid-connection-get-started/D04ClickListenerSetup.png
-  [Щелкните здесь, чтобы установить]: ./media/web-sites-hybrid-connection-get-started/D05ClickToInstallHCM.png
-  [Нажмите кнопку «Запустить», чтобы продолжить]: ./media/web-sites-hybrid-connection-get-started/D06ApplicationRunWarning.png
-  [Щелкните «Да»]: ./media/web-sites-hybrid-connection-get-started/D07UAC.png
-  [Установка]: ./media/web-sites-hybrid-connection-get-started/D08HCMInstalling.png
-  [Щелкните кнопку «Закрыть»]: ./media/web-sites-hybrid-connection-get-started/D09HCMInstallComplete.png
-  [Состояние «Подключено»]: ./media/web-sites-hybrid-connection-get-started/D10HCStatusConnected.png
-  [Подключение к локальному SQL Server с мобильной службы Azure с помощью гибридных подключений]: http://azure.microsoft.com/ru-ru/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started/
-  [Джош Твист (Josh Twist) представляет гибридные подключения (видео Channel 9)]: http://channel9.msdn.com/Shows/Azure-Friday/Josh-Twist-introduces-hybrid-connections
-  [Веб-сайт гибридных подключений]: http://azure.microsoft.com/ru-ru/services/biztalk-services/
-  [Службы BizTalk: вкладки "Панель мониторинга", "Монитор" и "Масштаб"]: http://azure.microsoft.com/ru-ru/documentation/articles/biztalk-dashboard-monitor-scale-tabs/
-  [Создание реального облака с гибридным подключением с помощью простой переносимости приложений (видео Channel 9)]: http://channel9.msdn.com/events/TechEd/NorthAmerica/2014/DCIM-B323#fbid=
-  [Подключение к локальному SQL Server с мобильных служб Azure с помощью гибридных подключений (видео Channel 9)]: http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Connect-to-an-on-premises-SQL-Server-from-Azure-Mobile-Services-using-Hybrid-Connections
+<!--HONumber=35_1-->
