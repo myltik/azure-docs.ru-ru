@@ -14,13 +14,13 @@
 2. [Обновление клиента для поддержки проверки]
 
 
-В основе этого учебника лежат инструкции и образец приложения из предыдущего учебника [Приступая к работе с данными]. Прежде чем начать работу с этим учебником, необходимо пройти [Приступая к работе с данными].  
+В основе этого учебника лежат инструкции и образец приложения из предыдущего учебника [Начало работы с данными]. Прежде чем начать работу с этим учебником, необходимо пройти [Начало работы с данными].  
 
 ## <a name="string-length-validation"></a>Добавление проверки
 
 Рекомендуется всегда проверять длину данных, предоставляемых пользователями. Сначала необходимо зарегистрировать скрипт, который проверяет длину строки данных, отправленных в мобильную службу, и отклоняет слишком длинны строки; в этом случае отклоняются строки длиной более 10 знаков.
 
-1. Выполните вход на [портал управления Azure][портал управления Azure], щелкните элемент **Мобильные службы**, а затем выберите свое приложение.
+1. Войдите в [портал управления Azure], щелкните **Мобильные службы**, а затем выберите свое приложение.
 
    	![][0]
 
@@ -28,11 +28,11 @@
 
    	![][1]
 
-3. Щелкните **Сценарий** и выберите операцию **Вставить**.
+3.  Щелкните элемент **Script** и выберите операцию **Insert**.
 
    	![][2]
 
-4. Замените имеющийся сценарий следующей функцией и нажмите кнопку **Сохранить**:
+4. Замените имеющийся скрип следующей функцией и нажмите кнопку **Сохранить**.
 
         function insert(item, user, request) {
             if (item.text.length > 10) {
@@ -46,17 +46,17 @@
 
     <div class="dev-callout">
 	<b>Примечание.</b>
-	<p>Можно удалить зарегистрированный сценарий на вкладке <strong>Сценарий</strong>, щелкнув <strong>Очистить</strong> и <strong>Сохранить</strong>.</p>.</p></div>
+	<p>Можно удалить зарегистрированный скрипт на вкладке <strong>Скрипт</strong>, щелкнув <strong>Очистить</strong> и <strong>Сохранить</strong>.</p></div>
 
 ## <a name="update-client-validation"></a>Обновление клиента
 
 Теперь, когда мобильная служба выполняет проверку данных и отправляет сообщения об ошибках на стороне сервера, необходимо обновить приложение для обработки сообщений об ошибках, полученных при выполнении проверки.
 
-1. В Xcode откройте проект, измененный после завершения учебника [Приступая к работе с данными][Приступая к работе с данными].
+1. В Xcode откройте проект, измененный при завершении учебника [Приступая к работе с данными].
 
-2. Нажмите кнопку **Запуск** (или клавиши Command+R), чтобы выполнить сборку проекта и запустить приложение, а затем введите в текстовом поле текст длиннее 10 символов и нажмите значок (**+**).
+2. Нажмите кнопку **Запуск** ("Command" + R), чтобы построить проект и запустить приложение, а затем введите текст длиннее 10 символов в текстовом поле и нажмите значок (**+**).
 
-   	Обратите внимание, что приложение вызывает необработанную ошибку в результате ответа 400 (Неверный запрос), возвращенного мобильной службой.
+   	Обратите внимание, что приложение выдает необработанную ошибку в результате ответа 400 (Неверный запрос), возвращенного мобильной службой.
 
 3. В файле QSTodoService.m найдите следующую строку кода в методе **addItem**:
 
@@ -93,19 +93,19 @@
             }
         }
 
-   	При этом ошибка записывается в окне вывода, оно отображается для пользователя.
+   	При этом ошибка регистрируется в окне вывода и это окно отображается для пользователя.
 
-4. Повторно выполните сборку и запустите приложение.
+4. Повторно выполните построение и запустите приложение.
 
    	![][4]
 
-  	Обратите внимание, что ошибка будет обработана и для пользователя отобразится сообщение об ошибке.
+  	Обратите внимание, что ошибка обработана и для пользователя отобразится сообщение об ошибке.
 
-<!--## <a name="add-timestamp"></a>Add a timestamp
+## <a name="add-timestamp"></a>Добавление отметки времени
 
-The previous tasks validated an insert and either accepted or rejected it. Now, you will update inserted data by using a server script that adds a timestamp property to the object before it gets inserted.
+Предыдущие задачи проверили вставку и приняли или отклонили ее. Теперь можно обновить вставленные данные путем использования серверного скрипта, который добавляет свойство отметки времени в объект до его вставки.
 
-1. In the **Scripts** tab in the [Management Portal], replace the current **Insert** script with the following function, and then click **Save**.
+1. На вкладке **Скрипты** [портала управления] замените текущий скрипт **Insert** на следующую функцию и нажмите кнопку **Сохранить**.
 
         function insert(item, user, request) {
             if (item.text.length > 10) {
@@ -116,27 +116,27 @@ The previous tasks validated an insert and either accepted or rejected it. Now, 
             }
         }
 
-    This function augments the previous insert script by adding a new **createdAt** timestamp property to the object before it gets inserted by the call to **request**.**execute**.
+    Эта функция дополняет предыдущий скрипт вставки, добавляя новое свойство отметки **createdAt**времени к объекту перед его вставкой в ходе вызова **request**.**execute**.
 
-    <div class="dev-callout"><b>Note</b>
-	<p>Dynamic schema must be enabled the first time that this insert script runs. With dynamic schema enabled, Mobile Services automatically adds the <strong>createdAt</strong> column to the <strong>TodoItem</strong> table on the first execution. Dynamic schema is enabled by default for a new mobile service, and it should be disabled before the app is published.</p>
+    <div class="dev-callout"><b>Примечание.</b>
+	<p>При первом выполнении этого сценария вставки должна быть включена динамическая схема. При включенной динамической схеме мобильные службы автоматически добавляют столбец <strong>createdAt</strong> в таблицу <strong>TodoItem</strong> при первом выполнении. Для новой мобильной службы динамическая схема включена по умолчанию, и перед публикацией приложения ее следует отключить.</p>
     </div>
 
-2. In Visual Studio, press the **F5** key to run the app, then type text (shorter than 10 characters) in **Insert a TodoItem** and click **Save**.
+2. В Visual Studio нажмите клавишу **F5**, чтобы запустить приложение, затем введите текст (короче 10 символов) в поле **Insert a TodoItem** и нажмите кнопку **Save**.
 
-   	Notice that the new timestamp does not appear in the app UI.
+   	Обратите внимание, что новая отметка времени не отображается в пользовательском интерфейсе приложения.
 
-3. Back in the Management Portal, click the **Browse** tab in the **todoitem** table.
+3. На портале управления щелкните вкладку **Обзор** в таблице **todoitem**.
 
-   	Notice that there is now a **createdAt** column, and the new inserted item has a timestamp value.
+   	Обратите внимание, что теперь есть столбец **createdAt**, и новый элемент имеет отметку времени.
 
-Next, you need to update the iOS app to display this new column.
+Далее необходимо обновить приложение iOS для отображения этого нового столбца.
 
-## <a name="update-client-timestamp"></a>Update the client again
+## <a name="update-client-timestamp"></a>Снова обновите клиент
 
-The Mobile Service client will ignore any data in a response that it cannot serialize into properties on the defined type. The final step is to update the client to display this new data.
+Клиент мобильной службы игнорирует любые данные в ответе, которые не могут быть сериализованы в свойства определенного типа. Последним шагом является обновление клиента для отображения новых данных.
 
-1. In Visual Studio, open the file MainPage.xaml.cs, then replace the existing **TodoItem** class with the following definition:
+1. В Visual Studio откройте файл MainPage.xaml.cs, а затем замените существующий класс **TodoItem** следующим определением:
 
 	    public class TodoItem
 	    {
@@ -152,23 +152,23 @@ The Mobile Service client will ignore any data in a response that it cannot seri
 	        public DateTime? CreatedAt { get; set; }
 	    }
 
-    This new class definition includes the new timestamp property, as a nullable DateTime type.
+    Это новое определение класса включает новое свойство отметки времени в качестве типа даты и времени, который поддерживает значение Null.
 
-    <div class="dev-callout"><b>Note</b>
-	<p>The <strong>DataMemberAttribute</strong> tells the client to map the new <strong>CreatedAt</strong> property in the app to the <strong>createdAt</strong> column defined in the TodoItem table, which has a different casing. By using this attribute, your app can have property names on objects that differ from column names in the SQL Database. Without this attribute, an error would occur because of the casing differences.</p>
+    <div class="dev-callout"><b>Примечание.</b>
+	<p><strong>DataMemberAttribute</strong> заставляет клиент сопоставить новое свойство <strong>CreatedAt</strong> в приложении со столбцом <strong>createdAt</strong>, определенным в таблице TodoItem, который записан в другом регистре. С помощью этого атрибута ваше приложение может получить имена свойств для объектов, которые отличаются от имен столбцов в базе данных SQL. Без этого атрибута ошибка возникает из-за различия в буквенном регистре.</p>
     </div>
 
-5. Add the following XAML element just below the **CheckBoxComplete** element in the MainPage.xaml file:
+2. Добавьте следующий XAML-элемент сразу после элемента **CheckBoxComplete** в файле MainPage.xaml:
 
         <TextBlock Name="WhenCreated" Text="{Binding CreatedAt}" VerticalAlignment="Center"/>
 
-   	Это приведет к отображению нового свойства **CreatedAt** в текстовом поле.
+   	При этом новое свойство **CreatedAt** будет выводиться в текстовом поле.
 
-6. Нажмите клавишу **F5**, чтобы запустить приложение.
+3. Нажмите клавишу **F5**, чтобы запустить приложение.
 
    Обратите внимание, что отметка времени отображается только для вставленных элементов после обновления скрипта вставки.
 
-7. Замените существующий метод **RefreshTodoItems** следующим кодом:
+4. Замените существующий метод **RefreshTodoItems** следующим кодом:
 
         private void RefreshTodoItems()
         {
@@ -184,15 +184,15 @@ The Mobile Service client will ignore any data in a response that it cannot seri
 
    	Этот метод обновляет запрос для исключения тех элементов, которые не имеют значения отметки времени.
 
-8. Нажмите клавишу **F5**, чтобы запустить приложение.
+5. Нажмите клавишу **F5**, чтобы запустить приложение.
 
    	Обратите внимание, что все элементы, созданные без значения отметки времени, исключаются из пользовательского интерфейса.
 
-Работа с учебником по данным завершена.-->
+Вы завершили работу с учебником данных.
 
 ## <a name="next-steps"> </a>Дальнейшие действия
 
-Теперь, после прохождения этого учебника, рассмотрите возможность перехода к заключительному учебнику в этом ряду, касающемся данных: [Уточнение запросов с постраничным просмотром][Уточнение запросов посредством разбиения по страницам].
+Теперь, после прохождения этого учебника, рассмотрите возможность перехода к заключительному учебнику в этом ряду, касающемся данных: [Уточнение запросов с постраничным просмотром].
 
 Серверный скрипт также используются при авторизации пользователей и для отправки push-уведомлений. Дополнительные сведения см. в следующих учебниках:
 
@@ -228,5 +228,5 @@ The Mobile Service client will ignore any data in a response that it cannot seri
 [Приступая к работе с аутентификацией]: /ru-ru/develop/mobile/tutorials/get-started-with-users-ios
 [Приступая к работе с push-уведомлениями]: /ru-ru/develop/mobile/tutorials/get-started-with-push-ios
 
-[портал управления Azure]: https://manage.windowsazure.com/
+[Портал управления]: https://manage.windowsazure.com/
 [Портал управления Azure]: https://manage.windowsazure.com/
