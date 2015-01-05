@@ -116,4 +116,4 @@
 [Приступая к работе с аутентификацией]: /ru-ru/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users
 [Приступая к работе с push-уведомлениями]: /ru-ru/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -24,4 +24,4 @@
 [Get started with users C#] (Начало работы с пользователями для C#): /ru-ru/develop/mobile/tutorials/get-started-with-users-dotnet/
 [Get started with users JavaScript] (Начало работы с пользователями для JavaScript): /ru-ru/develop/mobile/tutorials/get-started-with-users-js/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

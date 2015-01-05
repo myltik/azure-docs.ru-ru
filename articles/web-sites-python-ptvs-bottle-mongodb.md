@@ -221,4 +221,4 @@ PTVS предоставляет простой способ развертыва
 [Веб-проекты]: http://pytools.codeplex.com/wikipage?title=Features%20Web%20Project
 [Проекты облачных служб]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

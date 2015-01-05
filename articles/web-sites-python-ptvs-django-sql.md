@@ -212,4 +212,4 @@ PTVS предоставляет простой способ развертыва
 [Документация по Django]: https://www.djangoproject.com/
 [База данных SQL]: /ru-ru/documentation/services/sql-database/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

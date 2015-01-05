@@ -77,4 +77,4 @@ Power Query можно использовать для импорта данны
 
 [powerquery-download]: http://go.microsoft.com/fwlink/?LinkID=286689 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

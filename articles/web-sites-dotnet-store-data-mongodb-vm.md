@@ -516,4 +516,4 @@ To add the ability to create a new task, right-click the *Views\Home\\* folder a
 [Создание веб-сайта Azure]: #createwebsite
 [Развертывание приложения ASP.NET на веб-сайте с помощью Git]: #deployapp
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

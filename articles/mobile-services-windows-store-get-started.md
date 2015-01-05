@@ -9,4 +9,4 @@
 
 Указания по добавлению мобильных служб в имеющееся приложение для Магазина Windows см. в статье [Добавление мобильных служб в имеющееся приложение](/ru-ru/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/).
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

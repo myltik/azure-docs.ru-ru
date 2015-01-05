@@ -357,4 +357,4 @@ Azure предоставляет несколько способов для ра
   [sqldatabase]: http://www.windowsazure.com/ru-ru/documentation/services/sql-database/
   [Хранилище]: http://www.windowsazure.com/ru-ru/documentation/services/storage/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

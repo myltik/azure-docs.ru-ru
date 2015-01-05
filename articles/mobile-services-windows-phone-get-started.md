@@ -8,4 +8,4 @@
 
 Скачать проект быстрого начала работы с приложениями для Магазина Windows Phone 8.1 можно в составе проекта универсальных приложений для Windows. Дополнительную информацию см. в разделе [Приступая к работе с мобильными службами](/ru-ru/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started/). 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

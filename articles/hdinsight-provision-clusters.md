@@ -645,4 +645,4 @@ HDInsight использует контейнер хранилища BLOB-объ
 
   [89e2276a]: /ru-ru/documentation/articles/hdinsight-use-sqoop/ "Use Sqoop with HDInsight"
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

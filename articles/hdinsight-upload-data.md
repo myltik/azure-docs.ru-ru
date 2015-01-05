@@ -295,4 +295,4 @@ Sqoop - это инструмент, предназначенный для пе�
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

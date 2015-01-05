@@ -401,4 +401,4 @@
   [Снижение затрат на размещение TechNet и MSDN и воздействия на окружающую среду с помощью автомасштабирования в среде Azure]: http://msdn.microsoft.com/ru-ru/library/jj838718(PandP.50).aspx
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

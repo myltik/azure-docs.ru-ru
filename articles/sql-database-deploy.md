@@ -584,4 +584,4 @@
 [Приступая к администрированию базы данных SQL]: /ru-ru/manage/services/sql-databases/getting-started-w-sql-databases/  
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

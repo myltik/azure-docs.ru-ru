@@ -16,4 +16,4 @@
 <!-- URLs. -->
 [Accessing Resources Secured by Azure Active Directory with iOS and Android] (Доступ к ресурсам, защищенным с помощью Azure Active Directory, на платформах iOS и Android): http://chrisrisner.com/Accessing-Resources-Secured-by-Azure-Active-Directory-with-iOS-and-Android
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

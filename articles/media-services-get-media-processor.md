@@ -73,4 +73,4 @@ private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcess
 [Строки предустановок задачи для кодировщика мультимедиа Azure]: http://msdn.microsoft.com/ru-ru/library/jj129582.aspx
 [Практическое руководство. Подключение к службам мультимедиа программными средствами]: ../media-services-set-up-computer/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -135,4 +135,4 @@
 
 -   <a href="http://msdn.microsoft.com/ru-ru/library/windowsazure/gg680307.aspx">Сопоставление содержимого CDN с пользовательским доменом</a>
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

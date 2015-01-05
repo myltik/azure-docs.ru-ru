@@ -99,4 +99,4 @@
 [Шаблоны]: http://go.microsoft.com/fwlink/p/?LinkId=317339
 [Указания по использованию центров уведомлений для магазина Windows]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj927172.aspx
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -201,4 +201,4 @@ PTVS предоставляет простой способ развертыва
 [Документация по Django]: https://www.djangoproject.com/
 [MySQL]: http://www.mysql.com/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

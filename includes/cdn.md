@@ -127,4 +127,4 @@ http://<*CDNNamespace*\>.vo.msecnd.net/<*myPublicContainer*\>/<*BlobName*\>
 [create-new-storage-account]: ./media/cdn/CDN_CreateNewStorageAcct.png
 [Предыдущая версия портала управления]: ../../Shared/Media/previous-portal.png
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

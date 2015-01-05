@@ -767,4 +767,4 @@
 [Get-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/ru-ru/library/dn495145.aspx
 [Remove-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/ru-ru/library/dn495168.aspx
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

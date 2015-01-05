@@ -349,4 +349,4 @@ or
 * [Протокол AMQP 1.0 для Service Bus. Руководство разработчика](http://msdn.microsoft.com/ru-ru/library/windowsazure/jj841071.aspx)
 * [Использование очередей Service Bus](http://www.windowsazure.com/ru-ru/develop/net/how-to-guides/service-bus-queues/)
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

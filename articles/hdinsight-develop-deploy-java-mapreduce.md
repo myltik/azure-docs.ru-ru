@@ -601,4 +601,4 @@ Azure HDInsight использует для хранения данных хра
 [image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

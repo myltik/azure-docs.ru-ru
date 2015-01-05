@@ -52,4 +52,4 @@
 
 Дополнительную информацию см. в статье [Веб-сайты Azure](/ru-ru/documentation/services/web-sites/).
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

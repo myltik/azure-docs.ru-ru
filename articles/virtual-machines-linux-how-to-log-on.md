@@ -39,4 +39,4 @@
 <!-- LINKS -->
 [How to Reset a Password or SSH for Linux Virtual Machines] (Как сбросить пароль или ключ SSH в виртуальных машинах Linux): http://go.microsoft.com/fwlink/p/?LinkId=512138
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

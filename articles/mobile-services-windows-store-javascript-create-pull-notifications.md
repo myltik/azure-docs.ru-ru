@@ -148,4 +148,4 @@
 [Периодические уведомления]: http://msdn.microsoft.com/ru-ru/library/windows/apps/jj150587.aspx
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

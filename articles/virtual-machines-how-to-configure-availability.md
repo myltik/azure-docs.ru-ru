@@ -108,4 +108,4 @@
 [Информация о параметрах конфигурации виртуальной машины Azure]: http://msdn.microsoft.com/ru-ru/library/azure/dn763935.aspx
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

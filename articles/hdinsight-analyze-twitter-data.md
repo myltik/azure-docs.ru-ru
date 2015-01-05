@@ -515,4 +515,4 @@ Twitter использует протокол OAuth для обеспечени�
 [hdinsight-hive-odbc]: ../hdinsight-connect-excel-hive-ODBC-driver/
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

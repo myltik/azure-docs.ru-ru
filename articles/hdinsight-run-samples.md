@@ -75,4 +75,4 @@ HDInsight поставляется вместе со следующими при
 [hdinsight-use-pig]: ../hdinsight-use-pig/
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

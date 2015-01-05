@@ -218,4 +218,4 @@ Twilio предоставляет библиотеку Node.js, содержащ
 [azure_twilio_howto_python]: /ru-ru/develop/python/how-to-guides/twilio-voice-and-sms-service/
 [azure_twilio_howto_php]: /ru-ru/develop/php/how-to-guides/twilio-voice-and-sms-service/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -481,4 +481,4 @@
 [filters]: http://msdn.microsoft.com/ru-ru/library/windowsazure/dd894031.aspx
 [entity-group-transactions]: http://msdn.microsoft.com/ru-ru/library/windowsazure/dd894038.aspx
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

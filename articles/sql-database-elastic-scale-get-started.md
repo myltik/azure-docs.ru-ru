@@ -100,4 +100,4 @@
 [3]: ./media/sql-database-elastic-scale-get-started/click-CSharp.png
 [4]: ./media/sql-database-elastic-scale-get-started/output2.png
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

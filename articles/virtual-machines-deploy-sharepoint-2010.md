@@ -523,4 +523,4 @@ Microsoft SharePoint Server 2010 обеспечивает большую гиб�
 </ul>
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

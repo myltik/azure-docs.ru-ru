@@ -280,4 +280,4 @@ HBase - это Apache база данных NoSQL с открытым исход
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

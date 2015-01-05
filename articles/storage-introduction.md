@@ -204,4 +204,4 @@
 - [Как использовать табличное хранилище из Python](../storage-python-how-to-use-table-storage/)
 - [Как использовать хранилище очередей из Python](../storage-python-how-to-use-queue-storage/)
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

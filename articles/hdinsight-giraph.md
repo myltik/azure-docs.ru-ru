@@ -204,4 +204,4 @@ Giraph не предоставляется как часть кластера HD
 [pig]: http://azure.microsoft.com/ru-ru/documentation/articles/hdinsight-use-pig/
 [hive]: http://azure.microsoft.com/ru-ru/documentation/articles/hdinsight-use-hive/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

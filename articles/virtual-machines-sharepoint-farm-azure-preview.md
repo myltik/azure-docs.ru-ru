@@ -68,4 +68,4 @@
 Ферма серверов SharePoint использует диспетчер ресурсов Azure и скрипты для автоматического создания инфраструктуры и конфигураций серверов для этих ферм SharePoint. Дополнительную информацию см. в статье [Использование Windows PowerShell с диспетчером ресурсов](http://azure.microsoft.com/ru-ru/documentation/articles/powershell-azure-resource-manager/).
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

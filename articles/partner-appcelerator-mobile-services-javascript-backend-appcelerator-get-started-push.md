@@ -469,4 +469,4 @@
 [Push-объект мобильных служб]: http://go.microsoft.com/fwlink/p/?linkid=272333&clcid=0x409
 [Установка инструментов разработки Java]: http://docs.appcelerator.com/titanium/latest/#!/guide/Installing_the_Java_Development_Tools
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

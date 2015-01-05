@@ -141,4 +141,4 @@
 [Рассылка уведомлений пользователям]: /ru-ru/manage/services/notification-hubs/notify-users/
 [Отправка пользователям уведомлений между различными платформами]: /ru-ru/manage/services/notification-hubs/notify-users-xplat-mobile-services/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

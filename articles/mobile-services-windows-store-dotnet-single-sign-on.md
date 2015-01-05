@@ -157,4 +157,4 @@
 [Портал управления Azure]: https://manage.windowsazure.com/
 [Справочник по принципам использования мобильных служб .NET]: /ru-ru/develop/mobile/how-to-guides/work-with-net-client-library
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

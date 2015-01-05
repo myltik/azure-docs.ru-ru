@@ -159,4 +159,4 @@
 [Соедините 3 с другим разделом документации azure.microsoft.com]: ../storage-whatis-account/
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -149,4 +149,4 @@
 -   Посетите блог [группы разработчиков службы хранилища Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 -   Посетите репозиторий [Пакет SDK для Azure для Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) на веб-сайте GitHub.
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

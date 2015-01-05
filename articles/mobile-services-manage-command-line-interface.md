@@ -195,4 +195,4 @@ Next steps here....
 [Установка программ командной строки Azure для Mac и Linux]: http://go.microsoft.com/fwlink/p/?LinkId=275795
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

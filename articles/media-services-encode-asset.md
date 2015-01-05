@@ -166,4 +166,4 @@ private static IJob ConvertMP4toSmooth(IAsset assetToConvert, string configFileP
 [Проверка хода выполнения задания]:http://go.microsoft.com/fwlink/?LinkId=301737
 [Предустановка задачи для Azure Media Packager]:http://msdn.microsoft.com/ru-ru/library/windowsazure/hh973635.aspx
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

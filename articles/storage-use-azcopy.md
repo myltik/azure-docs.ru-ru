@@ -829,4 +829,4 @@ AzCopy использует индекс тома в именах разделе
 - [AzCopy: Uploading/downloading files for Windows Azure Blobs] (AzCopy. Отправка и скачивание файлов для больших двоичных объектов Microsoft Azure)(http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

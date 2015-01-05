@@ -132,4 +132,4 @@ HDInsight поддерживает несколько версий класте�
 
 [zookeeper]: http://zookeeper.apache.org/ 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

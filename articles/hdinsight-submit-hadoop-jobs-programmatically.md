@@ -709,4 +709,4 @@ Apache [hdinsight-use-hive][apache-hive] предоставляет средст
 
 [apache-hive]: http://hive.apache.org/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -110,4 +110,4 @@ PHP 5.5 также доступна по умолчанию, но не вклю�
 [Настройка, мониторинг и масштабирование веб-сайтов в Azure]: http://www.windowsazure.com/ru-ru/manage/services/web-sites/
 [Скачивание пакета SDK для Azure для PHP]: http://www.windowsazure.com/ru-ru/develop/php/common-tasks/download-php-sdk/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

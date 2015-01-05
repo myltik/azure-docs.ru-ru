@@ -56,4 +56,4 @@ Microsoft Azure воспринимает этот шаблон как образ
 [Как присоединить диск данных к виртуальной машине]: ../storage-windows-attach-disk/
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

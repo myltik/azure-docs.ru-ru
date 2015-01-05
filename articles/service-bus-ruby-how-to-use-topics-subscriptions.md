@@ -230,4 +230,4 @@ Service Bus предоставляет функции, помогающие ко
 -   Справочник по API для [SqlFilter](http://msdn.microsoft.com/ru-ru/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx)
 -	Посетите сайт [пакета SDK для Azure для Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) репозиторий на GitHub
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

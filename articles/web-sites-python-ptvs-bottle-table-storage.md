@@ -209,4 +209,4 @@ PTVS предоставляет простой способ развертыва
 [Служба хранилища Azure]: http://azure.microsoft.com/ru-ru/documentation/services/storage/
 [Пакет SDK для Azure для Python]: https://github.com/Azure/azure-sdk-for-python
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

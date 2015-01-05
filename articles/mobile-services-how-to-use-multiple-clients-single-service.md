@@ -199,4 +199,4 @@
 [Разработка универсальных приложений для Windows для всех устройств с ОС Windows]: http://go.microsoft.com/fwlink/p/?LinkId=509905
 [Universal Windows app project for Azure Mobile Services using MVVM (Проект универсального приложения для Windows для мобильных служб Azure с использованием MVVM)]: http://code.msdn.microsoft.com/Universal-Windows-app-for-db3564de
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

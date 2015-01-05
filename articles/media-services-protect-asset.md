@@ -116,4 +116,4 @@ private static IJob CreatePlayReadyProtectionJob(string inputMediaFilePath, stri
 <h2>Дальнейшие действия</h2>
 Теперь, когда вы знаете, как защитить ресурсы с помощью служб мультимедиа, перейдите к статье [Управление ресурсами](../media-services-manage-assets/) .
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

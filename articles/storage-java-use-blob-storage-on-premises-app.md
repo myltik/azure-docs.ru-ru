@@ -371,4 +371,4 @@ HTML-файл для отображения изображения в вашем
   [Как управлять учетными записями хранения]: http://www.windowsazure.com/ru-ru/manage/services/storage/how-to-manage-a-storage-account/
   [Как использовать службу хранилища BLOB-объектов из Java]: http://www.windowsazure.com/ru-ru/develop/java/how-to-guides/blob-storage/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

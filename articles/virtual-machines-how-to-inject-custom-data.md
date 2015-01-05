@@ -61,4 +61,4 @@
 [Кроссплатформенный интерфейс командной строки Microsoft Azure](https://github.com/Azure/azure-sdk-tools-xplat)
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

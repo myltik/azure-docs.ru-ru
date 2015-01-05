@@ -28,4 +28,4 @@
 
 **Скачать:** <a href="http://go.microsoft.com/fwlink/p/?LinkId=330292" target="_blank">Общие сведения о технологиях NoSQL в Azure (PDF-файл)</a>
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -9,4 +9,4 @@
 
 [iOS and Mobile Services and Windows Azure Storage] (iOS, мобильные службы и служба хранилища Microsoft Azure): http://chrisrisner.com/iOS-and-Mobile-Services-and-Windows-Azure-Storage
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

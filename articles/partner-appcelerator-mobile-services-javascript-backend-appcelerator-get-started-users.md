@@ -98,4 +98,4 @@
 <!-- URLs. -->
 [Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

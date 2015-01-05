@@ -355,4 +355,4 @@
 [Образец оболочки Java REST]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-java
 Учебник [Приступая к работе]: http://azure.microsoft.com/ru-ru/documentation/articles/notification-hubs-ios-get-started/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

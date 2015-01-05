@@ -51,4 +51,4 @@
 [Хранение серверных сценариев в системе управления версиями]: /ru-ru/documentation/articles/mobile-services-store-scripts-source-control
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

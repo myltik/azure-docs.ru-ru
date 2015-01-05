@@ -74,4 +74,4 @@ Microsoft Azure воспринимает этот шаблон как образ
 [Успешная запись образа]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
 [Использование записанного образа]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -130,4 +130,4 @@ WSGI - это стандарт Python, описанный [PEP 3333],(http://www
 ![](./media/web-sites-python-configure/configure-python-result.png)
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

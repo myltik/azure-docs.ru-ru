@@ -387,4 +387,4 @@
 [Портал управления Azure]: http://manage.windowsazure.com/
 [Хранение данных и доступ к ним в Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/gg433040.aspx
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

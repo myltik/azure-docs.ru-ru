@@ -87,4 +87,4 @@
 [Capptain]: http://www.capptain.com
 [Мобильные службы уровня Standard]: /ru-ru/pricing/details/mobile-services/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -81,4 +81,4 @@
 [Event Processor Host] (Библиотека Event Processor Host): https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Event Hubs Overview] (Обзор концентраторов событий): http://msdn.microsoft.com/ru-ru/library/azure/dn836025.aspx
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

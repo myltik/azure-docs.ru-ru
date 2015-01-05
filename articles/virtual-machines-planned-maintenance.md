@@ -57,4 +57,4 @@ Azure отправляет уведомление по электронной п
 [Управление доступностью виртуальных машин]: ../virtual-machines-windows-tutorial/
 [Различия планового и внепланового обслуживания]: ../virtual-machines-manage-availability/#Understand-planned-versus-unplanned-maintenance/ 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

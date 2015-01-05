@@ -70,4 +70,4 @@
 [Создание учетной записи служб мультимедиа]: ../media-services-create-account/
 [Практическое руководство. Создание зашифрованного ресурса и его отправка в хранилище]: ../media-services-create-encrypted-asset-upload-storage/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

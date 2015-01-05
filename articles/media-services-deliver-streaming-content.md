@@ -78,4 +78,4 @@ private static ILocator GetStreamingOriginLocator( string targetAssetID)
 <h2>Дальнейшие действия</h2>
 На данный момент мы рассмотрели доставку мультимедиа путем загрузки из хранилища Azure и с использованием Smooth Streaming. В следующей статье [Доставка содержимого потоковой передачи](../media-services-deliver-http-live-streaming-content/) рассматривается доставка содержимого потоковой передачи с помощью Apple HTTP Live Streaming (HLS).
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

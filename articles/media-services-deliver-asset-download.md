@@ -73,4 +73,4 @@ static void DownloadProgress(object sender, DownloadProgressChangedEventArgs e)
 <h2>Дальнейшие действия</h2>
 В этом разделе описана загрузка актива из хранилища Azure. Дополнительную информацию о других способах доставки ресурсов см. в статье [Практическое руководство. Доставка содержимого потоковой передачи](../media-services-deliver-streaming-content/) .
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

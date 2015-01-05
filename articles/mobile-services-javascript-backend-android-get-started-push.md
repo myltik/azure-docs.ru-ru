@@ -222,4 +222,4 @@
 [Рассылка уведомлений подписчикам]: /ru-ru/documentation/articles/notification-hubs-android-send-breaking-news/
 [Рассылка уведомлений по шаблону подписчикам]: /ru-ru/documentation/articles/notification-hubs-android-send-localized-breaking-news/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

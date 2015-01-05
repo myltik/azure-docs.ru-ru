@@ -104,4 +104,4 @@ SUSE Linux Enterprise Server в Azure - проверенная платформ�
 </table>
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

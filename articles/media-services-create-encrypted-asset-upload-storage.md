@@ -122,4 +122,4 @@ static void  blobTransferClient_TransferProgressChanged(object sender, BlobTrans
 
 [Получение обработчика мультимедиа]: ../media-services-get-media-processor/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->
