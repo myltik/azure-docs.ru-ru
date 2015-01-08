@@ -1,7 +1,0 @@
-<properties linkid="manage-fundamentals-networking" urlDisplayName="Сеть" pageTitle="Сеть (служба) — основы Azure" metaKeywords="виртуальная сеть Azure, подключение к Azure, диспетчер трафика Azure" description="Введение в сеть Azure." metaCanonical="http://www.windowsazure.com/ru-ru/develop/net/fundamentals/networking/" services="virtual-network" documentationCenter="" title="" authors="" solutions="" manager="" editor="" />
-
-
-
-
-[WACOM.INCLUDE [azure-networking](../includes/azure-networking.md)]
-
