@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Deploy Azure WebJobs to Azure Websites" pageTitle="Развертывание веб-заданий Azure на веб-сайтах Azure" metaKeywords="веб-сайты Azure, веб-задания, фоновые задачи" description="Learn how to deploy Azure WebJobs to Azure Websites using Visual Studio." metaCanonical="" services="web-sites" documentationCenter="" title="Deploy Azure WebJobs to Azure Websites" authors="tdykstra"  solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties urlDisplayName="Deploy Azure WebJobs to Azure Websites" pageTitle="Развертывание веб-заданий Azure на веб-сайтах Azure" metaKeywords="веб-сайты Azure, веб-задания, фоновые задачи" description="Узнайте, как развернуть элементы Azure WebJob на веб-сайтах Azure с помощью Visual Studio." metaCanonical="" services="web-sites" documentationCenter="" title="Deploy Azure WebJobs to Azure Websites" authors="tdykstra"  solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="web-sites" ms.devlang="dotnet" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="web" ms.date="11/12/2014" ms.author="tdykstra" />
 

@@ -1,4 +1,4 @@
-﻿<properties title="Planned maintenance for Azure virtual machines" pageTitle="Плановое обслуживание виртуальных машин Azure" description="Understand what Azure planned maintenance is and how it affects your virtual machines running in Azure." metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="kenazk" videoId="" scriptId="" manager="timlt" />
+﻿<properties title="Planned maintenance for Azure virtual machines" pageTitle="Плановое обслуживание виртуальных машин Azure" description="Сведения о том, что такое плановое обслуживание Azure и как оно влияет на виртуальные машины, работающие в Azure." metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="kenazk" videoId="" scriptId="" manager="timlt" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="11/26/2014" ms.author="kenazk" />
 

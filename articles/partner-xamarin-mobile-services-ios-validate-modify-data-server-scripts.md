@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="" pageTitle="Использование серверных скриптов для проверки и изменения данных (Xamarin iOS) | Центр мобильных разработок" metaKeywords="" description="Learn how to validate and modify data sent using server scripts from your Xamarin iOS app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="donnam" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="" pageTitle="Использование серверных скриптов для проверки и изменения данных (Xamarin iOS) | Центр мобильных разработок" metaKeywords="" description="Узнайте, как проверять и изменять данные, отправленные с помощью серверных сценариев из приложения Xamarin для iOS." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="donnam" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="09/26/2014" ms.author="donnam" />
 

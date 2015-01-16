@@ -1,3 +1,4 @@
+
 1.  Нажмите клавишу F5 для повторного построения проекта, после чего запустите приложение Магазина Windows.
 
 2.  В приложении введите содержательный текст, например *Работа с учебником*, в поле **Вставить в TodoItem**, затем щелкните **Сохранить**.
@@ -12,5 +13,5 @@
 
     Обратите внимание, что данные, сохраненные на предыдущем этапе, загружаются из мобильной службы после запуска приложения.
 
-  []: ./media/mobile-services-windows-universal-test-app/mobile-quickstart-startup.png
+  [0]: ./media/mobile-services-windows-universal-test-app/mobile-quickstart-startup.png
   [1]: ./media/mobile-services-windows-universal-test-app/mobile-quickstart-completed-wp8.png

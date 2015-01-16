@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Azure Import/Export Service" pageTitle="Использование службы экспорта и импорта для передачи данных BLOB-объектов в хранилище Microsoft Azure" metaKeywords="" description="Learn how to create import and export jobs in the Azure Management Portal to transfer data to blob storage." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Using the Azure Import/Export Service to Transfer Data to Blob Storage" authors="tamram" manager="adinah" />
+﻿<properties urlDisplayName="Azure Import/Export Service" pageTitle="Использование службы экспорта и импорта для передачи данных BLOB-объектов в хранилище Microsoft Azure" metaKeywords="" description="Вы узнаете, как создавать задания для службы импорта и экспорта данных через портал управления хранилищем Azure для передачи данных в хранилище BLOB-объектов." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Using the Azure Import/Export Service to Transfer Data to Blob Storage" authors="tamram" manager="adinah" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/25/2014" ms.author="tamram" />
 

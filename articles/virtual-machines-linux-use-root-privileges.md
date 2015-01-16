@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Use root privileges" pageTitle="Использование прав корневой учетной записи на виртуальных машинах Linux в Azure" metaKeywords="" description="Learn how to use root privileges on a Linux virtual machine in Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Using root privileges on Linux virtual machines in Azure" authors="szarkos" solutions="" manager="timlt" editor="" />
+﻿<properties urlDisplayName="Use root privileges" pageTitle="Использование прав корневой учетной записи на виртуальных машинах Linux в Azure" metaKeywords="" description="Узнайте, как использовать права корневой учетной записи на виртуальных машинах Linux в Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Using root privileges on Linux virtual machines in Azure" authors="szarkos" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="11/18/2014" ms.author="szark" />
 

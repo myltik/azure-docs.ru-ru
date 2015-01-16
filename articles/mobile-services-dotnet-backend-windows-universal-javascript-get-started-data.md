@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Get Started with Data" pageTitle="Начало работы с данными (Магазин Windows) | Центр разработчиков для мобильных устройств" metaKeywords="" description="Learn how to get started using Mobile Services to leverage data in your Windows Store app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="wesmc" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Get Started with Data" pageTitle="Начало работы с данными (Магазин Windows) | Центр разработчиков для мобильных устройств" metaKeywords="" description="Узнайте, как приступить к работе с мобильными службами, чтобы использовать данные в приложении магазина Windows." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="wesmc" solutions="" manager="dwrede" editor="" /
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 
@@ -27,11 +27,11 @@
 * Активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://azure.microsoft.com/ru-ru/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fazure.microsoft.com%2Fru-ru%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-universal-javascript-get-started-data%2F).
 * <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>. Доступна бесплатная пробная версия.
 
-##<a name="download-app"></a>Загрузка пакета GetStartedWithData
+## <a name="download-app"></a>Загрузка пакета GetStartedWithData
 
 [WACOM.INCLUDE [mobile-services-windows-universal-javascript-download-project](../includes/mobile-services-windows-universal-javascript-download-project.md)]
 
-##<a name="create-service"></a>Создание мобильной службы в Visual Studio
+## <a name="create-service"></a>Создание мобильной службы в Visual Studio
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service-vs2013](../includes/mobile-services-dotnet-backend-create-new-service-vs2013.md)]
 
@@ -44,7 +44,7 @@
 	<p>Этот код предоставляет доступ к новой мобильной службе в вашем приложении с помощью глобальной переменной. Клиент создается с указанием URI и ключа приложения новой мобильной службы. Так как ссылка на этот скрипт была добавлена в файл default.html, эта переменная доступна для всех файлов скриптов, на которые также указывает ссылка на этой странице.</p>
 </li>
 <li><p>Откройте файл проекта default.html, найдите ссылку на новый файл скрипта service.js и убедитесь в том, что путь ссылки выглядит следующим образом:</p>
-<pre><code><script src="/services/mobileServices/scripts/todolist.js"></script></code></pre>
+<pre><code>&lt;script src="/services/mobileServices/scripts/todolist.js"&gt;</script></code></pre>
 <p>В настоящее время в Visual Studio есть ошибка, из-за которой создается путь с неправильным именем папки.</p></li>
 <li><p>Щелкните проект приложения Windows Phone правой кнопкой мыши, выберите пункт <strong>Добавить</strong>, щелкните <strong>Подключенная служба...</strong>, выберите только что созданную мобильную службу и нажмите кнопку <strong>OK</strong>. </p>
 <p>Тот же новый файл с кодом добавляется в проект приложения для Магазина Windows Phone. Не забудьте также исправить путь ссылки, добавленный в файл default.html.</p></li>
@@ -52,27 +52,27 @@
 
 Теперь приложение для Магазина Windows и приложение для Магазина Windows Phone подключены к новой мобильной службе. Следующий шаг - тестирование нового проекта мобильной службы.
 
-##<a name="test-the-service-locally"></a>Локальное тестирование проекта мобильной службы
+## <a name="test-the-service-locally"></a>Локальное тестирование проекта мобильной службы
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service-api-documentation](../includes/mobile-services-dotnet-backend-test-local-service-api-documentation.md)]
 
-##<a name="update-app"></a>Обновление приложения для использования мобильной службы
+## <a name="update-app"></a>Обновление приложения для использования мобильной службы
 
 В этом разделе вы обновите универсальное приложение Windows, чтобы использовать мобильную службу в качестве серверной службы для приложения. Изменения необходимо внести только в файл проекта default.js в папке проекта GetStartedWithData.Shared. 
 
 [WACOM.INCLUDE [mobile-services-windows-javascript-update-data-app](../includes/mobile-services-windows-javascript-update-data-app.md)]
 
-##<a name="publish-mobile-service"></a>Публикация мобильной службы в Azure
+## <a name="publish-mobile-service"></a>Публикация мобильной службы в Azure
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
-##<a name="test-azure-hosted"></a>Тестирование мобильной службы, размещенной в Azure
+## <a name="test-azure-hosted"></a>Тестирование мобильной службы, размещенной в Azure
 
 Теперь мы можем протестировать обе версии универсального приложения Windows с мобильной службой, размещенной в Azure.
 
 [WACOM.INCLUDE [mobile-services-windows-universal-test-app](../includes/mobile-services-windows-universal-test-app.md)]
 
-##<a name="view-stored-data"></a>Просмотр данных, хранящихся в базе данных SQL
+## <a name="view-stored-data"></a>Просмотр данных, хранящихся в базе данных SQL
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-view-sql-data](../includes/mobile-services-dotnet-backend-view-sql-data.md)]
 
@@ -101,8 +101,8 @@
   
 <!-- Anchors. -->
 
-[Загрузка проекта приложения для Магазина Windows ]: #download-app
-[Создание новой мобильной службы в Visual Studio]: #create-service
+[Загрузка проекта приложения для Магазина Windows]: #download-app
+[Создание мобильной службы в Visual Studio]: #create-service
 [Локальное тестирование проекта мобильной службы]: #test-the-service-locally
 [Обновление приложения для использования мобильной службы]: #update-app
 [Тестирование приложения со службой, размещенной локально]: #test-locally-hosted
@@ -142,7 +142,7 @@
 [Уточнение запросов посредством разбиения по страницам]: /ru-ru/develop/mobile/tutorials/add-paging-to-data-js
 [Начало работы с мобильными службами]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started/
 [Начало работы с данными]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/
-[Знакомство с механизмом проверки подлинности]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users/
+[Приступая к работе с аутентификацией]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users/
 [Приступая к работе с push-уведомлениями]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/
 
 
@@ -150,6 +150,6 @@
 [Портал управления]: https://manage.windowsazure.com/
 [Пакет SDK мобильных служб]: http://go.microsoft.com/fwlink/p/?LinkId=257545
 [Сайт с образцами кода для разработчиков]:  http://go.microsoft.com/fwlink/p/?LinkID=510826
-[Мобильные службы .NET: справочник принципов использования]: /ru-ru/documentation/articles/mobile-services-html-how-to-use-client-library/
+[Справочник принципов использования мобильных служб .NET]: /ru-ru/documentation/articles/mobile-services-html-how-to-use-client-library/
 [Класс MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
   

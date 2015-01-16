@@ -1,4 +1,4 @@
-<properties title="Difference in Proportions Test" pageTitle="Проверка различия долей | Azure" description="Difference in Proportions Test" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+<properties title="Difference in Proportions Test" pageTitle="Проверка различия долей | Azure" description="Тест на разницу в пропорциях" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
 <tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/08/2014" ms.author="jaymathe" /> 
 

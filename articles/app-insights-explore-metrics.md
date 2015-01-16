@@ -1,4 +1,4 @@
-﻿<properties title="Explore your metrics" pageTitle="Изучение своих метрик" description="Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights." metaKeywords="analytics monitoring application insights" authors="awills" manager="kamrani"  />
+﻿<properties title="Explore your metrics" pageTitle="Изучение своих метрик" description="Анализ использования, доступности и производительности локального приложения или веб-приложения Microsoft Azure с помощью Application Insights." metaKeywords="analytics monitoring application insights" authors="awills" manager="kamrani"  />
 
 <tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-24" ms.author="awills" />
  

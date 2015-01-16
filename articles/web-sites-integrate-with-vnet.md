@@ -1,4 +1,4 @@
-﻿<properties title="Integrate your Azure Website with an Azure Virtual Network" pageTitle="Интеграция веб-сайта Azure с виртуальной сетью Azure" description="Shows you how to connect an Azure Website to a new or existing Azure virtual network" metaKeywords="" services="web-sites,virtual-network" solutions="web,integration,infrastructure" documentationCenter="" authors="cephalin" videoId="" scriptId="" manager="wpickett" />
+﻿<properties title="Integrate your Azure Website with an Azure Virtual Network" pageTitle="Интеграция веб-сайта Azure с виртуальной сетью Azure" description="Показывает, как подключить веб-сайт Azure к новой или существующей виртуальной сети Azure" metaKeywords="" services="web-sites,virtual-network" solutions="web,integration,infrastructure" documentationCenter="" authors="cephalin" videoId="" scriptId="" manager="wpickett" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/24/2014" ms.author="cephalin" />
 

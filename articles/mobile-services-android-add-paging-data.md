@@ -1,4 +1,4 @@
-﻿	<properties urlDisplayName="Add paging to data" pageTitle="Добавление разбиения по страницам в данные (Android) | Центр разработчиков мобильных устройств" metaKeywords="" description="Learn how to use paging to manage the amount of data returned to your Android app from Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Refine Mobile Services queries with paging" authors="ricksal" solutions="" manager="dwrede" editor="" />
+﻿	<properties urlDisplayName="Add paging to data" pageTitle="Добавление разбиения по страницам в данные (Android) | Центр разработчиков мобильных устройств" metaKeywords="" description="Узнайте, как использовать разбиение по страницам для управления объемом данных, возвращаемых в приложение Android из мобильных служб." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Refine Mobile Services queries with paging" authors="ricksal" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="ricksal" />
 

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Check Job Progress" pageTitle="Проверка хода выполнения задания в службах мультимедиа - Azure" metaKeywords="" description="Learn how to use event handler code to track job progress and send status updates. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Check Job Progress" authors="juliako" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="Check Job Progress" pageTitle="Проверка хода выполнения задания в службах мультимедиа - Azure" metaKeywords="" description="Узнайте, как использовать код обработчика событий для проверки хода выполнения задания и отправки сведений об обновлении состояния. Примеры кода написаны на языке C# и используют пакет SDK служб мультимедиа для .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Check Job Progress" authors="juliako" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
 

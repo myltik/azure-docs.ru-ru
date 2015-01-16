@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Upload Data" pageTitle="Отправка данных для заданий Hadoop в Azure HDInsight" metaKeywords="" description="Learn how to upload and access data in HDInsight using Azure Storage Explorer, Azure PowerShell, the Hadoop command line, or Sqoop." metaCanonical="" services="storage,hdinsight" documentationCenter="" title="Upload data for Hadoop jobs in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
+﻿<properties urlDisplayName="Upload Data" pageTitle="Отправка данных для заданий Hadoop в Azure HDInsight" metaKeywords="" description="Вы узнаете, как отправить и получить доступ к данным в HDInsight с помощью обозревателя хранилищ Azure, Azure PowerShell, командной строки Hadoop или Sqoop." metaCanonical="" services="storage,hdinsight" documentationCenter="" title="Upload data for Hadoop jobs in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/12/2014" ms.author="jgao" />
 

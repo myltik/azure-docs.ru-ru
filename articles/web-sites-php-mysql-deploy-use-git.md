@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Web w/ MySQL + Git" pageTitle="Веб-сайт на PHP с использованием MySQL и Git - учебник Azure" metaKeywords="" description="A tutorial that demonstrates how to create a PHP website that stores data in MySQL and use Git deployment to Azure." metaCanonical="" services="web-sites" documentationCenter="PHP" title="Create a PHP-MySQL Azure website and deploy using Git" authors="tomfitz" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+﻿<properties urlDisplayName="Web w/ MySQL + Git" pageTitle="Веб-сайт на PHP с использованием MySQL и Git - учебник Azure" metaKeywords="" description="В этом учебнике показано, как создать веб-сайт на PHP, который хранит данные в MySQL и использует развертывание Git в Azure." metaCanonical="" services="web-sites" documentationCenter="PHP" title="Create a PHP-MySQL Azure website and deploy using Git" authors="tomfitz" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/14/2014" ms.author="tomfitz" />
 

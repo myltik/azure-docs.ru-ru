@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Service Bus Relay" pageTitle="Использование ретрансляции служебной шины (.NET) - Azure" metaKeywords="Приступая к работе с ретрансляцией служебной шины Azure в C# " description="Learn how to use the Azure Service Bus relay service to connect two applications hosted in different locations." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use the Service Bus Relay Service" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+﻿<properties urlDisplayName="Service Bus Relay" pageTitle="Использование ретрансляции служебной шины (.NET) - Azure" metaKeywords="Приступая к работе с ретрансляцией служебной шины Azure в C# " description="Узнайте, как использовать службу ретрансляции Azure Service Bus для соединения двух приложений, размещенных в разных расположениях." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use the Service Bus Relay Service" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
 <tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 

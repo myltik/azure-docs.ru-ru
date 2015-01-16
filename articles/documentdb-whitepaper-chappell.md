@@ -1,4 +1,4 @@
-﻿<properties title="DocumentDB whitepaper by David Chappell" pageTitle="Технический документ, написанный Дэвидом Чэппелом | Azure" description="Download a whitepaper by David Chappell description DocumentDB, a managed NoSQL database on Azure." metaKeywords="" services="documentdb" solutions="" documentationCenter="" authors="adlevin" videoId="" scriptId="" manager="jhubbard" />
+﻿<properties title="DocumentDB whitepaper by David Chappell" pageTitle="Технический документ, написанный Дэвидом Чэппелом | Azure" description="Скачайте технический документ Дэвида Чаппелла (David Chappell) с описанием в DocumentDB, посвященный управляемой базе данных NoSQL в Azure." metaKeywords="" services="documentdb" solutions="" documentationCenter="" authors="adlevin" videoId="" scriptId="" manager="jhubbard" />
 
 <tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="adlevin" />
 

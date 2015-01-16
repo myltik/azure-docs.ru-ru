@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Service Bus Queues" pageTitle="Использование очередей служебной шины (PHP) - Azure" metaKeywords="очереди служебной шины Azure, очереди Azure, обмен сообщениями Azure, очереди Azure PHP" description="Learn how to use Service Bus queues in Azure. Code samples written in PHP." metaCanonical="" services="service-bus" documentationCenter="PHP" title="How to Use Service Bus Queues" authors="sethm" solutions="" manager="timlt" editor="" />
+﻿<properties urlDisplayName="Service Bus Queues" pageTitle="Использование очередей служебной шины (PHP) - Azure" metaKeywords="очереди служебной шины Azure, очереди Azure, обмен сообщениями Azure, очереди Azure PHP" description="Узнайте, как использовать очереди Service Bus в Azure. Примеры кода написаны на PHP." metaCanonical="" services="service-bus" documentationCenter="PHP" title="How to Use Service Bus Queues" authors="sethm" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="10/13/2014" ms.author="sethm" />
 

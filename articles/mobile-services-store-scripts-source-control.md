@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Store JavaScript project code in source control" pageTitle="Хранение кода проекта в системе управления версиями: мобильные службы Azure" metaKeywords="" description="Learn how to store your server script files and modules in a local Git repo on your computer." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Store project code in source control" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="Store JavaScript project code in source control" pageTitle="Хранение кода проекта в системе управления версиями: мобильные службы Azure" metaKeywords="" description="Узнайте, как сохранить файлы серверных сценариев и модулей в локальном репозитории Git на компьютере." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Store project code in source control" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga" />
 

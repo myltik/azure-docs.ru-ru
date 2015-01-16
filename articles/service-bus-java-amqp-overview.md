@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Service Bus AMQP Overview" pageTitle="Обзор Service Bus AMQP (Java) - Azure " metaKeywords="" description="Learn about using the Advanced Message Queuing Protocol (AMQP) 1.0 in Azure." metaCanonical="http://www.windowsazure.com/ru-ru/develop/net/how-to-guides/service-bus-amqp-overview/" services="service-bus" documentationCenter="Java" title="" authors="sethm" solutions="" manager="timlt" editor="" />
+﻿<properties urlDisplayName="Service Bus AMQP Overview" pageTitle="Обзор Service Bus AMQP (Java) - Azure " metaKeywords="" description="Узнайте об использовании протокола AMQP 1.0 в Azure." metaCanonical="http://www.windowsazure.com/ru-ru/develop/net/how-to-guides/service-bus-amqp-overview/" services="service-bus" documentationCenter="Java" title="" authors="sethm" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="10/13/2014" ms.author="sethm" />
 

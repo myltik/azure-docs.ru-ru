@@ -1,4 +1,4 @@
-﻿<properties title="Interact with DocumentDB resources" pageTitle="Взаимодействие с ресурсами DocumentDB |Azure" description="DocumentDB provides client SDKs for .NET, Python, Node.js and JavaScript - all of which are simple wrappers over the underlying REST APIs." metaKeywords="" services="documentdb" solutions="data-management"  authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties title="Interact with DocumentDB resources" pageTitle="Взаимодействие с ресурсами DocumentDB |Azure" description="В DocumentDB имеются клиентские пакеты SDK для .NET, Python, Node.js и JavaScript, все они являются программами-оболочками базовых интерфейсов REST API." metaKeywords="" services="documentdb" solutions="data-management"  authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
 
 <tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
 

@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Установка гибридного кластера вычислений с помощью пакета Microsoft HPC" metaKeywords="" description="Learn how to use Microsoft HPC Pack and Azure to set up a small, hybrid high performance computing (HPC) cluster" metaCanonical="" services="" documentationCenter="" title="Set up a Hybrid Cluster with Microsoft HPC Pack" authors="danlep" solutions="" manager="timlt" editor="mattshel" />
+﻿<properties pageTitle="Установка гибридного кластера вычислений с помощью пакета Microsoft HPC" metaKeywords="" description="Узнайте, как использовать пакет Microsoft HPC и Azure для настройки небольшого гибридного кластера высокопроизводительных вычислений (HPC)" metaCanonical="" services="" documentationCenter="" title="Set up a Hybrid Cluster with Microsoft HPC Pack" authors="danlep" solutions="" manager="timlt" editor="mattshel" />
 
 <tags ms.service="cloud-services" ms.workload="big-compute" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/16/2014" ms.author="danlep" />
 

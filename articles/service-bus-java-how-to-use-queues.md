@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Service Bus Queues" pageTitle="Использование очередей Service Bus (Java) - Azure" metaKeywords="Очереди Azure Service Bus, очереди Azure, обмен сообщениями Azure, очереди Azure Java" description="Learn how to use Service Bus queues in Azure. Code samples written in Java." metaCanonical="" services="service-bus" documentationCenter="Java" title="How to Use Service Bus Queues" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
+﻿<properties urlDisplayName="Service Bus Queues" pageTitle="Использование очередей Service Bus (Java) - Azure" metaKeywords="Очереди Azure Service Bus, очереди Azure, обмен сообщениями Azure, очереди Azure Java" description="Узнайте, как использовать очереди Service Bus в Azure. Примеры кода написаны на Java." metaCanonical="" services="service-bus" documentationCenter="Java" title="How to Use Service Bus Queues" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
 
 <tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
 

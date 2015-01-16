@@ -1,4 +1,4 @@
-﻿<properties title="Enterprise class WordPress on Azure Websites" pageTitle="WordPress корпоративного уровня на веб-сайтах Azure" description="Узнайте о размещении сайта WordPress корпоративного уровня на веб-сайтах Azure" metaKeywords="wordpress azure, wordpress website, wordpress azure website" services="web-sites" solutions="web" documentationCenter="" authors="tomfitz" manager="wpickett" videoId="" scriptId="" />
+﻿<properties title="Enterprise class WordPress on Azure Websites" pageTitle="WordPress корпоративного уровня на веб-сайтах Azure" description="Узнайте, как разместить сайт WordPress корпоративного уровня на веб-сайтах Azure" metaKeywords="wordpress azure, wordpress website, wordpress azure website" services="web-sites" solutions="web" documentationCenter="" authors="tomfitz" manager="wpickett" videoId="" scriptId="" />
 
 <tags ms.service="web-sites" ms.devlang="php" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="web" ms.date="11/11/2014" ms.author="tomfitz" />
 

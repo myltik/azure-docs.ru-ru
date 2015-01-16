@@ -1,4 +1,4 @@
-﻿<properties umbracoNaviHide="0" pageTitle="Как управлять базой данных SQL" metaKeywords="база данных SQL Azure, база данных SQL, управлять базой данных sql, добавить имена входа, подключение к базе данных sql" description="Learn how to manage Azure SQL database." urlDisplayName="Cloud Services" headerExpose="" footerExpose="" disqusComments="1" title="How to Manage SQL Database" authors="jeffreyg" manager="jeffreyg" />
+﻿<properties umbracoNaviHide="0" pageTitle="Как управлять базой данных SQL" metaKeywords="база данных SQL Azure, база данных SQL, управлять базой данных sql, добавить имена входа, подключение к базе данных sql" description="Узнайте, как управлять базой данных Azure SQL." urlDisplayName="Cloud Services" headerExpose="" footerExpose="" disqusComments="1" title="How to Manage SQL Database" authors="jeffreyg" manager="jeffreyg" />
 
 <tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/31/2015" ms.author="jeffreyg" />
 

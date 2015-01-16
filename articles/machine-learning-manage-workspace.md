@@ -1,4 +1,4 @@
-﻿<properties title="Manage an Azure Machine Learning workspace" pageTitle="Управление рабочей областью машинного обучения | Azure" description="Manage access to Azure Machine Learning workspaces, and deploy and manage ML API web services" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties title="Manage an Azure Machine Learning workspace" pageTitle="Управление рабочей областью машинного обучения | Azure" description="Управление доступом к рабочим областям Машинного обучения Azure, а также развертывание веб-служб API ML и управление ими" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
 <tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
 

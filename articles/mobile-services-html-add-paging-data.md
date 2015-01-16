@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Add paging to data (HTML5)" pageTitle="Добавление разбиения по страницам в данные (HTML 5) | Центр разработчиков для мобильных устройств" metaKeywords="" description="Learn how to use paging to manage the amount of data returned to your HTML app from Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Refine Mobile Services queries with paging" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="Add paging to data (HTML5)" pageTitle="Добавление разбиения по страницам в данные (HTML 5) | Центр разработчиков для мобильных устройств" metaKeywords="" description="Узнайте, как использовать разбиение по страницам для управления объемом данных, возвращаемых в приложение HTML из мобильных служб." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Refine Mobile Services queries with paging" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="09/24/2014" ms.author="glenga" />
 

@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Приступая к работе с push-уведомление с помощью серверной мобильной службы .NET" metaKeywords="" description="Learn how to use Azure Mobile Services and Notification Hubs to send push notifications to your universal Windows app." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="glenga" solutions="mobile" manager="dwrede" editor="" />
+<properties pageTitle="Приступая к работе с push-уведомление с помощью серверной мобильной службы .NET" metaKeywords="" description="Узнайте, как использовать мобильные службы и центры уведомлений Azure для отправки push-уведомлений в универсальное приложение для Windows." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="glenga" solutions="mobile" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/27/2014" ms.author="glenga" />
 
@@ -23,28 +23,28 @@
 * Активная [учетная запись Microsoft Store](http://go.microsoft.com/fwlink/p/?LinkId=280045).
 * <a href="https://go.microsoft.com/fwLink/p/?LinkID=391934" target="_blank">Visual Studio Professional 2013</a> (с обновлением 3 или более поздней версии). <br/>Доступна бесплатная пробная версия. 
 
-##<a id="register"></a>Регистрация приложения для получения push-уведомлений
+## <a id="register"></a>Регистрация приложения для получения push-уведомлений
 
 [WACOM.INCLUDE [mobile-services-create-new-push-vs2013](../includes/mobile-services-create-new-push-vs2013.md)]
 
 <ol start="6">
-<li><p>Перейдите в папку проекта <code>\services\mobileServices\scripts</code>, скопируйте созданный файл скрипта <<em>имя_вашей_службы</em>>.push.register.js в общую папку <code>\js</code>, а затем удалите этот файл из проектов приложений для Windows и Windows Phone.</p></li> 
+<li><p>Перейдите в папку проекта <code>\services\mobileServices\scripts</code>, скопируйте созданный файл скрипта &lt;<em>имя_вашей_службы</em>&gt;.push.register.js в общую папку <code>\js</code>, а затем удалите этот файл из проектов приложений для Windows и Windows Phone.</p></li> 
 <li><p>Откройте этот файл скрипта в общей папке проекта <code>\js</code>, найдите в прослушивателе событий <em>activated</em> код, который регистрирует URL-адрес канала устройства в концентраторе уведомлений, и удалите функцию обещания <strong>done</strong>.</p>
 <p>В примере в этом учебнике уведомления отправляются при вставке нового элемента, а не при вызове настраиваемого API.</p></li>
-<li><p>В проекте приложения Windows откройте файл default.html и измените путь ссылки на файл скрипта из общей папки проекта <code>\js</code> так, чтобы он выглядел следующим образом:</p><pre><code><script src="/js/your_service_name.push.register.js"></script></code></pre></li>
+<li><p>В проекте приложения Windows откройте файл default.html и измените путь ссылки на файл скрипта из общей папки проекта <code>\js</code> так, чтобы он выглядел следующим образом:</p><pre><code>&lt;script src="/js/your_service_name.push.register.js"&gt;&lt;/script&gt;</code></pre></li>
 <li><p>Повторите этот шаг для проекта приложения WindowsPhone.</p>
 <p>Теперь в обоих проектах используется общая версия скрипта регистрации push-уведомлений.</p></li>
 </ol>
 
 После включения push-уведомлений в приложении необходимо обновить мобильную службу так, чтобы она отправляла push-уведомления. 
 
-##<a id="update-service"></a>Обновление службы для отправки push-уведомлений
+## <a id="update-service"></a>Обновление службы для отправки push-уведомлений
 
 Описанные ниже шаги позволяют обновить существующий класс TodoItemController для отправки push-уведомления на все зарегистрированные устройства при вставке нового элемента. Подобный код можно реализовать в любом пользовательском классе [ApiController], [TableController] или в другом месте своих серверных служб. 
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-update-server-push](../includes/mobile-services-dotnet-backend-update-server-push.md)]
 
-##<a id="local-testing"></a> Включение push-уведомлений для локального тестирования
+## <a id="local-testing"></a> Включение push-уведомлений для локального тестирования
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-configure-local-push-vs2013](../includes/mobile-services-dotnet-backend-configure-local-push-vs2013.md)]
 
@@ -53,7 +53,7 @@
 >[WACOM.NOTE]Никогда не используйте рабочую мобильную службу для тестирования и разработки. Для тестирования всегда публикуйте проект мобильной службы в виде отдельной промежуточной службы.
 
 <ol start="5">
-<li><p>Перейдите в папку проекта <code>\services\mobileServices\settings</code>, скопируйте созданный файл скрипта <<em>имя_службы</em>>.js в общую папку проекта <code>\js</code>, а затем удалите этот файл из проектов приложений Windows и Windows Phone. Кроме того, удалите этот файл из папки <code>\services\mobileServices\scripts</code> в каждом проекте приложения, если он есть там.</p></li> 
+<li><p>Перейдите в папку проекта <code>\services\mobileServices\settings</code>, скопируйте созданный файл скрипта &lt;<em>имя_службы</em>&gt;.js в общую папку проекта <code>\js</code>, а затем удалите этот файл из проектов приложений Windows и Windows Phone. Кроме того, удалите этот файл из папки <code>\services\mobileServices\scripts</code> в каждом проекте приложения, если он есть там.</p></li> 
 <li><p>Откройте этот файл скрипта в общей папке проекта <code>\js</code> и закомментируйте код определения <a href="http://msdn.microsoft.com/ru-ru/library/azure/jj554219.aspx">объекта MobileServiceClient</a>, используемого для доступа к мобильной службе, которая работает в Azure.</p></li>
 <li><p>Добавьте определение нового объекта <strong>MobileServiceClient</strong> с тем же именем, но с использованием URL-адреса локального узла в конструкторе, как в следующем примере.</p>
 <pre><code>// This MobileServiceClient has been configured to communicate with your local
@@ -63,7 +63,7 @@ var todolistClient = new WindowsAzure.MobileServiceClient(
 </code></pre><p>С помощью этого объекта <strong>MobileServiceClient</strong> приложение будет подключаться к локальной службе, а не к версии, размещенной в Azure. Если вы захотите снова подключить приложение к мобильной службе, размещенной в Azure, верните исходные определения объекта <strong>MobileServiceClient</strong>.</p></li>
 </ol>
 
-##<a id="test"></a> Тестирование push-уведомлений в приложении
+## <a id="test"></a> Тестирование push-уведомлений в приложении
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-windows-universal-test-push](../includes/mobile-services-dotnet-backend-windows-universal-test-push.md)]
 

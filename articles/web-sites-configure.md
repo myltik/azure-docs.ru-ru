@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="How to configure" pageTitle="Как настраивать веб-сайты - управление службами Azure" metaKeywords="веб-сайты Azure, настройка веб-сайтов Azure, база данных SQL Azure, Azure MySQL" description="Learn how to configure websites in Azure, including how to configure a website to use a SQL Database or MySQL database." metaCanonical="" services="web-sites" documentationCenter="" title="How to Configure Websites" authors="mwasson" solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties urlDisplayName="How to configure" pageTitle="Как настраивать веб-сайты - управление службами Azure" metaKeywords="веб-сайты Azure, настройка веб-сайтов Azure, база данных SQL Azure, Azure MySQL" description="Узнайте, как настраивать веб-сайты в Azure, включая настройку веб-сайта для использования Базы данных SQL или базы данных MySQL." metaCanonical="" services="web-sites" documentationCenter="" title="How to Configure Websites" authors="mwasson" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/18/2014" ms.author="mwasson" />
 

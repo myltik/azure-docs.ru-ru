@@ -1,4 +1,4 @@
-<properties title="Binomial Distribution Suite" pageTitle="Набор веб-служб биномиального распределения | Azure" description="Binomial Distribution Suite" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+<properties title="Binomial Distribution Suite" pageTitle="Набор веб-служб биномиального распределения | Azure" description="Набор биномиального распределения" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
 <tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/08/2014" ms.author="jaymathe" /> 
 

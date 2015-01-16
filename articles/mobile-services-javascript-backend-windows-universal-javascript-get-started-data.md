@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Get Started with Data" pageTitle="Начало работы с данными (магазин Windows JavaScript) | Центр разработчиков для мобильных устройств" metaKeywords="" description="Learn how to get started using Mobile Services to leverage data in your Windows Store JavaScript app." metaCanonical="https://www.windowsazure.com/ru-ru/develop/mobile/tutorials/get-started-with-data-dotnet/" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Get Started with Data" pageTitle="Начало работы с данными (магазин Windows JavaScript) | Центр разработчиков для мобильных устройств" metaKeywords="" description="Узнайте, как приступить к работе с мобильными службами, чтобы использовать данные в приложении JavaScript магазина Windows." metaCanonical="https://www.windowsazure.com/ru-ru/develop/mobile/tutorials/get-started-with-data-dotnet/" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/26/2014" ms.author="glenga" />
 
@@ -25,11 +25,11 @@
 * Активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://azure.microsoft.com/ru-ru/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fazure.microsoft.com%2Fru-ru%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-universal-javascript-get-started-data%2F).
 * <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Express 2013 для Windows</a> (с обновлением 2 или более поздней версии). 
 
-##<a name="download-app"></a>Загрузка пакета GetStartedWithData
+## <a name="download-app"></a>Загрузка пакета GetStartedWithData
 
 [WACOM.INCLUDE [mobile-services-windows-universal-javascript-download-project](../includes/mobile-services-windows-universal-dotnet-download-project.md)]
 
-##<a name="create-service"></a>Создание мобильной службы в Visual Studio
+## <a name="create-service"></a>Создание мобильной службы в Visual Studio
 
 [WACOM.INCLUDE [mobile-services-create-new-service-vs2013](../includes/mobile-services-create-new-service-vs2013.md)]
 
@@ -43,23 +43,23 @@
 	<p>Этот код предоставляет доступ к новой мобильной службе в вашем приложении с помощью глобальной переменной. Клиент создается с указанием URI и ключа приложения новой мобильной службы. Так как ссылка на этот скрипт была добавлена в файл default.html, эта переменная доступна для всех файлов скриптов, на которые также указывает ссылка на этой странице.</p>
 </li>
 <li><p>Откройте файл проекта default.html, найдите ссылку на новый файл скрипта service.js и убедитесь в том, что путь ссылки выглядит следующим образом:</p>
-<pre><code><script src="/services/mobileServices/scripts/todolist.js"></script></code></pre>
+<pre><code>&lt;script src="/services/mobileServices/scripts/todolist.js"&gt;</script></code></pre>
 <p>В настоящее время в Visual Studio есть ошибка, из-за которой создается путь с неправильным именем папки.</p></li>
 <li><p>Щелкните проект приложения Windows Phone правой кнопкой мыши, выберите пункт <strong>Добавить</strong>, щелкните <strong>Подключенная служба...</strong>, выберите только что созданную мобильную службу и нажмите кнопку <strong>OK</strong>. </p>
 <p>Тот же новый файл с кодом добавляется в проект приложения для Магазина Windows Phone. Не забудьте также исправить путь ссылки, добавленный в файл default.html.</p></li>
 </ol>
 
-##<a name="add-table"></a>Добавление новой таблицы в мобильную службу
+## <a name="add-table"></a>Добавление новой таблицы в мобильную службу
 
 [WACOM.INCLUDE [mobile-services-create-new-table-vs2013](../includes/mobile-services-create-new-table-vs2013.md)]
 
 >[WACOM.NOTE]Новые таблицы создаются со столбцами Id, __createdAt, __updatedAt и __version. Если динамическая схема включена, мобильные службы автоматически создают новые столбцы на основе JSON-объекта в запросе вставки или обновления. Дополнительные сведения см. в разделе [Динамическая схема](http://msdn.microsoft.com/ru-ru/library/windowsazure/jj193175.aspx).
 
-#<a name="update-app"></a>Обновление приложения для использования мобильной службы
+# <a name="update-app"></a>Обновление приложения для использования мобильной службы
 
 [WACOM.INCLUDE [mobile-services-windows-javascript-update-data-app](../includes/mobile-services-windows-javascript-update-data-app.md)]
 
-##<a name="test-azure-hosted"></a>Тестирование мобильной службы, размещенной в Azure
+## <a name="test-azure-hosted"></a>Тестирование мобильной службы, размещенной в Azure
 
 Теперь мы можем протестировать обе версии универсального приложения Windows с мобильной службой, размещенной в Azure.
 
@@ -98,7 +98,7 @@
 
 <!-- Anchors. -->
 
-[Разработка приложения для Магазина Windows]: #download-app
+[Получение приложения для Магазина Windows]: #download-app
 [Создание мобильной службы]: #create-service
 [Добавление таблицы для хранения данных]: #add-table
 [Обновление приложения для использования мобильных служб]: #update-app

@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Как использовать кэш Azure Redis" metaKeywords="" description="Learn how to create a use a cache in Azure Redis Cache" metaCanonical="" services="cache" documentationCenter="API Management" title="How to Use Azure Redis Cache" authors="sdanie" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Как использовать кэш Azure Redis" metaKeywords="" description="Узнайте, как создать и использовать кэш в кэше Redis для Azure" metaCanonical="" services="cache" documentationCenter="API Management" title="How to Use Azure Redis Cache" authors="sdanie" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="cache" ms.workload="tbd" ms.tgt_pltfrm="cache-redis" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="sdanie" />
 

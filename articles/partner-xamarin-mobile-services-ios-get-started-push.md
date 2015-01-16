@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Get Started with Push Notifications" pageTitle="Приступая к работе с push-уведомлениями (Xamarin.iOS) - Мобильные службы" metaKeywords="" description="Learn how to use push notifications in Xamarin.iOS apps with Azure Mobile Services." metaCanonical="" disqusComments="0" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="yuaxu" manager="dwrede" services="mobile-services"/>
+<properties urlDisplayName="Get Started with Push Notifications" pageTitle="Приступая к работе с push-уведомлениями (Xamarin.iOS) - Мобильные службы" metaKeywords="" description="Узнайте, как использовать push-уведомления в приложениях Xamarin.iOS с помощью мобильных служб Azure." metaCanonical="" disqusComments="0" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="yuaxu" manager="dwrede" services="mobile-services"/>
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="Java" ms.topic="article" ms.date="10/20/2014" ms.author="yuaxu" />
 
@@ -261,7 +261,18 @@
 
 8. В **TodoListViewController** измените действие **OnAdd**, чтобы получить маркер устройства, хранящегося в **AppDelegeate**, и сохранить его в добавляемый элемент **TodoItem**.
 
-€ Портала управления
+string deviceToken = ((AppDelegate)UIApplication.SharedApplication.Delegate).DeviceToken;
+
+        var newItem = new TodoItem() 
+        {
+            Text = itemText.Text, 
+            Complete = false,
+            DeviceToken = deviceToken
+        };
+
+Ваше приложение теперь обновлено для поддержки push-уведомлений.
+
+## <a name="update-scripts"></a>Обновление зарегистрированных скриптов вставки на портале управления
 
 1. На портале управления откройте вкладку **Данные**, а затем щелкните таблицу **TodoItem**. 
 

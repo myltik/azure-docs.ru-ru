@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Capture an image" pageTitle="Запись образа виртуальной машины под управлением Linux" metaKeywords="Azure Linux vm, Linux vm" description="Learn how to capture an image of an Azure virtual machine (VM) running Linux. " metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Capture an Image of a Virtual Machine Running Linux" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
+﻿<properties urlDisplayName="Capture an image" pageTitle="Запись образа виртуальной машины под управлением Linux" metaKeywords="Azure Linux vm, Linux vm" description="Узнайте, как записать образ виртуальной машины (ВМ) Azure под управлением Linux. " metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Capture an Image of a Virtual Machine Running Linux" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="11/25/2014" ms.author="kathydav" />
 

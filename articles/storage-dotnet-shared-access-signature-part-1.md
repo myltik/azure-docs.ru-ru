@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="" pageTitle="Подписи общего доступа: общие сведения о модели SAS | Microsoft Azure" metaKeywords="Azure blob, Azure table, Azure queue, shared access signatures" description="Learn about delegating access to blob, queue, and table resources with shared access signatures" metaCanonical="" services="storage" documentationCenter="" title="Part 1: Understanding the SAS Model" solutions="" authors="tamram" manager="adinah" />
+﻿<properties urlDisplayName="" pageTitle="Подписи общего доступа: общие сведения о модели SAS | Microsoft Azure" metaKeywords="Azure blob, Azure table, Azure queue, shared access signatures" description="Вы узнаете том, как делегировать доступ к BLOB-объектам, очереди и ресурсам таблиц с помощью подписей общего доступа" metaCanonical="" services="storage" documentationCenter="" title="Part 1: Understanding the SAS Model" solutions="" authors="tamram" manager="adinah" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/10/2014" ms.author="tamram" />
 

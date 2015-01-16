@@ -1,4 +1,4 @@
-﻿<properties title="Scripting Elastic Scale with Scripts" pageTitle="Создание скриптов для эластичного масштабирования" description="Script Elastic Scale tasks with PowerShell and Azure Automation Service runbooks." metaKeywords="Azure SQL Database, elastic scale, powershell scripts" services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh@microsoft.com"/>
+﻿<properties title="Scripting Elastic Scale with Scripts" pageTitle="Создание скриптов для эластичного масштабирования" description="Создание сценариев задач эластичного масштабирования с помощью Runbook службы автоматизации Azure PowerShell." metaKeywords="Azure SQL Database, elastic scale, powershell scripts" services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh@microsoft.com"/>
 
 <tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
 

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="SQL Database" pageTitle="Использование базы данных SQL (PHP). Руководство по компонентам Azure"metaKeywords ="PHP баз данных SQL Azure, PHP баз данных SQL " description="Learn how to create and connect to an Azure SQL Database from PHP." metaCanonical="" services="sql-database" documentationCenter="PHP" title="How to Access Azure SQL Database from PHP" authors="tomfitz" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
+﻿<properties urlDisplayName="SQL Database" pageTitle="Использование базы данных SQL (PHP). Руководство по компонентам Azure"metaKeywords ="PHP баз данных SQL Azure, PHP баз данных SQL " description="Узнайте, как создать базу данных SQL Azure и подключиться к ней из PHP." metaCanonical="" services="sql-database" documentationCenter="PHP" title="How to Access Azure SQL Database from PHP" authors="tomfitz" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
 
 <tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="10/29/2014" ms.author="tomfitz" />
 

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Debug Websites (Node)" pageTitle="Способы отладки веб-сайтов Azure в Node.js" metaKeywords="отладка веб-сайта azure, отладка azure, устранение неполадок веб-сайта azure, устранение неполадок узла веб-сайта azure" description="Learn how to debug an Azure website in Node.js." metaCanonical="" services="web-sites" documentationCenter="nodejs" title="How to debug a Node.js application in Azure Websites" authors="larryfr" solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties urlDisplayName="Debug Websites (Node)" pageTitle="Способы отладки веб-сайтов Azure в Node.js" metaKeywords="отладка веб-сайта azure, отладка azure, устранение неполадок веб-сайта azure, устранение неполадок узла веб-сайта azure" description="Узнайте об отладке веб-сайта Azure в Node.js." metaCanonical="" services="web-sites" documentationCenter="nodejs" title="How to debug a Node.js application in Azure Websites" authors="larryfr" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 

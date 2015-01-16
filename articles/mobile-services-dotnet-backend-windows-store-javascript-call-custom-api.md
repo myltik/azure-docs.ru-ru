@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Вызов пользовательского API-интерфейса из клиента Магазина Windows - мобильные службы" metaKeywords="" description="Learn how to define a custom API and then call it from a Windows Store app that use Windows Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Call a custom API from the client" authors="glenga"  solutions="" writer="glenga" manager="dwrede" editor=""  />
+﻿<properties pageTitle="Вызов пользовательского API-интерфейса из клиента Магазина Windows - мобильные службы" metaKeywords="" description="Узнайте, как определить настраиваемый API и вызывать его из приложения Магазина Windows, которое использует мобильные службы Microsoft Azure." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Call a custom API from the client" authors="glenga"  solutions="" writer="glenga" manager="dwrede" editor=""  />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/26/2014" ms.author="glenga" />
 

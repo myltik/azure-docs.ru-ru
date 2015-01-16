@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="How to create and provision" pageTitle="Приступая к работе с базами данных SQL - Azure" metaKeywords="" description="Get started creating and managing SQL Databases in Azure." metaCanonical="" services="sql-database" documentationCenter="" title="Getting Started with Azure SQL Database" authors="jeffryg"  solutions="" writer="" manager="jeffreyg" editor="tysonn"  />
+﻿<properties urlDisplayName="How to create and provision" pageTitle="Приступая к работе с базами данных SQL - Azure" metaKeywords="" description="Начните создавать базы данных SQL и управлять ими в Azure." metaCanonical="" services="sql-database" documentationCenter="" title="Getting Started with Azure SQL Database" authors="jeffryg"  solutions="" writer="" manager="jeffreyg" editor="tysonn"  />
 
 <tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/04/2014" ms.author="jeffreyg" />
 
@@ -654,7 +654,7 @@
 
 * [Перенос баз данных в базу данных SQL](http://msdn.microsoft.com/ru-ru/library/windowsazure/ee730904.aspx)
 * [Копирование баз данных в базу данных SQL](http://msdn.microsoft.com/ru-ru/library/windowsazure/ff951624.aspx)
-* [Развертывание базы данных SQL Server на виртуальной машине Azure](http://msdn.microsoft.com/ru-ru/library/dn195938(v=sql.120)(ASPX)
+* [Развертывание базы данных SQL Server на виртуальной машине Azure](http://msdn.microsoft.com/ru-ru/library/dn195938(ASPX)
 
 
 

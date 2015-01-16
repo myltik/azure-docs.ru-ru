@@ -1,4 +1,4 @@
-﻿<properties title="How to use blob storage (PHP) - Azure feature guide" pageTitle="Как использовать хранилище больших двоичных объектов (PHP) - Microsoft Azure" metaKeywords="Azure blob service PHP, Azure blobs PHP" description="Learn how to use the Azure Blob service to upload, list, download, and delete blobs. Code samples are written in PHP." documentationCenter="PHP" services="storage" videoId="" scriptId="" solutions="" authors="tomfitz" manager="wpickett" editor="mollybos" />
+﻿<properties title="How to use blob storage (PHP) - Azure feature guide" pageTitle="Как использовать хранилище больших двоичных объектов (PHP) - Microsoft Azure" metaKeywords="Azure blob service PHP, Azure blobs PHP" description="Вы узнаете, как использовать службы BLOB-объектов Azure для передачи, перечисления, загрузки и удаления содержимого BLOB-объектов. Примеры кода написаны на PHP." documentationCenter="PHP" services="storage" videoId="" scriptId="" solutions="" authors="tomfitz" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/24/2014" ms.author="tomfitz" />
 

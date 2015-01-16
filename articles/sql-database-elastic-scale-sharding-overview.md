@@ -1,4 +1,4 @@
-﻿<properties title="Sharding Overview" pageTitle="Обзор сегментирования" description="Reasons for sharding: scale database resources to increase availability or performance." metaKeywords="sharding, scaling, elastic scale, Azure SQL Database" services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh@microsoft.com"/>
+﻿<properties title="Sharding Overview" pageTitle="Обзор сегментирования" description="Причины для сегментирования: масштабирование ресурсов базы данных для повышения доступности или производительности." metaKeywords="sharding, scaling, elastic scale, Azure SQL Database" services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh@microsoft.com"/>
 
 <tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
 #Обзор сегментирования 

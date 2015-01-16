@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Авторизация пользователей на стороне службы (Android) | Центр мобильных разработок" metaKeywords="" description="Learn how to authorize users in the JavaScript backend of Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Service-side authorization of Mobile Services users" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Авторизация пользователей на стороне службы (Android) | Центр мобильных разработок" metaKeywords="" description="Узнайте, как осуществить авторизацию пользователей в серверной части JavaScript мобильных служб Azure." metaCanonical="" services="" documentationCenter="Mobile" title="Service-side authorization of Mobile Services users" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="09/29/2014" ms.author="glenga" />
 

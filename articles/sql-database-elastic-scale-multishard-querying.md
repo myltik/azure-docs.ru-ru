@@ -1,4 +1,4 @@
-﻿<properties title="Multi-Shard Querying" pageTitle="Многосегментное формирование запросов" description="Run queries across shards using Elastic Scale APIs." metaKeywords="sharding scaling, Azure SQL DB sharding, elastic scale, multi-shard, multishard, querying" services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh@microsoft.com"/>
+﻿<properties title="Multi-Shard Querying" pageTitle="Многосегментное формирование запросов" description="Выполнение запросов по сегментам с помощью интерфейсов API эластичного масштабирования." metaKeywords="sharding scaling, Azure SQL DB sharding, elastic scale, multi-shard, multishard, querying" services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh@microsoft.com"/>
 
 <tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
 

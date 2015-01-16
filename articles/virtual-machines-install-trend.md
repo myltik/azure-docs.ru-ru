@@ -1,4 +1,4 @@
-﻿<properties title="How to install and configure Trend on an Azure VM" pageTitle="Как установить и настроить Trend Micro Deep Security как услугу на виртуальную машину Azure" description="Описывается, как устанавливать и настраивать модуль безопасности Trend Micro на виртуальной машине Azure" metaKeywords="" services="virtual machines" solutions="" documentationCenter="" authors="kathydav" manager="timlt" videoId="" scriptId="" />
+﻿<properties title="How to install and configure Trend on an Azure VM" pageTitle="Как установить и настроить Trend Micro Deep Security как услугу на виртуальную машину Azure" description="Описывается, как установить и настроить модуль безопасности Trend Micro на виртуальной машине Azure" metaKeywords="" services="virtual machines" solutions="" documentationCenter="" authors="kathydav" manager="timlt" videoId="" scriptId="" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="09/24/2014" ms.author="kathydav" />
 

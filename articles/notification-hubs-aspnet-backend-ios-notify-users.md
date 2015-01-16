@@ -1,4 +1,4 @@
-﻿<properties title="Azure Notification Hubs Notify Users" pageTitle="Уведомление пользователей посредством центров уведомлений" metaKeywords="Azure push notifications, Azure notification hubs" description="Learn how to send secure push notifications in Azure. Code samples written in Objective-C using the .NET API." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="yuaxu" manager="dwrede" />
+﻿<properties title="Azure Notification Hubs Notify Users" pageTitle="Уведомление пользователей посредством центров уведомлений" metaKeywords="Azure push notifications, Azure notification hubs" description="Узнайте, как отправлять безопасные push-уведомления в Azure. Примеры кода написаны на Objective-C с использованием API .NET." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="yuaxu" manager="dwrede" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="11/22/2014" ms.author="yuaxu" />
 

@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Приступая к работе с мобильными службами для Xamarin.Android" metaKeywords="Azure Приложение Xamarin.Android, мобильная служба XamarinAndroid, приступая к работе с Azure Xamarin.Android" writer="craigd" description="Learn how to use Azure Mobile Services with your Xamarin.Android app." metaCanonical="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="donnam" manager="dwrede" />
+﻿<properties pageTitle="Приступая к работе с мобильными службами для Xamarin.Android" metaKeywords="Azure Приложение Xamarin.Android, мобильная служба XamarinAndroid, приступая к работе с Azure Xamarin.Android" writer="craigd" description="Узнайте, как использовать мобильные службы Azure с приложением Xamarin.Android." metaCanonical="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="donnam" manager="dwrede" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="hero-article" ms.date="11/11/2014" ms.author="donnam" />
 

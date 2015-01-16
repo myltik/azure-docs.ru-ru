@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Optimistic concurrency" pageTitle="Обработка конфликтов записи базы данных с поддержкой оптимистичного параллелизма (магазин Windows) | Центр разработчиков для мобильных устройств" metaKeywords="" модуль записи="wesmc" description="Learn how to handle database write conflicts on both the server and in your Windows Store application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Handling database write conflicts" authors="wesmc" manager="dwrede" />
+<properties urlDisplayName="Optimistic concurrency" pageTitle="Обработка конфликтов записи базы данных с поддержкой оптимистичного параллелизма (магазин Windows) | Центр разработчиков для мобильных устройств" metaKeywords="" модуль записи="wesmc" description="Узнайте, как обрабатывать конфликты записи в базу данных как на сервере, так и в приложении магазина Windows." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Handling database write conflicts" authors="wesmc" manager="dwrede" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 
@@ -329,3 +329,4 @@
 [Пакет SDK для мобильных служб]: http://go.microsoft.com/fwlink/p/?LinkID=268375
 [Веб-сайт с примерами кода для разработчиков]:  http://go.microsoft.com/fwlink/p/?LinkId=271146
 [Свойства системы]: http://go.microsoft.com/fwlink/?LinkId=331143
+[Начало работы с мобильными службами]: /ru-ru/develop/mobile/tutorials/get-started/#create-new-service

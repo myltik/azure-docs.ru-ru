@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="How to create" pageTitle="Практическое руководство. Создание и удаление учетной записи хранения, а также управление ею | Azure" metaKeywords="" description="Learn how to create, manage, or delete a storage account in the Azure management portal." metaCanonical="" services="storage" documentationCenter="" title="How To Create a Storage Account" solutions="" authors="tamram" manager="adinah" />
+﻿<properties urlDisplayName="How to create" pageTitle="Практическое руководство. Создание и удаление учетной записи хранения, а также управление ею | Azure" metaKeywords="" description="Узнайте, как на портале управления Azure создать или удалить учетную запись хранения, а также управлять ею." metaCanonical="" services="storage" documentationCenter="" title="How To Create a Storage Account" solutions="" authors="tamram" manager="adinah" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/17/2014" ms.author="tamram" />
 

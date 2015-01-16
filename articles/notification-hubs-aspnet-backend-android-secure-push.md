@@ -1,4 +1,4 @@
-﻿<properties title="Azure Notification Hubs Secure Push" pageTitle="Концентраторы уведомлений Azure, безопасные push-уведомления" metaKeywords="push-уведомления Azure, концентраторы уведомлений Azure, безопасные push-уведомления" description="Learn how to send secure push notifications to an Android app from Azure. Code samples written in Java and C#." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="sethm" manager="timlt" />
+﻿<properties title="Azure Notification Hubs Secure Push" pageTitle="Концентраторы уведомлений Azure, безопасные push-уведомления" metaKeywords="push-уведомления Azure, концентраторы уведомлений Azure, безопасные push-уведомления" description="Узнайте, как отправлять безопасные push-уведомления в приложение Android из Azure. Примеры кода написаны на Java и C#." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="sethm" manager="timlt" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
