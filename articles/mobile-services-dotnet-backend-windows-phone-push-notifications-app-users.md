@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Рассылка push-уведомлений проверенным пользователям" metaKeywords="push notifications, authentication, users, Notification Hubs, Mobile Services" description="Узнайте, как отправлять push-уведомления для конкретного адресата " metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="glenga" solutions="Mobile" manager="dwrede" editor="" />
+<properties pageTitle="Рассылка push-уведомлений проверенным пользователям" metaKeywords="push notifications, authentication, users, Notification Hubs, Mobile Services" description="Узнайте, как отправлять push-уведомления для конкретного адресата " metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="glenga" solutions="Mobile" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/29/2014" ms.author="glenga" />
 
@@ -32,7 +32,7 @@
 
 ##<a name="update-app"></a>Обновление приложения с учетом требования по входу в систему перед регистрацией
 
-[WACOM.INCLUDE [mobile-services-windows-phone-push-notifications-app- md)] users](../includes/mobile-services-windows-phone-push-notifications-app-users.
+[WACOM.INCLUDE [mobile-services-windows-phone-push-notifications-app-users](../includes/mobile-services-windows-phone-push-notifications-app-users.md)]
 
 
 ##<a name="test"></a>Тестирование приложения
@@ -56,3 +56,5 @@
 
 [Портал управления Azure]: https://manage.windowsazure.com/
 [Справочник принципов использования мобильных служб .NET]: /ru-ru/develop/mobile/how-to-guides/work-with-net-client-library
+
+<!--HONumber=35.2-->

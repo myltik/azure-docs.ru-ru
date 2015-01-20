@@ -1,127 +1,124 @@
-<properties linkid="dev-nodejs-basic-web-app-with-express" urlDisplayName="Web App with Express" pageTitle="Web App with Express (Node.js) - Azure Tutorial" metaKeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" description="An tutorial that builds on the cloud service tutorial, and demonstrates how to use the Express module." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Build a Node.js web application using Express on an Azure Cloud Service" authors="larryfr" solutions="" manager="" editor="" />
+﻿<properties urlDisplayName="Web App with Express" pageTitle="Веб-приложение с Express (Node.js) - учебник по Azure"metaKeywords ="Azure Node.js hello world, учебник Azure Node.js hello world, учебник Azure Node.js Приступая к работе, учебник Azure Node.js, учебник Azure Node.js Express" description="Настоящий учебник основывается на учебнике по облачным службам, и здесь демонстрируется использование модуля Express." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Build a Node.js web application using Express on an Azure Cloud Service" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="wpickett" />
+
+
+
+
+
 
 # Создание веб-приложения Node.js с использованием модуля Express в облачной службе Azure
 
-Node.js включает в себя минимальный набор функциональных возможностей в базовой среде выполнения.
-Разработчики часто используют сторонние модули для обеспечения дополнительных функциональных возможностей
-при разработке приложения Node.js. В этом учебнике будет создано новое приложение
-с использованием модуля [Express][Express], который предоставляет платформу MVC для создания веб-приложений Node.js.
+Node.js включает минимальный набор функциональных возможностей в базовой среде выполнения. Разработчики часто используют сторонние модули для получения дополнительной функциональности при разработке приложения Node.js. В этом учебнике будет создано новое приложение с помощью модуля [Express][], который предоставляет платформу MVC для создания веб-приложений Node.js.
 
 Снимок экрана завершенного приложения приведен ниже:
 
-![Веб-браузер, отображающий приветствие модуля Express в Azure][Веб-браузер, отображающий приветствие модуля Express в Azure]
+![A web browser displaying Welcome to Express in Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node36.png)
 
-## Создание проекта облачной службы
+##Создание проекта облачной службы
 
 Чтобы создать новый проект облачной службы с именем expressapp, выполните следующие действия.
 
-1.  В меню **Пуск** или на **Начальном экране** найдите **Azure PowerShell**. Щелкните правой кнопкой мыши **Azure PowerShell** и выберите **Запуск от имени администратора**.
+1. Из **меню "Пуск"** или с **рабочего стола** выполните поиск **Azure PowerShell**. Щелкните правой кнопкой мыши **Azure PowerShell** и выберите **Запуск от имени администратора**.
 
-    ![Значок Azure PowerShell][Значок Azure PowerShell]
+	![Azure PowerShell icon](./media/cloud-services-nodejs-develop-deploy-express-app/azure-powershell-start.png)
 
-    [WACOM.INCLUDE [установка-средств-разработки](../includes/install-dev-tools.md)]
+	[WACOM.INCLUDE [install-dev-tools](../includes/install-dev-tools.md)]
 
-2.  Перейдите в каталог **c:\\node**, а затем введите указанные ниже команды для создания нового решения с именем **expressapp** и рабочей роли с именем **WebRole1**.
+2. Перейдите в каталог **c:\\node**, а затем введите следующие команды, чтобы создать новое решение с именем **expressapp** и веб-роль с именем **WebRole1**:
 
-        PS C:\node> New-AzureServiceProject expressapp
-        PS C:\Node\expressapp> Add-AzureNodeWebRole
-        PS C:\Node\expressapp> Set-AzureServiceProjectRole WebRole1 node 0.10.21
+		PS C:\node> New-AzureServiceProject expressapp
+		PS C:\Node\expressapp> Add-AzureNodeWebRole
+		PS C:\Node\expressapp> Set-AzureServiceProjectRole WebRole1 node 0.10.21
 
-    > [WACOM.ПРИМЕЧАНИЕ] По умолчанию командлет **Add-AzureNodeWebRole** использует более раннюю версию Node.js. Инструкция **Set-AzureServiceProjectRole**, приведенная выше, указывает Azure использовать Node версии 0.10.21.
+	> [WACOM.NOTE] По умолчанию **Add-AzureNodeWebRole** использует предыдущую версию Node.js. Показанная выше инструкция **Set-AzureServiceProjectRole** предписывает Azure использовать Node v0.10.21. 
 
-## Установка модуля Express
+##Установка модуля Express
 
-1.  Установите генератор Express, выполнив следующую команду:
+1. Установите генератор Express, выполнив следующую команду:
 
-        PS C:\node\expressapp> npm install express-generator -g
+		PS C:\node\expressapp> npm install express-generator -g
 
-    Результат команды npm должен соответствовать показанному ниже результату.
+	Результат команды npm должен соответствовать показанному ниже результату. 
 
-    ![Windows PowerShell с выходными данными команды npm install express.][Windows PowerShell с выходными данными команды npm install express.]
+	![Windows PowerShell displaying the output of the npm install express command.](./media/cloud-services-nodejs-develop-deploy-express-app/express-g.png)
 
-2.  Перейдите в каталог **WebRole1** и используйте команду express для создания нового приложения.
+2. Перейдите в каталог **WebRole1** и используйте команду express для создания нового приложения.
 
         PS C:\node\expressapp\WebRole1> express
 
-    Вам будет предложено перезаписать более раннюю версию приложения. Для продолжения введите **y** или **yes**. Модуль Express сформирует файл app.js и структуру папок для создания вашего приложения.
+	Вам будет предложено перезаписать более раннюю версию приложения. Для продолжения введите **y** или **yes**. Модуль Express сформирует файл app.js и структуру папок для создания вашего приложения.
 
-    ![Результат команды express][Результат команды express]
+	![The output of the express command](./media/cloud-services-nodejs-develop-deploy-express-app/node23.png)
 
-3.  Чтобы установить дополнительные зависимости, определенные в файле package.json file,
-    введите следующую команду:
+
+5.  Чтобы установить дополнительные зависимости, определенные в файле package.json, введите следующую команду:
 
         PS C:\node\expressapp\WebRole1> npm install
 
-    ![Результат команды npm install][Результат команды npm install]
+	![The output of the npm install command](./media/cloud-services-nodejs-develop-deploy-express-app/node26.png)
 
-4.  Скопируйте файл **bin/www** в **server.js** с помощью следующей команды: Таким образом, облачная служба сможет найти точку входа в это приложение.
+6.  С помощью следующей команды скопируйте файл **bin/www** в **server.js**. Таким образом, облачная служба сможет найти точку входа в это приложение.
 
-        PS C:\node\expressapp\WebRole1> copy bin/www server.js
+		PS C:\node\expressapp\WebRole1> copy bin/www server.js
 
-    После выполнения команды файл **server.js** должен содержаться в каталоге WebRole1.
+	После выполнения этой команды файл **server.js** должен находиться в каталоге WebRole1.
 
-5.  В файле **server.js** удалите одну из точек (символ ".") из строки, приведенной ниже.
+7.  Измените **server.js**, удалив один из символов "." из следующей строки.
 
-        var app = require('../app');
+		var app = require('../app');
 
-    После сделанных изменений строка должна выглядеть следующим образом.
+	После сделанных изменений строка должна выглядеть следующим образом.
 
-        var app = require('./app');
+		var app = require('./app');
 
-    Это необходимо сделать, так как мы перенесли файл (ранее **bin/www**) в тот же каталог, в котором должен находиться файл приложения. После внесения изменений сохраните файл **server.js**.
+	Это изменение является обязательным, поскольку мы переместили файл (прежнее название **bin/www**,) в тот же каталог, что и обязательный файл приложения. После внесения изменений сохраните файл **server.js**.
 
-6.  Чтобы запустить приложение в эмуляторе Windows Azure,
-    используйте следующую команду:
+8.  Выполнив следующую команду, запустите приложение в эмуляторе Microsoft Azure:
 
         PS C:\node\expressapp\WebRole1> Start-AzureEmulator -launch
 
-    ![Веб-страница, содержащая приветствие модуля express.][Веб-страница, содержащая приветствие модуля express.]
+	![A web page containing welcome to express.](./media/cloud-services-nodejs-develop-deploy-express-app/node28.png)
 
 ## Изменение представления
 
-Теперь измените представление для отображения приветственного сообщения
-"Welcome to Express in Azure".
+Теперь измените представление для отображения сообщения "Вас приветствует Express в
+Azure".
 
 1.  Чтобы открыть файл index.jade, введите следующую команду:
 
         PS C:\node\expressapp\WebRole1> notepad views/index.jade
 
-    ![Содержимое файла index.jade.][Содержимое файла index.jade.]
+    ![The contents of the index.jade file.](./media/cloud-services-nodejs-develop-deploy-express-app/getting-started-19.png)
 
-    Jade — это обработчик представлений по умолчанию, используемый приложениями Express. Дополнительные сведения об обработчике представлений Jade
-    см. на веб-сайте [][]<http://jade-lang.com></a>.
+    Jade - это обработчик представлений по умолчанию, используемый приложениями Express. Дополнительные сведения об обработчике представлений Jade см. на сайте [http://jade-lang.com][].
 
-2.  Измените последнюю строку текста, добавив слова **in Azure**.
+2.  Измените последнюю строку текста, добавив **в Azure**.
 
-    ![Последняя строка в файле index.jade содержит сообщение: p Welcome to \#{title} in Azure][Последняя строка в файле index.jade содержит сообщение: p Welcome to \#{title} in Azure]
+	![The index.jade file, the last line reads: p Welcome to \#{title} in Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node31.png)
 
 3.  Сохраните файл и выйдите из Блокнота.
 
 4.  Обновите браузер и увидите изменения.
 
-    ![Окно браузера со страницей приветствия Express в Azure][Окно браузера со страницей приветствия Express в Azure]
+	![A browser window, the page contains Welcome to Express in Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node32.png)
 
-После тестирования приложения остановите эмулятор с помощью командлета **Stop-AzureEmulator**.
+После тестирования приложения с помощью командлета **Stop-AzureEmulator** остановите эмулятор.
 
-## Публикация приложения в Azure
+##Публикация приложения в Azure
 
-В окне Azure PowerShell используйте командлет **Publish-AzureServiceProject**, чтобы развернуть приложение в облачной службе.
+В окне Azure PowerShell с помощью командлета **Publish-AzureServiceProject** разверните приложение в облачной службе
 
     PS C:\node\expressapp\WebRole1> Publish-AzureServiceProject -ServiceName myexpressapp -Location "East US" -Launch
 
 После завершения операции развертывания откроется браузер с отображением веб-страницы.
 
-![В веб-браузере отображается страница Express. URL-адрес указывает, что страница теперь размещается в Azure.][Веб-браузер, отображающий приветствие модуля Express в Azure]
+![A web browser displaying the Express page. The URL indicates it is now hosted on Azure.](./media/cloud-services-nodejs-develop-deploy-express-app/node36.png)
 
+
+  [Веб-приложение Node.js]: http://www.windowsazure.com/ru-ru/develop/nodejs/tutorials/getting-started/
   [Express]: http://expressjs.com/
-  [Веб-браузер, отображающий приветствие модуля Express в Azure]: ./media/cloud-services-nodejs-develop-deploy-express-app/node36.png
-  [Значок Azure PowerShell]: ./media/cloud-services-nodejs-develop-deploy-express-app/azure-powershell-start.png
-  [Windows PowerShell с выходными данными команды npm install express.]: ./media/cloud-services-nodejs-develop-deploy-express-app/express-g.png
-  [Результат команды express]: ./media/cloud-services-nodejs-develop-deploy-express-app/node23.png
-  [Результат команды npm install]: ./media/cloud-services-nodejs-develop-deploy-express-app/node26.png
-  [Веб-страница, содержащая приветствие модуля express.]: ./media/cloud-services-nodejs-develop-deploy-express-app/node28.png
-  [Содержимое файла index.jade.]: ./media/cloud-services-nodejs-develop-deploy-express-app/getting-started-19.png
-  []: http://jade-lang.com
-  [Окно браузера со страницей приветствия Express в Azure]: ./media/cloud-services-nodejs-develop-deploy-express-app/node32.png
+  [http://jade-lang.com]: http://jade-lang.com
+
+
+<!--HONumber=35.2-->

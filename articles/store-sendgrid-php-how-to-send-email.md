@@ -1,11 +1,11 @@
-﻿<properties title="How to use the SendGrid email service (PHP) - Azure" pageTitle="Как использовать службу электронной почты SendGrid (PHP) - Azure" metaKeywords="Azure SendGrid, электронной почты Azure, Azure SendGrid PHP, служба электронной почты Azure PHP" description="Узнайте, как отправить электронное сообщение с помощью службы электронной почты SendGrid в Azure. Примеры кода написаны на PHP." documentationCenter="PHP" services="" manager="wpickett" editor="mollybos" authors="robmcm" scriptId="" videoId="" />
+﻿<properties title="How to use the SendGrid email service (PHP) - Azure" pageTitle="Как использовать службу электронной почты SendGrid (PHP) - Azure"metaKeywords =" Azure SendGrid, служба электронной почты Azure, Azure SendGrid PHP, служба электронной почты Azure PHP" description="Узнайте, как отправить электронное сообщение с помощью службы электронной почты SendGrid в Azure. Примеры кода написаны на PHP." documentationCenter="PHP" services="" manager="wpickett" editor="mollybos" authors="robmcm" scriptId="" videoId="" />
 
 <tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="10/30/2014" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com" />
 
 # Как использовать службу электронной почты SendGrid в языке PHP
 
 В этом руководстве показано, как выполнять типовые задачи программирования для службы электронной почты SendGrid в Azure. Примеры написаны на PHP.
-Описываемые здесь сценарии включают в себя **создание сообщений эл. почты**, **отправку сообщения эл. почты** и **добавление вложений**. Дополнительные сведения о SendGrid и отправке электронной почты см. в разделе [Дальнейшие действия][].
+Описываемые здесь сценарии включают **создание сообщения эл. почты**, **отправку сообщения эл. почты** и **добавление вложений**. Дополнительные сведения о SendGrid и отправке электронной почты см. в разделе [Дальнейшие действия][].
 
 ## Оглавление
 
@@ -19,16 +19,11 @@
 
 ## <a name="bkmk_WhatIsSendGrid"> </a>Что такое служба электронной почты SendGrid?
 
-SendGrid - [служба электронной почты на основе облачных технологий], обеспечивающая надежную
-[транзакционную доставку электронной почты], масштабируемость и аналитику в режиме реального времени наряду с гибкими API,
-упрощающими пользовательскую интеграцию. Распространенные сценарии использования SendGrid,
-в их число входят:
+SendGrid - это [облачная служба электронной почты], которая предоставляет надежные возможности [доставки электронной почты], масштабируемости и аналитики в режиме реального времени наряду с гибкими интерфейсами API, которые облегчают пользовательскую интеграцию. Ниже перечислены наиболее распространенные сценарии использования SendGrid.
 
 -   Автоматическая отправка уведомлений о получении клиентам
--   Администрирование списков рассылки для отправки клиентам ежемесячно
-    электронных листовок и специальных предложений
--   Сбор показателей в режиме реального времени по таким параметрам, как заблокированная электронная почта и 
-    реагирование на запросы клиентов
+-   Администрирование списков рассылки для ежемесячной отправки клиентам электронных листовок и специальных предложений
+-   Сбор показателей в режиме реального времени по таким параметрам, как заблокированная электронная почта и реагирование клиентов
 -   Создание отчетов для определения тенденций
 -   Пересылка запросов клиентов
 - Уведомления от приложения по электронной почте
@@ -41,31 +36,22 @@ SendGrid - [служба электронной почты на основе о�
 
 ## <a name="bkmk_UsingSendGridfromPHP"> </a>Использование SendGrid в своем приложении PHP
 
-При использовании SendGrid в приложении Azure PHP не требуется выполнять специальную
-настройку или составлять программный код. Так как SendGrid - это служба, доступ к ней может быть
-получен из облачного приложения точно так же, как из
+Для использования SendGrid в приложении Azure PHP не требуется специальная
+настройка или код. Так как SendGrid является службой,
+доступ к ней из облачного приложения можно получить точно так же, как и из
 локального приложения.
 
 ## <a name="bkmk_HowToSendEmail"> </a>Практическое руководство. Отправка сообщения электронной почты
 
-Можно отправить сообщение эл. почты, используя SMTP или веб-интерфейс API, предоставляемые
+Можно отправить сообщение электронной почты, используя SMTP или веб-интерфейс API, предоставляемые в
 SendGrid.
 
 ### Интерфейс SMTP API
 
-Чтобы отправить электронную почту с помощью интерфейса SMTP API SendGrid, используйте *Swift Mailer*,
-библиотеку на основе компонентов для отправки сообщений электронной почты из приложений PHP. Загрузить
-библиотеку *Swift Mailer* можно по адресу
-[http://swiftmailer.org/download][]. При отправке сообщения электронной почты с библиотекой
-создаются экземпляры классов
-<span class="auto-style2">Swift\_SmtpTransport</span>,
-<span class="auto-style2">Swift\_Mailer</span> и 
-<span class="auto-style2">Swift\_Message</span>, задаются
-соответствующие свойства и вызывается метод
-<span class="auto-style2">Swift\_Mailer::send</span>.
+Чтобы отправить сообщение электронной почты с помощью интерфейса SMTP API SendGrid, используйте *Swift Mailer* - библиотеку на основе компонентов, которая предназначена для отправки сообщений электронной почты из приложений PHP. Библиотеку *Swift Mailer* версии 5.3.0 можно скачать по адресу [http://swiftmailer.org/download][] (для ее установки используйте [Редактор]). Отправка сообщения электронной почты с помощью библиотеки включает в себя создание классов <span class="auto-style2">Swift\_SmtpTransport</span>, <span class="auto-style2">Swift\_Mailer</span>и <span class="auto-style2">Swift\_Message,</span> задание соответствующих свойств и вызов метода <span class="auto-style2">Swift\_Mailer::send</span> .
 
     <?php
-     include_once "lib/swift_required.php";
+     include_once "vendor/autoload.php";
      /*
       * Create the body of the message (a plain-text and an HTML version).
       * $text is your plain-text email
@@ -74,16 +60,14 @@ SendGrid.
       * email will be displayed
       */ 
      $text = "Hi!\nHow are you?\n";
-     $html = <<<EOM
-           <html>
+     $html = "<html>
            <head></head>
            <body>
                <p>Hi!<br>
                    How are you?<br>
                </p>
            </body>
-           </html>
-           EOM;
+           </html>";
      // This is your From email address
      $from = array('someone@example.com' => 'Name To Appear');
      // Email recipients
@@ -128,7 +112,7 @@ SendGrid.
 
 ### Веб-интерфейс API
 
-Используйте функцию [curl][] в PHP для отправки электронной почты с помощью веб-интерфейса API в SendGrid.
+Используйте [функцию curl][] в PHP для отправки электронной почты с помощью веб-интерфейса API в SendGrid.
 
     <?php
 
@@ -168,19 +152,16 @@ SendGrid.
      // print everything out
      print_r($response);
 
-Веб-API SendGrid во многом похож на REST API, хотя
-полностью совместим с REST, но в большинстве вызовов запросы GET и POST
-могут быть взаимозаменяемыми.
+Веб-интерфейс API SendGrid очень похож на интерфейс REST API, хотя по сути он не является полноценным интерфейсом RESTful API, так как в большинстве вызовов команды GET и POST взаимозаменяемы.
 
 ## <a name="bkmk_HowToAddAttachment"> </a>Практическое руководство. Добавление вложения
 
 ### Интерфейс SMTP API
 
-Отправка вложений с помощью SMTP API добавляет дополнительную строку
-кода в учебный скрипт для отправки сообщения электронной почты с помощью Swift Mailer.
+Отправка вложений с использованием интерфейса SMTP API осуществляется одной строкой кода, которая добавляется в пример сценария для отправки сообщения электронной почты с помощью Swift Mailer.
 
     <?php
-     include_once "lib/swift_required.php";
+     include_once "vendor/autoload.php";
      /*
       * Create the body of the message (a plain-text and an HTML version).
       * $text is your plain-text email
@@ -189,16 +170,14 @@ SendGrid.
       * email will be displayed
       */
      $text = "Hi!\nHow are you?\n";
-      $html = <<<EOM
-          <html>
+      $html = "<html>
           <head></head>
           <body>
              <p>Hi!<br>
                 How are you?<br>
              </p>
           </body>
-          </html>
-     EOM;
+          </html>";
 
      // This is your From email address
      $from = array('someone@example.com' => 'Name To Appear');
@@ -240,7 +219,7 @@ SendGrid.
      // something went wrong =(
      else
      {
-          echo "Something went wrong - "
+          echo "Something went wrong - ";
           print_r($failures);
      }
 
@@ -248,19 +227,15 @@ SendGrid.
 
      $message->attach(Swift_Attachment::fromPath("path\to\file")->setFileName('file_name'));
 
-Эта строка кода вызывает метод attach для объекта
-<span class="auto-style2">Swift\_Message</span> и использует статический метод
-<span class="auto-style2">fromPath</span> на классе
-<span class="auto-style2">Swift\_Attachment</span>, чтобы получить файл и
-прикрепить его к сообщению.
+Эта строка кода вызывает метод вложения объекта <span class="auto-style2">Swift\_Message</span> и использует статический метод <span class="auto-style2">fromPath</span> класса <span class="auto-style2">Swift\_Attachment</span> для получения файла и его вложения в сообщение.
 
 ### Веб-интерфейс API
 
-Отправка вложений с помощью веб-API во многом похожа на отправку
-электронной почты с помощью веб-API. Но следует обратить внимание, что в следующем примере
-массив параметров должен содержать этот элемент:
+Отправка вложения с помощью веб-интерфейса API очень похожа на отправку электронной почты с помощью веб-интерфейса API. Однако обратите внимание, что в приведенном ниже примере массив параметров должен содержать этот элемент:
 
-     'files['.$fileName.']' => '@'.$filePath.'/'.$fileName
+    'files['.$fileName.']' => '@'.$filePath.'/'.$fileName
+
+Пример:
 
     <?php
 
@@ -308,138 +283,114 @@ SendGrid.
 
 ## <a name="bkmk_HowToUseFilters"> </a>Практическое руководство. Использование фильтров для включения нижних колонтитулов, отслеживания и аналитики
 
-SendGrid предоставляет дополнительные функциональные возможности электронной почты благодаря использованию
-"фильтров". Это параметры, которые могут быть добавлены к сообщению электронной почты, чтобы
-включить определенный функционал, например, для отслеживания щелчков, аналитики Google,
-отслеживания подписок и т. д.
+SendGrid поддерживает дополнительные функциональные возможности электронной почты благодаря использованию "фильтров". Это параметры, которые можно добавить в сообщение электронной почты для включения определенных функций, например активации отслеживания щелчков, аналитики Google, отслеживания подписок и т. д.
 
-Фильтры можно применять к сообщению с помощью свойства "filters". Каждый
-фильтр определяется хэшем, содержащим параметры, которые связаны с данным конкретным фильтром. В следующем
-примере включается фильтр нижнего колонтитула и задается текстовое сообщение,
-которое будет добавлено к нижней части сообщения электронной почты:
+Фильтры могут применяться к сообщению с использованием свойства фильтров. Каждый фильтр определяется хэшем, содержащим параметры, которые связаны с данным конкретным фильтром. Следующий пример включает фильтр нижнего колонтитула и определяет текстовое сообщение, которое будет добавлено в нижнюю часть сообщения электронной почты. В этом примере мы будем использовать [библиотеку sendgrid php]. Для установки библиотеки используйте [Редактор]:
+    
+    php composer.phar require sendgrid/sendgrid 2.1.1
+
+Пример:    
 
     <?php
      /*
-      * This example is used for Swift Mailer V4
+      * This example is used for sendgrid-php V2.1.1 (https://github.com/sendgrid/sendgrid-php/tree/v2.1.1)
       */
-     include "./lib/swift_required.php";
-     include 'SmtpApiHeader.php';
-     
-     $hdr = new SmtpApiHeader();
+     include "vendor/autoload.php";
+
+     $email = new SendGrid\Email();
      // The list of addresses this message will be sent to
-     // [This list is used for sending multiple emails using just ONE request to 
-     SendGrid]
+     // [This list is used for sending multiple emails using just ONE request to SendGrid]
      $toList = array('john@contoso.com', 'anna@contoso.com');
-     
+
      // Specify the names of the recipients
      $nameList = array('Name 1', 'Name 2');
-     
+
      // Used as an example of variable substitution
      $timeList = array('4 PM', '5 PM');
-     
+
      // Set all of the above variables
-     $hdr->addTo($toList);
-     $hdr->addSubVal('-name-', $nameList);
-     $hdr->addSubVal('-time-', $timeList);
-     
+     $email->setTos($toList);
+     $email->addSubstitution('-name-', $nameList);
+     $email->addSubstitution('-time-', $timeList);
+
      // Specify that this is an initial contact message
-     $hdr->setCategory("initial");
-     
+     $email->addCategory("initial");
+
      // You can optionally setup individual filters here, in this example, we have 
-     enabled the footer filter
-     $hdr->addFilterSetting('footer', 'enable', 1);
-     $hdr->addFilterSetting('footer', "text/plain", "Thank you for your business");
-     
+     // enabled the footer filter
+     $email->addFilter('footer', 'enable', 1);
+     $email->addFilter('footer', "text/plain", "Thank you for your business");
+     $email->addFilter('footer', "text/html", "Thank you for your business");
+
      // The subject of your email
      $subject = 'Example SendGrid Email';
-     
-     // Where is this message coming from. For example, this message can be from support@yourcompany.com, info@yourcompany.com
-     $from = array('someone@example.com' => 'Name Of Your Company');
-     
+
+     // Where is this message coming from. For example, this message can be from 
+     // support@yourcompany.com, info@yourcompany.com
+     $from = 'someone@example.com';
+
      // If you do not specify a sender list above, you can specifiy the user here. If 
      // a sender list IS specified above, this email address becomes irrelevant.
-     $to = array('john@contoso.com'=>'Personal Name Of Recipient');
-     
-     # Create the body of the message (a plain-text and an HTML version). 
-     # text is your plain-text email 
-     # html is your html version of the email
-     # if the receiver is able to view html emails then only the html
-     # email will be displayed
-     
+     $to = 'john@contoso.com';
+
+     # Создайте текст сообщения (обычный текст и HTML-версию). 
+     # text - это сообщение электронной почты с обычным текстом. 
+     # html - это html-версия сообщения электронной почты.
+     # Если получатель может просмотреть сообщения электронной почты в формате html, отобразится только html-версия
+     # сообщения.
+
      /*
-     * Note the variable substitution here =)
-     */
-     $text = <<<EOM 
+      * Note the variable substitution here =)
+      */
+     $text = "
      Hello -name-,
      Thank you for your interest in our products. We have set up an appointment to call you at -time- EST to discuss your needs in more detail.
      Regards,
-     Fred
-     EOM;
-     
-     $html = <<<EOM
-     < html> 
+     Fred";
+
+     $html = "
+     <html> 
      <head></head>
      <body>
      <p>Hello -name-,<br>
      Thank you for your interest in our products. We have set up an appointment
      to call you at -time- EST to discuss your needs in more detail.
-     
+
      Regards,
-     
-     Fred, How are you?<br>
+
+     Fred<br>
      </p>
      </body>
-     < /html>
-     EOM;
-     
+     </html>";
+
+     // set subject
+     $email->setSubject($subject);
+
+     // attach the body of the email
+     $email->setFrom($from);
+     $email->setHtml($html);
+     $email->addTo($to);
+     $email->setText($text);
+
      // Your SendGrid account credentials
      $username = 'sendgridusername@yourdomain.com';
      $password = 'example';
-     
-     // Create new swift connection and authenticate
-     $transport = Swift_SmtpTransport::newInstance('smtp.sendgrid.net', 25);
-     $transport ->setUsername($username);
-     $transport ->setPassword($password);
-     $swift = Swift_Mailer::newInstance($transport);
-     
-     // Create a message (subject)
-     $message = new Swift_Message($subject);
-     
-     // add SMTPAPI header to the message
-     // *****IMPORTANT NOTE*****
-     // SendGrid's asJSON function escapes characters. If you are using Swift Mailer's
-     // PHP Mailer functions, the getTextHeader function will also escape characters.
-     // This can cause the filter to be dropped.
-     $headers = $message->getHeaders();
-     $headers->addTextHeader('X-SMTPAPI', $hdr->asJSON());
-     
-     // attach the body of the email
-     $message->setFrom($from);
-     $message->setBody($html, 'text/html');
-     $message->setTo($to);
-     $message->addPart($text, 'text/plain');
-     
-     // send message
-     if ($recipients = $swift->send($message, $failures))
-     {
-     // This will let us know how many users received this message
-     // If we specify the names in the X-SMTPAPI header, then this will always be 1.
-     echo 'Message sent out to '.$recipients.' users';
-     }
 
-     // something went wrong =(
-     else
-     {
-     echo "Something went wrong - ";
-     print_r($failures);
-     }
+     // Create SendGrid object
+     $sendgrid = new SendGrid($username, $password);
+
+     // send message
+     $response = $sendgrid->send($email);
+
+     print_r($response);
 
 ## <a name="bkmk_NextSteps"> </a>Дальнейшие действия
 
-Теперь, когда вы познакомились с основными сведениями о службе электронной почты SendGrid, перейдите
-по следующим ссылкам, чтобы получить дополнительную информацию.
+Теперь, когда вы изучили основы использования службы электронной почты SendGrid, воспользуйтесь
+следующими ссылками, чтобы получить дополнительную информацию.
 
 -   Документация SendGrid: <https://sendgrid.com/docs>
+-   Библиотека SendGrid PHP: <https://github.com/sendgrid/sendgrid-php>
 -   Специальное предложение SendGrid для клиентов Azure: <https://sendgrid.com/windowsazure.html>
 
   [Дальнейшие действия]: #bkmk_NextSteps
@@ -456,5 +407,9 @@ SendGrid предоставляет дополнительные функцио�
   [Упаковка и развертывание приложений PHP для Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/hh674499(v=VS.103).aspx
   [http://swiftmailer.org/download]: http://swiftmailer.org/download
   [функция curl]: http://php.net/curl
-  [cloud-based email service]: https://sendgrid.com/email-solutions
-  [transactional email delivery]: https://sendgrid.com/transactional-email
+  [облачная служба электронной почты]: https://sendgrid.com/email-solutions
+  [доставка электронной почты]: https://sendgrid.com/transactional-email
+  [библиотека sendgrid php]: https://github.com/sendgrid/sendgrid-php/tree/v2.1.1
+  [Редактор]: https://getcomposer.org/download/
+
+<!--HONumber=35.2-->

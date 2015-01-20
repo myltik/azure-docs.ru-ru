@@ -1,42 +1,43 @@
-<properties urlDisplayName="Handle Conflicts with Offline Data" pageTitle="Обработка конфликтов с автономными данными в мобильных службах (iOS) | Центр мобильных разработок" metaKeywords="" description="Узнайте об использовании возможностей мобильных служб Azure для обработки конфликтов при синхронизации автономных данных в приложении iOS" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Обработка конфликтов с автономными данными в мобильных службах" authors="krisragh" manager="dwrede"/>
+﻿<properties urlDisplayName="Handle Conflicts with Offline Data" pageTitle="Обработка конфликтов с автономными данными в мобильных службах (iOS) | Центр мобильных разработок" metaKeywords="" description="Узнайте об использовании возможностей мобильных служб Azure для обработки конфликтов при синхронизации автономных данных в приложении iOS" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Handling conflicts with offline data in Mobile Services" authors="krisragh" manager="dwrede"/>
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="dotnet" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh" />
+
 
 # Обработка конфликтов синхронизации автономных данных в мобильных службах
 
 <div class="dev-center-tutorial-selector sublanding">
-<a href="/ru-ru/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data" title="Магазин Windows C#">Магазин Windows C#</a>
+<a href="/ru-ru/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data" title="Windows Store C#">C# в Магазине Windows</a>
 <a href="/ru-ru/documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data" title="Windows Phone">Windows Phone</a>
 <a href="/ru-ru/documentation/articles/mobile-services-ios-handling-conflicts-offline-data" title="iOS" class="current">iOS</a>
 </div>
 
-В этом разделе показывается, как синхронизировать данные и обрабатывать конфликты при использовании возможностей автономной работы мобильных служб Azure. В этом учебнике используются инструкции и пример приложения из предыдущего учебника — [Приступая к работе с автономными данными][Приступая к работе с автономными данными]. Перед началом работы с этим учебником необходимо выполнить задания учебника [Приступая к работе с автономными данными][Приступая к работе с автономными данными].
+В этом разделе показывается, как синхронизировать данные и обрабатывать конфликты при использовании возможностей автономной работы мобильных служб Azure. Данный учебник построен на сведениях и примере приложения из предыдущего учебника - [Приступая к работе с автономными данными]. Таким образом, перед началом работы с этим учебником необходимо выполнить задания учебника [Приступая к работе с автономными данными].
 
-> [WACOM.NOTE] Чтобы выполнить работу с этим учебником, необходимо использовать учетную запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure][Бесплатная пробная версия Azure].
+>[WACOM.NOTE] Для работы с этим учебником требуется учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. О том, как это сделать, см. <a href="http://www.windowsazure.com/ru-ru/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Бесплатное пробное использование Azure</a>.
 
 ## Выполните задания учебника "Приступая к работе с автономными данными"
 
-Следуйте инструкциям учебника [Приступая к работе с автономными данными][Приступая к работе с автономными данными] и завершите проект. Готовый проект из указанного учебника будет использоваться как основа данного курса.
+Следуя инструкциям учебника [Приступая к работе с автономными данными], завершите проект. Готовый проект из указанного учебника будет использоваться как основа данного курса.
 
 ## Обновите проект приложения, чтобы разрешить редактирование
 
-Изменим завершенный проект из учебника [Приступая к работе с автономными данными][Приступая к работе с автономными данными], чтобы разрешить редактирование элементов. В данный момент, если запустить одно и то же приложение на двух телефонах, локально изменить один и тот же элемент на обоих из них и передать изменения на сервер, возникнет конфликт, ведущий к сбою.
+Изменим готовый проект из учебника [Приступая к работе с автономными данными], чтобы разрешить редактирование. В данный момент, если запустить одно и то же приложение на двух телефонах, локально изменить один и тот же элемент на обоих из них и передать изменения на сервер, возникнет конфликт, ведущий к сбою.
 
-Функция синхронизации автономных данных в пакете SDK позволяет обрабатывать подобные конфликты с помощью кода и динамически принимать решения в отношении конфликтующих элементов. Изменение проекта быстрого запуска позволяет поэкспериментировать с этой функцией.
+Функция синхронизации автономных данных в пакете SDK позволяет обрабатывать подобные конфликты с помощью кода и динамично принимать решения в отношении конфликтующих элементов. Изменение проекта быстрого запуска позволяет поэкспериментировать с этой функцией.
 
 ### Обновление контроллера представлений списка задач
 
-1.  Обновим раскадровку iPhone. При работе с iPad выполните аналогичные действия.
+1. Обновим раскадровку iPhone. При работе с iPad выполните аналогичные действия.
 
-2.  В навигаторе проекта выберите **MainStoryboard\_iPhone.storyboard**, а затем выберите **Контроллер представлений списка задач**. В верхнем меню выберите **Редактор -\> Вставить -\> Контроллер навигации**
+2. В навигаторе проекта выберите элемент **MainStoryboard_iPhone.storyboard**, а затем - **Контроллер представлений списка задач**. В верхнем меню выберите **Редактор -> Вставить -> Контроллер навигации**.
 
-    ![][0]
+      ![][update-todo-list-view-controller-1]
 
-3.  Затем в **Контроллере представлений списка задач** выберите ячейку в табличном представлении и для режима "Периферия" установите значение **Индикатор передачи сведений**. Этот индикатор указывает пользователям, что если коснуться контроллера табличного представления, откроется новое представление. Индикатор не создает события.
+3. Затем в **контроллере представлений списка задач** выберите ячейку в табличном представлении и установите значение **Индикатор передачи сведений** для режима "Периферия". Этот индикатор указывает пользователям, что если коснуться контроллера табличного представления, откроется новое представление. Индикатор не создает события.
 
-    ![][1]
+      ![][update-todo-list-view-controller-2]
 
-4.  В **TodoListViewController.m** удалите следующие операции и их содержимое. Они не понадобятся.
+4. В **TodoListViewController.m** удалите указанные ниже операции и их содержимое. Они не понадобятся.
 
         -(NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
 
@@ -47,17 +48,17 @@
 
 ### Добавление контроллера представления элементов списка задач
 
-1.  Добавьте в проект новый класс Objective-C с именем **QSTodoItemViewController**, производный от **UIViewController**:
+1. Добавьте в проект новый класс Objective-C с именем **QSTodoItemViewController**, производный от **UIViewController**:
 
-    ![][2]
+      ![][add-todo-item-view-controller-1]
 
-    ![][3]
+      ![][add-todo-item-view-controller-2]
 
-2.  В **QSTodoItemViewController.h** добавьте свойство для хранения изменяемого элемента:
+2. В файле **QSTodoItemViewController.h** добавьте свойство для хранения изменяемого элемента:
 
         @property (nonatomic, weak) NSMutableDictionary *item;
 
-3.  В **QSTodoItemViewController.m** добавьте два частных свойства в два поля изменяемого элемента списка задач — состояние выполнения и текст элемента:
+3. В файле **QSTodoItemViewController.m** добавьте два частных свойства в два поля изменяемого элемента списка задач - состояние выполнения и текст самого элемента:
 
         @interface QSTodoItemViewController ()
 
@@ -66,7 +67,7 @@
 
         @end
 
-4.  В **QSTodoItemViewController.m** замените реализацию заглушки **viewDidLoad** следующим кодом:
+4. В файле **QSTodoItemViewController.m** замените реализацию заглушки **viewDidLoad** таким кодом:
 
         - (void)viewDidLoad
         {
@@ -86,7 +87,8 @@
                         forControlEvents:UIControlEventValueChanged];
         }
 
-5.  В **QSTodoItemViewController.m** добавьте четыре метода для обработки нескольких событий:
+5. В файле **QSTodoItemViewController.m** добавьте четыре метода для обработки нескольких событий:
+
 
         - (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
             [textField resignFirstResponder];
@@ -110,40 +112,40 @@
 
 ### Добавление в раскадровку контроллера представления элементов списка задач и перехода
 
-1.  Откройте файл **MainStoryboard\_iPhone.storyboard** в навигаторе проекта.
+1. Снова откройте файл **MainStoryboard_iPhone.storyboard** в навигаторе проекта.
 
-2.  В раскадровку добавьте новый контроллер представления для элемента списка задач, справа от существующего **Контроллера представления списка задач**. Установите для нового контроллера пользовательский класс **QSTodoItemViewController**. Дополнительные сведения см. в разделе [Добавление сцены в раскадровку][Добавление сцены в раскадровку].
+2. В раскадровку добавьте новый контроллер представлений для элемента списка задач справа от существующего **контроллера представлений списка задач**. Установите для нового контроллера пользовательский класс **QSTodoItemViewController**. Дополнительные сведения см. в статье [Добавление сцены в раскадровку] (Англ.).
 
-3.  Добавьте переход с именем **detailSegue** от **контроллера представления списка задач** к **контроллеру представления элемента списка задач**. Дополнительные сведения см. в разделе [Добавление перехода между сценами в раскадровке][Добавление перехода между сценами в раскадровке]. Не создавайте этот переход от ячейки или кнопки исходного контроллера представлений. Нажмите CTRL и проведите от значка контроллера представления под **контроллером представления списка задач** в интерфейсе раскадровки к **контроллеру представления элемента списка задач**. Если случайно создать переход от ячейки, он будет выполняться дважды при запуске приложения, что приведет к следующей ошибке:
+3. Добавьте переход с именем **detailSegue** от **контроллера представлений списка задач** к **контроллеру представлений элемента списка задач**. Дополнительные сведения см. в статье [Добавление перехода между сценами в раскадровке] (Англ.). Не создавайте этот переход от ячейки или кнопки исходного контроллера представлений. Вместо этого нажмите и удерживайте клавишу CTRL и проведите от значка контроллера представления под **контроллером представлений списка задач** в интерфейсе раскадровки к **контроллеру представлений элемента списка задач**. Если случайно создать переход от ячейки, он будет выполняться дважды при запуске приложения, что приведет к следующей ошибке:
 
-        Nested push animation can result in corrupted navigation bar
+        Nested push animation can result in corrupted navigation bar (Вложенная push-анимация может привести к повреждению панели навигации)
 
-4.  Добавьте текстовое поле для текста элемента, сегментированный элемент управления для состояния выполнения и метки для нового **контроллера представления элемента списка задач**. В сегментированном элементе управления укажите для **Segment 0** заголовок **Yes**, а для **Segment 1** заголовок **No**. Соедините новые поля с выходами кода. Дополнительные сведения см. в разделах [Создание пользовательского интерфейса][Создание пользовательского интерфейса] и [Сегментированные элементы управления][Сегментированные элементы управления].
+4. Добавьте текстовое поле для текста элемента, сегментированный элемент управления для состояния выполнения и метки для нового **контроллера представления элемента списка задач**. В сегментированном элементе управления укажите для элемента **Segment 0** заголовок **Yes**, а для элемента **Segment 1** - **No**. Соедините новые поля с выходами кода. Дополнительные сведения можно найти в статьях [Создание пользовательского интерфейса] (Англ.) и [Сегментированные элементы управления] (Англ.).
 
-    ![][4]
+      ![][add-todo-item-view-controller-3]
 
-5.  Соедините новые поля с соответствующими выходами, добавленными в **QSTodoItemViewController.m**. Соедините поле текста элемента с выходом **itemText**, а сегментированный элемент управления состояния выполнения с выходом **itemComplete**. Дополнительные сведения см. в разделе [Создание связи с выходом][Создание связи с выходом].
+5. Соедините новые поля с соответствующими выходами, добавленными в файл **QSTodoItemViewController.m**. Соедините поле текста элемента с выходом **itemText**, а сегментированный элемент управления состояния выполнения с выходом **itemComplete**. Дополнительные сведения можно найти в статье [Создание связи с выходом] (Англ).
 
-6.  Установите делегирование текстовых полей в контроллер представлений. После этого при случайном изменении элемента и нажатии клавиши RETURN текстовое поле восстанавливается. Нажмите CTRL и перетащите текстовое поле на значок контроллера представления под **контроллером представления элемента списка задач** в интерфейсе раскадровки. Выберите выход делегирования. Это укажет на делегирование текстового поля этому контроллеру.
+6. Установите делегирование текстовых полей в контроллер представлений. После этого при случайном изменении элемента и нажатии клавиши RETURN текстовое поле восстанавливается. Нажмите CTRL и перетащите текстовое поле на значок контроллера представления под **контроллером представления элемента списка задач** в интерфейсе раскадровки и выберите выход делегирования. Это укажет на делегирование текстового поля данному контроллеру.
 
-7.  Проверьте работу приложения после внесения изменений. Запустите приложение в имитаторе. Добавьте элементы в список задач и выберите их. Вы увидите контроллер представления элементов (пустой).
+7. Проверьте работу приложения после внесения изменений. Запустите приложение в имитаторе. Добавьте элементы в список задач и выберите их. Вы увидите контроллер представления элементов (пустой).
 
-    ![][5]
+      ![][add-todo-item-view-controller-4]
 
-    ![][6]
+      ![][add-todo-item-view-controller-5]
 
 ### Добавление сведений об элементах в контроллер представления элементов списка задач
 
-1.  Мы будем обращаться к **QSTodoItemViewController** из **QSTodoListViewController.m**. В **QSTodoListViewController.m** добавим строку для импорта **QSTodoItemViewController.h**.
+1. Создадим ссылку на **QSTodoItemViewController** из **QSTodoListViewController.m**. В **QSTodoListViewController.m** добавим строку для импорта **QSTodoItemViewController.h**.
 
         #import "QSTodoItemViewController.h"
 
-2.  В интерфейсе **QSTodoListViewController** в **QSTodoListViewController.m** добавьте два новых свойства для хранения редактируемого элемента:
+2. В интерфейсе **QSTodoListViewController** в **QSTodoListViewController.m** добавьте два новых свойства для хранения редактируемого элемента:
 
         @property (nonatomic)           NSInteger       editedItemIndex;
         @property (strong, nonatomic)   NSMutableDictionary *editedItem;
 
-3.  Реализуйте **tableView:didSelectRowAtIndexPath:** в **QSTodoListViewController.m** для сохранения изменяемого элемента и последующего вызова перехода к подробному представлению.
+3. Реализуйте **tableView:didSelectRowAtIndexPath:** в **QSTodoListViewController.m**, чтобы сохранить изменяемый элемент и вызвать переход к подробному представлению.
 
           - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
               self.editedItemIndex = [indexPath row];
@@ -152,7 +154,7 @@
               [self performSegueWithIdentifier:@"detailSegue" sender:self];
           }
 
-4.  Реализуйте **prepareForSegue:sender:** в **QSTodoListViewController.m** для передачи элемента в **контроллер просмотра элементов списка задач**.
+4. Реализуйте **prepareForSegue:sender:** в **QSTodoListViewController.m** для передачи элемента в **контроллер просмотра элементов списка задач**.
 
         - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
             if ([[segue identifier] isEqualToString:@"detailSegue"]) {
@@ -161,13 +163,13 @@
             }
         }
 
-5.  Проверьте работу приложения после внесения изменений. Запустите приложение в имитаторе. Добавьте элементы в список задач и выберите их. В контроллере представления элементов будут показаны сведения об элементах списка задач.
+5. Проверьте работу приложения после внесения изменений. Запустите приложение в имитаторе. Добавьте элементы в список задач и выберите их. В контроллере представления элементов будут показаны сведения об элементах списка задач.
 
-    ![][7]
+      ![][add-todo-item-view-controller-6]
 
 ### Добавление поддержки сохранения изменений
 
-1.  При нажатии кнопки "Назад" в навигации все изменения будут потеряны. Данные были отправлены в подробное представление, однако не возвращаются в основное представление. Поскольку мы уже передали указатель на копию элемента, можно использовать его для получения списка обновлений элемента и внесения изменений на сервере. Сначала изменим класс-оболочку сервера **QSTodoService** в **QSTodoService.m**, удалив операцию **completeItem** и добавив новую операцию **updateItem**. Это связано с тем, что операция **completeItem** только помечает элементы как выполненные, а операция **updateItem** будет их обновлять.
+1. При нажатии кнопки "Назад" в навигации все изменения будут потеряны. Данные были отправлены в подробное представление, однако они не возвращаются в основное представление. Поскольку мы уже передали указатель на копию элемента, можно использовать его для получения списка обновлений элемента и внесения изменений на сервере. Сначала изменим класс оболочки сервера **QSTodoService** в **QSTodoService.m**, удалив операцию **completeItem** и добавив новую операцию **updateItem**. Это связано с тем, что операция **completeItem** только помечает элементы как выполненные, а операция **updateItem** будет их обновлять.
 
         - (void)updateItem:(NSDictionary *)item atIndex:(NSInteger)index completion:(QSCompletionWithIndexBlock)completion {
             // Cast the public items property to the mutable type (it was created as mutable)
@@ -201,11 +203,11 @@
             }];
         }
 
-2.  Удалите объявление операции **completeItem** из **QSTodoService.h** и добавьте следующие операции **updateItem**:
+2. Удалите объявление операции **completeItem** из **QSTodoService.h** и добавьте такое объявление операции **updateItem**:
 
         - (void)updateItem:(NSDictionary *)item atIndex:(NSInteger)index completion:(QSCompletionWithIndexBlock)completion;
 
-3.  В **QSTodoListViewController.m** добавьте операцию **viewWillAppear** для вызова метода обновления после возврата в основное представление из контроллера подробного представления.
+3. В **QSTodoListViewController.m** добавьте операцию **viewWillAppear** для вызова метода обновления после возврата в основное представление из контроллера подробного представления.
 
         - (void)viewWillAppear:(BOOL)animated {
             if (self.editedItem && self.editedItemIndex >= 0) {
@@ -245,15 +247,15 @@
             }
         }
 
-4.  Протестируйте приложение. Проверьте работу приложения после внесения изменений. Запустите приложение в имитаторе. Добавьте элементы в список задач и выберите их. Измените элемент и вернитесь назад. Убедитесь, что описание элемента обновлено в основном представлении приложения. Обновите приложение перетаскиванием вниз и убедитесь, что изменение отражено в облаке.
+4. Протестируйте приложение. Проверьте работу приложения после внесения изменений. Запустите приложение в имитаторе. Добавьте элементы в список задач и выберите их. Измените элемент и вернитесь назад. Убедитесь, что описание элемента обновлено в основном представлении приложения. Обновите приложение перетаскиванием вниз и убедитесь, что изменение отражено в облаке.
 
 ### Обработка конфликта
 
-1.  Рассмотрим, что происходит, если два разных клиента пытаются одновременно изменить один и тот же фрагмент данных. В примере ниже это элемент "Hello world 3". Изменим его на "Hello world 13" на одном устройстве и на "Hello world 23" на другом.
+1. Рассмотрим, что происходит, если два разных клиента пытаются одновременно изменить один и тот же фрагмент данных. В примере ниже это элемент "Hello world 3". Изменим его на "Hello world 13" на одном устройстве и на "Hello world 23" на другом.
 
-    ![][8]
+      ![][conflict-handling-problem-1]
 
-2.  Запустите приложение в двух местах: на двух устройствах iOS или в имитаторе и на устройстве iOS. Если у вас нет физического устройства для тестирования, запустите один экземпляр в имитаторе и, используя клиент REST, отправьте запрос PATCH в мобильную службу. URL-адрес запроса PATCH отражает имя мобильной службы, имя таблицы элемента списка задач и идентификатор изменяемой таблицы, а заголовок x-zumo-application является ключом приложения:
+2. Запустите приложение в двух местах: на двух устройствах iOS или на устройстве iOS и в имитаторе. Если у вас нет физического устройства для тестирования, запустите один экземпляр в имитаторе и, используя клиент REST, отправьте запрос PATCH в мобильную службу. URL-адрес запроса PATCH отражает имя мобильной службы, имя таблицы элемента списка задач и идентификатор изменяемой таблицы, а заголовок x-zumo-application является ключом приложения:
 
         PATCH https://todolist.azure-mobile.net/tables/todoitem/D265929E-B17B-42D1-8FAB-D0ADF26486FA?__systemproperties=__version
         Content-Type: application/json
@@ -264,43 +266,42 @@
             "text": "Hello world 23"
         }
 
-3.  Теперь обновите элементы в двух экземплярах приложения. В выходном журнале в Xcode появится ошибка:
+3. Теперь обновите элементы в двух экземплярах приложения. В выходном журнале в Xcode появится ошибка:
 
         TodoList[1575:4a2f] ERROR Error Domain=com.Microsoft.WindowsAzureMobileServices.ErrorDomain Code=-1170 "Not all operations completed successfully" UserInfo=0x8dd6310 {com.Microsoft.WindowsAzureMobileServices.ErrorPushResultKey=(
             "The server's version did not match the passed version"
         ), NSLocalizedDescription=Not all operations completed successfully}
 
-Это связано с тем, что в вызове **pullWithQuery:completion:** в блоке выполнения параметр ошибки не будет пустым. В результате ошибка будет записана в выходной журнал в **NSLog**.
+  Это связано с тем, что в вызове **pullWithQuery:completion:** в блоке выполнения параметр ошибки не будет пустым. В результате ошибка будет записана в выходной журнал в **NSLog**.
 
 ### Изменение QSTodoService для поддержки обработки конфликтов
 
-1.  Предоставим пользователю возможность принимать решение об обработке конфликта в клиенте. Для этого реализуем протокол **MSSyncContextDelegate**. В **QSTodoService.h** и **QSTodoService.m** замените объявление фабричного метода \*\*(QSTodoService \*)defaultService;\*\* на указанную ниже инструкцию, чтобы получать делегирование контекста синхронизации как параметр:
+1. Предоставим пользователю возможность принимать решение об обработке конфликта в клиенте. Для этого реализуем протокол **MSSyncContextDelegate**. В **QSTodoService.h** и **QSTodoService.m** замените объявление фабричного метода **(QSTodoService *)defaultService;** приведенной ниже инструкцией, чтобы получать делегирование контекста синхронизации в качестве параметра:
 
         + (QSTodoService *)defaultServiceWithDelegate:(id)delegate;
 
-2.  В **QSTodoService.m** измените строку **init**, как показано ниже, чтобы получать делегирование контекста синхронизации как параметр:
+2. В **QSTodoService.m** измените строку **init** как показано ниже, чтобы получать делегирование контекста синхронизации в качестве параметра:
 
         -(QSTodoService *)initWithDelegate:(id)syncDelegate
 
-3.  В **QSTodoService.m** замените вызов **init** в **defaultServiceWithDelegate** на **initWithDelegate**:
+3. В **QSTodoService.m** замените вызов **init** в **defaultServiceWithDelegate** на **initWithDelegate**:
 
         service = [[QSTodoService alloc] initWithDelegate:delegate];
 
-4.  В **QSTodoService.m** измените инициализацию **self.client.syncContext** для передачи делегирования в **syncDelegate** вместо **nil**:
+4. В **QSTodoService.m** измените инициализацию **self.client.syncContext** для передачи делегирования в **syncDelegate** вместо **nil**:
 
         self.client.syncContext = [[MSSyncContext alloc] initWithDelegate:syncDelegate dataSource:store callback:nil];
 
 ### Добавление вспомогательного представления предупреждений пользовательского интерфейса для поддержки обработки конфликтов
 
-1.  В случае конфликта предоставим пользователю возможность выбора версии для сохранения:
+1. В случае конфликта предоставим пользователю возможность выбора версии для сохранения:
+  * оставить версию клиента (версия на сервере будет заменена);
+  * оставить версию сервера (будет обновлена локальная таблица клиента);
+  * не оставлять ни одну из версий (передача отменяется, операция остается незавершенной).
 
--   оставить версию клиента (версия на сервере будет заменена);
--   оставить версию сервера (будет обновлена локальная таблица клиента);
--   не оставлять ни одну из версий (передача отменяется, операция остается незавершенной).
+  Так как во время отображения подсказки может появиться другое изменение, варианты будут отображаться, пока сервер возвращает отрицательный ответ. В нашем коде используем вспомогательный класс, который выводит представление предупреждения и принимает делегирование, вызываемое при отображении этого представления. Сначала определим вспомогательный класс **QSUIAlertViewWithBlock**.
 
-Так как во время отображения подсказки может появиться другое изменение, варианты будут отображаться, пока сервер возвращает отрицательный ответ. В нашем коде используем вспомогательный класс, который выводит представление предупреждения и принимает делегирование, вызываемое при отображении этого представления. Сначала определим вспомогательный класс **QSUIAlertViewWithBlock**.
-
-1.  Добавьте новый класс **QSUIAlertViewWithBlock**, используя Xcode, и замените **QSUIAlertViewWithBlock.h** следующим:
+2. Используя Xcode, добавьте новый класс **QSUIAlertViewWithBlock** и замените **QSUIAlertViewWithBlock.h** таким содержимым:
 
         #import <Foundation/Foundation.h>
 
@@ -313,7 +314,7 @@
 
         @end
 
-2.  Затем замените **QSUIAlertViewWithBlock.m** следующим файлом:
+3. Затем замените **QSUIAlertViewWithBlock.m** таким файлом:
 
         #import "QSUIAlertViewWithBlock.h"
         #import <objc/runtime.h>
@@ -368,19 +369,19 @@
 
 ### Добавление обработчика конфликтов в контроллер представлений списка задач
 
-1.  В **QSTodoListViewController.m** замените вызов **defaultService** в **viewDidLoad** вызовом **defaultServiceWithDelegate**, как показано ниже:
+1. В **QSTodoListViewController.m** замените вызов **defaultService** в **viewDidLoad** вызовом **defaultServiceWithDelegate**, как показано ниже:
 
         self.todoService = [QSTodoService defaultServiceWithDelegate:self];
 
-2.  В **QSTodoListViewController.h** добавьте **\<MSSyncContextDelegate\>** в объявление интерфейса, чтобы реализовать протокол **MSSyncContextDelegate**.
+2. В **QSTodoListViewController.h** добавьте **&lt;MSSyncContextDelegate&gt;** в объявление интерфейса, чтобы реализовать протокол **MSSyncContextDelegate**.
 
         @interface QSTodoListViewController : UITableViewController<MSSyncContextDelegate>
 
-3.  Добавьте следующую инструкцию импорта в начало **QSTodoListViewController.m**:
+3. Добавьте следующую инструкцию импорта в начало **QSTodoListViewController.m**:
 
         #import "QSUIAlertViewWithBlock.h"
 
-4.  Наконец, добавьте следующие две операции в **QSTodoListViewController.m** для использования вспомогательного класса и приглашения пользователю обработать конфликт одним из трех способов.
+4. Наконец, добавьте две описанные ниже операции в **QSTodoListViewController.m** для использования вспомогательного класса и приглашения пользователю обработать конфликт одним из трех способов.
 
         - (void)tableOperation:(MSTableOperation *)operation onComplete:(MSSyncItemBlock)completion
         {
@@ -431,29 +432,38 @@
 
 ### Сводка
 
-Для создания готового проекта по обнаружению конфликтов на основе проекта из учебника [Приступая к работе с автономными данными][Приступая к работе с автономными данными], сначала была добавлена возможность редактирования и обновления элементов списка задач.
+Для создания готового проекта по обнаружению конфликтов на основе проекта из учебника [Приступая к работе с автономными данными] сначала была добавлена возможность редактирования и обновления элементов списка задач.
 
 Для этого был добавлен новый контроллер подробного представления элементов, связанный с контроллерами основного и подробного представлений, и добавлена возможность сохранения изменений и их передачи в облако.
 
-Затем вы узнали, что происходит при возникновении конфликта. Была добавлена поддержка обработчика конфликтов с помощью реализации протокола **MSSyncContextDelegate**. Вы также включили поддержку делегирования контекста синхронизации с помощью серверного класса интерфейса **QSTodoService**, **QSTodoListViewController** и вспомогательных классов.
+Затем вы узнали, что происходит при возникновении конфликта. Была добавлена поддержка обработчика конфликтов с помощью реализации протокола **MSSyncContextDelegate**. Также включена поддержка делегирования контекста синхронизации с помощью серверного класса интерфейса **QSTodoService**, **QSTodoListViewController** и вспомогательных классов.
 
-Был добавлен вспомогательный класс **QSUIAlertViewWithBlock** для отображения предупреждений для пользователей. В конце был добавлен код в **QSTodoListViewController** для вывода предложения пользователю согласовать конфликт одним из трех способов.
+Добавлен вспомогательный класс **QSUIAlertViewWithBlock** для отображения предупреждений для пользователей. Наконец, добавлен код в **QSTodoListViewController** для вывода предложения пользователю согласовать конфликт одним из трех способов.
 
+<!-- URLs. -->
 
+[add-todo-item-view-controller-1]: ./media/mobile-services-ios-handling-conflicts-offline-data/add-todo-item-view-controller-1.png
+[add-todo-item-view-controller-2]: ./media/mobile-services-ios-handling-conflicts-offline-data/add-todo-item-view-controller-2.png
+[add-todo-item-view-controller-3]: ./media/mobile-services-ios-handling-conflicts-offline-data/add-todo-item-view-controller-3.png
+[add-todo-item-view-controller-4]: ./media/mobile-services-ios-handling-conflicts-offline-data/add-todo-item-view-controller-4.png
+[add-todo-item-view-controller-5]: ./media/mobile-services-ios-handling-conflicts-offline-data/add-todo-item-view-controller-5.png
+[add-todo-item-view-controller-6]: ./media/mobile-services-ios-handling-conflicts-offline-data/add-todo-item-view-controller-6.png
+[conflict-handling-problem-1]: ./media/mobile-services-ios-handling-conflicts-offline-data/conflict-handling-problem-1.png
+[update-todo-list-view-controller-1]: ./media/mobile-services-ios-handling-conflicts-offline-data/update-todo-list-view-controller-1.png
+[update-todo-list-view-controller-2]: ./media/mobile-services-ios-handling-conflicts-offline-data/update-todo-list-view-controller-2.png
 
-  [Приступая к работе с автономными данными]: /ru-ru/documentation/articles/mobile-services-ios-get-started-offline-data/
-  [Бесплатная пробная версия Azure]: http://www.windowsazure.com/ru-ru/pricing/free-trial/?WT.mc_id=AE564AB28
-  [0]: ./media/mobile-services-ios-handling-conflicts-offline-data/update-todo-list-view-controller-1.png
-  [1]: ./media/mobile-services-ios-handling-conflicts-offline-data/update-todo-list-view-controller-2.png
-  [2]: ./media/mobile-services-ios-handling-conflicts-offline-data/add-todo-item-view-controller-1.png
-  [3]: ./media/mobile-services-ios-handling-conflicts-offline-data/add-todo-item-view-controller-2.png
-  [Добавление сцены в раскадровку]: https://developer.apple.com/library/ios/recipes/xcode_help-IB_storyboard/chapters/StoryboardScene.html
-  [Добавление перехода между сценами в раскадровке]: https://developer.apple.com/library/ios/recipes/xcode_help-IB_storyboard/chapters/StoryboardSegue.html#//apple_ref/doc/uid/TP40014225-CH25-SW1
-  [Создание пользовательского интерфейса]: https://developer.apple.com/library/mac/documentation/ToolsLanguages/Conceptual/Xcode_Overview/Edit_User_Interfaces/edit_user_interface.html
-  [Сегментированные элементы управления]: https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/UIKitUICatalog/UISegmentedControl.html
-  [4]: ./media/mobile-services-ios-handling-conflicts-offline-data/add-todo-item-view-controller-3.png
-  [Создание связи с выходом]: https://developer.apple.com/library/mac/recipes/xcode_help-interface_builder/articles-connections_bindings/CreatingOutlet.html
-  [5]: ./media/mobile-services-ios-handling-conflicts-offline-data/add-todo-item-view-controller-4.png
-  [6]: ./media/mobile-services-ios-handling-conflicts-offline-data/add-todo-item-view-controller-5.png
-  [7]: ./media/mobile-services-ios-handling-conflicts-offline-data/add-todo-item-view-controller-6.png
-  [8]: ./media/mobile-services-ios-handling-conflicts-offline-data/conflict-handling-problem-1.png
+[Сегментированные элементы управления]: https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/UIKitUICatalog/UISegmentedControl.html
+[Справка редактора моделей Core Data]: https://developer.apple.com/library/mac/recipes/xcode_help-core_data_modeling_tool/Articles/about_cd_modeling_tool.html
+[Создание связи с выходом]: https://developer.apple.com/library/mac/recipes/xcode_help-interface_builder/articles-connections_bindings/CreatingOutlet.html
+[Создание пользовательского интерфейса]: https://developer.apple.com/library/mac/documentation/ToolsLanguages/Conceptual/Xcode_Overview/Edit_User_Interfaces/edit_user_interface.html
+[Добавление перехода между сценами в раскадровке]: https://developer.apple.com/library/ios/recipes/xcode_help-IB_storyboard/chapters/StoryboardSegue.html#//apple_ref/doc/uid/TP40014225-CH25-SW1
+[Добавление сцены в раскадровку]: https://developer.apple.com/library/ios/recipes/xcode_help-IB_storyboard/chapters/StoryboardScene.html
+[Core Data]: https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/CoreData/cdProgrammingGuide.html
+[Загрузка предварительной версии пакета SDK]: http://aka.ms/Gc6fex
+[Использование клиентской библиотеки мобильных служб для iOS]: /ru-ru/documentation/articles/mobile-services-ios-how-to-use-client-library/
+[Приступая к работе с автономными функциями (для iOS)]: https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/iOS/blog20140611
+[Приступая к работе с автономными данными]: /ru-ru/documentation/articles/mobile-services-ios-get-started-offline-data/
+[Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/mobile-services-ios-get-started/
+[Приступая к работе с данными]: /ru-ru/documentation/articles/mobile-services-ios-get-started-data/
+
+<!--HONumber=35.2-->

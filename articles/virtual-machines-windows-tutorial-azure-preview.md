@@ -1,116 +1,108 @@
-<properties urlDisplayName="Create a virtual machine in the Preview Portal" pageTitle="Создание виртуальной машины под управлением Windows на портале предварительной версии Azure" metaKeywords="Azure image gallery vm" description="Узнайте, как создать виртуальную машину Azure под управлением Windows, используя коллекцию виртуальных машин на портале предварительной версии Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Создание виртуальной машины под управлением Windows на портале предварительной версии Azure" authors="danlep,kathydav,rasquill" solutions="" manager="timlt" editor="tysonn" />
+﻿<properties urlDisplayName="Create a virtual machine in the Preview Portal" pageTitle="Создание виртуальной машины под управлением Windows на портале предварительной версии Azure" metaKeywords="виртуальная машина коллекции образов Azure" description="Узнайте, как создать виртуальную машину Azure под управлением Windows, используя коллекцию виртуальных машин на портале предварительной версии Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Create a Virtual Machine Running Windows in the Azure Preview Portal" authors="danlep,kathydav,rasquill" solutions="" manager="timlt" editor="tysonn" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="09/16/2014" ms.author="danlep,kathydav,rasquill" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="12/11/2014" ms.author="danlep,kathydav,rasquill" />
 
-# Создание виртуальной машины под управлением Windows на портале предварительной версии Azure
+<!---Workflow can be confusing...have to select the correct size with **Browse all pricing tiers** then click Select on that pane and the **Recommended pricing tiers** pane to apply. But even after that, it didn't seem to pick the Premium storage account...showed up as 'standard GRS' when I inspected what type of storage account would be used for the VM. 
+-->
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/ru-ru/documentation/articles/virtual-machines-windows-tutorial/" title="Портал Аzure"> Портал Аzure</a><a href="/ru-ru/documentation/articles/virtual-machines-windows-tutorial-azure-preview/" title=" Портал предварительной версии Azure" class="current"> Портал предварительной версии Azure</a></div>
+# Создание виртуальной машины на портале предварительной версии Azure #
 
-В этом учебнике показано, насколько просто создавать виртуальные машины Azure (ВМ) под управлением Windows, используя в качестве примера образ Windows Server из коллекции образов на портале предварительной версии Azure. Коллекция образов содержит широкое разнообразие образов, в том числе операционные системы Windows, операционные системы на основе Linux, а также образы приложений.
+<div class="dev-center-tutorial-selector sublanding"><a href="/ru-ru/documentation/articles/virtual-machines-windows-tutorial/" title="Azure Portal">Портал Azure</a><a href="/ru-ru/documentation/articles/virtual-machines-windows-tutorial-azure-preview/" title="Azure Preview Portal" class="current">Портал предварительной версии Azure</a></div>
 
-> [WACOM.NOTE] Вам не требуется опыт работы с виртуальными машинами Azure при использовании этого руководства. Однако необходимо иметь учетную запись Azure. Вы можете создать бесплатную пробную учетную запись всего за несколько минут. Подробную информацию см. в разделе [Создание учетной записи Azure][Создание учетной записи Azure].
+В этом учебнике показано, насколько просто создавать виртуальные машины Azure (ВМ) под управлением Windows, используя в качестве примера образ Windows Server из коллекции образов на портале предварительной версии Azure. Коллекция образов содержит широкое разнообразие образов, в том числе операционные системы Windows, операционные системы на основе Linux, а также образы приложений. 
+
+> [WACOM.NOTE] Чтобы пользоваться этим руководством, не нужен опыт работы с виртуальными машинами. Однако необходимо иметь учетную запись Azure. Вы можете создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в статье [Создание учетной записи Azure](http://www.windowsazure.com/ru-ru/develop/php/tutorials/create-a-windows-azure-account/). 
 
 В этом учебнике показано:
 
--   [Создание виртуальной машины][Создание виртуальной машины]
--   [Как войти в систему на виртуальной машине после ее создания][Как войти в систему на виртуальной машине после ее создания]
+- [Как создать виртуальную машину](#createvirtualmachine)
+- [Как войти на виртуальную машину после ее создания](#logon)
 
-Более подробную информацию см. в разделе [Виртуальные машины][Виртуальные машины].
+Более подробную информацию см. в статье [Виртуальные машины](http://go.microsoft.com/fwlink/p/?LinkID=271224).
 
-## <span id="createvirtualmachine"></span> </a>Создание виртуальной машины
 
-В этом разделе показывается использование портала предварительной версии для создания виртуальной машины, используя в качестве примера Windows Server. Для большей части параметров конфигурации можно использовать значения по умолчанию Azure и создать ВМ буквально за несколько минут.
+##<a id="createvirtualmachine"> </a>Создание виртуальной машины##
 
-> [WACOM.NOTE] Количество и тип образов, доступных в коллекции, зависит от вашей подписки. В этом учебнике используется образ Windows Server, однако для подписки MSDN могут быть доступны дополнительные образы, включая образы рабочего стола.
+В этом разделе показано, как с помощью портала предварительной версии создать виртуальную машину. В качестве примера используется центр обработки данных Windows Server 2012 R2. Для большей части параметров конфигурации можно использовать значения по умолчанию Azure и создать ВМ буквально за несколько минут.
 
-1.  Выполните вход на [портал предварительной версии Azure][портал предварительной версии Azure]. Если у вас еще нет подписки, см. предложение [бесплатной пробной версии][бесплатной пробной версии].
+> [WACOM.NOTE] Доступность образов зависит от вашей подписки. В этом учебнике используется образ Windows Server, но при подписке на MSDN могут быть доступны дополнительные образы, включая образы рабочего стола. 
+ 
 
-2.  В меню концентратора выберите **Создать**.
+1. Войдите на [портал предварительной версии Azure](https://portal.azure.com). Воспользуйтесь [бесплатной пробной версией](http://www.windowsazure.com/ru-ru/pricing/free-trial/), если у вас пока нет подписки.
 
-    ![Выбор команды "Создать" в панели команд][Выбор команды "Создать" в панели команд]
+2. В меню концентратора нажмите кнопку **Создать**.
 
-3.  В разделе **Создать** выберите **Все**, а затем в разделе **Коллекция** выберите элемент **Виртуальные машины**. Щелкните **Центр обработки данных Windows Server 2012 R2**. В этом разделе нажмите кнопку **Создать**.
+	![Select New from the Command Bar](./media/virtual-machines-windows-tutorial-azure-preview/new_button_preview_portal.png)
 
-    ![Выбор образа ВМ в коллекции][Выбор образа ВМ в коллекции]
+3. В разделе **Создание** последовательно щелкните **Все**, **Виртуальные машины**, **Центр обработки данных Windows Server 2012 R2** и нажмите кнопку **Создать**.
 
-4.  В разделе **создания ВМ** укажите нужное **имя узла** для ВМ, административное **имя пользователя** и надежный **пароль**.
+	![Select a VM image from the Gallery](./media/virtual-machines-windows-tutorial-azure-preview/image_gallery_preview_portal.png)
+	
+4. В разделе **Создание виртуальной машины** введите нужное **имя узла** для виртуальной машины, административное **имя пользователя** и надежный **пароль** в соответствующих полях.  
 
-    ![Настройка имени узла и учетных данных для входа][Настройка имени узла и учетных данных для входа]
+	>[WACOM.NOTE] **Имя пользователя** относится к административной учетной записи, используемой для управления сервером. Создайте уникальный пароль для этой учетной записи и запомните его. **Имя пользователя и пароль понадобятся для входа на виртуальную машину**.
+	
 
-    > [WACOM.NOTE] **Имя пользователя** относится к административной учетной записи, используемой для управления сервером. Создайте уникальный пароль для этой учетной записи и запомните его. **Имя пользователя и пароль понадобятся для входа на виртуальную машину**.
+	![Configure host name and log on credentials](./media/virtual-machines-windows-tutorial-azure-preview/create_vm_name_pwd_preview_portal.png)
+	
+	
+5. Просмотрите параметры по умолчанию, такие как **Уровень ценообразования**, **Дополнительная конфигурация** и **Расположение**. Значения, выбранные для этих параметров, влияют на размер виртуальной машины, а также сетевые возможности, такие как членство в домене. Например, чтобы опробовать хранилище Premium на виртуальной машине, понадобится выбрать регион и размер, поддерживающие его. 
 
-5.  Чтобы использовать для остальных параметров ВМ значения по умолчанию и начать создание ВМ, нажмите кнопку **Создать**. При желании перед нажатием кнопки **Создать** можно просмотреть параметры в разделе **Дополнительная настройка**. Например, можно настроить дополнительную диагностику на ВМ, чтобы впоследствии отслеживать на своей ВМ множество метрик. Щелкните пункт **Дополнительная настройка**, перейдите в раздел **Диагностика** и установите переключатель **Состояние** в значение **Вкл.**.
+	>[WACOM.NOTE] Хранилище Premium доступно в режиме предварительной версии для виртуальных машин серии DS в определенных регионах. Дополнительные сведения см. в разделе [Хранилище Premium: хранилище высокой производительности для рабочих нагрузок виртуальных машин Azure](http://azure.microsoft.com/ru-ru/documentation/articles/storage-premium-storage-preview-portal/).
 
-    ![Включение диагностики ВМ][Включение диагностики ВМ]
+	![Configure host name and log on credentials](./media/virtual-machines-windows-tutorial-azure-preview/create_vm_preview_portal.png)
+	
+6. Закончив просмотр или обновление параметров, нажмите кнопку **Создать**.	
 
-    > [WACOM.NOTE] Если включить диагностику Azure, то Azure будет сохранять данные диагностики в учетной записи хранения Azure, что повлечет за собой дополнительные затраты на хранение.
+7. Пока Azure создает ВМ, можно отслеживать ход выполнения в разделе **Уведомления** в меню концентратора. После того как Azure создаст ВМ, она появится в начальной панели.
 
-6.  Пока Azure создает ВМ, можно отслеживать ход выполнения в разделе **Уведомления** в меню концентратора. После того как Azure создаст ВМ, она появится в начальной панели.
+	![VM appears on the Startboard](./media/virtual-machines-windows-tutorial-azure-preview/vm_startboard_preview_portal.png)
 
-    ![ВМ появилась в начальной панели][ВМ появилась в начальной панели]
-
-## <span id="logon"></span> </a>Как войти в виртуальную машину после ее создания
+## <a id="logon"> </a>Как войти в систему на виртуальной машине после ее создания ##
 
 В настоящем разделе показано, как войти в ВМ для управления ее настройками и приложениями, которые будут на ней выполняться.
 
-> [WACOM.NOTE] Требования и советы по устранению неполадок см. в разделе [Подключение к виртуальной машине Azure по протоколу RDP или SSH][Подключение к виртуальной машине Azure по протоколу RDP или SSH].
+>[WACOM.NOTE] Информацию о требованиях и устранении неполадок см. в статье [Подключение к виртуальной машине Azure по RDP или SSH](http://go.microsoft.com/fwlink/p/?LinkId=398294).
 
-1.  Войдите на [портал предварительной версии Azure][портал предварительной версии Azure], если вы этого еще не сделали.
+1. Войдите на [портал предварительной версии Azure](https://portal.azure.com), если вы этого еще не сделали.
 
-2.  Щелкните ВМ на начальной панели. Если нужно ее найти, нажмите кнопку **Обзор**, а затем выберите **Виртуальные машины**.
+2. Щелкните ВМ на начальной панели. Если нужно ее найти, нажмите кнопку **Обзор**, а затем щелкните **Виртуальные машины**. 
 
-    ![Обзор для поиска ВМ][Обзор для поиска ВМ]
+	![Browse to find the VM](./media/virtual-machines-windows-tutorial-azure-preview/browse_vm_preview_portal.png)
 
-3.  В панели ВМ нажмите **Подключение** в верхней части.
+3. В верхней части раздела виртуальной машины щелкните **Подключение**.
 
-    ![Вход на виртуальную машину][Вход на виртуальную машину]
+	![Log on to the virtual machine](./media/virtual-machines-windows-tutorial-azure-preview/connect_vm_preview_portal.png)
 
-4.  Щелкните **Открыть**, чтобы использовать файл протокола удаленного рабочего стола, автоматически созданного для виртуальной машины.
+4. Нажмите кнопку **Открыть**, чтобы использовать файл протокола удаленного рабочего стола, автоматически созданного для виртуальной машины.
+	
+5. Чтобы продолжить процесс подключения, нажмите кнопку **Подключиться**.
 
-5.  Чтобы продолжить процесс подключения, нажмите кнопку **Подключиться**.
+	![Continue with connecting](./media/virtual-machines-log-on-windows-server/connectpublisher.png)
 
-    ![Продолжайте подключение][Продолжайте подключение]
+6. Введите имя пользователя и пароль для учетной записи администратора виртуальной машины, а затем нажмите **ОК**.
+	
+7. Щелкните **Да** для проверки удостоверения виртуальной машины.
 
-6.  Введите имя пользователя и пароль для учетной записи администратора виртуальной машины, а затем нажмите **ОК**.
+	![Verify the identity of the machine](./media/virtual-machines-log-on-windows-server/connectverify.png)
 
-7.  Щелкните **Да** для проверки удостоверения виртуальной машины.
+	Теперь вы сможете работать с виртуальной машиной, так же как и с любым сервером.
 
-    ![Проверьте удостоверение машины][Проверьте удостоверение машины]
-
-    Теперь вы сможете работать с виртуальной машиной, так же как и с любым сервером.
-
-## Дальнейшие действия
+##Дальнейшие действия 
 
 Для получения дополнительных сведений о настройке виртуальных машин Windows в Azure см. следующие статьи:
 
-[Подключение к виртуальным машинам в облачной службе][Подключение к виртуальным машинам в облачной службе]
+[Подключение виртуальных машин в облачной службе](http://www.windowsazure.com/ru-ru/documentation/articles/cloud-services-connect-virtual-machine/)
 
-[Создание и отправка собственного виртуального жесткого диска, содержащего операционную систему Windows][Создание и отправка собственного виртуального жесткого диска, содержащего операционную систему Windows]
+[Создание и отправка собственного виртуального жесткого диска, содержащего операционную систему Windows](http://www.windowsazure.com/ru-ru/documentation/articles/virtual-machines-create-upload-vhd-windows-server/)
 
-[Присоединение диска данных к виртуальной машине][Присоединение диска данных к виртуальной машине]
+[Присоединение дисков данных к виртуальной машине](http://www.windowsazure.com/ru-ru/documentation/articles/storage-windows-attach-disk/)
 
-[Управление доступностью виртуальных машин][Управление доступностью виртуальных машин]
+[Управление доступностью виртуальных машин](http://www.windowsazure.com/ru-ru/documentation/articles/manage-availability-virtual-machines/)
 
-[Сведения о параметрах конфигурации виртуальной машины Azure][Сведения о параметрах конфигурации виртуальной машины Azure]
+[О параметрах конфигурации виртуальной Машины Azure](http://msdn.microsoft.com/library/azure/dn763935.aspx)
 
-  [Создание учетной записи Azure]: http://www.windowsazure.com/ru-ru/develop/php/tutorials/create-a-windows-azure-account/
-  [Создание виртуальной машины]: #createvirtualmachine
-  [Как войти в систему на виртуальной машине после ее создания]: #logon
-  [Виртуальные машины]: http://go.microsoft.com/fwlink/p/?LinkID=271224
-  [портал предварительной версии Azure]: https://portal.azure.com
-  [бесплатной пробной версии]: http://www.windowsazure.com/ru-ru/pricing/free-trial/
-  [Выбор команды "Создать" в панели команд]: ./media/virtual-machines-windows-tutorial-azure-preview/new_button_preview_portal.png
-  [Выбор образа ВМ в коллекции]: ./media/virtual-machines-windows-tutorial-azure-preview/image_gallery_preview_portal.png
-  [Настройка имени узла и учетных данных для входа]: ./media/virtual-machines-windows-tutorial-azure-preview/create_vm_preview_portal.png
-  [Включение диагностики ВМ]: ./media/virtual-machines-windows-tutorial-azure-preview/vm_diagnostics_status_preview_portal.png
-  [ВМ появилась в начальной панели]: ./media/virtual-machines-windows-tutorial-azure-preview/vm_startboard_preview_portal.png
-  [Подключение к виртуальной машине Azure по протоколу RDP или SSH]: http://go.microsoft.com/fwlink/p/?LinkId=398294
-  [Обзор для поиска ВМ]: ./media/virtual-machines-windows-tutorial-azure-preview/browse_vm_preview_portal.png
-  [Вход на виртуальную машину]: ./media/virtual-machines-windows-tutorial-azure-preview/connect_vm_preview_portal.png
-  [Продолжайте подключение]: ./media/virtual-machines-log-on-windows-server/connectpublisher.png
-  [Проверьте удостоверение машины]: ./media/virtual-machines-log-on-windows-server/connectverify.png
-  [Подключение к виртуальным машинам в облачной службе]: http://www.windowsazure.com/ru-ru/documentation/articles/cloud-services-connect-virtual-machine/
-  [Создание и отправка собственного виртуального жесткого диска, содержащего операционную систему Windows]: http://www.windowsazure.com/ru-ru/documentation/articles/virtual-machines-create-upload-vhd-windows-server/
-  [Присоединение диска данных к виртуальной машине]: http://www.windowsazure.com/ru-ru/documentation/articles/storage-windows-attach-disk/
-  [Управление доступностью виртуальных машин]: http://www.windowsazure.com/ru-ru/documentation/articles/manage-availability-virtual-machines/
-  [Сведения о параметрах конфигурации виртуальной машины Azure]: http://msdn.microsoft.com/library/azure/dn763935.aspx
+[Как создать виртуальную машину]: #custommachine
+[Как войти на виртуальную машину после ее создания]: #logon
+
+<!--HONumber=35.2-->

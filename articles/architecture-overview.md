@@ -1,63 +1,45 @@
-<properties linkid="develop-net-architecture sublanding" urlDisplayName="" pageTitle="Architecture" metaKeywords="" description="Architecture overview that covers common design patterns" metaCanonical="" services="" documentationCenter="" videoId="" scriptId="" title="Architecture Overview" authors="robb" solutions="" manager="johndaw" editor="mattshel" />
+﻿<properties urlDisplayName="" pageTitle="Архитектура" metaKeywords="" description="Общие сведения об архитектуре, которая охватывает Общие шаблоны разработки" metaCanonical="" services="" documentationCenter="" videoId="" scriptId="" title="Architecture Overview" authors="robb" solutions="" manager="johndaw" editor="mattshel" />
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="robb" />
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/25/2014" ms.author="robb" />
 
-# Архитектура
+#Архитектура
+Ресурсы для построения приложений, использующих Microsoft Azure.
 
-Узнайте, как реализовать общие шаблоны разработки в Azure.
+##Проекты архитектуры Майкрософт
 
-### Набор символов и значков Azure
+Майкрософт публикует набор проектов архитектуры высокого уровня, которые показывают, как создавать определенные типы систем с помощью служб Microsoft Azure. Каждый проект включает двумерный файл Visio, который можно загрузить и изменить, а также более красочный трехмерный PDF-файл, представляющий проект и видеоролик, содержащий обзор этого PDF. См. раздел 
+[Проекты архитектуры Майкрософт](http://msdn.microsoft.com/dn630664).
 
-[Скачайте набор символов и значков Azure][Скачайте набор символов и значков Azure] для создания технических материалов, которые описывают (или используют) в Azure схемы архитектуры, учебные материалы, презентации, таблицы, инфографику и технические документы. Можно загрузить символы в форматах PPT, Visio и PNG. Мы хотели бы знать ваше мнение, поэтому предлагаем для загрузки инструкции по обратной связи.
+![Microsoft Architecture Blueprint 3D diagram][BluePrint]
 
-![Набор символов и значков Azure][Набор символов и значков Azure]
+##Набор символов и значков Azure
 
-## Шаблоны проектирования
+[Загрузите набор символов и значков Azure](http://www.microsoft.com/ru-ru/download/details.aspx?id=41937) для подготовки технических материалов, описывающих (или использующих) аспекты Azure: схемы архитектуры, обучающие материалы, презентации, спецификации, инфографику и технические документы. Можно загрузить символы в форматах PPT, Visio и PNG. Мы хотели бы знать ваше мнение, поэтому предлагаем для загрузки инструкции по обратной связи.
 
-### [Конкурирующие потребители][Конкурирующие потребители]
+Эти символы используются в двумерных схемах в [кальках архитектуры Майкрософт](http://msdn.microsoft.com/dn630664). 
 
-![Конкурирующие потребители][1]
+В следующих версиях набор символов будет дополнен облачными и корпоративными символами. Часто новые службы Azure выпускаются до обновления загрузки. Если вам необходимо просмотреть новый набор символов для новых служб Azure, обращайтесь по адресу [AzureSymbols@microsoft.com](mailto:AzureSymbols@microsoft.com).  
 
-Включение нескольких одновременных пользователей для обработки полученных сообщений на один и тот же канал обмена сообщениями. Этот шаблон позволяет обрабатывать несколько сообщений одновременно, чтобы оптимизировать пропускную способность для повышения масштабируемости и доступности, а также для распределения рабочей нагрузки в системе.
+Если вы использовали эти символы, ответьте на пять вопросов [этого опроса](http://aka.ms/azuresymbolssurveyv1), чтобы мы знали, оказались ли они для вас полезны и как вы будете их использовать.   
 
-### [Выделение ответственности команды и запроса][Выделение ответственности команды и запроса]
+![Azure Symbol/Icon set][azure_symbols]
 
-![Выделение ответственности команды и запроса][2]
+##Шаблоны проектирования
+Команда Microsoft Patterns&Practices опубликовала книгу [Cloud Design Patterns](http://msdn.microsoft.com/ru-ru/library/dn568099.aspx) (Шаблоны облачной разработки), которая доступна как в библиотеке MSDN, так и в виде загружаемого PDF-файла. Есть также крупноформатный постер, на котором приведены все шаблоны. 
 
-Выделяют операции чтения данных из операций обновления данных с помощью отдельных интерфейсов. Этот шаблон может повысить производительность, масштабируемость и безопасность; поддерживает развитие системы с течением времени благодаря более высокой гибкости; и предотвращает возникновение конфликтов слияния из-за команд обновления на уровне домена.
+![Patterns and Practices Cloud Patterns Poster][PnPPoster]
 
-### [Выбор лидера][Выбор лидера]
+##Инфографика по архитектурам
+Корпорацией Майкрософт было издано несколько постеров и инфографиков по теме проектирования архитектуры. В их числе можно назвать [Building Real-World Cloud Applications](http://azure.microsoft.com/ru-ru/documentation/infographics/building-real-world-cloud-apps/) (Создание реальных облачных приложений) и [Scaling with Cloud Services](http://azure.microsoft.com/ru-ru/documentation/infographics/cloud-services/) (Масштабирование облачных служб). 
 
-![Выбор лидера][3]
 
-Координирует действия, выполняемые коллекцией совместных экземпляров заданий в распределенном приложении путем выбора одного экземпляра как лидера, который несет ответственность за управление другими экземплярами. Этот шаблон помогает убедиться, что экземпляры задач не противоречат друг другу, не вызывают конфликты для общих ресурсов или помехи для работы, которую выполняют другие экземпляры задач.
+![Azure Architecture Infographics][AzureInfographic]
 
-### [Каналы и фильтры][Каналы и фильтры]
 
-![Каналы и фильтры][4]
 
-Делит задачу, выполняющую сложную обработку, на ряд отдельных элементов, которые могут быть использованы повторно. Этот шаблон может повысить производительность, масштабируемость и возможность многократного использования, позволяя элементам задач, выполняющим обработку, развертываться и масштабироваться независимо друг от друга.
+[Проект]: ./media/architecture-overview/BluePrintThumb.png
+[azure_symbols]: ./media/architecture-overview/AzureSymbols.png
+[PnPPoster]: ./media/architecture-overview/PnPPatternPosterThumb.png
+[AzureInfographic]: ./media/architecture-overview/AzureArchInfographicThumb.png
 
-### [Ключ Valet][Ключ Valet]
-
-![Ключ Valet][5]
-
-Используйте маркер или ключ, который предоставляет клиентам с ограниченным доступом, прямой конкретный ресурс или службу для разгрузки операций передачи данных из кода приложения. Этот шаблон полезен в приложениях, использующих системы хранения данных, размещенные в облаке или очередях, и может свести к минимуму затраты и повысить производительность и масштабируемость.
-
-### Дополнительные рекомендации
-
-Информацию о других общих шаблонах разработки в Azure см. в разделе[Cloud Design Patterns][Cloud Design Patterns] (Облачные шаблоны разработки).
-
-  [Скачайте набор символов и значков Azure]: http://www.microsoft.com/ru-ru/download/details.aspx?id=41937
-  [Набор символов и значков Azure]: ./media/architecture-overview/AzureSymbols.png
-  [Конкурирующие потребители]: http://msdn.microsoft.com/ru-ru/library/dn568101.aspx
-  [1]: ./media/architecture-overview/CompetingConsumers.png
-  [Выделение ответственности команды и запроса]: http://msdn.microsoft.com/ru-ru/library/dn568103.aspx
-  [2]: ./media/architecture-overview/CQRS.png
-  [Выбор лидера]: http://msdn.microsoft.com/ru-ru/library/dn568104.aspx
-  [3]: ./media/architecture-overview/LeaderElection.png
-  [Каналы и фильтры]: http://msdn.microsoft.com/ru-ru/library/dn568100.aspx
-  [4]: ./media/architecture-overview/PipesAndFilters.png
-  [Ключ Valet]: http://msdn.microsoft.com/ru-ru/library/dn568102.aspx
-  [5]: ./media/architecture-overview/ValetKey.png
-  [Cloud Design Patterns]: http://msdn.microsoft.com/ru-ru/library/dn568099.aspx
+<!--HONumber=35.2-->

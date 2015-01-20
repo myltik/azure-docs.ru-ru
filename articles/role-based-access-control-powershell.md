@@ -1,28 +1,28 @@
-﻿<properties pageTitle="Управление доступом на основе ролей с помощью средства Windows PowerShell" metaKeywords="ResourceManager, PowerShell, Azure PowerShell, RBAC" description="Управление доступом на основе ролей с помощью Windows PowerShell" metaCanonical="" services="" documentationCenter="" title="Managing Role-Based Access Control with Windows PowerShell" authors="guayan" solutions="" manager="terrylan" editor="mollybos" />
+﻿<properties pageTitle="Управление доступом на основе ролей с помощью Windows PowerShell" metaKeywords="ResourceManager, PowerShell, Azure PowerShell, RBAC" description="Управление доступом на основе ролей с помощью Windows PowerShell" metaCanonical="" services="" documentationCenter="" title="Managing Role-Based Access Control with Windows PowerShell" authors="guayan" solutions="" manager="terrylan" editor="mollybos" />
 
 <tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="powershell" ms.devlang="na" ms.topic="article" ms.date="11/03/2014" ms.author="guayan" />
 
-# Управление доступом на основе ролей с помощью средства Windows PowerShell #
+# Управление доступом на основе ролей с помощью Windows PowerShell #
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/ru-ru/documentation/articles/powershell-rbac.md" title="Windows PowerShell" class="current">Кросс-платформенный интерфейс командной строки средства Windows PowerShell</a><a href="/ru-ru/documentation/articles/xplat-cli-rbac.md" title="Cross-Platform CLI"></a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/ru-ru/documentation/articles/role-based-access-control-powershell.md" title="Windows PowerShell" class="current">Windows PowerShell</a><a href="/ru-ru/documentation/articles/role-based-access-control-xplat-cli.md" title="Cross-Platform CLI">Межплатформенный интерфейс командной строки</a></div>
 
 Функция управления доступом на основе ролей (RBAC) на портале предварительной версии Azure и в API диспетчера ресурсов Azure позволяет управлять доступом к подписке на детальном уровне. С ее помощью вы можете предоставлять доступ пользователям, группам и субъектам-службам Active Directory, назначая им роли с определенной областью.
 
-Из этого учебника вы узнаете, как использовать средство Windows PowerShell для управления доступом на основе ролей (RBAC). Он представляет собой пошаговое руководство по созданию и проверке назначений ролей.
+Из этого учебника вы узнаете, как использовать Windows PowerShell для управления RBAC. Он представляет собой пошаговое руководство по созданию и проверке назначений ролей.
 
-**Предполагаемое время выполнения:** 15 минут
+**Предполагаемое время для выполнения:** 15 минут
 
-## Предварительные требования ##
+## Необходимые условия ##
 
 Чтобы использовать Windows PowerShell для управления RBAC, вам понадобится:
 
-- Windows PowerShell, версия 3.0 или 4.0. Чтобы узнать, какой версией Windows PowerShell вы пользуетесь, наберите "$PSVersionTable" и убедитесь, что значение параметра PSVersion - 3.0 или 4.0. Чтобы установить совместимую версию, см. [Платформы управления Windows 3.0 ](http://www.microsoft.com/ru-ru/download/details.aspx?id=34595) или [Платформы управления Windows 4.0](http://www.microsoft.com/ru-ru/download/details.aspx?id=40855).
+- Windows PowerShell версии 3.0 или 4.0. Чтобы узнать версию используемой оболочки Windows PowerShell, введите $PSVersionTable и убедитесь, что для параметра PSVersion установлено значение 3.0 или 4.0. Чтобы установить совместимую версию, см. статью [Windows Management Framework 3.0 ](http://www.microsoft.com/ru-ru/download/details.aspx?id=34595) или [Windows Management Framework 4.0](http://www.microsoft.com/ru-ru/download/details.aspx?id=40855).
 
-- Azure PowerShell версии 0.8.8 или выше. Чтобы установить последнюю версию и ассоциировать ее с вашей подпиской Azure, см. [Установка и настройка Windows Azure PowerShell](http://www.windowsazure.com/ru-ru/documentation/articles/install-configure-powershell/).
+- Azure PowerShell версии 0.8.8 или более поздней. Чтобы установить последнюю версию и связать ее со своей подпиской Azure, см. статью [Установка и настройка Azure PowerShell](http://www.windowsazure.com/ru-ru/documentation/articles/install-configure-powershell/).
 
-Данный учебник разработан для начинающих пользователей Windows PowerShell, но предполагается, что вы уже знакомы с базовыми понятиями, такими как модули, командлеты и сеансы. Для получения дополнительной информации о Windows PowerShell см. [Приступая к работе с Windows PowerShell](http://technet.microsoft.com/ru-ru/library/hh857337.aspx).
+Этот учебник предназначен для начинающих пользователей Windows PowerShell, но предполагается, что вы знакомы с основными понятиями, такими как модули, командлеты и сеансы. Дополнительные сведения о Windows PowerShell см. в статье [Начало работы с Windows PowerShell](http://technet.microsoft.com/ru-ru/library/hh857337.aspx).
 
-Для получения подробной справки о любом командлете, встречающемся в данном учебнике, используйте командлет Get-Help. 
+Чтобы получить подробную справку для любого командлета, встречающегося в этом учебнике, используйте командлет Get-Help. 
 
 	Get-Help <cmdlet-name> -Detailed
 
@@ -35,9 +35,9 @@
 - [Установка и настройка Azure PowerShell](http://azure.microsoft.com/ru-ru/documentation/articles/install-configure-powershell/)
 - [Использование Windows PowerShell с диспетчером ресурсов](http://azure.microsoft.com/ru-ru/documentation/articles/powershell-azure-resource-manager/)
 
-## В этом учебнике рассматриваются следующие темы: ##
+## В этом учебнике ##
 
-* [Подключение к подпискам](#connect)
+* [Подключение к своим подпискам](#connect)
 * [Проверка существующих назначений ролей](#check)
 * [Создание назначения роли](#create)
 * [Проверка разрешений](#verify)
@@ -49,22 +49,22 @@ RBAC работает только с диспетчером ресурсов Az
 
     PS C:\> Switch-AzureMode -Name AzureResourceManager
 
-Для получения дополнительной информации см. [Использование Windows PowerShell с диспетчером ресурсов](http://azure.microsoft.com/ru-ru/documentation/articles/powershell-azure-resource-manager/).
+Дополнительные сведения см. в статье [Использование Windows PowerShell с диспетчером ресурсов](http://azure.microsoft.com/ru-ru/documentation/articles/powershell-azure-resource-manager/).
 
 Чтобы подключиться к своим подпискам Azure, введите:
 
     PS C:\> Add-AzureAccount
 
-Во всплывающем окне браузера введите ваше имя пользователя Azure и пароль. PowerShell соберет сведения обо всех подписках для этой учетной записи. По умолчанию будет использоваться первая подписка. Обратите внимание: при использовании RBAC вы получите только те подписки, в которых у вас есть какие-либо разрешения, т. е. для которых вы являетесь соадминистратором или вам назначена какая-либо роль. 
+Во всплывающем окне браузера введите имя пользователя и пароль учетной записи Azure. PowerShell соберет сведения обо всех подписках для этой учетной записи. По умолчанию будет использоваться первая подписка. Обратите внимание: при использовании RBAC вы получите только те подписки, в которых у вас есть какие-либо разрешения, т. е. для которых вы являетесь соадминистратором или вам назначена какая-либо роль. 
 
 Если у вас несколько подписок и вы хотите переключиться на другую, введите:
 
-    # Здесь вы увидите подписки учетной записи.
+    # Ваши подписки отобразятся под именем вашей учетной записи.
     PS C:\> Get-AzureSubscription
-    # Используя имя подписки, выберите подписку, с которой требуется продолжить работу.
+    # Щелкните название подписки, чтобы выбрать ее.
     PS C:\> Select-AzureSubscription -SubscriptionName <subscription name>
 
-Для получения дополнительной информации см. [Установка и настройка Azure PowerShell](http://azure.microsoft.com/ru-ru/documentation/articles/install-configure-powershell/).
+Дополнительные сведения см. в статье [Установка и настройка Azure PowerShell](http://azure.microsoft.com/ru-ru/documentation/articles/install-configure-powershell/).
 
 ## <a id="check"></a>Проверка существующих назначений ролей ##
 
@@ -105,11 +105,11 @@ RBAC работает только с диспетчером ресурсов Az
 
 - Какую область вы хотите назначить? Доступны три уровня:
 
-    - Текущая подписка
-    - Группа ресурсов: чтобы получить список групп ресурсов, введите "PS C:\> Get-AzureResourceGroup"
-    - Ресурс: чтобы получить список ресурсов, введите "PS C:\> Get-AzureResource"
+    - текущая подписка;
+    - Группа ресурсов; чтобы получить список групп ресурсов, введите PS C:\> Get-AzureResourceGroup
+    - Ресурс; чтобы получить список ресурсов, введите PS C:\> Get-AzureResource
 
-Затем используйте New-AzureRoleAssignment для создания назначения ролей. Например: 
+Затем воспользуйтесь командлетом New-AzureRoleAssignment, чтобы создать назначение роли. Например:
 
  - Создание назначения роли "Читатель" пользователю на уровне текущей подписки:
 
@@ -133,17 +133,19 @@ RBAC работает только с диспетчером ресурсов Az
 
 Эти два командлета возвращают только группы ресурсов или ресурсы, для которых у вас есть разрешение на чтение. Они также отображают имеющиеся у вас разрешения.
 
-Затем при попытке выполнить другой командлет, например New-AzureResourceGroup, вы получите сообщение об отказе в доступе, если у вас нет соответствующего разрешения.
+После этого запуск другого командлета, например New-AzureResourceGroup, приведет к ошибке доступа, если у вас нет разрешения.
 
 ## <a id="next"></a>Дальнейшие действия ##
 
 Чтобы узнать больше об управлении доступом на основе ролей с помощью Windows PowerShell, воспользуйтесь следующими ресурсами:
  
 - [Управление доступом на основе ролей в Microsoft Azure](http://azure.microsoft.com/ru-ru/documentation/articles/role-based-access-control-configure/)
-- [Командлеты диспетчера ресурсов Azure](http://go.microsoft.com/fwlink/?LinkID=394765&clcid=0x409): Сведения об использовании командлетов в модуле AzureResourceManager.
-- [Использование групп ресурсов для управления ресурсами Azure](http://azure.microsoft.com/ru-ru/documentation/articles/azure-preview-portal-using-resource-groups): Узнайте, как создать группы ресурсов на портале управления Azure и управлять ими.
-- [Блог Azure](http://blogs.msdn.com/windowsazure): Сведения о новых возможностях в Azure.
-- [Блог Windows PowerShell](http://blogs.msdn.com/powershell): Сведения об использовании Windows PowerSHell.
-- [Блог "Hey, Scripting Guy!"](http://blogs.technet.com/b/heyscriptingguy/): Получите реальные советы и полезные рекомендации от участников сообщества Windows PowerShell.
-- [Управление доступом на основе ролей с помощью межплатформенного интерфейса командной строки](http://azure.microsoft.com/ru-ru/documentation/articles/role-based-access-control-xplat-cli/)
-- [Устранение неполадок при управлении доступом на основе ролей](http://azure.microsoft.com/ru-ru/documentation/articles/role-based-access-control-troubleshooting/)
+- [Командлеты диспетчера ресурсов Azure](http://go.microsoft.com/fwlink/?LinkID=394765&clcid=0x409): сведения об использовании командлетов в модуле AzureResourceManager.
+- [Управление ресурсами Azure с помощью групп ресурсов](http://azure.microsoft.com/ru-ru/documentation/articles/azure-preview-portal-using-resource-groups): узнайте, как создавать группы ресурсов на портале управления Azure и управлять ими.
+- [Блог Azure](http://blogs.msdn.com/windowsazure): сведения о новых возможностях в Azure.
+- [Блог Windows PowerShell](http://blogs.msdn.com/powershell): сведения о новых возможностях в Windows PowerShell.
+- ["Эй, сценарист!" Блог ](http://blogs.technet.com/b/heyscriptingguy/): реальные советы и рекомендации от сообщества Windows PowerShell.
+- [Настройка управления доступом на основе ролей с использованием интерфейса командной строки XPLAT](http://azure.microsoft.com/ru-ru/documentation/articles/role-based-access-control-xplat-cli/)
+- [Устранение неполадок управления доступом на основе ролей](http://azure.microsoft.com/ru-ru/documentation/articles/role-based-access-control-troubleshooting/)
+
+<!--HONumber=35.2-->

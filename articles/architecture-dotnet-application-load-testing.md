@@ -1,11 +1,20 @@
-<properties linkid="develop-net-architecture-load-testing" urlDisplayName="Load Testing Pattern" pageTitle="Load Testing Application Pattern - Azure Architecture Patterns" metaKeywords="" description="Find architectural overviews and design patterns that describe how to implement a load testing system on Azure." metaCanonical="" services="" documentationCenter=".NET" title="Load Testing in Azure" authors="robb" solutions="" manager="johndaw" editor="" />
+﻿<properties urlDisplayName="Load Testing Pattern" pageTitle="Шаблон приложения тестирования нагрузки - шаблоны архитектуры Azure" metaKeywords="" description="Найдите обзоры архитектуры и шаблоны проектирования, которые описывают реализацию системы нагрузочного тестирования в Azure." metaCanonical="" services="" documentationCenter=".NET" title="Load Testing in Azure" authors="robb" solutions="" manager="johndaw" editor="" />
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="robb" />
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/25/2014" ms.author="robb" />
 
 # Тестирование нагрузки в Azure
 
-Служба тестирования нагрузки в облаке может выполнять нагрузочное тестирование веб-приложений. Для создания нагрузочного теста с целью определения мощности и производительности веб-приложения достаточно Visual Studio — нет необходимости использовать виртуальные машины Azure. Вместо этого можно разрешить [облачной службе тестирования нагрузки][облачной службе тестирования нагрузки] создать их за вас.
+Служба тестирования нагрузки в облаке может выполнять нагрузочное тестирование веб-приложений. Для создания нагрузочного теста с целью определения мощности и производительности веб-приложения достаточно Visual Studio - нет необходимости использовать виртуальные машины Azure. Вместо этого можно позволить [облачной службе тестирования нагрузки](http://tfs.visualstudio.com/ru-ru/learn/load-testing) создать его автоматически.
+
+<!--links-->
+
+[Azure и Visual Studio Ultimate]: http://www.microsoft.com/visualstudio/eng/products/visual-studio-ultimate-2012#product-edition-ultimate-details
+[Выполнение тестов нагрузки в смешанной среде]: http://msdn.microsoft.com/ru-ru/library/windowsazure/hh966776.aspx
+[Использование тестирования нагрузки Visual Studio в ролях Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/hh674491.aspx
+
+<!--images-->
 
 
+ 
 
-  [облачной службе тестирования нагрузки]: http://tfs.visualstudio.com/ru-ru/learn/load-testing
+<!--HONumber=35.2-->

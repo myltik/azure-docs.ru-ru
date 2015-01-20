@@ -1,332 +1,239 @@
-<properties linkid="manage-windows-common-task-upload-vhd" urlDisplayName="Upload a VHD" pageTitle="Create and upload a Windows Server VHD to Azure" metaKeywords="Azure VHD, uploading VHD" description="Learn to create and upload a virtual hard disk (VHD) in Azure that has the Windows Server operating system." metaCanonical="" services="virtual-machines" documentationCenter="" title="Create and upload a Windows Server VHD to Azure" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
+﻿<properties urlDisplayName="Upload a VHD" pageTitle="Создание и передача виртуального жесткого диска Windows Server в Azure" metaKeywords="Azure VHD, передача виртуального жесткого диска" description="Узнайте, как создать и передать виртуальный жесткий диск с операционной системой Windows Server в Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Create and upload a Windows Server VHD to Azure" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="09/23/2014" ms.author="kathydav" />
 
-# Создание и передача виртуального жесткого диска Windows Server в Azure
 
-В этой статье показано, как передать виртуальный жесткий диск с операционной системой, чтобы использовать его в качестве образа для создания виртуальных машин. Дополнительную информацию о дисках и образах в Microsoft Azure см. в разделе [Диски и образы в Azure][Диски и образы в Azure].
+#Создание и отправка виртуального жесткого диска Windows Server в Azure#
 
-**Примечание**. При создании виртуальной машины можно настроить параметры операционной системы, чтобы оптимизировать выполняемое приложение. Заданная конфигурация хранится на диске для данной виртуальной машины. Инструкции см. в разделе [Создание настраиваемой виртуальной машины][Создание настраиваемой виртуальной машины].
+В этой статье показано, как передать виртуальный жесткий диск с операционной системой, чтобы использовать его в качестве образа для создания виртуальных машин. Дополнительные сведения об образах и дисках в Microsoft Azure см. в статье [Диски и образы в Azure](http://msdn.microsoft.com/ru-ru/library/windowsazure/jj672979.aspx).
 
-## Предварительные требования
+**Примечание**. При создании виртуальной машины можно настроить параметры операционной системы, чтобы оптимизировать выполняемое приложение. Заданная конфигурация хранится на диске для данной виртуальной машины. Инструкции приведены в статье [Как создать настраиваемую виртуальную машину]](http://www.windowsazure.com/ru-ru/documentation/articles/virtual-machines-windows-tutorial/).
 
+##Необходимые компоненты
 В данной статье предполагается, что у вас есть следующие элементы:
 
-**Подписка Azure** — если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Подробную информацию см. в разделе [Создание учетной записи Azure][Создание учетной записи Azure].
+**Подписка на Azure**. Если у вас ее нет, вы можете создать бесплатную пробную учетную запись всего за несколько минут. Сведения об этом см. в статье [Создание учетной записи Azure](http://www.windowsazure.com/ru-ru/develop/php/tutorials/create-a-windows-azure-account/).  
 
-**Microsoft Azure PowerShell** — у вас установлен модуль Microsoft Azure PowerShell. Информацию о скачивании модуля см. в разделе [Загрузки Microsoft Azure][Загрузки Microsoft Azure]. Учебник по установке и настройке PowerShell с подпиской Azure можно найти [здесь][здесь].
+**Microsoft Azure PowerShell**. У вас уже установлен модуль Microsoft Azure PowerShell. Чтобы скачать этот модуль, см. статью [Ресурсы Microsoft Azure для загрузки](http://www.windowsazure.com/ru-ru/downloads/). Учебник по установке и настройке PowerShell для подписки на Azure вы найдете [здесь](http://www.windowsazure.com/ru-ru/documentation/articles/install-configure-powershell/).
 
--   Командлет [Add-AzureVHD][Add-AzureVHD], который является частью модуля Microsoft Azure PowerShell. Воспользуйтесь этим командлетом для передачи виртуального жесткого диска (VHD).
+- Командлет [Add-AzureVHD](http://msdn.microsoft.com/ru-ru/library/windowsazure/dn205185.aspx), входящий в модуль Microsoft Azure PowerShell. Воспользуйтесь этим командлетом для передачи виртуального жесткого диска (VHD).
 
-**Поддерживаемая операционная система хранится в файле VHD**. Вы установили поддерживаемую операционную систему Windows Server на виртуальный жесткий диск. Существует несколько средств для создания VHD-файлов. Для создания файла VHD и установки операционной системы можно использовать решения для виртуализации, например Hyper-V. Инструкции см. в разделе [Установка роли Hyper-V и настройка виртуальной машины][Установка роли Hyper-V и настройка виртуальной машины].
+**Поддерживаемая операционная система Windows в VHD-файле**. Вы установили поддерживаемую операционную систему Windows Server на виртуальный жесткий диск. Существует несколько средств для создания VHD-файлов. Для создания файла VHD и установки операционной системы можно использовать решения для виртуализации, например Hyper-V. Инструкции об этом см. в статье [Установка роли Hyper-V и настройка виртуальной машины](http://technet.microsoft.com/ru-ru/library/hh846766.aspx).
 
-**Важно!** Формат VHDX не поддерживается в Microsoft Azure. Можно преобразовать диск в формат VHD с помощью диспетчера Hyper-V или командлета [Convert-VHD][Convert-VHD]. Учебник по этому действию можно найти [здесь][1].
+**Внимание**! Формат VHDX не поддерживается в Microsoft Azure. Вы можете преобразовать диск в формат VHD с помощью диспетчера Hyper-V или [командлета Convert-VHD](http://technet.microsoft.com/ru-ru/library/hh848454.aspx). Учебник об этом вы найдете [здесь](http://blogs.msdn.com/b/virtual_pc_guy/archive/2012/10/03/using-powershell-to-convert-a-vhd-to-a-vhdx.aspx).
+ 
+**Носитель с операционной системой Window Server**. Для этого задания требуется ISO-файл, содержащий операционную систему Windows Server. Поддерживаются следующие версии Windows Server:
+<P>
+  <TABLE BORDER="1" WIDTH="600">
+  <TR BGCOLOR="#E9E7E7">
+    <TH>ОС</TH>
+    <TH>SKU</TH>
+    <TH>Пакет обновления</TH>
+    <TH>Архитектура</TH>
+  </TR>
+  <TR>
+    <TD>Windows Server 2012 R2</TD>
+    <TD>Все выпуски</TD>
+    <TD>Недоступно</TD>
+    <TD>x64</TD>
+  </TR>
+  <TR>
+    <TD>Windows Server 2012</TD>
+    <TD>Все выпуски</TD>
+    <TD>Недоступно</TD>
+    <TD>x64</TD>
+  </TR>
+  <TR>
+    <TD>Windows Server 2008 R2</TD>
+    <TD>Все выпуски</TD>
+    <TD>SP1</TD>
+    <TD>x64</TD>
+  </TR>
+  </TABLE>
+</P>
 
-**Носитель с операционной системой Windows Server.** Для выполнения этой задачи требуется ISO-файл, содержащий операционную систему Windows Server. Поддерживаются следующие версии Windows Server:
 
-<table border="1" width="600">
-
-<tr bgcolor="#E9E7E7">
-
-<th>
-ОС
-
-</th>
-
-<th>
-SKU
-
-</th>
-
-<th>
-Пакет обновления
-
-</th>
-
-<th>
-Архитектура
-
-</th>
-
-</tr>
-
-<tr>
-
-<td>
-Windows Server 2012 R2
-
-</td>
-
-<td>
-Все выпуски
-
-</td>
-
-<td>
-Недоступно
-
-</td>
-
-<td>
-x64
-
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-Windows Server 2012
-
-</td>
-
-<td>
-Все выпуски
-
-</td>
-
-<td>
-Недоступно
-
-</td>
-
-<td>
-x64
-
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-Windows Server 2008 R2
-
-</td>
-
-<td>
-Все выпуски
-
-</td>
-
-<td>
-SP1
-
-</td>
-
-<td>
-x64
-
-</td>
-
-</tr>
-
-</table>
-
-</p>
-</p>
 Эта задача включает следующие шаги:
 
--   [Шаг 1: подготовка образа для передачи][Шаг 1: подготовка образа для передачи]
--   [Шаг 2: создание учетной записи хранения в Azure][Шаг 2: создание учетной записи хранения в Azure]
--   [Шаг 3: подготовка подключения к Azure][Шаг 3: подготовка подключения к Azure]
--   [Шаг 4: передача VHD-файла][Шаг 4: передача VHD-файла]
+- [Шаг 1. Подготовка образа для передачи] []
+- [Шаг 2. Создание учетной записи хранения в Azure] []
+- [Шаг 3. Подготовка подключения к Azure] []
+- [Шаг 4. Передача VHD-файла] []
 
-## <span id="prepimage"></span> </a>Шаг 1: подготовка образа для передачи
+## <a id="prepimage"> </a>Шаг 1. Подготовка образа для передачи ##
 
-Перед передачей образа в Azure его необходимо обобщить с помощью команды Sysprep. Дополнительную информацию об использовании Sysprep см. в разделе [Как использовать Sysprep: введение][Как использовать Sysprep: введение].
+
+Перед передачей образа в Azure его необходимо обобщить с помощью команды Sysprep. Дополнительную информацию об использовании Sysprep см. в разделе [Как использовать Sysprep: введение](http://technet.microsoft.com/ru-ru/library/bb457073.aspx).
 
 В только что созданной виртуальной машине выполните следующие действия:
 
-1.  Войдите в операционную систему.
+1. Войдите в операционную систему.
 
-2.  Откройте окно командной строки с правами администратора. Измените каталог на **%windir%\\system32\\sysprep** и запустите файл `sysprep.exe`.
+2. Откройте окно командной строки с правами администратора. Измените каталог, указав **%windir%\system32\sysprep**, а затем запустите файл sysprep.exe.
 
-    ![Откройте окно командной строки][Откройте окно командной строки]
+	![Open Command Prompt window](./media/virtual-machines-create-upload-vhd-windows-server/sysprep_commandprompt.png)
 
-3.  Откроется диалоговое окно **Программа подготовки системы**.
+3.	Откроется диалоговое окно **Программа подготовки системы**.
 
-    ![Запустите Sysprep][Запустите Sysprep]
+	![Start Sysprep](./media/virtual-machines-create-upload-vhd-windows-server/sysprepgeneral.png)
 
-4.  В разделе **Программа подготовки системы** выберите **Запуск при первом включении компьютера (OOBE)** и убедитесь, что установлен флажок «Обобщить».
+4.  В окне **Программа подготовки системы** выберите элемент ** 	Переход в окно приветствия системы (OOBE)** и установите флажок "Подготовка к использованию".
 
 5.  В разделе **Параметры завершения работы** выберите **Завершение работы**.
 
-6.  Нажмите кнопку **ОК**.
+6.  Нажмите кнопку **ОК**. 
 
-## <span id="createstorage"></span> </a>Шаг 2: создание учетной записи хранения в Azure
+
+
+
+## <a id="createstorage"> </a>Шаг 2. Создание учетной записи хранения в Azure ##
 
 Учетная запись хранения представляет собой высший уровень пространства имен для доступа к службам хранения; эта запись связана с вашей подпиской Azure. Для загрузки в Azure файла VHD, который можно использовать для создания виртуальной машины, потребуется учетная запись хранения в Azure. Для создания учетной записи хранения можно использовать портал управления Azure.
 
-1.  Войдите на портал управления Azure.
+1. Войдите на портал управления Azure.
 
-2.  На панели команд нажмите **Создать**.
+2. На панели команд нажмите **Создать**.
 
-3.  Нажмите **Учетная запись хранения**, а затем **Быстрое создание**.
+3. Нажмите **Учетная запись хранения**, а затем **Быстрое создание**.
 
-    ![Быстрое создание учетной записи хранения][Быстрое создание учетной записи хранения]
+	![Quick create a storage account](./media/virtual-machines-create-upload-vhd-windows-server/Storage-quick-create.png)
 
-4.  Заполните поля, как показано ниже:
+4. Заполните поля, как показано ниже:
 
--   В поле **URL-адрес** введите имя поддомена, используемого в URL-адресе для учетной записи хранения. Записи могут содержать от 3 до 24 строчных букв и цифр. Это имя становится именем узла в URL, который используется для адресации ресурсов BLOB-объекта, очереди и таблицы для подписки.
+	
+	
+- В поле **URL-адрес** введите имя поддомена, которое нужно использовать в URL-адресе для учетной записи хранения. Записи могут содержать от 3 до 24 строчных букв и цифр. Это имя становится именем узла в URL, который используется для адресации ресурсов BLOB-объекта, очереди и таблицы для подписки.
+			
+- Выберите **территориальную группу** для учетной записи хранения. Указав территориальную группу, можно выполнить совместное размещение облачных служб в одном центре обработки данных с хранилищем.
+		 
+- Укажите, следует ли использовать **георепликацию** для учетной записи хранения. По умолчанию георепликация включена. Этот параметр позволяет бесплатно выполнять репликацию данных в дополнительное местоположение; таким образом в случае аварийного отказа, который не может быть устранен в основном местоположении, хранилище переключится на дополнительное местоположение. Дополнительное местоположение назначается автоматически и не может быть изменено. Если в соответствии с законодательными требованиями или организационной политикой требуется более жесткий контроль местоположения облачного хранилища, то георепликацию можно отключить. Однако следует помнить, что если вы опять включите георепликацию, с вас будет взята однократная плата за репликацию существующих данных в дополнительное местоположение. Службы хранения без георепликации предлагаются со скидкой. Дополнительную информацию об управлении георепликацией учетных записей хранения см. здесь: [Создание или удаление учетной записи хранения, а также управление нею](../storage-create-storage-account/#replication-options).
 
--   Выберите **расположение или территориальную группу** для учетной записи хранения. Указав территориальную группу, можно выполнить совместное размещение облачных служб в одном центре обработки данных с хранилищем.
+	![Enter storage account details](./media/virtual-machines-create-upload-vhd-windows-server/Storage-create-account.png)
 
--   Укажите, следует ли использовать **георепликацию** для учетной записи хранения. По умолчанию георепликация включена. Этот параметр позволяет бесплатно выполнять репликацию данных в дополнительное местоположение; таким образом в случае аварийного отказа, который не может быть устранен в основном местоположении, хранилище переключится на дополнительное местоположение. Дополнительное местоположение назначается автоматически и не может быть изменено. Если в соответствии с законодательными требованиями или организационной политикой требуется более жесткий контроль местоположения облачного хранилища, то георепликацию можно отключить. Однако следует помнить, что если вы опять включите георепликацию, с вас будет взята однократная плата за репликацию существующих данных в дополнительное местоположение. Службы хранения без георепликации предлагаются со скидкой. Дополнительную информацию об управлении георепликацией учетных записей хранения см. здесь: [Управление учетными записями хранения][Управление учетными записями хранения].
+5. Щелкните **Создать учетную запись хранения**.
 
-    ![Введите сведения об учетной записи хранения][Введите сведения об учетной записи хранения]
+	Учетная запись появится в списке **учетных записей хранения**.
 
-1.  Щелкните **Создать учетную запись хранения**.
+	![Storage account successfully created](./media/virtual-machines-create-upload-vhd-windows-server/Storagenewaccount.png)
 
-    Учетная запись появится в списке **учетных записей хранения**.
+6. Теперь создайте контейнер для переданных виртуальных жестких дисков. Выберите элемент **Имя учетной записи хранения**, а затем - **Контейнеры**.
 
-    ![Учетная запись хранилища успешно создана][Учетная запись хранилища успешно создана]
+	![Storage account detail](./media/virtual-machines-create-upload-vhd-windows-server/storageaccount_detail.png)
 
-2.  Теперь создайте контейнер для переданных виртуальных жестких дисков. Щелкните **Имя учетной записи хранения**, а затем выберите **Контейнеры**.
+7. Выберите элемент **Создать контейнер**.
 
-    ![Информация об учетной записи хранения][Информация об учетной записи хранения]
+	![Storage account detail](./media/virtual-machines-create-upload-vhd-windows-server/storageaccount_container.png)
 
-3.  Щелкните **Создание контейнера**.
+8. Укажите **имя** контейнера и выберите элемент **Политика доступа**.
 
-    ![Информация об учетной записи хранения][2]
+	![Container name](./media/virtual-machines-create-upload-vhd-windows-server/storageaccount_containervalues.png)
 
-4.  Введите **Имя** своего контейнера и выберите **Политика доступа**.
+	> [WACOM.NOTE] По умолчанию доступ к контейнеру предоставляется только владельцу учетной записи. Чтобы разрешить общий доступ на чтение для больших двоичных объектов в контейнере, но не к свойствам и метаданным контейнера, используйте параметр "Общедоступный BLOB-объект". Чтобы разрешить полный общий доступ на чтение для контейнера и больших двоичных объектов, используйте параметр "Общедоступный контейнер".
 
-    ![Имя контейнера][Имя контейнера]
-
-    > [WACOM.NOTE] По умолчанию контейнер является закрытым и доступ к нему имеет только владелец учетной записи. Чтобы разрешить общий доступ на чтение для больших двоичных объектов в контейнере, но не к свойствам и метаданным контейнера, используйте параметр «Общедоступный BLOB-объект». Чтобы разрешить полный общий доступ на чтение для контейнера и больших двоичных объектов, используйте параметр «Общедоступный контейнер».
-
-## <span id="PrepAzure"></span> </a>Шаг 3: подготовка подключения к Microsoft Azure
+## <a id="PrepAzure"> </a>Шаг 3. Подготовка подключения к Azure ##
 
 Перед передачей VHD-файла необходимо установить безопасное соединение между компьютером и вашей подпиской в Microsoft Azure. Это можно сделать, используя метод Microsoft Azure Active Directory или метод сертификатов.
 
-### Использование Microsoft Azure AD
+<h3>Использование Microsoft Azure AD</h3>
 
-1.  Откройте консоль Microsoft Azure PowerShell, как описано в разделе [Практическое руководство. Установка Microsoft Azure PowerShell][Практическое руководство. Установка Microsoft Azure PowerShell].
+1. Откройте консоль Microsoft Azure PowerShell, как описано в разделе [Практическое руководство. Установка Microsoft Azure PowerShell](#Install).
 
-2.  Введите следующую команду:
-    `Add-AzureAccount`
+2. Введите следующую команду:  
+	`Add-AzureAccount`
+	
+	После выполнения команды откроется окно входа, и вы сможете войти, используя свою рабочую или школьную учетную запись.
 
-    После выполнения команды откроется окно входа, и вы сможете войти, используя свою рабочую или школьную учетную запись.
+	![PowerShell Window](./media/virtual-machines-create-upload-vhd-windows-server/add_azureaccount.png)
 
-    ![Окно PowerShell][Окно PowerShell]
+3. Microsoft Azure выполняет аутентификацию и сохраняет учетные данные, а затем закрывает окно.
 
-3.  Microsoft Azure выполняет аутентификацию и сохраняет учетные данные, а затем закрывает окно.
+<h3>Использование сертификата</h3> 
 
-### Использование сертификата
+1. Откройте окно Microsoft Azure PowerShell. 
 
-1.  Откройте окно Microsoft Azure PowerShell.
+2.	Введите: 
+	`Get-AzurePublishSettingsFile`.
 
-2.  Введите:
-    `Get-AzurePublishSettingsFile`.
 
-3.  В открывшемся окне браузера появится запрос на скачивание PUBLISHSETTINGS-файла. Он содержит информацию и сертификат для подписки Microsoft Azure.
+3. В открывшемся окне браузера появится запрос на загрузку PUBLISHSETTINGS-файла. Он содержит информацию и сертификат для подписки Microsoft Azure.
 
-    ![Страница скачивания браузера][Страница скачивания браузера]
+	![Browser download page](./media/virtual-machines-create-upload-vhd-windows-server/Browser_download_GetPublishSettingsFile.png)
 
-4.  Сохраните файл .publishsettings.
+3. Сохраните PUBLISHSETTINGS-файл. 
 
-5.  Введите:
-    `Import-AzurePublishSettingsFile <PathToFile>`
+4. Введите: 
+	`Import-AzurePublishSettingsFile <PathToFile>`
 
-    Где "`<PathToFile>`" — это полный путь к файлу .publishsettings.
+	<PathToFile> - полный путь к PUBLISHSETTINGS-файлу. 
 
-    Дополнительную информацию см. в разделе [Начало работы с командлетами Microsoft Azure][Начало работы с командлетами Microsoft Azure]
 
-    Дополнительную информацию об установке и настройке PowerShell см. в разделе [Установка и настройка Microsoft Azure PowerShell][здесь]
+	Дополнительные сведения см. в статье [Начало работы с командлетами Microsoft Azure](http://msdn.microsoft.com/ru-ru/library/windowsazure/jj554332.aspx) 
+	
+	Дополнительные сведения об установке и настройке PowerShell см. в статье [Как установить и настроить Microsoft Azure PowerShell](http://www.windowsazure.com/ru-ru/documentation/articles/install-configure-powershell/) 
 
-## <span id="upload"></span> </a>Шаг 4: передача VHD-файла
 
-При загрузке файла .vhd его можно поместить в любом месте внутри хранилища blob. В приведенных ниже примерах команд **BlobStorageURL** — это URL-адрес для учетной записи хранения, созданный при выполнении шага 2, **YourImagesFolder** — это контейнер внутри хранилища BLOB-данных, где будут храниться образы. **VHDName** — это метка, которая отображается в портале управления для идентификации виртуального жесткого диска. **PathToVHDFile** — это полный путь и имя файла .vhd.
+## <a id="upload"> </a>Шаг 4. Передача VHD-файла ##
 
-1.  В окне Microsoft Azure PowerShell, использованном при выполнении предыдущего шага, наберите:
+При загрузке VHD-файла его можно поместить в любом месте внутри хранилища BLOB-объектов. В приведенных ниже примерах команд **BlobStorageURL** - это URL-адрес для учетной записи хранения, созданный при выполнении шага 2, **YourImagesFolder** - это контейнер внутри хранилища BLOB-объектов, где будут храниться образы. **VHDName** - метка, отображающаяся на портале управления для идентификации виртуального жесткого диска. **PathToVHDFile** - имя VHD-файла и полный путь к нему. 
 
-    `Add-AzureVhd -Destination "<BlobStorageURL>/<YourImagesFolder>/<VHDName>.vhd" -LocalFilePath <PathToVHDFile>`
 
-    ![PowerShell Add-AzureVHD][PowerShell Add-AzureVHD]
+1. В окне Microsoft Azure PowerShell, использованном при выполнении предыдущего шага, введите:
 
-    Дополнительную информацию о командлете Add-AzureVhd см. в разделе [Add-AzureVhd][Add-AzureVhd].
+	`Add-AzureVhd -Destination "<BlobStorageURL>/<YourImagesFolder>/<VHDName>.vhd" -LocalFilePath <PathToVHDFile>`
+	
+	![PowerShell Add-AzureVHD](./media/virtual-machines-create-upload-vhd-windows-server/powershell_upload_vhd.png)
 
-## Добавьте образ в список пользовательских образов
+	Дополнительные сведения о командлете Add-AzureVhd см. в статье [Add-AzureVhd](http://msdn.microsoft.com/ru-ru/library/dn495173.aspx).
 
+##Добавление образа в список настраиваемых образов ##
 После загрузки файла VHD его можно добавить в качестве образа в список пользовательских образов, связанных с подпиской.
 
-1.  На портале управления в разделе **Все элементы** нажмите **Виртуальные машины**.
+1. На портале управления в разделе **Все элементы** выберите элемент **Виртуальные машины**.
 
-2.  В разделе виртуальных машин щелкните **Образы**.
+2. В разделе "Виртуальные машины" выберите элемент **Образы**.
 
-3.  Затем щелкните **Создать образ**.
+3. А затем выберите элемент **Создать образ**.
 
-    ![PowerShell Add-AzureVHD][3]
+	![PowerShell Add-AzureVHD](./media/virtual-machines-create-upload-vhd-windows-server/Create_Image.png)
 
-4.  В разделе **Создать образ на основе VHD** выполните следующее:
+4. В окне **Создание образа на основе VHD** выполните следующее:
+ 	
+	- Укажите **имя**.
+	- Укажите **описание**.
+	- Чтобы указать **URL-адрес VHD-файла**, нажмите кнопку папки для открытия диалогового окна, приведенного ниже
+ 
+	![Select VHD](./media/virtual-machines-create-upload-vhd-windows-server/Select_VHD.png)
+	- Укажите учетную запись хранения с VHD-файлом, а затем выберите элемент **Открыть**. После этого опять откроется окно **Создание образа на основе VHD**.
+	- Вернувшись к нему****, выберите элемент "Семейство операционных систем".
+	- Отметьте пункт **Я выполнил Sysprep на виртуальной машине, связанной с этим VHD**, чтобы подтвердить обобщение операционной системы при выполнении шага 1, а затем нажмите **ОК**. 
 
-    -   Укажите **имя**.
-    -   Введите **описание**.
-    -   Чтобы указать **URL-адрес VHD**, нажмите кнопку папки, чтобы открыть следующее диалоговое окно.
+	![Add Image](./media/virtual-machines-create-upload-vhd-windows-server/Create_Image_From_VHD.png)
 
-    ![Выбор виртуального жесткого диска][Выбор виртуального жесткого диска]
+5. **НЕОБЯЗАТЕЛЬНО.** Вы также можете использовать командлет Add-AzureVMImage из модуля Azure PowerShell, чтобы добавить VHD-файл в качестве образа.
 
-    -   Выберите учетную запись хранения, в которой находится ваш виртуальный жесткий диск, и нажмите **Открыть**. Это позволит вернуться в окно раздела **Создать образ на основе VHD**.
-    -   После возврата в раздел **Создать образ на основе VHD** выберите семейство ОС.
-    -   Отметьте пункт **Я выполнил Sysprep на виртуальной машине, связанной с этим VHD**, чтобы подтвердить обобщение операционной системы при выполнении шага 1, а затем нажмите **ОК**.
+	В окне Microsoft Azure PowerShell введите следующее:
 
-    ![Добавление образа][Добавление образа]
+	`Add-AzureVMImage -ImageName <имя_образа> -MediaLocation <расположение_VHD> -OS <тип_операционной_системы_в_VHD>`
+	
+	![PowerShell Add-AzureVMImage](./media/virtual-machines-create-upload-vhd-windows-server/add_azureimage_powershell.png)
 
-5.  **ДОПОЛНИТЕЛЬНО.** Командлет Add-AzureVMImage Azure PowerShell также можно использовать для добавления VHD-файла в качестве образа.
+6. После выполнения указанных выше шагов отобразится новый образ, когда вы откроете вкладку **Образы**. 
 
-    В окне Microsoft Azure PowerShell введите:
 
-    `Add-AzureVMImage -ImageName <Your Image's Name> -MediaLocation <location of the VHD> -OS <Type of the OS on the VHD>`
+	![custom image](./media/virtual-machines-create-upload-vhd-windows-server/vm_custom_image.png)
 
-    ![PowerShell Add-AzureVMImage][PowerShell Add-AzureVMImage]
+	Теперь при создании виртуальной машины вы сможете воспользоваться этим новым образом. Чтобы отобразить его, выберите элемент **Мои образы**. Инструкции об этом см. в статье [Создание виртуальной машины под управлением Windows Server](http://www.windowsazure.com/ru-ru/documentation/articles/virtual-machines-windows-tutorial/).
 
-6.  После выполнения предыдущих действий новый образ отобразится в списке при выборе вкладки **Образы**.
+	![create VM from custom image](./media/virtual-machines-create-upload-vhd-windows-server/create_vm_custom_image.png)
 
-    ![пользовательский образ][пользовательский образ]
+## Дальнейшие шаги ##
+ 
 
-    Теперь при создании виртуальной машины вы сможете воспользоваться этим новым образом. Чтобы показать новый образ, выберите **Мои образы**. Инструкции см. в разделе [Создание виртуальной машины под управлением Windows Server][Создание настраиваемой виртуальной машины].
+После создания виртуальной машины попробуйте создать виртуальную машину SQL Server. Инструкции см. в статье [Подготовка виртуальной машины SQL Server в Azure](http://www.windowsazure.com/ru-ru/documentation/articles/virtual-machines-provision-sql-server/). 
 
-    ![создание виртуальной машины на основе пользовательского образа][создание виртуальной машины на основе пользовательского образа]
+[Шаг 1. Подготовка образа для передачи]: #prepimage
+[Шаг 2. Создание учетной записи хранения в Azure]: #createstorage
+[Шаг 3. Подготовка подключения к Azure]: #prepAzure
+[Шаг 4. Передача VHD-файла]: #upload
 
-## Дальнейшие действия
-
-После создания виртуальной машины попробуйте создать виртуальную машину SQL Server. Указания см. в разделе [Подготовка виртуальной машины SQL Server в Microsoft Azure][Подготовка виртуальной машины SQL Server в Microsoft Azure].
-
-  [Диски и образы в Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj672979.aspx
-  [Создание настраиваемой виртуальной машины]: http://www.windowsazure.com/ru-ru/documentation/articles/virtual-machines-windows-tutorial/
-  [Создание учетной записи Azure]: http://www.windowsazure.com/ru-ru/develop/php/tutorials/create-a-windows-azure-account/
-  [Загрузки Microsoft Azure]: http://www.windowsazure.com/ru-ru/downloads/
-  [здесь]: http://www.windowsazure.com/ru-ru/documentation/articles/install-configure-powershell/
-  [Add-AzureVHD]: http://msdn.microsoft.com/ru-ru/library/windowsazure/dn205185.aspx
-  [Установка роли Hyper-V и настройка виртуальной машины]: http://technet.microsoft.com/ru-ru/library/hh846766.aspx
-  [Convert-VHD]: http://technet.microsoft.com/ru-ru/library/hh848454.aspx
-  [1]: http://blogs.msdn.com/b/virtual_pc_guy/archive/2012/10/03/using-powershell-to-convert-a-vhd-to-a-vhdx.aspx
-  [Шаг 1: подготовка образа для передачи]: #prepimage
-  [Шаг 2: создание учетной записи хранения в Azure]: #createstorage
-  [Шаг 3: подготовка подключения к Azure]: #prepAzure
-  [Шаг 4: передача VHD-файла]: #upload
-  [Как использовать Sysprep: введение]: http://technet.microsoft.com/ru-ru/library/bb457073.aspx
-  [Откройте окно командной строки]: ./media/virtual-machines-create-upload-vhd-windows-server/sysprep_commandprompt.png
-  [Запустите Sysprep]: ./media/virtual-machines-create-upload-vhd-windows-server/sysprepgeneral.png
-  [Быстрое создание учетной записи хранения]: ./media/virtual-machines-create-upload-vhd-windows-server/Storage-quick-create.png
-  [Управление учетными записями хранения]: http://www.windowsazure.com/ru-ru/documentation/articles/storage-manage-storage-account/
-  [Введите сведения об учетной записи хранения]: ./media/virtual-machines-create-upload-vhd-windows-server/Storage-create-account.png
-  [Учетная запись хранилища успешно создана]: ./media/virtual-machines-create-upload-vhd-windows-server/Storagenewaccount.png
-  [Информация об учетной записи хранения]: ./media/virtual-machines-create-upload-vhd-windows-server/storageaccount_detail.png
-  [2]: ./media/virtual-machines-create-upload-vhd-windows-server/storageaccount_container.png
-  [Имя контейнера]: ./media/virtual-machines-create-upload-vhd-windows-server/storageaccount_containervalues.png
-  [Практическое руководство. Установка Microsoft Azure PowerShell]: #Install
-  [Окно PowerShell]: ./media/virtual-machines-create-upload-vhd-windows-server/add_azureaccount.png
-  [Страница скачивания браузера]: ./media/virtual-machines-create-upload-vhd-windows-server/Browser_download_GetPublishSettingsFile.png
-  [Начало работы с командлетами Microsoft Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj554332.aspx
-  [PowerShell Add-AzureVHD]: ./media/virtual-machines-create-upload-vhd-windows-server/powershell_upload_vhd.png
-  [Add-AzureVhd]: http://msdn.microsoft.com/ru-ru/library/dn495173.aspx
-  [3]: ./media/virtual-machines-create-upload-vhd-windows-server/Create_Image.png
-  [Выбор виртуального жесткого диска]: ./media/virtual-machines-create-upload-vhd-windows-server/Select_VHD.png
-  [Добавление образа]: ./media/virtual-machines-create-upload-vhd-windows-server/Create_Image_From_VHD.png
-  [PowerShell Add-AzureVMImage]: ./media/virtual-machines-create-upload-vhd-windows-server/add_azureimage_powershell.png
-  [пользовательский образ]: ./media/virtual-machines-create-upload-vhd-windows-server/vm_custom_image.png
-  [создание виртуальной машины на основе пользовательского образа]: ./media/virtual-machines-create-upload-vhd-windows-server/create_vm_custom_image.png
-  [Подготовка виртуальной машины SQL Server в Microsoft Azure]: http://www.windowsazure.com/ru-ru/documentation/articles/virtual-machines-provision-sql-server/
+<!--HONumber=35.2-->

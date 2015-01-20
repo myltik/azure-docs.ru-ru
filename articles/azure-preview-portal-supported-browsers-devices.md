@@ -1,12 +1,12 @@
-﻿<properties urlDisplayName="" pageTitle="Поддерживаемые браузеры и устройства" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Supported browsers and devices" authors="Justin Beckwith"  solutions="" writer="" manager="need to identify contact" editor=""  />
+﻿<properties urlDisplayName="" pageTitle="Поддерживаемые браузеры и устройства"metaKeywords =""  metaCanonical="" services="" documentationCenter="" title="Supported browsers and devices" authors="Justin Beckwith"  solutions="" writer="" manager="need to identify contact" editor=""  />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Justin Beckwith" />
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="11/16/2014" ms.author="Justin Beckwith" />
 
 #Поддерживаемые браузеры и устройства
-Портал Microsoft Azure (предварительная версия) работает на всех современных настольных и планшетных устройствах и во всех браузерах. 
+Портал Microsoft Azure (предварительная версия) работает на всех современных настольных и планшетных устройствах и во всех браузерах.
 
 ### Поддерживаемые устройства
-Предварительная версия портала будет отлично работать на всех современных ПК, компьютерах Mac и планшетных устройствах. Мобильные телефоны в настоящее время не поддерживаются.
+Предварительная версия портала будет отлично работать на современных ПК, компьютерах Mac и планшетных ПК. Мобильные телефоны в настоящее время не поддерживаются.
 
 ### Поддерживаемые браузеры
 Поддерживаются последние версии следующих браузеров:
@@ -16,6 +16,7 @@
 - Chrome (последняя)
 - Firefox (последняя)
 
-*Safari 6 и ниже не поддерживаются. Если используется OS X, можно использовать Chrome, Firefox или выполнить обновление до OS X Mavericks для получения Safari 7.*
-     
+* Safari версии 6 и ниже не поддерживается. Если вы работаете в OS X, можно использовать Chrome, Firefox или обновиться до OS X Mavericks, где есть Safari 7*.
+ 
 
+<!--HONumber=35.2-->
