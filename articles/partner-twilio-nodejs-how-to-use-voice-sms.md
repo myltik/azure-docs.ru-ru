@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Служба Twilio Voice и SMS" pageTitle="Использование Twilio для голосовой связи, VoIP и SMS-сообщений в Azure" metaKeywords=""  metaCanonical="" services="" documentationCenter="nodejs" title=" VoIP" authors="MicrosoftHelp@twilio.com" solutions="" manager="twilio" editor="" />
+﻿<properties urlDisplayName="Служба Twilio Voice и SMS" pageTitle="Использование Twilio для голосовой связи, VoIP и SMS-сообщений в Azure" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="nodejs" title=" VoIP" authors="MicrosoftHelp@twilio.com" solutions="" manager="twilio" editor="" />
 
 <tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="11/25/2014" ms.author="MicrosoftHelp@twilio.com" />
 
