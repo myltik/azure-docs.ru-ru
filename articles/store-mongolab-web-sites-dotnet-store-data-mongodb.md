@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Website with MongoDB on MongoLab" pageTitle="Создание веб-сайта, использующего MongoDB на MongoLab (.NET)" metaKeywords="" description="Узнайте, как создать веб-сайт Azure, который хранит данные в MongoDB, размещенной в MongoLab." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Create a C# ASP.NET Application on Azure with MongoDB using the MongoLab Add-On" authors="chris@mongolab.com, eric@mongolab.com" solutions="" manager="mongolab" editor="mollybos" />
+<properties urlDisplayName="Website with MongoDB on MongoLab" pageTitle="Создание веб-сайта, использующего MongoDB на MongoLab (.NET)" metaKeywords="" description="Узнайте, как создать веб-сайт Azure, который хранит данные в MongoDB, размещенной в MongoLab." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Create a C# ASP.NET Application on Azure with MongoDB using the MongoLab Add-On" authors="chris@mongolab.com, eric@mongolab.com" solutions="" manager="mongolab" editor="mollybos" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/17/2014" ms.author="chris@mongolab.com" />
 
@@ -230,7 +230,7 @@
         mongoServer = client.GetServer();
         MongoDatabase database = mongoServer.GetDatabase(dbName);
         MongoCollection<Note> noteCollection = database.GetCollection<Note>(collectionName);
-  There's nothing to change here; Just be aware that this is how you get a MongoCollection object for performing inserts, updates, and queries, such as the following in **GetAllNotes()**:  
+  Здесь не надо ничего менять, только помните, что это подобно получению объекта MongoCollection для выполнения вставок, обновлений и запросов, таких как ниже в **GetAllNotes()**:  
 
         collection.FindAll().ToList<Note>();
 

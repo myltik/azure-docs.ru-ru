@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Приступая к работе с мобильными службами Azure для приложений Appcelerator Titanium" metaKeywords="" description="Этот учебник поможет приступить к использованию мобильных служб Azure для разработки приложений Appcelerator. " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Приступая к работе с мобильными службами Azure для приложений Appcelerator Titanium" metaKeywords="" description="Этот учебник поможет приступить к использованию мобильных служб Azure для разработки приложений Appcelerator. " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="11/24/2014" ms.author="Appcelerator team;mahender" />
 
@@ -26,13 +26,13 @@
 
 2. Щелкните элемент **Добавить таблицу** и создайте новую таблицу с именем **TodoItem**.
 
-3. Скачайте новое приложение [Todolist Appcelerator] и распакуйте проект.
+3. Скачайте новое приложение [Приложение Todolist] и распакуйте проект.
 
 4. Если это еще не сделано, скачайте и установите [Appcelerator Titanium Studio][Appcelerator Titanium] и пакет SDK версии 3.2.1 или более поздней. Чтобы запустить проект, вам также понадобится Xcode (v 5.0 и выше) и (или) Android SDK (v 4.3 и выше).
 
 5. Вернитесь на портал мобильных служб, в разделе **Панель мониторинга**, выберите **Управление ключами** и скопируйте **Ключ приложения**.
 
-5. В файле index.js приложения замените <---App Name----> и <------------APP KEY------------> на значения из мобильной службы.
+5. В файле index.js приложения замените `<---App Name---->` и `<------------APP KEY------------>` на значения из мобильной службы.
 
 ## Запустите новое приложение Appcelerator
 

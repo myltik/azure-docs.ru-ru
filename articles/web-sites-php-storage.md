@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Web w/ Storage" pageTitle="Создание веб-сайта на PHP с использованием табличного хранилища Azure - учебник Azure" metaKeywords="Azure table storage PHP, Azure PHP website, Azure PHP web site, Azure PHP tutorial, Azure PHP example" description="В этом учебнике показывается, как создать веб-сайт на PHP и использовать службу хранилища таблиц Azure в серверном приложении." metaCanonical="" services="web-sites,storage" documentationCenter="PHP" title="Create a PHP Website using Azure Storage" authors="tomfitz" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Web w/ Storage" pageTitle="Создание веб-сайта на PHP с использованием табличного хранилища Azure - учебник Azure" metaKeywords="Azure table storage PHP, Azure PHP website, Azure PHP web site, Azure PHP tutorial, Azure PHP example" description="В этом учебнике показывается, как создать веб-сайт на PHP и использовать службу хранилища таблиц Azure в серверном приложении." metaCanonical="" services="web-sites,storage" documentationCenter="PHP" title="Create a PHP Website using Azure Storage" authors="tomfitz" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/21/2014" ms.author="tomfitz" />
 
@@ -83,7 +83,7 @@
 
 		$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
 	
-	`$tableRestProxy` contains a method for every REST call available on Azure Tables.
+	`$tableRestProxy` содержит метод для каждого вызова REST, доступного для таблиц Azure.
 
 
 ## Создание таблицы
@@ -189,7 +189,7 @@
 			echo "<h3>No items on list.</h3>";
 		?>
 
-* Last, you must insert the form that feeds data into the task insertion script and complete the HTML:
+* Наконец, необходимо вставить форму, передающую данные в скрипт вставки задачи, и добавить HTML-код.
 
 			<hr/>
 			<form action="additem.php" method="post">

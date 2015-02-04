@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Enable SSL" pageTitle="Настройка SSL для облачной службы - Azure" metaKeywords="Azure SSL, Azure HTTPS, Azure SSL, Azure HTTPS, .NET Azure SSL, .NET Azure HTTPS, C# Azure SSL, C# Azure HTTPS, VB Azure SSL, VB Azure HTTPS" description="Узнайте, как определить конечную точку HTTPS для веб-роли и как передать SSL-сертификат, чтобы обеспечить безопасность приложения." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="Configuring SSL for an application in Azure" authors="adegeo" solutions="" manager="timlt" editor="mollybos" />
+<properties urlDisplayName="Enable SSL" pageTitle="Настройка SSL для облачной службы - Azure" metaKeywords="Azure SSL, Azure HTTPS, Azure SSL, Azure HTTPS, .NET Azure SSL, .NET Azure HTTPS, C# Azure SSL, C# Azure HTTPS, VB Azure SSL, VB Azure HTTPS" description="Узнайте, как определить конечную точку HTTPS для веб-роли и как передать SSL-сертификат, чтобы обеспечить безопасность приложения." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="Configuring SSL for an application in Azure" authors="adegeo" solutions="" manager="timlt" editor="mollybos" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/14/2014" ms.author="adegeo" />
 
@@ -142,7 +142,7 @@ SSL-шифрование - это наиболее распространенн�
 
 <h2><a name="additional_resources"> </a>Дополнительные ресурсы</h2>
 
-* [Как связать сертификат со службой][]
+* [Сопоставление сертификата со службой][]
 
 * [Настройка SSL-сертификата на конечной точке HTTPS][]
 
@@ -150,14 +150,14 @@ SSL-шифрование - это наиболее распространенн�
   [Шаг 2. Изменение файлов определения службы и конфигурации]: #step2
   [Шаг 3. Передача пакета развертывания и сертификата]: #step3
   [Шаг 4. Подключение к экземпляру роли с использованием HTTPS]: #step4
-  [Как создать сертификат для роли]: http://msdn.microsoft.com/ru-ru/library/windowsazure/gg432987.aspx
-  [Как связать сертификат со службой]: http://msdn.microsoft.com/ru-ru/library/windowsazure/gg465718.aspx
-  [Портал управления Azure]: http://manage.windowsazure.com
+  [Создание сертификата для роли]: http://msdn.microsoft.com/ru-ru/library/windowsazure/gg432987.aspx
+  [Сопоставление сертификата со службой]: http://msdn.microsoft.com/ru-ru/library/windowsazure/gg465718.aspx
+  [портал управления Azure]: http://manage.windowsazure.com
   [0]: ./media/cloud-services-dotnet-configure-ssl-certificate/CreateCloudService.png
   [1]: ./media/cloud-services-dotnet-configure-ssl-certificate/AddCertificate.png
   [2]: ./media/cloud-services-dotnet-configure-ssl-certificate/CopyURL.png
   [3]: ./media/cloud-services-dotnet-configure-ssl-certificate/SSLCloudService.png
   [4]: ./media/cloud-services-dotnet-configure-ssl-certificate/AddCertificateComplete.png  
-  [How to configure an SSL certificate on an HTTPS endpoint]: http://msdn.microsoft.com/ru-ru/library/windowsazure/ff795779.aspx
+  [Настройка SSL-сертификата на конечной точке HTTPS]: http://msdn.microsoft.com/ru-ru/library/windowsazure/ff795779.aspx
 
 <!--HONumber=35.1-->

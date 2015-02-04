@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Diagnostics" pageTitle="Как использовать диагностику (.NET) - руководство по компонентам Azure" metaKeywords="Azure diagnostics monitoring,logs crash dumps C#" description="Узнайте, как использовать в Azure диагностические данные для выполнения отладки, оценки производительности, мониторинга, анализа трафика и многого другого." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="Enabling Diagnostics in Azure" authors="raynew" solutions="" manager="johndaw" editor="" />
+<properties urlDisplayName="Diagnostics" pageTitle="Как использовать диагностику (.NET) - руководство по компонентам Azure" metaKeywords="Azure diagnostics monitoring,logs crash dumps C#" description="Узнайте, как использовать в Azure диагностические данные для выполнения отладки, оценки производительности, мониторинга, анализа трафика и многого другого." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="Enabling Diagnostics in Azure" authors="raynew" solutions="" manager="johndaw" editor="" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/23/2014" ms.author="raynew" />
 
@@ -187,7 +187,7 @@
 
 <h3>Шаг 4. Создание файла конфигурации системы диагностики и установка расширения</h3>
 1.	Скачайте общедоступное определение схемы файла конфигурации, выполнив следующую команду PowerShell:
-2.	
+
 		(Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'WadConfig.xsd' 
 
 2.	Добавьте XML-файл в свой проект **WorkerRole1**, щелкнув правой кнопкой мыши проект **WorkerRole1** и выбрав **Добавить** -> **Новый элемент...** -> **элементы Visual C#** -> **Данные** -> **XML-файл**. Назовите файл "WadExample.xml".
@@ -255,6 +255,7 @@
 <h3>Шаг 2. Создание приложения</h3>
 1.	На компьютере разработчика запустите Visual Studio 2013.
 2.	Создайте новое приложение консоли Visual C#, предназначенное для платформы .NET Framework 4.5. Назовите проект "WadExampleVM".
+
 	![CloudServices_diag_new_project](./media/cloud-services-dotnet-diagnostics/NewProject.png)
 3.	Замените содержимое файла Program.cs на код, приведенный ниже. Класс **SampleEventSourceWriter** реализует четыре метода ведения журнала: **SendEnums**, **MessageMethod**, **SetOther** и **HighFreq**. Первый параметр для метода WriteEvent определяет идентификатор соответствующего события. Метод Run реализует бесконечный цикл, который вызывает каждый из методов ведения журнала, реализованных в классе **SampleEventSourceWriter**, каждые 10 секунд.
 
@@ -388,7 +389,7 @@
 
 <h2><a name="configuration-file-schema"></a>Схема файла конфигурации</h2>
 
-Файл конфигурации системы диагностики определяет значения, которые используются для инициализации параметров конфигурации диагностики, когда запускается монитор диагностики. Пример файла конфигурации и подробная документация его схемы расположена здесь: [Azure Diagnostics 1.2 Configuration Schema][] (Схема конфигурации системы диагностики Azure 1.2).
+Файл конфигурации системы диагностики определяет значения, которые используются для инициализации параметров конфигурации диагностики, когда запускается монитор диагностики. Пример файла конфигурации и подробная документация его схемы расположена здесь: [Azure Diagnostics 1.2 Configuration Schema (Схема конфигурации системы диагностики Azure 1.2)][] .
 
 <h2><a name="troubleshooting"></a>Устранение неполадок</h2>
 
@@ -762,7 +763,7 @@
 [Советы и рекомендации по устранению неполадок при разработке приложений Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/hh771389.aspx
 [Бесплатная пробная версия]: http://azure.microsoft.com/ru-ru/pricing/free-trial/
 [Установка и настройка Azure PowerShell версии 0.8.7 или более поздней]: http://azure.microsoft.com/ru-ru/documentation/articles/install-configure-powershell/
-[Azure Diagnostics 1.2 Configuration Schema] (Схема конфигурации системы диагностики Azure 1.2): http://msdn.microsoft.com/ru-ru/library/azure/dn782207.aspx
+[Azure Diagnostics 1.2 Configuration Schema (Схема конфигурации системы диагностики Azure 1.2)]: http://msdn.microsoft.com/ru-ru/library/azure/dn782207.aspx
 [Set-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/ru-ru/library/dn495270.aspx
 [Get-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/ru-ru/library/dn495145.aspx
 [Remove-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/ru-ru/library/dn495168.aspx

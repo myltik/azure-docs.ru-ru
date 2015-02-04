@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Define a custom API that supports pull notifications" pageTitle="Определение настраиваемого API с поддержкой pull-уведомлений мобильные службы - Azure" metaKeywords="" description="Узнайте, как определить настраиваемый API, который поддерживает периодические уведомления в приложениях Магазина Windows, использующих мобильные службы Azure." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Define a custom API that supports periodic notifications" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Define a custom API that supports pull notifications" pageTitle="Определение настраиваемого API с поддержкой pull-уведомлений мобильные службы - Azure" metaKeywords="" description="Узнайте, как определить настраиваемый API, который поддерживает периодические уведомления в приложениях Магазина Windows, использующих мобильные службы Azure." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Define a custom API that supports periodic notifications" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="11/22/2014" ms.author="glenga" />
 # Определение настраиваемого интерфейса API с поддержкой периодических уведомлений
@@ -66,7 +66,7 @@
 		    }
 		};
 
-	This code returns the top 3 uncompleted items from the TodoItem table, then loads them into a JSON object passed to the **wns**.**createTileSquareText01** function. This function returns the following tile template XML:
+	Этот код возвращает 3 первых незавершенных элемента из таблицы TodoItem, а затем загружает их в объект JSON, передаваемый функции **wns**.**createTileSquareText01**. Эта функция возвращает следующий XML шаблона плитки:
 
 		<tile>
 			<visual>

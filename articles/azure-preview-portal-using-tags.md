@@ -1,76 +1,76 @@
-﻿<properties urlDisplayName="" pageTitle="Using tags to organize your Azure resources" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Using tags to organize your Azure resources" authors="Michael Flanakin" solutions="" writer="" manager="carolz" editor=""  />
+﻿<properties urlDisplayName="" pageTitle="Использование тегов для организации ресурсов в Azure" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Using tags to organize your Azure resources" authors="Michael Flanakin" solutions="" writer="" manager="carolz" editor=""  />
 
 <tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="10/08/2014" ms.author="micflan" />
 
 
-# Using tags to organize your Azure resources
+# Использование тегов для организации ресурсов в Azure
 
-The Azure Preview portal and the underlying Resource Manager are about organizing your resources and customizing your experience to be tailor-fit just for you. 
+Предварительная версия портала Azure и лежащий в ее основе диспетчер ресурсов позволяют организовать ваши ресурсы и настроить взаимодействие наиболее подходящим для вас образом. 
 
-In the full Azure portal, subscriptions are the only way to categorize and group your resources. With the preview portal, [we introduced resource groups](http://azure.microsoft.com/ru-ru/documentation/articles/azure-preview-portal-using-resource-groups), which enable you to group related entities. This became even more valuable when [we introduced role-based access](http://azure.microsoft.com/ru-ru/documentation/articles/role-based-access-control-configure). Now, in that same spirit, you can tag your resources with key/value pairs to further categorize and view resources across resource groups and, within the portal, across subscriptions.
+Единственным способом упорядочивания и группировки ваших ресурсов в полной версии портала Azure являются подписки. В предварительной версии портала [мы представили группы ресурсов](http://azure.microsoft.com/ru-ru/documentation/articles/azure-preview-portal-using-resource-groups), которые позволяют группировать связанные сущности. Это стало еще более актуальным после того, как [мы предложили доступ на основе ролей](http://azure.microsoft.com/ru-ru/documentation/articles/role-based-access-control-configure). Сейчас вы можете таким же образом помечать тегами ресурсы с помощью пар "ключ-значение" для дальнейшего упорядочивания и просмотра ресурсов в группах ресурсов, на портале или в подписках.
 
-Group resources by team, project, or even environment to focus on exactly what you want to see, when you need to see it. 
+Группировка ресурсов по командам, проектам или даже среде позволит вам сфокусировать внимание на необходимой информации. 
 
 
-## Tags in the Azure Preview portal
+## Теги в предварительной версии портала Azure
 
-Tagging resources and resource groups in the preview portal is easy. Use the Browse hub to navigate to the resource or resource group you'd like to tag and click the Tags part in the Overview section at the top of the blade. 
+Маркировка ресурсов и групп ресурсов в предварительной версии портала выполняется очень просто. Используйте узел "Обзор" для перехода к ресурсу или группе ресурсов, которые вы хотите отметить тегами, и щелкните "Теги" в разделе "Обзор" в верхней части модуля. 
 
 ![Tags part on resource and resource group blades](./media/azure-preview-portal-using-tags/rgblade.png)
 
-This will open a blade with the list of tags that have already been applied. If this is your first tag, the list will be empty. To add a tag, simply specify a name and value and press Enter. After you've added a few tags, you'll notice autocomplete options based on pre-existing tag names and values to better ensure a consistent taxonomy across your resources and to avoid common mistakes, like misspellings.
+После этого откроется модуль со списком уже примененных тегов. Если это ваш первый тег, список будет пустым. Для добавления тега укажите имя и значение, а затем нажмите клавишу ВВОД. Добавив несколько тегов, вы заметите варианты автозаполнения на основании уже существующих имен и значений тегов, которые помогают обеспечить согласованность таксономии в ваших ресурсах и избежать распространенных ошибок, например опечаток.
 
 ![Tag resources with name/value pairs](./media/azure-preview-portal-using-tags/tag-resources.png)
 
-From here, you can click on each individual tag to view a list of all the resources with the same tag. Of course, if this is your first tag, that list won't be very interesting. For now, let's jump over to PowerShell to tag all of our resources quickly.
+Здесь можно щелкнуть каждый отдельный тег для просмотра списка всех ресурсов с таким же тегом. Конечно, если это ваш первый тег, этот список будет не очень информативным. Теперь давайте перейдем к PowerShell, чтобы быстро разметить тегами все ресурсы.
 
 
-## Tagging with PowerShell
+## Маркировка с помощью PowerShell
 
-First thing's first, grab the latest [Azure PowerShell module](http://azure.microsoft.com/ru-ru/documentation/articles/install-configure-powershell/). If this is your first time using the Azure PowerShell module, [read the documentation](http://azure.microsoft.com/ru-ru/documentation/articles/install-configure-powershell) to get up to speed. For the purposes of this article, we'll assume you're already added an account and selected a subscription with the resources you want to tag.
+Сначала необходимо скачать последнюю версию модуля [Azure PowerShell](http://azure.microsoft.com/ru-ru/documentation/articles/install-configure-powershell/). Если вы впервые используете модуль Azure PowerShell, ](http://azure.microsoft.com/ru-ru/documentation/articles/install-configure-powershell) для быстрого начала работы. В данной статье будем считать, что вы уже добавили учетную запись и выбрали подписку и ресурсы, которые необходимо промаркировать.
 
-Tagging is only available for resources and resource groups available from [Resource Manager](http://msdn.microsoft.com/ru-ru/library/azure/dn790568.aspx), so the next thing we need to do is switch to use Resource Manager. For more information, see [Using Windows PowerShell with Resource Manager](http://azure.microsoft.com/ru-ru/documentation/articles/powershell-azure-resource-manager/).
+Маркировка возможна только для ресурсов и групп ресурсов, доступных в [диспетчере ресурсов](http://msdn.microsoft.com/ru-ru/library/azure/dn790568.aspx), поэтому следующим шагом будет переключение на работу с диспетчером ресурсов. Подробнее см. в разделе [Использование Windows PowerShell с диспетчером ресурсов](http://azure.microsoft.com/ru-ru/documentation/articles/powershell-azure-resource-manager/).
 
   Switch-AzureMode AzureResourceManager
 
-Tags exist directly on resources and resource groups, so to see what tags are already applied, we can simply get a resource or resource group with `Get-AzureResource` or `Get-AzureResourceGroup`, respectively. Let's start with a resource group.
+Тэги находятся непосредственно в ресурсах или группах ресурсов, поэтому для просмотра примененных тегов мы можем просто выбрать ресурс или группу ресурсов с `Get-AzureResource` или с `Get-AzureResourceGroup` соответственно. Давайте начнем с группы ресурсов.
 
 ![Getting tags with Get-AzureResourceGroup in PowerShell](./media/azure-preview-portal-using-tags/Get-AzureResourceGroup-in-PowerShell.png)
 
-This cmdlet returns several bits of metadata on the resource group including what tags have been applied, if any. To tag  a resource group, we'll simply use `Set-AzureResourceGroup` and specify a tag name and value.
+Этот командлет возвращает небольшой объем метаданных о группе ресурсов, включая информацию о примененных тегах, если они есть. Для маркировки группы ресурсов мы просто будем использовать `Set-AzureResourceGroup`  и указывать имя и значение тега.
 
 ![Setting tags with Set-AzureResourceGroup in PowerShell](./media/azure-preview-portal-using-tags/Set-AzureResourceGroup-in-PowerShell.png)
 
-Remember that tags are updated as a whole, so if you are adding one tag to a resource that's already been tagged, you'll need to save use an array with all the tags you want to keep. To remove one, simply save the array without the one you want to remove. 
+Помните, что теги обновляются полностью, так что при добавлении одного тега к ресурсу, который уже содержит теги, вам потребуется использовать массив для сохранения всех необходимых тегов. Для удаления какого-либо тега достаточно сохранить массив без него. 
 
-The process is the same for resources, except you'll use the `Get-AzureResource` and `Set-AzureResource` cmdlets. To get resources or resource groups with a specific tag, use `Get-AzureResource` or `Get-AzureResourceGroup` cmdlet with the `-Tag` parameter.
+Этот процесс аналогичен процессу для ресурсов, за исключением того, что следует использовать командлеты `Get-AzureResource` и `Set-AzureResource`. Для доступа к ресурсу или группе ресурсов с определенным тегом используйте командлеты `Get-AzureResource`  или  `Get-AzureResourceGroup` с параметром `-Tag`.
 
 ![Getting tagged resources and resource groups with Get-AzureResource and Get-AzureResourceGroup in PowerShell](./media/azure-preview-portal-using-tags/Get-AzureResourceGroup-with-tags-in-PowerShell.png)
 
 
-## Tagging with Resource Manager
+## Маркировка с помощью диспетчера ресурсов
 
-The preview portal and PowerShell both use the [Resource Manager REST API](http://msdn.microsoft.com/ru-ru/library/azure/dn790568.aspx) behind the scenes. If you need to integrate tagging into another environment, you can get tags with a GET on the resource id and update the set of tags with a PATCH call.
+Как предварительная версия портала, так и PowerShell неявно используют [диспетчер ресурсов REST API](http://msdn.microsoft.com/ru-ru/library/azure/dn790568.aspx). Если требуется интегрировать теги в другую среду, их можно получить с помощью метода GET по идентификатору ресурса и обновить набор тегов с помощью вызова метода PATCH.</cf>
 
 
-## Managing your taxonomy
+## Управление таксономией
 
-Earlier, we talked about how autocomplete helps you ensure consistency and avoid mistakes. Autocomplete is populated based on the taxonomy of available tags setup for the subscription. Each tag you add to a resource or resource group is automatically added to the subscription-wide taxonomy, but you can also prepopulate that taxonomy with tag names and values you'd like to use as resources are tagged in the future.
+Ранее мы обсудили, как автозаполнение помогает обеспечить согласованность и избежать ошибок. Автозаполнение осуществляется на основе таксономии тегов, доступных в пределах подписки. Каждый тег, присваиваемый ресурсу или группе ресурсов, автоматически добавляется к общей таксономии в пределах подписки. Вы также можете предварительно заполнить эту таксономию именами тегов, которые будут использоваться в дальнейшем для маркировки ресурсов.</cf>
 
-To get a list of all tags within a subscription using PowerShell, use the `Get-AzureTag` cmdlet.
+Чтобы получить список всех тегов в подписке с помощью PowerShell, используйте командлет `Get-AzureTag`.
 
 ![Get-AzureTag in PowerShell](./media/azure-preview-portal-using-tags/Get-AzureTag-in-PowerShell.png)
 
 
-You may see tags that start with "hidden-" and "link:". These are internal tags, which you should ignore and avoid changing. 
+Вы можете увидеть теги, начинающиеся с hidden- и link:. Это внутренние теги, которые вы должны игнорировать. Изменять их не следует. 
 
-Use the `New-AzureTag` cmdlet to add new tags to the taxonomy. These tags will be included in the autocomplete even though they haven't been applied to any resources or resource groups, yet. To remove a tag name/value, first remove the tag from any resources it may be used with and then use the `Remove-AzureTag` cmdlet to remove it from the taxonomy.
+С помощью командлета `New-AzureTag` можно добавлять новые теги в таксономию. Эти теги будут включены в автозаполнение, даже если они еще не были применены для ресурсов или групп ресурсов. Чтобы удалить имя или значение тэга, сначала необходимо удалить тег из всех ресурсов, в которых он может находиться, а затем использовать командлет `Remove-AzureTag` для удаления тега из таксономии.
 
-To view your taxonomy of tags in the portal, use the Browse hub to view Everything and then select Tags.
+Для просмотра таксономии тегов на портале используйте узел "Обзор" для просмотра всех элементов, а затем выберите "Теги".
 
 ![Find tags via the Browse hub](./media/azure-preview-portal-using-tags/browse-tags.png)
 
-Pin the most important tags to your Startboard for quick access and you're ready to go. Have fun!
+Закрепите наиболее важные теги на начальной панели для быстрого доступа к ним. Теперь вы готовы к работе. Желаем успехов!
 
 ![Pin tags to the Startboard](./media/azure-preview-portal-using-tags/pin-tags.png)
 

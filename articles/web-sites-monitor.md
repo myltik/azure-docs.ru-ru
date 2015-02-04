@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="How to monitor" pageTitle="Мониторинг веб-сайтов - управление службой Azure" metaKeywords="Azure monitoring web sites, Azure Management Portal Monitor, Azure monitoring" description="Узнайте, как отслеживать веб-сайты Azure с помощью страницы «Монитор» на портале управления." metaCanonical="" services="web-sites" documentationCenter="" title="How to Monitor Websites" authors="cephalin" solutions="" manager="wpickett" editor="mollybos" />
+<properties urlDisplayName="How to monitor" pageTitle="Мониторинг веб-сайтов - управление службой Azure" metaKeywords="Azure monitoring web sites, Azure Management Portal Monitor, Azure monitoring" description="Узнайте, как отслеживать веб-сайты Azure с помощью страницы «Монитор» на портале управления." metaCanonical="" services="web-sites" documentationCenter="" title="How to Monitor Websites" authors="cephalin" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/24/2014" ms.author="cephalin" />
 
@@ -85,10 +85,10 @@
 Дополнительную информацию об учетных записях хранения Azure см. в статье [Управление учетными записями хранения](https://www.windowsazure.com/ru-ru/manage/services/storage/how-to-manage-a-storage-account/).
 
 <div class="dev-callout"on> 
-<b>Note</b> 
-<p>Application logging to table or blob storage is only supported for .NET applications.</p> </div>
+<b>Примечание</b> 
+<p>Запись журналов приложений в табличное хранилище или в хранилище BLOB-объектов поддерживается только для приложений .NET.</p> </div>
 
-Since application logging to storage requires using a storage client to view the log data, it is most useful when you plan on using a service or application that understands how to read and process the data directly from Azure Table or Blob Storage. Logging to the file system produces files that can be downloaded to your local computer using FTP or other utilities as described later in this section.
+Так как запись журналов приложения в хранилище требует использования клиента хранилища для просмотра данных журнала, может быть полезно спланировать использование службы или приложения, знающего, как обрабатывать данные, читая их прямо из таблицы Windows Azure или хранилища BLOB-объектов. При записи журнала в файловую систему создаются файлы, которые могут быть загружены на локальный компьютер с помощью FTP или других служебных программ, как описывается далее в этом разделе.
 
 <div class="dev-callout"> 
 	<b>Примечание.</b> 
@@ -239,7 +239,7 @@ HTM-файлы содержат следующие разделы:
 
 **Тип файла журнала: ведение журнала веб-сервера**
 
-- Расположение: /LogFiles/http/RawLogs. Данные, хранящиеся в файлах, форматируются с использованием [расширенного формата журналов консорциума W3C].(http://go.microsoft.com/fwlink/?LinkID=90561). Поля s-computername, s-ip и cs-version не используются веб-сайтами Azure.
+- Расположение: /LogFiles/http/RawLogs. Данные, хранящиеся в файлах, форматируются с использованием [расширенного формата журналов консорциума W3C](http://go.microsoft.com/fwlink/?LinkID=90561). Поля s-computername, s-ip и cs-version не используются веб-сайтами Azure.
 
 - Чтение файлов: синтаксический анализатор журнала. Используется для синтаксического анализа файлов журналов IIS и выполнения запросов к ним. Анализатор Log Parser 2.2 доступен в Центре загрузки Майкрософт по адресу <a href="http://go.microsoft.com/fwlink/?LinkId=246619">http://go.microsoft.com/fwlink/?LinkId=246619</a>.
 

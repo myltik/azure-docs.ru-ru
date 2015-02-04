@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Create Web and Worker Roles" pageTitle="Создание веб-ролей и рабочих ролей" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="PHP" title="How to create PHP web and worker roles" authors="tomfitz" solutions="" manager="wpickett" editor="mollybos" />
+<properties urlDisplayName="Create Web and Worker Roles" pageTitle="Создание веб-ролей и рабочих ролей" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="PHP" title="How to create PHP web and worker roles" authors="tomfitz" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="10/28/2014" ms.author="tomfitz" />
 
@@ -194,7 +194,7 @@ Azure предоставляет три вычислительные модел�
 	Role is running at http://127.0.0.1:81
 	Started
 
-Вы можете просмотреть приложение, работающее в эмуляторе, открыв веб-браузер и перейдя по локальному адресу, приведенному в выводе ("http://127.0.0.1:81" в приведенном выше примере).
+Вы можете просмотреть приложение, работающее в эмуляторе, открыв веб-браузер и перейдя по локальному адресу, приведенному в выводе (`http://127.0.0.1:81` в приведенном выше примере).
 
 Чтобы остановить эмуляторы, выполните следующую команду:
 
@@ -204,18 +204,18 @@ Azure предоставляет три вычислительные модел�
 
 Чтобы опубликовать свое приложение, необходимо сначала импортировать параметры публикации с помощью командлета **Import-PublishSettingsFile**, затем вы можете запустить публикацию приложения с помощью командлета **Publish-AzureServiceProject**. Информацию об использовании каждого из этих командлетов можно найти в разделах [Практическое руководство. Импорт параметров публикации] и [Практическое руководство. Развертывание облачной службы в Azure] соответственно.
 
-[модель выполнения - веб-сайты]: /ru-ru/develop/net/fundamentals/compute/#WebSites
-[модель выполнения - виртуальные машины]: /ru-ru/develop/net/fundamentals/compute/#VMachine
-[модель выполнения - облачные службы]: /ru-ru/develop/net/fundamentals/compute/#CloudServices
-[Пакет SDK для Azure для PHP]: /ru-ru/develop/php/common-tasks/download-php-sdk/
-[Установка ps и эмуляторов]: http://go.microsoft.com/fwlink/?LinkId=253447&clcid=0x409
+[execution model-web sites]: /ru-ru/develop/net/fundamentals/compute/#WebSites
+[execution model-vms]: /ru-ru/develop/net/fundamentals/compute/#VMachine
+[execution model-cloud services]: /ru-ru/develop/net/fundamentals/compute/#CloudServices
+[Пакет Azure SDK для PHP]: /ru-ru/develop/php/common-tasks/download-php-sdk/
+[install ps and emulators]: http://go.microsoft.com/fwlink/?LinkId=253447&clcid=0x409
 [Что такое облачная служба?]: /ru-ru/manage/services/cloud-services/what-is-a-cloud-service/
-[определение службы (CSDEF-файл)]: http://msdn.microsoft.com/ru-ru/library/windowsazure/ee758711.aspx
-[конфигурация службы (CSCFG-файл)]: http://msdn.microsoft.com/ru-ru/library/windowsazure/ee758710.aspx
+[определения службы (CSDEF-файл)]: http://msdn.microsoft.com/ru-ru/library/windowsazure/ee758711.aspx
+[конфигурации службы (CSCFG-файл)]: http://msdn.microsoft.com/ru-ru/library/windowsazure/ee758710.aspx
 [iis.net]: http://www.iis.net/
 [sql native client]: http://msdn.microsoft.com/ru-ru/sqlserver/aa937733.aspx
-[драйверы sqlsrv]: http://php.net/sqlsrv
-[установщик sqlncli.msi x64]: http://go.microsoft.com/fwlink/?LinkID=239648
+[sqlsrv drivers]: http://php.net/sqlsrv
+[Установщик sqlncli.msi x64]: http://go.microsoft.com/fwlink/?LinkID=239648
 [Практическое руководство. Импорт параметров публикации]: /ru-ru/develop/php/how-to-guides/powershell-cmdlets/#ImportPubSettings
 [Практическое руководство. Развертывание облачной службы в Azure]: /ru-ru/develop/php/how-to-guides/powershell-cmdlets/#Deploy
 

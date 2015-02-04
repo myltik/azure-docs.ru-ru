@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="ASP.NET MVC 5 mobile website" pageTitle="Мобильный веб-сайт .NET ASP.NET MVC 5 - Учебники Azure" metaKeywords="Azure tutorial, Azure web app tutorial, Azure mobile app, Azure ASP.NET MVC 5,,ASP.NET MVC" description="В этом учебнике объясняется, как развернуть веб-приложение на веб-сайте Azure с помощью средств для мобильных устройств в веб-приложении ASP.NET MVC 5." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Deploy an ASP.NET MVC Mobile Web Application on Azure Websites" authors="cephalin,riande" solutions="" manager="wpickett" editor="mollybos" />
+<properties urlDisplayName="ASP.NET MVC 5 mobile website" pageTitle="Мобильный веб-сайт .NET ASP.NET MVC 5 - Учебники Azure" metaKeywords="Azure tutorial, Azure web app tutorial, Azure mobile app, Azure ASP.NET MVC 5,,ASP.NET MVC" description="В этом учебнике объясняется, как развернуть веб-приложение на веб-сайте Azure с помощью средств для мобильных устройств в веб-приложении ASP.NET MVC 5." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Deploy an ASP.NET MVC Mobile Web Application on Azure Websites" authors="cephalin,riande" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="08/19/2014" ms.author="cephalin,riande" />
 
@@ -171,7 +171,7 @@ Views\\Shared\\\_Layout.Mobile.cshtml. Откройте \_Layout.Mobile.cshtml
 
 Скопируйте файл Views\\Home\\AllTags.cshtml в
 Views\\Home\\AllTags.Mobile.cshtml. Откройте новый файл и измените элемент
-`<h2>с "Tags" на "Tags (M)":
+`<h2>` с "Tags" на "Tags (M)":</h2>
 
     <h2>Tags (M)</h2>
 
@@ -210,7 +210,7 @@ AllTags.cshtml).
 
 Сохраните изменения. Скопируйте файл Views\\Shared\\\_Layout.Mobile.cshtml в файл Views\\Shared\\\_Layout.iPhone.cshtml. Откройте новый файл и измените заголовок с "Приложение MVC5 (мобильное)" на "Приложение MVC5 (iPhone)".
 
-Скопируйте файл Views\\Home\\AllTags.Mobile.cshtml в файл Views\\Home\\AllTags.iPhone.cshtml. В новом файле измените элемент <h2> с "Tags (M)" на "Tags (iPhone)".
+Скопируйте файл Views\\Home\\AllTags.Mobile.cshtml в файл Views\\Home\\AllTags.iPhone.cshtml. В новом файле измените элемент `<h2>`с "Tags (M)" на "Tags (iPhone)".
 
 Запустите приложение. Запустите эмулятор браузера мобильного устройства. Убедитесь, что для его агента пользователя задано значение iPhone, и перейдите к представлению AllTags. Если вы используете эмулятор браузера в средствах разработчика F12 Internet Explorer 11, задайте такие параметры эмуляции:
 

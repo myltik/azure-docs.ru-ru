@@ -1,10 +1,10 @@
+
+
 1.  На портале управления нажмите вкладку **Данные**, а затем щелкните таблицу **TodoItem**.
 
-    ![][ ]
+    ![](./media/mobile-services-restrict-permissions-javascript-backend/mobile-portal-data-tables.png)
 
 2.  Щелкните вкладку **Разрешения**, установите все разрешения в состояние **Только прошедшие проверку пользователи** и нажмите кнопку **Сохранить**. Это обеспечит, что только прошедший проверку пользователь сможет производить все операции с таблицей **TodoItem**. Это также упрощает сценарии в следующем учебнике, так как в них не нужно учитывать возможность существования анонимных пользователей.
 
-    ![][1]
+    ![](./media/mobile-services-restrict-permissions-javascript-backend/mobile-portal-change-table-perms.png)
 
-  [ ]: ./media/mobile-services-restrict-permissions-javascript-backend/mobile-portal-data-tables.png
-  [1]: ./media/mobile-services-restrict-permissions-javascript-backend/mobile-portal-change-table-perms.png

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Get Started with Data" pageTitle="Приступая к работе с данными (Магазин Windows) | Центр мобильных разработок" metaKeywords="" description="Узнайте, как приступить к работе с мобильными службами, чтобы использовать данные в приложении магазина Windows." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Get Started with Data" pageTitle="Приступая к работе с данными (Магазин Windows) | Центр мобильных разработок" metaKeywords="" description="Узнайте, как приступить к работе с мобильными службами, чтобы использовать данные в приложении магазина Windows." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/19/2014" ms.author="glenga" />
 
@@ -30,7 +30,7 @@
 * Активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. О том, как это сделать, читайте на странице [Бесплатное пробное использование Azure](http://azure.microsoft.com/ru-ru/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fru-ru%2Fdocumentation%2Farticles%2Fmobile-services-windows-store-dotnet-get-started-data%2F).
 * Visual Studio 2013 упрощает подключение приложения для Магазина Windows к мобильным службам. 
 
-##<a name="download-app"></a>Загрузка проекта GetStartedWithData
+## <a name="download-app"></a>Загрузка проекта GetStartedWithData
 
 Этот учебник построен на использовании проекта приложения для Магазина Windows [GetStartedWithMobileServices][Developer Code Samples site] в Visual Studio 2013. Пользовательский интерфейс для этого приложения совпадает с интерфейсом приложения, созданного в кратком руководстве по использованию мобильных служб. Отличие заключается в том, что добавленные элементы хранятся локально в памяти. 
 
@@ -48,7 +48,7 @@
 
    	Обратите внимание, что сохраненный текст отображается во втором столбце в разделе **Запрос и обновление данных**
 
-##<a name="create-service"></a>Создание мобильной службы в Visual Studio
+## <a name="create-service"></a>Создание мобильной службы в Visual Studio
 
 [WACOM.INCLUDE [mobile-services-create-new-service-vs2013](../includes/mobile-services-create-new-service-vs2013.md)]
 
@@ -64,17 +64,17 @@
 </li>
 </ol>
 
-##<a name="add-table"></a>Добавление новой таблицы для хранения данных
+## <a name="add-table"></a>Добавление новой таблицы для хранения данных
 
 [WACOM.INCLUDE [mobile-services-create-new-table-vs2013](../includes/mobile-services-create-new-table-vs2013.md)]
 
 >[WACOM.NOTE]Новые таблицы создаются со столбцами "Id", "__createdAt", "__updatedAt" и "__version". Если динамическая схема включена, мобильные службы автоматически создают новые столбцы на основе JSON-объекта в запросе вставки или обновления. Дополнительные сведения см. в разделе [Динамическая схема](http://msdn.microsoft.com/ru-ru/library/windowsazure/jj193175.aspx).
 
-#<a name="update-app"></a>Обновление приложения для использования мобильной службы
+# <a name="update-app"></a>Обновление приложения для использования мобильной службы
 
 [WACOM.INCLUDE [mobile-services-windows-dotnet-update-data-app](../includes/mobile-services-windows-dotnet-update-data-app.md)]
 
-##<a name="test-app"></a>Тестирование работы приложения с новой мобильной службой
+## <a name="test-app"></a>Тестирование работы приложения с новой мобильной службой
 
 1. В Visual Studio нажмите клавишу F5, чтобы запустить приложение.
 
@@ -135,6 +135,7 @@
   
 <!-- Anchors. -->
 
+[Get the Windows Store app]: #download-app
 [Получение приложения для Магазина Windows]: #download-app
 [Создание мобильной службы в Visual Studio]: #create-service
 [Добавление таблицы для хранения данных]: #add-table
@@ -162,7 +163,7 @@
 [Портал управления]: https://manage.windowsazure.com/
 [Пакет SDK для мобильных служб]: http://go.microsoft.com/fwlink/p/?LinkId=257545
 [Веб-сайт с примерами кода для разработчиков]:  http://go.microsoft.com/fwlink/p/?LinkId=328660
-
+[Developer Code Samples site]:  http://go.microsoft.com/fwlink/p/?LinkId=328660
 [Класс MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
 
 <!--HONumber=35.2-->

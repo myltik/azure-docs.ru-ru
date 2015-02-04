@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Table Service" pageTitle="Как использовать табличное хранилище (Node.js) - Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Node.js, table storage Node.js" description="Вы узнаете, как использовать службу табличного хранилища в Azure. Примеры написаны с помощью Node.js API." metaCanonical="" services="storage" documentationCenter="nodejs" title="How to Use the Table Service from Node.js" authors="larryfr" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Table Service" pageTitle="Как использовать табличное хранилище (Node.js) - Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Node.js, table storage Node.js" description="Вы узнаете, как использовать службу табличного хранилища в Azure. Примеры написаны с помощью Node.js API." metaCanonical="" services="storage" documentationCenter="nodejs" title="How to Use the Table Service from Node.js" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="mwasson" />
 
@@ -33,7 +33,7 @@
 
 ## <a name="create-app"> </a>Создание приложения Node.js
 
-Создайте пустое приложение Node.js. Указания по созданию приложения Node.js см. в статьях [Создание и развертывание приложения Node.js на веб-сайте Azure], [Облачная служба Node.js][Node.js Cloud Service] (с помощью Windows PowerShell) или [Веб-сайт с WebMatrix].
+Создайте пустое приложение Node.js. Указания по созданию приложения Node.js см. в статьях [Создание и развертывание приложения Node.js на веб-сайте Azure], [Облачная служба Node.js][Облачная служба Node.js] (с помощью Windows PowerShell) или [Веб-сайт с WebMatrix].
 
 ## <a name="configure-access"> </a>Настройка приложения для доступа к хранилищу
 
@@ -404,7 +404,7 @@ ACL реализуется с помощью массива политик до�
 
 -   См. справочник MSDN: [Хранение данных и доступ к ним в Azure][].
 -   [Посетите блог команды разработчиков службы хранилища Azure][].
--   Посетите репозиторий [Пакет SDK для службы хранилища Azure для Node][] на веб-сайте GitHub.
+-   Посетите репозиторий [Пакет SDK для Azure для Node][] на веб-сайте GitHub.
 
   [Пакет SDK для Azure для Node]: https://github.com/Azure/azure-storage-node
   [Дальнейшие действия]: #next-steps

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Hybrid Application" pageTitle="Гибридные локальные и облачные приложения (.NET) в Azure" metaKeywords="Azure Service Bus tutorial,hybrid .NET" description="Узнайте, как создать приложение локальное или облачное гибридное приложение .NET с использованием ретранслятора Azure Service Bus." metaCanonical="" services="service-bus" documentationCenter=".NET" title=".NET On-Premises/Cloud Hybrid Application Using Service Bus Relay" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+<properties urlDisplayName="Hybrid Application" pageTitle="Гибридные локальные и облачные приложения (.NET) в Azure" metaKeywords="Azure Service Bus tutorial,hybrid .NET" description="Узнайте, как создать приложение локальное или облачное гибридное приложение .NET с использованием ретранслятора Azure Service Bus." metaCanonical="" services="service-bus" documentationCenter=".NET" title=".NET On-Premises/Cloud Hybrid Application Using Service Bus Relay" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
 <tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/15/2014" ms.author="sethm" />
 
@@ -152,15 +152,12 @@ Service Bus также защищает эти службы от несанкц�
 1.  Щелкните имя созданного пространства имен службы в главном окне.   
 
 	![][39]
-  
 
 2.  Щелкните **Сведения о подключении**.   
 
 	![][40]
 
-
 3.  В области **Сведения по доступу к подключению** найдите записи **Издатель по умолчанию** и **Ключ по умолчанию**.   
-    
 
 4.  Запишите ключ или скопируйте его в буфер обмена.
 
@@ -413,8 +410,8 @@ Service Bus также защищает эти службы от несанкц�
             }
         }
 
-2.  In the HomeController.cs file in Visual Studio, replace the existing
-    namespace definition with the following code:
+2.  В Visual Studio замените существующее
+    определение пространства имен в файле HomeController.cs на следующий код.
 
         namespace ProductsWeb.Controllers
         {

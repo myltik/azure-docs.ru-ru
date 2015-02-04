@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Использование концентраторов уведомлений для передачи экстренных новостей (Windows Phone)" metaKeywords="" description="Использование центров уведомлений Azure для применения тегов в регистрациях, чтобы передавать экстренные новости в приложение Windows Phone." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Use Notification Hubs to send breaking news" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Использование концентраторов уведомлений для передачи экстренных новостей (Windows Phone)" metaKeywords="" description="Использование центров уведомлений Azure для применения тегов в регистрациях, чтобы передавать экстренные новости в приложение Windows Phone." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Use Notification Hubs to send breaking news" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="12/03/2014" ms.author="glenga" />
 
@@ -20,7 +20,7 @@
 
 Материал данного раздела основан на приложении, созданном в разделе [Приступая к работе с концентраторами уведомлений]. Перед началом работы с учебником необходимо пройти задания учебника [Приступая к работе с концентраторами уведомлений].
 
-##<a name="adding-categories"></a>Добавление возможности выбора категорий в приложение
+## <a name="adding-categories"></a>Добавление возможности выбора категорий в приложение
 
 Прежде всего, необходимо добавить элементы пользовательского интерфейса для имеющейся главной страницы, позволяющие пользователю выбирать категории для регистрации. Выбранные пользователем категории хранятся на устройстве. При запуске приложения в концентраторе уведомлений создается регистрация устройства с выбранными категориями, представленными в форме тегов. 
 
@@ -101,8 +101,8 @@
 
 4. В приведенном выше коде замените заполнители <hub name> и <connection string with listen access> именем концентратора уведомлений и строкой подключения для элемента *DefaultListenSharedAccessSignature*, полученного ранее.
 
-	<div class="dev-callout"><strong>Note</strong> 
-		<p>Because credentials that are distributed with a client app are not generally secure, you should only distribute the key for listen access with your client app. Listen access enables your app to register for notifications, but existing registrations cannot be modified and notifications cannot be sent. The full access key is used in a secured backend service for sending notifications and changing existing registrations.</p>
+	<div class="dev-callout"><strong>Примечание.</strong> 
+		<p>Поскольку учетные данные, которые распространяются с помощью клиентского приложения, обычно не безопасны, с помощью вашего клиентского приложения следует распространять только ключ для доступа к прослушиванию. Доступ к прослушиванию позволяет приложению регистрироваться для использования уведомлений, однако при этом нельзя изменять имеющиеся регистрации и отправлять уведомления. Для отправки уведомлений и изменения существующих регистраций используется ключ полного доступа в защищенной серверной службе.</p>
 	</div> 
 
 4. В файле проекта App.xaml.cs добавьте в класс **App** следующее свойство:
@@ -136,12 +136,12 @@
 
 Ваше приложение теперь может сохранять набор категорий в локальном хранилище на устройстве и регистрироваться в концентраторе уведомлений всякий раз, когда пользователь изменяет выбранные категории. 
 
-##<a name="register"></a>Регистрация для использования уведомлений
+## <a name="register"></a>Регистрация для использования уведомлений
 
 Эти действия позволяют зарегистрироваться в концентраторе уведомлений при запуске с использованием категорий, сохраненных в локальном хранилище. 
 
-<div class="dev-callout"><strong>Note</strong> 
-	<p>Because the channel URI assigned by the Microsoft Push Notification Service (MPNS) can chance at any time, you should register for notifications frequently to avoid notification failures. This example registers for notification every time that the app starts. For apps that are run frequently, more than once a day, you can probably skip registration to preserve bandwidth if less than a day has passed since the previous registration.</p>
+<div class="dev-callout"><strong>Примечание.</strong> 
+	<p>Поскольку URI канала, назначенный службой push-уведомлений Windows (MPNS), может измениться в любое время, следует регулярно производить регистрацию для использования уведомлений, чтобы предотвратить сбои уведомлений. В этом примере регистрация для использования уведомлений осуществляется при каждом запуске приложения. Для тех приложений, которые запускаются часто, более одного раза в день, возможно, лучше пропустить регистрацию, чтобы сэкономить трафик, если с момента прошлой регистрации прошло меньше суток.</p>
 </div>  
 
 1. Добавьте в класс **Notifications** следующий код:
@@ -184,7 +184,7 @@
 
 [WACOM.INCLUDE [notification-hubs-back-end](../includes/notification-hubs-back-end.md)]
 
-##<a name="test-app"></a>Запуск приложения и создание уведомлений
+## <a name="test-app"></a>Запуск приложения и создание уведомлений
 
 1. В Visual Studio нажмите клавишу F5, чтобы скомпилировать и запустить приложение.
 

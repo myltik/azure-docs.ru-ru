@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Table Service" pageTitle="Как использовать табличное хранилище (Python) - Microsoft Azure" metaKeywords="Azure table Python, creating table Azure, deleting table Azure, inserting table Azure, querying table Azure" description="Вы узнаете, как использовать службу таблиц в Python для создания и удаления таблиц, вставки, удаления строк и создания запросов для таблиц." metaCanonical="" services="storage" documentationCenter="Python" title="How to Use the Table Storage Service from Python" authors="huvalo" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Table Service" pageTitle="Как использовать табличное хранилище (Python) - Microsoft Azure" metaKeywords="Azure table Python, creating table Azure, deleting table Azure, inserting table Azure, querying table Azure" description="Вы узнаете, как использовать службу таблиц в Python для создания и удаления таблиц, вставки, удаления строк и создания запросов для таблиц." metaCanonical="" services="storage" documentationCenter="Python" title="How to Use the Table Storage Service from Python" authors="huvalo" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/19/2014" ms.author="robmcm" />
 
@@ -6,7 +6,8 @@
 
 
 
-# Использование службы табличного хранилища в Python В этом руководстве показано, как реализовать типичные сценарии с использованием службы табличного хранилища Microsoft Azure. Примеры написаны с помощью Python API. Здесь описаны такие сценарии, как **создание и удаление таблицы, а также вставка и запрос сущностей в таблице**. Дополнительную информацию о таблицах см. в разделе [Дальнейшие действия][].
+# Использование службы табличного хранилища в Python 
+В этом руководстве показано, как реализовать типичные сценарии с использованием службы табличного хранилища Microsoft Azure. Примеры написаны с помощью Python API. Здесь описаны такие сценарии, как **создание и удаление таблицы, а также вставка и запрос сущностей в таблице**. Дополнительную информацию о таблицах см. в разделе [Дальнейшие действия][].
 
 ## Оглавление
 
@@ -46,18 +47,10 @@
 
 ## <a name="add-entity"> </a>Добавление сущности в таблицу
 
-Чтобы добавить сущность, сначала создайте словарь, который определяет
-имена и значения свойств сущности. Обратите внимание, что для каждой сущности необходимо
-задать свойства **PartitionKey** и **RowKey**. Это уникальные
-идентификаторы сущностей, которые можно запросить гораздо 
-быстрее, чем для других свойств. Система использует **PartitionKey**, чтобы
-автоматически распространять сущности таблиц на множество узлов хранилища.
-Сущности с одним значением **PartitionKey** хранятся на одном узле. Пример:
-**RowKey** - это уникальный идентификатор сущности в разделе, которому она принадлежит
+Чтобы добавить сущность, сначала создайте словарь, который определяет имена и значения свойств сущности. Обратите внимание, что для каждой сущности необходимо задать свойства **PartitionKey** и **RowKey**. Это уникальные идентификаторы сущностей, которые можно запросить гораздо  быстрее, чем для других свойств. Система использует **PartitionKey**, чтобы автоматически распространять сущности таблиц на множество узлов хранилища. Сущности с одним значением **PartitionKey** хранятся на одном узле. Пример: **RowKey** - это уникальный идентификатор сущности в разделе, которому она принадлежит
 .
 
-Чтобы добавить сущность в таблицу, передайте объект словаря
-в метод **insert\_entity**.
+Чтобы добавить сущность в таблицу, передайте объект словаря в метод **insert\_entity**.
 
 	task = {'PartitionKey': 'tasksSeattle', 'RowKey': '1', 'description' : 'Take out the trash', 'priority' : 200}
 	table_service.insert_entity('tasktable', task)
@@ -73,8 +66,7 @@
 
 ## <a name="update-entity"> </a>Обновление сущности
 
-Этот код показывает, как заменить старую версию существующей сущности
-на обновленную версию.
+Этот код показывает, как заменить старую версию существующей сущности на обновленную версию.
 
 	task = {'description' : 'Take out the garbage', 'priority' : 250}
 	table_service.update_entity('tasktable', 'tasksSeattle', '1', task)
@@ -100,8 +92,7 @@
 
 ## <a name="query-for-entity"> </a>Запрос сущности
 
-Чтобы запросить сущность в таблице, используйте метод **get\_entity**,
-передав имя таблицы **PartitionKey** и **RowKey**.
+Чтобы запросить сущность в таблице, используйте метод **get\_entity**, передав имя таблицы **PartitionKey** и **RowKey**.
 
 	task = table_service.get_entity('tasktable', 'tasksSeattle', '1')
 	print(task.description)

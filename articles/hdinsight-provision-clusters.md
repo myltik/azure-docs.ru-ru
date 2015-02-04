@@ -1,8 +1,8 @@
-﻿<properties urlDisplayName="HDInsight Administration" pageTitle="Подготовка кластеров Hadoop в HDInsight для платформы Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" description="Вы узнаете, как подготовить кластеры для Azure HDInsight с помощью портала управления, PowerShell и командной строки." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="Provision Hadoop clusters in HDInsight" authors="jgao" />
+<properties urlDisplayName="HDInsight Administration" pageTitle="Подготовка кластеров Hadoop в HDInsight для платформы Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" description="Вы узнаете, как подготовить кластеры для Azure HDInsight с помощью портала управления, PowerShell и командной строки." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="Provision Hadoop clusters in HDInsight" authors="jgao" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/14/2014" ms.author="jgao" />
 
-#Подготовка кластеров Hadoop в HDInsight с использованием настраиваемых параметров
+# Подготовка кластеров Hadoop в HDInsight с использованием настраиваемых параметров
 
 В этой статье вы познакомитесь с различными способами настраиваемой подготовки кластера Hadoop в Azure HDInsight - с использованием портала управления Azure, PowerShell, средств командной строки или пакета SDК для HDInsight .NET. В статье рассматривается подготовка кластеров Hadoop. Указания по подготовке кластера HBase, см. в разделе [Подготовка кластера HBase в HDInsight][hdinsight-hbase-custom-provision]. См. раздел <a href="http://go.microsoft.com/fwlink/?LinkId=510237">В чем заключается разница между Hadoop и HBase?</a> понять, какой следует сделать выбор.
 
@@ -22,7 +22,7 @@
 
 - Подписка Azure. Azure - это платформа на основе подписок. Командлеты HDInsight PowerShell предназначены для выполнения задач по подписке. Дополнительную информацию о получении подписки см. в разделах [Варианты приобретения][azure-purchase-options], [Предложения для участников][azure-member-offers] или [Бесплатное пробное использование][azure-free-trial].
 
-##Содержание
+## Содержание
 
 * [Настройки конфигурации](#configuration)
 * [Использование портала управления Azure](#portal)
@@ -31,15 +31,15 @@
 * [Использование пакета SDK для HDInsight .NET](#sdk)
 * [Дальнейшие действия](#nextsteps)
 
-##<a id="configuration"></a>Варианты настройки
+## <a id="configuration"></a>Варианты настройки
 
-###Дополнительное хранилище
+### Дополнительное хранилище
 
 В процессе настройки вам необходимо задать учетную запись хранилища BLOB-объектов и контейнер по умолчанию. Кластер будет использовать эти данные для обозначения месторасположения контейнера по умолчанию. При желании можно также указать дополнительные BLOB-объекты, которые будут связаны с кластером.
 
 Дополнительную информацию об использовании вторичных хранилищ больших двоичных объектов см. в разделе [Использование хранилища BLOB-объектов Azure с HDInsight](http://azure.microsoft.com/ru-ru/documentation/articles/hdinsight-use-blob-storage/).
 
-###Хранилище мета-данных
+### Хранилище мета-данных
 
 Хранилище мета-данных содержит информацию о таблицах Hive, разделах, схемах и т. д. Эта информация используется HIve для определения места расположения информации на HDFS (или WASB на HDInsight). По умолчанию Hive использует встроенную базу данных для хранения подобной информации.
 
@@ -50,7 +50,7 @@
 Вы можете устанавливать дополнительные компоненты или изменять настройку кластера во время создания кластера HDInsight. Настроить кластеры можно с помощью написания сценариев, которые выполняются в процессе создания кластеров. Такие сценарии вызываются с помощью **действия сценария**, которое является параметром конфигурации и может использоваться из командлетов HDInsight PowerShell или пакета SDK для HDInsight .NET. Дополнительную информацию см. в разделе [Customize HDInsight cluster using Script Action][hdinsight-customize-cluster] (Настройка кластера HDInsight с помощью действия сценария).
 
 
-###Виртуальная сеть
+### Виртуальная сеть
 
 [Виртуальная сеть Azure](http://azure.microsoft.com/ru-ru/documentation/services/virtual-network/) позволяет создать безопасную и стабильную сеть, в которой будут находиться все ресурсы, необходимые для успешного функционирования вашего решения. Виртуальная сеть позволит вам:
 
@@ -76,7 +76,7 @@
 >
 > Настоятельно рекомендуется назначать одну подсеть для одного кластера.
 
-##<a id="portal"></a> Использование портала управления Azure
+## <a id="portal"></a> Использование портала управления Azure
 
 Кластер HDInsight использует контейнер хранилища BLOB-объектов Azure в качестве файловой системы по умолчанию. Перед созданием кластера HDInsight необходимо создать учетную запись хранения Azure для того же центра обработки данных. Дополнительную информацию см. в статье [Использование хранилища BLOB-объектов Azure с HDInsight][hdinsight-storage]. Сведения о создании учетной записи хранения Azure см. в разделе [Создание учетной записи хранения][azure-create-storageaccount].
 
@@ -182,7 +182,7 @@
 
 	> [WACOM.NOTE] После выбора учетной записи хранения Azure для кластера HDInsight невозможно ни удалить учетную запись, ни изменить ее на другую.
 
-##<a id="powershell"></a> Использование Azure PowerShell
+## <a id="powershell"></a> Использование Azure PowerShell
 Azure PowerShell - это полнофункциональная среда сценариев, которую можно использовать для контроля и автоматизации развертывания рабочих нагрузок, а также управления ими в Azure. В этом разделе рассматривается подготовка кластера HDInsight. Информацию о настройке рабочей станции для запуска командлетов HDInsight Powershell см. в разделе [Установка и настройка Azure PowerShell][powershell-install-configure]. Дополнительную информацию об использовании PowerShell с HDInsight см. в разделе [Администрирование HDInsight с использованием PowerShell][hdinsight-admin-powershell]. Список командлетов HDInsight PowerShell см. в [справочнике по командлетам HDInsight][hdinsight-powershell-reference].
 
 > [WACOM.NOTE] Сценарии в этом разделе можно использовать для настройки кластеров HDInsight под виртуальную сеть Azure, однако саму виртуальную сеть они создать не смогут. За более подробной информацией о виртуальных сетях Azure обратитесь к разделу [Задачи конфигурации виртуальной сети](http://msdn.microsoft.com/ru-ru/library/azure/jj156206.aspx).
@@ -314,7 +314,7 @@ HDInsight использует контейнер хранилища BLOB-объ
 		Get-AzureHDInsightCluster -Name <ClusterName>
 
 
-##<a id="cli"></a> Использование кроссплатфомернной командной строки
+## <a id="cli"></a> Использование кроссплатфомернной командной строки
 
 > [WACOM.NOTE] Начиная с 29.08.2014 кроссплатформенный интерфейс командной строки не может использоваться для "связывания" кластера с виртуальной сетью Azure.
 
@@ -471,7 +471,7 @@ HDInsight использует контейнер хранилища BLOB-объ
 
 
 
-##<a id="sdk"></a> Использование пакета HDInsight .NET SDK
+## <a id="sdk"></a> Использование пакета HDInsight .NET SDK
 Пакет SDK для HDInsight .NET предоставляет клиентские библиотеки .NET, которые упрощают работу с кластерами HDInsight из приложения .NET.
 
 Для подготовки кластера HDInsight с использованием пакета SDK необходимы следующие процедуры:
@@ -589,7 +589,7 @@ HDInsight использует контейнер хранилища BLOB-объ
 
 
 
-##<a id="nextsteps"></a> Дальнейшие действия
+## <a id="nextsteps"></a> Дальнейшие действия
 В этой статье вы ознакомились с несколькими способами подготовки кластера HDInsight. Для получения дополнительных сведений ознакомьтесь со следующими статьями:
 
 * [Приступая к работе с Azure HDInsight][hdinsight-get-started] - узнайте, как начать работу с кластером HDInsight.

@@ -1,10 +1,11 @@
-﻿<properties urlDisplayName="Queue Service" pageTitle="Как использовать службу очередей (Python) - Microsoft Azure" metaKeywords="Azure Queue Service messaging Python" description="Вы узнаете, как использовать службы очередей Azure для создания и удаления очередей, вставки, получения и удаления сообщений. Примеры кода написаны на Python." metaCanonical="" services="storage" documentationCenter="Python" title="How to Use the Queue Storage Service from Python" authors="huvalo" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Queue Service" pageTitle="Как использовать службу очередей (Python) - Microsoft Azure" metaKeywords="Azure Queue Service messaging Python" description="Вы узнаете, как использовать службы очередей Azure для создания и удаления очередей, вставки, получения и удаления сообщений. Примеры кода написаны на Python." metaCanonical="" services="storage" documentationCenter="Python" title="How to Use the Queue Storage Service from Python" authors="huvalo" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/19/2014" ms.author="robmcm" />
 
 
 
-# Использование службы хранения очередей в Python В этом руководстве показано, как реализовать типичные сценарии с использованием службы хранения очередей Microsoft Azure. Эти примеры написаны с помощью Python API. Здесь описаны такие сценарии, как **вставка**, **просмотр**, **получение** и **удаление** сообщений очереди, а также **создание и удаление очередей**. Дополнительную информацию об очередях см. в разделе [Дальнейшие действия][].
+# Использование службы хранения очередей в Python 
+В этом руководстве показано, как реализовать типичные сценарии с использованием службы хранения очередей Microsoft Azure. Эти примеры написаны с помощью Python API. Здесь описаны такие сценарии, как **вставка**, **просмотр**, **получение** и **удаление** сообщений очереди, а также **создание и удаление очередей**. Дополнительную информацию об очередях см. в разделе [Дальнейшие действия][].
 
 ## Оглавление
 
@@ -103,7 +104,7 @@
 Теперь, когда вы ознакомились с основами использования хранилища очередей, следуйте приведенным ссылкам, чтобы узнать о том, как выполнять более сложные задачи хранения.
 
 -   См. справочник MSDN: [Хранение данных и доступ к ним в Azure][]
--   Посетите блог [группы разработчиков службы хранилища Azure][]
+-   Посетите блог [Блог группы разработчиков хранилища Azure][]
 
   [Дальнейшие действия]: #next-steps
   [Что такое хранилище очередей]: #what-is

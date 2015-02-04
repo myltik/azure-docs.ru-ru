@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Приступая к работе с push-уведомлениями (Appcelerator) | Центр мобильных разработок" metaKeywords="" description="Узнайте, как использовать мобильные службы Azure для отправки push-уведомлений в приложение Appcelerator." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Приступая к работе с push-уведомлениями (Appcelerator) | Центр мобильных разработок" metaKeywords="" description="Узнайте, как использовать мобильные службы Azure для отправки push-уведомлений в приложение Appcelerator." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="11/24/2014" ms.author="Appcelerator team;mahender" />
 
@@ -55,7 +55,7 @@
 
 Для создания модулей Android необходимо установить поддержку Java в Appcelerator Titanium Studio. См. раздел [Installing the Java Development Tools] (Установка инструментов разработки Java) для Appcelerator с кратким описанием необходимых действий, если вы этого еще не сделали.
 
-Кроме этого, понадобится установить пакет Android NDK. Скачайте соответствующий ZIP-файл, перейдя по ссылке [http://developer.android.com/sdk/ndk/index.html],(http://developer.android.com/sdk/ndk/index.html) и распакуйте его в любое место на диске. Запомните это местоположение. 
+Кроме этого, понадобится установить пакет Android NDK. Скачайте соответствующий ZIP-файл, перейдя по ссылке [http://developer.android.com/sdk/ndk/index.html](http://developer.android.com/sdk/ndk/index.html) и распакуйте его в любое место на диске. Запомните это местоположение. 
 
 ### Создание нового модуля
 
@@ -358,11 +358,11 @@
 
 5.	Для Android замените указанный выше код на следующий:
 
-       var request = {
-    	'text' : alertTextField.getValue(),
-    	'complete' : false,
-    	'handle' : Alloy.Globals.tempRegId
-    }; 
+           var request = {
+    	    'text' : alertTextField.getValue(),
+    	    'complete' : false,
+    	    'handle' : Alloy.Globals.tempRegId
+           }; 
     
     
 
@@ -377,11 +377,11 @@
 
 7.	Для iOS замените указанный выше код на следующий:
 
-       var request = {
-    	'text' : alertTextField.getValue(),
-    	'complete' : false,
-    	'deviceToken' : Alloy.Globals.tempRegId
-    };
+           var request = {
+    	    'text' : alertTextField.getValue(),
+    	    'complete' : false,
+    	    'deviceToken' : Alloy.Globals.tempRegId
+           };
     
  
 Приложение теперь обновлено и поддерживает push-уведомления на платформах iOS и Android.

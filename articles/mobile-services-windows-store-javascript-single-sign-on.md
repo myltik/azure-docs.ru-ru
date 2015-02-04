@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Authenticate with single sign-on" pageTitle="Аутентификация приложения с помощью Live Connect (JavaScript)" metaKeywords="Azure Live Connect, Azure SSO, SSO Live Connect, mobile services sso, Windows Store app sso, Azure JavaScript SSO" description="Узнайте, как использовать единый вход Live Connect в мобильных службах Azure из приложения Магазина Windows." metaCanonical="http://www.windowsazure.com/ru-ru/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/" services="mobile-services" documentationCenter="Mobile" title="Authenticate your Windows Store app with Live Connect single sign-on" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Authenticate with single sign-on" pageTitle="Аутентификация приложения с помощью Live Connect (JavaScript)" metaKeywords="Azure Live Connect, Azure SSO, SSO Live Connect, mobile services sso, Windows Store app sso, Azure JavaScript SSO" description="Узнайте, как использовать единый вход Live Connect в мобильных службах Azure из приложения Магазина Windows." metaCanonical="http://www.windowsazure.com/ru-ru/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/" services="mobile-services" documentationCenter="Mobile" title="Authenticate your Windows Store app with Live Connect single sign-on" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="11/22/2014" ms.author="glenga" />
 
@@ -24,13 +24,13 @@
 + Microsoft Visual Studio 2012 Express для Windows 8 RC или более поздней версии.
 + Также предварительно необходимо завершить учебник [Добавление мобильных служб для существующего приложения].
 
-##<a name="register"></a>Регистрация приложения для Магазина Windows
+## <a name="register"></a>Регистрация приложения для Магазина Windows
 
 Чтобы иметь возможность проверять подлинность пользователей, необходимо отправить свое приложение в Магазин Windows. Затем необходимо зарегистрировать секрет клиента для интеграции Live Connect с мобильными службами.
 
 [WACOM.INCLUDE [mobile-services-register-windows-store-app](../includes/mobile-services-register-windows-store-app.md)]
 
-##<a name="permissions"></a>Ограничение разрешений для пользователей, прошедших проверку подлинности
+## <a name="permissions"></a>Ограничение разрешений для пользователей, прошедших проверку подлинности
 
 [WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
 
@@ -43,7 +43,7 @@
 
 Далее приложение будет обновлено таким образом, что оно станет производить аутентификацию учетных данных пользователей, прежде чем запрашивать ресурсы из мобильной службы.
 
-##<a name="add-authentication"></a>Добавление аутентификации в приложение
+## <a name="add-authentication"></a>Добавление аутентификации в приложение
 
 1. Скачайте и установите пакет [Live SDK для Windows].
 

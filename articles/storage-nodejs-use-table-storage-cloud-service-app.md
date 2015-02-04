@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Web App with Storage" pageTitle="Веб-приложение с табличным хранилищем (Node.js) - Microsoft Azure" metaKeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" description="В этом коротком уроке вы научитесь создавать веб-приложение посредством добавления служб хранилища Azure и модуля Azure." metaCanonical="" services="cloud-services,storage" documentationCenter="nodejs" title="Node.js Web Application using Storage" authors="larryfr" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Web App with Storage" pageTitle="Веб-приложение с табличным хранилищем (Node.js) - Microsoft Azure" metaKeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" description="В этом коротком уроке вы научитесь создавать веб-приложение посредством добавления служб хранилища Azure и модуля Azure." metaCanonical="" services="cloud-services,storage" documentationCenter="nodejs" title="Node.js Web Application using Storage" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="mwasson" />
 
@@ -13,8 +13,7 @@
 
 Элементы задач хранятся в хранилище Azure. Хранилище Azure обеспечивает хранение неструктурированных данных с функциями отказоустойчивости и высокой доступности. Хранилище Azure включает в себя несколько структур данных, где можно хранить данные и осуществлять доступ к ним, кроме того, вы можете использовать службы хранилища с помощью API, включенных в состав пакета SDK для Azure для Node.js, или через REST API. Дополнительную информацию см. в разделе [Хранение данных и доступ к ним в Azure].
 
-Данный учебник предполагает, что завершили учебники[Веб-приложение Node.js
-] и [Node.js с использованием Express][Node.js Web Application using Express].
+Данный учебник предполагает, что завершили учебники[Веб-приложение Node.js] и [Node.js с использованием Express][Веб-приложение Node.js с использованием Express].
 
 Вы узнаете:
 
@@ -70,7 +69,7 @@
 
 		PS C:\node\tasklist\WebRole1> npm install azure-storage node-uuid async nconf --save
 
-	The output of this command should appear similar to the following:
+	Результат этой команды должен выглядеть аналогично следующему:
 
 		node-uuid@1.4.1 node_modules\node-uuid
 

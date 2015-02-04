@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Website with MongoDB VM" pageTitle="Веб-сайт .NET с MongoDB на виртуальной машине - Azure" metaKeywords="Azure Git ASP.NET MongoDB, Git .NET, Git MongoDB, ASP.NET MongoDB, Azure MongoDB, Azure ASP.NET, Azure tutorial" description="В этом учебнике показано, как использовать Git для развертывания приложения ASP.NET на веб-сайте Azure, подключенном к MongoDB на виртуальной машине." metaCanonical="" services="web-sites,virtual-machines" documentationCenter=".NET" title="Create an Azure website that connects to MongoDB running on a virtual machine in Azure" authors="cephalin" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Website with MongoDB VM" pageTitle="Веб-сайт .NET с MongoDB на виртуальной машине - Azure" metaKeywords="Azure Git ASP.NET MongoDB, Git .NET, Git MongoDB, ASP.NET MongoDB, Azure MongoDB, Azure ASP.NET, Azure tutorial" description="В этом учебнике показано, как использовать Git для развертывания приложения ASP.NET на веб-сайте Azure, подключенном к MongoDB на виртуальной машине." metaCanonical="" services="web-sites,virtual-machines" documentationCenter=".NET" title="Create an Azure website that connects to MongoDB running on a virtual machine in Azure" authors="cephalin" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/24/2014" ms.author="cephalin" />
 
@@ -359,7 +359,7 @@ MongoDB обеспечивает поддержку приложений C# на
 	<div>  @Html.Partial("Create", new MyTaskListApp.Models.MyTask())</div>
 
 
-To add the ability to create a new task, right-click the *Views\Home\\* folder and **Add** a **View**.  Name the view *Create*. Replace the code with the following:
+Чтобы добавить возможность создания новой задачи, щелкните правой кнопкой мыши папку Views\Home\\ и выберите **Добавить**, чтобы добавить **представление**.  Присвойте представлению имя *Create*. Замените код на приведенный ниже:
 
 	@model MyTaskListApp.Models.MyTask
 	

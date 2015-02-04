@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Приступая к работе с веб-сайтами Azure для ASP.NET" metaKeywords="" description="В данном учебнике демонстрируется, как создать веб-проект ASP.NET в Visual Studio 2013 и развернуть его на веб-сайте Azure. Менее чем за 15 минут вы получите приложение, которое работает в облаке." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Get started with Azure Websites and ASP.NET" authors="tdykstra"  solutions="" manager="wpickett" editor="mollybos"  />
+<properties pageTitle="Приступая к работе с веб-сайтами Azure для ASP.NET" metaKeywords="" description="В данном учебнике демонстрируется, как создать веб-проект ASP.NET в Visual Studio 2013 и развернуть его на веб-сайте Azure. Менее чем за 15 минут вы получите приложение, которое работает в облаке." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Get started with Azure Websites and ASP.NET" authors="tdykstra"  solutions="" manager="wpickett" editor="mollybos"  />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="hero-article" ms.date="11/12/2014" ms.author="tdykstra" />
 
@@ -272,9 +272,9 @@
 
 	Visual Studio can also generate Windows PowerShell scripts that enable you to automate deployment. For more information, see [Automate Everything (Building Real-World Cloud Apps with Azure)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything).
 
-* How to manage a website in Visual Studio
+* Управление веб-сайтом в Visual Studio
 
-	For information about site management functions that you can do in **Server Explorer**, see [Troubleshooting Azure Websites in Visual Studio](/ru-ru/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/).
+	Дополнительные сведения о функциях управления сайтом, которые можно использовать в  **Обозревателе сервера**, см. в разделе [Troubleshooting Azure Websites in Visual Studio](/ru-ru/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/).
 
 * Как устранить неполадки веб-сайта
 

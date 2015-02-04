@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="REST service using Web API" pageTitle="Служба .NET REST с использованием веб-API - учебник Azure" metaKeywords="Azure tutorial web site, ASP.NET API web site, Azure VS" description="Учебник, в котором показано развертывание приложения, использующего веб-API ASP.NET, на веб-сайте Azure с помощью Visual Studio." metaCanonical="" services="web-sites" documentationCenter=".NET" title="REST service using ASP.NET Web API and SQL Database" authors="riande" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="REST service using Web API" pageTitle="Служба .NET REST с использованием веб-API - учебник Azure" metaKeywords="Azure tutorial web site, ASP.NET API web site, Azure VS" description="Учебник, в котором показано развертывание приложения, использующего веб-API ASP.NET, на веб-сайте Azure с помощью Visual Studio." metaCanonical="" services="web-sites" documentationCenter=".NET" title="REST service using ASP.NET Web API and SQL Database" authors="riande" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/06/2014" ms.author="riande" />
 
@@ -35,7 +35,7 @@
 * [Добавление базы данных в приложение][adddb]
 * [Добавление контроллера и представления для данных][addcontroller]
 * [Добавление веб-интерфейса API Restful][addwebapi]
-* [Добавление защиты XSRF][]
+* [Добавление защиты XSRF]()
 * [Публикация обновления приложения в Azure и базе данных SQL][deploy2]
 
 <a name="bkmk_setupdevenv"></a>
@@ -571,7 +571,7 @@
                  bundles.Add(new StyleBundle("~/Content/css").Include(
                    "~/Content/bootstrap.css",
                    "~/Content/site.css"));
-To:
+на:
 
         bundles.Add(new StyleBundle("~/Content/css").Include(
                    "~/Content/bootstrap.css",

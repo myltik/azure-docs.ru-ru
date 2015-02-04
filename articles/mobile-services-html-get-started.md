@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Приступая к работе с мобильными службами Azure для приложений HTML 5" metaKeywords="" description="Этот учебник поможет приступить к использованию мобильных служб Azure для разработки приложений HTML. " metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Приступая к работе с мобильными службами Azure для приложений HTML 5" metaKeywords="" description="Этот учебник поможет приступить к использованию мобильных служб Azure для разработки приложений HTML. " metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="hero-article" ms.date="11/21/2014" ms.author="glenga" />
 
@@ -22,7 +22,7 @@
 
 <div class="dev-callout"><strong>Примечание.</strong> <p>Для работы с этим учебником требуется учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительную информацию см. в разделе <a href="http://www.windowsazure.com/ru-ru/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fru-ru%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F" target="_blank">Бесплатное пробное использование Azure</a>.</p></div>
 
-###Дополнительные требования
+### Дополнительные требования
 
 + В этом учебнике требуется наличие одного из следующих веб-серверов, запущенных на локальном компьютере:
 
@@ -150,8 +150,8 @@
 [Вызов настраиваемого API из приложения HTML]: /ru-ru/documentation/articles/mobile-services-html-call-custom-api 
 
 [Портал управления]: https://manage.windowsazure.com/
-[Установщик веб-платформы Майкрософт]:  http://go.microsoft.com/fwlink/p/?LinkId=286333
-[последняя версия Python]: http://go.microsoft.com/fwlink/p/?LinkId=286342
+[программой установки веб-платформы Майкрософт]:  http://go.microsoft.com/fwlink/p/?LinkId=286333
+[последнюю версию Python]: http://go.microsoft.com/fwlink/p/?LinkId=286342
 [Справочник принципов использования мобильных служб HTML/JavaScript]: /ru-ru/develop/mobile/how-to-guides/work-with-html-js-client
 [Общий доступ к ресурсам независимо от источника]: http://msdn.microsoft.com/ru-ru/library/windowsazure/dn155871.aspx
 

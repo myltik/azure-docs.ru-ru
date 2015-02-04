@@ -1,8 +1,8 @@
-﻿<properties title="SharePoint Server Farm" pageTitle="Ферма серверов SharePoint" description="Описывается новая функциональность фермы серверов SharePoint, доступная на портале предварительной версии Azure" metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="josephd" videoId="" scriptId="" manager="timlt"/>
+<properties title="SharePoint Server Farm" pageTitle="Ферма серверов SharePoint" description="Описывается новая функциональность фермы серверов SharePoint, доступная на портале предварительной версии Azure" metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="josephd" videoId="" scriptId="" manager="timlt"/>
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-sharepoint" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="josephd" />
 
-#Ферма серверов SharePoint
+# Ферма серверов SharePoint
 
 Благодаря ферме серверов SharePoint портал предварительной версии Microsoft Azure автоматически создает предварительно настроенную ферму SharePoint Server 2013. Это позволяет сэкономить много времени при необходимости использовать базовую или высокодоступную ферму SharePoint в среде разработки и тестирования или в ходе оценки SharePoint Server 2013 в качестве решения для совместной работы в рамках организации.
 
@@ -47,7 +47,7 @@
 - Портал предварительной версии Azure создает обе эти фермы только в облачной виртуальной сети с местом для веб-сайта, доступным из Интернета. Это не подключение VPN типа "сеть-сеть" назад к сети вашей организации. 
 - Данные серверы можно администрировать через подключения удаленных рабочих столов.
 
-##Пошаговая настройка
+## Пошаговая настройка
 
 Чтобы создать ферму SharePoint с помощью SharePoint Farm, выполните следующие действия:
 
@@ -63,7 +63,7 @@
 10. Чтобы определить местоположение (регион), щелкните стрелку.
 11. Когда будете готовы, щелкните **Создать**.
 
-##Диспетчер ресурсов Azure
+## Диспетчер ресурсов Azure
 
 Ферма серверов SharePoint использует диспетчер ресурсов Azure и скрипты для автоматического создания инфраструктуры и конфигураций серверов для этих ферм SharePoint. Дополнительную информацию см. в статье [Использование Windows PowerShell с диспетчером ресурсов](http://azure.microsoft.com/ru-ru/documentation/articles/powershell-azure-resource-manager/).
 
