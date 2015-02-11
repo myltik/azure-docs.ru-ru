@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Shared Access Signature Part 1" pageTitle="Регистрация пакета приложения для магазина Windows для проверки подлинности Microsoft" metaKeywords="" description="Узнайте, как зарегистрировать приложение магазина Windows для прохождения аутентификации Майкрософт в приложении мобильных служб Azure" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Register your Windows Store app package for Microsoft authentication" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Shared Access Signature Part 1" pageTitle="Регистрация пакета приложения для магазина Windows для проверки подлинности Microsoft" metaKeywords="" description="Узнайте, как зарегистрировать приложение магазина Windows для прохождения аутентификации Майкрософт в приложении мобильных служб Azure" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Register your Windows Store app package for Microsoft authentication" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga" />
 
@@ -21,7 +21,7 @@
 <!-- URLs. -->
 [Приступая к работе с push-уведомлениями]: /ru-ru/develop/mobile/tutorials/get-started-with-push-dotnet/
 [Аутентификация приложения для Магазина Windows с помощью единого входа Live Connect]: /ru-ru/develop/mobile/tutorials/single-sign-on-windows-8-dotnet
-[Get started with users C#] (Начало работы с пользователями для C#): /ru-ru/develop/mobile/tutorials/get-started-with-users-dotnet/
-[Get started with users JavaScript] (Начало работы с пользователями для JavaScript): /ru-ru/develop/mobile/tutorials/get-started-with-users-js/
+[Get started with users C#]: /ru-ru/develop/mobile/tutorials/get-started-with-users-dotnet/
+[Get started with users JavaScript]: /ru-ru/develop/mobile/tutorials/get-started-with-users-js/
 
 <!--HONumber=35.1-->

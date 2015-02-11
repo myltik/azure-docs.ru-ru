@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Приступая к работе с концентраторами событий" metaKeywords="Azure Service Bus, Event Hub, getting started Event Hubs" description="Следуйте указаниям этого учебника, чтобы приступить к использованию концентраторов событий Azure в C# с помощью EventProcessorHost" metaCanonical="" services="" documentationCenter="" title="Get Started with Event Hubs" authors="elioda" solutions="" manager="timlt" editor="" />
+<properties pageTitle="Приступая к работе с концентраторами событий" metaKeywords="Azure Service Bus, Event Hub, getting started Event Hubs" description="Следуйте указаниям этого учебника, чтобы приступить к использованию концентраторов событий Azure в C# с помощью EventProcessorHost" metaCanonical="" services="" documentationCenter="" title="Get Started with Event Hubs" authors="elioda" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="service-bus" ms.workload="core" ms.tgt_pltfrm="csharp" ms.devlang="csharp" ms.topic="hero-article" ms.date="10/27/2014" ms.author="elioda" />
 
@@ -77,8 +77,9 @@
 [22]: ./media/service-bus-event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs2.png
 
 <!-- Links -->
-[Портал управления Azure]: https://manage.windowsazure.com/
-[Event Processor Host] (Библиотека Event Processor Host): https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Event Hubs Overview] (Обзор концентраторов событий): http://msdn.microsoft.com/ru-ru/library/azure/dn836025.aspx
+[портал управления Azure]: https://manage.windowsazure.com/
+[Event Processor Host(Библиотека Event Processor Host)]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
+[Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
+[Event Hubs Overview(Обзор концентраторов событий)]: http://msdn.microsoft.com/ru-ru/library/azure/dn836025.aspx
 
 <!--HONumber=35.1-->

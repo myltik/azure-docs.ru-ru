@@ -1,11 +1,11 @@
-﻿<properties urlDisplayName="Log on to a VM" pageTitle="Вход в виртуальную машину под управлением Linux в Azure" metaKeywords="Azure Linux vm, Linux SSH" description="Узнайте, как войти в виртуальную машину Azure под управлением Linux, используя клиент Secure Shell (SSH)." metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Log on to a Virtual Machine Running Linux" authors="kathydav" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="Log on to a VM" pageTitle="Вход в виртуальную машину под управлением Linux в Azure" metaKeywords="Azure Linux vm, Linux SSH" description="Узнайте, как войти в виртуальную машину Azure под управлением Linux, используя клиент Secure Shell (SSH)." metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Log on to a Virtual Machine Running Linux" authors="kathydav" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="11/12/2014" ms.author="kathydav" />
 
 
 
 
-#Как войти в виртуальную машину под управлением Linux
+# Как войти в виртуальную машину под управлением Linux
 
 Для входа на виртуальную машину под управлением операционной системы Linux используется клиент SSH.
 
@@ -32,11 +32,11 @@
 
 	![Log on to the virtual machine](./media/virtual-machines-linux-how-to-log-on/sshlogin.png)
 
->[WACOM.NOTE] Расширение VMAccess поможет вам сбросить значения ключа или пароля SSH, если вы их забыли. Если вы забыли имя пользователя, то можете воспользоваться этим расширением для создания нового имени с полномочиями sudo. Указания см. в разделе [How to Reset a Password or SSH for Linux Virtual Machines] (Как сбросить пароль или ключ SSH в виртуальных машинах Linux). 
+>[WACOM.NOTE] Расширение VMAccess поможет вам сбросить значения ключа или пароля SSH, если вы их забыли. Если вы забыли имя пользователя, то можете воспользоваться этим расширением для создания нового имени с полномочиями sudo. Указания см. в разделе [Как сбросить пароль или ключ SSH в виртуальных машинах Linux]. 
 	
 Теперь вы сможете работать с виртуальной машиной, так же как и с любым сервером.
 
 <!-- LINKS -->
-[How to Reset a Password or SSH for Linux Virtual Machines] (Как сбросить пароль или ключ SSH в виртуальных машинах Linux): http://go.microsoft.com/fwlink/p/?LinkId=512138
+[Как сбросить пароль или ключ SSH в виртуальных машинах Linux]: http://go.microsoft.com/fwlink/p/?LinkId=512138
 
 <!--HONumber=35.1-->

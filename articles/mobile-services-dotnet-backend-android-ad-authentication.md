@@ -1,4 +1,4 @@
-﻿<properties linkid="develop-mobile-tutorials-sso-android" urlDisplayName="Active Directory SSO Authentication with ADAL" pageTitle="Вход в систему и доступ к ресурсам с помощью Active Directory (Android) | Центр мобильных разработок" metaKeywords="" description="Узнайте, как добавить проверку подлинности в приложение с помощью Active Directory" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Authenticate your app with Active Directory" authors="wesmc,mahender" />
+<properties linkid="develop-mobile-tutorials-sso-android" urlDisplayName="Active Directory SSO Authentication with ADAL" pageTitle="Вход в систему и доступ к ресурсам с помощью Active Directory (Android) | Центр мобильных разработок" metaKeywords="" description="Узнайте, как добавить проверку подлинности в приложение с помощью Active Directory" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Authenticate your app with Active Directory" authors="wesmc,mahender" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.topic="article" ms.date="11/21/2014" ms.author="mahender" />
 
@@ -11,9 +11,9 @@
 <a href="/ru-ru/documentation/articles/mobile-services-dotnet-backend-android-ad-authentication" title="Android" class="current">Android</a>
 </div>
 
-Узнайте об аутентификации для приложений и доступе к ресурсам с помощью Active Directory. Ознакомьтесь с учебником Криса Ризнера (Chris Risner) [Accessing Resources Secured by Azure Active Directory with iOS and Android] (Доступ к ресурсам, защищенным с помощью Azure Active Directory, на платформах iOS и Android).
+Узнайте об аутентификации для приложений и доступе к ресурсам с помощью Active Directory. Ознакомьтесь с учебником Криса Ризнера (Chris Risner) [Accessing Resources Secured by Azure Active Directory with iOS and Android][] (Доступ к ресурсам, защищенным с помощью Azure Active Directory, на платформах iOS и Android).
 
 <!-- URLs. -->
-[Accessing Resources Secured by Azure Active Directory with iOS and Android] (Доступ к ресурсам, защищенным с помощью Azure Active Directory, на платформах iOS и Android): http://chrisrisner.com/Accessing-Resources-Secured-by-Azure-Active-Directory-with-iOS-and-Android
+[Accessing Resources Secured by Azure Active Directory with iOS and Android]: http://chrisrisner.com/Accessing-Resources-Secured-by-Azure-Active-Directory-with-iOS-and-Android
 
 <!--HONumber=35.1-->

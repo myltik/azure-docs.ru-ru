@@ -1,34 +1,34 @@
-﻿<properties urlDisplayName="Capture an image" pageTitle="Запись образа виртуальной машины под управлением Windows Server" metaKeywords="Azure capture image vm, capturing vm" description="Узнайте, как записать образ виртуальной машины (ВМ) Azure под управлением Windows Server 2008 R2. " metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Capture an Image of a Virtual Machine Running Windows Server" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
+<properties urlDisplayName="Capture an image" pageTitle="Запись образа виртуальной машины под управлением Windows Server" metaKeywords="Azure capture image vm, capturing vm" description="Узнайте, как записать образ виртуальной машины (ВМ) Azure под управлением Windows Server 2008 R2. " metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Capture an Image of a Virtual Machine Running Windows Server" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="11/24/2014" ms.author="kathydav" />
 
-#Как записать виртуальную машину Windows, чтобы использовать в качестве шаблона
+# Как записать виртуальную машину Windows, чтобы использовать в качестве шаблона
 
 В этой статье показано, как записать виртуальную машину Azure под управлением Windows, чтобы использовать ее в качестве шаблона при создании других виртуальных машин. Данный шаблон виртуальной машины включает в себя диск операционной системы и прочие диски данных, присоединенные к виртуальной машине. Он не включает в себя сетевую конфигурацию, поэтому ее необходимо настроить при создании других виртуальных машин, использующих шаблон.
 
 Microsoft Azure воспринимает этот шаблон как образ и хранит его в папке **Мои образы**. В этой папке также хранятся все переданные вами образы. Дополнительную информацию об образах см. в разделе [Образы виртуальных машин в Azure] [].
 
-##Перед началом работы
+## Перед началом работы
 
 В шагах этой статьи предполагается, что вы уже создали виртуальную машину Azure и настроили операционную систему, а также присоединили диски данных. Если это еще не сделано, см. данные указания:
 
 - [Создание настраиваемой виртуальной машины] []
 - [Как присоединить диск данных к виртуальной машине] []
 
-##Запись виртуальной машины
+## Запись виртуальной машины
 
 1. Подключитесь к виртуальной машине, щелкнув **Подключить** на панели команд. Дополнительную информацию см. в разделе [Как войти в виртуальную машину под управлением Windows Server] [].
 
 2.	Откройте окно командной строки с правами администратора.
 
 
-3.	Измените каталог на %windir%\system32\sysprep и запустите файл sysprep.exe.
+3.	Измените каталог на `%windir%\system32\sysprep` и запустите файл sysprep.exe.
 
 
 4. 	Откроется диалоговое окно **Программа подготовки системы**. Выполните следующее:
 
 
-	- В разделе **Действие по очистке системы** выберите **Запуск при первом включении компьютера (OOBE)** и убедитесь, что установлен флажок **Обобщить**. Дополнительную информацию об использовании Sysprep см. в разделе [How to Use Sysprep: An Introduction][] (Как использовать Sysprep: введение).
+	- В разделе **Действие по очистке системы** выберите **Запуск при первом включении компьютера (OOBE)** и убедитесь, что установлен флажок **Обобщить**. Дополнительную информацию об использовании Sysprep см. в разделе [How to Use Sysprep: An Introduction (Как использовать Sysprep: введение)][] .
 
 	- В разделе **Параметры завершения работы** выберите **Завершение работы**.
 
@@ -57,7 +57,7 @@ Microsoft Azure воспринимает этот шаблон как образ
 
 	![Image capture successful](./media/virtual-machines-capture-image-windows-server/VMCapturedImageAvailable.png)
 
-##Дальнейшие действия
+## Дальнейшие действия
 Образ готов к использованию в качестве шаблона для создания виртуальных машин. Для этого создайте настраиваемую виртуальную машину **Из коллекции** и выберите образ, который вы только что создали. Указания см. в разделе [Создание настраиваемой виртуальной машины] [].
 
 	
@@ -65,7 +65,7 @@ Microsoft Azure воспринимает этот шаблон как образ
 [Создание настраиваемой виртуальной машины]: ../virtual-machines-create-custom/
 [Как присоединить диск данных к виртуальной машине]: ../storage-windows-attach-disk/
 [Как войти в виртуальную машину под управлением Windows Server]:http://www.windowsazure.com/ru-ru/manage/windows/how-to-guides/log-on-a-windows-vm/
-[How to Use Sysprep: An Introduction] (Как использовать Sysprep: введение): http://technet.microsoft.com/ru-ru/library/bb457073.aspx
+[How to Use Sysprep: An Introduction (Как использовать Sysprep: введение)]: http://technet.microsoft.com/ru-ru/library/bb457073.aspx
 [Запуск Sysprep.exe]: ./media/virtual-machines-capture-image-windows-server/SysprepCommand.png
 [Ввод параметров Sysprep.exe]: ./media/virtual-machines-capture-image-windows-server/SysprepGeneral.png
 [Виртуальная машина остановлена]: ./media/virtual-machines-capture-image-windows-server/SysprepStopped.png
