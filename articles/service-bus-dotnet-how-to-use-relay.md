@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Service Bus Relay" pageTitle="Использование ретранслятора служебной шины (.NET) - Azure" metaKeywords="начало работы со службой ретранслятора служебной шины azure C# " description="Узнайте, как использовать службу ретрансляции Azure Service Bus для соединения двух приложений, размещенных в разных расположениях." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use the Service Bus Relay Service" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+<properties urlDisplayName="Service Bus Relay" pageTitle="Использование ретранслятора служебной шины (.NET) - Azure" metaKeywords="начало работы со службой ретранслятора служебной шины azure C# " description="Узнайте, как использовать службу ретрансляции Azure Service Bus для соединения двух приложений, размещенных в разных расположениях." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use the Service Bus Relay Service" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
 <tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
@@ -259,10 +259,10 @@ With the contract in place, the implementation is trivial:
   [Получение учетных данных управления по умолчанию для пространства имен]: #obtain_credentials
   [Получение пакета NuGet для служебной шины]: #get_nuget_package
   [Практическое руководство. Использование служебной шины для предоставления и использования веб-службы SOAP с помощью TCP]: #how_soap
-  [Портал управления Azure]: http://manage.windowsazure.com
+  [портал управления Azure]: http://manage.windowsazure.com
   [Проверка подлинности подписанного URL-адреса с помощью служебной шины]: http://msdn.microsoft.com/ru-ru/library/dn170477.aspx
-  [Создание службы для служебной шины]: http://msdn.microsoft.com/ru-ru/library/windowsazure/ee173564.aspx
-  [Создание клиентского приложения служебной шины]: http://msdn.microsoft.com/ru-ru/library/windowsazure/ee173543.aspx
+  [создание службы для служебной шины]: http://msdn.microsoft.com/ru-ru/library/windowsazure/ee173564.aspx
+  [создание клиентского приложения служебной шины]: http://msdn.microsoft.com/ru-ru/library/windowsazure/ee173543.aspx
   [Примеры Azure]: http://code.msdn.microsoft.com/windowsazure
 
 <!--HONumber=35.2-->

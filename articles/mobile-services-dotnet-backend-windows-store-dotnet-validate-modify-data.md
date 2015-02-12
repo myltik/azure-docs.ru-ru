@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Validate and Modify Data" pageTitle="Использование серверной части .Net для проверки и изменения данных (Магазин Windows) | Центр разработчиков для мобильных устройств" metaKeywords="" description="Узнайте, как проверять, изменять и улучшать данные для приложения Магазина Windows с помощью мобильных служб Microsoft Azure с серверной частью .NET." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using the .Net backend" authors="wesmc" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Validate and Modify Data" pageTitle="Использование серверной части .Net для проверки и изменения данных (Магазин Windows) | Центр разработчиков для мобильных устройств" metaKeywords="" description="Узнайте, как проверять, изменять и улучшать данные для приложения Магазина Windows с помощью мобильных служб Microsoft Azure с серверной частью .NET." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using the .Net backend" authors="wesmc" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 
@@ -18,14 +18,14 @@
 
 Этот учебник основан на инструкциях и примере приложения предыдущего учебника [Приступая к работе] или [Приступая к работе с данными]. Перед работой с этим учебником необходимо сначала пройти учебник [Приступая к работе] или [Приступая к работе с данными].  
 
-## <a name="string-length-validation"></a>Add validation
+## <a name="string-length-validation"></a>Добавление проверки
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-add-validation](../includes/mobile-services-dotnet-backend-add-validation.md)]
 
 
-## <a name="update-client-validation"></a>Update the client
+## <a name="update-client-validation"></a>Обновление клиента
 
-Теперь, когда мобильная служба настроена для проверки данных и отправки сообщений об ошибках при недопустимой длине текста, необходимо обновить приложение для обработки сообщений об ошибках, полученных при выполнении проверки. Ошибка будет перехвачена как исключение MobileServiceInvalidOperationException из вызова метода IMobileServiceTable<TodoItem].InsertAsync() в клиентском приложении.
+Теперь, когда мобильная служба настроена для проверки данных и отправки сообщений об ошибках при недопустимой длине текста, необходимо обновить приложение для обработки сообщений об ошибках, полученных при выполнении проверки. Ошибка будет перехвачена как исключение `MobileServiceInvalidOperationException` из вызова метода `IMobileServiceTable<TodoItem].InsertAsync()` в клиентском приложении.
 
 1. В обозревателе решений в Visual Studio перейдите в проект клиентского приложения и откройте файл MainPage.xaml.cs. Добавьте следующие инструкции **using** в этот файл:
 
@@ -74,19 +74,19 @@
 
     ![][2]
 
-## <a name="add-timestamp"></a>Add a timestamp field for CompleteDate
+## <a name="add-timestamp"></a>Добавление метки времени для CompleteDate
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-add-completedate](../includes/mobile-services-dotnet-backend-add-completedate.md)]
 
 
 
 
-## <a name="update-client-timestamp"></a>Update the client to display the CompleteDate
+## <a name="update-client-timestamp"></a>Обновление клиента для отображения CompleteDate
 
 Последний шаг - обновление клиента с целью отображения новых данных **CompleteDate**. 
 
 
-1. В обозревателе решений в Visual Studio откройте проект клиентского приложения ToDoList, откройте файл MainPage.xaml и замените в нем элемент **CheckBoxComplete** показанным ниже определением. Затем сохраните файл. При этом обработчик событий элемента **CheckBoxComplete** изменится так, чтобы можно было обработать событие "click". Кроме того, мы добавляем блок текста рядом с флажком и привязываем его к временной метке даты завершения.
+1. В обозревателе решений в Visual Studio откройте проект клиентского приложения ToDoList, откройте файл MainPage.xaml и замените в нем элемент **CheckBoxComplete** показанным ниже определением. Затем сохраните файл. При этом обработчик событий элемента **CheckBoxComplete** изменится так, чтобы можно было обработать событие `click`. Кроме того, мы добавляем блок текста рядом с флажком и привязываем его к временной метке даты завершения.
 	      
         <CheckBox Name="CheckBoxComplete" IsChecked="{Binding Complete, Mode=TwoWay}" 
           Click="CheckBoxComplete_Clicked" Content="{Binding Text}" Margin="10,5" VerticalAlignment="Center"/>
@@ -191,7 +191,7 @@
 <!-- URLs. -->
 [Приступая к работе с мобильными службами]: /ru-ru/develop/mobile/tutorials/get-started/#create-new-service
 [Авторизация пользователей на стороне службы]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts/
-[Уточнение запросов посредством разбиения по страницам]: /ru-ru/develop/mobile/tutorials/add-paging-to-data-dotnet
+[Уточнение запросов с постраничным просмотром]: /ru-ru/develop/mobile/tutorials/add-paging-to-data-dotnet
 [Приступая к работе]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
 [Приступая к работе с данными]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/
 [Приступая к работе с аутентификацией]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/

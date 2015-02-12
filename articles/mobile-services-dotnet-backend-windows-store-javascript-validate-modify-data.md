@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Validate and Modify Data" pageTitle="Использование серверной части .Net для проверки и изменения данных (Магазин Windows) | Центр разработчиков для мобильных устройств" metaKeywords="" description="Узнайте, как проверять, изменять и улучшать данные для приложения JavaScript Магазина Windows с помощью мобильных служб Microsoft Azure c серверной частью .NET." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using the .Net backend" authors="wesmc" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Validate and Modify Data" pageTitle="Использование серверной части .Net для проверки и изменения данных (Магазин Windows) | Центр разработчиков для мобильных устройств" metaKeywords="" description="Узнайте, как проверять, изменять и улучшать данные для приложения JavaScript Магазина Windows с помощью мобильных служб Microsoft Azure c серверной частью .NET." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using the .Net backend" authors="wesmc" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/26/2014" ms.author="wesmc" />
 
@@ -143,10 +143,10 @@
 
 <!-- Anchors. -->
 [Добавление проверки длины строки]: #string-length-validation
-[Обновление клиента с целью поддержки проверки]: #update-client-validation
+[Обновление клиента для поддержки проверки]: #update-client-validation
 [Проверка длины теста]: #test-length-validation
-[Добавление поля метки времени для CompleteDate]: #add-timestamp
-[Обновление клиента с целью отображения CompleteDate]: #update-client-timestamp
+[Добавление метки времени для CompleteDate]: #add-timestamp
+[Обновление клиента для отображения CompleteDate]: #update-client-timestamp
 [Следующие шаги]: #next-steps
 
 <!-- Images. -->
@@ -160,7 +160,7 @@
 <!-- URLs. -->
 [Приступая к работе с мобильными службами]: /ru-ru/develop/mobile/tutorials/get-started/#create-new-service
 [Авторизация пользователей на стороне службы]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-authorize-users-in-scripts/
-[Уточнение запросов посредством разбиения на страницы]: /ru-ru/develop/mobile/tutorials/add-paging-to-data-dotnet
+[Уточнение запросов с постраничным просмотром]: /ru-ru/develop/mobile/tutorials/add-paging-to-data-dotnet
 [Приступая к работе]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started/
 [Знакомство с механизмом проверки подлинности]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users/
 [Приступая к работе с push-уведомлениями]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/
@@ -168,4 +168,4 @@
 
 [Портал управления]: https://manage.windowsazure.com/
 [Портал управления Azure]: https://manage.windowsazure.com/
-[Концептуальный справочник по мобильным службам на платформе .NET]: /ru-ru/develop/mobile/how-to-guides/work-with-net-client-library
+[Справочник принципов использования мобильных служб .NET]: /ru-ru/develop/mobile/how-to-guides/work-with-net-client-library

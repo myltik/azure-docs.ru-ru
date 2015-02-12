@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Linux Agent guide" pageTitle="Руководство пользователя агента Linux для Azure" metaKeywords="" description="Узнайте, как установить и настроить агент Linux (waagent) для управления взаимодействием виртуальной машины с Azure Fabric Controller." metaCanonical="" services="virtual-machines" documentationCenter="" title="Azure Linux Agent User Guide" authors="szarkos" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="Linux Agent guide" pageTitle="Руководство пользователя агента Linux для Azure" metaKeywords="" description="Узнайте, как установить и настроить агент Linux (waagent) для управления взаимодействием виртуальной машины с Azure Fabric Controller." metaCanonical="" services="virtual-machines" documentationCenter="" title="Azure Linux Agent User Guide" authors="szarkos" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="szarkos" />
 
@@ -105,7 +105,7 @@
 
  * Any existing configuration file is moved to /etc/waagent.conf.old
 
- * Detects kernel version and applies the VNUMA workaround if necessary
+ * Определяет версию ядра и применяет
 
  * Moves udev rules that may interfere with networking (/lib/udev/rules.d/75-persistent-net-generator.rules, /etc/udev/rules.d/70-persistent-net.rules) в /var/lib/waagent/  
 

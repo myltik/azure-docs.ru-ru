@@ -1,4 +1,4 @@
-﻿<properties linkid="develop-mobile-tutorials-get-started-with-push-android" urlDisplayName="Get Started with Push (Android)" pageTitle="Приступая к работе с push-уведомлениями (Android) | Центр разработчиков мобильных устройств" metaKeywords="" description="Узнайте, как использовать мобильные службы Azure для отправки push-уведомлений в приложение Android." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="ricksal" solutions="" manager="dwrede" editor="" />
+<properties linkid="develop-mobile-tutorials-get-started-with-push-android" urlDisplayName="Get Started with Push (Android)" pageTitle="Приступая к работе с push-уведомлениями (Android) | Центр разработчиков мобильных устройств" metaKeywords="" description="Узнайте, как использовать мобильные службы Azure для отправки push-уведомлений в приложение Android." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="ricksal" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
 
@@ -263,7 +263,7 @@
 
 <!-- Images. -->
 
-<google-developers.png
+[1]: ./media/mobile-services-android-get-started-push/mobile-services-google-developers.png
 [2]: ./media/mobile-services-android-get-started-push/mobile-services-google-create-server.png
 [3]: ./media/mobile-services-android-get-started-push/mobile-services-google-create-server2.png
 [4]: ./media/mobile-services-android-get-started-push/mobile-services-google-create-server3.png
@@ -292,11 +292,11 @@
 [Настройка пакета SDK служб Google Play]: http://go.microsoft.com/fwlink/?LinkId=389801
 [Ссылки на проект библиотеки]: http://go.microsoft.com/fwlink/?LinkId=389800
 [Android SDK для мобильных служб]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
-[Приступая к работе с мобильными службами]: /ru-ru/develop/mobile/tutorials/get-started-android
+[Начало работы с мобильными службами]: /ru-ru/develop/mobile/tutorials/get-started-android
 [Приступая к работе с данными]: /ru-ru/develop/mobile/tutorials/get-started-with-data-android
 [Приступая к работе с аутентификацией]: /ru-ru/develop/mobile/tutorials/get-started-with-users-android
 [Приступая к работе с push-уведомлениями]: /ru-ru/develop/mobile/tutorials/get-started-with-push-android
-[Push-уведомлений для пользователей приложений]: /ru-ru/develop/mobile/tutorials/push-notifications-to-users-android
+[Принудительная отправка уведомлений пользователям приложения]: /ru-ru/develop/mobile/tutorials/push-notifications-to-users-android
 [Авторизация пользователей с помощью скриптов]: /ru-ru/develop/mobile/tutorials/authorize-users-android
 
 [Портал управления Azure]: https://manage.windowsazure.com/
