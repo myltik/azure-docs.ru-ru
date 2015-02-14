@@ -1,7 +1,7 @@
 ﻿## Отправка сообщений концентраторам событий
 В этом разделе создается консольное приложение Windows для отправки событий в концентратор событий.
 
-1. Создайте в Visual Studio новый проект приложения C# для настольных ПК с помощью шаблона **Консольное приложение**. Присвойте проекту имя **Sender**.
+1. Создайте в Visual Studio новый проект приложения C# для настольных ПК с помощью шаблона **Консольное приложение**. Назовите проект **Sender**.
 
    	![][7]
 
@@ -9,17 +9,17 @@
 
 	При этом отобразится диалоговое окно "Управление пакетами NuGet".
 
-3. Найдите Microsoft Azure Service Bus, а затем выберите **Установка** и примите условия использования. 
+3. Выполните поиск `Microsoft Azure Service Bus` и щелкните **Установить**, после чего примите условия использования. 
 
 	![][8]
 
-	После этого будут выполнены загрузка, установка и добавление ссылки на <a href="https://www.nuget.org/packages/WindowsAzure.ServiceBus/">пакет NuGet библиотеки Azure Service Bus</a>.
+	После этого будут выполнены скачивание, установка и добавление ссылки на <a href="https://www.nuget.org/packages/WindowsAzure.ServiceBus/">пакет NuGet библиотеки служебной шины Azure</a>.
 
-4. Добавьте следующую инструкцию using в начало файла **Program.cs**:
+4. Добавьте следующий оператор `using` в начало файла **Program.cs**:
 
 		using Microsoft.ServiceBus.Messaging;
 
-5. Добавьте следующие поля static к классу **Program**, заменяя значения именем концентратора событий, созданного в предыдущем разделе, и строку подключения с правами на **отправку**:
+5. Добавьте следующие поля `static` в класс **Program**, заменяя значения именем концентратора событий, созданного в предыдущем разделе, и строку подключения с правами на **отправку**:
 
 		static string eventHubName = "{event hub name}";
         static string connectionString = "{send connection string}";
@@ -60,4 +60,4 @@
 
 <!-- Images -->
 [7]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
-[8]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp2.png
+[8]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp2.png<!--HONumber=42-->

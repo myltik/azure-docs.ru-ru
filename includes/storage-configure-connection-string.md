@@ -1,7 +1,9 @@
+﻿## <a name="setup-connection-string"> </a>Настройка строки подключения к хранилищу
+
 Библиотека клиента хранилища Azure для .NET поддерживает использование строки подключения для настройки конечных точек и учетных данных для доступа к службам хранилища. Рекомендуется хранить строку подключения хранилища в файле конфигурации, а не встраивать ее в приложение. Вы можете сохранить строку подключения двумя способами.
 
--   Если приложение запущено в облачной службе Azure, сохраните строку подключения с помощью системы конфигурации службы Azure (файлы `*.csdef` и `*.cscfg`).
--   Если приложение запущено в виртуальных машинах Azure или вы создаете приложения .NET, которые будут запускаться за пределами Azure, сохраните строку подключения, используя систему конфигурации .NET (например, файл `web.config` или `app.config`).
+- Если приложение запущено в облачной службе Azure, сохраните строку подключения с помощью системы конфигурации службы Azure (файлы`*.csdef` и `*.cscfg`).
+- Если приложение запущено в виртуальных машинах Azure или вы создаете приложения .NET, которые будут запускаться за пределами Azure, сохраните строку подключения, используя систему конфигурации .NET (например, файл `web.config` или `app.config`).
 
 Далее в этом учебнике будет показано, как получить строку подключения из кода.
 
@@ -11,64 +13,53 @@
 
 Настройка строки подключения в конфигурации службы Azure.
 
-1.  В обозревателе решений Visual Studio щелкните правой кнопкой мыши веб-роль или рабочую роль в папке **Роли**
-    проекта развертывания Azure
-    и нажмите кнопку **Свойства**.
-    ![Выбор свойств в роли облачной службы в Visual Studio][Выбор свойств в роли облачной службы в Visual Studio]
+1.  В обозревателе решений Visual Studio щелкните правой кнопкой мыши веб-роль или рабочую роль в папке **Роли** вашего проекта развертывания Azure и выберите **Свойства**.  
+    ![Select the properties on a Cloud Service role in Visual Studio][connection-string1]
 
-2.  Откройте вкладку **Параметры** и нажмите кнопку **Добавить параметр**.
-    ![Добавление параметра облачной службы в Visual Studio][Добавление параметра облачной службы в Visual Studio]
+2.  Откройте вкладку **Параметры** и нажмите кнопку **Добавить параметр**.  
+    ![Add a Cloud Service setting in visual Studio][connection-string2]
+ В таблице параметров появится новая запись **Setting1**.
 
-    В таблице параметров появится новая запись **Setting1**.
+3.  В раскрывающемся списке **Тип** новой записи **Setting1** выберите **Строка подключения**.  
+    ![Set connection string type][connection-string3]
 
-3.  В раскрывающемся списке **Тип** новой записи **Параметр1** выберите
-    **Строка подключения**.
-    ![Установка типа строки подключения][Установка типа строки подключения]
+4.  Нажмите кнопку **...** в правой части записи **Setting1**. Откроется диалоговое окно **Строка подключения учетной записи хранения**.
 
-4.  Нажмите кнопку **...** в правом конце записи **Параметр1**.
-    Откроется диалоговое окно **Строка подключения учетной записи хранения**.
+5.  Выберите для использования целевой эмулятор (хранилище Microsoft Azure, смоделированное на локальном компьютере) или учетную запись хранения в облаке. Код, представленный в этом руководстве, работает в любом случае. Введите **Первичный ключ доступа**, скопированный на предыдущем шаге этого учебника, чтобы указать учетную запись хранения, созданную ранее в Azure.
 
-5.  Выберите для использования целевой эмулятор хранилища (хранилище Windows
-    Azure, смоделированное на локальном компьютере) или учетную запись
-    хранения в облаке. Код, представленный в этом руководстве, работает в
-    любом случае. Введите **Первичный ключ доступа**, скопированный на
-    предыдущем шаге этого учебника, чтобы указать
-    учетную запись хранения, созданную ранее в Azure.
+	> [AZURE.NOTE] Вы можете указать эмулятор хранилища, чтобы избежать затрат, связанных со службой хранилища Microsoft Azure. Однако если вы выберете учетную запись хранения Azure в облаке, затраты на выполнение заданий в учебнике будут незначительны.
+	
+    ![Select target environment][connection-string4]
 
-    > [WACOM.NOTE] Вы можете указать эмулятор хранилища, чтобы избежать затрат, связанных с хранилищем Windows Azure. Однако если вы выберете учетную запись хранения Azure в облаке, затраты на выполнение заданий в учебнике будут незначительны.
-
-    ![Выбор целевой среды][Выбор целевой среды]
-
-6.  Измените **Имя** записи с **Параметр1** на более понятное,
-    например **StorageConnectionString**. Эта строка подключения
-    будет использоваться далее в этом руководстве.
-    ![Изменение имени строки подключения][Изменение имени строки подключения]
-
+6.  Измените **Имя** записи с **Setting1** на более понятное имя, например **StorageConnectionString**. Эта строка подключения будет использоваться далее в этом руководстве.  
+    ![Change connection string name][connection-string5]
+	
 ### Настройка строки подключения с помощью конфигурации .NET
 
-При написании приложения, которое не является облачной службой Azure (см. предыдущий раздел), рекомендуется использовать систему конфигурации .NET (например, `web.config` или `app.config`). Это относится к веб-сайтам Azure или виртуальным машинам Azure, а также приложениям, разработанным для работы вне Azure. Строка подключения хранится с помощью элемента `<appSettings>` следующим образом. Замените `account-name` именем учетной записи хранения, а `account-key` — ключом доступа учетной записи:
+При написании приложения, которое не является облачной службой Azure (см. предыдущий раздел), рекомендуется использовать систему конфигурации .NET (например, `web.config` или `app.config`). Это относится к веб-сайтам Azure или виртуальным машинам Azure, а также приложениям, разработанным для работы вне Azure. Строка подключения хранится с помощью элемента `<appSettings>` следующим образом: Замените `account-name` именем учетной записи хранения, а `account-key` - ключом доступа учетной записи:
 
-    <configuration>
-        <appSettings>
-            <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key" />
-        </appSettings>
-    </configuration>
+	<configuration>
+  		<appSettings>
+    		<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key" />
+  		</appSettings>
+	</configuration>
 
 Например, параметр конфигурации в файле конфигурации может быть аналогичным следующему:
 
-    <configuration>
-        <appSettings>
-            <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=nYV0gln9fT7bvY+rxu2iWAEyzPNITGkhM88J8HUoyofpK7C8fHcZc2kIZp6cKgYRUM74lHI84L50Iau1+9hPjB==" />
-        </appSettings>
-    </configuration>
+	<configuration>
+    	<appSettings>
+      		<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=nYV0gln9fT7bvY+rxu2iWAEyzPNITGkhM88J8HUoyofpK7C8fHcZc2kIZp6cKgYRUM74lHI84L50Iau1+9hPjB==" />
+    	</appSettings>
+	</configuration>
 
-Дополнительные сведения о строках подключения хранилища см. в разделе [Настройка строк подключения][Настройка строк подключения].
-
+Дополнительные сведения о строках подключения хранилища см. в разделе [Настройка строк подключения][].
+	
 Теперь все готово для выполнения задач, описанных в данном руководстве.
 
-  [Выбор свойств в роли облачной службы в Visual Studio]: ./media/storage-configure-connection-string/connection-string1.png
-  [Добавление параметра облачной службы в Visual Studio]: ./media/storage-configure-connection-string/connection-string2.png
-  [Установка типа строки подключения]: ./media/storage-configure-connection-string/connection-string3.png
-  [Выбор целевой среды]: ./media/storage-configure-connection-string/connection-string4.png
-  [Изменение имени строки подключения]: ./media/storage-configure-connection-string/connection-string5.png
-  [Настройка строк подключения]: http://msdn.microsoft.com/ru-ru/library/windowsazure/ee758697.aspx
+[connection-string1]: ./media/storage-configure-connection-string/connection-string1.png
+[connection-string2]: ./media/storage-configure-connection-string/connection-string2.png
+[connection-string3]: ./media/storage-configure-connection-string/connection-string3.png
+[connection-string4]: ./media/storage-configure-connection-string/connection-string4.png
+[connection-string5]: ./media/storage-configure-connection-string/connection-string5.png
+
+[Настройка строк подключения]: http://msdn.microsoft.com/ru-ru/library/windowsazure/ee758697.aspx<!--HONumber=42-->

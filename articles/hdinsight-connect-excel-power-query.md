@@ -1,19 +1,33 @@
-﻿<properties urlDisplayName="HDInsight and Excel" pageTitle="Подключение Excel к Hadoop с помощью Power Query | Azure" metaKeywords="hdinsight, excel, data explorer, hive excel, hdinsight excel, power query" description="Узнайте, как эффективно использовать компоненты бизнес-аналитики и Excel для получения доступа к данным, хранящимся в Azure HDInsight, с помощью Power Query." metaCanonical="" services="hdinsight" documentationCenter="" title="Connect Excel to Hadoop with Power Query" authors="bradsev" solutions="" manager="paulettm" editor="cgronlun" />
+﻿<properties 
+	pageTitle="Подключение Excel к Hadoop с помощью Power Query | Azure" 
+	description="Узнайте, как эффективно использовать компоненты бизнес-аналитики и Excel для получения доступа к данным, хранящимся в Azure HDInsight, с помощью Power Query." 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="bradsev" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/10/2014" ms.author="bradsev" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/10/2014" 
+	ms.author="bradsev"/>
 
 
 
 
 #Подключение Excel к Hadoop с помощью Power Query
 
-Одной из ключевых особенностей решения Майкрософт для работы с данными большого объема является полная интеграция компонентов бизнес-аналитики Майкрософт с кластерами Hadoop в HDInsight. Основным примером подобной интеграции является возможность подключения Excel к учетной записи хранения Azure, в которой хранятся данные, связанные с кластером Hadoop, с помощью Microsoft Power Query для Excel. В этой статье приводится пошаговое руководство по настройке и использованию Power Query в Excel для запроса данных, связанных с кластером Hadoop, который управляется с помощью HDInsight. 
+Одной из ключевых особенностей решения Майкрософт для работы с данными большого размера является интеграция  компонентов бизнес-аналитики Майкрософт с кластерами Hadoop в HDInsight. Основным примером подобной интеграции является возможность подключения Excel к учетной записи хранения Azure, в которой хранятся данные, связанные с кластером Hadoop, с помощью Microsoft Power Query для Excel. В этой статье приводится пошаговое руководство по настройке и использованию Power Query в Excel для запроса данных, связанных с кластером Hadoop, который управляется с помощью HDInsight. 
 
-**Предварительные требования**
+**Необходимые условия**
 
 Перед началом работы с этой статьей необходимо иметь следующее:
 
-- Кластер HDInsight. Информацию о настройке кластера см. в статье [Приступая к работе с Azure HDInsight][hdinsight-get-started].
+- Кластер HDInsight. Информацию о настройке кластера см. в разделе [Приступая к работе с Azure HDInsight][hdinsight-get-started].
 - Компьютер под управлением Windows 8, Windows 7, Windows Server 2012 или Windows Server 2008 R2.
 - Office 2013 профессиональный плюс, Office 365 профессиональный плюс, Excel 2013 автономный или Office 2010 профессиональный плюс.
 
@@ -28,7 +42,7 @@
 
 Power Query можно использовать для импорта данных из различных источников в Microsoft Excel, где можно задействовать мощные средства бизнес-аналитики, например PowerPivot и Power View. В частности Power Query может импортировать данные, которые были выведены или созданы заданием Hadoop, работающим в кластере HDInsignt. 
 
-Скачайте найдстройку Microsoft Power Query для Excel из [Центра загрузки Майкрософт][powerquery-download] и установите ее.
+Скачайте надстройку Microsoft Power Query для Excel из [Центра загрузки Майкрософт][powerquery-download] и установите ее.
 
 ## <a id="ImportData"></a>Импорт данных HDInsight в Excel
 
@@ -44,13 +58,13 @@ Power Query можно использовать для импорта данны
 
 	![HDI.PowerQuery.SelectHdiSource][image-hdi-powerquery-hdi-source]
 
-	Примечание. Если вы не видите меню **Power Query** , последовательно выберите **Файл** > **Параметры** > **Надстройки**, а затем в нижней части страницы в раскрывающемся списке **Диспетчер** выберите **Надстройки COM**. Нажмите кнопку **Перейти...** и убедитесь, что флажок надстройки Microsoft Office Power Query для Excel установлен.
+	Примечание. Если нет меню **Power Query**, последовательно выберите пункты **Файл** > **Параметры** > **Надстройки** и выберите **Надстройки COM** в раскрывающемся списке **Диспетчер** в нижней части страницы. Выберите кнопку **Перейти...** и убедитесь, что выделено поле надстройки Microsoft Office Power Query для Excel.
 
-3. В поле **Имя учетной записи** введите имя учетной записи хранилища больших двоичных объектов Azure, связанной с вашим кластером, и нажмите кнопку **ОК**. 
+3. В поле **Имя учетной записи** введите имя учетной записи хранилища BLOB-объектов Azure, сопоставленной с вашим кластером, и нажмите кнопку **ОК**. 
 
-4. Введите значение в поле **Ключ учетной записи** для учетной записи хранения больших двоичных объектов, а затем нажмите кнопку **Сохранить**. (Необходимо сделать это при первом доступе к хранилищу.)	
+4. Введите значение в поле **Ключ учетной записи** для учетной записи хранилища BLOB-объектов, а затем нажмите кнопку **Сохранить**. (Необходимо сделать это при первом доступе к хранилищу.)	
 
-5. В области **навигатора** в левой части окна **Редактор запросов** дважды щелкните имя контейнера хранилища больших двоичных объектов. По умолчанию имя контейнера совпадает с именем кластера. 
+5. В области **навигатора** в левой части окна **Редактор запросов** дважды щелкните имя контейнера хранилища BLOB-объектов. По умолчанию имя контейнера совпадает с именем кластера. 
 
 6. В столбце **Имя** найдите файл **HiveSampleData.txt** (путь к папке - **../hive/warehouse/hivesampletable/**) и в левой части HiveSampleData.txt щелкните **Бинарное**.
 
@@ -65,7 +79,7 @@ Power Query можно использовать для импорта данны
 В этой статье было показано, как использовать Power Query для получения данных из HDInsight в Excel. Аналогичным образом можно получить данные из HDInsight в SQL Azure. Можно также передавать данные в HDInsight. Для получения дополнительных сведений ознакомьтесь со следующими статьями:
 
 * [Подключение Excel к HDInsight с помощью драйвера Microsoft Hive ODBC][hdinsight-ODBC]
-* [Отправка данных в HDInsight][hdinsight-upload-data].
+* [Отправьте данные в HDInsight][hdinsight-upload-data].
 
 [hdinsight-ODBC]: ../hdinsight-connect-excel-hive-ODBC-driver/
 [hdinsight-get-started]: ../hdinsight-get-started/
@@ -76,5 +90,4 @@ Power Query можно использовать для импорта данны
 [image-hdi-powerquery-imported-table]: ./media/hdinsight-connect-excel-power-query/HDI.PowerQuery.ImportedTable.PNG 
 
 [powerquery-download]: http://go.microsoft.com/fwlink/?LinkID=286689 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

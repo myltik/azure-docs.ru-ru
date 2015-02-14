@@ -1,27 +1,41 @@
-﻿<properties urlDisplayName="" pageTitle="Вы научитесь создавать и использовать подписи общего доступа с помощью службы BLOB-объектов для хранилища Microsoft Azure" metaKeywords="Azure blob, shared access signatures, stored access policy" description="Вы узнаете больше о создании и использовании подписей общего доступа для службы BLOB-объектов." metaCanonical="" services="storage" documentationCenter="" title="Part 2: Create and Use a SAS with the Blob Service" solutions="" authors="tamram" manager="adinah" editor="cgronlun" />
+﻿<properties 
+	pageTitle="Вы научитесь создавать и использовать подписи общего доступа с помощью службы BLOB-объектов для хранилища Microsoft Azure" 
+	description="Вы узнаете больше о создании и использовании подписанных URL-адресов для службы BLOB-объектов." 
+	services="storage" 
+	documentationCenter="" 
+	authors="tamram" 
+	manager="adinah" 
+	editor="cgronlun"/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/10/2014" ms.author="tamram" />
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/10/2014" 
+	ms.author="tamram"/>
 
 
-# Подписи общего доступа, часть 2: Создание и использование подписи общего доступа с помощью службы BLOB-объектов
+# Подписанные URL-адреса, часть 2: Создание и использование подписи общего доступа с помощью службы BLOB-объектов
 
-[Часть 1](../storage-dotnet-shared-access-signature-part-1/) В части 1 этого учебника содержится обзор подписанных URL-адресов, а также даны советы и рекомендации по их использованию. В части 2 показано, как создать и затем использовать подписи общего доступа с помощью службы BLOB-объектов Azure. Примеры написаны на C# и используют библиотеку клиента хранения Azure для .NET. Рассмотренные здесь сценарии включают в себя следующие аспекты работы с подписями общего доступа:
+[В части 1](../storage-dotnet-shared-access-signature-part-1/) этого учебника приведен обзор подписанных URL-адресов (SAS), а также даны советы и рекомендации по их использованию. В части 2 показано, как создать и затем использовать подписи общего доступа с помощью службы BLOB-объектов Azure. Примеры написаны на C# и используют библиотеку клиента хранения Azure для .NET. Рассмотренные здесь сценарии включают в себя следующие аспекты работы с подписями общего доступа:
 
 - Создание подписи общего доступа для контейнера
 - Создание подписи общего доступа для BLOB-объекта
 - Создание хранимой политики доступа для управления подписями в ресурсах контейнера
 - Проверка подписей общего доступа из клиентского приложения
 
-# Информация о данном учебнике
+# Сведения о данном учебнике #
 В этом учебнике мы сосредоточим внимание на создании подписей общего доступа для контейнеров и BLOB-объектов путем создания двух консольных приложений. Первое консольное приложение создает подписи общего доступа для контейнера и BLOB-объекта. Этому приложению известны ключи учетной записи хранения. Второе консольное приложение, которое будет выступать в качестве клиентского, обращается к ресурсам контейнера и BLOB-объекта с использованием подписей общего доступа, созданных с помощью первого приложения. Это приложение использует подписи общего доступа только для проверки подлинности доступа к ресурсам контейнера и BLOB-объекта и не располагает сведениями о ключах учетной записи.
 
-# Часть 1: создание консольного приложения для создания подписанных URL-адресов
+# Часть 1: Создание консольного приложения для создания подписей общего доступа #
 
-Прежде всего убедитесь, что установлена библиотека клиента хранения Azure для .NET. Вы можете установить [пакет NuGet](http://nuget.org/packages/WindowsAzure.Storage/ "NuGet package") , который содержит самые новые сборки для клиентской библиотеки. Рекомендуется использовать этот способ, чтобы обеспечить наличие самых актуальных исправлений. Также можно загрузить клиентскую библиотеку в составе последней версии [пакета SDK для Azure для .NET](http://www.windowsazure.com/ru-ru/downloads/).
+Прежде всего убедитесь, что установлена библиотека клиента хранения Azure для .NET. Можно установить [пакет NuGet](http://nuget.org/packages/WindowsAzure.Storage/ "NuGet package"), содержащий самые новые сборки для клиентской библиотеки. Этот способ рекомендуется использовать, чтобы обеспечить наличие самых актуальных исправлений. Также можно скачать клиентскую библиотеку в составе последней версии [пакета SDK для Azure для .NET](http://www.windowsazure.com/ru-ru/downloads/).
 
 В Visual Studio создайте новое консольное приложение Windows и назовите его **GenerateSharedAccessSignatures**. Добавьте ссылки на **Microsoft.WindowsAzure.Configuration.dll** и **Microsoft.WindowsAzure.Storage.dll**, используя один из следующих подходов:
 
-- 	Если нужно установить пакет NuGet, сначала установите [расширение диспетчера пакетов NuGet для Visual Studio].(http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c). В Visual Studio выберите **Проект | Управление пакетами NuGet**, выполните в Интернете поиск значения **Хранилище Azure** и следуйте инструкциям по установке.
+- 	Если вы хотите установить пакет NuGet, сначала установите [расширение диспетчера пакетов NuGet для Visual Studio](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c). В Visual Studio выберите **Проект | Управление пакетами NuGet**, выполните в Интернете поиск значения **Хранилище Azure** и следуйте инструкциям по установке.
 - 	Можно также найти нужные сборки в установленных файлах пакета SDK Azure и добавить ссылки на них.
  
 Добавьте в начало файла Program.cs следующие инструкции **using**:
@@ -42,11 +56,11 @@
       </appSettings> 
     </configuration>
 
-## Создание универсального кода ресурса (URI) подписанного URL-адреса для контейнера
+## Создание URI подписи общего доступа для контейнера ##
 
 Для начала мы добавим метод для создания подписи общего доступа для нового контейнера. В этом случае подпись не связана с хранимой политикой доступа, поэтому содержит сведения URI с указанием времени окончания срока действия подписи и предоставляемых ей разрешений.
 
-Во-первых, добавьте код для метода **Main()**, чтобы аутентифицировать доступ к своей учетной записи хранения и создать новый контейнер:
+Во-первых, добавьте код для метода **Main()**, чтобы проверить подлинности доступа к вашей учетной записи хранения и создать новый контейнер:
 
     static void Main(string[] args)
     {
@@ -83,7 +97,7 @@
 	    return container.Uri + sasContainerToken;
     }
 
-В нижнюю часть метода **Main()** перед вызовом **Console.ReadLine()** добавьте следующие строки, чтобы вызвать метод **GetContainerSasUri()** и записать универсальный код ресурса (URI) подписи в окне консоли:
+В нижнюю часть метода **Main()** перед вызовом **Console.ReadLine()** добавьте следующие строки, чтобы вызвать **GetContainerSasUri()** и записать URI подписи в окне консоли:
 
     //Generate a SAS URI for the container, without a stored access policy.
     Console.WriteLine("Container SAS URI: " + GetContainerSasUri(container));
@@ -95,7 +109,7 @@ https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2013-
 
 После выполнения кода созданная для контейнера подпись общего доступа будет действительна в течение следующих четырех часов. Эта подпись предоставляет клиенту разрешение на перечисление BLOB-объектов в контейнере и на запись нового BLOB-объекта в контейнер.
 
-## Создание универсального кода ресурса (URI) подписанного URL-адреса для большого двоичного объекта
+## Создание URI подписи общего доступа для BLOB-объекта ##
 
 Далее мы напишем аналогичный код, создающий новый BLOB-объект в контейнере и подпись общего доступа для него. Эта подпись общего доступа не связаны с хранимой политикой доступа, поэтому она включает в себя время начала действия, время окончания действия и разрешения в виде URI.
 
@@ -142,7 +156,7 @@ https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2013-
 
 https://storageaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&st=2013-04-12T23%3A37%3A08Z&se=2013-04-13T00%3A12%3A08Z&sr=b&sp=rw&sig=dF2064yHtc8RusQLvkQFPItYdeOz3zR8zHsDMBi4S30%3D
 
-## Создание хранимой политики доступа для контейнера
+## Создание хранимой политики доступа для контейнера ##
 
 Теперь давайте создадим хранимую политику доступа для контейнера, которая будет определять ограничения для всех связанных с ней подписей общего доступа.
 
@@ -177,7 +191,7 @@ https://storageaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02
     string sharedAccessPolicyName = "tutorialpolicy";
     CreateSharedAccessPolicy(blobClient, container, sharedAccessPolicyName);
 
-## Создание универсального кода ресурса (URI) подписанного URL-адреса для контейнера, использующего политику доступа
+## Создание URI подписи общего доступа для контейнера, использующей политику доступа ##
 
 Далее мы создадим другую подпись общего доступа для созданного ранее контейнера, но на этот раз мы свяжем подпись с политикой доступа, созданной в предыдущем примере.
 
@@ -193,13 +207,13 @@ https://storageaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02
 	    return container.Uri + sasContainerToken;
     }
     
-В нижнюю часть метода **Main()** перед вызовом **Console.ReadLine()** добавьте следующие строки, чтобы вызвать метод **GetContainerSasUriWithPolicy()**:
+В нижнюю часть метода **Main()** перед вызовом **Console.ReadLine()** добавьте следующие строки, чтобы вызвать метод **GetContainerSasUriWithPolicy**:
 
     //Generate a SAS URI for the container, using a stored access policy to set constraints on the SAS.
     Console.WriteLine("Container SAS URI using stored access policy: " + GetContainerSasUriWithPolicy(container, sharedAccessPolicyName));
     Console.WriteLine();
 
-## Создание универсального кода ресурса (URI) подписанного URL-адреса для большого двоичного объекта, использующего политику доступа
+## Создание URI подписи общего доступа для BLOB-объекта, использующей политику доступа ##
 
 Наконец мы добавим аналогичный метод для создания другого BLOB-объекта и подписи общего доступа, сопоставленной с политикой доступа.
 
@@ -228,7 +242,7 @@ https://storageaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02
 	    return blob.Uri + sasBlobToken;
     }
 
-В нижнюю часть метода **Main()** перед вызовом **Console.ReadLine()** добавьте следующие строки, чтобы вызвать метод **GetBlobSasUriWithPolicy()**:    
+В нижнюю часть метода **Main()** перед вызовом **Console.ReadLine()** добавьте следующие строки, чтобы вызвать метод **GetBlobSasUriWithPolicy**:    
 
     //Generate a SAS URI for a blob within the container, using a stored access policy to set constraints on the SAS.
     Console.WriteLine("Blob SAS URI using stored access policy: " + GetBlobSasUriWithPolicy(container, sharedAccessPolicyName));
@@ -276,13 +290,13 @@ https://storageaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02
 
 ![sas-console-output-1][sas-console-output-1]
 
-# Часть 2: создание консольного приложения для тестирования подписанных URL-адресов
+# Часть 2: Создание консольного приложения для тестирования подписей общего доступа #
 
 Чтобы проверить подписи общего доступа, созданные в предыдущих примерах, мы создадим второе консольное приложение, использующее подписи для выполнения операций с контейнером и BLOB-объектом.
 
 Заметьте, что если с момента прохождения первой части учебника прошло больше четырех часов, подписи, у которых время окончания срока действия было равно четырем часам, будут недействительными. Аналогичным образом, срок действия подписей, сопоставленных с хранимой политикой доступа, истекает через 10 часов. Если один или оба этих срока истекли, следует запустить код в первом консольном приложении для создания новых подписей общего доступа, которые можно использовать во второй части учебника.
 
-В Visual Studio создайте новое консольное приложение Windows и назовите его **ConsumeSharedAccessSignatures**. Добавьте ссылки на **Microsoft.WindowsAzure.Configuration.dll** и **Microsoft.WindowsAzure.Storage.dll**.
+В Visual Studio создайте новое консольное приложение Windows и назовите его **ConsumeSharedAccessSignatures**. Как и раньше, добавьте ссылки на **Microsoft.WindowsAzure.Configuration.dll** и **Microsoft.WindowsAzure.Storage.dll**.
 
 Добавьте в начало файла Program.cs следующие инструкции **using**:
 
@@ -290,7 +304,7 @@ https://storageaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Blob;
     
-В тело метода **Main()** добавьте следующие константы и обновите их значения подписанными URL-адресами, созданные в первой части учебника.
+В тело метода **Main()** добавьте следующие константы и обновите их значения подписанными URL-адресами, созданными в первой части учебника.
 
     static void Main(string[] args)
     {
@@ -300,7 +314,7 @@ https://storageaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02
 	    string blobSASWithAccessPolicy = "<your blob SAS with access policy>";
     }
     
-## Добавление метода для оценки операций с контейнером с использованием подписанного URL-адреса
+## Добавление метода для оценки операций с контейнером с использованием подписи общего доступа ##
 
 Далее мы добавим метод, который проверяет некоторые характерные операции с контейнером, используя подпись общего доступа для этого контейнера. Обратите внимание, что подпись общего доступа используется для возврата ссылки на контейнер, обеспечивая проверку подлинности доступа к контейнеру на основании одной подписи.
 
@@ -394,7 +408,7 @@ https://storageaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02
 	}
 
 
-Измените метод **Main()** для вызова **UseContainerSAS()** с подписанными URL-адресами, созданными для контейнера:
+Измените метод **Main()** для вызова **UseContainerSAS()** с обеими подписями общего доступа, созданными для контейнера:
 
 
 	static void Main(string[] args)
@@ -416,9 +430,9 @@ https://storageaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02
 	}
 
 
-## Добавление метода для оценки операций с большим двоичным объектом с использованием подписанного URL-адреса
+## Добавление метода для оценки операций с BLOB-объектом с использованием подписи общего доступа ##
 
-Наконец, мы добавим метод, который проверяет некоторые характерные операции с BLOB-объектом, используя подпись общего доступа для этого BLOB-объекта. В этом случае мы используем конструктор **CloudBlockBlob(String)**, передав ему подписанный URL-адрес для возврата ссылки на большой двоичный объект. Никакая другая проверка подлинности не требуется, она основана только на подписи.
+Наконец, мы добавим метод, который проверяет некоторые характерные операции с BLOB-объектом, используя подпись общего доступа для этого BLOB-объекта. В этом случае мы используем конструктор **CloudBlockBlob(String)**, передавая подпись общего доступа, чтобы возвратить ссылку на BLOB-объект. Никакая другая проверка подлинности не требуется, она основана только на подписи.
 
 Добавьте в класс Program.cs следующий метод:
 
@@ -493,7 +507,7 @@ https://storageaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02
 	}
 
 
-Измените метод **Main()** для вызова **UseBlobSAS()** с подписанными URL-адресами, созданными для контейнера:
+Измените метод **Main()** для вызова **UseBlobSAS()** с обеими подписями общего доступа, созданными для BLOB-объекта:
 
 	static void Main(string[] args)
 	{
@@ -517,18 +531,17 @@ https://storageaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02
 
 ![sas-console-output-2][sas-console-output-2]
 
-# Дальнейшие действия
+# Дальнейшие действия #
 
-[Подписанные URL-адреса, часть 1. Общие сведения о модели подписанного URL-адреса](../storage-dotnet-shared-access-signature-part-1/)
+[Подписанные URL-адреса, часть 1. Общие сведения о модели SAS](../storage-dotnet-shared-access-signature-part-1/)
 
 [Управление доступом к ресурсам службы хранилища Azure](http://msdn.microsoft.com/ru-ru/library/windowsazure/ee393343.aspx)
 
 [Делегирование доступа с помощью подписанного URL-адреса (REST API)](http://msdn.microsoft.com/ru-ru/library/windowsazure/ee395415.aspx)
 
-[Знакомство с подписью общего доступа для таблиц и очередей](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
+[Введение в использование SAS таблиц и очередей](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
 
 [sas-console-output-1]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-1.PNG
 [sas-console-output-2]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-2.PNG
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

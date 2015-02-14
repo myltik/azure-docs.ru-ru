@@ -1,37 +1,32 @@
 ## <a name="register-app-aad"></a>Регистрация клиентского приложения с помощью Azure Active Directory
 
-1.  На [портале управления Azure][портале управления Azure] перейдите в раздел **Active Directory** и щелкните свой каталог.
+1. На [портале управления Azure] перейдите в раздел **Active Directory** и щелкните свой каталог.
 
-![][ ]
+   ![](./media/mobile-services-dotnet-adal-register-client/mobile-services-select-aad.png)
 
-1.  Щелкните вкладку **Приложения** наверху, затем нажмите кнопку **ДОБАВИТЬ**, чтобы добавить приложение.
+2. Щелкните вкладку **Приложения** вверху, а затем щелкните **Добавить**, чтобы добавить приложение. 
 
-![][1]
+   ![](./media/mobile-services-dotnet-adal-register-client/mobile-services-aad-applications-tab.png)
 
-1.  Выберите команду **Добавить приложение, разрабатываемое моей организацией**.
+3. Щелкните **Добавить приложение, разрабатываемое моей организацией**.
 
-2.  В мастере добавления приложения введите **имя** для приложения и выберите тип **Собственное клиентское приложение**. Затем щелкните "Далее".
+4. В мастере добавления приложений введите **Имя** для приложения и выберите тип **Собственное клиентское приложение**. Затем щелкните "Далее".
 
-![][2]
+   ![](./media/mobile-services-dotnet-adal-register-client/mobile-services-native-selection.png)
 
-1.  В поле **Универсальный код ресурса (URI) перенаправления** введите конечную точку /login/done для мобильной службы. Это значение должно быть аналогичным https://todolist.azure-mobile.net/login/done.
+5. В поле **Универсальный код ресурса (URI) перенаправления** введите конечную точку /login/done для мобильной службы. Это значение должно быть аналогично https://todolist.azure-mobile.net/login/done..
 
-![][3]
+   ![](./media/mobile-services-dotnet-adal-register-client/mobile-services-native-redirect-uri.png)
 
-1.  Перейдите на вкладку **Конфигурация** собственного приложения и скопируйте **ИД клиента**. Этот идентификатор потребуется позднее.
+6. Перейдите на вкладку **Настройка** собственного приложения и скопируйте **Идентификатор клиента**. Этот идентификатор потребуется позднее.
 
-![][4]
+   ![](./media/mobile-services-dotnet-adal-register-client/mobile-services-native-client-id.png)
 
-1.  Прокрутите страницу вниз до раздела **разрешений для других приложений** и предоставьте полный доступ к приложению мобильной службы, зарегистрированному ранее. Затем нажмите кнопку **Сохранить**.
+7. Прокрутите страницу вниз до раздела **Разрешения для других приложений** и нажмите кнопку **Добавить приложение**. Выберите **Другое** в меню "Показать" и найдите элемент todo. Щелкните **TodoList**, чтобы добавить ранее зарегистрированную мобильную службу, и установите флажок готовности. Предоставьте доступ к приложению мобильной службы. Затем нажмите кнопку **Сохранить**.
 
-![][5]
+   ![](./media/mobile-services-dotnet-adal-register-client/mobile-services-native-add-permissions.png)
 
 Теперь мобильная служба настроена в AAD для принятия попыток единого входа из приложения.
 
-  [портале управления Azure]: https://manage.windowsazure.com/
-  [ ]: ./media/mobile-services-dotnet-adal-register-client/mobile-services-select-aad.png
-  [1]: ./media/mobile-services-dotnet-adal-register-client/mobile-services-aad-applications-tab.png
-  [2]: ./media/mobile-services-dotnet-adal-register-client/mobile-services-native-selection.png
-  [3]: ./media/mobile-services-dotnet-adal-register-client/mobile-services-native-redirect-uri.png
-  [4]: ./media/mobile-services-dotnet-adal-register-client/mobile-services-native-client-id.png
-  [5]: ./media/mobile-services-dotnet-adal-register-client/mobile-services-native-add-permissions.png
+
+[портале управления Azure]: https://manage.windowsazure.com/<!--HONumber=42-->

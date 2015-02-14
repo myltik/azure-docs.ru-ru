@@ -1,50 +1,64 @@
-<properties title="Storm в обзоре HDinsight " pageTitle="Узнайте о программе Apache Storm в HDInsight (hadoop)" description="Узнайте, как вы можете использовать Apache Storm в HDInsight (Hadoop)" metaKeywords="Azure hdinsight storm, Azure hdinsight realtime, azure hadoop storm, azure hadoop realtime, azure hdinsight real-time, azure hadoop storm real-time, aure hadoop real-time" services="hdinsight" solutions="" documentationCenter="big-data" authors="larryfr" videoId="" scriptId="" manager="paulettm" editor="cgronlun"/>
+﻿<properties 
+	pageTitle="Узнайте о программе Apache Storm в HDInsight (hadoop)" 
+	description="Узнайте, как вы можете использовать Apache Storm в HDInsight (Hadoop)" 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="blackmist" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/30/2014" ms.author="larryfr" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/30/2014" 
+	ms.author="larryfr"/>
 
-# Обзор HDinsight Storm
+# Обзор Apache Storm в HDInsight
 
 ## Что такое Storm?
 
-[Apache Storm][Apache Storm] — это распределенная отказоустойчивая вычислительная система с открытым кодом, которая позволяет обрабатывать данные в реальном времени. Решения Storm могут также обеспечить гарантированную обработку данных и возможность воспроизвести те данные, которые не прошли удачную обработку в первый раз.
+[Apache Storm][apachestorm] - это распределенная отказоустойчивая система с открытым исходным кодом для обработки данных в режиме реального времени. Решения Storm могут также обеспечить гарантированную обработку данных и возможность воспроизвести те данные, которые не прошли удачную обработку в первый раз.
 
-## Что такое Azure HDInsight Storm?
+## Что такое Storm в HDInsight?
 
-HDInsight Storm предлагается в качестве управляемого кластера, интегрированного в среду Azure, где он может быть использован в качестве части крупного решения Azure. Например, Storm могла бы использовать данные с таких служб как ServiceBus Queues или Event Hub, а для обеспечения визуализации данных использовать веб-сайты или облачные службы. Кластеры HDInsight Storm могут настроиться на виртуальную сеть Azure, которая сокращает задержки, взаимодействуя с прочими ресурсами внутри одной виртуальной сети, и может разрешить безопасное взаимодействие в рамках одного центра данных.
+Storm предлагается в качестве управляемого кластера, интегрированного в среду Azure, где он может быть использован в качестве части крупного решения Azure. Например, Storm могла бы использовать данные с таких служб как ServiceBus Queues или Event Hub, а для обеспечения визуализации данных использовать веб-сайты или облачные службы. Кластеры Storm можно также настроить в виртуальной сети Azure, что уменьшает задержки при взаимодействии с другими ресурсами в той же виртуальной сети и может разрешить безопасное взаимодействие в рамках одного центра обработки данных.
 
-Чтобы начать работу с Storm, см. раздел [Начало работы с Storm в HDInsight][Начало работы с Storm в HDInsight].
+Чтобы начать работу с Storm, см. раздел [Начало работы с Storm в HDInsight][gettingstarted].
 
-## Как происходит обработка данных в HDInsight Storm
+## Как происходит обработка данных в HDInsight Storm?
 
-Кластер storm обрабатывает **топологии**, вместо выполнения заданий MapReduce, вероятно знакомых вам с HDInsight или Hadoop. Кластер Storm содержит два типа узлов — головной узел, который выполняет **Nimbus**, и рабочие узлы, которые выполняют **Supervisor**
+Кластер storm обрабатывает **топологии** вместо выполнения заданий MapReduce, вероятно знакомых вам с HDInsight или Hadoop. Кластер Storm содержит два типа узлов: головные узлы, на которых запущен **Nimbus**, и рабоче узлы, на которых запущен **Supervisor**
 
--   **Nimbus** — аналогичен JobTracker в Hadoop и отвечает за распределение кода в кластере, назначение задач машинам и мониторинг сбоев. HDInsight имеет два узла Nimbus, поэтому в кластере Storm нет единой точки отказа.
+* **Nimbus(Нимб)** - аналог JobTracker в Hadoop, он отвечает за распределение кода в кластере, назначение задач компьютерам и отслеживание сбоев. HDInsight имеет два узла Nimbus, поэтому в кластере Storm нет единой точки отказа.
 
--   **Supervisor** — это супервизор для всех рабочих узлов, который отвечает за запуск и остановку **рабочих процессов** на узле
+* **Supervisor(Контролер)** - Контролер каждого рабочего узла отвечает за запуск и завершение **рабочих процессов** на узле
 
--   **Worker process** — рабочий процесс, который выполняет подмножество **топологии**. Выполняемая топология распределяется по многим рабочим процессам кластера.
+* **Рабочий процесс** - рабочий процесс выполняет подмножество **топологии**. Выполняемая топология распределяется по многим рабочим процессам кластера.
 
--   **Топология** — определяет граф вычислений, который обрабатывает **потоки** данных. В отличие от заданий MapReduce топология выполняется до тех пор, пока ее остановят
+* **Топология** - Определяет граф вычисления для обработки **потоков** данных. В отличие от заданий MapReduce топология выполняется до тех пор, пока ее остановят
 
--   **Поток** — несвязанная коллекция **кортежей**. Потоки порождаются **воронками** и **ситами**, а потребляются **ситами**
+* **Поток** - несвязанная коллекция **кортежей**. Потоки порождаются **воронками** и **ситами**, используются **ситами**
 
--   **Кортеж** — именованный список динамически вводимых значений
+* **Кортеж** - именованный список динамически вводимых значений
 
--   **Воронка** — потребляет данные из источника данных и выпускает один или несколько **потоков**
+* **Воронка** - использует данные из источника данных и создает один или несколько **потоков**
 
-    > [WACOM.NOTE] В большинстве случаев данные читаются из очередей, таких как Kafka, Azure ServiceBus Queues или Event Hubs. Очередь обеспечивает сохраняемость данных в случае сбоя.
+	> [AZURE.NOTE] Во многих случаях данные считываются из очереди, например Kafka, очереди Azure ServiceBus  или концентраторов событий. Очередь обеспечивает сохраняемость данных в случае сбоя.
 
--   **Винт** — потребляет **потоки**, выполняет обработку **кортежей** и может выпускать **потоки**. Bolts также несет ответственность за запись данных во внешние хранилища, такие как очередь, HDInsight HBase, BLOB или другие хранилища данных
+* **Молнии** - потребляют **потоки**, выполняет обработку над **кортежами** и могут выдавать **потоки**. Bolts также несет ответственность за запись данных во внешние хранилища, такие как очередь, HDInsight HBase, BLOB или другие хранилища данных
 
--   **Thrift** — Apache Thrift представляет собой программную платформу для развития масштабируемых межъязыковых служб. Она позволяет собирать службы, работающие переключаясь между языками C++, Java, Python, PHP, Ruby, Erlang, Perl, Haskell, C\#, Cocoa, JavaScript, Node.js, Smalltalk и др.
+* **Thrift** - Apache Thrift представляет собой программную платформу для разработки масштабируемых межъязыковых служб. Она позволяет собирать службы, работающие переключаясь между языками C++, Java, Python, PHP, Ruby, Erlang, Perl, Haskell, C#, Cocoa, JavaScript, Node.js, Smalltalk и др.
 
-    -   **Nimbus** — это служба Thrift, а **топология** — это определение Thrift, поэтому можно разрабатывать топологии с помощью самых разных языков программирования
+	* **Nimbus** - это служба Thrift, а **топология** - это определение Thrift, поэтому можно разрабатывать топологии с помощью самых разных языков программирования 
 
-Дополнительные сведения о компонентах Storm см. в разделе [Учебник по Storm][Учебник по Storm] по адресу apache.org.
+Дополнительные сведения о компонентах Storm  см. в разделе [Учебник по Storm][apachetutorial] на сайте apache.org.
 
 ## Сценарии: Каковы примеры использования Storm?
 
-Ниже приводятся некоторые общие ситуации, в которых может потребоваться использование Apache storm. Сведения о реальных ситуациях см. в разделе о том, [как компании используют Storm][как компании используют Storm].
+Ниже приводятся некоторые общие ситуации, в которых может потребоваться использование Apache storm. Сведения о реальных сценариях см. в разделе о том, [как компании используют Storm][poweredby].
 
 ### Аналитика в режиме реального времени
 
@@ -56,31 +70,31 @@ ETL может восприниматься как побочный эффект
 
 ### Распределенные RPC
 
-Распределенные RPC — это шаблон, который может быть создан с помощью Storm. В Storm направляется запрос, который распределяет далее расчеты в несколько узлов, в конечном счете возвращая результаты потоков ожидающим клиентам.
+Распределенные RPC - это шаблон, который может быть создан с помощью Storm. В Storm направляется запрос, который распределяет далее расчеты в несколько узлов, в конечном счете возвращая результаты потоков ожидающим клиентам.
 
-Дополнительные сведения о распределенных RPC и DRPCClient, поставляемых с Storm см. в разделе [Распределенные RPC][Распределенные RPC].
+Дополнительные сведения о распределенных RPC и DRPCClient, предоставляемыми Storm, см. в разделе [Распределенные RPC](https://storm.incubator.apache.org/documentation/Distributed-RPC.html).
 
 ### Машинное обучение в сети
 
-Storm может использоваться с технологией машинного обучения в сети, прошедшей до этого пакетную обработку, например, с технологией на базе Mahout. Однако ее универсальная модель распределенных расчетов также открывает дверь технологиям машинного обучения на базе потоков. Например, проект [Scalable Advanced Massive Online Analysis (SAMOA)][Scalable Advanced Massive Online Analysis (SAMOA)] является библиотекой машинного обучения, которая использует потоковую обработку и может работать со Storm.
+Storm может использоваться с технологией машинного обучения в сети, прошедшей до этого пакетную обработку, например, с технологией на базе Mahout. Однако ее универсальная модель распределенных расчетов также открывает дверь технологиям машинного обучения на базе потоков. Например, проект [Scalable Advanced Massive Online Analysis (SAMOA) ][Самоа] является библиотекой машинного обучения, которая использует потоковую обработку и может работать со Storm.
 
 ## Какие языки программирования я могу использовать?
 
-Кластер HDInsight Storm поддерживает .NET, Java и Python. Хотя Storm [поддерживает другие языки][поддерживает другие языки], для многих из них, помимо прочих изменений конфигурации, может потребоваться установка дополнительного языка программирования на кластере HDInsight.
+Кластер Storm на HDInsight предоставляет поддержку для .NET, Java и Python по умолчанию. Хотя Storm [поддерживает другие языки](https://storm.incubator.apache.org/about/multi-language.html), для многих из них, помимо прочих изменений конфигурации, может потребоваться установка дополнительного языка программирования на кластере HDInsight. 
 
 ### .NET
 
-SCP — это проект, разрешающий разработчикам .NET разработать и внедрить топологию (включая spouts и bolts). Поддержка SCP поставляется по умолчанию кластерами HDInsight Storm.
+SCP - это проект, позволяющий разработчикам .NET разработать и внедрить топологию (включая spouts и bolts). Поддержка SCP поставляется по умолчанию кластерами Storm.
 
-Дополнительные сведения о разработках с SCP см. в разделе [Разработка приложений для обработки потоковой передачи данных с SCP.NET и C\# на Storm в HDInsight][Разработка приложений для обработки потоковой передачи данных с SCP.NET и C\# на Storm в HDInsight].
+Дополнительные сведения о разработке с использованием SCP см. в разделе [разработки потоковой передачи приложений обработки данных с SCP.NET и C# на Storm на HDInsight](/ru-ru/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application).
 
 ### Java
 
-Большинство примеров Java, к которым вы обратитесь, будут либо простой Java, либо Trident. Trident — это высокоуровневая абстракция, которая облегчает такие операции, как объединение, агрегирование, группирование, фильтрация. Однако Trident работает на пакетах кортежей, в которых исходное решение Java будет обрабатывать только один потоковый кортеж.
+Большинство примеров Java, к которым вы обратитесь, будут либо простой Java, либо Trident. Trident - это высокоуровневая абстракция, которая облегчает такие операции, как объединение, агрегирование, группирование, фильтрация. Однако Trident работает на пакетах кортежей, в которых исходное решение Java будет обрабатывать только один потоковый кортеж.
 
-Дополнительные сведения о Trident см. в разделе [Учебник по Trident][Учебник по Trident] по адресу apache.org.
+Дополнительные сведения о Trident см. в разделе [Учебник по Trident](https://storm.incubator.apache.org/documentation/Trident-tutorial.html) на сайте apache.org.
 
-Примеры необработанных топологий Java и Trident см. в каталоге вашего кластера HDInsight Storm **%storm\_home%\\contrib\\storm-starter**.
+Примеры необработанных топологий Java и Trident см. в каталоге вашего кластера Storm  **%storm_home%\contrib\storm-starter**.
 
 ## Каковы некоторые из типичных шаблонов разработки?
 
@@ -88,58 +102,50 @@ SCP — это проект, разрешающий разработчикам .
 
 Storm может обеспечить различные уровни гарантированной обработки сообщений. Например, базовое приложение Storm может гарантировать обработку "at-least-once", в то время как Trident гарантирует обработку "exactly-once".
 
-Дополнительные сведения в разделе [Гарантированная обработка данных][Гарантированная обработка данных] по адресу apache.org
+Дополнительные сведения см. в разделе [Гарантированная обработка данных](https://storm.apache.org/about/guarantees-data-processing.html) на сайте apache.org
 
 ### BasicBolt
 
-Шаблон чтения входного кортежа, выдающий значение 0 или больше, а затем непосредственно в конце метод execute, запрашивающий подтверждение входного кортежа, настолько типичен, что Storm обеспечивает интерфейс [IBasicBolt][IBasicBolt] для автоматизации этого шаблона.
+Шаблон чтения входного кортежа, выдающий 0 или более кортежей, а затем непосредственно в конце метода execute, запрашивающий подтверждение входного кортежа, настолько типичен, что Storm обеспечивает интерфейс [IBasicBolt](https://storm.apache.org/apidocs/backtype/storm/topology/IBasicBolt.html) для автоматизации этого шаблона.
 
 ### Соединения
 
-Объединение двух потоков на данных двух приложениях будет различаться. Например, вы можете объединить каждый кортеж с нескольких потоков в один новый поток или объединить а также можете объединить пакет кортежей для отдельного окна. В любом случае, объединение может завершиться с помощью [fieldsGrouping][fieldsGrouping], который является способом определения того, как кортежи перенаправляются к bolts.
+Объединение двух потоков на данных двух приложениях будет различаться. Например, вы можете объединить каждый кортеж с нескольких потоков в один новый поток или объединить а также можете объединить пакет кортежей для отдельного окна. В любом случае, объединение может завершиться с помощью [fieldsGrouping](http://javadox.com/org.apache.storm/storm-core/0.9.1-incubating/backtype/storm/topology/InputDeclarer.html#fieldsGrouping%28java.lang.String,%20backtype.storm.tuple.Fields%29), который является способом определения того, как кортежи перенаправляются к bolts.
 
 В следующем примере Java используется fieldsGrouping для перенаправления кортежей, порождающихся компонентами "1", "2" и "3" в bolt **MyJoiner**.
 
-    builder.setBolt("join", new MyJoiner(), parallelism) .fieldsGrouping("1", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("2", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("3", new Fields("joinfield1", "joinfield2")); 
+	builder.setBolt("join", new MyJoiner(), parallelism) .fieldsGrouping("1", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("2", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("3", new Fields("joinfield1", "joinfield2")); 
 
 ### Пакетная обработка
 
 Пакетную обработку можно выполнить несколькими способами. С топологией Storm Java вы можете использовать простой счетчик для пакетирования n-ного числа кортежей до их порождения, или внутренний временной механизм, известный как tick tuple, для выпуска одного пакета раз в n-е число секунд.
 
-Пример использования кортежей счетчиков приведен в статье [Анализ данных датчиков с помощью Storm и HDInsight][Анализ данных датчиков с помощью Storm и HDInsight]
+Пример использования кортежей деления см. в разделе [анализ данных датчика в Storm и HDInsight](/ru-ru/documentation/articles/hdinsight-storm-sensor-data-analysis.md)
 
 Если вы пользуетесь Trident, он основан на обработке потоков кортежей.
 
 ### Caching
 
-В кэшировании памяти он часто используется в качестве механизма для ускорения обработки, так как он сохраняет в памяти часто используемые ресурсы. Так как топология распределяется между несколькими узлами и несколькими процессами в пределах одного узла, вы можете использовать [fieldsGrouping][fieldsGrouping], чтобы удостовериться в том, что кортежи, содержащие поля, используемые для поиска в кэше всегда перенаправляются к одному и тому же процессу. Это избавит от дублирования записей кэша в процессах.
+В кэшировании памяти он часто используется в качестве механизма для ускорения обработки, так как он сохраняет в памяти часто используемые ресурсы. Так как топология распределяется между несколькими узлами и несколькими процессами в пределах одного узла, можно использовать [fieldsGrouping](http://javadox.com/org.apache.storm/storm-core/0.9.1-incubating/backtype/storm/topology/InputDeclarer.html#fieldsGrouping%28java.lang.String,%20backtype.storm.tuple.Fields%29), чтобы удостовериться в том, что кортежи, содержащие поля, используемые для поиска в кэше, всегда перенаправляются к одному и тому же процессу. Это избавит от дублирования записей кэша в процессах.
 
 ### Максимальное количество потоков (top N)
 
-Когда ваша топология зависит от расчета значения 'top' N, например, лучшие тренды на Twitter, вам следует параллельно рассчитать значение top N, а затем объединить результат расчетов в общее значение. Это можно сделать с помощью [fieldsGrouping][fieldsGrouping] направив отдельные поля в параллельные bolts. Он разделяет данные по значению и наконец направляет в bolt, который определяет значение N.
+Когда топология зависит от расчета  'top' значения N, например, 5 лучших тенденций в Twitter, то следует параллельно рассчитать значение top N, а затем объединять выходные данные этих вычислений в глобальной переменной. Это можно сделать с помощью [fieldsGrouping](http://javadox.com/org.apache.storm/storm-core/0.9.1-incubating/backtype/storm/topology/InputDeclarer.html#fieldsGrouping%28java.lang.String,%20backtype.storm.tuple.Fields%29)  направив отдельные поля в параллельные bolts. Он разделяет данные по значению  и наконец направляет в bolt, который определяет значение N.
 
-Смотрите следующий пример [RollingTopWords][RollingTopWords].
+Пример см. в разделе [RollingTopWords](https://github.com/nathanmarz/storm-starter/blob/master/src/jvm/storm/starter/RollingTopWords.java).
 
 ## Дальнейшие действия
 
--   [Приступая к работе с Storm в HDInsight][Начало работы с Storm в HDInsight]
+* [Приступая к работе с Storm на HDInsight][gettingstarted]
 
--   [Анализируя данные от датчиков со Storm и HDInsight][Анализируя данные от датчиков со Storm и HDInsight]
+* [Анализ данных датчика в Storm и HDInsight](/ ru-ru/documentation/articles/hdinsight-storm-sensor-data-analysis)
 
--   [Разработка приложений для обработки потоковой передачи данных с помощью SCP.NET и C\# на Storm в HDInsight][Разработка приложений для обработки потоковой передачи данных с SCP.NET и C\# на Storm в HDInsight]
+* [Разработка приложений для обработки потоковой передачи данных с помощью SCP.NET и C# на Storm в HDInsight](/ru-ru/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application)
 
-  [Apache Storm]: https://storm.incubator.apache.org
-  [Начало работы с Storm в HDInsight]: /ru-ru/documentation/articles/hdinsight-storm-getting-started
-  [Учебник по Storm]: https://storm.incubator.apache.org/documentation/Tutorial.html
-  [как компании используют Storm]: https://storm.incubator.apache.org/documentation/Powered-By.html
-  [Распределенные RPC]: https://storm.incubator.apache.org/documentation/Distributed-RPC.html
-  [Scalable Advanced Massive Online Analysis (SAMOA)]: http://yahooeng.tumblr.com/post/65453012905/introducing-samoa-an-open-source-platform-for-mining
-  [поддерживает другие языки]: https://storm.incubator.apache.org/about/multi-language.html
-  [Разработка приложений для обработки потоковой передачи данных с SCP.NET и C\# на Storm в HDInsight]: /ru-ru/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application
-  [Учебник по Trident]: https://storm.incubator.apache.org/documentation/Trident-tutorial.html
-  [Гарантированная обработка данных]: https://storm.apache.org/about/guarantees-data-processing.html
-  [IBasicBolt]: https://storm.apache.org/apidocs/backtype/storm/topology/IBasicBolt.html
-  [fieldsGrouping]: http://javadox.com/org.apache.storm/storm-core/0.9.1-incubating/backtype/storm/topology/InputDeclarer.html#fieldsGrouping%28java.lang.String,%20backtype.storm.tuple.Fields%29
-  [Анализ данных датчиков с помощью Storm и HDInsight]: /ru-ru/documentation/articles/hdinsight-storm-sensor-data-analysis.md
-  [RollingTopWords]: https://github.com/nathanmarz/storm-starter/blob/master/src/jvm/storm/starter/RollingTopWords.java
-  [Анализируя данные от датчиков со Storm и HDInsight]: /ru-ru/documentation/articles/hdinsight-storm-sensor-data-analysis
+[apachestorm]: https://storm.incubator.apache.org
+[stormtrident]: https://storm.incubator.apache.org/documentation/Trident-API-Overview.html
+[samoa]: http://yahooeng.tumblr.com/post/65453012905/introducing-samoa-an-open-source-platform-for-mining
+[apachetutorial]: https://storm.incubator.apache.org/documentation/Tutorial.html
+[poweredby]: https://storm.incubator.apache.org/documentation/Powered-By.html
+[gettingstarted]: /ru-ru/documentation/articles/hdinsight-storm-getting-started
+<!--HONumber=42-->

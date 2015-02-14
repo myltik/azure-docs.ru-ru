@@ -1,16 +1,30 @@
-﻿<properties linkid="manage-services-hdinsight-develop-Java-MapReduce-programs-for-HDInsight-Hadoop" urlDisplayName="HDInsight Tutorials" pageTitle="Разработка программ MapReduce на Java для Hadoop в HDInsight | Azure" metaKeywords="hdinsight, hdinsight development, hadoop development, hdinsight deployment, development, deployment, tutorial, MapReduce, Java" description="Познакомьтесь с разработкой программ MapReduce на Java с помощью эмулятора HDInsight, а также с процессом их развертывания на HDInsight." services="hdinsight" title="Develop Java MapReduce programs for Hadoop in HDInsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" authors="nitinme" />
+﻿<properties 
+	pageTitle="Разработка программ MapReduce на Java для Hadoop в HDInsight | Azure" 
+	description="Познакомьтесь с разработкой программ MapReduce на Java с помощью эмулятора HDInsight, а также с процессом их развертывания на HDInsight." 
+	services="hdinsight" 
+	editor="cgronlun" 
+	manager="paulettm" 
+	authors="nitinme" 
+	documentationCenter=""/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="10/10/2014" ms.author="nitinme" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="nitinme"/>
 
 # Разработка программ MapReduce на Java для Hadoop в HDInsight
 В данном учебнике приводится полный цикл разработки задания для Hadoop MapReduce по подсчету количества слов на языке Java с помощью Apache Maven. Здесь же демонстрируется, как тестировать приложения на эмуляторе HDInsight, а затем развертывать их и запускать на кластере HDInsight в Azure.
 
-**Предварительные требования**
+**Предварительные требования:**
 
 Перед началом работы с этим учебником необходимо выполнить следующие действия:
 
-- Установите эмулятор Azure HDInsight. Указания см. в статье [Приступая к работе с эмулятором HDInsight][hdinsight-emulator].
-- Установите среду Azure PowerShell на компьютере с эмулятором. Указания см. в статье [Установка и настройка Azure PowerShell][powershell-install-configure].
+- Установите эмулятор Azure HDInsight. Указания см. в разделе [Приступая к работе с эмулятором HDInsight][hdinsight-emulator].
+- Установите среду Azure PowerShell на компьютере с эмулятором. Указания см. в разделе [Установка и настройка Azure PowerShell][powershell-install-configure].
 - Установите пакет JDK 7 или выше для платформы Java на компьютере с эмулятором. Он уже есть на этом компьютере.
 - Установите и настройте [Apache Maven](http://maven.apache.org/).
 - Получите подписку Azure. Указания см. в разделе [Варианты приобретения][azure-purchase-options], [Предложения для участников][azure-member-offers] или [Бесплатная пробная версия][azure-free-trial].
@@ -19,7 +33,7 @@
 
 - [Использование Apache Maven при создании программы MapReduce по подсчету количества слов на языке Java](#develop)
 - [Тестирование программы в эмуляторе](#test)
-- [Передача файлов данных и приложения в хранилище больших двоичных объектов Azure](#upload)
+- [Передача файлов данных и приложения в хранилище BLOB-объектов Azure](#upload)
 - [Выполнение программы MapReduce в Azure HDInsight](#run)
 - [Извлечение результатов MapReduce](#retrieve)
 - [Дальнейшие действия](#nextsteps)
@@ -37,20 +51,20 @@
 
 1. Создайте каталог **C:\Tutorials\WordCountJava\**.
 2. Из командной строки вашей среды разработки перейдите во вновь созданный каталог.
-3. Используйте команду mvn, которая установлена вместе с Maven, чтобы сформировать шаблон проекта.
+3. Используйте команду __mvn__, которая будет установлена вместе с Maven, для формирования шаблона проекта.
 
 		mvn archetype:generate -DgroupId=org.apache.hadoop.examples -DartifactId=wordcountjava -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
 
-	В результате в текущем каталоге будет создан новый каталог с именем, указанным в параметре __artifactID__ (в данном примере это **wordcountjava**). В этом каталоге будут находиться следующие элементы:
+	При этом в текущем каталоге будет создан новый каталог с именем, указанным в параметре __artifactID__ (в данном случае **wordcountjava**). В этом каталоге будут находиться следующие элементы:
 
-	* __pom.xml__ - модель объекта проекта ([POM](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)), которая содержит информацию и данные о конфигурации, используемые для построения проекта;
+	* __pom.xml__ - это объектная модель проектов ([POM](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)), которая содержит информацию и подробности конфигурации, используемые при сборке проекта;
 
 	* __src__ - каталог, содержащий каталог __main\java\org\apache\hadoop\examples__, в котором будет создаваться приложение.
 3. Удалите файл __src\test\java\org\apache\hadoop\examples\apptest.java__, так как он не используется в этом примере.
 
-**Обновление модели объекта проекта (POM)**
+**Обновление объектной модели проектов (POM)**
 
-1. Откройте для редактирования файл __pom.xml__ и добавьте следующие строки в раздел <dependencies>.
+1. Откройте для редактирования файл __pom.xml__ и добавьте следующие строки в раздел `<dependencies>`.
 
 		<dependency>
 		  <groupId>org.apache.hadoop</groupId>
@@ -68,9 +82,9 @@
       	  <version>2.5.1</version>                                                                                            
     	</dependency>
 
-	Тогда Maven будет знать, что для проекта требуются библиотеки (перечисленные внутри тегов <artifactId\>) определенной версии (указанной внутри тегов <version\>). При компиляции он будет загружено из репозитория Maven по умолчанию. Вы можете воспользоваться [поиском по репозиторию Maven],(http://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar) чтобы получить дополнительную информацию.
+	Тогда Maven будет знать, что для проекта требуются библиотеки (перечисленные внутри тегов <artifactId\>) определенной версии (указанной внутри тегов <version\>). При компиляции он будет загружен из репозитория Maven по умолчанию. Вы можете воспользоваться [поиском по репозиторию Maven](http://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar), чтобы получить дополнительную информацию.
 
-2. Добавьте в файл __pom.xml__ следующее. Добавляемый код должен находиться в файле между тегами <project>...</project>, например, между тегами </dependencies> и </project>.
+2. Добавьте в файл __pom.xml__ следующее. Добавляемый код должен находиться в файле между тегами `<project>...</project>`; например, между `</dependencies>` и `</project>`.
 
 		<build>
   		  <plugins>
@@ -96,7 +110,7 @@
   		  </plugins>
 	    </build>
 
-	В результате будет настроен подключаемый модуль [maven-shade-plugin],(http://maven.apache.org/plugins/maven-shade-plugin/)который используется для предотвращения дублирования лицензии в JAR-файле, собранном Maven. Причина - дублирующиеся файлы лицензий вызывают ошибку выполнения на кластере HDInsight. Использование maven-shade-plugin с реализацией ApacheLicenseResourceTransformer предотвращает возникновение этой ошибки.
+	Также будет настроен [maven-shade-plugin](http://maven.apache.org/plugins/maven-shade-plugin/), который используется для предотвращения дублирования лицензии в JAR-файле, собранном Maven. Причина - дублирующиеся файлы лицензий вызывают ошибку выполнения на кластере HDInsight. Использование maven-shade-plugin с реализацией `ApacheLicenseResourceTransformer` предотвращает возникновение этой ошибки.
 
 	maven-shade-plugin также создает так называемый uberjar (или fatjar), который содержит все зависимости, требуемые приложением.
 
@@ -104,7 +118,7 @@
 
 **Создание приложения по подсчету слов**
 
-1. Перейдите к каталогу __wordcountjava\src\main\java\org\apache\hadoop\examples__ и переименуйте файл __app.java__ в __WordCount.java__.
+1. Перейдите в каталог __wordcountjava\src\main\java\org\apache\hadoop\examples__ и переименуйте __app.java__ в __WordCount.java__.
 2. Откройте Блокнот.
 2. Скопируйте следующую программу и вставьте ее в Блокнот.
 
@@ -177,7 +191,7 @@
 		  }
 		}
 
-	Обратите внимание, что имя пакета - **org.apache.hadoop.examples**, а имя класса - **WordCount**. Эти имена будут использоваться при отправке задания MapReduce.
+	Обратите внимание, что пакет имеет имя **org.apache.hadoop.examples**, а класс - имя **WordCount**. Эти имена будут использоваться при отправке задания MapReduce.
 	
 3. Сохраните файл.
 
@@ -191,9 +205,9 @@
 
 	При этом будут удалены остатки предыдущих сборок, загружены все неустановленные на текущий момент зависимости, затем будет произведена сборка и создание пакета приложения.
 
-3. После завершения выполнения команды каталог __wordcountjava\target__ будет содержать файл __wordcountjava-1.0-SNAPSHOT.jar__.
+3. После завершения выполнения команды в каталоге __wordcountjava\target__ будет находиться файл с именем __wordcountjava-1.0-SNAPSHOT.jar__.
 
-	> [WACOM.NOTE] Файл __wordcountjava-1.0-SNAPSHOT.jar__ относится к типу uberjar (другое название - fatjar) и содержит все зависимости, необходимые для работы приложения.
+	> [AZURE.NOTE] Файл __wordcountjava-1.0-SNAPSHOT.jar__ относится к типу uberjar (другое название - fatjar) и содержит все зависимости, необходимые для работы приложения.
 
 
 ##<a name="test"></a>Тестирование программы в эмуляторе
@@ -205,9 +219,9 @@
 3. Выполнение задания по подсчету количества слов в MapReduce
 4. Извлеките результаты задания.
 
-В эмуляторе HDInsight используется HDFS в качестве файловой системы по умолчанию.  При желании вы можете настроить эмулятор HDInsight на использование хранилища BLOB-объектов Azure. Дополнительную информацию см. в статье [Приступая к работе с эмулятором HDInsight][hdinsight-emulator-wasb]. 
+В эмуляторе HDInsight используется HDFS в качестве файловой системы по умолчанию.  При желании вы можете настроить эмулятор HDInsight на использование хранилища BLOB-объектов Azure. Дополнительную информацию см. в разделе [Приступая к работе с эмулятором HDInsight][hdinsight-emulator-wasb]. 
 
-В этом учебнике для передачи файлов данных в HDFS будет использоваться команда HDFS copyFromLocal. В следующем разделе показано, как с помощью Azure PowerShell передавать файлы в хранилище BLOB-объектов Azure. Дополнительную информацию о других способах передачи файлов в хранилище больших двоичных объектов Azure см. в статье [Отправка данных в HDInsight][hdinsight-upload-data].
+В этом учебнике для передачи файлов данных в HDFS будет использоваться команда HDFS *copyFromLocal*. В следующем разделе показано, как с помощью Azure PowerShell передавать файлы в хранилище BLOB-объектов Azure. Дополнительную информацию о других способах передачи файлов в хранилище BLOB-объектов Azure см. в разделе [Отправка данных в HDInsight][hdinsight-upload-data].
 
 Для работы с этим учебником используется следующая структура папок HDFS:
 
@@ -222,7 +236,7 @@
 
 В этом учебнике в качестве файлов данных используются текстовые файлы .txt, расположенные в каталоге %hadoop_home%.
 
-> [WACOM.NOTE] В командах Hadoop HDFS учитывается регистр.
+> [AZURE.NOTE] В командах Hadoop HDFS учитывается регистр.
 
 **Копирование файлов данных в HDFS эмулятора**
 
@@ -275,7 +289,7 @@
 
 	На снимке экрана видно, что процедуры map и reduce завершены на 100 %. Здесь также указывается идентификатор задания. Чтобы получить этот же отчет, можно также открыть ярлык **Состояние Hadoop MapReduce** на вашем рабочем столе и найти идентификатор этого задания.
 
-Для запуска задания MapReduce можно также использовать Azure PowerShell. Указания см. в статье [Приступая к работе с эмулятором HDInsight][hdinsight-emulator].
+Для запуска задания MapReduce можно также использовать Azure PowerShell. Указания см. в разделе [Приступая к работе с эмулятором HDInsight][hdinsight-emulator].
 
 **Отображение выходных данных из HDFS**
 
@@ -298,7 +312,7 @@ Azure HDInsight использует для хранения данных хра
 
 В этом учебнике вы создадите контейнер для файлов данных и приложения MapReduce в отдельной учетной записи хранения. Файлы данных представляют собой текстовые файлы, которые находятся в каталоге **C:\hdp\hadoop-2.4.0.2.1.3.0-1981\share\doc\hadoop\common** на рабочей станции с эмулятором.
 
-**Создание хранилища больших двоичных объектов и контейнера**
+**Отображение выходных данных из HDFS**
 
 1. Откройте Azure PowerShell.
 2. Задайте переменные, а затем выполните команды:
@@ -308,7 +322,7 @@ Azure HDInsight использует для хранения данных хра
 		$containerName_Data = "<ContainerName>"
 		$location = "<MicrosoftDataCenter>"  # For example, "East US"
 
-	Значение переменной **$subscripionName** связано с вашей подпиской Azure. Вам необходимо присвоить имена переменным **$storageAccountName\_Data** и **$containerName\_Data**. Ограничения именования см. в разделе [Именование контейнеров, больших двоичных объектов и метаданных и ссылка на них](http://msdn.microsoft.com/ru-ru/library/windowsazure/dd135715.aspx). 
+	**$subscripionName** относится к вашей подписке Azure. Необходимо указать имя для **$storageAccountName\_Data** и **$containerName\_Data**. Ограничения именования см. в разделе [Присвоение имен и ссылки на контейнеры, BLOB-объекты и метаданные](http://msdn.microsoft.com/ru-ru/library/windowsazure/dd135715.aspx). 
 
 3. Выполните следующие команды, чтобы создать учетную запись хранения и контейнер хранилища BLOB-объектов в учетной записи
 
@@ -328,7 +342,7 @@ Azure HDInsight использует для хранения данных хра
 		Get-AzureStorageAccount -StorageAccountName $storageAccountName_Data
 		Get-AzureStorageContainer -Context $destContext
 
-**Отправка файлов данных**
+**Передача файлов данных**
 
 1. Откройте Azure PowerShell.
 2. Задайте первые три переменные, а затем выполните команды:
@@ -340,9 +354,9 @@ Azure HDInsight использует для хранения данных хра
 		$localFolder = "C:\hdp\hadoop-2.4.0.2.1.3.0-1981\share\doc\hadoop\common\"
 		$destFolder = "WordCount/Input"
 
-	Значения **$storageAccountName\_Data** и **$containerName\_Data** - те же, что вы определили в последней процедуре.
+	**$storageAccountName\_Data** и **$containerName\_Data** - те же, что вы определили в последней процедуре.
 
-	Обратите внимание, что исходной является папка **c:\Hadoop\hadoop-1.1.0-SNAPSHOT**, а целевой - папка **WordCount/Input**.
+	Заметьте, что исходной является папка **c:\Hadoop\hadoop-1.1.0-SNAPSHOT**, а целевой - папка **WordCount/Input**.
 
 3. Выполните следующие команды, чтобы получить список TXT-файлов в исходной папке:
 
@@ -390,9 +404,9 @@ Azure HDInsight использует для хранения данных хра
 		$jarFile = "C:\Tutorials\WordCountJava\WordCount.jar"
 		$blobFolder = "WordCount/jars"
 
-	Значения **$storageAccountName\_Data** и **$containerName\_Data** - те же, что вы определили в последней процедуре, то есть файл данных и приложение будут переданы в тот же контейнер в той же учетной записи хранения.
+	**$storageAccountName\_Data** и **$containerName\_Data** - те же, что вы определили в последней процедуре, то есть файл данных и приложение будут переданы в тот же контейнер в той же учетной записи хранения.
 
-	Обратите внимание, что целевой является папка **WordCount/jars**.
+	Заметьте, целевой является папка **WordCount/jars**.
 
 4. Выполните следующие команды, чтобы создать объект контекста хранилища:
 
@@ -516,9 +530,9 @@ Azure HDInsight использует для хранения данных хра
 		Write-Host "Delete the storage account" -ForegroundColor Green
 		Remove-AzureStorageAccount -StorageAccountName $storageAccountName_Default
 
-3. Задайте первые шесть переменных скрипта: **$stringPrefix** используется в качестве префикса указанной строки в имени кластера HDInsight, имени учетной записи хранения и имени контейнера хранилища больших двоичных объектов. Поскольку количество символов в названии должно быть больше 3 и меньше 24, следите за тем, чтобы общее количество символов в строке и именах, используемых сценарием, не превышало максимального значения. Значения параметра **$stringPrefix** указываются только в нижнем регистре. 
+3. Задайте первые шесть переменных скрипта: **$stringPrefix** используется для добавления префикса к имени кластера HDInsight, имени учетной записи хранения и имени контейнера хранилища BLOB-объектов. Поскольку количество символов в названии должно быть больше 3 и меньше 24, следите за тем, чтобы общее количество символов в строке и именах, используемых сценарием, не превышало максимального значения. В параметре **$stringPrefix** следует использовать только символы нижнего регистра. 
  
-	**$storageAccountName\_Data** и **$containerName\_Data** - это учетная запись хранения и контейнер, которые используются для хранения файлов данных и приложений. Значение **$location** должно соответствовать расположению учетной записи хранения данных.
+	**$storageAccountName\_Data** and **$containerName\_Data** are the storage account and container that are used for storing the data files and the application. **$location** must match the data storage account location.
 
 4. Просмотрите остальные переменные.
 5. Сохраните файл скрипта.
@@ -527,17 +541,17 @@ Azure HDInsight использует для хранения данных хра
 
 		PowerShell -File <FileName> -ExecutionPolicy RemoteSigned
 
-8. При появлении запроса введите имя пользователя и пароль для кластера HDInsight. Поскольку в конце сценария кластер будет удален, а имя пользователя и пароль больше не потребуются, в качестве имени пользователя и пароля можно использовать любые строки. Информацию о том, что необходимо сделать, чтобы запрос на ввод учетных данных не появлялся, см. в статье [Working with Passwords, Secure Strings and Credentials in Windows PowerShell][powershell-PSCredential] (Работа с паролями, защищенными строками и учетными данными в Windows PowerShell)
+8. При появлении запроса введите имя пользователя и пароль для кластера HDInsight. Поскольку в конце сценария кластер будет удален, а имя пользователя и пароль больше не потребуются, в качестве имени пользователя и пароля можно использовать любые строки. Информацию о том, что необходимо сделать, чтобы запрос на ввод учетных данных не появлялся, см. в разделе [Работа с паролями, защищенными строками и учетными данными в Windows PowerShell][powershell-PSCredential]
 
 
 ##<a name="retrieve"></a>Извлечение выходных данных задания MapReduce
-В этом разделе показано, как загружать и отображать выходные данные.  Дополнительную информацию об отображении результатов в Excel см. в статьях [Подключение Excel к HDInsight с помощью драйвера Microsoft Hive ODBC][hdinsight-ODBC] и [Подключение Excel к HDInsight с помощью Power Query][hdinsight-power-query].
+В этом разделе показано, как загружать и отображать выходные данные.  Дополнительную информацию об отображении результатов в Excel см. в разделах [Подключение Excel к HDInsight с помощью драйвера Microsoft Hive ODBC][hdinsight-ODBC] и [Подключение Excel к HDInsight с помощью Power Query][hdinsight-power-query].
 
 
-**Получение выходных данных**
+**Извлечение результатов**
 
 1. Откройте окно Azure PowerShell.
-2. Измените каталог на **C:\Tutorials\WordCountJava**. Папка Azure PowerShell по умолчанию - **C:\Windows\System32\WindowsPowerShell\v1.0**. Выполняемые командлеты загрузят выходной файл в текущую папку.  У вас нет разрешений для загрузки файлов в системные папки.
+2. Перейдите в каталог **C:\Tutorials\WordCountJava**. Папка Azure PowerShell по умолчанию: **C:\Windows\System32\WindowsPowerShell\v1.0**. Выполняемые командлеты загрузят выходной файл в текущую папку.  У вас нет разрешений для загрузки файлов в системные папки.
 2. Выполните следующие команды, чтобы задать значения:
 
 		$subscriptionName = "<AzureSubscriptionName>"
@@ -589,7 +603,7 @@ Azure HDInsight использует для хранения данных хра
 [hdinsight-storage]: ../hdinsight-use-blob-storage/
 [hdinsight-admin-powershell]: ../hdinsight-administer-use-powershell/
 [hdinsight-use-hive]: ../hdinsight-use-hive/
-[hdinsight-use-pig]: ../hdinsight-use-pig/s
+[hdinsight-use-pig]: ../hdinsight-use-pig/
 [hdinsight-power-query]: ../hdinsight-connect-excel-power-query/
 
 [powershell-PSCredential]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
@@ -600,5 +614,4 @@ Azure HDInsight использует для хранения данных хра
 [image-emulator-wordcount-compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
 [image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

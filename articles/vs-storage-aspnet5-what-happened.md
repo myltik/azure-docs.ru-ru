@@ -1,12 +1,26 @@
-﻿<properties title="Getting Started with Azure Storage" pageTitle="Начало работы с хранилищем Azure" metaKeywords="Azure, Getting Started, Storage" description="" services="storage" documentationCenter="" authors="ghogen, kempb" />
+﻿<properties 
+	pageTitle="Начало работы с хранилищем Azure" 
+	description="" 
+	services="storage" 
+	documentationCenter="" 
+	authors="kempb" 
+	manager="douge" 
+	editor=""/>
 
-<tags ms.service="storage" ms.workload="web" ms.tgt_pltfrm="vs-what-happened" ms.devlang="na" ms.topic="article" ms.date="10/10/2014" ms.author="ghogen, kempb" />
+<tags 
+	ms.service="storage" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="vs-what-happened" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
 > - [Приступая к работе](/documentation/articles/vs-storage-aspnet5-getting-started-blobs/)
-> - [Что произошло?](/documentation/articles/vs-storage-aspnet5-what-happened/)
+> - [Что случилось](/documentation/articles/vs-storage-aspnet5-what-happened/)
 
-###<span id="whathappened">Что произошло с моим проектом?</span>
+### <span id="whathappened">Что произошло с моим проектом?</span>
 
 ##### Добавленные ссылки
 
@@ -22,9 +36,9 @@
 - `System.Data`
 - `System.Spatial`
 
-Также добавлен пакет **Microsoft.Framework.ConfigurationModel.Json**.
+Также добавлен пакет NuGet **Microsoft.Framework.ConfigurationModel.Json**.
 
-#####Добавлена строка подключения к хранилищу Azure 
+##### Добавлена строка подключения к хранилищу Azure 
 В файле config.json проекта был создан элемент с ключом и строкой подключения выбранной учетной записи хранилища.
 
-Подробнее см. в статье [ASP.NET 5](http://www.asp.net/vnext).
+Дополнительные сведения см. в разделе [ASP.NET 5](http://www.asp.net/vnext).<!--HONumber=42-->

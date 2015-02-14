@@ -1,24 +1,23 @@
-После подготовки базы данных MongoLab открывается доступ к веб-интерфейсу пользователя MongoLab для управления этой базой данных. Мы предлагаем удобный доступ единого входа (SSO) на портале управления Azure.
+﻿После подготовки базы данных MongoLab открывается доступ к веб-интерфейсу пользователя MongoLab для управления этой базой данных. Мы предлагаем удобный доступ единого входа (SSO) на портале управления Azure.
 
-Интерфейс MongoLab можно использовать для выполнения большинства задач базы данных: вставки и запроса документов, получения статистики базы данных и выполнения полезных команд базы данных. Чтобы узнать больше о пользовательском интерфейсе MongoLab, посетите [страницу поддержки][страницу поддержки] и наш [блог][блог].
+Интерфейс MongoLab можно использовать для выполнения большинства задач базы данных: вставки и запроса документов, получения статистики базы данных и выполнения полезных команд базы данных. Чтобы узнать больше о пользовательском интерфейсе MongoLab, посетите [Чтобы узнать больше о пользовательском интерфейсе MongoLab, посетите](http://support.mongolab.com) и наш [блог](http://blog.mongolab.com).
 
 Для доступа к пользовательскому интерфейсу MongoLab, выполните следующие действия:
 
-1.  Выберите **«Надстройки»**.  
-    ![AddonsButton][AddonsButton]
-2.  Найдите нужную службу MongoLab в списке надстроек.  
-    ![MongolabEntry][MongolabEntry]
-3.  Чтобы перейти на страницу надстройки, выберите ее имя.  
-4.  Нажмите кнопку **Управление**.  
-    ![ManageButton][ManageButton]  
-    Откроется новая вкладка браузера с домашней страницей базы данных MongoLab:  
-    ![DbHome][DbHome]
+1. Выберите **Надстройки"**.  
+![AddonsButton][button-addons]
+1. Найдите нужную службу MongoLab в списке надстроек.  
+![MongolabEntry][entry-mongolabaddon]
+1. Чтобы перейти на страницу надстройки, выберите ее имя.
+1. Нажмите кнопку **Управление**.  
+![ManageButton][button-manage]  
+Откроется новая вкладка браузера с домашней страницей базы данных MongoLab:  
+![DbHome][screen-dblanding]
 
 Здесь можно выбрать конкретные коллекции и получить более подробную информацию по отдельным документам. Выйдите из системы после завершения.
 
-  [страницу поддержки]: http://support.mongolab.com
-  [блог]: http://blog.mongolab.com
-  [AddonsButton]: ./media/howto-access-mongolab-ui/button-addons.png
-  [MongolabEntry]: ./media/howto-access-mongolab-ui/entry-mongolabaddon.png
-  [ManageButton]: ./media/howto-access-mongolab-ui/button-manage.png
-  [DbHome]: ./media/howto-access-mongolab-ui/screen-mongolab_dblanding.png
+[entry-mongolabaddon]: ./media/howto-access-mongolab-ui/entry-mongolabaddon.png
+[button-manage]: ./media/howto-access-mongolab-ui/button-manage.png
+[button-addons]: ./media/howto-access-mongolab-ui/button-addons.png
+[screen-dblanding]: ./media/howto-access-mongolab-ui/screen-mongolab_dblanding.png
+<!--HONumber=42-->

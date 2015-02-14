@@ -1,24 +1,22 @@
+﻿
+1. В Visual Studio щелкните правой кнопкой мыши проект для Магазина Windows, выберите пункт **Назначить запускаемым проектом** и нажмите клавишу F5, чтобы запустить приложение Магазина Windows.
+	
+	После запуска приложения выполняется регистрация устройства для получения push-уведомлений.
 
-1.  В Visual Studio щелкните правой кнопкой мыши проект Магазина Windows, выберите пункт **Назначить запускаемым проектом** и нажмите клавишу F5, чтобы запустить приложение Магазина Windows.
+2. Остановите приложение Магазина Windows и повторите предыдущий шаг, чтобы запустить приложение Магазина Windows Phone.
 
-    После запуска приложения выполняется регистрация устройства для получения push-уведомлений.
+	Теперь оба устройства зарегистрированы для получения push-уведомлений.
 
-2.  Остановите приложение Магазина Windows и повторите предыдущий шаг, чтобы запустить приложение Магазина Windows Phone.
+3. Запустите приложение Магазина Windows и введите текст в поле **Вставить TodoItem**, после чего нажмите кнопку **Сохранить**.
 
-    Теперь оба устройства зарегистрированы для получения push-уведомлений.
+   	![](./media/mobile-services-javascript-backend-windows-universal-test-push/mobile-quickstart-push1.png)
 
-3.  Запустите приложение Магазина Windows и введите текст в поле **Insert a TodoItem** (Вставить TodoItem), после чего нажмите кнопку **Save** (Сохранить).
+   	Обратите внимание: после завершения вставки как приложение Магазина Windows, так и приложение Windows Phone получают push-уведомление из WNS.
 
-    ![][0]
+   	![](./media/mobile-services-javascript-backend-windows-universal-test-push/mobile-quickstart-push2.png)
 
-    Обратите внимание: после завершения вставки как приложение Магазина Windows, так и приложение Windows Phone получают push-уведомление из WNS.
+	Уведомление отображается на устройстве Windows Phone, даже если приложение не запущено.
 
-    ![][1]
+   	![](./media/mobile-services-javascript-backend-windows-universal-test-push/mobile-quickstart-push5-wp8.png)
 
-    Уведомление отображается на устройстве Windows Phone, даже если приложение не запущено.
-
-    ![][2]
-
-  [0]: ./media/mobile-services-javascript-backend-windows-universal-test-push/mobile-quickstart-push1.png
-  [1]: ./media/mobile-services-javascript-backend-windows-universal-test-push/mobile-quickstart-push2.png
-  [2]: ./media/mobile-services-javascript-backend-windows-universal-test-push/mobile-quickstart-push5-wp8.png
+<!--HONumber=42-->

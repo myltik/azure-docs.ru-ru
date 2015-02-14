@@ -1,26 +1,22 @@
 
-Основой для этого учебника служит [приложение GetStartedWithMobileServices][приложение GetStartedWithMobileServices] — проект универсального приложения Windows в Visual Studio 2013. Пользовательский интерфейс этого приложения такой же, как у приложения, которое создается при быстром начале работы с мобильными службами, за исключением того, что добавленные элементы хранятся локально в памяти.
+Основой для этого учебника служит [приложение GetStartedWithMobileService](shttp://go.microsoft.com/fwlink/p/?LinkID=510826) - проект приложения Магазина Windows в Visual Studio 2013. Пользовательский интерфейс для этого приложения совпадает с интерфейсом приложения, созданного в кратком руководстве по использованию мобильных служб. Отличие заключается в том, что добавленные элементы хранятся локально в памяти. 
 
-1.  Загрузите версию примера приложения GetStartedWithMobileServices на C\# с [веб-сайта с примерами кода для разработчиков].
+1. Загрузите версию примера приложения GetStartedWithMobileServices на C# с веб-сайта [Примеры кода для разработчиков]. 
 
-2.  В Visual Studio 2013 откройте загруженный проект и просмотрите файл MainPage.xaml.cs в папке проекта GetStartedWithData.Shared.
+2. В Visual Studio 2013 откройте загруженный проект и просмотрите файл MainPage.xaml.cs в папке проекта GetStartedWithData.Shared.
 
-   Обратите внимание: добавленные объекты **TodoItem** хранятся в объекте **ObservableCollection\<TodoItem\>** во внутренней памяти.
+   	Обратите внимание, что добавленные объекты **TodoItem** хранятся в локальной памяти в **ObservableCollection&lt;TodoItem&gt;**.
 
-3.  Нажмите клавишу **F5** для повторного построения проекта, после чего запустите приложение.
+3. Нажмите клавишу **F5** для повторного построения проекта, после чего запустите приложение.
 
-4.  В приложении введите какой-либо текст в поле **Вставить в TodoItem**, а затем нажмите кнопку **Сохранить**
+4. В приложении введите какой-либо текст в поле **Вставить в TodoItem**, а затем нажмите кнопку **Сохранить**
 
-    ![][0]
+   	![](./media/mobile-services-windows-universal-dotnet-download-project/mobile-quickstart-startup.png) 
 
-   Обратите внимание на то, что сохраненный текст отображается.
+   	Notice that the saved text is displayed.
 
-5.  Щелкните правой кнопкой мыши проект Windows Phone 8.1, выберите пункт **Назначить запускаемым проектом** и нажмите клавишу **F5**, чтобы запустить приложение Магазина Windows Phone.
+5. Щелкните правой кнопкой мыши проект Windows Phone 8.1, выберите **Назначить запускаемым проектом** и нажмите клавишу **F5**, чтобы запустить приложение Магазина Windows Phone.  
 
-    ![][1]
+	![](./media/mobile-services-windows-universal-dotnet-download-project/mobile-quickstart-startup-wp8.png)
 
-6.  Повторите шаги 3 и 4, чтобы убедиться в том, что пример ведет себя аналогичным образом.
-
-  [приложение GetStartedWithMobileServices]: http://go.microsoft.com/fwlink/p/?LinkID=510826
-  [0]: ./media/mobile-services-windows-universal-dotnet-download-project/mobile-quickstart-startup.png
-  [1]: ./media/mobile-services-windows-universal-dotnet-download-project/mobile-quickstart-startup-wp8.png
+6. Повторите шаги 3 и 4, чтобы убедиться в том, что пример ведет себя аналогичным образом.<!--HONumber=42-->

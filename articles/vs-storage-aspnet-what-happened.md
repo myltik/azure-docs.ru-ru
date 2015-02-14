@@ -1,16 +1,30 @@
-﻿<properties title="Getting Started with Azure Storage" pageTitle="Начало работы с хранилищем Azure" metaKeywords="Azure, Getting Started, Storage" description="" services="storage" documentationCenter="" authors="ghogen, kempb" />
+﻿<properties 
+	pageTitle="Начало работы с хранилищем Azure" 
+	description="" 
+	services="storage" 
+	documentationCenter="" 
+	authors="kempb" 
+	manager="douge" 
+	editor=""/>
 
-<tags ms.service="storage" ms.workload="web" ms.tgt_pltfrm="vs-what-happened" ms.devlang="na" ms.topic="article" ms.date="10/10/2014" ms.author="ghogen, kempb" />
+<tags 
+	ms.service="storage" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="vs-what-happened" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
-> - [Приступая к работе](/documentation/articles/vs-storage-aspnet-getting-started-blobs/)
+> - [Начало работы](/documentation/articles/vs-storage-aspnet-getting-started-blobs/)
 > - [Что произошло?](/documentation/articles/vs-storage-aspnet-what-happened/)
 
-###<span id="whathappened">Что произошло с моим проектом?</span>
+### <span id="whathappened">Что произошло с моим проектом?</span>
 
 ##### Добавленные ссылки
 
-Пакет NuGet хранилища Azure был добавлен в проект Visual Studio. 
+Пакет NuGet хранилища Azure был добавлен в проект Visual Studio.  
 Этот пакет добавляет следующие ссылки .NET:
 
 - `Microsoft.Data.Edm`
@@ -22,7 +36,7 @@
 - `System.Data`
 - `System.Spatial`
 
-#####Добавлена строка подключения к хранилищу Azure 
+##### Добавлена строка подключения к хранилищу Azure 
 В файле web.config проекта был создан элемент с ключом и строкой подключения выбранной учетной записи хранилища.
 
-Подробнее см. в статье [ASP.NET](http://www.asp.net).
+Дополнительные сведения см. в разделе [ASP.NET](http://www.asp.net).<!--HONumber=42-->

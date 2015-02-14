@@ -6,7 +6,7 @@
 
    	![](./media/mobile-services-javascript-update-script-notification-hubs/mobile-insert-script-push2.png)
 
-2. Замените функцию вставки следующим кодом и щелкните **Сохранить**:
+2. Замените функцию вставки следующим кодом и нажмите кнопку **Сохранить**:
 
 		function insert(item, user, request) {
 		// Define a payload for the Windows Store toast notification.
@@ -33,3 +33,4 @@
 
 	Этот скрипт вставки отправляет push-уведомление (с текстом вставленного элемента) во все регистрации приложения Магазина Windows после успешной вставки.
 
+<!--HONumber=42-->

@@ -1,6 +1,20 @@
-﻿<properties title="Getting Started with Azure Storage" pageTitle="Начало работы с хранилищем Azure" metaKeywords="Azure, Getting Started, Storage" description="" services="storage" documentationCenter="" authors="ghogen, kempb" />
+﻿<properties 
+	pageTitle="Начало работы с хранилищем Azure" 
+	description="" 
+	services="storage" 
+	documentationCenter="" 
+	authors="kempb" 
+	manager="douge" 
+	editor=""/>
 
-<tags ms.service="storage" ms.workload="web" ms.tgt_pltfrm="vs-getting-started" ms.devlang="na" ms.topic="article" ms.date="10/10/2014" ms.author="ghogen, kempb" />
+<tags 
+	ms.service="storage" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="vs-getting-started" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
 > - [Приступая к работе](/documentation/articles/vs-storage-aspnet5-getting-started-tables/)
@@ -9,7 +23,7 @@
 ## Начало работы со службой хранилища Azure (проекты ASP.NET vNext)
 
 > [AZURE.SELECTOR]
-> - [BLOB-объекты](/documentation/articles/vs-storage-aspnet5-getting-started-blobs/)
+> - [BLOB-объектов](/documentation/articles/vs-storage-aspnet5-getting-started-blobs/)
 > - [Очереди](/documentation/articles/vs-storage-aspnet5-getting-started-queues/)
 > - [Таблицы](/documentation/articles/vs-storage-aspnet5-getting-started-tables/)
 
@@ -30,18 +44,18 @@
                 .AddJsonFile("config.json")
                 .AddEnvironmentVariables();
 
-#####Получение строки подключения к хранилищу
-Прежде чем выполнять какие-либо действия с таблицей, необходимо получить строку подключения для учетной записи хранилища, в котором будет располагаться эта таблица. Можно использовать тип **CloudStorageAccount** для представления сведений учетной записи хранилища. При использовании проекта ASP.NET vNext можно вызвать метод GET объекта Configuration, чтобы получить строку подключения к хранилищу и сведения учетной записи хранилища из конфигурации службы Azure, как показано в следующем примере.
+##### Получение строки подключения к хранилищу
+Прежде чем что-либо делать с таблицей, необходимо получить строку подключения для учетной записи хранилища, в котором будет располагаться эта таблица. Можно использовать тип **CloudStorageAccount** для представления сведений учетной записи хранилища. При использовании проекта ASP.NET vNext можно вызвать метод GET объекта Configuration, чтобы получить строку подключения к хранилищу и сведения учетной записи хранилища из конфигурации службы Azure, как показано в следующем примере.
 
-**ПРИМЕЧАНИЕ.** Интерфейсы API, которые выполняют вызовы в хранилище Azure в ASP.NET 5, являются асинхронными. Подробнее см. в статье [Асинхронное программирование с помощью Async и Await](http://msdn.microsoft.com/library/hh191443.aspx). В следующем примере кода предполагается, что используются асинхронные методы программирования.
+**Примечание.** Интерфейсы API, выполняющие вызовы к хранилищу Azure в ASP.NET 5, являются асинхронными. См. раздел [асинхронного программирования с помощью Async и Await](http://msdn.microsoft.com/library/hh191443.aspx) для получения дополнительных сведений. В следующем примере кода предполагается, что используются асинхронные методы программирования.
 
 	CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
       config.Get("MicrosoftAzureStorage:<storageAccountName>_AzureStorageConnectionString"));
 
-#####Создание таблицы
-A Объект **CloudTableClient** позволяет получить объекты ссылок для таблиц и сущностей. Следующий код создает объект **CloudTableClient** и использует его для создания новой таблицы. Код ссылается на таблицу под названием people. Если таблица с таким именем отсутствует, она будет создана.
+##### Создание таблицы
+Объект **CloudTableClient**  позволяет ссылаться на объекты таблиц и сущностей. Следующий код создает объект **CloudTableClient** и использует его для создания новой таблицы. Код ссылается на таблицу под названием people. Если таблица с таким именем отсутствует, она будет создана.
 
-**ПРИМЕЧАНИЕ.** Во всем коде этого руководства предполагается, что приложение создается как проект облачной службы Azure и использует строку подключения к хранилищу, хранимые в конфигурации службы приложения Azure. Вставьте этот код полностью перед кодом из следующих разделов.
+**Примечание** Во всем коде этого руководства предполагается, что приложение создается как проект облачной службы Azure и использует строку подключения к хранилищу, хранимые в конфигурации службы приложения Azure. Также, вставляйте этот код полностью перед кодом из следующих разделов.
 
 	// Create the table client.
 	CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
@@ -50,8 +64,8 @@ A Объект **CloudTableClient** позволяет получить объе
 	CloudTable table = tableClient.GetTableReference("people");
 	await table.CreateIfNotExistsAsync();
 
-#####Добавление сущности в таблицу
-Чтобы добавить сущность в таблицу, создайте класс, который определяет свойства сущности. Следующий код определяет класс сущностей с именем **CustomerEntity**, который использует имя клиента как ключ строки, а фамилию клиента - как ключ раздела.
+##### Добавление сущности в таблицу
+Чтобы добавить сущность в таблицу, создайте класс, который определяет свойства сущности. Следующий код определяет класс сущностей с именем **CustomerEntity**, который использует имя клиента как ключ строки, а фамилию клиента - как ключ раздела..
 
 	public class CustomerEntity : TableEntity
 	{
@@ -68,7 +82,7 @@ A Объект **CloudTableClient** позволяет получить объе
 	    public string PhoneNumber { get; set; }
 	}
 
-Табличные операций, включающие сущности, выполнены с использованием объекта **CloudTable**, созданного ранее в разделе "Создание таблицы". Объект **TableOperation** представляет операции, которые необходимо выполнить. В следующем примере кода показано создание объекта **CloudTable** и объекта **CustomerEntity**. Чтобы подготовить операцию, создается **TableOperation** для вставки сущности customer в таблицу. Наконец, эта операция выполняется путем вызова CloudTable.ExecuteAsync.
+Табличные операций, включающие сущности, выполнены с использованием объекта **CloudTable**, созданного ранее в разделе "Создание таблицы". Объект **TableOperation** представляет операцию, которую необходимо выполнить. В следующем примере кода показано создание объектов **CloudTable** и **CustomerEntity**. Чтобы подготовить операцию, создается **TableOperation** для вставки сущности customer в таблицу. Наконец, эта операция выполняется путем вызова CloudTable.ExecuteAsync.
 
 	// Create a new customer entity.
 	CustomerEntity customer1 = new CustomerEntity("Harp", "Walter");
@@ -81,7 +95,7 @@ A Объект **CloudTableClient** позволяет получить объе
 	// Execute the insert operation.
 	await table.ExecuteAsync(insertOperation);
 
-#####Вставка пакета сущностей
+##### Вставка пакета сущностей
 В таблицу можно вставить несколько сущностей с помощью одной операции записи. В следующем примере кода показано создание двух объектов сущностей ("Jeff Smith" и "Ben Smith"), добавление их в объект **TableBatchOperation** с помощью метода Insert и запуск операции с помощью вызова CloudTable.ExecuteBatchAsync.
 
 	// Create the CloudTable object that represents the "people" table.
@@ -107,8 +121,8 @@ A Объект **CloudTableClient** позволяет получить объе
 	// Execute the batch operation.
 	await table.ExecuteBatchAsync(batchOperation);
 
-#####Получение всех сущностей в разделе
-Чтобы запросить из таблицы все сущности из какого-либо раздела, используйте объект **TableQuery**. Следующий пример кода задает фильтр для сущностей с ключом раздела "Smith". Этот пример выводит на консоль поля каждой сущности в результатах запроса.
+##### Получение всех сущностей в разделе
+Чтобы запросить все сущности из таблицы, используйте объект **TableQuery**. Следующий пример кода задает фильтр для сущностей с ключом раздела 'Smith'. Этот пример выводит на консоль поля каждой сущности в результатах запроса.
 
 	// Construct the query operation for all customer entities where PartitionKey="Smith".
     TableQuery<CustomerEntity> query = new TableQuery<CustomerEntity>().Where(TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "Smith"));
@@ -130,8 +144,8 @@ A Объект **CloudTableClient** позволяет получить объе
     return View();
 
 
-#####Получение одной сущности
-Вы можете написать запрос для получения одной конкретной сущности. Следующий пример кода использует **TableOperation** для указания клиента "Ben Smith". Этот метод возвращает только одну сущность, а не коллекцию, а возвращаемое значение в TableResult.Result является объектом **CustomerEntity**. Указание ключа раздела и ключа строки в запросе - самый быстрый способ для получения одной сущности из службы **таблиц**.
+##### Получение одной сущности
+Можно написать запрос для получения отдельной сущности. В следующем коде используется **TableOperation** для указания клиента с именем 'Ben Smith'. Этот метод возвращает только одну сущность, а не коллекцию, а возвращаемое значение в TableResult.Result является объектом **CustomerEntity**. Указание ключа раздела и ключа строки в запросе - самый быстрый способ для получения одной сущности из службы **таблиц**.
 
 	// Create the CloudTable object that represents the "people" table.
 	CloudTable table = tableClient.GetTableReference("people");
@@ -148,7 +162,7 @@ A Объект **CloudTableClient** позволяет получить объе
 	else
 	   Console.WriteLine("The phone number could not be retrieved.");
 
-#####Удаление сущности
+##### Удаление сущности
 После нахождения сущности ее можно удалить. В следующем примере код выполняет поиск сущности с именем "Ben Smith" и при нахождении удаляет ее.
 
 	// Create the CloudTable that represents the "people" table.
@@ -177,5 +191,6 @@ A Объект **CloudTableClient** позволяет получить объе
 	else
 	   Console.WriteLine("Couldn't delete the entity.");
 
-[Подробнее о хранилище Azure](http://azure.microsoft.com/documentation/services/storage/)
+[Дополнительные сведения о хранилище Azure](http://azure.microsoft.com/documentation/services/storage/)
 См. также [Просмотр ресурсов хранилища в обозревателе серверов](http://msdn.microsoft.com/ru-ru/library/azure/ff683677.aspx) и [ASP.NET 5](http://www.asp.net/vnext).
+<!--HONumber=42-->

@@ -1,39 +1,34 @@
+﻿
 
 
+1. Перейдите на веб-сайт <a href="http://cloud.google.com/console" target="_blank">консоли Google Cloud</a> и войдите с помощью учетной записи Google. Нажмите кнопку **Create Project** (Создать проект).
 
-1.  Перейдите на веб-сайт [Консоль Google Cloud][Консоль Google Cloud] и войдите с помощью учетной записи Google. Щелкните элемент **СОЗДАТЬ ПРОЕКТ**.
+   	![](./media/notification-hubs-android-get-started/mobile-services-google-new-project.png)   
 
-    ![][ ]
+	>[AZURE.NOTE]Если у вас уже есть проект, после входа в систему откроется страница <strong>Projects</strong> (Проекты). Чтобы создать новый проект из панели мониторинга, разверните <strong>API Project</strong> (Проект API), щелкните <strong>Create...</strong> (Создать...) в разделе <strong>Other projects</strong> (Другие проекты), введите имя проекта и нажмите кнопку <strong>Create project</strong> (Создать проект).
 
-    >[WACOM.NOTE]При наличии существующего проекта после входа в систему открывается страница **Проекты**. Чтобы создать новый проект из панели мониторинга, откройте **Проект API**, нажмите **Создать...** в разделе **Другие проекты**, введите имя проекта и нажмите кнопку **Создать проект**.
+2. Введите имя проекта, примите условия предоставления услуг и щелкните **Create** (Создать). Выполните требуемую проверку с помощью SMS и снова щелкните **Create** (Создать).
 
-2.  Введите имя проекта, примите условия предоставления услуг и щелкните кнопку **Создать**. Выполните требуемую проверку с помощью SMS и снова щелкните элемент **Create** (Создать).
+3. Запишите номер проекта в разделе **Projects** (Проекты). 
 
-3.  Запишите номер проекта в разделе **Проекты**.
+	Позже в этом учебнике данное значение будет использоваться как переменная PROJECT_ID для клиента.
 
-    Позже в этом учебнике данное значение будет использоваться как переменная PROJECT\_ID для клиента.
+4. В левом столбце щелкните элемент **APIs & auth** (API и авторизация), выполните прокрутку вниз и щелкните переключатель, чтобы включить **Google Cloud Messaging for Android**, и примите условия соглашения. 
 
-4.  В левом столбце щелкните элемент **API и проверка подлинности**, прокрутите вниз и щелкните переключатель, чтобы включить **Google Cloud Messaging для Android**, и примите условия соглашения.
+	![](./media/notification-hubs-android-get-started/mobile-services-google-enable-GCM.png)
 
-    ![][1]
+5. Щелкните **Credentials** (Учетные данные), а затем **Create new key** (Создать новый ключ). 
 
-5.  Щелкните **Учетные данные**, а затем нажмите кнопку **СОЗДАТЬ НОВЫЙ КЛЮЧ**
+   	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key.png)
 
-    ![][2]
+6. В области **Create a new key** (Создать новый ключ) щелкните элемент **Server key** (Ключ сервера). В следующем окне щелкните элемент **Create** (Создать).
 
-6.  В окне **Создание нового ключа** щелкните **Ключ сервера**. В следующем окне щелкните элемент **Create** (Создать).
+   	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key2.png)
 
-    ![][3]
+7. Запишите значение **API key** (Ключ API).
 
-7.  Запишите значение **Ключ API**.
+   	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key3.png) 
 
-    ![][4]
+	Значение ключа API будет использоваться для предоставления мобильным службам возможности выполнять аутентификацию с помощью GCM и отправки push-уведомлений от имени вашего приложения.
 
-    Значение ключа API используется для предоставления мобильным службам возможности выполнять проверку подлинности с помощью GCM и отправки push-уведомлений от имени вашего приложения.
-
-  [Консоль Google Cloud]: http://cloud.google.com/console
-  [ ]: ./media/notification-hubs-android-get-started/mobile-services-google-new-project.png
-  [1]: ./media/notification-hubs-android-get-started/mobile-services-google-enable-GCM.png
-  [2]: ./media/notification-hubs-android-get-started/mobile-services-google-create-server-key.png
-  [3]: ./media/notification-hubs-android-get-started/mobile-services-google-create-server-key2.png
-  [4]: ./media/notification-hubs-android-get-started/mobile-services-google-create-server-key3.png
+<!--HONumber=42-->
