@@ -8,4 +8,5 @@
 
 	![](./media/mobile-services-dotnet-backend-test-local-service/mobile-service-startup.png)
 
-	После успешного запуска мобильной службы отображается веб-страница.<!--HONumber=42-->
+	После успешного запуска мобильной службы отображается веб-страница.
+<!--HONumber=42-->

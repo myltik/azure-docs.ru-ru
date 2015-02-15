@@ -400,4 +400,5 @@
 [require_once]: http://www.php.net/manual/en/function.require-once.php
 [Портал управления Azure]: http://manage.windowsazure.com/
 [Хранение и доступ к данным в Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/gg433040.aspx
+
 <!--HONumber=42-->

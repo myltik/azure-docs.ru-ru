@@ -170,4 +170,5 @@
   [Практическое руководство. Удаление таблицы]: #delete-table
   [Хранение и доступ к данным в Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/gg433040.aspx
   [Посетите блог рабочей группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
+
 <!--HONumber=42-->

@@ -26,4 +26,5 @@
 [Подключение диска данных к виртуальной машине Windows](http://azure.microsoft.com/ru-ru/documentation/articles/storage-windows-attach-disk/)
 
 
+
 <!--HONumber=42-->

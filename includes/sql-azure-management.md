@@ -244,4 +244,5 @@ Transact-SQL с базой данных SQL, включая сведения о 
   [Введение в базы данных SQL]: http://msdn.microsoft.com/ru-ru/library/windowsazure/ee336230.aspx
   [Модель подготовки базы данных SQL]: http://msdn.microsoft.com/ru-ru/library/ee336227.aspx
   [Добавление пользователей в базу данных SQL]: http://blogs.msdn.com/b/sqlazure/archive/2010/06/21/10028038.aspx
+
 <!--HONumber=42-->

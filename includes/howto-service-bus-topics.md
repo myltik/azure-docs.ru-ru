@@ -68,4 +68,5 @@ Service Bus topics and subscriptions support a Разделы и подписк�
   
   [6]: ./media/howto-service-bus-topics/getting-started-multi-tier-27.png
   [34]: ./media/howto-service-bus-topics/VSProperties.png
+
 <!--HONumber=42-->

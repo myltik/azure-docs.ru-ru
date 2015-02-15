@@ -420,4 +420,5 @@ Mahout установлена на кластере HDInsight версии 3.1, 
 [connect]: ./media/hdinsight-mahout/connect.png
 [hadoopcli]: ./media/hdinsight-mahout/hadoopcli.png
 [tools]: https://github.com/Blackmist/hdinsight-tools
+
 <!--HONumber=42-->

@@ -280,4 +280,5 @@ customer.ETag = "*";
 - Приступая к работе с хранилищем для [больших двоичных объектов](http://azure.microsoft.com/ru-ru/documentation/articles/storage-dotnet-how-to-use-blobs/), [таблиц](http://azure.microsoft.com/ru-ru/documentation/articles/storage-dotnet-how-to-use-tables/) и [очередей](http://azure.microsoft.com/ru-ru/documentation/articles/storage-dotnet-how-to-use-queues/)
 - Архитектура хранилища - [Хранилище Windows Azure: Высокодоступная служба облачного хранения с развитой системой согласованности](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
+
 <!--HONumber=42-->

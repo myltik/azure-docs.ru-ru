@@ -116,4 +116,5 @@
   [Практическое руководство. Отправка и скачивание больших двоичных объектов]: #large-blobs
   [Хранение и доступ к данным в Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/gg433040.aspx
   [Блог рабочей группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
+
 <!--HONumber=42-->

@@ -407,4 +407,5 @@
 [Справочник по пакету SDK для клиента хранилища Azure]: http://dl.windowsazure.com/storage/javadoc/
 [REST API службы хранилища Azure]: http://msdn.microsoft.com/ru-ru/library/azure/gg433040.aspx
 [Блог рабочей группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
+
 <!--HONumber=42-->

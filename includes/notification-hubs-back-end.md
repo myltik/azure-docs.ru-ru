@@ -100,4 +100,5 @@
 [Руководство по использованию концентраторов уведомлений]: http://msdn.microsoft.com/ru-ru/library/jj927170.aspx
 [Инструкции по использованию концентраторов уведомлений для магазина Windows]: http://msdn.microsoft.com/ru-ru/library/jj927172.aspx
 [Интерфейс REST концентраторов уведомлений]: http://msdn.microsoft.com/ru-ru/library/windowsazure/dn223264.aspx
+
 <!--HONumber=42-->

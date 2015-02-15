@@ -96,4 +96,5 @@ AMQP 1.0 разрабатывался с 2008 г. активной группо�
 
 [0]: ./media/service-bus-amqp-overview/Example1.png
 
+
 <!--HONumber=42-->

@@ -886,4 +886,5 @@ Hadoop MapReduce представляет из себя пакетную обр�
 [img-hdi-flightdelays-run-hive-job-output]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.RunHiveJob.Output.png
 [img-hdi-flightdelays-flow]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.Flow.png
 
+
 <!--HONumber=42-->

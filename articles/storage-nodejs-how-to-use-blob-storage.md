@@ -412,4 +412,5 @@ ACL реализуется с помощью массива политик до�
   [Облачная служба Node.js]: /ru-ru/documentation/articles/cloud-services-nodejs-develop-deploy-app/
   [Хранение и доступ к данным в Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/gg433040.aspx
   [блог рабочей группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
+
 <!--HONumber=42-->

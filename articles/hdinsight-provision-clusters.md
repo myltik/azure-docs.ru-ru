@@ -678,4 +678,5 @@ HDInsight использует контейнер хранилища BLOB-объ
 [img-hdi-cluster]: ./media/hdinsight-provision-clusters/HDI.Cluster.png
 
   [89e2276a]: /ru-ru/documentation/articles/hdinsight-use-sqoop/ "Use Sqoop with HDInsight"
+
 <!--HONumber=42-->

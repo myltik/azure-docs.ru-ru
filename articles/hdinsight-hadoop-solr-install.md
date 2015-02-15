@@ -374,4 +374,5 @@ Solr можно установить в любой тип кластера Hadoo
 [hdinsight-install-r]: ../hdinsight-hadoop-r-scripts/
 [hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/
 [hdinsight-cluster-customize]: ../hdinsight-hadoop-customize-cluster
+
 <!--HONumber=42-->

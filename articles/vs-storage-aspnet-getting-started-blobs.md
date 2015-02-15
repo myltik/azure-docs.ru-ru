@@ -46,4 +46,5 @@
 [AZURE.INCLUDE [vs-storage-getting-started-blobs-include](../includes/vs-storage-getting-started-blobs-include.md)]
 
 Дополнительные сведения см. в разделе [ASP.NET](http://www.asp.net).
+
 <!--HONumber=42-->

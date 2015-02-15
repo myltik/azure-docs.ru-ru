@@ -51,4 +51,5 @@
 <!-- URLs. -->
 [Портал управления Azure]: https://manage.windowsazure.com/
 [Объект MSSQL]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj554212.aspx
+
 <!--HONumber=42-->

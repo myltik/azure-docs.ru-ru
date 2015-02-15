@@ -139,4 +139,5 @@
   [Практическое руководство. Удаление очереди]: #delete-queue
   [Хранение и доступ к данным в Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/gg433040.aspx
   [Блог рабочей группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
+
 <!--HONumber=42-->

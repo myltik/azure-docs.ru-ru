@@ -179,4 +179,5 @@
 * См. справочник MSDN: [Хранение и доступ к данным в Azure](http://msdn.microsoft.com/ru-ru/library/windowsazure/gg433040.aspx)
 * Посетите [блог рабочей группы службы хранилища Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 * Посетите репозиторий [Пакет SDK для Azure для Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) на веб-сайте GitHub.
+
 <!--HONumber=42-->

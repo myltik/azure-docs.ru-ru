@@ -580,4 +580,5 @@
 [REST API службы хранилища Azure]: http://msdn.microsoft.com/ru-ru/library/azure/gg433040.aspx
 [Блог рабочей группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [записи блога]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
+
 <!--HONumber=42-->

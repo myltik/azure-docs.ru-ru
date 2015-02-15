@@ -621,4 +621,5 @@ SendGrid - это приложение в Магазине Azure, которое
 
 [Афиша служб мультимедиа Azure]: http://azure.microsoft.com/ru-ru/documentation/infographics/media-services/
 
+
 <!--HONumber=42-->

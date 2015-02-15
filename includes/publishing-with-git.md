@@ -334,4 +334,5 @@
 [Краткое руководство - Mercurial]: http://mercurial.selenic.com/wiki/QuickStart
 [Использование Dropbox для общего доступа к репозиториям Git]: https://gist.github.com/trey/2722927
 [Непрерывная доставка в Azure с использованием Visual Studio Online]: http://www.windowsazure.com/ru-ru/develop/net/common-tasks/publishing-with-tfs/
+
 <!--HONumber=42-->

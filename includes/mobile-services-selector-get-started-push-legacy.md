@@ -9,4 +9,5 @@
 - [(Windows Phone | Javascript)](/ru-ru/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/)
 - [(Android | .NET)](/ru-ru/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/)
 - [(Android | Javascript)](/ru-ru/documentation/articles/mobile-services-javascript-backend-android-get-started-push/)
+
 <!--HONumber=42-->

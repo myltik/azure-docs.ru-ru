@@ -217,4 +217,5 @@
 - [Как использовать хранилище больших двоичных объектов в Python](../storage-python-how-to-use-blob-storage/)
 - [Как использовать табличное хранилище в Python](../storage-python-how-to-use-table-storage/)
 - [Как использовать хранилище очередей в Python](../storage-python-how-to-use-queue-storage/)
+
 <!--HONumber=42-->

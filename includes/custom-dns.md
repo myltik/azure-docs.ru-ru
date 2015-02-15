@@ -137,4 +137,5 @@
   [Диалоговое окно "Проверка пользовательского домена"]: http://i.msdn.microsoft.com/dynimg/IC544437.jpg
   [Сопоставление содержимого CDN с пользовательским доменом]: http://msdn.microsoft.com/ru-ru/library/windowsazure/gg680307.aspx
   [виртуальный IP-адрес]: ./media/custom-dns/csvip.png
-  [csurl]: ./media/custom-dns/csurl.png<!--HONumber=42-->
+  [csurl]: ./media/custom-dns/csurl.png
+<!--HONumber=42-->

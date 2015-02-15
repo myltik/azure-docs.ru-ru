@@ -19,4 +19,5 @@
 
 <!-- URLs -->
 [Портал управления Azure]: https://manage.windowsazure.com/
+
 <!--HONumber=42-->

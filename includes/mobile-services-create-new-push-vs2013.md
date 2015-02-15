@@ -30,4 +30,5 @@
 [Приступая к работе с мобильными службами]: /ru-ru/develop/mobile/tutorials/get-started/
 [Приступая к работе с данными]: /ru-ru/develop/mobile/tutorials/get-started-with-data-dotnet/
 [Импорт PUBLISHSETTINGS-файла в Visual Studio 2013]: /ru-ru/documentation/articles/mobile-services-windows-how-to-import-publishsettings/
+
 <!--HONumber=42-->

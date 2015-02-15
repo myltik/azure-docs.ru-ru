@@ -217,4 +217,5 @@ Giraph не предоставляется как часть кластера HD
 [aps]: http://azure.microsoft.com/ru-ru/documentation/articles/install-configure-powershell/
 [pig]: http://azure.microsoft.com/ru-ru/documentation/articles/hdinsight-use-pig/
 [hive]: http://azure.microsoft.com/ru-ru/documentation/articles/hdinsight-use-hive/
+
 <!--HONumber=42-->

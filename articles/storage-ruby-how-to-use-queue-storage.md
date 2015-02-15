@@ -173,4 +173,5 @@
 - Посетите репозиторий [Пакет SDK для Azure для Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) на веб-сайте GitHub.
 
 Сравнение службы очередей Azure, описанной в этой статье, и очередей Service Bus Azure, описанных в статье [Использование очередей Service Bus](/ru-ru/develop/ruby/how-to-guides/service-bus-queues/), см. в статье [Очереди Azure и очереди шины обслуживания - сходство и отличия](http://msdn.microsoft.com/ru-ru/library/windowsazure/hh767287.aspx).
+
 <!--HONumber=42-->

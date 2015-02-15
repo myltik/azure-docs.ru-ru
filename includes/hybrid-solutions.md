@@ -99,4 +99,5 @@
 [очереди]: ./media/hybrid-solutions/SvcBus_02_queues.png
 [topics-subs]: ./media/hybrid-solutions/SvcBus_03_topicsandsubscriptions.png
 [ретранслятор]: ./media/hybrid-solutions/SvcBus_04_relay.png
+
 <!--HONumber=42-->

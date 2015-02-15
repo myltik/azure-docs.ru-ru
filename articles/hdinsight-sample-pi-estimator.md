@@ -482,4 +482,5 @@ JAR-файл, содержащий файлы, необходимые Hadoop д�
 [hdinsight-use-pig]: ../hdinsight-use-pig/
  
 
+
 <!--HONumber=42-->

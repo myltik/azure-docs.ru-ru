@@ -29,4 +29,5 @@
 Теперь мобильная служба настроена в AAD для принятия попыток единого входа из приложения.
 
 
-[портале управления Azure]: https://manage.windowsazure.com/<!--HONumber=42-->
+[портале управления Azure]: https://manage.windowsazure.com/
+<!--HONumber=42-->

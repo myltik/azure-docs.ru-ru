@@ -40,4 +40,5 @@
 [Портал управления Windows Azure]: https://manage.windowsazure.com/
 [Регистрация приложений для входа в Twitter с помощью мобильных служб]: /ru-ru/documentation/articles/mobile-services-how-to-register-twitter-authentication
 [Разработчики Twitter]: http://go.microsoft.com/fwlink/p/?LinkId=268300
-[Параметры приложения]: http://msdn.microsoft.com/ru-ru/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7<!--HONumber=42-->
+[Параметры приложения]: http://msdn.microsoft.com/ru-ru/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+<!--HONumber=42-->

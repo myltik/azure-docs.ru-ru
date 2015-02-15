@@ -32,4 +32,5 @@
 	Мобильная служба и приложение теперь настроены для работы с выбранным поставщиком проверки подлинности.
 
 <!-- URLs. -->
-[Портал управления Azure]: https://manage.windowsazure.com/<!--HONumber=42-->
+[Портал управления Azure]: https://manage.windowsazure.com/
+<!--HONumber=42-->

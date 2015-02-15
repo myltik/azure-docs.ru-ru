@@ -78,4 +78,5 @@
   [Портал управления Azure]: http://manage.windowsazure.com
 
   [34]: ./media/howto-service-bus-queues/VSProperties.png
+
 <!--HONumber=42-->

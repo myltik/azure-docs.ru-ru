@@ -159,4 +159,5 @@
 ## Дополнительные ресурсы
 
 -   <a href="http://msdn.microsoft.com/ru-ru/library/windowsazure/gg680307.aspx">Как сопоставить содержимое CDN с пользовательским доменом</a>
+
 <!--HONumber=42-->

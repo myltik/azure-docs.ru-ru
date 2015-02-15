@@ -1356,4 +1356,5 @@
 * Информацию о создании топологий в .NET см. разделе [Разработка приложений для обработки потоковой передачи данных на SCP.NET и C# в Storm и HDInsight](/ru-ru/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/)
 
 [azure-portal]: https://manage.windowsazure.com/
+
 <!--HONumber=42-->

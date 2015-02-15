@@ -120,4 +120,5 @@
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-[Руководство разработчика по концентраторам событий]: http://msdn.microsoft.com/ru-ru/library/azure/dn789972.aspx<!--HONumber=42-->
+[Руководство разработчика по концентраторам событий]: http://msdn.microsoft.com/ru-ru/library/azure/dn789972.aspx
+<!--HONumber=42-->

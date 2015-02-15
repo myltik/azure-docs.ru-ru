@@ -43,4 +43,5 @@
 
 [AZURE.INCLUDE [vs-storage-getting-started-queues-include](../includes/vs-storage-getting-started-queues-include.md)]
 
-Дополнительные сведения см. в разделе [ASP.NET](http://www.asp.net).<!--HONumber=42-->
+Дополнительные сведения см. в разделе [ASP.NET](http://www.asp.net).
+<!--HONumber=42-->

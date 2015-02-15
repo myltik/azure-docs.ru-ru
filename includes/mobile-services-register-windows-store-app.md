@@ -68,4 +68,5 @@
 [Приступая к работе с мобильными службами]: /ru-ru/develop/mobile/tutorials/get-started/#create-new-service
 [Отправить страницу приложения]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Портал управления Azure]: https://manage.windowsazure.com/
+
 <!--HONumber=42-->

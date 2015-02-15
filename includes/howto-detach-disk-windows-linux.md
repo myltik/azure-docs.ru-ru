@@ -46,4 +46,5 @@
 [attachdisk]:/ru-ru/manage/windows/how-to-guides/attach-a-disk/
 
 [Сведения о дисках и образах]:http://go.microsoft.com/fwlink/p/?LinkId=263439
+
 <!--HONumber=42-->

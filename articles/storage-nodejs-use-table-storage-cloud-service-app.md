@@ -405,4 +405,5 @@
   [Хранение данных и доступ к ним в Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/gg433040.aspx
   [Веб-приложение Node.js]: http://www.windowsazure.com/ru-ru/develop/nodejs/tutorials/getting-started/
  
+
 <!--HONumber=42-->

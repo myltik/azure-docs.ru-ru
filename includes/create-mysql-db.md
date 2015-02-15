@@ -78,4 +78,5 @@
 [Магазин Azure]: /ru-ru/gallery/store/
 [portal]: http://manage.windowsazure.com
 [configure]: ../web-sites-configure/
+
 <!--HONumber=42-->

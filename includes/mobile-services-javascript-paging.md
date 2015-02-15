@@ -53,4 +53,5 @@
    	Обратите внимание, что метод **skip(3)** был преобразован в параметр запроса **$skip=3** в URI запроса.
 
 <!-- URLs -->
-[Fiddler]: http://go.microsoft.com/fwlink/?LinkID=262412<!--HONumber=42-->
+[Fiddler]: http://go.microsoft.com/fwlink/?LinkID=262412
+<!--HONumber=42-->

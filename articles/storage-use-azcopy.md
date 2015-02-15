@@ -899,4 +899,5 @@ AzCopy использует  *индекс тома* в именах разде�
 - [AzCopy: использование копирования BLOB-объектов между разными учетными записями](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 - [AzCopy: отправка/ загрузка файлов для BLOB-объектов Windows Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
 
+
 <!--HONumber=42-->

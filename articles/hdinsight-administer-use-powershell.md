@@ -297,4 +297,5 @@ PowerShell не может создать контейнер BLOB-объекто
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
 
+
 <!--HONumber=42-->
