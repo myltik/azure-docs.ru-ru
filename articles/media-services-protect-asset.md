@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Encrypt Assets in Media Services" pageTitle="Как шифровать ресурсы в службах мультимедиа - Azure" metaKeywords="" description="Сведения об использовании защиты Microsoft PlayReady для шифрования активов в службах мультимедиа. Примеры кода написаны на языке C# и используют пакет SDK служб мультимедиа для .NET. Примеры кода написаны на языке C# и используют пакет SDK служб мультимедиа для .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Protect an Asset with PlayReady Protection" authors="juliako" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Как шифровать ресурсы в службах мультимедиа - Azure" description="Сведения об использовании защиты Microsoft PlayReady для шифрования активов в службах мультимедиа. Примеры кода написаны на языке C# и используют пакет SDK служб мультимедиа для .NET. Примеры кода написаны на языке C# и используют пакет SDK служб мультимедиа для .NET." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
 
 
 
@@ -8,13 +8,13 @@
 
 <h1><a name="playready"></a>Практическое руководство: Защита актива с помощью PlayReady Protection</h1>
 
-Эта статья является частью серии вводных статей о программировании служб мультимедиа в Azure. Предыдущая статья: [Практическое руководство. Проверка хода выполнения задания](../media-services-check-job-progress/).
+Эта статья является частью серии вводных статей о программировании служб мультимедиа в Azure. Предыдущий раздел [Практическое руководство: Проверка хода выполнения задания](../media-services-check-job-progress/).
 
 В службах мультимедиа Azure можно отправить задание, которое интегрируется с Microsoft PlayReady Protection с целью шифрования актива. Код в этом разделе принимает несколько файлов потоковой передачи из входной папки, создает задачу и шифрует их с использованием PlayReady Protection. 
 
 Следующий пример демонстрирует, как создать простое задание для обеспечения защиты с помощью PlayReady Protection.
 
-   1. Получение данных конфигурации. Пример файла конфигурации можно найти в разделе [Предустановка задачи для Azure Media Encryptor](http://msdn.microsoft.com/ru-ru/library/hh973610.aspx) .
+   1. Получение данных конфигурации. Пример файла конфигурации можно найти в разделе [Предустановка задачи для средства шифрования Azure](http://msdn.microsoft.com/ru-ru/library/hh973610.aspx).
    2. Загрузка входного файла MP4
    3. Преобразование файла MP4 в актив с бесперебойной потоковой передачей Smooth Streaming
    4. Шифрование актива с помощью PlayReady
@@ -78,7 +78,7 @@ private static IJob CreatePlayReadyProtectionJob(string inputMediaFilePath, stri
 
     // Use the following event handler to check job progress. 
     job.StateChanged += new
-            EventHandler<JobStateChangedEventArgs>(StateChanged);
+            EventHandler&lt;JobStateChangedEventArgs&gt;(StateChanged);
 
     // Launch the job.
     job.Submit();
@@ -114,6 +114,7 @@ private static IJob CreatePlayReadyProtectionJob(string inputMediaFilePath, stri
 </ul>
 
 <h2>Дальнейшие действия</h2>
-Теперь, когда вы знаете, как защитить ресурсы с помощью служб мультимедиа, перейдите к статье [Управление ресурсами](../media-services-manage-assets/) .
+Теперь, когда вы знаете, как защитить активы со службами мультимедиа, перейдите к разделу [Управление активами](../media-services-manage-assets/).
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

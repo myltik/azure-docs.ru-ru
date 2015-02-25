@@ -1,17 +1,19 @@
-﻿<properties urlDisplayName="Mobile Services Overview" pageTitle="Обзор мобильных служб | Центр мобильных разработок" metaKeywords="" description="Узнайте о мобильных службах." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Mobile Services Overview" authors="mahender"  manager="dwrede" services="mobile-services"/>
+﻿<properties pageTitle="Обзор мобильных служб | Центр мобильных разработок" description="Узнайте о мобильных службах." documentationCenter="" authors="mattchenderson" manager="dwrede" services="mobile-services" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="08/19/2014" ms.author="mahender" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="08/19/2014" ms.author="mahender"/>
 
 # Обзор мобильных служб
 
 
->[WACOM.NOTE] Скорее всего, этот раздел еще не готов, но хотелось бы, чтобы читатель знал о его существовании! Если вас особенно интересует эта тема, сообщите нам с помощью твита [@AzureMobile] или отправьте почту на сайт [Forums] или [UserVoice].
-> **Тем временем можно проверить [почту блога], в которой рассматривается в основном то же содержимое.**
+>[AZURE.NOTE] Скорее всего, этот раздел еще не готов, но хотелось бы, чтобы читатель знал о его существовании! Если вы заинтересовались данной темой, сообщите нам в [@AzureMobile] или оставьте сообщение на [форумах] или [UserVoice].
+> **А пока вы можете ознакомиться с [записью блога], в которой рассматривается аналогичный материал.**
 
 
 
 <!-- URLs. -->
 [@AzureMobile]: https://twitter.com/AzureMobile
-[Форумы]: http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azuremobile
+[Форумы]: http://social.msdn.microsoft.com/Forums/windowsazure/ru-ru/home?forum=azuremobile
 [UserVoice]: http://feedback.azure.com/forums/216254-mobile-services
 [запись блога]: http://azure.microsoft.com/blog/2014/07/11/azure-mobile-services-why-should-asp-net-developers-care/
+
+<!--HONumber=42-->

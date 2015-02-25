@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Get Started with Mobile Analytics" pageTitle="Приступая к работе с мобильной аналитикой | Центр мобильных разработок" metaKeywords="" description="Начало работы с мобильной аналитикой." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get Started with Mobile Analytics" authors="mahender" manager="dwrede"/>
+﻿<properties pageTitle="Приступая к работе с мобильной аналитикой | Центр мобильных разработок" description="Начало работы с мобильной аналитикой." documentationCenter="ios" authors="mattchenderson" manager="dwrede" editor="" services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="10/10/2014" ms.author="mahender" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="multiple" ms.topic="article" ms.date="10/10/2014" ms.author="mahender"/>
 
 # Приступая к работе с мобильной аналитикой (Capptain)
 
@@ -16,22 +16,22 @@
 
 В этом учебнике рассматриваются следующие основные действия:
 
-1. [Запуск пакета SDK для Capptain]
-2. [Перезагрузка UIViewController]
+1. [Инициализация пакета Capptain SDK]
+2. [Перегрузка UIViewController]
 
 Для работы с данным учебником требуется следующее:
 
 * Учетная запись [Capptain]
 * Приложение типа [Мобильные службы уровня Standard]
 
-## <a name="initialize"></a>Запуск пакета SDK для Capptain
+## <a name="initialize"></a>Инициализация пакета Capptain SDK
 
 1. Откройте страницу **Сведения о приложении** своего приложения, зарегистрированного в Capptain. Перейдите на вкладку SDK и загрузите пакет.
 
 2. В XCode добавьте пакет SDK для Capptain в ваш проект. Для этого щелкните правой кнопкой мыши на проекте и выберите "Добавить файлы в...". Выберите папку CapptainSDK.
 
 3. Выберите проект. На вкладке **Этапы построения** выберите **Связать двоичные файлы с библиотеками** и добавьте следующие среды:
-    * AdSupport.framework - укажите связь как необязательную (Optional)
+    * AdSupport.framework - set the link as Optional
     * SystemConfiguration.framework
     * CoreTelephony.framework
     * CFNetwork.framework
@@ -55,9 +55,9 @@
           [...]
         }
 
-## <a name="instrument"></a>Перезагрузка UIViewController
+## <a name="instrument"></a>Перегрузка UIViewController
 
-1. Найдите все дочерние элементы UIViewController в своем проекте и убедитесь, что каждый из них наследуется от CapptainViewController.
+1. Найдите все дочерние элементы `UIViewController` в вашем проекте и убедитесь, что каждый из них наследуется от `CapptainViewController`.
 
         #import <UIKit/UIKit.h>
         #import "CapptainViewController.h"
@@ -71,20 +71,21 @@
         @property (nonatomic, retain) IBOutlet UITextField* myTextField1;
         @property (nonatomic, retain) IBOutlet UITextField* myTextField2;
 
-2. Найдите все дочерние элементы UITableViewController в своем проекте и убедитесь, что каждый из них наследуется от CapptainTableViewController.
+2. Найдите все дочерние элементы `UITableViewController` в вашем проекте и убедитесь, что каждый из них наследуется от `CapptainTableViewController`.
 
     Теперь ваше приложение настроено для отправки данных аналитики в Capptain.
 
 ## Дальнейшие действия
-Дополнительную информацию о возможностях Capptain для вашего приложения см. на веб-сайте [http://www.capptain.com](http://www.capptain.com)
+Дополнительные сведения о возможностях Capptain для вашего приложения см. на веб-сайте [http://www.capptain.com](http://www.capptain.com)
 
 <!-- Anchors. -->
-[Запуск пакета SDK для Capptain]: #initialize
-[Перезагрузка UIViewController]: #instrument
+[Инициализация пакета Capptain SDK]: #initialize
+[Перегрузка UIViewController]: #instrument
 
 
 <!-- URLs. -->
 [Capptain]: http://www.capptain.com
 [Мобильные службы уровня Standard]: /ru-ru/pricing/details/mobile-services/
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

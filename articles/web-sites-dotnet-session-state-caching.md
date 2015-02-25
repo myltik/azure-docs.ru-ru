@@ -1,11 +1,24 @@
-﻿<properties urlDisplayName="index" pageTitle="Использование состояния сеанса ASP.NET с веб-сайтов Azure" metaKeywords="azure cache service session state" description="Узнайте, как использовать службу кэша Azure для поддержки кэширования состояний сеансов ASP.NET." metaCanonical="" services="cache" documentationCenter=".NET" title="How to Use ASP.NET Session State with Azure Websites" authors="riande"  solutions="" manager="wpickett" editor="mollybos"  />
+﻿<properties 
+	pageTitle="Использование состояния сеанса ASP.NET с веб-сайтов Azure" 
+	description="Узнайте, как использовать службу кэша Azure для поддержки кэширования состояний сеансов ASP.NET." 
+	services="cache" 
+	documentationCenter=".net" 
+	authors="riande" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/13/2014" ms.author="riande" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="1/13/2015" 
+	ms.author="Rick-Anderson"/>
 
 
 # Как использовать ASP.NET Session State с веб-сайтами Azure
 
-*Автор: [Рик Андерсон](https://twitter.com/RickAndMSFT). Обновление: 1 июля 2014 г.*
 
 В этом разделе объясняется, как использовать службу кэша Azure Redis (предварительная версия) для поддержки состояния сеанса.
 
@@ -14,40 +27,40 @@
 Основные шаги для использования службы кэша (предварительная версия) для кэширования состояния сеанса включают:
 
 * [Создание кэша.](#createcache)
-* [Добавьте пакет NuGet RedisSessionStateProvider в свое веб-приложение.](#configureproject)
+* [Добавление пакета NuGet RedisSessionStateProvider в свое веб-приложение.](#configureproject)
 * [Изменение файла web.config.](#configurewebconfig)
 * [Использование объекта сеанса для хранения и получения кэшированных элементов.](#usesessionobject)
 
 <h2><a id="createcache"></a>Создание кэша</h2>
-Выполните [следующие инструкции](http://azure.microsoft.com/ru-ru/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#create-cache), чтобы создать кэш.
+Выполните [следующие указания](http://azure.microsoft.com/ru-ru/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#create-cache), чтобы создать кэш.
 
-<h2><a id="configureproject"></a>Добавьте пакет NuGet RedisSessionStateProvider в свое веб-приложение.</h2>
-Установите пакет NuGet "RedisSessionStateProvider".  С помощью следующей команды установите консоль диспетчера пакетов (**Инструменты** > **Диспетчер пакетов NuGet** > **Консоль диспетчера пакетов**):
+<h2><a id="configureproject"></a>Добавление пакета NuGet RedisSessionStateProvider в свое веб-приложение</h2>
+Установите пакет NuGet `RedisSessionStateProvider`.  С помощью следующей команды установите консоль диспетчера пакетов (**Инструменты** > **Диспетчер пакетов NuGet** > **Консоль диспетчера пакетов**):
 
-  "PM > пакет установки RedisSessionStateProvider -IncludePrerelease"
+  `PM> Install-Package RedisSessionStateProvider -IncludePrerelease`
   
-Для установки из пункта **Инструменты** > **Диспетчер пакетов NuGet** > **Управление пакетами NugGet для разрешения**, найдите "RedisSessionStateProvider" и убедитесь в том, что задано **Include Prerelease**.
+Чтобы выполнить установку из меню **Инструменты** > **Диспетчер пакетов NuGet** > **Управление пакетами NugGet для решения**, выполните поиск по `RedisSessionStateProvider` и обязательно укажите параметр **Включить предварительный выпуск**.
 
 Дополнительную информацию см. на страницах [NuGet RedisSessionStateProvider](http://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider/ ) и [Настройка клиента кэша](http://azure.microsoft.com/ru-ru/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#NuGet).
 
 <h2><a id="configurewebconfig"></a>Изменение файла Web.Config</h2>
-Помимо внесения ссылки на сборку для кэша, пакет NuGet добавляет записи заглушки в файл *web.config*. 
+Кроме внесения ссылки на сборку для кэша, NuGet-пакет добавляет записи заглушки в файл *web.config*. 
 
-1. Откройте файл *web.config* и найдите элемент **sessionState**.
+1. Откройте  *web.config* и найдите элемент **sessionState**.
 
-1. Введите значения для параметров "host", "accessKey", "port" (SSL-порт должен иметь значение 6380), а также установите "SSL" в значение "true". Эти значения можно получить на портале управления Azure предварительной версии в выноске для экземпляра кэша. Дополнительные сведения см. в разделе [Подключение к кэшу](http://azure.microsoft.com/ru-ru/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#connect-to-cache).
+1. Введите значения для  `host`, `accessKey`, `port` (необходимо указать 6380 в качестве порта SSL) и установите для `SSL` значение `true`. Эти значения можно получить на портале управления Azure предварительной версии в выноске для экземпляра кэша. Дополнительную информацию см. в разделе [Подключение к кэшу](http://azure.microsoft.com/ru-ru/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#connect-to-cache).
 В следующем примере показаны изменения в файле *web.config*.
 
 
   <pre class="prettyprint">  
-    <system.web>
-    <customErrors mode="Off" />
-    <authentication mode="None" />
-    <compilation debug="true" targetFramework="4.5" />
-    <httpRuntime targetFramework="4.5" />
-  <sessionState mode="Custom" customProvider="RedisSessionProvider">
-      <providers>  
-          <!--<add name="RedisSessionProvider" 
+    &lt;system.web&gt;
+    &lt;customErrors mode="Off" /&gt;
+    &lt;authentication mode="None" /&gt;
+    &lt;compilation debug="true" targetFramework="4.5" /&gt;
+    &lt;httpRuntime targetFramework="4.5" /&gt;
+  &lt;sessionState mode="Custom" customProvider="RedisSessionProvider"&gt;
+      &lt;providers&gt;  
+          &lt;!--&lt;add name="RedisSessionProvider" 
             host = "127.0.0.1" [String]
             port = "" [number]
             accessKey = "" [String]
@@ -56,17 +69,17 @@
             retryTimeoutInMilliseconds = "0" [number]
             databaseId = "0" [number]
             applicationName = "" [String]
-          />-->
-         <add name="RedisSessionProvider" 
+          /&gt;--&gt;
+         &lt;add name="RedisSessionProvider" 
               type="Microsoft.Web.Redis.RedisSessionStateProvider" 
               <mark>port="6380"
               host="movie2.redis.cache.windows.net" 
               accessKey="m7PNV60CrvKpLqMUxosC3dSe6kx9nQ6jP5del8TmADk=" 
-              ssl="true"</mark> />
-      <!--<add name="MySessionStateStore" type="Microsoft.Web.Redis.RedisSessionStateProvider" host="127.0.0.1" accessKey="" ssl="false" />-->
-      </providers>
-    </sessionState>
-  </system.web></pre>
+              ssl="true"</mark> /&gt;
+      &lt;!--&lt;add name="MySessionStateStore" type="Microsoft.Web.Redis.RedisSessionStateProvider" host="127.0.0.1" accessKey="" ssl="false" /&gt;--&gt;
+      &lt;/providers&gt;
+    &lt;/sessionState&gt;
+  &lt;/system.web&gt;</pre>
 
 
 <h2><a id="usesessionobject"></a>Использование объекта сеанса в коде</h2>
@@ -81,13 +94,13 @@
     if (objValue != null)
        strValue = (string)obj;	
 
-Можно также использовать Redis Cache для кэширования объектов в своем веб-приложении. Дополнительные сведения см. в разделе [Создание приложения для фильмов MVC с кэшем Azure Redis за 15 минут](http://azure.microsoft.com/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/).
-Дополнительные сведения об использовании состояния сеанса ASP.NET см. в разделе [Общие сведения о состоянии сеанса ASP.NET][].
+Можно также использовать Redis Cache для кэширования объектов в своем веб-приложении. Дополнительную информацию см. в разделе [Создание приложения для фильмов MVC с кэшем Azure Redis за 15 минут](http://azure.microsoft.com/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/).
+Дополнительную информацию об использовании состояния сеанса ASP.NET см. в разделе [Общая информация о состоянии сеанса ASP.NET][].
 
+  Автор: [Рик Андерсон (Rick Anderson)](https://twitter.com/RickAndMSFT)
   
-  
-  [установлена последняя версия]: http://www.windowsazure.com/ru-ru/downloads/?sdk=net  
-  [Общие сведения о состоянии сеанса ASP.NET]: http://msdn.microsoft.com/ru-ru/library/ms178581.aspx
+  [installed the latest]: http://www.windowsazure.com/ru-ru/downloads/?sdk=net  
+  [ASP.NET Session State Overview]: http://msdn.microsoft.com/ru-ru/library/ms178581.aspx
 
   [NewIcon]: ./media/web-sites-dotnet-session-state-caching/CacheScreenshot_NewButton.png
   [NewCacheDialog]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_CreateOptions.png
@@ -97,3 +110,6 @@
   [CacheConfig]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_CacheConfig.png
   [EndpointURL]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_EndpointURL.png
   [ManageKeys]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_ManageAccessKeys.png
+
+
+<!--HONumber=42-->

@@ -1,11 +1,11 @@
-﻿<properties urlDisplayName="Get Started with Data" pageTitle="Приступая к работе с данными (WP8) - мобильные службы Azure" metaKeywords="" description="Узнайте, как приступить к использованию данных из приложения Windows Phone 8 для мобильных служб Azure." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Приступая к работе с данными (WP8). Мобильные службы Azure" description="Узнайте, как приступить к использованию данных из приложения Windows Phone 8 для мобильных служб Azure." services="mobile-services" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/19/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/19/2014" ms.author="glenga"/>
 
 
 # Добавление мобильных служб к существующему приложению
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-data-legacy](../includes/mobile-services-selector-get-started-data-legacy.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-data-legacy](../includes/mobile-services-selector-get-started-data-legacy.md)]
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
@@ -25,19 +25,19 @@
 
 Для работы с этим учебником требуется Visual Studio 2012 Express для Windows Phone 8 и [пакет SDK для Windows Phone 8], запущенный в среде Windows 8. Чтобы завершить этот учебник и создать приложение для Windows Phone 8.1, следует использовать Visual Studio 2013 с обновлением 2 или более позднюю версию.
 
->[WACOM.NOTE]Для работы с этим учебником требуется учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. О том, как это сделать, см. <a href="http://www.windowsazure.com/ru-ru/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fru-ru%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-wp8%2F" target="_blank">Бесплатное пробное использование Azure</a>.
+>[AZURE.NOTE]Для работы с этим учебником требуется учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://www.windowsazure.com/ru-ru/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fru-ru%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-wp8%2F" target="_blank">Бесплатная пробная версия Azure</a>.
 
 ##<a name="download-app"></a>Загрузка проекта GetStartedWithData
 
-Этот учебник построен на использовании проекта приложения для Windows Phone Silverlight 8 - [GetStartedWithData][Developer Code Samples site].  
+Этот учебник основан на сайте [приложении GetStartedWithData][сайт образцов кода для разработчиков], который представляет собой проект приложения Windows Phone Silverlight 8.  
 
 1. Скачайте пример проекта приложения GetStartedWithData с [сайта примеров кода для разработчиков]. 
 
-	>[WACOM.NOTE]Чтобы создать приложение для Windows Phone Silverlght 8.1, в скачанном проекте приложения для Windows Phone Silverlight 8 измените целевую ОС на Windows Phone 8.1. Чтобы создать приложение для Магазина Windows Phone, при скачивании примера проекта приложения GetStartedWithData выберите [версию приложения для Магазина Windows Phone](http://go.microsoft.com/fwlink/p/?LinkId=397372). 
+	>[AZURE.NOTE]Чтобы создать приложение для Windows Phone Silverlght 8.1, в скачанном проекте приложения для Windows Phone Silverlight 8 измените целевую ОС на Windows Phone 8.1. Чтобы создать приложение для Магазина Windows Phone, при скачивании примера проекта приложения GetStartedWithData выберите [версию приложения для Магазина Windows Phone](http://go.microsoft.com/fwlink/p/?LinkId=397372). 
 
 2. В Visual Studio откройте скачанный проект и просмотрите файл MainPage.xaml.cs.
 
-   	Обратите внимание: добавленные объекты **TodoItem** хранятся во внутренней памяти в **ObservableCollection&lt;TodoItem&gt;**.
+   	Обратите внимание, что добавленные объекты **TodoItem** хранятся во внутренней памяти **ObservableCollection&lt;TodoItem&gt;**.
 
 3. Нажмите клавишу **F5** для повторного построения проекта, после чего запустите приложение.
 
@@ -49,11 +49,11 @@
 
 <h2><a name="create-service"></a>Создание мобильной службы на портале управления</h2>
 
-[WACOM.INCLUDE [mobile-services-create-new-service-data](../includes/mobile-services-create-new-service-data.md)]
+[AZURE.INCLUDE [mobile-services-create-new-service-data](../includes/mobile-services-create-new-service-data.md)]
 
 <h2><a name="add-table"></a>Добавление новой таблицы в мобильную службу</h2>
 
-[WACOM.INCLUDE [mobile-services-create-new-service-data-2](../includes/mobile-services-create-new-service-data-2.md)]
+[AZURE.INCLUDE [mobile-services-create-new-service-data-2](../includes/mobile-services-create-new-service-data-2.md)]
 
 <h2><a name="update-app"></a>Обновление приложения для доступа к данным с помощью мобильных служб</h2>
 
@@ -61,7 +61,7 @@
 
 1. В **обозревателе решений** Visual Studio щелкните правой кнопкой мыши имя проекта, затем выберите **Управлять пакетами NuGet**.
 
-2. На левой панели выберите категорию **В сети**, выполните поиск по запросу WindowsAzure.MobileServices, щелкните **Установить** для пакета **Мобильные службы Azure**, а затем примите условия лицензионного соглашения.
+2. В левой области выберите категорию **Интернет**, выполните поиск пакета  `WindowsAzure.MobileServices`, щелкните **Установить** для пакета **Мобильные службы Azure**, затем примите условия лицензионных соглашений.
 
   	![][7]
 
@@ -75,7 +75,7 @@
 
   	Эти значения потребуются при обращении к мобильной службе из кода приложения.
 
-5. В Visual Studio откройте файл App.xaml.cs и добавьте или раскомментируйте следующий оператор using:
+5. В Visual Studio откройте файл App.xaml.cs и добавьте или раскомментируйте следующий оператор `using`:
 
        	using Microsoft.WindowsAzure.MobileServices;
 
@@ -88,7 +88,7 @@
 
   	Код создает экземпляр **MobileServiceClient**, используемый для доступа к мобильной службе.
 
-6. В файле MainPage.xaml.cs добавьте или раскомментируйте следующие операторы using:
+6. В файле MainPage.xaml.cs добавьте или раскомментируйте следующие операторы `using`:
 
        	using Microsoft.WindowsAzure.MobileServices;
 		using Newtonsoft.Json;
@@ -154,12 +154,12 @@
 
 ## <a name="next-steps"> </a>Дальнейшие действия
 
-В этом учебнике показаны основы включения в приложении для Windows Phone 8 возможностей работы с данными в мобильных службах. Далее рассмотрите выполнение следующего учебника, основанном на приложении GetStartedWithData, создание которого описано в этом учебнике:
+В этом учебнике показаны основы включения в приложении Windows Phone 8 возможностей работы с данными в мобильных службах. Далее рассмотрите выполнение следующего учебника, основанном на приложении GetStartedWithData, создание которого описано в этом учебнике:
 
 * [Проверка и изменение данных с помощью скриптов]
   <br/>Дополнительные сведения об использовании серверных скриптов в мобильных службах для проверки и изменения данных, отправляемых из приложения.
 
-* [Уточнение запросов c разбиением по страницам]
+* [Уточнение запросов с разбиением по страницам]
   <br/>Сведения об использовании разбиения по страницам в запросах для управления объемом данных, обрабатываемым в одном запросе.
 
 После завершения ряда данных можно попробовать выполнить один из следующих учебников по Windows Phone 8.
@@ -194,7 +194,7 @@
 
 <!-- URLs. -->
 [Проверка и изменение данных с помощью скриптов]: /ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-wp8
-[Уточнение запросов c разбиением по страницам]: /ru-ru/develop/mobile/tutorials/add-paging-to-data-wp8
+[Уточнение запросов с разбиением по страницам]: /ru-ru/develop/mobile/tutorials/add-paging-to-data-wp8
 [Приступая к работе с мобильными службами]: /ru-ru/develop/mobile/tutorials/get-started-wp8
 [Приступая к работе с данными]: /ru-ru/develop/mobile/tutorials/get-started-with-data-wp8
 [Приступая к работе с проверкой подлинности]: /ru-ru/develop/mobile/tutorials/get-started-with-users-wp8
@@ -206,4 +206,5 @@
 [Пакет SDK для мобильных служб]: http://go.microsoft.com/fwlink/p/?LinkID=268375
 [Веб-сайт с примерами кода для разработчиков]:  http://go.microsoft.com/fwlink/p/?LinkId=271146
 
-<!--HONumber=35.2-->
+
+<!--HONumber=42-->

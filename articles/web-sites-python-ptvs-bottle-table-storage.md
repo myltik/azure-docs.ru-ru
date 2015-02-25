@@ -1,13 +1,27 @@
-﻿<properties linkid="web-sites-python-ptvs-bottle-table-storage" title="Bottle and Azure Table Storage on Azure with Python Tools 2.1 for Visual Studio" pageTitle="Использование Bottle и табличного хранилища Azure в Azure с помощью инструментов Python 2.1 для Visual Studio" description="Узнайте, как использовать инструменты Python для Visual Studio, чтобы создать приложение Bottle, которое сохраняет данные в табличном хранилище Azure и может быть развернуто на веб-сайте." metaKeywords="" services="web-sites" solutions="" documentationCenter="Python" authors="huvalo" videoId="" scriptId="" manager="wpickett" editor="" />
+﻿<properties 
+	pageTitle="Использование Bottle и табличного хранилища Azure в Azure с помощью инструментов Python 2.1 для Visual Studio" 
+	description="Информация об использовании инструментов Python для Visual Studio для создания приложения Bottle, которое хранит данные в табличном хранилище Azure и может быть развернуто на веб-сайте. 
+	services="web-sites" 
+	documentationCenter="python" 
+	authors="huguesv" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="10/10/2014" ms.author="huvalo" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="huvalo"/>
 
 
 
 
 # Использование Bottle и табличного хранилища Azure в Azure с помощью инструментов Python 2.1 для Visual Studio 
 
-В этом учебнике мы создадим простое приложение опросника с помощью шаблонов PTVS. Также доступна [видеоверсия] данного учебника(https://www.youtube.com/watch?v=GJXDGaEPy94).
+В этом учебнике мы создадим простое приложение опросника с помощью шаблонов PTVS. Также доступна [видеоверсия](https://www.youtube.com/watch?v=GJXDGaEPy94) данного учебника
 
 Приложение опросника реализует абстракцию для своего репозитория, что позволяет вам легко переключаться между разными типами репозиториев (размещенный в памяти, табличное хранилище Azure, MongoDB).
 
@@ -15,11 +29,11 @@
 
 Перейдите в [Центр по разработке для Python][], чтобы узнать больше о разработке веб-сайтов Azure с PTVS при помощи веб-платформ Bottle, Flask и Django, с использованием MongoDB, табличного хранилища Azure, MySQL и служб Базы данных SQL.  Несмотря на то, что эта статья сфокусирована на веб-сайтах Azure, для разработки [облачных служб Azure][] шаги останутся теми же.
 
-+ [Предварительные требования](#prerequisites)
++ [Необходимые условия](#prerequisites)
 + [Создание проекта](#create-the-project)
 + [Создание учетной записи хранения Azure](#create-an-azure-storage-account)
 + [Настройка проекта](#configure-the-project)
-+ [Изучение табличного хранилища Azure](#explore-the-azure-table-storage)
++ [Знакомство с табличным хранилищем Azure](#explore-the-azure-table-storage)
 + [Публикация на веб-сайте Azure](#publish-to-an-azure-website)
 + [Настройка веб-сайта Azure](#configure-the-azure-website)
 + [Дальнейшие действия](#next-steps)
@@ -27,12 +41,12 @@
 ##<a name="prerequisites"></a>Предварительные требования
 
  - Visual Studio 2012 или 2013
- - [Инструменты Python 2.1 для Visual Studio][]
- - [Инструменты Python 2.1 для Visual Studio Samples VSIX][]
- - [Пакет инструментов SDK для Azure для VS 2013][] или [пакет инструментов SDK для Azure для VS 2012][]
- - [Python 2.7 (32-разрядная версия)][] или [Python 3.4 (32-разрядная версия)][]
+ - [Средства Python 2.1 для Visual Studio][]
+ - [Образцы VSIX средств Python 2.1 для Visual Studio][]
+ - [Пакет инструментов SDK Azure для VS 2013][] или [Пакет инструментов SDK Azure для VS 2012][]
+ - [Python 2.7 (32-разрядный)][] или [Python 3.4 (32-разрядный)][]
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+[AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ##<a name="create-the-project"></a>Создание проекта
 
@@ -52,9 +66,9 @@
 
   	![Add Virtual Environment Dialog](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAddVirtualEnv.png)
 
-1.  Подтвердите, что приложение работает, нажав <kbd>F5</kbd>.  По умолчанию приложение использует размещенный в памяти репозиторий, который не требует настройки.  При остановке веб-сервера все данные будут утеряны.
+1.  Убедитесь, что приложение работает, нажав клавишу <kbd>F5</kbd>.  По умолчанию приложение использует размещенный в памяти репозиторий, который не требует настройки.  При остановке веб-сервера все данные будут утеряны.
 
-1.  Щелкните **Создать пример опросов**, а затем щелкните на опроснике, чтобы проголосовать.
+1.  Щелкните **Создать примеры опросов**, а затем щелкните опросник, чтобы проголосовать.
 
   	![Web Browser](./media/web-sites-python-ptvs-bottle-table-storage/PollsBottleInMemoryBrowser.png)
 
@@ -62,17 +76,17 @@
 
 Для выполнения операций хранилища необходимо использовать учетную запись хранения Azure. Выполнив следующие шаги, вы создадите учетную запись хранения.
 
-1.  Войдите на [портал управления Azure][].
+1.  Выполните вход на [портал управления Azure][].
 
 1.  В нижней части области навигации щелкните **СОЗДАТЬ**.
 
   	![New Button](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzurePlusNew.png)
 
-1.  Последовательно выберите **СЛУЖБЫ ДАННЫХ**, **ХРАНИЛИЩЕ** и **БЫСТРОЕ СОЗДАНИЕ**.
+1.  Последовательно выберите **СЛУЖБЫ ДАННЫХ**, **ХРАНИЛИЩЕ** И **БЫСТРО СОЗДАТЬ**.
 
   	![Quick Create](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzureStorageCreate.png)
 
-1.  В URL-адрес введите имя поддомена, который будет использоваться в универсальном коде ресурса (URI) для учетной записи хранения.  Записи могут содержать от 3 до 24 строчных букв и цифр. Это значение станет именем узла в универсальном коде ресурса (URI), который используется для обращения к ресурсам больших двоичных объектов, очередей и таблиц для подписки.
+1.  В URL-адрес введите имя поддомена, который будет использоваться в универсальном коде ресурса (URI) для учетной записи хранения.  Записи могут содержать от 3 до 24 строчных букв и цифр. Это значение станет именем узла в URI, который используется для адресации ресурсов большого двоичного объекта, очереди и таблицы в подписке.
 
 1.  Выберите регион или территориальную группу, где требуется расположить хранилище. При использовании хранилища в приложении Azure выберите тот же самый регион, в котором будет развернуто приложение.
 
@@ -106,17 +120,17 @@
 
 1.  Код с реализацией репозитория табличного хранилища Azure находится в файле **models/azuretablestorage.py**.  Дополнительную информацию о том, как использовать службу табличного хранилища в Python, см. в [документации].
 
-1.  Запустите приложение с помощью клавиши <kbd>F5</kbd>.  Опросы, созданные с помощью **Создать пример опросов** и отправленных данных голосования, будут сериализованы в табличном хранилище Azure.
+1.  Запустите приложение, нажав клавишу <kbd>F5</kbd>.  Опросы, созданные с помощью **Создать примеры опросов** и отправленных данных голосования, будут сериализованы в табличном хранилище Azure.
 
 1.  Перейдите на страницу **О**, чтобы убедиться в том, что приложение использует репозиторий **табличного хранилища Azure**.
 
   	![Web Browser](./media/web-sites-python-ptvs-bottle-table-storage/PollsBottleAzureTableStorageAbout.png)
 
-##<a name="explore-the-azure-table-storage"></a>Изучение табличного хранилища Azure
+##<a name="explore-the-azure-table-storage"></a>Знакомство с табличным хранилищем Azure
 
 Таблицы хранилища легко просматривать и редактировать с помощью обозревателя сервера в Visual Studio.  В этом разделе мы будем использовать обозреватель сервера для просмотра содержимого таблиц приложения опросника.
 
-> [WACOM.NOTE] Для этого требуется установить инструменты Microsoft Azure, которые доступны в составе [пакета SDK для Azure для .NET][].
+> [AZURE.NOTE] Для этого требуется установить инструменты Microsoft Azure, которые доступны в составе [пакета SDK для Azure для .NET][].
 
 1.  Откройте **обозреватель сервера**.  Разверните **Azure**, **Хранилище**, учетную запись хранения, а затем **Таблицы**.
 
@@ -162,7 +176,7 @@ PTVS предоставляет простой способ развертыва
 
   	![App Settings](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonWebSiteConfigureSettingsTableStorage.png)
 
-1. Щелкните в нижнем меню **СОХРАНИТЬ**, затем**ПЕРЕЗАПУСТИТЬ** и, наконец, **ОБЗОР**.
+1. Щелкните в нижнем меню **СОХРАНИТЬ**, затем **ПЕРЕЗАПУСТИТЬ** и, наконец, **ОБЗОР**.
 
   	![Bottom Menu](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonWebSiteConfigureBottomMenu.png)
 
@@ -176,13 +190,13 @@ PTVS предоставляет простой способ развертыва
 
 Используйте следующие ссылки, чтобы узнать больше об инструментах Python для Visual Studio, Bottle и табличном хранилище Azure.
 
-- [Документация по инструментам Python для Visual Studio][]
+- [Документация по средствам Python для Visual Studio][]
   - [Веб-проекты][]
-  - [Проекты облачных служб][]
-  - [Удаленная отладка на Microsoft Azure][]
-- [Документация по Bottle][]
+  - [Проекты для облачной службы][]
+  - [Удаленная отладка в Microsoft Azure][]
+- [Документация по работе с Bottle][]
 - [Служба хранилища Azure][]
-- [Пакет SDK для Azure для Python][]
+- [Пакет SDK Azure для Python][]
 - [Как использовать службу табличного хранилища в Python][]
 
 
@@ -195,18 +209,19 @@ PTVS предоставляет простой способ развертыва
 <!--External Link references-->
 [Портал управления Azure]: https://manage.windowsazure.com
 [Пакет SDK для Azure для .NET]: http://azure.microsoft.com/ru-ru/downloads/
-[Инструменты Python 2.1 для Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
-[Инструменты Python 2.1 для Visual Studio Samples VSIX]: http://go.microsoft.com/fwlink/?LinkId=517189
-[Инструменты пакета SDK для Azure для VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
-[Инструменты пакета SDK для Azure для VS 2012]: http://go.microsoft.com/fwlink/?LinkId=323511
+[Средства Python 2.1 для Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
+[Образцы VSIX средств Python 2.1 для Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
+[Средства пакета SDK для Azure для VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
+[Средства пакета SDK для Azure для VS 2012]: http://go.microsoft.com/fwlink/?LinkId=323511
 [Python 2.7 (32-разрядная версия)]: http://go.microsoft.com/fwlink/?LinkId=517190 
 [Python 3.4 (32-разрядная версия)]: http://go.microsoft.com/fwlink/?LinkId=517191
-[Документация по инструментам Python для Visual Studio]: http://pytools.codeplex.com/documentation
-[Документация по Bottle]: http://bottlepy.org/docs/dev/index.html
-[Удаленная отладка на Microsoft Azure]: http://pytools.codeplex.com/wikipage?title=Features%20Azure%20Remote%20Debugging
+[Документация по средствам Python для Visual Studio]: http://pytools.codeplex.com/documentation
+[Документация по работе с Bottle]: http://bottlepy.org/docs/dev/index.html
+[Удаленная отладка в Microsoft Azure]: http://pytools.codeplex.com/wikipage?title=Features%20Azure%20Remote%20Debugging
 [Веб-проекты]: http://pytools.codeplex.com/wikipage?title=Features%20Web%20Project
-[Проекты облачных служб]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
+[Проекты для облачной службы]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
 [Служба хранилища Azure]: http://azure.microsoft.com/ru-ru/documentation/services/storage/
-[Пакет SDK для Azure для Python]: https://github.com/Azure/azure-sdk-for-python
+[Пакет SDK Azure для Python]: https://github.com/Azure/azure-sdk-for-python
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

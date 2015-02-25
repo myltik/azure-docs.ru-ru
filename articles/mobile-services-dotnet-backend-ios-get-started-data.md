@@ -1,22 +1,21 @@
-﻿
-<properties urlDisplayName="Get Started with Data" pageTitle="Начало работы с данными (iOS) | Центр мобильных разработок" metaKeywords="Azure iOS data, Azure mobile services data, " description="Узнайте, как приступить к работе с мобильными службами, чтобы использовать данные в приложении iOS." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="krisragh" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Начало работы с данными (iOS) | Центр мобильных разработок" description="Узнайте, как приступить к работе с мобильными службами, чтобы использовать данные в приложении iOS." services="mobile-services" documentationCenter="ios" authors="krisragh" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh"/>
 
 # Добавление мобильных служб к существующему приложению
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-data](../includes/mobile-services-selector-get-started-data.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-data](../includes/mobile-services-selector-get-started-data.md)]
 
 В этом разделе показано, как использовать мобильные службы Azure для эффективного использования данных в приложении iOS. В этом учебнике вам предстоит загрузить приложение, хранящее данные в памяти, создать новую мобильную службу, интегрировать мобильную службу с приложением и просмотреть изменения, внесенные в данные во время работы приложения.
 
-Мобильная служба, создаваемая в этом учебнике, поддерживает среду выполнения .NET в мобильной службе. Это позволит использовать языки .NET и Visual Studio для серверной бизнес-логики в мобильной службе. Для создания мобильной службы, которая позволяет писать серверную бизнес-логику на языке JavaScript, ознакомьтесь с разделом [Серверная версия базы данных JavaScript] этого раздела.
+Мобильная служба, создаваемая в этом учебнике, поддерживает среду выполнения .NET в мобильной службе. Это позволит использовать языки .NET и Visual Studio для серверной бизнес-логики в мобильной службе. Сведения о создании мобильной службы, которая позволит создавать в JavaScript серверную бизнес-логику, см. в подразделе [Серверная версия JavaScript] этого раздела.
 
->[WACOM.NOTE]Этот учебник должен помочь лучше понять, как с помощью мобильных служб использовать Azure для сохранения и получения данных из приложения iOS. В этом разделе рассматриваются многие действия, которые выполняются в кратком руководстве по использованию мобильных служб. Если это ваш первый опыт работы с мобильными службами, сначала ознакомьтесь с учебником [Приступая к работе с мобильными службами].
+>[AZURE.NOTE]Этот учебник поможет вам лучше понять, как с помощью мобильных служб можно использовать Azure для хранения и извлечения данных из приложения для iOS. В этом разделе рассматриваются многие действия, которые выполняются в кратком руководстве по использованию мобильных служб. Если это ваш первый опыт работы с мобильными службами, сначала ознакомьтесь с учебником [Приступая к работе с мобильными службами].
 </div>
 
 В этом учебнике рассматриваются следующие основные действия:
 
-1. [Загрузка проекта приложения iOS]
+1. [Загрузка проекта приложения для iOS]
 2. [Создание мобильной службы]
 3. [Локальная загрузка мобильной службы]
 4. [Тестирование мобильной службы]
@@ -27,54 +26,54 @@
 Для работы с данным учебником требуется следующее:
 
 + [SDK мобильных служб iOS], а также [XCode 4.5][Установка Xcode] и iOS 5.0 или более поздней версии.
-+ Visual Studio 2013 (можно использовать бесплатный [экспресс-выпуск Visual Studio for Web](http://go.microsoft.com/p/?linkid=9832232)).
-+ Учетная запись Microsoft Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://www.windowsazure.com/ru-ru/pricing/free-trial/?WT.mc_id=A756A2826&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fru-ru%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-ios%2F" target="_blank">Бесплатная пробная версия Azure</a>.
++ Visual Studio 2013 (можно бесплатно получить [Visual Studio Express для Web](http://go.microsoft.com/p/?linkid=9832232)).
++ Учетная запись Microsoft Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://www.windowsazure.com/ru-ru/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fru-ru%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-ios%2F" target="_blank">Бесплатная пробная версия Azure</a>.
 
-##<a name="download-app"></a>Загрузка пакета GetStartedWithData
+##<a name="download-app"></a>Загрузка проекта GetStartedWithData
 
-Этот учебник основан на [приложении GetStartedWithData][GitHub], представляющим собой приложение iOS. Пользовательский интерфейс для этого приложения аналогичен приложению, созданному в кратком руководстве по мобильным службам iOS, за исключением того, что добавленные элементы хранятся локально в памяти.
+Этот учебник основан на [приложении GetStartedWithData][GitHub], представляющим собой приложение iOS. Пользовательский интерфейс приложения совпадает с интерфейсом приложения, созданного кратким руководством по мобильным службам iOS. Отличие заключается в том, что добавленные элементы хранятся локально в памяти.
 
-1. Загрузка GetStartedWithData [образец приложения][GitHub].
+1. Загрузите [пример приложения][GitHub] GetStartedWithData.
 
 2. В Xcode откройте скачанный проект и просмотрите файл TodoService.m.
 
-   	Обратите внимание на наличие восьми комментариев **// TODO**, указывающих шаги, которые необходимо предпринять для обеспечения работы этого приложения с мобильной службой.
+   	Обратите внимание на восемь комментариев **/ / TODO::**, указывающих на действия, которые необходимо выполнить, чтобы приложение работало с вашей мобильной службой.
 
-3. Нажмите кнопку **Выполнить** (или клавишу Command+R), чтобы перестроить проект и запустить приложение.
+3. Нажмите кнопку **Выполнить** (или сочетание клавиш Command + R) для повторного построения проекта и запуска приложения.
 
-4. В приложении введите какой-либо текст в текстовом поле, затем щелкните кнопку **+**.
+4. В приложении введите какой-либо текст в текстовом поле, а затем нажмите кнопку **+**.
 
    	![][0]  
 
    	Обратите внимание, что сохраненный текст отображается в списке ниже.
 
-##<a name="create-service"></a>Создание новой мобильной службы на портале управления
+##<a name="create-service"></a>Создание мобильной службы на портале управления
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service](../includes/mobile-services-dotnet-backend-create-new-service.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-backend-create-new-service](../includes/mobile-services-dotnet-backend-create-new-service.md)]
 
-##<a name="download-the-service-locally"></a>Загрузите службу на локальный компьютер
+##<a name="download-the-service-locally"></a>Загрузка службы на локальный компьютер
 
-[WACOM.INCLUDE [mobile-services-ios-download-service-locally](../includes/mobile-services-ios-download-service-locally.md)]
+[AZURE.INCLUDE [mobile-services-ios-download-service-locally](../includes/mobile-services-ios-download-service-locally.md)]
 
 ##<a name="test-the-service"></a>Тестирование мобильной службы
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service](../includes/mobile-services-dotnet-backend-test-local-service.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-backend-test-local-service](../includes/mobile-services-dotnet-backend-test-local-service.md)]
 
 ##<a name="publish-mobile-service"></a>Публикация мобильной службы в Azure
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
-##<a name="update-app"></a>Обновление приложения для использования мобильной службы для доступа к данным
+##<a name="update-app"></a>Обновление приложения для доступа к данным с помощью мобильных служб
 
-[WACOM.INCLUDE [mobile-services-ios-enable-mobile-service-access](../includes/mobile-services-ios-enable-mobile-service-access.md)]
+[AZURE.INCLUDE [mobile-services-ios-enable-mobile-service-access](../includes/mobile-services-ios-enable-mobile-service-access.md)]
 
-##<a name="test-app"></a>Тестирование приложения новой мобильной службы
+##<a name="test-app"></a>Тестирование работы приложения с новой мобильной службой
 
-1. В Xcode выберите эмулятор для развертывания (iPhone или iPad), нажмите кнопку **Выполнить** (или клавишу Command+R), чтобы перестроить проект и запустить приложение.
+1. В Xcode выберите эмулятор для развертывания (iPhone или iPad) и нажмите кнопку **Запуск** (или сочетание клавиш Command+R), чтобы повторить сборку проекта и запустить приложение.
 
    	В результате начнет выполняться клиент мобильных служб Azure, созданный с использованием пакета SDK для iOS, который запрашивает элементы из мобильной службы.
 
-2. Как и прежде, введите текст в текстовом поле, затем щелкните кнопку **+**.
+2. Как и ранее, введите текст в текстовом поле и нажмите кнопку **+**.
 
    	В результате в мобильную службу будет отправлен новый элемент в качестве вставки. Каждый новый элемент todoItem будет храниться и обновляться в базе данных SQL, ранее настроенной вами для мобильной службы на портале управления Azure.
 
@@ -86,13 +85,13 @@
 
     ![][17]
 
-5. На портале управления выполните запрос для просмотра изменений, внесенных приложением. Этот запрос будет аналогичен следующему запросу, но используйте имя своей базы данных вместо `todolist`.
+5. На портале управления выполните запрос для просмотра изменений, внесенных приложением. Ваш запрос будет аналогичен показанному ниже, но вместо `todolist` укажите имя вашей базы данных.
 
-        SELECT * FROM [todolist].[todoitems]
+        SELECT * FROM [todolist].[todoitems]	
 
     ![][18]
 
-На этом прохождение учебника **Начало работы с данными** завершается.
+Это заключительный шаг учебника **Приступая к работе с данными**.
 
 ##<a name="next-steps"></a>Дальнейшие действия
 
@@ -101,26 +100,26 @@
 Далее рассмотрите выполнение одного из следующих учебников, которые основаны на приложении GetStartedWithData, созданном в этом учебнике:
 
 * [Проверка и изменение данных с помощью скриптов]
-  <br/>Использование скриптов сервера в мобильных службах для проверки и изменения данных, отправленных из приложения.
+  <br/>Дополнительные сведения об использовании серверных скриптов в мобильных службах для проверки и изменения данных, отправляемых из приложения.
 
-* [Уточнение запросов посредством разбиения по страницам]
-  <br/>Использование разбивки на страницы в запросах для управления количеством данных, обрабатываемых в одном запросе.
+* [Уточнение запросов c разбиением по страницам]
+  <br/>Сведения об использовании разбиения по страницам в запросах для управления объемом данных, обрабатываемым в одном запросе.
 
 После завершения серии учебников по работе с данными попробуйте один из следующих учебников iOS:
 
-* [Приступая к работе с аутентификацией]
-	<br/>Проверка подлинности пользователей приложения.
+* [Приступая к работе с проверкой подлинности]
+	<br/>Сведения о выполнении аутентификации учетных данных пользователей приложения.
 
 * [Приступая к работе с push-уведомлениями]
-  <br/>Отправка очень простого push-уведомления в приложение с помощью мобильных служб.
+  <br/>Сведения об отправке в приложение простейших push-уведомлений с использованием мобильных служб.
 
 <!-- Anchors. -->
-[Загрузка проекта приложения iOS]: #download-app
+[Загрузка проекта приложения для iOS]: #download-app
 [Создание мобильной службы]: #create-service
 [Добавление таблицы для хранения данных]: #add-table
 [Обновление приложения для использования мобильных служб]: #update-app
 [Тестирование работы приложения с мобильными службами]: #test-app
-[Следующие шаги]:#next-steps
+[Дальнейшие действия]:#next-steps
 [Локальная загрузка мобильной службы]: #download-the-service-locally
 [Тестирование мобильной службы]: #test-the-service
 [Публикация мобильной службы в Azure]: #publish-mobile-service
@@ -136,16 +135,19 @@
 
 <!-- URLs. -->
 [Проверка и изменение данных с помощью скриптов]: /ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
-[Уточнение запросов посредством разбиения по страницам]: /ru-ru/develop/mobile/tutorials/add-paging-to-data-ios
+[Уточнение запросов c разбиением по страницам]: /ru-ru/develop/mobile/tutorials/add-paging-to-data-ios
 [Приступая к работе с мобильными службами]: /ru-ru/develop/mobile/tutorials/get-started-ios
 [Приступая к работе с данными]: /ru-ru/develop/mobile/tutorials/get-started-with-data-ios
-[Приступая к работе с аутентификацией]: /ru-ru/develop/mobile/tutorials/get-started-with-users-ios
+[Приступая к работе с проверкой подлинности]: /ru-ru/develop/mobile/tutorials/get-started-with-users-ios
 [Приступая к работе с push-уведомлениями]: /ru-ru/develop/mobile/tutorials/get-started-with-push-ios
 [Серверная версия JavaScript]: /ru-ru/develop/mobile/tutorials/get-started-with-data-ios
 
 [Портал управления Azure]: https://manage.windowsazure.com/
 [Портал управления]: https://manage.windowsazure.com/
-[Установить Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-[SDK мобильных служб для iOS]: https://go.microsoft.com/fwLink/p/?LinkID=266533
+[Установка Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
+[Пакет SDK для мобильных служб для iOS]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [GitHub]:  http://go.microsoft.com/fwlink/p/?LinkId=268622
 [Репозиторий GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=268784
+
+
+<!--HONumber=42-->

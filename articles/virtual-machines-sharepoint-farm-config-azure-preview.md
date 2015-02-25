@@ -1,9 +1,9 @@
-<properties title="SharePoint Server Farm Configuration Details" pageTitle="Сведения о конфигурации фермы серверов SharePoint" description="Описывается конфигурация по умолчанию для ферм SharePoint." metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="josephd" videoId="" scriptId="" manager="timlt"/>
+<properties pageTitle="Сведения о конфигурации фермы серверов SharePoint" description="Описывается конфигурация по умолчанию для ферм SharePoint." services="virtual-machines" documentationCenter="" authors="JoeDavies-MSFT" manager="timlt" editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-sharepoint" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="josephd" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-sharepoint" ms.devlang="na" ms.topic="article" ms.date="1/26/2015" ms.author="josephd"/>
 
 
-# Информация о конфигурации фермы серверов SharePoint
+#Сведения о конфигурации фермы серверов SharePoint#
 
 Ферма серверов SharePoint - это компонент портала предварительной версии Microsoft Azure, который автоматически создает предварительно настроенную ферму SharePoint Server 2013. Существует две следующих конфигурации фермы:
 
@@ -14,9 +14,9 @@
 
 Дополнительную информацию см. в разделе [Ферма серверов SharePoint](../virtual-machines-sharepoint-farm-azure-preview/).
 
-## Базовая ферма SharePoint
+##Базовая ферма SharePoint##
 
-Базовая ферма SharePoint состоит из трех виртуальных машин следующей конфигурации:
+Базовая ферма SharePoint в этой конфигурации состоит из трех виртуальных машин:
 
 ![sharepointfarm](./media/virtual-machines-sharepoint-farm-config-azure-preview/SPFarm_Basic.png) 
 
@@ -30,9 +30,9 @@
     -	Адресное пространство: 192.168.16.0/26    
 
 - Виртуальные машины
-	-	HostNamePrefix-DC (контроллер домена AD DS)
-	-	HostNamePrefix-SQL (сервер SQL Server 2014)
-	-	HostNamePrefix-SP (сервер SharePoint 2013)
+	-	*HostNamePrefix*-DC (контроллер домена AD DS).
+	-	*HostNamePrefix*-SQL (сервер SQL Server 2014).
+	-	*HostNamePrefix*-SP (сервер SharePoint 2013).
 
 - Контроллер домена
 	-	Префикс имени узла: задается при первоначальной настройке.
@@ -57,31 +57,31 @@
 	-	Парольная фраза для фермы SharePoint: задается при первоначальной настройке.
 
 
-## Высокодоступная ферма SharePoint
+##Ферма SharePoint с высоким уровнем доступности##
 
-Высокодоступная ферма SharePoint состоит из девяти виртуальных машин следующей конфигурации:
+Ферма SharePoint с высоким уровнем доступности в этой конфигурации состоит из девяти виртуальных машин:
 
 ![sharepointfarm](./media/virtual-machines-sharepoint-farm-config-azure-preview/SPFarm_HighAvail.png)
  
 Сведения о конфигурации.
 
 -	Подписка Azure: задается при первоначальной настройке.
--	Доменные имена Azure (также называемые облачными службами): отдельные доменные имена создаются для каждой виртуальной машины.
+-	Доменные имена Azure (также называемые облачными службами): Отдельные имена доменов создаются согласно рисунку выше.
 -	Учетная запись хранения: задается при первоначальной настройке.
 -	Виртуальная сеть	
 	-	Введите: только для облака
 	-	Адресное пространство: 192.168.16.0/26	
 
 -	Виртуальные машины
-	-	HostNamePrefix-DC1 (контроллер домена AD DS)
-	-	HostNamePrefix-DC2 (контроллер домена AD DS)
-	-	HostNamePrefix-SQL1 (сервер SQL Server 2014)
-	-	HostNamePrefix-SQL2 (сервер SQL Server 2014)
-	-	HostNamePrefix-SQL0 (сервер SQL Server 2014)
-	-	HostNamePrefix-WEB1 (сервер SharePoint 2013)
-	-	HostNamePrefix-WEB2 (сервер SharePoint 2013)
-	-	HostNamePrefix-APP1 (сервер SharePoint 2013)
-	-	HostNamePrefix-APP2 (сервер SharePoint 2013)
+	-	*HostNamePrefix*-DC1 (контроллер домена AD DS).
+	-	*HostNamePrefix*-DC2 (контроллер домена AD DS).
+	-	*HostNamePrefix*-SQL1 (сервер SQL Server 2014).
+	-	*HostNamePrefix*-SQL2 (сервер SQL Server 2014).
+	-	*HostNamePrefix*-SQL0 (сервер Windows Server 2012 R2).
+	-	*HostNamePrefix*-WEB1 (сервер SharePoint 2013).
+	-	*HostNamePrefix*-WEB2 (сервер SharePoint 2013).
+	-	*HostNamePrefix*-APP1 (сервер SharePoint 2013).
+	-	*HostNamePrefix*-APP2 (сервер SharePoint 2013).
 
 -	Контроллеры домена
 	-	Префикс имени узла: задается при первоначальной настройке.
@@ -105,5 +105,10 @@
 	-	Пароль учетной записи фермы SharePoint: задается при первоначальной настройке.		
 	-	Парольная фраза для фермы SharePoint: задается при первоначальной настройке.
 
+##Дополнительные ресурсы##
 
-<!--HONumber=35.1-->
+[Ферма серверов SharePoint](../virtual-machines-sharepoint-farm-azure-preview/)
+
+[SharePoint в службах инфраструктуры Azure](http://msdn.microsoft.com/library/azure/dn275955.aspx)
+
+<!--HONumber=42-->

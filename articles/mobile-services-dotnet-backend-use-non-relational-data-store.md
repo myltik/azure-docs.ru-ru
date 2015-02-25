@@ -1,10 +1,10 @@
-﻿<properties urlDisplayName="Build a Service Using a Non-Relational Data Store" pageTitle="Создание службы с помощью нереляционного хранилища данных - мобильных служб Azure" metaKeywords="" description="Узнайте, как использовать хранилище нереляционных данных, например MongoDB или табличное хранилище Azure, с мобильной службой на основе .NET" metaCanonical="" services="" documentationCenter="Mobile" title="Build a Service Using a Non-Relational Data Store" authors="yavorg, mahender" solutions="" manager="dwrede" editor="mollybos" />
+<properties pageTitle="Создание службы с помощью нереляционного хранилища данных - мобильных служб Azure" description="Узнайте, как использовать хранилище нереляционных данных, например MongoDB или табличное хранилище Azure, с мобильной службой на основе .NET" services="" documentationCenter="windows" authors="mattchenderson" manager="dwrede" editor="mollybos"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="yavorg, mahender" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="mahender"/>
 
 # Построение службы с использованием MongoDB в качестве источника данных на внутреннем сервере .NET
 
-В этом разделе показывается порядок использования нереляционного хранилища данных для мобильной службы. В данном учебнике будет выполняться изменение проекта быстрого запуска мобильных служб для использования MongoDB вместо SQL в качестве источника данных.
+В этом разделе показывается использование нереляционного хранилища данных для мобильной службы. В данном учебнике будет выполняться изменение проекта быстрого запуска мобильных служб для использования MongoDB в качестве источника данных.
 
 Для настройки нереляционного хранилища в этом учебнике будут выполнены следующие действия.
 
@@ -26,11 +26,11 @@
 
 3. Перейдите в раздел мобильных служб и выберите вкладку **Настройка**.
 
-4. В разделе **параметров приложения** введите строку подключения с ключом MongoConnectionString и нажмите кнопку **Сохранить**.
+4. В разделе **Параметры приложения** введите строку подключения с ключом "MongoConnectionString" и нажмите кнопку **Сохранить**.
 
     ![][1]
 
-2. Добавьте следующие строки в `TodoItemController`:
+2. В `TodoItemController` добавьте следующий код:
 
         static bool connectionStringInitialized = false;
 
@@ -54,9 +54,9 @@
 
 ## <a name="modify-service"></a>Изменение данных и контроллеров
 
-1. Установите пакет **WindowsAzure.MobileServices.Backend.Mongo** NuGet.
+1. Установите пакет NuGet **WindowsAzure.MobileServices.Backend.Mongo**.
 
-2. Измените `TodoItem` для наследования от `DocumentData` вместо `EntityData`.
+2. Измените `TodoItem`, чтобы он извлекался из `DocumentData` вместо `EntityData`.
 
         public class TodoItem : DocumentData
         {
@@ -65,7 +65,7 @@
             public bool Complete { get; set; }
         }
 
-3. В `TodoItemController` замените метод `Initialize` следующим:
+3. В `TodoItemController` замените метод `Initialize` следующим кодом:
 
         protected override async void Initialize(HttpControllerContext controllerContext)
         {
@@ -77,7 +77,7 @@
             DomainManager = new MongoDomainManager<TodoItem>(connectionStringName, databaseName, collectionName, Request, Services);
         }
 
-4. В коде для метода `Initialize`, приведенном выше, замените заполнитель **YOUR-DATABASE-NAME** именем, которое было выбрано при подготовке надстройки MongoLab.
+4. В приведенном выше коде для метода `Initialize` замените **YOUR-DATABASE-NAME** на имя, выбранное при подготовке надстройки MongoLab к работе.
 
 
 ## <a name="test-application"></a>Тестирование приложения
@@ -103,6 +103,8 @@
 <!-- URLs. -->
 [Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started
 [Приступая к работе с данными]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data
-[Портал управления Azure]: https://manage.windowsazure.com/
+[портале управления Azure]: https://manage.windowsazure.com/
 [Что такое служба таблиц]: /ru-ru/documentation/articles/storage-dotnet-how-to-use-tables/#what-is
-[Страница надстройки MongoLab]: /ru-ru/gallery/store/mongolab/mongolab
+[странице надстройки MongoLab]: /ru-ru/gallery/store/mongolab/mongolab
+
+<!--HONumber=42-->

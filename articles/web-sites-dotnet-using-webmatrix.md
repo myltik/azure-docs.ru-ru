@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Website with WebMatrix" pageTitle="Веб-сайт .NET с помощью WebMatrix - учебники Azure metaKeywords="WebMatrix Azure, WebMatrix Azure, веб-сайт Azure WebMatrix, вебсайт Azure WebMatrix, Web Matrix Azure, WebMatrix Azure" description="Узнайте, как разработать и развернуть веб-сайт Azure с помощью WebMatrix." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Develop and deploy a website with Microsoft WebMatrix" authors="tomfitz" solutions="" manager="wpickett" editor="" />
+﻿<properties 
+	pageTitle="Веб-сайт .NET с использованием WebMatrix - учебники по Azure" 
+	description="Узнайте, как разработать и развернуть веб-сайт Azure с помощью WebMatrix." 
+	services="web-sites" 
+	documentationCenter=".net" 
+	authors="tfitzmac" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/27/2014" ms.author="tomfitz" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="10/27/2014" 
+	ms.author="tomfitz"/>
 
 
 
@@ -15,9 +29,9 @@
 * Как создать сайт, используя встроенный шаблон, с помощью WebMatrix. 
 * Как выполнить развертывание настраиваемого веб-сайта непосредственно из WebMatrix в Azure.
 
-> [WACOM.NOTE]
-> Для работы с этим учебником требуется учетная запись Azure. Вы можете <a href="http://azure.microsoft.com/ru-ru/pricing/member-offers/msdn-benefits-details/">активировать преимущества для подписчиков MSDN</a> или <a href="http://azure.microsoft.com/ru-ru/pricing/free-trial/">подписаться на бесплатную пробную версию</a>.
-> Если вы хотите начать работу с веб-сайтами Azure до регистрации учетной записи, перейдите на страницу <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>, где можно сразу же создать кратковременный начальный сайт ASP.NET на веб-сайтах Azure бесплатно. Никаких кредитных карт и обязательств.
+> [AZURE.NOTE]
+> Для работы с этим учебником требуется учетная запись Azure. Вы можете <a href="http://azure.microsoft.com/ru-ru/pricing/member-offers/msdn-benefits-details/">активировать преимущества подписчика MSDN</a> или <a href="http://azure.microsoft.com/ru-ru/pricing/free-trial/">зарегистрироваться для получения бесплатной пробной версии</a>.
+> Если вы хотите ознакомиться с веб-сайтами Azure до создания учетной записи, перейдите по адресу <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>, где вы можете быстро создать краткосрочный начальный сайт ASP.NET на веб-сайтах Azure бесплатно. Никаких кредитных карт и обязательств.
 
 ## Вход в Azure
 
@@ -53,7 +67,7 @@
 
 Пример с пекарней включает модель формы заказа, которая отправляет сообщение электронной почты с заказанной номенклатурой. Для отправки сообщений электронной почты с вашего веб-сайта в Azure будет использоваться служба электронной почты SendGrid.
 
-1. Следуйте указаниям в учебнике [Отправка электронной почты с помощью SendGrid в Azure][sendgridexample], чтобы настроить учетную запись SendGrid и получить сведения о подключении. Нет необходимости выполнять все инструкции из учебника. Выполните только те инструкции, которые касаются получения сведений о подключении.
+1. Следуйте указаниям в учебнике [Отправка почты с помощью SendGrid в Azure][sendgridexample], чтобы настроить учетную запись SendGrid и получить информацию о подключении. Нет необходимости выполнять все инструкции из учебника. Выполните только те инструкции, которые касаются получения сведений о подключении.
 
 2. Добавьте пакет SendGrid NuGet в проект WebMatrix. Во-первых, нажмите кнопку NuGet.
 
@@ -74,7 +88,7 @@
 4. В начале файла добавьте следующий код:
 
         @using SendGrid;
-        @using System.Net.Mail;
+        @using System.Net.Mail;	
 
 4. Найдите комментарий с текстом "//SMTP Configuration for Hotmail" и удалите или закомментируйте весь код для использования веб-почты.
 
@@ -137,7 +151,7 @@
 
 7. Нажмите кнопку **Заказать** на одном из продуктов и отправьте заказ самому себе.
 
-8. Проверьте свою электронную почту и убедитесь, что подтверждение заказа пришло. При возникновении проблем с отправкой электронной почты см. раздел [Проблемы при отправке электронной почты][sendmailissues] в "Руководстве по устранению неполадок веб-страниц ASP.NET (Razor)".
+8. Проверьте свою электронную почту и убедитесь, что подтверждение заказа пришло. При возникновении проблем с отправкой почты см. раздел [Проблемы при отправке почты][sendmailissues] в "Руководстве по устранению неполадок веб-страниц ASP.NET (Razor)".
  
 
 ## Развертывание настраиваемого веб-сайта из WebMatrix в Azure
@@ -160,7 +174,7 @@
 
 С помощью WebMatrix можно изменить веб-сайт и повторно опубликовать его на своем веб-сайте Azure. В следующей процедуре вам предстоит добавить флажок, чтобы указать, что это заказ подарка.
 
-1. Откройте страницу *Order.cshtml*.
+1. Откройте страницу  *Order.cshtml*.
 
 2. Найдите определение формы класса shiping. Вставьте следующий код сразу после блока &lt;li&gt;.
 		
@@ -183,7 +197,7 @@
 			body += "This is a gift." + "<br/>";
 		}
 
-	Файл *order.cshtml* должен выглядеть как на рисунке ниже.
+	Файл *order.cshtml* должен выглядеть, как на рисунке ниже.
 
 	![][modify6]
 
@@ -236,4 +250,5 @@
 [sendmailissues]: http://go.microsoft.com/fwlink/?LinkId=253001#email
 [sendgridexample]: http://azure.microsoft.com/ru-ru/documentation/articles/sendgrid-dotnet-how-to-send-email/
 
-<!--HONumber=35.2-->
+
+<!--HONumber=42-->

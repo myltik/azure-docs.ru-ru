@@ -1,13 +1,13 @@
-﻿<properties urlDisplayName="Manage Assets in Media Services" pageTitle="Как управлять ресурсами в службах мультимедиа - Azure" metaKeywords="" description="Сведения об управлении активами в службах мультимедиа. Можно также управлять заданиями, задачами, политиками доступа, указателями и многим другим. Примеры кода написаны на языке C# и используют пакет SDK служб мультимедиа для .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Manage Assets in storage" authors="juliako" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Как управлять ресурсами в службах мультимедиа - Azure" description="Сведения об управлении активами в службах мультимедиа. Можно также управлять заданиями, задачами, политиками доступа, указателями и многим другим. Примеры кода написаны на языке C# и используют пакет SDK служб мультимедиа для .NET." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
 
 
 
 
 <h1>Практическое руководство: Управление активами в хранилище</h1>
 
-Эта статья является частью серии вводных статей о программировании служб мультимедиа в Azure. Предыдущая статья: [Практическое руководство. Защита ресурсов](../media-services-protect-asset/).
+Эта статья является частью серии вводных статей о программировании служб мультимедиа в Azure. Предыдущий раздел [Практическое руководство: Защита актива](../media-services-protect-asset/).
 
 После создания активов мультимедиа и их передачи службам мультимедиа можно получить доступ к активам и управлять ими на сервере. Можно также управлять другими объектами на сервере, являющиеся частью служб мультимедиа, включая задания, задачи, политики доступа, указатели и многое другое.
 
@@ -80,6 +80,7 @@ foreach (IAsset asset in _context.Assets)
 
 
 <h2>Дальнейшие действия</h2>
-Теперь, когда вы знаете, как управлять ресурсами, перейдите к статье [Практическое руководство. Доставка ресурса путем скачивания](../media-services-deliver-asset-download/) .
+Теперь, когда вы знаете, как управлять активами, перейдите к разделу [Доставка актива путем загрузки](../media-services-deliver-asset-download/) topic.
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

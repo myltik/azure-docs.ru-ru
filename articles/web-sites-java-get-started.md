@@ -1,16 +1,30 @@
-﻿<properties urlDisplayName="Get started with Azure" pageTitle="Начало работы с веб-сайтами Microsoft Azure с использованием Java" metaKeywords="" description="В этом учебнике показано, как развернуть веб-сайт на Java в Microsoft Azure." metaCanonical="" services="web-sites" documentationCenter="Java" title="Get started with Azure and Java" videoId="" scriptId="" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties 
+	pageTitle="Приступая к работе с веб-сайтами Microsoft и Java" 
+	description="В этом учебнике показано, как развернуть веб-сайт на Java в Microsoft Azure." 
+	services="web-sites" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="09/25/2014" 
+	ms.author="robmcm"/>
 
 # Начало работы с веб-сайтами Azure и Java
 
 В этом учебнике показано, как создать веб-сайт в среде Microsoft Azure с помощью Java, используя коллекцию приложений Azure или пользовательский интерфейс настройки веб-сайтов Azure. 
 
-Если вы не хотите использовать ни один из этих методов, например если требуется настроить контейнер приложения, см. раздел [Отправка настраиваемого веб-сайта Java в Azure](../web-sites-java-custom-upload).
+Если вы не хотите использовать один из этих методов, например если требуется настроить контейнер приложения, см. раздел [Отправка настраиваемого веб-сайта Java в Azure](../web-sites-java-custom-upload).
 
-> [WACOM.NOTE] Для работы с этим учебником необходимо использовать учетную запись Microsoft Azure. Если у вас нет учетной записи, вы можете <a href="/ru-ru/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">активировать преимущества для подписчиков MSDN</a> или <a href="/ru-ru/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">подписаться на бесплатную пробную версию</a>. 
+> [AZURE.NOTE] Для работы с этим учебником необходимо использовать учетную запись Microsoft Azure. Если у вас нет учетной записи, можно <a href="/ru-ru/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">активировать преимущества для подписчиков MSDN</a> или <a href="/ru-ru/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">подписаться на бесплатную пробную версию</a>. 
 > 
-> Если вы хотите начать работу с веб-сайтами Azure до регистрации учетной записи, перейдите на страницу <a href="https://trywebsites.azurewebsites.net/?language=java">https://trywebsites.azurewebsites.net</a>, где можно сразу же создать кратковременный начальный сайт ASP.NET на веб-сайтах Azure бесплатно. Никаких кредитных карт и обязательств.
+> Если вы хотите ознакомиться с веб-сайтами Azure до создания учетной записи, перейдите по адресу <a href="https://trywebsites.azurewebsites.net/?language=java">https://trywebsites.azurewebsites.net</a>, где вы можете быстро создать краткосрочный начальный сайт ASP.NET на веб-сайтах Azure бесплатно. Никаких кредитных карт и обязательств.
 
 # Создание веб-сайта Java с использованием коллекции приложений Azure
 
@@ -45,8 +59,7 @@
 3. Задайте URL-имя.
 4. Выберите регион. Например, **Запад США**.
 5. Нажмите **Завершено**. Через несколько секунд веб-сайт будет создан. Для просмотра веб-сайта дождитесь, когда в представлении **Веб-сайты** на портале управления Azure отобразится состояние **Выполняется**, а затем перейдите по URL-адресу веб-сайта.
-6. В представлении **Веб-сайты** на портале управления Azure нажмите имя веб-сайта, чтобы открыть 
-панель мониторинга.
+6. В представлении Веб-сайты на портале управления Azure нажмите имя **веб-сайта**, чтобы открыть панель мониторинга.
 7. Нажмите **Настроить**.
 8. В разделе **Общие** включите компонент **Java**, щелкнув доступную версию.
 9. Отображаются параметры для веб-контейнера, например Tomcat и Jetty. Выберите веб-контейнер, который хотите использовать. 
@@ -58,6 +71,7 @@
 
 # Дальнейшие действия
 
-На этом этапе имеется работающий сервер приложений Java в виде веб-сайта Java в среде Azure. Чтобы добавить собственное приложение или веб-страницу, см. раздел [Добавление приложения или веб-страницы на веб-сайт Java](../web-sites-java-add-app).
+На этом этапе имеется работающий сервер приложений Java в виде веб-сайта Java в среде Azure. Чтобы добавить собственное приложение или веб-страницу, см. раздел [Добавление приложения или веб-страницы на свой веб-сайт Java](../web-sites-java-add-app).
 
-<!--HONumber=35.2-->
+
+<!--HONumber=42-->

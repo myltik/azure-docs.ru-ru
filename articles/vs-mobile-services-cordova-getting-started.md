@@ -1,20 +1,34 @@
-﻿<properties title="Getting Started with Mobile Services" pageTitle="" metaKeywords="Azure, Getting Started, Mobile Services" description="" services="mobile-services" documentationCenter="" authors="ghogen, kempb" />
+﻿<properties 
+	pageTitle="" 
+	description="" 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="kempb" 
+	manager="douge" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="web" ms.tgt_pltfrm="vs-getting-started" ms.devlang="na" ms.topic="article" ms.date="10/8/2014" ms.author="ghogen, kempb" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="vs-getting-started" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/8/2014" 
+	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
 > - [Приступая к работе](/documentation/articles/vs-mobile-services-cordova-getting-started/)
-> - [Что произошло](/documentation/articles/vs-mobile-services-cordova-what-happened/)
+> - [Что произошло?](/documentation/articles/vs-mobile-services-cordova-what-happened/)
 
 ## Приступая к работе с мобильными службами (проекты Cordova)
 
 Первое действие, необходимое для использования этих примеров кода, зависит от типа мобильной службы, к которой вы подключились.
 
-Для серверной мобильной службы JavaScript создайте таблицу под названием TodoItem. Чтобы создать таблицу, найдите мобильную службу в узле Azure (в обозревателе сервера), щелкните узел этой службы правой кнопкой мыши, чтобы открыть контекстное меню, и выберите команду **Создать таблицу**. Введите имя таблицы TodoItem.
+Для серверной мобильной службы JavaScript создайте таблицу под названием TodoItem.  Чтобы создать таблицу, найдите мобильную службу в узле Azure (в обозревателе сервера), щелкните узел этой службы правой кнопкой мыши, чтобы открыть контекстное меню, и выберите команду **Создать таблицу**. Введите имя таблицы TodoItem.
 
-Если же у вас есть серверная мобильная служба .NET, то среда Visual Studio уже создала в шаблоне проекта по умолчанию таблицу TodoItem, но ее нужно опубликовать в Azure. Чтобы опубликовать таблицу, откройте контекстное меню проекта мобильной службы в обозревателе решений и выберите команду **Опубликовать веб-сайт**. Примите предлагаемые по умолчанию параметры и нажмите кнопку **Опубликовать**.
+Если же у вас есть серверная мобильная служба .NET, то в среде Visual Studio уже создана в шаблоне проекта по умолчанию таблица TodoItem, но ее нужно опубликовать в Azure. Чтобы опубликовать таблицу, откройте контекстное меню проекта мобильной службы в обозревателе решений и выберите команду **Опубликовать веб-сайт**. Примите предлагаемые по умолчанию параметры и нажмите кнопку **Опубликовать**.
   
->[WACOM.NOTE]**Примените это [временное решение](http://go.microsoft.com/fwlink/?LinkId=518765) для работы с мобильными службами Azure в проектах Cordova.**
+>[AZURE.NOTE]**Примените это [временное решение](http://go.microsoft.com/fwlink/?LinkId=518765) для работы с мобильными службами Azure в проектах Cordova, созданных с помощью предварительной версии Visual Studio 2015. Временное решение не требуется для проектов, в которых используются более поздние версии Visual Studio 2015.**
 
 #####Получение ссылку на таблицу
 
@@ -22,7 +36,7 @@
 
 	var todoTable = mobileServiceClient.getTable('TodoItem');
 
-Чтобы эти примеры работали, необходимо установить для таблицы уровень разрешений **Кто угодно с ключом приложения**. Позднее можно настроить проверку подлинности. См. статью [Начало работы с проверкой подлинности](http://azure.microsoft.com/ru-ru/documentation/articles/mobile-services-html-get-started-users/).
+Чтобы эти примеры работали, необходимо установить уровень разрешений таблицы на **Кто угодно с ключом приложения**. Позднее можно настроить проверку подлинности. См. статью [Приступая к работе с проверкой подлинности](http://azure.microsoft.com/ru-ru/documentation/articles/mobile-services-html-get-started-users/).
 
 #####Добавление записи 
 
@@ -58,7 +72,7 @@
                 items = results.slice();
              });
 
-Дополнительные примеры запросов см. в разделе, посвященном объекту [query]((http://msdn.microsoft.com/library/azure/jj613353.aspx)).
+Дополнительные примеры запросов см. в разделе, [посвященном объекту query]((http://msdn.microsoft.com/library/azure/jj613353.aspx)).
 
 #####Обновление записи
 
@@ -71,10 +85,12 @@
 
 #####Удаление записи
 
-Удалите какую-либо строку в таблице данных с помощью метода **del**. Вызовите метод [done]() для возвращенного объекта [Promise](), чтобы получить копию вставленного объекта и обработать все ошибки.
+Удалите строку в таблице данных с помощью метода **del**. Вызовите метод [done]() для возвращенного объекта [Promise](), чтобы получить копию вставленного объекта и обработать все ошибки.
 
 	todoTable.del(todoItem).done(function (item) {
         items.splice(items.indexOf(todoItem), 1);
 	});
 
-[Дополнительные сведения о мобильных службах](http://azure.microsoft.com/documentation/services/mobile-services/)
+[Дополнительную информацию о мобильных службах](http://azure.microsoft.com/documentation/services/mobile-services/)
+
+<!--HONumber=42-->

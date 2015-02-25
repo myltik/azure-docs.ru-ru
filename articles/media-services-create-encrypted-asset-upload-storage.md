@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Create Encrypted Asset and Upload to Storage" pageTitle="Создание зашифрованного ресурса и его отправка в хранилище Azure" metaKeywords="" description="Узнайте, как включить контент мультимедиа в службы мультимедиа, создав и отправив зашифрованный актив." metaCanonical="" services="media-services" documentationCenter="" title="How to: Create an encrypted Asset and upload to storage" authors="juliako" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Создание зашифрованного ресурса и его отправка в хранилище Azure" description="Узнайте, как включить контент мультимедиа в службы мультимедиа, создав и отправив зашифрованный актив." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
 
 
 
@@ -16,7 +16,7 @@
 - **AssetCreationOptions.CommonEncryptionProtected**: для файлов CENC. Примером служит набор файлов, уже зашифрованных PlayReady. 
 - **AssetCreationOptions.StorageEncrypted**: шифрование хранилища. Шифрование входного файла до его загрузки в хранилище Azure.
 
-> WACOM.NOTE
+> AZURE.NOTE
 > Службы мультимедиа обеспечивают шифрование ресурсов на диске в хранилище, а не по сети, как технология управления цифровыми правами (DRM).
 
 Пример кода ниже выполняет следующие действия: 
@@ -85,7 +85,7 @@ static public IAsset CreateAssetAndUploadMultipleFiles( AssetCreationOptions ass
         throw new FileNotFoundException(String.Format("No files in directory, check folderPath: {0}", folderPath));
     }
 
-    var uploadTasks = new List<Task>();
+    var uploadTasks = new List&lt;Task&gt;();
     foreach (var filePath in filePaths)
     {
         var assetFile = asset.AssetFiles.Create(Path.GetFileName(filePath));
@@ -118,8 +118,9 @@ static void  blobTransferClient_TransferProgressChanged(object sender, BlobTrans
 </code></pre>
 
 <h2>Дальнейшие действия</h2>
-Теперь, когда вы загрузили ресурс в службы мультимедиа, перейдите к статье [Получение обработчика мультимедиа][].
+После загрузки актива в службы мультимедиа перейдите к статье [Получение обработчика мультимедиа][].
 
 [Получение обработчика мультимедиа]: ../media-services-get-media-processor/
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

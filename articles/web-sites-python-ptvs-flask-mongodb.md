@@ -1,13 +1,27 @@
-﻿<properties linkid="web-sites-python-ptvs-flask-mongodb" title="Flask and MongoDB on Azure with Python Tools 2.1 for Visual Studio" pageTitle="Использование Flask и MongoDB в Azure с помощью инструментов Python 2.1 для Visual Studio" description="Узнайте, как использовать инструменты Python для Visual Studio, чтобы создать приложение Flask, которое сохраняет данные в экземпляре базы данных MongoDB и может быть развернуто на веб-сайте." metaKeywords="" services="" solutions="" documentationCenter="Python" authors="huvalo" videoId="" scriptId="" manager="wpickett" editor="" />
+﻿<properties 
+	pageTitle="Использование Flask и MongoDB в Azure с помощью инструментов Python 2.1 для Visual Studio" 
+	description="Информация об использовании инструментов Python для Visual Studio для создания приложения Flask, которое хранит данные в экземпляре базы данных MongoDB и может быть развернуто на веб-сайте." 
+	services="" 
+	documentationCenter="python" 
+	authors="huguesv" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="10/10/2014" ms.author="huvalo" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="huvalo"/>
 
 
 
 
 # Использование Flask и MongoDB в Azure с помощью инструментов Python 2.1 для Visual Studio
 
-В этом учебнике мы создадим простое приложение опросника с помощью шаблонов PTVS. Также доступна [видеоверсия] данного учебника(https://www.youtube.com/watch?v=eql-crFgrAE).
+В этом учебнике мы создадим простое приложение опросника с помощью шаблонов PTVS. Также доступна [видеоверсия](https://www.youtube.com/watch?v=eql-crFgrAE) данного учебника
 
 Приложение опросника реализует абстракцию для своего репозитория, что позволяет вам легко переключаться между разными типами репозиториев (размещенный в памяти, табличное хранилище Azure, MongoDB).
 
@@ -15,7 +29,7 @@
 
 Перейдите в [Центр по разработке для Python][], чтобы узнать больше о разработке веб-сайтов Azure с PTVS при помощи веб-платформ Bottle, Flask и Django, с использованием MongoDB, табличного хранилища Azure, MySQL и служб Базы данных SQL.  Несмотря на то, что эта статья сфокусирована на веб-сайтах Azure, для разработки [облачных служб Azure][] шаги останутся теми же.
 
-+ [Предварительные требования](#prerequisites)
++ [Необходимые условия](#prerequisites)
 + [Создание проекта](#create-the-project)
 + [Создание базы данных MongoDB](#create-a-mongodb-database)
 + [Настройка проекта](#configure-the-project)
@@ -27,13 +41,13 @@
 ##<a name="prerequisites"></a>Предварительные требования
 
  - Visual Studio 2012 или 2013
- - [Инструменты Python 2.1 для Visual Studio][]
- - [Инструменты Python 2.1 для Visual Studio Samples VSIX][]
- - [Пакет инструментов SDK для Azure для VS 2013][] или [пакет инструментов SDK для Azure для VS 2012][]
- - [Python 2.7 (32-разрядная версия)][] или [Python 3.4 (32-разрядная версия)][]
+ - [Средства Python 2.1 для Visual Studio][]
+ - [Образцы VSIX средств Python 2.1 для Visual Studio][]
+ - [Пакет инструментов SDK Azure для VS 2013][] или [Пакет инструментов SDK Azure для VS 2012][]
+ - [Python 2.7 (32-разрядный)][] или [Python 3.4 (32-разрядный)][]
  - [RoboMongo][] (необязательно)
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+[AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ##<a name="create-the-project"></a>Создание проекта
 
@@ -55,7 +69,7 @@
 
 1.  Подтвердите, что приложение работает, нажав <kbd>F5</kbd>.  По умолчанию приложение использует размещенный в памяти репозиторий, который не требует настройки.  При остановке веб-сервера все данные будут утеряны.
 
-1.  Щелкните **Создать пример опросов**, а затем щелкните на опроснике, чтобы проголосовать.
+1.  Щелкните **Создать примеры опросов**, а затем щелкните опросник, чтобы проголосовать.
 
   	![Web Browser](./media/web-sites-python-ptvs-flask-mongodb/PollsFlaskInMemoryBrowser.png)
 
@@ -67,7 +81,7 @@
 
 Выполнив следующие шаги, вы создадите базу данных MongoLab с бесплатным пробным периодом.
 
-1.  Войдите на [портал управления Azure][].
+1.  Выполните вход на [портал управления Azure][].
 
 1.  В нижней части области навигации щелкните **СОЗДАТЬ**.
 
@@ -111,7 +125,7 @@
 
 1.  Код с реализацией репозитория MongoDB находится в файле **models/mongodb.py**.
 
-1.  Запустите приложение с помощью клавиши <kbd>F5</kbd>.  Опросы, созданные с помощью **Создать пример опросов** и отправленных данных голосования, будут сериализованы в MongoDB.
+1.  Запустите приложение, нажав клавишу <kbd>F5</kbd>.  Опросы, созданные с помощью **Создать примеры опросов** и отправленных данных голосования, будут сериализованы в MongoDB.
 
 1.  Перейдите на страницу **О**, чтобы убедиться в том, что приложение использует репозиторий **MongoDB**.
 
@@ -123,15 +137,15 @@
 
 1.  Создайте новое соединение.  Вам потребуется **MONGOLAB\_URI**, который мы получили в предыдущем разделе.
 
-    Note the format of the URI: `mongodb://<name>:<password>@<address>:<port>/<name>`
+    Обратите внимание на формат универсального кода ресурса: `mongodb://<name>:<password>@<address>:<port>/<name>`
 
     Имя будет совпадать с именем созданной службы Azure.  Оно будет использоваться как в качестве имени базы данных, так и имени пользователя.
 
-1.  На странице соединения в поле **Имя** укажите желаемое имя для данного соединения.  Также с помощью полей **Адрес** и **Порт** укажите адрес и порт из **MONGOLAB\_URI**.
+1.  На странице соединения в поле **Имя** укажите желаемое имя для данного соединения.  В полях **Адрес** и **Порт** задайте значения *address* и *port* из **MONGOLAB\_URI**.
 
   	![Connection Settings Dialog](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonRobomongoCreateConnection1.png)
 
-1.  На странице аутентификации с помощью полей **База данных** и **Имя пользователя** укажите имя из **MONGOLAB\_URI**.  Также укажите в поле **Пароль** пароль из **MONGOLAB\_URI**.
+1.  На странице аутентификации с помощью полей **База данных** и **Имя пользователя** укажите *name* из **MONGOLAB\_URI**.  Также укажите в поле **Пароль** значение *password* из **MONGOLAB\_URI**.
 
   	![Connection Settings Dialog](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonRobomongoCreateConnection2.png)
 
@@ -175,7 +189,7 @@ PTVS предоставляет простой способ развертыва
 
   	![App Settings](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonWebSiteConfigureSettingsMongoDB.png)
 
-1.  Щелкните в нижнем меню **СОХРАНИТЬ**, затем**ПЕРЕЗАПУСТИТЬ** и, наконец, **ОБЗОР**.
+1.  Щелкните в нижнем меню **СОХРАНИТЬ**, затем **ПЕРЕЗАПУСТИТЬ** и, наконец, **ОБЗОР**.
 
   	![Bottom Menu](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonWebSiteConfigureBottomMenu.png)
 
@@ -189,36 +203,37 @@ PTVS предоставляет простой способ развертыва
 
 Используйте следующие ссылки, чтобы узнать больше об инструментах Python для Visual Studio, Flask и MongoDB.
 
-- [Документация по инструментам Python для Visual Studio][]
+- [Документация по средствам Python для Visual Studio][]
   - [Веб-проекты][]
-  - [Проекты облачных служб][]
-  - [Удаленная отладка на Microsoft Azure][]
+  - [Проекты для облачной службы][]
+  - [Удаленная отладка в Microsoft Azure][]
 - [Документация по Flask][]
 - [MongoDB][]
-- [Документация по PyMongo][]
+- [Документация по работе с PyMongo][]
 - [PyMongo][]
 
 
 <!--Link references-->
 [Центр по разработке для Python]: /ru-ru/develop/python/
-[Облачные службы Azure]: ../cloud-services-python-ptvs/
+[Облачные службы Azure] ../cloud-services-python-ptvs/
 
 <!--External Link references-->
 [Портал управления Azure]: https://manage.windowsazure.com
 [RoboMongo]: http://robomongo.org/
-[Инструменты Python 2.1 для Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
-[Инструменты Python 2.1 для Visual Studio Samples VSIX]: http://go.microsoft.com/fwlink/?LinkId=517189
-[Инструменты пакета SDK для Azure для VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
-[Инструменты пакета SDK для Azure для VS 2012]: http://go.microsoft.com/fwlink/?LinkId=323511
+[Средства Python 2.1 для Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
+[Образцы VSIX средств Python 2.1 для Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
+[Средства пакета SDK для Azure для VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
+[Средства пакета SDK для Azure для VS 2012]: http://go.microsoft.com/fwlink/?LinkId=323511
 [Python 2.7 (32-разрядная версия)]: http://go.microsoft.com/fwlink/?LinkId=517190 
 [Python 3.4 (32-разрядная версия)]: http://go.microsoft.com/fwlink/?LinkId=517191
-[Документация по инструментам Python для Visual Studio]: http://pytools.codeplex.com/documentation
+[Документация по средствам Python для Visual Studio]: http://pytools.codeplex.com/documentation
 [Документация по Flask]: http://flask.pocoo.org/
 [MongoDB]: http://www.mongodb.org/
-[Документация по PyMongo]: http://api.mongodb.org/python/current/
+[PyMongo Documentation]: http://api.mongodb.org/python/current/
 [PyMongo]: https://github.com/mongodb/mongo-python-driver
-[Удаленная отладка на Microsoft Azure]: http://pytools.codeplex.com/wikipage?title=Features%20Azure%20Remote%20Debugging
+[Удаленная отладка в Microsoft Azure]: http://pytools.codeplex.com/wikipage?title=Features%20Azure%20Remote%20Debugging
 [Веб-проекты]: http://pytools.codeplex.com/wikipage?title=Features%20Web%20Project
-[Проекты облачных служб]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
+[Проекты для облачной службы]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

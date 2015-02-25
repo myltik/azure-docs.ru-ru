@@ -1,50 +1,50 @@
-﻿<properties urlDisplayName="Optimistic concurrency" pageTitle="Обработка конфликтов записи базы данных с поддержкой оптимистичного параллелизма (Магазин Windows) | Центр мобильных разработок" metaKeywords="" description="Узнайте, как обрабатывать конфликты записи в базу данных как на сервере, так и в приложении магазина Windows." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Handling database write conlicts" authors="wesmc" manager="dwrede" />
+﻿<properties pageTitle="Обработка конфликтов записи базы данных с поддержкой оптимистичного параллелизма (Магазин Windows) | Центр мобильных разработок" description="Узнайте, как обрабатывать конфликты записи в базу данных как на сервере, так и в приложении магазина Windows." documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor="" services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc"/>
 
 # Обработка конфликтов записи базы данных
 
 <div class="dev-center-tutorial-selector sublanding">
-<a href="/ru-ru/develop/mobile/tutorials/handle-database-write-conflicts-dotnet/" title="Windows Store C#">Windows Store C#</a>
-<a href="/ru-ru/documentation/articles/mobile-services-windows-store-javascript-handle-database-conflicts/" title="Windows Store JavaScript">Windows Store JavaScript</a>
+<a href="/ru-ru/develop/mobile/tutorials/handle-database-write-conflicts-dotnet/" title="Windows Store C#">Магазин Windows - C#</a>
+<a href="/ru-ru/documentation/articles/mobile-services-windows-store-javascript-handle-database-conflicts/" title="Windows Store JavaScript">Магазин Windows - JavaScript</a>
 <a href="/ru-ru/develop/mobile/tutorials/handle-database-write-conflicts-wp8/" title="Windows Phone" class="current">Windows Phone</a>
 </div>
 
-This tutorial is intended to help you better understand how to handle conflicts that occur when two or more clients write to the same database record in a Windows Phone 8 app. Two or more clients may write changes to the same item, at the same time, in some scenarios. Without any conflict detection, the last write would overwrite any previous updates even if this was not the desired result. Mobile Services provides support for detecting and resolving these conflicts. This topic walks you through the steps that allow you to handle database write conflicts on both the server and in your application.
+Этот учебник поможет вам лучше понять, как обрабатывать конфликты, возникающие, когда два или более клиента пишут в одной и той же записи базы данных в приложениях Windows Phone 8. В некоторых сценариях два и более клиента могут одновременно записывать изменения в один и тот же элемент. Без какого либо определения конфликтов последняя запись должна переопределять любые предыдущие обновления, даже если они привели к нежелательным результатам. Мобильные службы предоставляют поддержку для обнаружения и разрешения таких конфликтов. В этом разделе описываются шаги, которые позволят обрабатывать конфликты записи базы данных как на сервере, так и в приложении.
 
-In this tutorial you will add functionality to the quickstart app to handle contentions that occur when updating the TodoItem database. This tutorial walks you through these basic steps:
+В этом учебнике вы добавите функции в приложение быстрого запуска для обработки разногласий, которые возникают при обновлении базы данных TodoItem. В этом учебнике рассматриваются следующие основные действия:
 
-1. [Update the application to allow updates]
-2. [Enable Conflict Detection in your application]
-3. [Test database write conflicts in the application]
-4. [Automatically handling conflict resolution in server scripts]
+1. [Обновление приложения, чтобы разрешить обновления]
+2. [Включение обнаружения конфликтов в приложении]
+3. [Тестирование конфликтов записи базы данных в приложении]
+4. [Автоматическое разрешение конфликтов в серверных скриптах]
 
 
-This tutorial requires the following
+Для работы с данным учебником требуется следующее
 
-+ Microsoft Visual Studio 2012 Express for Windows Phone 8 or later.
-+ [Windows Phone 8 SDK] running on Windows 8. 
-+ [Azure Account]
-+ This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services].
-+ Azure Mobile Services NuGet Package 1.1.0 or later. To get the latest version, follow these steps below:
-	1. In Visual Studio, open the project and right-click the project in Solution Explorer then click **Manage Nuget Packages**. 
++ Microsoft Visual Studio 2012 Express для Windows Phone 8 или более поздней версии.
++ [Пакет SDK для Windows Phone 8], выполняемый в среде Windows 8.
++ [Учетная запись Azure]
++ Этот учебник создан на основе краткого руководства по мобильным службам. Перед началом работы с учебником необходимо пройти задания учебника [Приступая к работе с мобильными службами].
++ Пакет NuGet для мобильных служб Azure 1.1.0 или более поздней версии. Для получения последней версии выполните следующие действия:
+	1. Откройте проект в Visual Studio, щелкните его правой кнопкой мыши в обозревателе решений, а затем щелкните **Управление пакетами Nuget**. 
 
 		![][13]
 
-	2. Expand **Online** and click **Microsoft and .NET**. In the search text box enter **Azure Mobile Services**. Click **Install** on the **Azure Mobile Services** NuGet Package.
+	2. Разверните раздел **В сети** и выберите **Microsoft и .NET**. В поле "Поиск" введите **Мобильные службы Azure**. Нажмите **Установка** в пакете NuGet **Мобильных служб Azure**.
 
 		![][14]
 
 
  
 
-<h2><a name="uiupdate"></a>Update the application to allow updates</h2>
+<h2><a name="uiupdate"></a>Обновление приложения для разрешения обновлений</h2>
 
-In this section you will update the TodoList user interface to allow updating the text of each item in a ListBox control. The ListBox will contain a CheckBox and TextBox control for each item in the database table. You will be able to update the text field of the TodoItem. The application will handle the `LostFocus` event from that TextBox to update the item in the database.
+В этом разделе вы обновите пользовательский интерфейс TodoList, что позволит обновлять текст для каждого элемента в элементе управления "поле со списком". Поле со списком будет содержать поле флажка и текстовое поле для каждого элемента в таблице базы данных. Можно будет обновить текстовое поле TodoItem. Приложение будет обрабатывать событие `LostFocus` из этого текстового поля для обновления элемента в базе данных.
 
 
-1. In Visual Studio, open the TodoList project you downloaded in the [Get started with Mobile Services] tutorial.
-2. In the Visual Studio Solution Explorer, open MainPage.xaml and replace the `phone:LongListSelector` definition with the ListBox shown below and save the change.
+1. Откройте в Visual Studio проект TodoList, скачанный во время работы с учебником [Приступая к работе с мобильными службами].
+2. В обозревателе решений Visual Studio откройте файл MainPage.xaml, замените определение `phone:LongListSelector` на приведенный ниже элемент ListBox и сохраните изменения.
 
 		<ListBox Grid.Row="4" Grid.ColumnSpan="2" Name="ListItems">
 			<ListBox.ItemTemplate>
@@ -58,12 +58,12 @@ In this section you will update the TodoList user interface to allow updating th
 		</ListBox>
 
 
-2. В обозревателе решений Visual Studio откройте файл MainPage.xaml.cs и добавьте следующую директиву using:
+2. В обозревателе решений Visual Studio откройте файл MainPage.xaml.cs и добавьте следующую директиву `using`.
 
 		using System.Threading.Tasks;
 
 
-3. В обозревателе решений Visual Studio откройте файл MainPage.xaml.cs. Добавьте обработчик событий MainPage для текстового поля события LostFocus, как показано ниже.
+3. В обозревателе решений Visual Studio откройте файл MainPage.xaml.cs. Добавьте обработчик событий в MainPage для события текстового поля `LostFocus`, как показано ниже.
 
 
         private async void ToDoText_LostFocus(object sender, RoutedEventArgs e)
@@ -78,7 +78,7 @@ In this section you will update the TodoList user interface to allow updating th
             }
         }
 
-4. В файле MainPage.xaml.cs добавьте определение для метода UpdateToDoItem(), на который ссылается обработчик событий, как показано ниже.
+4. В файле MainPage.xaml.cs добавьте определение для метода MainPage `UpdateToDoItem()`, на который ссылается обработчик событий, как показано ниже.
 
         private async Task UpdateToDoItem(TodoItem item)
         {
@@ -95,9 +95,9 @@ In this section you will update the TodoList user interface to allow updating th
 
 Теперь, когда текстовое окно теряет фокус, приложение снова записывает изменения текста для каждого элемента в базе данных.
 
-<h2><a name="enableOC"></a>Включите в приложении обнаружение конфликтов</h2>
+<h2><a name="enableOC"></a>Включение обнаружения конфликтов в приложении</h2>
 
-В некоторых сценариях два и более клиента могут одновременно записывать изменения в один и тот же элемент. Без какого либо определения конфликтов последняя запись должна переопределять любые предыдущие обновления, даже если они привели к нежелательным результатам. [Управление оптимистичным параллелизмом] предполагает, что каждая транзакция может фиксироваться и поэтому не использует блокировки каких-либо ресурсов. Перед фиксацией транзакции управление оптимистичным параллелизмом проверяет, что никакие другие транзакции не изменили данные. Если данные были изменены, фиксирующая транзакция откатывается. Мобильные службы Azure поддерживают управление оптимистичным параллелизмом за счет отслеживания изменений каждого элемента с помощью столбца системного свойства __version, добавляющегося в каждую таблицу. В этом разделе описано, как сделать так, чтобы приложение определяло конфликты записи с помощью системного свойства __version. При попытке обновления приложение будет получать уведомления от MobileServicePreconditionFailedException, если запись изменилась с момента последнего запроса. Затем оно сможет выбрать, зафиксировать свои изменения в базе данных или оставить без изменений последнее изменение в базе данных. Дополнительные сведения о системных свойствах мобильных служб см. в [Системные свойства]
+В некоторых сценариях два и более клиента могут одновременно записывать изменения в один и тот же элемент. Без какого либо определения конфликтов последняя запись должна переопределять любые предыдущие обновления, даже если они привели к нежелательным результатам. [При управлении оптимистичным параллелизмом] предполагается, что каждая транзакция может фиксироваться, поэтому не использует блокировки каких-либо ресурсов. Перед фиксацией транзакции управление оптимистичным параллелизмом проверяет, что никакие другие транзакции не изменили данные. Если данные были изменены, фиксирующая транзакция откатывается. Мобильные службы Azure поддерживают управление оптимистичным параллелизмом за счет отслеживания изменений каждого элемента с помощью столбца системного свойства __version, добавляющегося в каждую таблицу. В этом разделе описано, как сделать так, чтобы приложение определяло конфликты записи с помощью системного свойства __version. Приложение будет получать уведомления от `MobileServicePreconditionFailedException` во время попытки обновления, если запись была изменена с момента последнего запроса. Затем оно сможет выбрать, зафиксировать свои изменения в базе данных или оставить без изменений последнее изменение в базе данных. Дополнительные сведения о системных свойствах мобильных служб см. в [Системные свойства]
 
 1. В файле MainPage.xaml.cs обновите определение класса **TodoItem** с помощью приведенного ниже кода, чтобы добавить системное свойство **__version**. Благодаря этому будет включена поддержка обнаружения конфликтов записи.
 
@@ -112,15 +112,15 @@ In this section you will update the TodoList user interface to allow updating th
 			public string Version { set; get; }
 		}
 
-	<div class="dev-callout"><strong>Примечание.</strong>
-	<p>При использовании нетипизированных таблиц включите оптимистичный параллелизм, добавив флаг "Версия" в системные свойства таблицы.</p>
-	<pre><code>//Включить оптимистичный параллелизм извлечением __version
+	> [AZURE.NOTE[ При использовании нетипизированных таблиц включите оптимистичный параллелизм, добавив флаг "Версия" в системные свойства таблицы.  
+	>
+	>````` 
+	//Enable optimistic concurrency by retrieving __version
 todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
-</code></pre>
-	</div>
+`````
 
 
-2. После добавления свойства Version к классу TodoItem приложение во время обновления будет получать уведомления об исключении MobileServicePreconditionFailedException, если запись изменилась с момента последнего запроса. Это исключение включает последнюю версию элемента с сервера. В файле MainPage.xaml.cs добавьте указанный ниже код, чтобы обрабатывать исключение в методе UpdateToDoItem().
+2. После добавления свойства `Version` к классу `TodoItem` приложение во время обновления будет получать уведомления об исключении `MobileServicePreconditionFailedException`, если запись была изменена с момента последнего запроса. Это исключение включает последнюю версию элемента с сервера. В файле MainPage.xaml.cs добавьте следующий код, чтобы обрабатывать исключение в методе `UpdateToDoItem()`.
 
         private async Task UpdateToDoItem(TodoItem item)
         {
@@ -151,7 +151,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
         }
 
 
-3. В файле MainPage.xaml.cs добавьте определение для метода ResolveConflict(), на который ссылается UpdateToDoItem(). Обратите внимание, что для разрешения конфликта перед принятием пользователем решения необходимо в качестве версии локального элемента задать обновленную версию с сервера. В противном случае конфликт будет возникать постоянно.
+3. В файле MainPage.xaml.cs добавьте определение для метода `ResolveConflict()`, на который ссылается `UpdateToDoItem()`. Обратите внимание, что для разрешения конфликта перед принятием пользователем решения необходимо в качестве версии локального элемента задать обновленную версию с сервера. В противном случае конфликт будет возникать постоянно.
 
 
         private async Task ResolveConflict(TodoItem localItem, TodoItem serverItem)		
@@ -187,9 +187,9 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 
 
 
-<h2><a name="test-app"></a>Протестируйте в приложении конфликты записи базы данных</h2>
+<h2><a name="test-app"></a>Тестирование конфликтов записи базы данных в приложении</h2>
 
-В этом разделе будет протестирован код, обрабатывающий конфликты записи путем запуска приложения в двух различных эмуляторах Windows Phone 8 (WVGA и WVGA 512 МБ). Оба клиентских приложения будут пытаться обновить свойство text одного и того же элемента, что потребует разрешения конфликта пользователем.
+В этом разделе будет протестирован код, обрабатывающий конфликты записи путем запуска приложения в двух различных эмуляторах Windows Phone 8 (WVGA и WVGA 512 МБ). Оба клиентских приложения будут пытаться обновить свойство `text` одного и того же элемента, что потребует от пользователя разрешения конфликта.
 
 
 1. В Visual Studio убедитесь, что в раскрывающемся списке **Эмулятор WVGA 512 МБ** выбран в качестве целевого объекта развертывания, как показано на снимке экрана ниже.
@@ -206,21 +206,21 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 
 4. В Visual Studio выберите в меню команду **СБОРКА**, а затем - **Развернуть решение**. Проверьте в окне вывода в нижней части, что сборка и развертывание в эмуляторе Windows Phone 8 выполнены успешно.
 
-€
+   	![][2]
   
 5. Поместите оба эмулятора таким образом, чтобы они отображались рядом друг с другом. Мы можем имитировать конфликты параллельной записи, осуществляемой клиентскими приложениями, работающими в этих эмуляторах. Проведите пальцем справа налево в обоих эмуляторах, чтобы просмотреть список установленных приложений. Перейдите к нижней части каждого списка и щелкните приложение **todolist**.
 
 	![][3]
 
-6. В левом эмуляторе измените значение свойства текста последнего элемента таблицы TodoItem на **Тест записи 1**, а затем щелкните другое текстовое поле, чтобы обработчик событий LostFocus обновил базу данных. На следующем снимке экрана показан пример. 
+6. В левом эмуляторе измените значение `text` последнего элемента TodoItem на **Тест записи 1**, затем выберите второе текстовое поле, чтобы обработчик событий `LostFocus` обновил базу данных. На следующем снимке экрана показан пример. 
 
 	![][4]
 
-7. На этом этапе соответствующий элемент в правом эмуляторе имеет старую версию и старое значение текста. В правом эмуляторе введите **Тест записи 2** для свойства текста. Затем выберите другое текстовое поле, чтобы обработчик событий LostFocus в правом эмуляторе попытался обновить базу данных со старой версией.
+7. На этом этапе соответствующий элемент в правом эмуляторе имеет старую версию и старое значение текста. В правом эмуляторе введите **Тест записи 2** для свойства текста. Затем выберите другое текстовое поле, чтобы обработчик событий `LostFocus` в правом эмуляторе попытался обновить базу данных со старой версией.
 
 	![][5]
 
-8. Так как версия, использованная при попытке обновления, не соответствует версии сервера, пакет SDK для мобильных служб высылает уведомление MobileServicePreconditionFailedException, позволяющее приложению разрешить этот конфликт. Для разрешения конфликта можно нажать **ok**, чтобы зафиксировать значения из правого приложения. Можно также щелкнуть **отмена**, чтобы отменить значения в правом приложении, оставляя зафиксированными значения из левого приложения. 
+8. Поскольку версия, использованная при попытке обновления, не соответствует версии сервера, пакет SDK для мобильных служб выдает исключение `MobileServicePreconditionFailedException`, позволяющее приложению разрешить этот конфликт. Для разрешения конфликта можно нажать **ok**, чтобы зафиксировать значения из правого приложения. Можно также щелкнуть **отмена**, чтобы отменить значения в правом приложении, оставляя зафиксированными значения из левого приложения. 
 
 	![][6]
 
@@ -230,8 +230,8 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 
 Можно обнаруживать и разрешать конфликты записи в скриптах сервера. Это хорошая идея - использовать записанную логику вместо взаимодействия с пользователем для разрешения конфликта. В этом разделе вы добавите скрипт со стороны сервера в таблицу TodoItem для приложения. Логика, которую будет использовать этот скрипт для разрешения конфликтов, выглядит следующим образом:
 
-+  Если в поле complete таблицы TodoItem указано значение true, таблица считается завершенной и свойство текста больше не меняется.
-+  Если в поле complete таблицы TodoItem указано значение false, будут продолжаться попытки обновить это свойство.
++  если в поле "complete" таблицы TodoItem указано значение true, таблица считается завершенной и `text` больше не меняется;
++  если в поле "complete" таблицы TodoItem указано значение false, будут продолжаться попытки обновить `text`.
 
 Дальнейшие действия описывают добавление серверного скрипта обновления и его тестирование.
 
@@ -264,11 +264,11 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 				}
 			}); 
 		}   
-5. Измените текст TodoItem для последнего элемента в приложении в левом эмуляторе. Затем выберите второе текстовое поле, чтобы обработчик событий LostFocus обновил базу данных.
+5. Измените текст TodoItem для последнего элемента в приложении в левом эмуляторе. Затем выберите другое текстовое поле, чтобы обработчик событий `LostFocus` обновил базу данных.
 
 	![][4]
 
-6. В правом эмуляторе введите другое значение для текстового свойства последнего элемента таблицы TodoItem. Затем выберите второе текстовое поле, чтобы обработчик событий LostFocus в правом эмуляторе попытался обновить базу данных со старой версией.
+6. В правом эмуляторе введите другое значение для текстового свойства последнего элемента таблицы TodoItem. Затем выберите другое текстовое поле, чтобы обработчик событий `LostFocus` в правом эмуляторе попытался обновить базу данных со старой версией.
 
 	![][5]
 
@@ -280,7 +280,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 
 	![][11]
 
-9. В приложении в правом эмуляторе попытайтесь обновить тот же текст TodoItem и вызвать событие LostFocus. В ответ на конфликт сценарий разрешил его, отказавшись от обновления, потому что элемент уже завершен. 
+9. В приложении в правом эмуляторе попытайтесь обновить текст того же элемента TodoItem и вызвать событие `LostFocus`. В ответ на конфликт сценарий разрешил его, отказавшись от обновления, потому что элемент уже завершен. 
 
 	![][12]
 
@@ -305,7 +305,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
  
 <!-- Anchors. -->
 [Обновление приложения, чтобы разрешить обновления]: #uiupdate
-[Включение в приложении функции обнаружения конфликтов]: #enableOC
+[Включение обнаружения конфликтов в приложении]: #enableOC
 [Тестирование конфликтов записи базы данных в приложении]: #test-app
 [Автоматическое разрешение конфликтов в серверных скриптах]: #scriptsexample
 [Дальнейшие действия]:#next-steps
@@ -335,7 +335,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 [Проверка и изменение данных с помощью скриптов]: /ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-wp8
 [Уточнение запросов c разбиением по страницам]: /ru-ru/develop/mobile/tutorials/add-paging-to-data-wp8
 [Приступая к работе с мобильными службами]: /ru-ru/develop/mobile/tutorials/get-started-wp8
-[Приступая к работе с данными]: ./mobile-services-get-started-with-data-wp8.md
+[Приступая к работе с данными] ./mobile-services-get-started-with-data-wp8.md
 [Приступая к работе с проверкой подлинности]: /ru-ru/develop/mobile/tutorials/get-started-with-users-wp8
 [Приступая к работе с push-уведомлениями]: /ru-ru/develop/mobile/tutorials/get-started-with-push-wp8
 
@@ -346,4 +346,5 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 [Веб-сайт с примерами кода для разработчиков]:  http://go.microsoft.com/fwlink/p/?LinkId=271146
 [Свойства системы]: http://go.microsoft.com/fwlink/?LinkId=331143
 
-<!--HONumber=35.2-->
+
+<!--HONumber=42-->

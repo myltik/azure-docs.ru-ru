@@ -1,30 +1,44 @@
-﻿<properties pageTitle="Приступая к работе с аутентификацией (Appcelerator) | Центр мобильных разработок" metaKeywords="" description="Узнайте, как использовать мобильные службы для аутентификации пользователей приложения iOS с помощью разнообразных поставщиков удостоверений, включая Google, Facebook, Twitter и корпорацию Майкрософт." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Приступая к работе с аутентификацией (Appcelerator) | Центр мобильных разработок" 
+	description="Узнайте, как использовать мобильные службы для аутентификации пользователей приложения iOS с помощью разнообразных поставщиков удостоверений, включая Google, Facebook, Twitter и корпорацию Майкрософт." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="mattchenderson" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="11/24/2014" ms.author="Appcelerator team;mahender" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-appcelerator" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/24/2014" 
+	ms.author="mahender"/>
 
 # Приступая к работе с аутентификацией в мобильных службах
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
 
 В этом разделе показано, как выполнять проверку подлинности пользователей в мобильных службах Windows Azure в приложении. В этом учебнике вы добавите проверку подлинности к проекту быстрого запуска, используя поставщик удостоверений, поддерживаемый мобильными службами. После выполнения успешной проверки подлинности и авторизации мобильными службами отображается значение идентификатора пользователя.
 
 В этом учебнике рассматриваются следующие основные шаги для включения проверки подлинности в приложении:
 
-1.  [Регистрация приложения для аутентификации и настройка мобильных служб]
-2.  [Ограничение разрешений таблицы пользователями, прошедшими аутентификацию]
+1.  [Регистрация приложения для проверки подлинности и настройка мобильных служб]
+2.  [Ограничение разрешений таблицы для пользователей, прошедших проверку подлинности]
 3.  [Добавление аутентификации в приложение]
 
 Этот учебник создан на основе краткого руководства по мобильным службам. Вам также необходимо сначала ознакомиться с учебником [Приступая к работе с мобильными службами].
 
-Для работы с этим учебником необходимы Appcelerator Titanium Studio версии 3.2.1 или более поздней и iOS 7.0 или более поздней версии, а также Android 4.3 или более поздней версии.
+Для работы с этим учебником необходимы Appcelerator Titanium Studio версии 3.2.1 или более поздние версии и iOS 7.0 или более поздние версии Android 4.3 или более поздние версии.
 
-##<a name="register"></a>Регистрация приложения для проверки подлинности и конфигурация мобильных служб
+##<a name="register"></a>Регистрация приложения для аутентификации и настройка мобильных служб
 
-[WACOM.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
+[AZURE.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
-##<a name="permissions"></a> Ограничение разрешений для пользователей, прошедших проверку подлинности
+##<a name="permissions"></a> Ограничение разрешений для пользователей, прошедших аутентификацию
 
-[WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)]
+[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
 3.	В Appcelerator Titanium Studio откройте проект, созданный после завершения учебника [Приступая к работе с мобильными службами].
 
@@ -80,7 +94,7 @@
             }
         });
 
->[WACOM.NOTE] Если используется поставщик удостоверений, отличный от Google, измените значение, передаваемое в метод **authorizeClient**, на одно из следующих: "microsoftaccount", "facebook", "twitter" или "windowsazureactivedirectory".
+>[AZURE.NOTE] Если используется поставщик удостоверений, отличный от Google, измените значение, передаваемое в метод **authorizeClient**, на одно из следующих: *microsoftaccount*, *facebook*, *twitter* или  *windowsazureactivedirectory*.
 
 4.	Нажмите клавишу "Запуск", чтобы построить проект, запустите приложение в эмуляторе iPhone, а затем войдите с использованием выбранного поставщика удостоверений.
 
@@ -89,8 +103,8 @@
 
 <!-- Anchors. -->
 
-[Регистрация приложения для аутентификации и настройка мобильных служб]: #register
-[Ограничение разрешений таблицы пользователями, прошедшими аутентификацию]: #permissions
+[Регистрация приложения для проверки подлинности и настройка мобильных служб]: #register
+[Ограничение разрешений таблицы для пользователей, прошедших проверку подлинности]: #permissions
 [Добавление аутентификации в приложение]: #add-authentication
 
 <!-- Images. -->
@@ -98,4 +112,4 @@
 <!-- URLs. -->
 [Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started
 
-<!--HONumber=35.1-->
+<!--HONumber=42-->

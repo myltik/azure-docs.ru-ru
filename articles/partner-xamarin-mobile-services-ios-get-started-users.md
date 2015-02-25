@@ -1,31 +1,45 @@
-﻿<properties urlDisplayName="Get Started with Authentication (Xamarin.iOS)" pageTitle="Приступая к работе с проверкой подлинности (Xamarin.iOS) - мобильные службы" metaKeywords="Azure регистрация приложения, проверка подлинности Azure, подлинность приложения, подлинность мобильных служб, мобильные службы Xamarin.iOS" description="Узнайте, как использовать аутентификацию в приложении мобильных служб Azure для Xamarin.iOS." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile"  services="mobile-services" title="Get started with authentication in Mobile Services" manager="dwrede" authors="donnam" />
+﻿<properties 
+	pageTitle="Приступая к работе с аутентификацией (Xamarin.iOS) - мобильные службы" 
+	description="Узнайте, как использовать аутентификацию в приложении мобильных служб Azure для Xamarin.iOS." 
+	documentationCenter="xamarin" 
+	services="mobile-services" 
+	manager="dwrede" 
+	authors="lindydonna" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="donnam" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-xamarin-ios" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/23/2014" 
+	ms.author="donnam"/>
 
-# Добавление проверки подлинности к приложению мобильных служб
+# Добавление аутентификации в приложение мобильных служб
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
 
-В этом разделе показано, как выполнять аутентификацию учетных данных пользователей в мобильных службах Azure в приложении.  В этом учебнике вы добавите проверку подлинности к проекту быстрого запуска, используя поставщик удостоверений, поддерживаемый мобильными службами. После выполнения успешной проверки подлинности и авторизации мобильными службами отображается значение идентификатора пользователя.  
+В этом разделе показано, как выполнять проверку подлинности пользователей в мобильных службах Azure в приложении.  В этом учебнике вы добавите проверку подлинности к проекту быстрого запуска, используя поставщик удостоверений, поддерживаемый мобильными службами. После выполнения успешной проверки подлинности и авторизации мобильными службами отображается значение идентификатора пользователя.  
 
 В этом учебнике рассматриваются следующие основные шаги для включения проверки подлинности в приложении:
 
-1. [Регистрация приложения для проверки подлинности и конфигурация мобильных служб]
-2. [Ограничение разрешений таблицы пользователями, прошедшими проверку подлинности]
-3. [Добавление проверки подлинности к приложению]
+1. [Регистрация приложения для проверки подлинности и настройка мобильных служб]
+2. [Ограничение разрешений таблицы для пользователей, прошедших проверку подлинности]
+3. [Добавление аутентификации в приложение]
 
 Этот учебник создан на основе краткого руководства по мобильным службам. Вам также необходимо сначала ознакомиться с учебником [Приступая к работе с мобильными службами]. 
 
-Для прохождения этого учебника требуется следующее: [Xamarin.iOS], XCode 5.0 и iOS 5.0 или более поздней версии.
+Для изучения этого учебника необходимы [Xamarin.iOS], XCode версии 5.0 и iOS версии 5.0 или более поздней.
 
-<h2><a name="register"></a>Регистрация приложения для проверки подлинности и конфигурация мобильных служб</h2>
+<h2><a name="register"></a>Регистрация приложения для аутентификации и настройка мобильных служб</h2>
 
-[WACOM.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
+[AZURE.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
-<h2><a name="permissions"></a>Предоставление разрешений только пользователям, прошедшим проверку подлинности</h2>
+<h2><a name="permissions"></a>Ограничение разрешений для пользователей, прошедших аутентификацию</h2>
 
 
-[WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
+[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
 
 
 3. В Xcode откройте проект, созданный после завершения учебника [Приступая к работе с мобильными службами]. 
@@ -36,15 +50,15 @@
 
 Далее приложение будет обновлено таким образом, что оно станет производить аутентификацию учетных данных пользователей, прежде чем запрашивать ресурсы из мобильной службы.
 
-<h2><a name="add-authentication"></a>Добавление проверки подлинности к приложению</h2>
+<h2><a name="add-authentication"></a>Добавление аутентификации в приложение</h2>
 
-1. Откройте проектный файл **TodoService** и добавьте следующие переменные
+1. Откройте файл проекта **TodoService** и добавьте следующие переменные
 
 		// Mobile Service logged in user
 		private MobileServiceUser user; 
 		public MobileServiceUser User { get { return user; } }
 
-2. Затем добавьте новый метод под названием **Authenticate** к **TodoService**, определенный как:
+2. Добавьте новый метод с именем **Authenticate** в **TodoService**, определяемый как:
 
         private async Task Authenticate(UIViewController view)
         {
@@ -58,11 +72,9 @@
             }
         }
 
-    <div class="dev-callout"><b>Примечание.</b>
-	<p>Если вы используете поставщик удостоверений, отличный от вашей учетной записи Microsoft, измените значение, передаваемое в <strong>LoginAsync</strong>, на одно из нижеследующих: <i>Facebook</i>, <i>Twitter</i>, <i>Google</i> или <i>WindowsAzureActiveDirectory</i>.</p>
-    </div>
+	> [AZURE.NOTE] Если вы используете поставщик удостоверений, отличный от вашей учетной записи Microsoft, измените значение, передаваемое в **LoginAsync**, на одно из нижеследующих: _Facebook_, _Twitter_, _Google_ или _WindowsAzureActiveDirectory_.
 
-3. Переместите запрос к таблице **TodoItem** из конструктора **TodoService** в новый метод под названием **CreateTable**:
+3. Переместите запрос для таблицы **TodoItem** из конструктора **TodoService** в новый метод с именем **CreateTable**:
 
         private async Task CreateTable()
         {
@@ -70,7 +82,7 @@
             todoTable = client.GetTable<TodoItem>();
         }
 	
-4. Создайте новый асинхронный открытый метод под названием **LoginAndGetData**, определяемый как:
+4. Создайте новый асинхронный открытый метод с именем **LoginAndGetData**, определяемый как:
 
         public async Task LoginAndGetData(UIViewController view)
         {
@@ -97,9 +109,9 @@
                 
             RefreshAsync();
         }
-6. Удалите начальный вызов к **RefreshAsync** из **TodoListViewController.ViewDidLoad**.
+6. Удалите исходный вызов **RefreshAsync** из **TodoListViewController.ViewDidLoad**.
 		
-7. Нажмите кнопку **Выполнить**, чтобы построить проект, запустите приложение в эмуляторе iPhone, затем войдите в систему с помощью выбранного поставщика идентификации.
+7. Чтобы выполнить сборку проекта, нажмите кнопку **Запуск**, запустите приложение в эмуляторе iPhone, а затем войдите с использованием выбранного поставщика удостоверений.
 
    	После успешного входа в систему приложение должно работать без ошибок, а вы должны быть в состоянии выполнять запросы мобильных служб и обновлять данные.
 
@@ -108,12 +120,12 @@
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-В следующем учебном курсе, который называется [Авторизация пользователей с помощью скриптов], значение идентификатора пользователя, предоставляемое мобильными службами на основе пользователя, прошедшего проверку подлинности, будет использоваться для фильтрации данных, возвращаемых мобильными службами. 
+В следующем учебнике, который называется [Авторизация пользователей с помощью сценариев], значение идентификатора пользователя, предоставляемое мобильными службами на основе пользователя, прошедшего аутентификацию, будет использоваться для фильтрации данных, возвращаемых мобильными службами. 
 
 <!-- Anchors. -->
-[Регистрация приложения для проверки подлинности и конфигурация мобильных служб]: #register
-[Ограничение разрешений таблицы пользователями, прошедшими проверку подлинности]: #permissions
-[Добавление проверки подлинности к приложению]: #add-authentication
+[Регистрация приложения для проверки подлинности и настройка мобильных служб]: #register
+[Ограничение разрешений таблицы для пользователей, прошедших проверку подлинности]: #permissions
+[Добавление аутентификации в приложение]: #add-authentication
 [Дальнейшие действия]:#next-steps
 
 <!-- Images. -->
@@ -124,15 +136,18 @@
 [15]: ./media/partner-xamarin-mobile-services-ios-get-started-users/mobile-portal-change-table-perms.png
 
 <!-- URLs. TODO:: update completed example project link with project download -->
-[Отправить страницу приложения]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[Отправка страницы приложения]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Мои приложения]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK для Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
 [Приступая к работе с мобильными службами]: /ru-ru/develop/mobile/tutorials/get-started-xamarin-ios
 [Приступая к работе с данными]: /ru-ru/develop/mobile/tutorials/get-started-with-data-xamarin-ios
-[Приступая к работе с аутентификацией]: /ru-ru/develop/mobile/tutorials/get-started-with-users-xamarin-ios
+[Приступая к работе с проверкой подлинности]: /ru-ru/develop/mobile/tutorials/get-started-with-users-xamarin-ios
 [Приступая к работе с push-уведомлениями]: /ru-ru/develop/mobile/tutorials/-get-started-with-push-xamarin-ios
 [Авторизация пользователей с помощью скриптов]: /ru-ru/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios
 
 [Портал управления Azure]: https://manage.windowsazure.com/
 [Полный пример проекта]: http://go.microsoft.com/fwlink/p/?LinkId=331328
+
+
+<!--HONumber=42-->

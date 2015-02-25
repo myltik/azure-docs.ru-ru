@@ -1,12 +1,12 @@
-﻿<properties urlDisplayName="Get Started with Push (iOS)" pageTitle="Начало работы с push-уведомлениями (iOS) | Центр мобильных разработок" metaKeywords="" description="Узнайте, как использовать мобильные службы Azure для отправки push-уведомлений в приложение iOS (устаревшая отправка)." metaCanonical="http://www.windowsazure.com/ru-ru/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services (legacy push)" solutions="" manager="dwrede" editor="" authors="krisragh" />
+﻿<properties pageTitle="Приступая к работе с push-уведомлениями (iOS) | Центр мобильных разработок" description="Узнайте, как использовать мобильные службы Azure для отправки push-уведомлений в приложение iOS (устаревшая отправка)." services="mobile-services" documentationCenter="ios" manager="dwrede" editor="" authors="krisragh"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh"/>
 
-# Добавление push-уведомлений в приложение мобильных служб (устаревший push)
+# Добавление push-уведомлений в приложение мобильных служб (устаревшая версия push-уведомлений)
 
 <div class="dev-center-tutorial-selector sublanding">
-    <a href="/ru-ru/documentation/articles/mobile-services-windows-store-dotnet-get-started-push" title="Windows Store C#">C# в Магазине Windows</a>
-    <a href="/ru-ru/documentation/articles/mobile-services-windows-store-javascript-get-started-push" title="Windows Store JavaScript">JavaScript в Магазине Windows</a>
+    <a href="/ru-ru/documentation/articles/mobile-services-windows-store-dotnet-get-started-push" title="Windows Store C#">Магазин Windows - C#</a>
+    <a href="/ru-ru/documentation/articles/mobile-services-windows-store-javascript-get-started-push" title="Windows Store JavaScript">Магазин Windows - JavaScript</a>
     <a href="/ru-ru/documentation/articles/mobile-services-windows-phone-get-started-push" title="Windows Phone">Windows Phone</a>
     <a href="/ru-ru/documentation/articles/mobile-services-ios-get-started-push" title="iOS" class="current">iOS</a>
     <a href="/ru-ru/documentation/articles/mobile-services-android-get-started-push" title="Android">Android</a>
@@ -15,12 +15,12 @@
 
 <div class="dev-center-tutorial-subselector"><a href="/ru-ru/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/" title=".NET backend">Серверная часть .NET</a> | <a href="/ru-ru/documentation/articles/mobile-services-ios-get-started-push/"  title="JavaScript backend" class="current">Серверная часть JavaScript</a></div>
 
-В этом разделе показано, как использовать мобильные службы Azure для отправки push-уведомлений в приложение iOS. В этом учебнике вам предстоит добавить push-уведомления в проект быстрого начала работы с помощью службы push-уведомлений Apple (APNS). В результате ваша мобильная служба будет отправлять push-уведомление каждый раз при вставке записи.
+В этом разделе показано, как использовать мобильные службы Azure для отправки push-уведомлений в приложение iOS. В этом учебнике вам предстоит добавить push-уведомления в проект быстрого начала работы с помощью службы push-уведомлений Apple (APNS). По завершении работы ваша мобильная служба будет отправлять push-уведомление каждый раз при вставке записи.
 
 
->[WACOM.NOTE]В этом разделе рассматривается поддержка <em>существующих</em> мобильных служб, которые <em>еще не были обновлены</em> для использования интеграции с концентраторами уведомлений. При создании <em>новой</em> мобильной службы интегрированные функции включаются автоматически. Информацию о работе с мобильными службами последних версий см. в разделе [Приступая к работе с push-уведомлениями](/ru-ru/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/).
+>[AZURE.NOTE]В этом разделе рассматривается поддержка <em>существующих</em> мобильных служб, которые <em>еще не были обновлены</em> для использования интеграции с концентраторами уведомлений. При создании <em>новой</em> мобильной службы эти интегрированные функции включаются автоматически. Информацию о работе с мобильными службами последних версий см. в разделе [Приступая к работе с push-уведомлениями](/ru-ru/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/).
 >
->Мобильные службы теперь интегрируются с центрами уведомлений Azure для поддержки дополнительных функций push-уведомлений, таких как шаблоны, использование нескольких платформ и улучшенное масштабирование. <em>Если это возможно, обновите имеющиеся мобильные службы, чтобы использовать центры уведомлений</em>. После обновления ознакомьтесь с этой версией раздела [Приступая к работе с push-уведомлениями](/ru-ru/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/).
+>Мобильные службы теперь интегрируются с центрами уведомлений Azure для поддержки дополнительных функций push-уведомлений, таких как шаблоны, использование нескольких платформ и лучшее масштабирование. <em>Если это возможно, обновите имеющиеся мобильные службы, чтобы использовать концентраторы уведомлений</em>. После обновления ознакомьтесь с этой версией раздела [Приступая к работе с push-уведомлениями](/ru-ru/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/).
 
 В этом учебнике рассматриваются следующие основные шаги для включения push-уведомлений:
 
@@ -34,28 +34,28 @@
 
 Для работы с данным учебником требуется следующее:
 
-+ [SDK мобильных служб для iOS]
++ [Пакет SDK для мобильных служб для iOS]
 + [Xcode 4.5][Установка Xcode]
 + Устройство с iOS 5.0 (или более поздней версии)
 + Участие в программе для разработчиков на платформе iOS
 
-   > [WACOM.NOTE] В соответствии с требованиями к конфигурации push-уведомлений необходимо развернуть и протестировать push-уведомления на устройстве с iOS (iPhone или iPad), а не в эмуляторе.
+   > [AZURE.NOTE] В соответствии с требованиями к конфигурации push-уведомлений необходимо развернуть и протестировать push-уведомления на устройстве с iOS (iPhone или iPad), а не в эмуляторе.
 
-Этот учебник создан на основе краткого руководства по мобильным службам. Прежде чем приступать к этому учебнику, необходимо пройти до конца учебник [Начало работы с мобильными службами].
+Этот учебник создан на основе краткого руководства по мобильным службам. Перед началом работы с учебником необходимо пройти задания учебника [Приступая к работе с мобильными службами].
 
-[WACOM.INCLUDE [Включение push-уведомлений Apple](../includes/enable-apple-push-notifications.md)]
+[AZURE.INCLUDE [Enable Apple Push Notifications](../includes/enable-apple-push-notifications.md)]
 
 ## Настройка мобильных служб для отправки push-запросов
 
-[WACOM.INCLUDE [mobile-services-apns-configure-push](../includes/mobile-services-apns-configure-push.md)]
+[AZURE.INCLUDE [mobile-services-apns-configure-push](../includes/mobile-services-apns-configure-push.md)]
 
 ## Добавление push-уведомлений в приложение
 
-1. В Xcode откройте файл QSAppDelegate.h и добавьте следующее свойство под свойством ***window**.
+1. В Xcode откройте файл QSAppDelegate.h и добавьте ниже свойства ***window** следующее:
 
         @property (strong, nonatomic) NSString *deviceToken;
 
-    > [WACOM.NOTE] Когда в вашей мобильной службе включена динамическая схема, новый столбец "deviceToken" автоматически добавляется в таблицу**TodoItem** при вставке нового элемента, содержащего это свойство.
+    > [AZURE.NOTE] Когда в вашей мобильной службе включена динамическая схема, новый столбец 'deviceToken' автоматически добавляется в таблицу **TodoItem** при вставке нового элемента, содержащего это свойство.
 
 2. В файле QSAppDelegate.m замените следующий метод обработчика в реализации:
 
@@ -109,7 +109,7 @@
 
         NSDictionary *item = @{ @"text" : itemText.text, @"complete" : @(NO) };
 
-   Замените ее следующим кодом:
+   Replace this with the following code:
 
         // Get a reference to the AppDelegate to easily retrieve the deviceToken
         QSAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
@@ -123,23 +123,23 @@
 
    	Этот код добавляет ссылку на **QSAppDelegate** для получения маркера устройства, а затем изменяет полезные данные запроса для включения этого маркера устройства.
 
-   	> [WACOM.NOTE] Этот код необходимо добавить перед вызовом метода <strong>addItem</strong>.
+   	> [AZURE.NOTE] Этот код необходимо добавить перед вызовом метода <strong>addItem</strong>.
 
 Ваше приложение теперь обновлено для поддержки push-уведомлений.
 
-## Обновление зарегистрированных сценариев вставки на портале управления
+## Обновление зарегистрированных скриптов вставки на портале управления
 
-1. На портале управления откройте вкладку **Данные**, а затем щелкните таблицу **TodoItem**.
+1. На портале управления щелкните вкладку **Данные**, а затем щелкните таблицу **TodoItem**.
 
    	![][21]
 
-2. В **todoitem** откройте вкладку **Скрипт** и выберите **Вставка**.
+2. В **todoitem** перейдите на вкладку **Скрипт** и выберите **Вставка**.
 
   	![][22]
 
    	При этом отображается функция, вызываемая при выполнении вставки в таблице **TodoItem**.
 
-3. Замените функцию вставки следующим кодом и щелкните **Сохранить**:
+3. Замените функцию вставки следующим кодом и нажмите кнопку **Сохранить**:
 
         function insert(item, user, request) {
             request.execute();
@@ -155,24 +155,24 @@
             }, 2500);
         }
 
-   	При этом регистрируется новый скрипт вставки, в котором используется [объект apns] для отправки push-уведомления (вставленного текста) на устройство, указанное в запросе вставки.
+   	При этом регистрируется новый скрипт вставки, в котором используется [объект apns] для отправки push-уведомления (вставленный текст) на устройство, указанное в запросе вставки.
 
 
-   	> [WACOM.NOTE] Этот скрипт задерживает отправку уведомления, чтобы вы успели закрыть приложение для получения всплывающего уведомления.
+   	> [AZURE.NOTE] Этот скрипт задерживает отправку уведомления, чтобы вы успели закрыть приложение для получения всплывающего уведомления.
 
 ## Тестирование push-уведомлений в приложении
 
-1. Нажмите кнопку **Выполнить**, чтобы построить проект и запустить приложение на устройстве с поддержкой iOS, затем щелкните **ОК** для получения push-уведомлений
+1. Нажмите кнопку **Выполнить**, чтобы построить проект и запустить приложение на устройстве с iOS, а затем нажмите кнопку **ОК**, чтобы разрешить прием push-уведомлений.
 
   	![][23]
 
-    > [WACOM.NOTE]  Необходимо явно разрешить прием push-уведомлений от вашего приложения. Этот запрос отображается только при первом запуске приложения.
+    > [AZURE.NOTE] Необходимо явно разрешить прием push-уведомлений от вашего приложения. Этот запрос отображается только при первом запуске приложения.
 
-2. В приложении введите значимый текст, такой как _Новая задача мобильных служб_, затем щелкните значок (**+**).
+2. В приложении введите содержательный текст, например _A new Mobile Services task_, и щелкните значок "плюс" (**+**).
 
   	![][24]
 
-3. Проверьте, получено ли уведомление, затем щелкните **ОК**, чтобы прекратить уведомления.
+3. Убедитесь, что уведомление получено, а затем нажмите кнопку **ОК**, чтобы закрыть его.
 
   	![][25]
 
@@ -184,7 +184,7 @@
 
 ## Дальнейшие действия
 
-В этом простом примере пользователь получает push-уведомление с только что вставленными данными. Маркер устройства, используемый APNS, передается клиентом мобильной службе в запросе. В следующем учебнике [Принудительная отправка уведомлений пользователям приложения] вы создадите отдельную таблицу "Устройства" для хранения маркеров устройств и отправите push-уведомление всем сохраненным каналам при выполнении вставки.
+В этом простом примере пользователь получает push-уведомление с только что вставленными данными. Маркер устройства, используемый APNS, передается клиентом мобильной службе в запросе. В следующем учебнике [Принудительная отправка уведомлений пользователям приложения] вы будете создавать отдельную таблицу "Устройства" для хранения маркеров устройств и отправлять push-уведомление всем сохраненным каналам при выполнении вставки.
 
 <!-- Anchors. -->
 [Создание запроса подписи сертификата]: #certificates
@@ -234,15 +234,18 @@
 [117]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-17.png
 
 <!-- URLs. -->
-[Установить Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
+[Установка Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Портал подготовки iOS]: http://go.microsoft.com/fwlink/p/?LinkId=272456
-[SDK мобильных служб для iOS]: https://go.microsoft.com/fwLink/p/?LinkID=266533
+[Пакет SDK для мобильных служб для iOS]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Служба push-уведомлений Apple]: http://go.microsoft.com/fwlink/p/?LinkId=272584
 [Приступая к работе с мобильными службами]: /ru-ru/develop/mobile/tutorials/get-started-ios
 [Приступая к работе с данными]: /ru-ru/develop/mobile/tutorials/get-started-with-data-ios
-[Приступая к работе с аутентификацией]: /ru-ru/develop/mobile/tutorials/get-started-with-users-ios
+[Приступая к работе с проверкой подлинности]: /ru-ru/develop/mobile/tutorials/get-started-with-users-ios
 [Приступая к работе с push-уведомлениями]: /ru-ru/develop/mobile/tutorials/get-started-with-push-ios
-[Push-уведомлений для пользователей приложений]: /ru-ru/develop/mobile/tutorials/push-notifications-to-users-ios
+[Push-уведомления для пользователей приложений]: /ru-ru/develop/mobile/tutorials/push-notifications-to-users-ios
 [Авторизация пользователей с помощью скриптов]: /ru-ru/develop/mobile/tutorials/authorize-users-in-scripts-ios
 [Портал управления Azure]: https://manage.windowsazure.com/
-[объект apns]: http://go.microsoft.com/fwlink/p/?LinkId=272333
+[Объект apns]: http://go.microsoft.com/fwlink/p/?LinkId=272333
+
+
+<!--HONumber=42-->

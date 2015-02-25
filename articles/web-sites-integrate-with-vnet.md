@@ -1,6 +1,20 @@
-﻿<properties title="Integrate your Azure Website with an Azure Virtual Network" pageTitle="Интеграция веб-сайта Azure с виртуальной сетью Azure" description="Показывает, как подключить веб-сайт Azure к новой или существующей виртуальной сети Azure" metaKeywords="" services="web-sites,virtual-network" solutions="web,integration,infrastructure" documentationCenter="" authors="cephalin" videoId="" scriptId="" manager="wpickett" />
+﻿<properties 
+	pageTitle="Интеграция веб-сайта Azure с виртуальной сетью Azure" 
+	description="Показывает, как подключить веб-сайт Azure к новой или существующей виртуальной сети Azure" 
+	services="web-sites, virtual-network" 
+	documentationCenter="" 
+	authors="cephalin" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/24/2014" ms.author="cephalin" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/24/2014" 
+	ms.author="cephalin"/>
 
 # Интеграция веб-сайта Azure с виртуальной сетью Azure #
 В этом документе описана предварительная версия функции интеграции с виртуальной сетью и показано, как настроить эту функцию для вашего веб-сайта Azure.  Если вы не знакомы с виртуальными сетями Azure, примите во внимание, что эта функция позволяет создавать гибридные решения с использованием ресурсов в Azure и локальных средах.  
@@ -84,3 +98,6 @@
 Еще одно различие состоит в том, что для работы гибридных подключений необходимо установить агент ретрансляции.  Он должен работать в экземпляре сервера Windows Server.  Для функции виртуальных сетей не нужно ничего устанавливать. При этом она обеспечивает доступ к удаленным ресурсам независимо от того, какие операционные системы установлены на физических компьютерах.  
 
 Кроме того, на сегодняшний день эти функции доступны в разных ценовых категориях.  Это связано с тем, что гибридные подключения, доступные на уровнях с самыми низкими ценами, особенно полезны при разработке и тестировании и предоставляют доступ только к небольшому числу конечных точек.  Функция виртуальных сетей предоставляет доступ ко всем ресурсам, содержащимся в виртуальной сети или подключенным к ней.  
+
+
+<!--HONumber=42-->

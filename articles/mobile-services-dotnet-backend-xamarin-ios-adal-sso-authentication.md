@@ -1,22 +1,22 @@
-﻿<properties urlDisplayName="Active Directory SSO Authentication with ADAL" pageTitle="Проверка подлинности приложения с помощью единого входа библиотеки проверки подлинности Active Directory (Xamarin.iOS) | Центр разработчиков для мобильных устройств" metaKeywords="" description="Узнайте, как аутентифицировать пользователей для единого входа с помощью ADAL в приложении Xamarin.iOS." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Authenticate your app with Active Directory Authentication Library Single Sign-On" authors="wesmc,mahender" manager="dwrede" />
+﻿<properties pageTitle="Проверка подлинности приложения с помощью единого входа библиотеки проверки подлинности Active Directory (Xamarin.iOS) | Центр разработчиков для мобильных устройств" description="Узнайте, как аутентифицировать пользователей для единого входа с помощью ADAL в приложении Xamarin.iOS." documentationCenter="xamarin" authors="wesmc7777" manager="dwrede" editor="" services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="09/29/2014" ms.author="wesmc,mahender" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="09/29/2014" ms.author="wesmc,mahender"/>
 
 # Проверка подлинности приложения с помощью единого входа библиотеки проверки подлинности Active Directory
 
-[WACOM.INCLUDE [mobile-services-selector-adal-sso](../includes/mobile-services-selector-adal-sso.md)]
+[AZURE.INCLUDE [mobile-services-selector-adal-sso](../includes/mobile-services-selector-adal-sso.md)]
 
 В этом руководстве в проект быстрого запуска будет добавляться проверка подлинности с помощью библиотеки проверки подлинности Active Directory. 
 
-Чтобы проверять подлинность пользователей, необходимо зарегистрировать свое приложение в службе Azure Active Directory (AAD). Это делается в два этапа. Сначала следует зарегистрировать мобильную службу и предоставить в ней разрешения. Далее необходимо зарегистрировать приложение Xamarin.iOS и предоставить ему доступ к этим разрешениям.
+Чтобы иметь возможность проверки подлинности пользователей, необходимо зарегистрировать приложение в Azure Active Directory (AAD). Это делается в два этапа. Сначала следует зарегистрировать мобильную службу и предоставить в ней разрешения. Во-вторых, нужно зарегистрировать приложение Xamarin.iOS и предоставить ему доступ к этим разрешениям.
 
 
->[WACOM.NOTE] Это руководство поможет лучше понять, как мобильные службы обеспечивают единый вход с проверкой подлинности Azure Active Directory для приложений Xamarin.iOS. Если ранее вы на работали с мобильными службами, пройдите учебник [Начало работы с мобильными службами].
+>[AZURE.NOTE] Этот учебник поможет лучше понять, как мобильные службы позволяют выполнять проверку подлинности Azure Active Directory единого входа для приложений Xamarin.iOS. Если это ваш первый опыт работы с мобильными службами, сначала ознакомьтесь с учебником [Приступая к работе с мобильными службами].
 
 В этом учебнике рассматриваются следующие основные действия:
 
 1. [Регистрация мобильной службы в Azure Active Directory]
-2. [Регистрация приложения в Azure Active Directory] 
+2. [Регистрация приложения в Azure Active Directory]
 3. [Настройка мобильной службы для требования проверки подлинности]
 4. [Добавление кода проверки подлинности в клиентское приложение]
 5. [Тестирование клиента с использованием проверки подлинности]
@@ -25,21 +25,21 @@
 
 * XCode 4.5 и iOS 6.0 (или более поздние версии) 
 * Visual Studio с [расширением Xamarin] или [Xamarin Studio] в OS X
-* Прохождение учебника [Начало работы с мобильными службами] или [Начало работы с данными].
+* Завершение учебника [Приступая к работе с мобильными службами] или [Приступая к работе с данными].
 * Microsoft Azure Mobile Services SDK
-*  [Привязка Xamarin для библиотеки проверки подлинности Active Directory для iOS].
+* [Привязка Xamarin для библиотеки проверки подлинности Active Directory для iOS].
 
-[WACOM.INCLUDE [mobile-services-dotnet-adal-register-service](../includes/mobile-services-dotnet-adal-register-service.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-adal-register-service](../includes/mobile-services-dotnet-adal-register-service.md)]
 
-[WACOM.INCLUDE [mobile-services-dotnet-adal-register-client](../includes/mobile-services-dotnet-adal-register-client.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-adal-register-client](../includes/mobile-services-dotnet-adal-register-client.md)]
 
 ## <a name="require-authentication"></a>Настройка мобильной службы для требования проверки подлинности
 
-[WACOM.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
+[AZURE.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
 
 ## <a name="add-authentication-code"></a>Добавление кода проверки подлинности в клиентское приложение
 
-1. Добавьте привязку Xamarin для библиотеки проверки подлинности Active Directory в проект Xamarin.iOS. В Visual Studio 2013 щелкните правой кнопкой мыши **Ссылки** и нажмите кнопку **Добавить ссылку**. Затем перейдите в библиотеку привязок и щелкните кнопку **Добавить**. Следует также добавить раскадровку из источника ADAL.
+1. Добавьте привязку Xamarin для библиотеки проверки подлинности Active Directory в проект Xamarin.iOS. В Visual Studio 2013 щелкните правой кнопкой мыши **Ссылки** и нажмите кнопку **Добавить ссылку**. Затем перейдите в библиотеку привязок и нажмите кнопку **Добавить**. Убедитесь, что также добавили раскадровки из источника ADAL.
 
 2. Добавьте следующие методы в класс QSTodoService: 
 
@@ -96,13 +96,13 @@
             }
         }
 
-6. В коде для метода `AuthenticateAsync` замените **INSERT-AUTHORITY-HERE** на имя клиента, в пространстве которого подготовили свое приложение. Формат должен быть таким - https://login.windows.net/tenant-name.onmicrosoft.com. Это значение можно скопировать из вкладки "Домен" Azure Active Directory на [портале управления Azure].
+6. В коде для метода  `AuthenticateAsync` выше замените **INSERT-AUTHORITY-HERE** именем клиента, в котором подготавливалось приложение, используя формат https://login.windows.net/tenant-name.onmicrosoft.com. Это значение можно скопировать со вкладки "Домен" в Azure Active Directory на [портале управления Azure].
 
-7. В коде для метода `AuthenticateAsync` замените **INSERT-RESOURCE-URI-HERE** на **App ID URI** для вашей мобильной службы. Если вы прошли раздел [Регистрация в Azure Active Directory], то полученный вами URI идентификатора приложения должен быть аналогичным https://todolist.azure-mobile.net/login/aad.
+7. В коде для метода  `AuthenticateAsync` выше замените **INSERT-RESOURCE-URI-HERE** на **App ID URI** для вашей мобильной службы. Если вы выполнили инструкции из раздела [Регистрация в Azure Active Directory], то URI ИД приложения должен быть аналогичен https://todolist.azure-mobile.net/login/aad.
 
-8. В коде для упомянутого выше метода `AuthenticateAsync` замените **INSERT-CLIENT-ID-HERE** на идентификатор клиента, скопированный из собственного клиентского приложения.
+8. В коде для метода  `AuthenticateAsync` выше замените **INSERT-CLIENT-ID-HERE** идентификатором клиента, скопированным из собственного клиентского приложения.
 
-9. В коде метода `AuthenticateAsync` замените **INSERT-REDIRECT-URI-HERE** на конечную точку /login/done для вашей мобильной службы. Это должно быть аналогично https://todolist.azure-mobile.net/login/done.
+9. В коде для метода  `AuthenticateAsync` выше замените **INSERT-REDIRECT-URI-HERE** на /login/done endpoint для вашей мобильной службы. Это должно быть аналогично https://todolist.azure-mobile.net/login/done.
 
 
 3. В QSTodoListViewController измените **ViewDidLoad**, добавив следующий код перед вызовом RefreshAsync();
@@ -132,6 +132,8 @@
 [Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started/
 [Регистрация в службе Azure Active Directory]: /ru-ru/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
 [Портал управления Azure]: https://manage.windowsazure.com/
-[Привязка Xamarin для библиотеки проверки подлинности Active Directory для iOS.]: https://github.com/AzureADSamples/NativeClient-Xamarin-iOS
-[Модуль Xamarin]: http://xamarin.com/visual-studio
+[Привязка Xamarin для библиотеки проверки подлинности Active Directory для iOS]: https://github.com/AzureADSamples/NativeClient-Xamarin-iOS
+[Расширение Xamarin]: http://xamarin.com/visual-studio
 [Xamarin Studio]: http://xamarin.com/download
+
+<!--HONumber=42-->

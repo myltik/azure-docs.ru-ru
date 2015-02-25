@@ -1,37 +1,37 @@
-﻿<properties urlDisplayName="Validate and Modify Data" pageTitle="Использование серверной части .Net для проверки и изменения данных (Windows Phone 8) | Центр разработчиков для мобильных устройств" metaKeywords="" description="Узнайте, как проверять, изменять и улучшать данные для приложения Windows Phone с помощью мобильных служб Microsoft Azure с серверной частью .NET." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using the .Net backend" authors="wesmc" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Использование серверной части .Net для проверки и изменения данных (Windows Phone 8) | Центр разработчиков для мобильных устройств" description="Узнайте, как проверять, изменять и улучшать данные для приложения Windows Phone с помощью мобильных служб Microsoft Azure с серверной частью .NET." services="mobile-services" documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc"/>
 
 # Проверка и изменение данных в мобильных службах с помощью серверной части .NET
 
-[WACOM.INCLUDE [mobile-services-selector-validate-modify-data](../includes/mobile-services-selector-validate-modify-data.md)]
+[AZURE.INCLUDE [mobile-services-selector-validate-modify-data](../includes/mobile-services-selector-validate-modify-data.md)]
 
-В этом разделе показано, как использовать код в мобильных службах Azure на основе .NET для проверки и изменения данных. Серверная служба .NET - это HTTP-служба, созданная с помощью платформы Web API. Если вы знакомы с классом `ApiController`, определенным с помощью платформы Web API, класс `TableController`, предоставляемый мобильными службами, будет вам понятен. `TableController` является производным от класса `ApiController` и предоставляет дополнительные возможности для взаимодействия с таблицей базы данных. Ее можно использовать для выполнения различных операций со вставляемыми и обновляемыми данными, включая проверку и изменение данных, что показано в этом учебнике. 
+В этом разделе показано, как использовать код в мобильных службах Azure на основе .NET для проверки и изменения данных. Серверная служба .NET - это HTTP-служба, созданная с помощью платформы веб-API. Если вам знаком класс  `ApiController`, определенный с помощью платформы веб-API, класс  `TableController`, предоставляемый мобильными службами, будет вам интуитивно понятен. `TableController` является производным от класса `ApiController` и предоставляет дополнительные возможности для взаимодействия с таблицей базы данных. Его можно использовать для выполнения различных операций со вставляемыми и обновляемыми данными, включая проверку и изменение данных, что показано в этом учебнике. 
 
 В этом учебнике рассматриваются следующие основные действия:
 
 1. [Добавление проверки длины строки]
 2. [Обновление клиента для поддержки проверки]
-3. [Проверка длины теста]
+3. [Тестирование проверки длины]
 4. [Добавление метки времени для CompleteDate]
 5. [Обновление клиента для отображения CompleteDate]
 
-В основе этого учебника лежат инструкции и образец приложения из предыдущего учебника [Добавление мобильных служб в существующее приложение](/ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/). Прежде чем начать работу с этим учебником, необходимо закончить изучение данного учебника.  
+В основе этого учебника лежат инструкции и пример приложения из предыдущего учебника [Добавление мобильных служб в существующее приложение](/ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/). Прежде чем начать работу с этим учебником, необходимо закончить изучение данного учебника.  
 
-## <a name="string-length-validation"></a>Add validation
+## <a name="string-length-validation"></a>Добавление проверки
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-add-validation](../includes/mobile-services-dotnet-backend-add-validation.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-backend-add-validation](../includes/mobile-services-dotnet-backend-add-validation.md)]
 
 
-## <a name="update-client-validation"></a>Update the client
+## <a name="update-client-validation"></a>Обновление клиента
 
-Теперь, когда мобильная служба настроена для проверки данных и отправки сообщений об ошибках при недопустимой длине текста, необходимо обновить приложение для обработки сообщений об ошибках, полученных при выполнении проверки. Ошибка будет перехвачена как исключение MobileServiceInvalidOperationException из вызова метода IMobileServiceTable<TodoItem].InsertAsync() в клиентском приложении.
+Теперь, когда мобильная служба настроена для проверки данных и отправки сообщений об ошибках при недопустимой длине текста, необходимо обновить приложение для обработки сообщений об ошибках, полученных при выполнении проверки. Ошибка будет перехвачена как `MobileServiceInvalidOperationException` из вызова клиентского приложения в `IMobileServiceTable<TodoItem].InsertAsync()`.
 
 1. В обозревателе решений в Visual Studio перейдите в проект клиентского приложения и откройте файл MainPage.xaml.cs. Добавьте в файл следующую инструкцию using.
 
         using Newtonsoft.Json.Linq;
 
-2. В файле MainPage.xaml.cs замените существующий метод **InsertTodoItem** следующим кодом.
+2. В файле MainPage.xaml.cs замените существующий метод **InsertTodoItem** следующим кодом:
 
         private async void InsertTodoItem(TodoItem todoItem)
         {
@@ -59,11 +59,11 @@
 
    	Эта версия метода включает обработку ошибок для исключения **MobileServiceInvalidOperationException**, которое отображает десериализованное сообщение об ошибке из содержимого ответа в поле сообщения.
 
-## <a name="test-length-validation"></a>Test Length Validation
+## <a name="test-length-validation"></a>Тестирование проверки длины
 
-1. В Visual Studio настройте цель развертывания Windows Phone. Затем в обозревателе решений щелкните правой кнопкой мыши проект клиентского приложения, щелкните **Отладка**, затем **Запустить новый экземпляр**.
+1. В Visual Studio настройте цель развертывания Windows Phone. Затем в обозревателе решений щелкните правой кнопкой мыши проект клиентского приложения, щелкните **Отладка** и **Запустить новый экземпляр**.
 
-2. Введите текст нового элемента todo длиной более 10 знаков, затем нажмите кнопку **Сохранить**.
+2. Введите текст для нового элемента списка дел длиной более 10 символов и нажмите кнопку **Сохранить**.
 
     ![][1]
 
@@ -71,17 +71,17 @@
 
     ![][2]
 
-## <a name="add-timestamp"></a>Add a timestamp field for CompleteDate
+## <a name="add-timestamp"></a>Добавление поля метки времени для CompleteDate
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-add-completedate](../includes/mobile-services-dotnet-backend-add-completedate.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-backend-add-completedate](../includes/mobile-services-dotnet-backend-add-completedate.md)]
 
 
 ## <a name="update-client-timestamp"></a>Обновление клиента для отображения CompleteDate
 
-Последний шаг - обновление клиента с целью отображения новых данных **CompleteDate**. 
+Последним шагом является обновление клиента для отображения новых данных **CompleteDate**. 
 
 
-1. В обозревателе решений среды Visual Studio откройте проект клиентского приложения ToDoList, откройте файл MainPage.xaml и замените в нем элемент StackPanel показанным ниже определением. Затем сохраните файл. При этом обработчик событий элемента **CheckBoxComplete** изменится так, чтобы можно было обработать событие "click". Кроме того, мы добавляем блок текста рядом с флажком и привязываем его к временной метке даты завершения.
+1. В обозревателе решений в Visual Studio откройте проект клиентского приложения, откройте файл MainPage.xaml и замените элемент **StackPanel** на определение, показанное ниже. Затем сохраните файл. При этом обработчик событий **CheckBoxComplete** изменится, чтобы мы могли обработать событие `click`. Кроме того, мы добавляем блок текста рядом с флажком и привязываем его к временной метке даты завершения.
 	      
         <StackPanel Orientation="Horizontal">
           <CheckBox Name="CheckBoxComplete" IsChecked="{Binding Complete, Mode=TwoWay}"
@@ -92,7 +92,7 @@
         </StackPanel>
 
 
-2. В обозревателе решений Visual Studio в проекте клиентского приложения TodoList откройте файл MainPage.xaml.cs, замените обработчик событий `CheckBoxComplete_Checked` следующим обработчиком `CheckBoxComplete_Clicked`. Так мы сможем увидеть дату выполнения элемента списка.
+2. В обозревателе решений в Visual Studio в проекте клиентского приложения откройте файл MainPage.xaml.cs, замените обработчик событий `CheckBoxComplete_Checked` следующим обработчиком событий `CheckBoxComplete_Clicked`. Так мы сможем увидеть дату завершения после обработки элемента.
 
         private void CheckBoxComplete_Clicked(object sender, RoutedEventArgs e)
         {
@@ -102,7 +102,7 @@
         }
 
 
-3. Затем в файле MainPage.xaml.cs замените существующий класс **TodoItem** на следующее определение, которое включает в себя новое свойство **CompleteDate** как тип, допускающий значение NULL.
+3. In the MainPage.xaml.cs file, then replace the existing **TodoItem** class with the following definition that includes the new **CompleteDate** property as a nullable type.
 
         public class TodoItem
         {
@@ -115,13 +115,13 @@
             public DateTime? CompleteDate { get; set; }
         }
 	
-    >[WACOM.NOTE]  Атрибут <code>DataMemberAttribute</code> указывает клиенту, что нужно сопоставить новое свойство <code>CompleteDate</code> в приложении со столбцом <code>CompleteDate</code>, определенным в таблице TodoItem. С помощью этого атрибута ваше приложение может получить имена свойств для объектов, которые отличаются от имен столбцов в базе данных SQL.
+    >[AZURE.NOTE] Атрибут <code>DataMemberAttribute</code> указывает клиенту сопоставить новое свойство <code>CompleteDate</code> приложения со столбцом <code>CompleteDate</code> определенным в таблице TodoItem. С помощью этого атрибута ваше приложение может получить имена свойств для объектов, которые отличаются от имен столбцов в базе данных SQL.
     
 
 	
 
 
-4. В файле MainPage.xaml.cs удалите или закомментируйте функцию предложения `.Where` в существующем методе **RefreshTodoItems**, чтобы включить завершенные элементы todoitem в результаты.
+4. В файле MainPage.xaml.cs удалите или закомментируйте функцию `.Where` в существующем методе **RefreshTodoItems**, чтобы включить завершенные элементы todoitem в результаты.
 
             // This query filters out completed TodoItems and 
             // items without a timestamp. 
@@ -141,37 +141,37 @@
         }
 
 
-6. В окне обозревателя решений в Visual Studio щелкните правой кнопкой мыши **Решение** и выберите команду **Перестроить решение** для перестройки клиента и серверной службы .NET. Убедитесь, что оба проекта были построены без ошибок.
+6. В окне обозревателя решений Visual Studio щелкните правой кнопкой мыши **Решение** и выберите команду **Перестроить решение** для перестройки клиента и серверной службы .NET. Убедитесь, что построение выполнено без ошибок.
 
 
 	
-7. Нажмите клавишу **F5**, чтобы запустить клиентское приложение и службу локально. Добавьте новые элементы и отметьте некоторые как завершенные, чтобы убедиться, что метка времени **CompleteDate** обновляется.
+7. Нажмите клавишу **F5**, чтобы запустить клиентское приложение и службу локально. Добавьте новые элементы и отметьте некоторые элементы как завершенные, чтобы убедиться, что временная метка **CompleteDate** обновляется.
 
 
-8. В обозревателе решений в Visual Studio щелкните правой кнопкой мыши проект службы todolist и выберите **Опубликовать**. Опубликуйте службу .NET в Microsoft Azure с помощью файла настроек публикации, загруженного с портала Azure.
+8. В обозревателе решений Visual Studio щелкните правой кнопкой мыши проект службы todolist и выберите **Опубликовать**. Опубликуйте службу .NET в Microsoft Azure с помощью файла настроек публикации, загруженного с портала Azure.
 
-9. Обновите файл App.xaml.cs для проекта клиентского приложения, раскомментировав подключение к адресу мобильной службы. Проверьте приложение на серверной части .NET, размещенной в вашей учетной записи Azure.
+9. Обновите файл App.xaml.cs для проекта клиентского приложения, раскомментировав подключение к адресу мобильной службы. Проверьте приложения со службой .NET, размещенной в учетной записи Azure.
 
 
 ## <a name="next-steps"> </a>Дальнейшие действия
 
-Теперь, после прохождения этого учебника, рассмотрите возможность перехода к заключительному учебнику в этом ряду, касающемся данных: [Уточнение запросов с постраничным просмотром].
+Теперь, когда вы завершили работу с этим учебником, проработайте последний учебник в серии работы с данными: [Уточнение запросов c разбиением по страницам].
 
 Серверный скрипт также используются при авторизации пользователей и для отправки push-уведомлений. Дополнительные сведения см. в следующих учебниках:
 
 * [Авторизация пользователей на стороне службы]
-  <br/>Фильтрация данных с учетом идентификатора пользователя, прошедшего проверку подлинности.
+  <br/>Сведения о фильтрации данных на основе идентификатора пользователя, прошедшего проверку.
 
 * [Приступая к работе с push-уведомлениями] 
-  <br/>Отправка очень простого push-уведомления в приложение.
+  <br/>Сведения об отправке в приложение простейших push-уведомлений.
 
-* [Справочник принципов использования мобильных служб .NET]
-  <br/>Использование мобильных служб с .NET.
+* [Справочник по принципам использования мобильных служб .NET]
+  <br/>Дополнительные сведения об использовании мобильных служб с .NET.
 
 <!-- Anchors. -->
 [Добавление проверки длины строки]: #string-length-validation
 [Обновление клиента для поддержки проверки]: #update-client-validation
-[Проверка длины теста]: #test-length-validation
+[Тестирование проверки длины]: #test-length-validation
 [Добавление метки времени для CompleteDate]: #add-timestamp
 [Обновление клиента для отображения CompleteDate]: #update-client-timestamp
 [Дальнейшие действия]: #next-steps
@@ -186,12 +186,15 @@
 [Справочник серверных скриптов мобильных служб]: http://go.microsoft.com/fwlink/?LinkId=262293
 [Приступая к работе с мобильными службами]: /ru-ru/develop/mobile/tutorials/get-started/#create-new-service
 [Авторизация пользователей на стороне службы]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-phone-authorize-users-in-scripts/
-[Уточнение запросов посредством разбиения по страницам]: /ru-ru/develop/mobile/tutorials/add-paging-to-data-dotnet
+[Уточнение запросов c разбиением по страницам]: /ru-ru/develop/mobile/tutorials/add-paging-to-data-dotnet
 [Приступая к работе]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/
-[Приступая к работе с аутентификацией]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users/
+[Приступая к работе с проверкой подлинности]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users/
 [Приступая к работе с push-уведомлениями]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/
 [JavaScript и HTML]: /ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-js
 
 [Портал управления]: https://manage.windowsazure.com/
 [Портал управления Azure]: https://manage.windowsazure.com/
-[Справочник принципов использования мобильных служб .NET]: /ru-ru/develop/mobile/how-to-guides/work-with-net-client-library
+[Справочник по принципам использования мобильных служб .NET]: /ru-ru/develop/mobile/how-to-guides/work-with-net-client-library
+
+
+<!--HONumber=42-->

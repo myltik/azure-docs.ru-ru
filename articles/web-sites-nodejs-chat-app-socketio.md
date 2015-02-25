@@ -1,28 +1,42 @@
-﻿<properties urlDisplayName="Website Using Socket.IO" pageTitle="Веб-сайт Node.js с использованием Socket.io - учебный курс Azure" metaKeywords="учебник Azure Node.js socket.io, Azure Node.js socket.io, учебник Azure Node.js" description="Учебник, в котором демонстрируется использование Socket.io на веб-сайте Node.js, размещенном в Azure." metaCanonical="" services="web-sites" documentationCenter="nodejs" title="Build a Node.js Chat Application with Socket.IO on an Azure Website" authors="larryfr" solutions="" videoId="" scriptId="" manager="wpickett" editor="mollybos" />
+﻿<properties 
+	pageTitle="Веб-сайт Node.js с помощью Socket.io - Учебник Azure" 
+	description="Учебник, в котором демонстрируется использование Socket.io на веб-сайте Node.js, размещенном в Azure." 
+	services="web-sites" 
+	documentationCenter="nodejs" 
+	authors="blackmist" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="09/17/2014" 
+	ms.author="larryfr"/>
 
 
 
 
 #Создание приложения для разговора Node.js с Socket.IO на веб-сайте Azure
 
-Socket.IO обеспечивает связь в режиме реального времени между сервером Node.js и клиентами с помощью WebSockets. Он также поддерживает переход к другим протоколам (например, длинному опросу), работающим со старыми браузерами. Этот учебный курс поможет выполнить размещение приложения разговора на основе Socket.IO в качестве веб-сайта Azure. Дополнительные сведения о Socket.IO см. на веб-сайте [http://socket.io/][socketio].
+Socket.IO обеспечивает связь в режиме реального времени между сервером Node.js и клиентами с помощью WebSockets. Он также поддерживает переход к другим протоколам (например, длинному опросу), работающим со старыми браузерами. Этот учебный курс поможет выполнить размещение приложения разговора на основе Socket.IO в качестве веб-сайта Azure. Дополнительные сведения о Socket.IO см. на сайте [http://socket.io/][socketio].
 
-> [WACOM.NOTE]Процедуры в этом задании применяются для веб-сайтов Azure; сведения по облачным службам см. в разделе <a href="http://www.windowsazure.com/ru-ru/develop/nodejs/tutorials/app-using-socketio/">Cоздание приложения для чата на Node.js с использованием Socket.IO в облачной службе Azure</a>.
+> [AZURE.NOTE] Процедуры в этом задании применяются для веб-сайтов Azure. Информацию по облачным службам см. в разделе <a href="http://www.windowsazure.com/ru-ru/develop/nodejs/tutorials/app-using-socketio/">Cоздание приложения для разговора на Node.js с использованием Socket.IO в облачной службе Azure</a>.
 
 
-## <a id="Download"></a>Загрузка примера разговора
+## <a id="Download"></a>Скачивание примера разговора
 
-Для этого проекта будет использоваться пример чата из [Socket.IO
-Репозиторий GitHub]. Для загрузки примера выполните следующие действия
+Для этого проекта будет использоваться пример чата из [Репозитория GitHub
+Socket.IO]. Чтобы скачать пример, сделайте следующее.
 и добавьте его в проект, созданный ранее.
 
-1.  Загрузите [выпуск в архиве ZIP или GZ][выпуск] проекта Socket.IO (для этого документа использовалась версия 1.0.6)
+1.  Скачайте [выпуск в архиве ZIP или GZ][выпуск] проекта Socket.IO (для этого документа использовалась версия 1.0.6)
 
 
 3.  Извлеките архив и скопируйте каталог **examples\\chat**
-    в новое место. Например, 
+    в новое место. Например: 
     **\\node\\chat**.
 
 ## <a id="Modify"></a>Изменение App.js и установка модулей
@@ -34,7 +48,7 @@ Socket.IO обеспечивает связь в режиме реального
 
 1.  Откройте файл **app.js** в Блокноте или другом текстовом редакторе.
 
-2.  Найдите раздел **Module dependencies** в начале файла app.js и измените строку `var io = require('../..')(server);` на `var io = require('socket.io')(server);` как показано ниже:
+2.  Найдите раздел **Module dependencies** в начале файла app.js и измените строку с текстом `var io = require('../..')(server);` на `var io = require('socket.io')(server);`, как показано ниже.
 
 		var express = require('express');
 		var app = express();
@@ -51,7 +65,7 @@ Cохранив изменения в app.js, выполните следующ�
 
         npm install
 
-    Будет выполнена установка модулей, перечисленных в файле package.json. После
+    Будут установлены модули, указанные в файле package.json. После
     завершения команды будет выведен результат,
     подобный этому:
 
@@ -76,76 +90,76 @@ Cохранив изменения в app.js, выполните следующ�
 
         npm install socket.io@1.0.6 -save
 
-	> [WACOM.NOTE] Хотя более новые версии Socket.IO и могут работать согласно действиям, приведенным в этой статье, помните, что процедура проверялась на версии 1.0.6.
+	> [AZURE.NOTE] Хотя более новые версии Socket.IO и могут работать согласно действиям, приведенным в этой статье, помните, что процедура проверялась на версии 1.0.6.
 
 ## <a id="Publish"></a>Создание веб-сайта Azure
 
 Выполните следующие действия, чтобы создать веб-сайт Windows Azure, включить публикацию Git, а затем включить поддержку WebSocket для этого веб-сайта.
 
-> [WACOM.NOTE]Для работы с этим учебником требуется учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://www.windowsazure.com/ru-ru/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Azure Free Trial</a>.
+> [AZURE.NOTE] Для работы с этим учебником требуется учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://www.windowsazure.com/ru-ru/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Бесплатная пробная версия Azure</a>.
 
-1. From the command-line, change directories to the **\\node\chat** directory and use the following command to create a new Azure Website and enable a Git repository for the website and the local directory. This will also create a Git remote named 'azure'.
+1. В командной строке измените каталоги на каталог **\\node\chat** и при помощи следующей команды создайте новый веб-сайт Azure, а затем включите Git-репозиторий для этого веб-сайта и локального каталога. Будет также создан удаленный Git-репозиторий с именем 'azure'.
 
 		azure site create mysitename --git
 
-	You must replace 'mysitename' with a unique name for your website.
+	Замените 'mysitename' уникальным именем созданного веб-сайта.
 
-2. Commit the existing files to the local repository by using the following commands:
+2. Поместите существующие файлы в локальный репозиторий посредством следующих команд:
 
 		git add .
 		git commit -m "Initial commit"
 
-3. Push the files to the Azure Website repository with the following command:
+3. Передайте файлы в репозиторий веб-сайта Azure посредством следующей команды:
 
 		git push azure master
 
-	You will receive status messages as modules are imported on the server. Once this process has completed, the application will be hosted on your Azure Website.
+	Вы будете получать сообщения о статусе по мере импорта модулей на сервере. По завершении этого процесса приложение будет размещаться на вашем веб-сайте Azure.
 
- 	> [WACOM.NOTE] During module installation, you may notice errors that 'The imported project ... was not found'. These can safely be ignored.
+ 	> [AZURE.NOTE] Во время установки модуля могут возникать такие ошибки, как 'The imported project ... was not found'. Эти сообщения можно спокойно проигнорировать.
 
-4. Socket.IO uses WebSockets, which are not enabled by default on Azure. To enable web sockets, use the following command:
+4. В Socket.IO используются сокеты WebSockets, которые по умолчанию не включены в Azure. Для включения веб-сокетов воспользуйтесь следующей командой:
 
 		azure site set -w
 
-	If prompted, enter the name of the website.
+	При выводе запроса введите имя веб-сайта.
 
-	>[WACOM.NOTE]
-	>The 'azure site set -w' command will only work with version 0.7.4 or higher of the Azure Cross-Platform Command-Line Interface. You can also enable WebSocket support using the Azure Management Portal.
+	>[AZURE.NOTE]
+	>Команда 'azure site set -w' действует только в межплатформенном интерфейсе командной строки Azure версии 0.7.4 или более поздней. Можно также включить поддержку WebSocket с помощью портала управления Azure.
 	>
-	>To enable WebSockets using the [Azure Management Portal](https://manage.windowsazure.com), select the Configure page for your website, select 'ON' for the Web Sockets entry, and then click Save.
+	>Чтобы включить WebSockets с помощью [портала управления Azure](https://manage.windowsazure.com), перейдите на страницу настройки веб-сайта, выберите "ВКЛ" для записи "Подключения Web Sockets", затем нажмите кнопку "Сохранить".
 	>	
 	>![websockets](./media/web-sites-nodejs-chat-app-socketio/websockets.png)
 	
-5. To view the website on Azure, use the following command to launch your web browser and navigate to the hosted website:
+5. Для просмотра веб-сайта на платформе Azure выполните следующую команду, чтобы запустить веб-браузер и перейти к размещенному веб-сайту:
 
 		azure site browse
 
-Your application is now running on Azure, and can relay chat
-messages between different clients using Socket.IO.
+Приложение теперь выполняется в Azure и может передавать сообщения разговора.
+чата между разными клиентами, используя Socket.IO.
 
-> [WACOM.NOTE] For simplicity, this sample is limited to chatting between users connected to the same instance. This means that if the cloud service creates two worker role instances, users will only be able to chat with others connected to the same worker role instance. To scale the application to work with multiple role instances, you could use a technology like Service Bus to share the Socket.IO store state across instances. For examples, see the Service Bus Queues and Topics usage samples in the <a href="https://github.com/WindowsAzure/azure-sdk-for-node">Azure SDK for Node.js GitHub repository</a>.
+> [AZURE.NOTE] Чтобы упростить процесс, в этом примере мы ограничили разговор пользователями, подключенными к одному экземпляру. Это означает, что если облачная служба создает два экземпляра рабочей роли, пользователи смогут общаться только с другими пользователями, подключенными к тому же экземпляру рабочей роли. Чтобы масштабировать приложение для работы с несколькими экземплярами роли, можно использовать технологию Service Bus, которая позволяет передавать состояние хранилища Socket.IO между несколькими экземплярами. Примеры использования см. в разделах "Очереди служебной шины" и "Тома служебной шины" в <a href="https://github.com/WindowsAzure/azure-sdk-for-node">репозитории GitHub Azure SDK для Node.js</a>.
 
-##Scale out
+##Масштабирование
 
-Socket.IO applications can be scaled out by using an __adapter__ to distribute messages and events between multiple application instances. While there are several adapters available, the [socket.io-redis](https://github.com/automattic/socket.io-redis) adapter can be easily used with the Azure Redis Cache feature.
+Приложения Socket.IO могут быть масштабированы при использовании __адаптера__ для распределения сообщений и событий между несколькими экземплярами приложения. Хотя доступно несколько адаптеров, адаптер [socket.io-redis](https://github.com/automattic/socket.io-redis) можно легко использовать с функцией кэша Azure Redis Cache.
 
-> [WACOM.NOTE] An additional requirement for scaling out a Socket.IO solution is support for sticky sessions. Sticky sessions are enabled by default for Azure Websites through Azure Request Routing. For more information, see [Instance Affinity in Azure Web Sites](http://azure.microsoft.com/blog/2013/11/18/disabling-arrs-instance-affinity-in-windows-azure-web-sites/)
+> [AZURE.NOTE] Дополнительным требованием к масштабированию решений Socket.IO является поддержка прикрепленных сеансов. Прикрепленные сеансы включены для веб-сайтов Azure по умолчанию через маршрутизацию запросов Azure. Дополнительную информацию см. в разделе [Территориальные группы экземпляров в веб-сайтах Azure](http://azure.microsoft.com/blog/2013/11/18/disabling-arrs-instance-affinity-in-windows-azure-web-sites/).
 
-###Create a Redis cache
+###Создание кэша Redis
 
-Perform the steps in [Create a cache in Azure Redis Cache](http://go.microsoft.com/fwlink/p/?linkid=398592&clcid=0x409) to create a new cache.
+Выполните шаги, приведенные в разделе [Создание кэша Azure Redis](http://go.microsoft.com/fwlink/p/?linkid=398592&clcid=0x409), чтобы создать новый кэш.
 
-> [WACOM.NOTE] Save the __Host name__ and __Primary key__ for your cache, as these will be needed in the next steps.
+> [AZURE.NOTE] Сохраните значения __Host name__ и __Primary key__ кэша: они понадобятся позднее.
 
-###Add the redis and socket.io-redis modules
+###Добавление модулей redis и socket.io-redis
 
-1. From a command-line, change to the __\\node\\chat__ directory and use the following command.
+1. В командной строке перейдите в каталог __\\node\\chat__ и выполните следующую команду:
 
 		npm install socket.io-redis@0.1.3 redis@0.11.0 --save
 
-	> [WACOM.NOTE] The versions specified in this command are the versions used when testing this article.
+	> [AZURE.NOTE] Версии, указанные в этой команде, использовались при тестировании данной процедуры.
 
-2. Modify the __app.js__ file to add the following lines immediately after `var io = require('socket.io')(server);`
+2. Отредактируйте файл __app.js__, добавив следующий текст сразу после `var io = require('socket.io')(server);`
 
 		var pub = require('redis').createClient(6379,'redishostname', {auth_pass: 'rediskey', return_buffers: true});
 		var sub = require('redis').createClient(6379,'redishostname', {auth_pass: 'rediskey', return_buffers: true});
@@ -154,77 +168,77 @@ Perform the steps in [Create a cache in Azure Redis Cache](http://go.microsoft.c
 		io.adapter(redis({pubClient: pub, subClient: sub}));
 
 
-	Replace __redishostname__ and __rediskey__ with the host name and key for your Redis cache.
+	Замените __redishostname__ и __rediskey__ именем узла и ключом кэша Redis.
 
-	This will create a publish and subscribe client to the Redis cache created previously. The clients are then used with the adapter to configure Socket.IO to use the Redis cache for passing messages and events between instances of your application
+	Будет создан клиент публикации и подписки для ранее созданного кэша Redis. С помощью клиентов и адаптера будет настроен Socket.IO для использования кэша Redis, что обеспечит передачу сообщений и событий между экземплярами вашего приложения.
 
-	> [WACOM.NOTE] While the __socket.io-redis__ adapter can communicate directly to Redis, the current version (as of 7/14/2014) does not support the authentication required by Azure Redis cache. So the initial connection is created using the __redis__ module, then the client is passed to the __socket.io-redis__ adapter.
+	> [AZURE.NOTE] Хотя адаптер __socket.io-redis__ может взаимодействовать непосредственно с Redis, текущая версия (по состоянию на 14.7.2014) не поддерживает аутентификацию, требуемую кэшем Azure Redis. Поэтому первоначальное соединение создается с помощью модуля __redis__, а затем клиент передается адаптеру __socket.io-redis__.
 	> 
-	> While Azure Redis Cache supports secure connections using port 6380, the modules used in this example do not support secure connections as of 7/14/2014. The above code uses the default, unsecure port of 6380.
+	> Хотя кэш Azure Redis поддерживает безопасные подключения через порт 6380, модули, использованные в данном примере, по состоянию на 14.7.2014 не поддерживают безопасные подключения. В приведенном выше коде используется небезопасный порт по умолчанию - 6380.
 
-3. Save the modified __app.js__
+3. Сохраните изменения в __app.js__.
 
-###Commit changes and redeploy
+###Подтверждение изменений и повторное развертывание
 
-From the command-line in the __\\node\\chat__ directory, use the following commands to commit changes and redeploy the application.
+В командной строке в каталоге __\\node\\chat__ выполните следующую команду для подтверждения изменений и повторного развертывания приложения.
 
 	git add .
 	git commit -m "implementing scale out"
 	git push azure master
 
-Once the changes have been pushed to the server, you can scale your site across multiple instances by using the following command.
+Как только изменения будут отправлены на сервер, вы сможете масштабировать сайт между несколькими экземплярами следующей командой:
 
-	azure site scale instances --instances #
+	Масштабированные экземпляры веб-сайтов Azure --instances #
 
-Where __#__ is the number of instances to create. 
+где __#__  - количество экземпляров, которое требуется создать. 
 
-You can connect to your website from multiple browsers or computers to verify that messages are correctly sent to all clients.
+Вы можете подключиться к своему веб-сайту с разных браузеров и компьютеров и убедиться, что сообщения должным образом отправляются всем клиентам.
 
-##<a id="tshooting"></a>Troubleshooting
+##<a id="tshooting"></a>Устранение неполадок
 
-###Connection limits
+###Ограничения на подключения
 
-Azure Websites is available in multiple SKUs, which determine the resources available to your site. This includes the number of allowed WebSocket connections. For more information, see the [Web Sites Pricing page][pricing].
+Веб-сайты Azure доступны в нескольких SKU, что означает ресурсы, доступные для вашего сайта. Сюда входит количество разрешенных соединений WebSocket. Дополнительную информацию см. в разделе [Цены на веб-сайты][pricing].
 
-###Messages aren't being sent using WebSockets
+###Не отправляются сообщения через WebSockets
 
-If client browsers keep falling back to long polling instead of using WebSockets, it may be because of one of the following.
+Если браузеры клиентов по-прежнему переходят к длинному опросу и не используют WebSockets, возможны следующие причины.
 
-* **Try limiting the transport to just WebSockets**
+* **Попробуйте ограничить протоколы, оставив только WebSockets**
 
-	In order for Socket.IO to use WebSockets as the messaging transport, both the server and client must support WebSockets. If one or the other does not, Socket.IO will negotiate another transport, such as long polling. The default list of transports used by Socket.IO is ` websocket, htmlfile, xhr-polling, jsonp-polling`. You can force it to only use WebSockets by adding the following code to the **app.js** file, after the line containing `, nicknames = {};`.
+	Чтобы Socket.IO использовал в качестве протокола сообщений WebSockets, как сервер, так и клиент должны поддерживать WebSockets. Если тот или другой его не поддерживает, Socket.IO согласует другой протокол, например длинный опрос. Список протоколов по умолчанию, используемых Socket.IO: ` websocket, htmlfile, xhr-polling, jsonp-polling`. Вы можете выбрать принудительное использование только протокола WebSockets, добавив следующий код в файл **app.js** после строки с текстом `, nicknames = {};`..
 
 		io.configure(function() {
 		  io.set('transports', ['websocket']);
 		});
 
-	> [WACOM.NOTE] Note that older browsers that do not support WebSockets will not be able to connect to the site while the above code is active, as it restricts communication to WebSockets only.
+	> [AZURE.NOTE] Обратите внимание, что старые браузеры, не поддерживающие WebSockets, не смогут подключиться к сайту, если вышеуказанный код будет активен, так как он ограничивает обмен данными протоколом WebSockets.
 
-* **Use SSL**
+* **Используйте SSL**
 
-	WebSockets relies on some lesser used HTTP headers, such as the **Upgrade** header. Some intermediate network devices, such as web proxies, may remove these headers. To avoid this problem, you can establish the WebSocket connection over SSL.
+	WebSockets использует некоторые малоиспользуемые заголовки HTTP, например **Upgrade**. Некоторые промежуточные сетевые устройства, например прокси-серверы, могут удалять эти заголовки. Чтобы избежать этого, можно установить подключение WebSocket через SSL.
 
-	An easy way to accomplish this is to configure Socket.IO to `match origin protocol`. This instructs Socket.IO to secure WebSockets communication the same as the originating HTTP/HTTPS request for the web page. If a browser uses an HTTPS URL to visit your website, subsequent WebSocket communications through Socket.IO will be secured over SSL.
+	Простой способ сделать это - настроить для Socket.IO протокол `match origin protocol`. При этом Socket.IO будет защищать соединения WebSockets тем же образом, что и исходные запросы HTTP/HTTPS к веб-странице. Если браузер использует для посещения сайта URL-адрес с протоколом HTTPS, последующий обмен данными WebSocket через Socket.IO будет защищен с помощью SSL.
 
-	To modify this example to enable this configuration, add the following code to the **app.js** file after the line containing `, nicknames = {};`.
+	Чтобы включить такую конфигурацию в данном примере, добавьте следующий код в файл **app.js** после строки с текстом `, nicknames = {};`.
 
 		io.configure(function() {
 		  io.set('match origin protocol', true);
 		});
 
-* **Verify web.config settings**
+* **Проверьте настройки web.config**
 
-	Azure Websites that host Node.js applications use the **web.config** file to route incoming requests to the Node.js application. For WebSockets to function correctly with Node.js applications, the **web.config** must contain the following entry.
+	Веб-сайты Azure с приложениями Node.js используют файл **web.config** для маршрутизации входящих запросов к приложению Node.js. Чтобы WebSockets работал правильно с приложениями Node.js, в файле **web.config** должна быть следующая запись:
 
 		<webSocket enabled="false"/>
 
-	Это отключает модуль IIS WebSockets, включающий собственную реализацию WebSockets и конфликтующий со специфичными для Node.js модулями WebSocket, такими как Socket.IO. Если эта строка отсутствует или для нее установлено значение `true`, это может быть причиной некорректной работы протокола WebSocket для вашего приложения.
+	Это позволяет отключить модуль WebSocket служб IIS, который содержит собственную реализацию модулей WebSocket и конфликтует с модулями WebSocket, используемыми специально для Node.js, например с Socket.IO. Если эта строка отсутствует или для нее задано значение `true`, возможно, из-за этого в приложении не будет работать транспорт WebSocket.
 
 	Обычно приложения Node.js не включают файл **web.config**, поэтому веб-сайты Azure автоматически будут создавать его для приложений Node.js при их развертывании. Поскольку этот файл автоматически создается на сервере, следует использовать для его просмотра URL-адрес с протоколами FTP и FTPS. URL-адреса с протоколами FTP и FTPS для сайта можно найти на портале управления Azure: выберите веб-сайт, а затем ссылку **Панель мониторинга**. URL-адреса будут выведены в разделе **Сводка**.
 
-	> [WACOM.NOTE] Файл **web.config** создается веб-сайтами Azure, только если его нет в самом приложении. Если в корне проекта приложения имеется файл **web.config**, веб-сайты Azure будут использовать его.
+	> [AZURE.NOTE] Файл **web.config** создается веб-сайтами Azure, только если его нет в самом приложении. Если в корне проекта приложения имеется файл **web.config**, веб-сайты Azure будут использовать его.
 
-	Если запись отсутствует или для нее установлено значение `true`, следует создать файл **web.config** в корне приложения Node.js и задать значение `false`.  Для справки: ниже представлен файл **web.config** по умолчанию для приложения, использующего в качестве точки входа **app.js**.
+	Если запись отсутствует или для нее установлено значение `true`, следует создать файл **web.config** в корне приложения Node.js и задать значение `false`.  Для справки: ниже представлен файл **web.config** по умолчанию для приложения, использующего **app.js** в качестве точки входа.
 
 		<?xml version="1.0" encoding="utf-8"?>
 		<!--
@@ -275,18 +289,20 @@ If client browsers keep falling back to long polling instead of using WebSockets
 		  </system.webServer>
 		</configuration>
 
-	> [WACOM.NOTE] Если приложение использует точку входа, отличную от **app.js**, следует заменить все вхождения **app.js** соответствующей точкой входа. Например, заменить **app.js** на **server.js**.
+	> [AZURE.NOTE] Если приложение использует не **app.js**, а другую точку входа, необходимо заменить все повторяющиеся **app.js** правильными точками входа. Например, заменить **app.js** на **server.js**.
 
 ##Дальнейшие действия
 
-В данном учебном курсе было рассмотрено создание приложения для чата, размещенного на веб-сайте Azure. Это приложение также можно разместить в качестве облачной службы Azure. Инструкции о том, как это сделать, см. в разделе [Cоздание приложения для чата на Node.js с использованием Socket.IO в облачной службе Azure][cloudservice].
+В данном учебном курсе было рассмотрено создание приложения для чата, размещенного на веб-сайте Azure. Это приложение также можно разместить в качестве облачной службы Azure. Указания о том, как это сделать, см. в разделе [Cоздание приложения для разговора на Node.js с использованием Socket.IO в облачной службе Azure][cloudservice].
 
 [socketio]: http://socket.io/
 [completed-app]: ./media/web-sites-nodejs-chat-app-socketio/websitesocketcomplete.png
-[Репозиторий Socket.IO в GitHub]: https://github.com/Automattic/socket.io
+[Socket.IO GitHub repository]: https://github.com/Automattic/socket.io
 [release]: https://github.com/Automattic/socket.io/releases
 [cloudservice]: /ru-ru/develop/nodejs/tutorials/app-using-socketio/
-
+	
 [chat-example-view]: ./media/web-sites-nodejs-chat-app-socketio/socketio-2.png
 [npm-output]: ./media/web-sites-nodejs-chat-app-socketio/socketio-7.png
 [pricing]: /ru-ru/pricing/details/web-sites/
+
+<!--HONumber=42-->

@@ -1,25 +1,25 @@
-<properties urlDisplayName="Get Started with Data" pageTitle="Приступая к работе с данными (Магазин Windows) | Центр мобильных разработок" metaKeywords="" description="Узнайте, как приступить к работе с мобильными службами, чтобы использовать данные в приложении магазина Windows." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Начало работы с данными (Магазин Windows) | Центр разработчиков для мобильных устройств" description="Узнайте, как приступить к работе с мобильными службами, чтобы использовать данные в приложении магазина Windows." services="mobile-services" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/19/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/19/2014" ms.author="glenga"/>
 
 # Приступая к работе с данными в мобильных службах
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-data-legacy](../includes/mobile-services-selector-get-started-data-legacy.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-data-legacy](../includes/mobile-services-selector-get-started-data-legacy.md)]
 
 
 <div class="dev-center-tutorial-subselector">
-	<a href="/ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/" title=".NET backend">Серверная служба .NET</a> | 
-	<a href="/ru-ru/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/" title="JavaScript backend" class="current">Серверная служба JavaScript</a>
+	<a href="/ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/" title=".NET backend">Серверная часть .NET</a> | 
+	<a href="/ru-ru/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/" title="JavaScript backend" class="current">Серверная часть JavaScript</a>
 </div>
 
 
 В этом разделе показано, как использовать мобильные службы Azure для эффективного использования данных в приложении Магазина Windows. В этом учебнике вам предстоит скачать проект Visual Studio 2013 для приложения, которое хранит данные в памяти, создать новую мобильную службу, интегрировать мобильную службу в приложение, а затем выполнить вход на портал управления Azure для просмотра изменений, внесенных в данные в ходе выполнения приложения.
 
->[WACOM.NOTE]В этом разделе показано, как с помощью Visual Studio 2013 добавить мобильные службы Azure в проект для Магазина Windows. Вы можете добавить ту же серверную мобильную службу JavaScript в проект универсального приложения для Windows. О том, как это сделать, читайте в [версии этого учебника для универсального приложения Windows](/ru-ru/documentation/articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-data) . 
+>[AZURE.NOTE]В этом разделе показано, как с помощью Visual Studio 2013 добавить мобильные службы Azure в проект для Магазина Windows. Вы можете добавить ту же серверную мобильную службу JavaScript в проект универсального приложения для Windows. Дополнительные сведения см. в [версии этого учебника для универсального приложения Windows](/ru-ru/documentation/articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-data). 
 
 В этом учебнике рассматриваются следующие основные действия:
 
-1. [Загрузка проекта приложения для Магазина Windows][Get the Windows Store app] 
+1. [Загрузка проекта приложения для Магазина Windows][Получение приложения для Магазина Windows] 
 2. [Создание мобильной службы в Visual Studio]
 3. [Добавление таблицы для хранения данных]
 4. [Обновление приложения для использования мобильной службы]
@@ -27,18 +27,18 @@
 
 Для работы с этим учебником требуется:
 
-* Активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. О том, как это сделать, читайте на странице [Бесплатное пробное использование Azure](http://azure.microsoft.com/ru-ru/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fru-ru%2Fdocumentation%2Farticles%2Fmobile-services-windows-store-dotnet-get-started-data%2F).
+* Активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://azure.microsoft.com/ru-ru/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fru-ru%2Fdocumentation%2Farticles%2Fmobile-services-windows-store-dotnet-get-started-data%2F).
 * Visual Studio 2013 упрощает подключение приложения для Магазина Windows к мобильным службам. 
 
-## <a name="download-app"></a>Загрузка проекта GetStartedWithData
+##<a name="download-app"></a>Загрузка проекта GetStartedWithData
 
-Этот учебник построен на использовании проекта приложения для Магазина Windows [GetStartedWithMobileServices][Developer Code Samples site] в Visual Studio 2013. Пользовательский интерфейс для этого приложения совпадает с интерфейсом приложения, созданного в кратком руководстве по использованию мобильных служб. Отличие заключается в том, что добавленные элементы хранятся локально в памяти. 
+Этот учебник создан на основе [приложения GetStartedWithMobileServices][Веб-сайт с примерами кода для разработчиков], являющегося проектом приложения для Магазина Windows в Visual Studio 2013. Пользовательский интерфейс для этого приложения совпадает с интерфейсом приложения, созданного в кратком руководстве по использованию мобильных служб. Отличие заключается в том, что добавленные элементы хранятся локально в памяти. 
 
 1. Загрузите версию примера приложения GetStartedWithMobileServices на C# с веб-сайта [Примеры кода для разработчиков]. 
 
 2. В Visual Studio 2013 откройте загруженный проект и просмотрите файл MainPage.xaml.cs.
 
-   	Обратите внимание: добавленные объекты **TodoItem** хранятся во внутренней памяти в **ObservableCollection&lt;TodoItem&gt;**.
+   	Обратите внимание, что добавленные объекты **TodoItem** хранятся во внутренней памяти **ObservableCollection&lt;TodoItem&gt;**.
 
 3. Нажмите клавишу **F5** для повторного построения проекта, после чего запустите приложение.
 
@@ -48,9 +48,9 @@
 
    	Обратите внимание, что сохраненный текст отображается во втором столбце в разделе **Запрос и обновление данных**
 
-## <a name="create-service"></a>Создание мобильной службы в Visual Studio
+##<a name="create-service"></a>Создание мобильной службы в Visual Studio
 
-[WACOM.INCLUDE [mobile-services-create-new-service-vs2013](../includes/mobile-services-create-new-service-vs2013.md)]
+[AZURE.INCLUDE [mobile-services-create-new-service-vs2013](../includes/mobile-services-create-new-service-vs2013.md)]
 
 <ol start="7"><li><p>В обозревателе решений откройте файл кода App.xaml.cs и обратите внимание на новое статическое поле, добавленное в класс **App**, которое выглядит так:</p> 
 
@@ -64,17 +64,17 @@
 </li>
 </ol>
 
-## <a name="add-table"></a>Добавление новой таблицы для хранения данных
+##<a name="add-table"></a>Добавление новой таблицы для хранения данных
 
-[WACOM.INCLUDE [mobile-services-create-new-table-vs2013](../includes/mobile-services-create-new-table-vs2013.md)]
+[AZURE.INCLUDE [mobile-services-create-new-table-vs2013](../includes/mobile-services-create-new-table-vs2013.md)]
 
->[WACOM.NOTE]Новые таблицы создаются со столбцами "Id", "__createdAt", "__updatedAt" и "__version". Если динамическая схема включена, мобильные службы автоматически создают новые столбцы на основе JSON-объекта в запросе вставки или обновления. Дополнительные сведения см. в разделе [Динамическая схема](http://msdn.microsoft.com/ru-ru/library/windowsazure/jj193175.aspx).
+>[AZURE.NOTE]Новые таблицы создаются со столбцами "Id", "__createdAt", "__updatedAt" и "__version". Если динамическая схема включена, мобильные службы автоматически создают новые столбцы на основе JSON-объекта в запросе вставки или обновления. Дополнительные сведения см. в разделе [Динамическая схема](http://msdn.microsoft.com/ru-ru/library/windowsazure/jj193175.aspx).
 
-# <a name="update-app"></a>Обновление приложения для использования мобильной службы
+#<a name="update-app"></a>Обновление приложения для использования мобильной службы
 
-[WACOM.INCLUDE [mobile-services-windows-dotnet-update-data-app](../includes/mobile-services-windows-dotnet-update-data-app.md)]
+[AZURE.INCLUDE [mobile-services-windows-dotnet-update-data-app](../includes/mobile-services-windows-dotnet-update-data-app.md)]
 
-## <a name="test-app"></a>Тестирование работы приложения с новой мобильной службой
+##<a name="test-app"></a>Тестирование работы приложения с новой мобильной службой
 
 1. В Visual Studio нажмите клавишу F5, чтобы запустить приложение.
 
@@ -108,7 +108,7 @@
 
 7. В приложении отметьте другой элемент в списке, затем нажмите кнопку **Обновить**.
 
-   	Обратите внимание, что отмеченный элемент теперь исчез из списка. Каждое обновление ведет к обмену данными с мобильной службой, которая теперь будет возвращать отфильтрованные данные.
+   	Обратите внимание, что отмеченный элемент теперь исчез из списка. Каждое обновление ведет к обмену данными с мобильной службой, которая теперь возвращает отфильтрованные данные.
 
 Это заключительный шаг учебника **Приступая к работе с данными**.
 
@@ -135,7 +135,6 @@
   
 <!-- Anchors. -->
 
-[Get the Windows Store app]: #download-app
 [Получение приложения для Магазина Windows]: #download-app
 [Создание мобильной службы в Visual Studio]: #create-service
 [Добавление таблицы для хранения данных]: #add-table
@@ -163,7 +162,8 @@
 [Портал управления]: https://manage.windowsazure.com/
 [Пакет SDK для мобильных служб]: http://go.microsoft.com/fwlink/p/?LinkId=257545
 [Веб-сайт с примерами кода для разработчиков]:  http://go.microsoft.com/fwlink/p/?LinkId=328660
-[Developer Code Samples site]:  http://go.microsoft.com/fwlink/p/?LinkId=328660
+
 [Класс MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
 
-<!--HONumber=35.2-->
+
+<!--HONumber=42-->

@@ -1,6 +1,6 @@
-﻿<properties title="How to install and configure Trend on an Azure VM" pageTitle="Как установить и настроить Trend Micro Deep Security как услугу на виртуальную машину Azure" description="Описывается, как установить и настроить модуль безопасности Trend Micro на виртуальной машине Azure" metaKeywords="" services="virtual machines" solutions="" documentationCenter="" authors="kathydav" manager="timlt" videoId="" scriptId="" />
+<properties pageTitle="Установка и настройка Trend Micro Deep Security как услуги на ВМ Azure" description="Описывается установка и настройка Trend Micro Security на виртуальной машине в Azure" services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="09/24/2014" ms.author="kathydav" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="09/24/2014" ms.author="kathydav"/>
 
 #Установка и настройка Trend Micro Deep Security как услуги на ВМ Azure
 
@@ -8,7 +8,7 @@
 
 <p>Клиент устанавливается как модуль безопасности с помощью агента ВМ. На новой виртуальной машине агент ВМ будет устанавливаться вместе с агентом Deep Security. На существующей виртуальной машине без агента ВМ необходимо сначала загрузить и установить этот агент. В данной статье рассматриваются обе ситуации.
 
-<p> При наличии действительной подписки от Trend для локального решения можно использовать ее для защиты виртуальных машин Azure. Если у вас еще нет подписки, можно зарегистрироваться для получения пробной подписки. Дополнительную информацию об этом решении см. в записи блога [Microsoft Azure VM Agent Extension For Deep Security] (Расширение агента виртуальной машины Microsoft Azure для Deep Security)(http://go.microsoft.com/fwlink/p/?LinkId=403945).
+<p> При наличии действительной подписки от Trend для локального решения можно использовать ее для защиты виртуальных машин Azure. Если у вас еще нет подписки, можно зарегистрироваться для получения пробной подписки. Дополнительную информацию об этом решении см. в публикации в блоге [Расширение агента виртуальной машины Microsoft Azure для Deep Security](http://go.microsoft.com/fwlink/p/?LinkId=403945).
 
 ## Установка агента Deep Security на новой виртуальной машине
 
@@ -16,9 +16,9 @@
 
 Параметр **Из коллекции** открывает мастер, помогающий настроить виртуальную машину. Последняя страница мастера используется для установки агента ВМ и модуля безопасности Trend. Общие указания см. в статье [Создание виртуальной машины под управлением Windows Server](http://go.microsoft.com/fwlink/p/?LinkId=403943). Дойдя до последней страницы мастера, выполните следующие действия.
 
-1.	В агенте виртуальной машины установите флажок **Установить агент ВМ**.
+1.	В разделе агента виртуальной машины выберите **Установить агент виртуальной машины**.
 
-2.	В разделе модулей безопасности установите флажок **Trend Micro Deep Security Agent** (Агент Trend Micro Deep Security).
+2.	В разделе модулей безопасности установите флажок **Агент Trend Micro Deep Security**.
 
 3.	Чтобы создать виртуальную машину, поставьте галочку.
 
@@ -30,7 +30,7 @@
 
 - Модуль Azure PowerShell версии не ниже 0.8.2. Указания и ссылку на последнюю версию см. в статье [Установка и настройка Azure PowerShell](http://go.microsoft.com/fwlink/p/?LinkId=320552).  
 
-- Агент ВМ. Указания и ссылку на скачивание см. в записи блога [VM Agent and Extensions - Part 2] (Агент виртуальной машины и расширения - часть 2)(http://go.microsoft.com/fwlink/p/?LinkId=403947).
+- Агент ВМ. Указания и ссылку на скачивание см. в записи блога [Агент виртуальной машины и расширения - часть 2](http://go.microsoft.com/fwlink/p/?LinkId=403947).
 
 Откройте сеанс Azure PowerShell и выполните следующие команды. Не забудьте подставить собственные значения вместо заполнителей, таких как MyServiceName.
 
@@ -39,23 +39,23 @@
 	<p>`$name = MyVmName`
 	<p>`$vm = Get-AzureVM -ServiceName $servicename -Name $name`
 
-	> [WACOM.NOTE] Если вы не знаете имена облачной службы и виртуальной машины, выполните командлет Get-AzureVM, чтобы отобразить эти данные для всех виртуальных машин в текущей подписке.
+	> [AZURE.NOTE] Если вы не знаете имена облачной службы и виртуальной машины, выполните командлет Get-AzureVM, чтобы отобразить эти данные для всех виртуальных машин в текущей подписке.
 
 2.	Добавьте агент Deep Security на виртуальную машину:
-<p> Set-AzureVMExtension -Publisher TrendMicro.DeepSecurity -ExtensionName TrendMicroDSA -VM $vm.VM
+<p> `Set-AzureVMExtension -Publisher TrendMicro.DeepSecurity -ExtensionName TrendMicroDSA -VM $vm.VM`
 
-	> [WACOM.NOTE] Если требуется установить определенную версию, выполните следующую команду, чтобы получить список доступных версий: Get-AzureVMAvailableExtension TrendMicro.DeepSecurity -ExtensionName TrendMicroDSA. Затем при запуске командлета Set-AzureVMExtension включите параметр Version.
+	> [AZURE.NOTE] Если требуется установить определенную версию, выполните следующую команду, чтобы получить список доступных версий:  `Get-AzureVMAvailableExtension TrendMicro.DeepSecurity -ExtensionName TrendMicroDSA`. Затем при запуске командлета Set-AzureVMExtension включите параметр Version.
 
 3.	Обновите виртуальную машину, установив таким образом агент Deep Security:
-<p> Update-AzureVM -ServiceName $servicename -Name $name -VM $vm.VM
+<p> `Update-AzureVM -ServiceName $servicename -Name $name -VM $vm.VM`
 
 
 ## Дальнейшие действия
 После установки агента потребуется несколько минут для его запуска. Затем необходимо будет активировать Deep Security на виртуальной машине, чтобы можно было осуществлять управление с помощью диспетчера Deep Security. См. следующую документацию:
 
-- Статью Trend об этом решении, [Instant-On Cloud Security for Microsoft Azure] (Мгновенное включение облачной защиты для Microsoft Azure)(http://go.microsoft.com/fwlink/?LinkId=404101).
-- [Пример сценария Windows PowerShell](http://go.microsoft.com/fwlink/?LinkId=404100) для настройки виртуальной машины.
-- [Указания](http://go.microsoft.com/fwlink/?LinkId=404099)  для этого примера.
+- статью Trend об этом решении [Мгновенное включение облачной защиты для Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=404101);
+- [образец сценария Windows PowerShell](http://go.microsoft.com/fwlink/?LinkId=404100) для настройки виртуальной машины;
+- [указания](http://go.microsoft.com/fwlink/?LinkId=404099) для этого образца сценария.
 
 
 
@@ -71,5 +71,4 @@
 [Управление расширениями]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

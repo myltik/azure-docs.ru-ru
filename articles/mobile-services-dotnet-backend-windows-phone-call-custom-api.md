@@ -1,43 +1,43 @@
-﻿<properties pageTitle="Вызов пользовательского API-интерфейса из приложения Windows Phone - мобильные службы" metaKeywords="" description="Узнайте, как определить настраиваемый API и вызывать его из приложения Windows Phone, которое использует мобильные службы Microsoft Azure." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Call a custom API from the client" authors="glenga"  solutions="" writer="glenga" manager="dwrede" editor=""  />
+﻿<properties pageTitle="Вызов пользовательского API-интерфейса из приложения Windows Phone - мобильные службы" description="Узнайте, как определить настраиваемый API и вызывать его из приложения Windows Phone, которое использует мобильные службы Microsoft Azure." services="mobile-services" documentationCenter="windows" authors="ggailey777" writer="glenga" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/26/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/26/2014" ms.author="glenga"/>
 
 # Вызов из клиента настраиваемого интерфейса API
 
-[WACOM.INCLUDE [mobile-services-selector-call-custom-api](../includes/mobile-services-selector-call-custom-api.md)]
+[AZURE.INCLUDE [mobile-services-selector-call-custom-api](../includes/mobile-services-selector-call-custom-api.md)]
 
-В этом разделе показано, как вызвать пользовательский API из приложения Windows Phone. Настраиваемый интерфейс API позволяет определить пользовательские конечные точки, которые предоставляют функциональные возможности сервера, не сопоставляемые с операциями вставки, обновления, удаления или чтения. Настраиваемый API позволяет получить больший контроль над передачей сообщений, включая чтение и задание заголовков сообщений HTTP и определение формата текста сообщения, отличного от JSON.
+В этом разделе показано, как вызывать настраиваемый API из приложений Windows Phone. Настраиваемый интерфейс API позволяет определить пользовательские конечные точки, которые предоставляют функциональные возможности сервера, не сопоставляемые с операциями вставки, обновления, удаления или чтения. При использовании настраиваемого интерфейса API вы получаете больше возможностей для управления сообщениями, в том числе для чтения и установки заголовков HTTP-сообщений, а также определения форматов текста сообщений, отличных от JSON.
 
-Пользовательский API, созданный в этом разделе, позволяет отправить единственный запрос POST, который устанавливает флаг completed равным `true` для всех подлежащих выполнению элементов в таблице. Без этого настраиваемого API клиенту пришлось бы отправлять отдельные запросы для обновления в таблице каждого элемента, подлежащего выполнению.
+Настраиваемый API, созданный в данном разделе, дает возможность отправить один запрос POST, который устанавливает для флага завершения значение `true` для всех элементов задач в таблице. Без настраиваемого интерфейса API клиенту требуется отправлять отдельные просьбы, чтобы обновить флаг для каждого элемента списка дел в таблице.
 
-Добавьте эти функциональные возможности к приложению, созданному при прохождении учебника [Добавление мобильных служб к существующему приложению](/ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/). Для этого выполните следующие шаги:
+Вы добавите эту функцию в приложение, созданное при изучении учебника [Добавление мобильных служб к существующему приложению](/ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/) . Для этого выполните следующие шаги:
 
 1. [Определение настраиваемого интерфейса API]
-2. [Обновление приложения для вызова настраиваемого API]
+2. [Обновление приложения для вызова настраиваемого интерфейса API]
 3. [Тестирование приложения] 
 
-Этот учебник основан на примере GetStartedWithData, простом приложении TodoList. Прежде чем приступать к работе с этим учебником, вы должны пройти [Добавление мобильных служб к существующему приложению](/ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/).
+Этот учебник построен на использовании GetStartedWithData, простого примера приложения TodoList. Прежде чем приступить к изучению данного учебника, необходимо выполнить задания учебника [Добавление мобильных служб к существующему приложению](/ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/).
 
 ## <a name="define-custom-api"></a>Определение настраиваемого интерфейса API
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-create-custom-api](../includes/mobile-services-dotnet-backend-create-custom-api.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-backend-create-custom-api](../includes/mobile-services-dotnet-backend-create-custom-api.md)]
 
-[WACOM.INCLUDE [mobile-services-windows-phone-call-custom-api](../includes/mobile-services-windows-phone-call-custom-api.md)]
+[AZURE.INCLUDE [mobile-services-windows-phone-call-custom-api](../includes/mobile-services-windows-phone-call-custom-api.md)]
 
 
 ## Дальнейшие действия
 
-Узнав, как создать настраиваемый API и вызывать его из приложения для Windows Phone, изучите следующие разделы о мобильных службах:
+Узнав, как создать настраиваемый API и вызывать его из приложения Windows Phone, изучите следующие разделы о мобильных службах:
 
 * [Справочник серверных скриптов мобильных служб]
-  <br/>Дополнительные сведения о создании настраиваемых API.
+  <br/>Дополнительные сведения о создании настраиваемых интерфейсов API.
 
-* [Хранение серверных скриптов системе управления версиями]
-  <br/> Узнайте, как использовать функцию управления версиями, чтобы легко и надежно разрабатывать и публиковать код сценариев настраиваемого API.
+* [Хранение серверных скриптов в системе управления версиями]
+  <br/> Сведения о том, как использовать функцию управления версиями, чтобы легко разрабатывать и безопасно публиковать код сценариев настраиваемого интерфейса API.
 
 <!-- Anchors. -->
 [Определение настраиваемого интерфейса API]: #define-custom-api
-[Обновление приложения для вызова настраиваемого API]: #update-app
+[Обновление приложения для вызова настраиваемого интерфейса API]: #update-app
 [Тестирование приложения]: #test-app
 [Дальнейшие действия]: #next-steps
 
@@ -47,7 +47,10 @@
 [Справочник серверных скриптов мобильных служб]: http://go.microsoft.com/fwlink/?LinkId=262293
 [Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/mobile-services-windows-phone-get-started/
 [Приступая к работе с данными]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/
-[Приступая к работе с аутентификацией]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users/
+[Приступая к работе с проверкой подлинности]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users/
 [Приступая к работе с push-уведомлениями]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/
 
-[Хранение серверных скриптов системе управления версиями]: /ru-ru/documentation/articles/mobile-services-store-scripts-source-control
+[Хранение серверных скриптов в системе управления версиями]: /ru-ru/documentation/articles/mobile-services-store-scripts-source-control
+
+
+<!--HONumber=42-->

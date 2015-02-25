@@ -1,38 +1,12 @@
-<properties urlDisplayName="Log on to a VM" pageTitle="Вход в виртуальную машину под управлением Windows Server" metaKeywords="Azure logging on vm, vm portal" description="Узнайте, как использовать портал управления Azure для входа в виртуальную машину под управлением Windows Server." metaCanonical="" services="virtual-machines" documentationCenter="" title="Как войти в виртуальную машину под управлением Windows Server" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
+<properties pageTitle="Вход в виртуальную машину под управлением Windows Server" description="Узнайте, как использовать портал управления Azure для входа в виртуальную машину под управлением Windows Server." services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="08/05/2014" ms.author="kathydav" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/22/2015" ms.author="kathydav"/>
 
-# Как войти в виртуальную машину под управлением Windows Server
 
-Для виртуальной машины под управлением операционной системы Windows Server можно использовать кнопку «Подключить» на портале управления, чтобы подключить ее к удаленному рабочему столу.
+#Как войти в виртуальную машину под управлением Windows Server#
 
-> [WACOM.NOTE] Если вам необходимо сбросить имя пользователя или пароль, либо включить RDP на виртуальной машине, вы можете воспользоваться расширением [VMAccess][VMAccess]. Информацию о требованиях и устранении неполадок см. в разделе [Подключение к виртуальной машине Azure по RDP или SSH][Подключение к виртуальной машине Azure по RDP или SSH].
+Чтобы войти в виртуальную машину под управлением Windows Server, используйте кнопку "Подключиться" на портале управления. Это позволит установить подключение к удаленному рабочему столу. Дополнительную информацию см. в разделе [Как войти в виртуальную машину под управлением Linux](./virtual-machines-linux-how-to-log-on/).)
 
-1.  Войдите на [портал управления Azure][портал управления Azure], если вы этого еще не сделали.
+[AZURE.INCLUDE [virtual-machines-log-on-win-server](../includes/virtual-machines-log-on-win-server.md)]
 
-2.  Нажмите кнопку **Виртуальные машины**, а затем выберите соответствующую виртуальную машину.
-
-3.  На панели команд щелкните **Подключить**.
-
-    ![Вход на виртуальную машину][Вход на виртуальную машину]
-
-4.  Щелкните **Открыть**, чтобы использовать файл протокола удаленного рабочего стола, автоматически созданного для виртуальной машины.
-
-5.  Чтобы продолжить, щелкните **Подключить**.
-
-    ![Продолжайте подключение][Продолжайте подключение]
-
-6.  Введите имя пользователя и пароль для учетной записи администратора виртуальной машины, а затем нажмите **ОК**. Это имя пользователя и пароль, которые вы задали при создании виртуальной машины, если виртуальная машина теперь не является контроллером домена. В последнем случае введите имя пользователя и пароль для учетной записи администратора домена для данного домена.
-
-7.  Щелкните **Да** для проверки удостоверения виртуальной машины.
-
-    ![Проверьте удостоверение машины][Проверьте удостоверение машины]
-
-    Теперь вы сможете работать с виртуальной машиной, так же как и с любым сервером.
-
-  [VMAccess]: http://go.microsoft.com/fwlink/p/?LinkId=396856
-  [Подключение к виртуальной машине Azure по RDP или SSH]: http://go.microsoft.com/fwlink/p/?LinkId=398294
-  [портал управления Azure]: http://manage.windowsazure.com
-  [Вход на виртуальную машину]: ./media/virtual-machines-log-on-windows-server/connectwindows.png
-  [Продолжайте подключение]: ./media/virtual-machines-log-on-windows-server/connectpublisher.png
-  [Проверьте удостоверение машины]: ./media/virtual-machines-log-on-windows-server/connectverify.png
+<!--HONumber=42-->

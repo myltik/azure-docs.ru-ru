@@ -1,32 +1,43 @@
-﻿<properties urlDisplayName="Website with WebMatrix" pageTitle="Веб-сайт node.js с использованием WebMatrix - учебник по Azure" metaKeywords="" description="Учебник, в котором показано, как использовать WebMatrix для разработки и развертывания приложения Node.js на веб-сайте Azure." metaCanonical="" services="web-sites" documentationCenter="nodejs" title="Build and deploy a Node.js website to Azure using WebMatrix" authors="larryfr" solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties 
+	pageTitle="Веб-сайт node.js с использованием WebMatrix - учебник по Azure" 
+	description="Учебник, в котором показано, как использовать WebMatrix для разработки и развертывания приложения Node.js на веб-сайте Azure." 
+	services="web-sites" 
+	documentationCenter="nodejs" 
+	authors="blackmist" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="09/17/2014" 
+	ms.author="larryfr"/>
 
 
 # Создание и развертывание веб-сайта Node.js в Azure с использованием WebMatrix
 
-В этом учебнике показано, как создать приложение Node.js и развернуть его на веб-сайте Azure с помощью WebMatrix. WebMatrix представляет собой бесплатное средство веб-разработки от корпорации Майкрософт, которое содержит все необходимое для разработки веб-сайта. WebMatrix включает несколько возможностей, которые делают использование Node.js более удобным, в том числе автозавершение кода, готовые шаблоны, а также поддержка редактором Jade, LESS и CoffeeScript. Дополнительные сведения о [WebMatrix для Azure](http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409).
+В этом учебнике показано, как создать приложение Node.js и развернуть его на веб-сайте Azure с помощью WebMatrix. WebMatrix представляет собой бесплатное средство веб-разработки от корпорации Майкрософт, которое содержит все необходимое для разработки веб-сайта. WebMatrix включает несколько возможностей, которые делают использование Node.js более удобным, в том числе автозавершение кода, готовые шаблоны, а также поддержка редактором Jade, LESS и CoffeeScript. Дополнительную информацию о [WebMatrix для Azure](http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409).
 
 После завершения работы с этим учебником вы получите веб-сайт Node.js, работающий в Azure.
  
-Снимок экрана завершенного приложения приведен ниже.
+Снимок экрана завершенного приложения приведен ниже:
 
 ![Azure node Web site][webmatrix-node-completed]
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+[AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ## Вход в Azure
 
 Выполните следующие действия, чтобы создать веб-сайт Azure.
 
-<div class="dev-callout"><strong>Примечание.</strong>
-<p>Чтобы пройти этот учебный курс, потребуется учетная запись Azure с включенной возможностью веб-сайтов Windows Azure.</p>
-<p>Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://www.windowsazure.com/ru-ru/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Бесплатная пробная версия Azure</a>.</p>
-</div>
+> [AZURE.NOTE] Чтобы пройти этот учебный курс, потребуется учетная запись Azure с включенной возможностью веб-сайтов Windows Azure. <br /> Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. О том, как это сделать, читайте на странице [Бесплатное пробное использование Azure](http://www.windowsazure.com/ru-ru/pricing/free-trial/?WT.mc_id=A7171371E"%20target="_blank").
 <br />
 
 1. Запуск WebMatrix
-2. Если это первый случай использования WebMatrix, будет выведен запрос на вход в Azure.  В противном случае можно нажать кнопку **Вход** и выбрать команду **Добавить учетную запись**.  Выберите **Вход** с использованием своей учетной записи Майкрософт.
+2. Если это первый случай использования WebMatrix, будет выведен запрос на вход в Azure.  В противном случае можно нажать кнопку **Вход** и выбрать команду **Добавить учетную запись**  Выберите **Вход** с использованием своей учетной записи Майкрософт.
 
 	![Add Account][addaccount]
 
@@ -35,13 +46,13 @@
 	![Sign into Azure][signin]	
 
 
-##  Создание сайта с помощью встроенного шаблона для Azure
+## Создание сайта с помощью встроенного шаблона для Azure
 
 1. На начальном экране нажмите кнопку **Создать** и выберите **Коллекция шаблонов**, чтобы создать новый веб-сайт из коллекции шаблонов:
 
 	![New site from Template Gallery][sitefromtemplate]
 
-2. В диалоговом окне **Веб-сайт по шаблону** выберите **Node**, а затем - **Экспресс-сайт**. Наконец, нажмите кнопку **Далее**. Если отсутствуют какие-либо необходимые компоненты для шаблона **Экспресс-сайт**, вам будет предложено установить их.
+2. В диалоговом окне **Веб-сайт по шаблону** выберите **Node**, а затем - **Экспресс-сайт**. Наконец, нажмите кнопку **Далее**. Если отсутствуют какие-либо необходимые компоненты для шаблона **Экспресс-сайт**, будет предложено установить их.
 
 	![select express template][webmatrix-templates]
 
@@ -55,7 +66,7 @@
 
 ##Публикация изменений в Azure
 
-1. В WebMatrix нажмите кнопку **Публикация** на ленте **Главная**, чтобы открыть диалоговое окно **Просмотр публикации** для веб-сайта.
+1. В WebMatrix, нажмите кнопку **Публикация** на ленте **Главная**, чтобы открыть диалоговое окно **Просмотр публикации** для веб-сайта.
 
 	![publish preview][webmatrix-node-publishpreview]
 
@@ -79,7 +90,7 @@
 
 		p Welcome to #{title} with WebMatrix on Azure!
 
-3. Сохраните изменения и нажмите значок публикации. Наконец, нажмите кнопку **Продолжить** в диалоговом окне **Просмотр публикации** и дождитесь, пока обновление не будет опубликовано.
+3. Сохраните изменения и нажмите значок публикации. Наконец, нажмите кнопку **Продолжить** в диалоговом окне **Просмотр публикации** и дождитесь, пока обновление будет опубликовано.
 
 	![publish preview][webmatrix-republish]
 
@@ -89,9 +100,9 @@
 
 ##Дальнейшие действия
 
-Для получения дополнительных сведений о версиях Node.js, входящих в состав Windows Azure, а также для указания версии, которая будет использоваться в приложении, см. раздел [Установка версии Node.js в приложении Azure](/ru-ru/documentation/articles/nodejs-specify-node-version-azure-apps/).
+Для получения дополнительной информации о версиях Node.js, входящих в состав Microsoft Azure, а также для указания версии, которая будет использоваться в приложении, см. раздел [Установка версии Node.js в приложении Azure](/ru-ru/documentation/articles/nodejs-specify-node-version-azure-apps/).
 
-При возникновении проблем с приложением после его развертывания в Windows Azure сведения о диагностике проблемы можно найти в разделе [Отладка приложения Node.js для веб-сайтов Windows Azure](http://www.windowsazure.com/ru-ru/develop/nodejs/how-to-guides/Debug-Website/).
+При возникновении проблем с приложением после его развертывания в Azure информация о диагностике проблемы можно найти в разделе [Отладка приложения Node.js на веб-сайтах Azure](http://www.windowsazure.com/ru-ru/develop/nodejs/how-to-guides/Debug-Website/).
 
 
 [Портал управления Azure]: http://manage.windowsazure.com
@@ -125,3 +136,6 @@
 [signin]: ./media/web-sites-nodejs-use-webmatrix/webmatrix-sign-in.png
 [sitefromtemplate]: ./media/web-sites-nodejs-use-webmatrix/webmatrix-site-from-template.png
 [nodesitefromtemplateazure]: ./media/web-sites-nodejs-use-webmatrix/webmatrix-node-site-azure.png
+
+
+<!--HONumber=42-->

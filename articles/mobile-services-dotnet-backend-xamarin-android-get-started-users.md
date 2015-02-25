@@ -1,40 +1,40 @@
-﻿<properties urlDisplayName="Get Started with authentication in Mobile Services for Xamarin Android apps" pageTitle="Приступая к работе с проверкой подлинности в мобильных службах для приложений Android на Xamarin. Мобильные службы Azure" metaKeywords="" description="Узнайте, как использовать мобильные службы для аутентификации пользователей приложения Xamarin для Android с помощью разнообразных поставщиков удостоверений, включая Google, Facebook, Twitter и корпорацию Майкрософт." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get Started with authentication in Mobile Services" authors="donnam" solutions="" manager="dwrede" editor="mollybos" />
+﻿<properties pageTitle="Приступая к работе с проверкой подлинности в мобильных службах для приложений Xamarin Android - мобильные службы Azure" description="Узнайте, как использовать мобильные службы для аутентификации пользователей приложения Xamarin для Android с помощью разнообразных поставщиков удостоверений, включая Google, Facebook, Twitter и корпорацию Майкрософт." services="mobile-services" documentationCenter="xamarin" authors="lindydonna" manager="dwrede" editor="mollybos"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="donnam" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="donnam"/>
 
 # Приступая к работе с проверкой подлинности в мобильных службах
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
 
-В этом разделе показано, как выполнять аутентификацию учетных данных пользователей в мобильных службах Azure в приложении. В этом учебнике вы добавите проверку подлинности к проекту быстрого запуска, используя поставщик удостоверений, поддерживаемый мобильными службами. После выполнения успешной проверки подлинности и авторизации мобильными службами отображается значение ИД пользователя.
+В этом разделе показано, как выполнять проверку подлинности пользователей в мобильных службах Azure в приложении. В этом учебнике вы добавите проверку подлинности к проекту быстрого запуска, используя поставщик удостоверений, поддерживаемый мобильными службами. После выполнения успешной проверки подлинности и авторизации мобильными службами отображается значение идентификатора пользователя.
 
 В этом учебнике рассматриваются следующие основные шаги для включения проверки подлинности в приложении:
 
-1. [Регистрация приложения для проверки подлинности и конфигурация мобильных служб]
-2. [Ограничение разрешений таблицы пользователями, прошедшими проверку подлинности]
-3. [Добавление проверки подлинности к приложению]
+1. [Регистрация приложения для проверки подлинности и настройка мобильных служб]
+2. [Ограничение разрешений таблицы для пользователей, прошедших проверку подлинности]
+3. [Добавление проверки подлинности в приложение]
 
-Этот учебник создан на основе краткого руководства по мобильным службам. Необходимо прежде всего пройти учебник [Начало работы с мобильными службами]. 
+Этот учебник создан на основе краткого руководства по мобильным службам. Вам также необходимо сначала ознакомиться с учебником [Приступая к работе с мобильными службами]. 
 
-##<a name="register"></a>Регистрация приложения для проверки подлинности и конфигурация мобильных служб
+##<a name="register"></a>Регистрация приложения для проверки подлинности и настройка мобильных служб
 
-[WACOM.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
+[AZURE.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-aad-server-extension](../includes/mobile-services-dotnet-backend-aad-server-extension.md)] 
+[AZURE.INCLUDE [mobile-services-dotnet-backend-aad-server-extension](../includes/mobile-services-dotnet-backend-aad-server-extension.md)] 
 
-##<a name="permissions"></a>Предоставление разрешений только пользователям, прошедшим проверку подлинности
+##<a name="permissions"></a>Ограничение разрешений для пользователей, прошедших проверку подлинности
 
-[WACOM.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)] 
+[AZURE.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)] 
 
 <ol start="6">
-<li><p>В Visual Studio или Xamarin Studio запустите проект клиента на устройстве или симуляторе. Убедитесь, что после запуска приложения возникает необработанное исключение с кодом состояния 401 (неавторизованный доступ).</p>
+<li><p>В Visual Studio или Xamarin Studio запустите проект клиента на устройстве или симуляторе. Убедитесь, что после запуска приложения возникает необработанное исключение с кодом состояния 401 (неавторизованный).</p>
    
-   	<p>Это происходит потому, что приложение пытается получить доступ к мобильным службам как пользователь, не прошедший проверку подлинности, а таблица <em>TodoItem</em> теперь требует выполнения проверки подлинности.</p></li>
+   	<p>Это происходит, потому что приложение пытается получить доступ к мобильным службам как пользователь, не прошедший проверку подлинности, а таблица <em>TodoItem</em> теперь требует выполнения проверки подлинности.</p></li>
 </ol>
 
 Далее приложение будет обновлено таким образом, что оно станет производить аутентификацию учетных данных пользователей, прежде чем запрашивать ресурсы из мобильной службы.
 
-##<a name="add-authentication"></a>Добавление проверки подлинности к приложению
+##<a name="add-authentication"></a>Добавление проверки подлинности в приложение
 
 1. Добавьте в класс **TodoActivity** следующее свойство:
 
@@ -57,11 +57,9 @@
 
     При этом создается новый метод для обработки процесса проверки подлинности. Пользователь прошел проверку подлинности с помощью имени входа в Facebook. Открывается диалоговое окно, в котором отображается идентификатор пользователя, прошедшего проверку подлинности. 
 
-    <div class="dev-callout"><b>Примечание.</b>
-	<p>Если используется поставщик удостоверений, отличный от Facebook, измените значение, передаваемое в метод <strong>LoginAsync</strong> выше, на одно из следующих: <i>MicrosoftAccount</i>, <i>Twitter</i>, <i>Google</i> или <i>WindowsAzureActiveDirectory</i>.</p>
-    </div>
+    > [AZURE.NOTE] Если используется поставщик удостоверений, отличный от Facebook, измените значение, передаваемое в метод **LoginAsync** выше, на одно из следующих: _MicrosoftAccount_, _Twitter_, _Google_ или _WindowsAzureActiveDirectory_.
 
-3. В методе **OnCreate**  добавьте следующую строку после кода, который создает объект `MobileServiceClient`.
+3. Добавьте в метод **OnCreate** следующую строку после кода, который формирует экземпляр объекта `MobileServiceClient`.
 
 		// Get the Mobile Service Table instance to use
         toDoTable = client.GetTable <ToDoItem> ();
@@ -78,24 +76,27 @@
 
 <!-- ## <a name="next-steps"> </a>Дальнейшие действия
 
-В следующем учебнике, [Авторизация пользователей мобильных служб с помощью этих служб][Проверка подлинности пользователей на основе скриптов], показано, как идентификатор пользователя, прошедшего проверку подлинности, который предоставлен мобильными службами, применяется для фильтрации данных, возвращаемых мобильными службами. 
+В следующем учебнике, [Авторизация пользователей мобильных служб на стороне службы][Авторизация пользователей с помощью скриптов], показано, как идентификатор пользователя, прошедшего проверку подлинности, который предоставлен мобильными службами, применяется для фильтрации данных, возвращаемых мобильными службами. 
  -->
  
 <!-- Anchors. -->
-[Регистрация приложения для проверки подлинности и конфигурация мобильных служб]: #register
-[Ограничение разрешений таблицы пользователями, прошедшими проверку подлинности]: #permissions
-[Добавление проверки подлинности к приложению]: #add-authentication
+[Регистрация приложения для проверки подлинности и настройка мобильных служб]: #register
+[Ограничение разрешений таблицы для пользователей, прошедших проверку подлинности]: #permissions
+[Добавление проверки подлинности в приложение]: #add-authentication
 [Дальнейшие действия]:#next-steps
 
 
 <!-- URLs. -->
-[Отправить страницу приложения]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[Отправка страницы приложения]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Мои приложения]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK для Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started/
-[Приступая к работе с аутентификацией]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started-users/
+[Приступая к работе с проверкой подлинности]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started-users/
 [Приступая к работе с push-уведомлениями]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started-push/
 [Авторизация пользователей с помощью скриптов]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts
 [JavaScript и HTML]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users/
 
 [Портал управления Azure]: https://manage.windowsazure.com/
+
+
+<!--HONumber=42-->

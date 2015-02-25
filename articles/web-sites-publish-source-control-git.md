@@ -1,7 +1,23 @@
-﻿<properties title="Publishing with Git (PHP) - Azure" pageTitle="Публикация с Git (PHP) - Azure" keywords="публикация c Git на Azure, опубликовать веб-сайт Azure" description="Узнайте, как использовать Git для публикации веб-сайта Azure, а затем включить непрерывное развертывание из GitHub и CodePlex." services="Web Sites" documentationCenter="PHP" authors="larryf" manager="wpickett" />
+﻿<properties 
+	pageTitle="Публикация с помощью Git (PHP) - Azure" 
+	keywords="publishing Git Azure, publish website Azure" 
+	description="Информация об использовании Git для публикации веб-сайта Azure и включении непрерывного развертывания из GitHub и CodePlex.." 
+	services="" 
+	documentationCenter="php" 
+	authors="blackmist" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryf" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/17/2014" 
+	ms.author="larryf"/>
 
-[WACOM.INCLUDE [publishing-with-git](../includes/publishing-with-git.md)]
+[AZURE.INCLUDE [publishing-with-git](../includes/publishing-with-git.md)]
 
-<!--HONumber=35.2-->
+
+<!--HONumber=42-->

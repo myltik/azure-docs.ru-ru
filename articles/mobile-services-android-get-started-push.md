@@ -1,27 +1,21 @@
-<properties linkid="develop-mobile-tutorials-get-started-with-push-android" urlDisplayName="Get Started with Push (Android)" pageTitle="Приступая к работе с push-уведомлениями (Android) | Центр разработчиков мобильных устройств" metaKeywords="" description="Узнайте, как использовать мобильные службы Azure для отправки push-уведомлений в приложение Android." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="ricksal" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Приступая к работе с push-уведомлениями (Android) | Центр разработчиков мобильных устройств" description="Узнайте, как использовать мобильные службы Azure для отправки push-уведомлений в приложение Android." services="mobile-services" documentationCenter="android" authors="RickSaling" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="11/21/2014" ms.author="ricksal"/>
 
 # Приступая к работе с push-уведомлениями в мобильных службах (принудительная отправка устаревшего типа)
 
-<div class="dev-center-tutorial-selector sublanding">
-    <a href="/ru-ru/develop/mobile/tutorials/get-started-with-push-dotnet" title="Windows Store C#">C# в Магазине Windows</a>
-    <a href="/ru-ru/develop/mobile/tutorials/get-started-with-push-js" title="Windows Store JavaScript">JavaScript в Магазине Windows</a>
-    <a href="/ru-ru/develop/mobile/tutorials/get-started-with-push-wp8" title="Windows Phone">Windows Phone</a>
-    <a href="/ru-ru/develop/mobile/tutorials/get-started-with-push-ios" title="iOS">iOS</a>
-    <a href="/ru-ru/develop/mobile/tutorials/get-started-with-push-android" title="Android" class="current">Android</a>
-<!--    <a href="/ru-ru/documentation/articles/partner-xamarin-mobile-services-ios-get-started-push" title="Xamarin.iOS">Xamarin.iOS</a>
-    <a href="/ru-ru/documentation/articles/partner-xamarin-mobile-services-android-get-started-push" title="Xamarin.Android">Xamarin.Android</a> -->
+<div class="dev-center-tutorial-selector sublanding"> <a href="/ru-ru/develop/mobile/tutorials/get-started-with-push-dotnet" title="Windows Store C#">Магазин Windows - C#</a> <a href="/ru-ru/develop/mobile/tutorials/get-started-with-push-js" title="Windows Store JavaScript">Магазин Windows - JavaScript</a> <a href="/ru-ru/develop/mobile/tutorials/get-started-with-push-wp8" title="Windows Phone">Windows Phone</a> <a href="/ru-ru/develop/mobile/tutorials/get-started-with-push-ios" title="iOS">iOS</a> <a href="/ru-ru/develop/mobile/tutorials/get-started-with-push-android" title="Android" class="current">Android</a>
+<!--    <a href="/ru-ru/documentation/articles/partner-xamarin-mobile-services-ios-get-started-push" title="Xamarin.iOS">Xamarin.iOS</a> <a href="/ru-ru/documentation/articles/partner-xamarin-mobile-services-android-get-started-push" title="Xamarin.Android">Xamarin.Android</a> -->
 	<a href="/ru-ru/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push" title="Appcelerator">Appcelerator</a>
 </div>
 
 <div class="dev-center-tutorial-subselector"><a href="/ru-ru/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/" title=".NET backend">Серверная часть .NET</a> | <a href="/ru-ru/documentation/articles/mobile-services-android-get-started-push/"  title="JavaScript backend" class="current">Серверная часть JavaScript</a></div>
 
-В этом разделе показано, как использовать мобильные службы Azure для отправки push-уведомлений в ваше приложение Android. В этом учебнике вам предстоит добавить push-уведомления в проект быстрого запуска с помощью службы Google Cloud Messaging (GCM). В результате ваша мобильная служба будет отправлять push-уведомление каждый раз при вставке записи.
+В этом разделе показано, как использовать мобильные службы Azure для отправки push-уведомлений в приложение Android. В этом учебнике вам предстоит добавить push-уведомления в проект быстрого запуска с помощью службы Google Cloud Messaging (GCM). По завершении работы ваша мобильная служба будет отправлять push-уведомление каждый раз при вставке записи.
 
->[WACOM.NOTE]В этом разделе рассматривается поддержка <em>существующих</em> мобильных служб, которые <em>еще не были обновлены</em> для использования интеграции с концентраторами уведомлений. При создании <em>новой</em> мобильной службы интегрированные функции включаются автоматически. Информацию о работе с мобильными службами последних версий см. в разделе [Приступая к работе с push-уведомлениями](/ru-ru/documentation/articles/mobile-services-javascript-backend-android-get-started-push/).
+>[AZURE.NOTE]В этом разделе рассматривается поддержка <em>существующих</em> мобильных служб, которые <em>еще не были обновлены</em> для использования интеграции с концентраторами уведомлений. При создании <em>новой</em> мобильной службы эти интегрированные функции включаются автоматически. Информацию о работе с мобильными службами последних версий см. в разделе [Приступая к работе с push-уведомлениями](/ru-ru/documentation/articles/mobile-services-javascript-backend-android-get-started-push/).
 >
->Мобильные службы теперь интегрируются с центрами уведомлений Azure для поддержки дополнительных функций push-уведомлений, таких как шаблоны, использование нескольких платформ и улучшенное масштабирование. <em>Если это возможно, обновите имеющиеся мобильные службы, чтобы использовать центры уведомлений</em>. После обновления ознакомьтесь с этой версией раздела [Приступая к работе с push-уведомлениями](/ru-ru/documentation/articles/mobile-services-javascript-backend-android-get-started-push/).
+>Мобильные службы теперь интегрируются с центрами уведомлений Azure для поддержки дополнительных функций push-уведомлений, таких как шаблоны, использование нескольких платформ и лучшее масштабирование. <em>Если это возможно, обновите имеющиеся мобильные службы, чтобы использовать концентраторы уведомлений</em>. После обновления ознакомьтесь с этой версией раздела [Приступая к работе с push-уведомлениями](/ru-ru/documentation/articles/mobile-services-javascript-backend-android-get-started-push/).
 
 В этом учебнике рассматриваются следующие основные шаги для включения push-уведомлений:
 
@@ -33,21 +27,21 @@
 
 Для работы с данным учебником требуется следующее:
 
-+ [Android SDK для мобильных служб]
++ [пакет Android SDK для мобильных служб]
 + Активная учетная запись Google
 
-Этот учебник создан на основе краткого руководства по мобильным службам. Прежде чем приступать к этому учебнику, необходимо пройти до конца учебник [Начало работы с мобильными службами]. 
+Этот учебник создан на основе краткого руководства по мобильным службам. Перед началом работы с учебником необходимо пройти задания учебника [Приступая к работе с мобильными службами]. 
 
 ##<a id="register"></a>Включение Google Cloud Messaging
 
 
-[WACOM.INCLUDE [Включение GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
+[AZURE.INCLUDE [Enable GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
 Далее вы будете использовать это значение ключа API, чтобы предоставить мобильным службам возможность выполнять аутентификацию с использованием GCM и отправлять push-уведомления от имени вашего приложения.
 
 ##<a id="configure"></a>Настройка мобильных служб для отправки push-запросов
 
-1. Войдите в [Портал управления Azure], щелкните **Мобильные службы**, затем щелкните свое приложение.
+1. Войдя на [портал управления Azure], щелкните элемент **Мобильные службы** и выберите нужное приложение.
 
    	![][18]
 
@@ -62,13 +56,13 @@
 
 ###Добавление служб Google Play в проект
 
-[WACOM.INCLUDE [Добавление служб воспроизведения](../includes/mobile-services-add-Google-play-services.md)]
+[AZURE.INCLUDE [Добавление служб Play](../includes/mobile-services-add-Google-play-services.md)]
 
 ###Добавление кода
 
 1. Откройте файл проекта **AndroidManifest.xml**. Google Cloud Messaging предъявляет некоторые требования к минимальному уровню API для разработки и тестирования, которым должно удовлетворять свойство **minSdkVersion** в манифесте. Обратитесь к руководству [Настройка пакета SDK служб Google Play], чтобы определить, насколько малым можно задать это значение, если вам требуется задать его ниже 16, поскольку вы используете более старое устройство. Задайте значение этого свойства соответствующим образом.
 
-2. Убедитесь, что в элементе `uses-sdk` для **targetSdkVersion** задан номер версии установленной платформы SDK (шаг 1). Рекомендуется задать новейшую версию. 
+2. Убедитесь, что в элементе `uses-sdk` для **targetSdkVersion** задан номер установленной платформы пакета SDK (шаг 1). Рекомендуется задать новейшую версию. 
 
 3. В зависимости от параметров, выбранных на предыдущих шагах, тег **uses-sdk** может выглядеть следующим образом:
 
@@ -99,7 +93,7 @@
 
 
 
-7. Откройте файл ToDoItem.java и добавьте в класс **TodoItem** следующий код:
+7. Откройте файл ToDoItem.java и добавьте следующий код в класс **TodoItem**:
 
 			@com.google.gson.annotations.SerializedName("handle")
 			private String mHandle;
@@ -112,23 +106,17 @@
 				mHandle = handle;
 			}
 		
-	This code creates a new property that holds the registration ID.
+	Этот код создает новое свойство, содержащее идентификатор регистрации.
+    > [AZURE.NOTE] Когда в вашей мобильной службе включена динамическая схема, новый столбец **handle** автоматически добавляется в таблицу **TodoItem** при вставке нового элемента, содержащего это свойство.
 
-    <div class="dev-callout"><b>Примечание.</b>
-	<p>Когда в вашей мобильной службе включена динамическая схема, новый столбец <strong>handle</strong> автоматически добавляется в таблицу <strong>TodoItem</strong> при вставке нового элемента, содержащего это свойство.</p>
-    </div>
+8. Загрузите и распакуйте [пакет Android SDK для мобильных служб], откройте папку **notifications**, скопируйте файл **notifications-1.0.1.jar** в папку *libs* вашего проекта Eclipse и обновите папку *libs*.
+    > [AZURE.NOTE] Числа в конце этого имени файла могут меняться в последующих выпусках SDK.
 
-8. Загрузите и распакуйте [Android SDK мобильных служб], откройте папку **notifications**, скопируйте файл **notifications-1.0.1.jar** в папку *libs* вашего проекта Eclipse и обновите папку *libs*.
-
-    <div class="dev-callout"><b>Note</b>
-	<p>The numbers at the end of the file name may change in subsequent SDK releases.</p>
-    </div>
-
-9.  Откройте файл *ToDoItemActivity.java* и добавьте следующий оператор импорта:
+9.  Откройте файл *ToDoItemActivity.java* и добавьте следующий оператор import:
 
 		import com.microsoft.windowsazure.notifications.NotificationsManager;
 
-10. Добавьте в класс следующую закрытую переменную, где _`<PROJECT_NUMBER>`_ - номер проекта, назначенный Google вашему приложению в предыдущей процедуре:
+10. Добавьте в класс следующую частную переменную, где _`<PROJECT_NUMBER>`_ - номер проекта, назначенный Google вашему приложению в предыдущей процедуре:
 
 		public static final String SENDER_ID = "<PROJECT_NUMBER>";
 
@@ -144,15 +132,15 @@
 
 	Этот код задает для свойства `handle` элемента значение, совпадающее с идентификатором регистрации устройства.
 
-13. В обозревателе пакетов щелкните правой кнопкой мыши пакет (под узлом `src`), выберите **Создать** и **Класс**.
+13. В обозревателе пакетов щелкните правой кнопкой мыши пакет (под узлом `src`), выберите пункт **Создать** и **Класс**.
 
-14. В поле **Имя** введите `MyHandler`, в поле **Суперкласс** введите `com.microsoft.windowsazure.notifications.NotificationsHandler` и нажмите кнопку **Готово**
+14. В поле **Имя** введите `MyHandler`, в поле **Суперкласс** укажите `com.microsoft.windowsazure.notifications.NotificationsHandler`, а затем нажмите кнопку **Готово**
 
 	![][6]
 
-	This creates the new MyHandler class.
+	При этом создается новый класс MyHandler.
 
-15. Добавьте следующие инструкции импорта:
+15. Добавьте следующие операторы импорта:
 
 		import android.content.Context;
 		
@@ -186,19 +174,19 @@
 Ваше приложение теперь обновлено для поддержки push-уведомлений.
 
 
-##<a id="update-scripts"></a>Обновление зарегистрированных сценариев вставки на портале управления
+##<a id="update-scripts"></a>Обновление зарегистрированного скрипта вставки на портале управления
 
-1. На портале управления откройте вкладку **Данные**, а затем щелкните таблицу **TodoItem**. 
+1. На портале управления щелкните вкладку **Данные**, а затем щелкните таблицу **TodoItem**. 
 
    	![][21]
 
-2. В **todoitem** откройте вкладку **Скрипт** и выберите **Вставка**.
+2. В **todoitem** перейдите на вкладку **Скрипт** и выберите **Вставка**.
    
   	![][22]
 
    	При этом отображается функция, вызываемая при выполнении вставки в таблице **TodoItem**.
 
-3. Замените функцию вставки следующим кодом и щелкните **Сохранить**:
+3. Замените функцию вставки следующим кодом и нажмите кнопку **Сохранить**:
 
 		function insert(item, user, request) {
 			request.execute({
@@ -218,31 +206,29 @@
 
    	При этом регистрируется новый скрипт вставки, в котором используется [объект gcm] для отправки push-уведомления (вставленный текст) на устройство, указанное в запросе вставки. 
 
-##<a id="test"></a>Тестирование push-уведомлений в приложении
+##<a id="test"></a> Тестирование push-уведомлений в приложении
 
-<div class="dev-callout"><b>Примечание.</b>
-	<p>При запуске этого приложения в эмуляторе убедитесь, что используется виртуальное устройство на платформе Android (AVD), поддерживающее API-интерфейсы Google.</p>
-</div>
+> [AZURE.NOTE] При запуске этого приложения в эмуляторе убедитесь, что используется виртуальное устройство на платформе Android (AVD), поддерживающее API-интерфейсы Google.
 
-1. Перезапустите Eclipse, в обозревателе пакетов щелкните правой кнопкой мыши проект, щелкните **Свойства**, выберите **Android**, установите флажок **API-интерфейсы Google**, а затем нажмите кнопку **ОК**.
+1. Перезапустите Eclipse, в обозревателе пакетов щелкните правой кнопкой мыши проект, выберите пункт **Свойства**, выберите **Android**, установите флажок **API-интерфейсы Google**, а затем нажмите кнопку **ОК**.
 
 	![][23]
 
   	Проект будет предназначен для API-интерфейсов Google.
 
-2. В разделе **Окно** выберите **Диспетчер виртуальных устройств Android**, выберите ваше устройство и щелкните **Изменить**.
+2. В **Окно** выберите **Диспетчер виртуальных устройств Android**, выберите ваше устройство, щелкните **Изменить**.
 
 	![][24]
 
-3. Выберите **API-интерфейсы Google** в разделе **Цель**, а затем нажмите кнопку "ОК".
+3. Выберите **API-интерфейсы Google** в **Цель**, а затем нажмите кнопку ОК.
 
    	![][25]
 
 	При этом виртуальное устройство на платформе Android будет предназначено для использования API-интерфейсов Google.
 
-4. Откройте меню **Выполнить**, затем щелкните **Выполнить**, чтобы запустить приложение.
+4. В меню **Выполнить** щелкните **Выполнить** для запуска приложения.
 
-5. В приложении введите значимый текст, такой как _Новая задача мобильных служб_, затем щелкните кнопку **Добавить**.
+5. В приложении введите содержательный текст (например, _Новая задача для мобильных служб_) и нажмите кнопку **Добавить**.
 
   	![][26]
 
@@ -258,7 +244,7 @@
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-В этом простом примере пользователь получает push-уведомление с только что вставленными данными. Маркер устройства, используемый GCM, передается клиентом мобильной службе в запросе. В следующем учебнике [Принудительная отправка уведомлений пользователям приложения] вы создадите отдельную таблицу "Устройства" для хранения маркеров устройств и отправите push-уведомление всем сохраненным каналам при выполнении вставки. 
+В этом простом примере пользователь получает push-уведомление с только что вставленными данными. Маркер устройства, используемый GCM, передается клиентом мобильной службе в запросе. В следующем учебнике [Принудительная отправка уведомлений пользователям приложения] вы будете создавать отдельную таблицу "Устройства" для хранения маркеров устройств и отправлять push-уведомление всем сохраненным каналам при выполнении вставки. 
 
 
 <!-- Images. -->
@@ -291,16 +277,19 @@
 [Портал подготовки Android]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [Настройка пакета SDK служб Google Play]: http://go.microsoft.com/fwlink/?LinkId=389801
 [Ссылки на проект библиотеки]: http://go.microsoft.com/fwlink/?LinkId=389800
-[Android SDK для мобильных служб]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
-[Начало работы с мобильными службами]: /ru-ru/develop/mobile/tutorials/get-started-android
+[пакет Android SDK для мобильных служб]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
+[Приступая к работе с мобильными службами]: /ru-ru/develop/mobile/tutorials/get-started-android
 [Приступая к работе с данными]: /ru-ru/develop/mobile/tutorials/get-started-with-data-android
-[Приступая к работе с аутентификацией]: /ru-ru/develop/mobile/tutorials/get-started-with-users-android
+[Приступая к работе с проверкой подлинности]: /ru-ru/develop/mobile/tutorials/get-started-with-users-android
 [Приступая к работе с push-уведомлениями]: /ru-ru/develop/mobile/tutorials/get-started-with-push-android
 [Принудительная отправка уведомлений пользователям приложения]: /ru-ru/develop/mobile/tutorials/push-notifications-to-users-android
 [Авторизация пользователей с помощью скриптов]: /ru-ru/develop/mobile/tutorials/authorize-users-android
 
 [Портал управления Azure]: https://manage.windowsazure.com/
 [Справочник серверных скриптов мобильных служб]: http://go.microsoft.com/fwlink/?LinkId=262293
-[Принципы использования мобильных служб в приложениях для Android]: /ru-ru/develop/mobile/how-to-guides/work-with-android-client-library/
-[Объект gcm]: http://go.microsoft.com/fwlink/p/?LinkId=282645
+[Принципы использования мобильных служб в приложениях Android]: /ru-ru/develop/mobile/how-to-guides/work-with-android-client-library/
+[объект gcm]: http://go.microsoft.com/fwlink/p/?LinkId=282645
 
+
+
+<!--HONumber=42-->

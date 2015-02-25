@@ -1,10 +1,24 @@
-<properties pageTitle="Приступая к работе с мобильными службами Azure для приложений Appcelerator Titanium" metaKeywords="" description="Этот учебник поможет приступить к использованию мобильных служб Azure для разработки приложений Appcelerator. " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Приступая к работе с мобильными службами Azure для приложений Appcelerator Titanium" 
+	description="Этот учебник поможет приступить к использованию мобильных служб Azure для разработки приложений Appcelerator." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="mattchenderson" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="11/24/2014" ms.author="Appcelerator team;mahender" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-appcelerator" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/24/2014" 
+	ms.author="mahender"/>
 
 # <a name="getting-started"> </a>Приступая к работе с мобильными службами
 
-[WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
 В этом учебнике показано, как использовать мобильные службы Azure в приложениях Appcelerator.
 
@@ -18,7 +32,7 @@
 
 ## <a name="create-new-service"> </a>Создание мобильной службы
 
-[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
+[AZURE.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
 ## Создание нового приложения Appcelerator
 
@@ -26,13 +40,13 @@
 
 2. Щелкните элемент **Добавить таблицу** и создайте новую таблицу с именем **TodoItem**.
 
-3. Скачайте новое приложение [Приложение Todolist] и распакуйте проект.
+3. Скачайте новое приложение [Todolist Appcelerator] и распакуйте проект.
 
 4. Если это еще не сделано, скачайте и установите [Appcelerator Titanium Studio][Appcelerator Titanium] и пакет SDK версии 3.2.1 или более поздней. Чтобы запустить проект, вам также понадобится Xcode (v 5.0 и выше) и (или) Android SDK (v 4.3 и выше).
 
-5. Вернитесь на портал мобильных служб, в разделе **Панель мониторинга**, выберите **Управление ключами** и скопируйте **Ключ приложения**.
+5. Вернитесь на портал мобильных служб, в разделе **Панель мониторинга** выберите **Управление ключами** и скопируйте **Ключ приложения**.
 
-5. В файле index.js приложения замените `<---App Name---->` и `<------------APP KEY------------>` на значения из мобильной службы.
+5. В index.js приложения замените `<---App Name---->` и `<------------APP KEY------------>` на значения своей мобильной службы.
 
 ## Запустите новое приложение Appcelerator
 
@@ -42,7 +56,7 @@
 
     ![][0]
 
-2.	На следующем экране выберите **Существующие проекты в рабочую область**, а затем щелкните **Далее**.
+2.	На следующем экране выберите **Существующие проекты и рабочая область**, а затем щелкните **Далее**.
 
     ![][1]
 
@@ -50,7 +64,7 @@
 
     ![][2]
 
-4.	Наконец, отображается проект, который был выбран в разделе "Проекты". Кроме этого, можно установить флажок "Копировать проекты в рабочую область", в результате чего скачанный проект будет скопирован в рабочую область. И наконец, щелкните элемент "Готово", чтобы открыть проект в Titanium Studio.
+4.	Наконец, отображается проект, который был выбран в разделе "Проекты". Кроме этого, можно установить флажок &quot;Копировать проекты в рабочую область&quot;, в результате чего скачанный проект будет скопирован в рабочую область. И наконец, щелкните элемент "Готово", чтобы открыть проект в Titanium Studio.
 
     ![][3]
 
@@ -64,18 +78,18 @@
 
     ![][5]
 
-8.	На следующем экране щелкните значок "плюс" (+), введите значимый текст, например "Выполнить этот учебник", а затем нажмите кнопку "Сохранить".<br />
+8.	На следующем экране щелкните значок "плюс" (+), введите значимый текст, например &quot;Выполнить этот учебник&quot;, а затем нажмите кнопку "Сохранить".<br />
 
     ![][6]
 
     ![][7]
 
-При этом в новую мобильную службу, размещенную в Windows Azure, будет отправлен запрос POST. Данные из запроса вставляются в таблицу TodoItem. Элементы, хранящиеся в таблице, возвращаются мобильной службой, а данные отображаются в списке.
+При этом в новую мобильную службу, размещенную в Microsoft Azure, будет отправлен запрос POST. Данные из запроса вставляются в таблицу TodoItem. Элементы, хранящиеся в таблице, возвращаются мобильной службой, а данные отображаются в списке.
 
 ![][8]
 
 
->[WACOM.NOTE] Код, который обращается к вашей мобильной службе для запроса и вставки данных, можно просмотреть в файле TodoService.m.
+>[AZURE.NOTE] Код, который обращается к вашей мобильной службе для запроса и вставки данных, можно просмотреть в файле TodoService.m.
 
 4. На портале управления перейдите на вкладку **Данные**, а затем щелкните таблицу **TodoItems**.
 
@@ -89,7 +103,7 @@
 ## <a name="next-steps"> </a>Дальнейшие действия
 Теперь, когда вы закончили быстрый запуск, узнайте, как выполнять дополнительные важные задачи в мобильных службах: 
 
-* [Приступая к работе с аутентификацией]
+* [Приступая к работе с проверкой подлинности]
   <br/>Дополнительные сведения о проверке подлинности пользователей приложения с использованием поставщика удостоверений.
 
 * [Приступая к работе с push-уведомлениями] 
@@ -113,7 +127,8 @@
 <!-- URLs. -->
 [Приложение Todolist]: http://go.microsoft.com/fwlink/p/?LinkId=506859
 [Appcelerator Titanium]: http://go.microsoft.com/fwlink/p/?LinkID=509987
-[Приступая к работе с аутентификацией]: /ru-ru/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users
+[Приступая к работе с проверкой подлинности]: /ru-ru/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users
 [Приступая к работе с push-уведомлениями]: /ru-ru/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

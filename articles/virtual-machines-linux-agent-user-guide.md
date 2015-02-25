@@ -1,6 +1,6 @@
-<properties urlDisplayName="Linux Agent guide" pageTitle="Руководство пользователя агента Linux для Azure" metaKeywords="" description="Узнайте, как установить и настроить агент Linux (waagent) для управления взаимодействием виртуальной машины с Azure Fabric Controller." metaCanonical="" services="virtual-machines" documentationCenter="" title="Azure Linux Agent User Guide" authors="szarkos" solutions="" manager="timlt" editor="" />
+<properties pageTitle="Руководство пользователя агента Linux для Azure" description="Узнайте, как установить и настроить агент Linux (waagent) для управления взаимодействием виртуальной машины с Azure Fabric Controller." services="virtual-machines" documentationCenter="" authors="szarkos" manager="timlt" editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="szarkos" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="szarkos"/>
 
 
 
@@ -22,7 +22,7 @@
   - Управление диском ресурсов
   - Форматирование и подключение диска ресурсов
   - Настройка пространства подкачки
-* **Сети**
+* **Сетевые подключения**
   - Управляет маршрутами для улучшения совместимости с DHCP-серверами платформы
   - Обеспечивает стабильность имени сетевого интерфейса
 * **Ядро**
@@ -43,8 +43,8 @@
 ###Получение агента Linux
 Последнюю версию агента Linux вы можете напрямую получить:
 
-- [У различных поставщиков дистрибутивов, работающих с Linux в Azure](http://support.microsoft.com/kb/2805216)
-- или из [Репозитория Github открытого исходного кода для агента Azure Linux](https://github.com/WindowsAzure/WALinuxAgent)
+- [у различных поставщиков дистрибутивов, работающих с Linux в Azure](http://support.microsoft.com/kb/2805216);
+- из [репозитория Github открытого исходного кода для агента Azure Linux](https://github.com/WindowsAzure/WALinuxAgent).
 
 
 ###Поддерживаемые дистрибутивы Linux
@@ -99,15 +99,15 @@
 - install: ручная установка агента
  * Проверяет систему на наличие обязательных зависимостей
 
- * Создает сценарий инициализации SysV (/etc/init.d/waagent), файл конфигурации logrotate (/etc/logrotate.d/waagent and configures the image to run the init script on boot
+ * Создает сценарий инициализации SysV (/etc/init.d/waagent), файл конфигурации logrotate (/etc/logrotate.d/waagent и настраивает образ, чтобы запустить сценарий инициализации во время загрузки
 
- * Writes sample configuration file to /etc/waagent.conf
+ * Записывает шаблон файла конфигурации в /etc/waagent.conf
 
- * Any existing configuration file is moved to /etc/waagent.conf.old
+ * Существующий файл конфигурации перемещается в /etc/waagent.conf.old
 
- * Определяет версию ядра и применяет
+ * Определяет версию ядра и при необходимости применяет метод обхода VNUMA
 
- * Moves udev rules that may interfere with networking (/lib/udev/rules.d/75-persistent-net-generator.rules, /etc/udev/rules.d/70-persistent-net.rules) в /var/lib/waagent/  
+ * Перемещает правила udev, которые могут создавать помехи в работе сети,(/lib/udev/rules.d/75-persistent-net-generator.rules, /etc/udev/rules.d/70-persistent-net.rules) в /var/lib/waagent/  
 
 - uninstall: удаляет waagent и связанные файлы
  * Отменяет регистрацию сценария инициализации в системе и удаляет его
@@ -144,7 +144,7 @@
 
 ##Конфигурация
 
-Файл конфигурации (/etc/waagent.conf) контролирует действия waagent. 
+Файл конфигурации (/ etc/waagent.conf) определяет действия waagent. 
 Ниже приводится пример файла конфигурации:
 	
 	#
@@ -176,23 +176,23 @@
 **Role.StateConsumer:**
 
 Тип: Строка  
-По умолчанию: None
+По умолчанию: Нет
 
 Если указан путь к исполняемой программе, он вызывается при подготовке образа waagent и при подготовке подтверждения состояния "Готов" для структуры. В программе будет указан аргумент "Готов". Агент не будет ожидать возврата для продолжения программы.
 
 **Role.ConfigurationConsumer:**
 
 Тип: Строка  
-По умолчанию: None
+По умолчанию: Нет
 
-Если указан путь к исполняемой программе, программа вызывается в том случае, когда структура указывает, что доступен файл конфигурации для виртуальной машины. Путь к XML-файлу конфигурации предоставляется в качестве аргумента в исполняемый файл. Он может вызываться несколько раз при каждом изменении файла конфигурации. Образец файла приведен в приложении. Текущий путь к этому файлу - /var/lib/waagent/HostingEnvironmentConfig.xml.
+Если указан путь к исполняемой программе, программа вызывается в том случае, когда структура указывает, что доступен файл конфигурации для виртуальной машины. Путь к XML-файлу конфигурации предоставляется в качестве аргумента в исполняемый файл. Он может вызываться несколько раз при каждом изменении файла конфигурации. Образец файла приведен в приложении. Текущий путь к этому файлу: /var/lib/waagent/HostingEnvironmentConfig.xml.
 
 **Role.TopologyConsumer:**
 
 Тип: Строка  
-По умолчанию: None
+По умолчанию: Нет
 
-Если указан путь к исполняемой программе, программа вызывается в том случае, когда структура указывает, что доступен новый макет топологии сети для виртуальной машины. Путь к XML-файлу конфигурации предоставляется в качестве аргумента в исполняемый файл. Он может вызываться несколько раз при каждом изменении топологии сети (например, из-за восстановления службы). Образец файла приведен в приложении. Текущее размещение этого файла - /var/lib/waagent/SharedConfig.xml.
+Если указан путь к исполняемой программе, программа вызывается в том случае, когда структура указывает, что доступен новый макет топологии сети для виртуальной машины. Путь к XML-файлу конфигурации предоставляется в качестве аргумента в исполняемый файл. Он может вызываться несколько раз при каждом изменении топологии сети (например, из-за восстановления службы). Образец файла приведен в приложении. Текущий путь к этому файлу: /var/lib/waagent/SharedConfig.xml.
 
 **Provisioning.Enabled:**
 
@@ -250,14 +250,14 @@
 Тип: Строка  
 По умолчанию: /mnt/resource 
 
-Указывает путь, по которому подключен диск ресурсов. Следует отметить, что диск ресурсов является *временным* и должен быть очищен при отмене подготовки виртуальной машины.
+Указывает путь, по которому подключен диск ресурсов. Следует отметить, что диск ресурсов является  *temporary* и должен быть очищен при отмене подготовки виртуальной машины.
 
 **ResourceDisk.EnableSwap:**
 
 Тип: Логический  
 По умолчанию: n 
 
-Если задано, на диске ресурсов создается файл подкачки (/swapfile) , который добавляется к пространству подкачки в системе.
+Если задано, на диске ресурсов создается файл подкачки (/swapfile), который добавляется к пространству подкачки в системе.
 
 **ResourceDisk.SwapSizeMB:**
 
@@ -290,7 +290,7 @@
 **OS.OpensslPath:**
 
 Тип: Строка  
-По умолчанию: None
+По умолчанию: Нет
 
 Можно указать альтернативный путь для двоичного файла openssl, используемого при выполнении шифрования.
 
@@ -314,7 +314,7 @@
 	    <PrivilegeLevel mode="max" />
 	    <AdditionalProperties><CgiHandlers></CgiHandlers></AdditionalProperties></HostingEnvironmentSettings>
 	    <ApplicationSettings>
-	      <Setting name="__ModelData" value="<m role=&quot;LinuxVM&quot; xmlns=&quot;urn:azure:m:v1&quot;><r name=&quot;LinuxVM&quot;><e name=&quot;HTTP&quot; /><e name=&quot;Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp&quot; /><e name=&quot;Microsoft.WindowsAzure.Plugins.RemoteForwarder.RdpInput&quot; /><e name=&quot;SSH&quot; /></r></m>" />
+	      <Setting name="__ModelData" value="&lt;m role=&quot;LinuxVM&quot; xmlns=&quot;urn:azure:m:v1&quot;>&lt;r name=&quot;LinuxVM&quot;>&lt;e name=&quot;HTTP&quot; />&lt;e name=&quot;Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp&quot; />&lt;e name=&quot;Microsoft.WindowsAzure.Plugins.RemoteForwarder.RdpInput&quot; />&lt;e name=&quot;SSH&quot; />&lt;/r>&lt;/m>" />
 	      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" value="..." />
 	      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" value="2015-11-06T23:59:59.0000000-08:00" />
 	      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" value="rdos" />
@@ -405,4 +405,4 @@
 	  </Instances>
 	</SharedConfig>
 
-<!--HONumber=35.1-->
+<!--HONumber=42-->

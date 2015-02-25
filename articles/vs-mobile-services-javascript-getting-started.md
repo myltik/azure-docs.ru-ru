@@ -1,6 +1,20 @@
-﻿<properties title="Getting Started with Mobile Services" pageTitle="" metaKeywords="Azure, Getting Started, Mobile Services" description="" services="mobile-services" documentationCenter="" authors="ghogen, kempb" />
+﻿<properties 
+	pageTitle="" 
+	description="" 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="kempb" 
+	manager="douge" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="web" ms.tgt_pltfrm="vs-getting-started" ms.devlang="na" ms.topic="article" ms.date="10/8/2014" ms.author="ghogen, kempb" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="vs-getting-started" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/8/2014" 
+	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
 > - [Приступая к работе](/documentation/articles/vs-mobile-services-javascript-getting-started/)
@@ -10,13 +24,13 @@
 
 Первое действие, необходимое для использования этих примеров кода, зависит от типа мобильной службы, к которой вы подключились.
 
-Для серверной мобильной службы JavaScript создайте таблицу под названием TodoItem. Чтобы создать таблицу, найдите мобильную службу в узле Azure (в обозревателе сервера), щелкните узел этой службы правой кнопкой мыши, чтобы открыть контекстное меню, и выберите команду **Создать таблицу**. Введите имя таблицы TodoItem.
+Для серверной мобильной службы JavaScript создайте таблицу под названием TodoItem.  Чтобы создать таблицу, найдите мобильную службу в узле Azure (в обозревателе сервера), щелкните узел этой службы правой кнопкой мыши, чтобы открыть контекстное меню, и выберите команду **Создать таблицу**. Введите имя таблицы TodoItem.
 
-Если же у вас есть серверная мобильная служба .NET, то среда Visual Studio уже создала в шаблоне проекта по умолчанию таблицу TodoItem, но ее нужно опубликовать в Azure. Чтобы опубликовать таблицу, откройте контекстное меню проекта мобильной службы в обозревателе решений и выберите команду **Опубликовать веб-сайт**. Примите предлагаемые по умолчанию параметры и нажмите кнопку **Опубликовать**.
+Если же у вас есть серверная мобильная служба .NET, то в среде Visual Studio уже создана в шаблоне проекта по умолчанию таблица TodoItem, но ее нужно опубликовать в Azure. Чтобы опубликовать таблицу, откройте контекстное меню проекта мобильной службы в обозревателе решений и выберите команду **Опубликовать веб-сайт**. Примите предлагаемые по умолчанию параметры и нажмите кнопку **Опубликовать**.
 
 #####Получение ссылку на таблицу
 
-В проект уже добавлен объект клиента.  Его имя аналогично имени мобильной службы с добавлением слова "Client". Следующий код получает ссылку на таблицу, содержащую данные для TodoItem, которые можно использовать в последующих операциях чтения и обновления таблицы данных.
+В проект уже добавлен объект клиента.  Его имя аналогично имени мобильной службы с добавлением слова "Client". Следующий код получает ссылку на таблицу, содержащую данные для TodoItem, которые можно использовать в последующих операциях чтения и обновления этой таблицы данных.
 
 	var todoTable = yourMobileServiceClient.getTable('TodoItem');
 
@@ -56,7 +70,7 @@
         listItems.winControl.itemDataSource = todoItems.dataSource;
     });
 
-Дополнительные примеры запросов, которые вы можете использовать, см. в разделе, посвященном [объекту query](http://msdn.microsoft.com/library/azure/jj613353.aspx).
+Дополнительные примеры запросов см. в разделе, [посвященном объекту query](http://msdn.microsoft.com/library/azure/jj613353.aspx).
 
 #####Обновление записи
 
@@ -76,4 +90,6 @@
 
 
 
-[Дополнительные сведения о мобильных службах](http://azure.microsoft.com/documentation/services/mobile-services/)
+[Дополнительную информацию о мобильных службах](http://azure.microsoft.com/documentation/services/mobile-services/)
+
+<!--HONumber=42-->

@@ -1,10 +1,10 @@
-﻿<properties urlDisplayName="Get Started with Authentication (HTML5)" pageTitle="Приступая к работе с проверкой подлинности (HTML 5) | Центр мобильных разработок" metaKeywords="" description="Узнайте, как использовать мобильные службы для аутентификации пользователей приложения HTML с помощью разнообразных поставщиков удостоверений, включая Google, Facebook, Twitter и корпорацию Майкрософт." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="glenga" solutions="mobile" manager="dwrede" editor="" />
+﻿<properties pageTitle="Приступая к работе с проверкой подлинности (HTML 5) | Центр мобильных разработок" description="Узнайте, как использовать мобильные службы для аутентификации пользователей приложения HTML с помощью разнообразных поставщиков удостоверений, включая Google, Facebook, Twitter и корпорацию Майкрософт." services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="09/23/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="09/23/2014" ms.author="glenga"/>
 
 # Добавление проверки подлинности в приложение мобильных служб 
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
 
 В этом разделе показано, как выполнять аутентификацию пользователей в мобильных службах Azure из приложения на HTML или приложения PhoneGap.  В этом учебнике вы добавите проверку подлинности к проекту быстрого запуска, используя поставщик удостоверений, поддерживаемый мобильными службами. После выполнения успешной проверки подлинности и авторизации мобильными службами отображается значение идентификатора пользователя.  
 
@@ -18,26 +18,26 @@
 
 ##<a name="register"></a>Регистрация приложения для проверки подлинности и настройка мобильных служб
 
-[WACOM.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
+[AZURE.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
 ##<a name="permissions"></a>Ограничение разрешений для пользователей, прошедших проверку подлинности
 
-[WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
+[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
 
 
 3. Запустите в подпапке **server** каталога приложения один из следующих файлов команд.
 
-	+ **launch-windows** (на компьютере с Windows) 
-	+ **launch-mac.command** (на компьютере с Mac OS X)
-	+ **launch-linux.sh** (на компьютере с Linux)
-
-	>[WACOM.NOTE]На компьютере с операционной системой Windows в ответ на запрос PowerShell на запуск сценария нажмите клавишу R. Веб-браузер может предупредить о том, что не следует запускать этот сценарий, так как он был загружен из Интернета. В этом случае необходимо указать, что браузеру следует продолжить загрузку сценария.
+	+ **launch-windows** (компьютеры на базе Windows) 
+	+ **launch-mac.command** (компьютеры на базе Mac OS X)
+	+ **launch-linux.sh** (компьютеры на базе Linux)
+	
+	>[AZURE.NOTE]На компьютере под управлением Windows нажмите клавишу `R`, когда в PowerShell появится запрос на запуск сценария. Веб-браузер может предупредить о том, что не следует запускать этот сценарий, так как он был загружен из Интернета. В этом случае необходимо указать, что браузеру следует продолжить загрузку сценария.
 
 	Это приведет к запуску веб-сервера на локальном компьютере, где и будет размещено новое приложение.
 
-2. Введите в браузере URL-адрес <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a> , чтобы запустить приложение. 
+2. Откройте URL-адрес <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a> в веб-браузере, чтобы запустить приложение. 
 
-	Данные не загружаются. Это происходит потому, что приложение пытается получить доступ к мобильным службам как пользователь, не прошедший проверку подлинности, а таблица _TodoItem_ теперь требует выполнения проверки подлинности.
+	Данные не загружаются. Это происходит, потому что приложение пытается получить доступ к мобильным службам как пользователь, не прошедший проверку подлинности, а таблица _TodoItem_ теперь требует выполнения проверки подлинности.
 
 3. (Необязательно) Откройте отладчик сценариев для вашего веб-браузера и обновите страницу. Убедитесь, что возникает ошибка отказа в доступе. 
 
@@ -45,7 +45,7 @@
 
 ##<a name="add-authentication"></a>Добавление проверки подлинности в приложение
 
->[WACOM.NOTE]Так как вход выполняется во всплывающем окне, необходимо вызвать метод <strong>login</strong> по событию нажатия кнопки. В противном случае многие браузеры отключают окно входа.
+>[AZURE.NOTE]Так как вход выполняется во всплывающем окне, необходимо вызвать метод <strong>login</strong> по событию нажатия кнопки. В противном случае многие браузеры отключают окно входа.
 
 1. Откройте файл index.html проекта, найдите элемент H1 и добавьте в него следующий фрагмент кода:
 
@@ -93,9 +93,9 @@
 			$("#logged-in button").click(logOut);
 		});
 
-    Это приведет к созданию набора функций для обработки процесса проверки подлинности. Пользователь прошел проверку подлинности с помощью имени входа в Facebook. Если используется поставщик удостоверений, отличный от Facebook, измените значение, передаваемое в приведенном выше методе <strong>login</strong> , на одно из этих: <em>microsoftaccount</em>, <em>facebook</em>, <em>twitter</em>, <em>google</em>или <em>aad</em>.
+    Это приведет к созданию набора функций для обработки процесса проверки подлинности. Пользователь прошел проверку подлинности с помощью имени входа в Facebook. Если используется поставщик удостоверений, отличный от Facebook, измените значение, передаваемое в метод <strong>login</strong> выше, на одно из следующих: <em>microsoftaccount</em>, <em>facebook</em>, <em>twitter</em>, <em>google</em> или <em>aad</em>.
 
-	>[WACOM.NOTE]В приложении PhoneGap также необходимо добавить в проект следующие модули:
+	>[AZURE.IMPORTANT]В приложении PhoneGap также необходимо добавить в проект следующие модули:
 	><ul><li><code>phonegap plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-device.git</code></li>
 	><li><code>phonegap plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git</code></li></ul>
 
@@ -103,7 +103,7 @@
 
 	   После успешного входа в систему приложение должно работать без ошибок, а вы должны быть в состоянии выполнять запросы мобильных служб и обновлять данные.
 
-	>[WACOM.NOTE]При использовании браузера Internet Explorer после входа может появиться такое сообщение об ошибке: <code>Не удается открыть окно. Вероятно, у него другая зона Internet Explorer</code>. Это происходит из-за того, что всплывающие окна работают в другой зоне безопасности (Интернет), нежели чем локальный узел (интрасеть). Это влияет только на приложения во время разработки с использованием локального узла localhost. Чтобы избежать этого, откройте вкладку <strong>Безопасность</strong> в разделе <strong>Свойства браузера</strong>, выберите элемент <strong>Местная интрасеть</strong>, затем - <strong>Сайты</strong> и отключите параметр <strong>Автоматически определять принадлежность к интрасети</strong>. После тестирования не забудьте вернуть предыдущее значение этого параметра.
+	>[AZURE.NOTE]При использовании браузера Internet Explorer после входа может появиться такое сообщение об ошибке: <code>Cannot reach window opener. It may be on a different Internet Explorer zone</code>. Это происходит из-за того, что всплывающие окна работают в другой зоне безопасности (Интернет), нежели чем локальный узел (интрасеть). Это влияет только на приложения во время разработки с использованием локального узла localhost. Чтобы избежать этого, откройте вкладку <strong>Безопасность</strong> в окне <strong>Свойства обозревателя</strong>, щелкните <strong>Местная интрасеть</strong>, затем <strong>Узлы</strong> и отключите параметр <strong>Автоматически определять принадлежность к интрасети</strong>. После тестирования не забудьте вернуть предыдущее значение этого параметра.
 
 ## <a name="next-steps"> </a>Дальнейшие действия
 
@@ -131,4 +131,5 @@
 [Портал управления Azure]: https://manage.windowsazure.com/
 [Справочник принципов использования мобильных служб HTML/JavaScript]: /ru-ru/documentation/articles/mobile-services-html-how-to-use-client-library
 
-<!--HONumber=35.2-->
+
+<!--HONumber=42-->

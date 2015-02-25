@@ -1,17 +1,17 @@
-﻿<properties urlDisplayName="How to Encode an Asset" pageTitle="Кодировка ресурса для служб мультимедиа - Azure" metaKeywords="" description="Узнайте, как использовать кодировщик мультимедиа Azure для кодировки мультимедийного контента в службах мультимедиа. Примеры кода написаны на языке C# и используют пакет SDK служб мультимедиа для .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Encode an Asset" authors="juliako" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Кодировка актива для служб мультимедиа - Azure" description="Узнайте, как использовать кодировщик мультимедиа Azure для кодировки мультимедийного контента в службах мультимедиа. Примеры кода написаны на языке C# и используют пакет SDK служб мультимедиа для .NET." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
 
 
-#Практическое руководство: кодировка активов
-Эта статья является частью серии вводных статей о программировании служб мультимедиа в Azure. Предыдущая статья: [Практическое руководство. Получение обработчика мультимедиа](../media-services-get-media-processor/).
+# Практическое руководство: кодировка активов
+Эта статья является частью серии вводных статей о программировании служб мультимедиа в Azure. Предыдущий раздел [Практическое руководство: Получение обработчика мультимедиа](../media-services-get-media-processor/).
 
-Мультимедийный контент на сервере можно закодировать в разных форматах и кодировках, используя кодировщик мультимедиа Azure. Также можно использовать кодировщик, предоставленный партнером служб мультимедиа. Кодировщики сторонних производителей доступны в [Azure Marketplace][]. Вы можете указать данные о задачах кодировки с помощью строк [предустановок кодировщика][] или файлов конфигурации. 
+Мультимедийный контент на сервере можно закодировать в разных форматах и кодировках, используя кодировщик мультимедиа Azure. Также можно использовать кодировщик, предоставленный партнером служб мультимедиа, кодировщики сторонних производителей доступны в [Магазине Azure][]. Сведения о задачах кодировки можно указать с помощью строк [предустановок кодировщика][] или файлов конфигурации. 
 
-##Кодирование в набор MP4-файлов с адаптивной скоростью
-Мы советуем кодировать мезонинный файл в наборы MP4-файлов с адаптивной скоростью, а затем использовать динамическую упаковку для доставки содержимого. Дополнительную информацию см. в разделах [Создание задания кодирования с помощью пакета SDK служб мультимедиа для .NET](http://msdn.microsoft.com/ru-ru/library/azure/dn282273.aspx), [Динамическое упаковывание](http://msdn.microsoft.com/ru-ru/library/azure/jj889436.aspx) и [Доставка содержимого](http://msdn.microsoft.com/ru-ru/library/azure/hh973618.aspx).
+## Кодирование в набор MP4-файлов с адаптивной скоростью
+Мы советуем кодировать мезонинный файл в наборы MP4-файлов с адаптивной скоростью, а затем использовать динамическую упаковку для доставки содержимого. Дополнительные сведения см. в разделе [Создание задания кодирования с Media Services SDK для .NET](http://msdn.microsoft.com/ru-ru/library/azure/dn282273.aspx), [Динамическая упаковка](http://msdn.microsoft.com/ru-ru/library/azure/jj889436.aspx) и [Доставка содержимого](http://msdn.microsoft.com/ru-ru/library/azure/hh973618.aspx).
 
-##Кодировка в формате MP4
+## Кодировка в формате MP4
 Следующий метод отправляет один ресурс и создает задание для его кодирования в формате MP4 с помощью предустановки H264 Broadband 720p, которая создает один MP4-файл с кодировкой H264 и разрешением 720 пикселей:
 <pre><code>
 	static IJob CreateEncodingJob(string inputMediaFilePath, string outputFolder)
@@ -108,9 +108,9 @@
 <li> кодировка в формате MP4 и преобразование в Smooth Streaming.</li>
 </ul>
 
-Для кодирования непосредственно в формате Smooth Streaming используйте код, показанный выше, но при этом воспользуйтесь одной из предустановок кодировщика Smooth Streaming. Полный список предустановок кодировщика см. в разделе [Строки предустановок задачи для кодировщика мультимедиа Azure](http://msdn.microsoft.com/ru-ru/library/jj129582.aspx). 
+Для кодирования непосредственно в формате Smooth Streaming используйте код, показанный выше, но при этом воспользуйтесь одной из предустановок кодировщика Smooth Streaming. Полный список предустановок кодировщика см. в статье [Строки предустановок задачи для программы Windows Azure Media Encoder](http://msdn.microsoft.com/ru-ru/library/jj129582.aspx). 
 
-Чтобы преобразовать MP4-файл в формат Smooth Streaming, используйте Azure Media Packager. Azure Media Packager не поддерживает строковые предустановки, поэтому необходимо задать параметры конфигурации в формате XML. XML-код, необходимый для преобразования MP4 в Smooth Streaming, можно найти в разделе [Предустановка задачи для Azure Media Packager][]. Скопируйте и вставьте XML в файл с именем MediaPackager_MP4ToSmooth.xml в вашем проекте. В следующем примере показано, как преобразовать MP4-актив в формат Smooth Streaming. Метод, приведенный ниже, принимает существующий актив и преобразует его. 
+Чтобы преобразовать MP4-файл в формат Smooth Streaming, используйте Azure Media Packager. Azure Media Packager не поддерживает строковые предустановки, поэтому необходимо задать параметры конфигурации в формате XML. XML-код, необходимый для преобразования MP4 в Smooth Streaming, можно найти в статье [Предустановка задачи для Azure Media Packager][]. Скопируйте и вставьте XML в файл с именем MediaPackager_MP4ToSmooth.xml в вашем проекте. В следующем примере показано, как преобразовать MP4-актив в формат Smooth Streaming. Метод, приведенный ниже, принимает существующий актив и преобразует его. 
 <pre><code>
 private static IJob ConvertMP4toSmooth(IAsset assetToConvert, string configFilePath)
  {
@@ -155,15 +155,16 @@ private static IJob ConvertMP4toSmooth(IAsset assetToConvert, string configFileP
 <li><a href="http://msdn.microsoft.com/ru-ru/library/jj129574.aspx">Обработка активов с помощью API REST служб мультимедиа</a></li>
 </ul>
 
-##Дальнейшие действия
-Теперь, когда вы узнали, как создать задание для кодирования ресурса, перейдите к статье [Проверка хода выполнения задания с помощью служб мультимедиа](../media-services-check-job-progress/) .
+## Дальнейшие действия
+Вы узнали, как создать задание для кодирования актива. Теперь вы можете приступить к изучению статьи [Проверка хода выполнения задания с помощью служб мультимедиа](../media-services-check-job-progress/) topic.
 
-[Azure Marketplace]: https://datamarket.azure.com/
-[Предустановка кодировщика]: http://msdn.microsoft.com/ru-ru/library/dn619392.aspx
+[Магазине Azure]: https://datamarket.azure.com/
+[предустановок кодировщика]: http://msdn.microsoft.com/ru-ru/library/dn619392.aspx
 [Практическое руководство. Получение экземпляра обработчика мультимедиа]:http://go.microsoft.com/fwlink/?LinkId=301732
-[Практическое руководство. Отправка зашифрованного ресурса]:http://go.microsoft.com/fwlink/?LinkId=301733
-[Практическое руководство. Доставка ресурса путем скачивания]:http://go.microsoft.com/fwlink/?LinkId=301734
-[Проверка хода выполнения задания]:http://go.microsoft.com/fwlink/?LinkId=301737
+[Практическое руководство. Отправка зашифрованного актива]:http://go.microsoft.com/fwlink/?LinkId=301733
+[Практическое руководство. Доставка актива путем загрузки]:http://go.microsoft.com/fwlink/?LinkId=301734
+[Практическое руководство. Проверка хода выполнения задания]:http://go.microsoft.com/fwlink/?LinkId=301737
 [Предустановка задачи для Azure Media Packager]:http://msdn.microsoft.com/ru-ru/library/windowsazure/hh973635.aspx
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

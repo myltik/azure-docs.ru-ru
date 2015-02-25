@@ -1,13 +1,13 @@
-﻿<properties urlDisplayName="Upload an Ubuntu Linux VHD" pageTitle="Создание и передача виртуального жесткого диска с ОС Ubuntu Linux в Azure" metaKeywords="Azure VHD, uploading Linux VHD, Ubuntu" description="Узнайте, как создать и передать виртуальный жесткий диск (VHD-файл) Azure, содержащий операционную систему Ubuntu Linux." metaCanonical="" services="virtual-machines" documentationCenter="" title="Creating and Uploading a Virtual Hard Disk that Contains an Ubuntu Linux Operating System" authors="szarkos" solutions="" manager="timlt" editor="tysonn" />
+<properties pageTitle="Создание и передача виртуального жесткого диска с ОС Ubuntu Linux в Azure" description="Узнайте, как создать и передать виртуальный жесткий диск (VHD-файл) Azure, содержащий операционную систему Ubuntu Linux." services="virtual-machines" documentationCenter="" authors="szarkos" manager="timlt" editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="06/05/2014" ms.author="szarkos" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/13/2015" ms.author="szarkos"/>
 
 
 # Подготовка виртуальной машины Ubuntu для Azure
 
-##Необходимые компоненты
+##Предварительные требования##
 
-В этой статье предполагается, что вы уже установили операционную систему Ubuntu Linux на виртуальный жесткий диск. Для создания VHD-файлов существует несколько средств, например решение виртуализации, такое как Hyper-V. Указания см. в разделе [Установка роли Hyper-V и настройка виртуальной машины](http://technet.microsoft.com/library/hh846766.aspx). 
+В этой статье предполагается, что вы уже установили операционную систему Ubuntu Linux на виртуальный жесткий диск. Для создания VHD-файлов существует несколько инструментов, например решение виртуализации, такое как Hyper-V. Указания см. в разделе [Установка роли Hyper-V и настройка виртуальной машины](http://technet.microsoft.com/library/hh846766.aspx). 
 
 **Замечания по установке Ubuntu**
 
@@ -20,7 +20,7 @@
 - Все VHD-диски должны иметь размер, кратный 1 МБ.
 
 
-## <a id="ubuntu"> </a>Ubuntu 12.04+
+## <a id="ubuntu"> </a>Ubuntu 12.04+ ##
 
 1. На центральной панели диспетчера Hyper-V выберите виртуальную машину.
 
@@ -77,19 +77,19 @@
 
 5.	(дополнительно) Если система Ubuntu обнаруживает ошибку и перезагружается, она будет ожидать пользовательского ввода на экране загрузчика grub, что предотвращает правильную загрузку системы. Во избежание этого выполните следующие действия:
 
-	а) Откройте файл /etc/grub.d/00_header.
+	a) откройте файл /etc/grub.d/00_header;
 
-	b) В функции **make_timeout()** выполните поиск строки **if ["\${recordfail}" = 1 ]; then**
+	b) в функции **make_timeout()** найдите **if ["\${recordfail}" = 1 ]; then**;
 
-	c) Измените инструкцию ниже этой строки на **set timeout=5**.
+	c) измените оператор ниже этой строки на **set timeout=5**;
 
-	d) Выполните 'sudo update-grub'.
+	d) запустите  'sudo update-grub'.
 
-6. Измените строку загрузки ядра в конфигурации Grub, чтобы включить дополнительные параметры ядра для Azure. Для этого откройте файл /etc/default/grub в текстовом редакторе, найдите переменную GRUB_CMDLINE_LINUX_DEFAULT (или добавьте ее, если это необходимо) и измените эту переменную, включив в нее следующие параметры:
+6. Измените строку загрузки ядра в конфигурации Grub, чтобы включить дополнительные параметры ядра для Azure. Для этого откройте файл /etc/default/grub в текстовом редакторе, найдите переменную  `GRUB_CMDLINE_LINUX_DEFAULT` (или добавьте ее, если это необходимо) и измените эту переменную, включив в нее следующие параметры:
 
 		GRUB_CMDLINE_LINUX_DEFAULT="console=ttyS0 earlyprintk=ttyS0 rootdelay=300"
 
-	Сохраните и закройте этот файл, затем выполните sudo update-grub. Это гарантирует отправку всех сообщений консоли на первый последовательный порт, что может помочь технической поддержке Azure в плане отладки. 
+	Сохраните и закройте этот файл, затем выполните `sudo update-grub`. Это гарантирует отправку всех сообщений консоли на первый последовательный порт, что может помочь технической поддержке Azure в плане отладки. 
 
 8.	Убедитесь, что SSH-сервер установлен и настроен для включения во время загрузки.  Обычно это сделано по умолчанию.
 
@@ -98,7 +98,7 @@
 		# sudo apt-get update
 		# sudo apt-get install walinuxagent
 
-	Обратите внимание, что установка пакета walinuxagent приведет к удалению пакетов NetworkManager и NetworkManager-gnome, если таковые установлены.
+	Обратите внимание, что установка пакета `walinuxagent` приведет к удалению пакетов  `NetworkManager` и  `NetworkManager-gnome`, если таковые установлены.
 
 10.	Выполните следующие команды, чтобы отменить подготовку виртуальной машины и подготовить ее в Azure:
 
@@ -109,5 +109,4 @@
 11. В диспетчере Hyper-V выберите **Действие > Завершение работы**. Виртуальный жесткий диск Linux готов к передаче в Azure.
 
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->
