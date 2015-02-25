@@ -37,10 +37,10 @@
 
 Разделы и подписки Service Bus обеспечивают возможность масштабирования для обработки очень большого количества сообщений для очень большого количества пользователей и приложений.
 
-## <a id="create-a-service-namespace"</a>Create a Service Namespace
+## <a id="create-a-service-namespace"</a>Создание пространства имен службы
 
-To begin using Service Bus queues in Azure, you must first create a service namespace. A service namespace provides a scoping container for addressing Service Bus resources within 
-your application. You must create the namespace through the command-line interface because the Portal does not create the service bus with an ACS connection.
+Чтобы начать использование очередей служебной шины в Azure, необходимо сначала создать пространство имен службы. Пространство имен службы формирует контейнер областей для обращения к ресурсам служебной 
+шины внутри вашего приложения. Пространство имен следует создать с помощью интерфейса командной строки, так как портал не создает служебную шину с подключением к ACS.
 
 Чтобы создать пространство имен, выполните следующие действия.
 

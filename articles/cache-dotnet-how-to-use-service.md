@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="" pageTitle="Как использовать управляемую службу кэша Azure" metaKeywords="" description="" metaCanonical="" services="cache" documentationCenter="" title="How to Use Azure Managed Cache Service" authors="sdanie" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="" pageTitle="Как использовать управляемую службу кэша Azure" metaKeywords="" description="" metaCanonical="" services="cache" documentationCenter="" title="How to Use Azure Managed Cache Service" authors="sdanie" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="cache" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie" />
 
@@ -374,7 +374,7 @@
       </sessionState>
     </system.web>-->
 
->Если ваш файл web.config не содержит этот закомментированный раздел после установки пакета кэша NuGet, убедитесь, что установлена самая новая версия диспетчера пакета (см. раздел [Установка диспетчера пакета NuGet)][], после чего удалите и переустановите этот пакет.
+>Если ваш файл web.config не содержит этот закомментированный раздел после установки пакета кэша NuGet, убедитесь, что установлена самая новая версия диспетчера пакета (см. раздел [Установка диспетчера пакета NuGet][], после чего удалите и переустановите этот пакет.
 
 Чтобы включить поставщик состояний сеансов для кэша Azure, раскомментируйте указанный раздел. Кэш по умолчанию указан в представленном фрагменте кода. Чтобы использовать другой кэш, укажите его в атрибуте **cacheName**.
 
@@ -398,7 +398,7 @@
       </outputCache>
     </caching>-->
 
->Если ваш файл web.config не содержит этот закомментированный раздел после установки пакета кэша NuGet, убедитесь, что установлена самая новая версия диспетчера пакета (см. раздел [Установка диспетчера пакета NuGet)][], после чего удалите и переустановите этот пакет.
+>Если ваш файл web.config не содержит этот закомментированный раздел после установки пакета кэша NuGet, убедитесь, что установлена самая новая версия диспетчера пакета (см. раздел [Установка диспетчера пакета NuGet][], после чего удалите и переустановите этот пакет.
 
 Чтобы включить поставщик кэша вывода для кэша Azure, раскомментируйте указанный раздел. Кэш по умолчанию указан в представленном фрагменте кода. Чтобы использовать другой кэш, укажите его в атрибуте **cacheName**.
 
@@ -421,12 +421,13 @@
 
 <!-- INTRA-TOPIC LINKS -->
 [Дальнейшие действия]: #next-steps
-[Что такое управляемая служба кэша Azure?] #what-is
+[Что такое управляемая служба кэша Azure?]: #what-is
 [Создание кэша Azure]: #create-cache
 [Какой тип кэширования мне выбрать?]: #choosing-cache
 [Подготовка проекта Visual Studio для использования Azure Caching]: #prepare-vs
 [Настройка приложения для использования кэширования]: #configure-app
-[Приступая к работе с управляемой службой кэша] #getting-started-cache-service
+[Приступая к работе с управляемой службой кэша]: #getting-started-cache-service
+[Приступая к работе с кэшем роли]: #getting-started-cache-service
 [Создание кэша]: #create-cache
 [Настройка кэша]: #enable-caching
 [Настройка клиентов кэша]: #NuGet
@@ -434,7 +435,7 @@
 [Практическое руководство. Создание объекта DataCache]: #create-cache-object
 [Практическое руководство. Добавление и извлечение объекта из кэша]: #add-object
 [Практическое руководство. Указание срока действия объекта в кэше]: #specify-expiration
-[Практическое руководство. Хранение состояния сеанса ASP.NET в кэше]: #store-session
+[Практическое руководство. Сохранение состояния сеанса ASP.NET в кэше]: #store-session
 [Практическое руководство. Сохранение кэшированных данных вывода страниц ASP.NET в кэше]: #store-page
 [Целевой профиль поддерживаемой платформы .NET]: #prepare-vs-target-net
   
@@ -455,7 +456,7 @@
   
    
 <!-- LINKS -->
-[Портал управления Azure]: https://manage.windowsazure.com/
+[портале управления Azure]: https://manage.windowsazure.com/
 [Практическое руководство. Программная настройка клиента кэша]: http://msdn.microsoft.com/ru-ru/library/windowsazure/gg618003.aspx
 [Поставщик состояний сеансов для кэша Azure]: http://go.microsoft.com/fwlink/?LinkId=320835
 [Кэш Azure AppFabric: Кэширование состояния сеанса]: http://www.microsoft.com/ru-ru/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
@@ -473,7 +474,7 @@
 [Директива OutputCache]: http://go.microsoft.com/fwlink/?LinkId=251979
 [Диагностика и устранение неполадок]: http://go.microsoft.com/fwlink/?LinkId=320839
 [Установка диспетчера пакета NuGet]: http://go.microsoft.com/fwlink/?LinkId=240311
-[Сведения о ценах кэша]: http://www.windowsazure.com/ru-ru/pricing/details/cache/
+[Сведения о ценах - кэш]: http://www.windowsazure.com/ru-ru/pricing/details/cache/
 [Портал управления]: https://manage.windowsazure.com/
 [Предложения кэша]: http://go.microsoft.com/fwlink/?LinkId=317277
 [Планирование мощностей]: http://go.microsoft.com/fwlink/?LinkId=320167
@@ -482,12 +483,12 @@
 [Уведомления]: http://go.microsoft.com/fwlink/?LinkId=317276
 [Переход на управляемую службу кэша]: http://go.microsoft.com/fwlink/?LinkId=317347
 [Примеры для управляемой службы кэша]: http://go.microsoft.com/fwlink/?LinkId=320840
-[Новый AzureManagedCache]: http://go.microsoft.com/fwlink/?LinkId=400495
+[New-AzureManagedCache]: http://go.microsoft.com/fwlink/?LinkId=400495
 [Командлеты кэша управляемых Azure]: http://go.microsoft.com/fwlink/?LinkID=398555
 [Установка и настройка Azure PowerShell]: http://go.microsoft.com/fwlink/?LinkId=400494
 [Add-AzureAccount]: http://msdn.microsoft.com/ru-ru/library/dn495128.aspx
 [Select-AzureSubscription]: http://msdn.microsoft.com/ru-ru/library/dn495203.aspx
 
-[Какой кэш Azure подходит мне?]: http://msdn.microsoft.com/ru-ru/library/azure/dn766201.aspx
+[Какой кэш Azure подходит мне лучше всего?]: http://msdn.microsoft.com/ru-ru/library/azure/dn766201.aspx
 
 <!--HONumber=35.2-->

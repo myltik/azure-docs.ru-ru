@@ -1,9 +1,9 @@
-﻿<properties urlDisplayName="Azure Notification Hubs" pageTitle="Концентраторы уведомлений Azure" metaKeywords="Azure push-уведомления, концентраторы уведомлений Azure, передача сообщений Azure" description="Узнайте, как использовать push-уведомления в Azure. Примеры кода написаны на C# с использованием API .NET." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Azure Notification Hubs" authors="sethm" manager="dwrede" />
+<properties urlDisplayName="Azure Notification Hubs" pageTitle="Концентраторы уведомлений Azure" metaKeywords="Azure push-уведомления, концентраторы уведомлений Azure, передача сообщений Azure" description="Узнайте, как использовать push-уведомления в Azure. Примеры кода написаны на C# с использованием API .NET." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Azure Notification Hubs" authors="sethm" manager="dwrede" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
 
-#Концентраторы уведомлений Azure
+# Концентраторы уведомлений Azure
 
 
 Поддержка push-уведомлений в Azure позволяет получить доступ к простой в использовании, многоплатформенной и масштабируемой инфраструктуре для отправки push-уведомлений, которая значительно упрощает реализацию push-уведомлений как для индивидуальных пользователей, так и для корпоративных приложений для мобильных платформ.
@@ -78,6 +78,7 @@ Push-уведомления - одна из самых часто запраши
   [1]: ./media/notification-hubs-overview/SBPushNotifications2.gif
   [Как концентраторы уведомлений используются клиентами]: http://azure.microsoft.com/ru-ru/services/notification-hubs
   [Учебники и руководства по работе с концентраторами уведомлений]: http://azure.microsoft.com/ru-ru/documentation/services/notification-hubs
+  [Руководства и учебники по концентраторам уведомлений]: http://azure.microsoft.com/ru-ru/documentation/services/notification-hubs
   [iOS]: http://azure.microsoft.com/ru-ru/documentation/articles/notification-hubs-ios-get-started
   [Android]: http://azure.microsoft.com/ru-ru/documentation/articles/notification-hubs-android-get-started
   [Windows Universal]: http://azure.microsoft.com/ru-ru/documentation/articles/notification-hubs-windows-store-dotnet-get-started
@@ -86,5 +87,5 @@ Push-уведомления - одна из самых часто запраши
   [Xamarin.iOS]: http://azure.microsoft.com/ru-ru/documentation/articles/partner-xamarin-notification-hubs-ios-get-started
   [Xamarin.Android]: http://azure.microsoft.com/ru-ru/documentation/articles/partner-xamarin-notification-hubs-android-get-started
   [Концентратор.уведомлений.для.обмена.сообщениями.Мicrosoft.WindowsAzure]: http://msdn.microsoft.com/ru-ru/library/microsoft.windowsazure.messaging.notificationhub.aspx
-  [Уведомления.Мicrosoft.ServiceBus]: http://msdn.microsoft.com/ru-ru/library/microsoft.servicebus.notifications.aspx
+  [Microsoft.ServiceBus.Notifications]: http://msdn.microsoft.com/ru-ru/library/microsoft.servicebus.notifications.aspx
   

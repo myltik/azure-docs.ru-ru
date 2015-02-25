@@ -1,4 +1,4 @@
-﻿<properties title="How to use the SendGrid email service (PHP) - Azure" pageTitle="Как использовать службу электронной почты SendGrid (PHP) - Azure"metaKeywords =" Azure SendGrid, служба электронной почты Azure, Azure SendGrid PHP, служба электронной почты Azure PHP" description="Узнайте, как отправить электронное сообщение с помощью службы электронной почты SendGrid в Azure. Примеры кода написаны на PHP." documentationCenter="PHP" services="" manager="wpickett" editor="mollybos" authors="robmcm" scriptId="" videoId="" />
+<properties title="How to use the SendGrid email service (PHP) - Azure" pageTitle="Как использовать службу электронной почты SendGrid (PHP) - Azure"metaKeywords =" Azure SendGrid, служба электронной почты Azure, Azure SendGrid PHP, служба электронной почты Azure PHP" description="Узнайте, как отправить электронное сообщение с помощью службы электронной почты SendGrid в Azure. Примеры кода написаны на PHP." documentationCenter="PHP" services="" manager="wpickett" editor="mollybos" authors="robmcm" scriptId="" videoId="" />
 
 <tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="10/30/2014" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com" />
 
@@ -406,10 +406,10 @@ SendGrid поддерживает дополнительные функцион�
   [специальное предложение]: https://www.sendgrid.com/windowsazure.html
   [Упаковка и развертывание приложений PHP для Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/hh674499(v=VS.103).aspx
   [http://swiftmailer.org/download]: http://swiftmailer.org/download
-  [функция curl]: http://php.net/curl
+  [функцию curl]: http://php.net/curl
   [облачная служба электронной почты]: https://sendgrid.com/email-solutions
-  [доставка электронной почты]: https://sendgrid.com/transactional-email
-  [библиотека sendgrid php]: https://github.com/sendgrid/sendgrid-php/tree/v2.1.1
+  [доставки электронной почты]: https://sendgrid.com/transactional-email
+  [библиотеку sendgrid php]: https://github.com/sendgrid/sendgrid-php/tree/v2.1.1
   [Редактор]: https://getcomposer.org/download/
 
 <!--HONumber=35.2-->

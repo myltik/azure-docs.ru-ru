@@ -214,14 +214,14 @@ Azure создает и активирует пространство имен.
 
 2.  В класс HomeController добавьте метод *Claims*:
 
-    public ActionResult Claims()
-    {
-     ViewBag.Message = "Ваша страница утверждений.";
+    	public ActionResult Claims()
+    	{
+     	ViewBag.Message = "Ваша страница утверждений.";
 
-        ViewBag.ClaimsIdentity = Thread.CurrentPrincipal.Identity;
-        return View();
+        	ViewBag.ClaimsIdentity = Thread.CurrentPrincipal.Identity;
+        	return View();
 
-    }
+    	}
 
 3.  Щелкните правой кнопкой мыши метод *Claims* и выберите **Добавить представление**.
 
@@ -357,6 +357,7 @@ Azure создает и активирует пространство имен.
 
 Чтобы продолжить изучение функций ACS и поэкспериментировать с другими сценариями, см. раздел [Служба Access Control 2.0][Служба Access Control 2.0].
 
+  [Что такое ACS?]: #what-is
   [Основные понятия]: #concepts
   [Предварительные требования]: #pre
   [Создание пространства имен Access Control]: #create-namespace
@@ -366,6 +367,7 @@ Azure создает и активирует пространство имен.
   [Просмотр утверждений, отправленных службой ACS]: #bkmk_viewClaims
   [Просмотр приложения на портале управления ACS]: #bkmk_VP
   [Добавление поставщика удостоверений]: #add-IP
+  [Что дальше?]: #whats-next
   [Служба Access Control 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
   [0]: ./media/active-directory-dotnet-how-to-use-access-control/acs-01.png
   [Средство идентификации и доступа]: http://go.microsoft.com/fwlink/?LinkID=245849

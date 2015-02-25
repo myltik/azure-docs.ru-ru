@@ -1,21 +1,6 @@
-﻿<properties 
-	pageTitle="Приступая к работе с эмулятором HDInsight | Azure" 
-	description="Узнайте, как использовать эмулятор HDInsight для Azure." 
-	editor="cgronlun" 
-	manager="paulettm" 
-	services="hdinsight" 
-	author="nitinme" 
-	authors="nitinme" 
-	documentationCenter=""/>
+<properties pageTitle="Приступая к работе с эмулятором HDInsight | Azure" description="Узнайте, как использовать эмулятор HDInsight для Azure." editor="cgronlun" manager="paulettm" services="hdinsight" author="nitinme" authors="nitinme" documentationCenter=""/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/06/2015" 
-	ms.author="nitinme"/>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/06/2015" ms.author="nitinme"/>
 
 # Приступая к работе с эмулятором HDInsight 
 
@@ -84,7 +69,7 @@
 
 В ходе установки также должно быть установлено несколько локальных служб. Далее представлен снимок экрана окна "Службы":
 
-![HDI.Emulator.Services][0]
+![HDI.Emulator.Services][image-hdi-emulator-services]
 
 Службы, связанные с эмулятором HDInsight, не запускаются по умолчанию. Для запуска служб запустите из командной строки Hadoop командлет **start\_local\_hdp_services.cmd** из папки <системный диск\>\hdp. Для автоматического запуска служб после перезагрузки компьютера запустите командлет **set-onebox-autostart.cmd**.  
 
@@ -469,7 +454,7 @@ JAR-файл и исходные файлы находятся в папке C:\
 - [Разработка программ MapReduce на Java для HDInsight][hdinsight-develop-mapreduce]
 - [Разработка программ MapReduce потоковой передачи Hadoop на C# для HDInsight][hdinsight-develop-deploy-streaming]
 - [Заметки о выпуске эмулятора HDInsight][hdinsight-emulator-release-notes]
-- [Форум MSDN с обсуждением HDInsight](http://social.msdn.microsoft.com/Forums/en-US/hdinsight)
+- [Форум MSDN с обсуждением HDInsight](http://social.msdn.microsoft.com/Forums/ru-ru/hdinsight)
 
 
 
@@ -495,5 +480,6 @@ JAR-файл и исходные файлы находятся в папке C:\
 [hadoop-commands-manual]: http://hadoop.apache.org/docs/r1.1.1/commands_manual.html
 
 [image-hdi-emulator-services]: ./media/hdinsight-get-started-emulator/HDI.Emulator.Services.png 
+
 
 <!--HONumber=42-->

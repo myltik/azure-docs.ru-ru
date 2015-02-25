@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="SendGrid Email Service" pageTitle="Как использовать службу электронной почты SendGrid (Java) - Azure"metaKeywords =" Azure SendGrid, служба электронной почты Azure, Azure SendGrid Java, служба электронной почты Azure Java" description="Узнайте, как отправить электронное сообщение с помощью службы электронной почты SendGrid в Azure. Примеры кода написаны на Java." metaCanonical="" services="" documentationCenter="Java" title="How to Send Email Using SendGrid from Java" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+<properties urlDisplayName="SendGrid Email Service" pageTitle="Как использовать службу электронной почты SendGrid (Java) - Azure"metaKeywords =" Azure SendGrid, служба электронной почты Azure, Azure SendGrid Java, служба электронной почты Azure Java" description="Узнайте, как отправить электронное сообщение с помощью службы электронной почты SendGrid в Azure. Примеры кода написаны на Java." metaCanonical="" services="" documentationCenter="Java" title="How to Send Email Using SendGrid from Java" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
 <tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="10/30/2014" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork" />
 
@@ -204,6 +204,7 @@ SendGrid из вашего приложения Azure. Исчерпывающи�
   [Практическое руководство. Использование библиотек javax.mail]: #bkmk_HowToUseJavax
   [Практическое руководство. Создание сообщения электронной почты]: #bkmk_HowToCreateEmail
   [Практическое руководство. Отправка сообщения электронной почты]: #bkmk_HowToSendEmail
+  [How to: Send an Email]: #bkmk_HowToSendEmail
   [Практическое руководство. Добавление вложения]: #bkmk_HowToAddAttachment
   [Практическое руководство. Использование фильтров для включения нижних колонтитулов, отслеживания и аналитики]: #bkmk_HowToUseFilters
   [Практическое руководство. Обновление свойств электронной почты]: #bkmk_HowToUpdateEmail
@@ -213,10 +214,10 @@ SendGrid из вашего приложения Azure. Исчерпывающи�
   [http://www.sendgrid.com/azure.html]: https://www.sendgrid.com/windowsazure.html
   [http://sendgrid.com/features]: https://sendgrid.com/features
   [http://www.oracle.com/technetwork/java/javamail]: http://www.oracle.com/technetwork/java/javamail/index.html
-  [Настройки фильтра]: https://sendgrid.com/docs/API_Reference/Web_API/filter_settings.html
-  [Документация по интерфейсу API SendGrid]: https://sendgrid.com/docs/API_Reference/index.html
+  [Параметры фильтров]: https://sendgrid.com/docs/API_Reference/Web_API/filter_settings.html
+  [документации по интерфейсу API SendGrid]: https://sendgrid.com/docs/API_Reference/index.html
   [http://sendgrid.com/azure.html]: https://sendgrid.com/windowsazure.html
-  [cloud-based email service]: https://sendgrid.com/email-solutions
-  [transactional email delivery]: https://sendgrid.com/transactional-email
+  [облачная служба электронной почты]: https://sendgrid.com/email-solutions
+  [доставки электронной почты]: https://sendgrid.com/transactional-email
 
 <!--HONumber=35.2-->

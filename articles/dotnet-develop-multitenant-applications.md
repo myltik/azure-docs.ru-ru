@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Multi-Tenant Web Application Pattern" pageTitle="Шаблон мультитенантного веб-приложения в архитектуре Windows Azure" metaKeywords="" description="Найдите обзоры архитектуры и шаблоны разработки, описывающие, как реализовать мультитенантное веб-приложение в Azure." metaCanonical="" services="" documentationCenter=".NET" title="Multitenant Applications in Azure" authors="wpickett" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Multi-Tenant Web Application Pattern" pageTitle="Шаблон мультитенантного веб-приложения в архитектуре Windows Azure" metaKeywords="" description="Найдите обзоры архитектуры и шаблоны разработки, описывающие, как реализовать мультитенантное веб-приложение в Azure." metaCanonical="" services="" documentationCenter=".NET" title="Multitenant Applications in Azure" authors="wpickett" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="wpickett" />
 
@@ -104,7 +104,7 @@ Azure предоставляет ряд способов подготовки н
 	- 	Копирование из главной справочной базы данных 
 	- 	Использование импорта и экспорта базы данных для подготовки новых баз данных из файла. 
 
-][].
+
 
 <!--links-->
 

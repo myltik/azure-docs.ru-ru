@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="How to use Notification Hubs with Java" pageTitle="Использование центров уведомлений с Java" metaKeywords="" description="Узнайте, как использовать центры уведомлений Azure из серверной части Java." metaCanonical="" services="mobile-services,notification-hubs,push,java" documentationCenter="" title="How to use Notification Hubs with Java" authors="piyushjo" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="How to use Notification Hubs with Java" pageTitle="Использование центров уведомлений с Java" metaKeywords="" description="Узнайте, как использовать центры уведомлений Azure из серверной части Java." metaCanonical="" services="mobile-services,notification-hubs,push,java" documentationCenter="" title="How to use Notification Hubs with Java" authors="piyushjo" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="java" ms.topic="article" ms.date="11/14/2014" ms.author="piyushjo" />
 
@@ -14,7 +14,7 @@
 * построение клиента REST для функций центров уведомлений на языке JAVA;
 * Следуйте учебнику [Приступая к работе](http://azure.microsoft.com/ru-ru/documentation/articles/notification-hubs-ios-get-started/) с выбранной мобильной платформой, реализация серверной части на языке Java.
 
-##<a name="client-interface"></a>Интерфейс клиента
+## <a name="client-interface"></a>Интерфейс клиента
 Интерфейс основного клиента предоставляет те же методы, что и [пакет SDK для центров уведомлений для .NET](http://msdn.microsoft.com/ru-ru/library/jj933431.aspx), это позволит вам напрямую переводить все учебники и примеры, доступные на данном сайте, а также предоставленные сообществом пользователей из Интернета.
 
 Весь доступный код находится в [Примере оболочки Java REST].
@@ -36,7 +36,7 @@
 	Notification n = Notification.createAppleNotifiation("APNS body");
 	hub.sendNotification(n);
 
-##<a name="implementation"></a>Реализация
+## <a name="implementation"></a>Реализация
 Завершите учебник [Приступая к работе], в последней секции которого осуществляется реализация серверной части (если вы еще не сделали этого).
 Кроме того, при желании вы можете использовать код из [образца оболочки Java REST] и сразу перейти к разделу [Завершение работы с учебником](#complete-tutorial) .
 
@@ -342,7 +342,7 @@
 После выполнения кода Java на целевом устройстве должно отобразиться уведомление.
 
 
-##<a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 В этом разделе было показано, как создать простой клиент Java REST для центров уведомлений. На данном этапе можно сделать следующее.
 
 * Скачать полный [Образец оболочки Java REST], содержащий весь указанный выше код, а также схему управления регистрацией.
@@ -353,6 +353,8 @@
 
 
 [Образец оболочки Java REST]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-java
-Учебник [Приступая к работе]: http://azure.microsoft.com/ru-ru/documentation/articles/notification-hubs-ios-get-started/
+[Примере оболочки Java REST]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-java
+[образца оболочки Java REST]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-java
+[Приступая к работе]: http://azure.microsoft.com/ru-ru/documentation/articles/notification-hubs-ios-get-started/
 
 <!--HONumber=35.1-->

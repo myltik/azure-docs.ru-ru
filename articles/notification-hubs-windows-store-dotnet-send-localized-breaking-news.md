@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Localized Breaking News" pageTitle="Концентраторы уведомлений для передачи локализованных экстренных новостей" metaKeywords="" description="Узнайте, как использовать центры уведомлений Azure Service Bus для отправки уведомлений о локализованных экстренных новостях." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send localized breaking news" authors="ricksal" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Localized Breaking News" pageTitle="Концентраторы уведомлений для передачи локализованных экстренных новостей" metaKeywords="" description="Узнайте, как использовать центры уведомлений Azure Service Bus для отправки уведомлений о локализованных экстренных новостях." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send localized breaking news" authors="ricksal" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
 # Использование концентраторов уведомлений для передачи локализованных экстренных новостей
@@ -25,7 +25,7 @@
 
 
 
-##Предварительные требования ##
+## Предварительные требования ##
 
 Необходимо выполнить задания учебника [Использование концентраторов уведомлений для передачи экстренных новостей], чтобы получить созданный в нем код, поскольку задания данного учебника основаны непосредственно на нем. 
 
@@ -202,8 +202,8 @@
 
 <!-- URLs. -->
 [Мобильная служба]: /ru-ru/develop/mobile/tutorials/get-started
-[ Уведомление пользователей с помощью концентраторов уведомлений: ASP.NET]: /ru-ru/manage/services/notification-hubs/notify-users-aspnet
-[ Уведомление пользователей с помощью концентраторов уведомлений: мобильные службы]: /ru-ru/manage/services/notification-hubs/notify-users
+[Уведомление пользователей с помощью концентраторов уведомлений: ASP.NET]: /ru-ru/manage/services/notification-hubs/notify-users-aspnet
+[Уведомление пользователей с помощью концентраторов уведомлений: мобильные службы]: /ru-ru/manage/services/notification-hubs/notify-users
 [Использование концентраторов уведомлений для передачи экстренных новостей]: /ru-ru/manage/services/notification-hubs/breaking-news-dotnet 
 
 [Отправить страницу приложения]: http://go.microsoft.com/fwlink/p/?LinkID=266582
@@ -219,6 +219,7 @@
 
 [Портал управления Azure]: https://manage.windowsazure.com/
 [Объект wns]: http://go.microsoft.com/fwlink/p/?LinkId=260591
-[Руководства по использованию концентраторов уведомлений]: http://msdn.microsoft.com/ru-ru/library/jj927170.aspx
+[Руководстве по использованию концентраторов уведомлений]: http://msdn.microsoft.com/ru-ru/library/jj927170.aspx
+[Руководство по использованию концентраторов уведомлений]: http://msdn.microsoft.com/ru-ru/library/jj927170.aspx
 [Инструкции по использованию концентраторов уведомлений для iOS]: http://msdn.microsoft.com/ru-ru/library/jj927168.aspx
-[Инструкции по использованию концентраторов уведомлений для магазина Windows]: http://msdn.microsoft.com/ru-ru/library/jj927172.aspx
+[Инструкциях по использованию концентраторов уведомлений для Магазина Windows]: http://msdn.microsoft.com/ru-ru/library/jj927172.aspx

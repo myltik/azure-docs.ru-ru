@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Specifying a Node.js Version" pageTitle="Указание версии Node.js" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="nodejs" title="Specifying a Node.js version in an Azure application" authors="larryfr" solutions="" manager="wpickett" editor="mollybos" />
+<properties urlDisplayName="Specifying a Node.js Version" pageTitle="Указание версии Node.js" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="nodejs" title="Specifying a Node.js version in an Azure application" authors="larryfr" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="na" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
@@ -10,7 +10,7 @@
 
 При размещении приложения Node.js может потребоваться использовать в приложении конкретную версию Node.js. Для приложений, размещаемых в Azure, этого можно добиться несколькими способами.
 
-##Версии по умолчанию
+## Версии по умолчанию
 
 В настоящее время Azure предоставляет Node.js версий 0.6.17, 0.6.20 и 0.8.4. Если не указано иное, будет использоваться версия 0.6.20 по умолчанию.
 
@@ -20,7 +20,7 @@
 </div>
 
 
-##Управление версиями с использованием package.json
+## Управление версиями с использованием package.json
 
 Можно указать требуемую версию Node.js, добавив в файл **package.json** следующий текст:
 
@@ -32,7 +32,7 @@
 
 Поскольку 0.6.22 не является одной из версий, доступных в среде размещения, будет использоваться самая новая из доступных версий серии 0.8, то есть 0.8.4.
 
-##Управление версиями облачных служб с использованием PowerShell
+## Управление версиями облачных служб с использованием PowerShell
 
 В случае размещения приложения в облачной службе и при использовании для развертывания Azure PowerShell, версию Node.js по умолчанию можно переопределить с помощью командлета **Set-AzureServiceProjectRole**. Например: 
 
@@ -40,7 +40,7 @@
 
 Можно также использовать **Get-AzureServiceProjectRoleRuntime** для получения списка версий Node.js, доступных для приложений, размещенных в виде облачной службы.
 
-##Использование настраиваемой версии с веб-сайтами Azure
+## Использование настраиваемой версии с веб-сайтами Azure
 
 Azure предоставляет несколько версий Node.js по умолчанию, но вам может потребоваться версия, недоступная по умолчанию. Если приложение размещено как веб-сайт Azure, это можно сделать с помощью файла **iisnode.yml**. Ниже рассмотрен процесс использования настраиваемой версии Node.Js на веб-сайте Azure.
 
@@ -80,11 +80,14 @@ Azure предоставляет несколько версий Node.js по у
 
 	После публикации приложения откройте веб-сайт в браузере. Должно появиться сообщение: "Hello from Azure running node version: v0.8.1".
 
-##Дальнейшие действия
+## Дальнейшие действия
 
 Теперь, когда вы научились указывать версии Node.js, используемые приложением, научимся [работать с модулями], [строить и развертывать веб-сайт Node.js] и [использовать средства командной строки Azure для Mac и Linux].
 
 [Использование средств командной строки Azure для Mac и Linux]: /ru-ru/documentation/articles/xplat-cli/
+[использовать средства командной строки Azure для Mac и Linux]: /ru-ru/documentation/articles/xplat-cli/
 [Средства командной строки Azure]: /ru-ru/documentation/articles/xplat-cli/
 [работа с модулями]: /ru-ru/documentation/articles/nodejs-use-node-modules-azure-apps/
+[работать с модулями]: /ru-ru/documentation/articles/nodejs-use-node-modules-azure-apps/
 [Построение и развертывание веб-сайта Node.js]: /ru-ru/documentation/articles/web-sites-nodejs-develop-deploy-mac/
+[строить и развертывать веб-сайт Node.js]: /ru-ru/documentation/articles/web-sites-nodejs-develop-deploy-mac/

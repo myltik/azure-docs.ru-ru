@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="SQL Database" pageTitle="Использование базы данных SQL (.NET) - руководство по компонентам Azure" metaKeywords="Начало работы с SQL Azure, Приступая к работе с SQL Azure, подключение к базе данных SQL Azure, SQL Azure ADO.NET, SQL Azure ODBC, SQL Azure EntityClient" description="Приступая к работе с Базой данных SQL. Узнайте, как создать экземпляр Базы данных SQL и подключиться к нему с помощью поставщика ADO.NET, ODBC и EntityClient." metaCanonical="" services="sql-database" documentationCenter=".NET" title="How to use Azure SQL Database in .NET applications" authors="jeffreyg" solutions="" manager="jeffreyg" editor="" />
+<properties urlDisplayName="SQL Database" pageTitle="Использование базы данных SQL (.NET) - руководство по компонентам Azure" metaKeywords="Начало работы с SQL Azure, Приступая к работе с SQL Azure, подключение к базе данных SQL Azure, SQL Azure ADO.NET, SQL Azure ODBC, SQL Azure EntityClient" description="Приступая к работе с Базой данных SQL. Узнайте, как создать экземпляр Базы данных SQL и подключиться к нему с помощью поставщика ADO.NET, ODBC и EntityClient." metaCanonical="" services="sql-database" documentationCenter=".NET" title="How to use Azure SQL Database in .NET applications" authors="jeffreyg" solutions="" manager="jeffreyg" editor="" />
 
 <tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/31/2015" ms.author="jeffreyg" />
 
@@ -44,7 +44,7 @@ ADO.NET, ODBC и поставщик EntityClient.
 
 <h3 name="createsrvr">Создание логического сервера и экземпляра базы данных</h3>
 
-1. Войдите на [портал управления Azure][].
+1. Войдите на [портал управления Azure](http://manage.windowsazure.com).
 
 2. Щелкните **+Создать** в нижней части страницы.
 
@@ -255,7 +255,7 @@ Framework][].
   [Создание базы данных SQL в Azure]: http://social.technet.microsoft.com/wiki/contents/articles/how-to-create-a-sql-azure-database.aspx
   [Соглашение об уровне обслуживания]: {localLink:1132} "SLA"
   [Поставщик EntityClient для платформы Entity Framework]: http://msdn.microsoft.com/ru-ru/library/bb738561.aspx
-  [Разработка в базе данных SQL Azure: инструкции]: http://msdn.microsoft.com/ru-ru/library/windowsazure/ee621787.aspx
+  [Разработка: в базе данных SQL Azure: инструкции]: http://msdn.microsoft.com/ru-ru/library/windowsazure/ee621787.aspx
   [База данных SQL]: http://msdn.microsoft.com/ru-ru/library/windowsazure/ee336279.aspx
 
 <!--HONumber=35.2-->

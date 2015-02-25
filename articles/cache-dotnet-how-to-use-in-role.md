@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Caching" pageTitle="Использование кэша роли (.NET) - руководство по компонентам Azure" metaKeywords="Azure cache, Azure caching, Azure cache, Azure caching, Azure store session state, Azure cache .NET, Azure cache C#" description="Сведения об использовании кэша роли Azure. Примеры написаны на языке C# код и использовать API-Интерфейс .NET." metaCanonical="" services="cache" documentationCenter=".NET" title="How to Use In-Role Cache for Azure Cache" authors="sdanie" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Caching" pageTitle="Использование кэша роли (.NET) - руководство по компонентам Azure" metaKeywords="Azure cache, Azure caching, Azure cache, Azure caching, Azure store session state, Azure cache .NET, Azure cache C#" description="Сведения об использовании кэша роли Azure. Примеры написаны на языке C# код и использовать API-Интерфейс .NET." metaCanonical="" services="cache" documentationCenter=".NET" title="How to Use In-Role Cache for Azure Cache" authors="sdanie" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="cache" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie" />
 
@@ -156,7 +156,7 @@
                allowDefinition="Everywhere" />
     </configSections>
 
-These new sections include references to a **dataCacheClients** element and a **cacheDiagnostics** element. These elements are also added to the **configuration** element.
+Эти новые разделы содержат ссылки на элементы **dataCacheClients** и **cacheDiagnostics**. Эти элементы также добавляются к элементу **configuration**.
 
     <dataCacheClients>
       <dataCacheClient name="default">
@@ -168,7 +168,7 @@ These new sections include references to a **dataCacheClients** element and a **
       <crashDump dumpLevel="Off" dumpStorageQuotaInMB="100" />
     </cacheDiagnostics>
 
-After the configuration is added, replace **[cache cluster role name]** with the name of the role that hosts the cache cluster.
+После добавления конфигурации замените **[имя роли кластера кэша]** именем роли, в которой размещен кластер кэша.
 
 >Если **[имя роли кластера кэша]** не заменяется именем роли, в которой размещен кластер кэша, то при обращении к кэшу порождается исключение **TargetInvocationException** с внутренним **DatacacheException** с сообщением "No such role exists" (Такой роли не существует).
 
@@ -314,7 +314,7 @@ After the configuration is added, replace **[cache cluster role name]** with the
       </sessionState>
     </system.web>-->
 
->Если ваш файл web.config не содержит этот закомментированный раздел после установки пакета кэша NuGet, убедитесь, что установлена самая новая версия диспетчера пакета (см. раздел [Установка диспетчера пакета NuGet)][], после чего удалите и переустановите этот пакет.
+>Если ваш файл web.config не содержит этот закомментированный раздел после установки пакета кэша NuGet, убедитесь, что установлена самая новая версия диспетчера пакета (см. раздел [Установка диспетчера пакета NuGet][], после чего удалите и переустановите этот пакет.
 
 Чтобы включить поставщик состояний сеансов для кэша роли, раскомментируйте указанный раздел. Кэш по умолчанию указан в представленном фрагменте кода. Чтобы использовать другой кэш, укажите его в атрибуте **cacheName**.
 
@@ -338,7 +338,7 @@ After the configuration is added, replace **[cache cluster role name]** with the
       </outputCache>
     </caching>-->
 
->Если ваш файл web.config не содержит этот закомментированный раздел после установки пакета кэша NuGet, убедитесь, что установлена самая новая версия диспетчера пакета (см. раздел [Установка диспетчера пакета NuGet)][], после чего удалите и переустановите этот пакет.
+>Если ваш файл web.config не содержит этот закомментированный раздел после установки пакета кэша NuGet, убедитесь, что установлена самая новая версия диспетчера пакета (см. раздел [Установка диспетчера пакета NuGet][], после чего удалите и переустановите этот пакет.
 
 Чтобы включить поставщик кэша вывода для кэша роли, раскомментируйте указанный раздел. Кэш по умолчанию указан в представленном фрагменте кода. Чтобы использовать другой кэш, укажите его в атрибуте **cacheName**.
 
@@ -377,7 +377,7 @@ After the configuration is added, replace **[cache cluster role name]** with the
 [Практическое руководство. Создание объекта DataCache]: #create-cache-object
 [Практическое руководство. Добавление и извлечение объекта из кэша]: #add-object
 [Практическое руководство. Указание срока действия объекта в кэше]: #specify-expiration
-[Практическое руководство. Хранение состояния сеанса ASP.NET в кэше]: #store-session
+[Практическое руководство. Сохранение состояния сеанса ASP.NET в кэше]: #store-session
 [Практическое руководство. Сохранение кэшированных данных вывода страниц ASP.NET в кэше]: #store-page
 [Целевой профиль поддерживаемой платформы .NET]: #prepare-vs-target-net
  
@@ -393,20 +393,20 @@ After the configuration is added, replace **[cache cluster role name]** with the
 [RoleCache10]: ./media/cache-dotnet-how-to-use-in-role/cache17.png
   
 <!-- LINKS -->
-[Настройка размера виртуальной машины]: http://go.microsoft.com/fwlink/?LinkId=164387
+[Практическое руководство по настройке размеров виртуальных машин]: http://go.microsoft.com/fwlink/?LinkId=164387
 [Практическое руководство. Программная настройка клиента кэша]: http://msdn.microsoft.com/ru-ru/library/windowsazure/gg618003.aspx
 [Практическое руководство. Программное задание возможности кэширования страницы]: http://msdn.microsoft.com/ru-ru/library/z852zf6b.aspx
 [Практическое руководство. Декларативное задание возможности кэширования страницы ASP.NET]: http://msdn.microsoft.com/ru-ru/library/zd1ysf1y.aspx
-[Вопросы планирования мощностей кэша роли]: http://go.microsoft.com/fwlink/?LinkId=252651
+[Вопросы планирования мощностей для кэша роли]: http://go.microsoft.com/fwlink/?LinkId=252651
 [Примеры кэша роли]: http://msdn.microsoft.com/ru-ru/library/jj189876.aspx
 [Кэш роли]: http://go.microsoft.com/fwlink/?LinkId=252658
 [Кэш роли]: http://www.microsoft.com/ru-ru/showcase/Search.aspx?phrase=azure+caching
-[Максимальная производительность. Ускорение работы приложений облачных служб с Azure Caching]: http://channel9.msdn.com/Events/TechEd/NorthAmerica/2013/WAD-B326#fbid=kmrzkRxQ6gU
+[Maximum Performance: Accelerate Your Cloud Services Applications with Azure Caching]: http://channel9.msdn.com/Events/TechEd/NorthAmerica/2013/WAD-B326#fbid=kmrzkRxQ6gU
 [Перенос в кэш роли]: http://msdn.microsoft.com/ru-ru/library/hh914163.aspx
 [Установка диспетчера пакета NuGet]: http://go.microsoft.com/fwlink/?LinkId=240311
 [Поставщик кэша вывода для кэша роли]: http://msdn.microsoft.com/ru-ru/library/windowsazure/gg185662.aspx
 [Директива OutputCache]: http://go.microsoft.com/fwlink/?LinkId=251979
-[Общие сведения о кэше роли]: http://go.microsoft.com/fwlink/?LinkId=254172
+[Обзор кэша роли]: http://go.microsoft.com/fwlink/?LinkId=254172
 [Поставщик состояний сеансов для кэша роли]: http://msdn.microsoft.com/ru-ru/library/windowsazure/gg185668.aspx
 [Блог группы разработчиков]: http://blogs.msdn.com/b/windowsazure/
 [Устранение неполадок и диагностика для кэша роли]: http://msdn.microsoft.com/ru-ru/library/windowsazure/hh914135.aspx
@@ -414,6 +414,6 @@ After the configuration is added, replace **[cache cluster role name]** with the
 [Портал управления Azure]: http://windows.azure.com/
 [Совмещенное кэширование в Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/gg278356.aspx
 
-[Какой кэш Azure подходит мне?]: http://msdn.microsoft.com/ru-ru/library/azure/dn766201.aspx
+[Какой кэш Azure подходит мне лучше всего?]: http://msdn.microsoft.com/ru-ru/library/azure/dn766201.aspx
 
 <!--HONumber=35.2-->

@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Как использовать кэш Azure Redis" metaKeywords="" description="Узнайте, как создать и использовать кэш в кэше Redis для Azure" metaCanonical="" services="cache" documentationCenter="API Management" title="How to Use Azure Redis Cache" authors="sdanie" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Как использовать кэш Azure Redis" metaKeywords="" description="Узнайте, как создать и использовать кэш в кэше Redis для Azure" metaCanonical="" services="cache" documentationCenter="API Management" title="How to Use Azure Redis Cache" authors="sdanie" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="cache" ms.workload="tbd" ms.tgt_pltfrm="cache-redis" ms.devlang="dotnet" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie" />
 
@@ -218,7 +218,7 @@
 
 Пакет NuGet загружает и добавляет требуемые ссылки на сборки и добавляет в файл web.config следующий раздел, который содержит необходимые в приложении ASP.NET настройки для использования кэширующего поставщика состояний сеансов Redis.
 
-  <sessionState mode="Custom" customProvider="MySessionStateStore">
+  	<sessionState mode="Custom" customProvider="MySessionStateStore">
       <providers>
         <!--
           <add name="MySessionStateStore" 
@@ -281,9 +281,9 @@
 Теперь, когда вы познакомились с основами кэша Redis для Azure,
 используйте следующие ссылки на дополнительную информацию, чтобы перейти к более сложным задачам кэширования.
 
--	Больше о клиенте StackExchange.Redis: [документация по клиенту кэша StackExchange.Redis][]
+-	Больше о клиенте StackExchange.Redis: [документация по клиенту кэша StackExchange.Redis](http://github.com/StackExchange/StackExchange.Redis#documentation)
 -	См. документацию по [redis][]: прочитайте статью о [типах данных redis][] и [пятнадцатиминутное введение в типы данных Redis][].
--   См. справочник MSDN: [кэш Azure Redis][]
+-   См. справочник MSDN: [кэш Azure Redis](http://go.microsoft.com/fwlink/?LinkId=398247)
 
 
 <!-- INTRA-TOPIC LINKS -->
@@ -344,7 +344,7 @@
 [Кэширование Azure]: http://go.microsoft.com/fwlink/?LinkId=252658
 [Практическое руководство. Декларативное задание возможности кэширования страницы ASP.NET]: http://msdn.microsoft.com/ru-ru/library/zd1ysf1y.aspx
 [Практическое руководство. Программное задание возможности кэширования страницы]: http://msdn.microsoft.com/ru-ru/library/z852zf6b.aspx
-[Настройка кэша в кэше Azure Redis]: http://msdn.microsoft.com/ru-ru/library/azure/dn793612.aspx
+[Настройка кэша Azure Redis]: http://msdn.microsoft.com/ru-ru/library/azure/dn793612.aspx
 
 [Модель конфигурации StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Configuration.md
 
@@ -355,20 +355,21 @@
 [Сведения о ценах - кэш]: http://www.windowsazure.com/ru-ru/pricing/details/cache/
 [Портал управления]: https://manage.windowsazure.com/
 
-[Общие сведения о кэше Redis для Azure]: http://go.microsoft.com/fwlink/?LinkId=320830
+[Обзор кэша Azure Redis]: http://go.microsoft.com/fwlink/?LinkId=320830
 [Кэш Azure Redis]: http://go.microsoft.com/fwlink/?LinkId=398247
 
 [Переход на кэш Redis для Azure]: http://go.microsoft.com/fwlink/?LinkId=317347
 [Примеры кэша Redis для Azure]: http://go.microsoft.com/fwlink/?LinkId=320840
-[Использование групп ресурсов для управления ресурсами Azure]:: http://azure.microsoft.com/ru-ru/documentation/articles/azure-preview-portal-using-resource-groups/
+[Использование групп для управления ресурсами Azure]:http://azure.microsoft.com/ru-ru/documentation/articles/azure-preview-portal-using-resource-groups/
 
 [StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis
 [Документация по клиенту кэша StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis#documentation
+[документации по клиенту кэша StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis#documentation
 
 [Redis]: http://redis.io/documentation
-[Типы данных Redis]: http://redis.io/topics/data-types
+[типах данных redis]: http://redis.io/topics/data-types
 [пятнадцатиминутное введение в типы данных Redis]: http://redis.io/topics/data-types-intro
 
-[Веб-сайты Microsoft Azure: как работают параметры приложения и строки подключения].: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
+[Веб-сайты Microsoft Azure: как работают строки приложений и строки подключения]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
 
 <!--HONumber=35.2-->

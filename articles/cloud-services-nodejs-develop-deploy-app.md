@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Cloud Service" pageTitle="Руководство по началу работы с Node.js - Учебник по Azure" metaKeywords="Azure node.js getting started, Azure Node.js tutorial, Azure Node.js tutorial" description="Полноценный учебник, в котором объясняется процесс разработки простого веб-приложения и  его развертывания на Azure." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Build and deploy a Node.js application to an Azure Cloud Service" authors="larryfr" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Cloud Service" pageTitle="Руководство по началу работы с Node.js - Учебник по Azure" metaKeywords="Azure node.js getting started, Azure Node.js tutorial, Azure Node.js tutorial" description="Полноценный учебник, в котором объясняется процесс разработки простого веб-приложения и  его развертывания на Azure." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Build and deploy a Node.js application to an Azure Cloud Service" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="wpickett" />
 
@@ -24,7 +24,7 @@
 
 Снимок экрана завершенного приложения приведен ниже:
 
-<p>< img src = "https://wacomdpsstablestorage.blob.core.windows.net/articlesmedia/demo-ppe.windowsazure.com/ru-ru/documentation/articles/cloud-services-nodejs-develop-deploy-app/20140107035927/node21.png" alt = "в окне браузера отображается страница hello world. URL-адрес указывает, что страница размещается в Azure."
+<p><img src="https://wacomdpsstablestorage.blob.core.windows.net/articlesmedia/demo-ppe.windowsazure.com/en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/20140107035927/node21.png" alt = "в окне браузера отображается страница hello world. URL-адрес указывает, что страница размещается в Azure.">
 </p>
 
 
@@ -57,15 +57,15 @@
 	Командлет **New-AzureServiceProject** создает следующие файлы.
 
 	-   **ServiceConfiguration.Cloud.cscfg**,
-        **ServiceConfiguration.Local.cscfg** and **ServiceDefinition.csdef** are
-        Azure-specific files necessary for publishing your
-        application.
+        **ServiceConfiguration.Local.cscfg** и **ServiceDefinition.csdef**
+        являютсяспециальными файлами Azure, необходимыми для
+        публикации вашегоприложения.
 		
-	For more information about these files, see
-        [Overview of Creating a Hosted Service for Azure][].
+	Дополнительную информацию об этих файлах см. в разделе
+        [Обзор создания размещенной службы для Azure][].
 
-	-   **deploymentSettings.json** stores local settings that are used by
-        the Azure PowerShell deployment cmdlets.
+	-   **deploymentSettings.json** хранит локальные параметры, используемые
+        командлетами развертыванияAzure PowerShell.
 
 4.  Введите следующую команду, чтобы добавить новую веб-роль с помощью **командлета Add-AzureNodeWebRole**:
 

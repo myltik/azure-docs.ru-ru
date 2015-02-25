@@ -1,8 +1,8 @@
-﻿<properties title="How to create a custom template image for RemoteApp" pageTitle="Создание настраиваемого образа шаблона для RemoteApp" description="Узнайте, как создать настраиваемый образ шаблона для удаленного приложения RemoteApp Этот шаблон можно использовать для гибридного или облачного развертывания." metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo" manager="mbaldwin" />
+<properties title="How to create a custom template image for RemoteApp" pageTitle="Создание настраиваемого образа шаблона для RemoteApp" description="Узнайте, как создать настраиваемый образ шаблона для удаленного приложения RemoteApp Этот шаблон можно использовать для гибридного или облачного развертывания." metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo" manager="mbaldwin" />
 
 <tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/12/2014" ms.author="elizapo" ms.manager="mbaldwin" />
 
-#Создание настраиваемого образа шаблона для RemoteApp
+# Создание настраиваемого образа шаблона для RemoteApp
 Azure RemoteApp использует образ шаблона Windows Server 2012 R2 для размещения всех программ, которыми вы планируете делиться с пользователями. Чтобы создать образ шаблона RemoteApp, можно использовать существующий образ или создать новый. К образу, который может быть передан для использования с Azure RemoteApp, предъявляются следующие требования:
 
 

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="SendGrid Email Service" pageTitle="Использование службы электронной почты SendGrid (Node.js) - Azure" metaKeywords="Azure SendGrid, служба электронной почты Azure, Azure SendGrid Node.js, Node.js для электронной почты Azure" description="Узнайте, как отправить электронное сообщение с помощью службы электронной почты SendGrid в Azure. Примеры написаны с использованием API Node.js." metaCanonical="" services="" documentationCenter="nodejs" title="How to Send Email Using SendGrid from Node.js" authors="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="SendGrid Email Service" pageTitle="Использование службы электронной почты SendGrid (Node.js) - Azure" metaKeywords="Azure SendGrid, служба электронной почты Azure, Azure SendGrid Node.js, Node.js для электронной почты Azure" description="Узнайте, как отправить электронное сообщение с помощью службы электронной почты SendGrid в Azure. Примеры написаны с использованием API Node.js." metaCanonical="" services="" documentationCenter="nodejs" title="How to Send Email Using SendGrid from Node.js" authors="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="10/30/2014" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com" />
 
@@ -236,15 +236,17 @@ SendGrid поддерживает различные веб-интерфейсы
   [Практическое руководство. Использование дополнительных служб SendGrid]: #useservices
   [1]: #nextsteps
 
-  
+  [Справочная информация о модуле Node.js SendGrid]: #reference
+  [Практическое руководство. Создание сообщения электронной почты]: #createemail
+  [Практическое руководство. Прикрепление вложения]: #addattachment
   
   [специальное предложение]: https://sendgrid.com/windowsazure.html
   
   
   [sendgrid-nodejs]: https://github.com/sendgrid/sendgrid-nodejs
-  [SMTP vs. Web API]: https://sendgrid.com/docs/Integrate/index.html
+  [SMTP и веб-интерфейс API]: https://sendgrid.com/docs/Integrate/index.html
   
-  [Filter Settings]: https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html
-  [SendGrid API documentation]: https://sendgrid.com/docs
-  [cloud-based email service]: https://sendgrid.com/email-solutions
-  [transactional email delivery]: https://sendgrid.com/transactional-email
+  [Параметры фильтров]: https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html
+  [документации по API-интерфейсу SendGrid]: https://sendgrid.com/docs
+  [облачная служба электронной почты]: https://sendgrid.com/email-solutions
+  [доставки электронной почты]: https://sendgrid.com/transactional-email

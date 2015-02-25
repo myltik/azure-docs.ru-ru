@@ -1,4 +1,4 @@
-﻿<properties title="Step 2: Upload existing data into an Azure Machine Learning experiment" pageTitle="Шаг 2. Отправка данных в эксперимент машинного обучения | Azure" description="Шаг 2. Передача существующих общедоступных их данных в Студию машинного обучения Azure" metaKeywords="" services="machine-learning" solutions="big-data" documentationCenter="" authors="garye" videoId="" scriptId="" manager="paulettm" editor="cgronlun" />
+<properties title="Step 2: Upload existing data into an Azure Machine Learning experiment" pageTitle="Шаг 2. Отправка данных в эксперимент машинного обучения | Azure" description="Шаг 2. Передача существующих общедоступных их данных в Студию машинного обучения Azure" metaKeywords="" services="machine-learning" solutions="big-data" documentationCenter="" authors="garye" videoId="" scriptId="" manager="paulettm" editor="cgronlun" />
 
 <tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/02/2014" ms.author="garye" />
 
@@ -23,7 +23,7 @@
 
 ----------
 
-#Шаг 2. Отправка существующих данных в эксперимент машинного обучения Azure  
+# Шаг 2. Отправка существующих данных в эксперимент машинного обучения Azure  
 
 Для разработки модели прогнозирования кредитного риска будет использоваться набор данных "UCI Statlog (German Credit Data) Data Set" из репозитория машинного обучения UCI. Он доступен здесь:  .
 <a href="http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)</a>
@@ -38,7 +38,7 @@
 
 Есть один интересный момент. Описание набора данных объясняет, что ошибочная классификация претендента как низкорискового, в то время как в действительности с ним связан высокий кредитный риск, обходится финансовому учреждению в 5 раз дороже, чем ошибочная классификация низкого кредитного риска как высокого. Один простой способ учесть это в нашем эксперименте заключается в том, чтобы 5 раз повторять записи, представляющие претендента с высоким кредитным риском. Затем, если модель ошибочно определит высокий кредитный риск как низкий, она сделает это 5 раз, по одному разу для каждого дубликата записи. Это увеличит стоимость ошибки в результатах обучения.  
 
-##Преобразование формата набора данных
+## Преобразование формата набора данных
 В исходном наборе данных используется формат с разделителями-пробелами. ML Studio лучше работает с файлами, в которых используются разделители-запятые (CSV), поэтому мы преобразуем набор данных, заменив пробелы запятыми.  
 
 Это можно сделать с помощью следующей команды Windows PowerShell:   
@@ -49,7 +49,7 @@
 
 	sed 's/ /,/g' german.data > german.csv  
 
-##Отправка набора данных в ML Studio
+## Отправка набора данных в ML Studio
 
 После преобразования данных в формат CSV необходимо отправить их в ML Studio.  
 

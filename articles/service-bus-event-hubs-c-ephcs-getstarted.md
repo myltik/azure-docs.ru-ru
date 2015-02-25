@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Приступая к работе с концентраторами событий" metaKeywords ="служебная шина Azure, концентратор событий, приступая к работе с концентраторами событий" description="Следуйте указаниям этого учебника, чтобы приступить к использованию концентраторов событий Azure, отправляющих события посредством C, и получению событий посредством C# с помощью EventProcessorHost" metaCanonical="" services="" documentationCenter="" title="Get Started with Event Hubs" authors="elioda" solutions="" manager="timlt" editor="" />
+<properties pageTitle="Приступая к работе с концентраторами событий" metaKeywords ="служебная шина Azure, концентратор событий, приступая к работе с концентраторами событий" description="Следуйте указаниям этого учебника, чтобы приступить к использованию концентраторов событий Azure, отправляющих события посредством C, и получению событий посредством C# с помощью EventProcessorHost" metaCanonical="" services="" documentationCenter="" title="Get Started with Event Hubs" authors="elioda" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="service-bus" ms.workload="core" ms.tgt_pltfrm="c" ms.devlang="csharp" ms.topic="hero-article" ms.date="10/27/2014" ms.author="elioda" />
 
@@ -22,7 +22,7 @@
 
 ## Создание концентратора событий
 
-1. Войдите на [портал управления Azure] и щелкните элемент **СОЗДАТЬ** в нижней части экрана.
+1. Войдите на [портал управления Azure](https://manage.windowsazure.com/) и щелкните элемент **СОЗДАТЬ** в нижней части экрана.
 
 2.  Последовательно щелкните элементы **Службы приложений**, **Служебная шина**, **Концентратор событий** и **Быстрое создание**.
 
@@ -87,4 +87,5 @@
 <!-- Links -->
 [Портал управления Azure]: https://manage.windowsazure.com/
 [Узел обработчика событий]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Обзор концентраторов событий]: http://msdn.microsoft.com/ru-ru/library/azure/dn836025.aspx
+[Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
+[Общие сведения о концентраторах событий]: http://msdn.microsoft.com/ru-ru/library/azure/dn836025.aspx

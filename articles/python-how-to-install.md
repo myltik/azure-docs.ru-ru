@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Install Python" pageTitle="Установка Python и пакета SDK - Azure" metaKeywords="Azure Python SDK" description="Узнайте, как установить Python и пакет SDK для использования с Azure." metaCanonical="" services="" documentationCenter="Python" title="Installing Python and the SDK" authors="huvalo" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Install Python" pageTitle="Установка Python и пакета SDK - Azure" metaKeywords="Azure Python SDK" description="Узнайте, как установить Python и пакет SDK для использования с Azure." metaCanonical="" services="" documentationCenter="Python" title="Installing Python and the SDK" authors="huvalo" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="11/10/2014" ms.author="huvalo" />
 
@@ -173,9 +173,11 @@ PTVS работает с установленными экземплярами V
 [Django Project - зрелая веб-платформа/CMS]: http://www.djangoproject.com 
 [IPython - расширенный интерфейс REPL/Notebook для Python]: http://ipython.org
 [IPython Notebook в Azure]: /ru-ru/documentation/articles/virtual-machines-python-ipython-notebook
-[Развертывание в облачных службах и на веб-сайтах]: /ru-ru/documentation/articles/cloud-services-web-sites-python-django-app-with-ptvs/
+[развертывания в облачных службах и веб-сайтах]: /ru-ru/documentation/articles/cloud-services-web-sites-python-django-app-with-ptvs/
 [Средства Python 2.0 для Visual Studio на CodePlex]: http://pytools.codeplex.com 
+[Средства Python для Visual Studio на CodePlex]: http://pytools.codeplex.com 
 [Каталог Python Package Index (PyPI)]: http://pypi.python.org/pypi
+[Python Package Index (PyPI)]: http://pypi.python.org/pypi
 [Virtualenv]: http://pypi.python.org/pypi/virtualenv 
 [Microsoft Azure SDK для Python 2.7]: http://go.microsoft.com/fwlink/?LinkId=254281&clcid=0x409
 [Microsoft Azure SDK для Python 3,4]: http://go.microsoft.com/fwlink/?LinkID=516990&clcid=0x409

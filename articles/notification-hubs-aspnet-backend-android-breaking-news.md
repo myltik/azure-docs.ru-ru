@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Breaking News" pageTitle="Учебник по передаче экстренных новостей в центрах уведомлений: Android" metaKeywords="" description="Узнайте, как использовать центры уведомлений Azure Service Bus для отправки уведомлений об экстренных новостях на устройства Android." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send breaking news" authors="ricksal" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Breaking News" pageTitle="Учебник по передаче экстренных новостей в центрах уведомлений: Android" metaKeywords="" description="Узнайте, как использовать центры уведомлений Azure Service Bus для отправки уведомлений об экстренных новостях на устройства Android." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send breaking news" authors="ricksal" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="11/22/2014" ms.author="ricksal" />
 
@@ -22,7 +22,7 @@
 
 Материал данного раздела основан на приложении, созданном в учебнике [Приступая к работе с центрами уведомлений][get-started]. Перед началом работы с этим учебником необходимо пройти задания учебника [Приступая к работе с центрами уведомлений][get-started].
 
-##<a name="adding-categories"></a>Добавление возможности выбора категорий в приложение
+## <a name="adding-categories"></a>Добавление возможности выбора категорий в приложение
 
 Прежде всего, необходимо добавить элементы пользовательского интерфейса для имеющегося основного действия, позволяющие пользователю выбирать категории для регистрации. Выбранные пользователем категории хранятся на устройстве. При запуске приложения в концентраторе уведомлений создается регистрация устройства с выбранными категориями, представленными в форме тегов. 
 
@@ -209,7 +209,7 @@
 
 Ваше приложение теперь может сохранять набор категорий в локальном хранилище на устройстве и регистрироваться в концентраторе уведомлений всякий раз, когда пользователь изменяет выбранные категории. 
 
-##<a name="register"></a>Регистрация для использования уведомлений
+## <a name="register"></a>Регистрация для использования уведомлений
 
 Эти действия позволяют зарегистрироваться в концентраторе уведомлений при запуске с использованием категорий, сохраненных в локальном хранилище. 
 
@@ -262,7 +262,7 @@
 
 [WACOM.INCLUDE [notification-hubs-back-end](../includes/notification-hubs-back-end.md)]
 
-##<a name="test-app"></a>Запуск приложения и создание уведомлений
+## <a name="test-app"></a>Запуск приложения и создание уведомлений
 
 1. В Eclipse выполните построение приложения и запустите его на устройстве или в эмуляторе.
 	
@@ -308,7 +308,7 @@
 [ Использование центров уведомлений для передачи локализованных экстренных новостей]: /ru-ru/manage/services/notification-hubs/breaking-news-localized-dotnet/ 
 [Уведомление пользователей с помощью центров уведомлений]: /ru-ru/manage/services/notification-hubs/notify-users
 [Мобильная служба]: /ru-ru/develop/mobile/tutorials/get-started/
-[Руководство по использованию центров уведомлений]: http://msdn.microsoft.com/ru-ru/library/jj927170.aspx
+[Общие сведения о концентраторах уведомлений]: http://msdn.microsoft.com/ru-ru/library/jj927170.aspx
 [Указания по использованию центров уведомлений для магазина Windows]: http://msdn.microsoft.com/ru-ru/library/jj927172.aspx
 [Отправка страницы приложения]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Мои приложения]: http://go.microsoft.com/fwlink/p/?LinkId=262039

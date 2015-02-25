@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Приступая к работе с концентраторами событий" metaKeywords ="служебная шина Azure, концентратор событий, приступая к работе с концентраторами событий" description="Следуйте указаниям этого учебника, чтобы приступить к использованию концентраторов событий Azure, отправляющих события с помощью Java, и их получению в кластере Apache Storm" metaCanonical="" services="" documentationCenter="" title="Get Started with Event Hubs" authors="elioda" solutions="" manager="timlt" editor="" />
+<properties pageTitle="Приступая к работе с концентраторами событий" metaKeywords ="служебная шина Azure, концентратор событий, приступая к работе с концентраторами событий" description="Следуйте указаниям этого учебника, чтобы приступить к использованию концентраторов событий Azure, отправляющих события с помощью Java, и их получению в кластере Apache Storm" metaCanonical="" services="" documentationCenter="" title="Get Started with Event Hubs" authors="elioda" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="service-bus" ms.workload="core" ms.tgt_pltfrm="java" ms.devlang="java" ms.topic="hero-article" ms.date="10/27/2014" ms.author="elioda" />
 
@@ -20,7 +20,7 @@
 
 ## Создание концентратора событий
 
-1. Войдите на [портал управления Azure] и щелкните элемент **СОЗДАТЬ** в нижней части экрана.
+1. Войдите на [портал управления Azure](https://manage.windowsazure.com/) и щелкните элемент **СОЗДАТЬ** в нижней части экрана.
 
 2.  Последовательно щелкните элементы **Службы приложений**, **Служебная шина**, **Концентратор событий** и **Быстрое создание**.
 
@@ -86,8 +86,8 @@
 [Портал управления Azure]: https://manage.windowsazure.com/
 [Узел обработчика событий]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Обзор концентраторов событий]: http://msdn.microsoft.com/ru-ru/library/azure/dn836025.aspx
-
+[Общие сведения о концентраторах событий]: http://msdn.microsoft.com/ru-ru/library/azure/dn836025.aspx
 [Apache Storm]: https://storm.incubator.apache.org
-[Обзор HDinsight Storm]: http://azure.microsoft.com/ru-ru/documentation/articles/hdinsight-storm-overview/
-[Анализируя данные от датчиков со Storm и HDInsight]: http://azure.microsoft.com/ru-ru/documentation/articles/hdinsight-storm-sensor-data-analysis/
-[Разработка приложений для обработки потоковой передачи данных с помощью SCP.NET и C# на Storm и HDInsight]: http://azure.microsoft.com/ru-ru/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/
+[Обзор HDinsight]: http://azure.microsoft.com/ru-ru/documentation/articles/hdinsight-storm-overview/
+[Анализ данных датчиков в Storm и HDInsight]: http://azure.microsoft.com/ru-ru/documentation/articles/hdinsight-storm-sensor-data-analysis/
+[Разработка приложений для обработки потоковых данных с помощью SCP.NET и C# на основе Storm и HDInsight]: http://azure.microsoft.com/ru-ru/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Get Started with Push (JS)" pageTitle="Приступая к работе с push-уведомлениями (Android JavaScript) | Центр мобильных разработок" metaKeywords="" description="Узнайте, как использовать мобильные службы Azure для отправки push-уведомлений в приложение JavaScript для Android." metaCanonical="http://www.windowsazure.com/ru-ru/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services " authors="ricksal"  solutions="" writer="ricksal" manager="dwrede" editor=""   />
+<properties urlDisplayName="Get Started with Push (JS)" pageTitle="Приступая к работе с push-уведомлениями (Android JavaScript) | Центр мобильных разработок" metaKeywords="" description="Узнайте, как использовать мобильные службы Azure для отправки push-уведомлений в приложение JavaScript для Android." metaCanonical="http://www.windowsazure.com/ru-ru/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services " authors="ricksal"  solutions="" writer="ricksal" manager="dwrede" editor=""   />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="10/16/2014" ms.author="ricksal" />
 
@@ -182,7 +182,7 @@
 * [Использование клиентской библиотеки Android для мобильных служб]
   <br/>Дополнительная информация об использовании мобильных служб с Android.
 
-* [Mobile Services server script reference]
+* [Справочник серверных сценариев мобильных служб]
   <br/>Дополнительная информация о реализации бизнес-логики в вашей мобильной службе.
 
 
@@ -208,7 +208,7 @@
 [Push-уведомлений для пользователей приложений]: /ru-ru/develop/mobile/tutorials/push-notifications-to-users-js
 [Авторизация пользователей с помощью сценариев]: /ru-ru/develop/mobile/tutorials/authorize-users-in-scripts-js
 [JavaScript и HTML]: /ru-ru/develop/mobile/tutorials/get-started-with-push-js
-[Set Up Google Play Services SDK] (Настройка пакета SDK служб Google Play): http://go.microsoft.com/fwlink/?LinkId=389801
+[Set Up Google Play Services SDK]: http://go.microsoft.com/fwlink/?LinkId=389801
 [Портал управления Azure]: https://manage.windowsazure.com/
 [Использование клиентской библиотеки Android для мобильных служб]: /ru-ru/documentation/articles/mobile-services-android-how-to-use-client-library
 
