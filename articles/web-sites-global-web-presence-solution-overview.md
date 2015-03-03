@@ -28,7 +28,7 @@
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/corp-website-visio.svg" width="100%" height="100%"></object>
 
 > [WACOM.NOTE]
-> В этом руководстве представлены некоторые наиболее распространенные вопросы и задачи, связанные с размещением общедоступного веб-сайта .COM на веб-сайтах Azure. Однако, существуют и другие распространенные решения, которые можно реализовать на веб-сайтах Azure. Для анализа этих решений можно воспользоваться другими руководствами: <a href="http://www.windowsazure.com/en-<a href="http://www.windowsazure.com/ru-ru/manage/services/web-sites/digital-marketing-campaign-solution-overview">Цифровые маркетинговые кампании</a> и us/manage/services/web-sites/business-application-solution-overview">Бизнес-приложения</a>.
+> В этом руководстве представлены некоторые наиболее распространенные вопросы и задачи, связанные с размещением общедоступного веб-сайта .COM на веб-сайтах Azure. Однако, существуют и другие распространенные решения, которые можно реализовать на веб-сайтах Azure. Для анализа этих решений можно воспользоваться другими руководствами: <a href="http://www.windowsazure.com/ru-ru/manage/services/web-sites/digital-marketing-campaign-solution-overview">Цифровые маркетинговые кампании</a> и <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/business-application-solution-overview">Бизнес-приложения</a>.
 
 ### Создание с нуля или перенос существующих ресурсов
 
