@@ -1,6 +1,20 @@
-<properties pageTitle="Запись образа виртуальной машины под управлением Windows Server" description="Узнайте, как записать образ виртуальной машины (ВМ) Azure под управлением Windows Server 2008 R2." services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor="tysonn"/>
+﻿<properties 
+	pageTitle="Запись образа виртуальной машины под управлением Windows Server" 
+	description="Узнайте, как записать образ виртуальной машины (ВМ) Azure под управлением Windows Server 2008 R2." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="KBDAzure" 
+	manager="timlt" 
+	editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="11/24/2014" ms.author="kathydav"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/24/2014" 
+	ms.author="kathydav"/>
 
 #Как записать виртуальную машину Windows, чтобы использовать в качестве шаблона#
 
@@ -22,13 +36,13 @@ Azure воспринимает этот шаблон как образ и хра
 2.	Откройте окно командной строки с правами администратора.
 
 
-3.	Измените каталог на  `%windir%\system32\sysprep` и запустите файл sysprep.exe.
+3.	Измените каталог на `%windir%\system32\sysprep` и запустите файл sysprep.exe.
 
 
 4. 	Откроется диалоговое окно **Программа подготовки системы**. Выполните следующее:
 
 
-	- В разделе **Действие по очистке системы** выберите **Запуск при первом включении компьютера (OOBE)** и убедитесь, что установлен флажок **Обобщить**. Дополнительную информацию об использовании Sysprep см. в разделе [Как использовать Sysprep: Введение][].
+	- В разделе **Действие по очистке системы** выберите **Запуск при первом включении компьютера (OOBE)** и убедитесь, что установлен флажок **Обобщить**. Дополнительную информацию об использовании Sysprep см. в разделе [Как использовать Sysprep: введение][].
 
 	- В разделе **Параметры завершения работы** выберите **Завершение работы**.
 
@@ -53,21 +67,20 @@ Azure воспринимает этот шаблон как образ и хра
 
 12.	Щелкните галочку, чтобы записать образ. 
 
-  **ПРИМЕЧАНИЕ. При записи образа обобщенной виртуальной машины эта виртуальная машина будет удалена.**
+  **ПРИМЕЧАНИЕ. При записи образа обобщенной виртуальной машины эта виртуальная машина удаляется.**
 
-	Новый образ станет доступным в разделе **Образы**.
-
-	![Image capture successful](./media/virtual-machines-capture-image-windows-server/VMCapturedImageAvailable.png)
+ Новый образ станет доступным в разделе **Образы**.
+ ![Image capture successful](./media/virtual-machines-capture-image-windows-server/VMCapturedImageAvailable.png)
 
 ##Дальнейшие действия##
 Образ готов к использованию в качестве шаблона для создания виртуальных машин. Для этого создайте настраиваемую виртуальную машину **Из коллекции** и выберите образ, который вы только что создали. Инструкции приведены в разделе [Как создать настраиваемую виртуальную машину][].
 
 	
-[Образы виртуальных машин в Azure]: http://msdn.microsoft.com/ru-ru/library/azure/dn790290.aspx
-[Как создать настраиваемую виртуальную машину]: ../virtual-machines-create-custom/
+[Образы виртуальных машин в Azure]: http://msdn.microsoft.com/library/azure/dn790290.aspx
+[Создание настраиваемой виртуальной машины]: ../virtual-machines-create-custom/
 [Как присоединить диск данных к виртуальной машине]: ../storage-windows-attach-disk/
-[Как войти в виртуальную машину под управлением Windows Server]:http://www.windowsazure.com/ru-ru/manage/windows/how-to-guides/log-on-a-windows-vm/
-[Как использовать Sysprep: Введение]:http://technet.microsoft.com/ru-ru/library/bb457073.aspx
+[Как войти в виртуальную машину под управлением Windows Server]:http://azure.microsoft.com/manage/windows/how-to-guides/log-on-a-windows-vm/
+[Как использовать Sysprep: введение]:http://technet.microsoft.com/ library/bb457073.aspx
 [Запуск Sysprep.exe]: ./media/virtual-machines-capture-image-windows-server/SysprepCommand.png
 [Ввод параметров Sysprep.exe]: ./media/virtual-machines-capture-image-windows-server/SysprepGeneral.png
 [Виртуальная машина остановлена]: ./media/virtual-machines-capture-image-windows-server/SysprepStopped.png
@@ -76,5 +89,4 @@ Azure воспринимает этот шаблон как образ и хра
 [Успешная запись образа]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
 [Использование записанного образа]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
 
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

@@ -1,10 +1,24 @@
-<properties pageTitle="Создание настраиваемой виртуальной машины в Azure" description="Узнайте, как создать настраиваемую виртуальную машину в Azure." services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor="tysonn"/>
+﻿<properties 
+	pageTitle="Создание настраиваемой виртуальной машины в Azure" 
+	description="Узнайте, как создать настраиваемую виртуальную машину в Azure." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="KBDAzure" 
+	manager="timlt" 
+	editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/12/2014" ms.author="kathydav"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/12/2014" 
+	ms.author="kathydav"/>
 
 #Как создать настраиваемую виртуальную машину
 
- *Настраиваемая* виртуальная машина - это виртуальная машина, созданная с помощью метода **Из коллекции**, который обеспечивает больший выбор настроек, чем метод **Быстрое создание**. Вот какие параметры доступны:
+Настраиваемая виртуальная машина - это виртуальная машина, которую вы можете создать с использованием параметра **Из коллекции** , так как он предоставляет больше возможностей для настройки конфигурации, чем параметр **Быстрое создание**. Вот какие параметры доступны:
 
 - Подключение виртуальной машины к виртуальной сети.
 - Установка агента виртуальной машины и расширений, таких как защита от вредоносных программ 
@@ -16,4 +30,5 @@
 [AZURE.INCLUDE [virtual-machines-create-WindowsVM](../includes/virtual-machines-create-WindowsVM.md)]
 
 
-<!--HONumber=42-->
+
+<!--HONumber=45--> 

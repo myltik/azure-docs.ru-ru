@@ -1,6 +1,20 @@
-<properties pageTitle="Изменение буквы диска для временного диска Windows" description="Описывается переназначение временного диска на виртуальной машине с ОС Windows в Azure" services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor=""/>
+﻿<properties 
+	pageTitle="Изменение буквы диска для временного диска Windows" 
+	description="Описывается переназначение временного диска на виртуальной машине с ОС Windows в Azure" 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="KBDAzure" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/15/2015" ms.author="kathydav"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/15/2015" 
+	ms.author="kathydav"/>
 
 #Изменение буквы диска для временного диска Windows
 
@@ -10,7 +24,7 @@
 
 Если вы хотите использовать существующий диск данных на диске D, убедитесь, что вы также передали соответствующий VHD в учетную запись хранения. Указания см. в шагах 3 и 4 в разделе [Создание и отправка VHD Windows Server в Azure].
 
-> [AZURE.WARNING] Если вы меняете размер виртуальной машины, и при этом она перемещается на другой узел, временным диском снова станет диск D.
+> [AZURE.ПРЕДУПРЕЖДЕНИЕ] При изменении размера виртуальной машины и вызванного этим перемещения виртуальной машины на другой узел, временный диск возвращается обратно на диск D.
 
 ##Изменение буквы диска
 
@@ -22,7 +36,7 @@
 
 4. 	Снова войдите и измените букву диска с D на E.
 
-5.	На [портале управления Azure](http://manage.windowsazure.com) подключите существующий диск данных или пустой диск данных.
+5.	На [Портале управления Azure](http://manage.windowsazure.com) подключите существующий диск данных или пустой диск данных.
 
 6.	Снова войдите на виртуальную машину, инициализируйте диск и назначьте только что подключенному диску букву D.
 
@@ -38,12 +52,13 @@
 [Об учетных записях хранения Azure]
 
 <!--Link references-->
-[Как присоединить диск данных к виртуальной машине Windows]: ../storage-windows-attach-disk
-[О дисках виртуальных машин в Azure]: ../http://msdn.microsoft.com/ru-ru/library/azure/dn790303.aspx
-[Создание и отправка VHD Windows Server в Azure]: ../virtual-machines-create-upload-vhd-windows-server/
+[Подключение диска данных к виртуальной машине Windows]: ../storage-windows-attach-disk
+[О дисках виртуальных машин в Azure]: ../http://msdn.microsoft.com/library/azure/dn790303.aspx
+[Создание и отправка виртуального жесткого диска Windows Server в Azure]: ../virtual-machines-create-upload-vhd-windows-server/
 [Как войти в виртуальную машину под управлением Windows Server]: ../virtual-machines-log-on-windows-server/
 [Как отсоединить диск данных от виртуальной машины]: ../storage-windows-detach-disk/
 [Об учетных записях хранения Azure]: ../storage-whatis-account/
 
 
-<!--HONumber=42-->
+
+<!--HONumber=45--> 

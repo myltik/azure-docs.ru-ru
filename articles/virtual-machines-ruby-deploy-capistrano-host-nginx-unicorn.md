@@ -1,6 +1,20 @@
-<properties pageTitle="Развертывание веб-приложения Ruby on Rails на виртуальной машине Azure с помощью Capistrano - учебник" description="Узнайте, как выполнить развертывание приложения Ruby on Rails на виртуальной машине Azure с помощью Capistrano, Unicorn и Nginx." authors="blackmist" manager="wpickett" editor="" services="virtual-machines" documentationCenter=""/>
+﻿<properties 
+	pageTitle="Развертывание веб-приложения Ruby on Rails на виртуальной машине Azure с помощью Capistrano - учебник" 
+	description="Узнайте, как выполнить развертывание приложения Ruby on Rails на виртуальной машине Azure с помощью Capistrano, Unicorn и Nginx." 
+	authors="blackmist" 
+	manager="wpickett" 
+	editor="" 
+	services="virtual-machines" 
+	documentationCenter=""/>
 
-<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-linux" ms.devlang="ruby" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="ruby" 
+	ms.topic="article" 
+	ms.date="09/17/2014" 
+	ms.author="larryfr"/>
 
 
 #Развертывание веб-приложения Ruby on Rails на виртуальной машине Azure с помощью Capistrano
@@ -53,11 +67,11 @@
 
 1. Установка Ruby в среде разработки. Действия, необходимые для установки, зависят от операционной системы.
 
-	* **Apple OS X** - Для OS X существует несколько дистрибутивов Ruby. Данное руководство было проверено на OS X с использованием [Homebrew](http://brew.sh/) для установки **rbenv**, **ruby-build** и **Ruby 2.0.0-p451**. Информацию об установке можно найти на веб-сайте [https://github.com/sstephenson/rbenv/](https://github.com/sstephenson/rbenv/).
+	* **Apple OS X** - существует несколько выпусков Ruby для OS X. Данное руководство было проверено на OS X с помощью [Homebrew](http://brew.sh/) для установки **rbenv**, **ruby-build** и **Ruby 2.0.0-p451**. Информацию об установке можно найти на веб-сайте [https://github.com/sstephenson/rbenv/](https://github.com/sstephenson/rbenv/).
 
-	* **Linux** - Используйте собственную систему управления пакетами распространения. Этот учебник был проверен на Ubuntu 12.10 с использованием **rbenv**, **ruby-build** и **Ruby 2.0.0-p451**.
+	* **Linux** - используйте собственную систему управления пакетами распространения. Этот учебник был проверен на Ubuntu 12.10 с использованием **rbenv**, **ruby-build** и **Ruby 2.0.0-p451**.
 
-	* **Windows** - Для Windows доступно несколько дистрибутивов Ruby. Этот учебник был проверен с использованием [RubyInstaller](http://RubyInstaller.org/) для установки **Ruby 2.0.0-p451**. Команды выполнялись с использованием командной строки **GitBash**, доступной в [Git для Windows](http://git-scm.com/download/win).
+	* **Windows** - для Windows доступно несколько выпусков Ruby. Этот учебник был проверен с использованием [RubyInstaller](http://RubyInstaller.org/) для установки **Ruby 2.0.0-p451**. Команды выполнялись с использованием командной строки **GitBash**, доступной в [Git для Windows](http://git-scm.com/download/win).
 
 2. Откройте новое окно командной строки или сеанс терминала и введите следующую команду для установки Ruby on Rails:
 
@@ -93,9 +107,9 @@
 
 		rake db:migrate
 
-	В результате создается схема базы данных для сохранения записей с использованием поставщика базы данных по умолчанию для Rails, т. е. [Базы данных SQLite3].[sqlite3].
+	В результате создается схема базы данных для сохранения записей с использованием поставщика базы данных по умолчанию для Rails, т. е. [Базы данных SQLite3][sqlite3].
 
-4. Чтобы отобразить индекс записей в качестве домашней страницы, измените файл **config/routes.rb** и добавьте следующее после строки  `resources :posts`.
+4. Чтобы отобразить индекс записей в качестве домашней страницы, измените файл **config/routes.rb** т добавьте следующее после строки `resources :posts`.
 
 		root 'posts#index'
 
@@ -145,7 +159,7 @@
 
 Следуйте инструкциям, указанным [здесь][vm-instructions], чтобы создать виртуальную машину Azure с операционной системой Linux.
 
-1. Войдите на [портал управления Azure][management-portal]. На панели команд щелкните **Создать**.
+1. Войдите на [Портал управления Azure][management-portal]. На панели команд щелкните **Создать**.
 
 2. Щелкните **Виртуальная машина** и **Из коллекции**.
 
@@ -211,7 +225,7 @@
 
 	ruby -v
 
-В результате должно быть возвращено значение `ruby 2.0.0p451` в качестве версии.
+Эта команда должна вернуть `ruby 2.0.0p451` в качестве версии.
 
 ###Установка PostgreSQL
 
@@ -234,7 +248,7 @@
 
 		psql -U my_username -W my_database
 
-	После этого должна появиться командная строка  `database=>`. Чтобы выйти из служебной программы psql, введите  `\q` в командной строке.
+	После этого должна появиться командная строка  `database=>`. Чтобы выйти из служебной программы psql, введите `\q` в командной строке.
 
 ###<a id="nginx"></a>Тестирование Nginx
 
@@ -293,7 +307,7 @@
 
 		cap install
 
-	После выполнения команды  `cap install` в приложение добавятся следующие файлы и каталоги.
+	После выполнения команды `cap install` в приложение добавятся следующие файлы и каталоги.
 
 		├── Capfile
 		├── config
@@ -309,7 +323,7 @@
 
 	В папке **capistrano** содержатся задачи и другие файлы, которые используются в процессе развертывания.
 
-5. Измените **Capfile** в корне приложения и раскомментируйте следующие строки, удалив знак __#__ в начале строки.
+5. Измените **Capfile** в корне приложения и раскомментируйте следующие строки, удалив символ __#__ в начале строки.
 
 		require 'capistrano/rbenv'
 		require 'capistrano/bundler'
@@ -325,7 +339,7 @@
 
 	После выполнения указанных выше изменений сохраните файл.
 
-6.  Измените файл **config/deploy.rb** и замените его содержимое следующим. Замените **YourApplicationName** именем своего приложения и замените **https://github.com/YourGitHubName/YourRepoName.git** URL-адресом репозитория GitHub для данного проекта.
+6.  Измените файл **config/deploy.rb** и замените его содержимое следующим. Замените **YourApplicationName** на имя своего приложения и замените **https://github.com/YourGitHubName/YourRepoName.git** URL-адрес репозитория GitHub для данного проекта.
 
 		lock '3.1.0'
 		# application name and the github repository
@@ -408,7 +422,7 @@
 
 	Capistrano подключается к ВМ с использованием SSH, а затем создает каталог (~/apps), в котором будет развертываться приложение. Если это первое развертывание, пакет capistrano-postgresql также создает роль и базу данных в PostgreSQL на сервере. Кроме этого, он создает файл конфигурации database.yml, который будет использоваться Rails для подключения к базе данных.
 
-	> [AZURE.NOTE] Если во время развертывания возникает ошибка **Ошибка при чтении длины ответа из сокета аутентификации**, может понадобиться запустить агент SSH в среде разработки, используя команду `ssh-agent`. Например, добавьте `eval $(ssh-agent)` в файл ~/.bash_profile.
+	> [AZURE.NOTE] При появлении сообщения об ошибке **Ошибка при чтении из сокета проверки подлинности длины ответа** во время развертывания, может потребоваться запустить агент SSH в среде разработки с помощью команды `ssh-agent`. Например, добавьте `eval $(ssh-agent)` в файл ~/.bash\_profile.
 	> 
 	> Кроме этого, может понадобиться добавить ключ SSH в кэш агента, используя команду  `ssh-add`.
 
@@ -422,7 +436,7 @@
 
 	> [AZURE.NOTE] Некоторые части развертывания могут возвращать "состояние выхода 1 (сбой)". В общем случае на это можно не обращать внимания, если развертывание завершается успешно.
 
-	> [AZURE.NOTE] На некоторых системах можно столкнуться с ситуацией, когда агенту SSH не удается отправить данные для входа на удаленную виртуальную машину во время аутентификации в GitHub. В таких случаях можно обойти ошибку, изменив файл **config/deploy.rb** и изменив строку  `set :repo_url` для использования HTTPS во время доступа к Github. При использовании HTTPS необходимо назначить имя пользователя и пароль GitHub (или маркер проверки подлинности) как часть URL-адреса. Например:
+	> [AZURE.NOTE] На некоторых системах можно столкнуться с ситуацией, когда агенту SSH не удается отправить данные для входа на удаленную виртуальную машину во время аутентификации в GitHub. В таких случаях можно обойти ошибку, изменив файл **config/deploy.rb** и изменив строку `set :repo_url` для использования HTTPS во время доступа к Github. При использовании HTTPS необходимо назначить имя пользователя и пароль GitHub (или маркер проверки подлинности) как часть URL-адреса. Например:
 	> 
 	> `set :repo_url, 'https://you:yourpassword@github.com/You/yourrepository.git'
 	> 
@@ -434,13 +448,13 @@
 
 В этой статье вы изучили, как создать и опубликовать базовое приложение Rails на виртуальной машине Azure с помощью Capistrano. Работа с базовым приложением, подобным рассматриваемому в данной статье, затрагивает лишь небольшую часть возможностей Capistrano при использовании для развертывания. Дополнительные сведения об использовании Capistrano см. по следующим ссылкам:
 
-* [Capistranorb.com](http://capistranorb.com) - Сайт Capistrano.
-* [Azure, Ruby on Rails, Capistrano 3 и PostgreSQL](http://wootstudio.ca/articles/tutorial-windows-azure-ruby-on-rails-capistrano-3-postgresql) - Альтернативный подход к развертыванию в Azure с использованием настраиваемых сценариев развертывания.
-* [Учебник по Capistrano 3](http://www.talkingquickly.co.uk/2014/01/deploying-rails-apps-to-a-vps-with-capistrano-v3/) - Учебник по работе с Capistrano 3.
+* [Capistranorb.com](http://capistranorb.com) - сайт Capistrano.
+* [Azure, Ruby on Rails, Capistrano 3, и PostgreSQL](http://wootstudio.ca/articles/tutorial-windows-azure-ruby-on-rails-capistrano-3-postgresql) - альтернативный подход к развертыванию на Azure с использованием настраиваемых скриптов развертывания.
+* [Руководство по Capistrano 3](http://www.talkingquickly.co.uk/2014/01/deploying-rails-apps-to-a-vps-with-capistrano-v3/) - руководство по работе с Capistrano 3.
 
 Более простой пример создания и развертывания приложения Rails на виртуальной машине Azure только с использованием SSH см. в разделе [Размещение веб-приложения Ruby on Rails с использованием виртуальной машины Linux][ruby-vm].
 
-Дополнительную информацию о Ruby on Rails см. на веб-сайте [Руководства по Ruby on Rails][rails-guides].
+Дополнительные сведения о Ruby on Rails см. на веб-сайте [Руководства по Ruby on Rails][rails-guides].
 
 Сведения об использовании пакета Azure SDK для Ruby для доступа к службам Azure из приложения Ruby см. в статьях:
 
@@ -470,7 +484,7 @@
 
 [management-portal]: https://manage.windowsazure.com/
 [sqlite3]: http://www.sqlite.org/
-[ssh-on-azure]: http://azure.microsoft.com/ru-ru/documentation/articles/linux-use-ssh-key/
+[ssh-on-azure]: http://azure.microsoft.com/documentation/articles/linux-use-ssh-key/
 [capistrano]: http://capistranorb.com
 
-<!--HONumber=42-->
+<!--HONumber=45--> 

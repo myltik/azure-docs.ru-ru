@@ -1,6 +1,20 @@
-<properties pageTitle="Предложения в области безопасности для виртуальных машин Azure" description="Краткий обзор основных функций безопасности для виртуальных машин Azure, а также ссылки на подробную информацию" services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor=""/>
+﻿<properties 
+	pageTitle="Предложения в области безопасности для виртуальных машин Azure" 
+	description="Краткий обзор основных функций безопасности для виртуальных машин Azure, а также ссылки на подробную информацию" 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="KBDAzure" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="01/23/2015" ms.author="kathydav"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-multiple" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/23/2015" 
+	ms.author="kathydav"/>
 
 #Предложения в области безопасности для виртуальных машин Azure
 
@@ -24,7 +38,8 @@ Azure предлагает несколько вариантов решений 
 Сетевые списки управления доступом (ACL) позволяют выборочно разрешать или отклонять входящий трафик в конечной точке виртуальной машины. Эта возможность фильтрации пакетов обеспечивает дополнительный уровень безопасности. Дополнительную информацию том, как это работает, и ссылки на инструкции см. в статье [О сетевых списках управления доступом (ACL)](http://go.microsoft.com/fwlink/?LinkId=506655).
 
 ##Дополнительные ресурсы
-[Ресурсы](http://azure.microsoft.com/ru-ru/support/trust-center/resources/) в центре управления безопасностью Microsoft Azure.
+[Ресурсы](http://azure.microsoft.com/support/trust-center/resources/) в центре управления безопасностью Microsoft Azure.
 
 
-<!--HONumber=42-->
+
+<!--HONumber=45--> 

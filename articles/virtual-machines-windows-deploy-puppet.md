@@ -1,6 +1,20 @@
-<properties pageTitle="О Puppet и виртуальных машинах Azure" description="Описывается установка и настройка Puppet на виртуальной машине в Azure" services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor=""/>
+﻿<properties 
+	pageTitle="О Puppet и виртуальных машинах Azure" 
+	description="Описывается установка и настройка Puppet на виртуальной машине в Azure" 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="KBDAzure" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/23/2015" ms.author="kathydav"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/23/2015" 
+	ms.author="kathydav"/>
 
 #О Puppet и виртуальных машинах Azure
 
@@ -11,7 +25,7 @@ Puppet является системой "клиент-сервер". Для у�
 - Puppet Master доступен в виде предварительно настроенного образа, установленного на сервере Ubuntu. Можно также установить Puppet Enterprise на существующий сервер, но для начала работы проще всего воспользоваться образом. Для установки агента потребуются сведения о сервере. 
 - Puppet Enterprise Agent доступен в виде расширения виртуальной машины, которое можно устанавливать при создании виртуальной машины или на существующую виртуальную машину.
 
-Для получения указаний скачайте руководство по началу работы на странице [Microsoft Windows и Azure](http://puppetlabs.com/solutions/microsoft).  
+Для получения указаний загрузите руководство по началу работы на странице [Microsoft Windows and Azure](http://puppetlabs.com/solutions/microsoft).  
 
 
 ##Дополнительные ресурсы
@@ -27,7 +41,8 @@ Puppet является системой "клиент-сервер". Для у�
 [Новые интеграции с Microsoft Azure и Visual Studio]: http://puppetlabs.com/blog/new-integrations-windows-azure-and-visual-studio
 [Как войти в виртуальную машину под управлением Windows Server]: ../virtual-machines-log-on-windows-server/
 [Как войти в виртуальную машину под управлением Linux]: ../virtual-machines-linux-how-to-log-on
-[Управление расширениями]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
+[Расширения и компоненты виртуальных машин Azure]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
 
-<!--HONumber=42-->
+
+<!--HONumber=45--> 

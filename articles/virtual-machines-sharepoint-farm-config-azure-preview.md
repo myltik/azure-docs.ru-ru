@@ -1,6 +1,20 @@
-<properties pageTitle="Сведения о конфигурации фермы серверов SharePoint" description="Описывается конфигурация по умолчанию для ферм SharePoint." services="virtual-machines" documentationCenter="" authors="JoeDavies-MSFT" manager="timlt" editor=""/>
+﻿<properties 
+	pageTitle="Сведения о конфигурации фермы серверов SharePoint" 
+	description="Описывается конфигурация по умолчанию для ферм SharePoint." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="JoeDavies-MSFT" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-sharepoint" ms.devlang="na" ms.topic="article" ms.date="1/26/2015" ms.author="josephd"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-sharepoint" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="1/26/2015" 
+	ms.author="josephd"/>
 
 
 #Сведения о конфигурации фермы серверов SharePoint#
@@ -111,4 +125,4 @@
 
 [SharePoint в службах инфраструктуры Azure](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 
-<!--HONumber=42-->
+<!--HONumber=45--> 

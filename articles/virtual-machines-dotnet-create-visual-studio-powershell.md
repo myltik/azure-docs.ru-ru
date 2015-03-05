@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Создание виртуальной машины для веб-проекта с помощью Visual Studio" description="Создание виртуальной машины для веб-сайта" services="virtual-machines" documentationCenter="" authors="ghogen" manager="douge" editor=""/>
+﻿<properties 
+	pageTitle="Создание виртуальной машины для веб-проекта с помощью Visual Studio" 
+	description="Создание виртуальной машины для веб-сайта" 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="kempb" 
+	manager="douge" 
+	editor="tglee"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="ghogen"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-multiple" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="02/02/2015" 
+	ms.author="kempb"/>
 
 # Создание виртуальной машины для веб-сайта с помощью Visual Studio
 
@@ -51,5 +65,4 @@
 [3]: ./media/dotnet-visual-studio-create-virtual-machine/CreateVM_Provisioning.png
 [4]: ./media/dotnet-visual-studio-create-virtual-machine/CreateVM_SolutionExplorer.png
 
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

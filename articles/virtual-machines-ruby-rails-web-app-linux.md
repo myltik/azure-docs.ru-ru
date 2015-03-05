@@ -1,6 +1,20 @@
-<properties pageTitle="Веб-приложение Ruby on Rails на виртуальной машине Azure с ОС Linux" description="Размещение веб-сайта на основе Ruby on Rails в Azure с помощью виртуальной машины Linux." services="virtual-machines" documentationCenter="ruby" authors="blackmist" manager="wpickett" editor=""/>
+﻿<properties 
+	pageTitle="Веб-приложение Ruby on Rails на виртуальной машине Azure с ОС Linux" 
+	description="Размещение веб-сайта на основе Ruby on Rails в Azure с помощью виртуальной машины Linux." 
+	services="virtual-machines" 
+	documentationCenter="ruby" 
+	authors="blackmist" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-linux" ms.devlang="ruby" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="ruby" 
+	ms.topic="article" 
+	ms.date="09/17/2014" 
+	ms.author="larryfr"/>
 
 
 
@@ -44,11 +58,11 @@
 
 1. Установка Ruby в среде разработки. Действия, необходимые для установки, зависят от операционной системы.
 
-	* **Apple OS X** - Для OS X существует несколько выпусков Ruby. Данный учебник был проверен на OS X с использованием [Homebrew](http://brew.sh/) для установки **rbenv** и **ruby-build**. Информацию об установке можно найти на веб-сайте [https://github.com/sstephenson/rbenv/](https://github.com/sstephenson/rbenv/).
+	* **Apple OS X** - существует несколько выпусков Ruby для OS X. Данное руководство было проверено на OS X с помощью [Homebrew](http://brew.sh/) для установки **rbenv** и **ruby-build**. Информацию об установке можно найти на веб-сайте [https://github.com/sstephenson/rbenv/](https://github.com/sstephenson/rbenv/).
 
-	* **Linux** - Используйте собственную систему управления пакетами распространения. Данное руководство было проверено на системе Ubuntu 12.10 с использованием пакетов ruby1.9.1 и ruby1.9.1-dev.
+	* **Linux** - используйте собственную систему управления пакетами распространения. Данное руководство было проверено на системе Ubuntu 12.10 с использованием пакетов ruby1.9.1 и ruby1.9.1-dev.
 
-	* **Windows** - Для Windows доступно несколько дистрибутивов Ruby. Данное руководство было проверено с использованием [RailsInstaller](http://railsinstaller.org/) 1.9.3-p392.
+	* **Windows** - для Windows доступно несколько выпусков Ruby. Данное руководство было проверено с использованием [RailsInstaller](http://railsinstaller.org/) 1.9.3-p392.
 
 2. Откройте новое окно командной строки или сеанс терминала и введите следующую команду для установки Ruby on Rails:
 
@@ -122,7 +136,7 @@
 
 > [AZURE.NOTE] Шаги в этом учебнике были выполнены на виртуальной машине Azure с размещенной ОС Ubuntu 12.10. При использовании другого дистрибутива Linux для выполнения тех же задач могут потребоваться другие действия.
 
-> [AZURE.IMPORTANT] Вам нужно **только** создать виртуальную машину. Остановитесь, когда узнаете, как подключиться к виртуальной машине с помощью SSH.
+> [AZURE.ВАЖНО] необходимо **только** создать виртуальную машину. Остановитесь, когда узнаете, как подключиться к виртуальной машине с помощью SSH.
 
 После создания виртуальной машины Azure выполните следующие действия, чтобы установить Ruby and Rails на виртуальной машине:
 
@@ -134,7 +148,7 @@
 
 		ssh railsdev@railsvm.cloudapp.net -p 61830
 
-	> [AZURE.NOTE] Если вы используете Windows как среду разработки, для применения функций SSH можно воспользоваться служебной программой, например **PuTTY**. PuTTY можно скачать на [странице скачивания PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+	> [AZURE.NOTE] Если вы используете Windows как среду разработки, для применения функций SSH можно воспользоваться служебной программой, например **PuTTY**. PuTTY можно скачать на [странице загрузки PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 2. В сеансе SSH выполните следующие команды, чтобы установить Ruby на виртуальной машине:
 
@@ -164,7 +178,7 @@
 
 	scp -r -P 54822 -C ~/blog_app railsdev@railsvm.cloudapp.net:
 
-> [AZURE.NOTE] Если вы используете Windows как среду разработки, для применения функций scp можно воспользоваться служебной программой, например **pscp**. Pscp можно скачать на [странице скачивания PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+> [AZURE.NOTE] Если вы используете Windows как среду разработки, для применения функций scp можно воспользоваться служебной программой, например **pscp**. Pscp можно скачать на [странице загрузки PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 Параметры, используемые для этой команды, приводят к получению следующих результатов:
 
@@ -225,7 +239,7 @@
 
 	* **ОБЩИЙ ПОРТ**: 80
 
-	* **ЧАСТНЫЙ ПОРТ**: &lt;информация о порте из шага 3&gt;.
+	* **ЧАСТНЫЙ ПОРТ**: &lt;информация о порте из шага 3 выше&gt;
 
 	После этого будет создан общий порт 80, который применяется для маршрутизации трафика на частный порт 3000, который прослушивает сервер Rails.
 
@@ -247,7 +261,7 @@
 
 Информацию об автоматизации развертывания приложения Rails, а также об использовании веб-сервера Unicorn и NginX см. в разделе [Unicorn+NginX+Capistrano с виртуальной машиной Azure][unicorn-nginx-capistrano].
 
-Дополнительную информацию о Ruby on Rails см. на веб-сайте [руководства по Ruby on Rails][rails-guides].
+Дополнительные сведения о Ruby on Rails см. на веб-сайте [Руководства по Ruby on Rails][rails-guides].
 
 Сведения об использовании пакета Azure SDK для Ruby для доступа к службам Azure из приложения Ruby см. в статьях:
 
@@ -294,5 +308,4 @@
 [new-endpoint]: ./media/virtual-machines-ruby-rails-web-app-linux/newendpoint.png
 
 
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

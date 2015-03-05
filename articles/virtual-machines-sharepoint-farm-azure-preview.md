@@ -1,6 +1,20 @@
-<properties pageTitle="Ферма серверов SharePoint" description="Описывается новая функциональность фермы серверов SharePoint, доступная на портале предварительной версии Azure" services="virtual-machines" documentationCenter="" authors="JoeDavies-MSFT" manager="timlt" editor=""/>
+﻿<properties 
+	pageTitle="Ферма серверов SharePoint" 
+	description="Описывается новая функциональность фермы серверов SharePoint, доступная на портале предварительной версии Azure" 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="JoeDavies-MSFT" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-sharepoint" ms.devlang="na" ms.topic="article" ms.date="1/26/2015" ms.author="josephd"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-sharepoint" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="1/26/2015" 
+	ms.author="josephd"/>
 
 #Ферма серверов SharePoint#
 
@@ -24,7 +38,7 @@
 
 Чтобы создать ферму SharePoint с помощью шаблона фермы серверов SharePoint, выполните следующее:
 
-1. На [портале предварительной версии Microsoft Azure](https://portal.azure.com/) щелкните **Создать** > **Ферма серверов SharePoint**.
+1. На [портале предварительной версии Microsoft Azure](https://portal.azure.com/), щелкните  **Создать** > **Ферма серверов SharePoint**.
 2. В области **Создать ферму SharePoint** введите имя группы ресурсов.
 3. Введите имя пользователя и пароль для локальной учетной записи администрирования на каждой виртуальной машине фермы. Выберите имя и пароль, которые сложно будет угадать, запишите их и сохраните в надежном месте.
 4. Если вам нужна ферма с высоким уровнем доступности, щелкните **Включить высокую доступность**.
@@ -67,12 +81,12 @@
 
 ##Диспетчер ресурсов Azure##
 
-Ферма серверов SharePoint использует диспетчер ресурсов Azure и скрипты для автоматического создания инфраструктуры и конфигураций серверов для этих ферм SharePoint. Дополнительную информацию см. в разделе [Использование Windows PowerShell с диспетчером ресурсов](http://azure.microsoft.com/ru-ru/documentation/articles/powershell-azure-resource-manager/).
+Ферма серверов SharePoint использует диспетчер ресурсов Azure и скрипты для автоматического создания инфраструктуры и конфигураций серверов для этих ферм SharePoint. Дополнительную информацию см. в разделе [Использование Windows PowerShell с диспетчером ресурсов](http://azure.microsoft.com/documentation/articles/powershell-azure-resource-manager/).
 
 ##Дополнительные ресурсы
 
 [SharePoint в службах инфраструктуры Azure](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 
-[Настройка фермы SharePoint в интрасети в гибридном облаке для тестирования](http://azure.microsoft.com/ru-ru/documentation/articles/virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
+[Настройка фермы SharePoint в интрасети в гибридном облаке для тестирования](http://azure.microsoft.com/documentation/articles/virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
 
-<!--HONumber=42-->
+<!--HONumber=45--> 

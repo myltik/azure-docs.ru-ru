@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Выбор имен пользователей для Linux в Azure" description="Узнайте, как выбирать имена пользователей для виртуальной машины Linux в Azure." services="virtual-machines" documentationCenter="" authors="szarkos" manager="timlt" editor=""/>
+﻿<properties 
+	pageTitle="Выбор имен пользователей для Linux в Azure" 
+	description="Узнайте, как выбрать имена пользователей для виртуальной машины Linux в Azure." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="szarkos" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="11/18/2014" ms.author="szark"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="szark"/>
 
 
 
@@ -231,5 +245,4 @@
 - www-data
 
 
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

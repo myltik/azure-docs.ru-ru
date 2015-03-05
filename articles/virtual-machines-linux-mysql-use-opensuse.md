@@ -1,12 +1,26 @@
-<properties pageTitle="Установка MySQL на виртуальной машине под управлением OpenSUSE Linux в Azure" description="Узнайте, как установить MySQL на виртуальной машине в Azure." services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor=""/>
+﻿<properties 
+	pageTitle="Установка MySQL на виртуальной машине под управлением OpenSUSE Linux в Azure" 
+	description="Узнайте, как установить MySQL на виртуальной машине в Azure." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="KBDAzure" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="12/12/2014" ms.author="kathydav"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/12/2014" 
+	ms.author="kathydav"/>
 
 # Установка MySQL на виртуальной машине под управлением OpenSUSE Linux в Azure
 
 [MySQL][MySQL] - это популярная база данных SQL с открытым исходным кодом. В этом учебнике показано:
 
-- как использовать [портал управления Azure][AzurePortal] для создания виртуальной машины OpenSUSE Linux из образа, доступного в Azure;
+- Как использовать [портал управления Azure][AzurePortal] для создания виртуальной машины OpenSUSE Linux из образа, доступного в Azure.
 - Как подключаться к виртуальной машине с использованием SSH или PuTTY.
 - Как установить MySQL на виртуальной машине.
 
@@ -27,4 +41,4 @@
 [MySQL]: http://www.mysql.com
 [AzurePortal]: http://manage.windowsazure.com
 
-<!--HONumber=42-->
+<!--HONumber=45--> 

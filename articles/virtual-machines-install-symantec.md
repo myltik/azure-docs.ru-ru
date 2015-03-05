@@ -1,6 +1,20 @@
-<properties pageTitle="Установка и настройка Symantec Endpoint Protection на виртуальной машине Azure" description="Описывается установка и настройка Symantec Endpoint Protection на виртуальной машине в Azure" services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor=""/>
+﻿<properties 
+	pageTitle="Установка и настройка Symantec Endpoint Protection на виртуальной машине Azure" 
+	description="Описывается установка и настройка Symantec Endpoint Protection на виртуальной машине в Azure" 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="KBDAzure" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="1/26/2015" ms.author="kathydav"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-multiple" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="1/26/2015" 
+	ms.author="kathydav"/>
 
 #Установка и настройка Symantec Endpoint Protection на виртуальной машине Azure
 
@@ -66,4 +80,5 @@
 
 [Управление расширениями]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
-<!--HONumber=42-->
+
+<!--HONumber=45--> 
