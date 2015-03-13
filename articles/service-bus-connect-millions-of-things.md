@@ -1,6 +1,20 @@
-<properties pageTitle="Подключение миллионов &quot;вещей&quot; к облаку" metaKeywords="Service Bus, internet of things" description="Узнайте, как подключить миллионы &quot;вещей&quot; к облаку с помощью Microsoft Azure." services="service-bus" documentationCenter=".NET" title="Подключение миллионов &quot;вещей&quot; к облаку" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+﻿<properties 
+	pageTitle="Подключение миллионов "вещей" к облаку" 
+	description="Узнайте, как подключить миллионы "вещей" к облаку с помощью Microsoft Azure." 
+	services="service-bus" 
+	documentationCenter=".net" 
+	authors="sethmanheim" 
+	manager="timlt" 
+	editor="mattshel"/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
+<tags 
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="02/10/2015" 
+	ms.author="sethm"/>
 
 # Подключение миллионов "вещей" к облаку
 
@@ -28,13 +42,15 @@
 -   [Azure Active Directory][Azure Active Directory]
 -   [Облачные службы][Облачные службы]
 
-  [Концентраторы событий]: http://msdn.microsoft.com/ru-ru/library/dn789973.aspx
-  [Шаблон проектирования "Шардинг"]: http://msdn.microsoft.com/ru-ru/library/dn589797.aspx
-  [Сервисная шина и AMQP 1.0]: http://msdn.microsoft.com/ru-ru/library/azure/jj841071.aspx
-  [Введение в служебную шину]: http://azure.microsoft.com/ru-ru/documentation/services/service-bus/
-  [Разделение сущностей обмена сообщениями]: http://msdn.microsoft.com/ru-ru/library/azure/dn520246.aspx
-  [Разделы шины обслуживания]: http://azure.microsoft.com/ru-ru/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
-  [Использование Apache Qpid Proton C со служебной шиной Azure в Linux и Windows]: http://msdn.microsoft.com/ru-ru/library/azure/dn235560.aspx
+  [Концентраторы событий]: http://msdn.microsoft.com/library/dn789973.aspx
+  [Шаблон проектирования "Шардинг"]: http://msdn.microsoft.com/library/dn589797.aspx
+  [Сервисная шина и AMQP 1.0]: http://msdn.microsoft.com/library/azure/jj841071.aspx
+  [Введение в служебную шину]: http://azure.microsoft.com/documentation/services/service-bus/
+  [Разделение сущностей обмена сообщениями]: http://msdn.microsoft.com/library/azure/dn520246.aspx
+  [Разделы шины обслуживания]: http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
+  [Использование Apache Qpid Proton C со служебной шиной Azure в Linux и Windows]: http://msdn.microsoft.com/library/azure/dn235560.aspx
   [Связь с поддержкой со стороны служб для интернет-устройств.]: http://blogs.msdn.com/b/clemensv/archive/2014/02/10/service-assisted-communication-for-connected-devices.aspx
-  [Azure Active Directory]: http://azure.microsoft.com/ru-ru/documentation/services/active-directory/
-  [Облачные службы]: http://azure.microsoft.com/ru-ru/documentation/services/cloud-services/
+  [Azure Active Directory]: http://azure.microsoft.com/documentation/services/active-directory/
+  [Облачные службы]: http://azure.microsoft.com/documentation/services/cloud-services/
+
+<!--HONumber=46--> 

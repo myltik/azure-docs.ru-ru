@@ -147,7 +147,7 @@
  
 	Файл содержит строку подключения SQL и строку подключения хранилища Azure для работы с большими двоичными объектами и очередями. 
 
-	Строка подключения SQL указывает на базу данных [SQL Server Express LocalDB](http://msdn.microsoft.com/ru-ru/library/hh510202.aspx).
+	Строка подключения SQL указывает на базу данных [SQL Server Express LocalDB](http://msdn.microsoft.com/library/hh510202.aspx).
  
 	В примере строки подключения к хранилищу использованы заполнители для имени учетной записи хранения и ключа доступа. Их необходимо заменить на строку подключения, которая содержит имя и ключ вашей учетной записи хранения.  
 
@@ -652,7 +652,7 @@
 		queueClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
 		imagesQueue = queueClient.GetQueueReference("blobnamerequest");
 
-Большая часть кода контроллера обычна для работы с моделью данных Entity Framework с использованием класса DbContext. Исключением является метод `Create` HttpPost, который отправляет файл и сохраняет его в хранилище больших двоичных объектов. Связыватель модели предоставляет методу объект [HttpPostedFileBase](http://msdn.microsoft.com/ru-ru/library/system.web.httppostedfilebase.aspx).
+Большая часть кода контроллера обычна для работы с моделью данных Entity Framework с использованием класса DbContext. Исключением является метод `Create` HttpPost, который отправляет файл и сохраняет его в хранилище больших двоичных объектов. Связыватель модели предоставляет методу объект [HttpPostedFileBase](http://msdn.microsoft.com/library/system.web.httppostedfilebase.aspx).
 
 		[HttpPost]
 		[ValidateAntiForgeryToken]

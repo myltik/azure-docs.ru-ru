@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Регистрация для проверки подлинности Microsoft: мобильные службы" description="Узнайте, как зарегистрироваться, чтобы использовать аутентификацию Майкрософт в приложении мобильных служб Azure." authors="ggailey777" services="mobile-services" documentationCenter="" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Регистрация для проверки подлинности Microsoft: мобильные службы" 
+	description="Узнайте, как зарегистрироваться, чтобы использовать аутентификацию Майкрософт в приложении мобильных служб Azure." 
+	authors="ggailey777" 
+	services="mobile-services" 
+	documentationCenter="" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="glenga"/>
 
 # Регистрация приложений для входа с использованием учетной записи Майкрософт
 

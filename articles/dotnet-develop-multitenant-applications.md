@@ -1,6 +1,20 @@
-<properties urlDisplayName="Multi-Tenant Web Application Pattern" pageTitle="Шаблон мультитенантного веб-приложения в архитектуре Windows Azure" metaKeywords="" description="Найдите обзоры архитектуры и шаблоны разработки, описывающие, как реализовать мультитенантное веб-приложение в Azure." metaCanonical="" services="" documentationCenter=".NET" title="Multitenant Applications in Azure" authors="wpickett" solutions="" manager="wpickett" editor="" />
+﻿<properties 
+	pageTitle="Шаблон мультитенантного веб-приложения в архитектуре Windows Azure" 
+	description="Найдите обзоры архитектуры и шаблоны разработки, описывающие, как реализовать мультитенантное веб-приложение в Azure." 
+	services="" 
+	documentationCenter=".net" 
+	authors="" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="wpickett" />
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/19/2014" 
+	ms.author="wpickett"/>
 
 
 <div>
@@ -108,7 +122,9 @@ Azure предоставляет ряд способов подготовки н
 
 <!--links-->
 
-[Размещение мультитенантного приложения в Azure]: http://msdn.microsoft.com/ru-ru/library/hh534480.aspx
-[Разработка мультитенатных приложений в Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/hh689716
+[Размещение мультитенантного приложения в Azure]: http://msdn.microsoft.com/library/hh534480.aspx
+[Разработка мультитенатных приложений в Azure]: http://msdn.microsoft.com/library/windowsazure/hh689716
 
 
+
+<!--HONumber=46--> 

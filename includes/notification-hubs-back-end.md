@@ -1,10 +1,10 @@
 ﻿
 В этом разделе показано, как отправлять уведомления из консольного приложения .NET и других приложений.
-При использовании мобильных служб используйте учебники [Начало работы с push-уведомлениями](/ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/) . Если вы хотите использовать Java или PHP, ознакомьтесь с разделом [Использование концентраторов уведомлений из Java/PHP](/ru-ru/documentation/articles/notification-hubs-java-backend-how-to/). Можно отправлять уведомления из любого серверного компонента с помощью [интерфейса REST концентраторов уведомлений].
+При использовании мобильных служб используйте учебники [Начало работы с push-уведомлениями](/ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/). Если вы хотите использовать Java или PHP, см. раздел [Использование центров уведомлений из Java/PHP](/ru-ru/documentation/articles/notification-hubs-java-backend-how-to/). Можно отправлять уведомления из любого серверного компонента с помощью [интерфейса REST центров уведомлений].
 
 Следующий код отправляет уведомления в Магазин Windows, на устройства Windows Phone, iOS и Android. 
 
-Пропустите шаги 1-3, если консольное приложение создано по завершении раздела [Начало работы с концентраторами уведомлений][get-started].
+Пропустите шаги 1-3, если консольное приложение создано по завершении раздела [Начало работы с центрами уведомлений][get-started].
 
 1. В Visual Studio создайте новое консольное приложение Visual C#: 
 
@@ -71,9 +71,9 @@
 
 	Этот код отправляет уведомления для каждого из шести тегов в массиве строк для магазина Windows, Windows Phone и устройств iOS. Использование тегов гарантирует, что устройства будут получать уведомления только для зарегистрированных категорий.
 	
-	> [AZURE.NOTE] Этот код сервера поддерживает клиенты Магазина Windows, Windows Phone, iOS и Android. Методы Send возвращают ошибочный ответ, когда концентратор уведомлений еще не настроен для определенной платформы клиента. 
+	> [AZURE.NOTE] Этот код сервера поддерживает клиенты Магазина Windows, Windows Phone, iOS и Android. Методы Send возвращают ошибочный ответ, когда центр уведомлений еще не настроен для определенной платформы клиента. 
 
-6. В приведенном выше коде замените заполнители "<имя концентратора>" и "<строка подключения с полным доступом>" именем концентратора уведомлений и строкой подключения для элемента *DefaultFullSharedAccessSignature*, полученного ранее.
+6. В приведенном выше коде замените заполнители "<имя центра>" и "<строка подключения с полным доступом>" именем центра уведомлений и строкой подключения для элемента *DefaultFullSharedAccessSignature*, полученного ранее.
 
 7. Добавьте следующие строки в метод **Main**:
 
@@ -93,12 +93,12 @@
 
 <!-- URLs. -->
 [get-started]: /ru-ru/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-[Использование концентраторов уведомлений для отправки уведомлений пользователям]: ../notificationhubs/tutorial-notify-users-mobileservices.md
+[Использование центров уведомлений для отправки уведомлений пользователям]: ../notificationhubs/tutorial-notify-users-mobileservices.md
 [Приступая к работе с мобильными службами]: /ru-ru/develop/mobile/tutorials/get-started/#create-new-service
 [Портал управления Azure]: https://manage.windowsazure.com/
 [Объект wns]: http://go.microsoft.com/fwlink/p/?LinkId=260591
-[Руководство по использованию концентраторов уведомлений]: http://msdn.microsoft.com/ru-ru/library/jj927170.aspx
-[Инструкции по использованию концентраторов уведомлений для магазина Windows]: http://msdn.microsoft.com/ru-ru/library/jj927172.aspx
-[Интерфейс REST концентраторов уведомлений]: http://msdn.microsoft.com/ru-ru/library/windowsazure/dn223264.aspx
+[Руководство по использованию центров уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
+[Инструкции по использованию центров уведомлений для магазина Windows]: http://msdn.microsoft.com/library/jj927172.aspx
+[Интерфейс REST центров уведомлений]: http://msdn.microsoft.com/library/windowsazure/dn223264.aspx
 
-<!--HONumber=42-->
+<!--HONumber=45--> 

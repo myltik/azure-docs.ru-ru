@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Как использовать клиент HTML для мобильных служб Azure" description="Узнайте, как использовать клиент HTML для мобильных служб Azure." services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Как использовать клиент HTML для мобильных служб Azure" 
+	description="Узнайте, как использовать клиент HTML для мобильных служб Azure." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="11/21/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-html" 
+	ms.devlang="javascript" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="glenga"/>
 
 
 # Использование клиента HTML/JavaScript для мобильных служб Azure
@@ -261,7 +275,8 @@
 	    todoItemTable.read("$filter=substringof('search_text',text)").then(function(items) {
 	        var itemElements = $.map(items, createUiForTodoItem);
 	        $("#todo-items").empty().append(itemElements);
-	        $("#no-items").toggle(items.length === 0);
+	        $("#no-items").toggle(ite
+	ms.length === 0);
 	    }, handleError);
 	}
 
@@ -380,12 +395,14 @@
 			query.read().then(function (todoItems) {
 			   // The space specified by 'placeToInsert' is an unordered list element <ul> ... </ul>
 			   var listOfItems = document.getElementById('placeToInsert');
-			   for (var i = 0; i < todoItems.length; i++) {
+			   for (var i = 0; i < todoIte
+	ms.length; i++) {
 			      var li = document.createElement('li');
 			      var div = document.createElement('div');
 			      div.innerText = todoItems[i].text;
 			      li.appendChild(div);
-			      listOfItems.appendChild(li);
+			      listOfIte
+	ms.appendChild(li);
 			   }
 			}).read().done(function (results) {
 			   alert(JSON.stringify(results));
@@ -616,32 +633,32 @@
 <!-- URLs. -->
 [Приступая к работе с мобильными службами]: /ru-ru/develop/mobile/tutorials/get-started-html
 [Пакет SDK для мобильных служб]: http://go.microsoft.com/fwlink/?LinkId=257545
-[Приступая к работе с данными]: http://www.windowsazure.com/ru-ru/develop/mobile/tutorials/get-started-with-data-html/
+[Приступая к работе с данными]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-with-data-html/
 [Приступая к работе с проверкой подлинности]: /ru-ru/develop/mobile/tutorials/get-started-with-users-html
 [Приступая к работе с проверкой подлинности Магазина Windows]: /ru-ru/develop/mobile/tutorials/get-started-with-users-js
-[then]: http://msdn.microsoft.com/ru-ru/library/windows/apps/br229728.aspx
-[done]: http://msdn.microsoft.com/ru-ru/library/windows/apps/hh701079.aspx
-[Дополнительные сведения о различиях между then и done]: http://msdn.microsoft.com/ru-ru/library/windows/apps/hh700334.aspx
-[Обработка ошибок в обещаниях]: http://msdn.microsoft.com/ru-ru/library/windows/apps/hh700337.aspx
+[then]: http://msdn.microsoft.com/library/windows/apps/br229728.aspx
+[done]: http://msdn.microsoft.com/library/windows/apps/hh701079.aspx
+[Дополнительные сведения о различиях между then и done]: http://msdn.microsoft.com/library/windows/apps/hh700334.aspx
+[Обработка ошибок в обещаниях]: http://msdn.microsoft.com/library/windows/apps/hh700337.aspx
 
-[sessionStorage]: http://msdn.microsoft.com/ru-ru/library/cc197062(v=vs.85).aspx
-[localStorage]: http://msdn.microsoft.com/ru-ru/library/cc197062(v=vs.85).aspx
+[sessionStorage]: http://msdn.microsoft.com/library/cc197062(v=vs.85).aspx
+[localStorage]: http://msdn.microsoft.com/library/cc197062(v=vs.85).aspx
 
-[ListView]: http://msdn.microsoft.com/ru-ru/library/windows/apps/br211837.aspx
-[Привязка данных (приложения Магазина Windows с использованием JavaScript и HTML)]: http://msdn.microsoft.com/ru-ru/library/windows/apps/hh758311.aspx
-[Краткое руководство по JavaScript для Магазина Windows]: http://www.windowsazure.com/ru-ru/develop/mobile/tutorials/get-started
-[Краткое руководство по HTML]: http://www.windowsazure.com/ru-ru/develop/mobile/tutorials/get-started-html
-[Приступая к работе с данными в JavaScript для Магазина Windows]: http://www.windowsazure.com/ru-ru/develop/mobile/tutorials/get-started-with-data-js
-[Приступая к работе с данными в HTML/JavaScript]: http://www.windowsazure.com/ru-ru/develop/mobile/tutorials/get-started-with-data-html/
-[Здесь можно просмотреть полный пример использования этого сценария]: http://www.windowsazure.com/ru-ru/develop/mobile/tutorials/single-sign-on-windows-8-js/
+[ListView]: http://msdn.microsoft.com/library/windows/apps/br211837.aspx
+[Привязка данных (приложения Магазина Windows с использованием JavaScript и HTML)]: http://msdn.microsoft.com/library/windows/apps/hh758311.aspx
+[Краткое руководство по JavaScript для Магазина Windows]: http://azure.microsoft.com/develop/mobile/tutorials/get-started
+[Краткое руководство по HTML]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-html
+[Приступая к работе с данными в JavaScript для Магазина Windows]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-with-data-js
+[Приступая к работе с данными в HTML/JavaScript]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-with-data-html/
+[Здесь можно просмотреть полный пример использования этого сценария]: http://azure.microsoft.com/develop/mobile/tutorials/single-sign-on-windows-8-js/
 [Приступая к работе с данными]: /ru-ru/develop/mobile/tutorials/get-started-with-data-html
 [Проверка и изменение данных с помощью скриптов]: /ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-html
 [Уточнение запросов c разбиением по страницам]: /ru-ru/develop/mobile/tutorials/add-paging-to-data-html
 [Авторизация пользователей с помощью скриптов]: /ru-ru/develop/mobile/tutorials/authorize-users-in-scripts-html
-[login]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj554236.aspx
+[login]: http://msdn.microsoft.com/library/windowsazure/jj554236.aspx
 [Проверка подлинности приложения с помощью единого входа]: /ru-ru/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/
 [Управляющие коды ASCII C0 и C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-[Интерфейс командной строки для управления таблицами мобильных служб]: http://www.windowsazure.com/ru-ru/manage/linux/other-resources/command-line-tools/#Mobile_Tables
+[Интерфейс командной строки для управления таблицами мобильных служб]: http://azure.microsoft.com/manage/linux/other-resources/command-line-tools/#Mobile_Tables
 [Справочник по параметрам системного запроса OData]: http://go.microsoft.com/fwlink/p/?LinkId=444502
 
 

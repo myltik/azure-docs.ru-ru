@@ -1,6 +1,21 @@
-﻿<properties pageTitle="Изменение модели данных в серверной мобильной службе для .NET" description="В этом разделе описываются инициализаторы модели данных и изменение модели данных в мобильной службы серверной части .NET." services="mobile-services" documentationCenter="" authors="ggailey777" writer="glenga" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Изменение модели данных в серверной мобильной службе для .NET" 
+	description="В этом разделе описываются инициализаторы модели данных и изменение модели данных в мобильной службы серверной части .NET." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	Writer="glenga" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="dotnet" ms.topic="article" ms.date="09/27/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/27/2014" 
+	ms.author="glenga"/>
 
 # Изменение модели данных в серверной мобильной службе для .NET
 
@@ -117,7 +132,8 @@
 
 Следующий код заполняет только столбец UserId:
  		    
-        context.TodoItems.AddOrUpdate(
+        context.TodoIte
+	ms.AddOrUpdate(
             t => t.UserId,
                 new TodoItem { UserId = 1 },
                 new TodoItem { UserId = 1 },
@@ -137,10 +153,10 @@
 [2]: ./media/mobile-services-dotnet-backend-how-to-use-code-first-migrations/sql-database-drop-tables.png
 
 <!-- URLs -->
-[DropCreateDatabaseIfModelChanges]: http://msdn.microsoft.com/ru-ru/library/gg679604(v=vs.113).aspx
-[Seed]: http://msdn.microsoft.com/ru-ru/library/hh829453(v=vs.113).aspx
+[DropCreateDatabaseIfModelChanges]: http://msdn.microsoft.com/library/gg679604(v=vs.113).aspx
+[Seed]: http://msdn.microsoft.com/library/hh829453(v=vs.113).aspx
 [Портал управления Azure]: https://manage.windowsazure.com/
-[DbContext]: http://msdn.microsoft.com/ru-ru/library/system.data.entity.dbcontext(v=vs.113).aspx
-[AddOrUpdate]: http://msdn.microsoft.com/ru-ru/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx
+[DbContext]: http://msdn.microsoft.com/library/system.data.entity.dbcontext(v=vs.113).aspx
+[AddOrUpdate]: http://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx
 
 <!--HONumber=42-->

@@ -87,7 +87,7 @@
 	<tr><td>Пароль пользователя кластера</td><td>Пароль пользователя кластера Hadoop.</td></tr>
 	</table>
 
-- **Рабочая станция**, на которой установлено программное обеспечение Visual Studio 2013. Указания см. в разделе [Установка Visual Studio](http://msdn.microsoft.com/ru-ru/library/e2h7fzkw.aspx)
+- **Рабочая станция**, на которой установлено программное обеспечение Visual Studio 2013. Указания см. в разделе [Установка Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx)
 
 
 
@@ -1351,9 +1351,9 @@
 [twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
 
-[powershell-start]: http://technet.microsoft.com/ru-ru/library/hh847889.aspx
+[powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
 [powershell-install]: ../install-configure-powershell
-[powershell-script]: http://technet.microsoft.com/ru-ru/library/ee176949.aspx
+[powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [hdinsight-provision]: ../hdinsight-provision-clusters/
 [hdinsight-get-started]: ../hdinsight-get-started/
@@ -1363,6 +1363,5 @@
 [hdinsight-use-sqoop]: ../hdinsight-use-sqoop/
 [hdinsight-power-query]: ../hdinsight-connect-excel-power-query/
 [hdinsight-hive-odbc]: ../hdinsight-connect-excel-hive-ODBC-driver/
-
 
 <!--HONumber=42-->

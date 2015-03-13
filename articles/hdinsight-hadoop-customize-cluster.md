@@ -24,7 +24,7 @@
 
 
 
-> [AZURE.NOTE] Использовать Script Action для настройки кластера можно только в кластере HDInsight версии 3.1. Дополнительные сведения о версиях кластера HDInsight см. в разделе [Версии кластера HDInsight](http://azure.microsoft.com/ru-ru/documentation/articles/hdinsight-component-versioning/).
+> [AZURE.NOTE] Использовать Script Action для настройки кластера можно только в кластере HDInsight версии 3.1. Дополнительные сведения о версиях кластера HDInsight см. в разделе [Версии кластера HDInsight](http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/).
 
 
 
@@ -65,7 +65,7 @@
 
 **На портале управления**
 
-1. Начните подготовку кластера к работе с помощью параметра **Настраиваемое создание**, как описано в разделе [Подготовка кластера с использованием пользовательских параметров](http://azure.microsoft.com/ru-ru/documentation/articles/hdinsight-provision-clusters/#portal). 
+1. Начните подготовку кластера к работе с помощью параметра **Настраиваемое создание**, как описано в разделе [Подготовка кластера с использованием пользовательских параметров](http://azure.microsoft.com/documentation/articles/hdinsight-provision-clusters/#portal). 
 2. На странице "Действия скриптов" мастера нажмите кнопку **Добавить действие скрипта** для предоставления сведений о данном действии скрипта, как показано ниже:
 
 	![Use Script Action to customize a cluster](./media/hdinsight-hadoop-customize-cluster/HDI.CustomProvision.Page6.png "Use Script Action to customize a cluster")
@@ -86,7 +86,7 @@
   
 **Использование командлетов PowerShell**
 
-Используйте команды HDInsight PowerShell для выполнения одного или нескольких действий скрипта. Можно использовать командлет **<a href = "http://msdn.microsoft.com/ru-ru/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** для вызова пользовательских скриптов. Чтобы использовать эти командлеты, требуется установить и настроить Azure PowerShell. Сведения о настройке рабочей станции для запуска командлетов HDInsight Powershell см. в разделе [Установка и настройка Azure PowerShell][powershell-install-configure].
+Используйте команды HDInsight PowerShell для выполнения одного или нескольких действий скрипта. Можно использовать командлет **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** для вызова пользовательских скриптов. Чтобы использовать эти командлеты, требуется установить и настроить Azure PowerShell. Сведения о настройке рабочей станции для запуска командлетов HDInsight Powershell см. в разделе [Установка и настройка Azure PowerShell][powershell-install-configure].
 
 Используйте следующую команду PowerShell для единичного выполнения Script Action при развертывании кластера HDInsight:
 
@@ -106,13 +106,13 @@
 
 **Использование пакета SDK HDInsight .NET**
 
-Пакет SDK HDInsight .NET предоставляет класс <a href="http://msdn.microsoft.com/ru-ru/library/microsoft.windowsazure.management.hdinsight.clusterprovisioning.data.scriptaction.aspx" target="_blank">ScriptAction</a> для вызова пользовательских скриптов. Порядок использования пакета SDKHDInsight .NET:
+Пакет SDK HDInsight .NET предоставляет класс <a href="http://msdn.microsoft.com/library/microsoft.windowsazure.management.hdinsight.clusterprovisioning.data.scriptaction.aspx" target="_blank">ScriptAction</a> для вызова пользовательских скриптов. Порядок использования пакета SDKHDInsight .NET:
 
 1. Создайте приложение Visual Studio и затем установите пакет SDK с сайта Nuget. В меню **Инструменты** нажмите **Диспетчер пакетов Nuget**, а затем - **Консоль диспетчера пакетов**. Для установки пакета выполните следующие команды в консоли:
 
 		Install-Package Microsoft.WindowsAzure.Management.HDInsight
 
-2. Создайте кластер с помощью пакета SDK. Инструкции см. в разделе [Подготовка кластера HDInsight с помощью пакета SDK .NET](http://azure.microsoft.com/ru-ru/documentation/articles/hdinsight-provision-clusters/#sdk).
+2. Создайте кластер с помощью пакета SDK. Инструкции см. в разделе [Подготовка кластера HDInsight с помощью пакета SDK .NET](http://azure.microsoft.com/documentation/articles/hdinsight-provision-clusters/#sdk).
 
 3. Используйте класс **ScriptAction** для вызова пользовательского скрипта, как показано ниже:
 
@@ -145,11 +145,11 @@
 - **Установка Giraph**. [Установка и использование Giraph в кластерах HDInsight](../hdinsight-hadoop-giraph-install)
 
 ## <a name="support"></a>Поддержка программного обеспечения с открытым исходным кодом, используемого в кластере HDInsight
-Служба HDInsight Microsoft Azure - это гибкая платформа, которая позволяет создавать большие приложения для работы с данными большого размера в облаке, используя сформированную вокруг Hadoop экосистему технологий с открытым исходным кодом. Microsoft Azure предоставляет общий уровень поддержки для технологий с открытым исходным кодом, как описано в разделе <a href="http://azure.microsoft.com/ru-ru/support/faq/" target="_blank">о сфере обеспечения поддержки на сайте вопросов и ответов по поддержке Azure</a>. Кроме того, служба HDInsight предоставляет дополнительный уровень поддержки для некоторых описанных ниже компонентов.
+Служба HDInsight Microsoft Azure - это гибкая платформа, которая позволяет создавать большие приложения для работы с данными большого размера в облаке, используя сформированную вокруг Hadoop экосистему технологий с открытым исходным кодом. Microsoft Azure предоставляет общий уровень поддержки для технологий с открытым исходным кодом, как описано в разделе <a href="http://azure.microsoft.com/support/faq/" target="_blank">о сфере обеспечения поддержки на сайте вопросов и ответов по поддержке Azure</a>. Кроме того, служба HDInsight предоставляет дополнительный уровень поддержки для некоторых описанных ниже компонентов.
 
 В службе HDInsight доступно два типа компонентов с открытым исходным кодом.
 
-- **Встроенные компоненты**. Эти компоненты предустановлены в кластерах HDInsight и предоставляют его базовые основные функциональные возможности. Например, этой категории относится диспетчер ресурсов Yarn, язык запросов Hive и библиотека Mahout. Полный список компонентов кластера приведен <a href="http://azure.microsoft.com/ru-ru/documentation/articles/hdinsight-component-versioning/" target="_blank">здесь</a>.
+- **Встроенные компоненты**. Эти компоненты предустановлены в кластерах HDInsight и предоставляют его базовые основные функциональные возможности. Например, этой категории относится диспетчер ресурсов Yarn, язык запросов Hive и библиотека Mahout. Полный список компонентов кластера приведен <a href="http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/" target="_blank">здесь</a>.
 - **настраиваемые компоненты**. Как пользователь кластера, вы можете установить или использовать в рабочей нагрузке любой компонент, полученный из сообщества или созданный своими силами.
 
 Встроенные компоненты полностью поддерживаются, и служба поддержки корпорации Майкрософт поможет выявить и устранить проблемы, связанные с этими компонентами.
@@ -174,5 +174,4 @@
 
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Stages during cluster provisioning"
-
 <!--HONumber=42-->

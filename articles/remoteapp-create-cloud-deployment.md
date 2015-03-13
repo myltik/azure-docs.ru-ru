@@ -1,6 +1,20 @@
-﻿<properties title="How to create a cloud collection of RemoteApp" pageTitle="Создание облачной коллекции RemoteApp" description="Узнайте, как создавать развертывания RemoteApp, предназначенные для сохранения данных в облачной среде Azure." metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo" manager="kathyw" />
+﻿<properties 
+	pageTitle="Создание облачной коллекции RemoteApp" 
+	description="Узнайте, как создавать развертывания RemoteApp, предназначенные для сохранения данных в облачной среде Azure." 
+	services="remoteapp" 
+	documentationCenter="" 
+	authors="lizap" 
+	manager="mbaldwin" 
+	editor=""/>
 
-<tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/12/2014" ms.author="elizapo" ms.manager="kathyw" />
+<tags 
+	ms.service="remoteapp" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/17/2015" 
+	ms.author="elizapo"/>
 
 #Создание облачной коллекции RemoteApp
 
@@ -20,10 +34,10 @@
 
 Перед созданием коллекции необходимо выполнить следующие действия.
 
-- Зарегистрируйтесь в RemoteApp. Это можно сделать на странице [http://azure.microsoft.com/ru-ru/services/remoteapp/](http://azure.microsoft.com/ru-ru/services/remoteapp/).
+- Зарегистрируйтесь в RemoteApp. Это можно сделать на странице [http://azure.microsoft.com/services/remoteapp/](http://azure.microsoft.com/services/remoteapp/).
 - Соберите сведения о пользователях, которым нужно предоставить доступ. Это могут быть либо данные учетной записи Майкрософт, либо данные рабочей учетной записи Active Directory пользователя.
 - В этой процедуре предполагается, что либо планируется использовать один из образов шаблонов, предоставленных в рамках подписки, либо нужный образ шаблона уже отправлен. Если требуется отправить другой образ шаблона, это можно сделать на странице образов шаблона. Просто щелкните ссылку **Отправить образ шаблона** и следуйте указаниям мастера. 
-- Хотите предоставить пользователям специализированные приложения или бизнес-программы? Создайте новый [настраиваемый образ шаблона](http://azure.microsoft.com/ru-ru/documentation/articles/remoteapp-create-custom-image/) и используйте его в своей облачной коллекции.
+- Хотите предоставить пользователям специализированные приложения или бизнес-программы? Создайте новый [настраиваемый образ шаблона](http://azure.microsoft.com/documentation/articles/remoteapp-create-custom-image/) и используйте его в своей облачной коллекции.
 
 ## **Шаг 1. Создание коллекции RemoteApp** ##
 
@@ -36,7 +50,7 @@
 4. Выберите нужный план - стандартный или базовый.
 5. Выберите шаблон для коллекции. 
 
-	**Совет.** Ваша подписка RemoteApp включает [образы шаблонов](http://azure.microsoft.com/ru-ru/documentation/articles/remoteapp-images/), которые содержат программы Office 365 или Office 2013 (для пробного использования), некоторые из которых уже опубликованы (например, Word), а остальные готовы к публикации. Вы также можете создать [настраиваемый образ шаблона](http://azure.microsoft.com/ru-ru/documentation/articles/remoteapp-create-custom-image/) и использовать его в своей облачной коллекции.
+	**Совет.** Ваша подписка RemoteApp включает [образы шаблонов](http://azure.microsoft.com/documentation/articles/remoteapp-images/), которые содержат программы Office 365 или Office 2013 (для пробного использования), некоторые из которых уже опубликованы (например, Word), а остальные готовы к публикации. Вы также можете создать [настраиваемый образ шаблона](http://azure.microsoft.com/documentation/articles/remoteapp-create-custom-image/) и использовать его в своей облачной коллекции.
 
 
 1. Нажмите **Создать коллекцию RemoteApp**.
@@ -48,7 +62,7 @@
 
 ## **Шаг 2. Настройка синхронизации каталогов Active Directory (необязательно)** ##
 
-Если планируется использовать Active Directory, то RemoteApp требуется синхронизация каталогов между Azure Active Directory и локальными службами Active Directory для синхронизации пользователей, контактов и паролей с клиентом Azure Active Directory. Сведения о планировании см. в статье [Настройка Active Directory для Azure RemoteApp](http://azure.microsoft.com/ru-ru/documentation/articles/remoteapp-ad/).
+Если планируется использовать Active Directory, то RemoteApp требуется синхронизация каталогов между Azure Active Directory и локальными службами Active Directory для синхронизации пользователей, контактов и паролей с клиентом Azure Active Directory. Сведения о планировании см. в статье [Настройка Active Directory для Azure RemoteApp](http://azure.microsoft.com/documentation/articles/remoteapp-ad/).
 
 ## **Шаг 3. Публикация приложений RemoteApp** ##
 
@@ -80,3 +94,5 @@
 
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

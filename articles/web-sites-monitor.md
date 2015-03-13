@@ -61,7 +61,7 @@
 	-	**Хранилище файловой системы** - по достижению этой квоты хранилище файловой системы останется доступным для операций чтения, однако все операции записи, включая необходимые для нормальной работы сайта, будут заблокированы. Операции записи станут снова доступными после снижения нагрузки или перехода на план размещения веб-сайтов с большей квотой.
 	-	**Связанные ресурсы** - квоты для любых связанных ресурсов веб-сайта, таких как база данных или хранилище.
 
-	Некоторые квоты применяются к плану размещения веб-сайтов, другие же могут применяться к отдельным сайтам. Для получения дополнительной информации о планах размещения веб-сайтов, см. раздел [Ограничения веб-сайтов](http://azure.microsoft.com/ru-ru/documentation/articles/azure-subscription-service-limits/#websiteslimits).
+	Некоторые квоты применяются к плану размещения веб-сайтов, другие же могут применяться к отдельным сайтам. Для получения дополнительной информации о планах размещения веб-сайтов, см. раздел [Ограничения веб-сайтов](http://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/#websiteslimits).
 
 
 ##<a name="resourceusage"></a>Практическое руководство. Соблюдение квот
@@ -106,7 +106,7 @@
 
 > [AZURE.NOTE] Вы также можете включить диагностику из PowerShell Azure с помощью командлета **Set-AzureWebsite**.
 > 
-> Если Azure PowerShell не установлена или не настроена для использования подписки Azure, см. раздел [Использование Azure PowerShell](http://www.windowsazure.com/ru-ru/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> Если Azure PowerShell не установлена или не настроена для использования подписки Azure, см. раздел [Использование Azure PowerShell](http://azure.microsoft.com/develop/nodejs/how-to-guides/powershell-cmdlets/).
 
 > [AZURE.NOTE] Ведение журналов приложений опирается на информацию журнала, создаваемую приложением. Метод, используемый для создания данных журнала, а также формат информации зависит от языка написания приложения. Сведения об информации, зависящей от языка, при ведении журналов приложений см. в следующих статьях:
 > 
@@ -173,7 +173,7 @@
 
 1. В меню **Пуск** или на **начальном экране** найдите **Azure PowerShell**. Щелкните правой кнопкой мыши пункт **Azure PowerShell** и выберите **Запуск от имени администратора**.
 
-	> [AZURE.NOTE] Если оболочка **Azure PowerShell** не установлена, см. информацию об установке и настройке в статье [Начало работы с командлетами Azure PowerShell](http://msdn.microsoft.com/ru-ru/library/windowsazure/jj554332.aspx).
+	> [AZURE.NOTE] Если оболочка **Azure PowerShell** не установлена, см. информацию об установке и настройке в статье [Начало работы с командлетами Azure PowerShell](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx).
 
 2. Чтобы скачать файлы журналов, выполните в командной строке Azure PowerShell следующую команду:
 
@@ -201,7 +201,7 @@
 
 При этом информация журнала появится в командной строке, PowerShell, bash или сеансе терминала, где была выполнена команда.
 
-> [AZURE.NOTE] Если команда **azure** не установлена, см. информацию об установке и настройке в статье [Как использовать программы командной строки Azure](http://www.windowsazure.com/ru-ru/develop/nodejs/how-to-guides/command-line-tools/).
+> [AZURE.NOTE] Если команда **azure** не установлена, см. информацию об установке и настройке в статье [Как использовать программы командной строки Azure](http://azure.microsoft.com/develop/nodejs/how-to-guides/command-line-tools/).
 
 ###Чтение файлов журналов
 
@@ -276,9 +276,9 @@ HTM-файлы содержат следующие разделы:
 
 Дополнительную информацию об отслеживании конечных точек веб-сайтов см. в следующих видео:
 
-- [Скотт Гатри (Scott Guthrie) представляет веб-сайты Azure и настраивает мониторинг конечных точек](http://www.windowsazure.com/ru-ru/documentation/videos/websites-and-endpoint-monitoring-scottgu/)
+- [Скотт Гатри (Scott Guthrie) представляет веб-сайты Azure и настраивает мониторинг конечных точек](http://azure.microsoft.com/documentation/videos/websites-and-endpoint-monitoring-scottgu/)
 
-- [Поддержка работы веб-сайтов Azure с помощью мониторинга конечных точек - со Стефаном Шаковом (Stefan Schackow)](http://www.windowsazure.com/ru-ru/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/)
+- [Поддержка работы веб-сайтов Azure с помощью мониторинга конечных точек - со Стефаном Шаковом (Stefan Schackow)](http://azure.microsoft.com/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/)
 
 
 

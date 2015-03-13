@@ -102,7 +102,7 @@
   [Изменение Settings.php]: #modify-settingsphp
   [Развертывание кода Drupal]: #deploy-drupalcode
   [Связанная информация]: #related-information
-  [Создание веб-сайта PHP-MySQL Azure и его развертывание с помощью Git]: http://www.windowsazure.com/ru-ru/develop/php/tutorials/website-w-mysql-and-git/
+  [Создание веб-сайта PHP-MySQL Azure и его развертывание с помощью Git]: http://azure.microsoft.com/develop/php/tutorials/website-w-mysql-and-git/
   
   [Веб-сайты Azure с точки зрения PHP]: http://blogs.msdn.com/b/silverlining/archive/2012/06/12/windows-azure-websites-a-php-perspective.aspx
   [Веб-сайты Azure, облачные службы и виртуальные машины: когда они используются?]: http://go.microsoft.com/fwlink/?LinkId=310123

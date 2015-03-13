@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="configure-Azure-Site-Recovery" pageTitle="Приступая к работе с Azure Site Recovery: Восстановление из локальной сети в локальную сеть для защиты узла VMM с репликацией Hyper-V" metaKeywords="Azure Site Recovery, VMM, облака, аварийное восстановление" description="Azure Site Recovery координирует репликации, отработки отказа и восстановления виртуальных машин Hyper-V между локальными сайтами VMM." metaCanonical="" umbracoNaviHide="0" disqusComments="1" title="Getting Started with Azure Site Recovery:  On-Premises to On-Premises VMM Site Protection with Hyper-V Replication" editor="jimbe" manager="johndaw" authors="raynew" />
+﻿<properties 
+	pageTitle="Учебник. Настройка защиты между локальными сайтами VMM" 
+	description="Azure Site Recovery координирует репликацию, отработку отказа и восстановление виртуальных машин Hyper-V между локальными сайтами VMM." 
+	services="site-recovery" 
+	documentationCenter="" 
+	authors="raynew" 
+	manager="jwhit" 
+	editor="tysonn"/>
 
-<tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/19/2014" ms.author="raynew" />
+<tags 
+	ms.service="site-recovery" 
+	ms.workload="backup-recovery" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/18/2015" 
+	ms.author="raynew"/>
 
 
 # Приступая к работе с Azure Site Recovery:  Восстановление из локальной сети в локальную сеть для защиты узла VMM с репликацией Hyper-V
@@ -241,3 +255,5 @@
 </UL>
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

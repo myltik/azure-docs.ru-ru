@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Начало работы по проверке подлинности (Android) | Центр мобильных разработок" description="Узнайте, как использовать мобильные службы для аутентификации пользователей приложения магазина Windows с помощью разнообразных поставщиков удостоверений, включая Google, Facebook, Twitter и корпорацию Майкрософт." services="mobile-services" documentationCenter="android" authors="mattchenderson" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Начало работы по проверке подлинности (Android) | Центр мобильных разработок" 
+	description="Узнайте, как использовать мобильные службы для аутентификации пользователей приложения магазина Windows с помощью разнообразных поставщиков удостоверений, включая Google, Facebook, Twitter и корпорацию Майкрософт." 
+	services="mobile-services" 
+	documentationCenter="android" 
+	authors="mattchenderson" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="09/27/2014" ms.author="mahender"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-android" 
+	ms.devlang="java" 
+	ms.topic="article" 
+	ms.date="09/27/2014" 
+	ms.author="mahender"/>
 
 # Добавление проверки подлинности в приложение мобильных служб
 

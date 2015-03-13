@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="View ACS SAML" pageTitle="Просмотр кода SAML, возвращаемого службой контроля доступа (Java)" metaKeywords="" description="Узнайте, как просматривать SAML, возвращенный службой контроля доступа в приложениях Java, размещенных в Azure." metaCanonical="" services="" documentationCenter="Java" title="How to view SAML returned by the Azure Access Control Service" authors="robmcm" videoId="" scriptId="" solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties 
+	pageTitle="Просмотр кода SAML, возвращаемого службой контроля доступа (Java)" 
+	description="Узнайте, как просматривать SAML, возвращенный службой контроля доступа в приложениях Java, размещенных в Azure." 
+	services="" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="09/25/2014" 
+	ms.author="robmcm"/>
 
 # Как просматривать SAML, возвращенный службой Azure Access Control
 
@@ -189,3 +203,5 @@
 [Служба Access Control 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
 [Проверка подлинности веб-пользователей с помощью службы контроля доступа Azure и Eclipse]: ../active-directory-java-authenticate-users-access-control-eclipse
 [saml_output]: ./media/active-directory-java-view-saml-returned-by-access-control/SAML_Output.png
+
+<!--HONumber=46--> 

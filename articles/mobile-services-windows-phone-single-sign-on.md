@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Проверка подлинности приложения с помощью Live Connect (Windows Phone) | Центр мобильных разработок" description="Узнайте, как использовать единый вход Live Connect в мобильных службах Azure из приложения Windows Phone." services="mobile-services" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Проверка подлинности приложения с помощью Live Connect (Windows Phone) | Центр мобильных разработок" 
+	description="Узнайте, как использовать единый вход Live Connect в мобильных службах Azure из приложения Windows Phone." 
+	services="mobile-services" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="11/22/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/22/2014" 
+	ms.author="glenga"/>
 
 # Аутентификация приложения для Windows Phone 8 с помощью единого входа Live Connect
 
@@ -171,7 +185,8 @@
 
 [13]: ./media/mobile-services-windows-phone-single-sign-on/mobile-identity-tab-ma-only.png
 [14]: ./media/mobile-services-windows-phone-single-sign-on/mobile-portal-data-tables.png
-[15]: ./media/mobile-services-windows-phone-single-sign-on/mobile-portal-change-table-perms.png
+[15]: ./media/mobile-services-windows-phone-single-sign-on/mobile-portal-change-table-per
+	ms.png
 [16]: ./media/mobile-services-windows-phone-single-sign-on/mobile-add-reference-live-wp8.png
 
 <!-- URLs. -->

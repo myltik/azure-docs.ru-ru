@@ -25,12 +25,12 @@
     выберите тот же регион в расположении развертывания
     приложения.
 
-6. Дополнительно можно выбрать тип репликации, необходимый для вашей учетной записи. По умолчанию используется геоизбыточная репликация, предоставляющая максимальную надежность. Дополнительные сведения о вариантах репликации см. в разделах [Варианты избыточности службы хранилища Azure](http://msdn.microsoft.com/ru-ru/library/azure/dn727290.aspx) и [Блог группы службы хранилища Azure](http://blogs.msdn.com/b/windowsazurestorage/).
+6. Дополнительно можно выбрать тип репликации, необходимый для вашей учетной записи. По умолчанию используется геоизбыточная репликация, предоставляющая максимальную надежность. Дополнительные сведения о вариантах репликации см. в разделах [Варианты избыточности службы хранилища Azure](http://msdn.microsoft.com/library/azure/dn727290.aspx) и [Блог группы службы хранилища Azure](http://blogs.msdn.com/b/windowsazurestorage/).
 
 6.  Щелкните **СОЗДАТЬ УЧЕТНУЮ ЗАПИСЬ ХРАНЕНИЯ**.
 
-[С помощью REST API]: http://msdn.microsoft.com/ru-ru/library/windowsazure/hh264518.aspx
+[С помощью REST API]: http://msdn.microsoft.com/library/windowsazure/hh264518.aspx
 [Портал управления Azure]: http://manage.windowsazure.com
 [plus-new]: ./media/create-storage-account/plus-new.png
 [quick-create-storage]: ./media/create-storage-account/quick-storage-2.png
-<!--HONumber=41-->
+<!--HONumber=42-->

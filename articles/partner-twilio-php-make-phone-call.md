@@ -1,6 +1,20 @@
-﻿<properties title="How to make a phone call from Twilio (PHP) - Azure" pageTitle="Как в Azure выполнить телефонный звонок с помощью Twilio (PHP) - Azure" metaKeywords="Azure PHP Twilio, Azure Twilio, телефонные звонки Azure, Azure twilio, Azure SMS, Azure SMS, голосовые вызовы Azure, голосовые вызовы azure, текстовые сообщения Azure, текстовые сообщения Azure, PHP twilio Azure" description="Узнайте, как осуществлять телефонные вызовы и отправку SMS-сообщений с помощью службы Twilio API в Azure. Примеры, для приложения PHP." documentationCenter="PHP" services="" solutions="" videoId="" scriptId="" authors="MicrosoftHelp@twilio.com; robmcm" manager="twilio" editor="mollybos" />
+﻿<properties 
+	pageTitle="Осуществление телефонных звонков из Twilio (PHP) - Azure" 
+	description="Узнайте, как осуществлять телефонные вызовы и отправку SMS-сообщений с помощью службы Twilio API в Azure. Примеры, для приложения PHP." 
+	documentationCenter="php" 
+	services="" 
+	authors="devinrader" 
+	manager="twilio" 
+	editor="mollybos"/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/25/2014" ms.author="MicrosoftHelp@twilio.com; robmcm" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="PHP" 
+	ms.topic="article" 
+	ms.date="11/25/2014" 
+	ms.author="microsofthelp@twilio.com"/>
 
 # Как в Azure выполнить телефонный звонок с помощью Twilio в PHP-приложении 
 
@@ -10,9 +24,9 @@
 
 Чтобы использовать код, представленный в этом разделе, выполните следующие действия:
 
-1. Получение учетной записи Twilio и токена подтверждения подлинности. Перед началом работы с Twilio вы можете ознакомиться с ценовой политикой на странице [http://www.twilio.com/pricing][twilio_pricing]. Также вы можете подписаться на пробную учетную запись на странице [https://www.twilio.com/try-twilio][try_twilio]. Дополнительные сведения о предоставляемых службой Twilio API-интерфейсах см. на странице [http://www.twilio.com/api][twilio_api].
+1. Получение учетной записи Twilio и токена подтверждения подлинности. Чтобы приступить к работе с Twilio, ознакомьтесь с ценами на сайте [http://www.twilio.com/pricing][twilio_pricing]. Вы можете зарегистрироваться для пробной учетной записи на [https://www.twilio.com/try-twilio][try_twilio]. Сведения о предоставляемых службой Twilio API см. в разделе [http://www.twilio.com/api][twilio_api].
 2. Получите библиотеку Twilio для PHP. Ее можно загрузить с сайта Github ([https://github.com/twilio/twilio-php][twilio_php_github]) или установить в виде пакета PEAR. Дополнительные сведения см. в разделе [https://github.com/twilio/twilio-php/blob/master/README.md][twilio_github_readme].
-3. Установите Azure SDK для PHP. Обзор пакета SDK и инструкции по его установке, см. в разделе [Настройка пакета Azure SDK для PHP][setup_php_sdk].
+3. Установите Azure SDK для PHP. Обзор пакета SDK и инструкции по его установке см. в разделе [Установка пакета Azure SDK для PHP][setup_php_sdk].
 
 ## Создание веб-формы для выполнения звонка
 
@@ -80,27 +94,27 @@
 	</body>
 	</html>
 
-Помимо выполнения звонка, на странице **makecall.php** отображаются некоторые метаданные о нем (см. снимок экрана ниже). Дополнительные сведения о метаданных звонка см. на странице [https://www.twilio.com/docs/api/rest/call#instance-properties][twilio_call_properties].
+Помимо выполнения звонка, на странице **makecall.php** отображаются некоторые метаданные о нем (см. снимок экрана ниже). Дополнительные сведения о метаданных звонка см. в разделе [https://www.twilio.com/docs/api/rest/call#instance-properties][twilio_call_properties].
 
 ![Azure Call Response Using Twilio and PHP][twilio_php_response]
 
 ## Выполнение приложения
 Далее следует развернуть приложение в Azure Websites. Следующие статьи содержат сведения о создании веб-сайта и развертывании кода с помощью Git, FTP или WebMatrix (но не вся информация в каждой статье относится к этим темам).
 
-* [Создание веб-сайта PHP-MySQL в Azure и его развертывание с помощью Git][website-git]
-* [Создание веб-сайта PHP-MySQL в Azure и его развертывание с помощью FTP][website-ftp]
-* [Создание и развертывание веб-сайта PHP-MySQL в Azure с помощью WebMatrix][website-webmatrix]
+* [Создание веб-сайта PHP-MySQL Azure и развертывание с помощью Git][website-git]
+* [Создание веб-сайта PHP-MySQL Azure и развертывание с помощью FTP][website-ftp]
+* [Создание и развертывание веб-сайта PHP-MySQL Azure с помощью WebMatrix][website-webmatrix]
 
 ## Дальнейшие действия
 Данный код демонстрирует базовую функциональность, доступную через PHP-библиотеку Twillio в Azure. Возможно, перед развертыванием в рабочей среде Azure потребуется добавить в него дополнительные обработчики ошибок и другие функции. Например:
 
-* Вместо веб-формы для хранения номеров телефона и текста звонков вы можете использовать хранилище BLOB-объектов Azure или базу данных SQL Azure. Дополнительные сведения об использовании BLOB-объектов Azure в PHP см. в разделе [Использование службы хранения BLOB-объектов Azure в PHP-приложениях][howto_blob_storage_php]. Дополнительные сведения об использовании базы данных SQL в PHP см. в разделе [Использование базы данных SQL в PHP-приложениях][howto_sql_azure_php].
-* В коде **makecall.php** используется предоставляемый Twilio URL-адрес ([http://twimlets.com/message][twimlet_message_url]), по которому предоставляется ответ TwiML с инструкциями по обработке звонка в Twilio. Например, возвращаемый ответ TwiML может содержать команду <Say>, которая задает голосовое воспроизведение текста вызываемому абоненту. Вместо предоставляемого Twilio URL-адреса вы можете построить собственную службу, отвечающую на запросы Twilio. Дополнительные сведения см. в разделе [Использование Twilio для поддержки голосовых возможностей и SMS в PHP][howto_twilio_voice_sms_php]. Дополнительные сведения о TwiML см. на странице [http://www.twilio.com/docs/api/twiml][twiml]. Дополнительные сведения о команде <Say> и других командах Twilio см. на странице [http://www.twilio.com/docs/api/twiml/say][twilio_say].
-* Рекомендации по безопасности Twilio приведены на странице [https://www.twilio.com/docs/security][twilio_docs_security].
+* Вместо веб-формы для хранения номеров телефона и текста звонков вы можете использовать хранилище BLOB-объектов Azure или базу данных SQL Azure. Сведения об использовании хранилища Azure BLOB-объектов в PHP см. в разделе [Использование хранилища Azure с PHP-приложениями][howto_blob_storage_php]. Сведения об использовании базы данных SQL в PHP см. в разделе [Использование базы данных SQL с приложениями PHP][howto_sql_azure_php].
+* В коде **makecall.php** используется предоставляемый Twilio URL-адрес ([http://twimlets.com/message][twimlet_message_url]) для предоставления ответа в формате языка разметки Twilio (TwiML), содержащего инструкции для Twilio по обработке вызова. Например, возвращаемый ответ TwiML может содержать команду `<Say> `, которая задает голосовое воспроизведение текста вызываемому абоненту. Вместо использования предоставляемого Twilio URL-адреса можно создать собственную службу, которая будет отвечать на запросы Twilio. Дополнительные сведения см. в разделе [Использование Twilio для поддержки голосовых возможностей и SMS в PHP][howto_twilio_voice_sms_php]. Дополнительные сведения о TwiML можно найти в [http://www.twilio.com/docs/api/twiml][twiml], дополнительные сведения о `<Say>` прочих командах Twilio можно найти в [http://www.twilio.com/docs/api/twiml/say][twilio_say].
+* Прочитайте рекомендации по безопасности Twilio в [https://www.twilio.com/docs/security][twilio_docs_security].
 
-Дополнительные сведения о Twilio см. на странице [https://www.twilio.com/docs][twilio_docs].
+Дополнительные сведения о Twilio см. в разделе [https://www.twilio.com/docs][twilio_docs].
 
-## См. также
+## Дополнительные материалы
 * [Использование Twilio для поддержки голосовых возможностей и SMS в PHP](../partner-twilio-php-how-to-use-voice-sms)
 
 [twilio_pricing]: http://www.twilio.com/pricing
@@ -115,8 +129,8 @@
 [twilio_api_service]: http://api.twilio.com
 [build_php_azure_app]: http://azurephp.interoperabilitybridges.com/articles/build-and-deploy-a-windows-azure-php-application
 [howto_twilio_voice_sms_php]: ../partner-twilio-php-how-to-use-voice-sms
-[howto_blob_storage_php]: http://azure.microsoft.com/ru-ru/documentation/articles/storage-php-how-to-use-blobs/
-[howto_sql_azure_php]: http://azure.microsoft.com/ru-ru/documentation/articles/sql-database-php-how-to-use/
+[howto_blob_storage_php]: http://azure.microsoft.com/ documentation/articles/storage-php-how-to-use-blobs/
+[howto_sql_azure_php]: http://azure.microsoft.com/ documentation/articles/sql-database-php-how-to-use/
 [twilio_call_properties]: https://www.twilio.com/docs/api/rest/call#instance-properties
 [twilio_docs_security]: http://www.twilio.com/docs/security
 [twilio_docs]: http://www.twilio.com/docs
@@ -129,4 +143,4 @@
 [website-webmatrix]: https://www.windowsazure.com/ru-ru/develop/php/tutorials/website-w-mysql-and-webmatrix/
 [twilio_php_github]: https://github.com/twilio/twilio-php
 
-<!--HONumber=35.2-->
+<!--HONumber=45--> 

@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Приступая к работе с push-уведомление с помощью серверной мобильной службы .NET" description="Узнайте, как использовать мобильные службы и центры уведомлений Azure для отправки push-уведомлений в универсальное приложение для Windows." services="mobile-services, notification-hubs" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Приступая к работе с push-уведомление с помощью серверной мобильной службы .NET" 
+	description="Узнайте, как использовать мобильные службы и центры уведомлений Azure для отправки push-уведомлений в универсальное приложение для Windows." 
+	services="mobile-services, notification-hubs" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/27/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/27/2014" 
+	ms.author="glenga"/>
 
 # Добавление push-уведомлений в приложение мобильных служб
 
@@ -33,7 +47,7 @@
 <li><p>Откройте общий файл кода App.xaml.cs и обратите внимание на то, что в обработчик событий <strong>OnLaunched</strong> добавлен вызов нового метода <strong>UploadChannel</strong>.</p> <p>Это гарантирует, что при каждом запуске приложения будет выполняться попытка регистрации устройства.</p></li>
 <li><p>Повторите предыдущие шаги, чтобы добавить push-уведомления в проект приложения Магазина Windows Phone, после чего в общем файле App.xaml.cs удалите дополнительный вызов метода <strong>UploadChannel</strong> и оставшуюся оболочку условия <code>#if...#endif</code> .</p> <p>Теперь оба проекта могут использовать один вызов метода <strong>UploadChannel</strong>.</p>
 
-> [AZURE.NOTE] Созданный код также можно упростить, объединив <code>#if...#endif</code> определения [MobileServiceClient](http://msdn.microsoft.com/ru-ru/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx) в оболочке в одно определение без оболочки, которое может использоваться обеими версиями приложения.
+> [AZURE.NOTE] Созданный код также можно упростить, объединив <code>#if...#endif</code> определения [MobileServiceClient](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx) в оболочке в одно определение без оболочки, которое может использоваться обеими версиями приложения.
 
 </li>
 </ol>
@@ -55,14 +69,14 @@
 >[AZURE.NOTE]Никогда не используйте рабочую мобильную службу для тестирования и разработки. Для тестирования всегда публикуйте проект мобильной службы в виде отдельной промежуточной службы.
 
 <ol start="5">
-<li><p>Откройте общий файл проекта App.xaml.cs и найдите строки кода, в которых создается экземпляр класса <a href="http://msdn.microsoft.com/ru-ru/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> для доступа к мобильной службе, работающей в Azure.</p></li>
-<li><p>Закомментируйте этот код и добавьте код, создающий экземпляр класса <a href="http://msdn.microsoft.com/ru-ru/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> с тем же именем, но с использованием URL-адреса локального узла в конструкторе, как в следующем примере:</p>
+<li><p>Откройте общий файл проекта App.xaml.cs и найдите строки кода, в которых создается экземпляр класса <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> для доступа к мобильной службе, работающей в Azure.</p></li>
+<li><p>Закомментируйте этот код и добавьте код, создающий экземпляр класса <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> с тем же именем, но с использованием URL-адреса локального узла в конструкторе, как в следующем примере:</p>
 <pre><code>// This MobileServiceClient has been configured to communicate with your local
 // test project for debugging purposes.
 public static MobileServiceClient todolistClient = new MobileServiceClient(
 	"http://localhost:4584"
 );
-</code></pre><p>С помощью этого экземпляра <a href="http://msdn.microsoft.com/ru-ru/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> приложение будет подключаться к локальной службе, а не к версии, размещенной в Azure. Если вы захотите снова подключить приложение к мобильной службе, размещенной в Azure, верните исходные определения <a href="http://msdn.microsoft.com/ru-ru/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a>.</p></li>
+</code></pre><p>С помощью этого экземпляра <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> приложение будет подключаться к локальной службе, а не к версии, размещенной в Azure. Если вы захотите снова подключить приложение к мобильной службе, размещенной в Azure, верните исходные определения <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a>.</p></li>
 </ol>
 
 ##<a id="test"></a> Тестирование push-уведомлений в приложении

@@ -27,7 +27,7 @@
 > - [Очереди](/documentation/articles/vs-storage-aspnet5-getting-started-queues/)
 > - [Таблицы](/documentation/articles/vs-storage-aspnet5-getting-started-tables/)
 
-В службе хранилища таблиц Azure можно хранить большие объемы структурированных данных. Эта служба - хранилище данных NoSQL, которое принимает вызовы внутри и снаружи облака Azure с проверкой подлинности. Таблицы Azure идеально подходят для хранения нереляционных структурированных данных.  Подробнее см. в статье [Как использовать хранилище больших двоичных объектов из .NET](http://azure.microsoft.com/ru-ru/documentation/articles/storage-dotnet-how-to-use-tables/#create-table "How to use Table Storage from .NET").
+В службе хранилища таблиц Azure можно хранить большие объемы структурированных данных. Эта служба - хранилище данных NoSQL, которое принимает вызовы внутри и снаружи облака Azure с проверкой подлинности. Таблицы Azure идеально подходят для хранения нереляционных структурированных данных.  Подробнее см. в статье [Как использовать хранилище больших двоичных объектов из .NET](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-tables/#create-table "How to use Table Storage from .NET").
 
 Для программного доступа к таблицам в проектах ASP.NET 5 необходимо добавить следующие элементы, если они еще не существуют.
 
@@ -192,6 +192,5 @@
 	   Console.WriteLine("Couldn't delete the entity.");
 
 [Дополнительные сведения о хранилище Azure](http://azure.microsoft.com/documentation/services/storage/)
-См. также [Просмотр ресурсов хранилища в обозревателе серверов](http://msdn.microsoft.com/ru-ru/library/azure/ff683677.aspx) и [ASP.NET 5](http://www.asp.net/vnext).
-
+См. также [Просмотр ресурсов хранилища в обозревателе серверов](http://msdn.microsoft.com/library/azure/ff683677.aspx) и [ASP.NET 5](http://www.asp.net/vnext).
 <!--HONumber=42-->

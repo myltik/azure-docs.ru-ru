@@ -1,6 +1,21 @@
-﻿<properties pageTitle="Использование мобильных служб для отправки изображений в хранилище больших двоичных объектов (Windows Phone) | Мобильные службы" description="Узнайте, как использовать мобильные службы для передачи образов в хранилище больших двоичных объектов Azure." documentationCenter="windows" authors="ggailey777" writer="glenga" services="mobile-services" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Использование мобильных служб для отправки изображений в хранилище больших двоичных объектов (Windows Phone) | Мобильные службы" 
+	description="Узнайте, как использовать мобильные службы для передачи образов в хранилище больших двоичных объектов Azure." 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	Writer="glenga" 
+	services="mobile-services" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="10/08/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="10/08/2014" 
+	ms.author="glenga"/>
 
 # Отправка образов в хранилище Azure с помощью мобильных служб
 

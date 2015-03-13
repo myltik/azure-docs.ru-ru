@@ -48,7 +48,7 @@ Apache Storm - это распределенная система выполне
 
 SCP предоставляет библиотеки, которые дают возможность с легкостью создавать решения Storm, используя .NET. Кластеры Storm в HDInsight включают в себя необходимые серверные компоненты для выполнения созданных вами решений SCP.
 
-Дополнительные сведения о Storm в HDInsight см. в разделе [Обзор HDInsight Storm](http://azure.microsoft.com/ru-ru/documentation/articles/hdinsight-storm-overview/).
+Дополнительные сведения о Storm в HDInsight см. в разделе [Обзор HDInsight Storm](http://azure.microsoft.com/documentation/articles/hdinsight-storm-overview/).
 
 ###Разработка решения SCP
 
@@ -69,7 +69,7 @@ SCP предоставляет интерфейсы, которые позвол
 
 ##Установка пакета SDK для SCP
 
-Пакет SDK для SCP поставляется с кластером Storm в HDInsight. После [создания кластера Storm в HDInsight](http://azure.microsoft.com/ru-ru/documentation/articles/hdinsight-storm-getting-started/) выполните следующие действия, чтобы скачать пакет SDK в локальную среду разработки.
+Пакет SDK для SCP поставляется с кластером Storm в HDInsight. После [создания кластера Storm в HDInsight](http://azure.microsoft.com/documentation/articles/hdinsight-storm-getting-started/) выполните следующие действия, чтобы скачать пакет SDK в локальную среду разработки.
 
 1. Войдите на [портал управления Azure](https://manage.windowsazure.com).
 
@@ -1003,5 +1003,4 @@ SCPRuntime предоставляет следующие методы.
 
 
 [1]: ./media/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application-01.png
-
 <!--HONumber=42-->

@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Настройка IIS Express для локального тестирования мобильной службы" description="Узнайте, как настроить IIS Express для подключения к проекту локальной мобильной службы в целях проведения тестирования." authors="ggailey777" manager="dwrede" services="mobile-services" documentationCenter="windows" editor=""/>
+﻿<properties 
+	pageTitle="Настройка IIS Express для локального тестирования мобильной службы" 
+	description="Узнайте, как настроить IIS Express для подключения к проекту локальной мобильной службы в целях проведения тестирования." 
+	authors="ggailey777" 
+	manager="dwrede" 
+	services="mobile-services" 
+	documentationCenter="windows" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/20/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/20/2014" 
+	ms.author="glenga"/>
 
 # Настройка локального веб-сервера для подключения к локальной мобильной службе 
 

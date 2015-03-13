@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Отправка push-уведомлений пользователям (Windows Phone) | Центр разработчиков для мобильных устройств" description="Узнайте, как использовать мобильные службы для отправки push-уведомлений пользователям приложения Windows Phone." services="mobile-services, notification-hubs" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Отправка push-уведомлений пользователям (Windows Phone) | Центр разработчиков для мобильных устройств" 
+	description="Узнайте, как использовать мобильные службы для отправки push-уведомлений пользователям приложения Windows Phone." 
+	services="mobile-services, notification-hubs" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="10/07/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="10/07/2014" 
+	ms.author="glenga"/>
 
 # Отправка push-уведомлений пользователям с использованием мобильных служб
 

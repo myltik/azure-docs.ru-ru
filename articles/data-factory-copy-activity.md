@@ -1,6 +1,20 @@
-﻿<properties title="Copy data with Azure Data Factory" pageTitle="Копирование данных с помощью фабрики данных Azure" description="Узнайте, как использовать действие копирования в фабрике данных Azure, чтобы копировать данные из одного источника данных в другой источник данных." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties 
+	pageTitle="Копирование данных с помощью фабрики данных Azure" 
+	description="Узнайте, как использовать действие копирования в фабрике данных Azure, чтобы копировать данные из одного источника данных в другой источник данных." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/08/2015" 
+	ms.author="spelluru"/>
 
 # Копирование данных с помощью фабрики данных Azure (действие копирования)
 Через **действие копирования** в конвейере можно копировать данные из источника в приемник (назначение) в пакете. Действие копирования может использоваться в следующих сценариях: 
@@ -724,3 +738,5 @@ Depending on the type of Table, it is possible to specify a subset of the column
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity/ColumnMappingSample2.png
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

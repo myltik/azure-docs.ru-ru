@@ -322,7 +322,7 @@ Azure HDInsight использует для хранения данных хра
 		$containerName_Data = "<ContainerName>"
 		$location = "<MicrosoftDataCenter>"  # For example, "East US"
 
-	**$subscripionName** относится к вашей подписке Azure. Необходимо указать имя для **$storageAccountName\_Data** и **$containerName\_Data**. Ограничения именования см. в разделе [Присвоение имен и ссылки на контейнеры, BLOB-объекты и метаданные](http://msdn.microsoft.com/ru-ru/library/windowsazure/dd135715.aspx). 
+	**$subscripionName** относится к вашей подписке Azure. Необходимо указать имя для **$storageAccountName\_Data** и **$containerName\_Data**. Ограничения именования см. в разделе [Присвоение имен и ссылки на контейнеры, BLOB-объекты и метаданные](http://msdn.microsoft.com/library/windowsazure/dd135715.aspx). 
 
 3. Выполните следующие команды, чтобы создать учетную запись хранения и контейнер хранилища BLOB-объектов в учетной записи
 
@@ -586,9 +586,9 @@ Azure HDInsight использует для хранения данных хра
 - [Подключение Excel к HDInsight с помощью Power Query][hdinsight-power-query]
 - [Подключение Excel к HDInsight с помощью драйвера Microsoft Hive ODBC][hdinsight-ODBC]
 
-[azure-purchase-options]: http://azure.microsoft.com/ru-ru/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/ru-ru/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/ru-ru/pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [hdinsight-use-sqoop]: ../hdinsight-use-sqoop/
 [hdinsight-ODBC]: ../hdinsight-connect-excel-hive-ODBC-driver/
@@ -613,6 +613,5 @@ Azure HDInsight использует для хранения данных хра
 
 [image-emulator-wordcount-compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
 [image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
-
 
 <!--HONumber=42-->

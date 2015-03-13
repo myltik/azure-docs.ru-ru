@@ -51,7 +51,7 @@
 
 В процессе настройки вам необходимо задать учетную запись хранилища BLOB-объектов и контейнер по умолчанию. Кластер будет использовать эти данные для обозначения месторасположения контейнера по умолчанию. При желании можно также указать дополнительные BLOB-объекты, которые будут связаны с кластером.
 
-Дополнительные сведения об использовании вторичных хранилищ BLOB-объектов см. в разделе [Использование хранилища BLOB-объектов с HDInsight](http://azure.microsoft.com/ru-ru/documentation/articles/hdinsight-use-blob-storage/).
+Дополнительные сведения об использовании вторичных хранилищ BLOB-объектов см. в разделе [Использование хранилища BLOB-объектов с HDInsight](http://azure.microsoft.com/documentation/articles/hdinsight-use-blob-storage/).
 
 ###Хранилище мета-данных
 
@@ -66,7 +66,7 @@
 
 ###Виртуальная сеть
 
-[Виртуальная сеть Azure](http://azure.microsoft.com/ru-ru/documentation/services/virtual-network/) позволяет создать безопасную, стабильную сеть, в которой будут находиться все ресурсы, необходимые для успешного функционирования вашего решения. Виртуальная сеть позволит вам:
+[Виртуальная сеть Azure](http://azure.microsoft.com/documentation/services/virtual-network/) позволяет создать безопасную, стабильную сеть, в которой будут находиться все ресурсы, необходимые для успешного функционирования вашего решения. Виртуальная сеть позволит вам:
 
 * Соединить облачные ресурсы с частной сетью (только для облачных решений)
 
@@ -84,7 +84,7 @@
 
 Для получения более подробной информации о характеристиках, преимуществах и возможностях виртуальной сети Azure см. раздел [Обзор характеристик виртуальной сети Azure](http://msdn.microsoft.com/library/azure/jj156007.aspx).
 
-> [AZURE.NOTE] Виртуальную сеть Azure необходимо создавать до подготовки кластера HDInsight. Более подробную информацию можно найти в разделе [Задачи конфигурации виртуальной сети](http://msdn.microsoft.com/ru-ru/library/azure/jj156206.aspx).
+> [AZURE.NOTE] Виртуальную сеть Azure необходимо создавать до подготовки кластера HDInsight. Более подробную информацию можно найти в разделе [Задачи конфигурации виртуальной сети](http://msdn.microsoft.com/library/azure/jj156206.aspx).
 >
 > Azure HDInsight поддерживает только географически привязанные виртуальные сети и на данный момент не поддерживает совместные групповые виртуальные сети.
 >
@@ -126,7 +126,7 @@
 	<table border="1">
 	<tr><th>Имя</th><th>Значение</th></tr>
 	<tr><td>Узлы данных</td><td>Число узлов данных, которые требуется развернуть. В рамках тестирования создайте кластер с одним узлом. <br />Максимальный размер кластера зависит от подписки Azure. Обратитесь в службу поддержки Azure по вопросам выставления счетов для увеличения лимита.</td></tr>
-	<tr><td>Регион/виртуальная сеть</td><td><p>Выберите тот же регион, что и для учетной записи хранения, созданной в предыдущей процедуре. HDInsight требует размещения учетной записи хранения в том же регионе. При последующей настройке можно выбрать только учетную запись хранения, которая находится в том же регионе, который указан здесь.</p><p>Доступны следующие регионы: <strong>Восточная Азия</strong>, <strong>Юго-Восточная Азия</strong>, <strong>Северная Европа</strong>, <strong>Западная Европа</strong>, <strong>Восток США</strong>, <strong>Запад США</strong>, <strong>Северо-центральный регион США</strong>, <strong>Южно-центральный регион США</strong><br/>Если вы создали виртуальную сеть Azure, то можете задать сеть, которую будет использовать кластер HDInsight.</p><p>Дополнительную информацию о создании виртуальной сети Azure см. в разделе <a href="http://msdn.microsoft.com/ru-ru/library/azure/jj156206.aspx">Задачи конфигурации виртуальной сети</a>.</p></td></tr>
+	<tr><td>Регион/виртуальная сеть</td><td><p>Выберите тот же регион, что и для учетной записи хранения, созданной в предыдущей процедуре. HDInsight требует размещения учетной записи хранения в том же регионе. При последующей настройке можно выбрать только учетную запись хранения, которая находится в том же регионе, который указан здесь.</p><p>Доступны следующие регионы: <strong>Восточная Азия</strong>, <strong>Юго-Восточная Азия</strong>, <strong>Северная Европа</strong>, <strong>Западная Европа</strong>, <strong>Восток США</strong>, <strong>Запад США</strong>, <strong>Северо-центральный регион США</strong>, <strong>Южно-центральный регион США</strong><br/>Если вы создали виртуальную сеть Azure, то можете задать сеть, которую будет использовать кластер HDInsight.</p><p>Дополнительную информацию о создании виртуальной сети Azure см. в разделе <a href="http://msdn.microsoft.com/library/azure/jj156206.aspx">Задачи конфигурации виртуальной сети</a>.</p></td></tr>
 	</table>
 
 
@@ -216,7 +216,7 @@
 ##<a id="powershell"></a> Использование Azure PowerShell
 Azure PowerShell - это полнофункциональная среда сценариев, которую можно использовать для контроля и автоматизации развертывания рабочих нагрузок, а также управления ими в Azure. В этом разделе рассматривается подготовка кластера HDInsight. Сведения о настройке рабочей станции для запуска командлетов HDInsight Powershell см. в разделе [Установка и настройка Azure PowerShell][powershell-install-configure]. Дополнительные сведения об использовании PowerShell с HDInsight см. в разделе [Администрирование HDInsight с использованием PowerShell][hdinsight-admin-powershell]. Список командлетов HDInsight PowerShell см. в [справочнике по командлетам HDInsight][hdinsight-powershell-reference].
 
-> [AZURE.NOTE] Сценарии в этом разделе можно использовать для настройки кластеров HDInsight под виртуальную сеть Azure, однако саму виртуальную сеть они создать не смогут. Сведения о создании виртуальной сети Azure см. в разделе [Задачи конфигурации виртуальной сети](http://msdn.microsoft.com/ru-ru/library/azure/jj156206.aspx).
+> [AZURE.NOTE] Сценарии в этом разделе можно использовать для настройки кластеров HDInsight под виртуальную сеть Azure, однако саму виртуальную сеть они создать не смогут. Сведения о создании виртуальной сети Azure см. в разделе [Задачи конфигурации виртуальной сети](http://msdn.microsoft.com/library/azure/jj156206.aspx).
 
 Для подготовки кластера HDInsight с помощью PowerShell необходимы следующие процедуры:
 
@@ -384,7 +384,7 @@ HDInsight использует контейнер хранилища BLOB-объ
 
 **Установка интерфейса командной строки с помощью установщика Windows**
 
-1.	Перейдите к **http://azure.microsoft.com/ru-ru/downloads/**.
+1.	Перейдите к **http://azure.microsoft.com/downloads/**.
 2.	Прокрутите вниз до раздела **Средства командной строки**, щелкните **Кроссплатформенный интерфейс командной строки** и следуйте инструкциям мастера установщика веб-платформы.
 
 **Загрузка и импорт параметров публикации**
@@ -630,8 +630,8 @@ HDInsight использует контейнер хранилища BLOB-объ
 * [Документация по пакету SDK для Azure для HDInsight][hdinsight-sdk-documentation] - узнайте больше о пакете SDK для HDInsight
 
 
-[hdinsight-sdk-documentation]: http://msdn.microsoft.com/ru-ru/library/dn479185.aspx
-[hdinsight-hbase-custom-provision]: http://azure.microsoft.com/ru-ru/documentation/articles/hdinsight-hbase-get-started/
+[hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
+[hdinsight-hbase-custom-provision]: http://azure.microsoft.com/documentation/articles/hdinsight-hbase-get-started/
 
 [hdinsight-customize-cluster]: ../hdinsight-hadoop-customize-cluster/
 [hdinsight-get-started]: ../hdinsight-get-started/
@@ -639,7 +639,7 @@ HDInsight использует контейнер хранилища BLOB-объ
 [hdinsight-admin-powershell]: ../hdinsight-administer-use-powershell/
 [hadoop-hdinsight-intro]: ../hdinsight-hadoop-introduction/
 [hdinsight-submit-jobs]: ../hdinsight-submit-hadoop-jobs-programmatically/
-[hdinsight-powershell-reference]: http://msdn.microsoft.com/ru-ru/library/windowsazure/dn479228.aspx
+[hdinsight-powershell-reference]: http://msdn.microsoft.com/library/windowsazure/dn479228.aspx
 
 [azure-management-portal]: https://manage.windowsazure.com/
 
@@ -648,10 +648,10 @@ HDInsight использует контейнер хранилища BLOB-объ
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
 [apache-hadoop]: http://go.microsoft.com/fwlink/?LinkId=510084
-[azure-purchase-options]: http://azure.microsoft.com/ru-ru/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/ru-ru/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/ru-ru/pricing/free-trial/
-[hdi-remote]: http://azure.microsoft.com/ru-ru/documentation/articles/hdinsight-administer-use-management-portal/#rdp
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[hdi-remote]: http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp
 
 
 [Powershell-install-configure]: ../install-configure-powershell/
@@ -678,5 +678,4 @@ HDInsight использует контейнер хранилища BLOB-объ
 [img-hdi-cluster]: ./media/hdinsight-provision-clusters/HDI.Cluster.png
 
   [89e2276a]: /ru-ru/documentation/articles/hdinsight-use-sqoop/ "Use Sqoop with HDInsight"
-
 <!--HONumber=42-->

@@ -1,6 +1,20 @@
-﻿<properties title="Use custom activities in an Azure Data Factory pipeline" pageTitle="Использование настраиваемых действий в конвейере фабрики данных Azure" description="Узнайте, как создавать пользовательские действия и использовать их в конвейере фабрики данных Azure." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties 
+	pageTitle="Использование настраиваемых действий в конвейере фабрики данных Azure" 
+	description="Узнайте, как создавать пользовательские действия и использовать их в конвейере фабрики данных Azure." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelluru" />
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/10/2015" 
+	ms.author="spelluru"/>
 
 # Использование настраиваемых действий в конвейере фабрики данных Azure
 Фабрика данных Azure поддерживает встроенные действия, такие как **действие копирования** и **действие HDInsight**, используемые в конвейерах для перемещения и обработки данных. Вы также можете создать собственное настраиваемое действие с определенной логикой преобразования и обработки и использовать его в конвейере. В кластере HDInsight настраиваемое действие выполняется только как задание сопоставления, так что для настраиваемого действия в конвейере вам потребуется связать кластер HDInsight.
@@ -488,7 +502,7 @@
 
 
 [nuget-package]: http://go.microsoft.com/fwlink/?LinkId=517478
-[azure-developer-center]: http://azure.microsoft.com/ru-ru/develop/net/
+[azure-developer-center]: http://azure.microsoft.com/develop/net/
 [adf-developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [azure-preview-portal]: https://portal.azure.com/
 
@@ -502,3 +516,5 @@
 [image-data-factory-ouput-from-custom-activity]: ./media/data-factory-use-custom-activities/OutputFilesFromCustomActivity.png
 
 [image-data-factory-download-logs-from-custom-activity]: ./media/data-factory-use-custom-activities/DownloadLogsFromCustomActivity.png
+
+<!--HONumber=46--> 

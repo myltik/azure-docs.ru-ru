@@ -148,5 +148,4 @@ Storm может обеспечить различные уровни гаран
 [apachetutorial]: https://storm.incubator.apache.org/documentation/Tutorial.html
 [poweredby]: https://storm.incubator.apache.org/documentation/Powered-By.html
 [gettingstarted]: /ru-ru/documentation/articles/hdinsight-storm-getting-started
-
 <!--HONumber=42-->

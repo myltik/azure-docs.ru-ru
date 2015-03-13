@@ -1,30 +1,43 @@
-﻿
-<properties urlDisplayName="Notify iOS app users by using Web API" pageTitle="Регистрация текущего пользователя для push-уведомлений с помощью веб-API - Концентраторы уведомлений" metaKeywords="регистрация приложений Azure, концентраторы уведомлений, push-уведомления Azure, push-уведомления в приложениях iOS" description="Узнайте, как запросить регистрацию push-уведомления в приложении iOS с помощью центров уведомлений Azure, когда регистрации выполняется через веб-API ASP.NET." metaCanonical="" services="notification-hubs" documentationCenter="" title="Register the current user for push notifications by using ASP.NET" authors="yuaxu" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Регистрация текущего пользователя для push-уведомлений с помощью веб-интерфейса API - центры уведомлений" 
+	description="Узнайте, как запросить регистрацию push-уведомления в приложении iOS с помощью центров уведомлений Azure, когда регистрации выполняется через веб-API ASP.NET." 
+	services="notification-hubs" 
+	documentationCenter="ios" 
+	authors="ysxu" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="yuaxu" />
+<tags 
+	ms.service="notification-hubs" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="yuaxu"/>
 # Регистрация текущего пользователя для push-уведомлений с помощью ASP.NET
 
 <div class="dev-center-tutorial-selector sublanding">
     <a href="/ru-ru/documentation/articles/notification-hubs-windows-store-aspnet-register-user-push-notifications/" title="Windows Store C#">Магазин Windows C#</a><a href="/ru-ru/documentation/articles/notification-hubs-ios-aspnet-register-user-push-notifications/" title="iOS" class="current">iOS</a>
 </div>
 
-В этом разделе рассказывается о том, как запросить регистрацию push-уведомлений с помощью концентратора уведомлений Azure при выполнении регистрации средствами веб-API для ASP.NET. Этот раздел расширяет учебник [Уведомление пользователей с помощью концентраторов уведомлений]. Чтобы создать прошедшую проверку подлинности мобильную службу, вы должны завершить требуемые действия в этом учебнике. Дополнительные сведения о сценарии уведомления пользователей см. в учебнике [Уведомление пользователей с помощью концентраторов уведомлений].  
+В этом разделе рассказывается о том, как запросить регистрацию push-уведомлений с помощью центра уведомлений Azure при выполнении регистрации средствами веб-API для ASP.NET. Этот раздел расширяет учебник [Уведомление пользователей с помощью центров уведомлений]. Чтобы создать прошедшую проверку подлинности мобильную службу, вы должны завершить требуемые действия в этом учебнике. Дополнительную информацию о сценарии уведомления пользователей см. в учебнике [Уведомление пользователей с помощью центров уведомлений].  
 
 1. В вашем MainStoryboard_iPhone.storyboard добавьте следующие компоненты из библиотеки объектов:
 
-	+ **Метка** "Принудительно отправлять пользователю уведомления от концентраторов"
-	+ **Метка** "InstallationId"
-	+ **Метка** "Пользователь"
-	+ **Текстовое поле** "Пользователь"
-	+ **Метка** "Пароль"
-	+ **Текстовое поле** "Пароль"
-	+ **Кнопка** "Login"
+	+ **Метка**: "Принудительно отправлять пользователю уведомления от центров"
+	+ **Метка**: InstallationId
+	+ **Метка**: "Пользователь"
+	+ **Текстовое поле**: "Пользователь"
+	+ **Метка**: "Пароль"
+	+ **Текстовое поле**: "Пароль"
+	+ **Кнопка**: "Вход"
 
 	На этом этапе раскадровка выглядит следующим образом:
 
    	![][0]
 
-2. Создайте в редакторе помощника точки подключения и дайте им названия, подключите текстовые поля с помощью контроллера представления (делегат) и создайте **действие** для кнопки **входа**.
+2. Во вспомогательном редакторе создайте выходы для всех коммутируемых элементов управления и вызовите их, соедините текстовые поля с контроллером представления (делегируйте) и создайте **действия** для кнопки **Вход**.
 
    	![][1]
 
@@ -36,7 +49,7 @@
 
 		- (IBAction)login:(id)sender;
 
-5. Создайте класс под названием **DeviceInfo** и скопируйте следующий код в раздел интерфейса файла DeviceInfo.h:
+5. Создайте класс с именем **DeviceInfo** и скопируйте следующий код в раздел интерфейса файла DeviceInfo.h:
 
 		@property (readonly, nonatomic) NSString* installationId;
 		@property (nonatomic) NSData* deviceToken;
@@ -77,23 +90,21 @@
 
 		@property (strong, nonatomic) DeviceInfo* deviceInfo;
 
-8. Добавьте следующий код в метод **didFinishLaunchingWithOptions** в файле PushToUserAppDelegate.m:
+8. В метод **didFinishLaunchingWithOptions** в файле PushToUserAppDelegate.m добавьте следующий код:
 
 		self.deviceInfo = [[DeviceInfo alloc] init];
 
 		[[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
 
-	В первой строке инициализируйте одноэлементный объект **DeviceInfo**. Во второй строке начинается регистрация для push-уведомлений, которая у вас уже есть, если вы закончили изучение учебника [Начало работы с концентраторами уведомлений].
+	Первая строка обеспечивает инициализацию одноэлементного **DeviceInfo**. Во второй строке начинается регистрация для push-уведомлений, которая уже существует, если вы уже изучили учебник [Приступая к работе с центрами уведомлений].
 
-9. В файле PushToUserAppDelegate.m реализуйте метод **didRegisterForRemoteNotificationsWithDeviceToken** в AppDelegate и добавьте следующий код:
+9. В PushToUserAppDelegate.m реализуйте метод **didRegisterForRemoteNotificationsWithDeviceToken** в своем AppDelegate и добавьте следующий код:
 
 		self.deviceInfo.deviceToken = deviceToken;
 
 	Таким образом задается маркер устройства для запроса.
 
-	<div class="dev-callout"><b>Примечание.</b>
-	<p>На этом этапе в методе не должно быть никакого другого кода. Если в методе **registerNativeWithDeviceToken** уже есть вызов, добавленный при прохождении учебника <a href="/ru-ru/manage/services/notification-hubs/get-started-notification-hubs-ios/" target="_blank">Приступая к работе с концентраторами уведомлений</a>, этот вызов нужно закомментировать или удалить.</p>
-	</div>
+	> [AZURE.NOTE] На этом этапе в методе не должно быть никакого другого кода. Если в методе **registerNativeWithDeviceToken** уже есть вызов, добавленный при прохождении учебника [Приступая к работе с центрами уведомлений] (/ru-ru/manage/services/notification-hubs/get-started-notification-hubs-ios/%20target="_blank"), этот вызов нужно закомментировать или удалить.
 
 10.	В файле PushToUserAppDelegate.m добавьте следующий метод обработчика:
 
@@ -116,7 +127,7 @@
 		    return YES;
 		}
 
-9. В методе **viewDidLoad** в файле PushToUserViewController.m file инициализируйте метку installationId следующим образом:
+9. В методе **viewDidLoad** в файле PushToUserViewController.m инициализируйте метку installationId, как показано ниже:
 
 		DeviceInfo* deviceInfo = [(PushToUserAppDelegate*)[[UIApplication sharedApplication]delegate] deviceInfo];
 		Self.installationId.text = deviceInfo.installationId;
@@ -171,7 +182,7 @@
 			}
 
 
-12. Скопируйте следующий код в метод обработчика **входа в систему**, созданный XCode:
+12. Скопируйте следующий код в метод обработчика **login**, созданный с помощью XCode:
 
 			DeviceInfo* deviceInfo = [(PushToUserAppDelegate*)[[UIApplication sharedApplication]delegate] deviceInfo];
 
@@ -204,9 +215,9 @@
 		        }
 		    }];
 
-	Этот метод получает идентификатор установки и канал для push-уведомлений, а затем отправляет их вместе с типом устройства прошедшему проверку методу веб-API, который создает регистрацию на концентраторах уведомлений. Этот веб-API был определен в разделе [Уведомление пользователей с помощью концентраторов уведомлений].
+	Этот метод возвращает ИД установки и канал для push-уведомлений и отправляет его, вместе с типом устройства, прошедшему аутентификацию методу веб-API, который создает регистрацию в центрах уведомлений. Этот веб-API был определен в учебнике [Уведомление пользователей с помощью центров уведомлений].
 
-Теперь, когда клиентское приложение обновлено, вернитесь к учебнику [Уведомление пользователей с помощью концентраторов уведомлений] и обновите мобильную службу для отправки уведомлений с помощью концентраторов уведомлений.
+Теперь, когда клиентское приложение было обновлено, вернитесь к учебнику [Уведомление пользователей с помощью центров уведомлений] и обновите мобильную службу для отправки уведомлений с помощью центров уведомлений.
 
 <!-- Anchors. -->
 
@@ -215,7 +226,9 @@
 [1]: ./media/notification-hubs-ios-aspnet-register-user-push-notifications/notification-hub-user-aspnet-ios2.png
 
 <!-- URLs. -->
-[Уведомление пользователей с помощью концентраторов уведомлений]: /ru-ru/manage/services/notification-hubs/notify-users-aspnet
+[Уведомление пользователей с помощью центров уведомлений]: /ru-ru/manage/services/notification-hubs/notify-users-aspnet
 
 [Портал управления Azure]: https://manage.windowsazure.com/
-[Приступая к работе с концентраторами уведомлений]: /ru-ru/manage/services/notification-hubs/get-started-notification-hubs-ios
+[Приступая к работе с центрами уведомлений]: /ru-ru/manage/services/notification-hubs/get-started-notification-hubs-ios
+
+<!--HONumber=45--> 

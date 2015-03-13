@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Использование клиентской библиотеки iOS - мобильные службы Azure" description="Узнайте, как использовать клиентскую библиотеку iOS для мобильных служб Azure." services="" documentationCenter="ios" authors="krisragh" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Использование клиентской библиотеки iOS - мобильные службы Azure" 
+	description="Узнайте, как использовать клиентскую библиотеку iOS для мобильных служб Azure." 
+	services="" 
+	documentationCenter="ios" 
+	authors="krisragh" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-ios" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="krisragh"/>
 
 
 
@@ -176,7 +190,8 @@
 
 		query.includeTotalCount = YES;
 		query.fetchLimit = 20;
-		query.fetchOffset = self.loadedItems.count;
+		query.fetchOffset = self.loadedIte
+	ms.count;
 
 		[query readWithCompletion:^(NSArray *items, NSInteger totalCount, NSError *error) {
 			if(!error) {
@@ -184,7 +199,8 @@
 				[self.loadedItems addObjectsFromArray:items];
 
 				// Set a flag to keep track if there are any additional records we need to load
-				self.moreResults = (self.loadedItems.count < totalCount);
+				self.moreResults = (self.loadedIte
+	ms.count < totalCount);
 			}
 		}];
 	}
@@ -504,14 +520,14 @@ _(Необязательно) В этом разделе показано, ка�
 
 [Обработка маркеров с истекшим сроком действия]: http://go.microsoft.com/fwlink/p/?LinkId=301955
 [Live Connect SDK]: http://go.microsoft.com/fwlink/p/?LinkId=301960
-[Разрешения]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj193161.aspx
+[Разрешения]: http://msdn.microsoft.com/library/windowsazure/jj193161.aspx
 [Авторизация пользователей с помощью скриптов]: /ru-ru/develop/mobile/tutorials/authorize-users-in-scripts-ios
 [Динамическая схема]: http://go.microsoft.com/fwlink/p/?LinkId=296271
 [Практическое руководство. Доступ к настраиваемым параметрам]: /ru-ru/develop/mobile/how-to-guides/work-with-server-scripts#access-headers
-[Создание таблицы]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj193162.aspx
+[Создание таблицы]: http://msdn.microsoft.com/library/windowsazure/jj193162.aspx
 [Объект NSDictionary]: http://go.microsoft.com/fwlink/p/?LinkId=301965
 [Управляющие коды ASCII C0 и C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-[Интерфейс командной строки для управления таблицами мобильных служб]: http://www.windowsazure.com/ru-ru/manage/linux/other-resources/command-line-tools/#Mobile_Tables
+[Интерфейс командной строки для управления таблицами мобильных служб]: http://azure.microsoft.com/manage/linux/other-resources/command-line-tools/#Mobile_Tables
 
 
 <!--HONumber=42-->

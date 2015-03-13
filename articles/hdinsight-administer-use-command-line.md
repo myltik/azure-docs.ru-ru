@@ -69,7 +69,7 @@
 
 **Установка интерфейса командной строки с помощью установщика Windows**
 
-1.	Перейдите к **http://azure.microsoft.com/ru-ru/downloads/**.
+1.	Перейдите к **http://azure.microsoft.com/downloads/**.
 2.	Прокрутите вниз до раздела **Средства командной строки**, щелкните **Кроссплатформенный интерфейс командной строки** и следуйте инструкциям мастера установщика веб-платформы.
 
 ##<a id="importsettings"></a> Скачивание и импорт файла publishsettings учетной записи Azure
@@ -215,9 +215,9 @@ HDInsight использует контейнер хранилища BLOB-объ
 [azure-command-line-tools]: ../xplat-cli/
 [azure-command-line-tool]: ../command-line-tools/
 [azure-create-storageaccount]: ../storage-create-storage-account/ 
-[azure-purchase-options]: http://azure.microsoft.com/ru-ru/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/ru-ru/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/ru-ru/pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 
 [hdinsight-admin-portal]: ../hdinsight-administer-use-management-portal/
@@ -228,5 +228,4 @@ HDInsight использует контейнер хранилища BLOB-объ
 [image-cli-clustercreation]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreation.png
 [image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
 [image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/HDI.CLIListClusters.png "List and show clusters"
-
 <!--HONumber=42-->

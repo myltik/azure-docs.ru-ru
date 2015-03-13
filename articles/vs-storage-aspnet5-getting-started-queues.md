@@ -27,7 +27,7 @@
 > - [Очереди](/documentation/articles/vs-storage-aspnet5-getting-started-queues/)
 > - [Таблицы](/documentation/articles/vs-storage-aspnet5-getting-started-tables/)
 
-Хранилище очередей Azure - это служба хранения большого количества сообщений, к которым можно получить доступ практически из любой точки мира с помощью вызовов с проверкой подлинности по протоколу HTTP или HTTPS. Одно сообщение очереди может быть размером до 64 КБ, а очередь может содержать миллионы сообщений до общего ограничения емкости учетной записи хранения. Дополнительные сведения см. в статье [Как использовать хранилище очередей из .NET](http://azure.microsoft.com/ru-ru/documentation/articles/storage-dotnet-how-to-use-queues/ "How to use Queue Storage from .NET").
+Хранилище очередей Azure - это служба хранения большого количества сообщений, к которым можно получить доступ практически из любой точки мира с помощью вызовов с проверкой подлинности по протоколу HTTP или HTTPS. Одно сообщение очереди может быть размером до 64 КБ, а очередь может содержать миллионы сообщений до общего ограничения емкости учетной записи хранения. Дополнительные сведения см. в статье [Как использовать хранилище очередей из .NET](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-queues/ "How to use Queue Storage from .NET").
 
 Для программного доступа к очередям в проектах ASP.NET 5 необходимо добавить следующие элементы, если они еще не существуют.
 
@@ -53,7 +53,7 @@
       config.Get("MicrosoftAzureStorage:<storageAccountName>_AzureStorageConnectionString"));
 
 ##### Создание очереди
-Объект **CloudQueueClient** позволяет ссылаться на объекты очередей. Следующий код создает объект **CloudQueueClient**. Для всего кода в этой статье используется строка подключения к хранилищу, сохраненная в конфигурации службы приложения Azure. Существуют также другие способы создания объекта **CloudStorageAccount**. Подробнее см. в документации по [CloudStorageAccount](http://msdn.microsoft.com/ru-ru/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx "CloudStorageAccount").
+Объект **CloudQueueClient** позволяет ссылаться на объекты очередей. Следующий код создает объект **CloudQueueClient**. Для всего кода в этой статье используется строка подключения к хранилищу, сохраненная в конфигурации службы приложения Azure. Существуют также другие способы создания объекта **CloudStorageAccount**. Подробнее см. в документации по [CloudStorageAccount](http://msdn.microsoft.com/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx "CloudStorageAccount").
 
 **Примечание:** Интерфейсы API, которые выполняют обращения к хранилищу Azure в ASP.NET 5, являются асинхронными. Для получения дополнительных сведений см. раздел [Асинхронное программирование с помощью Async и Await](http://msdn.microsoft.com/library/hh191443.aspx). В следующем примере кода предполагается, что используются асинхронные методы программирования.
 
@@ -102,6 +102,5 @@
 	await queue.DeleteMessageAsync(retrievedMessage);
 
 [Дополнительные сведения о хранилище Azure](http://azure.microsoft.com/documentation/services/storage/)
-См. также [Просмотр ресурсов хранилища в обозревателе серверов](http://msdn.microsoft.com/ru-ru/library/azure/ff683677.aspx) и [ASP.NET 5](http://www.asp.net/vnext).
-
+См. также [Просмотр ресурсов хранилища в обозревателе серверов](http://msdn.microsoft.com/library/azure/ff683677.aspx) и [ASP.NET 5](http://www.asp.net/vnext).
 <!--HONumber=42-->

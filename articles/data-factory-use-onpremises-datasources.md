@@ -1,6 +1,20 @@
-﻿<properties title="Enable your pipelines to work with on-premises data" pageTitle="Использование конвейера для работы с локальными данными | Фабрика данных Azure" description="Узнайте, как зарегистрировать локальный источник данных в фабрике данных Azure и копировать данные из источника данных и в него." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties 
+	pageTitle="Использование конвейера для работы с локальными данными | Фабрика данных Azure" 
+	description="Узнайте, как зарегистрировать локальный источник данных в фабрике данных Azure и копировать данные из источника данных и в него." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelluru" />
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/10/2015" 
+	ms.author="spelluru"/>
 
 # Использование конвейера для работы с локальными данными
 
@@ -504,7 +518,7 @@
 
 
 
-[azure-powershell-install]: http://azure.microsoft.com/ru-ru/documentation/articles/install-configure-powershell/
+[azure-powershell-install]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
 
 
 [image-data-factory-onprem-new-everything]: ./media/data-factory-use-onpremises-datasources/OnPremNewEverything.png
@@ -580,3 +594,5 @@
 [image-data-factory-new-datafactory-menu]: ./media/data-factory-use-onpremises-datasources/NewDataFactoryMenu.png
 
 [image-data-factory-preview-portal-storage-key]: ./media/data-factory-get-started/PreviewPortalStorageKey.png
+
+<!--HONumber=46--> 

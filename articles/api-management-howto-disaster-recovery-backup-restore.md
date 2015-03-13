@@ -1,6 +1,20 @@
-<properties pageTitle="How to implement disaster recovery using service backup and restore in Azure API Management" metaKeywords="" description="Learn how to use backup and restore to perform disaster recovery in Azure API Management." metaCanonical="" services="api-management" documentationCenter="API Management" title="How to implement disaster recovery using service backup and restore in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+﻿<properties 
+	pageTitle="Реализация аварийного восстановления с помощью функций резервного копирования и восстановления службы в Azure API Management" 
+	description="Использование архивации и восстановления для выполнения аварийного восстановления в службе управления API Azure." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 # Реализация аварийного восстановления с помощью функций резервного копирования и восстановления службы в Azure API Management
 Выбрав службу Azure API Management для публикации интерфейсов API и управления ими, вы получаете множество возможностей по обеспечению отказоустойчивости и организации инфраструктуры, которые в противном случае вам пришлось бы проектировать и внедрять самостоятельно. Платформа Azure устраняет большую часть потенциальных сбоев при относительно небольших затратах.
@@ -78,7 +92,9 @@
 - **Уровень** восстанавливаемой службы **должен соответствовать** уровню службы в резервной копии.
 - **Изменения**, внесенные в конфигурацию службы (например, интерфейсы API, политики, внешний вид портала разработчика) во время восстановления, **могут быть перезаписаны**.
 
-[Проверка подлинности запросов к диспетчеру ресурсов Azure]: http://msdn.microsoft.com/ru-ru/library/dn790557.aspx
+[Проверка подлинности запросов к диспетчеру ресурсов Azure]: http://msdn.microsoft.com/library/dn790557.aspx
 [Резервное копирование службы API Management]: #step1
 [Восстановление службы API Management]: #step2
-[API REST Azure API Management]: http://msdn.microsoft.com/ru-ru/library/azure/dn781421.aspx
+[API REST Azure API Management]: http://msdn.microsoft.com/library/azure/dn781421.aspx
+
+<!--HONumber=46--> 

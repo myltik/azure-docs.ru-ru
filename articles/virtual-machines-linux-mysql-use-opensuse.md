@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Установка MySQL на виртуальной машине под управлением OpenSUSE Linux в Azure" 
 	description="Узнайте, как установить MySQL на виртуальной машине в Azure." 
 	services="virtual-machines" 
@@ -20,7 +20,7 @@
 
 [MySQL][MySQL] - это популярная база данных SQL с открытым исходным кодом. В этом учебнике показано:
 
-- Как использовать [портал управления Azure][AzurePortal] для создания виртуальной машины OpenSUSE Linux из образа, доступного в Azure.
+- как использовать [портал управления Azure][AzurePortal] для создания виртуальной машины OpenSUSE Linux из образа, доступного в Azure;
 - Как подключаться к виртуальной машине с использованием SSH или PuTTY.
 - Как установить MySQL на виртуальной машине.
 
@@ -41,4 +41,4 @@
 [MySQL]: http://www.mysql.com
 [AzurePortal]: http://manage.windowsazure.com
 
-<!--HONumber=45--> 
+<!--HONumber=42-->

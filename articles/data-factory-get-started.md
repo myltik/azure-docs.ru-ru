@@ -1,6 +1,20 @@
-﻿<properties title="Get started using Azure Data Factory" pageTitle="Приступая к работе с фабрикой данных Azure" description="В этом учебнике показано, как создать пример конвейера данных, который копирует данные из большого двоичного объекта в экземпляр базы данных SQL Azure." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties 
+	pageTitle="Приступая к работе с фабрикой данных Azure" 
+	description="В этом учебнике показано, как создать пример конвейера данных, который копирует данные из большого двоичного объекта в экземпляр базы данных SQL Azure." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/04/2014" ms.author="spelluru" />
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/13/2015" 
+	ms.author="spelluru"/>
 
 # Приступая к работе с фабрикой данных Azure
 Эта статья поможет вам начать работу с фабрикой данных Azure. Представленный в этой статье учебник демонстрирует создание фабрики данных Azure, создание конвейера в фабрике данных и копирование образца данных из хранилища BLOB-объектов Azure в базу данных SQL Azure.
@@ -441,12 +455,12 @@
 
 
 <!--Link references-->
-[azure-purchase-options]: http://azure.microsoft.com/ru-ru/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/ru-ru/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/ru-ru/pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [azure-preview-portal]: https://portal.azure.com/
-[download-azure-powershell]: http://azure.microsoft.com/ru-ru/documentation/articles/install-configure-powershell
+[download-azure-powershell]: http://azure.microsoft.com/documentation/articles/install-configure-powershell
 
 [monitor-manage-using-powershell]: ../data-factory-monitor-manage-using-powershell
 [use-onpremises-datasources]: ../data-factory-use-onpremises-datasources
@@ -536,3 +550,5 @@
 [image-data-factory-name-not-available]: ./media/data-factory-get-started/getstarted-data-factory-not-available.png
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

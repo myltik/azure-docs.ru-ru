@@ -1,6 +1,21 @@
-﻿<properties pageTitle="Приступая к работе с концентраторами push-уведомлений при использовании мобильных служб среды выполнения .NET" description="Узнайте, как использовать мобильные службы и центры уведомлений среды выполнения .NET Microsoft Azure для отправки push-уведомлений в приложение Windows Phone." services="mobile-services, notification-hubs" documentationCenter="windows" authors="wesmc7777" writer="wesmc" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Приступая к работе с концентраторами push-уведомлений при использовании мобильных служб среды выполнения .NET" 
+	description="Узнайте, как использовать мобильные службы и центры уведомлений среды выполнения .NET Microsoft Azure для отправки push-уведомлений в приложение Windows Phone." 
+	services="mobile-services, notification-hubs" 
+	documentationCenter="windows" 
+	authors="wesmc7777" 
+	Writer="wesmc" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/23/2014" 
+	ms.author="wesmc"/>
 
 # Добавление push-уведомлений в приложение мобильных служб
 
@@ -131,7 +146,7 @@
 
    	![][4]
 
-	>[AZURE.NOTE]В этом учебнике используется MPNS в режиме без проверки подлинности. В этом режиме MPNS ограничивает количество уведомлений, которые могут быть отправлены в канал устройства. Чтобы снять это ограничение, необходимо создать и отправить сертификат, щелкнув <strong>Отправить</strong> и выбрав нужный сертификат. Дополнительные сведения о создании сертификата см. в разделе <a href="http://msdn.microsoft.com/ru-ru/library/windowsphone/develop/ff941099(v=vs.105).aspx">Настройка веб-службы с проверкой подлинности для отправки push-уведомлений в Windows Phone</a>.
+	>[AZURE.NOTE]В этом учебнике используется MPNS в режиме без проверки подлинности. В этом режиме MPNS ограничивает количество уведомлений, которые могут быть отправлены в канал устройства. Чтобы снять это ограничение, необходимо создать и отправить сертификат, щелкнув <strong>Отправить</strong> и выбрав нужный сертификат. Дополнительные сведения о создании сертификата см. в разделе <a href="http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx">Настройка веб-службы с проверкой подлинности для отправки push-уведомлений в Windows Phone</a>.
 
 Это позволяет мобильной службе подключаться к MPNS в режиме без проверки подлинности для отправки push-уведомлений.
 
@@ -210,7 +225,7 @@
 
 
 [Справочник по принципам использования мобильных служб .NET]: /ru-ru/documentation/articles/mobile-services-html-how-to-use-client-library
-[Приложения Windows Phone Silverlight 8.1]: http://msdn.microsoft.com/ru-ru/library/windowsphone/develop/dn642082(v=vs.105).aspx
+[Приложения Windows Phone Silverlight 8.1]: http://msdn.microsoft.com/library/windowsphone/develop/dn642082(v=vs.105).aspx
 [Портал управления Azure]: https://manage.windowsazure.com/
 
 

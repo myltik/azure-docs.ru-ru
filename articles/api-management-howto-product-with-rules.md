@@ -1,6 +1,20 @@
-<properties pageTitle="How to create and configure advanced product settings in Azure API Management" metaKeywords="" description="Learn how to configure a product with quota and rate limit policies." metaCanonical="" services="" documentationCenter="API Management" title="How to create and configure advanced product settings in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+﻿<properties 
+	pageTitle="Создание и настройка расширенных параметров продукта в службе управления API Azure" 
+	description="Настройка продукта с квотой и оценка политик ограничения." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/11/2015" 
+	ms.author="sdanie"/>
 
 # Как создать и задать расширенные настройки продукта в Azure API Management
 
@@ -255,3 +269,5 @@
   [Результаты операции]: ./media/api-management-howto-product-with-rules/api-management-http-get-results.png
   [5]: ./media/api-management-howto-product-with-rules/api-management-http-get-429.png
   [Приступая к работе с расширенными параметрами API]: ../api-management-get-started-advanced
+
+<!--HONumber=46--> 

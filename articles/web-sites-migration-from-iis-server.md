@@ -106,7 +106,7 @@
 
 	![](./media/web-sites-migration-from-iis-server/migration-settings.png)
 
-	>[AZURE.NOTE] Установив флажок **Включить Azure Active Directory** в пользовательских настройках, можно выполнить интеграцию веб-сайта Azure в [Azure Active Directory](http://azure.microsoft.com/ru-ru/documentation/articles/active-directory-whatis/) (**каталог по умолчанию**). Дополнительную информацию о синхронизации Azure Active Directory с локальным каталогом Active Directory см. в разделе [Интеграция служб каталогов](http://msdn.microsoft.com/library/jj573653).
+	>[AZURE.NOTE] Установив флажок **Включить Azure Active Directory** в пользовательских настройках, можно выполнить интеграцию веб-сайта Azure в [Azure Active Directory](http://azure.microsoft.com/documentation/articles/active-directory-whatis/) (**каталог по умолчанию**). Дополнительную информацию о синхронизации Azure Active Directory с локальным каталогом Active Directory см. в разделе [Интеграция служб каталогов](http://msdn.microsoft.com/library/jj573653).
 
 16.	 После внесения всех необходимых изменений нажмите кнопку **Создать**, чтобы запустить процесс миграции. Средство миграции создаст базу данных SQL Azure и веб-сайт Azure, а затем опубликует содержимое веб-сайта и базы данных. Процесс миграции четко отображается в средстве миграции, а по окончании переноса отобразится окно сводки, в котором будут указаны сведения о перенесенных компонентах сайтов, успешности выполнения миграции, а также ссылки на созданные веб-сайты Azure. 
 

@@ -1,6 +1,20 @@
-﻿<properties title="Troubleshooting Guide: Creating and connecting to an Azure Machine Learning workspace" pageTitle="Руководство по поиску и устранению проблем: создание и подключение к рабочей области машинного обучения Azure | Azure" description="Решения для распространенных проблем с созданием рабочей области Машинного обучения Azure и подключением к ней " metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Руководство по поиску и устранению проблем: создание и подключение к рабочей области машинного обучения Azure | Azure" 
+	description="Решения для распространенных проблем с созданием рабочей области Машинного обучения Azure и подключением к ней" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/25/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/25/2014" 
+	ms.author="garye"/>
 
 
 #Руководство по поиску и устранению проблем: создание и подключение к рабочей области машинного обучения Azure
@@ -53,3 +67,5 @@ Azure ML в настоящий момент находится в общедос
 [screen4]:./media/machine-learning-troubleshooting-creating-ml-workspace/screen4.png
 [screen5]:./media/machine-learning-troubleshooting-creating-ml-workspace/screen5.png
 [screen6]:./media/machine-learning-troubleshooting-creating-ml-workspace/screen6.png
+
+<!--HONumber=46--> 

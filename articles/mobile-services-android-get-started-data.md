@@ -1,6 +1,20 @@
-<properties pageTitle="Начало работы с данными (Android) | Центр мобильных разработок" description="Узнайте, как приступить к работе с мобильными службами, чтобы использовать данные в приложении Android." services="mobile-services" documentationCenter="android" authors="RickSaling" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Начало работы с данными (Android) | Центр мобильных разработок" 
+	description="Узнайте, как приступить к работе с мобильными службами, чтобы использовать данные в приложении Android." 
+	services="mobile-services" 
+	documentationCenter="android" 
+	authors="RickSaling" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="10/16/2014" ms.author="ricksal,glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="Mobile-Android" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="10/16/2014" 
+	ms.author="ricksal,glenga"/>
 
 # Добавление мобильных служб к существующему приложению
 
@@ -28,7 +42,7 @@
 4. [Обновление приложения для использования мобильных служб]
 5. [Тестирование работы приложения с мобильными службами]
 
-> [AZURE.IMPORTANT] Для работы с этим учебником требуется учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://www.windowsazure.com/ru-ru/pricing/free-trial/?WT.mc_id=AED8DE357"%20target="_blank). 
+> [AZURE.IMPORTANT] Для работы с этим учебником требуется учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AED8DE357"%20target="_blank). 
 
 Для данного учебника требуется: [пакет SDK для мобильных служб Android]; <a href="https://go.microsoft.com/fwLink/p/?LinkID=280125" target="_blank">Android SDK</a>, который включает интегрированную среду разработки Eclipse (IDE) и подключаемый модуль средств разработчика Android (ADT); а также Android 4.2 или более поздней версии. 
 

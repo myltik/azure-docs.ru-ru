@@ -1,17 +1,31 @@
-﻿<properties pageTitle="Проверка подлинности приложения с помощью библиотеки проверки подлинности Active Directory с единым входом (Магазин Windows) | Центр мобильных разработок" description="Узнайте, как аутентифицировать пользователей для единого входа с помощью ADAL в приложении магазина Windows." documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor="" services=""/>
+﻿<properties 
+	pageTitle="Проверка подлинности приложения с помощью библиотеки проверки подлинности Active Directory с единым входом (Магазин Windows) | Центр мобильных разработок" 
+	description="Узнайте, как аутентифицировать пользователей для единого входа с помощью ADAL в приложении магазина Windows." 
+	documentationCenter="windows" 
+	authors="wesmc7777" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="10/14/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="10/14/2014" 
+	ms.author="wesmc"/>
 
 # Проверка подлинности приложения с помощью единого входа библиотеки проверки подлинности Active Directory
 
 [AZURE.INCLUDE [mobile-services-selector-adal-sso](../includes/mobile-services-selector-adal-sso.md)]
 
-В этом учебнике вы научитесь добавлять проверку подлинности в проект быстрого запуска с помощью библиотеки проверки подлинности Active Directory, чтобы оказывать поддержку [операциям входа, ориентированным на клиента](http://msdn.microsoft.com/ru-ru/library/azure/jj710106.aspx), с помощью Azure Active Directory. Чтобы обеспечить поддержку [операций входа, ориентированных на службу](http://msdn.microsoft.com/ru-ru/library/azure/dn283952.aspx),с помощью Azure Active Directory, начните с прохождения учебника [Добавление проверки подлинности в приложение мобильных служб](/ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/).
+В этом учебнике вы научитесь добавлять проверку подлинности в проект быстрого запуска с помощью библиотеки проверки подлинности Active Directory, чтобы оказывать поддержку [операциям входа, ориентированным на клиента](http://msdn.microsoft.com/library/azure/jj710106.aspx), с помощью Azure Active Directory. Чтобы обеспечить поддержку [операций входа, ориентированных на службу](http://msdn.microsoft.com/library/azure/dn283952.aspx),с помощью Azure Active Directory, начните с прохождения учебника [Добавление проверки подлинности в приложение мобильных служб](/ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/).
 
 Чтобы иметь возможность проверки подлинности пользователей, необходимо зарегистрировать приложение в Azure Active Directory (AAD). Это делается в два этапа. Сначала следует зарегистрировать мобильную службу и предоставить в ней разрешения. Затем нужно зарегистрировать приложение Магазина Windows и предоставить ему доступ к этим разрешениям.
 
 
->[AZURE.NOTE] Это руководство поможет лучше понять, как мобильные службы позволяют выполнять проверку подлинности Azure Active Directory единого входа для приложений Магазина Windows с помощью [операции входа, ориентированной на клиента](http://msdn.microsoft.com/ru-ru/library/azure/jj710106.aspx). Если это ваш первый опыт работы с мобильными службами, сначала ознакомьтесь с учебником [Приступая к работе с мобильными службами].
+>[AZURE.NOTE] Это руководство поможет лучше понять, как мобильные службы позволяют выполнять проверку подлинности Azure Active Directory единого входа для приложений Магазина Windows с помощью [операции входа, ориентированной на клиента](http://msdn.microsoft.com/library/azure/jj710106.aspx). Если это ваш первый опыт работы с мобильными службами, сначала ознакомьтесь с учебником [Приступая к работе с мобильными службами].
 
 В этом учебнике рассматриваются следующие основные действия:
 

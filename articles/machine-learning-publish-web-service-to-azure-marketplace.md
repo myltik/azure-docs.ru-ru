@@ -1,6 +1,20 @@
-﻿<properties title="Publishing Azure ML Web Services to the Azure Marketplace" pageTitle="Публикация веб-служб машинного обучения Azure в Azure Marketplace | Azure" description="Публикация веб-служб машинного обучения Azure в Azure Marketplace" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Публикация веб-службы машинного обучения Azure в Azure Marketplace | Azure" 
+	description="Публикация веб-службы машинного обучения Azure в Azure Marketplace" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="luisca" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/03/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/03/2014" 
+	ms.author="luisca"/>
 
 # Публикация веб-служб машинного обучения Azure в Azure Marketplace 
 
@@ -28,14 +42,14 @@
 1.	Создайте и опубликуйте веб-службу запроса-ответа Azure ML.
 2.	На портале управления Azure разверните службу в рабочей среде.
 3.	Используйте URL-адрес опубликованной веб-службы для публикации в Azure Marketplace.
-4.	Обзор процесса публикации: http://msdn.microsoft.com/ru-ru/library/azure/hh580725.aspx 
+4.	Обзор процесса публикации: http://msdn.microsoft.com/library/azure/hh580725.aspx 
 5.	После отправки это предложение будет рассмотрено и должно быть утверждено, прежде чем клиенты смогут начать приобретать его. Процесс публикации может занять несколько рабочих дней. Мы работаем над сокращением этого срока и в ближайшем времени сообщим вам о связанных с этим изменениях.
 
 ## Рекомендации по публикации в Azure Marketplace
 
-1.	Необходимо зарегистрироваться в качестве издателя. Дополнительные сведения см. в статье <http://msdn.microsoft.com/ru-ru/library/azure/hh563872.aspx>
-2.	Необходимо предоставить сведения о предложении, включая тарифный план. Определите, будет ли предложение платной или бесплатной службой. Дополнительные сведения см. в статье <http://msdn.microsoft.com/ru-ru/library/azure/hh563873.aspx> 
-3.	Для получения оплаты необходимо указать платежные реквизиты, такие как банковские и налоговые данные. Дополнительные сведения см. в статье <http://msdn.microsoft.com/ru-ru/library/azure/hh563873.aspx>
+1.	Необходимо зарегистрироваться в качестве издателя. Дополнительные сведения см. в статье <http://msdn.microsoft.com/library/azure/hh563872.aspx>
+2.	Необходимо предоставить сведения о предложении, включая тарифный план. Определите, будет ли предложение платной или бесплатной службой. Дополнительные сведения см. в статье <http://msdn.microsoft.com/library/azure/hh563873.aspx> 
+3.	Для получения оплаты необходимо указать платежные реквизиты, такие как банковские и налоговые данные. Дополнительные сведения см. в статье <http://msdn.microsoft.com/library/azure/hh563873.aspx>
 
 ## Специальные параметры машинного обучения
 
@@ -80,3 +94,5 @@
 
 [image1]:./media/machine-learning-publish-web-service-to-azure-marketplace/image1.png
 [image2]:./media/machine-learning-publish-web-service-to-azure-marketplace/image2.png
+
+<!--HONumber=46--> 

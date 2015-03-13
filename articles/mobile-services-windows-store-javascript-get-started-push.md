@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Приступая к работе с push-уведомлениями (устаревшая версия push-уведомлений) | Центр мобильных разработок" description="Узнайте, как использовать мобильные службы Azure для отправки push-уведомлений в приложение JavaScript Магазина Windows (устаревшая отправка)." services="mobile-services, notification-hubs" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Приступая к работе с push-уведомлениями (устаревшая версия push-уведомлений) | Центр мобильных разработок" 
+	description="Узнайте, как использовать мобильные службы Azure для отправки push-уведомлений в приложение JavaScript Магазина Windows (устаревшая отправка)." 
+	services="mobile-services, notification-hubs" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="11/22/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="javascript" 
+	ms.topic="article" 
+	ms.date="11/22/2014" 
+	ms.author="glenga"/>
 
 # Добавление push-уведомлений в приложение мобильных служб (устаревшая версия push-уведомлений)
 

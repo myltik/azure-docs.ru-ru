@@ -33,7 +33,7 @@ Azure Traffic Manager использует три разных метода ба
 	
 * **Производительность**: Метод производительности распределяет трафик на основе минимального времени обмена данными для клиентов. Метод производительности можно использовать для веб-сайтов, расположенных в одном или разных регионах. 
 
-Дополнительную информацию о балансировке нагрузки в Azure Traffic Manager см. в разделе [Описание методов балансировки нагрузки в Traffic Manager](http://msdn.microsoft.com/ru-ru/library/windowsazure/dn339010.aspx).
+Дополнительную информацию о балансировке нагрузки в Azure Traffic Manager см. в разделе [Описание методов балансировки нагрузки в Traffic Manager](http://msdn.microsoft.com/library/windowsazure/dn339010.aspx).
 
 ##Веб-сайты Azure и профили Traffic Manager 
 Чтобы настроить управление трафиком веб-сайтов, создайте в Azure Traffic Manager профиль, использующий один из трех описанных ранее методов балансировки нагрузки, и добавьте в профиль конечные точки (в данном случае это веб-сайты), для которых требуется управлять трафиком. Состояние ваших веб-сайтов (запущены, остановлены или удалены) регулярно передается в профиль, чтобы компонент Azure Traffic Manager мог соответствующим образом перенаправлять трафик.
@@ -56,11 +56,11 @@ Azure Traffic Manager использует три разных метода ба
 
 ## Дальнейшие действия
 
-Общую и техническую информацию об Azure Traffic Manager см. в разделе [Обзор Traffic Manager](http://msdn.microsoft.com/ru-ru/library/windowsazure/hh744833.aspx). 
+Общую и техническую информацию об Azure Traffic Manager см. в разделе [Обзор Traffic Manager](http://msdn.microsoft.com/library/windowsazure/hh744833.aspx). 
 
-Информацию о настройке Azure Traffic Manager, включая применение этого компонента для веб-сайтов Azure, см. в разделе [Задачи настройки Traffic Manager](http://msdn.microsoft.com/ru-ru/library/windowsazure/hh744830.aspx).
+Информацию о настройке Azure Traffic Manager, включая применение этого компонента для веб-сайтов Azure, см. в разделе [Задачи настройки Traffic Manager](http://msdn.microsoft.com/library/windowsazure/hh744830.aspx).
 
-Дополнительную информацию о балансировке нагрузки в Azure Traffic Manager см. в разделе [Описание методов балансировки нагрузки в Traffic Manager](http://msdn.microsoft.com/ru-ru/library/windowsazure/dn339010.aspx).
+Дополнительную информацию о балансировке нагрузки в Azure Traffic Manager см. в разделе [Описание методов балансировки нагрузки в Traffic Manager](http://msdn.microsoft.com/library/windowsazure/dn339010.aspx).
 
 Дополнительную информацию об использовании Traffic Manager с веб-сайтами Azure см. в записях блога 
 [Использование Azure Traffic Manager с веб-сайтами Azure](http://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx) и [Azure Traffic Manager теперь можно интегрировать с веб-сайтами Azure](http://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/).

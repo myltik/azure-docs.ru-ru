@@ -134,7 +134,6 @@
 	   Console.WriteLine("Couldn't delete the entity.");
 
 [Дополнительные сведения о службе хранилища Azure](http://azure.microsoft.com/documentation/services/storage/)
-См. также раздел [Общие сведения о ресурсах службы хранилища в обозревателе серверов](http://msdn.microsoft.com/ru-ru/library/azure/ff683677.aspx).
-
+См. также раздел [Общие сведения о ресурсах службы хранилища в обозревателе серверов](http://msdn.microsoft.com/library/azure/ff683677.aspx).
 
 <!--HONumber=42-->

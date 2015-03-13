@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Приступая к работе с проверкой подлинности (HTML 5) | Центр мобильных разработок" description="Узнайте, как использовать мобильные службы для аутентификации пользователей приложения HTML с помощью разнообразных поставщиков удостоверений, включая Google, Facebook, Twitter и корпорацию Майкрософт." services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Приступая к работе с проверкой подлинности (HTML 5) | Центр мобильных разработок" 
+	description="Узнайте, как использовать мобильные службы для аутентификации пользователей приложения HTML с помощью разнообразных поставщиков удостоверений, включая Google, Facebook, Twitter и корпорацию Майкрософт." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="09/23/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-html" 
+	ms.devlang="javascript" 
+	ms.topic="article" 
+	ms.date="09/23/2014" 
+	ms.author="glenga"/>
 
 # Добавление проверки подлинности в приложение мобильных служб 
 
@@ -121,7 +135,8 @@
 [5]: ./media/mobile-services-html-get-started-users/mobile-service-uri.png
 [13]: ./media/mobile-services-html-get-started-users/mobile-identity-tab.png
 [14]: ./media/mobile-services-html-get-started-users/mobile-portal-data-tables.png
-[15]: ./media/mobile-services-html-get-started-users/mobile-portal-change-table-perms.png
+[15]: ./media/mobile-services-html-get-started-users/mobile-portal-change-table-per
+	ms.png
 
 <!-- URLs. -->
 [Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/mobile-services-html-get-started

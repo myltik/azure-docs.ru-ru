@@ -1,6 +1,20 @@
-﻿<properties title="Step 6: Access the Azure Machine Learning web service" pageTitle="Шаг 6: Доступ к веб-службе машинного обучения | Azure" description="Шаг 6. Доступ к активной веб-службе API Машинного обучения Azure" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+<properties 
+	pageTitle="Шаг 6. Доступ к веб-службе машинного обучения | Azure" 
+	description="Шаг 6 пошагового руководства решения. Доступ к активной веб-службе машинного обучения Azure" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/06/2014" 
+	ms.author="garye"/>
 
 
 Это последний шаг пошагового руководства [Разработка прогнозирующего решения с помощью Azure ML][develop]:
@@ -79,3 +93,5 @@
 	result = h$value()
 
 
+
+<!--HONumber=46--> 

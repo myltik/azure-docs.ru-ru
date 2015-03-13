@@ -369,7 +369,7 @@ ACL реализуется с помощью массива политик до�
   [Практическое руководство. Получение длины очереди]: #get-queue-length
   [Практическое руководство. Удаление очереди]: #delete-queue
   [Практическое руководство. Работа с подписями общего доступа]: #sas
-  [using the REST API]: http://msdn.microsoft.com/ru-ru/library/windowsazure/hh264518.aspx
+  [using the REST API]: http://msdn.microsoft.com/library/windowsazure/hh264518.aspx
   [Azure Management Portal]: http://manage.windowsazure.com
   [Создание и развертывание приложения Node.js на веб-сайте Azure]: /ru-ru/documentation/articles/web-sites-nodejs-develop-deploy-mac/
   [Веб-приложение Node.js с хранилищем]: /ru-ru/documentation/articles/storage-nodejs-use-table-storage-cloud-service-app/
@@ -383,8 +383,7 @@ ACL реализуется с помощью массива политик до�
   
   
   [Облачная служба Node.js]: /ru-ru/documentation/articles/cloud-services-nodejs-develop-deploy-app/
-  [Хранение и доступ к данным в Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/gg433040.aspx
+  [Хранение и доступ к данным в Azure]: http://msdn.microsoft.com/library/windowsazure/gg433040.aspx
   [блог рабочей группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
  [Веб-сайт с WebMatrix]: /ru-ru/documentation/articles/web-sites-nodejs-use-webmatrix/
-
 <!--HONumber=42-->

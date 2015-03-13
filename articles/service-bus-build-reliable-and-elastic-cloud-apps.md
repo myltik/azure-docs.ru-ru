@@ -1,6 +1,20 @@
-<properties pageTitle="Создание гибких и надежных облачных приложений с использованием обмена сообщениями" metaKeywords="Service Bus, Cloud, elastic" description="Узнайте, как создать гибкие и надежные облачные приложения с использованием обмена сообщениями в Microsoft Azure." services="service-bus" title="Создание гибких и надежных облачных приложений с использованием обмена сообщениями" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+﻿<properties 
+	pageTitle="Создание гибких и надежных облачных приложений с использованием обмена сообщениями" 
+	description="Узнайте, как создать гибкие и надежные облачные приложения с использованием обмена сообщениями в Microsoft Azure." 
+	services="service-bus" 
+	authors="sethmanheim" 
+	manager="timlt" 
+	editor="mattshel" 
+	documentationCenter=""/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
+<tags 
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="02/10/2015" 
+	ms.author="sethm"/>
 
 # Создание гибких и надежных облачных приложений с использованием обмена сообщениями
 
@@ -33,15 +47,17 @@
 -   [Облачные службы][Облачные службы]
 
   [Создание многоуровневого приложения .NET, использующего очереди шины обслуживания]: /ru-ru/documentation/articles/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/
-  [Дэвид Чэппел (David Chappell). Служебная шина Windows Azure]: http://azure.microsoft.com/ru-ru/documentation/articles/fundamentals-service-bus-hybrid-solutions/
-  [Шаблон балансировки нагрузки на основе очередей]: http://msdn.microsoft.com/ru-ru/library/dn589783.aspx
-  [Конкурирующие потребители]: http://msdn.microsoft.com/ru-ru/library/dn568101.aspx
+  [Дэвид Чэппел (David Chappell). Служебная шина Windows Azure]: http://azure.microsoft.com/documentation/articles/fundamentals-service-bus-hybrid-solutions/
+  [Шаблон балансировки нагрузки на основе очередей]: http://msdn.microsoft.com/library/dn589783.aspx
+  [Конкурирующие потребители]: http://msdn.microsoft.com/library/dn568101.aspx
   [Корпорация Xerox. Transportation Solution Provider Screens Commercial Vehicles]: http://www.microsoft.com/casestudies/Case_Study_Detail.aspx?CaseStudyID=710000000945
-  [Использование очередей служебной шины]: http://azure.microsoft.com/ru-ru/documentation/articles/service-bus-dotnet-how-to-use-queues/
+  [Использование очередей служебной шины]: http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-queues/
   [Недоставленные сообщения в управляемом обмене сообщениями служебной шины (запись в блоге от 21 октября 2011 года)]: http://geekswithblogs.net/asmith/articles/147398.aspx
   [Рекомендации по изолированию приложений служебной шины в целях предотвращения сбоев и аварий]: http://sandboxmsdnstage.redmond.corp.microsoft.com/ru-ru/library/azure/jj554355.aspx
   [Обмен сообщениями: ответ на запрос]: http://code.msdn.microsoft.com/windowsazure/Brokered-Messaging-Request-2b4ff5d8
-  [Многоуровневое приложение со служебной шиной Azure]: http://azure.microsoft.com/ru-ru/documentation/articles/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/
-  [Очереди Azure и очереди служебной шины Azure: сравнение и противопоставление]: http://msdn.microsoft.com/ru-ru/library/azure/hh767287.aspx
-  [Справочник по API REST служебной шины]: http://msdn.microsoft.com/ru-ru/library/azure/hh780717.aspx
-  [Облачные службы]: http://azure.microsoft.com/ru-ru/documentation/services/cloud-services/
+  [Многоуровневое приложение со служебной шиной Azure]: http://azure.microsoft.com/documentation/articles/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/
+  [Очереди Azure и очереди служебной шины Azure: сравнение и противопоставление]: http://msdn.microsoft.com/library/azure/hh767287.aspx
+  [Справочник по API REST служебной шины]: http://msdn.microsoft.com/library/azure/hh780717.aspx
+  [Облачные службы]: http://azure.microsoft.com/documentation/services/cloud-services/
+
+<!--HONumber=46--> 

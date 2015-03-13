@@ -26,7 +26,7 @@
 
 ## Загрузка необходимых средств ##
 
-- [Visual Studio 2012](http://msdn.microsoft.com/ru-ru/library/windows/apps/br211384) упрощает процесс построения, отладки, локализации, упаковки и развертывания приложений Магазина Windows.
+- [Visual Studio 2012](http://msdn.microsoft.com/library/windows/apps/br211384) упрощает процесс построения, отладки, локализации, упаковки и развертывания приложений Магазина Windows.
 - [Клиентская библиотека хранилища Microsoft Azure для среды выполнения Windows](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/11/05/windows-azure-storage-client-library-for-windows-runtime.aspx) предоставляет библиотеку классов для работы со службой хранилища Azure.
 - [Инструменты служб данных WCF для приложений Магазина Windows](http://www.microsoft.com/ru-ru/download/details.aspx?id=30714) расширяют возможности добавления ссылки на службу за счет поддержки OData на стороне клиента для приложений Магазина Windows в Visual Studio версии 2012 или более поздних версий.
 
@@ -49,7 +49,7 @@
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Auth;
     
-Далее, добавьте кнопку на страницу. Добавьте следующий код для события **Click** и измените метод обработчика событий с помощью [async keyword](http://msdn.microsoft.com/ru-ru/library/vstudio/hh156513.aspx):
+Далее, добавьте кнопку на страницу. Добавьте следующий код для события **Click** и измените метод обработчика событий с помощью [async keyword](http://msdn.microsoft.com/library/vstudio/hh156513.aspx):
     
     var credentials = new StorageCredentials(accountName, accountKey);
     var account = new CloudStorageAccount(credentials, true);
@@ -90,5 +90,4 @@
 [store-apps-storage-vs-project]: ./media/storage-use-store-apps/store-apps-storage-vs-project.png
 [store-apps-storage-choose-library]: ./media/storage-use-store-apps/store-apps-storage-choose-library.png
 [store-apps-storage-package-manager]: ./media/storage-use-store-apps/store-apps-storage-package-manager.png
-
 <!--HONumber=42-->

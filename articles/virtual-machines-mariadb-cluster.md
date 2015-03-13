@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Запуск кластера MariaDB (MySQL) в Azure" 
 	description="Создание кластеров MariaDB + Galera MySQL в виртуальных машинах Azure" 
 	services="virtual-machines" 
@@ -20,7 +20,7 @@
 <!--The next line, with one pound sign at the beginning, is the page title--> 
 # Кластер MariaDB (MySQL) - учебник по Azure
 
-<p>Мы создаем кластер [Galera](http://galeracluster.com/products/) с несколькими источниками для баз данных [MariaDBs](https://mariadb.org/en/about/) - надежную и масштабируемую замену для MySQL для работы в среде высокой доступности в виртуальных машинах Azure.</p>
+Мы создаем кластер [Galera](http://galeracluster.com/products/) с несколькими источниками для баз данных [MariaDBs](https://mariadb.org/en/about/) - надежную и масштабируемую замену для MySQL для работы в среде высокой доступности в виртуальных машинах Azure.
 
 <!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
 
@@ -65,7 +65,7 @@
 3. Найдите имя образа виртуальной машины CentOS 7.
 
 		azure vm image list | findstr CentOS        
-this will output something like `5112500ae3b842c8b9c604889f8753c3__OpenLogic-CentOS-70-20140926`. Используйте это имя на следующем шаге.
+На выходе будет нечто наподобие `5112500ae3b842c8b9c604889f8753c3__OpenLogic-CentOS-70-20140926`. Используйте это имя на следующем шаге.
 
 4. Создайте шаблон виртуальной Машины, чтобы заменить адрес **/path/to/key.pem** на путь, по которому вы сохранили созданный ключ SSH в формате PEM.
 
@@ -152,11 +152,11 @@ this will output something like `5112500ae3b842c8b9c604889f8753c3__OpenLogic-Cen
     
     		ln -s /mnt/data/mysql /var/lib/mysql   
 
-5. Так как [средство SELinux будет препятствовать выполнению операций в кластере](http://galeracluster.com/documentation-webpages/configuration.html#selinux), необходимо отключить его во время текущего сеанса (до появления совместимой версии). Измените `/etc/selinux/config`, чтобы отключить его на случай последующих перезагрузок.
+5. Так как [средство SELinux будет препятствовать выполнению операций на кластере](http://galeracluster.com/documentation-webpages/configuration.html#selinux), необходимо отключить его во время текущего сеанса (до появления совместимой версии). Измените  `/etc/selinux/config`, чтобы отключить его на случай последующих перезагрузок.
     	
 	        setenforce 0
     
-       Затем измените `/etc/selinux/config`, чтобы задать `SELINUX=permissive`
+       последующее изменение файла `/etc/selinux/config` с заданием параметра `SELINUX=permissive`
        
 6. Убедитесь, что MySQL работает.
 
@@ -180,7 +180,7 @@ this will output something like `5112500ae3b842c8b9c604889f8753c3__OpenLogic-Cen
             
 7. Создание заполнителя конфигурации
 
-	- Измените конфигурацию MySQL, чтобы создать заполнитель для параметров кластера. Не заменяйте элемент **`< Vairables >`** или раскомментируйте его сейчас. Это произойдет после создания виртуальной машины из этого шаблона.
+	- Измените конфигурацию MySQL, чтобы создать заполнитель для параметров кластера. Не заменяйте данные **"<Vairables>"** или раскомментируйте их. Это произойдет после создания виртуальной машины из этого шаблона.
 	
 			vi /etc/my.cnf.d/server.cnf
 			
@@ -203,11 +203,11 @@ this will output something like `5112500ae3b842c8b9c604889f8753c3__OpenLogic-Cen
 
 8. Откройте необходимые порты на брандмауэре (с помощью FirewallD CentOS 7).
 	
-	- MySQL: `firewall-cmd --zone=public --add-port=3306/tcp --permanent`
-    - GALERA: `firewall-cmd --zone=public --add-port=4567/tcp --permanent`
+	- MySQL:  `firewall-cmd --zone=public --add-port=3306/tcp --permanent`
+    - GALERA:  `firewall-cmd --zone=public --add-port=4567/tcp --permanent`
     - GALERA IST: `firewall-cmd --zone=public --add-port=4568/tcp --permanent`
-    - RSYNC: `firewall-cmd --zone=public --add-port=4444/tcp --permanent`
-    - Перезагрузите брандмауэр: `firewall-cmd --reload`.
+    - RSYNC:  `firewall-cmd --zone=public --add-port=4444/tcp --permanent`
+    - Перезагрузите брандмауэр:  `firewall-cmd --reload`.
 	
 9.  Оптимизируйте производительность системы. Дополнительные сведения см. в этой статье по [стратегии оптимизации производительности].
 
@@ -271,7 +271,7 @@ this will output something like `5112500ae3b842c8b9c604889f8753c3__OpenLogic-Cen
 		--ssh 23
 		--vm-name mariadb2
         --connect mariadbha mariadb-galera-image azureuser
-and for MariaDB3
+и для MariaDB3.
 
 		azure vm create
         --virtual-network-name mariadbvnet
@@ -292,8 +292,8 @@ and for MariaDB3
 
 		sudo vi /etc/my.cnf.d/server.cnf
 		
-	раскомментировав строки **`wsrep_cluster_name`** и **`wsrep_cluster_address`** за счет удаления стоящего в начале знака **#** и убедившись, то именно то, что вам нужно.
-    Кроме того, замените **`<ServerIP>`** в **`wsrep_node_address`** и **`<NodeName>`** в **`wsrep_node_name`** на IP-адрес и имя виртуальной машины соответственно, а также раскомментируйте эти строки.
+	раскомментировав **`wsrep_cluster_name`** и **`wsrep_cluster_address`** путем удаления **#** в начале и проверки их назначения.
+    Кроме того, замените **`<ServerIP>`** на **`wsrep_node_address`** и **`<NodeName>`** в разделе **`wsrep_node_name`** на соответствующие IP-адрес и имя виртуальной машины, а также раскомментируйте эти строки.
 	
 5. Запустите кластер в MariaDB1 и разрешите его выполнение при запуске.
 
@@ -311,7 +311,7 @@ and for MariaDB3
 Теперь вы будете использовать подсистему балансировки нагрузки Azure, чтобы распределить запросы между нашими 3 узлами.
 
 Выполните на машине следующие команды, используя CLI Azure.
-Структура параметров команды должна быть следующей: `azure vm endpoint create-multiple <MachineName> <PublicPort>:<VMPort>:<Protocol>:<EnableDirectServerReturn>:<Load Balanced Set Name>:<ProbeProtocol>:<ProbePort>`
+Структура параметров команды должна быть следующей:  `azure vm endpoint create-multiple <MachineName> <PublicPort>:<VMPort>:<Protocol>:<EnableDirectServerReturn>:<Load Balanced Set Name>:<ProbeProtocol>:<ProbePort>`
 
 	azure vm endpoint create-multiple mariadb1 3306:3306:tcp:false:MySQL:tcp:3306
     azure vm endpoint create-multiple mariadb2 3306:3306:tcp:false:MySQL:tcp:3306
@@ -331,7 +331,7 @@ and for MariaDB3
 
 ## Проверка кластера
 
-Все самое сложное уже проделано. Теперь кластер должен быть доступен по адресу `mariadbha.cloudapp.net:3306`, попадающего в зону действия подсистемы балансировки нагрузки и обеспечивающего легкую и эффективную маршрутизацию запросов между тремя виртуальными машинами.
+Все самое сложное уже проделано. Теперь кластер должен быть доступен по адресу "mariadbha.cloudapp.net:3306", который запустит подсистему балансировки нагрузки, а также плавно и эффективно направит запросы между 3 виртуальными машинами.
 
 Используйте избранный клиент MySQL для подключения или подключитесь с одной из виртуальных машин, чтобы проверить работоспособность кластера.
 
@@ -374,11 +374,12 @@ and for MariaDB3
 <!--Image references-->
 
 <!--Link references-->
-[Инфраструктура CLI Azure]: http://azure.microsoft.com/documentation/articles/xplat-cli/
-[Справочник по командам инфраструктуры CLI Azure]: http://azure.microsoft.com/documentation/articles/command-line-tools/
-[Создание ключа SSH для проверки подлинности]:http://www.jeff.wilcox.name/2013/06/secure-linux-vms-with-ssh-certificates/
-[Стратегия настройки производительности]: http://azure.microsoft.com/sv-se/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
-[Оптимизация и тестирование производительности MySQL на виртуальных машинах Linux в Azure]:http://azure.microsoft.com/sv-se/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
-[Проблема № 1268 в инфраструктуре CLI Azure]:https://github.com/Azure/azure-xplat-cli/issues/1268
-[Другой способ кластеризации MySQL в ОС Linux]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-mysql-cluster/
-<!--HONumber=45--> 
+[CLI Azure]: http://azure.microsoft.com/documentation/articles/xplat-cli/
+[справочник по командам CLI Azure]: http://azure.microsoft.com/documentation/articles/command-line-tools/
+[создать ключ SSH для проверки подлинности]:http://www.jeff.wilcox.name/2013/06/secure-linux-vms-with-ssh-certificates/
+[стратегии оптимизации производительности]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
+[оптимизации и тестирования производительности MySQL на виртуальных машинах Azure Linux]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
+[проблема № 1268 со средствами CLI Azure]:https://github.com/Azure/azure-xplat-cli/issues/1268
+[другим способом кластеризации MySQL в ОС Linux]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-mysql-cluster/
+
+<!--HONumber=42-->

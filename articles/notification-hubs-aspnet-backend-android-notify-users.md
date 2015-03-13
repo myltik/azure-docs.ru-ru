@@ -1,26 +1,40 @@
-﻿<properties title="Azure Notification Hubs Notify Users" pageTitle="Уведомление пользователей посредством центров уведомлений" metaKeywords="Azure push notifications, Azure notification hubs" description="Узнайте, как отправлять безопасные push-уведомления в Azure. Примеры кода написаны на C# с использованием API .NET." documentationCenter="" services="notification-hubs" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="glenga" manager="dwrede" />
+﻿<properties 
+	pageTitle="Уведомление пользователей посредством центров уведомлений" 
+	description="Узнайте, как отправлять безопасные push-уведомления в Azure. Примеры кода написаны на C# с использованием API .NET." 
+	documentationCenter="android" 
+	services="notification-hubs" 
+	authors="RickSaling" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="11/22/2014" ms.author="glenga" />
+<tags 
+	ms.service="notification-hubs" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="java" 
+	ms.topic="article" 
+	ms.date="11/22/2014" 
+	ms.author="ricksal"/>
 
 #Уведомление пользователей посредством центров уведомлений
 
 <div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/ru-ru/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-notify-users/" title="Windows Universal">Универсальное приложение Windows</a><a href="/ru-ru/documentation/articles/notification-hubs-aspnet-backend-ios-notify-users/" title="iOS">iOS</a>
+    	<a href="/ru-ru/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-notify-users/" title="Windows Universal">Windows Universal</a><a href="/ru-ru/documentation/articles/notification-hubs-aspnet-backend-ios-notify-users/" title="iOS">iOS</a>
 		<a href="/ru-ru/documentation/articles/notification-hubs-aspnet-backend-android-notify-users/" title="Android" class="current">Android</a>
 </div>
 
-Поддержка push-уведомлений в Azure позволяет получить доступ к простой в использовании, многоплатформенной и масштабируемой инфраструктуре для отправки push-уведомлений, которая значительно упрощает реализацию push-уведомлений как для индивидуальных пользователей, так и для корпоративных приложений для мобильных платформ. В этом учебнике показано, как использовать концентраторы уведомлений Azure для отправки push-уведомлений пользователю определенного приложения на конкретном устройстве. Серверная часть веб-API ASP.NET используется для аутентификации клиентов и создания уведомлений, как показано в разделе руководства [Регистрация из серверной части приложения](http://msdn.microsoft.com/ru-ru/library/dn743807.aspx). Материал этого учебника основан на центре уведомлений, созданном вами в учебнике **Приступая к работе с центрами уведомлений**.
+Поддержка push-уведомлений в Azure позволяет получить доступ к простой в использовании, многоплатформенной и масштабируемой инфраструктуре для отправки push-уведомлений, которая значительно упрощает реализацию push-уведомлений как для индивидуальных пользователей, так и для корпоративных приложений для мобильных платформ. В этом учебнике показано, как использовать центры уведомлений Azure для отправки push-уведомлений пользователю определенного приложения на конкретном устройстве. Серверная часть веб-API ASP.NET используется для аутентификации клиентов и создания уведомлений, как показано в разделе руководства [Регистрация из серверной части приложения](http://msdn.microsoft.com/library/dn743807.aspx). Материал этого учебника основан на центре уведомлений, созданном вами при изучении учебника **Приступая к работе с центрами уведомлений**.
 
-> [AZURE.NOTE] В этом учебнике подразумевается, что вы создали и настроили центр уведомлений в соответствии с описанием в учебнике [Приступая к работе с центрами уведомлений (Android)](/ru-ru/documentation/articles/notification-hubs-android-get-started/). 
-> Если вы используете мобильные службы в качестве серверной службы, см. раздел [Версии мобильных служб](/ru-ru/documentation/articles/mobile-services-javascript-backend-android-push-notifications-app-users/) из этого учебника.
+> [AZURE.NOTE] В этом учебнике подразумевается, что вы создали и настроили центр уведомлений в соответствии с описанием в руководстве [Приступая к работе с центрами уведомлений (Android)](/ru-ru/documentation/articles/notification-hubs-android-get-started/). 
+> Если вы используете мобильные службы в качестве серверной службы, см. раздел [Версии мобильных служб](/ru-ru/documentation/articles/mobile-services-javascript-backend-android-push-notifications-app-users/) этого учебника.
 
-[WACOM.INCLUDE [notification-hubs-aspnet-backend-notifyusers](../includes/notification-hubs-aspnet-backend-notifyusers.md)]
+[AZURE.INCLUDE [notification-hubs-aspnet-backend-notifyusers](../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
 ## Создание проекта Android
 
 Следующий шаг заключается в создании приложения Android.
 
-1. Следуйте указаниям в учебнике [Приступая к работе с центрами уведомлений (Android)],(/ru-ru/documentation/articles/notification-hubs-android-get-started/) чтобы создать приложение и настроить его для получения push-уведомлений из GCM.
+1. Следуйте инструкциям учебника [Приступая к работе с центрами уведомлений (Android)](/ru-ru/documentation/articles/notification-hubs-android-get-started/), чтобы создать приложение и настроить его на получение push-уведомлений для GCM.
 
 2. Откройте файл res/layout/activity_main.xml file и замените содержимое на следующее:
 			
@@ -73,7 +87,7 @@
 
 	![][A1]
 
-3. Теперь создайте класс **RegisterClient** в том же пакете, в котором создан класс **MainActivity**. Обязательно замените код "{backend endpoint}" конечной точкой серверной части, полученной в предыдущем разделе.
+3. Теперь создайте класс **RegisterClient** в том же пакете, в котором создан класс **MainActivity**. Обязательно замените код  `{backend endpoint}` конечной точкой серверной части, полученной в предыдущем разделе:
 
 		import java.io.IOException;
 		import java.io.UnsupportedEncodingException;
@@ -177,14 +191,14 @@
 			}
 		}
 
-	Этот компонент реализует вызовы REST, необходимые для связи с серверной частью приложения с целью регистрации в службе push-уведомлений. В данном случае также происходит локальное сохранение идентификаторов registrationId, созданных центром уведомлений в соответствии с описанием в разделе [Регистрация из серверной части приложения](http://msdn.microsoft.com/ru-ru/library/dn743807.aspx). Обратите внимание, что в данном случае используется маркер аутентификации, сохраненный в локальном хранилище при нажатии кнопки **Вход и регистрация**.
+	Этот компонент реализует вызовы REST, необходимые для связи с серверной частью приложения с целью регистрации в службе push-уведомлений. В данном случае также происходит локальное сохранение идентификаторов *registrationIds*, созданных центром уведомлений в соответствии с описанием в разделе [Регистрация из серверной части приложения](http://msdn.microsoft.com/library/dn743807.aspx). Обратите внимание, что в данном случае используется маркер аутентификации, сохраненный в локальном хранилище при нажатии кнопки **Вход и регистрация**.
 
 4. В классе **MainActivity** удалите частные поля для **NotificationHub** и добавьте поле для **RegisterClient**:
 
 		//private NotificationHub hub;
 		private RegisterClient registerClient;
  
-5. Затем в методе **onCreate** удалите код инициализации поле **hub** и метод **registerWithNotificationHubs**. Затем добавьте следующие строки, инициализирующие экземпляр класса **RegisterClient**. Метод должен содержать следующие строки:
+5. Затем в методе **onCreate** удалите код инициализации поля **hub** и метод **registerWithNotificationHubs**. Затем добавьте следующие строки, инициализирующие экземпляр класса **RegisterClient**. Метод должен содержать следующие строки:
 
 		@Override
 	    protected void onCreate(Bundle savedInstanceState) {
@@ -199,7 +213,7 @@
 	        setContentView(R.layout.activity_main);
 	    }
 
-6. Затем добавьте следующие методы, обязательно заменив код "{backend endpoint}" конечной точкой серверной части, полученной в предыдущем разделе.
+6. Затем добавьте следующие методы, обязательно заменив код  `{backend endpoint}` конечной точкой серверной части, полученной в предыдущем разделе.
 
 	    @Override
 	    protected void onStart() {
@@ -263,7 +277,7 @@
 	    	return basicAuthHeader;
 		}
 
-	При обратном вызове действия **Вход** происходит создание базового маркера аутентификации на основании введенного имени пользователя и пароля (обратите внимание, что это относится к любому маркеру, используемому в данной схеме аутентификации), затем с помощью "RegisterClient" вызывается серверная часть. При обратном вызове **Send push** происходит вызов серверной части с целью инициировать безопасные уведомления на все устройства пользователя. 
+	При обратном вызове действия **Вход** происходит создание маркера обычной проверки подлинности на основании введенного имени пользователя и пароля (обратите внимание, что это относится к любому маркеру, используемому в данной схеме аутентификации), затем с помощью кода  `RegisterClient` вызывается серверная часть. При обратном вызове **Send push** происходит вызов серверной части с целью инициировать безопасные уведомления на все устройства пользователя. 
 
 ## Выполнение приложения
 
@@ -273,9 +287,9 @@
 
 2. В пользовательском интерфейсе приложения Android введите имя пользователя и пароль. Это может быть любая строка, но имя и пароль должны быть одинаковыми.
 
-3. В пользовательском интерфейсе приложения Android щелкните **Log in** (Вход). Затем щелкните **Send push** (Отправить push-уведомление).
+3. В пользовательском интерфейсе приложения Android нажмите **Вход**. Затем нажмите кнопку **Отправить push-уведомление**.
 
 
 [A1]: ./media/notification-hubs-aspnet-backend-android-notify-users/android-notify-users1.PNG
 
-<!--HONumber=35.1-->
+<!--HONumber=45--> 

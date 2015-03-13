@@ -1,12 +1,26 @@
-﻿<properties pageTitle="Приступая к работе с push-уведомлениями (iOS) | Центр мобильных разработок" description="Узнайте, как использовать мобильные службы Azure для отправки push-уведомлений в приложение iOS." services="mobile-services, notification-hubs" documentationCenter="ios" manager="dwrede" editor="" authors="krisragh"/>
+﻿<properties 
+	pageTitle="Приступая к работе с push-уведомлениями (iOS) | Центр мобильных разработок" 
+	description="Узнайте, как использовать мобильные службы Azure для отправки push-уведомлений в приложение iOS." 
+	services="mobile-services, notification-hubs" 
+	documentationCenter="ios" 
+	manager="dwrede" 
+	editor="" 
+	authors="krisragh"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="12/15/2014" ms.author="krisragh"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-ios" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="12/15/2014" 
+	ms.author="krisragh"/>
 
 # Добавление push-уведомлений в приложение мобильных служб
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../includes/mobile-services-selector-get-started-push.md)]
 
-В этом разделе показано, как использовать мобильные службы Azure для отправки push-уведомлений с помощью службы APNS в приложение для iOS. В этом учебнике объясняется включение push-уведомлений с помощью концентраторов уведомлений Azure в [проекте быстрого запуска](http://azure.microsoft.com/ru-ru/documentation/articles/mobile-services-ios-get-started/). По завершении работы ваша мобильная служба будет отправлять push-уведомление каждый раз при вставке записи.
+В этом разделе показано, как использовать мобильные службы Azure для отправки push-уведомлений с помощью службы APNS в приложение для iOS. В этом учебнике объясняется включение push-уведомлений с помощью концентраторов уведомлений Azure в [проекте быстрого запуска](http://azure.microsoft.com/documentation/articles/mobile-services-ios-get-started/). По завершении работы ваша мобильная служба будет отправлять push-уведомление каждый раз при вставке записи.
 
 В этом учебнике рассматриваются следующие основные шаги для включения push-уведомлений:
 

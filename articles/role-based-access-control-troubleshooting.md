@@ -1,19 +1,34 @@
-﻿<properties urlDisplayName="" pageTitle="Устранение неполадок при управлении доступом на основе ролей" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Role based access control troubleshooting" authors="Stephen Siciliano"  solutions="" writer="" manager="terrylan" editor=""  />
+﻿<properties 
+	pageTitle="Устранение неполадок при управлении доступом на основе ролей" 
+	<MORAVIA_NOTRANSLATE></MORAVIA_NOTRANSLATE> 
+	services="" 
+	documentationCenter="" 
+	authors="stepsic-microsoft-com" 
+	writer="" 
+	manager="terrylan" 
+	editor=""/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="11/03/2014" ms.author="Stephen Siciliano" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/03/2014" 
+	ms.author="stepsic"/>
 
 # Устранение неполадок при управлении доступом на основе ролей
 
 ## Введение
 
-[Управление доступом на основе ролей](http://azure.microsoft.com/ru-ru/documentation/articles/role-based-access-control-configure/) - эффективная функция, позволяющая делегировать доступ к ресурсам Azure на детальном уровне. Это означает, что можно предоставить конкретному человеку только те права, которые ему действительно нужны. Но временами разобраться в модели ресурсов для Azure может быть так же сложно, как и понять принципы назначения прав доступа.
+[Управление доступом на основе ролей](http://azure.microsoft.com/documentation/articles/role-based-access-control-configure/) - эффективная функция, позволяющая делегировать доступ к ресурсам Azure на детальном уровне. Это означает, что можно предоставить конкретному человеку только те права, которые ему действительно нужны. Но временами разобраться в модели ресурсов для Azure может быть так же сложно, как и понять принципы назначения прав доступа.
 
 В этом документе рассказывается, чего ожидать при использовании новых ролей в предварительной версии портала.  В данной версии представлены три встроенные роли:
 * владелец;
 * участник;
 * читатель.
 
-И владельцы, и участники получают полный доступ к управлению ресурсами; разница лишь в том, что участник не может предоставлять доступ другим пользователям или группам. Роль читателя несколько более неочевидна, поэтому на ней мы остановимся подробнее. [В этой статье](http://azure.microsoft.com/ru-ru/documentation/articles/role-based-access-control-configure/) подробно описан процесс назначения прав доступа.
+И владельцы, и участники получают полный доступ к управлению ресурсами; разница лишь в том, что участник не может предоставлять доступ другим пользователям или группам. Роль читателя несколько более неочевидна, поэтому на ней мы остановимся подробнее. [В этой статье](http://azure.microsoft.com/documentation/articles/role-based-access-control-configure/) подробно описан процесс назначения прав доступа.
 
 ## Рабочие нагрузки веб-сайта
 
@@ -74,3 +89,5 @@
     * правила оповещений.
     
 Если вы не можете получить доступ к этим компонентам, попросите администратора предоставить вам права участника для группы ресурсов.
+
+<!--HONumber=46--> 

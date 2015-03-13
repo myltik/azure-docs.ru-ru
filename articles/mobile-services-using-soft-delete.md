@@ -1,12 +1,26 @@
-﻿<properties pageTitle="Использование удаления с возможностью восстановления в мобильных службах (магазин Windows) | Центр мобильных разработок" description="Узнайте, как использовать функцию удаления с возможностью восстановления в мобильных службах Azure для вашего приложения" documentationCenter="" authors="wesmc7777" manager="dwrede" editor="" services="mobile-services"/>
+﻿<properties 
+	pageTitle="Использование удаления с возможностью восстановления в мобильных службах (магазин Windows) | Центр мобильных разработок" 
+	description="Узнайте, как использовать функцию удаления с возможностью восстановления в мобильных службах Azure для вашего приложения" 
+	documentationCenter="" 
+	authors="wesmc7777" 
+	manager="dwrede" 
+	editor="" 
+	services="mobile-services"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/25/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/25/2014" 
+	ms.author="wesmc"/>
 
 # Использование удаления с возможностью восстановления в мобильных службах
 
 Для таблиц, созданных с помощью JavaScript или серверной части .NET, можно включить удаление с возможностью восстановления. При использовании удаления с возможностью восстановления в базу данных добавляется новый столбец с именем *\__deleted* и [типом SQL bit]. Если функция удаления с возможностью восстановления включена, операция удаления физически не удаляет строки из базы данных, а устанавливает для удаленного столбца значение TRUE.
 
-При запросах записей в таблице с включенной функций удаления с возможностью восстановления удаленные строки по умолчанию не возвращаются в запросе. Для запроса этих строк необходимо передать параметр запроса *__includeDeleted=true* в [операции запроса REST](http://msdn.microsoft.com/ru-ru/library/azure/jj677199.aspx). В пакете SDK клиента .NET также можно использовать вспомогательный метод `IMobileServiceTable.IncludeDeleted()`.
+При запросах записей в таблице с включенной функций удаления с возможностью восстановления удаленные строки по умолчанию не возвращаются в запросе. Для запроса этих строк необходимо передать параметр запроса *__includeDeleted=true* в [операции запроса REST](http://msdn.microsoft.com/library/azure/jj677199.aspx). В пакете SDK клиента .NET также можно использовать вспомогательный метод `IMobileServiceTable.IncludeDeleted()`.
 
 Поддержка удаления с возможностью восстановления для серверной части .NET впервые реализована в версии 1.0.402 серверной части .NET для мобильных служб Microsoft Azure. Последние пакеты NuGet доступны здесь: [Серверная часть .NET для мобильных служб Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=513165).
 
@@ -87,8 +101,10 @@
             Services.Log.Info("Purging old records");
             var monthAgo = DateTimeOffset.UtcNow.AddDays(-30);
      
-            var toDelete = context.TodoItems.Where(x => x.Deleted == true && x.UpdatedAt <= monthAgo).ToArray();
-            context.TodoItems.RemoveRange(toDelete);
+            var toDelete = context.TodoIte
+	ms.Where(x => x.Deleted == true && x.UpdatedAt <= monthAgo).ToArray();
+            context.TodoIte
+	ms.RemoveRange(toDelete);
             context.SaveChanges();
      
             return Task.FromResult(true);
@@ -153,7 +169,7 @@ To include deleted records in query result in a script, set the "includeDeleted"
 [2]: ./media/mobile-services-using-soft-delete/enable-soft-delete-new-table.png
 
 <!-- URLs. -->
-[Тип SQL bit]: http://msdn.microsoft.com/ru-ru/library/ms177603.aspx
+[Тип SQL bit]: http://msdn.microsoft.com/library/ms177603.aspx
 [Автономная синхронизация данных для мобильных служб]: /ru-ru/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data/
 [Портал управления]: https://manage.windowsazure.com/
 

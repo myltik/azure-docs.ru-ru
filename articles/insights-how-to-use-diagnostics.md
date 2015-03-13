@@ -1,6 +1,20 @@
-﻿<properties title="How to use diagnostics" pageTitle="Использование диагностики" description="Узнайте, как настроить диагностику ресурсов в Azure." authors="stepsic" manager="kamrani" />
+﻿<properties 
+	pageTitle="Использование диагностики" 
+	description="Узнайте, как настроить диагностику ресурсов в Azure." 
+	authors="stepsic-microsoft-com" 
+	manager="kamrani" 
+	editor="" 
+	services="application-insights" 
+	documentationCenter=""/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-11-04" ms.author="stepsic" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2014-11-04" 
+	ms.author="stepsic"/>
 
 # Настройка диагностики
 
@@ -66,3 +80,5 @@
 На графике будет показан порог оповещения в сравнении со значением метрики за предыдущий день. Через несколько минут после нажатия кнопки **Save** (Сохранить) вы начнете получать оповещения в случае превышения порогового значения. 
 
 Обратите внимание: для метрик, которые отображаются только на портале предварительной версии, невозможно включить оповещения на полнофункциональном портале. В связи с этим на нем не видны некоторые правила оповещений, доступные на портале предварительной версии.
+
+<!--HONumber=46--> 

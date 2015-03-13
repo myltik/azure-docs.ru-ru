@@ -1,6 +1,20 @@
-﻿<properties title="Machine Learning example apps in the Azure Marketplace" pageTitle="Примеры самообучаемых приложений в каталоге Azure Marketplace | Azure" description="Примеры приложений Машинного обучения Azure, демонстрирующие, как можно опубликовать службы машинного обучения на Azure Marketplace, чтобы платящие подписчики могли использовать их в своих приложениях." metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Примеры самообучаемых приложений в каталоге Azure Marketplace | Azure" 
+	description="Примеры приложений Marketplace Машинного обучения Azure, демонстрирующие, как можно опубликовать службы машинного обучения на Azure Marketplace, чтобы платящие подписчики могли использовать их в своих приложениях." 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="luisca" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/16/2014" ms.author="jaymathe" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/10/2015" 
+	ms.author="luiscabrer"/>
 
 # Примеры самообучаемых приложений в каталоге Azure Marketplace
 
@@ -17,3 +31,5 @@
 * [Обнаружение аномалий](https://datamarket.azure.com/dataset/aml_labs/anomalydetection) - этот API-интерфейс способен обнаруживать аномальные явления во временных рядах (например, данных серверной телеметрии или информации, поступающей с датчиков).
 
 Эти API-интерфейсы позволяют использовать функциональные возможности машинного обучения на платформе Azure ML, не будучи специалистом в области обработки и анализа данных и не тратя время на обучение: для использования этих служб вам понадобятся только собственные данные.
+
+<!--HONumber=46--> 

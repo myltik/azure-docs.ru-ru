@@ -114,7 +114,6 @@
   [Практическое руководство. Скачивание больших двоичных объектов]: #download-blobs
   [Практическое руководство. Удаление большого двоичного объекта]: #delete-blobs
   [Практическое руководство. Отправка и скачивание больших двоичных объектов]: #large-blobs
-  [Хранение и доступ к данным в Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/gg433040.aspx
+  [Хранение и доступ к данным в Azure]: http://msdn.microsoft.com/library/windowsazure/gg433040.aspx
   [Блог рабочей группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
-
 <!--HONumber=42-->

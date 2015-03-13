@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Azure Cross-Platform Command-Line Interface" pageTitle="Межплатформенный интерфейс командной строки Azure" title="Межплатформенный интерфейс командной строки Azure" metaKeywords="Межплатформенный интерфейс командной строки Azure, командная строка Azure, командная строка azure, azure cli" description="Установка и настройка кроссплатформенного интерфейса командной строки Azure для управления службами Azure" metaCanonical="http://www.windowsazure.com/ru-ru/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="need to identify contact" documentationCenter="" solutions="" authors="carolz" services="" />
+﻿<properties 
+	pageTitle="Кроссплатформенный интерфейс командной строки Azure" 
+	description="Установка и настройка кроссплатформенного интерфейса командной строки Azure для управления службами Azure" 
+	editor="tysonn" 
+	manager="timlt" 
+	documentationCenter="" 
+	authors="squillace" 
+	services=""/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="carolz" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="command-line-interface" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="1/16/2015" 
+	ms.author="rasquill"/>
 
 #Установка и настройка межплатформенного интерфейса командной строки Azure
 
@@ -389,15 +403,17 @@
 
 [mac-installer]: http://go.microsoft.com/fwlink/?LinkId=252249
 [windows-installer]: http://go.microsoft.com/?linkid=9828653&clcid=0x409
-[authandsub]: http://msdn.microsoft.com/ru-ru/library/windowsazure/hh531793.aspx#BKMK_AccountVCert
+[authandsub]: http://msdn.microsoft.com/library/windowsazure/hh531793.aspx#BKMK_AccountVCert
 
 [Веб-сайт Azure]: ../media/freetrial.png
 [выбрать предварительную версию компонента]: ../media/antares-iaas-preview-02.png
 [выбрать подписку]: ../media/antares-iaas-preview-03.png
-[free-trial]: http://www.windowsazure.com/ru-ru/pricing/free-trial/?WT.mc_id=A7171371E
+[free-trial]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A7171371E
 [advanced-bash]: http://tldp.org/LDP/abs/html/
 [script]: http://en.wikipedia.org/wiki/Shell_script
-[batch]: http://technet.microsoft.com/ru-ru/library/bb490890.aspx
+[batch]: http://technet.microsoft.com/library/bb490890.aspx
 [xplatarm]: /ru-ru/documentation/articles/xplat-cli-azure-resource-manager/
 [portal]: https://manage.windowsazure.com
-[signuporg]: http://www.windowsazure.com/ru-ru/documentation/articles/sign-up-organization/
+[signuporg]: http://azure.microsoft.com/documentation/articles/sign-up-organization/
+
+<!--HONumber=46--> 

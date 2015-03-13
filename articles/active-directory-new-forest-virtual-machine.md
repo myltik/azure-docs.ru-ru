@@ -1,18 +1,33 @@
-﻿<properties urlDisplayName="Active Directory forest" pageTitle="Установка леса Active Directory в виртуальной сети Azure" metaKeywords="" description="В этом учебнике объясняется, как создать новый лес Active Directory на виртуальной машине (ВМ) в виртуальной сети Windows Azure." metaCanonical="" services="active-directory,virtual-network" documentationCenter="" title="Install a new Active Directory forest in Azure" authors="Justinha"  solutions="" writer="Justinha" manager="TerryLan" editor="LisaToft"  />
+﻿<properties 
+	pageTitle="Установка леса Active Directory в виртуальной сети Azure" 
+	description="В этом учебнике объясняется, как создать новый лес Active Directory на виртуальной машине (ВМ) в виртуальной сети Windows Azure." 
+	services="active-directory, virtual-network" 
+	documentationCenter="" 
+	authors="Justinha" 
+	writer="Justinha" 
+	manager="TerryLan" 
+	editor="LisaToft"/>
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/30/2014" ms.author="Justinha" />
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/12/2014" 
+	ms.author="Justinha"/>
 
 
 
 
 #Установка нового леса Active Directory в виртуальной сети Azure
 
-В данном разделе описывается, как создать новую среду Windows Server Active Directory в виртуальной сети Azure на ВМ [виртуальной сети Azure](http://msdn.microsoft.com/ru-ru/library/windowsazure/jj156007.aspx). В данном случае виртуальная сеть Azure не соединена с локальной сетью. 
+В данном разделе описывается, как создать новую среду Windows Server Active Directory в виртуальной сети Azure на ВМ [виртуальной сети Azure](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx). В данном случае виртуальная сеть Azure не соединена с локальной сетью. 
 
 Вас также могут заинтересовать следующие связанные разделы:
 
-- Можно также [настроить VPN между двумя сайтами с помощью мастера управления порталом](http://msdn.microsoft.com/ru-ru/library/windowsazure/dn133795.aspx) и затем либо установить новый лес, либо расширить существующий локальный лес на виртуальную сеть Azure. Описание этих действий см. в разделе [Установка контроллера домена Active Directory реплики в виртуальной сети Azure](http://www.windowsazure.com/ru-ru/documentation/articles/virtual-networks-install-replica-active-directory-domain-controller/).
--  Концептуальное руководство по установке доменных служб Active Directory (AD DS) в виртуальной сети Azure см. в разделе [Рекомендации по развертыванию Windows Server Active Directory на виртуальных машинах Azure](http://msdn.microsoft.com/ru-ru/library/windowsazure/jj156090.aspx).
+- Можно также [настроить VPN между двумя сайтами с помощью мастера управления порталом](http://msdn.microsoft.com/library/windowsazure/dn133795.aspx) и затем либо установить новый лес, либо расширить существующий локальный лес на виртуальную сеть Azure. Описание этих действий см. в разделе [Установка контроллера домена Active Directory реплики в виртуальной сети Azure](http://azure.microsoft.com/documentation/articles/virtual-networks-install-replica-active-directory-domain-controller/).
+-  Концептуальное руководство по установке доменных служб Active Directory (AD DS) в виртуальной сети Azure см. в разделе [Рекомендации по развертыванию Windows Server Active Directory на виртуальных машинах Azure](http://msdn.microsoft.com/library/windowsazure/jj156090.aspx).
 -  Пошаговое руководство по созданию тестовой среды в Azure, включающей AD DS, см. в статье [Руководство по лабораторному тестированию: Базовая конфигурация Windows Server 2012 R2 в Azure](http://www.microsoft.com/ru-ru/download/details.aspx?id=41684).
 
 
@@ -62,7 +77,7 @@
 	**Облачная служба**  | <p>Облачная служба: <b>Создать новую облачную службу</b></p><p>Имя облачной службы: примите значение по умолчанию</p><p>Регион, территориальная группа и виртуальная сеть: выберите созданную вами виртуальную сеть</p><p>Подсеть виртуальной сети: выберите созданную вами подсеть. </p><p>Учетная запись хранения: <b>Использовать автоматически созданную учетную запись хранения</b></p><p>Группа доступности: <b>None</b></p><p>Конечные точки: принять значения по умолчанию</p>
 	**Агент ВМ**  | Выберите **Установить агент ВМ**
 
-1. Динамический IP-адрес, назначенный виртуальной машине по умолчанию, действителен во время работы с облачной службой. Но после завершения работы виртуальной машины он изменится. Назначьте статический IP-адрес, [запустив командлет Set-AzureStaticVNetIP Azure PowerShell](http://msdn.microsoft.com/ru-ru/library/windowsazure/dn630228.aspx), чтобы IP-адрес сохранился, если потребуется выключить виртуальную машину. 
+1. Динамический IP-адрес, назначенный виртуальной машине по умолчанию, действителен во время работы с облачной службой. Но после завершения работы виртуальной машины он изменится. Назначьте статический IP-адрес, [запустив командлет Set-AzureStaticVNetIP Azure PowerShell](http://msdn.microsoft.com/library/windowsazure/dn630228.aspx), чтобы IP-адрес сохранился, если потребуется выключить виртуальную машину. 
 2. Присоедините дополнительный диск к виртуальной машине для хранения базы данных Active Directory, журналов и SYSVOL. 
   3. Щелкните <b>ВМ</b> > <b>Присоединить</b> > <b>Присоединить пустой диск</b>. 
   4. Укажите размер (например, 10 ГБ) и примите все остальные значения по умолчанию.
@@ -118,23 +133,23 @@
 
 -  [Рекомендации по развертыванию Windows Server Active Directory на виртуальных машинах Azure](http://msdn.microsoft.com/library/azure/jj156090.aspx)
 
--  [Настройте чисто облачную виртуальную сеть на портале управления](http://msdn.microsoft.com/ru-ru/library/dn631643.aspx)
+-  [Настройте чисто облачную виртуальную сеть на портале управления](http://msdn.microsoft.com/library/dn631643.aspx)
 
--  [Настройте VPN между сайтами на портале управления](http://msdn.microsoft.com/ru-ru/library/dn133795.aspx)
+-  [Настройте VPN между сайтами на портале управления](http://msdn.microsoft.com/library/dn133795.aspx)
 
--  [Установите контроллер домена реплики Active Directory в виртуальной сети Azure](http://azure.microsoft.com/ru-ru/documentation/articles/virtual-networks-install-replica-active-directory-domain-controller/)
+-  [Установите контроллер домена реплики Active Directory в виртуальной сети Azure](http://azure.microsoft.com/documentation/articles/virtual-networks-install-replica-active-directory-domain-controller/)
 
 -  [Microsoft Azure IT Pro IaaS: (01) Основы виртуальных машин](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 
 -  [Microsoft Azure IT Pro IaaS: (05) Создание виртуальных сетей и обмена данными с локальными сетями](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
 
--  [Виртуальная сеть Azure](http://msdn.microsoft.com/ru-ru/library/windowsazure/jj156007.aspx)
+-  [Виртуальная сеть Azure](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx)
 
--  [Как установить и настроить Azure PowerShell](http://www.windowsazure.com/ru-ru/documentation/articles/install-configure-powershell/)
+-  [Как установить и настроить Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell/)
 
--  [Azure PowerShell](http://msdn.microsoft.com/ru-ru/library/windowsazure/jj156055.aspx)
+-  [Azure PowerShell](http://msdn.microsoft.com/library/windowsazure/jj156055.aspx)
 
--  [Командлеты управления Azure](http://msdn.microsoft.com/ru-ru/library/windowsazure/jj152841)
+-  [Командлеты управления Azure](http://msdn.microsoft.com/library/windowsazure/jj152841)
 
 -  [Настройте статический IP-адрес для виртуальной машины Azure](http://windowsitpro.com/windows-azure/set-azure-vm-static-ip-address)
 
@@ -142,9 +157,11 @@
 
 -  [Установка нового леса Active Directory](http://technet.microsoft.com/library/jj574166.aspx)
 
--  [Введение в виртуализацию доменных служб Active Directory (AD DS) (уровень 100)](http://technet.microsoft.com/ru-ru/library/hh831734.aspx)
+-  [Введение в виртуализацию доменных служб Active Directory (AD DS) (уровень 100)](http://technet.microsoft.com/library/hh831734.aspx)
 
 -  [Руководство по практической работе. Базовая конфигурация Windows Server 2012 R2 в Azure](http://www.microsoft.com/ru-ru/download/details.aspx?id=41684)
 
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

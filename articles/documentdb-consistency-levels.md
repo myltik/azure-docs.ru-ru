@@ -1,6 +1,20 @@
-﻿<properties title="Consistency levels in DocumentDB" pageTitle="Уровни согласованности в DocumentDB" description="В DocumentDB есть четыре уровня согласованности с соответствующими уровнями производительности. Это позволяет разработчикам приложений идти на прогнозируемые компромиссы между согласованностью, доступностью и задержками." metaKeywords="Optional" services="documentdb" solutions="data-management" authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="Optional" scriptId="Optional" />
+﻿<properties 
+	pageTitle="Уровни согласованности в DocumentDB" 
+	description="В DocumentDB есть четыре уровня согласованности с соответствующими уровнями производительности. Это позволяет разработчикам приложений идти на прогнозируемые компромиссы между согласованностью, доступностью и задержками." 
+	services="documentdb" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="cgronlun" 
+	documentationCenter=""/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/05/2015" 
+	ms.author="mimig"/>
 
 #Уровни согласованности в DocumentDB
 Разработчики часто сталкиваются с проблемой выбора между двумя крайними вариантами согласованности: сильной и "в конечном счете". Реальность такова, что существуют еще несколько уровней согласованности между этими двумя крайностями. В большинстве реальных сценариев, приложения выигрывают от создания точных компромиссов между согласованностью, доступностью и временем ожидания. DocumentDB предлагает четыре четко определенных уровня согласованности с соответствующими уровнями производительности. Это позволяет разработчикам приложений найти предсказуемый компромисс между согласованностью, доступностью и временем ожидания.  
@@ -49,3 +63,5 @@
 [http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
 -	Вернер Вогелс. Согласованность "в конечном счете": новый взгляд.    
 [http://allthingsdistributed.com/2008/12/eventually_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
+
+<!--HONumber=46--> 

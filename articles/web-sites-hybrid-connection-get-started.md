@@ -23,7 +23,7 @@
 > [AZURE.NOTE] Часть функции "Веб-сайты" гибридных подключений доступна только на [портале предварительной версии Azure](https://portal.azure.com). Информацию о создании подключения в службах BizTalk см. в разделе [Гибридные подключения](http://go.microsoft.com/fwlink/p/?LinkID=397274).  
 
 ##Предварительные требования
-- Подписка Azure. Бесплатную подписку можно найти на сайте [Бесплатная пробная версия Azure](http://azure.microsoft.com/ru-ru/pricing/free-trial/). 
+- Подписка Azure. Бесплатную подписку можно найти на сайте [Бесплатная пробная версия Azure](http://azure.microsoft.com/pricing/free-trial/). 
 
 - Для использования локальной базы данных SQL Server или SQL Server Express с помощью гибридного подключения в статическом порте должен быть включен протокол TCP/IP. Мы рекомендуем использовать экземпляр SQL Server по умолчанию, так как он использует статический порт 1433. Информацию об установке и настройке экспресс-выпуска SQL Server для использования с гибридными подключениями см. в разделе [Подключение к локальному SQL Server с веб-сайта Azure с помощью гибридных подключений](http://go.microsoft.com/fwlink/?LinkID=397979)
 
@@ -165,7 +165,7 @@
 
 - Информацию о создании веб-приложения ASP.NET, которое использует гибридное подключение, см. в разделе [Подключение к локальному SQL Server с веб-сайта Azure с помощью гибридных подключений](http://go.microsoft.com/fwlink/?LinkID=397979)
 
-- Информацию об использовании гибридного подключения с мобильной службой см. в разделе [Подключение к локальному SQL Server из мобильной службы Azure с помощью гибридных подключений](http://azure.microsoft.com/ru-ru/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started/).
+- Информацию об использовании гибридного подключения с мобильной службой см. в разделе [Подключение к локальному SQL Server из мобильной службы Azure с помощью гибридных подключений](http://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started/).
 
 ###Дополнительные ресурсы
 
@@ -173,9 +173,9 @@
 
 [Джош Твист (Josh Twist) представляет гибридные подключения (видео Channel 9)](http://channel9.msdn.com/Shows/Azure-Friday/Josh-Twist-introduces-hybrid-connections)
 
-[Веб-сайт гибридных подключений](http://azure.microsoft.com/ru-ru/services/biztalk-services/)
+[Веб-сайт гибридных подключений](http://azure.microsoft.com/services/biztalk-services/)
 
-[Службы BizTalk: вкладки "Панель мониторинга", "Монитор" и "Масштаб"](http://azure.microsoft.com/ru-ru/documentation/articles/biztalk-dashboard-monitor-scale-tabs/)
+[Службы BizTalk: вкладки "Панель мониторинга", "Монитор" и "Масштаб"](http://azure.microsoft.com/documentation/articles/biztalk-dashboard-monitor-scale-tabs/)
 
 [Создание реального облака с гибридным подключением с помощью простой переносимости приложений (видео Channel 9)](http://channel9.msdn.com/events/TechEd/NorthAmerica/2014/DCIM-B323#fbid=)
 

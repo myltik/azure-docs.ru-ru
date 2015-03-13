@@ -51,7 +51,7 @@
 * [Публикация обновления приложения в Azure и SQL Database][deploy2]
 
 <a name="bkmk_setupdevenv"></a>
-<!-- the next line produces the "Set up the development environment" section as see at http://www.windowsazure.com/ru-ru/documentation/articles/web-sites-dotnet-get-started/ -->
+<!-- the next line produces the "Set up the development environment" section as see at http://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/ -->
 [AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 <h2><a name="bkmk_setupwindowsazure"></a>Настройка среды Azure</h2>
@@ -220,7 +220,7 @@
 
 	![Settings tab](./media/web-sites-dotnet-get-started-vs2013/GS13SettingsTab.png)
 
-	Можно принять заданные по умолчанию параметры, представленные на этой вкладке.  Вы развертываете конфигурацию сборки для выпуска, и вам не требуется удалять файлы на целевом сервере, выполнять предварительную компиляцию приложения или исключать файлы из папки App_Data. Чтобы выполнить отладку активного сайта Azure, вам необходимо развернуть конфигурацию отладки (не выпуск). См. раздел [Дальнейшие действия].(#nextsteps) в конце данного учебника.
+	Можно принять заданные по умолчанию параметры, представленные на этой вкладке.  Вы развертываете конфигурацию сборки для выпуска, и вам не требуется удалять файлы на целевом сервере, выполнять предварительную компиляцию приложения или исключать файлы из папки App_Data. Чтобы выполнить отладку активного сайта Azure, вам необходимо развернуть конфигурацию отладки (не выпуск). См. раздел [Дальнейшие действия)]#nextsteps) в конце данного учебника.
 
 12. На вкладке **Предварительный просмотр** нажмите кнопку **Начало предварительного просмотра**.
 
@@ -278,7 +278,7 @@
     		}
 		}
 
-Класс **Contacts** определяет данные, которые будут храниться для каждого контакта, а также первичный ключ ContactID, необходимый для базы данных. Дополнительную информацию о моделях данных см. в разделе [Дальнейшие действия].(#nextsteps) в конце данного учебника.
+Класс **Contacts** определяет данные, которые будут храниться для каждого контакта, а также первичный ключ ContactID, необходимый для базы данных. Дополнительную информацию о моделях данных см. в разделе [Дальнейшие действия)]#nextsteps) в конце данного учебника.
 
 ### Создание веб-страниц, позволяющих пользователям приложений работать с контактами
 
@@ -819,7 +819,7 @@ To:
 
 <h2><a name="nextsteps"></a>Дальнейшие действия</h2>
 
-Для фактического приложения потребуется проверка подлинности и авторизация, и для этого будет использоваться база данных членства. Учебник [Развертывание безопасного приложения ASP.NET MVC с членством, OAuth и базой данных SQL](http://www.windowsazure.com/ru-ru/develop/net/tutorials/web-site-with-sql-database/) основан на данном учебнике и демонстрирует развертывание веб-приложения в базе данных с членством.
+Для фактического приложения потребуется проверка подлинности и авторизация, и для этого будет использоваться база данных членства. Учебник [Развертывание безопасного приложения ASP.NET MVC с членством, OAuth и базой данных SQL](http://azure.microsoft.com/develop/net/tutorials/web-site-with-sql-database/) основан на данном учебнике и демонстрирует развертывание веб-приложения в базе данных с членством.
 
 Другой способ хранения данных в приложении Azure - использование хранилища Azure, обеспечивающего хранение нереляционных данных в виде BLOB-объектов и таблиц. По следующим ссылкам приводятся дополнительные сведения о веб-интерфейсе API, ASP.NET MVC и Window Azure.
  
@@ -827,7 +827,7 @@ To:
 * [Приступая к работе с платформой Entity Framework с помощью MVC][EFCodeFirstMVCTutorial]
 * [Введение в ASP.NET MVC 5](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)
 * [Первый веб-интерфейса API ASP.NET](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api)
-* [Отладка веб-сайтов Azure](http://www.windowsazure.com/ru-ru/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/)
+* [Отладка веб-сайтов Azure](http://azure.microsoft.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/)
 
 Этот учебник и пример приложения были написаны [Риком Андерсоном (Rick Anderson) ](http://blogs.msdn.com/b/rickandy/) (Twitter [@RickAndMSFT](https://twitter.com/RickAndMSFT)) в соавторстве с Томом Дийкстрой (Tom Dykstra) и Бэрри Доррэнсом (Barry Dorrans) (Twitter [@blowdart](https://twitter.com/blowdart)). 
 
@@ -849,7 +849,7 @@ To:
 
 <!-- links -->
 [EFCodeFirstMVCTutorial]: http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
-[dbcontext-link]: http://msdn.microsoft.com/ru-ru/library/system.data.entity.dbcontext(v=VS.103).aspx
+[dbcontext-link]: http://msdn.microsoft.com/library/system.data.entity.dbcontext(v=VS.103).aspx
 
 
 <!-- images-->

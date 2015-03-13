@@ -1,6 +1,21 @@
-﻿<properties pageTitle="Вызов пользовательского API-интерфейса из приложения Windows Phone - мобильные службы" description="Узнайте, как определить настраиваемый API и вызывать его из приложения Windows Phone, которое использует мобильные службы Microsoft Azure." services="mobile-services" documentationCenter="windows" authors="ggailey777" writer="glenga" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Вызов пользовательского API-интерфейса из приложения Windows Phone - мобильные службы" 
+	description="Узнайте, как определить настраиваемый API и вызывать его из приложения Windows Phone, которое использует мобильные службы Microsoft Azure." 
+	services="mobile-services" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	Writer="glenga" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/26/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/26/2014" 
+	ms.author="glenga"/>
 
 # Вызов из клиента настраиваемого интерфейса API
 

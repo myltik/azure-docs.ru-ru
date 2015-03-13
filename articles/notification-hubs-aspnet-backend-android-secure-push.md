@@ -1,11 +1,25 @@
-﻿<properties title="Azure Notification Hubs Secure Push" pageTitle="Безопасные push-уведомления посредством концентраторов уведомлений Azure" metaKeywords="push-уведомления Azure, концентраторы уведомлений Azure, безопасные push-уведомления" description="Узнайте, как отправлять безопасные push-уведомления в приложение Android из Azure. Примеры кода написаны на Java и C#." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="sethm" manager="timlt" />
+﻿<properties 
+	pageTitle="Безопасные push-уведомления посредством центров уведомлений Azure" 
+	description="Узнайте, как отправлять безопасные push-уведомления в приложение Android из Azure. Примеры кода написаны на Java и C#." 
+	documentationCenter="android" 
+	authors="RickSaling" 
+	manager="dwrede" 
+	editor="" 
+	services="notification-hubs"/>
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
+<tags 
+	ms.service="notification-hubs" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="java" 
+	ms.topic="article" 
+	ms.date="09/24/2014" 
+	ms.author="ricksal"/>
 
-#Безопасные push-уведомления посредством концентраторов уведомлений Azure
+#Безопасные push-уведомления посредством центров уведомлений Azure
 
 <div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/ru-ru/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-secure-push/" title="Windows Universal">Универсальная Windows</a><a href="/ru-ru/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS">iOS</a>
+    	<a href="/ru-ru/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-secure-push/" title="Windows Universal">Windows Universal</a><a href="/ru-ru/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS">iOS</a>
 		<a href="/ru-ru/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/" title="Android" class="current">Android</a>
 </div>
 
@@ -26,23 +40,23 @@
 
 В этом учебнике по безопасности push-уведомлений показано, как безопасно отправлять push-уведомление. Это продолжение другого учебника под названием **Уведомление пользователей**, поэтому сначала следует выполнить шаги в указанном учебнике.
 
-> [AZURE.NOTE] В этом учебнике подразумевается, что вы создали и настроили концентратор уведомлений в соответствии с описанием в руководстве [Приступая к работе с концентраторами уведомлений (Android)](http://azure.microsoft.com/ru-ru/documentation/articles/notification-hubs-android-get-started/).
+> [AZURE.NOTE] В этом учебнике подразумевается, что вы создали и настроили центр уведомлений в соответствии с описанием в руководстве [Приступая к работе с центрами уведомлений (Android)](http://azure.microsoft.com/ documentation/articles/notification-hubs-android-get-started/).
 
-[WACOM.INCLUDE [notification-hubs-aspnet-backend-securepush](../includes/notification-hubs-aspnet-backend-securepush.md)]
+[AZURE.INCLUDE [notification-hubs-aspnet-backend-securepush](../includes/notification-hubs-aspnet-backend-securepush.md)]
 
 ## Внесение изменений в проект Android
 
-После того как вы изменили серверную часть приложения для отправки только *идентификатора* уведомления, необходимо внести изменения в приложение Android для обработки этого уведомления и осуществления обратного вызова к серверной части, чтобы извлечь конфиденциальное сообщение, которое должно быть отображено.
-Для достижения этой цели необходимо убедиться, что приложение Android может пройти проверку подлинности серверной части при получении push-уведомлений.
+После того как вы изменили серверную часть приложения для отправки только  *id* уведомления, необходимо внести изменения в приложение Android для обработки этого уведомления и осуществления обратного вызова к серверной части, чтобы извлечь конфиденциальное сообщение, которое должно быть отображено.
+Для достижения этой цели необходимо убедиться, что приложение Android может пройти аутентификацию серверной части при получении push-уведомлений.
 
-Мы внесем изменения в процесс *входа*, чтобы сохранить заголовок проверки подлинности в общих настройках приложения. Аналогичные механизмы можно использовать для хранения любых маркеров проверки подлинности (например, маркеров OAuth), которые потребуются приложению без необходимости ввода данных пользователя.
+Мы внесем изменения в процесс  *login*, чтобы сохранить заголовок аутентификации в общих настройках приложения. Аналогичные механизмы можно использовать для хранения любых маркеров проверки подлинности (например, маркеров OAuth), которые потребуются приложению без необходимости ввода данных пользователя.
 
 1. В проекте приложения Android добавьте следующие константы в начало класса **MainActivity**:
 
 		public static final String NOTIFY_USERS_PROPERTIES = "NotifyUsersProperties";
 		public static final String AUTHORIZATION_HEADER_PROPERTY = "AuthorizationHeader";
 
-2. Кроме того, в классе **MainActivity** обновите метод getAuthorizationHeader(), добавив следующий код:
+2. Также в классе **MainActivity** обновите метод  `getAuthorizationHeader()` со следующим кодом:
 
 		private String getAuthorizationHeader() throws UnsupportedEncodingException {
 			EditText username = (EditText) findViewById(R.id.usernameText);
@@ -56,13 +70,13 @@
     		return basicAuthHeader;
 		}
 
-3. В начало файла **MainActivity** добавьте следующие операторы импорта:
+3. Добавьте инструкции  `import` в верхнюю часть файла **MainActivity**:
 
 		import android.content.SharedPreferences;
 
 Теперь мы изменим обработчик, который вызывается при получении уведомления.
 
-4. В классе **MyHandler** измените метод OnReceive() таким образом:
+4. В классе **MyHandler** измените метод  `OnReceive()` таким образом:
 
 		public void onReceive(Context context, Bundle bundle) {
 	    	ctx = context;   
@@ -70,7 +84,7 @@
 	    	retrieveNotification(secureMessageId);
 		}
 
-5. Затем добавьте метод retrieveNotification(), подставив вместо {back-end endpoint} данные конечной точки серверной части, полученные при ее развертывании:
+5. Добавьте метод  `retrieveNotification()`, подставив вместо заполнителя  `{back-end endpoint}` данные конечной точки серверной части, полученные при ее развертывании:
 
 		private void retrieveNotification(final String secureMessageId) {
 			SharedPreferences sp = ctx.getSharedPreferences(MainActivity.NOTIFY_USERS_PROPERTIES, Context.MODE_PRIVATE);
@@ -102,7 +116,7 @@
 
 Этот метод вызывает серверную часть вашего приложения для извлечения содержимого уведомления с использованием учетных данных, хранящихся в общих настройках, и отображения в виде обычного уведомления. Для пользователя приложения уведомление ничем не отличается от других уведомлений.
 
-Обратите внимание, что случаи отсутствующего свойства заголовки проверки подлинности или отклонения предпочтительнее обрабатывать на серверной части. Обработка в таких случаях в основном зависит от пользовательского опыта на целевой платформе. Одним из вариантов является отображение уведомления с обычным предложением пользователю для проверки подлинности, чтобы получить текущее уведомление.
+Обратите внимание, что случаи отсутствующего или отклоненного свойства заголовков аутентификации предпочтительнее обрабатывать на серверном компоненте. Обработка в таких случаях в основном зависит от пользовательского опыта на целевой платформе. Одним из вариантов является отображение уведомления с обычным предложением пользователю для проверки подлинности, чтобы получить текущее уведомление.
 
 ## Запуск приложения
 
@@ -116,4 +130,4 @@
 
 4. В пользовательском интерфейсе приложения Android нажмите **Вход**. Затем нажмите кнопку **Отправить push-уведомление**.
 
-<!--HONumber=35.2-->
+<!--HONumber=45--> 

@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Приступая к работе с данными (HTML 5) | Центр разработчиков для мобильных устройств" description="Узнайте, как приступить к работе с мобильными службами, чтобы использовать данные в приложении HTML." services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Приступая к работе с данными (HTML 5) | Центр разработчиков для мобильных устройств" 
+	description="Узнайте, как приступить к работе с мобильными службами, чтобы использовать данные в приложении HTML." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="09/24/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-html" 
+	ms.devlang="javascript" 
+	ms.topic="article" 
+	ms.date="09/24/2014" 
+	ms.author="glenga"/>
 
 # Добавление мобильных служб к существующему приложению
 
@@ -18,7 +32,7 @@
 4. [Обновление приложения для использования мобильных служб]
 5. [Тестирование работы приложения с мобильными службами]
 
-> [AZURE.IMPORTANT] Для работы с этим учебником требуется учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://www.windowsazure.com/ru-ru/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fru-ru%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-html%2F"%20target="_blank).
+> [AZURE.IMPORTANT] Для работы с этим учебником требуется учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fru-ru%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-html%2F"%20target="_blank).
 
 ###Дополнительные требования
 
@@ -126,7 +140,7 @@
 
   	![][11]
 
-	> [AZURE.IMPORTANT] Если развернуть приложение быстрого запуска на веб-сервере, отличном от localhost, необходимо добавить имя узла веб-сервера в список **Разрешить запросы имен узлов**. Дополнительную информацию см. в разделе [Общий доступ к ресурсам независимо от источника](http://msdn.microsoft.com/ru-ru/library/windowsazure/dn155871.aspx"%20target="_blank).
+	> [AZURE.IMPORTANT] Если развернуть приложение быстрого запуска на веб-сервере, отличном от localhost, необходимо добавить имя узла веб-сервера в список **Разрешить запросы имен узлов**. Дополнительную информацию см. в разделе [Общий доступ к ресурсам независимо от источника](http://msdn.microsoft.com/library/windowsazure/dn155871.aspx"%20target="_blank).
 
 Теперь вы готовы использовать новую мобильную службу как хранилище данных для приложения.
 
@@ -197,8 +211,10 @@
 						.append($('<div>').append($('<input class="item-text">').val(item.text)));
 				});
 					   
-				$('#todo-items').empty().append(listItems).toggle(listItems.length > 0);
-				$('#summary').html('<strong>' + todoItems.length + '</strong> item(s)');
+				$('#todo-items').empty().append(listItems).toggle(listIte
+	ms.length > 0);
+				$('#summary').html('<strong>' + todoIte
+	ms.length + '</strong> item(s)');
 			});
 		}
 	   
@@ -308,7 +324,7 @@
 
 [Справочник принципов использования мобильных служб HTML/JavaScript]: /ru-ru/develop/mobile/how-to-guides/work-with-html-js-client
 
-[Общий доступ к ресурсам независимо от источника]: http://msdn.microsoft.com/ru-ru/library/windowsazure/dn155871.aspx
+[Общий доступ к ресурсам независимо от источника]: http://msdn.microsoft.com/library/windowsazure/dn155871.aspx
 
 
 

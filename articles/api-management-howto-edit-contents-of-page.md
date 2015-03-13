@@ -1,6 +1,20 @@
-<properties pageTitle="How to edit the contents of a page in Azure API Management" metaKeywords="" description="How to edit the contents of a page in Azure API Management." metaCanonical="" services="" documentationCenter="API Management" title="How to edit the contents of a page in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+﻿<properties 
+	pageTitle="Как изменять содержимое страницы в Azure API Management" 
+	description="Изменение содержимого страницы в службе управления API Azure" 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 # Как изменять содержимое страницы в Azure API Management
 
@@ -15,3 +29,5 @@
 > Домашняя страница использует особый макет, который позволяет выводить заголовок вверху. Этот заголовок нельзя редактировать в разделе содержимого. Для редактирования этого заголовка щелкните **Мини-приложение** в меню **Портал разработчика**, затем выберите **Домашняя страница** из раскрывающегося меню **Текущий слой** и откройте пункт **Заголовок** в разделе особых свойств. Содержимое в этом мини-приложении редактируется так же, как для других страниц.
 
   [Управление содержимым]: ./media/api-management-howto-edit-contents-of-page/api-management-customization-manage-content.png
+
+<!--HONumber=46--> 

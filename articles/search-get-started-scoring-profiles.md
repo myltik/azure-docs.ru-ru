@@ -1,6 +1,20 @@
-﻿<properties title="Get started with scoring profiles in Azure Search" pageTitle="Приступая к работе с оценкой профилей в Поиске Azure" description="Приступая к работе с оценкой профилей в Поиске Azure" metaKeywords="" services="" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Использование профилей оценки в службе поиска Azure" 
+	description="Приступая к работе с оценкой профилей в Поиске Azure" 
+	services="search" 
+	documentationCenter="" 
+	authors="HeidiSteen" 
+	manager="mblythe" 
+	editor=""/>
 
-<tags ms.service="azure-search" ms.devlang="" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="" ms.date="10/16/2014" ms.author="heidist" />
+<tags 
+	ms.service="search" 
+	ms.devlang="rest-api" 
+	ms.workload="search" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.date="02/10/2015" 
+	ms.author="heidist"/>
 
 # Приступая к работе с оценкой профилей в Поиске Azure
 
@@ -43,7 +57,7 @@
 
 Вы почти готовы к построению и запуску приложения, но сначала рассмотрим файлы JSON, используемые для создания и заполнения индекса.
 
-В файле **Schema.JSON** определяется индекс, в том числе оценки профили, на которых в этой демонстрации сделан акцент. Обратите внимание, что схема определяет все поля, используемые в индексе, включая недоступные для поиска поля, таких как margin, которые можно использовать в профиле оценки. Синтаксис профиля оценки описан в разделе [Добавление профиля оценки в индекс службы поиска Azure](http://msdn.microsoft.com/ru-ru/library/azure/dn798928.aspx).
+В файле **Schema.JSON** определяется индекс, в том числе оценки профили, на которых в этой демонстрации сделан акцент. Обратите внимание, что схема определяет все поля, используемые в индексе, включая недоступные для поиска поля, таких как margin, которые можно использовать в профиле оценки. Синтаксис профиля оценки описан в разделе [Добавление профиля оценки в индекс службы поиска Azure](http://msdn.microsoft.com/library/azure/dn798928.aspx).
 
 В файле **Data1-3.json** предоставлены данные: 246 альбомов в разных жанрах. Это сочетание фактических сведений об альбомах и исполнителях с вымышленными полями, такими как price и margin, используемыми для иллюстрации операций поиска. Файлы данных соответствуют индексу и передаются в службу поиска Azure. После передачи и индексирования данных можно выполнять запросы к ним.
 
@@ -85,9 +99,9 @@
 
 <h2 id="next-steps">Дальнейшие действия</h2>
 
-Дополнительные сведения о профилях оценки. Дополнительные сведения см. в разделе [Добавление профиля оценки в индекс службы поиска Azure](http://msdn.microsoft.com/ru-ru/library/azure/dn798928.aspx).
+Дополнительные сведения о профилях оценки. Дополнительные сведения см. в разделе [Добавление профиля оценки в индекс службы поиска Azure](http://msdn.microsoft.com/library/azure/dn798928.aspx).
 
-Дополнительные сведения о синтаксисе и параметрах поисковых запросов. Дополнительные сведения см. в разделе [Поиск документов (API REST службы поиска Azure)](http://msdn.microsoft.com/ru-ru/library/azure/dn798927.aspx).
+Дополнительные сведения о синтаксисе и параметрах поисковых запросов. Дополнительные сведения см. в разделе [Поиск документов (API REST службы поиска Azure)](http://msdn.microsoft.com/library/azure/dn798927.aspx).
 
 Хотите сделать шаг назад и узнать больше о создании индексов? [Посмотрите это видео](http://channel9.msdn.com/Shows/Cloud+Cover/Cloud-Cover-152-Azure-Search-with-Liam-Cavanagh).
 
@@ -104,3 +118,5 @@
 [11]: ./media/search-get-started-scoring-profiles/AzureSearch_Scoring_AppConfig.PNG
 [10]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX1.PNG
 [9]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX2.PNG
+
+<!--HONumber=46--> 

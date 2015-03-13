@@ -20,4 +20,4 @@
 	![](./media/mobile-services-windows-universal-dotnet-download-project/mobile-quickstart-startup-wp8.png)
 
 6. Повторите шаги 3 и 4, чтобы убедиться в том, что пример ведет себя аналогичным образом.
-<!--HONumber=42-->
+\<!--HONumber=42-->

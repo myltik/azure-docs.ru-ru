@@ -1,6 +1,20 @@
-<properties urlDisplayName="" pageTitle="Как использовать управляемую службу кэша Azure" metaKeywords="" description="" metaCanonical="" services="cache" documentationCenter="" title="How to Use Azure Managed Cache Service" authors="sdanie" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Как использовать управляемую службу кэша Azure" 
+	<MORAVIA_NOTRANSLATE></MORAVIA_NOTRANSLATE> 
+	services="cache" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="cache" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie" />
+<tags 
+	ms.service="cache" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 # Как использовать управляемую службу кэша Azure
 
@@ -457,24 +471,24 @@
    
 <!-- LINKS -->
 [портале управления Azure]: https://manage.windowsazure.com/
-[Практическое руководство. Программная настройка клиента кэша]: http://msdn.microsoft.com/ru-ru/library/windowsazure/gg618003.aspx
+[Практическое руководство. Программная настройка клиента кэша]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
 [Поставщик состояний сеансов для кэша Azure]: http://go.microsoft.com/fwlink/?LinkId=320835
 [Кэш Azure AppFabric: Кэширование состояния сеанса]: http://www.microsoft.com/ru-ru/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
 [Поставщик кэша вывода для кэша Azure]: http://go.microsoft.com/fwlink/?LinkId=320837
-[Совмещенное кэширование в Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/gg278356.aspx
+[Совмещенное кэширование в Azure]: http://msdn.microsoft.com/library/windowsazure/gg278356.aspx
 [Блог группы разработчиков]: http://blogs.msdn.com/b/windowsazure/
 [Azure Caching]: http://www.microsoft.com/ru-ru/showcase/Search.aspx?phrase=azure+caching
 [Настройка размера виртуальной машины]: http://go.microsoft.com/fwlink/?LinkId=164387
 [Рекомендации по планированию мощностей Azure Caching]: http://go.microsoft.com/fwlink/?LinkId=320167
 [Azure Caching]: http://go.microsoft.com/fwlink/?LinkId=252658
-[Практическое руководство. Декларативное задание возможности кэширования страницы ASP.NET]: http://msdn.microsoft.com/ru-ru/library/zd1ysf1y.aspx
-[Практическое руководство. Программное задание возможности кэширования страницы]: http://msdn.microsoft.com/ru-ru/library/z852zf6b.aspx
+[Практическое руководство. Декларативное задание возможности кэширования страницы ASP.NET]: http://msdn.microsoft.com/library/zd1ysf1y.aspx
+[Практическое руководство. Программное задание возможности кэширования страницы]: http://msdn.microsoft.com/library/z852zf6b.aspx
 [Обзор управляемой службы кэша Azure]: http://go.microsoft.com/fwlink/?LinkId=320830
 [Управляемая служба кэша]: http://go.microsoft.com/fwlink/?LinkId=320830
 [Директива OutputCache]: http://go.microsoft.com/fwlink/?LinkId=251979
 [Диагностика и устранение неполадок]: http://go.microsoft.com/fwlink/?LinkId=320839
 [Установка диспетчера пакета NuGet]: http://go.microsoft.com/fwlink/?LinkId=240311
-[Сведения о ценах - кэш]: http://www.windowsazure.com/ru-ru/pricing/details/cache/
+[Сведения о ценах - кэш]: http://azure.microsoft.com/pricing/details/cache/
 [Портал управления]: https://manage.windowsazure.com/
 [Предложения кэша]: http://go.microsoft.com/fwlink/?LinkId=317277
 [Планирование мощностей]: http://go.microsoft.com/fwlink/?LinkId=320167
@@ -486,9 +500,11 @@
 [New-AzureManagedCache]: http://go.microsoft.com/fwlink/?LinkId=400495
 [Командлеты кэша управляемых Azure]: http://go.microsoft.com/fwlink/?LinkID=398555
 [Установка и настройка Azure PowerShell]: http://go.microsoft.com/fwlink/?LinkId=400494
-[Add-AzureAccount]: http://msdn.microsoft.com/ru-ru/library/dn495128.aspx
-[Select-AzureSubscription]: http://msdn.microsoft.com/ru-ru/library/dn495203.aspx
+[Add-AzureAccount]: http://msdn.microsoft.com/library/dn495128.aspx
+[Select-AzureSubscription]: http://msdn.microsoft.com/library/dn495203.aspx
 
-[Какой кэш Azure подходит мне лучше всего?]: http://msdn.microsoft.com/ru-ru/library/azure/dn766201.aspx
+[Какой кэш Azure подходит мне лучше всего?]: http://msdn.microsoft.com/library/azure/dn766201.aspx
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="" pageTitle="Что такое многофакторная проверка подлинности Azure?" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="What is Azure Multi-Factor Authentication?" authors="billmath" solutions="" manager="terrylan" editor="lisatoft" />
+﻿<properties 
+	pageTitle="Что такое многофакторная проверка подлинности Azure?" 
+	<MORAVIA_NOTRANSLATE></MORAVIA_NOTRANSLATE> 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="terrylan" 
+	editor="lisatoft"/>
 
-<tags ms.service="multi-factor-authentication" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/17/2014" ms.author="billmath" />
+<tags 
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/17/2014" 
+	ms.author="billmath"/>
 
 
 
@@ -21,26 +35,26 @@ Azure Multi-Factor Authentication - это служба многофакторн
 
 <h3>Безопасность Azure Active Directory в облаке</h3>
 
-Включите службу Multi-Factor Authentication для удостоверений Azure AD, и при следующем входе в систему пользователи будут видеть запрос на настройку дополнительной проверки. Используйте Multi-Factor Authentication, чтобы защитить доступ к Azure, службам Microsoft Online Services, таким как Office 365 и Dynamics CRM Online, а также облачным службам сторонних поставщиков, которые интегрируются с Azure AD без дополнительной настройки. Многофакторную проверку подлинности можно быстро включить для большого числа глобальных пользователей и приложений.  [Подробнее](http://msdn.microsoft.com/ru-ru/library/azure/dn249466.aspx)
+Включите службу Multi-Factor Authentication для удостоверений Azure AD, и при следующем входе в систему пользователи будут видеть запрос на настройку дополнительной проверки. Используйте Multi-Factor Authentication, чтобы защитить доступ к Azure, службам Microsoft Online Services, таким как Office 365 и Dynamics CRM Online, а также облачным службам сторонних поставщиков, которые интегрируются с Azure AD без дополнительной настройки. Многофакторную проверку подлинности можно быстро включить для большого числа глобальных пользователей и приложений.  [Подробнее](http://msdn.microsoft.com/library/azure/dn249466.aspx)
 
 <h3>Обеспечение безопасности локальных ресурсов и Active Directory</h3>
 
-Включите многофакторную проверку подлинности для локальных ресурсов, таких как службы IIS и Active Directory, с помощью сервера Azure Multi-Factor Authentication.  Сервер Azure Multi-Factor Authentication позволяет администратору осуществить интеграцию с проверкой подлинности служб IIS для защиты веб-приложений Microsoft IIS, а также с проверкой подлинности RADIUS, LDAP и Windows.  [Подробнее](http://msdn.microsoft.com/ru-ru/library/azure/dn249467.aspx)
+Включите многофакторную проверку подлинности для локальных ресурсов, таких как службы IIS и Active Directory, с помощью сервера Azure Multi-Factor Authentication.  Сервер Azure Multi-Factor Authentication позволяет администратору осуществить интеграцию с проверкой подлинности служб IIS для защиты веб-приложений Microsoft IIS, а также с проверкой подлинности RADIUS, LDAP и Windows.  [Подробнее](http://msdn.microsoft.com/library/azure/dn249467.aspx)
 <h3>Защита пользовательских приложений</h3>
 
-Пакет SDK обеспечивает прямую интеграцию с вашими облачными службами. Встройте проверку Active Authentication с использованием телефонных звонков и текстовых сообщений в процесс входа или обработки транзакций вашего приложения и используйте существующую базу данных пользователей приложения. [Подробнее](http://msdn.microsoft.com/ru-ru/library/azure/dn249464.aspx)
+Пакет SDK обеспечивает прямую интеграцию с вашими облачными службами. Встройте проверку Active Authentication с использованием телефонных звонков и текстовых сообщений в процесс входа или обработки транзакций вашего приложения и используйте существующую базу данных пользователей приложения. [Подробнее](http://msdn.microsoft.com/library/azure/dn249464.aspx)
 
 <h3>Многофакторная проверка подлинности для Office 365</h3>
 
-Многофакторная проверка подлинности для Office 365, реализованная на базе Azure Multi-Factor Authentication, предоставляется исключительно для приложений Office 365 и управляется из портала Office 365. Поэтому теперь администраторы могут защитить свои ресурсы Office 365 с помощью многофакторной проверки подлинности. [Подробнее](http://msdn.microsoft.com/ru-ru/library/azure/dn383636.aspx)
+Многофакторная проверка подлинности для Office 365, реализованная на базе Azure Multi-Factor Authentication, предоставляется исключительно для приложений Office 365 и управляется из портала Office 365. Поэтому теперь администраторы могут защитить свои ресурсы Office 365 с помощью многофакторной проверки подлинности. [Подробнее](http://msdn.microsoft.com/library/azure/dn383636.aspx)
 
 <h3>Многофакторная проверка подлинности для администраторов Azure</h3>
 
-Все возможности многофакторной проверки подлинности для Office 365 будут предоставляться администраторам Azure на бесплатной основе. Теперь для любой учетной записи администратора подписки Azure можно настроить дополнительную защиту, включив функции многофакторной проверки подлинности. Добавив функции многофакторной проверки подлинности к своей учетной записи, администратор может получить доступ к порталу Azure для создания виртуальной машины, веб-сайта, управления службой хранилища и работы с мобильными или любыми другими службами Azure.  [Подробнее](http://msdn.microsoft.com/ru-ru/library/azure/dn249471.aspx)
+Все возможности многофакторной проверки подлинности для Office 365 будут предоставляться администраторам Azure на бесплатной основе. Теперь для любой учетной записи администратора подписки Azure можно настроить дополнительную защиту, включив функции многофакторной проверки подлинности. Добавив функции многофакторной проверки подлинности к своей учетной записи, администратор может получить доступ к порталу Azure для создания виртуальной машины, веб-сайта, управления службой хранилища и работы с мобильными или любыми другими службами Azure.  [Подробнее](http://msdn.microsoft.com/library/azure/dn249471.aspx)
 
 <h3>Сравнение возможностей многофакторной проверки подлинности</h3>
 
-Ниже приведены доступные версии многофакторной проверки подлинности и краткая сводка по ее возможностям. С помощью этих сведений вы можете определить, какая версия многофакторной проверки подлинности подходит вам лучше всего. [Подробнее](http://msdn.microsoft.com/ru-ru/library/azure/dn249471.aspx)
+Ниже приведены доступные версии многофакторной проверки подлинности и краткая сводка по ее возможностям. С помощью этих сведений вы можете определить, какая версия многофакторной проверки подлинности подходит вам лучше всего. [Подробнее](http://msdn.microsoft.com/library/azure/dn249471.aspx)
 
 ![Azure Multi-Factor Authentication Feature Comparison](./media/multi-factor-authentication/mfacomparison2.png)
 
@@ -49,7 +63,9 @@ Azure Multi-Factor Authentication - это служба многофакторн
 
 * [Подпишитесь на Azure как организация](/ru-ru/manage/services/identity/organizational-account/)
 * [Удостоверение Azure](/ru-ru/manage/windows/fundamentals/identity/)
-* [Библиотека многофакторной проверки подлинности Azure](http://technet.microsoft.com/ru-ru/library/dn249471.aspx)
+* [Библиотека многофакторной проверки подлинности Azure](http://technet.microsoft.com/library/dn249471.aspx)
 
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

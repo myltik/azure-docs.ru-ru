@@ -1,7 +1,20 @@
-﻿<properties title="Survival Analysis" pageTitle="Анализ выживаемости | Azure" description="Анализ выживаемости" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Анализ выживаемости | Azure" 
+	description="Вероятность события анализа выживаемости" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="jaymathe" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/08/2014" ms.author="jaymathe" /> 
-
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/11/2015" 
+	ms.author="jaymathe"/> 
 
 #Анализ выживаемости 
 
@@ -70,7 +83,7 @@
 
 ##Создание веб-службы
 
->Эта веб-служба была создана с помощью Azure ML. Для получения бесплатной пробной версии и вводных видеоматериалов по созданию экспериментов и [публикации веб-служб](http://azure.microsoft.com/ru-ru/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/) посетите веб-страницу [azure.com/ml](http://azure.com/ml). Ниже приведен снимок экрана эксперимента, в результате которого была создана веб-служба, и пример кода для каждого модуля в эксперименте.
+>Эта веб-служба была создана с помощью Azure ML. Для получения бесплатной пробной версии и вводных видеоматериалов по созданию экспериментов и [публикации веб-служб](http://azure.microsoft.com/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/) посетите веб-страницу [azure.com/ml](http://azure.com/ml). Ниже приведен снимок экрана эксперимента, в результате которого была создана веб-служба, и пример кода для каждого модуля в эксперименте.
 
 В Azure ML был создан новый пустой эксперимент, и в рабочую область были извлечены два модуля "Выполнение скрипта R". Схема данных была создана с использованием простого модуля "Выполнение скрипта R", который определяет схему входных данных для веб-службы. Затем этот модуль был связан со вторым модулем "Выполнение скрипта R", который отвечает за основные операции. Этот модуль осуществляет предварительную обработку данных, построение модели и прогнозирование. На этапе предварительной обработки данных входные данные, представленные длинной последовательностью символов, преобразуются в блок данных. На этапе построения модели сначала устанавливается внешний пакет R "survival_2.37-7.zip" для проведения анализа выживаемости. Затем после ряда задач по обработке данных выполняется функция "coxph". Подробные сведения о функции "coxph" для анализа выживаемости можно найти в документации по языку R. На шаге прогнозирования тестируемый экземпляр загружается в обученную модель с функцией "surfit", и для данного тестируемого экземпляра создается кривая выживаемости в виде переменной "curve". Наконец, выдается ответ относительно вероятности того, что событие произойдет к указанному времени. 
 
@@ -172,6 +185,8 @@
 Эта веб-служба принимает только числовые значения для переменных функций (столбцов). Столбец "event" может принимать только значение 0 или 1. Столбец "time" должен быть положительным целым числом.
 
 ##Часто задаваемые вопросы
-Ознакомиться с часто задаваемыми вопросами по использованию веб-службы и публикации в Магазине можно [здесь](http://azure.microsoft.com/ru-ru/documentation/articles/machine-learning-marketplace-faq).
+Ознакомиться с часто задаваемыми вопросами по использованию веб-службы и публикации в Магазине можно [здесь](http://azure.microsoft.com/documentation/articles/machine-learning-marketplace-faq).
 
 [1]: ./media/machine-learning-r-csharp-survival-analysis/survive_img2.png
+
+<!--HONumber=46--> 

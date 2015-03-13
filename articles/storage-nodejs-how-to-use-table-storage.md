@@ -434,15 +434,14 @@ ACL реализуется с помощью массива политик до�
   [Практическое руководство. Работа с подписанными URL-адресами]: #delete-table
 
   [OData.org]: http://www.odata.org/
-  [using the REST API]: http://msdn.microsoft.com/ru-ru/library/windowsazure/hh264518.aspx
+  [using the REST API]: http://msdn.microsoft.com/library/windowsazure/hh264518.aspx
   [Azure Management Portal]: http://manage.windowsazure.com
 
   [Node.js Cloud Service]: /ru-ru/documentation/articles/cloud-services-nodejs-develop-deploy-app/
-  [Хранение и доступ к данным в Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/gg433040.aspx
+  [Хранение и доступ к данным в Azure]: http://msdn.microsoft.com/library/windowsazure/gg433040.aspx
   [Посетите блог рабочей группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
   [Веб-сайт с WebMatrix]: /ru-ru/documentation/articles/web-sites-nodejs-use-webmatrix/
   [Node.js Cloud Service with Storage]: /ru-ru/documentation/articles/storage-nodejs-use-table-storage-cloud-service-app/
   [Веб-приложение Node.js с хранилищем]: /ru-ru/documentation/articles/storage-nodejs-use-table-storage-web-site/
   [Создание и развертывание приложения Node.js на веб-сайте Azure]: /ru-ru/documentation/articles/web-sites-nodejs-develop-deploy-mac/
-
 <!--HONumber=42-->

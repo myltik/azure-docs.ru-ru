@@ -401,9 +401,8 @@
 
 	Удаление службы может занять несколько минут. После удаления службы появится сообщение, указывающее, что служба была удалена.
 
-  [Веб-приложение Node.js с использованием Express]: http://www.windowsazure.com/ru-ru/develop/nodejs/tutorials/web-app-with-express/
-  [Хранение данных и доступ к ним в Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/gg433040.aspx
-  [Веб-приложение Node.js]: http://www.windowsazure.com/ru-ru/develop/nodejs/tutorials/getting-started/
+  [Веб-приложение Node.js с использованием Express]: http://azure.microsoft.com/develop/nodejs/tutorials/web-app-with-express/
+  [Хранение данных и доступ к ним в Azure]: http://msdn.microsoft.com/library/windowsazure/gg433040.aspx
+  [Веб-приложение Node.js]: http://azure.microsoft.com/develop/nodejs/tutorials/getting-started/
  
-
 <!--HONumber=42-->

@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Администрирование мобильной службы с помощью командной строки: учебник по Azure" description="Узнайте, как с помощью программ командной строки создать и развернуть мобильную службу Azure, а также управлять ею." services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Администрирование мобильной службы с помощью командной строки: учебник по Azure" 
+	description="Узнайте, как с помощью программ командной строки создать и развернуть мобильную службу Azure, а также управлять ею." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="glenga"/>
 
 # Автоматизация мобильных служб с помощью средств командной строки 
 
@@ -18,9 +32,9 @@
 
 Чтобы использовать средства командной строки Azure для управления мобильными службами, требуется учетная запись Azure, для которой включены мобильные службы Azure.
 
-+ Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://www.windowsazure.com/ru-ru/pricing/free-trial/" target="_blank">Бесплатная пробная версия Azure</a>.
++ Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://azure.microsoft.com/pricing/free-trial/" target="_blank">Бесплатная пробная версия Azure</a>.
 
-+ Если у вас есть учетная запись, но вам нужно включить предварительную версию мобильных служб Azure, см. раздел <a href="http://azure.microsoft.com/ru-ru/documentation/articles/php-create-account/#enable" target="_blank">Включение предварительных версий компонентов Azure</a>.
++ Если у вас есть учетная запись, но вам нужно включить предварительную версию мобильных служб Azure, см. раздел <a href="http://azure.microsoft.com/documentation/articles/php-create-account/#enable" target="_blank">Включение предварительных версий компонентов Azure</a>.
 
 В этом разделе описывается набор общих задач администрирования, поддерживаемых средствами командной строки Azure. Дополнительные сведения см. в [документации по программам командной строки Azure][справочная документация].
 
@@ -137,7 +151,8 @@
 
 Обратите внимание, что эта операция загружает файл JavaScript (JS) с локального компьютера. Имя файла должно состоять из имен таблицы и операции, и файл должен находиться во вложенной папке таблицы `table` относительно расположения, где выполняется команда. Например, следующая операция передает и регистрирует новый сценарий `insert`, который принадлежит таблице `TodoItems`:
 
-		azure mobile script upload todolist table/todoitems.insert.js
+		azure mobile script upload todolist table/todoite
+	ms.insert.js
 
 Объявление функции в файле скрипта также должно соответствовать зарегистрированной табличной операции. Это значит, что для скрипта `insert` переданный скрипт содержит функцию со следующей сигнатурой:
 

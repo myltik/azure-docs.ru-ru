@@ -1,6 +1,20 @@
-﻿<properties title="Get started with the DocumentDB .NET SDK" pageTitle="Начало работы с DocumentDB .NET SDK | Azure" description="Узнайте, как создать и настроить учетную запись Azure использования documentdb по плану баз данных, создавать коллекции и хранить документы JSON в рамках учетной записи базы данных NoSQL документа." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, getting started"   services="documentdb" solutions="data-management" documentationCenter=""  authors="mimig" manager="jhubbard" editor="monicar" scriptId="" />
+﻿<properties 
+	pageTitle="Начало работы с DocumentDB .NET SDK | Azure" 
+	description="Сведения о создании и настройке учетной записи Azure DocumentDB, создании баз данных и коллекций, а также хранении документов JSON в учетной записи базы данных документов NoSQL." 
+	services="documentdb" 
+	documentationCenter="" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/11/2014" ms.author="mimig" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/12/2014" 
+	ms.author="mimig"/>
 
 #Начало работы с DocumentDB .NET SDK  
 
@@ -214,3 +228,5 @@ DocumentDB поддерживает функционально богатые з
 [1]: ./media/documentdb-get-started/gs1.png
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

@@ -1,6 +1,20 @@
-<properties pageTitle="How to configure notifications and email templates in Azure API Management" metaKeywords="" description="Learn how to configure notifications and email templates in Azure API Management." metaCanonical="" services="" documentationCenter="API Management" title="How to configure notifications and email templates in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+﻿<properties 
+	pageTitle="Как настраивать уведомления и почтовые шаблоны в Azure API Management" 
+	description="Сведения о настройке уведомлений и шаблонов писем в службе управления API Azure" 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 # Как настраивать уведомления и почтовые шаблоны в Azure API Management
 
@@ -94,3 +108,5 @@ API Management предоставляет почтовые шаблоны для
   [Почтовые шаблоны]: ./media/api-management-howto-configure-notifications/api-management-email-templates.png
   [Список почтовых шаблонов]: ./media/api-management-howto-configure-notifications/api-management-email-templates-list.png
   [Редактор почтовых шаблонов]: ./media/api-management-howto-configure-notifications/api-management-email-template.png
+
+<!--HONumber=46--> 

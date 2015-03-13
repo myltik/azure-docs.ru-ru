@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Tutorial: Create a cloud-only virtual network" pageTitle="Учебник. Создание виртуальной сети только для облака" metaKeywords="" description="Узнайте в этом учебнике, как создать пример исключительно облачной виртуальной сети Azure." metaCanonical="" services="virtual-machines,virtual-network" documentationCenter="" title="Tutorial: Create a Clound-only Virtual Network in Azure" authors="cherylmc" solutions="" manager="adinah" editor="" />
+﻿<properties 
+	pageTitle="Учебник. Создание виртуальной сети только для облака" 
+	description="Узнайте в этом учебнике, как создать пример исключительно облачной виртуальной сети Azure." 
+	services="virtual-machines, virtual-network" 
+	documentationCenter="" 
+	authors="cherylmc" 
+	manager="adinah" 
+	editor=""/>
 
-<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/29/2014" ms.author="cherylmc" />
+<tags 
+	ms.service="virtual-network" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/29/2014" 
+	ms.author="cherylmc"/>
 
 <h1 id="vnettut1">Учебник. Создание виртуальной сети только для облака в Azure</h1>
 
@@ -25,7 +39,7 @@
 
 ##  Предварительные требования
 
-*  Учетная запись Microsoft как минимум с одной действительной активной подпиской Azure. Если у вас нет учетной записи Azure, зарегистрируйтесь для получения бесплатной пробной версии на сайте [Try Azure](http://www.windowsazure.com/pricing/free-trial/). Если у вас есть подписка MSDN, см. раздел [Специальные предложения Microsoft Azure: преимущества для подписчиков MSDN, MPN и Bizspark](http://azure.microsoft.com/ru-ru/pricing/member-offers/msdn-benefits-details/).
+*  Учетная запись Microsoft как минимум с одной действительной активной подпиской Azure. Если у вас нет учетной записи Azure, зарегистрируйтесь для получения бесплатной пробной версии на сайте [Try Azure](http://www.windowsazure.com/pricing/free-trial/). Если у вас есть подписка MSDN, см. раздел [Специальные предложения Microsoft Azure: преимущества для подписчиков MSDN, MPN и Bizspark](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 ##  Создание виртуальной сети для этого учебника
 
@@ -71,9 +85,9 @@
 
 Вы можете продолжить изучение инфраструктурных служб Azure, перейдя к следующим материалам.
 
-- [Создание настраиваемой виртуальной машины](http://www.windowsazure.com/ru-ru/manage/windows/how-to-guides/custom-create-a-vm/) - здесь описывается установка виртуальной машины в виртуальную сеть. Дополнительную информацию о виртуальных машинах и параметрах установки см. в разделе [Виртуальные машины Azure](http://www.windowsazure.com/ru-ru/manage/windows/).
+- [Создание настраиваемой виртуальной машины](http://azure.microsoft.com/manage/windows/how-to-guides/custom-create-a-vm/) - здесь описывается установка виртуальной машины в виртуальную сеть. Дополнительную информацию о виртуальных машинах и параметрах установки см. в разделе [Виртуальные машины Azure](http://azure.microsoft.com/manage/windows/).
 
-- [Установка нового леса Active Directory в виртуальной сети Azure](http://www.windowsazure.com/ru-ru/manage/services/networking/active-directory-forest/) - используйте это руководство, чтобы установить новый лес Windows Server Active Directory без связи с какой-либо другой сетью. В учебнике будут приведены конкретные шаги, необходимые для создания виртуальной машины (VM) для установки нового леса. Если вы планируете использовать этот учебник, не создавайте виртуальные машины с помощью портала управления. Дополнительную информацию см. в разделе [Руководства по развертыванию Windows Server Active Directory на виртуальных машинах Azure](http://msdn.microsoft.com/ru-ru/library/windowsazure/jj156090.aspx).
+- [Установка нового леса Active Directory в виртуальной сети Azure](http://azure.microsoft.com/manage/services/networking/active-directory-forest/) - используйте это руководство, чтобы установить новый лес Windows Server Active Directory без связи с какой-либо другой сетью. В учебнике будут приведены конкретные шаги, необходимые для создания виртуальной машины (VM) для установки нового леса. Если вы планируете использовать этот учебник, не создавайте виртуальные машины с помощью портала управления. Дополнительную информацию см. в разделе [Руководства по развертыванию Windows Server Active Directory на виртуальных машинах Azure](http://msdn.microsoft.com/library/windowsazure/jj156090.aspx).
 
 Чтобы удалить данную виртуальную сеть, выберите ее, нажмите кнопку **Удалить**, а затем щелкните **Да**.
 
@@ -90,7 +104,7 @@
 
 -  [Задачи по настройке виртуальной сети Azure](http://go.microsoft.com/fwlink/?LinkId=296652)
 
--  [Настройка виртуальной сети с помощью файлов конфигурации сети](http://msdn.microsoft.com/ru-ru/library/windowsazure/jj156097.aspx)
+-  [Настройка виртуальной сети с помощью файлов конфигурации сети](http://msdn.microsoft.com/library/windowsazure/jj156097.aspx)
 
 -  [Обзор механизма разрешения имен Azure](http://go.microsoft.com/fwlink/?LinkId=248097)
 
@@ -103,3 +117,5 @@
 [Image7]: ./media/create-virtual-network/createVNet_07_VNetExampleSpaces.png
 [Image8]: ./media/create-virtual-network/createVNet_07_VNetExampleSpaces.png
 
+
+<!--HONumber=46--> 

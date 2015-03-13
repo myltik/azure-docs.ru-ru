@@ -26,13 +26,13 @@
 
 ##<a name="learn"></a>О чем вы узнаете?
 
-Mahout - это библиотека [машинного обучения][ml] для Apache Hadoop. Mahout содержит алгоритмы для обработки данных, такие как фильтрация, классификация и кластеризация. В этой статье вы будет использовать подсистему рекомендаций для создания рекомендаций для просмотра фильмов на основе уже просмотренных вашими друзьями. Вы также узнаете о том, как выполнять классификацию с помощью леса деревьев принятия решений. Вы изучите следующее
+Mahout - это библиотека [машинного обучения][ml] для Apache Hadoop. Mahout содержит алгоритмы для обработки данных, такие как фильтрация, классификация и кластеризация. В этой статье вы будет использовать подсистему рекомендаций для создания рекомендаций для просмотра фильмов на основе уже просмотренных вашими друзьями. Вы также узнаете о том, как выполнять классификацию с помощью леса деревьев принятия решений. Вы изучите следующее:
 
-как запускать задания Mahout из PowerShell
+* как запускать задания Mahout из PowerShell;
 
-как запускать задания Mahout из командной строки Hadoop
+* как запускать задания Mahout из командной строки Hadoop;
 
-как устанавливать Mahout на кластерах HDInsight версий 2.0 и 3.0
+* как устанавливать Mahout на кластерах HDInsight версий 2.0 и 3.0.
 
 ##Содержание
 
@@ -408,11 +408,11 @@ Mahout установлена на кластере HDInsight версии 3.1, 
 
 
 [build]: http://mahout.apache.org/developers/buildingmahout.html
-[aps]: http://azure.microsoft.com/ru-ru/documentation/articles/install-configure-powershell/
+[aps]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
 [movielens]: http://grouplens.org/datasets/movielens/
 [100k]: http://files.grouplens.org/datasets/movielens/ml-100k.zip
-[getstarted]: http://azure.microsoft.com/ru-ru/documentation/articles/hdinsight-get-started/
-[upload]: http://azure.microsoft.com/ru-ru/documentation/articles/hdinsight-upload-data/
+[getstarted]: http://azure.microsoft.com/documentation/articles/hdinsight-get-started/
+[upload]: http://azure.microsoft.com/documentation/articles/hdinsight-upload-data/
 [ml]: http://en.wikipedia.org/wiki/Machine_learning
 [forest]: http://en.wikipedia.org/wiki/Random_forest
 [management]: https://manage.windowsazure.com/
@@ -420,5 +420,4 @@ Mahout установлена на кластере HDInsight версии 3.1, 
 [connect]: ./media/hdinsight-mahout/connect.png
 [hadoopcli]: ./media/hdinsight-mahout/hadoopcli.png
 [tools]: https://github.com/Blackmist/hdinsight-tools
-
 <!--HONumber=42-->

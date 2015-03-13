@@ -1,6 +1,20 @@
-<properties pageTitle="Get started with Azure API Management" metaKeywords="" description="Learn how to create APIs, operations, and get started with API Management." metaCanonical="" services="" documentationCenter="API Management" title="Get started with Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+﻿<properties 
+	pageTitle="Начало работы с Azure API Management" 
+	description="Узнайте, как создавать API, операции и как начать работу с API Management." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/11/2015" 
+	ms.author="sdanie"/>
 
 # Начало работы с Azure API Management
 
@@ -244,7 +258,7 @@ API создаются и настраиваются из консоли API Man
   [Вызов операции из портала разработчика]: #call-operation
   [Обзор аналитики]: #view-analytics
   [Дальнейшие действия]: #next-steps
-  [Бесплатная пробная версия Azure]: http://azure.microsoft.com/ru-ru/pricing/free-trial/?WT.mc_id=api_management_hero_a
+  [Бесплатная пробная версия Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=api_management_hero_a
   [Портал управления]: https://manage.windowsazure.com/
   [Новый экземпляр API Management]: ./media/api-management-get-started/api-management-create-instance-menu.png
   [Новая служба API Management]: ./media/api-management-get-started/api-management-create-instance-step1.png
@@ -282,3 +296,5 @@ API создаются и настраиваются из консоли API Man
   [Сводка]: ./media/api-management-get-started/api-management-api-summary-metrics.png
   [Обзор]: ./media/api-management-get-started/api-management-analytics-overview.png
   [Приступая к работе с расширенными параметрами API]: ../api-management-get-started-advanced
+
+<!--HONumber=46--> 

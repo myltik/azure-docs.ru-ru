@@ -29,7 +29,7 @@
 
 **Предварительные требования**:	
 
-- Необходимо иметь учетную запись Azure. Возможности регистрации учетной записи см. на странице [Бесплатное пробное использование Azure](http://azure.microsoft.com/ru-ru/pricing/free-trial/).
+- Необходимо иметь учетную запись Azure. Возможности регистрации учетной записи см. на странице [Бесплатное пробное использование Azure](http://azure.microsoft.com/pricing/free-trial/).
 
 - Вы должны были подготовить кластер HDInsight. Инструкции по различным способам создания таких кластеров см. в разделе [Приступая к работе с Azure HDInsight][hdinsight-get-started] или [Подготовка кластеров HDInsight](../hdinsight-provision-clusters/)
 
@@ -224,7 +224,6 @@
 [Powershell-install-configure]: ../install-configure-powershell/
 
 [image-hdi-sample-wordcount-output]: ./media/hdinsight-sample-wordcount/HDI.Sample.WordCount.Output.png
-
 
 
 <!--HONumber=42-->

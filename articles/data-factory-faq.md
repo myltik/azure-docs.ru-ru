@@ -1,6 +1,20 @@
-﻿<properties title="Azure Data Factory - Frequently Asked Questions" pageTitle="Фабрика данных Azure - часто задаваемые вопросы" description="Часто задаваемые вопросы о фабрике данных Azure." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties 
+	pageTitle="Фабрика данных Azure — часто задаваемые вопросы" 
+	description="Часто задаваемые вопросы о фабрике данных Azure." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/10/2015" 
+	ms.author="spelluru"/>
 
 # Фабрика данных Azure - часто задаваемые вопросы
 
@@ -93,6 +107,8 @@
 [azure-preview-portal]: http://portal.azure.com
 
 [adf-pricing-details]: http://go.microsoft.com/fwlink/?LinkId=517777
-[hdinsight-supported-regions]: http://azure.microsoft.com/ru-ru/pricing/details/hdinsight/
+[hdinsight-supported-regions]: http://azure.microsoft.com/pricing/details/hdinsight/
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

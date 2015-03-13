@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="" pageTitle="Архитектура" metaKeywords="" description="Общие сведения об архитектуре, которая охватывает Общие шаблоны разработки" metaCanonical="" services="" documentationCenter="" videoId="" scriptId="" title="Architecture Overview" authors="robb" solutions="" manager="johndaw" editor="mattshel" />
+﻿<properties 
+	pageTitle="Архитектура" 
+	description="Общие сведения об архитектуре, охватывающей общие шаблоны разработки" 
+	services="" 
+	documentationCenter="" 
+	authors="Rboucher" 
+	manager="jwhit" 
+	editor="mattshel"/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/25/2014" ms.author="robb" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/25/2014" 
+	ms.author="robb"/>
 
 #Архитектура
 Ресурсы для построения приложений, использующих Microsoft Azure.
@@ -25,12 +39,12 @@
 ![Azure Symbol/Icon set][azure_symbols]
 
 ##Шаблоны проектирования
-Команда Microsoft Patterns&Practices опубликовала книгу [Cloud Design Patterns](http://msdn.microsoft.com/ru-ru/library/dn568099.aspx) (Шаблоны облачной разработки), которая доступна как в библиотеке MSDN, так и в виде загружаемого PDF-файла. Есть также крупноформатный постер, на котором приведены все шаблоны. 
+Команда Microsoft Patterns&Practices опубликовала книгу [Cloud Design Patterns](http://msdn.microsoft.com/library/dn568099.aspx) (Шаблоны облачной разработки), которая доступна как в библиотеке MSDN, так и в виде загружаемого PDF-файла. Есть также крупноформатный постер, на котором приведены все шаблоны. 
 
 ![Patterns and Practices Cloud Patterns Poster][PnPPoster]
 
 ##Инфографика по архитектурам
-Корпорацией Майкрософт было издано несколько постеров и инфографиков по теме проектирования архитектуры. В их числе можно назвать [Building Real-World Cloud Applications](http://azure.microsoft.com/ru-ru/documentation/infographics/building-real-world-cloud-apps/) (Создание реальных облачных приложений) и [Scaling with Cloud Services](http://azure.microsoft.com/ru-ru/documentation/infographics/cloud-services/) (Масштабирование облачных служб). 
+Корпорацией Майкрософт было издано несколько постеров и инфографиков по теме проектирования архитектуры. В их числе можно назвать [Building Real-World Cloud Applications](http://azure.microsoft.com/documentation/infographics/building-real-world-cloud-apps/) (Создание реальных облачных приложений) и [Scaling with Cloud Services](http://azure.microsoft.com/documentation/infographics/cloud-services/) (Масштабирование облачных служб). 
 
 
 ![Azure Architecture Infographics][AzureInfographic]
@@ -43,3 +57,5 @@
 [AzureInfographic]: ./media/architecture-overview/AzureArchInfographicThumb.png
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

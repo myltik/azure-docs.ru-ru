@@ -89,7 +89,7 @@
 * [Простые правила резервного копирования веб-сайтов с заданиями WebJob](http://azure.microsoft.com/blog/2014/04/28/simple-web-site-backup-retention-policy-with-webjobs/)
 * [Веб-сайты Microsoft Azure и Cloud Services Slow по первому требованию](http://wp.sjkp.dk/windows-azure-websites-and-cloud-services-slow-on-first-request/). Показывает применение веб-заданий для симуляции компонента AlwaysOn, который доступен только для ветви веб-сайтов уровня Standard.
 * [Нормальное завершение работы веб-заданий](http://blog.amitapple.com/post/2014/05/webjobs-graceful-shutdown/#.U72Il_5OWUl). Для получения информации относительно правильного завершения работы SDK для заданий WebJob см. [Нормальное завершение работы](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#graceful)).
-* [Масштабирование приложения с помощью веб-сайтов Azure](http://msdn.microsoft.com/ru-ru/magazine/dn786914.aspx)
+* [Масштабирование приложения с помощью веб-сайтов Azure](http://msdn.microsoft.com/magazine/dn786914.aspx)
 * Видео
 	* [Масштабирование заданий WebJob](http://channel9.msdn.com/Shows/Azure-Friday/Azure-WebJobs-105-Scaling-out-Web-Jobs)
 	* [Видеопрограммы по заданиям Azure WebJob, Магнус Мортенссон (Magnus Mårtensson)](https://www.youtube.com/playlist?list=PLqp1ZOYYUSd81yEzMYLTw8cz91wx_LU9r)

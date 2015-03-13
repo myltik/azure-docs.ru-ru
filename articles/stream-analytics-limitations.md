@@ -1,6 +1,20 @@
-﻿<properties title="Azure Stream Analytics limitations in the preview release" pageTitle=" Ограничения предварительной версии Stream Analytics | Azure" description="Узнайте об ограничениях заданий в общедоступной предварительной версии анализа потоков Azure" metaKeywords="" services="stream analytics" solutions="" documentationCenter="" authors="jgao" videoId="" scriptId="" manager="paulettm" editor="cgronlun"/>
+﻿<properties 
+	pageTitle="Ограничения предварительной версии Stream Analytics | Azure" 
+	description="Узнайте об ограничениях заданий в общедоступной предварительной версии анализа потоков Azure" 
+	services="stream-analytics" 
+	documentationCenter="" 
+	authors="mumian" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="stream-analytics" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="data-services" ms.date="10/28/2014" ms.author="jgao" />
+<tags 
+	ms.service="stream-analytics" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="data-services" 
+	ms.date="2/10/2015" 
+	ms.author="jgao"/>
 
 #Ограничения предварительной версии Azure Stream Analytics Preview и известные проблемы
 
@@ -131,8 +145,10 @@
 
 
 [microsoft.support]: http://support.microsoft.com/
-[azure.event.hubs.developer.guide]: http://msdn.microsoft.com/ru-ru/library/azure/dn789972.aspx
+[azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
 
 [Ссылка 1 на другую тему в документации на azure.microsoft.com]: ../virtual-machines-windows-tutorial/
 [Ссылка 2 на другую тему в документации на azure.microsoft.com]: ../web-sites-custom-domain-name/
 [Ссылка 3 на другую тему в документации на azure.microsoft.com]: ../storage-whatis-account/
+
+<!--HONumber=46--> 

@@ -34,7 +34,7 @@
 
 **Предварительные требования**:	
 
-- Необходимо иметь учетную запись Azure. Возможности регистрации учетной записи см. на странице [Бесплатное пробное использование Azure](http://azure.microsoft.com/ru-ru/pricing/free-trial/).
+- Необходимо иметь учетную запись Azure. Возможности регистрации учетной записи см. на странице [Бесплатное пробное использование Azure](http://azure.microsoft.com/pricing/free-trial/).
 
 - Вы должны были подготовить кластер HDInsight. Сведения по различным способам создания таких кластеров см. в разделе [Подготовка кластеров HDInsight](../hdinsight-provision-clusters/)
 
@@ -87,6 +87,5 @@ HDInsight поставляется вместе со следующими при
 
 [hdinsight-use-hive]: ../hdinsight-use-hive/
 [hdinsight-use-pig]: ../hdinsight-use-pig/
-
 
 <!--HONumber=42-->

@@ -30,4 +30,4 @@
 
 
 [портале управления Azure]: https://manage.windowsazure.com/
-<!--HONumber=42-->
+\<!--HONumber=42-->

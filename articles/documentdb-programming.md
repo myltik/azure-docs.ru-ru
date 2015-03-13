@@ -1,6 +1,20 @@
-<properties title="DocumentDB programming: Stored procedures, triggers, and UDFs" pageTitle="DocumentDB programming: Stored procedures, triggers, and UDFs | Azure" description="Find out how for Document DB you can write stored procedures, triggers, and user defined functions (UDFs) natively in JavaScript." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, getting started"  services="documentdb" solutions="data-management" documentationCenter=""  authors="bradsev" manager="jhubbard" editor="cgronlun" scriptId="" />
+<properties 
+	pageTitle="Программирование DocumentDB: хранимые процедуры, триггеры и UDF | Azure" 
+	description="Узнайте, как с помощью Microsoft Azure DocumentDB записывать в собственном коде JavaScript хранимые процедуры, триггеры и определяемые пользователем функции (UDF)." 
+	services="documentdb" 
+	documentationCenter="" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="cgronlun"/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="hawong" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/12/2015" 
+	ms.author="mimig"/>
 
 # Программирование DocumentDB: Хранимые процедуры, триггеры и определяемые пользователем функции
 
@@ -614,3 +628,5 @@ UDF впоследствии могут быть использованы в з�
   [3]: http://dl.acm.org/citation.cfm?id=276339
   [4]: http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE
   [5]: http://dl.acm.org/citation.cfm?id=1007669
+
+<!--HONumber=46--> 

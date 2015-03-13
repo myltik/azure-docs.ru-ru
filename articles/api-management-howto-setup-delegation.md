@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Как делегировать регистрацию пользователя и подписку на продукт" metaKeywords="" description="Узнайте, как делегировать регистрации пользователей и подписки на продукты третьим лицам в службе управления API Azure." metaCanonical="" services="api-management" documentationCenter="API Management" title="How to delegate user registration and product subscription in Azure API Management" authors="antonba" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Как делегировать регистрацию пользователя и подписку на продукт" 
+	description="Узнайте, как делегировать регистрации пользователей и подписки на продукты третьим лицам в службе управления API Azure." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="antonba" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="antonba" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="1/14/2015" 
+	ms.author="antonba"/>
 
 # Как делегировать регистрацию пользователя и подписку на продукт
 
@@ -150,3 +164,5 @@
 [пример кода приведен ниже]: #delegate-example-code
 
 [api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png
+
+<!--HONumber=46--> 

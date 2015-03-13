@@ -1,6 +1,20 @@
-<properties pageTitle="Работа с серверной мобильной службой JavaScript" description="Содержит примеры того, как определить, зарегистрировать и использовать серверные сценарии в мобильных службах Azure." services="mobile-services" documentationCenter="" authors="RickSaling" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Работа с серверной мобильной службой JavaScript" 
+	description="Содержит примеры того, как определить, зарегистрировать и использовать серверные сценарии в мобильных службах Azure." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="RickSaling" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="ricksal"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="ricksal"/>
 
 
 # Работа с серверной мобильной службой JavaScript
@@ -231,7 +245,8 @@
 		    }
 
 		    function insertItemIfNotComplete(existingItems) {
-		        if (existingItems.length > 0) {
+		        if (existingIte
+	ms.length > 0) {
 		            request.respond(statusCodes.CONFLICT, 
                         "Duplicate items are not allowed.");
 		        } else {
@@ -945,34 +960,34 @@
 [4]: ./media/mobile-services-how-to-use-server-scripts/4-mobile-source-local-cli.png
 
 <!-- URLs. -->
-[Справочник серверных скриптов мобильных служб]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj554226.aspx
+[Справочник серверных скриптов мобильных служб]: http://msdn.microsoft.com/library/windowsazure/jj554226.aspx
 [Планирование серверных заданий в мобильных службах]: /ru-ru/develop/mobile/tutorials/schedule-backend-tasks/
-[Объект request]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj554218.aspx
-[объект response]: http://msdn.microsoft.com/ru-ru/library/windowsazure/dn303373.aspx
-[объект пользователя]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj554220.aspx
-[push object]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj554217.aspx
-[функция insert]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj554229.aspx
-[insert]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj554229.aspx
-[функция update]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj554214.aspx
-[функция delete]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj554215.aspx
-[функция read]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj554224.aspx
-[update]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj554214.aspx
-[delete]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj554215.aspx
-[read]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj554224.aspx
-[объект query]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj613353.aspx
-[Объект apns]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj839711.aspx
-[Объект mpns]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj871025.aspx
-[Объект wns]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj860484.aspx
-[Объект table]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj554210.aspx
-[объекту tables]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj614364.aspx
-[объекта mssql]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj554212.aspx
-[Объект console]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj554209.aspx
-[Чтение и запись данных]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj631640.aspx
-[Проверка данных]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj631638.aspx
-[Изменение запроса]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj631635.aspx
-[Изменение отклика]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj631631.aspx
+[Объект request]: http://msdn.microsoft.com/library/windowsazure/jj554218.aspx
+[объект response]: http://msdn.microsoft.com/library/windowsazure/dn303373.aspx
+[объект пользователя]: http://msdn.microsoft.com/library/windowsazure/jj554220.aspx
+[push object]: http://msdn.microsoft.com/library/windowsazure/jj554217.aspx
+[функция insert]: http://msdn.microsoft.com/library/windowsazure/jj554229.aspx
+[insert]: http://msdn.microsoft.com/library/windowsazure/jj554229.aspx
+[функция update]: http://msdn.microsoft.com/library/windowsazure/jj554214.aspx
+[функция delete]: http://msdn.microsoft.com/library/windowsazure/jj554215.aspx
+[функция read]: http://msdn.microsoft.com/library/windowsazure/jj554224.aspx
+[update]: http://msdn.microsoft.com/library/windowsazure/jj554214.aspx
+[delete]: http://msdn.microsoft.com/library/windowsazure/jj554215.aspx
+[read]: http://msdn.microsoft.com/library/windowsazure/jj554224.aspx
+[объект query]: http://msdn.microsoft.com/library/windowsazure/jj613353.aspx
+[Объект apns]: http://msdn.microsoft.com/library/windowsazure/jj839711.aspx
+[Объект mpns]: http://msdn.microsoft.com/library/windowsazure/jj871025.aspx
+[Объект wns]: http://msdn.microsoft.com/library/windowsazure/jj860484.aspx
+[Объект table]: http://msdn.microsoft.com/library/windowsazure/jj554210.aspx
+[объекту tables]: http://msdn.microsoft.com/library/windowsazure/jj614364.aspx
+[объекта mssql]: http://msdn.microsoft.com/library/windowsazure/jj554212.aspx
+[Объект console]: http://msdn.microsoft.com/library/windowsazure/jj554209.aspx
+[Чтение и запись данных]: http://msdn.microsoft.com/library/windowsazure/jj631640.aspx
+[Проверка данных]: http://msdn.microsoft.com/library/windowsazure/jj631638.aspx
+[Изменение запроса]: http://msdn.microsoft.com/library/windowsazure/jj631635.aspx
+[Изменение отклика]: http://msdn.microsoft.com/library/windowsazure/jj631631.aspx
 [Портал управления]: https://manage.windowsazure.com/
-[Запланированные задания]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj860528.aspx
+[Запланированные задания]: http://msdn.microsoft.com/library/windowsazure/jj860528.aspx
 [Проверка и изменение данных в мобильных службах с помощью серверных скриптов]: /ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet/
 [Команды для управления мобильными службами Azure]: /ru-ru/manage/linux/other-resources/command-line-tools/#Commands_to_manage_mobile_services/#Mobile_Scripts
 [Принудительная отправка для Магазина Windows]: /ru-ru/develop/mobile/tutorials/get-started-with-push-dotnet/
@@ -980,7 +995,7 @@
 [Принудительная отправка для iOS]: /ru-ru/develop/mobile/tutorials/get-started-with-push-ios/
 [Принудительная отправка для Android]: /ru-ru/develop/mobile/tutorials/get-started-with-push-android/
 [Пакет Azure SDK для Node.js]: http://go.microsoft.com/fwlink/p/?LinkId=275539
-[Отправка запроса HTTP]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj631641.aspx
+[Отправка запроса HTTP]: http://msdn.microsoft.com/library/windowsazure/jj631641.aspx
 [Отправка сообщений электронной почты из мобильных служб с помощью SendGrid]: /ru-ru/develop/mobile/tutorials/send-email-with-sendgrid/
 [Приступая к работе с аутентификацией]: http://go.microsoft.com/fwlink/p/?LinkId=287177
 [crypto API]: http://go.microsoft.com/fwlink/p/?LinkId=288802
@@ -989,16 +1004,16 @@
 [url API]: http://go.microsoft.com/fwlink/p/?LinkId=288805
 [util API]: http://go.microsoft.com/fwlink/p/?LinkId=288806
 [zlib API]: http://go.microsoft.com/fwlink/p/?LinkId=288807
-[Настраиваемый интерфейс API]: http://msdn.microsoft.com/ru-ru/library/windowsazure/dn280974.aspx
+[Настраиваемый интерфейс API]: http://msdn.microsoft.com/library/windowsazure/dn280974.aspx
 [Практическое руководство. Определение настраиваемого интерфейса API]: /ru-ru/develop/mobile/tutorials/call-custom-api-dotnet/#define-custom-api
 [Библиотека express.js]: http://go.microsoft.com/fwlink/p/?LinkId=309046
 [Определение настраиваемого интерфейса API с поддержкой периодических уведомлений]: /ru-ru/develop/mobile/tutorials/create-pull-notifications-dotnet/
 [Объект express в express.js]: http://expressjs.com/api.html#express
 [Хранение серверных скриптов в системе управления версиями]: /ru-ru/develop/mobile/tutorials/store-scripts-in-source-control/
 [Использование общего кода и модулей Node.js в серверных скриптах]: /ru-ru/develop/mobile/tutorials/store-scripts-in-source-control/#use-npm
-[Объект service]: http://msdn.microsoft.com/ru-ru/library/windowsazure/dn303371.aspx
-[Параметры приложения]: http://msdn.microsoft.com/ru-ru/library/dn529070.aspx
-[Модуль конфигурации]: http://msdn.microsoft.com/ru-ru/library/dn508125.aspx
+[Объект service]: http://msdn.microsoft.com/library/windowsazure/dn303371.aspx
+[Параметры приложения]: http://msdn.microsoft.com/library/dn529070.aspx
+[Модуль конфигурации]: http://msdn.microsoft.com/library/dn508125.aspx
 [Поддержка package.json в мобильных службах Azure]: http://go.microsoft.com/fwlink/p/?LinkId=391036
 
 

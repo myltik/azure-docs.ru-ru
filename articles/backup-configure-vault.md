@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Configure a Backup Vault" pageTitle="Настройка служб восстановления Azure для быстрой и удобной архивации Windows Server" description="С помощью данного учебника можно получить необходимые навыки по использованию службы архивации в облачных решениях Microsoft Azure для архивирования Windows Server в облачную среду." metaCanonical="" services="recovery-services" documentationCenter="" title="Configure Azure Backup to quickly and easily back-up Windows Server" authors="markgal" solutions="" manager="johndaw" editor="tysonn" />
+﻿<properties 
+	pageTitle="Настройка службы архивации Azure для быстрой и удобной архивации Windows Server" 
+	description="С помощью данного учебника можно получить необходимые навыки по использованию службы архивации в облачных решениях Microsoft Azure для архивирования Windows Server в облачную среду." 
+	services="site-recovery" 
+	documentationCenter="" 
+	authors="markgalioto" 
+	manager="jwhit" 
+	editor="tysonn"/>
 
-<tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/21/2014" ms.author="markgal" />
+<tags 
+	ms.service="site-recovery" 
+	ms.workload="backup-recovery" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="markgal"/>
 
 
 
@@ -61,8 +75,8 @@
 
 3. На странице "Быстрый запуск" выберите тип агента для скачивания. Можно выбрать **Загрузить агент архивации Azure**, **Windows Server и System Center Data Protection Manager** или **Windows Server Essentials**.  Дополнительные сведения см. в разделах:
 
-	* [Установка Azure Backup Agent для Windows Server 2012 и System Center 2012 с пакетом обновления 1 (SP1) - Data Protection Manager](http://technet.microsoft.com/ru-ru/library/hh831761.aspx#BKMK_installagent)
-	* [Установка Azure Backup Agent для Windows Server 2012 Essentials](http://technet.microsoft.com/ru-ru/library/jj884318.aspx)
+	* [Установка Azure Backup Agent для Windows Server 2012 и System Center 2012 с пакетом обновления 1 (SP1) - Data Protection Manager](http://technet.microsoft.com/library/hh831761.aspx#BKMK_installagent)
+	* [Установка Azure Backup Agent для Windows Server 2012 Essentials](http://technet.microsoft.com/library/jj884318.aspx)
 
 После установки агента можно воспользоваться соответствующим локальным интерфейсом управления (например, оснасткой консоли управления (MMC), консолью System Center Data Protection Manager или панелью мониторинга Windows Server Essentials), чтобы настроить политику архивации для данного сервера.
 	
@@ -101,3 +115,5 @@
 [protected-itmes]: ./media/backup-configure-vault/RS_protecteditems.png
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

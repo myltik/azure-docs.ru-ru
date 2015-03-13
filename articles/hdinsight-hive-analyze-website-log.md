@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/14/2014" 
+	ms.date="02/06/2015" 
 	ms.author="nitinme"/>
 
 # Использование Hive в HDInsight для анализа журналов веб-сайтов
@@ -31,14 +31,14 @@
 
 ##Предварительные требования
 
-- Вы должны были подготовить **кластер HDInsight**. Инструкции см. в разделе [Подготовка кластеров HDInsight][hdinsight-provision]. 
+- Вы должны были подготовить кластер **HDInsight**. Указания см. в разделе [Подготовка кластеров HDInsight][hdinsight-provision]. 
 - У вас должен быть установлен Microsoft Excel 2010 или Microsoft Excel 2013.
 - У вас должен быть [драйвер Microsoft Hive ODBC](http://www.microsoft.com/ru-ru/download/details.aspx?id=40886) для импорта данных из Hive в Excel.
 
 
 ##Запуск образца
 
-1. В портале управления Azure щелкните кластер, на котором необходимо запустить образец, а затем внизу выберите пункт **Query Console**. Как вариант, консоль запросов можно открыть напрямую с помощью следующего URL-адреса:
+1. На портале управления Azure щелкните кластер, на котором необходимо запустить пример, а затем внизу выберите пункт **Консоль запросов**. Как вариант, консоль запросов можно открыть напрямую с помощью следующего URL-адреса:
 
 	 	https://<clustername>.azurehdinsight.net
 	
@@ -55,4 +55,4 @@
 [hdinsight-sensor-data-sample]: ../hdinsight-use-hive-sensor-data-analysis/
 
 [img-hdi-weblogs-sample]: ./media/hdinsight-hive-analyze-website-log/hdinsight-weblogs-sample.png
-<!--HONumber=42-->
+<!--HONumber=45--> 

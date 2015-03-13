@@ -1,6 +1,20 @@
-﻿<properties title="Step 5: Publish the Azure Machine Learning web service" pageTitle="Шаг 5: Публикация веб-службы машинного обучения | Azure" description="Шаг 5. Публикация эксперимента по оценке в Студии машинного обучения Azure как веб-службы API ML" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Шаг 5. Публикация веб-службы машинного обучения | Azure" 
+	description="Шаг 5 пошагового руководства решения. Публикация эксперимента по оценке в Студии машинного обучения Azure как веб-службы машинного обучения Azure" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/29/2015" 
+	ms.author="garye"/>
 
 
 Это пятый этап описания [Разработка решения прогнозирования с помощью Azure ML][develop]:
@@ -144,3 +158,5 @@
 [1]: ./media/machine-learning-walkthrough-5-publish-web-service/publish1.png
 [2]: ./media/machine-learning-walkthrough-5-publish-web-service/publish2.png
 [3]: ./media/machine-learning-walkthrough-5-publish-web-service/publish3.png
+
+<!--HONumber=46--> 

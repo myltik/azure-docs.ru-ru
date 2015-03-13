@@ -1,6 +1,20 @@
-﻿<properties title="Use Pig and Hive with Azure Data Factory" pageTitle="Использование Pig и Hive с фабрикой данных Azure" description="Узнайте, как обрабатывать данные, выполняя сценарии Pig и Hive в кластере Azure HDInsight из фабрики данных Azure." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties 
+	pageTitle="Использование Pig и Hive с фабрикой данных Azure" 
+	description="Узнайте, как обрабатывать данные, выполняя сценарии Pig и Hive в кластере Azure HDInsight из фабрики данных Azure." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/10/2015" 
+	ms.author="spelluru"/>
 
 # Использование Pig и Hive с фабрикой данных
 Конвейер фабрики данных Azure обрабатывает данные в связанных службах хранения с помощью связанных вычислительных служб. В нем содержится последовательность действий, каждое из которых выполняет определенную операцию обработки. 
@@ -418,3 +432,5 @@
 [Портал Azure]: http://portal.azure.com
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

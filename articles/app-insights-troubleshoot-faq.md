@@ -1,6 +1,18 @@
-﻿<properties title="Troubleshooting and Q & A about Application Insights" pageTitle="Ответы на вопросы и устранение неполадок в Application Insights" description="Советы и устранение неполадок" metaKeywords="analytics monitoring" authors="awills"  manager="kamrani" />
+﻿<properties 
+	pageTitle="Ответы на вопросы и устранение неполадок в Application Insights" 
+	description="Что-то непонятно или не работает? Попробуйте здесь." 
+	services="application-insights" 
+	authors="alancameronwills" 
+	manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-24" ms.author="awills" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2015-02-03" 
+	ms.author="awills"/>
  
 # Устранение неполадок и ответы на вопросы: Application Insights в предварительной версии Microsoft Azure
 
@@ -185,3 +197,5 @@ Visual Studio Update 3 включает предустановленную ве�
 
 [older]: http://www.visualstudio.com/get-started/get-usage-data-vs
 
+
+<!--HONumber=46--> 

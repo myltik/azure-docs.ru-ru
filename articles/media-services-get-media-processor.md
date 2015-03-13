@@ -1,13 +1,27 @@
-<properties pageTitle="Как создать обработчик мультимедиа - Azure" description="Узнайте, как создать компонент обработчика мультимедиа для кодирования, преобразования формата, шифрования или расшифровки мультимедийного контента служб мультимедиа Azure. Примеры кода написаны на языке C# и используют пакет SDK служб мультимедиа для .NET." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Как создать обработчик мультимедиа - Azure" 
+	description="Узнайте, как создать компонент обработчика мультимедиа для кодирования, преобразования формата, шифрования или расшифровки мультимедийного контента служб мультимедиа Azure. Примеры кода написаны на языке C# и используют пакет SDK служб мультимедиа для .NET." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/10/2015" 
+	ms.author="juliako"/>
 
 
+#Практическое руководство. Получение экземпляра обработчика мультимедиа
 
+Это одна из статей серии [Рабочий процесс для видео по запросу в службах мультимедиа](../media-services-video-on-demand-workflow). 
 
-
-<h1>Практическое руководство: Получение экземпляра обработчика мультимедиа</h1>
-Эта статья является частью серии вводных статей о программировании служб мультимедиа в Azure. Предыдущий раздел [Практическое руководство: Создание зашифрованного актива и его отправка в хранилище](../media-services-create-encrypted-asset-upload-storage/).
+##Обзор
 
 В службах мультимедиа обработчик мультимедиа является компонентом, который работает со специфическими задачами обработки, такими как кодирование, преобразование формата, шифрование или расшифровка мультимедийного контента. Обработчик мультимедиа обычно создается при создании задачи для кодирования, шифрования или преобразования формата мультимедийного контента.
 
@@ -25,17 +39,17 @@
     <tr>
        <td>Azure Media Encoder</td>
        <td>Позволяет выполнять задачи кодирования с использованием кодировщика мультимедиа.</td>
-       <td><a href="http://msdn.microsoft.com/ru-ru/library/jj129582.aspx"> Строки предустановок задачи для кодировщика мультимедиа Azure</a></td>
+       <td><a href="http://msdn.microsoft.com/library/jj129582.aspx"> Строки предустановок задачи для кодировщика мультимедиа Azure</a></td>
     </tr>
     <tr>
         <td>Microsoft Azure Media Packager</td>
         <td>Позволяет преобразовать мультимедийные активы из формата MP4 в формат Smooth Streaming. Позволяет также преобразовать мультимедийные активы из формата Smooth Streaming в формат Apple HTTP Live Streaming (HLS).</td>
-		<td><a href="http://msdn.microsoft.com/ru-ru/library/hh973635.aspx">Строки предустановок задачи для Azure Media Packager</a></td>
+		<td><a href="http://msdn.microsoft.com/library/hh973635.aspx">Строки предустановок задачи для Azure Media Packager</a></td>
     </tr>
     <tr>
         <td>Microsoft Azure Media Encryptor</td>
         <td>Позволяет шифровать мультимедийные активы с использованием PlayReady Protection.</td>
-        <td><a href="http://msdn.microsoft.com/ru-ru/library/hh973610.aspx">Строки предустановок задачи для Azure Media Packager</a></td>
+        <td><a href="http://msdn.microsoft.com/library/hh973610.aspx">Строки предустановок задачи для Azure Media Packager</a></td>
     </tr>
     <tr>
         <td>Azure Media Indexer</td>
@@ -51,26 +65,25 @@
 
 <br />
 
-Приведенные ниже методы показывают, как получить экземпляр обработчика мультимедиа. В примере кода предполагается использование переменной уровня модуля с именем **_context** для ссылки на контекст сервера, как описано в разделе [Практическое руководство:  Подключение к службам мультимедиа программными средствами].
+##Получение MediaProcessor
 
-<pre><code>
-private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
-{
-     var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
-        ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
+Приведенные ниже методы показывают, как получить экземпляр обработчика мультимедиа. В примере кода предполагается использование переменной уровня модуля с именем **_context** для ссылки на контекст сервера, как описано в разделе [Практическое руководство: Подключение к службам мультимедиа программными средствами].
 
-    if (processor == null)
-        throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+	private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
+	{
+	     var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
+	        ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
+	
+	    if (processor == null)
+	        throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+	
+	    return processor;
+	}
 
-    return processor;
-}
-</code></pre>
-
-<h2>Дальнейшие действия</h2>
+##Дальнейшие действия
 Теперь, когда вы знаете, как получить экземпляр обработчика мультимедиа, перейдите в раздел [Кодировка актива][], в котором будет показано, как использовать кодировщик Azure Media для кодирования актива.
 
 [Кодировка актива]: ../media-services-encode-asset/
-[Строки предустановок задачи для кодировщика мультимедиа Azure]: http://msdn.microsoft.com/ru-ru/library/jj129582.aspx
-[Практическое руководство:  Подключение к службам мультимедиа программными средствами]: ../media-services-set-up-computer/
-
-<!--HONumber=42-->
+[Строки предустановок задачи для кодировщика мультимедиа Azure]: http://msdn.microsoft.com/library/jj129582.aspx
+[Практическое руководство: Подключение к службам мультимедиа программными средствами]: ../media-services-set-up-computer/
+<!--HONumber=45--> 

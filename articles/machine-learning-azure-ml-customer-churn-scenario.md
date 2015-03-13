@@ -1,6 +1,20 @@
-﻿<properties title="Analyzing Customer Churn using Microsoft Azure Machine Learning" pageTitle="Анализ оттока клиентов с помощью машинного обучения Microsoft | Azure" description="Пример разработки интегрированной модели для анализа и оценки ухода клиентов" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="pamehta" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Анализ оттока клиентов с помощью машинного обучения Microsoft | Azure" 
+	description="Пример разработки интегрированной модели для анализа и оценки ухода клиентов" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="barga" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/06/2014" 
+	ms.author="barga"/>
 
 # Анализ оттока клиентов с помощью машинного обучения Microsoft Azure
 
@@ -211,3 +225,5 @@ AUC обычно используется в качестве меры ценн�
 [8]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-8.png
 [9]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-9.png
 [10]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-10.png
+
+<!--HONumber=46--> 

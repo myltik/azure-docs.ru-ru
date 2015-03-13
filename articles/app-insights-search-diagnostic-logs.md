@@ -1,6 +1,18 @@
-﻿<properties title="Search diagnostic logs with Application Insights" pageTitle="Поиск по журналам диагностики" description="Поиск журналов, созданных с помощью Trace, Log4Net или NLog." metaKeywords="analytics web test" authors="awills"  manager="kamrani" />
+﻿<properties 
+	pageTitle="Поиск по журналам диагностики" 
+	description="Поиск журналов, созданных с помощью Trace, Log4Net или NLog." 
+	services="application-insights" 
+	authors="alancameronwills" 
+	manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-24" ms.author="awills" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2015-01-09" 
+	ms.author="awills"/>
  
 # Поиск по журналам диагностики в Application Insights
 
@@ -306,3 +318,5 @@ VB на стороне сервера
 
 
 
+
+<!--HONumber=46--> 

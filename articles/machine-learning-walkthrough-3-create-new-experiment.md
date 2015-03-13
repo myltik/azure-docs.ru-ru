@@ -1,6 +1,20 @@
-<properties title="Step 3: Create a new Azure Machine Learning experiment" pageTitle="Шаг 3. Создание нового эксперимента машинного обучения | Azure" description="Шаг 3. Создание нового эксперимента по обучению в Студии машинного обучения Azure" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Шаг 3. Создание нового эксперимента машинного обучения | Azure" 
+	description="Шаг 3 пошагового руководства решения. Создание нового эксперимента по обучению в Студии машинного обучения Azure" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/02/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/29/2015" 
+	ms.author="garye"/>
 
 
 Это третий шаг из пошагового руководства [Разработка прогнозирующего решения с помощью Azure ML][develop]:
@@ -100,3 +114,5 @@
 [1]: ./media/machine-learning-walkthrough-3-create-new-experiment/create1.png
 [2]: ./media/machine-learning-walkthrough-3-create-new-experiment/create2.png
 [3]: ./media/machine-learning-walkthrough-3-create-new-experiment/create3.png
+
+<!--HONumber=46--> 

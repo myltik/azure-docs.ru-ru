@@ -1,6 +1,20 @@
-<properties pageTitle="How to create APIs, operations, and products in Azure API Management" metaKeywords="" description="Learn how to create APIs, operations, and products in API Management." metaCanonical="" services="" documentationCenter="API Management" title="How to create APIs, operations, and products in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+﻿<properties 
+	pageTitle="Как создавать API, операции и продукты в Azure API Management" 
+	description="Сведения о создании интерфейсов API, операций и продуктов в службе управления API." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 # Как создавать API, операции и продукты в Azure API Management
 
@@ -36,3 +50,5 @@ API и операции можно импортировать за один ша
   [Как импортировать определение API с операциями]: ../api-management-howto-import-api
   [Как создать и опубликовать продукт]: ../api-management-howto-add-products
   [Как создать и задать расширенные настройки продукта]: ../api-management-howto-product-with-rules
+
+<!--HONumber=46--> 

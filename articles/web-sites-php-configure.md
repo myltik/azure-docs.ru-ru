@@ -121,8 +121,8 @@ PHP 5.5 также доступна по умолчанию, но не вклю�
 [http://windows.php.net/download/]: http://windows.php.net/download/
 [http://windows.php.net/downloads/releases/archives/]: http://windows.php.net/downloads/releases/archives/
 [handler-mappings]: ./media/web-sites-php-configure/handler-mappings.png
-[Настройка, мониторинг и масштабирование веб-сайтов в Azure]: http://www.windowsazure.com/ru-ru/manage/services/web-sites/
-[Закачка пакета SDK для Azure для PHP]: http://www.windowsazure.com/ru-ru/develop/php/common-tasks/download-php-sdk/
+[Настройка, мониторинг и масштабирование веб-сайтов в Azure]: http://azure.microsoft.com/manage/services/web-sites/
+[Закачка пакета SDK для Azure для PHP]: http://azure.microsoft.com/develop/php/common-tasks/download-php-sdk/
 
 
 <!--HONumber=42-->

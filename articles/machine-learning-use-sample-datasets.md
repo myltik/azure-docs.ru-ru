@@ -1,6 +1,20 @@
-﻿<properties title="Use the sample datasets in Azure Machine Learning Studio" pageTitle="Использование образцов наборов данных в Machine Learning Studio | Azure" description="Использование образцов наборов данных в Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Использование образцов наборов данных в Machine Learning Studio | Azure" 
+	description="Описания примеров наборов данных, которые включены в Студию машинного обучения Azure" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/16/2014" 
+	ms.author="garye"/>
 
 
 # Использование образцов наборов данных в Azure Machine Learning Studio
@@ -338,3 +352,5 @@ DotNetTable
 </td>
 </tr>
 </table>
+
+<!--HONumber=46--> 

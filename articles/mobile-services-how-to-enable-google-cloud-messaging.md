@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Как включить службу Google Cloud Messaging" description="Следуйте инструкциям этого учебника, чтобы создать новую службу с помощью мобильных служб Azure." services="mobile-services, notification-hubs" documentationCenter="android" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Как включить службу Google Cloud Messaging" 
+	description="Следуйте инструкциям этого учебника, чтобы создать новую службу с помощью мобильных служб Azure." 
+	services="mobile-services, notification-hubs" 
+	documentationCenter="android" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-android" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="glenga"/>
 
 # Как включить службу Google Cloud Messaging
 

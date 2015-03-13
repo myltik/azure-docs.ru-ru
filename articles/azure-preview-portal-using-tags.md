@@ -1,13 +1,28 @@
-﻿<properties urlDisplayName="" pageTitle="Использование тегов для организации ресурсов в Azure" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Using tags to organize your Azure resources" authors="Michael Flanakin" solutions="" writer="" manager="carolz" editor=""  />
+﻿<properties 
+	pageTitle="Использование тегов для организации ресурсов в Azure" 
+	<MORAVIA_NOTRANSLATE></MORAVIA_NOTRANSLATE> 
+	services="" 
+	documentationCenter="" 
+	authors="flanakin" 
+	writer="" 
+	manager="carolz" 
+	editor=""/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="10/08/2014" ms.author="micflan" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/08/2014" 
+	ms.author="micflan"/>
 
 
 # Использование тегов для организации ресурсов в Azure
 
 Предварительная версия портала Azure и лежащий в ее основе диспетчер ресурсов позволяют организовать ваши ресурсы и настроить взаимодействие наиболее подходящим для вас образом. 
 
-Единственным способом упорядочивания и группировки ваших ресурсов в полной версии портала Azure являются подписки. В предварительной версии портала [мы представили группы ресурсов](http://azure.microsoft.com/ru-ru/documentation/articles/azure-preview-portal-using-resource-groups), которые позволяют группировать связанные сущности. Это стало еще более актуальным после того, как [мы предложили доступ на основе ролей](http://azure.microsoft.com/ru-ru/documentation/articles/role-based-access-control-configure). Сейчас вы можете таким же образом помечать тегами ресурсы с помощью пар "ключ-значение" для дальнейшего упорядочивания и просмотра ресурсов в группах ресурсов, на портале или в подписках.
+Единственным способом упорядочивания и группировки ваших ресурсов в полной версии портала Azure являются подписки. В предварительной версии портала [мы представили группы ресурсов](http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups), которые позволяют группировать связанные сущности. Это стало еще более актуальным после того, как [мы предложили доступ на основе ролей](http://azure.microsoft.com/documentation/articles/role-based-access-control-configure). Сейчас вы можете таким же образом помечать тегами ресурсы с помощью пар "ключ-значение" для дальнейшего упорядочивания и просмотра ресурсов в группах ресурсов, на портале или в подписках.
 
 Группировка ресурсов по командам, проектам или даже среде позволит вам сфокусировать внимание на необходимой информации. 
 
@@ -27,9 +42,9 @@
 
 ## Маркировка с помощью PowerShell
 
-Сначала необходимо скачать последнюю версию модуля [Azure PowerShell](http://azure.microsoft.com/ru-ru/documentation/articles/install-configure-powershell/). Если вы впервые используете модуль Azure PowerShell, ](http://azure.microsoft.com/ru-ru/documentation/articles/install-configure-powershell) для быстрого начала работы. В данной статье будем считать, что вы уже добавили учетную запись и выбрали подписку и ресурсы, которые необходимо промаркировать.
+Сначала необходимо скачать последнюю версию модуля [Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell/). Если вы впервые используете модуль Azure PowerShell, ](http://azure.microsoft.com/documentation/articles/install-configure-powershell) для быстрого начала работы. В данной статье будем считать, что вы уже добавили учетную запись и выбрали подписку и ресурсы, которые необходимо промаркировать.
 
-Маркировка возможна только для ресурсов и групп ресурсов, доступных в [диспетчере ресурсов](http://msdn.microsoft.com/ru-ru/library/azure/dn790568.aspx), поэтому следующим шагом будет переключение на работу с диспетчером ресурсов. Подробнее см. в разделе [Использование Windows PowerShell с диспетчером ресурсов](http://azure.microsoft.com/ru-ru/documentation/articles/powershell-azure-resource-manager/).
+Маркировка возможна только для ресурсов и групп ресурсов, доступных в [диспетчере ресурсов](http://msdn.microsoft.com/library/azure/dn790568.aspx), поэтому следующим шагом будет переключение на работу с диспетчером ресурсов. Подробнее см. в разделе [Использование Windows PowerShell с диспетчером ресурсов](http://azure.microsoft.com/documentation/articles/powershell-azure-resource-manager/).
 
   Switch-AzureMode AzureResourceManager
 
@@ -50,7 +65,7 @@
 
 ## Маркировка с помощью диспетчера ресурсов
 
-Как предварительная версия портала, так и PowerShell неявно используют [диспетчер ресурсов REST API](http://msdn.microsoft.com/ru-ru/library/azure/dn790568.aspx). Если требуется интегрировать теги в другую среду, их можно получить с помощью метода GET по идентификатору ресурса и обновить набор тегов с помощью вызова метода PATCH.</cf>
+Как предварительная версия портала, так и PowerShell неявно используют [диспетчер ресурсов REST API](http://msdn.microsoft.com/library/azure/dn790568.aspx). Если требуется интегрировать теги в другую среду, их можно получить с помощью метода GET по идентификатору ресурса и обновить набор тегов с помощью вызова метода PATCH.</cf>
 
 
 ## Управление таксономией
@@ -74,3 +89,5 @@
 
 ![Pin tags to the Startboard](./media/azure-preview-portal-using-tags/pin-tags.png)
 
+
+<!--HONumber=46--> 

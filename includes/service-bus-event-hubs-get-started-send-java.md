@@ -1,5 +1,5 @@
 ﻿## Отправка сообщений концентраторам событий
-В этом разделе мы напишем консольное приложение Java для отправки событий в концентратор событий. Мы будем использовать поставщик JMS AMQP из проекта [Apache Qpid](http://qpid.apache.org/). Эта процедура аналогична использованию очередей и разделов служебной шины с AMQP на языке Java, как показано [здесь](http://azure.microsoft.com/ru-ru/documentation/articles/service-bus-java-how-to-use-jms-api-amqp/). Дополнительные сведения см. в [документации Qpid JMS](http://qpid.apache.org/releases/qpid-0.30/programming/book/QpidJMS.html) и [службе сообщений Java](http://www.oracle.com/technetwork/java/jms/index.html).
+В этом разделе мы напишем консольное приложение Java для отправки событий в концентратор событий. Мы будем использовать поставщик JMS AMQP из проекта [Apache Qpid](http://qpid.apache.org/). Эта процедура аналогична использованию очередей и разделов служебной шины с AMQP на языке Java, как показано [здесь](http://azure.microsoft.com/documentation/articles/service-bus-java-how-to-use-jms-api-amqp/). Дополнительные сведения см. в [документации Qpid JMS](http://qpid.apache.org/releases/qpid-0.30/programming/book/QpidJMS.html) и [службе сообщений Java](http://www.oracle.com/technetwork/java/jms/index.html).
 
 1. В Eclipse создайте новый проект Java с именем **Sender**.
 
@@ -92,5 +92,4 @@
 
 
 <!-- Images -->
-[8]: ./media/service-bus-event-hubs-getstarted/create-sender-java1.png
-<!--HONumber=42-->
+[8]: ./media/service-bus-event-hubs-getstarted/create-sender-java1.png<!--HONumber=42-->

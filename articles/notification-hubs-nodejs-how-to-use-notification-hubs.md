@@ -1,43 +1,56 @@
-﻿<properties urlDisplayName="Notification Hubs" pageTitle="Концентраторы уведомлений - Центр разработчиков Node.js" metaKeywords="" description="Узнайте, как использовать центры уведомлений для отправки push-уведомлений. Примеры кода написаны для приложений Node.js." metaCanonical="" services="service-bus" documentationCenter="nodejs" title="How to Use Notification Hubs" authors="larryfr" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Центры уведомлений - Центр разработчиков Node.js" 
+	description="Узнайте, как использовать центры уведомлений для отправки push-уведомлений. Примеры кода написаны для приложений Node.js." 
+	services="notification-hubs" 
+	documentationCenter="nodejs" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags 
+	ms.service="notification-hubs" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="javascript" 
+	ms.topic="article" 
+	ms.date="09/17/2014" 
+	ms.author="glenga"/>
 
 
 
 
 
 
-# Использование концентраторов уведомлений
+# Использование центров уведомлений
 
-В этом руководстве показывается, как использовать концентраторы уведомлений в приложениях Node.js. Сценарии включают **отправку уведомлений в приложения Android, iOS, Windows Phone и Магазина Windows**. Дополнительные сведения о концентраторах уведомлений см. в разделе ](#next)Дальнейшие действия.
+В этом руководстве показывается, как использовать центры уведомлений в приложениях Node.js. Сценарии включают **отправку уведомлений в приложения Android, iOS, Windows Phone и Магазина Windows**. Дополнительную информацию о центрах уведомлений см. в разделе [Дальнейшие действия](#next) .
 
 ## Оглавление
 
--   [Что такое концентраторы уведомлений?](#hub)
+-   [Что такое центры уведомлений?](#hub)
 -   [Создание приложения Node.js](#create)
--   [Настройка приложения для использования концентратора уведомлений](#config)
+-   [Настройка приложения для использования центра уведомлений](#config)
 -   [Практическое руководство. Отправка уведомлений](#send)
 -   [Дальнейшие действия](#next)
 
-##<a id="hub"></a> Что такое концентраторы уведомлений?
+##<a id="hub"></a> Что такое центры уведомлений?
 
-Концентраторы уведомлений обеспечивают легкую в использовании, масштабируемую, многоплатформенную инфраструктуру для отправки push-уведомлений на мобильные устройства. Дополнительные сведения см. в разделе [Концентраторы уведомлений Azure](http://msdn.microsoft.com/ru-ru/library/windowsazure/jj927170.aspx).
+Центры уведомлений обеспечивают легкую в использовании, масштабируемую, многоплатформенную инфраструктуру для отправки push-уведомлений на мобильные устройства. Дополнительную информацию см. в разделе [Центры уведомлений Azure](http://msdn.microsoft.com/library/windowsazure/jj927170.aspx).
 
 ##<a id="create"></a> Создание приложения Node.js
 
-Создание пустого приложения Node.js. Инструкции по созданию приложения Node.js см. в статьях [Создание и развертывание приложения Node.js на веб-сайте Azure][nodejswebsite], [Облачная служба Node.js][Node.js Cloud Service] (с помощью Windows PowerShell) или [Веб-сайт с WebMatrix].
+Создайте пустое приложение Node.js. Инструкции по созданию приложения Node.js см. в статьях [Создание и развертывание приложения Node.js на веб-сайте Azure][nodejswebsite], [Облачная служба Node.js][Node.js Cloud Service] (с использованием Windows PowerShell) или [Веб-сайт с WebMatrix].
 
-##<a id="config"></a> Настройка приложения для использования концентратора уведомлений
+##<a id="config"></a> Настройка приложения для использования центра уведомлений
 
-Чтобы использовать концентратор уведомлений Azure, необходимо загрузить и применить
-Пакет Azure Node.js. Содержит набор удобных библиотек, которые
-взаимодействуют с REST-службами.
+Чтобы использовать центр уведомлений Azure, необходимо скачать и применить
+Пакет Azure Node.js. В него входит набор удобных библиотек, которые сообщаются со службами REST.
 
 ### Использование диспетчера пакета Node (NPM) для получения пакета
 
-1.  В интерфейсе командной строки, например **PowerShell** (Windows) **Terminal** (Mac) или **Bash** (Unix), перейдите в папку, в которой создан пример приложения.
+1.  Используя интерфейс командной строки, например **PowerShell** (Windows), **Terminal** (Mac) или **Bash** (Unix), перейдите к папке, в которой вы создали пример приложения.
 
-2.  В командном окне введите **npm install azure** в результате чего
+2.  В окне команд введите **npm install azure**, в результате чего
     на выходе должно получиться следующее:
 
         azure@0.7.0 node_modules\azure
@@ -52,49 +65,40 @@
 		|-- xml2js@0.2.6 (sax@0.4.2)
 		|-- request@2.16.6 (forever-agent@0.2.0, aws-sign@0.2.0, tunnel-agent@0.2.0, oauth-sign@0.2.0, json-stringify-safe@3.0.0, cookie-jar@0.2.0, node-uuid@1.4.0, qs@0.5.5, hawk@0.10.2, form-data@0.0.7)
 
-3.  Можно вручную выполнить команду **ls** или **dir**, чтобы проверить
-    **Создана папка node\_modules**. В этой папке найдите
-    **пакет Azure**, содержащий библиотеки, необходимые для доступа к
-    Концентратор уведомлений.
+3.  Можно вручную выполнить команду **ls** или **dir**, чтобы убедиться в создании папки **node\_modules**. В этой папке находится пакет **azure**, содержащий библиотеки, необходимые для доступа к центру уведомлений.
 
 ### Импорт модуля
 
-С помощью текстового редактора добавьте следующий код в верхнюю часть
-файлу **server.js** приложения:
+С помощью текстового редактора добавьте следующее в начало файла **server.js** приложения:
 
     var azure = require('azure');
 
-### Настройка подключения концентратора уведомлений Azure
+### Настройка подключения центра уведомлений Azure
 
-Объект **NotificationHubService** позволяет работать с концентраторами уведомлений. Пример:
-Следующий код создает объект **NotificationHubService** для концентратора уведомлений с именем **hubname**. Добавьте его к
-в начале файла**server.js** после оператора импорта Azure
-модуль:
+Объект **NotificationHubService** позволяет работать с центрами уведомлений. Следующий код создает объект **NotificationHubService** для центра уведомлений с именем **hubname**. Добавьте его в начало файла **server.js** после инструкции импорта модуля azure.
 
     var notificationHubService = azure.createNotificationHubService('hubname','connectionstring');
 
-Значение подключения **connectionstring** можно получить на портале управления Azure, выполнив следующие действия:
+Значение подключения **connectionstring** можно получить через портал управления Azure, выполнив следующие действия:
 
-1. В портале управления Azure откройте раздел **Служебная шина**, затем выберите пространство имен, содержащее концентратор уведомления.
+1. На портале управления Azure выберите **Service Bus**, затем выберите пространство имен, содержащее центр уведомления.
 
-2. Выберите **КОНЦЕНТРАТОРЫ УВЕДОМЛЕНИЙ** и затем укажите концентратор, который хотите использовать.
+2. Выберите **ЦЕНТРЫ УВЕДОМЛЕНИЙ** и затем выберите центр, который хотите использовать.
 
 3. Выберите пункт **Просмотреть строку подключения** в разделе **Краткое описание** и скопируйте значение строки подключения.
 
-<div class="dev-callout">
-<strong>Примечание.</strong>
-<p>Строку подключения можно также получить с помощью командлета <b>Get-AzureSbNamespace</b>, предоставляемого Azure PowerShell, или команды <b>azure sb namespace show</b> в программе командной строки Azure.</p>
+> [AZURE.NOTE] Строку подключения можно также получить с помощью командлета **Get-AzureSbNamespace**, предоставляемого Azure PowerShell, или команды **azure sb namespace show** в программе командной строки Azure.
 
 </div>
 
-##<a id="send"></a> Отправка уведомлений
+##<a id="send"></a> Отправка уведомления
 
 Объект **NotificationHubService** предоставляет следующие экземпляры объекта для отправки уведомлений определенным устройствам и приложениям:
 
 * **Android** - используйте объект **GcmService**, доступный в **notificationHubService.gcm**
 * **iOS** - используйте объект **ApnsService**, доступный в **notificationHubService.apns**
 * **Windows Phone** - используйте объект **MpnsService**, доступный в **notificationHubService.mpns**
-* **Приложения магазина Windows** - используйте объект **WnsService**, доступный в **notificationHubService.wns**
+* **Приложения Магазина Windows** - используйте объект **WnsService**, доступный в **notificationHubService.wns**
 
 ### Отправка уведомлений в приложение Android
 
@@ -106,7 +110,7 @@
 
 Дополнительные сведения о формате полезных данных см. в разделе "Полезные данные" пособия [Реализация сервера GCM](http://developer.android.com/google/gcm/server.html#payload).
 
-В следующем коде для отправки сообщения всем клиентам используется экземпляр **GcmService**, предоставляемый **NotificationHubService**.
+В следующем коде используется экземпляр **GcmService**, предоставляемый **NotificationHubService**, для отправки сообщения всем клиентам.
 
 	var payload = {
 	  data: {
@@ -129,7 +133,7 @@
 
 Дополнительные сведения о формате полезных данных см. в разделе "Полезные данные уведомления" [Руководства по программированию локальных и push-уведомлений](http://developer.apple.com/library/ios/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html).
 
-В следующем коде для отправки предупреждения всем клиентам используется экземпляр **ApnsService**, предоставляемый **NotificationHubService**.
+В следующем коде используется экземпляр **ApnsService**, предоставляемый **NotificationHubService**, для отправки оповещений всем клиентам:
 
 	var payload={
 	    alert: 'Hello!'
@@ -146,14 +150,14 @@
 
 * Tags - идентификатор тега. Если тег отсутствует, уведомления будут отправляться всем клиентам
 * Payload - полезные данные сообщения в формате XML.
-* TargetName - "toast" для всплывающих уведомлений. "token" для уведомлений на плитке.
-* NotificationClass - приоритет уведомления. Допустимые значения см. в разделе "Элементы заголовка HTTP" пособия [Push-уведомления от сервера](http://msdn.microsoft.com/ru-ru/library/hh221551.aspx).
+* TargetName -  'toast' для всплывающих уведомлений и  'token' для уведомлений на плитке.
+* NotificationClass - приоритет уведомления. Допустимые значения см. в разделе "Элементы заголовка HTTP" пособия [Push-уведомления от сервера](http://msdn.microsoft.com/library/hh221551.aspx).
 * Options - необязательные заголовки запроса.
 * Callback - функция обратного вызова.
 
-Список допустимых значений TargetName, NotificationClass и параметров заголовка см. в пособии [Push-уведомления от сервера](http://msdn.microsoft.com/ru-ru/library/hh221551.aspx).
+Сведения о списке допустимых TargetName NotificationClass и параметрах заголовка см. в пособии [Push-уведомления от сервера](http://msdn.microsoft.com/library/hh221551.aspx).
 
-В следующем коде для отправки всплывающего оповещения используется экземпляр **MpnsService**, предоставляемый **NotificationHubService**:
+В следующем коде используется экземпляр **MpnsService**, предоставляемый **NotificationHubService**, для отправки всплывающего оповещения:
 
 	var payload = '<?xml version="1.0" encoding="utf-8"?><wp:Notification xmlns:wp="WPNotification"><wp:Toast><wp:Text1>string</wp:Text1><wp:Text2>string</wp:Text2></wp:Toast></wp:Notification>';
 	notificationHubService.mpns.send(null, payload, 'toast', 22, function(error){
@@ -164,7 +168,7 @@
 
 ### Отправка уведомлений в приложение Магазина Windows
 
-Объект **WnsService** предоставляет метод **send**, который может использоваться для отправки уведомлений в приложения магазина Windows.  Метод **Отправить** принимает следующие параметры:
+Объект **WnsService** предоставляет метод **send**, который может использоваться для отправки уведомлений в приложения Магазина Windows.  Метод **Отправить** принимает следующие параметры:
 
 * Tags - идентификатор тега. Если тег отсутствует, уведомления будут отправляться всем клиентам
 * Payload - полезные XML-данные сообщения.
@@ -172,9 +176,9 @@
 * Options - необязательные заголовки запроса.
 * Callback - функция обратного вызова.
 
-Перечень допустимых типов и заголовков запроса см. в статье [Заголовки запроса и ответа службы push-уведомлений](http://msdn.microsoft.com/ru-ru/library/windows/apps/hh465435.aspx).
+Перечень допустимых типов и заголовков запроса см. в учебнике [Отклик службы и заголовки запроса push-уведомления](http://msdn.microsoft.com/library/windows/apps/hh465435.aspx).
 
-В следующем коде для отправки всплывающего оповещения используется экземпляр **WnsService**, предоставляемый **NotificationHubService**:
+В следующем коде используется экземпляр **WnsService**, предоставляемый **NotificationHubService**, для отправки всплывающего оповещения:
 
 	var payload = '<toast><visual><binding template="ToastText01"><text id="1">Hello!</text></binding></visual></toast>';
 	notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
@@ -185,39 +189,40 @@
 
 ##<a id="next"></a> Дальнейшие действия
 
-Теперь, когда вы ознакомились с основами использования центра уведомлений, следуйте
-по ссылкам на дополнительные сведения.
+Теперь, когда вы узнали основные сведения об использовании центра уведомлений,используйте следующие ссылки для более подробного ознакомления.
 
--   Справочник MSDN: [Концентраторы уведомлений Azure][].
--   Посетите репозиторий [Azure SDK for Node] на веб-сайте GitHub.
+-   См. справочник MSDN: [Центры уведомлений Azure][].
+-   Посетите репозиторий [пакета SDK Azure для Node] на портале GitHub.
 
-  [Azure SDK для Node]: https://github.com/WindowsAzure/azure-sdk-for-node
+  [SDK Azure для Node]: https://github.com/WindowsAzure/azure-sdk-for-node
   [Дальнейшие действия]: #nextsteps
-  [Что такое разделы и подписки Service Bus?]: #what-are-service-bus-topics
+  [Информация о разделах и подписках Service Bus]: #what-are-service-bus-topics
   [Создание пространства имен службы]: #create-a-service-namespace
   [Получение учетных данных управления по умолчанию для пространства имен]: #obtain-default-credentials
   [Создание приложения Node.js]: #Create_a_Nodejs_Application
-  [Настройка приложения для использования шины обслуживания]: #Configure_Your_Application_to_Use_Service_Bus
-  [Практическое руководство. Создание раздела]: #How_to_Create_a_Topic
+  [Настройка приложения для использования Service Bus]: #Configure_Your_Application_to_Use_Service_Bus
+  [Практическое руководство. Создание разделов]: #How_to_Create_a_Topic
   [Практическое руководство. Создание подписок]: #How_to_Create_Subscriptions
   [Практическое руководство. Отправка сообщений в раздел]: #How_to_Send_Messages_to_a_Topic
-  [Практическое руководство. Получение сообщений от подписки]: #How_to_Receive_Messages_from_a_Subscription
+  [Практическое руководство. Получение сообщений из подписки]: #How_to_Receive_Messages_from_a_Subscription
   [Практическое руководство. Обработка сбоев приложения и нечитаемых сообщений]: #How_to_Handle_Application_Crashes_and_Unreadable_Messages
   [Практическое руководство. Удаление разделов и подписок]: #How_to_Delete_Topics_and_Subscriptions
   [1]: #Next_Steps
-  [Topic Concepts]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-topics-01.png
+  [Основные понятия раздела]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-topics-01.png
   [Портал управления Azure]: http://manage.windowsazure.com
   [image]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-03.png
   [2]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-04.png
   [3]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-05.png
   [4]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-06.png
   [5]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-07.png
-  [SqlFilter.SqlExpression]: http://msdn.microsoft.com/ru-ru/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
-  [Концентраторы уведомлений Service Bus в системе Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj927170.aspx
-  [SqlFilter]: http://msdn.microsoft.com/ru-ru/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
+  [SqlFilter.SqlExpression]: http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
+  [Центры уведомлений Service Bus в системе Azure]: http://msdn.microsoft.com/library/windowsazure/jj927170.aspx
+  [SqlFilter]: http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
   [Веб-сайт с WebMatrix]: /ru-ru/develop/nodejs/tutorials/web-site-with-webmatrix/
   [Облачная служба Node.js]: /ru-ru/documentation/articles/cloud-services-nodejs-develop-deploy-app/
-[Previous Management Portal]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/previous-portal.png
+[Предыдущая версия портала управления]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/previous-portal.png
   [nodejswebsite]: /ru-ru/develop/nodejs/tutorials/create-a-website-(mac)/
   [Облачная служба Node.js с хранилищем]: /ru-ru/develop/nodejs/tutorials/web-app-with-storage/
   [Веб-приложение Node.js с хранилищем]: /ru-ru/develop/nodejs/tutorials/web-site-with-storage/
+
+<!--HONumber=45--> 

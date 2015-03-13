@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Performance" pageTitle="Рекомендации по повышению производительности - Azure" metaKeywords="оптимизация Azure, рекомендация по повышению производительности Azure" description="Дополнительные сведения о рекомендациях по повышению производительности в Azure." metaCanonical="" services="cloud-services,sql-database,storage,service-bus,virtual-network" documentationCenter=".NET" title="" authors="robb" solutions="" manager="johndaw" editor="" />
+﻿<properties 
+	pageTitle="Рекомендации по производительности — Azure" 
+	description="Изучите рекомендации по производительности в Azure." 
+	services="cloud-services, sql-database, storage, service-bus, virtual-network" 
+	documentationCenter=".net" 
+	authors="Rboucher" 
+	manager="jwhit" 
+	editor=""/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="9/1/2014" ms.author="robb" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="9/1/2014" 
+	ms.author="robb"/>
 
 # Рекомендации по повышению производительности в приложениях Azure #
 
@@ -103,7 +117,7 @@
 
 Дополнительное описание хранилищ таблиц см. в следующих статьях: 
 
-* [Хранилище таблиц Azure и база данных SQL Azure - сравнение и отличия](http://msdn.microsoft.com/ru-ru/library/jj553018.aspx)
+* [Хранилище таблиц Azure и база данных SQL Azure - сравнение и отличия](http://msdn.microsoft.com/library/jj553018.aspx)
 * [Вопросы производительности хранилища таблиц Azure](http://go.microsoft.com/fwlink/?LinkId=252663)
 * [База данных SQL и хранилище таблиц Azure](http://go.microsoft.com/fwlink/?LinkId=252664)
 * [Повышение производительности с помощью пакетной обработки вставок в хранилище таблиц Azure](http://go.microsoft.com/fwlink/?LinkID=252665), где обсуждаются некоторые результаты производительности.
@@ -343,3 +357,5 @@ Azure позволяет существенно сократить усилия 
 * [Планирование Azure - руководство по интеграции Azure в конкретной среде](http://go.microsoft.com/fwlink/?LinkId=252884) 
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

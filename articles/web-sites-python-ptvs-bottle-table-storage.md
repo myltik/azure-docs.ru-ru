@@ -208,7 +208,7 @@ PTVS предоставляет простой способ развертыва
 
 <!--External Link references-->
 [Портал управления Azure]: https://manage.windowsazure.com
-[Пакет SDK для Azure для .NET]: http://azure.microsoft.com/ru-ru/downloads/
+[Пакет SDK для Azure для .NET]: http://azure.microsoft.com/downloads/
 [Средства Python 2.1 для Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
 [Образцы VSIX средств Python 2.1 для Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
 [Средства пакета SDK для Azure для VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
@@ -220,7 +220,7 @@ PTVS предоставляет простой способ развертыва
 [Удаленная отладка в Microsoft Azure]: http://pytools.codeplex.com/wikipage?title=Features%20Azure%20Remote%20Debugging
 [Веб-проекты]: http://pytools.codeplex.com/wikipage?title=Features%20Web%20Project
 [Проекты для облачной службы]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
-[Служба хранилища Azure]: http://azure.microsoft.com/ru-ru/documentation/services/storage/
+[Служба хранилища Azure]: http://azure.microsoft.com/documentation/services/storage/
 [Пакет SDK Azure для Python]: https://github.com/Azure/azure-sdk-for-python
 
 

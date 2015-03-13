@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Начало работы с системой управления Azure API" metaKeywords="" description="Узнайте, как создавать API, операции и как начать работу с API Management." metaCanonical="" services="api-management" documentationCenter="API Management" title="Get started with Azure API Management" authors="sdanie" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Начало работы с Azure API Management" 
+	description="Узнайте, как создавать API, операции и как начать работу с API Management." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/11/2015" 
+	ms.author="sdanie"/>
 
 # Начало работы с Azure API Management
 
@@ -156,7 +170,7 @@ API создаются и настраиваются из консоли API Man
 -   Настройка портала разработчика
 -   Трассировка вызовов с помощью инспектора API
 
-[Бесплатная ознакомительная версия Azure]: http://www.windowsazure.com/ru-ru/pricing/free-trial/
+[Бесплатная ознакомительная версия Azure]: http://azure.microsoft.com/pricing/free-trial/
 
 [Создание экземпляра управления API]: #create-service-instance
 [Создание API]: #create-api
@@ -203,3 +217,5 @@ API создаются и настраиваются из консоли API Man
 [api-management-invoke-get-response]: ./media/api-management-get-started-b/api-management-invoke-get-response.png
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

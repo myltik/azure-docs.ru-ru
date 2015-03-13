@@ -26,7 +26,7 @@
 
 * Подписка Azure
 
-* Visual Studio с [Microsoft Azure SDK для .NET](http://azure.microsoft.com/ru-ru/downloads/archive-net-downloads/)
+* Visual Studio с [Microsoft Azure SDK для .NET](http://azure.microsoft.com/downloads/archive-net-downloads/)
 
 * [Java и JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
@@ -1347,7 +1347,7 @@
 
 * Дополнительную информацию об Apache Storm см. по адресу [https://storm.incubator.apache.org/](https://storm.incubator.apache.org/)
 
-* Дополнительную информацию о HBase с HDInsight см. в разделе [Обзор HBase с HDInsight](http://azure.microsoft.com/ru-ru/documentation/articles/hdinsight-hbase-overview/)
+* Дополнительную информацию о HBase с HDInsight см. в разделе [Обзор HBase с HDInsight](http://azure.microsoft.com/documentation/articles/hdinsight-hbase-overview/)
 
 * Дополнительную информацию о SignalR см. в разделе [ASP.NET SignalR](http://signalr.net/)
 
@@ -1356,5 +1356,4 @@
 * Информацию о создании топологий в .NET см. разделе [Разработка приложений для обработки потоковой передачи данных на SCP.NET и C# в Storm и HDInsight](/ru-ru/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/)
 
 [azure-portal]: https://manage.windowsazure.com/
-
 <!--HONumber=42-->

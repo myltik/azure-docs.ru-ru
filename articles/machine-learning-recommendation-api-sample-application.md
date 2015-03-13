@@ -1,6 +1,20 @@
-﻿<properties title="Common operations in the Machine Learning Recommendations API" pageTitle="Стандартные операции в API рекомендаций для машинного обучения | Azure" description="Пример приложения для рекомендаций по Машинному обучению Azure" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Стандартные операции в API рекомендаций для машинного обучения | Azure" 
+	description="Пример приложения для рекомендаций по Машинному обучению Azure" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="jaymathe" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/14/2014" ms.author="jaymathe" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/14/2014" 
+	ms.author="jaymathe"/> 
 
 
 # Стандартные операции в API рекомендаций для машинного обучения
@@ -78,3 +92,5 @@
 Этот документ не предоставляет вам никаких законных прав на интеллектуальную собственность в продуктах корпорации Майкрософт. Вы можете скопировать и использовать данный документ для внутренних справочных целей. 
 (c) Корпорация Майкрософт (Microsoft Corporation), 2014 г. Все права защищены. 
 
+
+<!--HONumber=46--> 

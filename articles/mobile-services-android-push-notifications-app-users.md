@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Push-уведомления для пользователей (Android ) | Центр разработчиков для мобильных устройств" description="Узнайте, как использовать мобильные службы для отправки push-уведомлений пользователям приложения Android." services="mobile-services, notification-hubs" documentationCenter="android" authors="RickSaling" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Push-уведомления для пользователей (Android ) | Центр разработчиков для мобильных устройств" 
+	description="Узнайте, как использовать мобильные службы для отправки push-уведомлений пользователям приложения Android." 
+	services="mobile-services, notification-hubs" 
+	documentationCenter="android" 
+	authors="RickSaling" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="10/07/2014" ms.author="ricksal"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="Mobile-Android" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="10/07/2014" 
+	ms.author="ricksal"/>
 
 # Отправка push-уведомлений пользователям с использованием мобильных служб
 

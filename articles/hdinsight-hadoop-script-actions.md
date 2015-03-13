@@ -123,7 +123,7 @@ Script Action можно развернуть с помощью пакета SDK
 - [Установка и использование Solr в кластерах HDInsight](../hdinsight-hadoop-solr-install)
 - [Установка и использование Giraph в кластерах HDInsight](../hdinsight-hadoop-giraph-install)  
 
-> [AZURE.NOTE] Пример скрипта работает только с кластером HDInsight версии 3.1 или более поздней. Дополнительные сведения о версиях кластера HDInsight см. в разделе [Версии кластера HDInsight](http://azure.microsoft.com/ru-ru/documentation/articles/hdinsight-component-versioning/).
+> [AZURE.NOTE] Пример скрипта работает только с кластером HDInsight версии 3.1 или более поздней. Дополнительные сведения о версиях кластера HDInsight см. в разделе [Версии кластера HDInsight](http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/).
 
 ## <a name="testScript"></a>Способы проверки пользовательского скрипта с использованием эмулятора HDInsight
 
@@ -131,7 +131,7 @@ Script Action можно развернуть с помощью пакета SDK
 
 В этом разделе описаны процедуры локального использования эмулятора HDInsight для проведения тестирования, однако в виртуальной машине тестирование проводится аналогичным образом.
 
-**Установите эмулятор HDInsight**: чтобы запустить действия скриптов локально, необходим установленный эмулятор HDInsight. Инструкции по его установке см. в разделе [Приступая к работе с эмулятором HDInsight](http://azure.microsoft.com/ru-ru/documentation/articles/hdinsight-get-started-emulator/)
+**Установите эмулятор HDInsight**: чтобы запустить действия скриптов локально, необходим установленный эмулятор HDInsight. Инструкции по его установке см. в разделе [Приступая к работе с эмулятором HDInsight](http://azure.microsoft.com/documentation/articles/hdinsight-get-started-emulator/)
 
 **Задайте политику выполнения для Azure PowerShell:** откройте Microsoft Azure PowerShell и выполните (с правами администратора) следующую команду, чтобы задать политику выполнения *LocalMachine* со значением *Unrestricted*.
  
@@ -214,4 +214,4 @@ Script Action можно развернуть с помощью пакета SDK
 [hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
 [powershell-install-configure]: ../install-configure-powershell/
-<!--HONumber=42-->
+\<!--HONumber=42-->

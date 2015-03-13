@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Аутентификация приложения для Магазина Windows с помощью Live Connect" description="Узнайте, как использовать единый вход Live Connect в мобильных службах Azure из приложения Магазина Windows." services="mobile-services" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Аутентификация приложения для Магазина Windows с помощью Live Connect" 
+	description="Узнайте, как использовать единый вход Live Connect в мобильных службах Azure из приложения Магазина Windows." 
+	services="mobile-services" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="11/22/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/22/2014" 
+	ms.author="glenga"/>
 
 # Аутентификация приложения для Магазина Windows с помощью единого входа Live Connect
 <div class="dev-center-tutorial-selector sublanding"> 
@@ -141,7 +155,8 @@
 
 [13]: ./media/mobile-services-windows-store-dotnet-single-sign-on/mobile-identity-tab-ma-only.png
 [14]: ./media/mobile-services-windows-store-dotnet-single-sign-on/mobile-portal-data-tables.png
-[15]: ./media/mobile-services-windows-store-dotnet-single-sign-on/mobile-portal-change-table-perms.png
+[15]: ./media/mobile-services-windows-store-dotnet-single-sign-on/mobile-portal-change-table-per
+	ms.png
 [16]: ./media/mobile-services-windows-store-dotnet-single-sign-on/mobile-add-reference-live-dotnet.png
 
 <!-- URLs. -->

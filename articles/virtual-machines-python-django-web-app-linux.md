@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Веб-приложение Python на Django на платформе Mac - учебник по Azure" 
 	description="В этом учебнике описывается, как разместить веб-сайт на основе Django в Azure с помощью виртуальной машины Linux." 
 	services="virtual-machines" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="02/05/2015" 
+	ms.date="09/25/2014" 
 	ms.author="huvalo"/>
 
 
@@ -43,15 +43,15 @@ Azure с помощью виртуальной машины Linux. В данно
 
 ## Создание и настройка виртуальной машины Azure для размещения Django
 
-1. Следуйте приведенным [здесь][portal-vm] инструкциям, чтобы создать виртуальную машину Azure для распространения *Ubuntu Server 14.04 LTS*.
+1. Следуйте приведенным [здесь][portal-vm] указаниям, чтобы создать виртуальную машину с дистрибутивом  *Ubuntu Server 14.04 LTS*.
 
-  **Примечание.** Вам *only* нужно создать виртуальную машину. Остановитесь на разделе *How to log on to the virtual machine after you create it*.
+  **Примечание.** Необходимо  *только* создать виртуальную машину. Остановитесь у раздела с заголовком  *Как войти в систему на виртуальной машине после ее создания*.
 
 1. Дайте Azure команду для перенаправления трафика порта **80** из Интернета в порт **80** на виртуальной машине:
-	* Перейдите к только что созданной виртуальной машине на портале и откройте вкладку *ENDPOINTS*.
-	* Нажмите кнопку *ADD*, расположенную в нижней части экрана.
+	* Перейдите к только что созданной виртуальной машине на портале Azure и откройте вкладку  *КОНЕЧНЫЕ ТОЧКИ*.
+	* В нижней части страницы нажмите кнопку  *ДОБАВИТЬ*.
 	![add endpoint](./media/virtual-machines-python-django-web-app-linux/mac-linux-django-helloworld-add-endpoint.png)
-	* Откройте  *PUBLIC PORT 80* протокола *TCP* в качестве *PRIVATE PORT 80*.
+	* Откройте  *ОБЩИЙ ПОРТ 80* протокола  *TCP* как  *ЧАСТНЫЙ ПОРТ 80*.
 	![port80](./media/virtual-machines-python-django-web-app-linux/mac-linux-django-helloworld-port80.png)
 
 ## <a id="setup"> </a>Настройка среды разработки
@@ -107,7 +107,7 @@ Azure с помощью виртуальной машины Linux. В данно
 
 ## Настройка Apache
 
-1.  Создайте файл конфигурации виртуального узла Apache **/etc/apache2/sites-available/helloworld.conf**. Установите для содержимого следующее значение и обязательно замените *yourVmUrl* фактическим URL-адресом компьютера, который вы используете (например, *pyubuntu.cloudapp.net*).
+1.  Создайте файл конфигурации виртуального узла Apache **/etc/apache2/sites-available/helloworld.conf**. Установите для содержимого следующее значение и обязательно замените  *yourVmUrl* фактическим URL-адресом компьютера, который вы используете (например,  *pyubuntu.cloudapp.net*).
 
 		<VirtualHost *:80>
 		ServerName yourVmUrl
@@ -135,4 +135,4 @@ Azure с помощью виртуальной машины Linux. В данно
 
 [portal-vm]: /ru-ru/manage/linux/tutorials/virtual-machine-from-gallery/
 
-<!--HONumber=45--> 
+<!--HONumber=42-->

@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Создание приложения списка лидеров с помощью внутреннего сервера .NET мобильных служб Azure" description="Узнайте, как создать приложение магазина Windows с помощью мобильных служб Azure с серверной частью .NET." documentationCenter="windows" authors="MikeWasson" manager="dwrede" editor="" services=""/>
+﻿<properties 
+	pageTitle="Создание приложения списка лидеров с помощью внутреннего сервера .NET мобильных служб Azure" 
+	description="Узнайте, как создать приложение магазина Windows с помощью мобильных служб Azure с серверной частью .NET." 
+	documentationCenter="windows" 
+	authors="MikeWasson" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="mwasson"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/23/2014" 
+	ms.author="mwasson"/>
 
 # Создание приложения списка лидеров с помощью внутреннего сервера .NET мобильных служб Azure
 
@@ -80,7 +94,7 @@ PlayerRank содержит внешний ключ к Player. У каждого
 
 ## Добавление моделей данных
 
-Для определения таблиц баз данных будет использоваться [EF Code First](http://msdn.microsoft.com/ru-ru/data/ee712907#codefirst). В папке DataObjects добавьте класс с именем `Player`.
+Для определения таблиц баз данных будет использоваться [EF Code First](http://msdn.microsoft.com/data/ee712907#codefirst). В папке DataObjects добавьте класс с именем `Player`.
 
 	using Microsoft.WindowsAzure.Mobile.Service;
 	
@@ -109,9 +123,9 @@ PlayerRank содержит внешний ключ к Player. У каждого
 	    }
 	}
 
-Обратите внимание, что оба класса наследуются из класса **EntityData**. Наследование из класса **EntityData** упрощает использование данных приложением с помощью кроссплатформенной клиентской библиотеки для мобильных служб Azure. **EntityData** также упрощает [обработку конфликтов записи базы данных](http://azure.microsoft.com/ru-ru/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/) для приложения.
+Обратите внимание, что оба класса наследуются из класса **EntityData**. Наследование из класса **EntityData** упрощает использование данных приложением с помощью кроссплатформенной клиентской библиотеки для мобильных служб Azure. **EntityData** также упрощает [обработку конфликтов записи базы данных](http://azure.microsoft.com/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/) для приложения.
 
-Класс `PlayerRank` содержит [свойство навигации](http://msdn.microsoft.com/ru-ru/data/jj713564.aspx), которое указывает на связанную сущность `Player`. Атрибут **[ForeignKey]** сообщает EF, что свойство `Player` представляет внешний ключ.
+Класс `PlayerRank` содержит [свойство навигации](http://msdn.microsoft.com/data/jj713564.aspx), которое указывает на связанную сущность `Player`. Атрибут **[ForeignKey]** сообщает EF, что свойство `Player` представляет внешний ключ.
 
 # Добавление контроллеров веб-интерфейса API
 
@@ -139,7 +153,7 @@ PlayerRank содержит внешний ключ к Player. У каждого
 
 Контроллер является производным от **TableController<T>**. Этот класс наследует от **ApiController**, но он предназначен специально для мобильных служб Azure.
  
-- Маршрутизация. Маршрут по умолчанию для **TableController** -  `/tables/{table_name}/{id}`, где *table_name* совпадает с именем сущности. Поэтому маршрут для контроллера Player - */tables/player/{id}*. Это соглашение о маршрутизации выполняет согласование **TableController** с [API REST](http://msdn.microsoft.com/ru-ru/library/azure/jj710104.aspx) мобильных служб.
+- Маршрутизация. Маршрут по умолчанию для **TableController** -  `/tables/{table_name}/{id}`, где *table_name* совпадает с именем сущности. Поэтому маршрут для контроллера Player - */tables/player/{id}*. Это соглашение о маршрутизации выполняет согласование **TableController** с [API REST](http://msdn.microsoft.com/library/azure/jj710104.aspx) мобильных служб.
 - Доступ к данным. Для операций баз данных класс **TableController** использует интерфейс **IDomainManager**, который определяет абстракцию для доступа к данным.  Для формирования шаблонов используется параметр **EntityDomainManager**, который является конкретной реализацией интерфейса **IDomainManager**, заключающего в оболочку контекст EF. 
 
 Теперь добавьте второй контроллер для сущностей PlayerRank. Выполните те же действия, но выберите класс модели PlayerRank. Используйте тот же класс контекста данных, а не создавайте новый. Назовите контроллер "PlayerContoller".

@@ -139,7 +139,7 @@
 [5]: ./media/store-new-relic-mobile-services-monitor/mobile-new-relic-dashboard-2.png
 
 <!-- URLs. -->
-[Система управления версиями]: http://msdn.microsoft.com/ru-ru/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
+[Система управления версиями]: http://msdn.microsoft.com/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
 [Работа с серверными сценариями в мобильных службах]: /ru-ru/develop/mobile/how-to-guides/work-with-server-scripts.md
 
 [Портал управления Azure]: https://manage.windowsazure.com/

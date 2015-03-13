@@ -1,6 +1,20 @@
-<properties title="Step 2: Upload existing data into an Azure Machine Learning experiment" pageTitle="Шаг 2. Отправка данных в эксперимент машинного обучения | Azure" description="Шаг 2. Передача существующих общедоступных их данных в Студию машинного обучения Azure" metaKeywords="" services="machine-learning" solutions="big-data" documentationCenter="" authors="garye" videoId="" scriptId="" manager="paulettm" editor="cgronlun" />
+﻿<properties 
+	pageTitle="Шаг 2. Отправка данных в эксперимент машинного обучения | Azure" 
+	description="Шаг 2 пошагового руководства решения. Передача существующих общедоступных их данных в Студию машинного обучения Azure" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/02/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/06/2015" 
+	ms.author="garye"/>
 
 Это второй шаг из пошагового руководства [Разработка прогнозирующего решения с помощью Azure ML][develop]:
 
@@ -70,3 +84,5 @@
 **Далее: [Создание нового эксперимента][create-new]**
 
 [1]: ./media/machine-learning-walkthrough-2-upload-data/upload1.png
+
+<!--HONumber=46--> 

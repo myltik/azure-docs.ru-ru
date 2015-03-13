@@ -690,5 +690,4 @@
 [app-settings]: ./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png
 
 [Create and deploy a Node.js application to an Azure Web Site]: /ru-ru/documentation/articles/web-sites-nodejs-develop-deploy-mac/
-
 <!--HONumber=42-->

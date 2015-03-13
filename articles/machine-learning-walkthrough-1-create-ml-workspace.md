@@ -1,6 +1,20 @@
-﻿<properties title="Step 1: Create an Azure Machine Learning workspace" pageTitle="Шаг 1. Создание рабочей области машинного обучения | Azure" description="Шаг 1. Создание новой рабочей области Студии машинного обучения Azure" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+<properties 
+	pageTitle="Шаг 1. Создание рабочей области машинного обучения | Azure" 
+	description="Шаг 1 пошагового руководства решения. Создание новой рабочей области Студии машинного обучения Azure" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/29/2015" 
+	ms.author="garye"/>
 
 
 Это первый шаг из пошагового руководства [Разработка прогнозирующего решения с помощью Azure ML][develop]:
@@ -47,3 +61,5 @@
 **Далее: [Отправка существующих данных][upload-data]**
 
 [1]: ./media/machine-learning-walkthrough-1-create-ml-workspace/create1.png
+
+<!--HONumber=46--> 

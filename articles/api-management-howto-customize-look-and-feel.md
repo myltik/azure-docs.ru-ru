@@ -1,6 +1,20 @@
-<properties pageTitle="How to customize the look and feel of the developer portal in Azure API Management" metaKeywords="" description="How to customize the look and feel of the developer portal in Azure API Management." metaCanonical="" services="" documentationCenter="API Management" title="How to customize the look and feel of the developer portal in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+﻿<properties 
+	pageTitle="Как настроить внешний вид и поведение портала разработчика в Azure API Management" 
+	description="Настройка внешнего вида и поведения портала разработчика в службе управления API Azure." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 # Как настроить внешний вид и поведение портала разработчика в Azure API Management
 
@@ -35,3 +49,5 @@
   [Панель инструментов настройки]: ./media/api-management-howto-customize-look-and-feel/api-management-customization-toolbar.png
   [Выбор цвета]: ./media/api-management-howto-customize-look-and-feel/api-management-customization-toolbar-color-picker.png
   [Форма публикации]: ./media/api-management-howto-customize-look-and-feel/api-management-customization-toolbar-publish-form.png
+
+<!--HONumber=46--> 

@@ -1,6 +1,18 @@
-﻿<properties title="How to create web test" pageTitle="Создание веб-теста" description="Узнайте, как создавать веб-тесты в Azure." authors="awills" manager="kamrani" />
+﻿<properties 
+	pageTitle="Создание веб-теста" 
+	description="Узнайте, как создавать веб-тесты в Azure." 
+	services="application-insights" 
+	authors="alancameronwills" 
+	manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-29" ms.author="awills"  />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2015-01-17" 
+	ms.author="awills"/>
 
 # Веб-тесты для веб-сайтов Microsoft Azure
 Работает ли еще ваш веб-сайт Azure? Правильно ли и достаточно быстро он отвечает? Проверяйте свой веб-сайт через равные промежутки времени, настроив веб-тест. Если сайт выходит из строя либо отвечает медленно или неправильно, вы получите оповещение по электронной почте. И вы получите графики, показывающие, как зависят его доступность и скорость ответа от времени.  
@@ -47,3 +59,5 @@
 ![Open in VS](./media/insights-create-web-tests/Insights_OpenInVS.png)
 
 [availability]: ../app-insights-monitor-web-app-availability/
+
+<!--HONumber=46--> 

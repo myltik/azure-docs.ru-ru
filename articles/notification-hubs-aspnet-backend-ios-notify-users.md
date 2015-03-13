@@ -1,37 +1,51 @@
-﻿<properties title="Azure Notification Hubs Notify Users" pageTitle="Уведомление пользователей посредством центров уведомлений" metaKeywords="Azure push notifications, Azure notification hubs" description="Узнайте, как отправлять безопасные push-уведомления в Azure. Примеры кода написаны на Objective-C с использованием API .NET." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="yuaxu" manager="dwrede" />
+﻿<properties 
+	pageTitle="Уведомление пользователей посредством центров уведомлений" 
+	description="Узнайте, как отправлять безопасные push-уведомления в Azure. Примеры кода написаны на Objective-C с использованием API .NET." 
+	documentationCenter="ios" 
+	authors="ysxu" 
+	manager="dwrede" 
+	editor="" 
+	services="notification-hubs"/>
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="11/22/2014" ms.author="yuaxu" />
+<tags 
+	ms.service="notification-hubs" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="11/22/2014" 
+	ms.author="yuaxu"/>
 
 #Уведомление пользователей посредством центров уведомлений
 
 <div class="dev-center-tutorial-selector sublanding">
-    	<a href="/ru-ru/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-notify-users/" title="Windows Universal">Универсальное приложение Windows</a><a href="/ru-ru/documentation/articles/notification-hubs-/" title="iOS" class="current">iOS</a>
+    	<a href="/ru-ru/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-notify-users/" title="Windows Universal">Windows Universal</a><a href="/ru-ru/documentation/articles/notification-hubs-/" title="iOS" class="current">iOS</a>
 		<a href="/ru-ru/documentation/articles/notification-hubs-aspnet-backend-android-notify-users/" title="Android">Android</a>
 </div>
 
-Поддержка push-уведомлений в Azure позволяет получить доступ к простой в использовании, многоплатформенной и масштабируемой инфраструктуре для отправки push-уведомлений, которая значительно упрощает реализацию push-уведомлений как для индивидуальных пользователей, так и для корпоративных приложений для мобильных платформ. В этом учебнике показано, как использовать концентраторы уведомлений Azure для отправки push-уведомлений пользователю определенного приложения на конкретном устройстве. Серверная часть веб-API ASP.NET используется для аутентификации клиентов и создания уведомлений, как показано в разделе руководства [Регистрация из серверной части приложения](http://msdn.microsoft.com/ru-ru/library/dn743807.aspx).
+Поддержка push-уведомлений в Azure позволяет получить доступ к простой в использовании, многоплатформенной и масштабируемой инфраструктуре для отправки push-уведомлений, которая значительно упрощает реализацию push-уведомлений как для индивидуальных пользователей, так и для корпоративных приложений для мобильных платформ. В этом учебнике показано, как использовать центры уведомлений Azure для отправки push-уведомлений пользователю определенного приложения на конкретном устройстве. Серверная часть веб-API ASP.NET используется для аутентификации клиентов и создания уведомлений, как показано в разделе руководства [Регистрация из серверной части приложения](http://msdn.microsoft.com/library/dn743807.aspx).
 
-> [AZURE.NOTE] В этом учебнике подразумевается, что вы создали и настроили центр уведомлений в соответствии с описанием в учебнике [Приступая к работе с центрами уведомлений (iOS)](http://azure.microsoft.com/ru-ru/documentation/articles/notification-hubs-ios-get-started/). Этот учебник также необходимо изучить перед обращением к учебнику [Безопасные push-уведомления (iOS)](http://azure.microsoft.com/ru-ru/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/) .
-> Если вы используете мобильные службы в качестве серверной службы, см. раздел [Версии мобильных служб](/ru-ru/documentation/articles/mobile-services-javascript-backend-ios-push-notifications-app-users/) из этого учебника.
+> [AZURE.NOTE] В этом учебнике подразумевается, что вы создали и настроили центр уведомлений в соответствии с описанием в руководстве [Приступая к работе с центрами уведомлений (iOS)](http://azure.microsoft.com/ documentation/articles/notification-hubs-ios-get-started/). Этот учебник также необходимо изучить перед обращением к учебнику [Безопасные push-уведомления (iOS)](http://azure.microsoft.com/ documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/).
+> Если вы используете мобильные службы в качестве серверной службы, см. раздел [Версии мобильных служб](/ru-ru/documentation/articles/mobile-services-javascript-backend-ios-push-notifications-app-users/) этого учебника.
 
 
-## Создание и настройка концентратора уведомлений
+## Создание и настройка центра уведомлений
 
-Следуйте указаниям в разделах 1-5 учебника [Приступая к работе с центрами уведомлений (iOS)](http://azure.microsoft.com/ru-ru/documentation/articles/notification-hubs-ios-get-started/). Дополнительные ресурсы о подготовке устройства под управлением iOS см. в руководстве на сайте [Big Nerd Ranch](http://www.bignerdranch.com/we-teach/how-to-prepare/ios-device-provisioning.html).
+Выполните действия, описанные в разделах с 1 по 5 учебника [Приступая к работе с центрами уведомлений (iOS)](http://azure.microsoft.com/ documentation/articles/notification-hubs-ios-get-started/). Дополнительные ресурсы о подготовке устройства под управлением iOS см. в руководстве на сайте [Big Nerd Ranch](http://www.bignerdranch.com/we-teach/how-to-prepare/ios-device-provisioning.html).
 
-[WACOM.INCLUDE [notification-hubs-aspnet-backend-notifyusers](../includes/notification-hubs-aspnet-backend-notifyusers.md)]
+[AZURE.INCLUDE [notification-hubs-aspnet-backend-notifyusers](../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
 ## Изменение приложения iOS
 
-1. Откройте приложение с представлением на одной странице, созданное в соответствии с указаниями разделов 1-5 в учебнике [Приступая к работе с центрами уведомлений (iOS)],(http://azure.microsoft.com/ru-ru/documentation/articles/notification-hubs-ios-get-started/).
+1. Откройте одностраничное приложение с представлением, созданное в соответствии с указаниями разделов 1-5 в учебнике [Приступая к работе с центрами уведомлений (iOS)](http://azure.microsoft.com/ documentation/articles/notification-hubs-ios-get-started/).
 
 > [AZURE.NOTE] В этом разделе подразумевается, что вы настроили свой проект, указав пустое имя организации. Если вы этого не сделали, вам нужно будет добавлять имя своей организации перед всеми именами классов.
 
 2. В вашем Main.Storyboard добавьте следующие компоненты из библиотеки объектов:
 	+ UITextField с текстом заполнителя **Username**
-	+ UITextField с текстом заполнителя **Password** и установите флажок **Secure** (Защита) в инспекторе атрибутов в разделе Textfield Return Key (Символ "ВВОД" в текстовом поле).
-	+ UIButton с меткой **1. Log in** (Вход) и снимите флажок **Enabled** (Включено), выбрав "Элемент управления" и "Содержимое".
-	+ UIButton с меткой **2. Send Push** (Отправить push-уведомление) и снимите флажок **Enabled** (Включено).
+	+ UITextField с текстом заполнителя **Password** и установите флажок **Secure** в инспекторе атрибутов в разделе Textfield Return Key.
+	+ UIButton с меткой **1. Войдите** и снимите флажок **Включено**, выбрав "Элемент управления" и "Содержимое".
+	+ UIButton с меткой **2. Отправьте push-уведомление** и снимите флажок **Включено**.
 
 	Раскадровка должна выглядеть следующим образом:
 
@@ -192,7 +206,7 @@
 		    [dataTask resume];
 		}
 
-	Код выше реализует логику, которая описана в руководстве [Регистрация из внутренней службы приложения],(http://msdn.microsoft.com/ru-ru/library/dn743807.aspx) используя NSURLSession для отправки вызовов REST в серверную часть приложения и NSUserDefaults для локального хранения registrationId, возвращаемого центра уведомлений.
+	В коде, указанном выше, реализуется логика, описываемая в статье [Регистрация из серверной части приложения](http://msdn.microsoft.com/library/dn743807.aspx), при этом используется NSURLSession для выполнения вызовов REST в серверную часть приложения, и NSUserDefaults для локального сохранения идентификатора registrationId, возвращаемого центром уведомлений.
 
 	Обратите внимание, что для нормальной работы этого класса должно быть правильно задано свойство **authorizationHeader**. Это свойство может быть установлено классом **ViewController** после выполнения входа.
 
@@ -307,7 +321,7 @@
 		    [alert show];
 		}
 
-## Выполнение приложения
+## Запуск приложения
 
 1. В XCode запустите приложение на физическом устройстве под управлением iOS (push-уведомления не будут работать в симуляторе).
 
@@ -315,9 +329,9 @@
 
 3. Должно отобразиться всплывающее окно с сообщением об успешной регистрации. Нажмите кнопку **ОК**.
 
-4. Щелкните **Отправить push-уведомление** и нажмите кнопку "Домашняя". Вскоре появится push-уведомление.
+4. Щелкните **Отправить push-уведомление** и нажмите кнопку "home". Вскоре появится push-уведомление.
 
 
 [IOS1]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users1.png
 
-<!--HONumber=35.1-->
+<!--HONumber=45--> 

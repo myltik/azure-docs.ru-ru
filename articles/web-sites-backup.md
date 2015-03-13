@@ -21,7 +21,7 @@
 Возможность резервного копирования и восстановления веб-сайтов Azure позволяет легко создавать резервные копии веб-сайта в ручном или автоматическом режиме. Можно восстановить предыдущее состояние веб-сайта или создать новый веб-сайт на основе одной из резервных копий исходного сайта. 
 
 
-Информацию о восстановлении веб-сайта Azure из резервной копии см. в разделе [Восстановление веб-сайта Azure](http://www.windowsazure.com/ru-ru/documentation/articles/web-sites-restore/).
+Информацию о восстановлении веб-сайта Azure из резервной копии см. в разделе [Восстановление веб-сайта Azure](http://azure.microsoft.com/documentation/articles/web-sites-restore/).
 
 ##Содержание
 
@@ -57,7 +57,7 @@
 <a name="requirements"></a>
 ##Требования и ограничения
 
-* Компонент резервного копирования и восстановления требует нахождения сайта на уровне Standard. Дополнительную информацию о масштабировании веб-сайта уровня Standard см. в разделе [Как масштабировать веб-сайты](http://www.windowsazure.com/ru-ru/documentation/articles/web-sites-scale/). 
+* Компонент резервного копирования и восстановления требует нахождения сайта на уровне Standard. Дополнительную информацию о масштабировании веб-сайта уровня Standard см. в разделе [Как масштабировать веб-сайты](http://azure.microsoft.com/documentation/articles/web-sites-scale/). 
 
 * Компоненту резервного копирования и восстановления требуется учетная запись хранения Azure, которая должна принадлежать к той же подписке, что и веб-сайт, для которого вы собираетесь выполнить резервное копирование. Если у вас еще нет учетной записи хранения, можно создать ее, нажав кнопку **Хранилище** (значок сетки) в левой части портала Azure, а затем выбрав **Создать** в расположенной внизу панели команд. Дополнительную информацию об учетных записях хранения Azure см по [ссылкам](#moreaboutstorage) в конце этой статьи.
 
@@ -134,9 +134,9 @@
 
 В XML-файле, сохраняемом с ZIP-файлом, имя файла базы данных указывается в разделе *backupdescription* > *databases* > *databasebackupdescription* > *filename*.
 
-Файл резервной копии базы данных сохраняется в корне файла .zip. Для базы данных SQL это файл BACPAC (без расширения), и его можно импортировать. Чтобы создать новую базу данных SQL на основе экспорта BACPAC, выполните шаги, описанные в разделе [Импорт файла BACPAC для создания новой базы данных пользователя](http://technet.microsoft.com/ru-ru/library/hh710052.aspx).
+Файл резервной копии базы данных сохраняется в корне файла .zip. Для базы данных SQL это файл BACPAC (без расширения), и его можно импортировать. Чтобы создать новую базу данных SQL на основе экспорта BACPAC, выполните шаги, описанные в разделе [Импорт файла BACPAC для создания новой базы данных пользователя](http://technet.microsoft.com/library/hh710052.aspx).
 
-Информацию о восстановлении веб-сайта Azure (включая базы данных) с помощью портала управления Azure см. в разделе [Восстановление веб-сайта Microsoft Azure]( http://azure.microsoft.com/ru-ru/documentation/articles/web-sites-restore/).
+Информацию о восстановлении веб-сайта Azure (включая базы данных) с помощью портала управления Azure см. в разделе [Восстановление веб-сайта Microsoft Azure]( http://azure.microsoft.com/documentation/articles/web-sites-restore/).
 
 > [AZURE.NOTE] Изменение любого из этих файлов в контейнере **websitebackups** может привести к повреждению резервной копии и сделать восстановление из нее невозможным.
 
@@ -150,19 +150,19 @@
 
 <a name="nextsteps"></a>
 ## Дальнейшие действия
-Информацию о восстановлении веб-сайта Azure из резервной копии см. в разделе [Восстановление веб-сайта Azure](http://www.windowsazure.com/ru-ru/documentation/articles/web-sites-restore/).
+Информацию о восстановлении веб-сайта Azure из резервной копии см. в разделе [Восстановление веб-сайта Azure](http://azure.microsoft.com/documentation/articles/web-sites-restore/).
 
-Чтобы начать работу с Azure, см. раздел [Бесплатная пробная версия Microsoft Azure](http://azure.microsoft.com/ru-ru/pricing/free-trial/).
+Чтобы начать работу с Azure, см. раздел [Бесплатная пробная версия Microsoft Azure](http://azure.microsoft.com/pricing/free-trial/).
 
 
 <a name="moreaboutstorage"></a>
 ### Подробнее об учетных записях хранения
 
-[Что такое учетная запись хранения?](http://www.windowsazure.com/ru-ru/documentation/articles/storage-whatis-account/)
+[Что такое учетная запись хранения?](http://azure.microsoft.com/documentation/articles/storage-whatis-account/)
 
-[Практическое руководство. Создание учетной записи хранения](http://www.windowsazure.com/ru-ru/documentation/articles/storage-create-storage-account/)
+[Практическое руководство. Создание учетной записи хранения](http://azure.microsoft.com/documentation/articles/storage-create-storage-account/)
 
-[Мониторинг учетной записи хранения](http://www.windowsazure.com/ru-ru/documentation/articles/storage-monitor-storage-account/)
+[Мониторинг учетной записи хранения](http://azure.microsoft.com/documentation/articles/storage-monitor-storage-account/)
 
 [Общая информация об оплате службы хранилища Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
 

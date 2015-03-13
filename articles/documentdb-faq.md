@@ -1,6 +1,20 @@
-﻿<properties title="Frequently asked questions about DocumentDB" pageTitle="Вопросы и ответы по DocumentDB | Azure" description="Ответы на часто задаваемые вопросы о службе базы данных документов NoSQL Azure DocumentDB. Узнайте о емкости и единицах запросов и поймите, как выполнять масштабирование согласно требованиям приложения." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, faq"   services="documentdb" solutions="data-management"   authors="spelluru" manager="jhubbard" editor="monicar" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Вопросы и ответы по DocumentDB | Azure" 
+	description="Ответы на часто задаваемые вопросы о службе базы данных документов NoSQL Azure DocumentDB. Узнайте о емкости и единицах запросов и поймите, как выполнять масштабирование согласно требованиям приложения." 
+	services="documentdb" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="monicar" 
+	documentationCenter=""/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/22/2014" 
+	ms.author="mimig"/>
 
 
 #Вопросы и ответы по DocumentDB
@@ -32,7 +46,7 @@ DocumentDB - это база данных NoSQL, предназначенная 
 DocumentDB рекомендуется использовать для новых веб-приложений или мобильных приложений, в которых большое значение имеет масштабируемость, производительность и возможность запросов данных без схемы. DocumentDB хорошо подходит для быстрой разработки и поддержки непрерывной итерации моделей данных приложения. В качестве типичных примеров использования DocumentDB можно привести приложения, управляющие содержимым пользователей и их данными.  
 
 ###Каковы ограничения масштабируемости и мощности?
-Каждая учетная запись Azure DocumentDB поддерживает максимальное число единиц мощности, которое можно настроить на портале Azure. Если требуются дополнительные единицы мощности, обратитесь в службу поддержки, чтобы увеличить квоту учетной записи.  Подробнее о квотах ресурсов см. в статье [Ограничения DocumentDB для предварительного выпуска.](http://azure.microsoft.com/ru-ru/documentation/articles/documentdb-limits/) 
+Каждая учетная запись Azure DocumentDB поддерживает максимальное число единиц мощности, которое можно настроить на портале Azure. Если требуются дополнительные единицы мощности, обратитесь в службу поддержки, чтобы увеличить квоту учетной записи.  Подробнее о квотах ресурсов см. в статье [Ограничения DocumentDB для предварительного выпуска.](http://azure.microsoft.com/documentation/articles/documentdb-limits/) 
 
 
 ###Какова стоимость Microsoft Azure DocumentDB?
@@ -87,3 +101,5 @@ DocumentDB поддерживает транзакции LINQ посредств
 
 [preview-portal]: https://portal.azure.com
 [запрос]: ../documentdb-sql-query/
+
+<!--HONumber=46--> 

@@ -32,7 +32,7 @@
 * [Использование объекта сеанса для хранения и получения кэшированных элементов.](#usesessionobject)
 
 <h2><a id="createcache"></a>Создание кэша</h2>
-Выполните [следующие указания](http://azure.microsoft.com/ru-ru/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#create-cache), чтобы создать кэш.
+Выполните [следующие указания](http://azure.microsoft.com/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#create-cache), чтобы создать кэш.
 
 <h2><a id="configureproject"></a>Добавление пакета NuGet RedisSessionStateProvider в свое веб-приложение</h2>
 Установите пакет NuGet `RedisSessionStateProvider`.  С помощью следующей команды установите консоль диспетчера пакетов (**Инструменты** > **Диспетчер пакетов NuGet** > **Консоль диспетчера пакетов**):
@@ -41,14 +41,14 @@
   
 Чтобы выполнить установку из меню **Инструменты** > **Диспетчер пакетов NuGet** > **Управление пакетами NugGet для решения**, выполните поиск по `RedisSessionStateProvider` и обязательно укажите параметр **Включить предварительный выпуск**.
 
-Дополнительную информацию см. на страницах [NuGet RedisSessionStateProvider](http://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider/ ) и [Настройка клиента кэша](http://azure.microsoft.com/ru-ru/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#NuGet).
+Дополнительную информацию см. на страницах [NuGet RedisSessionStateProvider](http://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider/ ) и [Настройка клиента кэша](http://azure.microsoft.com/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#NuGet).
 
 <h2><a id="configurewebconfig"></a>Изменение файла Web.Config</h2>
 Кроме внесения ссылки на сборку для кэша, NuGet-пакет добавляет записи заглушки в файл *web.config*. 
 
 1. Откройте  *web.config* и найдите элемент **sessionState**.
 
-1. Введите значения для  `host`, `accessKey`, `port` (необходимо указать 6380 в качестве порта SSL) и установите для `SSL` значение `true`. Эти значения можно получить на портале управления Azure предварительной версии в выноске для экземпляра кэша. Дополнительную информацию см. в разделе [Подключение к кэшу](http://azure.microsoft.com/ru-ru/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#connect-to-cache).
+1. Введите значения для  `host`, `accessKey`, `port` (необходимо указать 6380 в качестве порта SSL) и установите для `SSL` значение `true`. Эти значения можно получить на портале управления Azure предварительной версии в выноске для экземпляра кэша. Дополнительную информацию см. в разделе [Подключение к кэшу](http://azure.microsoft.com/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#connect-to-cache).
 В следующем примере показаны изменения в файле *web.config*.
 
 
@@ -99,8 +99,8 @@
 
   Автор: [Рик Андерсон (Rick Anderson)](https://twitter.com/RickAndMSFT)
   
-  [installed the latest]: http://www.windowsazure.com/ru-ru/downloads/?sdk=net  
-  [ASP.NET Session State Overview]: http://msdn.microsoft.com/ru-ru/library/ms178581.aspx
+  [installed the latest]: http://azure.microsoft.com/downloads/?sdk=net  
+  [ASP.NET Session State Overview]: http://msdn.microsoft.com/library/ms178581.aspx
 
   [NewIcon]: ./media/web-sites-dotnet-session-state-caching/CacheScreenshot_NewButton.png
   [NewCacheDialog]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_CreateOptions.png

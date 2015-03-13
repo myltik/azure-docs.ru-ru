@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Начало работы с отправкой push-уведомлений в реальном времени с использованием SignalR и мобильных служб | Центр мобильных разработок" description="Узнайте, как приступить к отправке push-уведомлений в реальном времени с использованием SignalR и мобильных служб." documentationCenter="windows" authors="mattchenderson" manager="dwrede" editor="" services=""/>
+﻿<properties 
+	pageTitle="Начало работы с отправкой push-уведомлений в реальном времени с использованием SignalR и мобильных служб | Центр мобильных разработок" 
+	description="Узнайте, как приступить к отправке push-уведомлений в реальном времени с использованием SignalR и мобильных служб." 
+	documentationCenter="windows" 
+	authors="mattchenderson" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="08/19/2014" ms.author="mahender"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="08/19/2014" 
+	ms.author="mahender"/>
 
 # Начало работы с push-уведомлениями в реальном времени с использованием SignalR и мобильных служб.
 

@@ -19,7 +19,7 @@
 
 # Преобразования и расширения веб-сайта
 
-С помощью объявлений [преобразования документов XML](http://msdn.microsoft.com/ru-ru/library/dd465326.aspx) (XDT) можно преобразовать файл [ApplicationHost.config](http://www.iis.net/learn/get-started/planning-your-iis-architecture/introduction-to-applicationhostconfig) на веб-сайтах Microsoft Azure. Объявления XDT также можно использовать для добавления частных расширений сайта для реализации пользовательских действий администрирования веб-сайта. Данная статья содержит пример расширения сайта диспетчера PHP, позволяющего управлять параметрами PHP через веб-интерфейс.
+С помощью объявлений [преобразования документов XML](http://msdn.microsoft.com/library/dd465326.aspx) (XDT) можно преобразовать файл [ApplicationHost.config](http://www.iis.net/learn/get-started/planning-your-iis-architecture/introduction-to-applicationhostconfig) на веб-сайтах Microsoft Azure. Объявления XDT также можно использовать для добавления частных расширений сайта для реализации пользовательских действий администрирования веб-сайта. Данная статья содержит пример расширения сайта диспетчера PHP, позволяющего управлять параметрами PHP через веб-интерфейс.
 
 
 <!-- MINI TOC -->

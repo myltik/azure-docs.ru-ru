@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Приступая к работе с проверкой подлинности в мобильных службах для приложений Xamarin Android - мобильные службы Azure" description="Узнайте, как использовать мобильные службы для аутентификации пользователей приложения Xamarin для Android с помощью разнообразных поставщиков удостоверений, включая Google, Facebook, Twitter и корпорацию Майкрософт." services="mobile-services" documentationCenter="xamarin" authors="lindydonna" manager="dwrede" editor="mollybos"/>
+﻿<properties 
+	pageTitle="Приступая к работе с проверкой подлинности в мобильных службах для приложений Xamarin Android - мобильные службы Azure" 
+	description="Узнайте, как использовать мобильные службы для аутентификации пользователей приложения Xamarin для Android с помощью разнообразных поставщиков удостоверений, включая Google, Facebook, Twitter и корпорацию Майкрософт." 
+	services="mobile-services" 
+	documentationCenter="xamarin" 
+	authors="lindydonna" 
+	manager="dwrede" 
+	editor="mollybos"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="donnam"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-xamarin-android" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/23/2014" 
+	ms.author="donnam"/>
 
 # Приступая к работе с проверкой подлинности в мобильных службах
 

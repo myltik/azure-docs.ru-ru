@@ -62,5 +62,4 @@
 [connection-string4]: ./media/storage-configure-connection-string/connection-string4.png
 [connection-string5]: ./media/storage-configure-connection-string/connection-string5.png
 
-[Настройка строк подключения]: http://msdn.microsoft.com/ru-ru/library/windowsazure/ee758697.aspx
-<!--HONumber=41-->
+[Настройка строк подключения]: http://msdn.microsoft.com/library/windowsazure/ee758697.aspx<!--HONumber=42-->

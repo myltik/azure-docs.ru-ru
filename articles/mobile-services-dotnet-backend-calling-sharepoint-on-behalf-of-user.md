@@ -1,6 +1,20 @@
-<properties pageTitle="Доступ к SharePoint от имени пользователя | Центр разработчиков для мобильных устройств" description="Узнайте, как осуществлять вызовы в SharePoint от имени пользователя" documentationCenter="windows" authors="mattchenderson" manager="dwrede" editor="" services=""/>
+<properties 
+	pageTitle="Доступ к SharePoint от имени пользователя | Центр разработчиков для мобильных устройств" 
+	description="Узнайте, как осуществлять вызовы в SharePoint от имени пользователя" 
+	documentationCenter="windows" 
+	authors="mattchenderson" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="mahender"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="mahender"/>
 
 # Доступ к SharePoint от имени пользователя
 
@@ -202,6 +216,6 @@
 <!-- URLs. -->
 [портале управления Azure]: https://manage.windowsazure.com/
 [SharePoint Online]: http://office.microsoft.com/ru-ru/sharepoint/
-[Проверка подлинности приложения с помощью единого входа библиотеки проверки подлинности Active Directory]: http://azure.microsoft.com/ru-ru/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/
+[Проверка подлинности приложения с помощью единого входа библиотеки проверки подлинности Active Directory]: http://azure.microsoft.com/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/
 
 <!--HONumber=42-->

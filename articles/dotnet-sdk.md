@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Информация о пакете Azure SDK для NET" metaKeywords="azure .net sdk" description="Узнайте, что включено в пакет SDK для Azure для .NET." documentationCenter=".NET" title="What is the Azure SDK for .NET" authors="tdykstra" solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties 
+	pageTitle="Информация о пакете Azure SDK для NET" 
+	description="Узнайте, что включено в пакет SDK для Azure для .NET." 
+	documentationCenter=".net" 
+	authors="tdykstra" 
+	manager="wpickett" 
+	editor="mollybos" 
+	services=""/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="tdykstra" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="02/19/2015" 
+	ms.author="tdykstra"/>
 
 # Что такое "пакет Azure SDK для .NET"?
 
@@ -40,7 +54,7 @@
 * [Публикация веб-проектов на веб-сайтах Azure](../web-sites-dotnet-get-started/).
 * [Публикация проектов консольных приложений в веб-заданиях Azure](../websites-dotnet-deploy-webjobs/).
 * [Создание ресурсов веб-сайтов Azure и баз данных SQL при создании нового веб-проекта или его публикации](../web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/).
-* [Создание сценариев развертывания PowerShell при создании новых веб-сайтов](http://msdn.microsoft.com/ru-ru/library/dn642480.aspx).
+* [Создание сценариев развертывания PowerShell при создании новых веб-сайтов](http://msdn.microsoft.com/library/dn642480.aspx).
 * [Управление и устранение неполадок веб-сайтов Azure в обозревателе серверов](../web-sites-dotnet-troubleshoot-visual-studio/#sitemanagement).
 * [Удаленный запуск веб-сайтов и веб-заданий в режиме отладки](../web-sites-dotnet-troubleshoot-visual-studio/#remotedebug). 
 
@@ -51,28 +65,28 @@
 Позволяет работать с облачными службами и виртуальными машинами Azure:
 
 * [Создание, открытие и публикация проектов облачных служб](../cloud-services-dotnet-get-started/).
-* [Создание пакетов развертывания для облачных служб](http://msdn.microsoft.com/ru-ru/library/ff683672.aspx).
+* [Создание пакетов развертывания для облачных служб](http://msdn.microsoft.com/library/ff683672.aspx).
 * [Создание виртуальных машин Azure при построении новых веб-проектов](../virtual-machines-dotnet-create-visual-studio-powershell/).
-* [Создание сценариев PowerShell при создании новых виртуальных машин](http://msdn.microsoft.com/ru-ru/library/dn642480.aspx).
-* [Просмотр настроек проекта облачных служб в окне свойств проекта Visual Studio и управление ими;](http://msdn.microsoft.com/ru-ru/library/ee405486.aspx).
-* Просмотр [облачных служб](http://msdn.microsoft.com/ru-ru/library/ff683675.aspx), [виртуальных машин](http://msdn.microsoft.com/ru-ru/library/jj131259.aspx)и [служебной шины](http://msdn.microsoft.com/ru-ru/library/jj149828.aspx) в обозревателе сервера и управление ими. 
-* [Удаленный запуск в режиме отладки облачных служб и виртуальных машин](http://msdn.microsoft.com/ru-ru/library/ff683670.aspx).
+* [Создание сценариев PowerShell при создании новых виртуальных машин](http://msdn.microsoft.com/library/dn642480.aspx).
+* [Просмотр настроек проекта облачных служб в окне свойств проекта Visual Studio и управление ими;](http://msdn.microsoft.com/library/ee405486.aspx).
+* Просмотр [облачных служб](http://msdn.microsoft.com/library/ff683675.aspx), [виртуальных машин](http://msdn.microsoft.com/library/jj131259.aspx)и [служебной шины](http://msdn.microsoft.com/library/jj149828.aspx) в обозревателе сервера и управление ими. 
+* [Удаленный запуск в режиме отладки облачных служб и виртуальных машин](http://msdn.microsoft.com/library/ff683670.aspx).
 
 ###<a id="auth"></a>Средства создания Microsoft Azure
 
 В их состав входят:
 
-* [Средство командной строки CSPack](http://msdn.microsoft.com/ru-ru/library/gg432988.aspx) для создания пакетов развертывания.
-* [Средство командной строки CSEncrypt](http://msdn.microsoft.com/ru-ru/library/hh404001.aspx) для шифрования паролей, используемых для доступа к экземплярам ролей облачных служб путем подключения к удаленному рабочему столу.
+* [Средство командной строки CSPack](http://msdn.microsoft.com/library/gg432988.aspx) для создания пакетов развертывания.
+* [Средство командной строки CSEncrypt](http://msdn.microsoft.com/library/hh404001.aspx) для шифрования паролей, используемых для доступа к экземплярам ролей облачных служб путем подключения к удаленному рабочему столу.
 * Исполнимые двоичные файлы, которые требуются проектам облачных служб для коммуникации со средой выполнения и диагностики. Эти файлы недоступны в пакетах NuGet.
 
 ###<a id="emulator"></a>Эмулятор Microsoft Azure
 
-[Эмулятор Azure](http://msdn.microsoft.com/ru-ru/library/dn339018.aspx) имитирует среду облачной службы, чтобы вы могли тестировать проекты облачных служб на локальном компьютере перед их развертыванием в Azure.
+[Эмулятор Azure](http://msdn.microsoft.com/library/dn339018.aspx) имитирует среду облачной службы, чтобы вы могли тестировать проекты облачных служб на локальном компьютере перед их развертыванием в Azure.
 
 ###<a id="stgemulator"></a>Эмулятор хранилища Microsoft Azure
 
-[Эмулятор хранения Azure](http://msdn.microsoft.com/ru-ru/library/hh403989.aspx) использует экземпляр SQL Server и локальную файловую систему для эмуляции хранилища Azure (запросы, таблицы, двоичные объекты), что позволяет проводить тестирование локально. 
+[Эмулятор хранения Azure](http://msdn.microsoft.com/library/hh403989.aspx) использует экземпляр SQL Server и локальную файловую систему для эмуляции хранилища Azure (запросы, таблицы, двоичные объекты), что позволяет проводить тестирование локально. 
 
 ###<a id="stgtools"></a>Средства хранилища Microsoft Azure
 
@@ -83,11 +97,11 @@
 В их состав входят:
 
 * Пакеты NuGet для хранилища Azure, сервисной шины и кэширования, которые сохраняются на компьютере, чтобы в Visual Studio можно было создать новые проекты облачных служб без доступа в Интернет.
-* Подключаемый модуль для Visual Studio, позволяющий запускать проекты [кэша роли](http://msdn.microsoft.com/ru-ru/library/dn386103.aspx) локально в Visual Studio. 
+* Подключаемый модуль для Visual Studio, позволяющий запускать проекты [кэша роли](http://msdn.microsoft.com/library/dn386103.aspx) локально в Visual Studio. 
 
 ###<a id="ls"></a>Дополнение LightSwitch Azure Publishing для Visual Studio
 
-Оно позволяет [публиковать приложения LightSwitch на веб-сайтах Azure](http://msdn.microsoft.com/ru-ru/library/jj131261.aspx). Дополнение LightSwitch входит в состав обновлений Visual Studio, а также в состав пакета Azure SDK для .NET. Установленный пакет SDK является гарантией того, что у вас последняя версия дополнения. 
+Оно позволяет [публиковать приложения LightSwitch на веб-сайтах Azure](http://msdn.microsoft.com/library/jj131261.aspx). Дополнение LightSwitch входит в состав обновлений Visual Studio, а также в состав пакета Azure SDK для .NET. Установленный пакет SDK является гарантией того, что у вас последняя версия дополнения. 
 
 ##<a id="notincluded"></a>Что не входит в состав пакета Azure SDK для .NET?
 
@@ -139,7 +153,7 @@
 
 ###<a id="guestos"></a>С какими версиями гостевых ОС совместим пакет Azure SDK для .NET?
 
-См. [Таблицу совместимости версий гостевых ОС и Azure SDK](http://msdn.microsoft.com/ru-ru/library/ee924680.aspx).
+См. [Таблицу совместимости версий гостевых ОС и Azure SDK](http://msdn.microsoft.com/library/ee924680.aspx).
 
 
 
@@ -150,3 +164,5 @@
 Исходный код пакета Azure SDK для .NET, включая клиентские библиотеки, размещен по адресу [GitHub.com/Azure](https://github.com/azure/).
 
 Справочную документацию клиентских библиотек Azure см. в разделе [Справочник по Azure .NET](/ru-ru/develop/net/reference/). 
+
+<!--HONumber=46--> 

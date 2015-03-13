@@ -1,6 +1,21 @@
-﻿<properties title="Monitor and manage Azure Data Factory using Azure Preview Portal" pageTitle="Мониторинг фабрики данных Azure и управление ею с помощью портала предварительной версии Azure" description="Узнайте, как отслеживать и контролировать созданные фабрики данных Azure с помощью портала управления Azure." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties 
+	pageTitle="Мониторинг фабрики данных Azure и управление ею с помощью портала предварительной версии Azure" 
+	description="Узнайте, как отслеживать и контролировать созданные фабрики данных Azure с помощью портала управления Azure." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/10/2015" 
+	ms.author="spelluru"/>
+
 
 # Мониторинг фабрики данных Azure с помощью портала предварительной версии Azure
 
@@ -204,3 +219,5 @@ ValidationInProgress | Выполняется проверка среза (с у
 [image-data-factory-events]: ./media/data-factory-monitor-manage-using-management-portal/Events.png
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

@@ -1,6 +1,18 @@
-﻿<properties title="How to use end user analytics in Azure" pageTitle="Использование аналитики конечных пользователей" description="Аналитика пользователей для веб-сайтов Microsoft Azure." authors="awills" manager="kamrani" />
+﻿<properties 
+	pageTitle="Использование аналитики конечных пользователей" 
+	description="Аналитика пользователей для веб-сайтов Microsoft Azure." 
+	services="application-insights" 
+	authors="alancameronwills" 
+	manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-10-02" ms.author="awills" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2015-01-09" 
+	ms.author="awills"/>
 
 # Аналитика для веб-сайтов Microsoft Azure
 
@@ -31,3 +43,5 @@
     ![Top Pages](./media/insights-usage-analytics/Insights_TopPages.png)
 - Самые медленные страницы за последнюю неделю, чтобы их можно было улучшить в соответствии с целями бизнеса.
 
+
+<!--HONumber=46--> 

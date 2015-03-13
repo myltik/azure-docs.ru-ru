@@ -1,6 +1,19 @@
-﻿<properties pageTitle="Установка гибридного кластера вычислений с помощью пакета Microsoft HPC" description="Узнайте, как использовать пакет Microsoft HPC и Azure для настройки небольшого гибридного кластера высокопроизводительных вычислений (HPC)" services="cloud-services" documentationCenter="" authors="dlepow" manager="timlt"/>
+﻿<properties 
+	pageTitle="Установка гибридного кластера вычислений с помощью пакета Microsoft HPC" 
+	description="Узнайте, как использовать пакет Microsoft HPC и Azure для настройки небольшого гибридного кластера высокопроизводительных вычислений (HPC)" 
+	services="cloud-services" 
+	documentationCenter="" 
+	authors="dlepow" 
+	manager="timlt"/>
 
-<tags ms.service="cloud-services" ms.workload="big-compute" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/30/2015" ms.author="danlep"/>
+<tags 
+	ms.service="cloud-services" 
+	ms.workload="big-compute" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/30/2015" 
+	ms.author="danlep"/>
 
 
 # Установка гибридного кластера вычислений с помощью пакета Microsoft HPC
@@ -16,7 +29,7 @@
 
 <h2 id="BKMK_Prereq">Предварительные требования</h2>
 
->[AZURE.NOTE]Для работы с этим учебником требуется учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Создание учетной записи Azure](http://www.windowsazure.com/ru-ru/develop/php/tutorials/create-a-windows-azure-account/).
+>[AZURE.NOTE]Для работы с этим учебником требуется учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Создание учетной записи Azure](http://azure.microsoft.com/develop/php/tutorials/create-a-windows-azure-account/).
 
 Кроме того, для работы с этим учебником потребуется следующее.
 
@@ -293,7 +306,7 @@
 * [Пакет HPC 2012 R2 и HPC 2012](http://go.microsoft.com/fwlink/p/?LinkID=263697)
 * [Ускорение в Azure с помощью пакета Microsoft HPC](http://go.microsoft.com/fwlink/p/?LinkID=200493)
 * [Пакет Microsoft HPC в виртуальных машинах Azure](http://go.microsoft.com/fwlink/p/?linkid=330375)
-* [Большие вычисления Azure: HPC и пакеты](http://azure.microsoft.com/ru-ru/solutions/big-compute/)
+* [Большие вычисления Azure: HPC и пакеты](http://azure.microsoft.com/solutions/big-compute/)
 
 
 [Overview]: ./media/set-up-hybrid-cluster-microsoft-hpc-pack-2012-sp1/hybrid_cluster_overview.png

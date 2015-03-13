@@ -1,7 +1,20 @@
-﻿<properties title="Guide to the Net# Neural Networks Specification Language for Azure ML" pageTitle="Руководство по языку спецификаций нейронных сетей Net# для Azure ML " description="Синтаксис языка спецификации нейронных сетей Net# и примеры создания пользовательской модели нейронной сети в Microsoft Azure ML с помощью Net# " metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jeannt" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Руководство по языку спецификаций нейронных сетей Net# для Azure ML" 
+	description="Синтаксис языка спецификации нейронных сетей Net# и примеры создания пользовательской модели нейронной сети в Microsoft Azure ML с помощью Net#" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/08/2014" ms.author="jeannt" />
-
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/08/2014" 
+	ms.author="jeannt"/>
 
 
 # Руководство по языку спецификаций нейронных сетей Net#
@@ -377,3 +390,5 @@ Net# дополнительно поддерживает определение 
 -	Так как **Sharing**[d] имеет значение false только для d == 0, количество ядер равно **MapCount** * **NodeCount**\[0] = 10 * 5 = 50. 
 
 [1]:./media/machine-learning-azure-ml-netsharp-reference-guide/formula_large.gif
+
+<!--HONumber=46--> 

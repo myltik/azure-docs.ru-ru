@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Что такое план размещения веб-сайтов?" description="Обзор плана веб-размещения" title="What is a web hosting plan?" services="web-sites" authors="adamab" manager="wpickett" />
+﻿<properties 
+	pageTitle="Что такое план размещения веб-сайтов?" 
+	description="Обзор плана веб-размещения" 
+	services="web-sites" 
+	authors="adamabdelhamed" 
+	manager="wpickett" 
+	editor="" 
+	documentationCenter=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="adamab" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/17/2014" 
+	ms.author="adamab"/>
 
 # Что такое план размещения веб-сайтов? #
 
@@ -48,10 +62,12 @@
 
 ### Дальнейшие действия ###
 
-Чтобы начать работу с Azure, см. раздел [Бесплатная пробная версия Microsoft Azure](http://azure.microsoft.com/ru-ru/pricing/free-trial/).
+Чтобы начать работу с Azure, см. раздел [Бесплатная пробная версия Microsoft Azure](http://azure.microsoft.com/pricing/free-trial/).
 
 <!-- Images. -->
 [BrowseEverythingScreenshot]: ./media/web-sites-web-hosting-plan-overview/browse-everything.png
 [WebHostingPlanResourceMapScreenshot]: ./media/web-sites-web-hosting-plan-overview/web-hosting-plan-resource-map.png
 [WebHostingPlanBladeScreenshot]: ./media/web-sites-web-hosting-plan-overview/web-hosting-plan-blade.png
 [BrowseWebHostingPlansScreenshot]: ./media/web-sites-web-hosting-plan-overview/browse-web-hosting-plans.png
+
+<!--HONumber=46--> 

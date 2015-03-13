@@ -308,11 +308,11 @@
 * [Документация по Git]
 * [Project Kudu](https://github.com/projectkudu/kudu/wiki)
 
-[Центр разработчиков Azure]: http://www.windowsazure.com/ru-ru/develop/overview/
+[Центр разработчиков Azure]: http://azure.microsoft.com/develop/overview/
 [Портал Azure]: http://manage.windowsazure.com
 [Веб-сайт Git]: http://git-scm.com
 [Установка Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-[Использование PowerShell для Azure]: http://www.windowsazure.com/ru-ru/develop/nodejs/how-to-guides/powershell-cmdlets/
+[Использование PowerShell для Azure]: http://azure.microsoft.com/develop/nodejs/how-to-guides/powershell-cmdlets/
 [Использование программ командной строки Azure для Mac и Linux]: /ru-ru/develop/nodejs/how-to-guides/command-line-tools/
 [Документация по Git]: http://git-scm.com/documentation
 
@@ -333,6 +333,5 @@
 [Создание репозитория (BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
 [Краткое руководство - Mercurial]: http://mercurial.selenic.com/wiki/QuickStart
 [Использование Dropbox для общего доступа к репозиториям Git]: https://gist.github.com/trey/2722927
-[Непрерывная доставка в Azure с использованием Visual Studio Online]: http://www.windowsazure.com/ru-ru/develop/net/common-tasks/publishing-with-tfs/
-
+[Непрерывная доставка в Azure с использованием Visual Studio Online]: http://azure.microsoft.com/develop/net/common-tasks/publishing-with-tfs/
 <!--HONumber=42-->

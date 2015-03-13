@@ -217,7 +217,7 @@ Transact-SQL с базой данных SQL, включая сведения о 
 * [Добавление пользователей в базу данных SQL][]   
 * [Справочник по Transact-SQL (база данных SQL)][]
 
-  [Использование базы данных SQL Azure]: http://www.windowsazure.com/ru-ru/develop/net/how-to-guides/sql-azure/
+  [Использование базы данных SQL Azure]: http://azure.microsoft.com/develop/net/how-to-guides/sql-azure/
   [Шаг 1. Получение среды SQL Server Management Studio]: #Step1
   [Шаг 2. Подключение к базе данных SQL]: #Step2
   [Шаг 3. Создание баз данных и управление ими]: #Step3
@@ -231,18 +231,17 @@ Transact-SQL с базой данных SQL, включая сведения о 
   [Получение имени сервера баз данных SQL из портала управления]: /media/portal_get_database_name.png
   [Подключение к SSMS]: /media/ssms_connect.png
   [Подключение к SSMS - свойства]: /media/ssms_connect_properties.png
-  [Справочник по Transact-SQL (база данных SQL)]: http://msdn.microsoft.com/ru-ru/library/bb510741(v=sql.120).aspx
-  [CREATE DATABASE (база данных SQL)]: http://msdn.microsoft.com/ru-ru/library/windowsazure/ee336274.aspx
-  [ALTER DATABASE (база данных SQL)]: http://msdn.microsoft.com/ru-ru/library/windowsazure/ff394109.aspx
-  [DROP DATABASE (база данных SQL)]: http://msdn.microsoft.com/ru-ru/library/windowsazure/ee336259.aspx
-  [Управление базами данных и учетными записями в базе данных SQL]: http://msdn.microsoft.com/ru-ru/library/windowsazure/ee336235.aspx
-  [CREATE LOGIN (база данных SQL)]: http://msdn.microsoft.com/ru-ru/library/windowsazure/ee336268.aspx
-  [CREATE USER (база данных SQL)]: http://msdn.microsoft.com/ru-ru/library/ee336277.aspx
-  [sp_addrolemember (Transact-SQL)]: http://msdn.microsoft.com/ru-ru/library/ms187750.aspx
-  [CREATE USER (база данных SQL)]: http://msdn.microsoft.com/ru-ru/library/windowsazure/ee336254.aspx
-  [Мониторинг базы данных SQL с помощью динамических административных представлений]: http://msdn.microsoft.com/ru-ru/library/windowsazure/ff394114.aspx
-  [Введение в базы данных SQL]: http://msdn.microsoft.com/ru-ru/library/windowsazure/ee336230.aspx
-  [Модель подготовки базы данных SQL]: http://msdn.microsoft.com/ru-ru/library/ee336227.aspx
+  [Справочник по Transact-SQL (база данных SQL)]: http://msdn.microsoft.com/library/bb510741(v=sql.120).aspx
+  [CREATE DATABASE (база данных SQL)]: http://msdn.microsoft.com/library/windowsazure/ee336274.aspx
+  [ALTER DATABASE (база данных SQL)]: http://msdn.microsoft.com/library/windowsazure/ff394109.aspx
+  [DROP DATABASE (база данных SQL)]: http://msdn.microsoft.com/library/windowsazure/ee336259.aspx
+  [Управление базами данных и учетными записями в базе данных SQL]: http://msdn.microsoft.com/library/windowsazure/ee336235.aspx
+  [CREATE LOGIN (база данных SQL)]: http://msdn.microsoft.com/library/windowsazure/ee336268.aspx
+  [CREATE USER (база данных SQL)]: http://msdn.microsoft.com/library/ee336277.aspx
+  [sp_addrolemember (Transact-SQL)]: http://msdn.microsoft.com/library/ms187750.aspx
+  [CREATE USER (база данных SQL)]: http://msdn.microsoft.com/library/windowsazure/ee336254.aspx
+  [Мониторинг базы данных SQL с помощью динамических административных представлений]: http://msdn.microsoft.com/library/windowsazure/ff394114.aspx
+  [Введение в базы данных SQL]: http://msdn.microsoft.com/library/windowsazure/ee336230.aspx
+  [Модель подготовки базы данных SQL]: http://msdn.microsoft.com/library/ee336227.aspx
   [Добавление пользователей в базу данных SQL]: http://blogs.msdn.com/b/sqlazure/archive/2010/06/21/10028038.aspx
-
 <!--HONumber=42-->

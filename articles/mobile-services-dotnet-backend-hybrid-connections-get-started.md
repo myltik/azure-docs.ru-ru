@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Подключение к локальному SQL Server из мобильной службы Azure с использованием гибридных подключений - мобильные службы Azure" description="Узнайте, как подключиться к локальному SQL Server из мобильной службы Azure с помощью гибридных подключений" services="" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor="mollybos"/>
+﻿<properties 
+	pageTitle="Подключение к локальному SQL Server из мобильной службы Azure с использованием гибридных подключений - мобильные службы Azure" 
+	description="Узнайте, как подключиться к локальному SQL Server из мобильной службы Azure с помощью гибридных подключений" 
+	services="" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor="mollybos"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/22/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/22/2014" 
+	ms.author="glenga"/>
 
   
 # Подключение к локальному SQL Server из мобильной службы Azure с помощью гибридных подключений 
@@ -156,9 +170,9 @@
 
 ##См. также
  
-+ [Веб-сайт гибридных подключений](http://azure.microsoft.com/ru-ru/services/biztalk-services/)
++ [Веб-сайт гибридных подключений](http://azure.microsoft.com/services/biztalk-services/)
 + [Обзор гибридных подключений](http://go.microsoft.com/fwlink/p/?LinkID=397274)
-+ [Службы BizTalk: вкладки "Панель мониторинга", "Монитор", "Масштаб", "Настройка" и "Гибридные подключения"](http://azure.microsoft.com/ru-ru/documentation/articles/biztalk-dashboard-monitor-scale-tabs/)
++ [Службы BizTalk: вкладки "Панель мониторинга", "Монитор", "Масштаб", "Настройка" и "Гибридные подключения"](http://azure.microsoft.com/documentation/articles/biztalk-dashboard-monitor-scale-tabs/)
 
 <!-- IMAGES -->
  

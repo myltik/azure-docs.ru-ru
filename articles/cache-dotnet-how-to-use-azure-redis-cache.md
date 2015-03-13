@@ -1,6 +1,20 @@
-<properties pageTitle="Как использовать кэш Azure Redis" metaKeywords="" description="Узнайте, как создать и использовать кэш в кэше Redis для Azure" metaCanonical="" services="cache" documentationCenter="API Management" title="How to Use Azure Redis Cache" authors="sdanie" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Как использовать кэш Azure Redis" 
+	description="Узнайте, как создать и использовать кэш в кэше Redis для Azure" 
+	services="cache" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="cache" ms.workload="tbd" ms.tgt_pltfrm="cache-redis" ms.devlang="dotnet" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie" />
+<tags 
+	ms.service="cache" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="cache-redis" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="1/20/2015" 
+	ms.author="sdanie"/>
 
 # Как использовать кэш Azure Redis
 
@@ -332,27 +346,27 @@
 <!-- LINKS -->
 [Поставщик состояний сеансов Redis для Azure]: http://go.microsoft.com/fwlink/?LinkId=398249
 [Портал управления Azure]: http://windows.azure.com/
-[Практическое руководство. Программная настройка клиента кэша]: http://msdn.microsoft.com/ru-ru/library/windowsazure/gg618003.aspx
+[Практическое руководство. Программная настройка клиента кэша]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
 [Поставщик состояний сеансов для кэша Azure]: http://go.microsoft.com/fwlink/?LinkId=320835
 [Кэш Azure AppFabric: кэширование состояний сеансов]: http://www.microsoft.com/ru-ru/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
 [Поставщик кэша вывода для кэша Azure]: http://go.microsoft.com/fwlink/?LinkId=320837
-[Совмещенное кэширование в Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/gg278356.aspx
+[Совмещенное кэширование в Azure]: http://msdn.microsoft.com/library/windowsazure/gg278356.aspx
 [Блог группы разработчиков]: http://blogs.msdn.com/b/windowsazure/
 [Кэширование Azure]: http://www.microsoft.com/ru-ru/showcase/Search.aspx?phrase=azure+caching
 [Настройка размера виртуальных машин]: http://go.microsoft.com/fwlink/?LinkId=164387
 [Рекомендации по планированию мощностей Azure Caching]: http://go.microsoft.com/fwlink/?LinkId=320167
 [Кэширование Azure]: http://go.microsoft.com/fwlink/?LinkId=252658
-[Практическое руководство. Декларативное задание возможности кэширования страницы ASP.NET]: http://msdn.microsoft.com/ru-ru/library/zd1ysf1y.aspx
-[Практическое руководство. Программное задание возможности кэширования страницы]: http://msdn.microsoft.com/ru-ru/library/z852zf6b.aspx
-[Настройка кэша Azure Redis]: http://msdn.microsoft.com/ru-ru/library/azure/dn793612.aspx
+[Практическое руководство. Декларативное задание возможности кэширования страницы ASP.NET]: http://msdn.microsoft.com/library/zd1ysf1y.aspx
+[Практическое руководство. Программное задание возможности кэширования страницы]: http://msdn.microsoft.com/library/z852zf6b.aspx
+[Настройка кэша Azure Redis]: http://msdn.microsoft.com/library/azure/dn793612.aspx
 
 [Модель конфигурации StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Configuration.md
 
-[Работа с объектами .NET в кэше]: http://msdn.microsoft.com/ru-ru/library/dn690521.aspx#Objects
+[Работа с объектами .NET в кэше]: http://msdn.microsoft.com/library/dn690521.aspx#Objects
 
 
 [Установка диспетчера пакета NuGet]: http://go.microsoft.com/fwlink/?LinkId=240311
-[Сведения о ценах - кэш]: http://www.windowsazure.com/ru-ru/pricing/details/cache/
+[Сведения о ценах - кэш]: http://azure.microsoft.com/pricing/details/cache/
 [Портал управления]: https://manage.windowsazure.com/
 
 [Обзор кэша Azure Redis]: http://go.microsoft.com/fwlink/?LinkId=320830
@@ -360,7 +374,7 @@
 
 [Переход на кэш Redis для Azure]: http://go.microsoft.com/fwlink/?LinkId=317347
 [Примеры кэша Redis для Azure]: http://go.microsoft.com/fwlink/?LinkId=320840
-[Использование групп для управления ресурсами Azure]:http://azure.microsoft.com/ru-ru/documentation/articles/azure-preview-portal-using-resource-groups/
+[Использование групп для управления ресурсами Azure]:http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups/
 
 [StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis
 [Документация по клиенту кэша StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis#documentation
@@ -373,3 +387,5 @@
 [Веб-сайты Microsoft Azure: как работают строки приложений и строки подключения]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

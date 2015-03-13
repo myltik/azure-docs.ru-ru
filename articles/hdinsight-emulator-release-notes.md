@@ -34,7 +34,7 @@
 
 ### Новые возможности 
  
-* [Обновленные версии компонентов Hadoop](http://azure.microsoft.com/ru-ru/documentation/articles/hdinsight-component-versioning/), соответствующие версии 3.1 этой службы.  Сюда входит поддержка Hive версии 0.13 и Tez.
+* [Обновленные версии компонентов Hadoop](http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/), соответствующие версии 3.1 этой службы.  Сюда входит поддержка Hive версии 0.13 и Tez.
 
 ## Версия 1.0.0.0, выпущенная 28.10.2013
 
@@ -92,7 +92,7 @@
  
 * Подключение к нескольким кластерам, включая локальные установки, а также выполняемые удаленно с помощью службы Azure HDInsight. 
  
-* Дополнительные сведения о службе HDInsight см. по адресу [http://azure.microsoft.com/ru-ru/documentation/services/hdinsight/](http://azure.microsoft.com/ru-ru/documentation/services/hdinsight/).
+* Дополнительные сведения о службе HDInsight см. по адресу [http://azure.microsoft.com/documentation/services/hdinsight/](http://azure.microsoft.com/documentation/services/hdinsight/).
 
 * Настройка WASB в локальном кластере
 
@@ -284,6 +284,5 @@
 
 
 [hdinsight-get-started-emulator]: ../hdinsight-get-started-emulator/
-
 
 <!--HONumber=42-->

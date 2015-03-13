@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Регистрация пакета приложения для магазина Windows для проверки подлинности Microsoft" description="Узнайте, как зарегистрировать приложение магазина Windows для прохождения аутентификации Майкрософт в приложении мобильных служб Azure" services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Регистрация пакета приложения для магазина Windows для проверки подлинности Microsoft" 
+	description="Узнайте, как зарегистрировать приложение магазина Windows для прохождения аутентификации Майкрософт в приложении мобильных служб Azure" 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="glenga"/>
 
 # Регистрация пакета приложения для магазина Windows для проверки подлинности Microsoft
 

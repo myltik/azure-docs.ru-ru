@@ -128,5 +128,4 @@
 
 <!-- URLs. -->
 [Android SDK для мобильных служб]: http://aka.ms/Iajk6q
-
 <!--HONumber=42-->

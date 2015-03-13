@@ -1,6 +1,21 @@
-﻿<properties urlDisplayName="" pageTitle="Поддерживаемые браузеры и устройства" metaKeywords ="" description="" metaCanonical="" services="" documentationCenter="" title="Supported browsers and devices" authors="Justin Beckwith"  solutions="" writer="" manager="need to identify contact" editor=""  />
+<properties 
+	pageTitle="Поддерживаемые браузеры и устройства" 
+	<MORAVIA_NOTRANSLATE></MORAVIA_NOTRANSLATE> 
+	services="" 
+	documentationCenter="" 
+	authors="JustinBeckwith" 
+	writer="" 
+	manager="carolz" 
+	editor=""/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="11/16/2014" ms.author="Justin Beckwith" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/16/2014" 
+	ms.author="justbe"/>
 
 #Поддерживаемые браузеры и устройства
 Портал Microsoft Azure (предварительная версия) работает на всех современных настольных и планшетных устройствах и во всех браузерах.
@@ -20,3 +35,5 @@
  
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

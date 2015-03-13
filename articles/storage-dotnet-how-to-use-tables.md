@@ -56,7 +56,7 @@
 <h3>Получение сборки</h3>
 Можно использовать NuGet для получения сборки  `Microsoft.WindowsAzure.Storage.dll`. Щелкните правой кнопкой мыши проект в **Обозревателе решений** и выберите **Управление пакетами NuGet**.  Выполните в Интернете поиск "WindowsAzure.Storage" и нажмите кнопку **Установить**, чтобы установить пакет хранилища Azure и зависимые компоненты.
 
-`Microsoft.WindowsAzure.Storage.dll` также включена в состав пакета SDK для Azure для .NET, который можно скачать из <a href="http://www.windowsazure.com/ru-ru/develop/net/#">Центра разработчиков .NET</a>. Сборка устанавливается в каталог  `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\<sdk-version>\ref\`.
+`Microsoft.WindowsAzure.Storage.dll` также включена в состав пакета SDK для Azure для .NET, который можно скачать из <a href="http://azure.microsoft.com/develop/net/#">Центра разработчиков .NET</a>. Сборка устанавливается в каталог  `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\<sdk-version>\ref\`.
 
 <h3>Объявления пространств имен</h3>
 Добавьте следующие объявления пространств имен кода в начало любого файла C\#, в котором вы собираетесь получать доступ к службе хранилища Azure программным способом.
@@ -434,10 +434,10 @@
   <ul>
     <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409">Справочник по клиентской библиотеке хранилища для .NET</a>
     </li>
-    <li><a href="http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179355">Справочник по REST API</a></li>
+    <li><a href="http://msdn.microsoft.com/library/windowsazure/dd179355">Справочник по REST API</a></li>
   </ul>
 </li>
-<li>Дополнительную информацию о более сложных задачах, которые можно выполнить со службой хранилища Azure, см. в разделе <a href="http://msdn.microsoft.com/ru-ru/library/windowsazure/gg433040.aspx">Хранение и доступ к данным в Azure</a>.</li>
+<li>Дополнительную информацию о более сложных задачах, которые можно выполнить со службой хранилища Azure, см. в разделе <a href="http://msdn.microsoft.com/library/windowsazure/gg433040.aspx">Хранение и доступ к данным в Azure</a>.</li>
 <li>Узнайте, как упростить код, предназначенный для работы со службой хранилища Azure с помощью <a href="../websites-dotnet-webjobs-sdk/">пакета SDK для Azure WebJobs.</li>
 <li>Просмотрите дополнительные руководства, чтобы изучить дополнительные возможности хранения данных в Azure.
   <ul>
@@ -468,7 +468,7 @@
   [Практическое руководство. Удаление сущности]: #delete-entity
   [Практическое руководство. Удаление таблицы]: #delete-table
   [Скачивание и установка пакета SDK для Microsoft Azure для .NET]: /ru-ru/develop/net/
-  [Создание проекта Azure в Visual Studio]: http://msdn.microsoft.com/ru-ru/library/windowsazure/ee405487.aspx
+  [Создание проекта Azure в Visual Studio]: http://msdn.microsoft.com/library/windowsazure/ee405487.aspx
   
   [Blob5]: ./media/storage-dotnet-how-to-use-table-storage/blob5.png
   [Blob6]: ./media/storage-dotnet-how-to-use-table-storage/blob6.png
@@ -478,11 +478,10 @@
   
   [записи блога]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
   [Справочник по клиентской библиотеке .NET]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-  [Хранение и доступ к данным в Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/gg433040.aspx
+  [Хранение и доступ к данным в Azure]: http://msdn.microsoft.com/library/windowsazure/gg433040.aspx
   [Блог рабочей группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
-  [Настройка строк подключения]: http://msdn.microsoft.com/ru-ru/library/windowsazure/ee758697.aspx
+  [Настройка строк подключения]: http://msdn.microsoft.com/library/windowsazure/ee758697.aspx
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
-
 <!--HONumber=42-->

@@ -137,7 +137,6 @@
   [Практическое руководство. Дополнительные параметры для удаления сообщений из очереди]: #advanced-get
   [Практическое руководство. Получение длины очереди]: #get-queue-length
   [Практическое руководство. Удаление очереди]: #delete-queue
-  [Хранение и доступ к данным в Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/gg433040.aspx
+  [Хранение и доступ к данным в Azure]: http://msdn.microsoft.com/library/windowsazure/gg433040.aspx
   [Блог рабочей группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
-
 <!--HONumber=42-->

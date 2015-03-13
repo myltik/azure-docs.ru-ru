@@ -1,6 +1,18 @@
-﻿<properties title="Track usage in web applications with Application Insights" pageTitle="Отслеживание использования в веб-приложениях" description="Ведение журнала действий пользователя." metaKeywords="analytics monitoring application insights" authors="awills" manager="kamrani" />
+﻿<properties 
+	pageTitle="Отслеживание использования в веб-приложениях" 
+	description="Ведение журнала действий пользователя." 
+	services="application-insights" 
+	authors="alancameronwills" 
+	manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-11-21" ms.author="awills" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2015-01-09" 
+	ms.author="awills"/>
  
 # Отслеживание использования веб-приложений
 
@@ -119,3 +131,5 @@
 
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

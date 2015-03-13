@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Issuer name and issuer key" pageTitle="Имя издателя и ключ издателя в службах BizTalk | Azure" metaKeywords="BizTalk Services, BizTalk, issuer name, issuer key, Azure" description="Узнайте, как извлечь имя и ключ издателя для Service Bus или управления доступом (ACS) в службах BizTalk." metaCanonical="" services="biztalk-services" documentationCenter="" title="BizTalk Services: Issuer Name and Issuer Key" authors="mandia" solutions="" manager="dwrede" editor="susanjo" />
+﻿<properties 
+	pageTitle="Имя издателя и ключ издателя в службах BizTalk | Azure" 
+	description="Узнайте, как извлечь имя и ключ издателя для Service Bus или управления доступом (ACS) в службах BizTalk. MABS, WABS" 
+	services="biztalk-services" 
+	documentationCenter="" 
+	authors="MandiOhlinger" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
+<tags 
+	ms.service="biztalk-services" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/16/2015" 
+	ms.author="mandia"/>
 
 
 
@@ -98,3 +112,5 @@
 - [Службы BizTalk: вкладки "Панель мониторинга", "Монитор" и "Масштаб"](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
 - [Службы BizTalk: архивация и восстановление](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
 - [Службы BizTalk: регулирование](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
+
+<!--HONumber=46--> 

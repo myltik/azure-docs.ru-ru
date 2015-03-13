@@ -160,7 +160,7 @@ API-интерфейса Node.js. Здесь описаны такие сцен�
 
 ## <a name="upload-blob"> </a>Практическое руководство. Отправка большого двоичного объекта в контейнер
 
-Blob-объект может быть либо блочным, либо страничным. Blob-блоки позволяют более эффективно отправлять данные большого размера, в то время как blob-страницы оптимизированы для операция чтения/записи. Дополнительную информацию см. в разделе [Что такое блочные и страничные BLOB-объекты](http://msdn.microsoft.com/ru-ru/library/azure/ee691964.aspx).
+Blob-объект может быть либо блочным, либо страничным. Blob-блоки позволяют более эффективно отправлять данные большого размера, в то время как blob-страницы оптимизированы для операция чтения/записи. Дополнительную информацию см. в разделе [Что такое блочные и страничные BLOB-объекты](http://msdn.microsoft.com/library/azure/ee691964.aspx).
 
 ###Blob-блоки
 
@@ -407,10 +407,9 @@ ACL реализуется с помощью массива политик до�
   [Node.js Cloud Service with Storage]: /ru-ru/documentation/articles/storage-nodejs-use-table-storage-cloud-service-app/
   [Веб-приложение Node.js с хранилищем]: /ru-ru/documentation/articles/storage-nodejs-use-table-storage-web-site/
  [Веб-сайт с WebMatrix]: /ru-ru/documentation/articles/web-sites-nodejs-use-webmatrix/
-  [using the REST API]: http://msdn.microsoft.com/ru-ru/library/windowsazure/hh264518.aspx
+  [using the REST API]: http://msdn.microsoft.com/library/windowsazure/hh264518.aspx
   [Azure Management Portal]: http://manage.windowsazure.com
   [Облачная служба Node.js]: /ru-ru/documentation/articles/cloud-services-nodejs-develop-deploy-app/
-  [Хранение и доступ к данным в Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/gg433040.aspx
+  [Хранение и доступ к данным в Azure]: http://msdn.microsoft.com/library/windowsazure/gg433040.aspx
   [блог рабочей группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
-
 <!--HONumber=42-->

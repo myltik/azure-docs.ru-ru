@@ -1,6 +1,20 @@
-﻿<properties title="How to create a hybrid deployment of RemoteApp" pageTitle="Как создать гибридное развертывание RemoteApp" description="Узнайте, как создать развертывание удаленного приложения RemoteApp, которое подключается к внутренней сети." metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo" manager="kathyw" />
+﻿<properties 
+	pageTitle="Создание гибридной коллекции для RemoteApp" 
+	description="Узнайте, как создать развертывание удаленного приложения RemoteApp, которое подключается к внутренней сети." 
+	services="remoteapp" 
+	documentationCenter="" 
+	authors="lizap" 
+	manager="mbaldwin" 
+	editor=""/>
 
-<tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/12/2014" ms.author="elizapo" ms.manager="kathyw" />
+<tags 
+	ms.service="remoteapp" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/17/2015" 
+	ms.author="elizapo"/>
 
 #Как создать гибридное развертывание RemoteApp
 
@@ -11,7 +25,7 @@
 
 В этом учебнике содержится пошаговое руководство по гибридному развертыванию. Для этого необходимо выполнить семь шагов: 
 
-1.	создать [пользовательский образ шаблона для RemoteApp](http://azure.microsoft.com/ru-ru/documentation/articles/remoteapp-create-custom-image/);
+1.	создать [пользовательский образ шаблона для RemoteApp](http://azure.microsoft.com/documentation/articles/remoteapp-create-custom-image/);
 2.	Создание службы RemoteApp.
 2.	связаться с виртуальной сетью.
 3.	связаться с образом шаблона.
@@ -23,12 +37,12 @@
 
 Перед созданием службы необходимо выполнить следующие действия.
 
-- Зарегистрироваться для предварительной версии RemoteApp. Это можно сделать на странице [http://azure.microsoft.com/ru-ru/services/remoteapp/](http://azure.microsoft.com/ru-ru/services/remoteapp/).
+- Зарегистрироваться для предварительной версии RemoteApp. Это можно сделать на странице [http://azure.microsoft.com/services/remoteapp/](http://azure.microsoft.com/services/remoteapp/).
 - Создать учетную запись пользователя в Active Directory для использования в качестве учетной записи службы RemoteApp. Ограничить разрешения для этой учетной записи, чтобы она могла только присоединять машины к домену.
 - Собрать информацию о своей локальной сети: информацию об IP-адресе и сведения о VPN-устройстве.
-- Установить модуль [Azure PowerShell](http://azure.microsoft.com/ru-ru/documentation/articles/install-configure-powershell/).
+- Установить модуль [Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell/).
 - Собрать сведения о пользователях и группах, которым требуется предоставить доступ. Это могут быть сведения об учетных записях Майкрософт или о рабочих учетных записях в Active Directory для пользователей и групп.
-- Создание образа шаблона Образ шаблона RemoteApp содержит приложения программы, которыми вы хотите поделиться с пользователями. Подробные инструкции см. в разделе [Создание пользовательского шаблона для RemoteApp](http://azure.microsoft.com/ru-ru/documentation/articles/remoteapp-create-custom-image/). 
+- Создание образа шаблона Образ шаблона RemoteApp содержит приложения программы, которыми вы хотите поделиться с пользователями. Подробные инструкции см. в разделе [Создание пользовательского шаблона для RemoteApp](http://azure.microsoft.com/documentation/articles/remoteapp-create-custom-image/). 
 
 
 
@@ -74,7 +88,7 @@
 
 ## **Шаг 3: связь с образом шаблона RemoteApp** ##
 
-Образ шаблона RemoteApp содержит программы, которыми вы хотите поделиться с пользователями. Можно отправить созданный образ шаблона (инструкции см. в разделе [Создание пользовательского образа шаблона для RemoteApp](http://azure.microsoft.com/ru-ru/documentation/articles/remoteapp-create-custom-image/)) или ссылку на существующий образ (который уже отправлен на Azure).
+Образ шаблона RemoteApp содержит программы, которыми вы хотите поделиться с пользователями. Можно отправить созданный образ шаблона (инструкции см. в разделе [Создание пользовательского образа шаблона для RemoteApp](http://azure.microsoft.com/documentation/articles/remoteapp-create-custom-image/)) или ссылку на существующий образ (который уже отправлен на Azure).
 
 Если передается новый шаблон, необходимо ввести имя и выбрать местоположение для образа. На следующей странице мастера находится набор командлетов PowerShell. Чтобы передать выбранный образ, необходимо скопировать эти командлеты и выполнить их из строки с повышенными привилегиями Azure PowerShell.
 
@@ -110,3 +124,5 @@
 Вы успешно создали и развернули гибридное развертывание RemoteApp. Далее пользователи должны загрузить и установить клиент удаленного рабочего стола. URL-адрес для клиента можно найти на странице быстрого запуска RemoteApp. Затем пользователи должны выполнить вход в клиент и вызвать опубликованные программы RemoteApp.
 
 
+
+<!--HONumber=46--> 

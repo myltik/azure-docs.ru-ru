@@ -378,9 +378,8 @@ HTML-файл для отображения изображения в вашем
   [Предварительные требования]: #bkmk_prerequisites
   [Использование хранилища больших двоичных объектов Azure для отправки файла]: #bkmk_uploadfile
   [Удаление контейнера]: #bkmk_deletecontainer
-  [Скачивание пакета Azure SDK для Java]: http://www.windowsazure.com/ru-ru/develop/java/
-  [Как создать учетную запись хранения]: http://www.windowsazure.com/ru-ru/manage/services/storage/how-to-create-a-storage-account/
-  [Управление учетными записями хранения]: http://www.windowsazure.com/ru-ru/manage/services/storage/how-to-manage-a-storage-account/
-  [Использование Как использовать службу хранилища больших двоичных объектов из Java]: http://www.windowsazure.com/ru-ru/develop/java/how-to-guides/blob-storage/
-
+  [Скачивание пакета Azure SDK для Java]: http://azure.microsoft.com/develop/java/
+  [Как создать учетную запись хранения]: http://azure.microsoft.com/manage/services/storage/how-to-create-a-storage-account/
+  [Управление учетными записями хранения]: http://azure.microsoft.com/manage/services/storage/how-to-manage-a-storage-account/
+  [Использование Как использовать службу хранилища больших двоичных объектов из Java]: http://azure.microsoft.com/develop/java/how-to-guides/blob-storage/
 <!--HONumber=42-->

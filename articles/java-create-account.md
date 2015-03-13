@@ -1,5 +1,21 @@
-﻿<properties title="Java create account" pageTitle="Создание учетной записи Java" metaKeywords="" description="Создание учетной записи в Azure." documentationCenter="Java" services="" solutions="" manager="wpickett" editor="mollybos" authors="robmcm" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Создание учетной записи Java" 
+	description="Создание учетной записи в Azure." 
+	documentationCenter="java" 
+	services="" 
+	manager="wpickett" 
+	editor="mollybos" 
+	authors="rmcmurray"/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="09/25/2014" 
+	ms.author="robmcm"/>
 
 [WACOM.INCLUDE [create-an-azure-account](../includes/create-an-azure-account.md)]
+
+<!--HONumber=46--> 

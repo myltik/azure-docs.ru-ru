@@ -1,14 +1,28 @@
-﻿<properties pageTitle="Доставка содержимого потоковой передачи Apple HTTP (HLS) - Azure" description="Узнайте, как создать локатор контента потоковой передачи Apple HTTP (HLS) на исходном сервере служб мультимедиа. Примеры кода написаны на языке C# и используют пакет SDK служб мультимедиа для .NET." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Доставка содержимого потоковой передачи Apple HTTP (HLS) - Azure" 
+	description="Узнайте, как создать локатор контента потоковой передачи Apple HTTP (HLS) на исходном сервере служб мультимедиа. Примеры кода написаны на языке C# и используют пакет SDK служб мультимедиа для .NET." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
+	ms.author="juliako"/>
 
 
 
 
 
-<h1>Практическое руководство: Доставка контента потоковой передачи Apple HLS</h1>
+<h1>Практическое руководство. Доставка контента потоковой передачи Apple HLS</h1>
 
-Эта статья является частью серии вводных статей о программировании служб мультимедиа в Azure. Предыдущий раздел [Практическое руководство: Доставка потокового контента](../ media-services доставки-потоковой передачи content /).
+Эта статья является частью серии вводных статей о программировании служб мультимедиа в Azure. Предыдущий раздел [Практическое руководство: Доставка потокового содержимого](../media-services-deliver-streaming-content/)
 
 В этом разделе демонстрируется, как создать локатор контента Apple HTTP Live Streaming (HLS) на исходном сервере служб мультимедиа. С помощью такого подхода можно создать URL-адрес контента Apple HLS и передать его на устройства Apple iOS для воспроизведения. В основе создания URL-адреса локатора лежит тот же подход. Это построение локатора пути ресурса потоковой передачи Apple HLS на исходном сервере с последующим построением полного URL-адреса, указывающий на манифест для контента потоковой передачи.
 
@@ -65,8 +79,8 @@ static ILocator GetStreamingHLSOriginLocator( string targetAssetID)
 
 Дополнительные сведения о доставке ресурсов см. в следующих статьях:
 <ul>
-<li><a href="http://msdn.microsoft.com/ru-ru/library/jj129575.aspx">Доставка ресурсов с помощью служб носителей для .NET</a></li>
-<li><a href="http://msdn.microsoft.com/ru-ru/library/jj129578.aspx">Доставка ресурсов с помощью API-интерфейса REST служб носителей</a></li>
+<li><a href="http://msdn.microsoft.com/library/jj129575.aspx">Доставка ресурсов с помощью служб носителей для .NET</a></li>
+<li><a href="http://msdn.microsoft.com/library/jj129578.aspx">Доставка ресурсов с помощью API-интерфейса REST служб носителей</a></li>
 </ul>
 
 <h2>Дальнейшие действия</h2>
@@ -76,16 +90,15 @@ static ILocator GetStreamingHLSOriginLocator( string targetAssetID)
 -   [Документация по службам мультимедиа Azure][]
 -   [Приступая к работе с пакетом SDK служб мультимедиа для .NET][]
 -   [Создание приложений с помощью пакета SDK служб мультимедиа для .NET][]
--   [Создание приложений с помощью интерфейса API REST служб мультимедиа Azure][]
+-   [Создание приложений с помощью REST API служб мультимедиа Azure][]
 -   [Форум по службам мультимедиа][]
 -	[Мониторинг учетной записи служб мультимедиа](../media-services-monitor-services-account/)
--	[Управление контентом в службах мультимедиа](../media-services-manage-content/)
+-	[Как управлять содержимым в службах мультимедиа](../media-services-manage-content/)
 
 [Документация по службам мультимедиа Azure]: http://go.microsoft.com/fwlink/?linkid=245437
 [Приступая к работе с пакетом SDK служб мультимедиа для .NET]: http://go.microsoft.com/fwlink/?linkid=252966
-[Создание приложений с помощью интерфейса API REST служб мультимедиа Azure]: http://go.microsoft.com/fwlink/?linkid=252967
+[Создание приложений с помощью REST API служб мультимедиа Azure]: http://go.microsoft.com/fwlink/?linkid=252967
 [Создание приложений с помощью пакета SDK служб мультимедиа для .NET]: http://go.microsoft.com/fwlink/?linkid=247821
-[Форум по службам мультимедиа]: http://social.msdn.microsoft.com/Forums/ru-ru/MediaServices/threads
+[Форум по службам мультимедиа]: http://social.msdn.microsoft.com/Forums/en-US/MediaServices/threads
 
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

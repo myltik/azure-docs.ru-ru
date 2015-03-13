@@ -1,6 +1,20 @@
-﻿<properties title="Query with DocumentDB SQL" pageTitle="Формирование запросов с помощью DocumentDB SQL | Azure" description="Использования documentdb по плану, службы базы данных NoSQL документа, поддерживает запросы с помощью SQL-подобные грамматики иерархических документам JSON без необходимости явного создания вторичные индексы или схемы." metaKeywords="" services="documentdb"  documentationCenter="" solutions="data-management" authors="mimig" manager="jhubbard" editor="monicar" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Формирование запросов с помощью DocumentDB SQL | Azure" 
+	description="DocumentDB, служба базы данных документов NoSQL, поддерживает запросы использующие грамматику, аналогичную SQL, в иерархических документах JSON, не требуя явной схемы или создания вторичных индексов." 
+	services="documentdb" 
+	documentationCenter="" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/11/2014" ms.author="mimig" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/02/2015" 
+	ms.author="mimig"/>
 
 #Запросы DocumentDB
 Служба Azure DocumentDB Microsoft Azure поддерживает запросы документы с помощью SQL (язык структурированных запросов) через иерархические документы JSON. DocumentDB действительно не имеет схемы. В силу своей приверженности к модели данных JSON непосредственно внутри ядра СУБД, что обеспечивает автоматическое индексирование документов JSON, не требуя явной схемы или создания вторичных индексов. 
@@ -1955,7 +1969,7 @@ DocumentDB обеспечивает модель программировани�
 5.	ANSI SQL 2011 [http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
 6.	JSON [http://json.org/](http://json.org/)
 7.	Спецификация Javascript [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
-8.	LINQ [http://msdn.microsoft.com/ru-ru/library/bb308959.aspx](http://msdn.microsoft.com/ru-ru/library/bb308959.aspx) 
+8.	LINQ [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx) 
 9.	Технология оценки выражения для больших баз данных [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
 10.	Обработка запросов в параллельных реляционных СУБД (Query Processing in Parallel Relational Database Systems), IEEE Computer Society Press, 1994
 11.	Lu, Ooi, Tan, Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994.
@@ -1968,3 +1982,5 @@ DocumentDB обеспечивает модель программировани�
 [consistency-levels]: ../documentdb-consistency-levels
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

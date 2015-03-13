@@ -74,7 +74,7 @@
 
 	> [AZURE.NOTE] Azure HDInsight поддерживает только географически привязанные виртуальные сети и на данный момент не поддерживает совместные групповые виртуальные сети.
 
-	* Для **создания и настройки виртуальной сети Azure** обратитесь к разделу [Настройка виртуальной сети](http://msdn.microsoft.com/ru-ru/library/azure/jj156206.aspx).
+	* Для **создания и настройки виртуальной сети Azure** обратитесь к разделу [Настройка виртуальной сети](http://msdn.microsoft.com/library/azure/jj156206.aspx).
 
 		* При использовании SQL Server **в центре обработки данных**, необходимо настроить виртуальную сеть как *site-to-site* или *point-to-site*.
 
@@ -362,7 +362,7 @@ HDInsight использует для хранения данных хранил
 
 > [AZURE.NOTE] Кроме информации в строке соединения, описанные в этом разделе решения должны работать для базы данных SQL Azure или сервера SQL. Данные решения были протестированы для следующей конфигурации:
 > 
-> * **Конфигурация виртуальной сети Azure типа "точка-сеть"** - соединение через виртуальную сеть кластера HDInsight с сервером SQL в частном центре обработки данных. Дополнительную информацию см. в разделе [Настройка VPN "точка-сеть" на портале управления](http://msdn.microsoft.com/ru-ru/library/azure/dn133792.aspx).
+> * **Конфигурация виртуальной сети Azure типа "точка-сеть"** - соединение через виртуальную сеть кластера HDInsight с сервером SQL в частном центре обработки данных. Дополнительную информацию см. в разделе [Настройка VPN "точка-сеть" на портале управления](http://msdn.microsoft.com/library/azure/dn133792.aspx).
 > * **Azure HDInsight 3.1** - см. раздел [Подготовка кластеров Hadoop в HDInsight с применением пользовательских настроек](/ru-ru/documentation/articles/hdinsight-provision-clusters/) для получения более подробной информации о создании кластера в виртуальной сети
 > * **SQL Server 2014** - настроено разрешение аутентификации SQL и используется пакет программ настройки VPN-клиента для надежного соединения с виртуальной сетью
 
@@ -648,11 +648,10 @@ HDInsight использует для хранения данных хранил
 [sqldatabase-get-started]: ../sql-database-get-started/
 [sqldatabase-create-configure]: ../sql-database-create-configure/
 
-[powershell-start]: http://technet.microsoft.com/ru-ru/library/hh847889.aspx
+[powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
 [powershell-install]: ../install-configure-powershell
-[powershell-script]: http://technet.microsoft.com/ru-ru/library/ee176949.aspx
+[powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
-
 
 <!--HONumber=42-->

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Установка и настройка Symantec Endpoint Protection на виртуальной машине Azure" 
 	description="Описывается установка и настройка Symantec Endpoint Protection на виртуальной машине в Azure" 
 	services="virtual-machines" 
@@ -80,5 +80,4 @@
 
 [Управление расширениями]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
-
-<!--HONumber=45--> 
+<!--HONumber=42-->

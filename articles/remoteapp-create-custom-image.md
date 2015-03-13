@@ -1,6 +1,20 @@
-<properties title="How to create a custom template image for RemoteApp" pageTitle="Создание настраиваемого образа шаблона для RemoteApp" description="Узнайте, как создать настраиваемый образ шаблона для удаленного приложения RemoteApp Этот шаблон можно использовать для гибридного или облачного развертывания." metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo" manager="mbaldwin" />
+﻿<properties 
+	pageTitle="Создание настраиваемого образа шаблона для RemoteApp" 
+	description="Узнайте, как создать настраиваемый образ шаблона для удаленного приложения RemoteApp Этот шаблон можно использовать для гибридного или облачного развертывания." 
+	services="remoteapp" 
+	documentationCenter="" 
+	authors="lizap" 
+	manager="mbaldwin" 
+	editor=""/>
 
-<tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/12/2014" ms.author="elizapo" ms.manager="mbaldwin" />
+<tags 
+	ms.service="remoteapp" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/17/2015" 
+	ms.author="elizapo"/>
 
 # Создание настраиваемого образа шаблона для RemoteApp
 Azure RemoteApp использует образ шаблона Windows Server 2012 R2 для размещения всех программ, которыми вы планируете делиться с пользователями. Чтобы создать образ шаблона RemoteApp, можно использовать существующий образ или создать новый. К образу, который может быть передан для использования с Azure RemoteApp, предъявляются следующие требования:
@@ -23,10 +37,10 @@ Azure RemoteApp использует образ шаблона Windows Server 20
 
 Перед созданием службы необходимо выполнить следующие действия.
 
-- Зарегистрируйтесь в RemoteApp. Это можно сделать на странице [http://azure.microsoft.com/ru-ru/services/remoteapp/](http://azure.microsoft.com/ru-ru/services/remoteapp/).
-- создать учетную запись пользователя в Active Directory для использования в качестве учетной записи службы RemoteApp. ограничить разрешения для этой учетной записи, чтобы она могла только присоединять машины к домену. Дополнительные сведения см. в статье [Настройка Azure Active Directory для RemoteApp](http://azure.microsoft.com/ru-ru/documentation/articles/remoteapp-ad/).
+- Зарегистрируйтесь в RemoteApp. Это можно сделать на странице [http://azure.microsoft.com/services/remoteapp/](http://azure.microsoft.com/services/remoteapp/).
+- создать учетную запись пользователя в Active Directory для использования в качестве учетной записи службы RemoteApp. ограничить разрешения для этой учетной записи, чтобы она могла только присоединять машины к домену. Дополнительные сведения см. в статье [Настройка Azure Active Directory для RemoteApp](http://azure.microsoft.com/documentation/articles/remoteapp-ad/).
 - собрать информацию о своей локальной сети: информацию об IP-адресе и сведения о VPN-устройстве.
-- Установите модуль [Azure PowerShell](http://azure.microsoft.com/ru-ru/documentation/articles/install-configure-powershell/).
+- Установите модуль [Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell/).
 - Соберите сведения о пользователях, которым нужно предоставить доступ. Это могут быть либо данные учетной записи Майкрософт, либо данные рабочей учетной записи Active Directory пользователя.
 
 
@@ -115,8 +129,10 @@ Azure RemoteApp использует образ шаблона Windows Server 20
 Созданный настраиваемый образ шаблона необходимо добавить в развертывание RemoteApp. Чтобы создать коллекцию, воспользуйтесь информацией в следующих статьях:
 
 
-- [Создание гибридной коллекции RemoteApp](http://azure.microsoft.com/ru-ru/documentation/articles/remoteapp-create-hybrid-deployment/) 
-- [Создание облачной коллекции RemoteApp](http://azure.microsoft.com/ru-ru/documentation/articles/remoteapp-create-cloud-deployment/)
+- [Создание гибридной коллекции RemoteApp](http://azure.microsoft.com/documentation/articles/remoteapp-create-hybrid-deployment/) 
+- [Создание облачной коллекции RemoteApp](http://azure.microsoft.com/documentation/articles/remoteapp-create-cloud-deployment/)
 
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

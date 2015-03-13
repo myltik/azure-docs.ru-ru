@@ -225,14 +225,13 @@ https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&s
 
 [Подписи общего доступа. Часть 2: создание и использование подписи общего доступа с помощью службы BLOB-объектов](../storage-dotnet-shared-access-signature-part-2/)
 
-[Управление доступом к ресурсам хранилища Azure](http://msdn.microsoft.com/ru-ru/library/windowsazure/ee393343.aspx)
+[Управление доступом к ресурсам хранилища Azure](http://msdn.microsoft.com/library/windowsazure/ee393343.aspx)
 
-[Делегирование доступа с помощью подписи общего доступа (REST API)](http://msdn.microsoft.com/ru-ru/library/windowsazure/ee395415.aspx)
+[Делегирование доступа с помощью подписи общего доступа (REST API)](http://msdn.microsoft.com/library/windowsazure/ee395415.aspx)
 
 [Знакомство с подписью общего доступа для таблиц и очередей](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
 [sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png
 [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
-
 
 
 <!--HONumber=42-->

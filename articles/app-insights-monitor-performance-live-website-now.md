@@ -1,6 +1,18 @@
-﻿<properties title="Diagnose performance issues on a running website" pageTitle="Диагностика проблем производительности на запущенном веб-сайте" description="Мониторинг производительности веб-сайта без необходимости его повторного развертывания." metaKeywords="analytics monitoring application insights" authors="awills"  manager="kamrani" />
+﻿<properties 
+	pageTitle="Диагностика проблем производительности на запущенном веб-сайте" 
+	description="Мониторинг производительности веб-сайта без необходимости его повторного развертывания. Использовать автономно или с пакетом SDK Application Insights" 
+	services="application-insights" 
+	authors="alancameronwills" 
+	manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-24" ms.author="awills" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2015-01-23" 
+	ms.author="awills"/>
  
 
 # Наблюдение за текущей производительностью действующего веб-сайта
@@ -98,3 +110,5 @@
 
 
 
+
+<!--HONumber=46--> 

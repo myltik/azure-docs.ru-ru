@@ -36,9 +36,8 @@
 
 <!-- URLs. -->
 [Справочник серверных скриптов мобильных служб]: http://go.microsoft.com/fwlink/?LinkId=262293
-[WindowsAzure.com]: http://www.windowsazure.com/
+[WindowsAzure.com]: http://azure.microsoft.com/
 [Портал управления Windows Azure]: https://manage.windowsazure.com/
 [Регистрация приложений для входа в Twitter с помощью мобильных служб]: /ru-ru/documentation/articles/mobile-services-how-to-register-twitter-authentication
 [Разработчики Twitter]: http://go.microsoft.com/fwlink/p/?LinkId=268300
-[Параметры приложения]: http://msdn.microsoft.com/ru-ru/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
-<!--HONumber=42-->
+[Параметры приложения]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7<!--HONumber=42-->

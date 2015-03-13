@@ -214,7 +214,7 @@
 ###<a id="howto3">Портал предварительной версии Azure. Создание учетной записи хранилища Premium</a>
 В этом разделе показано, как создать учетную запись хранилища Premium с помощью предварительной версии портала Azure.
 
-1.	Войдите на [портал предварительной версии Azure](https://portal.azure.com/). Если у вас еще нет подписки, см. предложение [бесплатной пробной версии](http://www.windowsazure.com/pricing/free-trial/). 
+1.	Войдите на [портал предварительной версии Azure](https://portal.azure.com/). Если у вас еще нет подписки, см. предложение [бесплатной пробной версии](http://azure.microsoft.com/pricing/free-trial/). 
 
     >[AZURE.NOTE] Если вы вошли на портал управления Azure, щелкните имя своей учетной записи в правом верхнем углу. Затем нажмите кнопку **Переключиться на новый портал**.
 
@@ -233,7 +233,7 @@
 ###<a id="howto2">Azure PowerShell. Создание учетной записи хранилища Premium и его использование для основных операций с виртуальной машиной</a>
 В этом разделе показано, как создать учетную запись хранилища Premium и использовать ее для создания виртуальной машины и подключения диска данных к виртуальной машине с помощью оболочки Azure PowerShell.
 
-1. Настройте среду PowerShell, выполнив действия, описанные в статье [Установка и настройка Azure PowerShell](http://azure.microsoft.com/ru-ru/documentation/articles/install-configure-powershell/).
+1. Настройте среду PowerShell, выполнив действия, описанные в статье [Установка и настройка Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell/).
 2. Запустите консоль PowerShell, подключитесь к своей подписке и запустите следующий командлет PowerShell в окне консоли. Как показано в этом операторе PowerShell, при создании учетной записи хранилища Premium для параметра **Тип** необходимо задать значение **Premium_LRS**.
 
 		New-AzureStorageAccount -StorageAccountName "yourpremiumaccount" -Location "West US" -Type "Premium_LRS"
@@ -274,5 +274,4 @@
 [Справочник MSDN](http://msdn.microsoft.com/library/azure/gg433040.aspx)
 
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
-
 <!--HONumber=42-->

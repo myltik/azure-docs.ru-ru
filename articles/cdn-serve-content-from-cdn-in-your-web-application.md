@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Use Content from a CDN in Your Web Application" pageTitle="Использование содержимого из CDN Azure в своем веб-приложении" metaKeywords="Azure tutorial, Azure web app tutorial, ASP.NET, CDN" description="В этом учебнике объясняется, как использовать содержимое из CDN для повышения производительности веб-приложения." metaCanonical="" services="cdn" documentationCenter=".NET" title="Use Content from a CDN in Your Web Application" authors="cephalin" solutions="" manager="wpickett" editor="tysonn" />
+﻿<properties 
+	pageTitle="Использование содержимого из CDN Azure в своем веб-приложении" 
+	description="В этом учебнике объясняется, как использовать содержимое из CDN для повышения производительности веб-приложения." 
+	services="cdn" 
+	documentationCenter=".net" 
+	authors="cephalin" 
+	manager="wpickett" 
+	editor="tysonn"/>
 
-<tags ms.service="cdn" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/02/2014" ms.author="cephalin" />
+<tags 
+	ms.service="cdn" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="10/02/2014" 
+	ms.author="cephalin"/>
 
 # Обслуживание содержимого из CDN Azure в вашем веб-приложении #
 
@@ -25,7 +39,7 @@
 
 Для работы с этим учебником необходимо выполнить следующие условия.
 
--	Активная учетная запись [Microsoft Azure](http://azure.microsoft.com/ru-ru/account/). Можно подписаться для получения пробной учетной записи.
+-	Активная учетная запись [Microsoft Azure](http://azure.microsoft.com/account/). Можно подписаться для получения пробной учетной записи.
 -	Visual Studio 2013 с [пакетом SDK для Azure](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) для графического пользовательского интерфейса управления большими двоичными объектами.
 Наличие -	[Azure PowerShell](http://go.microsoft.com/?linkid=9811175&clcid=0x409) (используется в разделе [Автоматизация отправки содержимого из приложения ASP.NET в конечную точку CDN](#upload)).
 
@@ -33,8 +47,8 @@
   <span class="wa-icon-bulb"></span>
   <h5><a name="note"></a>Для работы с этим учебником требуется учетная запись Azure.</h5>
   <ul>
-    <li>Вы можете <a href="http://azure.microsoft.com/ru-ru/pricing/free-trial/?WT.mc_id=A261C142F">открыть учетную запись Azure бесплатно</a> - вы получаете кредиты, которые можно использовать для опробования платных служб Azure, и даже после израсходования кредитов вы сохраняете учетную запись и возможность использовать бесплатные службы Azure, например веб-сайты.</li>
-    <li>Вы имеете возможность <a href="http://azure.microsoft.com/ru-ru/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F">активировать преимущества подписчика MSDN</a> - ваша подписка MSDN каждый месяц приносит вам кредиты, которые можно использовать для оплаты служб Azure.</li>
+    <li>Вы можете <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F">открыть учетную запись Azure бесплатно</a> - вы получаете кредиты, которые можно использовать для опробования платных служб Azure, и даже после израсходования кредитов вы сохраняете учетную запись и возможность использовать бесплатные службы Azure, например веб-сайты.</li>
+    <li>Вы имеете возможность <a href="http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F">активировать преимущества подписчика MSDN</a> - ваша подписка MSDN каждый месяц приносит вам кредиты, которые можно использовать для оплаты служб Azure.</li>
   <ul>
 </div>
 
@@ -76,7 +90,7 @@
 
 	![](media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-4.PNG)
 
-	Список всех местоположений узлов CDN см. в разделе [Расположение узлов сети доставки содержимого Azure (CDN)](http://msdn.microsoft.com/ru-ru/library/azure/gg680302.aspx).
+	Список всех местоположений узлов CDN см. в разделе [Расположение узлов сети доставки содержимого Azure (CDN)](http://msdn.microsoft.com/library/azure/gg680302.aspx).
 
 3. На портале Azure откройте вкладку **CDN** и щелкните имя только что созданной конечной точки CDN.
 
@@ -140,7 +154,7 @@
 <a name="upload"></a>
 ## Автоматизация отправки содержимого из приложения ASP.NET в конечную точку CDN ##
 
-Чтобы без труда отправлять все статическое содержимое из приложения ASP.NET в конечную точку или развертывать веб-приложение с помощью непрерывной доставки (пример см. в разделе [Непрерывная доставка для облачных служб в Azure](http://azure.microsoft.com/ru-ru/documentation/articles/cloud-services-dotnet-continuous-delivery/)), можно воспользоваться Azure PowerShell и автоматизировать синхронизацию последних файлов содержимого с большими двоичными объектами Azure при каждом развертывании веб-приложения. Например, можно выполнить скрипт из раздела [Отправка файлов содержимого из приложения ASP.NET в BLOB-объекты Azure](http://gallery.technet.microsoft.com/scriptcenter/Upload-Content-Files-from-41c2142a), чтобы отправить все файлы содержимого в приложение ASP.NET. Вот как можно использовать этот сценарий:
+Чтобы без труда отправлять все статическое содержимое из приложения ASP.NET в конечную точку или развертывать веб-приложение с помощью непрерывной доставки (пример см. в разделе [Непрерывная доставка для облачных служб в Azure](http://azure.microsoft.com/documentation/articles/cloud-services-dotnet-continuous-delivery/)), можно воспользоваться Azure PowerShell и автоматизировать синхронизацию последних файлов содержимого с большими двоичными объектами Azure при каждом развертывании веб-приложения. Например, можно выполнить скрипт из раздела [Отправка файлов содержимого из приложения ASP.NET в BLOB-объекты Azure](http://gallery.technet.microsoft.com/scriptcenter/Upload-Content-Files-from-41c2142a), чтобы отправить все файлы содержимого в приложение ASP.NET. Вот как можно использовать этот сценарий:
 
 4.  В меню **Пуск** выберите **Windows Azure PowerShell**.
 5. В окне Azure PowerShell выполните `Get-AzurePublishSettingsFile`, чтобы скачать файл параметров публикации для своей учетной записи Azure.
@@ -171,7 +185,7 @@
 
 	<img alt="Mugshot" src="http://az623979.vo.msecnd.net/MyMvcApp/Content/cephas_lin.png" />
 
-Пример интеграции сценариев PowerShell в конфигурацию непрерывной доставки см. в разделе [Непрерывная доставка для облачных служб в Azure](http://azure.microsoft.com/ru-ru/documentation/articles/cloud-services-dotnet-continuous-delivery/). 
+Пример интеграции сценариев PowerShell в конфигурацию непрерывной доставки см. в разделе [Непрерывная доставка для облачных служб в Azure](http://azure.microsoft.com/documentation/articles/cloud-services-dotnet-continuous-delivery/). 
 
 <a name="update"></a>
 ## Настройка кэша CDN для отражения требуемого обновления содержимого ##
@@ -242,17 +256,17 @@
 
 ## А как же объединенные в пакет сценарии и таблицы стилей в ASP.NET? ##
 
-Благодаря [веб-сайтам Azure](http://azure.microsoft.com/ru-ru/services/websites/) и [облачным службам Azure](http://azure.microsoft.com/ru-ru/services/cloud-services/) обеспечивается наилучшая интеграция Azure CDN с [ объединением и минификацией ASP.NET](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification). 
+Благодаря [веб-сайтам Azure](http://azure.microsoft.com/services/websites/) и [облачным службам Azure](http://azure.microsoft.com/services/cloud-services/) обеспечивается наилучшая интеграция Azure CDN с [ объединением и минификацией ASP.NET](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification). 
 
 Интеграция Azure CDN с веб-сайтами Azure или облачными службами Azure предоставляет следующие преимущества:
 
-- Интеграция развертывания содержимого (изображений, сценариев и таблиц стилей) в процесс [непрерывного развертывания](http://azure.microsoft.com/ru-ru/documentation/articles/web-sites-publish-source-control/) веб-сайта Azure.
+- Интеграция развертывания содержимого (изображений, сценариев и таблиц стилей) в процесс [непрерывного развертывания](http://azure.microsoft.com/documentation/articles/web-sites-publish-source-control/) веб-сайта Azure.
 - Простое обновление пакетов NuGet, обслуживаемых CDN, например версий на основе jQuery или Bootstrap. 
 - Управление веб-приложениями и содержимым, обслуживаемым CDN, из одного интерфейса Visual Studio.
 
 Связанные учебники:
-- [Интеграция веб-сайта Azure с Azure CDN](http://azure.microsoft.com/ru-ru/documentation/articles/cdn-websites-with-cdn/)
-- [Интеграция облачной службы с Azure CDN](http://azure.microsoft.com/ru-ru/Documentation/Articles/cdn-cloud-service-with-cdn/)
+- [Интеграция веб-сайта Azure с Azure CDN](http://azure.microsoft.com/documentation/articles/cdn-websites-with-cdn/)
+- [Интеграция облачной службы с Azure CDN](http://azure.microsoft.com/Documentation/Articles/cdn-cloud-service-with-cdn/)
 
 Без интеграции с веб-сайтами Azure или облачными службами Azure использовать Azure CDN для пакетов сценариев можно со следующими разъяснениями:
 
@@ -263,7 +277,9 @@
 
 # Дополнительные сведения #
 - [Общие сведения о сети доставки контента (CDN) Azure](http://msdn.microsoft.com/library/azure/ff919703.aspx)
-- [Интеграция веб-сайта Azure с Azure CDN](http://azure.microsoft.com/ru-ru/documentation/articles/cdn-websites-with-cdn/)
-- [Интеграция облачной службы с Azure CDN](http://azure.microsoft.com/ru-ru/Documentation/Articles/cdn-cloud-service-with-cdn/)
+- [Интеграция веб-сайта Azure с Azure CDN](http://azure.microsoft.com/documentation/articles/cdn-websites-with-cdn/)
+- [Интеграция облачной службы с Azure CDN](http://azure.microsoft.com/Documentation/Articles/cdn-cloud-service-with-cdn/)
 - [Как сопоставить содержимое сети доставки содержимого (CDN) с пользовательским доменом](http://msdn.microsoft.com/library/azure/gg680307.aspx)
-- [Использование CDN для Azure](http://azure.microsoft.com/ru-ru/documentation/articles/cdn-how-to-use/)
+- [Использование CDN для Azure](http://azure.microsoft.com/documentation/articles/cdn-how-to-use/)
+
+<!--HONumber=46--> 

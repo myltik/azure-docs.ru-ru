@@ -36,7 +36,7 @@
 
 	var todoTable = mobileServiceClient.getTable('TodoItem');
 
-Чтобы эти примеры работали, необходимо установить уровень разрешений таблицы на **Кто угодно с ключом приложения**. Позднее можно настроить проверку подлинности. См. статью [Приступая к работе с проверкой подлинности](http://azure.microsoft.com/ru-ru/documentation/articles/mobile-services-html-get-started-users/).
+Чтобы эти примеры работали, необходимо установить уровень разрешений таблицы на **Кто угодно с ключом приложения**. Позднее можно настроить проверку подлинности. См. статью [Приступая к работе с проверкой подлинности](http://azure.microsoft.com/documentation/articles/mobile-services-html-get-started-users/).
 
 #####Добавление записи 
 

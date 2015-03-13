@@ -1,6 +1,20 @@
-<properties urlDisplayName="Caching" pageTitle="Использование кэша роли (.NET) - руководство по компонентам Azure" metaKeywords="Azure cache, Azure caching, Azure cache, Azure caching, Azure store session state, Azure cache .NET, Azure cache C#" description="Сведения об использовании кэша роли Azure. Примеры написаны на языке C# код и использовать API-Интерфейс .NET." metaCanonical="" services="cache" documentationCenter=".NET" title="How to Use In-Role Cache for Azure Cache" authors="sdanie" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Использование кэша роли (.NET) – руководство по компонентам Azure" 
+	description="Сведения об использовании кэша роли Azure. Примеры написаны на языке C# и используют интерфейс .NET API." 
+	services="cache" 
+	documentationCenter=".net" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="cache" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie" />
+<tags 
+	ms.service="cache" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 
 
@@ -394,26 +408,28 @@
   
 <!-- LINKS -->
 [Практическое руководство по настройке размеров виртуальных машин]: http://go.microsoft.com/fwlink/?LinkId=164387
-[Практическое руководство. Программная настройка клиента кэша]: http://msdn.microsoft.com/ru-ru/library/windowsazure/gg618003.aspx
-[Практическое руководство. Программное задание возможности кэширования страницы]: http://msdn.microsoft.com/ru-ru/library/z852zf6b.aspx
-[Практическое руководство. Декларативное задание возможности кэширования страницы ASP.NET]: http://msdn.microsoft.com/ru-ru/library/zd1ysf1y.aspx
+[Практическое руководство. Программная настройка клиента кэша]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
+[Практическое руководство. Программное задание возможности кэширования страницы]: http://msdn.microsoft.com/library/z852zf6b.aspx
+[Практическое руководство. Декларативное задание возможности кэширования страницы ASP.NET]: http://msdn.microsoft.com/library/zd1ysf1y.aspx
 [Вопросы планирования мощностей для кэша роли]: http://go.microsoft.com/fwlink/?LinkId=252651
-[Примеры кэша роли]: http://msdn.microsoft.com/ru-ru/library/jj189876.aspx
+[Примеры кэша роли]: http://msdn.microsoft.com/library/jj189876.aspx
 [Кэш роли]: http://go.microsoft.com/fwlink/?LinkId=252658
 [Кэш роли]: http://www.microsoft.com/ru-ru/showcase/Search.aspx?phrase=azure+caching
 [Maximum Performance: Accelerate Your Cloud Services Applications with Azure Caching]: http://channel9.msdn.com/Events/TechEd/NorthAmerica/2013/WAD-B326#fbid=kmrzkRxQ6gU
-[Перенос в кэш роли]: http://msdn.microsoft.com/ru-ru/library/hh914163.aspx
+[Перенос в кэш роли]: http://msdn.microsoft.com/library/hh914163.aspx
 [Установка диспетчера пакета NuGet]: http://go.microsoft.com/fwlink/?LinkId=240311
-[Поставщик кэша вывода для кэша роли]: http://msdn.microsoft.com/ru-ru/library/windowsazure/gg185662.aspx
+[Поставщик кэша вывода для кэша роли]: http://msdn.microsoft.com/library/windowsazure/gg185662.aspx
 [Директива OutputCache]: http://go.microsoft.com/fwlink/?LinkId=251979
 [Обзор кэша роли]: http://go.microsoft.com/fwlink/?LinkId=254172
-[Поставщик состояний сеансов для кэша роли]: http://msdn.microsoft.com/ru-ru/library/windowsazure/gg185668.aspx
+[Поставщик состояний сеансов для кэша роли]: http://msdn.microsoft.com/library/windowsazure/gg185668.aspx
 [Блог группы разработчиков]: http://blogs.msdn.com/b/windowsazure/
-[Устранение неполадок и диагностика для кэша роли]: http://msdn.microsoft.com/ru-ru/library/windowsazure/hh914135.aspx
+[Устранение неполадок и диагностика для кэша роли]: http://msdn.microsoft.com/library/windowsazure/hh914135.aspx
 [Кэш Azure AppFabric: Кэширование состояния сеанса]: http://www.microsoft.com/ru-ru/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
 [Портал управления Azure]: http://windows.azure.com/
-[Совмещенное кэширование в Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/gg278356.aspx
+[Совмещенное кэширование в Azure]: http://msdn.microsoft.com/library/windowsazure/gg278356.aspx
 
-[Какой кэш Azure подходит мне лучше всего?]: http://msdn.microsoft.com/ru-ru/library/azure/dn766201.aspx
+[Какой кэш Azure подходит мне лучше всего?]: http://msdn.microsoft.com/library/azure/dn766201.aspx
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="What is Azure AD?" pageTitle="Что такое Windows Azure Active Directory" metaKeywords="" description="Используйте Windows Azure Active Directory для расширения существующих локальных идентификаторов в облако, чтобы улучшить работу администраторов и пользователей. При этом корпорация Майкрософт поддерживает работу Active Directory в облаке с высоким масштабом, высоким уровнем доступности и интегрированным аварийным восстановлением. Или разрабатывайте приложения, интегрированные с Azure AD, для различных организаций, включая свою собственную." metaCanonical="" services="active-directory" documentationCenter="" title="What is Azure Active Directory?" authors="justinha" solutions="" manager="terrylan" editor="" />
+﻿<properties 
+	pageTitle="Что такое Windows Azure Active Directory" 
+	description="Используйте Windows Azure Active Directory для расширения существующих локальных идентификаторов в облако, чтобы улучшить работу администраторов и пользователей. При этом корпорация Майкрософт поддерживает работу Active Directory в облаке с высоким масштабом, высоким уровнем доступности и интегрированным аварийным восстановлением. Или разрабатывайте приложения, интегрированные с Azure AD, для различных организаций, включая свою собственную." 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="Justinha" 
+	manager="terrylan" 
+	editor=""/>
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/03/2014" ms.author="justinha" />
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/03/2015" 
+	ms.author="justinha"/>
 
 
 
@@ -28,3 +42,5 @@ Azure Active Directory - это служба, которая предостав�
 * [Подпишитесь на Azure как организация](/ru-ru/manage/services/identity/organizational-account/)
 * [Удостоверение Azure](/ru-ru/manage/windows/fundamentals/identity/)
 * [Библиотека по Windows Azure AD на сайте MSDN](http://go.microsoft.com/fwlink/?LinkId=293425)
+
+<!--HONumber=46--> 

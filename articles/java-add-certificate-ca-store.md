@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Add a Cert to the CA Store" pageTitle="Добавление сертификата в хранилище ЦС Java - Azure" metaKeywords="Azure Twilio Java, Twilio Java Certificate, Azure Service Bus Certificate" description="Узнайте, как добавить сертификат центра сертификации (ЦС) в хранилище сертификатов (cacerts) центра сертификации Java для службы Twilio или Azure Service Bus." metaCanonical="" services="" documentationCenter="Java" title="Adding a Certificate to the Java CA Certificates Store" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+﻿<properties 
+	pageTitle="Добавление сертификата в хранилище ЦС Java — Azure" 
+	description="Узнайте, как добавить сертификат центра сертификации (ЦС) в хранилище сертификатов (cacerts) центра сертификации Java для службы Twilio или Azure Service Bus." 
+	services="" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="09/25/2014" 
+	ms.author="robmcm"/>
 
 # Добавление сертификата в хранилище сертификатов ЦС Java
 Ниже показано, как добавить сертификат центра сертификации (ЦС) в хранилище сертификатов (cacerts) ЦС Java. Приведен пример использования сертификата ЦС, требуемого службой Twilio. Ниже в этой статье описана установка сертификата ЦС для шины обслуживания Azure. 
@@ -38,3 +52,5 @@
 
 Дополнительные сведения о корневых сертификатах, используемых Azure, можно узнать в статье [Windows Azure Root Certificate Migration](http://blogs.msdn.com/b/windowsazure/archive/2013/03/15/windows-azure-root-certificate-migration.aspx) (Миграция корневых сертификатов Windows Azure).
 
+
+<!--HONumber=46--> 

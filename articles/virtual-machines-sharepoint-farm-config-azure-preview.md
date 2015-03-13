@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Сведения о конфигурации фермы серверов SharePoint" 
 	description="Описывается конфигурация по умолчанию для ферм SharePoint." 
 	services="virtual-machines" 
@@ -125,4 +125,4 @@
 
 [SharePoint в службах инфраструктуры Azure](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 
-<!--HONumber=45--> 
+<!--HONumber=42-->

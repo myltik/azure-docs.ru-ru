@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Начало работы с данными (iOS) | Центр мобильных разработок" description="Узнайте, как приступить к работе с мобильными службами, чтобы использовать данные в приложении iOS." services="mobile-services" documentationCenter="ios" authors="krisragh" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Начало работы с данными (iOS) | Центр мобильных разработок" 
+	description="Узнайте, как приступить к работе с мобильными службами, чтобы использовать данные в приложении iOS." 
+	services="mobile-services" 
+	documentationCenter="ios" 
+	authors="krisragh" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-ios" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="krisragh"/>
 
 # Добавление мобильных служб к существующему приложению
 
@@ -27,7 +41,7 @@
 
 + [SDK мобильных служб iOS], а также [XCode 4.5][Установка Xcode] и iOS 5.0 или более поздней версии.
 + Visual Studio 2013 (можно бесплатно получить [Visual Studio Express для Web](http://go.microsoft.com/p/?linkid=9832232)).
-+ Учетная запись Microsoft Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://www.windowsazure.com/ru-ru/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fru-ru%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-ios%2F" target="_blank">Бесплатная пробная версия Azure</a>.
++ Учетная запись Microsoft Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fru-ru%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-ios%2F" target="_blank">Бесплатная пробная версия Azure</a>.
 
 ##<a name="download-app"></a>Загрузка проекта GetStartedWithData
 

@@ -1,6 +1,18 @@
-﻿<properties title="Monitor any web site's availability and responsiveness" pageTitle="Наблюдение за доступностью и скоростью реагирования веб-сайта" description="Настройка веб-тестов в Application Insights. Получение оповещений, когда веб-сайт становится недоступным или медленно реагирует на запросы." metaKeywords="analytics web test availability" authors="awills"  manager="kamrani" />
+﻿<properties 
+	pageTitle="Мониторинг доступности и скорости реагирования любого веб-сайта" 
+	description="Настройка веб-тестов в Application Insights. Получение оповещений, когда веб-сайт становится недоступным или медленно реагирует на запросы." 
+	services="application-insights" 
+	authors="alancameronwills" 
+	manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-10-30" ms.author="awills" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2015-01-27" 
+	ms.author="awills"/>
  
 # Наблюдение за доступностью и скоростью реагирования веб-сайта
 
@@ -192,3 +204,5 @@
 
 
 [azurewebtest]: ../insights-create-web-tests/
+
+<!--HONumber=46--> 

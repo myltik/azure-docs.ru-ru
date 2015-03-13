@@ -1,2 +1,2 @@
 ﻿Записи об отправлении и прибытии авиарейсов в США начиная с октября 2011 г.<p> </p><b>Использование:</b> прогнозирование задержки рейсов. <p> </p><b>Связанное исследование:</b> Данные из Министерства транспорта США <a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time</a>.
-<!--HONumber=42-->
+\<!--HONumber=42-->

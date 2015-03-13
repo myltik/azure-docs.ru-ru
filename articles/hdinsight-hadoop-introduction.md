@@ -123,7 +123,7 @@ Apache YARN - это следующее поколение MapReduce (MapReduce 
 * <a target="_blank" href="http://www.microsoft.com/ru-ru/download/details.aspx?id=39379">Загрузки Microsoft Power Query для Excel</a> 
 * <a target="_blank" href="http://www.microsoft.com/ru-ru/download/details.aspx?id=40886">Загрузки драйвера Microsoft Hive ODBC</a>
 * <a target="_blank" href="http://www.microsoft.com/ru-ru/server-cloud/solutions/business-intelligence/analysis.aspx">Подробная информация о службах анализа SQL Server</a>
-* <a target="_blank" href="http://msdn.microsoft.com/ru-ru/library/ms159106.aspx">Подробная информация о службах отчетности SQL Server</a>
+* <a target="_blank" href="http://msdn.microsoft.com/library/ms159106.aspx">Подробная информация о службах отчетности SQL Server</a>
 
 ## <a name="advantage"></a>Преимущества Hadoop при работе с данными облака
 
@@ -166,9 +166,9 @@ Apache YARN - это следующее поколение MapReduce (MapReduce 
 
 ### База данных SQL в Azure	
 		
-* [База данных SQL Azure](http://msdn.microsoft.com/ru-ru/library/windowsazure/ee336279.aspx): документация MSDN по базе данных SQL.
+* [База данных SQL Azure](http://msdn.microsoft.com/library/windowsazure/ee336279.aspx): документация MSDN по базе данных SQL.
 	
-* [Портал управления для базы данных SQL](http://msdn.microsoft.com/ru-ru/library/windowsazure/gg442309.aspx): легкое и простое для использования средство управление базами данных для управления базой данных SQL в облаке.
+* [Портал управления для базы данных SQL](http://msdn.microsoft.com/library/windowsazure/gg442309.aspx): легкое и простое для использования средство управление базами данных для управления базой данных SQL в облаке.
 
 * [Adventure Works для базы данных SQL](http://msftdbprodsamples.codeplex.com/releases/view/37304): страница загрузки образца базы данных SQL.	
 
@@ -194,5 +194,4 @@ Apache YARN - это следующее поколение MapReduce (MapReduce 
 [component-versioning]: ../hdinsight-component-versioning/
 
 [zookeeper]: http://zookeeper.apache.org/ 
-
 <!--HONumber=42-->

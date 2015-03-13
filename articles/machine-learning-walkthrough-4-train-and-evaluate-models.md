@@ -1,6 +1,20 @@
-﻿<properties title="Step 4: Train and evaluate the predictive analytic models" pageTitle="Шаг 4. Обучение и анализ моделей прогнозирующей аналитики | Azure" description="Шаг 4. Обучение, оценка и анализ нескольких моделей в Студии машинного обучения Azure" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Шаг 4. Обучение и анализ моделей прогнозирующей аналитики | Azure" 
+	description="Шаг 4 пошагового руководства решения. Обучение, оценка и анализ нескольких моделей в Студии машинного обучения Azure" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/29/2015" 
+	ms.author="garye"/>
 
 
 Это четвертый шаг из пошагового руководства [Разработка прогнозирующего решения с помощью Azure ML][develop]:
@@ -117,3 +131,5 @@
 [2]: ./media/machine-learning-walkthrough-4-train-and-evaluate-models/train2.png
 [3]: ./media/machine-learning-walkthrough-4-train-and-evaluate-models/train3.png
 [4]: ./media/machine-learning-walkthrough-4-train-and-evaluate-models/train4.png
+
+<!--HONumber=46--> 

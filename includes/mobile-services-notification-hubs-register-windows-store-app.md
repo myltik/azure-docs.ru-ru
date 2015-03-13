@@ -58,5 +58,4 @@
 [Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/mobile-services-windows-store-get-started/
 [Отправить страницу приложения]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Портал управления Azure]: https://manage.windowsazure.com/
-
 <!--HONumber=42-->

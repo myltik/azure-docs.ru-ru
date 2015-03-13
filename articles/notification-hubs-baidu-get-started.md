@@ -1,8 +1,15 @@
-﻿<properties urlDisplayName="Get Started" pageTitle="Приступая к работе с концентраторами уведомлений Azure" metaKeywords="" description="Узнайте, как использовать центры уведомлений Azure для push-уведомлений." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Get started with Notification Hubs" authors="piyushjo" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Приступая к работе с центрами уведомлений Azure" description="Узнайте, как использовать центры уведомлений Azure для push-уведомлений." services="notification-hubs" documentationCenter="android" authors="piyushjo" manager="dwrede" editor=""/>
 
-<tags ms.service="" ms.devlang="" ms.topic="article" ms.tgt_pltfrm="" ms.workload="" ms.date="10/03/2014" ms.author="piyushjo" />
+<tags 
+	ms.service="notification-hubs" 
+	ms.devlang="java" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="" 
+	ms.workload="mobile" 
+	ms.date="10/03/2014" 
+	ms.author="piyushjo"/>
 
-# Приступая к работе с концентраторами уведомлений
+# Приступая к работе с центрами уведомлений
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/ru-ru/documentation/articles/notification-hubs-windows-store-dotnet-get-started/" title="Windows Store C#">C# в Магазине Windows</a><a href="/ru-ru/documentation/articles/notification-hubs-windows-phone-get-started/" title="Windows Phone">Windows Phone</a><a href="/ru-ru/documentation/articles/notification-hubs-ios-get-started/" title="iOS">iOS</a><a href="/ru-ru/documentation/articles/notification-hubs-android-get-started/" title="Android">Android</a><a href="/ru-ru/documentation/articles/notification-hubs-kindle-get-started/" title="Kindle">Kindle</a><a href="/ru-ru/documentation/articles/notification-hubs-baidu-get-started/" title="Baidu" class="current">Baidu</a><a href="/ru-ru/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/" title="Xamarin.iOS">Xamarin.iOS</a><a href="/ru-ru/documentation/articles/partner-xamarin-notification-hubs-android-get-started/" title="Xamarin.Android">Xamarin.Android</a></div>
 
@@ -11,29 +18,29 @@
 Для работы с данным учебником требуется следующее:
 
 + Пакет Android SDK (предполагается использование Eclipse), который можно скачать <a href="http://go.microsoft.com/fwlink/?LinkId=389797">здесь</a>
-+ [Android SDK для мобильных служб]
++ [Пакет SDK для мобильных служб для Android]
 + [Android SDK для Baidu Push]
 
->[WACOM.NOTE] Для работы с этим учебником требуется учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://www.windowsazure.com/ru-ru/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fru-ru%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Бесплатное пробное использование Azure</a>.
+>[AZURE.NOTE] Для работы с этим учебником требуется учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительную информацию см. в статье <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fru-ru%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Бесплатное пробное использование Azure</a>.
 
 В этом учебнике рассматриваются следующие основные шаги для включения push-уведомлений:
 
 * [Создание учетной записи Baidu](#createBaiduAccount)
 * [Регистрация в качестве разработчика Baidu](#registerBaiduDeveloper)
 * [Создание облачного push-проекта Baidu](#createBaiduPushProject)
-* [Настройка концентратора уведомлений](#configure-hub)
-* [Подключение приложения к концентратору уведомлений](#connecting-app)
-* [Отправка уведомлений в приложение](#send)
+* [Настройка центра уведомлений](#configure-hub)
+* [Подключение приложения к центру уведомлений](#connecting-app)
+* [Отправка уведомлений для приложения](#send)
 
-##<a id="createBaiduAccount"></a>Создание учетной записи Baidu
+## <a id="createBaiduAccount"></a>Создание учетной записи Baidu
 
 Чтобы использовать Baidu, необходимо создать учетную запись. Если вы уже это сделали, воспользуйтесь ей для входа в [портал Baidu] и перейдите к следующему шагу. В противном случае ознакомьтесь с приведенными ниже инструкциями по созданию учетной записи Baidu.  
 
-1. Откройте [портал Baidu] и выберите ссылку 登录 (Вход). Щелкните 立即注册 для запуска регистрации учетной записи. 
+1. Откройте [портал Baidu] и выберите ссылку 登录 (Вход). Щелкните 立即注册, чтобы начать процедуру регистрации новой учетной записи. 
 
    	![][1]
 
-2. Введите требуемые сведения: номер телефона, адрес электронной почты, пароль и код проверки, и щелкните "Зарегистрировать".
+2. Введите требуемые сведения - почтовый или электронный адрес, пароль и код проверки, затем нажмите кнопку "Зарегистрироваться".
 
    	![][2]
 
@@ -47,7 +54,7 @@
 
 После завершения активации воспользуйтесь созданной учетной записью для входа на [портал Baidu]. 
 
-##<a id="registerBaiduDeveloper"></a>Регистрация в качестве разработчика Baidu
+## <a id="registerBaiduDeveloper"></a>Регистрация в качестве разработчика Baidu
 
 1. После входа на [портал Baidu] щелкните **更多>> (Больше)**.
 
@@ -65,7 +72,7 @@
 
   	![][8]
 
-5. Введите имя, описание и номер мобильного телефона  для получения текстового сообщения проверки и нажмите кнопку **送验证码 (Отправить код проверки)**. Обратите внимание, что для международных номеров необходимо указать код страны в фигурных скобках. Например, номера для США должны выглядеть так: **(1)1234567890**.
+5. Введите имя, описание и номер мобильного телефона для получения текстового сообщения проверки и нажмите кнопку **送验证码 (Отправить код проверки)**. Обратите внимание, что для международных номеров необходимо указать код страны в фигурных скобках. Например, номера для США должны выглядеть так: **(1)1234567890**.
 
   	![][9]
 
@@ -79,7 +86,7 @@
 
   	![][11] 
 
-##<a id="createBaiduPushProject"></a>Создание облачного push-проекта Baidu
+## <a id="createBaiduPushProject"></a>Создание облачного push-проекта Baidu
 
 Во время создания push-проекта Baidu вы получите код приложения, ключ API и секретный ключ.
 
@@ -123,13 +130,13 @@
 
 	![][32]  
 
-11. On the configuration page, add the package name that you will be using in your Android project in the **应用包名 (Application package)** field and click **保存设置 (Save)**  
+11. На странице настроек добавьте имя пакета, который вы будете использовать в вашем Android-проекте в поле **应用包名 (Пакет приложений)** и нажмите **保存设置 (Сохранить)**  
 
 	![][33]
 
 Появится сообщение **保存成功！(Успешно сохранено!)**.
 
-##<a id="configure-hub"></a>Настройка концентратора уведомлений
+## <a id="configure-hub"></a>Настройка центра уведомлений
 
 1. Войдите на [Портал управления Azure], а затем нажмите кнопку **+СОЗДАТЬ** в нижней части экрана.
 
@@ -159,7 +166,7 @@
 
     ![][22]
 
-##<a id="connecting-app"></a>Подключение приложения к концентратору уведомлений
+## <a id="connecting-app"></a>Подключение приложения к центру уведомлений
 
 1. В ADT Eclipse создайте новый проект Android (File (Файл) -> New (Создать) -> Android Application (Приложение Android)).
 
@@ -177,9 +184,9 @@
 
     ![][26]
 
-5. Скачайте и распакуйте [Android SDK для мобильных служб], откройте папку **notificationhubs**, скопируйте файл **notification-hubs-x.y.jar** в папку *libs* вашего проекта Eclipse. Затем обновите папку *libs*.
+5. Скачайте и распакуйте [пакет SDK для Android для мобильных служб], откройте папку **notificationhubs**, скопируйте файл **notification-hubs-x.y.jar** в папку *libs* своего проекта Eclipse. Затем обновите папку *libs*.
 
-6. Скачайте и распакуйте [Android SDK для Baidu Push], откройте папку **libs** и скопируйте файл *pushservice x.y.z* jar, а также папки * armeabi * и * mips * в папку **libs** приложения Android. 
+6. Скачайте и распакуйте [Android SDK для Baidu Push], откройте папку **libs** и скопируйте JAR-файл *pushservice-x.y.z*, а также папки *armeabi* и *mips* в папку **libs** приложения Android. 
 
 7. Откройте файл **AndroidManifest.xml** своего проекта Android и добавьте разрешения, требуемые пакетом SDK для Baidu.
 
@@ -196,11 +203,11 @@
 	    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER" />
 	    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
 
-8. Добавьте свойство *android:name* в элементе *application* файла **AndroidManifest.xml** для замены значения *yourprojectname*, например, на **com.example.BaiduTest**. Убедитесь, что это имя проекта совпадает с настроенным в консоли Baidu. 
+8. Добавьте свойство *android:name* для элемента *application* в **AndroidManifest.xml**, заменив *yourprojectname*, например следующим образом: **com.example.BaiduTest**. Убедитесь, что это имя проекта совпадает с настроенным в консоли Baidu. 
 
 		<application android:name="yourprojectname.DemoApplication"
 
-9. Добавьте следующую конфигурацию в элементе приложения, расположенную за элементом действия .MainActivity, для замены значения *yourprojectname*, например, на **com.example.BaiduTest**:
+9. Добавьте следующую конфигурацию в элементе приложения после элемента активности .MainActivity activity, заменив *yourprojectname*, например следующим образом: **com.example.BaiduTest**:
 
 		<receiver android:name="yourprojectname.MyPushMessageReceiver">
 		    <intent-filter>
@@ -254,7 +261,7 @@
 				public static String NotificationHubConnectionString = "...";
 			}
 	
-	Задайте значения *API_KEY* вместе с полученным ранее из облачного проекта, *NotificationHubName* с именем концентратора уведомлений на портале Azure и *NotificationHubConnectionString* с DefaultListenSharedAccessSignature на портале Azure. 
+	Присвойте значение *API_KEY* равное тому, которое вы получили ранее из облачного проекта Baidu, *NotificationHubName* присвойте имя вашего центра уведомлений с портала Azure, а *NotificationHubConnectionString* присвойте DefaultListenSharedAccessSignature также с портала Azure. 
 
 11. Добавьте новый класс с именем **DemoApplication.java**, затем добавьте в него следующий код:
 
@@ -381,13 +388,13 @@
 	        PushManager.startWork(getApplicationContext(),
 	                PushConstants.LOGIN_TYPE_API_KEY, ConfigurationSettings.API_KEY);
 
-и в начале добавьте следующие операторы импорта:
+and add the following import statements at the top:
 			import com.baidu.android.pushservice.PushConstants;
 			import com.baidu.android.pushservice.PushManager;
 
-##<a id="send"></a>Отправка уведомлений в приложение
+## <a id="send"></a>Отправка уведомлений для приложения
 
-Уведомления можно отправлять с помощью концентраторов уведомлений из любого серверного компонента, использующего наш <a href="http://msdn.microsoft.com/ru-ru/library/windowsazure/dn223264.aspx">интерфейс REST</a>. В этом учебнике демонстрируется использование консольного приложения .NET. 
+Уведомления можно отправлять с помощью концентраторов уведомлений из любого серверного компонента, использующего наш <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">интерфейс REST</a>. В этом учебнике демонстрируется использование консольного приложения .NET. 
 
 1. Создайте новое консольное приложение Visual C#.
 
@@ -401,7 +408,7 @@
 
         using Microsoft.ServiceBus.Notifications;
 
-4. Добавьте следующий метод в классе "Program", замените *DefaultFullSharedAccessSignatureSASConnectionString* и *NotificationHubName* имеющимися значениями. 
+4. Добавьте следующий метод в классе `Program`, замените *DefaultFullSharedAccessSignatureSASConnectionString* и *NotificationHubName* имеющимися значениями. 
 
 		private static async void SendNotificationAsync()
 		{
@@ -415,7 +422,7 @@
          SendNotificationAsync();
 		 Console.ReadLine();
 
-##<a name="test-app"></a>Тестирование приложения
+## <a name="test-app"></a>Тестирование приложения
 
 Для тестирования работы этого приложения на реальном телефоне просто подключите его к компьютеру с помощью кабеля USB.
 
@@ -425,7 +432,7 @@
 
 2. При этом ваше приложение будет скачано на подключенный телефон или запустится эмулятор, приложение загрузится туда и запустится.
 
-3. Приложение получает значения "userId" и "channelId" из службы push-уведомлений Baidu и регистрируется в концентраторе уведомлений.
+3. Приложение извлекает 'userId' и 'channelId' из службы push-уведомлений Baidu и регистрируется в центре уведомлений.
 	
 4.	Чтобы отправить контрольное уведомление при использовании консольного приложения .Net, просто нажмите клавишу F5 в Visual Studio, чтобы запустить приложение. Данное приложение отправит уведомление, которое отобразится в верхней области уведомлений вашего устройства или эмулятора. 
 
@@ -466,10 +473,11 @@
 [33]: ./media/notification-hubs-baidu-get-started/BaiduPushConfig3.png
 
 <!-- URLs. -->
-[Android SDK для мобильных служб]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
+[пакет SDK для Android для мобильных служб]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Android SDK для Baidu Push]: http://developer.baidu.com/wiki/index.php?title=docs/cplat/push/sdk/clientsdk
 [Портал управления Azure]: https://manage.windowsazure.com/
-[Портал Baidu]: http://www.baidu.com/
+[портал Baidu]: http://www.baidu.com/
 
 
-<!--HONumber=35.2-->
+
+<!--HONumber=45--> 

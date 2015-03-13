@@ -1,6 +1,20 @@
-<properties pageTitle="Сборка службы с использованием существующей базы данных SQL на серверной части мобильных служб .NET. Мобильные службы Azure" description="Узнайте, как использовать существующую облачную или локальную базу данных SQL с мобильной службой на основе .NET" services="mobile-services, biztalk-services" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor="mollybos"/>
+<properties 
+	pageTitle="Сборка службы с использованием существующей базы данных SQL на серверной части мобильных служб .NET. Мобильные службы Azure" 
+	description="Узнайте, как использовать существующую облачную или локальную базу данных SQL с мобильной службой на основе .NET" 
+	services="mobile-services, biztalk-services" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor="mollybos"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/22/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/22/2014" 
+	ms.author="glenga"/>
 
 
 # Сборка службы с использованием существующей базы данных SQL на внутреннем сервере мобильных служб .NET

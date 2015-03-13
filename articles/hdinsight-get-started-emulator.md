@@ -1,6 +1,21 @@
-<properties pageTitle="Приступая к работе с эмулятором HDInsight | Azure" description="Узнайте, как использовать эмулятор HDInsight для Azure." editor="cgronlun" manager="paulettm" services="hdinsight" author="nitinme" authors="nitinme" documentationCenter=""/>
+﻿<properties 
+	pageTitle="Приступая к работе с эмулятором HDInsight | Azure" 
+	description="Узнайте, как использовать эмулятор HDInsight для Azure." 
+	editor="cgronlun" 
+	manager="paulettm" 
+	services="hdinsight" 
+	author="nitinme" 
+	authors="nitinme" 
+	documentationCenter=""/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/06/2015" ms.author="nitinme"/>
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/06/2015" 
+	ms.author="nitinme"/>
 
 # Приступая к работе с эмулятором HDInsight 
 
@@ -69,7 +84,7 @@
 
 В ходе установки также должно быть установлено несколько локальных служб. Далее представлен снимок экрана окна "Службы":
 
-![HDI.Emulator.Services][image-hdi-emulator-services]
+![HDI.Emulator.Services][0]
 
 Службы, связанные с эмулятором HDInsight, не запускаются по умолчанию. Для запуска служб запустите из командной строки Hadoop командлет **start\_local\_hdp_services.cmd** из папки <системный диск\>\hdp. Для автоматического запуска служб после перезагрузки компьютера запустите командлет **set-onebox-autostart.cmd**.  
 
@@ -454,14 +469,14 @@ JAR-файл и исходные файлы находятся в папке C:\
 - [Разработка программ MapReduce на Java для HDInsight][hdinsight-develop-mapreduce]
 - [Разработка программ MapReduce потоковой передачи Hadoop на C# для HDInsight][hdinsight-develop-deploy-streaming]
 - [Заметки о выпуске эмулятора HDInsight][hdinsight-emulator-release-notes]
-- [Форум MSDN с обсуждением HDInsight](http://social.msdn.microsoft.com/Forums/ru-ru/hdinsight)
+- [Форум MSDN с обсуждением HDInsight](http://social.msdn.microsoft.com/Forums/en-US/hdinsight)
 
 
 
-[azure-sdk]: http://azure.microsoft.com/ru-ru/downloads/
+[azure-sdk]: http://azure.microsoft.com/downloads/
 [azure-create-storage-account]: ../storage-create-storage-account/
 [azure-management-portal]: https://manage.windowsazure.com/
-[netstat-url]: http://technet.microsoft.com/ru-ru/library/ff961504.aspx
+[netstat-url]: http://technet.microsoft.com/library/ff961504.aspx
 
 [hdinsight-develop-mapreduce]: ../hdinsight-develop-deploy-java-mapreduce/
 
@@ -470,7 +485,7 @@ JAR-файл и исходные файлы находятся в папке C:\
 
 [hdinsight-storage]: ../hdinsight-use-blob-storage/
 [hdinsight-submit-jobs]: ../hdinsight-submit-hadoop-jobs-programmatically/
-[hdinsight-powershell-reference]: http://msdn.microsoft.com/ru-ru/library/windowsazure/dn479228.aspx
+[hdinsight-powershell-reference]: http://msdn.microsoft.com/library/windowsazure/dn479228.aspx
 [hdinsight-get-started]: ../hdinsight-get-started/
 [hdinsight-develop-deploy-streaming]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
 [hdinsight-versions]: ../hdinsight-component-versioning/
@@ -480,6 +495,4 @@ JAR-файл и исходные файлы находятся в папке C:\
 [hadoop-commands-manual]: http://hadoop.apache.org/docs/r1.1.1/commands_manual.html
 
 [image-hdi-emulator-services]: ./media/hdinsight-get-started-emulator/HDI.Emulator.Services.png 
-
-
 <!--HONumber=42-->

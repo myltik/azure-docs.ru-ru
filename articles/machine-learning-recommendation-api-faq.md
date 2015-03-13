@@ -1,6 +1,20 @@
-﻿<properties title="FAQ for setting up and using the Machine Learning Recommendations API" pageTitle="Часто задаваемые вопросы о настройке и использовании API рекомендаций для машинного обучения | Azure" description="Microsoft RECOMMENDATIONS API, созданный с помощью часто задаваемых вопросов и ответов по Машинному обучению Azure" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Часто задаваемые вопросы о настройке и использовании API рекомендаций для машинного обучения | Azure" 
+	description="Microsoft RECOMMENDATIONS API, созданный с помощью часто задаваемых вопросов и ответов по Машинному обучению Azure" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="jaymathe" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/14/2014" ms.author="jaymathe" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/30/2014" 
+	ms.author="jaymathe"/> 
 
 # Часто задаваемые вопросы о настройке и использовании API рекомендаций для машинного обучения
 Версия 1.0
@@ -88,7 +102,7 @@
 
 ВАЖНО! Внимательно прочитайте информацию в диалоговом окне перед обновлением, чтобы быть в курсе условий оплаты и использования.
 
-Чтобы узнать больше о подписках, щелкните [здесь](http://msdn.microsoft.com/ru-ru/library/gg312164.aspx).
+Чтобы узнать больше о подписках, щелкните [здесь](http://msdn.microsoft.com/library/gg312164.aspx).
 
 ###Когда закончится срок действия подписки на службу "РЕКОМЕНДАЦИИ"?
 Подписка закончится, когда вы ее отмените. Инструкции по отмене подписки см. ниже.
@@ -143,3 +157,5 @@
 (c) Корпорация Майкрософт (Microsoft Corporation), 2014 г. Все права защищены. 
 
 
+
+<!--HONumber=46--> 

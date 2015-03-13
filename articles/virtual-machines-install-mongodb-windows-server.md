@@ -1,6 +1,6 @@
-﻿<properties 
+<properties 
 	pageTitle="Установка MongoDB на виртуальной машине под управлением Windows Server" 
-	description="Узнайте, как установить MongoDB на виртуальной машине Azure под управлением Windows Server." 
+	description="Узнайте, как установить MongoDB в виртуальной машине Azure под управлением Windows Server.." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="KBDAzure" 
@@ -18,7 +18,7 @@
 
 #Установка MongoDB на виртуальной машине под управлением Windows Server в Azure
 
-[MongoDB][MongoDB] является популярной, высокопроизводительной базой данных NoSQL с открытым исходным кодом.  С помощью [портала управления Azure][AzureManagementPortal] можно создать виртуальную машину под управлением Windows Server из коллекции образов.  Затем можно установить и настроить базу данных MongoDB на виртуальной машине.
+[MongoDB][MongoDB] является популярной, высокопроизводительной базой данных NoSQL с открытым исходным кодом. С помощью [портала управления Azure][AzureManagementPortal] можно создать виртуальную машину под управлением Windows Server из коллекции образов. Затем можно установить и настроить базу данных MongoDB на виртуальной машине.
 
 В этой статье рассматриваются следующие темы.
 
@@ -33,7 +33,7 @@
 
 - Назовите ее **Mongo**.
 - Укажите **TCP** в качестве протокола.
-- Установите для общедоступного и частного портов значение **27017**.
+- Установите для общего и частного портов значение **27017**.
  
 [AZURE.INCLUDE [virtual-machines-create-WindowsVM](../includes/virtual-machines-create-WindowsVM.md)]
 
@@ -49,10 +49,10 @@
 [AZURE.INCLUDE [install-and-run-mongo-on-win2k8-vm](../includes/install-and-run-mongo-on-win2k8-vm.md)]
 
 ##Сводка
-В этом учебнике вы научились создавать виртуальную машину Windows Server, удаленно подключаться к ней и подключать диск данных.  Вы также узнали, как установить и настроить MongoDB на виртуальной машине Windows. Дополнительную информацию о MongoDB см. в [документации по MongoDB][MongoDocs].
+В этом учебнике вы научились создавать виртуальную машину Windows Server, удаленно подключаться к ней и подключать диск данных.  Вы также узнали, как установить и настроить MongoDB на виртуальной машине Windows. Дополнительную информацию о MongoDB см. в [документации по MongoDB][MongoDocs]..
 
 [MongoDocs]: http://www.mongodb.org/display/DOCS/Home
 [MongoDB]: http://www.mongodb.org/
 [AzureManagementPortal]: http://manage.windowsazure.com
 
-<!--HONumber=45--> 
+<!--HONumber=42-->

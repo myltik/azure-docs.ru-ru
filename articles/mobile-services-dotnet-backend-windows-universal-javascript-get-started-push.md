@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Приступая к работе с push-уведомление с помощью серверной мобильной службы .NET" description="Узнайте, как использовать мобильные службы и центры уведомлений Azure для отправки push-уведомлений в универсальное приложение для Windows." services="mobile-services, notification-hubs" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Приступая к работе с push-уведомление с помощью серверной мобильной службы .NET" 
+	description="Узнайте, как использовать мобильные службы и центры уведомлений Azure для отправки push-уведомлений в универсальное приложение для Windows." 
+	services="mobile-services, notification-hubs" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/27/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="javascript" 
+	ms.topic="article" 
+	ms.date="09/27/2014" 
+	ms.author="glenga"/>
 
 
 # Добавление push-уведомлений в приложение мобильных служб
@@ -54,7 +68,7 @@
 
 <ol start="5">
 <li><p>Перейдите в папку проекта <code>\services\mobileServices\settings</code> скопируйте созданный файл скрипта &lt;<em>имя_службы</em>&gt;.js в общую папку проекта <code>\js</code> , а затем удалите этот файл из проектов приложений Windows и Windows Phone. Также удалите этот файл из папки <code>\services\mobileServices\scripts</code> в каждом проекте приложения, если он там присутствует.</p></li> 
-<li><p>Откройте этот файл скрипта в общей папке проекта <code>\js</code> и закомментируйте существующий код, который определяет <a href="http://msdn.microsoft.com/ru-ru/library/azure/jj554219.aspx">MobileServiceClient object</a> для доступа к мобильной службе, запущенной в Azure.</p></li>
+<li><p>Откройте этот файл скрипта в общей папке проекта <code>\js</code> и закомментируйте существующий код, который определяет <a href="http://msdn.microsoft.com/library/azure/jj554219.aspx">MobileServiceClient object</a> для доступа к мобильной службе, запущенной в Azure.</p></li>
 <li><p>Добавьте новое определение объекта <strong>MobileServiceClient</strong> с тем же именем, но с использованием URL-адреса локального узла в конструкторе, как в следующем примере:</p>
 <pre><code>// This MobileServiceClient has been configured to communicate with your local
 // test project for debugging purposes.

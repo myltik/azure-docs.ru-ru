@@ -7,5 +7,4 @@
 Нажмите кнопку **Просмотреть журнал**, чтобы увидеть выходные данные пользовательского скрипта развертывания:
 
 ![](./media/web-sites-python-troubleshoot-deployment/portal-deployment-log.png)
-
 <!--HONumber=42-->

@@ -28,7 +28,7 @@
 ##Необходимые компоненты
 Для работы с этим учебником вам потребуются следующие продукты. У всех этих продуктов есть бесплатные версии, так что можно начать разработку для Azure полностью бесплатно.
 
-- **Подписка Azure** - бесплатную подписку можно найти на сайте [Бесплатная пробная версия Azure](http://azure.microsoft.com/ru-ru/pricing/free-trial/)
+- **Подписка Azure** - бесплатную подписку можно найти на сайте [Бесплатная пробная версия Azure](http://azure.microsoft.com/pricing/free-trial/)
 
 - **Visual Studio 2013** - о скачивании бесплатной пробной версии см. на странице [Загружаемые файлы для Visual Studio](http://www.visualstudio.com/downloads/download-visual-studio-vs). Прежде чем продолжить, установите этот продукт.
 
@@ -115,7 +115,7 @@
 6. Выполните все инструкции мастера, чтобы завершить установку.
 
 ###Включение TCP/IP
-Чтобы включить TCP/IP, необходимо использовать диспетчер конфигурации SQL Server, который устанавливается при установке SQL Server Express. Перед тем как продолжить, выполните шаги в разделе [Включение протокола сети TCP/IP для SQL Server](http://technet.microsoft.com/ru-ru/library/hh231672%28v=sql.110%29.aspx).
+Чтобы включить TCP/IP, необходимо использовать диспетчер конфигурации SQL Server, который устанавливается при установке SQL Server Express. Перед тем как продолжить, выполните шаги в разделе [Включение протокола сети TCP/IP для SQL Server](http://technet.microsoft.com/library/hh231672%28v=sql.110%29.aspx).
 
 <a name="CreateSQLDB"></a>
 ###Создание локальной базы данных SQL Server
@@ -384,13 +384,13 @@
 
 [Джош Твист (Josh Twist) представляет гибридные подключения (видео Channel 9)](http://channel9.msdn.com/Shows/Azure-Friday/Josh-Twist-introduces-hybrid-connections)
 
-[Веб-сайт гибридных подключений](http://azure.microsoft.com/ru-ru/services/biztalk-services/)
+[Веб-сайт гибридных подключений](http://azure.microsoft.com/services/biztalk-services/)
 
-[Службы BizTalk: вкладки "Панель мониторинга", "Монитор" и "Масштаб"](http://azure.microsoft.com/ru-ru/documentation/articles/biztalk-dashboard-monitor-scale-tabs/)
+[Службы BizTalk: вкладки "Панель мониторинга", "Монитор" и "Масштаб"](http://azure.microsoft.com/documentation/articles/biztalk-dashboard-monitor-scale-tabs/)
 
 [Создание реального облака с гибридным подключением с помощью простой переносимости приложений (видео Channel 9)](http://channel9.msdn.com/events/TechEd/NorthAmerica/2014/DCIM-B323#fbid=)
 
-[Подключение к локальному SQL Server из мобильной службы Azure с помощью гибридных подключений](http://azure.microsoft.com/ru-ru/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started/)
+[Подключение к локальному SQL Server из мобильной службы Azure с помощью гибридных подключений](http://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started/)
 
 [Подключение к локальному SQL Server с мобильных служб Azure с помощью гибридных подключений (видео Channel 9)](http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Connect-to-an-on-premises-SQL-Server-from-Azure-Mobile-Services-using-Hybrid-Connections)
 

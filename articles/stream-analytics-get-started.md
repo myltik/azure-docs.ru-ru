@@ -1,6 +1,20 @@
-﻿<properties linkid="manage-services-Stream-Analytics-get-started" urlDisplayName="Get Started" pageTitle="Приступая к работе с Azure Stream Analytics | Azure" metaKeywords="" description="Приступите к использованию анализа потоков Azure, чтобы обрабатывать и преобразовывать события в концентраторе событий Azure Service Bus и сохранять результаты в базе данных SQL Azure." metaCanonical="" services="stream analytics" documentationCenter="" title="Get started with Azure Stream Analytics" authors="jgao" solutions="big-data" manager="paulettm" editor="cgronlun" />
+﻿<properties 
+	pageTitle="Приступая к работе с Azure Stream Analytics | Azure" 
+	description="Приступите к использованию анализа потоков Azure, чтобы обрабатывать и преобразовывать события в концентраторе событий Azure Service Bus и сохранять результаты в базе данных SQL Azure." 
+	services="stream-analytics" 
+	documentationCenter="" 
+	authors="mumian" 
+	manager="paulettm" 
+	editor="cgronlun" />
 
-<tags ms.service="stream analytics" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/28/2014" ms.author="jgao" />
+<tags 
+	ms.service="stream-analytics" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="data-services" 
+	ms.date="2/17/2015" 
+	ms.author="jgao" />
 
 
 # Приступая к работе с Azure Stream Analytics
@@ -73,7 +87,7 @@ Azure Stream Analytics может выводить данные в базу SQL 
 1.	Щелкните на портале управления **СОЗДАТЬ**, **СЛУЖБЫ ДАННЫХ**, **БАЗА ДАННЫХ SQL**, **БЫСТРО СОЗДАТЬ**.  Укажите имя базы данных на существующем или новом сервере баз данных SQL.
 2.	Выберите вновь созданную базу данных
 3.	Щелкните **ПАНЕЛЬ МОНИТОРИНГА**, щелкните **Показать строки подключения** на правой панели страницы, затем скопируйте строку подключения **ADO.NET**. Она потребуется вам позже.  
-4.	Убедитесь, что параметры брандмауэра на уровне сервера разрешают вам подключение к базе данных.  Это можно сделать путем добавления нового правила IP-адресов на вкладке "Настройка сервера". Более подробные сведения, в т. ч. и о работе с динамическими IP-адресами, см. по ссылке [http://msdn.microsoft.com/ru-ru/library/azure/ee621782.aspx](http://msdn.microsoft.com/ru-ru/library/azure/ee621782.aspx).
+4.	Убедитесь, что параметры брандмауэра на уровне сервера разрешают вам подключение к базе данных.  Это можно сделать путем добавления нового правила IP-адресов на вкладке "Настройка сервера". Более подробные сведения, в т. ч. и о работе с динамическими IP-адресами, см. по ссылке [http://msdn.microsoft.com/library/azure/ee621782.aspx](http://msdn.microsoft.com/library/azure/ee621782.aspx).
 
 ###Создание выходных таблиц
 1.	Откройте Visual Studio или SQL Server Management Studio.
@@ -264,13 +278,13 @@ Stream Analytics поддерживает простую декларативн�
 [img.stream.analytics.operation.log.details]: ./media/stream-analytics-get-started/StreamAnalytics.operation.log.details.png
 
 
-[azure.sql.database.firewall]: http://msdn.microsoft.com/ru-ru/library/azure/ee621782.aspx
-[azure.event.hubs.documentation]: http://azure.microsoft.com/ru-ru/services/event-hubs/
-[azure.sql.database.documentation]: http://azure.microsoft.com/ru-ru/services/sql-database/
+[azure.sql.database.firewall]: http://msdn.microsoft.com/library/azure/ee621782.aspx
+[azure.event.hubs.documentation]: http://azure.microsoft.com/services/event-hubs/
+[azure.sql.database.documentation]: http://azure.microsoft.com/services/sql-database/
 
-[sql.database.introduction]: http://azure.microsoft.com/ru-ru/services/sql-database/
-[event.hubs.introduction]: http://azure.microsoft.com/ru-ru/services/event-hubs/
-[azure.blob.storage]: http://azure.microsoft.com/ru-ru/documentation/services/storage/
+[sql.database.introduction]: http://azure.microsoft.com/services/sql-database/
+[event.hubs.introduction]: http://azure.microsoft.com/services/event-hubs/
+[azure.blob.storage]: http://azure.microsoft.com/documentation/services/storage/
 [azure.sdk.net]: ../dotnet-sdk/
 
 [stream.analytics.introduction]: ../stream-analytics-introduction/
@@ -286,3 +300,5 @@ Stream Analytics поддерживает простую декларативн�
 
 [azure.management.portal]: https://manage.windowsazure.com
 
+
+<!--HONumber=46--> 

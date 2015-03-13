@@ -1,6 +1,6 @@
 ﻿<properties 
 	pageTitle="Выбор имен пользователей для Linux в Azure" 
-	description="Узнайте, как выбрать имена пользователей для виртуальной машины Linux в Azure." 
+	description="Узнайте, как выбирать имена пользователей для виртуальной машины Linux в Azure." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="szarkos" 
@@ -245,4 +245,5 @@
 - www-data
 
 
-<!--HONumber=45--> 
+
+<!--HONumber=42-->

@@ -1,6 +1,20 @@
-<properties title="DocumentDB limits for the preview release" pageTitle="Ограничения DocumentDB для предварительного выпуска | Azure" description="Узнайте о накладываемых ограничениях и квотах для предварительной версии DocumentDB." metaKeywords="" services="documentdb" solutions="data-management"  authors="bradsev" manager="jhubbard" editor="cgronlun"  videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Ограничения DocumentDB для предварительного выпуска | Azure" 
+	description="Узнайте о накладываемых ограничениях и квотах для предварительной версии DocumentDB." 
+	services="documentdb" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="cgronlun" 
+	documentationCenter=""/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/29/2015" 
+	ms.author="mimig"/>
 
 
 # Ограничения DocumentDB для предварительного выпуска
@@ -39,3 +53,5 @@
 |Максимальное количество итераторов JOIN в запросе    |2
 |Максимальное количество условий AND в запросе      |5
 |Максимальное количество условий OR в запросе       |5
+
+<!--HONumber=46--> 

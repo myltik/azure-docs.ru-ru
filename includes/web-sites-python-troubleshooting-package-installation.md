@@ -64,8 +64,7 @@
 Рекомендуется удалить существующую виртуальную среду на сайте, чтобы при автоматическом управлении виртуальной средой не оставались лишние файлы.
 
 
-[Создание виртуальной машины под управлением Windows]: http://azure.microsoft.com/ru-ru/documentation/articles/virtual-machines-windows-tutorial/
+[Создание виртуальной машины под управлением Windows]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/
 [Компилятор Microsoft Visual C++ для Python 2.7]: http:://aka.ms/vcpython27
 [Microsoft Visual C++ 2010 Express]: http://go.microsoft.com/?linkid=9709949
-
 <!--HONumber=42-->

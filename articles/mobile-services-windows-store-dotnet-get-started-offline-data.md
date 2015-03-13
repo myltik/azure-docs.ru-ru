@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Использование автономных данных в мобильных службах (магазин Windows) | Центр мобильных разработок" description="Узнайте, как использовать мобильные службы Azure для кэширования и синхронизации автономных данных в приложении магазина Windows" documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor="" services=""/>
+﻿<properties 
+	pageTitle="Использование автономных данных в мобильных службах (магазин Windows) | Центр мобильных разработок" 
+	description="Узнайте, как использовать мобильные службы Azure для кэширования и синхронизации автономных данных в приложении магазина Windows" 
+	documentationCenter="windows" 
+	authors="wesmc7777" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="12/10/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="12/10/2014" 
+	ms.author="wesmc"/>
 
 # Использование автономной синхронизации в мобильных службах
 
@@ -22,7 +36,7 @@
 
 >[AZURE.NOTE] Этот учебник поможет вам разобраться, как с помощью мобильных служб можно использовать Azure для хранения и извлечения данных приложения для Магазина Windows. Если это ваш первый опыт работы с мобильными службами, сначала ознакомьтесь с учебником [Приступая к работе с мобильными службами].
 >
->Для работы с этим учебником требуется учетная запись Azure. Если у вас нет учетной записи, можно зарегистрироваться для получения бесплатной пробной версии Azure и получить до 10 бесплатных мобильных служб, которые можно использовать и после окончания пробного периода. Дополнительные сведения см. в разделе <a href="http://www.windowsazure.com/ru-ru/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Бесплатная пробная версия Azure</a>. 
+>Для работы с этим учебником требуется учетная запись Azure. Если у вас нет учетной записи, можно зарегистрироваться для получения бесплатной пробной версии Azure и получить до 10 бесплатных мобильных служб, которые можно использовать и после окончания пробного периода. Дополнительные сведения см. в разделе <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Бесплатная пробная версия Azure</a>. 
 >
 >Более ранняя версия учебника по Windows Phone 8 для Visual Studio 2012 доступна по этой ссылке: [Учебник по Windows Phone 8 для Visual Studio 2012].
 
@@ -41,7 +55,7 @@
 * [SQLite Store для мобильных служб Azure версии 1.0.0 (или более поздних версий)][Nuget-пакет SQLiteStore]
 * [SQLite для Windows 8.1](www.sqlite.org/downloads)
 
->[AZURE.NOTE] Для работы с этим учебником требуется учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://www.windowsazure.com/ru-ru/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Бесплатная пробная версия Azure</a>. 
+>[AZURE.NOTE] Для работы с этим учебником требуется учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Бесплатная пробная версия Azure</a>. 
 
 ## <a name="enable-offline-app"></a>Обновление приложения для поддержки автономных функций
 
@@ -125,7 +139,8 @@
         private async Task InsertTodoItem(TodoItem todoItem)
         {
             await todoTable.InsertAsync(todoItem);
-            items.Add(todoItem);
+            ite
+	ms.Add(todoItem);
 
             await SyncAsync(); // offline sync
         }
@@ -133,8 +148,10 @@
         private async Task UpdateCheckedTodoItem(TodoItem item)
         {
             await todoTable.UpdateAsync(item);
-            items.Remove(item);
-            ListItems.Focus(Windows.UI.Xaml.FocusState.Unfocused);
+            ite
+	ms.Remove(item);
+            ListIte
+	ms.Focus(Windows.UI.Xaml.FocusState.Unfocused);
 
             await SyncAsync(); // offline sync
         }

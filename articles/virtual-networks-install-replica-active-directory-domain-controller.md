@@ -1,6 +1,21 @@
-﻿<properties urlDisplayName="Replica domain controller" pageTitle="Установка реплики контроллера домена в Azure" metaKeywords="" description="Учебник, в котором объясняется, как установить контроллер домена из леса локальной Active Directory на виртуальной машине Azure." metaCanonical="" services="virtual-network" documentationCenter="" title="Install a Replica Active Directory Domain Controller on an Azure Virtual Network" authors="Justinha" solutions="" writer="Justinha" manager="TerryLan" editor="LisaToft" />
+﻿<properties 
+	pageTitle="Установка реплики контроллера домена в Azure" 
+	description="Учебник, в котором объясняется, как установить контроллер домена из леса локальной службы Active Directory на виртуальной машине Azure." 
+	services="virtual-network" 
+	documentationCenter="" 
+	authors="Justinha" 
+	writer="Justinha" 
+	manager="TerryLan" 
+	editor="LisaToft"/>
 
-<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/04/2014" ms.author="Justinha" />
+<tags 
+	ms.service="virtual-network" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/12/2015" 
+	ms.author="Justinha"/>
 
 
 #Установка реплики контроллера домена Active Directory в виртуальных сетях Azure
@@ -154,7 +169,7 @@
 Вместо портала управления для подготовки виртуальных машин можно использовать Windows PowerShell для Microsoft Azure. Используйте командлеты <a href = "http://msdn.microsoft.com/library/azure/dn495159.aspx">New-AzureVMConfig</a> и <a href = "http://msdn.microsoft.com/library/azure/dn495299.aspx">Add-AzureProvisioningConfig</a> для подготовки виртуальной машины в качестве присоединенной к домену при ее первой загрузке, а затем с помощью командлета <a href = "http://msdn.microsoft.com/library/azure/dn495254.aspx">New-AzureVM</a> создайте саму виртуальную машину. 
 </p>
 
-Дополнительные сведения об использовании Windows PowerShell см. в статьях [Приступая к работе с Azure PowerShell](http://msdn.microsoft.com/ru-ru/library/windowsazure/jj156055.aspx) и [Командлеты управления Azure](http://msdn.microsoft.com/ru-ru/library/windowsazure/jj152841).
+Дополнительные сведения об использовании Windows PowerShell см. в статьях [Приступая к работе с Azure PowerShell](http://msdn.microsoft.com/library/windowsazure/jj156055.aspx) и [Командлеты управления Azure](http://msdn.microsoft.com/library/windowsazure/jj152841).
 
 
 <h2><a id="resources"></a>Дополнительные ресурсы</h2>
@@ -179,3 +194,5 @@
 [1]: ./media/virtual-networks-install-replica-active-directory-domain-controller/ReplicaDCsOnAzureVNet.png
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

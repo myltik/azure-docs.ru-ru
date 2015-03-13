@@ -1,6 +1,20 @@
-﻿<properties title="Azure Websites Web Hosting Plans In-Depth Overview" pageTitle="Подробный обзор планов размещения веб-сайтов Azure - руководство по компонентам Microsoft Azure" description="Узнайте, как работают планы размещения веб-сайтов Azure и чем они удобны для вашей среды управления." metaKeywords="Azure Web Sites, Azure Websites, WHP, Web Hosting Plan, Web Hosting Plans, Resource Groups" services="web-sites" solutions="web" documentationCenter="Infrastructure" authors="Byron Tardif and Yochay Kiryaty" videoId="" scriptId="" manager="wpickett" />
+﻿<properties 
+	pageTitle="Подробный обзор планов размещения веб-сайтов Azure – руководство по компонентам Microsoft Azure" 
+	description="Узнайте, как работают планы размещения веб-сайтов Azure и чем они удобны для вашей среды управления." 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="btardif" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="11/17/2014" ms.author="Byron Tardif and Yochay Kiryaty" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/17/2014" 
+	ms.author="byvinyal, yochayk"/>
 </br>
 #Подробный обзор планов размещения веб-сайтов Azure#
 </br>
@@ -189,3 +203,5 @@
 Планы размещения веб-сайтов представляют собой набор компонентов и возможностей, которые можно использовать по всем веб-сайтам.  План размещения веб-сайтов позволяет гибко относить определенные сайты к конкретному набору ресурсов (виртуальным машинам), и таким образом оптимизировать выделение ресурсов Azure и использование веб-сайтов.
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

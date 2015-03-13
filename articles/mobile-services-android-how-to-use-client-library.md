@@ -1,6 +1,20 @@
-<properties pageTitle="Работа с клиентской библиотекой Android мобильных служб" description="Узнайте, как использовать клиент Android для мобильных служб Azure." services="mobile-services" documentationCenter="android" authors="RickSaling" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Работа с клиентской библиотекой Android мобильных служб" 
+	description="Узнайте, как использовать клиент Android для мобильных служб Azure." 
+	services="mobile-services" 
+	documentationCenter="android" 
+	authors="RickSaling" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="10/20/2014" ms.author="ricksal"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="Mobile-Android" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="10/20/2014" 
+	ms.author="ricksal"/>
 
 # Использование клиентской библиотеки Android для мобильных служб
 
@@ -882,6 +896,6 @@
 [Пакет SDK для мобильных служб]: http://go.microsoft.com/fwlink/p/?linkid=280126
 [Приступая к работе с проверкой подлинности]: /ru-ru/develop/mobile/tutorials/get-started-with-users-android/
 [Управляющие коды ASCII C0 и C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-[Интерфейс командной строки для управления таблицами мобильных служб]: http://www.windowsazure.com/ru-ru/manage/linux/other-resources/command-line-tools/#Mobile_Tables
+[Интерфейс командной строки для управления таблицами мобильных служб]: http://azure.microsoft.com/manage/linux/other-resources/command-line-tools/#Mobile_Tables
 
 <!--HONumber=42-->

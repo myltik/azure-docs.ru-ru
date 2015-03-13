@@ -425,7 +425,7 @@ AzCopy - это служебная программа командной стр�
 
 	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
 
-Дополнительную информацию о работе с ключами доступа к хранилищу см. в разделе [Просмотр, копирование и повторное создание ключей доступа к хранилищу]( http://azure.microsoft.com/ru-ru/documentation/articles/storage-create-storage-account/#regeneratestoragekeys).
+Дополнительную информацию о работе с ключами доступа к хранилищу см. в разделе [Просмотр, копирование и повторное создание ключей доступа к хранилищу]( http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#regeneratestoragekeys).
 
 ### Копирование BLOB-объекта через копирование на стороне сервера
 
@@ -885,9 +885,9 @@ AzCopy использует  *индекс тома* в именах разде�
 
 ### Документация по хранилищу Azure:
 
-- [Введение в хранилище Azure](http://azure.microsoft.com/ru-ru/documentation/articles/storage-introduction/)
-- [Хранение файлов в хранилище больших двоичных объектов](http://azure.microsoft.com/ru-ru/documentation/articles/storage-dotnet-how-to-use-blobs/)
-- [Создание общей папки SMB в Azure с помощью хранилища файлов](http://azure.microsoft.com/ru-ru/documentation/articles/storage-dotnet-how-to-use-files/)
+- [Введение в хранилище Azure](http://azure.microsoft.com/documentation/articles/storage-introduction/)
+- [Хранение файлов в хранилище больших двоичных объектов](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/)
+- [Создание общей папки SMB в Azure с помощью хранилища файлов](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-files/)
 
 ### Записи блога по хранилищу Azure:
 - [AzCopy: Введение в синхронное копирование и настраиваемый тип содержимого](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
@@ -898,6 +898,5 @@ AzCopy использует  *индекс тома* в именах разде�
 - [AzCopy: передача данных с использованием перезапускаемого режима и маркера SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
 - [AzCopy: использование копирования BLOB-объектов между разными учетными записями](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 - [AzCopy: отправка/ загрузка файлов для BLOB-объектов Windows Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
-
 
 <!--HONumber=42-->

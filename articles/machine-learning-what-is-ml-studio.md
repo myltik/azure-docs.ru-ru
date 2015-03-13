@@ -1,6 +1,20 @@
-﻿<properties title="What Is Azure Machine Learning Studio?" pageTitle="Что такое Студия машинного обучения? | Azure" description="Обзор Студии машинного обучения Azure" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Что такое Студия машинного обучения Azure? | Azure" 
+	description="Общие сведения о Студии машинного обучения Azure и ее базовые компоненты" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/11/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/11/2014" 
+	ms.author="garye"/>
 
 # Что такое Студия машинного обучения Azure?
 
@@ -39,8 +53,8 @@
 - Все входные порты для модулей должны иметь связь с потоком данных. 
 - Все необходимые параметры для модуля должны быть установлены. 
 
-Пример создания простого эксперимента см. в разделе [Создание простого эксперимента в Студии машинного обучения Azure](http://azure.microsoft.com/ru-ru/documentation/articles/machine-learning-create-experiment/). 
-Подробное пошаговое руководство по созданию решения прогнозной аналитики см. в разделе [Разработка прогнозирующего решения с помощью Студии машинного обучения Azure](http://azure.microsoft.com/ru-ru/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/).
+Пример создания простого эксперимента см. в разделе [Создание простого эксперимента в Студии машинного обучения Azure](http://azure.microsoft.com/documentation/articles/machine-learning-create-experiment/). 
+Подробное пошаговое руководство по созданию решения прогнозной аналитики см. в разделе [Разработка прогнозирующего решения с помощью Студии машинного обучения Azure](http://azure.microsoft.com/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/).
 
 ### Наборы данных
 
@@ -67,3 +81,5 @@
 
 
 [ml-studio-overview]:./media/machine-learning-what-is-ml-studio/context.jpg
+
+<!--HONumber=46--> 

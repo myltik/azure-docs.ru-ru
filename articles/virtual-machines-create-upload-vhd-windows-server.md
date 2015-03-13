@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Создание и передача виртуального жесткого диска Windows Server в Azure" 
 	description="Узнайте, как создать и передать виртуальный жесткий диск с операционной системой Windows Server в Azure." 
 	services="virtual-machines" 
@@ -21,18 +21,18 @@
 
 В этой статье показано, как передать виртуальный жесткий диск с операционной системой, чтобы использовать его в качестве образа для создания виртуальных машин. Дополнительную информацию об образах и дисках в Microsoft Azure см. в разделе [Диски и образы в Azure](http://msdn.microsoft.com/library/windowsazure/jj672979.aspx).
 
-> [AZURE.NOTE] При создании виртуальной машины на основе образа можно настроить параметры операционной системы, чтобы оптимизировать выполняемые приложения. Заданная конфигурация сохраняется на диске для этой виртуальной машины и не влияет на ее образ. Инструкции см. в разделе [Создание настраиваемой виртуальной машины](http://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/).
+> [AZURE.NOTE] При создании виртуальной машины на основе образа можно настроить параметры операционной системы, чтобы оптимизировать выполняемые приложения. Заданная конфигурация сохраняется на диске для этой виртуальной машины и не влияет на ее образ. Инструкции приведены в статье [Как создать настраиваемую виртуальную машину](http://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/).
 
 ##Предварительные требования##
 В данной статье предполагается, что у вас есть следующее:
 
-1. **Подписка на Azure**. Если у вас ее нет, вы можете создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Создание учетной записи Azure](http://azure.microsoft.com/develop/php/tutorials/create-a-windows-azure-account/).  
+1. **Подписка на Azure**. Если у вас ее нет, вы можете создать бесплатную пробную учетную запись всего за несколько минут. Дополнительную информацию см. в статье [Создание учетной записи Azure](http://azure.microsoft.com/develop/php/tutorials/create-a-windows-azure-account/).  
 
 2. **Microsoft Azure PowerShell**. У вас уже установлен и настроен на использование подписки модуль Microsoft Azure PowerShell. Чтобы скачать этот модуль, см. статью [Ресурсы Microsoft Azure для загрузки](http://azure.microsoft.com/downloads/). Учебник по установке и настройке модуля можно найти [здесь](http://azure.microsoft.com/documentation/articles/install-configure-powershell/). Передайте VHD, используя командлет [Add-AzureVHD](http://msdn.microsoft.com/library/azure/dn495173.aspx).
 
-3. **Поддерживаемая операционная система Windows в VHD-файле**. Вы установили поддерживаемую операционную систему Windows Server на виртуальный жесткий диск. Существует несколько средств для создания VHD-файлов. Для создания виртуальной машины и установки операционной системы можно использовать решение для виртуализации, например Hyper-V. Инструкции см. в разделе [Установка роли Hyper-V и настройка виртуальной машины](http://technet.microsoft.com/ library/hh846766.aspx).
+3. **Поддерживаемая операционная система Windows в VHD-файле**. Вы установили поддерживаемую операционную систему Windows Server на виртуальный жесткий диск. Существует несколько средств для создания VHD-файлов. Для создания виртуальной машины и установки операционной системы можно использовать решение для виртуализации, например Hyper-V. Инструкции об этом см. в статье [Установка роли Hyper-V и настройка виртуальной машины](http://technet.microsoft.com/library/hh846766.aspx).
 
-> [AZURE.NOTE] Формат VHDX не поддерживается в Microsoft Azure. Вы можете преобразовать диск в формат VHD с помощью диспетчера Hyper-V или [командлета Convert-VHD](http://technet.microsoft.com/ library/hh848454.aspx). Учебник об этом вы найдете [здесь](http://blogs.msdn.com/b/virtual_pc_guy/archive/2012/10/03/using-powershell-to-convert-a-vhd-to-a-vhdx.aspx).
+> [AZURE.NOTE] Формат VHDX не поддерживается в Microsoft Azure. Вы можете преобразовать диск в формат VHD с помощью диспетчера Hyper-V или [командлета Convert-VHD](http://technet.microsoft.com/library/hh848454.aspx). Учебник об этом вы найдете [здесь](http://blogs.msdn.com/b/virtual_pc_guy/archive/2012/10/03/using-powershell-to-convert-a-vhd-to-a-vhdx.aspx).
  
  Поддерживаются следующие версии Windows Server:
 <P>
@@ -74,13 +74,13 @@
 
 ## <a id="prepimage"> </a>Шаг 1. подготовка образа для передачи ##
 
-Перед передачей образа в Azure его необходимо обобщить с помощью команды Sysprep. Дополнительную информацию об использовании Sysprep см. в разделе [Как использовать Sysprep: введение](http://technet.microsoft.com/ library/bb457073.aspx).
+Перед передачей образа в Azure его необходимо обобщить с помощью команды Sysprep. Дополнительную информацию об использовании Sysprep см. в разделе [Как использовать Sysprep: Введение](http://technet.microsoft.com/library/bb457073.aspx).
 
 В виртуальной машине, в которую была установлена операционная система, сделайте следующее:
 
 1. Войдите в операционную систему.
 
-2. Откройте окно командной строки с правами администратора. Перейдите в каталог **%windir%\system32\sysprep**, а затем запустите `sysprep.exe`.
+2. Откройте окно командной строки с правами администратора. Измените каталог на **%windir%\system32\sysprep** и выполните команду  `sysprep.exe`.
 
 	![Open Command Prompt window](./media/virtual-machines-create-upload-vhd-windows-server/sysprep_commandprompt.png)
 
@@ -88,7 +88,7 @@
 
 	![Start Sysprep](./media/virtual-machines-create-upload-vhd-windows-server/sysprepgeneral.png)
 
-4.  В окне **Программа подготовки системы** выберите элемент **Переход в окно приветствия системы (OOBE)** и установите флажок "Подготовка к использованию".
+4.  В окне **Программа подготовки системы** выберите **Запуск при первом включении компьютера (OOBE)** и убедитесь, что установлен флажок "Обобщить".
 
 5.  В разделе **Параметры завершения работы** выберите **Завершение работы**.
 
@@ -170,7 +170,7 @@
 4. Введите: 
 	`Import-AzurePublishSettingsFile <PathToFile>`
 
-	где `< PathToFile >` - это полный путь к файлу PUBLISHSETTINGS. 
+	Где "`<PathToFile>`" - это полный путь к файлу .publishsettings. 
 
 
 	Дополнительную информацию см. в разделе [Начало работы с командлетами Microsoft Azure](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx) 
@@ -178,14 +178,14 @@
 	Дополнительную информацию об установке и настройке PowerShell см. в статье [Установка и настройка Microsoft Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell/) 
 
 
-## <a id="upload"> </a>Шаг 4. передача VHD-файла ##
+## <a id="upload"></a>Шаг 4. передача VHD-файла ##
 
 При загрузке VHD-файла его можно поместить в любом месте внутри хранилища больших двоичных объектов. В приведенных ниже примерах команд **BlobStorageURL** - это URL-адрес для учетной записи хранения, созданный при выполнении шага 2, **YourImagesFolder** - это контейнер внутри хранилища BLOB-объектов, где будут храниться образы. **VHDName** - метка, отображающаяся на портале управления для идентификации виртуального жесткого диска. **PathToVHDFile** - имя VHD-файла и полный путь к нему. 
 
 
 1. В окне Azure PowerShell, использованном при выполнении предыдущего шага, введите:
 
-	`Add-AzureVhd -Destination "<URL_хранилища_объектов_BLOB>/<папка_образов>/<имя_VHD>.vhd" -LocalFilePath <путь_к_файлу_VHD>`
+	`Add-AzureVhd -Destination "<BlobStorageURL>/<YourImagesFolder>/<VHDName>.vhd" -LocalFilePath <PathToVHDFile>`
 	
 	![PowerShell Add-AzureVHD](./media/virtual-machines-create-upload-vhd-windows-server/powershell_upload_vhd.png)
 
@@ -212,12 +212,12 @@
 	![Select VHD](./media/virtual-machines-create-upload-vhd-windows-server/Select_VHD.png)
 
 	- Укажите учетную запись хранения с VHD-файлом, а затем выберите элемент **Открыть**. После этого опять откроется окно **Создание образа на основе VHD**.
-	- Вернувшись к нему****, выберите элемент "Семейство операционных систем".
-	- Установите флажок **Я запустил Sysprep на виртуальной машине, связанной с этим VHD**, чтобы подтвердить обобщение операционной системы из шага 1, а затем нажмите кнопку **ОК**. 
+	- Вернувшись к нему, выберите элемент "Семейство операционных систем".
+	- Отметьте пункт **Я выполнил Sysprep на виртуальной машине, связанной с этим VHD**, чтобы подтвердить обобщение операционной системы при выполнении шага 1, а затем нажмите **ОК**. 
 
 	![Add Image](./media/virtual-machines-create-upload-vhd-windows-server/Create_Image_From_VHD.png)
 
-5. **НЕОБЯЗАТЕЛЬНО.** Чтобы добавить VHD в качестве образа, вместо портала управления можно также использовать командлет Add-AzureVMImage. 	В консоли Azure PowerShell введите:
+5. **НЕОБЯЗАТЕЛЬНО.** Чтобы добавить VHD в качестве образа, вместо портала управления можно также использовать командлет Add-AzureVMImage.	В консоли Azure PowerShell введите:
 
 	`Add-AzureVMImage -ImageName <Your Image's Name> -MediaLocation <location of the VHD> -OS <Type of the OS on the VHD>`
 	
@@ -228,20 +228,21 @@
 
 	![custom image](./media/virtual-machines-create-upload-vhd-windows-server/vm_custom_image.png)
 
-	Теперь при создании виртуальной машины вы сможете воспользоваться этим новым образом. Чтобы отобразить его, выберите **Мои образы**. Инструкции см. в разделе [Создание виртуальной машины под управлением Windows Server](http://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/).
+	Теперь при создании виртуальной машины вы сможете воспользоваться этим новым образом. Чтобы отобразить его, выберите **Мои образы**. Инструкции об этом см. в статье [Создание виртуальной машины под управлением Windows Server](http://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/).
 
 	![create VM from custom image](./media/virtual-machines-create-upload-vhd-windows-server/create_vm_custom_image.png)
 
-	> [AZURE.Совет] Если при попытке создания виртуальной машины отображается сообщение об ошибке "VHD-диск https://XXXXX... имеет неподдерживаемый размер виртуальной памяти - YYYY байт. Размер должен измеряться целым числом (в МБ)", это означает, что размер виртуальной памяти вашего VHD не составляет целое число в мегабайтах, и поэтому его размер нефиксированный. Попытайтесь добавить образ, используя командлет Add-AzureVMImage PowerShell вместо портала управления (см. шаг 5 выше). Командлеты Azure обеспечивают соответствие VHD требованиям Azure.
+	> [AZURE.TIP] Если при попытке создать виртуальную машину возникнет сообщение об ошибке "Размер виртуальной памяти VHD https://XXXXX... - YYYY байтов. Размер должен измеряться целым числом (в МБ)", это означает, что размер виртуальной памяти вашего VHD не составляет целое число в мегабайтах, и поэтому его размер нефиксированный. Попытайтесь добавить образ, используя командлет Add-AzureVMImage PowerShell вместо портала управления (см. шаг 5 выше). Командлеты Azure обеспечивают соответствие VHD требованиям Azure.
 	
 ## Дальнейшие действия ##
  
 
 После создания виртуальной машины попробуйте создать виртуальную машину SQL Server. Указания см. в статье [Подготовка виртуальной машины SQL Server в Microsoft Azure](http://azure.microsoft.com/documentation/articles/virtual-machines-provision-sql-server/). 
 
-[Шаг 1. подготовка образа для передачи]: #prepimage
-[Шаг 2. создание учетной записи хранения в Azure]: #createstorage
-[Шаг 3. подготовка подключения к Azure]: #prepAzure
-[Шаг 4. передача VHD-файла]: #upload
+[Шаг 1. Подготовка образа для передачи]: #prepimage
+[Шаг 2. Создание учетной записи хранения в Azure]: #createstorage
+[Шаг 3. Подготовка подключения к Azure]: #prepAzure
+[Шаг 4. Передача VHD-файла]: #upload
 
-<!--HONumber=45--> 
+
+<!--HONumber=42-->

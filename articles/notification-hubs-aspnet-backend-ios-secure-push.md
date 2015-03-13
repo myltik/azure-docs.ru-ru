@@ -1,11 +1,25 @@
-﻿<properties title="Azure Notification Hubs Secure Push" pageTitle="Безопасные push-уведомления посредством концентраторов уведомлений Azure" metaKeywords="push-уведомления Azure, концентраторы уведомлений Azure, безопасные push-уведомления" description="Узнайте, как отправлять безопасные push-уведомления в приложение iOS из Azure. Примеры кода написаны на Objective-C и C#." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="yuaxu" manager="dwrede" />
+﻿<properties 
+	pageTitle="Безопасные push-уведомления посредством центров уведомлений Azure" 
+	description="Узнайте, как отправлять безопасные push-уведомления в приложение iOS из Azure. Примеры кода написаны на Objective-C и C#." 
+	documentationCenter="ios" 
+	authors="ysxu" 
+	manager="dwrede" 
+	editor="" 
+	services="notification-hubs"/>
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="yuaxu" />
+<tags 
+	ms.service="notification-hubs" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="yuaxu"/>
 
-#Безопасные push-уведомления посредством концентраторов уведомлений Azure
+#Безопасные push-уведомления посредством центров уведомлений Azure
 
 <div class="dev-center-tutorial-selector sublanding">
-    	<a href="/ru-ru/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-secure-push/" title="Windows Universal">Универсальная Windows</a><a href="/ru-ru/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS" class="current">iOS</a>
+    	<a href="/ru-ru/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-secure-push/" title="Windows Universal">Windows Universal</a><a href="/ru-ru/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS" class="current">iOS</a>
 		<a href="/ru-ru/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/" title="Android">Android</a>
 </div>
 
@@ -26,13 +40,13 @@
 
 В этом учебнике по безопасности push-уведомлений показано, как безопасно отправлять push-уведомление. Это продолжение другого учебника под названием **Уведомление пользователей**, поэтому сначала следует выполнить шаги в указанном учебнике.
 
-> [AZURE.NOTE] В этом учебнике подразумевается, что вы создали и настроили концентратор уведомлений в соответствии с описанием в руководстве [Приступая к работе с концентраторами уведомлений (iOS)](http://azure.microsoft.com/ru-ru/documentation/articles/notification-hubs-ios-get-started/).
+> [AZURE.NOTE] В этом учебнике подразумевается, что вы создали и настроили центр уведомлений в соответствии с описанием в руководстве [Приступая к работе с центрами уведомлений (iOS)](http://azure.microsoft.com/ documentation/articles/notification-hubs-ios-get-started/).
 
-[WACOM.INCLUDE [notification-hubs-aspnet-backend-securepush](../includes/notification-hubs-aspnet-backend-securepush.md)]
+[AZURE.INCLUDE [notification-hubs-aspnet-backend-securepush](../includes/notification-hubs-aspnet-backend-securepush.md)]
 
 ## Внесение изменений в проект iOS
 
-После того как вы изменили серверную часть приложения для отправки только *идентификатора* уведомления, необходимо внести изменения в приложение iOS для обработки этого уведомления и осуществления обратного вызова к серверной части, чтобы извлечь конфиденциальное сообщение, которое должно быть отображено.
+После того как вы изменили серверную часть приложения для отправки только *id* уведомления, необходимо внести изменения в приложение iOS для обработки этого уведомления и осуществления обратного вызова к серверной части, чтобы извлечь конфиденциальное сообщение, которое должно быть отображено.
 
 Для достижения этой цели мы напишем логику извлечения безопасного содержимого из серверной части приложения.
 
@@ -46,13 +60,13 @@
 		- (void) retrieveSecurePayloadWithId:(int)payloadId completion: (void(^)(NSString*, NSError*)) completion;
 		@end
 
-3. Затем добавьте в реализационную часть следующий код, подставив вместо "{back-end endpoint}" конечную точку серверной части, которая была получена ранее:
+3. Затем добавьте в реализационную часть следующий код, подставив вместо `{back-end endpoint}` конечную точку серверной части, которая была получена ранее:
 
 		NSString *const GetNotificationEndpoint = @"{back-end endpoint}/api/notifications";
 
 		- (void) retrieveSecurePayloadWithId:(int)payloadId completion: (void(^)(NSString*, NSError*)) completion;
 		{
-		    // check if authenticated
+		    // проверка аутентификации
 		    ANHViewController* rvc = (ANHViewController*) self.window.rootViewController;
 		    NSString* authenticationHeader = rvc.registerClient.authenticationHeader;
 		    if (!authenticationHeader) return;
@@ -74,15 +88,15 @@
 		        NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) response;
 		        if (!error && httpResponse.statusCode == 200)
 		        {
-		            NSLog(@"Received secure payload: %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+		            NSLog(@"Получены безопасные полезные данные: %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
 
 		            NSMutableDictionary *json = [NSJSONSerialization JSONObjectWithData:data options: NSJSONReadingMutableContainers error: &error];
 
-		            completion([json objectForKey:@"Payload"], nil);
+		            completion([json objectForKey:@"Полезные данные"], nil);
 		        }
 		        else
 		        {
-		            NSLog(@"Error status: %ld, request: %@", (long)httpResponse.statusCode, error);
+		            NSLog(@"Состояние ошибки: %ld, request: %@", (long)httpResponse.statusCode, error);
 		            if (error)
 		                completion(nil, error);
 		            else {
@@ -110,7 +124,7 @@
 
 		    [self retrieveSecurePayloadWithId:[[userInfo objectForKey:@"secureId"] intValue] completion:^(NSString * payload, NSError *error) {
 		        if (!error) {
-		            // show local notification
+		            // отображение локального уведомления
 		            UILocalNotification* localNotification = [[UILocalNotification alloc] init];
 		            localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:0];
 		            localNotification.alertBody = payload;
@@ -125,7 +139,7 @@
 
 		}
 
-	Обратите внимание, что случаи отсутствующего свойства заголовки проверки подлинности или отклонения предпочтительнее обрабатывать на серверной части. Обработка в таких случаях в основном зависит от пользовательского опыта на целевой платформе. Одним из вариантов является отображение уведомления с обычным предложением пользователю для проверки подлинности, чтобы получить текущее уведомление.
+	Обратите внимание, что случаи отсутствующего или отклоненного свойства заголовков аутентификации предпочтительнее обрабатывать на серверном компоненте. Обработка в таких случаях в основном зависит от пользовательского опыта на целевой платформе. Одним из вариантов является отображение уведомления с обычным предложением пользователю для проверки подлинности, чтобы получить текущее уведомление.
 
 ## Запуск приложения
 
@@ -139,4 +153,4 @@
 
 [IOS1]: ./media/notification-hubs-aspnet-backend-ios-secure-push/secure-push-ios-1.png
 
-<!--HONumber=35.2-->
+<!--HONumber=45--> 

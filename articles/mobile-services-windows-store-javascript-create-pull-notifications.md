@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Определение настраиваемого API с поддержкой pull-уведомлений мобильные службы - Azure" description="Узнайте, как определить настраиваемый API, который поддерживает периодические уведомления в приложениях Магазина Windows, использующих мобильные службы Azure." services="mobile-services" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Определение настраиваемого API с поддержкой pull-уведомлений мобильные службы - Azure" 
+	description="Узнайте, как определить настраиваемый API, который поддерживает периодические уведомления в приложениях Магазина Windows, использующих мобильные службы Azure." 
+	services="mobile-services" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="11/22/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="javascript" 
+	ms.topic="article" 
+	ms.date="11/22/2014" 
+	ms.author="glenga"/>
 # Определение настраиваемого интерфейса API с поддержкой периодических уведомлений
 
 <div class="dev-center-tutorial-selector"> 
@@ -44,7 +58,8 @@
 		exports.get = function(request, response) {
 		    var wns = require('wns');
 		    var todoItems = request.service.tables.getTable('TodoItem');
-		    todoItems.where({
+		    todoIte
+	ms.where({
 		        complete: false
 		    }).read({
 		        success: sendResponse
@@ -81,7 +96,7 @@
 
 	Используется функция **exports.get**, так как клиент отправляет запрос GET, чтобы открыть шаблон плитки.
 
-   	> [AZURE.NOTE] Этот пользовательский скрипт API использует [модуль wns](http://go.microsoft.com/fwlink/p/?LinkId=306750) Node.js, на который можно ссылаться с помощью функции **require**. Этот модуль отличается от [объекта wns](http://go.microsoft.com/fwlink/p/?LinkId=260591), возвращаемого [push-объектом](http://msdn.microsoft.com/ru-ru/library/windowsazure/jj554217.aspx), который используется для отправки push-уведомлений из серверных скриптов.
+   	> [AZURE.NOTE] Этот пользовательский скрипт API использует [модуль wns](http://go.microsoft.com/fwlink/p/?LinkId=306750) Node.js, на который можно ссылаться с помощью функции **require**. Этот модуль отличается от [объекта wns](http://go.microsoft.com/fwlink/p/?LinkId=260591), возвращаемого [push-объектом](http://msdn.microsoft.com/library/windowsazure/jj554217.aspx), который используется для отправки push-уведомлений из серверных скриптов.
 
 Затем вам предстоит изменить пример приложения для запуска периодических уведомлений, которые обновляют динамическую плитку, отправляя запросы к новому настраиваемому интерфейсу API.
 
@@ -143,7 +158,7 @@
 [Приступая к работе с push-уведомлениями]: /ru-ru/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push
 
 [Портал управления Azure]: https://manage.windowsazure.com/
-[Периодические уведомления]: http://msdn.microsoft.com/ru-ru/library/windows/apps/jj150587.aspx
+[Периодические уведомления]: http://msdn.microsoft.com/library/windows/apps/jj150587.aspx
 
 
 

@@ -11,7 +11,7 @@
 
 ![Wordpress blog][13]
 
-> [AZURE.IMPORTANT] Для работы с этим учебником требуется учетная запись Azure. Вы можете создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в статье [Создание учетной записи Azure](http://www.windowsazure.com/ru-ru/develop/php/tutorials/create-a-windows-azure-account/"%20target="_blank").
+> [AZURE.IMPORTANT] Для работы с этим учебником требуется учетная запись Azure. Вы можете создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в статье [Создание учетной записи Azure](http://azure.microsoft.com/develop/php/tutorials/create-a-windows-azure-account/"%20target="_blank").
 
 ## Создание веб-сайта на портале
 
@@ -79,7 +79,6 @@
 [11]: ./media/website-from-gallery/wordpressgallery-07.png
 [12]: ./media/website-from-gallery/wordpressgallery-08.png
 [13]: ./media/website-from-gallery/wordpressgallery-09.png
-
 
 
 

@@ -1,6 +1,20 @@
-﻿<properties title="Create an Azure Machine Learning workspace" pageTitle="Создание рабочей области машинного обучения | Azure" description="Создание рабочей области для Студии машинного обучения Azure" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Создание рабочей области машинного обучения | Azure" 
+	description="Создание рабочей области для Студии машинного обучения Azure" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/06/2014" 
+	ms.author="garye"/>
 
 
 # Создание рабочей области машинного обучения Azure 
@@ -31,3 +45,5 @@
 
 
 <!--Link references-->
+
+<!--HONumber=46--> 

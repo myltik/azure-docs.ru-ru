@@ -1,6 +1,20 @@
-﻿<properties title="How to debug with events" pageTitle="Отладка с помощью событий" description="Узнайте, как просматривать события в Azure." authors="hanikn" manager="kamrani" />
+﻿<properties 
+	pageTitle="Отладка с помощью событий" 
+	description="Узнайте, как просматривать события в Azure." 
+	authors="HaniKN-MSFT" 
+	manager="kamrani" 
+	editor="" 
+	services="application-insights" 
+	documentationCenter=""/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="hanikn" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/24/2014" 
+	ms.author="hanikn"/>
 
 # Мониторинг событий, влияющих на используемые ресурсы или группы ресурсов Azure
 
@@ -18,3 +32,5 @@
     ![Resource groups](./media/insights-debugging-with-events/Insights_EventDetails.png)  
     Откроется новая колонка, в которой будет отображаться много сведений о событии. Для событий **с ошибкой** эта страница обычно содержит разделы **Дополнительный статус** и **Свойства** с полезными для отладки данными.
 
+
+<!--HONumber=46--> 

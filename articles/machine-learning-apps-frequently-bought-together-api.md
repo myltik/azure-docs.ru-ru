@@ -1,6 +1,20 @@
-﻿<properties title="Machine Learning example app: Frequently Bought Together" pageTitle="Пример приложения машинного обучения: товары, часто покупаемые вместе | Azure" description="Веб-служба машинного обучения, которая анализирует корзину покупателя в интернет-магазине и рекомендует другие товары, которые часто приобретаются вместе с уже выбранными, используя в качестве основы предоставленную пользователем историю покупок." metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="coromt" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Пример приложения машинного обучения: Товары, которые часто покупают вместе с этим | Azure" 
+	description="Веб-служба машинного обучения, которая анализирует корзину покупателя в интернет-магазине и рекомендует другие товары, которые часто приобретаются вместе с уже выбранными, используя в качестве основы предоставленную пользователем историю покупок." 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="CoromT" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/17/2014" ms.author="coromt" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/17/2014" 
+	ms.author="coromt"/>
 
 # Пример приложения машинного обучения: товары, часто покупаемые вместе
  
@@ -13,3 +27,5 @@
 
 Эта служба содержит API-интерфейсы для создания моделей "Товары, часто покупаемые вместе", загрузки истории покупок и получения наиболее популярного набора товаров, часто приобретаемых вместе с определенным продуктом.  Примеры, которые демонстрируют работу с этими API, можно найти в [репозитории Azure-MachineLearning-DataScience на сайте GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Apps/FrequentlyBoughtTogether).
 
+
+<!--HONumber=46--> 

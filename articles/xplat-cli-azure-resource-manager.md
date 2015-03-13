@@ -1,6 +1,20 @@
-<properties urlDisplayName="Microsoft Azure Cross-Platform Command-Line Interface" pageTitle="Использование межплатформенного интерфейса командной строки Microsoft Azure в диспетчере ресурсов" title="Использование межплатформенного интерфейса командной строки Microsoft Azure в диспетчере ресурсов" metaKeywords="windows azure межплатформенный интерфейс командной строки диспетчера ресурсов, azure командная строка, диспетчер ресурсов командной строки azure, диспетчер ресурсов azure" description="Использование кроссплатформенного интерфейса командной строки Microsoft Azure совместно с диспетчером ресурсов" metaCanonical="http://www.windowsazure.com/ru-ru/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="need to identify contact" documentationCenter="" solutions="" authors="larryfr" services="" />
+﻿<properties 
+	pageTitle="Использование межплатформенного интерфейса командной строки Microsoft Azure совместно с диспетчером ресурсов" 
+	description="Использование кроссплатформенного интерфейса командной строки Microsoft Azure совместно с диспетчером ресурсов" 
+	editor="tysonn" 
+	manager="timlt" 
+	documentationCenter="" 
+	authors="squillace" 
+	services=""/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="command-line-interface" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/05/2015" 
+	ms.author="rasquill"/>
 
 # Использование межплатформенного интерфейса командной строки Microsoft Azure совместно с диспетчером ресурсов
 
@@ -162,8 +176,10 @@
 *  Дополнительные сведения об использовании межплатформенного интерфейса командной строки Azure см. в разделе [Установка и настройка межплатформенного интерфейса командной строки Microsoft Azure][xplatsetup].
 *  Сведения о работе с диспетчером ресурсов с помощью Windows Azure PowerShell см. в разделе [Начало работы с Windows PowerShell совместно с диспетчером ресурсов][psrm]
 
-[signuporg]: http://www.windowsazure.com/ru-ru/documentation/articles/sign-up-organization/
-[adtenant]: http://technet.microsoft.com/ru-ru/library/jj573650#createAzureTenant
+[signuporg]: http://azure.microsoft.com/documentation/articles/sign-up-organization/
+[adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [portal]: https://manage.windowsazure.com/
 [xplatsetup]: /ru-ru/documentation/articles/xplat-cli/
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
+
+<!--HONumber=46--> 

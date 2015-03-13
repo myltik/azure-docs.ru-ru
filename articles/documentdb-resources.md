@@ -1,6 +1,20 @@
-﻿<properties title="DocumentDB resource model and concepts" pageTitle="Модель ресурсов и понятия DocumentDB | Azure" description="База данных документов NoSQL DocumentDB управляет ресурсами, уникально идентифицируемыми по логическим уникальным идентификаторам ресурсов (URI), с которыми разработчики могут взаимодействовать с помощью команд HTTP, заголовков запросов и ответов, а также кодов состояний." metaKeywords="" services="documentdb" solutions="data-management" documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Модель ресурсов и концепции DocumentDB | Azure" 
+	description="Microsoft Azure DocumentDB является полностью управляемой базой данных документов NoSQL, которая использует иерархическую модель учетных записей баз данных, баз данных, коллекций, хранимых процедур, триггеров, UDF, документов, вложений, мультимедиа, пользователей и разрешений для управления ресурсами."  
+	services="documentdb" 
+	documentationCenter="" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/03/2015" 
+	ms.author="mimig"/>
 
 #Модель ресурсов и понятия DocumentDB
 
@@ -460,3 +474,5 @@ DocumentDB позволяет хранить двоичные BLOB-объект�
 [2]: ./media/documentdb-resources/resources2.png
 [3]: ./media/documentdb-resources/resources3.png
 [4]: ./media/documentdb-resources/resources4.png
+
+<!--HONumber=46--> 

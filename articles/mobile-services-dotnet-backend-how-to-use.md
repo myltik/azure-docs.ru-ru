@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Использование серверной части .NET мобильных служб. Мобильные службы Azure" description="Подробно изучите модель программирования серверной части .NET для мобильных служб Azure, включая способы работы с данными таблиц, интерфейсы API, аутентификацию и запланированные задания" services="" documentationCenter="windows" authors="mattchenderson" manager="dwrede" editor="mollybos"/>
+﻿<properties 
+	pageTitle="Использование серверной части .NET мобильных служб. Мобильные службы Azure" 
+	description="Подробно изучите модель программирования серверной части .NET для мобильных служб Azure, включая способы работы с данными таблиц, интерфейсы API, аутентификацию и запланированные задания" 
+	services="" 
+	documentationCenter="windows" 
+	authors="mattchenderson" 
+	manager="dwrede" 
+	editor="mollybos"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/11/2014" ms.author="mahender"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/11/2014" 
+	ms.author="mahender"/>
 # Использование серверной части .NET мобильных служб
 
 <div class="dev-center-tutorial-subselector"><a href="/ru-ru/documentation/articles/mobile-services-dotnet-backend-how-to-use/" title=".NET backend" class="current">Серверная часть .NET</a> | <a href="/ru-ru/documentation/articles/mobile-services-how-to-use-server-scripts/"  title="JavaScript backend">Серверная часть JavaScript</a></div>

@@ -1,6 +1,20 @@
-﻿<properties title="How to customize monitoring" pageTitle="Как настроить мониторинг" description="Узнайте, как настроить диаграммы мониторинга в Azure." authors="awills" manager="kamrani" />
+﻿<properties 
+	pageTitle="Как настроить мониторинг" 
+	description="Узнайте, как настроить диаграммы мониторинга в Azure." 
+	authors="alancameronwills" 
+	manager="kamrani" 
+	editor="" 
+	services="application-insights" 
+	documentationCenter=""/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-11-04" ms.author="awills" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2014-11-04" 
+	ms.author="awills"/>
 
 # Настройка мониторинга
 
@@ -53,3 +67,5 @@
 
 Обратите внимание, что диапазон времени диаграммы и выбранные метрики будут сброшены после выхода с портала.
 
+
+<!--HONumber=46--> 

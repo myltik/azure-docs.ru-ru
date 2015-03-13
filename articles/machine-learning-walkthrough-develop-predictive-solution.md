@@ -1,6 +1,20 @@
-<properties title="Разработка прогнозирующего решения с помощью машинного обучения Azure" pageTitle="Разработка прогнозирующего решения с помощью машинного обучения | Azure" description="Пошаговое руководство по созданию эксперимента прогнозирующей аналитики в Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Разработка прогнозирующего решения с помощью машинного обучения | Azure" 
+	description="Пошаговое руководство по созданию эксперимента прогнозирующей аналитики в Azure Machine Learning Studio" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/06/2014" 
+	ms.author="garye"/>
 
 # Разработка прогнозирующего решения с помощью машинного обучения Azure
 
@@ -29,3 +43,5 @@
   [Публикация веб-службы]: ../machine-learning-walkthrough-5-publish-web-service/
   [Доступ к веб-службе]: ../machine-learning-walkthrough-6-access-web-service/
   [эксперимента с примером прогнозирования кредитных рисков]: ../machine-learning-sample-credit-risk-prediction/
+
+<!--HONumber=46--> 

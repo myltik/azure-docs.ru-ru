@@ -44,9 +44,9 @@ Spark можно установить в любой тип кластера Hado
 
 Пример скрипта для установки Spark на кластере HDInsight доступен в BLOB-объекте хранилища Azure (доступ только для чтения): [https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv02/spark-installer-v02.ps1](https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv02/spark-installer-v02.ps1). Этот раздел содержит инструкции по использованию примера скрипта при подготовке кластера к работе с помощью портала управления Azure. 
 
-> [AZURE.NOTE] Пример скрипта работает только с кластером HDInsight версии 3.1.  Дополнительные сведения о версиях кластера HDInsight см. в разделе [Версии кластера HDInsight](http://azure.microsoft.com/ru-ru/documentation/articles/hdinsight-component-versioning/).
+> [AZURE.NOTE] Пример скрипта работает только с кластером HDInsight версии 3.1.  Дополнительные сведения о версиях кластера HDInsight см. в разделе [Версии кластера HDInsight](http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/).
 
-1. Начните подготовку кластера к работе с помощью параметра **Настраиваемое создание**, как описано в разделе [Подготовка кластера с использованием пользовательских параметров](http://azure.microsoft.com/ru-ru/documentation/articles/hdinsight-provision-clusters/#portal). 
+1. Начните подготовку кластера к работе с помощью параметра **Настраиваемое создание**, как описано в разделе [Подготовка кластера с использованием пользовательских параметров](http://azure.microsoft.com/documentation/articles/hdinsight-provision-clusters/#portal). 
 2. На странице **Действия скриптов** мастера нажмите кнопку **Добавить действие скрипта** для предоставления сведений о данном действии скрипта, как показано ниже:
 
 	![Use Script Action to customize a cluster](./media/hdinsight-hadoop-customize-cluster/HDI.CustomProvision.Page6.png "Use Script Action to customize a cluster")
@@ -76,7 +76,7 @@ Spark предоставляет интерфейсы API в Scala, Python и Ja
 ###<a name="sparkshell"></a>С помощью оболочки Spark
 Выполните следующие действия для запуска запросов Spark из интерактивной оболочки Spark. В этом разделе мы выполним запрос Spark для образца файла данных (/ example/data/gutenberg/davinci.txt), который по умолчанию присутствует в кластерах HDInsight.
 
-1. На портале управления Azure запустите протокол удаленного рабочего стола для созданного кластера с установленной системой Spark, а затем подключитесь к кластеру. Инструкции см. в разделе <a href="http://azure.microsoft.com/ru-ru/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Подключение к кластерам HDInsight с использованием RDP</a>.
+1. На портале управления Azure запустите протокол удаленного рабочего стола для созданного кластера с установленной системой Spark, а затем подключитесь к кластеру. Инструкции см. в разделе <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Подключение к кластерам HDInsight с использованием RDP</a>.
 
 2. В сеансе RDP с рабочего стола откройте командную строку Hadoop и перейдите к расположению, в котором установлена Spark, например, **C:\apps\dist\spark-1.0.2**.
 
@@ -184,7 +184,7 @@ Spark предоставляет интерфейсы API в Scala, Python и Ja
 
 ## <a name="usingPS"></a>Установка Spark в кластерах HDInsight Hadoop с помощью PowerShell
 
-В этом разделе мы используем командлет **<a href = "http://msdn.microsoft.com/ru-ru/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>**, чтобы вызвать скрипты с помощью действия скрипта для настройки кластера. Прежде чем продолжить, убедитесь, что вы установили и настроили PowerShell. Сведения о настройке рабочей станции для запуска командлетов HDInsight Powershell см. в разделе [Установка и настройка Azure PowerShell][powershell-install-configure].
+В этом разделе мы используем командлет **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>**, чтобы вызвать скрипты с помощью действия скрипта для настройки кластера. Прежде чем продолжить, убедитесь, что вы установили и настроили PowerShell. Сведения о настройке рабочей станции для запуска командлетов HDInsight Powershell см. в разделе [Установка и настройка Azure PowerShell][powershell-install-configure].
 
 Выполните следующие действия:
 
@@ -345,7 +345,7 @@ Spark предоставляет интерфейсы API в Scala, Python и Ja
             Version = "3.1"
         };        
 
-10. Добавьте следующий код в функцию Main(), чтобы использовать класс [ScriptAction](http://msdn.microsoft.com/ru-ru/library/microsoft.windowsazure.management.hdinsight.clusterprovisioning.data.scriptaction.aspx) для вызова пользовательского скрипта с целью установки Spark.
+10. Добавьте следующий код в функцию Main(), чтобы использовать класс [ScriptAction](http://msdn.microsoft.com/library/microsoft.windowsazure.management.hdinsight.clusterprovisioning.data.scriptaction.aspx) для вызова пользовательского скрипта с целью установки Spark.
 
 		// ADD THE SCRIPT ACTION TO INSTALL SPARK
         clusterInfo.ConfigActions.Add(new ScriptAction(
@@ -383,4 +383,4 @@ Spark предоставляет интерфейсы API в Scala, Python и Ja
 [hdinsight-install-r]: ../hdinsight-hadoop-r-scripts/
 [hdinsight-cluster-customize]: ../hdinsight-hadoop-customize-cluster
 [powershell-install-configure]: ../install-configure-powershell/
-<!--HONumber=42-->
+\<!--HONumber=42-->

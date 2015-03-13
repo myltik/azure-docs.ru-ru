@@ -1,6 +1,20 @@
-﻿<properties title="Lexicon Based Sentiment Analysis" pageTitle="Шаг 1: Лексический анализ мнений | Azure" description="Анализ мнений на основе словаря" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+<properties 
+	pageTitle="Шаг 1. Лексический анализ мнений | Azure" 
+	description="Анализ мнений на основе словаря" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="jaymathe" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/08/2014" ms.author="jaymathe" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/11/2015" 
+	ms.author="jaymathe"/> 
 
 
 
@@ -141,3 +155,5 @@
 
 
 
+
+<!--HONumber=46--> 

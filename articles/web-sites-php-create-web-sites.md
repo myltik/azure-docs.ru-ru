@@ -107,7 +107,7 @@ URL-адрес для созданного веб-сайта будет  `http:/
 [configure-php]: /ru-ru/develop/php/common-tasks/configure-php-web-site/
 [website-mysql-git]: /ru-ru/develop/php/tutorials/website-w-mysql-and-git/
 [wordpress-gallery]: /ru-ru/develop/php/tutorials/website-from-gallery/
-[websites-pricing]: http://www.windowsazure.com/ru-ru/pricing/details/#header-1
+[websites-pricing]: http://azure.microsoft.com/pricing/details/#header-1
 [scale-websites]: /ru-ru/manage/services/web-sites/how-to-scale-websites/
 
 

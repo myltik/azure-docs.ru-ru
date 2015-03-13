@@ -1,6 +1,21 @@
-﻿<properties title="How to scale a website" pageTitle="Масштабирование веб-сайта" description="Узнайте, как масштабировать план размещения в Azure." authors="stepsic" manager="kamrani" />
+﻿<properties 
+	pageTitle="Масштабирование веб-сайта" 
+	description="Узнайте, как масштабировать план размещения в Azure." 
+	authors="stepsic-microsoft-com" 
+	manager="kamrani" 
+	editor="" 
+	services="application-insights" 
+	documentationCenter=""/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-11-04" ms.author="stepsic" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2014-11-04" 
+	ms.author="stepsic"/>
+
 
 # Масштабирование веб-сайта
 
@@ -70,3 +85,5 @@
 2. Масштабирование вверх на 3 экземпляра, если процент загрузки ЦП превышает 85 %
 
 Благодаря этому дополнительному правилу, если нагрузка перед масштабированием превышает 85 %, вы получите два дополнительных экземпляра вместо одного. 
+
+<!--HONumber=46--> 

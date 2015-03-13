@@ -123,7 +123,7 @@
 		$error_message = $e->getMessage();
 		// Handle exception based on error codes and messages.
 		// Error codes and messages can be found here: 
-		// http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179438.aspx
+		// http://msdn.microsoft.com/library/windowsazure/dd179438.aspx
 	}
 
 Дополнительные сведения об ограничениях на имена таблиц см. в разделе [Общие сведения о модели данных службы таблиц][table-data-model].
@@ -157,7 +157,7 @@
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179438.aspx
+		// http://msdn.microsoft.com/library/windowsazure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 	}
@@ -198,7 +198,7 @@
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179438.aspx
+		// http://msdn.microsoft.com/library/windowsazure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -223,7 +223,7 @@
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179438.aspx
+		// http://msdn.microsoft.com/library/windowsazure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -253,7 +253,7 @@
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179438.aspx
+		// http://msdn.microsoft.com/library/windowsazure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -285,7 +285,7 @@
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179438.aspx
+		// http://msdn.microsoft.com/library/windowsazure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -319,7 +319,7 @@
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179438.aspx
+		// http://msdn.microsoft.com/library/windowsazure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -365,7 +365,7 @@
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179438.aspx
+		// http://msdn.microsoft.com/library/windowsazure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -390,7 +390,7 @@
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179438.aspx
+		// http://msdn.microsoft.com/library/windowsazure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -446,7 +446,7 @@
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179438.aspx
+		// http://msdn.microsoft.com/library/windowsazure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -473,7 +473,7 @@
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179438.aspx
+		// http://msdn.microsoft.com/library/windowsazure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -487,12 +487,11 @@
 - Посетите блог рабочей группы службы хранилища Azure: <http://blogs.msdn.com/b/windowsazurestorage/>
 
 [download]: http://go.microsoft.com/fwlink/?LinkID=252473
-[Хранение и доступ к данным в Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/gg433040.aspx
+[Хранение и доступ к данным в Azure]: http://msdn.microsoft.com/library/windowsazure/gg433040.aspx
 [require_once]: http://php.net/require_once
-[table-service-timeouts]: http://msdn.microsoft.com/ru-ru/library/windowsazure/dd894042.aspx
+[table-service-timeouts]: http://msdn.microsoft.com/library/windowsazure/dd894042.aspx
 
-[table-data-model]: http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179338.aspx
-[filters]: http://msdn.microsoft.com/ru-ru/library/windowsazure/dd894031.aspx
-[entity-group-transactions]: http://msdn.microsoft.com/ru-ru/library/windowsazure/dd894038.aspx
-
+[table-data-model]: http://msdn.microsoft.com/library/windowsazure/dd179338.aspx
+[filters]: http://msdn.microsoft.com/library/windowsazure/dd894031.aspx
+[entity-group-transactions]: http://msdn.microsoft.com/library/windowsazure/dd894038.aspx
 <!--HONumber=42-->

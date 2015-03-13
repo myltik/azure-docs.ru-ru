@@ -36,7 +36,7 @@ Hadoop предоставляет API-интерфейс для MapReduce, по�
 
 **Предварительные требования**:	
 
-- Необходимо иметь учетную запись Azure. Возможности регистрации учетной записи см. на странице [Бесплатное пробное использование Azure](http://azure.microsoft.com/ru-ru/pricing/free-trial/).
+- Необходимо иметь учетную запись Azure. Возможности регистрации учетной записи см. на странице [Бесплатное пробное использование Azure](http://azure.microsoft.com/pricing/free-trial/).
 
 - Вы должны были подготовить кластер HDInsight. Сведения по различным способам создания таких кластеров см. в разделе [Подготовка кластеров HDInsight](../hdinsight-provision-clusters/)
 
@@ -184,9 +184,9 @@ Hadoop предоставляет API-интерфейс для MapReduce, по�
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/ru-ru/library/dn479185.aspx
 
 [hadoop-streaming]: http://wiki.apache.org/hadoop/HadoopStreaming
-[streamreader]: http://msdn.microsoft.com/ru-ru/library/system.io.streamreader.aspx
-[console-writeline]: http://msdn.microsoft.com/ru-ru/library/system.console.writeline
-[stdin-stdout-stderr]: http://msdn.microsoft.com/ru-ru/library/3x292kth(v=vs.110).aspx
+[streamreader]: http://msdn.microsoft.com/library/system.io.streamreader.aspx
+[console-writeline]: http://msdn.microsoft.com/library/system.console.writeline
+[stdin-stdout-stderr]: http://msdn.microsoft.com/library/3x292kth(v=vs.110).aspx
 
 [Powershell-install-configure]: ../install-configure-powershell/
 
@@ -200,7 +200,6 @@ Hadoop предоставляет API-интерфейс для MapReduce, по�
 
 [hdinsight-use-hive]: ../hdinsight-use-hive/
 [hdinsight-use-pig]: ../hdinsight-use-pig/
-
 
 
 <!--HONumber=42-->

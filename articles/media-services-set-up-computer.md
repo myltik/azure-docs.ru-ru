@@ -1,6 +1,20 @@
-<properties pageTitle="Настройка компьютера для служб мультимедиа - Azure" description="Сведения о требованиях для разработки служб мультимедиа с помощью пакета SDK служб мультимедиа для .NET. Сведения о создании приложений Visual Studio." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Настройка компьютера для служб мультимедиа - Azure" 
+	description="Сведения о требованиях для разработки служб мультимедиа с помощью пакета SDK служб мультимедиа для .NET. Сведения о создании приложений Visual Studio." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
+	ms.author="juliako"/>
 
 
 
@@ -61,7 +75,7 @@
 	_context = new CloudMediaContext(_cachedCredentials);
 
 
-Часто бывает полезным определить переменную уровня модуля типа **CloudMediaContext** для хранения ссылки на контекст сервера. Дополнительные сведения см. в разделе [Подключение к службам мультимедиа с помощью пакета SDK служб мультимедиа для .NET](http://msdn.microsoft.com/ru-ru/library/azure/jj129571.aspx).
+Часто бывает полезным определить переменную уровня модуля типа **CloudMediaContext** для хранения ссылки на контекст сервера. Дополнительные сведения см. в разделе [Подключение к службам мультимедиа с помощью пакета SDK служб мультимедиа для .NET](http://msdn.microsoft.com/library/azure/jj129571.aspx).
 
 Остальные примеры кода в этом разделе используют переменную с именем **_context** для ссылки на контекст сервера. 
 

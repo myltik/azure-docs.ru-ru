@@ -1,7 +1,20 @@
-﻿
-<properties title="API basics for Azure Batch" pageTitle="Основные сведения об API Пакетной службы Azure" description="Основные понятия для ознакомления разработчиков с API Пакетной службы Azure и Пакетной службой" metaKeywords="" services="batch" solutions="" documentationCenter=".NET" authors="yidingz, karran.batta" videoId="" scriptId="" manager="timlt" />
+﻿<properties 
+	pageTitle="Основные сведения об API Пакетной службы Azure" 
+	description="Основные понятия для ознакомления разработчиков с API Пакетной службы Azure и Пакетной службой" 
+	services="batch" 
+	documentationCenter=".net" 
+	authors="yidingzhou" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="batch" ms.devlang="multiple" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="big-compute" ms.date="10/27/2014" ms.author="yidingz, karran.batta" />
+<tags 
+	ms.service="batch" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="big-compute" 
+	ms.date="02/02/2015" 
+	ms.author="yidingz, kabatta"/>
 
 
 <!--The next line, with one pound sign at the beginning, is the page title--> 
@@ -57,7 +70,7 @@
 
 ### <a name="taskvm"></a>Виртуальная машина задач
 
-Виртуальная машина задач (ВМЗ) - это виртуальная машина Microsoft Azure, выделенная вашему приложению для определенной рабочей нагрузки. Размер ВМЗ определяет количество ядер ЦП, объем памяти и размер локальной файловой системы, которые выделяются для ВМЗ. Значение размера ВМЗ может быть Small, Large и ExtraLarge. Дополнительную информацию см. в разделе [Размеры виртуальных машин и облачных служб Microsoft Azure](http://msdn.microsoft.com/ru-ru/library/dn197896.aspx).
+Виртуальная машина задач (ВМЗ) - это виртуальная машина Microsoft Azure, выделенная вашему приложению для определенной рабочей нагрузки. Размер ВМЗ определяет количество ядер ЦП, объем памяти и размер локальной файловой системы, которые выделяются для ВМЗ. Значение размера ВМЗ может быть Small, Large и ExtraLarge. Дополнительную информацию см. в разделе [Размеры виртуальных машин и облачных служб Microsoft Azure](http://msdn.microsoft.com/library/dn197896.aspx).
 
 Типы программ, которые могут выполняться на ВМЗ, включают в себя исполняемые файлы (EXE-файлы), командные файлы (CMD-файлы), пакетные файлы (BAT-файлы) и файлы сценариев. ВМЗ также имеет следующие атрибуты:
 
@@ -340,3 +353,5 @@
 Эти переменные определяются системой и их нельзя переопределить.
 
 Значения параметров среды можно получить с помощью операции получения задачи.
+
+<!--HONumber=46--> 

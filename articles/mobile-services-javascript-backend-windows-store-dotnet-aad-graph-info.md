@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Доступ к сведениям в Azure Active Directory Graph (Магазин Windows) | Центр разработчиков для мобильных устройств" description="Узнайте, как получить доступ к информации Azure Active Directory с помощью API Graph в приложении Магазина Windows." documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor="" services=""/>
+﻿<properties 
+	pageTitle="Доступ к сведениям в Azure Active Directory Graph (Магазин Windows) | Центр разработчиков для мобильных устройств" 
+	description="Узнайте, как получить доступ к информации Azure Active Directory с помощью API Graph в приложении Магазина Windows." 
+	documentationCenter="windows" 
+	authors="wesmc7777" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/29/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/29/2014" 
+	ms.author="wesmc"/>
 
 # Получение доступа к сведениям Graph Azure Active Directory
 
@@ -172,8 +186,8 @@
 [Хранение серверных скриптов]: /ru-ru/documentation/articles/mobile-services-store-scripts-source-control/
 [Регистрация для использования имени входа Azure Active Directory]: /ru-ru/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
 [Graph API]: http://msdn.microsoft.com/library/azure/hh974478.aspx
-[Graph REST API]: http://msdn.microsoft.com/ru-ru/library/azure/hh974478.aspx
-[Получение пользователя]: http://msdn.microsoft.com/ru-ru/library/azure/dn151678.aspx
+[Graph REST API]: http://msdn.microsoft.com/library/azure/hh974478.aspx
+[Получение пользователя]: http://msdn.microsoft.com/library/azure/dn151678.aspx
 [Управление доступом на основе ролей в мобильных службах с помощью AAD]: /ru-ru/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/
 
 

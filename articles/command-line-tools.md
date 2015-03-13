@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Command-Line Tools" pageTitle="Средства командной строки Azure для Mac и Linux" metaKeywords="Azure command-line, Azure tools Mac, Azure tools Linux" description="Узнайте об использовании программы командной строки для Mac и Linux в Azure." metaCanonical="" services="web-sites,virtual-machines,mobile-services,cloud-services" documentationCenter="" title="" authors="carolz" solutions="" manager="need to identify contact" editor="" />
+﻿<properties 
+	pageTitle="Средства командной строки Azure для Mac и Linux" 
+	description="Узнайте об использовании программы командной строки для Mac и Linux в Azure." 
+	services="web-sites, virtual-machines, mobile-services, cloud-services" 
+	documentationCenter="" 
+	authors="squillace" 
+	manager="timlt" 
+	editor="tysonn"/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="carolz" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="command-line-interface" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/13/2014" 
+	ms.author="rasquill"/>
 
 #Средства командной строки Azure для Mac и Linux
 
@@ -659,7 +673,7 @@ info:   vm shutdown command OK
 
 ##<a name="Commands_to_manage_your_Azure_certificates"></a>Команды для управления сертификатами Azure
 
-Сертификаты служб Azure - это SSL-сертификаты, подключенные к вашей учетной записи Azure. Дополнительную информацию о сертификатах Azure см. в разделе [Управление сертификатами](http://msdn.microsoft.com/ru-ru/library/azure/gg981929.aspx).
+Сертификаты служб Azure - это SSL-сертификаты, подключенные к вашей учетной записи Azure. Дополнительную информацию о сертификатах Azure см. в разделе [Управление сертификатами](http://msdn.microsoft.com/library/azure/gg981929.aspx).
 
 **service cert list [[параметры]]**
 
@@ -1467,7 +1481,7 @@ info:   vm shutdown command OK
 
 ###<a name="Mobile_Scripts"></a>Команды для управления сценариями
 
-Описанные в этом разделе команды используются для управления серверными сценариями, которые относятся к мобильной службе. Дополнительные сведения см. в разделе [Работа с серверными сценариями в мобильных службах](http://www.windowsazure.com/ru-ru/develop/mobile/how-to-guides/work-with-server-scripts/).
+Описанные в этом разделе команды используются для управления серверными сценариями, которые относятся к мобильной службе. Дополнительные сведения см. в разделе [Работа с серверными сценариями в мобильных службах](http://azure.microsoft.com/develop/mobile/how-to-guides/work-with-server-scripts/).
 
 **mobile script list [параметры] [имя-службы]**
 
@@ -1526,7 +1540,7 @@ info:   vm shutdown command OK
 
 ###<a name="Mobile_Jobs"></a>Команды для управления запланированными заданиями
 
-Описанные в этом разделе команды используются для управления запланированными заданиями, относящимися к мобильной службе. Дополнительную информацию см. в разделе [Расписание заданий](http://msdn.microsoft.com/ru-ru/library/windowsazure/jj860528.aspx).
+Описанные в этом разделе команды используются для управления запланированными заданиями, относящимися к мобильной службе. Дополнительную информацию см. в разделе [Расписание заданий](http://msdn.microsoft.com/library/windowsazure/jj860528.aspx).
 
 **mobile job list [параметры] [имя-службы]**
 
@@ -1600,7 +1614,7 @@ info:   vm shutdown command OK
 
 ###<a name="Mobile_Scale"></a>Команды для масштабирования мобильной службы
 
-Описанные в этом разделе команды используются для масштабирования мобильной службы. Дополнительную информацию см. в разделе [Масштабирование мобильной службы](http://msdn.microsoft.com/ru-ru/library/windowsazure/jj193178.aspx).
+Описанные в этом разделе команды используются для масштабирования мобильной службы. Дополнительную информацию см. в разделе [Масштабирование мобильной службы](http://msdn.microsoft.com/library/windowsazure/jj193178.aspx).
 
 **mobile scale show [параметры] [имя-службы]**
 
@@ -2377,3 +2391,5 @@ info:   vm shutdown command OK
 	Delete the DNS server entry dns-4 ( 77.88.99.11 ) %s ? (y/n) y
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
+
+<!--HONumber=46--> 

@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Основные концепции службы управления API" metaKeywords="" description="Дополнительные сведения об API-интерфейсов, продукты, роли, группы и другие основные понятия управления API." metaCanonical="" services="api-management" documentationCenter="API Management" title="API Management key concepts" authors="sdanie" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Основные концепции API Management" 
+	description="Сведения об API, продуктах, ролях, группах и других основных концепциях службы управления API." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 #Основные концепции API Management
 
@@ -90,3 +104,5 @@ API является основой экземпляра службы API Manage
 
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

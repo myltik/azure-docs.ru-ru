@@ -1,12 +1,25 @@
-﻿<properties linkid="batch-technical-overview" urlDisplayName="" pageTitle="Технический обзор пакетной службы Azure" metaKeywords="" description="Узнайте об основных понятиях, рабочих процессах и сценариях Пакетной службы Azure" metaCanonical="" services="batch" documentationCenter="" title="Azure Batch technical overview" authors="danlep" solutions="" manager="timlt" editor="tysonn" />
+﻿<properties 
+	pageTitle="Технический обзор Пакетной службы Azure" 
+	description="Узнайте об основных понятиях, рабочих процессах и сценариях Пакетной службы Azure" 
+	services="batch" 
+	documentationCenter="" 
+	authors="dlepow" 
+	manager="timlt"/>
 
-<tags ms.service="batch" ms.workload="big-compute" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/08/2014" ms.author="danlep" />
+<tags 
+	ms.service="batch" 
+	ms.workload="big-compute" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/30/2015" 
+	ms.author="danlep"/>
 
 
 #Технический обзор Пакетной службы Azure
 Пакетная служба Azure помогает запускать облачные приложения, которые осуществляют крупномасштабные параллельные вычисления с высокой производительностью, а также предоставляет платформу для планирования заданий и автоматическое масштабирование вычислительных ресурсов как услугу. С помощью Пакетной службы и ее пакета SDK возможно выполнение по запросу или расписанию пакетных рабочих нагрузок в управляемой коллекции виртуальных машин, что позволит не беспокоиться о сложностях планирования заданий и управления ресурсами базовой платформы.
  
->[WACOM.NOTE]Сейчас доступна предварительная версия Пакетной службы. Чтобы использовать Пакетную службу, необходимо иметь учетную запись Microsoft Azure и активировать в подписке предварительную версию Пакетной службы. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Подробную информацию см. в разделе [Создание учетной записи Azure](http://www.windowsazure.com/ru-ru/develop/php/tutorials/create-a-windows-azure-account/). 
+>[WACOM.NOTE]Сейчас доступна предварительная версия Пакетной службы. Чтобы использовать Пакетную службу, необходимо иметь учетную запись Microsoft Azure и активировать в подписке предварительную версию Пакетной службы. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Подробную информацию см. в разделе [Создание учетной записи Azure](http://azure.microsoft.com/develop/php/tutorials/create-a-windows-azure-account/). 
 
 
 В этой статье рассматриваются следующие темы:
@@ -53,7 +66,7 @@
 
 <h2 id="BKMK_Entities">Основные понятия Пакетной службы</h2>
 
-В следующих разделах приведены основные понятия для работы с Пакетной службой и интерфейсами API. Дополнительную информацию см. в разделе [Основные сведения об API-интерфейсе Пакетной службы Azure](http://azure.microsoft.com/ru-ru/documentation/articles/batch-api-basics). 
+В следующих разделах приведены основные понятия для работы с Пакетной службой и интерфейсами API. Дополнительную информацию см. в разделе [Основные сведения об API-интерфейсе Пакетной службы Azure](http://azure.microsoft.com/documentation/articles/batch-api-basics). 
 
 * [Учетная запись Пакетной службы](#BKMK_Account)
 * [Виртуальные машины задач и пулы](#BKMK_TVM)
@@ -173,8 +186,8 @@
 	
 <h2 id="BKMK_Resources">Дополнительные ресурсы</h2>
 
-* [Приступая к работе с библиотекой Пакетной службы Azure для .NET](http://azure.microsoft.com/ru-ru/documentation/articles/batch-dotnet-get-started/)
-* [Библиотеки и инструменты разработки Пакетной службы Azure](http://azure.microsoft.com/ru-ru/documentation/articles/batch-development-libraries-tools/)
+* [Приступая к работе с библиотекой Пакетной службы Azure для .NET](http://azure.microsoft.com/documentation/articles/batch-dotnet-get-started/)
+* [Библиотеки и инструменты разработки Пакетной службы Azure](http://azure.microsoft.com/documentation/articles/batch-development-libraries-tools/)
 * [Справочник по REST API Пакетной службы Azure](http://go.microsoft.com/fwlink/p/?LinkId=517803)
 * [Справочник по REST API приложений Пакетной службы Azure](http://go.microsoft.com/fwlink/p/?LinkId=517804)
 
@@ -186,3 +199,5 @@
 [app_pub_workflow]: ./media/batch-technical-overview/app_pub_workflow.png
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

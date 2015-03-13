@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Начало работы с данными (магазин Windows JavaScript) | Центр разработчиков для мобильных устройств" description="Узнайте, как приступить к работе с мобильными службами, чтобы использовать данные в приложении JavaScript магазина Windows." services="mobile-services" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>	
+﻿<properties 
+	pageTitle="Начало работы с данными (магазин Windows JavaScript) | Центр разработчиков для мобильных устройств" 
+	description="Узнайте, как приступить к работе с мобильными службами, чтобы использовать данные в приложении JavaScript магазина Windows." 
+	services="mobile-services" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>	
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/19/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="javascript" 
+	ms.topic="article" 
+	ms.date="09/19/2014" 
+	ms.author="glenga"/>
 
 
 # Добавление мобильных служб к существующему приложению
@@ -27,7 +41,7 @@
 
 Для работы с этим учебником требуется:
 
-* Активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://azure.microsoft.com/ru-ru/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fru-ru%2Fdocumentation%2Farticles%2Fmobile-services-windows-store-javascript-get-started-data%2F).
+* Активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fru-ru%2Fdocumentation%2Farticles%2Fmobile-services-windows-store-javascript-get-started-data%2F).
 * Visual Studio 2013 упрощает подключение приложения для Магазина Windows к мобильным службам. Чтобы выполнить ту же базовую процедуру с использованием Visual Studio 2012, выполните действия, описанные в разделе <a href="/ru-ru/documentation/articles/mobile-services-windows-store-javascript-get-started-data-vs2012">Приступая к работе с данными в мобильных службах с помощью Visual Studio 2012</a>. 
 
 <h2><a name="download-app"></a>Загрузка проекта GetStartedWithData</h2>
@@ -67,7 +81,7 @@
 
 [AZURE.INCLUDE [mobile-services-create-new-table-vs2013](../includes/mobile-services-create-new-table-vs2013.md)]
 
->[AZURE.NOTE]Новые таблицы создаются со столбцами "Id", "__createdAt", "__updatedAt" и "__version". Если динамическая схема включена, мобильные службы автоматически создают новые столбцы на основе JSON-объекта в запросе вставки или обновления. Дополнительные сведения см. в разделе [Динамическая схема](http://msdn.microsoft.com/ru-ru/library/windowsazure/jj193175.aspx).
+>[AZURE.NOTE]Новые таблицы создаются со столбцами "Id", "__createdAt", "__updatedAt" и "__version". Если динамическая схема включена, мобильные службы автоматически создают новые столбцы на основе JSON-объекта в запросе вставки или обновления. Дополнительные сведения см. в разделе [Динамическая схема](http://msdn.microsoft.com/library/windowsazure/jj193175.aspx).
 
 #<a name="update-app"></a>Обновление приложения для использования мобильной службы
 
@@ -96,12 +110,15 @@
 6. В файле проекта default.js замените существующую функцию **RefreshTodoItems** следующим кодом, который будет отфильтровывать завершенные элементы:
 
         var refreshTodoItems = function () {                     
-            // More advanced query that filters out completed items. 
+            // More advanced query that filters out completed ite
+	ms. 
             todoTable.where({ complete: false })
                .read()
                .done(function (results) {
                    todoItems = new WinJS.Binding.List(results);
-                   listItems.winControl.itemDataSource = todoItems.dataSource;
+                   listIte
+	ms.winControl.itemDataSource = todoIte
+	ms.dataSource;
                });            
         };
 

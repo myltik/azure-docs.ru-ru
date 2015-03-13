@@ -1,6 +1,20 @@
-﻿<properties title="How to Create a DocumentDB Account" pageTitle="Создание учетной записи базы данных | Azure" description="Узнайте, как создать учетную запись базы данных NoSQL использования documentdb по плану документа и выберите параметры учетной записи на портале предварительной версии Azure."  metaKeywords="NoSQL, DocumentDB, database, document-orientated database, JSON, account" services="documentdb"  solutions="data-management" documentationCenter=""  authors="mimig" manager="jhubbard" editor="monicar" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Создание учетной записи базы данных | Azure" 
+	description="Создание учетной записи базы данных документов NoSQL DocumentDB и выбор параметров учетной записи на портале предварительной версии Azure." 
+	services="documentdb" 
+	documentationCenter="" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/09/2014" ms.author="mimig" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/09/2014" 
+	ms.author="mimig"/>
 
 #Создание учетной записи базы данных
 Для использования Microsoft Azure DocumentDB вы должны создать учетную запись DocumentDB.  В этом разделе описывается создание учетной записи DocumentDB на портале управления предварительным просмотром Azure.  
@@ -25,7 +39,7 @@
 
 	- Область **Дополнительная настройка** используется для указания начальной мощности, выделенной вашей учетной записи DocumentDB.  DocumentDB использует единицы мощности, чтобы позволить масштабирование учетной записи DocumentDB, при котором каждая единица мощности включает зарезервированное хранилище базы данных и пропускную способность.  По умолчанию подготавливается 1 единица мощности.  Вы можете настроить число единиц мощности, доступных в вашей учетной записи DocumentDB с помощью [портала управления предварительным просмотром](https://portal.azure.com/#gallery/Microsoft.DocumentDB). Сведения о мощности и пропускной способности учетной записи DocumentDB см. в статье [Управление мощностью и пропускной способностью DocumentDB][documentdb-manage].
 
-	- В поле **Группа ресурсов** выберите или создайте группу ресурсов для вашей учетной записи DocumentDB.  По умолчанию будет создана новая группа ресурсов.  Однако можно выбрать существующую группу ресурсов, к которой планируется добавить учетную запись DocumentDB. За дополнительной информацией обратитесь к разделу [Использование групп ресурсов для управления вашими ресурсами Azure](http://azure.microsoft.com/ru-ru/documentation/articles/azure-preview-portal-using-resource-groups/).
+	- В поле **Группа ресурсов** выберите или создайте группу ресурсов для вашей учетной записи DocumentDB.  По умолчанию будет создана новая группа ресурсов.  Однако можно выбрать существующую группу ресурсов, к которой планируется добавить учетную запись DocumentDB. За дополнительной информацией обратитесь к разделу [Использование групп ресурсов для управления вашими ресурсами Azure](http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups/).
 
 	- В поле **Подписка** выберите подписку Azure, которую вы хотите использовать для учетной записи DocumentDB. Если ваша учетная запись имеет только одну подписку, эта подписка будет выбрана автоматически.*
  
@@ -73,3 +87,5 @@
 [8]: ./media/documentdb-create-account/ca8.png
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

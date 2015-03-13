@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="SendGrid Email Service" pageTitle="Использование почтовой службы SendGrid (.NET) - Azure" metaKeywords="Azure SendGrid, Azure email service, Azure SendGrid .NET, Azure email .NET, Azure SendGrid C#, Azure email C#" description="Узнайте, как отправить электронное сообщение с помощью службы электронной почты SendGrid в Azure. Примеры написаны на языке C# и используют API .NET." metaCanonical="" services="" documentationCenter=".NET" title="How to Send Email Using SendGrid with Azure" authors="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork" solutions="" manager="wpickett" editor="erikre" />
+﻿<properties 
+	pageTitle="Использование почтовой службы SendGrid (.NET) — Azure" 
+	description="Узнайте, как отправить электронное сообщение с помощью службы электронной почты SendGrid в Azure. Примеры написаны на языке C# и используют API .NET." 
+	services="" 
+	documentationCenter=".net" 
+	authors="thinkingserious" 
+	manager="sendgrid" 
+	editor="erikre"/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/29/2014" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="10/29/2014" 
+	ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork"/>
 
 
 
@@ -20,7 +34,7 @@
 [Практическое руководство. Создание электронного сообщения][]   
 [Практическое руководство. Отправка электронного сообщения][]   
 [Практическое руководство. Добавление вложения][]   
-[Практическое руководство. Использование приложений для включения нижних колонтитулов, отслеживания и аналитики][]   
+[Практическое руководство. Использование фильтров для включения нижних колонтитулов, отслеживания и аналитики][]   
 [Практическое руководство. Использование дополнительных служб SendGrid][]   
 [Дальнейшие действия][]
 
@@ -243,3 +257,5 @@ SendGrid поддерживает веб-интерфейсы API и метод�
   [доставка электронной почты]: https://sendgrid.com/transactional-email
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

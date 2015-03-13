@@ -83,7 +83,7 @@
 
 <h2><a name="instantiating"></a>Практическое руководство. Создание ссылки на таблицу</h2>
 
-Весь код, который обращается к данным в таблице мобильных служб или изменяет эти данные, вызывает функции объекта `MobileServiceTable`. Ссылку на таблицу можно получить, вызвав функцию [GetTable](http://msdn.microsoft.com/ru-ru/library/windowsazure/jj554275.aspx) для экземпляра  `MobileServiceClient`. 
+Весь код, который обращается к данным в таблице мобильных служб или изменяет эти данные, вызывает функции объекта `MobileServiceTable`. Ссылку на таблицу можно получить, вызвав функцию [GetTable](http://msdn.microsoft.com/library/windowsazure/jj554275.aspx) для экземпляра  `MobileServiceClient`. 
 
     IMobileServiceTable<TodoItem> todoTable = 
 		client.GetTable<TodoItem>();
@@ -177,7 +177,7 @@
 					.Take(3);                              
 	List<TodoItem> items = await query.ToListAsync();
 			
-Можно также использовать метод [IncludeTotalCount](http://msdn.microsoft.com/ru-ru/library/windowsazure/jj730933.aspx), чтобы запрос возвращал общее количество <i>всех</i> записей, которые должны быть возвращены без учета указанных предложений paging/limit:
+Можно также использовать метод [IncludeTotalCount](http://msdn.microsoft.com/library/windowsazure/jj730933.aspx), чтобы запрос возвращал общее количество <i>всех</i> записей, которые должны быть возвращены без учета указанных предложений paging/limit:
 
 	query = query.IncludeTotalCount();
 
@@ -498,11 +498,11 @@
 [Уточнение запросов с разбиением по страницам (Android)]: /ru-ru/develop/mobile/tutorials/add-paging-to-data-xamarin-android
 [Авторизация пользователей с помощью сценариев (iOS)]: /ru-ru/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios
 [Авторизация пользователей с помощью сценариев (Android)]: /ru-ru/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android
-[Метод LoginAsync]: http://msdn.microsoft.com/ru-ru/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx
-[MobileServiceAuthenticationProvider]: http://msdn.microsoft.com/ru-ru/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx
-[MobileServiceUser]: http://msdn.microsoft.com/ru-ru/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.aspx
-[UserID]: http://msdn.microsoft.com/ru-ru/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx
-[MobileServiceAuthenticationToken]: http://msdn.microsoft.com/ru-ru/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx
+[Метод LoginAsync]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx
+[MobileServiceAuthenticationProvider]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx
+[MobileServiceUser]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.aspx
+[UserID]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx
+[MobileServiceAuthenticationToken]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx
 
 
 <!--HONumber=42-->

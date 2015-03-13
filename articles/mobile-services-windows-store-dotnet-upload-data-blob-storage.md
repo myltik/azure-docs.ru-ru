@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Использование мобильных служб для загрузки изображений в хранилище больших двоичных объектов (Магазин Windows) | Мобильные службы" description="Узнайте, как использовать мобильные службы для передачи изображений в хранилище больших двоичных объектов Azure и получения доступа к изображениям из приложения Магазина Windows." services="mobile-services, storage" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Использование мобильных служб для загрузки изображений в хранилище больших двоичных объектов (Магазин Windows) | Мобильные службы" 
+	description="Узнайте, как использовать мобильные службы для передачи изображений в хранилище больших двоичных объектов Azure и получения доступа к изображениям из приложения Магазина Windows." 
+	services="mobile-services, storage" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/26/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/26/2014" 
+	ms.author="glenga"/>
 
 # Отправка образов в хранилище Azure с помощью мобильных служб
 
@@ -89,7 +103,7 @@
 [Создание учетной записи хранилища]: /ru-ru/manage/services/storage/how-to-create-a-storage-account
 [Библиотека клиентского хранилища Azure для приложений Магазина]: http://go.microsoft.com/fwlink/p/?LinkId=276866 
 [Справочник по принципам использования мобильных служб .NET]: /ru-ru/develop/mobile/how-to-guides/work-with-net-client-library
-[Параметры приложения]: http://msdn.microsoft.com/ru-ru/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+[Параметры приложения]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
 
 <!--HONumber=42-->

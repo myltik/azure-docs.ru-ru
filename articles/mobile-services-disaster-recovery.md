@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Восстановление мобильной службы в случае аварии - мобильные службы Azure" description="Узнайте, как восстановить работу мобильной службы в случае аварии." services="mobile-services" documentationCenter="" authors="brettsam" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Восстановление мобильной службы в случае аварии - мобильные службы Azure" 
+	description="Узнайте, как восстановить работу мобильной службы в случае аварии." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="brettsam" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/11/2014" ms.author="brettsam"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/11/2014" 
+	ms.author="brettsam"/>
 
 # Восстановление мобильной службы в случае аварии
 
@@ -73,14 +87,14 @@
 <!-- Images. -->
 
 <!-- URLs. -->
-[Руководство по обеспечению непрерывности бизнес-процессов на основе базы данных SQL]: http://msdn.microsoft.com/ru-ru/library/windowsazure/hh852669.aspx
+[Руководство по обеспечению непрерывности бизнес-процессов на основе базы данных SQL]: http://msdn.microsoft.com/library/windowsazure/hh852669.aspx
 [Team Foundation Service]: http://tfs.visualstudio.com/
 
-[Компонент управления версиями]: http://www.windowsazure.com/ru-ru/develop/mobile/tutorials/store-scripts-in-source-control/
-[Использование программы командной строки Azure]: http://www.windowsazure.com/ru-ru/develop/mobile/tutorials/command-line-administration/
+[Компонент управления версиями]: http://azure.microsoft.com/develop/mobile/tutorials/store-scripts-in-source-control/
+[Использование программы командной строки Azure]: http://azure.microsoft.com/develop/mobile/tutorials/command-line-administration/
 [Портал Azure]: http://manage.windowsazure.com/
-[Панель мониторинга служб Azure]: http://www.windowsazure.com/ru-ru/support/service-dashboard/
-[Автоматизация мобильных служб с помощью программ командной строки]: http://www.windowsazure.com/ru-ru/develop/mobile/tutorials/command-line-administration/
+[Панель мониторинга служб Azure]: http://azure.microsoft.com/support/service-dashboard/
+[Автоматизация мобильных служб с помощью программ командной строки]: http://azure.microsoft.com/develop/mobile/tutorials/command-line-administration/
 
 
 <!--HONumber=42-->

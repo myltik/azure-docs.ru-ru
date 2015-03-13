@@ -38,4 +38,4 @@
 <!-- URLs. -->
 [Регистрация в Azure Active Directory]: /ru-ru/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
 [портале управления Azure]: https://manage.windowsazure.com/
-<!--HONumber=42-->
+\<!--HONumber=42-->

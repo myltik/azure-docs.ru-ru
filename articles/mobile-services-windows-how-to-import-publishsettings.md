@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Импорт файла параметров публикации подписки в Visual Studio 2013 | Мобильные службы" description="Узнайте, как импортировать файл параметров публикации подписки для приложения мобильных служб Azure в Visual Studio 2013." documentationCenter="windows" services="mobile-services" manager="dwrede" editor="" authors="ggailey777"/>
+﻿<properties 
+	pageTitle="Импорт файла параметров публикации подписки в Visual Studio 2013 | Мобильные службы" 
+	description="Узнайте, как импортировать файл параметров публикации подписки для приложения мобильных служб Azure в Visual Studio 2013." 
+	documentationCenter="windows" 
+	services="mobile-services" 
+	manager="dwrede" 
+	editor="" 
+	authors="ggailey777"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="glenga"/>
 
 # Импорт файла параметров публикации подписки в Visual Studio 2013
 

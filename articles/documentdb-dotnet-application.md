@@ -1,7 +1,21 @@
-﻿<properties title="Build a web application with ASP.NET MVC using DocumentDB" pageTitle="Создание веб-приложения ASP.NET MVC с использованием DocumentDB | Azure" description="Узнайте, как использовать DocumentDB для создания веб-приложения списка дел. Данные вы будете хранить в веб-приложении ASP.NET MVC, размещенном в Azure, из которого вы также будете их использовать.."  metaKeywords="NoSQL, DocumentDB, database, document-orientated database, JSON, account" services="documentdb"  solutions="data-management" documentationCenter=""  authors="ryancraw" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Создание веб-приложения ASP.NET MVC с использованием DocumentDB | Azure" 
+	description="Узнайте, как использовать DocumentDB для создания веб-приложения списка дел. Данные вы будете хранить в веб-приложении ASP.NET MVC, размещенном в Azure, из которого вы также будете их использовать." 
+	services="documentdb" 
+	documentationCenter="" 
+	authors="ryancrawcour" 
+	manager="jhubbard" 
+	editor="cgronlun"/>
 
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="08/19/2014" ms.author="ryancraw" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="02/12/2015" 
+	ms.author="ryancraw"/>
 
 <a name="_Toc395809351">Создание веб-приложения ASP.NET MVC с использованием DocumentDB</a>
 =======================================================================================================
@@ -587,3 +601,5 @@ Visual Studio добавит контроллер ItemController в обозре
 [Основные операции CRUD в ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
 
 <!--HONumber=27-->
+
+<!--HONumber=46--> 

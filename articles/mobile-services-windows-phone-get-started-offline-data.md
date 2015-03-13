@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Использование автономных данных в мобильных службах (Windows Phone) | Центр мобильных разработок" description="Узнайте, как использовать мобильные службы Azure для синхронизации автономных данных в приложении Windows Phone" documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor="" services=""/>
+﻿<properties 
+	pageTitle="Использование автономных данных в мобильных службах (Windows Phone) | Центр мобильных разработок" 
+	description="Узнайте, как использовать мобильные службы Azure для синхронизации автономных данных в приложении Windows Phone" 
+	documentationCenter="windows" 
+	authors="wesmc7777" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="12/10/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="12/10/2014" 
+	ms.author="wesmc"/>
 
 # Использование автономной синхронизации в мобильных службах
 
@@ -30,7 +44,7 @@
 * [SQLite Store для мобильных служб Azure версии 1.0.0 (или более поздних версий)][Nuget-пакет SQLiteStore]
 * [SQLite для Windows Phone 8]
 
->[AZURE.NOTE] Для работы с этим учебником требуется учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://www.windowsazure.com/ru-ru/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Бесплатная пробная версия Azure</a>. 
+>[AZURE.NOTE] Для работы с этим учебником требуется учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Бесплатная пробная версия Azure</a>. 
 
 ## <a name="enable-offline-app"></a>Обновление приложения для поддержки автономных функций
 

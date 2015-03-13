@@ -24,7 +24,7 @@
 
 Смена режима и их настройка легко выполняются на вкладке "Масштаб" портала управления. При необходимости можно выполнять масштабирование вверх или вниз. Выполнение этих изменений занимает несколько секунд, и они влияют на все веб-сайты используемого плана размещения. Они не требуют ни изменения кода, ни повторного развертывания приложений.
 
-Более подробную информацию о планах размещения веб-сайтов см. в статьях [Что такое план размещения веб-сайтов?](http://azure.microsoft.com/ru-ru/documentation/articles/web-sites-web-hosting-plan-overview/) и [Детальный обзор планов размещения веб-сайтов Azure](http://www.azure.microsoft.com/ru-ru/Documentation/Articles/azure-web-sites-web-hosting-plans-in-depth-overview/). Информацию о ценах и возможностях отдельных планов размещения веб-сайтов см. на странице [информации о ценах для веб-сайтов](http://www.windowsazure.com/ru-ru/pricing/details/web-sites/).  
+Более подробную информацию о планах размещения веб-сайтов см. в статьях [Что такое план размещения веб-сайтов?](http://azure.microsoft.com/documentation/articles/web-sites-web-hosting-plan-overview/) и [Детальный обзор планов размещения веб-сайтов Azure](http://www.azure.microsoft.com/ru-ru/Documentation/Articles/azure-web-sites-web-hosting-plans-in-depth-overview/). Информацию о ценах и возможностях отдельных планов размещения веб-сайтов см. на странице [информации о ценах для веб-сайтов](http://azure.microsoft.com/pricing/details/web-sites/).  
 
 > [AZURE.NOTE]  Прежде чем перевести веб-сайт с плана размещения веб-сайтов **Бесплатный** на план **Базовый** или **Стандартный**, необходимо сначала снять существующие ограничения расходов, установленные для вашей подписки на веб-сайты Azure. Информацию о просмотре или изменении параметров подписки для веб-сайтов Microsoft Azure см. в разделе [Подписки Microsoft Azure][azuresubscriptions].
 
@@ -142,7 +142,7 @@
 	
 14. Закончив изменения параметров в списке **Изменить параметры масштабирования по расписанию**, щелкните значок **Сохранить** на панели команд в нижней части страницы, чтобы сохранить сразу все настройки расписания (не понадобится сохранять каждое расписание по отдельности).
 
-> [AZURE.NOTE] На [портале предварительной версии Azure](https://portal.azure.com/) можно масштабировать не только процент использования ЦП, но и такие дополнительные метрики, как "Процент использования памяти", "Длина дисковой очереди", "Длина очереди HTTP", "Скорость чтения с диска" и "Скорость записи на диск". Также можно создать одно или несколько правил масштабирования вверх или вниз, которые предоставят вам больше возможностей управления масштабированием. Более подробную информацию см. в статье [Масштабирование веб-сайта](http://azure.microsoft.com/ru-ru/documentation/articles/insights-how-to-scale/) в документации предварительной версии портала Azure.
+> [AZURE.NOTE] На [портале предварительной версии Azure](https://portal.azure.com/) можно масштабировать не только процент использования ЦП, но и такие дополнительные метрики, как "Процент использования памяти", "Длина дисковой очереди", "Длина очереди HTTP", "Скорость чтения с диска" и "Скорость записи на диск". Также можно создать одно или несколько правил масштабирования вверх или вниз, которые предоставят вам больше возможностей управления масштабированием. Более подробную информацию см. в статье [Масштабирование веб-сайта](http://azure.microsoft.com/documentation/articles/insights-how-to-scale/) в документации предварительной версии портала Azure.
 
 <a name="ScalingSQLServer"></a>
 ##Масштабирование базы данных SQL Server, подключенной к веб-сайту	
@@ -179,40 +179,40 @@
 
 **Мониторинг конечных веб-точек**
 
-- Мониторинг конечных веб-точек доступен в режиме плана размещения веб-сайтов "Базовый" и "Стандартный". Дополнительную информацию о мониторинге веб-точек см. в статье [Мониторинг веб-сайтов](http://www.windowsazure.com/ru-ru/documentation/articles/web-sites-monitor/).
+- Мониторинг конечных веб-точек доступен в режиме плана размещения веб-сайтов "Базовый" и "Стандартный". Дополнительную информацию о мониторинге веб-точек см. в статье [Мониторинг веб-сайтов](http://azure.microsoft.com/documentation/articles/web-sites-monitor/).
 
-- Подробную информацию обо всех остальных возможностях планов размещения веб-сайтов, включая цены и возможности, представляющие интерес для всех пользователей (включая разработчиков), см. на странице [информации о ценах для веб-сайтов](http://www.windowsazure.com/ru-ru/pricing/details/web-sites/).
+- Подробную информацию обо всех остальных возможностях планов размещения веб-сайтов, включая цены и возможности, представляющие интерес для всех пользователей (включая разработчиков), см. на странице [информации о ценах для веб-сайтов](http://azure.microsoft.com/pricing/details/web-sites/).
 
 <a name="Next Steps"></a>	
 ## Дальнейшие действия
 
-- Чтобы начать работу с Azure, см. раздел [Бесплатная пробная версия Microsoft Azure](http://azure.microsoft.com/ru-ru/pricing/free-trial/).
+- Чтобы начать работу с Azure, см. раздел [Бесплатная пробная версия Microsoft Azure](http://azure.microsoft.com/pricing/free-trial/).
 
 - Сведения о ценах, поддержке и соглашениях об уровне обслуживания см. по следующим ссылкам:
 	
-	[Информация о ценах - передача данных](http://www.windowsazure.com/ru-ru/pricing/details/data-transfers/)
+	[Информация о ценах - передача данных](http://azure.microsoft.com/pricing/details/data-transfers/)
 	
-	[Планы поддержки Microsoft Azure](http://www.windowsazure.com/ru-ru/support/plans/)
+	[Планы поддержки Microsoft Azure](http://azure.microsoft.com/support/plans/)
 	
-	[Соглашения об уровне обслуживания](http://www.windowsazure.com/ru-ru/support/legal/sla/)
+	[Соглашения об уровне обслуживания](http://azure.microsoft.com/support/legal/sla/)
 	
-	[Информация о ценах - база данных SQL](http://www.windowsazure.com/ru-ru/pricing/details/sql-database/)
+	[Информация о ценах - база данных SQL](http://azure.microsoft.com/pricing/details/sql-database/)
 	
 	[Размеры виртуальных машин и облачных служб для Microsoft Azure][vmsizes]
 	
-	[Информация о ценах для веб-сайтов](http://www.windowsazure.com/ru-ru/pricing/details/web-sites/)
+	[Информация о ценах для веб-сайтов](http://azure.microsoft.com/pricing/details/web-sites/)
 	
-	[Информация о ценах для веб-сайтов - SSL-подключения](http://www.windowsazure.com/ru-ru/pricing/details/web-sites/#ssl-connections)
+	[Информация о ценах для веб-сайтов - SSL-подключения](http://azure.microsoft.com/pricing/details/web-sites/#ssl-connections)
 
 - Рекомендации по работе с веб-сайтами Azure, в том числе по созданию масштабируемой и устойчивой архитектуры, см. в статье [Рекомендации: веб-сайты Microsoft Azure](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx).
 
 - Видео о масштабировании веб-сайтов Azure:
 	
-	[Когда масштабировать веб-сайты Azure, автор - Стефан Шаков (Stefan Schackow)](http://www.windowsazure.com/ru-ru/documentation/videos/azure-web-sites-free-vs-standard-scaling/)
+	[Когда масштабировать веб-сайты Azure, автор - Стефан Шаков (Stefan Schackow)](http://azure.microsoft.com/documentation/videos/azure-web-sites-free-vs-standard-scaling/)
 	
-	[Автоматическое масштабирование веб-сайтов Azure, ЦП или по расписанию, автор - Стефан Шаков (Stefan Schackow)](http://www.windowsazure.com/ru-ru/documentation/videos/auto-scaling-azure-web-sites/)
+	[Автоматическое масштабирование веб-сайтов Azure, ЦП или по расписанию, автор - Стефан Шаков (Stefan Schackow)](http://azure.microsoft.com/documentation/videos/auto-scaling-azure-web-sites/)
 
-	[Как масштабируются веб-сайты Azure, автор - Стефан Шаков (Stefan Schackow)](http://www.windowsazure.com/ru-ru/documentation/videos/how-azure-web-sites-scale/)
+	[Как масштабируются веб-сайты Azure, автор - Стефан Шаков (Stefan Schackow)](http://azure.microsoft.com/documentation/videos/how-azure-web-sites-scale/)
 
 
 

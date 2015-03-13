@@ -1,7 +1,20 @@
-﻿<properties title="Build a web application with Python and Flask (MVC) using DocumentDB" pageTitle="Создание веб-приложения Python и Flask с использованием DocumentDB | Azure" description="Узнайте, как использовать DocumentDB для хранения и использования данных из веб-приложения Python и Flask (MVC), размещенного в Azure."  metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, account" services="documentdb"  solutions="data-management" documentationCenter=""  authors="hawong" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+    pageTitle="Создание веб-приложения Python и Flask с использованием DocumentDB | Azure" 
+    description="Узнайте, как использовать DocumentDB для хранения и использования данных из веб-приложения Python и Flask (MVC), размещенного в Azure." 
+    services="documentdb" 
+    documentationCenter="" 
+    authors="crwilcox" 
+    manager="jhubbard" 
+    editor="cgronlun"/>
 
-
-<tags ms.service="documentdb" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="hawong" />
+<tags 
+    ms.service="documentdb" 
+    ms.workload="data-management" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="02/12/2015" 
+    ms.author="crwilcox"/>
 
 <a name="_Toc395888515"></a><a name="_Toc395809324">Создание веб-приложения Python и Flask (MVC) с использованием DocumentDB</a>
 ===========================================================================================================================================
@@ -477,3 +490,5 @@ Azure DocumentDB и опубликовали его на веб-сайтах Azu
   [здесь]: https://pytools.codeplex.com/releases/view/123624
   [1]: http://go.microsoft.com/fwlink/?linkid=254281&clcid=0x409
   [Установщик веб-платформы Майкрософт]: http://www.microsoft.com/web/downloads/platform.aspx
+
+<!--HONumber=46--> 

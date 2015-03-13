@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Tutorial: Create a Cross-Premises Virtual Network for Site-to-Site Connectivity" pageTitle="Учебник. Создание локальной виртуальной сети для подключений между организациями по типу "сеть-сеть"" metaKeywords="" description="Узнайте в этом учебнике, как создать виртуальную сеть Azure с подключениями между локальными сетями." metaCanonical="" services="virtual-network" documentationCenter="" title="Create a Virtual Network for Site-to-Site Cross-Premises Connectivity" authors="cherylmc" solutions="" manager="adinah" editor="" />.
+﻿<properties 
+	pageTitle="Учебник. Создание виртуальной сети для подключений между организациями по типу «сеть-сеть»" 
+	description="Узнайте в этом учебнике, как создать виртуальную сеть Azure с подключениями между локальными сетями." 
+	services="virtual-network" 
+	documentationCenter="" 
+	authors="cherylmc" 
+	manager="adinah" 
+	editor=""/>
 
-<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/23/2014" ms.author="cherylmc" />
+<tags 
+	ms.service="virtual-network" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/23/2014" 
+	ms.author="cherylmc"/>
 
 
 
@@ -10,9 +24,9 @@
 
 В этом учебнике вы пошагово создадите пример виртуальной сети для подключений между организациями по типу "сеть-сеть". 
 
-Если вы хотите создать виртуальную сеть только для облака, см. [Учебник. Создание в Azure виртуальной сети только для облака](http://azure.microsoft.com/ru-ru/documentation/articles/create-virtual-network/). Если требуется создать VPN-подключение "точка-сеть" с использованием сертификатов и VPN-клиента, см. раздел [Настройка VPN-подключения "точка-сеть" на портале управления](http://go.microsoft.com/fwlink/?LinkId=296653).
+Если вы хотите создать виртуальную сеть только для облака, см. [Учебник. Создание в Azure виртуальной сети только для облака](http://azure.microsoft.com/documentation/articles/create-virtual-network/). Если требуется создать VPN-подключение "точка-сеть" с использованием сертификатов и VPN-клиента, см. раздел [Настройка VPN-подключения "точка-сеть" на портале управления](http://go.microsoft.com/fwlink/?LinkId=296653).
 
-В данном учебнике предполагается, что у читателя нет никакого опыта использования платформы Azure. Целью учебника является помощь вам для ознакомления с шагами, необходимыми для создания примера виртуальной сети с целью подключения между организациями. Если вам нужны сценарии разработки и дополнительная информация о виртуальных сетях, см. раздел [Обзор виртуальной сети Azure](http://msdn.microsoft.com/ru-ru/library/windowsazure/jj156007.aspx).
+В данном учебнике предполагается, что у читателя нет никакого опыта использования платформы Azure. Целью учебника является помощь вам для ознакомления с шагами, необходимыми для создания примера виртуальной сети с целью подключения между организациями. Если вам нужны сценарии разработки и дополнительная информация о виртуальных сетях, см. раздел [Обзор виртуальной сети Azure](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx).
 
 Выполнив указания из этого учебника, вы создадите виртуальную сеть для подключений между организациями. На следующем рисунке приведены подробные сведения на основе примера параметров в этом учебнике.
 
@@ -28,7 +42,7 @@
 
 -  [Установка реплики контроллера домена Active Directory в виртуальной сети Azure](http://go.microsoft.com/fwlink/?LinkId=299877)
 
-Рекомендации по развертыванию доменных служб Active Directory (AD DS) на виртуальных машинах Azure см. в разделе [Руководства по развертыванию Windows Server Active Directory на виртуальных машинах Azure](http://msdn.microsoft.com/ru-ru/library/windowsazure/jj156090.aspx).
+Рекомендации по развертыванию доменных служб Active Directory (AD DS) на виртуальных машинах Azure см. в разделе [Руководства по развертыванию Windows Server Active Directory на виртуальных машинах Azure](http://msdn.microsoft.com/library/windowsazure/jj156090.aspx).
 
 Дополнительные процедуры настройки виртуальной сети и параметры см. в разделе [Задачи по настройке виртуальной сети Windows Azure](http://go.microsoft.com/fwlink/?LinkId=296652).
 
@@ -42,7 +56,7 @@
 
 ##  Предварительные требования
 
--  Учетная запись Microsoft с как минимум одной действительной активной подпиской Azure.  Если у вас нет учетной записи Azure, зарегистрируйтесь для получения бесплатной пробной версии на сайте [Try Azure](http://www.windowsazure.com/pricing/free-trial/). Если у вас есть подписка MSDN, см. раздел [Специальные предложения Microsoft Azure: преимущества для подписчиков MSDN, MPN и Bizspark](http://azure.microsoft.com/ru-ru/pricing/member-offers/msdn-benefits-details/).
+-  Учетная запись Microsoft с как минимум одной действительной активной подпиской Azure.  Если у вас нет учетной записи Azure, зарегистрируйтесь для получения бесплатной пробной версии на сайте [Try Azure](http://www.windowsazure.com/pricing/free-trial/). Если у вас есть подписка MSDN, см. раздел [Специальные предложения Microsoft Azure: преимущества для подписчиков MSDN, MPN и Bizspark](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 Чтобы с помощью данного учебника настроить для вашей организации работающую виртуальную сеть для подключений между организациями, вам потребуется следующее:
 
@@ -103,7 +117,7 @@
 
 	-  **ИМЯ:** для примера в этом учебнике введите **YourCorpHQ**.
 
-	-  **IP-АДРЕС УСТРОЙСТВА VPN:** для примера в этом учебнике введите **3.2.1.1**. В противном случае укажите открытый IP-адрес своего устройства VPN. Если эти сведения отсутствуют, прежде чем переходить к следующим шагам мастера необходимо их получить. Обратите внимание, что устройство VPN не может находиться за NAT. Дополнительные сведения о VPN-устройствах см. в разделе [Устройства VPN для виртуальной сети](http://msdn.microsoft.com/ru-ru/library/windowsazure/jj156075.aspx).
+	-  **IP-АДРЕС УСТРОЙСТВА VPN:** для примера в этом учебнике введите **3.2.1.1**. В противном случае укажите открытый IP-адрес своего устройства VPN. Если эти сведения отсутствуют, прежде чем переходить к следующим шагам мастера необходимо их получить. Обратите внимание, что устройство VPN не может находиться за NAT. Дополнительные сведения о VPN-устройствах см. в разделе [Устройства VPN для виртуальной сети](http://msdn.microsoft.com/library/windowsazure/jj156075.aspx).
 
 	-  **АДРЕСНОЕ ПРОСТРАНСТВО:** для примера в этом учебнике введите **10.1.0.0/16**.
 	-  **Добавить адресное пространство:** в этом учебнике не потребуется дополнительное адресное пространство.
@@ -244,15 +258,15 @@
 
 ## См. также
 
--  [Виртуальная сеть Azure](http://msdn.microsoft.com/ru-ru/library/windowsazure/jj156007.aspx)
+-  [Виртуальная сеть Azure](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx)
 
 -  [Часто задаваемые вопросы по виртуальной сети](http://msdn.microsoft.com/library/windowsazure/dn133803.aspx)
 
--  [Настройка виртуальной сети с помощью файлов конфигурации сети](http://msdn.microsoft.com/ru-ru/library/windowsazure/jj156097.aspx)
+-  [Настройка виртуальной сети с помощью файлов конфигурации сети](http://msdn.microsoft.com/library/windowsazure/jj156097.aspx)
 
--  [Добавление виртуальной машины в виртуальную сеть](http://www.windowsazure.com/ru-ru/manage/services/networking/add-a-vm-to-a-virtual-network/)
+-  [Добавление виртуальной машины в виртуальную сеть](http://azure.microsoft.com/manage/services/networking/add-a-vm-to-a-virtual-network/)
 
--  [Устройства VPN для виртуальной сети](http://msdn.microsoft.com/ru-ru/library/windowsazure/jj156075.aspx)
+-  [Устройства VPN для виртуальной сети](http://msdn.microsoft.com/library/windowsazure/jj156075.aspx)
 
 -  [Обзор механизма разрешения имен Azure](http://go.microsoft.com/fwlink/?LinkId=248097)
 
@@ -260,3 +274,5 @@
 
 
 
+
+<!--HONumber=46--> 

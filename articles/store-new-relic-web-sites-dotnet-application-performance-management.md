@@ -36,7 +36,7 @@ New Relic - это инструмент для разработчиков, ко�
 New Relic Standard для пользователей Azure предлагается бесплатно.
 New Relic Pro предоставляется в виде нескольких разных пакетов в зависимости от используемого режима веб-сайта и размера экземпляра при использовании режима с резервированием.
 
-Информацию по ценам см. в разделе [Страница New Relic в Магазине Azure](http://www.windowsazure.com/ru-ru/gallery/store/new-relic/new-relic/).
+Информацию по ценам см. в разделе [Страница New Relic в Магазине Azure](http://azure.microsoft.com/gallery/store/new-relic/new-relic/).
 
 > [AZURE.NOTE] Версия, предлагаемая по указанной цене, поддерживает до 10 вычислительных операций. Если количество вычислительных операций превышает 10, стоимость корпоративного лицензирования вы можете узнать непосредственно в компании New Relic (sales@newrelic.com).
 
@@ -238,8 +238,8 @@ New Relic тесно интегрируется с веб-ролями, рабо
  * [Поиск справки](https://newrelic.com/docs/site/finding-help): ресурсы, доступные через интерактивный центр справки New Relic.
 
 
-[webmatrixwebsite]: http://www.windowsazure.com/ru-ru/develop/net/tutorials/website-with-webmatrix/
-[vswebsite]: http://www.windowsazure.com/ru-ru/develop/net/tutorials/get-started/
+[webmatrixwebsite]: http://azure.microsoft.com/develop/net/tutorials/website-with-webmatrix/
+[vswebsite]: http://azure.microsoft.com/develop/net/tutorials/get-started/
 
 [wmnugetbutton]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrwmnugetbutton.png
 [wmnugetgallery]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrwmnugetgallery.png

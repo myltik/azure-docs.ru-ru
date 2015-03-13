@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Visual Studio 14 CTP" pageTitle="Установка пакета Azure SDK 2.4 для Visual Studio, CTP2-версия 14" metaKeywords="Visual Studio, Azure SDK" description="Установка пакета SDK для Azure 2.4 и CTP-версии 2 Visual Studio 14" metaCanonical="" services="" documentationCenter="" title="Installing Azure SDK 2.4 for Visual Studio 14 CTP" authors="ghogen" solutions="" manager="douge" editor="" />
+﻿<properties 
+	pageTitle="Установка пакета Azure SDK 2.4 для Visual Studio 14" 
+	description="Установка пакета SDK для Azure 2.4 и CTP-версии 2 Visual Studio 14" 
+	services="visual-studio-online" 
+	documentationCenter=".net" 
+	authors="kempb" 
+	manager="douge" 
+	editor="tglee"/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="ghogen" />
+<tags 
+	ms.service="visual-studio-online" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="02/02/2015" 
+	ms.author="kempb"/>
 
 # Установка Azure SDK 2.4 для Visual Studio, CTP-версия "14"
 
@@ -32,3 +46,5 @@
 ## Заметки о выпуске
 
 Ознакомьтесь с [заметками о выпуске](http://go.microsoft.com/fwlink/?LinkId=507517) для пакета Azure SDK 2.4.
+
+<!--HONumber=46--> 

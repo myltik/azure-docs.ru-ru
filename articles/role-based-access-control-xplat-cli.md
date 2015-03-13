@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Управление доступом на основе ролей с интерфейса кросс-платформенной командной строки Azure" metaKeywords ="Диспетчер ресурсов, кросс-платформенный интерфейс командной строки Azure, командная строка Azure, командная строка azure, azure cli, RBAC" description="Управление доступом на основе ролей с помощью кроссплатформенного интерфейса командной строки" metaCanonical="" services="" documentationCenter="" title="Managing Role-Based Access Control with Cross-Platform Command-Line Interface" authors="guayan" solutions="" manager="terrylan" editor="mollybos" />
+﻿<properties 
+	pageTitle="Управление доступом на основе ролей с помощью межплатформенного интерфейса командной строки Azure" 
+	description="Управление доступом на основе ролей с помощью межплатформенного интерфейса командной строки" 
+	services="" 
+	documentationCenter="" 
+	authors="guangyang" 
+	manager="terrylan" 
+	editor="mollybos"/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="11/03/2014" ms.author="guayan" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="command-line-interface" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/03/2014" 
+	ms.author="guayan"/>
 
 # Управление доступом на основе ролей с помощью кросс-платформенного интерфейса командной строки #
 
@@ -16,8 +30,8 @@
 
 Чтобы использовать интерфейс xplat-cli для управления RBAC, вам понадобится:
 
-- Межплатформенный интерфейс командной строки Azure версии 0.8.8 или более поздней. Сведения об установке последней версии и связывании ее с подпиской Azure см. в разделе [Установка и настройка кросс-платформенного интерфейса командной строки Azure](http://azure.microsoft.com/ru-ru/documentation/articles/xplat-cli/).
-- Чтобы узнать, как настраивать и использовать диспетчер ресурсов Azure в межплатформенном интерфейсе командной строки Azure, также прочитайте следующее руководство: [Использование межплатформенного интерфейса командной строки Microsoft Azure совместно с диспетчером ресурсов](http://azure.microsoft.com/ru-ru/documentation/articles/xplat-cli-azure-resource-manager/)
+- Межплатформенный интерфейс командной строки Azure версии 0.8.8 или более поздней. Сведения об установке последней версии и связывании ее с подпиской Azure см. в разделе [Установка и настройка кросс-платформенного интерфейса командной строки Azure](http://azure.microsoft.com/documentation/articles/xplat-cli/).
+- Чтобы узнать, как настраивать и использовать диспетчер ресурсов Azure в межплатформенном интерфейсе командной строки Azure, также прочитайте следующее руководство: [Использование межплатформенного интерфейса командной строки Microsoft Azure совместно с диспетчером ресурсов](http://azure.microsoft.com/documentation/articles/xplat-cli-azure-resource-manager/)
 
 ## В этом учебнике рассматриваются следующие темы: ##
 
@@ -33,7 +47,7 @@ RBAC работает только с диспетчером ресурсов Az
 
     Режим настройки Azure arm
 
-Дополнительные сведения см. в разделе [Использование кросс-платформенного интерфейса командной строки Azure совместно с диспетчером ресурсов.](http://azure.microsoft.com/ru-ru/documentation/articles/xplat-cli-azure-resource-manager/)
+Дополнительные сведения см. в разделе [Использование кросс-платформенного интерфейса командной строки Azure совместно с диспетчером ресурсов.](http://azure.microsoft.com/documentation/articles/xplat-cli-azure-resource-manager/)
 
 Чтобы подключиться к подпискам Azure, введите:
 
@@ -48,7 +62,7 @@ RBAC работает только с диспетчером ресурсов Az
     # Используя имя подписки, выберите подписку, с которой требуется продолжить работу.
     комплект учетной записи Azure <имя подписки>
 
-Дополнительные сведения см. в разделе [Установка и настройка кросс-платформенного интерфейса командной строки Azure](http://azure.microsoft.com/ru-ru/documentation/articles/xplat-cli/).
+Дополнительные сведения см. в разделе [Установка и настройка кросс-платформенного интерфейса командной строки Azure](http://azure.microsoft.com/documentation/articles/xplat-cli/).
 
 ## <a id="check"></a>Проверка существующих назначений ролей ##
 
@@ -125,10 +139,12 @@ RBAC работает только с диспетчером ресурсов Az
 
 Чтобы узнать больше об управлении доступом на основе ролей с помощью xplat-cli, воспользуйтесь следующими ресурсами:
 
-- [Управление доступом на основе ролей в Microsoft Azure](http://azure.microsoft.com/ru-ru/documentation/articles/role-based-access-control-configure/)
-- [Установка и настройка межплатформенного интерфейса командной строки Azure](http://azure.microsoft.com/ru-ru/documentation/articles/xplat-cli/)
-- [Использование межплатформенного интерфейса командной строки Microsoft Azure совместно с диспетчером ресурсов](http://azure.microsoft.com/ru-ru/documentation/articles/xplat-cli-azure-resource-manager/)
-- [Использование групп ресурсов для управления ресурсами Azure](http://azure.microsoft.com/ru-ru/documentation/articles/azure-preview-portal-using-resource-groups): Узнайте, как создать группы ресурсов на портале управления Azure и управлять ими.
+- [Управление доступом на основе ролей в Microsoft Azure](http://azure.microsoft.com/documentation/articles/role-based-access-control-configure/)
+- [Установка и настройка межплатформенного интерфейса командной строки Azure](http://azure.microsoft.com/documentation/articles/xplat-cli/)
+- [Использование межплатформенного интерфейса командной строки Microsoft Azure совместно с диспетчером ресурсов](http://azure.microsoft.com/documentation/articles/xplat-cli-azure-resource-manager/)
+- [Использование групп ресурсов для управления ресурсами Azure](http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups): Узнайте, как создать группы ресурсов на портале управления Azure и управлять ими.
 - [Блог Azure](http://blogs.msdn.com/windowsazure): Сведения о новых возможностях в Azure.
-- [Настройка управления доступом на основе ролей с помощью Windows PowerShell](http://azure.microsoft.com/ru-ru/documentation/articles/role-based-access-control-powershell/)
-- [Устранение неполадок при управлении доступом на основе ролей](http://azure.microsoft.com/ru-ru/documentation/articles/role-based-access-control-troubleshooting/)
+- [Настройка управления доступом на основе ролей с помощью Windows PowerShell](http://azure.microsoft.com/documentation/articles/role-based-access-control-powershell/)
+- [Устранение неполадок при управлении доступом на основе ролей](http://azure.microsoft.com/documentation/articles/role-based-access-control-troubleshooting/)
+
+<!--HONumber=46--> 

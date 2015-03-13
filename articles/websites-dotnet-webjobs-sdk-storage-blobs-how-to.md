@@ -99,7 +99,7 @@
 * `ICloudBlob`
 * `CloudBlockBlob`
 * `CloudPageBlob`
-* другие типы, десериализованные с помощью [ICloudBlobStreamBinder].(#icbsb) 
+* другие типы, десериализованные с помощью [ICloudBlobStreamBinder)]#icbsb) 
 
 Если требуется работать непосредственно с учетной записью хранения Azure, можно также добавить параметр `CloudStorageAccount` в сигнатуру метода.
 

@@ -1,6 +1,20 @@
-﻿<properties title="Forecasting - ETS + STL " pageTitle="Прогнозирование ETS+STL  | Azure" description="Прогнозирование ETS+STL " metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Прогнозирование — ETS+STL | Azure" 
+	description="Прогнозирование ETS+STL" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="jaymathe" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/08/2014" ms.author="jaymathe" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/11/2015" 
+	ms.author="jaymathe"/>  
 
 #Прогнозирование ETS+STL  
  
@@ -72,7 +86,7 @@
 
 ##Создание веб-службы 
 
->Эта веб-служба была создана с помощью Azure ML. Для получения бесплатной пробной версии и вводных видеоматериалов по созданию экспериментов и [публикации веб-служб](http://azure.microsoft.com/ru-ru/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/) посетите веб-страницу [azure.com/ml](http://azure.com/ml). Ниже приведен снимок экрана эксперимента, в результате которого была создана веб-служба, и пример кода для каждого модуля в эксперименте.
+>Эта веб-служба была создана с помощью Azure ML. Для получения бесплатной пробной версии и вводных видеоматериалов по созданию экспериментов и [публикации веб-служб](http://azure.microsoft.com/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/) посетите веб-страницу [azure.com/ml](http://azure.com/ml). Ниже приведен снимок экрана эксперимента, в результате которого была создана веб-служба, и пример кода для каждого модуля в эксперименте.
 
 В Azure ML был создан новый пустой эксперимент. Был загружен образец входных данных с предопределенной схемой данных. Со схемой данных связан модуль "Выполнение скрипта R", который формирует модель прогнозирования на основе сезонной декомпозиции (STL) и экспоненциального сглаживания (ETS) с помощью функций "stl", "ets" и "forecast" из языка R. 
 
@@ -118,8 +132,10 @@
 Это очень простой пример прогнозирования ETS+STL. Как можно увидеть из приведенного выше примера кода, перехват ошибок не происходит и служба предполагает, что все переменные являются непрерывными/положительными значениями и частота должна быть положительным целым числом больше 1. Длина векторов даты и времени должна совпадать, а длина временного ряда должна быть больше произведения "2*частота". Переменная даты должна быть в формате "мм/дд/гггг".
 
 ##Часто задаваемые вопросы
-Ознакомиться с часто задаваемыми вопросами по использованию веб-службы и публикации в Магазине можно [здесь](http://azure.microsoft.com/ru-ru/documentation/articles/machine-learning-marketplace-faq).
+Ознакомиться с часто задаваемыми вопросами по использованию веб-службы и публикации в Магазине можно [здесь](http://azure.microsoft.com/documentation/articles/machine-learning-marketplace-faq).
 
 [1]: ./media/machine-learning-r-csharp-retail-demand-forecasting/retail-img1.png
 [2]: ./media/machine-learning-r-csharp-retail-demand-forecasting/retail-img2.png
 [3]: ./media/machine-learning-r-csharp-retail-demand-forecasting/retail-img3.png
+
+<!--HONumber=46--> 

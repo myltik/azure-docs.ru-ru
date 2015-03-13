@@ -51,7 +51,7 @@
 		    await dialog.ShowAsync();
 		}
 
-	Этот метод обрабатывает событие **Click** для новой кнопки. Метод [InvokeApiAsync](http://msdn.microsoft.com/ru-ru/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx) вызывается на стороне клиента, что приводит к отправке запроса POST в новый настраиваемый интерфейс API. Результат, возвращаемый настраиваемым интерфейсом API, отображается в диалоговом окне сообщения, как и любые ошибки.
+	Этот метод обрабатывает событие **Click** для новой кнопки. Метод [InvokeApiAsync](http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx) вызывается на стороне клиента, что приводит к отправке запроса POST в новый настраиваемый интерфейс API. Результат, возвращаемый настраиваемым интерфейсом API, отображается в диалоговом окне сообщения, как и любые ошибки.
 
 ## <a name="test-app"></a>Тестирование приложения
 
@@ -66,5 +66,4 @@
   	![](./media/mobile-services-windows-store-dotnet-call-custom-api/mobile-custom-api-windows-store-completed.png)
 
 	Отображается диалоговое окно сообщения, в котором указывается количество элементов, помеченных как завершенные; снова выполняется отфильтрованный запрос, что приводит к удалению из списка всех элементов.
-
 <!--HONumber=42-->

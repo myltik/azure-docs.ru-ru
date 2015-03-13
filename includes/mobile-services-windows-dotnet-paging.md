@@ -51,5 +51,4 @@
    	Обратите внимание, что в универсальном коде ресурса (URI) запроса метод  `Skip(3)` был преобразован в параметр запроса `$skip=3`.
 
 <!-- URLs -->
-[Fiddler]: http://go.microsoft.com/fwlink/?LinkID=262412
-<!--HONumber=42-->
+[Fiddler]: http://go.microsoft.com/fwlink/?LinkID=262412<!--HONumber=42-->

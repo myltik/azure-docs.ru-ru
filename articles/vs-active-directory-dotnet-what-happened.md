@@ -1,6 +1,20 @@
-﻿<properties title="Getting Started with Active Directory Authentication - What Happened" pageTitle="Приступая к работе с проверкой подлинности на основе Active Directory. Что произошло?" metaKeywords="Azure, Getting Started, Active Directory" description="" services="active-directory" documentationCenter="" authors="ghogen, kempb" />
+﻿<properties 
+	pageTitle="Приступая к работе с проверкой подлинности на основе Active Directory. Что произошло?" 
+	description="Описание произошедшего с проектом Azure Active Directory в Visual Studio" 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="kempb" 
+	manager="douge" 
+	editor="tglee"/>
   
-<tags ms.service="active-directory" ms.workload="web" ms.tgt_pltfrm="vs-what-happened" ms.devlang="na" ms.topic="article" ms.date="10/8/2014" ms.author="ghogen, kempb" />
+<tags 
+	ms.service="active-directory" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="vs-what-happened" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/02/2015" 
+	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
 > - [Приступая к работе](/documentation/articles/vs-active-directory-dotnet-getting-started/)
@@ -60,3 +74,5 @@
 В каталоге, выбранном в мастере, создано приложение Azure AD. 
 
 [Дополнительные сведения о службе Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
+
+<!--HONumber=46--> 

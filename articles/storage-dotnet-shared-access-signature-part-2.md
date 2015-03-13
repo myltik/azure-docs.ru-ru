@@ -31,7 +31,7 @@
 
 # Часть 1: Создание консольного приложения для создания подписей общего доступа #
 
-Прежде всего убедитесь, что установлена библиотека клиента хранения Azure для .NET. Можно установить [пакет NuGet](http://nuget.org/packages/WindowsAzure.Storage/ "NuGet package"), содержащий самые новые сборки для клиентской библиотеки. Этот способ рекомендуется использовать, чтобы обеспечить наличие самых актуальных исправлений. Также можно скачать клиентскую библиотеку в составе последней версии [пакета SDK для Azure для .NET](http://www.windowsazure.com/ru-ru/downloads/).
+Прежде всего убедитесь, что установлена библиотека клиента хранения Azure для .NET. Можно установить [пакет NuGet](http://nuget.org/packages/WindowsAzure.Storage/ "NuGet package"), содержащий самые новые сборки для клиентской библиотеки. Этот способ рекомендуется использовать, чтобы обеспечить наличие самых актуальных исправлений. Также можно скачать клиентскую библиотеку в составе последней версии [пакета SDK для Azure для .NET](http://azure.microsoft.com/downloads/).
 
 В Visual Studio создайте новое консольное приложение Windows и назовите его **GenerateSharedAccessSignatures**. Добавьте ссылки на **Microsoft.WindowsAzure.Configuration.dll** и **Microsoft.WindowsAzure.Storage.dll**, используя один из следующих подходов:
 
@@ -535,14 +535,13 @@ https://storageaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02
 
 [Подписанные URL-адреса, часть 1. Общие сведения о модели SAS](../storage-dotnet-shared-access-signature-part-1/)
 
-[Управление доступом к ресурсам службы хранилища Azure](http://msdn.microsoft.com/ru-ru/library/windowsazure/ee393343.aspx)
+[Управление доступом к ресурсам службы хранилища Azure](http://msdn.microsoft.com/library/windowsazure/ee393343.aspx)
 
-[Делегирование доступа с помощью подписанного URL-адреса (REST API)](http://msdn.microsoft.com/ru-ru/library/windowsazure/ee395415.aspx)
+[Делегирование доступа с помощью подписанного URL-адреса (REST API)](http://msdn.microsoft.com/library/windowsazure/ee395415.aspx)
 
 [Введение в использование SAS таблиц и очередей](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
 
 [sas-console-output-1]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-1.PNG
 [sas-console-output-2]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-2.PNG
-
 
 <!--HONumber=42-->

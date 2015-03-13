@@ -1,6 +1,20 @@
-<properties pageTitle="Создание службы с помощью нереляционного хранилища данных - мобильных служб Azure" description="Узнайте, как использовать хранилище нереляционных данных, например MongoDB или табличное хранилище Azure, с мобильной службой на основе .NET" services="" documentationCenter="windows" authors="mattchenderson" manager="dwrede" editor="mollybos"/>
+<properties 
+	pageTitle="Создание службы с помощью нереляционного хранилища данных - мобильных служб Azure" 
+	description="Узнайте, как использовать хранилище нереляционных данных, например MongoDB или табличное хранилище Azure, с мобильной службой на основе .NET" 
+	services="" 
+	documentationCenter="windows" 
+	authors="mattchenderson" 
+	manager="dwrede" 
+	editor="mollybos"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="mahender"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="mahender"/>
 
 # Построение службы с использованием MongoDB в качестве источника данных на внутреннем сервере .NET
 

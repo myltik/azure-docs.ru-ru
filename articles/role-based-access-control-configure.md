@@ -1,6 +1,20 @@
-﻿<properties title="Role Based Access Control in Azure Preview Portal" pageTitle="Управление доступом на основе ролей на предварительной версии портала Azure" description="Описывает, как работает управление доступом на основе ролей и как его настроить" metaKeywords="" services="multiple" solutions="" documentationCenter="" authors="justinha" videoId="" scriptId="" manager="terrylan" />
+﻿<properties 
+	pageTitle="Контроль доступа на основе ролей на портале предварительной версии Azure" 
+	description="Описывает, как работает управление доступом на основе ролей и как его настроить" 
+	services="" 
+	documentationCenter="" 
+	authors="Justinha" 
+	manager="terrylan" 
+	editor=""/>
 
-<tags ms.service="multiple" ms.devlang="dotnet" ms.topic="article" ms.tgt_pltfrm="Ibiza" ms.workload="infrastructure-services" ms.date="09/12/2014" ms.author="justinha;Justinha@microsoft.com" />
+<tags 
+	ms.service="multiple" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="Ibiza" 
+	ms.workload="infrastructure-services" 
+	ms.date="02/06/2015" 
+	ms.author="justinha"/>
 
 <!--This is a basic template that shows you how to use mark down to create a topic that includes a TOC, sections with subheadings, links to other azure.microsoft.com topics, links to other sites, bold text, italic text, numbered and bulleted lists, code snippets, and images. For fancier markdown, find a published topic and copy the markdown or HTML you want. For more details about using markdown, see http://sharepoint/sites/azurecontentguidance/wiki/Pages/Content%20Guidance%20Wiki%20Home.aspx.-->
 
@@ -124,7 +138,7 @@
 
 	PS C:\> New-AzureRoleAssignment -Mail brockh@contoso.com -RoleDefinitionName Contributor -ResourceGroupName ProdDB
 
-Подробные сведения об использовании Windows PowerShell для добавления и удаления доступа см. в разделе [Управление доступом на основе ролей с помощью Windows PowerShell](http://azure.microsoft.com/ru-ru/documentation/articles/role-based-access-control-powershell/). 
+Подробные сведения об использовании Windows PowerShell для добавления и удаления доступа см. в разделе [Управление доступом на основе ролей с помощью Windows PowerShell](http://azure.microsoft.com/documentation/articles/role-based-access-control-powershell/). 
 
 <h3><a id="remove"></a>Запрет доступа</h2>
 
@@ -165,7 +179,7 @@
  
 <h2><a id="knownissues"></a>Известные проблемы при использовании управления доступом на основе ролей</h2>
 
-Если возникли проблемы при использовании функции управления доступом на основе ролей в предварительной версии, см. возможные варианты решения в разделе [Решение проблем управления доступом на основе ролей](http://azure.microsoft.com/ru-ru/documentation/articles/role-based-access-control-troubleshooting/).
+Если возникли проблемы при использовании функции управления доступом на основе ролей в предварительной версии, см. возможные варианты решения в разделе [Решение проблем управления доступом на основе ролей](http://azure.microsoft.com/documentation/articles/role-based-access-control-troubleshooting/).
 
 
 <h2><a id="feedback"></a>Предоставление отзыва</h2>
@@ -177,12 +191,12 @@
 
 Дополнительные ресурсы для работы с управлением доступом на основе ролей: 
 
-+ [Управление доступом на основе ролей с помощью Windows PowerShell](http://azure.microsoft.com/ru-ru/documentation/articles/role-based-access-control-powershell/)
-+ [Управление доступом на основе ролей с помощью межплатформенного интерфейса командной строки](http://azure.microsoft.com/ru-ru/documentation/articles/role-based-access-control-xplat-cli/)
-+ [Устранение неполадок при управлении доступом на основе ролей](http://azure.microsoft.com/ru-ru/documentation/articles/role-based-access-control-troubleshooting/)
++ [Управление доступом на основе ролей с помощью Windows PowerShell](http://azure.microsoft.com/documentation/articles/role-based-access-control-powershell/)
++ [Управление доступом на основе ролей с помощью межплатформенного интерфейса командной строки](http://azure.microsoft.com/documentation/articles/role-based-access-control-xplat-cli/)
++ [Устранение неполадок при управлении доступом на основе ролей](http://azure.microsoft.com/documentation/articles/role-based-access-control-troubleshooting/)
 + [Azure Active Directory](http://msdn.microsoft.com/library/azure/jj673460.aspx)
-+ [Azure Active Directory Premium и Basic](http://msdn.microsoft.com/ru-ru/library/azure/dn532272.aspx)
-+ [Как подписки Azure связаны с Azure AD](http://msdn.microsoft.com/ru-ru/library/azure/dn629581.aspx)
++ [Azure Active Directory Premium и Basic](http://msdn.microsoft.com/library/azure/dn532272.aspx)
++ [Как подписки Azure связаны с Azure AD](http://msdn.microsoft.com/library/azure/dn629581.aspx)
 + Введение в управление группы самообслуживания для групп управления доступом см. в [Блоге команды Active Directory](http://blogs.technet.com/b/ad/archive/2014/02/24/more-preview-enhancements-for-windows-azure-ad-premium.aspx)
 
 
@@ -200,3 +214,5 @@
 [10]: ./media/role-based-access-control-configure/RBACDirConfigTab.png
 
 
+
+<!--HONumber=46--> 

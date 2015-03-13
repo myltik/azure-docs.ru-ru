@@ -1,6 +1,20 @@
-﻿<properties title="Create a simple experiment in Azure Machine Learning Studio" pageTitle="Создание простого эксперимента в Machine Learning Studio | Azure" description="Как создать эксперимент для обучения и проверки простой модели в Студии машинного обучения Azure" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Создание простого эксперимента в Machine Learning Studio | Azure" 
+	description="Как создать эксперимент для обучения и проверки простой модели в Студии машинного обучения Azure" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/22/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/07/2015" 
+	ms.author="garye"/>
 
 #Создание простого эксперимента в Azure Machine Learning Studio 
  
@@ -173,7 +187,7 @@
 
 Если вы удовлетворены результатами своей модели, вы можете опубликовать ее в качестве веб-службы, чтобы ее можно было использовать для прогнозирования цен на автомобили, используя новые данные. Дополнительные сведения см. в разделе справки ML Studio **Публикация экспериментов**.
 
-Более обширное и подробное пошаговое руководство по созданию, подготовке, оценке и публикации прогнозной модели см. в документе [Пошаговое руководство: разработка прогнозного решения с помощью машинного обучения Azure](http://azure.microsoft.com/ru-ru/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/). 
+Более обширное и подробное пошаговое руководство по созданию, подготовке, оценке и публикации прогнозной модели см. в документе [Пошаговое руководство: разработка прогнозного решения с помощью машинного обучения Azure](http://azure.microsoft.com/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/). 
 
 
 <!-- Images -->
@@ -191,3 +205,5 @@
 [screen8a]:./media/machine-learning-create-experiment/screen8a.png
 [screen9]:./media/machine-learning-create-experiment/screen9.png
 [screen10]:./media/machine-learning-create-experiment/screen10.png
+
+<!--HONumber=46--> 

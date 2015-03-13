@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Service Bus AMQP" pageTitle="Использование протокола AMQP 1.0 с .NET API служебной шины - Azure" metaKeywords="" description="Узнайте, как использовать протокол AMQP 1.0 с API .NET для Azure Service Bus." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to use AMQP 1.0 with the Service Bus .NET API" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+﻿<properties 
+	pageTitle="Использование протокола AMQP 1.0 с .NET API служебной шины - Azure" 
+	description="Узнайте, как использовать протокол AMQP 1.0 с API .NET для Azure Service Bus." 
+	services="service-bus" 
+	documentationCenter=".net" 
+	authors="sethmanheim" 
+	manager="timlt" 
+	editor="mattshel"/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
+<tags 
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="02/12/2015" 
+	ms.author="sethm"/>
 
 
 
@@ -29,7 +43,7 @@ AMQP 1.0 - это эффективный и надежный протокол о
 
 По умолчанию клиентская библиотеке Service Bus .NET взаимодействует со службой Service Bus, используя специализированный протокол на базе SOAP. Чтобы использовать протокол AMQP 1.0 вместо протокола по умолчанию, требуется явно настроить строку подключения Service Bus, как описано в следующем разделе. Помимо этих изменений, код приложения остается в прежнем состоянии при использовании AMQP 1.0.
 
-В данном выпуске присутствуют функции интерфейса API, не поддерживаемые при использовании AMQP. Эти неподдерживаемые функции перечислены ниже в разделе "Неподдерживаемые функции и ограничения". Кроме того, при использовании AMQP отличается значение некоторых дополнительных параметров конфигурации. Эти настройки не используются в данном практическом руководстве, но вы можете получить дополнительную информацию из [Руководства разработчика AMQP 1.0 для Service Bus](http://msdn.microsoft.com/ru-ru/library/windowsazure/jj841071.aspx).
+В данном выпуске присутствуют функции интерфейса API, не поддерживаемые при использовании AMQP. Эти неподдерживаемые функции перечислены ниже в разделе "Неподдерживаемые функции и ограничения". Кроме того, при использовании AMQP отличается значение некоторых дополнительных параметров конфигурации. Эти настройки не используются в данном практическом руководстве, но вы можете получить дополнительную информацию из [Руководства разработчика AMQP 1.0 для Service Bus](http://msdn.microsoft.com/library/windowsazure/jj841071.aspx).
 
 ### Настройка с помощью App.config
 
@@ -213,7 +227,7 @@ AMQP 1.0 - это эффективный и надежный протокол о
 
 Используя приведенный выше пример приложения .NET и аналогичное приложение Java, взятое из связанного руководства [Использование интерфейса API службы сообщений Java с Service Bus и AMQP 1.0](http://aka.ms/ll1fm3), можно организовать обмен сообщениями между .NET и Java. 
 
-Дополнительные сведения о межплатформенном обмене сообщениями с помощью Service Bus и AMQP 1.0 см. в статье [Руководство разработчика AMQP 1.0 для Service Bus](http://msdn.microsoft.com/ru-ru/library/windowsazure/jj841071.aspx).
+Дополнительные сведения о межплатформенном обмене сообщениями с помощью Service Bus и AMQP 1.0 см. в статье [Руководство разработчика AMQP 1.0 для Service Bus](http://msdn.microsoft.com/library/windowsazure/jj841071.aspx).
 
 ### Из JMS в .NET
 
@@ -285,19 +299,21 @@ AMQP 1.0 - это эффективный и надежный протокол о
 * Возобновление блокировки сеанса
 * Ряд незначительных отличий в поведении
 
-Для получения дополнительной информации, см. [Руководство разработчика AMQP 1.0 для Service Bus](http://msdn.microsoft.com/ru-ru/library/windowsazure/jj841071.aspx). В данном разделе приводится подробный список неподдерживаемых интерфейсов API.
+Для получения дополнительной информации, см. [Руководство разработчика AMQP 1.0 для Service Bus](http://msdn.microsoft.com/library/windowsazure/jj841071.aspx). В данном разделе приводится подробный список неподдерживаемых интерфейсов API.
 
 <h2>Сводка</h2>
 
 В этом практическом руководстве показывается, как получать доступ к функциям обмена сообщениями при посредстве Service Bus (очереди и разделы публикации/подписки) из приложений .NET с помощью AMQP 1.0 и API Service Bus .NET.
 
-Протокол AMQP 1.0 Service Bus можно также использовать из других языков, в числе которых Java, C, Python и PHP. Компоненты, созданные с помощью этих языков, могут надежно и точно обмениваться сообщениями, используя поддержку AMQP 1.0 в Service Bus. Дополнительные сведения см. в [Руководстве разработчика Service Bus AMQP 1.0](http://msdn.microsoft.com/ru-ru/library/windowsazure/jj841071.aspx).
+Протокол AMQP 1.0 Service Bus можно также использовать из других языков, в числе которых Java, C, Python и PHP. Компоненты, созданные с помощью этих языков, могут надежно и точно обмениваться сообщениями, используя поддержку AMQP 1.0 в Service Bus. Дополнительные сведения см. в [Руководстве разработчика Service Bus AMQP 1.0](http://msdn.microsoft.com/library/windowsazure/jj841071.aspx).
 
 <h2>Дополнительные сведения</h2>
 
 * [Поддержка AMQP 1.0 в Azure Service Bus](http://aka.ms/pgr3dp)
 * [Использование API JMS с Service Bus и AMQP 1.0](http://aka.ms/ll1fm3)
-* [Руководство разработчика AMQP 1.0 для Service Bus](http://msdn.microsoft.com/ru-ru/library/windowsazure/jj841071.aspx)
-* [Использование очередей Service Bus](http://www.windowsazure.com/ru-ru/develop/net/how-to-guides/service-bus-queues/)
+* [Руководство разработчика AMQP 1.0 для Service Bus](http://msdn.microsoft.com/library/windowsazure/jj841071.aspx)
+* [Использование очередей Service Bus](http://azure.microsoft.com/develop/net/how-to-guides/service-bus-queues/)
 
-[Использование очередей Service Bus]: http://www.windowsazure.com/ru-ru/develop/net/how-to-guides/service-bus-queues/
+[Использование очередей Service Bus]: http://azure.microsoft.com/develop/net/how-to-guides/service-bus-queues/
+
+<!--HONumber=46--> 

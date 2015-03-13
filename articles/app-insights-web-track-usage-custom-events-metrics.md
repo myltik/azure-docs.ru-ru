@@ -1,6 +1,18 @@
-﻿<properties title="Track custom usage events and metrics in your web app with Application Insights" pageTitle="Отслеживание событий и метрик использования в вашем веб-приложении с помощью Application Insights" description="Вставка нескольких строк кода, чтобы узнать, что делают пользователи на веб-сайте." metaKeywords="analytics monitoring application insights" authors="awills" manager="kamrani"  />
+﻿<properties 
+	pageTitle="Использование трассировки и событий в веб-приложении с помощью API Application Insights " 
+	description="Вставьте несколько строк кода для отслеживания использования и диагностики проблем." 
+	services="application-insights" 
+	authors="alancameronwills" 
+	manager="kamrani"/>
  
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-10-01" ms.author="awills" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2015-02-06" 
+	ms.author="awills"/>
 
 # Отслеживание использования пользовательских событий и метрик в веб-приложении
 
@@ -254,3 +266,5 @@ VB на стороне сервера
 
 
 
+
+<!--HONumber=46--> 

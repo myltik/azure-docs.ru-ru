@@ -43,10 +43,10 @@ Solr можно установить в любой тип кластера Hadoo
 Пример скрипта для установки Solr на кластере HDInsight доступен в BLOB-объекте хранилища Azure (доступ только для чтения): [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1). Этот раздел содержит инструкции по использованию примера скрипта при подготовке кластера к работе с помощью портала управления Azure. 
 
 
-> [AZURE.NOTE] Образец скрипта работает только с кластером HDInsight версии 3.1.  Дополнительные сведения о версиях кластера HDInsight см. в разделе [Версии кластера HDInsight](http://azure.microsoft.com/ru-ru/documentation/articles/hdinsight-component-versioning/).
+> [AZURE.NOTE] Образец скрипта работает только с кластером HDInsight версии 3.1.  Дополнительные сведения о версиях кластера HDInsight см. в разделе [Версии кластера HDInsight](http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/).
 
 
-1. Начните подготовку кластера к работе с помощью параметра **Настраиваемое создание**, как описано в разделе [Подготовка кластера с использованием пользовательских параметров](http://azure.microsoft.com/ru-ru/documentation/articles/hdinsight-provision-clusters/#portal). 
+1. Начните подготовку кластера к работе с помощью параметра **Настраиваемое создание**, как описано в разделе [Подготовка кластера с использованием пользовательских параметров](http://azure.microsoft.com/documentation/articles/hdinsight-provision-clusters/#portal). 
 2. На странице **Действия скриптов** мастера нажмите кнопку **Добавить действие скрипта** для предоставления сведений о данном действии скрипта, как показано ниже:
 
 	![Use Script Action to customize a cluster](./media/hdinsight-hadoop-solr-install/hdi-script-action-solr.png "Use Script Action to customize a cluster")
@@ -71,7 +71,7 @@ Solr можно установить в любой тип кластера Hadoo
 
 Необходимо начать с индексирования системой Solr нескольких файлов данных. Затем можно использовать Solr для выполнения запросов поиска в индексированных данных. Выполните следующие действия, чтобы использовать Solr в кластере HDInsight.
 
-1. **Подключитесь к кластеру HDInsight с установленной системой Solr по протоколу удаленного рабочего стола**. На портале управления Azure запустите протокол удаленного рабочего стола для созданного кластера с установленной Solr, а затем подключитесь к кластеру. Инструкции см. в разделе <a href="http://azure.microsoft.com/ru-ru/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Подключение к кластерам HDInsight с использованием RDP</a>.
+1. **Подключитесь к кластеру HDInsight с установленной системой Solr по протоколу удаленного рабочего стола**. На портале управления Azure запустите протокол удаленного рабочего стола для созданного кластера с установленной Solr, а затем подключитесь к кластеру. Инструкции см. в разделе <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Подключение к кластерам HDInsight с использованием RDP</a>.
 
 2. **Выполните индексирование Solr, передав файлы данных**. При индексировании системы Solr вы помещаете в нее документы, по которым может потребоваться выполнить поиск. Чтобы выполнить индексирование Solr, подключитесь к кластеру по протоколу удаленного рабочего стола, перейдите на рабочий стол, откройте командную строку Hadoop и перейдите к **C:\apps\dist\solr-4.7.2\example\exampledocs**. Выполните следующую команду: 
 	
@@ -175,7 +175,7 @@ Solr можно установить в любой тип кластера Hadoo
 
 ## <a name="usingPS"></a>Установка Solr в кластерах HDInsight Hadoop с помощью PowerShell
 
-В этом разделе мы используем командлет **<a href = "http://msdn.microsoft.com/ru-ru/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>**, чтобы вызвать скрипты с помощью действия скрипта для настройки кластера. Прежде чем продолжить, убедитесь, что вы установили и настроили PowerShell. Сведения о настройке рабочей станции для запуска командлетов HDInsight Powershell см. в разделе [Установка и настройка Azure PowerShell][powershell-install-configure].
+В этом разделе мы используем командлет **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>**, чтобы вызвать скрипты с помощью действия скрипта для настройки кластера. Прежде чем продолжить, убедитесь, что вы установили и настроили PowerShell. Сведения о настройке рабочей станции для запуска командлетов HDInsight Powershell см. в разделе [Установка и настройка Azure PowerShell][powershell-install-configure].
 
 Выполните следующие действия:
 
@@ -337,7 +337,7 @@ Solr можно установить в любой тип кластера Hadoo
             Version = "3.1"
         };        
 
-10. Добавьте следующий код в функцию Main(), чтобы использовать класс [ScriptAction](http://msdn.microsoft.com/ru-ru/library/microsoft.windowsazure.management.hdinsight.clusterprovisioning.data.scriptaction.aspx) для вызова пользовательского скрипта с целью установки Solr.
+10. Добавьте следующий код в функцию Main(), чтобы использовать класс [ScriptAction](http://msdn.microsoft.com/library/microsoft.windowsazure.management.hdinsight.clusterprovisioning.data.scriptaction.aspx) для вызова пользовательского скрипта с целью установки Solr.
 
 		// ADD THE SCRIPT ACTION TO INSTALL Solr
         clusterInfo.ConfigActions.Add(new ScriptAction(
@@ -374,5 +374,4 @@ Solr можно установить в любой тип кластера Hadoo
 [hdinsight-install-r]: ../hdinsight-hadoop-r-scripts/
 [hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/
 [hdinsight-cluster-customize]: ../hdinsight-hadoop-customize-cluster
-
 <!--HONumber=42-->

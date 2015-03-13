@@ -1,7 +1,20 @@
-﻿<properties title="Get started with Azure Search" pageTitle="Начало работы со службой поиска Azure" description="Начало работы со службой поиска Azure" metaKeywords="" services="Azure Search" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Начало работы со службой поиска Azure" 
+	description="Начало работы со службой поиска Azure" 
+	services="search" 
+	documentationCenter="" 
+	authors="HeidiSteen" 
+	manager="mblythe" 
+	editor=""/>
 
-<tags ms.service="azure-search" ms.devlang="" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="" ms.date="09/23/2014" ms.author="heidist" />
-
+<tags 
+	ms.service="search" 
+	ms.devlang="rest-api" 
+	ms.workload="search" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.date="01/16/2015" 
+	ms.author="heidist"/>
 # Начало работы со службой поиска Azure
 
 [WACOM.INCLUDE [В этой статье используется портал Azure Preview](../includes/preview-portal-note.md)]
@@ -292,7 +305,7 @@
  
    ![][19]
 
-Ниже приведен пример запроса из статьи [Работа с индексом поиска (API Поиска Azure)](http://msdn.microsoft.com/ru-ru/library/dn798927.aspx) библиотеки MSDN. Многие примеры запросов в данном разделе включают пробелы, что является недопустимым в Fiddler. Замените все пробелы символом + перед вставкой в строку запроса и его выполнением в Fiddler: 
+Ниже приведен пример запроса из статьи [Работа с индексом поиска (API Поиска Azure)](http://msdn.microsoft.com/library/dn798927.aspx) библиотеки MSDN. Многие примеры запросов в данном разделе включают пробелы, что является недопустимым в Fiddler. Замените все пробелы символом + перед вставкой в строку запроса и его выполнением в Fiddler: 
 
 **До замены пробелов:**
 
@@ -357,9 +370,9 @@
 
 - [Управление решением поиска в Microsoft Azure](../search-manage/) 
 
-- [Технические сведения о Поиске Azure](http://msdn.microsoft.com/ru-ru/library/dn798933.aspx)
+- [Технические сведения о Поиске Azure](http://msdn.microsoft.com/library/dn798933.aspx)
 
-- [API REST Поиска Azure](http://msdn.microsoft.com/ru-ru/library/dn798935.aspx)
+- [API REST Поиска Azure](http://msdn.microsoft.com/library/dn798935.aspx)
 
 - [Видеоканал № 9: Введение в Поиск Azure](http://channel9.msdn.com/Shows/Data-Exposed/Introduction-To-Azure-Search)
 
@@ -402,3 +415,5 @@
 [Создание приложения для геопространственного поиска с помощью Поиска Azure]: ../search-create-geospatial/
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

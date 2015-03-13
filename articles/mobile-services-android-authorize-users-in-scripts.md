@@ -1,6 +1,20 @@
-<properties pageTitle="Авторизация пользователей на стороне службы (Android) | Центр мобильных разработок" description="Узнайте, как осуществить авторизацию пользователей в серверной части JavaScript мобильных служб Azure." services="" documentationCenter="android" authors="ggailey777" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Авторизация пользователей на стороне службы (Android) | Центр мобильных разработок" 
+	description="Узнайте, как осуществить авторизацию пользователей в серверной части JavaScript мобильных служб Azure." 
+	services="" 
+	documentationCenter="android" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="09/29/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="Mobile-Android" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="09/29/2014" 
+	ms.author="glenga"/>
 
 # Авторизация пользователей мобильных служб на стороне службы
 

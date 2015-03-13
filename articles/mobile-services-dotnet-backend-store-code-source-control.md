@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Хранение кода проекта в системе управления версиями: мобильные службы Azure" description="Узнайте, как сохранить серверный проект .NET в локальном репозитории Git на компьютере и опубликовать его оттуда." services="mobile-services" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Хранение кода проекта в системе управления версиями: мобильные службы Azure" 
+	description="Узнайте, как сохранить серверный проект .NET в локальном репозитории Git на компьютере и опубликовать его оттуда." 
+	services="mobile-services" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/5/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/5/2014" 
+	ms.author="glenga"/>
 
 <div class="dev-center-tutorial-subselector">
 	<a href="/ru-ru/documentation/articles/mobile-services-dotnet-backend-store-code-source-control/" title=".NET backend" class="current">Серверная часть .NET</a> | <a href="/ru-ru/documentation/articles/mobile-services-store-scripts-source-control/"  title="JavaScript backend">Серверная часть JavaScript</a>
@@ -99,7 +113,7 @@
 
 <!-- URLs. -->
 [Веб-сайт Git]: http://git-scm.com
-[Система управления версиями]: http://msdn.microsoft.com/ru-ru/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
+[Система управления версиями]: http://msdn.microsoft.com/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
 [Установка Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-ios-get-started/
 [Добавление мобильных служб к существующему приложению]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/

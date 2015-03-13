@@ -1,6 +1,20 @@
-<properties pageTitle="API Management key concepts" metaKeywords="" description="Learn about APIs, products, roles, groups, and other API Management key concepts." metaCanonical="" services="" documentationCenter="API Management" title="API Management key concepts" authors="sdanie" solutions="" manager="" editor="" />
+﻿<properties 
+	pageTitle="Основные концепции API Management" 
+	description="Сведения об API, продуктах, ролях, группах и других основных концепциях службы управления API." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 # Как импортировать определение API с операциями в Azure API Management
 
@@ -81,3 +95,5 @@
   [Формат экспорта API]: ./media/api-management-howto-import-api/api-management-export-api-format.png
   [Как настраивать параметры API]: ../api-management-howto-create-apis/#configure-api-settings
   [Как создать и опубликовать продукт]: ../api-management-howto-add-products
+
+<!--HONumber=46--> 

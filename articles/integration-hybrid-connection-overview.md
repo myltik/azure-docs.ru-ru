@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Hybrid Connections Overview - BizTalk Services" pageTitle="Обзор гибридных подключений | Azure" metaKeywords="BizTalk Services, BizTalk, websites, web sites, hybrid connections, Azure" description="Узнайте о гибридных подключениях, включая их безопасность." metaCanonical="" services="integration-services" documentationCenter="" title="Hybrid Connections Overview" authors="mandia" solutions="" manager="dwrede" editor="cgronlun" />
+﻿<properties 
+	pageTitle="Обзор гибридных подключений | Azure" 
+	description="Сведения о гибридных подключениях, в том числе о безопасности, TCP-портах и поддерживаемых конфигурациях. MABS, WABS" 
+	services="biztalk-services" 
+	documentationCenter="" 
+	authors="MandiOhlinger" 
+	manager="dwrede" 
+	editor="cgronlun"/>
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="mandia" />
+<tags 
+	ms.service="biztalk-services" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/17/2015" 
+	ms.author="mandia"/>
 
 
 
@@ -62,7 +76,7 @@
 
 Гибридные подключения обеспечивают простое и безопасное распределение ключей приложениям и локальному диспетчеру гибридных подключений. 
 
-Ознакомьтесь со статьей [Создание гибридных подключений и управление ими](http://azure.microsoft.com/ru-ru/documentation/articles/integration-hybrid-connection-create-manage). 
+Ознакомьтесь со статьей [Создание гибридных подключений и управление ими](http://azure.microsoft.com/documentation/articles/integration-hybrid-connection-create-manage). 
 
 **Авторизация приложения осуществляется отдельно от гибридного подключения**. Можно использовать любой подходящий метод авторизации. Метод авторизации зависит от сочетания сквозных методов авторизации, поддерживаемых в облаке Azure и локальных компонентах. Например, приложение Azure осуществляет доступ к локальному SQL Server. В этом сценарии авторизация SQL может быть сквозным методом авторизации.
 
@@ -97,10 +111,10 @@
 
 ## Далее
 
-- [Создание гибридных подключений и управление ими](http://azure.microsoft.com/ru-ru/documentation/articles/integration-hybrid-connection-create-manage)
+- [Создание гибридных подключений и управление ими](http://azure.microsoft.com/documentation/articles/integration-hybrid-connection-create-manage)
 - [Подключение веб-сайта Azure к локальному ресурсу](http://go.microsoft.com/fwlink/p/?LinkId=397538)
 - [Пошаговое создание гибридного подключения: подключение к локальному SQL Server с веб-сайта Azure](http://go.microsoft.com/fwlink/?LinkID=397979)
-- [Мобильные службы Azure и гибридные подключения](http://azure.microsoft.com/ru-ru/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started)
+- [Мобильные службы Azure и гибридные подключения](http://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started)
 
 
 ## См. также
@@ -114,3 +128,5 @@
 [HybridConnectionTab]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionTab.png
 [HCOnPremSetup]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionManageConn.png
+
+<!--HONumber=46--> 

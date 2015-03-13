@@ -1,6 +1,20 @@
-<properties pageTitle="Начало работы с мобильными службами Azure для приложений Android" description="Следуйте указаниям этого учебника, чтобы приступить к использованию мобильных служб Azure для разработки приложений Android." services="" documentationCenter="android" authors="RickSaling" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Начало работы с мобильными службами Azure для приложений Android" 
+	description="Следуйте указаниям этого учебника, чтобы приступить к использованию мобильных служб Azure для разработки приложений Android." 
+	services="" 
+	documentationCenter="android" 
+	authors="RickSaling" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="hero-article" ms.date="10/16/2014" ms.author="ricksal,glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="Mobile-Android" 
+	ms.devlang="Java" 
+	ms.topic="hero-article" 
+	ms.date="10/16/2014" 
+	ms.author="ricksal,glenga"/>
 
 # <a name="getting-started"> </a>Приступая к работе с мобильными службами
 
@@ -20,7 +34,7 @@
 
 Загруженный проект быстрого запуска содержит пакет SDK мобильных служб для платформы Android. Хотя для этого проекта требуется Android 4.2 или более поздней версии, для пакета SDK мобильных служб требуется только Android 2.2 или более поздней версии.
 
-> [AZURE.IMPORTANT] Для работы с этим учебником требуется учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://www.windowsazure.com/ru-ru/pricing/free-trial/?WT.mc_id=AE564AB28"%20target="_blank).
+> [AZURE.IMPORTANT] Для работы с этим учебником требуется учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28"%20target="_blank).
 
 >[AZURE.NOTE] Если требуется просмотреть исходный код завершенного приложения, см. <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures/GettingStarted/Android" target="_blank">здесь</a>.
 
@@ -75,7 +89,7 @@
 	- 	Найдите метод **OnCreate** в **TodoActivity.java** и найдите код, который создает экземпляр клиента мобильных служб. Код отображается на предыдущем изображении.
 	- 	Замените "MobileServiceUrl" фактическим URL-адресом вашей мобильной службы.
 	- 	Замените "AppKey" ключом вашей мобильной службы.
-	- 	Для получения дополнительных сведений обратитесь к учебнику <a href="http://azure.microsoft.com/ru-ru/documentation/articles/mobile-services-android-get-started-data/">Добавление мобильных служб к существующему приложению</a>. 
+	- 	Для получения дополнительных сведений обратитесь к учебнику <a href="http://azure.microsoft.com/documentation/articles/mobile-services-android-get-started-data/">Добавление мобильных служб к существующему приложению</a>. 
 
 
 

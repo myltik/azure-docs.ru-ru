@@ -1,6 +1,21 @@
-﻿<properties title="Manage an Azure Machine Learning workspace" pageTitle="Управление рабочей областью машинного обучения | Azure" description="Управление доступом к рабочим областям Машинного обучения Azure, а также развертывание веб-служб API ML и управление ими" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Управление рабочей областью машинного обучения | Azure" 
+	description="Управление доступом к рабочим областям Машинного обучения Azure, а также развертывание веб-служб API ML и управление ими" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/10/2015" 
+	ms.author="garye"/>
+
 
 
 # Управление рабочей областью машинного обучения Azure 
@@ -27,3 +42,5 @@
 
 <!--Image references-->
 [1]: ./media/machine-learning-manage-workspace/mw1.png
+
+<!--HONumber=46--> 

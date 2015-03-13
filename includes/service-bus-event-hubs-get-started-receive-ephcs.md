@@ -108,10 +108,10 @@
 > [AZURE.NOTE] В данном учебнике используется один экземпляр [EventProcessorHost]. Для увеличения пропускной способности рекомендуется создать несколько экземпляров [EventProcessorHost], как показано в [примере обработки масштабируемого события]. В этом случае различные экземпляры автоматически координируются друг с другом для распределения нагрузки полученных событий. Если каждый из нескольких получателей должен обрабатывать *all* события, то необходимо использовать понятие **ConsumerGroup**. При получении события от разных компьютеров может оказаться полезным указать имена экземпляров [EventProcessorHost] в компьютерах (или ролях), где они развернуты. Дополнительные сведения об этих темах см. в разделах [Общие сведения о концентраторах событий] и [Руководство по программированию концентраторов событий].
 
 <!-- Links -->
-[Общие сведения о концентраторах событий]: http://msdn.microsoft.com/ru-ru/library/azure/dn821413.aspx
+[Общие сведения о концентраторах событий]: http://msdn.microsoft.com/library/azure/dn821413.aspx
 [Пример обработки масштабируемых событий]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
-[Учетная запись хранения Azure]: http://azure.microsoft.com/ru-ru/documentation/articles/storage-create-storage-account/
-[EventProcessorHost]: http://msdn.microsoft.com/ru-ru/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx 
+[Учетная запись хранения Azure]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/
+[EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx 
 
 <!-- Images -->
 
@@ -120,5 +120,4 @@
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-[Руководство разработчика по концентраторам событий]: http://msdn.microsoft.com/ru-ru/library/azure/dn789972.aspx
-<!--HONumber=42-->
+[Руководство разработчика по концентраторам событий]: http://msdn.microsoft.com/library/azure/dn789972.aspx<!--HONumber=42-->

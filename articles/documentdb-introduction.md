@@ -1,6 +1,20 @@
-﻿<properties title="Introduction to Microsoft Azure DocumentDB" pageTitle="Введение в Microsoft Azure DocumentDB | Azure" description="Дополнительные сведения о Azure использования documentdb по плану, базы данных NoSQL документа и его значение в облаке и мобильных приложений. Узнайте, как он управляет данными и об использовании в разработке приложений." metaKeywords="" services="documentdb" solutions="data-management"  authors="spelluru" manager="jhubbard" editor="monicar" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Введение в Microsoft Azure DocumentDB | Azure" 
+	description="Дополнительные сведения об Azure DocumentDB, базе данных документов NoSQL и ее значении для облачных и мобильных приложений. Узнайте, каким образом она осуществляет управление данными и как ее можно использовать при разработке приложений." 
+	services="documentdb" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="monicar" 
+	documentationCenter=""/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/05/2014" ms.author="mimig" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/18/2015" 
+	ms.author="mimig"/>
 
 #Введение в Microsoft Azure DocumentDB
 
@@ -83,3 +97,5 @@ DocumentDB позволяет вам реализовать логику при�
 [1]: ./media/documentdb-introduction/intro.png
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

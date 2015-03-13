@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Подключаемый модуль Smooth Streaming для платформы Open Source Media Framework" description="Узнайте, как использовать подключаемый модуль Smooth Streaming служб мультимедиа Azure для платформы Open Source Media Framework." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Подключаемый модуль Smooth Streaming для платформы Open Source Media Framework" 
+	description="Узнайте, как использовать подключаемый модуль Smooth Streaming служб мультимедиа Azure для платформы Open Source Media Framework." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
+	ms.author="juliako"/>
 
 
 
@@ -15,7 +29,7 @@ SS для OSMF включает в себя две версии подключа
 
 - динамический подключаемый модуль Smooth Streaming для OSMF (.swf).
 
-В настоящем документе предполагается, что читатель имеет общие знания о работе с OSMF и подключаемыми модулями OSMF. Дополнительные сведения об OSMF см. в документации на [официальном сайте OSMF](http://osmf.org/).
+В настоящем документе предполагается, что читатель имеет общие знания о работе с OSMF и подключаемыми модулями OSMF. Дополнительную информацию об OSMF см. в документации на [официальном сайте OSMF](http://osmf.org/)
 
 ### Подключаемый модуль Smooth Streaming для OSMF 2.0
 
@@ -41,7 +55,7 @@ SS для OSMF включает в себя две версии подключа
 
 Ниже приведен список известных проблем.
 
-- При воспроизведении контента Smooth Streaming со звуковыми дорожками с частотой 48 кГц возникают проблемы. В среде выполнения Flash возникают проблемы с воспроизведением аудио с частотой 48 кГц. По этой причине контент Smooth Streaming с частотой 48 кГц может не работать должным образом. Дополнительные сведения см. в статьях [Использование Flash Player](http://forums.adobe.com/message/4483498#4483498) и [Adobe Flash Player 11.3  -  См. ошибку 3210964](https://bugbase.adobe.com/index.cfm?event=bug&id=3210964) для более подробной информации.
+- При воспроизведении контента Smooth Streaming со звуковыми дорожками с частотой 48 кГц возникают проблемы. В среде выполнения Flash возникают проблемы с воспроизведением аудио с частотой 48 кГц. По этой причине контент Smooth Streaming с частотой 48 кГц может не работать должным образом. Дополнительную информацию см. в статьях [Использование Flash Player](http://forums.adobe.com/message/4483498#4483498) и [Adobe Flash Player 11.3  -  См. ошибку 3210964](https://bugbase.adobe.com/index.cfm?event=bug&id=3210964) для более подробной информации.
 - Одновременное воспроизведение контента Smooth Streaming на одной странице может вызвать проблемы. Это известная проблема с OSMF.
 - Воспроизведение видео Stage может вызвать проблемы, на некоторых компьютерах видео может не отображаться. Для решения проблемы можно отключить аппаратное ускорение или видео Stage.
 
@@ -52,7 +66,7 @@ SS для OSMF включает в себя две версии подключа
 
 - Динамическая загрузка: для динамической загрузки требуется предварительно скомпилированный файл (SWF). Динамические подключаемые модули загружаются во время выполнения и не включаются в выходные данные проекта. (Выходные данные компиляции) Динамические подключаемые модули можно загрузить с использованием протоколов HTTP и FILE.
 
-Дополнительные сведения о статической и динамической загрузке см. на официальной [странице подключаемого модуля OSMF](http://osmf.org/dev/osmf/OtherPDFs/osmf_plugin_dev_guide.pdf).
+Дополнительную информацию о статической и динамической загрузке см. на официальной [странице подключаемого модуля OSMF](http://osmf.org/dev/osmf/OtherPDFs/osmf_plugin_dev_guide.pdf)
 
 ### Динамическая загрузка SS для OSMF
 В следующем фрагменте кода показано, как загрузить подключаемый модуль SS для OSMF статически и воспроизвести простое видео с помощью класса MediaFactory OSMF. Перед добавлением кода SS для OSMF убедитесь, что ссылка на проект включает статический подключаемый модуль "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swc".
@@ -328,8 +342,8 @@ package
 }
 </code></pre>
 
-## Strobe Media  Воспроизведение Strobe Media с помощью динамического подключаемого модуля SS ODMF
-Динамический подключаемый модуль Smooth Streaming для OSMF совместим с проигрывателем [Strobe Media Playback (SMP)](http://osmf.org/strobe_mediaplayback.html). Подключаемый модуль SS для OSMF можно использовать для поддержки воспроизведения контента в SMP. Для этого скопируйте "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf" на веб-сервер, чтобы выполнять загрузку по протоколу HTTP, и выполните следующие действия:
+## Воспроизведение Strobe Media с помощью динамического подключаемого модуля SS ODMF
+Динамический подключаемый модуль Smooth Streaming для OSMF совместим с [проигрывателем Strobe Media Playback (SMP)](http://osmf.org/strobe_mediaplayback.html) Подключаемый модуль SS для OSMF можно использовать для поддержки воспроизведения контента в SMP. Для этого скопируйте "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf" на веб-сервер, чтобы выполнять загрузку по протоколу HTTP, и выполните следующие действия:
 
 1.	Откройте [страницу настройки Strobe Media Playback](http://osmf.org/dev/2.0gm/setup.html). 
 2.	Задайте src в качестве значения для источника Smooth Streaming, (например, http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest) 
@@ -390,5 +404,4 @@ package
 
 Дополнительные сведения об общей процедуре разработки для OSMF см. на официальной [странице разработки OSMF](http://osmf.org/resources.html).
 
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

@@ -1,6 +1,20 @@
-<properties urlDisplayName="Service Bus Queues" pageTitle="Использование очередей Service Bus (.NET): Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues C#, Azure queues .NET" description="Узнайте, как использовать очереди Service Bus в Azure. Примеры кода написаны на C# с использованием API .NET." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use Service Bus Queues" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+﻿<properties 
+	pageTitle="Использование очередей Service Bus (.NET): Azure" 
+	description="Узнайте, как использовать очереди Service Bus в Azure. Примеры кода написаны на C# с использованием API .NET." 
+	services="service-bus" 
+	documentationCenter=".net" 
+	authors="sethmanheim" 
+	manager="timlt" 
+	editor="mattshel"/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
+<tags 
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="02/10/2015" 
+	ms.author="sethm"/>
 
 
 
@@ -233,7 +247,9 @@ Service Bus поддерживает функции, помогающие кор
   
   
   [7]: ./media/service-bus-dotnet-how-to-use-queues/getting-started-multi-tier-13.png
-  [Очереди, разделы и подписки.]: http://msdn.microsoft.com/ru-ru/library/windowsazure/hh367516.aspx
-  [Учебник по обмену сообщениями .NET через посредника в Service Bus]: http://msdn.microsoft.com/ru-ru/library/windowsazure/hh367512.aspx
+  [Очереди, разделы и подписки.]: http://msdn.microsoft.com/library/windowsazure/hh367516.aspx
+  [Учебник по обмену сообщениями .NET через посредника в Service Bus]: http://msdn.microsoft.com/library/windowsazure/hh367512.aspx
 
 <!--HONumber=35.1-->
+
+<!--HONumber=46--> 

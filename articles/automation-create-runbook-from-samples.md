@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Get Started with Azure Automation" pageTitle="Начало работы со службой автоматизации Azure" metaKeywords="" description="Узнайте, как импортировать и выполнять задания по автоматизации в Azure." metaCanonical="" services="automation" documentationCenter="" title="Get Started with Azure Automation" authors="bwren" solutions="" manager="stevenka" editor="" />
+﻿<properties 
+	pageTitle="Начало работы со службой автоматизации Azure" 
+	description="Узнайте, как импортировать и выполнять задания по автоматизации в Azure." 
+	services="automation" 
+	documentationCenter="" 
+	authors="bwren" 
+	manager="stevenka" 
+	editor=""/>
 
-<tags ms.service="automation" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/21/2014" ms.author="bwren" />
+<tags 
+	ms.service="automation" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="1/13/2015" 
+	ms.author="bwren"/>
 
 
 # Начало работы со службой автоматизации Azure
@@ -9,7 +23,7 @@
 
 В этом учебнике описывается процедура импорта примера модуля Runbook "Hello World" в службу автоматизации Azure, выполнения этого модуля Runbook и последующего просмотра результата его выполнения.
 
->[WACOM.NOTE] О том, как автоматизировать операции Azure с помощью [командлета Azure PowerShell](http://msdn.microsoft.com/ru-ru/library/jj156055.aspx), см. в разделе <a href="http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/">Служба автоматизации Azure: проверка подлинности в Azure с помощью Azure Active Directory</a>.
+>[WACOM.NOTE] О том, как автоматизировать операции Azure с помощью [командлета Azure PowerShell](http://msdn.microsoft.com/library/jj156055.aspx), см. в разделе <a href="http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/">Служба автоматизации Azure: проверка подлинности в Azure с помощью Azure Active Directory</a>.
 
 ## Примеры и вспомогательные модули Runbook
 
@@ -117,7 +131,7 @@
 
 
 # Управление службами Azure из модуля Runbook 
-В приведенном выше примере показан простой модуль Runbook, который не управляет службами Azure. [Командлеты Azure](http://msdn.microsoft.com/ru-ru/library/jj156055.aspx) должны проходить проверку подлинности в Azure. Вы можете следовать указаниям в разделе [Azure Automation: Проверка подлинности в Azure с помощью Azure Active Directory](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/) при настройке подписки Azure на управление через службы автоматизации Azure.
+В приведенном выше примере показан простой модуль Runbook, который не управляет службами Azure. [Командлеты Azure](http://msdn.microsoft.com/library/jj156055.aspx) должны проходить проверку подлинности в Azure. Вы можете следовать указаниям в разделе [Azure Automation: Проверка подлинности в Azure с помощью Azure Active Directory](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/) при настройке подписки Azure на управление через службы автоматизации Azure.
 
 # См. также
 
@@ -127,3 +141,5 @@
 - [Автоматизация Azure: проверка подлинности в Azure с помощью Azure Active Directory](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

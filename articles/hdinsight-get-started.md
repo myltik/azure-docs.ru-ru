@@ -97,7 +97,7 @@ HDInsight использует для хранения данных хранил
 	
 ##<a name="provision"></a>Подготовка кластера HDInsight
 
-При подготовке кластера HDInsight выполняется подготовка вычислительных ресурсов Azure, которые содержат Hadoop и соответствующие приложения. В этом разделе подготавливается кластер HDInsight версии 3.1 на базе Hadoop версии 2.4. Также можно создать кластеры Hadoop и для других версий, использующих портал Azure, командлеты HDInsight PowerShell или пакет SDK HDInsight .NET. Указания см. в разделе [Подготовка кластеров HDInsight с использованием настраиваемых параметров][hdinsight-provision]. Для получения дополнительной информации о различных версиях HDInsight и их соглашениях SLA см. страницу [Версии компонентов НDInsight](http://azure.microsoft.com/ru-ru/documentation/articles/hdinsight-component-versioning/).
+При подготовке кластера HDInsight выполняется подготовка вычислительных ресурсов Azure, которые содержат Hadoop и соответствующие приложения. В этом разделе подготавливается кластер HDInsight версии 3.1 на базе Hadoop версии 2.4. Также можно создать кластеры Hadoop и для других версий, использующих портал Azure, командлеты HDInsight PowerShell или пакет SDK HDInsight .NET. Указания см. в разделе [Подготовка кластеров HDInsight с использованием настраиваемых параметров][hdinsight-provision]. Для получения дополнительной информации о различных версиях HDInsight и их соглашениях SLA см. страницу [Версии компонентов НDInsight](http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/).
 
 [AZURE.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
 
@@ -267,9 +267,9 @@ HDInsight использует для хранения данных хранил
 [hdinsight-weblogs-sample]: ../hdinsight-hive-analyze-website-log/
 [hdinsight-sensor-data-sample]: ../hdinsight-hive-analyze-sensor-data/
 
-[azure-purchase-options]: http://azure.microsoft.com/ru-ru/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/ru-ru/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/ru-ru/pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/ 
 
@@ -277,7 +277,7 @@ HDInsight использует для хранения данных хранил
 [apache-hive]: http://go.microsoft.com/fwlink/?LinkId=510085
 [apache-mapreduce]: http://go.microsoft.com/fwlink/?LinkId=510086
 [apache-hdfs]: http://go.microsoft.com/fwlink/?LinkId=510087
-[hdinsight-hbase-custom-provision]: http://azure.microsoft.com/ru-ru/documentation/articles/hdinsight-hbase-get-started/
+[hdinsight-hbase-custom-provision]: http://azure.microsoft.com/documentation/articles/hdinsight-hbase-get-started/
 
 
 [powershell-download]: http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
@@ -301,5 +301,4 @@ HDInsight использует для хранения данных хранил
 
 [image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-get-started/HDI.GettingStarted.PowerQuery.ImportData.png
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-get-started/HDI.GettingStarted.PowerQuery.ImportData2.png
-
 <!--HONumber=42-->

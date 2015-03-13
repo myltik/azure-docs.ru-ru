@@ -144,7 +144,7 @@
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179439.aspx
+		// http://msdn.microsoft.com/library/windowsazure/dd179439.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -177,7 +177,7 @@
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179439.aspx
+		// http://msdn.microsoft.com/library/windowsazure/dd179439.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -211,7 +211,7 @@
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179439.aspx
+		// http://msdn.microsoft.com/library/windowsazure/dd179439.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -239,7 +239,7 @@
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179439.aspx
+		// http://msdn.microsoft.com/library/windowsazure/dd179439.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -267,7 +267,7 @@
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179439.aspx
+		// http://msdn.microsoft.com/library/windowsazure/dd179439.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -293,7 +293,7 @@
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179439.aspx
+		// http://msdn.microsoft.com/library/windowsazure/dd179439.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -309,12 +309,11 @@
 - Просмотрите пример страницы больших двоичных объектов в PHP на сайте <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/PageBlobExample.php>
 
 [download]: http://go.microsoft.com/fwlink/?LinkID=252473
-[Хранение и доступ к данным в Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/gg433040.aspx
-[container-acl]: http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179391.aspx
-[error-codes]: http://msdn.microsoft.com/ru-ru/library/windowsazure/dd179439.aspx
+[Хранение и доступ к данным в Azure]: http://msdn.microsoft.com/library/windowsazure/gg433040.aspx
+[container-acl]: http://msdn.microsoft.com/library/windowsazure/dd179391.aspx
+[error-codes]: http://msdn.microsoft.com/library/windowsazure/dd179439.aspx
 [file_get_contents]: http://php.net/file_get_contents
 [require_once]: http://php.net/require_once
 [fopen]: http://www.php.net/fopen
 [stream-get-contents]: http://www.php.net/stream_get_contents
-
 <!--HONumber=42-->

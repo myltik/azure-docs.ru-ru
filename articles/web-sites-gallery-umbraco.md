@@ -1,6 +1,20 @@
-﻿<properties title="Create an Umbraco website from the gallery in Microsoft Azure" pageTitle="Создание веб-сайта Umbraco из коллекции в Microsoft Azure" description="обязательно" metaKeywords="Azure, gallery, Umbraco, web site, website" services="web-sites" solutions="web" documentationCenter="" authors="tomfitz" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Создание веб-сайта Umbraco из коллекции в Microsoft Azure" 
+	description="обязательно" 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="tfitzmac" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="10/21/2014" ms.author="tomfitz" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/21/2014" 
+	ms.author="tomfitz"/>
 
 #Создание веб-сайта Umbraco из коллекции в Microsoft Azure#
 
@@ -88,13 +102,13 @@ Umbraco CMS - это полнофункциональная система уп�
 
 [Видеоучебники по Umbraco](https://umbraco.com/help-and-support/video-tutorials.aspx)
 
-[Обзор портала предварительной версии Microsoft Azure](http://azure.microsoft.com/ru-ru/overview/preview-portal/)
+[Обзор портала предварительной версии Microsoft Azure](http://azure.microsoft.com/overview/preview-portal/)
 
-[Документация по порталу предварительной версии Microsoft Azure](http://azure.microsoft.com/ru-ru/documentation/preview-portal/)
+[Документация по порталу предварительной версии Microsoft Azure](http://azure.microsoft.com/documentation/preview-portal/)
 
 [Портал предварительной версии Azure (канал 9)](http://channel9.msdn.com/Blogs/Windows-Azure/Azure-Preview-portal) 
 
-[Документация по веб-сайтам Microsoft Azure](http://azure.microsoft.com/ru-ru/documentation/services/web-sites/)
+[Документация по веб-сайтам Microsoft Azure](http://azure.microsoft.com/documentation/services/web-sites/)
 
 
 <!-- IMAGES -->
@@ -114,3 +128,5 @@ Umbraco CMS - это полнофункциональная система уп�
 [15CreateItemUnderOverflow]: ./media/web-sites-gallery-umbraco/15CreateItemUnderOverflow.PNG
 [16EnterAName]: ./media/web-sites-gallery-umbraco/16EnterAName.PNG
 [17MyPage]: ./media/web-sites-gallery-umbraco/17MyPage.PNG
+
+<!--HONumber=46--> 

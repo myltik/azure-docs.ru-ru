@@ -1,7 +1,20 @@
-<properties urlDisplayName="Install Python" pageTitle="Установка Python и пакета SDK - Azure" metaKeywords="Azure Python SDK" description="Узнайте, как установить Python и пакет SDK для использования с Azure." metaCanonical="" services="" documentationCenter="Python" title="Installing Python and the SDK" authors="huvalo" solutions="" manager="wpickett" editor="" />
+﻿<properties 
+	pageTitle="Установка Python и пакета SDK — Azure" 
+	description="Узнайте, как установить Python и пакет SDK для использования с Azure." 
+	services="" 
+	documentationCenter="python" 
+	authors="huguesv" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="11/10/2014" ms.author="huvalo" />
-
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
+	ms.date="02/05/2015" 
+	ms.author="huvalo"/>
 
 
 
@@ -184,3 +197,5 @@ PTVS работает с установленными экземплярами V
 [Настройка виртуальной Машины Linux через портал Azure]: ../../../shared/chunks/create-and-configure-opensuse-vm-in-portal
 [Использование средств командной строки Azure для Mac и Linux]: ../../shared/chunks/crossplat-cmd-tools
 
+
+<!--HONumber=46--> 

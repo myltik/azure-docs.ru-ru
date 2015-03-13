@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Планирование серверных задач с помощью планировщика - мобильные службы" description="Использование планировщика мобильных служб Azure для планирования заданий для мобильного приложения." services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Планирование серверных задач с помощью планировщика - мобильные службы" 
+	description="Использование планировщика мобильных служб Azure для планирования заданий для мобильного приложения." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/26/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="09/26/2014" 
+	ms.author="glenga"/>
 
 # Планирование повторяющихся заданий в мобильных службах 
 
@@ -185,11 +199,11 @@
 
 <!-- URLs. -->
 [Справочник серверных скриптов мобильных служб]: http://go.microsoft.com/fwlink/?LinkId=262293
-[WindowsAzure.com]: http://www.windowsazure.com/
+[WindowsAzure.com]: http://azure.microsoft.com/
 [Портал управления Azure]: https://manage.windowsazure.com/
 [Регистрация приложений для входа в Twitter с помощью мобильных служб]: /ru-ru/develop/mobile/how-to-guides/register-for-twitter-authentication
 [Разработчики Twitter]: http://go.microsoft.com/fwlink/p/?LinkId=268300
-[Параметры приложения]: http://msdn.microsoft.com/ru-ru/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+[Параметры приложения]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
 
 <!--HONumber=42-->

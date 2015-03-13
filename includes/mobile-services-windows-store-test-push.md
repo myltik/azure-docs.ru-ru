@@ -8,5 +8,4 @@
    	Обратите внимание, что после завершения вставки приложение получает push-уведомление из WNS.
 
    	![](./media/mobile-services-windows-store-test-push/mobile-quickstart-push2.png)
-
 <!--HONumber=42-->

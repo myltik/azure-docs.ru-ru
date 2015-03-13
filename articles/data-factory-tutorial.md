@@ -1,6 +1,20 @@
-﻿<properties title="Tutorial: Move and process log files using Azure Data Factory" pageTitle="Перемещение и обработка файлов журнала с помощью фабрики данных Azure" description="В этом расширенном учебнике описывается сценарий, близкий к реальному, и реализуется сценарий использования службы фабрики данных Azure." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties 
+	pageTitle="Перемещение и обработка файлов журнала с помощью фабрики данных Azure" 
+	description="В этом расширенном учебнике описывается сценарий, близкий к реальному, и реализуется сценарий использования службы фабрики данных Azure." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelluru" />
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="1/28/2015" 
+	ms.author="spelluru"/>
 
 # Учебник. Перемещение и обработка файлов журнала с помощью фабрики данных
 Эта статья содержит сквозное руководство по каноническому сценарию обработки журнала с помощью фабрики данных Azure для преобразования данных из файлов журнала в аналитические данные. 
@@ -589,14 +603,14 @@ Contoso - это компания-разработчик игр, которая 
 [usepigandhive]: ../data-factory-pig-hive-activities
 
 [azure-preview-portal]: http://portal.azure.com
-[azure-purchase-options]: http://azure.microsoft.com/ru-ru/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/ru-ru/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/ru-ru/pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [sqlcmd-install]: http://www.microsoft.com/ru-ru/download/details.aspx?id=35580
-[azure-sql-firewall]: http://msdn.microsoft.com/ru-ru/library/azure/jj553530.aspx
+[azure-sql-firewall]: http://msdn.microsoft.com/library/azure/jj553530.aspx
 
-[download-azure-powershell]: http://azure.microsoft.com/ru-ru/documentation/articles/install-configure-powershell
+[download-azure-powershell]: http://azure.microsoft.com/documentation/articles/install-configure-powershell
 [adfwalkthrough-download]: http://go.microsoft.com/fwlink/?LinkId=517495
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 
@@ -675,3 +689,5 @@ Contoso - это компания-разработчик игр, которая 
 [image-data-factory-new-datafactory-menu]: ./media/data-factory-tutorial/NewDataFactoryMenu.png
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial/DataFactoryCreateButton.png
+
+<!--HONumber=46--> 

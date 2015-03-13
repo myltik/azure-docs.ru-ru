@@ -1,6 +1,20 @@
-﻿<properties title="Interact with DocumentDB resources" pageTitle="Взаимодействие с ресурсами DocumentDB |Azure" description="В DocumentDB имеются клиентские пакеты SDK для .NET, Python, Node.js и JavaScript, все они являются программами-оболочками базовых интерфейсов REST API." metaKeywords="" services="documentdb" solutions="data-management"  authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Взаимодействия с ресурсами DocumentDB с поддержкой REST | Azure" 
+	description="Сведения о выполнении взаимодействий с ресурсами Microsoft Azure DocumentDB с поддержкой REST с использованием глаголов HTTP." 
+	services="documentdb" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="monicar" 
+	documentationCenter=""/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/03/2015" 
+	ms.author="mimig"/>
 
 #Взаимодействие с ресурсами DocumentDB 
 DocumentDB предлагает простую и открытую модель программирования RESTful поверх HTTP. В предварительной версии DocumentDB имеются клиентские пакеты SDL для .NET, Python, Node.js и JavaScript, все они являются обертками над интерфейсами API REST. В будущих версиях также будут выпущены пакеты SDK для C++ и Java. Мы рекомендуем написать собственные пакеты SDK для конкретной среды программирования и поделиться ими с сообществом так же, как мы сделали с нашими пакетами SDK. 
@@ -334,3 +348,5 @@ DocumentDB предлагает модель логической адресац
 
 [1]: ./media/documentdb-interactions-with-resources/interactions-with-resources1.png
 [2]: ./media/documentdb-interactions-with-resources/interactions-with-resources2.png
+
+<!--HONumber=46--> 

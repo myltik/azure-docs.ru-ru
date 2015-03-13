@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="BizTalk Services: Troubleshoot using operation logs" pageTitle="Службы BizTalk: Устранение неполадок с помощью журналов операций | Azure" metaKeywords="" description="Службы BizTalk: устранение неполадок с помощью журналов операций" metaCanonical="" services="" documentationCenter="" title="BizTalk Services: Troubleshoot using ops logs" authors="mandia"  solutions="" writer="nitinme" manager="dwrede" editor="cgronlun"  />
+﻿<properties 
+	pageTitle="Службы BizTalk: Устранение неполадок с помощью журналов операций | Azure" 
+	description="Устранение неполадок в службах BizTalk с помощью журналов операций. MABS, WABS" 
+	services="biztalk-services" 
+	documentationCenter="" 
+	authors="nitinme" 
+	manager="dwrede" 
+	editor="cgronlun"/>
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
+<tags 
+	ms.service="biztalk-services" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/16/2015" 
+	ms.author="mandia"/>
 
 
 # Службы BizTalk: устранение неполадок с помощью журналов операций
@@ -8,7 +22,7 @@
 Журналы операций - это компонент служб управления, доступный на портале управления Azure, который позволяет просматривать исторические журналы операций, выполняемых в службах Azure, включая службы BizTalk. Это позволяет просматривать исторические данные, относящиеся к операциям управления, которые выполнены для подписки на службу BizTalk 180 дней назад или позднее.
 
 <div class="dev-callout"><b>Примечание.</b>
-<p>Этот компонент ведет журналы только для операций управления в службах BizTalk, например, когда служба была запущена, когда выполнено резервное копирование и т. д. Такие операции отслеживаются независимо от того, выполняются ли они из портала управления Azure или с помощью <a href="http://msdn.microsoft.com/ru-ru/library/windowsazure/dn232347.aspx">API-интерфейсов REST службы BizTalk</a>. Полный список операций, которые отслеживаются с помощью служб управления, см. в разделе <a href="#bizops">Операции, отслеживаемые с помощью служб управления Azure</a>.</p>
+<p>Этот компонент ведет журналы только для операций управления в службах BizTalk, например, когда служба была запущена, когда выполнено резервное копирование и т. д. Такие операции отслеживаются независимо от того, выполняются ли они из портала управления Azure или с помощью <a href="http://msdn.microsoft.com/library/windowsazure/dn232347.aspx">API-интерфейсов REST службы BizTalk</a>. Полный список операций, которые отслеживаются с помощью служб управления, см. в разделе <a href="#bizops">Операции, отслеживаемые с помощью служб управления Azure</a>.</p>
 <p>Этот компонент не ведет журналы для действий, связанных со средой выполнения службы BizTalk (например, для обработки сообщения мостами и т. д.). Чтобы просмотреть такие журналы, необходимо использовать представление отслеживания на портале служб BizTalk. Дополнительные сведения см. в разделе <a HREF="http://msdn.microsoft.com/library/windowsazure/hh949805.aspx">Отслеживание сообщений</a>.</p>
 </div>
 
@@ -99,3 +113,5 @@
 - [Как приступить к работе с пакетом SDK для служб BizTalk Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [ViewLogs]: ./media/biztalk-troubleshoot-using-ops-logs/Operation-Logs.png
+
+<!--HONumber=46--> 

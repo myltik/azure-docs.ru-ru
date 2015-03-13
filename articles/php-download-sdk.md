@@ -1,6 +1,20 @@
-﻿<properties title="Download the Azure SDK for PHP" pageTitle="Загрузка пакета Azure SDK для PHP" metaKeywords="" description="Узнайте, как скачать и установить пакет SDK для Azure для PHP." documentationCenter="PHP" services="" solutions="web" authors="tomfitz" manager="wpickett" />
+﻿<properties 
+	pageTitle="Загрузка пакета Azure SDK для PHP" 
+	description="Узнайте, как скачать и установить пакет SDK для Azure для PHP." 
+	documentationCenter="php" 
+	services="" 
+	authors="tfitzmac" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="10/21/2014" ms.author="tomfitz" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="PHP" 
+	ms.topic="article" 
+	ms.date="2/5/2015" 
+	ms.author="tomfitz"/>
 
 #Загрузка пакета Azure SDK для PHP
 
@@ -121,3 +135,5 @@ Azure PowerShell - это набор командлетов PowerShell для р
 [powershell-tools]: http://go.microsoft.com/fwlink/?LinkId=252718
 [php-sdk-github]: http://go.microsoft.com/fwlink/?LinkId=252719
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
+
+<!--HONumber=46--> 

@@ -1,6 +1,20 @@
-<properties pageTitle="Вход в систему и доступ к ресурсам с помощью Active Directory (Android) | Центр мобильных разработок" description="Узнайте, как добавить проверку подлинности в приложение с помощью Active Directory" documentationCenter="android" authors="mattchenderson" manager="dwrede" editor="" services=""/>
+﻿<properties 
+	pageTitle="Вход в систему и доступ к ресурсам с помощью Active Directory (Android) | Центр мобильных разработок" 
+	description="Узнайте, как добавить проверку подлинности в приложение с помощью Active Directory" 
+	documentationCenter="android" 
+	authors="mattchenderson" 
+	manager="dwrede" 
+	editor="" 
+	services="mobile-services"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.topic="article" ms.date="11/21/2014" ms.author="mahender"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="mahender" 
+	ms.devlang="java"/>
 
 # Проверка подлинности приложения с помощью Active Directory
 
@@ -15,5 +29,4 @@
 
 <!-- URLs. -->
 [Доступ к ресурсам, защищенным с помощью Azure Active Directory, на платформах iOS и Android]: http://chrisrisner.com/Accessing-Resources-Secured-by-Azure-Active-Directory-with-iOS-and-Android
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

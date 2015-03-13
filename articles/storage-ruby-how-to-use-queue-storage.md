@@ -168,10 +168,9 @@
 
 Вы изучили основные сведения о хранилище очередей. Дополнительные сведения о более сложных задачах по использованию хранилища можно найти по следующим ссылкам.
 
-- См. справочник MSDN: [Хранение и доступ к данным в Azure](http://msdn.microsoft.com/ru-ru/library/windowsazure/gg433040.aspx)
+- См. справочник MSDN: [Хранение и доступ к данным в Azure](http://msdn.microsoft.com/library/windowsazure/gg433040.aspx)
 - Посетите [блог рабочей группы службы хранилища Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 - Посетите репозиторий [Пакет SDK для Azure для Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) на веб-сайте GitHub.
 
-Сравнение службы очередей Azure, описанной в этой статье, и очередей Service Bus Azure, описанных в статье [Использование очередей Service Bus](/ru-ru/develop/ruby/how-to-guides/service-bus-queues/), см. в статье [Очереди Azure и очереди шины обслуживания - сходство и отличия](http://msdn.microsoft.com/ru-ru/library/windowsazure/hh767287.aspx).
-
+Сравнение службы очередей Azure, описанной в этой статье, и очередей Service Bus Azure, описанных в статье [Использование очередей Service Bus](/ru-ru/develop/ruby/how-to-guides/service-bus-queues/), см. в статье [Очереди Azure и очереди шины обслуживания - сходство и отличия](http://msdn.microsoft.com/library/windowsazure/hh767287.aspx).
 <!--HONumber=42-->

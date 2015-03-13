@@ -40,7 +40,7 @@
 	Этот код использует [объект mssql] для непосредственного доступа к таблице **todoitem**, чтобы задать флаг завершения для всех элементов. Поскольку используется функция **exports.post**, клиенты отправляют запрос POST для выполнения операции. Число измененных строк возвращается клиенту как целое значение.
 
 > [AZURE.NOTE]
-> Объекты <a href="http://msdn.microsoft.com/ru-ru/library/windowsazure/jj554218.aspx" target="_blank">request</a> и <a href="http://msdn.microsoft.com/ru-ru/library/windowsazure/dn303373.aspx" target="_blank">response</a>, предоставленные функциям пользовательского API, реализуются <a href="http://go.microsoft.com/fwlink/p/?LinkId=309046" target="_blank">библиотекой Express.js</a>. Дополнительные сведения см. в разделе <a href="http://msdn.microsoft.com/ru-ru/library/windowsazure/dn280974.aspx" target="_blank">Настраиваемый интерфейс API</a>. 
+> Объекты <a href="http://msdn.microsoft.com/library/windowsazure/jj554218.aspx" target="_blank">request</a> и <a href="http://msdn.microsoft.com/library/windowsazure/dn303373.aspx" target="_blank">response</a>, предоставленные функциям пользовательского API, реализуются <a href="http://go.microsoft.com/fwlink/p/?LinkId=309046" target="_blank">библиотекой Express.js</a>. Дополнительные сведения см. в разделе <a href="http://msdn.microsoft.com/library/windowsazure/dn280974.aspx" target="_blank">Настраиваемый интерфейс API</a>. 
 
 Далее предстоит изменить приложение быстрого запуска, чтобы добавить новую кнопку и код, который асинхронно вызывает новый пользовательский интерфейс API.
 
@@ -50,6 +50,5 @@
 
 <!-- URLs. -->
 [Портал управления Azure]: https://manage.windowsazure.com/
-[Объект MSSQL]: http://msdn.microsoft.com/ru-ru/library/windowsazure/jj554212.aspx
-
+[Объект MSSQL]: http://msdn.microsoft.com/library/windowsazure/jj554212.aspx
 <!--HONumber=42-->

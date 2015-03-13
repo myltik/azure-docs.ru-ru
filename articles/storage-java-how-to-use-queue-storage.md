@@ -401,11 +401,10 @@
 - [REST API службы хранилища Azure]
 - [Блог рабочей группы службы хранилища Azure]
 
-[Пакет SDK для Azure для Java]: http://www.windowsazure.com/ru-ru/develop/java/
+[Пакет SDK для Azure для Java]: http://azure.microsoft.com/develop/java/
 [Пакет SDK для службы хранилища Azure для Java]: https://github.com/azure/azure-storage-java
 [Пакет SDK для службы хранилища Azure для Android]: https://github.com/azure/azure-storage-android
 [Справочник по пакету SDK для клиента хранилища Azure]: http://dl.windowsazure.com/storage/javadoc/
-[REST API службы хранилища Azure]: http://msdn.microsoft.com/ru-ru/library/azure/gg433040.aspx
+[REST API службы хранилища Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Блог рабочей группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
-
 <!--HONumber=42-->

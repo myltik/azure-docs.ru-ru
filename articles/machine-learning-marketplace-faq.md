@@ -1,6 +1,20 @@
-﻿<properties title="FAQ for publishing and using Machine Learning apps in the Azure Marketplace" pageTitle="Вопросы и ответы о публикации и использовании приложений машинного обучения в магазине Azure Marketplace | Azure" description="Часто задаваемые вопросы" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Вопросы и ответы о публикации и использовании приложений машинного обучения в магазине Azure Marketplace | Azure" 
+	description="Часто задаваемые вопросы" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="luisca" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/13/2014" ms.author="jaymathe" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/10/2015" 
+	ms.author="luisca"/>  
 
 #Вопросы и ответы о публикации и использовании приложений машинного обучения в магазине Azure Marketplace
 
@@ -44,3 +58,5 @@
 
 
 
+
+<!--HONumber=46--> 

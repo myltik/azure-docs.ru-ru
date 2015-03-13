@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Service Bus Topics" pageTitle="Использование разделов Service Bus (.NET). Azure" metaKeywords="Приступая к работе с разделами служебной шины Azure, публикация подписка отправка сообщений Azure, отправка сообщений в разделы и подписки Azure C# " description="Узнайте, как использовать разделы и подписки Service Bus в Azure. Примеры кода написаны для приложений .NET. " metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use Service Bus Topics/Subscriptions" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+﻿<properties 
+	pageTitle="Использование разделов служебной шины (.NET) — Azure" 
+	description="Узнайте, как использовать разделы и подписки Service Bus в Azure. Примеры кода написаны для приложений .NET." 
+	services="service-bus" 
+	documentationCenter=".net" 
+	authors="sethmanheim" 
+	manager="timlt" 
+	editor="mattshel"/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
+<tags 
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="02/10/2015" 
+	ms.author="sethm"/>
 
 
 
@@ -308,6 +322,8 @@ a **MessageNumber** property less than or equal to 3:
   
   [7]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
   
-  [очереди, разделы и подписки]: http://msdn.microsoft.com/ru-ru/library/hh367516.aspx
-  [SqlFilter]: http://msdn.microsoft.com/ru-ru/library/microsoft.servicebus.messaging.sqlfilter.aspx
-  [Учебник по управляемому обмену сообщениями Service Bus в .NET]: http://msdn.microsoft.com/ru-ru/library/hh367512.aspx
+  [очереди, разделы и подписки]: http://msdn.microsoft.com/library/hh367516.aspx
+  [SqlFilter]: http://msdn.microsoft.com/library/microsoft.servicebus.messaging.sqlfilter.aspx
+  [Учебник по управляемому обмену сообщениями Service Bus в .NET]: http://msdn.microsoft.com/library/hh367512.aspx
+
+<!--HONumber=46--> 

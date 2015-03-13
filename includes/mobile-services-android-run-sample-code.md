@@ -15,4 +15,4 @@
    	![](./media/download-android-sample-code/mobile-quickstart-startup-android.png)
 
    	Обратите внимание, что сохраненный текст хранится в памяти и отображается в списке ниже.
-<!--HONumber=42-->
+\<!--HONumber=42-->

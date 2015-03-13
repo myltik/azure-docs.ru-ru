@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Начало работы с хранилищем Azure" 
 	description="" 
 	services="storage" 
@@ -40,4 +40,6 @@
 В файле web.config проекта был создан элемент с ключом и строкой подключения выбранной учетной записи хранилища.
 
 Дополнительные сведения см. в разделе [ASP.NET](http://www.asp.net).
+
+
 <!--HONumber=42-->

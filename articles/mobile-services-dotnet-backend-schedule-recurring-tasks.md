@@ -1,6 +1,21 @@
-﻿<properties pageTitle="Планирование серверных задач с помощью планировщика - мобильные службы" description="Использование планировщика мобильных служб Microsoft Azure для планирования заданий для мобильного приложения." services="mobile-services" documentationCenter="windows" authors="ggailey777" writer="" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Планирование серверных задач с помощью планировщика - мобильные службы" 
+	description="Использование планировщика мобильных служб Microsoft Azure для планирования заданий для мобильного приложения." 
+	services="mobile-services" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	Writer="" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/26/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="09/26/2014" 
+	ms.author="glenga"/>
 
 # Планирование повторяющихся заданий в мобильных службах 
 
@@ -297,7 +312,7 @@
 [Портал управления Azure]: https://manage.windowsazure.com/
 [Регистрация приложений для входа в Twitter с помощью мобильных служб]: /ru-ru/documentation/articles/mobile-services-how-to-register-twitter-authentication
 [Разработчики Twitter]: http://go.microsoft.com/fwlink/p/?LinkId=268300
-[Параметры приложения]: http://msdn.microsoft.com/ru-ru/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+[Параметры приложения]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 [Проект LINQ to Twitter CodePlex]: http://linqtotwitter.codeplex.com/
 
 <!--HONumber=42-->

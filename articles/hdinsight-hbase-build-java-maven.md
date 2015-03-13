@@ -154,7 +154,7 @@
 
 	Этот файл будет использоваться для загрузки конфигурации HBase для кластера HDInsight.
 
-	> [AZURE.NOTE] Это минимально возможный файл hbase-site.xml, содержащий лишь самые минимальные настройки для кластера HDInsight. Чтобы получить полную версию файла конфигурации hbase-site.xml, используемого HDInsight, [подключитесь с помощью удаленного рабочего стола к кластеру HDInsight](http://azure.microsoft.com/ru-ru/documentation/articles/hdinsight-administer-use-management-portal/#rdp) и найдите файл hbase-site.xml в каталоге C:\apps\dist\hbase-&lt;номер_версии>-hadoop2\conf. Часть пути с номером версии изменяется при обновлении версии HBase в кластере.
+	> [AZURE.NOTE] Это минимально возможный файл hbase-site.xml, содержащий лишь самые минимальные настройки для кластера HDInsight. Чтобы получить полную версию файла конфигурации hbase-site.xml, используемого HDInsight, [подключитесь с помощью удаленного рабочего стола к кластеру HDInsight](http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp) и найдите файл hbase-site.xml в каталоге C:\apps\dist\hbase-&lt;номер_версии>-hadoop2\conf. Часть пути с номером версии изменяется при обновлении версии HBase в кластере.
 
 3. Сохраните файл __hbase-site.xml__.
 
@@ -482,7 +482,7 @@
 		    # Is the Azure module installed?
 		    if (-not(Get-Module -ListAvailable Azure))
 		    {
-		        throw "Windows Azure PowerShell not found! For help, see http://www.windowsazure.com/ru-ru/documentation/articles/install-configure-powershell/"
+		        throw "Windows Azure PowerShell not found! For help, see http://azure.microsoft.com/documentation/articles/install-configure-powershell/"
 		    }
 		
 		    # Is there an active Azure subscription?
@@ -589,5 +589,4 @@
 ###При использовании Start-HBaseExample результаты отсутствуют или не получено каких-либо неожиданных результатов.
 
 Используйте параметр `-showErr` для просмотра STDERR, выдаваемого при выполнении задания.
-
 <!--HONumber=42-->

@@ -26,7 +26,7 @@
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/digital-marketing-notitle.svg" width="100%" height="100%"></object>
 
 > [WACOM.NOTE]
-> В этом руководстве представлены некоторые наиболее распространенные вопросы и задачи, связанные с проведением цифровых маркетинговых кампаний на веб-сайтах Azure. Однако, существуют и другие распространенные решения, которые можно реализовать на веб-сайтах Azure. Для анализа этих решений можно воспользоваться другими руководствами: <a href="http://www.windowsazure.com/ru-ru/manage/services/web-sites/global-web-presence-solution-overview/">Глобальное веб-присутствие</a> и <a href="http://www.windowsazure.com/ru-ru/manage/services/web-sites/business-application-solution-overview">Бизнес-приложения</a>.
+> В этом руководстве представлены некоторые наиболее распространенные вопросы и задачи, связанные с проведением цифровых маркетинговых кампаний на веб-сайтах Azure. Однако, существуют и другие распространенные решения, которые можно реализовать на веб-сайтах Azure. Для анализа этих решений можно воспользоваться другими руководствами: <a href="http://azure.microsoft.com/manage/services/web-sites/global-web-presence-solution-overview/">Глобальное веб-присутствие</a> и <a href="http://azure.microsoft.com/manage/services/web-sites/business-application-solution-overview">Бизнес-приложения</a>.
 
 ### Создание с нуля или перенос существующих ресурсов
 
@@ -124,8 +124,8 @@
 
 [Вертикальное и горизонтальное масштабирование]:/ru-ru/manage/services/web-sites/how-to-scale-websites/
 [Портал управления Azure]:http://manage.windowsazure.com/
-[API управления службами]:http://msdn.microsoft.com/ru-ru/library/windowsazure/ee460799.aspx
-[Сценарии PowerShell]:http://msdn.microsoft.com/ru-ru/library/windowsazure/jj152841.aspx
+[API управления службами]:http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
+[Сценарии PowerShell]:http://msdn.microsoft.com/library/windowsazure/jj152841.aspx
 [Трой Хант (Troy Hunt)]:https://twitter.com/troyhunt
 [10 принципов быстрого масштабирования веб-сайтов с помощью Azure]:http://www.troyhunt.com/2014/09/10-things-i-learned-about-rapidly.html
 [Кэш Azure Redis]:/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/

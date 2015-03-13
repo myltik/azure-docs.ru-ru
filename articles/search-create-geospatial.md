@@ -1,6 +1,20 @@
-﻿<properties title="Create a geospatial search solution using Azure Search" pageTitle="Создание приложения для геопространственного поиска с использованием службы "Поиск Azure"" description="Создание приложения геопространственного поиска с помощью Bing и Поиска Azure" metaKeywords="" services="" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Создание приложения для геопространственного поиска с использованием службы "Поиск Azure"" 
+	description="Создание приложения геопространственного поиска с помощью Bing и Поиска Azure" 
+	services="search" 
+	documentationCenter="" 
+	authors="HeidiSteen" 
+	manager="mblythe" 
+	editor=""/>
 
-<tags ms.service="azure-search" ms.devlang="" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="" ms.date="09/23/2014" ms.author="heidist" />
+<tags 
+	ms.service="search" 
+	ms.devlang="rest-api" 
+	ms.workload="search" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.date="01/16/2015" 
+	ms.author="heidist"/>
 
 # Создание приложения для геопространственного поиска с использованием службы "Поиск Azure"
 
@@ -25,7 +39,7 @@
 
 <h2 id="sub-1">Предварительные требования</h2>
 
-+ Visual Studio 2012 или более поздней версии с ASP.NET MVC 4 и SQL Server. Можно загрузить бесплатные выпуски Express, если программное обеспечение еще не установлено: [Visual Studio 2013 Express](http://www.visualstudio.com/ru-ru/products/visual-studio-express-vs.aspx) и [Microsoft SQL Server 2014 Express](http://msdn.microsoft.com/ru-ru/evalcenter/dn434042.aspx).
++ Visual Studio 2012 или более поздней версии с ASP.NET MVC 4 и SQL Server. Можно загрузить бесплатные выпуски Express, если программное обеспечение еще не установлено: [Visual Studio 2013 Express](http://www.visualstudio.com/ru-ru/products/visual-studio-express-vs.aspx) и [Microsoft SQL Server 2014 Express](http://msdn.microsoft.com/evalcenter/dn434042.aspx).
 + Служба поиска Azure. Вам понадобятся имя службы поиска и ключ администратора. Более подробная информация приводится в разделе [Начало работы со службой Поиска Azure](../search-get-started/).
 + Служба "Карты Bing" и ключ для доступа к ней. Инструкции приведены в следующем разделе.
 + [Поиск Azure: пример использования геопространственного поиска на CodePlex](https://azuresearchgeospatial.codeplex.com/). На вкладке Source Code (Исходный код) нажмите **Download** (Загрузить), чтобы скачать ZIP-архив с решением. 
@@ -158,3 +172,5 @@
 <!--Image references-->
 [7]: ./media/search-create-geospatial/AzureSearch-geo1-App.PNG
 [12]: ./media/search-create-geospatial/AzureSearch_Create2_CodeplexDownload.PNG
+
+<!--HONumber=46--> 

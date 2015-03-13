@@ -1,15 +1,29 @@
-﻿<properties urlDisplayName="Integrate an Azure Website with Azure CDN" pageTitle="Интеграция веб-сайта Azure с Azure CDN" metaKeywords="Azure tutorial, Azure web app tutorial, ASP.NET, CDN, MVC, websites" description="В этом учебнике объясняется, как развернуть веб-сайт, который обслуживает содержимое из интегрированной конечной точки CDN Azure" metaCanonical="" services="cdn,web-sites" documentationCenter=".NET" title="Integrate an Azure Website with Azure CDN" authors="cephalin" solutions="" manager="wpickett" editor="jimbe" />
+﻿<properties 
+	pageTitle="Интеграция веб-сайта Azure с Azure CDN" 
+	description="В этом учебнике объясняется, как развернуть веб-сайт, который обслуживает содержимое из интегрированной конечной точки CDN Azure" 
+	services="cdn, web-sites" 
+	documentationCenter=".net" 
+	authors="cephalin" 
+	manager="wpickett" 
+	editor="jimbe"/>
 
-<tags ms.service="cdn" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/02/2014" ms.author="cephalin" />
+<tags 
+	ms.service="cdn" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="10/02/2014" 
+	ms.author="cephalin"/>
 
 <a name="intro"></a>
 # Интеграция веб-сайта Azure с Azure CDN #
 
-Веб-сайты Azure могут интегрироваться с [Azure CDN](http://azure.microsoft.com/ru-ru/services/cdn/), добавляя возможности глобального масштабирования, присущие веб-сайтам Azure. Так ваше содержимое веб-сайта обслуживается глобально на узлах серверов рядом с клиентами (обновленный список всех текущих расположений узлов можно найти [здесь](http://msdn.microsoft.com/ru-ru/library/azure/gg680302.aspx)). Такая интеграция значительно повышает производительность веб-сайта Azure и существенно улучшает взаимодействие пользователя веб-сайта по всему миру. 
+Веб-сайты Azure могут интегрироваться с [Azure CDN](http://azure.microsoft.com/services/cdn/), добавляя возможности глобального масштабирования, присущие веб-сайтам Azure. Так ваше содержимое веб-сайта обслуживается глобально на узлах серверов рядом с клиентами (обновленный список всех текущих расположений узлов можно найти [здесь](http://msdn.microsoft.com/library/azure/gg680302.aspx)). Такая интеграция значительно повышает производительность веб-сайта Azure и существенно улучшает взаимодействие пользователя веб-сайта по всему миру. 
 
 Интеграция веб-сайтов Azure с Azure CDN предоставляет следующие преимущества:
 
-- Интеграция развертывания содержимого (изображений, сценариев и таблиц стилей) в процесс [непрерывного развертывания](http://azure.microsoft.com/ru-ru/documentation/articles/web-sites-publish-source-control/) веб-сайта Azure.
+- Интеграция развертывания содержимого (изображений, сценариев и таблиц стилей) в процесс [непрерывного развертывания](http://azure.microsoft.com/documentation/articles/web-sites-publish-source-control/) веб-сайта Azure.
 - Облегчение обновления пакетов NuGet на веб-сайте Azure, например, версий jQuery или Bootstrap. 
 - Управление веб-приложениями и содержимым, обслуживаемым CDN, из одного интерфейса Visual Studio.
 - Интеграция объединения и минификации ASP.NET с Azure CDN.
@@ -32,15 +46,15 @@
 
 Для работы с этим учебником необходимо выполнить следующие условия.
 
--	Активная учетная запись [Microsoft Azure](http://azure.microsoft.com/ru-ru/account/).
+-	Активная учетная запись [Microsoft Azure](http://azure.microsoft.com/account/).
 -	Visual Studio 2013 с [пакетом SDK для Azure](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409).
 
 <div class="wa-note">
   <span class="wa-icon-bulb"></span>
   <h5><a name="note"></a>Для работы с этим учебником требуется учетная запись Azure.</h5>
   <ul>
-    <li>Вы можете <a href="http://azure.microsoft.com/ru-ru/pricing/free-trial/?WT.mc_id=A261C142F">открыть учетную запись Azure бесплатно</a> - вы получаете кредиты, которые можно использовать для опробования платных служб Azure, и даже после израсходования кредитов вы сохраняете учетную запись и возможность использовать бесплатные службы Azure, например веб-сайты.</li>
-    <li>Вы имеете возможность <a href="http://azure.microsoft.com/ru-ru/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F">активировать преимущества подписчика MSDN</a> - ваша подписка MSDN каждый месяц приносит вам кредиты, которые можно использовать для оплаты служб Azure.</li>
+    <li>Вы можете <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F">открыть учетную запись Azure бесплатно</a> - вы получаете кредиты, которые можно использовать для опробования платных служб Azure, и даже после израсходования кредитов вы сохраняете учетную запись и возможность использовать бесплатные службы Azure, например веб-сайты.</li>
+    <li>Вы имеете возможность <a href="http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F">активировать преимущества подписчика MSDN</a> - ваша подписка MSDN каждый месяц приносит вам кредиты, которые можно использовать для оплаты служб Azure.</li>
   <ul>
 </div>
 
@@ -368,7 +382,7 @@ public ActionResult Show(string id)
 
 Выполните приведенные ниже действия для интеграции объединения и минификации ASP.NET с конечной точкой CDN.
 
-1. Вернитесь в файл *App_Start\BundleConfig.cs* и измените методы `bundles.Add()`, чтобы использовать другой [конструктор Bundle](http://msdn.microsoft.com/ru-ru/library/jj646464.aspx), который задает адрес CDN. Для этого замените определение метода `RegisterBundles` следующим кодом:  
+1. Вернитесь в файл *App_Start\BundleConfig.cs* и измените методы `bundles.Add()`, чтобы использовать другой [конструктор Bundle](http://msdn.microsoft.com/library/jj646464.aspx), который задает адрес CDN. Для этого замените определение метода `RegisterBundles` следующим кодом:  
 	<pre class="prettyprint">
 	public static void RegisterBundles(BundleCollection bundles)
 	{
@@ -462,9 +476,9 @@ public ActionResult Show(string id)
 
 Желательно, чтобы в случае сбоя конечной точки Azure CDN по какой-либо причине веб-страница могла использовать в качестве резервной возможности доступ к исходному веб-серверу для загрузки JavaScript или Bootstrap. Одно дело потерять изображения на веб-сайте из-за недоступности CDN, и совсем другое - потерять критически важные функциональные возможности страницы, обеспечиваемые сценариями и таблицами стилей.
 
-Класс [Bundle](http://msdn.microsoft.com/ru-ru/library/system.web.optimization.bundle.aspx) содержит свойство с именем [CdnFallbackExpression](http://msdn.microsoft.com/ru-ru/library/system.web.optimization.bundle.cdnfallbackexpression.aspx), которое позволяет настраивать резервный механизм на случай сбоя CDN. Вот что нужно сделать, чтобы использовать это свойство:
+Класс [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.aspx) содержит свойство с именем [CdnFallbackExpression](http://msdn.microsoft.com/library/system.web.optimization.bundle.cdnfallbackexpression.aspx), которое позволяет настраивать резервный механизм на случай сбоя CDN. Вот что нужно сделать, чтобы использовать это свойство:
 
-1. В проекте ASP.NET откройте файл *App_Start\BundleConfig.cs*, где в каждом [конструкторе Bundle](http://msdn.microsoft.com/ru-ru/library/jj646464.aspx) добавлялся URL-адрес CDN, и внесите следующие выделенные изменения, чтобы добавить резервный механизм в пакеты по умолчанию:  
+1. В проекте ASP.NET откройте файл *App_Start\BundleConfig.cs*, где в каждом [конструкторе Bundle](http://msdn.microsoft.com/library/jj646464.aspx) добавлялся URL-адрес CDN, и внесите следующие выделенные изменения, чтобы добавить резервный механизм в пакеты по умолчанию:  
 	<pre class="prettyprint">
 	public static void RegisterBundles(BundleCollection bundles)
 	{
@@ -576,7 +590,9 @@ public ActionResult Show(string id)
 
 # Дополнительные сведения #
 - [Общие сведения о сети доставки контента (CDN) Azure](http://msdn.microsoft.com/library/azure/ff919703.aspx)
-- [Обслуживание содержимого из CDN Azure в вашем веб-приложении](http://azure.microsoft.com/ru-ru/Documentation/Articles/cdn-serve-content-from-cdn-in-your-web-application/)
-- [Интеграция облачной службы с Azure CDN](http://azure.microsoft.com/ru-ru/documentation/articles/cdn-cloud-service-with-cdn/)
+- [Обслуживание содержимого из CDN Azure в вашем веб-приложении](http://azure.microsoft.com/Documentation/Articles/cdn-serve-content-from-cdn-in-your-web-application/)
+- [Интеграция облачной службы с Azure CDN](http://azure.microsoft.com/documentation/articles/cdn-cloud-service-with-cdn/)
 - [Объединение и минификация ASP.NET](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
-- [Использование CDN для Azure](http://azure.microsoft.com/ru-ru/documentation/articles/cdn-how-to-use/)
+- [Использование CDN для Azure](http://azure.microsoft.com/documentation/articles/cdn-how-to-use/)
+
+<!--HONumber=46--> 

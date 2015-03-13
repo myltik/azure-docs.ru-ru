@@ -47,9 +47,9 @@
 Учетная запись хранения Azure - это безопасная учетная запись, которая предоставляет доступ к службам хранилища Azure. Учетная запись хранения предоставляет уникальное пространство имен для хранения ваших ресурсов. Существует два типа учетных записей хранения:
 
 - Стандартная учетная запись хранения включает в себя хранилище для больших двоичных объектов, таблиц, очередей и файлов.
-- Учетная запись хранения Premium в настоящее время поддерживает только диски виртуальных машин Azure. Хранилище Azure Premium доступно по запросу на странице [предварительной версии Azure].(/ru-ru/services/preview/).
+- Учетная запись хранения Premium в настоящее время поддерживает только диски виртуальных машин Azure. Хранилище Azure Premium доступно по запросу на странице [предварительной версии Azure)]/ru-ru/services/preview/).
 
-Прежде чем создавать учетную запись хранения, необходимо оформить подписку Azure, которая представляет собой план, дающий доступ к различным службам Azure. В рамках одной подписки можно создать до 100 учетных записей хранения с уникальными именами. Дополнительную информацию см. в разделе [Информация о ценах на хранилища](http://www.windowsazure.com/ru-ru/pricing/details/storage/).
+Прежде чем создавать учетную запись хранения, необходимо оформить подписку Azure, которая представляет собой план, дающий доступ к различным службам Azure. В рамках одной подписки можно создать до 100 учетных записей хранения с уникальными именами. Дополнительную информацию см. в разделе [Информация о ценах на хранилища](http://azure.microsoft.com/pricing/details/storage/).
 
 Приступая к работе с Azure, можно использовать [бесплатную пробную версию](/ru-ru/pricing/free-trial/). Как только вы решите приобрести план, можете выбрать из множества [вариантов приобретения](/ru-ru/pricing/purchase-options/). Если вы уже являетесь [подписчиком MSDN](/ru-ru/pricing/member-offers/msdn-benefits-details/) вы можете получать бесплатно ежемесячные кредиты, которые можно использовать для служб Azure, включая службу хранилища Azure.
 
@@ -164,7 +164,7 @@
 ### Загрузки
 
 - [Пакет Nuget для службы хранилища Azure - клиентские библиотеки для .NET, Windows Phone и среды выполнения Windows](https://www.nuget.org/packages/WindowsAzure.Storage/)
-- [Пакеты SDK для Azure и инструменты](http://azure.microsoft.com/ru-ru/downloads/)
+- [Пакеты SDK для Azure и инструменты](http://azure.microsoft.com/downloads/)
 - [Эмулятор хранения Azure](http://www.microsoft.com/en-in/download/details.aspx?id=43709)
 
 ### Исходный код
@@ -174,15 +174,15 @@
 ### HDInsight SDK
 
 - [Документация по службе хранилища Azure](/ru-ru/documentation/services/storage/)
-- [Справочник по API-интерфейсу REST служб хранилища](http://msdn.microsoft.com/ru-ru/library/dd179355.aspx)
-- [Справочник по утилите командной строки AzCopy](http://azure.microsoft.com/ru-ru/documentation/articles/storage-use-azcopy/)
+- [Справочник по API-интерфейсу REST служб хранилища](http://msdn.microsoft.com/library/dd179355.aspx)
+- [Справочник по утилите командной строки AzCopy](http://azure.microsoft.com/documentation/articles/storage-use-azcopy/)
 
 <h3>Для пользователей PowerShell</h3>
-- [Командлеты службы хранилища Azure](http://msdn.microsoft.com/ru-ru/library/azure/dn806401.aspx)
+- [Командлеты службы хранилища Azure](http://msdn.microsoft.com/library/azure/dn806401.aspx)
 
 <h3>Для разработчиков .NET</h3>
 
-- [Справочник по клиентской библиотеке .NET](http://msdn.microsoft.com/ru-ru/library/wa_storage_30_reference_home.aspx)
+- [Справочник по клиентской библиотеке .NET](http://msdn.microsoft.com/library/wa_storage_30_reference_home.aspx)
 - [Использование хранилища BLOB-объектов из .NET](../storage-dotnet-how-to-use-blobs/)
 - [Использование табличного хранилища из .NET](../storage-dotnet-how-to-use-tables/)
 - [Как использовать хранилище очередей из .NET](../storage-dotnet-how-to-use-queues/)
@@ -217,5 +217,4 @@
 - [Как использовать хранилище больших двоичных объектов в Python](../storage-python-how-to-use-blob-storage/)
 - [Как использовать табличное хранилище в Python](../storage-python-how-to-use-table-storage/)
 - [Как использовать хранилище очередей в Python](../storage-python-how-to-use-queue-storage/)
-
 <!--HONumber=42-->

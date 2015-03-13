@@ -1,6 +1,20 @@
-<properties title="Error During Authentication Detection" pageTitle="Ошибка при обнаружении проверки подлинности" metaKeywords="" description="" services="active-directory" documentationCenter="" authors="ghogen, kempb" />
+﻿<properties 
+	pageTitle="Ошибка при обнаружении проверки подлинности" 
+	description="Мастер подключения к Active Directory обнаружил несовместимый тип проверки подлинности" 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="kempb" 
+	manager="douge" 
+	editor="tglee"/>
   
-<tags ms.service="active-directory" ms.workload="web" ms.tgt_pltfrm="vs-getting-started" ms.devlang="na" ms.topic="article" ms.date="10/8/2014" ms.author="ghogen, kempb" />
+<tags 
+	ms.service="active-directory" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="vs-getting-started" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/02/2015" 
+	ms.author="kempb"/>
 
 ###Ошибка при обнаружении проверки подлинности 
 Во время обнаружения предыдущего кода проверки подлинности мастер обнаружил несовместимый тип проверки подлинности.   
@@ -78,3 +92,5 @@
 Чтобы изменить тип проверки подлинности, удалите несовместимый тип и повторно запустите мастер.
 
 Подробнее см. в статье [Сценарии проверки подлинности для Azure AD](http://msdn.microsoft.com/library/azure/dn499820.aspx).
+
+<!--HONumber=46--> 
