@@ -566,7 +566,7 @@ Azure предоставляет две среды развертывания: �
 [ListHostedServicesResult]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/GetDeploymentOptions.php
 
 [Обзор управления развертываниями в Azure]: http://msdn.microsoft.com/library/windowsazure/hh386336.aspx
-[Служба хранилища]: ../storage-whatis-account/
+[хранилища]: ../storage-whatis-account/
 [azure-blobs]: ../storage-php-how-to-use-blobs/
 [azure-tables]: ../storage-php-how-to-use-table-storage/
 [azure-queues]: ../storage-php-how-to-use-queues/

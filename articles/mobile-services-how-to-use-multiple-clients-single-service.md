@@ -195,7 +195,7 @@
 [SSO Windows Phone]: /ru-ru/develop/mobile/tutorials/single-sign-on-wp8/
 [Учебники и ресурсы]: /ru-ru/develop/mobile/resources/
 [Приступая к работе с концентраторами уведомлений]: /ru-ru/manage/services/notification-hubs/getting-started-windows-dotnet/
-[Рассылка пользователям кроссплатформенных уведомлений]: /ru-ru/manage/services/notification-hubs/notify-users-xplat-mobile-services/
+[Концентраторы уведомлений Azure]: /ru-ru/manage/services/notification-hubs/notify-users-xplat-mobile-services/
 [Приступая к работе с push-уведомлениями Windows dotnet]: /ru-ru/develop/mobile/tutorials/get-started-with-push-dotnet-vs2012/
 [Приступая к работе с push-уведомлениями Windows js]: /ru-ru/develop/mobile/tutorials/get-started-with-push-js-vs2012/
 [Приступая к работе с push-уведомлениями Windows Phone]: /ru-ru/develop/mobile/tutorials/get-started-with-push-wp8/

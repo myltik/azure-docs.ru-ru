@@ -1,6 +1,24 @@
-<properties pageTitle="Приступая к работе с концентраторами событий" metaKeywords="Azure Service Bus, Event Hub, getting started Event Hubs" description="Следуйте указаниям этого учебника, чтобы приступить к использованию концентраторов событий Azure в C# с помощью EventProcessorHost" metaCanonical="" services="" documentationCenter="" title="Get Started with Event Hubs" authors="elioda" solutions="" manager="timlt" editor="" />
+<properties 
+	pageTitle="Приступая к работе с концентраторами событий" 
+	metaKeywords="Azure Service Bus, Event Hub, getting started Event Hubs" 
+	description="Следуйте указаниям этого учебника, чтобы приступить к использованию концентраторов событий Azure в C# с помощью EventProcessorHost" 
+	metaCanonical="" 
+	services="" 
+	documentationCenter="" 
+	title="Get Started with Event Hubs" 
+	authors="elioda" 
+	solutions="" 
+	manager="timlt" 
+	editor="" />
 
-<tags ms.service="service-bus" ms.workload="core" ms.tgt_pltfrm="csharp" ms.devlang="csharp" ms.topic="hero-article" ms.date="10/27/2014" ms.author="elioda" />
+<tags 
+	ms.service="service-bus" 
+	ms.workload="core" 
+	ms.tgt_pltfrm="csharp" 
+	ms.devlang="csharp" 
+	ms.topic="hero-article" 
+	ms.date="10/27/2014" 
+	ms.author="elioda" />
 
 # <a name="getting-started"> </a>Приступая к работе с концентраторами событий
 
@@ -16,7 +34,7 @@
 
 + Microsoft Visual Studio Express 2013 для Windows;
 
-+ Активная учетная запись Azure. <br/>Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительную информацию см. в разделе <a href="http://www.windowsazure.com/ru-ru/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fru-ru%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Бесплатное пробное использование Azure</a>.
++ Активная учетная запись Azure. <br/>Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительную информацию см. в разделе <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fru-ru%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Бесплатное пробное использование Azure</a>.
 
 ## Создание концентратора событий
 
@@ -80,6 +98,6 @@
 [портал управления Azure]: https://manage.windowsazure.com/
 [Event Processor Host(Библиотека Event Processor Host)]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Event Hubs Overview(Обзор концентраторов событий)]: http://msdn.microsoft.com/ru-ru/library/azure/dn836025.aspx
+[Event Hubs Overview(Обзор концентраторов событий)]: http://msdn.microsoft.com/library/azure/dn836025.aspx
 
 <!--HONumber=35.1-->

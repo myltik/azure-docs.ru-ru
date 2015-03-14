@@ -300,7 +300,7 @@ API установки - это альтернативный механизм у
 	- [Отправка кроссплатформенных уведомлений проверенным пользователям]
 
 [Пакет SDK для Java]: https://github.com/Azure/azure-notificationhubs-java-backend
-[Учебник по началу работы]: http://azure.microsoft.com/ documentation/articles/notification-hubs-ios-get-started/
+[Учебник по началу работы]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
 [Приступая к работе с центрами уведомлений]: http://azure.microsoft.com/manage/services/notification-hubs/getting-started-windows-dotnet/
 [Отправка экстренных новостей]: http://azure.microsoft.com/manage/services/notification-hubs/breaking-news-dotnet/
 [Отправка локализованных экстренных новостей]: http://azure.microsoft.com/manage/services/notification-hubs/breaking-news-localized-dotnet/

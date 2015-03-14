@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Использование Bottle и MongoDB в Azure с помощью инструментов Python 2.1 для Visual Studio" 
 	description="Информация об использовании инструментов Python для Visual Studio для создания приложения Bottle, которое хранит данные в экземпляре базы данных MongoDB и может быть развернуто на веб-сайте. 
 	services="web-sites" 
@@ -215,17 +215,17 @@ PTVS предоставляет простой способ развертыва
 
 <!--Link references-->
 [Центр по разработке для Python]: /ru-ru/develop/python/
-[Облачные службы Azure] ../cloud-services-python-ptvs/
+[Облачные службы Azure]: ../cloud-services-python-ptvs/
 
 <!--External Link references-->
-[Портал управления Azure]: https://manage.windowsazure.com
+[портале управления Azure]: https://manage.windowsazure.com
 [RoboMongo]: http://robomongo.org/
 [Средства Python 2.1 для Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
 [Образцы VSIX средств Python 2.1 для Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
-[Средства пакета SDK для Azure для VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
-[Средства пакета SDK для Azure для VS 2012]: http://go.microsoft.com/fwlink/?LinkId=323511
-[Python 2.7 (32-разрядная версия)]: http://go.microsoft.com/fwlink/?LinkId=517190 
-[Python 3.4 (32-разрядная версия)]: http://go.microsoft.com/fwlink/?LinkId=517191
+[Пакет инструментов SDK Azure для VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
+[Пакет инструментов SDK Azure для VS 2012]: http://go.microsoft.com/fwlink/?LinkId=323511
+[Python 2.7 (32-разрядный)]: http://go.microsoft.com/fwlink/?LinkId=517190 
+[Python 3.4 (32-разрядный)]: http://go.microsoft.com/fwlink/?LinkId=517191
 [Документация по средствам Python для Visual Studio]: http://pytools.codeplex.com/documentation
 [Документация по работе с Bottle]: http://bottlepy.org/docs/dev/index.html
 [MongoDB]: http://www.mongodb.org/
