@@ -42,7 +42,7 @@
 [AZURE.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
 
 ## <a name="create-account"> </a>Создание учетной записи хранения Azure
-[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
 **Примечание.* Если нужно установить клиентские библиотеки или Python, см. [руководство по установке Python](../python-how-to-install/).
 

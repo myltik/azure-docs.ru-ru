@@ -80,7 +80,7 @@
 
 > [AZURE.NOTE] Хранилище файлов в настоящее время доступно только для новых учетных записей хранения. После предоставления доступа подписки к хранилищу файлов создайте новую учетную запись хранения для использования в данном руководстве.
 
-[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
 ##<a name="use-cmdlets"></a>Использование PowerShell для создания общей папки
 

@@ -1,4 +1,4 @@
-﻿## <a name="create-account"> </a>Создание учетной записи хранения Azure
+## <a name="create-account"> </a>Создание учетной записи хранения Azure
 
 Для использования хранилища Azure вам потребуется учетная запись хранения. Этот метод 
 может создать учетную запись хранения, выполнив следующие действия. (Для создания
@@ -29,8 +29,8 @@
 
 6.  Щелкните **СОЗДАТЬ УЧЕТНУЮ ЗАПИСЬ ХРАНЕНИЯ**.
 
-[С помощью REST API]: http://msdn.microsoft.com/library/windowsazure/hh264518.aspx
-[Портал управления Azure]: http://manage.windowsazure.com
-[plus-new]: ./media/create-storage-account/plus-new.png
-[quick-create-storage]: ./media/create-storage-account/quick-storage-2.png
+[REST API]: http://msdn.microsoft.com/library/windowsazure/hh264518.aspx
+[портал управления Azure]: http://manage.windowsazure.com
+[plus-new]: ./media/storage-create-account-include/plus-new.png
+[quick-create-storage]: ./media/storage-create-account-include/quick-storage-2.png
 <!--HONumber=42-->
