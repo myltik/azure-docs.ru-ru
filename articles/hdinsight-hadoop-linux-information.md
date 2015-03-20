@@ -22,11 +22,11 @@
 
 ##Имена доменов
 
-Полное доменное имя (FQDN), используемое при подключении к кластеру, - **&lt;имя_кластера>.azurehdinsight.net** или (только для SSH) **&lt;имя_кластера>.aurehdinsight.net**.
+Полное доменное имя (FQDN), используемое для подключения к кластеру, - **&lt;clustername>.azurehdinsight.net** или (только для SSH) **&lt;clustername>.aurehdinsight.net**.
 
 ##Службы доступны удаленно
 
-* **Ambari (Интернет)** - https://&lt;имя_кластера>.azurehdinsight.net
+* **Ambari (Интернет)** - https://&lt;clustername>.azurehdinsight.net
 
 	> [AZURE.NOTE] Выполните аутентификацию, используя имя пользователя и пароль администратора кластеров, а затем войдите в Ambari. При этом также используется имя пользователя и пароль администратора кластера.
 	> 
@@ -36,23 +36,23 @@
 
 	Чтобы обойти эту проблему, используйте туннель SSH для проксирования веб-трафика на головном узле кластера. Используйте следующие статьи, чтобы создать туннель SSH от порта на локальном компьютере до кластера.
 
-	* <a href="../hdinsight-hadoop-linux-use-ssh-unix/#tunnel" target="_blank">Использование SSH с Hadoop на основе Linux в HDInsight из Linux, Unix или OS X</a> - шаги по созданию туннеля SSH с помощью команды `ssh`
+	* <a href="../hdinsight-hadoop-linux-use-ssh-unix/#tunnel" target="_blank">Использование SSH с Linux под управлением Hadoop в HDInsight в OS X, Unix или Linux</a> - шаги по созданию туннеля SSH с использованием команды `ssh`
 
-	* <a href="../hdinsight-hadoop-linux-use-ssh-windows/#tunnel" target="_blank">Использование SSH с Hadoop на основе Linux в HDInsight из Windows</a> - шаги по созданию туннеля SSH с помощью PuTTY
+	* <a href="../hdinsight-hadoop-linux-use-ssh-windows/#tunnel" target="_blank">Использование SSH с Linux под управлением Hadoop в HDInsight из Windows</a> - шаги по созданию Putty для создания туннеля SSH
 
-* **Ambari (REST)** -https://&lt;имя_кластера>.azurehdinsight.net/ambari
-
-	> [AZURE.NOTE] Выполняйте аутентификацию с помощью имени пользователя и пароля администратора кластера.
-	> 
-	> В аутентификации используется открытый текст - всегда используйте протокол HTTPS, чтобы обеспечить безопасное соединение.
-
-* **WebHCat (Templeton)** -https://&lt;имя_кластера>.azurehdinsight.net/templeton
+* **Ambari (REST)** - https://&lt;clustername>.azurehdinsight.net/ambari
 
 	> [AZURE.NOTE] Выполняйте аутентификацию с помощью имени пользователя и пароля администратора кластера.
 	> 
 	> В аутентификации используется открытый текст - всегда используйте протокол HTTPS, чтобы обеспечить безопасное соединение.
 
-* **SSH** - &lt;имя_кластера>-ssh.azurehdinsight.net через порт 22
+* **WebHCat (Templeton)** - https://&lt;clustername>.azurehdinsight.net/templeton
+
+	> [AZURE.NOTE] Выполняйте аутентификацию с помощью имени пользователя и пароля администратора кластера.
+	> 
+	> В аутентификации используется открытый текст - всегда используйте протокол HTTPS, чтобы обеспечить безопасное соединение.
+
+* **SSH** - &lt;clustername>-ssh.azurehdinsight.net через порт 22
 
 	> [AZURE.NOTE] Доступ к головному узлу кластера можно получить только по протоколу SSH с клиентского компьютера. После подключения с головного узла можно получить доступ к рабочим узлам по протоколу SSH.
 
@@ -60,7 +60,7 @@
 
 Связанные с Hadoop файлы можно найти на узлах кластера в папке `/usr/hdp/current`.
 
-Пример данных и JAR-файлы можно найти в HDFS (WASB) в папке /example или 'wasb:///example'.
+Пример данных и JAR-файлы можно найти в HDFS (WASB) в папке '/example' или 'wasb:///example'.
 
 ##Рекомендации по HDFS, WASB и хранению
 
@@ -88,7 +88,7 @@ HDInsight также позволяет связать несколько уче
 
 **Портал Azure**
 
-1. На <a href="https://manage.windowsazure.com/" target="_blank">портале управления Azure</a>выберите кластер HDInsight.
+1. На <a href="https://manage.windowsazure.com/" target="_blank">портале управления Azure</a> выберите свой кластер HDInsight.
 
 2. Выберите **панель мониторинга** в верхней части страницы.
 
@@ -104,7 +104,7 @@ HDInsight также позволяет связать несколько уче
 
 Получить доступ к большим двоичным объектам можно не только с помощью команды Hadoop из кластера, но и множеством других способов:
 
-* <a href="http://azure.microsoft.com/ documentation/articles/xplat-cli/" target="_blank">Кроссплатформенный интерфейс командной строки Azure</a> - информацию об использовании хранилища после установки см. в описании `azure storage`, а информацию об определенных командах для больших двоичных объектов - в описании `azure blob`.
+* <a href="http://azure.microsoft.com/documentation/articles/xplat-cli/" target="_blank">Межплатформенный интерфейс командной строки Azure</a> - после установки см. сведения об использовании хранилища в разделе `azure storage` или определенные команды для BLOB-объектов в разделе `azure blob`.
 
 * Различные пакеты SDK:
 
@@ -120,7 +120,7 @@ HDInsight также позволяет связать несколько уче
 
 	* <a href="https://github.com/Azure/azure-sdk-for-net" target="_blank">.NET</a>
 
-* <a href="https://msdn.microsoft.com/ru-ru/library/azure/dd135733.aspx" target="_blank">API REST хранилища.</a>
+* <a href="https://msdn.microsoft.com/library/azure/dd135733.aspx" target="_blank">API REST хранилища</a>
 
 
 ##Дальнейшие действия
@@ -130,4 +130,4 @@ HDInsight также позволяет связать несколько уче
 * [Использование заданий MapReduce с HDInsight](../hdinsight-use-mapreduce)
 
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

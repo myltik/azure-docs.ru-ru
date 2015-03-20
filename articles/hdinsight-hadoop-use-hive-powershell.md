@@ -22,29 +22,29 @@
 
 В этом документе приведен пример использования PowerShell для выполнения запросов Hive в Hadoop на кластере HDInsight.
 
-> [AZURE.NOTE] В этом документе не приводится подробное описание процессов, которые выполняют инструкции HiveQL, используемые в примерах. Информацию об операторах HiveQL, используемых в данном примере, см. в статье <a href="../hdinsight-use-hive/" target="_blank">Использование Hive с Hadoop в HDInsight</a>.
+> [AZURE.NOTE] В этом документе не приводится подробное описание действия инструкций HiveQL, используемых в данных примерах. Сведения о HiveQL, используемом в этом примере, см. в разделе  <a href="../hdinsight-use-hive/" target="_blank">ИспользованиеHive с Hadoop в HDInsight</a>.
 
 
 ##<a id="prereq"></a>Предварительные требования
 
 Чтобы выполнить действия, описанные в этой статье, необходимо следующее.
 
-* Кластер Azure HDInsight (Hadoop в HDInsight) (на платформе Windows или Linux)
+* Кластер Azure HDInsight (Hadoop в HDInsight)(на платформе Windows или Linux)
 
-* <a href="http://azure.microsoft.com/ documentation/articles/install-configure-powershell/" target="_blank">Azure PowerShell</a>
+* <a href="http://azure.microsoft.com/documentation/articles/install-configure-powershell/" target="_blank">Azure PowerShell</a>
 
 
 ##<a id="powershell"></a>Выполнение запросов Hive с помощью PowerShell
 
-Azure PowerShell предоставляет *cmdlets*, позволяющие удаленно запускать запросы Hive в HDInsight. Внутри самой системы это достигается путем отправки вызовов REST в <a href="https://cwiki.apache.org/confluence/display/Hive/WebHCat" target="_blank">WebHCat</a> (прежнее название - Templeton) на кластере HDInsight.
+Azure PowerShell предоставляет *cmdlets*, позволяющие удаленно запускать запросы Hive в HDInsight. Внутренне это достигается с помощью вызовов REST к <a href="https://cwiki.apache.org/confluence/display/Hive/WebHCat" target="_blank">WebHCat</a> (ранее называвшийся Templeton), запущенном на кластере HDInsight.
 
 При выполнении запросов Hive на удаленном кластере HDInsight, используются следующие командлеты.
 
 * **Add-AzureAccount** - выполняет аутентификацию PowerShell в подписке Azure.
 
-* **New-AzureHDInsightHiveJobDefinition** - создает новое *job definition* с использованием заданных операторов HiveQL.
+* **New-AzureHDInsightHiveJobDefinition** - создает новое *определение задания* с использованием заданных инструкций HiveQL
 
-* **Start-AzureHDInsightJob** - отправляет определение задания в HDInsight, запускает задание и возвращает объект *job*, который можно использовать для проверки состояния задания.
+* **Start-AzureHDInsightJob** - отправляет определение задания в HDInsight, запускает задание и возвращает объект *job*, который можно использовать для проверки состояния задания
 
 * **Wait-AzureHDInsightJob** - использует объект job для проверки состояния задания. Он будет ждать завершения задания или превышения времени ожидания.
 
@@ -107,7 +107,7 @@ Azure PowerShell предоставляет *cmdlets*, позволяющие у
 		SELECT * FROM errorLogs;
 		"@
 
-	Выходные данные будут выглядеть следующим образом:
+	The output will look like the following.
 
 		2012-02-03	18:35:34	SampleClass0	[ERROR]	incorrect	id	
 		2012-02-03	18:55:54	SampleClass1	[ERROR]	incorrect	id	
@@ -115,9 +115,9 @@ Azure PowerShell предоставляет *cmdlets*, позволяющие у
 
 	> [AZURE.NOTE] Для более длинных запросов HiveQL вы можете использовать PowerShell Here-Strings или файл сценария HiveQL. В приведенном ниже отрывке кода показано, как использовать командлет *Invoke-Hive* для запуска файла сценария HiveQL. Файл сценария HiveQL необходимо передать в WASB.
 	>
-	> `Invoke-Hive -File "wasb://<имя_контейнера>@<имя_учетной_записи_хранения>/<путь>/query.hql"`
+	> `Invoke-Hive -File "wasb://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
 	>
-	> Дополнительную информацию о Here-Strings см. в разделе <a href="http://technet.microsoft.com/library/ee692792.aspx" target="_blank">Использование Windows PowerShell Here-Strings</a>.
+	> Дополнительные сведения о конструкции Here-Strings см. в разделе  <a href="http://technet.microsoft.com/library/ee692792.aspx" target="_blank">Использование конструкции Here-Strings в Windows PowerShell</a>.
 
 ##<a id="troubleshooting"></a>Устранение неполадок
 
@@ -145,4 +145,4 @@ Azure PowerShell предоставляет *cmdlets*, позволяющие у
 
 * [Использование MapReduce с Hadoop в HDInsight](../hdinsight-use-mapreduce/)
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

@@ -28,7 +28,7 @@
 
 * <a href="https://maven.apache.org/download.cgi" target="_blank">Maven</a> - это система сборки проектов Java.
 
-* Текстовый редактор, например <a href="http://www.gnu.org/software/emacs/" target="_blank">Emacs<a>, <a href="http://www.sublimetext.com/" target="_blank">Sublime Text</a>, <a href="https://atom.io/" target="_blank">Atom.io</a>, <a href="http://brackets.io/" target="_blank">Brackets.io</a>или Блокнот либо среда разработки (IDE), например <a href="https://eclipse.org/" target="_blank">Eclipse</a> (версии Luna или более поздней).
+* текстовый редактор, такой как <a href="http://www.gnu.org/software/emacs/" target="_blank">Emacs<a>, <a href="http://www.sublimetext.com/" target="_blank">Sublime Text</a>, <a href="https://atom.io/" target="_blank">Atom.io</a>, <a href="http://brackets.io/" target="_blank">Brackets.io</a> или Блокнот. Либо интегрированная среда разработки (IDE), такая как <a href="https://eclipse.org/" target="_blank">Eclipse</a> (версии Luna или более поздней).
 
 	> [AZURE.NOTE] В редакторе или интегрированной среде разработки могут быть предусмотрены специальные функциональные возможности для работы с Eclipse, не описанные в настоящем документе. Информацию о возможностях среды редактирования см. в документации продукта, который вы используете.
 
@@ -36,7 +36,7 @@
 
 Следующие переменные среды можно задать путем установки Java и пакета JDK. Тем не менее следует убедиться, что они существуют и содержат правильные значения для вашей системы.
 
-* **JAVA_HOME** - должна указывать на каталог, в который установлена среда выполнения Java (JRE). Например, в дистрибутиве Unix или Linux она должна иметь примерно такое значение: `/usr/lib/jvm/java-7-oracle`. В Windows она будет иметь значение, аналогичное `c:\Program Files (x86)\Java\jre1.7`
+* **JAVA_HOME** - должна указывать на каталог, в который установлена среда выполнения Java (JRE). Например, в дистрибутиве Unix или Linux она должна иметь примерно такое значение: `/usr/lib/jvm/java-7-oracle`. В Windows она будет иметь значение, аналогичное "c:\Program Files (x86)\Java\jre1.7".
 
 * **PATH** - должна содержать следующие пути:
 
@@ -99,7 +99,7 @@
 
 ###Добавление подключаемых модулей
 
-Для топологий Storm удобно использовать <a href="http://mojo.codehaus.org/exec-maven-plugin/" target="_blank">подключаемый модуль Exec,</a> так как он позволяет легко запускать топологию локально в среде разработки. Добавьте следующий код в раздел `<plugins>` файла **pom.xml**, чтобы включить в него подключаемый модуль exec.
+Для технологий Storm удобен <a href="http://mojo.codehaus.org/exec-maven-plugin/" target="_blank">подключаемый модуль Exec</a>, так как он позволяет легко запускать топологию локально в среде разработки. Добавьте следующий код в раздел `<plugins>` файла **pom.xml**, чтобы включить в него подключаемый модуль exec.
 
 	<plugin>
       <groupId>org.codehaus.mojo</groupId>
@@ -120,7 +120,7 @@
       </configuration>
     </plugin>
 
-Еще один подключаемый модуль, <a href="http://maven.apache.org/plugins/maven-compiler-plugin/" target="_blank">Compiler</a>используется для изменения параметров компиляции. Он нам нужен в основном для того, чтобы изменить версию Java, используемую Maven для исходного объекта и объекта назначения приложения (необходима версия 1.7).
+Другим полезным подключаемым модулем является <a href="http://maven.apache.org/plugins/maven-compiler-plugin/" target="_blank">Compiler</a>, который используется для изменения параметров компиляции. Он нам нужен в основном для того, чтобы изменить версию Java, используемую Maven для исходного объекта и объекта назначения приложения (необходима версия 1.7).
 
 Добавьте следующий код в раздел `<plugins>` файла **pom.xml**, чтобы включить в него подключаемый модуль compiler и задать версию 1.7 для исходного объекта и объекта назначения.
 
@@ -151,7 +151,7 @@
 >
 > * <a href="https://github.com/apache/storm/blob/master/examples/storm-starter/src/jvm/storm/starter/spout/TwitterSampleSpout.java" target="_blank">TwitterSampleSpout</a> - пример воронки, считывающей информацию из Twitter.
 >
-> * <a href="https://github.com/apache/storm/tree/master/external/storm-kafka" target="_blank">Storm Kafka</a> - воронка, считывающая информацию из Twitter.
+> * <a href="https://github.com/apache/storm/tree/master/external/storm-kafka" target="_blank">Storm Kafka</a> - воронка, считывающая информацию из Kafka.
 
 Создайте для воронки новый файл с именем **RandomSentenceSpout.java** в каталоге **src\main\java\com\microsoft\example** и используйте следующий код в качестве содержимого.
 
@@ -452,9 +452,9 @@ Trident - это предоставляемая Storm высокоуровнев
 
 Приложения Trident можно создавать с помощью проектов Maven, делая все то же, что описано выше, но с другим кодом.
 
-Дополнительную информацию о Trident см. в статье <a href="http://storm.apache.org/documentation/Trident-API-Overview.html" target="_blank">Обзор Trident API</a>.
+Дополнительные сведения о Trident см. в статье <a href="http://storm.apache.org/documentation/Trident-API-Overview.html" target="_blank">Обзор API Trident</a>.
 
-Пример приложения Trident см. в статье [Анализ популярных тем в Twitter с помощью Apache Storm в HDInsight](../hdinsight-storm-twitter-trending/).
+Пример приложения Trident см. в статье [Анализ популярных тем в Twitter с помощью Apache Storm в HDInsight](../hdinsight-storm-twitter-trending/)
 
 ##Дальнейшие действия
 
@@ -466,4 +466,4 @@ Trident - это предоставляемая Storm высокоуровнев
 
 * [Анализ популярных тем Twitter с помощью Apache Storm в HDInsight](../hdinsight-storm-twitter-trending)
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

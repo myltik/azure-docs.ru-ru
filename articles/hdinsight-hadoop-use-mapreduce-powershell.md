@@ -28,17 +28,17 @@
 
 * Кластер Azure HDInsight (Hadoop в HDInsight) (на платформе Windows или Linux)
 
-* <a href="http://azure.microsoft.com/ documentation/articles/install-configure-powershell/" target="_blank">Azure PowerShell</a>
+* <a href="http://azure.microsoft.com/documentation/articles/install-configure-powershell/" target="_blank">Azure PowerShell</a>
 
 ##<a id="powershell"></a>Выполнение задания MapReduce с использованием PowerShell
 
-Azure PowerShell предоставляет *cmdlets*, позволяющие удаленно запускать задания MapReduce в HDInsight. Внутри самой системы это достигается путем отправки вызовов REST в <a href="https://cwiki.apache.org/confluence/display/Hive/WebHCat" target="_blank">WebHCat</a> (прежнее название - Templeton) на кластере HDInsight.
+Azure PowerShell предоставляет *командлеты*, позволяющие удаленно запускать задания MapReduce в HDInsight. Внутренне это достигается с помощью вызовов REST к  <a href="https://cwiki.apache.org/confluence/display/Hive/WebHCat" target="_blank">WebHCat</a> (ранее называвшийся Templeton), запущенном на кластере HDInsight.
 
 При выполнении заданий MapReduce на удаленном кластере HDInsight используются следующие командлеты.
 
 * **Add-AzureAccount** - выполняет аутентификацию PowerShell в подписке Azure.
 
-* **New-AzureHDInsightMapReduceJobDefinitio** - создает новое *job definition*, используя заданную информацию MapReduce.
+* **New-AzureHDInsightMapReduceJobDefinition** - создает новое *job definition*, используя заданную информацию MapReduce
 
 * **Start-AzureHDInsightJob** - отправляет определение задания в HDInsight, запускает задание и возвращает объект *job*, который можно использовать для проверки состояния задания.
 
@@ -141,7 +141,7 @@ Azure PowerShell предоставляет *cmdlets*, позволяющие у
 		#Use the -blob switch to filter only blobs contained in example/data/WordCountOutput
 		Get-AzureStorageBlob -Container $storageContainer -Blob example/data/WordCountOutput/* -Context $context | Get-AzureStorageBlobContent -Context $context
 
-> [AZURE.NOTE] В этом примере скачанные файлы будут храниться в папке  **example/data/WordCountOutput** в каталоге, из которого запускается сценарий.
+> [AZURE.NOTE] В этом примере будут сохраняться загруженные файлы в папке **example/data/WordCountOutput** в каталоге, из которого запускается скрипт.
 
 Выходные данные задания MapReduce хранятся в файлах с именем *part-r-#####*. Откройте файл **example/data/WordCountOutput/part-r-00000** в текстовом редакторе, чтобы просмотреть слова и статистику, полученные в результате выполнения задания.
 
@@ -171,5 +171,5 @@ Azure PowerShell предоставляет *cmdlets*, позволяющие у
 
 * [Использование Hive с Hadoop в HDInsight](../hdinsight-use-hive/)
 
-* [Использование Pig с Hadoop в HDInsight](../hdinsight-use-pig/)
-<!--HONumber=45--> 
+* [Использование Pig с Hadoop в HDInsigh](../hdinsight-use-pig/)
+<!--HONumber=47-->

@@ -70,7 +70,7 @@ Trident - это высокоуровневая абстракция, котор
 
 > [AZURE.NOTE] Помимо воронки и HashtagExtractor мы используем также встроенные функции Trident.
 > 
-> Информацию о встроенных операциях см. в описании <a href="https://storm.apache.org/apidocs/storm/trident/operation/builtin/package-summary.html" target="_blank">storm.Trident.Operation.Builtin</a>.
+> Информацию о встроенных операциях см. в описании <a href="https://storm.apache.org/apidocs/storm/trident/operation/builtin/package-summary.html" target="_blank">storm.trident.operation.builtin</a>.
 > 
 > Информацию о внедрении состояния Trident, кроме MemoryMapState, см. по следующим ссылкам:
 > 
@@ -84,13 +84,13 @@ Trident - это высокоуровневая абстракция, котор
 
 ###HashtagExtractor
 
-Чтобы извлечь хэш-теги, используется <a href="http://twitter4j.org/javadoc/twitter4j/EntitySupport.html#getHashtagEntities--" target="_blank">getHashtagEntities,</a> позволяющий получить все хэш-теги, содержащиеся в твитах. Затем они отправляются в поток.
+Для извлечения хэш-тегов используется <a href="http://twitter4j.org/javadoc/twitter4j/EntitySupport.html#getHashtagEntities--" target="_blank">getHashtagEntities</a>, который позволяет получить все хэш-теги, содержащиеся в твитах. Затем они отправляются в поток.
 
 ##Включение Twitter
 
 Чтобы зарегистрировать новое приложение Twitter и получить информацию о ключе потребителя и маркере доступа, необходимую для чтения из Twitter, сделайте следующее.
 
-1. Перейдите на страницу <a href="" target="_blank">https://apps.twitter.com/</a> и воспользуйтесь кнопкой **Create new app** (Создать новое приложение). После заполнения формы, оставьте поле **Callback URL** (URL-адрес обратного вызова) пустым.
+1. Перейдите по адресу <a href="" target="_blank">https://apps.twitter.com/</a> и воспользуйтесь кнопкой **Create new app** (Создать новое приложение). После заполнения формы, оставьте поле **Callback URL** (URL-адрес обратного вызова) пустым.
 
 2. После создания приложения перейдите на вкладку **Keys and Access Tokens** (Ключи и маркеры доступа).
 
@@ -134,4 +134,10 @@ Trident - это высокоуровневая абстракция, котор
 * [Разработка топологий на Java для Storm в HDInsight с помощью Maven](../hdinsight-storm-develop-java-topology/)
 
 * [Разработка топологий для Storm в HDInsight на C# с помощью Visual Studio](../hdinsight-storm-develop-csharp-visual-studio-topology/)
-<!--HONumber=45--> 
+
+Дополнительные примеры Storm для HDinsight:
+
+* [Примеры Storm в HDInsight](https://github.com/hdinsight/hdinsight-storm-examples)
+
+* [Анализ данных датчиков EventHub с помощью Storm в HDInsight](../hdinsight-storm-sensor-data-analysis/)
+<!--HONumber=47-->

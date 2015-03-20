@@ -1,9 +1,8 @@
-> [AZURE.SELECTOR]
-- [Обзор](/ru-ru/documentation/articles/hdinsight-use-pig/)
-- [PowerShell](/ru-ru/documentation/articles/hdinsight-hadoop-use-pig-powershell/)
-- [SSH](/ru-ru/documentation/articles/hdinsight-hadoop-use-pig-ssh/)
-- [Удаленный рабочий стол](/ru-ru/documentation/articles/hdinsight-hadoop-use-pig-remote-desktop/)
-- [.NET SDK для Hadoop](/ru-ru/documentation/articles/hdinsight-hadoop-use-pig-dotnet-sdk/)
-- [Curl](/ru-ru/documentation/articles/hdinsight-hadoop-use-pig-curl/)
-
-<!--HONumber=45--> 
+﻿> [AZURE.SELECTOR]
+- [Обзор](/documentation/articles/hdinsight-use-pig/)
+- [PowerShell](/documentation/articles/hdinsight-hadoop-use-pig-powershell/)
+- [SSH](/documentation/articles/hdinsight-hadoop-use-pig-ssh/)
+- [Удаленный рабочий стол](/documentation/articles/hdinsight-hadoop-use-pig-remote-desktop/)
+- [.NET SDK для Hadoop](/documentation/articles/hdinsight-hadoop-use-pig-dotnet-sdk/)
+- [Curl](/documentation/articles/hdinsight-hadoop-use-pig-curl/)
+<!--HONumber=47-->

@@ -16,11 +16,11 @@
 	ms.date="02/08/2015" 
 	ms.author="juliako"/>
 
-# Практическое руководство. проверка хода выполнения задания
+#Практическое руководство. проверка хода выполнения задания
 
-Это одна из статей серии [Рабочий процесс для видео по запросу в службах мультимедиа](../media-services-video-on-demand-workflow). 
+Это одна из статей серии [Рабочий процесс для видео по запросу в службах мультимедиа](../media-services-video-on-demand-workflow) . 
 
-При выполнении заданий часто требуется способ отслеживания хода выполнения задачи. Состояние задания можно узнать с помощью свойства State задания. Дополнительную информацию о свойстве State см. в разделе [Свойства сущности задания](https://msdn.microsoft.com/ru-ru/library/azure/5100ddd7-92ff-4c37-84d2-4f84fee250a7#job_entity_properties).
+При выполнении заданий часто требуется способ отслеживания хода выполнения задачи. Состояние задания можно узнать с помощью свойства State задания. Дополнительную информацию о свойстве State см. в разделе [Свойства сущности задания](https://msdn.microsoft.com/library/azure/5100ddd7-92ff-4c37-84d2-4f84fee250a7#job_entity_properties).
 
 
 Запрос:
@@ -53,4 +53,4 @@
 	Date: Wed, 11 Feb 2015 01:46:39 GMT
 	
 	{"odata.metadata":"https://media.windows.net/api/$metadata#Jobs","value":[{"Id":"nb:jid:UUID:f3c43f94-327f-2347-90bb-3bf79f8559f1","Name":"Encoding BigBuckBunny into to H264 Adaptive Bitrate MP4 Set 720p","Created":"2015-02-11T01:46:08.897","LastModified":"2015-02-11T01:46:08.897","EndTime":null,"Priority":0,"RunningDuration":0.0,"StartTime":"2015-02-11T01:46:16.58","State":2,"TemplateId":null,"JobNotificationSubscriptions":[]}]}
-<!--HONumber=45--> 
+<!--HONumber=47-->

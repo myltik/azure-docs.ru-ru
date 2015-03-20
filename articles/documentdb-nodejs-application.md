@@ -1,6 +1,6 @@
-﻿<properties 
+<properties 
 	pageTitle="Создание веб-приложения Node.js с использованием DocumentDB | Azure" 
-	description="Сведения об использовании Microsoft Azure DocumentDB для хранения данных и доступа к ним из приложения Node.js, размещенного в Azure." 
+	description="Узнайте, как использовать Microsoft Azure DocumentDB для хранения данных и доступа к ним из веб-приложения Node.js Express, размещенного в службе Веб-сайты Azure." 
 	services="documentdb" 
 	documentationCenter="" 
 	authors="ryancrawcour" 
@@ -12,536 +12,529 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/16/2015" 
+	ms.topic="hero-article" 
+	ms.date="03/03/2015" 
 	ms.author="ryancraw"/>
 
-# <a name="_Toc395783175">Создание веб-приложения Node.js с использованием DocumentDB</a>
+# <a name="_Toc395783175"></a>Создание веб-приложения Node.js с использованием DocumentDB
 
-<a name="_Toc395783175">
+В этом учебнике показано, как использовать службу Azure DocumentDB для хранения данных и доступа к ним из приложения Node.js Express, размещенного в службе Веб-сайты Azure.
 
-В этом учебном курсе показано, как использовать службу Azure DocumentDB для хранения данных и обеспечения доступа к ним из приложения
-Node.js Express, размещенного на веб-сайтах Azure.
+После прохождения данного учебника вы сможете ответить на следующие вопросы:
 
-Этот учебный курс разработан для читателей, обладающих определенным опытом использования Node.js.
+- Как работать с DocumentDB, используя модуль npm documentdb?
+- Как развернуть веб-приложение в службе Веб-сайты Azure?
 
-Вы узнаете:
-
-Как использовать средства Node.js для Visual Studio
-
-Как работать со службой Azure DocumentDB, используя модуль documentdb из npm
-
-Как развернуть веб-приложение на веб-сайтах Azure
-
-В ходе учебного курса вы создадите простое веб-приложение
- для управления задачами, позволяющее создавать, извлекать и
- выполнять задачи. Задачи будут храниться в виде документов JSON в Azure
+Руководствуясь этим учебником, вы соберете простое веб-приложение для управления задачами, позволяющее создавать, извлекать и выполнять задачи. Эти задачи будут храниться в виде документов JSON в Azure
 DocumentDB.
 
-![Альтернативный текст][Альтернативный текст]
+![Screen shot of the My Todo List application created in this tutorial](./media/documentdb-nodejs-application/image1.png)
 
-## <a name="_Toc395783176">Предварительные требования</a>
+Вам не хватает времени на прохождение учебника, и вы хотите просто получить готовое решение из Github? Никаких проблем, оно находится [здесь][].
 
-Перед выполнением инструкций, приведенных в этой статье, следует убедиться,
- что установлены следующие компоненты:
+## <a name="_Toc395783176"></a>Предварительные требования
 
-[Node.js][Node.js] версии v0.10.29 или более поздней версии
+> [AZURE.TIP] В данном учебнике предполагается, что у вас есть некоторый опыт использования Node.js и службы Веб-сайты Azure.
 
-[Git][Git]
+Перед выполнением инструкций, приведенных в этой статье, следует убедиться, что установлены следующие компоненты:
 
-[Visual Studio 2013][Visual Studio 2013] с обновлением 3
+- Активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](../../pricing/free-trial/).
+- [Node.js][] версии v0.10.29 или более высокой.
+- [Генератор Express](http://www.expressjs.com/starter/generator.html) (его можно установить через `npm install express-generator -g`)
+- [Git][].
 
-[Средства Node.js для Visual Studio][Средства Node.js для Visual Studio]
+## <a name="_Toc395637761"></a>Шаг 1. Создание учетной записи базы данных DocumentDB
 
-**Примечание.** Несмотря на то, что мы используем Visual Studio для создания, отладки и развертывания нашего проекта Node.js
- в этом учебнике, вы можете использовать любой предпочтительный редактор
- и запускать Node.js непосредственно на выбранной вами платформе,
- как это обычно происходит. Для развертывания приложения на веб-сайтах Azure можно использовать [средства командной строки][средства командной строки] Azure
+Давайте начнем с создания учетной записи DocumentDB. Если у вас уже есть учетная запись, перейдите к подразделу [Шаг 2. Создание нового приложения Node.js](#_Toc395783178).
 
-# <a name="_Toc395637761">Создание учетной записи базы данных DocumentDB</a>
+[AZURE.INCLUDE [documentdb-create-dbaccount](../includes/documentdb-create-dbaccount.md)]
 
-Для подготовки учетной записи базы данных DocumentDB в Azure, откройте[портал управления Azure][портал управления Azure]
- и, либо щелкните плитку «Коллекция Azure» на домашней странице, либо нажмите «+» в левом нижнем углу экрана.
+[AZURE.INCLUDE [documentdb-keys](../includes/documentdb-keys.md)]
 
-![Альтернативный текст][1]
+## <a name="_Toc395783178"></a>Шаг 2. Создание нового приложения Node.js
 
-Откроется коллекция Azure, где можно будет выбрать из множества
- доступных служб Azure. В коллекции выберите «Данные, хранение и
- резервное копирование» из списка категорий.
+А теперь создадим простейший проект Hello World на базе Node.js, используя платформу [Express](http://expressjs.com/).
 
-![Альтернативный текст][2]
+1. Откройте привычный терминал.
 
-Здесь выберите параметр для Azure DocumentDB
+2. Используйте генератор Express для создания нового приложения с именем **todo**.
 
-![Альтернативный текст][3]
+		express todo
 
-Затем нажмите «Создать» в нижней части экрана
+3. Откройте новый каталог **todo** и установите зависимости.
 
-![Альтернативный текст][4]
+		cd todo
+		npm install
 
-Откроется выноска «Новая DocumentDB», где можно будет задать
- имя, регион, масштаб, группу ресурсов и прочие настройки новой
- учетной записи.
+4. Запустите новое приложение.
 
-![Альтернативный текст][5]
+		npm start
 
-Как только вы закончите ввод значений для вашей учетной записи, нажмите кнопку «Создать»
-и начнется процесс подготовки создания учетной записи базы данных.
- Когда процесс подготовки будет завершен, вы уведите уведомление,
- которое появится в области уведомлений портала, а плитка на
- экране запуска (если вы выбрали ее для создания) изменится, чтобы отобразить
- выполненное действие.
+5. Для просмотра нового приложения можно перейти по адресу [http://localhost:3000](http://localhost:3000) в браузере.
 
-![Альтернативный текст][6]
+	![Screenshot of the Hello World application in a browser window](./media/documentdb-nodejs-application/image12.png)
 
-После завершения подготовки при нажатии плитки DocumentDB на
- экране запуска появится главная выноска для этой вновь созданной
-DocumentDB.
+## <a name="_Toc395783179"></a>Шаг 3. Установка дополнительных модулей
 
-![Альтернативный текст ][Альтернативный текст ]
-![Альтернативный текст ][7]
+В среди файлов корневой папке проекта находится файл **package.json**. Он содержит список дополнительных модулей, необходимых вашему приложению Node.js. Впоследствии при развертывании этого приложения в службе Веб-сайты Azure данный файл использует для определения того, какие модули необходимо установить в Azure для реализации поддержки вашего приложения. В рамках этого учебника нам требуется установить еще два пакета.
 
-При помощи кнопки «Ключи», получите URL-адрес вашей конечной точки и первичный ключ,
- скопируйте их в буфер обмена и держите их под рукой, так как мы будем использовать
- эти значения в веб-приложении, которое создадим в последующем.
+1. Вернитесь в терминал и установите модуль **async** через npm.
 
-## <a name="_Toc395783178">Создание нового приложения Node.js</a>
+		npm install async --save
 
-В Visual Studio выберите Файл – Новый проект и выберите вариант создания нового приложения «Базовое приложение Microsoft Azure Express».
+1. Установите модуль **documentdb** через npm. Именно этот модуль отвечает за "магию" DocumentDB.
 
-![Альтернативный текст][8]
+		npm install documentdb --save
 
-Будет создано базовое приложение Express. Если появится запрос
- «установить зависимости?», выберите ответ «Да». При этом будут установлены все пакеты
-, которые требуются для нового приложения Express.
+3. Быстрая проверка файла **package.json** приложения должна помочь выявить дополнительные модули. Этот файл сообщает Azure, какие пакеты следует скачать и установить при запуске вашего приложения. Это должно быть похоже на приведенный ниже пример.
 
-После установки обозреватель решений должен иметь
-следующий вид;
+	![Screenshot of the package.json tab](./media/documentdb-nodejs-application/image17.png)
+
+       Этот код сообщает Node (а затем и Azure), что ваше приложение зависит от этих дополнительных модулей.
+
+## <a name="_Toc395783180"></a>Шаг 4. Использование службы DocumentDB в приложении Node
+
+После завершения начальной установки и настройки, давайте перейдем к, собственно, написанию кода приложения, использующего Azure DocumentDB.
+
+### Создание модели
+
+1. В каталоге проекта создайте новый каталог с именем **models**.
+2. В каталоге **models** создайте файл с именем **taskDao.js**. Этот файл будет содержать модель для задач, создаваемых вашим приложением.
+3. В том же каталоге **models** создайте другой файл с именем **docdbUtils.js**. Этот файл будет содержать полезный код для многократного использования в разных частях приложения. 
+4. Скопируйте следующий код в файл **docdbUtils.js**.
+
+		var DocumentDBClient = require('documentdb').DocumentClient;
+		
+		var DocDBUtils = {
+		  getOrCreateDatabase: function(client, databaseId, callback) {
+		    var querySpec = {
+		      query: 'SELECT * FROM root r WHERE r.id=@id',
+		      parameters: [{
+		        name: '@id',
+		        value: databaseId
+		      }]
+		    };
+		
+		    client.queryDatabases(querySpec).toArray(function(err, results) {
+		      if (err) {
+		        callback(err);
+		      }
+		
+		      if (!err && results.length === 0) {
+		        client.createDatabase({
+		          id: databaseId
+		        }, function(err, created) {
+		          callback(null, created);
+		        });
+		      } else {
+		        callback(null, results[0]);
+		      }
+		    });
+		  },
+		
+		  getOrCreateCollection: function(client, databaseLink, collectionId, callback) {
+		    var querySpec = {
+		      query: 'SELECT * FROM root r WHERE r.id=@id',
+		      parameters: [{
+		        name: '@id',
+		        value: collectionId
+		      }]
+		    };
+		
+		    client.queryCollections(databaseLink, querySpec).toArray(function(err, results) {
+		      if (err) {
+		        callback(err);
+		      }
+		
+		      if (!err && results.length === 0) {
+		        client.createCollection(databaseLink, {
+		          id: collectionId
+		        }, function(err, created) {
+		          callback(null, created);
+		        });
+		      } else {
+		        callback(null, results[0]);
+		      }
+		    });
+		  }
+		};
+		
+		module.exports = DocDBUtils;
+		
+3. Сохраните и закройте файл **docdbUtils.js**.
+
+4. В начале файла **taskDao.js** добавьте следующий код, чтобы задать ссылку на созданные ранее файлы **DocumentDBClient** и **docdbUtils.js**:
+
+        var DocumentDBClient = require('documentdb').DocumentClient;
+		var docdbUtils = require('./docdbUtils');
+
+4. Далее будет добавлен код для определения и экспорта объекта Task. Он отвечает за инициализацию нашего объекта Task и настройку базы данных и коллекции документов, которые мы будем использовать.
+
+		function TaskDao(documentDBClient, databaseId, collectionId) {
+		  this.client = documentDBClient;
+		  this.databaseId = databaseId;
+		  this.collectionId = collectionId;
+		
+		  this.database = null;
+		  this.collection = null;
+		}
+		
+		module.exports = TaskDao;
+
+5. Затем добавьте следующий код, чтобы определить дополнительные методы для объекта Task, обеспечивающего взаимодействие с данными, хранящимися DocumentDB.
+
+		TaskDao.prototype = {
+		  init: function(callback) {
+		    var self = this;
+		
+		    docdbUtils.getOrCreateDatabase(self.client, self.databaseId, function(err, db) {
+		      if (err) {
+		        callback(err);
+		      }
+		
+		      self.database = db;
+		      docdbUtils.getOrCreateCollection(self.client, self.database._self, self.collectionId, function(err, coll) {
+		        if (err) {
+		          callback(err);
+		        }
+		
+		        self.collection = coll;
+		      });
+		    });
+		  },
+		
+		  find: function(querySpec, callback) {
+		    var self = this;
+		
+		    self.client.queryDocuments(self.collection._self, querySpec).toArray(function(err, results) {
+		      if (err) {
+		        callback(err);
+		      } else {
+		        callback(null, results);
+		      }
+		    });
+		  },
+		
+		  addItem: function(item, callback) {
+		    var self = this;
+		    item.date = Date.now();
+		    item.completed = false;
+		    self.client.createDocument(self.collection._self, item, function(err, doc) {
+		      if (err) {
+		        callback(err);
+		      } else {
+		        callback(null);
+		      }
+		    });
+		  },
+		
+		  updateItem: function(itemId, callback) {
+		    var self = this;
+		
+		    self.getItem(itemId, function(err, doc) {
+		      if (err) {
+		        callback(err);
+		      } else {
+		        doc.completed = true;
+		        self.client.replaceDocument(doc._self, doc, function(err, replaced) {
+		          if (err) {
+		            callback(err);
+		          } else {
+		            callback(null);
+		          }
+		        });
+		      }
+		    });
+		  },
+		
+		  getItem: function(itemId, callback) {
+		    var self = this;
+		
+		    var querySpec = {
+		      query: 'SELECT * FROM root r WHERE r.id=@id',
+		      parameters: [{
+		        name: '@id',
+		        value: itemId
+		      }]
+		    };
+		
+		    self.client.queryDocuments(self.collection._self, querySpec).toArray(function(err, results) {
+		      if (err) {
+		        callback(err);
+		      } else {
+		        callback(null, results[0]);
+		      }
+		    });
+		  }
+		};
+
+6. Сохраните и закройте файл **taskDao.js**. 
+
+### Создание контроллера
+
+1. В каталоге **routes** проекта создайте файл  с именем **tasklist.js**. 
+2. Добавьте следующий код в файл **tasklist.js**. Он загружает модули DocumentDBClient и async, используемые файлом **tasklist.js**. Кроме того, он определяет функцию **TaskList**, в которую передается экземпляр определенного ранее объекта **Task**:
+
+		var DocumentDBClient = require('documentdb').DocumentClient;
+		var async = require('async');
+		
+		function TaskList(taskDao) {
+		  this.taskDao = taskDao;
+		}
+		
+		module.exports = TaskList;
+
+3. Продолжайте дополнять файл **tasklist.js**, добавив методы **showTasks, addTask** и **completeTasks**:
+
+		TaskList.prototype = {
+		  showTasks: function(req, res) {
+		    var self = this;
+		
+		    var querySpec = {
+		      query: 'SELECT * FROM root r WHERE r.completed=@completed',
+		      parameters: [{
+		        name: '@completed',
+		        value: false
+		      }]
+		    };
+		
+		    self.taskDao.find(querySpec, function(err, items) {
+		      if (err) {
+		        throw (err);
+		      }
+		
+		      res.render('index', {
+		        title: 'My ToDo List ',
+		        tasks: items
+		      });
+		    });
+		  },
+		
+		  addTask: function(req, res) {
+		    var self = this;
+		    var item = req.body;
+		
+		    self.taskDao.addItem(item, function(err) {
+		      if (err) {
+		        throw (err);
+		      }
+		
+		      res.redirect('/');
+		    });
+		  },
+		
+		  completeTask: function(req, res) {
+		    var self = this;
+		    var completedTasks = Object.keys(req.body);
+		
+		    async.forEach(completedTasks, function taskIterator(completedTask, callback) {
+		      self.taskDao.updateItem(completedTask, function(err) {
+		        if (err) {
+		          callback(err);
+		        } else {
+		          callback(null);
+		        }
+		      });
+		    }, function goHome(err) {
+		      if (err) {
+		        throw err;
+		      } else {
+		        res.redirect('/');
+		      }
+		    });
+		  }
+		};
+
+4. Сохраните и закройте файл **tasklist.js**.
+ 
+### Добавление config.json
+
+1. В каталоге проекта создайте новый файл с именем **config.js**.
+2. Добавьте в файл **config.json** следующий код. Он определяет значения и параметры конфигурации, необходимые нашему приложению.
+
+		var config = {}
+		
+		config.host = process.env.HOST || "[the URI value from the DocumentDB Keys blade on http://portal.azure.com]";
+		config.authKey = process.env.AUTH_KEY || "[the PRIMARY KEY value from the DocumentDB Keys blade on http://portal.azure.com]";
+		config.databaseId = "ToDoList";
+		config.collectionId = "Items";
+		
+		module.exports = config;
+
+3. В файле **config.js** обновите значения HOST и AUTH_KEY, используя значения с выноски "Ключи" своей учетной записи DocumentDB на [портале предварительной версии Azure](http://portal.azure.com):
+
+4. Сохраните и закройте файл **config.js**.
+ 
+### Изменение app.js
+
+1. Откройте файл **app.js** в каталоге проекта. Этот файл был создан ранее - при создании веб-приложения Express.
+2. Добавьте в начало файла **app.js** следующий код.
+	
+		var DocumentDBClient = require('documentdb').DocumentClient;
+		var config = require('./config');
+		var TaskList = require('./routes/tasklist');
+		var TaskDao = require('./models/taskDao');
+
+3. Данный код задает используемый файл конфигурации и считывает значения из этого файла в некоторые переменные, которыми мы скоро воспользуемся.
+4. Замените две следующих строки в файле **app.js**:
+
+		app.use('/', routes);
+		app.use('/users', users); 
+
+      на следующий фрагмент кода:
+
+		var docDbClient = new DocumentDBClient(config.host, {
+		    masterKey: config.authKey
+		});
+		var taskDao = new TaskDao(docDbClient, config.databaseId, config.collectionId);
+		var taskList = new TaskList(taskDao);
+		taskDao.init();
+		
+		app.get('/', taskList.showTasks.bind(taskList));
+		app.post('/addtask', taskList.addTask.bind(taskList));
+		app.post('/completetask', taskList.completeTask.bind(taskList));
+
+
+6. Эти строки определяют новый экземпляр нашего объекта **TaskDao** с новым подключением к DocumentDB (с использованием считанных из файла **config.js** значений), инициализируют объект задачи и привязывают действия формы к методам нашего контроллера **TaskList**. 
+
+7. Сохраните и закройте файл **app.js**, уже почти все готово.
+ 
+## <a name="_Toc395783181"></a>Шаг 5. Создание пользовательского интерфейса
+
+Теперь давайте обратим наше внимание на создание пользовательского интерфейса, чтобы пользователь смог взаимодействовать с нашим приложением. Созданное нами приложение Express использует **Jade** в качестве обработчика представлений. Дополнительные сведения о Jade см. на сайте [http://jade-lang.com/](http://jade-lang.com/).
+
+1. Файл **layout.jade** в каталоге **views** используется как глобальный шаблон для других файлов **.jade**. На этом шаге он будет изменен для использования [Twitter Bootstrap](https://github.com/twbs/bootstrap) - набора инструментов, упрощающих разработку привлекательного веб-сайта. 
+2. Откройте файл **layout.jade** в папке **views** и замените его содержимое следующим кодом:
+	
+		doctype html
+		html
+		  head
+		    title= title
+		    link(rel='stylesheet', href='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/css/bootstrap.min.css')
+		    link(rel='stylesheet', href='/stylesheets/style.css')
+		  body
+		    nav.navbar.navbar-inverse.navbar-fixed-top
+		      div.navbar-header
+		        a.navbar-brand(href='#') My Tasks
+		    block content
+		    script(src='//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.2.min.js')
+		    script(src='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/bootstrap.min.js')
+
+
+
+	Он позволяет эффективно сообщить подсистеме **Jade** о том, что необходимо выполнить прорисовку HTML-кода для нашего приложения, и создает **block** с именем **content**, где можно указать разметку для страниц содержимого .
+	Сохраните и закройте файл **layout.jade**.
+
+4. Теперь откройте файл **index.jade**, представление, которое будет использоваться нашим приложением, и замените содержимое файла следующим кодом:
+
+		extends layout
+		
+		block content
+		  h1 #{title}
+		  br
+		
+		  form(action="/completetask", method="post")
+		    table.table.table-striped.table-bordered
+		      tr
+		        td Name
+		        td Category
+		        td Date
+		        td Complete
+		      if (typeof tasks === "undefined")
+		        tr
+		          td
+		      else
+		        each task in tasks
+		          tr
+		            td #{task.name}
+		            td #{task.category}
+		            - var date  = new Date(task.date);
+		            - var day   = date.getDate();
+		            - var month = date.getMonth() + 1;
+		            - var year  = date.getFullYear();
+		            td #{month + "/" + day + "/" + year}
+		            td
+		              input(type="checkbox", name="#{task.id}", value="#{!task.completed}", checked=task.completed)
+		    button.btn(type="submit") Update tasks
+		  hr
+		  form.well(action="/addtask", method="post")
+		    label Item Name:
+		    input(name="name", type="textbox")
+		    label Item Category:
+		    input(name="category", type="textbox")
+		    br
+		    button.btn(type="submit") Add item
+
+	Это позволяет расширить разметку и предоставить содержимое для заполнителя **content**, который мы ранее видели в файле **layout.jade**.
+	
+	В макете мы создали две формы HTML. 
+	Первая форма содержит таблицу для наших данных и кнопку, позволяющую обновлять элементы за счет передачи в метод **/completetask** нашего контроллера.
+	Вторая форма содержит два поля ввода и кнопку, позволяющую создать новый элемент, выполнив передачу в метод **/addtask** контроллера.
+	
+	Этого должно быть достаточно для работы нашего приложения.
+
+5. Откройте файл **style.css** в каталоге **public\stylesheets** и замените код следующим:
+
+		body {
+		  padding: 50px;
+		  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+		}
+		a {
+		  color: #00B7FF;
+		}
+		.well label {
+		  display: block;
+		}
+		.well input {
+		  margin-bottom: 5px;
+		}
+		.btn {
+		  margin-top: 5px;
+		  border: outset 1px #C8C8C8;
+		}
+
+	Сохраните и закройте файл **style.css**.
+
+## <a name="_Toc395783181"></a>Шаг 6. Локальный запуск приложения
+
+1. Чтобы протестировать приложение на локальной виртуальной машине, запустите `npm start` в терминале для запуска приложения и открытия браузера на странице, аналогичной приведенной ниже:
+
+	![Screenshot of the MyTodo List application in a browser window](./media/documentdb-nodejs-application/image18.png)
+
+
+2. Введите информацию об элементе, имени элемента и категории в соответствующих полях, а затем нажмите кнопку **Добавить элемент**.
+
+3. Страница должна обновиться, чтобы отобразить новый элемент в списке дел.
+
+	![Screenshot of the application with a new item in the ToDo list](./media/documentdb-nodejs-application/image19.png)
+
+4. Чтобы выполнить задачу, просто установите флажок в столбце "Выполнить" и нажмите кнопку **Обновить задачи**.
+
+## <a name="_Toc395783182"></a>Шаг 7. Разверните приложение на веб-сайтах Azure
+
+1. Если вы еще не сделали это, включите репозиторий git для своего веб-сайта Azure. Инструкции по выполнению данной процедуры приведены [здесь](/documentation/articles/web-sites-publish-source-control/#Step4).
+
+2. Добавьте свой веб-сайт Azure в качестве git remote.
+
+		git remote add azure https://username@your-azure-website.scm.azurewebsites.net:443/your-azure-website.git
+
+3. Выполните развертывание с помощью принудительной передачи на remote.
+
+		git push azure master
+
+4. Через несколько секунд git закончит публикацию веб-приложения и запустит браузер, где ваше творение выполняется в Azure!
+
+## <a name="_Toc395637775"></a>Дальнейшие действия
+
+Поздравляем! Вы только что создали свое первое веб-приложение Node.js Express
+с помощью Azure DocumentDB и опубликовали его в службе веб-сайты Azure.
+
+Исходный код для этого примера приложения можно скачать [здесь][].
 
-![Альтернативный текст][9]
-
-Видно, что установлены Express, Jade и Stylus.
-
-Если нажать клавишу F5 в Visual Studio, то произойдет сборка проекта, запуск
- Node.js и откроется веб-браузер с эквивалентом Express приложения «Hello
- World».
-
-![Альтернативный текст][10]
-
-## <a name="_Toc395783179">Установка дополнительных модулей</a>
-
-Файл **package.json** является одним из файлов, созданных в корневой папке
- проекта. Этот файл содержит список дополнительных модулей,
- необходимых для приложения Express. Позднее, при развертывании этого
- приложения на веб-сайте Azure, этот файл будет использоваться, чтобы определить,
- какие модули должны быть установлены в Azure для поддержки приложения.
-
-![Альтернативный текст][11]
-
-Для этого учебника нужны два дополнительных модуля.
-
-Щелкните правой кнопкой мыши на «npm» в обозревателе решений и выберите пункт «Установить пакеты
- npm»
-
-![Альтернативный текст][12]
-
-В диалоговом окне «Установка новых пакетов npm» введите **nconf** для поиска
- модуля. Этот модуль будет использоваться приложением для считывания настроек подключения
- к базе данных из файла конфигурации.
-
-![Альтернативный текст][13]
-
-Наконец, установите модуль Azure DocumentDB таким же образом,
-найдя строку **documentdb**. В этом модуле заключена вся «магия»
-DocumentDB.
-
-После установки этих двух дополнительных модулей и зависимостей,
- они должны появиться в обозревателе решений в группе модулей **npm**
-.
-
-![Альтернативный текст][14]
-
-В файле приложения **package.json** должны быть
-указаны дополнительные модули. Этот файл позже будет использоваться Azure для загрузки и установки
-пакетов, необходимых при выполнении
- приложения.
-
-При необходимости для воссоздания примера отредактируйте файл package.json.
-
-![Альтернативный текст][15]
-
-Это сообщает Node (и позже Azure), что ваше приложение зависит от этих дополнительных
- модулей.
-
-# <a name="_Toc395783180">Использование службы DocumentDB в приложении Node</a>
-
-После завершения начальной установки и настройки, давайте перейдем к, собственно, написанию кода приложения, использующего Azure DocumentDB. Для начала отредактируйте файл **app.js**, расположенный в корневой папке только что созданного приложения Express. Найдите в файле следующие строки:
-
-    app.get('/', routes.index);
-    app.get('/users', user.list);
-
-И замените их этими двумя строками:
-
-    app.get('/', routes.index);
-    app.post('/', routes.createOrUpdateItem);
-
-Эти строки сообщат программе, что делать по умолчанию с методами GET и POST на форме, которую мы создадим в последующем.
-
-Найдите файл **index.js** в папке **routes**. Откройте его в редакторе и удалите из него весь код.
-
-Добавьте следующий код в начало файла;
-
-    // import the modules we will use
-    var DocumentDBClient = require('documentdb').DocumentClient;
-    var nconf = require('nconf');
-
-    // tell nconf which config file to use
-    nconf.env();
-    nconf.file({ file: 'config.json' });
-
-Тут определяются модули, которые мы собираемся использовать, это **documentdb** и **nconf**.
-
-**nconf** — это модуль, который позволяет загружать значения конфигурации, такие как настройки подключения базы данных, из внешних файлов, а не устанавливать эти значения в коде. nconf будет искать конфигурацию по умолчанию в файле **config.json**.
-
-Далее, создадим пустой текстовый файл **config.json** в корневой папке проекта (там же, где находится файл app.js)
-
-Откройте созданный **config.json** и введите следующие значения, в зависимости от конкретной конечной точки DocumentDB. Убедитесь в правильности введенных значений HOST и MASTER\_KEY.
-
-    {
-        "HOST"       : "<insert your DocDB endpoint here>",
-        "AUTH_KEY"   : "<insert either primary or secondary key here>",
-        "DATABASE"   : "ToDoList",
-        "COLLECTION" : "Items"
-    }
-
-Вернитесь к файлу **index.js**, добавьте следующие строки после последних строк для того, чтобы реализовать чтение конфигурационного файла и хранение значений в переменных уровня страницы.
-
-    var host = nconf.get("HOST");
-    var authKey = nconf.get("AUTH_KEY");
-    var databaseId = nconf.get("DATABASE");
-    var collectionId = nconf.get("COLLECTION");
-
-После того, как это будет сделано, добавьте следующий код в **index.js**
-
-    // create some global variables which we will use later to hold instances of the DocumentDBClient, Database and Collection
-
-    // create an instance of the DocumentDB client
-    var client = new DocumentDBClient(host, { masterKey: authKey });
-
-    exports.index = function (req, res) {       
-        // before we can query for Items in the document store, we need to ensure we 
-        // have a database with a collection then use the collection to read the documents
-        readOrCreateDatabase(function (database) {
-            readOrCreateCollection(database, function (collection) {
-                listItems(collection, function (items) {
-                    res.render('index', { title: 'My ToDo List', tasks: items });
-                });    
-            });
-        });
-    };
-
-    exports.createOrUpdateItem = function (req, res) {
-        //first have to set the database & collection context so that we have the self links   
-        readOrCreateDatabase(function (database) {
-            readOrCreateCollection(database, function (collection) {
-                        
-                //if we find an item on the form, we'll create it in the database
-                var item = req.body.item;
-                if (item) {
-                    createItem(collection, item, function () {
-                    res.redirect('/');
-                });
-                
-                //else let's look for items marked as completed, 
-                //and update that item in the database
-                } else {
-                    var completed = req.body.completed;
-                    
-                    //check if completed is actually an Array, if not make it one. 
-                    //this happens when you select only one item            
-                    if (!completed.forEach)
-                        completed = [completed];
-                    
-                    //use a recursive function to loop through items in 
-                    //array calling updateItem each time through                                    
-                    function updater(i) {
-                        if (i < completed.length) {
-                            updateItem(collection, completed[i], function () {
-                                updater(i + 1);
-                            });
-                        } else {
-                            res.redirect('/');
-                        }
-                    }
-                    
-                    //kick off the recursion
-                    updater(0);
-                }
-            });
-        });
-    }
-
-Это и есть две функции, о которые мы говорили ранее, что они нужны для использования в приложении в **app.js**, когда мы определили маршруты. При получении представлением индекса команды GET запустится функция **exports.index**, аналогично при получении команды POST запустится функция **exports.createOfUpdateItem**.
-
-Эти две функции реализуют всю функциональность приложения, которое мы разрабатываем, однако они обращаются к другим функциям, только для того, чтобы сделать код более читаемым и отслеживаемым. Добавьте в файл **index.js** следующий код: Он содержит все методы, используемые двумя вышеуказанными функциями выше и все вызовы DocumentDB. Мы более подробно ознакомимся с каждой функцией позже.
-
-    // update item
-    var updateItem = function (collection, itemId, callback) {
-        //first fetch the document based on the id
-        getItem(collection, itemId, function (doc) {
-            //now replace the document with the updated one
-            doc.completed = true;
-            client.replaceDocument(doc._self, doc, function (err, replacedDoc) {
-                if (err) {
-                    throw (err);
-                }
-                
-                callback();
-            });
-        });
-    }
-
-    // get item
-    var getItem = function (collection, itemId, callback) {      
-        client.queryDocuments(collection._self, 'SELECT * FROM root r WHERE r.id="' + itemId + '"').toArray(function (err, results) {
-            if (err) {
-                throw (err);
-            }
-
-            callback(results[0]);
-        });
-    }
-
-    // create new item
-    var createItem = function (collection, documentDefinition, callback) {
-        documentDefinition.completed = false;
-        client.createDocument(collection._self, documentDefinition, function (err, doc) {
-            if (err) {
-                throw (err);
-            }
-            
-            callback();
-        });
-    }
-
-    // query the provided collection for all non-complete items
-    var listItems = function (collection, callback) {
-        client.queryDocuments(collection._self, 'SELECT * FROM root r WHERE r.completed=false').toArray(function (err, docs) {
-            if (err) {
-                throw (err);
-            }
-            
-            callback(docs);
-        });
-    }
-
-    // if the database does not exist, then create it, else return the database object
-    var readOrCreateDatabase = function (callback) {
-        client.queryDatabases('SELECT * FROM root r WHERE r.id="' + databaseId + '"').toArray(function (err, results) {
-            if (err) {
-                // some error occured, rethrow up
-                throw (err);
-            }
-            if (!err && results.length === 0) {
-                // no error occured, but there were no results returned 
-                // indicating no database exists matching the query            
-                client.createDatabase({ id: databaseId }, function (err, createdDatabase) {
-                    callback(createdDatabase);
-                });
-            } else {
-                // we found a database
-                callback(results[0]);
-            }
-        });
-    };
-
-    // if the collection does not exist for the database provided, create it, else return the collection object
-    var readOrCreateCollection = function (database, callback) {
-        client.queryCollections(database._self, 'SELECT * FROM root r WHERE r.id="' + collectionId + '"').toArray(function (err, results) {
-            if (err) {
-                // some error occured, rethrow up
-                throw (err);
-            }           
-            if (!err && results.length === 0) {
-                // no error occured, but there were no results returned 
-                //indicating no collection exists in the provided database matching the query
-                client.createCollection(database._self, { id: collectionId }, function (err, createdCollection) {
-                    callback(createdCollection);
-                });
-            } else {
-                // we found a collection
-                callback(results[0]);
-            }
-        });
-    };
-
-**updateItem** — обновляет документ в базе данных на основе идентификатора элемента, переданного из формы. Этот идентификатор используется для запуска метода ***readDocument*** в DocumentDB, чтобы прочитать определенный документ, сохраненный ранее. Затем он изменяет значение атрибута документа «завершен» в true, указав, что он уже завершен, а затем переходит к замене документа в базе данных.
-
-**getItem —** использует ***queryDocuments*** ,чтобы получить одиночный элемент из базы данных, через свойство идентификатора элемента.
-
-**createItem** — использует метод ***createDocument*** для создания нового документа в базе данных на основе введенных в форме имени элемента и его категории. Он также устанавливает флаг завершения в false, чтобы указать, что этот элемент еще не завершен.
-
-**listItems** — использует ***queryDocuments*** для поиска всех документов в коллекции, которые еще не завершены, т.е. где completed = false. Он использует грамматику запросов DocumentDB на базе ANSI-SQL для демонстрации широко известной и мощной возможности.
-
-**readOrCreateDatabase** — использует ***queryDatabases*** для проверки, существует ли база данных с указанным именем. Если такая база данных не найдена, мы продолжим и используем ***createDatabase*** чтобы создать новую базу данных с заданным идентификатором (из нашего конфигурационного файла) на указанной конечной точке (также из конфигурационного файла).
-
-**readOrCreateCollection** — как и readOrCreateDatabase, этот метод сначала попытается найти коллекцию с заданным идентификатором, если она существует, то он завершается, если не существует, то коллекция создается.
-
-Вот и весь код, который необходим для этого образца приложения, чтобы взаимодействовать с DocumentDB.
-
-Теперь давайте обратим наше внимание на создание пользовательского интерфейса, чтобы пользователь смог взаимодействовать с нашим приложением. Созданное нами приложение Express использует в качестве обработчика представлений **Jade**. Дополнительные сведения о Jade см. на сайте <http://jade-lang.com/>
-
-Откройте файл **layout.jade** , расположенный в папке **views**, и замените его содержимое следующим;
-
-    doctype html
-    html
-      head
-        title= title
-        meta(http-equiv='X-UA-Compatible', content='IE=10')
-        link(rel='stylesheet', href='/stylesheets/style.css')
-        link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
-      body.app
-        nav.navbar.navbar-fixed-top
-          div.navbar-inner
-            container
-                a.brand(href='/') My Tasks
-        block content
-
-Этот код указывает обработчику **Jade** создать HTML для нашего приложения, а также «**блок**» под названием «**контент**», в котором можно поместить макет наших страниц.
-
-Откройте файл **index.jade** представления, связанного с index.js, и замените его содержимое следующим;
-
-    extends layout
-
-    block content
-      h1= title
-      br
-
-      form(action="/", method="post")
-        table.table.table-striped.table-bordered
-          tr
-            td Name
-            td Category
-            td Complete
-          each task in tasks
-            tr
-                td #{task.name}
-                td #{task.category}
-                td 
-                    input(type="checkbox", name="completed", value="#{task.id}", checked=(task.completed == true))
-        button.btn(type="submit") Update tasks
-
-      hr
-
-      form.well(action="/", method="post")
-        label Item Name:  
-        input(name="item[name]", type="textbox")
-        label Item Category: 
-        input(name="item[category]", type="textbox")
-        br
-        button.btn(type="submit") Add item
-
-Этот код дополнит макет и добавит контент для заполнителя «блок контента»
- для файла layout.jade.
-
-В макете мы создали две формы HTML. В первой форме имеется таблица
- для наших данных и кнопка, позволяющая обновлять элементы. Вторая форма содержит
- несколько полей ввода и кнопку, позволяющую создавать новые элементы.
-
-При нажатии любой из этих кнопок вызывается функция **createOrUpdateItem**
- (т. е. в форме POST), созданная нами в файле **index.js**
-. Если страница была загружена непосредственно (т. е. выполнен GET
-), то запускается функция **index**.
-
-Этого должно быть достаточно для работы нашего приложения.
-
-</h1>
-# <a name="_Toc395783181">Локальный запуск приложения</a>
-
-Чтобы проверить приложение на локальном компьютере, нажмите клавишу F5 в Visual Studio:
-должна произойти сборка приложения, запуск Node.js и откроется веб-браузер
-со страницей, похожей на приведенную ниже:
-
-![Альтернативный текст][16]
-
-1. Используйте предоставленные поля Имя элемента и Имя категории для ввода
-данных, а затем нажмите кнопку **Добавить элемент**.
-
-2. Страница должна обновиться, чтобы показать элемент в таблице списка задач
-.
-
- 	![Альтернативный текст][17]
-
-3. Чтобы завершить задачу, просто установите флажок в столбце «Завершено»
- и нажмите кнопку **Обновить задачи.**
-
-</h1>
-# <a name="_Toc395783182">Разверните приложение на веб-сайтах Azure</a>
-
-После установки средств Node.js для Visual Studio развертывание на веб-сайтах Azure
- выполняется легко выполнением нескольких шагов.
-
-Щелкните правой кнопкой проект и выберите «Опубликовать».
-
-![Альтернативный текст][18]
-
-Затем следуйте указаниям мастера публикации, чтобы задать необходимую конфигурацию для
- вашего веб-сайта Azure. Мастер предложит либо выбрать обновление
- существующего веб-сайта, либо создание нового.
-
-После задания необходимой конфигурации, нажмите кнопку «Опубликовать».
-
-![Альтернативный текст][19]
-
-Затем следуйте указаниям мастера публикации, чтобы задать необходимую конфигурацию для
-вашего веб-сайта Azure. Мастер предложит либо выбрать обновление
-существующего веб-сайта, либо создание нового.
-
-После задания необходимой конфигурации, нажмите кнопку «Опубликовать».
-
-После этого Visual Studio подключится к вашей подписке Azure и опубликует
- это приложение Node.js.
-
-Через несколько секунд Visual Studio завершит публикацию вашего веб-приложения
- и запустит браузер, где можно увидеть ваше творение,
- запущенное в Azure!
-
-# <a name="_Toc395783183"></a> <a name="_Toc395637775">Заключение</a>
-
-Поздравляем! Вы только что создали свое первое веб-приложение Node.js Express с использованием
- Azure DocumentDB и опубликовали его на веб-сайтах Azure.
-
-Исходный код завершенного учебного приложения можно загрузить [здесь][здесь].
-
-</h1>
-
-  [Альтернативный текст]: ./media/documentdb-nodejs-application/image1.png
   [Node.js]: http://nodejs.org/
   [Git]: http://git-scm.com/
-  [Visual Studio 2013]: http://msdn.microsoft.com/vstudio/cc136611.aspx
-  [Средства Node.js для Visual Studio]: https://nodejstools.codeplex.com/
-  [средства командной строки]: http://azure.microsoft.com/documentation/articles/xplat-cli/
-  [портал управления Azure]: http://portal.azure.com
-  [1]: ./media/documentdb-nodejs-application/image2.png
-  [2]: ./media/documentdb-nodejs-application/image3.png
-  [3]: ./media/documentdb-nodejs-application/image4.png
-  [4]: ./media/documentdb-nodejs-application/image5.png
-  [5]: ./media/documentdb-nodejs-application/image6.png
-  [6]: ./media/documentdb-nodejs-application/image7.png
-  [Альтернативный текст ]: ./media/documentdb-nodejs-application/image8.png
-  [7]: ./media/documentdb-nodejs-application/image9.png
-  [8]: ./media/documentdb-nodejs-application/image10.png
-  [9]: ./media/documentdb-nodejs-application/image11.png
-  [10]: ./media/documentdb-nodejs-application/image12.png
-  [11]: ./media/documentdb-nodejs-application/image13.png
-  [12]: ./media/documentdb-nodejs-application/image14.png
-  [13]: ./media/documentdb-nodejs-application/image15.png
-  [14]: ./media/documentdb-nodejs-application/image16.png
-  [15]: ./media/documentdb-nodejs-application/image17.png
-  [16]: ./media/documentdb-nodejs-application/image18.png
-  [17]: ./media/documentdb-nodejs-application/image19.png
-  [18]: ./media/documentdb-nodejs-application/image20.png
-  [19]: ./media/documentdb-nodejs-application/image21.png
-  [здесь]: http://go.microsoft.com/fwlink/?LinkID=509839&clcid=0x409
+  [здесь]: https://github.com/Azure/azure-documentdb-node/tree/master/core_sdk/tutorial/todo
+  [Azure CLI]: http://azure.microsoft.com/documentation/articles/xplat-cli/
+  [Портал управления Azure]: http://portal.azure.com
 
-<!--HONumber=46--> 
+<!--HONumber=47-->

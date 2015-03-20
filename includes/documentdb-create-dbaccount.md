@@ -1,0 +1,55 @@
+﻿1.	Войдите на [портал предварительной версии Azure](https://portal.azure.com/).
+2.	На навигационной панели щелкните **Создать**, выберите **Данные + хранилище**, а затем щелкните **DocumentDB**. 
+
+	![Screen shot of the Azure Preview portal, highlighting the **New** button, **Data + storage** in the Create blade, and **DocumentDB** in the Data + storage blade][1]   
+
+	Либо перейдите с начальной панели на Azure Marketplace, выберите **Данные + аналитика**, а затем выберите **DocumentDB** и щелкните **Создать**.  
+	
+	![Screen shot of the Azure Preview portal, showing the Marketplace blade with the DocumentDB tile highlighted, and the DocumentDB blade with the Create button highlighted][2]   
+   
+
+3. В колонке **Новый DocumentDB (предварительный просмотр)** задайте желаемую конфигурацию учетной записи DocumentDB. 
+ 
+	![Screen shot of the New DocumentDB (Preview) blade][3] 
+
+
+	- В поле **Идентификатор** введите имя для идентификации учетной записи DocumentDB. Это значение становится именем узла в URI. В идентификаторе могут использоваться только строчные буквы, цифры и символ "-", длина его должна быть от 3 до 50 символов. Обратите внимание, что к выбранному вами имени конечной точки добавляется documents.azure.com, результатом чего станет конечная точка вашей учетной записи DocumentDB.
+
+	- Область **Ценовая категория** заблокирована, поскольку предварительный просмотр DocumentDB поддерживает единственную ценовую категорию. Дополнительные сведения см. в разделе [Цены на DocumentDB](http://go.microsoft.com/fwlink/p/?LinkID=402317&clcid=0x409).
+
+	- Область **Дополнительная настройка** используется для указания начальной мощности, выделенной вашей учетной записи DocumentDB.  DocumentDB использует единицы мощности, чтобы позволить масштабирование учетной записи DocumentDB, при котором каждая единица мощности включает зарезервированное хранилище базы данных и пропускную способность.  По умолчанию подготавливается 1 единица мощности.  Вы можете настроить число единиц мощности, доступных в вашей учетной записи DocumentDB с помощью [портала управления предварительным просмотром](https://portal.azure.com/#gallery/Microsoft.DocumentDB). Дополнительную информацию о емкости и производительности учетной записи DocumentDB см. в статье [Управление емкостью и производительностью DocumentDB][documentdb-manage].
+
+	- В поле **Группа ресурсов** выберите или создайте группу ресурсов для вашей учетной записи DocumentDB.  По умолчанию будет создана новая группа ресурсов.  Однако можно выбрать существующую группу ресурсов, к которой планируется добавить учетную запись DocumentDB. За дополнительной информацией обратитесь к разделу [Использование групп ресурсов для управления вашими ресурсами Azure](http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups/).
+
+	- В поле **Подписка** выберите подписку Azure, которую вы хотите использовать для учетной записи DocumentDB. Если ваша учетная запись имеет только одну подписку, эта подписка будет выбрана автоматически.*
+ 
+	- В поле **Расположение** укажите географическое расположение, где будет размещена ваша учетная запись DocumentDB.   
+
+3.	После настройки параметров учетной записи DocumentDB нажмите **Создать**.  Создание учетной записи DocumentDB может занять несколько минут.  Для проверки состояния можно отслеживать прогресс на начальной панели.  
+	![Screen shot of the Creating tile on the Startboard][4]  
+  
+	Или вы можете наблюдать за ходом выполнения на портале "Уведомления".  
+
+	![Screen shot of the Notifications hub, showing that the DocumentDB account is being created][5]  
+
+	![Screen shot of the Notifications hub, showing that the DocumentDB account was created successfully and deplyed to a resource group][6]
+
+4.	После создания учетной записи DocumentDB она готова для использования с параметрами по умолчанию.
+
+	*Обратите внимание, что по умолчанию для уровня согласованности учетной записи DocumentDB будет установлено значение "Сеанс".  Этот параметр согласованности по умолчанию можно изменить на [портале управления предварительной версии](https://portal.azure.com/#gallery/Microsoft.DocumentDB).*  
+	![Screen shot of the Resource Group blade][7]  
+
+
+<!--Image references-->
+[1]: ./media/documentdb-create-dbaccount/ca1.png
+[2]: ./media/documentdb-create-dbaccount/ca2.png
+[3]: ./media/documentdb-create-dbaccount/ca3.png
+[4]: ./media/documentdb-create-dbaccount/ca4.png
+[5]: ./media/documentdb-create-dbaccount/ca5.png
+[6]: ./media/documentdb-create-dbaccount/ca6.png
+[7]: ./media/documentdb-create-dbaccount/ca7.png
+
+[Практическое руководство. Создание учетной записи DocumentDB]: #Howto
+[Дальнейшие действия]: #NextSteps
+[documentdb-manage]:../documentdb-manage/
+<!--HONumber=47-->

@@ -22,7 +22,7 @@
 
 В этой статье вы узнаете, как можно удаленно отправлять запросы Hive в кластер HDInsight с помощью средств HDInsight для Visual Studio.
 
-> [AZURE.NOTE] В этом документе не приводится подробное описание процессов, которые выполняют операторы HiveQL, используемые в примерах. Информацию об инструкциях HiveQL, используемых в данном примере, см. в разделе <a href="../hdinsight-use-hive/" target="_blank">"Использование Hive с Hadoop в HDInsight"</a>.
+> [AZURE.NOTE] В этом документе не приводится подробное описание действия инструкций HiveQL, используемых в данных примерах. Сведения о HiveQL, используемом в этом примере, см. в разделе <a href="../hdinsight-use-hive/" target="_blank">Использование Hive с Hadoop в HDInsight</a>.
 
 ##<a id="prereq"></a>Предварительные требования
 
@@ -30,7 +30,7 @@
 
 * Кластер Azure HDInsight (Hadoop в HDInsight) (на платформе Windows или Linux).
 
-* Visual Studio 2012 <a href="http://www.microsoft.com/ru-ru/download/details.aspx?id=39305" target="_blank">с обновлением 4</a>, Visual Studio 2013 <a href="http://www.microsoft.com/ru-ru/download/details.aspx?id=43721" target="_blank">с обновлением 3</a> или <a href="http://www.microsoft.com/ru-ru/download/details.aspx?id=43722" target="_blank">Visual Studio Express 2013.</a>
+* Visual Studio 2012 с <a href="http://www.microsoft.com/download/details.aspx?id=39305" target="_blank">обновлением 4</a>, Visual Studio 2013 с <a href="http://www.microsoft.com/download/details.aspx?id=43721" target="_blank">обновлением 3</a> или <a href="http://www.microsoft.com/download/details.aspx?id=43722" target="_blank">Visual Studio Express 2013</a>
 
 ##<a id="run"></a> Выполнение запросов Hive с помощью инструментов HDInsight для Visual Studio
 
@@ -47,7 +47,7 @@
     Эти операторы выполняют следующие действия.
 
     * **DROP TABLE** - приводит к удалению таблицы и файла данных в том случае, если таблица уже существует
-    * **CREATE EXTERNAL TABLE** - создает новую  'external' таблицу в Hive. Внешние таблицы хранят только описание самой таблицы в Hive, в то время как данные остаются в исходном расположении.
+    * **CREATE EXTERNAL TABLE** - создает новую 'внешнюю' таблицу в Hive. Внешние таблицы хранят только описание самой таблицы в Hive, в то время как данные остаются в исходном расположении.
 
         > [AZURE.NOTE] Внешние таблицы необходимо использовать в тех случаях, когда ожидается, что исходные данные будут обновляться внешним источником, таким как автоматизированный процесс передачи данных или другой операцией MapReduce, при этом нужно, чтобы запросы Hive использовали самые последние данные.
         >
@@ -102,17 +102,17 @@
 * [Приступая к работе со средствами HDInsight для Visual Studio](../hdinsight-hadoop-visual-studio-tools-get-started/)
 
 
-[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/ru-ru/library/dn479185.aspx
+[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
-[azure-purchase-options]: http://azure.microsoft.com/ pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/ pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/ pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [apache-tez]: http://tez.apache.org
 [apache-hive]: http://hive.apache.org/
 [apache-log4j]: http://en.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: http://azure.microsoft.com/ documentation/articles/hdinsight-connect-excel-power-query/
+[import-to-excel]: http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
 
 
 [hdinsight-use-oozie]: ../hdinsight-use-oozie/
@@ -134,4 +134,4 @@
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

@@ -26,23 +26,23 @@
 
 * Одна из следующих версий Visual Studio
 
-	* Visual Studio 2012 <a href="http://www.microsoft.com/ru-ru/download/details.aspx?id=39305" target="_blank">с обновлением 4,</a>
+	* Visual Studio 2012 с <a href="http://www.microsoft.com/download/details.aspx?id=39305" target="_blank">обновлением 4</a>
 
-	* Visual Studio 2013 <a href="http://www.microsoft.com/ru-ru/download/details.aspx?id=44921" target="_blank">с обновлением 4</a> или <a href="http://go.microsoft.com/fwlink/?LinkId=517284" target="_blank">Visual Studio 2013 Community.</a>
+	* Visual Studio 2013 с <a href="http://www.microsoft.com/download/details.aspx?id=44921" target="_blank">обновлением 4</a> или <a href="http://go.microsoft.com/fwlink/?LinkId=517284" target="_blank">Visual Studio 2013 Community</a>
 
-	* <a href="http://visualstudio.com/ru-ru/downloads/visual-studio-2015-ctp-vs" target="_blank">Visual Studio 2015, CTP-версия 6</a>
+	* <a href="http://visualstudio.com/downloads/visual-studio-2015-ctp-vs" target="_blank">Visual Studio 2015 CTP6</a>
 
 * Пакет SDK для Azure 2.5.1 или более поздней версии
 
-* Средства HDInsight для Visual Studio - см. статью <a href="../hdinsight-hadoop-visual-studio-tools-getting-started/" target="_blank">"Приступая к работе с HDInsight средства для Visual Studio"</a> для установки и настройки инструментов HDInsight для Visual Studio.
+* Средства HDInsight для Visual Studio - инструкции по установке и настройке средств HDInsight для Visual Studio см. в статье <a href="../hdinsight-hadoop-visual-studio-tools-get-started/" target="_blank">Приступая к работе со средствами HDInsight для Visual Studio</a>.
 
-* Apache Storm в кластере HDInsight - см. статью <a href="../hdinsight-storm-getting-started/" target="_blank">"Приступая к работе с Apache Storm на HDInsight"</a> для получения указаний по созданию кластера.
+* Кластер Apache Storm в HDInsight - инструкции по созданию кластера см. в статье <a href="../hdinsight-storm-getting-started/" target="_blank">Приступая к работе с Apache Storm в HDInsight</a>
 
 	> [AZURE.NOTE] В настоящее время инструменты HDInsight для Visual Studio поддерживают только Storm на кластере HDInsight версии 3.2.
 
 ##Создание топологии на C#
 
-1. Если вы еще не установили последнюю версию инструментов HDInsight для Visual Studio, см. раздел <a href="../hdinsight-hadoop-visual-studio-tools-getting-started/" target="_blank">"Приступая к работе с HDInsight средства для Visual Studio"</a>.
+1. Если вы еще не установили последнюю версию средств HDInsight для Visual Studio, см. статью <a href="../hdinsight-hadoop-visual-studio-tools-get-started/" target="_blank">Приступая к работе со средствами HDInsight для Visual Studio</a>.
 
 2. Откройте Visual Studio, выберите **Файл**, **Создать**, а затем - **Проект**.
 
@@ -58,7 +58,7 @@
 
 	* **Bolt.cs** - пример сита, которое посчитывает числа, созданные воронкой.
 
-	При создании проекта будет скачана последняя версия <a href="https://www.nuget.org/packages/Microsoft.SCP.Net.SDK/" target="_blank">пакетов SCP.NET</a> из Nuget.
+	В рамках создания проекта с Nuget скачиваются актуальные версии  <a href="https://www.nuget.org/packages/Microsoft.SCP.Net.SDK/" target="_blank">пакетов SCP.NET</a>.
 
 В следующих разделах рассказывается о том, как превратить этот проект в базовое приложение WordCount.
 
@@ -245,7 +245,7 @@
             Context.Logger.Info("Execute exit");
         }
 
-	Take a moment to read through the code to understand what this code does.
+	Просмотрите код, чтобы понять, что он делает.
 
 ###Определение топологии
 
@@ -342,9 +342,9 @@
 
 * **Кэширование метаданных** - в воронке должны храниться метаданные для отправляемых данных, чтобы данные можно было извлечь и отправить повторно в случае сбоя. Так как отправляемые данные в этом примере невелики, необработанные данные каждого кортежа хранятся в словаре для воспроизведения.
 
-* **Подтверждение** - каждое сито в топологии может вызвать `this.ctx.Ack(tuple)` для подтверждения того, что оно успешно обработало кортеж. Как только все сита подтвердят обработку кортежа, для воронки вызывается метод `Ack`. Это позволяет воронке удалить кэшированные для воспроизведения данные, так как они полностью обработаны.
+* **Подтверждение** - каждое сито в топологии может вызвать `this.ctx.Ack(tuple)` для подтверждения того, что оно успешно обработало кортеж. Как только все сита подтвердят обработку кортежа, для воронки вызывается метод `Подтверждение`. Это позволяет воронке удалить кэшированные для воспроизведения данные, так как они полностью обработаны.
 
-* **Сбой** - каждое сито может вызвать `this.ctx.Fail(tuple)`, сообщив тем самым, что при обработке кортежа произошел сбой. Информация о сбое передается в метод `Fail` воронки, в которой кортеж может быть воспроизведен с помощью кэшированных метаданных.
+* **Сбой** - каждое сито может вызвать `this.ctx.Fail(tuple)`, сообщив тем самым, что при обработке кортежа произошел сбой. Информация о сбое передается в метод `Сбой` воронки, в которой кортеж может быть воспроизведен с помощью кэшированных метаданных.
 
 * **Идентификатор последовательности** - при отправке кортежа может быть указан идентификатор последовательности. Это должно быть значение, по которому кортеж можно идентифицировать для обработки воспроизведения (подтверждения и сбоя). Например, воронка в проекте **Пример Storm** при отправке данных использует следующий код:
 
@@ -396,7 +396,7 @@
 
 2. В **обозревателе решений** щелкните правой кнопкой мыши проект, а затем выберите **Добавить**, **Новый элемент**. Щелкните **Класс** и введите имя класса **LocalTest.cs**. Наконец, щелкните **Добавить**.
 
-3. Откройте **LocalTest.cs** и добавьте сверху следующий оператор `using`.
+3. Откройте **LocalTest.cs** и добавьте сверху следующую инструкцию `using`.
 
 		using Microsoft.SCP;
 
@@ -500,7 +500,7 @@
 
 3. Сохраните изменения, а затем нажмите клавишу **F5** или щелкните **Отладки**, **Начать отладку** для запуска проекта. Должно появится окно консоли, а также данные о состоянии журнала в ходе выполнения тестов. Когда появится надпись **Тесты завершены**, нажмите любую клавишу, чтобы закрыть окно.
 
-4. С помощью **обозревателя** перейдите в каталог, содержащий проект. Например, **C:\Users\&lt;ваше_имя_пользователя>\Documents\Visual Studio 2013\Projects\WordCount\WordCount**. В этом каталоге откройте **Bin**, а затем - **Отладка**. Вы увидите текстовые файлы, созданные при выполнении тестов (sentences.txt, counter.txt и splitter.txt). Откройте каждый текстовый файл и проверьте данные.
+4. С помощью **обозревателя** перейдите в каталог, содержащий проект. Например, **C:\Users\<ваше_имя_пользователя>\Documents\Visual Studio 2013\Projects\WordCount\WordCount**. В этом каталоге откройте **Bin**, а затем - **Отладка**. Вы увидите текстовые файлы, созданные при выполнении тестов (sentences.txt, counter.txt и splitter.txt). Откройте каждый текстовый файл и проверьте данные.
 
 	> [AZURE.NOTE] Строковые данные сохраняются в этих файлах как массив значений типа decimal. Например, [[97,103,111]] в файле **splitter.txt** - это слово 'and'.
 
@@ -533,15 +533,23 @@
 
 ##Дальнейшие действия
 
-Теперь, когда вы узнали, как разрабатывать и развертывать топологии Storm с помощью средств HDInsight для Visual Studio, вы можете изучить другие способы работы с HDInsight.
+Теперь, когда вы узнали, как разрабатывать и развертывать топологии Storm с помощью средств HDInsight для Visual Studio, вы можете изучить [обработку событий из концентратора событий Azure с помощью Storm в HDInsight](../hdinsight-storm-develop-csharp-event-hub-topology/).
+
+Для получения дополнительных сведений о создании топологии C# посетите [https://github.com/hdinsight/hdinsight-storm-examples/blob/master/SCPNet-GettingStarted.md](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/SCPNet-GettingStarted.md).
+
+Другие способы работы с HDInsight и дополнительные примеры Storm в HDinsight см. в следующих статьях.
 
 **Apache Storm в HDInsight.**
 
-* [Развертывание и мониторинг топологии с помощью Apache Storm в HDInsight.](../hdinsight-storm-deploy-monitor-topology/)
+* [Развертывание и мониторинг топологии с помощью Apache Storm в HDInsight](../hdinsight-storm-deploy-monitor-topology/)
+
+* [Обработка событий из концентратора событий Azure с помощью Storm в HDInsight](../hdinsight-storm-develop-csharp-event-hub-topology/)
 
 * [Разработка топологий на платформе Java для Apache Storm в HDInsight](../hdinsight-storm-develop-java-topology/)
 
-* [Определение тенденций в Twitter по хэш-тегам с помощью Apache Storm в HDInsight.](../hdinsight-storm-twitter-trending/)
+* [Определение тенденций в Twitter по хэш-тегам с помощью Apache Storm в HDInsight](../hdinsight-storm-twitter-trending/)
+
+* [Примеры Storm в HDInsight](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/SCPNet-GettingStarted.md)
 
 **Apache Hadoop в HDInsight**
 
@@ -555,4 +563,4 @@
 
 * [Приступая к работе с HBase в HDInsight](../hdinsight-hbase-get-started/)
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

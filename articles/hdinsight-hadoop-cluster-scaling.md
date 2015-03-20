@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="Масштабирование кластера в HDInsight | Azure"
    description="Измените количество узлов данных кластера, работающего в HDInsight, без необходимости удалять и повторно создавать кластер."
    services="hdinsight"
@@ -16,7 +16,7 @@
    ms.date="02/18/2015"
    ms.author="bradsev"/>
 
-# Масштабирование кластера в HDInsight
+#Масштабирование кластера в HDInsight
 
 С помощью масштабирования кластера вы можете изменить число узлов данных в кластере, который работает в HDInsight. При этом не требуется удалять и повторно создавать кластер. Эту операцию можно выполнить с использованием PowerShell, пакета SDK для HDInsight и портала Azure.
 
@@ -59,14 +59,14 @@
 
 	$ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
 
-## HBase
+##HBase
 На данный момент операция масштабирования кластера не поддерживается для кластеров типа HBase.
 
 ## Предварительные требования:
 
-* Поддерживаются только кластеры HDInsight версии 3.1.3 или более поздней. Если вы не знаете версию кластера, ее можно проверить на портале Azure, щелкнув имя кластера HDInsight или выполнив команду  `Get-AzureHDInsightCluster -name <clustername>` из Azure PowerShell.
+* Поддерживаются только кластеры HDInsight версии 3.1.3 или более поздней. Если вы не знаете версию кластера, ее можно проверить на портале Azure, щелкнув имя кластера HDInsight или выполнив команду `Get-AzureHDInsightCluster -name <clustername>` из Azure PowerShell.
 
-* Для выполнения операции с помощью PowerShell требуется Azure PowerShell версии 0.8.14 или более поздней. Последнюю версию PowerShell можно скачать в разделе программ командной строки на веб-сайте [Загрузки Azure](http://azure.microsoft.com/ downloads/). Вы можете проверить номер установленной версии Azure PowerShell, выполнив следующую команду в окне PowerShell: `(get-module Azure).Version`
+* Для выполнения операции с помощью PowerShell требуется Azure PowerShell версии 0.8.14 или более поздней. Последнюю версию PowerShell можно скачать в разделе программ командной строки на веб-сайте [Загрузки Azure](http://azure.microsoft.com/downloads/). Вы можете проверить номер установленной версии Azure PowerShell, выполнив следующую команду в окне PowerShell: `(get-module Azure).Version`
 
 ## Как использовать масштабирование кластера
 
@@ -82,7 +82,7 @@
 
 > [WACOM.NOTE] Для использования этой команды на клиентском компьютере необходимо установить Azure PowerShell версии 0.8.14 или более поздней.
 
-### Пакет SDK
+### SDK
 Чтобы изменить размер кластера Hadoop с помощью пакета SDK для HDInsight, воспользуйтесь одним из следующих методов: 
 
 	ChangeClusterSize(string dnsName, string location, int newSize) 
@@ -140,5 +140,5 @@
 	}
 
 
-Дополнительную информацию об использовании пакета SDK для HDInsight .NET см. в статье [Подготовка кластеров Hadoop в HDInsight с использованием настраиваемых параметров](http://azure.microsoft.com/ documentation/articles/hdinsight-provision-clusters/).
-<!--HONumber=45--> 
+Дополнительную информацию об использовании пакета SDK для HDInsight .NET см. в статье [Подготовка кластеров Hadoop в HDInsight с использованием настраиваемых параметров](http://azure.microsoft.com/documentation/articles/hdinsight-provision-clusters/).
+<!--HONumber=47-->

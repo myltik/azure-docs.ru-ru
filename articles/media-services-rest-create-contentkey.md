@@ -17,15 +17,15 @@
 	ms.author="juliako"/>
 
 
-# Создание ContentKey с использованием REST
+#Создание ContentKey с использованием REST
 
-Это одна из статей серии [Рабочий процесс для видео по запросу в службах мультимедиа](../media-services-video-on-demand-workflow) и серии [Рабочий процесс для потоковой трансляции в службах мультимедиа](../media-services-live-streaming-workflow).  
+Это одна из статей серии [Рабочий процесс для видео по запросу в службах мультимедиа](../media-services-video-on-demand-workflow) и [Рабочий процесс для потоковой передачи в службах мультимедиа](../media-services-live-streaming-workflow) .  
 
 Службы мультимедиа позволяют создавать новые ресурсы и доставлять зашифрованные ресурсы. **ContentKey** обеспечивает безопасный доступ к вашим **ресурсам**. 
 
-При создании нового ресурса (например, перед [передачей файлов](../media-services-rest-upload-files/)) можно указать следующие параметры шифрования: **StorageEncrypted**, **CommonEncryptionProtected** или **EnvelopeEncryptionProtected**. 
+При создании нового ресурса (например, прежде чем вы [отправите файлы](../media-services-rest-upload-files/))можно указать следующие параметры шифрования: **StorageEncrypted**, **CommonEncryptionProtected** или **EnvelopeEncryptionProtected**. 
 
-При доставке ресурсов клиентам можно [настроить выполнение динамического шифрования ресурсов](../media-services-rest-configure-asset-delivery-policy). Вы можете использовать один из двух следующих типов шифрования: **DynamicEnvelopeEncryption** или **DynamicCommonEncryption**.
+При доставке ресурсов клиентам можно [настроить выполнение динамического шифрования ресурсов](../media-services-rest-configure-asset-delivery-policy) с помощью одного из следующих двух видов шифрования: **DynamicEnvelopeEncryption** или **DynamicCommonEncryption**.
 
 Зашифрованные ресурсы должны быть связаны с сущностями **ContentKey**. В этой статье описано, как создать ключ содержимого.
 
@@ -34,7 +34,7 @@
 1. Создайте случайный 16-разрядный ключ AES (для общего и конвертного шифрования) или 32-разрядного ключа AES (для шифрования в хранилище). 
 
 	Это будет ключ содержимого для ресурса, то есть для всех файлов, связанных с этим ресурсом, при расшифровке будет использоваться один и тот же ключ содержимого. 
-2.	Вызовите методы [GetProtectionKeyId](https://msdn.microsoft.com/ru-ru/library/azure/jj683097.aspx#getprotectionkeyid) и [GetProtectionKey](https://msdn.microsoft.com/ru-ru/library/azure/jj683097.aspx#getprotectionkey), чтобы получить правильный сертификат X.509, который должен использоваться для шифрования ключа содержимого.
+2.	Вызовите методы [GetProtectionKeyId](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkeyid) и [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey), чтобы получить правильный сертификат X.509, который должен использоваться для шифрования ключа содержимого.
 3.	Зашифруйте ключ содержимого с помощью открытого ключа сертификата X.509. 
 
 	Пакет SDK служб мультимедиа для .NET использует при выполнении шифрования RSA с OAEP.  Примером может служить [функция EncryptSymmetricKeyData](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Encryption/EncryptionUtils.cs).
@@ -67,11 +67,11 @@
 
 >[AZURE.NOTE] При работе с REST API служб мультимедиа следует руководствоваться следующими рекомендациями.
 >
->При доступе к сущностям в службах мультимедиа необходимо задать определенные поля и значения заголовков в HTTP-запросах. Дополнительную информацию см. в разделе [Настройка для разработки REST API служб мультимедиа](../media-services-rest-how-to-use).
+>При доступе к сущностям в службах мультимедиа необходимо задать определенные поля и значения заголовков в HTTP-запросах. Дополнительную информацию см. в разделе [Настройка для разработки API REST служб мультимедиа](../media-services-rest-how-to-use).
 
->После успешного подключения к https://media.windows.net вы получите ошибку 301 (перенаправление), в которой будет указан другой URI служб мультимедиа. Используйте для последующих вызовов новый URI, как описано в разделе [Подключение к службам мультимедиа с помощью REST API](../media-services-rest-connect_programmatically/). 
+>После успешного подключения к  https://media.windows.net вы получите ошибку 301 (перенаправление), в которой будет указан другой URI служб мультимедиа. Используйте для последующих вызовов новый URI, как описано в разделе [Подключение к службам мультимедиа с помощью REST API](../media-services-rest-connect_programmatically/). 
 
-## Получение ProtectionKeyId 
+##Получение ProtectionKeyId 
  
 
 В следующем примере показано, как получить ProtectionKeyId (отпечаток сертификата) для сертификата, который необходимо использовать при шифровании ключа содержимого. Выполните этот шаг, чтобы проверить наличие соответствующего сертификата на компьютере.
@@ -107,7 +107,7 @@
 	
 	{"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#Edm.String","value":"7D9BB04D9D0A4A24800CADBFEF232689E048F69C"}
 
-## Получение ProtectionKey для ProtectionKeyId
+##Получение ProtectionKey для ProtectionKeyId
 
 В следующем примере показано, как получить сертификат X.509, используя значение ProtectionKeyId, полученное на предыдущем шаге.
 
@@ -144,7 +144,7 @@
 	{"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#Edm.String",
 	"value":"MIIDSTCCAjGgAwIBAgIQqf92wku/HLJGCbMAU8GEnDANBgkqhkiG9w0BAQQFADAuMSwwKgYDVQQDEyN3YW1zYmx1cmVnMDAxZW5jcnlwdGFsbHNlY3JldHMtY2VydDAeFw0xMjA1MjkwNzAwMDBaFw0zMjA1MjkwNzAwMDBaMC4xLDAqBgNVBAMTI3dhbXNibHVyZWcwMDFlbmNyeXB0YWxsc2VjcmV0cy1jZXJ0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzR0SEbXefvUjb9wCUfkEiKtGQ5Gc328qFPrhMjSo+YHe0AVviZ9YaxPPb0m1AaaRV4dqWpST2+JtDhLOmGpWmmA60tbATJDdmRzKi2eYAyhhE76MgJgL3myCQLP42jDusWXWSMabui3/tMDQs+zfi1sJ4Ch/lm5EvksYsu6o8sCv29VRwxfDLJPBy2NlbV4GbWz5Qxp2tAmHoROnfaRhwp6WIbquk69tEtu2U50CpPN2goLAqx2PpXAqA+prxCZYGTHqfmFJEKtZHhizVBTFPGS3ncfnQC9QIEwFbPw6E5PO5yNaB68radWsp5uvDg33G1i8IT39GstMW6zaaG7cNQIDAQABo2MwYTBfBgNVHQEEWDBWgBCOGT2hPhsvQioZimw8M+jOoTAwLjEsMCoGA1UEAxMjd2Ftc2JsdXJlZzAwMWVuY3J5cHRhbGxzZWNyZXRzLWNlcnSCEKn/dsJLvxyyRgmzAFPBhJwwDQYJKoZIhvcNAQEEBQADggEBABcrQPma2ekNS3Wc5wGXL/aHyQaQRwFGymnUJ+VR8jVUZaC/U/f6lR98eTlwycjVwRL7D15BfClGEHw66QdHejaViJCjbEIJJ3p2c9fzBKhjLhzB3VVNiLIaH6RSI1bMPd2eddSCqhDIn3VBN605GcYXMzhYp+YA6g9+YMNeS1b+LxX3fqixMQIxSHOLFZ1G/H2xfNawv0VikH3djNui3EKT1w/8aRkUv/AAV0b3rYkP/jA1I0CPn0XFk7STYoiJ3gJoKq9EMXhit+Iwfz0sMkfhWG12/XO+TAWqsK1ZxEjuC9OzrY7pFnNxs4Mu4S8iinehduSpY+9mDd3dHynNwT4="}
 
-## Создание ContentKey 
+##Создание ContentKey 
 
 После получения сертификата X.509 и использования открытого ключа для шифрования ключа содержимого создайте сущность **ContentKey** и задайте для нее соответствующие значения свойств.
 
@@ -234,7 +234,7 @@
 	"ProtectionKeyType":0,
 	"Checksum":"calculated checksum"}
 
-## Связывание сущности ContentKey с сущностью Asset
+##Связывание сущности ContentKey с сущностью Asset
 
 После создания сущности ContentKey свяжите ее с сущностью Asset, используя операцию $links, как показано в следующем примере:
 	
@@ -256,4 +256,4 @@
 Ответ:
 
 	HTTP/1.1 204 No Content
-<!--HONumber=45--> 
+<!--HONumber=47-->

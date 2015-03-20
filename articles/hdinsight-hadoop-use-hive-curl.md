@@ -1,5 +1,5 @@
 ﻿<properties
-   pageTitle="Использование Hadoop Pig в HDInsight для платформы Azure"
+   pageTitle="Использование Hadoop Pig в HDInsight | Azure"
    description="Информация об удаленной отправке заданий Pig в HDInsight с помощью Curl."
    services="hdinsight"
    documentationCenter=""
@@ -24,13 +24,13 @@
 
 Curl используется для демонстрации возможностей взаимодействия с HDInsight с помощью необработанных HTTP-запросов для выполнения запросов Hive, их мониторинга и получения их результатов. Для этого используется API REST для WebHCat (прежнее название - Templeton), предоставляемый кластером HDInsight.
 
-> [AZURE.NOTE] Если вы уже знаете, как использовать серверы Hadoop на платформе Linux, но не знакомы с HDInsight, см. статью <a href="../hdinsight-hadoop-linux-information/" target="_blank">Что нужно знать о Hadoop в HDInsight на платформе Linux</a>.
+> [AZURE.NOTE] Если вы уже знакомы с использованием серверов под управлением Linux Hadoop, но не знакомы с HDInsight, см. раздел <a href="../hdinsight-hadoop-linux-information/" target="_blank">Что необходимо знать о Hadoop в HDInsight на основе Linux</a>.
 
 ##<a id="prereq"></a>Предварительные требования
 
 Чтобы выполнить действия, описанные в этой статье, необходимо следующее.
 
-* Hadoop в кластере HDInsight (на платформе Linux или Windows)
+* Hadoop в кластере HDInsight (на платформе Linux или Windows).
 
 * <a href="http://curl.haxx.se/" target="_blank">Curl</a>
 
@@ -42,7 +42,7 @@ Curl используется для демонстрации возможнос
 > 
 > В командах, описанных в этом разделе, **USERNAME** нужно заменить именем пользователя для аутентификации в кластере, а **PASSWORD** - паролем учетной записи пользователя. Параметр **CLUSTERNAME** нужно заменить именем кластера.
 > 
-> Для защиты REST API используется <a href="http://en.wikipedia.org/wiki/Basic_access_authentication" target="_blank">обычная проверка подлинности</a>. Чтобы обеспечить безопасную отправку учетных данных на сервер, все запросы следует отправлять с помощью протокола HTTPS.
+> API-Интерфейс REST защищается с помощью  <a href="http://en.wikipedia.org/wiki/Basic_access_authentication" target="_blank">обычной проверки подлинности</a>. Чтобы обеспечить безопасную отправку учетных данных на сервер, все запросы следует отправлять с помощью протокола HTTPS.
 
 1. Используйте следующую команду в командной строке, чтобы проверить возможность подключения к кластеру HDInsight.
 
@@ -71,19 +71,19 @@ Curl используется для демонстрации возможнос
 
     Ниже приведены параметры, используемые в этой команде.
 
-    * **-d** - так как `-G` не используется, в запросе по умолчанию используется метод POST. `-d` - задает значения данных, отправляемых в запросе.
+    * **-d** - так как `-G` не используется, в запросе по умолчанию используется метод POST. `-d` задает значения данных, отправляемых в запросе.
 
-        * **user.name** - пользователь, выполняющий команду.
+        * **user.name** - пользователь, выполняющий команду
         
-        * **execute** - оператор HiveQL, который необходимо выполнить.
+        * **execute** - оператор HiveQL, который необходимо выполнить
         
-        * **statusdir** - каталог, в который будет записано состояние этого задания.
+        * **statusdir** - каталог, в который будет записано состояние этого задания
 
     Данная операция выполняет следующие действия:
 
     * **DROP TABLE** - приводит к удалению таблицы и файла данных в том случае, если таблица уже существует
     
-    * **CREATE EXTERNAL TABLE** - создает новую  'external' таблицу в Hive. Внешние таблицы хранят только описание самой таблицы в Hive, в то время как данные остаются в исходном расположении.
+    * **CREATE EXTERNAL TABLE** - создает новую внешнюю таблицу в Hive. Внешние таблицы хранят только описание самой таблицы в Hive, в то время как данные остаются в исходном расположении.
 
 		> [AZURE.NOTE] Внешние таблицы необходимо использовать в тех случаях, когда ожидается, что исходные данные будут обновляться внешним источником, таким как автоматизированный процесс передачи данных или другой операцией MapReduce, при этом нужно, чтобы запросы Hive использовали самые последние данные.
 		>
@@ -111,7 +111,7 @@ Curl используется для демонстрации возможнос
 
 4. После изменения состояния задания на **SUCCEEDED** результаты задания можно получить из хранилища больших двоичных объектов Azure. Параметр `statusdir`, передаваемый с помощью запроса, содержит расположение выходного файла. В данном случае это **wasb:///example/curl**. При использовании этого адреса выходные данные задания сохраняются в каталоге **example/curl** в контейнере хранилища, используемом по умолчанию кластером HDInsight.
 
-    Вы можете вывести список этих файлов и скачать их с помощью <a href="../xplat-cli/" target="_blank">кроссплатформенного интерфейса командной строки Azure (xplat-cli)</a>. Например, для просмотра списка файлов в **example/curl** можно использовать следующую команду.
+    Можно перечислить и загрузить эти файлы с помощью <a href="../xplat-cli/" target="_blank">межплатформенного интерфейса командной строки (xplat-cli)</a>. Например, для просмотра списка файлов в **example/curl** можно использовать следующую команду.
 
 		azure storage blob list <container-name> example/curl
 
@@ -119,7 +119,7 @@ Curl используется для демонстрации возможнос
 
 		azure storage blob download <container-name> <blob-name> <destination-file>
 
-	> [AZURE.NOTE] Необходимо либо указать имя учетной записи хранения, содержащей большой двоичный объект, с помощью параметров `-a` и `-k`, либо задать переменные среды **AZURE\_STORAGE\_ACCOUNT** и **AZURE\_STORAGE\_ACCESS\_KEY**. См. статью <a href="../hdinsight-upload-data/" target="_blank" for more information.
+	> [AZURE.NOTE] Необходимо либо указать имя учетной записи хранилища, которая содержит BLOB-объекты, с помощью параметров `-a` и `-k` или задать переменные среды **AZURE\_STORAGE\_ACCOUNT** и **AZURE\_STORAGE\_ACCESS\_KEY**. См. раздел <a href="../hdinsight-upload-data/" target="_blank" for more information.
 
 6. Используйте следующие операторы, чтобы создать новую таблицу internal с именем **errorLogs**.
 
@@ -129,11 +129,11 @@ Curl используется для демонстрации возможнос
 
     * **CREATE TABLE IF NOT EXISTS** - будет создана таблица, если она до этого не существовала. Так как ключевое слово **EXTERNAL** не было использовано, данная таблица будет являться "внутренней", то есть храниться в хранилище данных Hive и полностью обслуживаться Hive.
 
-		> [AZURE.NOTE] В отличие от **ВНЕШНИХ**, удаление внутренних таблиц приводит также к удалению данных.
+		> [AZURE.NOTE] В отличие от **ВНЕШНИХ** таблиц, удаление внутренних таблиц приводит также к удалению данных.
 
     * **STORED AS ORC** - данные будут храниться в формате Optimized Row Columnar (ORC). Это высокооптимизированный и эффективный формат для хранения данных Hive.
-    * **INSERT OVERWRITE ... SELECT** - из таблицы **log4jLogs** будут выбраны строки, которые содержат значение **[ERROR]**, а затем данные будут вставлены в таблицу **errorLogs**.
-    * **SELECT * ** - выбираются все строки из новой таблицы **errorLogs**.
+    * **INSERT OVERWRITE ... SELECT** - выбирает строки из таблицы **log4jLogs**, которые содержат значение **[ERROR]**, после чего данные будут вставлены в таблицу **errorLogs**
+    * **SELECT * ** - выбирает все строки из новой таблицы **errorLogs**.
 
 7. Используйте идентификатор задания, возвращаемый для проверки состояния задания. После его успешного выполнения, используйте xplat-cli, как было описано ранее, чтобы скачать и просмотреть результаты. Выходные данные должны содержать три строки, в каждой из которых должен быть текст **[ERROR]**.
 
@@ -142,7 +142,7 @@ Curl используется для демонстрации возможнос
 
 Как показано в этом документе, для запуска, мониторинга и просмотра результатов выполнения заданий Hive в кластере HDInsight можно использовать необработанные HTTP-запросы.
 
-Дополнительную информацию об интерфейсе REST, используемом в этой статье, см. в <a href="https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference" target="_blank">справочнике по WebHCat</a>.
+Дополнительную информацию об интерфейсе REST, используемом в этой статье, см. в статье <a href="https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference" target="_blank">Ссылки WebHCat</a>.
 
 ##<a id="nextsteps"></a>Дальнейшие действия
 
@@ -157,17 +157,17 @@ Curl используется для демонстрации возможнос
 * [Использование MapReduce с Hadoop в HDInsight](../hdinsight-use-mapreduce/)
 
 
-[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/ru-ru/library/dn479185.aspx
+[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
-[azure-purchase-options]: http://azure.microsoft.com/ pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/ pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/ pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [apache-tez]: http://tez.apache.org
-[Apache hive]: http://hive.apache.org/
+[apache-hive]: http://hive.apache.org/
 [apache-log4j]: http://en.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: http://azure.microsoft.com/ documentation/articles/hdinsight-connect-excel-power-query/
+[import-to-excel]: http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
 
 
 [hdinsight-use-oozie]: ../hdinsight-use-oozie/
@@ -189,4 +189,4 @@ Curl используется для демонстрации возможнос
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

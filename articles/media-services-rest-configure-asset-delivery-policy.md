@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Настройка политик доставки ресурсов с помощью REST" 
 	description="В этом разделе показано, как настроить различные политики доставки ресурсов." 
 	services="media-services" 
@@ -16,10 +16,10 @@
 	ms.date="02/06/2015" 
 	ms.author="juliako"/>
 
-# Практическое руководство. Настройка политик доставки ресурсов
+#Практическое руководство. Настройка политик доставки ресурсов
 [AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../includes/media-services-selector-asset-delivery-policy.md)]
 
-Это одна из статей серии [Рабочий процесс для видео по запросу в службах мультимедиа](../media-services-video-on-demand-workflow) и серии [Рабочий процесс для потоковой трансляции в службах мультимедиа](../media-services-live-streaming-workflow). 
+Это одна из статей серии [Рабочий процесс для видео по запросу в службах мультимедиа](../media-services-video-on-demand-workflow) и [Рабочий процесс для потоковой передачи в службах мультимедиа](../media-services-live-streaming-workflow) . 
 
 Один из шагов в рабочем процессе доставки содержимого служб мультимедиа - настройка политик доставки ресурсов, для которых необходимо выполнить потоковую передачу. Политика доставки ресурсов сообщает службам мультимедиа способ доставки ресурса: какие протоколы передачи следует использовать для динамической упаковки ресурса (например, MPEG DASH, HLS, Smooth Streaming или все), следует ли использовать динамическое шифрование и как (конвертное или общее шифрование). 
 
@@ -57,14 +57,14 @@ HDS
 
 >[AZURE.NOTE] При работе с REST API служб мультимедиа следует руководствоваться следующими рекомендациями.
 >
->При доступе к сущностям в службах мультимедиа необходимо задать определенные поля и значения заголовков в HTTP-запросах. Дополнительную информацию см. в разделе [Настройка для разработки REST API служб мультимедиа](../media-services-rest-how-to-use).
+>При доступе к сущностям в службах мультимедиа необходимо задать определенные поля и значения заголовков в HTTP-запросах. Дополнительную информацию см. в разделе [Настройка для разработки API REST служб мультимедиа](../media-services-rest-how-to-use).
 
->После успешного подключения к https://media.windows.net вы получите ошибку 301 (перенаправление), в которой будет указан другой URI служб мультимедиа. Используйте для последующих вызовов новый URI, как описано в разделе [Подключение к службам мультимедиа с помощью REST API](../media-services-rest-connect_programmatically/). 
+>После успешного подключения к  https://media.windows.net вы получите ошибку 301 (перенаправление), в которой будет указан другой URI служб мультимедиа. Используйте для последующих вызовов новый URI, как описано в разделе [Подключение к службам мультимедиа с помощью REST API](../media-services-rest-connect_programmatically/). 
 
 
-## Политики доставки незашифрованных ресурсов 
+##Политики доставки незашифрованных ресурсов 
 
-### <a id="create_asset_delivery_policy"></a>Создание политики доставки активов
+###<a id="create_asset_delivery_policy"></a>Создание политики доставки ресурсов
 Следующий запрос HTTP создает политику доставки ресурсов, указывающую, что не следует применять динамическое шифрование и осуществлять доставку с помощью потоковой передачи по любому из следующих протоколов:  MPEG DASH, HLS и Smooth Streaming. 
 
 Информацию о том, какие значения можно задать при создании политики доставки ресурсов см. в разделе [Типы, используемые при определении политики доставки ресурсов](#types) .   
@@ -114,7 +114,7 @@ HDS
 	"Created":"2015-02-08T06:21:27.6908329Z",
 	"LastModified":"2015-02-08T06:21:27.6908329Z"}
 	
-### <a id="link_asset_with_asset_delivery_policy"></a>Привязка ресурса к политике доставки ресурсов
+###<a id="link_asset_with_asset_delivery_policy"></a>Привязка ресурса к политике доставки ресурсов
 
 Следующий запрос HTTP связывает указанный ресурс с политикой доставки ресурсов.
 
@@ -138,14 +138,14 @@ HDS
 	HTTP/1.1 204 No Content
 
 
-## Политика доставки ресурсов DynamicEnvelopeEncryption 
+##Политика доставки ресурсов DynamicEnvelopeEncryption 
 
-### Создание ключа содержимого типа EnvelopeEncryption и связывание его с ресурсом
+###Создание ключа содержимого типа EnvelopeEncryption и связывание его с ресурсом
 
 При определении политики доставки DynamicEnvelopeEncryption необходимо обязательно связать ресурс с ключом содержимого типа EnvelopeEncryption. Дополнительные сведения см. в разделе: [Создание ключа содержимого](../media-services-rest-create-contentkey)).
 
 
-### <a id="get_delivery_url"></a>Получение URL-адреса доставки
+###<a id="get_delivery_url"></a>Получение URL-адреса доставки
 
 Получите URL-адрес доставки для указанного метода доставки ключа содержимого, созданного на предыдущем шаге. Клиент использует возвращенный URL-адрес для запроса ключа AES или лицензии PlayReady, чтобы воспроизвести защищенное содержимое.
 
@@ -184,7 +184,7 @@ HDS
 	{"odata.metadata":"media.windows.net/api/$metadata#Edm.String","value":"https://amsaccount1.keydelivery.mediaservices.windows.net/?KID=dc88f996-2859-4cf7-a279-c52a9d6b2f04"}
 
 
-### Создание политики доставки активов
+###Создание политики доставки активов
 
 Следующий HTTP-запрос создает сущность **AssetDeliveryPolicy**, для которой настроено применение динамического конвертного шифрования (**DynamicEnvelopeEncryption**) для протокола **HLS** (в этом примере потоковая передача по другим протоколам будет блокироваться). 
 
@@ -227,22 +227,22 @@ HDS
 	{"odata.metadata":"media.windows.net/api/$metadata#AssetDeliveryPolicies/@Element","Id":"nb:adpid:UUID:ec9b994e-672c-4a5b-8490-a464eeb7964b","Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":4,"AssetDeliveryPolicyType":3,"AssetDeliveryConfiguration":"[{\"Key\":2,\"Value\":\"https:\\/\\/amsaccount1.keydelivery.mediaservices.windows.net\\/\"}]","Created":"2015-02-09T05:24:38.9167436Z","LastModified":"2015-02-09T05:24:38.9167436Z"}
 
 
-### Привязка ресурса к политике доставки ресурсов
+###Привязка ресурса к политике доставки ресурсов
 
 См. разделе [Привязка ресурса к политике доставки ресурсов](#link_asset_with_asset_delivery_policy)
 
-## Политика доставки ресурсов DynamicCommonEncryption 
+##Политика доставки ресурсов DynamicCommonEncryption 
 
-### Создание ключа содержимого типа CommonEncryption и связывание его с ресурсом
+###Создание ключа содержимого типа CommonEncryption и связывание его с ресурсом
 
 При определении политики доставки DynamicCommonEncryption необходимо обязательно связать ресурс с ключом содержимого типа CommonEncryption. Дополнительные сведения см. в разделе: [Создание ключа содержимого](../media-services-rest-create-contentkey)).
 
 
-### Получение URL-адреса доставки
+###Получение URL-адреса доставки
 
 Получите URL-адрес доставки для метода доставки ключа содержимого PlayReady, созданного на предыдущем шаге. Клиент использует возвращенный URL-адрес для запроса лицензии PlayReady, чтобы воспроизвести защищенное содержимого. Дополнительную информацию см. в разделе [Получение URL-адреса доставки](#get_delivery_url).
 
-### Создание политики доставки активов
+###Создание политики доставки активов
 
 Следующий HTTP-запрос создает сущность **AssetDeliveryPolicy**, для которой настроено применение динамического общего шифрования (**DynamicCommonEncryption**) для протокола **Smooth Streaming** (в этом примере потоковая передача по другим протоколам будет блокироваться). 
 
@@ -266,14 +266,14 @@ HDS
 	{"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":1,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{\"Key\":2,\"Value\":\"https:\\/\\/amsaccount1.keydelivery.mediaservices.windows.net\/PlayReady\/"}]"}
 
 
-### Привязка ресурса к политике доставки ресурсов
+###Привязка ресурса к политике доставки ресурсов
 
 См. разделе [Привязка ресурса к политике доставки ресурсов](#link_asset_with_asset_delivery_policy)
 
 
-## <a id="types"></a>Типы, используемые при определении политики доставки ресурсов
+##<a id="types"></a>Типы, используемые при определении политики доставки ресурсов
 
-### <a id="AssetDeliveryProtocol"></a>AssetDeliveryProtocol 
+###AssetDeliveryProtocol 
 
     /// <summary>
     /// Delivery protocol for an asset delivery policy.
@@ -312,7 +312,7 @@ HDS
         All = 0xFFFF
     }
 
-### <a id="AssetDeliveryPolicyType"></a>AssetDeliveryPolicyType
+###AssetDeliveryPolicyType
 
     /// <summary>
     /// Policy type for dynamic encryption of assets.
@@ -346,7 +346,7 @@ HDS
         DynamicCommonEncryption
     }
 
-### <a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
+###ContentKeyDeliveryType
 
     /// <summary>
     /// Delivery method of the content key to the client.
@@ -369,7 +369,7 @@ HDS
         BaselineHttp
     }
 
-### <a id="AssetDeliveryPolicyConfigurationKey"></a>AssetDeliveryPolicyConfigurationKey
+###AssetDeliveryPolicyConfigurationKey
 
     /// <summary>
     /// Keys used to get specific configuration for an asset delivery policy.
@@ -412,4 +412,4 @@ HDS
         EnvelopeEncryptionIV,
     }
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

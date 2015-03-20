@@ -32,7 +32,7 @@
 
 ##<a id="connect"></a>Подключение к удаленному рабочему столу
 
-Включите удаленный рабочий стол для кластера HDInsight, а затем подключитесь к нему, следуя указаниям в статье <a href="http://azure.microsoft.com/ documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Подключение к кластерам HDInsight с использованием RDP</a>.
+Включите удаленный рабочий стол для кластера HDInsight, а затем подключитесь к нему, следуя инструкциям в разделе <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Подключение к кластерам HDInsight с помощью RDP</a>.
 
 ##<a id="hadoop"></a>Использование команды Hadoop
 
@@ -40,7 +40,7 @@
 
 1. На рабочем столе HDInsight запустите **командную строку Hadoop**. Откроется новое окно командной строки в каталоге **c:\apps\dist\hadoop-&lt;номер_версии>**.
 
-	> [AZURE.NOTE] При обновлении Hadoop номер версии изменяется. Для поиска пути можно использовать переменную среды **HADOOP_HOME**. Например, чтобы перейти в каталог Hadoop, достаточно ввести `cd %HADOOP_HOME%`, поэтому знать номер версии не обязательно.
+	> [AZURE.NOTE] При обновлении Hadoop номер версии изменяется. Для поиска пути можно использовать переменную среды **HADOOP_HOME**. Например, `cd %HADOOP_HOME%` изменит каталоги на каталог Hadoop без необходимости знать номер версии.
 
 2. Чтобы выполнить пример задания MapReduce с помощью команды **Hadoop**, используйте следующую запись.
 
@@ -48,7 +48,7 @@
 
 	При этом запустится класс **wordcount**, содержащийся в текущем каталоге в файле **hadoop-mapreduce-examples.jar**. В качестве входных данных он использует документ **wasb://example/data/gutenberg/davinci.txt**, а выходные данные сохраняются в **wasb:///example/data/WordCountOutput**.
 
-	> [AZURE.NOTE] Дополнительную информацию об этом задании MapReduce и примерах данных, см. в статье <a href="../hdinsight-use-mapreduce/">Использование MapReduce в Hadoop в HDInsight</a>.
+	> [AZURE.NOTE] Дополнительные сведения об этом задании MapReduce и данные для примера см. в разделе <a href="../hdinsight-use-mapreduce/">Использование MapReduce в HDInsight Hadoop</a>.
 
 2. Задание будет выдавать информацию о ходе обработки, а по завершении задания вернет информацию, аналогичную приведенной ниже.
 
@@ -94,4 +94,4 @@
 * [Использование Hive с Hadoop в HDInsight](../hdinsight-use-hive/)
 
 * [Использование Pig с Hadoop в HDInsight](../hdinsight-use-pig/)
-<!--HONumber=45--> 
+<!--HONumber=47-->

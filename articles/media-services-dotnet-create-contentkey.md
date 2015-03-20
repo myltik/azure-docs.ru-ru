@@ -19,13 +19,13 @@
 
 #Создание ContentKey с использованием .NET
 
-Это одна из статей серии [Рабочий процесс для видео по запросу в службах мультимедиа](../media-services-video-on-demand-workflow) и серии [Рабочий процесс для потоковой трансляции в службах мультимедиа](../media-services-live-streaming-workflow).  
+Это одна из статей серии [Рабочий процесс для видео по запросу в службах мультимедиа](../media-services-video-on-demand-workflow) и [Рабочий процесс для потоковой трансляции в службах мультимедиа](../media-services-live-streaming-workflow) .  
 
 Службы мультимедиа позволяют создавать новые ресурсы и доставлять зашифрованные ресурсы. **ContentKey** обеспечивает безопасный доступ к вашим **ресурсам**. 
 
-При создании нового ресурса (например, перед [передачей файлов](../media-services-dotnet-upload-files/)) можно указать следующие параметры шифрования: **StorageEncrypted**, **CommonEncryptionProtected** или **EnvelopeEncryptionProtected**. 
+При создании нового ресурса (например, перед [отправкой файлов](../media-services-dotnet-upload-files/)) можно задать следующие параметры шифрования: **StorageEncrypted**, **CommonEncryptionProtected** или **EnvelopeEncryptionProtected**. 
 
-При доставке ресурсов клиентам можно [настроить выполнение динамического шифрования ресурсов](../media-services-dotnet-configure-asset-delivery-policy). Вы можете использовать один из двух следующих типов шифрования: **DynamicEnvelopeEncryption** или **DynamicCommonEncryption**.
+При доставке содержимого клиентам можно [настроить динамическое шифрование ресурсов](../media-services-dotnet-configure-asset-delivery-policy) одним из следующих видов шифрования: **DynamicEnvelopeEncryption** или **DynamicCommonEncryption**.
 
 Зашифрованные ресурсы должны быть связаны с сущностями **ContentKey**. В этой статье описано, как создать ключ содержимого.
 
@@ -67,7 +67,7 @@
         EnvelopeEncryption = 4
     }
 
-##<a id="envelope_contentkey"></a>Создание конвертного типа ключа содержимого
+##<a id="envelope_contentkey"></a>Создание конвертного типа ContentKey
 
 В следующем фрагменте кода создается ключ содержимого конвертного типа шифрования. Затем ключ связывается с указанным ресурсом.
 
@@ -99,13 +99,13 @@
         return randomBytes;
     }
 
-call
+вызывает
 
 	IContentKey key = CreateEnvelopeTypeContentKey(encryptedsset);
 
 
 
-##<a id="common_contentkey"></a>Создание общего типа ключа содержимого    
+##<a id="common_contentkey"></a>Создание общего типа ContentKey    
 
 В следующем фрагменте кода создается ключ содержимого общего типа шифрования. Затем ключ связывается с указанным ресурсом.
 
@@ -139,7 +139,7 @@ call
 
         return returnValue;
     }
-call
+вызывает
 
 	IContentKey key = CreateCommonTypeContentKey(encryptedsset);
-<!--HONumber=45--> 
+<!--HONumber=47-->

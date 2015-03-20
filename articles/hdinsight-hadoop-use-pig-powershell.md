@@ -22,28 +22,28 @@
 
 В этом документе приведен пример использования PowerShell для отправки заданий Pig в Hadoop в кластере HDInsight. Pig позволяет написать задания MapReduce с использованием языка (Pig Latin), который моделирует преобразования данных, а не функции сопоставления и приведения.
 
-> [AZURE.NOTE] В этом документе не приводится подробное описание процессов, которые выполняют операторы Pig Latin, используемые в примерах. Информацию об операторах Pig Latin, используемых в данном примере, см. в статье <a href="../hdinsight-use-pig/" target="_blank">"Использование Pig с Hadoop в HDInsight"</a>.
+> [AZURE.NOTE] В этом документе не приводится подробное описание процессов, которые выполняют операторы Pig Latin, используемые в примерах. Информацию об операторах Pig Latin, используемых в данном примере, см. в статье <a href="../hdinsight-use-pig/" target="_blank">Использование Pig с Hadoop в HDInsight</a>.
 
 ##<a id="prereq"></a>Предварительные требования
 
 Чтобы выполнить действия, описанные в этой статье, необходимо следующее.
 
-* Кластер Azure HDInsight (Hadoop в HDInsight) (на платформе Windows или Linux).
+* Кластер Azure HDInsight (Hadoop в HDInsight) (на платформе Windows или Linux)
 
-* <a href="http://azure.microsoft.com/ documentation/articles/install-configure-powershell/" target="_blank">Azure PowerShell.</a>
+* <a href="http://azure.microsoft.com/documentation/articles/install-configure-powershell/" target="_blank">Azure PowerShell</a>
 
 
 ##<a id="powershell"></a>Выполнение заданий Pig с помощью PowerShell
 
-Azure PowerShell предоставляет *cmdlets*, позволяющие удаленно запускать задания Pig в HDInsight. Внутри самой системы это достигается путем отправки вызовов REST в <a href="https://cwiki.apache.org/confluence/display/Hive/WebHCat" target="_blank">WebHCat</a> (прежнее название - Templeton) на кластере HDInsight.
+Azure PowerShell предоставляет *командлеты*, позволяющие удаленно запускать задания Pig в HDInsight. Внутренне это достигается с помощью выполнения вызовов REST для <a href="https://cwiki.apache.org/confluence/display/Hive/WebHCat" target="_blank">WebHCat</a> (ранее называвшегося Templeton), запущенного в кластере HDInsight.
 
 При выполнении заданий Pig на удаленном кластере HDInsight, используются следующие командлеты.
 
 * **Add-AzureAccount** - выполняет аутентификацию PowerShell в подписке Azure.
 
-* **New-AzureHDInsightPigJobDefinition** - создает новое *job definition* с использованием заданных операторов Pig Latin
+* **New-AzureHDInsightPigJobDefinition** - создает новое *определение задания* с использованием заданных операторов Pig Latin.
 
-* **Start-AzureHDInsightJob** - отправляет определение задания в HDInsight, запускает задание и возвращает объект *job*, который можно использовать для проверки состояния задания.
+* **Start-AzureHDInsightJob** - отправляет определение задания в HDInsight, запускает задание и возвращает объект *задания*, который можно использовать для проверки состояния задания.
 
 * **Wait-AzureHDInsightJob** - использует объект job для проверки состояния задания. Он будет ждать завершения задания или превышения времени ожидания.
 
@@ -141,4 +141,4 @@ Azure PowerShell предоставляет *cmdlets*, позволяющие у
 * [Использование Hive с Hadoop в HDInsight](../hdinsight-use-hive/)
 
 * [Использование MapReduce с Hadoop в HDInsight](../hdinsight-use-mapreduce/)
-<!--HONumber=45--> 
+<!--HONumber=47-->

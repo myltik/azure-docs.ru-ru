@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Request Azure Store Integration" pageTitle="Как отправлять электронную почту с помощью SendGrid из Java в развертывании Azure" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="How to Send Email Using SendGrid from Java in an Azure Deployment" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Как отправлять электронную почту с помощью SendGrid из Java в развертывании Azure" 
+	description="" 
+	services="" 
+	documentationCenter="java" 
+	authors="thinkingserious" 
+	manager="sendgrid" 
+	editor="mollybos"/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="10/30/2014" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
+	ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork"/>
 
 # Как отправлять электронную почту с помощью SendGrid из Java в развертывании Azure
 
@@ -16,12 +30,12 @@
 
 1. JAR-файлы javax.mail можно получить, например, по адресу: <http://www.oracle.com/technetwork/java/javamail/index.html>.
 2. Добавьте JAR-файлы в путь сборки Java.
-3. Если вы используете Eclipse для создания Java-приложения, включите библиотеки SendGrid в файл развертывания приложения (WAR) с помощью компонента сборки развертывания Eclipse. Если среда Eclipse для создания данного приложения Java, убедитесь, что библиотеки включены в ту же роль Azure, которой принадлежит ваше Java-приложение, а также добавлены в путь к классу приложения.
+3. Если вы используете Eclipse для создания приложения Java, включите библиотеки SendGrid в файл развертывания приложения (WAR-файл) с помощью компонента сборки развертывания Eclipse. Если среда Eclipse для создания данного приложения Java, убедитесь, что библиотеки включены в ту же роль Azure, которой принадлежит ваше Java-приложение, а также добавлены в путь к классу приложения.
 
 
-Для отправки электронной почты вам также понадобится собственное имя пользователя и пароль SendGrid. Чтобы начать работу с SendGrid, см. раздел [Как отправлять электронную почту с помощью SendGrid из Java](../store-sendgrid-java-how-to-send-email).
+Для отправки электронной почты вам также понадобится собственное имя пользователя и пароль SendGrid. Чтобы начать работу с SendGrid, см. раздел [как отправлять электронную почту с помощью SendGrid из Java](../store-sendgrid-java-how-to-send-email).
 
-Кроме того, если вы не используете среду Eclipse, мы настоятельно рекомендуем ознакомиться с разделом [Создание приложения "Hello World" для Azure в Eclipse](http://msdn.microsoft.com/ru-ru/library/windowsazure/hh690944), а также другими способами размещения Java-приложений в Azure.
+Кроме того, знакомство с разделом [Создание приложения Hello World для Azure в Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944), или с другими способами размещения Java-приложений в Azure, если вы не используете Eclipse, настоятельно рекомендуется.
 
 ## Создание веб-формы для отправки электронных сообщений
 
@@ -199,10 +213,12 @@
 
 Этот код демонстрирует использование SendGrid для Java в Azure. Возможно, перед развертыванием в рабочей среде Azure потребуется добавить в него дополнительные обработчики ошибок и другие функции. Например: 
 
-* Вместо веб-формы для адресов и сообщений электронной почты можно использовать хранилище BLOB-объектов Azure или базу данных SQL. Дополнительные сведения об использовании BLOB-объектов Azure в Java см. в разделе [Использование службы хранилища BLOB-объектов Azure из Java](http://www.windowsazure.com/ru-ru/develop/java/how-to-guides/blob-storage/). Дополнительные сведения об использовании базы данных SQL в Java см. в разделе [Использование базы данных SQL в Java](http://www.windowsazure.com/ru-ru/develop/java/how-to-guides/using-sql-azure-in-java/).
-* Для извлечения имени пользователя и пароля SendGrid из параметров конфигурации развертывания, вы можете использовать "RoleEnvironment.getConfigurationSettings" вместо веб-формы, для извлечения этих значений. Сведения о классе RoleEnvironment см. в разделе [Использование библиотеки среды выполнения служб Azure в JSP](http://msdn.microsoft.com/ru-ru/library/windowsazure/hh690948), а также в документации по пакету среды выполнения служб Azure по адресу: <http://dl.windowsazure.com/javadoc>.
-* Дополнительные сведения об использовании SendGrid в Java см. в разделе [Как отправлять электронную почту с помощью SendGrid из Java](../store-sendgrid-java-how-to-send-email).
+* Вместо веб-формы для сохранения адресов и электронных сообщений вы можете использовать хранилище больших двоичных объектов Azure или базу данных SQL. Сведения об использовании BLOB-объектов хранилища Azure в Java см. в разделе [использование службы хранилища больших двоичных объектов из Java](http://www.windowsazure.com/develop/java/how-to-guides/blob-storage/). Сведения об использовании базы данных SQL в Java см. в разделе [использование базы данных SQL в Java](http://www.windowsazure.com/develop/java/how-to-guides/using-sql-azure-in-java/).
+* Можно использовать `RoleEnvironment.getConfigurationSettings` для получения SendGrid имя пользователя и пароль из параметров конфигурации развертывания, вместо того чтобы использовать веб-формы для получения этих значений. Сведения о `RoleEnvironment` см. в разделе [использование библиотеки среды выполнения служб Azure в JSP](http://msdn.microsoft.com/library/windowsazure/hh690948) и документации пакета среды выполнения служб Azure в <http://dl.windowsazure.com/javadoc>.
+* Дополнительные сведения об использовании SendGrid в Java см. в разделе [как отправлять электронную почту с помощью SendGrid из Java](../store-sendgrid-java-how-to-send-email).
 
 [emailform]: ./media/store-sendgrid-java-how-to-send-email-example/SendGridJavaEmailform.jpg
 [emailsent]: ./media/store-sendgrid-java-how-to-send-email-example/SendGridJavaEmailSent.jpg
 [emailresult]: ./media/store-sendgrid-java-how-to-send-email-example/SendGridJavaResult.jpg
+
+<!--HONumber=47-->

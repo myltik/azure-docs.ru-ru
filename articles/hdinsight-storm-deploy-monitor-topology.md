@@ -24,19 +24,19 @@
 
 ##Предварительные требования
 
-* **Apache Storm в HDInsight** - см. статью <a href="../hdinsight-storm-getting-started/" target="_blank">"Приступая к работе с Apache Storm на HDInsight"</a> для получения указаний по созданию кластера.
+* **Apache Storm в HDInsight** - инструкции по созданию кластера см. в статье <a href="../hdinsight-storm-getting-started/" target="_blank">Приступая к работе с Apache Storm в HDInsight</a>
 
 * Для **панели мониторинга Storm** - современный браузер, который поддерживает HTML5
 
-* Для **Visual Studio** - пакет SDK для Azure 2.5.1 или более поздней версии и средства HDInsight для Visual Studio. См. статью <a href="../hdinsight-hadoop-visual-studio-tools-getting-started/" target="_blank">"Приступая к работе с HDInsight средства для Visual Studio"</a> для установки и настройки инструментов HDInsight для Visual Studio.
+* Для **Visual Studio** - пакет SDK для Azure 2.5.1 или более поздней версии и средства HDInsight для Visual Studio. Инструкции по установке и настройке средств HDInsight для Visual Studio см. в статье <a href="../hdinsight-hadoop-visual-studio-tools-getting-started/" target="_blank">Приступая к работе со средствами HDInsight для Visual Studio</a>.
 
 	Одна из следующих версий Visual Studio:
 
-	* Visual Studio 2012 <a href="http://www.microsoft.com/ru-ru/download/details.aspx?id=39305" target="_blank">с обновлением 4,</a>
+	* Visual Studio 2012 с <a href="http://www.microsoft.com/download/details.aspx?id=39305" target="_blank">с обновлением 4</a>
 
-	* Visual Studio 2013 <a href="http://www.microsoft.com/ru-ru/download/details.aspx?id=44921" target="_blank">с обновлением 4</a> или <a href="http://go.microsoft.com/fwlink/?LinkId=517284" target="_blank">Visual Studio 2013 Community.</a>
+	* Visual Studio 2013 с <a href="http://www.microsoft.com/download/details.aspx?id=44921" target="_blank">обновлением 4</a> или <a href="http://go.microsoft.com/fwlink/?LinkId=517284" target="_blank">Visual Studio 2013 Community</a>
 
-	* <a href="http://visualstudio.com/ru-ru/downloads/visual-studio-2015-ctp-vs" target="_blank">Visual Studio 2015, CTP-версия 6</a>
+	* <a href="http://visualstudio.com/downloads/visual-studio-2015-ctp-vs" target="_blank">Visual Studio 2015 CTP6</a>
 
 	> [AZURE.NOTE] В настоящее время инструменты HDInsight для Visual Studio поддерживают только Storm на кластере HDInsight версии 3.2.
 
@@ -55,6 +55,8 @@
 На панели мониторинга Storm выберите ссылку **Пользовательский интерфейс Storm**. Отобразится информация о кластере, а также всех запущенных топологиях.
 
 ![the storm ui][storm-dashboard-ui] 
+
+> [AZURE.NOTE] В некоторых версиях Internet Explorer может возникать ситуация, когда пользовательский интерфейс Storm не обновляется после первого открытия. Например, отправленные вами новые топологии не отображаются, либо ранее удаленная топология отображается как активная. Корпорация Майкрософт знает о наличии этой проблемы и работает над ее решением.
 
 ####Главная страница
 
@@ -82,7 +84,7 @@
 	
 	* **Повторная балансировка** - корректировка параллелизма топологии. После изменения числа узлов в кластере необходимо выполнить повторную балансировку топологий. Это позволяет топологии скорректировать параллелизм для компенсации увеличения или уменьшения количества узлов в кластере.
 	
-		Дополнительную информацию см. в разделе <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">"Основная информация о параллелизме топологии Storm".</a>
+		Дополнительные сведения см. в статье <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">Общие сведения о параллелизме топологии Storm</a>
 	
 	* **Удалить** - останавливает выполнение топологии Storm по истечении заданного времени ожидания.
 
@@ -112,11 +114,11 @@
 
 ##Средства HDInsight для Visual Studio
 
-Средства HDInsight можно использовать для отправки топологии C# или гибридной топологии в кластер Storm. Далее используется пример приложения. Информацию о создании собственных топологий, с помощью средств HDInsight см. в разделе [Разработка топологий на C# с помощью средств HDInsight для Visual Studio](../hdinsight-storm-develop-csharp-visual-studio-topology/).
+Средства HDInsight можно использовать для отправки топологии C# или гибридной топологии в кластер Storm. Далее используется пример приложения. Информацию о создании собственных топологий с помощью средств HDInsight см. в статье [Разработка топологий на C# с помощью средств HDInsight для Visual Studio](../hdinsight-storm-develop-csharp-visual-studio-topology/).
 
 Чтобы развернуть пример в Storm в кластере HDInsight, а затем просмотреть топологию и управлять ею, сделайте следующее.
 
-1. Если вы еще не установили последнюю версию инструментов HDInsight для Visual Studio, см. раздел <a href="../hdinsight-hadoop-visual-studio-tools-getting-started/" target="_blank">"Приступая к работе с HDInsight средства для Visual Studio"</a>.
+1. Если вы еще не установили последнюю версию средств HDInsight для Visual Studio, см. статью <a href="../hdinsight-hadoop-visual-studio-tools-getting-started/" target="_blank">Приступая к работе со средствами HDInsight для Visual Studio</a>.
 
 2. Откройте Visual Studio, выберите **Файл**, **Создать**, а затем - **Проект**.
 
@@ -164,11 +166,11 @@
 
 ##Дальнейшие действия
 
-Теперь, когда вы узнали, как развертывать и отслеживать топологии с помощью панели мониторинга Storm, можете переходить к изучению [разработки топологий на C# с помощью средств HDInsight для Visual Studio](../hdinsight-storm-develop-csharp-visual-studio-topology/) или [разработки топологий на платформе Java с помощью Maven](../hdinsight-storm-develop-java-topology/).
+Теперь, когда вы узнали, как развертывать и отслеживать топологии с помощью панели мониторинга Storm, можете переходить к изучению [разработки топологий на C# с помощью средств HDInsight для Visual Studio](../hdinsight-storm-develop-csharp-visual-studio-topology/)или [разработки топологий на платформе Java с помощью Maven](../hdinsight-storm-develop-java-topology/).
 
 
 [hdinsight-dashboard]: ./media/hdinsight-storm-deploy-monitor/dashboard-link.png
 [storm-dashboard-submit]: ./media/hdinsight-storm-deploy-monitor/submit.png
 [storm-dashboard-ui]: ./media/hdinsight-storm-deploy-monitor/storm-ui-summary.png
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

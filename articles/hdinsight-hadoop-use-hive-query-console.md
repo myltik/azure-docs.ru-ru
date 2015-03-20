@@ -42,7 +42,7 @@
 	
 	![the hive editor](./media/hdinsight-hadoop-use-hive-query-console/queryconsole.png)
 	
-	Замените текст `Select * from hivesampletable` следующими операторами HiveQL.
+	Замените текст `Select * from hivesampletable` на следующие инструкции HiveQL.
 
         DROP TABLE log4jLogs;
         CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
@@ -53,7 +53,7 @@
     Эти операторы выполняют следующие действия:
 
     * **DROP TABLE** - приводит к удалению таблицы и файла данных в том случае, если таблица уже существует
-    * **CREATE EXTERNAL TABLE** - создает новую  'external' таблицу в Hive. Внешние таблицы хранят только описание самой таблицы в Hive, в то время как данные остаются в исходном расположении.
+    * **CREATE EXTERNAL TABLE** - создает новую 'внешнюю' таблицу в Hive. Внешние таблицы хранят только описание самой таблицы в Hive, в то время как данные остаются в исходном расположении.
 
     > [AZURE.NOTE] Внешние таблицы необходимо использовать в тех случаях, когда ожидается, что исходные данные будут обновляться внешним источником, таким как автоматизированный процесс передачи данных или другой операцией MapReduce, при этом нужно, чтобы запросы Hive использовали самые последние данные.
     >
@@ -65,7 +65,7 @@
 
 2. Щелкните **Отправить**. В поле **Сеанс задания** в нижней части страницы, должна отображаться подробная информация о задании.
 
-3. После изменения значения поля **Состояние** на **Завершено** выберите **Показать подробности** для задания. На странице подробностей **выходные данные задания** будут содержать `[ERROR]	3`. Чтобы скачать файл, содержащий результат задания, можно нажать кнопку **Скачать** под этим полем.
+3. После изменения значения поля **Состояние** на **Завершено** выберите **Показать подробности** для задания. На странице сведений **выходные данные задания** будут содержать `[ERROR]	3`. Чтобы скачать файл, содержащий результат задания, можно нажать кнопку **Скачать** под этим полем.
 
 
 ##<a id="summary"></a>Сводка
@@ -88,17 +88,17 @@
 
 [1]: ../hdinsight-hadoop-visual-studio-tools-get-started/
 
-[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/ru-ru/library/dn479185.aspx
+[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
-[azure-purchase-options]: http://azure.microsoft.com/ pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/ pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/ pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [apache-tez]: http://tez.apache.org
 [apache-hive]: http://hive.apache.org/
 [apache-log4j]: http://en.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: http://azure.microsoft.com/ documentation/articles/hdinsight-connect-excel-power-query/
+[import-to-excel]: http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
 
 
 [hdinsight-use-oozie]: ../hdinsight-use-oozie/
@@ -120,4 +120,4 @@
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

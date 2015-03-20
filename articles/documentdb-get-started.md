@@ -13,42 +13,24 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/12/2014" 
+	ms.date="03/04/2015" 
 	ms.author="mimig"/>
 
 #Начало работы с DocumentDB .NET SDK  
 
-Из данного руководства вы узнаете, как начать работу с [**Microsoft Azure DocumentDB (предварительная версия)**](https://portal.azure.com/#gallery/Microsoft.DocumentDB) и SDK DocumentDB .NET. DocumentDB представляет собой службу базы данных документов NoSQL, у которой есть несколько API-интерфейсов и ряд SDK. Образцы кода в данной статье написаны на C# с использованием [DocumentDB .NET SDK](http://go.microsoft.com/fwlink/p/?linkid=402989), который поставляется в виде пакета NuGet. 
+В этом руководстве показано, как приступить к использованию [Microsoft Azure DocumentDB (предварительная версия)](https://portal.azure.com/#gallery/Microsoft.DocumentDB) и [пакета SDK DocumentDB для .NET](http://go.microsoft.com/fwlink/p/?linkid=402989). DocumentDB - это служба баз данных документов NoSQL, для которой доступны [несколько интерфейсов API и пакетов SDK](http://go.microsoft.com/fwlink/p/?linkid=522476). Примеры кода в этом разделе написаны на языке C# и используют пакет SDK DocumentDB для .NET, который упакован и распространяется в виде пакета NuGet. 
 
-В данной статье описаны такие сценарии, как создание и настройка учетной записи DocumentDB, создание баз данных, создание коллекций и сохранение документов JSON в учетной записи. Каждый из этих образцов кода является частью комплексного решения, доступного на [GitHub](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started). Вы можете [загрузить решение](#GetSolution) с целью просмотра примера кода в контексте или можете просто просматривать примеры в этой статье.
-
-##Оглавление
-
--	[Подключение к учетной записи DocumentDB](#Connect)
--	[Создание базы данных](#CreateDB)
--	[Создание коллекции](#CreateColl)
--	[Создание документов](#CreateDoc)
--	[Запрос ресурсов DocumentDB](#Query)
--	[Получение полного решения](#GetSolution)
--	[Дальнейшие действия](#NextSteps)
+В данной статье описаны такие сценарии, как создание и настройка учетной записи DocumentDB, создание баз данных, создание коллекций и сохранение документов JSON в учетной записи. Каждый из этих примеров является частью законченного решения, которое доступно на [GitHub](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started). Вы можете [загрузить решение](#GetSolution) с целью просмотра примера кода в контексте или можете просто просматривать примеры в этой статье.
 
 ##<a id="Connect"></a>Подключение к учетной записи DocumentDB
 
-Мы начнем с создания нового экземпляра класса **DocumentClient** для установления подключения к нашей учетной записи DocumentDB.   Нам в нашем приложении C# потребуются следующие ссылки:  
+Мы начнем с создания нового экземпляра класса [DocumentClient](http://go.microsoft.com/fwlink/p/?linkid=522477) для установления подключения к нашей учетной записи DocumentDB.   Нам в нашем приложении C# потребуются следующие ссылки:  
 
     using Microsoft.Azure.Documents;
     using Microsoft.Azure.Documents.Client;
     using Microsoft.Azure.Documents.Linq;
  
-Экземпляр **DocumentClient** может быть создан с использованием конечной точки учетной записи DocumentDB и первичного или вторичного ключа доступа, связанного с учетной записью.  
-
-Конечную точку и ключи учетной записи DocumentDB можно получить в выноске учетной записи DocumentDB на [портале управления Azure предварительной версии](https://portal.azure.com/#gallery/Microsoft.DocumentDB). 
-
-![][1]
- 
->Обратите внимание, что ключи доступа DocumentDB, размещенные на выноске, предоставляют административный доступ к учетной записи DocumentDB и к ее ресурсам.  DocumentDB также поддерживает использование ключей ресурсов, позволяющих клиентам читать, записывать и удалять ресурсы в учетной записи DocumentDB в соответствии с предоставленными вами разрешениями без необходимости использования ключа учетной записи.    
-
-Создайте клиентское приложение с использованием кода из следующего примера.  
+Затем можно создать экземпляр **DocumentClient** с использованием конечной точки учетной записи DocumentDB и первичного или вторичного ключа доступа, связанного с учетной записью. Создайте клиента, используя код, аналогичный приведенному в следующем примере:   
 
     private static string EndpointUrl = "<your endpoint URI>";
     private static string AuthorizationKey = "<your key>";
@@ -56,12 +38,18 @@
     // Create a new instance of the DocumentClient.
     var client = new DocumentClient(new Uri(EndpointUrl), AuthorizationKey);  
 
-**Внимание!** Никогда не храните учетные данные в исходном коде. Для демонстрации данного примера учетные данные приведены в исходном коде. См. [Веб-сайты Microsoft Azure: принцип использования строк приложения и подключения](http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/) с описанием порядка хранения учетных данных. 
+> [AZURE.WARNING] Никогда не храните учетные данные в исходном коде. Чтобы не усложнять этот пример, учетные данные приведены в исходном коде. См. [Веб-сайты Azure. Как работают строки приложения и строки подключения](http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/) для получения информации о способах хранения учетных данных в рабочей среде. 
 
-Теперь, когда вы знаете, как подключаться к учетной записи DocumentDB и создавать экземпляр **DocumentClient**, давайте рассмотрим работу с ресурсами DocumentDB.  
+Значения для EndpointUrl и AuthorizationKey - URI и первичный ключ для учетной записи DocumentDB, их можно получить из раздела [портала управления Azure (предварительная версия)](https://portal.azure.com) для учетной записи DocumentDB. 
+
+![][1]
+ 
+Эти ключи предоставляют административный доступ к учетной записи DocumentDB и ее ресурсам. DocumentDB также поддерживает использование ключей ресурсов, позволяющих клиентам читать, записывать и удалять ресурсы в учетной записи DocumentDB в соответствии с предоставленными вами разрешениями без необходимости использования ключа учетной записи. Дополнительные сведения о ключах ресурсов см. в разделе "Разрешения", [Модель ресурсов и основные принципы DocumentDB](../documentdb-resources/) 
+
+Теперь, когда стало известно, как подключиться к учетной записи DocumentDB и создать экземпляр класса**DocumentClient**, давайте взглянем на работу с ресурсами DocumentDB.  
 
 ##<a id="CreateDB"></a>Создание базы данных
-Базу данных DocumentDB можно создать, используя метод **CreateDatabaseAsync** класса DocumentClient с использованием пакета DocumentDB SDK .NET.  
+Базу данных DocumentDB можно создать с помощью метода [CreateDatabaseAsync](http://go.microsoft.com/fwlink/p/?linkid=522478) класса **DocumentClient**.  
 
 	// Create a database.
 	Database database = await client.CreateDatabaseAsync(
@@ -72,7 +60,7 @@
 
 ##<a id="CreateColl"></a>Создание коллекции  
 
-Коллекцию DocumentDB можно создать, используя метод **CreateDocumentCollectionAsync** класса DocumentClient с использованием пакета DocumentDB SDK .NET.  База данных, созданная на предыдущем шаге, имеет несколько свойств, среди которых есть свойство **CollectionsLink**.  Имея данную информацию, мы можем создать коллекцию.  
+Коллекцию DocumentDB можно создать с помощью метода [CreateDocumentCollectionAsync](http://go.microsoft.com/fwlink/p/?linkid=522479) класса **DocumentClient**.  База данных, созданная на предыдущем шаге, имеет несколько свойств, среди которых есть свойство [CollectionsLink](http://go.microsoft.com/fwlink/p/?linkid=522481).  Имея данную информацию, мы можем создать коллекцию.  
 
   	// Create a document collection.
   	DocumentCollection documentCollection = await client.CreateDocumentCollectionAsync(database.CollectionsLink,
@@ -82,7 +70,7 @@
   		    });
     
 ##<a id="CreateDoc"></a>Создание документов	
-Документ DocumentDB можно создать, используя метод **CreateDocumentAsync** класса DocumentClient с использованием пакета DocumentDB SDK .NET.  Коллекция, созданная на предыдущем шаге, имеет несколько свойств, среди которых есть свойство **DocumentsLink**.  Располагая этой информацией, мы можем добавить один или несколько документов.  В целях данного примера, мы подразумеваем, что у нас имеется класс Family, описывающий атрибуты членов семьи, такие как имя, пол и возраст.  
+Документ DocumentDB можно создать с помощью метода [CreateDocumentAsync](http://go.microsoft.com/fwlink/p/?linkid=522482) класса **DocumentClient**.  Коллекция, созданная на предыдущем шаге, имеет несколько свойств, среди которых есть свойство [DocumentsLink](http://go.microsoft.com/fwlink/p/?linkid=522483).  Располагая этой информацией, мы можем добавить один или несколько документов.  В целях данного примера, мы подразумеваем, что у нас имеется класс Family, описывающий атрибуты членов семьи, такие как имя, пол и возраст.  
 
     // Create the Andersen family document.
 	Family AndersenFamily = new Family
@@ -142,7 +130,7 @@
     await client.CreateDocumentAsync(documentCollection.DocumentsLink, WakefieldFamily);
  
 
-##<a id="Query"></a>Запрос ресурсов DocumentDB
+## Запросы к ресурсам DocumentDB
 DocumentDB поддерживает функционально богатые запросы документов JSON, хранящихся в каждой коллекции.  Ниже приведены примеры кода разнообразных запросов с использованием как синтаксиса SQL DocumentDB, так и LINQ, которые можно запускать на добавленных на предыдущем шаге документах.  
 
     // Query the documents using DocumentDB SQL for the Andersen family.
@@ -201,18 +189,18 @@ DocumentDB поддерживает функционально богатые з
     {
         Console.WriteLine(item);
     }
-
-##<a id="GetSolution"></a>Получение полного решения
+	
+##<a id="GetSolution"></a>Получение завершенного решения
 Чтобы собрать решение GetStarted, которое содержит все примеры из данной статьи, вам понадобится следующее:
 
 -   [Учетная запись DocumentDB][documentdb-create-account].
 -   Решение [GetStarted](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started) доступно на GitHub. 
 
-Для восстановления ссылок на DocumentDB .NET SDK в Visual Studio 2013 щелкните правой кнопкой мыши решение "GetStarted" в обозревателе решений, а затем нажмите "Включить восстановление пакета NuGet", который восстановит ссылки. 
+Для восстановления ссылок на DocumentDB .NET SDK в Visual Studio 2013 щелкните правой кнопкой мыши решение GetStarted в обозревателе решений, а затем нажмите "Включить восстановление пакета NuGet", который восстановит ссылки. Затем в файле App.config обновите значения EndpointUrl и AuthorizationKey, как описано в разделе [Подключение к учетной записи DocumentDB](#Connect)  
 
 ##<a id="NextSteps"></a>Дальнейшие действия
--	Узнайте, как [выполнять мониторинг учетной записи DocumentDB](http://go.microsoft.com/fwlink/p/?LinkId=402378).
--	Подробные сведения о модели программирования см. в разделе "Разработка" на [странице документации по DocumentDB](http://go.microsoft.com/fwlink/p/?LinkID=402319).
+-	Сведения о [наблюдении за учетной записью DocumentDB](http://go.microsoft.com/fwlink/p/?LinkId=402378).
+-	Подробные сведения о модели программирования см. в разделе "Разработка" на [странице документации DocumentDB](http://go.microsoft.com/fwlink/p/?LinkID=402319).
 
 
 [Подключение к учетной записи DocumentDB]: #Connect
@@ -227,6 +215,4 @@ DocumentDB поддерживает функционально богатые з
 
 [1]: ./media/documentdb-get-started/gs1.png
 
-<!--HONumber=35.2-->
-
-<!--HONumber=46--> 
+<!--HONumber=47-->

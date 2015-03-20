@@ -22,19 +22,19 @@
 
 В этой статье вы узнаете, как подключиться к кластеру HDInsight с помощью удаленного рабочего стола, а затем выполнить запросы Hive с помощью интерфейса командной строки Hive.
 
-> [AZURE.NOTE] В этом документе не приводится подробное описание процессов, которые выполняют инструкции HiveQL, используемые в примерах. Информацию об операторах HiveQL, используемых в данном примере, см. в статье <a href="../hdinsight-use-hive/" target="_blank">Использование Hive с Hadoop в HDInsight</a>.
+> [AZURE.NOTE] В этом документе не приводится подробное описание действия инструкций HiveQL, используемых в данных примерах. Сведения о HiveQL, используемом в этом примере, см. в разделе <a href="../hdinsight-use-hive/" target="_blank">Использование Hive с Hadoop в HDInsight</a>.
 
 ##<a id="prereq"></a>Предварительные требования
 
 Чтобы выполнить действия, описанные в этой статье, необходимо следующее.
 
-* Кластер HDInsight на платформе Windows (Hadoop в HDInsight)
+* Кластер HDInsight на платформе Windows (Hadoop в HDInsight).
 
 * Windows 7 или более новая версия клиентской ОС
 
 ##<a id="connect"></a>Подключение к удаленному рабочему столу
 
-Включите удаленный рабочий стол для кластера HDInsight, а затем подключитесь к нему, следуя указаниям в статье <a href="http://azure.microsoft.com/ documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Подключение к кластерам HDInsight с использованием RDP</a>.
+Включите удаленный рабочий стол для кластера HDInsight, а затем подключитесь к нему, следуя инструкциям в разделе <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Подключение к кластерам HDInsight с помощью RDP</a>.
 
 ##<a id="hive"></a>Использование команды Hive
 
@@ -60,7 +60,7 @@
 
     * **DROP TABLE** - приводит к удалению таблицы и файла данных в том случае, если таблица уже существует
     
-    * **CREATE EXTERNAL TABLE** - создает новую  'external' таблицу в Hive. Внешние таблицы хранят только описание самой таблицы в Hive, в то время как данные остаются в исходном расположении.
+    * **CREATE EXTERNAL TABLE** - создает новую 'внешнюю' таблицу в Hive. Внешние таблицы хранят только описание самой таблицы в Hive, в то время как данные остаются в исходном расположении.
 
 		> [AZURE.NOTE] Внешние таблицы необходимо использовать в тех случаях, когда ожидается, что исходные данные будут обновляться внешним источником, таким как автоматизированный процесс передачи данных или другой операцией MapReduce, при этом нужно, чтобы запросы Hive использовали самые последние данные.
     	>
@@ -73,7 +73,7 @@
     * **SELECT** - подсчитывает количество строк, у которых столбец **t4** содержит значение **[ERROR]**. Эта команда должна вернуть значение **3**, так как таблица содержит три строки с данным значением.
 
 
-4. Используйте следующие инструкции, чтобы создать новую "внутреннюю" таблицу с именем **errorLogs**.
+4. Используйте следующие инструкции для создания новой 'внутренней' таблицы с именем **errorLogs**.
 
         CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
         INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
@@ -88,7 +88,7 @@
     
     * **INSERT OVERWRITE ... SELECT** - из таблицы **log4jLogs** будут выбраны строки, которые содержат значение **[ERROR]**, а затем данные будут вставлены в таблицу **errorLogs**.
 
-    Чтобы убедиться, что только строки, столбец t4 которых содержит значение **[ERROR]**, сохранены в таблице **errorLogs**, воспользуйтесь следующим оператором, чтобы отобразить все строки из таблицы **errorLogs**.
+    Чтобы убедиться в том, что только строки, столбец t4 которых содержит значение **[ERROR]**, сохранены в таблице **errorLogs**, воспользуйтесь следующим запросом, чтобы отобразить все строки из таблицы **errorLogs**.
 
         SELECT * from errorLogs;
 
@@ -108,22 +108,22 @@
 
 * [Использование Pig с Hadoop в HDInsight](../hdinsight-use-pig/)
 
-* [Использование MapReduce с Hadoop в HDInsight](../ hdinsight использование mapreduce)
+* [Использование MapReduce с Hadoop в HDInsight](../hdinsight-use-mapreduce/)
 
 
 [1]: ../hdinsight-hadoop-visual-studio-tools-get-started/
 
-[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/ru-ru/library/dn479185.aspx
+[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
-[azure-purchase-options]: http://azure.microsoft.com/ pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/ pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/ pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [apache-tez]: http://tez.apache.org
 [apache-hive]: http://hive.apache.org/
 [apache-log4j]: http://en.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: http://azure.microsoft.com/ documentation/articles/hdinsight-connect-excel-power-query/
+[import-to-excel]: http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
 
 
 [hdinsight-use-oozie]: ../hdinsight-use-oozie/
@@ -145,4 +145,4 @@
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!--HONumber=45--> 
+<!--HONumber=47-->
