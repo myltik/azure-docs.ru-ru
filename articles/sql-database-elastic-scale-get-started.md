@@ -1,4 +1,4 @@
-﻿<properties title="Get Started with  Azure SQL Database Elastic Scale" pageTitle="Начало работы с эластичным масштабированием базы данных SQL Azure" description="Общие пояснения к функции эластичного масштабирования базы данных SQL Azure, в том числе пояснение к простому примеру приложения." metaKeywords="sharding scaling, Azure SQL DB sharding, elastic scale" services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh@microsoft.com"/>
+<properties title="Get Started with  Azure SQL Database Elastic Scale" pageTitle="Начало работы с эластичным масштабированием базы данных SQL Azure" description="Общие пояснения к функции эластичного масштабирования базы данных SQL Azure, в том числе пояснение к простому примеру приложения." metaKeywords="sharding scaling, Azure SQL DB sharding, elastic scale" services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh@microsoft.com"/>
 
 <tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
 
@@ -12,7 +12,7 @@
 
 С дополнительной информацией о базовых принципах технологии эластичного масштабирования можно ознакомиться в разделе [Обзор технологии эластичного масштабирования](http://go.microsoft.com/?linkid=9862592).
 
-С перечнем всех разделов на тему эластичного масштабирования можно ознакомиться на [карте документации по эластичному масштабированию].(./sql-database-elastic-scale-documentation-map.md)
+С перечнем всех разделов на тему эластичного масштабирования можно ознакомиться на [карте документации по эластичному масштабированию](./sql-database-elastic-scale-documentation-map.md)
 
 ## Пример приложения для эластичного масштабирования
 
@@ -23,7 +23,7 @@
 ####Visual Studio и Nuget
 
 1. Требуется Visual Studio 2012 или выше с пакетом C#. Скачайте бесплатную версию на странице [Загружаемые файлы для Visual Studio](http://www.visualstudio.com/ru-ru/downloads/download-visual-studio-vs.aspx).
-2. Maven 2,7 или выше Для получения самой новой версии см. раздел [Installing NuGet] (Установка NuGet)(http://docs.nuget.org/docs/start-here/installing-nuget)
+2. Maven 2,7 или выше Для получения самой новой версии см. раздел [Installing NuGet](http://docs.nuget.org/docs/start-here/installing-nuget) (Установка NuGet)
 ####Создание базы данных SQL Azure
 
 * См. раздел [Приступая к работе с базой данных SQL Microsoft Azure](http://azure.microsoft.com/ru-ru/documentation/articles/sql-database-get-started/).
@@ -56,8 +56,8 @@
 ### Ключевые фрагменты программного кода демонстрационного приложения
 
 1. **Управление сегментами и сопоставлениями сегментов**. Данный программный код, демонстрирующий, каким образом следует работать с сегментами, диапазонами и сопоставлениями, взят из файла **ShardMapManagerSample.cs**. Дополнительную информацию по данной теме можно найти здесь: [Управление сопоставлениями сегментов](http://go.microsoft.com/?linkid=9862595).  
-2. **Маршрутизация, зависящая от данных**. Маршрутизация транзакций к необходимому сегменту демонстрируется в файле **DataDependentRoutingSample.cs**. Более подробная информация приводится в статье [Data-Dependent Routing] (Маршрутизация, зависящая от данных)(http://go.microsoft.com/?linkid=9862596). 
-3. **Формирование запросов по нескольким сегментам**. Формирование запросов по сегментам демонстрируется в файле **MultiShardQuerySample.cs**. Более подробная информация приводится в разделе [Multi-Shard Querying] (Многосегментное формирование запросов)(http://go.microsoft.com/?linkid=9862597).
+2. **Маршрутизация, зависящая от данных**. Маршрутизация транзакций к необходимому сегменту демонстрируется в файле **DataDependentRoutingSample.cs**. Более подробная информация приводится в статье [Data-Dependent Routing](http://go.microsoft.com/?linkid=9862596) (Маршрутизация, зависящая от данных). 
+3. **Формирование запросов по нескольким сегментам**. Формирование запросов по сегментам демонстрируется в файле **MultiShardQuerySample.cs**. Более подробная информация приводится в разделе [Multi-Shard Querying](http://go.microsoft.com/?linkid=9862597) (Многосегментное формирование запросов).
 4. **Добавление пустых сегментов**. Итеративное добавление новых пустых сегментов выполняется программным кодом, который приводится в
 файле **AddNewShardsSample.cs**. С подробностями по данному вопросу можно ознакомиться здесь: [Управление сопоставлениями сегментов](http://go.microsoft.com/?linkid=9862595).
 
