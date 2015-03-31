@@ -1,8 +1,24 @@
-﻿<properties urlDisplayName="Service Bus AMQP Overview" pageTitle="Обзор Service Bus AMQP (Java) - Azure " metaKeywords="" description="Узнайте об использовании протокола AMQP 1.0 в Azure." metaCanonical="http://www.windowsazure.com/ru-ru/develop/net/how-to-guides/service-bus-amqp-overview/" services="service-bus" documentationCenter="Java" title="" authors="sethm" solutions="" manager="timlt" editor="" />
+﻿<properties 
+	pageTitle="Обзор AMQP служебной шины (Java) в Azure" 
+	description="Изучите использование протокола AMQP 1.0 в Azure." 
+	services="service-bus" 
+	documentationCenter="java" 
+	authors="sethmanheim" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="10/13/2014" ms.author="sethm" />
+<tags 
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="02/10/2015" 
+	ms.author="sethm"/>
 
 
 
 
-[WACOM.INCLUDE [service-bus-amqp-overview](../includes/service-bus-amqp-overview.md)]
+[AZURE.INCLUDE [service-bus-amqp-overview](../includes/service-bus-amqp-overview.md)]
+
+<!--HONumber=47-->

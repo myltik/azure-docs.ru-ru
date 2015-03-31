@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="How to monitor" pageTitle="Мониторинг базы данных SQL - управление службами Azure" metaKeywords="" description="Узнайте, как отслеживать Базу данных SQL с помощью портала управления Azure." metaCanonical="" services="sql-database" documentationCenter="" title="How to Monitor Logical Servers and Database Instances" authors="jeffreyg" solutions="" manager="jeffreyg" editor="" />
+<properties 
+	pageTitle="Мониторинг базы данных SQL - управление службами Azure" 
+	description="Узнайте, как отслеживать Базу данных SQL с помощью портала управления Azure." 
+	services="sql-database" 
+	documentationCenter="" 
+	authors="jeffgoll" 
+	manager="jeffreyg" 
+	editor=""/>
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/31/2015" ms.author="jeffreyg" />
+<tags 
+	ms.service="sql-database" 
+	ms.workload="data-management" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/13/2015" 
+	ms.author="jeffreyg"/>
 
 
 
@@ -12,4 +26,6 @@
 
 Дополнительные сведения см. в разделе [Мониторинг базы данных SQL с помощью представлений динамического управления][].
 
-[Мониторинг баз данных SQL с помощью динамических административных представлений]: http://msdn.microsoft.com/ru-ru/library/windowsazure/ff394114.aspx
+[Мониторинг базы данных SQL с помощью представлений динамического управления]: http://msdn.microsoft.com/library/windowsazure/ff394114.aspx
+
+<!--HONumber=47-->

@@ -1,15 +1,11 @@
 <properties 
 	pageTitle="Приступая к работе с концентраторами событий" 
-	metaKeywords="Azure Service Bus, Event Hub, getting started Event Hubs" 
 	description="Следуйте указаниям этого учебника, чтобы приступить к использованию концентраторов событий Azure в C# с помощью EventProcessorHost" 
-	metaCanonical="" 
-	services="" 
+	services="service-bus" 
 	documentationCenter="" 
-	title="Get Started with Event Hubs" 
-	authors="elioda" 
-	solutions="" 
+	authors="fsautomata" 
 	manager="timlt" 
-	editor="" />
+	editor=""/>
 
 <tags 
 	ms.service="service-bus" 
@@ -17,59 +13,61 @@
 	ms.tgt_pltfrm="csharp" 
 	ms.devlang="csharp" 
 	ms.topic="hero-article" 
-	ms.date="10/27/2014" 
-	ms.author="elioda" />
+	ms.date="02/10/2015" 
+	ms.author="sethm"/>
 
-# <a name="getting-started"> </a>Приступая к работе с концентраторами событий
+# Приступая к работе с концентраторами событий
 
-[WACOM.INCLUDE [service-bus-selector-get-started](../includes/service-bus-selector-get-started.md)]
+[AZURE.INCLUDE [service-bus-selector-get-started](../includes/service-bus-selector-get-started.md)]
+
+## Введение
 
 Концентратор событий - это высокомасштабируемая приемная система, которая может обрабатывать миллионы событий в секунду, позволяя приложению обрабатывать и анализировать огромное количество данных, создаваемых подключенными устройствами и приложениями. Данные, собранные в концентраторах событий, можно преобразовывать и сохранять с использованием любого средства аналитики, работающего в режиме реального времени, и кластера хранения. Дополнительную информацию о концентраторах событий см. в документе [Руководство по программированию концентраторов событий]. 
 
-Другую дополнительную информацию см. в статье [Event Hubs Overview] (Обзор концентраторов событий).
+Дополнительную информацию см. в разделе [Общие сведения о концентраторах событий][Общие сведения о концентраторах событий].
 
-В этом учебнике рассказывается, как принимать сообщения в концентраторе событий с помощью консольного приложения на языке C# и параллельно извлекать их с использованием библиотеки [Event Processor Host] на языке C#.
+В этом уроке вы узнаете, как вводить сообщения в концентратор событий, используя консольное приложение на C#, и как параллельно извлекать их, используя библиотеку C# [Event Processor Host].
 
 Чтобы пройти этот учебник требуется:
 
 + Microsoft Visual Studio Express 2013 для Windows;
 
-+ Активная учетная запись Azure. <br/>Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительную информацию см. в разделе <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fru-ru%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Бесплатное пробное использование Azure</a>.
++ Активная учетная запись Azure. <br/>Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fru-ru%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Бесплатное пробное использование Azure</a>.
 
 ## Создание концентратора событий
 
-1. Войдите на [портал управления Azure] и щелкните **СОЗДАТЬ** в нижней части экрана.
+1. Войдите на [портал управления Azure][Портал управления Azure] и щелкните **+СОЗДАТЬ** в нижней части экрана.
 
-2. Последовательно щелкните элементы **Службы приложений**, **Service Bus**, **Концентратор событий** и **Быстрое создание**.
+2. Последовательно щелкните **Службы приложений**, **Служебная шина**, **Концентратор событий** и **Быстрое создание**.
 
    	![][1]
 
-3. Введите имя для концентратора событий, выберите нужный регион и щелкните элемент **Создать новый концентратор событий**.
+3. Введите имя для концентратора событий, выберите нужный регион и щелкните **Создать новый концентратор событий**.
 
    	![][2]
 
-4. Выберите ранее созданное пространство имен (обычно это **имя_концентратора_событий-ns**).
+4. Щелкните ранее созданное пространство имен (обычно это **имя_концентратора_событий-ns**).
 
    	![][3]
 
-5. Откройте расположенную в верхней части страницы вкладку **Концентраторы событий** и выберите недавно созданный концентратор событий.
+5. Щелкните расположенную в верхней части страницы вкладку **Концентраторы событий** и выберите недавно созданный концентратор событий.
 
    	![][4]
 
-6. Выберите расположенную сверху вкладку **Настройка**, добавьте правило **SendRule**, задав для него права "Отправка", и правило **ReceiveRule**, задав для него права "Управление", "Отправка" и "Прослушивание", а затем щелкните **Сохранить**.
+6. Щелкните вкладку **Настройка** вверху, добавьте правило с именем **SendRule** с правами *Send*, добавьте еще одно правило с именем **ReceiveRule** с правами *Manage, Send, Listen*, а затем щелкните **Сохранить**.
 
    	![][5]
 
-7. Откройте расположенную в верхней части страницы вкладку **Панель мониторинга** и щелкните **Сведения о подключении**. Запишите значения двух строк подключения.
+7. Щелкните расположенную в верхней части страницы вкладку **Панель мониторинга** и щелкните **Сведения о подключении**. Запишите значения двух строк подключения.
 
    	![][6]
 
 Теперь концентратор событий создан, и у вас есть строки подключения, необходимые для отправки и приема событий.
 
-[WACOM.INCLUDE [service-bus-event-hubs-get-started-send-csharp](../includes/service-bus-event-hubs-get-started-send-csharp.md)]
+[AZURE.INCLUDE [service-bus-event-hubs-get-started-send-csharp](../includes/service-bus-event-hubs-get-started-send-csharp.md)]
 
 
-[WACOM.INCLUDE [service-bus-event-hubs-get-started-receive-ephcs](../includes/service-bus-event-hubs-get-started-receive-ephcs.md)]
+[AZURE.INCLUDE [service-bus-event-hubs-get-started-receive-ephcs](../includes/service-bus-event-hubs-get-started-receive-ephcs.md)]
 
 ## Запуск приложений
 
@@ -95,9 +93,8 @@
 [22]: ./media/service-bus-event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs2.png
 
 <!-- Links -->
-[портал управления Azure]: https://manage.windowsazure.com/
-[Event Processor Host(Библиотека Event Processor Host)]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Event Hubs Overview(Обзор концентраторов событий)]: http://msdn.microsoft.com/library/azure/dn836025.aspx
+[Портал управления Azure]: https://manage.windowsazure.com/
+[Узел обработчика событий]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
+[Общие сведения о концентраторах событий]: http://msdn.microsoft.com/library/azure/dn836025.aspx
 
-<!--HONumber=35.1-->
+<!--HONumber=47-->

@@ -2,19 +2,15 @@
 
 1. В Visual Studio 2013 откройте обозреватель решений, щелкните правой кнопкой мыши проект приложения Магазина Windows, выберите **Добавить**, а затем **Push-уведомления...**. 
 
-	![Add Push Notification wizard in Visual Studio 2013](../includes/media/mobile-services-create-new-push-vs2013/mobile-add-push-notifications-vs2013.png)
+	![Add Push Notification wizard in Visual Studio 2013](./media/mobile-services-create-new-push-vs2013/mobile-add-push-notifications-vs2013.png)
 
 	Запустится мастер добавления push-уведомлений.
 
 2. Нажмите **Далее**, войдите в учетную запись хранилища Windows, а затем укажите имя в поле **Зарезервировать новое имя** и нажмите **Зарезервировать**.
 
-	![Select an app name in the Add Push Notification wizard](../includes/media/mobile-services-create-new-push-vs2013/mobile-add-push-notifications-vs2013-2.png) 
-
 	При этом новое приложение будет зарегистрировано.
 
 3. Нажмите на новую регистрацию в списке **Имя приложения**, а затем нажмите **Следующее**.
-
-	![mobile-add-push-notifications-vs2013-3](../includes/media/mobile-services-create-new-push-vs2013/mobile-add-push-notifications-vs2013-3.png)
 
 4. На странице **Выберите службу** щелкните имя своей мобильной службы, затем нажмите кнопку **Далее** и **Готово**. 
 
@@ -24,10 +20,11 @@
 
 5. После завершения работы мастера в среде Visual Studio откроется новая страница **Настройка push-уведомлений почти завершена**. Эта страница описывает, каким еще способом, отличным от описанного в этом учебнике, вы можете настроить отправку уведомлений своим проектом мобильной службы. 
 
-	>[AZURE.NOTE]Код, который добавляется в ваше решение для универсальных приложений для Windows мастером добавления push-уведомлений, зависит от платформы. Далее в этом разделе вы узнаете, как устранить данную избыточность, сделав код клиента мобильных служб общим, тем самым упростив поддержку универсального приложения.  
+	Код, который добавляется в ваше решение для универсальных приложений для Windows мастером добавления push-уведомлений, зависит от платформы. Далее в этом разделе вы узнаете, как устранить данную избыточность, сделав код клиента мобильных служб общим, тем самым упростив поддержку универсального приложения.  
 
 <!-- URLs. -->
-[Приступая к работе с мобильными службами]: /ru-ru/develop/mobile/tutorials/get-started/
-[Приступая к работе с данными]: /ru-ru/develop/mobile/tutorials/get-started-with-data-dotnet/
-[Импорт PUBLISHSETTINGS-файла в Visual Studio 2013]: /ru-ru/documentation/articles/mobile-services-windows-how-to-import-publishsettings/
-<!--HONumber=42-->
+[Приступая к работе с мобильными службами]: /develop/mobile/tutorials/get-started/
+[Приступая к работе с данными]: /develop/mobile/tutorials/get-started-with-data-dotnet/
+[Импорт PUBLISHSETTINGS-файла в Visual Studio 2013]: /documentation/articles/mobile-services-windows-how-to-import-publishsettings/
+
+<!--HONumber=47-->

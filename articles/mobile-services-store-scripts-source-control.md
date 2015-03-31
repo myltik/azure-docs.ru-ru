@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Хранение кода проекта в системе управления версиями: мобильные службы Azure" 
 	description="Узнайте, как сохранить файлы серверных сценариев и модулей в локальном репозитории Git на компьютере." 
 	services="mobile-services" 
@@ -10,14 +10,14 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="11/21/2014" 
 	ms.author="glenga"/>
 
 <div class="dev-center-tutorial-subselector">
-	<a href="/ru-ru/documentation/articles/mobile-services-dotnet-backend-store-code-source-control/" title=".NET backend">Серверная часть .NET</a> | <a href="/ru-ru/documentation/articles/mobile-services-store-scripts-source-control/"  title="JavaScript backend" class="current">Серверная часть JavaScript</a>
+	<a href="/documentation/articles/mobile-services-dotnet-backend-store-code-source-control/" title=".NET backend">Серверная служба .NET</a> | <a href="/documentation/articles/mobile-services-store-scripts-source-control/"  title="JavaScript backend" class="current">Серверная служба JavaScript</a>
 </div>
 
 # Хранение кода проекта в системе управления версиями
@@ -33,7 +33,7 @@
 
 Для работы с этим учебником вам понадобится мобильная служба, созданная во время изучения учебника [Приступая к работе с мобильными службами] или [Добавление мобильных служб к существующему приложению].
 
-##<a name="enable-source-control"></a>Включение системы управления версиями в мобильной службе
+##<a name="enable-source-control"></a>Включение системы управления версиями в вашей мобильной службе
 
 [AZURE.INCLUDE [mobile-services-enable-source-control](../includes/mobile-services-enable-source-control.md)]
 
@@ -50,7 +50,7 @@
 
 3. В командной строке перейдите в каталог, где будут храниться сценарии. Например, `cd SourceControl`.
 
-4. Используйте следующую команду для создания локальной копии нового репозитория Git, заменив <your_git_URL> на URL-адрес репозитория Git для своей мобильной службы:
+4. Используйте следующую команду для создания локальной копии нового репозитория Git, заменив `<your_git_URL>` на URL-адрес репозитория Git для своей мобильной службы:
 
 		git clone <your_git_URL>
 
@@ -69,7 +69,7 @@
 
 7. Откройте вложенную папку .\service\table и обратите внимание на то, что она содержит файл TodoItem.json, который является представлением JSON разрешений операции в таблице TodoItem. 
 
-	Если в этой таблице были определены серверные скрипты, будет присутствовать один или несколько файлов с именем <code>TodoItem._&lt;операция&gt;_.js</code>, содержащих скрипты для данной операции таблицы. Планировщик и скрипты настраиваемого интерфейса API сохраняются в отдельных папках с соответствующими именами. Дополнительные сведения см. в разделе [Управление версиями].
+	Если для этой таблицы указаны серверные сценарии, также будет отображаться один или несколько файлов с именем <code>TodoItem._&lt;operation&gt;_.js</code> и сценариями для заданной операции с таблицей. Планировщик и скрипты настраиваемого интерфейса API сохраняются в отдельных папках с соответствующими именами. Дополнительные сведения см. в разделе [Управление версиями].
 
 После создания локального репозитория можно внести изменения в серверные скрипты и доставлять изменения обратно в мобильную службу.
 
@@ -171,13 +171,12 @@
 [Веб-сайт Git]: http://git-scm.com
 [Система управления версиями]: http://msdn.microsoft.com/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
 [Установка Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-[Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/mobile-services-ios-get-started/
-[Добавление мобильных служб к существующему приложению]: /ru-ru/documentation/articles/mobile-services-ios-get-started-data/
-[Работа с серверными скриптами в мобильных службах]: /ru-ru/documentation/articles/mobile-services-how-to-use-server-scripts/
+[Приступая к работе с мобильными службами]: /documentation/articles/mobile-services-ios-get-started/
+[Добавление мобильных служб к существующему приложению]: /documentation/articles/mobile-services-ios-get-started-data/
+[Работа с серверными скриптами в мобильных службах]: /documentation/articles/mobile-services-how-to-use-server-scripts/
 [Портал управления Azure]: https://manage.windowsazure.com/
-[Вызов из клиента настраиваемого интерфейса API]: /ru-ru/documentation/articles/mobile-services-ios-call-custom-api/
+[Вызов из клиента настраиваемого интерфейса API]: /documentation/articles/mobile-services-ios-call-custom-api/
 [Документация по Node.js API: модули]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

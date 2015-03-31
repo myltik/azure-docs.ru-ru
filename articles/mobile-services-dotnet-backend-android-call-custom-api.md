@@ -1,6 +1,21 @@
-﻿<properties writer="ricksal" pageTitle="Вызов настраиваемого интерфейса API из клиента Android | Центр мобильных разработок" description="Узнайте, как определить настраиваемый API и вызывать его из приложения Android, которое использует мобильные службы Microsoft Azure." services="mobile-services" documentationCenter="android" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	writer="ricksal" 
+	pageTitle="Вызов настраиваемого интерфейса API из клиента Android | Центр мобильных разработок" 
+	description="Узнайте, как определить настраиваемый API и вызывать его из приложения Android, которое использует мобильные службы Microsoft Azure." 
+	services="mobile-services" 
+	documentationCenter="android" 
+	authors="RickSaling" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="09/27/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-android" 
+	ms.devlang="java" 
+	ms.topic="article" 
+	ms.date="02/16/2015" 
+	ms.author="ricksal,glenga"/>
 
 # Вызов из клиента настраиваемого интерфейса API
 
@@ -8,13 +23,9 @@
 
 В этом разделе показано, как вызывать настраиваемый интерфейс API из приложений Android. Настраиваемый интерфейс API позволяет определить пользовательские конечные точки, которые предоставляют функциональные возможности сервера, не сопоставляемые с операциями вставки, обновления, удаления или чтения. При использовании настраиваемого интерфейса API вы получаете больше возможностей для управления сообщениями, в том числе для чтения и установки заголовков HTTP-сообщений, а также определения форматов текста сообщений, отличных от JSON.
 
-Настраиваемый API, созданный в данном разделе, дает возможность отправить один запрос POST, который устанавливает для флага *completed* значение `true` для всех элементов списка дел в таблице мобильной службы. Без настраиваемого интерфейса API клиенту требуется отправлять отдельные просьбы, чтобы обновить флаг для каждого элемента списка дел в таблице.
+Настраиваемый API, созданный в данном разделе, дает возможность отправить один запрос POST, который устанавливает для флага  *completed* значение  `true` для всех элементов списка дел в таблице мобильной службы. Без настраиваемого интерфейса API клиенту требуется отправлять отдельные просьбы, чтобы обновить флаг для каждого элемента списка дел в таблице.
 
-Вы добавите эту функцию в приложение, созданное в учебнике [Приступая к работе с мобильными службами] или [Приступая к работе с данными]. Для этого требуются следующие действия:
-
-1. [Определение настраиваемого интерфейса API]
-2. [Обновление приложения для вызова настраиваемого интерфейса API]
-3. [Тестирование приложения] 
+Вы добавите эту функцию в приложение, созданное в учебнике [Приступая к работе с мобильными службами] или [Приступая к работе с данными]. 
 
 Этот учебник создан на основе краткого руководства по мобильным службам. Перед началом работы с учебником необходимо пройти задания учебника [Приступая к работе с мобильными службами]. 
 
@@ -43,15 +54,14 @@
 <!-- Images. -->
 
 <!-- URLs. -->
-[Android SDK для мобильных служб]: http://go.microsoft.com/fwlink/p/?LinkID=280126
+[Пакет SDK для мобильных служб для Android]: http://go.microsoft.com/fwlink/p/?LinkID=280126
 [Справочник серверных скриптов мобильных служб]: http://go.microsoft.com/fwlink/?LinkId=262293
 [Панель мониторинга "Мои приложения"]: http://go.microsoft.com/fwlink/?LinkId=262039
-[Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-android-get-started/
-[Приступая к работе с данными]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/
-[Приступая к работе с проверкой подлинности]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-android-get-started-users/
-[Приступая к работе с push-уведомлениями]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/
+[Приступая к работе с мобильными службами]: /documentation/articles/mobile-services-dotnet-backend-android-get-started/
+[Приступая к работе с данными]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-data/
+[Приступая к работе с проверкой подлинности]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-users/
+[Приступая к работе с push-уведомлениями]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-push/
 
-[Хранение серверных скриптов в системе управления версиями]: /ru-ru/documentation/articles/mobile-services-store-scripts-source-control
+[Хранение серверных скриптов в системе управления версиями]: /documentation/articles/mobile-services-store-scripts-source-control
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

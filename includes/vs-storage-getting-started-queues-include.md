@@ -1,5 +1,5 @@
 ﻿#####Создание очереди
-Объект **CloudQueueClient** позволяет ссылаться на объекты очередей. Следующий код создает объект **CloudQueueClient**. Для всего кода в этой статье используется строка подключения к хранилищу, сохраненная в конфигурации службы приложения Azure. Существуют также другие способы создания объекта **CloudStorageAccount**. Дополнительные сведения см. в документации по [CloudStorageAccount](http://msdn.microsoft.com/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx "CloudStorageAccount").
+Объект **CloudQueueClient** позволяет ссылаться на объекты очередей. Следующий код создает объект **CloudQueueClient**. Для всего кода в этой статье используется строка подключения к хранилищу, сохраненная в конфигурации службы приложения Azure. Существуют также другие способы создания объекта **CloudStorageAccount**. Дополнительную информацию см. в документации по [CloudStorageAccount](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudstorageaccount_methods.aspx "CloudStorageAccount") .
 
 	// Create the queue client.
 	CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
@@ -46,6 +46,5 @@
 	queue.DeleteMessage(retrievedMessage);
 
 [Дополнительные сведения о службе хранилища Azure](http://azure.microsoft.com/documentation/services/storage/)
-См. также раздел [Общие сведения о ресурсах службы хранилища в обозревателе серверов](http://msdn.microsoft.com/library/azure/ff683677.aspx).
-
-<!--HONumber=42-->
+См. также раздел [Общие сведения о ресурсах службы хранилища в обозревателе сервера](http://msdn.microsoft.com/library/azure/ff683677.aspx).
+<!--HONumber=47-->

@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="11/21/2014" 
@@ -20,9 +20,9 @@
 
 В этом разделе показано, как зарегистрировать приложения для использования Live Connect в качестве поставщика проверки подлинности для мобильных служб Azure. 
 
->[AZURE.NOTE]Информацию о том, как настроить проверку подлинности учетной записи Майкрософт для универсального приложения для Windows или обеспечить возможность единого входа в приложение Магазина Windows, см. в статье [Регистрация пакета приложения Магазина Windows для проверки подлинности Microsoft](/ru-ru/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication).
+>[AZURE.NOTE]Информацию о том, как настроить проверку подлинности учетной записи Майкрософт для универсального приложения для Windows или обеспечить возможность единого входа в приложение Магазина Windows, см. в статье [Регистрация пакета приложения Магазина Windows для проверки подлинности Microsoft](/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication).
 
-1. Перейдите к странице <a href="http://go.microsoft.com/fwlink/p/?LinkId=262039" target="_blank">Мои приложения</a> в Центре разработки Live Connect и, если необходимо, выполните вход с использованием учетной записи Майкрософт. 
+1. Перейдите на страницу <a href="http://go.microsoft.com/fwlink/p/?LinkId=262039" target="_blank">Мои приложения</a> в Центре разработчиков Live Connect и, если необходимо, выполните вход с использованием учетной записи Майкрософт. 
 
 2. Щелкните элемент **Создать приложение**, введите **Имя приложения** и нажмите кнопку **Я принимаю**.
 
@@ -30,9 +30,9 @@
 
    	Эта процедура регистрирует приложение в Live Connect.
 
-3. Щелкните **Параметры API**, введите значение `https://<mobile_service>.azure-mobile.net/login/microsoftaccount` в поле **URL-адрес перенаправления**, затем нажмите кнопку **Сохранить**.
+3. Щелкните **Параметры API**, введите значение  `https://<mobile_service>.azure-mobile.net/login/microsoftaccount` в поле **URL-адрес перенаправления**, затем нажмите кнопку **Сохранить**.
 
-	>[AZURE.NOTE]Для серверной мобильной службы .NET, опубликованной в Azure с помощью Visual Studio, URL-адресом перенаправления является URL-адрес вашей мобильной службы, дополненный путем _signin-microsoft_ мобильной службы в качестве службы .NET, например <code>https://todolist.azure-mobile.net/signin-microsoft</code>.  
+	>[AZURE.NOTE]Для серверной мобильной службы .NET, опубликованной в Azure с помощью Visual Studio, URL-адресом перенаправления является URL-адрес вашей мобильной службы, дополненный путем _signin-microsoft_ мобильной службы как службы .NET, например <code>https://todolist.azure-mobile.net/signin-microsoft</code>.  
 
 	![][3]
 
@@ -62,5 +62,4 @@
 
 [Портал управления Azure]: https://manage.windowsazure.com/
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

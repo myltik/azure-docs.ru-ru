@@ -23,13 +23,13 @@
 ##Предварительные требования##
 В данной статье предполагается, что у вас есть следующие элементы:
 
-- **Подписка на Azure**. Если у вас ее нет, вы можете создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Создание учетной записи Azure](http://azure.microsoft.com/documentation/articles/php-create-account/). 
+- **Подписка на Azure**. Если у вас ее нет, вы можете создать бесплатную пробную учетную запись всего за несколько минут. Дополнительную информацию см. в статье [Создание учетной записи Azure](http://azure.microsoft.com/documentation/articles/php-create-account/). 
 
-- **Средства Azure PowerShell**. У вас уже установлен модуль Microsoft Azure PowerShell, настроенный на использование вашей подписки. Информацию о скачивании модуля см. в разделе [Загрузки Azure](http://azure.microsoft.com/downloads/).  Учебник по установке и настройке модуля вы найдете здесь. Вы воспользуетесь командлетом из раздела [Загрузки Azure](http://azure.microsoft.com/downloads/), чтобы скачать VHD-файл.
+- **Средства Azure PowerShell**. У вас уже установлен модуль Microsoft Azure PowerShell, настроенный на использование вашей подписки. Информацию о скачивании модуля см. в разделе [Загрузки Azure](http://azure.microsoft.com/downloads/). Учебник по установке и настройке модуля вы найдете здесь. Для передачи VHD-файла вы будете использовать командлет из раздела [Загрузки Azure](http://azure.microsoft.com/downloads/).
 
-- **Операционная система FreeBSD установлена в VHD-файле.**  Вы установили поддерживаемую операционную систему FreeBSD на виртуальный жесткий диск. Существует несколько средств для создания файлов VHD. Например, для создания файла VHD и установки операционной системы можно использовать решения для виртуализации, такие как Hyper-V. Инструкции см. в разделе [Установка роли Hyper-V и настройка виртуальной машины](http://technet.microsoft.com/library/hh846766.aspx). 
+- **Операционная система FreeBSD установлена в VHD-файл**. Поддерживаемая операционная система FreeBSD установлена на виртуальный жесткий диск. Существует несколько средств для создания файлов VHD. Например, для создания файла VHD и установки операционной системы можно использовать решения для виртуализации, такие как Hyper-V. Инструкции об этом см. в статье [Установка роли Hyper-V и настройка виртуальной машины](http://technet.microsoft.com/library/hh846766.aspx). 
 
-> [AZURE.NOTE] Более новый формат VHDX не поддерживается в Azure. Вы можете преобразовать диск в формат VHD с помощью диспетчера Hyper-V или командлета [convert-vhd](https://technet.microsoft.com/ru-ru/library/hh848454.aspx).
+> [AZURE.NOTE] Более новый формат VHDX не поддерживается в Azure. Вы можете преобразовать диск в формат VHD с помощью диспетчера Hyper-V или командлета [convert-vhd](https://technet.microsoft.com/library/hh848454.aspx).
 
 Эта задача включает в себя следующие пять шагов.
 
@@ -84,7 +84,7 @@
 		# chmod 755 /usr/sbin/waagent
 		# /usr/sbin/waagent -install
 
-    **Внимание**! После установки убедитесь, что компонент запущен.
+    **Important**: After installation, please double check it is running.
 
 		# service -e | grep waagent
 		/etc/rc.d/waagent
@@ -171,16 +171,16 @@
 
 4. Введите: 
 	`Import-AzurePublishSettingsFile <PathToFile>`
-
-	где `<PathToFile>` - это полный путь к файлу PUBLISHSETTINGS. 
-
-   Дополнительную информацию см. в разделе [Начало работы с командлетами Microsoft Azure](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx) 
 	
-   Дополнительную информацию об установке и настройке PowerShell см. в статье [Установка и настройка Microsoft Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell/) 
+	где `< PathToFile >` - это полный путь к файлу PUBLISHSETTINGS. 
+
+   Дополнительные сведения см. в статье [Начало работы с командлетами Microsoft Azure](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx) 
+	
+   Дополнительную информацию об установке и настройке PowerShell см. в статье [Как установить и настроить Microsoft Azure PowerShell](http://www.windowsazure.com/documentation/articles/install-configure-powershell/). 
 
 ## Шаг 4. Передача VHD-файла ##
 
-При загрузке VHD-файла его можно поместить в любом месте внутри хранилища больших двоичных объектов. В приведенных ниже примерах команд **BlobStorageURL** - это URL-адрес для учетной записи хранения, созданный при выполнении шага 2, **YourImagesFolder** - это контейнер внутри хранилища BLOB-объектов, где будут храниться образы. **VHDName** - метка, отображающаяся на портале управления для идентификации виртуального жесткого диска. **PathToVHDFile** - имя VHD-файла и полный путь к нему. 
+При передаче VHD-файла его можно поместить в любом месте внутри хранилища больших двоичных объектов. В приведенных ниже примерах команд **BlobStorageURL** - это URL-адрес для учетной записи хранения, созданный при выполнении шага 2, **YourImagesFolder** - это контейнер внутри хранилища BLOB-объектов, где будут храниться образы. **VHDName** - метка, отображающаяся на портале управления для идентификации виртуального жесткого диска. **PathToVHDFile** - имя VHD-файла и полный путь к нему. 
 
 
 1. В окне Azure PowerShell, использованном при выполнении предыдущего шага, введите:
@@ -208,4 +208,4 @@
 
 	![freebsd image in azure](./media/virtual-machines-freebsd-create-upload-vhd/freebsdimageinazure.png)
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

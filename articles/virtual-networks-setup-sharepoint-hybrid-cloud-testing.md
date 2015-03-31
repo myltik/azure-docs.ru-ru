@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Настройка фермы SharePoint интрасети в гибридном облаке для тестирования" 
 	description="Узнайте, как создать ферму SharePoint интрасети в гибридной облачной среде для разработки или тестирования ИТ-специалистами." 
 	services="virtual-network" 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2015" 
+	ms.date="03/05/2015" 
 	ms.author="josephd"/>
 
 
-#Настройка фермы SharePoint интрасети в гибридном облаке для тестирования
+# Настройка фермы SharePoint интрасети в гибридном облаке для тестирования
 
 В этом разделе описываются шаги по созданию гибридной облачной среды для тестирования фермы SharePoint интрасети, размещенной в Microsoft Azure. Это конфигурация, которая получается в результате.
 
@@ -25,9 +25,9 @@
  
 Данная конфигурация имитирует SharePoint в рабочей среде Azure из вашего расположения в Интернете. В ее состав входит:
 
-- упрощенная  локальная сеть (подсеть Corpnet).
-- виртуальная сеть с подключением между организациями, размещенная в Azure (TestVNET).
-- VPN-подключение "сайт-сайт".
+- упрощенная локальная сеть (подсеть Corpnet);
+- виртуальная сеть с подключением между организациями, размещенная в Azure (TestVNET);
+- VPN-подключение типа "сеть-сеть";
 - двухуровневая ферма SharePoint и дополнительный контроллер домена в виртуальной сети TestVNET.
 
 Это основа и общая начальная точка, на базе которой можно:
@@ -41,9 +41,9 @@
 2.	настройка компьютера с SQL Server (SQL1).
 3.	настройка сервера SharePoint (SP1).
 
-Если у вас еще нет подписки Azure, можно зарегистрироваться для получения бесплатной пробной версии на веб-сайте [Try Azure](http://www.windowsazure.com/pricing/free-trial/). При наличии подписки MSDN см. раздел [Преимущества Azure для подписчиков MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Если у вас еще нет подписки Azure, можно зарегистрироваться для получения бесплатной пробной версии на веб-сайте [Try Azure](http://azure.microsoft.com/pricing/free-trial/). При наличии подписки MSDN см. раздел [Преимущества Azure для подписчиков MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
-##Этап 1. Настройка гибридной облачной среды
+## Этап 1. Настройка гибридной облачной среды
 
 Используйте инструкции в разделе [Настройка гибридной облачной среды для тестирования](../virtual-networks-setup-hybrid-cloud-environment-testing/). Поскольку для данной тестовой среды не нужен сервер APP1 в подсети Corpnet, можно его спокойно выключить на время.
 
@@ -51,9 +51,9 @@
 
 ![](./media/virtual-networks-set-up-SharePoint-hybrid-cloud-for-testing/CreateSPFarmHybridCloud_1.png)
  
-##Этап 2. Настройка компьютера с SQL Server (SQL1).
+## Этап 2. Настройка компьютера с SQL Server (SQL1).
 
-Из портала управления Azure запустите компьютер DC2 если это необходимо.
+Из портала управления Azure запустите компьютер DC2, если это необходимо.
 
 Сначала создайте подключение удаленного рабочего стола к DC2, используя учетные данные CORP\User1.
 
@@ -70,7 +70,7 @@
 	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "SQL Server 2014 RTM Standard on Windows Server 2012 R2" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$ServiceName="<The cloud service name for your TestVNET virtual network>"
 	$LocalAdminName="<A local administrator account name>" 
-	$LocalAdminPW="<A password for the local administrator account>"
+	$LocalAdminPW="<The password for the local administrator account>"
 	$User1Password="<The password for the CORP\User1 account>"
 	$vm1=New-AzureVMConfig -Name SQL1 -InstanceSize Large -ImageName $image
 	$vm1 | Add-AzureProvisioningConfig -AdminUserName $LocalAdminName -Password $LocalAdminPW -WindowsDomain -Domain "CORP" -DomainUserName "User1" -DomainPassword $User1Password -JoinDomain "corp.contoso.com"
@@ -99,7 +99,7 @@
 
 Далее следует добавить дополнительный диск данных как новый том с буквой диска F:.
 
-1.	В левой панели диспетчера сервера щелкните  **Файловые службы и службы хранилища**, а затем щелкните **Диски**.
+1.	В левой панели диспетчера серверов щелкните **Файловые службы и службы хранилища**, а затем щелкните **Диски**.
 2.	На панели содержимого в группе **Диски** щелкните **диск 2** (с параметром **Раздел**, имеющим значение **Неизвестно**).
 3.	Последовательно щелкните **Задачи**, а затем **Новый том**.
 4.	На странице "Прежде чем начать" мастера создания томов щелкните **Далее**.
@@ -142,14 +142,14 @@
 ![](./media/virtual-networks-set-up-SharePoint-hybrid-cloud-for-testing/CreateSPFarmHybridCloud_2.png)
 
  
-##Этап 3. Настройка сервера SharePoint (SP1)
+## Этап 3. Настройка сервера SharePoint (SP1)
 
 Сначала создайте виртуальную машину Azure для SP1, выполнив следующие команды в командной строке Azure PowerShell на локальном компьютере.
 
 	$image= Get-AzureVMImage | where { $_.Label -eq "SharePoint Server 2013 Trial" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$ServiceName="<The cloud service name for your TestVNET virtual network>"
 	$LocalAdminName="<A local administrator account name>" 
-	$LocalAdminPW="<A password for the local administrator account>"
+	$LocalAdminPW="<The password for the local administrator account>"
 	$User1Password="<The password for the CORP\User1 account>"
 	$vm1=New-AzureVMConfig -Name SP1 -InstanceSize Large -ImageName $image
 	$vm1 | Add-AzureProvisioningConfig -AdminUserName $LocalAdminName -Password $LocalAdminPW -WindowsDomain -Domain "CORP" -DomainUserName "User1" -DomainPassword $User1Password -JoinDomain "corp.contoso.com"
@@ -189,9 +189,9 @@
 
 ![](./media/virtual-networks-set-up-SharePoint-hybrid-cloud-for-testing/CreateSPFarmHybridCloud_3.png)
  
-Ферма SharePoint интрасети в гибридной облачной среде теперь готова для тестирования. 
+Ферма SharePoint интрасети в гибридной облачной среде теперь готова для тестирования.
 
-##Дополнительные ресурсы
+## Дополнительные ресурсы
 
 [SharePoint в службах инфраструктуры Azure](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 
@@ -203,4 +203,5 @@
 
 [Настройка синхронизации каталогов (DirSync) Office 365 в гибридном облаке для тестирования](../virtual-networks-setup-dirsync-hybrid-cloud-testing/)
 
-<!--HONumber=45--> 
+[Настройка смоделированной гибридной облачной среды для тестирования](../virtual-networks-setup-simulated-hybrid-cloud-environment-testing/)
+<!--HONumber=47-->

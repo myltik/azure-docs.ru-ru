@@ -1,6 +1,6 @@
-<properties 
+﻿<properties 
 	pageTitle="Поддерживаемые браузеры и устройства" 
-	<MORAVIA_NOTRANSLATE></MORAVIA_NOTRANSLATE> 
+	description="" 
 	services="" 
 	documentationCenter="" 
 	authors="JustinBeckwith" 
@@ -31,9 +31,7 @@
 - Chrome (последняя)
 - Firefox (последняя)
 
-* Safari версии 6 и ниже не поддерживается. Если вы работаете в OS X, можно использовать Chrome, Firefox или обновиться до OS X Mavericks, где есть Safari 7*.
- 
+*Safari 6 и ниже не поддерживаются. Если используется OS X, можно использовать Chrome, Firefox или выполнить обновление до OS X Mavericks для получения Safari 7.*
 
-<!--HONumber=35.2-->
 
-<!--HONumber=46--> 
+<!--HONumber=47-->

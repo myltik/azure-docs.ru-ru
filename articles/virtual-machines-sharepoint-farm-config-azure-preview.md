@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Сведения о конфигурации фермы серверов SharePoint" 
 	description="Описывается конфигурация по умолчанию для ферм SharePoint." 
 	services="virtual-machines" 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="vm-sharepoint" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="1/26/2015" 
+	ms.date="03/04/2015" 
 	ms.author="josephd"/>
 
 
-#Сведения о конфигурации фермы серверов SharePoint#
+#Сведения о конфигурации фермы серверов SharePoint
 
 Ферма серверов SharePoint - это компонент портала предварительной версии Microsoft Azure, который автоматически создает предварительно настроенную ферму SharePoint Server 2013. Существует две следующих конфигурации фермы:
 
@@ -28,7 +28,7 @@
 
 Дополнительную информацию см. в разделе [Ферма серверов SharePoint](../virtual-machines-sharepoint-farm-azure-preview/).
 
-##Базовая ферма SharePoint##
+##Базовая ферма SharePoint
 
 Базовая ферма SharePoint в этой конфигурации состоит из трех виртуальных машин:
 
@@ -71,7 +71,7 @@
 	-	Парольная фраза для фермы SharePoint: задается при первоначальной настройке.
 
 
-##Ферма SharePoint с высоким уровнем доступности##
+##Ферма SharePoint с высоким уровнем доступности
 
 Ферма SharePoint с высоким уровнем доступности в этой конфигурации состоит из девяти виртуальных машин:
 
@@ -119,10 +119,10 @@
 	-	Пароль учетной записи фермы SharePoint: задается при первоначальной настройке.		
 	-	Парольная фраза для фермы SharePoint: задается при первоначальной настройке.
 
-##Дополнительные ресурсы##
+##Дополнительные ресурсы
 
 [Ферма серверов SharePoint](../virtual-machines-sharepoint-farm-azure-preview/)
 
 [SharePoint в службах инфраструктуры Azure](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 
-<!--HONumber=42-->
+<!--HONumber=47-->

@@ -39,10 +39,10 @@ Azure воспринимает этот шаблон как образ и хра
 3.	Измените каталог на `%windir%\system32\sysprep` и запустите файл sysprep.exe.
 
 
-4. 	Откроется диалоговое окно **Программа подготовки системы**. Выполните следующее:
+4. 	Откроется диалоговое окно **Программа подготовки системы**. Выполните следующие действия.
 
 
-	- В разделе **Действие по очистке системы** выберите **Запуск при первом включении компьютера (OOBE)** и убедитесь, что установлен флажок **Обобщить**. Дополнительную информацию об использовании Sysprep см. в разделе [Как использовать Sysprep: введение][].
+	- В разделе **Действие по очистке системы** выберите **Запуск при первом включении компьютера (OOBE)** и убедитесь, что установлен флажок **Подготовка к использованию**. Дополнительную информацию об использовании Sysprep см. в разделе [Как использовать Sysprep: введение][].
 
 	- В разделе **Параметры завершения работы** выберите **Завершение работы**.
 
@@ -59,7 +59,7 @@ Azure воспринимает этот шаблон как образ и хра
 
 	![Capture virtual machine](./media/virtual-machines-capture-image-windows-server/CaptureVM.png)
 
-	Отобразится диалоговое окно **Запись виртуальной машины**.
+	Отображается диалоговое окно **Запись виртуальной машины**.
 
 10.	В поле **Имя образа** введите имя нового образа.
 
@@ -79,14 +79,14 @@ Azure воспринимает этот шаблон как образ и хра
 [Образы виртуальных машин в Azure]: http://msdn.microsoft.com/library/azure/dn790290.aspx
 [Как создать настраиваемую виртуальную машину]: ../virtual-machines-create-custom/
 [Как присоединить диск данных к виртуальной машине]: ../storage-windows-attach-disk/
-[Как войти в виртуальную машину под управлением Windows Server]:http://azure.microsoft.com/manage/windows/how-to-guides/log-on-a-windows-vm/
+[Как войти в виртуальную машину под управлением Windows Server]:http://www.windowsazure.com/manage/windows/how-to-guides/log-on-a-windows-vm/
 [Как использовать Sysprep: введение]:http://technet.microsoft.com/library/bb457073.aspx
-[Запуск Sysprep.exe]: ./media/virtual-machines-capture-image-windows-server/SysprepCommand.png
-[Ввод параметров Sysprep.exe]: ./media/virtual-machines-capture-image-windows-server/SysprepGeneral.png
-[Виртуальная машина остановлена]: ./media/virtual-machines-capture-image-windows-server/SysprepStopped.png
-[Запись образа виртуальной машины]: ./media/virtual-machines-capture-image-windows-server/CaptureVM.png
-[Ввод имени образа]: ./media/virtual-machines-capture-image-windows-server/Capture.png
-[Успешная запись образа]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
-[Использование записанного образа]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
+[Run Sysprep.exe]: ./media/virtual-machines-capture-image-windows-server/SysprepCommand.png
+[Enter Sysprep.exe options]: ./media/virtual-machines-capture-image-windows-server/SysprepGeneral.png
+[The virtual machine is stopped]: ./media/virtual-machines-capture-image-windows-server/SysprepStopped.png
+[Capture an image of the virtual machine]: ./media/virtual-machines-capture-image-windows-server/CaptureVM.png
+[Enter the image name]: ./media/virtual-machines-capture-image-windows-server/Capture.png
+[Image capture successful]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
+[Use the captured image]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

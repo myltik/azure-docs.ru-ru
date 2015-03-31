@@ -24,7 +24,7 @@
 
 7. Вставьте **GroupId** и **ArtifactId**, а затем нажмите кнопку **Готово**
 
-8. В файле **pom.xml** добавьте следующие зависимости в узел "<dependency>"
+8. В файле **pom.xml** добавьте следующие зависимости в узел `<dependency>`
 		
 		<dependency>
 			<groupId>org.apache.storm</groupId>
@@ -216,15 +216,17 @@
 			}
 		}
 
+
 	Этот класс создает новый spout концентраторов событий, используя свойства в файле конфигурации для создания экземпляров. Важно отметить, что в данном примере создается такое же количество задач Spout, сколько и разделов в концентраторе событий для использования максимального параллелизма, разрешенного этим концентратором событий.
 
 <!-- Links -->
 [Общие сведения о концентраторах событий]: http://msdn.microsoft.com/library/azure/dn821413.aspx
 [HDInsight Storm]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-overview/
-[Учебник по анализу датчика HDInsight]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-sensor-data-analysis/
+[учебнике по анализу датчика HDInsight]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-sensor-data-analysis/
 
 <!-- Images -->
 
 [12]: ./media/service-bus-event-hubs-getstarted/create-storm1.png
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
-[14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png<!--HONumber=42-->
+[14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
+<!--HONumber=47-->

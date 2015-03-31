@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="Mobile-Android" 
-	ms.devlang="Java" 
+	ms.tgt_pltfrm="mobile-android" 
+	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="11/17/2014" 
+	ms.date="02/03/2015" 
 	ms.author="ricksal"/>
 
 # Добавление проверки подлинности в приложение мобильных служб
@@ -23,6 +23,8 @@
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
 
+## Сводка
+
 <p>В этом разделе показано, как выполнять проверку подлинности пользователей в мобильных службах Azure в приложении. В этом учебнике вы добавите проверку подлинности к проекту быстрого запуска, используя поставщик удостоверений, поддерживаемый мобильными службами. После выполнения успешной проверки подлинности и авторизации мобильными службами отображается значение идентификатора пользователя.</p>
 </div>
 
@@ -31,15 +33,6 @@
 
 В этом учебнике рассматриваются следующие основные шаги для включения проверки подлинности в приложении:
 
-1. [Регистрация приложения для проверки подлинности и настройка мобильных служб]
-2. [Ограничение разрешений таблицы для пользователей, прошедших проверку подлинности]
-3. [Добавление проверки подлинности в приложение]
-4. [Хранение маркеров проверки подлинности в клиенте]
-5. [Обновление маркеров с истекшим сроком действия]
-
- 
-
->[AZURE.NOTE] Если требуется просмотреть исходный код завершенного приложения, см. <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures/GettingStartedWithAuth/Android" target="_blank">здесь</a>.
 
 ##Предварительные требования
 
@@ -53,11 +46,11 @@
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
 
-3. В Eclipse откройте проект, созданный после завершения учебника [Приступая к работе с мобильными службами]. 
+3. В Android Studio откройте проект, созданный в ходе работы с учебником [Приступая к работе с мобильными службами]. 
 
-4. В меню **Запуск** щелкните **Запуск**, чтобы запустить приложение; убедитесь, что после запуска приложения возникает необработанное исключение с кодом состояния 401 (Не санкционировано). 
+4. В меню **Запуск** щелкните **Запуск приложения**; убедитесь, что после запуска приложения возникает необработанное исключение с кодом состояния 401 (Не санкционировано). 
 
-	 Это происходит, потому что приложение пытается получить доступ к мобильным службам как пользователь, не прошедший проверку подлинности, а таблица _TodoItem_ теперь требует выполнения проверки подлинности.
+	 Это происходит потому, что приложение пытается получить доступ к мобильным службам как пользователь, не прошедший проверку подлинности, а таблица _TodoItem_ теперь требует выполнения проверки подлинности.
 
 Далее приложение будет обновлено таким образом, что оно станет производить аутентификацию учетных данных пользователей, прежде чем запрашивать ресурсы из мобильной службы.
 
@@ -77,7 +70,7 @@
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-В следующем учебном курсе, который называется [Авторизация пользователей с помощью скриптов], значение ИД пользователя, предоставляемое мобильными службами на основе пользователя, прошедшего проверку подлинности, будет использоваться для фильтрации данных, возвращаемых мобильными службами. 
+В следующем учебном курсе, который называется [Авторизация пользователей с помощью скриптов], значение идентификатора пользователя, предоставляемое мобильными службами на основе пользователя, прошедшего проверку подлинности, будет использоваться для фильтрации данных, возвращаемых мобильными службами. 
 
 <!-- Anchors. -->
 [Регистрация приложения для проверки подлинности и настройка мобильных служб]: #register
@@ -103,8 +96,7 @@
 
 [13]: ./media/mobile-services-android-get-started-users/mobile-identity-tab.png
 [14]: ./media/mobile-services-android-get-started-users/mobile-portal-data-tables.png
-[15]: ./media/mobile-services-android-get-started-users/mobile-portal-change-table-per
-	ms.png
+[15]: ./media/mobile-services-android-get-started-users/mobile-portal-change-table-perms.png
 
 
 <!-- URLs. -->
@@ -112,14 +104,13 @@
 [Отправка страницы приложения]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Мои приложения]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK для Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Единый вход для приложений Магазина Windows с использованием Live Connect]: /ru-ru/develop/mobile/tutorials/single-sign-on-windows-8-dotnet
-[Приступая к работе с мобильными службами]: /ru-ru/develop/mobile/tutorials/get-started-android
-[Добавление мобильных служб к существующему приложению]: /ru-ru/develop/mobile/tutorials/get-started-with-data-android
-[Приступая к работе с проверкой подлинности]: /ru-ru/develop/mobile/tutorials/get-started-with-users-android
-[Приступая к работе с push-уведомлениями]: /ru-ru/develop/mobile/tutorials/get-started-with-push-android
-[Авторизация пользователей с помощью скриптов]: /ru-ru/develop/mobile/tutorials/authorize-users-in-scripts-android
+[Единый вход для приложений Магазина Windows с использованием Live Connect]: /develop/mobile/tutorials/single-sign-on-windows-8-dotnet
+[Приступая к работе с мобильными службами]: /develop/mobile/tutorials/get-started-android
+[Добавление мобильных служб к существующему приложению]: /develop/mobile/tutorials/get-started-with-data-android
+[Приступая к работе с проверкой подлинности]: /develop/mobile/tutorials/get-started-with-users-android
+[Приступая к работе с push-уведомлениями]: /develop/mobile/tutorials/get-started-with-push-android
+[Авторизация пользователей с помощью скриптов]: /develop/mobile/tutorials/authorize-users-in-scripts-android
 
 [Портал управления Azure]: https://manage.windowsazure.com/
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

@@ -1,6 +1,6 @@
-<properties 
+﻿<properties 
 	pageTitle="Установка и настройка Symantec Endpoint Protection на виртуальной машине Azure" 
-	description="Описывается установка и настройка Symantec Endpoint Protection на виртуальной машине в Azure" 
+	description="Описывается установка и настройка расширения безопасности Symantec Endpoint Protection на новой или существующей виртуальной машине в Azure." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="KBDAzure" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-multiple" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="1/26/2015" 
+	ms.date="02/24/2015" 
 	ms.author="kathydav"/>
 
 #Установка и настройка Symantec Endpoint Protection на виртуальной машине Azure
@@ -30,7 +30,7 @@
 
 Параметр **Из коллекции** открывает мастер, помогающий настроить виртуальную машину. Последняя страница мастера используется для установки агента ВМ и модуля безопасности Symantec. 
 
-Общие указания см. в статье [Создание виртуальной машины под управлением Windows Server](http://go.microsoft.com/fwlink/p/?LinkId=403943). Дойдя до последней страницы мастера:
+Общие указания см. в статье [Создание виртуальной машины под управлением Windows Server](../virtual-machines-windows-tutorial/). Дойдя до последней страницы мастера:
 
 1.	В разделе "Агент ВМ" должен быть установлен флажок **Установить агент ВМ**.
 
@@ -45,39 +45,37 @@
 
 Для этого потребуются следующие компоненты.
 
-- Модуль Azure PowerShell версии не ниже 0.8.2. Указания и ссылку на последнюю версию см. в статье [Установка и настройка Azure PowerShell](http://go.microsoft.com/fwlink/p/?LinkId=320552).  
+- Модуль Azure PowerShell версии не ниже 0.8.2. Установленную версию Azure PowerShell можно проверить с помощью команды **Get-Module azure | format-table version**. Указания и ссылку на последнюю версию см. в статье [Установка и настройка Azure PowerShell](../install-configure-powershell/).  
 
-- Агент ВМ. Указания и ссылку на скачивание см. в записи блога [Агент виртуальной машины и расширения - часть 2](http://go.microsoft.com/fwlink/p/?LinkId=403947).
+- Агент ВМ. 
 
-Чтобы установить модуль безопасности Symantec в существующей виртуальной машине:
+Сначала убедитесь, что агент ВМ уже установлен. Укажите имя облачной службы и имя виртуальной машины, а затем выполните следующие команды в командной строке Azure PowerShell уровня администратора. Замените все содержимое внутри кавычек, включая символы < и >.
 
-1.	Получите имя облачной службы и имя виртуальной машины. Если они вам неизвестны, используйте команду **Get-AzureVM**, чтобы отобразить эту информацию для всех виртуальных машин в текущей подписке. Затем замените значения переменных в кавычках, в том числе символы < и >, и выполните следующие команды:
+	$CSName = "<cloud service name>"
+	$VMName = "<virtual machine name>"
+	$vm = Get-AzureVM -ServiceName $CSName -Name $VMName 
+	write-host $vm.VM.ProvisionGuestAgent
 
-	<p>`$servicename = "<YourServiceName>"`
-<p>`$name = "<YourVmName>"`
-<p>`$vm = Get-AzureVM -ServiceName $servicename -Name $name`
-<p>`Get-AzureVMAvailableExtension -Publisher Symantec -ExtensionName SymantecEndpointProtection`
+Если вы не знаете имя облачной службы и виртуальной машины, запустите командлет **Get-AzureVM**, чтобы отобразить эти сведения для всех виртуальных машин в вашей текущей подписке.
 
-2.	В окне отображения команды Get-AzureVMAvailableExtension найдите номер версии в ее свойствах и выполните следующие команды:
+Если команда **write-host** отображает значение **True**, агент ВМ установлен. Если она отображает значение **False**, см. инструкции и ссылку для скачивания в записи блога Azure [Агент ВМ и расширения - часть 2](http://go.microsoft.com/fwlink/p/?LinkId=403947).
 
-	<p>`$ver=<version number from the Version property>`
-<p>`Set-AzureVMExtension -Publisher Symantec -ExtensionName SymantecEndpointProtection -Version $ver -VM $vm.VM`
-<p>`Update-AzureVM -ServiceName $servicename -Name $name -VM $vm.VM`
+Если агент ВМ установлен, выполните следующие команды, чтобы установить агент Symantec Endpoint Protection.
+
+	$Agent = Get-AzureVMAvailableExtension -Publisher Symantec -ExtensionName SymantecEndpointProtection
+	Set-AzureVMExtension -Publisher Symantec -Version $Agent.Version -ExtensionName SymantecEndpointProtection -VM $vm | Update-AzureVM
 
 Чтобы проверить, установлен ли модуль безопасности Symantec, и убедиться в актуальности его версии, сделайте следующее:
 
-1.	Войдите в виртуальную машину.
-2.	Для Windows Server 2008 R2 щелкните **Пуск > Все программы > Symantec Endpoint Protection**. Для Windows Server 2012 на начальном экране введите **Symantec**, а затем щелкните **Symantec Endpoint Protection**.
-3.	При необходимости примените обновления в окне состояния.
+1.	Войдите в виртуальную машину. Дополнительную информацию см. в разделе [Как войти в виртуальную машину под управлением Windows Server](../virtual-machines-log-on-windows-server/).
+2.	Для Windows Server 2008 R2 щелкните **Пуск > Symantec Endpoint Protection**. Для Windows Server 2012 или Windows Server 2012 R2 на начальном экране введите **Symantec**, а затем щелкните **Symantec Endpoint Protection**.
+3.	На вкладке **Состояние** окна **Состояние Symantec Endpoint Protection** примените обновления или выполните перезагрузку, если это необходимо.
 
 ## Дополнительные ресурсы
-[Как войти в виртуальную машину под управлением Windows Server]
 
-[Управление расширениями]
+[Как войти в виртуальную машину под управлением Windows Server](../virtual-machines-log-on-windows-server/)
 
-<!--Link references-->
-[Как войти в виртуальную машину под управлением Windows Server]: ../virtual-machines-log-on-windows-server/
+[Управление расширениями](https://msdn.microsoft.com/library/dn606311.aspx)
 
-[Управление расширениями]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
-<!--HONumber=42-->
+<!--HONumber=47-->

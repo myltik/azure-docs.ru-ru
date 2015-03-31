@@ -1,5 +1,5 @@
-﻿<properties 
-	pageTitle="Настройка синхронизации каталогов (DirSync) Office 365 в гибридном облаке для тестирования." 
+<properties 
+	pageTitle="Настройка синхронизации каталогов (DirSync) Office 365 в гибридном облаке для тестирования" 
 	description="Узнайте, как настроить сервер синхронизации каталогов (DirSync)Office 365 в гибридном облаке для ИТ-специалистов или тестирования разработки." 
 	services="virtual-network" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2015" 
+	ms.date="03/05/2015" 
 	ms.author="josephd"/>
 
-#Настройка синхронизации каталогов (DirSync) Office 365 в гибридном облаке для тестирования.
+# Настройка синхронизации каталогов (DirSync) Office 365 в гибридном облаке для тестирования
 
 В этом разделе описываются шаги по созданию гибридной облачной среды для тестирования синхронизации каталогов (DirSync) Office 365  с синхронизацией пароля, размещенного в Microsoft Azure. Это результирующая конфигурация.
 
@@ -24,10 +24,10 @@
  
 Данная конфигурация имитирует сервер DirSync в рабочей среде Azure из вашего расположения в Интернете. В ее состав входит:
 
-- упрощенная локальная сеть (подсеть Corpnet).
-- виртуальная сеть с подключением между организациями, размещенная в Azure (TestVNET).
-- VPN-подключение "сеть-сеть".
-- пробная подписка Office 365 FastTrack.
+- упрощенная локальная сеть (подсеть Corpnet);
+- виртуальная сеть с подключением между организациями, размещенная в Azure (TestVNET);
+- VPN-подключение типа "сеть-сеть";
+- пробная подписка Office 365 FastTrack;
 - сервер DirSync и дополнительный контроллер домена в виртуальной сети TestVNET.
 
 Это основа и общая начальная точка, на базе которой можно:
@@ -41,9 +41,9 @@
 2.	настройка пробной версии Office 365 FastTrack.
 3.	настройка сервера DirSync (DS1).
 
-Если у вас еще нет подписки Azure, можно зарегистрироваться для получения бесплатной пробной версии на веб-сайте [Try Azure](http://www.windowsazure.com/pricing/free-trial/). При наличии подписки MSDN см. раздел [Преимущества Azure для подписчиков MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Если у вас еще нет подписки Azure, можно зарегистрироваться для получения бесплатной пробной версии на веб-сайте [Try Azure](http://azure.microsoft.com/pricing/free-trial/). При наличии подписки MSDN см. раздел [Преимущества Azure для подписчиков MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
-##Этап 1. Настройка гибридной облачной среды
+## Этап 1. Настройка гибридной облачной среды
 
 Используйте инструкции в разделе [Настройка гибридной облачной среды для тестирования](../virtual-networks-setup-hybrid-cloud-environment-testing/). Поскольку для данной тестовой среды не нужен сервер APP1 в подсети Corpnet, можно его спокойно выключить на время.
 
@@ -51,7 +51,7 @@
 
 ![](./media/virtual-networks-set-up-DirSync-hybrid-cloud-for-testing/CreateDirSyncHybridCloud_1.png)
 
-##Этап 2. Настройка пробной версии Office 365 FastTrack
+## Этап 2. Настройка пробной версии Office 365 FastTrack
 
 Чтобы запустить пробную версию Office 365 FastTrack, необходимо вымышленное имя компании и учетная запись Майкрософт. В качестве имени компании рекомендуется использовать вариант названия компании Contoso. Это вымышленная компания, которая используется в учебных материалах Майкрософт. Но эта рекомендация не носит обязательный характер.
 
@@ -74,13 +74,13 @@
 
 ![](./media/virtual-networks-set-up-DirSync-hybrid-cloud-for-testing/CreateDirSyncHybridCloud_2.png)
 
-##Этап 3. Настройка сервера DirSync (DS1)
+## Этап 3. Настройка сервера DirSync (DS1)
 
 Во-первых, необходимо создать виртуальную машину Azure для DS1 с помощью следующих команд, которые вводятся в командной строке Azure PowerShell локального компьютера. Перед выполнение этих команд заполните значения переменных и удалите символы < and >.
 
-	$ServiceName="<The cloud service name for your TestVNET virtual network>"
+	$ServiceName="<The cloud service name for your TestVNET virtual network>"	
 	$LocalAdminName="<A local administrator account name>" 
-	$LocalAdminPW="<A password for the local administrator account>"
+	$LocalAdminPW="<The password for the local administrator account>"
 	$User1Password="<The password for the CORP\User1 account>"
 	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name DS1 -InstanceSize Medium -ImageName $image
@@ -128,7 +128,7 @@
 4.	При появлении запроса **Активировать синхронизацию Active Directory?** щелкните **Активировать**. После этого на шаге 3 отображается сообщение **Синхронизация Active Directory активирована**.
 5.	Оставьте открытой страницу **Настройка и управление синхронизацией Active Directory** на компьютере CLIENT1.
 
-Затем войдите в DC1 с учетной записью CORP\User1 и откройте командную строку Windows PowerShell с правами администратора. Выполните следующие команды для создания нового подразделения с именем contoso_users и добавьте две новые учетные записи пользователей для Marci Kaufman и Lynda Meyer.
+Затем войдите в DC1 с учетной записью CORP\User1 и откройте командную строку Windows PowerShell с правами администратора. По очереди выполните следующие команды для создания нового подразделения с именем contoso_users и добавьте две новые учетные записи пользователей для Marci Kaufman и Lynda Meyer.
 
 	New-ADOrganizationalUnit -Name contoso_users -Path "DC=corp,DC=contoso,DC=com"
 	New-ADUser -SamAccountName marcik -AccountPassword (Read-Host "Set user password" -AsSecureString) -name "Marci Kaufman" -enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false -Path "OU=contoso_users,DC=corp,DC=contoso,DC=com"
@@ -142,7 +142,7 @@
 2.	На **Начальном экране** введите **Directory Sync** (Синхронизация каталогов).
 3.	Щелкните правой кнопкой мыши **Настройка синхронизации каталогов**, а затем щелкните **Запуск от имени администратора**. В результате запустится мастер настройки.
 4.	На странице приветствия нажмите кнопку **Далее**.
-5.	На странице "Учетные данные Windows Azure Active Directory" введите адрес электронной почты и пароль начальной учетной записи, созданной при настройке пробной версии Office 365 FastTrack на этапе 2. Нажмите кнопку Далее. 
+5.	На странице "Учетные данные Microsoft Azure Active Directory" введите адрес электронной почты и пароль начальной учетной записи, созданной при настройке пробной версии Office 365 FastTrack на этапе 2. Нажмите кнопку Далее. 
 6.	На странице "Учетные данные Active Directory" введите **CORP\User1** в поле **Имя пользователя** и пароль учетной записи User1 в поле **Пароль**. Нажмите кнопку **Далее**.
 7.	На странице "Гибридное развертывание" выберите **Включить гибридное развертывание**, а затем щелкните **Далее**.
 8.	На странице "Синхронизация паролей" выберите **Включить синхронизацию паролей**, а затем щелкните **Далее**.
@@ -174,7 +174,7 @@
  
 Эта среда готовы для выполнения тестирования приложений Office 365, использующих функцию Office 365 DirSync, или для тестирования функции DirSync и производительности из DS1.
 
-##Дополнительные ресурсы
+## Дополнительные ресурсы
 
 [Развертывание средства синхронизации каталогов Office 365 (DirSync) в Microsoft Azure](http://technet.microsoft.com/library/dn635310.aspx)
 
@@ -186,5 +186,6 @@
 
 [Настройка веб бизнес-приложения в гибридном облаке для тестирования](../virtual-networks-setup-lobapp-hybrid-cloud-testing/)
 
+[Настройка смоделированной гибридной облачной среды для тестирования](../virtual-networks-setup-simulated-hybrid-cloud-environment-testing/)
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="09/27/2014" 
-	ms.author="mahender"/>
+	ms.date="02/16/2015" 
+	ms.author="ricksal,mahender"/>
 
 # Добавление проверки подлинности в приложение мобильных служб
 
@@ -24,11 +24,6 @@
 
 В этом учебнике рассматриваются следующие основные шаги для включения проверки подлинности в приложении:
 
-1. [Регистрация приложения для проверки подлинности и настройка мобильных служб]
-2. [Ограничение разрешений таблицы для пользователей, прошедших проверку подлинности]
-3. [Добавление проверки подлинности в приложение]
-4. [Хранение маркеров проверки подлинности в клиенте]
-5. [Обновление маркеров с истекшим сроком действия]
 
 
 Этот учебник создан на основе краткого руководства по мобильным службам. Вам также необходимо сначала ознакомиться с учебником [Приступая к работе с мобильными службами]. 
@@ -43,11 +38,11 @@
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)] 
 
-3. В Eclipse откройте проект, созданный после завершения учебника [Приступая к работе с мобильными службами]. 
+3. Откройте проект, созданный после завершения учебника [Приступая к работе с мобильными службами]. 
 
-4. В меню **Запуск** щелкните **Запуск**, чтобы запустить приложение; убедитесь, что после запуска приложения возникает необработанное исключение с кодом состояния 401 (Не санкционировано). 
+4. В меню **Запуск** щелкните **Запуск приложения**, чтобы запустить приложение; убедитесь, что после запуска приложения возникает необработанное исключение с кодом состояния 401 (Не санкционировано). 
 
-	 Это происходит, потому что приложение пытается получить доступ к мобильным службам как пользователь, не прошедший проверку подлинности, а таблица _TodoItem_ теперь требует выполнения проверки подлинности.
+	 Это происходит потому, что приложение пытается получить доступ к мобильным службам как пользователь, не прошедший проверку подлинности, а таблица _TodoItem_ теперь требует выполнения проверки подлинности.
 
 Далее приложение будет обновлено таким образом, что оно станет производить аутентификацию учетных данных пользователей, прежде чем запрашивать ресурсы из мобильной службы.
 
@@ -77,15 +72,14 @@
 [Дальнейшие действия]:#next-steps
 
 <!-- URLs. -->
-[Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-android-get-started/
-[Приступая к работе с данными]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/
-[Приступая к работе с проверкой подлинности]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-android-get-started-users/
-[Приступая к работе с push-уведомлениями]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/
-[Авторизация пользователей с помощью скриптов]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-android-authorize-users-in-scripts
+[Приступая к работе с мобильными службами]: /documentation/articles/mobile-services-dotnet-backend-android-get-started/
+[Приступая к работе с данными]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-data/
+[Приступая к работе с проверкой подлинности]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-users/
+[Приступая к работе с push-уведомлениями]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-push/
+[Авторизация пользователей с помощью скриптов]: /documentation/articles/mobile-services-dotnet-backend-android-authorize-users-in-scripts
 
 [Портал управления Azure]: https://manage.windowsazure.com/
-[Справочник по принципам использования мобильных служб .NET]: /ru-ru/develop/mobile/how-to-guides/work-with-net-client-library
-[Регистрация пакета приложения для магазина Windows для проверки подлинности Microsoft]: /ru-ru/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication
+[Справочник по принципам использования мобильных служб .NET]: /develop/mobile/how-to-guides/work-with-net-client-library
+[Регистрация пакета приложения для магазина Windows для проверки подлинности Microsoft]: /documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

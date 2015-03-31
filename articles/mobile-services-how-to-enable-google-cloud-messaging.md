@@ -1,7 +1,7 @@
 ﻿<properties 
 	pageTitle="Как включить службу Google Cloud Messaging" 
 	description="Следуйте инструкциям этого учебника, чтобы создать новую службу с помощью мобильных служб Azure." 
-	services="mobile-services, notification-hubs" 
+	services="mobile-services" 
 	documentationCenter="android" 
 	authors="ggailey777" 
 	manager="dwrede" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="11/21/2014" 
@@ -31,12 +31,11 @@
 
 
 <!-- URLs. -->
-[Приступая к работе с push-уведомлениями]: /ru-ru/documentation/articles/mobile-services-javascript-backend-android-get-started-push/
+[Приступая к работе с push-уведомлениями]: /documentation/articles/mobile-services-javascript-backend-android-get-started-push/
 [Visual Studio 2012 Express для Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
 [Пакет SDK для мобильных служб]: https://go.microsoft.com/fwLink/p/?LinkID=268375
 
 [Портал управления]: https://manage.windowsazure.com/
-[Серверная версия .NET]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started
+[Серверная версия .NET]: /documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

@@ -1,30 +1,41 @@
-<properties linkid="manage-services-identity-organization-account" urlDisplayName="Organization accounts" pageTitle="Sign up for Azure as an organization" metaKeywords="" description="Learn how you can use an organizational account to leverage the existing user accounts, policies, settings, or on-premise server deployments you already have improve efficiencies between your organization's on-premises identity infrastructure and Azure AD." metaCanonical="" services="active-directory" documentationCenter="" title="Sign up for Azure as an organization" authors="terrylan" solutions="" manager="terrylan" editor="" />
+﻿<properties 
+	pageTitle="Подпишитесь на Azure как организация" 
+	description="Узнайте, как с помощью учетной записи на работе или в школе можно использовать существующие учетные записи пользователей, политики, параметры или локальные развертывания серверов для улучшения эффективного взаимодействия локальной инфраструктуры удостоверений вашей организации и Azure AD." 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="TerryLanfear" 
+	manager="terrylan" 
+	editor="Lisatoft"/>
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="terrylan" />
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/01/2014" 
+	ms.author="terrylan"/>
 
-# Подпишитесь на Azure как организация
 
-[WACOM.INCLUDE [отказ от ответственности](../includes/disclaimer.md)]
 
-До недавнего времени пользователь мог получить доступ к новой подписке Azure только под своей учетной записью Майкрософт (Windows Live ID). Теперь Azure поддерживает один из двух методов входа по учетным записям:
 
--   **Учетные записи Майкрософт** (созданные для личного использования) — обеспечивают доступ ко всем потребительским продуктам и облачным службам Майкрософт, таким как Outlook (Hotmail), Messenger, OneDrive, MSN, Xbox LIVE или Office Live. Регистрация в Outlook автоматически создает учетную запись Майкрософт с адресом @Outlook.com. После создания учетную запись Майкрософт можно использовать для получения доступа к потребительским облачным службам Майкрософт, а также к Azure. [Подробнее][Подробнее]
+<h1>Подпишитесь на Azure как организация</h1>
 
--   **Учетные записи организации** (выдаются администратором для использования на предприятии или в учебном заведении) — обеспечивают доступ ко всем облачным службам Майкрософт для малого, среднего бизнеса, а также корпораций. В число таких служб входят Windows Azure, Intune и Office 365. При регистрации в любой из этих служб от имени организации облачный клиент автоматически подготавливается в Azure Active Directory, представляя вашу организацию. [Подробнее][1]
+[AZURE.INCLUDE [disclaimer](../includes/disclaimer.md)]
 
-    После создания этого клиента администратор может выдать дополнительные учетные записи организации каждому сотруднику/учащемуся и назначить этим учетным записям лицензии в зависимости от необходимого доступа к подпискам на облачные службы, например на Azure.
+До недавнего времени пользователь мог получить доступ к новой подписке Microsoft Azure только под своей учетной записью Майкрософт (Windows Live ID). Теперь Azure поддерживает один из двух методов входа по учетным записям:
 
-Желаете подписаться на Azure как организация? [**Зарегистрируйтесь сейчас**][**Зарегистрируйтесь сейчас**]
+* **Учетные записи Microsoft** (созданные для личного использования) - обеспечивают доступ ко всем потребительским продуктам и облачным службам Майкрософт, таким как Outlook (Hotmail), Messenger, OneDrive, MSN, Xbox LIVE или Office 365. Регистрация в Outlook автоматически создает учетную запись Майкрософт с адресом @Outlook.com. После создания учетную запись Майкрософт можно использовать для доступа к потребительским облачным службам Майкрософт или Azure. [Подробнее](http://windows.microsoft.com/windows-live/sign-in-what-is-microsoft-account)
+
+* **Рабочие или школьные учетные записи** (выдаются администратором для использования на предприятии или в учебном заведении) - обеспечивают доступ ко всем облачным службам Майкрософт для малого, среднего бизнеса и корпораций. В число таких служб входят Azure, Windows Intune и Office 365. При регистрации в любой из этих служб от имени организации для представления вашей организации в Azure Active Directory автоматически выделяется каталог на основе облака. [Подробнее](http://technet.microsoft.com/library/jj573650) 
+
+	После создания этого каталога администратор может создавать пользователей и назначить им лицензии в зависимости от необходимого доступа к подпискам на облачные службы, например на Azure. 
+
+Желаете подписаться на Azure как организация? [**Зарегистрируйтесь сейчас**](http://go.microsoft.com/fwlink/?LinkId=269967) 
 
 **Дополнительные ресурсы**
 
--   [Что такое Azure AD?][Что такое Azure AD?]
--   [Библиотека по Windows Azure AD на сайте TechNet][Библиотека по Windows Azure AD на сайте TechNet]
--   [Библиотека по Windows Azure AD на сайте MSDN][Библиотека по Windows Azure AD на сайте MSDN]
+* [Что такое Azure AD?](/manage/services/identity/what-is-windows-azure-active-directory/) 
+* [Библиотека Azure AD на сайте MSDN](http://msdn.microsoft.com/library/windowsazure/jj673460.aspx)
 
-  [Подробнее]: http://windows.microsoft.com/ru-ru/windows-live/sign-in-what-is-microsoft-account
-  [1]: http://technet.microsoft.com/ru-ru/library/jj573650
-  [**Зарегистрируйтесь сейчас**]: http://go.microsoft.com/fwlink/?LinkId=269967
-  [Что такое Azure AD?]: /ru-ru/manage/services/identity/what-is-windows-azure-active-directory/
-  [Библиотека по Windows Azure AD на сайте TechNet]: http://technet.microsoft.com/ru-ru/library/hh967619.aspx
-  [Библиотека по Windows Azure AD на сайте MSDN]: http://msdn.microsoft.com/library/windowsazure/jj673460.aspx
+<!--HONumber=47-->

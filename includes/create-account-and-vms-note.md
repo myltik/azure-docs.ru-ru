@@ -1,4 +1,4 @@
 ﻿> [AZURE.NOTE]
-> Для работы с этим учебником требуется учетная запись Azure. Вы можете <a href="http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/" target="_blank">активировать преимущества подписчика MSDN</a> или <a href="http://azure.microsoft.com/pricing/free-trial/" target="_blank">подписаться на бесплатный пробный период</a>.
+> Для работы с этим учебником требуется учетная запись Azure. Вы можете <a href="http://www.windowsazure.com/pricing/member-offers/msdn-benefits-details/" target="_blank">активировать преимущества подписчика MSDN</a> или <a href="http://www.windowsazure.com/pricing/free-trial/" target="_blank">зарегистрироваться для получения бесплатной пробной версии</a>.
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

@@ -1,271 +1,206 @@
-﻿<properties 
-	pageTitle="Учебник по Azure «Многоуровневое приложение .NET»" 
-	description="Учебник, посвященный разработке многоуровневого приложения в Azure, которое использует очереди Service Bus для взаимодействия между уровнями. Примеры на .NET." 
-	services="cloud-services, service-bus" 
-	documentationCenter=".net" 
-	authors="sethmanheim" 
-	manager="timlt" 
+<properties
+	pageTitle="Учебник по Azure "Многоуровневое приложение .NET""
+	description="Учебник, посвященный разработке многоуровневого приложения в Azure, которое использует очереди Service Bus для взаимодействия между уровнями. Примеры на .NET."
+	services="service-bus"
+	documentationCenter=".net"
+	authors="sethmanheim"
+	manager="timlt"
 	editor="mattshel"/>
 
-<tags 
-	ms.service="service-bus" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="02/10/2015" 
+<tags
+	ms.service="service-bus"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="hero-article"
+	ms.date="02/26/2015"
 	ms.author="sethm"/>
 
 
 
 
 
-# .NET Multi-Tier Application Using Service Bus Queues
+# Многоуровневое приложение .NET, использующее очереди Service Bus
 
-Developing for Azure is easy using Visual Studio 2013 and the
-free Azure SDK for .NET. If you do not already have Visual
-Studio 2013, the SDK will automatically install Visual Studio Express 2013, so you can start developing for Azure entirely for
-free. This guide assumes you have no prior experience using Windows
-Azure. On completing this guide, you will have an application that uses
-multiple Azure resources running in your local environment and
-demonstrating how a multi-tier application works.
+## Введение
 
-You will learn:
+Разработка приложений в Azure очень проста благодаря применению Visual Studio 2013 и бесплатного пакета SDK для Azure для .NET. Если у вас еще нет приложения Visual Studio 2013, пакет SDK автоматически установит Visual Studio Express, что позволит вам начать разработку приложений для Azure абсолютно бесплатно. В данном учебнике предполагается, что у читателя нет опыта использования Microsoft Azure. По завершении этого учебника вы создадите приложение, которое использует несколько ресурсов Azure в локальной среде и демонстрирует принципы работы многоуровневого приложения.
 
--   How to enable your computer for Azure development with a
-    single download and install.
--   How to use Visual Studio to develop for Azure.
--   How to create a multi-tier application in Azure using web
-    and worker roles.
--   How to communicate between tiers using Service Bus Queues.
+Вы узнаете:
 
-[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
+-   Как подготовить свой компьютер к разработке приложений для Azure, скачав и установив всего один пакет.
+-   Как разработать приложение для Azure с помощью Visual Studio.
+-   Как создать многоуровневое приложение в Azure с использованием рабочей роли и веб-роли.
+-   Как реализовать связь между уровнями с использованием очередей Service Bus.
 
-In this tutorial you'll build and run the multi-tier application in an Azure Cloud Service. The front end will be an ASP.NET MVC web role and the back end will be a worker-role. You could create the same multi-tier application with the front end as a web project that would be deployed to an Azure Website instead of a cloud service. For instructions about what to do differently an Azure Website front end, see the [Next steps](#nextsteps) section.
+[AZURE.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
-A screenshot of the completed application is shown below:
+В этом учебнике вы выполните сборку и запуск многоуровневого приложения в облачной службе Azure. Интерфейсная часть будет реализована с использованием веб-роли MVC ASP.NET, а серверная - с помощью рабочей роли. Вы также можете создать аналогичное многоуровневое приложение, интерфейсная часть которого будет реализована в виде веб-проекта и развернута на веб-сайте, а не в облачной службе Azure. Дополнительные сведения об отличиях при реализации интерфейсной части для веб-сайта Azure см. в разделе [Дальнейшие действия](#nextsteps) .
+
+Снимок экрана готового приложения приведен ниже.
 
 ![][0]
 
-**Note** Azure also provides storage queue functionality. For more information about Azure storage queues and Service Bus queues, see [Azure Queues and Azure Service Bus Queues - Compared and Contrasted][sbqueuecomparison].  
+**Примечание** В Azure также предоставляются функциональные возможности очереди хранилища. Дополнительные сведения об очередях службы хранилища Azure и очередях Service Bus см. в разделе [Очереди Azure и очереди Azure Service Bus - сравнение и противопоставление][sbqueuecomparison].  
 
-<h2>Scenario overview: inter-role communication</h2>
+## Обзор сценария: обмен данными между ролями
 
-To submit an order for processing, the front end UI component, running
-in the web role, needs to interact with the middle tier logic running in
-the worker role. This example uses Service Bus brokered messaging for
-the communication between the tiers.
+Чтобы отправить запрос на обработку, компонент пользовательского интерфейса, выполняющийся в веб-роли, взаимодействует с логикой среднего уровня в рабочей роли. В этом примере в качестве посредника при обмене данными между уровнями выступает служба Service Bus.
 
-Using brokered messaging between the web and middle tiers decouples the
-two components. In contrast to direct messaging (that is, TCP or HTTP),
-the web tier does not connect to the middle tier directly; instead it
-pushes units of work, as messages, into the Service Bus, which reliably
-retains them until the middle tier is ready to consume and process them.
+Обмен сообщениями между веб-уровнем и средним уровнем через посредника позволяет разделить два компонента. В отличие от прямого обмена сообщениями (TCP или HTTP), веб-уровень не связан непосредственно со средним уровнем. Вместо этого он передает рабочие единицы в виде сообщений в службу Service Bus, в которой они хранятся до тех пор, пока не будут востребованы для обработки средним уровнем.
 
-The Service Bus provides two entities to support brokered messaging:
-queues and topics. With queues, each message sent to the queue is
-consumed by a single receiver. Topics support the publish/subscribe
-pattern in which each published message is made available to each
-subscription registered with the topic. Each subscription logically
-maintains its own queue of messages. Subscriptions can also be
-configured with filter rules that restrict the set of messages passed to
-the subscription queue to those that match the filter. This example uses
-Service Bus queues.
+В службе Service Bus обмен сообщениями через посредника реализуется с использованием очередей и разделов. Каждое сообщение, помещенное в очередь, потребляется одним получателем. С помощью разделов реализуется модель публикации и подписки, благодаря которой каждое опубликованное сообщение становится доступно всем компонентам, зарегистрировавшим подписку на раздел. Для каждой подписки ведется собственная логическая очередь сообщений. Кроме того, для подписки можно настроить правила фильтрации, с помощью которых ограничивается набор сообщений, передаваемых в соответствующую очередь. В этом примере используются
+Очереди служебной шины.
 
 ![][1]
 
-This communication mechanism has several advantages over direct
-messaging, namely:
+По сравнению с прямым обменом сообщениями подобный механизм взаимодействия обладает целым рядом преимуществ.
 
--   **Temporal decoupling.** With the asynchronous messaging pattern,
-    producers and consumers need not be online at the same time. Service
-    Bus reliably stores messages until the consuming party is ready to
-    receive them. This allows the components of the distributed
-    application to be disconnected, either voluntarily, for example, for
-    maintenance, or due to a component crash, without impacting the
-    system as a whole. Furthermore, the consuming application may only
-    need to come online during certain times of the day.
+-   **Временное разделение.** Благодаря шаблону асинхронного обмена сообщениями производителям и потребителям не нужно быть в сети одновременно. Служба Service Bus надежно сохраняет сообщения, пока принимающая сторона не будет готова принять их. Это позволяет компонентам распределенного приложения отключаться добровольно, например для обслуживания, или по причине сбоя без последствий для всей системы. Кроме того, принимающее приложение можно подключать только в определенное время дня.
 
--   **Load leveling**. In many applications, system load varies over
-    time whereas the processing time required for each unit of work is
-    typically constant. Intermediating message producers and consumers
-    with a queue means that the consuming application (the worker) only
-    needs to be provisioned to accommodate average load rather than peak
-    load. The depth of the queue will grow and contract as the incoming
-    load varies. This directly saves money in terms of the amount of
-    infrastructure required to service the application load.
+-   **Выравнивание нагрузки**. Во многих приложениях уровень нагрузки на систему меняется с течением времени, тогда как время, затрачиваемое на обработку каждой рабочей единицы, как правило, постоянно. Благодаря обмену сообщениями через посредника с использованием очереди потребляющее приложение (рабочая роль) достаточно подготовить для обработки средней, а не пиковой нагрузки. В таких случаях при колебаниях входящей нагрузки просто изменяется глубина очереди. Это позволяет заметно сократить расходы на инфраструктуру, необходимую для обработки нагрузки приложения.
 
--   **Load balancing.** As load increases, more worker processes can be
-    added to read from the queue. Each message is processed by only one
-    of the worker processes. Furthermore, this pull-based load balancing
-    allows for optimum utilization of the worker machines even if the
-    worker machines differ in terms of processing power as they will
-    pull messages at their own maximum rate. This pattern is often
-    termed the competing consumer pattern.
+-   **Балансировка нагрузки.** По мере возрастания нагрузки можно добавить дополнительные рабочие процессы для чтения из очереди. Каждое сообщение обрабатывается только одним рабочим процессом. Кроме того, такая нагрузка, регулируемая в зависимости от запроса, позволяет оптимально использовать ресурсы рабочих машин, даже если рабочие машины обладают разной вычислительной мощностью, поскольку они будут обрабатывать сообщения со своей максимальной скоростью. Этот шаблон часто называют шаблоном конкурирующих потребителей.
 
     ![][2]
 
-The following sections discuss the code that implements this
-architecture.
+В следующих разделах описывается код, позволяющий реализовать подобную архитектуру.
 
-<h2>Set up the development environment</h2>
+## Настройка среды разработки
 
-Before you can begin developing your Azure application, you need
-to get the tools and set-up your development environment.
+Прежде чем начать разработку приложения для Azure, подготовьте нужные инструменты и настройте среду разработки.
 
-1.  To install the Azure SDK for .NET, click the button below:
+1.  Чтобы установить пакет Azure SDK для .NET, нажмите кнопку ниже.
 
-    [Get Tools and SDK][]
+    [Получить инструменты и SDK][]
 
-2. 	Click **install the SDK**.
-
-3. 	Choose the link for the version of Visual Studio you are using. The steps in this tutorial use Visual Studio 2013:
+2. 	Щелкните ссылку, соответствующую используемой версии Visual Studio. В этом учебнике приводятся инструкции для работы с версией Visual Studio 2013.
 
 	![][32]
 
-4. 	When prompted to run or save the installation file, click
-    **Run**:
+4. 	При появлении запроса на выполнение или сохранение файла установки нажмите **Запуск**:
 
     ![][3]
 
-5.  In the Web Platform Installer, click **Install** and proceed with the installation:
+5.  В окне установщика веб-платформы щелкните **Установить** и продолжайте установку.
 
     ![][33]
 
-6.  Once the installation is complete, you will have everything
-    necessary to start developing. The SDK includes tools that let you
-    easily develop Azure applications in Visual Studio. If you
-    do not have Visual Studio installed, it also installs the free
-    Visual Studio Express for Web.
+6.  После завершения установки вы получите все компоненты, необходимые для разработки. В состав пакета SDK входят инструменты для эффективной разработки приложений Azure в Visual Studio. Если у вас не установлено приложение Visual Studio, будет автоматически установлена бесплатная версия Visual Studio Express для Web.
 
-<h2>Set up the Service Bus namespace</h2>
+## Настройка пространства имен Service Bus
 
-The next step is to create a service namespace, and to obtain a shared
-secret key. A service namespace provides an application boundary for
-each application exposed through Service Bus. A shared secret key is
-automatically generated by the system when a service namespace is
-created. The combination of service namespace and shared secret key
-provides a credential for Service Bus to authenticate access to an
-application.
+На следующем шаге вы создадите пространство имен службы и получите ключ совместного доступа к подписи (SAS). Пространство имен определяет границы приложения для каждого приложения, предоставляемого через Service Bus. Ключ SAS создает система при создании пространства имен. Сочетание пространства имен и ключа совместного доступа к подписи предоставляет учетные данные, на основе которых служба Service Bus осуществляет проверку подлинности и дает доступ к приложению.
 
-Note that you can also manage namespaces and Service Bus messaging entities using the Visual Studio Server Explorer, but you can only create new namespaces from within the portal. 
+Заметьте, что для управления пространствами имен и сущностями обмена сообщениями Service Bus можно также использовать обозреватель серверов Visual Studio, но новые пространства имен можно создавать только с портала.
 
-###Set up the namespace using the Management Portal
+### Настройка пространства имен с помощью портала управления
 
-1.  Log into the [Azure Management Portal][].
+1.  Выполните вход на [Портал управления Azure][].
 
-2.  In the left navigation pane of the Management Portal, click
-    **Service Bus**.
+2.  В левой области навигации портала управления щелкните **Service Bus**.
 
-3.  In the lower pane of the Management Portal, click **Create**.
+3.  В нижней части портала управления нажмите кнопку **Создать**.
 
     ![][6]
 
-4.  In the **Add a new namespace** dialog, enter a namespace name.
-    The system immediately checks to see if the name is available.   
+4.  В диалоговом окне **Добавить новое пространство имен** введите имя пространства имен. Система немедленно проверяет, доступно ли оно.
     ![][7]
 
-5.  After making sure the namespace name is available, choose the
-    country or region in which your namespace should be hosted (make
-    sure you use the same country/region in which you are deploying your
-    compute resources).
+5.  Убедившись, что имя пространства имен доступно, выберите страну или регион, в котором будет размещено ваше пространство имен (необходимо указать страну и регион развертывания своих вычислительных ресурсов). Кроме того, убедитесь, что установлен флажок **Обмен сообщениями** в пространстве имен в поле **Тип** и флажок **Стандартный** в поле **Уровень обмена сообщениями**.
 
-    IMPORTANT: Pick the **same region** that you intend to choose for
-    deploying your application. This will give you the best performance.
+    ВАЖНО! Выберите **регион**, в котором будет развернуто ваше приложение. Это обеспечит наилучшую производительность.
 
-6.  Click the check mark. The system now creates your service
-    namespace and enables it. You might have to wait several minutes as
-    the system provisions resources for your account.
+6.  Щелкните значок галочки. Теперь система создает пространство имен службы и включает его. Вероятно, придется подождать несколько минут, пока система не выделит ресурсы для вашей учетной записи.
 
 	![][27]
 
-7.  In the main window, click the name of your service namespace.
+7.  Щелкните имя созданного пространства имен службы в главном окне.
 
 	![][30]
 
-8. Click **Connection Information**.
+8. Щелкните **Сведения о подключении**.
 
 	![][31]
 
-9.  In the **Access connection information** pane, find the **Default Issuer** and **Default Key** values.
+9.  В области **Доступ к сведениям о подключении** найдите строку подключения, которая содержит ключ SAS и имя ключа.
 
-10.  Make a note of the key, or copy it to the clipboard.
+    ![][35]
 
-###Manage namespaces and messaging entities using the Visual Studio Server Explorer
+10.  Запишите ключ или скопируйте его в буфер обмена.
 
-To manage a namespace and obtain connection information using Visual Studio instead of the Management Portal, follow the procedure described [here](http://http://msdn.microsoft.com/library/windowsazure/ff687127.aspx), in the section titled **To connect to Azure from Visual Studio**. When you sign in to Azure, the **Service Bus** node under the **Microsoft Azure** tree in Server Explorer is automatically populated with any namespaces you've already created. Right-click any namespace, and then click **Properties** to see the connection string and other metadata associated with this namespace displayed in the Visual Studio **Properties** pane. 
+## Управление пространствами имен или сущностями обмена сообщениями с помощью обозревателя серверов Visual Studio
 
-Make a note of the **SharedAccessKey** value, or copy it to the clipboard:
+<<<<<<< HEAD
+Чтобы вместо портала управления использовать Visual Studio для управления пространством имен и получения сведений о подключении, выполните процедуру **Подключение к Azure из Visual Studio** на странице [Приступая к работе с инструментами Azure для Visual
+Studio](http://msdn.microsoft.com/library/ff687127.aspx). При входе в **обозреватель серверов** Azure пункт **Service Bus** под деревом **Microsoft
+Azure** автоматически заполняется пространствами имен, уже созданными в вашей подписке. Щелкните правой кнопкой мыши любое пространство имен и выберите **Свойства**, чтобы увидеть строку подключения и другие метаданные, связанные с этим пространством имен, которые отображаются в области **Свойства** Visual Studio.
+=======
+Чтобы вместо портала управления использовать Visual Studio для управления пространством имен и получения сведений о подключении, выполните процедуру, описанную [здесь](http://msdn.microsoft.com/library/ff687127.aspx), в разделе **Подключение к Azure из Visual Studio**. При входе в Azure узел **Service Bus** в дереве **Microsoft Azure** в обозревателе серверов автоматически заполняется уже созданными пространствами имен. Щелкните правой кнопкой мыши любое пространство имен и выберите **Свойства**, чтобы увидеть строку подключения и другие метаданные, связанные с этим пространством имен, которые отображаются в области **Свойства** Visual Studio.
+>>>>>>> 2076695a45ab90a31cffe94a32399a2407565b39
+
+Запишите значение **SharedAccessKey** или скопируйте его в буфер обмена.
 
 ![][34]
 
-<h2>Create a web role</h2>
+**Примечание** Можно также использовать **обозреватель серверов** для управления пространством имен Service Bus в другой подписке с помощью следующей процедуры:
 
-In this section, you will build the front end of your application. You
-will first create the various pages that your application displays.
-After that, you will add the code for submitting items to a Service Bus
-Queue and displaying status information about the queue.
+1. Выберите **Вид** в строке меню Visual Studio и щелкните **Обозреватель сервера**. В иерархии обозревателя серверов узел **Service Bus** отображается в узле **Azure** (см. следующий рисунок).
 
-### Create the project
+	![][21]
 
-1.  Using administrator privileges, start either Microsoft Visual Studio
-    2013 or Microsoft Visual Studio Express. To start Visual
-    Studio with administrator privileges, right-click **Microsoft Visual
-    Studio 2013 (or Microsoft Visual Studio Express)** and
-    then click **Run as administrator**. The Azure compute emulator,
-    discussed later in this guide, requires that Visual Studio be
-    launched with administrator privileges.
+2. В обозревателе серверов разверните узел **Microsoft Azure**, щелкните правой кнопкой мыши узел **Service Bus** и выберите **Новое подключение**.
 
-    In Visual Studio, on the **File** menu, click **New**, and then
-    click **Project**.
+3. В диалоговом окне **Добавить подключение** введите имя пространства имен службы, а также имя и ключ издателя, или вставьте в строке подключения для пространства имен. Разрешения, связанные с ключом издателя, определяют операции, которые можно выполнить в этом пространстве имен. Нажмите кнопку **ОК**, чтобы установить подключение.
+
+	![][22]
+
+## Создание веб-роли
+
+В этом разделе описывается создание интерфейсной части вашего приложения. Сначала необходимо создать страницы, которые будут отображаться в приложении.
+После этого вы добавите код для отправки элементов в очередь Service Bus
+и отображения информации о состоянии очереди.
+
+### Создание проекта
+
+1.  Используя привилегии администратора, запустите Microsoft Visual Studio 2013 или Microsoft Visual Studio Express. Для запуска Visual Studio с привилегиями администратора щелкните правой кнопкой мыши **Microsoft Visual Studio 2013 (или Microsoft Visual Studio Express)** и выберите **Запуск от имени администратора**. Для работы эмулятора вычислений Azure, который рассматривается в последующих разделах этого руководства, требуется запустить Visual Studio с привилегиями администратора.
+
+    В меню **Файл** Visual Studio последовательно выберите **Создать** и **Проект**.
 
     ![][8]
 
 
-2.  From **Installed Templates**, under **Visual C#**, click **Cloud** and
-    then click **Azure Cloud Service**. Name the project
-    **MultiTierApp**. Then click **OK**.
+2.  В разделе **Установленные шаблоны** области **Visual C#** щелкните **Облако**, а затем щелкните **Облачная служба Azure**. Присвойте проекту имя **MultiTierApp**. Затем нажмите кнопку **ОК**.
 
     ![][9]
 
-3.  From **.NET Framework 4.5** roles, double-click **ASP.NET Web
-    Role**.
+3.  В ролях **.NET Framework 4.5** дважды щелкните **Веб-роль ASP.NET**.
 
     ![][10]
 
-4.  Hover over **WebRole1** under **Azure Cloud Service solution**, click
-    the pencil icon, and rename the web role to **FrontendWebRole**. Then Click **OK**. (Make sure you enter "Frontend" with a lower-case "e", not "FrontEnd".)
+4.  Наведите указатель мыши на элемент **WebRole1** в разделе **Решение облачной службы Azure**, щелкните значок карандаша и присвойте веб-роли имя **FrontendWebRole**. Нажмите кнопку **ОК**. (Обратите внимание на написание слова Frontend (не FrontEnd).
 
     ![][11]
 
-5.  From the **New ASP.NET Project** dialog, in the **Select a template** list, click **MVC**,
-    then click **OK**.
+5.  В диалоговом окне **Новый проект ASP.NET** в списке **Выберите шаблон** щелкните **MVC** и нажмите кнопку **OK**.
 
     ![][12]
 
-6.  In **Solution Explorer**, right-click **References**, then click
-    **Manage NuGet Packages...** or **Add Library Package Reference**.
+6.  В окне **Обозреватель решений** щелкните правой кнопкой мыши элемент **Ссылки** и выберите **Управление пакетами NuGet...** или **Добавить ссылку на пакет библиотеки**.
 
-7.  Select **Online** on the left-hand side of the dialog. Search for
-    "**WindowsAzure**" and select the **Azure Service
-    Bus** item. Then complete the installation and close this dialog.
+7.  В левой части диалогового окна выберите **Интернет**. Найдите **Service Bus** и выберите пункт **Microsoft Azure Service Bus**. Выполните установку и закройте это диалоговое окно.
 
     ![][13]
 
-8.  Note that the required client assemblies are now referenced and some
-    new code files have been added.
+8.  Обратите внимание, что добавлены ссылки на обязательные клиентские сборки, а также новые файлы кода.
 
-9.  In **Solution Explorer**, right click **Models** and click **Add**,
-    then click **Class**. In the Name box, type the name
-    **OnlineOrder.cs**. Then click **Add**.
+9.  В окне **Обозреватель решений** щелкните правой кнопкой мыши элемент **Модели**, выберите **Добавить** и щелкните элемент **Класс**. В поле "Имя" введите имя **OnlineOrder.cs**. Нажмите кнопку **Добавить**.
 
-### Write the code for your web role
+### Написание кода своей веб-роли
 
-In this section, you will create the various pages that your application
-displays.
+В этом разделе вы создадите страницы, которые будут отображаться в приложении.
 
-1.  In the **OnlineOrder.cs** file in Visual Studio, replace the
-    existing namespace definition with the following code:
+1.  В файле **OnlineOrder.cs** fв Visual Studio замените существующее определение пространства имен следующим кодом:
 
         namespace FrontendWebRole.Models
         {
@@ -276,18 +211,13 @@ displays.
             }
         }
 
-2.  In **Solution Explorer**, double-click
-    **Controllers\HomeController.cs**. Add the following **using**
-    statements at the top of the file to include the namespaces for the
-    model you just created, as well as Service Bus:
+2.  В **обозревателе решений** дважды щелкните **Controllers\HomeController.cs**. Добавьте в начало файла следующие инструкции **using**, чтобы включить пространства имен для созданной модели и службы Service Bus:
 
         using FrontendWebRole.Models;
         using Microsoft.ServiceBus.Messaging;
         using Microsoft.ServiceBus;
 
-3.  Also in the **HomeController.cs** file in Visual Studio, replace the
-    existing namespace definition with the following code. This code
-    contains methods for handling the submission of items to the queue:
+3.  Кроме того, в файле **HomeController.cs** в Visual Studio замените существующее определение пространства имен следующим кодом. Этот код содержит методы для обработки отправки элементов в очередь.
 
         namespace FrontendWebRole.Controllers
         {
@@ -317,17 +247,17 @@ displays.
 
                 // POST: /Home/Submit
                 // Controller method for handling submissions from the submission
-                // form 
+                // form
                 [HttpPost]
-				// Attribute to help prevent cross-site scripting attacks and 
+				// Attribute to help prevent cross-site scripting attacks and
 				// cross-site request forgery  
-    			[ValidateAntiForgeryToken] 
+    			[ValidateAntiForgeryToken]
                 public ActionResult Submit(OnlineOrder order)
                 {
                     if (ModelState.IsValid)
                     {
                         // Will put code for submitting to queue here.
-                    
+
                         return RedirectToAction("Submit");
                     }
                     else
@@ -338,71 +268,47 @@ displays.
             }
         }
 
-4.  From the **Build** menu, click **Build Solution**.
+4.  В меню **Сборка** выберите **Построить решение**.
 
-5.  Now, you will create the view for the **Submit()** method you
-    created above. Right-click within the Submit() method, and choose
-    **Add View**
+5.  Далее необходимо создать представление для ранее созданного метода **Submit()**. Щелкните метод Submit() правой кнопкой мыши и выберите **Добавить представление**.
 
     ![][14]
 
-6.  A dialog appears for creating the view. Select the
-    **OnlineOrder** class in the **Model class** dropdown, and choose
-    **Create** in the **Template** dropdown.
+6.  Откроется диалоговое окно создания представления. Выберите класс **OnlineOrder** в раскрывающемся списке **Класс модели** и элемент **Создать** в раскрывающемся списке **Шаблон**.
 
     ![][15]
 
-7.  Click **Add**.
+7.  Щелкните **Добавить**.
 
-8.  Now, you will change the displayed name of your application. In the
-    **Solution Explorer**, double-click the
-    **Views\Shared\\_Layout.cshtml** file to open it in the Visual
-    Studio editor.
+8.  Укажите новое отображаемое имя приложения. В **обозревателе решений** дважды щелкните файл **Views\Shared\\_Layout.cshtml**, чтобы открыть его в редакторе Visual Studio.
 
-9.  Replace all occurrences of **My ASP.NET MVC Application** with
-    **LITWARE'S Awesome Products**.
+9.  Замените все вхождения элемента **My ASP.NET Application** текстом **Продукты LITWARE**.
 
-10.	Replace **"your logo here"** with **LITWARE'S Awesome Products**:
-
-	![][16]
-
-11. Remove the **Home**, **About**, and **Contact** links. Delete the highlighted code:
+11. Удалите ссылки **Главная**, **О программе** и **Связь**. Удалите выделенный код.
 
 	![][28]
-  
 
-12. Finally, modify the submission page to include some information about
-    the queue. In **Solution Explorer**, double-click the
-    **Views\Home\Submit.cshtml** file to open it in the Visual Studio
-    editor. Add the following line after **&lt;h2>Submit&lt;/h2>**. For now,
-    the **ViewBag.MessageCount** is empty. You will populate it later.
 
-        <p>Current Number of Orders in Queue Waiting to be Processed: @ViewBag.MessageCount</p>
-             
+12. Наконец, добавьте на страницу отправки необходимую информацию об очереди. В **обозревателе решений** дважды щелкните файл **Views\Home\Submit.cshtml**, чтобы открыть его в редакторе Visual Studio. Добавьте следующую строку после **&lt;h2>Submit&lt;/h2>**. Сейчас элемент **ViewBag.MessageCount** пуст. Вы заполните его позже.
 
-13. You now have implemented your UI. You can press **F5** to run your
-    application and confirm that it looks as expected.
+        <p>Текущее число ожидающих обработки заказов в очереди: @ViewBag.MessageCount</p>
+
+
+13. Пользовательский интерфейс реализован. Нажмите клавишу **F5**, чтобы запустить приложение и убедиться в его работоспособности.
 
     ![][17]
 
-### Write the code for submitting items to a Service Bus queue
+### Написание кода для отправки элементов в очередь Service Bus
 
-Now, you will add code for submitting items to a queue. You will first
-create a class that contains your Service Bus Queue connection
-information. Then, you will initialize your connection from
-**Global.aspx.cs**. Finally, you will update the submission code you
-created earlier in **HomeController.cs** to actually submit items to a
-Service Bus Queue.
+Далее вам необходимо добавить код, реализующий отправку элементов в очередь. Сначала требуется создать класс, содержащий информацию о подключении к очереди Service Bus. Далее следует инициализировать подключение из файла
+**Global.aspx.cs**. Наконец, необходимо обновить код, созданный ранее в файле **HomeController.cs**, чтобы реализовать фактическую отправку элементов в
+очередь Service Bus.
 
-1.  In Solution Explorer, right-click **FrontendWebRole** (right-click the project, not the role). Click **Add**, and then click **Class**.
+1.  В обозревателе решений щелкните правой кнопкой мыши **FrontendWebRole** (проект, а не роль). Нажмите кнопку **Добавить** и выберите **Класс**.
 
-2.  Name the class **QueueConnector.cs**. Click **Add** to create the class.
+2.  Присвойте классу имя **QueueConnector.cs**. Нажмите кнопку **Добавить**, чтобы создать класс.
 
-3.  You will now paste in code that encapsulates your connection
-    information and contains methods for initializing the connection to
-    a Service Bus Queue. In QueueConnector.cs, paste in the following code, and enter in
-    values for **Namespace**, **IssuerName**, and **IssuerKey**. You can
-    obtain these values either from the [Management Portal][Azure Management Portal], or from the Visual Studio Server Explorer under the **Service Bus** node.
+3.  Далее необходимо добавить код, который инкапсулирует сведения о подключении и инициализирует подключение к очереди Service Bus. В файле QueueConnector.cs добавьте следующий код и введите значения для **Пространства имен** (пространство имен вашей службы) и **yourKey** - ключ SAS, ранее полученный из [Портал управления Azure][].
 
         using System;
         using System.Collections.Generic;
@@ -421,8 +327,6 @@ Service Bus Queue.
 
                 // Obtain these values from the Management Portal
                 public const string Namespace = "your service bus namespace";
-                public const string IssuerName = "issuer name";
-                public const string IssuerKey = "issuer key";
 
                 // The name of your queue
                 public const string QueueName = "OrdersQueue";
@@ -433,18 +337,18 @@ Service Bus Queue.
                     // management operations
                     var uri = ServiceBusEnvironment.CreateServiceUri(
                         "sb", Namespace, String.Empty);
-                    var tP = TokenProvider.CreateSharedSecretTokenProvider(
-                        IssuerName, IssuerKey);
+                    var tP = TokenProvider.CreateSharedAccessSignatureTokenProvider(
+                        "RootManageSharedAccessKey", "yourKey");
                     return new NamespaceManager(uri, tP);
                 }
 
                 public static void Initialize()
                 {
                     // Using Http to be friendly with outbound firewalls
-                    ServiceBusEnvironment.SystemConnectivity.Mode = 
+                    ServiceBusEnvironment.SystemConnectivity.Mode =
                         ConnectivityMode.Http;
 
-                    // Create the namespace manager which gives you access to 
+                    // Create the namespace manager which gives you access to
                     // management operations
                     var namespaceManager = CreateNamespaceManager();
 
@@ -456,7 +360,7 @@ Service Bus Queue.
 
                     // Get a client to the queue
                     var messagingFactory = MessagingFactory.Create(
-                        namespaceManager.Address, 
+                        namespaceManager.Address,
                         namespaceManager.Settings.TokenProvider);
                     OrdersQueueClient = messagingFactory.CreateQueueClient(
                         "OrdersQueue");
@@ -464,23 +368,20 @@ Service Bus Queue.
             }
         }
 
-4.  Now, you will ensure your **Initialize** method gets called. In **Solution Explorer**, double-click **Global.asax\Global.asax.cs**.
+    **Примечание** Далее в этом учебнике вы узнаете, как сохранить имя вашего **Пространства имен** и значение вашего ключа SAS в файле конфигурации.
 
-5.  Add the following line to the bottom of the **Application_Start**
-    method:
+4.  Затем реализуйте вызов метода **Initialize**. В **обозревателе решений** дважды щелкните **Global.asax\Global.asax.cs**.
+
+5.  Добавьте в конец метода **Application_Start** следующую строку:
 
         FrontendWebRole.QueueConnector.Initialize();
 
-6.  Finally, you will update your web code you created earlier, to
-    submit items to the queue. In **Solution Explorer**,
-    double-click **Controllers\HomeController.cs** that you created
-    earlier.
+6.  Наконец, обновите ранее созданный код веб-уровня, чтобы отправить элементы в очередь. В **обозревателе решений** дважды щелкните файл **Controllers\HomeController.cs**, созданный ранее.
 
-7.  Update the **Submit()** method as follows to get the message count
-    for the queue:
+7.  Внесите следующие изменения в метод **Submit()**, чтобы реализовать счетчик сообщений очереди:
 
         public ActionResult Submit()
-        {            
+        {
             // Get a NamespaceManager which allows you to perform management and
             // diagnostic operations on your Service Bus Queues.
             var namespaceManager = QueueConnector.CreateNamespaceManager();
@@ -492,8 +393,7 @@ Service Bus Queue.
             return View();
         }
 
-8.  Update the **Submit(OnlineOrder order)** method as follows to submit
-    order information to the queue:
+8.  Внесите следующие изменения в метод **Submit(OnlineOrder order)**, чтобы отправить информацию о заказе в очередь:
 
         public ActionResult Submit(OnlineOrder order)
         {
@@ -501,7 +401,7 @@ Service Bus Queue.
             {
                 // Create a message from the order
                 var message = new BrokeredMessage(order);
-                
+
                 // Submit the order
                 QueueConnector.OrdersQueueClient.Send(message);
                 return RedirectToAction("Submit");
@@ -512,33 +412,36 @@ Service Bus Queue.
             }
         }
 
-9.  You can now run your application again. Each time you submit an
-    order, the message count increases.
+9.  Запустите свое приложение. При каждой отправке
+    заказа количество сообщений увеличивается.
 
     ![][18]
 
-<h2>Cloud configuration manager</h2>
+## Диспетчер конфигурации облака
 
-Azure supports a set of managed APIs that provides a consistent way to create new instances of Azure service clients (such as the Service Bus) across Microsoft cloud services. These APIs enable you to instantiate these clients (for example, **CloudBlobClient**, **QueueClient**, **TopicClient**) regardless of where the application is hosted -- on-premises, in a Microsoft cloud service, in websites, or in a persistent VM Role. You can also use these APIs to retrieve the configuration information necessary for instantiating these clients, and to change the configuration without having to redeploy the calling application. The APIs are located in the [Microsoft.WindowsAzure.Configuration.CloudConfigurationManager][] class. There are also APIs on the client side.
+Метод **GetSettings** в
+классе **Microsoft.WindowsAzure.Configuration.CloudConfigurationManager** позволяет считывать параметры конфигурации из хранилища конфигураций для вашей платформы. Например, если код выполняется в рабочей или веб-роли, метод **GetSettings** считывает файл ServiceConfiguration.cscfg и, если код выполняется в стандартном приложении для консоли, метод **GetSettings** считывает файл app.config.
 
-### Connection string
+Если сохранить строку подключения в файле конфигурации пространства имен Service Bus, можно использовать метод **GetSettings** для чтения строки подключения, которая используется для создания объекта **NamespaceManager**. Можно использовать экземпляр **NamespaceManager** для программной настройки пространства имен Service Bus. Можно использовать ту же строку подключения для создания клиентских объектов (например, объектов **QueueClient**, **TopicClient** и **EventHubClient**), которые служат для выполнения таких операций, как отправка и получение сообщений.
 
-To instantiate a client (for example, a Service Bus **QueueClient**), you can represent the configuration information as a connection string. On the client side, there is a **CreateFromConnectionString()** method that instantiates that client type by using that connection string. For example, given the following configuration section:
+### Строка подключения
+
+Чтобы создать экземпляр клиента (например, Service Bus **QueueClient**), можно представить сведения о конфигурации в виде строки подключения. На стороне клиента используется метод **CreateFromConnectionString()**, который создает экземпляр клиента такого типа с помощью заданной строки подключения. Рассмотрим следующий раздел конфигурации.
 
 	<ConfigurationSettings>
     ...
-    	<Setting name="Microsoft.ServiceBus.ConnectionString" value="Endpoint=sb://[yourServiceNamespace].servicebus.windows.net/;SharedSecretIssuer=[issuerName];SharedSecretValue=[yourDefaultKey]" />
+    	<Setting name="Microsoft.ServiceBus.ConnectionString" value="Endpoint=sb://[yourServiceNamespace].servicebus.windows.net/;SharedSecretIssuer=RootManageSharedAccessKey;SharedSecretValue=[yourKey]" />
 	</ConfigurationSettings>
 
-The following code retrieves the connection string, creates a queue, and initializes the connection to the queue:
+Следующий код получает строку подключения, создает очередь и инициализирует подключение к ней.
 
-	QueueClient Client; 
+	QueueClient Client;
 
 	string connectionString =
      CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
-	
+
     var namespaceManager =
-     NamespaceManager.CreateFromConnectionString(connectionString); 
+     NamespaceManager.CreateFromConnectionString(connectionString);
 
 	if (!namespaceManager.QueueExists(QueueName))
     {
@@ -548,62 +451,50 @@ The following code retrieves the connection string, creates a queue, and initial
 	// Initialize the connection to Service Bus Queue
 	Client = QueueClient.CreateFromConnectionString(connectionString, QueueName);
 
-The code in the following section uses these configuration management APIs.
+Код в следующем разделе использует класс **CloudConfigurationManager**.
 
-<h2>Create the worker role</h2>
+## Создание рабочей роли
 
-You will now create the worker role that processes the order
-submissions. This example uses the **Worker Role with Service Bus Queue** Visual Studio project template. First, you will use Server Explorer in Visual Studio to obtain the required credentials.
+Сейчас вы создадите рабочую роль, которая будет обрабатывать отправку заказов. В этом примере используется шаблон проекта Visual Studio **Рабочая роль с очередью Service Bus**. На первом этапе вы получаете учетные данные с использованием обозревателя сервера в Visual Studio.
 
-1. If you've already connected Visual Studio to your Azure account, as described in the section **Set up the namespace using the Visual Studio Server Explorer,** skip ahead to step 5. 
+1. Убедитесь, что Visual Studio подключено к вашей учетной записи в Azure так, как описано в разделе [Управление пространствами имен и обменом сообщениями с помощью обозревателя серверов Visual Studio](./cloud-services-dotnet-multi-tier-app-using-service-bus-queues/#manage-namespaces-and-messaging-entities-using-the-visual-studio-server-explorer).
 
-3. From the menu bar in Visual Studio, choose **View**, and then click **Server Explorer**. A **Service Bus** node appears under **Azure** within the Server Explorer hierarchy, as in the following figure.
+2.  В **обозревателе решений** Visual Studio щелкните правой кнопкой мыши папку **Роли** в проекте **MultiTierApp**.
 
-	![][21]
-
-2. In Server Explorer, expand **Azure**, then right-click **Service Bus**, then click **Add New Connection**.
-
-3. In the **Add Connection** dialog, type the name of the service namespace, the issuer name, and the issuer key. Then click **OK** to connect.
-
-	![][22]
-
-4.  In Visual Studio, in **Solution Explorer** right-click the
-    **Roles** folder under the **MultiTierApp** project.
-
-5.  Click **Add**, and then click **New Worker Role Project**. The **Add New Role Project** dialog appears.
+3.  Щелкните **Добавить** и выберите **Создать проект рабочей роли**. Откроется диалоговое окно **Добавить новый проект роли**.
 
 	![][26]
 
-6.  In the **Add New Role Project dialog**, click **Worker Role with Service Bus Queue**, as in the following figure:
+4.  В диалоговом окне **Добавить новый проект роли** щелкните элемент **Рабочая роль с очередью Service Bus** (см. следующий рисунок).
 
 	![][23]
 
-7.  In the **Name** box, name the project **OrderProcessingRole**. Then click **Add**.
+5.  В поле **Имя** введите имя проекта **OrderProcessingRole**. Нажмите кнопку **Добавить**.
 
-8.  In Server Explorer, right-click the name of your service namespace, then click **Properties**. In the Visual Studio **Properties** pane, the first entry contains a connection string that is populated with the service namespace endpoint containing the required authorization credentials. For example, see the following figure. Double-click **ConnectionString**, and then press **Ctrl+C** to copy this string to the clipboard.
+6.  В обозревателе сервера щелкните правой кнопкой мыши имя пространства имен службы, а затем выберите **Свойства**. В области **Свойства** Visual Studio первая запись определяет строку подключения, которая содержит конечную точку пространства имен службы с необходимыми для авторизации учетными данными. См. пример на следующем рисунке. Дважды щелкните **ConnectionString**, а затем нажмите клавиши **Ctrl+C**, чтобы скопировать строку в буфер обмена.
 
 	![][24]
 
-9.  In Solution Explorer, right-click the **OrderProcessingRole** you created in step 7 (make sure that you right-click **OrderProcessingRole** under **Roles**, and not the class). Then click **Properties**.
+7.  В обозревателе решений щелкните правой кнопкой мыши элемент **OrderProcessingRole**, созданный на шаге 5. (Обратите внимание, что необходимо щелкнуть правой кнопкой **OrderProcessingRole** в разделе **Роли**, а не класс). Выберите пункт **Свойства**.
 
-10.  In the **Settings** tab of the **Properties** dialog, click inside the **Value** box for **Microsoft.ServiceBus.ConnectionString**, and then paste the endpoint value you copied in step 8.
+8.  На вкладке **Настройки** диалогового окна **Свойства** щелкните в поле **Значение** элемент **Microsoft.ServiceBus.ConnectionString**, и вставьте значение конечной точки, скопированное на шаге 6.
 
 	![][25]
 
-11.  Create an **OnlineOrder** class to represent the orders as you process them from the queue. You can reuse a class you have already created. In Solution Explorer, right-click the **OrderProcessingRole** project (right-click the project, not the role). Click **Add**, then click **Existing Item**.
+9.  Создайте класс **OnlineOrder**, который будет представлять заказы из очереди по мере их обработки. При необходимости используйте ранее созданный класс. В обозревателе решений щелкните правой кнопкой мыши проект **OrderProcessingRole** (проект, а не роль). Выберите команду **Добавить**, а затем - **Существующий элемент**.
 
-12. Browse to the subfolder for **FrontendWebRole\Models**, and double-click **OnlineOrder.cs** to add it to this project.
+10. Перейдите к вложенной папке **FrontendWebRole\Models** и дважды щелкните файл **OnlineOrder.cs**, чтобы добавить его в проект.
 
-13. In WorkerRole.cs, replace the value of the **QueueName** variable in **WorkerRole.cs** from `"ProcessingQueue"` to `"OrdersQueue"` as in the following code:
+11. В файле WorkerRole.cs замените значение переменной **QueueName** в **WorkerRole.cs** с `"ProcessingQueue"` на `"OrdersQueue"`, как указано в следующем коде:
 
 		// The name of your queue
 		const string QueueName = "OrdersQueue";
 
-14. Add the following using statement at the top of the WorkerRole.cs file:
+12. Добавьте в начало файла WorkerRole.cs следующую инструкцию using:
 
 		using FrontendWebRole.Models;
 
-15. In the `Run()` function, inside the `OnMessage` call, add the following code inside the `try` clause:
+13. В функции `Run()`  в вызове  `OnMessage` добавьте следующий код в операторе  `try`:
 
 		Trace.WriteLine("Processing", receivedMessage.SequenceNumber.ToString());
 		// View the message as an OnlineOrder
@@ -611,55 +502,51 @@ submissions. This example uses the **Worker Role with Service Bus Queue** Visual
 		Trace.WriteLine(order.Customer + ": " + order.Product, "ProcessingMessage");
 		receivedMessage.Complete();
 
-16.  You have completed the application. You can test the full
-    application as you did earlier, by pressing F5. Note that the message count does not increment, because the worker role processes items from the queue and marks them as complete. You can see the trace output of your
-    worker role by viewing the Azure Compute Emulator UI. You
-    can do this by right-clicking the emulator icon in the notification
-    area of your taskbar and selecting **Show Compute Emulator UI**.
+14. Приложение готово. Чтобы проверить все приложение, щелкните правой кнопкой мыши проект MultiTierApp в обозревателе решений при выборе действия **Назначить запускаемым проектом**, а затем нажмите кнопку F5. Обратите внимание, что значение счетчика сообщений не увеличивается, поскольку рабочая роль обрабатывает элементы из очереди и помечает их выполненными. Результаты трассировки рабочей роли вы можете просмотреть в пользовательском интерфейсе эмулятора вычислений Azure. Для этого щелкните правой кнопкой мыши значок эмулятора в области уведомлений на панели задач и выберите **Показать пользовательский интерфейс эмулятора вычислений**.
 
     ![][19]
 
     ![][20]
 
-<h2><a name="nextsteps"></a>Next steps</h2>  
+## Дальнейшие действия  
 
-To learn more about Service Bus, see the following resources:  
-  
-* [Azure Service Bus][sbmsdn]  
-* [Service Bus How To's][sbwacom]  
-* [How to Use Service Bus Queues][sbwacomqhowto]  
+Дополнительную информацию о Service Bus см. на следующих ресурсах.  
 
-To learn more about multi-tier scenarios, or to learn how to deploy an application to a cloud service, see:  
+* [Azure Service Bus][sbmsdn]
+* [Практические руководства по работе со службой Service Bus][sbwacom]
+* [Использование очередей Service Bus][sbwacomqhowto]
 
-* [.NET Multi-Tier Application Using Storage Tables, Queues, and Blobs][mutitierstorage]  
+Дополнительную информацию о многоуровневых сценариях и развертывании приложений в облачной службе см. в следующей статье.  
 
-You might want to implement the front-end of a multi-tier application in an Azure Website instead of an Azure Cloud Service. To learn more about the difference between websites and cloud services, see [Azure Execution Models][executionmodels].
+* [Многоуровневое приложение .NET, использующее таблицы, очереди и большие двоичные объекты в службе хранилища][mutitierstorage]
 
-To implement the application you create in this tutorial as a standard web project instead of as a cloud service web role, follow the steps in this tutorial with the following differences:
+Возможно, вам понадобится реализовать интерфейсную часть многоуровневого приложения на веб-сайте Azure, а не в облачной службе Azure. Дополнительные сведения о различиях между веб-сайтами и облачными службами см. в разделе [Модели выполнения Azure][executionmodels].
 
-1. When you create the project, choose the **ASP.NET MVC 4 Web Application** project template in the **Web** category instead of the **Cloud Service** template in the **Cloud** category. Then follow the same directions for creating the MVC application, until you get to the **Cloud configuration manager** section.
+Если вы хотите реализовать проект, описываемый в этом учебнике, в виде стандартного веб-проекта, а не веб-роли облачной службы, повторите приведенные здесь шаги, но обратите внимание на следующие отличия.
 
-2. When you create the worker role, create it in a new, separate solution, similar to the original instructions for the web role. Now however, you're creating just the worker role in the cloud service project. Then follow the same directions for creating the worker role.
+1. При создании проекта выберите шаблон **Веб-приложение ASP.NET MVC** в категории **Веб** вместо шаблона **Облачная служба** из категории **Облако**. Выполните инструкции по созданию приложения MVC вплоть до раздела **Диспетчер конфигурации облачного приложения**.
 
-3. You can test the front-end and back-end separately, or you can run both simultaneously in separate Visual Studio instances.
+2. Создайте рабочую роль в новом отдельном решении, как изначально описывается в инструкциях к веб-роли. Далее в этом случае вы создаете только рабочую роль в проекте облачной службы. Выполните остальные инструкции по созданию рабочей роли.
 
-To learn how to deploy the front end to an Azure Website, see [Deploying an ASP.NET Web Application to an Azure Website](http://azure.microsoft.com/develop/net/tutorials/get-started/). To learn how to deploy the back end to an Azure Cloud Service, see [.NET Multi-Tier Application Using Storage Tables, Queues, and Blobs][mutitierstorage].
+3. Вы можете протестировать интерфейсную и серверную части по отдельности или запустить их одновременно в разных экземплярах Visual Studio.
+
+Дополнительные сведения о развертывании приложения на веб-сайте Azure см. в разделе [Развертывание веб-приложения ASP.NET на веб-сайте Azure](http://azure.microsoft.com/develop/net/tutorials/get-started/). Дополнительные сведения о развертывании серверной части в облачной службе Azure см. в разделе [Многоуровневое приложение .NET, использующее таблицы, очереди и большие двоичные объекты в службе хранилища][mutitierstorage].
 
 
   [0]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
   [1]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-100.png
-  [sbqueuecomparison]: http://msdn.microsoft.com/library/windowsazure/hh767287.aspx
+  [sbqueuecomparison]: http://msdn.microsoft.com/library/hh767287.aspx
   [2]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-101.png
-  [Get Tools and SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
+  [Получить инструменты и SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
   [3]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-3.png
-  
-  
-  
-  [Azure Management Portal]: http://manage.windowsazure.com
+
+
+
+  [Портал управления Azure]: http://manage.windowsazure.com
   [6]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-03.png
   [7]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-04.png
   [8]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-09.png
-  [9]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-10.jpg
+  [9]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-10.png
   [10]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-11.png
   [11]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-02.png
   [12]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-12.png
@@ -669,7 +556,7 @@ To learn how to deploy the front end to an Azure Website, see [Deploying an ASP.
   [16]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-35.png
   [17]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-36.png
   [18]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-37.png
-  
+
   [19]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-38.png
   [20]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-39.png
   [21]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/SBExplorer.png
@@ -685,10 +572,11 @@ To learn how to deploy the front end to an Azure Website, see [Deploying an ASP.
   [32]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-41.png
   [33]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-4-2-WebPI.png
   [34]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/VSProperties.png
-  [sbmsdn]: http://msdn.microsoft.com/library/windowsazure/ee732537.aspx  
-  [sbwacom]: /ru-ru/documentation/services/service-bus/  
-  [sbwacomqhowto]: /ru-ru/develop/net/how-to-guides/service-bus-queues/  
-  [mutitierstorage]: /ru-ru/develop/net/tutorials/multi-tier-web-site/1-overview/ 
+  [35]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/multi-web-45.png
+  [sbmsdn]: http://msdn.microsoft.com/library/ee732537.aspx  
+  [sbwacom]: /documentation/services/service-bus/  
+  [sbwacomqhowto]: /develop/net/how-to-guides/service-bus-queues/  
+  [mutitierstorage]: /develop/net/tutorials/multi-tier-web-site/1-overview/
   [executionmodels]: http://azure.microsoft.com/develop/net/fundamentals/compute/
 
-<!--HONumber=46--> 
+<!--HONumber=47-->

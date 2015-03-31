@@ -1,7 +1,7 @@
 ﻿<properties 
 	pageTitle="Приступая к работе с push-уведомлениями (устаревшая версия push-уведомлений) | Центр мобильных разработок" 
 	description="Узнайте, как использовать мобильные службы Azure для отправки push-уведомлений в приложение JavaScript Магазина Windows (устаревшая отправка)." 
-	services="mobile-services, notification-hubs" 
+	services="mobile-services" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
 	manager="dwrede" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
 	ms.date="11/22/2014" 
@@ -19,23 +19,23 @@
 # Добавление push-уведомлений в приложение мобильных служб (устаревшая версия push-уведомлений)
 
 <div class="dev-center-tutorial-selector sublanding">
-    <a href="/ru-ru/documentation/articles/mobile-services-windows-store-dotnet-get-started-push" title="Windows Store C#">Магазин Windows - C#</a>
-    <a href="/ru-ru/documentation/articles/mobile-services-windows-store-javascript-get-started-push" title="Windows Store JavaScript" class="current">Магазин Windows - JavaScript</a>
-    <a href="/ru-ru/documentation/articles/mobile-services-windows-phone-get-started-push" title="Windows Phone">Windows Phone</a>
-    <a href="/ru-ru/documentation/articles/mobile-services-ios-get-started-push" title="iOS">iOS</a>
-    <a href="/ru-ru/documentation/articles/mobile-services-android-get-started-push" title="Android">Android</a>
-<!--    <a href="/ru-ru/documentation/articles/partner-xamarin-mobile-services-ios-get-started-push" title="Xamarin.iOS">Xamarin.iOS</a>
-    <a href="/ru-ru/documentation/articles/partner-xamarin-mobile-services-android-get-started-push" title="Xamarin.Android">Xamarin.Android</a> -->
-	<a href="/ru-ru/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push" title="Appcelerator">Appcelerator</a>
+    <a href="/documentation/articles/mobile-services-windows-store-dotnet-get-started-push" title="Windows Store C#">Магазин Windows - C#</a>
+    <a href="/documentation/articles/mobile-services-windows-store-javascript-get-started-push" title="Windows Store JavaScript" class="current">Магазин Windows - JavaScript</a>
+    <a href="/documentation/articles/mobile-services-windows-phone-get-started-push" title="Windows Phone">Windows Phone</a>
+    <a href="/documentation/articles/mobile-services-ios-get-started-push" title="iOS">iOS</a>
+    <a href="/documentation/articles/mobile-services-android-get-started-push" title="Android">Android</a>
+<!--    <a href="/documentation/articles/partner-xamarin-mobile-services-ios-get-started-push" title="Xamarin.iOS">Xamarin.iOS</a>
+    <a href="/documentation/articles/partner-xamarin-mobile-services-android-get-started-push" title="Xamarin.Android">Xamarin.Android</a> -->
+	<a href="/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push" title="Appcelerator">Appcelerator</a>
 </div>
 
-<div class="dev-center-tutorial-subselector"><a href="/ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/" title=".NET backend">Серверная часть .NET</a> |  <a href="/ru-ru/documentation/articles/mobile-services-windows-store-javascript-get-started-push/"  title="JavaScript backend" class="current">Серверная часть JavaScript</a></div>		
+<div class="dev-center-tutorial-subselector"><a href="/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/" title=".NET backend">Серверная часть .NET</a> |  <a href="/documentation/articles/mobile-services-windows-store-javascript-get-started-push/"  title="JavaScript backend" class="current">Серверная часть JavaScript</a></div>		
 
 В этом разделе показано, как в Visual Studio 2013 можно использовать мобильные службы Azure для отправки push-уведомлений в приложение Магазина Windows. В этом учебнике вам предстоит добавить push-уведомления в проект быстрого начала работы с помощью службы push-уведомлений Windows (WNS) непосредственно в Visual Studio. По завершении работы ваша мобильная служба будет отправлять push-уведомление каждый раз при вставке записи.
 
->[AZURE.NOTE]В этом разделе рассматривается поддержка <em>существующих</em> мобильных служб, которые <em>еще не были обновлены</em> для использования интеграции с концентраторами уведомлений. При создании <em>новой</em> мобильной службы эти интегрированные функции включаются автоматически. Информацию о работе с мобильными службами последних версий см. в разделе [Приступая к работе с push-уведомлениями](/ru-ru/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push/).
+>[AZURE.NOTE]В этом разделе рассматривается поддержка <em>существующих</em> мобильных служб, которые <em>еще не были обновлены</em> для использования интеграции с концентраторами уведомлений. При создании <em>новой</em> мобильной службы эта встроенная функция включается автоматически. Информацию о работе с мобильными службами последних версий см. в разделе [Приступая к работе с push-уведомлениями](/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push/).
 >
->Мобильные службы теперь интегрируются с центрами уведомлений Azure для поддержки дополнительных функций push-уведомлений, таких как шаблоны, использование нескольких платформ и лучшее масштабирование. <em>Если это возможно, обновите имеющиеся мобильные службы, чтобы использовать концентраторы уведомлений</em>. После обновления ознакомьтесь с этой версией раздела [Приступая к работе с push-уведомлениями](/ru-ru/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push/).
+>Мобильные службы теперь интегрируются с центрами уведомлений Azure для поддержки дополнительных функций push-уведомлений, таких как шаблоны, использование нескольких платформ и лучшее масштабирование. <em>Если это возможно, обновите имеющиеся мобильные службы, чтобы использовать концентраторы уведомлений</em>. После обновления ознакомьтесь с этой версией раздела [Приступая к работе с push-уведомлениями](/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push/).
 
 В этом учебнике рассматриваются следующие основные шаги для включения push-уведомлений:
 
@@ -86,8 +86,8 @@
 
 В этом учебнике демонстрируются основные функциональные возможности push-уведомлений, предоставляемые мобильными службами. Если вашему приложению требуются более сложные функции, такие как отправка уведомлений между различными платформами, маршрутизация на основе подписки или очень большие объемы данных, рассмотрите возможность использования центров уведомлений Azure для вашей мобильной службы. Дополнительные сведения см. в следующих разделах, посвященных концентраторам уведомлений:
 
-+ [Приступая к работе с концентраторами уведомлений]
-  <br/>Сведения об использовании концентраторов уведомлений в приложении Магазина Windows.
++ [Приступая к работе с центрами уведомлений]
+  <br/>Сведения об использовании центров уведомлений в приложении магазина Windows.
 
 + [Рассылка уведомлений подписчикам]
 	<br/>Сведения о том, как пользователи могут зарегистрироваться и получать push-уведомления для категорий, в которых они заинтересованы.
@@ -136,22 +136,21 @@
 [Отправка страницы приложения]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Мои приложения]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK для Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Приступая к работе с мобильными службами]: /ru-ru/develop/mobile/tutorials/get-started/
-[Приступая к работе с данными]: /ru-ru/develop/mobile/tutorials/get-started-with-data-js/
-[Приступая к работе с проверкой подлинности]: /ru-ru/develop/mobile/tutorials/get-started-with-users-js
-[Приступая к работе с push-уведомлениями]: /ru-ru/develop/mobile/tutorials/get-started-with-push-js
-[Push-уведомления для пользователей приложений]: /ru-ru/develop/mobile/tutorials/push-notifications-to-users-js
-[Авторизация пользователей с помощью скриптов]: /ru-ru/develop/mobile/tutorials/authorize-users-in-scripts-js
-[JavaScript и HTML]: /ru-ru/develop/mobile/tutorials/get-started-with-push-js
+[Приступая к работе с мобильными службами]: /develop/mobile/tutorials/get-started/
+[Приступая к работе с данными]: /develop/mobile/tutorials/get-started-with-data-js/
+[Приступая к работе с проверкой подлинности]: /develop/mobile/tutorials/get-started-with-users-js
+[Приступая к работе с push-уведомлениями]: /develop/mobile/tutorials/get-started-with-push-js
+[Push-уведомлений для пользователей приложений]: /develop/mobile/tutorials/push-notifications-to-users-js
+[Авторизация пользователей с помощью скриптов]: /develop/mobile/tutorials/authorize-users-in-scripts-js
+[JavaScript и HTML]: /develop/mobile/tutorials/get-started-with-push-js
 
 [Портал управления Azure]: https://manage.windowsazure.com/
-[Справочник принципов использования мобильных служб HTML/JavaScript]: /ru-ru/develop/mobile/how-to-guides/work-with-html-js-client/
+[Справочник принципов использования мобильных служб HTML/JavaScript]: /develop/mobile/how-to-guides/work-with-html-js-client/
 [Справочник серверных скриптов мобильных служб]: http://go.microsoft.com/fwlink/?LinkId=262293
-[Приступая к работе с концентраторами уведомлений]: /ru-ru/manage/services/notification-hubs/getting-started-windows-dotnet/
-[Что такое концентраторы уведомлений?]: /ru-ru/develop/net/how-to-guides/service-bus-notification-hubs/
-[Рассылка уведомлений подписчикам]: /ru-ru/manage/services/notification-hubs/breaking-news-dotnet/
-[Рассылка уведомлений пользователям]: /ru-ru/manage/services/notification-hubs/notify-users/
-[Рассылка пользователям кроссплатформенных уведомлений]: /ru-ru/manage/services/notification-hubs/notify-users-xplat-mobile-services/
+[Приступая к работе с центрами уведомлений]: /manage/services/notification-hubs/getting-started-windows-dotnet/
+[Что такое концентраторы уведомлений?]: /develop/net/how-to-guides/service-bus-notification-hubs/
+[Рассылка уведомлений подписчикам]: /manage/services/notification-hubs/breaking-news-dotnet/
+[Рассылка уведомлений пользователям]: /manage/services/notification-hubs/notify-users/
+[Рассылка пользователям кроссплатформенных уведомлений]: /manage/services/notification-hubs/notify-users-xplat-mobile-services/
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

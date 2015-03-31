@@ -20,11 +20,11 @@
 7. Откройте файл **AndroidManifest.xml** и добавьте этот тег к тегу  *application*.
 
         <meta-data android:name="com.google.android.gms.version"
-            android:value="@integer/версия_служб_google_play" />
+            android:value="@integer/google_play_services_version" />
  
 
 
 
 
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

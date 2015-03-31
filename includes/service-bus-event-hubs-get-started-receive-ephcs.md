@@ -1,4 +1,4 @@
-﻿## Прием сообщений через EventProcessorHost
+## Прием сообщений через EventProcessorHost
 
 **EventProcessorHost** представляет собой класс .NET, который упрощает прием событий от концентраторов событий путем управления постоянными контрольными точками и одновременно принимает сообщения от этих концентраторов событий в параллельном режиме. С помощью класса **EventProcessorHost** можно разделить события между несколькими получателями даже в том случае, если они размещены в разных узлах. В этом примере показано, как использовать **EventProcessorHost** для одного получателя. В [примере обработки масштабируемого события] показано, как использовать **EventProcessorHost** для нескольких получателей.
 
@@ -24,7 +24,7 @@
 
    	![][14]
 
-5. В обозревателе решений щелкните правой кнопкой мыши проект и выберитеы **Управление пакетами NuGet**. 
+5. В обозревателе решений щелкните правой кнопкой мыши проект и выберите пункт **Управление пакетами NuGet**. 
 
 	Откроется диалоговое окно **Управление пакетами NuGet**.
 
@@ -109,8 +109,8 @@
 
 <!-- Links -->
 [Общие сведения о концентраторах событий]: http://msdn.microsoft.com/library/azure/dn821413.aspx
-[Пример обработки масштабируемых событий]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
-[Учетная запись хранения Azure]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/
+[примере обработки масштабируемого события]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
+[учетную запись хранения Azure]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx 
 
 <!-- Images -->
@@ -121,4 +121,4 @@
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
 [Руководство разработчика по концентраторам событий]: http://msdn.microsoft.com/library/azure/dn789972.aspx
-<!--HONumber=42-->
+<!--HONumber=47-->

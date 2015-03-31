@@ -1,7 +1,7 @@
 ﻿<properties 
 	pageTitle="Как включить push-уведомления Apple" 
 	description="Следуйте инструкциям этого учебника, чтобы создать новую службу с помощью мобильных служб Azure." 
-	services="mobile-services, notification-hubs" 
+	services="mobile-services" 
 	documentationCenter="ios" 
 	authors="ggailey777" 
 	manager="dwrede" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="11/21/2014" 
@@ -31,11 +31,10 @@
 
 
 <!-- URLs. -->
-[Приступая к работе с push-уведомлениями]: /ru-ru/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/
+[Приступая к работе с push-уведомлениями]: /documentation/articles/mobile-services-javascript-backend-ios-get-started-push/
 [Пакет SDK для мобильных служб]: https://go.microsoft.com/fwLink/p/?LinkID=268375
 
 [Портал управления]: https://manage.windowsazure.com/
 
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

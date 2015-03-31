@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="Mobile-Android" 
-	ms.devlang="Java" 
+	ms.tgt_pltfrm="mobile-android" 
+	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="09/26/2014" 
+	ms.date="02/03/2015" 
 	ms.author="ricksal"/>
 
 # Добавление push-уведомлений в приложение мобильных служб
@@ -22,24 +22,20 @@
 
 В этом разделе показано, как использовать мобильные службы Azure для отправки push-уведомлений в приложение Android. В этом учебнике вам предстоит добавить push-уведомления в проект быстрого запуска с помощью службы Google Cloud Messaging (GCM). По завершении работы ваша мобильная служба будет отправлять push-уведомление каждый раз при вставке записи. 
 
-В этом учебнике рассматриваются следующие действия.
 
-1. [Включение Google Cloud Messaging](#register)
-2. [Настройка мобильных служб для отправки push-запросов](#configure)
-5. [Обновление сервера для отправки push-уведомлений](#update-server)
-7. [Добавление push-уведомлений в приложение](#update-app)
-8. [Включение push-уведомлений для локального тестирования](#local-testing)
-9. [Тестирование приложения с помощью опубликованной мобильной службы]
 
 
 Этот учебник создан на основе краткого руководства по мобильным службам. Перед работой с этим учебником необходимо сначала пройти учебник [Приступая к работе с мобильными службами] или [Приступая к работе с данными], чтобы подключить свой проект к мобильной службе. Таким образом, для работы с этим учебником требуется Visual Studio 2013. 
 
->[AZURE.NOTE]Для работы с этим учебником требуется учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fru-ru%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F" target="_blank">Бесплатная пробная версия Azure</a>. 
+>[AZURE.NOTE] Для работы с этим учебником требуется учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fru-ru%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F" target="_blank">Бесплатное пробное использование Azure</a>. 
 
+<!-- -->
 
+>[AZURE.NOTE] Для просмотра версии этого учебника для Eclipse перейдите к пункту: [Приступая к работе с push-уведомлениями (Eclipse)].
+ 
 ##<a id="register"></a>Включение Google Cloud Messaging
 
-[AZURE.INCLUDE [Включение GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
+[AZURE.INCLUDE [Enable GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
 
 ##<a id="configure"></a>Настройка мобильных служб для отправки push-запросов
@@ -52,7 +48,7 @@
 
    	![](./media/mobile-services-android-get-started-push/mobile-push-tab-android.png)
 
-> [AZURE.IMPORTANT] При задании учетных данных GCM для улучшенных push-уведомлений на вкладке Push-уведомления портала эти сведения передаются в концентраторы уведомлений в целях настройки концентратора уведомлений с вашим приложением.
+> [AZURE.IMPORTANT] При задании учетных данных WNS для улучшенных push-уведомлений на вкладке "Push-уведомления" портала эти сведения передаются в концентраторы уведомлений в целях настройки концентратора уведомлений с вашим приложением.
 
 
 Ваша мобильная служба теперь настроена для работы с GCM и концентраторами уведомлений.
@@ -68,13 +64,13 @@
 
 ##<a id="update-server"></a>Обновление сервера для отправки push-уведомлений
 
-1. В обозревателе решений Visual Studio разверните папку **Контроллеры** в проекте мобильной службы. Откройте файл TodoItemController.cs. Добавьте следующие операторы  `using` в начало файла:
+1. В обозревателе решений Visual Studio разверните папку **Контроллеры** в проекте мобильной службы. Откройте файл TodoItemController.cs. Добавьте следующие операторы `using` в начало файла:
 
 
 		using System;
 		using System.Collections.Generic;
 
-2. Обновите определение метода  `PostTodoItem` с помощью следующего кода:  
+2. Обновите определение метода`PostTodoItem` с помощью следующего кода:  
 
         public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
         {
@@ -119,7 +115,7 @@
 
 ###Добавление служб Google Play в проект
 
-[AZURE.INCLUDE [Добавление служб Play](../includes/mobile-services-add-Google-play-services.md)]
+[AZURE.INCLUDE [Add Play Services](../includes/mobile-services-add-Google-play-services.md)]
 
 ###Добавление кода
 
@@ -149,7 +145,7 @@
 
 ###Выполнение теста
 
-1. В меню **Выполнить** в Eclipse щелкните **Выполнить** для запуска приложения.
+1. В меню **Запуск** в Eclipse щелкните **Запуск**, чтобы запустить приложение.
 
 2. В приложении введите содержательный текст (например, _Новая задача для мобильных служб_) и нажмите кнопку **Добавить**.
 
@@ -178,7 +174,7 @@
 Дополнительные сведения о мобильных службах и концентраторах уведомлений см. в следующих разделах.
 
 * [Приступая к работе с данными]
-  <br/>Дополнительная информация о хранении данных и запросах к ним при помощи мобильных служб.
+  <br/>Дополнительные сведения о хранении данных и запросах к ним с помощью мобильных служб.
 
 * [Приступая к работе с проверкой подлинности]
   <br/>Дополнительная информация об аутентификации учетных данных пользователей приложения с другими типами учетных записей с использованием мобильных служб.
@@ -198,7 +194,7 @@
 [Локальная загрузка мобильной службы]: #download-the-service-locally
 [Тестирование мобильной службы]: #test-the-service
 [Загрузка проекта GetStartedWithData]: #download-app
-[Обновление приложения для доступа к данным с помощью мобильных служб]: #update-app
+[Обновление приложения для доступа к данным с помощью мобильной службы]: #update-app
 [Тестирование приложения Android с помощью службы, размещенной локально]: #test-locally-hosted
 [Публикация мобильной службы в Azure]: #publish-mobile-service
 [Тестирование приложения Android с помощью службы, размещенной в Azure]: #test-azure-hosted
@@ -222,8 +218,7 @@
 [13]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/new-local-todoitem.png
 [14]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/vs-show-local-table-data.png
 [15]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/local-item-checked.png
-[16]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/azure-ite
-	ms.png
+[16]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/azure-items.png
 [17]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/manage-sql-azure-database.png
 [18]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/sql-azure-query.png
 
@@ -236,28 +231,28 @@
 
 
 <!-- URLs. -->
-[Проверка и изменение данных с помощью скриптов]: /ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
-[Уточнение запросов c разбиением по страницам]: /ru-ru/develop/mobile/tutorials/add-paging-to-data-dotnet
-[Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-android-get-started
-[Приступая к работе с данными]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-android-get-started-data
-[Приступая к работе с проверкой подлинности]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-android-get-started-users
-[JavaScript и HTML]: /ru-ru/develop/mobile/tutorials/get-started-with-data-js
-[Серверная версия JavaScript]: /ru-ru/develop/mobile/tutorials/get-started-with-data-android
+[Приступая к работе с push-уведомлениями (Eclipse)]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-push-EC
+[Проверка и изменение данных с помощью скриптов]: /develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
+[Уточнение запросов c разбиением по страницам]: /develop/mobile/tutorials/add-paging-to-data-dotnet
+[Приступая к работе с мобильными службами]: /documentation/articles/mobile-services-dotnet-backend-android-get-started
+[Приступая к работе с данными]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-data
+[Приступая к работе с проверкой подлинности]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-users
+[JavaScript и HTML]: /develop/mobile/tutorials/get-started-with-data-js
+[Серверная версия JavaScript]: /develop/mobile/tutorials/get-started-with-data-android
 [Портал управления Azure]: https://manage.windowsazure.com/
 [Портал управления]: https://manage.windowsazure.com/
 [Пакет SDK для мобильных служб]: http://go.microsoft.com/fwlink/p/?LinkId=257545
 [Веб-сайт с примерами кода для разработчиков]:  http://go.microsoft.com/fwlink/p/?LinkId=328660
-[Справочник по принципам использования мобильных служб .NET]: /ru-ru/develop/mobile/how-to-guides/work-with-net-client-library
+[Справочник по принципам использования мобильных служб .NET]: /develop/mobile/how-to-guides/work-with-net-client-library
 [Класс MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
 
-[Использование клиентской библиотеки Android для мобильных служб]: /ru-ru/documentation/articles/mobile-services-android-how-to-use-client-library
+[Использование клиентской библиотеки Android для мобильных служб]: /documentation/articles/mobile-services-android-how-to-use-client-library
 
-[Рассылка push-уведомлений проверенным пользователям]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-android-push-notifications-app-users/
+[Рассылка push-уведомлений проверенным пользователям]: /documentation/articles/mobile-services-dotnet-backend-android-push-notifications-app-users/
 
-[Что такое концентраторы уведомлений?]: /ru-ru/documentation/articles/notification-hubs-overview/
-[Рассылка широковещательных уведомлений подписчикам]: /ru-ru/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
-[Рассылка уведомлений по шаблону подписчикам]: /ru-ru/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/
+[Что такое концентраторы уведомлений?]: /documentation/articles/notification-hubs-overview/
+[Рассылка широковещательных уведомлений подписчикам]: /documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
+[Рассылка уведомлений по шаблону подписчикам]: /documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/
 [Портал управления Azure]: https://manage.windowsazure.com/
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

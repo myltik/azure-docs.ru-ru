@@ -1,6 +1,6 @@
 ﻿<properties 
-	pageTitle="–екомендации по обеспечению безопасности (.NET) Ч Azure" 
-	description="ќбщие сведени¤ о безопасности в Azure." 
+	pageTitle="Рекомендации по обеспечению безопасности (.NET) - Azure" 
+	description="Общие сведения о безопасности в Azure." 
 	services="web-sites, virtual-machines, sql-database, storage, service-bus, active-directory" 
 	documentationCenter=".net" 
 	authors="Rboucher" 
@@ -21,8 +21,7 @@
 
 
 
-[WACOM.INCLUDE [SecurityRX](../includes/SecurityRX.md)]
 
-<!--HONumber=35.2-->
+[AZURE.INCLUDE [SecurityRX](../includes/SecurityRX.md)]
 
-<!--HONumber=46--> 
+<!--HONumber=47-->

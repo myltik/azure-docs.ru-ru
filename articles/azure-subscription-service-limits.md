@@ -1,6 +1,6 @@
 ﻿<properties 
 	pageTitle="Подписка Microsoft Azure, ограничения служб, квоты и ограничения" 
-	description="В данном разделе приводится перечень наиболее распространенных ограничений, относящихся к подписке Azure и различным службам, наряду с максимальными значениями соответствующих показателей." 
+	description="В данном разделе приводится перечень наиболее распространенных ограничений, относящихся к подписке Azure и различным службам, квот и ограничений. Сюда входит информация о том, как увеличить лимиты и максимальные значения."
 	services="" 
 	documentationCenter="" 
 	authors="rothja" 
@@ -13,29 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2015" 
+	ms.date="02/20/2015" 
 	ms.author="jroth"/>
 
 # Подписка Azure, границы, квоты и ограничения службы
 
-Следующий документ описывает некоторые из наиболее известных ограничений Microsoft Azure. Учтите, что этот документ на текущий момент охватывает не все службы Azure. Со временам эти ограничения будут расширены.
+## Обзор
 
-- [Лимиты подписки](#subscription)
-- [Лимиты облачной службы](#webworkerlimits)
-- [Лимиты виртуальных машин](#vmlimits)
-- [Лимиты веб-сайтов](#websiteslimits)
-- [Сетевые лимиты](#networkinglimits)
-- [Лимиты хранилища](#storagelimits)
-- [Лимиты предварительной версии пакета](#batchlimits)
-- [Лимиты предварительной версии DocumentDB](#documentdblimits)
-- [Лимиты базы данных SQL](#sqldblimits)
-- [Лимиты служб мультимедиа](#mediaserviceslimits)
-- [Лимиты служебной шины](#servicebuslimits)
-- [Лимиты Active Directory](#adlimits)
+Настоящий документ описывает некоторые из наиболее известных ограничений Microsoft Azure. Учтите, что на текущий момент он охватывает не все службы Azure. Со временам эти ограничения будут расширены.
 
-> [WACOM.NOTE] Если требуется сделать лимит выше значения **Лимит по умолчанию**, то можно [бесплатно отправить запрос в службу поддержки][azurelimitsblogpost]. Лимиты нельзя поднять выше **максимального** значения, приведенного в таблицах ниже. Если столбца **Максимальный лимит** нет, то для указанного ресурса лимиты не регулируются.
+> [AZURE.NOTE] Если требуется сделать лимит выше значения **Лимит по умолчанию**, то можно [бесплатно отправить запрос в службу поддержки][azurelimitsblogpost]. Лимиты нельзя поднять выше **максимального** значения, приведенного в таблицах ниже. Если столбца **Максимальный лимит** нет, то для указанного ресурса лимиты не регулируются.
 
-##<a name="subscription"></a>Ограничения подписки
+## Ограничения подписки
 
 <table cellspacing="0" border="1">
 <tr>
@@ -44,32 +33,32 @@
    <th align="left" valign="middle">Максимальное ограничение</th>
 </tr>
 <tr>
-   <td valign="middle"><p>Ядер на <a href="http://msdn.microsoft.com/library/azure/hh531793.aspx">подписку</a><sup>1</sup></p></td>
+   <td valign="middle"><p>Ядра на <a href="http://msdn.microsoft.com/library/azure/hh531793.aspx">подписку</a><sup>1</sup></p></td>
    <td valign="middle"><p>20</p></td>
    <td valign="middle"><p>10 000</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/azure/gg456328.aspx">Соадминистраторов</a> на подписку</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/azure/gg456328.aspx">Дополнительные администраторы</a> на подписку</p></td>
    <td valign="middle"><p>200</p></td>
    <td valign="middle"><p>200</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/storage-whatis-account/">учетные записи хранения;</a> на подписку</p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/storage-create-storage-account/">Учетные записи хранилища</a> на подписку</p></td>
    <td valign="middle"><p>100</p></td>
    <td valign="middle"><p>100</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/cloud-services-what-is/">Облачных служб</a> на подписку</p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/cloud-services-what-is/">Облачные службы</a> на подписку</p></td>
    <td valign="middle"><p>20</p></td>
    <td valign="middle"><p>200</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/azure/jj156007.aspx">Виртуальных сетей</a> на подписку<sup>2</sup></p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/azure/jj156007.aspx">Виртуальные сети</a> на подписку<sup>2</sup></p></td>
    <td valign="middle"><p>10</p></td>
    <td valign="middle"><p>100</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/jj157100.aspx">Локальных сетей</a> на подписку</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/jj157100.aspx">Локальные сети</a> на подписку</p></td>
    <td valign="middle"><p>10</p></td>
    <td valign="middle"><p>100</p></td>
 </tr>
@@ -99,18 +88,18 @@
    <td valign="middle"><p>400</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/azure/jj156085.aspx">Территориальных групп</a> на подписку</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/azure/jj156085.aspx">Территориальные группы</a> на подписку</p></td>
    <td valign="middle"><p>256</p></td>
    <td valign="middle"><p>256</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups/">Групп ресурсов</a> на подписку</p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups/">Группы ресурсов</a> на подписку</p></td>
    <td valign="middle"><p>300</p></td>
    <td valign="middle"><p>300</p></td>
 </tr>
 
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/services/batch/">Учетных записей предварительной версии пакета</a> в регионе на подписку</p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/services/batch/">Предварительная версия пакета</a> учетных записей в регионе на подписку</p></td>
    <td valign="middle"><p>1</p></td>
    <td valign="middle"><p>50</p></td>   
 </tr>
@@ -120,7 +109,7 @@
 
 <sup>2</sup>Каждая виртуальная сеть поддерживает один шлюз виртуальной сети.
 
-##<a name="webworkerlimits"></a>Ограничения облачной службы
+## Ограничения облачной службы
 
 <table cellspacing="0" border="1">
 <tr>
@@ -129,22 +118,22 @@
    <th align="left" valign="middle">Максимальное ограничение</th>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/cloud-services-what-is/">Рабочих и веб-ролей в развертывании<sup>1</sup></a></p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/cloud-services-what-is/">Рабочие и веб-роли в развертывании<sup>1</sup></a></p></td>
    <td valign="middle"><p>25</p></td>
    <td valign="middle"><p>25</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/gg557552.aspx#InstanceInputEndpoint">Входных конечных точек экземпляра</a> на развертывание</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/gg557552.aspx#InstanceInputEndpoint">Входные конечные точки экземпляра</a> на развертывание</p></td>
    <td valign="middle"><p>25</p></td>
    <td valign="middle"><p>25</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/gg557552.aspx#InputEndpoint">Конечных точек ввода</a> на развертывание</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/gg557552.aspx#InputEndpoint">Входные конечные точки</a> на развертывание</p></td>
    <td valign="middle"><p>25</p></td>
    <td valign="middle"><p>25</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/gg557552.aspx#InternalEndpoint">Внутренних конечных точек</a> на развертывание</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/gg557552.aspx#InternalEndpoint">Внутренние конечные точки</a> на развертывание</p></td>
    <td valign="middle"><p>25</p></td>
    <td valign="middle"><p>25</p></td>
 </tr>
@@ -152,7 +141,7 @@
 
 <sup>1</sup>Каждая облачная служба с рабочими и веб-ролями может иметь два развертывания: одно для производственной среды и одно для промежуточной. Необходимо также иметь в виду, что данное ограничение относится к количеству отдельных ролей (настройка), а не к количеству экземпляров для роли (масштабирование). 
 
-##<a name="vmlimits"></a>Ограничения виртуальной машины
+## Ограничения виртуальной машины
 
 <table cellspacing="0" border="1">
 <tr>
@@ -176,11 +165,11 @@
 
 <sup>2</sup>Конечные точки ввода используются для подключения к виртуальным машинам за пределами облачной службы, где размещается приложение. Виртуальным машинам в одной облачной службе автоматически разрешено подсоединение по всем портам UDP и TCP для внутренних коммуникаций.
 
-##<a name="websiteslimits"></a>Ограничения веб-сайтов
+## Ограничения веб-сайтов
 
-[WACOM.INCLUDE [azure-websites-limits](../includes/azure-websites-limits.md)]
+[AZURE.INCLUDE [azure-websites-limits](../includes/azure-websites-limits.md)]
 
-##<a name="networkinglimits"></a>Ограничения сети
+## Ограничения сети
 
 <table cellspacing="0" border="1">
 <tr>
@@ -189,7 +178,7 @@
    <th align="left" valign="middle">Максимальное ограничение</th>
 </tr>
 <tr>
-   <td valign="middle"><p>Всего машин<sup>1</sup> на <a href="http://msdn.microsoft.com/library/azure/jj156007.aspx">Виртуальная сеть</a><sup>2</sup></p></td>
+   <td valign="middle"><p>Всего машин<sup>1</sup> на <a href="http://msdn.microsoft.com/library/azure/jj156007.aspx">Виртуальную сеть</a><sup>2</sup></p></td>
    <td valign="middle"><p>2048</p></td>
    <td valign="middle"><p>2048</p></td>
 </tr>
@@ -216,7 +205,7 @@
 
 <sup>3</sup>Список управления доступом поддерживается для конечных точек ввода виртуальных машин. Для ролей рабочего или веб-процесса поддерживаются для входных конечных точек и входных конечных точек экземпляра.
 
-##<a name="storagelimits"></a>Ограничения хранилища
+## Ограничения хранилища
 
 <table cellspacing="0" border="1">
 <tr>
@@ -291,57 +280,55 @@
 
 <sup>3</sup>GRS - [географически избыточное хранилище][georedundantstorage]. LRS - [локально избыточное хранилище][locallyredundantstorage]. Следует иметь в виду, что GRS обладает также и локальной избыточностью.
 
-##<a name="batchlimits"></a>Ограничения предварительной версии пакета
+## Ограничения предварительной версии пакета
 
-[WACOM.INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
+[AZURE.INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
 
-##<a name="documentdblimits"></a>Ограничения DocumentDB (предварительная версия)
+## Ограничения DocumentDB (предварительная версия)
 
-[WACOM.INCLUDE [azure-documentdb-limits](../includes/azure-documentdb-limits.md)]
+[AZURE.INCLUDE [azure-documentdb-limits](../includes/azure-documentdb-limits.md)]
 
-##<a name="sqldblimits"></a>Ограничения базы данных SQL
+## Ограничения базы данных SQL
 
 Ограничения на базу данных SQL см. в следующих разделах:
 
  - [Уровни служб баз данных SQL Azure (выпуски)][sqltiers]
  - [Уровни служб баз данных SQL Azure и уровни производительности][sqltiersperflevels]
  - [Квоты пропускной способности базы данных (DTU)][sqlDTU]
- - [Лимиты ресурсов базы данных SQL][sqldblimits]
+ - [Ограничения ресурсов базы данных SQL][sqldblimits]
 
-##<a name="mediaserviceslimits"></a>Ограничения служб мультимедиа
+## Ограничения служб мультимедиа
 
-[WACOM.INCLUDE [azure-mediaservices-limits](../includes/azure-mediaservices-limits.md)]
+[AZURE.INCLUDE [azure-mediaservices-limits](../includes/azure-mediaservices-limits.md)]
 
-##<a name="servicebuslimits"></a>Ограничения служебной шины
+## Ограничения служебной шины
 
-[WACOM.INCLUDE [azure-servicebus-limits](../includes/azure-servicebus-limits.md)]
+[AZURE.INCLUDE [azure-servicebus-limits](../includes/azure-servicebus-limits.md)]
 
-##<a name="adlimits"></a>Лимиты Active Directory
+## Лимиты Active Directory
 
 По Azure Active Directory (AD) см. следующий раздел:
 
  - [Лимиты и ограничения службы Azure Active Directory][adlimitsandrestrictions]
 
-##<a name="seealso"></a>См. также
+## Дополнительные материалы
 
 [Основные сведения о лимитах Azure и их увеличении][azurelimitsblogpost]
 
-[Размеры виртуальных машин и облачных служб в Azure][vmsizes]
+[Размеры виртуальных машин и облачных служб для Azure][vmsizes]
 
-  [customersupportfaq]: http://azure.microsoft.com/support/faq/
-  [azurelimitsblogpost]: http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/
-  [gateway]: http://msdn.microsoft.com/library/azure/jj156210.aspx 
-  [storagelimits]: http://msdn.microsoft.com/library/azure/dn249410.aspx
-  [georedundantstorage]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/introducing-geo-replication-for-windows-azure-storage.aspx
-  [sqldblimits]: http://msdn.microsoft.com/library/azure/dn338081.aspx
-  [sqltiers]: http://msdn.microsoft.com/library/azure/dn741340.aspx
-  [sqltiersperflevels]: http://msdn.microsoft.com/library/azure/dn741336.aspx
-  [sqlDTU]: http://msdn.microsoft.com/library/azure/ee336245.aspx#DTUs
-  [vmsizes]: http://msdn.microsoft.com/library/azure/dn197896.aspx
-  [georedundantstorage]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/introducing-geo-replication-for-windows-azure-storage.aspx
+[customersupportfaq]: http://azure.microsoft.com/support/faq/
+[azurelimitsblogpost]: http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/
+[gateway]: http://msdn.microsoft.com/library/azure/jj156210.aspx 
+[storagelimits]: http://msdn.microsoft.com/library/azure/dn249410.aspx
+[georedundantstorage]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/introducing-geo-replication-for-windows-azure-storage.aspx
+[sqldblimits]: http://msdn.microsoft.com/library/azure/dn338081.aspx
+[sqltiers]: http://msdn.microsoft.com/library/azure/dn741340.aspx
+[sqltiersperflevels]: http://msdn.microsoft.com/library/azure/dn741336.aspx
+[sqlDTU]: http://msdn.microsoft.com/library/azure/ee336245.aspx#DTUs
+[vmsizes]: http://msdn.microsoft.com/library/azure/dn197896.aspx
+[georedundantstorage]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/introducing-geo-replication-for-windows-azure-storage.aspx
   [locallyredundantstorage]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/08/introducing-locally-redundant-storage-for-windows-azure-storage.aspx
   [adlimitsandrestrictions]: http://msdn.microsoft.com/library/azure/dn764971.aspx
 
-<!--HONumber=35.2-->
-
-<!--HONumber=46--> 
+<!--HONumber=47-->

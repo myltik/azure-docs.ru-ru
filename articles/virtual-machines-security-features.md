@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Предложения в области безопасности для виртуальных машин Azure" 
 	description="Краткий обзор основных функций безопасности для виртуальных машин Azure, а также ссылки на подробную информацию" 
 	services="virtual-machines" 
@@ -41,4 +41,5 @@ Azure предлагает несколько вариантов решений 
 [Ресурсы](http://azure.microsoft.com/support/trust-center/resources/) в центре управления безопасностью Microsoft Azure.
 
 
-<!--HONumber=42-->
+
+<!--HONumber=47-->

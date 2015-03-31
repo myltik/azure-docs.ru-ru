@@ -1,24 +1,7 @@
-<properties 
-	pageTitle="Центр разработки Azure Node.js - Учебники - Создать учетную запись" 
-	description="Центр разработки на Node.js для Azure — учебники — создание учетной записи Azure" 
-	services="" 
-	documentationCenter="nodejs" 
-	title="Create an account and enable preview features" 
-	authors="larryfr" 
-	manager="wpickett" 
-	editor="mollybos" />
+﻿<properties pageTitle="Центр разработки на Node.js для Azure - учебники - создание учетной записи" description="Центр разработки на Node.js для Azure - учебники - создание учетной записи Azure" services="" documentationCenter="nodejs" authors="cephalin" manager="wpickett" editor="mollybos"/>
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="09/17/2014" 
-	ms.author="larryfr" />
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="02/20/2015" ms.author="cephalin"/>
 
-[WACOM.INCLUDE [create-an-azure-account](../includes/create-an-azure-account.md)]
+[AZURE.INCLUDE [create-an-azure-account](../includes/create-an-azure-account.md)]
 
-<!--HONumber=35.2-->
-
-<!--HONumber=46--> 
+<!--HONumber=47-->

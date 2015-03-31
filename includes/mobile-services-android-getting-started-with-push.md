@@ -1,4 +1,4 @@
-﻿1. В проекте приложения откройте файл  `AndroidManifest.xml`. В коде в следующих двух действиях замените _`**my_app_package**`_ именем пакета приложения для своего проекта, которое является значением атрибута  `package` тега  `manifest`. 
+﻿1. В проекте **приложения** откройте файл `AndroidManifest.xml`. В коде в следующих двух действиях замените _`**my_app_package**`_ именем пакета приложения для вашего проекта, которое является значением атрибута `package` тега `manifest`. 
 
 2. Добавьте следующие новые разрешения после существующего элемента  `uses-permission`:
 
@@ -20,34 +20,43 @@
         </receiver>
 
 
-4. Скачайте и распакуйте [пакет SDK для Android для мобильных служб], откройте папку **notificationhubs**, скопируйте файл **notifications-1.0.1.jar** в папку  *libs* своего проекта Eclipse. Затем обновите папку  *libs*.
+4. Добавьте эти строки под *dependencies* в файле **build.gradle** в каталоге приложения: 
 
-    > [AZURE.NOTE] Числа в конце этого имени файла могут меняться в последующих выпусках SDK.
+	    compile 'com.google.guava:guava:18.0'
+	    compile 'com.microsoft.azure:azure-mobile-services-android-sdk:2.0-beta'
+	    compile(group: 'com.microsoft.azure', name: 'azure-notifications-handler', version: '1.0.1', ext: 'jar')
+   		compile 'com.google.android.gms:play-services-base:6.5.87'
 
-5.  Откройте файл  *ToDoItemActivity.java* и добавьте следующий оператор import:
+
+5. Откройте файл  *ToDoItemActivity.java* и добавьте следующий оператор import:
 
 		import com.microsoft.windowsazure.notifications.NotificationsManager;
 
 
-6. Добавьте в класс следующую закрытую переменную, где `<PROJECT_NUMBER>` - номер проекта, назначенный Google вашему приложению в предыдущей процедуре:
+6. Добавьте в класс следующую частную переменную: замените _`<PROJECT_NUMBER>`_ номером проекта, назначенным со стороны Google вашему приложению в предыдущей процедуре:
 
 		public static final String SENDER_ID = "<PROJECT_NUMBER>";
 
-7. Измените определение  *MobileServiceClient* с **private** на **public static**, чтобы оно теперь выглядело следующим образом:
+7. Измените определение *MobileServiceClient* с **private** на **public static**, чтобы оно выглядело следующим образом:
 
 		public static MobileServiceClient mClient;
 
 
 
-9. Далее необходимо добавить новый класс для обработки уведомлений. В обозревателе пакетов щелкните правой кнопкой мыши пакет (под узлом  `src`), щелкните **Создать** и выберите **Класс**.
+8. Далее необходимо добавить новый класс для обработки уведомлений. В обозревателе проектов найдите узел `src`, откройте его и щелкните правой кнопкой мыши узел имени пакета, выберите **Создать** и **Класс Java**.
 
-10. В поле **Имя** введите  `MyHandler`, в поле **Суперкласс** укажите  `com.microsoft.windowsazure.notifications.NotificationsHandler`, затем нажмите кнопку **Готово**.
+9. В поле **Имя** введите `MyHandler` и нажмите кнопку **ОК**. 
 
-	![](./media/mobile-services-android-get-started-push/mobile-services-android-create-class.png)
 
-	При этом создается новый класс MyHandler.
+	![](./media/mobile-services-android-get-started-push/android-studio-create-class.png)
 
-11. Добавьте следующие операторы import для класса  `MyHandler`:
+
+10. В файле MyHandler замените объявление класса на 
+
+		public class MyHandler extends NotificationsHandler {
+
+
+11. Добавьте следующие операторы импорта для класса `MyHandler`:
 
 		import android.app.NotificationManager;
 		import android.app.PendingIntent;
@@ -58,7 +67,7 @@
 		import android.support.v4.app.NotificationCompat;
 
 	
-12. Далее добавьте в класс  `MyHandler` следующие члены:
+12. Далее добавьте в класс `MyHandler` следующие члены:
 
 		public static final int NOTIFICATION_ID = 1;
 		private NotificationManager mNotificationManager;
@@ -66,7 +75,7 @@
 		Context ctx;
 
 
-13. В классе  `MyHandler` добавьте следующий код для переопределения метода **onRegistered**, который регистрирует устройство в центре уведомлений мобильной службы.
+13. В классе `MyHandler` добавьте следующий код для переопределения метода **onRegistered**, который регистрирует устройство в центре уведомлений мобильной службы.
 
 		@Override
 		public void onRegistered(Context context,  final String gcmRegistrationId) {
@@ -89,7 +98,7 @@
 
 
 
-14. В классе  `MyHandler` добавьте следующий код для переопределения метода **onReceive**, который отображает уведомление при получении.
+14. В классе `MyHandler` добавьте следующий код для переопределения метода **onReceive**, который отображает уведомление при получении.
 
 		@Override
 		public void onReceive(Context context, Bundle bundle) {
@@ -119,7 +128,7 @@
 		}
 
 
-15. В файле TodoActivity.java обновите метод **onCreate** класса  *ToDoActivity*, чтобы зарегистрировать класс обработчика уведомлений. Добавлять этот код нужно обязательно после создания экземпляра  *MobileServiceClient*.
+15. В файле TodoActivity.java обновите метод **onCreate** класса *ToDoActivity*, чтобы зарегистрировать класс обработчика уведомлений. Добавлять этот код нужно обязательно после создания экземпляра *MobileServiceClient*.
 
 
 		NotificationsManager.handleNotifications(this, SENDER_ID, MyHandler.class);
@@ -127,5 +136,6 @@
     Ваше приложение теперь обновлено для поддержки push-уведомлений.
 
 <!-- URLs. -->
-[Android SDK для мобильных служб]: http://aka.ms/Iajk6q
-<!--HONumber=42-->
+[Пакет SDK для мобильных служб для Android]: http://aka.ms/Iajk6q
+
+<!--HONumber=47-->

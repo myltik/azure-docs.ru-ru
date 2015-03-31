@@ -1,6 +1,6 @@
-<properties 
-	pageTitle="Microsoft 인증을 위해 Windows 스토어 앱 패키지 등록" 
-	description="Azure 모바일 서비스 응용 프로그램에서 Microsoft 인증을 위해 Windows 스토어 앱을 등록하는 방법에 대해 알아봅니다." 
+﻿<properties 
+	pageTitle="Регистрация пакета приложения для магазина Windows для проверки подлинности Microsoft" 
+	description="Узнайте, как зарегистрировать приложение магазина Windows для прохождения аутентификации Майкрософт в приложении мобильных служб Azure" 
 	services="mobile-services" 
 	documentationCenter="" 
 	authors="ggailey777" 
@@ -10,33 +10,32 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="11/21/2014" 
 	ms.author="glenga"/>
 
-# Microsoft 인증을 위해 Windows 스토어 앱 패키지 등록
+# Регистрация пакета приложения для магазина Windows для проверки подлинности Microsoft
 
-Azure 모바일 서비스에서는 클라이언트 기반 인증과 서버 기반 인증 방법을 모두 지원합니다. 서버 기반 인증에서는 Microsoft 계정과 같은 ID 공급자를 사용합니다. 모바일 서비스를 통해 앱을 등록하지 않고 서버 기반 인증을 통해 Microsoft 계정을 사용할 경우 인증을 등록할 때마다 자격 증명을 제공하라는 메시지가 표시됩니다. 앱을 등록하면 Microsoft 계정 로그인 자격 증명이 캐시되어 인증에 사용될 수 있으므로 사용자에게 자격 증명을 다시 제공하라는 메시지가 표시되지 않습니다. 이 항목에서는 Azure 모바일 서비스를 사용하여 인증할 때의 향상된 Microsoft 계정 로그인 환경을 위해 Windows 스토어 앱 패키지를 등록하는 방법을 보여 줍니다. 
+Мобильные службы Azure поддерживают методы проверки подлинности как со стороны клиента, так и со стороны сервера. Проверка подлинности со стороны сервера использует поставщиков удостоверений, включая учетную запись Майкрософт. При использовании учетной записи Майкрософт для проверки подлинности со стороны сервера без регистрации приложения с помощью мобильных служб пользователям предлагается вводить учетные данные при каждом запросе проверки подлинности. Если приложение зарегистрировано, учетные данные для входа учетной записи Майкрософт кэшируются и могут использоваться для проверки подлинности без запроса пользователю ввести их снова. В этом разделе показано, как зарегистрировать пакет приложения Магазина Windows, чтобы было удобнее пользоваться учетной записью Майкрософт при применении для проверки подлинности мобильных служб Azure. 
 
->[AZURE.NOTE]Visual Studio 2013을 사용하면 Windows 스토어 앱 패키지를 모바일 서비스에 손쉽게 등록할 수 있습니다. 자세한 내용은 <a href="http://go.microsoft.com/fwlink/p/?LinkId=309101">퀵 스타트: 모바일 서비스에 대한 푸시 알림 추가</a>(영문)를 참조하세요.
+>[AZURE.NOTE]Visual Studio 2013 позволяет легко регистрировать пакет приложения для Магазина Windows в мобильных службах. Дополнительную информацию см. в разделе <a href="http://go.microsoft.com/fwlink/p/?LinkId=309101">Краткое руководство: добавление push-уведомлений для мобильной службы</a> в Центре разработки для Windows.
 
-클라이언트 관리 인증을 사용하면 Live Connect를 사용하여 Windows 장치에서 Single Sign-On 환경을 제공할 수 있습니다. Live Connect API를 사용하는 경우에는 이 항목의 단계를 완료할 필요가 없습니다. 자세한 내용은 [Live Connect Single Sign-On을 사용하여 Windows 스토어 앱 인증]을 참조하세요.   
+Аутентификацию со стороны клиента можно использовать, чтобы обеспечить работу единого входа на устройстве Windows с помощью Live Connect. При использовании интерфейсов API подключения Live Connect вам не нужно выполнять действия, описанные в этом разделе. Дополнительные сведения см. в разделе [Проверка подлинности приложения Магазина Windows с помощью единого входа Live Connect].   
 
 [AZURE.INCLUDE [mobile-services-register-windows-store-app](../includes/mobile-services-register-windows-store-app.md)]
 
-앱 패키지를 등록한 후 <a href="http://go.microsoft.com/fwlink/p/?LinkId=311594" target="_blank">LoginAsync</a> 메서드를 호출할 때 <em>useSingleSignOn</em>에 대해 <strong>true</strong> 값을 제공해야 합니다. 그러면 사용자가 Microsoft 계정을 사용할 때 향상된 로그인 환경이 제공됩니다.
+После регистрации пакета приложение обязательно укажите значение <strong>true</strong> для <em>useSingleSignOn</em> при вызове метода <a href="http://go.microsoft.com/fwlink/p/?LinkId=311594" target="_blank">LoginAsync</a> . Это предоставит пользователям ускоренную процедуру входа при использовании учетной записи Майкрософт.
 
 <!-- Anchors. -->
 <!-- Images. -->
 
 
 <!-- URLs. -->
-[푸시 알림 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-push-dotnet/
-[Live Connect Single Sign-On을 사용하여 Windows 스토어 앱 인증]: /ko-kr/develop/mobile/tutorials/single-sign-on-windows-8-dotnet
-[사용자 C# 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-users-dotnet/
-[사용자 JavaScript 시작]: /ko-kr/develop/mobile/tutorials/get-started-with-users-js/
+[Приступая к работе с push-уведомлениями]: /develop/mobile/tutorials/get-started-with-push-dotnet/
+[Проверка подлинности приложения Магазина Windows с помощью единого входа Live Connect]: /develop/mobile/tutorials/single-sign-on-windows-8-dotnet
+[Приступая к работе с пользователями для C#]: /develop/mobile/tutorials/get-started-with-users-dotnet/
+[Приступая к работе с пользователями для JavaScript]: /develop/mobile/tutorials/get-started-with-users-js/
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

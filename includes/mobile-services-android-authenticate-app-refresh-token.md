@@ -4,7 +4,7 @@
 
 В данном разделе вы определите ServiceFilter, который будет обнаруживать код состояния HTTP 401 в ответе и запускать обновление маркера и кэша маркера. Кроме того, этот ServiceFilter будет блокировать иные исходящие запросы при проверке подлинности, чтобы они использовали обновленный маркер.
 
-1. В Eclipse откройте файл ToDoActivity.java и добавьте следующие инструкции импорта:
+1. Откройте файл ToDoActivity.java и добавьте следующую инструкцию import:
  
         import java.util.concurrent.atomic.AtomicBoolean;
 		import java.util.concurrent.ExecutionException;
@@ -186,8 +186,6 @@
 	                                    public void run() {
 	                                        // Force a token refresh during authentication.
 	                                        authenticate(true);
-				// ToDoActivity.mMainActivity.authenticate(true);
-	
 	                                    }
 	                                });
 	                            }
@@ -240,4 +238,5 @@
        В этом коде  `RefreshTokenCacheFilter` используется в дополнение к  `ProgressFilter`. Также во время  `onCreate` нам нужно загрузить кэша маркера. Поэтому методу  `authenticate` передается значение  `false`.
 
 
-<!--HONumber=42-->
+
+<!--HONumber=47-->

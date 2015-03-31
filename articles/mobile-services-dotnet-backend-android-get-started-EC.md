@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Начало работы с мобильными службами Azure для приложений Android" 
 	description="Следуйте указаниям этого учебника, чтобы приступить к использованию мобильных служб Azure для разработки приложений Android." 
 	services="mobile-services" 
@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started-EC.md)]
 
-В этом учебнике показано, как добавить облачную серверную службу в приложение Android с помощью мобильных служб Azure. В этом учебнике будет создана новая мобильная служба и простое приложение _Список заданий_, которое хранит данные приложения в новой мобильной службе. В создаваемой мобильной службе с помощью Visual Studio используются поддерживаемые языки .NET для серверной бизнес-логики, а также для управления мобильной службой. Информацию о создании мобильной службы, которая позволит создавать в JavaScript серверную бизнес-логику, см. в подразделе [Серверная версия базы данных JavaScript](/ru-ru/documentation/articles/mobile-services-android-get-started-EC/) этого раздела.
+В этом учебнике показано, как добавить облачную серверную службу в приложение Android с помощью мобильных служб Azure. В этом учебнике будет создана новая мобильная служба и простое приложение _Список заданий_, которое хранит данные приложения в новой мобильной службе. В создаваемой мобильной службе с помощью Visual Studio используются поддерживаемые языки .NET для серверной бизнес-логики, а также для управления мобильной службой. Информацию о создании мобильной службы, которая позволит создавать в JavaScript серверную бизнес-логику, см. в подразделе [Серверная версия базы данных JavaScript](/documentation/articles/mobile-services-android-get-started-EC/) этого раздела.
 
 Снимок экрана завершенного приложения приведен ниже:
 
@@ -30,7 +30,7 @@
 
 Загруженный проект быстрого запуска содержит пакет SDK мобильных служб для платформы Android. Хотя для этого проекта требуется Android 4.2 или более поздней версии, для пакета SDK мобильных служб требуется только Android 2.2 или более поздней версии.
 
-> [AZURE.IMPORTANT] Для работы с этим учебником требуется учетная запись Azure. Если у вас нет учетной записи, можно зарегистрироваться для получения бесплатной пробной версии Azure и получить до 10 бесплатных мобильных служб, которые можно использовать и после окончания пробного периода. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28"%20target="_blank).
+> [AZURE.IMPORTANT] Для работы с этим учебником требуется учетная запись Azure. Если у вас нет учетной записи, можно зарегистрироваться для получения бесплатной пробной версии Azure и получить до 10 бесплатных мобильных служб, которые можно использовать и после окончания пробного периода. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28"%20target="_blank).
 
 ## <a name="create-new-service"> </a>Создание мобильной службы
 
@@ -44,7 +44,7 @@
 
 	![][1]  
 
-2. Если вы еще не сделали этого, скачайте и установите [Visual Studio Professional 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934) или более поздней версии.
+2. Если вы еще не сделали этого, загрузите и установите [Visual Studio Professional 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934) или более поздней версии.
 
 3. Щелкните **Загрузить** в разделе **Загрузка и публикация службы в облаке**.
 
@@ -64,7 +64,7 @@
 
 В этом разделе будет создано новое приложение на платформе Android, которое будет подключено к вашей мобильной службе.
 
-1. На [портале управления] щелкните **Мобильные службы**, а затем выберите только что созданную мобильную службу.
+1. В [портале управления] нажмите **Мобильные службы**, затем нажмите только что созданную мобильную службу.
 
 2. На вкладке быстрого запуска нажмите кнопку **Android** в разделе **Выбор платформы**, а затем разверните раздел **Создать новое приложение на Android**. 
  
@@ -82,7 +82,7 @@
 
 1. Перейдите в расположение, где сохранены сжатые файлы проекта и извлеките файлы на компьютере.
 
-2. В Eclipse нажмите кнопку **Файл**, затем щелкните **Импорт**, разверните **Android**, щелкните пункт **Существующий код Android в рабочую область**, а затем нажмите кнопку **Далее.** 
+2. В Eclipse щелкните **Файл**, затем щелкните **Импорт**, разверните элемент **Android**, щелкните **Существующий код Android в рабочую область**, а затем нажмите кнопку **Далее**. 
 
  	![][14]
 
@@ -106,13 +106,13 @@
 
 	> [AZURE.NOTE] Код, который обращается к вашей мобильной службе для запроса и вставки данных, можно просмотреть в файле ToDoActivity.java.
 
-<!--This shows how to run your new client app against the mobile service running in Azure. Before you can test the Android app with the mobile service running on a local computer, you must configure the Web server and firewall to allow access from your Android development computer. For more information, see [Configure the local web server to allow connections to a local mobile service](/ru-ru/documentation/articles/mobile-services-dotnet-backend-how-to-configure-iis-express).-->
+<!--This shows how to run your new client app against the mobile service running in Azure. Before you can test the Android app with the mobile service running on a local computer, you must configure the Web server and firewall to allow access from your Android development computer. For more information, see [Configure the local web server to allow connections to a local mobile service](/documentation/articles/mobile-services-dotnet-backend-how-to-configure-iis-express).-->
 
 ## <a name="next-steps"> </a>Дальнейшие действия
 Теперь, когда вы закончили быстрый запуск, узнайте, как выполнять дополнительные важные задачи в мобильных службах: 
 
 * [Приступая к работе с данными]
-  <br/>Дополнительная информация о хранении данных и запросах к ним при помощи мобильных служб.
+  <br/>Дополнительные сведения о хранении данных и запросах к ним с помощью мобильных служб.
 
 * [Приступая к работе с проверкой подлинности]
   <br/>Дополнительные сведения о проверке подлинности пользователей приложения с использованием поставщика удостоверений.
@@ -126,7 +126,7 @@
 <!-- Anchors. -->
 [Приступая к работе с мобильными службами]:#getting-started
 [Создание мобильной службы]:#create-new-service
-[Определение экземпляра мобильной службы]:#define-mobile-service-instance
+[Определение экземпляра мобильной службы:]:#define-mobile-service-instance
 [Дальнейшие действия]:#next-steps
 
 <!-- Images. -->
@@ -147,13 +147,13 @@
 [15]: ./media/mobile-services-dotnet-backend-android-get-started/mobile-services-import-android-project.png
 
 <!-- URLs. -->
-[Приступая к работе с данными]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-android-get-started-data
-[Приступая к работе с проверкой подлинности]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-android-get-started-users
-[Приступая к работе с push-уведомлениями]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-android-get-started-push
-[SDK Android]: https://go.microsoft.com/fwLink/p/?LinkID=280125
-[Пакет SDK для мобильных служб для Android]: https://go.microsoft.com/fwLink/p/?LinkID=266533
-[Устранение неполадок серверной части .NET мобильных служб]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-how-to-troubleshoot/
+[Приступая к работе с данными]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-data
+[Приступая к работе с проверкой подлинности]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-users
+[Приступая к работе с push-уведомлениями]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-push
+[Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
+[Android SDK для мобильных служб]: https://go.microsoft.com/fwLink/p/?LinkID=266533
+[Устранение неполадок серверной части .NET мобильных служб]: /documentation/articles/mobile-services-dotnet-backend-how-to-troubleshoot/
 
 [Портал управления]: https://manage.windowsazure.com/
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

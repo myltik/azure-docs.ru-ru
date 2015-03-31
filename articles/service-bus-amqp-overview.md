@@ -1,6 +1,6 @@
 ﻿<properties 
-	pageTitle="ќбзор AMQP в служебной шине Ч Azure" 
-	description="знайте об использовании протокола AMQP 1.0 в Azure." 
+	pageTitle="Обзор AMQP в служебной шине - Azure" 
+	description="Узнайте об использовании протокола AMQP 1.0 в Azure." 
 	services="service-bus" 
 	documentationCenter=".net" 
 	authors="sethmanheim" 
@@ -18,8 +18,7 @@
 
 
 
-[WACOM.INCLUDE [service-bus-amqp-overview](../includes/service-bus-amqp-overview.md)]
 
-<!--HONumber=35.2-->
+[AZURE.INCLUDE [service-bus-amqp-overview](../includes/service-bus-amqp-overview.md)]
 
-<!--HONumber=46--> 
+<!--HONumber=47-->

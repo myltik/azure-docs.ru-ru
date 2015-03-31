@@ -10,13 +10,15 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/25/2014" 
+	ms.date="02/19/2015" 
 	ms.author="wesmc"/>
 
 # Использование удаления с возможностью восстановления в мобильных службах
+
+##Обзор
 
 Для таблиц, созданных с помощью JavaScript или серверной части .NET, можно включить удаление с возможностью восстановления. При использовании удаления с возможностью восстановления в базу данных добавляется новый столбец с именем *\__deleted* и [типом SQL bit]. Если функция удаления с возможностью восстановления включена, операция удаления физически не удаляет строки из базы данных, а устанавливает для удаленного столбца значение TRUE.
 
@@ -34,16 +36,9 @@
 
 
 
-Описание раздела:
-
-1. [Включение обратимого удаления для серверной части .NET]
-2. [Включение обратимого удаления для серверной части JavaScript]
-3. [Использование обратимого удаления для серверной части .NET] 
-4. [Использование обратимого удаления для серверной части JavaScript] 
 
 
-
-## <a name="enable-for-dotnet"></a>Включение обратимого удаления для серверной части .NET
+##Включение удаления с возможностью восстановления для серверной части .NET
 
 Поддержка удаления с возможностью восстановления для серверной части .NET впервые реализована в версии 1.0.402 серверной части .NET для мобильных служб Microsoft Azure. Последние пакеты NuGet доступны здесь: [Серверная часть .NET для мобильных служб Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=513165).
 
@@ -63,7 +58,7 @@
         }
 
 
-## <a name="enable-for-javascript"></a>Включение обратимого удаления для серверной части JavaScript
+##Включение удаления с возможностью восстановления для серверной части JavaScript
 
 На странице создания новой таблицы для мобильной службы можно включить удаление с возможностью восстановления.
 
@@ -80,7 +75,7 @@
 
     ![][1]
 
-## <a name="using-with-dotnet"></a>Использование обратимого удаления для серверной части .NET
+## <a name="using-with-dotnet"></a>Использование удаления с возможностью восстановления для серверной части .NET
 
 
 Следующее запланированное задание очищает записи, удаленные с возможностью восстановления, которые созданы более месяца назад:
@@ -101,22 +96,20 @@
             Services.Log.Info("Purging old records");
             var monthAgo = DateTimeOffset.UtcNow.AddDays(-30);
      
-            var toDelete = context.TodoIte
-	ms.Where(x => x.Deleted == true && x.UpdatedAt <= monthAgo).ToArray();
-            context.TodoIte
-	ms.RemoveRange(toDelete);
+            var toDelete = context.TodoItems.Where(x => x.Deleted == true && x.UpdatedAt <= monthAgo).ToArray();
+            context.TodoItems.RemoveRange(toDelete);
             context.SaveChanges();
      
             return Task.FromResult(true);
         }
     }
 
-Дополнительные сведения о планировании заданий в мобильных службах серверной части .NET см. в разделе [Планирование повторяющихся заданий в мобильных службах серверной части JavaScript](/ ru-ru/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/) 
+Дополнительные сведения о планировании заданий в мобильных службах серверной части .NET см. в разделе [Планирование повторяющихся заданий в мобильных службах сервера JavaScript](/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/) 
 
 
 
 
-## <a name="using-with-javascript"></a>Использование обратимого удаления для серверной части JavaScript
+##Использование удаления с возможностью восстановления для серверной части JavaScript
 
 С помощью сценариев таблицы можно добавить логику функции удаления с возможностью восстановления с помощью мобильных служб сервера JavaScript.
 
@@ -125,7 +118,7 @@
     function update(item, user, request) {
         if (request.undelete) { /* any undelete specific code */; }
     }
-To include deleted records in query result in a script, set the "includeDeleted" parameter to true:
+Чтобы включить удаленные записи в результат запроса в сценарии, установите для параметра "includeDeleted" значение true:
     
     tables.getTable('softdelete_scenarios').read({
         includeDeleted: true,
@@ -152,16 +145,11 @@ To include deleted records in query result in a script, set the "includeDeleted"
         }});
     }
 
-Дополнительные сведения о запланированных заданиях в мобильных службах серверной части JavaScript см. в разделе [Планирование повторяющихся заданий в мобильных службах серверной части JavaScript](/ru-ru/documentation/articles/mobile-services-schedule-recurring-tasks/).
+Дополнительные сведения о запланированных заданиях в мобильных службах серверной части JavaScript см. в разделе [Планирование повторяющихся заданий в мобильных службах сервера JavaScript](/documentation/articles/mobile-services-schedule-recurring-tasks/)
 
 
 
 
-<!-- Anchors. -->
-[Включение обратимого удаления для серверной части .NET]: #enable-for-dotnet
-[Включение обратимого удаления для серверной части JavaScript]: #enable-for-javascript
-[Использование обратимого удаления для серверной части .NET] : #using-with-dotnet
-[Использование обратимого удаления для серверной части JavaScript] : #using-with-javascript
 
 <!-- Images -->
 [0]: ./media/mobile-services-using-soft-delete/enable-soft-delete-button.png
@@ -170,10 +158,9 @@ To include deleted records in query result in a script, set the "includeDeleted"
 
 <!-- URLs. -->
 [Тип SQL bit]: http://msdn.microsoft.com/library/ms177603.aspx
-[Автономная синхронизация данных для мобильных служб]: /ru-ru/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data/
+[Автономная синхронизация данных для мобильных служб]: /documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data/
 [Портал управления]: https://manage.windowsazure.com/
 
 
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

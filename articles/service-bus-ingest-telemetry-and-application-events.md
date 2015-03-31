@@ -1,31 +1,37 @@
-<properties pageTitle="Получение данных телеметрии и событий приложения в нужном масштабе" metaKeywords="Service Bus, telemetry, events" description="Узнайте, как при реализации собственных бизнес-решений получить данные телеметрии и событий приложения в нужном масштабе." services="service-bus" documentationCenter=".NET" title="Получение данных телеметрии и событий приложения в нужном масштабе" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+﻿<properties 
+	pageTitle="Получение данных телеметрии и событий приложения в нужном масштабе" 
+	description="Узнайте, как при реализации собственных бизнес-решений получить данные телеметрии и событий приложения в нужном масштабе." 
+	services="service-bus" 
+	documentationCenter=".net" 
+	authors="sethmanheim" 
+	manager="timlt" 
+	editor="mattshel"/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
+<tags 
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="02/10/2015" 
+	ms.author="sethm"/>
 
-# Масштабирование получения данных телеметрии и событий приложения
+# Получение данных телеметрии и событий приложения в нужном масштабе
+ 
+Современные приложения в ходе свой работы генерируют огромные объемы информации. Будь то действия пользователя в мобильном приложении или данные о переходах пользователей на сайте, эти данные телеметрии являются ценной информацией как для долгосрочных аналитики, так и мониторинга состояния в режиме реального времени или поддержки принятия решений. Шина обслуживания предоставляет средства, необходимые для отслеживания и обрабатывать информацию.
 
-Современные приложения в ходе свой работы генерируют огромные объемы информации. Будь то действия пользователя в мобильном приложении или данные о переходах пользователей на сайте, эти данные телеметрии являются ценной информацией как для долгосрочных аналитики, так и мониторинга состояния в режиме реального времени или поддержки принятия решений. Служебная шина предоставляет средства, необходимые для сбора и использования этой информации.
 
-## Изучить
-
--   [Концентраторы событий][Концентраторы событий]
--   [Сведения о ценах на концентраторы событий][Сведения о ценах на концентраторы событий]
--   [Шаблон проектирования Event Sourcing][Шаблон проектирования Event Sourcing]
-
-## Создание
-
--   [Справочник API REST концентраторов событий][Справочник API REST концентраторов событий]
--   [Примеры исходного кода концентраторов событий][Примеры исходного кода концентраторов событий]
-
+## Изучайте
+- [Концентраторы событий](http://msdn.microsoft.com/library/dn789973.aspx)
+- [Сведения о ценах концентраторов событий](http://azure.microsoft.com/pricing/details/event-hubs/)
+- [Шаблон источников событий](http://msdn.microsoft.com/library/dn589792.aspx)
+ 
+## Создавайте
+- [Справочник по API REST концентратора событий](http://go.microsoft.com/fwlink/?LinkId=403977)
+- [Примеры кода концентратора событий](http://go.microsoft.com/fwlink/?LinkID=402449)
+ 
 ## Связанные службы
+- [Storage](http://azure.microsoft.com/documentation/services/storage/)
+- [HDInsight](http://azure.microsoft.com/documentation/services/hdinsight/)
 
--   [Хранилище][Хранилище]
--   [HDInsight][HDInsight]
-
-  [Концентраторы событий]: http://msdn.microsoft.com/ru-ru/library/dn789973.aspx
-  [Сведения о ценах на концентраторы событий]: http://azure.microsoft.com/ru-ru/pricing/details/event-hubs/
-  [Шаблон проектирования Event Sourcing]: http://msdn.microsoft.com/ru-ru/library/dn589792.aspx
-  [Справочник API REST концентраторов событий]: http://go.microsoft.com/fwlink/?LinkId=403977
-  [Примеры исходного кода концентраторов событий]: http://go.microsoft.com/fwlink/?LinkID=402449
-  [Хранилище]: http://azure.microsoft.com/ru-ru/documentation/services/storage/
-  [HDInsight]: http://azure.microsoft.com/ru-ru/documentation/services/hdinsight/
+<!--HONumber=47-->

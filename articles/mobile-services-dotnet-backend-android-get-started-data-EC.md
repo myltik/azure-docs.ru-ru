@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Начало работы с данными (Android) | Центр мобильных разработок" 
 	description="Узнайте, как приступить к работе с мобильными службами, чтобы использовать данные в приложении Android." 
 	services="mobile-services" 
@@ -38,7 +38,7 @@
 5. [Тестирование приложения с помощью опубликованной мобильной службы]
 
 
-> [AZURE.IMPORTANT] Для работы с этим учебником требуется учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fru-ru%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F"%20target="_blank). 
+> [AZURE.IMPORTANT] Для работы с этим учебником требуется учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fru-ru%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F"%20target="_blank). 
 
 
 <h2><a name="create-service"></a>Создание мобильной службы</h2>
@@ -46,7 +46,7 @@
 [AZURE.INCLUDE [mobile-services-dotnet-backend-create-new-service](../includes/mobile-services-dotnet-backend-create-new-service.md)]
 
 
-<h2><a name="download-the-service"></a>Загрузите службу на локальный компьютер</h2>
+<h2><a name="download-the-service"></a>Загрузка службы на локальный компьютер</h2>
 
 [AZURE.INCLUDE [mobile-services-download-service-locally](../includes/mobile-services-download-service-locally.md)]
 
@@ -60,16 +60,16 @@
 
 <h2><a name="download-app"></a>Загрузка проекта GetStartedWithData</h2>
 
-### Получение кода примера
+###Получение кода примера
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-create-new-service](../includes/download-android-sample-code-EC.md)]
 
-### Проверка версии Android SDK
+###Проверка версии Android SDK
 
 [AZURE.INCLUDE [mobile-services-verify-android-sdk-version](../includes/mobile-services-verify-android-sdk-version-EC.md)]
 
 
-### Проверка и запуск примера кода
+###Проверка и запуск примера кода
 
 [AZURE.INCLUDE [mobile-services-android-run-sample-code](../includes/mobile-services-android-run-sample-code-EC.md)]
 
@@ -97,7 +97,7 @@
 
     ![](./media/mobile-services-dotnet-backend-android-get-started-data/manage-sql-azure-database.png)
 
-5. На портале управления выполните запрос для просмотра изменений, внесенных приложением Магазина Windows. Ваш запрос будет аналогичен показанному ниже, но вместо`todolist` укажите имя вашей базы данных.
+5. На портале управления выполните запрос для просмотра изменений, внесенных приложением Магазина Windows. Ваш запрос будет аналогичен показанному ниже, но вместо `todolist` укажите имя вашей базы данных.
 
         SELECT * FROM [todolist].[todoitems]
 
@@ -111,15 +111,15 @@
 
 В этом учебнике показаны основы включения возможностей работы с данными из мобильных служб в приложение Android. 
 
-<!--Далее рассмотрите выполнение одного из следующих учебников, которые основаны на приложении GetStartedWithData, созданном в этом учебнике:
+<!--Next, consider completing one of the following tutorials that is based on the GetStartedWithData app that you created in this tutorial:
 
-* [Проверка и изменение данных с помощью скриптов]
-  <br/>Дополнительные сведения об использовании серверных скриптов в мобильных службах для проверки и изменения данных, отправляемых из приложения.
+* [Validate and modify data with scripts]
+  <br/>Learn more about using server scripts in Mobile Services to validate and change data sent from your app.
 
-* [Уточнение запросов c разбиением по страницам]
-  <br/>Сведения об использовании разбиения по страницам в запросах для управления объемом данных, обрабатываемым в одном запросе.
+* [Refine queries with paging]
+  <br/>Learn how to use paging in queries to control the amount of data handled in a single request.
 
-После завершения ряда данных попробуйте
+Once you have completed the data series, try
 -->
 
 Попробуйте один из следующих учебников:
@@ -138,7 +138,7 @@
 [Создание мобильной службы]: #create-service
 [Локальное скачивание службы]: #download-the-service-locally
 [Тестирование мобильной службы]: #test-the-service
-[Скачать проект GetStartedWithData]: #download-app
+[Загрузка проекта GetStartedWithData]: #download-app
 [Обновление приложения для доступа к данным с помощью мобильной службы]: #update-app
 [Тестирование приложения Android с помощью службы, размещенной локально]: #test-locally-hosted
 [Публикация мобильной службы в Azure]: #publish-mobile-service
@@ -176,19 +176,19 @@
 
 
 <!-- URLs. -->
-[Проверка и изменение данных с помощью скриптов]: /ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
-[Уточнение запросов c разбиением по страницам]: /ru-ru/develop/mobile/tutorials/add-paging-to-data-dotnet
-[Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
-[Приступая к работе с проверкой подлинности]: /ru-ru/develop/mobile/tutorials/get-started-with-users-android
-[Приступая к работе с push-уведомлениями]: /ru-ru/develop/mobile/tutorials/get-started-with-push-android
-[JavaScript и HTML]: /ru-ru/develop/mobile/tutorials/get-started-with-data-js
-[Серверная версия базы данных JavaScript]: /ru-ru/develop/mobile/tutorials/get-started-with-data-android
+[Проверка и изменение данных с помощью скриптов]: /develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
+[Уточнение запросов с разбиением по страницам]: /develop/mobile/tutorials/add-paging-to-data-dotnet
+[Приступая к работе с мобильными службами]: /documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
+[Приступая к работе с проверкой подлинности]: /develop/mobile/tutorials/get-started-with-users-android
+[Приступая к работе с push-уведомлениями]: /develop/mobile/tutorials/get-started-with-push-android
+[JavaScript и HTML]: /develop/mobile/tutorials/get-started-with-data-js
+[Серверная версия JavaScript]: /develop/mobile/tutorials/get-started-with-data-android
 
 [Портал управления Azure]: https://manage.windowsazure.com/
 [Портал управления]: https://manage.windowsazure.com/
 [Пакет SDK для мобильных служб]: http://go.microsoft.com/fwlink/p/?LinkId=257545
 [Веб-сайт с примерами кода для разработчиков]:  http://go.microsoft.com/fwlink/p/?LinkId=328660
-[Справочник по принципам использования мобильных служб .NET]: /ru-ru/develop/mobile/how-to-guides/work-with-net-client-library
+[Справочник по принципам использования мобильных служб .NET]: /develop/mobile/how-to-guides/work-with-net-client-library
 [Класс MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
-[Справочник по принципам использования мобильных служб .NET]: /ru-ru/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library  
-<!--HONumber=45--> 
+[Справочник по принципам использования мобильных служб .NET]: /documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library  
+<!--HONumber=47-->

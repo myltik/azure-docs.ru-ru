@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Ферма серверов SharePoint" 
 	description="Описывается новая функциональность фермы серверов SharePoint, доступная на портале предварительной версии Azure" 
 	services="virtual-machines" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="vm-sharepoint" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="1/26/2015" 
+	ms.date="03/04/2015" 
 	ms.author="josephd"/>
 
-#Ферма серверов SharePoint#
+#Ферма серверов SharePoint
 
 Благодаря ферме серверов SharePoint портал предварительной версии Microsoft Azure автоматически создает предварительно настроенную ферму SharePoint Server 2013. Это позволяет сэкономить много времени при необходимости использовать базовую или высокодоступную ферму SharePoint в среде разработки и тестирования или в ходе оценки SharePoint Server 2013 в качестве решения для совместной работы в рамках организации.
 
@@ -38,7 +38,7 @@
 
 Чтобы создать ферму SharePoint с помощью шаблона фермы серверов SharePoint, выполните следующее:
 
-1. На [портале предварительной версии Microsoft Azure](https://portal.azure.com/) щелкните **Создать** > **Ферма серверов SharePoint**.
+1. На [портале предварительной версии Microsoft Azure](https://portal.azure.com/), щелкните  **Создать** > **Ферма серверов SharePoint**.
 2. В области **Создать ферму SharePoint** введите имя группы ресурсов.
 3. Введите имя пользователя и пароль для локальной учетной записи администрирования на каждой виртуальной машине фермы. Выберите имя и пароль, которые сложно будет угадать, запишите их и сохраните в надежном месте.
 4. Если вам нужна ферма с высоким уровнем доступности, щелкните **Включить высокую доступность**.
@@ -67,7 +67,7 @@
 2.	В списке групп ресурсов щелкните имя вашей группы ресурсов фермы SharePoint.
 3.	В области для группы ресурсов фермы SharePoint щелкните **История развертывания**. 
 4.	В области **История развертывания** щелкните **Microsoft.SharePointFarm**.
-5.	В области **Microsoft.SharePointFarm** в поле SHAREPOINTSITEURL выберите URL-адрес и скопируйте его. 
+5.	В поле SHAREPOINTCENTRALADMINURL области **Microsoft.SharePointFarm** выберите URL-адрес и скопируйте его. 
 6.	Вставьте URL-адрес в строку адреса в Интернет-браузере.
 7.	После появления запроса введите учетные данные для учетной записи пользователя, которые были определены при создании фермы.
 
@@ -87,6 +87,8 @@
 
 [SharePoint в службах инфраструктуры Azure](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 
-[Настройка фермы SharePoint в интрасети в гибридном облаке для тестирования](http://azure.microsoft.com/documentation/articles/virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
+[Сведения о конфигурации фермы серверов SharePoint](../virtual-machines-sharepoint-farm-config-azure-preview/)
 
-<!--HONumber=42-->
+[Настройка фермы SharePoint интрасети в гибридном облаке для тестирования](http://azure.microsoft.com/documentation/articles/virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
+
+<!--HONumber=47-->

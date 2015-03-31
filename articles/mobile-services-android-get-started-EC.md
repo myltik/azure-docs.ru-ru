@@ -1,7 +1,7 @@
-<properties 
+﻿<properties 
 	pageTitle="Начало работы с мобильными службами Azure для приложений Android" 
 	description="Следуйте указаниям этого учебника, чтобы приступить к использованию мобильных служб Azure для разработки приложений Android." 
-	services="" 
+	services="mobile-services" 
 	documentationCenter="android" 
 	authors="RickSaling" 
 	manager="dwrede" 
@@ -22,10 +22,10 @@
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
-<p>В этом учебнике показано, как добавить облачную серверную службу в приложение Android с помощью мобильных служб Azure. В этом учебнике вы создадите новую мобильную службу и простое приложение <em>To do list</em> , хранящее данные приложения в новой мобильной службе.</p>
+<p>В этом учебнике показано, как добавить облачную серверную службу в приложение Android с помощью мобильных служб Azure. В этом учебнике вы создадите новую мобильную службу и простое приложение <em>To do list</em>, хранящее данные приложения в новой мобильной службе.</p>
 <p>Снимок экрана завершенного приложения приведен ниже:</p>
 </div>
-<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Support-in-Windows-Azure-Mobile-Services" target="_blank" class="label">просмотреть учебник</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-get-started-android-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Support-in-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Воспроизвести видео</span></a><span class="time">7:26</span></div>
+<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Support-in-Windows-Azure-Mobile-Services" target="_blank" class="label">Просмотр учебника</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-get-started-android-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Support-in-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Воспроизведение видео</span></a><span class="time">7:26</span></div>
 </div>
 
 ![][0]
@@ -34,11 +34,11 @@
 
 Загруженный проект быстрого запуска содержит пакет SDK мобильных служб для платформы Android. Хотя для этого проекта требуется Android 4.2 или более поздней версии, для пакета SDK мобильных служб требуется только Android 2.2 или более поздней версии.
 
-> [AZURE.IMPORTANT] Для работы с этим учебником требуется учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28"%20target="_blank).
+> [AZURE.IMPORTANT] Для работы с этим учебником требуется учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28"%20target="_blank).
 
 <!-- -->
 
->[AZURE.NOTE] Просмотреть исходный код завершенного приложения можно <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures/GettingStarted/Android" target="_blank">здесь</a>.
+>[AZURE.NOTE] Если требуется просмотреть исходный код завершенного приложения, см. <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures/GettingStarted/Android" target="_blank">здесь</a>.
 
 ## <a name="create-new-service"> </a>Создание мобильной службы
 
@@ -75,7 +75,7 @@
 
 Последний раздел учебника - построение и выполнение нового приложения.
 
-2. В Eclipse нажмите кнопку **Файл**, затем щелкните **Импорт**, разверните **Android**, щелкните пункт **Существующий код Android в рабочую область**, а затем нажмите кнопку **Далее.** 
+2. В Eclipse щелкните **Файл**, затем щелкните **Импорт**, разверните элемент **Android**, щелкните **Существующий код Android в рабочую область**, а затем нажмите кнопку **Далее**. 
 
  	![][14]
 
@@ -91,7 +91,7 @@
 	- 	Найдите метод **OnCreate** в **TodoActivity.java** и найдите код, который создает экземпляр клиента мобильных служб. Код отображается на предыдущем изображении.
 	- 	Замените "MobileServiceUrl" фактическим URL-адресом вашей мобильной службы.
 	- 	Замените "AppKey" ключом вашей мобильной службы.
-	- 	Дополнительную информацию см. в учебнике <a href="http://azure.microsoft.com/ documentation/articles/mobile-services-android-get-started-data/">Добавление мобильных служб к существующему приложению</a>. 
+	- 	Для получения дополнительных сведений обратитесь к учебнику <a href="http://azure.microsoft.com/documentation/articles/mobile-services-android-get-started-data/">Добавление мобильных служб к существующему приложению</a>. 
 
 
 
@@ -119,7 +119,7 @@
 Теперь, когда вы закончили быстрый запуск, узнайте, как выполнять дополнительные важные задачи в мобильных службах: 
 
 * [Приступая к работе с данными]
-  <br/>Дополнительная информация о хранении данных и запросах к ним при помощи мобильных служб.
+  <br/>Дополнительные сведения о хранении данных и запросах к ним с помощью мобильных служб.
 
 * [Приступая к работе с проверкой подлинности]
   <br/>Дополнительные сведения о проверке подлинности пользователей приложения с использованием поставщика удостоверений.
@@ -128,9 +128,9 @@
   <br/>Сведения об отправке в приложение простейших push-уведомлений.
 
 <!-- Anchors. -->
-[Приступая к работе с мобильными службами]:#getting-started
+[Приступая к работе с мобильными службами:]:#getting-started
 [Создание мобильной службы]:#create-new-service
-[Определение экземпляра мобильной службы]:#define-mobile-service-instance
+[Определение экземпляра мобильной службы:]:#define-mobile-service-instance
 [Дальнейшие действия]:#next-steps
 
 <!-- Images. -->
@@ -152,12 +152,12 @@
 [15]: ./media/mobile-services-android-get-started/mobile-services-import-android-project.png
 
 <!-- URLs. -->
-[Приступая к работе с данными]: /ru-ru/documentation/articles/mobile-services-android-get-started-data/
-[Приступая к работе с проверкой подлинности]: /ru-ru/documentation/articles/mobile-services-android-get-started-users/
-[Приступая к работе с push-уведомлениями]: /ru-ru/documentation/articles/mobile-services-javascript-backend-android-get-started-push/
-[SDK Android]: https://go.microsoft.com/fwLink/p/?LinkID=280125
-[Пакет SDK для мобильных служб для Android]: https://go.microsoft.com/fwLink/p/?LinkID=266533
+[Приступая к работе с данными]: /documentation/articles/mobile-services-android-get-started-data/
+[Приступая к работе с проверкой подлинности]: /documentation/articles/mobile-services-android-get-started-users/
+[Приступая к работе с push-уведомлениями]: /documentation/articles/mobile-services-javascript-backend-android-get-started-push/
+[Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
+[Android SDK для мобильных служб]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
 [Портал управления]: https://manage.windowsazure.com/
 
-<!--HONumber=45--> 
+<!--HONumber=47-->
