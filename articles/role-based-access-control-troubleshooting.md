@@ -1,6 +1,6 @@
 ﻿<properties 
 	pageTitle="Устранение неполадок при управлении доступом на основе ролей" 
-	<MORAVIA_NOTRANSLATE></MORAVIA_NOTRANSLATE> 
+	description="Working with different resource types for role based access control." 
 	services="" 
 	documentationCenter="" 
 	authors="stepsic-microsoft-com" 
