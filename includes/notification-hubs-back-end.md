@@ -1,4 +1,4 @@
-﻿
+
 В этом разделе показано, как отправлять уведомления из консольного приложения .NET и других приложений.
 При использовании мобильных служб используйте учебники [Начало работы с push-уведомлениями](/ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/). Если вы хотите использовать Java или PHP, см. раздел [Использование центров уведомлений из Java/PHP](/ru-ru/documentation/articles/notification-hubs-java-backend-how-to/). Можно отправлять уведомления из любого серверного компонента с помощью [интерфейса REST центров уведомлений].
 
@@ -99,6 +99,6 @@
 [Объект wns]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Руководство по использованию центров уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
 [Инструкции по использованию центров уведомлений для магазина Windows]: http://msdn.microsoft.com/library/jj927172.aspx
-[Интерфейс REST центров уведомлений]: http://msdn.microsoft.com/library/windowsazure/dn223264.aspx
+[интерфейса REST центров уведомлений]: http://msdn.microsoft.com/library/windowsazure/dn223264.aspx
 
 <!--HONumber=45--> 
