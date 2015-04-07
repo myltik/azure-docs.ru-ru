@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Приступая к работе с центрами уведомлений Azure" description="Узнайте, как использовать центры уведомлений Azure для push-уведомлений." services="notification-hubs" documentationCenter="android" authors="RickSaling" manager="dwrede" editor=""/>
+<properties pageTitle="Приступая к работе с центрами уведомлений Azure" description="Узнайте, как использовать центры уведомлений Azure для push-уведомлений." services="notification-hubs" documentationCenter="android" authors="RickSaling" manager="dwrede" editor=""/>
 
 <tags 
 	ms.service="notification-hubs" 
@@ -324,7 +324,7 @@
 [29]: ./media/mobile-services-android-get-started-push/mobile-eclipse-import-Play-library.png
 
 <!-- URLs. -->
-[Android SDK для мобильных служб]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
+[пакет Android SDK для мобильных служб]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Отправка страницы приложения]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Мои приложения]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK для Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
@@ -341,7 +341,8 @@
 [Руководство по использованию центров уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
 
 [Использование центров уведомлений для отправки push-уведомлений пользователям]: /ru-ru/manage/services/notification-hubs/notify-users-aspnet
-[Использование центров уведомлений для передачи экстренных новостей]: /ru-ru/manage/services/notification-hubs/breaking-news-dotnet
+[Использование центров уведомлений для передачи экстренных новостей]: /manage/services/notification-hubs/breaking-news-dotnet
+[руководстве по использованию центров уведомлений]: ru-ru/manage/services/notification-hubs/breaking-news-dotnet
 
 
 <!--HONumber=45--> 

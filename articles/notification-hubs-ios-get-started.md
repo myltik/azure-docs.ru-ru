@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Приступая к работе с центрами уведомлений Azure" description="Узнайте, как использовать центры уведомлений Azure для push-уведомлений." services="notification-hubs" documentationCenter="ios" authors="ysxu" manager="dwrede" editor=""/>
+<properties pageTitle="Приступая к работе с центрами уведомлений Azure" description="Узнайте, как использовать центры уведомлений Azure для push-уведомлений." services="notification-hubs" documentationCenter="ios" authors="ysxu" manager="dwrede" editor=""/>
 
 <tags 
 	ms.service="notification-hubs" 
@@ -265,14 +265,14 @@
 [Live SDK для Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
 [Приступая к работе с мобильными службами]: /ru-ru/develop/mobile/tutorials/get-started-ios
-[Портал управления Azure]: https://manage.windowsazure.com/
-[Руководство по использованию центров уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
+[портал управления Azure]: https://manage.windowsazure.com/
+[руководстве по использованию центров уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
 [Установка Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Портал подготовки iOS]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
 [Использование центров уведомлений для отправки push-уведомлений пользователям]: /ru-ru/manage/services/notification-hubs/notify-users-aspnet
 [Использование центров уведомлений для передачи экстренных новостей]: /ru-ru/manage/services/notification-hubs/breaking-news-dotnet
 
-[Руководство по программированию локальных и push-уведомлений]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
+[руководстве по программированию локальных и push-уведомлений]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
 <!--HONumber=45--> 

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Приступая к работе с центрами уведомлений Azure" 
 	description="Узнайте, как использовать центры уведомлений Azure для push-уведомлений." 
 	services="notification-hubs" 
@@ -281,15 +281,15 @@
 [Авторизация пользователей с помощью скриптов]: /ru-ru/develop/mobile/tutorials/authorize-users-in-scripts-dotnet
 [JavaScript и HTML]: /ru-ru/develop/mobile/tutorials/get-started-with-push-js
 
-[Портал управления Azure]: https://manage.windowsazure.com/
+[портал управления Azure]: https://manage.windowsazure.com/
 [Объект wns]: http://go.microsoft.com/fwlink/p/?LinkId=260591
-[Руководство по использованию центров уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
+[руководстве по использованию центров уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
 
 [Использование центров уведомлений для отправки push-уведомлений пользователям]: /ru-ru/manage/services/notification-hubs/notify-users-aspnet
 [Использование центров уведомлений для передачи экстренных новостей]: /ru-ru/manage/services/notification-hubs/breaking-news-dotnet
 
-[каталог всплывающих уведомлений]: http://msdn.microsoft.com/library/windows/apps/hh761494.aspx
-[каталог уведомлений на плитке]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
-[обзор эмблем]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
+[каталоге всплывающих уведомлений]: http://msdn.microsoft.com/library/windows/apps/hh761494.aspx
+[каталоге плиток]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
+[обзоре эмблем]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
 
 <!--HONumber=45--> 

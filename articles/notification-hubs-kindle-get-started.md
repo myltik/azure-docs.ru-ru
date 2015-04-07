@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Приступая к работе с центрами уведомлений Azure" 
 	description="Узнайте, как использовать центры уведомлений Azure для отправки push-уведомлений." 
 	services="notification-hubs" 
@@ -266,7 +266,7 @@
 ![][7]
 
 <!-- URLs. -->
-[портал разработчика]: https://developer.amazon.com/home.html
+[портале разработчика]: https://developer.amazon.com/home.html
 [скачивание пакета SDK]: https://developer.amazon.com/public/resources/development-tools/sdk
 
 [0]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal1.png
