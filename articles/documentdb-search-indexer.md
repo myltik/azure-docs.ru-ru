@@ -13,16 +13,16 @@
     ms.topic="article" 
     ms.tgt_pltfrm="NA" 
     ms.workload="data-services" 
-    ms.date="03/02/2015" 
+    ms.date="03/19/2015" 
     ms.author="andrl"/>
 
 #Подключение DocumentDB к службе поиска Azure с помощью индексаторов
 
 Если необходимо реализовать эффективные возможности поиска в данных DocumentDB, рекомендуется использовать индексатор службы поиска Azure для DocumentDB. В этой статье будет показано, как интегрировать Azure DocumentDB со службой поиска Azure без написания кода для поддержки инфраструктуры индексирования.
 
-Для этого необходимо [настроить учетную запись службы поиска Azure](/documentation/articles/search-get-started/#start-with-the-free-service) (не требуется выполнять обновление до стандартного поиска), а затем вызвать [API REST службы поиска Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx) для создания **источника данных** DocumentDB и **индексатора** для него.
+Для этого необходимо [настроить учетную запись службы поиска Azure](search-get-started.md#start-with-the-free-service) (не требуется выполнять обновление до стандартного поиска), а затем вызвать [API REST службы поиска Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx) для создания **источника данных** DocumentDB и **индексатора** для него.
 
-##<a id="Concepts"></a>Понятия индексатора службы поискаAzure
+##<a id="Concepts"></a>Понятия индексатора службы поиска Azure
 
 Служба поиска Azure поддерживает создание и управление источниками данных (включая DocumentDB) и индексаторами, работающими в этих источниках данных.
 
@@ -42,7 +42,7 @@
     Content-Type: application/json
     api-key: [Search service admin key]
 
-Требуется  `api-version`. Допустимые значения - `2015-02-28` или более поздняя версия.
+Требуется `api-version`. Допустимые значения - `2015-02-28` или более поздняя версия.
 
 Текст запроса содержит определение источника данных, который должен включать следующие поля.
 
@@ -52,7 +52,7 @@
 
 - **credentials**:
 
-    - **connectionString**: Обязательный параметр. Укажите сведения о подключении к базе данных Azure DocumentDB в следующем формате: `AccountEndpoint=<DocumentDB endpoint url>;AccountKey=<DocumentDB auth key>;Database=<DocumentDB database id>`
+    - **connectionString**: Обязательный параметр. Укажите сведения о подключении к базе данных Azure DocumentDB в следующем формате: `AccountEndpoint=<DocumentDB endpoint url>;AccountKey=<DocumentDB auth key>;Database=<DocumentDB database id>`.
 
 - **container**:
 
@@ -66,21 +66,21 @@
 
 ###<a id="DataChangeDetectionPolicy"></a>Запись измененных документов
 
-Политика обнаружения изменений данных предназначена для эффективного определения измененных элементов данных. В настоящее время единственной поддерживаемой политикой является политика  `High Water Mark`, использующая свойство последней измененной отметки времени `_ts`, предоставленное DocumentDB. Эта политика указывается следующим образом.
+Политика обнаружения изменений данных предназначена для эффективного определения измененных элементов данных. В настоящее время единственной поддерживаемой политикой является политика `High Water Mark`, использующая свойство последней измененной отметки времени`_ts`, предоставленное DocumentDB. Эта политика указывается следующим образом.
 
     { 
         "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
         "highWaterMarkColumnName" : "_ts" 
     } 
 
-Кроме того, потребуется добавить `_ts` в проекцию и предложение  `WHERE` для запроса. Например:
+Кроме того, потребуется добавить`_ts` в проекцию и предложение `WHERE` для запроса. Например:
 
     SELECT s.id, s.Title, s.Abstract, s._ts FROM Sessions s WHERE s._ts > @HighWaterMark
 
 
 ###<a id="DataDeletionDetectionPolicy"></a>Запись удаленных документов
 
-Строки, удаляемые из исходной таблицы, также следует удалить из индекса поиска. Политика обнаружения удаления данных предназначена для эффективного определения удаленных элементов данных. В настоящее время единственной поддерживаемой политикой является политика  `Soft Delete` (удаление помечается особым флагом), которая указывается следующим образом.
+Строки, удаляемые из исходной таблицы, также следует удалить из индекса поиска. Политика обнаружения удаления данных предназначена для эффективного определения удаленных элементов данных. В настоящее время единственной поддерживаемой политикой является политика `Soft Delete` (удаление помечается особым флагом), которая указывается следующим образом.
 
     { 
         "@odata.type" : "#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy",
@@ -95,7 +95,7 @@
 В следующем примере создается источник данных с настраиваемым запросом и подсказками.
 
     {
-        "name": "myDocDbDataSource",
+        "name": "mydocdbdatasource",
         "type": "documentdb",
         "credentials": {
             "connectionString": "AccountEndpoint=https://myDocDbEndpoint.documents.azure.com;AccountKey=myDocDbAuthKey;Database=myDocDbDatabaseId"
@@ -121,7 +121,7 @@
 
 ##<a id="CreateIndex"></a>Шаг 2. Создание индекса
 
-Создайте целевой индекс поиска Azure, если это еще не сделано. Создать индекс можно с помощью [пользовательского интерфейса портала Azure](/documentation/articles/search-get-started/#test-service-operations) или [API создания индекса ](https://msdn.microsoft.com/library/azure/dn798941.aspx).
+Создайте целевой индекс поиска Azure, если это еще не сделано. Создать индекс можно с помощью [пользовательского интерфейса портала Azure](search-get-started.md#test-service-operations) или [API создания индекса ](https://msdn.microsoft.com/library/azure/dn798941.aspx).
 
 	POST https://[Search service name].search.windows.net/indexes?api-version=[api-version]
 	Content-Type: application/json
@@ -172,7 +172,7 @@
 В следующем примере создается индекс с идентификатором и полем описания.
 
     {
-       "name": "mySearchIndex",
+       "name": "mysearchindex",
        "fields": [{
          "name": "id",
          "type": "Edm.String",
@@ -196,7 +196,7 @@
 
 Можно создать индексатор в службе поиска Azure с помощью запроса HTTP POST со следующими заголовками.
     
-    POST https://[Search service name].search.windows.net/datasources?api-version=[api-version]
+    POST https://[Search service name].search.windows.net/indexers?api-version=[api-version]
     Content-Type: application/json
     api-key: [Search service admin key]
 
@@ -214,18 +214,18 @@
 
 Индексатор может дополнительно задавать расписание. Если расписание уже имеется, индексатор будет выполняться согласно расписанию. Расписание имеет следующие атрибуты.
 
-- **interval**: Обязательный параметр. Значение продолжительности, означающее интервал или период выполнений индексатора. Наименьший допустимый интервал - 5 минут, наибольший - один день. Значение должно быть отформатировано как значение XSD "dayTimeDuration" (ограниченное подмножество значения продолжительности [ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). Используется следующий шаблон: `P[nD][T[nH][nM]]`. Примеры: `PT15M` для каждых 15 минут, `PT2H` для каждых 2 часов. 
+- **interval**: Обязательный параметр. Значение продолжительности, означающее интервал или период выполнений индексатора. Наименьший допустимый интервал - 5 минут, наибольший - один день. Значение должно быть отформатировано как значение XSD dayTimeDuration (ограниченное подмножество значения продолжительности [ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). Для этого используется шаблон: `P[nD][T[nH][nM]]`. Examples: `PT15M` для каждых 15 минут, `PT2H` для каждых 2 часов. 
 
 - **startTime**: Обязательный параметр. Параметр UTC datetime, указывающий время начала выполнения индексатора. 
 
 ###<a id="CreateIndexerExample"></a>Пример текста запроса
 
-В следующем примере создается индексатор, который копирует данные из коллекции, на которую ссылается источник данных  `myDocDbDataSource`, в индекс  `mySearchIndex` по расписанию, начинающемуся 1 января 2015 г. Периодичность выполнения - ежечасно.
+В следующем примере создается индексатор, который копирует данные из коллекции, на которую ссылается источник данных `myDocDbDataSource`, в индекс `mySearchIndex` по расписанию, начинающемуся 1 января 2015 г. Периодичность выполнения - ежечасно.
 
     {
-        "name" : "mySearchIndexer",
-        "dataSourceName" : "myDocDbDataSource",
-        "targetIndexName" : "mySearchIndex",
+        "name" : "mysearchindexer",
+        "dataSourceName" : "mydocdbdatasource",
+        "targetIndexName" : "mysearchindex",
         "schedule" : { "interval" : "PT1H", "startTime" : "2015-01-01T00:00:00Z" }
     }
 
@@ -293,4 +293,4 @@
 
  - Дополнительные сведения о службе поиска Azure см [здесь](/services/search/).
 
-<!--HONumber=47-->
+<!--HONumber=49-->

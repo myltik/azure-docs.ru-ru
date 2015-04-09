@@ -1,19 +1,17 @@
+﻿Новые интерфейсы API Twitter версии 1.1 нуждаются в аутентификации перед получением доступа к ресурсам. Сначала необходимо получить учетные данные, необходимые для запроса доступа с помощью OAuth 2.0. Затем необходимо надежно сохранить эти учетные данные в настройках приложения для ваших мобильных служб.
 
+1. Если это еще не сделано, выполните действия, описанные в разделе <a href="../articles/mobile-services-how-to-register-twitter-authentication.md/" target="_blank">Регистрация приложений для входа в Twitter с помощью мобильных служб</a>. 
 
-Новые интерфейсы API Twitter версии 1.1 нуждаются в аутентификации перед получением доступа к ресурсам. Сначала необходимо получить учетные данные, необходимые для запроса доступа с помощью OAuth 2.0. Затем необходимо надежно сохранить эти учетные данные в настройках приложения для ваших мобильных служб.
-
-1. Если это еще не сделано, выполните действия, описанные в разделе <a href="/documentation/articles/mobile-services-how-to-register-twitter-authentication/" target="_blank">Регистрация приложений для входа в Twitter с помощью мобильных служб</a>. 
-  
   	Twitter создает учетные данные, необходимые для включения доступа к интерфейсам API Twitter версии 1.1. Эти учетные данные можно получить с веб-сайта разработчиков Twitter. 
 
-2. Перейдите на веб-сайт <a href="http://go.microsoft.com/fwlink/p/?LinkId=268300" target="_blank">разработчиков Twitter</a>, войдите, используя данные учетной записи Twitter и выберите свое приложение Twitter.
+2. Перейдите на веб-сайт <a href="http://go.microsoft.com/fwlink/p/?LinkId=268300" target="_blank">разработчиков Twitter</a>, войдите, используя данные учетной записи Twitter, и выберите свое приложение Twitter.
 
 3. На вкладке **Ключи и маркеры доступа** приложения обратите внимание на следующие значения:
 
-	+ **Ключ клиента**
-	+ **Секрет клиента**
-	+ **Маркер доступа**
-	+ **Секрет маркера доступа**
+	+ **Consumer key**
+	+ **Consumer secret**
+	+ **Access token**
+	+ **Access token secret**
 
 4. Выполните вход на [Портал управления Windows Azure], щелкните пункт **Мобильные службы**, а затем щелкните свою мобильную службу.
 
@@ -34,8 +32,8 @@
 [Справочник серверных скриптов мобильных служб]: http://go.microsoft.com/fwlink/?LinkId=262293
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Портал управления Microsoft Azure]: https://manage.windowsazure.com/
-[Портал управления Windows Azure]: https://manage.windowsazure.com/
-[Регистрация приложений для входа в Twitter с помощью мобильных служб]: /documentation/articles/mobile-services-how-to-register-twitter-authentication
+[Регистрация приложений для входа в Twitter с помощью мобильных служб]: ../articles/mobile-services-how-to-register-twitter-authentication.md
 [Разработчики Twitter]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [Параметры приложения]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
-<!--HONumber=47-->
+
+<!--HONumber=49-->

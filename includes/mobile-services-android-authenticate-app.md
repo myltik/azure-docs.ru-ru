@@ -1,4 +1,4 @@
-
+﻿
 1. В **обозревателе проектов** в Android Studio откройте файл ToDoActivity.java и добавьте следующие инструкции import.
 
 		import java.util.concurrent.ExecutionException;
@@ -44,25 +44,26 @@
 
 	Этот вызов запускает процесс проверки подлинности.
 
-4. Переместите оставшийся код после `authenticate();` в методе **onCreate** в новый метод **createTable**, который выглядит следующим образом:
+4. Переместите оставшийся код после authenticate(); в методе **onCreate** в новый метод **createTable**, который выглядит следующим образом:
 
 		private void createTable() {
 	
-			// Get the Mobile Service Table instance to use
+			// Получить экземпляр таблицы мобильной службы для использования
 			mToDoTable = mClient.getTable(ToDoItem.class);
 	
 			mTextNewToDo = (EditText) findViewById(R.id.textNewToDo);
 	
-			// Create an adapter to bind the items with the view
+			// Создать адаптер для связи элементов с представлением
 			mAdapter = new ToDoItemAdapter(this, R.layout.row_list_to_do);
 			ListView listViewToDo = (ListView) findViewById(R.id.listViewToDo);
 			listViewToDo.setAdapter(mAdapter);
 	
-			// Load the items from the Mobile Service
+			// Загрузить элементы из мобильной службы
 			refreshItemsFromTable();
 		}
 
 9. В меню **Запуск** щелкните **Запуск приложения**, чтобы запустить приложение и выполнить вход с помощью выбранного поставщика удостоверений. 
 
    	После успешного входа в систему приложение должно работать без ошибок, а вы должны быть в состоянии выполнять запросы мобильных служб и обновлять данные.
-<!--HONumber=47-->
+
+<!--HONumber=49-->

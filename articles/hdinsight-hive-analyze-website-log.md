@@ -31,9 +31,9 @@
 
 ##Предварительные требования
 
-- Вы должны были подготовить кластер **HDInsight**. Указания см. в разделе [Подготовка кластеров HDInsight][hdinsight-provision]. 
+- Вы должны были подготовить **кластер HDInsight**. Инструкции см. в разделе [Подготовка кластеров HDInsight][hdinsight-provision]. 
 - У вас должен быть установлен Microsoft Excel 2010 или Microsoft Excel 2013.
-- У вас должен быть [драйвер Microsoft Hive ODBC](http://www.microsoft.com/ru-ru/download/details.aspx?id=40886) для импорта данных из Hive в Excel.
+- У вас должен быть [драйвер Microsoft Hive ODBC](http://www.microsoft.com/download/details.aspx?id=40886) для импорта данных из Hive в Excel.
 
 
 ##Запуск образца
@@ -51,8 +51,9 @@
 Попробуйте образец по анализу данных датчиков, используя Azure HDInsight. См. раздел [Анализ данных датчика с помощью Hive с HDInsight][hdinsight-sensor-data-sample].
 
 
-[hdinsight-provision]: ../hdinsight-provision-clusters/
-[hdinsight-sensor-data-sample]: ../hdinsight-use-hive-sensor-data-analysis/
+[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-sensor-data-sample]: hdinsight-use-hive-sensor-data-analysis.md
 
 [img-hdi-weblogs-sample]: ./media/hdinsight-hive-analyze-website-log/hdinsight-weblogs-sample.png
-<!--HONumber=45--> 
+
+<!--HONumber=49-->

@@ -72,9 +72,9 @@
 
 [Возможности SendGrid]: http://sendgrid.com/features
 [Портал управления Azure]: https://manage.windowsazure.com
-[Начало работы с SendGrid]: http://sendgrid.com/docs
+[начало работы с SendGrid]: http://sendgrid.com/docs
 [Процесс подготовки SendGrid]: https://support.sendgrid.com/hc/articles/200181628-Why-is-my-account-being-provisioned-
-[все интерфейсы API]: https://sendgrid.com/docs/API_Reference/index.html
+[Все интерфейсы API]: https://sendgrid.com/docs/API_Reference/index.html
 
 
-<!--HONumber=47-->
+<!--HONumber=49-->

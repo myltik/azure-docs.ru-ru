@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-appcelerator" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="11/24/2014" 
@@ -26,17 +26,17 @@
 
 1.  [Регистрация приложения для проверки подлинности и настройка мобильных служб]
 2.  [Ограничение разрешений таблицы для пользователей, прошедших проверку подлинности]
-3.  [Добавление аутентификации в приложение]
+3.  [Добавление проверки подлинности в приложение]
 
 Этот учебник создан на основе краткого руководства по мобильным службам. Вам также необходимо сначала ознакомиться с учебником [Приступая к работе с мобильными службами].
 
 Для работы с этим учебником необходимы Appcelerator Titanium Studio версии 3.2.1 или более поздние версии и iOS 7.0 или более поздние версии Android 4.3 или более поздние версии.
 
-##<a name="register"></a>Регистрация приложения для аутентификации и настройка мобильных служб
+##<a name="register"></a>Регистрация приложения для проверки подлинности и настройка мобильных служб
 
 [AZURE.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
-##<a name="permissions"></a> Ограничение разрешений для пользователей, прошедших аутентификацию
+##<a name="permissions"></a> Ограничение разрешений для пользователей, прошедших проверку подлинности
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
@@ -48,7 +48,7 @@
 
 Далее приложение будет обновлено таким образом, что оно станет производить аутентификацию учетных данных пользователей, прежде чем запрашивать ресурсы из мобильной службы.
 
-##<a name="add-authentication"></a>Добавление аутентификации в приложение
+##<a name="add-authentication"></a>Добавление проверки подлинности в приложение
 
 1.	Откройте файл проекта index.js и в таблице событий найдите метод Lister с именем "case 2:"
 
@@ -105,11 +105,12 @@
 
 [Регистрация приложения для проверки подлинности и настройка мобильных служб]: #register
 [Ограничение разрешений таблицы для пользователей, прошедших проверку подлинности]: #permissions
-[Добавление аутентификации в приложение]: #add-authentication
+[Добавление проверки подлинности в приложение]: #add-authentication
 
 <!-- Images. -->
 
 <!-- URLs. -->
-[Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started
+[Приступая к работе с мобильными службами]: partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started.md
+<!--HONumber=49--> 
 
-<!--HONumber=42-->
+<!--HONumber=49-->

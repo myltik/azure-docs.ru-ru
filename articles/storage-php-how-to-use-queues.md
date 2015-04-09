@@ -1,9 +1,9 @@
 ﻿<properties 
-	pageTitle="Как использовать службы очередей (PHP) - Microsoft Azure" 
+	pageTitle="Использование хранилища очередей из PHP в Microsoft Azure" 
 	description="Вы узнаете, как использовать службы очередей Azure для создания и удаления очередей, вставки, получения и удаления сообщений. Примеры кода написаны на PHP." 
 	documentationCenter="php" 
 	services="storage" 
-	authors="tfitzmac" 
+	authors="tfitzmac,tamram" 
 	manager="adinah" 
 	editor=""/>
 
@@ -13,48 +13,32 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="11/24/2014" 
+	ms.date="03/11/2015" 
 	ms.author="tomfitz"/>
 
-# Использование службы очередей из PHP
+# Использование хранилища очередей из PHP
 
-В этом руководстве показано, как реализовать типичные сценарии с использованием службы очередей Azure. Примеры написаны с использованием классов из пакета Windows SDK для PHP. Здесь описаны такие сценарии, как **вставка**, **просмотр**, **получение** и **удаление** сообщений очереди, а также **создание и удаление очередей**. Дополнительную информацию об очередях см. в разделе [Дальнейшие действия](#NextSteps).
+[AZURE.INCLUDE [storage-selector-queue-include](../includes/storage-selector-queue-include.md)]
 
-##Оглавление
+## Обзор
 
-* [Что такое хранилище очередей](#what-is)
-* [Основные понятия](#concepts)
-* [Создание учетной записи хранения Azure](#create-account)
-* [Создание приложения PHP](#create-app)
-* [Настройка приложения для использования службы очередей](#configure-app)
-* [Настройка подключения к службе хранилища Azure](#connection-string)
-* [Практическое руководство. Создание очереди](#create-queue)
-* [Практическое руководство. Добавление сообщения в очередь](#add-message)
-* [Практическое руководство. Просмотр следующего сообщения](#peek-message)
-* [Практическое руководство. Удаление следующего сообщения из очереди](#dequeue-message)
-* [Практическое руководство. Изменение содержимого сообщения в очереди](#change-message)
-* [Дополнительные параметры для удаления сообщений из очереди](#additional-options)
-* [Практическое руководство. Получение длины очереди](#get-queue-length)
-* [Практическое руководство. Удаление очереди](#delete-queue)
-* [Дальнейшие действия](#next-steps)
+В этом руководстве показано, как реализовать типичные сценарии с использованием службы очередей Azure. Примеры написаны с использованием классов из пакета Windows SDK для PHP. Здесь описаны такие сценарии, как **вставка**, **просмотр**, **получение** и **удаление** сообщений очереди, а также **создание и удаление очередей**. Дополнительную информацию об очередях см. в разделе [Дальнейшие действия](#NextSteps) .
 
-[AZURE.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
-
-<h2><a id="create-account"></a>Создание учетной записи хранения Azure</h2>
+[AZURE.INCLUDE [storage-queue-concepts-include](../includes/storage-queue-concepts-include.md)]
 
 [AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
-<h2><a id="create-app"></a>Создание приложения PHP</h2>
+## Создание приложения PHP
 
 Единственным требованием для создания приложения PHP, которое получает доступ к службе очередей Azure, является ссылка на классы в пакете Azure SDK для PHP непосредственно из кода. Можно использовать любые средства разработки для создания приложения, включая программу "Блокнот".
 
 В этом руководстве будут использоваться компоненты службы очередей, которые могут быть вызваны локально в приложении на PHP или в коде, работающем в веб-роли, роли рабочего процесса или на веб-сайте Azure.
 
-<h2><a id="GetClientLibrary"></a>Получение клиентских библиотек Azure</h2>
+## Получение клиентских библиотек Azure
 
 [AZURE.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
 
-<h2><a id="configure-app"></a>Настройка приложения для доступа к службе очередей</h2>
+## Настройка приложения для доступа к службе очередей
 
 Чтобы использовать интерфейсы API службы очередей Azure, необходимо следующее:
 
@@ -64,15 +48,15 @@
 В следующем примере показано, как включить файл автозагрузчика и сослаться на класс **ServicesBuilder**.
 
 > [AZURE.NOTE]
-> В этом примере (и других примерах в этой статье) предполагается, что установлены клиентские библиотеки PHP для Azure через Composer. При установке библиотек вручную или в качестве пакета PEAR необходимо добавить ссылку на файл автозагрузчика  `WindowsAzure.php`.
+> В этом примере (и других примерах в этой статье) предполагается, что установлены клиентские библиотеки PHP для Azure через Composer. При установке библиотек вручную или в качестве пакета PEAR необходимо добавить ссылку на файл автозагрузчика `WindowsAzure.php`.
 
 	require_once 'vendor\autoload.php';
 	use WindowsAzure\Common\ServicesBuilder;
 
 
-В приведенных ниже примерах всегда будет отображаться оператор  `require_once`, однако ссылки будут приводиться только на классы, которые необходимы для выполнения этого примера.
+В приведенных ниже примерах всегда будет отображаться оператор `require_once`, однако обращение будет осуществляться только к классам, которые необходимы для выполнения этого примера.
 
-<h2><a id="connection-string"></a>Настройка подключения к службе хранилища Azure</h2>
+## Настройка подключения к хранилищу Azure
 
 Для создания клиента службы очередей Azure необходимо сначала сформировать правильную строку подключения. Формат строки подключения к службе очередей:
 
@@ -89,7 +73,7 @@
 
 * передать строку подключения напрямую или
 * использовать **CloudConfigurationManager (CCM)** для проверки нескольких внешних источников на наличие строки подключения:
-	* по умолчанию предоставляется поддержка одного внешнего источника - - переменных среды;
+	* по умолчанию предоставляется поддержка одного внешнего источника - переменных среды
 	* можно добавить новые источники, расширив класс **ConnectionStringSource**.
 
 В приведенных здесь примерах строка подключения передается напрямую.
@@ -101,7 +85,7 @@
 	$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
 
 
-<h2><a id="create-queue"></a>Практическое руководство. Создание очереди</h2>
+## Практическое руководство. Создание очереди
 
 Объект **QueueRestProxy** позволяет создать очередь с помощью метода **createQueue**. При создании очереди можно задать ее параметры, однако это не является обязательным. (В приведенном ниже примере показано, как задать метаданные в очереди.)
 
@@ -126,17 +110,16 @@
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/library/windowsazure/dd179446.aspx
+		// http://msdn.microsoft.com/library/azure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
 	}
 
-> [AZURE.NOTE]
-> Не следует полагаться на учет регистра для ключей метаданных. Все параметры считываются из службы в нижнем регистре.
+> [AZURE.NOTE] Не следует полагаться на учет регистра для ключей метаданных. Все параметры считываются из службы в нижнем регистре.
 
 
-<h2><a id="add-message"></a>Практическое руководство. Добавление сообщения в очередь</h2>
+## Практическое руководство. Добавление сообщения в очередь
 
 Чтобы добавить сообщение в очередь, используйте **QueueRestProxy->createMessage**. Этот метод принимает имя очереди, текст сообщения и параметры сообщения (которые не являются обязательными).
 
@@ -157,13 +140,13 @@
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/library/windowsazure/dd179446.aspx
+		// http://msdn.microsoft.com/library/azure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
 	}
 
-<h2><a id="peek-message"></a>Практическое руководство. Просмотр следующего сообщения</h2>
+## Практическое руководство. Просмотр следующего сообщения
 
 Вы можете просмотреть сообщение (или сообщения) в начале очереди, не удаляя его из очереди, вызвав метод **QueueRestProxy->peekMessages**. По умолчанию метод **peekMessage** возвращает одно сообщение, но это значение можно изменить с помощью метода **PeekMessagesOptions->setNumberOfMessages**.
 
@@ -186,7 +169,7 @@
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/library/windowsazure/dd179446.aspx
+		// http://msdn.microsoft.com/library/azure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -208,7 +191,7 @@
 		}
 	}
 
-<h2><a id="dequeue-message"></a>Практическое руководство. Удаление следующего сообщения из очереди</h2>
+## Практическое руководство. Удаление следующего сообщения из очереди
 
 Ваш код удаляет сообщение из очереди в два этапа. Во-первых, вызовите метод **QueueRestProxy->listMessages**, который делает сообщение невидимым для любого другого кода, который считывает данные из очереди. По умолчанию это сообщение будет оставаться невидимым в течение 30 секунд (если сообщение не будет удалено в этот период времени, оно снова станет видимым в очереди). Чтобы завершить удаление сообщения из очереди, необходимо вызвать **QueueRestProxy->deleteMessage**. Этот двухэтапный процесс удаления сообщения позволяет удостовериться, что если коду не удастся обработать сообщение из-за сбоя оборудования или программного обеспечения, другой экземпляр кода сможет получить то же сообщение и повторить попытку. Код вызывает метод **deleteMessage** сразу после обработки сообщения.
 
@@ -240,13 +223,13 @@
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/library/windowsazure/dd179446.aspx
+		// http://msdn.microsoft.com/library/azure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
 	}
 
-<h2><a id="change-message"></a>Практическое руководство. Изменение содержимого сообщения в очереди</h2>
+## Практическое руководство. Изменение содержимого сообщения в очереди
 
 Вы можете изменить содержимое сообщения непосредственно в очереди, вызвав **QueueRestProxy->updateMessage**. Если сообщение представляет собой рабочую задачу, можно использовать эту функцию для обновления состояния рабочей задачи. Следующий код добавляет новое содержимое в очередь сообщений и продлевает время ожидания видимости еще на 60 секунд. Это сохраняет состояние работы, связанной с данным сообщением, и позволяет клиенту продолжить работу с сообщением на протяжении еще одной минуты. Этот метод можно использовать для отслеживания многошаговых рабочих процессов по сообщениям в очереди без необходимости начинать с самого начала в случае сбоя шага обработки в связи с ошибкой аппаратного или программного обеспечения. Обычно также сохраняется счетчик повторов; если количество повторов сообщения превысит n раз, его нужно удалить. Это обеспечивает защиту от сообщений, которые инициируют ошибку приложения при каждой попытке обработки.
 
@@ -282,13 +265,13 @@
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/library/windowsazure/dd179446.aspx
+		// http://msdn.microsoft.com/library/azure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
 	}
 
-<h2><a id="additional-options"></a>Дополнительные параметры для удаления сообщений из очереди</h2>
+## Дополнительные параметры для удаления сообщений из очереди
 
 Способ извлечения сообщения из очереди можно настроить двумя способами. Во-первых, можно получить пакет сообщений (до 32 сообщений). Во-вторых, можно задать более длительное или короткое время ожидания видимости, чтобы предоставить коду больше или меньше времени на полную обработку каждого сообщения. В следующем примере кода метод **getMessages** используется для получения 16 сообщений в одном вызове. Затем он обрабатывает каждое сообщение с помощью цикла **for**. Он также задает время ожидания невидимости 5 минут для каждого сообщения.
 
@@ -329,13 +312,13 @@
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/library/windowsazure/dd179446.aspx
+		// http://msdn.microsoft.com/library/azure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
 	}
 
-<h2><a id="get-queue-length"></a>Практическое руководство. Получение длины очереди</h2>
+## Практическое руководство. Получение длины очереди
 
 Вы можете узнать приблизительное количество сообщений в очереди. Метод **QueueRestProxy->getQueueMetadata** запрашивает у службы очередей метаданные очереди. Вызов метода **getApproximateMessageCount** для возвращенного объекта позволяет получить количество сообщений в очереди. Счетчик указывает число лишь приблизительно, так как сообщения могут добавляться или удаляться после ответа службы очередей на ваш запрос.
 
@@ -355,7 +338,7 @@
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/library/windowsazure/dd179446.aspx
+		// http://msdn.microsoft.com/library/azure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -363,7 +346,7 @@
 	
 	echo $approx_msg_count;
 
-<h2><a id="delete-queue"></a>Практическое руководство. Удаление очереди</h2>
+## Практическое руководство. Удаление очереди
 
 Для удаления очереди и всех сообщений в ней вызовите метод **QueueRestProxy->deleteQueue**.
 
@@ -382,22 +365,23 @@
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/library/windowsazure/dd179446.aspx
+		// http://msdn.microsoft.com/library/azure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
 	}
 
 
-<h2><a id="next-steps"></a>Дальнейшие действия</h2>
+## Дальнейшие действия
 
 Вы изучили основные сведения о службе очередей Azure. Дополнительные сведения о более сложных задачах по использованию хранилища можно найти по следующим ссылкам.
 
-- См. справочник MSDN: [Хранение и доступ к данным в Azure] []
-- Посетите блог рабочей группы службы хранилища Azure: <http://blogs.msdn.com/b/windowsazurestorage/>
+- См. справочник MSDN: [Хранилище Azure](http://msdn.microsoft.com/library/azure/gg433040.aspx)
+- Посетите [блог рабочей группы службы хранилища Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 
-[download]: http://go.microsoft.com/fwlink/?LinkID=252473
+[загрузка]: http://go.microsoft.com/fwlink/?LinkID=252473
 [require_once]: http://www.php.net/manual/en/function.require-once.php
 [Портал управления Azure]: http://manage.windowsazure.com/
-[Хранение и доступ к данным в Azure]: http://msdn.microsoft.com/library/windowsazure/gg433040.aspx
-<!--HONumber=42-->
+[Хранение и доступ к данным в Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+
+<!--HONumber=49-->

@@ -1,4 +1,4 @@
-﻿### Установка через компоновщик
+﻿###Установка через компоновщик
 
 1. [Установка Git][install-git]. 
 
@@ -7,26 +7,29 @@
 
 2. Создайте файл с именем **composer.json** в корневом каталоге своего проекта и добавьте в него следующий код:
 
-		{
-			"require": {
-				"microsoft/windowsazure": "*"
-			},			
-			"repositories": [
-				{
-					"type": "pear",
-					"url": "http://pear.php.net"
-				}
-			],
-			"minimum-stability": "dev"
-		}
+        {
+            "repositories": [
+                {
+                    "type": "pear",
+                    "url": "http://pear.php.net"
+                }
+            ],
+            "require": {
+                "pear-pear.php.net/mail_mime" : "*",
+                "pear-pear.php.net/http_request2" : "*",
+                "pear-pear.php.net/mail_mimedecode" : "*",
+                "microsoft/windowsazure": "*"
+            }
+        }
+
 
 3. Скачайте **[composer.phar][composer-phar]** в корневой каталог проекта.
 
 4. Откройте командную строку и выполните эту команду в корневом каталоге проекта.
 
-		php composer.phar install
+		Установка php composer.phar
 
-### Установка вручную
+###Установка вручную
 
 Чтобы вручную скачать и установить клиентские библиотеки PHP для Azure, выполните следующие действия:
 
@@ -43,7 +46,7 @@
 
 [php-sdk-github]: http://go.microsoft.com/fwlink/?LinkId=252719
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-[download-SDK-PHP]: ../php-download-sdk/
+[download-SDK-PHP]: ../articles/php-download-sdk.md
 [composer-phar]: http://getcomposer.org/composer.phar
 
-<!--HONumber=47-->
+<!--HONumber=49-->

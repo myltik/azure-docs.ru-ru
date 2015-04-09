@@ -72,14 +72,14 @@
 [Дальнейшие действия]:#next-steps
 
 <!-- URLs. -->
-[Приступая к работе с мобильными службами]: /documentation/articles/mobile-services-dotnet-backend-android-get-started/
-[Приступая к работе с данными]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-data/
-[Приступая к работе с проверкой подлинности]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-users/
-[Приступая к работе с push-уведомлениями]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-push/
-[Авторизация пользователей с помощью скриптов]: /documentation/articles/mobile-services-dotnet-backend-android-authorize-users-in-scripts
+[Приступая к работе с мобильными службами]: mobile-services-dotnet-backend-android-get-started.md
+[Приступая к работе с данными]: mobile-services-dotnet-backend-android-get-started-data.md
+[Приступая к работе с проверкой подлинности]: mobile-services-dotnet-backend-android-get-started-users.md
+[Приступая к работе с push-уведомлениями]: mobile-services-dotnet-backend-android-get-started-push.md
+[Авторизация пользователей с помощью скриптов]: mobile-services-dotnet-backend-android-authorize-users-in-scripts.md
 
 [Портал управления Azure]: https://manage.windowsazure.com/
 [Справочник по принципам использования мобильных служб .NET]: /develop/mobile/how-to-guides/work-with-net-client-library
-[Регистрация пакета приложения для магазина Windows для проверки подлинности Microsoft]: /documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication
+[Регистрация пакета приложения для Магазина Windows для проверки подлинности Майкрософт]: mobile-services-how-to-register-store-app-package-microsoft-authentication.md
 
-<!--HONumber=47-->
+<!--HONumber=49-->

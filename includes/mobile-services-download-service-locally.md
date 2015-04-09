@@ -6,7 +6,7 @@
 
     ![](./media/mobile-services-dotnet-backend-android-get-started-data/download-service-project.png)
 
-3. Если вы еще не сделали этого, скачайте и установите [Visual Studio Professional 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934)или более позднюю версию.
+3. Если вы еще не сделали этого, загрузите и установите [Visual Studio Professional 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934) или более поздней версии.
 
 4. Щелкните **Загрузить** в разделе **Загрузка и публикация службы в облаке**.
 
@@ -27,4 +27,4 @@
 [Портал управления Azure]: https://manage.windowsazure.com/
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 
-<!--HONumber=47-->
+<!--HONumber=49-->

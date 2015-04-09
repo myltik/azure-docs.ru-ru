@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Проверка подлинности приложения с помощью Live Connect (Windows Phone) | Центр мобильных разработок" 
 	description="Узнайте, как использовать единый вход Live Connect в мобильных службах Azure из приложения Windows Phone." 
 	services="mobile-services" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="11/22/2014" 
@@ -19,12 +19,12 @@
 # Аутентификация приложения для Windows Phone 8 с помощью единого входа Live Connect
 
 <div class="dev-center-tutorial-selector sublanding"> 
-	<a href="/ru-ru/documentation/articles/mobile-services-windows-store-dotnet-single-sign-on/" title="Windows Store C#">Магазин Windows - C#</a><a href="/ru-ru/documentation/articles/mobile-services-windows-store-javascript-single-sign-on/" title="Windows Store JavaScript">Магазин Windows - JavaScript</a><a href="/ru-ru/documentation/articles/mobile-services-windows-phone-single-sign-on/" title="Windows Phone" class="current">Windows Phone</a>
+	<a href="/documentation/articles/mobile-services-windows-store-dotnet-single-sign-on/" title="Windows Store C#">Магазин Windows - C#</a><a href="/documentation/articles/mobile-services-windows-store-javascript-single-sign-on/" title="Windows Store JavaScript">Магазин Windows - JavaScript</a><a href="/documentation/articles/mobile-services-windows-phone-single-sign-on/" title="Windows Phone" class="current">Windows Phone</a>
 </div>	
 
 В этом разделе показано, как использовать единый вход Live Connect для проверки подлинности пользователей в мобильных службах Azure из приложения Windows Phone 8.  В этом учебнике вы добавляете проверку подлинности в проект быстрого запуска с помощью Live Connect. После успешного прохождения проверки подлинности в Live Connect вошедший в систему пользователь приветствуется по имени и отображается значение идентификатора пользователя.  
 
->[AZURE.NOTE]В этом учебнике показаны преимущества использования процедуры единого входа, предоставляемой Live Connect для приложений для Windows Phone. Это позволяет легче проверять подлинность уже вошедшего в систему пользователя с помощью мобильной службы. Сведения о более общей проверке подлинности, поддерживающей несколько поставщиков услуг проверки подлинности, см. в разделе <a href="/ru-ru/documentation/articles/mobile-services-windows-phone-get-started-users">Добавление проверки подлинности в приложение</a>. 
+>[AZURE.NOTE] В этом учебнике показаны преимущества использования процедуры единого входа, предоставляемой Live Connect для приложений для Windows Phone. Это позволяет легче проверять подлинность уже вошедшего в систему пользователя с помощью мобильной службы. Сведения о более общей проверке подлинности, поддерживающей несколько поставщиков услуг проверки подлинности, см. в разделе <a href="mobile-services-windows-phone-get-started-users.md">Добавление проверки подлинности в приложение</a>. 
 
 В этом учебнике рассматриваются следующие основные шаги для включения проверки подлинности Live Connect:
 
@@ -42,7 +42,7 @@
 
 Чтобы иметь возможность проверять подлинность пользователей, необходимо зарегистрировать свое приложение в центре разработчиков Live Connect. Затем необходимо зарегистрировать секрет клиента для интеграции Live Connect с мобильными службами.
 
-1. Выполните вход на [портал управления Azure], щелкните пункт **Мобильные службы**, а затем щелкните свою мобильную службу.
+1. Выполните вход на [портал управления Azure], щелкните пункт **Мобильные службы**, а затем выберите свою мобильную службу.
 
    	![][4]
 
@@ -140,7 +140,7 @@
 
 7. Укажите в строке _<< INSERT CLIENT ID HERE >>_ из предыдущего шага значение идентификатора клиента, созданное во время регистрации приложения в Live Connect.
 
-    > [AZURE.NOTE] В приложении Windows Phone 8 экземпляр класса **LiveAuthClient** создается путем передачи значения идентификатора клиента в конструктор классов. В [приложении Магазина Windows](/ru-ru/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/) экземпляр того же класса создается посредством передачи URI домена перенаправления.
+    > [AZURE.NOTE] В приложении Windows Phone 8 экземпляр класса **LiveAuthClient** создается путем передачи значения идентификатора клиента в конструктор классов. В [приложении Магазина Windows](/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/)экземпляр того же класса создается посредством передачи URI домена перенаправления.
 
 8. Удалите или закомментируйте существующее переопределение метода **OnNavigatedTo** и замените его на следующий метод, который обрабатывает событие **Loaded** для страницы. 
 
@@ -169,7 +169,7 @@
 
 ## <a name="next-steps"> </a>Дальнейшие действия
 
-В следующем учебном курсе, который называется [Авторизация пользователей с помощью скриптов], значение ИД пользователя, предоставляемое мобильными службами на основе пользователя, прошедшего проверку подлинности, будет использоваться для фильтрации данных, возвращаемых мобильными службами. Информацию об использовании других поставщиков удостоверений для проверки подлинности см. в разделе [Приступая к работе с проверкой подлинности]. 
+В следующем учебном курсе, который называется [Авторизация пользователей с помощью скриптов], значение идентификатора пользователя, предоставляемое мобильными службами на основе пользователя, прошедшего проверку подлинности, будет использоваться для фильтрации данных, возвращаемых мобильными службами. Информацию об использовании других поставщиков удостоверений для проверки подлинности см. в разделе [Приступая к работе с проверкой подлинности]. 
 
 <!-- Anchors. -->
 [Регистрация приложения для проверки подлинности и настройка мобильных служб]: #register
@@ -185,18 +185,16 @@
 
 [13]: ./media/mobile-services-windows-phone-single-sign-on/mobile-identity-tab-ma-only.png
 [14]: ./media/mobile-services-windows-phone-single-sign-on/mobile-portal-data-tables.png
-[15]: ./media/mobile-services-windows-phone-single-sign-on/mobile-portal-change-table-per
-	ms.png
+[15]: ./media/mobile-services-windows-phone-single-sign-on/mobile-portal-change-table-perms.png
 [16]: ./media/mobile-services-windows-phone-single-sign-on/mobile-add-reference-live-wp8.png
 
 <!-- URLs. -->
 [Мои приложения]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK для Windows и Windows Phone]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Добавление мобильных служб к существующему приложению]: /ru-ru/documentation/articles/mobile-services-windows-phone-get-started-data/
-[Приступая к работе с проверкой подлинности]: /ru-ru/documentation/articles/mobile-services-windows-phone-get-started-users
-[Авторизация пользователей с помощью скриптов]: /ru-ru/documentation/articles/mobile-services-windows-phone-authorize-users-in-scripts/
+[Добавление мобильных служб к существующему приложению]: mobile-services-windows-phone-get-started-data.md
+[Приступая к работе с проверкой подлинности]: mobile-services-windows-phone-get-started-users.md
+[Авторизация пользователей с помощью скриптов]: mobile-services-windows-phone-authorize-users-in-scripts.md
 
 [Портал управления Azure]: https://manage.windowsazure.com/
 
-
-<!--HONumber=42-->
+<!--HONumber=49-->

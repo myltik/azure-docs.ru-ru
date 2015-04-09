@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-android" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="09/23/2014" 
@@ -71,7 +71,7 @@
 
     При этом создается новый метод для обработки процесса проверки подлинности. Пользователь прошел проверку подлинности с помощью имени входа в Facebook. Открывается диалоговое окно, в котором отображается идентификатор пользователя, прошедшего проверку подлинности. 
 
-    > [AZURE.NOTE] Если используется поставщик удостоверений, отличный от Facebook, измените значение, передаваемое в метод **LoginAsync** выше, на одно из следующих: _MicrosoftAccount_, _Twitter_, _Google_ или _WindowsAzureActiveDirectory_.
+    > [AZURE.NOTE] Если вы используете поставщик удостоверений, отличный от Facebook, измените значение, передаваемое в **LoginAsync**, на одно из нижеследующих: _MicrosoftAccount_, _Twitter_, _Google_ или _WindowsAzureActiveDirectory_.
 
 3. Добавьте в метод **OnCreate** следующую строку после кода, который формирует экземпляр объекта `MobileServiceClient`.
 
@@ -88,9 +88,9 @@
    	После успешного входа в систему приложение должно работать без ошибок, а вы должны быть в состоянии выполнять запросы мобильных служб и обновлять данные.
 
 
-<!-- ## <a name="next-steps"> </a>Дальнейшие действия
+<!-- ## <a name="next-steps"> </a>Next steps
 
-В следующем учебнике, [Авторизация пользователей мобильных служб на стороне службы][Авторизация пользователей с помощью скриптов], показано, как идентификатор пользователя, прошедшего проверку подлинности, который предоставлен мобильными службами, применяется для фильтрации данных, возвращаемых мобильными службами. 
+In the next tutorial, [Service-side authorization of Mobile Services users][Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. 
  -->
  
 <!-- Anchors. -->
@@ -104,13 +104,12 @@
 [Отправка страницы приложения]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Мои приложения]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK для Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started/
-[Приступая к работе с проверкой подлинности]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started-users/
-[Приступая к работе с push-уведомлениями]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started-push/
-[Авторизация пользователей с помощью скриптов]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts
-[JavaScript и HTML]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users/
+[Приступая к работе с мобильными службами]: mobile-services-dotnet-backend-xamarin-android-get-started.md
+[Приступая к работе с проверкой подлинности]: mobile-services-dotnet-backend-xamarin-android-get-started-users.md
+[Приступая к работе с push-уведомлениями]: mobile-services-dotnet-backend-xamarin-android-get-started-push.md
+[Авторизация пользователей с помощью скриптов]: mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts.md
+[JavaScript и HTML]: mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
 
 [Портал управления Azure]: https://manage.windowsazure.com/
 
-
-<!--HONumber=42-->
+<!--HONumber=49-->

@@ -4,7 +4,7 @@
 	services="web-sites, virtual-machines" 
 	documentationCenter="nodejs" 
 	authors="chrischang12" 
-	manager="partners@mongolab.com" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="09/17/2014" 
-	ms.author="chris@mongolab.com"/>
+	ms.date="02/04/2014" 
+	ms.author="mwasson"/>
 
 
 
@@ -46,7 +46,7 @@
 Если у вас есть опыт работы с Магазином Azure, воспользуйтесь этим разделом, чтобы быстро начать работу. В противном случае изучите приведенный ниже раздел [Подготовка базы данных][provision].
  
 1. Откройте Магазин Azure.  
-![Store][button-store]
+![Магазин][button-store]
 2. Щелкните надстройку MongoLab.  
 ![MongoLab][entry-mongolab]
 3. Щелкните надстройку MongoLab в списке надстроек, затем выберите пункт **Сведения о подключении**.  
@@ -58,7 +58,7 @@
 ![WebSiteConnectionStrings][focus-website-connectinfo]
 6. в поле **Имя** введите MONGOLAB\_URI.
 7. В качестве **Значения** вставьте строку подключения, полученную в предыдущем разделе.
-8. Выберите **Настраиваемый** в раскрывающемся списке "Тип" (вместо значения по умолчанию **SQLAzure**).
+8. Выберите в раскрывающемся меню "Тип" пункт **Настраиваемый** (вместо значения по умолчанию **SQLAzure**).
 9. Запустите `npm install mongoose`, чтобы получить Mongoose, драйвер узла MongoDB.
 10. Настройте обработчик в коде, чтобы получить универсальный код ресурса (URI) подключения MongoLab из переменной среды и выполнить подключение:
 
@@ -68,7 +68,7 @@
  		...
  		mongoose.connect(connectionString);
 
-Примечание. Azure добавляет префикс **CUSTOMCONNSTR\_** к исходно объявленной строке подключения, поэтому в коде имеется ссылка на **CUSTOMCONNSTR\_MONGOLAB\_URI.** вместо **MONGOLAB\_URI**.
+Примечание. Azure добавляет префикс **CUSTOMCONNSTR\_** к первоначально объявленной строке подключения, поэтому в коде имеется ссылка на **CUSTOMCONNSTR\_MONGOLAB\_URI.** вместо **MONGOLAB\_URI**.
 
 Теперь перейдем к полному учебнику...
 
@@ -89,7 +89,7 @@
 
 		npm install express -g
  
-	Код `-g` указывает на глобальный режим, который используется для предоставления доступа к модулю <strong>express</strong> без указания пути к каталогу. При появлении сообщения <strong>Error: EPERM, chmod '/usr/local/bin/express'</strong>, используйте <strong>sudo</strong> для запуска npm с более высоким уровнем привилегий.
+	-g указывает на глобальный режим, который используется для предоставления доступа к модулю <strong>express</strong> без указания пути к каталогу. При появлении сообщения <strong>Error: EPERM, chmod '/usr/local/bin/express'</strong> используйте режим <strong>sudo</strong>, чтобы запустить диспетчер npm на более высоком, привилегированном уровне.
 
     Результат этой команды должен выглядеть аналогично следующему:
 
@@ -120,15 +120,15 @@
  
 3. Чтобы создать шаблоны, которые будут применяться для этого приложения, используйте команду **express**:
 
-    express
+    	express
 
     Обратите внимание, что в этом учебнике используется Express версии 4.x.x. Если в системе уже установлен генератор приложений Express 3, сначала удалите его.
 
-    npm uninstall -g express
+    	npm uninstall -g express
 
-    Теперь установите новый генератор для версии 4.x.x.
+    Now install the new generator for version 4.x.x:
 
-    npm install -g express-generator
+    	npm install -g express-generator
 
 	После запуска команды **express** выходные результаты должны выглядеть следующим образом:
 
@@ -327,7 +327,7 @@
 
 1. Измените каталоги на каталог **views** и откройте файл **index.jade** в текстовом редакторе.
 
-2. Замените содержимое файла **index.jade** на код, приведенный ниже. Он определяет представление для отображения существующих задач, а также форму для добавления новых задач и пометки существующих задач как завершенных.
+2. Замените содержимое файла **index.jade** кодом, приведенным ниже. Он определяет представление для отображения существующих задач, а также форму для добавления новых задач и пометки существующих задач как завершенных.
 
 		h1 #{title}
 		form(action="/completetask", method="post")
@@ -405,7 +405,7 @@
 	
 	npm install azure-cli -g
 
-Если вы уже установили пакет <strong>SDK для Azure для Node.js</strong> из <a href="/ru-ru/develop/nodejs/">Центра разработчиков Azure</a>, то программы командной строки должны быть уже установлены. Дополнительную информацию см. в статье <a href="/ru-ru/develop/nodejs/how-to-guides/command-line-tools/">Программы командной строки Azure для Mac и Linux</a>.
+Если вы уже установили пакет <strong>SDK Azure для Node.js</strong> из <a href="/develop/nodejs/">Центра разработчиков Azure</a>, то программы командной строки должны быть уже установлены. Дополнительные сведения см. в статье <a href="virtual-machines-command-line-tools.md">Программы командной строки Azure для Mac и Linux</a>.
 
 Хотя программы командной строки Azure были созданы в основном для пользователей Mac и Linux, они основаны на Node.js и должны работать в любой системе, поддерживающей Node.
 
@@ -417,7 +417,7 @@
 
 		azure account download
 	
-	![The download page][download-publishing-settings]
+	![Страница загрузки][download-publishing-settings]
 	
 	Загрузка файла должна начаться автоматически. Если этого не произошло, можно щелкнуть ссылку в начале страницы, чтобы загрузить файл вручную.
 
@@ -427,13 +427,13 @@
 		
 	Укажите путь и имя файла параметров публикации, загруженного на предыдущем шаге. Результат выполнения команды должен быть похож на следующее:
 	
-		info:   Executing command account import
-		info:   Found subscription: subscriptionname
+		информация:   Executing command account import
+		информация:   Found subscription: subscriptionname
 		info:   Setting default subscription to: subscriptionname
-		warn:   The '/Users/mongolab/.azure/publishSettings.xml' file contains sensitive information.
-		warn:   Remember to delete it now that it has been imported.
-		info:   Account publish settings imported successfully
-		info:   account import command OK
+		предупреждение:   The '/Users/mongolab/.azure/publishSettings.xml' file contains sensitive information.
+		предупреждение:   Remember to delete it now that it has been imported.
+		информация:   Account publish settings imported successfully
+		информация:   account import command OK
 
 
 3. По завершении импорта следует удалить файл параметров публикации, так как он больше не нужен и содержит важные сведения, касающиеся подписки Azure.
@@ -443,7 +443,7 @@
 Создать веб-сайт в Azure очень просто. Если это ваш первый веб-сайт Azure, необходимо использовать портал. Если уже имеется по крайней мере один, перейдите к шагу 7.
 
 1. На портале Azure нажмите кнопку **Создать**.    
-![New][button-new]
+![Создать][button-new]
 2. Последовательно выберите пункты **Среда выполнения приложений > Веб-сайт > Быстро создать**. 
 ![CreateSite][screen-mongolab-newwebsite]
 3. Введите префикс URL-адреса. Выберите нужное имя, но помните, что оно должно быть уникальным (скорее всего, имя mymongoapp не будет доступно).
@@ -456,23 +456,23 @@
 		azure site create myuniquesitename --git  
 	Замените значение 'myuniquesitename' на уникальное имя вашего сайта. Если веб-сайт создается в рамках этой команды, появится запрос на указание центра обработки данных, в котором будет размещен этот сайт. Выберите центр обработки данных, который географически расположен неподалеку от вашей базы данных MongoLab.
 	
-	Параметры `--git` приведет к созданию:
-	A. локального репозитория Git в папке **tasklist**, если таковой не существует.
-	A. [удаленного Git] с именем  'azure', который будет использоваться для публикации приложения в Azure.
-	A. файла [iisnode.yml], который содержит настройки, используемые Azure для размещения приложений узла.
-	A. файла .gitignore, который используется для предотвращения публикации в .git папки node-modules.  
+	Параметр "--git" обеспечит создание:
+	* локального репозитория Git в папке **tasklist**, если таковой не существует;
+	* [удаленного репозитория Git] с именем 'azure', который будет использоваться для публикации приложения в Azure;
+	* файла [iisnode.yml], который содержит настройки, используемые Azure для размещения приложений узла;
+	* файла .gitignore, который используется для предотвращения публикации в .git папки node-modules.  
 	  
 	После выполнения этой команды должен появиться результат, похожий на следующий. Обратите внимание, что строка, начинающаяся с **Created website at** (Созданный веб-сайт по адресу), содержит URL-адрес веб-сайта.
 
 		info:   Executing command site create
 		info:   Using location southcentraluswebspace
-		info:   Executing `git init`
-		info:   Creating default web.config file
+		информация:   Executing `git init`
+		info:   Создание файла по умолчанию web.config
 		info:   Creating a new web site
-		info:   Created web site at  mongodbtasklist.azurewebsites.net
+		информация:   Создание веб-сайта на mongodbtasklist.azurewebsites.net
 		info:   Initializing repository
-		info:   Repository initialized
-		info:   Executing `git remote add azure http://gitusername@myuniquesitename.azurewebsites.net/mongodbtasklist.git`
+		информация:   Repository initialized
+		информация:   Executing `git remote add azure http://gitusername@myuniquesitename.azurewebsites.net/mongodbtasklist.git`
 		info:   site create command OK
 
 8. Используйте следующие команды для добавления и последующего сохранения файлов в локальном репозитории Git:
@@ -487,19 +487,19 @@
 	
 	Должен появиться результат, аналогичный приведенному ниже. По мере выполнения развертывания Azure будет загружать все модули npm. 
 
-		Counting objects: 17, done.
-		Delta compression using up to 8 threads.
-		Compressing objects: 100% (13/13), done.
-		Writing objects: 100% (17/17), 3.21 KiB, done.
-		Total 17 (delta 0), reused 0 (delta 0)
-		remote: New deployment received.
+		Подсчет объектов: 17, завершено.
+		Сжатие Delta в 8 потоков.
+		Сжатие объектов: 100% (13/13), завершено.
+		Запись объектов: 100% (17/17), 3.21 KiB, завершено.
+		Всего 17 (дельта 0), повторно использовано 0 (дельта 0)
+		remote: Новое развертывание получено.
 		remote: Updating branch 'master'.
-		remote: Preparing deployment for commit id 'ef276f3042'.
-		remote: Preparing files for deployment.
-		remote: Running NPM.
+		remote: Подготовка развертывания для идентификатора "ef276f3042".
+		remote: Подготовка файлов к развертыванию.
+		remote: Запуск NPM.
 		...
-		remote: Deploying Web.config to enable Node.js activation.
-		remote: Deployment successful.
+		remote: Развертывание Web.config для активации Node.js.
+		remote: Развертывание завершено успешно.
 		To https://username@mongodbtasklist.azurewebsites.net/MongoDBTasklist.git
  		 * [new branch]      master -> master
  
@@ -520,7 +520,7 @@
 
 Выполните `azure site browse` в каталоге проекта, чтобы браузер открылся автоматически, или вручную откройте браузер и перейдите по URL-адресу веб-сайта (myuniquesite.azurewebsites.net):
 
-![A webpage displaying an empty tasklist][node-mongo-finished]
+![Веб-страница с пустым списком задач][node-mongo-finished]
 
 <h2><a name="manage"></a>Управление базой данных</h2>
 
@@ -538,25 +538,25 @@
 [button-connectioninfo]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/button-connectioninfo.png
 [screen-connectioninfo]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/dialog-mongolab_connectioninfo.png
 [focus-website-connectinfo]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/focus-mongolab-websiteconnectionstring.png
-[provision]: #provision
-[create]: #create
-[deploy]: #deploy
-[manage]: #manage
+[подготовка]: #provision
+[создание]: #create
+[развертывание]: #deploy
+[управление]: #manage
 [Node.js]: http://nodejs.org
 [MongoDB]: http://www.mongodb.org
 [Git]: http://git-scm.com
 [Express]: http://expressjs.com
 [Mongoose]: http://mongoosejs.com
-[бесплатно]: /ru-ru/pricing/free-trial
+[бесплатно]: /pricing/free-trial
 [Удаленный репозиторий Git]: http://git-scm.com/docs/git-remote
 [azure-sdk-for-node]: https://github.com/WindowsAzure/azure-sdk-for-node
 [iisnode.yml]: https://github.com/WindowsAzure/iisnode/blob/master/src/samples/configuration/iisnode.yml
-[Программа командной строки Azure для Mac и Linux]: /ru-ru/develop/nodejs/how-to-guides/command-line-tools/
-[Центр разработчиков Azure]: /ru-ru/develop/nodejs/
-[Создание и развертывание приложения Node.js на веб-сайтах Azure]: /ru-ru/develop/nodejs/tutorials/create-a-website-(mac)/
-[Публикация на веб-сайтах Azure с использованием репозитория Git]: /ru-ru/develop/nodejs/common-tasks/publishing-with-git/
+[Средство командной строки Azure для Mac и Linux]: virtual-machines-command-line-tools.md
+[Центр разработчиков Azure]: /develop/nodejs/
+[Создание и развертывание приложения Node.js на веб-сайтах Azure]: /develop/nodejs/tutorials/create-a-website-(mac)/
+[Публикация на веб-сайтах Azure с использованием репозитория Git]: /develop/nodejs/common-tasks/publishing-with-git/
 [MongoLab]: http://mongolab.com
-[Веб-приложение node.js с хранилищем в MongoDB (виртуальная машина)]: /ru-ru/develop/nodejs/tutorials/website-with-mongodb-(mac)/
+[Веб-приложение Node.js с хранилищем в MongoDB (виртуальная машина)]: /develop/nodejs/tutorials/website-with-mongodb-(mac)/
 [node-mongo-finished]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/todo_list_noframe.png
 [node-mongo-express-results]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/express_output.png
 [download-publishing-settings]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/azure-account-download-cli.png
@@ -567,5 +567,4 @@
 
 
 
-
-<!--HONumber=42-->
+<!--HONumber=49-->

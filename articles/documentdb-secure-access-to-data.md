@@ -159,8 +159,8 @@ DocumentDB содержит понятия первого класса, позв
 
 ##<a name="NextSteps"></a>Дальнейшие действия
 
-- Дополнительные сведения о DocumentDB см. [здесь](http://azure.com/docdb).
-- Дополнительные сведения об управлении главными ключами и ключами только для чтения см. [здесь](http://azure.microsoft.com/documentation/articles/documentdb-manage-account/).
+- Для получения дополнительных сведений о DocumentDB щелкните [здесь](http://azure.com/docdb).
+- Дополнительные сведения об управлении главными ключами и ключами только для чтения см. [здесь](documentdb-manage-account.md).
 - Сведения о создании маркеров авторизации DocumentDB см. [здесь](https://msdn.microsoft.com/library/azure/dn783368.aspx).
 
-<!--HONumber=47-->
+<!--HONumber=49-->

@@ -34,7 +34,7 @@
 
     --find-links wheelhouse
     azure==0.8.4
-			
+
 Если необходимо включить все зависимости в папку \wheelhouse и не использовать каталог пакетов Python, можно задать в pip принудительный пропуск каталога пакетов, добавив "--no-index" в начало файла requirements.txt.
 
     --no-index
@@ -65,6 +65,7 @@
 
 
 [Создание виртуальной машины под управлением Windows]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/
-[Компилятор Microsoft Visual C++ для Python 2.7]: http:://aka.ms/vcpython27
+[Компилятор Microsoft Visual C++ для Python 2.7]: http://aka.ms/vcpython27
 [Microsoft Visual C++ 2010 Express]: http://go.microsoft.com/?linkid=9709949
-<!--HONumber=42-->
+
+<!--HONumber=49-->

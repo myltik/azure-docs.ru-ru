@@ -1,7 +1,7 @@
-﻿<properties 
-	pageTitle="Веб-сайт на PHP с использованием MySQL и FTP - учебник Azure" 
-	description="В этом учебнике показано, как создать веб-сайт на PHP, который хранит данные в MySQL и использует развертывание FTP в Azure." 
-	services="web-sites" 
+<properties 
+	pageTitle="Создание веб-приложения PHP-MySQL в службе приложений Azure и развертывание с помощью FTP" 
+	description="В этом учебнике показано, как создать веб-приложение PHP, которое хранит данные в MySQL и использует развертывание FTP в Azure." 
+	services="app-service\web" 
 	documentationCenter="php" 
 	authors="tfitzmac" 
 	manager="wpickett" 
@@ -13,69 +13,71 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="11/14/2014" 
+	ms.date="03/24/2015" 
 	ms.author="tomfitz"/>
 
 
-#Создание веб-сайта PHP-MySQL Azure и его развертывание с помощью FTP
+#Создание веб-приложения PHP-MySQL в службе приложений Azure и развертывание с помощью FTP
 
-В этом учебнике показано, как создать веб-сайт PHP-MySQL Azure и развернуть его с помощью FTP. В этом учебнике предполагается, что на компьютере установлены [PHP][install-php], [MySQL][install-mysql], веб-сервер и FTP-клиент. Указания, приведенные в этом учебнике, применимы к любой операционной системе, включая Windows, Linux и Mac. После завершения работы с этим учебником в Azure будет работать веб-сайт PHP/MySQL.
+В этом учебнике показано, как создать веб-приложение PHP-MySQL и развернуть его с помощью FTP. Предполагается, что на вашем компьютере установлены [PHP][install-php], [MySQL][install-mysql], веб-сервер и клиент FTP. Инструкции, приведенные в этом учебнике, применимы к любой операционной системе, включая Windows, Mac и Linux. После завершения работы с этим учебником у вас будет работающее в Azure веб-приложение PHP-MySQL.
  
 Вы узнаете:
 
-* Как создать веб-сайт Azure и базу данных MySQL с помощью портала управления Azure. Поскольку PHP для веб-сайтов Azure включен по умолчанию, никаких дополнительных действий для выполнения PHP-кода не требуется.
+* Как создать веб-приложение и базу данных MySQL с помощью портала Azure. Так как язык PHP включен в веб-приложениях по умолчанию, никаких дополнительных действий для выполнения вашего PHP-кода не требуется.
 * Как опубликовать приложение в Azure с использованием FTP.
  
-Руководствуясь этим учебником, вы создадите в PHP простое веб-приложение регистрации. Приложение будет размещаться на веб-сайте Azure. Снимок экрана завершенного приложения приведен ниже:
+Руководствуясь этим учебником, вы создадите на языке PHP простое веб-приложение для регистрации. Приложение будет размещаться в веб-приложении. Снимок экрана завершенного приложения приведен ниже:
 
 ![Azure PHP Web Site][running-app]
 
-[AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+>[AZURE.NOTE] Если вы хотите ознакомиться со службой приложений Azure до регистрации учетной записи, перейдите на страницу [ознакомления со службой приложений](http://go.microsoft.com/fwlink/?LinkId=523751), где сможете быстро создать кратковременное начальное веб-приложение в службе приложений. Никаких кредитных карт и обязательств. 
 
-##Создание веб-сайта Azure и настройка публикации на FTP
 
-Для создания веб-сайта Azure и базы данных MySQL выполните следующие действия.
+##Создание веб-приложения и настройка публикации через FTP
 
-1. Войдите на [портал управления Azure][management-portal].
+Чтобы создать веб-приложение и базу данных MySQL, сделайте вот что.
+
+1. Войдите на [портал Azure][management-portal].
 2. Щелкните значок **+ Создать** в нижнем левом углу портала.
 
 	![Create New Azure Web Site][new-website]
 
-3. Щелкните **ВЕБ-САЙТ**, а затем выберите **НАСТРАИВАЕМОЕ СОЗДАНИЕ**.
+3. Щелкните **Интернет + мобильные устройства**, а затем **Веб-приложение + MySQL**.
 
 	![Custom Create a new Web Site][custom-create]
-	
-	Введите значение в поле **URL-адрес**, выберите **Создать новую базу данных MySQL** в раскрывающемся списке **БАЗА ДАННЫХ** и выберите центр обработки данных для вашего веб-сайта в раскрывающемся списке **РЕГИОН**. Щелкните стрелку в нижней части диалогового окна.
 
-	![Fill in Web Site details][website-details]
+4. Укажите действительное имя группы ресурсов.
 
-4. Введите **ИМЯ** вашей базы данных, выберите центр обработки данных для ее размещения в раскрывающемся списке **РЕГИОН** и установите флажок, свидетельствующий о вашем согласии с юридическими условиями и положениями. Щелкните флажок в нижней части диалогового окна.
+    ![Set resource group name][resource-group]
+
+5. Введите значения для нового веб-приложения.
+
+     ![Create web app][new-web-app]
+
+6. Введите значения для своей новой базы данных и примите условия.
 
 	![Create new MySQL database][new-mysql-db]
+	
+7. Когда веб-приложение будет создано, вы увидите новую группу ресурсов. Щелкните имя веб-приложения, чтобы настроить его параметры.
 
-	После создания веб-сайта появится сообщение **Веб-сайт'[SITENAME]' успешно создан**. Теперь можно включить публикацию FTP.
+	![Open web app][go-to-webapp]
 
-5. В списке веб-сайтов щелкните имя веб-сайта, чтобы открыть страницу панели управления **БЫСТРЫЙ ЗАПУСК** для этого веб-сайта.
+6. Прокручивайте вниз до элемента **Настройка учетных данных для развертывания**. 
 
-	![Open web site dashboard][go-to-dashboard]
+	![Set deployment credentials][set-deployment-credentials]
 
+7. Чтобы включить публикацию в FTP, необходимо указать имя пользователя и пароль. Сохраните учетные данные и запишите имя пользователя и пароль, которые вы создали.
 
-6. В нижней части страницы **БЫСТРЫЙ ЗАПУСК** щелкните **Сбросить учетные данные развертывания**. 
+	![Create publishing credentials][portal-ftp-username-password]
 
-	![Reset deployment credentials][reset-deployment-credentials]
-
-7. Чтобы включить публикацию в FTP, необходимо указать имя пользователя и пароль. Запишите создаваемые имя пользователя и пароль.
-
-	![Create publishing credentials][portal-git-username-password]
-
-##Построение и тестирование приложения на локальном ресурсе
+##Создание и тестирование приложения локально
 
 Приложение регистрации представляет собой простое приложение PHP, которое позволяет регистрироваться на мероприятие, предоставляя свое имя и адрес электронной почты. Сведения о ранее зарегистрировавшихся пользователях отображаются в таблице. Сведения о регистрации хранятся в базе данных MySQL. Приложение состоит из двух файлов:
 
 * **index.php**: отображает форму для регистрации и таблицу, содержащую сведения о зарегистрировавшихся пользователях.
 * **createtable.php**: создает таблицу MySQL для приложения. Этот файл будет использоваться только один раз.
 
-Чтобы построить и запустить приложение локально, выполните следующие действия. Обратите внимание, что предполагается наличие на локальном компьютере PHP, MySQL и веб-сервера, а также включение [расширения PDO для MySQL][pdo-mysql].
+Чтобы создать и запустить приложение локально, следуйте инструкциям. Обратите внимание, что предполагается наличие PHP, MySQL и веб-сервера на локальном компьютере, а также включение [расширения PDO для MySQL][pdo-mysql].
 
 1. Создание базы данных MySQL с именем `registration`. Это можно сделать в командной строке MySQL с помощью следующей команды:
 
@@ -109,9 +111,9 @@
 		?>
 
 	> [AZURE.NOTE] 
-	> Вам понадобится обновить значения <code>$user</code> и <code>$pwd</code> именем пользователя и паролем своей локальной базы данных MySQL.
+	> Вам будет необходимо обновить значения для <code>$user</code> и <code>$pwd</code> с использованием имени пользователя и пароля локальной базы данных MySQL.
 
-4. Откройте браузер и перейдите по адресу [http://localhost/registration/createtable.php][localhost-createtable].. В результате в базе данных будет создана таблица  `registration_tbl`.
+4. Откройте веб-браузер и перейдите по адресу [http://localhost/registration/createtable.php][localhost-createtable]. В результате в базе данных будет создана таблица  `registration_tbl`.
 
 5. Откройте файл **index.php** в текстовом редакторе или в интегрированной среде разработки и добавьте базовый HTML-код и CSS для страницы (PHP-код будет добавлен позднее).
 
@@ -163,7 +165,7 @@
 		}
 
 	> [AZURE.NOTE]
-	> Вам понадобится снова обновить значения <code>$user</code> и <code>$pwd</code> именем пользователя и паролем своей локальной базы данных MySQL.
+	> Вам снова потребуется обновить значения для <code>$user</code> и <code>$pwd</code> с использованием имени пользователя и пароля локальной базы данных MySQL.
 
 7. После кода подключения к базе данных добавьте код для вставки регистрационных данных в базу данных.
 
@@ -208,25 +210,31 @@
 			echo "<h3>No one is currently registered.</h3>";
 		}
 
-Теперь можно перейти к [http://localhost/registration/index.php][localhost-index] для тестирования приложения.
+Теперь вы можете перейти по адресу [http://localhost/registration/index.php][localhost-index], чтобы протестировать приложение.
 
 ##Получение сведений о подключении к MySQL и FTP
 
-Чтобы подключиться к базе данных SQL, которая работает на веб-сайтах Azure, необходимо знать сведения о подключении. Чтобы получить сведения о подключении к MySQL, выполните следующие действия.
+Чтобы подключиться к базе данных MySQL, которая работает в веб-приложениях, вам потребуются сведения о подключении. Чтобы получить сведения о подключении к MySQL, выполните следующие действия.
 
-1. На панели мониторинга веб-сайта перейдите по ссылке **Просмотреть строки подключения** в правой части страницы.
+1. В группе ресурсов щелкните базу данных:
 
-	![Get database connection information][connection-string-info]
+	![Select database][select-database]
+
+2. В сводке базы данных щелкните **Свойства**.
+
+    ![Select properties][select-properties]
 	
-2. Обратите внимание на значения для `Database`, `Data Source`, `User Id` и `Password`.
+2. Обратите внимание на значения для `Database`, `Host`, `User Id` и `Password`.
 
-3. На панели мониторинга веб-сайта перейдите по ссылке **Загрузить профиль публикации** в правом нижнем углу страницы.
+    ![Note properties][note-properties]
+
+3. В веб-приложении в правом нижнем углу страницы щелкните ссылку **Загрузить профиль публикации**:
 
 	![Download publish profile][download-publish-profile]
 
 4. Откройте файл `.publishsettings` в редакторе XML. 
 
-3. Найдите элемент  `<publishProfile >`с методом `publishMethod="FTP"` следующего вида:
+3. Найдите элемент `<publishProfile >` с `publishMethod="FTP"`, который выглядит примерно так:
 
 		<publishProfile publishMethod="FTP" publishUrl="ftp://[mysite].azurewebsites.net/site/wwwroot" ftpPassiveMode="True" userName="[username]" userPWD="[password]" destinationAppUrl="http://[name].antdf0.antares-test.windows-int.net" 
 			...
@@ -236,7 +244,7 @@
 
 ##Публикация приложения
 
-После локального тестирования приложения его можно опубликовать на веб-сайте Azure с использованием FTP. Тем не менее, необходимо сначала обновить в приложении сведения подключения к базе данных. При помощи полученной ранее информации о подключении к базе данных (см. раздел **Получение сведений о подключении к MySQL и FTP**) обновите следующую информацию в **обоих** файлах, `createdatabase.php` и `index.php`, соответствующими значениями:
+После локального тестирования приложения его можно опубликовать в веб-приложении с помощью FTP. Тем не менее, необходимо сначала обновить в приложении сведения подключения к базе данных. При помощи полученной ранее информации о подключении к базе данных (см. раздел **Получение сведений о подключении к MySQL и FTP**) обновите следующую информацию в **обоих** файлах, `createdatabase.php` и `index.php`, соответствующими значениями:
 
 	// DB connection info
 	$host = "value of Data Source";
@@ -244,7 +252,7 @@
 	$pwd = "value of Password";
 	$db = "value of Database";
 
-Теперь все готово для публикации приложения с помощью протокола FTP.
+Теперь все готово для публикации приложения через FTP.
 
 1. Откройте выбранный клиент FTP.
 
@@ -256,7 +264,7 @@
 
 После подключения можно будет отправлять и загружать файлы. Убедитесь, что файлы передаются в корневой каталог, т. е. в каталог `/site/wwwroot`.
 
-После отправки `index.php` и `createtable.php` перейдите к **http://[имя сайта].azurewebsites.net/createtable.php** для создания таблицы MySQL для приложения, затем перейдите к **http://[имя сайта].azurewebsites.net/index.php**, чтобы начать использование приложения.
+После загрузки `index.php` и `createtable.php` перейдите по адресу **http://[имя сайта].azurewebsites.net/createtable.php**, чтобы создать таблицу базы данных MySQL для приложения, а затем перейдите на сайт **http://[имя сайта].azurewebsites.net/index.php**, чтобы начать работу с приложением.
  
 
 [install-php]: http://www.php.net/manual/en/install.php
@@ -265,18 +273,21 @@
 [localhost-createtable]: http://localhost/tasklist/createtable.php
 [localhost-index]: http://localhost/tasklist/index.php
 [running-app]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/running_app_2.png
-[new-website]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/new_website.jpg
-[custom-create]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/custom_create.png
+[new-website]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/new_website2.png
+[custom-create]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/create_web_mysql.png
 [website-details]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/website_details.jpg
-[new-mysql-db]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/new_mysql_db.jpg
-[go-to-dashboard]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/go_to_dashboard.png
-[reset-deployment-credentials]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/reset-deployment-credentials.png
-[portal-git-username-password]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/git-deployment-credentials.png
-
+[new-mysql-db]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/create_db.png
+[go-to-webapp]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/select_webapp.png
+[set-deployment-credentials]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/set_credentials.png
+[portal-ftp-username-password]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/save_credentials.png
+[resource-group]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/set_group.png
+[new-web-app]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/create_wa.png
+[select-database]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/select_database.png
+[select-properties]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/select_properties.png
+[note-properties]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/note-properties.png
 
 [connection-string-info]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/connection_string_info.png
-[management-portal]: https://manage.windowsazure.com
-[download-publish-profile]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/download_publish_profile_2.png
+[management-portal]: https://portal.azure.com
+[download-publish-profile]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/download_publish_profile_3.png
 
-
-<!--HONumber=42-->
+<!--HONumber=49-->

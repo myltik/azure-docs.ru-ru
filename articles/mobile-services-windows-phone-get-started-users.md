@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/23/2014" 
+	ms.date="02/26/2015" 
 	ms.author="glenga"/>
 
 # Добавление проверки подлинности в приложение мобильных служб
@@ -50,11 +50,10 @@
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
 
 
-3. В Visual Studio 2012 Express для Windows Phone откройте проект, созданный после завершения учебника [Приступая к работе с мобильными службами]. 
+<ol start="3">
+<li>Откройте проект, созданный после завершения обучения, в Visual Studio 2012 Express для Windows Phone <strong>Приступая к работе с мобильными службами</strong>.</li>
 
-4. Нажмите клавишу F5 для запуска этого приложения на основе быстрого запуска; убедитесь, что после запуска приложения возникает необработанное исключение с кодом состояния 401 (неавторизованный). 
-   
-   	Это происходит потому, что приложение пытается получить доступ к мобильным службам как пользователь, не прошедший проверку подлинности, а таблица _TodoItem_ теперь требует выполнения проверки подлинности.
+<li>Нажмите клавишу F5 для запуска этого приложения на основе быстрого запуска; убедитесь, что после запуска приложения возникает необработанное исключение с кодом состояния 401 (неавторизованный). Это происходит, потому что приложение пытается получить доступ к мобильным службам как пользователь, не прошедший проверку подлинности, а таблица <em>TodoItem</em> теперь требует выполнения проверки подлинности.</li></ol>
 
 Далее приложение будет обновлено таким образом, что оно станет производить аутентификацию учетных данных пользователей, прежде чем запрашивать ресурсы из мобильной службы.
 
@@ -68,7 +67,7 @@
 
 ## <a name="next-steps"> </a>Дальнейшие действия
 
-В следующем учебнике, [Авторизация пользователей мобильных служб на стороне службы][Авторизация пользователей с помощью скриптов], показано, как идентификатор пользователя, прошедшего проверку подлинности, который предоставлен мобильными службами, применяется для фильтрации данных, возвращаемых мобильными службами. 
+В следующем учебнике [Авторизация пользователей мобильных служб на стороне службы](mobile-services-javascript-backend-service-side-authorization.md)вы воспользуетесь значением идентификатора пользователя, предоставляемым мобильными службами на основе пользователя, прошедшего проверку подлинности, для фильтрации данных, возвращаемых мобильными службами. 
 
 <!-- Anchors. -->
 [Регистрация приложения для проверки подлинности и настройка мобильных служб]: #register
@@ -81,15 +80,13 @@
 [2]: ./media/mobile-services-wp8-get-started-users/mobile-service-uri.png
 [3]: ./media/mobile-services-wp8-get-started-users/mobile-identity-tab.png
 [4]: ./media/mobile-services-wp8-get-started-users/mobile-portal-data-tables.png
-[5]: ./media/mobile-services-wp8-get-started-users/mobile-portal-change-table-per
-	ms.png
+[5]: ./media/mobile-services-wp8-get-started-users/mobile-portal-change-table-perms.png
 
 <!-- URLs. -->
 [Отправка страницы приложения]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/mobile-services-windows-phone-get-started
-[Авторизация пользователей с помощью скриптов]: /ru-ru/documentation/articles/mobile-services-windows-phone-authorize-users-in-scripts
+[Приступая к работе с мобильными службами]: mobile-services-windows-phone-get-started.md
+[Авторизация пользователей с помощью скриптов]: mobile-services-windows-phone-authorize-users-in-scripts.md
 [Портал управления Azure]: https://manage.windowsazure.com/
-[Единый вход для приложений Windows Phone с использованием Live Connect]: /ru-ru/documentation/articles/mobile-services-windows-phone-single-sign-on
+[Единый вход для приложений Windows Phone с использованием Live Connect]: mobile-services-windows-phone-single-sign-on.md
 
-
-<!--HONumber=42-->
+<!--HONumber=49-->

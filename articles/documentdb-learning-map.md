@@ -1,5 +1,5 @@
 ﻿<properties 
-	pageTitle="О карте для DocumentDB | Azure" 
+	pageTitle="О карте для Azure DocumentDB | Azure" 
 	description="Формируйте визуальное представление для To Go от 0 до 60 доступных ресурсов в Azure DocumentDB."
 	services="documentdb" 
 	documentationCenter="" 
@@ -23,4 +23,4 @@ Azure DocumentDB - это служба баз данных документов 
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/DocumentDB.Content.Flow.svg" width="100%" height="100%">
 </object>
 
-<!--HONumber=47-->
+<!--HONumber=49-->

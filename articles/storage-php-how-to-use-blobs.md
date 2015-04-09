@@ -1,9 +1,9 @@
 ﻿<properties 
-	pageTitle="Как использовать хранилище больших двоичных объектов (PHP) - Microsoft Azure" 
-	description="Узнайте, как использовать службу BLOB-объектов Azure для передачи, перечисления, скачивания и удаления больших двоичных объектов. Примеры кода написаны на PHP." 
+	pageTitle="Использование хранилища BLOB-объектов из PHP в Microsoft Azure" 
+	description="Узнайте, как использовать службу BLOB-объектов Azure для отправки, перечисления, загрузки и удаления больших двоичных объектов. Примеры кода написаны на PHP." 
 	documentationCenter="php" 
 	services="storage" 
-	authors="tfitzmac" 
+	authors="tfitzmac,tamram" 
 	manager="wpickett" 
 	editor="mollybos"/>
 
@@ -13,46 +13,32 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="11/24/2014" 
+	ms.date="03/11/2015" 
 	ms.author="tomfitz"/>
 
-#Использование службы BLOB-объектов в PHP
+# Использование хранилища BLOB-объектов из PHP
 
-В этом руководстве показано, как реализовать типичные сценарии с использованием службы BLOB-объектов Azure. Примеры написаны на PHP, и в них используется [пакет SDK для Azure для PHP] [download]. Здесь описаны такие сценарии, как **отправка**, **перечисление**, **скачивание** и **удаление** больших двоичных объектов. Дополнительную информацию о больших двоичных объектах см. в разделе [Дальнейшие действия](#NextSteps).
+[AZURE.INCLUDE [storage-selector-blob-include](../includes/storage-selector-blob-include.md)]
 
-##Оглавление
+## Обзор
 
-* [Что такое хранилище больших двоичных объектов](#what-is)
-* [Основные понятия](#concepts)
-* [Создание учетной записи хранения Azure](#CreateAccount)
-* [Создание приложения PHP](#CreateApplication)
-* [Настройка приложения для доступа к службе BLOB-объектов](#ConfigureStorage)
-* [Настройка подключения к службе хранилища Azure](#ConnectionString)
-* [Практическое руководство. Создание контейнера](#CreateContainer)
-* [Практическое руководство. Отправка большого двоичного объекта в контейнер](#UploadBlob)
-* [Практическое руководство. Перечисление больших двоичных объектов в контейнере](#ListBlobs)
-* [Практическое руководство. Скачивание большого двоичного объекта](#DownloadBlob)
-* [Практическое руководство. Удаление большого двоичного объекта](#DeleteBlob)
-* [Практическое руководство. Удаление контейнера больших двоичных объектов](#DeleteContainer)
-* [Дальнейшие действия](#NextSteps)
+В этом руководстве показано, как реализовать типичные сценарии с использованием службы BLOB-объектов Azure. Примеры написаны на PHP и используют [пакет SDK Azure для PHP] [загрузка]. Здесь описаны такие сценарии, как **отправка**, **перечисление**, **скачивание** и **удаление** больших двоичных объектов. Дополнительную информацию о больших двоичных объектах см. в разделе [Дальнейшие действия](#NextSteps) .
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../includes/storage-blob-concepts-include.md)]
 
-<h2><a id="CreateAccount"></a>Создание учетной записи хранения Azure</h2>
-
 [AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
-<h2><a id="CreateApplication"></a>Создание приложения PHP</h2>
+## Создание приложения PHP
 
 Единственным требованием для создания приложения PHP, которое получает доступ к службе BLOB-объектов Azure, является ссылка на классы в пакете Azure SDK для PHP непосредственно из кода. Можно использовать любые средства разработки для создания приложения, включая программу "Блокнот".
 
 В этом руководстве будут использоваться компоненты службы, которые могут быть вызваны локально в приложении на PHP или в коде, работающем в веб-роли, роли рабочего процесса или на веб-сайте Azure.
 
-<h2><a id="GetClientLibrary"></a>Получение клиентских библиотек Azure</h2>
+## Получение клиентских библиотек Azure
 
 [AZURE.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
 
-<h2><a id="ConfigureStorage"></a>Настройка приложения для доступа к службе BLOB-объектов</h2>
+## Настройка приложения для доступа к службе BLOB-объектов
 
 Чтобы использовать интерфейсы API службы BLOB-объектов Azure, необходимо следующее:
 
@@ -61,16 +47,15 @@
 
 В следующем примере показано, как включить файл автозагрузчика и сослаться на класс **ServicesBuilder**.
 
-> [AZURE.NOTE]
-> В этом примере (и других примерах в этой статье) предполагается, что установлены клиентские библиотеки PHP для Azure через Composer. При установке библиотек вручную или в качестве пакета PEAR необходимо добавить ссылку на файл автозагрузчика `WindowsAzure.php`.
+> [AZURE.NOTE] В этом примере (и других примерах в этой статье) предполагается, что установлены клиентские библиотеки PHP для Azure через Composer. При установке библиотек вручную или в качестве пакета PEAR необходимо добавить ссылку на файл автозагрузчика `WindowsAzure.php`.
 
 	require_once 'vendor\autoload.php';
 	use WindowsAzure\Common\ServicesBuilder;
 
 
-В приведенных ниже примерах всегда будет отображаться оператор  `require_once`, однако ссылки будут приводиться только классы, которые необходимы для выполнения этого примера.
+В приведенных ниже примерах всегда будет отображаться оператор `require_once`, однако обращение будет осуществляться только к классам, которые необходимы для выполнения этого примера.
 
-<h2><a id="ConnectionString"></a>Настройка подключения к службе хранилища Azure</h2>
+## Настройка подключения к хранилищу Azure
 
 Для создания клиента службы BLOB-объектов Azure необходимо сначала сформировать правильную строку подключения. Формат строки подключения к службе BLOB-объектов:
 
@@ -87,7 +72,7 @@
 
 * передать строку подключения напрямую или
 * использовать **CloudConfigurationManager (CCM)** для проверки нескольких внешних источников на наличие строки подключения:
-	* по умолчанию предоставляется поддержка одного внешнего источника - - переменных среды;
+	* по умолчанию предоставляется поддержка одного внешнего источника - переменных среды
 	* можно добавить новые источники, расширив класс **ConnectionStringSource**.
 
 В приведенных здесь примерах строка подключения передается напрямую.
@@ -98,7 +83,7 @@
 
 	$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
 
-<h2><a id="CreateContainer"></a>Практическое руководство. Создание контейнера</h2>
+## Практическое руководство. Создание контейнера
 
 Объект **BlobRestProxy** позволяет создать контейнер BLOB-объектов с помощью метода **createContainer**. При создании контейнера можно задать параметры контейнера, однако это не является обязательным. (В приведенном ниже примере показано, как задать ACL и метаданные контейнера).
 
@@ -144,19 +129,19 @@
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/library/windowsazure/dd179439.aspx
+		// http://msdn.microsoft.com/library/azure/dd179439.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
 	}
 
-Вызов **setPublicAccess(PublicAccessType::CONTAINER\_AND\_BLOBS)** позволяет получить доступ к данным контейнера и больших двоичных объектов через анонимные запросы. Вызов **setPublicAccess(PublicAccessType::BLOBS_ONLY)** позволяет получить доступ через анонимные запросы только к данным больших двоичных объектов. Дополнительную информацию о списках управления доступом для контейнеров см. в разделе [Определение ACL контейнера (REST API)][container-acl].
+Вызов **setPublicAccess(PublicAccessType::CONTAINER\_AND\_BLOBS)** позволяет получить доступ к данным контейнера и больших двоичных объектов через анонимные запросы. Вызов **setPublicAccess(PublicAccessType::BLOBS_ONLY)** позволяет получить доступ через анонимные запросы только к данным BLOB-объектов. Дополнительные сведения о ACL контейнера см. в разделе [Определение ACL контейнера (REST API)][container-acl].
 
-Дополнительную информацию о службе больших двоичных объектов см. в статье [Коды ошибок службы BLOB-объектов][error-codes].
+Дополнительные сведения о кодах ошибок службы BLOB-объектов см. в разделе [Коды ошибок службы BLOB-объектов][error-codes].
 
-<h2><a id="UploadBlob"></a>Практическое руководство. Отправка большого двоичного объекта в контейнер</h2>
+## Практическое руководство. Отправка BLOB-объекта в контейнер
 
-Чтобы передать файл в виде большего двоичного объекта, используйте метод **BlobRestProxy->createBlockBlob**. Эта операция создает BLOB-объект, если он еще не существует, или заменяет его, если он существует. В примере кода ниже предполагается, что контейнер уже создан и использует [fopen][fopen], чтобы открывать файлы в виде потоков.
+Чтобы передать файл в виде большего двоичного объекта, используйте метод **BlobRestProxy->createBlockBlob**. Эта операция создает BLOB-объект, если он еще не существует, или заменяет его, если он существует. В примере кода предполагается, что контейнер уже был создан и использует [fopen][fopen] для открытия файла в виде потока.
 
 	require_once 'vendor\autoload.php';
 
@@ -177,15 +162,15 @@
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/library/windowsazure/dd179439.aspx
+		// http://msdn.microsoft.com/library/azure/dd179439.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
 	}
 
-Обратите внимание, что в приведенном выше примере BLOB-объект передается в виде потока. Однако большой двоичный объект также можно передать как строку с помощью, к примеру, функции [file\_get\_contents][file_get_contents]. Для этого замените $content = fopen("c:\myfile.txt", "r"); из приведенного выше примера на $content = filegetcontents("c:\myfile.txt");.
+Обратите внимание, что в приведенном выше примере BLOB-объект передается в виде потока. Однако BLOB-объект может быть передан как строка, например с помощью функции [file\_get\_contents][file_get_contents]. Для этого замените $content = fopen("c:\myfile.txt", "r"); из приведенного выше примера на $content = filegetcontents("c:\myfile.txt");.
 
-<h2><a id="ListBlobs"></a>Практическое руководство. Перечисление больших двоичных объектов в контейнере</h2>
+## Практическое руководство. Перечисление BLOB-объектов в контейнере
 
 Чтобы получить список BLOB-объектов в контейнере, используйте метод **BlobRestProxy->listBlobs** с циклом **foreach** для перебора результатов. Следующий код выводит имя каждого BLOB-объекта в контейнере и соответствующий URI в браузере.
 
@@ -211,14 +196,14 @@
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/library/windowsazure/dd179439.aspx
+		// http://msdn.microsoft.com/library/azure/dd179439.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
 	}
 
 
-<h2><a id="DownloadBlob"></a>Практическое руководство. Загрузка больших двоичных объектов</h2>
+## Практическое руководство. Загрузка BLOB-объектов
 
 Чтобы загрузить BLOB-объект, вызовите метод **BlobRestProxy->getBlob**, затем вызовите метод **getContentStream** для результирующего объекта **GetBlobResult**.
 
@@ -239,15 +224,15 @@
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/library/windowsazure/dd179439.aspx
+		// http://msdn.microsoft.com/library/azure/dd179439.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
 	}
 
-Обратите внимание, что приведенный выше пример получает BLOB-объект как ресурс потока (поведение по умолчанию). Однако вы можете использовать функцию [stream\_get\_contents][stream-get-contents], чтобы преобразовать возвращенный поток в строку.
+Обратите внимание, что приведенный выше пример получает BLOB-объект как ресурс потока (поведение по умолчанию). Однако можно использовать функцию [stream\_get\_contents][stream-get-contents] для преобразования возвращенного потока в строку.
 
-<h2><a id="DeleteBlob"></a>Практическое руководство. Удаление большого двоичного объекта</h2>
+## Практическое руководство. Удаление BLOB-объекта
 
 Чтобы удалить BLOB-объект, передайте имя контейнера и имя BLOB-объекта в **BlobRestProxy->deleteBlob**. 
 
@@ -267,13 +252,13 @@
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/library/windowsazure/dd179439.aspx
+		// http://msdn.microsoft.com/library/azure/dd179439.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
 	}
 
-<h2><a id="DeleteContainer"></a>Практическое руководство. Удаление контейнера больших двоичных объектов</h2>
+## Практическое руководство. Удаление контейнера BLOB-объектов
 
 Наконец, чтобы удалить контейнер BLOB-объектов, передайте имя контейнера в **BlobRestProxy->deleteContainer**.
 
@@ -293,27 +278,28 @@
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/library/windowsazure/dd179439.aspx
+		// http://msdn.microsoft.com/library/azure/dd179439.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
 	}
 
-<h2><a id="NextSteps"></a>Дальнейшие действия</h2>
+## Дальнейшие действия
 
 Вы изучили основные сведения о службе BLOB-объектов Azure. Дополнительные сведения о более сложных задачах по использованию хранилища можно найти по следующим ссылкам.
 
-- См. справочник MSDN: [Хранение и доступ к данным в Azure] []
-- Посетите блог рабочей группы службы хранилища Azure: <http://blogs.msdn.com/b/windowsazurestorage/>
-- Просмотрите пример блокировки больших двоичных объектов в PHP на сайте <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/BlockBlobExample.php>.
-- Просмотрите пример страницы больших двоичных объектов в PHP на сайте <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/PageBlobExample.php>
+- См. справочник MSDN: [Хранилище Azure](http://msdn.microsoft.com/library/azure/gg433040.aspx)
+- Посетите [блог рабочей группы службы хранилища Azure](http://blogs.msdn.com/b/windowsazurestorage/)
+- См. пример блочного BLOB-объекта РНР по адресу: <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/BlockBlobExample.php>.
+- См. пример страничного BLOB-объекта PHP по адресу: <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/PageBlobExample.php>
 
-[download]: http://go.microsoft.com/fwlink/?LinkID=252473
-[Хранение и доступ к данным в Azure]: http://msdn.microsoft.com/library/windowsazure/gg433040.aspx
-[container-acl]: http://msdn.microsoft.com/library/windowsazure/dd179391.aspx
-[error-codes]: http://msdn.microsoft.com/library/windowsazure/dd179439.aspx
+[загрузка]: http://go.microsoft.com/fwlink/?LinkID=252473
+[Хранение и доступ к данным в Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+[container-acl]: http://msdn.microsoft.com/library/azure/dd179391.aspx
+[error-codes]: http://msdn.microsoft.com/library/azure/dd179439.aspx
 [file_get_contents]: http://php.net/file_get_contents
 [require_once]: http://php.net/require_once
 [fopen]: http://www.php.net/fopen
 [stream-get-contents]: http://www.php.net/stream_get_contents
-<!--HONumber=42-->
+
+<!--HONumber=49-->

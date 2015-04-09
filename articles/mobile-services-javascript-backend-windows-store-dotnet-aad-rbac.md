@@ -1,58 +1,55 @@
-﻿<properties 
+<properties 
 	pageTitle="Управление доступом в мобильных службах с помощью Azure Active Directory на основе ролей (Магазин Windows) | Центр разработчиков для мобильных устройств" 
 	description="Узнайте, как управлять доступом на основе ролей Azure Active Directory в приложении Магазина Windows." 
 	documentationCenter="windows" 
 	authors="wesmc7777" 
 	manager="dwrede" 
 	editor="" 
-	services=""/>
+	services="mobile-services"/>
 
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/29/2014" 
+	ms.date="02/23/2015" 
 	ms.author="wesmc"/>
 
 # Управление доступом на основе ролей в мобильных службах и Azure Active Directory
 
 [AZURE.INCLUDE [mobile-services-selector-rbac](../includes/mobile-services-selector-rbac.md)]
 
+#Обзор
 
 Управление доступом на основе ролей (RBAC) - это методика назначения разрешений ролям, которые могут хранить пользователи, с четко определенными границами разрешенных и запрещенных действий для определенных классов пользователей. В этом учебнике содержатся инструкции по добавлению базового RBAC в мобильные службы Azure.
 
 В этом учебнике демонстрируется управление доступом на основе ролей с проверкой членства в группе продаж, определенного в Azure Active Directory (AAD), для каждого пользователя. Проверка доступа будет осуществляться в серверной части мобильной службы JavaScript с использованием [API Graph] для Azure Active Directory. Запрашивать данные смогут только пользователи, принадлежащие группе продаж.
 
 
->[AZURE.NOTE] Цель этого учебника - предоставить дополнительные сведения о методах авторизации в проверке подлинности. Предполагается, что вы уже прошли учебник [Приступая к работе с проверкой подлинности], используя поставщик проверки подлинности Azure Active Directory. В этом учебнике обновляется приложение TodoItem, использованное в учебнике [Приступая к работе с проверкой подлинности].
+>[AZURE.NOTE] Цель этого учебника - предоставить дополнительные сведения о методах авторизации в проверке подлинности. Предполагается, что вы сначала пройдете учебник [Добавление проверки подлинности в приложение мобильных служб], используя поставщик проверки подлинности Azure Active Directory. В этом учебнике продолжается обновление приложения TodoItem, которое использовалось в учебнике [Добавление проверки подлинности в приложение мобильных служб].
 
-Данный учебник включает в себя следующие этапы.
-
-1. [Создание группы продаж с членством]
-2. [Создание ключа для встроенного приложения]
-3. [Добавление общего скрипта, который проверяет членство] 
-4. [Добавление проверки доступа на основе ролей в операции базы данных]
-5. [Тестирование клиентского доступа]
+##Предварительные требования
 
 Для работы с данным учебником требуется следующее:
 
 * Visual Studio 2013 в Windows 8.1.
-* Завершение учебника [Приступая к работе с проверкой подлинности] с использованием поставщика проверки подлинности Azure Active Directory.
+* Завершение учебника [Добавление проверки подлинности в приложение мобильных служб] с использованием поставщика проверки подлинности Azure Active Directory.
 * Прохождение учебника [Хранение серверных скриптов] для ознакомления с вариантами использования репозитория Git для хранения серверных скриптов.
  
 
 
-## <a name="create-group"></a>Создание группы продаж с членством
+##Создание группы продаж с членством
 
 [AZURE.INCLUDE [mobile-services-aad-rbac-create-sales-group](../includes/mobile-services-aad-rbac-create-sales-group.md)]
 
 
-## <a name="generate-key"></a>Создание ключа для встроенного приложения
+##Создание ключа для встроенного приложения
 
 
-В учебнике [Приступая к работе с проверкой подлинности] во время выполнения шага [Регистрация для использования имени входа Azure Active Directory] вы создали регистрацию для встроенного приложения. В этом разделе предстоит создать ключ для использования при чтении сведений каталога с помощью идентификатора клиента встроенного приложения. 
+В учебнике [Добавление проверки подлинности в приложение мобильных служб] во время выполнения шага [Регистрация для использования имени входа Azure Active Directory] вы создали регистрацию для встроенного приложения. В этом разделе предстоит создать ключ для использования при чтении сведений каталога с помощью идентификатора клиента встроенного приложения. 
+
+Если вы прошли учебник [Получение доступа к сведениям Graph Azure Active Directory], значит, вы уже выполнили этот шаг, поэтому данный раздел можно пропустить.
 
 [AZURE.INCLUDE [mobile-services-generate-aad-app-registration-access-key](../includes/mobile-services-generate-aad-app-registration-access-key.md)]
 
@@ -60,14 +57,14 @@
 
 
 
-## <a name="add-shared-script"></a>Добавление в мобильную службу общего скрипта, который проверяет членство
+##Добавление в мобильную службу общего скрипта, который проверяет членство
 
 В этом разделе вам предстоит использовать Git для развертывания файла общего скрипта с именем *rbac.js* в мобильной службе. Этот файл общего скрипта будет содержать функции, которые используют [API Graph] для проверки членства в группе пользователя. 
 
 Если вы не знакомы с развертыванием скриптов в мобильной службе с помощью Git, ознакомьтесь с учебником [Хранение серверных скриптов] перед тем, как перейти к этому разделу.
 
-1. Создайте файл скрипта с именем *rbac.js* в каталоге *./service/shared/* локального репозитория мобильной службы.
-2. Добавьте следующий скрипт в верхнюю часть файла, где определяется функция `getAADToken`. Если заданы значения *tenant_domain*, встроенное приложение *client id* и приложение *key*, эта функция предоставляет маркер доступа Graph, использованный для чтения сведений в каталоге.
+1. Создайте файл скрипта  с именем *rbac.js* в каталоге *./service/shared/* локального репозитория мобильной службы.
+2. Добавьте следующий скрипт в верхнюю часть файла, где определяется функция `getAADToken`. Получив значения *tenant_domain*, *client id* встроенного приложения и *key* приложения, эта функция предоставляет маркер доступа Graph, использованный для чтения сведений в каталоге.
 
     >[AZURE.NOTE] Следует кэшировать маркер вместо того, чтобы создавать новый при каждой проверке доступа. Затем обновите кэш, если попытки использовать маркер приведут к ответу 401 Authentication_ExpiredToken, как указано в [справочнике по ошибкам API Graph]. Для простоты это не показано в коде ниже, но количество дополнительного трафика в Active Directory будет уменьшено. 
 
@@ -170,10 +167,10 @@
 
 8. Сохраните изменения в *rbac.js*.
 
-## <a name="add-access-checking"></a>Добавление проверки доступа на основе ролей в операции базы данных
+##Добавление проверки доступа на основе ролей в операции базы данных
 
 
-По завершении учебника [Приступая к работе с проверкой подлинности] вы сможете задать требование проверки подлинности в операциях таблиц, как показано ниже.
+По завершении учебника [Добавление проверки подлинности в приложение мобильных служб] вы сможете задать требование проверки подлинности в операциях таблиц, как показано ниже.
 
 ![][3]
 
@@ -249,7 +246,7 @@
 
         git commit -m "Added role based access control to table operations"
   
-7. В интерфейсе командной строки репозитория Git разверните обновления в локальном репозитории Git в мобильной службе, выполнив следующую команду. Команда предполагает, что вы выполнили обновления в ветви *master*.
+7. В интерфейсе командной строки репозитория Git разверните обновления в локальном репозитории Git в мобильной службе, выполнив следующую команду. Команда предполагает, что вы выполнили обновления в ветви  *master*.
 
         git push origin master
 
@@ -257,7 +254,7 @@
 
     ![][4]
 
-## <a name="test-client"></a>Тестирование клиентского доступа
+##Тестирование доступа клиентского приложения
 
 [AZURE.INCLUDE [mobile-services-aad-rbac-test-app](../includes/mobile-services-aad-rbac-test-app.md)]
 
@@ -265,33 +262,27 @@
 
 
 
-<!-- Anchors. -->
-[Создание группы продаж с членством]: #create-group
-[Создание ключа для встроенного приложения]: #generate-key
-[Добавление общего скрипта, который проверяет членство] : #add-shared-script
-[Добавление проверки доступа на основе ролей в операции базы данных]: #add-access-checking
-[Тестирование клиентского доступа]: #test-client
 
 
 <!-- Images -->
 [0]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/users.png
 [1]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/group-membership.png
 [2]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/sales-group.png
-[3]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/table-per
-	ms.png
+[3]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/table-perms.png
 [4]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/insert-table-op-view.png
 [5]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/sales-group-id.png
 [6]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/client-id-and-key.png
 
 <!-- URLs. -->
-[Приступая к работе с проверкой подлинности]: /ru-ru/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
-[Регистрация в службе Azure Active Directory]: /ru-ru/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
-[Портал управления Azure]: https://manage.windowsazure.com/
+[Добавление проверки подлинности в приложение мобильных служб]: mobile-services-javascript-backend-windows-universal-dotnet-get-started-users.md
+[Регистрация в службе Azure Active Directory]: mobile-services-how-to-register-active-directory-authentication.md
+[портале управления Azure]: https://manage.windowsazure.com/
 [Сценарии синхронизации каталогов]: http://msdn.microsoft.com/library/azure/jj573653.aspx
-[Хранение серверных скриптов]: /ru-ru/documentation/articles/mobile-services-store-scripts-source-control/
-[Регистрация для использования имени входа Azure Active Directory]: /ru-ru/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
+[Хранение серверных скриптов]: mobile-services-store-scripts-source-control.md
+[Регистрация для использования имени входа Azure Active Directory]: mobile-services-how-to-register-active-directory-authentication.md
 [Graph API]: http://msdn.microsoft.com/library/azure/hh974478.aspx
-[Справочник по ошибкам Graph API]: http://msdn.microsoft.com/library/azure/hh974480.aspx
+[справочнике по ошибкам API Graph]: http://msdn.microsoft.com/library/azure/hh974480.aspx
 [IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
+[Получение доступа к сведениям Graph Azure Active Directory]: mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info.md
 
-<!--HONumber=42-->
+<!--HONumber=49-->

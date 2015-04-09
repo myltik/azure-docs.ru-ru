@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Начало работы с проверкой подлинности (Windows Phone) | Центр мобильных разработок" 
+	pageTitle="Знакомство с механизмом проверки подлинности (Windows Phone) | Центр разработчиков для мобильных устройств" 
 	description="Узнайте, как использовать мобильные службы для аутентификации пользователей приложения Windows Phone с помощью разнообразных поставщиков удостоверений, включая Google, Facebook, Twitter и корпорацию Майкрософт." 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/23/2014" 
+	ms.date="02/25/2015" 
 	ms.author="glenga"/>
 
 # Добавление проверки подлинности в приложение мобильных служб
@@ -22,7 +22,7 @@
 
 В этом разделе показано, как выполнять проверку подлинности пользователей в мобильных службах Azure из приложения Windows Phone. В этом учебнике вы добавите проверку подлинности к проекту быстрого запуска, используя поставщик удостоверений, поддерживаемый мобильными службами. После выполнения успешной проверки подлинности и авторизации мобильными службами отображается значение идентификатора пользователя.
 
->[AZURE.NOTE] Этот учебник поддерживает только приложения Silverlight Windows Phone 8.0 и Windows Phone 8.1. При наличии Магазина Windows Phone 8.1 или универсального приложения Windows следуйте [версии этого учебника для универсального приложения Windows](/ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users/).
+>[AZURE.NOTE] Этот учебник поддерживает только приложения Silverlight Windows Phone 8.0 и Windows Phone 8.1. При наличии Магазина Windows Phone 8.1 или универсального приложения Windows следуйте [версии этого учебника для универсального приложения Windows](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users.md).
 
 В этом учебнике рассматриваются следующие основные шаги для включения проверки подлинности в приложении:
 
@@ -34,7 +34,7 @@
 Этот учебник создан на основе краткого руководства по мобильным службам. Вам также необходимо сначала ознакомиться с учебником [Приступая к работе с мобильными службами]. 
 
 
-##<a name="register"></a> Регистрация приложения для проверки подлинности и настройка мобильных служб
+##<a name="register"></a>Регистрация приложения для проверки подлинности и настройка мобильных служб
 
 [AZURE.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
@@ -45,8 +45,8 @@
 [AZURE.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)] 
 
 <ol start="6">
-<li>В Visual Studio откройте проект клиентского приложения и убедитесь, что в файле App.xaml.cs экземпляр **MobileServiceClient** настроен для использования облачного URL-адреса мобильной службы.</li> 
-<li><p>Нажмите клавишу F5 для запуска этого приложения на основе быстрого запуска; убедитесь, что после запуска приложения возникает необработанное исключение с кодом состояния 401 (Не санкционировано).</p>
+<li>В Visual Studio откройте проект клиентского приложения и убедитесь, что в файле App.xaml.cs экземпляр <strong>MobileServiceClient</strong> настроен для использования облачного URL-адреса мобильной службы.</li> 
+<li><p>Нажмите клавишу F5 для запуска этого приложения на основе быстрого запуска; убедитесь, что после запуска приложения возникает необработанное исключение с кодом состояния 401 (неавторизованный).</p>
    
    	<p>Это происходит, потому что приложение пытается получить доступ к мобильным службам как пользователь, не прошедший проверку подлинности, а таблица <em>TodoItem</em> теперь требует выполнения проверки подлинности.</p></li>
 </ol>
@@ -77,17 +77,16 @@
 [Отправка страницы приложения]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Мои приложения]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK для Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Единый вход для приложений Windows Phone с использованием Live Connect]: /ru-ru/documentation/articles/mobile-services-windows-phone-single-sign-on
-[Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/
-[Приступая к работе с данными]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/
-[Приступая к работе с проверкой подлинности]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users/
-[Приступая к работе с push-уведомлениями]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/
-[Авторизация пользователей с помощью скриптов]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-phone-authorize-users-in-scripts
-[JavaScript и HTML]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users/
+[Единый вход для приложений Windows Phone с использованием Live Connect]: mobile-services-windows-phone-single-sign-on.md
+[Приступая к работе с мобильными службами]: mobile-services-dotnet-backend-windows-phone-get-started.md
+[Приступая к работе с данными]: mobile-services-dotnet-backend-windows-phone-get-started-data.md
+[Приступая к работе с проверкой подлинности]: mobile-services-dotnet-backend-windows-phone-get-started-users.md
+[Приступая к работе с push-уведомлениями]: mobile-services-dotnet-backend-windows-phone-get-started-push.md
+[Авторизация пользователей с помощью скриптов]: mobile-services-dotnet-backend-windows-phone-authorize-users-in-scripts.md
+[JavaScript и HTML]: mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
 
 [Портал управления Azure]: https://manage.windowsazure.com/
-[Справочник принципов использования мобильных служб .NET]: /ru-ru/develop/mobile/how-to-guides/work-with-net-client-library
-[Регистрация пакета приложения для магазина Windows для проверки подлинности Microsoft]: /ru-ru/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication
+[Справочник принципов использования мобильных служб .NET]: /develop/mobile/how-to-guides/work-with-net-client-library
+[Регистрация пакета приложения для Магазина Windows для проверки подлинности Майкрософт]: mobile-services-how-to-register-store-app-package-microsoft-authentication.md
 
-
-<!--HONumber=42-->
+<!--HONumber=49-->

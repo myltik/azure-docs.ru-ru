@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="09/23/2014" 
+	ms.date="02/26/2015" 
 	ms.author="glenga"/>
 
 # Добавление проверки подлинности в приложение мобильных служб
@@ -38,7 +38,7 @@
 [AZURE.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
 <ol start="5">
-<li><p>(Необязательно) Выполните шаги, указанные в пункте <a href="/ru-ru/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication/">Регистрация пакета приложения магазина Windows для проверки подлинности Microsoft</a>.</p>
+<li><p>(Необязательно) Выполните шаги, указанные в пункте <a href="/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication/">Регистрация пакета приложения магазина Windows для проверки подлинности Microsoft</a>.</p>
 
     
 	<p>Обратите внимание, что этот шаг не является обязательным, так как он применяется только к поставщику входа учетной записи Майкрософт. При регистрации сведений пакета приложений магазина Windows с помощью мобильных служб клиент сможет повторно использовать учетные данные для входа в учетную запись Майкрософт для осуществления единого входа. Если этого не сделать, пользователям входа учетной записи Майкрософт придется осуществлять вход в систему при каждом вызове метода входа в систему. Выполните этот шаг, если будет использоваться поставщик удостоверений учетной записи Майкрософт.</p>
@@ -51,7 +51,7 @@
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
 
 <ol start="3">
-<li><p>В Visual Studio 2012 Express для Windows 8 откройте проект, созданный после завершения учебника <a href="/ru-ru/develop/mobile/tutorials/get-started/">Приступая к работе с мобильными службами</a>.</p></li> 
+<li><p>Откройте проект, созданный после завершения обучения, в Visual Studio 2012 Express для Windows 8 <a href="/develop/mobile/tutorials/get-started/">Приступая к работе с мобильными службами</a>.</p></li> 
 <li><p>Нажмите клавишу F5 для запуска этого приложения на основе быстрого запуска; убедитесь, что после запуска приложения возникает необработанное исключение с кодом состояния 401 (неавторизованный).</p>
    
    	<p>Это происходит, потому что приложение пытается получить доступ к мобильным службам как пользователь, не прошедший проверку подлинности, а таблица <em>TodoItem</em> теперь требует выполнения проверки подлинности.</p></li>
@@ -83,15 +83,14 @@
 <!-- URLs. -->
 [Мои приложения]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK для Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Единый вход для приложений Магазина Windows с использованием Live Connect]: /ru-ru/documentation/articles/mobile-services-windows-store-javascript-single-sign-on
-[Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/mobile-services-windows-store-get-started/
-[Приступая к работе с данными]: /ru-ru/documentation/articles/mobile-services-windows-store-javascript-get-started-data/
-[Приступая к работе с проверкой подлинности]: /ru-ru/documentation/articles/mobile-services-windows-store-javascript-get-started-users/
-[Приступая к работе с push-уведомлениями]: /ru-ru/documentation/articles/mobile-services-windows-store-javascript-get-started-push/
-[Авторизация пользователей с помощью скриптов]: /ru-ru/documentation/articles/mobile-services-windows-store-javascript-authorize-users-in-scripts
+[Единый вход для приложений Магазина Windows с использованием Live Connect]: mobile-services-windows-store-javascript-single-sign-on.md
+[Приступая к работе с мобильными службами]: mobile-services-windows-store-get-started.md
+[Приступая к работе с данными]: mobile-services-windows-store-javascript-get-started-data.md
+[Приступая к работе с проверкой подлинности]: mobile-services-windows-store-javascript-get-started-users.md
+[Приступая к работе с push-уведомлениями]: mobile-services-windows-store-javascript-get-started-push.md
+[Авторизация пользователей с помощью скриптов]: mobile-services-windows-store-javascript-authorize-users-in-scripts.md
 
 [Портал управления Azure]: https://manage.windowsazure.com/
-[Регистрация пакета приложения для магазина Windows для проверки подлинности Microsoft]: /ru-ru/develop/mobile/how-to-guides/register-windows-store-app-package
+[Регистрация пакета приложения для Магазина Windows для проверки подлинности Майкрософт]: /develop/mobile/how-to-guides/register-windows-store-app-package
 
-
-<!--HONumber=42-->
+<!--HONumber=49-->

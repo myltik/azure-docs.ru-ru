@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Начало работы с проверкой подлинности (Windows Store) | Центр мобильных разработок" 
 	description="Узнайте, как использовать мобильные службы для аутентификации пользователей приложения магазина Windows с помощью разнообразных поставщиков удостоверений, включая Google, Facebook, Twitter и корпорацию Майкрософт." 
 	services="mobile-services" 
@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/18/2014" 
+	ms.date="02/26/2015" 
 	ms.author="glenga"/>
 
 # Добавление проверки подлинности в приложение мобильных служб
@@ -31,7 +31,7 @@
 
 Этот учебник создан на основе краткого руководства по мобильным службам. Вам также необходимо сначала ознакомиться с учебником [Приступая к работе с мобильными службами]. 
 
->[AZURE.NOTE]В этом учебнике показано, как проводить проверку подлинности пользователей в приложениях для Магазина Windows и Магазина Windows Phone 8.1. Инструкции для приложения Windows Phone 8.0 или Windows Phone Silverlight 8.1 см. в этой версии раздела [Приступая к работе с проверкой подлинности в мобильных службах](/ru-ru/documentation/articles/mobile-services-windows-phone-get-started-users).
+>[AZURE.NOTE] В этом учебнике показано, как проводить проверку подлинности пользователей в приложениях для Магазина Windows и Магазина Windows Phone 8.1. Инструкции для приложения Windows Phone 8.0 или Windows Phone Silverlight 8.1 см. в этой версии раздела [Приступая к работе с проверкой подлинности в мобильных службах](mobile-services-windows-phone-get-started-users.md).
 
 >В этом учебнике показан поток проверки подлинности, управляемый мобильными службами с помощью различных поставщиков удостоверений. Этот метод можно легко настроить, и он поддерживает нескольких поставщиков. Сведения о том, как вместо этого использовать Live Connect для управляемой клиентом проверки подлинности и предоставления единого входа в приложении Windows Phone, см. в разделе [Единый вход для приложений Магазина Windows с использованием Live Connect]. При использовании управляемой клиентом проверки подлинности приложение имеет доступ к дополнительным данным пользователя, сохраняемым поставщиком удостоверений. Эти же данные можно получить в мобильной службе, вызвав в серверных скриптах функцию **user.getIdentities()**. Дополнительные сведения можно найти в [этой записи блога](http://go.microsoft.com/fwlink/p/?LinkId=506605).
 
@@ -40,7 +40,7 @@
 [AZURE.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
 <ol start="5">
-<li><p>(Необязательно) Выполните шаги, указанные в пункте <a href="/ru-ru/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication/">Регистрация пакета приложения магазина Windows для проверки подлинности Microsoft</a>.</p>
+<li><p>(Необязательно) Выполните шаги, указанные в пункте <a href="mobile-services-how-to-register-store-app-package-microsoft-authentication.md">Регистрация пакета приложения магазина Windows для проверки подлинности Microsoft</a>.</p>
 <p>Обратите внимание, что этот шаг не является обязательным, так как он применяется только к поставщику входа учетной записи Майкрософт. При регистрации сведений пакета приложений магазина Windows с помощью мобильных служб клиент сможет повторно использовать учетные данные для входа в учетную запись Майкрософт для осуществления единого входа. Если этого не сделать, пользователям входа учетной записи Майкрософт придется осуществлять вход в систему при каждом вызове метода входа в систему. Выполните этот шаг, если будет использоваться поставщик удостоверений учетной записи Майкрософт.</p>
 </li>
 </ol>
@@ -52,7 +52,7 @@
 <ol start="3">
 <li><p>В Visual Studio щелкните правой кнопкой мыши проект приложения TodoList для Магазина Windows и выберите пункт <strong>Назначить запускаемым проектом</strong>.</p></li>
 <li><p>В общем проекте откройте файл проекта App.xaml.cs, найдите определение объекта <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> и убедитесь в том, что он настроен на подключение к мобильной службе, работающей в Azure.</p>
-<p>Обратите внимание на то, что при использовании средств Visual Studio для подключения приложения к мобильной службе создаются два набора определений <strong>MobileServiceClient</strong> - по одному для каждой клиентской платформы. На этом этапе вы легко можете упростить созданный код, объединив определения <strong>MobileServiceClient</strong> в оболочке <code>#if...#endif</code> в одно определение без оболочки, которое может использоваться обеими версиями приложения. Это не потребуется, если вы загрузили учебное приложение с портала управления Azure.</p>
+<p>Обратите внимание на то, что при использовании средств Visual Studio для подключения приложения к мобильной службе создаются два набора определений <strong>MobileServiceClient</strong> - по одному для каждой клиентской платформы. На этом этапе вы легко можете упростить созданный код, объединив в оболочке <code>#if...#endif</code> определения <strong>MobileServiceClient</strong> в одно определение без оболочки, которое может использоваться обеими версиями приложения. Это не потребуется, если вы загрузили учебное приложение с портала управления Azure.</p>
 </li> 
 <li><p>Нажмите клавишу F5, чтобы запустить приложение Магазина Windows. Убедитесь в том, что после его запуска возникает необработанное исключение с кодом состояния 401 (неавторизованный).</p>
    
@@ -65,13 +65,13 @@
 
 [AZURE.INCLUDE [mobile-services-windows-universal-dotnet-authenticate-app](../includes/mobile-services-windows-universal-dotnet-authenticate-app.md)] 
 
-##<a name="tokens"></a>Хранение маркеров авторизации в клиенте
+##<a name="tokens"></a>Хранение маркера авторизации в клиенте
 
 [AZURE.INCLUDE [mobile-services-windows-store-dotnet-authenticate-app-with-token](../includes/mobile-services-windows-store-dotnet-authenticate-app-with-token.md)] 
 
 ## <a name="next-steps"> </a>Дальнейшие действия
 
-В следующем учебнике, [Авторизация пользователей мобильных служб на стороне службы][Авторизация пользователей с помощью скриптов], показано, как идентификатор пользователя, прошедшего проверку подлинности, который предоставлен мобильными службами, применяется для фильтрации данных, возвращаемых мобильными службами. Дополнительные сведения об использовании мобильных служб с помощью .NET см. в разделе [Справочник принципов использования мобильных служб .NET].
+В следующем учебнике, который называется [Авторизация пользователей мобильных служб на стороне службы](mobile-services-javascript-backend-service-side-authorization.md), значение ИД пользователя, предоставляемое мобильными службами на основе пользователя, прошедшего проверку подлинности, будет использоваться для фильтрации данных, возвращаемых мобильными службами. Дополнительные сведения об использовании мобильных служб с помощью .NET см. в разделе [Справочник принципов использования мобильных служб .NET].
 
 <!-- Anchors. -->
 [Регистрация приложения для проверки подлинности и настройка мобильных служб]: #register
@@ -85,17 +85,16 @@
 [Отправка страницы приложения]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Мои приложения]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK для Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Единый вход для приложений Магазина Windows с использованием Live Connect]: /ru-ru/documentation/articles/mobile-services-windows-store-dotnet-single-sign-on
-[Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started/
-[Приступая к работе с данными]: /ru-ru/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-data/
-[Приступая к работе с проверкой подлинности]: /ru-ru/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-users/
-[Приступая к работе с push-уведомлениями]: /ru-ru/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push/
-[Авторизация пользователей с помощью скриптов]: /ru-ru/documentation/articles/mobile-services-windows-store-dotnet-authorize-users-in-scripts
-[JavaScript и HTML]: /ru-ru/documentation/articles/mobile-services-windows-store-javascript-get-started-users/
+[Единый вход для приложений Магазина Windows с использованием Live Connect]: mobile-services-windows-store-dotnet-single-sign-on.md
+[Приступая к работе с мобильными службами]: mobile-services-javascript-backend-windows-store-dotnet-get-started.md
+[Приступая к работе с данными]: mobile-services-javascript-backend-windows-store-dotnet-get-started-data.md
+[Приступая к работе с проверкой подлинности]: mobile-services-javascript-backend-windows-store-dotnet-get-started-users.md
+[Приступая к работе с push-уведомлениями]: mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md
+[Авторизация пользователей с помощью скриптов]: mobile-services-windows-store-dotnet-authorize-users-in-scripts.md
+[JavaScript и HTML]: mobile-services-windows-store-javascript-get-started-users.md
 
 [Портал управления Azure]: https://manage.windowsazure.com/
-[Справочник по принципам использования мобильных служб .NET]: /ru-ru/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/
-[Регистрация пакета приложения для магазина Windows для проверки подлинности Microsoft]: /ru-ru/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication/
+[Справочник принципов использования мобильных служб .NET]: mobile-services-windows-dotnet-how-to-use-client-library.md
+[Регистрация пакета приложения для Магазина Windows для проверки подлинности Майкрософт]: mobile-services-how-to-register-store-app-package-microsoft-authentication.md
 
-
-<!--HONumber=42-->
+<!--HONumber=49-->

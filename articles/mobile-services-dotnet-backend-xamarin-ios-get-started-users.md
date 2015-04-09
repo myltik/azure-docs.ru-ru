@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-ios" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="09/23/2014" 
@@ -52,7 +52,7 @@
 
 В этом разделе предстоит изменить приложение для отображения экрана входа до отображения данных. При запуске приложение не подключится к вашей мобильной службе и не отобразит никаких данных. После первого обновления пользователем появится экран входа; список задач появится после успешного входа.
 
-1. В клиентском проекте откройте файл **QSTodoService.cs** и добавьте следующие объявления в QSTodoService:
+1. В проекте клиента откройте файл **QSTodoService.cs** и добавьте следующие объявления в QSTodoService:
 
 		// Mobile Service logged in user
 		private MobileServiceUser user; 
@@ -72,9 +72,9 @@
             }
         }
 
-> [AZURE.NOTE] Если используется поставщик удостоверений, отличный от Facebook, измените значение, передаваемое в метод **LoginAsync** выше, на одно из следующих: _MicrosoftAccount_, _Twitter_, _Google_ или _WindowsAzureActiveDirectory_.
+> [AZURE.NOTE] Если вы используете поставщик удостоверений, отличный от Facebook, измените значение, передаваемое в **LoginAsync**, на одно из нижеследующих: _MicrosoftAccount_, _Twitter_, _Google_ или _WindowsAzureActiveDirectory_.
 
-3. Откройте **QSTodoListViewController.cs**. Измените определение метода **ViewDidLoad**, удалив вызов **RefreshAsync()** в конце:
+3. Откройте файл **QSTodoListViewController.cs**. Измените определение метода **ViewDidLoad**, удалив вызов **RefreshAsync()** в конце:
 
 		public override async void ViewDidLoad ()
 		{
@@ -112,9 +112,9 @@
 
 	Обновите, потянув вниз список элементов, чтобы появился экран входа. После того, как вы успешно введете допустимые учетные данные, приложение отобразит список задач, и вы сможете обновить данные.
 
-<!-- ## <a name="next-steps"> </a>Дальнейшие действия
+<!-- ## <a name="next-steps"> </a>Next steps
 
-В следующем учебнике, [Авторизация пользователей мобильных служб на стороне службы][Авторизация пользователей с помощью скриптов], показано, как идентификатор пользователя, прошедшего проверку подлинности, который предоставлен мобильными службами, применяется для фильтрации данных, возвращаемых мобильными службами. 
+In the next tutorial, [Service-side authorization of Mobile Services users][Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. 
  -->
  
 <!-- Anchors. -->
@@ -128,13 +128,12 @@
 [Отправка страницы приложения]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Мои приложения]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK для Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started/
-[Приступая к работе с проверкой подлинности]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started-users/
-[Приступая к работе с push-уведомлениями]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started-push/
-[Авторизация пользователей с помощью скриптов]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts
-[JavaScript и HTML]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users/
+[Приступая к работе с мобильными службами]: mobile-services-dotnet-backend-xamarin-ios-get-started.md
+[Приступая к работе с проверкой подлинности]: mobile-services-dotnet-backend-xamarin-ios-get-started-users.md
+[Приступая к работе с push-уведомлениями]: mobile-services-dotnet-backend-xamarin-ios-get-started-push.md
+[Авторизация пользователей с помощью скриптов]: mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts.md
+[JavaScript и HTML]: mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
 
 [Портал управления Azure]: https://manage.windowsazure.com/
 
-
-<!--HONumber=42-->
+<!--HONumber=49-->

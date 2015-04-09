@@ -1,8 +1,8 @@
-<properties 
+﻿<properties 
 	pageTitle="Создание веб-приложения Node.js с использованием DocumentDB | Azure" 
 	description="Узнайте, как использовать Microsoft Azure DocumentDB для хранения данных и доступа к ним из веб-приложения Node.js Express, размещенного в службе Веб-сайты Azure." 
 	services="documentdb" 
-	documentationCenter="" 
+	documentationCenter="nodejs" 
 	authors="ryancrawcour" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
@@ -11,35 +11,42 @@
 	ms.service="documentdb" 
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
+	ms.devlang="nodejs" 
 	ms.topic="hero-article" 
-	ms.date="03/03/2015" 
+	ms.date="03/20/2015" 
 	ms.author="ryancraw"/>
 
 # <a name="_Toc395783175"></a>Создание веб-приложения Node.js с использованием DocumentDB
 
 В этом учебнике показано, как использовать службу Azure DocumentDB для хранения данных и доступа к ним из приложения Node.js Express, размещенного в службе Веб-сайты Azure.
 
-После прохождения данного учебника вы сможете ответить на следующие вопросы:
+Прежде чем приступить к работе, рекомендуется просмотреть следующий видеоролик, где Эндрю Лю (Andrew Liu) показывает, как подготовить учетную запись базы данных Azure DocumentDB и хранить документы JSON в приложении Node.js. 
+
+> [AZURE.VIDEO azure-demo-getting-started-with-azure-documentdb-on-nodejs-in-linux]
+
+Затем вернитесь в эту статью, из которой вы узнаете ответы на следующие вопросы:
 
 - Как работать с DocumentDB, используя модуль npm documentdb?
 - Как развернуть веб-приложение в службе Веб-сайты Azure?
 
-Руководствуясь этим учебником, вы соберете простое веб-приложение для управления задачами, позволяющее создавать, извлекать и выполнять задачи. Эти задачи будут храниться в виде документов JSON в Azure
+Руководствуясь этим учебником, вы создадите простое веб-приложение
+для управления задачами, позволяющее создавать, извлекать и
+выполнять задачи. Эти задачи будут храниться в виде документов JSON в Azure
 DocumentDB.
 
 ![Screen shot of the My Todo List application created in this tutorial](./media/documentdb-nodejs-application/image1.png)
 
-Вам не хватает времени на прохождение учебника, и вы хотите просто получить готовое решение из Github? Никаких проблем, оно находится [здесь][].
+Вам не хватает времени на прохождение учебника, и вы хотите просто получить готовое решение из GitHub? Никаких проблем, оно находится [здесь](https://github.com/Azure/azure-documentdb-node/tree/master/tutorial/todo).
 
 ## <a name="_Toc395783176"></a>Предварительные требования
 
 > [AZURE.TIP] В данном учебнике предполагается, что у вас есть некоторый опыт использования Node.js и службы Веб-сайты Azure.
 
-Перед выполнением инструкций, приведенных в этой статье, следует убедиться, что установлены следующие компоненты:
+Перед выполнением инструкций, приведенных в данной статье, убедитесь,
+что имеются следующие компоненты:
 
 - Активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](../../pricing/free-trial/).
-- [Node.js][] версии v0.10.29 или более высокой.
+- [Node.js][] версии v0.10.29 или более поздней.
 - [Генератор Express](http://www.expressjs.com/starter/generator.html) (его можно установить через `npm install express-generator -g`)
 - [Git][].
 
@@ -76,7 +83,11 @@ DocumentDB.
 
 ## <a name="_Toc395783179"></a>Шаг 3. Установка дополнительных модулей
 
-В среди файлов корневой папке проекта находится файл **package.json**. Он содержит список дополнительных модулей, необходимых вашему приложению Node.js. Впоследствии при развертывании этого приложения в службе Веб-сайты Azure данный файл использует для определения того, какие модули необходимо установить в Azure для реализации поддержки вашего приложения. В рамках этого учебника нам требуется установить еще два пакета.
+Среди файлов в корневой папке проекта находится файл **package.json**.
+. Этот файл содержит список дополнительных модулей,
+необходимых вашему приложению Node.js. Позднее, при развертывании этого
+приложения на веб-сайте Azure, этот файл будет использоваться, чтобы определить,
+какие модули должны быть установлены в Azure для поддержки приложения. В рамках этого учебника нам требуется установить еще два пакета.
 
 1. Вернитесь в терминал и установите модуль **async** через npm.
 
@@ -104,61 +115,69 @@ DocumentDB.
 4. Скопируйте следующий код в файл **docdbUtils.js**.
 
 		var DocumentDBClient = require('documentdb').DocumentClient;
-		
+			
 		var DocDBUtils = {
-		  getOrCreateDatabase: function(client, databaseId, callback) {
-		    var querySpec = {
-		      query: 'SELECT * FROM root r WHERE r.id=@id',
-		      parameters: [{
-		        name: '@id',
-		        value: databaseId
-		      }]
-		    };
+		    getOrCreateDatabase: function (client, databaseId, callback) {
+		        var querySpec = {
+		            query: 'SELECT * FROM root r WHERE r.id=@id',
+		            parameters: [{
+		                name: '@id',
+		                value: databaseId
+		            }]
+		        };
 		
-		    client.queryDatabases(querySpec).toArray(function(err, results) {
-		      if (err) {
-		        callback(err);
-		      }
+		        client.queryDatabases(querySpec).toArray(function (err, results) {
+		            if (err) {
+		                callback(err);
 		
-		      if (!err && results.length === 0) {
-		        client.createDatabase({
-		          id: databaseId
-		        }, function(err, created) {
-		          callback(null, created);
+		            } else {
+		                if (results.length === 0) {
+		                    var databaseSpec = {
+		                        id: databaseId
+		                    };
+		
+		                    client.createDatabase(databaseSpec, function (err, created) {
+		                        callback(null, created);
+		                    });
+		
+		                } else {
+		                    callback(null, results[0]);
+		                }
+		            }
 		        });
-		      } else {
-		        callback(null, results[0]);
-		      }
-		    });
-		  },
+		    },
 		
-		  getOrCreateCollection: function(client, databaseLink, collectionId, callback) {
-		    var querySpec = {
-		      query: 'SELECT * FROM root r WHERE r.id=@id',
-		      parameters: [{
-		        name: '@id',
-		        value: collectionId
-		      }]
-		    };
+		    getOrCreateCollection: function (client, databaseLink, collectionId, callback) {
+		        var querySpec = {
+		            query: 'SELECT * FROM root r WHERE r.id=@id',
+		            parameters: [{
+		                name: '@id',
+		                value: collectionId
+		            }]
+		        };
+		        
+		        client.queryCollections(databaseLink, querySpec).toArray(function (err, results) {
+		            if (err) {
+		                callback(err);
 		
-		    client.queryCollections(databaseLink, querySpec).toArray(function(err, results) {
-		      if (err) {
-		        callback(err);
-		      }
+		            } else {		
+		                if (results.length === 0) {
+		                    var collectionSpec = {
+		                        id: collectionId
+		                    };
 		
-		      if (!err && results.length === 0) {
-		        client.createCollection(databaseLink, {
-		          id: collectionId
-		        }, function(err, created) {
-		          callback(null, created);
+		                    client.createCollection(databaseLink, collectionSpec, function (err, created) {
+		                        callback(null, created);
+		                    });
+		
+		                } else {
+		                    callback(null, results[0]);
+		                }
+		            }
 		        });
-		      } else {
-		        callback(null, results[0]);
-		      }
-		    });
-		  }
+		    }
 		};
-		
+				
 		module.exports = DocDBUtils;
 		
 3. Сохраните и закройте файл **docdbUtils.js**.
@@ -181,91 +200,101 @@ DocumentDB.
 		
 		module.exports = TaskDao;
 
-5. Затем добавьте следующий код, чтобы определить дополнительные методы для объекта Task, обеспечивающего взаимодействие с данными, хранящимися DocumentDB.
+5. Затем добавьте следующий код, чтобы определить дополнительные методы для объекта Task, обеспечивающего взаимодействие с данными, хранящимися в DocumentDB.
 
 		TaskDao.prototype = {
-		  init: function(callback) {
-		    var self = this;
+		    init: function (callback) {
+		        var self = this;
 		
-		    docdbUtils.getOrCreateDatabase(self.client, self.databaseId, function(err, db) {
-		      if (err) {
-		        callback(err);
-		      }
+		        docdbUtils.getOrCreateDatabase(self.client, self.databaseId, function (err, db) {
+		            if (err) {
+		                callback(err);
+
+		            } else {
+		                self.database = db;
+		                docdbUtils.getOrCreateCollection(self.client, self.database._self, self.collectionId, function (err, coll) {
+		                    if (err) {
+		                        callback(err);
 		
-		      self.database = db;
-		      docdbUtils.getOrCreateCollection(self.client, self.database._self, self.collectionId, function(err, coll) {
-		        if (err) {
-		          callback(err);
-		        }
-		
-		        self.collection = coll;
-		      });
-		    });
-		  },
-		
-		  find: function(querySpec, callback) {
-		    var self = this;
-		
-		    self.client.queryDocuments(self.collection._self, querySpec).toArray(function(err, results) {
-		      if (err) {
-		        callback(err);
-		      } else {
-		        callback(null, results);
-		      }
-		    });
-		  },
-		
-		  addItem: function(item, callback) {
-		    var self = this;
-		    item.date = Date.now();
-		    item.completed = false;
-		    self.client.createDocument(self.collection._self, item, function(err, doc) {
-		      if (err) {
-		        callback(err);
-		      } else {
-		        callback(null);
-		      }
-		    });
-		  },
-		
-		  updateItem: function(itemId, callback) {
-		    var self = this;
-		
-		    self.getItem(itemId, function(err, doc) {
-		      if (err) {
-		        callback(err);
-		      } else {
-		        doc.completed = true;
-		        self.client.replaceDocument(doc._self, doc, function(err, replaced) {
-		          if (err) {
-		            callback(err);
-		          } else {
-		            callback(null);
-		          }
+		                    } else {
+		                        self.collection = coll;
+		                    }
+		                });
+		            }
 		        });
-		      }
-		    });
-		  },
+		    },
 		
-		  getItem: function(itemId, callback) {
-		    var self = this;
+		    find: function (querySpec, callback) {
+		        var self = this;
 		
-		    var querySpec = {
-		      query: 'SELECT * FROM root r WHERE r.id=@id',
-		      parameters: [{
-		        name: '@id',
-		        value: itemId
-		      }]
-		    };
+		        self.client.queryDocuments(self.collection._self, querySpec).toArray(function (err, results) {
+		            if (err) {
+		                callback(err);
 		
-		    self.client.queryDocuments(self.collection._self, querySpec).toArray(function(err, results) {
-		      if (err) {
-		        callback(err);
-		      } else {
-		        callback(null, results[0]);
-		      }
-		    });
-		  }
+		            } else {
+		                callback(null, results);
+		            }
+		        });
+		    },
+		
+		    addItem: function (item, callback) {
+		        var self = this;
+		
+		        item.date = Date.now();
+		        item.completed = false;
+		
+		        self.client.createDocument(self.collection._self, item, function (err, doc) {
+		            if (err) {
+		                callback(err);
+		
+		            } else {
+		                callback(null, doc);
+		            }
+		        });
+		    },
+		
+		    updateItem: function (itemId, callback) {
+		        var self = this;
+		
+		        self.getItem(itemId, function (err, doc) {
+		            if (err) {
+		                callback(err);
+		
+		            } else {
+		                doc.completed = true;
+		
+		                self.client.replaceDocument(doc._self, doc, function (err, replaced) {
+		                    if (err) {
+		                        callback(err);
+		
+		                    } else {
+		                        callback(null, replaced);
+		                    }
+		                });
+		            }
+		        });
+		    },
+		
+		    getItem: function (itemId, callback) {
+		        var self = this;
+		
+		        var querySpec = {
+		            query: 'SELECT * FROM root r WHERE r.id=@id',
+		            parameters: [{
+		                name: '@id',
+		                value: itemId
+		            }]
+		        };
+		
+		        self.client.queryDocuments(self.collection._self, querySpec).toArray(function (err, results) {
+		            if (err) {
+		                callback(err);
+		
+		            } else {
+		                callback(null, results[0]);
+		            }
+		        });
+		    }
 		};
 
 6. Сохраните и закройте файл **taskDao.js**. 
@@ -285,65 +314,66 @@ DocumentDB.
 		module.exports = TaskList;
 
 3. Продолжайте дополнять файл **tasklist.js**, добавив методы **showTasks, addTask** и **completeTasks**:
-
+		
 		TaskList.prototype = {
-		  showTasks: function(req, res) {
-		    var self = this;
+		    showTasks: function (req, res) {
+		        var self = this;
 		
-		    var querySpec = {
-		      query: 'SELECT * FROM root r WHERE r.completed=@completed',
-		      parameters: [{
-		        name: '@completed',
-		        value: false
-		      }]
-		    };
+		        var querySpec = {
+		            query: 'SELECT * FROM root r WHERE r.completed=@completed',
+		            parameters: [{
+		                name: '@completed',
+		                value: false
+		            }]
+		        };
 		
-		    self.taskDao.find(querySpec, function(err, items) {
-		      if (err) {
-		        throw (err);
-		      }
+		        self.taskDao.find(querySpec, function (err, items) {
+		            if (err) {
+		                throw (err);
+		            }
 		
-		      res.render('index', {
-		        title: 'My ToDo List ',
-		        tasks: items
-		      });
-		    });
-		  },
+		            res.render('index', {
+		                title: 'My ToDo List ',
+		                tasks: items
+		            });
+		        });
+		    },
 		
-		  addTask: function(req, res) {
-		    var self = this;
-		    var item = req.body;
+		    addTask: function (req, res) {
+		        var self = this;
+		        var item = req.body;
 		
-		    self.taskDao.addItem(item, function(err) {
-		      if (err) {
-		        throw (err);
-		      }
+		        self.taskDao.addItem(item, function (err) {
+		            if (err) {
+		                throw (err);
+		            }
 		
-		      res.redirect('/');
-		    });
-		  },
+		            res.redirect('/');
+		        });
+		    },
 		
-		  completeTask: function(req, res) {
-		    var self = this;
-		    var completedTasks = Object.keys(req.body);
+		    completeTask: function (req, res) {
+		        var self = this;
+		        var completedTasks = Object.keys(req.body);
 		
-		    async.forEach(completedTasks, function taskIterator(completedTask, callback) {
-		      self.taskDao.updateItem(completedTask, function(err) {
-		        if (err) {
-		          callback(err);
-		        } else {
-		          callback(null);
-		        }
-		      });
-		    }, function goHome(err) {
-		      if (err) {
-		        throw err;
-		      } else {
-		        res.redirect('/');
-		      }
-		    });
-		  }
+		        async.forEach(completedTasks, function taskIterator(completedTask, callback) {
+		            self.taskDao.updateItem(completedTask, function (err) {
+		                if (err) {
+		                    callback(err);
+		                } else {
+		                    callback(null);
+		                }
+		            });
+		        }, function goHome(err) {
+		            if (err) {
+		                throw err;
+		            } else {
+		                res.redirect('/');
+		            }
+		        });
+		    }
 		};
+
 
 4. Сохраните и закройте файл **tasklist.js**.
  
@@ -502,17 +532,20 @@ DocumentDB.
 	![Screenshot of the MyTodo List application in a browser window](./media/documentdb-nodejs-application/image18.png)
 
 
-2. Введите информацию об элементе, имени элемента и категории в соответствующих полях, а затем нажмите кнопку **Добавить элемент**.
+2. Введите информацию об элементе, имени элемента и категории в соответствующих полях,
+а затем нажмите кнопку **Добавить элемент**.
 
 3. Страница должна обновиться, чтобы отобразить новый элемент в списке дел.
+.
 
 	![Screenshot of the application with a new item in the ToDo list](./media/documentdb-nodejs-application/image19.png)
 
-4. Чтобы выполнить задачу, просто установите флажок в столбце "Выполнить" и нажмите кнопку **Обновить задачи**.
+4. Чтобы выполнить задачу, просто установите флажок в столбце "Выполнить"
+и нажмите кнопку **Обновить задачи**.
 
 ## <a name="_Toc395783182"></a>Шаг 7. Разверните приложение на веб-сайтах Azure
 
-1. Если вы еще не сделали это, включите репозиторий git для своего веб-сайта Azure. Инструкции по выполнению данной процедуры приведены [здесь](/documentation/articles/web-sites-publish-source-control/#Step4).
+1. Если вы еще не сделали это, включите репозиторий git для своего веб-сайта Azure. Инструкции по выполнению данной процедуры приведены [здесь](web-sites-publish-source-control-git.md#step4).
 
 2. Добавьте свой веб-сайт Azure в качестве git remote.
 
@@ -522,19 +555,19 @@ DocumentDB.
 
 		git push azure master
 
-4. Через несколько секунд git закончит публикацию веб-приложения и запустит браузер, где ваше творение выполняется в Azure!
+4. Через несколько секунд git завершит публикацию вашего веб-приложения и
+запустит браузер, где вы сможете увидеть свое творение,
+запущенное в Azure!
 
 ## <a name="_Toc395637775"></a>Дальнейшие действия
 
 Поздравляем! Вы только что создали свое первое веб-приложение Node.js Express
 с помощью Azure DocumentDB и опубликовали его в службе веб-сайты Azure.
 
-Исходный код для этого примера приложения можно скачать [здесь][].
+Исходный код для этого примера приложения можно скачать [здесь](https://github.com/Azure/azure-documentdb-node/tree/master/tutorial/todo).
 
   [Node.js]: http://nodejs.org/
   [Git]: http://git-scm.com/
-  [здесь]: https://github.com/Azure/azure-documentdb-node/tree/master/core_sdk/tutorial/todo
-  [Azure CLI]: http://azure.microsoft.com/documentation/articles/xplat-cli/
   [Портал управления Azure]: http://portal.azure.com
 
-<!--HONumber=47-->
+<!--HONumber=49-->

@@ -235,8 +235,8 @@
 	    }
 
 
-       В этом коде  `RefreshTokenCacheFilter` используется в дополнение к  `ProgressFilter`. Также во время  `onCreate` нам нужно загрузить кэша маркера. Поэтому методу  `authenticate` передается значение  `false`.
+       В этом коде  `RefreshTokenCacheFilter` используется в дополнение к  `ProgressFilter`. Также во время  `onCreate` нам нужно загрузить кэша маркера. Так  `false` передается в метод `authenticate`.
 
 
 
-<!--HONumber=47-->
+<!--HONumber=49-->

@@ -1,5 +1,5 @@
-﻿<properties 
-	pageTitle="Начало работы с данными (Windows Phone) | Центр мобильных разработок" 
+<properties 
+	pageTitle="Добавление мобильных служб в существующее приложение (Windows Phone) | Центр разработчиков для мобильных устройств" 
 	description="Узнайте, как приступить к работе с мобильными службами, чтобы использовать данные в приложении Windows Phone." 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -10,13 +10,15 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/25/2014" 
+	ms.date="02/20/2015" 
 	ms.author="wesmc"/>
 
 # Добавление мобильных служб к существующему приложению
+
+##Обзор
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-data-legacy](../includes/mobile-services-selector-get-started-data-legacy.md)]
 
@@ -25,22 +27,14 @@
 Мобильная служба, создаваемая в этом учебнике, поддерживает среду выполнения .NET в мобильной службе. Это позволит использовать языки .NET и Visual Studio для серверной бизнес-логики в мобильной службе. Сведения о создании мобильной службы, которая позволит создавать в JavaScript серверную бизнес-логику, см. в подразделе [Серверная версия JavaScript] этого раздела.
 
 
-В этом учебнике рассматриваются следующие основные действия:
-
-1. [Загрузка проекта приложения Windows Phone 8]
-2. [Создание мобильной службы]
-3. [Локальная загрузка мобильной службы]
-4. [Обновление приложения Windows Phone для использования мобильной службы]
-5. [Тестирование приложения Windows Phone для службы, размещенной локально]
-6. [Публикация мобильной службы в Azure]
-7. [Тестирование приложения Windows Phone с помощью службы, размещенной в Azure]
+##Предварительные требования
 
 Для работы с данным учебником требуется следующее:
 
 + Visual Studio Professional 2013 с обновлением 2 или более поздней версии.
-+ Учетная запись Microsoft Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fru-ru%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F" target="_blank">Бесплатная пробная версия Azure</a>.</p></div> 
++ Учетная запись Microsoft Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fru-ru%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F" target="_blank">Бесплатная пробная версия Azure</a>.</p></div> 
 
-##<a name="download-app"></a>Загрузка проекта GetStartedWithData
+##Загрузка проекта GetStartedWithData
 
 Этот учебник создан на основе [приложения GetStartedWithMobileServices][Веб-сайт с примерами кода для разработчиков], являющегося проектом приложения Windows Phone Silverlight 8.1 в Visual Studio 2013.  
 
@@ -48,7 +42,7 @@
 
    	![][1]
 
-	>[AZURE.NOTE]Чтобы создать приложение для Windows Phone Silverlght 8.1, в скачанном проекте приложения для Windows Phone Silverlight 8 измените целевую ОС на Windows Phone 8.1. Чтобы создать приложение для Магазина Windows Phone, при скачивании примера проекта приложения GetStartedWithData выберите [версию приложения для Магазина Windows Phone](http://go.microsoft.com/fwlink/p/?LinkId=397372).
+	>[AZURE.NOTE] Чтобы создать приложение для Windows Phone Silverlght 8.1, в скачанном проекте приложения для Windows Phone Silverlight 8 измените целевую ОС на Windows Phone 8.1. Чтобы создать приложение для Магазина Windows Phone, при скачивании примера проекта приложения GetStartedWithData выберите [версию приложения для Магазина Windows Phone](http://go.microsoft.com/fwlink/p/?LinkId=397372).
 
 2. Запустите Visual Studio с правами администратора, для чего щелкните правой кнопкой мыши Visual Studio и выберите пункт **Запуск от имени администратора**.
 
@@ -66,14 +60,14 @@
 
    	![][0]  
 
-   	Заметьте, что для каждого элемента `TodoItem` текст отображается под кнопкой обновления вместе с флажком, который позволяет помечать завершенные элементы.
+   	Заметьте, что для каждого элемента `TodoItem`  текст отображается под кнопкой обновления вместе с флажком, который позволяет помечать завершенные элементы.
 
-<h2><a name="create-service"></a>Создание мобильной службы</h2>
+##Создание мобильной службы
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-create-new-service](../includes/mobile-services-dotnet-backend-create-new-service.md)]
 
 
-<h2><a name="download-the-service-locally"></a>Загрузка проекта мобильной службы и его добавление в решение</h2>
+##Загрузка проекта мобильной службы и его добавление в решение
 
 1. На [портале управления Azure] щелкните новую мобильную службу или вкладку с ее облачным значком, чтобы перейти на страницу обзора.
 
@@ -85,12 +79,12 @@
 
 3. В том же разделе щелкните ссылку, показанную на представленном ниже снимке экрана, чтобы скачать файл профиля публикации для только что скачанной мобильной службы. 
 
-    > [AZURE.NOTE] Сохраните файл в безопасном месте, поскольку он содержит важные сведения, относящиеся к вашей учетной записи Azure. Вы удалите этот файл после публикации мобильной службы позднее в этом учебнике. 
+    > [AZURE.NOTE] Сохраните файл в безопасном месте, так как он содержит важные сведения, относящиеся к вашей учетной записи Azure. Вы удалите этот файл после публикации мобильной службы позднее в этом учебнике. 
 
     ![][5]
 
 
-4. Распакуйте скачанный персонализированный начальный проект службы. Скопируйте папки, находившиеся в ZIP-файле, в тот же каталог **C#**, где находится файл решения для начала работы с данными ((SLN-файл)). Так диспетчеру пакетов NuGet будет проще обеспечивать синхронизацию всех пакетов.
+4. Распакуйте скачанный персонализированный начальный проект службы. Скопируйте папки, находившиеся в ZIP-файле, в один каталог **C#**, в котором находится файл решения для начала работы с данными (SLN-файл). Так диспетчеру пакетов NuGet будет проще обеспечивать синхронизацию всех пакетов.
 
     ![][26]
 
@@ -99,7 +93,7 @@
 
     ![][4]
 
-6. В диалоговом окне "Добавление существующего проекта" перейдите к папке проекта мобильной службы, которую вы перенесли в каталог **C#**. В подкаталоге службы выберите файл проекта C# (с расширением (.csproj)). Щелкните **Открыть**, чтобы добавить проект в решение.
+6. В диалоговом окне "Добавление существующего проекта" перейдите к папке проекта мобильной службы, которую вы перенесли в каталог **C#**. В подкаталоге службы выберите файл проекта C# (с расширением .csproj). Щелкните **Открыть**, чтобы добавить проект в решение.
 
     ![][6]
 
@@ -120,7 +114,7 @@
     ![][23]
 
 
-##<a name="update-app"></a>Обновление приложения Windows Phone для использования мобильной службы
+##Изменение приложения для Windows Phone для использования мобильной службы
 
 В этом разделе вы обновите приложение Windows Phone, чтобы использовать мобильную службу в качестве серверной службы для приложения.
 
@@ -137,9 +131,9 @@
 
     ![][9]
 
-4. В Visual Studio откройте файл App.xaml.cs. Вставьте фрагмент кода в начале определения класса `App`. Также добавьте следующий оператор `using` в верхнюю часть этого файла, а затем сохраните файл.
+4. В Visual Studio откройте файл App.xaml.cs. Вставьте фрагмент кода в начало определения класса `App`. Также добавьте следующий оператор `using` в верхнюю часть этого файла, а затем сохраните файл.
 
-		using Microsoft.WindowsAzure.MobileServices.
+		using Microsoft.WindowsAzure.MobileServices;
 
     ![][10]
 
@@ -150,7 +144,7 @@
 
 6. В файле MainPage.xaml.cs, открытом в Visual Studio, замените определение класса `MainPage` приведенным ниже определением, после чего сохраните файл.
 
-    Этот код использует пакет Mobile Services SDK, чтобы приложение могло хранить данные в таблице, предоставленной службой, а не размещать их локально в памяти. Три основных метода: `InsertTodoItem`,  `RefreshTodoItems` и `UpdateCheckedTodoItem`. Эти три метода позволяют асинхронно вставлять, запрашивать и обновлять коллекцию данных в таблице в Azure. 
+    Этот код использует пакет Mobile Services SDK, чтобы приложение могло хранить данные в таблице, предоставленной службой, а не размещать их локально в памяти. Три основных метода:  `InsertTodoItem`, `RefreshTodoItems` и `UpdateCheckedTodoItem`. Эти три метода позволяют асинхронно вставлять, запрашивать и обновлять коллекцию данных в таблице в Azure. 
 
         public sealed partial class MainPage : PhoneApplicationPage
         {
@@ -164,15 +158,13 @@
             private async void InsertTodoItem(TodoItem todoItem)
             {
                 await todoTable.InsertAsync(todoItem); 
-                ite
-	ms.Add(todoItem);
+                items.Add(todoItem);
             }
             private async void RefreshTodoItems()
             {
                 items = await todoTable 
                     .ToCollectionAsync(); 
-                ListIte
-	ms.ItemsSource = items;
+                ListItems.ItemsSource = items;
             }
             private async void UpdateCheckedTodoItem(TodoItem item)
             {
@@ -203,7 +195,7 @@
 
 
 
-##<a name="test-locally-hosted"></a>Тестирование приложения Windows Phone для службы, размещенной локально</h2>
+##Тестирование приложения Windows Phone со службой, размещенной локально</h2>
 
 В этом разделе вы научитесь использовать Visual Studio для локального тестирования приложения и мобильной службы на компьютере, где ведете разработку. Чтобы протестировать мобильную службу, размещенную локально в IIS Express, с устройства Windows Phone или одного из эмуляторов Windows Phone, необходимо настроить IIS Express и рабочую станцию таким образом, чтобы разрешить подключения к IP-адресу и порту рабочей станции. Устройства и эмуляторы Windows Phone подключаются как нелокальные сетевые клиенты.
 
@@ -246,7 +238,7 @@
 11. После завершения тестирования с размещенной локально мобильной службой удалите созданное вами правило брандмауэра Windows, открывающее порт на вашей рабочей станции.
 
 
-##<a name="publish-mobile-service"></a>Публикация мобильной службы в Azure
+##Публикация мобильной службы в Azure
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
@@ -290,14 +282,14 @@
 
 Это заключительный шаг учебника **Приступая к работе с данными**.
 
-## <a name="next-steps"> </a>Дальнейшие действия
+##Дальнейшие действия
 
 В этом учебнике показаны основы включения в приложении Windows Phone 8 возможностей работы с данными в мобильных службах, созданных с применением среды выполнения .NET. Далее рассмотрите выполнение одного из следующих учебников, которые основаны на приложении GetStartedWithData, созданном в этом учебнике:
 
 * [Проверка и изменение данных с помощью скриптов]
   <br/>Дополнительные сведения об использовании серверных скриптов в мобильных службах для проверки и изменения данных, отправляемых из приложения.
 
-* [Уточнение запросов c разбиением по страницам]
+* [Уточнение запросов с разбиением по страницам]
   <br/>Сведения об использовании разбиения по страницам в запросах для управления объемом данных, обрабатываемым в одном запросе.
 
 После завершения серии учебников по работе с данными попробуйте один из следующих учебников:
@@ -306,23 +298,14 @@
   <br/>Сведения о выполнении аутентификации учетных данных пользователей приложения.
 
 <!--
-* [Приступая к работе с push-уведомлениями] 
-  <br/>Сведения об отправке в приложение простейших push-уведомлений.
+* [Get started with push notifications] 
+  <br/>Learn how to send a very basic push notification to your app.
 -->
 
 * [Справочник по принципам использования мобильных служб .NET]
   <br/>Дополнительные сведения об использовании мобильных служб с .NET.
   
-<!-- Anchors. -->
 
-[Загрузка проекта приложения Windows Phone 8]: #download-app
-[Создание мобильной службы]: #create-service
-[Локальная загрузка мобильной службы]: #download-the-service-locally
-[Обновление приложения Windows Phone для использования мобильной службы]: #update-app
-[Тестирование приложения Windows Phone для службы, размещенной локально]: #test-locally-hosted
-[Публикация мобильной службы в Azure]: #publish-mobile-service
-[Тестирование приложения Windows Phone с помощью службы, размещенной в Azure]: #test-azure-hosted
-[Дальнейшие действия]:#next-steps
 
 <!-- Images. -->
 [0]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/app-view.png
@@ -341,8 +324,7 @@
 [13]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/new-local-todoitem.png
 [14]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/vs-show-local-table-data.png
 [15]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/local-item-checked.png
-[16]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/azure-ite
-	ms.png
+[16]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/azure-items.png
 [17]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/manage-sql-azure-database.png
 [18]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/sql-azure-query.png
 [19]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/vs-deployment-target.png
@@ -355,23 +337,23 @@
 
 
 <!-- URLs. -->
-[Проверка и изменение данных с помощью скриптов]: /ru-ru/develop/mobile/tutorials/validate-modify-and-augment-data-wp8
-[Уточнение запросов c разбиением по страницам]: /ru-ru/develop/mobile/tutorials/add-paging-to-data-wp8
-[Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/
-[Приступая к работе с данными]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/
-[Приступая к работе с проверкой подлинности]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users/
-[Приступая к работе с push-уведомлениями]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/
-[JavaScript и HTML]: /ru-ru/develop/mobile/tutorials/get-started-with-data-js
-[Серверная версия JavaScript]: /ru-ru/develop/mobile/tutorials/get-started-with-data-wp8
+[Проверка и изменение данных с помощью скриптов]: /develop/mobile/tutorials/validate-modify-and-augment-data-wp8
+[Уточнение запросов с разбиением по страницам]: /develop/mobile/tutorials/add-paging-to-data-wp8
+[Приступая к работе с мобильными службами]: mobile-services-dotnet-backend-windows-phone-get-started.md
+[Приступая к работе с данными]: mobile-services-dotnet-backend-windows-phone-get-started-data.md
+[Приступая к работе с проверкой подлинности]: mobile-services-dotnet-backend-windows-phone-get-started-users.md
+[Приступая к работе с push-уведомлениями]: mobile-services-dotnet-backend-windows-phone-get-started-push.md
+[JavaScript и HTML]: /develop/mobile/tutorials/get-started-with-data-js
+[Серверная версия JavaScript]: /develop/mobile/tutorials/get-started-with-data-wp8
 
 [Пакет SDK для Windows Phone 8]: http://go.microsoft.com/fwlink/p/?linkid=268374
-[Портал управления Azure]: https://manage.windowsazure.com/
+[портале управления Azure]: https://manage.windowsazure.com/
 [Портал управления]: https://manage.windowsazure.com/
 [Пакет SDK для мобильных служб]: http://go.microsoft.com/fwlink/p/?LinkId=257545
 [Веб-сайт с примерами кода для разработчиков]:  https://code.msdn.microsoft.com/Add-Azure-Mobile-to-a-8b906f72
-[Справочник по принципам использования мобильных служб .NET]: /ru-ru/develop/mobile/how-to-guides/work-with-net-client-library
+[Справочник по принципам использования мобильных служб .NET]: /develop/mobile/how-to-guides/work-with-net-client-library
 [Класс MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
 [Добавление нового правила для порта в брандмауэре Windows]:  http://go.microsoft.com/fwlink/?LinkId=392240
   
 
-<!--HONumber=42-->
+<!--HONumber=49-->

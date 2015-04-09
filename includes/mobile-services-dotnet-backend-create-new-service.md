@@ -22,4 +22,4 @@
 <!-- URLs. -->
 [Портал управления]: https://manage.windowsazure.com/
 
-<!--HONumber=47-->
+<!--HONumber=49-->

@@ -1,4 +1,4 @@
-
+﻿
 1. Обязательно остановите мобильную службу, если она запущена в IIS Express. Щелкните правой кнопкой мыши значок IIS Express на панели задач и выберите пункт **Остановить** для мобильной службы.
 
     ![](./media/mobile-services-how-to-configure-iis-express/iis-express-tray-stop-site.png)
@@ -38,4 +38,5 @@
 
 <!-- URLs. -->
 [Добавление нового правила для порта в брандмауэре Windows]:  http://go.microsoft.com/fwlink/?LinkId=392240
-<!--HONumber=42-->
+
+<!--HONumber=49-->

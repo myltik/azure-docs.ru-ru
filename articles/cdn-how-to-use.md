@@ -1,6 +1,6 @@
 ﻿<properties 
-	pageTitle="»спользование CDN Ч руководство по компонентам Azure" 
-	description="знайте, как использовать сеть доставки содержимого (CDN) Azure дл¤ доставки больших объемов контента посредством кэшировани¤ BLOB-объектов и статического контента." 
+	pageTitle="Использование CDN - руководство по компонентам Azure" 
+	description="Узнайте, как использовать сеть доставки содержимого (CDN) Azure для доставки больших объемов контента посредством кэширования BLOB-объектов и статического контента." 
 	services="cdn" 
 	documentationCenter=".net" 
 	authors="" 
@@ -20,9 +20,6 @@
 
 
 
+[AZURE.INCLUDE [cdn](../includes/cdn.md)]
 
-[WACOM.INCLUDE [cdn](../includes/cdn.md)]
-
-<!--HONumber=35.2-->
-
-<!--HONumber=46--> 
+<!--HONumber=49-->

@@ -165,4 +165,5 @@
 
 <!-- URLs. -->
 [Пакет SDK для мобильных служб для Android]: http://aka.ms/Iajk6q
-<!--HONumber=47-->
+
+<!--HONumber=49-->
