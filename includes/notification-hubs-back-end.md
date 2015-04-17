@@ -1,6 +1,6 @@
-
+﻿
 В этом разделе показано, как отправлять уведомления из консольного приложения .NET и других приложений.
-При использовании мобильных служб используйте учебники [Начало работы с push-уведомлениями](/ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/). Если вы хотите использовать Java или PHP, см. раздел [Использование центров уведомлений из Java/PHP](/ru-ru/documentation/articles/notification-hubs-java-backend-how-to/). Можно отправлять уведомления из любого серверного компонента с помощью [интерфейса REST центров уведомлений].
+Если вы используете мобильные службы, просмотрите учебник [Приступая к работе с push-уведомлениями](../articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md)  [AU1] Если вы хотите использовать Java или PHP, ознакомьтесь со статьей [Использование концентраторов уведомлений из Java/PHP](notification-hubs-java-backend-how-to.md). Можно отправлять уведомления из любого серверного компонента с помощью [интерфейса REST центров уведомлений].
 
 Следующий код отправляет уведомления в Магазин Windows, на устройства Windows Phone, iOS и Android. 
 
@@ -92,13 +92,14 @@
 [16]: ./media/notification-hubs-back-end/notification-hub-scheduler2.png
 
 <!-- URLs. -->
-[get-started]: /ru-ru/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-[Использование центров уведомлений для отправки уведомлений пользователям]: ../notificationhubs/tutorial-notify-users-mobileservices.md
-[Приступая к работе с мобильными службами]: /ru-ru/develop/mobile/tutorials/get-started/#create-new-service
+[приступая к работе]: ../articles/notification-hubs-windows-store-dotnet-get-started.md
+[Использование концентраторов уведомлений для отправки уведомлений пользователям]: ../articles/tutorial-notify-users-mobileservices.md
+[Приступая к работе с мобильными службами]: /develop/mobile/tutorials/get-started/#create-new-service
 [Портал управления Azure]: https://manage.windowsazure.com/
 [Объект wns]: http://go.microsoft.com/fwlink/p/?LinkId=260591
-[Руководство по использованию центров уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
-[Инструкции по использованию центров уведомлений для магазина Windows]: http://msdn.microsoft.com/library/jj927172.aspx
-[интерфейса REST центров уведомлений]: http://msdn.microsoft.com/library/windowsazure/dn223264.aspx
+[Руководство по использованию концентраторов уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
+[Инструкции по использованию концентраторов уведомлений для Магазина Windows]: http://msdn.microsoft.com/library/jj927172.aspx
+[Интерфейс REST центров уведомлений]: http://msdn.microsoft.com/library/windowsazure/dn223264.aspx
+[AU1]By design, please ignore
 
-<!--HONumber=45--> 
+<!--HONumber=49-->

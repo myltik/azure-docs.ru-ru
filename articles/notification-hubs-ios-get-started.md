@@ -1,31 +1,35 @@
-<properties pageTitle="Приступая к работе с центрами уведомлений Azure" description="Узнайте, как использовать центры уведомлений Azure для push-уведомлений." services="notification-hubs" documentationCenter="ios" authors="ysxu" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Приступая к работе с концентраторами уведомлений Azure" 
+	description="Узнайте, как использовать центры уведомлений Azure для push-уведомлений." 
+	services="notification-hubs" 
+	documentationCenter="ios" 
+	authors="wesmc" 
+	manager="dwrede" 
+	editor=""/>
 
 <tags 
 	ms.service="notification-hubs" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-ios" 
 	ms.devlang="objective-c" 
 	ms.topic="hero-article" 
-	ms.date="10/10/2014" 
-	ms.author="yuaxu"/>
+	ms.date="03/16/2015" 
+	ms.author="wesmc"/>
 
-# Приступая к работе с центрами уведомлений
+# Приступая к работе с концентраторами уведомлений
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/ru-ru/documentation/articles/notification-hubs-windows-store-dotnet-get-started/" title="Windows Universal">Windows Universal</a><a href="/ru-ru/documentation/articles/notification-hubs-windows-phone-get-started/" title="Windows Phone">Windows Phone</a><a href="/ru-ru/documentation/articles/notification-hubs-ios-get-started/" title="iOS" class="current">iOS</a><a href="/ru-ru/documentation/articles/notification-hubs-android-get-started/" title="Android">Android</a><a href="/ru-ru/documentation/articles/notification-hubs-kindle-get-started/" title="Kindle">Kindle</a><a href="/ru-ru/documentation/articles/notification-hubs-baidu-get-started/" title="Baidu">Baidu</a><a href="/ru-ru/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/" title="Xamarin.iOS">Xamarin.iOS</a><a href="/ru-ru/documentation/articles/partner-xamarin-notification-hubs-android-get-started/" title="Xamarin.Android">Xamarin.Android</a></div>
+[AZURE.INCLUDE [notification-hubs-selector-get-started](../includes/notification-hubs-selector-get-started.md)]
 
-В этом разделе показано, как использовать центры уведомлений Azure для отправки push-уведомлений в приложение на платформе iOS.
+##Обзор
+
+В этом разделе показано, как использовать концентраторы уведомлений Azure для отправки push-уведомлений в приложение на платформе iOS.
 В этом учебнике вам предстоит создать пустое приложение iOS, получающее push-уведомления с помощью службы push-уведомлений Apple (APNS). По завершении вы сможете рассылать push-уведомления на все устройства, где запущено ваше приложение, с помощью центра уведомлений.
 
-В этом учебнике рассматриваются следующие основные шаги для включения push-уведомлений:
+В этом учебнике описывается простой сценарий вещания с использованием центров уведомлений. 
 
-1. [Создание запроса подписи сертификата]
-2. [Регистрация приложения и включение push-уведомлений]
-3. [Создание профиля подготовки для приложения]
-4. [Настройка центра уведомлений]
-5. [Подключение приложения к центру уведомлений]
-6. [Отправка уведомлений из серверной части]
+##Предварительные требования
 
-В этом учебнике описывается простой сценарий вещания с использованием центров уведомлений. Рекомендуем вам изучить следующий учебник, чтобы узнать об использовании центров уведомлений для охвата определенных пользователей и групп устройств. Для работы с этим учебником необходимо следующее:
+Для работы с этим учебником нужны такие компоненты:
 
 + [Пакет SDK для мобильных служб для iOS]
 + [XCode 4.5][Установка Xcode]
@@ -36,11 +40,11 @@
 
 Завершение изучения этого учебника является необходимым условием для работы со всеми другими учебниками, посвященными центрам уведомлений для приложений iOS.
 
-> [AZURE.NOTE] Для работы с этим учебником требуется активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fru-ru%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F%20target="_blank).
+> [AZURE.NOTE] Для работы с этим учебником требуется активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в статье [Бесплатная пробная версия Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fru-ru%2Fdocumentation%2Farticles%2Fnotification-hubs-ios-get-started).
 
-[AZURE.INCLUDE [Включение push-уведомлений Apple](../includes/enable-apple-push-notifications.md)]
+[AZURE.INCLUDE [Enable Apple Push Notifications](../includes/enable-apple-push-notifications.md)]
 
-##<a name="configure-hub"></a>Настройка центра уведомлений
+##Настройка концентратора уведомлений
 
 1. В Keychain Access щелкните правой клавишей мыши по новому сертификату **Мои сертификаты** приложения быстрого запуска. Нажмите **Экспорт**, задайте имя файла, выберите формат **.p12** и нажмите кнопку **Сохранить**.
 
@@ -50,9 +54,9 @@
 
 >[AZURE.NOTE] В этом учебнике создается файл Quickstart.p12. Имя файла и расположение могут отличаться.
 
-2. Войдите на [портал управления Azure] и щелкните пункт **+СОЗДАТЬ** в нижней части экрана.
+2. Войдите на [портал управления Azure] и щелкните **+СОЗДАТЬ** в нижней части экрана.
 
-3. Последовательно щелкните элементы **Службы приложений**, **Service Bus**, **Центр уведомлений** и **Быстрое создание**.
+3. Последовательно щелкните элементы **Службы приложений**, **Шина обслуживания**, **Концентратор уведомлений** и **Быстрое создание**.
 
    	![][27]
 
@@ -60,25 +64,25 @@
 
    	![][28]
 
-5. Выберите недавно созданное пространство имен (обычно это ***имя центра уведомлений*-ns**) и щелкните расположенную сверху вкладку **Настройка**.
+5. Выберите только что созданное пространство имен (обычно это ***имя концентратора уведомлений*-ns**) и щелкните расположенную вверху вкладку **Настройка**.
 
    	![][29]
 
-6. Откройте расположенную сверху вкладку **Центры уведомлений** и выберите недавно созданный центр уведомлений.
+6. Откройте расположенную вверху вкладку **Концентраторы уведомлений** и выберите недавно созданный концентратор уведомлений.
 
    	![][210]
 
-7. Откройте расположенную сверху вкладку **Настройка**, а затем щелкните элемент **Загрузить** для параметров службы уведомлений Apple. Выберите ранее экспортированный сертификат **.p12** и пароль для него. Обязательно укажите, следует ли использовать службу push-уведомлений **Рабочая среда** (если вы хотите отправлять push-уведомления пользователям, которые приобрели ваше приложение в Магазине) или **Песочница** (во время разработки).
+7. Выберите расположенную сверху вкладку **Настройка**, а затем щелкните **Загрузить** для параметров службы уведомлений Apple. Выберите ранее экспортированный сертификат **.p12** и пароль для него. Обязательно укажите, следует ли использовать службу push-уведомлений **Рабочая среда** (если вы хотите отправлять push-уведомления пользователям, которые приобрели ваше приложение в Магазине) или **Песочница** (во время разработки).
 
    	![][211]
 
-8. Откройте расположенную сверху вкладку **Панель мониторинга** и щелкните элемент **Информация о подключении**. Запишите значения двух строк подключения.
+8. Щелкните расположенную сверху вкладку **Панель мониторинга** и щелкните **Сведения о подключении**. Запишите значения двух строк подключения.
 
    	![][212]
 
-Центр уведомлений теперь настроен для работы с APNS, и у вас есть строки подключения, чтобы зарегистрировать приложение и отправлять уведомления.
+Концентратор уведомлений теперь настроен для работы с APNs, и у вас есть строки подключения, чтобы зарегистрировать приложение и отправлять уведомления.
 
-##<a name="connecting-app"></a>Подключение приложения к центру уведомлений
+##Подключение приложения к концентратору уведомлений
 
 1. В XCode создайте новый проект iOS и выберите шаблон **Приложение одного представления**.
 
@@ -99,6 +103,16 @@
 5. В файле AppDelegate.m добавьте следующий код в метод `didFinishLaunchingWithOptions`:
 
          [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
+
+	Для iOS 8
+   
+	 	UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeSound |
+                                            UIUserNotificationTypeAlert |
+                                            UIUserNotificationTypeBadge
+					    					categories:nil];
+ 
+    	[[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+    	[[UIApplication sharedApplication] registerForRemoteNotifications];
 
 6. В том же файле добавьте следующий метод:
 
@@ -126,11 +140,11 @@
 
 8. Запустите приложение на устройстве.
 
-##<a name="send"></a>Отправка уведомления из серверной части
+##Отправка уведомления из серверной части
 
-Уведомления можно отправлять с помощью центров уведомлений из любого серверного компонента с помощью <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">интерфейса REST</a>. В этом учебнике мы будем отправлять уведомления с помощью консольного приложения .NET. Пример отправки уведомлений из серверной части мобильных служб Azure, интегрированной с помощью центра уведомлений, см. в статье **Приступая к работе с push-уведомлениями в мобильных службах** ([Серверная часть .NET](/ru-ru/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/)) | [Серверная часть JavaScript](/ru-ru/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/)).  Чтобы ознакомиться с примером отправки уведомлений при помощи REST API, см. раздел **Использование центров уведомлений из Java/PHP** ([Java](/ru-ru/documentation/articles/notification-hubs-java-backend-how-to/) | [PHP](/ru-ru/documentation/articles/notification-hubs-php-backend-how-to/)).
+Уведомления можно отправлять с помощью концентраторов уведомлений из любого серверного компонента с помощью [интерфейса REST](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx). В этом учебнике мы будем отправлять уведомления с помощью консольного приложения .NET. Пример отправки уведомлений с сервера мобильных служб Azure, интегрированного с концентраторами уведомлений, см. в статье **Приступая к работе с push-уведомлениями в мобильных службах** ([сервер .NET](mobile-services-javascript-backend-ios-get-started-push.md) | [серверная часть JavaScript](mobile-services-javascript-backend-ios-get-started-push.md)).  Пример отправки уведомлений с помощью интерфейсов API REST см. в статье **Использование концентраторов уведомлений с Java/PHP** ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md)).
 
-1. В Visual Studio в меню **Файл** последовательно выберите **Создать** и **Проект...**, затем в области **Visual C#** нажмите **Windows** и **Консольные приложения**, затем нажмите кнопку **ОК**.  
+1. В Visual Studio в меню **Файл** последовательно выберите **Создать**, **Проект...**, а затем в области **Visual C#** щелкните **Windows** и **Консольное приложение** и нажмите кнопку **ОК**.  
 
    	![][20]
 
@@ -174,18 +188,11 @@
 
 Все возможные виды полезных нагрузок можно найти в [руководстве по программированию локальных и push-уведомлений] Apple.
 
-## <a name="next-steps"> </a>Дальнейшие действия
+##Дальнейшие действия
 
-В этом простом примере осуществляется рассылка уведомлений на все устройства iOS. Для охвата определенных пользователей см. учебник [Использование центров уведомлений для отправки push-уведомлений пользователям], если же требуется разделить пользователей по группам интересов, см. [Использование центров уведомлений для передачи экстренных новостей]. Дополнительную информацию об использовании центров уведомлений см. в [руководстве по использованию центров уведомлений].
+В этом простом примере осуществляется рассылка уведомлений на все устройства iOS. Для охвата определенных пользователей см. учебник [Использование концентраторов уведомлений для отправки push-уведомлений пользователям], если же требуется разделить пользователей по группам интересов, см. [Использование концентраторов уведомлений для передачи экстренных новостей]. Дополнительные сведения об использовании концентраторов уведомлений см. в статье [Общие сведения о концентраторах уведомлений].
 
-<!-- Anchors. -->
-[Создание запроса подписи сертификата]: #certificates
-[Регистрация приложения и включение push-уведомлений]: #register
-[Создание профиля подготовки для приложения]: #profile
-[Настройка центра уведомлений]: #configure-hub
-[Подключение приложения к центру уведомлений]: #connecting-app
-[Отправка уведомлений из серверной части]: #send
-[Дальнейшие действия]:#next-steps
+
 
 <!-- Images. -->
 [5]: ./media/notification-hubs-ios-get-started/mobile-services-ios-push-step5.png
@@ -264,15 +271,16 @@
 [Мои приложения]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK для Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
-[Приступая к работе с мобильными службами]: /ru-ru/develop/mobile/tutorials/get-started-ios
-[портал управления Azure]: https://manage.windowsazure.com/
-[руководстве по использованию центров уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
+[Приступая к работе с мобильными службами]: /develop/mobile/tutorials/get-started-ios
+[Портал управления Azure]: https://manage.windowsazure.com/
+[Руководство по использованию концентраторов уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
 [Установка Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Портал подготовки iOS]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
-[Использование центров уведомлений для отправки push-уведомлений пользователям]: /ru-ru/manage/services/notification-hubs/notify-users-aspnet
-[Использование центров уведомлений для передачи экстренных новостей]: /ru-ru/manage/services/notification-hubs/breaking-news-dotnet
+[Использование концентраторов уведомлений для отправки push-уведомлений пользователям]: notification-hubs-ios-mobile-services-register-user-push-notifications.md
+[Использование концентраторов уведомлений для передачи экстренных новостей]: notification-hubs-ios-send-breaking-news.md
 
-[руководстве по программированию локальных и push-уведомлений]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
+[Руководство по программированию локальных и push-уведомлений]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
-<!--HONumber=45--> 
+
+<!--HONumber=49-->

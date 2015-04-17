@@ -2,7 +2,7 @@
 	pageTitle="Безопасные push-уведомления посредством центров уведомлений Azure" 
 	description="Узнайте, как отправлять безопасные push-уведомления в Azure. Примеры кода написаны на C# с использованием API .NET." 
 	documentationCenter="windows" 
-	authors="ggailey777" 
+	authors="wesmc7777" 
 	manager="dwrede" 
 	editor="" 
 	services="notification-hubs"/>
@@ -13,15 +13,17 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/24/2014" 
-	ms.author="glenga"/>
+	ms.date="02/24/2015" 
+	ms.author="wesmc"/>
 
 #Безопасные push-уведомления посредством центров уведомлений Azure
 
 <div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/ru-ru/documentation/articles/notification-hubs-windows-dotnet-secure-push/" title="Windows Universal" class="current">Windows Universal</a><a href="/ru-ru/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS">iOS</a>
-		<a href="/ru-ru/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/" title="Android">Android</a>
+    	<a href="/documentation/articles/notification-hubs-windows-dotnet-secure-push/" title="Windows Universal" class="current">Windows Universal</a><a href="/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS">iOS</a>
+		<a href="/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/" title="Android">Android</a>
 </div>
+
+##Обзор
 
 Поддержка push-уведомлений в Microsoft Azure позволяет получить доступ к простой в использовании, многоплатформенной и масштабируемой инфраструктуре для отправки push-уведомлений, которая значительно упрощает реализацию push-уведомлений как для индивидуальных пользователей, так и для корпоративных приложений для мобильных платформ. 
 
@@ -40,7 +42,7 @@
 
 В этом учебнике по безопасности push-уведомлений показано, как безопасно отправлять push-уведомление. Это продолжение другого учебника под названием **Уведомление пользователей**, поэтому сначала следует выполнить шаги в указанном учебнике.
 
-> [AZURE.NOTE] В этом учебнике подразумевается, что вы создали и настроили центр уведомлений в соответствии с описанием в учебнике [Приступая к работе с центрами уведомлений (Магазин Windows)](http://azure.microsoft.com/ documentation/articles/notification-hubs-windows-store-dotnet-get-started/).
+> [AZURE.NOTE] В этом учебнике подразумевается, что вы создали и настроили концентратор уведомлений в соответствии с описанием в руководстве [Начало работы с концентраторами уведомлений (Магазин Windows)](notification-hubs-windows-store-dotnet-get-started.md).
 Кроме того, обратите внимание, что для Windows Phone 8.1 требуются учетные данные Windows (не Windows Phone) и что фоновые задачи не работают на Windows Phone 8.0 и в Silverlight 8.1. При работе в приложениями из Магазина Windows уведомления можно получать через фоновую задачу только в том случае, если включен экран блокировки приложения (установите флажок в Appmanifest).
 
 [AZURE.INCLUDE [notification-hubs-aspnet-backend-securepush](../includes/notification-hubs-aspnet-backend-securepush.md)]
@@ -67,7 +69,7 @@
             }
         }
 
-3. Добавьте в начало файла App.xaml.cs следующие инструкции `using`:
+3. Добавьте в начало файла App.xaml.cs следующие операторы `using`:
 
 		using Windows.Networking.PushNotifications;
 		using Windows.ApplicationModel.Background;
@@ -84,7 +86,7 @@
 
 	![][12]
 
-3. В обозревателе решений щелкните правой кнопкой мыши проект **PushBackgroundComponent (Windows Phone 8.1)** и затем щелкните **Добавить** и выберите **Класс**. Присвойте новому классу имя **PushBackgroundTask.cs**. Щелкните кнопку **Добавить**, чтобы создать класс.
+3. В обозревателе решений щелкните правой кнопкой мыши проект **PushBackgroundComponent (Windows Phone 8.1)**,а затем щелкните **Добавить** и выберите **Класс**. Присвойте новому классу имя **PushBackgroundTask.cs**. Щелкните кнопку **Добавить**, чтобы создать класс.
 
 4. Замените все содержимое определения пространства имен **PushBackgroundComponent** следующим кодом, заменив заполнитель `{back-end endpoint}` конечной точкой серверной части, полученной при развертывании серверной части:
 
@@ -131,17 +133,17 @@
     		    }
     		}
 
-5. В обозревателе решений щелкните правой кнопкой мыши проект **PushBackgroundComponent (Windows Phone 8.1)** и затем щелкните **Управление пакетами NuGet**.
+5. В обозревателе решений щелкните правой кнопкой мыши проект **PushBackgroundComponent (Windows Phone 8.1)**, а затем выберите **Управление пакетами NuGet**.
 
-6. В левой части окна выберите **В сети**.
+6. В левой части окна щелкните **В сети**.
 
 7. В текстовом поле **Поиск** введите **Клиент HTTP**.
 
-8. В списке результатов выберите **Клиентские библиотеки Microsoft HTTP**, после чего выберите **Установить**. Выполните установку.
+8. В списке результатов выберите **Клиентские библиотеки Microsoft HTTP** и нажмите кнопку **Установить**. Выполните установку.
 
-9. Вернитесь к полю NuGet **Поиск**, введите **Json.net**. Установите пакет **Json.NET**, затем закройте окно диспетчера пакетов NuGet.
+9. Вернитесь к полю NuGet **Поиск** и введите **Json.net**. Установите пакет **Json.NET**, затем закройте окно диспетчера пакетов NuGet.
 
-10. Добавьте следующие инструкции `using` в начало файла **PushBackgroundTask.cs**:
+10. В начало файла **PushBackgroundTask.cs** добавьте следующие операторы `using`:
 
 		using Windows.ApplicationModel.Background;
 		using Windows.Networking.PushNotifications;
@@ -152,7 +154,7 @@
 		using Windows.UI.Notifications;
 		using Windows.Data.Xml.Dom;
 
-11. В обозревателе решений в проекте **NotifyUserWindowsPhone (Windows Phone 8.1)** щелкните правой кнопкой **Ссылки**, затем щелкните **Добавить ссылку...**. В диалоговом окне "Диспетчер ссылок" установите флажок **PushBackgroundComponent** и затем нажмите кнопку **ОК**.
+11. В обозревателе решений в проекте **NotifyUserWindowsPhone (Windows Phone 8.1)** правой кнопкой мыши щелкните пункт **Ссылки**, а затем щелкните **Добавить ссылку...**. В диалоговом окне "Диспетчер ссылок" установите флажок **PushBackgroundComponent** и затем нажмите кнопку **ОК**.
 
 12. В обозревателе решений дважды щелкните **Package.appxmanifest** в проекте **NotifyUserWindowsPhone (Windows Phone 8.1)**. В поле **Уведомления** установите для параметра **Всплывающие уведомления** значение **Да**.
 
@@ -184,4 +186,4 @@
 [12]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push12.png
 [13]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push13.png
 
-<!--HONumber=45--> 
+<!--HONumber=49-->

@@ -1,12 +1,12 @@
-﻿## Создание проекта веб-интерфейса API
+﻿## Создание проекта веб-API
 
-Выполните следующие шаги для создания новой серверной части ASP.NET веб-интерфейса API для проверки подлинности клиентов и формирования уведомлений или изменения существующей серверной части из предыдущих проектов или из учебника [Отправка push-уведомлений пользователям, прошедшим проверку подлинности](http://azure.microsoft.com/ documentation/articles/mobile-services-dotnet-backend-ios-push-notifications-app-users/).
+С помощью этого учебника вы научитесь создавать серверную часть веб-API ASP.NET для аутентификации клиентов и создания уведомлений, изменять существующую серверную часть из предыдущих проектов и [отправлять push-уведомления пользователям, которые прошли аутентификацию](../articles/mobile-services-dotnet-backend-ios-push-notifications-app-users.md)  [AU1]
 
-> [AZURE.NOTE] **Внимание**! Перед тем как начать работу с этим учебником, убедитесь, что у вас установлена последняя версия диспетчера пакетов NuGet. Чтобы проверить, запустите Visual Studio. В меню **Средства** щелкните пункт **Расширения и обновления**. Найдите **Диспетчер пакетов NuGet для Visual Studio 2013** и убедитесь, что у вас версия 2.8.50313.46 или более поздняя. Если это не так, переустановите диспетчер пакетов NuGet.
+> [AZURE.NOTE] **Важно!** Перед тем как начать работу с этим учебником, убедитесь, что у вас установлена последняя версия диспетчера пакетов NuGet. Чтобы проверить, запустите Visual Studio. В меню **Средства** щелкните пункт **Расширения и обновления**. Найдите **Диспетчер пакетов NuGet для Visual Studio 2013** и убедитесь, что у вас версия 2.8.50313.46 или более поздняя. Если это не так, переустановите диспетчер пакетов NuGet.
 > 
 > ![][4]
 
-> [AZURE.NOTE] Убедитесь, что вы установили Visual Studio [SDK Azure](http://azure.microsoft.com/ downloads/) для развертывания веб-сайта.
+> [AZURE.NOTE] Убедитесь, что вы установили Visual Studio [SDK Azure](http://azure.microsoft.com/downloads/) для развертывания веб-сайта.
 
 1. Запустите Visual Studio или Visual Studio Express.
 2. В Visual Studio щелкните **Файл**, **Создать**, **Проект**, откройте **Шаблоны**, **Visual C#**, выберите пункт **Веб-приложения** и **Веб-приложение ASP.NET**, введите имя **AppBackend** и нажмите кнопку **ОК**. 
@@ -116,7 +116,7 @@
 
 		config.MessageHandlers.Add(new AuthenticationTestHandler());
 
-15. Далее создадим новый контроллер **RegisterController**. В обозревателе решений щелкните правой кнопкой мыши папку **Контроллеры**, нажмите кнопку **Добавить**, затем **Контроллер**. Щелкните элемент **Контроллер веб-интерфейса API 2 - пустой** и нажмите кнопку **Добавить**. Назовите новый класс **RegisterController** и снова щелкните **Добавить**, чтобы создать контроллер.
+15. Next we create a new controller **RegisterController**. In Solution Explorer, right-click the **Controllers** folder, then click **Add**, then click **Controller**. Click the **Web API 2 Controller -- Empty** item, and then click **Add**. Name the new class **RegisterController**, and then click **Add** again to generate the controller.
 
 	![][7]
 
@@ -298,5 +298,6 @@
 [B15]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users15.PNG
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG
+[AU1]By design, please ignore
 
-<!--HONumber=45--> 
+<!--HONumber=49-->
