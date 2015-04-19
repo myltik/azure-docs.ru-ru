@@ -1,7 +1,7 @@
 ﻿
 Рекомендуется всегда проверять длину данных, предоставляемых пользователями. В этом разделе вы добавите код в мобильную службу, проверяющий длину строки данных, отправленных в мобильную службу, и отклоняет слишком длинны строки; в этом случае отклоняются строки длиной более 10 знаков.
 
-1. Запустите Visual Studio с параметром **Запуск от имени администратора**, а также откройте решение, содержащее проект мобильной службы, с которым вы работали в учебниках [Приступая к работе] или [Приступая к работе с данными](/ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/).
+1. Запустите Visual Studio с параметром **Запуск от имени администратора**, а также откройте решение, содержащее проект мобильной службы, с которым вы работали в учебниках [Приступая к работе] или [Приступая к работе с данными](mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md).
 
 2. В окне обозревателя решений разверните проект службы списка дел и разверните элемент **Contollers**. Откройте файл TodoItemController.cs, который является частью проекта мобильной службы.  
 
@@ -29,9 +29,9 @@
 
    	![](./media/mobile-services-dotnet-backend-add-validation/mobile-services-build-dotnet-service.png)
 
-5. Щелкните правой кнопкой мыши проект службы и выберите пункт **Опубликовать**. Выполните публикацию мобильной службы для учетной записи Microsoft Azure с параметрами публикации, использованными ранее в учебнике [Приступая к работе] или [Приступая к работе с данными](/ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/).
+5. Щелкните правой кнопкой мыши проект службы и выберите пункт **Опубликовать**. Выполните публикацию мобильной службы для учетной записи Microsoft Azure с параметрами публикации, использованными ранее в учебнике [Приступая к работе] или [Приступая к работе с данными](mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md).
  
-     >[AZURE.NOTE] Кроме того, можно выполнить тестирование с помощью службы, размещенной локально в IIS Express. Дополнительную информацию см. в учебнике [Приступая к работе с данными](/ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/).
+     >[AZURE.NOTE] Кроме того, можно выполнить тестирование с помощью службы, размещенной локально в IIS Express. Дополнительную информацию см. в учебнике [Приступая к работе с данными](mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md).
 
     ![](./media/mobile-services-dotnet-backend-add-validation/mobile-services-publish-dotnet-service.png)
 

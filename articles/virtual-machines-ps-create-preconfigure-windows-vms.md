@@ -26,7 +26,7 @@
 
 ## Шаг 1. Установка Azure PowerShell
 
-Если вы еще не сделали этого, воспользуйтесь инструкциями в разделе [Установка и настройка Azure PowerShell](../install-configure-powershell/), чтобы установить Azure PowerShell на локальном компьютере. После этого откройте командную строку Azure PowerShell.
+Если вы еще не сделали этого, воспользуйтесь инструкциями в разделе [Установка и настройка Azure PowerShell](install-configure-powershell.md), чтобы установить Azure PowerShell на локальном компьютере. После этого откройте командную строку Azure PowerShell.
 
 ## Шаг 2. Указание подписки и учетной записи хранения
 
@@ -265,8 +265,8 @@
 
 [Общие сведения о виртуальных машинах Azure](http://msdn.microsoft.com/library/azure/jj156143.aspx)
 
-[Установка и настройка Azure PowerShell](../install-configure-powershell/)
+[Установка и настройка Azure PowerShell](install-configure-powershell.md)
 
-[Использование Azure PowerShell для создания и предварительной настройки виртуальных машин под управлением Linux](../virtual-machines-ps-create-preconfigure-linux-vms/)
+[Использование Azure PowerShell для создания и предварительной настройки виртуальных машин под управлением Linux](virtual-machines-ps-create-preconfigure-linux-vms.md)
 
 <!--HONumber=47-->

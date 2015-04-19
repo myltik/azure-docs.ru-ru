@@ -86,7 +86,7 @@ Storm может использоваться с технологией маши
 
 SCP - это проект, позволяющий разработчикам .NET разработать и внедрить топологию (включая spouts и bolts). Поддержка SCP поставляется по умолчанию кластерами Storm.
 
-Дополнительные сведения о разработке с использованием SCP см. в разделе [разработки потоковой передачи приложений обработки данных с SCP.NET и C# на Storm на HDInsight](/ru-ru/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application).
+Дополнительные сведения о разработке с использованием SCP см. в разделе [разработки потоковой передачи приложений обработки данных с SCP.NET и C# на Storm на HDInsight](hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application.md).
 
 ### Java
 
@@ -120,7 +120,7 @@ Storm может обеспечить различные уровни гаран
 
 Пакетную обработку можно выполнить несколькими способами. С топологией Storm Java вы можете использовать простой счетчик для пакетирования n-ного числа кортежей до их порождения, или внутренний временной механизм, известный как tick tuple, для выпуска одного пакета раз в n-е число секунд.
 
-Пример использования кортежей деления см. в разделе [анализ данных датчика в Storm и HDInsight](/ru-ru/documentation/articles/hdinsight-storm-sensor-data-analysis.md)
+Пример использования кортежей деления см. в разделе [анализ данных датчика в Storm и HDInsight](hdinsight-storm-sensor-data-analysis.md.md)
 
 Если вы пользуетесь Trident, он основан на обработке потоков кортежей.
 
@@ -140,7 +140,7 @@ Storm может обеспечить различные уровни гаран
 
 * [Анализ данных датчика в Storm и HDInsight](/ ru-ru/documentation/articles/hdinsight-storm-sensor-data-analysis)
 
-* [Разработка приложений для обработки потоковой передачи данных с помощью SCP.NET и C# на Storm в HDInsight](/ru-ru/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application)
+* [Разработка приложений для обработки потоковой передачи данных с помощью SCP.NET и C# на Storm в HDInsight](hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application.md)
 
 [apachestorm]: https://storm.incubator.apache.org
 [stormtrident]: https://storm.incubator.apache.org/documentation/Trident-API-Overview.html

@@ -1,9 +1,9 @@
-﻿<properties 
-	pageTitle="Использование концентраторов уведомлений с Java" 
+<properties 
+	pageTitle="Использование центров уведомлений с Java" 
 	description="Узнайте, как использовать центры уведомлений Azure из серверной части Java." 
 	services="notification-hubs" 
 	documentationCenter="" 
-	authors="yuaxu" 
+	authors="piyushjo" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -14,17 +14,17 @@
 	ms.devlang="java" 
 	ms.topic="article" 
 	ms.date="01/12/2015" 
-	ms.author="yuaxu"/>
+	ms.author="piyushjo"/>
 
-# Использование концентраторов уведомлений из Java
+# Использование центров уведомлений из Java
 <div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/documentation/articles/notification-hubs-java-backend-how-to/" title="Java" class="current">Java</a><a href="/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a><a href="/documentation/articles/notification-hubs-python-backend-how-to/" title="Python">Python</a><a href="/documentation/articles/notification-hubs-nodejs-how-to-use-notification-hubs/" title="Node.js">Node.js</a>
+    	<a href="/ru-ru/documentation/articles/notification-hubs-java-backend-how-to/" title="Java" class="current">Java</a><a href="/ru-ru/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a><a href="/ru-ru/documentation/articles/notification-hubs-python-backend-how-to/" title="Python">Python</a>
 </div>
 
 В этом разделе описаны основные функции нового официального и полностью поддерживаемого пакета SDK для Java для центра уведомлений Azure. 
 Это проект с открытым исходным кодом. Вы можете просматривать весь код пакета SDK в образце [пакета SDK для Java]. 
 
-В большинстве случаев все функции концентраторов уведомлений можно использовать в серверной части Java/PHP/Python/Ruby , используя интерфейс REST концентраторов уведомлений. Это описано в статье MSDN [Интерфейсы API REST центров уведомлений](http://msdn.microsoft.com/library/dn223264.aspx). Пакет SDK для Java предоставляет тонкую оболочку для этих интерфейсов REST на Java. 
+Вы можете обращаться ко всем функциям центров уведомлений из серверной части Java/PHP/Python/Ruby, используя интерфейс REST в соответствии с описанием в разделе MSDN [Интерфейсы API REST центров уведомлений](http://msdn.microsoft.com/library/dn223264.aspx). Пакет SDK для Java предоставляет тонкую оболочку для этих интерфейсов REST на Java. 
 
 В настоящее время пакет SDK поддерживает следующее:
 
@@ -35,9 +35,9 @@
 - обычную отправку;
 - запланированную отправку;
 - асинхронные операции с использованием Java NIO;
-- платформы APNS (iOS), GCM (Android), WNS (приложения для Магазина Windows), MPNS (Windows Phone), ADM (Amazon Kindle Fire), Baidu (Android без служб Google). 
+- платформы APNS (для iOS), GCM (для Android), WNS (для приложений для Магазина Windows), MPNS (для Windows Phone), ADM (для Amazon Kindle Fire), Baidu (для Android без служб Google). 
 
-## Использование пакета SDK
+## ИСпользование пакетов SDK
 
 ### Компиляция и сборка
 
@@ -113,11 +113,11 @@
 	WindowsRegistration reg = new WindowsRegistration(id, new URI(CHANNELURI));
 	hub.upsertRegistration(reg);
 
-**Обновление регистраций:**
+**Удаление регистраций:**
 	
 	hub.updateRegistration(reg);
 
-**Удаление регистраций:**
+**Запрос регистраций:**
 	
 	hub.deleteRegistration(regid);
 
@@ -127,7 +127,7 @@
 	
 		hub.getRegistration(regid);
 	
-* 	**Получение всех регистраций в концентраторе:**
+* 	**Получение всех регистраций в разделе:**
 	
 		hub.getRegistrations();
 	
@@ -274,7 +274,7 @@ API установки - это альтернативный механизм у
 		tags.add("foo");
 		hub.sendNotification(n, tags);
 
-* **Отправка к выражению тега**       
+* **Отправка к выражению тега**
 
 		hub.sendNotification(n, "foo && ! bar");
 
@@ -301,11 +301,11 @@ API установки - это альтернативный механизм у
 
 [Пакет SDK для Java]: https://github.com/Azure/azure-notificationhubs-java-backend
 [Учебник по началу работы]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
-[Приступая к работе с центрами уведомлений]: http://www.windowsazure.com/manage/services/notification-hubs/getting-started-windows-dotnet/
-[Отправка экстренных новостей]: http://www.windowsazure.com/manage/services/notification-hubs/breaking-news-dotnet/
-[Отправка локализованных экстренных новостей]: http://www.windowsazure.com/manage/services/notification-hubs/breaking-news-localized-dotnet/
-[Отправка уведомлений проверенным пользователям]: http://www.windowsazure.com/manage/services/notification-hubs/notify-users/
-[Отправка кроссплатформенных уведомлений проверенным пользователям]: http://www.windowsazure.com/manage/services/notification-hubs/notify-users-xplat-mobile-services/
+[Приступая к работе с центрами уведомлений]: http://azure.microsoft.com/manage/services/notification-hubs/getting-started-windows-dotnet/
+[Отправка экстренных новостей]: http://azure.microsoft.com/manage/services/notification-hubs/breaking-news-dotnet/
+[Отправка локализованных экстренных новостей]: http://azure.microsoft.com/manage/services/notification-hubs/breaking-news-localized-dotnet/
+[Отправка уведомлений проверенным пользователям]: http://azure.microsoft.com/manage/services/notification-hubs/notify-users/
+[Отправка кроссплатформенных уведомлений проверенным пользователям]: http://azure.microsoft.com/manage/services/notification-hubs/notify-users-xplat-mobile-services/
 [Maven]: http://maven.apache.org/
 
-<!--HONumber=49-->
+<!--HONumber=45--> 

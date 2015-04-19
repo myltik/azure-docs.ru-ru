@@ -73,7 +73,7 @@
 * [Размещение интерактивного кода в облаке](http://blogs.msdn.com/b/jmstall/archive/2014/04/26/hosting-interactive-code-in-the-cloud.aspx)
 * [Получение панели мониторинга для локальной разработки с помощью пакета SDK для заданий WebJob](http://blogs.msdn.com/b/jmstall/archive/2014/01/27/getting-a-dashboard-for-local-development-with-the-webjobs-sdk.aspx)
 * [Добавление трассировки в Azure веб-сайтов и заданий WebJob](http://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx)
-* [Наблюдение, диагностика и устранение неисправностей службы хранилища Microsoft Azure](../storage-monitoring-diagnosing-troubleshooting/)
+* [Наблюдение, диагностика и устранение неисправностей службы хранилища Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md)
 * Видео
 	* [Средства для работы с заданиями WebJob и удаленная отладка](http://channel9.msdn.com/Shows/Web+Camps+TV/WebJobs-GA-Series-Episode-1-WebJobs-Tooling-with-Brady-Gaster) 
 

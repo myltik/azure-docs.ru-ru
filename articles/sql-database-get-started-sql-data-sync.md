@@ -179,9 +179,9 @@
 ## Дальнейшие действия
 Дополнительные сведения о синхронизации данных SQL и базе данных SQL см. в следующих документах:
 
-* [Подпишитесь на расширенное предложение по базе данных SQL] (../sign-up-for-sql-database-premium/)
+* [Подпишитесь на расширенное предложение по базе данных SQL] (sign-up-for-sql-database-premium.md)
 * [Синхронизация данных SQL (портал WA)](http://msdn.microsoft.com/library/windowsazure/jj856263.aspx)
-* [Приступая к работе с базой данных SQL Azure](../getting-started-w-sql-databases/)
+* [Приступая к работе с базой данных SQL Azure](getting-started-w-sql-databases.md)
 * [Жизненный цикл базы данных SQL Server ](http://go.microsoft.com/fwlink/?LinkId=275193)
 
 

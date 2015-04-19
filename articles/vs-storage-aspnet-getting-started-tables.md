@@ -17,15 +17,15 @@
 	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
-> - [Приступая к работе](/documentation/articles/vs-storage-aspnet-getting-started-tables/)
-> - [Что произошло?](/documentation/articles/vs-storage-aspnet-what-happened/)
+> - [Приступая к работе](vs-storage-aspnet-getting-started-tables.md)
+> - [Что произошло?](vs-storage-aspnet-what-happened.md)
 
 ## Начало работы со службой хранилища Azure (проекты ASP.NET)
 
 > [AZURE.SELECTOR]
-> - [BLOB-объекты](/documentation/articles/vs-storage-aspnet-getting-started-blobs/)
-> - [Очереди](/documentation/articles/vs-storage-aspnet-getting-started-queues/)
-> - [Таблицы](/documentation/articles/vs-storage-aspnet-getting-started-tables/)
+> - [BLOB-объекты](vs-storage-aspnet-getting-started-blobs.md)
+> - [Очереди](vs-storage-aspnet-getting-started-queues.md)
+> - [Таблицы](vs-storage-aspnet-getting-started-tables.md)
 
 В службе хранилища таблиц Azure можно хранить большие объемы структурированных данных. Эта служба - хранилище данных NoSQL, которое принимает вызовы внутри и снаружи облака Azure с проверкой подлинности. Таблицы Azure идеально подходят для хранения нереляционных структурированных данных.  Подробнее см. в статье [Как использовать хранилище больших двоичных объектов из .NET](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-tables/#create-table "How to use Table Storage from .NET").
 

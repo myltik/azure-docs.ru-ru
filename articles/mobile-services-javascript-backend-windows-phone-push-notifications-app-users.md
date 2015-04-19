@@ -28,7 +28,7 @@
 + [Обновление приложения для выполнения входа перед регистрацией]
 + [Тестирование приложения]
  
-Этот учебник поддерживает приложения Windows Phone 8.0 и Windows Phone 8.1 ("Silverlight"). Для приложений Магазина Windows Phone 8.1 см. [версию этой статьи для Магазина Windows](/ru-ru/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users).
+Этот учебник поддерживает приложения Windows Phone 8.0 и Windows Phone 8.1 ("Silverlight"). Для приложений Магазина Windows Phone 8.1 см. [версию этой статьи для Магазина Windows](mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users.md).
 
 ##Предварительные требования 
 

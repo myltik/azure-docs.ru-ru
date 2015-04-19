@@ -89,7 +89,7 @@
 ## Дополнительные ресурсы
 
 - [Документация по веб-сайтам Azure](/ru-ru/documentation/services/websites/)
-- [Учебный план по веб-сайтам Azure](/ru-ru/documentation/articles/websites-learning-map/)
+- [Учебный план по веб-сайтам Azure](websites-learning-map.md)
 - [Веб-блог Azure](/blog/topics/web/)
 
 

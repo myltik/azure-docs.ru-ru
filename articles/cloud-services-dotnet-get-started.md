@@ -34,7 +34,7 @@
 
 ## Альтернативная архитектура: веб-сайты и веб-задания
 
-Это руководство описывает, как запускать фоновые и интерфейсные компоненты в облачной службе Azure. Альтернативой является запуск интерфейсного компонента на [веб-сайте Azure](/ru-ru/services/web-sites/) и использование [веб-заданий](http://go.microsoft.com/fwlink/?LinkId=390226) (пока предварительной версии) для фонового компонента. Учебник, где используются веб-задания, см. в разделе [Начало работы с Azure WebJobs SDK](/ru-ru/documentation/articles/websites-dotnet-webjobs-sdk-get-started/). О том, как выбрать службы, наилучшим образом отвечающие требованиям сценария, см. в разделе [Сравнение веб-сайтов Azure, облачных служб и виртуальных машин](http://azure.microsoft.com/ documentation/articles/choose-web-site-cloud-service-vm/).
+Это руководство описывает, как запускать фоновые и интерфейсные компоненты в облачной службе Azure. Альтернативой является запуск интерфейсного компонента на [веб-сайте Azure](/ru-ru/services/web-sites/) и использование [веб-заданий](http://go.microsoft.com/fwlink/?LinkId=390226) (пока предварительной версии) для фонового компонента. Учебник, где используются веб-задания, см. в разделе [Начало работы с Azure WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md). О том, как выбрать службы, наилучшим образом отвечающие требованиям сценария, см. в разделе [Сравнение веб-сайтов Azure, облачных служб и виртуальных машин](http://azure.microsoft.com/documentation/articles/choose-web-site-cloud-service-vm/).
 
 ## Что вы узнаете
 
@@ -47,7 +47,7 @@
 
 ## Предварительные требования
 
-Работа с учебником предполагает, что вам знакомы [основные понятия об облачных службах Azure](http://azure.microsoft.com/ documentation/articles/fundamentals-application-models/#CloudServices), в частности термины  *web role* и  *worker role*.  Кроме этого предполагается, что вы умеете работать с [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) и с проектами [Web Forms](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) в среде Visual Studio. Пример приложения использует MVC, но многое в руководство также применимо к веб-формам. 
+Работа с учебником предполагает, что вам знакомы [основные понятия об облачных службах Azure](http://azure.microsoft.com/documentation/articles/fundamentals-application-models/#CloudServices), в частности термины  *web role* и  *worker role*.  Кроме этого предполагается, что вы умеете работать с [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) и с проектами [Web Forms](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) в среде Visual Studio. Пример приложения использует MVC, но многое в руководство также применимо к веб-формам. 
 
 Можно запускать приложение локально без подписки Azure, но она понадобится для развертывания приложения в облаке. Если у вас нет учетной записи, можно [активировать преимущества для подписчиков MSDN](/ru-ru/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) или [подписаться на бесплатную пробную версию](/ru-ru/pricing/free-trial/?WT.mc_id=A55E3C668).
 
@@ -795,7 +795,7 @@
 Есть несколько примеров приложений облачной службы, которые демонстрируют более жизненные примеры кодирования - от менее сложных к более сложным:
 
 * [PhluffyFotos](http://code.msdn.microsoft.com/PhluffyFotos-Sample-7ecffd31). Похоже на Contoso Ads, но реализует больше функций и больше примеров реального кода.
-* [Многоуровневое приложение облачной службы Azure с таблицами, очередями и большими двоичными объектами](http://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36). Представляет таблицы хранилищ Azure, а также большие двоичные объекты и очереди, а также включает [серию пошаговых учебников](http://azure.microsoft.com/ documentation/articles/cloud-services-dotnet-multi-tier-app-storage-1-overview/).
+* [Многоуровневое приложение облачной службы Azure с таблицами, очередями и большими двоичными объектами](http://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36). Представляет таблицы хранилищ Azure, а также большие двоичные объекты и очереди, а также включает [серию пошаговых учебников](http://azure.microsoft.com/documentation/articles/cloud-services-dotnet-multi-tier-app-storage-1-overview/).
 * [Основы облачных служб в Microsoft Azure](http://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649). Полный пример для демонстрации широкого набора приемов, применяемых группой Microsoft Patterns and Practices.
 
 Общую информацию об облачной разработке см. в разделе [Разработка реальных облачных приложений в Microsoft Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction).
@@ -807,7 +807,7 @@
 * [Облачные службы Azure, часть 1: введение](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Облачные службы Azure](/ru-ru/documentation/services/cloud-services/)
 * [Служба хранилища Azure](/ru-ru/documentation/services/storage/)
-* [Использование хранилища больших двоичных объектов из .NET](/ru-ru/documentation/articles/storage-dotnet-how-to-use-blobs/)
-* [Как использовать хранилище очередей из .NET](/ru-ru/documentation/articles/storage-dotnet-how-to-use-queues/)
+* [Использование хранилища больших двоичных объектов из .NET](storage-dotnet-how-to-use-blobs.md)
+* [Как использовать хранилище очередей из .NET](storage-dotnet-how-to-use-queues.md)
 
 <!--HONumber=45--> 

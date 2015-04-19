@@ -17,15 +17,15 @@
 	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
-> - [Приступая к работе](/documentation/articles/vs-storage-cloud-services-getting-started-queues/)
-> - [Что произошло?](/documentation/articles/vs-storage-cloud-services-what-happened/)
+> - [Приступая к работе](vs-storage-cloud-services-getting-started-queues.md)
+> - [Что произошло?](vs-storage-cloud-services-what-happened.md)
 
 ## Начало работы со службой хранилища Azure (проекты облачных служб)
 
 > [AZURE.SELECTOR]
-> - [BLOB-объекты](/documentation/articles/vs-storage-cloud-services-getting-started-blobs)
-> - [Queues](/documentation/articles/vs-storage-cloud-services-getting-started-queues/)
-> - [Таблицы](/documentation/articles/vs-storage-cloud-services-getting-started-tables/)
+> - [BLOB-объекты](vs-storage-cloud-services-getting-started-blobs.md)
+> - [Queues](vs-storage-cloud-services-getting-started-queues.md)
+> - [Таблицы](vs-storage-cloud-services-getting-started-tables.md)
 
 Хранилище очередей Azure - это служба для хранения большого количества сообщений, к которым можно получить доступ практически из любой точки мира с помощью вызовов с проверкой подлинности по протоколам HTTP или HTTPS. Одно сообщение очереди может быть размером до 64 КБ, а очередь может содержать миллионы сообщений до общего ограничения емкости учетной записи хранения. Подробнее см. в статье [Как использовать хранилище очередей из .NET](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-queues/ "How to use Queue Storage from .NET").
 

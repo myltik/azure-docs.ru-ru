@@ -74,6 +74,6 @@
 
   [Обзор виртуальных сетей Azure]: http://go.microsoft.com/fwlink/p/?LinkID=294063
   [Создание новой виртуальной машины]: ./media/create-and-configure-centos-vm-in-portal/CreateVM.png
-  [надежный пароль]: http://msdn.microsoft.com/ru-ru/library/ms161962.aspx
+  [надежный пароль]: http://msdn.microsoft.com/library/ms161962.aspx
   [странице загрузки PuTTY]: http://www.puttyssh.org/download.html
   [PuTTY Screen]: ./media/create-and-configure-centos-vm-in-portal/putty.png

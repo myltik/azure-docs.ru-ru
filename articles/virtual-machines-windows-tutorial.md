@@ -25,7 +25,7 @@
 В этом учебнике показано, насколько просто создавать виртуальные машины Azure (ВМ) под управлением Windows. В нем используется образ Windows Server, но это только один из множества образов, доступных в Azure. Это операционных системы Windows, операционные системы на основе Linux и образы с установленными приложениями. Доступные для выбора образы зависят от вашей подписки. Например, подписчикам MSDN могут быть доступны образы рабочих столов.
 
 
-Можно также создать виртуальные машины Windows, используя свои собственные [образы в качестве шаблонов](../virtual-machines-create-upload-vhd-windows-server/). Дополнительные сведения о виртуальных машинах Azure см. в разделе [Обзор виртуальных машин Azure](http://msdn.microsoft.com/library/azure/jj156143.aspx).
+Можно также создать виртуальные машины Windows, используя свои собственные [образы в качестве шаблонов](virtual-machines-create-upload-vhd-windows-server.md). Дополнительные сведения о виртуальных машинах Azure см. в разделе [Обзор виртуальных машин Azure](http://msdn.microsoft.com/library/azure/jj156143.aspx).
 
 [AZURE.INCLUDE [free-trial-note](../includes/free-trial-note.md)]
 
@@ -106,11 +106,11 @@
 
 Чтобы получить дополнительную информацию о настройке виртуальных машин Windows в Azure, см. следующие статьи:
 
-[Подключение виртуальных машин с помощью виртуальной сети или облачной службы](../cloud-services-connect-virtual-machine/)
+[Подключение виртуальных машин с помощью виртуальной сети или облачной службы](cloud-services-connect-virtual-machine.md)
 
-[Создание и передача виртуального жесткого диска Windows Server в Azure](../virtual-machines-create-upload-vhd-windows-server/)
+[Создание и передача виртуального жесткого диска Windows Server в Azure](virtual-machines-create-upload-vhd-windows-server.md)
 
-[Управление доступностью виртуальных машин](../manage-availability-virtual-machines/)
+[Управление доступностью виртуальных машин](manage-availability-virtual-machines.md)
 
 [О параметрах конфигурации виртуальной машины Azure](http://msdn.microsoft.com/library/azure/dn763935.aspx)
 

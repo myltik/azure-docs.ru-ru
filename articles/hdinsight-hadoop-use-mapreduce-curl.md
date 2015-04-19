@@ -106,11 +106,11 @@ Curl используется для демонстрации возможнос
 
 Вот где можно ознакомиться с общей информацией о заданиях MapReduce в HDInsight.
 
-* [Использование MapReduce с Hadoop в HDInsight](../hdinsight-use-mapreduce/)
+* [Использование MapReduce с Hadoop в HDInsight](hdinsight-use-mapreduce.md)
 
 Дополнительная информация о других способах работы с Hadoop в HDInsight.
 
-* [Использование Hive с Hadoop в HDInsight](../hdinsight-use-hive/)
+* [Использование Hive с Hadoop в HDInsight](hdinsight-use-hive.md)
 
-* [Использование Pig с Hadoop в HDInsigh](../hdinsight-use-pig/)
+* [Использование Pig с Hadoop в HDInsigh](hdinsight-use-pig.md)
 <!--HONumber=47-->

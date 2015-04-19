@@ -259,7 +259,7 @@ DocumentDB предлагает модель логической адресац
 -	Теги ETag [http://en.wikipedia.org/wiki/HTTP_ETag](http://en.wikipedia.org/wiki/HTTP_ETag)
 -	[Запросы DocumentDB](documentdb-sql-query.md)
 -	[Справочник по языку SQL DocumentDB](https://msdn.microsoft.com/library/azure/dn782250.aspx)
--	[Программирование DocumentDB. Хранимые процедуры, триггеры и определяемые пользователем функции](../documentdb-programming/)
+-	[Программирование DocumentDB. Хранимые процедуры, триггеры и определяемые пользователем функции](documentdb-programming.md)
 -	[Справочная документация по DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx)
 
 

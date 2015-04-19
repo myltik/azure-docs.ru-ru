@@ -102,7 +102,7 @@
 * [Приступая к работе с push-уведомлениями]
   <br/>Сведения об отправке в приложение простейших push-уведомлений.
 
-Дополнительные сведения об универсальных приложениях Windows см. в разделе [Поддержка нескольких клиентов из одной мобильной службы](/ru-ru/documentation/articles/mobile-services-how-to-use-multiple-clients-single-service#shared-vs).
+Дополнительные сведения об универсальных приложениях Windows см. в разделе [Поддержка нескольких клиентов из одной мобильной службы](mobile-services-how-to-use-multiple-clients-single-service#shared-vs.md).
 
 <!-- Anchors. -->
 [Приступая к работе с мобильными службами]:#getting-started

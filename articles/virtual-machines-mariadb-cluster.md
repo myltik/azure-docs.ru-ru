@@ -367,8 +367,8 @@
 [CLI Azure]: http://azure.microsoft.com/documentation/articles/xplat-cli/
 [справочник по командам CLI Azure]: http://azure.microsoft.com/documentation/articles/virtual-machines-command-line-tools/
 [создать ключ SSH для проверки подлинности]:http://www.jeff.wilcox.name/2013/06/secure-linux-vms-with-ssh-certificates/
-[Стратегия настройки производительности]: http://azure.microsoft.com/sv-se/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
-[оптимизации и тестирования производительности MySQL на виртуальных машинах Azure Linux]:http://azure.microsoft.com/sv-se/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
+[Стратегия настройки производительности]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
+[оптимизации и тестирования производительности MySQL на виртуальных машинах Azure Linux]:http://azure.microsoft.com/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
 [проблема № 1268 со средствами CLI Azure]:https://github.com/Azure/azure-xplat-cli/issues/1268
 [другим способом кластеризации MySQL в ОС Linux]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-mysql-cluster/
 

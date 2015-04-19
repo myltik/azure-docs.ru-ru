@@ -45,7 +45,7 @@
 
 ## Этап 1. Настройка гибридной облачной среды
 
-Используйте инструкции в разделе [Настройка гибридной облачной среды для тестирования](../virtual-networks-setup-hybrid-cloud-environment-testing/). Поскольку для данной тестовой среды не нужен сервер APP1 в подсети Corpnet, можно его спокойно выключить на время.
+Используйте инструкции в разделе [Настройка гибридной облачной среды для тестирования](virtual-networks-setup-hybrid-cloud-environment-testing.md). Поскольку для данной тестовой среды не нужен сервер APP1 в подсети Corpnet, можно его спокойно выключить на время.
 
 Это текущая конфигурация.
 
@@ -195,13 +195,13 @@
 
 [SharePoint в службах инфраструктуры Azure](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 
-[Ферма серверов SharePoint](../virtual-machines-sharepoint-farm-azure-preview/)
+[Ферма серверов SharePoint](virtual-machines-sharepoint-farm-azure-preview.md)
 
-[Настройка гибридной облачной среды для тестирования](../virtual-networks-setup-hybrid-cloud-environment-testing/)
+[Настройка гибридной облачной среды для тестирования](virtual-networks-setup-hybrid-cloud-environment-testing.md)
 
-[Настройка веб бизнес-приложения в гибридном облаке для тестирования](../virtual-networks-setup-lobapp-hybrid-cloud-testing/)
+[Настройка веб бизнес-приложения в гибридном облаке для тестирования](virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
 
-[Настройка синхронизации каталогов (DirSync) Office 365 в гибридном облаке для тестирования](../virtual-networks-setup-dirsync-hybrid-cloud-testing/)
+[Настройка синхронизации каталогов (DirSync) Office 365 в гибридном облаке для тестирования](virtual-networks-setup-dirsync-hybrid-cloud-testing.md)
 
-[Настройка смоделированной гибридной облачной среды для тестирования](../virtual-networks-setup-simulated-hybrid-cloud-environment-testing/)
+[Настройка смоделированной гибридной облачной среды для тестирования](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)
 <!--HONumber=47-->

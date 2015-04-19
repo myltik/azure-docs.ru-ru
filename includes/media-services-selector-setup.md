@@ -1,5 +1,5 @@
 ﻿> [AZURE.SELECTOR]
-- [ПАКЕТ SDK .NET](/documentation/articles/media-services-dotnet-how-to-use/)
-- [API REST](/documentation/articles/media-services-rest-how-to-use/)
+- [ПАКЕТ SDK .NET](media-services-dotnet-how-to-use.md)
+- [API REST](media-services-rest-how-to-use.md)
 
 <!--HONumber=47-->

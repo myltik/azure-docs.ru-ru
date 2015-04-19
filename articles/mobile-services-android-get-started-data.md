@@ -36,7 +36,7 @@
 > [AZURE.NOTE] Просмотреть исходный код завершенного приложения можно <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures/GettingStartedWithData/Android/GetStartedWithData">здесь</a>.
 
 Для просмотра версии этого учебника для Eclipse перейдите к пункту: 
-[Приступая к работе с данными с помощью Eclipse](/documentation/articles/mobile-services-android-get-started-data-EC/).
+[Приступая к работе с данными с помощью Eclipse](mobile-services-android-get-started-data-EC.md).
 
 > [AZURE.NOTE] Для работы с этим учебником требуется учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AED8DE357" target="_blank">Бесплатное пробное использование Azure</a>.
 

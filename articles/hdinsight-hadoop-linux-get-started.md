@@ -21,7 +21,7 @@
 Этот учебник поможет приступить к работе с HDInsight в ОС Linux. В нем рассказывается о том, как подготовить кластер HDInsight Hadoop в Linux и отправить запрос Hive для получения полезных сведений из неструктурированных данных Hive. Затем результаты нужно будет проанализировать в средстве бизнес-аналитики, например Tableau.
 
 
-> [AZURE.NOTE] Если вы не знакомы с Hadoop и программами обработки данных большого размера, ознакомьтесь с такими терминами, как <a href="http://go.microsoft.com/fwlink/?LinkId=510084" target="_blank">Apache Hadoop</a>, <a href="http://go.microsoft.com/fwlink/?LinkId=510086" target="_blank">MapReduce</a>, <a href="http://go.microsoft.com/fwlink/?LinkId=510087" target="_blank">HDFS</a> и <a href="http://go.microsoft.com/fwlink/?LinkId=510085" target="_blank">Hive</a>. Чтобы разобраться, как HDInsight поддерживает Hadoop в Azure, см. раздел [Введение для Hadoop в HDInsight](../hdinsight-hadoop-introduction/).
+> [AZURE.NOTE] Если вы не знакомы с Hadoop и программами обработки данных большого размера, ознакомьтесь с такими терминами, как <a href="http://go.microsoft.com/fwlink/?LinkId=510084" target="_blank">Apache Hadoop</a>, <a href="http://go.microsoft.com/fwlink/?LinkId=510086" target="_blank">MapReduce</a>, <a href="http://go.microsoft.com/fwlink/?LinkId=510087" target="_blank">HDFS</a> и <a href="http://go.microsoft.com/fwlink/?LinkId=510085" target="_blank">Hive</a>. Чтобы разобраться, как HDInsight поддерживает Hadoop в Azure, см. раздел [Введение для Hadoop в HDInsight](hdinsight-hadoop-introduction.md).
 
 
 ## Цели учебника ##
@@ -49,11 +49,11 @@
 
 ## <a name="storage"></a>Создание учетной записи хранения Azure
 
-HDInsight использует для хранения данных хранилище BLOB-объектов Azure. Оно называется *WASB* или *Хранилище Azure - BLOB-объекты*. WASB - это реализация HDFS на базе хранилища BLOB-объектов Azure от корпорации Майкрософт. Дополнительные сведения см. в разделе [Использование хранилища BLOB-объектов Azure с HDInsight](../hdinsight-use-blob-storage/).
+HDInsight использует для хранения данных хранилище BLOB-объектов Azure. Оно называется *WASB* или *Хранилище Azure - BLOB-объекты*. WASB - это реализация HDFS на базе хранилища BLOB-объектов Azure от корпорации Майкрософт. Дополнительные сведения см. в разделе [Использование хранилища BLOB-объектов Azure с HDInsight](hdinsight-use-blob-storage.md).
 
 При подготовке кластера HDInsight указывается учетная запись хранения Azure Storage. Конкретный контейнер хранилища BLOB-объектов из этой учетной записи назначается в качестве файловой системы по умолчанию, так же как и в HDFS. По умолчанию подготовка кластера HDInsight выполняется в том же центре обработки данных, в котором находится указанная учетная запись хранения.
 
-Помимо этой учетной записи хранения в процессе настройки кластера HDInsight можно добавить дополнительные учетные записи хранения. Эти дополнительные учетные записи хранения могут быть из той же подписки Azure или из других подписок Azure. Указания см. в разделе [Подготовка кластеров HDInsight на платформе Linux с использованием настраиваемых параметров](../hdinsight-hadoop-provision-linux-clusters). 
+Помимо этой учетной записи хранения в процессе настройки кластера HDInsight можно добавить дополнительные учетные записи хранения. Эти дополнительные учетные записи хранения могут быть из той же подписки Azure или из других подписок Azure. Указания см. в разделе [Подготовка кластеров HDInsight на платформе Linux с использованием настраиваемых параметров](hdinsight-hadoop-provision-linux-clusters.md). 
 
 Чтобы упростить этот учебник, используются только контейнер BLOB-объектов и учетная запись хранения по умолчанию. На практике файлы данных обыкновенно хранятся в заданной учетной записи хранения.
 
@@ -74,13 +74,13 @@ HDInsight использует для хранения данных хранил
 
 
 Дополнительную информацию см. в разделах
-[Создание учетной записи хранилища](../storage-create-storage-account/) и [Использование хранилища больших двоичных объектов Azure с HDInsight](../hdinsight-use-blob-storage/).
+[Создание учетной записи хранилища](storage-create-storage-account.md) и [Использование хранилища больших двоичных объектов Azure с HDInsight](hdinsight-use-blob-storage.md).
 	
 ## <a name="provision"></a>Подготовка кластера HDInsight на платформе Linux
 
 При подготовке кластера HDInsight выполняется подготовка вычислительных ресурсов Azure, которые содержат Hadoop и соответствующие приложения. В этом разделе рассказывается о подготовке кластера HDInsight на платформе Linux с использованием параметра "Быстрое создание". При выборе этого параметра используются имена пользователей по умолчанию и контейнеры хранилища Azure, а также настраивается кластер HDInsight версии 3.2 (Hadoop версии 2.5, HDP версии 2.2) на платформе Ubuntu 12.04 LTS. Для получения дополнительной информации о различных версиях HDInsight и их соглашениях SLA см. страницу [Версии компонентов НDInsight](http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/).
 
->[AZURE.NOTE]  Можно также создать кластеры Hadoop на платформе ОС Windows Server. Указания см. в статье [Приступая к работе с HDInsight в Windows](../hdinsight-get-started/).
+>[AZURE.NOTE]  Можно также создать кластеры Hadoop на платформе ОС Windows Server. Указания см. в статье [Приступая к работе с HDInsight в Windows](hdinsight-get-started.md).
 
 
 **Подготовка кластера HDInsight к работе** 
@@ -112,7 +112,7 @@ HDInsight использует для хранения данных хранил
 	
 5. Щелкните **Создать кластер HDInsight**. После завершения процесса подготовки в столбце состояния будет отображаться значение **Работает**.
 
-	>[AZURE.NOTE] В ходе описанной выше процедуры создается кластер Linux с использованием параметра "Быстрое создание", который использует имя пользователя SSH по умолчанию и контейнеры хранилища Azure. Информацию о создании кластера с настраиваемыми параметрами, например, с использованием ключа SSH для проверки подлинности или дополнительных учетных записей хранения, см. в статье [Подготовка кластеров HDInsight на платформе Linux с использованием настраиваемых параметров](../hdinsight-hadoop-provision-linux-clusters).
+	>[AZURE.NOTE] В ходе описанной выше процедуры создается кластер Linux с использованием параметра "Быстрое создание", который использует имя пользователя SSH по умолчанию и контейнеры хранилища Azure. Информацию о создании кластера с настраиваемыми параметрами, например, с использованием ключа SSH для проверки подлинности или дополнительных учетных записей хранения, см. в статье [Подготовка кластеров HDInsight на платформе Linux с использованием настраиваемых параметров](hdinsight-hadoop-provision-linux-clusters.md).
 
 
 ## <a name="hivequery"></a>Отправка задания Hive в кластере
@@ -240,13 +240,13 @@ HDInsight использует для хранения данных хранил
 ## <a name="nextsteps"></a>Дальнейшие действия
 В этом учебнике вы узнали, как подготовить кластер Hadoop на платформе Linux с HDInsight и отправлять запросы Hive с использованием SSH. Для получения дополнительных сведений ознакомьтесь со следующими статьями:
 
-- [Подготовка HDInsight на платформе Linux с использованием настраиваемых параметров](../hdinsight-hadoop-provision-linux-clusters)
-- [Работа с HDInsight в Linux](../hdinsight-hadoop-linux-information)
-- [Управление кластерами HDInsight с помощью Ambari](../hdinsight-hadoop-manage-ambari)
+- [Подготовка HDInsight на платформе Linux с использованием настраиваемых параметров](hdinsight-hadoop-provision-linux-clusters.md)
+- [Работа с HDInsight в Linux](hdinsight-hadoop-linux-information.md)
+- [Управление кластерами HDInsight с помощью Ambari](hdinsight-hadoop-manage-ambari.md)
 - [использование MapReduce с HDInsight][hdinsight-использование-mapreduce]
 - [Использование Hive с HDInsight][hdinsight-использование-hive]
 - [Использование Pig с HDInsight][hdinsight-use-pig]
-- [Использование хранилища больших двоичных объектов Azure с HDInsight](../hdinsight-use-blob-storage)
+- [Использование хранилища больших двоичных объектов Azure с HDInsight](hdinsight-use-blob-storage.md)
 - [Передача данных в HDInsight][hdinsight-upload-data]
 
 

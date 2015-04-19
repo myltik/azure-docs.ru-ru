@@ -62,7 +62,7 @@
 >
 > Настоятельно рекомендуется назначать одну подсеть для одного кластера.
 
-Более подробная информация о кластере HDInsight в виртуальной сети см. в разделе [Подготовка кластеров Hadoop в HDInsight](/documentation/articles/hdinsight-provision-clusters/).
+Более подробная информация о кластере HDInsight в виртуальной сети см. в разделе [Подготовка кластеров Hadoop в HDInsight](hdinsight-provision-clusters.md).
 
 ##<a id="tasks"></a>Задачи и информация
 
@@ -74,7 +74,7 @@
 
 	https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/services/<servicename>/components/<componentname>
 
-> [AZURE.NOTE] Дополнительную информацию об использовании Ambari с HDInsight см. в статье [Мониторинг кластеров Hadoop в HDInsight с помощью Ambari API](/documentation/articles/hdinsight-monitor-use-ambari-api/).
+> [AZURE.NOTE] Дополнительную информацию об использовании Ambari с HDInsight см. в статье [Мониторинг кластеров Hadoop в HDInsight с помощью Ambari API](hdinsight-monitor-use-ambari-api.md).
 
 Необходимо указать имя кластера, службу и компонент, работающий в кластере, например диспетчер ресурсов YARN.
 
@@ -82,7 +82,7 @@
 
 Например, чтобы получить полное доменное имя из кластера Hadoop HDInsight, можно использовать один из следующих методов извлечения данных для диспетчера ресурсов YARN.
 
-* [Azure PowerShell](/documentation/articles/install-configure-powershell/)
+* [Azure PowerShell](install-configure-powershell.md)
 
 		$ClusterDnsName = <clustername>
 		$Username = <cluster admin username>
@@ -109,7 +109,7 @@
 
 Чтобы получить адрес кворума zookeeper, используйте один из следующих методов для запроса службы управления Ambari.
 
-* [Azure PowerShell](/documentation/articles/install-configure-powershell/)
+* [Azure PowerShell](install-configure-powershell.md)
 
 		$ClusterDnsName = <clustername>
 		$Username = <cluster admin username>
@@ -129,7 +129,7 @@
 
 		curl -G -u <username>:<password> "https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/configurations?type=hbase-site&tag=default&fields=items/properties/hbase.zookeeper.quorum" | jq .items[0].properties[]
 
-> [AZURE.NOTE] Дополнительную информацию об использовании Ambari с HDInsight см. в статье [Мониторинг кластеров Hadoop в HDInsight с помощью Ambari API](/documentation/articles/hdinsight-monitor-use-ambari-api/).
+> [AZURE.NOTE] Дополнительную информацию об использовании Ambari с HDInsight см. в статье [Мониторинг кластеров Hadoop в HDInsight с помощью Ambari API](hdinsight-monitor-use-ambari-api.md).
 
 После получения информации о кворуме используйте ее в клиентском приложении.
 
@@ -162,13 +162,13 @@
 
 В следующих примерах показано, как использовать HDInsight в виртуальной сети Azure.
 
-* [Анализ данных датчиков с помощью Storm и HBase в HDInsight](/documentation/articles/hdinsight-storm-sensor-data-analysis/). В этой статье описано, как настроить кластер Storm и HBase в виртуальной сети и как удаленно записывать данные в HBase из Storm.
+* [Анализ данных датчиков с помощью Storm и HBase в HDInsight](hdinsight-storm-sensor-data-analysis.md). В этой статье описано, как настроить кластер Storm и HBase в виртуальной сети и как удаленно записывать данные в HBase из Storm.
 
-* [Подготовка кластеров HBase в виртуальной сети Azure](/documentation/articles/hdinsight-hbase-provision-vnet/) . В этой статье содержится информация о подготовке кластеров HBase в виртуальной сети Azure.
+* [Подготовка кластеров HBase в виртуальной сети Azure](hdinsight-hbase-provision-vnet.md) . В этой статье содержится информация о подготовке кластеров HBase в виртуальной сети Azure.
 
-* [Подготовка кластеров Hadoop в HDInsight](/documentation/articles/hdinsight-provision-clusters/). В этой статье содержится информация о подготовке кластеров Hadoop, включая информацию об использовании виртуальной сети Azure.
+* [Подготовка кластеров Hadoop в HDInsight](hdinsight-provision-clusters.md). В этой статье содержится информация о подготовке кластеров Hadoop, включая информацию об использовании виртуальной сети Azure.
 
-* [Использование Sqoop с Hadoop в HDInsight](/documentation/articles/hdinsight-use-sqoop/) . В этой статье содержится информация об использовании Sqoop для передачи данных с помощью SQL Server по виртуальной сети.
+* [Использование Sqoop с Hadoop в HDInsight](hdinsight-use-sqoop.md) . В этой статье содержится информация об использовании Sqoop для передачи данных с помощью SQL Server по виртуальной сети.
 
 Дополнительную информацию о виртуальных сетях Azure см. в статье [Общие сведения о виртуальных сетях Azure](http://msdn.microsoft.com/library/azure/jj156007.aspx).
 

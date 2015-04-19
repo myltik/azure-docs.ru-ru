@@ -95,6 +95,6 @@
 
 #См. также
 
-[Управление сроком действия содержимого облачных служб в сети доставки содержимого (CDN) Azure](./cdn-manage-expiration-of-cloud-service-content.md)
+[Управление сроком действия содержимого облачных служб в сети доставки содержимого (CDN) Azure](cdn-manage-expiration-of-cloud-service-content.md)
 
 <!--HONumber=49-->

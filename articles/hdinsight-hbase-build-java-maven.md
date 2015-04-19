@@ -349,9 +349,9 @@
 
 ##Загрузка JAR и запуск задания
 
-> [AZURE.NOTE] Существует множество способов загрузки файла в ваш кластер HDInsight, они описаны в разделе [Отправка данных для заданий Hadoop в HDInsight](/ru-ru/documentation/articles/hdinsight-upload-data/). Для описанных ниже действий используется [Azure PowerShell](/ru-ru/documentation/articles/install-configure-powershell/).
+> [AZURE.NOTE] Существует множество способов загрузки файла в ваш кластер HDInsight, они описаны в разделе [Отправка данных для заданий Hadoop в HDInsight](hdinsight-upload-data.md). Для описанных ниже действий используется [Azure PowerShell](install-configure-powershell.md).
 
-1. После установки и настройки [Azure PowerShell](/ru-ru/documentation/articles/install-configure-powershell/) создайте новый файл с именем __hbase-runner.psm1__. Используйте следующее в качестве содержимого этого файла:
+1. После установки и настройки [Azure PowerShell](install-configure-powershell.md) создайте новый файл с именем __hbase-runner.psm1__. Используйте следующее в качестве содержимого этого файла:
 
 		<#
 		.SYNOPSIS

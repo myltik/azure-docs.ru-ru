@@ -31,7 +31,7 @@
 
 ##Предварительные требования:
 
-* Кластер HDInsight (Hadoop). Для получения информации о создании кластера см. раздел [Подготовка кластеров Hadoop в HDInsight](/ru-ru/documentation/articles/hdinsight-provision-clusters/)
+* Кластер HDInsight (Hadoop). Для получения информации о создании кластера см. раздел [Подготовка кластеров Hadoop в HDInsight](hdinsight-provision-clusters.md)
 
 * Microsoft Excel 2013
 

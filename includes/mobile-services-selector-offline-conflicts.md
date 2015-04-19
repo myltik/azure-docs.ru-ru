@@ -1,5 +1,5 @@
 ﻿> [AZURE.SELECTOR-LIST (Платформа | Серверная часть)]
-- [(iOS | Любая)](/ru-ru/documentation/articles/mobile-services-ios-handling-conflicts-offline-data)
-- [(Универсальное приложение для Windows (C#) | Любая)](/ru-ru/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data)
-- [(Windows Phone | Любая)](/ru-ru/documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data)
+- [(iOS | Любая)](mobile-services-ios-handling-conflicts-offline-data.md)
+- [(Универсальное приложение для Windows (C#) | Любая)](mobile-services-windows-store-dotnet-handling-conflicts-offline-data.md)
+- [(Windows Phone | Любая)](mobile-services-windows-phone-handling-conflicts-offline-data.md)
 <!--HONumber=42-->

@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [mobile-services-selector-adal-sso](../includes/mobile-services-selector-adal-sso.md)]
 
-В этом учебнике вы научитесь добавлять проверку подлинности в проект быстрого запуска с помощью библиотеки проверки подлинности Active Directory, чтобы оказывать поддержку [операциям входа, ориентированным на клиента](http://msdn.microsoft.com/library/azure/jj710106.aspx), с помощью Azure Active Directory. Чтобы обеспечить поддержку [операций входа, ориентированных на службу](http://msdn.microsoft.com/library/azure/dn283952.aspx),с помощью Azure Active Directory, начните с прохождения учебника [Добавление проверки подлинности в приложение мобильных служб](/ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/).
+В этом учебнике вы научитесь добавлять проверку подлинности в проект быстрого запуска с помощью библиотеки проверки подлинности Active Directory, чтобы оказывать поддержку [операциям входа, ориентированным на клиента](http://msdn.microsoft.com/library/azure/jj710106.aspx), с помощью Azure Active Directory. Чтобы обеспечить поддержку [операций входа, ориентированных на службу](http://msdn.microsoft.com/library/azure/dn283952.aspx),с помощью Azure Active Directory, начните с прохождения учебника [Добавление проверки подлинности в приложение мобильных служб](mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md).
 
 Чтобы иметь возможность проверки подлинности пользователей, необходимо зарегистрировать приложение в Azure Active Directory (AAD). Это делается в два этапа. Сначала следует зарегистрировать мобильную службу и предоставить в ней разрешения. Затем нужно зарегистрировать приложение Магазина Windows и предоставить ему доступ к этим разрешениям.
 

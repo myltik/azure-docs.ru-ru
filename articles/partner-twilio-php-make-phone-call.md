@@ -115,7 +115,7 @@
 Дополнительные сведения о Twilio см. в разделе [https://www.twilio.com/docs][twilio_docs].
 
 ## Дополнительные материалы
-* [Использование Twilio для поддержки голосовых возможностей и SMS в PHP](../partner-twilio-php-how-to-use-voice-sms)
+* [Использование Twilio для поддержки голосовых возможностей и SMS в PHP](partner-twilio-php-how-to-use-voice-sms.md)
 
 [twilio_pricing]: http://www.twilio.com/pricing
 [try_twilio]: http://www.twilio.com/try-twilio
@@ -129,8 +129,8 @@
 [twilio_api_service]: http://api.twilio.com
 [build_php_azure_app]: http://azurephp.interoperabilitybridges.com/articles/build-and-deploy-a-windows-azure-php-application
 [howto_twilio_voice_sms_php]: ../partner-twilio-php-how-to-use-voice-sms
-[howto_blob_storage_php]: http://azure.microsoft.com/ documentation/articles/storage-php-how-to-use-blobs/
-[howto_sql_azure_php]: http://azure.microsoft.com/ documentation/articles/sql-database-php-how-to-use/
+[howto_blob_storage_php]: http://azure.microsoft.com/documentation/articles/storage-php-how-to-use-blobs/
+[howto_sql_azure_php]: http://azure.microsoft.com/documentation/articles/sql-database-php-how-to-use/
 [twilio_call_properties]: https://www.twilio.com/docs/api/rest/call#instance-properties
 [twilio_docs_security]: http://www.twilio.com/docs/security
 [twilio_docs]: http://www.twilio.com/docs

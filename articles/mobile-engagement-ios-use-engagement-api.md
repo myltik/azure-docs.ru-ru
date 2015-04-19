@@ -31,7 +31,7 @@ API Engagement предоставляется в классе `EngagementAgent`.
 
 ##Основные понятия Engagement
 
-В следующих разделах подробно описаны стандартные [основные понятия Mobile Engagement](../mobile-engagement-concepts/) для платформы iOS.
+В следующих разделах подробно описаны стандартные [основные понятия Mobile Engagement](mobile-engagement-concepts.md) для платформы iOS.
 
 ### `Сеанс` и `действие`
 

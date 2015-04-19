@@ -18,7 +18,7 @@
 
 #Как использовать API Engagement в Windows
 
-Этот документ представляет собой дополнение к документу [Как интегрировать Mobile Engagement в Windows](../mobile-engagement-windows-store-integrate-engagement/). В нем предоставлена подробная информация о том, как использовать API Engagement для сообщения статистики приложения.
+Этот документ представляет собой дополнение к документу [Как интегрировать Mobile Engagement в Windows](mobile-engagement-windows-store-integrate-engagement.md). В нем предоставлена подробная информация о том, как использовать API Engagement для сообщения статистики приложения.
 
 Учтите, что если вам требуется, чтобы служба Engagement сообщала только о сеансах, действиях, сбоях и технической информации приложения, проще всего сделать так, чтобы все подклассы `Page` наследовались из класса `EngagementPage`.
 
@@ -30,7 +30,7 @@ API Engagement предоставляется в классе `EngagementAgent`.
 
 ##Основные понятия Engagement
 
-В следующих подразделах дано более подробное объяснение [общих понятий Mobile Engagement](../mobile-engagement-concepts/) для платформы Windows.
+В следующих подразделах дано более подробное объяснение [общих понятий Mobile Engagement](mobile-engagement-concepts.md) для платформы Windows.
 
 ### `Сеанс` и `действие`
 

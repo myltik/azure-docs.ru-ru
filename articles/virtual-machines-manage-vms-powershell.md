@@ -18,7 +18,7 @@
 
 # Управление виртуальными машинами с помощью Azure PowerShell
 
-Перед началом работы необходимо установить Azure PowerShell. Соответствующие указания см. в статье [Установка и настройка Azure PowerShell](../install-configure-powershell/)
+Перед началом работы необходимо установить Azure PowerShell. Соответствующие указания см. в статье [Установка и настройка Azure PowerShell](install-configure-powershell.md)
 
 ## Получение образа
 

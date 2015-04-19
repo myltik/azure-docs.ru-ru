@@ -127,17 +127,17 @@ Trident - это высокоуровневая абстракция, котор
 
 ##Дальнейшие действия
 
-Теперь, после локального тестирования топологии нужно узнать, как [развернуть эту топологию в Storm в HDInsight](../hdinsight-storm-deploy-monitor-topology/).
+Теперь, после локального тестирования топологии нужно узнать, как [развернуть эту топологию в Storm в HDInsight](hdinsight-storm-deploy-monitor-topology.md).
 
 Возможно, вас также заинтересуют следующие разделы по Storm:
 
-* [Разработка топологий на Java для Storm в HDInsight с помощью Maven](../hdinsight-storm-develop-java-topology/)
+* [Разработка топологий на Java для Storm в HDInsight с помощью Maven](hdinsight-storm-develop-java-topology.md)
 
-* [Разработка топологий для Storm в HDInsight на C# с помощью Visual Studio](../hdinsight-storm-develop-csharp-visual-studio-topology/)
+* [Разработка топологий для Storm в HDInsight на C# с помощью Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 
 Дополнительные примеры Storm для HDinsight:
 
 * [Примеры Storm в HDInsight](https://github.com/hdinsight/hdinsight-storm-examples)
 
-* [Анализ данных датчиков EventHub с помощью Storm в HDInsight](../hdinsight-storm-sensor-data-analysis/)
+* [Анализ данных датчиков EventHub с помощью Storm в HDInsight](hdinsight-storm-sensor-data-analysis.md)
 <!--HONumber=47-->

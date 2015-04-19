@@ -125,9 +125,9 @@ HDInsight также позволяет связать несколько уче
 
 ##Дальнейшие действия
 
-* [Использование Hive с HDInsight](../hdinsight-use-hive/)
-* [Использование Pig с HDInsight](../hdinsight-use-pig/)
-* [Использование заданий MapReduce с HDInsight](../hdinsight-use-mapreduce)
+* [Использование Hive с HDInsight](hdinsight-use-hive.md)
+* [Использование Pig с HDInsight](hdinsight-use-pig.md)
+* [Использование заданий MapReduce с HDInsight](hdinsight-use-mapreduce.md)
 
 
 <!--HONumber=47-->

@@ -175,7 +175,7 @@
 
 [Веб-сайт гибридных подключений](http://azure.microsoft.com/services/biztalk-services/)
 
-[Службы BizTalk: Вкладки "Панель мониторинга", "Монитор", "Масштаб", "Настройка" и "Гибридное подключение"](../biztalk-dashboard-monitor-scale-tabs/)
+[Службы BizTalk: Вкладки "Панель мониторинга", "Монитор", "Масштаб", "Настройка" и "Гибридное подключение"](biztalk-dashboard-monitor-scale-tabs.md)
 
 [Создание реального облака с гибридным подключением с помощью простой переносимости приложений (видео Channel 9)](http://channel9.msdn.com/events/TechEd/NorthAmerica/2014/DCIM-B323#fbid=)
 

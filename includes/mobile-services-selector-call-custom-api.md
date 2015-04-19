@@ -1,13 +1,13 @@
 > [AZURE.SELECTOR-LIST (Платформа | Серверная часть)]
-- [(iOS | .NET)](/documentation/articles/mobile-services-dotnet-backend-ios-call-custom-api/)
-- [(iOS | JavaScript)](/documentation/articles/mobile-services-ios-call-custom-api/)
-- [(Магазин Windows (C#) | .NET)](/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api/)
-- [(Магазин Windows (C#) | JavaScript)](/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api/)
-- [(Магазин Windows (JavaScript) | Javascript)](/documentation/articles/mobile-services-windows-store-javascript-call-custom-api/)
-- [(Windows Phone | .NET)](/documentation/articles/mobile-services-dotnet-backend-windows-phone-call-custom-api/)
-- [(Windows Phone | Javascript)](/documentation/articles/mobile-services-windows-phone-call-custom-api/)
-- [(Android | .NET)](/documentation/articles/mobile-services-dotnet-backend-android-call-custom-api/)
-- [(Android | Javascript)](/documentation/articles/mobile-services-android-call-custom-api/)
-- [(HTML | Javascript)](/documentation/articles/mobile-services-html-call-custom-api/)
+- [(iOS | .NET)](mobile-services-dotnet-backend-ios-call-custom-api.md)
+- [(iOS | JavaScript)](mobile-services-ios-call-custom-api.md)
+- [(Магазин Windows (C#) | .NET)](mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api.md)
+- [(Магазин Windows (C#) | JavaScript)](mobile-services-windows-store-dotnet-call-custom-api.md)
+- [(Магазин Windows (JavaScript) | Javascript)](mobile-services-windows-store-javascript-call-custom-api.md)
+- [(Windows Phone | .NET)](mobile-services-dotnet-backend-windows-phone-call-custom-api.md)
+- [(Windows Phone | Javascript)](mobile-services-windows-phone-call-custom-api.md)
+- [(Android | .NET)](mobile-services-dotnet-backend-android-call-custom-api.md)
+- [(Android | Javascript)](mobile-services-android-call-custom-api.md)
+- [(HTML | Javascript)](mobile-services-html-call-custom-api.md)
 
 <!--HONumber=47-->

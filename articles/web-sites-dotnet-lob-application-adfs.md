@@ -20,7 +20,7 @@
 
 В этой статье вы узнаете, как создать бизнес-приложение ASP.NET MVC на веб-сайтах [Azure](http://azure.microsoft.com/services/websites/) с использованием локальных [служб федерации Active Directory](http://technet.microsoft.com/ library/hh831502.aspx) в качестве поставщика удостоверений. Этот сценарий можно использовать, когда необходимо создать бизнес-приложения на веб-сайтах Azure, но организации требуется сохранять все данные локально.
 
-Обзор различных вариантов проверки подлинности и авторизации для предприятий на веб-сайтах Azure см. в разделе [Проверка подлинности и авторизация пользователей в бизнес-приложениях на веб-сайтах Azure](./web-sites-authentication-authorization).
+Обзор различных вариантов проверки подлинности и авторизации для предприятий на веб-сайтах Azure см. в разделе [Проверка подлинности и авторизация пользователей в бизнес-приложениях на веб-сайтах Azure](web-sites-authentication-authorization).
 
 <a name="bkmk_build"></a>
 ## Что будет строиться ##
@@ -341,8 +341,8 @@
 ## Дополнительные ресурсы
 
 - [Защита приложения с помощью SSL и атрибута авторизации](../web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/#protect-the-application-with-ssl-and-the-authorize-attribute)
-- [Проверка подлинности и авторизация пользователей в бизнес-приложениях на веб-сайтах Azure ](../web-sites-authentication-authorization/)
-- [Создание бизнес-приложения ASP.NET MVC на веб-сайтах Azure, выполняющего проверку подлинности с помощью Azure Active Directory](../web-sites-dotnet-lob-application-azure-ad/)
+- [Проверка подлинности и авторизация пользователей в бизнес-приложениях на веб-сайтах Azure ](web-sites-authentication-authorization.md)
+- [Создание бизнес-приложения ASP.NET MVC на веб-сайтах Azure, выполняющего проверку подлинности с помощью Azure Active Directory](web-sites-dotnet-lob-application-azure-ad.md)
 - [Использование локальной проверки подлинности в организации(ADFS)с использованием ASP.NET в Visual Studio 2013](http://www.cloudidentity.com/blog/2014/02/12/use-the-on-premises-organizational-authentication-option-adfs-with-asp-net-in-visual-studio-2013/)
 - [Блог Витторио Берточчи](http://blogs.msdn.com/b/vbertocci/)
 - [Миграция веб-проекта VS2013 из WIF в Katana](http://www.cloudidentity.com/blog/2014/09/15/MIGRATE-A-VS2013-WEB-PROJECT-FROM-WIF-TO-KATANA/)

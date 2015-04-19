@@ -25,7 +25,7 @@
 
 [AZURE.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
-**Примечание.** Если требуется установить Python или [Пакет Python для Azure][], см. [Руководство по установке Python](../python-how-to-install/).
+**Примечание.** Если требуется установить Python или [Пакет Python для Azure][], см. [Руководство по установке Python](python-how-to-install.md).
 
 
 ## Как создать очередь

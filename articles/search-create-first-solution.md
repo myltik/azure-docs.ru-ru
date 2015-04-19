@@ -44,7 +44,7 @@
 <h2 id="sub-1">Предварительные требования</h2>
 
 +	Visual Studio 2012 или более поздней версии с ASP.NET MVC 4 и SQL Server. Если программное обеспечение еще не установлено, можно скачать такие бесплатные экспресс-выпуски: [Visual Studio 2013 Express](http://www.visualstudio.com/ru-ru/products/visual-studio-express-vs.aspx) и [Microsoft SQL Server 2014 Express](http://msdn.microsoft.com/evalcenter/dn434042.aspx).
-+	Служба "Поиск Azure". Вам понадобятся имя службы поиска и ключ администратора. См. статью [Начало работы с Поиском Azure](../search-get-started/) для получения дополнительных сведений.
++	Служба "Поиск Azure". Вам понадобятся имя службы поиска и ключ администратора. См. статью [Начало работы с Поиском Azure](search-get-started.md) для получения дополнительных сведений.
 +	[Демонстрационный проект "Поиск Azure в Adventure Works" на CodePlex](http://go.microsoft.com/fwlink/p/?LinkID=510972). На вкладке "Источник" щелкните **Скачать**, чтобы скачать ZIP-файл этого решения. 
 
     ![][12]

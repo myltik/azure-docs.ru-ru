@@ -49,7 +49,7 @@
 
         %ProgramFiles(x86)%\Windows Kits\x.y\bin\x86 
 
-* Получение WDK из [Windows 8.1. Скачивание наборов и инструментов](http://msdn.microsoft.com/en-US/windows/hardware/gg454513#drivers)
+* Получение WDK из [Windows 8.1. Скачивание наборов и инструментов](http://msdn.microsoft.com/windows/hardware/gg454513#drivers)
 
 ##    <a name="to-configure-ssl-cert"></a>Настройка SSL-сертификата
 SSL-сертификат требуется для шифрования при обмене данными и для проверки подлинности сервера. Выберите наиболее подходящий из этих трех сценариев и выполните все шаги.

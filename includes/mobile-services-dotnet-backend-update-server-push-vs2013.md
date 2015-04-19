@@ -48,5 +48,5 @@
 
 
 [ApiController]: http://go.microsoft.com/fwlink/p/?LinkId=512673
-[TableController]: http://msdn.microsoft.com/ru-ru/library/azure/dn643359.aspx
+[TableController]: http://msdn.microsoft.com/library/azure/dn643359.aspx
 [Диалоговое окно добавления элемента скаффолдинга веб-интерфейса API]: ./media/mobile-services-dotnet-backend-update-server-push-vs2013/add-custom-api-controller.png

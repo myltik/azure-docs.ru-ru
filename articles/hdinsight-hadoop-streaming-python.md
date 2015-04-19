@@ -196,7 +196,7 @@ Python позволяет с легкостью выполнить эти тре
 
 Теперь, когда вы узнали, как использовать задания потоковой передачи MapReduce в HDInsight, воспользуйтесь ссылками, чтобы изучить другие способы работы с Azure HDInsight.
 
-* [Использование Hive с HDInsight](../hdinsight-use-hive/)
-* [Использование Pig с HDInsight](../hdinsight-use-pig/)
-* [Использование заданий MapReduce с HDInsight](../hdinsight-use-mapreduce)
+* [Использование Hive с HDInsight](hdinsight-use-hive.md)
+* [Использование Pig с HDInsight](hdinsight-use-pig.md)
+* [Использование заданий MapReduce с HDInsight](hdinsight-use-mapreduce.md)
 <!--HONumber=47-->

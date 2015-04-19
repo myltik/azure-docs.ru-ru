@@ -209,11 +209,11 @@ Hive упрощает запрос данных с помощью SQL-подоб
 * [Приступая к работе с инструментами HDInsight Hadoop для Visual Studio][1]
 * [Использование Oozie с HDInsight][hdinsight-use-oozie]
 * [Отправка заданий Hadoop программными средствами][hdinsight-submit-jobs]
-* [Использование Pig с HDInsight](../hdinsight-use-pig/)
+* [Использование Pig с HDInsight](hdinsight-use-pig.md)
 * [Анализ данных о задержке рейсов с помощью HDInsight][hdinsight-analyze-flight-data]
 * [Документация по Azure HDInsight SDK][hdinsight-sdk-documentation]
 * [Передача данных в HDInsight][hdinsight-upload-data]
-* [Приступая к работе с Azure HDInsight](../hdinsight-get-started/)
+* [Приступая к работе с Azure HDInsight](hdinsight-get-started.md)
 
 
 [1]: ../hdinsight-hadoop-visual-studio-tools-get-started/

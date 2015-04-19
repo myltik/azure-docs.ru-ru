@@ -17,8 +17,8 @@
 # Авторизация пользователей на стороне службы в мобильных службах
 
 > [AZURE.SELECTOR-LIST (Платформа | Серверная часть)]
-- [(Любая | .NET)](/ru-ru/documentation/articles/mobile-services-dotnet-backend-service-side-authorization/)
-- [(Любая | JavaScript)](/ru-ru/documentation/articles/mobile-services-javascript-backend-service-side-authorization/)
+- [(Любая | .NET)](mobile-services-dotnet-backend-service-side-authorization.md)
+- [(Любая | JavaScript)](mobile-services-javascript-backend-service-side-authorization.md)
 
 В этом разделе показано, как использовать логику на стороне сервера для авторизации пользователей.  В этом учебнике описывается изменение методов доступа к данным в .NET, фильтрация запросов на основе идентификаторов пользователей и предоставление пользователям доступа только к их данным.
 
@@ -30,7 +30,7 @@
 
 		public string UserId { get; set; }
 
-	>[AZURE.NOTE] Чтобы внести это изменение в модель данных и сохранить существующие данные в базе данных, необходимо использовать [Code First Migrations](/ru-ru/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations).
+	>[AZURE.NOTE] Чтобы внести это изменение в модель данных и сохранить существующие данные в базе данных, необходимо использовать [Code First Migrations](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md).
 
 2. В Visual Studio разверните папку "Контроллеры", а затем откройте **TodoItemController.cs**. Найдите метод **PostTodoItem** и добавьте следующий код в начало метода: Этот код добавляет в элемент идентификатор пользователя, прошедшего аутентификацию, прежде чем вставить этот элемент в таблицу TodoItem.
 

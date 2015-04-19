@@ -1,10 +1,10 @@
 ﻿> [AZURE.SELECTOR]
-- [Обзор](/documentation/articles/hdinsight-use-hive/)
-- [Консоль запросов](/documentation/articles/hdinsight-hadoop-use-hive-query-console/)
-- [Visual Studio](/documentation/articles/hdinsight-hadoop-use-hive-visual-studio/)
-- [PowerShell](/documentation/articles/hdinsight-hadoop-use-hive-powershell/)
-- [SSH](/documentation/articles/hdinsight-hadoop-use-hive-ssh/)
-- [Удаленный рабочий стол](/documentation/articles/hdinsight-hadoop-use-hive-remote-desktop/)
-- [Curl](/documentation/articles/hdinsight-hadoop-use-hive-curl/)
+- [Обзор](hdinsight-use-hive.md)
+- [Консоль запросов](hdinsight-hadoop-use-hive-query-console.md)
+- [Visual Studio](hdinsight-hadoop-use-hive-visual-studio.md)
+- [PowerShell](hdinsight-hadoop-use-hive-powershell.md)
+- [SSH](hdinsight-hadoop-use-hive-ssh.md)
+- [Удаленный рабочий стол](hdinsight-hadoop-use-hive-remote-desktop.md)
+- [Curl](hdinsight-hadoop-use-hive-curl.md)
 
 <!--HONumber=47-->

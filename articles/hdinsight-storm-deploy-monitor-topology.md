@@ -114,7 +114,7 @@
 
 ##Средства HDInsight для Visual Studio
 
-Средства HDInsight можно использовать для отправки топологии C# или гибридной топологии в кластер Storm. Далее используется пример приложения. Информацию о создании собственных топологий с помощью средств HDInsight см. в статье [Разработка топологий на C# с помощью средств HDInsight для Visual Studio](../hdinsight-storm-develop-csharp-visual-studio-topology/).
+Средства HDInsight можно использовать для отправки топологии C# или гибридной топологии в кластер Storm. Далее используется пример приложения. Информацию о создании собственных топологий с помощью средств HDInsight см. в статье [Разработка топологий на C# с помощью средств HDInsight для Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
 Чтобы развернуть пример в Storm в кластере HDInsight, а затем просмотреть топологию и управлять ею, сделайте следующее.
 
@@ -166,7 +166,7 @@
 
 ##Дальнейшие действия
 
-Теперь, когда вы узнали, как развертывать и отслеживать топологии с помощью панели мониторинга Storm, можете переходить к изучению [разработки топологий на C# с помощью средств HDInsight для Visual Studio](../hdinsight-storm-develop-csharp-visual-studio-topology/)или [разработки топологий на платформе Java с помощью Maven](../hdinsight-storm-develop-java-topology/).
+Теперь, когда вы узнали, как развертывать и отслеживать топологии с помощью панели мониторинга Storm, можете переходить к изучению [разработки топологий на C# с помощью средств HDInsight для Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md)или [разработки топологий на платформе Java с помощью Maven](hdinsight-storm-develop-java-topology.md).
 
 
 [hdinsight-dashboard]: ./media/hdinsight-storm-deploy-monitor/dashboard-link.png

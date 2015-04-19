@@ -28,7 +28,7 @@
 
 Пример приложения написан на языке C# в Visual Studio 2013. Если у вас нет копии Visual Studio, загрузите бесплатный выпуск [Visual Studio 2013 Express](http://www.visualstudio.com/ru-ru/products/visual-studio-express-vs.aspx).
 
-Для работы с учебником вам потребуется подписка Azure и служба поиска Azure. Сведения о настройке службы см. в разделе [Приступая к работе со службой поиска Azure](../search-get-started/).
+Для работы с учебником вам потребуется подписка Azure и служба поиска Azure. Сведения о настройке службы см. в разделе [Приступая к работе со службой поиска Azure](search-get-started.md).
 
 [WACOM.INCLUDE [Для работы с этим учебником требуется учетная запись Azure.](../includes/free-trial-note.md)]
 

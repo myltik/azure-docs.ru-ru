@@ -73,7 +73,7 @@
 ## Загрузка модулей Runbook 
 
 1. Скачайте файл **ShardElasticity.zip** и извлеките его содержание.
-2. [Добавьте ссылки на двоичные файлы эластичного масштабирования с помощью NuGet](./sql-database-elastic-scale-add-references-visual-studio.md)
+2. [Добавьте ссылки на двоичные файлы эластичного масштабирования с помощью NuGet](sql-database-elastic-scale-add-references-visual-studio.md)
 3. Найдите двоичный файл клиента эластичного масштабирования (**Microsoft.Azure.SqlDatabase.ElasticScale.Client.dll**).
 4. Поместите DLL в папку ShardElasticityModule и сожмите эту папку в ZIP-архив. 
 3. Войдите в свою учетную запись службы автоматизации Azure и отправьте файл ShardElasticityModule.zip в качестве **ресурса**. 

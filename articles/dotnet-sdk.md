@@ -51,9 +51,9 @@
 
 Это позволит вам работать с веб-сайтами Azure:
 
-* [Публикация веб-проектов на веб-сайтах Azure](../web-sites-dotnet-get-started/).
-* [Публикация проектов консольных приложений в веб-заданиях Azure](../websites-dotnet-deploy-webjobs/).
-* [Создание ресурсов веб-сайтов Azure и баз данных SQL при создании нового веб-проекта или его публикации](../web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/).
+* [Публикация веб-проектов на веб-сайтах Azure](web-sites-dotnet-get-started.md).
+* [Публикация проектов консольных приложений в веб-заданиях Azure](websites-dotnet-deploy-webjobs.md).
+* [Создание ресурсов веб-сайтов Azure и баз данных SQL при создании нового веб-проекта или его публикации](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
 * [Создание сценариев развертывания PowerShell при создании новых веб-сайтов](http://msdn.microsoft.com/library/dn642480.aspx).
 * [Управление и устранение неполадок веб-сайтов Azure в обозревателе серверов](../web-sites-dotnet-troubleshoot-visual-studio/#sitemanagement).
 * [Удаленный запуск веб-сайтов и веб-заданий в режиме отладки](../web-sites-dotnet-troubleshoot-visual-studio/#remotedebug). 
@@ -64,9 +64,9 @@
 
 Позволяет работать с облачными службами и виртуальными машинами Azure:
 
-* [Создание, открытие и публикация проектов облачных служб](../cloud-services-dotnet-get-started/).
+* [Создание, открытие и публикация проектов облачных служб](cloud-services-dotnet-get-started.md).
 * [Создание пакетов развертывания для облачных служб](http://msdn.microsoft.com/library/ff683672.aspx).
-* [Создание виртуальных машин Azure при построении новых веб-проектов](../virtual-machines-dotnet-create-visual-studio-powershell/).
+* [Создание виртуальных машин Azure при построении новых веб-проектов](virtual-machines-dotnet-create-visual-studio-powershell.md).
 * [Создание сценариев PowerShell при создании новых виртуальных машин](http://msdn.microsoft.com/library/dn642480.aspx).
 * [Просмотр настроек проекта облачных служб в окне свойств проекта Visual Studio и управление ими;](http://msdn.microsoft.com/library/ee405486.aspx).
 * Просмотр [облачных служб](http://msdn.microsoft.com/library/ff683675.aspx), [виртуальных машин](http://msdn.microsoft.com/library/jj131259.aspx)и [служебной шины](http://msdn.microsoft.com/library/jj149828.aspx) в обозревателе сервера и управление ими. 
@@ -113,13 +113,13 @@
 
   	**Локальные копии клиентских библиотек**Пакет Azure SDK для .NET копирует на компьютер пакеты NuGet для некоторых клиентских библиотек Azure, таких как Хранилище, Service Bus и Кэширование. Эти клиентские библиотеки автоматически добавляются в новые проекты облачных служб, поэтому локальные пакеты NuGet позволяют Visual Studio создавать проекты даже в случае отсутствия подключения к Интернету. Клиентские библиотеки, как правило, обновляются чаще, чем выпускаются новые версии пакета SDK, поэтому на сайте NuGet.org зачастую имеются более новые версии клиентских библиотек, чем те, которые включены в пакет SDK. 
 
-	**Шаблоны проектов, включающие клиентские библиотеки** Только в шаблоны проектов [облачной службы Azure](../cloud-services-dotnet-get-started/) и [мобильной службы Azure](../mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/) автоматически включены некоторые клиентские библиотеки. Чтобы получить другие библиотеки или шаблоны, установите необходимые [пакеты клиентских библиотек NuGet](http://go.microsoft.com/fwlink/?LinkId=510472).
+	**Шаблоны проектов, включающие клиентские библиотеки** Только в шаблоны проектов [облачной службы Azure](cloud-services-dotnet-get-started.md) и [мобильной службы Azure](mobile-services-dotnet-backend-windows-store-dotnet-leaderboard.md) автоматически включены некоторые клиентские библиотеки. Чтобы получить другие библиотеки или шаблоны, установите необходимые [пакеты клиентских библиотек NuGet](http://go.microsoft.com/fwlink/?LinkId=510472).
 
-* [Azure PowerShell](../install-configure-powershell/). 
+* [Azure PowerShell](install-configure-powershell.md). 
 
 	Azure PowerShell позволяет [автоматизировать создание и развертывание среды Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything).
 
-* [Шаблоны проектов мобильных служб Azure](../mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/).
+* [Шаблоны проектов мобильных служб Azure](mobile-services-dotnet-backend-windows-store-dotnet-leaderboard.md).
 
 	Шаблоны проектов мобильных служб Azure доступны только в Visual Studio 2013 с пакетом обновлений 2 и в более поздних версиях. При этом недоступны в Visual Studio 2012 и более ранних версиях, а также в Visual Studio 2013 с пакетом обновлений 1 или более ранних версиях, даже после установки Azure SDK для .NET.
 

@@ -30,7 +30,7 @@
 
 Параметр **Из коллекции** открывает мастер, помогающий настроить виртуальную машину. Последняя страница мастера используется для установки агента ВМ и модуля безопасности Symantec. 
 
-Общие указания см. в статье [Создание виртуальной машины под управлением Windows Server](../virtual-machines-windows-tutorial/). Дойдя до последней страницы мастера:
+Общие указания см. в статье [Создание виртуальной машины под управлением Windows Server](virtual-machines-windows-tutorial.md). Дойдя до последней страницы мастера:
 
 1.	В разделе "Агент ВМ" должен быть установлен флажок **Установить агент ВМ**.
 
@@ -45,7 +45,7 @@
 
 Для этого потребуются следующие компоненты.
 
-- Модуль Azure PowerShell версии не ниже 0.8.2. Установленную версию Azure PowerShell можно проверить с помощью команды **Get-Module azure | format-table version**. Указания и ссылку на последнюю версию см. в статье [Установка и настройка Azure PowerShell](../install-configure-powershell/).  
+- Модуль Azure PowerShell версии не ниже 0.8.2. Установленную версию Azure PowerShell можно проверить с помощью команды **Get-Module azure | format-table version**. Указания и ссылку на последнюю версию см. в статье [Установка и настройка Azure PowerShell](install-configure-powershell.md).  
 
 - Агент ВМ. 
 
@@ -67,13 +67,13 @@
 
 Чтобы проверить, установлен ли модуль безопасности Symantec, и убедиться в актуальности его версии, сделайте следующее:
 
-1.	Войдите в виртуальную машину. Дополнительную информацию см. в разделе [Как войти в виртуальную машину под управлением Windows Server](../virtual-machines-log-on-windows-server/).
+1.	Войдите в виртуальную машину. Дополнительную информацию см. в разделе [Как войти в виртуальную машину под управлением Windows Server](virtual-machines-log-on-windows-server.md).
 2.	Для Windows Server 2008 R2 щелкните **Пуск > Symantec Endpoint Protection**. Для Windows Server 2012 или Windows Server 2012 R2 на начальном экране введите **Symantec**, а затем щелкните **Symantec Endpoint Protection**.
 3.	На вкладке **Состояние** окна **Состояние Symantec Endpoint Protection** примените обновления или выполните перезагрузку, если это необходимо.
 
 ## Дополнительные ресурсы
 
-[Как войти в виртуальную машину под управлением Windows Server](../virtual-machines-log-on-windows-server/)
+[Как войти в виртуальную машину под управлением Windows Server](virtual-machines-log-on-windows-server.md)
 
 [Управление расширениями](https://msdn.microsoft.com/library/dn606311.aspx)
 

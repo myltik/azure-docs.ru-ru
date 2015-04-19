@@ -17,17 +17,17 @@
 	ms.author="kapiteir" />
 
 #Пакет SDK для Windows Phone для Azure Mobile Engagement версии 2.0.0
-Начните с этой статьи, чтобы получить подробную информацию об интеграции Azure Mobile Engagement в приложение Windows Phone. Если вы хотите потренироваться, обязательно пройдите наш [15-минутный учебник](../mobile-engagement-windows-phone-get-started/).
+Начните с этой статьи, чтобы получить подробную информацию об интеграции Azure Mobile Engagement в приложение Windows Phone. Если вы хотите потренироваться, обязательно пройдите наш [15-минутный учебник](mobile-engagement-windows-phone-get-started.md).
 
-Щелкните, чтобы просмотреть статью [Содержимое пакета SDK](../mobile-engagement-windows-phone-sdk-content/).
+Щелкните, чтобы просмотреть статью [Содержимое пакета SDK](mobile-engagement-windows-phone-sdk-content.md).
 
 ##Процедуры по интеграции
 
-1. Начните с этого раздела: [Как интегрировать Mobile Engagement в приложение Windows Phone](../mobile-engagement-windows-phone-integrate-engagement/)
+1. Начните с этого раздела: [Как интегрировать Mobile Engagement в приложение Windows Phone](mobile-engagement-windows-phone-integrate-engagement.md)
 
-2. Информация об уведомлениях: [Как интегрировать Reach (Notifications) в приложение Windows Phone](../mobile-engagement-windows-phone-integrate-engagement-reach/)
+2. Информация об уведомлениях: [Как интегрировать Reach (Notifications) в приложение Windows Phone](mobile-engagement-windows-phone-integrate-engagement-reach.md)
 
-3. Реализация плана добавления тегов: [Как использовать API для расширенного добавления тегов Mobile Engagement в приложении Windows Phone](../mobile-engagement-windows-phone-use-engagement-api/)
+3. Реализация плана добавления тегов: [Как использовать API для расширенного добавления тегов Mobile Engagement в приложении Windows Phone](mobile-engagement-windows-phone-use-engagement-api.md)
 
 ##Заметки о выпуске
 
@@ -36,7 +36,7 @@
 -   Конфигурация appId/sdkKey заменена конфигурацией строки подключения.
 -   Улучшения безопасности.
 
-Информацию о предыдущих версиях см. в [полных заметках о выпуске](../mobile-engagement-windows-phone-release-notes/).
+Информацию о предыдущих версиях см. в [полных заметках о выпуске](mobile-engagement-windows-phone-release-notes.md).
 
 ##Процедуры обновления
 

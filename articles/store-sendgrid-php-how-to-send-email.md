@@ -404,7 +404,7 @@ SendGrid поддерживает дополнительные функцион�
   [https://sendgrid.com]: https://sendgrid.com
   [https://sendgrid.com/transactional-email/pricing]: https://sendgrid.com/transactional-email/pricing
   [специальное предложение]: https://www.sendgrid.com/windowsazure.html
-  [Упаковка и развертывание приложений PHP для Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/hh674499(v=VS.103).aspx
+  [Упаковка и развертывание приложений PHP для Azure]: http://msdn.microsoft.com/library/windowsazure/hh674499(v=VS.103).aspx
   [http://swiftmailer.org/download]: http://swiftmailer.org/download
   [функцию curl]: http://php.net/curl
   [облачная служба электронной почты]: https://sendgrid.com/email-solutions

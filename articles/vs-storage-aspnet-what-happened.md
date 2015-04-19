@@ -17,8 +17,8 @@
 	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
-> - [Начало работы](/documentation/articles/vs-storage-aspnet-getting-started-blobs/)
-> - [Что произошло?](/documentation/articles/vs-storage-aspnet-what-happened/)
+> - [Начало работы](vs-storage-aspnet-getting-started-blobs.md)
+> - [Что произошло?](vs-storage-aspnet-what-happened.md)
 
 ### <span id="whathappened">Что произошло с моим проектом?</span>
 

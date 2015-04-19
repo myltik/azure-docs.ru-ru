@@ -17,15 +17,15 @@
 	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
-> - [Приступая к работе](/documentation/articles/vs-storage-aspnet5-getting-started-blobs/)
-> - [Что произошло?](/documentation/articles/vs-storage-aspnet5-what-happened/)
+> - [Приступая к работе](vs-storage-aspnet5-getting-started-blobs.md)
+> - [Что произошло?](vs-storage-aspnet5-what-happened.md)
 
 ## Начало работы со службой хранилища Azure (проекты ASP.NET 5)
 
 > [AZURE.SELECTOR]
-> - [BLOB-объектов](/documentation/articles/vs-storage-aspnet5-getting-started-blobs/)
-> - [Очереди](/documentation/articles/vs-storage-aspnet5-getting-started-queues/)
-> - [Таблицы](/documentation/articles/vs-storage-aspnet5-getting-started-tables/)
+> - [BLOB-объектов](vs-storage-aspnet5-getting-started-blobs.md)
+> - [Очереди](vs-storage-aspnet5-getting-started-queues.md)
+> - [Таблицы](vs-storage-aspnet5-getting-started-tables.md)
 
 Хранилище больших двоичных объектов Azure - это служба хранения большого количества неструктурированных данных, к которым можно получить доступ практически из любой точки мира по протоколу HTTP или HTTPS. Один большой двоичный объект может быть любого размера. Большими двоичными объектами могут быть изображения, аудио- и видеофайлы, необработанные данные и файлы документов.
 

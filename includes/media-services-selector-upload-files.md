@@ -1,6 +1,6 @@
 ﻿> [AZURE.SELECTOR]
-- [Портал](/documentation/articles/media-services-manage-content/)
-- [ПАКЕТ SDK .NET](/documentation/articles/media-services-dotnet-upload-files/)
-- [API REST](/documentation/articles/media-services-rest-upload-files/)
+- [Портал](media-services-manage-content.md)
+- [ПАКЕТ SDK .NET](media-services-dotnet-upload-files.md)
+- [API REST](media-services-rest-upload-files.md)
 
 <!--HONumber=47-->

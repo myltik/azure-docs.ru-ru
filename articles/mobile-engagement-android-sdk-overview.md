@@ -18,18 +18,18 @@
 
 
 #Пакет Android SDK для Azure Mobile Engagement v3.0.0
-Начните здесь, чтобы получить все сведения об интеграции службы Azure Mobile Engagement в приложение Android. Если вы сначала хотите попробовать, обязательно выполните наш [15-минутный учебник](../mobile-engagement-android-get-started/).
+Начните здесь, чтобы получить все сведения об интеграции службы Azure Mobile Engagement в приложение Android. Если вы сначала хотите попробовать, обязательно выполните наш [15-минутный учебник](mobile-engagement-android-get-started.md).
 
-Щелкните, чтобы просмотреть [содержимое пакета SDK](../mobile-engagement-android-sdk-content)
+Щелкните, чтобы просмотреть [содержимое пакета SDK](mobile-engagement-android-sdk-content.md)
 
 ##Процедуры интеграции
-1. Начните здесь: [Интеграция службы Mobile Engagement в приложение Android](../mobile-engagement-android-integrate-engagement/)
+1. Начните здесь: [Интеграция службы Mobile Engagement в приложение Android](mobile-engagement-android-integrate-engagement.md)
 
-2. Для получения уведомлений: [Интеграция модуля Reach (уведомления) в приложение Android](../mobile-engagement-android-integrate-engagement-reach/)
-	1. Google Cloud Messaging (GCM): [Интеграция GCM с помощью службы Mobile Engagement](../mobile-engagement-android-gcm-integrate/)
-	2. Amazon Device Messaging (ADM): [Интеграция ADM с помощью службы Mobile Engagement](../mobile-engagement-android-adm-integrate/)
+2. Для получения уведомлений: [Интеграция модуля Reach (уведомления) в приложение Android](mobile-engagement-android-integrate-engagement-reach.md)
+	1. Google Cloud Messaging (GCM): [Интеграция GCM с помощью службы Mobile Engagement](mobile-engagement-android-gcm-integrate.md)
+	2. Amazon Device Messaging (ADM): [Интеграция ADM с помощью службы Mobile Engagement](mobile-engagement-android-adm-integrate.md)
 
-3. Реализация плана тегов: [Использование расширенного API добавления тегов службы Mobile Engagement в приложении Android](../mobile-engagement-android-use-engagement-api/)
+3. Реализация плана тегов: [Использование расширенного API добавления тегов службы Mobile Engagement в приложении Android](mobile-engagement-android-use-engagement-api.md)
 
 
 ##Заметки о выпуске
@@ -43,13 +43,13 @@
 -   Улучшения безопасности.
 -   Удалено отслеживание Google Play и SmartAd.
 
-Информацию о более ранних версиях см. в разделе [Полные заметки о выпусках](../mobile-engagement-android-release-notes/)
+Информацию о более ранних версиях см. в разделе [Полные заметки о выпусках](mobile-engagement-android-release-notes.md)
 
 ##Процедуры обновления
 
 Если уже выполнена интеграция более старой версии пакета SDK в приложение, необходимо принять во внимание следующие моменты при обновлении пакета SDK.
 
-Возможно придется выполнить несколько процедур, если было пропущено несколько версий пакета SDK. См. раздел полные [Процедуры обновления](../mobile-engagement-android-upgrade-procedure/). Например, при миграции из версии 1.4.0 в 1.6.0, необходимо сначала выполнить процедуру "из версии 1.4.0 в 1.5.0", а затем процедуру "из версии 1.5.0 в 1.6.0".
+Возможно придется выполнить несколько процедур, если было пропущено несколько версий пакета SDK. См. раздел полные [Процедуры обновления](mobile-engagement-android-upgrade-procedure.md). Например, при миграции из версии 1.4.0 в 1.6.0, необходимо сначала выполнить процедуру "из версии 1.4.0 в 1.5.0", а затем процедуру "из версии 1.5.0 в 1.6.0".
 
 Вне зависимости от того, из какой версии выполняется обновление, необходимо заменить все `mobile-engagement-VERSION.jar` на новые версии.
 

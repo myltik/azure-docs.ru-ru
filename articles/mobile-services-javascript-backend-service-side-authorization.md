@@ -17,8 +17,8 @@
 # Авторизация пользователей на стороне службы в мобильных службах
 
 > [AZURE.SELECTOR-LIST (Платформа | Серверная часть)]
-- [(Любая | .NET)](/ru-ru/documentation/articles/mobile-services-dotnet-backend-service-side-authorization/)
-- [(Любая | JavaScript)](/ru-ru/documentation/articles/mobile-services-javascript-backend-service-side-authorization/)
+- [(Любая | .NET)](mobile-services-dotnet-backend-service-side-authorization.md)
+- [(Любая | JavaScript)](mobile-services-javascript-backend-service-side-authorization.md)
 
 В этом разделе показано, как использовать сценарии на стороне сервера для авторизации пользователей. В этом учебнике описывается регистрация сценариев в службах мультимедиа Azure, фильтрация запросов на основе идентификаторов пользователей и предоставление пользователям доступа только к их данным.
 

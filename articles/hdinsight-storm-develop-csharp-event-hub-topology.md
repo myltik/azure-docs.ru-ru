@@ -511,7 +511,7 @@
 
 В этом документе было рассмотрено использование воронки и сита концентратора событий Java из топологии C# для работы с данными в концентраторе событий Azure. Дополнительные сведения о создании топологий C# см. в следующих статьях.
 
-* [Разработка топологий для Apache Storm в HDInsight на C# с помощью Visual Studio](../hdinsight-storm-develop-csharp-visual-studio-topology/)
+* [Разработка топологий для Apache Storm в HDInsight на C# с помощью Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 
 * [Примеры HDInsight Storm](https://github.com/hdinsight/hdinsight-storm-examples)
 

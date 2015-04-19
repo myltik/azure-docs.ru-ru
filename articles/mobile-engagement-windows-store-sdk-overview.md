@@ -18,17 +18,17 @@
 
 #2.0.0
 
-Начните с этой статьи, чтобы получить подробную информацию об интеграции Azure Mobile Engagement в приложение Магазина Windows. Если вы хотите потренироваться, обязательно пройдите наш [15-минутный учебник](../mobile-engagement-windows-store-dotnet-get-started/).
+Начните с этой статьи, чтобы получить подробную информацию об интеграции Azure Mobile Engagement в приложение Магазина Windows. Если вы хотите потренироваться, обязательно пройдите наш [15-минутный учебник](mobile-engagement-windows-store-dotnet-get-started.md).
 
-Щелкните, чтобы просмотреть статью [Содержимое пакета SDK](../mobile-engagement-windows-store-sdk-content/)
+Щелкните, чтобы просмотреть статью [Содержимое пакета SDK](mobile-engagement-windows-store-sdk-content.md)
 
 ##Процедуры по интеграции
 
-1. Начните с этого раздела: [Как интегрировать Mobile Engagement в приложение Магазина Windows](../mobile-engagement-windows-store-integrate-engagement/)
+1. Начните с этого раздела: [Как интегрировать Mobile Engagement в приложение Магазина Windows](mobile-engagement-windows-store-integrate-engagement.md)
 
-2. Информация об уведомлениях: [Как интегрировать Reach (Notifications) в приложение Магазина Windows](../mobile-engagement-windows-store-integrate-engagement-reach/)
+2. Информация об уведомлениях: [Как интегрировать Reach (Notifications) в приложение Магазина Windows](mobile-engagement-windows-store-integrate-engagement-reach.md)
 
-3. Реализация плана добавления тегов: ["Как использовать API для расширенного добавления тегов Mobile Engagement в приложении Магазина Windows"](../mobile-engagement-windows-store-use-engagement-api/)
+3. Реализация плана добавления тегов: ["Как использовать API для расширенного добавления тегов Mobile Engagement в приложении Магазина Windows"](mobile-engagement-windows-store-use-engagement-api.md)
 
 ##Заметки о выпуске
 
@@ -39,13 +39,13 @@
 -   Конфигурация appId/sdkKey заменена конфигурацией строки подключения.
 -   Улучшения безопасности.
 
-Информацию о предыдущих версиях см. в [полных заметках о выпуске](../mobile-engagement-windows-store-release-notes/)
+Информацию о предыдущих версиях см. в [полных заметках о выпуске](mobile-engagement-windows-store-release-notes.md)
 
 ##Процедуры обновления
 
 Если вы уже интегрировали в приложение старую версию службы Engagement, при обновлении пакета SDK необходимо учитывать следующее.
 
-Если вы пропустили несколько версий пакета SDK, вам понадобиться выполнить несколько процедур. См. полную версию статьи [Процедуры обновления](../mobile-engagement-windows-store-upgrade-procedure/). Например, при миграции с версии 0.10.1 в версию 0.11.0 необходимо сначала выполнить процедуру миграции "с 0.9.0 в 0.10.1", а затем процедуру миграции "с 0.10.1 в 0.11.0".
+Если вы пропустили несколько версий пакета SDK, вам понадобиться выполнить несколько процедур. См. полную версию статьи [Процедуры обновления](mobile-engagement-windows-store-upgrade-procedure.md). Например, при миграции с версии 0.10.1 в версию 0.11.0 необходимо сначала выполнить процедуру миграции "с 0.9.0 в 0.10.1", а затем процедуру миграции "с 0.10.1 в 0.11.0".
 
 ##От версии 1.1.1 до версии 2.0.0
 

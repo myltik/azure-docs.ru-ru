@@ -454,16 +454,16 @@ Trident - это предоставляемая Storm высокоуровнев
 
 Дополнительные сведения о Trident см. в статье <a href="http://storm.apache.org/documentation/Trident-API-Overview.html" target="_blank">Обзор API Trident</a>.
 
-Пример приложения Trident см. в статье [Анализ популярных тем в Twitter с помощью Apache Storm в HDInsight](../hdinsight-storm-twitter-trending/)
+Пример приложения Trident см. в статье [Анализ популярных тем в Twitter с помощью Apache Storm в HDInsight](hdinsight-storm-twitter-trending.md)
 
 ##Дальнейшие действия
 
 Вы узнали, как создавать топологии Storm с помощью Java, теперь ознакомьтесь со следующими статьями:
 
-* [Развертывание топологий Apache Storm в HDInsight и управление ими](../hdinsight-storm-deploy-monitor-topology/)
+* [Развертывание топологий Apache Storm в HDInsight и управление ими](hdinsight-storm-deploy-monitor-topology.md)
 
-* [Разработка топологий для Apache Storm в HDInsight на C# с помощью Visual Studio](../hdinsight-storm-develop-csharp-visual-studio-topology/)
+* [Разработка топологий для Apache Storm в HDInsight на C# с помощью Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 
-* [Анализ популярных тем Twitter с помощью Apache Storm в HDInsight](../hdinsight-storm-twitter-trending)
+* [Анализ популярных тем Twitter с помощью Apache Storm в HDInsight](hdinsight-storm-twitter-trending.md)
 
 <!--HONumber=47-->

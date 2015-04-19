@@ -53,7 +53,7 @@
 
 [AZURE.INCLUDE [virtual-machines-Linux-tutorial-log-on-attach-disk](../includes/virtual-machines-Linux-tutorial-log-on-attach-disk.md)]
 
-> [AZURE.NOTE] Вы также можете подключиться к виртуальной машине Linux, использовав ключ SSH для идентификации. Дополнительную информацию о настройке и подключению с использованием ключа SSH см. в статье [Как использовать SSH в Linux для Azure](./virtual-machines-linux-use-ssh-key/).
+> [AZURE.NOTE] Вы также можете подключиться к виртуальной машине Linux, использовав ключ SSH для идентификации. Дополнительную информацию о настройке и подключению с использованием ключа SSH см. в статье [Как использовать SSH в Linux для Azure](virtual-machines-linux-use-ssh-key).
 
 ##Дальнейшие действия 
 
@@ -65,7 +65,7 @@
 
 - [О параметрах конфигурации виртуальной машины Azure](http://msdn.microsoft.com/library/azure/dn763935.aspx)
 
-- [Расширение виртуальных машин Docker для Linux в Azure](../virtual-machines-docker-vm-extension/)
+- [Расширение виртуальных машин Docker для Linux в Azure](virtual-machines-docker-vm-extension.md)
 
 
 [Дальнейшие действия]: #next

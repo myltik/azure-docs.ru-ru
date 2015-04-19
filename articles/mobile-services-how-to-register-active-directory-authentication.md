@@ -24,7 +24,7 @@
 
 ## Регистрация приложения
 
->[AZURE.NOTE] Описанные в этом разделе действия предназначены для применения с учебником [Добавление проверки подлинности в приложение мобильных служб](/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/), если нужно использовать [управляемые службой операции входа](http://msdn.microsoft.com/library/azure/dn283952.aspx) в вашем приложении. А если приложению требуются [управляемые клиентом операции входа](http://msdn.microsoft.com/library/azure/jj710106.aspx) для серверной части Azure Active Directory и .NET, нужно начать с учебника [Проверка подлинности приложения с помощью единого входа библиотеки проверки подлинности Active Directory](/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/).
+>[AZURE.NOTE] Описанные в этом разделе действия предназначены для применения с учебником [Добавление проверки подлинности в приложение мобильных служб](mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md), если нужно использовать [управляемые службой операции входа](http://msdn.microsoft.com/library/azure/dn283952.aspx) в вашем приложении. А если приложению требуются [управляемые клиентом операции входа](http://msdn.microsoft.com/library/azure/jj710106.aspx) для серверной части Azure Active Directory и .NET, нужно начать с учебника [Проверка подлинности приложения с помощью единого входа библиотеки проверки подлинности Active Directory](mobile-services-windows-store-dotnet-adal-sso-authentication.md).
 
 
 1. Выполните вход на [портал управления Azure](https://manage.windowsazure.com/), щелкните пункт **Мобильные службы**, а затем выберите свою мобильную службу.

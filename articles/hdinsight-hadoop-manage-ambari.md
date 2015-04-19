@@ -20,7 +20,7 @@
 
 Узнайте, как использовать Ambari для управления кластерами HDInsight на платформе Linux и наблюдения за их функционированием.
 
-> [AZURE.NOTE] Большая часть информации в этой статье относится только к кластерами HDInsight на платформе Linux. Для кластеров HDInsight на платформе Windows доступен мониторинг только через Ambari REST API. См. статью [Отслеживание кластеров Hadoop в HDInsight с помощью интерфейса Ambari API](../hdinsight-monitor-use-ambari-api/).
+> [AZURE.NOTE] Большая часть информации в этой статье относится только к кластерами HDInsight на платформе Linux. Для кластеров HDInsight на платформе Windows доступен мониторинг только через Ambari REST API. См. статью [Отслеживание кластеров Hadoop в HDInsight с помощью интерфейса Ambari API](hdinsight-monitor-use-ambari-api.md).
 
 ##<a id="whatis"></a>Что такое Ambari?
 

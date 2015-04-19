@@ -89,17 +89,17 @@
 
 Общая информация о Hive в HDInsight.
 
-* [Использование Hive с Hadoop в HDInsight](../hdinsight-use-hive/)
+* [Использование Hive с Hadoop в HDInsight](hdinsight-use-hive.md)
 
 Дополнительная информация о других способах работы с Hadoop в HDInsight.
 
-* [Использование Pig с Hadoop в HDInsight](../hdinsight-use-pig/)
+* [Использование Pig с Hadoop в HDInsight](hdinsight-use-pig.md)
 
-* [Использование MapReduce с Hadoop в HDInsight](../hdinsight-use-mapreduce/)
+* [Использование MapReduce с Hadoop в HDInsight](hdinsight-use-mapreduce.md)
 
 Дополнительная информация о средствах HDInsight для Visual Studio.
 
-* [Приступая к работе со средствами HDInsight для Visual Studio](../hdinsight-hadoop-visual-studio-tools-get-started/)
+* [Приступая к работе со средствами HDInsight для Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md)
 
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx

@@ -46,7 +46,7 @@
 
 В серверной мобильной службе .NET для отправки уведомлений нужно вызвать метод [SendAsync] объекта [PushClient](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.notifications.pushclient.aspx), полученного из свойства [ApiServices.Push](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.apiservices.push.aspx) property. Вид отправленного push-уведомления (собственное или шаблонное) зависит от того, какой объект, производный от [IPushMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.notifications.ipushmessage.aspx), передается в метод [SendAsync] (см. таблицу ниже). 
 
-|платформа |[APNS](/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push)|[GCM](/documentation/articles/mobile-services-dotnet-backend-android-get-started-push) |[WNS](/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push) |[MPNS](/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push)|
+|платформа |[APNS](mobile-services-dotnet-backend-ios-get-started-push.md)|[GCM](mobile-services-dotnet-backend-android-get-started-push.md) |[WNS](mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md) |[MPNS](mobile-services-dotnet-backend-windows-phone-get-started-push.md)|
 |-----|-----|----|----|-----|
 |Собственное|[ApplePushMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.applepushmessage.aspx)   |[GooglePushMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.googlepushmessage.aspx)     |[WindowsPushMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.windowspushmessage.aspx) | [MpnsPushMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.mpnspushmessage.aspx) |
 
@@ -81,7 +81,7 @@
 
 В мобильной службе серверной части JavaScript для отправки уведомлений нужно вызвать метод **send** для специализированного объекта платформы, полученного из глобального [объекта push](см. таблицу ниже). 
 
-|платформа |[APNS](/documentation/articles/mobile-services-javascript-backend-ios-get-started-push)|[GCM](/documentation/articles/mobile-services-javascript-backend-android-get-started-push) |[WNS](/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push) |[MPNS](/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push)|
+|платформа |[APNS](mobile-services-javascript-backend-ios-get-started-push.md)|[GCM](mobile-services-javascript-backend-android-get-started-push.md) |[WNS](mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md) |[MPNS](mobile-services-javascript-backend-windows-phone-get-started-push.md)|
 |-----|-----|----|----|-----|
 |Собственное|[Объект apns](http://msdn.microsoft.com/library/azure/jj839711.aspx)   |[Объект gcm](http://msdn.microsoft.com/library/azure/dn126137.aspx)     |[Объект wns](http://msdn.microsoft.com/library/azure/jj860484.aspx) | [Объект mpns](http://msdn.microsoft.com/library/azure/jj871025.aspx) |
 
@@ -162,7 +162,7 @@
 
 В обновлении 2 для Visual Studio 2013 добавлена поддержка проектов универсальных приложений Windows. Универсальные приложения - это решения, которые включают проекты приложений Магазина Windows 8.1 и Магазина Windows Phone 8.1 в проект с общим кодом. В таком проекте общий код рассматривается как часть проекта Магазина Windows и проекта Windows Phone. Дополнительные сведения см. в разделе [Разработка универсальных приложений Windows для всех устройств Windows]. Универсальные приложения Windows можно писать на C#/XAML и JavaScript/HTML. 
 
-По умолчанию на вкладке быстрого запуска мобильных служб на [портале управления Azure](https://manage.windowsazure.com) изначально создается версия примера приложения TodoList под универсальное приложение Windows. На выбор можно скачать версию C#/XAML или JavaScript/HTML проекта. Дополнительные сведения см. в разделе [Приступая к работе с мобильными службами](/documentation/articles/mobile-services-windows-store-get-started/). 
+По умолчанию на вкладке быстрого запуска мобильных служб на [портале управления Azure](https://manage.windowsazure.com) изначально создается версия примера приложения TodoList под универсальное приложение Windows. На выбор можно скачать версию C#/XAML или JavaScript/HTML проекта. Дополнительные сведения см. в разделе [Приступая к работе с мобильными службами](mobile-services-windows-store-get-started.md). 
 
 >[AZURE.NOTE]Версия проекта приложения быстрого запуска, написанного на C#, с портала, использует общую страницу с фоновым кодом MainPage.xaml.cs, но не модель представления. Пример приложения TodoList, являющегося проектом универсального приложения Windows на C#, использующего MVVM, см. в разделе [Проект универсального приложения Windows для мобильных служб Azure с использованием MVVM]. 
 
@@ -170,7 +170,7 @@
 
 Свой опыт разработки в Visual Studio и C# можно применить для разработки приложений для iOS и Android с помощью Xamarin и Visual Studio или Xamarin Studio. В Xamarin используется кроссплатформенная реализация платформы .NET Framework, что позволяет применять код C# для разработки приложений для iOS и Android. В Xamarin можно использовать существующий код проектов Windows, в котором доступ к мобильным службам осуществляется с помощью клиентской библиотеки .NET для мобильных служб.  Дополнительные сведения см. в разделе [Кроссплатформенная разработка в Visual Studio](http://msdn.microsoft.com/library/dn771552.aspx).
 
-Описание начальных этапов создания приложений Xamarin, в которых используются мобильные службы, см. в кратких учебниках по Xamarin для[iOS](/documentation/articles/partner-xamarin-mobile-services-ios-get-started) или [Android](/documentation/articles/partner-xamarin-mobile-services-android-get-started)).
+Описание начальных этапов создания приложений Xamarin, в которых используются мобильные службы, см. в кратких учебниках по Xamarin для[iOS](partner-xamarin-mobile-services-ios-get-started.md) или [Android](partner-xamarin-mobile-services-android-get-started.md)).
 
 
 ### Приложения Магазина Windows и Windows Phone Silverlight

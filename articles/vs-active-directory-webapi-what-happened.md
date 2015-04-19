@@ -1,6 +1,6 @@
 ﻿<properties 
 	pageTitle="" 
-	description="Описываются изменения в проекте Visual Studio после запуска мастера Azure Active Directory" 
+	description="Описание изменений в проекте Visual Studio после завершения работы мастера Azure Active Directory" 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="kempb" 
@@ -16,11 +16,9 @@
 	ms.date="02/02/2015" 
 	ms.author="kempb"/>
 
-# Что произошло с моим проектом?
-
 > [AZURE.SELECTOR]
 > - [Приступая к работе](vs-active-directory-webapi-getting-started.md)
-> - [Что произошло](vs-active-directory-webapi-what-happened.md)
+> - [Что произошло?](vs-active-directory-webapi-what-happened.md)
 
 ###<span id="whathappened">Что произошло с моим проектом?</span>
 
@@ -52,11 +50,11 @@
 
 #####В проект добавлены файлы с кодом 
 
-В проект добавлен класс запуска аутентификации, **App_Start/Startup.Auth.cs**, содержащий логику запуска для аутентификации на основе Azure AD. 
+К проекту добавлен класс запуска проверки подлинности **App_Start/Startup.Auth.cs**, содержащий логику запуска для проверки подлинности на основе Azure AD. 
 
 #####В проект добавлен код запуска 
 
-Если в проекте уже есть класс запуска, в метод **Configuration** добавляется вызов  `ConfigureAuth(app)`. В противном случае в проект добавляется класс запуска. 
+Если в проекте уже был класс запуска, к нему добавляется обновленный метод **Configuration**, содержащий вызов ConfigureAuth(app). В противном случае в проект добавляется класс запуска. 
 
 
 #####Один из файлов app.config или web.config имеет новое значение конфигурации.
@@ -76,4 +74,4 @@
 
 [Дополнительные сведения о службе Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
 
-<!--HONumber=49-->
+<!--HONumber=46--> 

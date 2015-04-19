@@ -48,7 +48,7 @@
 
 #См. также
 
-[Управление сроком действия содержимого BLOB-объекта в сети доставки содержимого (CDN) Azure](./cdn-manage-expiration-of-blob-content.md
+[Управление сроком действия содержимого BLOB-объекта в сети доставки содержимого (CDN) Azure](cdn-manage-expiration-of-blob-content.md
 )
 
 <!--HONumber=49-->

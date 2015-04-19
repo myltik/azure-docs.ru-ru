@@ -174,7 +174,7 @@
 * Дополнительную информацию о службе Twilio см. на странице [https://www.twilio.com/docs][twilio_docs].
 
 ##<a name="seealso"></a>Дополнительные материалы
-* [Использование Twilio для поддержки голосовых вызовов и SMS в Azure](../twilio-dotnet-how-to-use-for-voice-sms/)
+* [Использование Twilio для поддержки голосовых вызовов и SMS в Azure](twilio-dotnet-how-to-use-for-voice-sms.md)
 
 [twilio_pricing]: http://www.twilio.com/pricing
 [try_twilio]: http://www.twilio.com/try-twilio

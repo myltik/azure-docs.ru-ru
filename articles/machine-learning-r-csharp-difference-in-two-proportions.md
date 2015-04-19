@@ -80,7 +80,7 @@
 
 ##Создание веб-службы
 
->Эта веб-служба создана с помощью Azure ML. Инструкции по использованию бесплатной пробной версии, а также ознакомительные видеоматериалы о создании экспериментов и [публикации веб-служб](http://azure.microsoft.com/de-de/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/) см. на веб-сайте [azure.com/ml](http://azure.com/ml). Ниже приведен снимок экрана эксперимента, с помощью которого была создана веб-служба, а также пример кода для каждого из его модулей.
+>Эта веб-служба создана с помощью Azure ML. Инструкции по использованию бесплатной пробной версии, а также ознакомительные видеоматериалы о создании экспериментов и [публикации веб-служб](http://azure.microsoft.com/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/) см. на веб-сайте [azure.com/ml](http://azure.com/ml). Ниже приведен снимок экрана эксперимента, с помощью которого была создана веб-служба, а также пример кода для каждого из его модулей.
 
 В системе Azure ML был создан новый пустой эксперимент с двумя модулями "Выполнение сценария на языке R". В первом из них определяется схема данных, а второй использует команду prop.test языка R для проверки гипотезы в отношении двух долей. 
 
@@ -121,7 +121,7 @@
 Это очень простой пример проверки различия двух долей. Как видно из приведенного выше образца кода, в нем не отслеживаются ошибки, а служба предполагает, что все переменные являются непрерывными.
 
 ##Часто задаваемые вопросы
-Ответы на часто задаваемые вопросы об использовании веб-служб и их публикации в магазине Marketplace см. [здесь](http://azure.microsoft.com/de-de/documentation/articles/machine-learning-marketplace-faq).
+Ответы на часто задаваемые вопросы об использовании веб-служб и их публикации в магазине Marketplace см. [здесь](http://azure.microsoft.com/documentation/articles/machine-learning-marketplace-faq).
 
 [1]: ./media/machine-learning-r-csharp-difference-in-two-proportions/hyptest-img1.png
 [2]: ./media/machine-learning-r-csharp-difference-in-two-proportions/hyptest-img2.png

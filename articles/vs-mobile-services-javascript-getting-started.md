@@ -17,8 +17,8 @@
 	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
-> - [Приступая к работе](/documentation/articles/vs-mobile-services-javascript-getting-started/)
-> - [Что произошло?](/documentation/articles/vs-mobile-services-javascript-what-happened/)
+> - [Приступая к работе](vs-mobile-services-javascript-getting-started.md)
+> - [Что произошло?](vs-mobile-services-javascript-what-happened.md)
 
 ## Приступая к работе с мобильными службами
 

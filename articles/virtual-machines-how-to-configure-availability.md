@@ -65,8 +65,8 @@
 
 Чтобы использовать команды Azure PowerShell для создания виртуальной машины Azure и добавления ее в новую или существующую группу доступности, см. следующие разделы.
 
-- [Использование Azure PowerShell для создания и предварительной настройки виртуальных машин под управлением Windows](../virtual-machines-ps-create-preconfigure-windows-vms/)
-- [Использование Azure PowerShell для создания и предварительной настройки виртуальных машин под управлением Linux](../virtual-machines-ps-create-preconfigure-linux-vms/)
+- [Использование Azure PowerShell для создания и предварительной настройки виртуальных машин под управлением Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
+- [Использование Azure PowerShell для создания и предварительной настройки виртуальных машин под управлением Linux](virtual-machines-ps-create-preconfigure-linux-vms.md)
 
 <<<<<<< HEAD
 	>[AZURE.NOTE] Для получения списка всех образов, доступных для вашей подписки, выполните команду `Get-AzureVMImage` без параметров. В результате вы можете получить большой список. Чтобы сократить его, используйте свойства, такие как имя семейства образов. Советы и примеры, демонстрирующие как найти определенный образ, см. в разделе [Управление образами с помощью Windows PowerShell](http://msdn.microsoft.com/library/azure/dn790330.aspx).

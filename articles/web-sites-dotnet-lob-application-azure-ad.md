@@ -22,7 +22,7 @@
 
 Используемый клиент AAD может иметь только каталог Azure или может быть синхронизирован с локальным Active Directory (AD) для создания единого входа для локальных или удаленных сотрудников.
 
-Обзор различных вариантов проверки подлинности и авторизации для предприятий на веб-сайтах Azure см. в разделе [Проверка подлинности и авторизация пользователей в бизнес-приложениях на веб-сайтах Azur](../web-sites-authentication-authorization).
+Обзор различных вариантов проверки подлинности и авторизации для предприятий на веб-сайтах Azure см. в разделе [Проверка подлинности и авторизация пользователей в бизнес-приложениях на веб-сайтах Azur](web-sites-authentication-authorization.md).
 
 <a name="bkmk_build"></a>
 ## Что будет строиться ##
@@ -339,8 +339,8 @@
 ## Дополнительные ресурсы
 
 - [Защита приложения с помощью SSL и атрибута Authorize](../web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/#protect-the-application-with-ssl-and-the-authorize-attribute)
-- [Проверка подлинности и авторизация пользователей в бизнес-приложениях на веб-сайтах Azure ](../web-sites-authentication-authorization/)
-- [Создание бизнес-приложения ASP.NET MVC на веб-сайтах Azure, которое выполняет проверку подлинности с помощью AD FS](../web-sites-dotnet-lob-application-adfs/)
+- [Проверка подлинности и авторизация пользователей в бизнес-приложениях на веб-сайтах Azure ](web-sites-authentication-authorization.md)
+- [Создание бизнес-приложения ASP.NET MVC на веб-сайтах Azure, которое выполняет проверку подлинности с помощью AD FS](web-sites-dotnet-lob-application-adfs.md)
 - [Примеры Microsoft Azure Active Directory и документация](https://github.com/AzureADSamples)
 - [Блог Витторио Берточчи](http://blogs.msdn.com/b/vbertocci/)
 - [Миграция веб-проекта VS2013 из WIF в Katana](http://www.cloudidentity.com/blog/2014/09/15/MIGRATE-A-VS2013-WEB-PROJECT-FROM-WIF-TO-KATANA/)

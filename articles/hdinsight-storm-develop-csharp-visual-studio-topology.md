@@ -533,7 +533,7 @@
 
 ##Дальнейшие действия
 
-Теперь, когда вы узнали, как разрабатывать и развертывать топологии Storm с помощью средств HDInsight для Visual Studio, вы можете изучить [обработку событий из концентратора событий Azure с помощью Storm в HDInsight](../hdinsight-storm-develop-csharp-event-hub-topology/).
+Теперь, когда вы узнали, как разрабатывать и развертывать топологии Storm с помощью средств HDInsight для Visual Studio, вы можете изучить [обработку событий из концентратора событий Azure с помощью Storm в HDInsight](hdinsight-storm-develop-csharp-event-hub-topology.md).
 
 Для получения дополнительных сведений о создании топологии C# посетите [https://github.com/hdinsight/hdinsight-storm-examples/blob/master/SCPNet-GettingStarted.md](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/SCPNet-GettingStarted.md).
 
@@ -541,26 +541,26 @@
 
 **Apache Storm в HDInsight.**
 
-* [Развертывание и мониторинг топологии с помощью Apache Storm в HDInsight](../hdinsight-storm-deploy-monitor-topology/)
+* [Развертывание и мониторинг топологии с помощью Apache Storm в HDInsight](hdinsight-storm-deploy-monitor-topology.md)
 
-* [Обработка событий из концентратора событий Azure с помощью Storm в HDInsight](../hdinsight-storm-develop-csharp-event-hub-topology/)
+* [Обработка событий из концентратора событий Azure с помощью Storm в HDInsight](hdinsight-storm-develop-csharp-event-hub-topology.md)
 
-* [Разработка топологий на платформе Java для Apache Storm в HDInsight](../hdinsight-storm-develop-java-topology/)
+* [Разработка топологий на платформе Java для Apache Storm в HDInsight](hdinsight-storm-develop-java-topology.md)
 
-* [Определение тенденций в Twitter по хэш-тегам с помощью Apache Storm в HDInsight](../hdinsight-storm-twitter-trending/)
+* [Определение тенденций в Twitter по хэш-тегам с помощью Apache Storm в HDInsight](hdinsight-storm-twitter-trending.md)
 
 * [Примеры Storm в HDInsight](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/SCPNet-GettingStarted.md)
 
 **Apache Hadoop в HDInsight**
 
-* [Использование Hive с Hadoop в HDInsight](../hdinsight-use-hive/)
+* [Использование Hive с Hadoop в HDInsight](hdinsight-use-hive.md)
 
-* [Использование Pig с Hadoop в HDInsight](../hdinsight-use-pig/)
+* [Использование Pig с Hadoop в HDInsight](hdinsight-use-pig.md)
 
-* [Использование MapReduce с Hadoop в HDInsight](../hdinsight-use-mapreduce/)
+* [Использование MapReduce с Hadoop в HDInsight](hdinsight-use-mapreduce.md)
 
 **Apache HBase в HDInsight**
 
-* [Приступая к работе с HBase в HDInsight](../hdinsight-hbase-get-started/)
+* [Приступая к работе с HBase в HDInsight](hdinsight-hbase-get-started.md)
 
 <!--HONumber=47-->

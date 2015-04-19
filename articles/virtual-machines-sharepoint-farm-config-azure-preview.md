@@ -26,7 +26,7 @@
 
 В следующих сценариях предоставляются сведения о конфигурации для каждой фермы.
 
-Дополнительную информацию см. в разделе [Ферма серверов SharePoint](../virtual-machines-sharepoint-farm-azure-preview/).
+Дополнительную информацию см. в разделе [Ферма серверов SharePoint](virtual-machines-sharepoint-farm-azure-preview.md).
 
 ##Базовая ферма SharePoint
 
@@ -121,7 +121,7 @@
 
 ##Дополнительные ресурсы
 
-[Ферма серверов SharePoint](../virtual-machines-sharepoint-farm-azure-preview/)
+[Ферма серверов SharePoint](virtual-machines-sharepoint-farm-azure-preview.md)
 
 [SharePoint в службах инфраструктуры Azure](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 

@@ -46,7 +46,7 @@ HDInsight устраняет эту единственную точку отка
 
 Очень крупные ВМ могут настраиваться с помощью командлетов Azure PowerShell или с использованием пакета SDK для HDInsight.
 
-Создание и подготовка кластера с помощью PowerShell описывается в разделе [Администрирование HDInsight с использованием PowerShell](../hdinsight-administer-use-powershell/). Настройка очень крупных головных узлов требует добавления параметра `-HeadNodeVMSize ExtraLarge` в командлет  `New-AzureHDInsightcluster`, используемый в этом коде.
+Создание и подготовка кластера с помощью PowerShell описывается в разделе [Администрирование HDInsight с использованием PowerShell](hdinsight-administer-use-powershell.md). Настройка очень крупных головных узлов требует добавления параметра `-HeadNodeVMSize ExtraLarge` в командлет  `New-AzureHDInsightcluster`, используемый в этом коде.
 
     # Create a new HDInsight cluster in Azure PowerShell
 	# Configured with an ExtraLarge Headnode VM

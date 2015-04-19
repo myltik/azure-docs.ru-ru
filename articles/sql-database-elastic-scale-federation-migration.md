@@ -65,7 +65,7 @@
 
     USE FEDERATION CustomerFederation(cid=100) WITH RESET, FILTERING=OFF`
 
-При использовании API для эластичного масштабирования подключение устанавливается к конкретному сегменту с помощью [зависящей от данных маршрутизации](./sql-database-elastic-scale-data-dependent-routing.md) с применением метода **OpenConnectionForKey** для класса **RangeShardMap**. 
+При использовании API для эластичного масштабирования подключение устанавливается к конкретному сегменту с помощью [зависящей от данных маршрутизации](sql-database-elastic-scale-data-dependent-routing.md) с применением метода **OpenConnectionForKey** для класса **RangeShardMap**. 
 
     //Connect and issue queries on the shard with key=100 
     using (SqlConnection conn = rangeShardMap.OpenConnectionForKey(100, csb))  
@@ -82,7 +82,7 @@
         } 
     }
 
-Все шаги, описанные в этом разделе, обязательны, но они могут подходить не для всех сценариев миграции. Дополнительную информацию см. в [обзоре принципов использования технологии эластичного масштабирования](./sql-database-elastic-scale-introduction.md) и [справочнике по API](http://go.microsoft.com/?linkid=9862604).
+Все шаги, описанные в этом разделе, обязательны, но они могут подходить не для всех сценариев миграции. Дополнительную информацию см. в [обзоре принципов использования технологии эластичного масштабирования](sql-database-elastic-scale-introduction.md) и [справочнике по API](http://go.microsoft.com/?linkid=9862604).
 
 ## Отключение существующих элементов федерации 
 
@@ -102,7 +102,7 @@
 
 
 ##Сравнение возможностей  
-Несмотря на то, что технология эластичного масштабирования предоставляет множество дополнительных возможностей (например, [многосегментное формирование запросов](./sql-database-elastic-scale-multishard-querying.md), [разделение и слияние сегментов](./sql-database-elastic-scale-overview-split-and-merge.md), [эластичность сегментов](./sql-database-elastic-scale-elasticity.md), [кэширование на стороне клиента](./sql-database-elastic-scale-shard-map-management.md)и многие другие), она не поддерживает некоторые важные возможности федераций.
+Несмотря на то, что технология эластичного масштабирования предоставляет множество дополнительных возможностей (например, [многосегментное формирование запросов](sql-database-elastic-scale-multishard-querying.md), [разделение и слияние сегментов](sql-database-elastic-scale-overview-split-and-merge.md), [эластичность сегментов](sql-database-elastic-scale-elasticity.md), [кэширование на стороне клиента](sql-database-elastic-scale-shard-map-management.md)и многие другие), она не поддерживает некоторые важные возможности федераций.
   
 
 - Использование **FILTERING=ON**. Сейчас эластичное масштабирование не поддерживает фильтрацию на уровне строк. Отчасти эту проблему можно решить, построив логику фильтрации в запросе, который отправляется для сегмента. Вот как это можно сделать: 

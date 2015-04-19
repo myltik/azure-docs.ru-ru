@@ -63,7 +63,7 @@
 ## Дальнейшие действия
 
  
-* [Linux и вычисления с открытым кодом в Azure](../virtual-machines-linux-opensource/)
-* [Как войти в виртуальную машину под управлением Linux](../virtual-machines-linux-how-to-log-on/)
+* [Linux и вычисления с открытым кодом в Azure](virtual-machines-linux-opensource.md)
+* [Как войти в виртуальную машину под управлением Linux](virtual-machines-linux-how-to-log-on.md)
 
 <!--HONumber=47-->

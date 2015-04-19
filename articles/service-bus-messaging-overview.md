@@ -31,10 +31,10 @@ Microsoft Azure Service Bus - это надежная служба достав�
 
 Дополнительную информацию об обмене сообщениями через Service Bus см. в следующих разделах.
 
-- [Служебная шина Azure](../fundamentals-service-bus-hybrid-solutions/)
+- [Служебная шина Azure](fundamentals-service-bus-hybrid-solutions.md)
 
-- [Как использовать очереди Service Bus](../service-bus-dotnet-how-to-use-queues)
+- [Как использовать очереди Service Bus](service-bus-dotnet-how-to-use-queues.md)
 
-- [Как использовать разделы Service Bus](../service-bus-dotnet-how-to-use-topics-subscriptions)
+- [Как использовать разделы Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
 <!--HONumber=47-->

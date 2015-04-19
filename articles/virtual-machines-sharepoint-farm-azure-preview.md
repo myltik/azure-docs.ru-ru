@@ -32,7 +32,7 @@
 
 Ферму такой конфигурации можно использовать для тестирования более высоких нагрузок клиента, высокой доступности внешнего сайта SharePoint и SQL Server AlwaysOn для фермы SharePoint. Кроме того, такая конфигурация подходит для разработки приложений SharePoint в высокодоступной среде.
  
-Дополнительную информацию о конфигурации обеих ферм см. в статье [Сведения о конфигурации фермы серверов SharePoint](../virtual-machines-sharepoint-farm-config-azure-preview/).
+Дополнительную информацию о конфигурации обеих ферм см. в статье [Сведения о конфигурации фермы серверов SharePoint](virtual-machines-sharepoint-farm-config-azure-preview.md).
 
 ##Пошаговая настройка##
 
@@ -87,7 +87,7 @@
 
 [SharePoint в службах инфраструктуры Azure](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 
-[Сведения о конфигурации фермы серверов SharePoint](../virtual-machines-sharepoint-farm-config-azure-preview/)
+[Сведения о конфигурации фермы серверов SharePoint](virtual-machines-sharepoint-farm-config-azure-preview.md)
 
 [Настройка фермы SharePoint интрасети в гибридном облаке для тестирования](http://azure.microsoft.com/documentation/articles/virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
 

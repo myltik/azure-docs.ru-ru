@@ -1353,7 +1353,7 @@
 
 * Дополнительную информацию о D3.js см. в статье [D3.js - документы, управляемые данными](http://d3js.org/)
 
-* Информацию о создании топологий в .NET см. разделе [Разработка приложений для обработки потоковой передачи данных на SCP.NET и C# в Storm и HDInsight](/ru-ru/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/)
+* Информацию о создании топологий в .NET см. разделе [Разработка приложений для обработки потоковой передачи данных на SCP.NET и C# в Storm и HDInsight](hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application.md)
 
 [azure-portal]: https://manage.windowsazure.com/
 <!--HONumber=42-->

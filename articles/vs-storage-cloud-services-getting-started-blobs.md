@@ -17,15 +17,15 @@
 	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
-> - [Приступая к работе](/documentation/articles/vs-storage-cloud-services-getting-started-blobs/)
-> - [Что произошло?](/documentation/articles/vs-storage-cloud-services-what-happened/)
+> - [Приступая к работе](vs-storage-cloud-services-getting-started-blobs.md)
+> - [Что произошло?](vs-storage-cloud-services-what-happened.md)
 
 ## Начало работы со службой хранилища Azure (проекты облачных служб)
 
 > [AZURE.SELECTOR]
-> - [BLOB-объекты](/documentation/articles/vs-storage-cloud-services-getting-started-blobs/)
-> - [Очереди](/documentation/articles/vs-storage-cloud-services-getting-started-queues/)
-> - [Таблицы](/documentation/articles/vs-storage-cloud-services-getting-started-tables/)
+> - [BLOB-объекты](vs-storage-cloud-services-getting-started-blobs.md)
+> - [Очереди](vs-storage-cloud-services-getting-started-queues.md)
+> - [Таблицы](vs-storage-cloud-services-getting-started-tables.md)
 
 Хранилище больших двоичных объектов Azure - это служба хранения большого количества неструктурированных данных, к которым можно получить доступ практически из любой точки мира по протоколам HTTP или HTTPS. Один большой двоичный объект может быть любого размера. Большими двоичными объектами могут быть изображения, аудио- и видеофайлы, необработанные данные и файлы документов.
 

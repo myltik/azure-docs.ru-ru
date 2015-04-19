@@ -26,7 +26,7 @@
 
 [AZURE.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
 
-**Примечание.** Если требуется установить Python или [пакет Azure для Python][пакет Python для Azure], см. [Руководство по установке Python](../python-how-to-install/).
+**Примечание.** Если требуется установить Python или [пакет Azure для Python][пакет Python для Azure], см. [Руководство по установке Python](python-how-to-install.md).
 
 
 ## Как создать раздел

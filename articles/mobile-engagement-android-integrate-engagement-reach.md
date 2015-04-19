@@ -155,8 +155,8 @@
 
 Чтобы использовать push-обновления в любое время. требуется одна или несколько собственных служб push-обновлений, в зависимости от устройств, для которых они предназначены:
 
-  - Устройства Google Play: Используйте [Google Cloud Messaging], следуя инструкциям в [руководстве по интеграции GCM с Engagement](../mobile-engagement-android-gcm-integrate/) руководство.
-  - Устройства Amazon: Используйте [Amazon Device Messaging], следуя инструкциям в [руководстве по интеграции ADM с Engagement](../mobile-engagement-android-adm-integrate/) руководство.
+  - Устройства Google Play: Используйте [Google Cloud Messaging], следуя инструкциям в [руководстве по интеграции GCM с Engagement](mobile-engagement-android-gcm-integrate.md) руководство.
+  - Устройства Amazon: Используйте [Amazon Device Messaging], следуя инструкциям в [руководстве по интеграции ADM с Engagement](mobile-engagement-android-adm-integrate.md) руководство.
 
 Если нужно задействовать и устройства Amazon, и устройства Google, можно поместить все в один файл AndroidManifest.xml/APK для разработки. Но при отправке в Amazon приложение может быть отвергнуто, если в нем будет обнаружен код GCM.
 

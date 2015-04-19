@@ -132,7 +132,7 @@
 
 [Что такое учетная запись хранения?](storage-whatis-account.md)
 
-[Практическое руководство. Создание учетной записи хранения](../storage-create-storage-account/)
+[Практическое руководство. Создание учетной записи хранения](storage-create-storage-account.md)
 
 [Мониторинг учетной записи хранения](storage-monitor-storage-account.md)
 

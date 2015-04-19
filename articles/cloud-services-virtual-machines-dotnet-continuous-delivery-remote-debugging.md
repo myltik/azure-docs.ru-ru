@@ -17,7 +17,7 @@
 	ms.author="kempb"/>
 # Включение удаленной отладки при использовании непрерывной доставки для публикации на Azure
 
-При использовании [непрерывной доставки](http://azure.microsoft.com/ documentation/articles/cloud-services-dotnet-continuous-delivery/) для публикации на Azure в службе Azure можно включить удаленную отладку. Для этого следует выполнить рассмотренную ниже процедуру.
+При использовании [непрерывной доставки](http://azure.microsoft.com/documentation/articles/cloud-services-dotnet-continuous-delivery/) для публикации на Azure в службе Azure можно включить удаленную отладку. Для этого следует выполнить рассмотренную ниже процедуру.
 
 Содержание раздела
 
@@ -39,7 +39,7 @@
 
 <h2> <a name="virtualmachine"></a>Включение удаленной отладки для виртуальных машин</h2>
 
-1. Создайте виртуальную машину Azure. См. раздел [Создание виртуальной машины, работающей под управлением Windows Server](http://azure.microsoft.com/ documentation/articles/virtual-machines-windows-tutorial/) или [Создание виртуальных машин Azure в Visual Studio](http://msdn.microsoft.com/library/azure/dn569263.aspx).
+1. Создайте виртуальную машину Azure. См. раздел [Создание виртуальной машины, работающей под управлением Windows Server](http://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/) или [Создание виртуальных машин Azure в Visual Studio](http://msdn.microsoft.com/library/azure/dn569263.aspx).
 2. На странице [портала Azure](http://go.microsoft.com/fwlink/p/?LinkID=269851) откройте панель мониторинга виртуальной машины и найдите "Отпечаток сертификата RDP" виртуальной машины. Он используется для значения ServerThumbprint в конфигурации расширения.
 3. Создайте сертификат клиента, как описано в разделе [Создание сертификата службы для Azure](http://msdn.microsoft.com/library/azure/gg432987.aspx) (оставьте .pfx и отпечаток сертификата RDP).
 4. Загрузите [Azure Powershell](http://go.microsoft.com/?linkid=9811175&clcid=0x409) (версия 0.7.4 или выше) из центра загрузки Майкрософт и установите ее.

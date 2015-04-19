@@ -1,31 +1,27 @@
-﻿<properties 
-	pageTitle="Приступая к работе с концентраторами уведомлений Azure" 
-	description="Узнайте, как использовать концентраторы уведомлений Azure для отправки push-уведомлений." 
+<properties 
+	pageTitle="Приступая к работе с центрами уведомлений Azure" 
+	description="Узнайте, как использовать центры уведомлений Azure для отправки push-уведомлений." 
 	services="notification-hubs" 
 	documentationCenter="" 
-	authors="wesmc7777" 
+	authors="piyushjo" 
 	manager="dwrede" 
 	editor=""/>
 
 <tags 
 	ms.service="notification-hubs" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-kindle" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="Java" 
 	ms.topic="hero-article" 
-	ms.date="03/16/2015" 
-	ms.author="wesmc"/>
+	ms.date="09/24/2014" 
+	ms.author="piyushjo"/>
 
-# Приступая к работе с концентраторами уведомлений
+# Приступая к работе с центрами уведомлений
 
-[AZURE.INCLUDE [notification-hubs-selector-get-started](../includes/notification-hubs-selector-get-started.md)]
-
-##Обзор
+<div class="dev-center-tutorial-selector sublanding"><a href="/ru-ru/documentation/articles/notification-hubs-windows-store-dotnet-get-started/" title="Windows Universal">Windows Universal</a><a href="/ru-ru/documentation/articles/notification-hubs-windows-phone-get-started/" title="Windows Phone">Windows Phone</a><a href="/ru-ru/documentation/articles/notification-hubs-ios-get-started/" title="iOS">iOS</a><a href="/ru-ru/documentation/articles/notification-hubs-android-get-started/" title="Android">Android</a><a href="/ru-ru/documentation/articles/notification-hubs-kindle-get-started/" title="Kindle" class="current">Kindle</a><a href="/ru-ru/documentation/articles/notification-hubs-baidu-get-started/" title="Baidu">Baidu</a><a href="/ru-ru/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/" title="Xamarin.iOS">Xamarin.iOS</a><a href="/ru-ru/documentation/articles/partner-xamarin-notification-hubs-android-get-started/" title="Xamarin.Android">Xamarin.Android</a></div>
 
 В этом разделе показано, как использовать центры уведомлений Azure для отправки push-уведомлений в приложение Kindle. 
 В этом учебнике вы создаете пустое приложение Kindle, которое получает push-уведомления с помощью Amazon Device Messaging (ADM).
-
-##Предварительные требования
 
 Для работы с данным учебником требуется следующее:
 
@@ -135,7 +131,7 @@
 
 ## Создание обработчика сообщений ADM
 
-1. Создайте новый класс с наследованием от `com.amazon.device.messaging.ADMMessageHandlerBase` и назовите его `MyADMMessageHandler`, как показано на рисунке ниже.
+1. Создайте новый класс с наследованием от `com.amazon.device.messaging.ADMMessageHandlerBase` и назовите его `MyADMMessageHandler`, как показано на следующем рисунке.
 
 	![][6]
 
@@ -270,7 +266,7 @@
 ![][7]
 
 <!-- URLs. -->
-[портал разработчика]: https://developer.amazon.com/home.html
+[портале разработчика]: https://developer.amazon.com/home.html
 [скачивание пакета SDK]: https://developer.amazon.com/public/resources/development-tools/sdk
 
 [0]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal1.png
@@ -282,4 +278,4 @@
 [6]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-new-java-class.png
 [7]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-notification.png
 
-<!--HONumber=49-->
+<!--HONumber=45--> 

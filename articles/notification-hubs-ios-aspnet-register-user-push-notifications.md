@@ -3,7 +3,7 @@
 	description="Узнайте, как запросить регистрацию push-уведомления в приложении iOS с помощью центров уведомлений Azure, когда регистрации выполняется через веб-API ASP.NET." 
 	services="notification-hubs" 
 	documentationCenter="ios" 
-	authors="wesmc7777" 
+	authors="ysxu" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,19 +13,15 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="02/26/2015" 
-	ms.author="wesmc,yuaxu"/>
+	ms.date="10/10/2014" 
+	ms.author="yuaxu"/>
 # Регистрация текущего пользователя для push-уведомлений с помощью ASP.NET
 
 <div class="dev-center-tutorial-selector sublanding">
-    <a href="/documentation/articles/notification-hubs-windows-store-aspnet-register-user-push-notifications/" title="Windows Store C#">Магазин Windows C#</a><a href="/documentation/articles/notification-hubs-ios-aspnet-register-user-push-notifications/" title="iOS" class="current">iOS</a>
+    <a href="/ru-ru/documentation/articles/notification-hubs-windows-store-aspnet-register-user-push-notifications/" title="Windows Store C#">Магазин Windows C#</a><a href="/ru-ru/documentation/articles/notification-hubs-ios-aspnet-register-user-push-notifications/" title="iOS" class="current">iOS</a>
 </div>
 
-##Обзор
-
-В этом разделе рассказывается о том, как запросить регистрацию push-уведомлений с помощью концентраторов уведомлений Azure при выполнении регистрации средствами веб-API ASP.NET. Этот раздел расширяет учебник [Уведомление пользователей с помощью центров уведомлений]. Чтобы создать прошедшую проверку подлинности мобильную службу, вы должны завершить требуемые действия в этом учебнике. Дополнительные сведения о сценарии уведомления пользователей см. в статье [Уведомление пользователей с помощью концентраторов уведомлений].
-
-##Обновление приложения  
+В этом разделе рассказывается о том, как запросить регистрацию push-уведомлений с помощью центра уведомлений Azure при выполнении регистрации средствами веб-API для ASP.NET. Этот раздел расширяет учебник [Уведомление пользователей с помощью центров уведомлений]. Чтобы создать прошедшую проверку подлинности мобильную службу, вы должны завершить требуемые действия в этом учебнике. Дополнительную информацию о сценарии уведомления пользователей см. в учебнике [Уведомление пользователей с помощью центров уведомлений].  
 
 1. В вашем MainStoryboard_iPhone.storyboard добавьте следующие компоненты из библиотеки объектов:
 
@@ -108,7 +104,7 @@
 
 	Таким образом задается маркер устройства для запроса.
 
-	> [AZURE.NOTE] На этом этапе в методе не должно быть никакого другого кода. Если в методе **registerNativeWithDeviceToken** уже есть вызов, добавленный при изучении учебника [Приступая к работе с концентраторами уведомлений],(/manage/services/notification-hubs/get-started-notification-hubs-ios/%20target="_blank") этот вызов нужно закомментировать или удалить.
+	> [AZURE.NOTE] На этом этапе в методе не должно быть никакого другого кода. Если в методе **registerNativeWithDeviceToken** уже есть вызов, добавленный при прохождении учебника [Приступая к работе с центрами уведомлений] (/ru-ru/manage/services/notification-hubs/get-started-notification-hubs-ios/%20target="_blank"), этот вызов нужно закомментировать или удалить.
 
 10.	В файле PushToUserAppDelegate.m добавьте следующий метод обработчика:
 
@@ -230,9 +226,9 @@
 [1]: ./media/notification-hubs-ios-aspnet-register-user-push-notifications/notification-hub-user-aspnet-ios2.png
 
 <!-- URLs. -->
-[Уведомление пользователей с помощью центров уведомлений]: /manage/services/notification-hubs/notify-users-aspnet
+[Уведомление пользователей с помощью центров уведомлений]: /ru-ru/manage/services/notification-hubs/notify-users-aspnet
 
 [Портал управления Azure]: https://manage.windowsazure.com/
-[Приступая к работе с центрами уведомлений]: /manage/services/notification-hubs/get-started-notification-hubs-ios
+[Приступая к работе с центрами уведомлений]: /ru-ru/manage/services/notification-hubs/get-started-notification-hubs-ios
 
-<!--HONumber=49-->
+<!--HONumber=45--> 

@@ -1,11 +1,4 @@
-﻿<properties 
-	pageTitle="Использование концентраторов уведомлений с Python" 
-	description="Узнайте, как использовать центры уведомлений Azure из серверной части Python." 
-	services="notification-hubs" 
-	documentationCenter="" 
-	authors="yuaxu" 
-	manager="dwrede" 
-	editor=""/>
+<properties pageTitle="Использование концентраторов уведомлений с помощью Python" description="Узнайте, как использовать центры уведомлений Azure из серверной части Python." services="notification-hubs" documentationCenter="" authors="piyushjo" manager="dwrede" editor=""/>
 
 <tags 
 	ms.service="notification-hubs" 
@@ -14,14 +7,14 @@
 	ms.devlang="php" 
 	ms.topic="article" 
 	ms.date="12/09/2014" 
-	ms.author="yuaxu"/>
+	ms.author="piyushjo"/>
 
-# Использование концентраторов уведомлений с Python
+# Использование концентраторов уведомлений из Python
 <div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/documentation/articles/notification-hubs-java-backend-how-to/" title="Java">Java</a><a href="/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a><a href="/documentation/articles/notification-hubs-python-backend-how-to/" title="Python" class="current">Python</a><a href="/documentation/articles/notification-hubs-nodejs-how-to-use-notification-hubs/" title="Node.js">Node.js</a>
+    	<a href="/ru-ru/documentation/articles/notification-hubs-java-backend-how-to/" title="Java">Java</a><a href="/ru-ru/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a><a href="/ru-ru/documentation/articles/notification-hubs-python-backend-how-to/" title="Python" class="current">Python</a>
 </div>
 
-Все функции концентраторов уведомлений можно использовать в серверной части Java/PHP/Python/Ruby, используя интерфейс REST концентраторов уведомлений. Это описано в статье MSDN [Интерфейсы API REST центров уведомлений](http://msdn.microsoft.com/library/dn223264.aspx).
+Вы можете обращаться ко всем функциям центров уведомлений из серверной части Java/PHP/Python/Ruby, используя интерфейс REST в соответствии с описанием в разделе MSDN [Интерфейсы API REST центров уведомлений](http://msdn.microsoft.com/library/dn223264.aspx).
 
 > [AZURE.NOTE] Это образец эталонной реализации для отправки уведомлений в Python, который не является официально поддерживаемым пакетом SDK концентраторов уведомлений Python.
 
@@ -33,12 +26,12 @@
 * Отправка уведомлений с помощью интерфейса API REST концентратора уведомления Python. 
 * Получение дампа запросов и ответов HTTP REST для отладки и образовательных целей. 
 
-Вы можете использовать инструкции из [учебника по началу работы](notification-hubs-windows-store-dotnet-get-started.md) для вашей мобильной платформой для реализации серверной части в Python.
+Можно воспользоваться указаниями в разделе [Приступая к работе с центрами уведомлений](http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/) для выбранной мобильной платформы, которая реализует серверную часть на языке Python.
 
 > [AZURE.NOTE] Область действия образца ограничена отправкой уведомлений. Образец не выполняет функции управления регистрацией.
 
 ## Интерфейс клиента
-Интерфейс основного клиента предоставляет те же методы, что и [пакет SDK для концентраторов уведомлений .NET](http://msdn.microsoft.com/library/jj933431.aspx). Это позволяет напрямую переводить все учебники и примеры, доступные на этом сайте в настоящий момент и пополняемые интернет-сообществом.
+Интерфейс основного клиента предоставляет те же методы, что и [пакет SDK для центров уведомлений для .NET](http://msdn.microsoft.com/library/jj933431.aspx) Это позволяет напрямую переводить все учебники и примеры, доступные на этом сайте в настоящий момент и пополняемые интернет-сообществом.
 
 Весь доступный код находится в [примере оболочки Python REST].
 
@@ -51,14 +44,14 @@
 	wns_payload = """<toast><visual><binding template=\"ToastText01\"><text id=\"1\">Hello world!</text></binding></visual></toast>"""
 	hub.send_windows_notification(wns_payload)
 	
-## Implementation
-Если вы еще этого не делали, выполните шаги, описанные в [учебнике по началу работы], до последнего раздела, в котором вам нужно реализовать серверную часть.
+## Реализация
+Если вы еще этого не делали, выполните шаги, описанные в [учебнике по началу работы] до последнего раздела, в котором требуется реализовать серверную часть.
 
-Все подробности о реализации полноценной программы-оболочки REST можно найти на сайте [MSDN](http://msdn.microsoft.com/library/dn530746.aspx). В этом разделе описана реализация основных действий на языке Python, необходимых для доступа к конечным точкам концентраторов уведомлений REST и отправки уведомлений.
+Подробную информацию о реализации полноценной оболочки REST можно найти на сайте [MSDN](http://msdn.microsoft.com/library/dn530746.aspx) В этом разделе описана реализация основных действий на языке Python, необходимых для доступа к конечным точкам концентраторов уведомлений REST и отправки уведомлений.
 
 1. Проанализируйте строку подключения
 2. Создайте маркер проверки подлинности
-3. Отправка уведомления с помощью HTTP REST API
+3. Отправьте уведомление с помощью HTTP REST API
 
 ### Проанализируйте строку подключения
 
@@ -87,7 +80,7 @@
 
 
 ### Создание маркера безопасности
-Подробные сведения о создании маркеров безопасности можно найти [здесь](http://msdn.microsoft.com/library/dn495627.aspx).
+Информацию о создании маркера безопасности можно найти [здесь](http://msdn.microsoft.com/library/dn495627.aspx)
 Для создания маркера на основе URI текущего запроса и учетных данных, извлеченных из строки подключения, необходимо добавить следующие методы в класс **NotificationHub**.
 
 	@staticmethod
@@ -219,7 +212,7 @@
 
 В результате к URL-адресу типа HTTP запроса на отправку для концентратора уведомлений прикрепляется строка запроса "test". 
 
-##<a name="complete-tutorial"></a>Завершение работы с учебником
+## <a name="complete-tutorial"></a>Завершение работы с учебником
 Теперь вы можете завершить работу с учебником по началу работы, отправив уведомление из серверной части Python.
 
 Инициализируйте клиент концентратора уведомлений (замените строку подключения и имя концентратора в соответствии с инструкциями в [учебнике по началу работы]):
@@ -302,7 +295,7 @@
 
 ### Отправка уведомления с указанием тега (или регулярного выражения)
 
-Обратите внимание на заголовок HTTP, Tags, который добавляется в HTTP-запрос (в приведенном ниже примере мы отправляем уведомление только для регистраций с полезными данными sports)
+Обратите внимание на заголовок Tags HTTP, который будет добавлен к запросу HTTP (в приведенном ниже примере мы отправляем уведомление только для регистраций с полезными данными 'sports').
 
 	hub.send_windows_notification(wns_payload, "sports")
 
@@ -337,15 +330,15 @@
 ## Дальнейшие действия
 В этом разделе рассмотрено создание простого клиента Python REST для концентраторов уведомлений. На данном этапе можно сделать следующее.
 
-* Скачать полный [образец программы-оболочки Python REST], содержащий весь используемый выше код.
-* Продолжить изучение функции тегов в центрах уведомлений с помощью [учебника по передаче экстренных новостей].
+* Скачать полный [образец оболочки Python REST], содержащий весь указанный выше код.
+* Продолжить изучение функции тегов в концентраторах уведомлений с помощью [учебника по передаче экстренных новостей].
 * Продолжить изучение функции шаблонов концентраторов уведомлений в [учебнике по передаче локализованных экстренных новостей].
 
 <!-- URLs -->
-[Образец программы-оболочки Python REST]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-python
-[Учебник по началу работы]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-[Учебник по передаче экстренных новостей]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
-[Учебник по передаче локализованных экстренных новостей]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/
+[образец оболочки Python REST]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-python
+[учебнике по началу работы]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+[учебника по передаче экстренных новостей]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
+[учебнике по передаче локализованных экстренных новостей]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/
 
 <!-- Images. -->
 [1]: ./media/notification-hubs-python-backend-how-to/DetailedLoggingInfo.png
@@ -354,4 +347,4 @@
 [4]: ./media/notification-hubs-python-backend-how-to/SendWithMultipleTags.png
 [5]: ./media/notification-hubs-python-backend-how-to/TemplatedNotification.png
 
-<!--HONumber=49-->
+<!--HONumber=45--> 

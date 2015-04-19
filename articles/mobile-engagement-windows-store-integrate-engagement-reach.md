@@ -18,7 +18,7 @@
 
 #Как интегрировать рекламные кампании Engagement в Windows
 
-Прежде чем приступать к этому руководству, нужно сначала выполнить процедуру интеграции, описанную в документе [Как интегрировать Mobile Engagement в Windows](../mobile-engagement-windows-store-integrate-engagement/) .
+Прежде чем приступать к этому руководству, нужно сначала выполнить процедуру интеграции, описанную в документе [Как интегрировать Mobile Engagement в Windows](mobile-engagement-windows-store-integrate-engagement.md) .
 
 ##Внедрение пакета SDK для Engagement Reach в проект Windows
 

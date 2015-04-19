@@ -269,7 +269,7 @@ XML-файлы позволяют декларативно задать
 Как упоминалось ранее, файл определения службы (CSDEF) является XML-файлом,
 в котором описываются различные роли для
 приложения в целом. Полную схему XML-файла можно найти здесь:
-[http://msdn.microsoft.com/ru-ru/library/windowsazure/ee758711.aspx][].
+[http://msdn.microsoft.com/library/windowsazure/ee758711.aspx][].
 Файл CSDEF содержит элемент WebRole или WorkerRole для каждой роли,
 которую вы хотите задать в приложении. Развертывание роли в качестве веб-роли (с помощью
 элемента WebRole) означает, что код будет выполняться в экземпляре роли,
@@ -486,7 +486,7 @@ XML-файлы позволяют декларативно задать
 Файл конфигурации службы (CSCFG) - это XML-файл с описанием
 параметров, которые могут быть изменены без повторного развертывания приложения. Полную
 схему XML-файла можно найти здесь:
-[http://msdn.microsoft.com/ru-ru/library/windowsazure/ee758710.aspx][].
+[http://msdn.microsoft.com/library/windowsazure/ee758710.aspx][].
 Файл CSCFG содержит элемент Role для каждой роли
 в приложении. Ниже приведены некоторые элементы, которые можно указать в файле
 CSCFG.
@@ -503,7 +503,7 @@ CSCFG.
     если для атрибута osVersion задано значение
     "WA-GUEST-OS-2.8\_201109-01", это приведет к тому, что все экземпляры ролей получают все обновления,
     описанные на веб-странице:
-    [http://msdn.microsoft.com/ru-ru/library/hh560567.aspx][]. Подробнее
+    [http://msdn.microsoft.com/library/hh560567.aspx][]. Подробнее
     о версиях гостевой ОС см. в разделе [Управление обновлениями
     для гостевых ОС Azure].
 
@@ -585,14 +585,14 @@ API управления службами Azure служба Azure создае�
   [4]: ./media/application-model/application-model-7.jpg
   
   [Цены на Azure]: http://www.windowsazure.com/ru-ru/pricing/calculator/
-  [Управление сертификатами в Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/gg981929.aspx
-  [http://msdn.microsoft.com/ru-ru/library/windowsazure/ee758710.aspx]: http://msdn.microsoft.com/ru-ru/library/windowsazure/ee758710.aspx
-  [http://msdn.microsoft.com/ru-ru/library/hh560567.aspx]: http://msdn.microsoft.com/ru-ru/library/hh560567.aspx
-  [Управление обновлениями для гостевых ОС Azure]: http://msdn.microsoft.com/ru-ru/library/ee924680.aspx
+  [Управление сертификатами в Azure]: http://msdn.microsoft.com/library/windowsazure/gg981929.aspx
+  [http://msdn.microsoft.com/library/windowsazure/ee758710.aspx]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
+  [http://msdn.microsoft.com/library/hh560567.aspx]: http://msdn.microsoft.com/library/hh560567.aspx
+  [Управление обновлениями для гостевых ОС Azure]: http://msdn.microsoft.com/library/ee924680.aspx
   [Портал управления Azure]: http://manage.windowsazure.com/
   [5]: ./media/application-model/application-model-8.jpg
   [Развертывание и обновление приложений в службе Azure]: http://www.windowsazure.com/ru-ru/develop/net/fundamentals/deploying-applications/
-  [Создание размещенной службы для Azure]: http://msdn.microsoft.com/ru-ru/library/gg432967.aspx
-  [Управление размещенными службами в Azure]: http://msdn.microsoft.com/ru-ru/library/gg433038.aspx
-  [Миграция приложений в Azure]: http://msdn.microsoft.com/ru-ru/library/gg186051.aspx
-  [Настройка приложения в Azure]: http://msdn.microsoft.com/ru-ru/library/windowsazure/ee405486.aspx
+  [Создание размещенной службы для Azure]: http://msdn.microsoft.com/library/gg432967.aspx
+  [Управление размещенными службами в Azure]: http://msdn.microsoft.com/library/gg433038.aspx
+  [Миграция приложений в Azure]: http://msdn.microsoft.com/library/gg186051.aspx
+  [Настройка приложения в Azure]: http://msdn.microsoft.com/library/windowsazure/ee405486.aspx

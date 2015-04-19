@@ -16,11 +16,9 @@
 	ms.date="02/02/2015" 
 	ms.author="kempb"/>
 
-# Что произошло с моим проектом?
-
 > [AZURE.SELECTOR]
 > - [Приступая к работе](vs-active-directory-dotnet-getting-started.md)
-> - [Что произошло](vs-active-directory-dotnet-what-happened.md)
+> - [Что произошло?](vs-active-directory-dotnet-what-happened.md)
 
 ###<span id="whathappened">Что произошло с моим проектом?</span>
  
@@ -55,11 +53,11 @@
 
 #####В проект добавлены файлы с кодом 
 
-В проект добавлен класс запуска аутентификации,  `App_Start/Startup.Auth.cs`, содержащий логику запуска для аутентификации на основе Azure AD. Также добавлен класс контроллера, Controllers/AccountController.cs, который содержит методы `SignIn()` и `SignOut()`. Наконец, добавлено частичное представление, `Views/Shared/_LoginPartial.cshtml`, содержащее ссылку для действий входа и выхода. 
+Класс запуска проверки подлинности App_Start/Startup.Auth.cs добавлен в проект, содержащий логику запуска для проверки подлинности Azure AD. Также добавлен класс контроллера Controllers/AccountController.cs, который содержит методы SignIn() и SignOut(). Наконец, добавлено частичное представление Views/Shared/_LoginPartial.cshtml, содержащее ссылку действия для SignIn и SignOut. 
 
 #####В проект добавлен код запуска
  
-Если в проекте уже есть класс запуска, в метод **Configuration** добавляется вызов  `ConfigureAuth(app)`. В противном случае в проект добавляется класс запуска. 
+Если в проекте уже был класс запуска, к нему добавляется обновленный метод **Configuration**, содержащий вызов ConfigureAuth(app). В противном случае в проект добавляется класс запуска. 
 
 #####В файл app.config или web.config добавлены значения конфигурации 
 
@@ -77,4 +75,4 @@
 
 [Дополнительные сведения о службе Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
 
-<!--HONumber=49-->
+<!--HONumber=46--> 
