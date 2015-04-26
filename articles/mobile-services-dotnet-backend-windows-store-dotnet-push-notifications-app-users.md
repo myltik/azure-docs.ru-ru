@@ -71,4 +71,5 @@
 [Справочник по принципам использования мобильных служб .NET]: /ru-ru/develop/mobile/how-to-guides/work-with-net-client-library
 
 
+
 <!--HONumber=42-->

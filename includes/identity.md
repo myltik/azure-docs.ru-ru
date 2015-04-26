@@ -121,4 +121,5 @@ Graph API использует обычный протокол RESTful, поэт
 ##Об авторе
 
 Дэвид Чаппел (David Chappell) является главой компании Chappell & Associates [www.davidchappell.com](http://www.davidchappell.com), расположенной в Сан-Франциско, штат Калифорния. Своими выступлениями, публикациями и консультациями
+
 <!--HONumber=42-->

@@ -19,4 +19,5 @@
 Дополнительные сведения о вариантах репликации см. в разделах [Блог группы службы хранилища Azure](http://blogs.msdn.com/b/windowsazurestorage/) и [Варианты избыточности хранилища Azure](http://msdn.microsoft.com/library/azure/dn727290.aspx).
 	
 Цены на разные варианты репликации см. на странице [Сведения о ценах на хранилище](/ru-ru/pricing/details/storage/).
+
 <!--HONumber=42-->

@@ -227,4 +227,5 @@ PTVS предоставляет простой способ развертыва
 [База данных SQL]: /ru-ru/documentation/services/sql-database/
 
 
+
 <!--HONumber=42-->

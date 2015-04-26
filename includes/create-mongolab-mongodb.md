@@ -33,4 +33,5 @@
 [waws]: /ru-ru/manage/services/web-sites/
 [Azure Store]: /ru-ru/store/overview/
 [portal]: http://windows.azure.com/
+
 <!--HONumber=42-->

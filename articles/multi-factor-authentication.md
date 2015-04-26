@@ -1,6 +1,6 @@
 ﻿<properties 
 	pageTitle="Что такое многофакторная проверка подлинности Azure?" 
-	description="Learn about Azure Multi-Factor Authentication and how it can benefit you and your organization."  
+	<MORAVIA_NOTRANSLATE></MORAVIA_NOTRANSLATE> 
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 

@@ -88,4 +88,5 @@ HDInsight поставляется вместе со следующими при
 [hdinsight-use-hive]: ../hdinsight-use-hive/
 [hdinsight-use-pig]: ../hdinsight-use-pig/
 
+
 <!--HONumber=42-->

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Развертывание веб-заданий с помощью Visual Studio" 
 	description="Узнайте, как развернуть веб-задания Azure в веб-приложениях службы приложений Azure с помощью Visual Studio." 
 	services="app-service\web" 
@@ -127,7 +127,7 @@
 
 ![Add Azure WebJob dialog](./media/websites-dotnet-deploy-webjobs/aaw2.png)
 
-The fields in this dialog correspond to fields on the **New Job** dialog of the Azure Management Portal. For more information, see [Run Background tasks with WebJobs](web-sites-create-web-jobs.md).
+Поля в этом диалоговом окне соответствуют полям в диалоговом окне **Новое задание** портала управления Azure. дополнительные сведения содержатся в разделе [Run Background tasks with WebJobs](web-sites-create-web-jobs.md).
 
 Для запланированного веб-задания (не для постоянных веб-заданий) Visual Studio создает коллекцию заданий [планировщика Azure](/services/scheduler/), если она еще не существует, и создает задание в коллекции.
 

@@ -202,4 +202,5 @@ Hadoop предоставляет API-интерфейс для MapReduce, по�
 [hdinsight-use-pig]: ../hdinsight-use-pig/
 
 
+
 <!--HONumber=42-->

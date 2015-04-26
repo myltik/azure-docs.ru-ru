@@ -1,0 +1,128 @@
+﻿<properties 
+	pageTitle="Авторизация пользователей на стороне службы (Магазин Windows) | Центр разработчиков для мобильных устройств" 
+	description="Узнайте, как осуществить авторизацию пользователей в серверной части JavaScript мобильных служб Azure." 
+	services="" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
+
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/29/2014" 
+	ms.author="glenga"/>
+
+# Авторизация пользователей мобильных служб на стороне службы
+
+[AZURE.INCLUDE [mobile-services-selector-service-auth-users](../includes/mobile-services-selector-service-auth-users.md)]
+
+<div class="dev-onpage-video-clear clearfix">
+<div class="dev-onpage-left-content">
+<p>В этом разделе показано, как осуществить авторизацию пользователей, прошедших проверку подлинности, для доступа к данным в мобильных службах Azure из приложения Магазина Windows. В этом учебнике вы зарегистрируете скрипты с помощью мобильных служб для фильтрации запросов по userId пользователя, прошедшего проверку подлинности, удостоверяясь, что каждый пользователь может просматривать только свои собственные данные.</p>
+<p>Можно смотреть видеоверсию данного учебника, щелкнув клип справа.</p>
+</div>
+<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Windows-Store-app-Authenticate-and-Authorize-users-with-Server-Scripts-in-Windows-Azure-Mobile-Servi" target="_blank" class="label">Просмотр учебника</a> <a style="background-image: url('/media/devcenter/mobile/videos/authorize-users-with-scripts-windows-store-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Windows-Store-app-Authenticate-and-Authorize-users-with-Server-Scripts-in-Windows-Azure-Mobile-Servi" target="_blank" class="dev-onpage-video"><span class="icon">Воспроизведение видео</span></a> <span class="time">13:52</span></div>
+</div>
+
+Этот учебник описывает быстрый запуск мобильных служб и основан на материале предыдущего учебника [Приступая к работе с аутентификацией]. Перед началом работы с учебником необходимо пройти задания учебника [Приступая к работе с аутентификацией].  
+
+## <a name="register-scripts"></a>Регистрация скриптов
+Поскольку данное приложение быстрого запуска считывает и вставляет данные, необходимо зарегистрировать скрипты для этих операций в таблице TodoItem.
+
+1. Войдя на [портал управления Azure], щелкните элемент **Мобильные службы** и выберите нужное приложение. 
+
+   	![][0]
+
+2. На вкладке **Данные** щелкните таблицу **TodoItem**.
+
+   	![][1]
+
+3. Выберите элемент **Скрипт**, а затем - операцию **Вставить**.
+
+   	![][2]
+
+4. Замените существующий скрипт указанной ниже функцией и нажмите кнопку **Сохранить**.
+
+        function insert(item, user, request) {
+          item.userId = user.userId;    
+          request.execute();
+        }
+
+    Этот скрипт добавляет в элемент значение userId, которое является идентификатором пользователя, прошедшего проверку подлинности, до его вставки в таблицу TodoItem. 
+
+    > [AZURE.NOTE] При первом выполнении этого сценария вставки должна быть включена динамическая схема. После включения динамической схемы мобильные службы автоматически добавляют столбец **userId** в таблицу **TodoItem** при первом выполнении. Для новой мобильной службы динамическая схема включена по умолчанию, и перед публикацией приложения в Магазине Windows ее следует отключить.
+
+
+5. Повторите шаги 3 и 4, чтобы заменить существующую операцию **Read** следующей функцией:
+
+        function read(query, user, request) {
+           query.where({ userId: user.userId });    
+           request.execute();
+        }
+
+   	Этот скрипт фильтрует возвращаемые объекты TodoItem, чтобы каждый пользователь получил только элементы, которые он вставил.
+
+## Тестирование приложения
+
+1. В Visual Studio 2012 Express для Windows 8 откройте проект, измененный во время работы с учебником [Приступая к работе с аутентификацией].
+
+2. Нажмите клавишу F5, чтобы запустить приложение, а затем выполните вход с использованием выбранного поставщика удостоверений. 
+
+   	Обратите внимание, что в этом случае не возвращается никаких элементов, хотя в таблице TodoItem уже есть элементы из предыдущих учебников. Это вызвано тем, что предыдущие элементы были вставлены без столбца userId и теперь имеют значения NULL.
+
+3. В приложении введите текст в поле **Insert a TodoItem** (Вставка TodoItem) и нажмите кнопку **Сохранить**.
+
+   	![][3]
+
+   	При этом в таблицу TodoItem мобильной службы вставляется текст и идентификатор пользователя. Так как новый элемент имеет правильное значение userId, он возвращается мобильной службой и отображается во втором столбце.
+
+5. Вернувшись к таблице **todoitem** на [портале управления][портал управления Azure], нажмите кнопку **Обзор** и проверьте, имеет ли каждый вновь добавленный элемент соответствующее значение идентификатора пользователя.
+
+6. (Необязательно.) При наличии дополнительных учетных записей вы можете проверить, что пользователи могут просмотреть только свои собственные данные. Для этого можно закрыть приложение (Alt+F4) и затем запустить его снова. Когда появится диалоговое окно учетных данных входа, введите другое имя входа и убедитесь, что элементы, введенные с использованием предыдущей учетной записи, не отображаются. 
+
+## Дальнейшие действия
+
+Это заключительный раздел учебников, в которых демонстрируются основные принципы работы с проверкой подлинности. Просмотрите следующие разделы, посвященные мобильным службам:
+
+* [Приступая к работе с данными]
+  <br/>Дополнительные сведения о хранении данных и запросах к ним с помощью мобильных служб.
+
+* [Приступая к работе с push-уведомлениями] 
+  <br/>Сведения об отправке в приложение простейших push-уведомлений.
+
+* [Справочник серверных скриптов мобильных служб]
+  <br/>Дополнительная информация о регистрации и использовании серверных сценариев.
+  
+* [Справочник по принципам использования мобильных служб .NET]
+  <br/>Дополнительные сведения об использовании мобильных служб с .NET.
+
+<!-- Anchors. -->
+[Регистрация серверных скриптов]: #register-scripts
+[Дальнейшие действия]:#next-steps
+
+<!-- Images. -->
+[0]: ./media/mobile-services-windows-store-dotnet-authorize-users-in-scripts/mobile-services-selection.png
+[1]: ./media/mobile-services-windows-store-dotnet-authorize-users-in-scripts/mobile-portal-data-tables.png
+[2]: ./media/mobile-services-windows-store-dotnet-authorize-users-in-scripts/mobile-insert-script-users.png
+[3]: ./media/mobile-services-windows-store-dotnet-authorize-users-in-scripts/mobile-quickstart-startup.png
+
+<!-- URLs. -->
+[Push-уведомления Windows и Live Connect]: http://go.microsoft.com/fwlink/?LinkID=257677
+[Справочник серверных скриптов мобильных служб]: http://go.microsoft.com/fwlink/?LinkId=262293
+[Панель мониторинга "Мои приложения"]: http://go.microsoft.com/fwlink/?LinkId=262039
+[Приступая к работе с мобильными службами]: /ru-ru/develop/mobile/tutorials/get-started/#create-new-service
+[Приступая к работе с данными]: /ru-ru/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/
+[Приступая к работе с проверкой подлинности]: /ru-ru/develop/mobile/tutorials/get-started-with-users-dotnet
+[Приступая к работе с push-уведомлениями]: /ru-ru/develop/mobile/tutorials/get-started-with-push-dotnet
+[JavaScript и HTML]: mobile-services-win8-javascript/
+
+[Портал управления Azure]: https://manage.windowsazure.com/
+[Справочник по принципам использования мобильных служб .NET]: /ru-ru/develop/mobile/how-to-guides/work-with-net-client-library
+
+
+
+<!--HONumber=42-->

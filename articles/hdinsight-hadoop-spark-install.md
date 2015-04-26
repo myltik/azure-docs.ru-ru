@@ -372,8 +372,8 @@ Spark предоставляет интерфейсы API в Scala, Python и Ja
 
 ## Дополнительные материалы##
 - [Установка R на кластерах HDInsight][hdinsight-install-r] - инструкции по применению настройки кластера для установки и использования R на кластерах HDInsight Hadoop. Проект R - это открытый язык программирования и свободная программная среда для статистической обработки данных. Он предоставляет сотни встраиваемых статистических функций и собственный язык программирования, который сочетает аспекты функционального и объектно-ориентированного программирования. Этот проект также обеспечивает обширные графические возможности.
-- [Установка Giraph в кластерах HDInsight](../hdinsight-hadoop-giraph-install). Используйте настройки кластера для установки Giraph в кластерах HDInsight Hadoop. Giraph позволяет выполнять обработку графов с использованием Hadoop, а также может использоваться с Azure HDInsight.
-- [Установка Solr в кластерах HDInsight](../hdinsight-hadoop-solr-install). Используйте настройки кластера для установки Solr в кластерах HDInsight Hadoop. Solr позволяет вести расширенный поиск по хранимым данным.
+- [Установка Giraph в кластерах HDInsight](hdinsight-hadoop-giraph-install.md). Используйте настройки кластера для установки Giraph в кластерах HDInsight Hadoop. Giraph позволяет выполнять обработку графов с использованием Hadoop, а также может использоваться с Azure HDInsight.
+- [Установка Solr в кластерах HDInsight](hdinsight-hadoop-solr-install.md). Используйте настройки кластера для установки Solr в кластерах HDInsight Hadoop. Solr позволяет вести расширенный поиск по хранимым данным.
 
 
 
@@ -383,4 +383,6 @@ Spark предоставляет интерфейсы API в Scala, Python и Ja
 [hdinsight-install-r]: ../hdinsight-hadoop-r-scripts/
 [hdinsight-cluster-customize]: ../hdinsight-hadoop-customize-cluster
 [powershell-install-configure]: ../install-configure-powershell/
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

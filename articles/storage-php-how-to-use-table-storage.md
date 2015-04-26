@@ -190,7 +190,7 @@
 
 ## Практическое руководство. Получение отдельной сущности
 
-Метод **TableRestProxy->getEntity** позволяет получить одну сущность, запрашивая ее значения `PartitionKey` и `RowKey`. В примере ниже ключ раздела `tasksSeattle` и ключ строки 1 передаются в метод **getEntity**.
+Метод **TableRestProxy->getEntity** позволяет получить одну сущность, запрашивая ее значения `PartitionKey` и `RowKey`. В примере ниже ключ раздела `tasksSeattle` и ключ строки `1` передаются в метод **getEntity**.
 
 	require_once 'vendor\autoload.php';
 
@@ -470,6 +470,7 @@
 - Посетите [блог рабочей группы службы хранилища Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 
 [download]: http://go.microsoft.com/fwlink/?LinkID=252473
+[загрузка]: http://go.microsoft.com/fwlink/?LinkID=252473
 [Хранение и доступ к данным в Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [require_once]: http://php.net/require_once
 [table-service-timeouts]: http://msdn.microsoft.com/library/azure/dd894042.aspx

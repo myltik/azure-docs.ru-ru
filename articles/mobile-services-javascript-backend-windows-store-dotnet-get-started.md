@@ -109,4 +109,5 @@
 [Приступая к работе с данными в мобильных службах с помощью Visual Studio 2012]: /ru-ru/documentation/articles/mobile-services-windows-store-dotnet-get-started-data-vs2012
 
 
+
 <!--HONumber=42-->

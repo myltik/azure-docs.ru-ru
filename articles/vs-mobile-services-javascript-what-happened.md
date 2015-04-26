@@ -31,4 +31,5 @@
 В папке `services\mobileServices\settings` создан новый файл JavaScript (.js) с объектом **MobileServiceClient**, содержащий URL-адрес и ключ приложения выбранной мобильной службы.  
 
 
+
 <!--HONumber=42-->

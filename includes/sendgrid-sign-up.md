@@ -1,4 +1,4 @@
-﻿Клиент Azure может разблокировать до 25 000 бесплатных сообщений электронной почты в месяц. Эти 25 000 сообщений предоставят вам доступ к расширенным отчетам и функциям аналитики, а также [всем интерфейсам API][] (Web, SMTP, Event, Parse и многим другим). Сведения о дополнительных службах, предоставляемых SendGrid, см. на странице [Возможности SendGrid][].
+Клиент Azure может разблокировать до 25 000 бесплатных сообщений электронной почты в месяц. Эти 25 000 сообщений предоставят вам доступ к расширенным отчетам и функциям аналитики, а также [всем интерфейсам API][] (Web, SMTP, Event, Parse и многим другим). Сведения о дополнительных службах, предоставляемых SendGrid, см. на странице [Возможности SendGrid][].
 
 ### Регистрация для получения учетной записи SendGrid
 
@@ -72,9 +72,13 @@
 
 [Возможности SendGrid]: http://sendgrid.com/features
 [Портал управления Azure]: https://manage.windowsazure.com
+[портал управления Azure]: https://manage.windowsazure.com
 [начало работы с SendGrid]: http://sendgrid.com/docs
+[Начало работы с SendGrid]: http://sendgrid.com/docs
 [Процесс подготовки SendGrid]: https://support.sendgrid.com/hc/articles/200181628-Why-is-my-account-being-provisioned-
+[процесс подготовки SendGrid]: https://support.sendgrid.com/hc/articles/200181628-Why-is-my-account-being-provisioned-
 [Все интерфейсы API]: https://sendgrid.com/docs/API_Reference/index.html
+[всем интерфейсам API]: https://sendgrid.com/docs/API_Reference/index.html
 
 
 <!--HONumber=49-->

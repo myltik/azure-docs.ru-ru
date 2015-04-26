@@ -351,7 +351,7 @@ DocumentDB - система баз данных без схемы. Она не �
 	    });
 
 ###Unregistering a stored procedure
-Un-registering a stored procedure is simply done by issuing an HTTP DELETE against an existing stored procedure resource.   
+Отмена регистрации хранимой процедуры осуществляется просто с помощью команды HTTP DELETE, запускаемой для существующего ресурса хранимой процедуры.   
 
 	client.deleteStoredProcedureAsync(createdStoredProcedure.resource._self)
 	    .then(function (response) {

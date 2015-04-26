@@ -12,4 +12,6 @@
 	![](./media/mobile-services-windows-universal-test-app/mobile-quickstart-completed-wp8.png)
 	
 	Обратите внимание, что данные, сохраненные на предыдущем этапе, загружаются из мобильной службы после запуска приложения.
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

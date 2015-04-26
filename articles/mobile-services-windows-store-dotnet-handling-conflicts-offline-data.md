@@ -177,4 +177,5 @@
 [Образец мобильных служб TODO в автономном режиме]: http://go.microsoft.com/fwlink/?LinkId=512866
 
 
+
 <!--HONumber=42-->

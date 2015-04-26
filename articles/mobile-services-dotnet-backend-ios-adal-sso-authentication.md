@@ -128,4 +128,5 @@
 [библиотеку проверки подлинности Active Directory для iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
 
 
+
 <!--HONumber=42-->

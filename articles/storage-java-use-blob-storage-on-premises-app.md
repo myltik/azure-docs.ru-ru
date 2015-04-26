@@ -382,4 +382,5 @@ HTML-файл для отображения изображения в вашем
   [Как создать учетную запись хранения]: http://azure.microsoft.com/manage/services/storage/how-to-create-a-storage-account/
   [Управление учетными записями хранения]: http://azure.microsoft.com/manage/services/storage/how-to-manage-a-storage-account/
   [Использование Как использовать службу хранилища больших двоичных объектов из Java]: http://azure.microsoft.com/develop/java/how-to-guides/blob-storage/
+
 <!--HONumber=42-->

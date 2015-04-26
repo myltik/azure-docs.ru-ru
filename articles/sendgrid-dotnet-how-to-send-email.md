@@ -240,9 +240,11 @@ SendGrid поддерживает веб-интерфейсы API и метод�
   
   [SendGrid-NuGet-package]: ./media/sendgrid-dotnet-how-to-send-email/sendgrid01.png
   [Параметры приложений]: https://github.com/sendgrid/sendgrid-csharp
+  [sendgrid-csharp]: https://github.com/sendgrid/sendgrid-csharp
   [SMTP и веб-интерфейс API]: https://sendgrid.com/docs/Integrate/index.html
   [Параметры приложения]: https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html
   [Документация по интерфейсу API SendGrid]: https://sendgrid.com/docs
+  [документации пр интерфейсу API SendGrid]: https://sendgrid.com/docs
   
   [облачная служба электронной почты]: https://sendgrid.com/email-solutions
   [доставки электронной почты]: https://sendgrid.com/transactional-email

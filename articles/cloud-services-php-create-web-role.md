@@ -209,7 +209,7 @@ Azure предоставляет три вычислительные модел�
 [iis.net]: http://www.iis.net/
 [sql native client]: http://msdn.microsoft.com/sqlserver/aa937733.aspx
 [sqlsrv drivers]: http://php.net/sqlsrv
-[установщик sqlncli.msi (x64)]: http://go.microsoft.com/fwlink/?LinkID=239648
+[sqlncli.msi x64 installer]: http://go.microsoft.com/fwlink/?LinkID=239648
 [Практическое руководство. Импорт параметров публикации]: /ru-ru/develop/php/how-to-guides/powershell-cmdlets/#ImportPubSettings
 [Практическое руководство. Развертывание облачной службы в Azure]: /ru-ru/develop/php/how-to-guides/powershell-cmdlets/#Deploy
 

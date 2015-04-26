@@ -121,4 +121,5 @@
 [Что такое служба таблиц]: /ru-ru/documentation/articles/storage-dotnet-how-to-use-tables/#what-is
 [странице надстройки MongoLab]: /ru-ru/gallery/store/mongolab/mongolab
 
+
 <!--HONumber=42-->

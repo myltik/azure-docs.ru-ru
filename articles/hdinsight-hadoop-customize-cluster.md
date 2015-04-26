@@ -141,8 +141,8 @@
 
 - **Установка Spark**. См. раздел [Установка Spark в кластерах HDInsight][hdinsight-install-spark].
 - **Установка R**. См. раздел [Установка R в кластерах HDInsight][hdinsight-install-r].
-- **Установка Solr**. [Установка и использование Solr в кластерах HDInsight](../hdinsight-hadoop-solr-install)
-- **Установка Giraph**. [Установка и использование Giraph в кластерах HDInsight](../hdinsight-hadoop-giraph-install)
+- **Установка Solr**. [Установка и использование Solr в кластерах HDInsight](hdinsight-hadoop-solr-install.md)
+- **Установка Giraph**. [Установка и использование Giraph в кластерах HDInsight](hdinsight-hadoop-giraph-install.md)
 
 ## <a name="support"></a>Поддержка программного обеспечения с открытым исходным кодом, используемого в кластере HDInsight
 Служба HDInsight Microsoft Azure - это гибкая платформа, которая позволяет создавать большие приложения для работы с данными большого размера в облаке, используя сформированную вокруг Hadoop экосистему технологий с открытым исходным кодом. Microsoft Azure предоставляет общий уровень поддержки для технологий с открытым исходным кодом, как описано в разделе <a href="http://azure.microsoft.com/support/faq/" target="_blank">о сфере обеспечения поддержки на сайте вопросов и ответов по поддержке Azure</a>. Кроме того, служба HDInsight предоставляет дополнительный уровень поддержки для некоторых описанных ниже компонентов.
@@ -174,4 +174,5 @@
 
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Stages during cluster provisioning"
+
 <!--HONumber=42-->

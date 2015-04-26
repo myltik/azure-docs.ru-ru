@@ -255,4 +255,5 @@
 [Справочник по принципам использования мобильных служб Objective-C]: /ru-ru/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
 
 
+
 <!--HONumber=42-->

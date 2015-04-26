@@ -776,4 +776,5 @@ Model-View-ViewModel (MVVM) является вариантом Model-View-Contr
 [Приступая к работе с проверкой подлинности]: /ru-ru/develop/mobile/tutorials/get-started-with-users-dotnet
 
 
+
 <!--HONumber=42-->

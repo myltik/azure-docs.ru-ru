@@ -123,4 +123,5 @@ public static MobileServiceClient todolistClient = new MobileServiceClient(
 [Как использовать клиент .NET для мобильных служб Azure]: /ru-ru/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/
 
 
+
 <!--HONumber=42-->

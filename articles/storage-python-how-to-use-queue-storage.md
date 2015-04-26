@@ -117,6 +117,8 @@
 
 [Хранение и доступ к данным в Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Блог рабочей группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
+[блог рабочей группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [Пакет Azure для Python]: https://pypi.python.org/pypi/azure  
+[пакет Azure для Python]: https://pypi.python.org/pypi/azure  
 
 <!--HONumber=49-->

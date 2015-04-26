@@ -185,4 +185,5 @@ Hudson обеспечивает непрерывную интеграцию пр
   [Знакомство с Hudson]: http://wiki.eclipse.org/Hudson-ci/Meet_Hudson
   [ms-open-tech]: http://msopentech.com
 
+
 <!--HONumber=42-->

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Веб-сайт Node.js с MongoDB в MongoLab - Azure" 
 	description="Узнайте, как создать веб-сайт Azure на Node.js, который подключается к экземпляру MongoDB, размещенному в MongoLab." 
 	services="web-sites, virtual-machines" 
@@ -126,7 +126,7 @@
 
     	npm uninstall -g express
 
-    Now install the new generator for version 4.x.x:
+    Теперь установите новый генератор для версии 4.x.x.
 
     	npm install -g express-generator
 
@@ -456,7 +456,7 @@
 		azure site create myuniquesitename --git  
 	Замените значение 'myuniquesitename' на уникальное имя вашего сайта. Если веб-сайт создается в рамках этой команды, появится запрос на указание центра обработки данных, в котором будет размещен этот сайт. Выберите центр обработки данных, который географически расположен неподалеку от вашей базы данных MongoLab.
 	
-	Параметр "--git" обеспечит создание:
+	Параметр `--git` обеспечит создание:
 	* локального репозитория Git в папке **tasklist**, если таковой не существует;
 	* [удаленного репозитория Git] с именем 'azure', который будет использоваться для публикации приложения в Azure;
 	* файла [iisnode.yml], который содержит настройки, используемые Azure для размещения приложений узла;
@@ -539,9 +539,13 @@
 [screen-connectioninfo]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/dialog-mongolab_connectioninfo.png
 [focus-website-connectinfo]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/focus-mongolab-websiteconnectionstring.png
 [подготовка]: #provision
+[provision]: #provision
 [создание]: #create
+[create]: #create
 [развертывание]: #deploy
+[deploy]: #deploy
 [управление]: #manage
+[manage]: #manage
 [Node.js]: http://nodejs.org
 [MongoDB]: http://www.mongodb.org
 [Git]: http://git-scm.com
@@ -549,6 +553,7 @@
 [Mongoose]: http://mongoosejs.com
 [бесплатно]: /pricing/free-trial
 [Удаленный репозиторий Git]: http://git-scm.com/docs/git-remote
+[удаленного репозитория Git]: http://git-scm.com/docs/git-remote
 [azure-sdk-for-node]: https://github.com/WindowsAzure/azure-sdk-for-node
 [iisnode.yml]: https://github.com/WindowsAzure/iisnode/blob/master/src/samples/configuration/iisnode.yml
 [Средство командной строки Azure для Mac и Linux]: virtual-machines-command-line-tools.md

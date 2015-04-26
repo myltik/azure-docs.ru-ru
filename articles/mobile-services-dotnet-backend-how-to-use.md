@@ -34,4 +34,5 @@
 
 В основе данной модели программирования лежит класс [**TableController<T>**](http://msdn.microsoft.com/library/dn643359.aspx), представляющий собой просто обычный [**ApiController**](http://msdn.microsoft.com/library/system.web.http.apicontroller.aspx) интерфейса веб-API, который настраивается для шаблона доступа к данным CRUD. Класс **TableController** может использовать различные хранилища данных, включая SQL (через [Entity Framework](http://msdn.microsoft.com/data/ef.aspx)), [хранилище таблиц Azure](http://azure.microsoft.com/documentation/services/storage/), [MongoDB](http://www.mongodb.org) или ваше собственное хранилище).
 
+
 <!--HONumber=42-->

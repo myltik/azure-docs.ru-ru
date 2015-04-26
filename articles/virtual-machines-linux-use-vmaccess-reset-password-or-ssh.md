@@ -1,6 +1,6 @@
-<properties 
+﻿<properties 
 	pageTitle="Как использовать VMAccess для виртуальных машин Linux" 
-	description="Как использовать расширение VMAccess для сброса паролей, ключей SSH и конфигурации SSH в виртуальных машинах Linux" 
+	description="Как использовать расширение VMAccess для Linux для сброса паролей и ключей SSH, повторной отправки конфигураций SSH и удаления пользователей Linux" 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="KBDAzure" 
@@ -13,33 +13,43 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/30/2014" 
+	ms.date="02/17/2015" 
 	ms.author="kathydav"/>
 
-#Как сбросить пароль или ключ SSH в виртуальных машинах Linux#
+# Как сбросить пароль или ключ SSH в виртуальных машинах Linux #
 
-Если вы не можете подключиться к виртуальной машине Linux потому, что забыли пароль или ключ SSH либо возникла проблема, используйте расширение VMAccessforLinux, чтобы сбросить пароль, ключ SSH или конфигурацию SSH. 
+Если вы не можете подключиться к виртуальной машине Linux из-за забытого пароля, неверного ключа Secure Shell (SSH) или проблем с конфигурацией SSH, воспользуйтесь расширением VMAccessForLinux, чтобы сбросить пароль или ключ SSH либо исправить конфигурацию SSH. 
+
+## Требования
+
+- Microsoft Azure Linux Agent версии 2.0.5 или более поздней версии. В большинстве образов Linux в коллекции виртуальной машины есть версия 2.0.5. Чтобы узнать, какая версия установлена, выполните `waagent -version`. Чтобы обновить агент, следуйте указаниям в статье [Руководство пользователя агента Linux для Azure].
+- Azure PowerShell. Используйте команды в командлете **набора AzureVMExtension**, чтобы автоматически загрузить и настроить расширение **VMAccessForLinux**. Дополнительные сведения о настройке Azure PowerShell см. в разделе [Установка и настройка Azure PowerShell].
+- Новый пароль или набор ключей SSH, если вы хотите сбросить один из них. они не нужны, если вы хотите сбросить конфигурацию SSH. 
+
+## Установка не нужна
+
+Для использования расширения VMAccess его необязательно нужно устанавливать. Если на виртуальной машине установлен агент Linux, модуль загружается автоматически при запуске команды Azure PowerShell, использующей командлет **Set-AzureVMExtension**. 
+
+## Используйте это расширение для сброса пароля, ключа SSH или конфигурации SSH или для удаления пользователя.
+
+Используйте командлет **Set-AzureVMExtension**, чтобы вносить любые изменения, которые можно сделать с помощью VMAccess. В любом случае сначала получите объект виртуальной машины, использовав имя облачной службы и имя виртуальной машины, и сохраните его в переменной. 
+
+Укажите имена облачной службы и виртуальной машины, а затем выполните следующие команды в командной строке Azure PowerShell уровня администратора. Замените все содержимое внутри кавычек, включая символы < и >.
+
+	$CSName = "<cloud service name>"
+	$VMName = "<virtual machine name>"
+	$vm = Get-AzureVM -ServiceName $CSName -Name $VMName
+
+Если вы не знаете имя облачной службы и виртуальной машины, запустите командлет **Get-AzureVM**, чтобы отобразить эти сведения для всех виртуальных машин в вашей текущей подписке.
 
 
-##Требования
+> [AZURE.NOTE] В строках команд PowerShell, начинающихся с $, задаются переменные PowerShell, которые впоследствии используются в командах PowerShell.
 
-- Microsoft Azure Linux Agent версии 2.0.5 или более поздней версии. В большинстве образов Linux в коллекции виртуальной машины есть версия 2.0.5. Чтобы узнать, какая версия установлена, выполните  `waagent -version`. Чтобы обновить агент, следуйте указаниям в статье [Руководство пользователя агента Linux для Azure].
+В случае создания виртуальной машины с помощью портала управления Azure выполните следующую дополнительную команду:
 
-- Модуль Azure PowerShell. В модуль включен командлет **Set-AzureVMExtension**, с помощью которого вы будете выполнять команды, чтобы использовать расширение **VMAccessForLinux**. Дополнительную информацию о настройке модуля см. в статье [Установка и настройка Azure PowerShell].
+	$vm.GetInstance().ProvisionGuestAgent = $true
 
-- Новый пароль или новые ключи SSH, если вам необходимо сбросить один из них. Они не нужны, если вам необходимо исправить конфигурацию SSH. 
-
-##Установка не нужна
-
-Для использования VMAccess не требуется его установка. Если установлены агент Linux и модуль Azure, при запуске команды, которая вызывает командлет **Set-AzureVMExtension**, расширение будет загружаться автоматически. 
-
-##Использование расширения для сброса пароля, ключа или конфигурации SSH, а также для добавления пользователя
-
-Используйте командлет **Set-AzureVMExtension**, чтобы вносить любые изменения, которые можно сделать с помощью VMAccess. В любом случае сначала получите объект виртуальной машины, использовав имя облачной службы и имя виртуальной машины, и сохраните его в переменной.   
-
-Откройте Azure PowerShell и введите в командной строке следующую команду. Обязательно замените заполнители MyServiceName и MyVMName фактическими именами:
-
-	PS C:\> $vm = Get-AzureVM -ServiceName 'MyServiceName' -Name 'MyVMName'
+Эта команда будет предотвращать возникновение ошибки о том, что перед настройкой расширения виртуальных машин IaaS требуется включить гостевой агент подготовки в объекте виртуальной машины, при выполнении команды Set-AzureVMExtension в следующих разделах. 
 
 После этого вы можете выполнить следующие задачи.
 
@@ -47,86 +57,75 @@
 + [Сброс ключа SSH](#SSHkey)
 + [Сброс пароля и ключа SSH](#both)
 + [Сброс конфигурации SSH](#config)
++ [Удаление пользователя](#delete)
 
 ### <a name="password"></a>Сброс пароля
-Введите имя пользователя и пароль, сохраните их в переменных, а затем создайте единую переменную, чтобы сохранить значения в том виде, в котором их смогут использовать следующие команды.
 
-	PS C:\> $UserName = "CurrentName"
-	PS C:\> $Password = "NewPassword"
-	PS C:\> $PrivateConfig = '{"username":"' + $UserName + '", "password": "' +  $Password + '"}' 
+Введите имя текущего пользователя Linux и новый пароль, а затем выполните следующие команды.
 
-Сохраните имя, данные об издателе и номер версии в переменных: 
-
-	PS C:\> ExtensionName = 'VMAccessForLinux'
-	PS C:\> $Publisher = 'Microsoft.OSTCExtensions'
-	PS C:\> $Version =  '1.0'
-
-Если все необходимые значения сохранены в переменных, выполните следующую команду:
-
-	PS C:\> Set-AzureVMExtension -ExtensionName $ExtensionName -VM  $vm -Publisher $Publisher -Version $Version -PrivateConfiguration $PrivateConfig | Update-AzureVM
+	$UserName = "<current Linux account name>"
+	$Password = "<new password>"
+	$PrivateConfig = '{"username":"' + $UserName + '", "password": "' +  $Password + '"}' 
+	$ExtensionName = "VMAccessForLinux"
+	$Publisher = "Microsoft.OSTCExtensions"
+	$Version =  "1.*"
+	Set-AzureVMExtension -ExtensionName $ExtensionName -VM $vm -Publisher $Publisher -Version $Version -PrivateConfiguration $PrivateConfig | Update-AzureVM
 
 > [AZURE.NOTE] Если вам необходимо сбросить пароль или ключ SSH для существующей учетной записи, убедитесь, что вы ввели точное имя пользователя. Если вы введете другое имя, расширение VMAccess создаст новую учетную запись и назначит ей пароль.
 
-### <a name="SSHkey"></a>Сброс ключа SSH
 
-Введите имя пользователя и путь к новому открытому ключу SSH, а затем сохраните их в переменных:
+### <a name="SSHKey"></a>Сброс ключа SSH
 
-	PS C:\> $UserName = "CurrentName"
-	PS C:\> $cert = Get-Content "CertPath"
-	PS C:\> $PrivateConfig = '{"username":"' + $UserName + '", "ssh_key":"' + $cert + '"}'
+Введите имя текущего пользователя Linux и путь к сертификату с ключами SSH, а затем выполните следующие команды.
 
-Выполните следующие команды:
-
-	PS C:\> $ExtensionName = 'VMAccessForLinux'
-	PS C:\> $Publisher = 'Microsoft.OSTCExtensions'
-	PS C:\> $Version =  '1.0'
-	PS C:\> Set-AzureVMExtension -ExtensionName $ExtensionName -VM  $vm -Publisher $Publisher -Version $Version -PrivateConfiguration $PrivateConfig | Update-AzureVM
-
+	$UserName = "<current Linux user name>"
+	$Cert = Get-Content "<certificate path>"
+	$PrivateConfig = '{"username":"' + $UserName + '", "ssh_key":"' + $cert + '"}'
+	$ExtensionName = "VMAccessForLinux"
+	$Publisher = "Microsoft.OSTCExtensions"
+	$Version =  "1.*"
+	Set-AzureVMExtension -ExtensionName $ExtensionName -VM  $vm -Publisher $Publisher -Version $Version -PrivateConfiguration $PrivateConfig | Update-AzureVM
 
 ### <a name="both"></a>Сброс пароля и ключа SSH
 
-Введите новый пароль и путь к новому сертификату с открытым ключом для текущего пользователя и сохраните их в переменных: 
+Введите имя текущего пользователя Linux, новый пароль и путь к сертификату с ключами SSH, а затем выполните следующие команды.
 
-	PS C:\> $UserName = "CurrentName"	
-	PS C:\> $Password = "NewPassword"
-	PS C:\> $cert = Get-Content "CertPath"
-	PS C:\> $PrivateConfig = '{"username":"' + $UserName + '", "password": "' +  $Password + '", "ssh_key":"' + $cert + '"}' 
+	$UserName = "<current Linux user name>"
+	$Password = "<new password>"
+	$Cert = Get-Content "<certificate path>"
+	$PrivateConfig = '{"username":"' + $UserName + '", "password": "' +  $Password + '", "ssh_key":"' + $cert + '"}' 
+	$ExtensionName = "VMAccessForLinux"
+	$Publisher = "Microsoft.OSTCExtensions"
+	$Version =  "1.*"
+	Set-AzureVMExtension -ExtensionName $ExtensionName -VM  $vm -Publisher $Publisher -Version $Version -PrivateConfiguration $PrivateConfig | Update-AzureVM
 
-Выполните следующие команды:
+### <a name="config"></a>Сброс конфигурации SSH
 
-	PS C:\> $ExtensionName = 'VMAccessForLinux'
-	PS C:\> $Publisher = 'Microsoft.OSTCExtensions'
-	PS C:\> $Version =  '1.0'
-	PS C:\> Set-AzureVMExtension -ExtensionName $ExtensionName -VM  $vm -Publisher $Publisher -Version $Version -PrivateConfiguration $PrivateConfig | Update-AzureVM
+Ошибки в конфигурации SSH могут заблокировать доступ к виртуальной машине. Это можно исправить, сбросив конфигурацию SSH в состояние по умолчанию. При этом удаляются все новые параметры доступа в конфигурации, такие как имя пользователя, пароль и ключ SSH, но не изменяется пароль или ключи SSH учетной записи пользователя. Расширение перезапускает сервер SSH, открывает порт SSH на вашей виртуальной машине и сбрасывает конфигурацию SSH в состояние по умолчанию. 
 
-###  <a name="config"></a>Сброс конфигурации SSH
+Выполните следующие команды.
 
-Ошибки в конфигурации SSH могут препятствовать получению доступа к виртуальной машине. Вы можете исправить это, сбросив конфигурацию и задав значения по умолчанию. Это действие удалит все новые параметры доступа в конфигурации (имя пользователя, пароль или ключ SSH). При этом пароль или ключи SSH учетной записи не изменятся. Расширение перезапускает SSH-сервер, открывает SSH-порт в вашей виртуальной машине и сбрасывает настройки SSH по умолчанию.  
-
-Установите флажок, который указывает, что вам необходимо сбросить конфигурацию и сохранить ее в переменной: 
-	
-	PS C:\> $PrivateConfig = '{"reset_ssh": "True"}' 
-
-Выполните следующие команды:
-
-	PS C:\> $ExtensionName = 'VMAccessForLinux'
-	PS C:\> $Publisher = 'Microsoft.OSTCExtensions'
-	PS C:\> $Version =  '1.0'
-	PS C:\> Set-AzureVMExtension -ExtensionName $ExtensionName -VM  $vm -Publisher $Publisher -Version $Version -PrivateConfiguration $PrivateConfig | Update-AzureVM
+	$PrivateConfig = '{"reset_ssh": "True"}' 
+	$ExtensionName = "VMAccessForLinux"
+	$Publisher = "Microsoft.OSTCExtensions"
+	$Version = "1.*"
+	Set-AzureVMExtension -ExtensionName $ExtensionName -VM  $vm -Publisher $Publisher -Version $Version -PrivateConfiguration $PrivateConfig | Update-AzureVM
 
 > [AZURE.NOTE] Файл конфигурации SSH расположен по следующему пути: /etc/ssh/sshd_config.
 
-## Устранение неполадок
+### <a name="delete"></a> Удаление пользователя
 
-При использовании командлета **Set-AzureVMExtension ** вы можете получить такую ошибку: "Чтобы настроить расширение доступа к виртуальной машине IaaS, в объекте виртуальной машины должна быть включена функция подготовки гостевого агента". 
+Введите имя пользователя Linux для удаления и выполните следующие команды.
 
-Это может произойти, если вы использовали портал управления, чтобы создать виртуальную машину Linux. Причина заключается в том, что для свойства гостевого агента нельзя установить значение True. Чтобы исправить проблему, выполните следующие команды:
+	$UserName = "<Linux user name to delete>"
+	$PrivateConfig = "{"remove_user": "' + $UserName + '"}"
+	$ExtensionName = "VMAccessForLinux"
+	$Publisher = "Microsoft.OSTCExtensions"
+	$Version = "1.*"
+	Set-AzureVMExtension -ExtensionName $ExtensionName -VM $vm -Publisher $Publisher -Version $Version -PrivateConfiguration $PrivateConfig | Update-AzureVM
 
-	PS C:\> $vm = Get-AzureVM -ServiceName 'MyServiceName' -Name 'MyVMName'
+## Дополнительные ресурсы
 
-	PS C:\> $vm.GetInstance().ProvisionGuestAgent = $true
-
-#Дополнительные ресурсы
 [Расширения и компоненты виртуальных машин Azure] []
 
 [Подключение к виртуальной машине Azure с помощью RDP или SSH] []
@@ -138,4 +137,9 @@
 [Расширения и компоненты виртуальных машин Azure]: http://msdn.microsoft.com/library/azure/dn606311.aspx
 [Подключение к виртуальной машине Azure с помощью RDP или SSH]: http://msdn.microsoft.com/library/azure/dn535788.aspx
 
-<!--HONumber=42-->
+
+
+
+
+
+<!--HONumber=45--> 

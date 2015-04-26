@@ -203,4 +203,5 @@
 [Управление доступом на основе ролей в мобильных службах с помощью AAD]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/
 
 
+
 <!--HONumber=42-->

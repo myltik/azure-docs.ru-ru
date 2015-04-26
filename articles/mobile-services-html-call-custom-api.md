@@ -96,4 +96,5 @@
 [Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/mobile-services-html-get-started
 [Приступая к работе с данными]: /ru-ru/documentation/articles/mobile-services-html-get-started-data
 
+
 <!--HONumber=42-->

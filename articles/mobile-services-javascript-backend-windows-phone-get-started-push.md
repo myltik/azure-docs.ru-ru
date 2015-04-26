@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Приступая к работе с push-уведомлениями (Магазин Windows) | Центр мобильных разработок" 
 	description="Узнайте, как использовать мобильные службы и центры уведомлений Azure для отправки push-уведомлений в приложение Магазина Windows." 
 	services="mobile-services, notification-hubs" 
@@ -197,7 +197,7 @@
 [Приступая к работе с данными]: /ru-ru/documentation/articles/mobile-services-windows-phone-get-started-data
 [Приступая к работе с проверкой подлинности]: /ru-ru/documentation/articles/mobile-services-windows-phone-get-started-users
 
-[Настройка веб-службы с проверкой подлинности для отправки push-уведомлений в Windows Phone]: http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx
+[Настройка веб-службы с аутентификацией для отправки push-уведомлений в Windows Phone]: http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx
 
 [Справочник серверных скриптов мобильных служб]: http://go.microsoft.com/fwlink/?LinkId=262293
 [Справочник по принципам использования мобильных служб .NET]: /ru-ru/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
@@ -208,6 +208,7 @@
 [Что такое концентраторы уведомлений?]: /ru-ru/documentation/articles/notification-hubs-overview/
 [Рассылка широковещательных уведомлений подписчикам]: /ru-ru/documentation/articles/notification-hubs-windows-phone-send-breaking-news/
 [Рассылка уведомлений по шаблону подписчикам]: /ru-ru/documentation/articles/notification-hubs-windows-phone-send-localized-breaking-news/
+
 
 
 <!--HONumber=42-->

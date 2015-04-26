@@ -163,4 +163,5 @@
 [Общий доступ к ресурсам независимо от источника]: http://msdn.microsoft.com/library/windowsazure/dn155871.aspx
 
 
+
 <!--HONumber=42-->

@@ -401,4 +401,5 @@ WSGI - это стандарт Python, описанный в документе 
 [Создание веб-сайтов с помощью Flask]: ../web-sites-python-create-deploy-flask-app
 
 
+
 <!--HONumber=42-->

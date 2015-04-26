@@ -180,4 +180,5 @@
 [Справочник принципов использования мобильных служб HTML/JavaScript]: /ru-ru/documentation/articles/mobile-services-html-how-to-use-client-library/
 
 
+
 <!--HONumber=42-->

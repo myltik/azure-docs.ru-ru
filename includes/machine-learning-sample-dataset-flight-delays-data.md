@@ -1,2 +1,4 @@
 ﻿Данные о соблюдении графиков пассажирских рейсов взяты из массива данных TranStats Министерства транспорта США (<a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">On-Time</a>).<p> </p>Набор данных охватывает период времени с апреля по октябрь 2013 г. Перед отправкой в Azure ML Studio набор данных был обработан следующим образом.<ul><li>Набор данных был отфильтрован, чтобы охватывать только 70 самых загруженных аэропортов в континентальной части США.</li><li>Отмененные рейсы были отмечены как задержанные более, чем на 15 минут.</li><li>Рейсы с отклонением были удалены.</li><li>Были выбраны следующие столбцы: Year, Month, DayofMonth, DayOfWeek, Carrier, OriginAirportID, DestAirportID, CRSDepTime, DepDelay, DepDel15, CRSArrTime, ArrDelay, ArrDel15, Cancelled</li></ul>
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

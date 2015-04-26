@@ -475,4 +475,5 @@
 [Приступая к работе с данными]: /ru-ru/documentation/articles/mobile-services-ios-get-started-data/
 
 
+
 <!--HONumber=42-->

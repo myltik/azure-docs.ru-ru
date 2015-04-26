@@ -256,4 +256,5 @@
 [Приступая к работе с данными]: /ru-ru/documentation/articles/mobile-services-windows-phone-get-started-data/
 
 
+
 <!--HONumber=42-->

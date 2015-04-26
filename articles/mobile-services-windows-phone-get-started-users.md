@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Знакомство с механизмом проверки подлинности (Windows Phone) | Центр разработчиков для мобильных устройств" 
 	description="Узнайте, как использовать мобильные службы для аутентификации пользователей приложения Windows Phone с помощью разнообразных поставщиков удостоверений, включая Google, Facebook, Twitter и корпорацию Майкрософт." 
 	services="mobile-services" 
@@ -38,13 +38,13 @@
 
 >[AZURE.NOTE]В этом учебнике показан поток проверки подлинности, управляемый мобильными службами с помощью различных поставщиков удостоверений. Этот метод можно легко настроить, и он поддерживает нескольких поставщиков. Сведения о том, как вместо этого использовать Live Connect для управляемой клиентом проверки подлинности и предоставления единого входа в приложении Windows Phone, см. в разделе [Единый вход для приложений Windows Phone с использованием Live Connect]. При использовании управляемой клиентом проверки подлинности приложение имеет доступ к дополнительным данным пользователя, сохраняемым поставщиком удостоверений. Эти же данные можно получить в мобильной службе, вызвав в серверных скриптах функцию **user.getIdentities()**. Дополнительные сведения можно найти в [этой записи блога](http://go.microsoft.com/fwlink/p/?LinkId=506605).
 
-##<a name="register"></a>Регистрация приложения для проверки подлинности и настройка мобильных служб
+## <a name="register"></a>Регистрация приложения для проверки подлинности и настройка мобильных служб
 
 
 [AZURE.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
 
-##<a name="permissions"></a>Ограничение разрешений для пользователей, прошедших проверку подлинности
+## <a name="permissions"></a>Ограничение разрешений для пользователей, прошедших проверку подлинности
 
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
@@ -57,11 +57,11 @@
 
 Далее приложение будет обновлено таким образом, что оно станет производить аутентификацию учетных данных пользователей, прежде чем запрашивать ресурсы из мобильной службы.
 
-##<a name="add-authentication"></a>Добавление проверки подлинности в приложение
+## <a name="add-authentication"></a>Добавление проверки подлинности в приложение
 
 [AZURE.INCLUDE [mobile-services-windows-phone-authenticate-app](../includes/mobile-services-windows-phone-authenticate-app.md)]
 
-##<a name="tokens"></a>Хранение маркеров авторизации в клиенте
+## <a name="tokens"></a>Хранение маркеров авторизации в клиенте
 
 [AZURE.INCLUDE [mobile-services-windows-phone-authenticate-app-with-token](../includes/mobile-services-windows-phone-authenticate-app-with-token.md)] 
 

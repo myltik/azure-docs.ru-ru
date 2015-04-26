@@ -122,4 +122,5 @@
 [Изменение модели данных в серверной мобильной службе для .NET]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations
 
 
+
 <!--HONumber=42-->

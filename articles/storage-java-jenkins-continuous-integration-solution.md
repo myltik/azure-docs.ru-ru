@@ -187,4 +187,5 @@ Jenkins обеспечивает непрерывную интеграцию п�
   [Как создать учетную запись хранения]: http://go.microsoft.com/fwlink/?LinkId=279823
   [Знакомство с Jenkins]: https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins
   [ms-open-tech]: http://msopentech.com
+
 <!--HONumber=42-->

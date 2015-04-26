@@ -1,2 +1,4 @@
 ﻿Содержит данные о погоде, такие как температура, влажность и скорость ветра, из северо-восточной Португалии, объединенные с записями о лесных пожарах.<p> </p><b>Использование:</b> это сложная регрессионная задача, цель которой состоит в прогнозировании площади выгорания из-за лесных пожаров. <p> </p><b>Связанное исследование:</b> Cortez, P. и Morais, A. (2008). Репозиторий машинного обучения UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Ирвин, Калифорния: Калифорнийский университет, школа информационных и компьютерных наук <p> </p>[Cortez and Morais, 2007] P. Cortez and A. Morais. A Data Mining Approach to Predict Forest Fires using Meteorological Data. J. Neves, M. F. Santos и . Machado Eds., New Trends in Artificial Intelligence, Proceedings of the 13th EPIA 2007 - Portuguese Conference on Artificial Intelligence, декабрь, Гимарайнш, Португалия, с. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. Доступно по адресу: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a>.
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

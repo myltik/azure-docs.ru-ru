@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Преобразование WordPress в Мультисайт в службе приложений Azure" 
 	description="Узнайте, как преобразовать существующее веб-приложение WordPress, созданное с помощью коллекции в Azure, в Мультисайт WordPress" 
 	services="app-service\web" 
@@ -40,7 +40,7 @@
 
 * [ веб-сайтPHP с MySQL и Git][website-w-mysql-and-git-git-setup].
 
-Откройте файл `wp-config.php` в любом текстовом редакторе и добавьте следующий код над строкой `/* That's all, stop editing! Happy blogging. */`.
+Откройте файл `wp-config.php` в любом текстовом редакторе и добавьте следующий код над строкой "/* That's all, stop editing! Happy blogging. */".
 
 	/* Multisite */
 
@@ -146,7 +146,7 @@
 [wordpress-codex-create-a-network]: http://codex.wordpress.org/Create_A_Network
 [website-w-mysql-and-ftp-ftp-setup]: https://www.windowsazure.com/develop/php/tutorials/website-w-mysql-and-ftp/#header-0
 [website-w-mysql-and-git-git-setup]: https://www.windowsazure.com/develop/php/tutorials/website-w-mysql-and-git/#header-1
-[настройка-сети-wordpress]: ./media/web-sites-php-convert-wordpress-multisite/wordpress-network-setup.png
+[wordpress-network-setup]: ./media/web-sites-php-convert-wordpress-multisite/wordpress-network-setup.png
 [wordpress-codex-types-of-networks]: http://codex.wordpress.org/Before_You_Create_A_Network#Types_of_multisite_network
 [wordpress-plugin-wordpress-mu-domain-mapping]: http://wordpress.org/extend/plugins/wordpress-mu-domain-mapping/
 

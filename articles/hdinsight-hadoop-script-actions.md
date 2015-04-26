@@ -120,8 +120,8 @@ Script Action можно развернуть с помощью пакета SDK
 
 - [Установка и использование Spark 1.0 на кластерах HDInsight][hdinsight-install-spark]
 - [Установка и использование R на кластерах HDInsight Hadoop][hdinsight-r-scripts]
-- [Установка и использование Solr в кластерах HDInsight](../hdinsight-hadoop-solr-install)
-- [Установка и использование Giraph в кластерах HDInsight](../hdinsight-hadoop-giraph-install)  
+- [Установка и использование Solr в кластерах HDInsight](hdinsight-hadoop-solr-install.md)
+- [Установка и использование Giraph в кластерах HDInsight](hdinsight-hadoop-giraph-install.md)  
 
 > [AZURE.NOTE] Пример скрипта работает только с кластером HDInsight версии 3.1 или более поздней. Дополнительные сведения о версиях кластера HDInsight см. в разделе [Версии кластера HDInsight](http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/).
 
@@ -214,4 +214,6 @@ Script Action можно развернуть с помощью пакета SDK
 [hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
 [powershell-install-configure]: ../install-configure-powershell/
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

@@ -218,4 +218,5 @@
 [SharePoint Online]: http://office.microsoft.com/ru-ru/sharepoint/
 [Проверка подлинности приложения с помощью единого входа библиотеки проверки подлинности Active Directory]: http://azure.microsoft.com/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/
 
+
 <!--HONumber=42-->

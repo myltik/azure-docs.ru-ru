@@ -38,7 +38,7 @@
 
 	**Внимание**! Более новый формат VHDX не поддерживается в Azure. Можно преобразовать диск в формат VHD с помощью диспетчера Hyper-V или командлета convert-vhd.
 
-	Список рекомендованных дистрибутивов см. в документе [Linux в рекомендованных дистрибутивах Azure](../linux-endorsed-distributions). Кроме того, в разделе, приведенном в конце данной статьи, содержится [информация о нерекомендованных дистрибутивах](../virtual-machines-linux-create-upload-vhd-generic).
+	Список рекомендованных дистрибутивов см. в документе [Linux в рекомендованных дистрибутивах Azure](linux-endorsed-distributions.md). Кроме того, в разделе, приведенном в конце данной статьи, содержится [информация о нерекомендованных дистрибутивах](virtual-machines-linux-create-upload-vhd-generic.md).
 
 - **Программа командной строки Azure для Linux**. При использовании операционной системы Linux для создания образа следует использовать [программы командной строки Azure для Linux и Mac](http://go.microsoft.com/fwlink/?LinkID=253691&clcid=0x409) для передачи VHD-файла.
 
@@ -54,13 +54,13 @@
 
 ## <a id="prepimage"> </a>Шаг 1. подготовка образа для передачи ##
 
-Microsoft Azure поддерживает различные дистрибутивы Linux (см. раздел [Рекомендованные дистрибутивы](../linux-endorsed-distributions)). В следующих статьях описывается подготовка различных дистрибутивов Linux, которые поддерживаются в Azure:
+Microsoft Azure поддерживает различные дистрибутивы Linux (см. раздел [Рекомендованные дистрибутивы](linux-endorsed-distributions.md)). В следующих статьях описывается подготовка различных дистрибутивов Linux, которые поддерживаются в Azure:
 
-- **[Дистрибутивы на основе CentOS](../virtual-machines-linux-create-upload-vhd-centos)**
-- **[Oracle Linux](../virtual-machines-linux-create-upload-vhd-oracle)**
-- **[SLES и openSUSE](../virtual-machines-linux-create-upload-vhd-suse)**
-- **[Ubuntu](../virtual-machines-linux-create-upload-vhd-ubuntu)**
-- **[Прочее - нерекомендованные дистрибутивы](../virtual-machines-linux-create-upload-vhd-generic)**
+- **[Дистрибутивы на основе CentOS](virtual-machines-linux-create-upload-vhd-centos.md)**
+- **[Oracle Linux](virtual-machines-linux-create-upload-vhd-oracle.md)**
+- **[SLES и openSUSE](virtual-machines-linux-create-upload-vhd-suse.md)**
+- **[Ubuntu](virtual-machines-linux-create-upload-vhd-ubuntu.md)**
+- **[Прочее - нерекомендованные дистрибутивы](virtual-machines-linux-create-upload-vhd-generic.md)**
 
 Дополнительные советы по подготовке образов Linux для Azure см. в разделе **[Общие замечания по установке Linux](../virtual-machines-linux-create-upload-vhd-generic/#linuxinstall)**.
 
@@ -143,6 +143,7 @@ Microsoft Azure поддерживает различные дистрибути
 [Шаг 2. Создание учетной записи хранения в Azure]: #createstorage
 [Шаг 3. Подготовка подключения к Azure]: #connect
 [Шаг 4. передача образа в Azure]: #upload
+
 
 
 

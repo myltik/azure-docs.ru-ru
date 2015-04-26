@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Использование табличного хранилища из Python в Microsoft Azure" 
 	description="Вы узнаете, как использовать службу таблиц в Python для создания и удаления таблиц, вставки, удаления строк и создания запросов для таблиц." 
 	services="storage" 
@@ -115,7 +115,7 @@
 
 Запрос в следующем коде возвращает только описания сущностей в таблице.
 
-Обратите внимание, что следующий фрагмент кода работает только для облачной службы хранилища и не поддерживается в эмуляторе
+*Обратите внимание, что следующий фрагмент кода работает только для облачной службы хранилища и не поддерживается в эмуляторе
 хранения.*
 
 	tasks = table_service.query_entities('tasktable', "PartitionKey eq 'tasksSeattle'", 'description')
@@ -144,5 +144,6 @@
 [Хранение и доступ к данным в Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Посетите блог рабочей группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [Пакет Azure для Python]: https://pypi.python.org/pypi/azure  
+[пакет Azure для Python]: https://pypi.python.org/pypi/azure  
 
 <!--HONumber=49-->

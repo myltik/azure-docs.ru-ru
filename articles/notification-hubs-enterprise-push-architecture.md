@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Центры уведомлений - корпоративная архитектура системы push-уведомлений" 
 	description="Руководство по использованию центров уведомлений Azure в корпоративной среде" 
 	services="notification-hubs" 
@@ -43,26 +43,26 @@
 3. Мобильное приложение
 	- Получает и отображает уведомление
 		
-### Преимущества:
+###Преимущества:
 
 1. Разделение на получателя (мобильное приложение или служба через центр уведомлений) и отправителя (серверные системы) позволяет интегрировать дополнительные серверные системы с минимальными изменениями.
 2. Упрощается ситуация, когда необходимо, чтобы уведомления о событиях в одной или нескольких серверных системах получали несколько мобильных приложений.  
 
 ## Пример:
 
-### Предварительные требования
+###Предварительные требования
 Чтобы ознакомиться с основными понятиями и общими процедурами создания и настройки, необходимо пройти следующие учебники:
 
-1. [Программирование Pub/Sub для Service Bus] - в этом документе подробно описывается работа с разделами и подписками Service Bus, создание пространства имен для хранения разделов и подписок, а также отправка и получение сообщений от них. 
-2. [Центры уведомлений - универсальный учебник для Windows] - в этом документе объясняется, как настроить приложения Магазина Windows и использовать центры уведомлений для регистрации и последующего получения уведомлений. 
+1. [Использование разделов и подписок Service Bus] - в этом руководстве подробно описывается работа с разделами и подписками Service Bus, создание пространства имен для хранения разделов и подписок, а также отправка и получение сообщений от них. 
+2. [Концентраторы уведомлений - универсальный учебник Windows] - в этом учебнике рассказывается о том, как настроить приложение Магазина Windows и использовать концентраторы уведомлений для регистрации и последующего получения уведомлений. 
 
-### Пример кода
+###Пример кода
 
 Полный пример кода доступен в коллекции [примеров центра уведомлений]. Он состоит из трех компонентов:
 
 1. **EnterprisePushBackendSystem**
 	
-	a. Этот проект использует пакет Nuget *WindowsAzure.ServiceBus* и основан на материале, изложенном в статье [Программирование Pub/Sub для Service Bus]. 
+	a. Этот проект использует пакет Nuget *WindowsAzure.ServiceBus* и основан на материале, изложенном в статье [Использование разделов и подписок Service Bus]. 
 
 	b. Это простое консольное приложение на C# для моделирования бизнес-систем, которое инициирует доставку сообщений мобильному приложению. 
 	
@@ -126,7 +126,7 @@
 
 2. **ReceiveAndSendNotification**
 
-	a. Этот проект использует пакеты Nuget *WindowsAzure.ServiceBus* и *Microsoft.Web.WebJobs.Publish* и основан на материале, изложенном в статье [Программирование Pub/Sub для Service Bus]. 
+	a. Этот проект использует пакеты Nuget *WindowsAzure.ServiceBus* и *Microsoft.Web.WebJobs.Publish* и основан на материале, изложенном в статье [Использование разделов и подписок Service Bus]. 
 
 	b. Это еще одно консольное приложение на C#, которое мы будем запускать в качестве [задания WebJob Azure], так как оно должно выполняться непрерывно для прослушивания сообщений из бизнес-систем и серверных систем. Оно будет входить в состав серверной части мобильной службы. 
 
@@ -225,7 +225,7 @@
 	
 	b. Убедитесь, что в приложении включено получение всплывающих уведомлений. 
 
-	c. Убедитесь, что при запуске приложения вызывается следующий код регистрации центров уведомлений (после замены *HubName* и *DefaultListenSharedAccessSignature*:
+	c. Убедитесь, что при запуске приложения вызывается следующий код регистрации концентраторов уведомлений (после замены *HubName* и *DefaultListenSharedAccessSignature*:
 
         private async void InitNotificationsAsync()
         {
@@ -264,11 +264,11 @@
 [6]: ./media/notification-hubs-enterprise-push-architecture/WebJobsLog.png
 
 <!-- Links -->
-[примеров центра уведомлений]: https://github.com/Azure/azure-notificationhubs-samples
-[мобильная служба Azure]: http://azure.microsoft.com/documentation/services/mobile-services/
+[Примеры концентратора уведомлений]: https://github.com/Azure/azure-notificationhubs-samples
+[Мобильная служба Azure]: http://azure.microsoft.com/documentation/services/mobile-services/
 [Azure Service Bus]: http://azure.microsoft.com/documentation/articles/fundamentals-service-bus-hybrid-solutions/
-[Программирование Pub/Sub для Service Bus]: http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
-[задания WebJob Azure]: http://azure.microsoft.com/documentation/articles/web-sites-create-web-jobs/
-[Центры уведомлений - универсальный учебник для Windows]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+[Использование разделов и подписок Service Bus]: http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
+[Задание WebJob Azure]: http://azure.microsoft.com/documentation/articles/web-sites-create-web-jobs/
+[Концентраторы уведомлений - универсальный учебник Windows]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 
-<!--HONumber=45--> 
+<!--HONumber=49-->

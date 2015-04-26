@@ -789,8 +789,8 @@
 [Отладка приложения Azure]: http://msdn.microsoft.com/library/windowsazure/ee405479.aspx   
 [Сбор данных журнала с помощью системы диагностики Azure]: http://msdn.microsoft.com/library/windowsazure/gg433048.aspx
 [Советы и рекомендации по устранению неполадок при разработке приложений Azure]: http://msdn.microsoft.com/library/windowsazure/hh771389.aspx
-[бесплатной пробной версии]: http://azure.microsoft.com/pricing/free-trial/
-[установить и настроить Azure PowerShell версии 0.8.7 или более поздней]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
+[бесплатной пробной версии]: http://azure.microsoft.com/ pricing/free-trial/
+[установить и настроить Azure PowerShell версии 0.8.7 или более поздней]: http://azure.microsoft.com/ documentation/articles/install-configure-powershell/
 [Схема конфигурации системы диагностики Azure 1.2]: http://msdn.microsoft.com/library/azure/dn782207.aspx
 [Set-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/library/dn495270.aspx
 [Get-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/library/dn495145.aspx

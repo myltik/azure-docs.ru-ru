@@ -224,4 +224,5 @@ PTVS предоставляет простой способ развертыва
 [Пакет SDK Azure для Python]: https://github.com/Azure/azure-sdk-for-python
 
 
+
 <!--HONumber=42-->

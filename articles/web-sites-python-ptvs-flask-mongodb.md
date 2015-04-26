@@ -236,4 +236,5 @@ PTVS предоставляет простой способ развертыва
 [Проекты для облачной службы]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
 
 
+
 <!--HONumber=42-->
