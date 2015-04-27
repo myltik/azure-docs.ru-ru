@@ -1,5 +1,5 @@
 ﻿<properties 
-	pageTitle="Приступая к работе с центрами уведомлений Azure" 
+	pageTitle="Приступая к работе с концентраторами уведомлений Azure" 
 	description="Узнайте, как использовать центры уведомлений Azure для отправки push-уведомлений пользователям." 
 	services="notification-hubs" 
 	documentationCenter="" 
@@ -10,14 +10,15 @@
 <tags 
 	ms.service="notification-hubs" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-chrome" 
 	ms.devlang="JavaScript" 
 	ms.topic="article" 
-	ms.date="01/10/2015" 
+	ms.date="03/15/2015" 
 	ms.author="piyushjo"/>
-# Приступая к работе с центрами уведомлений
+	
+# Приступая к работе с концентраторами уведомлений
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/ru-ru/documentation/articles/notification-hubs-windows-store-dotnet-get-started/" title="Windows Universal">Windows Universal</a><a href="/ru-ru/documentation/articles/notification-hubs-windows-phone-get-started/" title="Windows Phone">Windows Phone</a><a href="/ru-ru/documentation/articles/notification-hubs-ios-get-started/" title="iOS">iOS</a><a href="/ru-ru/documentation/articles/notification-hubs-android-get-started/" title="Android">Android</a><a href="/ru-ru/documentation/articles/notification-hubs-kindle-get-started/" title="Kindle">Kindle</a><a href="/ru-ru/documentation/articles/notification-hubs-baidu-get-started/" title="Baidu">Baidu</a><a href="/ru-ru/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/" title="Xamarin.iOS">Xamarin.iOS</a><a href="/ru-ru/documentation/articles/partner-xamarin-notification-hubs-android-get-started/" title="Xamarin.Android">Xamarin.Android</a><a href="/ru-ru/documentation/articles/notification-hubs-chrome-get-started/" title="Chrome" class="current">Chrome</a></div>
+[AZURE.INCLUDE [notification-hubs-selector-get-started](../includes/notification-hubs-selector-get-started.md)]
 
 В этом разделе показано, как использовать центры уведомлений Azure для отправки push-уведомлений в приложение Chrome.
 
@@ -39,7 +40,7 @@
 
 Рекомендуем изучить следующий учебник в разделе "Дальнейшие действия", чтобы узнать об использовании центров уведомлений для охвата определенных пользователей и групп устройств. 
 
->[AZURE.NOTE] Для работы с этим учебником требуется активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http://azure.microsoft.com/documentation/articles/notification-hubs-chrome-get-started/" target="_blank">Бесплатная пробная версия Azure</a>.
+>[AZURE.NOTE] Для работы с этим учебником требуется активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fru-ru%2Fdocumentation%2Farticles%notification-hubs-chrome-get-started%2F).
 
 ##<a id="register"></a>Включение Google Cloud Messaging (GCM)
 
@@ -51,7 +52,7 @@
 
    	![][2]
 
-3. В области справа щелкните элемент **API и авторизация**, выполните прокрутку вниз и щелкните переключатель, чтобы включить **Google Cloud Messaging for Android**. Вам не требуется включать  *Google Cloud Messaging for Chrome*. Возможно, в будущем имя изменится на просто  *Google Cloud Messaging*. 
+3. В области справа щелкните элемент **API и авторизация**, выполните прокрутку вниз и щелкните переключатель, чтобы включить **Google Cloud Messaging for Android**. Не нужно включать параметр *Google Cloud Messaging for Chrome*. Возможно, в будущем имя этого параметра изменится на *Google Cloud Messaging*. 
 
    	![][3]
 
@@ -63,15 +64,15 @@
 
    	![][5]
 
-##<a id="configure-hub"></a>Настройка центра уведомлений
+##<a id="configure-hub"></a>Настройка концентратора уведомлений
 
-1. Войдите на **[Портал управления Azure]**, а затем нажмите кнопку **+СОЗДАТЬ** в левой нижней части экрана.
+1. Войдите на **[портал управления Azure]** и щелкните **+СОЗДАТЬ** в левой нижней части экрана.
 
-2. Последовательно щелкните элементы **Службы приложений**, **Service Bus**, **Центр уведомлений** и **Быстрое создание**. Введите имя для центра уведомлений, выберите нужный регион и щелкните элемент **Создать новый центр уведомлений**.
+2. Последовательно щелкните элементы **Службы приложений**, **Шина обслуживания**, **Концентратор уведомлений** и **Быстрое создание**. Введите имя для центра уведомлений, выберите нужный регион и щелкните элемент **Создать новый центр уведомлений**.
 
    	![][6]
 
-4. Перейдите к только что созданному центру уведомлений. Щелкните пространство имен, содержащее имя центра уведомлений (обычно это ***имя центра уведомлений*-ns**).   
+4. Перейдите к только что созданному центру уведомлений. Щелкните пространство имен, в котором находится концентратор уведомлений (обычно это ***имя концентратора уведомлений*-ns**).   
 
    	![][7]
 
@@ -110,7 +111,7 @@
 
 2. Создайте папку с именем **ChromePushApp**. На самом деле ее можно назвать как угодно. 
 
-3. Скачайте  *cryto-js library* из [библиотеки crypto-js] в этой папке. Эта папка библиотеки будет содержать две вложенные папки -  *components* и  *rollups*. 
+3. Загрузите *crypto-js library* из [библиотеки crypto-js] в этой папке. Данная папка библиотеки будет содержать две вложенные папки - *components* и *rollups*. 
 
 4. Создайте файл manifest.json. Все приложения Chrome сохраняются с помощью файла манифеста, в котором содержатся метаданные приложения, в частности доступные для него разрешения.
 
@@ -128,31 +129,31 @@
 		  "icons": { "128": "gcm_128.png" }
 		}
 	
-	Обратите внимание на элемент  *permissions*, который указывает, что это приложение Chrome сможет получать push-уведомления от GCM. Он также должен содержать универсальный код ресурса центра уведомлений Azure, по которому приложение Chrome будет осуществлять вызов REST для регистрации.
+	Обратите внимание на элемент *permissions*, который указывает, что это приложение Chrome сможет получать push-уведомления от GCM. Он также должен содержать универсальный код ресурса центра уведомлений Azure, по которому приложение Chrome будет осуществлять вызов REST для регистрации.
 	При этом используется файл значка gcm_128.png, который можно найти в источнике, многократно используемом из исходного образца GCM. Вы можете использовать любое изображение. 
  
 5. Создайте файл с именем background.js и вставьте следующий код:
 
-		// Возвращает новый идентификатор уведомления, используемый в уведомлении.
+		// Returns a new notification ID used in the notification.
 		function getNotificationId() {
 		  var id = Math.floor(Math.random() * 9007199254740992) + 1;
 		  return id.toString();
 		}
 		
 		function messageReceived(message) {
-		  // Сообщение - это объект со свойством данных,
-		  // который состоит из пар "ключ-значение".
+		  // A message is an object with a data property that
+		  // consists of key-value pairs.
 		
-		  // Объединение всех пар "ключ-значение" для создания отображаемой строки.
+		  // Concatenate all key-value pairs to form a display string.
 		  var messageString = "";
 		  for (var key in message.data) {
 		    if (messageString != "")
 		      messageString += ", "
 		    messageString += key + ":" + message.data[key];
 		  }
-		  console.log("Получено сообщение: " + messageString);
+		  console.log("Message received: " + messageString);
 		
-		  // Открытие уведомления для отображения сообщения GCM.
+		  // Pop up a notification to show the GCM message.
 		  chrome.notifications.create(getNotificationId(), {
 		    title: 'GCM Message',
 		    iconUrl: 'gcm_128.png',
@@ -178,21 +179,21 @@
 		  });
 		}
 		
-		// Настройка прослушивателя для события сообщения GCM.
+		// Set up a listener for GCM message event.
 		chrome.gcm.onMessage.addListener(messageReceived);
 		
-		// Настройка прослушивателей для запуска первой регистрации.
+		// Set up listeners to trigger the first time registration.
 		chrome.runtime.onInstalled.addListener(firstTimeRegistration);
 		chrome.runtime.onStartup.addListener(firstTimeRegistration);
 
-	Это файл, в котором всплывает HTML-код окна приложения Chrome (* register.html*) и который определяет обработчик  *messageReceived* для обработки входящего push-уведомления. 
+	Это файл, в котором всплывает HTML-код окна приложения Chrome (*register.html*) и который определяет обработчик *messageReceived* для обработки входящего push-уведомления. 
 
-6. Создайте файл с именем  *register.html*, который определяет пользовательский интерфейс приложения Chrome. Обратите внимание, что в этом примере используется  *CryptoJS v3.1.2*. Если вы скачали какую-либо другую версию, исправьте путь src сценария. 
+6. Создайте файл с именем *register.html*, который определяет пользовательский интерфейс приложения Chrome. Обратите внимание, что в этом примере используется *CryptoJS v3.1.2*. Если вы скачали какую-либо другую версию, исправьте путь src сценария. 
 
 		<html>
 		
 		<head>
-		<title>Регистрация в GCM</title>
+		<title>GCM Registration</title>
 		<script src="register.js"></script>
 		<script src="CryptoJS v3.1.2/rollups/hmac-sha256.js"></script>
 		<script src="CryptoJS v3.1.2/components/enc-base64-min.js"></script>
@@ -200,18 +201,18 @@
 		
 		<body>
 		
-		Идентификатор отправителя:<br/><input id="senderId" type="TEXT" size="20"><br/>
+		Sender ID:<br/><input id="senderId" type="TEXT" size="20"><br/>
 		<button id="registerWithGCM">Register with GCM</button>
 		<br/>
 		<br/>
 		<br/>
 		
-		Имя центра уведомлений:<br/><input id="hubName" type="TEXT" style="width:400px"><br/><br/> 
-		Строка подключения:<br/><textarea id="connectionString" type="TEXT" style="width:400px;height:60px"></textarea> 
+		Notification Hub Name:<br/><input id="hubName" type="TEXT" style="width:400px"><br/><br/> 
+		Connection String:<br/><textarea id="connectionString" type="TEXT" style="width:400px;height:60px"></textarea> 
 		
 		<br/>
 		
-		<button id="registerWithNH" disabled="true">Регистрация в центре уведомлений Azure</button>
+		<button id="registerWithNH" disabled="true">Register with Azure Notification Hubs</button>
 		
 		<br/>
 		<br/>
@@ -222,7 +223,7 @@
 		
 		</html>
 
-7. Создайте файл  *register.js*, используя код ниже. Этот файл определяет сценарий, лежащий в основе  *register.html*. Приложения Chrome не предусматривают встроенное выполнение, поэтому необходимо создать отдельный резервный сценарий для пользовательского интерфейса. 
+7. Создайте файл *register.js*, используя указанный ниже код. Этот файл определяет сценарий, лежащий в основе *register.html*. Приложения Chrome не предусматривают встроенное выполнение, поэтому необходимо создать отдельный резервный сценарий для пользовательского интерфейса. 
 
 		var registrationId = "";
 		var hubName        = "", connectionString = "";
@@ -231,7 +232,7 @@
 		window.onload = function() { 
 		   document.getElementById("registerWithGCM").onclick = registerWithGCM;  
 		   document.getElementById("registerWithNH").onclick = registerWithNH; 
-		   updateLog("Вы еще не зарегистрированы. Укажите идентификатор отправителя и зарегистрируйтесь в GCM, а затем в центре уведомлений."); 
+		   updateLog("You have not registered yet. Please provider sender ID and register with GCM and then with  Notification Hubs."); 
 		} 
 		
 		function updateLog(status) {
@@ -247,7 +248,7 @@
 		  var senderId = document.getElementById("senderId").value.trim();
 		  chrome.gcm.register([senderId], registerCallback);
 		
-		  // Не допустите повторное нажатие кнопки регистрации до завершения регистрации
+		  // Prevent register button from being clicked again before the registration finishes
 		  document.getElementById("registerWithGCM").disabled = true;
 		}
 		
@@ -256,16 +257,16 @@
 		  document.getElementById("registerWithGCM").disabled = false;
 		
 		  if (chrome.runtime.lastError) {
-		    // В случае сбоя регистрации обработайте ошибку и повторите попытку
-		    // позже.
-		    updateLog("Сбой регистрации: " + chrome.runtime.lastError.message);
+		    // When the registration fails, handle the error and retry the
+		    // registration later.
+		    updateLog("Registration failed: " + chrome.runtime.lastError.message);
 		    return;
 		  }
 		
-		  updateLog("Регистрация в GCM успешно завершена.");
+		  updateLog("Registration with GCM succeeded.");
 		  document.getElementById("registerWithNH").disabled = false;
 		
-		  // Обратите внимание, что первая регистрация выполнена.
+		  // Mark that the first-time registration is done.
 		  chrome.storage.local.set({registered: true});
 		}
 		
@@ -277,12 +278,12 @@
 		  sendNHRegistrationRequest();
 		}
 		
-		// По адресу http://msdn.microsoft.com/library/dn495627.aspx 
+		// From http://msdn.microsoft.com/library/dn495627.aspx 
 		function splitConnectionString()
 		{
 		  var parts = connectionString.split(';');
 		  if (parts.length != 3)
-		  вызывает ошибку "Ошибка анализа строки подключения";
+		  throw "Error parsing connection string";
 		
 		  parts.forEach(function(part) {
 		    if (part.indexOf('Endpoint') == 0) {
@@ -300,9 +301,9 @@
 		function generateSaSToken()
 		{
 		  targetUri = encodeURIComponent(originalUri.toLowerCase()).toLowerCase();
-		  var expiresInMins = 10; // срок действия - 10 минут
+		  var expiresInMins = 10; // 10 minute expiration
 		
-		  // Установка срока действия в секундах
+		  // Set expiration in seconds
 		  var expireOnDate = new Date();
 		  expireOnDate.setMinutes(expireOnDate.getMinutes() + expiresInMins);
 		  var expires = Date.UTC(expireOnDate.getUTCFullYear(), expireOnDate
@@ -311,12 +312,12 @@
 		    .getUTCSeconds()) / 1000;
 		  var tosign = targetUri + '\n' + expires;
 		
-		  // с помощью CryptoJS
+		  // using CryptoJS
 		  var signature = CryptoJS.HmacSHA256(tosign, sasKeyValue);
 		  var base64signature = signature.toString(CryptoJS.enc.Base64);
 		  var base64UriEncoded = encodeURIComponent(base64signature);
 		
-		  // создание строки авторизации
+		  // construct authorization string
 		  sasToken = "SharedAccessSignature sr=" + targetUri + "&sig="
 		                  + base64UriEncoded + "&se=" + expires + "&skn=" + sasKeyName;
 		}
@@ -333,7 +334,7 @@
 		      "</content>" +
 		  "</entry>";
 		
-		  // Обновление полезных данных с использованием идентификатора регистрации, полученного ранее
+		  // Update the payload with the registration id obtained earlier
 		  registrationPayload = registrationPayload.replace("{GCMRegistrationId}", registrationId);
 		
 		  var url = originalUri + "/registrations/?api-version=2014-09";
@@ -342,18 +343,18 @@
 		  client.onload = function () {
 		    if (client.readyState == 4) {
 		      if (client.status == 200) {
-		        updateLog("Регистрация центра уведомлений успешно завершена!");
+		        updateLog("Notification Hub Registration succesful!");
 		        updateLog(client.responseText);
 		      } else {
-		        updateLog ("Не удалось выполнить регистрацию центра уведомлений!").
-		        updateLog ("Состояние HTTP: " + client.status + " : " + client.statusText);
+		        updateLog("Notification Hub Registration did not succeed!");
+		        updateLog("HTTP Status: " + client.status + " : " + client.statusText);
 		        updateLog("HTTP Response: " + "\n" + client.responseText);
 		      }
 		    }
 		  };
 		
 		  client.onerror = function () {
-		        updateLog("Ошибка. Регистрация центра уведомлений не удалась.");
+		        updateLog("ERROR - Notification Hub Registration did not succeed!");
 		  }
 		
 		  client.open("POST", url, true);
@@ -370,15 +371,15 @@
 		}
 
 	Из приведенного выше сценария можно сделать следующие выводы.
-	- *window.onload* определяет события нажатия кнопки для двух кнопок пользовательского интерфейса - одна кнопка выполняет регистрацию в GCM, а другая кнопка использует идентификатор регистрации, возвращенный после регистрации в GCM, чтобы выполнить регистрацию в центре уведомлений Azure. 
+	- *window.onload* определяет события нажатия кнопки для двух кнопок пользовательского интерфейса - одна кнопка выполняет регистрацию в GCM, а другая кнопка использует идентификатор регистрации, возвращенный после регистрации в GCM, чтобы выполнить регистрацию в концентраторе уведомлений Azure. 
 	- Функция *updateLog* определяет обычную функцию ведения журнала. 
-	- *registerWithGCM* - это обработчик нажатия первой кнопки, который выполняет вызов  *chrome.gcm.register* GCM, чтобы зарегистрировать этот экземпляр приложения Chrome. 
-	- *registerCallback* - это функция обратного вызова, которая получает вызов при возврате вышеприведенного вызова регистрации в GCM. 
-	- *registerWithNH* - это обработчик нажатия второй кнопки, который выполняет регистрацию в центре уведомлений. Он получает значения  *hubName* и  *connectionString*, которые указал пользователь, и вызывает REST API для регистрации в центре уведомлений. 
-	- *splitConnectionString* и  *generateSaSToken* - это параметры создания маркера SaS с помощью JavaScript. Этот маркер должен отправляться при каждом вызове REST API. Дополнительную информацию см. здесь: http://msdn.microsoft.com/library/dn495627.aspx. 
-	- *sendNHRegistrationRequest* - это функция, осуществляющая вызов HTTP REST. 
+	- *registerWithGCM* - это обработчик нажатия первой кнопки, который выполняет вызов *chrome.gcm.register*, адресованный GCM, чтобы зарегистрировать этот экземпляр приложения Chrome. 
+	- *registerCallback* - это функция обратного вызова, которая получает вызов при возврате вышеупомянутого вызова регистрации в GCM. 
+	- *registerWithNH* - это обработчик нажатия второй кнопки, который выполняет регистрацию в концентраторах уведомлений. Он получает значения *hubName* и *connectionString*, которые указал пользователь, и вызывает REST API для регистрации в концентраторах уведомлений. 
+	- *splitConnectionString* и *generateSaSToken* - это параметры создания маркера SaS с помощью JavaScript. Этот маркер должен отправляться при каждом вызове REST API. Дополнительную информацию см. здесь: http://msdn.microsoft.com/library/dn495627.aspx 
+	- *sendNHRegistrationRequest* - это функция, осуществляющая вызов HTTP REST.
 	- *registrationPayload* определяет полезные XML-данные регистрации. Дополнительную информацию см. здесь: [Создание регистрации]. Здесь мы обновляем идентификатор регистрации на основе данных, полученных из GCM. 
-	- *client* - это экземпляр  *XMLHttpRequest*, который мы используем, чтобы выполнить запрос HTTP POST. Обратите внимание, что мы обновляем заголовок  *Authorization* с помощью sasToken. Если этот вызов будет выполнен успешно, этот экземпляр приложения Chrome будет зарегистрирован в центре уведомлений Azure. 
+	- *client* - это экземпляр *XMLHttpRequest*, который используется для выполнения запроса HTTP POST. Обратите внимание, что мы обновляем заголовок *Authorization* с помощью маркера SaS. Если этот вызов будет выполнен успешно, этот экземпляр приложения Chrome будет зарегистрирован в центре уведомлений Azure. 
 	
 
 8. В конечном результате папка должна выглядеть следующим образом:
@@ -398,22 +399,22 @@
 
    	![][18]
 
-4. Введите **номер проекта**, который вы получили ранее из **консоли Google Cloud**, и идентификатор отправителя, а затем щелкните **Зарегистрировать в GCM**. Вы должны увидеть сообщение  *Registration with GCM succeeded.*.
+4. Введите **номер проекта**, который вы получили ранее из **консоли Google Cloud**, и идентификатор отправителя, а затем щелкните **Зарегистрировать в GCM**. Должно появиться сообщение о том, что *регистрация GCM выполнена успешно.*
 
    	![][19]
 
-5. Введите имя в поле **Имя центра уведомлений** и значение **DefaultListenSharedAccessSignature**, полученное ранее на портале управления Azure, а затем нажмите кнопку **Зарегистрировать в центре уведомлений Azure**. Вы должны увидеть сообщение  *Notification Hub Registration succesful!* и данные ответа о регистрации, в которых содержится идентификатор регистрации центра уведомлений Azure. 
+5. Введите имя в поле **Имя центра уведомлений** и значение **DefaultListenSharedAccessSignature**, полученное ранее на портале управления Azure, а затем нажмите кнопку **Зарегистрировать в центре уведомлений Azure**. Вы должны увидеть сообщение о том, что *регистрация концентратора уведомлений выполнена успешно*, а также данные ответа о регистрации, в которых содержится идентификатор регистрации концентратора уведомлений Azure. 
 
    	![][20]  
 
 ##<a name="send"></a>Отправка уведомлений для приложения Chrome
 
-В этом учебнике показано, как отправлять уведомления с помощью консольного приложения .NET. Тем не менее, уведомления можно отправлять с помощью центра уведомлений из любой серверной части, используя <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">интерфейс REST</a>. 
+В этом учебнике рассказывается о том, как отправлять уведомления с помощью консольного приложения .NET. Тем не менее, уведомления можно отправлять с помощью концентратора уведомлений из любой серверной части, используя <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">интерфейс REST</a>. 
 
-Пример отправки уведомлений из серверной части мобильных служб Azure, интегрированной с помощью центра уведомлений, см. в статье **Приступая к работе с push-уведомлениями в мобильных службах** ([Серверная часть .NET](mobile-services-javascript-backend-android-get-started-push.md) | [Серверная часть JavaScript](mobile-services-javascript-backend-android-get-started-push.md)).  
-Пример отправки уведомлений с помощью REST API см. в статьях **Использование центра уведомлений из Java, PHP или Python** ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md) | [Python](notification-hubs-python-backend-how-to.md)).
+Пример отправки уведомлений с сервера мобильных служб Azure, интегрированного с концентраторами уведомлений, см. в статье **Приступая к работе с push-уведомлениями в мобильных службах** ([сервер .NET](mobile-services-javascript-backend-android-get-started-push.md) | [сервер JavaScript](mobile-services-javascript-backend-android-get-started-push.md)).  
+Пример отправки уведомлений с помощью API REST см. в статье **Использование концентраторов уведомлений из Java/PHP/Python** ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md) | [Python](notification-hubs-python-backend-how-to.md)).
 
-1. В Visual Studio в меню **Файл** последовательно выберите **Создать** и **Проект...**, затем в области **Visual C#** нажмите **Windows** и **Консольные приложения**, затем нажмите кнопку **ОК**.  Будет создан новый проект консольного приложения.
+1. В Visual Studio в меню **Файл** последовательно выберите **Создать**, **Проект...**, а затем в области **Visual C#** щелкните **Windows** и **Консольное приложение** и нажмите кнопку **ОК**.  Будет создан новый проект консольного приложения.
 
 2. В меню **Инструменты** последовательно выберите **Диспетчер пакетов библиотеки** и **Консоль диспетчера пакетов**. Отобразится консоль диспетчера пакетов.
 
@@ -425,14 +426,14 @@
 
 4. Откройте файл Program.cs и добавьте следующий оператор `using`:
 
-        с помощью Microsoft.ServiceBus.Notifications;
+        using Microsoft.ServiceBus.Notifications;
 
 5. В классе **Program** добавьте следующий метод:
 
         private static async void SendNotificationAsync()
         {
-            NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("<строка подключения с полным доступом>", "<имя центра>");
-            String message = "{\"data\":{\"message\":\"Добро пожаловать Chrome из центра уведомлений Azure\"}}";
+            NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("<connection string with full access>", "<hub name>");
+            String message = "{\"data\":{\"message\":\"Hello Chrome from Azure Notification Hubs\"}}";
             await hub.SendGcmNativeNotificationAsync(message);
         }
 
@@ -495,7 +496,7 @@
 [Библиотека crypto-js]: http://code.google.com/p/crypto-js/
 [Использование GCM с приложениями Chrome]: https://developer.chrome.com/apps/cloudMessaging
 [Google Cloud Messaging for Chrome]: https://developer.chrome.com/apps/cloudMessagingV1
-[Уведомление пользователей посредством центров уведомлений]: http://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-notify-users/
-[Использование центров уведомлений Azure для передачи экстренных новостей]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
+[Уведомление пользователей посредством центров уведомлений]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
+[Использование концентраторов уведомлений Azure для передачи экстренных новостей]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 
-<!--HONumber=45--> 
+<!--HONumber=49-->

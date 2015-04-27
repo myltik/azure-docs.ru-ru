@@ -1,6 +1,21 @@
-<properties urlDisplayName="Specifying a Node.js Version" pageTitle="Указание версии Node.js" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="nodejs" title="Specifying a Node.js version in an Azure application" authors="larryfr" solutions="" manager="wpickett" editor="mollybos" />
+<properties 
+	pageTitle="Указание версии Node.js" 
+	description=""
+	services="" 
+	documentationCenter="nodejs" 
+	title="Specifying a Node.js version in an Azure application" 
+	authors="larryfr" 
+	manager="wpickett" 
+	editor="mollybos" />
 
-<tags ms.service="na" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags 
+	ms.service="na" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="09/17/2014" 
+	ms.author="larryfr" />
 
 
 
@@ -86,8 +101,11 @@ Azure предоставляет несколько версий Node.js по у
 
 [Использование средств командной строки Azure для Mac и Linux]: /ru-ru/documentation/articles/xplat-cli/
 [использовать средства командной строки Azure для Mac и Linux]: /ru-ru/documentation/articles/xplat-cli/
-[средств командной строки Azure]: /ru-ru/documentation/articles/xplat-cli/
+[Средства командной строки Azure]: /ru-ru/documentation/articles/xplat-cli/
 [работа с модулями]: /ru-ru/documentation/articles/nodejs-use-node-modules-azure-apps/
 [работать с модулями]: /ru-ru/documentation/articles/nodejs-use-node-modules-azure-apps/
 [Построение и развертывание веб-сайта Node.js]: /ru-ru/documentation/articles/web-sites-nodejs-develop-deploy-mac/
 [строить и развертывать веб-сайт Node.js]: /ru-ru/documentation/articles/web-sites-nodejs-develop-deploy-mac/
+
+
+<!--HONumber=46-->

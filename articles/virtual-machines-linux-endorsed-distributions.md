@@ -22,7 +22,7 @@
 
 #Linux в Azure - рекомендованные дистрибутивы
 
-Образы дистрибутивов в коллекции Azure предоставлены перечисленными ниже партнерами, и мы также работаем с разными сообществами Linux, чтобы предоставить дополнительные рекомендованные дистрибутивы. Пока же в случае отсутствия нужных дистрибутивов в коллекции вы всегда можете передать свой дистрибутив Linux, следуя указаниям на [этой странице](virtual-machines-linux-create-upload-vhd.md).
+Образы дистрибутивов в коллекции Azure предоставлены перечисленными ниже партнерами, и мы также работаем с разными сообществами Linux, чтобы предоставить дополнительные рекомендованные дистрибутивы. Пока же в случае отсутствия нужных дистрибутивов в коллекции вы всегда можете передать свой дистрибутив Linux, следуя указаниям на [этой странице](virtual-machines-linux-create-upload-vhd.md)
 
 ## Canonical ##
  
@@ -74,16 +74,15 @@ SUSE Linux Enterprise Server в Azure - проверенная платформ�
 	<tr>
 		<th> CentOS через OpenLogic </th>
 		<td> CentOS 6.3+</td>
-	    <td>CentOS 6.3: <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409">драйверы LIS; драйверы CentOS 6.4+: в ядре</td>
+	    <td>CentOS 6.3: <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409">драйверы LIS;</a>CentOS 6.4 + драйверы: в ядре</td>
 		<td><a href="http://go.microsoft.com/fwlink/?LinkID=275153&amp;clcid=0x409">Требуется только для версии 6.3</a></td>
-		<td>Пакет: <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">в репозитории пакетов Open Logic</a> под именем walinuxagent<br />
+		<td>Пакет: в <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">репозитории пакетов Open Logic </a> под именем walinuxagent<br />
 			Источник: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
  		
-
 	</tr>
 	<tr>
 		<th> <a href="https://coreos.com/docs/running-coreos/cloud-providers/azure/">CoreOS</a> </th>
-		<td> 494.4.0+ </td>
+		<td> 494.4.0 + </td>
         <td> В ядре </td>
 		<td> Недоступно </td>
 		<td> Источник: <a href="https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent">GitHub</a></td>
@@ -91,7 +90,7 @@ SUSE Linux Enterprise Server в Azure - проверенная платформ�
 	</tr>
 	<tr>
 		<th> Oracle Linux </th>
-		<td> 6.4+</td>
+		<td> 6.4 +</td>
         <td>В ядре</td>
 		<td>Недоступно</td>
 		<td>Пакет: в репозитории, имя: WALinuxAgent<br />
@@ -103,8 +102,8 @@ SUSE Linux Enterprise Server в Azure - проверенная платформ�
 		<td> SLES 11 SP3+</td>
         <td>В ядре</td>
 		<td>Недоступно</td>
-		<td>Пакет: в репозитории <a href="https://build.opensuse.org/project/show/Cloud:Tools" >Cloud:Tools</a, имя: WALinuxAgent<br />
-			Исходный код:  <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
+		<td>Пакет: В репозитории <a href="https://build.opensuse.org/project/show/Cloud:Tools" >Cloud:Tools</a> под именем: WALinuxAgent<br />
+			Исходный код: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
 		
 	</tr>
 	<tr>
@@ -112,13 +111,11 @@ SUSE Linux Enterprise Server в Azure - проверенная платформ�
 		<td> openSUSE 13.1+</td>
 		<td>В ядре</td>
 		<td>Недоступно</td>
-		<td>Пакет: в репозитории <a href="https://build.opensuse.org/project/show/Cloud:Tools" >Cloud:Tools</a, имя: WALinuxAgent<br />
+		<td>Пакет: В репозитории <a href="https://build.opensuse.org/project/show/Cloud:Tools" >Cloud:Tools</a> под именем: WALinuxAgent<br />
 			Исходный код: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
 		
 	</tr>
 </table>
 
 
-
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

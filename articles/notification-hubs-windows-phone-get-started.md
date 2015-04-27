@@ -1,48 +1,48 @@
 <properties 
-	pageTitle="Приступая к работе с центрами уведомлений Azure" 
+	pageTitle="Приступая к работе с концентраторами уведомлений Azure" 
 	description="Узнайте, как использовать центры уведомлений Azure для push-уведомлений." 
 	services="notification-hubs" 
 	documentationCenter="windows" 
-	authors="ggailey777" 
+	authors="wesmc7777" 
 	manager="dwrede" 
 	editor="dwrede"/>
 
 <tags 
 	ms.service="notification-hubs" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="09/24/2014" 
-	ms.author="glenga"/>
-# Приступая к работе с центрами уведомлений
+	ms.date="03/16/2015" 
+	ms.author="wesmc"/>
+# Приступая к работе с концентраторами уведомлений
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/ru-ru/documentation/articles/notification-hubs-windows-store-dotnet-get-started/" title="Windows Universal">Windows Universal</a><a href="/ru-ru/documentation/articles/notification-hubs-windows-phone-get-started/" title="Windows Phone" class="current">Windows Phone</a><a href="/ru-ru/documentation/articles/notification-hubs-ios-get-started/" title="iOS">iOS</a><a href="/ru-ru/documentation/articles/notification-hubs-android-get-started/" title="Android">Android</a><a href="/ru-ru/documentation/articles/notification-hubs-kindle-get-started/" title="Kindle">Kindle</a><a href="/ru-ru/documentation/articles/notification-hubs-baidu-get-started/" title="Baidu">Baidu</a><a href="/ru-ru/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/" title="Xamarin.iOS">Xamarin.iOS</a><a href="/ru-ru/documentation/articles/partner-xamarin-notification-hubs-android-get-started/" title="Xamarin.Android">Xamarin.Android</a></div>
+[AZURE.INCLUDE [notification-hubs-selector-get-started](../includes/notification-hubs-selector-get-started.md)]
 
-В этом разделе показано, как использовать центры уведомлений Windows Azure для отправки push-уведомлений в приложение Sliverlight для Windows Phone 8 или Windows Phone 8.1. Если вы ориентируетесь на Windows Phone 8.1 (не Silverlight), см. версию [Windows Universal](notification-hubs-windows-store-dotnet-get-started.md).
+##Обзор
+
+В этом разделе показано, как использовать центры уведомлений Windows Azure для отправки push-уведомлений в приложение Sliverlight для Windows Phone 8 или Windows Phone 8.1. Если вы намерены использовать Windows Phone 8.1 (без Silverlight), см. вариант статьи [для всех устройств Windows](notification-hubs-windows-store-dotnet-get-started.md)
 В этом учебнике вам предстоит создать пустое приложение Windows Phone 8, получающее push-уведомления с помощью службы push-уведомлений Майкрософт (MPNS). По завершении вы сможете рассылать push-уведомления на все устройства, где запущено ваше приложение, с помощью центра уведомлений.
 
-> [AZURE.NOTE] Центры уведомлений Windows Phone SDK не поддерживают использование WNS с приложениями Windows Phone 8.1 Silverlight. Чтобы использовать WNS (вместо MPNS) с приложениями Windows Phone 8.1 Silverlight, вам необходимо настроить учетные данные WNS, как это показано в разделе [Начало работы с Windows Universal](notification-hubs-windows-store-dotnet-get-started.md). После этого их можно зарегистрировать со стороны внутренней службы, как это показано в учебнике [Уведомление пользователей](notification-hubs-aspnet-backend-windows-dotnet-notify-users.md), или использовать [интерфейсы API центров уведомлений REST](http://msdn.microsoft.com/library/dn223264.aspx).
+> [AZURE.NOTE] Центры уведомлений Windows Phone SDK не поддерживают использование WNS с приложениями Windows Phone 8.1 Silverlight. Чтобы использовать WNS (вместо MPNS) с приложениями на основе Silverlight для Windows Phone 8.1, воспользуйтесь примером из статьи [Концентратор уведомлений - учебник WP Silverlight]. В нем используются интерфейсы API REST.
 
-В этом учебнике рассматриваются следующие шаги для включения push-уведомлений:
+В этом учебнике описывается простой сценарий вещания с использованием центров уведомлений. 
 
-1. [Создание центра уведомлений]
-2. [Подключение приложения к центру уведомлений]
-3. [Отправка уведомлений из серверной части]
+##Предварительные требования
 
-В этом учебнике описывается простой сценарий вещания с использованием центров уведомлений. Рекомендуем вам изучить следующий учебник, чтобы узнать об использовании центров уведомлений для охвата определенных пользователей и групп устройств. Для работы с данным учебником требуется следующее:
+Для работы с данным учебником требуется следующее:
 
 + [Microsoft Visual Studio 2012 Express для Windows Phone] или более поздняя версия.
 
 Завершение изучения этого учебника является необходимым условием для работы со всеми другими учебниками, посвященными центрам уведомлений для приложений Windows Phone 8. 
 
-> [AZURE.NOTE] Для работы с этим учебником требуется активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fru-ru%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F%20 target="_blank").
+> [AZURE.NOTE] Для работы с этим учебником требуется активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fru-ru%2Fdocumentation%2Farticles%2Fnotification-hubs-windows-phone-get-started%2F).
 
-##<a name="configure-hub"></a>Создание центра уведомлений
+##Создание концентратора уведомлений
 
-1. Войдите на [Портал управления Azure] и щелкните пункт **+СОЗДАТЬ** в нижней части экрана.
+1. Войдите на [портал управления Azure] и щелкните пункт **+СОЗДАТЬ** в нижней части экрана.
 
-2. Последовательно щелкните элементы **Службы приложений**, **Service Bus**, **Центр уведомлений** и **Быстрое создание**.
+2. Последовательно щелкните элементы **Службы приложений**, **Шина обслуживания**, **Концентратор уведомлений** и **Быстрое создание**.
 
    	![][7]
 
@@ -50,7 +50,7 @@
 
    	![][8]
 
-4. Выберите недавно созданное пространство имен (обычно это ***имя центра уведомлений*-ns**) и щелкните расположенную сверху вкладку **Настройка**.
+4. Выберите недавно созданное пространство имен (обычно это ***имя концентратора уведомлений*-ns**) и щелкните вверху вкладку **Настройка**.
 
    	![][9]
 
@@ -68,9 +68,9 @@
 
 Теперь у вас есть строки подключения, чтобы зарегистрировать приложение Windows Phone 8 и отправлять уведомления.
 
-> [AZURE.NOTE] В этом учебнике используется MPNS в режиме без проверки подлинности. Режим MPNS без проверки подлинности налагает ограничения на использование уведомлений, отправляемых для каждого канала. Центры уведомлений поддерживают режим работы [MPNS с аутентификацией](http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx). <!--Refer to [Notification Hubs How-To for Windows Phone 8] for more information on how to use MPNS authenticated mode.-->
+> [AZURE.NOTE] В этом учебнике используется MPNS в режиме без проверки подлинности. Режим MPNS без проверки подлинности налагает ограничения на использование уведомлений, отправляемых для каждого канала. Концентраторы уведомлений поддерживают [режим работы MPNS с проверкой подлинности](http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx). <!--Refer to [Notification Hubs How-To for Windows Phone 8] for more information on how to use MPNS authenticated mode.-->
 
-##<a name="connecting-app"></a>Подключение приложения к центру уведомлений
+##Подключение приложения к концентратору уведомлений
 
 1. В Visual Studio создайте новое консольное приложение Windows Phone 8.
 
@@ -90,7 +90,7 @@
 
 	После этого будет выполнено скачивание, установка и добавление ссылки на библиотеку Azure Messaging для Windows при помощи <a href="http://nuget.org/packages/WindowsAzure.Messaging.Managed/">пакета NuGet WindowsAzure.Messaging.Managed</a>. 
 
-4. Откройте файл App.xaml.cs и добавьте следующие инструкции `using`:
+4. Откройте файл App.xaml.cs и добавьте следующие операторы `using`:
 
         using Microsoft.Phone.Notification;
         using Microsoft.WindowsAzure.Messaging;
@@ -126,9 +126,9 @@
 
 	Отобразится сообщение о регистрации сообщения.
 
-##<a name="send"></a>Отправка уведомления из серверной части
+##Отправка уведомления из серверной части
 
-Уведомления можно отправлять с помощью центров уведомлений из любого серверного компонента с помощью <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">интерфейса REST</a>. В этом учебнике мы будем отправлять уведомления с помощью консольного приложения .NET. Пример отправки уведомлений из серверной части мобильных служб Azure, интегрированной с помощью центра уведомлений, см. в статье **Приступая к работе с push-уведомлениями в мобильных службах** ([Серверная часть .NET](mobile-services-javascript-backend-windows-phone-get-started-push.md)) | [Серверная часть JavaScript](mobile-services-javascript-backend-windows-phone-get-started-push.md)).  Чтобы ознакомиться с примером отправки уведомлений при помощи REST API, см. раздел **Использование центров уведомлений из Java/PHP** ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md)).
+Уведомления можно отправлять с помощью центров уведомлений из любого серверного компонента с помощью <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">интерфейса REST</a>. В этом учебнике мы будем отправлять уведомления с помощью консольного приложения .NET. Пример отправки уведомлений с сервера мобильных служб Azure, интегрированного с концентраторами уведомлений, см. в статье **Приступая к работе с push-уведомлениями в мобильных службах** ([сервер .NET](mobile-services-javascript-backend-windows-phone-get-started-push.md) | [Серверная часть JavaScript](mobile-services-javascript-backend-windows-phone-get-started-push.md)).  Пример отправки уведомлений с помощью API REST см. в статье **Использование концентраторов уведомлений из Java/PHP** ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md)).
 
 1. Щелкните правой кнопкой решение, выберите **Добавить**, затем **Новый проект...**, затем в разделе **Visual C#** щелкните **Windows** и **Консольное приложение**, после чего щелкните **ОК**. 
 
@@ -146,7 +146,7 @@
     
 	После этого будет добавлена ссылка на пакет SDK для Azure Service Bus с помощью пакета NuGet <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus</a>. 
 
-5. Откройте файл Program.cs и добавьте следующий оператор `using`:
+5. Откройте файл Program.cs и добавьте следующие операторы `using`:
 
         using Microsoft.ServiceBus.Notifications;
 
@@ -180,15 +180,11 @@
 
 В [каталоге всплывающих уведомлений] и [каталоге плиток] MSDN можно найти все возможные полезные данные.
 
-## <a name="next-steps"> </a>Дальнейшие действия
+##Дальнейшие действия
 
-В этом простом примере осуществляется рассылка уведомлений на все устройства Windows Phone 8. Чтобы ориентироваться на определенных пользователей, см. учебник [Использование центров уведомлений для отправки push-уведомлений пользователям]. Если необходимо разделить пользователей по группам интересов, см. раздел [Использование центров уведомлений для передачи экстренных новостей]. Дополнительную информацию об использовании центров уведомлений см. в [Руководство по использованию центров уведомлений].
+В этом простом примере осуществляется рассылка уведомлений на все устройства Windows Phone 8. Чтобы ориентироваться на определенных пользователей, см. учебник [Использование концентраторов уведомлений для отправки push-уведомлений пользователям]. Если необходимо разделить пользователей по группам интересов, см. раздел [Использование концентраторов уведомлений для передачи экстренных новостей]. Дополнительную информацию об использовании центров уведомлений см. в [руководстве по использованию центров уведомлений].
 
-<!-- Anchors. -->
-[Создание центра уведомлений]: #configure-hub
-[Подключение приложения к центру уведомлений]: #connecting-app
-[Отправка уведомлений из серверной части]: #send
-[Дальнейшие действия]:#next-steps
+
 
 <!-- Images. -->
 [6]: ./media/notification-hubs-windows-phone-get-started/notification-hub-create-console-app.png
@@ -210,16 +206,15 @@
 
 
 <!-- URLs. -->
-[Microsoft Visual Studio 2012 Express для Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
-[Приступая к работе с мобильными службами]: /ru-ru/develop/mobile/tutorials/get-started/#create-new-service
-
+[Visual Studio 2012 Express для Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
 [Портал управления Azure]: https://manage.windowsazure.com/
-[Руководство по использованию центров уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
-[Notification Hubs How-To for Windows Phone 8]: TBD!!!
+[руководстве по использованию центров уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
 [Режим работы MPNS с аутентификацией]: http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx
-[Использование центров уведомлений для отправки push-уведомлений пользователям]: /ru-ru/manage/services/notification-hubs/notify-users-aspnet
-[Использование центров уведомлений для передачи экстренных новостей]: /ru-ru/manage/services/notification-hubs/breaking-news-dotnet
+[Использование концентраторов уведомлений для отправки push-уведомлений пользователям]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
+[Использование концентраторов уведомлений для передачи экстренных новостей]: notification-hubs-windows-phone-send-breaking-news.md
 [каталоге всплывающих уведомлений]: http://msdn.microsoft.com/library/windowsphone/develop/jj662938(v=vs.105).aspx
 [каталоге плиток]: http://msdn.microsoft.com/library/windowsphone/develop/hh202948(v=vs.105).aspx
+[Концентратор уведомлений - учебник WP Silverlight]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSLPhoneApp
 
-<!--HONumber=45--> 
+
+<!--HONumber=49-->
