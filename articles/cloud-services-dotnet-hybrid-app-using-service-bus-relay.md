@@ -590,7 +590,7 @@ Service Bus также защищает эти службы от несанкц�
   [3]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-4-2-WebPI.png
   
   
-  [Портал управления Azure]: http://manage.windowsazure.com
+  [портал управления Azure]: http://manage.windowsazure.com
   [5]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/sb-queues-03.png
   [6]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/sb-queues-04.png
   
