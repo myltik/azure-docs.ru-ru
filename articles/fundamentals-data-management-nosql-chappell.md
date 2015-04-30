@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Understand NoSQL technologies" pageTitle="Основные сведения о технологиях NoSQL в Azure | Azure" metaKeywords="" description="Вы узнаете, как технологии NoSQL в HDInsight могут помочь вам с управлением данными, для хранения которых не подходят реляционные базы данных. К таким данным можно отнести неструктурированные данные большого размера, документы JSON или графы." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="storage,hdinsight,documentdb" documentationCenter="" title="Data management: Understanding NoSQL technologies on Azure" authors="cgronlun" />
+<properties urlDisplayName="Understand NoSQL technologies" pageTitle="Основные сведения о технологиях NoSQL в Azure | Azure" metaKeywords="" description="Вы узнаете, как технологии NoSQL в HDInsight могут помочь вам с управлением данными, для хранения которых не подходят реляционные базы данных. К таким данным можно отнести неструктурированные данные большого размера, документы JSON или графы." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="storage,hdinsight,documentdb" documentationCenter="" title="Data management: Understanding NoSQL technologies on Azure" authors="cgronlun" />
 
 <tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/01/2014" ms.author="cgronlun" />
 
@@ -28,3 +28,5 @@
 
 **Для загрузки:** <a href="http://go.microsoft.com/fwlink/p/?LinkId=330292" target="_blank">"Основные сведения о NoSQL в Microsoft Azure", PDF-файл</a>
 
+
+<!--HONumber=35.2-->
