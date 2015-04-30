@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Начало работы с концентраторами уведомлений Azure" 
 	description="Узнайте, как использовать центры уведомлений Azure для push-уведомлений." 
 	services="notification-hubs" 
@@ -302,9 +302,12 @@
 
 <!-- URLs. -->
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
+[пакет Android SDK для мобильных служб]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
+[пакет SDK для Android для мобильных служб]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Ссылки на проект библиотеки]: http://go.microsoft.com/fwlink/?LinkId=389800
 [Портал управления Azure]: https://manage.windowsazure.com/
 [Руководство по использованию концентраторов уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
+[Общие сведения о концентраторах уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
 
 [Использование концентраторов уведомлений для отправки push-уведомлений пользователям]: notification-hubs-aspnet-backend-android-notify-users.md
 [Использование концентраторов уведомлений для передачи экстренных новостей]: notification-hubs-aspnet-backend-android-breaking-news.md

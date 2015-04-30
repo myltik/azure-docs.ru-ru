@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Приступая к работе с концентраторами уведомлений Azure" 
 	description="Узнайте, как использовать центры уведомлений Azure для push-уведомлений." 
 	services="notification-hubs" 
@@ -477,9 +477,13 @@ Push-облако Baidu - это китайская облачная служб�
 
 <!-- URLs. -->
 [Пакет Android SDK для мобильных служб]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
+[пакет Android SDK для мобильных служб]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Пакет Android SDK для Baidu Push]: http://developer.baidu.com/wiki/index.php?title=docs/cplat/push/sdk/clientsdk
+[пакет Android SDK для Baidu Push]: http://developer.baidu.com/wiki/index.php?title=docs/cplat/push/sdk/clientsdk
 [Портал управления Azure]: https://manage.windowsazure.com/
+[портал управления Azure]: https://manage.windowsazure.com/
 [Портал Baidu]: http://www.baidu.com/
+[портал Baidu]: http://www.baidu.com/
 
 
 

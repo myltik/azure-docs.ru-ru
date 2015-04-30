@@ -1,4 +1,4 @@
-﻿
+
 
 Чтобы создать мобильное приложение, сделайте вот что.
 
@@ -41,5 +41,6 @@
 
 <!-- URLs. -->
 [Портал Azure]: https://portal.azure.com/
+[портал Azure]: https://portal.azure.com/
 
 <!--HONumber=49-->

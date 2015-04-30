@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Учебник по передаче экстренных новостей в центрах уведомлений: iOS" 
 	description="Узнайте, как использовать центры уведомлений Azure Service Bus для отправки уведомлений об экстренных новостях на устройства iOS." 
 	services="notification-hubs" 
@@ -104,7 +104,7 @@
 
 		self.notifications = [[Notifications alloc] init];
 
-	The initializes the Notification singleton.
+	Инициализирует одноэлементное уведомление.
 
 10. В методе **didRegisterForRemoteNotificationsWithDeviceToken** в файле BreakingNewsAppDelegate.m удалите вызов **registerNativeWithDeviceToken** и добавьте следующий код:
 
@@ -257,11 +257,13 @@
 <!-- URLs. -->
 [Практическое руководство. Использование концентраторов уведомлений Service Bus (приложения iOS)]: http://msdn.microsoft.com/library/jj927168.aspx
 [Использование концентраторов уведомлений для вещания локализованных экстренных новостей]: /manage/services/notification-hubs/breaking-news-localized-dotnet/
+[Использование концентраторов уведомлений для передачи локализованных экстренных новостей]: /manage/services/notification-hubs/breaking-news-localized-dotnet/
 [Мобильная служба]: /develop/mobile/tutorials/get-started
 [Уведомление пользователей с помощью центров уведомлений]: /manage/services/notification-hubs/notify-users/
 
 [Портал управления Azure]: https://manage.windowsazure.com/
 [Руководство по использованию центров уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
+[Общие сведения о концентраторах уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
 [Инструкции по использованию центров уведомлений для iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 [get-started]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
 

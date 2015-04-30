@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Приступая к работе с концентраторами уведомлений Azure" 
 	description="Узнайте, как использовать центры уведомлений Azure для push-уведомлений." 
 	services="notification-hubs" 
@@ -273,7 +273,9 @@
 
 [Приступая к работе с мобильными службами]: /develop/mobile/tutorials/get-started-ios
 [Портал управления Azure]: https://manage.windowsazure.com/
+[портал управления Azure]: https://manage.windowsazure.com/
 [Руководство по использованию концентраторов уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
+[Общие сведения о концентраторах уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
 [Установка Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Портал подготовки iOS]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
@@ -281,6 +283,7 @@
 [Использование концентраторов уведомлений для передачи экстренных новостей]: notification-hubs-ios-send-breaking-news.md
 
 [Руководство по программированию локальных и push-уведомлений]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
+[руководстве по программированию локальных и push-уведомлений]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
 
 <!--HONumber=49-->

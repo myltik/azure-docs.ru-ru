@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Создание и загрузка данных в таблицы Hive из хранилища больших двоичных объектов Azure | Azure" 
 	description="Создание таблиц Hive и загрузка в них данных больших двоичных объектов" 
 	metaKeywords="" 
@@ -19,7 +19,7 @@
 	ms.author="hangzh;bradsev" />
 
  
-#Создание и загрузка данных в таблицы Hive из хранилища больших двоичных объектов Azure
+# Создание и загрузка данных в таблицы Hive из хранилища больших двоичных объектов Azure
  
 В этом документе рассматриваются общие запросы Hive, которые создают таблицы Hive и загружают данные из хранилищ больших двоичных объектов Azure. Здесь также приведены некоторые указания по секционированию таблиц Hive и использованию формата Optimized Row Columnar (ORC) для улучшения производительности запросов.
 
@@ -140,7 +140,7 @@ https://&#60;Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor
 
 		INSERT OVERWRITE TABLE <database name>.<ORC table name> SELECT * FROM <database name>.<external textfile table name>;
 
->[AZURE.NOTE] Если в таблице В ВИДЕ ТЕКСТОВОГО ФАЙЛА `<database name>.<external textfile table name>` есть секции, команда `SELECT * FROM <database name>.<external textfile table name>`, выполняемая на ШАГЕ 3, выберет переменную секции в качестве поля в возвращенном наборе данных. Попытка вставить эту переменную в таблицу `<database name>.<ORC table name>` завершится ошибкой, так как в таблице `<database name>.<ORC table name>` в качестве поля в схеме таблицы нет переменной секции. В этом случае пользователям нужно указать поля, которые необходимо вставить в таблицу `<database name>.<ORC table name>`, следующим образом:
+[AZURE.NOTE] Если в таблице В ВИДЕ ТЕКСТОВОГО ФАЙЛА `<database name>.<external textfile table name>` есть секции, команда `SELECT * FROM <database name>.<external textfile table name>`, выполняемая на ШАГЕ 3, выберет переменную секции в качестве поля в возвращенном наборе данных. Попытка вставить эту переменную в таблицу `<database name>.<ORC table name>` завершится ошибкой, так как в таблице `<database name>.<ORC table name>` в качестве поля в схеме таблицы нет переменной секции. В этом случае пользователям нужно указать поля, которые необходимо вставить в таблицу `<database name>.<ORC table name>`, следующим образом:
 
 		INSERT OVERWRITE TABLE <database name>.<ORC table name> PARTITION (<partition variable>=<partition value>)
 		      SELECT field1, field2, ..., fieldN

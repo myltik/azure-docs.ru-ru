@@ -24,11 +24,11 @@
 
 Этот учебник создан на основе краткого руководства по мобильным приложениям. Вам также необходимо сначала пройти учебник [Начало работы с мобильным приложением]. 
 
-##<a name="register"></a>Регистрация приложения для проверки подлинности и настройка службы приложений
+## <a name="register"></a>Регистрация приложения для проверки подлинности и настройка службы приложений
 
 [AZURE.INCLUDE [app-service-mobile-register-authentication](../includes/app-service-mobile-register-authentication.md)] 
 
-##<a name="permissions"></a>Ограничение разрешений для пользователей, прошедших проверку подлинности
+## <a name="permissions"></a>Ограничение разрешений для пользователей, прошедших проверку подлинности
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)] 
 
@@ -41,7 +41,7 @@
 
 Далее вы обновите приложение, чтобы оно выполняло проверку подлинности пользователей перед запросом ресурсов из службы приложений.
 
-##<a name="add-authentication"></a>Добавление проверки подлинности в приложение
+## <a name="add-authentication"></a>Добавление проверки подлинности в приложение
 
 [AZURE.INCLUDE [app-service-mobile-windows-universal-dotnet-authenticate-app](../includes/app-service-mobile-windows-universal-dotnet-authenticate-app.md)] 
 
@@ -49,7 +49,7 @@
 [AZURE.NOTE] После регистрации сведений о пакете приложения Магазина Windows следует вызвать метод <a href="http://go.microsoft.com/fwlink/p/?LinkId=311594" target="_blank">LoginAsync</a>, указав значение <strong>true</strong> для параметра <em>useSingleSignOn</em>. Если этого не сделать, пользователям придется осуществлять вход в систему при каждом вызове метода входа в систему.
 
 
-##<a name="tokens"></a>Сохранение токена проверки подлинности в клиенте
+## <a name="tokens"></a>Сохранение токена проверки подлинности в клиенте
 
 [AZURE.INCLUDE [app-service-mobile-windows-store-dotnet-authenticate-app-with-token](../includes/app-service-mobile-windows-store-dotnet-authenticate-app-with-token.md)] 
 

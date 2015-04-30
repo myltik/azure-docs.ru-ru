@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Приступая к работе с центрами уведомлений Azure" 
 	description="Узнайте, как использовать центры уведомлений Azure для push-уведомлений." 
 	services="notification-hubs" 
@@ -22,7 +22,7 @@
 
 ##Обзор
 
-В этом разделе показано, как использовать центры уведомлений Azure для отправки push-уведомлений в приложение для Магазина Windows или Windows Phone 8.1 (без Silverlight). Если вы намерены работать с приложения на основе Silverlight для Windows Phone 8.1, см. версию статьи для [Windows Phone](notification-hubs-windows-phone-get-started.md)  [AU1] 
+В этом разделе показано, как использовать центры уведомлений Azure для отправки push-уведомлений в приложение для Магазина Windows или Windows Phone 8.1 (без Silverlight). Если вы намерены работать с приложения на основе Silverlight для Windows Phone 8.1, см. версию статьи для [Windows Phone](notification-hubs-windows-phone-get-started.md). 
 В этом учебнике вам предстоит создать пустое приложение Магазина Windows, получающее push-уведомления с помощью службы push-уведомлений Windows (WNS). По завершении вы сможете рассылать push-уведомления на все устройства, где запущено ваше приложение, с помощью центра уведомлений.
 
 В этом учебнике описывается простой сценарий вещания с использованием центров уведомлений. Рекомендуем вам изучить следующий учебник, чтобы узнать об использовании центров уведомлений для охвата определенных пользователей и групп устройств. 
@@ -266,14 +266,20 @@
 
 <!-- URLs. -->
 [Портал управления Azure]: https://manage.windowsazure.com/
+[портал управления Azure]: https://manage.windowsazure.com/
 [Руководство по использованию концентраторов уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
+[руководстве по использованию центров уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
 
 [Использование центров уведомлений для отправки push-уведомлений пользователям]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Использование концентраторов уведомлений для передачи экстренных новостей]: notification-hubs-windows-store-dotnet-send-breaking-news.md
+[Использование центров уведомлений для передачи экстренных новостей]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 
 [каталог всплывающих уведомлений]: http://msdn.microsoft.com/library/windows/apps/hh761494.aspx
+[каталоге всплывающих уведомлений]: http://msdn.microsoft.com/library/windows/apps/hh761494.aspx
 [каталог уведомлений на плитке]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
+[каталоге плиток]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
 [обзор эмблем]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
-[AU1]By design, please ignore
+[обзоре эмблем]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
+
 
 <!--HONumber=49-->
