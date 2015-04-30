@@ -1,6 +1,6 @@
-﻿> [AZURE.SELECTOR]
-- [Портал](media-services-manage-content#publish.md)
-- [ПАКЕТ SDK .NET](media-services-deliver-streaming-content.md)
-- [API REST](media-services-rest-deliver-streaming-content.md)
+> [AZURE.SELECTOR]
+- [Портал](../articles/media-services-manage-content.md#publish)
+- [.NET SDK](../articles/media-services-deliver-streaming-content.md)
+- [REST API](../articles/media-services-rest-deliver-streaming-content.md)
 
-<!--HONumber=47-->
+<!--HONumber=52--> 

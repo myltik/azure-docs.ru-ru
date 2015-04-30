@@ -30,4 +30,4 @@
 [Приступая к работе с .NET](http://msdn.microsoft.com/library/azure/dn783465.aspx)
 
 
-<!--HONumber=47-->
+<!--HONumber=52-->

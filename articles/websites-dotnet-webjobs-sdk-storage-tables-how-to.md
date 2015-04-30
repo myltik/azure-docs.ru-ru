@@ -1,44 +1,36 @@
-﻿<properties 
+<properties 
 	pageTitle="Как использовать табличное хранилище Azure с пакетом SDK для WebJob" 
 	description="Информация об использовании табличного хранилища Azure с пакетом SDK для WebJob Создавайте таблицы, добавляйте в них сущности и считывайте существующие таблицы." 
-	services="web-sites, storage" 
+	services="app-service\web, storage" 
 	documentationCenter=".net" 
 	authors="tdykstra" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/15/2014" 
+	ms.date="04/03/2015" 
 	ms.author="tdykstra"/>
 
 # Как использовать табличное хранилище Azure с пакетом SDK для WebJob
 
-Это руководство содержит примеры кода C#, в которых показано, как выполнять чтение и запись таблиц службы хранилища Azure с использованием [пакета SDK для заданий WebJob](websites-dotnet-webjobs-sdk.md) версии 1 или более поздней версии.
+## Обзор
 
-В этом руководстве предполагается, что вы уже знаете, [как создавать проект задания WebJob в Visual Studio со строками подключения, указывающими на учетную запись хранения](websites-dotnet-webjobs-sdk-get-started.md).
+Это руководство содержит примеры кода C#, в которых показано, как выполнять чтение и запись таблиц службы хранилища Azure с использованием [пакета SDK для веб-заданий](websites-dotnet-webjobs-sdk.md) версии 1.x.
+
+В этом руководстве предполагается, что вы уже знаете, [как создавать проект веб-заданий в Visual Studio со строками подключения, указывающими на учетную запись хранения](websites-dotnet-webjobs-sdk-get-started.md).
 		
-В некоторых фрагментах кода демонстрируется использование атрибута `Table` в функциях, [вызванных вручную](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#manual), т. е. без использования атрибутов запуска. 
-
-## Оглавление
-
--   [Как добавить сущность в таблицу](#ingress)
--   [Мониторинг в реальном времени](#monitor)
--   [Как выполнять чтение нескольких сущностей из таблицы](#multiple)
--   [Как выполнять чтение одной сущности из таблицы](#readone)
--   [Как использовать API службы хранения .NET непосредственно для работы с таблицей](#readone)
--   [Связанные разделы, которые описаны в практическом руководстве по работе с очередями](#queues)
--   [Дальнейшие действия](#nextsteps)
+Некоторые фрагменты кода показывают атрибут `Table`, используемый в функциях, которые [вызываются вручную],(websites-dotnet-webjobs-sdk-storage-queues-how-to.md#manual)то есть без помощи атрибутов вызова. 
 
 ## <a id="ingress"></a> Как добавить сущность в таблицу
 
-Чтобы добавить сущности в таблицу, используйте атрибут `Table` с параметром `ICollector<T>` или `IAsyncCollector<T>`, где `T` specifies the schema of the entities you want to add. The attribute constructor takes a string parameter that specifies the name of the table. 
+Чтобы добавить сущности в таблицу, используйте атрибут `Table` с параметром `ICollector<T>` или `IAsyncCollector<T>`, где `T` определяет схему сущностей, которые нужно добавить. Конструктор атрибута принимает параметр строки, который указывает имя таблицы. 
 
-The following code sample adds `Person` (сущности) в таблицу с именем *Ingress*.
+Следующий образец кода добавляет `Person` (сущности) в таблицу с именем *Ingress*.
 
 		[NoAutomaticTrigger]
 		public static void IngressDemo(
@@ -75,15 +67,15 @@ The following code sample adds `Person` (сущности) в таблицу с 
 
 Поскольку функции входящих данных часто обрабатывают тома данных большого размера, на панели мониторинга пакета SDK для заданий WebJob доступны данные мониторинга в реальном времени. В разделе **Журнал вызова** указывается, запущена ли еще функция.
 
-![Ingress function running](./media/websites-dotnet-webjobs-sdk-storage-tables-how-to/ingressrunning.png)
+![Запуск функции входа](./media/websites-dotnet-webjobs-sdk-storage-tables-how-to/ingressrunning.png)
 
 На странице **Информация о вызове** отображаются данные о ходе выполнения функции (количество записанных сущности) и предоставляется возможность ее прервать. 
 
-![Ingress function running](./media/websites-dotnet-webjobs-sdk-storage-tables-how-to/ingressprogress.png)
+![Запуск функции входа](./media/websites-dotnet-webjobs-sdk-storage-tables-how-to/ingressprogress.png)
 
 По завершении выполнения функции на странице **Информация о вызове** отображается количество записанных строк.
 
-![Ingress function finished](./media/websites-dotnet-webjobs-sdk-storage-tables-how-to/ingresssuccess.png)
+![Функция входа выполнена](./media/websites-dotnet-webjobs-sdk-storage-tables-how-to/ingresssuccess.png)
 
 ## <a id="multiple"></a> Как выполнять чтение нескольких сущностей из таблицы
 
@@ -153,7 +145,7 @@ The following code sample adds `Person` (сущности) в таблицу с 
 
 ## <a id="queues"></a>Связанные разделы, которые описаны в практическом руководстве по работе с очередями
 
-Дополнительную информацию об обработке таблиц, которая инициируется сообщением очереди, а также несвязанные с обработкой таблиц сценарии для пакета SDK для заданий WebJob см. в статье [Использование пакета SDK веб-заданий для работы с хранилищем очередей Azure](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
+Дополнительную информацию об обработке таблиц, которая инициируется сообщением очереди, а также несвязанные с обработкой таблиц сценарии для пакета SDK для веб-заданий см. в статье [Использование пакета SDK веб-заданий для работы с хранилищем очередей Azure](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
 
 В этой статье рассматриваются следующие вопросы:
 
@@ -170,6 +162,4 @@ The following code sample adds `Person` (сущности) в таблицу с 
 
 В этом руководстве предоставлены примеры кода обработки обычных сценариев для работы с таблицами Azure. Дополнительные сведения об использовании веб-заданий Azure и пакета SDK веб-заданий см. в разделе [Веб-задания Azure - рекомендуемые ресурсы](http://go.microsoft.com/fwlink/?linkid=390226).
 
-
-
-<!--HONumber=42-->
+<!--HONumber=52-->

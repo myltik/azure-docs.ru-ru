@@ -3,7 +3,7 @@
 	description="В этом разделе показано, как подключиться к службам мультимедиа с помощью REST API." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/03/2015" 
+	ms.date="04/13/2015" 
 	ms.author="juliako"/>
 
 
 # Подключение к учетной записи служб мультимедиа с помощью REST API служб мультимедиа
 
-Это одна из статей серии [Рабочий процесс для видео по запросу в службах мультимедиа](../media-services-video-on-demand-workflow) и [Рабочий процесс для потоковой передачи в службах мультимедиа](../media-services-live-streaming-workflow) . 
+Это одна из статей серии [Рабочий процесс для видео по запросу в службах мультимедиа](media-services-video-on-demand-workflow.md) и серии [Рабочий процесс для потоковой передачи в службах мультимедиа](media-services-live-streaming-workflow.md) . 
 
 В этом разделе описывается установка программного подключения к службам мультимедиа Microsoft Azure при программировании с помощью REST API служб мультимедиа.
 
@@ -30,17 +30,17 @@
 1. Получение маркера доступа 
 2. Подключение к универсальному коду ресурса служб мультимедиа 
 
-	>[AZURE.NOTE] После успешного подключения к https://media.windows.netвы получите ошибку 301 (перенаправление), в которой будет указан другой URI служб мультимедиа. Используйте для последующих вызовов новый URI.
+	>[AZURE.NOTE] После успешного подключения к https://media.windows.net вы получите ошибку 301 (перенаправление), в которой будет указан другой URI служб мультимедиа. Используйте для последующих вызовов новый URI.
 	Кроме того, вы можете получить ответ 200 HTTP/1.1, содержащий описание метаданных API ODATA.
 
 3. Последующие вызовы API будут отправляться на новый URL-адрес. 
 
 	Например, если после попытки подключения вы получите следующее:
 
-		HTTP/1.1 301 Moved Permanently
-		Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
+		HTTP/1.1 301 перемещено навсегда
+		Расположение: https://wamsbayclus001rest-hs.cloudapp.net/api/
 
-	Необходимо публиковать следующие вызовы API по адресу https://wamsbayclus001rest-hs.cloudapp.net/api/.
+	Необходимо публиковать следующие вызовы API по адресу https://wamsbayclus001rest-hs.cloudapp.net/api/..
 
 ##Получение маркера доступа
 
@@ -54,8 +54,8 @@
 	Content-Type: application/x-www-form-urlencoded
 	Host: wamsprodglobal001acs.accesscontrol.windows.net
 	Content-Length: 120
-	Expect: 100-continue
-	Connection: Keep-Alive
+	Ожидается: 100-continue
+	Подключение: Keep-Alive
 	Accept: application/json
 
 	
@@ -63,7 +63,7 @@
 
 В тексте этого запроса следует указать значения client_id и client_secret. Эти значения соответствуют значениям AccountName и AccountKey соответственно. Они предоставляются службами мультимедиа при настройке учетной записи. 
 
-Обратите внимание, что при использовании значения AccountKey в качестве значения client_secret в запросе маркера доступа нужно закодировать значение AccountKey для учетной записи служб мультимедиа в URL-адресе.
+Обратите внимание, что AccountKey для учетной записи службы мультимедиа должно быть закодировано в URL (см. раздел [Percent-Encoding](http://tools.ietf.org/html/rfc3986#section-2.1) при использовании его в качестве значения для client_secret в запросе доступа к маркеру.
 
 	grant_type=client_credentials&client_id=ams_account_name&client_secret=URL_encoded_ams_account_key&scope=urn%3aWindowsAzureMediaServices
 
@@ -88,7 +88,7 @@
 	
 	{  
 	   "token_type":"http://schemas.xmlsoap.org/ws/2009/11/swt-token-profile-1.0",
-	   "access_token":"http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=f7f09258-6753-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421330840&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=uf69n82KlqZmkJDNxhJkOxpyIpA2HDyeGUTtSnq1vlE%3d",
+	   "access_token":"http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f19258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421330840&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=uf69n82KlqZmkJDNxhJkOxpyIpA2HDyeGUTtSnq1vlE%3d",
 	   "expires_in":"21600",
 	   "scope":"urn:WindowsAzureMediaServices"
 	}
@@ -103,15 +103,15 @@
 
 Корневой URI для служб мультимедиа - это https://media.windows.net/. Изначально необходимо подключиться к этому URI, а если вы получите ответ 301 (перенаправление), следует использовать для последующих вызовов новый URI. Кроме того, не используйте в запросах логику автоматического перенаправления или следования. HTTP-команды и тексты запросов не будут перенаправляться на новый URI.
 
-Обратите внимание, что корневой URI для передачи и скачивания файлов ресурсов -  https://yourstorageaccount.blob.core.windows.net/, где имя учетнойз аписих хранения - это имя, использованное при настройке учетной записи служб мультимедиа.
+Обратите внимание, что корневой URI для передачи и скачивания файлов ресурсов - https://yourstorageaccount.blob.core.windows.net/, где имя учетной записи хранения - это имя, использованное при настройке учетной записи служб мультимедиа.
 
 В следующем примере показан HTTP-запрос к корневому URI служб мультимедиа (https://media.windows.net/). При выполнении запроса возвращается код ошибки 301 (перенаправление). Следующий запрос использует новый URI (https://wamsbayclus001rest-hs.cloudapp.net/api/).     
 
 **HTTP-запрос**:
 	
 	GET https://media.windows.net/ HTTP/1.1
-	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=f7f09258-6753-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421500579&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=ElVWXOnMVggFQl%2ft9vhdcv1qH1n%2fE8l3hRef4zPmrzg%3d
-	x-ms-version: 2.8
+	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f19258-6753-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421500579&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=ElVWXOnMVggFQl%2ft9vhdcv1qH1n%2fE8l3hRef4zPmrzg%3d
+	x-ms-version: 2.9
 	Accept: application/json
 	Host: media.windows.net
 
@@ -136,8 +136,8 @@
 **HTTP-запрос** (с использованием нового URI):
 			
 	GET https://wamsbayclus001rest-hs.cloudapp.net/api/ HTTP/1.1
-	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=f7f09258-6753-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421500579&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=ElVWXOnMVggFQl%2ft9vhdcv1qH1n%2fE8l3hRef4zPmrzg%3d
-	x-ms-version: 2.8
+	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f19258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421500579&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=ElVWXOnMVggFQl%2ft9vhdcv1qH1n%2fE8l3hRef4zPmrzg%3d
+	x-ms-version: 2.9
 	Accept: application/json
 	Host: wamsbayclus001rest-hs.cloudapp.net
 
@@ -169,4 +169,4 @@
 
 <!-- URLs. -->
 
-<!--HONumber=47-->
+<!--HONumber=52-->

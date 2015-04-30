@@ -1,19 +1,19 @@
-﻿<properties 
-	pageTitle="Приступая к работе с мобильными службами для приложений Xamarin iOS" 
-	description="Этот учебник поможет приступить к использованию мобильных служб Azure для разработки приложений Xamarin для iOS." 
-	services="mobile-services" 
-	documentationCenter="xamarin" 
-	authors="conceptdev" 
-	manager="dwrede" 
+﻿<properties
+	pageTitle="Приступая к работе с мобильными службами для приложений Xamarin iOS"
+	description="Этот учебник поможет приступить к использованию мобильных служб Azure для разработки приложений Xamarin для iOS."
+	services="mobile-services"
+	documentationCenter="xamarin"
+	authors="conceptdev"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-ios" 
-	ms.devlang="dotnet" 
-	ms.topic="hero-article" 
-	ms.date="11/22/2014" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm=""
+	ms.devlang="dotnet"
+	ms.topic="hero-article"
+	ms.date="11/22/2014"
 	ms.author="craig.dunn@xamarin.com"/>
 
 # <a name="getting-started"> </a>Приступая к работе с мобильными службами
@@ -36,19 +36,19 @@
 
 Для работы с этим учебником необходимы XCode и [Xamarin Studio] для OS X или подключаемый модуль Xamarin Visual Studio для Visual Studio в ОС Windows. Образец будет работать в iOS 5.0 и более поздней версии.
 
-> [AZURE.IMPORTANT] Для работы с этим учебником требуется учетная запись Azure. Если у вас нет учетной записи, можно зарегистрироваться для получения бесплатной пробной версии Azure и получить до 10 бесплатных мобильных служб, которые можно использовать и после окончания пробного периода. О том, как это сделать, читайте на странице [Бесплатное пробное использование Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fru-ru%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-xamarin-ios%2F"%20target="_blank).
+> [AZURE.IMPORTANT] Для работы с этим учебником требуется учетная запись Azure. Если у вас нет учетной записи, можно зарегистрироваться для получения бесплатной пробной версии Azure и получить до 10 бесплатных мобильных служб, которые можно использовать и после окончания пробного периода. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fru-ru%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-xamarin-ios%2F"%20target="_blank).
 
-## <a name="create-new-service"> </a>Создание мобильной службы
+## <a name="create-new-service"> </a>Создание новой мобильной службы
 
 [AZURE.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
 <h2>Создание нового приложения Xamarin.iOS</h2>
 
-После создания мобильной службы вы можете следовать простым шагам быстрого запуска на портале управления, чтобы создать новое приложение или изменить существующее приложение и подключить его к вашей мобильной службе. 
+После создания мобильной службы вы можете следовать простым шагам быстрого запуска на портале управления, чтобы создать новое приложение или изменить существующее приложение и подключить его к вашей мобильной службе.
 
 В этом разделе будет создано новое приложение Xamarin.iOS, которое будет подключено к вашей мобильной службе.
 
-1.  В портале управления нажмите **Мобильные службы**, затем нажмите только что созданную мобильную службу.
+1.  На портале управления щелкните **Мобильные службы**, а затем выберите только что созданную мобильную службу.
 
 2. На вкладке быстрого запуска щелкните элемент **Xamarin.iOS** в разделе **Выбор платформы**, а затем разверните пункт **Создать новое приложение Xamarin.iOS**.
 
@@ -62,7 +62,7 @@
 
 4. Чтобы создать таблицу для хранения данных приложения, нажмите кнопку **Создание таблицы TodoItems**.
 
-5. В разделе **Загрузка и запуск приложения** щелкните **Загрузить**. 
+5. В разделе **Загрузка и запуск приложения** щелкните **Загрузить**.
 
 	При этом будут скачаны файлы проекта для примера по созданию приложения "Список задач", подключенного к вашей мобильной службе, и добавлена ссылка на компонент мобильных служб Azure для Xamarin.iOS. Сохраните сжатый файл проекта на локальный компьютер и запомните путь к нему.
 
@@ -94,25 +94,23 @@
 
 	![][12]
 
-## <a name="next-steps"> </a>Дальнейшие действия
-Теперь, когда вы закончили быстрый запуск, узнайте, как выполнять дополнительные важные задачи в мобильных службах: 
 
 ## Дальнейшие действия
-Теперь, когда вы закончили быстрый запуск, узнайте, как выполнять дополнительные важные задачи в мобильных службах: 
+Теперь, когда вы закончили быстрый запуск, узнайте, как выполнять дополнительные важные задачи в мобильных службах:
 
 * [Начало работы с автономной синхронизацией данных]
   <br/>Информация об обеспечении быстрого отклика и надежности приложений с помощью синхронизации автономных данных на вкладке быстрого запуска.
 
-* [Приступая к работе с проверкой подлинности]
+* [Приступая к работе с аутентификацией]
   <br/>Дополнительные сведения о проверке подлинности пользователей приложения с использованием поставщика удостоверений.
 
-* [Приступая к работе с push-уведомлениями] 
+* [Приступая к работе с push-уведомлениями]
   <br/>Сведения об отправке в приложение простейших push-уведомлений.
 
 <!-- Anchors. -->
-[Приступая к работе с мобильными службами:]:#getting-started
-[Создание мобильной службы]:#create-new-service
-[Определение экземпляра мобильной службы:]:#define-mobile-service-instance
+[Приступая к работе с мобильными службами]:#getting-started
+[Создание новой мобильной службы]:#create-new-service
+[Определение экземпляра мобильной службы]:#define-mobile-service-instance
 [Дальнейшие действия]:#next-steps
 
 <!-- Images. -->
@@ -127,16 +125,14 @@
 
 
 <!-- URLs. -->
-[Приступая к работе с данными]: /ru-ru/develop/mobile/tutorials/get-started-with-data-xamarin-ios
-[Начало работы с автономной синхронизацией данных]: /ru-ru/develop/mobile/tutorials/mobile-services-xamarin-ios-get-started-offline-data
-[Приступая к работе с проверкой подлинности]: /ru-ru/develop/mobile/tutorials/get-started-with-users-xamarin-ios
-[Приступая к работе с push-уведомлениями]: /ru-ru/develop/mobile/tutorials/get-started-with-push-xamarin-ios
+[Приступая к работе с данными]: /develop/mobile/tutorials/get-started-with-data-xamarin-ios
+[Начало работы с автономной синхронизацией данных]: /develop/mobile/tutorials/mobile-services-xamarin-ios-get-started-offline-data
+[Приступая к работе с аутентификацией]: /develop/mobile/tutorials/get-started-with-users-xamarin-ios
+[Приступая к работе с push-уведомлениями]: /develop/mobile/tutorials/get-started-with-push-xamarin-ios
 
 [Xamarin Studio]: http://xamarin.com/download
 [Пакет SDK для мобильных служб для iOS]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
 [Портал управления]: https://manage.windowsazure.com/
 
-
-
-<!--HONumber=42-->
+<!--HONumber=52-->

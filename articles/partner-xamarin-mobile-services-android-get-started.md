@@ -6,12 +6,12 @@
 	authors="lindydonna" 
 	manager="dwrede" 
 	editor="" 
-	services=""/>
+	services="mobile-services"/>
 
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-android" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
 	ms.date="11/11/2014" 
@@ -26,7 +26,7 @@
 <p>В данном учебнике описывается добавление облачных служб внутреннего сервера в приложение Xamarin.Android с помощью мобильных служб Azure. В этом учебнике вы создадите новую мобильную службу и простое приложение <em>To do list</em>, хранящее данные приложения в новой мобильной службе.</p>
 <p>Снимок экрана завершенного приложения приведен ниже:</p>
 </div>
-<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Getting-Started-with-Xamarin-and-Windows-Azure-Mobile-Services" target="_blank" class="label">просмотреть учебник</a> <a style="background-image: url('/media/devcenter/mobile/videos/get-started-xamarin-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Getting-Started-with-Xamarin-and-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Воспроизведение видео</span></a> <span class="time">10:05</span></div>
+<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Getting-Started-with-Xamarin-and-Windows-Azure-Mobile-Services" target="_blank" class="label">просмотр учебника</a> <a style="background-image: url('/media/devcenter/mobile/videos/get-started-xamarin-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Getting-Started-with-Xamarin-and-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Воспроизведение видео</span></a> <span class="time">10:05</span></div>
 </div>
 
 ![][0]
@@ -35,9 +35,9 @@
 
 Скачанный проект быстрого запуска содержит компонент мобильных служб Azure для Xamarin.Android. Хотя этот проект предназначен для Android 4.2 или более поздней версии, для пакета SDK мобильных служб требуется только Android 2.2 или более поздней версии.
 
-> [AZURE.IMPORTANT] Для работы с этим учебником требуется учетная запись Azure. Если у вас нет учетной записи, можно зарегистрироваться для получения бесплатной пробной версии Azure и получить до 10 бесплатных мобильных служб, которые можно использовать и после окончания пробного периода. О том, как это сделать, читайте на странице [Бесплатное пробное использование Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A9C9624B5"%20target="_blank).
+> [AZURE.IMPORTANT] Для работы с этим учебником требуется учетная запись Azure. Если у вас нет учетной записи, можно зарегистрироваться для получения бесплатной пробной версии Azure и получить до 10 бесплатных мобильных служб, которые можно использовать и после окончания пробного периода. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A9C9624B5"%20target="_blank).
 
-## <a name="create-new-service"> </a>Создание мобильной службы
+## <a name="create-new-service"> </a>Создание новой мобильной службы
 
 [AZURE.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
@@ -47,7 +47,7 @@
 
 В этом разделе будет создано новое приложение Xamarin.Android, которое будет подключено к вашей мобильной службе.
 
-1.  В портале управления нажмите **Мобильные службы**, затем нажмите только что созданную мобильную службу.
+1.  На портале управления щелкните **Мобильные службы**, а затем выберите только что созданную мобильную службу.
 
 2. На вкладке быстрого запуска нажмите кнопку **Xamarin.Android** в разделе **Выбор платформы**, а затем разверните раздел **Создать новое приложение Android**.
 
@@ -75,7 +75,7 @@
 
 	![][9]
 
-3. Нажмите клавишу **Запуск** для построения проекта, после чего запустите приложение. Вам будет предложено выбрать эмулятор или подключенное USB-устройство. 
+3. Нажмите кнопку **Запуск** для построения проекта, после чего запустите приложение. Вам будет предложено выбрать эмулятор или подключенное USB-устройство. 
 
 	> [AUZRE.NOTE] чтобы запустить проект в эмуляторе Android, необходимо определить как минимум одно виртуальное устройство Android (AVD). Для создания этих устройств и управления ими используйте диспетчер AVD.
 
@@ -102,16 +102,16 @@
 * [Начало работы с автономной синхронизацией данных]
   <br/>Информация об обеспечении быстрого отклика и надежности приложений с помощью синхронизации автономных данных на вкладке быстрого запуска.
 
-* [Приступая к работе с проверкой подлинности]
+* [Приступая к работе с аутентификацией]
   <br/>Дополнительные сведения о проверке подлинности пользователей приложения с использованием поставщика удостоверений.
 
 * [Приступая к работе с push-уведомлениями] 
   <br/>Сведения об отправке в приложение простейших push-уведомлений.
 
 <!-- Anchors. -->
-[Приступая к работе с мобильными службами:]:#getting-started
-[Создание мобильной службы]:#create-new-service
-[Определение экземпляра мобильной службы:]:#define-mobile-service-instance
+[Приступая к работе с мобильными службами]:#getting-started
+[Создание новой мобильной службы]:#create-new-service
+[Определение экземпляра мобильной службы]:#define-mobile-service-instance
 [Дальнейшие действия]:#next-steps
 
 <!-- Images. -->
@@ -131,15 +131,13 @@
 
 
 <!-- URLs. -->
-[Приступая к работе с данными]: /ru-ru/develop/mobile/tutorials/get-started-with-data-xamarin-android
-[Начало работы с автономной синхронизацией данных]: /ru-ru/documentation/articles/mobile-services-xamarin-android-get-started-offline-data
-[Приступая к работе с проверкой подлинности]: /ru-ru/develop/mobile/tutorials/get-started-with-users-xamarin-android
-[Приступая к работе с push-уведомлениями]: /ru-ru/develop/mobile/tutorials/get-started-with-push-xamarin-android
+[Приступая к работе с данными]: /develop/mobile/tutorials/get-started-with-data-xamarin-android
+[Начало работы с автономной синхронизацией данных]: mobile-services-xamarin-android-get-started-offline-data.md
+[Приступая к работе с аутентификацией]: /develop/mobile/tutorials/get-started-with-users-xamarin-android
+[Приступая к работе с push-уведомлениями]: /develop/mobile/tutorials/get-started-with-push-xamarin-android
 [Xamarin.Android]: http://xamarin.com/download
-[Android SDK для мобильных служб]: https://go.microsoft.com/fwLink/p/?LinkID=266533
-[WindowsAzure.com]: http://azure.microsoft.com/
+[Пакет Android SDK для мобильных служб]: https://go.microsoft.com/fwLink/p/?LinkID=266533
+[WindowsAzure.com]: http://www.windowsazure.com/
 [Портал управления]: https://manage.windowsazure.com/
 
-
-
-<!--HONumber=42-->
+<!--HONumber=52-->

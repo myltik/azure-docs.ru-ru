@@ -10,9 +10,9 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-appcelerator" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
-	ms.topic="article" 
+	ms.topic="hero-article" 
 	ms.date="11/24/2014" 
 	ms.author="mahender"/>
 
@@ -30,7 +30,7 @@
 
 При создании приложений Android дополнительно понадобится Android 4.3 или пакет SDK более поздней версии.
 
-## <a name="create-new-service"> </a>Создание мобильной службы
+## <a name="create-new-service"> </a>Создание новой мобильной службы
 
 [AZURE.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
@@ -48,7 +48,7 @@
 
 5. В index.js приложения замените `<---App Name---->` и `<------------APP KEY------------>` на значения своей мобильной службы.
 
-## Запустите новое приложение Appcelerator
+## Запустите новое приложение Appcelerator ##
 
 Последний раздел учебника - построение и выполнение нового приложения.
 
@@ -78,7 +78,7 @@
 
     ![][5]
 
-8.	На следующем экране щелкните значок "плюс" (+), введите значимый текст, например &quot;Выполнить этот учебник&quot;, а затем нажмите кнопку "Сохранить".<br />
+8.	На следующем экране щелкните значок "плюс" (+), введите значимый текст, например, &quot;Пройти этот учебник&quot;, и затем нажмите кнопку "Сохранить".<br />
 
     ![][6]
 
@@ -103,7 +103,7 @@
 ## <a name="next-steps"> </a>Дальнейшие действия
 Теперь, когда вы закончили быстрый запуск, узнайте, как выполнять дополнительные важные задачи в мобильных службах: 
 
-* [Приступая к работе с проверкой подлинности]
+* [Приступая к работе с аутентификацией]
   <br/>Дополнительные сведения о проверке подлинности пользователей приложения с использованием поставщика удостоверений.
 
 * [Приступая к работе с push-уведомлениями] 
@@ -127,9 +127,7 @@
 <!-- URLs. -->
 [Приложение Todolist]: http://go.microsoft.com/fwlink/p/?LinkId=506859
 [Appcelerator Titanium]: http://go.microsoft.com/fwlink/p/?LinkID=509987
-[Приступая к работе с проверкой подлинности]: /ru-ru/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users
-[Приступая к работе с push-уведомлениями]: /ru-ru/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push
+[Приступая к работе с аутентификацией]: partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users.md
+[Приступая к работе с push-уведомлениями]: partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push.md
 
-
-
-<!--HONumber=42-->
+<!--HONumber=52-->

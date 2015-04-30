@@ -10,18 +10,18 @@
 <tags 
 	ms.service="media-services" 
 	ms.workload="media" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/04/2015" 
+	ms.date="03/25/2015" 
 	ms.author="juliako"/>
 
 
 # Индексирование файлов мультимедиа с помощью индексатора мультимедиа Azure
 
-Это одна из статей серии [Рабочий процесс для видео по запросу в службах мультимедиа](../media-services-video-on-demand-workflow) . 
+Это одна из статей серии [Рабочий процесс для видео по запросу в службах мультимедиа](media-services-video-on-demand-workflow.md) . 
 
-Azure Media Indexer позволяет искать содержимое файлов мультимедиа и создавать полнотекстовую транскрипцию для скрытых субтитров и ключевых слов. Вы можете обработать один файл мультимедиа или несколько файлов мультимедиа в пакете. Также можно индексировать общедоступные файлы в Интернете, указав URL-адреса таких файлов в файле манифеста.
+Azure Media Indexer позволяет искать содержимое файлов мультимедиа и создавать полнотекстовую транскрипцию для скрытых субтитров и ключевых слов. Вы можете обработать один файл мультимедиа или несколько файлов мультимедиа в пакете.  
 
 >[AZURE.NOTE] При индексировании содержимого обязательно используйте файлы мультимедиа, содержащие отчетливую речь (без фоновой музыки, шума, эффектов или шипения микрофона). Примерами подходящего содержимого могут служить записи собраний, лекций или презентаций. Для индексирования, как правило, не подходит такое содержимое, как фильмы, телепередачи, любые материалы со смешанными аудио- и звуковыми эффектами, записи плохого качества с фоновым шумом (шипением).
 
@@ -31,14 +31,14 @@ Azure Media Indexer позволяет искать содержимое фай�
 - Файл субтитров в формате SAMI.
 - Файл субтитров в формате Timed Text Markup Language (TTML).
 
-	Файлы SAMI и TTML содержат тег Recognizability, который используется для оценки задания индексирования в зависимости от степени разборчивости речи в исходном видео.  Значение Recognizability можно использовать для отбора пригодных для использования выходных файлов. Низкая оценка означает, что результаты индексирования не точны из-за качества звука.
+	Файлы SAMI и TTML содержат тег Recognizability, который используется для оценки задания индексирования в зависимости от степени разборчивости речи в исходном видео.  Значение Recognizability можно применять для отбора пригодных для использования выходных файлов. Низкая оценка означает, что результаты индексирования не точны из-за качества звука.
 - Файл с ключевыми словами (XML).
 - Файл большого двоичного объекта аудиоиндексации (AIB) для использования с SQL Server.
 	
 	Дополнительные сведения см. в разделе [Использование файлов AIB с индексатором мультимедиа Azure и SQL Server](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/).
 
 
-В этом разделе показано, как создать задания индексирования для **индексирования ресурса**, **нескольких файлов** и **общедоступных файлов в Интернете**.
+В этом разделе показано, как создать задания для **индексирования ресурса** и **индексирования нескольких файлов**.
 
 Последние новости об индексаторе мультимедиа Azure см. в [блогах по службам мультимедиа](http://azure.microsoft.com/blog/topics/media-services/).
 
@@ -58,53 +58,53 @@ Azure Media Indexer позволяет искать содержимое фай�
 	
 	static bool RunIndexingJob(string inputMediaFilePath, string outputFolder, string configurationFile = "")
 	{
-	    // Create an asset and upload the input media file to storage.
+	    // Создание ресурса и передача входного файла мультимедиа в хранилище.
 	    IAsset asset = CreateAssetAndUploadSingleFile(inputMediaFilePath,
 	        "My Indexing Input Asset",
 	        AssetCreationOptions.None);
 	
-	    // Declare a new job.
+	    // Объявление нового задания.
 	    IJob job = _context.Jobs.Create("My Indexing Job");
 	
-	    // Get a reference to the Azure Media Indexer.
+	    // Получение ссылки на индексатор мультимедиа Azure.
 	    string MediaProcessorName = "Azure Media Indexer",
 	    IMediaProcessor processor = GetLatestMediaProcessorByName(MediaProcessorName);
 	
-	    // Read configuration from file if specified.
+	    // Чтение конфигурации из файла, если он указан.
 	    string configuration = string.IsNullOrEmpty(configurationFile) ? "" : File.ReadAllText(configurationFile);
 	
-	    // Create a task with the encoding details, using a string preset.
+	    // Создание задачи с данными кодировки и с использованием стиля строки.
 	    ITask task = job.Tasks.AddNew("My Indexing Task",
 	        processor,
 	        configuration,
 	        TaskOptions.None);
 	
-	    // Specify the input asset to be indexed.
+	    // Указание входного ресурса для индексации.
 	    task.InputAssets.Add(asset);
 	
-	    // Add an output asset to contain the results of the job. 
+	    // Добавление выходного актива для хранения результатов выполнения задания. 
 	    task.OutputAssets.AddNew("My Indexing Output Asset", AssetCreationOptions.None);
 	
-	    // Use the following event handler to check job progress.  
+	    // Следующий обработчик событий используется для проверки хода выполнения задания.  
 	    job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);
 	
-	    // Launch the job.
+	    // Запуск задания.
 	    job.Submit();
 	
-	    // Check job execution and wait for job to finish. 
+	    // Проверка выполнения задания и ожидание его завершения. 
 	    Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
 	    progressJobTask.Wait();
 	
-	    // If job state is Error, the event handling 
-	    // method for job progress should log errors.  Here we check 
-	    // for error state and exit if needed.
+	    // Если возникла ошибка, метод обработки событий 
+	    // для отслеживания хода выполнения задания должен записать ошибки в журнал.  Здесь мы проверяем 
+	    // состояние ошибки и при необходимости выходим.
 	    if (job.State == JobState.Error)
 	    {
 	        Console.WriteLine("Exiting method due to job error.");
 	        return false;
 	    }
 	
-	    // Download the job outputs.
+	    // Загрузка выходных данных задания.
 	    DownloadAsset(task.OutputAssets.First(), outputFolder);
 	
 	    return true;
@@ -157,7 +157,7 @@ Azure Media Indexer позволяет искать содержимое фай�
 <br/>
 Для его использования необходимо установить надстройку Indexer SQL на компьютере, где выполняется сервер Microsoft SQL Server 2008 или более поздней версии. Поиск по AIB с помощью полнотекстового поиска Microsoft SQL Server обеспечивает более точные результаты, чем поиск по файлам скрытых субтитров, созданных WAMI. Это связано с тем, что AIB содержит альтернативные варианты слов с аналогичным звучанием, а файлы скрытых субтитров содержат наиболее достоверное слово для каждого сегмента звукового файла. Если поиск в речи критически важен, рекомендуется использовать AIB в сочетании с Microsoft SQL Server.
 <br/><br/>
-Чтобы скачать надстройку, нажмите ссылку <a href="http://aka.ms/indexersql">Надстройка индексатора SQL служб мультимедиа Azure</a>.
+Чтобы скачать надстройку, щелкните ссылку <a href="http://aka.ms/indexersql">Надстройка индексатора SQL служб мультимедиа Azure</a>.
 <br/><br/>
 Кроме того, можно использовать другие поисковые системы, например Apache Lucene/Solr, чтобы просто проиндексировать видео на основе скрытых субтитров и XML-файлов ключевых слов, но в этом случае результаты поиска будут менее точными.</td></tr>
 <tr><td>InputFileName.smi<br/>InputFileName.ttml</td>
@@ -184,59 +184,59 @@ Azure Media Indexer позволяет искать содержимое фай�
 	
 	static bool RunBatchIndexingJob(string[] inputMediaFiles, string outputFolder)
 	{
-	    // Create an asset and upload to storage.
+	    // Создание ресурса и передача в хранилище.
 	    IAsset asset = CreateAssetAndUploadMultipleFiles(inputMediaFiles,
 	        "My Indexing Input Asset - Batch Mode",
 	        AssetCreationOptions.None);
 	
-	    // Create a manifest file that contains all the asset file names and upload to storage.
+	    // Создание файла манифеста, содержащего все имена файлов ресурса, и передача в хранилище.
 	    string manifestFile = "input.lst";            
 	    File.WriteAllLines(manifestFile, asset.AssetFiles.Select(f => f.Name).ToArray());
 	    var assetFile = asset.AssetFiles.Create(Path.GetFileName(manifestFile));
 	    assetFile.Upload(manifestFile);
 	
-	    // Declare a new job.
+	    // Объявление нового задания.
 	    IJob job = _context.Jobs.Create("My Indexing Job - Batch Mode");
 	
-	    // Get a reference to the Azure Media Indexer.
+	    // Получение ссылки на индексатор мультимедиа Azure.
 	    string MediaProcessorName = "Azure Media Indexer";
 	    IMediaProcessor processor = GetLatestMediaProcessorByName(MediaProcessorName);
 	
-	    // Read configuration.
+	    // Чтение конфигурации.
 	    string configuration = File.ReadAllText("batch.config");
 	
-	    // Create a task with the encoding details, using a string preset.
+	    // Создание задачи с данными кодировки и с использованием стиля строки.
 	    ITask task = job.Tasks.AddNew("My Indexing Task - Batch Mode",
 	        processor,
 	        configuration,
 	        TaskOptions.None);
 	
-	    // Specify the input asset to be indexed.
+	    // Указание входного ресурса для индексации.
 	    task.InputAssets.Add(asset);
 	
-	    // Add an output asset to contain the results of the job.
+	    // Добавление выходного актива для хранения результатов выполнения задания.
 	    task.OutputAssets.AddNew("My Indexing Output Asset - Batch Mode", AssetCreationOptions.None);
 	
-	    // Use the following event handler to check job progress.  
+	    // Следующий обработчик событий используется для проверки хода выполнения задания.  
 	    job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);
 	
-	    // Launch the job.
+	    // Запуск задания.
 	    job.Submit();
 	
-	    // Check job execution and wait for job to finish. 
+	    // Проверка выполнения задания и ожидание его завершения. 
 	    Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
 	    progressJobTask.Wait();
 	
-	    // If job state is Error, the event handling 
-	    // method for job progress should log errors.  Here we check 
-	    // for error state and exit if needed.
+	    // Если возникла ошибка, метод обработки событий 
+	    // для отслеживания хода выполнения задания должен записать ошибки в журнал.  Здесь мы проверяем 
+	    // состояние ошибки и при необходимости выходим.
 	    if (job.State == JobState.Error)
 	    {
 	        Console.WriteLine("Exiting method due to job error.");
 	        return false;
 	    }
 	
-	    // Download the job outputs.
+	    // Загрузка выходных данных задания.
 	    DownloadAsset(task.OutputAssets.First(), outputFolder);
 	
 	    return true;
@@ -305,81 +305,6 @@ Error - указывает, успешно ли проиндексирован �
 
 При этом создаются те же выходные данные (как и в случае успешно выполненного задания). Чтобы узнать, для каких входных файлов произошел сбой, можно просмотреть выходной файл манифеста (значения в столбце Error). Если для входных файлов происходит сбой, результирующие файлы AIB, SAMI, TTML и файлы ключевых слов не создаются.
 
-##Индексация файлов из Интернета
-
-Общедоступные медиафайлы в Интернете можно индексировать, не копируя их в хранилище Azure. С помощью файла манифеста можно указать URL-адреса файлов мультимедиа. Дополнительные сведения см. в разделе [Предустановка задачи для индексатора мультимедиа Azure](https://msdn.microsoft.com/library/azure/dn783454.aspx).
-
-Обратите внимание, что для URL-адресов поддерживаются протоколы HTTP и HTTPS.
-
-Следующий метод с указанной конфигурацией создает задание для индексирования файла мультимедиа в Интернете.
-	
-	static bool RunIndexingJobWithPublicUrl(string inputMediaUrl, string outputFolder)
-	{
-	    // Create the manifest file that contains the input media URL
-	    string manifestFile = "input.lst";
-	    File.WriteAllLines(manifestFile, new string[] { inputMediaUrl });
-	
-	    // Create an asset and upload the manifest file to storage.
-	    IAsset asset = CreateAssetAndUploadSingleFile(manifestFile,
-	        "My Indexing Input Asset - Public URL",
-	        AssetCreationOptions.None);
-	
-	    // Declare a new job.
-	    IJob job = _context.Jobs.Create("My Indexing Job - Public URL");
-	
-	    // Get a reference to the Azure Media Indexer.
-	    IMediaProcessor processor = GetLatestMediaProcessorByName(MediaProcessorName);
-	
-	    // Read configuration.
-	    string configuration = File.ReadAllText("public.config");
-	
-	    // Create a task with the encoding details, using a string preset.
-	    ITask task = job.Tasks.AddNew("My Indexing Task - Public URL",
-	        processor,
-	        configuration,
-	        TaskOptions.None);
-	
-	    // Specify the input asset to be indexed.
-	    task.InputAssets.Add(asset);
-	
-	    // Add an output asset to contain the results of the job.
-	    task.OutputAssets.AddNew("My Indexing Output Asset - Public URL", AssetCreationOptions.None);
-	
-	    // Use the following event handler to check job progress.  
-	    job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);
-	
-	    // Launch the job.
-	    job.Submit();
-	
-	    // Check job execution and wait for job to finish. 
-	    Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
-	    progressJobTask.Wait();
-	
-	    // If job state is Error, the event handling 
-	    // method for job progress should log errors.  Here we check 
-	    // for error state and exit if needed.
-	    if (job.State == JobState.Error)
-	    {
-	        Console.WriteLine("Exiting method due to job error.");
-	        return false;
-	    }
-	
-	    // Download the job outputs.
-	    DownloadAsset(task.OutputAssets.First(), outputFolder);
-	
-	    return true;
-	}
-
-###Выходные файлы
-
-Описание выходных файлов см. в разделе [Выходные файлы](#output_files). 
-
-
-##Обработка защищенных файлов
-
-Индексатор поддерживает обычную проверку подлинности по имени пользователя и паролю при скачивании файлов Интернета по протоколам HTTP и HTTPS.
-
-**Имя пользователя** и **пароль** можно указать в файле конфигурации задачи, как описано в статье [Предустановка задачи для индексатора мультимедиа Azure](https://msdn.microsoft.com/library/azure/dn783454.aspx).
 
 ### <a id="error_codes"></a>Коды ошибок
 
@@ -418,4 +343,4 @@ Error - указывает, успешно ли проиндексирован �
 
 <!-- URLs. -->
 
-<!--HONumber=47-->
+<!--HONumber=52-->

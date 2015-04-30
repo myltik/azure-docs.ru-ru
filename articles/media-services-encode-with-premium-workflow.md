@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Дополнительное кодирование с помощью рабочего процесса Premium кодировщика мультимедиа" 
 	description="Узнайте, как выполнять дополнительное кодирование с помощью рабочего процесса Premium кодировщика мультимедиа. Примеры кода написаны на языке C# и используют пакет SDK служб мультимедиа для .NET." 
 	services="media-services" 
@@ -18,7 +18,7 @@
 
 #Дополнительное кодирование с помощью рабочего процесса Premium кодировщика мультимедиа (общедоступная предварительная версия)
 
-**Примечание** Обработчик мультимедиа рабочего процесса Premium кодировщика мультимедиа, рассматриваемый в данной статье, не доступен в Китае. 
+**Примечание** Обработчик мультимедиа рабочего процесса Premium Media Encoder, рассмотренный в данном разделе, недоступен в Китае.
 
 ##Обзор
 
@@ -26,17 +26,17 @@
 
 В следующих разделах приводятся подробные сведения o **рабочем процессе Premium кодировщика мультимедиа**: 
 
-- [Форматы, поддерживаемые рабочим процессом Premium кодировщика мультимедиа](../media-services-premium-workflow-encoder-formats) - обсуждаются форматы файлов и кодеков, поддерживаемых **рабочим процессом Premium кодировщика мультимедиа**.
+- [Форматы, поддерживаемые рабочим процессом Premium кодировщика мультимедиа](media-services-premium-workflow-encoder-formats.md) - обсуждаются форматы файлов и кодеков, поддерживаемых **рабочим процессом Premium кодировщика мультимедиа**.
 
-- В разделе [Сравнение кодировщиков](../media-services-encode-asset#compare_encoders) сравниваются возможности кодирования **рабочего процесса Premium кодировщика мультимедиа** и **кодировщика служб мультимедиа Azure**.
+- В разделе [Сравнение кодировщиков](media-services-encode-asset.md#compare_encoders) сравниваются возможности кодирования **рабочего процесса Premium кодировщика мультимедиа** и **кодировщика служб мультимедиа Azure**.
 
 В этом разделе показаны способы кодирования с **рабочим процессом Premium кодировщика мультимедиа** с использованием .NET.
 
 ##Кодирование
 
-Задачи кодирования для **рабочего процесса Premium кодировщика мультимедиа** требуют наличия отдельного файла конфигурации, который называется файлом рабочего процесса Workflow). Эти файл имеют расширение .workflow и создаются с помощью [Конструктора рабочих процессов](../media-services-workflow-designer) .
+Задачи кодирования для **рабочего процесса Premium кодировщика мультимедиа** требуют наличия отдельного файла конфигурации, который называется файлом рабочего процесса Workflow). Эти файлы имеют расширение WORKFLOW и создаются с помощью [Конструктора рабочих процессов](media-services-workflow-designer.md).
 
-Также можно получить файлы рабочего процесса с настройками по умолчанию [отсюда](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows). В папке также содержится описание этих файлов.
+Также можно получить файлы рабочего процесса с настройками по умолчанию [отсюда](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows). Папка также содержит описание этих файлов.
 
 Файлы рабочего процесса должны быть отправлены в учетную запись служб мультимедиа в виде ресурса, и этот ресурс нужно передать в задачу кодирования.
 
@@ -50,16 +50,16 @@
 4. Создание задания и задачи.
 5. Добавление двух входных ресурсов в задачу.
 	
-	a. Первый - ресурс рабочего процесса.
+	а. Первый - ресурс рабочего процесса.
 
-	b. Второй - ресурс видео.
+	б. Второй - ресурс видео.
 	
-	**Примечание**. Ресурс рабочего процесс необходимо добавить в задачу перед добавлением ресурса мультимедиа. 
+	**Примечание**. Ресурс рабочего процесса необходимо добавить в задачу перед добавлением ресурса мультимедиа. 
 Строка конфигурации для этой задачи должна быть пуста. 
 
 6. Отправка задания кодирования.
 
-Ниже представлен завершенный пример. Сведения о настройке .NET для разработки служб мультимедиа см. в разделе [Разработка для служб мультимедиа с помощью .NET](../media-services-dotnet-how-to-use).
+Ниже представлен завершенный пример. Сведения о настройке .NET для разработки служб мультимедиа см. в разделе [Разработка для служб мультимедиа с помощью .NET](media-services-dotnet-how-to-use.md).
 
 
  	using System; 
@@ -144,39 +144,39 @@
 	        {
 	            // Declare a new job.
 	            IJob job = _context.Jobs.Create("Premium Workflow encoding job");
-	            // Get a media processor reference, and pass to it the name of the 
-	            // processor to use for the specific task.
+	            // Получение ссылки на обработчик мультимедиа и передача ему имени 
+	            // обработчика для определенной задачи.
 	            IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Premium Workflow");
 	
-	            // Create a task with the encoding details, using a string preset.
+	            // Создание задачи с данными кодировки и с использованием стиля строки.
 	            ITask task = job.Tasks.AddNew("Premium Workflow encoding task",
 	                processor,
 	                "",
 	                TaskOptions.None);
 	
-	            // Specify the input asset to be encoded.
+	            // Указание входного ресурса для кодирования.
 	            task.InputAssets.Add(workflow);
-	            task.InputAssets.Add(video); // we add one asset
-	            // Add an output asset to contain the results of the job. 
-	            // This output is specified as AssetCreationOptions.None, which 
-	            // means the output asset is not encrypted. 
+	            task.InputAssets.Add(video); // добавляем один ресурс
+	            // Добавление выходного актива для хранения результатов выполнения задания. 
+	            // Эти выходные данные указываются как AssetCreationOptions.None, что 
+	            // означает, что выходной ресурс не шифруется. 
 	            task.OutputAssets.AddNew("Output asset",
 	                AssetCreationOptions.None);
 	
-	            // Use the following event handler to check job progress.  
+	            // Следующий обработчик событий используется для проверки хода выполнения задания.  
 	            job.StateChanged += new
 	                    EventHandler<JobStateChangedEventArgs>(StateChanged);
 	
-	            // Launch the job.
+	            // Запуск задания.
 	            job.Submit();
 	
-	            // Check job execution and wait for job to finish. 
+	            // Проверка выполнения задания и ожидание его завершения. 
 	            Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
 	            progressJobTask.Wait();
 	
-	            // If job state is Error the event handling 
-	            // method for job progress should log errors.  Here we check 
-	            // for error state and exit if needed.
+	            // Если возникла ошибка, метод обработки событий 
+	            // для отслеживания хода выполнения задания должен записать ошибки в журнал.  Здесь мы проверяем 
+	            // состояние ошибки и при необходимости выходим.
 	            if (job.State == JobState.Error)
 	            {
 	                throw new Exception("\nExiting method due to job error.");
@@ -260,4 +260,10 @@
 	        }
 	    }
 	}
-<!--HONumber=47-->
+
+
+##Известные проблемы
+
+Если входное видео не содержит субтитров, выходной ресурс будет по-прежнему содержать пустой TTML-файл.
+
+<!--HONumber=52-->

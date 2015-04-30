@@ -1,6 +1,6 @@
 ﻿<properties 
-	pageTitle="Как кодировать ресурс с помощью кодировщика мультимедиа Azure" 
-	description="Узнайте, как использовать кодировщик мультимедиа Azure для кодировки мультимедийного контента в службах мультимедиа. Примеры кода написаны на языке C# и используют пакет SDK служб мультимедиа для .NET." 
+	pageTitle="Кодирование содержимого по требованию с помощью служб мультимедиа Azure" 
+	description="В этом разделе представлен обзор кодирования содержимого по требованию с помощью служб мультимедиа." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
@@ -11,209 +11,163 @@
 	ms.service="media-services" 
 	ms.workload="media" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
+	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2015" 
+	ms.date="03/05/2015" 
 	ms.author="juliako"/>
 
+#Кодирование содержимого по требованию с помощью служб мультимедиа Azure
 
-#Как кодировать ресурс с помощью кодировщика мультимедиа Azure
-
-Это одна из статей серии [Рабочий процесс для видео по запросу в службах мультимедиа](media-services-video-on-demand-workflow.md). 
+Это одна из статей серии [Рабочий процесс для видео по запросу в службах мультимедиа](media-services-video-on-demand-workflow.md).
 
 ##Обзор
-Для поставки цифрового видео по Интернету необходимо сжать мультимедиа. Цифровые видеофайлы довольно объемные. Это затрудняет их доставку через Интернет и влияет на качество их отображения на устройствах клиентов. Кодирование - это процесс сжатия аудио- и видеофайлов, чтобы их могли просматривать клиенты.
 
-Задания кодирования - одни из самых распространенных операций обработки в службах мультимедиа. Они создаются для преобразования файлов мультимедиа из одного формата кодирования в другой. При кодировании можно использовать встроенный кодировщик служб мультимедиа. Также можно использовать кодировщик, предоставленный партнером служб мультимедиа, кодировщики сторонних производителей доступны в Магазине Azure. Информацию о задачах кодировки можно указать с помощью строк предустановок, заданных для кодировщика, или файлов конфигурации. См. типы доступных предустановок в разделе "Предустановки задач для служб мультимедиа Azure". Если вы использовали сторонний кодировщик, вам следует [проверить свои файлы](https://msdn.microsoft.com/ru-ru/library/azure/dn750842.aspx).
+Службы мультимедиа поддерживают следующие кодировщики:
 
-Мы советует всегда кодировать мезонинные файлы в набор MP4-файлов с адаптивной скоростью, а затем преобразовывать его в нужный формат с помощью [динамической упаковки](https://msdn.microsoft.com/ru-ru/library/azure/jj889436.aspx).
+- [кодировщик служб мультимедиа Azure;](#azure_media_encoder)
+- [рабочий процесс Premium кодировщика служб мультимедиа](#media_encoder_premium_workflow) (общедоступная предварительная версия).
 
+В [следующем разделе](#compare_encoders) сравниваются возможности обоих кодировщиков.
 
-##Создание задания с одной задачей кодирования 
+По умолчанию каждая учетная запись служб мультимедиа может выполнять одну активную задачу кодирования в текущий момент. Можно зарезервировать единицы кодирования, которые позволят выполнять несколько задач кодирования одновременно, по одной для каждой приобретенной единицы. Сведения о масштабировании единиц кодирования см. в следующих статьях о **портале** и **.NET**.
 
-При кодировании с помощью кодировщика мультимедиа Azure вы можете использовать предустановки конфигурации задач, указанные [здесь](https://msdn.microsoft.com/ru-ru/library/azure/dn619389.aspx).
+[AZURE.INCLUDE [media-services-selector-scale-encoding-units](../includes/media-services-selector-scale-encoding-units.md)]
 
-###Использование пакета SDK служб мультимедиа для .NET  
+##<a id="azure_media_encoder"></a>Кодировщик служб мультимедиа Azure
 
-Следующий метод **EncodeToAdaptiveBitrateMP4Set** создает задание кодирования и добавляет в задание одну задачу кодирования. Для выполнения задачи используется кодировщик мультимедиа Microsoft Azure, выполняющий кодирование в формат "H264 с адаптивной скоростью MP4 Set 720p". 
+[Форматы, поддерживаемые кодировщиком служб мультимедиа](media-services-azure-media-encoder-formats.md), - описание форматов файлов и потоковой передачи, поддерживаемых **кодировщиком службы мультимедиа Azure**.
 
-    static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset inputAsset)
-    {
-        var encodingPreset = "H264 Adaptive Bitrate MP4 Set 720p";
+**Кодировщик службы мультимедиа Azure** настраивается с помощью одной из предустановленных строк кодировщика, описанных [здесь](https://msdn.microsoft.com/library/azure/dn619392.aspx). Также можно получить фактические файлы кодировщика службы мультимедиа Azure [здесь](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/Azure%20Media%20Encoder).
 
-        IJob job = _context.Jobs.Create(String.Format("Encoding {0} into to {1}",
-                                inputAsset.Name,
-                                encodingPreset));
+Кодирование **кодировщиком мультимедиа Azure** с помощью **портала управления Azure**, **.NET** или **API-интерфейса REST**.
+ 
+[AZURE.INCLUDE [media-services-selector-encode](../includes/media-services-selector-encode.md)]
 
-        var mediaProcessors = GetLatestMediaProcessorByName("Azure Media Encoder");
+####Другие связанные разделы
 
-        ITask encodeTask = job.Tasks.AddNew("Encoding", mediaProcessors, encodingPreset, TaskOptions.None);
-        
-        encodeTask.InputAssets.Add(inputAsset);
+[Динамическая упаковка](https://msdn.microsoft.com/library/azure/jj889436.aspx) - описание кодирования в MP4-файлы с адаптивной скоростью и динамической обработки потоков Smooth Streaming, Apple HLS или MPEG-DASH.
 
-        // Specify the storage-encrypted output asset.
-        encodeTask.OutputAssets.AddNew(String.Format("{0} as {1}", inputAsset.Name, encodingPreset), 
-            AssetCreationOptions.StorageEncrypted);
+[Управление именами выходных файлов кодировщика служб мультимедиа](https://msdn.microsoft.com/library/azure/dn303341.aspx) - описание соглашения об именовании файлов, используемого кодировщиком службы мультимедиа Azure, и способа изменения выходных файлов.
+
+[Кодирование мультимедиа с помощью Dolby Digital Plus](media-services-encode-with-dolby-digital-plus.md) - описание кодирования звуковых дорожек с использованием Dolby Digital Plus.
 
 
-        job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
-        job.Submit();
-        job.GetExecutionProgressTask(CancellationToken.None).Wait();
+##<a id="media_encoder_premium_wokrflow"></a>Рабочий процесс Premium кодировщика мультимедиа (общедоступная предварительная версия)
 
-        return job.OutputMediaAssets[0];
-    }
+**Примечание** Обработчик мультимедиа рабочего процесса Premium Media Encoder, рассмотренный в данном разделе, недоступен в Китае.
 
-    private static void JobStateChanged(object sender, JobStateChangedEventArgs e)
-    {
-        Console.WriteLine("Job state changed event:");
-        Console.WriteLine("  Previous state: " + e.PreviousState);
-        Console.WriteLine("  Current state: " + e.CurrentState);
-        switch (e.CurrentState)
-        {
-            case JobState.Finished:
-                Console.WriteLine();
-                Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
-                break;
-            case JobState.Canceling:
-            case JobState.Queued:
-            case JobState.Scheduled:
-            case JobState.Processing:
-                Console.WriteLine("Please wait...\n");
-                break;
-            case JobState.Canceled:
-            case JobState.Error:
+[Форматы, поддерживаемые рабочим процессом Premium кодировщика мультимедиа](media-services-premium-workflow-encoder-formats.md) - представлены форматы файлов и кодеков, поддерживаемых **рабочим процессом Premium кодировщика мультимедиа**.
 
-                // Cast sender as a job.
-                IJob job = (IJob)sender;
+**Рабочий процесс Premium кодировщика мультимедиа** настраивается с помощью сложных рабочих процессов. Файлы рабочих процессов можно создать с помощью [конструктора рабочих процессов](media-services-workflow-designer.md) . 
 
-                // Display or log error details as needed.
-                break;
-            default:
-                break;
-        }
-    }
+Файлы рабочего процесса по умолчанию можно получить [здесь](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows). Папка также содержит описание этих файлов.
 
-    private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
-    {
-        var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
-           ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
+Кодирование с **рабочим процессом Premium кодировщика мультимедиа** с использованием **.NET**. Дополнительные сведения см. в разделе [Расширенное кодирование с рабочим процессом Premium кодировщика мультимедиа](media-services-encode-with-premium-workflow.md).
+ 
 
-        if (processor == null)
-            throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+##<a id="compare_encoders"></a>Сравнение кодировщиков
 
-        return processor;
-    }
+В этом разделе сравниваются возможности кодирования **кодировщика служб мультимедиа Azure** и **рабочего процесса Premium кодировщика мультимедиа**.
 
-###Использование расширений пакета SDK служб мультимедиа для .NET
+###Форматы входных данных
 
-    static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset asset)
-    {
-        // 1. Prepare a job with a single task to transcode the specified mezzanine asset
-        //    into a multi-bitrate asset.
-        IJob job = _context.Jobs.CreateWithSingleTask(
-            MediaProcessorNames.AzureMediaEncoder,
-            MediaEncoderTaskPresetStrings.H264AdaptiveBitrateMP4Set720p,
-            asset,
-            "Adaptive Bitrate MP4",
-            AssetCreationOptions.None);
+Контейнер ввода/ форматы файлов
 
-        Console.WriteLine("Submitting transcoding job...");
+<table border="1">
+<tr><th>Input Container/File Formats</th><th>Media Encoder Premium Workflow</th><th>Azure Media Encoder
+</th></tr>
+<tr><td>Adobe(r) Flash(r) F4V</td><td>Yes</td><td>No</td></tr>
+<tr><td>MXF/SMPTE 377M</td><td>Yes</td><td>Limited</td></tr>
+<tr><td>GXF</td><td>Yes</td><td>No</td></tr>
+<tr><td>MPEG-2 Transport Streams</td><td>Yes</td><td>Yes</td></tr>
+<tr><td>MPEG-2 Program Streams</td><td>Yes</td><td>Yes</td></tr>
+<tr><td>MPEG-4/MP4</td><td>Yes</td><td>Yes</td></tr>
+<tr><td>Windows Media/ASF</td><td>Yes</td><td>Yes</td></tr>
+<tr><td>AVI (Uncompressed 8bit/10bit)</td><td>Yes</td><td>Yes</td></tr>
+<tr><td>3GPP/3GPP2</td><td>No</td><td>Yes</td></tr>
+<tr><td>Smooth Streaming File Format (PIFF 1.3)</td><td>No</td><td>Yes</td></tr>
+</table>
 
-        // 2. Submit the job and wait until it is completed.
-        job.Submit();
-        job = job.StartExecutionProgressTask(
-            j =>
-            {
-                Console.WriteLine("Job state: {0}", j.State);
-                Console.WriteLine("Job progress: {0:0.##}%", j.GetOverallProgress());
-            },
-            CancellationToken.None).Result;
+Входные видеокодеки
 
-        Console.WriteLine("Transcoding job finished.");
+<table border="1">
+<tr><th>Input Video Codecs</th><th>Media Encoder Premium Workflow</th><th>Azure Media Encoder
+</th></tr>
+<tr><td>AVC 8-bit/10-bit, up to 4:2:2, including AVCIntra</td><td>Yes</td><td>Only 8bit 4:2:0</td></tr>
+<tr><td>Avid DNxHD (in MXF)</td><td>Yes</td><td>No</td></tr>
+<tr><td>DVCPro/DVCProHD (in MXF)</td><td>Yes</td><td>No</td></tr>
+<tr><td>JPEG2000</td><td>Yes</td><td>No</td></tr>
+<tr><td>MPEG-2 (up to 422 Profile and High Level; including variants such as XDCAM, XDCAM HD, XDCAM IMX, CableLabs(r) and D10)</td><td>Yes</td><td>Up to 422 Profile</td></tr>
+<tr><td>MPEG-1</td><td>Yes</td><td>Yes</td></tr>
+<tr><td>Windows Media Video/VC-1</td><td>Yes</td><td>Yes</td></tr>
+<tr><td>Canopus HQ/HQX</td><td>No</td><td>Yes</td></tr>
+</table>
 
-        IAsset outputAsset = job.OutputMediaAssets[0];
+Входные аудиокодеки
 
-        return outputAsset;
-    } 
+<table border="1">
+<tr><th>Input Audio Codecs</th><th>Media Encoder Premium Workflow</th><th>Azure Media Encoder
+</th></tr>
+<tr><td>AES (SMPTE 331M and 302M, AES3-2003)</td><td>Yes</td><td>No</td></tr>
+<tr><td>Dolby(r) E</td><td>Yes</td><td>No</td></tr>
+<tr><td>Dolby(r) Digital (AC3)</td><td>Yes</td><td>Yes</td></tr>
+<tr><td>Dolby(r) Digital Plus (E-AC3)</td><td>Yes</td><td>No</td></tr>
+<tr><td>AAC (AAC-LC, AAC-HE, and AAC-HEv2; up to 5.1)</td><td>Yes</td><td>Yes</td></tr>
+<tr><td>MPEG Layer 2</td><td>Yes</td><td>Yes</td></tr>
+<tr><td>MP3 (MPEG-1 Audio Layer 3)</td><td>Yes</td><td>Yes</td></tr>
+<tr><td>Windows Media Audio</td><td>Yes</td><td>Yes</td></tr>
+<tr><td>WAV/PCM</td><td>Yes</td><td>Yes</td></tr>
+</table>
 
-##Создание задания с цепными задачами 
+###Форматы выходных данных
 
-Во многих сценариях приложений разработчикам необходимо создать серию задач обработки. В службах мультимедиа вы можете создавать серии цепных задач. Каждая задача выполняет разные шаги обработки. Эти задачи также могут использовать разные обработчики мультимедиа. Цепные задачи могут передать ресурсы из одной задачи в другую, следуя линейной последовательности задач ресурса. Тем не менее, в последовательность не должны быть включены задачи, выполняемые в задании. При создании цепной задачи цепные объекты **ITask** создаются в одном объекте **IJob**.
+Контейнер вывода/ форматы файлов
 
->[AZURE.NOTE] Сейчас количество задач ограничено 30 задачами на задание. Если вам необходимо создать цепь из более чем 30 задач, создайте для них несколько заданий.
+<table border="1">
+<tr><th>Output Container/File Formats</th><th>Media Encoder Premium Workflow</th><th>Azure Media Encoder
+</th></tr>
+<tr><td>Adobe(r) Flash(r) F4V</td><td>Yes</td><td>No</td></tr>
+<tr><td>MXF (OP1a, XDCAM and AS02)</td><td>Yes</td><td>No</td></tr>
+<tr><td>DPP (including AS11)</td><td>Yes</td><td>No</td></tr>
+<tr><td>GXF</td><td>Yes</td><td>No</td></tr>
+<tr><td>MPEG-4/MP4</td><td>Yes</td><td>Yes</td></tr>
+<tr><td>Windows Media/ASF</td><td>Yes</td><td>Yes</td></tr>
+<tr><td>AVI (Uncompressed 8bit/10bit)</td><td>Yes</td><td>No</td></tr>
+<tr><td>Smooth Streaming File Format (PIFF 1.3)</td><td>Yes</td><td>Yes</td></tr>
+</table>
 
-Следующий метод **CreateChainedTaskEncodingJob** создает задание, содержащее две цепные задачи. Как следствие метод возвращает задание, которое содержит два выходных ресурса.
+Выходные видеокодеки
 
-	
-    public static IJob CreateChainedTaskEncodingJob(IAsset asset)
-    {
-        // Declare a new job.
-        IJob job = _context.Jobs.Create("My task-chained encoding job");
+<table border="1">
+<tr><th>Output Video Codecs</th><th>Media Encoder Premium Workflow</th><th>Azure Media Encoder
+</th></tr>
+<tr><td>AVC (H.264; 8-bit; up to High Profile, Level 5.2; 4K Ultra HD; AVC Intra)</td><td>Yes</td><td>Only 8bit 4:2:0 up to 1080p</td></tr>
+<tr><td>Avid DNxHD (in MXF)</td><td>Yes</td><td>No</td></tr>
+<tr><td>DVCPro/DVCProHD (in MXF)</td><td>Yes</td><td>No</td></tr>
+<tr><td>MPEG-2 (up to 422 Profile and High Level; including variants such as XDCAM, XDCAM HD, XDCAM IMX, CableLabs(r) and D10)</td><td>Yes</td><td>No</td></tr>
+<tr><td>MPEG-1</td><td>Yes</td><td>No</td></tr>
+<tr><td>Windows Media Video/VC-1</td><td>Yes</td><td>Yes</td></tr>
+<tr><td>JPEG thumbnail creation</td><td>Yes</td><td>Yes</td></tr>
+</table>
 
-        // Set up the first task to encode the input file.
+Выходные аудиокодеки
 
-        // Get a media processor reference
-        IMediaProcessor processor = GetLatestMediaProcessorByName("Azure Media Encoder");
+<table border="1">
+<tr><th>Output Audio Codecs</th><th>Media Encoder Premium Workflow</th><th>Azure Media Encoder
+</th></tr>
+<tr><td>AES (SMPTE 331M and 302M, AES3-2003)</td><td>Yes</td><td>No</td></tr>
+<tr><td>Dolby(r) Digital (AC3)</td><td>Yes</td><td>Yes</td></tr>
+<tr><td>Dolby(r) Digital Plus (E-AC3) up to 7.1</td><td>Yes</td><td>Up to 5.1</td></tr>
+<tr><td>AAC (AAC-LC, AAC-HE, and AAC-HEv2; up to 5.1)</td><td>Yes</td><td>Yes</td></tr>
+<tr><td>MPEG Layer 2</td><td>Yes</td><td>No</td></tr>
+<tr><td>MP3 (MPEG-1 Audio Layer 3)</td><td>Yes</td><td>No</td></tr>
+<tr><td>Windows Media Audio</td><td>Yes</td><td>Yes</td></tr>
+</table>
+##Связанные статьи
 
-        // Create a task with the encoding details, using a string preset.
-        ITask task = job.Tasks.AddNew("My encoding task",
-            processor,
-           "H264 Adaptive Bitrate MP4 Set 720p",
-            TaskOptions.ProtectedConfiguration);
-
-        // Specify the input asset to be encoded.
-        task.InputAssets.Add(asset);
-
-        // Specify the storage-encrypted output asset.
-        task.OutputAssets.AddNew("My storage-encrypted output asset",
-            AssetCreationOptions.StorageEncrypted);
-
-        // Set up the second task to decrypt the encoded output file from 
-        // the first task.
-
-        // Get another media processor instance
-        IMediaProcessor decryptProcessor = GetLatestMediaProcessorByName("Storage Decryption");
-
-        // Declare the decryption task. 
-        ITask decryptTask = job.Tasks.AddNew("My decryption task",
-            decryptProcessor,
-            string.Empty,
-            TaskOptions.None);
-
-        // Specify the input asset to be decrypted. This is the output 
-        // asset from the first task. 
-        decryptTask.InputAssets.Add(task.OutputAssets[0]);
-
-        // Specify an output asset to contain the results of the job. 
-        // This should have AssetCreationOptions.None. 
-        decryptTask.OutputAssets.AddNew("My decrypted output asset",
-            AssetCreationOptions.None);
-
-        // Use the following event handler to check job progress. 
-        job.StateChanged += new
-            EventHandler<JobStateChangedEventArgs>(JobStateChanged);
-
-        // Launch the job.
-        job.Submit();
-
-        // Check job execution and wait for job to finish. 
-        Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
-        progressJobTask.Wait();
-
-        //return job that contains two output assets.
-        return job;
-    }
+- [Знакомство с кодированием Premium в службах мультимедиа Azure](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
+- [Использование кодирования Premium в службах мультимедиа Azure](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
+- [Квоты и ограничения](media-services-quotas-and-limitations.md)
 
 
-##Дальнейшие действия
-Вы узнали, как создать задание для кодирования ресурса. Теперь вы можете приступить к изучению статьи [Практическое руководство: проверка хода выполнения задания](media-services-check-job-progress.md).
-
-[Azure Marketplace]: https://datamarket.azure.com/
-[Предустановка кодировщика]: http://msdn.microsoft.com/library/dn619392.aspx
-[Практическое руководство. Получение экземпляра обработчика мультимедиа]:http://go.microsoft.com/fwlink/?LinkId=301732
-[Практическое руководство. Отправка зашифрованного актива]:http://go.microsoft.com/fwlink/?LinkId=301733
-[Практическое руководство. Доставка ресурса путем скачивания]:http://go.microsoft.com/fwlink/?LinkId=301734
-[Практическое руководство. Проверка хода выполнения задания]:http://go.microsoft.com/fwlink/?LinkId=301737
-[Предустановка задачи для Azure Media Packager]:http://msdn.microsoft.com/library/windowsazure/hh973635.aspx
-
-<!--HONumber=45--> 
+<!--HONumber=52-->

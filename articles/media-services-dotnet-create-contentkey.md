@@ -19,13 +19,13 @@
 
 #Создание ContentKey с использованием .NET
 
-Это одна из статей серии [Рабочий процесс для видео по запросу в службах мультимедиа](media-services-video-on-demand-workflow.md) и [Рабочий процесс для потоковой трансляции в службах мультимедиа](media-services-live-streaming-workflow.md) .  
+Это одна из статей серии [Рабочий процесс для видео по запросу в службах мультимедиа](media-services-video-on-demand-workflow.md) и серии [Рабочий процесс для потоковой трансляции в службах мультимедиа](media-services-live-streaming-workflow.md).  
 
 Службы мультимедиа позволяют создавать новые ресурсы и доставлять зашифрованные ресурсы. **ContentKey** обеспечивает безопасный доступ к вашим **ресурсам**. 
 
-При создании нового ресурса (например, перед [отправкой файлов](media-services-dotnet-upload-files.md)) можно задать следующие параметры шифрования: **StorageEncrypted**, **CommonEncryptionProtected** или **EnvelopeEncryptionProtected**. 
+При создании нового ресурса (например, перед [передачей файлов](media-services-dotnet-upload-files.md)) можно указать следующие параметры шифрования: **StorageEncrypted**, **CommonEncryptionProtected** или **EnvelopeEncryptionProtected**. 
 
-При доставке содержимого клиентам можно [настроить динамическое шифрование ресурсов](media-services-dotnet-configure-asset-delivery-policy.md) одним из следующих видов шифрования: **DynamicEnvelopeEncryption** или **DynamicCommonEncryption**.
+При доставке ресурсов клиентам можно [настроить выполнение динамического шифрования ресурсов](media-services-dotnet-configure-asset-delivery-policy.md). Вы можете использовать один из двух следующих типов шифрования: **DynamicEnvelopeEncryption** или **DynamicCommonEncryption**.
 
 Зашифрованные ресурсы должны быть связаны с сущностями **ContentKey**. В этой статье описано, как создать ключ содержимого.
 
@@ -99,7 +99,7 @@
         return randomBytes;
     }
 
-вызывает
+call
 
 	IContentKey key = CreateEnvelopeTypeContentKey(encryptedsset);
 
@@ -139,7 +139,8 @@
 
         return returnValue;
     }
-вызывает
+call
 
 	IContentKey key = CreateCommonTypeContentKey(encryptedsset);
-<!--HONumber=47-->
+
+<!--HONumber=52-->

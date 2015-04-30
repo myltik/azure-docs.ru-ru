@@ -1,7 +1,7 @@
 ﻿<properties 
 	pageTitle="Доставка содержимого потоковой передачи из служб мультимедиа" 
 	description="Узнайте, как создать указатель для создания URL-адреса потоковой передачи. Код использует REST API." 
-	authors="juliako" 
+	authors="Juliako" 
 	manager="dwrede" 
 	editor="" 
 	services="media-services" 
@@ -19,18 +19,18 @@
 
 #Практическое руководство. Доставка потокового контента
 
-Это одна из статей серии [Рабочий процесс для видео по запросу в службах мультимедиа](../media-services-video-on-demand-workflow) и [Рабочий процесс для потоковой передачи в службах мультимедиа](../media-services-live-streaming-workflow) .  
+Это одна из статей серии [Рабочий процесс для видео по запросу в службах мультимедиа](media-services-video-on-demand-workflow.md) и серии [Рабочий процесс для потоковой передачи в службах мультимедиа](media-services-live-streaming-workflow.md).  
 
 ##Обзор
 
 
-Вы можете осуществлять потоковую передачу набора MP4-файлов с адаптивной скоростью, создавая указатель потоковой передачи OnDemand и формируя URL-адрес потоковой передачи. [Кодировка актива](../media-services-rest-encode-asset) В разделе показано, как кодировать в набор MP4 с адаптивной скоростью. Перед созданием указателя следует настроить политику доставки ресурсов, как описано [здесь](../media-services-rest-configure-asset-delivery-policy) . 
+Вы можете осуществлять потоковую передачу набора MP4-файлов с адаптивной скоростью, создавая указатель потоковой передачи OnDemand и формируя URL-адрес потоковой передачи. В разделе о [кодировании ресурса](media-services-rest-encode-asset.md) показано кодирование данных в набор MP4-файлов с адаптивной скоростью. Перед созданием указателя следует настроить политику доставки ресурсов, как описано в [этом](media-services-rest-configure-asset-delivery-policy.md) разделе. 
 
 Можно также использовать указатель потоковой передачи OnDemand, чтобы формировать URL-адреса, указывающие на MP4-файлы для последовательного скачивания.  
 
 В этом разделе показано, как создать указатель потоковой передачи OnDemand, чтобы опубликовать ресурс и сформировать URL-адреса потоковой передачи Smooth, MPEG DASH и HLS. В нем также показывается, как создать URL-адреса последовательного скачивания.
 
-В [следующем](#types) разделе показаны типы перечисления, значения которых используются в вызовах REST.   
+[Следующие](#types) разделе показаны типы перечисления, значения которых используются в вызовах REST.   
   
 ##Создание указателя потоковой передачи OnDemand
 
@@ -55,7 +55,7 @@
 	MaxDataServiceVersion: 3.0;NetFx
 	Accept: application/json
 	Accept-Charset: UTF-8
-	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstest1&urn%3aSubscriptionId=bbbef702-e769-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1424263184&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=NWE%2f986Hr5lZTzVGKtC%2ftzHm9n6U%2fxpTFULItxKUGC4%3d
+	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstest1&urn%3aSubscriptionId=zbbef702-e769-2233-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1424263184&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=NWE%2f986Hr5lZTzVGKtC%2ftzHm9n6U%2fxpTFULItxKUGC4%3d
 	x-ms-version: 2.8
 	x-ms-client-request-id: 6bcfd511-a561-448d-a022-a319a89ecffa
 	Host: media.windows.net
@@ -63,7 +63,7 @@
 	
 	{"Name":"access policy","DurationInMinutes":43200.0,"Permissions":1}
 	
-Ответ:
+Response:
 	
 	HTTP/1.1 201 Created
 	Cache-Control: no-cache
@@ -94,7 +94,7 @@
 	MaxDataServiceVersion: 3.0;NetFx
 	Accept: application/json
 	Accept-Charset: UTF-8
-	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstest1&urn%3aSubscriptionId=bbbef702-e769-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1424263184&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=NWE%2f986Hr5lZTzVGKtC%2ftzHm9n6U%2fxpTFULItxKUGC4%3d
+	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstest1&urn%3aSubscriptionId=zbbef702-e769-2233-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1424263184&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=NWE%2f986Hr5lZTzVGKtC%2ftzHm9n6U%2fxpTFULItxKUGC4%3d
 	x-ms-version: 2.8
 	x-ms-client-request-id: ac159492-9a0c-40c3-aacc-551b1b4c5f62
 	Host: media.windows.net
@@ -102,7 +102,7 @@
 	
 	{"AccessPolicyId":"nb:pid:UUID:1480030d-c481-430a-9687-535c6a5cb272","AssetId":"nb:cid:UUID:cc1e445d-1500-80bd-538e-f1e4b71b465e","StartTime":"2015-02-18T06:34:47.267872Z","Type":2}
 
-Ответ:
+Response:
 	
 	HTTP/1.1 201 Created
 	Cache-Control: no-cache
@@ -174,4 +174,5 @@ URL-адрес: **Путь** + имя MP4-файла ресурса
         Sas = 1,
         OnDemandOrigin = 2,
     }
-<!--HONumber=47-->
+
+<!--HONumber=52-->

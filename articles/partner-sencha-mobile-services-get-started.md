@@ -10,13 +10,13 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-sencha" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
-	ms.topic="article" 
+	ms.topic="hero-article" 
 	ms.date="11/22/2014" 
 	ms.author="sencha"/>
 
-# <a name="getting-started"> </a>Приступая к работе с мобильными службами и Sencha Touch
+# <a name="getting-started"> </a>Начало работы с мобильными службами и Sencha Touch
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
@@ -25,7 +25,7 @@
 <p>В этом учебнике показано, как использовать мобильные службы Azure в приложении Sencha Touch. Вы создадите простое приложение списка дел с помощью системы Sencha Touch, которая использует мобильные службы, определяемые на портале управления. Этот учебник предназначен для разработчиков веб-приложений среднего и высокого уровня, которые хорошо понимают принципы работы JavaScript и знакомы с платформой Sencha Touch. </p>
 <p>Если вы предпочитаете смотреть видео, то в клипе справа приведены те же действия, что и в учебнике. В видео Артур Кэй (Arthur Kay) объясняет, как создать приложение Sencha Touch с помощью серверного компонента мобильных служб Azure.</p>
 </div>
-<div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkId=392574" target="_blank" class="label">просмотреть учебник</a><a style="background-image: url('/media/partner-sencha-mobile-services-get-started/mobile-sencha-get-started-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkId=392574" target="_blank" class="dev-onpage-video"><span class="icon">Воспроизведение видео</span></a> <span class="time">14:37</span></div>
+<div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkId=392574" target="_blank" class="label">просмотр учебника</a> <a style="background-image: url('/media/partner-sencha-mobile-services-get-started/mobile-sencha-get-started-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkId=392574" target="_blank" class="dev-onpage-video"><span class="icon">Воспроизведение видео</span></a> <span class="time">14:37</span></div>
 </div>
 
 
@@ -41,7 +41,7 @@
 
 - Среда выполнения Java (JRE) или набор разработки Java (при создании приложений Android)
 
-## <a name="create-new-service"> </a>Создание мобильной службы
+## <a name="create-new-service"> </a>Создание новой мобильной службы
 
 [AZURE.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
@@ -50,15 +50,15 @@
 После создания мобильной службы можно выполнить простые действия для быстрого запуска на портале управления, чтобы создать
 новую таблицу базы данных для использования в мобильной службе.
 
-1. В портале управления нажмите **Мобильные службы**, затем нажмите только что созданную мобильную службу.
+1. На портале управления щелкните **Мобильные службы**, а затем выберите только что созданную мобильную службу.
 
 2. На вкладке быстрого запуска щелкните элемент **HTML** в разделе **Выбор платформы**, а затем разверните пункт **Создать новое приложение HTML**.
 
-    ![Mobile quickstart html](./media/partner-sencha-mobile-services-get-started/mobile-portal-quickstart-html.png)
+    ![HTML-код быстрого запуска для мобильных служб](./media/partner-sencha-mobile-services-get-started/mobile-portal-quickstart-html.png)
 
     Здесь показаны три простых шага для создания и размещения приложения HTML, подключенного к вашей мобильной службе.
 
-    ![Mobile quickstart html](./media/partner-sencha-mobile-services-get-started/mobile-quickstart-steps-html.png)
+    ![HTML-код быстрого запуска для мобильных служб](./media/partner-sencha-mobile-services-get-started/mobile-quickstart-steps-html.png)
 
 3. Чтобы создать таблицу для хранения данных приложения, нажмите кнопку **Создание таблицы TodoItems**.
 
@@ -67,11 +67,11 @@
 
 1. Запишите значения **appKey** и **appUrl** на портале управления. Они нам понадобятся в других разделах данного учебника.
 
-    ![app key](./media/partner-sencha-mobile-services-get-started/mobile-app-key-portal.png)
+    ![ключ приложения](./media/partner-sencha-mobile-services-get-started/mobile-app-key-portal.png)
 
-1. На вкладке **Настройка** убедитесь, что в списке **Разрешить запросы от имен узлов** в разделе **Общий доступ к ресурсам независимо от источника (CORS)** уже имеется значение `localhost`. Если оно не указано, введите `localhost` в поле **Имя узла** и нажмите кнопку **Сохранить**.
+1. Откройте вкладку **Настройка** и убедитесь, что значение `localhost` уже находится в списке **Разрешить запросы от имен узлов** в разделе **Общий доступ к ресурсам независимо от источника (CORS)**. Если оно не указано, введите `localhost` в поле **Имя узла** и нажмите кнопку **Сохранить**.
 
-    ![Setup CORS for localhost](./media/partner-sencha-mobile-services-get-started/mobile-services-set-cors-localhost.png)
+    ![Настройка CORS для localhost](./media/partner-sencha-mobile-services-get-started/mobile-services-set-cors-localhost.png)
 
 ##Создание приложения Touch
 
@@ -106,11 +106,11 @@
 
 ###Установка в виде пакета Sencha
 
-> [AZURE.NOTE] Этот метод можно использовать только в том случае, когда приложение было создано с помощью команды <code>sencha generate app</code>.
+> [AZURE.NOTE] Этот метод можно использовать, только если приложение было создано с помощью команды <code>sencha generate app</code>.
 
-Все приложения, создаваемые программой командной строки Sencha Cmd, имеют в корне папку packages. Расположение этой папки можно настроить, однако независимо от расположения папка "packages" используется в качестве хранилища всех пакетов, используемых приложением (или приложениями при создании рабочей области Sencha).
+Все приложения, создаваемые программой командной строки Sencha Cmd, имеют в корне папку "packages". Расположение этой папки можно настроить, однако независимо от расположения папка "packages" используется в качестве хранилища всех пакетов, используемых приложением (или приложениями при создании рабочей области Sencha).
 
-Поскольку Ext.Azure является пакетом Sencha Cmd, исходный код можно легко установить и включить в приложение с помощью Sencha Cmd. (Дополнительную информацию см. в разделе [Пакеты Sencha Cmd](http://docs.sencha.com/cmd/3.1.2/#!/guide/command_packages).)
+Поскольку Ext.Azure является пакетом Sencha Cmd, исходный код можно легко установить и включить в приложение с помощью Sencha Cmd. (Дополнительную информацию см. в разделе [Пакеты Sencha Cmd](http://docs.sencha.com/cmd/3.1.2/#!/guide/command_packages)).
 
 Чтобы загрузить и установить пакет расширений Azure из репозитория пакетов Sencha, необходимо добавить имя этого пакета в ваш файл **app.json** и выполнить построение приложения:
 
@@ -662,7 +662,8 @@
 
   2. С помощью Sencha Cmd выполните следующие команды:
 
-    * sencha app refresh: указывает Sencha Cmd найти все зависимости приложения и скачать все необходимые пакеты (например, расширения [Sencha Touch для Azure](https://market.sencha.com/extensions/sencha-touch-extensions-for-windows-azure)).
+    * *sencha app refresh* : это указывает Sencha Cmd найти все зависимости приложения
+      и загрузить все необходимые пакеты (например, [расширения Sencha Touch для Azure](https://market.sencha.com/extensions/sencha-touch-extensions-for-windows-azure)).
 
     * sencha web start: запускает локальный веб-сервер для тестирования приложения.
 
@@ -678,11 +679,11 @@
 
   5. На портале управления перейдите на вкладку **Данные**, а затем щелкните таблицу TodoItems.
 
-    ![Todo Items table](./media/partner-sencha-mobile-services-get-started/mobile-data-tab.png)
+    ![Таблица элементов дел](./media/partner-sencha-mobile-services-get-started/mobile-data-tab.png)
 
     Это позволяет просматривать данные, добавленные в таблицу приложением.
 
-    ![browse todo table](./media/partner-sencha-mobile-services-get-started/mobile-data-browse.png)
+    ![Просмотр таблицы дел](./media/partner-sencha-mobile-services-get-started/mobile-data-browse.png)
 
 ##Дальнейшие действия
 Теперь, когда вы закончили изучение руководства по началу работы, узнайте, как с помощью Sencha можно выполнять дополнительные важные задачи в мобильных службах.
@@ -712,6 +713,4 @@
 <!-- images -->
 [0]: ./media/partner-sencha-mobile-services-get-started/finished-app.png
 
-
-
-<!--HONumber=42-->
+<!--HONumber=52-->

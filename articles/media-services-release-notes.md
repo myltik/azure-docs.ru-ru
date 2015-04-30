@@ -1,8 +1,8 @@
-<properties 
+﻿<properties 
 	pageTitle="Заметки о выпуске служб мультимедиа" 
 	description="Заметки о выпуске служб мультимедиа" 
 	services="media-services" 
-	documentationCenter="media" 
+	documentationCenter="" 
 	authors="juliako" 
 	manager="dwrede" 
 	editor=""/>
@@ -25,6 +25,8 @@
 
 - [Известные проблемы](#issues)
 - [Журнал версий интерфейса API REST](#rest_version_history)
+- [Выпуск: март 2015 г.](#march_changes_15)
+- [Выпуск: февраль 2015 г.](#february_changes_15)
 - [Выпуск: январь 2015 г.](#january_changes_15)
 - [Выпуск: декабрь 2014 г.](#december_changes_14)
 - [Выпуск: ноябрь 2014 г.](#november_changes_14)
@@ -44,7 +46,7 @@
 - [Предварительный выпуск: июнь 2012 г.](#june_changes_12)
 
 
-## <a id="issues"></a>Известные проблемы
+##<a id="issues"></a>Известные проблемы
 
 ### <a id="general_issues"></a>Общие проблемы служб мультимедиа
 
@@ -52,8 +54,8 @@
 <tr><th>Проблема</th><th>Описание</yt></tr>
 <tr><td>В API-интерфейсе REST отсутствует ряд стандартных заголовков HTTP.</td><td>При разработке приложений служб мультимедиа с использованием API-интерфейса REST замечено, что ряд стандартных полей заголовков HTTP (включая CLIENT-REQUEST-ID, REQUEST-ID и RETURN-CLIENT-REQUEST-ID) не поддерживается. Эти заголовки будут добавлены в следующем обновлении.</td></tr>
 <tr><td>При кодировании актива с именем файла, содержащим escape-последовательности символов (например, %20), появляется ошибка "MediaProcessor: File not found" (MediaProcessor: файл не найден).</td><td>Имена файлов, которые будут добавляться в актив и затем кодироваться, должны содержать только буквы, цифры и пробелы. Эта проблема будет исправлена в следующем обновлении.</td></tr>
-<tr><td>Метод ListBlobs, входящий в состав пакета SDK хранилища Azure версии 3.x, приводит к сбою.</td><td>Службы мультимедиа создают URL-адреса SAS на основе версии <a href="http://msdn.microsoft.com/library/azure/dn592123.aspx">12.02.2012</a> . Если вы хотите использовать пакет SDK хранилища Azure для перечисления BLOB-объектов в контейнере BLOB-объектов, используйте метод <a href="http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx">CloudBlobContainer.ListBlobs</a> , который является частью пакета SDK хранилища Azure версии 2.x. Метод ListBlobs, входящий в состав пакета SDK хранилища Azure версии 3.x, будет вызывать сбой.</td></tr>
-<tr><td>Механизм регулирования служб мультимедиа ограничивает использование ресурсов для приложений, создающих избыточный запрос к службе. Службой может быть возвращен код состояния HTTP "Service Unavailable (503)".</td><td>Дополнительные сведения см. в описании кода состояния HTTP 503 в разделе <a href="http://msdn.microsoft.com/library/azure/dn168949.aspx">Коды ошибок служб мультимедиа Azure</a> .</td></tr>
+<tr><td>Метод ListBlobs, входящий в состав пакета SDK хранилища Azure версии 3.x, приводит к сбою.</td><td>Службы мультимедиа создают URL-адреса SAS на основе версии <a href="http://msdn.microsoft.com/library/azure/dn592123.aspx">2012-02-12</a>. Если вы хотите использовать пакет SDK хранилища Azure для создания списка больших двоичных объектов в контейнере больших двоичных объектов, используйте метод <a href="http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx">CloudBlobContainer.ListBlobs</a>, входящий в пакет SDK хранилища Azure версии 2.x. Метод ListBlobs, входящий в состав пакета SDK хранилища Azure версии 3.x, будет вызывать сбой.</td></tr>
+<tr><td>Механизм регулирования служб мультимедиа ограничивает использование ресурсов для приложений, создающих избыточный запрос к службе. Службой может быть возвращен код состояния HTTP "Service Unavailable (503)".</td><td>Дополнительную информацию см. в описании кода состояния HTTP 503 в разделе <a href="http://msdn.microsoft.com/library/azure/dn168949.aspx">Коды ошибок служб мультимедиа Azure</a>.</td></tr>
 </table><br/>
 
 ### <a id="dotnet_issues"></a>Проблемы с пакетом SDK служб мультимедиа для .NET
@@ -63,57 +65,72 @@
 <tr><td>Объекты служб мультимедиа в пакете SDK не могут быть сериализованы и поэтому не работают вместе с Azure Caching.</td><td>При попытке сериализации объекта SDK AssetCollection с целью его добавления в Azure Caching возникает исключение.</td></tr>
 </table><br/>
 
-## <a id="rest_version_history"></a>Журнал версий интерфейса API REST
+##<a id="rest_version_history"></a>Журнал версий интерфейса API REST
 
 Сведения о журнале версий интерфейса API REST служб мультимедиа см. в [Справочнике по интерфейсу API REST для служб мультимедиа Azure].
 
-## <a id="january_changes_15"></a>Выпуск: январь 2015 г.
+##<a id="march_changes_15"></a>Выпуск: март 2015 г.
+
+### Общие обновления служб мультимедиа
+
+- Теперь службы мультимедиа обеспечивают интеграцию Azure CDN. Для поддержки интеграции в **StreamingEndpoint** было добавлено свойство **CdnEnabled**.  **CdnEnabled** можно использовать с API REST, начиная с версии 2.9 (дополнительные сведения см. в разделе [StreamingEndpoint](https://msdn.microsoft.com/ru-ru/library/azure/dn783468.aspx)).  **CdnEnabled** можно использовать с пакетом SDK .NET, начиная с версии 3.1.0.2 (дополнительные сведения см. в разделе [StreamingEndpoint](https://msdn.microsoft.com/ru-ru/library/azure/microsoft.windowsazure.mediaservices.client.istreamingendpoint(v=azure.10).aspx)).
+- Объявление о **Рабочем процессе Premium обработчика мультимедиа**. Дополнительные сведения см. в разделе [Знакомство с кодированием Premium в службах мультимедиа Azure](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services).
+ 
+
+
+##<a id="february_changes_15"></a>Выпуск: февраль 2015 г.
+
+### Общие обновления служб мультимедиа
+
+API REST служб мультимедиа обновлены до версии 2.9. Начиная с этой версии можно использовать интеграцию Azure CDN с конечными точками потоковой передачи. Дополнительные сведения см. в разделе [StreamingEndpoint](https://msdn.microsoft.com/library/dn783468.aspx).
+
+##<a id="january_changes_15"></a>Выпуск: январь 2015 г.
 
 ### Общие обновления служб мультимедиа
 
 Объявления о поддержке защиты содержимого с помощью динамического шифрования в общедоступной версии. Дополнительную информацию см. в статье [Потоковая передача в службах мультимедиа Azure стала еще безопаснее благодаря поддержке технологии DRM в общедоступной версии](http://azure.microsoft.com/blog/2015/01/29/azure-media-services-enhances-streaming-security-with-general-availability-of-drm-technology/).
 
-### Обновления пакета SDK служб мультимедиа для .NET
+###Обновления пакета SDK служб мультимедиа для .NET
 
 Вышла версия 3.1.0.1 пакета SDK служб мультимедиа Azure для .NET.
 
 В этом выпуске конструктор Microsoft.WindowsAzure.MediaServices.Client.ContentKeyAuthorization.TokenRestrictionTemplate по умолчанию отмечен как устаревший. Новый конструктор принимает в качестве аргумента TokenType.
 
-	TokenRestrictionTemplate template = new TokenRestrictionTemplate(TokenType.SWT);
+	Шаблон TokenRestrictionTemplate = новый TokenRestrictionTemplate(TokenType.SWT);
 
 
-## <a id="december_changes_14"></a>Выпуск: декабрь 2014 г.
+##<a id="december_changes_14"></a>Выпуск: декабрь 2014 г.
 
-### Общие обновления служб мультимедиа
+###Общие обновления служб мультимедиа
 
-- В Azure Indexer Media Processor добавлены некоторые обновления и функции. Дополнительные сведения см. в разделе [Заметки о выпуске Azure Media Indexer версии 1.1.6.7](http://azure.microsoft.com/blog/2014/12/03/azure-media-indexer-version-1-1-6-7-release-notes/).
+- В Azure Indexer Media Processor добавлены некоторые обновления и функции. Дополнительные сведения см. в разделе [Заметки о выпуске индексатора мультимедиа Azure версии 1.1.6.7](http://azure.microsoft.com/blog/2014/12/03/azure-media-indexer-version-1-1-6-7-release-notes/).
 - Добавлен новый интерфейс API REST, который позволяет обновить закодированные зарезервированные единицы: [EncodingReservedUnitType с REST](http://msdn.microsoft.com/library/azure/dn859236.aspx).
 - Добавлена поддержка CORS для службы доставки ключей.
 - Повышена производительность параметров политики запроса авторизации.
 - В китайском центре обработки данных [URL-адрес доставки ключей](http://msdn.microsoft.com/library/azure/ef4dfeeb-48ae-4596-ab28-44d6b36d8769#get_delivery_service_url) теперь распределяется на клиента (как и в других центрах обработки данных).
 - Добавлено автоматическое назначение длительности HLS. При динамической потоковой передаче HLS всегда упаковывается динамически. По умолчанию службы мультимедиа автоматически вычисляют соотношение упаковки сегмента HLS (FragmentsPerSegment) на основе интервала опорного кадра (KeyFrameInterval ), который также называется "группа кадров", полученного из динамического кодировщика. Дополнительные сведения см. в разделе [Работа с потоковой передачей в реальном времени в службах мультимедиа Azure].
  
-### Обновления пакета SDK служб мультимедиа для .NET
+###Обновления пакета SDK служб мультимедиа для .NET
 
-- [Пакет SDK .NET служб мультимедиа Azure](http://www.nuget.org/packages/windowsazure.mediaservices/) теперь имеет версию 3.1.0.0.
+- [Пакет SDK .NET служб мультимедиа Azure](http://www.nuget.org/packages/windowsazure.mediaservices/) обновлен до версии 3.1.0.0.
 - Обновлена зависимость .Net SDK от .NET 4.5 Framework.
-- Добавлен новый интерфейс API, который позволяет обновить закодированные зарезервированные единицы. Дополнительные сведения см. в разделе [Обновление типа зарезервированных единиц и увеличение количества зарезервированных единиц с помощью .NET](http://msdn.microsoft.com/library/azure/jj129582.aspx).
-- Добавлена поддержка токена JWT (веб-токена JSON) для проверки подлинности токенов. Дополнительные сведения см. в разделе [Проверка подлинности токена JWT в службах мультимедиа Azure и динамическое шифрование](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/).
+- Добавлен новый интерфейс API, который позволяет обновить закодированные зарезервированные единицы. Дополнительные сведения см. в статье [Обновление типа зарезервированных единиц и увеличение количества зарезервированных единиц с помощью .NET](http://msdn.microsoft.com/library/azure/jj129582.aspx).
+- Добавлена поддержка токена JWT (веб-токена JSON) для проверки подлинности токенов. Дополнительные сведения см. в статье [Проверка подлинности токена JWT в службах мультимедиа Azure и динамическое шифрование](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/).
 - Добавлены относительные смещения для BeginDate и ExpirationDate в шаблоне лицензий PlayReady.
 
 
-## <a id="november_changes_14"></a>Выпуск: ноябрь 2014 г.
+##<a id="november_changes_14"></a>Выпуск: ноябрь 2014 г.
 
 - Службы мультимедиа теперь позволяют принимать динамическое содержимое Smooth Streaming (FMP4) по SSL-соединению. Для приема по протоколу SSL измените URL-адрес приема на HTTPS.  Дополнительные сведения о динамической потоковой передаче см. в разделе [Работа с динамической потоковой передачей служб мультимедиа Azure].
 - Обратите внимание, что в настоящее время невозможно принять потоковую передачу RTMP по SSL-соединению.
 - Также по SSL-соединению можно выполнять потоковую передачу содержимого. Для этого убедитесь, что URL-адреса потоковой передачи начинаются с HTTPS.
-- Обратите внимание, что потоковую передачу через SSL-соединение можно выполнять, только если конечная точка потоковой передачи, из которой получено содержимое, была создана после 10 сентября 2014 г. Если URL-адреса потоковой передачи основаны на конечных точках потоковой передачи, созданных после 10 сентября, URL-адрес содержит "streaming.mediaservices.windows.net" (новый формат). URL-адреса потоковой передачи, который содержат "origin.mediaservices.windows.net" (старый формат), не поддерживают SSL. Если URL-адрес указан в старом формате, а вам требуется выполнить потоковую передачу по SSL, [создайте новую конечную точку потоковой передачи](http://azure.microsoft.com/ documentation/articles/media-services-manage-origins/). Используйте URL-адреса, созданные на основе новой конечной точки потоковой передачи, для потоковой передачи содержимого по SSL.
+- Обратите внимание, что потоковую передачу через SSL-соединение можно выполнять, только если конечная точка потоковой передачи, из которой получено содержимое, была создана после 10 сентября 2014 г. Если URL-адреса потоковой передачи основаны на конечных точках потоковой передачи, созданных после 10 сентября, URL-адрес содержит "streaming.mediaservices.windows.net" (новый формат). URL-адреса потоковой передачи, который содержат "origin.mediaservices.windows.net" (старый формат), не поддерживают SSL. Если URL-адрес имеет старый формат и необходимо организовать передачу через SSL, нужно [создать новую конечную точку](media-services-manage-origins.md). Используйте URL-адреса, созданные на основе новой конечной точки потоковой передачи, для потоковой передачи содержимого по SSL.
    
-## <a id="october_changes_14"></a>Выпуск: октябрь 2014 г.
+##<a id="october_changes_14"></a>Выпуск: октябрь 2014 г.
 
 ### <a id="new_encoder_release"></a>Выпуск кодировщика служб мультимедиа
 
-Объявление о новом выпуске кодировщика мультимедиа Media Services Azure. Новый кодировщик служб мультимедиа Azure тарифицируется только по количеству исходящих ГБ и функционально совместим с Windows Azure Media Encoder. Дополнительные сведения см. в разделе [Сведения о ценах на службы мультимедиа]).
+Объявление о новом выпуске обработчика мультимедиа Media Services Azure. Новый кодировщик служб мультимедиа Azure тарифицируется только по количеству исходящих ГБ и функционально совместим с Windows Azure Media Encoder. Дополнительные сведения см. в разделе [Сведения о ценах на службы мультимедиа]).
 
 ### <a id="oct_sdk"></a>Пакет SDK служб мультимедиа для .NET 
 
@@ -135,7 +152,7 @@
 Примеры расположены в [репозитории примеров GitHub служб мультимедиа Azure](https://github.com/Azure/Azure-Media-Services-Samples).
 
 
-## <a id="september_changes_14"></a>Выпуск: сентябрь 2014 г.
+##<a id="september_changes_14"></a>Выпуск: сентябрь 2014 г.
 
 Метаданные REST служб мультимедиа теперь имеют версию 2.7. Дополнительные сведения о последних обновлениях REST см. в [Справочнике по интерфейсу API REST для служб мультимедиа Azure].
 
@@ -155,7 +172,7 @@
 	* Создать URL-адрес SAS для загрузки (или постепенного воспроизведения) файла .mp4. Дополнительные сведения о создании локатора SAS см. в разделе [Доставка контента]. 
 
 
-### <a id="sept_14_GA_changes"></a>Новые функции/сценарии, включенные в состав общедоступного выпуска
+### <a id="sept_14_GA_changes"></a>Новые функции и сценарии, включенные в состав общедоступного выпуска
 
 * **Indexer Media Processor**. Дополнительные сведения см. в разделе [Индексирование файлов мультимедиа с помощью Azure Media Indexer].
 
@@ -174,7 +191,7 @@
 
 	Дополнительные сведения см. в свойстве **CustomHostNames** в разделе [StreamingEndpoint].
 
-### <a id="sept_14_preview_changes"></a>Новые функции/сценарии, включенные в состав общедоступного предварительного выпуска
+### <a id="sept_14_preview_changes"></a>Новые функции и сценарии, включенные в состав общедоступного предварительного выпуска
 
 * Предварительный просмотр потоковой передачи в реальном времени. Дополнительные сведения см. в разделе [Работа с потоковой передачей в реальном времени в службах мультимедиа Azure].
 
@@ -190,12 +207,12 @@
 
 * Потоковая передача зашифрованных активов хранилища. Дополнительные сведения см. в разделе [Потоковая передача зашифрованного контента хранилища].
 
-## <a id="august_changes_14"></a>Выпуск: август 2014 г.
+##<a id="august_changes_14"></a>Выпуск: август 2014 г.
 
 После выполнения задания кодирования актива создается выходной актив. До этого выпуска кодировщик служб мультимедиа Azure создавал метаданные о выходных активах. Начиная с этого выпуска также создаются метаданные о входных активах. Дополнительные сведения см. в разделах [Входные метаданные] и [Выходные метаданные].
 
 
-## <a id="july_changes_14"></a>Выпуск: июль 2014 г.
+##<a id="july_changes_14"></a>Выпуск: июль 2014 г.
 
 Исправлены следующие ошибки приложений Azure Media Services Packager и Encryptor.
 
@@ -203,11 +220,11 @@
 
 * При упаковке актива в контейнер HTTP Live Streaming и использовании 128-разрядного шифрования AES упакованные потоки не воспроизводились на устройствах Android. Эта ошибка исправлена. Теперь упакованный поток воспроизводится на устройствах Android, поддерживающих HTTP Live Streaming.
 
-## <a id="may_changes_14"></a>Выпуск: май 2014 г.
+##<a id="may_changes_14"></a>Выпуск: май 2014 г.
 
 ### <a id="may_14_changes"></a>Общие обновления служб мультимедиа
 
-Теперь можно использовать [динамическую упаковку] для потоков HTTP Live Streaming (HLS) v3. Для потоков stream HLS v3 добавьте следующий формат в исходный путь локатора: *.ism/manifest(format=m3u8-aapl-v3). Дополнительные сведения см. в [блоге Ника Друина (Nick Drouin)].
+Теперь можно использовать [динамическую упаковку] для потоков HTTP Live Streaming (HLS) v3. Для потока HLS v3 добавьте следующий формат в исходный путь указателя: *.ism/manifest(format=m3u8-aapl-v3). Дополнительные сведения см. в [блоге Ника Друина (Nick Drouin)].
 
 Динамическая упаковка теперь также поддерживает доставку потоков HLS (v3 и v4), зашифрованных с помощью PlayReady на основе Smooth Streaming со статическим шифрованием с использованием PlayReady. Дополнительные сведения о шифровании Smooth Streaming с помощью PlayReady см. в разделе [Защита потоков Smooth Stream с помощью PlayReady].
 
@@ -225,7 +242,7 @@
 
 Дополнительные сведения см. в разделе [Логика повторных попыток в пакете SDK служб мультимедиа для .NET].
 
-## <a id="april_changes_14"></a>Выпуск кодировщика: апрель 2014 г.
+##<a id="april_changes_14"></a>Выпуск кодировщика: апрель 2014 г.
 
 ### <a name="april_14_enocer_changes"></a>Обновления кодировщика служб мультимедиа
 
@@ -240,7 +257,7 @@
 * Исправлена ошибка, связанная с преобразованием файлов MP4, в которых аудиопоток имеет кодировку MPEG-1 Audio Layer 3 (так называемый MP3).
 
 
-## <a id="jan_feb_changes_14"></a>Выпуски: январь/февраль 2014 г.
+##<a id="jan_feb_changes_14"></a>Выпуски: январь/февраль 2014 г.
 
 ### <a name="jan_fab_14_donnet_changes"></a>Пакет SDK служб мультимедиа Azure для .NET 3.0.0.1, 3.0.0.2 и 3.0.0.3
 
@@ -248,7 +265,7 @@
 
 * Исправлены ошибки, связанные с использованием запросов LINQ с инструкциями OrderBy.
 
-* Тестовые решения в [Github] разделены на тесты на основе единиц и тесты на основе сценариев.
+* Тестовые решения в [GitHub] разделены на тесты на основе единиц и тесты на основе сценариев.
 
 Дополнительные сведения об изменениях см. в разделе [Выпуски 3.0.0.1 и 3.0.0.2 пакета SDK служб мультимедиа Azure для .NET].
 
@@ -259,27 +276,27 @@
 * Исправлена проблема совместимости с предыдущими выпусками 3.0.*.*. 
 
 
-## <a id="december_changes_13"></a>Выпуск: декабрь 2013 г.
+##<a id="december_changes_13"></a>Выпуск: декабрь 2013 г.
 
 ### <a name="dec_13_donnet_changes"></a>Пакет SDK служб мультимедиа Azure для .NET 3.0.0.0
 
 >[AZURE.NOTE] Версии 3.0.x.x несовместимы с версиями 2.4.x.x.
 
-Последним выпуском пакета SDK для служб мультимедиа в данный момент является 3.0.0.0. Последнюю версию пакета можно скачать из Nuget или получить код из [Github].
+Последним выпуском пакета SDK для служб мультимедиа в данный момент является 3.0.0.0. Последнюю версию пакета можно скачать из Nuget или получить код из [GitHub].
 
 Приступив к работе с пакетом SDK версии 3.0.0.0 для служб мультимедиа, вы можете повторно использовать токены [службы контроля доступа Azure Active Directory (ACS)]. Дополнительные сведения см. в разделе "Повторное использованием токенов службы контроля доступа" раздела [Подключение к службам мультимедиа с помощью пакета SDK служб мультимедиа для .NET].
 
 ### <a name="dec_13_donnet_ext_changes"></a>Расширения пакета SDK служб мультимедиа Azure для .NET 2.0.0.0
 
-Расширения пакета SDK служб мультимедиа Azure для .NET - это набор методов расширения и вспомогательных функций, которые упростят код и облегчат разработку приложений с помощью служб мультимедиа Azure. Новые фрагменты кода можно получить на странице [Расширения пакета SDK служб мультимедиа Azure для .NET].
+Расширения пакета SDK .NET служб мультимедиа Azure имеет набор методов и вспомогательных функций, которые позволяют упростить код и облегчить разработку с использованием служб мультимедиа Azure. Новые фрагменты кода можно получить на странице [Расширения пакета SDK служб мультимедиа Azure для .NET].
 
-## <a id="november_changes_13"></a>Выпуск: ноябрь 2013 г.
+##<a id="november_changes_13"></a>Выпуск: ноябрь 2013 г.
 
 ### <a name="nov_13_donnet_changes"></a>Изменения в пакете SDK служб мультимедиа Azure для .NET
 
 Начиная с этой версии, пакет SDK служб мультимедиа для .NET обрабатывает временные ошибки, которые могут возникать при вызове уровня API-интерфейсов REST служб мультимедиа.
 
-## <a id="august_changes_13"></a>Выпуск: август 2013 г.
+##<a id="august_changes_13"></a>Выпуск: август 2013 г.
 
 ### <a name="aug_13_powershell_changes"></a>Командлеты PowerShell служб мультимедиа включены в инструменты SDK Azure
 
@@ -291,7 +308,7 @@
 
 * New-AzureMediaServicesAccount 
 
-	Например, `New-AzureMediaServicesAccount -Name "MediaAccountName" -Location "Region" -StorageAccountName "StorageAccountName"`.
+	Например, New-AzureMediaServicesAccount -Name MediaAccountName -Location Region -StorageAccountName StorageAccountName.
 
 * New-AzureMediaServicesKey 
 
@@ -301,7 +318,7 @@
 
 	Например, `Remove-AzureMediaServicesAccount -Name "MediaAccountName" -Force`.
 
-## <a id="june_changes_13"></a>Выпуск: июнь 2013 г.
+##<a id="june_changes_13"></a>Выпуск: июнь 2013 г.
 
 ### <a name="june_13_general_changes"></a>Изменения в службах мультимедиа Azure
 
@@ -362,7 +379,7 @@
 * Зависимость от OData 5.5 (Microsoft.Data.OData.dll).
 
 
-## <a id="december_changes_12"></a>Выпуск: декабрь 2012 г.
+##<a id="december_changes_12"></a>Выпуск: декабрь 2012 г.
 
 ### <a name="dec_12_dotnet_changes"></a>Изменения в пакете SDK служб мультимедиа Azure для .NET
 
@@ -394,7 +411,7 @@
 
 * EncryptionUtils.GetCertificateFromStore(): Этот метод больше не создает исключение о пустой ссылке, связанное со сбоем при поиске сертификата в связи с ошибками конфигурации сертификата.
 
-## <a id="november_changes_12"></a>Выпуск: ноябрь 2012 г.
+##<a id="november_changes_12"></a>Выпуск: ноябрь 2012 г.
 
 Изменения, указанные в этом разделе - это обновления, включенные в пакет SDK в ноябре 2012 г. (версия 2.0.0.0). В связи с этими изменениями может потребоваться внести изменения или переработать код, созданный для предварительного выпуска пакета SDK за июнь 2012 г.
 
@@ -418,12 +435,12 @@
 
 	Известная ошибка: при использовании cancellationToken отправка будет отменена; однако состояние отмены для задач может быть любым. Необходимо правильно перехватывать и обрабатывать исключения.
 
-* Локаторы
+* Указатели
 	
 	Удалены версии для отдельных источников. Метод context.Locators.CreateSasLocator(asset, accessPolicy) для SAS будет помечен как устаревший или удален общедоступным выпуском. Сведения о новом поведении см. в подразделе "Локаторы" раздела "Новые функции".
 
 
-## <a id="june_changes_12"></a>Предварительный выпуск: июнь 2012 г.
+##<a id="june_changes_12"></a>Предварительный выпуск: июнь 2012 г.
 
 В ноябрьском выпуске пакета SDK добавлена следующая новая функциональность.
 
@@ -431,7 +448,7 @@
 
 	Объекты IAsset, IAssetFile, ILocator, IAccessPolicy, IContentKey теперь удаляются на уровне объектов, например IObject.Delete(), вместо удаления в коллекции, то есть cloudMediaContext.ObjCollection.Delete(objInstance).
 
-* Локаторы
+* Указатели
 
 	Теперь локаторы необходимо создавать с помощью метода CreateLocator и использовать перечисляемые значения LocatorType.SAS или LocatorType.OnDemandOrigin в качестве аргумента для определенного типа создаваемого локатора.
 
@@ -446,36 +463,36 @@
 <!-- Images. -->
 
 <!-- URLs. -->
-[Форум MSDN по службам мультимедиа Azure]: http://social.msdn.microsoft.com/forums/azure/en-US/home?forum=MediaServices
-[Справочнике по интерфейсу API REST для служб мультимедиа Azure]: http://msdn.microsoft.com/library/azure/hh973617.aspx 
-[Сведения о ценах на службы мультимедиа]: http://azure.microsoft.com/ pricing/details/media-services/
+[Форум MSDN по службам мультимедиа Azure]: http://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices
+[Справочник по интерфейсу API REST служб мультимедиа Azure]: http://msdn.microsoft.com/library/azure/hh973617.aspx 
+[Сведения о ценах на службы мультимедиа]: http://azure.microsoft.com/pricing/details/media-services/
 [Входные метаданные]: http://msdn.microsoft.com/library/azure/dn783120.aspx
 [Выходные метаданные]: http://msdn.microsoft.com/library/azure/dn783217.aspx
-[Доставка контента]: http://msdn.microsoft.com/library/azure/hh973618.aspx
-[Индексирование файлов мультимедиа с помощью Azure Media Indexer]: http://msdn.microsoft.com/library/azure/dn783455.aspx
+[Доставка содержимого]: http://msdn.microsoft.com/library/azure/hh973618.aspx
+[Индексирование файлов мультимедиа с помощью индексатора мультимедиа Azure]: http://msdn.microsoft.com/library/azure/dn783455.aspx
 [StreamingEndpoint]: http://msdn.microsoft.com/library/azure/dn783468.aspx
-[Работа с потоковой передачей в реальном времени в службах мультимедиа Azure]: http://msdn.microsoft.com/library/azure/dn783466.aspx
+[Работа с динамической потоковой передачей служб мультимедиа Azure]: http://msdn.microsoft.com/library/azure/dn783466.aspx
 [Использование динамического шифрования AES-128 и службы доставки ключей]: http://msdn.microsoft.com/library/azure/dn783457.aspx
 [Использование динамического шифрования PlayReady и службы доставки лицензий]: http://msdn.microsoft.com/library/azure/dn783467.aspx
-[Функции предварительной версии]: http://azure.microsoft.com/ services/preview/
-[Потоковая передача зашифрованного контента хранилища]: http://msdn.microsoft.com/library/azure/dn783459.aspx
+[Функции предварительной версии]: http://azure.microsoft.com/services/preview/
+[Обзор шаблонов лицензий PlayReady служб мультимедиа]: http://msdn.microsoft.com/library/azure/dn783459.aspx
 [Потоковая передача зашифрованного содержимого хранилища]: http://msdn.microsoft.com/library/azure/dn783451.aspx
 [Портал управления Azure]: https://manage.windowsazure.com
-[динамическую упаковку]: http://msdn.microsoft.com/library/azure/jj889436.aspx
-[блоге Ника Друина (Nick Drouin)]: http://blog-ndrouin.azurewebsites.net/hls-v3-new-old-thing/
-[Защита потоков Smooth Stream с помощью PlayReady]: http://msdn.microsoft.com/library/azure/dn189154.aspx
+[Динамическая упаковка]: http://msdn.microsoft.com/library/azure/jj889436.aspx
+[Блог Ника Друина (Nick Drouin)]: http://blog-ndrouin.azurewebsites.net/hls-v3-new-old-thing/
+[Защита Smooth Stream с помощью PlayReady]: http://msdn.microsoft.com/library/azure/dn189154.aspx
 [Логика повторных попыток в пакете SDK служб мультимедиа для .NET]: http://msdn.microsoft.com/library/azure/dn745650.aspx
 [Grass Valley представляет потоковую передачу EDIUS 7 в облаке]: http://www.streamingmedia.com/Producer/Articles/ReadArticle.aspx?ArticleID=96351&utm_source=dlvr.it&utm_medium=twitter
 [Управление именами выходных файлов кодировщика служб мультимедиа]: http://msdn.microsoft.com/library/azure/dn303341.aspx
 [Создание наложений]: http://msdn.microsoft.com/library/azure/dn640496.aspx
 [Стыковка сегментов видео]: http://msdn.microsoft.com/library/azure/dn640504.aspx
 [Выпуски 3.0.0.1 и 3.0.0.2 пакета SDK служб мультимедиа Azure для .NET]: http://www.gtrifonov.com/2014/02/07/windows-azure-media-services-.net-sdk-3.0.0.2-release/
-[Azure Active Directory Access Control Service (ACS)]: http://msdn.microsoft.com/library/hh147631.aspx
+[Служба контроля доступа Azure Active Directory (ACS)]: http://msdn.microsoft.com/library/hh147631.aspx
 [Подключение к службам мультимедиа с помощью пакета SDK служб мультимедиа для .NET]: http://msdn.microsoft.com/library/azure/jj129571.aspx
 [Расширения пакета SDK служб мультимедиа Azure для .NET]: https://github.com/Azure/azure-sdk-for-media-services-extensions/tree/dev
 [azure-sdk-tools]: https://github.com/Azure/azure-sdk-tools
-[Github]: https://github.com/Azure/azure-sdk-for-media-services
+[GitHub]: https://github.com/Azure/azure-sdk-for-media-services
 [Управление активами служб мультимедиа в нескольких учетных записях хранения]: http://msdn.microsoft.com/library/azure/dn271889.aspx
 [Обработка уведомлений из заданий служб мультимедиа]: http://msdn.microsoft.com/library/azure/dn261241.aspx
 
-<!--HONumber=45--> 
+<!--HONumber=52-->

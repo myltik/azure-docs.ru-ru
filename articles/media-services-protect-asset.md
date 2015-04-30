@@ -17,15 +17,15 @@
 	ms.author="juliako"/>
 
 
-# Практическое руководство. Динамическое шифрование ресурса с помощью PlayReady или AES-128
+#Практическое руководство. Динамическое шифрование ресурса с помощью PlayReady или AES-128
 
-Это одна из статей серии [Рабочий процесс для видео по запросу в службах мультимедиа](../media-services-video-on-demand-workflow) and [Media Services Live Streaming workflow](../media-services-live-streaming-workflow) .
+Это одна из статей серии [Рабочий процесс для видео по запросу в службах мультимедиа](media-services-video-on-demand-workflow.md) и серии [Рабочий процесс для потоковой передачи в службах мультимедиа](media-services-live-streaming-workflow.md).
   
-## Обзор
+##Обзор
 
 Службы мультимедиа Microsoft Azure позволяют доставлять содержимое, зашифрованное (динамически) с помощью AES (с использованием 128-битных ключей шифрования) и PlayReady DRM. Они также обеспечивают службы доставки ключей и лицензий PlayReady авторизованным клиентам. Для доставки защищенного содержимого необходимо настроить политику авторизации ключа содержимого и политики доставки ресурсов.
 
-## Настройка
+##Настройка
 
 Дополнительная информация о настройке политики авторизации ключа содержимого 
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../includes/media-services-selector-content-key-auth-policy.md)] 
@@ -33,4 +33,5 @@
 Настройка политик доставки ресурсов
 [AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../includes/media-services-selector-asset-delivery-policy.md)]
  
-<!--HONumber=45--> 
+
+<!--HONumber=52-->

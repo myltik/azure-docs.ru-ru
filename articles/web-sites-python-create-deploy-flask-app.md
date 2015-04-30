@@ -1,70 +1,58 @@
-﻿<properties 
+<properties 
 	pageTitle="Веб-сайты Python на Flask - учебник Azure" 
 	description="Учебник, в котором вы ознакомитесь с запуском веб-сайта Python в Azure." 
-	services="web-sites" 
+	services="app-service\web" 
 	documentationCenter="python" 
+	tags="python"
 	authors="huguesv" 
-	manager="" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="12/17/2014" 
-	ms.author="huvalo"/>
+	ms.date="02/09/2015" 
+	ms.author="huguesv"/>
 
 
 
 
 # Создание веб-сайтов с помощью Flask
 
-В этом учебнике описывается, как начать работать с Python на веб-сайтах Azure.  Веб-сайты Azure предоставляют ограниченное бесплатное размещение и быстрое развертывание, а также возможность использовать Python.  По мере роста приложения можно переключиться на платное размещение, а также интегрировать его со всеми другими службами Azure.
+В этом учебнике описывается, как начать работать с Python на веб-сайтах Azure.  Веб-сайты Azure предоставляют ограниченное бесплатное размещение и быстрое развертывание, а также возможность использовать Python.  По мере роста приложения его можно перевести на платное размещение и интегрировать во все другие службы Azure.
 
-Вы создадите приложение с помощью веб-платформы Flask (см. другие версии этого учебника для веб-платформ [Django](web-sites-python-create-deploy-django-app.md) и [Bottle](web-sites-python-create-deploy-bottle-app.md)).  Вы можете создать веб-сайт из коллекции Azure, настроить развертывание Git и локально клонировать репозиторий.  Затем вы сможете запускать приложение локально, вносить изменения, фиксировать и отправлять их в Azure.  В этом учебнике показано, как выполнить вышеуказанные действия в Windows, Mac или Linux.
+Вы создадите приложение с помощью веб-платформы Flask (см. другие версии этого учебника для веб-платформ [Django](web-sites-python-create-deploy-django-app.md) и [Bottle](web-sites-python-create-deploy-bottle-app.md)).  Затем вы создадите веб-сайт из коллекции Azure, настроите развертывание через Git и локально клонируете репозиторий.  После этого вы запустите приложение локально, внесете в него изменения, зафиксируете их и отправите в Azure.  В этом учебнике показано, как выполнить вышеуказанные действия в Windows, Mac или Linux.
 
 [AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 
-+ [Необходимые условия](#prerequisites)
-+ [Создание веб-сайта на портале](#website-creation-on-portal)
-+ [Обзор приложений](#application-overview)
-+ Разработка веб-сайта
-  + [Windows - средства Python для Visual Studio](#website-development-windows-ptvs)
-  + [Windows - командная строка](#website-development-windows-command-line)
-  + [Mac и Linux - командная строка](#website-development-mac-linux-command-line)
-+ [Устранение неполадок - развертывание](#troubleshooting-deployment)
-+ [Устранение неполадок - установка пакета](#troubleshooting-package-installation)
-+ [Устранение неполадок - виртуальная среда](#troubleshooting-virtual-environment)
-+ [Дальнейшие действия](#next-steps)
+## Предварительные требования
 
-
-<h2><a name="prerequisites"></a>Предварительные требования</h2>
-
-- Windows, Mac или Linux
-- Python 2.7 или 3.4
-- setuptools, pip, virtualenv (только для Python 2.7)
+- Windows, Mac или Linux.
+- Python 2.7 или 3.4.
+- setuptools, pip, virtualenv (только для Python 2.7).
 - Git
-- Документация по средствам Python для Visual Studio (необязательно)
+- [Средства Python 2.1 для Visual Studio][] (необязательно).
 
 **Примечание**. Публикация TFS в настоящее время для проектов Python не поддерживается.
 
 ### Windows
 
-Если у вас еще не установлен Python 2.7 или 3.4 (32-разрядная версия), рекомендуется сначала установить [пакет SDK для Azure для Python 2.7](http://go.microsoft.com/fwlink/?linkid=254281&clcid=0x409) или [пакет SDK для Azure для Python 3.4](http://go.microsoft.com/fwlink/?LinkID=516990&clcid=0x409) с помощью установщика веб-платформы.  При этом выполняется установка 32-разрядной версии Python (для установки на хост-компьютерах Azure), setuptools, pip, virtualenv, и т. д.  Python также можно скачать с веб-сайта [python.org](http://www.python.org/).
+Если у вас еще не установлен Python 2.7 или 3.4 (32-разрядная версия), рекомендуется сначала установить [пакет SDK для Azure для Python 2.7][] или [пакет SDK для Azure для Python 3.4][] с помощью установщика веб-платформы.  При этом выполняется установка 32-разрядной версии Python (для установки на хост-компьютерах Azure), setuptools, pip, virtualenv, и т. д.  Python также можно скачать с веб-сайта [python.org][].
 
-Для Git советуем использовать [Git для Windows](http://msysgit.github.io/). В этом учебнике используется оболочка для Git из Git для Windows.  При использовании Visual Studio можно использовать интегрированную поддержку Git.
+Для Git рекомендуется использовать [Git для Windows][] или [GitHub для Windows][].  При использовании Visual Studio можно использовать интегрированную поддержку Git.
 
-Рекомендуется также установить [инструменты Python для Visual Studio](http://pytools.codeplex.com).  Это необязательно, но если у вас установлена среда [Visual Studio](http://www.visualstudio.com/), в том числе бесплатная версия Visual Studio Express 2013 для Web, это позволит использовать замечательную интегрированную среду разработки Python.
+Мы также рекомендуем установить [средства Python 2.1 для Visual Studio][].  Это необязательно, но если у вас есть [Visual Studio][], например бесплатная версия Visual Studio Community 2013 или Visual Studio Express 2013 для Web, вы получите отличную интегрированную среду разработки Python.
 
 ### Mac/Linux
 
 У вас должны быть установлены Python и Git. Убедитесь, что у вас установлена версия Python 2.7 или 3.4.
 
 
-<h2><a name="website-creation-on-portal"></a>Создание веб-сайта на портале</h2>
+## Создание веб-сайта на портале
 
 Первым этапом в создании приложения является создание веб-сайта с помощью портала управления Azure.  Для этого понадобится войти на портал и нажать кнопку **СОЗДАТЬ** в нижнем левом углу. Откроется окно. Последовательно выберите **СРЕДА ВЫПОЛНЕНИЯ ПРИЛОЖЕНИЙ**, **ВЕБ-САЙТ** и **ИЗ КОЛЛЕКЦИИ**.
 
@@ -80,7 +68,7 @@
 
 ![](./media/web-sites-python-create-deploy-flask-app/portal-website-flask.png)
  
-Далее, можно добавить поддержку публикации с помощью Git.  Это можно сделать, выбрав **Настроить развертывания в системе управления версиями**.
+Далее, можно добавить поддержку публикации с помощью Git.  Это можно сделать, выбрав ссылку **Настроить развертывания в системе управления версиями**.
 
 ![](./media/web-sites-python-create-deploy-flask-app/portal-site-created.png)
 
@@ -95,7 +83,7 @@
 Мы выполним их в следующих разделах.
 
 
-<h2><a name="application-overview"></a>Обзор приложений</h2>
+## Обзор приложения
 
 ### Содержимое репозитория Git
 
@@ -162,7 +150,7 @@
 - Mac и Linux с командной строкой.
 
 
-<h2><a name="website-development-windows-ptvs"></a>Развертывание веб-сайтов - Windows - средства Python для Visual Studio</h2>
+## Разработка веб-сайтов - Windows - средства Python для Visual Studio
 
 ### Клонирование репозитория
 
@@ -194,7 +182,7 @@
 
 ![](./media/web-sites-python-create-deploy-flask-app/windows-browser-flask.png)
 
-Вы можете устанавливать точки останова в исходном коде, выполнять действия с окнами контрольных значений и т. д. Дополнительную информацию о разных возможностях см. в [документации по PTVS](http://pytools.codeplex.com/documentation).
+Вы можете устанавливать точки останова в исходном коде, выполнять действия с окнами контрольных значений и т. д. Дополнительную информацию о разных возможностях см. в [документации по PTVS][].
 
 ### Внесение изменений
 
@@ -226,12 +214,12 @@
 
 Первое развертывание может занять некоторое время, необходимое для создания виртуальной среды, установку пакетов и т. д.
 
-В Visual Studio не отображается ход выполнения развертывания.  Информацию о том, как можно просмотреть результат, см. в разделе [Устранение неполадок - развертывание)]#troubleshooting-deployment).
+В Visual Studio не отображается ход выполнения развертывания.  Информацию о том, как можно просмотреть результат, см. в разделе [Устранение неполадок - развертывание](#troubleshooting-deployment).
 
 Перейдите по URL-адресу Azure, чтобы просмотреть внесенные изменения.
 
 
-<h2><a name="website-development-windows-command-line"></a>Разработка веб-сайта - Windows - командная строка</h2>
+## Разработка веб-сайтов - Windows - командная строка
 
 ### Клонирование репозитория
 
@@ -310,7 +298,7 @@
 Перейдите по URL-адресу Azure, чтобы просмотреть внесенные изменения.
 
 
-<h2><a name="website-development-mac-linux-command-line"></a>Разработка веб-сайта - Mac/Linux - командная строка</h2>
+## Разработка веб-сайтов - Mac/Linux - командная строка
 
 ### Клонирование репозитория
 
@@ -389,22 +377,22 @@
 Перейдите по URL-адресу Azure, чтобы просмотреть внесенные изменения.
 
 
-<h2><a name="troubleshooting-deployment"></a>Устранение неполадок - развертывание</h2>
+## Troubleshooting - Deployment
 
 [AZURE.INCLUDE [web-sites-python-troubleshooting-deployment](../includes/web-sites-python-troubleshooting-deployment.md)]
 
 
-<h2><a name="troubleshooting-package-installation"></a>Устранение неполадок - установка пакета</h2>
+## Устранение неполадок - установка пакета
 
 [AZURE.INCLUDE [web-sites-python-troubleshooting-package-installation](../includes/web-sites-python-troubleshooting-package-installation.md)]
 
 
-<h2><a name="troubleshooting-virtual-environment"></a>Устранение неполадок - виртуальная среда</h2>
+## Устранение неполадок - виртуальная среда
 
 [AZURE.INCLUDE [web-sites-python-troubleshooting-virtual-environment](../includes/web-sites-python-troubleshooting-virtual-environment.md)]
 
 
-<h2><a name="next-steps"></a>Дальнейшие действия</h2>
+## Дальнейшие действия
 
 Используйте следующие ссылки, чтобы узнать больше о средствах Flask и Python для Visual Studio. 
  
@@ -418,13 +406,20 @@
 
 
 <!--Link references-->
-[Использование Flask и MongoDB в Azure с помощью инструментов Python 2.1 для Visual Studio]: ../web-sites-python-ptvs-flask-table-storage
-[Использование Flask и табличного хранилища Azure в Azure с помощью инструментов Python 2.1 для Visual Studio]: ../web-sites-python-ptvs-flask-mongodb
+[Использование Flask и MongoDB в Azure с помощью инструментов Python 2.1 для Visual Studio]: web-sites-python-ptvs-flask-table-storage.md
+[Использование Flask и табличного хранилища Azure в Azure с помощью инструментов Python 2.1 для Visual Studio]: web-sites-python-ptvs-flask-mongodb.md
 
 <!--External Link references-->
+[пакет SDK для Azure для Python 2.7]: http://go.microsoft.com/fwlink/?linkid=254281
+[пакет SDK для Azure для Python 3.4]: http://go.microsoft.com/fwlink/?linkid=516990
+[python.org]: http://www.python.org/
+[Git для Windows]: http://msysgit.github.io/
+[GitHub для Windows]: https://windows.github.com/
+[Средства Python для Visual Studio]: http://aka.ms/ptvs
+[Средства Python 2.1 для Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
+[Visual Studio]: http://www.visualstudio.com/
+[Документация по PTVS]: http://pytools.codeplex.com/documentation
 [Документация по средствам Python для Visual Studio]: http://pytools.codeplex.com/documentation 
 [Документация по Flask]: http://flask.pocoo.org/ 
 
-
-
-<!--HONumber=42-->
+<!--HONumber=52-->

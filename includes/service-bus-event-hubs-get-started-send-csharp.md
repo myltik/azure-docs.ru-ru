@@ -1,4 +1,4 @@
-﻿## Отправка сообщений концентраторам событий
+## Отправка сообщений в концентраторы событий
 В этом разделе создается консольное приложение Windows для отправки событий в концентратор событий.
 
 1. Создайте в Visual Studio новый проект приложения C# для настольных ПК с помощью шаблона **Консольное приложение**. Назовите проект **Sender**.
@@ -11,15 +11,15 @@
 
 3. Выполните поиск `Microsoft Azure Service Bus` и щелкните **Установить**, после чего примите условия использования. 
 
-	![][8]
+ ![][8]
 
 	После этого будут выполнены скачивание, установка и добавление ссылки на <a href="https://www.nuget.org/packages/WindowsAzure.ServiceBus/">пакет NuGet библиотеки служебной шины Azure</a>.
 
-4. Добавьте следующий оператор `using` в начало файла **Program.cs**:
+4. Добавьте следующий оператор `using` в начало файла **Program.cs**.
 
 		using Microsoft.ServiceBus.Messaging;
 
-5. Добавьте следующие поля `static` в класс **Program**, заменяя значения именем концентратора событий, созданного в предыдущем разделе, и строку подключения с правами на **отправку**:
+5. Добавьте следующие поля в класс **Program**, заменяя значения именем концентратора событий, созданного в предыдущем разделе, и строку подключения с правами на **отправку**.
 
 		static string eventHubName = "{event hub name}";
         static string connectionString = "{send connection string}";
@@ -48,12 +48,12 @@
             }
         }
 
-	Этот метод будет постоянно отправлять события в концентратор событий с задержкой 200 мс.
+	Этот метод постоянно отправляет события в концентратор событий с задержкой 200 мс.
 
 7. Наконец, добавьте следующие строки в метод **Main**:
 
-		Console.WriteLine("Press Ctrl-C to stop the sender process");
-        Console.WriteLine("Press Enter to start now");
+		Console.WriteLine(Нажмите клавиши CTRL+C, чтобы остановить процесс отправителя);
+        Console.WriteLine(Нажмите клавишу ВВОД, чтобы начать);
         Console.ReadLine();
         SendingRandomMessages().Wait();
 
@@ -61,4 +61,5 @@
 <!-- Images -->
 [7]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 [8]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp2.png
-<!--HONumber=47-->
+
+<!--HONumber=52--> 

@@ -1,44 +1,54 @@
-<properties pageTitle="Приступая к работе с REST API служб мультимедиа Azure" description="В этом учебнике приведены пошаговые инструкции по реализации приложения доставки видео по запросу с помощью служб мультимедиа Azure с использованием REST API." services="media-services" documentationCenter="" authors="Juliako" manager="dwrede" />
+﻿<properties 
+	pageTitle="Доставка видео по запросу с помощью REST API служб мультимедиа" 
+	description="В этом учебнике приведены пошаговые инструкции по реализации приложения доставки видео по запросу с помощью служб мультимедиа Azure с использованием REST API" 
+	services="media-services" 
+	documentationCenter="" 
+	authors="Juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.devlang="REST" ms.topic="article" ms.tgt_pltfrm="" ms.workload="media" ms.date="01/20/2015" ms.author="juliako" />
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="04/14/2015" 
+	ms.author="juliako"/>
 
-
-# Доставка видео по запросу с помощью REST API служб мультимедиа 
+# Краткое руководство: Доставка видео по запросу с помощью REST API служб мультимедиа 
 
 [AZURE.INCLUDE [media-services-selector-get-started](../includes/media-services-selector-get-started.md)]
 
 
 >[AZURE.NOTE]
-> Для работы с этим учебником требуется учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительную информацию см. в статье <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Бесплатное пробное использование Azure</a>.
+> Для работы с этим учебником требуется учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Бесплатная пробная версия Azure</a>.
 
-В этом учебнике приведены пошаговые инструкции по реализации приложения доставки видео по запросу с помощью служб мультимедиа (AMS) Azure с использованием REST API. 
+В этом кратком руководстве приведены пошаговые инструкции по реализации приложения доставки видео по запросу с помощью служб мультимедиа (AMS) Azure с использованием REST API. 
 
 В учебнике описывается базовый рабочий процесс служба мультимедиа и наиболее распространенные объекты и задачи программирования, необходимые для разработки с использованием служб мультимедиа. По завершении работы с учебником вы сможете выполнить потоковую передачу и поэтапно скачать пример файла мультимедиа, который вы отправили, закодировали и скачали.  
-
-Для реализации приложения доставки видео по запросу можно использовать другие технологии (например, .NET, REST или Java) или средства (портал управления Azure или обозреватель служб мультимедиа Azure), а также их комбинацию. 
-
-В этом учебнике портал управления Azure и REST API служб мультимедиа используется для выполнения следующих задач:     
-
-
-1.  [Создание учетной записи служб мультимедиа с помощью портала](#create_ams).
-1.  [Подключение к учетной записи служб мультимедиа с помощью REST API](#connect).
-1.  [Создание нового актива и отправка видеофайла с помощью REST API](#upload).
-1.  [Настройка единиц потоковой передачи с помощью REST API](#configure_streaming_units).
-2.  [Кодирование исходного файла в набор MP4-файлов с адаптивной скоростью с помощью REST API](#encode).
-1.  [Настройка политики доставки для закодированного ресурса с помощью REST API](#configure_delivery_method).
-1.  [Публикация актива и получение URL-адресов потоковой передачи и поэтапного скачивания с помощью REST API](#publish_get_urls). 
-1.  [Воспроизведение содержимого](#play). 
 
 ## Предварительные требования
 Для начала разработки с помощью REST API служб мультимедиа необходимо выполнить следующие предварительные требования.
 
-- Основная информация о разработке с помощью REST API служб мультимедиа. Дополнительную информацию см. в статье [media-services-rest-overview](http://msdn.microsoft.com/library/azure/hh973616.aspx).
+- Основная информация о разработке с помощью REST API служб мультимедиа. Дополнительные сведения см. в статье [media-services-rest-overview](http://msdn.microsoft.com/library/azure/hh973616.aspx).
 - Выбранное вами приложение, способное отправлять HTTP-запросы и ответы. В этом учебнике используется [Fiddler](http://www.telerik.com/download/fiddler). 
+
+В этом кратком руководстве показаны следующие задачи.
+
+1.  Создание учетной записи служб мультимедиа с помощью портала.
+1.  Подключение к учетной записи служб мультимедиа с помощью REST API.
+1.  Создание нового ресурса и отправка видеофайла с помощью REST API.
+1.  Настройка единиц потоковой передачи с помощью REST API.
+2.  Кодирование исходного файла в набор MP4-файлов с адаптивной скоростью с помощью REST API.
+1.  Настройка политики доставки для закодированного ресурса с помощью REST API.
+1.  Публикация актива и получение URL-адресов потоковой передачи и поэтапного скачивания с помощью REST API. 
+1.  Воспроизведение содержимого. 
 
 
 ## <a id="create_ams"></a>Создание учетной записи служб мультимедиа с помощью портала
 
-1. На [портале управления][] щелкните **Создать**, **Служба мультимедиа** и **Быстрое создание**.
+1. На [портале управления][] нажмите кнопку **Создать**, выберите пункт **Служба мультимедиа** и щелкните **Быстрое создание**.
    
 	![Media Services Quick Create](./media/media-services-create-account/wams-QuickCreate.png)
 
@@ -84,9 +94,9 @@
 		HTTP/1.1 301 Moved Permanently
 		Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
 
-	Отправляйте последующие вызовы API на адрес https://wamsbayclus001rest-hs.cloudapp.net/api/.
+	Необходимо опубликовать последующие вызовы API по адресу https://wamsbayclus001rest-hs.cloudapp.net/api/.
 
-### Получение маркера доступа
+###Получение маркера доступа
 
 Для прямого доступа к службам мультимедиа с помощью REST API необходимо получить маркер доступа из ACS и использовать его при каждом HTTP-запросе, отправляемом в службу. Этот маркер похож на другие маркеры, предоставляемые ACS на основе утверждений доступа в заголовке HTTP-запроса и использующие протокол OAuth версии 2. Для непосредственного подключения к службам мультимедиа не нужно выполнять другие предварительные требования.
 
@@ -132,7 +142,7 @@
 	
 	{  
 	   "token_type":"http://schemas.xmlsoap.org/ws/2009/11/swt-token-profile-1.0",
-	   "access_token":"http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=f7f09258-6753-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421330840&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=uf69n82KlqZmkJDNxhJkOxpyIpA2HDyeGUTtSnq1vlE%3d",
+	   "access_token":"http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421330840&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=uf69n82KlqZmkJDNxhJkOxpyIpA2HDyeGUTtSnq1vlE%3d",
 	   "expires_in":"21600",
 	   "scope":"urn:WindowsAzureMediaServices"
 	}
@@ -143,18 +153,18 @@
 
 Обязательно следите за значением expires_in маркера доступа и при необходимости обновляйте вызовы REST API новыми маркерами.
 
-### Подключение к универсальному коду ресурса служб мультимедиа
+###Подключение к универсальному коду ресурса служб мультимедиа
 
 Корневой URI для служб мультимедиа - это https://media.windows.net/. Изначально необходимо подключиться к этому URI, а если вы получите ответ 301 (перенаправление), следует использовать для последующих вызовов новый URI. Кроме того, не используйте в запросах логику автоматического перенаправления или следования. HTTP-команды и тексты запросов не будут перенаправляться на новый URI.
 
-Обратите внимание, что корневой URI для передачи и скачивания файлов ресурсов - https://имя_учетной_записи_хранения.blob.core.windows.net/, где имя_учетной_записи_хранения - это имя, использованное при настройке учетной записи служб мультимедиа.
+Обратите внимание, что корневой URI для передачи и скачивания файлов ресурсов - https://yourstorageaccount.blob.core.windows.net/, где имя учетной записи хранения - это имя, использованное при настройке учетной записи служб мультимедиа.
 
 В следующем примере показан HTTP-запрос к корневому URI служб мультимедиа (https://media.windows.net/). При выполнении запроса возвращается код ошибки 301 (перенаправление). Следующий запрос использует новый URI (https://wamsbayclus001rest-hs.cloudapp.net/api/).     
 
 **HTTP-запрос**:
 	
 	GET https://media.windows.net/ HTTP/1.1
-	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=f7f09258-6753-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421500579&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=ElVWXOnMVggFQl%2ft9vhdcv1qH1n%2fE8l3hRef4zPmrzg%3d
+	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421500579&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=ElVWXOnMVggFQl%2ft9vhdcv1qH1n%2fE8l3hRef4zPmrzg%3d
 	x-ms-version: 2.8
 	Accept: application/json
 	Host: media.windows.net
@@ -180,7 +190,7 @@
 **HTTP-запрос** (с использованием нового URI):
 			
 	GET https://wamsbayclus001rest-hs.cloudapp.net/api/ HTTP/1.1
-	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=f7f09258-6753-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421500579&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=ElVWXOnMVggFQl%2ft9vhdcv1qH1n%2fE8l3hRef4zPmrzg%3d
+	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421500579&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=ElVWXOnMVggFQl%2ft9vhdcv1qH1n%2fE8l3hRef4zPmrzg%3d
 	x-ms-version: 2.8
 	Accept: application/json
 	Host: wamsbayclus001rest-hs.cloudapp.net
@@ -217,8 +227,8 @@
 - **None** = **0** - шифрование не используется. Обратите внимание, что при использовании этого параметра содержимое не защищено при передаче или в хранилище.
 
 	Используйте этот параметр, если MP4-файл планируется доставить с помощью поэтапного скачивания. 
-- **StorageEncrypted** = **1** - шифрует незашифрованное содержимое локально с помощью 256-разрядного шифрования AES, а затем отправляет его в хранилище Azure, где оно хранится в зашифрованном виде. Активы, защищенные с помощью шифрования хранилища, автоматически расшифровываются и помещаются в систему зашифрованных файлов до кодирования и при необходимости повторно кодируются до отправки в виде нового выходного актива. Основная причина использования шифрования хранилища - если нужно защитить входные файлы мультимедиа высокого качества с помощью стойкого шифрования при хранении на диске.
-- **CommonEncryption** = **2** - используйте этот параметр при отправке содержимого, которое уже зашифровано и защищено с помощью стандартного шифрования или PlayReady DRM (например, Smooth Streaming с защитой PlayReady DRM).
+- **StorageEncrypted** = **1** - шифрует незашифрованное содержимое локально с помощью AES-256-разрядного шифрования, а затем передает его в хранилище Azure, где она хранится в зашифрованном виде. Активы, защищенные с помощью шифрования хранилища, автоматически расшифровываются и помещаются в систему зашифрованных файлов до кодирования и при необходимости повторно кодируются до отправки в виде нового выходного актива. Основная причина использования шифрования хранилища - если нужно защитить входные файлы мультимедиа высокого качества с помощью стойкого шифрования при хранении на диске.
+- **CommonEncryption** = **2** - используйте этот параметр при передаче содержимого, которое уже было зашифровано и защищено с помощью стандартного шифрования или технологии PlayReady DRM (например, Smooth Streaming, защищенное с помощью PlayReady DRM).
 - **EnvelopeEncrypted** = **4** - используйте этот параметр при отправке HLS с шифрованием AES. Обратите внимание, что файлы должны быть закодированы и зашифрованы с помощью Transform Manager.
 
 ### Создание ресурса
@@ -235,7 +245,7 @@
 	MaxDataServiceVersion: 3.0;NetFx
 	Accept: application/json
 	Accept-Charset: UTF-8
-	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=f7f09258-6753-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
+	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
 	x-ms-version: 2.8
 	x-ms-client-request-id: c59de965-bc89-4295-9a57-75d897e5221e
 	Host: wamsbayclus001rest-hs.cloudapp.net
@@ -244,7 +254,7 @@
 	{"Name":"BigBuckBunny.mp4", "Options":"0"}
 	
 
-**HTTP-ответа**
+**HTTP-ответ**
 
 При успешном выполнении возвращается следующий результат:
 	
@@ -290,7 +300,7 @@
 	MaxDataServiceVersion: 3.0;NetFx
 	Accept: application/json
 	Accept-Charset: UTF-8
-	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=f7f09258-6753-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
+	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
 	x-ms-version: 2.8
 	Host: wamsbayclus001rest-hs.cloudapp.net
 	Content-Length: 164
@@ -304,7 +314,7 @@
 	}
 
 
-**HTTP-ответа**
+**HTTP-ответ**
 
 	HTTP/1.1 201 Created
 	Cache-Control: no-cache
@@ -353,7 +363,7 @@
 	MaxDataServiceVersion: 3.0;NetFx
 	Accept: application/json
 	Accept-Charset: UTF-8
-	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=f7f09258-6753-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
+	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
 	x-ms-version: 2.8
 	Host: wamsbayclus001rest-hs.cloudapp.net
 	Content-Length: 74
@@ -362,7 +372,7 @@
 
 **HTTP-запрос**
 
-	При успешном выполнении возвращается следующий ответ:
+	If successful, the following response is returned:
 	
 	HTTP/1.1 201 Created
 	Cache-Control: no-cache
@@ -426,7 +436,7 @@
 	}
 
 
-**HTTP-ответа**
+**HTTP-ответ**
 
 При успешном выполнении возвращается следующий ответ:
 		
@@ -477,7 +487,7 @@
 	MaxDataServiceVersion: 3.0;NetFx
 	Accept: application/json
 	Accept-Charset: UTF-8
-	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=f7f09258-6753-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421662918&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=utmoXXbm9Q7j4tW1yJuMVA3egRiQy5FPygwadkmPeaY%3d
+	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421662918&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=utmoXXbm9Q7j4tW1yJuMVA3egRiQy5FPygwadkmPeaY%3d
 	x-ms-version: 2.8
 	Host: wamsbayclus001rest-hs.cloudapp.net
 	
@@ -490,7 +500,7 @@
 	}
 
 
-**HTTP-ответа**
+**HTTP-ответ**
 
 При успешном выполнении возвращается следующий результат:
 	HTTP/1.1 204 No Content
@@ -505,12 +515,12 @@
 	MaxDataServiceVersion: 3.0;NetFx
 	Accept: application/json
 	Accept-Charset: UTF-8
-	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=f7f09258-6753-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421662918&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=utmoXXbm9Q7j4tW1yJuMVA3egRiQy5FPygwadkmPeaY%3d
+	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421662918&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=utmoXXbm9Q7j4tW1yJuMVA3egRiQy5FPygwadkmPeaY%3d
 	x-ms-version: 2.8
-	Узел: wamsbayclus001rest-hs.cloudapp.net
+	Host: wamsbayclus001rest-hs.cloudapp.net
 
 	
-**HTTP-ответа**
+**HTTP-ответ**
 
 При успешном выполнении возвращается следующий результат:
 
@@ -524,11 +534,11 @@
 	MaxDataServiceVersion: 3.0;NetFx
 	Accept: application/json
 	Accept-Charset: UTF-8
-	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=f7f09258-6753-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421662918&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=utmoXXbm9Q7j4tW1yJuMVA3egRiQy5FPygwadkmPeaY%3d
+	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421662918&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=utmoXXbm9Q7j4tW1yJuMVA3egRiQy5FPygwadkmPeaY%3d
 	x-ms-version: 2.8
 	Host: wamsbayclus001rest-hs.cloudapp.net
 
-**HTTP-ответа**
+**HTTP-ответ**
 
 При успешном выполнении возвращается следующий результат:
 
@@ -544,16 +554,15 @@
 
 Чтобы воспользоваться преимуществом динамической упаковки, необходимо выполнить следующие действия:
 
-- получить по крайней мере одну единицу потоковой передачи по запросу для конечной точки потоковой передачи, из которой планируется доставлять содержимое (описываются в этом разделе);
+- получить по крайней мере одну единицу потоковой передачи для **конечной точки потоковой передачи**, из которой планируется доставлять содержимое (описываются в этом разделе);
 - закодировать или перекодировать мезонинный(исходный) файл в набор MP4-файлов с адаптивным битрейтом или в набор файлов Smooth Streaming (шаги кодирования показаны далее в этом учебнике),  
 
 С динамической упаковкой потребуется хранить и оплачивать файлы только в одном формате хранения, а службы мультимедиа выполнят сборку и будут обслуживать соответствующий ответ на основе запросов клиента. 
 
-Обратите внимание, что кроме возможности использовать динамическую упаковку, зарезервированные единицы потоковой передачи по запросу обеспечивают выделенную выходную пропускную способность, которую можно приобрести с шагом 200 Мбит/с. По умолчанию потоковая передача по требованию настроена в модели общего экземпляра, для которой серверные ресурсы (например, вычислительные ресурсы, мощности исходящего трафика и т. д.) совместно используются со всеми другими пользователями. Чтобы повысить производительность потоковой передачи по требованию, рекомендуется приобретать зарезервированные единицы потоковой передачи по требованию.
 
 >[AZURE.NOTE] Дополнительные сведения о ценах см. в разделе [Сведения о ценах для служб мультимедиа](http://go.microsoft.com/fwlink/?LinkId=275107).
 
-Чтобы изменить число зарезервированных единиц потоковой передачи по требованию, выполните следующие действия:
+Чтобы изменить число зарезервированных единиц потоковой передачи, выполните следующие действия:
 	
 ### Получение конечной точки потоковой передачи, которую необходимо обновить
 
@@ -566,11 +575,11 @@
 	MaxDataServiceVersion: 3.0;NetFx
 	Accept: application/json;odata=verbose
 	Accept-Charset: UTF-8
-	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=f7f09258-6753-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421466122&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=TiKGEOTporft4pFGU24sSZRZk5GRAWszFXldl5NXAhY%3d
+	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421466122&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=TiKGEOTporft4pFGU24sSZRZk5GRAWszFXldl5NXAhY%3d
 	x-ms-version: 2.8
 	Host: wamsbayclus001rest-hs.cloudapp.net
 
-**HTTP-ответа**
+**HTTP-ответ**
 	
 При успешном выполнении возвращается следующий результат:
 	
@@ -586,14 +595,14 @@
 	MaxDataServiceVersion: 3.0;NetFx
 	Accept: application/json;odata=verbose
 	Accept-Charset: UTF-8
-	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=f7f09258-6753-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421466122&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=TiKGEOTporft4pFGU24sSZRZk5GRAWszFXldl5NXAhY%3d
+	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421466122&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=TiKGEOTporft4pFGU24sSZRZk5GRAWszFXldl5NXAhY%3d
 	x-ms-version: 2.8
 	x-ms-client-request-id: 39f96c93-a4b1-43ce-b97e-b2aaa44ee2dd
 	Host: wamsbayclus001rest-hs.cloudapp.net
 	
 	{"scaleUnits":1}
 
-**HTTP-ответа**
+**HTTP-ответ**
 
 	HTTP/1.1 202 Accepted
 	Cache-Control: no-cache
@@ -609,9 +618,9 @@
 	Content-Length: 0
 
 	
-### <a id="long_running_op_status"></a> Проверка состояния длительной операции
+### <a id="long_running_op_status"></a> Проверить состояние длительной операции
 
-Распределение всех новых единиц потоковой передачи по требованию занимает около 20 минут. Чтобы проверить состояние операции, используйте метод **Operations** и укажите идентификатор операции. Идентификатор операции был возвращен в ответ на запрос **Scale**.
+Выделение новых единиц занимает около 20 минут. Чтобы проверить состояние операции, используйте метод **Operations** и укажите идентификатор операции. Идентификатор операции был возвращен в ответ на запрос **Scale**.
 
 	operation-id: nb:opid:UUID:1853bcbf-b71f-4ed5-a4c7-a581d4f45ae7
  
@@ -621,11 +630,11 @@
 	MaxDataServiceVersion: 3.0;NetFx
 	Accept: application/json;odata=verbose
 	Accept-Charset: UTF-8
-	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=f7f09258-6753-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421466122&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=TiKGEOTporft4pFGU24sSZRZk5GRAWszFXldl5NXAhY%3d
+	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421466122&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=TiKGEOTporft4pFGU24sSZRZk5GRAWszFXldl5NXAhY%3d
 	x-ms-version: 2.8
 	Host: wamsbayclus001rest-hs.cloudapp.net
 	
-**HTTP-ответа**
+**HTTP-ответ**
 	
 	HTTP/1.1 200 OK
 	Cache-Control: no-cache
@@ -660,12 +669,12 @@
 
 После приема активов в службы мультимедиа файлы мультимедиа можно кодировать, менять их формат, добавлять водяные знаки и т. д. до их доставки клиентам. Эти действия запланированы и выполняются в нескольких экземплярах фоновых ролей для обеспечения высокой производительности и доступности. Эти действия называются заданиями, и каждое [задание](http://msdn.microsoft.com/library/azure/hh974289.aspx) состоит из элементарных задач, которые выполняют фактическую работу в файле ресурса. 
 
-Как было упомянуто ранее, при работе со службами мультимедиа Azure один из наиболее распространенных сценариев - доставка потоковой передачи с адаптивным битрейтом клиентам. Службы мультимедиа могут динамически упаковывать набор MP4-файлов с адаптивным битрейтом в один из следующих форматов: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH и HDS (только для обладателей лицензии Adobe PrimeTime/Access). 
+Как было упомянуто ранее, при работе со службами мультимедиа Azure один из наиболее распространенных сценариев - доставка потоковой передачи с адаптивным битрейтом клиентам. Службы мультимедиа могут динамически упаковывать набор MP4-файлов с адаптивным битрейтом в один из следующих форматов: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH и HDS (только для лицензиатов Adobe PrimeTime/Access). 
 
 Чтобы воспользоваться преимуществом динамической упаковки, необходимо выполнить следующие действия:
 
 - закодировать или перекодировать мезонинный(исходный) файл в набор MP4-файлов с адаптивным битрейтом или в набор файлов Smooth Streaming,  
-- получить по крайней мере одну единицу потоковой передачи по запросу для конечной точки потоковой передачи, из которой планируется доставлять содержимое. 
+- получить по крайней мере одну единицу потоковой передачи для конечной точки потоковой передачи, из которой планируется доставлять содержимое. 
 
 Ниже показано, как создать задание, содержащее одну задачу кодирования. Эта задача указывает на необходимость перекодирования мезонинного файла в набор MP4-файлов с адаптивной скоростью с помощью **кодировщика службы мультимедиа Azure**. В данном разделе также показано, как отслеживать ход выполнения задания. После завершения задания можно будет создавать указатели, которые необходимы для получения доступа к ресурсам. 
 
@@ -687,7 +696,7 @@
 	Host: wamsbayclus001rest-hs.cloudapp.net
 	
 
-**HTTP-ответа**
+**HTTP-ответ**
 
 	HTTP/1.1 200 OK
 	Cache-Control: no-cache
@@ -730,7 +739,7 @@
 	Content-Type: application/json
 	Accept: application/json;odata=verbose
 	Accept-Charset: UTF-8
-	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=f7f09258-6753-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421675491&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=9hUudHYnATpi5hN3cvTfgw%2bL4N3tL0fdsRnQnm6ZYIU%3d
+	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421675491&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=9hUudHYnATpi5hN3cvTfgw%2bL4N3tL0fdsRnQnm6ZYIU%3d
 	x-ms-version: 2.8
 	Host: wamsbayclus001rest-hs.cloudapp.net
 	Content-Length: 482
@@ -754,7 +763,7 @@
 	   ]
 	}
 
-**HTTP-ответа**
+**HTTP-ответ**
 
 При успешном выполнении возвращается следующий ответ:
 
@@ -819,7 +828,7 @@
 При создании любого запроса задания необходимо учитывать несколько важных моментов.
 
 - Чтобы определить количество входных или выходных ресурсов, используемых задачей, в свойствах TaskBody НЕОБХОДИМО использовать XML-литерал. В статье "Задача" приведено определение схемы XML.
-- В определении TaskBody каждое внутреннее значение для <inputAsset> и <outputAsset> должно быть задано в виде JobInputAsset(значение) или JobOutputAsset(значение).
+- В определении TaskBody каждое внутреннее значение <inputAsset> и <outputAsset> необходимо установить как JobInputAsset(value) или JobOutputAsset(value).
 - В задаче может содержаться несколько выходных ресурсов. Значение JobOutputAsset(x) может использоваться только один раз в качестве выходных данных задачи в задании.
 - В качестве входного ресурса задачи можно указать JobInputAsset или JobOutputAsset.
 - Задачи не должны образовывать цикл.
@@ -830,7 +839,7 @@
 - Ресурсы InputMediaAsset сопоставляются с одним или несколькими ресурсами, созданными в службах мультимедиа. Ресурсы OutputMediaAsset создаются системой. Они не ссылаются на существующий ресурс.
 - Ресурсам OutputMediaAsset можно присвоить имя с помощью атрибута assetName. Если этот атрибут отсутствует, именем ресурса OutputMediaAsset будет внутреннее текстовое значение элемента <outputAsset> с суффиксом, которым может быть значение параметра имени задания или параметра идентификатора задания (если свойство Name не определено). Например, если задать для атрибута assetName значение Sample, для свойства Name ресурса OutputMediaAsset будет задано значение Sample. Тем не менее, если значение атрибута assetName не задано, но в качестве имени задания задано NewJob, имя OutputMediaAsset будет выглядеть следующим образом: JobOutputAsset(значение)_NewJob. 
 
-	В следующем примере показано, как установить атрибут assetName:
+	The following example shows how to set the assetName attribute:
 	
 		"<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName=\"CustomOutputAssetName\">JobOutputAsset(0)</outputAsset></taskBody>"
 
@@ -854,12 +863,12 @@
 	DataServiceVersion: 3.0
 	MaxDataServiceVersion: 3.0
 	x-ms-version: 2.8
-	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1336908022&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=RYXOraO6Z%2f7l9whWZQN%2bypeijgHwIk8XyikA01Kx1%2bk%3d
+	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=zf84471d-2233-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1336908022&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=RYXOraO6Z%2f7l9whWZQN%2bypeijgHwIk8XyikA01Kx1%2bk%3d
 	Host: wamsbayclus001rest-hs.net
 	Content-Length: 0
 
 
-**HTTP-ответа**
+**HTTP-ответ**
 
 При успешном выполнении возвращается следующий ответ:
 
@@ -916,12 +925,12 @@
 	Accept: application/json
 	Accept-Charset: UTF-8
 	User-Agent: Microsoft ADO.NET Data Services
-	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=f7f09258-6753-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421675491&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=9hUudHYnATpi5hN3cvTfgw%2bL4N3tL0fdsRnQnm6ZYIU%3d
+	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421675491&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=9hUudHYnATpi5hN3cvTfgw%2bL4N3tL0fdsRnQnm6ZYIU%3d
 	x-ms-version: 2.8
 	Host: wamsbayclus001rest-hs.cloudapp.net
 	
 
-**HTTP-ответа**
+**HTTP Response**
 
 	HTTP/1.1 200 OK
 	Cache-Control: no-cache
@@ -958,22 +967,7 @@
 
 Один из шагов в рабочем процессе доставки содержимого служб мультимедиа - настройка политик доставки активов. В настройку политики доставки активов входит следующее: протоколы, которые можно использовать для доставки актива (например, MPEG DASH, HLS, HDS, Smooth Streaming или все), следует ли использовать динамическое шифрование и как (конверт или общее шифрование). 
 
-Следующий HTTP-запрос **AssetDeliveryPolicies** указывает, что динамическое шифрование использовать не следует (AssetDeliveryPolicyType может принимать одно из следующих значений: None = 0, Blocked = 1, NoDynamicEncryption = 2, DynamicEnvelopeEncryption = 3, DynamicCommonEncryption = 4), а для доставки потока должен использоваться любой из следующих протоколов:   MPEG DASH, HLS и Smooth Streaming (AssetDeliveryProtocol может быть сочетанием следующих значений: None = 0,        SmoothStreaming = 1, Dash = 2, HLS = 4, Hds = 8, All = 65535). 
-
-
-В результате этой настройки доставки вы сможете запросить потоки Smooth, HLS или MPEG DASH, используя следующие форматы:
-
-Smooth Streaming:
-
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
-
-HLS:
-
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
-
-MPEG DASH
-
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf) 
+Следующий HTTP-запрос **AssetDeliveryPolicies** указывает, что динамическое шифрование использовать не следует (AssetDeliveryPolicyType может принимать одно из следующих значений: None = 0, Blocked = 1, NoDynamicEncryption = 2, DynamicEnvelopeEncryption = 3, DynamicCommonEncryption = 4), а для доставки потока должен использоваться любой из следующих протоколов:  MPEG DASH, HLS и Smooth Streaming (AssetDeliveryProtocol может быть сочетанием следующих значений: None = 0,        SmoothStreaming = 1, Dash = 2, HLS = 4, Hds = 8, All = 65535). 
 
 
 ### Создание сущностей AssetDeliveryPolicy
@@ -995,7 +989,7 @@ MPEG DASH
 	{"Name":"Clear Policy", "AssetDeliveryPolicyType":"2","AssetDeliveryProtocol":"7"} 
 
 
-**HTTP-ответа**
+**HTTP-ответ**
 	
 	HTTP/1.1 201 Created
 	Cache-Control: no-cache
@@ -1035,7 +1029,7 @@ MPEG DASH
 	Accept: application/json
 	Accept-Charset: UTF-8
 	Content-Type: application/json
-	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=f7f09258-6753-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421679198&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=aUvBcDwRAFk1JLxceWu%2bf9dVrCZM7PrTRbZd0TtoKvU%3d
+	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421679198&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=aUvBcDwRAFk1JLxceWu%2bf9dVrCZM7PrTRbZd0TtoKvU%3d
 	x-ms-version: 2.8
 	Host: wamsbayclus001rest-hs.cloudapp.net
 	Content-Length: 140
@@ -1043,7 +1037,7 @@ MPEG DASH
 	{ "uri":"https://wamsbayclus001rest-hs.cloudapp.net/api/AssetDeliveryPolicies('nb%3Aadpid%3AUUID%3Aef97ae36-b898-4b8a-b427-7819ee726276')" }
 
 
-**HTTP-ответа**
+**HTTP-ответ**
 
 	HTTP/1.1 204 No Content
     . . . 
@@ -1056,15 +1050,15 @@ MPEG DASH
 После создания указателей можно создать URL-адреса, которые используются для потоковой передачи или скачивания файлов. 
 
 
-URL-адрес по запросу для Smooth Streaming имеет следующий формат:
+URL-адрес потоковой передачи для Smooth Streaming имеет следующий формат:
 
 	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
 
-URL-адрес по запросу для HLS имеет следующий формат:
+URL-адрес потоковой передачи для HLS имеет следующий формат:
 
 	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
 
-URL-адрес по запросу для MPEG DASH имеет следующий формат:
+URL-адрес потоковой передачи для MPEG DASH имеет следующий формат:
 
 	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
 
@@ -1079,9 +1073,9 @@ URL-адрес SAS, используемый для скачивания фай�
 - Создание URL-адреса SAS для скачивания содержимого 
 - Создание исходного URL-адреса для потоковой передачи содержимого 
 
-### Создание сущности AccessPolicy с разрешением на чтение
+###Создание сущности AccessPolicy с разрешением на чтение
 
-Перед скачиванием или потоковой передачей любого медиасодержимого сначала определите сущность AccessPolicy с разрешениями на чтение и создайте соответствующую сущность указателя, которая задает тип механизма доставки, который нужно включить для клиентов. Дополнительную информацию о доступных свойствах см. в статье [Свойства сущности AccessPolicy](https://msdn.microsoft.com/ru-ru/library/azure/hh974297.aspx#accesspolicy_properties).
+Перед скачиванием или потоковой передачей любого медиасодержимого сначала определите сущность AccessPolicy с разрешениями на чтение и создайте соответствующую сущность указателя, которая задает тип механизма доставки, который нужно включить для клиентов. Дополнительную информацию о доступных свойствах см. в статье [Свойства сущности AccessPolicy](https://msdn.microsoft.com/library/azure/hh974297.aspx#accesspolicy_properties).
 
 В следующем примере показано, как задать сущность AccessPolicy для разрешений на чтение для данного ресурса.
 
@@ -1101,10 +1095,10 @@ URL-адрес SAS, используемый для скачивания фай�
 При успешном выполнении возвращается код успешного завершения 201, описывающий созданную сущность AccessPolicy. Затем идентификатор сущности AccessPolicy будет использоваться вместе с идентификатором сущности Asset ресурса, содержащего файл, который необходимо доставить (например, выходного ресурса), для создания сущности Locator.
 
 >[AZURE.NOTE]
-Этот основной рабочий процесс будет таким же, как при передаче файла во время приема ресурса (как было описано ранее в этом разделе). Кроме того, если вам (или вашим клиентам) необходимо незамедлительно получить доступ к файлам, как и при передаче файлов, установите для StartTime значение, на пять минут предшествующее текущему моменту времени. Это действие необходимо из-за возможного расхождения в показаниях часов на клиенте и в службах мультимедиа. Значение StartTime должно быть задано в следующем формате даты и времени: ГГГГ-ММ-ДДTЧЧ:мм:ссZ (например, 2014-05-23T17:53:50Z).
+Этот основной рабочий процесс будет таким же, как при передаче файла во время приема ресурса (как было описано ранее в этом разделе). Кроме того, если вам (или вашим клиентам) необходимо незамедлительно получить доступ к файлам, как и при передаче файлов, установите для StartTime значение, на пять минут предшествующее текущему моменту времени. Это действие необходимо из-за возможного расхождения в показаниях часов на клиенте и в службах мультимедиа. Значение StartTime должно быть задано в следующем формате даты и времени: YYYY-MM-DDTHH:mm:ssZ (например, "2014-05-23T17:53:50Z").
 
 
-### Создание URL-адреса SAS для скачивания содержимого 
+###Создание URL-адреса SAS для скачивания содержимого 
 
 Следующий код показывает, как получить URL-адрес, который может использоваться для скачивания файла мультимедиа, созданного и переданного ранее. У сущности AccessPolicy есть разрешения на чтение, а путь указателя указывает на URL-адрес скачивания SAS.
 
@@ -1114,7 +1108,7 @@ URL-адрес SAS, используемый для скачивания фай�
 	DataServiceVersion: 3.0
 	MaxDataServiceVersion: 3.0
 	x-ms-version: 2.8
-	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337067658&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=dithjGvlXR9HlyAf5DE99N5OCYkPAxsHIcsTSjm9%2fVE%3d
+	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=zf84471d-b1ae-2233-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337067658&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=dithjGvlXR9HlyAf5DE99N5OCYkPAxsHIcsTSjm9%2fVE%3d
 	Host: wamsbayclus001rest-hs.net
 	Content-Length: 182
 	Expect: 100-continue
@@ -1170,7 +1164,7 @@ URL-адрес SAS, используемый для скачивания фай�
 >[AZURE.NOTE]
 При скачивании зашифрованного содержимого хранилища необходимо вручную расшифровать его перед его отображением или использовать обработчик мультимедиа для расшифровки хранилища в задаче обработки, чтобы вывести обработанные файлы в незашифрованном виде в OutputAsset, а затем скачать их из этого ресурса. Дополнительную информацию об обработке см. в разделе "Создание задания кодирования с помощью REST API служб мультимедиа". Кроме того, указатели URL-адреса SAS нельзя обновить после их создания. Например, нельзя повторно использовать один и тот же указатель с обновленным значением StartTime. Это связано со способом создания URL-адресов SAS. Если вы хотите получить доступ к ресурсу для скачивания после истечения срока действия указателя, необходимо создать новый указатель с новым значением StartTime.
 
-### Скачивание файлов
+###Скачивание файлов
 
 Когда сущности AccessPolicy и Locator будут заданы, файлы можно будет скачать с помощью REST API службы хранилища Azure.  
 
@@ -1197,10 +1191,10 @@ URL-адрес SAS, используемый для скачивания фай�
 	https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_AAC_und_ch2_56kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
 
-### Создание исходного URL-адреса по запросу для потоковой передачи содержимого
+###Создание URL-адреса потоковой передачи потокового содержимого
 
 
-В следующем коде показано, как создать исходный указатель URL-адреса:
+В следующем коде показано, как создать указатель URL-адреса потоковой передачи:
 
 	POST https://wamsbayclus001rest-hs/API/Locators HTTP/1.1
 	Content-Type: application/json
@@ -1280,13 +1274,13 @@ URL-адрес SAS, используемый для скачивания фай�
 
 Для тестирования MPEG DASH используйте [http://dashif.org](http://dashif.org/reference/players/javascript/).
 
-Для тестирования HLS используйте устройства iOS или Safari или [3ivx-hls-player](http://apps.microsoft.com/windows/ru-ru/app/3ivx-hls-player/f79ce7d0-2993-4658-bc4e-83dc182a0614). 
+Для тестирования HLS используйте устройства iOS или Safari или [3ivx-hls-player](http://apps.microsoft.com/windows/app/3ivx-hls-player/f79ce7d0-2993-4658-bc4e-83dc182a0614). 
 
 
 
-<h2>Дополнительные ресурсы</h2>
-- <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Azure Media Services 101 - Get your video online now! (Службы мультимедиа Azure 101. Передача видео в Интернет)</a>
-- <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-102-Dynamic-Packaging-and-Mobile-Devices">Azure Media Services 102 - Dynamic Packaging and Mobile Devices (Службы мультимедиа Azure 102. Динамическая упаковка и мобильные устройства)</a>
+##Дополнительные ресурсы
+- <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Службы мультимедиа Azure 101. Передача видео в Интернет.</a>
+- <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-102-Dynamic-Packaging-and-Mobile-Devices">Службы мультимедиа Azure 102. Динамическая упаковка и мобильные устройства.</a>
 
 
 <!-- Anchors. -->
@@ -1294,8 +1288,8 @@ URL-адрес SAS, используемый для скачивания фай�
 
 <!-- URLs. -->
   [Установщик веб-платформы]: http://go.microsoft.com/fwlink/?linkid=255386
-  [портале управления]: http://manage.windowsazure.com/
+  [Портал управления]: http://manage.windowsazure.com/
 
 
 
-<!--HONumber=45--> 
+<!--HONumber=52-->

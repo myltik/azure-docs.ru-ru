@@ -26,19 +26,19 @@
 
 Дополнительную информацию см. в разделе [Общие сведения о концентраторах событий].
 
-В этом уроке вы узнаете, как вводить сообщения в концентратор событий, используя консольное приложение на Java, и как параллельно извлекать их, используя библиотеку C# [Event Processor Host][Узел обработчика событий].
+В этом уроке вы узнаете, как вводить сообщения в концентратор событий, используя консольное приложение на Java, и как параллельно извлекать их, используя библиотеку C# [Узел обработчика событий].
 
 Для работы с этим учебником необходимо следующее:
 
-+ Среда разработки Java. В этом учебнике предполагается, что используется [Eclipse](https://www.eclipse.org/).
++ Среда разработки Java. Для этого учебника предполагается использование среды [Eclipse](https://www.eclipse.org/)
 
 + Microsoft Visual Studio Express 2013 для Windows.
 
-+ Активная учетная запись Azure. <br/>Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fru-ru%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Бесплатное пробное использование Azure</a>.
++ Активная учетная запись Azure. <br/>Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fru-ru%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Бесплатная пробная версия Azure</a>.
 
 ## Создание концентратора событий
 
-1. Войдите на [портал управления Azure][Портал управления Azure] и щелкните **+СОЗДАТЬ** в нижней части экрана.
+1. Войдите на [портал управления Azure] и щелкните **+СОЗДАТЬ** в нижней части экрана.
 
 2. Последовательно щелкните **Службы приложений**, **Служебная шина**, **Концентратор событий** и **Быстрое создание**.
 
@@ -70,7 +70,7 @@
 
 Теперь концентратор событий создан, и у вас есть строки подключения, необходимые для отправки и приема событий.
 
-[AZURE.INCLUDE [service-bus-event-hubs-get-started-send-java](../includes/service-bus-event-hubs-get-started-send-java.md)]
+[AZURE.INCLUDE [Service-Bus-Event-hubs-Get-Started-Send-Java](../includes/service-bus-event-hubs-get-started-send-java.md)]
 
 
 [AZURE.INCLUDE [service-bus-event-hubs-get-started-receive-ephcs](../includes/service-bus-event-hubs-get-started-receive-ephcs.md)]
@@ -105,4 +105,4 @@
 [Узел обработчика событий]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Общие сведения о концентраторах событий]: http://msdn.microsoft.com/library/azure/dn836025.aspx
 
-<!--HONumber=47-->
+<!--HONumber=52-->

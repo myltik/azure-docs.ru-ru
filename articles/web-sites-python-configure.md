@@ -1,20 +1,21 @@
 ﻿<properties 
 	pageTitle="Настройка Python для веб-сайтов Azure" 
 	description="В этом учебнике описываются возможности создания и настройки на веб-сайтах Azure базового приложения Python, совместимого с интерфейсом шлюза веб-сервера (WSGI)." 
-	services="web-sites" 
+	services="app-service\web" 
 	documentationCenter="python" 
+	tags="python"
 	authors="huguesv" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="12/17/2014" 
-	ms.author="huvalo"/>
+	ms.date="02/09/2015" 
+	ms.author="huguesv"/>
 
 
 
@@ -25,22 +26,8 @@
 
 Здесь также описываются дополнительные функции развертывания Git, например установка виртуальной среды или пакета с использованием файла requirements.txt.
 
-+ [Bottle, Django или Flask?](#bottle-django-flask)
-+ [Создание веб-сайта на портале](#website-creation-on-portal)
-+ [Публикация с использованием Git](#git-publishing)
-+ [Обзор приложений](#application-overview)
-+ [Обработчик WSGI](#wsgi-handler)
-+ [Виртуальная среда](#next-steps)
-+ [Управление пакетами](#next-steps)
-+ [Версия Python](#next-steps)
-+ [Прокси-сервер с поддержкой виртуальной среды](#virtual-environment-proxy)
-+ [Настройка развертывания Git](#customize-git-deployment)
-+ [Устранение неполадок - развертывание](#troubleshooting-deployment)
-+ [Устранение неполадок - установка пакета](#troubleshooting-package-installation)
-+ [Устранение неполадок - виртуальная среда](#troubleshooting-virtual-environment)
 
-
-<h2><a name="bottle-django-flask"></a>Bottle, Django или Flask?</h2>
+## Bottle, Django или Flask?
 
 В коллекции Azure содержатся шаблоны для платформ Bottle, Django и Flask.  Если вы разрабатываете веб-сайт Azure впервые, или не знакомы с Git, советуем следовать одному из следующих учебников, которые содержат пошаговые указания по созданию рабочего приложения из коллекции с помощью развертывания Git в Windows или Mac:
 
@@ -49,7 +36,7 @@
 - [Создание веб-сайтов с помощью Flask][]
 
 
-<h2><a name="website-creation-on-portal"></a>Создание веб-сайта на портале</h2>
+## Создание веб-сайта на портале
 
 В этом учебнике предполагается наличие существующей подписки Azure и доступа к порталу управления Azure.
 
@@ -58,7 +45,7 @@
 ![](./media/web-sites-python-configure/configure-python-create-website.png)
 
 
-<h2><a name="git-publishing"></a>Публикация с использованием Git</h2>
+## Публикация с использованием Git
 
 Используйте вкладки "БЫСТРЫЙ ЗАПУСК" или "ПАНЕЛЬ МОНИТОРИНГА" для вновь созданного веб-сайта, чтобы настроить публикацию с помощью Git.  В этом учебнике Git используется для создания, публикации веб-сайта Python и управления им на веб-сайтах Azure.
 
@@ -67,7 +54,7 @@
 После настройки публикации с помощью Git будет создан репозиторий Git и связан с вашим веб-сайтом.  Появится URL-адрес репозитория, который с этого момента может использоваться для передачи данных в облако из локальной среды разработки. Для публикации приложений с помощью Git убедитесь, что клиент Git также установлен, и следуйте предоставленным инструкциям для передачи контента веб-сайта содержимого на веб-сайты Azure.
 
 
-<h2><a name="application-overview"></a>Обзор приложений</h2>
+## Обзор приложения
 
 В дальнейших разделах будут созданы следующие файлы.  Их нужно сохранить в корневую папку репозитория Git.
 
@@ -78,7 +65,7 @@
     ptvs_virtualenv_proxy.py
 
 
-<h2><a name="wsgi-handler"></a>Обработчик WSGI</h2>
+## Обработчик WSGI
 
 WSGI - это стандарт Python, описанный в документе [PEP 3333](http://www.python.org/dev/peps/pep-3333/) и определяющий интерфейс между веб-сервером и Python. Он предоставляет стандартный интерфейс для написания различных веб-приложений и платформ с использованием Python.  Сегодня популярные веб-платформы Python используют WSGI.  Веб-сайты Azure предоставляют поддержку таких платформ. Кроме того, опытные пользователи даже могут создавать собственные платформы, если пользовательский обработчик следует правилам спецификации WSGI.
 
@@ -97,10 +84,10 @@ WSGI - это стандарт Python, описанный в документе 
         httpd = make_server('localhost', 5555, wsgi_app)
         httpd.serve_forever()
 
-Запустите это приложение локально с помощью  `python app.py`, затем перейдите по адресу `http://localhost:5555`.
+Запустите это приложение локально с помощью `python app.py`, затем перейдите по адресу http://localhost:5555
 
 
-<h2><a name="virtual-environment"></a>Виртуальная среда</h2>
+## Виртуальная среда
 
 Хотя приведенное выше приложение не требует каких-либо внешних пакетов, они, вероятно, потребуются.
 
@@ -111,7 +98,7 @@ WSGI - это стандарт Python, описанный в документе 
 Возможно, потребуется создать виртуальную среду для локальной разработки, но не нужно включать ее в репозиторий Git.
 
 
-<h2><a name="package-management"></a>Управление пакетами</h2>
+## Управление пакетами
 
 Пакеты, перечисленные в файле requirements.txt, устанавливаются автоматически в виртуальной среде с помощью pip.  Это происходит при каждом развертывании, но если пакет уже установлен, pip пропустит установку.
 
@@ -120,7 +107,7 @@ WSGI - это стандарт Python, описанный в документе 
     azure==0.8.4
 
 
-<h2><a name="python-version"></a>Версия Python</h2>
+## Версия Python
 
 [AZURE.INCLUDE [web-sites-python-customizing-runtime](../includes/web-sites-python-customizing-runtime.md)]
 
@@ -129,7 +116,7 @@ WSGI - это стандарт Python, описанный в документе 
     python-2.7
 
 
-<h2><a name="web-config"></a>Web.config</h2>
+## Web.config
 
 Чтобы указать, как сервер должен обрабатывать запросы, нужно будет создать файл web.config.
 
@@ -244,12 +231,12 @@ WSGI - это стандарт Python, описанный в документе 
       <action type="Rewrite" url="^/FlaskWebProject/static/.*" appendQueryString="true" />
     </rule>
 
-`WSGI_ALT_VIRTUALENV_HANDLER` - здесь указывается обработчик WSGI.  А в приведенных выше примерах - это  `app.wsgi_app`, так как обработчик является функцией с именем `wsgi_app` в `app.py` в корневой папке.
+WSGI_ALT_VIRTUALENV_HANDLER - здесь указывается обработчик WSGI.  А в приведенных выше примерах - это  `app.wsgi_app`, так как обработчик является функцией с именем `wsgi_app` в `app.py` в корневой папке.
 
-`PYTHONPATH` можно настраивать, но при установке всех зависимостей в виртуальной среде, указанных как файл requirements.txt, менять его не нужно.
+Параметр PYTHONPATH можно настраивать, но при установке всех зависимостей в виртуальной среде, указанных как файл requirements.txt, менять его не нужно.
 
 
-<h2><a name="virtual-environment-proxy"></a>Прокси-сервер с поддержкой виртуальной среды</h2>
+## Прокси-сервер с поддержкой виртуальной среды
 
 Следующий сценарий используется для извлечения обработчика WSGI, активации виртуальной среды и ведения журнала ошибок. Он разработан как универсальный и применяется без изменений.
 
@@ -257,15 +244,15 @@ WSGI - это стандарт Python, описанный в документе 
 
      # ############################################################################
      #
-     # Copyright (c) Microsoft Corporation. 
+     # (c) Корпорация Майкрософт (Microsoft Corporation). Все права защищены 
      #
-     # This source code is subject to terms and conditions of the Apache License, Version 2.0. A 
-     # copy of the license can be found in the License.html file at the root of this distribution. If 
-     # you cannot locate the Apache License, Version 2.0, please send an email to 
-     # vspython@microsoft.com. By using this source code in any fashion, you are agreeing to be bound 
-     # by the terms of the Apache License, Version 2.0.
+     # Этот код является предметом условий лицензии Apache версии 2.0. Копию 
+     # лицензии можно найти в файле License.html в корне этого распределения. Если 
+     # вы не можете найти лицензию Apache версии 2.0, отправьте сообщение электронной почты на адрес 
+     # vspython@microsoft.com. Используя этот исходный код каким-либо образом, 
+     # вы соглашаетесь соблюдать условия лицензии Apache версии 2.0.
      #
-     # You must not remove this notice, or any other, from this software.
+     # Вы не имеете права удалять это или любое другое уведомление из этого программного обеспечения.
      #
      # ###########################################################################
 
@@ -375,31 +362,29 @@ WSGI - это стандарт Python, описанный в документе 
         return handler
 
 
-<h2><a name="customize-git-deployment"></a>Настройка развертывания Git</h2>
+## Настройка развертывания Git
 
 [AZURE.INCLUDE [web-sites-python-customizing-runtime](../includes/web-sites-python-customizing-deployment.md)]
 
 
-<h2><a name="troubleshooting-deployment"></a>Устранение неполадок - развертывание</h2>
+## Устранение неполадок - развертывание
 
 [AZURE.INCLUDE [web-sites-python-troubleshooting-deployment](../includes/web-sites-python-troubleshooting-deployment.md)]
 
 
-<h2><a name="troubleshooting-package-installation"></a>Устранение неполадок - установка пакета</h2>
+## Устранение неполадок - установка пакета
 
 [AZURE.INCLUDE [web-sites-python-troubleshooting-package-installation](../includes/web-sites-python-troubleshooting-package-installation.md)]
 
 
-<h2><a name="troubleshooting-virtual-environment"></a>Устранение неполадок - виртуальная среда</h2>
+## Устранение неполадок - виртуальная среда
 
 [AZURE.INCLUDE [web-sites-python-troubleshooting-virtual-environment](../includes/web-sites-python-troubleshooting-virtual-environment.md)]
 
 
 
-[Создание веб-сайтов с помощью Bottle]: ../web-sites-python-create-deploy-bottle-app
-[Создание веб-сайтов с помощью Django]: ../web-sites-python-create-deploy-django-app
-[Создание веб-сайтов с помощью Flask]: ../web-sites-python-create-deploy-flask-app
+[Создание веб-сайтов с помощью Bottle]: web-sites-python-create-deploy-bottle-app.md
+[Создание веб-сайтов с помощью Django]: web-sites-python-create-deploy-django-app.md
+[Создание веб-сайтов с помощью Flask]: web-sites-python-create-deploy-flask-app.md
 
-
-
-<!--HONumber=42-->
+<!--HONumber=52-->

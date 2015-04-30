@@ -1,12 +1,12 @@
-## Прием сообщений с помощью Apache Storm
+## Получение сообщений с помощью Apache Storm
 
-[**Apache Storm**](https://storm.incubator.apache.org) - это распределенная вычислительная система реального времени, предназначенная для быстрой обработки больших потоков данных. В этом разделе показано использование программы Storm Spout концентраторов событий для приема событий от концентраторов событий. С помощью Apache Storm можно разделить события между несколькими процессами, размещенными в разных узлах. Интеграция концентраторов событий с помощью Storm упрощает использование событий путем прозрачного определения контрольных точек в ходе выполнения с помощью установки Storm Zookeeper, управляя постоянными контрольными точками и одновременно получает от концентраторов событий.
+[**Apache Storm**](https://storm.incubator.apache.org) - это распределенная вычислительная система реального времени, предназначенная для быстрой обработки больших потоков данных. В этом разделе показано использование программы Storm Spout концентраторов событий для приема событий от концентраторов событий. С помощью Apache Storm можно разделить события между несколькими процессами, размещенными в разных узлах. Интеграция концентраторов событий с помощью Storm упрощает использование событий путем прозрачного определения контрольных точек в ходе выполнения с помощью установки Storm Zookeeper, управляя постоянными контрольными точками и одновременно облегчает получение от концентраторов событий.
 
 Дополнительные сведения о шаблонах получения концентраторов событий см. в разделе [Общие сведения о концентраторах событий].
 
 В данном учебнике используется установка программы [HDInsight Storm], которая поставляется вместе с уже доступным Spout концентраторов событий.
 
-1. Следуя процедурам, приведенным в разделе [HDInsight Storm - начало работы](http://azure.microsoft.com/documentation/articles/hdinsight-storm-getting-started/), создайте новый кластер HDInsight и подключитесь к нему через удаленный рабочий стол.
+1. Следуя процедуре, приведенной в разделе [Начало работы с HDInsight Storm],(../articles/hdinsight-storm-getting-started.md) создайте новый кластер HDInsight и подключитесь к нему через удаленный рабочий стол.
 
 2. Скопируйте файл `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` в локальную среду разработки. Он содержит пакет events-storm-spout.
 
@@ -24,8 +24,8 @@
 
 7. Вставьте **GroupId** и **ArtifactId**, а затем нажмите кнопку **Готово**
 
-8. В файле **pom.xml** добавьте следующие зависимости в узел `<dependency>`
-		
+8. В файле **pom.xml** добавьте следующие зависимости в узел "<dependency>"
+
 		<dependency>
 			<groupId>org.apache.storm</groupId>
 			<artifactId>storm-core</artifactId>
@@ -57,20 +57,20 @@
 9. В папке **src** создайте файл с именем **Config.properties** и скопируйте следующее содержимое, подставляя следующие значения:
 
 		eventhubspout.username = ReceiveRule
-		
+
 		eventhubspout.password = {receive rule key}
-		
+
 		eventhubspout.namespace = ioteventhub-ns
-		
+
 		eventhubspout.entitypath = {event hub name}
-		
+
 		eventhubspout.partitions.count = 16
-		
-		# if not provided, will use storm's zookeeper settings
+
+		# если не указано, будут использоваться параметры storm zookeeper
 		# zookeeper.connectionstring=localhost:2181
-		
+
 		eventhubspout.checkpoint.interval = 10
-		
+
 		eventhub.receiver.credits = 10
 
 	Значение для **eventhub.receiver.credits** определяет, сколько событий являются пакетными перед их выпуском в конвейер Storm. Для простоты в этом примере используется значение 10. В рабочей среде обычно указывается более высокое значение, например, 1024.
@@ -85,36 +85,36 @@
 		import backtype.storm.topology.OutputFieldsDeclarer;
 		import backtype.storm.topology.base.BaseRichBolt;
 		import backtype.storm.tuple.Tuple;
-		
+
 		public class LoggerBolt extends BaseRichBolt {
 			private OutputCollector collector;
 			private static final Logger logger = LoggerFactory
 				      .getLogger(LoggerBolt.class);
-		
+
 			@Override
-			public void execute(Tuple tuple) {				
+			public void execute(Tuple tuple) {
 				String value = tuple.getString(0);
 				logger.info("Tuple value: " + value);
-				
+
 				collector.ack(tuple);
 			}
-		
+
 			@Override
 			public void prepare(Map map, TopologyContext context, OutputCollector collector) {
 				this.collector = collector;
 				this.count = 0;
 			}
-		
+
 			@Override
 			public void declareOutputFields(OutputFieldsDeclarer declarer) {
-				// no output fields
+				// без полей вывода
 			}
-		
+
 		}
 
 	Этот Storm Bolt регистрирует содержимое полученного события. Эго можно легко расширить для хранения кортежей в службе хранилища. В [учебнике по анализу датчика HDInsight] используется аналогичный подход к хранению данных в HBase.
 
-11. Создайте новый класс с именем **LogTopology** с использованием следующего кода:
+11. Создайте новый класс с именем **LogTopology** с использованием следующего кода.
 
 		import java.io.FileReader;
 		import java.util.Properties;
@@ -126,11 +126,11 @@
 		import com.microsoft.eventhubs.samples.EventCount;
 		import com.microsoft.eventhubs.spout.EventHubSpout;
 		import com.microsoft.eventhubs.spout.EventHubSpoutConfig;
-		
+
 		public class LogTopology {
 			protected EventHubSpoutConfig spoutConfig;
 			protected int numWorkers;
-		
+
 			protected void readEHConfig(String[] args) throws Exception {
 				Properties properties = new Properties();
 				if (args.length > 1) {
@@ -139,7 +139,7 @@
 					properties.load(EventCount.class.getClassLoader()
 							.getResourceAsStream("Config.properties"));
 				}
-		
+
 				String username = properties.getProperty("eventhubspout.username");
 				String password = properties.getProperty("eventhubspout.password");
 				String namespaceName = properties
@@ -153,32 +153,32 @@
 						.getProperty("eventhubspout.checkpoint.interval"));
 				int receiverCredits = Integer.parseInt(properties
 						.getProperty("eventhub.receiver.credits")); // prefetch count
-																	// (opt)
-				System.out.println("Eventhub spout config: ");
-				System.out.println("  partition count: " + partitionCount);
-				System.out.println("  checkpoint interval: "
+																	// (необязательно)
+				System.out.println("Конфигурация Spout концентратора событий: ");
+				System.out.println("  количество разделов: " + partitionCount);
+				System.out.println("  интервал контрольных точек: "
 						+ checkpointIntervalInSeconds);
-				System.out.println("  receiver credits: " + receiverCredits);
-		
+				System.out.println("  данные получателя: " + receiverCredits);
+
 				spoutConfig = new EventHubSpoutConfig(username, password,
 						namespaceName, entityPath, partitionCount, zkEndpointAddress,
 						checkpointIntervalInSeconds, receiverCredits);
-		
-				// set the number of workers to be the same as partition number.
-				// the idea is to have a spout and a logger bolt co-exist in one
-				// worker to avoid shuffling messages across workers in storm cluster.
+
+				// задайте количество рабочих полей, совпадающее с количеством разделов.
+				// Необходимо, чтобы Spout и Bolt средства ведения журнала существовали в одной
+				// рабочей роли: это позволит избежать попадания сообщений в рабочие роли кластера Storm.
 				numWorkers = spoutConfig.getPartitionCount();
-		
+
 				if (args.length > 0) {
-					// set topology name so that sample Trident topology can use it as
-					// stream name.
+					// задайте имя топологии, чтобы его можно было использовать в топологии Trident как
+					// имя потока.
 					spoutConfig.setTopologyName(args[0]);
 				}
 			}
-		
+
 			protected StormTopology buildTopology() {
 				TopologyBuilder topologyBuilder = new TopologyBuilder();
-		
+
 				EventHubSpout eventHubSpout = new EventHubSpout(spoutConfig);
 				topologyBuilder.setSpout("EventHubsSpout", eventHubSpout,
 						spoutConfig.getPartitionCount()).setNumTasks(
@@ -190,14 +190,14 @@
 						.setNumTasks(spoutConfig.getPartitionCount());
 				return topologyBuilder.createTopology();
 			}
-		
+
 			protected void runScenario(String[] args) throws Exception {
 				boolean runLocal = true;
 				readEHConfig(args);
 				StormTopology topology = buildTopology();
 				Config config = new Config();
 				config.setDebug(false);
-		
+
 				if (runLocal) {
 					config.setMaxTaskParallelism(2);
 					LocalCluster localCluster = new LocalCluster();
@@ -209,7 +209,7 @@
 				    StormSubmitter.submitTopology(args[0], config, topology);
 				}
 			}
-		
+
 			public static void main(String[] args) throws Exception {
 				LogTopology topology = new LogTopology();
 				topology.runScenario(args);
@@ -220,13 +220,14 @@
 	Этот класс создает новый spout концентраторов событий, используя свойства в файле конфигурации для создания экземпляров. Важно отметить, что в данном примере создается такое же количество задач Spout, сколько и разделов в концентраторе событий для использования максимального параллелизма, разрешенного этим концентратором событий.
 
 <!-- Links -->
-[Общие сведения о концентраторах событий]: http://msdn.microsoft.com/library/azure/dn821413.aspx
+[Общие сведения о концентраторах событий]: http://msdn.microsoft.com/library/azure/dn836025.aspx
 [HDInsight Storm]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-overview/
-[учебнике по анализу датчика HDInsight]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-sensor-data-analysis/
+[Учебник по анализу датчика HDInsight]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-sensor-data-analysis/
 
 <!-- Images -->
 
 [12]: ./media/service-bus-event-hubs-getstarted/create-storm1.png
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
-<!--HONumber=47-->
+
+<!--HONumber=52-->

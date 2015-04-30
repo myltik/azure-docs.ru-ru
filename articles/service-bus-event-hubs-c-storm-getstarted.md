@@ -30,15 +30,15 @@
 
 Для работы с этим учебником необходимо следующее:
 
-+ Среда разработки C. В этом учебнике предполагается, что применяется стек gcc на [виртуальной машине Azure Linux](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-tutorial/) с Ubuntu 14.04. Инструкции для других сред будут предоставлены как внешние ссылки.
++ Среда разработки C. В этом учебнике предполагается, что применяется стек gcc на [виртуальной машине Azure Linux](virtual-machines-linux-tutorial.md) с Ubuntu 14.04. Инструкции для других сред будут предоставлены как внешние ссылки.
 
 + Среда разработки Java, настроенная для запуска [Maven](http://maven.apache.org/). В этом учебнике предполагается, что используется [Eclipse](https://www.eclipse.org/).
 
-+ Активная учетная запись Azure. <br/>Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fru-ru%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Бесплатное пробное использование Azure</a>.
++ Активная учетная запись Azure. <br/>Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fru-ru%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Бесплатная пробная версия Azure</a>.
 
 ## Создание концентратора событий
 
-1. Войдите на [портал управления Azure][Портал управления Azure] и щелкните **+СОЗДАТЬ** в нижней части экрана.
+1. Войдите на [портал управления Azure] и щелкните **+СОЗДАТЬ** в нижней части экрана.
 
 2. Последовательно щелкните **Службы приложений**, **Служебная шина**, **Концентратор событий** и **Быстрое создание**.
 
@@ -69,7 +69,7 @@
 [AZURE.INCLUDE [service-bus-event-hubs-get-started-send-c](../includes/service-bus-event-hubs-get-started-send-c.md)]
 
 
-[AZURE.INCLUDE [service-bus-event-hubs-get-started-receive-storm](../includes/service-bus-event-hubs-get-started-receive-storm.md)]
+[AZURE.INCLUDE [Service-Bus-Event-hubs-Get-Started-Receive-storm](../includes/service-bus-event-hubs-get-started-receive-storm.md)]
 
 ## Запуск приложений
 
@@ -81,7 +81,7 @@
 
    	![][23]
 
-> [AZURE.NOTE] В этом учебнике для целей разработки используйте Storm только в локальном режиме. Дополнительную информацию о развертываниях и шаблонах Storm см. в разделе [Обзор HDInsight Storm] и официальной документации по [Apache Storm].
+> [AZURE.NOTE] В этом учебнике для целей разработки используйте Storm только в локальном режиме. Дополнительную информацию о развертываниях и шаблонах Storm см. в разделе [Общие сведения о HDInsight Storm] и официальной документации по [Apache Storm].
 
 ## Дальнейшие действия
 
@@ -107,7 +107,8 @@
 [Общие сведения о концентраторах событий]: http://msdn.microsoft.com/library/azure/dn836025.aspx
 
 [Apache Storm]: https://storm.incubator.apache.org
-[Обзор HDinsight Storm]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-overview/
+[Общие сведения о HDInsight Storm]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-overview/
 [Анализ данных датчиков в Storm и HDInsight]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-sensor-data-analysis/
 [Разработка приложений для обработки потоковых данных с помощью SCP.NET и C# на основе Storm и HDInsight]: http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/
-<!--HONumber=47-->
+
+<!--HONumber=52-->

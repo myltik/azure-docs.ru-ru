@@ -1,5 +1,5 @@
-﻿## Отправка сообщений концентраторам событий
-В этом разделе мы напишем консольное приложение Java для отправки событий в концентратор событий. Мы будем использовать поставщик JMS AMQP из проекта [Apache Qpid](http://qpid.apache.org/). Эта процедура аналогична использованию очередей и разделов служебной шины с AMQP на языке Java, как показано [здесь](http://azure.microsoft.com/documentation/articles/service-bus-java-how-to-use-jms-api-amqp/). Дополнительные сведения см. в [документации Qpid JMS](http://qpid.apache.org/releases/qpid-0.30/programming/book/QpidJMS.html) и [службе сообщений Java](http://www.oracle.com/technetwork/java/jms/index.html).
+## Отправка сообщений в концентраторы событий
+В этом разделе мы напишем консольное приложение Java для отправки событий в концентратор событий. Мы будем использовать поставщик JMS AMQP из проекта [Apache Qpid](http://qpid.apache.org/). Эта процедура аналогична использованию очередей и разделов служебной шины с AMQP на языке Java, как показано [здесь](../articles/service-bus-java-how-to-use-jms-api-amqp.md). Дополнительные сведения см. в [документации по Qpid JMS](http://qpid.apache.org/releases/qpid-0.30/programming/book/QpidJMS.html) и [службе сообщений Java](http://www.oracle.com/technetwork/java/jms/index.html).
 
 1. В Eclipse создайте новый проект Java с именем **Sender**.
 
@@ -13,18 +13,18 @@
 
 5. Создайте файл с именем **servicebus.properties** в корневом каталоге проекта **Sender** со следующим содержимым. Не забудьте заменить значение для имени концентратора событий и пространства имен (последнее обычно представляется как `{event hub name}-ns`). Также необходимо заменить версию ключа **SendRule**, закодированную как URL-адрес, созданную ранее. Выполнить кодировку как URL-адрес можно [здесь](http://www.w3schools.com/tags/ref_urlencode.asp).
 
-		# servicebus.properties - sample JNDI configuration
+		# servicebus.properties - пример конфигурации JNDI
 
-		# Register a ConnectionFactory in JNDI using the form:
+		# Зарегистрируйте ConnectionFactory в JNDI с помощью следующей формы:
 		# connectionfactory.[jndi_name] = [ConnectionURL]
 		connectionfactory.SBCF = amqps://SendRule:{Send Rule key}@{namespace name}.servicebus.windows.net/?sync-publish=false
 
-		# Register some queues in JNDI using the form
+		# Зарегистрируйте часть очередей в JNDI с помощью формы
 		# queue.[jndi_name] = [physical_name]
 		# topic.[jndi_name] = [physical_name]
 		queue.EventHub = {event hub name}
 
-5. Создайте новый класс с именем **Sender**. Добавьте следующие операторы `import`:
+5. Создайте новый класс с именем **Sender**. Добавьте следующие инструкции `import`:
 
 		import java.io.BufferedReader;
 		import java.io.IOException;
@@ -47,7 +47,7 @@
 
 		public static void main(String[] args) throws NamingException,
 				JMSException, IOException, InterruptedException {
-			// Configure JNDI environment
+			// Настройка среды JNDI
 			Hashtable<String, String> env = new Hashtable<String, String>();
 			env.put(Context.INITIAL_CONTEXT_FACTORY,
 					"org.apache.qpid.amqp_1_0.jms.jndi.PropertiesFileInitialContextFactory");
@@ -58,16 +58,16 @@
 	
 			Destination queue = (Destination) context.lookup("EventHub");
 	
-			// Create Connection
+			// Создание подключения
 			Connection connection = cf.createConnection();
 	
-			// Create sender-side Session and MessageProducer
+			// Создание сеанса и MessageProducer на стороне отправителя
 			Session sendSession = connection.createSession(false,
 					Session.AUTO_ACKNOWLEDGE);
 			MessageProducer sender = sendSession.createProducer(queue);
 	
-			System.out.println("Press Ctrl-C to stop the sender process");
-			System.out.println("Press Enter to start now");
+			System.out.println("Нажмите клавиши CTRL+C, чтобы остановить процесс отправителя");
+			System.out.println("Нажмите клавишу ВВОД, чтобы начать");
 			BufferedReader commandLine = new java.io.BufferedReader(
 					new InputStreamReader(System.in));
 			commandLine.readLine();
@@ -93,4 +93,5 @@
 
 <!-- Images -->
 [8]: ./media/service-bus-event-hubs-getstarted/create-sender-java1.png
-<!--HONumber=47-->
+
+<!--HONumber=52--> 

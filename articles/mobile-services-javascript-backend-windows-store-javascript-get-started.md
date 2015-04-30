@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="javascript" 
 	ms.topic="hero-article" 
-	ms.date="08/18/2014" 
+	ms.date="02/26/2015" 
 	ms.author="glenga"/>
 
 # <a name="getting-started"> </a>Приступая к работе с мобильными службами
@@ -22,13 +22,13 @@
 
 В этом учебнике показано, как добавить облачную серверную службу в универсальное приложение Windows с помощью мобильных служб Azure. 
 
-В этом учебнике вы создадите новую мобильную службу и простое приложение  *To do list*, хранящее данные приложения в новой мобильной службе. Мобильная служба, которая будет создана, использует JavaScript для бизнес-логики на стороне сервера. Сведения о создании мобильной службы, которая позволит создавать в Visual Studio бизнес-логику на серверной стороне на языках, поддерживаемых на платформе .NET, см. в разделе о серверной версии .NET.
+В этом учебнике будет создана новая мобильная служба и простое приложение *To do list*, которое хранит данные приложения в новой мобильной службе. Мобильная служба, которая будет создана, использует JavaScript для бизнес-логики на стороне сервера. Сведения о создании мобильной службы, которая позволит создавать в Visual Studio бизнес-логику на серверной стороне на языках, поддерживаемых на платформе .NET, см. в разделе о серверной версии .NET.
 
 [AZURE.INCLUDE [mobile-services-windows-universal-get-started](../includes/mobile-services-windows-universal-get-started.md)]
 
 Для работы с этим учебником требуется:
 
-* Активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fru-ru%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-store-javascript-get-started%2F).
+* Активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-store-javascript-get-started%2F).
 * [Visual Studio 2013 Express для Windows] 
 
 ## Создание мобильной службы
@@ -41,7 +41,7 @@
 
 В этом разделе будет создано новое приложение для магазина Windows, подключаемое к вашей мобильной службе.
 
-1.  В портале управления нажмите **Мобильные службы**, затем нажмите только что созданную мобильную службу.
+1.  На портале управления щелкните **Мобильные службы**, а затем выберите только что созданную мобильную службу.
 
    
 2. На вкладке быстрого начала работы щелкните **Windows** в разделе **Выбор платформы**, а затем разверните узел **Создание нового приложения для магазина Windows**.
@@ -69,33 +69,28 @@
 ## Дальнейшие действия
 Теперь, когда вы закончили быстрый запуск, узнайте, как выполнять дополнительные важные задачи в мобильных службах: 
 
-* [Приступая к работе с данными]
-  <br/>Дополнительные сведения о хранении данных и запросах к ним с помощью мобильных служб.
-
-* [Приступая к работе с проверкой подлинности]
+* [Добавление проверки подлинности к приложению][Начало работы с проверкой подлинности]
   <br/>Дополнительные сведения о проверке подлинности пользователей приложения с использованием поставщика удостоверений.
 
-* [Приступая к работе с push-уведомлениями] 
+* [Добавление push-уведомлений к приложению][Начало работы с push-приложениями] 
   <br/>Сведения об отправке в приложение простейших push-уведомлений.
 
-Дополнительные сведения об универсальных приложениях Windows см. в разделе [Поддержка нескольких клиентов из одной мобильной службы](mobile-services-how-to-use-multiple-clients-single-service#shared-vs.md).
+Дополнительные сведения об универсальных приложениях Windows см. в разделе [Поддержка нескольких клиентов из одной мобильной службы](mobile-services-how-to-use-multiple-clients-single-service.md#shared-vs).
 
 <!-- Anchors. -->
 [Приступая к работе с мобильными службами]:#getting-started
-[Создание мобильной службы]:#create-new-service
+[Создание новой мобильной службы]:#create-new-service
 [Определение экземпляра мобильной службы]:#define-mobile-service-instance
 [Дальнейшие действия]:#next-steps
 
 <!-- Images. -->
 
 <!-- URLs. -->
-[Приступая к работе с данными]: /ru-ru/documentation/articles/mobile-services-javascript-backend-windows-universal-javascript-get-started-data
-[Приступая к работе с проверкой подлинности]: /ru-ru/documentation/articles/mobile-services-windows-store-javascript-get-started-users
-[Приступая к работе с push-уведомлениями]: /ru-ru/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push
+[Приступая к работе с данными]: mobile-services-javascript-backend-windows-universal-javascript-get-started-data.md
+[Приступая к работе с аутентификацией]: mobile-services-windows-store-javascript-get-started-users.md
+[Приступая к работе с push-уведомлениями]: mobile-services-javascript-backend-windows-store-javascript-get-started-push.md
 [Visual Studio 2013 Express для Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
 [Пакет SDK для мобильных служб]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Портал управления]: https://manage.windowsazure.com/
 
-
-
-<!--HONumber=42-->
+<!--HONumber=52-->

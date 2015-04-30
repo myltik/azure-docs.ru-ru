@@ -10,9 +10,9 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
-	ms.topic="article" 
+	ms.topic="hero-article" 
 	ms.date="11/20/2014" 
 	ms.author="glenga"/>
 
@@ -23,6 +23,4 @@
 Скачать проект быстрого начала работы с приложениями для Магазина Windows Phone 8.1 можно в составе проекта универсальных приложений для Windows. Дополнительные сведения см. в разделе [Приступая к работе с мобильными службами](mobile-services-dotnet-backend-windows-store-dotnet-get-started.md).
 
 
-
-
-<!--HONumber=42-->
+<!--HONumber=52-->

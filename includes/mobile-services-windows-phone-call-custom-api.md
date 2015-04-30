@@ -1,6 +1,6 @@
-﻿##<a name="update-app"></a>Обновление приложения для вызова настраиваемого API
+﻿##<a name="update-app"></a>Обновление приложения для вызова настраиваемого интерфейса API
 
-1. В Visual Studio 2012 Express для Windows Phone откройте файл MainPage.xaml из проекта быстрого запуска, найдите элемент **Button** с именем  `ButtonRefresh` и замените его следующим кодом XAML: 
+1. В Visual Studio откройте файл MainPage.xaml в проекте быстрого запуска, найдите элемент **Button** с именем  `ButtonRefresh` и замените его следующим кодом XAML: 
 
         <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Orientation="Horizontal">
             <Button Width="225" Name="ButtonRefresh" 
@@ -64,5 +64,4 @@
 
 	Отображается окно сообщения, в котором указывается количество элементов, помеченных как завершенные; снова выполняется отфильтрованный запрос, что приводит к удалению из списка всех элементов.
 
-
-<!--HONumber=42-->
+<!--HONumber=52-->
