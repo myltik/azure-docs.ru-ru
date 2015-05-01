@@ -8,4 +8,5 @@
 
 ![](./media/web-sites-python-troubleshoot-deployment/portal-deployment-log.png)
 
+
 <!--HONumber=52-->

@@ -93,4 +93,5 @@
 [Создать новое приложение логики]: app-service-logic-create-a-logic-app.md
 [Определение API соединителя File]: https://msdn.microsoft.com/en-US/library/dn936296.aspx
 
+
 <!--HONumber=52-->

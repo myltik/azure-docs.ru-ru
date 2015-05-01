@@ -106,4 +106,5 @@
 [Развертывание обработки событий при помощи концентраторов событий]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
 [Решение для обмена сообщениями в очереди]: cloud-services-dotnet-multi-tier-app-using-service-bus-queues.md
 
+
 <!--HONumber=52-->

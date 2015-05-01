@@ -147,4 +147,5 @@
 [Портал управления Azure]: https://manage.windowsazure.com/
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331330
 
+
 <!--HONumber=52-->

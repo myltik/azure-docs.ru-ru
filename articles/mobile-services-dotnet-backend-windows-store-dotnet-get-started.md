@@ -133,4 +133,5 @@
 [Приступая к работе с данными в мобильных службах с помощью Visual Studio 2012]: mobile-services-windows-store-dotnet-get-started-data-vs2012.md
 [Устранение неполадок серверной части .NET мобильных служб]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
+
 <!--HONumber=52-->

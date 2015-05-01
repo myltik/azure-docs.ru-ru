@@ -93,4 +93,5 @@
 [Пакет SDK для мобильных служб]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Портал управления]: https://manage.windowsazure.com/
 
+
 <!--HONumber=52-->

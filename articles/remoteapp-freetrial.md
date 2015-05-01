@@ -31,4 +31,5 @@
 Хотите отправить отзыв? Задайте вопросы на [форумах обсуждений](http://feedback.azure.com/forums/247748-azure-remoteapp). Если у вас есть [план поддержки Azure](http://azure.microsoft.com/support/plans/), вы можете отправить обращение в службу поддержки. Любой пользователь может отправить отзыв на [форуме отзывов](http://feedback.azure.com/forums/247748-azure-remoteapp).  
 
 
+
 <!--HONumber=52-->

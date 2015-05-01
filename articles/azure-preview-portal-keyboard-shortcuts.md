@@ -55,4 +55,5 @@
 Познакомьтесь с порталом Azure поближе: http://azure.microsoft.com. 
 
 
+
 <!--HONumber=52-->

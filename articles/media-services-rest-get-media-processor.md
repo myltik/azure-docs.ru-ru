@@ -122,4 +122,5 @@
 [Строки предустановок задачи для обработчика мультимедиа Azure]: http://msdn.microsoft.com/library/jj129582.aspx
 [Практическое руководство. Подключение к службам мультимедиа программными средствами]: ../media-services-rest-connect_programmatically/
 
+
 <!--HONumber=52-->

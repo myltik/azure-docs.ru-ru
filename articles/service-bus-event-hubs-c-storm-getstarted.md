@@ -111,4 +111,5 @@
 [Анализ данных датчиков в Storm и HDInsight]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-sensor-data-analysis/
 [Разработка приложений для обработки потоковых данных с помощью SCP.NET и C# на основе Storm и HDInsight]: http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/
 
+
 <!--HONumber=52-->

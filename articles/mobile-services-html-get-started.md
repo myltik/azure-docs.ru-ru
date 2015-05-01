@@ -162,4 +162,5 @@
 [Справочник принципов использования мобильных служб HTML/JavaScript]: /develop/mobile/how-to-guides/work-with-html-js-client
 [Общий доступ к ресурсам независимо от источника]: http://msdn.microsoft.com/library/windowsazure/dn155871.aspx
 
+
 <!--HONumber=52-->

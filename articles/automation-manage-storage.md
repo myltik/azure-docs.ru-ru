@@ -49,4 +49,5 @@
 
 См. [учебник по началу работы](automation-create-runbook-from-samples.md) службы автоматизации Azure.
 
+
 <!--HONumber=52-->

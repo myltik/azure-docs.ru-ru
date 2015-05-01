@@ -101,4 +101,5 @@
 [Узел обработчика событий]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Общие сведения о концентраторах событий]: http://msdn.microsoft.com/library/azure/dn836025.aspx
 
+
 <!--HONumber=52-->

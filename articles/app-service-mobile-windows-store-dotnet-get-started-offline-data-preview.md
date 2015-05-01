@@ -274,4 +274,5 @@
 [Nuget-пакет SDK мобильного приложения Azure]: http://www.nuget.org/packages/WindowsAzure.MobileServices/2.0.0-beta
 [Nuget-пакет SQLiteStore]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.2
 
+
 <!--HONumber=52-->

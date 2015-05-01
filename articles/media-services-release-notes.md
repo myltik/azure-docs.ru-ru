@@ -495,4 +495,5 @@ API REST служб мультимедиа обновлены до версии 
 [Управление активами служб мультимедиа в нескольких учетных записях хранения]: http://msdn.microsoft.com/library/azure/dn271889.aspx
 [Обработка уведомлений из заданий служб мультимедиа]: http://msdn.microsoft.com/library/azure/dn261241.aspx
 
+
 <!--HONumber=52-->

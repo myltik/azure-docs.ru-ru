@@ -83,4 +83,5 @@
 - [Запись блога: Включение Operational Insights для виртуальных машин Azure](http://azure.microsoft.com/updates/easily-enable-operational-insights-for-azure-virtual-machines/)
 
 
+
 <!--HONumber=52-->

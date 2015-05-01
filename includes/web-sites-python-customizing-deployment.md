@@ -33,4 +33,5 @@ Azure определит, что приложение использует Pytho
 
 [Интерфейс командной строки Azure]: http://azure.microsoft.com/downloads/
 
+
 <!--HONumber=52--> 

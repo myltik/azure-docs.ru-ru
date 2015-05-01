@@ -46,4 +46,5 @@ Azure AD имеет несколько функциональных уровне
 * [Удостоверение Azure](/manage/windows/fundamentals/identity/)
 * [Библиотека Azure AD на сайте MSDN](http://go.microsoft.com/fwlink/?LinkId=293425)
 
+
 <!--HONumber=52-->

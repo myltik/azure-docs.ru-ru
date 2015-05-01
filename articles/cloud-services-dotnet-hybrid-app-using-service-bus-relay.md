@@ -739,4 +739,5 @@ Windows Communication Foundation (WCF) безопасно предоставля
   [sbwacomqhowto]: /develop/net/how-to-guides/service-bus-queues/
   [executionmodels]: http://azure.microsoft.com/develop/net/fundamentals/compute/
 
+
 <!--HONumber=52-->

@@ -101,4 +101,5 @@
   [Настройка PHP в веб-приложениях службы приложений Azure с помощью файлов .user.ini]: http://blogs.msdn.com/b/silverlining/archive/2012/07/10/configuring-php-in-windows-azure-websites-with-user-ini-files.aspx
   [Модуль интеграции Azure]: http://drupal.org/project/azure
 
+
 <!--HONumber=52-->

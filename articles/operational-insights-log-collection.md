@@ -94,4 +94,5 @@
 - [Требования к формату журнала IIS в Azure Operational Insights](http://blogs.technet.com/b/momteam/archive/2014/09/19/iis-log-format-requirements-in-system-center-advisor.aspx)
 - Узнайте, какие другие источники данных и типы журналов просят реализовать участники сообщества. См. [форум обратной связи](http://feedback.azure.com/forums/267889-azure-operational-insights/category/88086-log-management-and-log-collection-policy).
 
+
 <!--HONumber=52-->

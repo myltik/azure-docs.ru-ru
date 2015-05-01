@@ -116,4 +116,5 @@
 
 ![Ресурсы службы хранилища Azure](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-4.png)
 
+
 <!--HONumber=52-->

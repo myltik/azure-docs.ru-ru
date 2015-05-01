@@ -125,4 +125,5 @@
 [Практическое руководство. Получение уведомлений об оповещениях и управление правилами оповещения в Azure]:http://msdn.microsoft.com/library/windowsazure/dn306638.aspx
 
 
+
 <!--HONumber=52-->

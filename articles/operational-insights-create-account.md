@@ -40,4 +40,5 @@
 
 - [Установка и настройка рабочей области](operational-insights-setup-workspace.md)
 
+
 <!--HONumber=52-->

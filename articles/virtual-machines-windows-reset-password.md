@@ -97,4 +97,5 @@
 [Подключение к виртуальной машине Azure с помощью RDP или SSH](http://msdn.microsoft.com/library/azure/dn535788.aspx)
 
 
+
 <!--HONumber=52-->

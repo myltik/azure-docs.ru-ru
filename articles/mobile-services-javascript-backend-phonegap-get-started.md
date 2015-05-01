@@ -174,4 +174,5 @@ PhoneGap поддерживает разработку для нескольки
 [Visual Studio 2012 Express для Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
 
 
+
 <!--HONumber=52-->

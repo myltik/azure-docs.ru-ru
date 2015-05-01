@@ -140,4 +140,5 @@
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Портал управления]: https://manage.windowsazure.com/
 
+
 <!--HONumber=52-->

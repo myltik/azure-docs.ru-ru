@@ -814,4 +814,5 @@
 * [Использование хранилища BLOB-объектов из .NET](storage-dotnet-how-to-use-blobs.md)
 * [Как использовать хранилище очередей из .NET](storage-dotnet-how-to-use-queues.md)
 
+
 <!--HONumber=52-->

@@ -52,4 +52,5 @@
 - [Эквиваленты правил поиска OpInsights пакета управления IIS](http://blogs.msdn.com/b/dmuscett/archive/2014/11/05/iis-mp-event-alerting-rules-s-opinsights-searches-equivalents.aspx)
 - [Коллекция полезных запросов поиска Operational Insights ](http://blogs.msdn.com/b/dmuscett/archive/2014/10/19/advisor-searches-collection.aspx)
 
+
 <!--HONumber=52-->

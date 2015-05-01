@@ -583,4 +583,5 @@ Your `NameResolver` class could then get the queue name from `appSettings` as sh
 
 В этом руководстве предоставлены примеры кода обработки обычных сценариев для работы с очередями Azure. Дополнительные сведения об использовании веб-заданий Azure и пакета SDK веб-заданий см. в разделе [Веб-задания Azure - рекомендуемые ресурсы](http://go.microsoft.com/fwlink/?linkid=390226).
 
+
 <!--HONumber=52-->

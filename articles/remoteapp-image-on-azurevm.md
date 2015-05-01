@@ -58,4 +58,5 @@
 
 Теперь вы готовы создать новую коллекцию: [облачную](remoteapp-create-cloud-deployment.md) или [гибридную](remoteapp-create-hybrid-deployment.md) - в зависимости от того, что вам нужно.
 
+
 <!--HONumber=52-->

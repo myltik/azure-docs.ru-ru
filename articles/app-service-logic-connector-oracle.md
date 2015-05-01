@@ -171,4 +171,5 @@
 [Настройка клиента Oracle]: https://msdn.microsoft.com/ru-ru/library/dd787872.aspx
 
 
+
 <!--HONumber=52-->
