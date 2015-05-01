@@ -1,30 +1,26 @@
-﻿<properties 
-   authors="danielceckert" 
-   documentationCenter="dev-center-name" 
-   editor=""
-   manager="jefco" 
-   pageTitle="Управление: Режим распределения балансировщика нагрузки (соответствие исходному IP-адресу)" 
-   description="Функции управления для режима распределения балансировщика нагрузки Azure" 
-   services="virtual-network" 
-   />
+<properties 
+	authors="danielceckert" 
+	documentationCenter="dev-center-name" 
+	editor=""
+	manager="jefco" 
+	pageTitle="Управление: Режим распределения балансировщика нагрузки (соответствие исходному IP-адресу)" 
+	description="Функции управления для режима распределения балансировщика нагрузки Azure" 
+	services="virtual-network" 
+	/>
 
 <tags
-   ms.author="danecke"
-   ms.date="02/20/2015"
-   ms.devlang="na"
-   ms.service="virtual-network"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-<<<<<<< HEAD:articles/virtual-networks-load-balancer-manage-distribution-mode.md
-   />
+	ms.author="danecke"
+	ms.date="02/20/2015"
+	ms.devlang="na"
+	ms.service="virtual-network"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"/>
+<!--HEAD:articles/virtual-networks-load-balancer-manage-distribution-mode.md-->
+
    
 # Управление виртуальной сетью Режим распределения балансировщика нагрузки (соответствие исходному IP-адресу)
-=======
-   /> 
-   
-# Управление виртуальной сетью Режим распределения балансировщика нагрузки (соответствие исходному IP-адресу)
->>>>>>> 5781a6382194f50134d2a16bd9d72a6cca290f3d:articles/virtual-networks-load-balancer-manage-distribution-mode-source-ip.md
+
 
 **Соответствие исходному IP-адресу** (также известное, как **соответствие сеансу** или **соответствие клиентскому IP-адресу**), являющееся режимом распределения балансировщика нагрузки Azure, привязывает подключения одного клиента к одному серверу, размещенному в Azure, а не динамически распределяет каждое клиентское подключение по разным серверам, размещенным в Azure (поведение балансировщика нагрузки по умолчанию).
 

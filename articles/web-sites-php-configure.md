@@ -1,6 +1,6 @@
-﻿<properties
-	pageTitle="Настройка PHP в веб-приложениях службы приложений Azure
-	description="Узнайте, как настроить установку PHP по умолчанию или добавить пользовательскую установку PHP для веб-приложений в службе приложений Azure.
+<properties
+	pageTitle="Настройка PHP в веб-приложениях службы приложений Azure"
+	description="Узнайте, как настроить установку PHP по умолчанию или добавить пользовательскую установку PHP для веб-приложений в службе приложений Azure."
 	services="app-service\web"
 	documentationCenter="php"
 	authors="tfitzmac"
