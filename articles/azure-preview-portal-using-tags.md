@@ -1,6 +1,6 @@
 ﻿<properties 
 	pageTitle="Использование тегов для организации ресурсов в Azure" 
-	<MORAVIA_NOTRANSLATE></MORAVIA_NOTRANSLATE> 
+	description="" 
 	services="" 
 	documentationCenter="" 
 	authors="flanakin" 

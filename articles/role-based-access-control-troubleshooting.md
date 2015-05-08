@@ -1,6 +1,6 @@
 ﻿<properties 
 	pageTitle="Устранение неполадок при управлении доступом на основе ролей" 
-	<MORAVIA_NOTRANSLATE></MORAVIA_NOTRANSLATE> 
+	description="" 
 	services="" 
 	documentationCenter="" 
 	authors="stepsic-microsoft-com" 
