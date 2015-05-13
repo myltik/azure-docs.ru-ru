@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Начало работы со службами мультимедиа с помощью портала управления Azure" 
 	description="В этом учебнике приведены пошаговые инструкции по реализации приложения доставки видео по запросу с помощью служб мультимедиа Azure с использованием портала управления Azure." 
 	services="media-services" 
@@ -237,6 +237,7 @@ URL-адрес потоковой передачи имеет следующий
 
 <!-- URLs. -->
 [Портал управления]: http://manage.windowsazure.com/
+[портале управления]: http://manage.windowsazure.com/
 
 
 <!-- Images -->
@@ -251,6 +252,5 @@ URL-адрес потоковой передачи имеет следующий
 [process2]: ./media/media-services-manage-content/media-services-process-video2.png
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-players/media-services-portal-player.png
-
 
 <!--HONumber=52-->

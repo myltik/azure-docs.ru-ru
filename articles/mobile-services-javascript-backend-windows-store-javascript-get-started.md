@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Приступая к работе с мобильными службами для приложений для Магазина Windows | Центр мобильных разработок" 
 	description="Следуйте указаниям этого учебника, чтобы приступить к использованию мобильных служб Azure для разработки приложений Магазина Windows на C# или JavaScript." 
 	services="mobile-services" 
@@ -88,10 +88,11 @@
 <!-- URLs. -->
 [Приступая к работе с данными]: mobile-services-javascript-backend-windows-universal-javascript-get-started-data.md
 [Приступая к работе с аутентификацией]: mobile-services-windows-store-javascript-get-started-users.md
+[Начало работы с проверкой подлинности]: mobile-services-windows-store-javascript-get-started-users.md
 [Приступая к работе с push-уведомлениями]: mobile-services-javascript-backend-windows-store-javascript-get-started-push.md
+[Начало работы с push-приложениями]: mobile-services-javascript-backend-windows-store-javascript-get-started-push.md
 [Visual Studio 2013 Express для Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
 [Пакет SDK для мобильных служб]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Портал управления]: https://manage.windowsazure.com/
-
 
 <!--HONumber=52-->

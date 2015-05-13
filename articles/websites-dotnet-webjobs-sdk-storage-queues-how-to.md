@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Использование пакета SDK веб-заданий для работы с хранилищем очередей Azure" 
 	description="Информация об использовании хранилища очередей Azure с пакетом SDK для WebJob Создание и удаление очередей; вставка, обзор, получение и удаление сообщений очереди, а также многое другое." 
 	services="app-service\web, storage" 
@@ -477,7 +477,7 @@
 		    Console.WriteLine(logMessage);
 		}
 
-Your `NameResolver` class could then get the queue name from `appSettings` as shown in the following example:
+Затем класс "NameResolver" может получить имя очереди из "appSettings", как показано в следующем примере:
 
 		public class QueueNameResolver : INameResolver
 		{
@@ -582,6 +582,5 @@ Your `NameResolver` class could then get the queue name from `appSettings` as sh
 ## <a id="nextsteps"></a> Дальнейшие действия
 
 В этом руководстве предоставлены примеры кода обработки обычных сценариев для работы с очередями Azure. Дополнительные сведения об использовании веб-заданий Azure и пакета SDK веб-заданий см. в разделе [Веб-задания Azure - рекомендуемые ресурсы](http://go.microsoft.com/fwlink/?linkid=390226).
-
 
 <!--HONumber=52-->

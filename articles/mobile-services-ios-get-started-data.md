@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Начало работы с данными (iOS) | Центр мобильных разработок" 
 	description="Узнайте, как приступить к работе с мобильными службами, чтобы использовать данные в приложении iOS." 
 	services="" 
@@ -37,7 +37,7 @@
 + [SDK мобильных служб iOS], а также [XCode 4.5][Установка Xcode] и iOS 5.0 или более поздней версии.
 + Учетная запись Microsoft Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fru-ru%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-ios%2F" target="_blank">Бесплатная пробная версия Azure</a>.</p></div>
 
-##<a name="download-app"></a>Загрузка проекта GetStartedWithData
+## <a name="download-app"></a>Загрузка проекта GetStartedWithData
 
 Этот учебник основан на [приложении GetStartedWithData][GitHub], представляющим собой приложение iOS. Пользовательский интерфейс приложения совпадает с интерфейсом приложения, созданного кратким руководством по мобильным службам iOS. Отличие заключается в том, что добавленные элементы хранятся локально в памяти.
 
@@ -55,19 +55,19 @@
 
    	Обратите внимание, что сохраненный текст отображается в списке ниже.
 
-##<a name="create-service"></a>Создание мобильной службы на портале управления
+## <a name="create-service"></a>Создание мобильной службы на портале управления
 
 [AZURE.INCLUDE [mobile-services-create-new-service-data](../includes/mobile-services-create-new-service-data.md)]
 
-##<a name="add-table"></a>Добавление новой таблицы в мобильную службу
+## <a name="add-table"></a>Добавление новой таблицы в мобильную службу
 
 [AZURE.INCLUDE [mobile-services-create-new-service-data-2](../includes/mobile-services-create-new-service-data-2.md)]
 
-##<a name="update-app"></a>Обновление приложения для доступа к данным с помощью мобильных служб
+## <a name="update-app"></a>Обновление приложения для доступа к данным с помощью мобильных служб
 
 [AZURE.INCLUDE [mobile-services-ios-enable-mobile-service-access](../includes/mobile-services-ios-enable-mobile-service-access.md)]
 
-##<a name="test-app"></a>Тестирование работы приложения с новой мобильной службой
+## <a name="test-app"></a>Тестирование работы приложения с новой мобильной службой
 
 1. В Xcode выберите эмулятор для развертывания (iPhone или iPad) и нажмите кнопку **Запуск** (или сочетание клавиш Command+R), чтобы повторить сборку проекта и запустить приложение.
 
@@ -87,7 +87,7 @@
 
 Это заключительный шаг учебника **Приступая к работе с данными** для iOS.
 
-##<a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 
 В этом учебнике показаны основы включения в iOS-приложении возможностей работы с данными в мобильных службах.
 
@@ -139,11 +139,11 @@
 
 [Портал управления Azure]: https://manage.windowsazure.com/
 [Портал управления]: https://manage.windowsazure.com/
+[Портале управления]: https://manage.windowsazure.com/
 [Установка Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-[Пакет SDK для мобильных служб для iOS]: https://go.microsoft.com/fwLink/p/?LinkID=266533
+[SDK мобильных служб iOS]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [GitHub]:  http://go.microsoft.com/fwlink/p/?LinkId=268622
 [Репозиторий GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=268784
-
 
 
 <!--HONumber=42-->

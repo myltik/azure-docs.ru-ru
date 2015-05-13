@@ -185,7 +185,7 @@
 ### <a name="sorting"></a>Практическое руководство. Сортировка возвращаемых данных
 
 В следующем коде показано, как сортировать данные, включив в запрос функцию `orderBy` или `orderByDescending`. Он возвращает элементы таблицы `todoItemTable`, упорядочивая их по возрастанию значений в поле `text`. По умолчанию сервер возвращает только первые 50 элементов.
-********
+
 > [AZURE.NOTE] Чтобы предотвратить возврат всех элементов, по умолчанию используется размер страницы, управляемый сервером. Это предотвращает негативное воздействие больших наборов данных на функционирование службы. 
 Можно увеличить количество возвращаемых элементов путем вызова `take`, как описано в следующем разделе.  `todoItemTable` - это ссылка на созданную ранее таблицу мобильной службы.
 
@@ -420,7 +420,7 @@
 
 <h3>Серверный поток</h3>
 Чтобы разрешить мобильным службам управлять процессом проверки подлинности в приложении Магазина Windows или HTML5,
-необходимо зарегистрировать приложение у поставщика удостоверений. Затем в вашей мобильной службе необходимо настроить код приложения и секретный код, предоставленный поставщиком. Дополнительные сведения см. в учебнике "Приступая к работе с проверкой подлинности" ([Магазин Windows][Приступая к работе с проверкой подлинности Магазин Windows]/[Приступая к работе с проверкой подлинности][HTML].
+необходимо зарегистрировать приложение у поставщика удостоверений. Затем в вашей мобильной службе необходимо настроить код приложения и секретный код, предоставленный поставщиком. Дополнительные сведения см. в учебнике "Приступая к работе с проверкой подлинности" ([Магазин Windows][Приступая к работе с проверкой подлинности Магазин Windows]/[HTML][Приступая к работе с проверкой подлинности]).
 
 После регистрации у поставщика удостоверений просто вызовите [метод LoginAsync] с указанием значения [MobileServiceAuthenticationProvider] вашего поставщика. Например, для входа в систему через Facebook используйте следующий код.
 
@@ -636,6 +636,7 @@
 [Приступая к работе с данными]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-with-data-html/
 [Приступая к работе с проверкой подлинности]: /ru-ru/develop/mobile/tutorials/get-started-with-users-html
 [Приступая к работе с проверкой подлинности Магазина Windows]: /ru-ru/develop/mobile/tutorials/get-started-with-users-js
+[Приступая к работе с проверкой подлинности Магазин Windows]: /ru-ru/develop/mobile/tutorials/get-started-with-users-js
 [then]: http://msdn.microsoft.com/library/windows/apps/br229728.aspx
 [done]: http://msdn.microsoft.com/library/windows/apps/hh701079.aspx
 [Дополнительные сведения о различиях между then и done]: http://msdn.microsoft.com/library/windows/apps/hh700334.aspx
@@ -649,6 +650,7 @@
 [Краткое руководство по JavaScript для Магазина Windows]: http://azure.microsoft.com/develop/mobile/tutorials/get-started
 [Краткое руководство по HTML]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-html
 [Приступая к работе с данными в JavaScript для Магазина Windows]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-with-data-js
+[Приступая к работе с данными в Магазине Windows JavaScript]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-with-data-js
 [Приступая к работе с данными в HTML/JavaScript]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-with-data-html/
 [Здесь можно просмотреть полный пример использования этого сценария]: http://azure.microsoft.com/develop/mobile/tutorials/single-sign-on-windows-8-js/
 [Приступая к работе с данными]: /ru-ru/develop/mobile/tutorials/get-started-with-data-html
@@ -660,7 +662,6 @@
 [Управляющие коды ASCII C0 и C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [Интерфейс командной строки для управления таблицами мобильных служб]: http://azure.microsoft.com/manage/linux/other-resources/command-line-tools/#Mobile_Tables
 [справочнике по параметрам системных запросов OData]: http://go.microsoft.com/fwlink/p/?LinkId=444502
-
 
 
 <!--HONumber=42-->

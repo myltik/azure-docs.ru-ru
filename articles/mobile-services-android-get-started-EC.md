@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Начало работы с мобильными службами Azure для приложений Android" 
 	description="Следуйте указаниям этого учебника, чтобы приступить к использованию мобильных служб Azure для разработки приложений Android." 
 	services="mobile-services" 
@@ -156,9 +156,9 @@
 [Приступая к работе с аутентификацией]: mobile-services-android-get-started-users.md
 [Приступая к работе с push-уведомлениями]: mobile-services-javascript-backend-android-get-started-push.md
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
+[SDK Android]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 [Пакет Android SDK для мобильных служб]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
 [Портал управления]: https://manage.windowsazure.com/
-
 
 <!--HONumber=52-->

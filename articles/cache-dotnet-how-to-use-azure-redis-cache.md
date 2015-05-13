@@ -375,6 +375,7 @@
 
 [StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis
 [документации по клиенту кэша StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis#documentation
+[документация по клиенту кэша StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis#documentation
 
 [Redis]: http://redis.io/documentation
 [типах данных redis]: http://redis.io/topics/data-types

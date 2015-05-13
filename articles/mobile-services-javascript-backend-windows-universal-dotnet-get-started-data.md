@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Начало работы с данными (универсальный Windows) | Центр разработчиков мобильных устройств" 
 	description="Узнайте, как приступить к работе с мобильными службами, чтобы использовать данные в универсальном приложении для Windows." 
 	services="mobile-services" 
@@ -35,8 +35,7 @@
 3. [Добавление таблицы для хранения данных]
 4. [Обновление приложения для использования мобильной службы]
 5. [Тестирование работы приложения с мобильными службами]
-6. [Просмотр переданных данных на портале управления Azure 
-]
+6. [Просмотр переданных данных на портале управления Azure]
 
 Для работы с этим учебником требуется:
 
@@ -44,12 +43,12 @@
 * <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Express 2013 для Windows</a> (с обновлением 2 или более поздней версии). 
 
 
-##<a name="download-app"></a>Загрузка проекта GetStartedWithData
+## <a name="download-app"></a>Загрузка проекта GetStartedWithData
 
 [AZURE.INCLUDE [mobile-services-windows-universal-dotnet-download-project](../includes/mobile-services-windows-universal-dotnet-download-project.md)]
  
 
-##<a name="create-service"></a>Создание мобильной службы в Visual Studio
+## <a name="create-service"></a>Создание мобильной службы в Visual Studio
 
 [AZURE.INCLUDE [mobile-services-create-new-service-vs2013](../includes/mobile-services-create-new-service-vs2013.md)]
 
@@ -69,17 +68,17 @@
 
 Теперь приложение для Магазина Windows и приложение для Магазина Windows Phone подключены к новой мобильной службе. Следующий шаг - создание таблицы TodoItem в мобильной службе.
 
-##<a name="add-table"></a>Добавление новой таблицы в мобильную службу
+## <a name="add-table"></a>Добавление новой таблицы в мобильную службу
 
 [AZURE.INCLUDE [mobile-services-create-new-table-vs2013](../includes/mobile-services-create-new-table-vs2013.md)]
 
 >[AZURE.NOTE]Новые таблицы создаются со столбцами "Id", "__createdAt", "__updatedAt" и "__version". Если динамическая схема включена, мобильные службы автоматически создают новые столбцы на основе JSON-объекта в запросе вставки или обновления. Дополнительные сведения см. в разделе [Динамическая схема](http://msdn.microsoft.com/library/windowsazure/jj193175.aspx).
 
-#<a name="update-app"></a>Обновление приложения для использования мобильной службы
+# <a name="update-app"></a>Обновление приложения для использования мобильной службы
 
 [AZURE.INCLUDE [mobile-services-windows-dotnet-update-data-app](../includes/mobile-services-windows-dotnet-update-data-app.md)]
 
-##<a name="test-azure-hosted"></a>Тестирование мобильной службы, размещенной в Azure
+## <a name="test-azure-hosted"></a>Тестирование мобильной службы, размещенной в Azure
 
 Теперь мы можем протестировать обе версии универсального приложения Windows с мобильной службой, размещенной в Azure.
 
@@ -123,8 +122,7 @@
 [Добавление таблицы для хранения данных]: #add-table
 [Обновление приложения для использования мобильной службы]: #update-app
 [Тестирование работы приложения с мобильными службами]: #test-app
-[Просмотр переданных данных на портале управления Azure 
-]: #view-data
+[Просмотр переданных данных на портале управления Azure]: #view-data
 [Дальнейшие действия]:#next-steps
 
 <!-- Images. -->
@@ -144,7 +142,6 @@
 [Веб-сайт с примерами кода для разработчиков]:  http://go.microsoft.com/fwlink/p/?LinkID=510826
 
 [Класс MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
-
 
 
 <!--HONumber=42-->

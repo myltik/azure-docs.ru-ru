@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Использование автономных данных в мобильных службах (Windows Phone) | Центр мобильных разработок" 
 	description="Узнайте, как использовать мобильные службы Azure для синхронизации автономных данных в приложении Windows Phone" 
 	documentationCenter="windows" 
@@ -243,9 +243,9 @@
     ![][10] 
   
 
-##Сводка
+## Сводка
 
-##Сводка
+## Сводка
 
 [AZURE.INCLUDE [mobile-services-offline-summary-csharp](../includes/mobile-services-offline-summary-csharp.md)]
 
@@ -257,7 +257,7 @@
 
 <!-- Anchors. -->
 [Обновление приложения для поддержки автономных функций]: #enable-offline-app
-[Тестирование приложения в автономном сценарии] : #test-offline-app
+[Тестирование приложения в автономном сценарии]: #test-offline-app
 [Обновление приложения для повторного подключения мобильной службы]: #update-online-app
 [Тестирование приложения, подключенного к мобильной службе]: #test-online-app
 [Дальнейшие действия]:#next-steps
@@ -288,7 +288,7 @@
 
 [Nuget-пакет SDK для мобильных служб]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0
 [Nuget-пакет SQLite]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
-
+[Nuget-пакет SQLiteStore]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
 
 
 <!--HONumber=42-->

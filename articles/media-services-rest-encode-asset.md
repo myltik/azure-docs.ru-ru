@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Как кодировать ресурс с помощью обработчика мультимедиа Azure" 
 	description="Узнайте, как использовать кодировщик мультимедиа Azure для кодировки мультимедийного контента в службах мультимедиа. В примерах кода используется REST API." 
 	services="media-services" 
@@ -34,7 +34,7 @@
 
 >[AZURE.NOTE] При работе с REST API служб мультимедиа следует руководствоваться следующими рекомендациями.
 >
->При доступе к сущностям в службах мультимедиа необходимо задать определенные поля и значения заголовков в HTTP-запросах. Дополнительные сведения см. в разделе [Настройка для разработки REST API служб мультимедиа(media-services-rest-how-to-use.md).
+>При доступе к сущностям в службах мультимедиа необходимо задать определенные поля и значения заголовков в HTTP-запросах. Дополнительные сведения см. в разделе [Настройка для разработки REST API служб мультимедиа](media-services-rest-how-to-use.md).
 
 >После успешного подключения к https://media.windows.net вы получите ошибку 301 (перенаправление), в которой будет указан другой URI служб мультимедиа. Последующие вызовы необходимо осуществлять к новому URI, как описано в статье [Подключение к службам мультимедиа с помощью REST API](media-services-rest-connect_programmatically.md). 
 
@@ -55,7 +55,7 @@
 	
 	{"Name" : "NewTestJob", "InputMediaAssets" : [{"__metadata" : {"uri" : "https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3Aaab7f15b-3136-4ddf-9962-e9ecb28fb9d2')"}}],  "Tasks" : [{"Configuration" : "H264 Broadband 720p", "MediaProcessorId" : "nb:mpid:UUID:70bdc2c3-ebf4-42a9-8542-5afc1e55d217",  "TaskBody" : "<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset>JobOutputAsset(0)</outputAsset></taskBody>"}]}
 
-Response:
+Ответ:
 	
 	HTTP/1.1 201 Created
 	Cache-Control: no-cache
@@ -121,6 +121,5 @@ Response:
 [Практическое руководство. Доставка ресурса путем загрузки]:http://go.microsoft.com/fwlink/?LinkId=301734
 [Практическое руководство. Проверка хода выполнения задания]:http://go.microsoft.com/fwlink/?LinkId=301737
 [Предустановка задачи для Azure Media Packager]:http://msdn.microsoft.com/library/windowsazure/hh973635.aspx
-
 
 <!--HONumber=52-->

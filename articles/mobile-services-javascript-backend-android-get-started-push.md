@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Приступая к работе с push-уведомлениями (Android JavaScript) | Центр мобильных разработок" 
 	description="Узнайте, как использовать мобильные службы Azure для отправки push-уведомлений в приложение JavaScript для Android." 
 	services="mobile-services, notification-hubs" 
@@ -34,11 +34,11 @@
 
 >[AZURE.NOTE] Если требуется просмотреть исходный код завершенного приложения, см. <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures/GettingStartedWithPush/Android" target="_blank">здесь</a>.
 
-##Предварительные требования
+## Предварительные требования
 
 [AZURE.INCLUDE [mobile-services-android-prerequisites](../includes/mobile-services-android-prerequisites.md)]
 
-##<a id="register"></a>Включение Google Cloud Messaging
+## <a id="register"></a>Включение Google Cloud Messaging
 
 >[AZURE.NOTE]Для выполнения этой процедуры необходима учетная запись Google с проверенным электронным адресом. Чтобы создать учетную запись Google, перейдите по ссылке <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
 
@@ -46,9 +46,9 @@
 
 Далее вы будете использовать это значение ключа API, чтобы предоставить мобильным службам возможность выполнять аутентификацию с использованием GCM и отправлять push-уведомления от имени своего приложения.
 
-##<a id="configure"></a>Настройка мобильных служб для отправки push-запросов
+## <a id="configure"></a>Настройка мобильных служб для отправки push-запросов
 
-1. Войдя на [портал управления Azure], щелкните элемент **Мобильные службы** и выберите нужное приложение.
+1. Войдя на [портал управления Azure](Azure Management Portal), щелкните элемент **Мобильные службы** и выберите нужное приложение.
 
    	![](./media/mobile-services-android-get-started-push/mobile-services-selection.png)
 
@@ -63,9 +63,9 @@
 
 Мобильная служба и приложение теперь настроены для работы с GCM и концентраторами уведомлений.
 
-##<a id="add-push"></a>Добавление push-уведомлений в приложение
+## <a id="add-push"></a>Добавление push-уведомлений в приложение
 
-###Проверка версии Android SDK
+### Проверка версии Android SDK
 
 [AZURE.INCLUDE [Verify SDK](../includes/mobile-services-verify-android-sdk-version.md)]
 
@@ -73,16 +73,16 @@
 
 Если вы будете тестировать приложение на более старом устройстве, обратитесь к руководству [Настройка пакета SDK служб Google Play], чтобы определить, насколько малым можно задать это значение.
 
-###Добавление служб Google Play в проект
+### Добавление служб Google Play в проект
 
 [AZURE.INCLUDE [Add Play Services](../includes/mobile-services-add-Google-play-services.md)]
 
-###Добавление кода
+### Добавление кода
 
 [AZURE.INCLUDE [mobile-services-android-getting-started-with-push](../includes/mobile-services-android-getting-started-with-push.md)]
 
 
-##<a id="update-scripts"></a>Обновление зарегистрированного скрипта вставки на портале управления
+## <a id="update-scripts"></a>Обновление зарегистрированного скрипта вставки на портале управления
 
 1. На портале управления щелкните вкладку **Данные**, а затем щелкните таблицу **TodoItem**. 
 
@@ -124,13 +124,13 @@
 		  });
 		}
 
-   	При этом регистрируется новый сценарий вставки, в котором [объект gcm] используется для отправки push-уведомлений на все зарегистрированные устройства после успешной вставки данных. 
+   	При этом регистрируется новый сценарий вставки, в котором [объект gcm](http://go.microsoft.com/fwlink/p/?LinkId=282645) используется для отправки push-уведомлений на все зарегистрированные устройства после успешной вставки данных. 
 
-##<a id="test"></a>Тестирование push-уведомлений в приложении
+## <a id="test"></a>Тестирование push-уведомлений в приложении
 
 Приложение можно проверить, подключив телефон Android напрямую с помощью USB-кабеля или используя виртуальное устройство в эмуляторе.
 
-###Настройка эмулятора для тестирования
+### Настройка эмулятора для тестирования
 
 При запуске этого приложения в эмуляторе убедитесь, что используется виртуальное устройство на платформе Android (AVD), поддерживающее API-интерфейсы Google.
 
@@ -150,7 +150,7 @@
 
 	При этом виртуальное устройство на платформе Android будет предназначено для использования API-интерфейсов Google.
 
-###Выполнение теста
+### Выполнение теста
 
 1. В меню **Выполнить** в Eclipse щелкните **Выполнить** для запуска приложения.
 
@@ -234,7 +234,6 @@
 [Что такое концентраторы уведомлений?]: /ru-ru/documentation/articles/notification-hubs-overview/
 [Рассылка широковещательных уведомлений подписчикам]: /ru-ru/documentation/articles/notification-hubs-android-send-breaking-news/
 [Рассылка уведомлений по шаблону подписчикам]: /ru-ru/documentation/articles/notification-hubs-android-send-localized-breaking-news/
-
 
 
 <!--HONumber=42-->

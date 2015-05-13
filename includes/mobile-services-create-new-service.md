@@ -24,6 +24,6 @@
 
 <!-- URLs. -->
 [Портал управления]: https://manage.windowsazure.com/
-
+[портал управления]: https://manage.windowsazure.com/
 
 <!--HONumber=52--> 

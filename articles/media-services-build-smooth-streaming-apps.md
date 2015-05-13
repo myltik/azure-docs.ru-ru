@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Приложение магазина Windows с потоковой передачей Smooth Streaming - учебники по Azure .NET" 
 	description="Сведения об использовании служб мультимедиа Azure для создания приложения для магазина Windows на C# с управляющим элементом XML MediaElement для воспроизведения контента Smooth Stream" 
 	services="media-services" 
@@ -354,7 +354,7 @@
 		}
 		#endregion Adaptive Source Level Events
 
-4.	At the end of the <strong>mediaElement AdaptiveSourceOpened</strong> method, add the following code to subscribe to the events:
+4.	В конце метода <strong>mediaElement AdaptiveSourceOpened</strong> добавьте следующий код, чтобы подписаться на события:
 	
 		adaptiveSource.ManifestReadyEvent +=
 	                mediaElement_ManifestReady;
@@ -1007,6 +1007,5 @@
 
 [PlayerApplication]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-1.png
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
-
 
 <!--HONumber=52-->

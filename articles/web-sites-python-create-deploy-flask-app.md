@@ -417,10 +417,11 @@
 [GitHub для Windows]: https://windows.github.com/
 [Средства Python для Visual Studio]: http://aka.ms/ptvs
 [Средства Python 2.1 для Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
+[средства Python 2.1 для Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
 [Visual Studio]: http://www.visualstudio.com/
 [Документация по PTVS]: http://pytools.codeplex.com/documentation
+[документации по PTVS]: http://pytools.codeplex.com/documentation
 [Документация по средствам Python для Visual Studio]: http://pytools.codeplex.com/documentation 
 [Документация по Flask]: http://flask.pocoo.org/ 
-
 
 <!--HONumber=52-->

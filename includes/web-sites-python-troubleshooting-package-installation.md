@@ -30,12 +30,12 @@
 
 В папке \wheelhouse будет создан WHL-файл.  Добавьте папку \wheelhouse и файлы wheel в репозиторий.
 
-Добавьте параметр "--find-links" в начало файла requirements.txt. Это позволит pip искать точное совпадение в локальной папке перед тем, как перейти к каталогу пакетов Python.
+Добавьте параметр `--find-links` в начало файла requirements.txt. Это позволит pip искать точное совпадение в локальной папке перед тем, как перейти к каталогу пакетов Python.
 
     --find-links wheelhouse
     azure==0.8.4
 
-Если необходимо включить все зависимости в папку \wheelhouse и не использовать каталог пакетов Python, можно задать в pip принудительный пропуск каталога пакетов, добавив "--no-index" в начало файла requirements.txt.
+Если необходимо включить все зависимости в папку \wheelhouse и не использовать каталог пакетов Python, можно задать в pip принудительный пропуск каталога пакетов, добавив `--no-index` в начало файла requirements.txt.
 
     --no-index
 
@@ -67,6 +67,5 @@
 [Создание виртуальной машины под управлением Windows]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/
 [Компилятора Microsoft Visual C++ для Python 2.7]: http://aka.ms/vcpython27
 [Microsoft Visual C++ 2010 Express]: http://go.microsoft.com/?linkid=9709949
-
 
 <!--HONumber=52--> 

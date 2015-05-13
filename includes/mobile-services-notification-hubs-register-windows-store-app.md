@@ -42,7 +42,7 @@
 
     > [AZURE.NOTE] Секрет клиента и ИД безопасности пакета - это важные учетные данные для безопасного доступа. Не сообщайте никому эти секреты и не распространяйте их вместе с вашим приложением.
 
-11. Войдя на [портал управления Azure], щелкните элемент **Мобильные службы** и выберите нужное приложение.
+11. Войдя на [портал управления Azure](https://manage.windowsazure.com/), щелкните элемент **Мобильные службы** и выберите нужное приложение.
 
    	![](./media/mobile-services-notification-hubs-register-windows-store-app/mobile-services-selection.png)
 
@@ -58,5 +58,4 @@
 [Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/mobile-services-windows-store-get-started/
 [Отправить страницу приложения]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Портал управления Azure]: https://manage.windowsazure.com/
-
 <!--HONumber=42-->

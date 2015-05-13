@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Создание веб-приложения PHP в службе приложений Azure с помощью хранилища Azure" 
 	description="В этом учебнике показывается, как создать веб-приложение на PHP в службе приложений Azure и использовать службу хранилища таблиц Azure в серверном приложении." 
 	services="app-service\web, storage" 
@@ -205,7 +205,7 @@
 			echo "<h3>No items on list.</h3>";
 		?>
 
-* Last, you must insert the form that feeds data into the task insertion script and complete the HTML:
+* Наконец, необходимо вставить форму, передающую данные в скрипт вставки задачи, и добавить HTML-код:
 
 			<hr/>
 			<form action="additem.php" method="post">
@@ -427,6 +427,5 @@
 [credentials]: ./media/web-sites-php-storage/git-deployment-credentials.png
 
 [git-instructions]: ./media/web-sites-php-storage/git-instructions.png
-
 
 <!--HONumber=52-->

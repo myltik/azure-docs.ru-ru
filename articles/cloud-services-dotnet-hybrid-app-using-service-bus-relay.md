@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Гибридные локальные и облачные приложения (.NET) в Azure" 
 	description="Узнайте, как создать локальное или облачное гибридное приложение .NET с использованием ретранслятора служебной шины Azure." 
 	services="service-bus" 
@@ -691,6 +691,8 @@ Windows Communication Foundation (WCF) безопасно предоставля
   
   
   [Портал управления Azure]: http://manage.windowsazure.com
+  [портал управления Azure]: http://manage.windowsazure.com
+  [портала управления Azure]: http://manage.windowsazure.com
   [5]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/sb-queues-03.png
   [6]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/sb-queues-04.png
   
@@ -738,6 +740,5 @@ Windows Communication Foundation (WCF) безопасно предоставля
   [sbwacom]: /documentation/services/service-bus/  
   [sbwacomqhowto]: /develop/net/how-to-guides/service-bus-queues/
   [executionmodels]: http://azure.microsoft.com/develop/net/fundamentals/compute/
-
 
 <!--HONumber=52-->
