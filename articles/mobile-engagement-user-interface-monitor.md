@@ -1,71 +1,52 @@
-﻿<properties 
-   pageTitle="Пользовательский интерфейс Azure Mobile Engagement - Монитор" 
-   description="Обзор раздела "Монитор" пользовательского интерфейса Azure Mobile Engagement" 
+<properties 
+   pageTitle="Пользовательский интерфейс Azure Mobile Engagement: Monitor (Мониторинг)" 
+   description="Наблюдение за работой приложения в режиме реального времени с помощью Azure Mobile Engagement" 
    services="mobile-engagement" 
-   documentationCenter="mobile" 
-   authors="v-micada" 
-   manager="mattgre" 
+   documentationCenter="" 
+   authors="piyushjo" 
+   manager="dwrede" 
    editor=""/>
 
 <tags
    ms.service="mobile-engagement"
-   ms.devlang="Java"
+   ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="mobile"
-   ms.workload="required" 
+   ms.tgt_pltfrm="mobile-multiple"
+   ms.workload="mobile" 
    ms.date="02/17/2015"
-   ms.author="v-micada"/>
+   ms.author="piyushjo"/>
 
-# Azure Mobile Engagement - Пользовательский интерфейс
+# Наблюдение за работой приложения в режиме реального времени
+В разделе Monitor \(Мониторинг\) пользовательского интерфейса представлена диагностическая информация в режиме реального времени. Здесь вы можете настроить предупреждения о достижении пороговых значений для большинства параметров, исторические данные о которых доступны в разделе Analytics \(Аналитика\). В глоссарии в разделе «Понятия» приведены определения терминов и сокращений из разделов «Аналитика» и «Мониторинг», таких как активный пользователь, новый пользователь, сохраненный пользователь, сеанс, график маршрута пользователя, URL-адреса отслеживания, тренды, действие, событие, задание, ошибка, дополнительные сведения, сбой и сведения о приложении.
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="../mobile-engagement-user-interface" title="Introduction">Введение</a>
-<a href="../mobile-engagement-user-interface-navigation" title="Navigation">Навигация</a>
-<a href="../mobile-engagement-user-interface-home/" title="Home">Главная</a>
-<a href="../mobile-engagement-user-interface-my-account" title="My Account">Моя учетная запись</a>
-<a href="../mobile-engagement-user-interface-analytics" title="Analytics">Аналитика</a>
-<a href="../mobile-engagement-user-interface-monitor" title="Monitor">Монитор</a>
-<a href="../mobile-engagement-user-interface-reach" title="Reach">Рекламные кампании</a>
-<a href="../mobile-engagement-user-interface-segments" title="Segments">Сегменты</a>
-<a href="../mobile-engagement-user-interface-dashboard" title="Dashboard">Панель мониторинга</a>
-<a href="../mobile-engagement-user-interface-settings" title="Settings">Параметры</a>
-</div>
+### Дополнительные материалы
+-  [Понятия: глоссарий][Link 6], [Руководство по устранению неполадок: аналитика][Link 21]
 
-# Монитор
+## Мониторинг: сеансы, задания, события, ошибки и сбои
+Вы можете контролировать количество пользователей, для которых в настоящий момент активны сеансы, а также число пользователей, у которых открыты определенные экраны и которые выполняют те или иные действия. Вы можете просматривать действия пользователей по сеансам, заданиям, событиям, ошибкам и сбоям. Вы можете отслеживать текущую информацию, а также просматривать сведения за прошлый час, день или неделю. Вы можете просмотреть все сведения в той или иной категории либо для определенного сеанса, задания, события, ошибки или сбоя. Средства мониторинга в режиме реального времени особенно полезны в период проведения определенных мероприятий, таких как кампания по отправке push-уведомлений, позволяя отследить рост активности пользователей после отправки им таких уведомлений.
  
-Раздел пользовательского интерфейса "Монитор" предоставляет данные аналитики в режиме реального времени и позволяет настроить оповещения о достижении пороговых значений для большей части данных, которые доступны за определенный период в разделе "Аналитика". "Глоссарий" в разделе "Основные понятия" содержит определения терминов и сокращений, используемых в разделах аналитики и мониторинга, например следующие: активный пользователь, новый пользователь, удержанный пользователь, сеанс, граф пути пользователя, сопоставление пользователей, отслеживание URL-адресов, тенденции, действие, событие, задание, ошибка, дополнительная информация, сбой и информация о приложении.
+![Монитор1][14]
 
-**См. также** 
+## Устранение неполадок: раздел Monitor — Events — Details \(Мониторинг — События — Сведения\)
+Определить идентификатор тестового устройства и убедиться в правильной интеграции средств Azure Mobile Engagement с инструментами аналитики, мониторинга и сегментации из своего приложения очень просто. Для этого нужно создать событие в приложении с тестового устройства, а затем найти его в разделе Monitor — Events — Details \(Мониторинг — События — Сведения\). Определив идентификатор тестового устройства, вы можете добавить его в список тестовых устройств в разделе My Account — Devices \(Моя учетная запись — Устройства\). Если вам не удается создать событие, убедитесь, что средства Azure Mobile Engagement правильно интегрированы с вашим приложением для платформы Android, iOS, Windows, Windows Phone или браузера с помощью SDK.
 
--  [Основные понятия - глоссарий][Link 6], [Руководство по устранению неполадок - Аналитика][Link 2]
+### Дополнительные материалы
+-  [Документация к пакету SDK][Link 5]
 
-## "Монитор" - категории "Сеансы", "Задания", "События", "Ошибки" и "Сбои".
-Вы можете просматривать количество пользователей, которые участвуют в сеансе, выполняют действия на определенных экранах или выполняют те или иные действия на данный момент. Можно просмотреть активность пользователей в отдельных категориях: "Сеансы", "Задания", "События", "Ошибки" и "Сбои". Вы можете просмотреть как текущую информацию, так и информацию за последний час, день или неделю. Можно также просмотреть все данные в каждой категории и сортировать их по конкретному сеансу, заданию, событию, ошибке или сбою.  Мониторинг в реальном времени полезно использовать во время таких событий, как кампания push-уведомлений. Он позволяет увидеть, есть ли прогресс в действии сразу после отправки push-уведомления. 
+![Монитор2][15]
+
+## Устранение неполадок: раздел Monitor — Crashes — Details \(Мониторинг — Сбои — Сведения\)
+Определить причины, по которым в приложении возникают сбои, можно с помощью информации о сбоях в разделе Monitor — Crashes — Details \(Мониторинг — Сбои — Сведения\). Также следует изучить сведения об известных проблемах и неполадках в различных версиях SDK в соответствующих примечаниях к выпуску пакета SDK для платформ Android, iOS, Windows, Windows Phone и браузера.
+
+### Дополнительные материалы
+-  [Документация к пакету SDK: примечания к выпуску][Link 5]
+
+![Монитор3][16]
+
+## Monitor — Alerts \(Мониторинг — Предупреждения\)
+Вы также можете задать условия, при выполнении которых вам будет отправляться электронное письмо или мгновенное сообщение. \(Поддерживаются все XMPP-совместимые службы, такие как Google Talk и Apple iChat.\) Предупреждения генерируются при достижении заданного порога \(сверху или снизу\) по количеству сеансов, заданий, событий, ошибок или сбоев за секунду, минуту или час. Вы можете формировать предупреждения для любых действий того или иного типа либо отслеживать лишь определенное задание, событие или ошибку. Также можно указать минимальную частоту обнаружения — минимальный промежуток времени между двумя уведомлениями о предупреждении одного типа, чтобы при его срабатывании не получать более одного уведомления за определенный период.
  
-![Monitor1][14]  
-
-## Устранение неполадок путем выбора "Монитор - События - Подробная информация"
-Один из самых простых способов найти идентификатор своего тестового устройства и убедиться, что интеграция разделов аналитики, мониторинга и сегментации Azure Mobile Engagement работает в вашем приложении - создать событие в приложении с помощью тестового устройства и найти его идентификатор, выбрав "Монитор - События - Подробная информация". Как только вы узнаете идентификатор тестового устройства, вы сможете добавить свое устройство к тестовым устройствам, выбрав "Моя учетная запись - Устройства". Если не удается создать событие, убедитесь, что служба Azure Mobile Engagement правильно интегрирована в приложение Android, iOS, Web, Windows или Windows Phone с помощью пакета SDK.
-
-**См. также** 
-
--  [Документация по пакету SDK][Link 5]
-
-![Monitor2][15]  
-
-## Устранение неполадок путем выбора "Монитор - Сбои - Подробная информация"
-Чтобы определить причину сбоя в работе приложения, можно просмотреть информацию о сбое приложения, выбрав "Монитор - Сбои - Подробная информация". Следует также просмотреть раздел с известными проблемами каждой версии пакета SDK в заметках о выпуске для каждой версии пакета SDK для Android, iOS, Web, Windows и Windows Phone. 
-
-**См. также** 
-
--  [Документация по пакету SDK - заметки о выпуске][Link 5]
-
-![Monitor3][16] 
-
-## "Монитор - Оповещения"
-Вы можете указать условия для оповещений, которые будут автоматически отправляться вам на почту или в систему обмена мгновенными сообщениями. (Поддерживаются все службы, совместимые с протоколом XMPP, такие как GTalk от Google или iChat от Apple). Оповещения отправляются на основе предопределенного порогового значения обнаружения, которое может быть больше (>) или меньше (<) определенного количества сеансов, заданий, событий, ошибок или сбоев в секунду, в минуту или в час. Оповещения могут отслеживать все действия определенного типа или только определенные действия, задания, события и ошибки. Можно также указать минимальную скорость обнаружения, которая представляет собой минимальное количество времени, разделяющее два уведомления для одного оповещения. Задав ее, при инициировании оповещения вы не будете получать более одного уведомления каждые X минут.
- 
-![Monitor4][17]
+![Монитор4][17]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -87,20 +68,20 @@
 [17]: ./media/mobile-engagement-user-interface-monitor/monitor4.png
 [18]: ./media/mobile-engagement-user-interface-reach/reach1.png
 [19]: ./media/mobile-engagement-user-interface-reach/reach2.png
-[20]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign1.png
-[21]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign2.png
-[22]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign3.png
-[23]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign4.png
-[24]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign5.png
-[25]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign6.png
-[26]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign7.png
-[27]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign8.png
-[28]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign9.png
-[29]: ./media/mobile-engagement-user-interface-reach/Reach-Criterion1.png
-[30]: ./media/mobile-engagement-user-interface-reach/Reach-Content1.png
-[31]: ./media/mobile-engagement-user-interface-reach/Reach-Content2.png
-[32]: ./media/mobile-engagement-user-interface-reach/Reach-Content3.png
-[33]: ./media/mobile-engagement-user-interface-reach/Reach-Content4.png
+[20]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign1.png
+[21]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign2.png
+[22]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign3.png
+[23]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign4.png
+[24]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign5.png
+[25]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign6.png
+[26]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign7.png
+[27]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign8.png
+[28]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign9.png
+[29]: ./media/mobile-engagement-user-interface-reach-criterion/Reach-Criterion1.png
+[30]: ./media/mobile-engagement-user-interface-reach-content/Reach-Content1.png
+[31]: ./media/mobile-engagement-user-interface-reach-content/Reach-Content2.png
+[32]: ./media/mobile-engagement-user-interface-reach-content/Reach-Content3.png
+[33]: ./media/mobile-engagement-user-interface-reach-content/Reach-Content4.png
 [34]: ./media/mobile-engagement-user-interface-dashboard/dashboard1.png
 [35]: ./media/mobile-engagement-user-interface-segments/segments1.png
 [36]: ./media/mobile-engagement-user-interface-segments/segments2.png
@@ -128,9 +109,9 @@
 [58]: ./media/mobile-engagement-user-interface-settings/settings13.png
 
 <!--Link references-->
-[Link 1]: ../mobile-engagement-user-interface/
-[Link 2]: ../mobile-engagement-troubleshooting-guide/
-[Link 3]: ../mobile-engagement-how-tos/
+[Link 1]: mobile-engagement-user-interface.md
+[Link 2]: mobile-engagement-troubleshooting-guide.md
+[Link 3]: mobile-engagement-how-tos.md
 [Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
 [Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
 [Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
@@ -139,27 +120,27 @@
 [Link 9]: http://azure.microsoft.com/services/mobile-engagement/
 [Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
 [Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
-[Link 12]: ../mobile-engagement-user-interface-navigation/
-[Link 13]: ../mobile-engagement-user-interface-home/
-[Link 14]: ../mobile-engagement-user-interface-my-account/
-[Link 15]: ../mobile-engagement-user-interface-analytics/
-[Link 16]: ../mobile-engagement-user-interface-monitor/
-[Link 17]: ../mobile-engagement-user-interface-reach/
-[Link 18]: ../mobile-engagement-user-interface-segments/
-[Link 19]: ../mobile-engagement-user-interface-dashboard/
-[Link 20]: ../mobile-engagement-user-interface-settings/
-[Link 21]: ../mobile-engagement-troubleshooting-guide-analytics/
-[Link 22]: ../mobile-engagement-troubleshooting-guide-apis/
-[Link 23]: ../mobile-engagement-troubleshooting-guide-push-reach/
-[Link 24]: ../mobile-engagement-troubleshooting-guide-service/
-[Link 25]: ../mobile-engagement-troubleshooting-guide-sdk/
-[Link 26]: ../mobile-engagement-troubleshooting-guide-sr-info/
-[Link 27]: ../mobile-engagement-how-tos-first-push/
-[Link 28]: ../mobile-engagement-how-tos-test-campaign/
-[Link 29]: ../mobile-engagement-how-tos-personalize-push/
-[Link 30]: ../mobile-engagement-how-tos-differentiate-push/
-[Link 31]: ../mobile-engagement-how-tos-schedule-campaign/
-[Link 32]: ../mobile-engagement-how-tos-text-view/
-[Link 33]: ../mobile-engagement-how-tos-web-view/
+[Link 12]: mobile-engagement-user-interface-navigation.md
+[Link 13]: mobile-engagement-user-interface-home.md
+[Link 14]: mobile-engagement-user-interface-my-account.md
+[Link 15]: mobile-engagement-user-interface-analytics.md
+[Link 16]: mobile-engagement-user-interface-monitor.md
+[Link 17]: mobile-engagement-user-interface-reach.md
+[Link 18]: mobile-engagement-user-interface-segments.md
+[Link 19]: mobile-engagement-user-interface-dashboard.md
+[Link 20]: mobile-engagement-user-interface-settings.md
+[Link 21]: mobile-engagement-troubleshooting-guide-analytics.md
+[Link 22]: mobile-engagement-troubleshooting-guide-apis.md
+[Link 23]: mobile-engagement-troubleshooting-guide-push-reach.md
+[Link 24]: mobile-engagement-troubleshooting-guide-service.md
+[Link 25]: mobile-engagement-troubleshooting-guide-sdk.md
+[Link 26]: mobile-engagement-troubleshooting-guide-sr-info.md
+[Link 27]: mobile-engagement-how-tos-first-push.md
+[Link 28]: mobile-engagement-how-tos-test-campaign.md
+[Link 29]: mobile-engagement-how-tos-personalize-push.md
+[Link 30]: mobile-engagement-how-tos-differentiate-push.md
+[Link 31]: mobile-engagement-how-tos-schedule-campaign.md
+[Link 32]: mobile-engagement-how-tos-text-view.md
+[Link 33]: mobile-engagement-how-tos-web-view.md
 
-<!--HONumber=47-->
+<!--HONumber=52-->

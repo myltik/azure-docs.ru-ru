@@ -1,6 +1,6 @@
-﻿<properties
-	pageTitle="Начало работы с внутренними серверами мобильных приложений для приложений Магазина Windows | Центр разработки мобильных приложений"
-	description="Пройдите этот учебник, чтобы начать использовать внутренние серверы мобильных приложений Azure для разработки приложений Магазина Windows на C#, VB или JavaScript."
+<properties
+	pageTitle="Приступая к работе с серверной частью мобильных приложений для приложений из Магазина Windows | Центр разработчиков для мобильных устройств"
+	description="Следуйте указаниям этой статьи, чтобы начать работу с серверной частью мобильных приложений Azure для разработки приложений Магазина Windows на C#, VB или JavaScript."
 	services="app-service\mobile"
 	documentationCenter="windows"
 	authors="christopheranderson"
@@ -21,70 +21,70 @@
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-preview](../includes/app-service-mobile-selector-get-started-preview.md)]
 
-В этом учебнике показано, как добавить облачную службу внутреннего сервера к универсальному приложению Windows, используя внутренний сервер мобильного приложения Azure. Решения для универсальных приложений Windows включают проекты для приложений Магазинов Windows 8.1 и Windows Phone 8.1 и общий проект.
+В этой статье показано, как добавить облачную серверную службу в универсальное приложение Windows с помощью серверной части мобильного приложения Azure. Решения для универсальных приложений Windows включают проекты для приложений Магазинов Windows 8.1 и Windows Phone 8.1 и общий проект.
 
 [AZURE.INCLUDE [app-service-mobile-windows-universal-get-started-preview](../includes/app-service-mobile-windows-universal-get-started-preview.md)]
 
 Для работы с этим учебником требуется:
 
-* Активная учетная запись Azure. Если у вас нет учетной записи, вы можете зарегистрироваться для получения пробной версии Azure и получить до 10 бесплатных мобильных приложений, которые можно использовать и после окончания пробного периода. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://azure.microsoft.com/pricing/free-trial/).
+* Активная учетная запись Azure. Если у вас нет учетной записи, можно зарегистрироваться для получения бесплатной пробной версии Azure и получить до 10 бесплатных мобильных приложений, которые можно использовать и после окончания пробного периода. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://azure.microsoft.com/pricing/free-trial/).
 * <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>.
 
->[AZURE.NOTE] Если вы хотите начать работу со службой приложений Azure до регистрации учетной записи Azure, перейдите в раздел [Пробная версия службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile), где можно сразу создать кратковременное начальное мобильное приложение в службе приложений. Никаких кредитных карт и обязательств.
+>[AZURE.NOTE]Если вы хотите ознакомиться со службой приложений Azure до создания учетной записи, перейдите к разделу [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile), где вы можете быстро создать краткосрочное начальное мобильное приложение в службе приложений. Никаких кредитных карт и обязательств.
 
-## <a name="create-new-service"> </a>Создание внутреннего сервера мобильного приложения
+## <a name="create-new-service"> </a>Создание серверной части мобильного приложения
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service-preview](../includes/app-service-mobile-dotnet-backend-create-new-service-preview.md)]
 
 ## Создание нового универсального приложения для Windows
 
-После создания внутреннего сервера мобильного приложения вы можете следовать простым шагам краткого руководства на портале Azure, чтобы создать новое приложение или изменить существующее и подключить его к внутреннему серверу мобильного приложения.
+Создав серверную часть мобильного приложения, с помощью простых инструкций на портале Azure создайте новое приложение \(или измените существующее\) и подключите его к серверной части своего мобильного приложения.
 
-В этом разделе будет создано новое универсальное приложение Windows, подключаемое к внутреннему серверу мобильного приложения.
+В этом разделе вы создадите новое универсальное приложение для Windows, подключаемое к серверной части вашего мобильного приложения.
 
-1. На портале Azure щелкните **Мобильное приложение**, а затем выберите созданное мобильное приложение.
+1. На портале Azure щелкните **Мобильное приложение**, а затем щелкните только что созданное мобильное приложение.
 
-2. В верхней части колонки щелкните **Добавить клиент** и разверните **Windows (C#)**.
+2. В верхней части колонки нажмите кнопку **Добавить клиент** и разверните **Windows \(C\#\)**.
 
-   ![Mobile App quickstart steps](./media/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview/windows-quickstart.png)
+   ![Шаги для быстрого запуска мобильного приложения](./media/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview/windows-quickstart.png)
 
-   Отобразятся три простых шага для создания приложения Магазина Windows, подключенного к внутреннему серверу мобильного приложения.
+   Здесь показаны три простых шага по созданию приложения для Магазина Windows, подключаемого к серверной части вашего мобильного приложения.
 
-3. Если вы этого еще не сделали, скачайте и установите <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a> на локальный компьютер или виртуальную машину.
+3. Если вы еще не сделали этого, скачайте и установите <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a> на локальном компьютере или виртуальной машине.
 
-4. В разделе **Загрузите и локально запустите ваше приложение и службу** выберите язык для приложения Магазина Windows, затем щелкните **Загрузить**.
+4. В разделе **Загрузите и локально запустите ваше приложение и службу** выберите язык приложения для Магазина Windows, затем щелкните **Загрузить**.
 
-   При этом скачивается решение, содержащее проекты для внутреннего сервера мобильного приложения и примера приложения _Список задач_, которое подключается к внутреннему серверу мобильного приложения. Сохраните сжатый файл проекта на локальном компьютере и запомните путь к нему.
+   Загрузится решение, содержащее проекты для серверной части мобильной службы и примера приложения _Список заданий_, которое подключается к серверной части вашей мобильной службы. Сохраните сжатый файл проекта на локальном компьютере и запомните путь к нему.
 
 ## Тестирование мобильного приложения
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-test-local-service-preview](../includes/app-service-mobile-dotnet-backend-test-local-service-preview.md)]
 
-## Публикация внутреннего сервера мобильного приложения
+## Публикация серверной части мобильного приложения
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service-preview](../includes/app-service-mobile-dotnet-backend-publish-service-preview.md)]
 
 ## Запуск приложения Windows
 
-После публикации внутреннего сервера мобильного приложения и подключения клиента к удаленному внутреннему серверу мобильных приложений, размещенному в Azure, можно запустить приложения, используя Azure для хранилища экземпляров.
+Теперь, когда серверная часть мобильного приложения опубликована, а клиент подключен к серверной части удаленного мобильного приложения, размещенного в Azure, мы можем запустить это приложение с использованием Azure для хранения элементов.
 
 [AZURE.INCLUDE [app-service-mobile-windows-universal-test-app-preview](../includes/app-service-mobile-windows-universal-test-app-preview.md)]
 
 <!-- Anchors. -->
 
-[Начало работы с внутренними серверами мобильных приложений]:#getting-started
-[Создание внутреннего сервера мобильного приложения]:#create-new-service
-[Определение экземпляра внутреннего сервера мобильного приложения]:#define-mobile-app-backend-instance
-[Дальнейшие действия]:#next-steps
+[Getting started with mobile app backends]: #getting-started
+[Create a new mobile app backend]: #create-new-service
+[Define the mobile app backend instance]: #define-mobile-app-backend-instance
+[Next Steps]: #next-steps
 
 <!-- Images. -->
 
 
 
 <!-- URLs. -->
-[Начало работы с проверкой подлинности]: app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-users-preview.md
+[Get started with authentication]: app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-users-preview.md
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
-[Пакет SDK для мобильных приложений]: http://go.microsoft.com/fwlink/?LinkId=257545
-[Портал Azure]: https://portal.azure.com/
+[Mobile App SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
+[Azure Portal]: https://portal.azure.com/
 
-<!--HONumber=49-->
+<!--HONumber=52-->

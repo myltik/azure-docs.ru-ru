@@ -1,0 +1,38 @@
+Большинство свойств в файле *apiapp.json* и файлы в папке *Metadata* влияют на способ представления пакета приложения API в Azure Marketplace. В следующих разделах объясняется, какие свойства и файлы влияют на приложения API при развертывании вашего кода напрямую, а не установке приложения API из Marketplace.
+
+### Идентификатор приложения API 
+
+Свойство `id` определяет имя приложения API. Например:
+
+		"id": "ContactsList",
+
+![](./media/app-service-api-direct-deploy-metadata/apiappname.png)
+
+### Пространство имен
+
+Задайте свойство `namespace` домену вашего клиента Azure Active Directory. Чтобы найти свой домен, откройте в браузере [классический портал Azure](https://manage.windowsazure.com/), перейдите в **Active Directory** и выберите вкладку **Домены**. Например:
+
+		"namespace": "contoso.onmicrosoft.com",
+
+### Динамическое определение API Swagger
+
+Чтобы назначить URL-адрес конечной точки для динамического определения API [Swagger](http://swagger.io/), сохраните в свойстве `endpoints.apiDefinition` относительный URL-адрес API, предоставляемый API приложения, которое возвращает определение API Swagger 2.0 на запрос GET. Например:
+
+		"endpoints": {
+		    "apiDefinition": "/swagger/docs/v1"
+		}
+
+### Определение статического API Swagger
+
+Для предоставления статического файла определения API [Swagger](http://swagger.io/) 2.0, сохраните файл в папке *Metadata* и присвойте ему имя *apiDefinition.swagger.json*
+
+![](./media/app-service-api-direct-deploy-metadata/apidefinmetadata.png)
+
+Удалите `endpoints.apiDefinition` из файла *apiapp.json* или задайте для него значение null. Если вы оставите и URL-адрес `endpoints.apiDefinition`, и файл *apiDefinition.swagger.json*, URL-адрес будет иметь приоритет, а файл будет игнорироваться.
+ 
+### Другие метаданные приложения API
+
+Подробнее о файле *apiapp.json* и папке *Metadata* см. [Создание пакета приложения API](app-service-api-create-package.md).
+
+
+<!--HONumber=52-->
