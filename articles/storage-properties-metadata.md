@@ -1,21 +1,22 @@
 
 <properties 
-	pageTitle="Задание и получение свойств и метаданных | Microsoft Azure" 
-	description="Узнайте, как Задание и получение свойств и метаданных Для Azure Storage BLOB-объекты и контейнеры хранилища." 
-	services="storage" 
-	documentationCenter="" 
-	authors="tamram"
-	manager="adinah" 
-	editor=""/>
+  pageTitle="Задание и получение свойств и метаданных | Microsoft Azure" 
+  description="Узнайте, как Задание и получение свойств и метаданных Для Azure Storage BLOB-объекты и контейнеры хранилища." 
+  services="storage" 
+  documentationCenter="" 
+  authors="tamram"
+  manager="adinah" 
+  editor=""/>
 
-<tags 
-	ms.service="cloud-services" 
-	ms.workload="big-compute" 
-	ms.tgt_pltfrm="na"
-	ms.devlang="na" 
-	ms.topic="article"
-	ms.date="04/21/2015"
-	ms.author="danlep" />
+<tags 
+  ms.service="storage" 
+  ms.workload="storage" 
+  ms.tgt_pltfrm="na" 
+  ms.devlang="na" 
+  ms.topic="article" 
+  ms.date="04/21/2015" 
+  ms.author="tamram"/>
+
 
 
 # Задание и получение свойств и метаданных #
@@ -117,7 +118,7 @@
 
 Метаданные можно указать как одну или несколько пар "имя-значение" для BLOB-ресурса или ресурса контейнера. Чтобы задать метаданные, добавьте пары "имя-значение" в коллекцию **метаданные** для ресурса, затем вызовите метод **SetMetadata** для сохранения значений в службу.
 
-> [AZURE.NOTE]\: имя метаданных должно соответствовать соглашениям об именах для идентификаторов C\#.
+> [AZURE.NOTE]: имя метаданных должно соответствовать соглашениям об именах для идентификаторов C#.
  
 Для получения метаданных вызовите метод **FetchAttributes** для BLOB-объекта или контейнера, чтобы заполнить **метаданные** коллекции, затем считайте значения.
 
