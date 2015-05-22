@@ -103,7 +103,7 @@
 
 Получить все значения времени ответа на запрос, превышающие 5 с. Время отображается в тактах: 10 000 тактов составляют 1 мс.
 
-!\["Время ответа":\(threshold TO *\)\](./media/app-insights-diagnostic-search/11-responsetime.png\)
+!["Время ответа":(threshold TO *)](./media/app-insights-diagnostic-search/11-responsetime.png)
 
 
 
