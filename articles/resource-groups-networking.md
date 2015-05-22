@@ -5,7 +5,8 @@
    documentationCenter="na"
    authors="telmosampaio"
    manager="adinah"
-   editor="tysonn" /> <tags 
+   editor="tysonn" />
+<tags 
    ms.service="virtual-networks"
    ms.devlang="na"
    ms.topic="article"
@@ -346,4 +347,6 @@ API Rest соответствует спецификации протокола 
 
 [Использование тегов в диспетчере ресурсов Azure](https://msdn.microsoft.com/library/azure/dn848368.aspx)
 
-[Развертывания шаблонов](https://msdn.microsoft.com/library/azure/dn790549.aspx) <!--HONumber=52-->
+[Развертывания шаблонов](https://msdn.microsoft.com/library/azure/dn790549.aspx)
+
+<!--HONumber=52-->
