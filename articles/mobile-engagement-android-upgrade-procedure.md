@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Интеграция пакета Android SDK для Azure Mobile Engagement" 
 	description="Последние обновления и процедуры пакета Android SDK для Azure Mobile Engagement"
 	services="mobile-engagement" 
@@ -19,17 +19,17 @@
 
 #Процедуры обновления
 
-Если уже выполнена интеграция более старой версии пакета SDK в приложение, необходимо принять во внимание следующие моменты при обновлении пакета SDK.
+Если вы уже интегрировали в приложение старую версию пакета SDK, при обновлении пакета SDK необходимо учитывать следующее.
 
-Возможно придется выполнить несколько процедур, если было пропущено несколько версий пакета SDK. Например, при миграции из версии 1.4.0 в 1.6.0, необходимо сначала выполнить процедуру "из версии 1.4.0 в 1.5.0", а затем процедуру "из версии 1.5.0 в 1.6.0".
+Если вы пропустили несколько версий пакета SDK, вам понадобиться выполнить несколько процедур. Например, при миграции из версии 1.4.0 в 1.6.0, необходимо сначала выполнить процедуру "из версии 1.4.0 в 1.5.0", а затем процедуру "из версии 1.5.0 в 1.6.0".
 
 Вне зависимости от того, из какой версии выполняется обновление, необходимо заменить все `mobile-engagement-VERSION.jar` на новые версии.
 
 ###Из версии 2.4.0 в 3.0.0
 
-Ниже описан процесс переноса интеграции пакета SDK из службы Capptain, предлагаемой Capptain SAS, в приложение под управлением службы Azure Mobile Engagement. 
+Ниже описан процесс переноса интеграции пакета SDK из службы Capptain от Capptain SAS в приложение на платформе Azure Mobile Engagement.
 
->[AZURE.IMPORTANT] Capptain и Mobile Engagement - это не одни и те же службы, и процедура, приведенная ниже, показывает только перенос клиентского приложения. Перенос пакета SDK в приложение НЕ переносит данные из серверов Capptain в серверы Mobile Engagement
+>[AZURE.IMPORTANT]Службы Capptain и Azure Mobile Engagement отличаются между собой. В представленных ниже процедурах описывается способ переноса только для клиентского приложения. При переносе пакета SDK в приложение данные НЕ будут перенесены с серверов Capptain на серверы Mobile Engagement.
 
 При выполнении миграции из более ранней версии получите рекомендации на веб-сайте Capptain, чтобы сначала перейти на версию 2.4, а затем примените следующие процедуры
 
@@ -39,9 +39,9 @@
 
 #### Файлы ресурсов
 
-Каждый предоставленный файл ресурсов ( с префиксом `capptain_`) должен быть заменен на новый (с префиксом `engagement_`).
+Каждый предоставленный файл ресурсов (с префиксом `capptain_`) должен быть заменен на новый (с префиксом `engagement_`).
 
-Если эти файл были настроены, необходимо применить настройку к новым файлам, **все идентификаторы фалов ресурсов также необходимо переименовать**.
+Если вы настроили эти файл, потребуется повторно применить настройку к новым файлам. **Все идентификаторы фалов ресурсов также были переименованы.**
 
 #### Идентификатор приложения
 
@@ -53,9 +53,9 @@
 			engagementConfiguration.setConnectionString("Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}");
 			EngagementAgent.getInstance(this).init(engagementConfiguration);
 
-Эта строка подключения для приложения отображается на портале Azure.
+Теперь строка подключения для приложения отображается на портале Azure.
 
-Удалите все вызовы к `CapptainAgent.configure`, поскольку `EngagementAgent.init` заменяет этот метод.
+Удалите все вызовы к `CapptainAgent.configure`, так как `EngagementAgent.init` заменяет этот метод.
 
 `appId` больше нельзя настраивать с помощью `AndroidManifest.xml`.
 
@@ -65,11 +65,11 @@
 
 #### API Java
 
-Любой вызов любого класса Java пакета SDK должен быть переименован, например, `CapptainAgent.getInstance(this)` должен быть переименован на `EngagementAgent.getInstance(this)`, `extends CapptainActivity` должен быть переименован на `extends EngagementActivity` и т. д.
+Любой вызов любого класса Java пакета SDK должен быть переименован, например  `CapptainAgent.getInstance(this)` нужно переименовать в `EngagementAgent.getInstance(this)`, `extends CapptainActivity` нужно переименовать в `extends EngagementActivity` и т. д.
 
-Если была выполнена интеграция с файлами параметров агента по умолчанию, то теперь имя файла по умолчанию - `engagement.agent`, а ключ - `engagement:agent`.
+Если была выполнена интеграция с файлами параметров агента по умолчанию, то теперь имя файла по умолчанию — `engagement.agent`, а ключ — `engagement:agent`.
 
-При создании веб-объявлений модуль привязки Javascript теперь `engagementReachContent`.
+При создании веб-объявлений теперь используется модуль привязки Javascript `engagementReachContent`.
 
 #### AndroidManifest.xml
 
@@ -183,9 +183,9 @@
 			  </intent-filter>
 			</activity>
 			
-Если действия модуля Reach настроены, необходимо изменить только действия намерений для соответствия  `com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT` или `com.microsoft.azure.engagement.reach.intent.action.POLL`.
+Если действия модуля Reach настроены, необходимо изменить только действия намерений для соответствия `com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT` или `com.microsoft.azure.engagement.reach.intent.action.POLL`.
 
-Получатели рассылок были переименованы, плюс было добавлено `exported=false`. Ниже приводится полный список получателей с новой спецификацией (разумеется, необходимо переименовывать только тех, которые используются):
+Получатели рассылок были переименованы, кроме того, было добавлено `exported=false`. Ниже приводится полный список получателей с новой спецификацией (разумеется, необходимо переименовывать только тех, которые используются):
 
 			<receiver android:name="com.microsoft.azure.engagement.reach.EngagementReachReceiver"
 			  android:exported="false">
@@ -273,7 +273,7 @@
 		    </intent-filter>
 		  </receiver>
 
-Обратите внимание, что объявление реализации получателя рассылок **EngagementMessageReceiver** изменено в `AndroidManifest.xml`. Это вызвано тем, что API используется для отправки и удаления произвольных сообщений XMPP из произвольных сущностей XMPP, а API для отправки и получения сообщений между устройствами был удален. Таким образом, необходимо также удалить следующие обратные вызовы из реализации **EngagementMessageReceiver** :
+Обратите внимание, что объявление реализации получателя рассылок **EngagementMessageReceiver** изменено в `AndroidManifest.xml`. Это вызвано тем, что API используется для отправки и удаления произвольных сообщений XMPP из произвольных сущностей XMPP, а API для отправки и получения сообщений между устройствами был удален. Таким образом, необходимо также удалить следующие обратные вызовы из реализации **EngagementMessageReceiver**:
 
 			protected void onDeviceMessageReceived(android.content.Context context, java.lang.String deviceId, java.lang.String payload)
 
@@ -281,7 +281,7 @@
 
 			protected void onXMPPMessageReceived(android.content.Context context, android.os.Bundle message)
 
-затем удалить все вызовы в **EngagementAgent** для :
+затем удалить все вызовы в **EngagementAgent** для:
 
 			sendMessageToDevice(java.lang.String deviceId, java.lang.String payload, java.lang.String packageName)
 
@@ -301,4 +301,4 @@
 			  <methods>;
 			}
 
-<!--HONumber=47-->
+<!--HONumber=54-->

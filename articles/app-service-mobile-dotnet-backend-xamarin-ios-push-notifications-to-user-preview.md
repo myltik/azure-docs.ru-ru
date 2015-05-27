@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Отправка push-уведомлений определенному пользователю с клиентом Xamarin iOS" 
-	description="Отправка push-уведомлений на все устройства пользователя" 
+	description="Узнайте, как отправлять push-уведомления на все устройства пользователя" 
 	services="app-service\mobile" 
 	documentationCenter="windows" 
 	authors="yuaxu" 
@@ -20,17 +20,17 @@
 
 [AZURE.INCLUDE [app-service-mobile-selector-push-users-preview](../includes/app-service-mobile-selector-push-users-preview.md)]
 
-В этом разделе показано, как отправлять уведомления на все зарегистрированные устройства определенного пользователя с мобильного внутреннего сервера. Здесь вводится концепция [шаблоны], которая позволяет клиентским приложениям указывать форматы полезных данных и заполнители переменных при регистрации. Таким образом, уведомления отправляются на каждую платформу с такими заполнителями.
+В этом разделе показано, как отправлять уведомления на все зарегистрированные устройства определенного пользователя с мобильного внутреннего сервера. Здесь вводится концепция [шаблонов], которая позволяет клиентским приложениям указывать форматы полезных данных и заполнители переменных при регистрации. Таким образом, уведомления отправляются на каждую платформу с такими заполнителями.
 
-> [AZURE.NOTE] Чтобы push-уведомления работали с кроссплатформенными клиентами, потребуется пройти этот учебник для каждой задействованной платформы. Для клиентов с одним мобильным внутренним сервером потребуется только одно [обновление мобильного внутреннего сервера](#backend) .
+> [AZURE.NOTE]Чтобы push-уведомления работали с кроссплатформенными клиентами, потребуется пройти этот учебник для каждой задействованной платформы. Для клиентов с общим мобильным внутренним сервером потребуется только одно [обновление мобильного внутреннего сервера](#backend).
  
 ##Предварительные требования 
 
 Перед тем как начать этот учебник, необходимо пройти учебники по службе приложений для каждой клиентской платформы, на которой вы хотите работать:
 
-+ [Начало работы с проверкой подлинности]<br/>В этом учебнике в демонстрационное приложение TodoList добавляется требование входа.
++ [Приступая к работе с аутентификацией в мобильных службах]<br/>В этом учебнике в демонстрационное приложение TodoList добавляется требование входа.
 
-+ [Начало работы с push-уведомлениями]<br/>Настраивает push-уведомления в примере приложения TodoList.
++ [Приступая к работе с push-уведомлениями]<br/>Настраивает push-уведомления в примере приложения TodoList.
 
 ##<a name="client"></a>Обновление клиента, чтобы зарегистрироваться для получения шаблонов для обработки кроссплатформенных push-уведомлений
 
@@ -44,7 +44,7 @@
                 return;
             }
 
-            // регистрация для получения push-уведомления для iOS8
+            // registers for push for iOS8
             var settings = UIUserNotificationSettings.GetSettingsForTypes (
                 UIUserNotificationType.Alert
                 | UIUserNotificationType.Badge
@@ -58,9 +58,9 @@
 
 2. В **AppDelegate.cs** замените вызов **RegisterAsync** в **RegisteredForRemoteNotifications** на следующий для работы с шаблонами:
 
-        // удаление await push.RegisterAsync (deviceToken);
+        // delete await push.RegisterAsync (deviceToken);
         
-        var notificationTemplate = "{\"aps\": {\"alert\":\"$(message)\"}}";
+        var notificationTemplate = "{"aps": {"alert":"$(message)"}}";
 
         JObject templateBody = new JObject();
         templateBody["body"] = notificationTemplate;
@@ -68,7 +68,7 @@
         JObject templates = new JObject();
         templates["testApnsTemplate"] = templateBody;
 
-        // регистрация с помощью шаблонов
+        // register with templates
         await push.RegisterAsync (deviceToken, templates);
 
 ##<a name="backend"></a>Обновление внутреннего сервера службы для отправки уведомлений определенному пользователю
@@ -79,14 +79,14 @@
         {
             TodoItem current = await InsertAsync(item);
 
-            // получение учетных данных концентраторов уведомлений, связанных с этим мобильным приложением
+            // get notification hubs credentials associated with this mobile app
             string notificationHubName = this.Services.Settings.NotificationHubName;
             string notificationHubConnection = this.Services.Settings.Connections[ServiceSettingsKeys.NotificationHubConnectionString].ConnectionString;
 
-            // подключение к концентратору уведомлений
+            // connect to notification hub
             NotificationHubClient Hub = NotificationHubClient.CreateClientFromConnectionString(notificationHubConnection, notificationHubName)
 
-            // получение идентификатора текущего пользователя и создание тега заданного пользователя
+            // get the current user id and create given user tag
             ServiceUser authenticatedUser = this.User as ServiceUser;
             string userTag = "_UserId:" + authenticatedUser.Id;
 
@@ -108,8 +108,7 @@
 Повторно опубликуйте проект мобильного внутреннего сервера и запустите все настроенные клиентские приложения. При вставке элемента внутренний сервер отправит уведомления всем клиентским приложениям, в которые пользователь выполнил вход.
 
 <!-- URLs. -->
-[Начало работы с проверкой подлинности]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-users-preview.md
-[Начало работы с push-уведомлениями]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-push-preview.md
-[шаблоны]: https://msdn.microsoft.com/ru-ru/library/dn530748.aspx
-
-<!--HONumber=49-->
+[Приступая к работе с аутентификацией в мобильных службах]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-users-preview.md
+[Приступая к работе с push-уведомлениями]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-push-preview.md
+[шаблонов]: https://msdn.microsoft.com/ru-ru/library/dn530748.aspx
+<!--HONumber=54-->

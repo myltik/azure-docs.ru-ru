@@ -1,9 +1,9 @@
-﻿<properties 
-	pageTitle="Интеграция пакета SDK для Windows Phone для Azure Mobile Engagement" 
-	description="Информация о содержимом пакета SDK для Windows Phone для Azure Mobile Engagement" 					
+<properties 
+	pageTitle="Содержимое пакета SDK для Windows Phone Silverlight" 
+	description="Информация о содержимом пакета SDK для Windows Phone Silverlight для Azure Mobile Engagement" 					
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
-	authors="lalathie" 
+	authors="piyushjo" 
 	manager="dwrede" 
 	editor="" />
 
@@ -11,79 +11,29 @@
 	ms.service="mobile-engagement" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="" 
+	ms.devlang="C#" 
 	ms.topic="article" 
-	ms.date="01/24/2015" 
-	ms.author="kapiteir" />
+	ms.date="04/07/2015" 
+	ms.author="piyushjo" />
 	
-#Содержимое пакета SDK
+#Содержимое пакета SDK для Windows Phone Silverlight
 
-В этом документе указано и описано содержимое архива SDK.
-
-##Папка `Root`
-
-Эта папка содержит копии лицензий на программное обеспечение и ссылку на электронную документацию.
-
-`documentation.html` : Содержит ссылку на электронную документацию по пакету SDK для Engagement для Windows Phone.
-
-Эта папка также содержит файлы лицензий.
-
-##Папка `/lib`
-
-Эта папка содержит информацию о том, где можно получить пакет SDK для Engagement.
-
-`azuresdk-mobileengagement-windowsphone-X.X.X.nupkg` : Пакет NuGet для интеграции пакета SDK.
+В этом документе перечислено и описано содержимое, которое развертывается в приложении с помощью пакета SDK.
 
 ##Папка `/Resources`
 
-Эта папка содержит все ресурсы, необходимые для Engagement. Вы также можете настроить их в соответствии с особенностями своего приложения.
+Эта папка содержит все ресурсы, необходимые для Mobile Engagement. Вы также можете настроить их в соответствии с особенностями своего приложения.
 
-`EngagementIconNotification.png` : фирменный значок, отображающийся слева от уведомления.
+- `EngagementIconNotification.png`: фирменный значок, отображающийся слева от уведомления. Замените его собственным логотипом.
 
-`EngagementIconOk.png` : значок "ОК" на панели ApplicationBar на страницах Reach.
+- `EngagementIconOk.png`: значок "ОК" на панели ApplicationBar на страницах рекламной кампании.
+ 
+- `EngagementIconCancel.png`: значок "Отмена" на панели ApplicationBar на страницах рекламной кампании.
+ 
+- `EngagementIconCloseLight.png`: значок "Закрыть" уведомлений рекламных кампаний в Mobile Engagement для светлой темы Windows Phone.
+ 
+- `EngagementIconCloseDark.png`: значок "Закрыть" уведомлений рекламных кампаний в Mobile Engagement для темной темы Windows Phone.
 
-`EngagementIconCancel.png` : значок "Отмена" на панели ApplicationBar на страницах Reach.
+- `EngagementConfiguration.xml`: файл конфигурации Mobile Engagement, в котором вы можете настроить параметры Engagement (строку подключения Engagement, сообщение о сбое и т. д.).
 
-`EngagementIconCloseLight.png` : значок "Закрыть" уведомлений рекламных кампаний в Engagement для светлой темы Windows Phone.
-
-`EngagementIconCloseDark.png` : значок "Закрыть" уведомлений рекламных кампаний в Engagement для темной темы Windows Phone.
-
-`EngagementConfiguration.xml` : файл конфигурации Engagement, в котором вы можете настроить параметры Engagement (строку подключения Engagement, сообщение о сбое...).
-
-##Папка `/src/agent`
-
-Эта папка содержит EngagementPage.
-
-`EngagementPage.cs` : базовый класс для страниц, которые будут автоматически сообщать об активности в Engagement.
-
-##Папка `/src/reach`
-
-В этой последней папке вы найдете используемые по умолчанию XAML-файлы (и их аналоги на языке C\#) для каждой страницы.
-
-Вы можете использовать их в качестве основы для собственных страниц. Информацию о том, что именно нужно сделать, см. в комментариях.
-
-### Объявление TextView
-
-`EngagementDefaultTextViewAnnouncementPage.xaml`
-
-`EngagementDefaultTextViewAnnouncementPage.xaml.cs`
-
-### Объявление WebView
-
-`EngagementDefaultWebViewAnnouncementPage.xaml`
-
-`EngagementDefaultWebViewAnnouncementPage.xaml.cs`
-
-### Опрос
-
-`EngagementDefaultPollPage.xaml`
-
-`EngagementDefaultPollPage.xaml.cs`
-
-### Уведомление
-
-`EngagementBasicNotificationView.xaml`
-
-`EngagementBasicNotificationView.xaml.cs`
-
-<!--HONumber=47-->
+<!--HONumber=54-->

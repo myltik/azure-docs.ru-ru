@@ -1,65 +1,58 @@
 <properties 
-	pageTitle="Подключение мобильных и веб-приложений к интерфейсам API SaaS (O365/SharePoint/Salesforce) в службе приложения Azure" 
-	description="В этом учебнике показано, как использовать приложение API SaaS из ASP.NET, размещенного в веб-приложениях службы приложений Azure." 
-	services="app-service\web" 
-	documentationCenter="" 
-	authors="syntaxc4" 
-	manager="yochayk" 
-	editor=""/>
+   pageTitle="Подключение веб-приложения к приложению API в службе приложений Azure" 
+   description="В этом учебнике показано, как использовать приложение API из веб-приложения ASP.NET, размещенного в службе приложений Azure." 
+   services="app-service\web" 
+   documentationCenter=".net" 
+   authors="syntaxc4" 
+   manager="yochayk" 
+   editor="jimbe"/>
 
 <tags
-	ms.service="app-service-web"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="web" 
-	ms.date="03/24/2015"
-	ms.author="cfowler"/>
+   ms.service="app-service-web"
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="web" 
+   ms.date="03/24/2015"
+   ms.author="cfowler"/>
 
-# Подключение мобильных и веб-приложений к интерфейсам API SaaS (O365/SharePoint/Salesforce) в службе приложения Azure
+# Подключение веб-приложения к приложению API в службе приложений Azure
 
-В этом учебнике показано, как использовать приложение API из ASP.NET, размещенного в [веб-приложениях службы приложений](http://go.microsoft.com/fwlink/?LinkId=529714).
-
-## Обзор
-
-Вы узнаете:
-
-- Как использовать приложение API из ASP.NET, размещенного в веб-приложениях.
+В этом учебнике показано, как использовать приложение API из ASP.NET, размещенное в [службе приложений](app-service.md).
 
 ## Предварительные требования
 
 Этот учебник основан на данных из учебников по приложению PI:
 
-1. [Создание приложения API Azure](app-service-dotnet-create-api-app)
-2. [Публикация приложения API Azure](app-service-dotnet-publish-api-app)
-3. [Развертывание приложения API Azure](app-service-dotnet-deploy-api-app)
-4. [Отладка приложения API Azure](app-service-dotnet-remotely-debug-api-app)
+1. [Создание приложения API Azure](../app-service-dotnet-create-api-app)
+3. [Развертывание приложения API Azure](../app-service-dotnet-deploy-api-app)
+4. [Отладка приложения API Azure](../app-service-dotnet-remotely-debug-api-app)
 
 ## Превращение приложения API в общедоступное
 
-На [портале Azure](http://go.microsoft.com/fwlink/?LinkId=529715) выберите приложение API. На панели команд нажмите кнопку **Параметры**. В разделе **Основные параметры** измените **Уровень доступа** на **Public (anonymous)** (Общедоступный - анонимный).
+На [портале предварительной версии Azure](http://go.microsoft.com/fwlink/?LinkId=529715) выберите приложение API. На панели команд нажмите кнопку **Параметры**. В колонке **Параметры приложения** измените **уровень доступа** на **Общедоступный (с проверкой подлинности)**.
 
 ![](./media/app-service-web-connect-web-app-to-saas-api/4-5-Change-Access-Level-To-Public.png)
 
 ## Создание приложения ASP.NET MVC в Visual Studio
 
-1. Откройте Visual Studio. Используйте диалоговое окно **Новый проект**, чтобы добавить новое **Веб-приложение ASP.NET**. Нажмите кнопку **ОК**.
+1. Откройте Visual Studio. Используйте диалоговое окно **Новый проект**, чтобы добавить новое **веб-приложение ASP.NET**. Нажмите кнопку **ОК**.
 
-	![File > New > Web > ASP.NET Web Application](./media/app-service-web-connect-web-app-to-saas-api/1-Create-New-MVC-App-For-Consumption.png)
+	![Файл > Создать > Web > Веб-приложение ASP.NET](./media/app-service-web-connect-web-app-to-saas-api/1-Create-New-MVC-App-For-Consumption.png)
 
-1. Выберите шаблон **MVC**. Щелкните **Изменить аутентификацию**, выберите **Без проверки подлинности**, а затем нажмите кнопку **ОК** дважды.
+1. Выберите шаблон **MVC**. Щелкните **Изменить проверку подлинности**, выберите **Без проверки подлинности**, а затем дважды нажмите кнопку **ОК**.
 
-	![New ASP.NET Application](./media/app-service-web-connect-web-app-to-saas-api/2-Change-Auth-To-No-Auth.png)
+	![Новое приложение ASP.NET](./media/app-service-web-connect-web-app-to-saas-api/2-Change-Auth-To-No-Auth.png)
 
-1. В обозревателе решений щелкните правой кнопкой мыши только что созданный проект веб-приложения и выберите пункт **Add Azure App Reference** (Добавить ссылку на приложение Azure).
+1. В обозревателе решений щелкните правой кнопкой мыши только что созданный проект веб-приложения и выберите пункт **Добавить ссылку на приложение Azure**.
 
-	![Add Azure API App Reference...](./media/app-service-web-connect-web-app-to-saas-api/3-Add-Azure-API-App-SDK.png)
+	![Добавьте ссылку на приложение API Azure...](./media/app-service-web-connect-web-app-to-saas-api/3-Add-Azure-API-App-SDK.png)
 
-1. В раскрывающемся списке **Existing API Apps** (Существующие API приложения) выберите API приложение, к которому хотите подключиться.
+1. В раскрывающемся списке **Существующие приложения API** выберите приложение API, к которому хотите подключиться.
 
-	![Select Existing API App](./media/app-service-web-connect-web-app-to-saas-api/4-Add-Azure-API-App-SDK-Dialog.png)
+	![Выберите существующее приложение API.](./media/app-service-web-connect-web-app-to-saas-api/4-Add-Azure-API-App-SDK-Dialog.png)
 
-	>[AZURE.NOTE] Код клиента для подключения к API приложению создается автоматически из конечной точки Swagger API.
+	>[AZURE.NOTE]Код клиента для подключения к API приложению создается автоматически из конечной точки Swagger API.
 
 1. Чтобы использовать созданный код API, откройте файл HomeController.cs и замените действие `Contact` следующим:
 
@@ -74,32 +67,22 @@
 	        return View(contactList);
 	    }
 
-	![HomeController.cs Code Updates](./media/app-service-web-connect-web-app-to-saas-api/5-Write-Code-Which-Leverages-Swagger-Generated-Code.png)
+	![Обновления кода HomeController.cs](./media/app-service-web-connect-web-app-to-saas-api/5-Write-Code-Which-Leverages-Swagger-Generated-Code.png)
 
-1. Обновите представление `Contact` для отражения динамического списка контактов с помощью следующего кода:  
-	<pre>// Add to the very top of the view file
-	@model IList&lt;MyContactsList.Web.Models.Contact&gt;
+1. Обновите представление `Contact` , чтобы отразить динамический список контактов, используя приведенный ниже код: <pre>// Добавить в верхнюю часть файла представления @model IList&lt;MyContactsList.Web.Models.Contact&gt;
 	
-	// Replace the default email addresses with the following
-    &lt;h3&gt;Public Contacts&lt;/h3&gt;
-    &lt;ul&gt;
-        @foreach (var contact in Model)
-        {
-            &lt;li&gt;&lt;a href=&quot;mailto:@contact.EmailAddress&quot;&gt;@contact.Name &amp;lt;@contact.EmailAddress&amp;gt;&lt;/a&gt;&lt;/li&gt;
-        }
-    &lt;/ul&gt; 
-	</pre>
+	// Заменить адреса электронной почты по умолчанию следующими &lt;h3&gt;общедоступными контактами&lt;/h3&gt; &lt;ul&gt; @foreach (var contact in Model) { &lt;li&gt;&lt;a href=&quot;mailto:@contact.EmailAddress&quot;&gt;@contact.Name &amp;lt;@contact.EmailAddress&amp;gt;&lt;/a&gt;&lt;/li&gt; } &lt;/ul&gt; </pre>
 
-	![Contact.cshtml Code Updates](./media/app-service-web-connect-web-app-to-saas-api/6-Update-View-To-Reflect-Changes.png)
+	![Обновления кода Contact.cshtml](./media/app-service-web-connect-web-app-to-saas-api/6-Update-View-To-Reflect-Changes.png)
 
 ## Развертывание веб-приложения в веб-приложениях в службе приложений
 
 Следуйте инструкциям из раздела [Развертывание веб-приложения Azure](web-sites-deploy.md).
 
->[AZURE.NOTE] Если вы хотите ознакомиться со службой приложений Azure до создания учетной записи Azure, перейдите в раздел [Оценка службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751), где вы можете быстро создать краткосрочное начальное веб-приложение в службе приложений. Никаких кредитных карт и обязательств.
+>[AZURE.NOTE]Если вы хотите приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
 
 ## Изменения
-* Руководство по изменениям при переходе от веб-сайтов к службе приложений см. в разделе [Служба приложений Azure и ее влияние на существующие службы Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
-* Руководство по изменениям на новом портале по сравнению со старым см. в разделе [Краткий справочник по навигации на портале предварительной версии](http://go.microsoft.com/fwlink/?LinkId=529715).
+* Указания по изменениям при переходе от веб-сайтов к службе приложений см. в разделе [Служба приложений Azure и ее влияние на существующие службы Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
+* Руководство по смене старого портала на новый портал см. в разделе [Справочник по навигации на предварительной версии портала](http://go.microsoft.com/fwlink/?LinkId=529715).
 
-<!--HONumber=49-->
+<!--HONumber=54-->

@@ -1,25 +1,12 @@
-﻿
 
-1. В файле скрипта default.js непосредственно под строкой кода, которая определяет список todoItems, добавьте следующее определение функции:
- 
-        // Add a filter that adds a header to prevent caching. This makes sure that the 
-		// latest data is returned when the 'Refresh; button is clicked.        
-        var noCachingFilter = function (request, next, callback) {
-            if (request.type === 'GET' && !request.headers['If-Modified-Since']) {
-                request.headers['If-Modified-Since'] = 'Mon, 27 Mar 1972 00:00:00 GMT';
-            }
-            next(request, callback);
-        };
 
-	Так определяется функция фильтрации, которая добавляет заголовок  `If-Modified-Since`, чтобы запретить кэширование в клиенте.
- 
-2. Далее раскомментируйте или добавьте следующую строку кода и замените `<yourClient>` переменной, добавленной в файл service.js при подключении проекта к мобильной службе:
+1. Далее раскомментируйте или добавьте следующую строку кода и замените `<yourClient>` переменной, добавленной в файл service.js при подключении проекта к мобильной службе:
 
-		var todoTable = <yourClient>.withFilter(noCachingFilter).getTable('TodoItem');
+		var todoTable = <yourClient>.getTable('TodoItem');
 
-   	This code creates a proxy object (**todoTable**) for the new database table, using the caching filter. 
+   	Этот код создает прокси-объект (**todoTable**) для новой таблицы базы данных с использованием фильтра кэширования.
 
-3. Replace the **InsertTodoItem** function with the following code:
+2. Замените функцию **InsertTodoItem** следующим кодом:
 
 		var insertTodoItem = function (todoItem) {
 		    // Inserts a new row into the database. When the operation completes
@@ -43,7 +30,7 @@
             });
         };
 
-   	Это установит привязку к коллекции элементов в таблицу todoTable, которая содержит все объекты **TodoItem**, возвращенные из мобильной службы. 
+   	Это установит привязку к коллекции элементов в таблицу todoTable, которая содержит все объекты **TodoItem**, возвращенные из мобильной службы.
 
 4. Замените функцию **UpdateCheckedTodoItem** следующим кодом:
         
@@ -58,5 +45,4 @@
 
 Теперь, когда приложение обновлено для хранения данных на сервере с использованием мобильных служб, настало время протестировать приложение на работу с мобильными службами.
 
-
-<!--HONumber=42-->
+<!--HONumber=54-->

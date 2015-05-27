@@ -1,6 +1,6 @@
-﻿<properties 
-	pageTitle="Создание приложения API службы Azure" 
-	description="В этой статье показано, как использовать Visual Studio 2013 для создания приложения API в службе приложений Azure" 
+<properties 
+	pageTitle="Создание приложения API ASP.NET в службе приложений Azure" 
+	description="Узнайте, как создать приложение API в службе приложений Azure с помощью Visual Studio 2013." 
 	services="app-service\api" 
 	documentationCenter=".net" 
 	authors="bradygaster" 
@@ -16,113 +16,50 @@
 	ms.date="02/19/2015" 
 	ms.author="bradyg;tarcher"/>
 
-# Создание приложения API в службе приложений Azure
+# Создание приложения API ASP.NET в службе приложений Azure
 
 ## Обзор
 
-Это первый из трех учебников серии, который поможет начать работу с приложениями API в службе приложений Azure.
+В этом учебнике показывается, как создать проект веб-API ASP.NET с нуля и настроить его для развертывания в виде [приложения API](app-service-api-apps-why-best-platform.md) в [службе приложений Azure](app-service-value-prop-what-is.md). Если у вас имеется существующий проект веб-API, который требуется преобразовать в приложение API, см. статью [Настройка проекта веб-API как приложения API](./app-service-dotnet-create-api-app-visual-studio). В последующих учебниках из этой серии показывается, как [развертывать](app-service-dotnet-deploy-api-app.md) и [отлаживать](app-service-dotnet-remotely-debug-api-app.md) проект приложения API, который будет создаваться в этом учебнике.
 
-1. В этом учебнике вы создадите новое приложение API и подготовите его к развертыванию в подписке Azure. 
-* В учебнике [Развертывание приложения API](app-service-dotnet-create-api-app.md) вы развернете приложение API в подписке Azure.
-* В учебнике [Отладка приложения API](app-service-dotnet-remotely-debug-api-app.md) вы используете Visual Studio для удаленной отладки кода во время его выполнения в Azure.
+Сведения о приложениях API см. в разделе [Что такое приложения API?](app-service-api-apps-why-best-platform.md).
 
 [AZURE.INCLUDE [install-sdk-2013-only](../includes/install-sdk-2013-only.md)]
 
-## Создание первого приложения API ##
+Для этого учебника требуется пакет SDK Azure для .NET версии 2.5.1 или более поздней.
 
-Откройте Visual Studio 2013 и последовательно щелкните пункты **Файл > Создать проект**. Выберите шаблон **Веб-приложение ASP.NET**.  Присвойте проекту имя *ContactsList*, а затем щелкните **ОК**.
+## Создание проекта приложения API 
 
-![](./media/app-service-dotnet-create-api-app/01-filenew-v3.png)
+В этом разделе показывается, как использовать шаблон проекта приложения API Azure для создания приложения API с нуля. Сведения о настройке существующего проекта веб-API как приложения API см. в [следующем разделе](#configure-a-web-api-project-as-an-api-app).
 
-Выберите шаблон проекта **Приложение API Azure** и нажмите кнопку **ОК**.
+1. Откройте Visual Studio 2013.
 
-![](./media/app-service-dotnet-create-api-app/02-api-app-template-v3.png)
+2. Выберите **Файл -> Новый проект**.
 
-Щелкните правой кнопкой мыши папку **Модели** в проекте веб-API, а затем в контекстном меню последовательно выберите пункты **Добавить > Класс**. 
+3. Выберите шаблон **Веб-приложение ASP.NET**.
 
-![](./media/app-service-dotnet-create-api-app/03-add-new-class-v3.png) 
+4. Дайте проекту имя *ContactsList*.
 
-Назовите новый файл *Contact.cs* и щелкните **Добавить**. 
+	![](./media/app-service-dotnet-create-api-app/01-filenew-v3.png)
 
-![](./media/app-service-dotnet-create-api-app/0301-add-new-class-dialog-v3.png) 
+5. Нажмите кнопку **ОК**.
 
-Замените все содержимое файла следующим кодом. 
+6. В диалоговом окне **Новый проект ASP.NET** выберите шаблон **Приложение API Azure**.
 
-	namespace ContactsList.Models
-	{
-		public class Contact
-		{
-			public int Id { get; set; }
-			public string Name { get; set; }
-			public string EmailAddress { get; set; }
-		}
-	}
+	![](./media/app-service-dotnet-create-api-app/02-api-app-template-v3.png)
 
-Щелкните правой кнопкой мыши папку **Контроллеры**, а затем в контекстном меню последовательно выберите пункты **Добавить > Контроллер**. 
+7. Нажмите кнопку **ОК**, чтобы создать проект.
 
-![](./media/app-service-dotnet-create-api-app/05-new-controller-v3.png)
+Visual Studio создает проект веб-API, настроенный для развертывания в виде приложения API.
 
-В диалоговом окне **Добавление функции формирования шаблонов** выберите параметр **Контроллер веб-API 2 - пустой** и щелкните **Добавить**. 
+[AZURE.INCLUDE [app-service-api-review-metadata](../includes/app-service-api-review-metadata.md)]
 
-![](./media/app-service-dotnet-create-api-app/06-new-controller-dialog-v3.png)
+[AZURE.INCLUDE [app-service-api-define-api-app](../includes/app-service-api-define-api-app.md)]
 
-Назовите контроллер **ContactsController** и щелкните **Добавить**. 
-
-![](./media/app-service-dotnet-create-api-app/07-new-controller-name-v2.png)
-
-Замените код в этом файле кодом ниже. 
-
-	using ContactsList.Models;
-	using System;
-	using System.Collections.Generic;
-	using System.Linq;
-	using System.Net;
-	using System.Net.Http;
-	using System.Threading.Tasks;
-	using System.Web.Http;
-	
-	namespace ContactsList.Controllers
-	{
-	    public class ContactsController : ApiController
-	    {
-	        [HttpGet]
-	        public IEnumerable<Contact> Get()
-	        {
-	            return new Contact[]{
-					new Contact { Id = 1, EmailAddress = "barney@contoso.com", Name = "Barney Poland"},
-					new Contact { Id = 2, EmailAddress = "lacy@contoso.com", Name = "Lacy Barrera"},
-                	new Contact { Id = 3, EmailAddress = "lora@microsoft.com", Name = "Lora Riggs"}
-	            };
-	        }
-	    }
-	}
-
-В проекты приложений API входит автоматическое создание метаданных [Swagger](http://swagger.io/ "Official Swagger information") и тестовая страница API. По умолчанию тестовая страница API отключена. Чтобы включить тестовую страницу API, откройте файл *App_Start/SwaggerConfig.cs*. Найдите **EnableSwaggerUI**:
-
-![](./media/app-service-dotnet-create-api-app/12-enable-swagger-ui-with-box.png)
-
-Раскомментируйте следующие строки кода:
-
-        })
-    .EnableSwaggerUi(c =>
-        {
-
-После этого файл должен выглядеть в Visual Studio 2013 следующим образом.
-
-![](./media/app-service-dotnet-create-api-app/13-enable-swagger-ui-with-box.png)
-
-Чтобы просмотреть тестовую страницу API, запустите приложение локально и перейдите в каталог `/swagger`. 
-
-![](./media/app-service-dotnet-create-api-app/14-swagger-ui.png)
-
-Нажмите кнопку **Try it out** (Испытать). Вы увидите, что API работает и возвращает ожидаемый результат. 
-
-![](./media/app-service-dotnet-create-api-app/15-swagger-ui-post-test.png)
+[AZURE.INCLUDE [app-service-api-direct-deploy-metadata](../includes/app-service-api-direct-deploy-metadata.md)]
 
 ## Дальнейшие действия
 
-Теперь приложение API готово к развертыванию, и вы можете перейти к учебнику [Развертывание приложения API](app-service-dotnet-deploy-api-app.md).
+Теперь ваше приложение API готово к развертыванию и вы можете перейти к учебнику [Развертывание приложения API](app-service-dotnet-deploy-api-app.md).
 
-Дополнительные сведения см. в разделе [Что такое приложения API?](app-service-api-apps-why-best-platform.md)
-
-<!--HONumber=49-->
+<!--HONumber=54-->

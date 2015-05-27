@@ -1,24 +1,26 @@
-﻿<properties 
+<properties 
 	pageTitle="" 
-	description="" 
+	description="Описание произошедшего в вашем проекте .NET мобильных служб Azure в Visual Studio" 
 	services="mobile-services" 
 	documentationCenter="" 
-	authors="kempb" 
+	authors="patshea123" 
 	manager="douge" 
 	editor=""/>
 
 <tags 
 	ms.service="mobile-services" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="vs-what-happened" 
-	ms.devlang="na" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="NA" 
+	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="10/8/2014" 
-	ms.author="kempb"/>
+	ms.date="05/06/2015" 
+	ms.author="patshea123"/>
+
+# Что произошло с моим проектом?
 
 > [AZURE.SELECTOR]
-> - [Приступая к работе](vs-mobile-services-dotnet-getting-started.md)
-> - [Что произошло](vs-mobile-services-dotnet-what-happened.md)
+> - [Getting Started](vs-mobile-services-dotnet-getting-started.md)
+> - [What Happened](vs-mobile-services-dotnet-what-happened.md)
 
 ###<span id="whathappened">Что произошло с моим проектом?</span>
 
@@ -34,9 +36,7 @@
 
 #####Значения строк подключения для мобильных служб
 
-В файле App.xaml.cs был создан объект **MobileServiceClient**, содержащий ключ и URL-адрес выбранного приложения мобильной службы. 
+В файле App.xaml.cs создан объект **MobileServiceClient**, содержащий URL-адрес и ключ приложения выбранной мобильной службы.
 
-[Дополнительную информацию о мобильных службах](http://azure.microsoft.com/documentation/services/mobile-services/)
-
-
-<!--HONumber=42-->
+[Дополнительные сведения о мобильных службах](http://azure.microsoft.com/documentation/services/mobile-services/)
+<!--HONumber=54-->

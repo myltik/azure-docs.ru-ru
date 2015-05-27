@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Аутентификация приложения с помощью Live Connect (JavaScript)" 
 	description="Узнайте, как использовать единый вход Live Connect в мобильных службах Azure из приложения Магазина Windows." 
 	services="mobile-services" 
@@ -10,121 +10,93 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="11/22/2014" 
+	ms.date="04/08/2015" 
 	ms.author="glenga"/>
 
-# Аутентификация приложения для Магазина Windows с помощью единого входа Live Connect
-<div class="dev-center-tutorial-selector sublanding"> 
-	<a href="/documentation/articles/mobile-services-windows-store-dotnet-single-sign-on/" title="Windows Store C#">Магазин Windows - C#</a><a href="/documentation/articles/mobile-services-windows-store-javascript-single-sign-on/" title="Windows Store JavaScript" class="current">Магазин Windows - JavaScript</a><a href="/documentation/articles/mobile-services-windows-phone-single-sign-on/" title="Windows Phone">Windows Phone</a>
-</div>	
+# Управляемая клиентом проверка подлинности приложения Магазина Windows с использованием учетной записи Майкрософт
 
+[AZURE.INCLUDE [mobile-services-selector-single-signon](../includes/mobile-services-selector-single-signon.md)] 
 
-В этом разделе показано, как выполнять проверку подлинности пользователей в мобильных службах приложения Магазина Windows.  В этом учебнике вы добавляете проверку подлинности в проект быстрого запуска с помощью Live Connect. После успешного прохождения проверки подлинности в Live Connect вошедший в систему пользователь приветствуется по имени и отображается значение идентификатора пользователя.  
+##Обзор
+В этом разделе показано, как выполнять проверку подлинности пользователей в мобильных службах приложения Магазина Windows. В этом учебнике вы добавляете проверку подлинности в проект быстрого запуска с помощью Live Connect. После успешного прохождения проверки подлинности в Live Connect вошедший в систему пользователь приветствуется по имени и отображается значение идентификатора пользователя.
 
->[AZURE.NOTE]Этот учебник демонстрирует преимущества использования процедуры единого входа, предоставляемой Live Connect для приложений Магазина Windows. Это позволяет легче проверять подлинность уже вошедшего в систему пользователя с помощью мобильной службы. Сведения о более общей проверке подлинности, поддерживающей несколько поставщиков услуг проверки подлинности, см. в разделе <a href="mobile-services-windows-store-javascript-get-started-users.md/">Приступая к работе с проверкой подлинности</a>.
-
-В этом учебнике рассматриваются следующие основные шаги для включения проверки подлинности Live Connect:
-
-1. [Регистрация приложения для проверки подлинности и настройка мобильных служб]
-2. [Ограничение разрешений таблицы для пользователей, прошедших проверку подлинности]
-3. [Добавление проверки подлинности в приложение]
+>[AZURE.NOTE]В этом учебнике показаны преимущества использования управляемой клиентом проверки подлинности и пакета Live SDK. Это позволяет легче проверять подлинность уже вошедшего в систему пользователя с помощью мобильной службы. Можно также запросить дополнительные области, чтобы приложение могло получить доступ к таким ресурсам, как OneDrive. Управляемая службой проверка подлинности поддерживает несколько поставщиков проверки подлинности, поэтому отличается большей универсальностью. Дополнительные сведения об управляемой службе проверки подлинности см. в статье [Добавление проверки подлинности в приложение](mobile-services-windows-store-javascript-get-started-users.md).
 
 Для работы с данным учебником требуется следующее:
 
-+ [Live SDK для Windows]
++ [Пакет Live SDK для Windows].
 + Microsoft Visual Studio 2012 Express для Windows 8 RC или более поздней версии.
-+ Кроме того, предварительно необходимо завершить учебник [Добавление мобильных служб к существующему приложению].
++ Предварительное выполнение заданий учебника [Добавление мобильных служб в существующее приложение].
 
-##<a name="register"></a>Регистрация приложения для Магазина Windows
+##Регистрация приложения для использования учетной записи Майкрософт с целью проверки подлинности.
 
-Чтобы иметь возможность проверять подлинность пользователей, необходимо отправить свое приложение в Магазин Windows. Затем необходимо зарегистрировать секрет клиента для интеграции Live Connect с мобильными службами.
+Чтобы иметь возможность проверять подлинность пользователей, необходимо зарегистрировать свое приложение в центре разработчиков учетных записей Майкрософт. Затем зарегистрированное приложение необходимо подключить к своей мобильной службе. Выполните действия, указанные в следующем разделе, чтобы зарегистрировать приложение для использования учетной записи Майкрософт и подключить его к своей мобильной службе.
 
-[AZURE.INCLUDE [mobile-services-register-windows-store-app](../includes/mobile-services-register-windows-store-app.md)]
++ [Регистрация приложения для входа с использованием учетной записи Майкрософт](mobile-services-how-to-register-microsoft-authentication.md)
 
-##<a name="permissions"></a> Ограничение разрешений для пользователей, прошедших проверку подлинности
+##<a name="permissions"></a>Предоставление разрешений только пользователям, прошедшим проверку подлинности
 
-[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
+Далее необходимо ограничить доступ к ресурсу (в этом случае — таблице *TodoItems*), чтобы доступ к ней могли получать только пользователи, которые выполнили вход.
 
-<ol start="3">
-<li><p>Откройте проект, созданный после завершения обучения, в Visual Studio 2012 Express для Windows 8 <a href="/documentation/articles/mobile-services-windows-store-get-started">Приступая к работе с мобильными службами</a>.</p></li> 
-<li><p>Нажмите клавишу F5 для запуска этого приложения на основе быстрого запуска; убедитесь, что после запуска приложения возникает необработанное исключение с кодом состояния 401 (неавторизованный).</p>
-   
-   	<p>Это происходит, потому что приложение пытается получить доступ к мобильным службам как пользователь, не прошедший проверку подлинности, а таблица <em>TodoItem</em> теперь требует выполнения проверки подлинности.</p></li>
-</ol>
-
-Далее приложение будет обновлено таким образом, что оно станет производить аутентификацию учетных данных пользователей, прежде чем запрашивать ресурсы из мобильной службы.
+[AZURE.INCLUDE [mobile-services-restrict-permissions-windows](../includes/mobile-services-restrict-permissions-windows.md)] 
 
 ##<a name="add-authentication"></a>Добавление проверки подлинности в приложение
 
-1. Загрузите и установите пакет [Live SDK для Windows].
+Наконец, добавьте пакет Live SDK и используйте его для проверки подлинности пользователей в приложении.
 
-2. В меню **Проект** в Visual Studio выберите пункт **Добавить ссылку**, разверните узел **Windows**, щелкните элемент **Расширения**, установите флажок **Live SDK** и нажмите кнопку **ОК**. 
+1. Щелкните решение правой кнопкой мыши в **обозревателе решений**, а затем выберите пункт **Управление пакетами NuGet**.
 
-  	![][16]
+2. В левой области выберите категорию **В сети**, найдите пункт **LiveSDK**, щелкните **Установить** для пакета **Live SDK**, выберите все проекты, а затем примите условия лицензионных соглашений.
 
-  	Это добавляет в проект ссылку на Live SDK.
+  	Пакет Live SDK будет добавлен в решение.
 
-3. Откройте файл проекта default.html и добавьте следующий элемент &lt;script&gt; в элемент &lt;head&gt;. 
+3. Откройте файл проекта default.html и добавьте следующий элемент `<script>` в элемент `<head>`.
 
-        <script src="///LiveSDKHTML/js/wl.js"></script>
+        <script src="/js/wl.js"></script>
 
-   	Это включит Microsoft IntelliSense в файле default.html.
-
-
-4. Откройте файл проекта default.js и добавьте следующий комментарий в начало файла. 
-
-        /// <reference path="///LiveSDKHTML/js/wl.js" />
-
-   	Это включит Microsoft IntelliSense в файле default.js.
-
-5. В перегрузке метода **app.OnActivated** замените вызов метода **refreshTodoItems** следующим кодом: 
+5. В перезагрузке метода **app.OnActivated** замените вызов метода **refreshTodoItems** следующим кодом:
 	
-        var session = null;   
+        // Set the mobileClient variable to client variable generated by the tooling.
+        var mobileClient = <yourClient>;
 
-        var logout = function () {
-            return new WinJS.Promise(function (complete) {
-                WL.getLoginStatus().then(function () {
-                    if (WL.canLogout()) {
-                        WL.logout(complete);                            
-                    }
-                    else {
-                        complete();
-                    }
-                });
-            });
-        };                  
-
+        var session = null;
         var login = function () {
-            return new WinJS.Promise(function (complete) {                    
-                WL.login({ scope: "wl.basic"}).then(function (result) {
+            return new WinJS.Promise(function (complete) {
+                WL.login({ scope: "wl.basic" }).then(function (result) {
                     session = result.session;
 
                     WinJS.Promise.join([
                         WL.api({ path: "me", method: "GET" }),
-                        client.login(result.session.authentication_token)
+                        mobileClient.login(result.session.authentication_token)
                     ]).done(function (results) {
-                        var profile = results[0];
-                        var mobileServicesUser = results[1];
-                        refreshTodoItems();
+                        // Build the welcome message from the Microsoft account info.
+                        var profile = results[0];                            
                         var title = "Welcome " + profile.first_name + "!";
-                        var message = "You are now logged in as: " + mobileServicesUser.userId;
+                        var message = "You are now logged in as: "
+                            + mobileClient.currentUser.userId;
                         var dialog = new Windows.UI.Popups.MessageDialog(message, title);
-                        dialog.showAsync().done(complete);                                
-                    });                       
-                }, function (error) {                        
+                        dialog.showAsync().then(function () {
+                            // Reload items from the mobile service.
+                            refreshTodoItems();
+                        }).done(complete);
+                        
+                    }, function (error) {
+
+                    });
+                }, function (error) {
                     session = null;
                     var dialog = new Windows.UI.Popups.MessageDialog("You must log in.", "Login Required");
-                    dialog.showAsync().done(complete);                        
+                    dialog.showAsync().done(complete);
                 });
             });
         }
 
         var authenticate = function () {
-            // Force a logout to make it easier to test with multiple Microsoft Accounts
-            logout().then(login).then(function () {
+            // Block until sign-in is successful.
+            login().then(function () {
                 if (session === null) {
                     // Authentication failed, try again.
                     authenticate();
@@ -132,59 +104,44 @@
             });
         }
 
+		// Initialize the Live client.
         WL.init({
-            redirect_uri: "<< INSERT REDIRECT DOMAIN HERE >>"
-        });           
-            
+            redirect_uri: mobileClient.applicationUrl
+        });
+
+		// Start the sign-in process.
         authenticate();
 
-    При этом инициализируется клиент Live Connect, осуществляется принудительный выход из системы, в Live Connect отправляется новый запрос на вход, в мобильные службы отправляется возвращенный маркер аутентификации, а затем отображается информация о вошедшем пользователе. Этот код выполняет по возможности принудительный выход, чтобы пользователь должен был вводить свои учетные данные при каждом запуске приложения. Это облегчает тестирование приложение с разными учетными записями Майкрософт в целях обеспечение надлежащей работы проверки подлинности. Этот механизм будет работать только в том случае, если у пользователя нет подключенной учетной записи Майкрософт.
+    При этом инициализируется клиент Live Connect, в учетную запись Майкрософт отправляется новый запрос на вход, в мобильные службы отправляется возвращенный маркер проверки подлинности, а затем отображается информация о вошедшем пользователе.
 
-	>[AZURE.NOTE]Не нужно запрашивать маркеры аутентификации Live Connection или маркеры авторизации мобильных служб при каждом запуске приложения. Мало того, что это неэффективно, вы можете столкнуться с проблемами, связанными с использованием приложения при его одновременном запуске большим количеством клиентов. Лучше кэшировать маркеры и сначала попробовать использовать кэшированный маркер мобильных служб, прежде чем вызывать метод **LoginWithMicrosoftAccountAsync**. Пример кэширования маркера см. в разделе [Приступая к работе с проверкой подлинности](mobile-services-windows-store-javascript-get-started-users.md#tokens)
+	>[AZURE.NOTE]В идеале не нужно запрашивать маркеры проверки подлинности Live Connection или маркеры проверки подлинности мобильных служб при каждом запуске приложения. Мало того, что это неэффективно, вы можете столкнуться с проблемами, связанными с использованием приложения при его одновременном запуске большим количеством клиентов. Лучше кэшировать маркеры и сначала попробовать использовать кэшированный маркер мобильных служб, прежде чем вызывать метод **LoginWithMicrosoftAccountAsync**. Пример кэширования маркера см. в разделе [Приступая к работе с аутентификацией](mobile-services-windows-store-javascript-get-started-users.md#tokens).
 	
-7. Введите в строке _<< INSERT REDIRECT DOMAIN HERE >>_ из предыдущего шага домен перенаправления, который был указан при настройке приложения в Live Connect, в формате **https://_имя-службы_.azure-mobile.net/**.
+7. Замените значение `<yourClient>` в первой строке приведенного выше кода переменной, определенной в JS-файле, который вы добавили при подключении проекта к мобильной службе.
 		
-8. Нажмите клавишу F5, чтобы запустить приложение, и войдите в Live Connect, используя свою учетную запись Майкрософт. 
+8. Нажмите клавишу F5, чтобы запустить приложение, и войдите в систему с помощью учетной записи Майкрософт.
 
-   	После успешного входа в систему приложение должно работать без ошибок, а вы должны быть в состоянии выполнять запросы мобильных служб и обновлять данные.
+   	После успешного входа в систему приложение должно работать без ошибок, а вы должны быть в состоянии отправлять запросы в мобильные службы и обновлять данные.
 
 ## <a name="next-steps"> </a>Дальнейшие действия
 
-В следующем учебном курсе, который называется [Авторизация пользователей с помощью скриптов], значение идентификатора пользователя, предоставляемое мобильными службами на основе пользователя, прошедшего проверку подлинности, будет использоваться для фильтрации данных, возвращаемых мобильными службами. Информацию об использовании других поставщиков удостоверений для проверки подлинности см. в разделе [Приступая к работе с проверкой подлинности].
+В следующем учебном курсе, который называется [Авторизация пользователей с помощью скриптов], значение ИД пользователя, предоставляемое мобильными службами на основе пользователя, прошедшего проверку подлинности, будет использоваться для фильтрации данных, возвращаемых мобильными службами. Сведения об использовании других поставщиков удостоверений для проверки подлинности см. в разделе [Приступая к работе с проверкой подлинности].
 
 <!-- Anchors. -->
-[Регистрация приложения для проверки подлинности и настройка мобильных служб]: #register
-[Ограничение разрешений таблицы для пользователей, прошедших проверку подлинности]: #permissions
-[Добавление проверки подлинности в приложение]: #add-authentication
-[Дальнейшие действия]:#next-steps
+[Register your app for authentication and configure Mobile Services]: #register
+[Restrict table permissions to authenticated users]: #permissions
+[Add authentication to the app]: #add-authentication
+[Next Steps]: #next-steps
 
 <!-- Images. -->
-[0]: ./media/mobile-services-windows-store-javascript-single-sign-on/mobile-services-submit-win8-app.png
-[1]: ./media/mobile-services-windows-store-javascript-single-sign-on/mobile-services-win8-app-name.png
-[2]: ./media/mobile-services-windows-store-javascript-single-sign-on/mobile-services-store-association.png
-[3]: ./media/mobile-services-windows-store-javascript-single-sign-on/mobile-services-select-app-name.png
-[4]: ./media/mobile-services-windows-store-javascript-single-sign-on/mobile-services-selection.png
-[5]: ./media/mobile-services-windows-store-javascript-single-sign-on/mobile-service-uri.png
-[6]: ./media/mobile-services-windows-store-javascript-single-sign-on/mobile-live-connect-apps-list.png
-[7]: ./media/mobile-services-windows-store-javascript-single-sign-on/mobile-live-connect-app-api-settings.png
-
-
-
-
-
-[13]: ./media/mobile-services-windows-store-javascript-single-sign-on/mobile-identity-tab-ma-only.png
-[14]: ./media/mobile-services-windows-store-javascript-single-sign-on/mobile-portal-data-tables.png
-[15]: ./media/mobile-services-windows-store-javascript-single-sign-on/mobile-portal-change-table-perms.png
-[16]: ./media/mobile-services-windows-store-javascript-single-sign-on/mobile-add-reference-live-js.png
 
 <!-- URLs. -->
-[Отправка страницы приложения]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Мои приложения]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Live SDK для Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Добавление мобильных служб к существующему приложению]: mobile-services-windows-store-javascript-get-started-data.md
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Пакет Live SDK для Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Добавление мобильных служб в существующее приложение]: mobile-services-windows-store-javascript-get-started-data.md
 [Приступая к работе с проверкой подлинности]: mobile-services-windows-store-javascript-get-started-users.md
 [Авторизация пользователей с помощью скриптов]: mobile-services-windows-store-javascript-authorize-users-in-scripts.md
 
-[Портал управления Azure]: https://manage.windowsazure.com/
+[Azure Management Portal]: https://manage.windowsazure.com/
 
-<!--HONumber=49-->
+<!--HONumber=54-->

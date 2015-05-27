@@ -1,109 +1,103 @@
-﻿<properties 
-	pageTitle="Управление веб-сайтом Azure" 
-	description="Ссылки на ресурсы для управления веб-сайтом Microsoft Azure." 
-	services="web-sites" 
+<properties 
+	pageTitle="Управление веб-приложением в службе приложений Azure" 
+	description="Ссылки на ресурсы, посвященные управлению веб-приложением в службе приложений Azure." 
+	services="app-service\web" 
 	documentationCenter="" 
 	authors="MikeWasson" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/16/2014" 
+	ms.date="04/23/2015" 
 	ms.author="mwasson"/>
 
-# Управление веб-сайтом Azure
+# Управление веб-приложением в службе приложений Azure
 
-В этом разделе представлены ссылки на ресурсы, посвященные управлению веб-сайтом Azure. Под управлением подразумеваются все задачи, направленные на обеспечение стабильной работы веб-сайта. 
+В этом разделе представлены ссылки на ресурсы, посвященные управлению веб-приложением [службы приложений Azure](http://go.microsoft.com/fwlink/?LinkId=529714). Под управлением подразумеваются все задачи, направленные на обеспечение стабильной работы веб-приложения.
 
-На различных этапах существования сайта вам придется выполнять разные задачи управления: от первоначального развертывания до обычной эксплуатации, обслуживания и применения обновлений.
+На различных этапах существования веб-приложения вам придется выполнять разные задачи управления, от первоначального развертывания до обычной эксплуатации, обслуживания и применения обновлений.
 
-- [Перед развертыванием сайта в рабочей среде]
-- [В ходе эксплуатации веб-сайта]
-- [При обновлении веб-сайта]
+Многие задачи, связанные с управлением веб-приложением, можно выполнять на портале Azure. Дополнительные сведения см. в разделе [Управление веб-приложениями с помощью портала Azure](web-sites-manage.md).
 
-Многие задачи, связанные с управлением веб-сайтом, можно выполнять на портале Azure. Дополнительную информацию см. в разделе [Управление веб-сайтами на портале управления Azure](http://azure.microsoft.com/documentation/articles/web-sites-manage/).
-
-## Перед развертыванием сайта в рабочей среде
+## Перед развертыванием веб-приложения в рабочей среде
 
 ### Выберите уровень.
 
-Доступны четыре уровня Веб-сайтов Azure: "Бесплатный", "Общедоступный", "Базовый" и "Стандартный". Информацию о функциях и ценах для каждого уровня см. на странице [информации о ценах](http://azure.microsoft.com/pricing/details/websites/). 
+Служба приложений Azure доступна для 5 уровней: Free, Shared, Basic, Standard и Premium. Информацию о функциях и ценах для каждого уровня см. в разделе [Сведения о ценах](/pricing/details/app-service/).
 
-- [Планы размещения веб-сайтов](http://azure.microsoft.com/documentation/articles/azure-web-sites-web-hosting-plans-in-depth-overview) позволяют группировать несколько веб-сайтов на одном уровне.
-- Вы всегда можете [сменить уровни](http://azure.microsoft.com/documentation/articles/web-sites-scale/) после создания веб-сайта.
+- [Планы службы приложений](azure-web-sites-web-hosting-plans-in-depth-overview.md) позволяют группировать несколько веб-приложений на одном уровне.
+- Всегда можно [сменить уровень](web-sites-scale.md) после создания веб-приложения.
 
 ### Конфигурация
 
-На [портале управления Azure](https://manage.windowsazure.com/) можно задать различные параметры конфигурации. Дополнительную информацию см. в разделе [Настройка Веб-сайтов](http://azure.microsoft.com/documentation/articles/web-sites-configure/). Вот краткий контрольный список:
+На [предварительной версии портала управления Azure](https://portal.azure.com/) можно задать различные параметры конфигурации. Подробные сведения см. в разделе [Настройка веб-приложений в службе приложений Azure](web-sites-configure.md). Вот краткий контрольный список:
 
 - При необходимости выберите **версии сред выполнения** для .NET, PHP, Java или Python.
-- Если на вашем веб-сайте используется протокол **WebSocket**, включите его поддержку. (это относится к приложениям, в которых применяется [ASP.NET SignalR](http://www.asp.net/signalr) или [socket.io](http://azure.microsoft.com/documentation/articles/web-sites-nodejs-chat-app-socketio/)).
+- Если в веб-приложении используется протокол **WebSockets**, включите его поддержку (это относится к приложениям, в которых применяется [ASP.NET SignalR](http://www.asp.net/signalr) или [socket.io](web-sites-nodejs-chat-app-socketio.md)).
 - Вы используете непрерывные веб-задания? Если да, то выберите параметр **Always On** (Всегда включено).
 - Задайте **документ по умолчанию**, например index.html.
 
 Помимо этих базовых параметров конфигурации, вы также можете настроить следующее:
 
-- **Шифрование по протоколу SSL**. Чтобы использовать SSL с пользовательским доменным именем, вам необходимо получить SSL-сертификат и настроить свой сайт для работы с ним. См. раздел [Включение HTTPS для веб-сайта Azure](http://azure.microsoft.com/documentation/articles/web-sites-configure-ssl-certificate/).
-- **Личное доменное имя.** Веб-сайт автоматически имеет поддомен в домене azurewebsites.net. Можно связать с ним пользовательское имя домена, например contoso.com. См. раздел [Настройка пользовательского имени домена](http://azure.microsoft.com/documentation/articles/web-sites-custom-domain-name/).
+- Шифрование по протоколу **SSL**. Чтобы использовать SSL с пользовательским доменным именем, вам необходимо получить SSL-сертификат и настроить веб-приложение для работы с ним. См. статью [Включение протокола HTTPS для веб-приложения в службе приложений Azure](web-sites-configure-ssl-certificate.md).
+- **Пользовательское доменное имя.** Вашему веб-приложению автоматически присваивается дочерний домен в azurewebsites.net. Вы можете связать сайт с пользовательским доменным именем, например contoso.com. См. статью [Настройка личного доменного имени для службы приложений Azure](web-sites-custom-domain-name.md).
 
-Конфигурация языков:
+Настройка для определенных языков программирования:
 
-- **PHP**. [Настройка PHP на веб-сайтах Azure](http://azure.microsoft.com/documentation/articles/web-sites-php-configure/).
-- **Python**. [Настройка Python для веб-сайтов Azure](http://azure.microsoft.com/documentation/articles/web-sites-python-configure/)
+- **PHP**: статья [Настройка PHP в веб-приложениях службы приложений Azure](web-sites-php-configure.md).
+- **Python**: статья [Настройка Python в веб-приложениях службы приложений Azure](web-sites-python-configure.md).
 
 
-## В ходе эксплуатации веб-сайта
+## В ходе эксплуатации веб-приложения
 
-В процессе эксплуатации веб-сайта важно обеспечить его постоянную доступность и масштабирование ресурсов с учетом пользовательского трафика. Кроме того, возможно, вам придется устранять возникающие неполадки.
+В ходе эксплуатации веб-приложения важно, чтобы оно всегда было доступно, а его ресурсы масштабировались с учетом пользовательского трафика. Кроме того, возможно, вам придется устранять возникающие неполадки.
 
 ### Мониторинг
 
-- На портале управления вы можете [добавить метрики производительности](http://azure.microsoft.com/documentation/articles/web-sites-monitor), например показатель использования ЦП и количество запросов от клиентов.
-- Если вам нужны более подробные данные, воспользуйтесь средством New Relic для мониторинга производительности и управления ею. См. раздел [Инструмент управления производительностью приложений New Relic для веб-сайтов Azure](http://azure.microsoft.com/documentation/articles/store-new-relic-web-sites-dotnet-application-performance-management/).
-- [Ресурсы веб-сайта можно масштабировать](http://azure.microsoft.com/documentation/articles/web-sites-scale/) с учетом трафика. В зависимости от уровня плана размещения можно изменять количество виртуальных машин и (или) размер экземпляров виртуальных машин. В плане "Стандартный" вы также можете настроить автоматическое масштабирование сайта по заданному графику или с учетом нагрузки.  
+- На предварительной версии портала управления Azure вы можете [добавить показатели производительности](web-sites-monitor.md), например показатель использования ЦП и количество запросов от клиентов.
+- Если вам нужны более подробные данные, воспользуйтесь средством New Relic для мониторинга производительности и управления ею. См. статью [Веб-приложение .NET в службе приложений Azure с управлением производительностью приложения от New Relic](store-new-relic-web-sites-dotnet-application-performance-management.md).
+- [Ресурсы веб-сайта можно масштабировать](web-sites-scale.md) с учетом трафика. В зависимости от уровня плана размещения можно изменять количество виртуальных машин и (или) размер экземпляров виртуальных машин. На уровнях Standard и Premium вы также можете настроить автоматическое масштабирование веб-приложения по заданному графику или с учетом нагрузки.  
  
 ### Резервные копии
 
-- Настройте [автоматическое резервное копирование](http://azure.microsoft.com/documentation/articles/web-sites-backup/) своего веб-сайта. Дополнительную информацию о резервном копировании см. в [этом видео](http://azure.microsoft.com/documentation/videos/azure-websites-automatic-and-easy-backup/).
+- Настройка [автоматического резервного копирования](web-sites-backup.md) для веб-приложения. Дополнительные сведения о резервном копировании см. в [этом видео](http://azure.microsoft.com/documentation/videos/azure-websites-automatic-and-easy-backup/).
 - Ознакомьтесь с параметрами [восстановления базы данных](http://msdn.microsoft.com/library/azure/hh852669.aspx) SQL Azure.
 
 ### Устранение неполадок
 
-- Возникающие неполадки можно [устранять в Visual Studio](http://azure.microsoft.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/#remotedebug) с помощью журналов диагностики и отладки в облаке в режиме реального времени. 
-- Кроме того, журналы диагностики можно собирать различными способами не только в Visual Studio. См. раздел [Включение ведения журналов диагностики для веб-сайтов Azure](http://azure.microsoft.com/documentation/articles/web-sites-enable-diagnostic-log/).
-- Для приложений Node.js см. раздел [Настройка приложения Node.js для веб-сайтов Microsoft Azure](http://azure.microsoft.com/documentation/articles/web-sites-nodejs-debug/).
+- Возникающие неполадки можно [устранять в Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug) с помощью журналов диагностики и отладки в облаке в режиме реального времени. 
+- Кроме того, журналы диагностики можно собирать различными способами не только в Visual Studio. См. статью [Включение ведения журнала диагностики для веб-приложений в службе приложений Azure](web-sites-enable-diagnostic-log.md).
+- Для приложений Node.js см. раздел [Отладка веб-приложения Node.js в службе приложений Azure](web-sites-nodejs-debug.md).
 
 ### Восстановление данных
 
-- [Веб-сайты можно восстанавливать](http://azure.microsoft.com/documentation/articles/web-sites-restore/) из ранее созданных резервных копий.
+- Веб-приложение можно [восстанавливать](web-sites-restore.md) из ранее созданных резервных копий.
 
 
-## При обновлении веб-сайта
+## При обновлении веб-приложения
 
-Если вы не включили автоматическое резервное копирование, то можете создавать [резервные копии вручную](http://azure.microsoft.com/documentation/articles/web-sites-backup/).
+Если вы не включили автоматическое резервное копирование, то можете создавать резервные копии [вручную](web-sites-backup.md).
 
-Возможно, вас также заинтересует [промежуточное развертывание](http://azure.microsoft.com/documentation/articles/web-sites-staged-publishing/). С его помощью вы сможете публиковать обновления в промежуточной среде, функционирующей параллельно с рабочей. 
+Возможно, вас также заинтересует [промежуточное развертывание](web-sites-staged-publishing.md). С его помощью вы сможете публиковать обновления в промежуточной среде, функционирующей параллельно с рабочей.
 
 Если вы используете Visual Studio Online, то можете настроить непрерывное развертывание из системы управления версиями:
 
-- [С помощью системы управления версиями Team Foundation](http://azure.microsoft.com/documentation/articles/cloud-services-continuous-delivery-use-vso/) 
-- [С помощью Git](http://azure.microsoft.com/documentation/articles/cloud-services-continuous-delivery-use-vso-git/)
+- [С помощью системы управления версиями Team Foundation](cloud-services-continuous-delivery-use-vso.md) 
+- [С помощью Git](cloud-services-continuous-delivery-use-vso-git.md)
  
+[AZURE.INCLUDE [app-service-web-whats-changed](../includes/app-service-web-whats-changed.md)]
 
+[AZURE.INCLUDE [app-service-web-try-app-service](../includes/app-service-web-try-app-service.md)]
  
 <!-- Anchors. -->
 
 
-[Перед развертыванием сайта в рабочей среде]: #before-you-deploy-your-site-to-production
-[В ходе эксплуатации веб-сайта]: #while-your-website-is-running
-[При обновлении веб-сайта]: #when-you-update-your-website
-
- 
-
-
-<!--HONumber=42-->
+[Before you deploy your site to production]: #before-you-deploy-your-site-to-production
+[While your website is running]: #while-your-website-is-running
+[When you update your website]: #when-you-update-your-website
+<!--HONumber=54-->

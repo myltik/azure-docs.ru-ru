@@ -1,5 +1,5 @@
-﻿<properties
-   pageTitle="Использование MapReduce с Hadoop в HDinsight | Azure"
+<properties
+   pageTitle="Использование MapReduce и PowerShell с Hadoop | Microsoft Azure"
    description="Информация об использовании PowerShell для удаленного выполнения заданий MapReduce с помощью Hadoop в HDInsight."
    services="hdinsight"
    documentationCenter=""
@@ -9,7 +9,7 @@
 
 <tags
    ms.service="hdinsight"
-   ms.devlang=""
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
@@ -20,35 +20,35 @@
 
 [AZURE.INCLUDE [mapreduce-selector](../includes/hdinsight-selector-use-mapreduce.md)]
 
-В этом документе приведен пример использования PowerShell для выполнения задания MapReduce в Hadoop на кластере HDInsight.
+В этом документе приведен пример использования Azure PowerShell для выполнения задания MapReduce в Hadoop на кластере HDInsight.
 
 ##<a id="prereq"></a>Предварительные требования
 
-Чтобы выполнить действия, описанные в этой статье, необходимо следующее.
+Чтобы выполнить действия, описанные в этой статье, необходимо следующее:
 
-* Кластер Azure HDInsight (Hadoop в HDInsight) (на платформе Windows или Linux)
+* Кластер Azure HDInsight (Hadoop в HDInsight) (на платформе Windows или Linux).
 
-* <a href="http://azure.microsoft.com/documentation/articles/install-configure-powershell/" target="_blank">Azure PowerShell</a>
+* <a href="http://azure.microsoft.com/documentation/articles/install-configure-powershell/" target="_blank">Azure PowerShell</a>.
 
-##<a id="powershell"></a>Выполнение задания MapReduce с использованием PowerShell
+##<a id="powershell"></a>Выполнение задания MapReduce с помощью Azure PowerShell
 
-Azure PowerShell предоставляет *командлеты*, позволяющие удаленно запускать задания MapReduce в HDInsight. Внутренне это достигается с помощью вызовов REST к  <a href="https://cwiki.apache.org/confluence/display/Hive/WebHCat" target="_blank">WebHCat</a> (ранее называвшийся Templeton), запущенном на кластере HDInsight.
+Azure PowerShell предоставляет *командлеты*, позволяющие удаленно запускать задания MapReduce в HDInsight. Внутренне это достигается с помощью выполнения вызовов REST для <a href="https://cwiki.apache.org/confluence/display/Hive/WebHCat" target="_blank">WebHCat</a> (ранее называвшегося Templeton), запущенного в кластере HDInsight.
 
-При выполнении заданий MapReduce на удаленном кластере HDInsight используются следующие командлеты.
+При выполнении заданий MapReduce в удаленном кластере HDInsight используются следующие командлеты:
 
-* **Add-AzureAccount** - выполняет аутентификацию PowerShell в подписке Azure.
+* **Add-AzureAccount** — выполняет аутентификацию Azure PowerShell для подписки Azure.
 
-* **New-AzureHDInsightMapReduceJobDefinition** - создает новое *job definition*, используя заданную информацию MapReduce
+* **New-AzureHDInsightMapReduceJobDefinition** — создает новое *задание*, используя заданную информацию MapReduce.
 
-* **Start-AzureHDInsightJob** - отправляет определение задания в HDInsight, запускает задание и возвращает объект *job*, который можно использовать для проверки состояния задания.
+* **Start-AzureHDInsightJob** — отправляет определение задания в HDInsight, запускает задание и возвращает объект *задания*, который можно использовать для проверки состояния задания.
 
-* **Wait-AzureHDInsightJob** - использует объект job для проверки состояния задания. Он будет ждать завершения задания или превышения времени ожидания.
+* **Wait-AzureHDInsightJob** — использует объект задания для проверки состояния задания. Он ожидает завершения задания или превышения времени ожидания.
 
-* **Get-AzureHDInsightJobOutput** - используется для получения выходных данных задания.
+* **Get-AzureHDInsightJobOutput** — используется для получения выходных данных задания.
 
-Следующие шаги показывают, как использовать эти командлеты для выполнения задания в кластере HDInsight.
+Следующие шаги показывают, как использовать эти командлеты для выполнения задания в кластере HDInsight:
 
-1. С помощью редактора сохраните следующий код в виде **mapreducejob.ps1**. Параметр **CLUSTERNAME** необходимо заменить именем кластера HDInsight.
+1. С помощью редактора сохраните следующий код как **mapreducejob.ps1**. Параметр **CLUSTERNAME** необходимо заменить именем кластера HDInsight.
 
 		#Login to your Azure subscription
 		# Is there an active Azure subscription?
@@ -82,11 +82,11 @@ Azure PowerShell предоставляет *командлеты*, позвол
 		Write-Host "Display the standard output..." -ForegroundColor Green
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $wordCountJob.JobId -StandardOutput
 
-2. Откройте новую командную строку **Microsoft Azure PowerShell**. Перейдите к расположению файла **mapreducejob.ps1**, а затем используйте следующую команду для запуска сценария.
+2. Откройте новую командную строку **Azure PowerShell**. Перейдите к расположению файла **mapreducejob.ps1**, а затем используйте следующую команду для запуска сценария:
 
 		.\mapreducejob.ps1
 
-3. По завершении задания результат должен выглядеть примерно так:
+3. По завершении задания выходные данные должны выглядеть примерно так:
 
 		Cluster         : CLUSTERNAME
 		ExitCode        : 0
@@ -98,9 +98,9 @@ Azure PowerShell предоставляет *командлеты*, позвол
 		SubmissionTime  : 12/5/2014 8:34:09 PM
 		JobId           : job_1415949758166_0071
 
-	> [AZURE.NOTE] Если значение **ExitCode** не равно 0, см. раздел [Устранение неполадок](#troubleshooting).
-
-	Такой результат означает, что задание завершено успешно.
+	Такие выходные данные означают, что задание завершено успешно.
+	
+	> [AZURE.NOTE]Если значение **ExitCode** не равно 0, см. раздел [Устранение неполадок](#troubleshooting).
 
 ##<a id="results"></a>Просмотр выходных данных задания
 
@@ -108,12 +108,12 @@ Azure PowerShell предоставляет *командлеты*, позвол
 
 Эту информацию можно получить с помощью следующих командлетов Azure PowerShell:
 
-* **Get-AzureHDInsightCluster** - возвращает информацию о кластере HDInsight, включая все связанные с ним учетные записи хранения. С кластером всегда связанна учетная запись хранения по умолчанию.
-* **New-AzureStorageContext** - при наличии имени учетной записи хранения и ключа, полученных с помощью **Get-AzureHDInsightCluster**, возвращает объект контекста, который может использоваться для доступа к учетной записи хранения.
-* **Get-AzureStorageBlob** - при наличии контекста объекта и имени контейнера возвращает список больших двоичных объектов в контейнере.
-* **Get-AzureStorageBlobContent** - при наличии объекта контекста, пути к файлу, имени, а также имени контейнера (которые возвращает **Get AzureHDinsightCluster**) скачивает файл из хранилища больших двоичных объектов Azure.
+* **Get-AzureHDInsightCluster** — возвращает информацию о кластере HDInsight, включая все связанные с ним учетные записи хранения. С кластером всегда связанна учетная запись хранения по умолчанию.
+* **New-AzureStorageContext** — при наличии имени учетной записи хранения и ключа, полученных с помощью **Get-AzureHDInsightCluster**, возвращает объект контекста, который может использоваться для доступа к учетной записи хранения.
+* **Get-AzureStorageBlob** — при наличии контекста объекта и имени контейнера возвращает список больших двоичных объектов в контейнере.
+* **Get-AzureStorageBlobContent** — при наличии объекта контекста, пути к файлу, имени, а также имени контейнера (которые возвращает **Get AzureHDinsightCluster**) скачивает файл из хранилища больших двоичных объектов Azure.
 
-В следующем примере извлекается информация о хранилище, а затем выходные данные скачиваются с **wasb:///example/data/WordCountOutput**. Параметр **CLUSTERNAME** нужно заменить именем кластера HDInsight.
+Следующий пример извлекает информацию о хранилище, а затем скачивает выходные данные из **wasb:///example/data/WordCountOutput**. Параметр **CLUSTERNAME** нужно заменить именем кластера HDInsight.
 
 		#Login to your Azure subscription
 		# Is there an active Azure subscription?
@@ -141,21 +141,21 @@ Azure PowerShell предоставляет *командлеты*, позвол
 		#Use the -blob switch to filter only blobs contained in example/data/WordCountOutput
 		Get-AzureStorageBlob -Container $storageContainer -Blob example/data/WordCountOutput/* -Context $context | Get-AzureStorageBlobContent -Context $context
 
-> [AZURE.NOTE] В этом примере будут сохраняться загруженные файлы в папке **example/data/WordCountOutput** в каталоге, из которого запускается скрипт.
+> [AZURE.NOTE]В этом примере скачанные файлы будут храниться в папке **example/data/WordCountOutput** в каталоге, из которого запускается сценарий.
 
-Выходные данные задания MapReduce хранятся в файлах с именем *part-r-#####*. Откройте файл **example/data/WordCountOutput/part-r-00000** в текстовом редакторе, чтобы просмотреть слова и статистику, полученные в результате выполнения задания.
+Выходные данные задания MapReduce сохраняются в файлах с именем *part-r-№№№№№*. Откройте файл **example/data/WordCountOutput/part-r-00000** в текстовом редакторе, чтобы просмотреть слова и статистику, полученные в результате выполнения задания.
 
-> [AZURE.NOTE] Выходные файлы задания MapReduce являются неизменяемыми. Поэтому при повторном выполнении этого примера потребуется изменить имя выходного файла.
+> [AZURE.NOTE]Выходные файлы задания MapReduce являются неизменяемыми. Поэтому при повторном выполнении этого примера потребуется изменить имя выходного файла.
 
 ##<a id="troubleshooting"></a>Устранение неполадок
 
-Если данные не возвращаются по завершении задания, возможно, во время обработки произошла ошибка. Чтобы просмотреть информацию об ошибке для данного задания, добавьте следующий текст в конце файла **mapreducejob.ps1**, сохраните его, а затем запустите снова.
+Если данные не возвращаются по завершении задания, возможно, во время обработки произошла ошибка. Чтобы просмотреть информацию об ошибке для данного задания, добавьте следующую команду в конец файла **mapreducejob.ps1**, сохраните его, а затем запустите снова.
 
 	# Print the output of the WordCount job.
 	Write-Host "Display the standard output ..." -ForegroundColor Green
 	Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $wordCountJob.JobId -StandardError
 
-Возвращает информацию, которая записывается в STDERR на сервере при запуске задания, и может помочь определить причину сбоя задания.
+Будет возвращена информация, которая записывается в STDERR на сервере при запуске задания и может помочь определить причину сбоя задания.
 
 ##<a id="summary"></a>Сводка
 
@@ -163,13 +163,14 @@ Azure PowerShell предоставляет *командлеты*, позвол
 
 ##<a id="nextsteps"></a>Дальнейшие действия
 
-Вот где можно ознакомиться с общей информацией о заданиях MapReduce в HDInsight.
+Общая информация о заданиях MapReduce в HDInsight:
 
 * [Использование MapReduce в Hadoop в HDInsight](hdinsight-use-mapreduce.md)
 
-Дополнительная информация о других способах работы с Hadoop в HDInsight.
+Дополнительная информация о других способах работы с Hadoop в HDInsight:
 
 * [Использование Hive с Hadoop в HDInsight](hdinsight-use-hive.md)
 
-* [Использование Pig с Hadoop в HDInsigh](hdinsight-use-pig.md)
-<!--HONumber=47-->
+* [Использование Pig с Hadoop в HDInsight](hdinsight-use-pig.md)
+
+<!--HONumber=54-->

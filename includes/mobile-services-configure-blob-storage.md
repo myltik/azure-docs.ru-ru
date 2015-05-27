@@ -2,9 +2,7 @@
 
 0. Если вы еще не создали учетную запись хранения, см. раздел [Создание учетной записи хранения]
 
-1. В портале управления нажмите **Хранилище**, выберите учетную запись хранения, нажмите **Управление ключами**. 
-
-  	![](./media/mobile-services-configure-blob-storage/mobile-blob-storage-account.png)
+1. В портале управления нажмите **Хранилище**, выберите учетную запись хранения, нажмите **Управление ключами**.
 
 2. Запишите **имя учетной записи хранения** и **ключ доступа к хранилищу**.
 
@@ -19,9 +17,7 @@
 
 	Ключ доступа к учетной записи хранения хранится в зашифрованном виде в параметрах приложения. Этот ключ можно получить из любого серверного сценария во время выполнения. Дополнительные сведения см. в разделе [Параметры приложения].
 
-4. Нажмите вкладку **Данные** и нажмите таблицу **TodoItem**. 
-
-   	![](./media/mobile-services-configure-blob-storage/mobile-portal-data-tables.png)
+4. Нажмите вкладку **Данные** и нажмите таблицу **TodoItem**.
 
 5.  В **todoitem** нажмите вкладку **Сценарий** и выберите **Вставить**, замените функцию вставки следующим кодом, а затем нажмите кнопку **Сохранить**:
 
@@ -37,7 +33,7 @@
 		
 		    if ((typeof item.containerName !== "undefined") && (
 		    item.containerName !== null)) {
-		        // Set the BLOB store container name on the item, который должен быть в нижнем регистре.
+		        // Set the BLOB store container name on the item, which must be lowercase.
 		        item.containerName = item.containerName.toLowerCase();
 		
 		        // If it does not already exist, create the container 
@@ -78,12 +74,9 @@
 		    }
 		}
 
- 	![](./media/mobile-services-configure-blob-storage/mobile-insert-script-blob.png)
+   	Этот заменяет функцию, которая вызывается, когда происходит вставка нового сценария в таблицу TodoItem. Этот новый сценарий создает SAS для вставки, действительный в течение 5 минут, и присваивает значение созданного SAS свойству `sasQueryString` возвращенного элемента. Свойство `imageUri` также задается для пути ресурса нового BLOB-объекта, чтобы отображать изображение в пользовательском интерфейсе клиента во время привязки.
 
-   	Заменяет функцию, которая вызывается при выполнении вставки в таблицу TodoItem новым сценарием. Этот новый сценарий создает новый SAS для вставки, действительный в течение 5 минут, и присваивает значение созданного SAS свойству  `sasQueryString` возвращенного элемента. Свойство  `imageUri` также задается для пути ресурса нового большого двоичного объекта, чтобы отображать изображение в пользовательском интерфейсе клиента во время привязки.
-
-	>[AZURE.NOTE] Этот код создает SAS для отдельных больших двоичных объектов. Если требуется передать несколько больших двоичных объектов в контейнер с помощью той же SAS, вместо этого можно вызвать <a href="http://go.microsoft.com/fwlink/?LinkId=390455" target="_blank">метод generateSharedAccessSignature</a> с именем ресурса пустого большого двоичного объекта следующим образом: 
-	<pre><code>blobService.generateSharedAccessSignature(containerName, '', sharedAccessPolicy);</code></pre>
+	>[AZURE.NOTE]Этот код создает SAS для отдельных больших двоичных объектов. Если требуется передать несколько BLOB-объектов в контейнер при помощи того же SAS, вместо этого можно вызвать <a href="http://go.microsoft.com/fwlink/?LinkId=390455" target="_blank">метод generateSharedAccessSignature</a> с именем пустого BLOB-ресурса, например: <pre><code>blobService.generateSharedAccessSignature(containerName, '', sharedAccessPolicy);</code></pre>
 
 Далее вы обновите приложение быстрого запуска, чтобы добавить функции передачи изображений с помощью SAS, созданных при вставке.
  
@@ -92,7 +85,7 @@
 <!-- Images. -->
 
 <!-- URLs. -->
-[Создание учетной записи хранения]: /ru-ru/manage/services/storage/how-to-create-a-storage-account
+[Создание учетной записи хранения]: /manage/services/storage/how-to-create-a-storage-account
 [Параметры приложения]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!--HONumber=42-->
+<!--HONumber=54-->

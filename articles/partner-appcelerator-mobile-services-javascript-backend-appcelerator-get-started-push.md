@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Приступая к работе с push-уведомлениями (Appcelerator) | Центр мобильных разработок" 
 	description="Узнайте, как использовать мобильные службы Azure для отправки push-уведомлений в приложение Appcelerator." 
 	services="mobile-services" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-appcelerator" 
+	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="11/24/2014" 
@@ -18,28 +18,22 @@
 
 # Приступая к работе с push-уведомлениями в мобильных службах (принудительная отправка устаревшего типа)
 <div class="dev-center-tutorial-selector sublanding">
-	<a href="/ru-ru/documentation/articles/mobile-services-windows-store-dotnet-get-started-push" title="Windows Store C#">C# в Магазине Windows</a>
-	<a href="/ru-ru/documentation/articles/mobile-services-windows-store-javascript-get-started-push" title="Windows Store JavaScript">JavaScript в Магазине Windows</a>
-	<a href="/ru-ru/documentation/articles/mobile-services-windows-phone-get-started-push" title="Windows Phone">Windows Phone</a>
-	<a href="/ru-ru/documentation/articles/mobile-services-ios-get-started-push" title="iOS">iOS</a>
-	<a href="/ru-ru/documentation/articles/mobile-services-android-get-started-push" title="Android">Android</a>
-<!--    <a href="/ru-ru/documentation/articles/partner-xamarin-mobile-services-ios-get-started-push" title="Xamarin.iOS">Xamarin.iOS</a>
-    <a href="/ru-ru/documentation/articles/partner-xamarin-mobile-services-android-get-started-push" title="Xamarin.Android">Xamarin.Android</a> -->
-	<a href="/ru-ru/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push" title="Appcelerator" class="current">Appcelerator</a>
+	<a href="/documentation/articles/mobile-services-windows-store-dotnet-get-started-push" title="Магазин Windows — C#">Магазин Windows — C#</a> <a href="/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push" title="Магазин Windows — JavaScript">Магазин Windows — JavaScript</a> <a href="/documentation/articles/mobile-services-windows-phone-get-started-push" title="Windows Phone">Windows Phone</a> <a href="/documentation/articles/mobile-services-ios-get-started-push" title="iOS">iOS</a> <a href="/documentation/articles/mobile-services-android-get-started-push" title="Android">Android</a> <!--    <a href="/documentation/articles/partner-xamarin-mobile-services-ios-get-started-push" title="Xamarin.iOS">Xamarin.iOS</a>
+    <a href="/documentation/articles/partner-xamarin-mobile-services-android-get-started-push" title="Xamarin.Android">Xamarin.Android</a> --> <a href="partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started.md-push" title="Appcelerator" class="current">Appcelerator</a>
 </div>
 
-В этом разделе показано, как использовать мобильные службы Windows Azure для отправки push-уведомлений в приложения на платформах iOS и Android, разработанные в Appcelerator Titanium Studio. В этом учебнике вам предстоит добавить push-уведомления в проект быстрого начала работы с помощью службы push-уведомлений Apple (APNS) и Google Cloud Messaging. По завершении работы ваша мобильная служба будет отправлять push-уведомление каждый раз при вставке записи.
+В этой статье показано, как использовать мобильные службы Windows Azure для отправки push-уведомлений в приложения на платформах iOS и Android, разработанные в Appcelerator Titanium Studio. В этом учебнике вам предстоит добавить push-уведомления в проект быстрого начала работы с помощью службы push-уведомлений Apple (APNS) и Google Cloud Messaging. По завершении работы ваша мобильная служба будет отправлять push-уведомление каждый раз при вставке записи.
 
->[AZURE.NOTE] Мобильные службы теперь интегрируются с центрами уведомлений Azure для поддержки дополнительных функций push-уведомлений, таких как шаблоны, использование нескольких платформ и лучшее масштабирование. В этом разделе рассматривается поддержка существующих мобильных служб, которые еще не были обновлены для использования интеграции с центрами уведомлений. При создании новой мобильной службы эта встроенная функция включается автоматически. По возможности необходимо обновить службу для использования центров уведомлений. **Мы готовим к выпуску учебник по использованию push-уведомлений в центрах уведомлений с Appcelerator.**
+>[AZURE.NOTE]Мобильные службы теперь интегрируются с центрами уведомлений Azure для поддержки дополнительных функций push-уведомлений, таких как шаблоны, использование нескольких платформ и лучшее масштабирование. В этом разделе рассматривается поддержка существующих мобильных служб, которые еще не были обновлены для использования интеграции с концентраторами уведомлений. При создании новой мобильной службы эта встроенная функция включается автоматически. По возможности необходимо обновить службу для использования концентраторов уведомлений. **Мы готовим к выпуску учебник по использованию push-уведомлений концентраторов уведомлений с Appcelerator.**
 
 1.	[Создание запроса подписи сертификата]
 2.	[Регистрация приложения и включение push-уведомлений]
 3.	[Создание профиля подготовки для приложения]
-4.	[Включение Google Cloud Messaging]
+4.	[Включение службы Google Cloud Messaging]
 5.  [Создание модуля GCM для Titanium]
 6.	[Настройка мобильных служб]
 7.	[Добавление push-уведомлений в приложение]
-8.	[Обновление сценариев для отправки push-уведомлений]
+8.	[Обновление скриптов для отправки push-уведомлений]
 9.	[Вставка данных для получения уведомлений]
 
 Для работы с данным учебником требуется следующее:
@@ -50,15 +44,15 @@
 * Участие в программе для разработчиков на платформе iOS
 * Активная учетная запись Google
 
-> [AZURE.NOTE] В соответствии с требованиями к конфигурации push-уведомлений необходимо развернуть и протестировать push-уведомления на устройстве с iOS (iPhone или iPad), а не в эмуляторе.
+> [AZURE.NOTE]В соответствии с требованиями к конфигурации push-уведомлений необходимо развернуть и протестировать push-уведомления на устройстве с iOS (iPhone или iPad), а не в эмуляторе.
 
 Этот учебник создан на основе краткого руководства по мобильным службам. Перед началом работы с учебником необходимо пройти задания учебника [Приступая к работе с мобильными службами].
 
 [AZURE.INCLUDE [Включение push-уведомлений Apple](../includes/enable-apple-push-notifications.md)]
 
-## <a name="register-gcm"></a>Включение Google Cloud Messaging
+## <a name="register-gcm"></a>Включение службы Google Cloud Messaging
 
->[AZURE.NOTE]Для выполнения этой процедуры необходима учетная запись Google с проверенным электронным адресом. Чтобы создать новую учетную запись Google, перейдите по ссылке <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
+>[AZURE.NOTE]Для выполнения этой процедуры необходима учетная запись Google с проверенным электронным адресом. Чтобы создать учетную запись Google, перейдите по ссылке <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
 
 [AZURE.INCLUDE [Включение GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
@@ -67,9 +61,9 @@
 
 ### Подготовка Appcelerator Titanium Studio для создания модуля
 
-Для создания модулей Android необходимо установить поддержку Java в Appcelerator Titanium Studio. См. раздел [Установка инструментов разработки Java] для Appcelerator с кратким описанием необходимых действий, если вы этого еще не сделали.
+Для создания модулей Android необходимо установить поддержку Java в Appcelerator Titanium Studio. См. раздел [Установка средств разработки Java] для Appcelerator с кратким описанием необходимых действий, если вы этого еще не сделали.
 
-Кроме этого, понадобится установить пакет Android NDK. Скачайте соответствующий ZIP-файл с веб-сайта [http://developer.android.com/sdk/ndk/index.html](http://developer.android.com/sdk/ndk/index.html) и распакуйте его в любое место на диске. Запомните это местоположение. 
+Кроме этого, понадобится установить пакет Android NDK. Скачайте соответствующий ZIP-файл с веб-сайта [http://developer.android.com/sdk/ndk/index.html](http://developer.android.com/sdk/ndk/index.html) и распакуйте его в любое место на диске. Запомните это местоположение.
 
 ### Создание нового модуля
 
@@ -79,23 +73,23 @@
 
     ![][0]
 
-3. В следующем окне введите данных параметров проекта: 
+3. В следующем окне введите данных параметров проекта:
 
-    * **Имя проекта:** в нашем случае используется &quot;notificationhub&quot; (можно его оставить).
+    * **Имя проекта:** в нашем случае используется "notificationhub" (можно его оставить).
 
-    * **Идентификатор модуля:** в данном случае используется &quot;com.winwire.notificationhub&quot;. Он должен совпадать с "идентификатором приложения".
+    * **Идентификатор модуля:** в нашем случае используется "com.winwire.notificationhub". Он должен совпадать с "идентификатором приложения".
 
     * **Платформа развертывания:** в нашем примере выбираем Android.
 
-    > [AZURE.NOTE] Важно, чтобы имя рабочей области не содержало пробелы, в противном случае у нас будут проблемы при создании компиляции.
+    > [AZURE.NOTE]Важно, чтобы имя рабочей области WorkSpace не содержало пробелы, в противном случае возникнут проблемы при создании компиляции.
 
     ![][1]
 
-4. Нажмите кнопку "Далее" и введите информацию для модуля.
+4. Нажмите кнопку «Далее» и введите информацию для модуля.
 
     ![][2]
 
-5. Наконец, нажмите кнопку "Готово".
+5. Наконец, нажмите кнопку «Готово».
 
 6. Откройте файл timodule.xml. И добавьте следующие изменения в тег Android.
 
@@ -137,15 +131,15 @@
 
 
 
-> [AZURE.NOTE] В указанном выше коде необходимо заменить все вхождения текста *com.winwire.notificationhub* на имя пакета приложения (идентификатор модуля).
+> [AZURE.NOTE]В указанном выше коде необходимо заменить все фрагменты текста *com.winwire.notificationhub* именем пакета приложения (идентификатор модуля).
 
-7. В модуле центра уведомлений щелкните папку &quot;src&quot;, перейдите к элементу &quot;Создать&quot; и выберите &quot;папка&quot;. Присвойте папке имя com.google.android.gcm.
+7. В модуле центра уведомлений щелкните правой кнопкой мыши папку src, перейдите в раздел «Создать» и выберите «папка». Присвойте папке имя com.google.android.gcm.
 
-> [AZURE.NOTE] Если элемент &quot;папка&quot; в параметрах &quot;Создать&quot; не виден, выберите &quot;Другие&quot;, разверните "Общие" и выберите &quot;Папка&quot;.
+> [AZURE.NOTE]Если вы не видите элемент &quot;Папка&quot; в параметрах команды &quot;Создать&quot;, выберите &quot;Другое&quot;, разверните узел "Общие", и выберите &quot;Папка&quot;.
 
-8. Теперь скачайте отсюда файлы &quot;.java&quot; (gcm.zip) и скопируйте эти файлы во вновь созданную папку (com.google.android.gcm).
+8. Теперь загрузите отсюда файлы ".java" (gcm.zip) и скопируйте эти файлы во вновь созданную папку (com.google.android.gcm).
 
-9. Далее найдите папку с именем идентификатора модуля и разверните ее. В этой папке можно увидеть список файлов ".java". Среди этих файлов откройте файл с именем вашего проекта +module.java (например, если имя проекта notificationhub, то это будет выглядеть как &quot;NotificationhubModule.java&quot;) и добавьте приведенные ниже строки кода в верхней части.
+9. Далее найдите папку с именем идентификатора модуля и разверните ее. В этой папке можно увидеть список файлов ".java". Среди этих файлов откройте файл в именем вашего проекта +module.java (например, если имя проекта notificationhub, то это будет выглядеть как «NotificationhubModule.java») и добавьте приведенные ниже строки кода в верхней части.
 
         private static NotificationhubModule _THIS;
         private KrollFunction successCallback;
@@ -216,11 +210,11 @@
 
 12. Теперь загрузите module.zip и скопируйте файлы в папку с идентификатором модуля в качестве имени.
 
-> [AZURE.NOTE] В указанном выше файле необходимо заменить все вхождения текста *com.winwire.notificationhub* на имя пакета приложения (идентификатор модуля). Также замените &quot;NotificationhubModule&quot; на ProjectName+Module (например, &quot;NotificationhubModule&quot;).
+> [AZURE.NOTE]В указанных выше файлах необходимо заменить все фрагменты текста *com.winwire.notificationhub* именем пакета приложения (идентификатор модуля). Также замените NotificationhubModule на значение, состоящее из имени проекта и слова Module (например, NotificationhubModule).
 
 ### Создание/ упаковка модуля
 
-Выберите **Развернуть > Упаковать - Модуль Android**. Модуль BlackBerry с помощью Studio создать нельзя. Используйте средства BlackBerry NDK CLI либо Momentics IDE. 
+Выберите **Deploy > Package - Android Module** (Развернуть > Упаковать - Модуль Android). Модуль BlackBerry с помощью Studio создать нельзя. Используйте средства BlackBerry NDK CLI либо Momentics IDE.
 
 ![][3]
 
@@ -229,7 +223,7 @@
 
 - Для всех проектов: ZIP-файл модуля вставляется в корневую папку местоположения установки Titanium SDK. 
 
-- Для конкретного проекта: ZIP-файл модуля вставляется в корневую папку вашего проекта. 
+- Для конкретного проекта: ZIP-файл модуля вставляется в корневую папку проекта.
 
 
 ## <a name="configure"></a>Настройка мобильных служб для отправки push-запросов
@@ -245,7 +239,7 @@
 
 ## <a name="add-push"></a>Добавление push-уведомлений в приложение
 
-1.	В tiapp.xml перейдите на вкладку tiapp.xml (эту вкладку можно найти внизу рядом с вкладкой &quot;Обзор&quot;) и найдите тег <android>. Ниже тега добавьте следующий код:
+1.	В tiapp.xml перейдите на вкладку tiapp.xml (эту вкладку можно найти в низу рядом с вкладкой "Обзор") и найдите тег `<android>`. Ниже тега добавьте следующий код:
 
         <modules>
             <module platform="android">ModuleId</module>
@@ -254,35 +248,35 @@
         <property name="ApplicationId.icon type="int">2130837504</property>
         <property name="ApplicationId.component" type="string">ApplicationId/ApplicationId.AppNameActivity</property>
 
->[AZURE.NOTE] В указанном выше коде необходимо заменить **ModuleId** и **ApplicationId**. Идентификатор модуля получен во время создания модуля GCM, а идентификатор приложения вводится во время создания проекта.  Значения **ModuleId** и **ApplicationId** должны быть одинаковыми. Кроме того, необходимо изменить **ApplicationId.AppNameActivity**. Оно должно выглядеть так : com.winwire.notificationhub/ com.winwire.notificationhub.NotificationhubActivity.
+>[AZURE.NOTE]В указанном выше коде необходимо заменить **ModuleId** и **ApplicationId**. Идентификатор модуля получен во время создания модуля GCM, а идентификатор приложения вводится во время создания проекта. Значения **ModuleId** и **ApplicationId** должны быть одинаковы. Кроме того, необходимо изменить **ApplicationId.AppNameActivity**. Оно должно выглядеть так : com.winwire.notificationhub/ com.winwire.notificationhub.NotificationhubActivity.
 
 
 2.	Скопируйте созданный ранее модуль GCM и разместите его в указанном ниже месте.	
 
     <table><tr>
-    <td>OSX
-    </td>
-    <td>/Library/Application Support/Titanium или  ~/Library/Application Support/Titanium
-    </td>
-    </tr>
-    <td>Windows 7
-    </td>
-    <td>C:\Users\username\AppData\Roaming (или C:\ProgramData\Titanium на Titanium Studio 1.0.1 и более ранних версиях)
-    </td>
-    </tr><td>Windows XP
-    </td>
-    <td>C:\Documents and Settings\username\Application Data (или C:\Documents and Settings\All Users\Application Data\Titanium на Titanium Studio 1.0.1 и более ранних версиях)
-    </td>
-    </tr><td>Linux
-    </td>
-    <td>~/.titanium
-    </td>
-    </tr>
-    </tr>
-    
-    </table>
+<td>OSX
+</td>
+<td>/Library/Application Support/Titanium или ~/Library/Application Support/Titanium
+</td>
+</tr>
+<td>Windows 7
+</td>
+<td>C:\Users\username\AppData\Roaming (или C:\ProgramData\Titanium на Titanium Studio 1.0.1 и более ранних версиях)
+</td>
+</tr><td>Windows XP
+</td>
+<td>C:\Documents and Settings\username\Application Data (или C:\Documents and Settings\All Users\Application Data\Titanium на Titanium Studio 1.0.1 и более ранних версиях)
+</td>
+</tr><td>Linux
+</td>
+<td>~/.titanium
+</td>
+</tr>
+</tr>
 
->[AZURE.NOTE]  В Mac OS библиотека представляет собой скрытую папку. Чтобы сделать ее видимой, необходимо выполнить следующую команду, а затем перезапустить поисковик. **defaults write com.apple.finder AppleShowAllFiles TRUE**
+</table>
+
+>[AZURE.NOTE]В Mac OS библиотека представляет собой скрытую папку. Чтобы сделать ее видимой, необходимо выполнить следующую команду, а затем перезапустить средство Finder: `**defaults write com.apple.finder AppleShowAllFiles TRUE**`
 
 3.	В Appcelerator Titanium Studio откройте файл index.js и добавьте следующий код в нижней части. Этот код выполняет регистрацию устройства для получения push-уведомлений.
 
@@ -368,15 +362,11 @@
         };
   
 
-    Замените указанный выше код только в условии "else" (для вставки нового элемента).
+    Замените указанный выше код только в условии «else» (для вставки нового элемента).
 
 5.	Для Android замените указанный выше код на следующий:
 
-       var request = {
-    	'text' : alertTextField.getValue(),
-    	'complete' : false,
-    	'handle' : Alloy.Globals.tempRegId
-    }; 
+       var request = { 'text' : alertTextField.getValue(), 'complete' : false, 'handle' : Alloy.Globals.tempRegId };
     
     
 
@@ -387,27 +377,23 @@
     	    'complete' : false
         };
     
-    Замените указанный выше код только в условии "else" (для вставки нового элемента).
+    Замените указанный выше код только в условии «else» (для вставки нового элемента).
 
 7.	Для iOS замените указанный выше код на следующий:
 
-       var request = {
-    	'text' : alertTextField.getValue(),
-    	'complete' : false,
-    	'deviceToken' : Alloy.Globals.tempRegId
-    };
+       var request = { 'text' : alertTextField.getValue(), 'complete' : false, 'deviceToken' : Alloy.Globals.tempRegId };
     
  
 Приложение теперь обновлено и поддерживает push-уведомления на платформах iOS и Android.
 
 
-## <a name="update-scripts"></a>Обновление зарегистрированных сценариев вставки на портале управления
+## <a name="update-scripts"></a>Обновление зарегистрированных скриптов вставки на портале управления
 
-1.	На портале управления выберите вкладку "Данные", а затем щелкните таблицу TodoItem.
+1.	На портале управления щелкните вкладку Данные, а затем щелкните таблицу TodoItem.
 
     ![][5]
 
-2.	В таблице todoitem щелкните вкладку "Сценарий" и выберите команду "Вставить".
+2.	В таблице todoitem щелкните вкладку Скрипт и выберите Вставить.
 
     ![][6]
 
@@ -431,7 +417,7 @@
             }, 2500);
         }
   
-   	> [AZURE.NOTE] Этот сценарий задерживает отправку уведомления, чтобы вы успели закрыть приложение для получения push-уведомления.  
+   	> [AZURE.NOTE] This script delays sending the notification to give you time to close the app to receive a push notification.  
 
 **Для Android:**
 
@@ -453,7 +439,7 @@
 
 
 
-При этом регистрируется новый сценарий вставки, в котором используется [push-объект мобильных служб] для отправки push-уведомления (вставленный текст) на устройство, указанное в запросе вставки.
+При этом регистрируется новый скрипт вставки, в котором используется [Push-объект мобильных служб] для отправки push-уведомления (вставленный текст) на устройство, указанное в запросе вставки.
 
 
 <!-- Images. -->
@@ -469,20 +455,18 @@
 [Создание запроса подписи сертификата]: #certificates
 [Регистрация приложения и включение push-уведомлений]: #register
 [Создание профиля подготовки для приложения]: #profile
-[Включение Google Cloud Messaging]: #register-gcm
+[Включение службы Google Cloud Messaging]: #register-gcm
 [Создание модуля GCM для Titanium]: #gcm-module
 [Настройка мобильных служб]: #configure
 [Добавление push-уведомлений в приложение]: #add-push
-[Обновление сценариев для отправки push-уведомлений]: #update-scripts
+[Обновление скриптов для отправки push-уведомлений]: #update-scripts
 [Вставка данных для получения уведомлений]: #test
 
 <!-- URLs. -->
-[Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started
+[Приступая к работе с мобильными службами]: partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started.md
 [Использование модулей Titanium]: http://docs.appcelerator.com/titanium/latest/#!/guide/Using_Titanium_Modules
-[Портал управления Microsoft Azure]: https://manage.windowsazure.com/
+[Microsoft Azure Management Portal]: https://manage.windowsazure.com/
 [Push-объект мобильных служб]: http://go.microsoft.com/fwlink/p/?linkid=272333&clcid=0x409
 [Установка средств разработки Java]: http://docs.appcelerator.com/titanium/latest/#!/guide/Installing_the_Java_Development_Tools
 
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

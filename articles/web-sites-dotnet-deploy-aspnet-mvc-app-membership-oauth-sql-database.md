@@ -1,11 +1,11 @@
-﻿<properties 
+<properties 
 	pageTitle="Создание приложения ASP.NET MVC с проверкой подлинности и базой данных SQL и развертывание службы приложений Azure" 
 	description="Узнайте, как разработать приложение ASP.NET MVC 5 с внутренней базой данных SQL, добавить проверку подлинности и авторизацию и развернуть его в службе Azure." 
 	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="Rick-Anderson" 
 	writer="Rick-Anderson" 
-	manager="wpickett" 	
+	manager="wpickett" 
 	editor="mollybos"/>
 
 <tags 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
-	ms.author="riande"/> 
+	ms.date="04/06/2015" 
+	ms.author="riande"/>
 
 
 
@@ -23,11 +23,11 @@
 
 В этом учебнике показано, как создать безопасное веб-приложение ASP.NET MVC 5, которое позволяет пользователям входить в систему с учетными данными из Google или Facebook. Вы также узнаете, как развернуть приложение в [службе приложений](http://go.microsoft.com/fwlink/?LinkId=529714).
 
-Можно бесплатно создать учетную запись Azure, а если у вас еще нет Visual Studio 2013, пакет SDK автоматически установит Visual Studio 2013 for Web Express. Вы можете приступить к разработке приложений для Azure совершенно бесплатно.
+Можно бесплатно создать учетную запись Azure, а если у вас еще нет Visual Studio 2013, то пакет SDK автоматически установит Visual Studio 2013 для Web Express. Вы можете приступить к разработке приложений для Azure совершенно бесплатно.
 
 В данном учебнике предполагается, что у читателя нет опыта использования платформы Azure. По завершении изучения этого учебника вы создадите безопасное приложение на основе данных, выполняемое в облаке и использующее облачную базу данных.
 
-Вы узнаете:
+Вы узнаете следующее:
 
 * Создание безопасного проекта ASP.NET MVC 5 и его публикация в [веб-приложениях службы приложений](http://go.microsoft.com/fwlink/?LinkId=529714) в службе приложений Azure.
 * Использование [OAuth](http://oauth.net/ "http://oauth.net/") и базы данных членства ASP.NET для защиты приложения.
@@ -35,167 +35,168 @@
 
 Вы создадите простое веб-приложение для списка контактов, основанное на платформе ASP.NET MVC 5 и использующее ADO.NET Entity Framework для доступа к базе данных. На следующем рисунке показана страница входа для готового приложения:
 
-![login page][rxb]
+![Страница входа][rxb]
 
->[AZURE.NOTE] Для работы с этим учебником необходимо использовать учетную запись Microsoft Azure. Если у вас нет учетной записи, можно <a href="/ru-ru/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">активировать преимущества для подписчиков MSDN</a> или <a href="/ru-ru/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">подписаться на бесплатную пробную версию</a>.
+>[AZURE.NOTE]Для работы с этим учебником необходимо использовать учетную запись Microsoft Azure. Если у вас нет учетной записи, можно <a href="/ru-ru/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">активировать преимущества для подписчиков MSDN</a> или <a href="/ru-ru/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">подписаться на бесплатную пробную версию</a>.
 
->[AZURE.NOTE] Если вы хотите начать работу со службой приложений Azure еще до создания учетной записи Azure, перейдите на страницу [ознакомительной версии службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751). Там вы сможете сразу создать свое первое веб-приложение, правда срок его службы будет ограничен. Никаких кредитных карт и обязательств.
+>Чтобы приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
 
-[AZURE.INCLUDE [install-sdk-2013-only](../includes/install-sdk-2013-only.md)]
+Чтобы настроить среду разработки, необходимо установить [Visual Studio 2013 с обновлением 4](http://go.microsoft.com/fwlink/?LinkId=390521) или более позднюю версию и последнюю версию [Azure SDK для Visual Studio 2013](http://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409). Эта статья была написана для версий Visual Studio с обновлением 4 и пакета SDK 2.5.1.
 
-Чтобы использовать новый сертификат SSL для localhost, необходимо установить [Visual Studio 2013 обновление 3](http://go.microsoft.com/fwlink/?LinkId=390521) или более поздней версии.
-
-<h2><a name="bkmk_createmvc4app"></a>Создание приложения ASP.NET MVC 5</h2>
+## Создание приложения ASP.NET MVC 5
 
 ### Создание проекта
 
 1. В меню **Файл** выберите **Новый проект**.
 
-	![New Project in File menu](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/gs13newproj.png)
+	!["Новый проект" в меню "Файл"](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/gs13newproj.png)
 
-1. В диалоговом окне **Новый проект** разверните узел **C#** и выберите **Интернет** в разделе **Установленные шаблоны**, а затем выберите **Веб-приложение ASP.NET**.
+1. В диалоговом окне **Новый проект** разверните **C#** и выберите **Интернет** в **Установленные шаблоны**, а затем выберите **Веб-приложение ASP.NET**.
 
 1. Присвойте приложению имя **ContactManager** и нажмите кнопку **ОК**.
 
-	![New Project dialog box](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/GS13newprojdb.png)
+	![Диалоговое окно "Новый проект"](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/GS13newprojdb.png)
  
-	**Примечание:** Убедитесь, что вы присвоили приложению имя ContactManager. В блоках кода, которые вы будете копировать позже, предполагается, что проект имеет имя ContactManager.
+	**Примечание.** Необходимо ввести именно ContactManager. В блоках кода, которые вы будете копировать позже, предполагается, что проект имеет имя ContactManager.
 
-1. В диалоговом окне **Новый проект ASP.NET** выберите шаблон **MVC**. Убедитесь, что параметр **Проверка подлинности** имеет значение **Индивидуальные учетные записи пользователей**, что установлен флажок **Размещать в облаке** и выбран параметр **Веб-приложения**.
+1. В диалоговом окне **Новый проект ASP.NET** выберите шаблон **MVC**. Убедитесь, что параметр **Проверка подлинности** имеет значение **Индивидуальные учетные записи** пользователей, установлен флаг **Размещать в облаке** и выбран параметр **Веб-приложения**.
 
-	![New ASP.NET Project dialog box](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss1.PNG)
+	![Диалоговое окно "Новый проект ASP.NET"](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/newproject.png)
 
-1. Мастер настройки предложит уникальное имя на основе *ContactManager* (см. на следующем рисунке). Выберите регион рядом с вами. Вы можете воспользоваться веб-сайтом [azurespeed.com](http://www.azurespeed.com/ "AzureSpeed.com") для поиска центра обработки данных с минимальной задержкой. 
-2. Если сервер баз данных еще не был создан, выберите **Создать сервер**, введите имя пользователя и пароль.
+1. Мастер настройки предложит уникальное имя на основе *ContactManager*. Необходимо решить, следует ли создавать новую группу ресурсов и план приложения службы. Рекомендации по поводу того, следует ли создать новый план или группу ресурсов, см. в разделе [Исчерпывающий обзор планов службы приложения Azure](azure-web-sites-web-hosting-plans-in-depth-overview.md). В этом учебнике, возможно, необходимо будет создать хотя бы новую группу ресурсов. Выберите ближайшую область. Поиск центра обработки данных с наименьшим временем задержки можно выполнить с помощью веб-сайта [azurespeed.com](http://www.azurespeed.com/ "AzureSpeed.com"). На следующем шаге необходимо будет настроить базу данных, поэтому пока не нажимайте **ОК**.
 
-	![Configure an Azure web app](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/configAz.PNG)
+   ![Новый план и группа ресурсов](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/newplanandgroup.png)
+ 
+2. Если вы еще не создали сервер базы данных, нажмите **Создать новый сервер**, а затем укажите имя, имя пользователя и пароль для базы данных.
 
-Если у вас есть сервер баз данных, используйте его для создания новой базы данных. Серверы баз данных являются ценным ресурсом, и обычно на одном севере создают несколько баз данных для тестирования и разработки вместо того, чтобы создавать отдельный сервер баз данных для каждой базы данных. Убедитесь, что веб-приложение и база данных находятся в одном регионе.
+   ![Использование новой базы данных](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/newdb.png)
 
-![Configure an Azure web app](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/configWithDB.PNG)
+3. Если у вас есть сервер баз данных, используйте его для создания новой базы данных. Серверы баз данных являются ценным ресурсом, и обычно удобнее создать сразу несколько баз данных на одном сервере для тестирования и разработки, чем создавать по одному серверу на каждую базу данных. Убедитесь, что веб-приложение и база данных находятся в одном регионе.
+
+    ![Использование имеющейся базы данных](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/useexistingdb.png)
 
 ### Задание верхнего и нижнего колонтитула страницы
 
 
-1. В **обозревателе решений** откройте файл *Layout.cshtml* в папке *Views\Shared*.
+1. В **обозревателе решений** откройте файл *Layout.cshtml* в папке *Views\\Shared*.
 
-	![_Layout.cshtml in Solution Explorer][newapp004]
+	![_Layout.cshtml в обозревателе решений][newapp004]
 
-1. Замените содержимое файла  *Layout.cshtml* на код, приведенный ниже. Изменения выделены ниже.
+1. Замените разметку файла *Layout.cshtml* на код, приведенный ниже. Изменения выделены ниже.
 
 <pre>
-			&lt;!DOCTYPE html&gt;
-			&lt;html&gt;
-			&lt;head&gt;
-			    &lt;meta charset="utf-8" /&gt;
-			    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-			    &lt;title&gt;@ViewBag.Title - <mark>Contact Manager</mark>&lt;/title&gt;
+			&lt;!DOCTYPE html>
+			&lt;html>
+			&lt;head>
+			    &lt;meta charset="utf-8" />
+			    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
+			    &lt;title>@ViewBag.Title - <mark>Contact Manager</mark>&lt;/title>
 			    @Styles.Render("~/Content/css")
 			    @Scripts.Render("~/bundles/modernizr")
 			
-			&lt;/head&gt;
-			&lt;body&gt;
-			    &lt;div class="navbar navbar-inverse navbar-fixed-top"&gt;
-			        &lt;div class="container"&gt;
-			            &lt;div class="navbar-header"&gt;
-			                &lt;button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"&gt;
-			                    &lt;span class="icon-bar"&gt;&lt;/span&gt;
-			                    &lt;span class="icon-bar"&gt;&lt;/span&gt;
-			                    &lt;span class="icon-bar"&gt;&lt;/span&gt;
-			                &lt;/button&gt;
+			&lt;/head>
+			&lt;body>
+			    &lt;div class="navbar navbar-inverse navbar-fixed-top">
+			        &lt;div class="container">
+			            &lt;div class="navbar-header">
+			                &lt;button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+			                    &lt;span class="icon-bar">&lt;/span>
+			                    &lt;span class="icon-bar">&lt;/span>
+			                    &lt;span class="icon-bar">&lt;/span>
+			                &lt;/button>
 			                @Html.ActionLink("<mark>CM Demo</mark>", "Index", "<mark>Cm</mark>", new { area = "" }, new { @class = "navbar-brand" })
-			            &lt;/div&gt;
-			            &lt;div class="navbar-collapse collapse"&gt;
-			                &lt;ul class="nav navbar-nav"&gt;
-			                    &lt;li&gt;@Html.ActionLink("Home", "Index", "Home")&lt;/li&gt;
-			                    &lt;li&gt;@Html.ActionLink("About", "About", "Home")&lt;/li&gt;
-			                    &lt;li&gt;@Html.ActionLink("Contact", "Contact", "Home")&lt;/li&gt;
-			                &lt;/ul&gt;
+			            &lt;/div>
+			            &lt;div class="navbar-collapse collapse">
+			                &lt;ul class="nav navbar-nav">
+			                    &lt;li>@Html.ActionLink("Home", "Index", "Home")&lt;/li>
+			                    &lt;li>@Html.ActionLink("About", "About", "Home")&lt;/li>
+			                    &lt;li>@Html.ActionLink("Contact", "Contact", "Home")&lt;/li>
+			                &lt;/ul>
 			                @Html.Partial("_LoginPartial")
-			            &lt;/div&gt;
-			        &lt;/div&gt;
-			    &lt;/div&gt;
-			    &lt;div class="container body-content"&gt;
+			            &lt;/div>
+			        &lt;/div>
+			    &lt;/div>
+			    &lt;div class="container body-content">
 			        @RenderBody()
-			        &lt;hr /&gt;
-			        &lt;footer&gt;
-			            &lt;p&gt;&amp;copy; @DateTime.Now.Year - <mark>Contact Manager</mark>&lt;/p&gt;
-			        &lt;/footer&gt;
-			    &lt;/div&gt;
+			        &lt;hr />
+			        &lt;footer>
+			            &lt;p>&amp;copy; @DateTime.Now.Year - <mark>Contact Manager</mark>&lt;/p>
+			        &lt;/footer>
+			    &lt;/div>
 			
 			    @Scripts.Render("~/bundles/jquery")
 			    @Scripts.Render("~/bundles/bootstrap")
 			    @RenderSection("scripts", required: false)
-			&lt;/body&gt;
-			&lt;/html&gt;
+			&lt;/body>
+			&lt;/html>
 </pre>
 
 ### Локальный запуск приложения
 
-1. Для запуска приложения нажмите клавиши CTRL+F5.
+1. Для запуска приложения нажмите сочетание клавиш CTRL+F5.
 
 	Главная страница приложения откроется в браузере, используемом по умолчанию.
 
-	![Web app running locally](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rr2.png)
+	![Веб-приложение, выполняющееся локально](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rr2.png)
 
-Это все, что требуется для создания приложения, которое будет развернуто в Azure. 
+Это все, что требуется для создания приложения, которое будет развернуто в Azure.
 
 ## Включение SSL для проекта ##
 
-1. Включение SSL. В обозревателе решений щелкните проект **ContactManager**, а затем нажмите F4, чтобы открыть диалоговое окно свойств. Для параметра **SSL включен** измените значение на "true". Скопируйте **URL-адрес SSL**. Если вы ранее не создали веб-приложения SSL, URL-адресом SSL будет https://localhost:44300/.
+1. Включение SSL. В обозревателе решений щелкните проект **ContactManager**, а затем нажмите F4, чтобы открыть диалоговое окно свойств. Для параметра **SSL включен** измените значение на "true". Скопируйте **URL-адрес SSL**. Если вы ранее не создали веб-сайты SSL, URL-адрес SSL будет https://localhost:44300/.
 
-	![enable SSL][rxSSL]
+	![Включение SSL][rxSSL]
  
-1. В обозревателе решений щелкните правой кнопкой мыши проект **Contact Manager** и выберите **Свойства**.
+1. В обозревателе решений щелкните правой кнопкой мыши проект **Contact Manager**, затем щелкните **Свойства**.
 1. На левой вкладке щелкните **Интернет**.
 1. Измените **URL-адрес проекта** на **URL-адрес SSL** и сохраните страницу (Ctrl + S).
 
-	![enable SSL](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrr1.png)
+	![Включение SSL](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrr1.png)
  
 1. Убедитесь, что обозреватель Visual Studio открывает браузер Internet Explorer, как показано на рисунке ниже:
 
-	![default browser](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss12.PNG)
+	![браузер по умолчанию](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss12.PNG)
 
 	Средство выбора браузера позволяет указать используемый Visual Studio браузер.
 
- 	![browser selector](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss13.png)
+ 	![средство выбора браузера](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss13.png)
 
-	Можно выбрать несколько браузеров и обновлять их при внесении изменений. Дополнительные сведения см. в разделе [Использование ссылки на браузер в Visual Studio 2013](http://www.asp.net/visual-studio/overview/2013/using-browser-link).
+	Вы можете выбрать несколько браузеров и обновлять их при внесении изменений. Дополнительные сведения см. в разделе [Использование ссылки на браузер в Visual Studio 2013](http://www.asp.net/visual-studio/overview/2013/using-browser-link).
 
 
-1. Для запуска приложения нажмите клавиши CTRL+F5. Следуйте инструкциям, чтобы подтвердить доверие к самозаверяющему сертификату, созданному IIS Express.
+1. Для запуска приложения нажмите сочетание клавиш CTRL+F5. Следуйте инструкциям, чтобы подтвердить доверие к самозаверяющему сертификату, созданному IIS Express.
 
-	 ![instructions to trust the self-signed certificate that IIS Express has generated](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss26.PNG)
+	 ![инструкции для подтверждения доверия к самозаверяющему сертификату, созданному IIS Express](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss26.PNG)
 
-1. Прочитайте текст в диалоговом окне **Предупреждение системы безопасности** и нажмите кнопку **Да**, чтобы установить сертификат, представляющий **localhost**.
+1. Прочитайте текст в диалоговом окне **Предупреждение системы безопасности** и нажмите **Да**, если необходимо установить сертификат, представляющий **localhost**.
 
- 	![localhost IIS Express certificate warning ](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss27.PNG)
+ 	![Предупреждение о сертификате localhost в IIS Express](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss27.PNG)
 
-1. В IE откроется страница *Home* без предупреждений SSL.
+1. В IE откроется *Главная* страница без предупреждений SSL.
 
-	 ![IE with localhost SSL and no warnings](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss28.PNG)
+	 ![IE с SSL-сертификатом localhost и без предупреждений](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss28.PNG)
 
 	Google Chrome также принимает сертификат и отображает HTTPS-содержимое без предупреждения. Firefox использует собственное хранилище сертификатов, поэтому отображается предупреждение.
 
-	 ![FireFox Cert Warning](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss30.PNG)
+	 ![Предупреждение сертификата FireFox](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss30.PNG)
 
-<h2><a name="bkmk_deploytowindowsazure1"></a>Развертывание приложения в Azure</h2>
+## Развертывание приложения в Azure
 
-1. В Visual Studio щелкните правой кнопкой мыши проект в **обозревателе решений** и выберите в контекстном меню пункт **Опубликовать**.
+1. В Visual Studio щелкните правой кнопкой мыши проект в **обозревателе решений** и выберите **Опубликовать** в контекстном меню.
 
-	![Publish in project context menu](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/GS13publish.png)
+	!["Опубликовать" в контекстном меню проекта](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/GS13publish.png)
 	
    Откроется мастер **Публикация веб-сайта**.
 
 1. В диалоговом окне **Публикации веб-сайта** щелкните **Опубликовать**.
 
-	![Publish](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rr3.png)
+	![Опубликовать](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rr3.png)
 
 	Созданное вами приложение теперь выполняется в облаке. При следующем развертывании приложения будут развернуты только измененные (или новые) файлы.
 
-	![Running in Cloud](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss4.PNG)
+	![Запуск в облаке](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss4.PNG)
 
-<h2><a name="bkmk_addadatabase"></a>Добавление базы данных в приложение</h2>
+## Добавление базы данных в приложение
 
 Далее вам предстоит обновить приложение, чтобы добавить возможности отображения и обновления контактов и сохранения данных в базе данных. Приложение будет использовать компонент Entity Framework (EF) для создания базы данных, а также чтения и обновления данных в базе данных.
 
@@ -203,13 +204,13 @@
 
 Начните с создания простой модели данных в коде.
 
-1. В **обозревателе решений**, щелкните правой кнопкой мыши папку "Модели", выберите **Добавить**, затем щелкните **Класс**.
+1. В **обозревателе решений** щелкните правой кнопкой мыши папку "Модели" и выберите **Добавить**, а затем щелкните **Класс**.
 
-	![Add Class in Models folder context menu](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rr5.png)
+	![Контекстное меню добавления класса в папке "Модели"](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rr5.png)
 
 2. В диалоговом окне **Добавление нового элемента** присвойте новому файлу класса имя *Contact.cs*, затем щелкните **Добавить**.
 
-	![Add New Item dialog box][adddb002]
+	![Диалоговое окно "Добавление нового элемента"][adddb002]
 
 3. Замените содержимое файла Contacts.cs на код, приведенный ниже.
 
@@ -229,29 +230,29 @@
                 public string Email { get; set; }
             }
         }
-Класс **Contacts** определяет данные, которые будут храниться для каждого контакта, а также первичный ключ  *ContactID*, необходимый для базы данных.
+Класс **Contacts** определяет данные, которые будут храниться для каждого контакта, а также первичный ключ, *ContactID*, необходимый для базы данных.
 
 ### Создание веб-страниц, позволяющих пользователям приложений работать с контактами
 
 Компонент формирования шаблонов в ASP.NET MVC может автоматически создавать код, выполняющий операции создания, чтения, обновления и удаления.
 
-<h2><a name="bkmk_addcontroller"></a>Добавление контроллера и представления для данных</h2>
+## Добавление контроллера и представления для данных
 
-1. Создайте проект **(Ctrl+Shift+B)**. (проект необходимо создать перед использованием механизма формирования шаблонов). 
+1. Создайте проект **(Ctrl + Shift + B)** (проект необходимо создать перед использованием механизма формирования шаблонов). 
 1. В **обозревателе решений** щелкните правой кнопкой мыши папку "Контроллеры" и выберите **Добавить**, а затем щелкните **Контроллер**.
 
-	![Add Controller in Controllers folder context menu][addcode001]
+	![Контекстное меню добавления контроллера в папке "Контроллеры"][addcode001]
 
 5. В диалоговом окне **Добавление Scaffold** выберите **Контроллер MVC 5 с представлениями, использующий EF** и щелкните **Добавить**.
 	
-	![Add Scaffold dlg](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rr6.png)
+	![Диалоговое окно "Добавление Scaffold"](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rr6.png)
 
 
-1. В раскрывающемся списке **Класс модели** выберите **Contact (ContactManager.Models)**. (См. изображение ниже.)
-1. В поле **Класс контекста данных** выберите **ApplicationDbContext (ContactManager.Models)**. **ApplicationDbContext** будет использоваться и для базы данных членства, и для наших контактных данных.
-1. В текстовом поле **Имя контроллера** введите "CmController" в качестве имени контроллера. 
+1. В раскрывающемся списке **Класс модели** выберите** Контакт (ContactManager.Models)**. (См. изображение ниже.)
+1. В поле **Класс контекста модели** выберите **ApplicationDbContext (ContactManager.Models)**. **ApplicationDbContext** будет использоваться и для базы данных членства, и для наших контактных данных.
+1. В текстовом поле **Имя контроллера** введите имя контроллера «CmController». 
 
-	![New data ctx dlg](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss5.PNG)
+	![Диалоговое окно "Новый контекст данных"](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss5.PNG)
 
 1. Щелкните **Добавить**.
 
@@ -261,22 +262,20 @@
 
 Следующая задача заключается в активации компонента [Code First Migrations](http://msdn.microsoft.com/library/hh770484.aspx) для создания базы данных на основе созданной модели данных.
 
-1. В меню **Средства** выберите **Диспетчер пакетов NuGet**, а затем **Консоль диспетчера пакетов**.
-	![Package Manager Console in Tools menu](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/SS6.png)
+1. В меню **Сервис** выберите **Диспетчер пакетов NuGet**, а затем **Консоль диспетчера пакетов**. !["Консоль диспетчера пакетов" в меню "Сервис"](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/SS6.png)
 
 2. В окне **Консоль диспетчера пакетов** введите следующую команду:
 
 		enable-migrations
-	Команда **enable-migrations** создает папку *Migrations* и помещает в нее файл  *Configuration.cs*, в который можно внести изменения для инициализации базы данных и настройки компонента Migrations. 
+	Команда **enable-migrations** создает папку *Migrations *и помещает в нее файл *Configuration.cs*, который можно изменять и использовать для заполнения базы данных и настройки миграций.
 
 2. В окне **Консоль диспетчера пакетов** введите следующую команду:
 
 		add-migration Initial
 
 
-	Команда **add-migration Initial** создает файл с именем **&lt;date_stamp&gt;Initial** в папке *Migrations*, который создает базу данных. Первый параметр ( **Initial** ) является произвольным и используется для создания имени файла. Новые файлы классов можно просмотреть в **обозревателе решений**.
-	В классе **Initial** метод **Up** создает таблицу Contacts, а метод **Down** (используется при возвращении к предыдущему состоянию) удаляет эту таблицу.
-3. Откройте файл  *Migrations\Configuration.cs*. 
+	Команда **add-migration Initial** создает файл с именем **&lt;date_stamp&gt;Initial** в папке *Migrations*, использованной при создании базы данных. Первый параметр (**Initial**) является произвольным и используется для создания имени файла. Новые файлы классов можно просмотреть в **обозревателе решений**. В классе **Initial** метод **Up** создает таблицу Contacts, а метод **Down** (используется при возвращении к предыдущему состоянию) удаляет эту таблицу.
+3. Откройте файл *Migrations\\Configuration.cs*. 
 4. Добавьте следующее пространство имен. 
 
     	 using ContactManager.Models;
@@ -336,42 +335,42 @@
                 );
         }
 
-	Этот код инициализирует (заполняет) базу данных с контактной информацией. Дополнительные сведения об инициализации базы данных см. в статье [Инициализация и отладка баз данных Entity Framework (EF)](http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx).
+	Этот код инициализирует (заполняет) базу данных с контактной информацией. Дополнительные сведения об инициализации базы данных см. в разделе [Инициализация и отладка баз данных Entity Framework (EF)](http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx).
 
 
 6. В окне **Консоль диспетчера пакетов** введите команду:
 
 		update-database
 
-	![Package Manager Console commands][addcode009]
+	![Команды консоли диспетчера пакетов][addcode009]
 
-	Команда **update-database** выполняет первый перенос, который создает базу данных. По умолчанию база данных создается как база данных LocalDB в SQL Server Express. 
+	Команда **update-database** выполняет первую миграцию, при которой создается база данных. По умолчанию база данных создается как локальная база данных SQL Server Express LocalDB.
 
-7. Нажмите клавиши CTRL+F5 для запуска приложения, а затем щелкните ссылку **CM Demo** или перейдите по адресу https://localhost:(port#)/Cm. 
+7. Нажмите CTRL + F5 для запуска приложения, а затем щелкните ссылку **CM Demo** или перейдите по адресу https://localhost:(port#)/Cm.
 
 	Приложение показывает начальные данные и предоставляет ссылки для изменения, удаления и просмотра подробных сведений. Можно создавать, изменять, удалять и просматривать данные.
 
-	![MVC view of data][rx2]
+	![Представление MVC для данных][rx2]
 
 
 
-<h2><a name="addOauth"></a>Добавление поставщика OAuth2</h2>
+## Добавление поставщика OAuth2
 
-[OAuth](http://oauth.net/ "http://oauth.net/") - это открытый протокол, обеспечивающий безопасную авторизацию простым и стандартным методом из веб-приложений, мобильных и настольных приложений. В интернет-шаблоне ASP.NET MVC используется OAuth для предоставления Facebook, Twitter, Google и Microsoft в качестве поставщиков проверки подлинности. В этом учебнике в качестве поставщика проверки подлинности используется только Google, но вы легко можете изменить код, чтобы использовать любой из этих поставщиков. Шаги по реализации других поставщиков очень похожи на шаги, представленные в этом учебнике. Сведения об использовании Facebook в качестве поставщика проверки подлинности см. в учебнике [Создание приложения ASP.NET MVC 5 с использованием OAuth2 для входа с Facebook, Twitter, LinkedIn и Google](http://www.asp.net/mvc/tutorials/mvc-5/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on).
+[OAuth](http://oauth.net/ "http://oauth.net/") — это открытый протокол, обеспечивающий безопасную авторизацию простым и стандартным методом из веб-приложений, мобильных и настольных приложений. В интернет-шаблоне ASP.NET MVC используется OAuth для предоставления Facebook, Twitter, Google и Microsoft в качестве поставщиков проверки подлинности. В этом учебнике в качестве поставщика проверки подлинности используется только Google, но вы легко можете изменить код, чтобы использовать любой другой поставщик. Шаги по реализации других поставщиков очень похожи на шаги, представленные в этом учебнике. Для использования Facebook в качестве поставщика проверки подлинности см. учебник [Приложение MVC 5 со входом через Facebook, Twitter, LinkedIn и Google OAuth2](http://www.asp.net/mvc/tutorials/mvc-5/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on).
 
-Помимо проверки подлинности в учебнике будут использоваться роли для реализации авторизации. Только пользователи, добавленные к роли *canEdit*, смогут изменять данные, то есть создавать, редактировать или изменять контакты.
+Помимо проверки подлинности в учебнике будут использоваться роли для реализации авторизации. Только пользователи, добавленные к роли *canEdit*, смогут изменять данные (то есть создавать, править и удалять контакты).
 
-Выполните инструкции учебника [Создание приложения ASP.NET MVC 5 с использованием OAuth2 для входа с Facebook, Twitter, LinkedIn и Google](http://www.asp.net/mvc/tutorials/mvc-5/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on#goog), приведенные в разделе **Создание приложения Google для OAuth 2 для настройки приложения Google для OAuth2**. Запустите и протестируйте приложение, чтобы убедиться, что вы можете войти в систему с использованием проверки подлинности Google.
+Выполните инструкции из учебника [Приложение MVC 5 со входом через Facebook, Twitter, LinkedIn и Google OAuth2](http://www.asp.net/mvc/tutorials/mvc-5/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on#goog), раздел **Создание приложения Google для OAuth 2, чтобы настроить приложение Google для OAuth2**. Запустите и протестируйте приложение, чтобы убедиться, что вы можете войти в систему с использованием проверки подлинности Google.
 
-<h2><a name="mbrDB"></a>Использование API членства</h2>
-В этом разделе в базу данных членства будут добавлены локальный пользователь и роль *canEdit*. Только пользователи, добавленные в роль *canEdit*, смогут изменять данные. Рекомендуется именовать роли по выполняемым ими действиям, например, имя *canEdit* предпочтительнее имени *admin*. По мере развития приложения можно добавлять новые роли, например, роль *canDeleteMembers*. Такое имя предпочтительнее, чем описательное имя *superAdmin*.
+## Использование API членства
+В этом разделе в базу данных членства будут добавлены локальный пользователь и роль *canEdit*. Только пользователи, входящие в роль *canEdit*, смогут изменять данные. Рекомендуется именовать роли по выполняемым ими действиям, например имя *canEdit* предпочтительнее имени *admin*. По мере развития приложения можно добавлять новые роли, например роль *canDeleteMembers*, имя которой предпочтительнее, чем менее описательное имя *superAdmin*.
 
-1. Откройте файл *migrations\configuration.cs* и добавьте следующие операторы `using`:
+1. Откройте файл *migrations\\configuration.cs* и добавьте следующие инструкции `using`:
 
         using Microsoft.AspNet.Identity;
         using Microsoft.AspNet.Identity.EntityFramework;
 
-1. Добавьте в класс следующий метод **AddUserAndRole**:
+1. Добавьте следующий метод **AddUserAndRole** в класс:
 
     
          bool AddUserAndRole(ContactManager.Models.ApplicationDbContext context)
@@ -393,231 +392,119 @@
             return ir.Succeeded;
          }
 
-1. Вызовите новый метод из метода **Seed**:
-	<pre>
-        protected override void Seed(ContactManager.Models.ApplicationDbContext context)
-        {
-            <mark>AddUserAndRole(context);</mark>
-            context.Contacts.AddOrUpdate(p => p.Name,
-                // Code removed for brevity
-        }
-	</pre>  
-<span></span>
-	Далее показаны изменения метода *Seed*:
+1. Вызовите новый метод из метода **Seed**: <pre> protected override void Seed(ContactManager.Models.ApplicationDbContext context) { <mark>AddUserAndRole(context);</mark> context.Contacts.AddOrUpdate(p => p.Name, // Код удален для краткости } </pre> <span></span> На следующих изображениях показаны изменения в методе *Seed*:
 
-	![code image](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss24.PNG)
+	![изображение кода](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss24.PNG)
 
-   Этот код создает новую роль с именем *canEdit*, создает нового локального пользователя *user1@contoso.com* и добавляет *user1@contoso.com* к роли *canEdit*. Дополнительную информацию см. в разделах об [Удостоверениях ASP.NET ](http://www.asp.net/identity/overview/features-api).
+   Этот код создает новую роль с именем *canEdit*, создает нового локального пользователя *user1@contoso.com* и добавляет *user1@contoso.com* к роли *canEdit*. Дополнительную информацию см. в [учебниках по удостоверениям ASP.NET](http://www.asp.net/identity/overview/features-api).
 
-## Использование временного кода для добавления новых пользователей социальных сетей к роли canEdit ##
-В этом разделе будет временно изменен метод **ExternalLoginConfirmation**в контроллере Account для добавления новых пользователей, регистрирующихся с помощью поставщика OAuth, к роли *canEdit*. Мы временно изменим метод **ExternalLoginConfirmation** таким образом, чтобы новые пользователи автоматически добавлялись к роли администратора. Пока нет средств для добавления ролей и управления ими, мы будем использовать приведенный ниже код временной автоматической регистрации. Надеемся в будущем предоставить средство, аналогичное [WSAT](http://msdn.microsoft.com/library/ms228053.aspx), которое позволит вам создавать и изменять учетные записи пользователей и роли. 
+## Использование временного кода для добавления новых пользователей социальных сетей к роли canEdit  ##
+В этом разделе будет временно изменен метод **ExternalLoginConfirmation** в контроллере Account для добавления новых пользователей, регистрирующихся с помощью поставщика OAuth, к роли *canEdit*. Мы временно изменим метод **ExternalLoginConfirmation** таким образом, чтобы новые пользователи автоматически добавлялись к роли администратора. Пока нет средств для добавления ролей и управления ими, мы будем использовать приведенный ниже код временной автоматической регистрации. Надеемся в будущем предоставить средство, аналогичное [WSAT](http://msdn.microsoft.com/library/ms228053.aspx), которое позволит вам создавать и изменять учетные записи пользователей и роли.
 
-1. Откройте файл **Controllers\AccountController.cs** и перейдите к методу **ExternalLoginConfirmation**.
-1. Добавьте следующий вызов **AddToRoleAsync** непосредственно перед вызовом метода **SignInAsync**.
+1. Откройте файл **Controllers\\AccountController.cs** и перейдите к методу **ExternalLoginConfirmation**.
+1. Добавьте следующий вызов в **AddToRoleAsync** прямо перед вызовом **SignInAsync**.
 
                 await UserManager.AddToRoleAsync(user.Id, "canEdit");
 
-   Приведенный выше код добавляет вновь зарегистрированного пользователя к роли "canEdit", которая предоставляет доступ к методам действий, изменяющих данные.
-	<pre>
-	      // POST: /Account/ExternalLoginConfirmation
-	      [HttpPost]
-	      [AllowAnonymous]
-	      [ValidateAntiForgeryToken]
-	      public async Task<ActionResult> ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, string returnUrl)
-	      {
-	         if (User.Identity.IsAuthenticated)
-	         {
-	            return RedirectToAction("Index", "Manage");
-	         }
-	         if (ModelState.IsValid)
-	         {
-	            // Get the information about the user from the external login provider
-	            var info = await AuthenticationManager.GetExternalLoginInfoAsync();
-	            if (info == null)
-	            {
-	               return View("ExternalLoginFailure");
-	            }
-	            var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-	            var result = await UserManager.CreateAsync(user);
-	            if (result.Succeeded)
-	            {
-	               result = await UserManager.AddLoginAsync(user.Id, info.Login);
-	               if (result.Succeeded)
-	               {
-	                  <mark>await UserManager.AddToRoleAsync(user.Id, "canEdit");</mark>
-	                  await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-	                  return RedirectToLocal(returnUrl);
-	               }
-	            }
-	            AddErrors(result);
-	         }
-	         ViewBag.ReturnUrl = returnUrl;
-	         return View(model);
-	      }
-	</pre>
+   Приведенный выше код добавляет вновь зарегистрированного пользователя в роль canEdit, что дает ему доступ к методам действий, которые изменяют (редактируют) данные. <pre> // POST: /Account/ExternalLoginConfirmation [HttpPost][AllowAnonymous] [ValidateAntiForgeryToken] public async Task<ActionResult> ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, string returnUrl) { if (User.Identity.IsAuthenticated) { return RedirectToAction("Index", "Manage"); } if (ModelState.IsValid) { // Получение информации о пользователе от внешнего поставщика входа var info = await AuthenticationManager.GetExternalLoginInfoAsync(); if (info == null) { return View("ExternalLoginFailure"); } var user = new ApplicationUser { UserName = model.Email, Email = model.Email }; var result = await UserManager.CreateAsync(user); if (result.Succeeded) { result = await UserManager.AddLoginAsync(user.Id, info.Login); if (result.Succeeded) { <mark>await UserManager.AddToRoleAsync(user.Id, "canEdit");</mark> await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false); return RedirectToLocal(returnUrl); } } AddErrors(result); } ViewBag.ReturnUrl = returnUrl; return View(model); } </pre>
 
-Далее в этом учебнике будет развернуто приложение в Azure, благодаря которому можно будет войти с помощью Google или другого стороннего поставщика проверки подлинности. Это добавит вновь зарегистрированную учетную запись к роли  *canEdit*. Каждый, кому известен URL-адрес вашего веб-приложения, сможет использовать свой идентификатор Google для регистрации и обновления вашей базы данных. Чтобы предотвратить подобные действия со стороны других лиц, можно остановить сайт. Изучив базу данных, вы сможете проверить, кому назначена роль *canEdit*.
+Далее в этом учебнике будет развернуто приложение в Azure, благодаря которому можно будет войти с помощью Google или другого стороннего поставщика проверки подлинности. Это добавит вновь зарегистрированную учетную запись к роли *canEdit*. Каждый, кому известен URL-адрес вашего веб-приложения, сможет использовать свой идентификатор Google для регистрации и обновления вашей базы данных. Чтобы предотвратить подобные действия со стороны других лиц, можно остановить сайт. Изучив базу данных, вы сможете проверить, кто входит в роль *canEdit*.
 
 На **консоли диспетчера пакетов** нажмите клавишу со стрелкой вверх, чтобы открыть следующую команду:
 
 		Update-Database
 
-Выполните команду **Update-Database**, которая вызывает метод **Seed** и только что добавленный метод **AddUserAndRole**. Метод **AddUserAndRole** создаст пользователя *user1@contoso.com* и назначит ему роль *canEdit*.
+Выполните команду **Update-Database**, которая вызывает метод **Seed** и только что добавленный метод **AddUserAndRole**. Метод **AddUserAndRole** создаст пользователя *user1@contoso.com* и добавит его к роли *canEdit*.
 
 ## Защита приложения с помощью SSL и атрибута Authorize ##
 
-В этом разделе будет применен атрибут [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) для ограничения доступа к методам действий. Анонимные пользователи смогут просматривать только метод действия **Индекс** главного контроллера. Зарегистрированные пользователи смогут видеть контактные данные (страницы **Индекс** и **Сведения** контроллера Cm), сведения о программе и страницы связи. Только пользователи, входящие в роль *canEdit*, получат доступ к методам действий, изменяющих данные.
+В этом разделе будет применен атрибут [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) для ограничения доступа к методам действий. Анонимные пользователи смогут просматривать только метод действия **Индекс** главного контроллера. Зарегистрированные пользователи смогут видеть контактные данные (страницы **Индекс** и **Сведения** контроллера Cm), сведения о программе и страницы связи. Только пользователи с назначенной ролью *canEdit* получат доступ к методам действий, изменяющих данные.
 
-1. Добавьте в приложение фильтры [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) и [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx). В качестве альтернативы можно добавить атрибуты [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) и [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) для каждого контроллера, но с точки зрения безопасности рекомендуется применять их ко всему приложению. В случае глобального добавления атрибутов каждый новый контроллер и метод действия будет защищен автоматически, вам не потребуется помнить о необходимости их применения. Дополнительные сведения см. в разделе [Защита приложений ASP.NET MVC и новый атрибут AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) Откройте файл *App_Start\FilterConfig.cs* и замените метод *RegisterGlobalFilters* следующим кодом (который добавляет два фильтра):
-		<pre>
-        public static void
-        RegisterGlobalFilters(GlobalFilterCollection filters)
-        {
-            filters.Add(new HandleErrorAttribute());
-            <mark>filters.Add(new System.Web.Mvc.AuthorizeAttribute());
-            filters.Add(new RequireHttpsAttribute());</mark>
-        }
-		</pre>
+1. Добавьте в приложение фильтры [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) и [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx). В качестве альтернативы можно добавить атрибуты [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) и [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) для каждого контроллера, но с точки зрения безопасности рекомендуется применять их ко всему приложению. В случае глобального добавления атрибутов каждый новый контроллер и метод действия будет защищен автоматически, вам не потребуется помнить о необходимости их применения. Дополнительные сведения см. в разделе [Защита приложений ASP.NET MVC и новый атрибут AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) Откройте файл *App_Start\\FilterConfig.cs* и замените метод *RegisterGlobalFilters* следующим кодом (который добавляет два фильтра): <pre> public static void RegisterGlobalFilters(GlobalFilterCollection filters) { filters.Add(new HandleErrorAttribute()); <mark>filters.Add(new System.Web.Mvc.AuthorizeAttribute()); filters.Add(new RequireHttpsAttribute());</mark> } </pre>
 
 
 
 
 	Фильтр [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx), применяемый приведенным выше кодом, не позволит анонимным пользователям получить доступ к методам в приложении. С помощью атрибута [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) вы сможете отказаться от обязательной авторизации в соответствующих методах, чтобы анонимные пользователи могли входить в систему и просматривать главную страницу. Фильтр [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) будет требовать использования HTTPS для доступа к веб-приложению.
 
-1. Добавьте атрибут [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) в метод **Index** контроллера Home. С помощью атрибута [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) можно создать белый список методов, для которых не нужна авторизация. 
-		<pre>
-	public class HomeController : Controller
-   {
-      <mark>[AllowAnonymous]</mark>
-      public ActionResult Index()
-      {
-         return View();
-      }
-	</pre>
+1. Добавьте атрибут [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) в метод **Index** контроллера Home. Атрибут [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) позволяет помещать в белый список методы, которые требуется вывести из-под авторизации. <pre> public class HomeController : Controller { <mark>[AllowAnonymous]</mark> public ActionResult Index() { return View(); } </pre>
 
 2. Выполнив глобальный поиск для атрибута *AllowAnonymous*, вы увидите, что он используется в методах входа и регистрации контроллера Account.
-1. В файле *CmController.cs* добавьте строку `[Authorize(Roles = "canEdit")]` в методы HttpGet и HttpPost, которые могут изменять данные (Create, Edit, Delete, все методы действий, кроме Index и Details) в контроллере *Cm*. Ниже показана часть готового кода. 
-		<pre>
-	// GET: Cm/Create
-       <mark>[Authorize(Roles = "canEdit")]</mark>
-        public ActionResult Create()
-        {
-           return View(new Contact { Address = "123 N 456 W",
-            City="Great Falls", Email = "ab@cd.com", Name="Joe Smith", State="MT",
-           Zip = "59405"});
-        }
-        // POST: Cm/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-         <mark>[Authorize(Roles = "canEdit")]</mark>
-        public ActionResult Create([Bind(Include = "ContactId,Name,Address,City,State,Zip,Email")] Contact contact)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Contacts.Add(contact);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(contact);
-        }
-        // GET: Cm/Edit/5
-       <mark>[Authorize(Roles = "canEdit")]</mark>
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Contact contact = db.Contacts.Find(id);
-            if (contact == null)
-            {
-                return HttpNotFound();
-            }
-            return View(contact);
-        }
-		</pre>
+1. В файле *CmController.cs* добавьте `[Authorize(Roles = "canEdit")]` к методам HttpGet и HttpPost, которые изменяют данные (Create, Edit, Delete, все методы действия, кроме Index и Details), в контроллере *Cm*. Ниже показана часть готового кода: <pre> // GET: Cm/Create <mark>[Authorize(Roles = "canEdit")]</mark> public ActionResult Create() { return View(new Contact { Address = "123 N 456 W", City="Great Falls", Email = "ab@cd.com", Name="Joe Smith", State="MT", Zip = "59405"}); } // POST: Cm/Create // Для защиты от атак оверпостингом включите определенные свойства, к которым требуется установить привязку, // дополнительные сведения см. в http://go.microsoft.com/fwlink/?LinkId=317598. [HttpPost][ValidateAntiForgeryToken] <mark>[Authorize(Roles = "canEdit")]</mark> public ActionResult Create([Bind(Include = "ContactId,Name,Address,City,State,Zip,Email")] Contact contact) { if (ModelState.IsValid) { db.Contacts.Add(contact); db.SaveChanges(); return RedirectToAction("Index"); } return View(contact); } // GET: Cm/Edit/5 <mark>[Authorize(Roles = "canEdit")]</mark> public ActionResult Edit(int? id) { if (id == null) { return new HttpStatusCodeResult(HttpStatusCode.BadRequest); } Contact contact = db.Contacts.Find(id); if (contact == null) { return HttpNotFound(); } return View(contact); } </pre>
 
 1. Если вы все еще не вышли из предыдущего сеанса, нажмите ссылку **Выход**.
 1. Щелкните ссылку **О программе** или **Связь**. Вы перейдете на страницу входа, поскольку анонимные пользователи не могут просматривать эти страницы. 
-1. Щелкните ссылку **Зарегистрироваться в качестве нового пользователя** и добавьте локального пользователя с адресом электронной почты *joe@contoso.com*. Проверьте, может ли *Joe* просматривать главную страницу, страницу информации о программе и страницу связи. 
+1. Щелкните ссылку **Зарегистрироваться в качестве нового пользователя** и добавьте локального пользователя с адресом электронной почты *joe@contoso.com*. Проверьте, может ли *Joe* просматривать главную страницу, страницу сведений о программе и страницу связи. 
+	![вход](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss14.PNG)
 
-	![login](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss14.PNG)
-
-1. Щелкните ссылку *CM Demo* и убедитесь, что видите данные. 
-1. Щелкнув ссылку "Изменить" на странице, вы перейдете на страницу входа, поскольку новый локальный пользователь не добавляется к роли *canEdit*.
-1. Войдите как *user1@contoso.com* с паролем P_assw0rd1 ("0" в слове word - это ноль). Вы перейдете на ранее выбранную страницу изменения. <br/>
-   Если не получается войти в систему с этой учетной записью и этим паролем, попробуйте скопировать пароль из исходного кода и вставить его. Если войти по-прежнему не удается, проверьте в столбце **UserName** таблицы **AspNetUsers**, добавлен ли пользователь  *user1@contoso.com*. 
-
+1. Щелкните ссылку *CM Demo* и убедитесь, что видите данные.
+1. Щелкнув ссылку "Изменить" на странице, вы перейдете на страницу входа (поскольку новый локальный пользователь не добавляется к роли *canEdit*).
+1. Войдите как *user1@contoso.com* с паролем P_assw0rd1 (0 в word — это нуль). Вы перейдете на ранее выбранную страницу изменения. <br/> Если не получается войти в систему с этой учетной записью и этим паролем, попробуйте скопировать пароль из исходного кода и вставить его. Если войти по-прежнему не удается, проверьте в столбце **UserName** таблицы **AspNetUsers**, добавлен ли пользователь *user1@contoso.com*. 
 1. Убедитесь, что можете изменять данные.
 
-<h2><a name="bkmk_deploytowindowsazure11"></a>Развертывание приложения в Azure</h2>
+## Развертывание приложения в Azure
 
-1. В Visual Studio щелкните правой кнопкой мыши проект в **обозревателе решений** и выберите в контекстном меню **Опубликовать**.
+1. В Visual Studio щелкните правой кнопкой мыши проект в **обозревателе решений** и выберите **Опубликовать** в контекстном меню.
 
-	![Publish in project context menu][firsdeploy003]
+	!["Опубликовать" в контекстном меню проекта][firsdeploy003]
 
 	Откроется мастер **Публикация веб-сайта**.
 
-1. Откройте вкладку **Параметры** в левой части диалогового окна **Публикация веб-сайта**. Щелкните значок **v**, чтобы выбрать параметр **Строка удаленного подключения** для **ApplicationDbContext**, затем выберите **ContactManagerNN_db**.
+1. Откройте вкладку **Параметры** в левой части диалогового окна **Публикация веб-сайта**. Щелкните значок **v**, чтобы выбрать параметр **Строка удаленного подключения** для **ApplicationDbContext**, а затем выберите **ContactManagerNN_db**.
 
    
-	![settings](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrc2.png)
+	![Параметры](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrc2.png)
 
 1. В разделе **ContactManagerContext** выберите **Выполнить Code First Migrations**.
 
-	![settings](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrc3.png)
+	![Параметры](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrc3.png)
 
 1. Щелкните **Опубликовать**.
-1. Войдите в систему как *user1@contoso.com* (с паролем P_assw0rd1) и убедитесь, что вы можете изменять данные.
-1. Выйдите из системы.
-1. Перейдите в [Консоль разработчиков Google](https://console.developers.google.com/) и на вкладке **Учетные данные** обновите URI перенаправления и авторизованные источники JavaScript для использования URL-адреса Azure.
-1. Войдите с помощью Google или Facebook. При этом учетная запись Google или Facebook добавится к роли **canEdit**. Если появится ошибка HTTP 400 с сообщением "URI перенаправления в запросе https://contactmanager {my version}.azurewebsites.net/signin-google не совпадает с зарегистрированным URI перенаправления", вам придется подождать, пока распространятся изменения. Если эта ошибка будет появляться несколько минут, проверьте правильность универсальных кодов ресурсов.
+1. Войдите в систему как *user1@contoso.com* с паролем P_assw0rd1 и убедитесь, что вы можете изменять данные. 1. Выйдите из системы.
+1. Перейдите в [консоль разработчиков Google](https://console.developers.google.com/) и на вкладке **Учетные данные** обновите URI перенаправления и JavaScript Orgins для использования URL-адреса Azure.
+1. Войдите с помощью Google или Facebook. При этом учетная запись Google или Facebook добавится к роли **canEdit**. Если появится ошибка HTTP 400 с сообщением *URI перенаправления в запросе https://contactmanager{my version}.azurewebsites.net/signin-google не совпадает с зарегистрированным URI перенаправления*, вам придется подождать, пока распространяются изменения. Если эта ошибка будет появляться несколько минут, проверьте правильность универсальных кодов ресурсов.
 
 ### Остановка веб-приложения для предотвращения регистрации других пользователей  
 
 1. В **обозревателе сервера** перейдите к элементу **Веб-приложения**.
 4. Щелкните правой мышкой веб-приложение и выберите **Остановить**. 
 
-	![stop web app](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/s1.png) 
+	![остановка веб-приложения](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/s1.png)
 
-	Или выберите веб-приложение на [портале Azure](http://go.microsoft.com/fwlink/?LinkId=529715), а затем нажмите **остановить** в нижней части страницы.
+	Можно также выбрать веб-сайт на [портале Azure](http://go.microsoft.com/fwlink/?LinkId=529715), а затем щелкнуть значок **остановки** в нижней части страницы.
 
-	![stop web app](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrr3.png)
+	![остановка портала веб-приложений](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/stopweb.png)
 
 ### Удаление AddToRoleAsync, публикация и тестирование
 
-1. Закомментируйте или удалите следующий код из метода **ExternalLoginConfirmation** контроллера Account: 
-                `await UserManager.AddToRoleAsync(user.Id, "canEdit");`
+1. Закомментируйте или удалите следующий код из метода **ExternalLoginConfirmation** в контроллере Account: `await UserManager.AddToRoleAsync(user.Id, "canEdit");`
 1. Создайте проект (который сохраняет изменения файла и проверяет наличие ошибок компиляции).
 5. Щелкните правой кнопкой мыши проект в **обозревателе решений** и выберите **Опубликовать**.
 
-	   ![Publish in project context menu](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/GS13publish.png)
+	   !["Опубликовать" в контекстном меню проекта](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/GS13publish.png)
 	
 4. Нажмите кнопку **Начало предварительного просмотра**. Развертываются только файлы, которые необходимо обновить.
 5. Запустите веб-приложение в Visual Studio или на портале. **Вы не сможете опубликовать веб-приложение, если оно остановлено**.
 
-	![start web app](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss15.png)
+	![запуск веб-приложения](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss15.png)
 
 5. Вернитесь в Visual Studio и щелкните **Опубликовать**.
 3. Приложение Azure открывается в браузере по умолчанию. Если вы вошли в систему, выйдите, чтобы просмотреть главную страницу как анонимный пользователь.  
 4. Щелкните ссылку **О программе**. Вы перейдете на страницу входа.
-5. Щелкните ссылку **Регистрация** на странице входа и создайте локальную учетную запись. С помощью этой локальной учетной записи мы убедимся, что вы имеете доступ к страницам, предназначенным только для чтения, но не имеете доступа к страницам, где изменяются данные (которые защищены ролью  *canEdit*). Далее в этом учебнике мы удалим доступ локальной учетной записи. 
+5. Щелкните ссылку **Регистрация** на странице входа и создайте локальную учетную запись. С помощью этой локальной учетной записи мы убедимся, что вы имеете доступ к страницам, предназначенным только для чтения, но не имеете доступа к страницам, где изменяются данные (которые защищены ролью *canEdit*). Далее в этом учебнике мы удалим доступ локальной учетной записи. 
 
-	![Register](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss16.PNG)
+	![Зарегистрировать](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss16.PNG)
 
-1. Проверьте, можете ли вы перейти на страницы *About* и *Contact*.
+1. Проверьте, можете ли вы перейти на страницы *О программе* и *Связь*.
 
-	![Log off](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss17.PNG)
+	![Выход из системы](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss17.PNG)
 
-1. Щелкните ссылку **CM Demo** для перехода к контроллеру **Cm**. Или добавьте *Cm* к URL-адресу. 
+1. Щелкните ссылку **CM Demo** для перехода к контроллеру **Cm**. Можно также добавить *Cm* в URL-адрес.
 
-	![CM page](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrr4.png)
+	![Страница CM](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrr4.png)
  
 1. Щелкните ссылку "Изменить". Вы перейдете на страницу входа. В разделе **Использовать другую службу для входа** щелкните Google или Facebook и войдите с использованием ранее зарегистрированной учетной записи. (Если вы работаете быстро и файл cookie сеанса еще действует, вы автоматически войдете с ранее использованной учетной записью Google или Facebook.)
-2. Убедитесь, что можете изменять данные при входе с этой учетной записью.
- 	**Примечание.** Нельзя выйти из учетной записи Google в этом приложении и войти в другую учетную запись Google в этом же браузере. Если вы используете один браузер, перейдите в Google и выйдите из учетной записи. Вы можете войти в другую учетную запись из того же стороннего приложения проверки подлинности (например, Google), используя другой браузер.
+2. Убедитесь, что можете изменять данные при входе с этой учетной записью. **Примечание.** С помощью этого приложения вы не можете выйти из Google и войти в другую учетную запись Google в том же браузере. Если используется один браузер, необходимо перейти в Google и выйти из системы. Используя другой браузер, вы можете войти с другой учетной записью из того же стороннего приложения проверки подлинности (например, Google).
 
 Если вы не указали имя и фамилию в информации учетной записи Google, возникнет исключение NullReferenceException.
 
@@ -627,104 +514,56 @@
 1. В **Обозревателе сервера** перейдите к элементу **ContactDB**.
 2. Щелкните правой кнопкой мыши **ContactDB** и выберите **Открыть в обозревателе объектов SQL Server**.
  
-	![open in SSOX](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrr12.png)
+	![Открытие в SSOX](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrr12.png)
  
-**Примечание.** Если вы не можете развернуть **Базы данных SQL** и не *can't* видите **ContactDB** из Visual Studio, следуйте дальнейшим инструкциям, чтобы открыть порт брандмауэра или диапазон портов. Следуйте инструкциям в разделе **Настройка правил брандмауэра Azure**. После добавления правила брандмауэра, нужно будет подождать несколько минут для доступа к базе данных.
+3. Если вы не подключились к этой базе данных ранее, возможно, система попросит добавить правило брандмауэра, чтобы разрешить доступ для текущего IP-адреса. IP-адрес будет указан системой. Просто щелкните **Добавить правило брандмауэра** для разрешения доступа.
+
+  ![добавление правила брандмауэра](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/addfirewallrule.png)
+        
+  Затем войдите в базу данных с именем пользователя и паролем, указанными при создании базы данных.
  
 1. Щелкните правой кнопкой мыши таблицу **AspNetUsers** и выберите **Просмотр данных**.
 
-	![CM page](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrr8.png)
+	![Страница CM](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrr8.png)
  
 1. Запишите или запомните идентификатор учетной записи Google, с которой вы зарегистрировались, чтобы попасть в роль **canEdit**, а также идентификатор пользователя *user1@contoso.com*. Только эти пользователи должны входить в роль **canEdit**. (Вы проверите это на следующем шаге.)
 
-	![CM page](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/s2.png)
+	![Страница CM](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/s2.png)
  
 2. В **обозревателе объектов SQL Server** щелкните правой кнопкой мыши элемент **AspNetUserRoles** и выберите **Просмотр данных**.
 
-	![CM page](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rs1.png)
+	![Страница CM](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rs1.png)
  
-Убедитесь, что идентификаторы **UserId** принадлежат пользователю  *user1@contoso.com* и используемой для регистрации учетной записи Google. 
+Убедитесь, что идентификаторы **UserId** принадлежат пользователю *user1@contoso.com* и используемой для регистрации учетной записи Google. 
 
 
-## Настройка правил брандмауэра Azure ##
+## Дальнейшие действия
 
-Если вам не удается подключиться к SQL Azure из Visual Studio или открывается диалоговое окно с ошибкой "Не удается открыть сервер", выполните действия, описанные в этом разделе.
+Выполните задания из учебников на основе данного образца:
 
-![firewall error](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rx5.png)
+1.	[Создание безопасного веб-приложения ASP.NET MVC 5 со входом, подтверждением электронной почты и сбросом пароля](http://www.asp.net/mvc/overview/getting-started/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset)
+2.	[Приложение ASP.NET MVC 5 с двухфакторной проверкой подлинности с использованием SMS и электронной почты](http://www.asp.net/mvc/overview/getting-started/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication)
+3.	[Рекомендации по развертыванию паролей и других конфиденциальных данных в ASP.NET и Azure](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure) 
+4.	Инструкции по добавлению данных профиля в базу данных регистрации пользователей и подробные инструкции по использованию Facebook в качестве поставщика проверки подлинности приведены в учебнике [Создание приложения ASP.NET MVC 5 с использованием Facebook и Google OAuth2](http://www.asp.net/mvc/tutorials/mvc-5/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on).
+5.	[Приступая к работе с ASP.NET MVC 5](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)
 
-Потребуется добавить ваш IP-адрес к разрешенным IP-адресам.
+Чтобы включить кнопки входа с помощью социальных сетей, расположенные в верхней части этого учебника, изучите раздел [Удобные кнопки входа социальных сетей для ASP.NET MVC 5](http://www.beabigrockstar.com/pretty-social-login-buttons-for-asp-net-mvc-5/).
 
-1. На портале Azure выберите **Базы данных SQL** на левой вкладке.
+В отличном учебнике Тома Дейкстры [Начало работы с EF и MVC](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application) показаны более сложные методы программирования MVC и EF.
 
-	![Select SQL][rx6]
+Этот учебник и пример приложения были написаны [Риком Андерсоном (Rick Anderson)](http://blogs.msdn.com/b/rickandy/) (Twitter [@RickAndMSFT](https://twitter.com/RickAndMSFT)) в соавторстве с Томом Дейкстрой (Tom Dykstra) и Бэрри Доррансом (Barry Dorrans)(Twitter [@blowdart](https://twitter.com/blowdart)).
 
-1. Щелкните **ContactDB**.
-
-1. Щелкните **Настроить правила брандмауэра Azure для этого IP-адреса**.
-
-	![firewall rules][rx7]
-
-1. При появлении запроса "Текущий IP-адрес xxx.xxx.xxx.xxx не включен в существующие правила брандмауэра. Обновить правила?" щелкните **Да**. Добавления этого адреса за некоторыми корпоративными брандмауэрами часто бывает недостаточно, поэтому вам потребуется добавить диапазон IP-адресов.
-
-Следующим шагом является добавление диапазона разрешенных IP-адресов.
-
-1. На портале Azure щелкните **Базы данных SQL**.
-1. Перейдите на вкладку **Серверы** и выберите сервер, который требуется настроить.
-
-	![Servers tab in Azure ](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss25.PNG)
-
-1. Выберите вкладку **Настройка**.
-
-1. Добавьте имя правила, начальный и конечный IP-адреса.
-
-	![ip range][rx9]
-
-1. В нижней части страницы щелкните **Сохранить**.
-1. Пожалуйста, оставьте отзыв и сообщите мне, если вам требуется добавить диапазон IP-адресов для подключения.
-
-Наконец, можно подключиться к экземпляру базы данных SQL из SSOX.
-
-1. В меню "Просмотр" выберите **обозреватель объектов SQL Server**.
-1. Щелкните правой кнопкой мыши **SQL Server** и выберите **Добавить SQL Server**.
-1. В диалоговом окне **Подключиться к серверу** задайте для параметра **Аутентификация** значение **Аутентификация SQL Server**. Значения **Имя сервера** и **Вход** вы получите с портала Azure.
-1. В браузере перейдите на портал и выберите **Базы данных SQL**.
-1. Выберите **ContactDB**, затем щелкните **Просмотреть строки подключения базы данных SQL**.
-1. На странице **Строки подключения** скопируйте значения **Сервер** и **ИД пользователя**.
- 
-	![con string](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss21.PNG)
-1. Вставьте значения **Сервер** и **ИД пользователя** в диалоговое окно **Подключение к серверу** в Visual Studio. Значение **ИД пользователя** переходит в поле **Вход**. Введите пароль, который использовался для создания базы данных SQL.
-
-	![Connect to Server DLG](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rss1.png)
-
-Теперь можно перейти к базе данных Contact DB, следуя приведенным ранее инструкциям.
-
-<h2><a name="nextsteps"></a>Дальнейшие действия</h2>
-
-Следуйте инструкциям других учебников, основанных на данном образце:
-
-1.	[Создание безопасного веб-приложения ASP.NET MVC 5 с входом, подтверждением по электронной почте и сбросом пароля](http://www.asp.net/mvc/overview/getting-started/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset)
-2.	[Приложение ASP.NET MVC 5 с двухфакторной аутентификацией по SMS и электронному адресу](http://www.asp.net/mvc/overview/getting-started/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication)
-3.	[Рекомендации по развертыванию паролей и других конфиденциальных данных в ASP.NET и Azure](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure)
-4.	[Создание приложения ASP.NET MVC 5 с использованием OAuth2 для входа с Facebook и Google](http://www.asp.net/mvc/tutorials/mvc-5/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on ) (включает в себя указания по добавлению данных профиля в базу данных регистрации пользователей и подробные указания по использованию Facebook в качестве поставщика проверки подлинности)
-5.	[Начало работы с Azure и ASP.NET MVC 5](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)
-
-Чтобы включить кнопки входа с помощью социальных сетей, расположенные в верхней части этого учебника, изучите раздел [Удобные кнопки входа с помощью социальных сетей для ASP.NET MVC 5](http://www.beabigrockstar.com/pretty-social-login-buttons-for-asp-net-mvc-5/).
-
-В отличном учебнике Тома Дейкстры (Tom Dykstra) [Начало работы с EF и MVC](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application) показаны более сложные методы программирования MVC и EF.
-
-Этот учебник и пример приложения написал [Рик Андерсон (Rick Anderson)](http://blogs.msdn.com/b/rickandy/) (Twitter [@RickAndMSFT](https://twitter.com/RickAndMSFT)) в соавторстве с Томом Дейкстрой (Tom Dykstra) и Бэрри Доррэнсом (Barry Dorrans) (Twitter [@blowdart](https://twitter.com/blowdart)). 
-
-***Пожалуйста, оставьте отзыв*** о том, что вам понравилось или что вы хотели бы улучшить (не только о самом учебнике, но и о продуктах, которые он демонстрирует). Ваши отзывы помогут нам определить, какие улучшения наиболее приоритетные. Вы также можете запросить и проголосовать за новые темы на странице [Покажите, как это сделать в коде](http://aspnet.uservoice.com/forums/228522-show-me-how-with-code).
+***Пожалуйста, оставьте отзыв*** о том, что вам понравилось или что вы хотели бы улучшить, не только о самом учебнике, но и о продуктах, которые он демонстрирует. Ваши отзывы помогут нам определить, какие улучшения наиболее приоритетные. Вы также можете запросить и проголосовать за новые темы на странице [Покажите, как это сделать в коде](http://aspnet.uservoice.com/forums/228522-show-me-how-with-code).
 
 ## Изменения
-* Сведения об изменении веб-сайтов на службу приложений см. в статье [Служба приложений Azure и ее влияние на существующие службы Azure](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Сведения о переходе со старого портала на новый см. в статье [Справочная информация о навигации по предварительной версии портала](http://go.microsoft.com/fwlink/?LinkId=529715).
+* Указания по изменениям при переходе от веб-сайтов к службе приложений см. в разделе [Служба приложений Azure и ее влияние на существующие службы Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
+* Руководство по смене старого портала на новый портал см. в разделе [Справочник по навигации на предварительной версии портала](http://go.microsoft.com/fwlink/?LinkId=529715).
 
 <!-- bookmarks -->
-[Добавление поставщика OAuth]: #addOauth
-[Использование API членства]:#mbrDB
-[Создание сценария развертывания данных]:#ppd
-[Обновление базы данных членства]:#ppd2
+[Add an OAuth Provider]: #addOauth
+[Using the Membership API]: #mbrDB
+[Create a Data Deployment Script]: #ppd
+[Update the Membership Database]: #ppd2
 
 [setupwindowsazureenv]: #bkmk_setupwindowsazure
 [createapplication]: #bkmk_createmvc4app
@@ -773,9 +612,9 @@
 [addcode009]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/dntutmobile-migrations-package-manager-console.png
 
 
-[Важная информация об ASP.NET в веб-приложениях Azure]: #aspnetwindowsazureinfo
-[Дальнейшие действия]: #nextsteps
+[Important information about ASP.NET in Azure web apps]: #aspnetwindowsazureinfo
+[Next steps]: #nextsteps
 
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
 
-<!--HONumber=49-->
+<!--HONumber=54-->

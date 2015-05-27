@@ -5,7 +5,7 @@
 	documentationCenter="ios" 
 	manager="dwrede"
 	editor="" 
-	authors="yuaxu"/>
+	authors="ysxu"/>
 
 <tags 
 	ms.service="app-service-mobile" 
@@ -28,7 +28,7 @@
 1. [Создание запроса на подписывание сертификата iOS]
 2. [Регистрация приложения и включение push-уведомлений]
 3. [Создание профиля подготовки для приложения]
-4. [Настройка мобильного внутреннего сервера для отправки push-уведомлений]
+4. [Настройка мобильного внутреннего сервера для отправки push-запросов]
 5. [Обновление сервера для отправки push-уведомлений](#update-server)
 6. [Публикация мобильного внутреннего сервера в Azure]
 7. [Добавление push-уведомлений в приложение]
@@ -36,17 +36,17 @@
 
 Для работы с данным учебником требуется следующее:
 
-+ [Пакет SDK для мобильных служб iOS службы приложений]
++ [Пакет SDK iOS мобильного приложения Azure]
 + [Пакет NuGet концентраторов уведомлений Azure]
-+ [XCode 4.5][Установка Xcode]
++ [XCode 6.0][Install Xcode]
 + Устройство с iOS 6.0 (или более поздней версии)
 + Участие в программе для разработчиков на платформе iOS
 
-   > [AZURE.NOTE] В соответствии с требованиями к конфигурации push-уведомлений необходимо развернуть и протестировать push-уведомления на устройстве с iOS (iPhone или iPad), а не в эмуляторе.
+   >[AZURE.NOTE]В соответствии с требованиями к конфигурации push-уведомлений необходимо развернуть и протестировать push-уведомления на устройстве с iOS (iPhone или iPad), а не в эмуляторе.
 
-Этот учебник создан на основе краткого руководства по мобильным приложениям службы приложений. Перед тем как начать этот учебник, необходимо сначала пройти учебник [Начало работы с мобильными приложениями службы приложений].
+Этот учебник создан на основе краткого руководства по мобильным приложениям службы приложений. Прежде чем приступить к этому учебнику, необходимо сначала пройти учебник [Начало работы с мобильными приложениями службы приложений].
 
-[AZURE.INCLUDE [Enable Apple Push Notifications](../includes/enable-apple-push-notifications.md)]
+[AZURE.INCLUDE [Включение push-уведомлений Apple](../includes/enable-apple-push-notifications.md)]
 
 ## Настройка мобильного приложения для отправки push-уведомлений
 
@@ -54,53 +54,46 @@
 
 ##<a id="update-server"></a>Обновление сервера для отправки push-уведомлений
 
-1. В Visual Studio щелкните правой кнопкой по решению, после чего щелкните **Управление пакетами NuGet**.
+1. В Visual Studio щелкните правой кнопкой мыши решение, а затем щелкните **Управление пакетами NuGet**.
 
-2. Выполните поиск **Microsoft.Azure.NotificationHubs** и щелкните **Установить** для всех проектов в решении.
+2. Выполните поиск **Microsoft.Azure.NotificationHubs** и нажмите кнопку **Установить** для всех проектов в решении.
 
-3. В обозревателе решений Visual Studio откройте папку **Контроллеры** в проекте мобильного внутреннего сервера. Откройте файл TodoItemController.cs. Добавьте следующие операторы `using` в начало файла:
+3. В обозревателе решений Visual Studio разверните папку **Контроллеры** в проекте мобильного внутреннего сервера. Откройте файл TodoItemController.cs. Добавьте следующие операторы `using` в начало файла:
 
 		using System.Collections.Generic;
         using Microsoft.Azure.NotificationHubs;
 
-4. Добавьте следующий фрагмент в метод `PostTodoItem` после вызова **InsertAsync**:  
+4. Добавьте следующий фрагмент в метод `PostTodoItem` после вызова **InsertAsync**:
 
         // get Notification Hubs credentials associated with this Mobile App
         string notificationHubName = this.Services.Settings.NotificationHubName;
         string notificationHubConnection = this.Services.Settings.Connections[ServiceSettingsKeys.NotificationHubConnectionString].ConnectionString;
 
         // connect to notification hub
-        NotificationHubClient Hub = NotificationHubClient.CreateClientFromConnectionString(notificationHubConnection, notificationHubName)
+        NotificationHubClient Hub = NotificationHubClient.CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
 
         // iOS payload
-        var appleNotificationPayload = "{\"aps\":{\"alert\":\"" + item.Text + "\"}}";
+        var appleNotificationPayload = "{"aps":{"alert":"" + item.Text + ""}}";
 
-        try
-        {
-            await Hub.Push.SendAppleNativeNotificationAsync(appleNotificationPayload);
-        }
-        catch (System.Exception ex)
-        {
-            throw;
-        }
+        await Hub.Push.SendAppleNativeNotificationAsync(appleNotificationPayload);
 
     Этот код запрашивает в концентраторе уведомлений, связанном с этим мобильным приложением, отправку push-уведомления после вставки элемента задачи.
 
 
-<h2><a name="publish-the-service"></a>Публикация мобильного внутреннего сервера в Azure</h2>
+## <a name="publish-the-service"></a>Публикация мобильного внутреннего сервера в Azure
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service-preview](../includes/app-service-mobile-dotnet-backend-publish-service-preview.md)]
 
 ## Добавление push-уведомлений в приложение
-1. Скачайте и добавьте ссылку на пакет SDK для клиента мобильного приложения службы приложений в Xcode.
+1. Загрузите и добавьте ссылку на пакет SDK для клиента мобильного приложения службы приложений в Xcode.
 
 2. В **QSAppDelegate.m** добавьте следующее в **application:didFinishLaunchingWithOptions**, чтобы зарегистрировать клиент в службе push-уведомлений Apple:
 
         // register iOS8 or previous devices for notifications
-        if ([[UIApplication sharedApplication] respondsToSelector:@selector(registerUserNotificationSettings:)] && [[UIApplication sharedApplication] respondsToSelector:@selector(registerForRemoteNotifications)]) {
+        if ([[UIApplication sharedApplication] respondsToSelector:@selector(registerUserNotificationSettings:)] && 	
+        	[[UIApplication sharedApplication] respondsToSelector:@selector(registerForRemoteNotifications)]) {
             [[UIApplication sharedApplication] registerForRemoteNotifications];
-        }
-        else {
+        } else {
             // Register for remote notifications
             [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
             UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
@@ -109,8 +102,8 @@
 3. В том же файле добавьте следующий метод обработчика в реализацию **QSAppDelegate**:
 
         // registration with APNs is successful
-        - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:
-        (NSData *)deviceToken {
+        - (void)application:(UIApplication *)application 
+            didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
 
             // make sure you have imported "QSTodoService.h"
             QSTodoService *todoService = [QSTodoService defaultService];
@@ -131,19 +124,21 @@
             NSLog(@"Failed to register for remote notifications: %@", error);
         }
 
-5. В QSAppDelegate.m добавьте следующий метод обработчика в реализации:  
+5. В QSAppDelegate.m добавьте следующий метод обработчика в реализации:
 
         // This uses the userInfo in the payload to display a UIAlertView.
-        - (void)application:(UIApplication *)application didReceiveRemoteNotification:
-        (NSDictionary *)userInfo {
+        - (void)application:(UIApplication *)application 
+              didReceiveRemoteNotification:(NSDictionary *)userInfo {
             NSLog(@"%@", userInfo);
             
-            NSDictionary *apsPayload = [userInfo objectForKey:@"aps"];
-            NSString *alertString = [apsPayload objectForKey:@"alert"];
+            NSDictionary *apsPayload = userInfo[@"aps"];
+            NSString *alertString = apsPayload[@"alert"];
     
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification" message:
-                          alertString delegate:nil cancelButtonTitle:
-                          @"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification" 
+                                                            message:alertString 
+                                                           delegate:nil 
+                                                  cancelButtonTitle:@"OK" 
+                                                  otherButtonTitles:nil];
             [alert show];
         }
 
@@ -155,9 +150,9 @@
 
   	![][23]
 
-    > [AZURE.NOTE] Необходимо явно разрешить прием push-уведомлений от вашего приложения. Этот запрос отображается только при первом запуске приложения.
+    > [AZURE.NOTE]Необходимо явно разрешить прием push-уведомлений от вашего приложения. Этот запрос отображается только при первом запуске приложения.
 
-2. В приложении введите значимый текст, например _Новая задача мобильных служб_, и щелкните значок "плюс" (**+**).
+2. В приложении введите содержательный текст (например, _Новая задача для мобильных служб_) и щелкните значок «плюс» (**+**).
 
   	![][24]
 
@@ -176,8 +171,8 @@
 [Регистрация приложения и включение push-уведомлений]: #register
 [Создание профиля подготовки для приложения]: #profile
 [Добавление push-уведомлений в приложение]: #add-push
-[Настройка мобильного внутреннего сервера для отправки push-уведомлений]: #configure
-[Обновление сервера для отправки push-уведомлений]: #update-server
+[Настройка мобильного внутреннего сервера для отправки push-запросов]: #configure
+[Update the server to send push notifications]: #update-server
 [Публикация мобильного внутреннего сервера в Azure]: #publish-mobile-service
 [Тестирование приложения]: #test-the-service
 
@@ -219,13 +214,13 @@
 [117]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-17.png
 
 <!-- URLs. -->
-[Установка Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-[Портал подготовки iOS]: http://go.microsoft.com/fwlink/p/?LinkId=272456
-[Пакет SDK для мобильных служб iOS службы приложений]: https://go.microsoft.com/fwLink/p/?LinkID=266533
+[Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
+[iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
+[Пакет SDK iOS мобильного приложения Azure]: https://go.microsoft.com/fwLink/?LinkID=529823
 [Пакет NuGet концентраторов уведомлений Azure]: https://www.nuget.org/packages/WindowsAzure.ServiceBus/
-[Служба push-уведомлений Apple]: http://go.microsoft.com/fwlink/p/?LinkId=272584
-[Начало работы с мобильными службами]: mobile-services-dotnet-backend-ios-get-started.md
-[Портал управления Azure]: https://manage.windowsazure.com/
-[Объект apns]: http://go.microsoft.com/fwlink/p/?LinkId=272333
+[Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
+[Get started with Mobile Services]: mobile-services-dotnet-backend-ios-get-started.md
+[Azure Management Portal]: https://manage.windowsazure.com/
+[apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
-<!--HONumber=49-->
+<!--HONumber=54-->

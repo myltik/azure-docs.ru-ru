@@ -1,135 +1,149 @@
-﻿
-После настройки мобильной службы вы можете обновить приложение, чтобы хранить элементы в мобильных службах, а не в локальной коллекции.
 
-1. Если [пакет SDK для мобильных служб для iOS](https://go.microsoft.com/fwLink/p/?LinkID=266533) еще не установлен, установите его. После установки скопируйте каталог WindowsAzureMobileServices.framework и перезапишите каталог WindowsAzureMobileServices.framework, входящую в загруженный проект. Таким образом вы перейдете к использованию последней версии пакета SDK для мобильных служб Azure.
+Давайте обновим приложение, чтобы элементы сохранялись в мобильных службах Azure, а не в локальной коллекции в памяти.
 
-2. В файле ToDoService.h найдите следующую закомментированную строку кода:
+* В файле **TodoService.h** найдите следующую строку:
 
-        // TODO - create an MSClient proeprty
+```
+// TODO - create an MSClient property
+```
 
-   	После этого комментария добавьте следующую строку кода:
+Замените этот комментарий на следующую строку. При этом создается свойство, которое представляет из себя `MSClient`, подключаемый к службе.
 
-        @property (nonatomic, strong)   MSClient *client;
-
-   	При этом создается свойство, которое представляет MSClient, который подключается к службе
-
-3. В файле TodoService.m найдите следующую закомментированную строку кода:
-
-        // TODO - create an MSTable property for your items
-
-   	После этого комментария добавьте следующую строку кода в объявлении @interface:
-
-        @property (nonatomic, strong)   MSTable *table;
-
-   	Это создает представление свойств таблицы мобильных служб.
-
-4. На портале управления щелкните **Мобильные службы** и выберите только что созданную мобильную службу.
-
-5. Щелкните вкладку **Панель мониторинга** и запишите **URL-адрес** сайта, затем щелкните **Управление ключами** и запишите **Ключ приложения**.
-
-   	![](./media/mobile-services-ios-enable-mobile-service-access/mobile-dashboard-tab.png)
-
-  	Эти значения потребуются при обращении к мобильной службе из кода приложения.
-
-6. Вернитесь в Xcode, откройте файл TodoService.m и найдите следующую закомментированную строку кода:
-
-        // Initialize the Mobile Service client with your URL and key.
-
-    После этого комментария добавьте следующую строку кода:
-
-        self.client = [MSClient clientWithApplicationURLString:@"APPURL" applicationKey:@"APPKEY"];
-
-    Будет создан экземпляр клиента мобильных служб.
-
-7. Замените значения **APPURL** и **APPKEY** URL-адресом и ключом приложения из мобильной службы, которые были получены на шаге 6.
-
-8. Найдите следующую закомментированную строку кода:
-
-        // Create an MSTable instance to allow us to work with the TodoItem table.
-
-    После этого комментария добавьте следующую строку кода:
-
-        self.table = [self.client tableWithName:@"TodoItem"];
-
-    Будет создан экземпляр таблицы TodoItem.
-
-9. Найдите следующую закомментированную строку кода:
-
- 	    // Create a predicate that finds items where complete is false
-
-    После этого комментария добавьте следующую строку кода:
-
-        NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
-
-    При этом создается запрос для возврата всех задач, которые еще не были завершены.
-
-10. Найдите следующую закомментированную строку кода:
-
-        // Query the TodoItem table and update the items property with the results from the service
-
-   	Замените этот комментарий и последующий блок вызова **completion** следующим кодом:
-
-        [self.table readWhere:predicate completion:^(NSArray *results, NSInteger totalCount, NSError *error)
-		{
-		   self.items = [results mutableCopy];
-           completion();
-        }];
-
-11. Найдите метод **addItem** и замените его содержимое на следующий код:
-
-        // Insert the item into the TodoItem table and add to the items array on completion
-        [self.table insert:item completion:^(NSDictionary *result, NSError *error) {
-            NSUInteger index = [items count];
-            [(NSMutableArray *)items insertObject:item atIndex:index];
-
-            // Let the caller know that we finished
-            completion(index);
-        }];
-
-    Этот код отправляет в мобильную службу запрос на вставку.
-
-12. Найдите метод **completeItem** и найдите следующую закомментированную строку кода:
-
-        // Update the item in the TodoItem table and remove from the items array on completion
-
-    Замените содержимое метода с этой точки и до конца на следующий код:
-
-        // Update the item in the TodoItem table and remove from the items array on completion
-        [self.table update:mutable completion:^(NSDictionary *item, NSError *error) {
-
-            // Get a fresh index in case the list has changed
-            NSUInteger index = [items indexOfObjectIdenticalTo:mutable];
-
-            [mutableItems removeObjectAtIndex:index];
-
-            // Let the caller know that we have finished
-            completion(index);
-	    }];
-
-   	Этот код удаляет TodoItems после того, как они будут помечены как завершенные.
-
-13. В файле TodoListController.m найдите метод **onAdd** и замените его на следующий код:
-
-      - (IBAction)onAdd:(id)sender
-      {
-          if (itemText.text.length  == 0)
-          {
-              return;
-          }
-
-          NSDictionary *item = @{ @"text" : itemText.text, @"complete" : @NO };
-          UITableView *view = self.tableView;
-          [self.todoService addItem:item completion:^(NSUInteger index)
-          {
-              NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
-              [view insertRowsAtIndexPaths:@[ indexPath ]
-                          withRowAnimation:UITableViewRowAnimationTop];
-          }];
-
-          itemText.text = @"";
-      }
+```
+@property (nonatomic, strong)   MSClient *client;
+```
 
 
-Теперь, когда приложение обновлено для хранения данных на сервере с использованием мобильных служб, настало время протестировать приложение на работу с мобильными службами.
+* В файле **TodoService.m** найдите следующую строку:
 
-<!--HONumber=42-->
+```
+// TODO - create an MSTable property for your items
+```
+
+Замените этот комментарий на следующую строку в объявлении `@interface`. Это создает представление свойств таблицы мобильных служб.
+
+```
+@property (nonatomic, strong)   MSTable *table;
+```
+
+
+* На портале управления щелкните **Мобильные службы**, а затем выберите мобильную службу. Откройте вкладку **Панель мониторинга** и запишите значение параметра **URL-адрес сайта**. Затем щелкните **Управление ключами** и запишите значение параметра **Ключ приложения**. Эти значения потребуются при обращении к мобильной службе из кода приложения.
+
+
+* В файле **TodoService.m** найдите следующую строку:
+
+```
+// Initialize the Mobile Service client with your URL and key.
+```
+
+После этого комментария добавьте следующую строку кода: Замените `APPURL` и `APPKEY` на URL-адрес сайта и ключ приложения, полученные в предыдущем шаге.
+
+```
+self.client = [MSClient clientWithApplicationURLString:@"APPURL" applicationKey:@"APPKEY"];
+```
+
+
+* В файле **TodoService.m** найдите следующую строку:
+
+```
+// Create an MSTable instance to allow us to work with the TodoItem table.
+```
+
+Замените этот комментарий на следующую строку. Будет создан экземпляр таблицы TodoItem.
+
+```
+self.table = [self.client tableWithName:@"TodoItem"];
+```
+
+
+* В файле **TodoService.m** найдите следующую строку:
+
+```
+// Create a predicate that finds items where complete is false
+```
+
+Замените этот комментарий на следующую строку. При этом создается запрос для возврата всех задач, которые еще не были завершены.
+
+```
+NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
+```
+
+
+* Найдите следующую строку:
+
+```
+// Query the TodoItem table and update the items property with the results from the service
+```
+
+Замените этот комментарий и последующий блок вызова **completion** на следующий код:
+
+```
+[self.table readWhere:predicate completion:^(NSArray *results, NSInteger totalCount, NSError *error)
+{
+self.items = [results mutableCopy];
+   completion();
+}];
+```
+
+
+* Найдите метод **addItem** и замените его содержимое на следующий код. Этот код отправляет в мобильную службу запрос на вставку.
+
+```
+// Insert the item into the TodoItem table and add to the items array on completion
+[self.table insert:item completion:^(NSDictionary *result, NSError *error) {
+    NSUInteger index = [items count];
+    [(NSMutableArray *)items insertObject:item atIndex:index];
+
+    // Let the caller know that we finished
+    completion(index);
+}];
+```
+
+
+* В методе **completeItem** найдите следующую закомментированную строку кода:
+
+```
+// Update the item in the TodoItem table and remove from the items array on completion
+```
+
+Замените содержимое метода с этой точки и до конца на следующий код. Этот код удаляет элементы TodoItem после того, как они будут помечены как завершенные.
+
+```
+// Update the item in the TodoItem table and remove from the items array on completion
+[self.table update:mutable completion:^(NSDictionary *item, NSError *error) {
+
+    // Get a fresh index in case the list has changed
+    NSUInteger index = [items indexOfObjectIdenticalTo:mutable];
+
+    [mutableItems removeObjectAtIndex:index];
+
+    // Let the caller know that we have finished
+    completion(index);
+}];
+```
+
+
+* В файле TodoListController.m найдите метод **onAdd** и замените его на следующий код:
+
+```
+- (IBAction)onAdd:(id)sender
+{
+    if (itemText.text.length  == 0)
+    {
+        return;
+    }
+
+    NSDictionary *item = @{ @"text" : itemText.text, @"complete" : @NO };
+    UITableView *view = self.tableView;
+    [self.todoService addItem:item completion:^(NSUInteger index)
+    {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
+        [view insertRowsAtIndexPaths:@[ indexPath ]
+                    withRowAnimation:UITableViewRowAnimationTop];
+    }];
+
+    itemText.text = @"";
+}
+```
+
+<!--HONumber=54-->

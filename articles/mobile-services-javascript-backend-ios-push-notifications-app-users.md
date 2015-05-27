@@ -1,69 +1,55 @@
-﻿<properties 
-	pageTitle="Рассылка push-уведомлений проверенным пользователям" 
-	description="Узнайте, как отправлять push-уведомления для конкретного адресата" 
-	services="mobile-services, notification-hubs" 
-	documentationCenter="ios" 
-	authors="krisragh" 
-	manager="dwrede" 
+<properties
+	pageTitle="Рассылка push-уведомлений проверенным пользователям"
+	description="Сведения об отправке push-уведомлений конкретным адресатам"
+	services="mobile-services,notification-hubs"
+	documentationCenter="ios"
+	authors="krisragh"
+	manager="dwrede"
 	editor=""/>
 
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="10/10/2014" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="04/02/2015"
 	ms.author="krisragh"/>
 
 # Рассылка push-уведомлений проверенным пользователям
 
 [AZURE.INCLUDE [mobile-services-selector-push-users](../includes/mobile-services-selector-push-users.md)]
 
-В этом разделе показано, как передавать push-уведомления пользователю, прошедшему проверку подлинности, на любом зарегистрированном устройстве iOS. В отличие от предыдущего учебника по [push-уведомлениям][Приступая к работе с push-уведомлениями], в данном учебнике внесены изменения в мобильную службу, чтобы она принуждала пользователя пройти проверку подлинности перед регистрацией клиента iOS на концентраторе уведомлений для получения push-уведомлений. Регистрация также изменяется - добавляется тег на основе идентификатора назначенного пользователя. Наконец, обновляется серверный скрипт, чтобы уведомление отправлялось не всем зарегистрированным пользователям, а только тем, кто прошел проверку подлинности.
+В этом разделе показано, как отправлять push-уведомления пользователю, прошедшему проверку подлинности, на iOS-устройстве. Перед этим учебником сперва выполните задания учебников [Приступая к работе с проверкой подлинности] и [Приступая к работе с push-уведомления].
 
-В этом учебнике выполняются следующие действия.
+В этом учебнике вы узнаете, как требовать от пользователей проверку подлинности, регистрироваться в концентраторе уведомлений для рассылки push-уведомлений и обновлять серверные скрипты для отправки этих уведомлений только пользователям, прошедшим проверку подлинности.
 
-+ [Обновление службы, чтобы для регистрации требовалась проверка подлинности]
-+ [Обновление приложения для выполнения входа перед регистрацией]
-+ [Тестирование приложения]
 
-##Предварительные требования
-
-Перед началом работы с этим учебником необходимо изучить следующие учебники по мобильным службам.
-
-+ [Приступая к работе с проверкой подлинности]<br/>В этом учебнике в демонстрационное приложение TodoList добавляется требование входа.
-
-+ [Приступая к работе с push-уведомлениями]<br/>В этом учебнике выполняется настройка демонстрационного приложения TodoList для push-уведомлений с использованием концентратора уведомлений.
-
-После выполнения обоих учебников можно приступить к запрету регистрации непроверенных пользователей для получения push-уведомлений от мобильной службы.
-
-##<a name="register"></a>Обновление службы, чтобы для регистрации требовалась проверка подлинности
+##<a name="register"></a>Обновление службы с учетом требования по проверке подлинности для регистрации
 
 [AZURE.INCLUDE [mobile-services-javascript-backend-push-notifications-app-users](../includes/mobile-services-javascript-backend-push-notifications-app-users.md)]
 
-<ol start="5"><li><p>Замените функцию вставки следующим кодом и нажмите кнопку <strong>Сохранить</strong>.</p>
-<pre><code>function insert(item, user, request) {
+Замените функцию `insert` следующим кодом и нажмите кнопку **Сохранить**. Этот скрипт вставки использует тег идентификатора пользователя для отправки push-уведомления на всех зарегистрированные приложения iOS от пользователя, который вошел в систему:
 
-        function insert(item, user, request) {
-            request.execute();
-            setTimeout(function() {
-                push.apns.send(null, {
-                    alert: "Alert: " + item.text,
-                    payload: {
-                        "Hey, a new item arrived: '" + item.text + "'"
-                    }
-                });
-            }, 2500);
-        }
+```
+// Get the ID of the logged-in user.
+var userId = user.userId; 
 
-}</code></pre>
+function insert(item, user, request) {
+    request.execute();
+    setTimeout(function() {
+        push.apns.send(userId, {
+            alert: "Alert: " + item.text,
+            payload: {
+                "Hey, a new item arrived: '" + item.text + "'"
+            }
+        });
+    }, 2500);
+}
+```
 
-<p>Этот скрипт вставки использует тег идентификатора пользователя для отправки push-уведомления (с текстом вставленного элемента) во все регистрации приложения Windows Phone (MPNS), созданные выполнившим вход пользователем.</p></li></ol>
-
-
-##<a name="update-app"></a>Обновление приложения для выполнения входа перед регистрацией
+##<a name="update-app"></a>Обновление приложения с учетом требования по входу в систему перед регистрацией
 
 [AZURE.INCLUDE [mobile-services-ios-push-notifications-app-users-login](../includes/mobile-services-ios-push-notifications-app-users-login.md)]
 
@@ -74,24 +60,17 @@
 
 
 <!-- Anchors. -->
-[Обновление службы, чтобы для регистрации требовалась проверка подлинности]: #register
-[Обновление приложения для выполнения входа перед регистрацией]: #update-app
-[Тестирование приложения]: #test
-[Дальнейшие действия]:#next-steps
+[Updating the service to require authentication for registration]: #register
+[Updating the app to log in before registration]: #update-app
+[Testing the app]: #test
+[Next Steps]: #next-steps
 
 
 <!-- URLs. -->
-[Приступая к работе с проверкой подлинности]: /ru-ru/documentation/articles/mobile-services-ios-get-started-users/
-[Приступая к работе с push-уведомлениями]: /ru-ru/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/
+[Приступая к работе с проверкой подлинности]: mobile-services-ios-get-started-users.md
+[Приступая к работе с push-уведомления]: mobile-services-javascript-backend-ios-get-started-push.md
 
-[Портал управления Azure]: https://manage.windowsazure.com/
-[Справочник по принципам использования мобильных служб .NET]: /ru-ru/develop/mobile/how-to-guides/work-with-net-client-library
+[Azure Management Portal]: https://manage.windowsazure.com/
+[Mobile Services .NET How-to Conceptual Reference]: mobile-services-ios-how-to-use-client-library.md
 
-[23]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push1-ios.png
-[24]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push2-ios.png
-[25]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push3-ios.png
-[26]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push4-ios.png
-
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

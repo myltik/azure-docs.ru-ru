@@ -1,224 +1,137 @@
-﻿<properties 
-	pageTitle="Использование Hadoop Hive в HDInsight для платформы Azure" 
-	description="Вы узнаете, как использовать Hive с HDInsight. Файл журнала будет использоваться в качестве входных данных в таблице HDInsight, а HiveQL будет использоваться для запроса данных и подготовки отчета по базовой статистике." 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="mumian" 
-	manager="paulettm" 
+<properties
+	pageTitle="Что такое Hive и как использовать HiveQL | Microsoft Azure"
+	description="Дополнительные сведения об инфраструктуре Apache Hive и о ее использовании с Hadoop в HDInsight. Выберите способ выполнения задания Hive и воспользуйтесь HiveQL для анализа примера файла Apache log4j." 
+	keywords="hiveql,what is hive"
+	services="hdinsight"
+	documentationCenter=""
+	authors="Blackmist"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/25/2014" 
-	ms.author="jgao"/>
+<tags
+	ms.service="hdinsight"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="big-data"
+	ms.date="04/23/2015"
+	ms.author="larryfr"/>
 
-# Использование Hive с Hadoop в HDInsight
+# Использование Hive и HiveQL с Hadoop в HDInsight для анализа примера файла Apache log4j
 
-[Apache Hive][apache hive] предоставляет средства для выполнения задания MapReduce через SQL-подобный язык сценариев, называемый *HiveQL*. Hive - это система хранилища данных для Hadoop, которая позволяет производить обобщение и анализ данных большого размера, а также создавать запросы для этих данных. В этой статье вы будете использовать HiveQL для создания запросов на основе образцов данных, которые устанавливаются вместе с распределением кластеров.
+[AZURE.INCLUDE [hive-selector](../includes/hdinsight-selector-use-hive.md)]
 
 
-**Предварительные требования:**
+В этом учебнике описывается, как использовать Apache Hive с Hadoop в HDInsight, а также как выбрать способ выполнения задания Hive. Вы также узнаете о HiveQL и о том, как выполнить анализ примера файла Apache log4j.
 
-- Вы должны были подготовить кластер **HDInsight**. Пошаговое руководство по выполнению этой задачи с помощью портала Azure см. в разделе [Приступая к работе с HDInsight][hdinsight-get-started]. Инструкции по другим способам создания таких кластеров см. в разделе [Подготовка кластеров HDInsight][hdinsight-provision].
+##<a id="why"></a>Что такое инфраструктура Hive и зачем ее использовать? 
+[Apache Hive](http://hive.apache.org/) — это система хранилища данных для Hadoop, которая позволяет обобщать и анализировать данные, а также обрабатывать запросы с использованием HiveQL (язык запросов, подобный SQL). Hive можно использовать для интерактивного исследования данных или создания многократно используемых заданий пакетного задания обработки.
 
-- Необходимо установить **Azure PowerShell** на рабочей станции. Инструкции по выполнению этой задачи см. в разделе [Установка и настройка Azure PowerShell][powershell-install-configure].
+Hive позволяет создавать структуру для преимущественно неструктурированных данных. После определения структуры вы можете использовать Hive для создания запроса этих данных без знания Java или MapReduce. **HiveQL** (язык запросов Hive) позволяет создавать запросы, используя операторы, подобные операторам T-SQL.
 
-## Содержание
+Hive понимает, как работать со структурированными и полуструктурированными данными, например текстовыми файлами, в которых поля разделяются специальными символами. Hive также поддерживает пользовательские **сериализаторы/десериализаторы (SerDe)** для сложных или беспорядочно структурированных данных. Дополнительные сведения см. в разделе [Использование пользовательских JSON SerDe с HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight.aspx).
 
-* [Пример использования Hive](#usage)
-* [Передача данных для таблиц Hive](#uploaddata)
-* [Выполнение запросов Hive с помощью PowerShell](#runhivequeries)
-* [Выполнение запросов HIve с помощью средства HDInsight для Visual Studio](#runhivefromvs)
-* [Использование Tez для повышения производительности](#usetez)
-* [Дальнейшие действия](#nextsteps)
+Инфраструктура Hive также может быть расширена с помощью **определяемых пользователем функций (UDF)**. UDF позволяет реализовать функции или логику, сложно моделируемые в HiveQL. Примеры использования UDF с помощью Hive см. в следующих разделах:
 
-## <a id="usage"></a>Пример использования Hive
+* [Использование Python с Hive и Pig в HDInsight](hdinsight-python.md)
 
-![HDI.HIVE.Architecture][image-hdi-hive-architecture]
+* [Использование C# с Hive и Pig в HDInsight](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
 
-Проекты Hive структурируют большой объем неструктурированных данных и затем позволяют вам выполнять запросы к данным. Hive обеспечивает необходимый уровень абстрагирования при работе с платформой приложения MapReduce на базе Java, позволяя пользователям, не владеющим Java и MapReduce, создавать запросы для работы с данными. HiveQL (язык запросов Hive) позволяет создавать запросы, используя операторы, подобные операторам T-SQL. HDInsight автоматически компилирует запросы HiveQL в MapReduce и выполняет их в кластере. Другие преимущества Hive:
+* [Добавление пользовательских UDF Hive в HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
 
-- Hive позволяет программистам, знакомым с платформой MapReduce, подключать пользовательские программы map и reduce для выполнения более сложного анализа, который может не поддерживаться встроенными возможностями языка HiveQL.
-- Hive лучше всего подходит для пакетной обработки больших объемов неизменяемых данных (например, веб-журналов). Но не подходит для приложений обработки транзакций, которым требуется очень маленькое время отклика, например систем управления базами данных.
-- Система Hive оптимизирована для масштабируемости (можно динамически добавлять компьютеры в кластере Hadoop), расширяемости (в структуре MapReduce и с другими интерфейсами программирования) и отказоустойчивости. Задержка не является ключевым вопросом разработки.
+##<a id="data"></a>О демонстрационных данных — файле Apache log4j
 
-## <a id="uploaddata"></a>Передача данных для таблиц Hive
-
-HDInsight использует в качестве файловой системы по умолчанию хранилище больших двоичных объектов Azure для кластеров Hadoop. Во время распределения кластеров несколько файлов-примеров с данными были добавлены в хранилище BLOB-объектов. В статье используется файл примера *log4j*, который устанавливается вместе с кластерами HDInsight и размещается в каталоге **/example/data/sample.log** в области контейнера хранилища BLOB-объектов. Каждый журнал в файле состоит из строки полей, содержащей поле `[УРОВЕНЬ ЖУРНАЛА]` для отображения типа и серьезности. Например:
+В этом примере используется пример файла *log4j*, который хранится в контейнере хранилища BLOB-объектов (путь к файлу **/example/data/sample.log**). Каждый журнал в файле состоит из строки полей, содержащей поле `[LOG LEVEL]` для отображения типа и серьезности.
 
 	2012-02-03 20:26:41 SampleClass3 [ERROR] verbose detail for id 1527353937
 
-В этом примере уровень журнала имеет значение "ОШИБКА".
+В предыдущем примере уровень журнала имеет значение ERROR («ошибка»).
 
-> [AZURE.NOTE] Можно также создавать собственные файлы log4j, с помощью служебной программы создания журналов [Apache Log4j][apache-log4j], а затем загружать файлы в контейнер BLOB-объектов. См. раздел [Отправка данных в HDInsight][hdinsight-upload-data] для получения более подробной информации. Дополнительные сведения о том, каким образом хранилище BLOB-объектов Azure используется с HDInsight, см. в разделе [Использование хранилища BLOB-объектов Azure с HDInsight][hdinsight-storage].
+> [AZURE.NOTE]Вы также можете создать файл log4j с помощью средства ведения журнала [Apache Log4j](http://en.wikipedia.org/wiki/Log4j), а затем отправить этот файл в контейнер BLOB-объектов. См. раздел [Отправка данных в HDInsight](hdinsight-upload-data.md) для получения более подробной информации. Дополнительные сведения о том, каким образом хранилище BLOB-объектов Azure используется с HDInsight, см. в разделе [Использование хранилища BLOB-объектов Azure с HDInsight](hdinsight-use-blob-storage.md).
 
-HDInsight может обращаться к файлам хранилища больших двоичных объектов с помощью префикса **wasb**. Поэтому для доступа к файлу sample.log необходимо использовать следующий синтаксис:
+Демонстрационные данные хранятся в хранилище BLOB-объектов Azure, используемом HDInsight в качестве файловой системы по умолчанию. HDInsight может обращаться к файлам хранилища BLOB-объектов с помощью префикса **wasb**. Поэтому для доступа к файлу sample.log необходимо использовать следующий синтаксис:
 
 	wasb:///example/data/sample.log
 
-Поскольку WASB является хранилищем по умолчанию для HDInsight, также можно обратиться к файлу с помощью **/example/data/sample.log**.
+Поскольку хранилище BLOB-объектов Azure является хранилищем по умолчанию для HDInsight, обратиться к файлу также можно из HiveQL, используя путь **/example/data/sample.log**
 
-> [AZURE.NOTE] Вышеописанный синтаксис **wasb:///** используется для доступа к файлам, которые хранятся в контейнере хранилища по умолчанию для вашего кластера HDInsight. Если вы указали дополнительные учетные записи хранения при подготовке кластера и хотите обращаться к файлам из этих учетных записей, это можно сделать, указав имя контейнера и адрес учетной записи хранения. Например: **wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**.
+> [AZURE.NOTE]Синтаксис **wasb:///** используется для обращения к файлам, которые хранятся в контейнере хранилища по умолчанию для вашего кластера HDInsight. Если вы указали дополнительные учетные записи хранения при подготовке кластера и хотите получить доступ к файлам, хранящимся в этих учетных записях, это можно сделать, указав имя контейнера и адрес учетной записи хранения, например: **wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**.
 
-## <a id="runhivequeries"></a> Выполнение запросов Hive с помощью PowerShell
+##<a id="job"></a>Пример задания: создание столбцов из данных с разделителями
 
-Запросы Hive можно выполнять в PowerShell с помощью командлета **Start-AzureHDInsightJob** или **Invoke-Hive**.
+Следующие операторы HiveQL позволяют создать столбцы из данных с разделителями, хранящихся в **wasb:///example/data** каталоге:
 
-* **Start-AzureHDInsightJob** является командлетом запуска заданий, который используется для запуска заданий Hive, Pig и MapReduce в кластере HDInsight. **Start-AzureHDInsightJob** является асинхронным командлетом, который завершается до окончания задания. При завершении он возвращает информацию о задании и может использоваться вместе с такими командлетами как **Wait-AzureHDInsightJob**, **Stop-AzureHDInsightJob** и **Get-AzureHDInsightJobOutput**.  **Get-AzureHDInsightJobOutput** используется для получения информации, которую задание записывает в поток **STDOUT** или **STDERR**.
+	DROP TABLE log4jLogs;
+    CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
+    ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
+    STORED AS TEXTFILE LOCATION 'wasb:///example/data/';
+    SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' GROUP BY t4;
 
-* **Invoke-Hive** выполняет запрос Hive, ожидает его завершения и получает выходные данные запроса единым действием.
+В предыдущем примере операторы HiveQL выполняют следующие действия.
 
-1. Откройте окна консоли Azure PowerShell. Дополнительную информацию см. в разделе [Установка и настройка Azure PowerShell][powershell-install-configure].
-2. Выполните следующую команду для подключения к подписке Azure:
+* **DROP TABLE**: удаление таблицы и файла данных, если таблица уже существует.
+* **CREATE EXTERNAL TABLE**: создание новой **внешней** таблицы в Hive. Внешние таблицы хранят только описание таблицы в Hive; данные при этом остаются в исходном расположении и исходном формате.
+* **ROW FORMAT**: инструкции по форматированию данных для Hive. В данном случае поля всех журналов разделены пробелом.
+* **STORED AS TEXTFILE LOCATION**: информация для Hive о расположении хранения данных (каталог example/data) и о их формате (текстовый). Данные могут храниться в одном файле или быть распределенными по нескольким файлам в каталоге.
+* **SELECT**: подсчет количества всех строк, в которых столбец **t4** содержит значение **[ERROR]**. Эта команда должна вернуть значение **3**, так как данное значение содержат три строки.
 
-		Add-AzureAccount
+> [AZURE.NOTE]Внешние таблицы следует использовать, если ожидается, что исходные данные будут обновляться внешним источником (таким как автоматизированный процесс передачи данных или другой операцией MapReduce), и при этом нужно, чтобы запросы Hive использовали самые последние данные.
+>
+> Удаление внешней таблицы **не** приводит к удалению данных; будет удалено только описание таблицы.
 
-	Появится запрос на ввод учетных данных учетной записи Azure.
+После создания внешней таблицы, используются следующие операторы для создания **внутренней** таблицы.
 
-2. Задайте переменные в следующем сценарии, а затем запустите его.
+	CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
+	STORED AS ORC;
+	INSERT OVERWRITE TABLE errorLogs
+	SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
 
-		# Provide Azure subscription name, and the Azure Storage account and container that is used for the default HDInsight file system.
-		$subscriptionName = "<SubscriptionName>"
-		$storageAccountName = "<AzureStorageAccountName>"
-		$containerName = "<AzureStorageContainerName>"
+Эти операторы выполняют следующие действия.
 
-		# Provide HDInsight cluster name Where you want to run the Hive job
-		$clusterName = "<HDInsightClusterName>"
+* **CREATE TABLE IF NOT EXISTS**: создание таблицы, если она до этого не существовала. Так как ключевое слово **EXTERNAL** не использовалось, такая таблица будет внутренней, то есть хранящейся в хранилище данных Hive и полностью управляемой Hive.
+* **STORED AS ORC**: хранение данных в формате ORC (Optimized Row Columnar). Это высокооптимизированный и эффективный формат для хранения данных Hive.
+* **INSERT OVERWRITE ... SELECT**: выбор строк из таблицы **log4jLogs**, содержащей значение **[ERROR]**, и ввод данных в таблицу **errorLogs**.
 
-3. Выполните следующий сценарий, чтобы создать новую таблицу с именем **log4jLogs** и демонстрационными данными.
+> [AZURE.NOTE]В отличие от внешних таблиц, удаление внутренней таблицы приводит к удалению базовых данных.
 
-		# HiveQL
-		# Create an EXTERNAL table
-		$queryString = "DROP TABLE log4jLogs;" +
-		               "CREATE EXTERNAL TABLE log4jLogs(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) ROW FORMAT DELIMITED FIELDS TERMINATED BY ' ' STORED AS TEXTFILE LOCATION 'wasb:///example/data/';" +
-		               "SELECT t4 AS sev, COUNT(*) AS cnt FROM log4jLogs WHERE t4 = '[ERROR]' GROUP BY t4;"
+##<a id="usetez"></a>Использование Apache Tez для повышения производительности
 
-	Запрос HiveQL выполняет следующие действия:
+[Apache Tez](http://tez.apache.org) — это платформа, которая позволяет повысить производительность приложений, обрабатывающих большие объемы данных (включая Hive). В последней версии HDInsight выполнение заданий на Tez поддерживается Hive. В данный момент эта платформа не включена по умолчанию, ее необходимо включить. Чтобы воспользоваться преимуществами работы с Tez, необходимо установить для запроса Hive следующие значения переменных:
 
-	* **DROP TABLE** - приводит к удалению таблицы и файла данных в том случае, если таблица уже существует
-	* **CREATE EXTERNAL TABLE** - создает новую  'external' таблицу в Hive. Внешние таблицы хранят только описание самой таблицы в Hive, в то время как данные остаются в исходном расположении.
-	* **ROW FORMAT** - указывает Hive, как следует форматировать данные. В данном случае поля всех журналов разделены пробелом.
-	* **STORED AS TEXTFILE LOCATION** - указывает Hive место, где хранятся данные (например, в каталоге example/data), а также то, что они хранятся в виде текста
-	* **SELECT** - подсчитывает количество строк, у которых столбец **t4** содержит значение **[ERROR]**. Эта команда должна вернуть значение **3**, так как таблица содержит три строки с данным значением.
+	set hive.execution.engine=tez;
 
-	> [AZURE.NOTE] Внешние таблицы необходимо использовать в тех случаях, когда ожидается, что исходные данные будут обновляться внешним источником, таким как автоматизированный процесс передачи данных или другой операцией MapReduce, при этом нужно, чтобы запросы Hive использовали самые последние данные.
-	>
-	> Удаление внешней таблицы **не** приводит к удалению данных, будет удалено только описание таблицы.
+Эти характеристики можно настроить для определенных запросов, поместив их в начале кода вашего запроса. Также можно задействовать эти характеристики по умолчанию для кластера, установив значения конфигурации при создании кластера. За более подробной информацией обращайтесь к разделу [Распределение кластеров HDInsight](hdinsight-provision-clusters.md).
 
-
-4. Выполните следующий сценарий, чтобы создать определение задания Hive из предыдущего запроса:
-
-		# Create a Hive job definition
-		$hiveJobDefinition = New-AzureHDInsightHiveJobDefinition -Query $queryString
-
-	Можно также использовать параметр -File, чтобы указать файл сценария HiveQL в HDFS.
-
-5. Выполните следующий сценарий, чтобы отправить задание Hive:
-
-		# Submit the job to the cluster
-		Select-AzureSubscription $subscriptionName
-		$hiveJob = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $hiveJobDefinition
-
-6. Выполните следующий сценарий, чтобы дождаться завершения задания Hive:
-
-		# Wait for the Hive job to complete
-		Wait-AzureHDInsightJob -Job $hiveJob -WaitTimeoutInSeconds 3600
-
-7. Выполните следующий сценарий, чтобы напечатать стандартный вывод:
-
-		# Print the standard error and the standard output of the Hive job.
-		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $hiveJob.JobId -StandardOutput
+Раздел [Документация по работе Hive на Tez](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez) содержит большое количество полезной информации по реализации этого решения и вариантам настроек.
 
 
- 	![HDI.HIVE.PowerShell][image-hdi-hive-powershell]
+##<a id="run"></a>Выбор способа выполнения задания HiveQL
 
-	Результат:
+HDInsight может выполнять задания HiveQL, используя различные методы. Используйте следующую таблицу, чтобы решить, какой метод подходит вам, а затем перейдите по ссылке к пошаговому руководству.
 
-		[ERROR] 3
+| **Используйте**, если требуется... | ...**интерактивная** оболочка | ...**пакетная** обработка | ... с **кластерной операционной системой** | ... с **клиентской операционной системой** |
+|:--------------------------------------------------------------------------------|:---------------------------:|:-----------------------:|:------------------------------------------|:-----------------------------------------|
+| [SSH](hdinsight-hadoop-use-hive-ssh.md) | ✔ | ✔ | Linux | Linux, Unix, Mac OS X или Windows |
+| [Curl](hdinsight-hadoop-use-hive-curl.md) | &nbsp; | ✔ | Linux или Windows | Linux, Unix, Mac OS X или Windows |
+| [Консоль запросов](hdinsight-hadoop-use-hive-query-console.md) | &nbsp; | ✔ | Windows | На основе браузера |
+| [Средства HDInsight для Visual Studio](hdinsight-hadoop-use-hive-visual-studio.md) | &nbsp; | ✔ | Linux или Windows | Windows |
+| [.NET SDK для Hadoop](hdinsight-hadoop-use-pig-dotnet-sdk.md) | &nbsp; | ✔ | Linux или Windows | Windows (сейчас) |
+| [Windows PowerShell](hdinsight-hadoop-use-hive-powershell.md) | &nbsp; | ✔ | Linux или Windows | Windows |
+| [Удаленный рабочий стол](hdinsight-hadoop-use-hive-remote-desktop.md) | ✔ | ✔ | Windows | Windows |
 
-	означает, что в файле *sample.log* было обнаружено три экземпляра с записью "ERROR".
+##<a id="nextsteps"></a>Дальнейшие действия
 
-4. Чтобы использовать **Invoke-Hive**, сначала необходимо выбрать используемый кластер.
+Теперь, когда вы знаете, что такое инфраструктура Hive и как ее использовать с Hadoop в HDInsight, воспользуйтесь следующими ссылками, чтобы изучить другие способы работы с Azure HDInsight.
 
-		# Connect to the cluster
-		Use-AzureHDInsightCluster $clusterName
+* [Отправка данных в HDInsight][hdinsight-upload-data]
+* [Использование Pig с HDInsight][hdinsight-use-pig]
+* [Использование заданий MapReduce с HDInsight][hdinsight-use-mapreduce]
 
-4. Используйте следующий скрипт, чтобы создать новую 'internal' таблицу с именем **errorLogs** с помощью командлета **Invoke-Hive**.
+[check]: ./media/hdinsight-use-hive/hdi.checkmark.png
 
-		# Run a query to create an 'internal' Hive table
-		$response = Invoke-Hive -Query @"
-		CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
-		INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
-		"@
-		# print the output on the console
-		Write-Host $response
+[1]: hdinsight-hadoop-visual-studio-tools-get-started.md
 
-	Данная операция выполняет следующие действия:
-
-	* **CREATE TABLE IF NOT EXISTS** - будет создана таблица, если она до этого не существовала. Так как ключевое слово **EXTERNAL** не было использовано, данная таблица будет являться " 'internal'", то есть будет храниться в хранилище данных Hive и полностью обслуживаться Hive.
-	* **STORED AS ORC** - данные будут храниться в формате Optimized Row Columnar (ORC). Это высокооптимизированный и эффективный формат для хранения данных Hive.
-	* **INSERT OVERWRITE ... SELECT** - из таблицы **log4jLogs** будут выбраны строки, которые содержат значение **[ERROR]**, а затем данные будут вставлены в таблицу **errorLogs**
-
-	> [AZURE.NOTE] В отличие от **ВНЕШНИХ**, удаление внутренних таблиц приводит также к удалению данных.
-
-	Выходные данные будут выглядеть следующим образом:
-
-	![PowerShell Invoke-Hive output][img-hdi-hive-powershell-output]
-
-	> [AZURE.NOTE] Для более длинных запросов HiveQL вы можете использовать PowerShell Here-Strings или файл сценария HiveQL. В приведенном ниже отрывке кода показано, как использовать командлет *Invoke-Hive* для запуска файла сценария HiveQL. Файл сценария HiveQL необходимо передать в WASB.
-	>
-	> `Invoke-Hive -File "wasb://<имя_контейнера>@<имя_учетной_записи_хранения>/<путь>/query.hql"`
-	>
-	> Дополнительную информацию о конструкции Here-Strings см. в разделе [Использование конструкции Here-Strings в Windows PowerShell][powershell-here-strings].
-
-5. Чтобы убедиться в том, что только строки, столбец t4 которых содержит значение **[ERROR]**, сохранены в таблице **errorLogs**, воспользуйтесь следующим запросом, чтобы отобразить все строки из таблицы **errorLogs**.
-
-		#Select all rows
-		$response = Invoke-Hive -Query "SELECT * from errorLogs;"
-		Write-Host $response
-
-	В результате операции должны быть возвращены три строки, у которых столбец t4 содержит значение **[ERROR]**.
-
-
-> [AZURE.NOTE] Если это необходимо, вы можете отправить результат вашего запроса в Microsoft Excel для последующего анализа. Дополнительную информацию см. в разделе [Подключение Excel к Hadoop с помощью Power Query][import-to-excel].
-
-## <a id="runhivefromvs"></a>Выполнение запросов Hive с помощью Visual Studio
-Инструменты HDInsight для Visual Studio поставляются с пакетом SDK для Azure для .NET версии 2.5 или более поздней.  Используя инструменты Visual Studio, вы можете подключить кластер HDInsight, создать таблицы Hive и выполнить Hive-запросы.  Дополнительную информацию см. в статье [Приступая к работе с инструментами HDInsight Hadoop Tools для Visual Studio][1].
-
-
-
-## <a id="usetez"></a>С помощью Tez для повышения производительности.
-
-[Apache Tez][apache-tez] - это платформа, которая позволяет приложениям, работающим с большими объемами данных, таким как Hive, работать с большей производительностью. В последней версии HDInsight, выполнение заданий на Tez поддерживается Hive.  В данный момент эта возможность не задействована по умолчанию, вам требуется ее включить.  В будущих версиях программы данная возможность будет задействована по умолчанию. Для того чтобы воспользоваться преимуществами работы с Tez, необходимо установить для запроса Hive следующие значения переменных:
-
-		set hive.execution.engine=tez;
-
-Данные характеристики можно настроить для определенных запросов, поместив их в начале кода вашего запроса.  Можно задействовать эти характеристики по умолчанию для кластера, если установить значения переменных в настройках одинаковыми со временем создания кластера.  Дополнительные сведения см. в  [Подготовка кластеров HDInsight][hdinsight-provision].
-
-Раздел [Документация по работе Hive на Tez][hive-on-tez-wiki] содержит большое количество полезной информации по реализации этого решения и вариантам настроек.
-
-
-## <a id="nextsteps"></a>Дальнейшие действия
-
-Hive упрощает запрос данных с помощью SQL-подобного языка запросов, но другие доступные в HDInsight компоненты предоставляют дополнительные функциональные возможности, такие как перемещение и преобразование данных. Для получения дополнительных сведений ознакомьтесь со следующими статьями:
-
-* [Приступая к работе с инструментами HDInsight Hadoop для Visual Studio][1]
-* [Использование Oozie с HDInsight][hdinsight-use-oozie]
-* [Отправка заданий Hadoop программными средствами][hdinsight-submit-jobs]
-* [Использование Pig с HDInsight](hdinsight-use-pig.md)
-* [Анализ данных о задержке рейсов с помощью HDInsight][hdinsight-analyze-flight-data]
-* [Документация по Azure HDInsight SDK][hdinsight-sdk-documentation]
-* [Передача данных в HDInsight][hdinsight-upload-data]
-* [Приступая к работе с Azure HDInsight](hdinsight-get-started.md)
-
-
-[1]: ../hdinsight-hadoop-visual-studio-tools-get-started/
-
-[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/ru-ru/library/dn479185.aspx
+[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
@@ -230,24 +143,24 @@ Hive упрощает запрос данных с помощью SQL-подоб
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
 [import-to-excel]: http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
 
+[hdinsight-use-pig]: hdinsight-use-pig.md
+[hdinsight-use-oozie]: hdinsight-use-oozie.md
+[hdinsight-analyze-flight-data]: hdinsight-analyze-flight-delay-data.md
+[hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
 
-[hdinsight-use-oozie]: ../hdinsight-use-oozie/
-[hdinsight-analyze-flight-data]: ../hdinsight-analyze-flight-delay-data/
 
+[hdinsight-storage]: hdinsight-use-blob-storage.md
 
+[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
+[hdinsight-upload-data]: hdinsight-upload-data.md
+[hdinsight-get-started]: hdinsight-get-started.md
 
-[hdinsight-storage]: ../hdinsight-use-blob-storage
-
-[hdinsight-provision]: ../hdinsight-provision-clusters/
-[hdinsight-submit-jobs]: ../hdinsight-submit-hadoop-jobs-programmatically/
-[hdinsight-upload-data]: ../hdinsight-upload-data/
-[hdinsight-get-started]: ../hdinsight-get-started/
-
-[Powershell-install-configure]: ../install-configure-powershell/
+[Powershell-install-configure]: install-configure-powershell.md
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
 [image-hdi-hive-powershell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!--HONumber=42-->
+<!--HONumber=54-->

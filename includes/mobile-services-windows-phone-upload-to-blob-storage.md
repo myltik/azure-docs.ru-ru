@@ -1,9 +1,9 @@
-﻿
+
 ##<a name="add-select-images"></a>Обновление клиентского приложения быстрого запуска для захвата и передачи изображений
 
-В этом разделе будет обновляться проект из учебника [Приступая к работе с мобильными службами] для съемки фотографий и передачи их в хранилище BLOB-объектов Azure. Для захвата изображения в этом учебнике используется [CameraCaptureTask] из пространства имен  `Microsoft.Phone.Tasks`. Этот класс запускает пользовательский интерфейс камеры на устройстве Windows Phone для записи фотографии и автоматически сохраняет изображение в галерее камеры на устройстве Windows Phone. Если вам не нужны изображения, сохраненные в альбоме камеры, используйте вместо этого класс [PhotoCamera] в пространстве имен  `Microsoft.Devices`.
+В этом разделе будет обновляться проект из учебника [Приступая к работе с мобильными службами] для съемки фотографий и передачи их в хранилище BLOB-объектов Azure. Для захвата изображения в этом учебнике используется [CameraCaptureTask] из пространства имен `Microsoft.Phone.Tasks`. Этот класс запускает пользовательский интерфейс камеры на устройстве Windows Phone для записи фотографии и автоматически сохраняет изображение в галерее камеры на устройстве Windows Phone. Если вам не нужны изображения, сохраненные в альбоме камеры, используйте вместо этого класс [PhotoCamera] в пространстве имен `Microsoft.Devices`.
 
-1. В обозревателе решений Visual Studio в проекте разверните пункт **Свойства**. Затем откройте файл WMAppManifest.xml и на вкладке **Возможности** включите камеру, щелкнув **ID_\CAP\_ISV\_CAMERA**. Закройте файл, чтобы сохранить изменения.
+1. В обозревателе решений для Visual Studio в проекте разверните пункт **Свойства**. Затем откройте файл WMAppManifest.xml и на вкладке **Возможности** включите камеру, щелкнув **ID_CAP_ISV_CAMERA**. Закройте файл, чтобы сохранить изменения.
 
    	![](./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-WMAppmanifest-wp8.png)
 
@@ -99,7 +99,7 @@
         }
 
 
-8. В файле проекта MainPage.xaml.cs обновите класс MainPage. Замените существующий метод  `InsertTodoItem` следующим кодом:
+8. В файле проекта MainPage.xaml.cs обновите класс MainPage. Замените существующий метод `InsertTodoItem` следующим кодом:
  
         private async void InsertTodoItem(TodoItem todoItem)
         {
@@ -150,7 +150,7 @@
 
 Последним шагом является проверка приложение и подтверждение успешного выполнения загрузки.
 		
-##<a name="test"></a>Тестирование передачи изображений в приложении
+##<a name="test"></a>Тестирование передачи изображений с помощью вашего приложения
 
 1. В Visual Studio нажмите клавишу F5, чтобы протестировать приложение в эмуляторе или на фактическом целевом устройстве.
 
@@ -158,13 +158,13 @@
 
    	![](./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-view-wp8.png)
 
-  	Появится пользовательский интерфейс камеры. 
+  	Появится пользовательский интерфейс камеры.
 
 3. Щелкните изображение или нажмите кнопку снимка на телефоне, чтобы сделать снимок.
   
    	![](./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-view-camera-wp8.png)
 
-4. Щелкните **Принять**, чтобы принять изображение и выйти из пользовательского интерфейса камеры.
+4. Щелкните **принять**, чтобы принять изображение и выйти из пользовательского интерфейса камеры.
 
     ![](./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-view-camera-accept-wp8.png)
 
@@ -179,8 +179,8 @@
    >[AZURE.NOTE]Изображение автоматически скачивается из службы хранилища больших двоичных объектов, когда свойство <code>imageUri</code> нового элемента привязано к элементу управления <strong>Изображение</strong>.
 
 
-[Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/mobile-services-windows-phone-get-started
+[Приступая к работе с мобильными службами]: ../articles/mobile-services-windows-phone-get-started.md
 [CameraCaptureTask]: http://msdn.microsoft.com/library/windowsphone/develop/microsoft.phone.tasks.cameracapturetask(v=vs.105).aspx
 [PhotoCamera]: http://msdn.microsoft.com/library/windowsphone/develop/microsoft.devices.photocamera(v=vs.105).aspx
 
-<!--HONumber=42-->
+<!--HONumber=54-->

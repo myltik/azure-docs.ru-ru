@@ -1,5 +1,5 @@
-﻿<properties 
-	pageTitle="Как выполнять телефонные звонки из Twilio (.NET): Azure" 
+<properties 
+	pageTitle="Как выполнять телефонные звонки из Twilio (.NET) — Azure" 
 	description="Узнайте, как осуществлять телефонные вызовы и отправку SMS-сообщений с помощью службы Twilio API в Azure. Примеры программного кода написаны в .NET." 
 	services="" 
 	documentationCenter=".net" 
@@ -23,37 +23,27 @@
 
 В этом руководстве описывается, как выполнять телефонные звонки с веб-страницы, размещенной в Azure, с помощью службы Twilio. В полученном приложении пользователю предлагается ввести нужные данные для телефонного звонка, как показано на следующем снимке экрана.
 
-![Azure call form using Twilio and ASP.NET][twilio_dotnet_basic_form]
-
-
-
-<h2>Оглавление</h2>
-- [Необходимые условия](#twilio-prereqs)
-- [Практическое руководство. Создание веб-формы для выполнения звонка](#howtocreateform)
-- [Практическое руководство. Создание кода для выполнения звонка](#howtocreatecode)
-- [Дальнейшие действия](#nextsteps)
-- [Дополнительные материалы](#seealso)
-
+![Форма звонка Azure с использованием службы Twilio и ASP.NET][twilio_dotnet_basic_form]
 
 <h2><a name="twilio-prereqs"></a>Предварительные требования</h2>
 
 Чтобы использовать код, представленный в этом разделе, выполните следующие действия:
 
-1. Получение учетной записи Twilio и токена подтверждения подлинности. Чтобы начать работу в службе Twilio, пройдите регистрацию на странице [https://www.twilio.com/try-twilio][try_twilio]. Ценовая политика описывается на странице [http://www.twilio.com/pricing][twilio_pricing]. Дополнительную информацию об API-интерфейсе, предоставляемом Twilio, см. на странице [http://www.twilio.com/voice/api][twilio_api].
+1. Получение учетной записи Twilio и токена подтверждения подлинности. Чтобы начать работу в службе Twilio, зарегистрируйтесь на странице [https://www.twilio.com/try-twilio][try_twilio]. Ценовая политика описывается на странице [http://www.twilio.com/pricing][twilio_pricing]. Дополнительные сведения о предоставляемых службой Twilio интерфейсах API см. на странице [http://www.twilio.com/voice/api][twilio_api].
 2. Добавьте библиотеку Twilio .NET в свою веб-роль. Дополнительные сведения см. далее в разделе "Добавление библиотек Twilio в проект веб-роли".
 
 Для этого вам потребуются знания процесса, позволяющего создать базовую веб-роль в Azure.
 
-<h2><a name="howtocreateform"></a>Практическое руководство. Создание веб-формы для выполнения звонка</h2>
+<h2><a name="howtocreateform"></a>Практическое руководство. Создание веб-формы для осуществления вызова</h2>
 
 <h3><a id="use_nuget"></a>Добавление библиотек Twilio в проект веб-роли:</h3>
 
 1.  Откройте решение в Visual Studio.
-2.  Щелкните правой кнопкой **Ссылки**.
-3.  Щелкните **Управление пакетами NuGet**.
-4.  Щелкните **В сети**.
-5.  В строке поиска в Интернете введите *twilio*.
-6.  Щелкните **Установить**, предварительно выбрав пакет Twilio.
+2.  Щелкните правой кнопкой мыши **References** (Ссылки).
+3.  Выберите **Управление пакетами NuGet...**.
+4.  Щелкните **Online** (В сети).
+5.  В поле поиска online введите *twilio*.
+6.  Щелкните **Install** (Установить) на пакете Twilio.
 
 В следующем коде показано, как создать веб-форму, позволяющую извлечь данные пользователя для выполнения звонка. В этом примере создается веб-роль ASP.NET с именем **TwilioCloud**.
 
@@ -79,7 +69,7 @@
         </div>
     </asp:Content>
 
-<h2><a id="howtocreatecode"></a>Практическое руководство. Создание кода для выполнения звонка</h2>
+<h2><a id="howtocreatecode"></a>Практическое руководство. Создание кода для осуществления вызова</h2>
 Следующий код вызывается после заполнения формы пользователем, создает сообщение звонка, а затем сам звонок. В этом примере код выполняется в обработчике события onclick для кнопки формы. Вместо заполнителей **accountSID** и **authToken** в приведенном ниже коде следует указать вашу учетную запись Twilio и маркер проверки подлинности.
 
     using System;
@@ -161,17 +151,17 @@
 
 Выполняется звонок. После этого отображаются конечная точка Twilio, версия API-интерфейса и сведения о состоянии звонка. На следующем снимке экрана показаны результаты выполнения примера.
 
-![Azure call response using Twilio and ASP.NET][twilio_dotnet_basic_form_output]
+![Ответ на звонок Azure с использованием службы Twilio и ASP.NET][twilio_dotnet_basic_form_output]
 
-Дополнительную информацию о TwiML см. на странице [http://www.twilio.com/docs/api/twiml][twiml]. Дополнительную информацию о команде &lt;Say&gt; и других командах Twilio см. на странице [http://www.twilio.com/docs/api/twiml/say][twilio_say].
+Дополнительные сведения о TwiML см. на странице [http://www.twilio.com/docs/api/twiml][twiml]. Дополнительные сведения о команде &lt;Say&gt; и других командах Twilio приведены на странице [http://www.twilio.com/docs/api/twiml/say][twilio_say].
 
 <h2><a id="nextsteps"></a>Дальнейшие действия</h2>
 В этом коде демонстрируются базовые функциональные возможности службы Twilio в веб-роли ASP.NET в Azure. Возможно, перед развертыванием в рабочей среде Azure потребуется добавить в него дополнительные обработчики ошибок и другие функции. Например:
 
-* Вместо веб-формы для хранения номеров телефона и текста звонков вы можете использовать хранилище BLOB-объектов Azure или экземпляр базы данных SQL Azure. Дополнительную информацию об использовании больших двоичных объектов в Azure см. в разделе [Использование службы хранения больших двоичных объектов Azure в .NET][howto_blob_storage_dotnet]. Дополнительную информацию об использовании базы данных SQL см. в разделе [Как использовать базу данных SQL Azure в приложениях .NET][howto_sql_azure_dotnet].
-* С помощью RoleEnvironment.getConfigurationSettings вы можете извлечь идентификатор учетной записи Twilio и маркер проверки подлинности из параметров конфигурации развертывания, не прописывая их в форме в виде фиксированных значений. Дополнительную информацию о классе RoleEnvironment см. в разделе [Пространство имен Microsoft.WindowsAzure.ServiceRuntime][azure_runtime_ref_dotnet].
-* Ознакомьтесь с руководством по безопасности Twilio на странице [https://www.twilio.com/docs/security][twilio_docs_security].
-* Дополнительную информацию о службе Twilio см. на странице [https://www.twilio.com/docs][twilio_docs].
+* Вместо веб-формы для хранения номеров телефона и текста звонков вы можете использовать хранилище BLOB-объектов Azure или экземпляр базы данных SQL Azure. Дополнительные сведения об использовании BLOB-объектов в Azure см. в разделе [Использование службы хранения BLOB-объектов Azure в .NET][howto_blob_storage_dotnet]. Дополнительные сведения об использовании базы данных SQL см. в разделе [Использование базы данных SQL Azure в приложениях .NET][howto_sql_azure_dotnet].
+* С помощью RoleEnvironment.getConfigurationSettings вы можете извлечь идентификатор учетной записи Twilio и маркер проверки подлинности из параметров конфигурации развертывания, не прописывая их в форме в виде фиксированных значений. Дополнительные сведения о классе RoleEnvironment см. в разделе [Пространство имен Microsoft.WindowsAzure.ServiceRuntime][azure_runtime_ref_dotnet].
+* Руководства по безопасности работы с Twilio приведены по адресу [https://www.twilio.com/docs/security][twilio_docs_security].
+* Дополнительные сведения о службе Twilio см. на странице [https://www.twilio.com/docs][twilio_docs].
 
 ##<a name="seealso"></a>Дополнительные материалы
 * [Использование Twilio для поддержки голосовых вызовов и SMS в Azure](twilio-dotnet-how-to-use-for-voice-sms.md)
@@ -188,11 +178,11 @@
 
 
 
-[howto_twilio_voice_sms_dotnet]: /ru-ru/develop/net/how-to-guides/twilio/
+[howto_twilio_voice_sms_dotnet]: /develop/net/how-to-guides/twilio/
 
-[howto_blob_storage_dotnet]: https://www.windowsazure.com/ru-ru/develop/net/how-to-guides/blob-storage/
+[howto_blob_storage_dotnet]: https://www.windowsazure.com/develop/net/how-to-guides/blob-storage/
 
-[howto_sql_azure_dotnet]: https://www.windowsazure.com/ru-ru/develop/net/how-to-guides/sql-database/
+[howto_sql_azure_dotnet]: https://www.windowsazure.com/develop/net/how-to-guides/sql-database/
 
 
 [twilio_docs_security]: http://www.twilio.com/docs/security
@@ -202,6 +192,4 @@
 
 [azure_runtime_ref_dotnet]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.serviceruntime.aspx
 
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

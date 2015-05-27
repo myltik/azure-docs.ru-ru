@@ -1,7 +1,7 @@
-﻿<properties 
-	pageTitle="Приступая к работе с push-уведомлениями (iOS) | Центр мобильных разработок" 
+<properties 
+	pageTitle="Добавление push-уведомлений в приложение мобильных служб (iOS) | Центр мобильных разработок" 
 	description="Узнайте, как использовать мобильные службы Azure для отправки push-уведомлений в приложение iOS." 
-	services="mobile-services, notification-hubs" 
+	services="mobile-services,notification-hubs" 
 	documentationCenter="ios" 
 	manager="dwrede" 
 	editor="" 
@@ -10,14 +10,14 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
+	ms.tgt_pltfrm="ios" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="12/15/2014" 
+	ms.date="04/24/2015" 
 	ms.author="krisragh"/>
 
 
-# Добавление push-уведомлений в приложение мобильных служб
+# Добавление push-уведомлений к приложению мобильных служб
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../includes/mobile-services-selector-get-started-push.md)]
 
@@ -37,17 +37,17 @@
 
 Для работы с данным учебником требуется следующее:
 
-+ [Пакет SDK для мобильных служб для iOS]
-+ [XCode 4.5][Установка Xcode]
-+ Устройство с iOS 6.0 (или более поздней версии)
++ [SDK мобильных служб для iOS]
++ [XCode 4.5][Install Xcode]
++ Устройство с iOS 6,0 (или более поздней версии)
 + Участие в программе для разработчиков на платформе iOS
 
-   > [AZURE.NOTE] В соответствии с требованиями к конфигурации push-уведомлений необходимо развернуть и протестировать push-уведомления на устройстве с iOS (iPhone или iPad), а не в эмуляторе.
+   >[AZURE.NOTE]В соответствии с требованиями к конфигурации push-уведомлений необходимо развернуть и протестировать push-уведомления на устройстве с iOS (iPhone или iPad), а не в эмуляторе.
 
-Этот учебник создан на основе краткого руководства по мобильным службам. Перед началом работы с данным учебником необходимо пройти задания учебника [Приступая к работе с мобильными службами] или [Добавление мобильных служб к приложению][Приступая к работе с данными].
+Этот учебник создан на основе краткого руководства по мобильным службам. Перед началом работы необходимо пройти задания учебника [Приступая к работе с мобильными службами] или [Добавление мобильных служб в существующее приложение][Get started with data].
 
 
-[AZURE.INCLUDE [Enable Apple Push Notifications](../includes/enable-apple-push-notifications.md)]
+[AZURE.INCLUDE [Включение push-уведомлений Apple](../includes/enable-apple-push-notifications.md)]
 
 
 ## Настройка мобильных служб для отправки push-запросов
@@ -57,13 +57,13 @@
 
 ##<a id="update-server"></a>Обновление сервера для отправки push-уведомлений
 
-1. В обозревателе решений Visual Studio разверните папку **Контроллеры** в проекте мобильной службы. Откройте файл TodoItemController.cs. Добавьте следующие операторы  `using` в начало файла:
+1. В обозревателе решений Visual Studio разверните папку **Контроллеры** в проекте мобильной службы. Откройте файл TodoItemController.cs. Добавьте следующие операторы `using` в начало файла:
 
 
 		using System;
 		using System.Collections.Generic;
 
-2. Обновите определение метода  `PostTodoItem` с помощью следующего кода:  
+2. Обновите определение метода `PostTodoItem` с помощью следующего кода:
 
         public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
         {
@@ -86,17 +86,17 @@
     Этот код отправит push-уведомление (с текстом вставленного элемента) после вставки элемента списка дел. В случае возникновения ошибки код добавит запись в журнал ошибок, которую можно просмотреть на вкладке **Журналы** мобильной службы на портале управления.
 
 
-<h2><a name="publish-the-service"></a>Публикация мобильной службы в Azure</h2>
+##<a name="publish-the-service"></a>Публикация мобильной службы в Azure
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
 ## Добавление push-уведомлений в приложение
 
-1. Вставьте в QSAppDelegate.m следующий фрагмент, чтобы импортировать пакет SDK для мобильных служб для iOS:
+1. В QSAppDelegate.m вставьте следующий фрагмент, чтобы импортировать SDK мобильных служб iOS:
 
         #import <WindowsAzureMobileServices/WindowsAzureMobileServices.h>
 
-2. В файле QSAppDelegate.m замените следующий метод обработчика в реализации:
+2. В QSAppDelegate.m замените следующий метод обработчика в реализации:
 
         - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:
         (NSDictionary *)launchOptions
@@ -130,7 +130,7 @@
             NSLog(@"Failed to register for remote notifications: %@", error);
         }
 
-5. В QSAppDelegate.m добавьте следующий метод обработчика в реализации:  
+5. В QSAppDelegate.m добавьте следующий метод обработчика в реализации:
 
         // Because alerts don't work when the app is running, the app handles them.
         // This uses the userInfo in the payload to display a UIAlertView.
@@ -143,7 +143,7 @@
             [alert show];
         }
 
-   > [AZURE.NOTE] Этот код необходимо добавить перед вызовом метода <strong>addItem</strong>.
+   >[AZURE.NOTE]Этот код необходимо добавить перед вызовом метода <strong>addItem</strong>.
 
 Ваше приложение теперь обновлено для поддержки push-уведомлений.
 
@@ -157,9 +157,9 @@
 
   	![][23]
 
-    > [AZURE.NOTE] Необходимо явно разрешить прием push-уведомлений от вашего приложения. Этот запрос отображается только при первом запуске приложения.
+    > [AZURE.NOTE]Необходимо явно разрешить прием push-уведомлений от вашего приложения. Этот запрос отображается только при первом запуске приложения.
 
-2. В приложении введите содержательный текст, например _A new Mobile Services task_, и щелкните значок "плюс" (**+**).
+2. В приложении введите содержательный текст (например, _Новая задача для мобильных служб_) и щелкните знак плюс (**+**).
 
   	![][24]
 
@@ -175,43 +175,39 @@
 
 ## Дальнейшие действия
 
-В этом учебнике демонстрируются основы включения отправки push-уведомлений в мобильных службах и концентраторах уведомлений приложений iOS. Далее мы рекомендуем изучить учебник [Рассылка push-уведомлений проверенным пользователям], в котором показано, как использовать теги для отправки push-уведомлений из мобильной службы только тем пользователям, которые прошли проверку подлинности.
+В этом учебнике рассмотрены основы работы с приложением iOS для применения мобильных служб и концентраторов уведомлений с целью отправки push-уведомлений. Далее мы рекомендуем изучить учебник [Отправка push-уведомлений прошедшим проверку пользователям], в котором показано, как использовать теги для отправки push-уведомлений из мобильной службы только пользователям, прошедшим проверку.
 
-<!--[Рассылка push-уведомлений проверенным пользователям]
-	<br/>Дополнительная информация о том, как использовать теги для отправки push-уведомлений из мобильной службы только прошедшим проверку пользователям.
+<!--+ [Send push notifications to authenticated users]
+	<br/>Learn how to use tags to send push notifications from a Mobile Service to only an authenticated user.
 
-+ [Рассылка широковещательных уведомлений подписчикам]
-	<br/>Сведения о том, как пользователи могут зарегистрироваться и получать push-уведомления для категорий, в которых они заинтересованы.
++ [Send broadcast notifications to subscribers]
+	<br/>Learn how users can register and receive push notifications for categories they're interested in.
 
-+ [Рассылка уведомлений по шаблону подписчикам]
-	<br/>Дополнительные сведения об использовании шаблонов для отправки push-уведомлений из мобильной службы без создания полезных данных для конкретных платформ на стороне сервера.
++ [Send template-based notifications to subscribers]
+	<br/>Learn how to use templates to send push notifications from a Mobile Service, without having to craft platform-specific payloads in your back-end.
 -->
 Дополнительные сведения о мобильных службах и концентраторах уведомлений см. в следующих разделах.
 
-* [Приступая к работе с данными]
-  <br/>Дополнительная информация о хранении данных и запросах к ним при помощи мобильных служб.
+* [Приступая к работе с данными] <br/>Дополнительные сведения о хранении данных и запросах к ним при помощи мобильных служб.
 
-* [Приступая к работе с проверкой подлинности]
-  <br/>Дополнительная информация об аутентификации учетных данных пользователей приложения с другими типами учетных записей с использованием мобильных служб.
+* [Приступая к работе с проверкой подлинности] <br/>Дополнительные сведения о проверке подлинности пользователей приложения с разными типами учетных записей при помощи мобильных служб.
 
-* [Что такое концентраторы уведомлений?]
-  <br/>Дополнительные сведения о работе центров уведомлений по доставке уведомлений в приложения на всех основных клиентских платформах.
+* [Что такое концентраторы уведомлений?] <br/>Дополнительные сведения о работе концентраторов уведомлений по доставке уведомлений в приложения на всех основных клиентских платформах.
 
-* [Отладка приложений концентраторов уведомлений](http://go.microsoft.com/fwlink/p/?linkid=386630)
-  </br>Руководство по устранению неполадок и решения по отладке центров уведомлений. 
+* [Отладка приложений концентраторов уведомлений](http://go.microsoft.com/fwlink/p/?linkid=386630) </br>Устранение неполадок и отладка решений на основе концентраторов уведомлений.
 
 <!-- Anchors.  -->
 [Создание запроса подписи сертификата]: #certificates
 [Регистрация приложения и включение push-уведомлений]: #register
 [Создание профиля подготовки для приложения]: #profile
-[Настройка мобильных служб]: #configure
-[Обновление скриптов для отправки push-уведомлений]: #update-scripts
+[Configure Mobile Services]: #configure
+[Update scripts to send push notifications]: #update-scripts
 [Добавление push-уведомлений в приложение]: #add-push
-[Вставка данных для получения уведомлений]: #test
+[Insert data to receive notifications]: #test
 [Тестирование приложения с помощью опубликованной мобильной службы]: #test-app
-[Дальнейшие действия]:#next-steps
-[Локальная загрузка мобильной службы]: #download-the-service-locally
-[Тестирование мобильной службы]: #test-the-service
+[Next Steps]: #next-steps
+[Download the service locally]: #download-the-service-locally
+[Test the mobile service]: #test-the-service
 [Публикация мобильной службы в Azure]: #publish-mobile-service
 
 <!-- Images. -->
@@ -252,23 +248,22 @@
 [117]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-17.png
 
 <!-- URLs. -->
-[Установка Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-[Портал подготовки iOS]: http://go.microsoft.com/fwlink/p/?LinkId=272456
-[Пакет SDK для мобильных служб для iOS]: https://go.microsoft.com/fwLink/p/?LinkID=266533
-[Служба push-уведомлений Apple]: http://go.microsoft.com/fwlink/p/?LinkId=272584
-[Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-ios-get-started
-[Портал управления Azure]: https://manage.windowsazure.com/
+[Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
+[iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
+[SDK мобильных служб для iOS]: https://go.microsoft.com/fwLink/p/?LinkID=266533
+[Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
+[Приступая к работе с мобильными службами]: mobile-services-dotnet-backend-ios-get-started.md
+[Azure Management Portal]: https://manage.windowsazure.com/
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
-[Приступая к работе с данными]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data
-[Приступая к работе с проверкой подлинности]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users
+[Get started with data]: mobile-services-dotnet-backend-ios-get-started-data.md
+[Приступая к работе с данными]: mobile-services-dotnet-backend-ios-get-started-data.md
+[Приступая к работе с проверкой подлинности]: mobile-services-dotnet-backend-ios-get-started-users.md
 
-[Рассылка push-уведомлений проверенным пользователям]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-ios-push-notifications-app-users/
+[Отправка push-уведомлений прошедшим проверку пользователям]: mobile-services-dotnet-backend-ios-push-notifications-app-users.md
 
-[Что такое концентраторы уведомлений?]: /ru-ru/documentation/articles/notification-hubs-overview/
-[Рассылка широковещательных уведомлений подписчикам]: /ru-ru/documentation/articles/notification-hubs-ios-send-breaking-news/
-[Рассылка уведомлений по шаблону подписчикам]: /ru-ru/documentation/articles/notification-hubs-ios-send-localized-breaking-news/
+[Что такое концентраторы уведомлений?]: notification-hubs-overview.md
+[Send broadcast notifications to subscribers]: notification-hubs-ios-send-breaking-news.md
+[Send template-based notifications to subscribers]: notification-hubs-ios-send-localized-breaking-news.md
 
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

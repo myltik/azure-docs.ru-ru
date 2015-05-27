@@ -1,6 +1,6 @@
-﻿<properties
-   pageTitle="Использование Hadoop Hive в HDInsight для платформы Azure"
-   description="Информация об использовании Hive с HDInsight через удаленный рабочий стол."
+<properties
+   pageTitle="Использование Hadoop Hive и удаленного рабочего стола в HDInsight | Microsoft Azure"
+   description="Узнайте, как подключиться к кластеру HDInsight с помощью удаленного рабочего стола, а затем выполнить запросы Hive с помощью интерфейса командной строки Hive."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -9,11 +9,11 @@
 
 <tags
    ms.service="hdinsight"
-   ms.devlang=""
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/18/2015"
+   ms.date="04/03/2015"
    ms.author="larryfr"/>
 
 # Использование Hive с Hadoop в HDInsight с помощью удаленного рабочего стола
@@ -22,33 +22,33 @@
 
 В этой статье вы узнаете, как подключиться к кластеру HDInsight с помощью удаленного рабочего стола, а затем выполнить запросы Hive с помощью интерфейса командной строки Hive.
 
-> [AZURE.NOTE] В этом документе не приводится подробное описание действия инструкций HiveQL, используемых в данных примерах. Сведения о HiveQL, используемом в этом примере, см. в разделе <a href="../hdinsight-use-hive/" target="_blank">Использование Hive с Hadoop в HDInsight</a>.
+> [AZURE.NOTE]В этом документе не приводится подробное описание процессов, которые выполняют операторы HiveQL, используемые в примерах. Информацию об операторах HiveQL, используемых в данном примере, см. в статье <a href="hdinsight-use-hive.md" target="_blank">Использование Hive с Hadoop в HDInsight</a>.
 
 ##<a id="prereq"></a>Предварительные требования
 
-Чтобы выполнить действия, описанные в этой статье, необходимо следующее.
+Чтобы выполнить действия, описанные в этой статье, необходимо следующее:
 
 * Кластер HDInsight на платформе Windows (Hadoop в HDInsight).
 
-* Windows 7 или более новая версия клиентской ОС
+* Клиентский компьютер под управлением Windows 10, Windows 8 или Windows 7.
 
 ##<a id="connect"></a>Подключение к удаленному рабочему столу
 
-Включите удаленный рабочий стол для кластера HDInsight, а затем подключитесь к нему, следуя инструкциям в разделе <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Подключение к кластерам HDInsight с помощью RDP</a>.
+Запустите протокол удаленного рабочего стола для кластера HDInsight, а затем выполните подключение, следуя инструкциям раздела <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Подключение к кластерам HDInsight с использованием RDP</a>.
 
 ##<a id="hive"></a>Использование команды Hive
 
-После подключения к рабочему столу для кластера HDInsight сделайте следующее для работы с Hive.
+После подключения к рабочему столу для кластера HDInsight сделайте следующее для работы с Hive:
 
 1. На рабочем столе HDInsight запустите **командную строку Hadoop**.
 
-2. Введите следующую команду, чтобы запустить интерфейс командной строки Hive.
+2. Введите следующую команду, чтобы запустить интерфейс командной строки Hive:
 
         %hive_home%\bin\hive
 
-    После запуска интерфейса командной строки появится командная строка Hive - `hive>`.
+    После запуска интерфейса командной строки появится командная строка Hive: `hive>`.
 
-3. С помощью этого интерфейса командной строки введите следующие операторы, чтобы создать таблицу с именем **log4jLogs**, используя пример данных.
+3. С помощью этого интерфейса командной строки введите следующие операторы, чтобы создать таблицу с именем **log4jLogs**, используя пример данных:
 
         DROP TABLE log4jLogs;
         CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
@@ -58,37 +58,37 @@
 
     Эти операторы выполняют следующие действия:
 
-    * **DROP TABLE** - приводит к удалению таблицы и файла данных в том случае, если таблица уже существует
-    
-    * **CREATE EXTERNAL TABLE** - создает новую 'внешнюю' таблицу в Hive. Внешние таблицы хранят только описание самой таблицы в Hive, в то время как данные остаются в исходном расположении.
+    * **DROP TABLE**: удаление таблицы и файла данных, если таблица уже существует.
 
-		> [AZURE.NOTE] Внешние таблицы необходимо использовать в тех случаях, когда ожидается, что исходные данные будут обновляться внешним источником, таким как автоматизированный процесс передачи данных или другой операцией MapReduce, при этом нужно, чтобы запросы Hive использовали самые последние данные.
+    * **CREATE EXTERNAL TABLE**: создание новой «внешней» таблицы в Hive. Внешние таблицы хранят только определение самой таблицы в Hive, в то время как данные остаются в исходном расположении.
+
+		> [AZURE.NOTE]Внешние таблицы необходимо использовать в тех случаях, когда ожидается, что исходные данные будут обновляться внешним источником, таким как автоматизированный процесс передачи данных или другой операцией MapReduce, при этом нужно, чтобы запросы Hive использовали самые последние данные.
     	>
-    	> Удаление внешней таблицы **не** приводит к удалению данных, будет удалено только описание таблицы.
-    
-	* **ROW FORMAT** - указывает Hive, как следует форматировать данные. В данном случае поля всех журналов разделены пробелом.
-	
-    * **STORED AS TEXTFILE LOCATION** - указывает Hive место, где хранятся данные (например, в каталоге example/data), а также то, что они хранятся в виде текста
-    
-    * **SELECT** - подсчитывает количество строк, у которых столбец **t4** содержит значение **[ERROR]**. Эта команда должна вернуть значение **3**, так как таблица содержит три строки с данным значением.
+    	> Удаление внешней таблицы **не** приводит к удалению данных, будет удалено только определение таблицы.
+
+	* **ROW FORMAT**: инструкции по форматированию данных для Hive. В данном случае поля всех журналов разделены пробелом.
+
+    * **STORED AS TEXTFILE LOCATION**: информация для Hive о расположении хранения данных (каталог example/data) и об их формате (текстовый).
+
+    * **SELECT**: подсчет количества всех строк, в которых столбец **t4** содержит значение **[ERROR]**. Эта команда должна вернуть значение **3**, так как данное значение содержат три строки.
 
 
-4. Используйте следующие инструкции для создания новой 'внутренней' таблицы с именем **errorLogs**.
+4. Используйте следующие операторы, чтобы создать новую «внутреннюю» таблицу с именем **errorLogs**:
 
         CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
         INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
 
-    Данная операция выполняет следующие действия:
+    Эти операторы выполняют следующие действия:
 
-    * **CREATE TABLE IF NOT EXISTS** - будет создана таблица, если она до этого не существовала. Так как ключевое слово **EXTERNAL** не было использовано, данная таблица будет являться "внутренней", то есть храниться в хранилище данных Hive и полностью обслуживаться Hive.
-    
-		> [AZURE.NOTE] В отличие от **ВНЕШНИХ**, удаление внутренних таблиц приводит также к удалению данных.
-		
-    * **STORED AS ORC** - данные будут храниться в формате Optimized Row Columnar (ORC). Это высокооптимизированный и эффективный формат для хранения данных Hive.
-    
-    * **INSERT OVERWRITE ... SELECT** - из таблицы **log4jLogs** будут выбраны строки, которые содержат значение **[ERROR]**, а затем данные будут вставлены в таблицу **errorLogs**.
+    * **CREATE TABLE IF NOT EXISTS**: создание таблицы, если она до этого не существовала. Так как ключевое слово **EXTERNAL** не использовалось, такая таблица будет внутренней, то есть хранящейся в хранилище данных Hive и полностью управляемой Hive.
 
-    Чтобы убедиться в том, что только строки, столбец t4 которых содержит значение **[ERROR]**, сохранены в таблице **errorLogs**, воспользуйтесь следующим запросом, чтобы отобразить все строки из таблицы **errorLogs**.
+		> [AZURE.NOTE]В отличие от **внешних** таблиц, удаление внутренней таблицы приводит к удалению базовых данных.
+
+    * **STORED AS ORC**: хранение данных в формате ORC (Optimized Row Columnar). Это высокооптимизированный и эффективный формат для хранения данных Hive.
+
+    * **INSERT OVERWRITE ... SELECT** — из таблицы **log4jLogs** будут выбраны строки, которые содержат значение **[ERROR]**, а затем данные будут вставлены в таблицу **errorLogs**.
+
+    Чтобы убедиться, что только строки, столбец t4 которых содержит значение **[ERROR]**, сохранены в таблице **errorLogs**, воспользуйтесь следующим оператором, чтобы отобразить все строки из таблицы **errorLogs**:
 
         SELECT * from errorLogs;
 
@@ -100,18 +100,18 @@
 
 ##<a id="nextsteps"></a>Дальнейшие действия
 
-Общая информация о Hive в HDInsight.
+Общая информация о Hive в HDInsight:
 
 * [Использование Hive с Hadoop в HDInsight](hdinsight-use-hive.md)
 
-Дополнительная информация о других способах работы с Hadoop в HDInsight.
+Дополнительная информация о других способах работы с Hadoop в HDInsight:
 
 * [Использование Pig с Hadoop в HDInsight](hdinsight-use-pig.md)
 
 * [Использование MapReduce с Hadoop в HDInsight](hdinsight-use-mapreduce.md)
 
 
-[1]: ../hdinsight-hadoop-visual-studio-tools-get-started/
+[1]: hdinsight-hadoop-visual-studio-tools-get-started.md
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
@@ -126,23 +126,23 @@
 [import-to-excel]: http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
 
 
-[hdinsight-use-oozie]: ../hdinsight-use-oozie/
-[hdinsight-analyze-flight-data]: ../hdinsight-analyze-flight-delay-data/
+[hdinsight-use-oozie]: hdinsight-use-oozie.md
+[hdinsight-analyze-flight-data]: hdinsight-analyze-flight-delay-data.md
 
 
 
-[hdinsight-storage]: ../hdinsight-use-blob-storage
+[hdinsight-storage]: hdinsight-use-blob-storage.md
 
-[hdinsight-provision]: ../hdinsight-provision-clusters/
-[hdinsight-submit-jobs]: ../hdinsight-submit-hadoop-jobs-programmatically/
-[hdinsight-upload-data]: ../hdinsight-upload-data/
-[hdinsight-get-started]: ../hdinsight-get-started/
+[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
+[hdinsight-upload-data]: hdinsight-upload-data.md
+[hdinsight-get-started]: hdinsight-get-started.md
 
-[Powershell-install-configure]: ../install-configure-powershell/
+[Powershell-install-configure]: install-configure-powershell.md
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
 [image-hdi-hive-powershell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!--HONumber=47-->
+<!--HONumber=54-->

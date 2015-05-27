@@ -1,9 +1,9 @@
-﻿<properties 
-	pageTitle="Интеграция пакета SDK для рекламных кампаний в Магазине Windows для Azure Mobile Engagement" 
-	description="Последние обновления и указания для пакета SDK для Магазина Windows для Azure Mobile Engagement" 					
+<properties 
+	pageTitle="Интеграция пакета SDK Reach для универсальных приложений для Windows" 
+	description="Интеграция Azure Mobile Engagement Reach с универсальными приложениями для Windows"
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
-	authors="lalathie" 
+	authors="piyushjo" 
 	manager="dwrede" 
 	editor="" />
 
@@ -13,30 +13,24 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
-	ms.author="kapiteir" />
+	ms.date="04/06/2015" 
+	ms.author="piyushjo" />
 
-#Как интегрировать рекламные кампании Engagement в Windows
+#Интеграция пакета SDK Reach для универсальных приложений для Windows
 
-Прежде чем приступать к этому руководству, нужно сначала выполнить процедуру интеграции, описанную в документе [Как интегрировать Mobile Engagement в Windows](mobile-engagement-windows-store-integrate-engagement.md) .
+Перед выполнением действий, описанных в этом руководстве, необходимо выполнить процедуру интеграции, описанную в документе [Интеграция пакета SDK Engagement для универсальных приложений для Windows](mobile-engagement-windows-store-integrate-engagement.md).
 
-##Внедрение пакета SDK для Engagement Reach в проект Windows
+##Внедрение пакета SDK для Engagement Reach в проект универсального приложения для Windows
 
 Ничего добавлять не нужно. Ссылки и ресурсы по `EngagementReach` уже включены в проект.
 
-> [AZURE.TIP] Вы можете настроить изображения, расположенные в папке проекта `Resources`, в частности фирменный значок (по умолчанию используется значок Mobile Engagement).
-
-##Добавление возможностей
-
-Для пакета SDK для Engagement Reach нужны определенные дополнительные возможности.
-
-Откройте файл `Package.appxmanifest` и перейдите на панель `Объявления`. Выберите `Сопоставления типов файлов` в поле `Доступные объявления`, воспользуйтесь ползунком полосы прокрутки и добавьте их. Присвойте имя `engagement_reach_content` и задайте тип для файла `.txt`.
+> [AZURE.TIP]Вы можете изменить изображения, которые находятся в папке `Resources` проекта, в частности фирменный значок (по умолчанию используется значок Engagement). Для универсальных приложений также можно переместить папку `Resources` в общий проект, чтобы сделать его содержимое доступным для нескольких приложений, но необходимо сохранить файл `Resources\EngagementConfiguration.xml` в папке по умолчанию, так как он зависит от платформы.
 
 ##Включение службы уведомлений Windows
 
-Чтобы использовать **службу уведомлений Windows** (WNS) в файле `Package.appxmanifest` на вкладке `Application UI` щелкните `Все активы изображений` в поле снизу слева. В правой части окна в поле `Уведомления` измените для параметра `Всплывающие уведомления` значение `(не задано)` на `Да`.
+Чтобы использовать **службу уведомлений Windows** (WNS), в файле `Package.appxmanifest` на вкладке `Application UI` щелкните `All Image Assets` в поле слева. Справа от поля в `Notifications` измените значение `toast capable` с `(not set)` на `Yes`.
 
-Кроме того, необходимо синхронизировать приложение с учетной записью Майкрософт и платформой Engagement. Во внешнем компоненте Engagement перейдите в параметры приложения и в разделе "Системное push-уведомление" вставьте свои учетные данные. После этого щелкните правой кнопкой мыши проект, выберите `Магазин` и `Associate App with the Store...`..
+Кроме того, необходимо синхронизировать приложение с учетной записью Майкрософт и платформой Engagement. В интерфейсном компоненте Engagement перейдите в параметры приложения и в разделе `native push` вставьте свои учетные данные. После этого щелкните правой кнопкой мыши проект и выберите `store` и `Associate App with the Store...`.
 
 ##Запуск пакета SDK для Engagement Reach
 
@@ -44,76 +38,76 @@
 
 -   Добавьте операторы `using`:
 
-			using Microsoft.Azure.Engagement;
+		using Microsoft.Azure.Engagement;
 
--   Вставьте `EngagementReach.Instance.Init` сразу после `EngagementAgent.Instance.Init` в `OnLaunched`:
+-   Вставьте `EngagementReach.Instance.Init` сразу `EngagementAgent.Instance.Init` после в `OnLaunched`:
 
-			protected override void OnLaunched(LaunchActivatedEventArgs args)
-			{
-			  EngagementAgent.Instance.Init(args);
-			  EngagementReach.Instance.Init(args);
-			}
+		protected override void OnLaunched(LaunchActivatedEventArgs args)
+		{
+		  EngagementAgent.Instance.Init(args);
+		  EngagementReach.Instance.Init(args);
+		}
 
-> [AZURE.NOTE] `EngagementReach.Instance.Init` выполняется в выделенном потоке. Вам не придется делать это самостоятельно.
+-   Если вы хотите запускать рекламную кампанию Engagement при активации приложения, переопределите метод `OnActivated`:
 
--   Если вы хотите запустить рекламную кампанию Engagement при активации приложения, переопределите метод `OnActivated`:
+		protected override void OnActivated(IActivatedEventArgs args)
+		{
+		  EngagementAgent.Instance.Init(args);
+		  EngagementReach.Instance.Init(args);
+		}
 
-			protected override void OnActivated(IActivatedEventArgs args)
-			{
-			  EngagementAgent.Instance.Init(args);
-			  EngagementReach.Instance.Init(args);
-			}
+	`EngagementReach.Instance.Init` выполняется в выделенном потоке. Вам не придется делать это самостоятельно.
 
-> [AZURE.TIP] Вы можете указать имя канала push-уведомлений MPNS своего приложения в файле `Resources\EngagementConfiguration.xml` проекта на `<channelName></channelName>`. По умолчанию Engagement создает имя на основе appId, так что его не нужно задавать самостоятельно, за исключением случаев, когда вы планируете использовать канал push-уведомлений вне Engagement.
+> [AZURE.TIP]Вы можете указать имя канала push-уведомлений WNS своего приложения в файле `Resources\EngagementConfiguration.xml` проекта на `<channelName></channelName>`. По умолчанию Engagement создает имя на основе appId, так что его не нужно задавать самостоятельно, за исключением случаев, когда вы планируете использовать канал push-уведомлений вне Engagement.
 
 ##Интеграция
 
-В Engagement предусмотрено два способа реализации уведомления и объявления о рекламной кампании: Интеграция наложения и интеграция веб-представления.
+В Engagement предусмотрено два способа реализации уведомлений и объявлений о рекламной кампании: интеграция наложения и интеграция веб-представления.
 
-[Интеграции наложения](#overlay-integration) не требует создания большого объема кода для приложения. Необходимо просто пометить страницы (XAML- и CS-файлы) тегом EngagementPageOverlay. Кроме того, при настройке представления Engagement по умолчанию настройки будут использоваться совместно для всех помеченных страниц, так что их достаточно определить один раз. Но если страницы должны наследовать свойства от объекта, отличного от EngagementPageOverlay, этот вариант не подойдет и придется использовать интеграцию веб-представления.
+windows-sdk-engagement-overlay-integration не требует добавления в приложение большого объема кода. Необходимо просто пометить страницы (XAML- и CS-файлы) тегом EngagementPageOverlay. Кроме того, если вы измените стандартное представление Engagement, ваши настройки будут использоваться для всех помеченных страниц, так что их достаточно определить один раз. Но если страницы должны наследовать свойства от объекта, отличного от EngagementPageOverlay, этот вариант не подойдет и придется использовать интеграцию веб-представления.
 
-[Интеграция веб-представления](#web-view-integration) сложнее в реализации, но если страницы должны наследовать свойства от объекта, отличного от Page, необходимо интегрировать веб-представление и его поведение.
+Реализация windows-sdk-engagement-webview-integration более сложна, но если страницы приложения должны наследовать свойства от объекта, отличного от Page, необходимо интегрировать веб-представление и его поведение.
 
-В приложениях Магазина Windows 8.1 советуем добавить элемент `<Grid></Grid>` первого уровня вокруг всего содержимого страницы. Чтобы интегрировать веб-представление, добавьте его в качестве дочернего элемента в эту сетку. Если необходимо задать компонент Engagement в другом месте, помните, что вам придется самостоятельно управлять размером экрана.
+> [AZURE.TIP]Советуем добавить элемент первого уровня `<Grid></Grid>` вокруг всего содержимого страницы. Чтобы интегрировать веб-представление, добавьте его в качестве дочернего элемента в эту сетку. Если необходимо задать компонент Engagement в другом месте, помните, что вам придется самостоятельно управлять размером экрана.
 
 ### Интеграции наложения
 
 Engagement обеспечивает наложение при отображении уведомлений и объявлений.
 
-Если вы хотите его использовать, не используйте [Интеграция веб-представления](#web-view-integration).
+Если вы хотите использовать его, не используйте windows-sdk-engagement-webview-integration.
 
 В XAML-файле измените ссылку EngagementPage на EngagementPageOverlay.
 
 -   Добавьте в объявления пространств имен:
 
-			xmlns:engagement="using:using:Microsoft.Azure.Engagement.Overlay"
+			xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay"
 
 -   Замените `engagement:EngagementPage` на `engagement:EngagementPageOverlay`:
 
-**С EngagementPage:**
+**EngagementPage:**
 
-			<engagement:EngagementPage 
-			    xmlns:engagement="using:Microsoft.Azure.Engagement">
-			
-			    <!-- layout -->
-			</engagement:EngagementPage>
+		<engagement:EngagementPage 
+		    xmlns:engagement="using:Microsoft.Azure.Engagement">
+		
+		    <!-- layout -->
+		</engagement:EngagementPage>
 
-**С EngagementPageOverlay:**
+**EngagementPageOverlay:**
 
-			<engagement:EngagementPageOverlay 
-			    xmlns:engagement="using:using:Microsoft.Azure.Engagement.Overlay">
-			
-			    <!-- layout -->
-			</engagement:EngagementPageOverlay>
+		<engagement:EngagementPageOverlay 
+		    xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay">
+		
+		    <!-- layout -->
+		</engagement:EngagementPageOverlay>
 
-> **С EngagementPageOverlay для 8.1:**
+> **EngagementPageOverlay для 8.1:**
 
-			<engagement:EngagementPageOverlay 
-			    xmlns:engagement="using:using:Microsoft.Azure.Engagement.Overlay">
-			    <Grid>
-			      <!-- layout -->
-			    </Grid>
-			</engagement:EngagementPageOverlay>
+		<engagement:EngagementPageOverlay 
+		    xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay">
+		    <Grid>
+		      <!-- layout -->
+		    </Grid>
+		</engagement:EngagementPageOverlay>
 
 Затем в CS-файле пометьте страницу тегом EngagementPageOverlay, а не EngagementPage и импортируйте Microsoft.Azure.Engagement.Overlay.
 
@@ -121,7 +115,7 @@ Engagement обеспечивает наложение при отображен
 
 -   Замените `EngagementPage` на `EngagementPageOverlay`:
 
-**С EngagementPage:**
+**EngagementPage:**
 
 			using Microsoft.Azure.Engagement;
 			
@@ -133,7 +127,7 @@ Engagement обеспечивает наложение при отображен
 			  }
 			}
 
-**С EngagementPageOverlay:**
+**EngagementPageOverlay**:
 
 			using Microsoft.Azure.Engagement.Overlay;
 			
@@ -147,23 +141,23 @@ Engagement обеспечивает наложение при отображен
 
 Теперь эта страница использует механизм наложения Engagement и вам не нужно вставлять веб-представление.
 
-Механизм наложения Engagement использует первый элемент Grid, найденный в XAML-файле, для добавления двух веб-представлений на страницу. Если вы хотите определить, куда будет вставлено веб-представление, можете определить сетку с именем EngagementGrid следующим образом:
+Механизм наложения Engagement использует первый элемент Grid, найденный в XAML-файле, для добавления двух веб-представлений на страницу. Если вы хотите указать, куда нужно вставить веб-представления, можно определить сетку с именем EngagementGrid:
 
 			<Grid x:Name="EngagementGrid"></Grid>
 
 Уведомление и объявление с наложением можно настроить непосредственно в их XAML- и CS-файлах:
 
--   `EngagementAnnouncement.html` : HTML-структура веб-представления `Объявление`.
--   `EngagementOverlayAnnouncement.xaml` : XAML-структура `объявления` .
--   `EngagementOverlayAnnouncement.xaml.cs` : код, связанный с `EngagementOverlayAnnouncement.xaml` .
--   `EngagementNotification.html` : HTML-структура веб-представления `Уведомление`.
--   `EngagementOverlayNotification.xaml` : XAML-структура `Уведомления` .
--   `EngagementOverlayNotification.xaml.cs` : Код, связанный с `EngagementOverlayNotification.xaml`.
--   `EngagementPageOverlay.cs` : Кода для отображения объявлений и уведомлений с `наложением`.
+-   `EngagementAnnouncement.html`: HTML-код веб-представления `Announcement`.
+-   `EngagementOverlayAnnouncement.xaml` : XAML-код `Announcement`.
+-   `EngagementOverlayAnnouncement.xaml.cs`: код, связанный с `EngagementOverlayAnnouncement.xaml`.
+-   `EngagementNotification.html`: HTML-код веб-представления `Notification`.
+-   `EngagementOverlayNotification.xaml` : XAML-код `Notification`.
+-   `EngagementOverlayNotification.xaml.cs`: код, связанный с `EngagementOverlayNotification.xaml`.
+-   `EngagementPageOverlay.cs`: код для отображения объявлений и уведомлений `Overlay`.
 
 ### Интеграция веб-представления
 
-Если вы хотите его использовать, не используйте [Overlay integration](#overlay-integration).
+Если вы хотите использовать веб-представление, не используйте windows-sdk-engagement-overlay-integration.
 
 Для отображения содержимого Engagement необходимо интегрировать два веб-представления XAML в каждую страницу, на которой необходимо отобразить уведомление и объявление. Поэтому добавьте следующий код в XAML-файл.
 
@@ -271,9 +265,9 @@ Engagement обеспечивает наложение при отображен
 			  return true;
 			};
 
-Как можно видеть, обратный вызов каждого метода возвращает логическое значение. После отправки данных Engagement отправляет отзыв серверной части. Если обратный вызов возвращает значение false, будет отправлен отзыв `exit`. В противном случае, будет возвращено `действие`. Если для событий не задан обратный вызов, Engagement будет возвращен отзыв `drop`.
+Как можно видеть, обратный вызов каждого метода возвращает логическое значение. После отправки данных Engagement отправляет отзыв серверной части. Если обратный вызов возвращает значение false, будет отправлен отзыв `exit`. В противном случае отправляется `action`. Если для событий не задан обратный вызов, Engagement будет возвращен отзыв `drop`.
 
-> [AZURE.WARNING] Engagement не может получать несколько отзывов для отправленных данных. Не забывайте, что если вы планируете установить для события несколько обработчиков, отзывы будут соответствовать последнему из них. Во избежание путаницы с отзывами на внешних компонентах советуем, чтобы в этом случае возвращаемое значение было всегда одинаковым.
+> [AZURE.WARNING]Engagement не может получать несколько отзывов для отправленных данных. Не забывайте, что если вы планируете установить для события несколько обработчиков, отзывы будут соответствовать последнему из них. Во избежание путаницы с отзывами на внешних компонентах советуем, чтобы в этом случае возвращаемое значение было всегда одинаковым.
 
 ##Настройка пользовательского интерфейса (необязательно)
 
@@ -306,14 +300,13 @@ Engagement обеспечивает наложение при отображен
 			  // Engagement Agent and Reach initialization
 			}
 
-> [AZURE.NOTE] По умолчанию Engagement использует собственную реализацию `EngagementReachHandler`.
-> Ее не обязательно создавать отдельно, но даже если вы ее создадите, вам не придется переопределять каждый метод. Поведение по умолчанию - выбор базового объекта Engagement.
+> [AZURE.NOTE]По умолчанию Engagement использует собственную реализацию `EngagementReachHandler`. Ее не обязательно создавать отдельно, но даже если вы ее создадите, вам не придется переопределять каждый метод. Поведение по умолчанию — выбор базового объекта Engagement.
 
 ### Веб-представление
 
 По умолчанию рекламная кампания будет использовать внедренные ресурсы библиотеки DLL для отображения уведомлений и страниц.
 
-Чтобы обеспечить все возможности настройки, мы используем только веб-представление. Если вы хотите настроить макеты, переопределите непосредственно файлы ресурсов `EngagementAnnouncement.html` и `EngagementNotification.html`. Для правильной работы Engagement весь код должен быть в тегах <body></body>. Однако можно добавить тег снаружи `engagement_webview_area`.
+Чтобы обеспечить все возможности настройки, мы используем только веб-представление. Если вы хотите настроить макеты, переопределите непосредственно файлы ресурсов `EngagementAnnouncement.html` и `EngagementNotification.html`. Для правильной работы Engagement весь код должен быть в тегах `<body></body>`. Однако можно добавить тег снаружи `engagement_webview_area`.
 
 Тем не менее, вы можете использовать собственные ресурсы.
 
@@ -341,13 +334,13 @@ Engagement обеспечивает наложение при отображен
 			}
 
 
-По умолчанию AnnouncementHTML - это `ms-appx-web:///Resources/EngagementAnnouncement.html`. Представляет HTML-файл, который задает структуру содержимого push-сообщения (текстовое объявление, веб-объявление и объявление опроса). AnnouncementName - `engagement_announcement_content`. Это имя структуры веб-представления на XAML-странице.
+По умолчанию AnnouncementHTML — это `ms-appx-web:///Resources/EngagementAnnouncement.html`. Представляет HTML-файл, который задает структуру содержимого push-сообщения (текстовое объявление, веб-объявление и объявление опроса). AnnouncementName — `engagement_announcement_content`. Это имя структуры веб-представления на XAML-странице.
 
-NotfificationHTML - `ms-appx-web:///Resources/EngagementNotification.html`. Представляет HTML-файл, который задает структуру уведомления в push-сообщении. NotfificationName - `engagement_notification_content`. Это имя структуры веб-представления на XAML-странице.
+NotfificationHTML — `ms-appx-web:///Resources/EngagementNotification.html`. Представляет HTML-файл, который задает структуру уведомления в push-сообщении. NotfificationName —`engagement_notification_content`. Это имя структуры веб-представления на XAML-странице.
 
 ### Настройка
 
-Вы можете настроить необходимое веб-представление уведомлений и объявлений, если сохраните объект Engagement. Проследите, чтобы объект веб-представления был описан трижды. Первый раз - в XAML-файле, второй раз - в CS-файле в методе setwebview() и третий раз в HTML-файле.
+Вы можете настроить необходимое веб-представление уведомлений и объявлений, если сохраните объект Engagement. Проследите, чтобы объект веб-представления был описан трижды: первый раз — в XAML-файле, второй раз — в CS-файле в методе setwebview() и третий раз в HTML-файле.
 
 -   В XAML-файле описывается текущий компонент веб-представления графического макета.
 -   В CS-файл можно определить setwebview(), в котором задается размер двух веб-представлений (уведомления, объявления). Это очень эффективно при изменении размера приложения.
@@ -380,17 +373,17 @@ NotfificationHTML - `ms-appx-web:///Resources/EngagementNotification.html`. Пр
 			 */
 			EngagementReach.Instance.RetrieveLaunchMessageFailed += () => { [...] };
 
-Вы можете задать обратный вызов в методе "Public App(){}" файла `App.xaml.cs` (предпочтительно перед вызовом `EngagementReach.Instance.Init()`).
+Вы можете задать обратный вызов в методе «Public App(){}» файла `App.xaml.cs` (предпочтительно перед вызовом `EngagementReach.Instance.Init()`).
 
-> [AZURE.TIP] Каждый обработчик вызывается потоком пользовательского интерфейса. При использовании MessageBox или других компонентов, связанных с пользовательским интерфейсом, об этом можно не беспокоится.
+> [AZURE.TIP]Каждый обработчик вызывается потоком пользовательского интерфейса. При использовании MessageBox или других компонентов, связанных с пользовательским интерфейсом, об этом можно не беспокоится.
 
 ##Совет по настраиваемой схеме
 
-Мы предоставляем возможность использования настраиваемой схемы. Вы можете отправлять из внешнего компонента Engagement универсальный код ресурса другого типа. Этот код будет использоваться в работе приложения. Управление схемой по умолчанию, например `http, ftp, ...`, осуществляет операционная система Windows. Если окно не является приложением по умолчанию, установленным на устройстве, в нем отобразится запрос. Можно использовать также другую схему, например схему приложения. Кроме того, для приложения можно использовать настраиваемую схему.
+Мы предоставляем возможность использования настраиваемой схемы. Вы можете отправлять из внешнего компонента Engagement универсальный код ресурса другого типа. Этот код будет использоваться в работе приложения. Управление схемой по умолчанию, например `http, ftp, ...`, осуществляет операционная система Windows. Если на устройстве не установлено приложение по умолчанию, появится окно с запросом. Можно использовать также другую схему, например схему приложения. Кроме того, для приложения можно использовать настраиваемую схему.
 
-Настраиваемую схему можно с легкостью задать в приложении, открыв `Package.appxmanifest` и перейдя на панель `Объявления`. Выберите `Протокол` в поле "Доступные объявления", воспользуйтесь ползунком полосы прокрутки и добавьте его. Замените значение в поле `Имя` необходимым именем нового протокола.
+Настраиваемую схему можно с легкостью задать в приложении, открыв `Package.appxmanifest` и панель `Declarations`. Прокрутите ползунок поля «Доступные объявления», выберите `Protocol` и добавьте его. Замените значение в поле `Name` необходимым именем нового протокола.
 
-Теперь, чтобы использовать эти протоколы измените файл `App.xaml.cs`, задав в нем метод `OnActivated`, и не забудьте также инициализировать здесь Engagement:
+Чтобы использовать этот протокол, измените файл `App.xaml.cs`, задав в нем метод `OnActivated`, и не забудьте также инициализировать Engagement:
 
 			/// <summary>
 			/// Enter point when app his called by another way than user click
@@ -416,4 +409,4 @@ NotfificationHTML - `ms-appx-web:///Resources/EngagementNotification.html`. Пр
 			  }
 			  #endregion
 
-<!--HONumber=47-->
+<!--HONumber=54-->

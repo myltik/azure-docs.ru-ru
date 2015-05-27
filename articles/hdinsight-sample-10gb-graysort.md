@@ -1,175 +1,166 @@
-﻿<properties 
-	pageTitle="Пример сортировки GraySort 10 ГБ | Azure" 
-	description="Узнайте, как выполнять сортировку graysort общего назначения для очень больших объемов данных, обычно не менее 100 ТБ, на Hadoop HDInsight с использованием Azure PowerShell." 
-	editor="cgronlun" 
-	manager="paulettm" 
-	services="hdinsight" 
-	documentationCenter="" 
+<properties
+	pageTitle="Пример сортировки GraySort 10 ГБ | Azure"
+	description="Узнайте, как выполнять сортировку graysort общего назначения для очень больших объемов данных, обычно не менее 100 ТБ, на Hadoop HDInsight с использованием Azure PowerShell."
+	editor="cgronlun"
+	manager="paulettm"
+	services="hdinsight"
+	documentationCenter=""
 	authors="bradsev"/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/10/2014" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="03/30/2015" 
 	ms.author="bradsev"/>
 
 # Пример сортировки GraySort Hadoop 10 ГБ в HDInsight
- 
-В этом разделе показано, как выполнить программу сортировки GraySort Hadoop MapReduce общего назначения для Azure HDInsight с использованием Azure PowerShell. GraySort - это измерение производительности сортировки, показателем которой служит скорость (ТБ/мин), достигаемая при сортировке очень больших объемов данных, обычно не менее 100 ТБ. 
 
-В этом примере используется небольшой объем данных 10 ГБ, чтобы его можно было выполнить достаточно быстро. Используется также приложение MapReduce, разработанное Оуэном О'Мэлли (Owen O'Malley) и Аруном Мёрти (Arun Murthy) и ставшее в 2009 г. победителем по результатам ежегодного измерения производительности сортировки общего назначения ("daytona") для терабайтных объемов данных, показав скорость 0,578 ТБ/мин (100 ТБ за 173 минуты). Дополнительную информацию об этом и других измерениях производительности сортировки см. на сайте [Sortbenchmark](http://sortbenchmark.org/)   .
+В этом разделе объясняется, как выполнить программу сортировки GraySort Hadoop MapReduce общего назначения для Azure HDInsight с использованием Azure PowerShell. GraySort — это измерение производительности сортировки, показателем которой служит скорость (ТБ/мин), достигаемая при сортировке очень больших объемов данных, обычно не менее 100 ТБ.
 
-В этом примере используются три набора программ MapReduce.	
- 
+В этом примере используется небольшой объем данных, 10 ГБ, чтобы можно было выполнить сортировку достаточно быстро. Используется приложение MapReduce, разработанное Оуэном О'Мэлли (Owen O'Malley) и Аруном Мёрти (Arun Murthy). Это приложение победило в 2009 г. на конкурсе приложений сортировки общего назначения (daytona) для больших объемов данных, показав скорость 0,578 ТБ/мин (100 ТБ за 173 минуты). Дополнительные сведения об этом и других измерениях производительности сортировки см. на сайте [Sortbenchmark](http://sortbenchmark.org/).
+
+В этом примере используются три набора программ MapReduce.
+
 1. **TeraGen**: программа MapReduce, с помощью которой можно создать строки данных для сортировки.
-2. **TeraSort**: производит выборку входных данных и использует MapReduce для сортировки данных в общем порядке. TeraSort представляет стандартные функции MapReduce, за исключением настраиваемого разделителя, в котором используется отсортированный список выборки ключей N-1, определяющий диапазон ключей для каждой функции reduce. В частности, все ключи, такие как этот пример[i-1] <= key < пример[i], отправляются в функцию reduce i. Это гарантирует, что результат reduce i всегда меньше, чем результат reduce i+1.
-3. **TeraValidate**: программа MapReduce, которая проверяет глобальную сортировку результатов. В выходном каталоге создается одна функция map для каждого файла, и каждая функция map гарантирует, что каждый ключ будет меньше или равен предыдущему. Функция map также создает записи первого и последнего ключей каждого файла, а функция reduce гарантирует, что первый ключ файла i больше последнего ключа файла i-1. Все проблемы указываются в выходных данных функции reduce вместе с неотсортированными ключами.
+2. **TeraSort**: производит выборку входных данных и использует MapReduce для сортировки данных в общем порядке. TeraSort представляет стандартные функции MapReduce, за исключением настраиваемого разделителя, в котором используется отсортированный список выборки ключей N-1, определяющий диапазон ключей для каждой функции reduce. В частности, все ключи, подобные этому примеру [i-1] <= key < sample[i] отправляются для сокращения i. Это гарантирует, что все выходные данные сокращения i будут меньше, чем выходные данные i+1.
+3. **TeraValidate** — программа MapReduce, которая проверяет глобальную сортировку выходных данных. В выходном каталоге создается одна функция map для каждого файла, и каждая функция map гарантирует, что каждый ключ будет меньше или равен предыдущему. Функция map также создает записи первого и последнего ключей каждого файла, а функция reduce гарантирует, что первый ключ файла i больше последнего ключа файла i-1. Все проблемы указываются в выходных данных функции reduce вместе с неотсортированными ключами.
 
-Формат ввода и вывода, использующийся всеми тремя приложениями, позволяет читать и записывать текстовые файлы в нужном формате. Для репликации выходных данных функции reduce задано значение 1, а не значение по умолчанию 3, поскольку при сравнительном измерении производительности не требуется репликация выходных данных на несколько узлов.
+Формат ввода и вывода, используемый во всех трех приложениях, позволяет читать и записывать текстовые файлы в нужном формате. Для репликации выходных данных функции reduce указано значение 1, а не значение по умолчанию 3, поскольку при сравнительном измерении производительности не требуется репликация выходных данных на несколько узлов.
 
- 
-**Вы узнаете:**		
-* Как использовать Azure PowerShell для выполнения серии программ MapReduce в Azure HDInsight.		
+
+**Вы узнаете:** 
+* Как использовать Azure PowerShell для выполнения серии программ MapReduce в Azure HDInsight. 
 * Как выглядит программа MapReduce, написанная на языке Java.
 
 
-**Предварительные требования**	
+**Предварительные требования:**
 
-- Необходимо иметь учетную запись Azure. Возможности регистрации учетной записи см. на странице [Бесплатное пробное использование Azure](http://azure.microsoft.com/pricing/free-trial/).
+- Необходимо иметь учетную запись Azure. Варианты регистрации учетной записи см. на странице [Бесплатное пробное использование Azure](http://azure.microsoft.com/pricing/free-trial/).
 
-- Вы должны были подготовить кластер HDInsight. Сведения по различным способам создания таких кластеров см. в разделе [Подготовка кластеров HDInsight](hdinsight-provision-clusters.md)
+- Вы должны были подготовить кластер HDInsight. Инструкции по созданию таких кластеров см. в разделе [Подготовка кластеров HDInsight](hdinsight-provision-clusters.md).
 
-- Необходимо установить Azure PowerShell и настроить эту среду для поддержки вашей учетной записи. Инструкции по выполнению этой задачи см. в разделе [Установка и настройка Azure PowerShell][powershell-install-configure].
-
-## Содержание
-В этом разделе демонстрируется выполнение серии программ MapReduce, входящих в пример, представляется код Java для программы MapReduce, обобщаются полученные знания и кратко описываются некоторые дальнейшие действия. Здесь содержатся следующие разделы:
-	
-1. [Выполнение примера с использованием Azure PowerShell](#run-sample)	
-2. [Код Java для программы TeraSort MapReduce](#java-code)
-3. [Сводка](#summary)	
-4. [Дальнейшие действия](#next-steps)	
-
-<h2><a id="run-sample"></a>Выполнение примера с использованием Azure PowerShell</h2>
-
-Для примера необходимы три задачи, каждая из которых соответствует одной из программ MapReduce, описанных во введении:	
-
-1. Создание данных для сортировки с помощью задания MapReduce **TeraGen**.	
-2. Сортировка данных с помощью задания MapReduce **TeraSort**.		
-3. Подтверждение правильной сортировки данных с помощью задания MapReduce **TeraValidate**.	
+- У вас должна быть установлена среда Azure PowerShell, настроенная для работы с вашей учетной записью. Инструкции по выполнению этой задачи см. в разделе [Установка и настройка Azure PowerShell][powershell-install-configure].
 
 
-**Запуск программы TeraGen**	
+##Выполнение примера с использованием Azure PowerShell
+
+Для примера необходимы три задачи, каждая из которых соответствует одной из программ MapReduce, описанных во введении:
+
+1. Создание данных для сортировки с помощью задания MapReduce **TeraGen**.
+2. Сортировка данных с помощью задания MapReduce **TeraSort**.
+3. Подтверждение правильной сортировки данных с помощью задания MapReduce **TeraValidate**.
+
+
+**Выполнение программы TeraGen**
 
 1. Откройте Azure PowerShell. Инструкции по открытию окна консоли Azure PowerShell см. в разделе [Установка и настройка Azure PowerShell][powershell-install-configure].
 2. Задайте две переменные в следующих командах, а затем выполните команды:
-	
-		# Provide the Azure subscription name and the HDInsight cluster name.
-		$subscriptionName = "myAzureSubscriptionName"   
+
+		# Provide the Azure subscription name and the HDInsight cluster name
+		$subscriptionName = "myAzureSubscriptionName"
 		$clusterName = "myClusterName"
-                 
-3. Выполните следующую команду, чтобы создать определение задания MapReduce:
+
+4. Выполните следующую команду, чтобы создать определение задания MapReduce:
 
 		# Create a MapReduce job definition for the TeraGen MapReduce program
-		$teragen = New-AzureHDInsightMapReduceJobDefinition -JarFile "/example/jars/hadoop-examples.jar" -ClassName "teragen" -Arguments "-Dmapred.map.tasks=50", "100000000", "/example/data/10GB-sort-input" 
+		$teragen = New-AzureHDInsightMapReduceJobDefinition -JarFile "/example/jars/hadoop-mapreduce-examples.jar" -ClassName "teragen" -Arguments "-Dmapred.map.tasks=50", "100000000", "/example/data/10GB-sort-input"
 
-	> [AZURE.NOTE] *hadoop-examples.jar* предоставляется вместе с кластерами HDInsight версии 2.1. В кластерах HDInsight версии 3.0 файл был переименован в *hadoop-mapreduce.jar*.
-	
-	Аргумент *"-Dmapred.map.tasks=50"* указывает, что для выполнения задания будет создано 50 задач map. Аргумент *100000000* определяет объем создаваемых данных. Последний аргумент,   */example/data/10GB-sort-input*, задает выходной каталог, в котором сохраняются результаты (который содержит входные данные для следующего этапа сортировки).
+	Аргумент *"-Dmapred.map.tasks=50"* указывает, что для выполнения задания будет создано 50 задач map. Аргумент *100000000* определяет объем создаваемых данных. Последний аргумент */example/data/10GB-sort-input* указывает выходной каталог, в котором сохраняются результаты (который содержит входные данные для следующего этапа сортировки).
 
-4. Выполните следующие команды, чтобы отправить задание, ждать его завершения, а затем напечатать стандартную ошибку:
+5. Выполните следующие команды, чтобы отправить задание, дождитесь завершения задания и затем напечатайте стандартную ошибку:
 
-		# Run the TeraGen MapReduce job.
-		# Wait for the job to complete.
+		# Run the TeraGen MapReduce job
+		# Wait for the job to finish
 		# Print output and standard error file of the MapReduce job
-		Select-AzureSubscription $subscriptionName         
-		$teragen | Start-AzureHDInsightJob -Cluster $clustername | Wait-AzureHDInsightJob -WaitTimeoutInSeconds 3600 | Get-AzureHDInsightJobOutput -Cluster $clustername -StandardError 
+		Select-AzureSubscription $subscriptionName
+		$teragen | Start-AzureHDInsightJob -Cluster $clustername | Wait-AzureHDInsightJob -WaitTimeoutInSeconds 3600 | Get-AzureHDInsightJobOutput -Cluster $clustername -StandardError
 
 
-**Запуск программы TeraSort**			
+**Выполнение программы TeraSort**
 
 1. Откройте Azure PowerShell.
 2. Задайте две переменные в следующих командах, а затем выполните команды:
-	
-		# Provide the Azure subscription name and the HDInsight cluster name.
-		$subscriptionName = "myAzureSubscriptionName"   
+
+		# Provide the Azure subscription name and the HDInsight cluster name
+		$subscriptionName = "myAzureSubscriptionName"
 		$clusterName = "myClusterName"
 
-3. Выполните следующую команду, чтобы определить задание MapReduce: 	 
+3. Выполните следующую команду, чтобы определить задание MapReduce:
 
 		# Create a MapReduce job definition for the TeraSort MapReduce program
-		$terasort = New-AzureHDInsightMapReduceJobDefinition -JarFile "/example/jars/hadoop-examples.jar" -ClassName "terasort" -Arguments "-Dmapred.map.tasks=50", "-Dmapred.reduce.tasks=25", "/example/data/10GB-sort-input", "/example/data/10GB-sort-output" 
+		$terasort = New-AzureHDInsightMapReduceJobDefinition -JarFile "/example/jars/hadoop-mapreduce-examples.jar" -ClassName "terasort" -Arguments "-Dmapred.map.tasks=50", "-Dmapred.reduce.tasks=25", "/example/data/10GB-sort-input", "/example/data/10GB-sort-output"
 
-	Аргумент *"-Dmapred.map.tasks=50"* указывает, что для выполнения задания будет создано 50 задач map. Аргумент *100000000* определяет объем создаваемых данных. Последние два аргумента задают входной и выходной каталоги. 
+	Аргумент *"-Dmapred.map.tasks=50"* указывает, что для выполнения задания будет создано 50 задач map. Аргумент *100000000* определяет объем создаваемых данных. Последние два аргумента задают входной и выходной каталоги.
 
-4. Выполните следующую команду, чтобы отправить задание, ждать его завершения, а затем напечатать стандартную ошибку:
+4. Выполните следующую команду, чтобы отправить задание, дождитесь завершения задания, затем напечатайте стандартную ошибку:
 
-		# Run the TeraSort MapReduce job.
-		# Wait for the job to complete.
-		# Print output and standard error file of the MapReduce job 
-		Select-AzureSubscription $subscriptionName        
-		$terasort | Start-AzureHDInsightJob -Cluster $clustername | Wait-AzureHDInsightJob -WaitTimeoutInSeconds 3600 | Get-AzureHDInsightJobOutput -Cluster $clustername -StandardError 
+		# Run the TeraSort MapReduce job
+		# Wait for the job to finish
+		# Print output and standard error file of the MapReduce job
+		Select-AzureSubscription $subscriptionName
+		$terasort | Start-AzureHDInsightJob -Cluster $clustername | Wait-AzureHDInsightJob -WaitTimeoutInSeconds 3600 | Get-AzureHDInsightJobOutput -Cluster $clustername -StandardError
 
 
-**Запуск программы TeraValidate**
-		 		
+**Выполнение программы TeraValidate**
+
 1. Откройте Azure PowerShell.
 2. Задайте две переменные в следующих командах, а затем выполните команды:
-	
-		# Provide the Azure subscription name and the HDInsight cluster name.
-		$subscriptionName = "myAzureSubscriptionName"   
+
+		# Provide the Azure subscription name and the HDInsight cluster name
+		$subscriptionName = "myAzureSubscriptionName"
 		$clusterName = "myClusterName"
-                 
-3. Выполните следующую команду, чтобы определить задание MapReduce: 
+
+3. Выполните следующую команду, чтобы определить задание MapReduce:
 
 		#	Create a MapReduce job definition for the TeraValidate MapReduce program
-		$teravalidate = New-AzureHDInsightMapReduceJobDefinition -JarFile "/example/jars/hadoop-examples.jar" -ClassName "teravalidate" -Arguments "-Dmapred.map.tasks=50", "-Dmapred.reduce.tasks=25", "/example/data/10GB-sort-output", "/example/data/10GB-sort-validate" 
+		$teravalidate = New-AzureHDInsightMapReduceJobDefinition -JarFile "/example/jars/hadoop-mapreduce-examples.jar" -ClassName "teravalidate" -Arguments "-Dmapred.map.tasks=50", "-Dmapred.reduce.tasks=25", "/example/data/10GB-sort-output", "/example/data/10GB-sort-validate"
 
-	Аргумент *"-Dmapred.map.tasks=50"* указывает, что для выполнения задания будет создано 50 задач map. Аргумент *"-Dmapred.reduce.tasks=25"* указывает, что для выполнения задания будет создано 25 задач reduce. Последние два аргумента задают входной и выходной каталоги.  
- 
-
-4. Выполните следующие команды, чтобы отправить задание MapReduce, ждать его завершения, а затем напечатать стандартную ошибку:
-
-		# Run the TeraSort MapReduce job.
-		# Wait for the job to complete.
-		# Print output and standard error file of the MapReduce job 
-		Select-AzureSubscription $subscriptionName 
-		$teravalidate | Start-AzureHDInsightJob -Cluster $clustername | Wait-AzureHDInsightJob -WaitTimeoutInSeconds 3600 | Get-AzureHDInsightJobOutput -Cluster $clustername -StandardError 
+	Аргумент *"-Dmapred.map.tasks=50"* указывает, что для выполнения задания будет создано 50 задач map. Аргумент *-Dmapred.reduce.tasks=25* указывает, что для выполнения задания будет создано 25 задач reduce. Последние два аргумента задают входной и выходной каталоги.
 
 
-<h2><a id="java-code"></a>Код Java для программы MapReduce TerraSort</h2>
+4. Выполните следующие команды, чтобы отправить задание MapReduce, дождитесь его завершения, а затем напечатайте стандартную ошибку:
 
-В этом разделе предоставлен для изучения код программы MapReduce TerraSort. 
+		# Run the TeraSort MapReduce job
+		# Wait for the job to finish
+		# Print output and standard error file of the MapReduce job
+		Select-AzureSubscription $subscriptionName
+		$teravalidate | Start-AzureHDInsightJob -Cluster $clustername | Wait-AzureHDInsightJob -WaitTimeoutInSeconds 3600 | Get-AzureHDInsightJobOutput -Cluster $clustername -StandardError
+
+
+##Код Java для программы TeraSort MapReduce
+
+В этом разделе предоставлен для изучения код программы MapReduce TeraSort.
 
 
 	/**
-	 * Licensed to the Apache Software Foundation (ASF) under one	
-	 * or more contributor license agreements.  See the NOTICE file	
-	 * distributed with this work for additional information	
-	 * regarding copyright ownership.  The ASF licenses this file	
-	 * to you under the Apache License, Version 2.0 (the	
-	 * "License"); you may not use this file except in compliance	
-	 * with the License.  You may obtain a copy of the License at	
-	 *	
-	 *     http://www.apache.org/licenses/LICENSE-2.0	
-	 *	
-	 * Unless required by applicable law or agreed to in writing, software	
-	 * distributed under the License is distributed on an "AS IS" BASIS,	
-	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.	
-	 * See the License for the specific language governing permissions and	
-	 * limitations under the License.	
-	 */	
-	
+	 * Licensed to the Apache Software Foundation (ASF) under one
+	 * or more contributor license agreements.  See the NOTICE file
+	 * distributed with this work for additional information
+	 * regarding copyright ownership.  The ASF licenses this file
+	 * to you under the Apache License, Version 2.0 (the
+	 * "License"); you may not use this file except in compliance
+	 * with the License.  You may obtain a copy of the License at
+	 *
+	 *     http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 * Unless required by applicable law or agreed to in writing, software
+	 * distributed under the License is distributed on an "AS IS" BASIS,
+	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 * See the License for the specific language governing permissions and
+	 * limitations under the License.
+	 */
+
 	package org.apache.hadoop.examples.terasort;
-	
+
 	import java.io.IOException;
 	import java.io.PrintStream;
 	import java.net.URI;
 	import java.util.ArrayList;
 	import java.util.List;
-	
+
 	import org.apache.commons.logging.Log;
 	import org.apache.commons.logging.LogFactory;
 	import org.apache.hadoop.conf.Configured;
@@ -185,27 +176,27 @@
 	import org.apache.hadoop.mapred.Partitioner;
 	import org.apache.hadoop.util.Tool;
 	import org.apache.hadoop.util.ToolRunner;
-	
-	/**	
-	 * Generates the sampled split points, launches the job, 	
-	 * and waits for it to finish. 	
+
+	/**
+	 * Generates the sampled split points, launches the job,
+	 * and waits for it to finish.
 	 * <p>
-	 * To run the program: 	
-	 * <b>bin/hadoop jar hadoop-examples-*.jar terasort in-dir out-dir</b>	
-	 */	
-	
+	 * To run the program:
+	 * <b>bin/hadoop jar hadoop-examples-*.jar terasort in-dir out-dir</b>
+	 */
+
 	public class TeraSort extends Configured implements Tool {
 	  private static final Log LOG = LogFactory.getLog(TeraSort.class);
-	
-	  /**	
-	   * A partitioner that splits text keys into roughly equal 	
-	   * partitions in a global sorted order.	
-	   */	
-	
+
+	  /**
+	   * A partitioner that splits text keys into roughly equal
+	   * partitions in a global sorted order.
+	   */
+
 	  static class TotalOrderPartitioner implements Partitioner<Text,Text>{
 	    private TrieNode trie;
 	    private Text[] splitPoints;
-	
+
 	    /**
 	     * A generic trie node
 	     */
@@ -220,14 +211,14 @@
 	        return level;
 	      }
 	    }
-	
+
 	    /**
 	     * An inner trie node that contains 256 children based on the next
 	     * character.
 	     */
 	    static class InnerTrieNode extends TrieNode {
 	      private TrieNode[] child = new TrieNode[256];
-	      
+
 	      InnerTrieNode(int level) {
 	        super(level);
 	      }
@@ -254,7 +245,7 @@
 	        }
 	      }
 	    }
-	
+
 	    /**
 	     * A leaf trie node that does string compares to figure out where the given
 	     * key belongs between lower..upper.
@@ -286,8 +277,8 @@
 	        strm.println(upper);
 	      }
 	    }
-	
-	
+
+
 	    /**
 	     * Read the cut points from the given sequence file.
 	     * @param fs the file system
@@ -296,7 +287,7 @@
 	     * @return the strings to split the partitions on
 	     * @throws IOException
 	     */
-	    private static Text[] readPartitions(FileSystem fs, Path p, 
+	    private static Text[] readPartitions(FileSystem fs, Path p,
 	                                         JobConf job) throws IOException {
 	      SequenceFile.Reader reader = new SequenceFile.Reader(fs, p, job);
 	      List<Text> parts = new ArrayList<Text>();
@@ -309,7 +300,7 @@
 	      reader.close();
 	      return parts.toArray(new Text[parts.size()]);  
 	    }
-	
+
 	    /**
 	     * Given a sorted set of cut points, build a trie that will find the correct
 	     * partition quickly.
@@ -320,7 +311,7 @@
 	     * @param maxDepth the maximum depth we will build a trie for
 	     * @return the trie node that will divide the splits correctly
 	     */
-	    private static TrieNode buildTrie(Text[] splits, int lower, int upper, 
+	    private static TrieNode buildTrie(Text[] splits, int lower, int upper,
 	                                      Text prefix, int maxDepth) {
 	      int depth = prefix.getLength();
 	      if (depth >= maxDepth || lower == upper) {
@@ -341,7 +332,7 @@
 	          currentBound += 1;
 	        }
 	        trial.getBytes()[depth] = (byte) ch;
-	        result.child[ch] = buildTrie(splits, lower, currentBound, trial, 
+	        result.child[ch] = buildTrie(splits, lower, currentBound, trial,
 	                                     maxDepth);
 	      }
 	      // pick up the rest
@@ -350,7 +341,7 @@
 	                                    maxDepth);
 	      return result;
 	    }
-	
+
 	    public void configure(JobConf job) {
 	      try {
 	        FileSystem fs = FileSystem.getLocal(job);
@@ -361,16 +352,16 @@
 	        throw new IllegalArgumentException("can't read paritions file", ie);
 	      }
 	    }
-	
+
 	    public TotalOrderPartitioner() {
 	    }
-	
+
 	    public int getPartition(Text key, Text value, int numPartitions) {
 	      return trie.findPartition(key);
 	    }
-	    
+
 	  }
-	  
+
 	  public int run(String[] args) throws Exception {
 	    LOG.info("starting");
 	    JobConf job = (JobConf) getConf();
@@ -397,51 +388,49 @@
 	    LOG.info("done");
 	    return 0;
 	  }
-	
+
 	  /**
 	   * @param args
 	   */
-	
+
 	  public static void main(String[] args) throws Exception {
 	    int res = ToolRunner.run(new JobConf(), new TeraSort(), args);
 	    System.exit(res);
 	  }
-	
-	}
-  
 
-<h2><a id="summary"></a>Сводка</h2>
+	}
+
+
+##Сводка
 
 В этом примере показано, как выполнить серию заданий MapReduce с использованием HDInsight Azure, когда выходные данные для одного задания становятся входными данными для следующего задания в серии.
 
-<h2><a id="next-steps"></a>Дальнейшие действия</h2>
+##Дальнейшие действия
 
-Учебники по выполнению других примеров и инструкции по использованию заданий Pig, Hive и MapReduce в Azure HDInsight с использованием Azure PowerShell см. в следующих разделах:
+Учебники по выполнению других примеров и инструкции по использованию заданий Pig, Hive и MapReduce в Azure HDInsight с использованием Azure PowerShell см. в следующих статьях.
 
-* [Приступая к работе с Azure HDInsight][hdinsight-get-started]
+* [Начало работы с Azure HDInsight][hdinsight-get-started]
 * [Пример: оценка числа пи][hdinsight-sample-pi-estimator]
 * [Пример: счетчик слов][hdinsight-sample-wordcount]
 * [Пример: потоковая передача на C#][hdinsight-sample-csharp-streaming]
 * [Использование Pig с HDInsight][hdinsight-use-pig]
 * [Использование Hive с HDInsight][hdinsight-use-hive]
-* [Документация по пакету Azure HDInsight SDK][hdinsight-sdk-documentation]
+* [Документация по пакету SDK для Azure HDInsight][hdinsight-sdk-documentation]
 
-[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/ru-ru/library/dn479185.aspx
-
-
-[Powershell-install-configure]: ../install-configure-powershell/
-
-[hdinsight-get-started]: ../hdinsight-get-started/
-
-[hdinsight-samples]: ../hdinsight-run-samples/
-[hdinsight-sample-10gb-graysort]: ../hdinsight-sample-10gb-graysort/
-[hdinsight-sample-csharp-streaming]: ../hdinsight-sample-csharp-streaming/
-[hdinsight-sample-pi-estimator]: ../hdinsight-sample-pi-estimator/
-[hdinsight-sample-wordcount]: ../hdinsight-sample-wordcount/
-
-[hdinsight-use-hive]: ../hdinsight-use-hive/
-[hdinsight-use-pig]: ../hdinsight-use-pig/
+[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
 
+[Powershell-install-configure]: install-configure-powershell.md
 
-<!--HONumber=42-->
+[hdinsight-get-started]: hdinsight-get-started.md
+
+[hdinsight-samples]: hdinsight-run-samples.md
+[hdinsight-sample-10gb-graysort]: hdinsight-sample-10gb-graysort.md
+[hdinsight-sample-csharp-streaming]: hdinsight-sample-csharp-streaming.md
+[hdinsight-sample-pi-estimator]: hdinsight-sample-pi-estimator.md
+[hdinsight-sample-wordcount]: hdinsight-sample-wordcount.md
+
+[hdinsight-use-hive]: hdinsight-use-hive.md
+[hdinsight-use-pig]: hdinsight-use-pig.md
+
+<!--HONumber=54-->

@@ -1,8 +1,8 @@
 <properties 
-	pageTitle="Создание службы с помощью нереляционного хранилища данных - мобильных служб Azure" 
+	pageTitle="Создание службы с помощью нереляционного хранилища данных — мобильных служб Azure" 
 	description="Узнайте, как использовать хранилище нереляционных данных, например MongoDB или табличное хранилище Azure, с мобильной службой на основе .NET" 
-	services="" 
-	documentationCenter="windows" 
+	services="mobile-services" 
+	documentationCenter="" 
 	authors="mattchenderson" 
 	manager="dwrede" 
 	editor="mollybos"/>
@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/21/2014" 
+	ms.date="04/24/2015" 
 	ms.author="mahender"/>
 
 # Построение службы с использованием MongoDB в качестве источника данных на внутреннем сервере .NET
@@ -40,7 +40,7 @@
 
 3. Перейдите в раздел мобильных служб и выберите вкладку **Настройка**.
 
-4. В разделе **Параметры приложения** введите строку подключения с ключом "MongoConnectionString" и нажмите кнопку **Сохранить**.
+4. В разделе **параметров приложения** введите строку подключения с ключом "MongoConnectionString" и нажмите кнопку **Сохранить**.
 
     ![][1]
 
@@ -62,7 +62,7 @@
             }
         }
     
-    Данный код будет загружать этот параметр приложения и сообщать мобильной службе, что его нужно воспринимать как подключение, которое может использоваться `TableController`. Позднее этот метод будет вызываться при вызове `TodoItemController`.
+    Данный код будет загружать параметр приложения и сообщать мобильной службе, что его нужно воспринимать как подключение, которое может использоваться `TableController`. Позднее этот метод будет использоваться при вызове `TodoItemController`.
 
 
 
@@ -91,7 +91,7 @@
             DomainManager = new MongoDomainManager<TodoItem>(connectionStringName, databaseName, collectionName, Request, Services);
         }
 
-4. В приведенном выше коде для метода `Initialize` замените **YOUR-DATABASE-NAME** на имя, выбранное при подготовке надстройки MongoLab к работе.
+4. В коде для метода `Initialize`, приведенном выше, замените заполнитель **YOUR-DATABASE-NAME** именем, выбранным при подготовке надстройки MongoLab к работе.
 
 
 ## <a name="test-application"></a>Тестирование приложения
@@ -115,11 +115,10 @@
 
 
 <!-- URLs. -->
-[Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started
-[Приступая к работе с данными]: /ru-ru/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data
+[Приступая к работе с мобильными службами]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
+[Приступая к работе с данными]: mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md
 [портале управления Azure]: https://manage.windowsazure.com/
-[Что такое служба таблиц]: /ru-ru/documentation/articles/storage-dotnet-how-to-use-tables/#what-is
-[странице надстройки MongoLab]: /ru-ru/gallery/store/mongolab/mongolab
+[What is the Table Service]: storage-dotnet-how-to-use-tables.md#what-is
+[странице надстройки MongoLab]: /gallery/store/mongolab/mongolab
 
-
-<!--HONumber=42-->
+<!--HONumber=54-->

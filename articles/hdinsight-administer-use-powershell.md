@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Управление кластерами Hadoop в HDInsight с использованием Azure PowerShell | Azure" 
+	pageTitle="Управление кластерами Hadoop в HDInsight с помощью PowerShell | Microsoft Azure" 
 	description="Узнайте, как осуществлять управление кластерами Hadoop в HDInsight с использованием Azure PowerShell." 
 	services="hdinsight" 
 	editor="cgronlun" 
@@ -13,92 +13,70 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/21/2014" 
+	ms.date="04/29/2015" 
 	ms.author="jgao"/>
 
-# Управление кластерами Hadoop в HDInsight с использованием Azure PowerShell
+# Управление кластерами Hadoop в HDInsight с помощью Azure PowerShell
 
-Azure PowerShell - это полнофункциональная среда сценариев, которую можно использовать для контроля и автоматизации развертывания рабочих нагрузок, а также управления ими в Azure. В этой статье вы узнаете, как управлять кластерами Hadoop в HDInsight с помощью локальной консоли Azure PowerShell, используя Windows PowerShell. Список командлетов HDInsight PowerShell см. в [справочнике по командлетам HDInsight][hdinsight-powershell-reference].
 
-**Предварительные требования:**
+Azure PowerShell — это полнофункциональная среда сценариев, которую можно использовать для контроля и автоматизации развертывания и управления вашей рабочей нагрузкой в Azure. В этой статье вы узнаете, как управлять кластерами Hadoop в Azure HDInsight с помощью локальной консоли Azure PowerShell, используя Windows PowerShell. Список командлетов HDInsight PowerShell см. в [Справочнике по командлетам HDInsight][hdinsight-powershell-reference].
+
+##Предварительные требования
 
 Перед началом работы с этой статьей необходимо иметь следующее:
 
-- Подписка Azure. Azure - это платформа на основе подписок. Командлеты HDInsight PowerShell предназначены для выполнения задач по подписке. Дополнительные сведения о получении подписки см. в разделах [Варианты приобретения][azure-purchase-options], [Предложения для участников][azure-member-offers] или [Бесплатное пробное использование][azure-free-trial].
+- Подписка Azure. Azure — это платформа на основе подписок. Командлеты Azure PowerShell для HDInsight предназначены для выполнения задач с использованием вашей подписки. Дополнительные сведения о получении подписки см. в разделах [Варианты приобретения][azure-purchase-options], [Предложения для участников][azure-member-offers] или [Бесплатное пробное использование][azure-free-trial].
 
-- Рабочая станция с Azure PowerShell. Инструкции см. в разделе [Установка и настройка Azure PowerShell][Powershell-install-configure].
-
-			
-	
-
-## Содержание
-
-* [Подготовка кластера к работе](#provision)
-* [Отображение кластеров](#listshow)
-* [Удаление кластера](#delete)
-* [Предоставление и отмена доступа к службам HTTP](#httpservices)
-* [Отправка заданий MapReduce](#mapreduce)
-* [Отправка заданий Hive](#hive)
-* [Отправка данных в хранилище BLOB-объектов](#upload)
-* [Скачивание выходных данных MapReduce из хранилища BLOB-объектов](#download)
+- Рабочая станция с Azure PowerShell. Инструкции см. в разделе [Установка и настройка Azure PowerShell][powershell-install-configure].
 
 
-##<a id="provision"></a> Подготовка кластера HDInsight
-HDInsight использует контейнер хранилища BLOB-объектов Azure в качестве файловой системы по умолчанию. Перед созданием кластера HDInsight требуются учетная запись хранения Azure и контейнер хранилища. 
+##Подготовка кластеров HDInsight к работе
+HDInsight использует контейнер хранилища BLOB-объектов Azure в качестве файловой системы по умолчанию. Для создания кластера HDInsight требуются учетная запись хранения Azure и контейнер хранилища.
 
 [AZURE.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
 
 **Создание учетной записи хранения Azure**
 
-После импорта файла publishsettings используйте следующую команду для создания учетной записи хранения:
+После импорта файла publishsettings создайте учетную запись хранения с помощью следующей команды:
 
-	# Create an Azure storage account
+	# Create an Azure Storage account
 	$storageAccountName = "<StorageAcccountName>"
 	$location = "<Microsoft data center>"           # For example, "West US"
 
 	New-AzureStorageAccount -StorageAccountName $storageAccountName -Location $location
 
-> [AZURE.NOTE] Учетная запись хранения должна находиться в том же центре обработки данных, что и кластер HDInsight. В настоящее время можно подготовить только кластеры HDInsight в следующих центрах обработки данных:
 
-><ul>
-<li>Юго-Восточная Азия</li>
-<li>Северная Европа</li>
-<li>Западная Европа</li>
-<li>Восток США</li>
-<li>Запад США</li>
-</ul>
+[AZURE.INCLUDE [список центров обработки данных](../includes/hdinsight-pricing-data-centers-clusters.md)]
 
 
-
-Информацию о создании новой учетной записи хранения Azure с помощью портала управления см. в разделе [Создание и удаление учетной записи хранения, а также управление ей](storage-create-storage-account.md).
+Сведения о создании новой учетной записи хранения Azure с помощью портала Azure см. в статье [Создание и удаление учетной записи хранения, а также управление ею](../storage-create-storage-account/).
 
 Если у вас уже есть учетная запись хранения, но вы не знаете имени и ключа учетной записи, можно использовать следующие команды для получения нужных сведений:
 
-	# List storage accounts for the current subscription
+	# List Storage accounts for the current subscription
 	Get-AzureStorageAccount
-	# List the keys for a storage account
+	# List the keys for a Storage account
 	Get-AzureStorageKey <StorageAccountName>
 
-Подробную информацию о получении сведений с использованием портала управления см. в подразделе *Практическое руководство. Просмотр, копирование и повторное создание ключей доступа к хранилищу* раздела [Создание и удаление учетной записи хранения, а также управление ей](storage-create-storage-account.md).
+Дополнительные сведения о получении данных с помощью портала Azure см. в разделе «Просмотр, копирование и повторное создание ключей доступа к хранилищу» статьи [Создание и удаление учетной записи хранения, а также управление ею](../storage-create-storage-account/).
 
 **Создание контейнера хранилища Azure**
 
-PowerShell не может создать контейнер BLOB-объектов в процессе подготовки HDInsight. Его можно создать с помощью следующего сценария:
+Azure PowerShell не может создать контейнер больших двоичных объектов в процессе подготовки HDInsight. Его можно создать с помощью следующего скрипта:
 
 	$storageAccountName = "<StorageAccountName>"
 	$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
 	$containerName="<ContainerName>"
 
 	# Create a storage context object
-	$destContext = New-AzureStorageContext -StorageAccountName $storageAccountName 
-	                                       -StorageAccountKey $storageAccountKey  
+	$destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
 	
 	# Create a Blob storage container
 	New-AzureStorageContainer -Name $containerName -Context $destContext
 
-**Подготовка кластера к работе**
+**Подготовка кластера**
 
-После создания учетной записи хранения и подготовки контейнера BLOB-объектов все готово к созданию кластера.    
+После создания учетной записи хранения и подготовки контейнера больших двоичных объектов все готово к созданию кластера.
 		
 	$storageAccountName = "<StorageAccountName>"
 	$containerName = "<ContainerName>"
@@ -107,7 +85,7 @@ PowerShell не может создать контейнер BLOB-объекто
 	$location = "<MicrosoftDataCenter>"
 	$clusterNodes = <ClusterSizeInNodes>
 
-	# Get the storage account key
+	# Get the Storage account key
 	$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
 
 	# Create a new HDInsight cluster
@@ -121,23 +99,23 @@ PowerShell не может создать контейнер BLOB-объекто
 
 
 
-##<a id="listshow"></a> Отображение сведений о кластере
-Используйте следующие команды для отображения сведений о кластере:
-
-**Получение списка всех кластеров в текущей подписке**
+##Список сведений о кластере
+Чтобы получить список всех кластеров в текущей подписке, используйте следующую команду:
 
 	Get-AzureHDInsightCluster 
 
-**Отображение данных о конкретном кластере в текущей подписке**
+Чтобы отобразить сведения о конкретном кластере в текущей подписке, используйте следующую команду:
 
 	Get-AzureHDInsightCluster -Name <ClusterName> 
 
-##<a id="delete"></a> Удаление кластера
+##Удаление кластеров
 Используйте следующую команду для удаления кластера:
 
 	Remove-AzureHDInsightCluster -Name <ClusterName> 
 
-##<a id="httpservice"></a> Предоставление и отмена доступа к службам HTTP
+
+
+##Предоставление и отмена доступа к службам HTTP
 
 В кластерах HDInsight имеются следующие веб-службы HTTP (все эти службы имеют конечные точки RESTful):
 
@@ -148,43 +126,44 @@ PowerShell не может создать контейнер BLOB-объекто
 - Templeton
 
 
-По умолчанию эти службы предоставляются для доступа. Вы можете отменить или предоставить доступ.  Пример:
+По умолчанию эти службы предоставляются для доступа. Вы можете отменить или предоставить доступ. Пример:
 
 	Revoke-AzureHDInsightHttpServicesAccess -Name hdiv2 -Location "East US"
 
-В этом примере <i>hdiv2</i> - это имя вашего кластера HDInsight.
+В этом примере <i>hdiv2</i> — это имя кластера HDInsight.
 
->[AZURE.NOTE] Предоставляя или отменяя доступ, вы сбрасываете имя пользователя и пароль кластера.
+>[AZURE.NOTE]Предоставляя или отменяя доступ, вы сбрасываете имя пользователя и пароль кластера.
 
-Это можно сделать также с помощью портала управления Windows Azure. См. раздел [Администрирование кластеров HDInsight с использованием портала управления][hdinsight-admin-portal].
+Это также можно сделать через портал Azure. См. раздел [Администрирование HDInsight с помощью портала Azure][hdinsight-admin-portal]
 
-##<a id="mapreduce"></a> Отправка заданий MapReduce
+##Масштабирование кластеров
+См. раздел [Масштабирование кластеров Hadoop в HDInsight](hdinsight-hadoop-cluster-scaling.md)
+
+##Отправка заданий MapReduce
 Кластер HDInsight поставляется с некоторыми примерами MapReduce. Один из примеров предназначен для подсчета частотности слов в исходных файлах.
 
 **Отправка задания MapReduce**
 
-Следующий сценарий PowerShell отправляет пример задания для подсчета слов: 
+Следующий скрипт PowerShell отправляет пример задания для подсчета слов:
 	
 	$clusterName = "<HDInsightClusterName>"            
 	
 	# Define the MapReduce job
-	$wordCountJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-examples.jar" -ClassName "wordcount" -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput"
+	$wordCountJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" -ClassName "wordcount" -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput"
 	
 	# Run the job and show the standard error 
 	$wordCountJobDefinition | Start-AzureHDInsightJob -Cluster $clusterName | Wait-AzureHDInsightJob -WaitTimeoutInSeconds 3600 | %{ Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $_.JobId -StandardError}
 	
-> [AZURE.NOTE] *hadoop-examples.jar* предоставляется вместе с кластерами HDInsight версии 2.1. В кластерах HDInsight версии 3.0 файл был переименован в *hadoop-mapreduce.jar*.
+Сведения о префиксе **wasb** см. в разделе [Использование хранилища больших двоичных объектов Azure для HDInsight][hdinsight-storage]
 
-Сведения о префиксе WASB см. в разделе [Использование хранилища BLOB-объектов Azure для HDInsight][hdinsight-storage].
+**Загрузка выходных данных задания MapReduce**
 
-**Скачивание выходных данных задания MapReduce**
-
-Следующий сценарий PowerShell возвращает выходные данные задания MapReduce из последней процедуры:
+Следующий скрипт Azure PowerShell возвращает выходные данные задания MapReduce из последней процедуры:
 
 	$storageAccountName = "<StorageAccountName>"   
 	$containerName = "<ContainerName>"             
 		
-	# Create the storage account context object
+	# Create the Storage account context object
 	$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
 	$storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
 	
@@ -233,12 +212,12 @@ PowerShell не может создать контейнер BLOB-объекто
 
 
 
-##<a id="hive"></a> Отправка заданий Hive
-Кластер HDInsight поставляется с примером таблицы Hive, которая называется *hivesampletable*. Для получения списка таблиц Hive в кластере можно использовать HiveQL-команду "show tables;".
+##Отправка заданий Hive
+Кластер HDInsight поставляется с примером таблицы Hive, которая называется *hivesampletable*. Для получения списка таблиц Hive в кластере можно использовать команду HiveQL **SHOW TABLES**.
 
 **Отправка задания Hive**
 
-Следующий сценарий отправляет задание Hive в список таблиц Hive:
+Следующий скрипт отправляет задание Hive в таблицы Hive:
 	
 	$clusterName = "<HDInsightClusterName>"               
 	
@@ -258,44 +237,45 @@ PowerShell не может создать контейнер BLOB-объекто
 Дополнительные сведения об использовании Hive см. в разделе [Использование Hive с HDInsight][hdinsight-use-hive].
 
 
-##<a id="upload"></a>Отправка данных в хранилище больших двоичных объектов
+##Отправка данных в хранилище BLOB-объектов Azure
 См. раздел [Отправка данных в HDInsight][hdinsight-upload-data].
 
-##<a id="download"></a>Загрузка выходных данных MapReduce из хранилища BLOB-объектов
+##Загрузка выходных данных задания из хранилища больших двоичных объектов Azure
 См. раздел [Отправка заданий MapReduce](#mapreduce) в этой статье.
 
 ## См. также
 * [Справочная документация по командлетам HDInsight][hdinsight-powershell-reference]
-* [Администрирование HDInsight с использованием портала управления][hdinsight-admin-portal]
-* [Администрирование HDInsight с использованием интерфейса командной строки][hdinsight-admin-cli]
+* [Администрирование HDInsight с помощью портала Azure][hdinsight-admin-portal]
+* [Администрирование HDInsight с помощью интерфейса командной строки][hdinsight-admin-cli]
 * [Подготовка кластеров HDInsight к работе][hdinsight-provision]
 * [Отправка данных в HDInsight][hdinsight-upload-data]
-* [Отправка заданий Hadoop программными средствами][hdinsight-submit-jobs]
-* [Приступая к работе с Azure HDInsight][hdinsight-get-started]
+* [Отправка заданий Hadoop в HDInsight][hdinsight-submit-jobs]
+* [Начало работы с Azure HDInsight][hdinsight-get-started]
 
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
-[hdinsight-get-started]: ../hdinsight-get-started/
-[hdinsight-provision]: ../hdinsight-provision-clusters/
+[hdinsight-get-started]: hdinsight-get-started.md
+[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-provision-custom-options]: hdinsight-provision-clusters.md#configuration
+[hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 
-[hdinsight-submit-jobs]: ../hdinsight-submit-hadoop-jobs-programmatically/
-
-[hdinsight-admin-cli]: ../hdinsight-administer-use-command-line/
-[hdinsight-admin-portal]: ../hdinsight-administer-use-management-portal/
-[hdinsight-storage]: ../hdinsight-use-blob-storage/
-[hdinsight-use-hive]: ../hdinsight-use-hive/
-[hdinsight-use-mapreduce]: ../hdinsight-use-mapreduce/
-[hdinsight-upload-data]: ../hdinsight-upload-data/
+[hdinsight-admin-cli]: hdinsight-administer-use-command-line.md
+[hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
+[hdinsight-storage]: hdinsight-use-blob-storage.md
+[hdinsight-use-hive]: hdinsight-use-hive.md
+[hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
+[hdinsight-upload-data]: hdinsight-upload-data.md
+[hdinsight-flight]: hdinsight-analyze-flight-delay-data.md
 
 [hdinsight-powershell-reference]: http://msdn.microsoft.com/library/windowsazure/dn479228.aspx
 
-[Powershell-install-configure]: ../install-configure-powershell/
+[powershell-install-configure]: install-configure-powershell.md
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
 
 
-<!--HONumber=42-->
+<!--HONumber=54-->

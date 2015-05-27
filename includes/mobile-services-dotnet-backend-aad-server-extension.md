@@ -1,10 +1,10 @@
-﻿### (Необязательно) Настройка мобильной службы .NET для Azure Active Directory
+### Настройка мобильной службы .NET для Azure Active Directory (необязательно)
 
->[AZURE.NOTE] Эти шаги необязательны, поскольку относятся только к поставщику входа Azure Active Directory.
+>[AZURE.NOTE]Эти шаги необязательны, поскольку относятся только к поставщику входа Azure Active Directory.
 
-1. Установите [пакет NuGet WindowsAzure.MobileServices.Backend.Security](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend.Security).
+1. Установите [пакет WindowsAzure.MobileServices.Backend.Security NuGet](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend.Security).
 
-2. В Visual Studio разверните App_Start и откройте WebApiConfig.cs. Добавьте в начало следующую инструкцию `using`:
+2. В Visual Studio разверните App_Start и откройте WebApiConfig.cs. Добавьте в начало следующий оператор `using`:
 
         using Microsoft.WindowsAzure.Mobile.Service.Security.Providers;
 
@@ -13,4 +13,4 @@
         options.LoginProviders.Remove(typeof(AzureActiveDirectoryLoginProvider));
         options.LoginProviders.Add(typeof(AzureActiveDirectoryExtendedLoginProvider));
 
-<!--HONumber=49-->
+<!--HONumber=54-->

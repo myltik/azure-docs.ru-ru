@@ -1,37 +1,37 @@
-﻿<properties 
+<properties 
 	pageTitle="Получение данных телеметрии и событий приложения в нужном масштабе" 
 	description="Узнайте, как при реализации собственных бизнес-решений получить данные телеметрии и событий приложения в нужном масштабе." 
-	services="service-bus" 
+	services="event-hubs,service-bus" 
 	documentationCenter=".net" 
 	authors="sethmanheim" 
 	manager="timlt" 
-	editor="mattshel"/>
+	editor=""/>
 
 <tags 
-	ms.service="service-bus" 
+	ms.service="event-hubs" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/10/2015" 
+	ms.date="03/18/2015" 
 	ms.author="sethm"/>
 
 # Получение данных телеметрии и событий приложения в нужном масштабе
  
-Современные приложения в ходе свой работы генерируют огромные объемы информации. Будь то действия пользователя в мобильном приложении или данные о переходах пользователей на сайте, эти данные телеметрии являются ценной информацией как для долгосрочных аналитики, так и мониторинга состояния в режиме реального времени или поддержки принятия решений. Шина обслуживания предоставляет средства, необходимые для отслеживания и обрабатывать информацию.
+Современные приложения в ходе свой работы генерируют большой объем информации. Будь то действия пользователя в мобильном приложении или данные о переходах пользователей на веб-сайте, эти данные телеметрии являются ценной информацией как для долгосрочной аналитики, так и для наблюдения за работоспособностью системы в режиме реального времени или поддержки принятия решений. Шина обслуживания предоставляет средства, необходимые для отслеживания и обрабатывать информацию.
 
 
-## Изучайте
+## Изучить
 - [Концентраторы событий](http://msdn.microsoft.com/library/dn789973.aspx)
-- [Сведения о ценах концентраторов событий](http://azure.microsoft.com/pricing/details/event-hubs/)
+- [Сведения о ценах на концентраторы событий](http://azure.microsoft.com/pricing/details/event-hubs/)
 - [Шаблон источников событий](http://msdn.microsoft.com/library/dn589792.aspx)
  
-## Создавайте
-- [Справочник по API REST концентратора событий](http://go.microsoft.com/fwlink/?LinkId=403977)
-- [Примеры кода концентратора событий](http://go.microsoft.com/fwlink/?LinkID=402449)
+## Создание
+- [Справочник по API REST концентраторов событий](https://msdn.microsoft.com/library/dn790674.aspx)
+- [Примеры кода концентраторов событий](https://code.msdn.microsoft.com/windowsazure/site/search?query=event%20hubs&f%5B0%5D.Value=event%20hubs&f%5B0%5D.Type=SearchText&ac=5)
  
 ## Связанные службы
-- [Storage](http://azure.microsoft.com/documentation/services/storage/)
+- [Хранилище Azure](http://azure.microsoft.com/documentation/services/storage/)
 - [HDInsight](http://azure.microsoft.com/documentation/services/hdinsight/)
 
-<!--HONumber=47-->
+<!--HONumber=54-->

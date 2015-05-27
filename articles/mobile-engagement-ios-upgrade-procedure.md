@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Процедуры обновления SDK для рекламных кампаний в iOS для Azure Mobile Engagement" 
 	description="Последние обновления и указания для пакета SDK для iOS для Azure Mobile Engagement"
 	services="mobile-engagement" 
@@ -23,15 +23,13 @@
 Для каждой новой версии пакета SDK необходимо сначала заменить (удалить и повторно импортировать в проект Хcode) папки EngagementSDK и EngagementReach.
 
 ##От версии 1.16.0 до 2.0.0
-Ниже описан процесс переноса интеграции пакета SDK из службы Capptain от Capptain SAS в приложение на платформе Azure Mobile Engagement. 
+Ниже описан процесс переноса интеграции пакета SDK из службы Capptain от Capptain SAS в приложение на платформе Azure Mobile Engagement. При миграции с более ранней версии сначала выполните перенос на версию 1.16, как указано на веб-сайте Capptain, а затем примените следующую процедуру.
 
->[Azure.IMPORTANT] Службы Capptain и Azure Mobile Engagement отличаются между собой. В представленных ниже процедурах описывается способ переноса только для клиентского приложения. При переносе пакета SDK в приложение данные НЕ будут перенесены с серверов Capptain на серверы Mobile Engagement.
-
-При переносе с использованием более ранней версии сначала ознакомьтесь с информацией о переносе в версии 1.16 на веб-сайте Capptain, а затем примените следующую процедуру.
+>[Azure.IMPORTANT]Службы Capptain и Azure Mobile Engagement отличаются между собой. В представленных ниже процедурах описывается способ переноса только для клиентского приложения. При переносе пакета SDK в приложение данные НЕ будут перенесены с серверов Capptain на серверы Mobile Engagement.
 
 ### Агент
 
-Метод `registerApp:` заменен новым методом "init:". Следует обновить делегат приложения соответствующим образом и использовать строку подключения:
+Метод `registerApp:` заменен новым методом `init:`. Следует обновить делегат приложения соответствующим образом и использовать строку подключения:
 
 			- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 			{
@@ -50,15 +48,15 @@
 
 Пример:
 
--   `CPModule.h` переименовывается на `AEModule.h`.
+-   `CPModule.h` переименовывается в `AEModule.h`.
 
 Во всех классах префикс Capptain нужно заменить префиксом Engagement.
 
 Примеры:
 
--   Класс `CapptainAgent` переименовывается на `EngagementAgent`.
--   Класс `CapptainTableViewController` переименовывается на `EngagementTableViewController`.
--   Класс `CapptainUtils` переименовывается на `EngagementUtils`.
--   Класс `CapptainViewController` переименовывается на `EngagementViewController`.
+-   Класс `CapptainAgent` переименовывается в `EngagementAgent`.
+-   Класс `CapptainTableViewController` переименовывается в `EngagementTableViewController`.
+-   Класс `CapptainUtils` переименовывается в `EngagementUtils`.
+-   Класс `CapptainViewController` переименовывается в `EngagementViewController`.
 
-<!--HONumber=47-->
+<!--HONumber=54-->

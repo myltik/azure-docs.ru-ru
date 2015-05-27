@@ -1,5 +1,5 @@
-﻿<properties 
-	pageTitle="Определение настраиваемого API с поддержкой pull-уведомлений мобильные службы - Azure" 
+<properties 
+	pageTitle="Определение настраиваемого API с поддержкой pull-уведомлений мобильные службы — Azure" 
 	description="Узнайте, как определить настраиваемый API, который поддерживает периодические уведомления в приложениях Магазина Windows, использующих мобильные службы Azure." 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -10,30 +10,30 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.tgt_pltfrm="windows" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="11/22/2014" 
+	ms.date="04/14/2015" 
 	ms.author="glenga"/>
 # Определение настраиваемого интерфейса API с поддержкой периодических уведомлений
 
 <div class="dev-center-tutorial-selector"> 
-	<a href="/ru-ru/documentation/articles/mobile-services-windows-store-dotnet-create-pull-notifications/" title="Windows Store C#">Магазин Windows - C#</a><a href="/ru-ru/documentation/articles/mobile-services-windows-store-javascript-create-pull-notifications/" title="Windows Store JavaScript" class="current">Магазин Windows - JavaScript</a>
+	<a href="/documentation/articles/mobile-services-windows-store-dotnet-create-pull-notifications/" title="Магазин Windows — C#">Магазин Windows — C#</a><a href="/documentation/articles/mobile-services-windows-store-javascript-create-pull-notifications/" title="Магазин Windows — JavaScript" class="current">Магазин Windows — JavaScript</a>
 </div>
 
-В этом разделе показано, как использовать настраиваемый интерфейс API для поддержки периодических уведомлений в приложениях Магазина Windows. Если периодические уведомления включены, Windows будет периодически обращаться к конечной точке настраиваемого интерфейса API и использовать полученный XML в формате для плиток, чтобы обновить плитку приложения в меню "Пуск". Дополнительные сведения см. в разделе [Периодические уведомления]. 
+В этом разделе показано, как использовать настраиваемый интерфейс API для поддержки периодических уведомлений в приложениях Магазина Windows. Если периодические уведомления включены, Windows будет периодически обращаться к конечной точке настраиваемого интерфейса API и использовать полученный XML в формате для плиток, чтобы обновить плитку приложения в меню "Пуск". Дополнительные сведения см. в разделе [Периодические уведомления].
 
-Вы добавите эту функцию в приложение, созданное в учебнике [Приступая к работе с мобильными службами] или [Добавление мобильных служб к существующему приложению]. Для этого требуются следующие действия:
+Вы добавите эту функцию в приложение, созданное в ходе работы с учебником [Приступая к работе с мобильными службами] или [Добавление мобильных служб в существующее приложение]. Для этого требуются следующие действия:
 
 1. [Определение настраиваемого интерфейса API]
 2. [Обновление приложения для включения периодических уведомлений]
 3. [Тестирование приложения] 
 
-Этот учебник создан на основе краткого руководства по мобильным службам. Перед началом работы с данным учебником необходимо пройти задания учебника [Приступая к работе с мобильными службами] или [Добавление мобильных служб к существующему приложению].  
+Этот учебник создан на основе краткого руководства по мобильным службам. Прежде чем начать работу с этим учебником, необходимо пройти задания учебника [Приступая к работе с мобильными службами] или [Добавление мобильных служб в существующее приложение].
 
 ## <a name="define-custom-api"></a>Определение настраиваемого интерфейса API
 
-1. Войдите на [портал управления Azure], щелкните элемент **Мобильные службы**, а затем выберите свое приложение.
+1. Выполните вход на [портал управления Azure], щелкните элемент **Мобильные службы**, а затем выберите свое приложение.
 
    	![][0]
 
@@ -43,7 +43,7 @@
 
    	Откроется диалоговое окно **Создать настраиваемый API**.
 
-3. Измените **Разрешение GET** на **Все**, введите _tiles_ в поле **API-имя** и нажмите кнопку "Проверить".
+3. Измените значение **Получить разрешение** на **Все**, введите _ tiles _в поле **Имя API** и нажмите кнопку проверки.
 
    	![][2]
 
@@ -53,13 +53,12 @@
 
 	![][3]
 
-5. Откройте вкладку **Скрипт** и замените существующий код на приведенный ниже код:
+5. Перейдите на вкладку **Скрипт** и замените существующий код на следующий:
 
 		exports.get = function(request, response) {
 		    var wns = require('wns');
 		    var todoItems = request.service.tables.getTable('TodoItem');
-		    todoIte
-	ms.where({
+		    todoItems.where({
 		        complete: false
 		    }).read({
 		        success: sendResponse
@@ -96,17 +95,17 @@
 
 	Используется функция **exports.get**, так как клиент отправляет запрос GET, чтобы открыть шаблон плитки.
 
-   	> [AZURE.NOTE] Этот пользовательский скрипт API использует [модуль wns](http://go.microsoft.com/fwlink/p/?LinkId=306750) Node.js, на который можно ссылаться с помощью функции **require**. Этот модуль отличается от [объекта wns](http://go.microsoft.com/fwlink/p/?LinkId=260591), возвращаемого [push-объектом](http://msdn.microsoft.com/library/windowsazure/jj554217.aspx), который используется для отправки push-уведомлений из серверных скриптов.
+   	> [AZURE.NOTE]Этот пользовательский скрипт API использует [модуль wns](http://go.microsoft.com/fwlink/p/?LinkId=306750) Node.js, на который можно ссылаться с помощью функции **require** . Этот модуль отличается от [объекта wns](http://go.microsoft.com/fwlink/p/?LinkId=260591), возвращаемого [push-объектом](http://msdn.microsoft.com/library/windowsazure/jj554217.aspx), который используется для отправки push-уведомлений из серверных скриптов.
 
 Затем вам предстоит изменить пример приложения для запуска периодических уведомлений, которые обновляют динамическую плитку, отправляя запросы к новому настраиваемому интерфейсу API.
 
-<h2><a name="update-app"></a>Обновление приложения для включения периодических уведомлений</h2>
+##<a name="update-app"></a>Обновление приложения для включения периодических уведомлений
 
 1. В Visual Studio нажмите клавишу F5, чтобы запустить пример приложения из предыдущего учебника.
 
 2. Убедитесь, что отображается по крайней мере один элемент. Если элементов нет, введите текст в поле **Вставить в TodoItem**, а затем нажмите кнопку **Сохранить**.
 
-3. В обозревателе решений Visual Studio разверните папку `\js`, откройте файл проекта default.js, а затем добавьте следующие строки кода после кода, определяющего переменную **client**:
+3. В обозревателе решений Visual Studio разверните папку `\js`, откройте проект default.js, а затем добавьте следующие строки кода после кода, определяющего переменную **client**:
 
         var notifications = Windows.UI.Notifications;
         var recurrence = notifications.PeriodicUpdateRecurrence.hour;
@@ -130,17 +129,15 @@
 
 После создания периодического уведомления изучите следующие статьи о мобильных службах:
 
-* [Приступая к работе с push-уведомлениями]
-	<br/>Периодическими уведомлениями управляет Windows, и они создаются только на основе стандартного расписания. Push-уведомления могут отправляться мобильной службой по требованию и могут быть всплывающими, необработанными и уведомлениями плитки.
+* [Приступая к работе с push-уведомлениями] <br/>Периодическими уведомлениями управляет Windows, и они создаются только на основе стандартного расписания. Push-уведомления могут отправляться мобильной службой по требованию и могут быть всплывающими, необработанными и уведомлениями плитки.
 
-* [Справочник серверных скриптов мобильных служб]
-  <br/>Дополнительные сведения о создании настраиваемых интерфейсов API.
+* [Справочник серверных скриптов мобильных служб] <br/>Дополнительные сведения о создании настраиваемых API.
 
 <!-- Anchors. -->
 [Определение настраиваемого интерфейса API]: #define-custom-api
 [Обновление приложения для включения периодических уведомлений]: #update-app
 [Тестирование приложения]: #test-app
-[Дальнейшие действия]: #next-steps
+[Next Steps]: #next-steps
 
 <!-- Images. -->
 [0]: ./media/mobile-services-windows-store-javascript-create-pull-notifications/mobile-services-selection.png
@@ -150,17 +147,15 @@
 [4]: ./media/mobile-services-windows-store-javascript-create-pull-notifications/mobile-custom-api-live-tile.png
 
 <!-- URLs. -->
-[Push-уведомления Windows и Live Connect]: http://go.microsoft.com/fwlink/?LinkID=257677
+[Windows Push Notifications & Live Connect]: http://go.microsoft.com/fwlink/?LinkID=257677
 [Справочник серверных скриптов мобильных служб]: http://go.microsoft.com/fwlink/?LinkId=262293
-[Панель мониторинга "Мои приложения"]: http://go.microsoft.com/fwlink/?LinkId=262039
-[Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started
-[Добавление мобильных служб к существующему приложению]: /ru-ru/documentation/articles/mobile-services-windows-store-javascript-get-started
-[Приступая к работе с push-уведомлениями]: /ru-ru/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push
+[My Apps dashboard]: http://go.microsoft.com/fwlink/?LinkId=262039
+[Приступая к работе с мобильными службами]: mobile-services-javascript-backend-windows-store-javascript-get-started.md
+[Добавление мобильных служб в существующее приложение]: mobile-services-windows-store-javascript-get-started.md
+[Приступая к работе с push-уведомлениями]: mobile-services-javascript-backend-windows-store-javascript-get-started-push.md
 
-[Портал управления Azure]: https://manage.windowsazure.com/
+[портал управления Azure]: https://manage.windowsazure.com/
 [Периодические уведомления]: http://msdn.microsoft.com/library/windows/apps/jj150587.aspx
 
 
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

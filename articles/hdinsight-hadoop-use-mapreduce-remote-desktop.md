@@ -1,5 +1,5 @@
-﻿<properties
-   pageTitle="MapReduce с Hadoop в HDInsight | Azure"
+<properties
+   pageTitle="Использование MapReduce и удаленного рабочего стола с Hadoop в HDInsight | Microsoft Azure"
    description="Информация об использовании удаленного рабочего стола для подключения к Hadoop в HDInsight и выполнения заданий MapReduce."
    services="hdinsight"
    documentationCenter=""
@@ -9,7 +9,7 @@
 
 <tags
    ms.service="hdinsight"
-   ms.devlang=""
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
@@ -24,52 +24,52 @@
 
 ##<a id="prereq"></a>Предварительные требования
 
-Чтобы выполнить действия, описанные в этой статье, необходимо следующее.
+Чтобы выполнить действия, описанные в этой статье, необходимо следующее:
 
 * Кластер HDInsight на платформе Windows (Hadoop в HDInsight).
 
-* Клиент Windows 7, Windows 8 или Windows 10.
+* Клиентский компьютер под управлением Windows 10, Windows 8 или Windows 7.
 
 ##<a id="connect"></a>Подключение к удаленному рабочему столу
 
-Включите удаленный рабочий стол для кластера HDInsight, а затем подключитесь к нему, следуя инструкциям в разделе <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Подключение к кластерам HDInsight с помощью RDP</a>.
+Запустите протокол удаленного рабочего стола для кластера HDInsight, а затем выполните подключение, следуя инструкциям раздела <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Подключение к кластерам HDInsight с использованием RDP</a>.
 
 ##<a id="hadoop"></a>Использование команды Hadoop
 
-После подключения к рабочему столу кластера HDInsight сделайте следующее, чтобы выполнить задание MapReduce с помощью команды Hadoop.
+После подключения к рабочему столу кластера HDInsight сделайте следующее, чтобы выполнить задание MapReduce с помощью команды Hadoop:
 
-1. На рабочем столе HDInsight запустите **командную строку Hadoop**. Откроется новое окно командной строки в каталоге **c:\apps\dist\hadoop-&lt;номер_версии>**.
+1. На рабочем столе HDInsight запустите **командную строку Hadoop**. Откроется новое окно командной строки в каталоге **c:\\apps\\dist\\hadoop-&lt;номер_версии>**.
 
-	> [AZURE.NOTE] При обновлении Hadoop номер версии изменяется. Для поиска пути можно использовать переменную среды **HADOOP_HOME**. Например, `cd %HADOOP_HOME%` изменит каталоги на каталог Hadoop без необходимости знать номер версии.
+	> [AZURE.NOTE]При обновлении Hadoop номер версии изменяется. Для поиска пути можно использовать переменную среды **HADOOP_HOME**. Например, `cd %HADOOP_HOME%` изменит каталоги на каталог Hadoop без необходимости знать номер версии.
 
-2. Чтобы выполнить пример задания MapReduce с помощью команды **Hadoop**, используйте следующую запись.
+2. Чтобы выполнить пример задания MapReduce с помощью команды **Hadoop**, используйте следующую команду:
 
 		hadoop jar hadoop-mapreduce-examples.jar wordcount wasb:///example/data/gutenberg/davinci.txt wasb:///example/data/WordCountOutput
 
 	При этом запустится класс **wordcount**, содержащийся в текущем каталоге в файле **hadoop-mapreduce-examples.jar**. В качестве входных данных он использует документ **wasb://example/data/gutenberg/davinci.txt**, а выходные данные сохраняются в **wasb:///example/data/WordCountOutput**.
 
-	> [AZURE.NOTE] Дополнительные сведения об этом задании MapReduce и данные для примера см. в разделе <a href="../hdinsight-use-mapreduce/">Использование MapReduce в HDInsight Hadoop</a>.
+	> [AZURE.NOTE]Дополнительные сведения об этом задании MapReduce и данные для примера см. в разделе <a href="hdinsight-use-mapreduce.md">Использование MapReduce в HDInsight в Hadoop</a>.
 
-2. Задание будет выдавать информацию о ходе обработки, а по завершении задания вернет информацию, аналогичную приведенной ниже.
+2. Задание выдает информацию о ходе обработки, а по завершении задания возвращает информацию, аналогичную приведенной ниже:
 
 		File Input Format Counters
         Bytes Read=1395666
 		File Output Format Counters
         Bytes Written=337623
 
-3. После завершения используйте следующую команду, чтобы вывести список выходных файлов, сохраненных в **wasb://example/data/WordCountOutput**.
+3. По завершении задания воспользуйтесь следующей командой, чтобы вывести список выходных файлов, хранящихся в **wasb://example/data/WordCountOutput**:
 
 		hadoop fs -ls wasb:///example/data/WordCountOutput
 
-	Должно появиться два файла, **_SUCCESS** и **part-r-00000**. Файл **part-r-00000** содержит выходные данные этого задания.
+	Должно появиться два файла, **_SUCCESS_ и **part-r-00000**. Файл **part-r-00000** содержит выходные данные этого задания.
 
-	> [AZURE.NOTE] Некоторые задания MapReduce могут разделять результаты на несколько файлов **part-r-№№№№№**. В этом случае используйте суффикс №№№№№, чтобы определить порядок файлов.
+	> [AZURE.NOTE]Некоторые задания MapReduce могут разделять результаты на несколько файлов **part-r-№№№№№**. В этом случае используйте суффикс №№№№№, чтобы определить порядок файлов.
 
-4. Чтобы просмотреть выходные данные, используйте следующую команду.
+4. Чтобы просмотреть выходные данные, используйте следующую команду:
 
 		hadoop fs -cat wasb:///example/data/WordCountOutput/part-r-00000
 
-	Она отобразит список слов, содержащихся в файле **wasb://example/data/gutenberg/davinci.txt**, а также количество вхождений каждого из них.  Ниже приведен пример данных, которые будут содержаться в файле.
+	Отобразится список слов, которые содержатся в файле **wasb://example/data/gutenberg/davinci.txt**, а также количество вхождений каждого слова. Ниже приведен пример данных, которые будут содержаться в файле:
 
 		wreathed        3
 		wreathing       1
@@ -85,13 +85,14 @@
 
 ##<a id="nextsteps"></a>Дальнейшие действия
 
-Вот где можно ознакомиться с общей информацией о заданиях MapReduce в HDInsight.
+Общая информация о заданиях MapReduce в HDInsight:
 
 * [Использование MapReduce в Hadoop в HDInsight](hdinsight-use-mapreduce.md)
 
-Дополнительная информация о других способах работы с Hadoop в HDInsight.
+Дополнительная информация о других способах работы с Hadoop в HDInsight:
 
 * [Использование Hive с Hadoop в HDInsight](hdinsight-use-hive.md)
 
 * [Использование Pig с Hadoop в HDInsight](hdinsight-use-pig.md)
-<!--HONumber=47-->
+
+<!--HONumber=54-->

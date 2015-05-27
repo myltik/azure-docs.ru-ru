@@ -1,5 +1,5 @@
-﻿<properties
-	pageTitle="Добавление проверки подлинности в существующее приложение мобильных служб Azure (iOS) | Центр мобильных разработок"
+<properties
+	pageTitle="Добавление проверки подлинности в существующее приложение мобильных служб Azure (iOS) | Центр разработчиков для мобильных устройств"
 	description="Узнайте, как использовать мобильные службы для аутентификации пользователей приложения iOS с помощью разнообразных поставщиков удостоверений, включая Google, Facebook, Twitter и корпорацию Майкрософт."
 	services="mobile-services"
 	documentationCenter="ios"
@@ -22,17 +22,17 @@
 
 В этом учебнике вы добавляете проверку подлинности в проект быстрого запуска с помощью поддерживаемого поставщика удостоверений.
 
-Этот учебник создан на основе [краткого учебника по мобильным службам], который необходимо пройти первым.
+Этот учебник создан на основе [краткого учебника по мобильным службам], который необходимо пройти в первую очередь.
 
 ##<a name="register"></a>Регистрация приложения для проверки подлинности и настройка мобильных служб
 
 [AZURE.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)]
 
-##<a name="permissions"></a>Ограничение разрешений для пользователей, прошедших проверку подлинности
+##<a name="permissions"></a>Предоставление разрешений только пользователям, прошедшим проверку подлинности
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
-Находясь в Xcode, откройте проект. Нажмите кнопку **Выполнить**, чтобы запустить приложение. Убедитесь, что после запуска приложения возникает исключение с кодом состояния 401 (недостаточно прав). Это происходит потому, что приложение пытается получить доступ к мобильным службам как пользователь, не прошедший проверку подлинности, а таблица _TodoItem_ теперь требует выполнения проверки подлинности.
+Откройте проект в Xcode. Нажмите кнопку **Выполнить**, чтобы открыть приложение. Убедитесь, что после запуска приложения возникло исключение с кодом состояния 401 (неавторизованный доступ). Это происходит, потому что приложение пытается получить доступ к мобильным службам как пользователь, не прошедший проверку подлинности, а таблица _TodoItem_ теперь требует выполнения проверки подлинности.
 
 ##<a name="add-authentication"></a>Добавление проверки подлинности в приложение
 
@@ -44,14 +44,14 @@
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-В следующем учебнике, который называется [Авторизация пользователей мобильных служб на стороне службы], вы воспользуетесь ИД пользователя для фильтрации данных.
+В следующем учебнике, который называется [Авторизация пользователей мобильных служб на стороне службы], вы воспользуетесь идентификатором пользователя для фильтрации возвращаемых данных.
 
 <!-- Anchors. -->
-[Регистрация приложения для проверки подлинности и настройка мобильных служб]: #register
-[Ограничение разрешений таблицы для пользователей, прошедших проверку подлинности]: #permissions
-[Добавление проверки подлинности в приложение]: #add-authentication
-[Дальнейшие действия]:#next-steps
-[Сохранение маркеров аутентификации в своем приложении]:#store-authentication
+[Register your app for authentication and configure Mobile Services]: #register
+[Restrict table permissions to authenticated users]: #permissions
+[Add authentication to the app]: #add-authentication
+[Next Steps]: #next-steps
+[Storing authentication tokens in your app]: #store-authentication
 
 <!-- Images. -->
 
@@ -74,16 +74,16 @@
 
 <!-- URLs. -->
 [Авторизация пользователей мобильных служб на стороне службы]: mobile-services-javascript-backend-service-side-authorization.md
-[Отправка страницы приложения]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Мои приложения]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Live SDK для Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Единый вход для приложений Магазина Windows с использованием Live Connect]: /develop/mobile/tutorials/single-sign-on-windows-8-dotnet
-[Краткий учебник по мобильным службам]: /develop/mobile/tutorials/get-started-ios
-[Приступая к работе с данными]: /develop/mobile/tutorials/get-started-with-data-ios
-[Приступая к работе с проверкой подлинности]: /develop/mobile/tutorials/get-started-with-users-ios
-[Приступая к работе с push-уведомлениями]: /develop/mobile/tutorials/get-started-with-push-ios
-[Авторизация пользователей с помощью скриптов]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Single sign-on for Windows Store apps by using Live Connect]: /develop/mobile/tutorials/single-sign-on-windows-8-dotnet
+[краткого учебника по мобильным службам]: /develop/mobile/tutorials/get-started-ios
+[Get started with data]: /develop/mobile/tutorials/get-started-with-data-ios
+[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-ios
+[Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-ios
+[Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
 
-[Портал управления Azure]: https://manage.windowsazure.com/
+[Azure Management Portal]: https://manage.windowsazure.com/
 
-<!--HONumber=49-->
+<!--HONumber=54-->

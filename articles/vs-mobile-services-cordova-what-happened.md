@@ -1,24 +1,26 @@
-﻿<properties 
+<properties 
 	pageTitle="" 
-	description="" 
+	description="Описание того, что произошло с вашим проектом мобильных служб Azure в Cordova" 
 	services="mobile-services" 
 	documentationCenter="" 
-	authors="kempb" 
+	authors="patshea123" 
 	manager="douge" 
 	editor=""/>
 
 <tags 
 	ms.service="mobile-services" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="NA" 
+	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="10/8/2014" 
-	ms.author="kempb"/>
+	ms.date="05/06/2015" 
+	ms.author="patshea123"/>
+
+# Что произошло с моим проектом?
 
 > [AZURE.SELECTOR]
-> - [Приступая к работе](vs-mobile-services-cordova-getting-started.md)
-> - [Что произошло?](vs-mobile-services-cordova-what-happened.md)
+> - [Getting Started](vs-mobile-services-cordova-getting-started.md)
+> - [What Happened](vs-mobile-services-cordova-what-happened.md)
 
 ###<span id="whathappened">Что произошло с моим проектом?</span>
 
@@ -28,7 +30,7 @@
   
 #####Значения строк подключения для мобильных служб
 
-В папке `services\mobileServices\settings` создан новый файл JavaScript (.js) с объектом **MobileServiceClient**, содержащий URL-адрес и ключ приложения выбранной мобильной службы. Файл содержит код инициализации объекта клиента мобильной службы, похожий на следующий:
+В папке `services\mobileServices\settings` создан новый файл JavaScript (JS) с объектом **MobileServiceClient**, содержащий URL-адрес и ключ приложения выбранной мобильной службы. Файл содержит код инициализации объекта клиента мобильной службы, похожий на следующий:
 
 	var mobileServiceClient;
 	document.addEventListener("deviceready", function() {
@@ -37,7 +39,5 @@
 	        "<insert your key>"
 	    );
 
-[Дополнительную информацию о мобильных службах](http://azure.microsoft.com/documentation/services/mobile-services/)
-
-
-<!--HONumber=42-->
+[Дополнительные сведения о мобильных службах](http://azure.microsoft.com/documentation/services/mobile-services/)
+<!--HONumber=54-->

@@ -1,9 +1,9 @@
-﻿<properties 
-	pageTitle="Содержимое пакета SDK для Магазина Windows для Azure Mobile Engagement" 
-	description="Последние обновления и указания для пакета SDK для Магазина Windows для Azure Mobile Engagement" 					
+<properties 
+	pageTitle="Содержимое пакета SDK для универсальных приложений для Windows" 
+	description="Изучите содержимое пакета SDK универсальных приложений для Windows для Azure Mobile Engagement" 					
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
-	authors="lalathie" 
+	authors="piyushjo" 
 	manager="dwrede" 
 	editor="" />
 
@@ -11,67 +11,47 @@
 	ms.service="mobile-engagement" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-windows-store" 
-	ms.devlang="" 
+	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
-	ms.author="kapiteir" />
+	ms.date="04/06/2015" 
+	ms.author="piyushjo" />
 
-#Содержимое пакета SDK
+#Содержимое пакета SDK для универсальных приложений для Windows
 
-В этом документе указано и описано содержимое архива SDK.
-
-##Папка `Root`
-
-Эта папка содержит копии лицензий на программное обеспечение и ссылку на электронную документацию.
-
-`documentation.html` : Содержит ссылку на электронную документацию по пакету SDK для Engagement для приложений C\# Metro для Windows 8.
-
-Эта папка также содержит файлы лицензий.
-
-##Папка `/lib`
-
-Эта папка содержит информацию о том, где можно получить пакет SDK для Engagement.
-
-`azuresdk-mobileengagement-windows-X.X.X.nupkg` : Пакет NuGet для интеграции пакета SDK.
+В этом документе перечислено и описано содержимое, которое развертывается в приложении с помощью пакета SDK.
 
 ##Папка `/Resources`
 
-Эта папка содержит все ресурсы, необходимые для Engagement. Вы также можете настроить их в соответствии с особенностями своего приложения.
+Эта папка содержит все ресурсы, необходимые для Mobile Engagement. Вы также можете настроить их в соответствии с особенностями своего приложения.
 
-`EngagementConfiguration.xml` : файл конфигурации Engagement, в котором вы можете настроить параметры Engagement (строку подключения Engagement, сообщение о сбое...).
+- `EngagementConfiguration.xml`: файл конфигурации Mobile Engagement, в котором вы можете настроить параметры Mobile Engagement (строку подключения Mobile Engagement, сообщение о сбое и т. д.).
 
 ### Папка /html
 
-`EngagementNotification.html` : HTML-структура веб-представления `Уведомление`.
+- `EngagementNotification.html`: HTML-код веб-представления `Notification`.
 
-`EngagementAnnouncement.html` : HTML-структура веб-представления `Объявление`.
+- `EngagementAnnouncement.html`: HTML-код веб-представления `Announcement`.
 
 ### Папка /images
 
-`EngagementIconNotification.png` : фирменный значок, отображающийся слева от уведомления.
+- `EngagementIconNotification.png`: фирменный значок, отображающийся слева от уведомления. Замените его собственным логотипом.
 
-`EngagementIconOk.png` : Значок `ОК` страниц содержимого рекламной кампании для кнопки действия или проверки.
+- `EngagementIconOk.png`: значок `Ok` страниц содержимого рекламной кампании для кнопки действия или проверки.
 
-`EngagementIconNOK.png` : Значок `Не ОК`, используемый при отключении кнопки проверки страниц содержимого рекламных кампаний.
-
-`EngagementIconClose.png` : Значок `Закрыть` для кнопки закрытия уведомлений и содержимого рекламных кампаний.
+- `EngagementIconNOK.png`: значок `NOK`, используемый, когда кнопка проверки на страницах содержимого рекламных кампаний отключена.
+ 
+- `EngagementIconClose.png`: значок `Close` для кнопки закрытия уведомлений и содержимого рекламных кампаний.
 
 ### Папка /overlay
 
-`EngagementOverlayAnnouncement.xaml` : XAML-структура `объявления`.
+- `EngagementOverlayAnnouncement.xaml` : XAML-код `Announcement`.
 
-`EngagementOverlayAnnouncement.xaml.cs` : Код, связанный с `EngagementOverlayAnnouncement.xaml`.
-
-`EngagementOverlayNotification.xaml` : XAML-структура `Уведомления`.
-
-`EngagementOverlayNotification.xaml.cs` : Код, связанный с `EngagementOverlayNotification.xaml`.
-
-`EngagementPageOverlay.cs` : Кода для отображения объявлений и уведомлений с `наложением`.
-
-##Папка `/src/agent`
-
-Эта папка содержит EngagementPage.
-
-`EngagementPage.cs` : базовый класс для страниц, которые будут автоматически сообщать об активности в Engagement.
-
-<!--HONumber=47-->
+- `EngagementOverlayAnnouncement.xaml.cs`: код, связанный с `EngagementOverlayAnnouncement.xaml`.
+ 
+- `EngagementOverlayNotification.xaml` : XAML-код `Notification`.
+ 
+- `EngagementOverlayNotification.xaml.cs`: код, связанный с `EngagementOverlayNotification.xaml`.
+ 
+- `EngagementPageOverlay.cs`: кода для отображения объявлений и уведомлений `Overlay`.
+ 
+<!--HONumber=54-->

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Начало работы по проверке подлинности (Android) | Центр мобильных разработок" 
 	description="Узнайте, как использовать мобильные службы для аутентификации пользователей приложения магазина Windows с помощью разнообразных поставщиков удостоверений, включая Google, Facebook, Twitter и корпорацию Майкрософт." 
 	services="mobile-services" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="02/16/2015" 
-	ms.author="ricksal,mahender"/>
+	ms.date="04/13/2015" 
+	ms.author="ricksal"/>
 
-# Добавление проверки подлинности в приложение мобильных служб
+# Добавление проверки подлинности к приложению мобильных служб
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
 
@@ -26,23 +26,23 @@
 
 
 
-Этот учебник создан на основе краткого руководства по мобильным службам. Вам также необходимо сначала ознакомиться с учебником [Приступая к работе с мобильными службами]. 
+Этот учебник создан на основе краткого руководства по мобильным службам. Вам также необходимо сначала ознакомиться с учебником [Приступая к работе с мобильными службами].
 
-##<a name="register"></a>Регистрация приложения для проверки подлинности и настройка мобильных служб
+##<a name="register"></a>Регистрация приложения для проверки подлинности и конфигурация мобильных служб
 
 [AZURE.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-aad-server-extension](../includes/mobile-services-dotnet-backend-aad-server-extension.md)] 
 
-##<a name="permissions"></a>Ограничение разрешений для пользователей, прошедших проверку подлинности
+##<a name="permissions"></a>Предоставление разрешений только пользователям, прошедшим проверку подлинности
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)] 
 
-3. Откройте проект, созданный после завершения учебника [Приступая к работе с мобильными службами]. 
+3. Откройте проект, созданный при выполнении заданий учебника [Приступая к работе с мобильными службами]. 
 
-4. В меню **Запуск** щелкните **Запуск приложения**, чтобы запустить приложение; убедитесь, что после запуска приложения возникает необработанное исключение с кодом состояния 401 (Не санкционировано). 
+4. В меню **Запуск** щелкните **Запуск приложения**; убедитесь, что после запуска приложения возникает необработанное исключение с кодом состояния 401 ("Не санкционировано").
 
-	 Это происходит потому, что приложение пытается получить доступ к мобильным службам как пользователь, не прошедший проверку подлинности, а таблица _TodoItem_ теперь требует выполнения проверки подлинности.
+	 Это происходит, потому что приложение пытается получить доступ к мобильным службам как пользователь, не прошедший проверку подлинности, а таблица _TodoItem_ теперь требует выполнения проверки подлинности.
 
 Далее приложение будет обновлено таким образом, что оно станет производить аутентификацию учетных данных пользователей, прежде чем запрашивать ресурсы из мобильной службы.
 
@@ -60,26 +60,26 @@
 
 ##<a name="next-steps"></a>Дальнейшие действия
 
-В следующем учебнике, [Авторизация пользователей мобильных служб на стороне службы][Авторизация пользователей с помощью скриптов], показано, как идентификатор пользователя, прошедшего проверку подлинности, который предоставлен мобильными службами, применяется для фильтрации данных, возвращаемых мобильными службами. 
+В следующем учебнике, который называется [Авторизация пользователей мобильных служб на стороне службы][Authorize users with scripts], значение ИД пользователя, предоставляемое мобильными службами на основе пользователя, прошедшего проверку подлинности, будет использоваться для фильтрации данных, возвращаемых мобильными службами.
 
 
 <!-- Anchors. -->
-[Регистрация приложения для проверки подлинности и настройка мобильных служб]: #register
-[Ограничение разрешений таблицы для пользователей, прошедших проверку подлинности]: #permissions
-[Добавление проверки подлинности в приложение]: #add-authentication
-[Хранение маркеров проверки подлинности в клиенте]: #cache-tokens
-[Обновление маркеров с истекшим сроком действия]: #refresh-tokens
-[Дальнейшие действия]:#next-steps
+[Register your app for authentication and configure Mobile Services]: #register
+[Restrict table permissions to authenticated users]: #permissions
+[Add authentication to the app]: #add-authentication
+[Store authentication tokens on the client]: #cache-tokens
+[Refresh expired tokens]: #refresh-tokens
+[Next Steps]: #next-steps
 
 <!-- URLs. -->
 [Приступая к работе с мобильными службами]: mobile-services-dotnet-backend-android-get-started.md
-[Приступая к работе с данными]: mobile-services-dotnet-backend-android-get-started-data.md
-[Приступая к работе с проверкой подлинности]: mobile-services-dotnet-backend-android-get-started-users.md
-[Приступая к работе с push-уведомлениями]: mobile-services-dotnet-backend-android-get-started-push.md
-[Авторизация пользователей с помощью скриптов]: mobile-services-dotnet-backend-android-authorize-users-in-scripts.md
+[Get started with data]: mobile-services-dotnet-backend-android-get-started-data.md
+[Get started with authentication]: mobile-services-dotnet-backend-android-get-started-users.md
+[Get started with push notifications]: mobile-services-dotnet-backend-android-get-started-push.md
+[Authorize users with scripts]: mobile-services-dotnet-backend-android-authorize-users-in-scripts.md
 
-[Портал управления Azure]: https://manage.windowsazure.com/
-[Справочник по принципам использования мобильных служб .NET]: /develop/mobile/how-to-guides/work-with-net-client-library
-[Регистрация пакета приложения для Магазина Windows для проверки подлинности Майкрософт]: mobile-services-how-to-register-store-app-package-microsoft-authentication.md
+[Azure Management Portal]: https://manage.windowsazure.com/
+[Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
+[Register your Windows Store app package for Microsoft authentication]: mobile-services-how-to-register-store-app-package-microsoft-authentication.md
 
-<!--HONumber=49-->
+<!--HONumber=54-->

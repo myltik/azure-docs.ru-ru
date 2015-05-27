@@ -1,8 +1,8 @@
-﻿<properties 
-	pageTitle="Регистрация текущего пользователя для push-уведомлений мобильной службы - центры уведомлений" 
+<properties 
+	pageTitle="Регистрация текущего пользователя для push-уведомлений мобильной службы — концентраторы уведомлений" 
 	description="Узнайте, как запросить регистрацию push-уведомления в приложении iOS с помощью центров уведомлений Azure, когда регистрации выполняется через мобильные службы Azure." 
-	services="mobile-services, notification-hubs" 
-	documentationCenter="" 
+	services="notification-hubs" 
+	documentationCenter="ios" 
 	authors="ysxu" 
 	manager="dwrede" 
 	editor=""/>
@@ -10,21 +10,21 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
+	ms.tgt_pltfrm="ios" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="10/10/2014" 
+	ms.date="04/24/2015" 
 	ms.author="yuaxu"/>
 
 # Регистрация текущего пользователя для push-уведомлений мобильной службы
 
 <div class="dev-center-tutorial-selector sublanding">
-    <a href="/ru-ru/documentation/articles/notification-hubs-windows-store-mobile-services-register-user-push-notifications/" title="Windows Store C#">Магазин Windows C#</a><a href="/ru-ru/documentation/articles/notification-hubs-ios-mobile-services-register-user-push-notifications/" title="iOS" class="current">iOS</a>
+    <a href="/documentation/articles/notification-hubs-windows-store-mobile-services-register-user-push-notifications/" title="Магазин Windows — C#">Магазин Windows — C#</a><a href="/documentation/articles/notification-hubs-ios-mobile-services-register-user-push-notifications/" title="iOS" class="current">iOS</a>
 </div>
 
-В этом разделе рассказывается о том, как запросить регистрацию push-уведомлений с помощью центра уведомлений Azure при выполнении регистрации средствами мобильных служб Azure. Этот раздел расширяет учебник [Уведомление пользователей с помощью концентраторов уведомлений]. Чтобы создать прошедшую проверку подлинности мобильную службу, вы должны завершить требуемые действия в этом учебнике. Дополнительные сведения о сценарии уведомления пользователей см. в учебнике [Уведомление пользователей с помощью концентраторов уведомлений].  
+В этом разделе показано, как запросить регистрацию push-уведомления с помощью концентраторов уведомлений Azure, когда регистрация выполняется с помощью мобильных служб Azure. Этот раздел расширяет учебник [Уведомление пользователей с помощью концентраторов уведомлений]. Чтобы создать прошедшую проверку подлинности мобильную службу, вы должны завершить требуемые действия в этом учебнике. Дополнительные сведения о сценарии уведомления пользователей см. в учебнике [Уведомление пользователей с помощью концентраторов уведомлений].
 
-1. В Xcode откройте файл QSTodoService.h в проекте, который создали при прохождении предыдущего необходимого учебника [Приступая к работе с проверкой подлинности], и добавьте следующее свойство **deviceToken**:
+1. В Xcode откройте файл QSTodoService.h в проекте, который создали при прохождении предыдущего необходимого учебника [Приступая к работе с проверкой подлинности], и добавьте следующее свойство **deviceToken**.
 
 		@property (nonatomic) NSData* deviceToken;
 
@@ -57,7 +57,7 @@
 
 	При этом будет обновлено свойство **deviceToken**.
 
-	> [AZURE.NOTE] На этом этапе в методе не должно быть никакого другого кода. Если в методе **registerNativeWithDeviceToken** уже есть вызов, добавленный при прохождении учебника [Приступая к работе с центрами уведомлений](/ru-ru/manage/services/notification-hubs/get-started-notification-hubs-ios/"%20target="_blank") , этот вызов нужно закомментировать или удалить.
+	> [AZURE.NOTE]На этом этапе в методе не должно быть никакого другого кода. Если в методе **registerNativeWithDeviceToken** уже есть вызов, добавленный при прохождении учебника [Приступая к работе с концентраторами уведомлений](/manage/services/notification-hubs/get-started-notification-hubs-ios/"%20target="_blank"), этот вызов нужно закомментировать или удалить.
 
 5.  (Необязательно) В файле QSAppDelegate.m добавьте следующий метод обработчика:
 
@@ -71,10 +71,10 @@
 
  	Этот метод отображает предупреждение в пользовательском интерфейсе, когда приложение получает уведомления во время работы.
 
-6. В файле QSTodoListViewController.m добавьте метод **registerForNotificationsWithBackEnd**:
+6. Добавьте в файле QSTodoListViewController.m метод **registerForNotificationsWithBackEnd**:
 
 			- (void)registerForNotificationsWithBackEnd {
-			    NSString* json = [NSString  stringWithFormat:@"{\"platform\":\"ios\", \"deviceToken\":\"%@\"}", [self.todoService getDeviceTokenInHex] ];
+			    NSString* json = [NSString  stringWithFormat:@"{"platform":"ios", "deviceToken":"%@"}", [self.todoService getDeviceTokenInHex] ];
 
 			    [self.todoService.client invokeAPI:@"register_notifications" data:[json dataUsingEncoding:NSUTF8StringEncoding] HTTPMethod:@"POST" parameters:nil headers:nil completion:^(id result, NSHTTPURLResponse *response, NSError *error) {
 			        if (error != nil) {
@@ -89,7 +89,7 @@
 
 	Этот метод создает полезные данные json, содержащие маркер устройства. Затем вызывается пользовательский интерфейс API в мобильной службе для регистрации уведомлений. Этот метод создает маркер устройства для push-уведомлений и отправляет его, вместе с типом устройства, методу настраиваемого интерфейса API, который создает регистрацию в концентраторах уведомлений. Этот метод настраиваемого интерфейса API был определен в учебнике [Уведомление пользователей с помощью концентраторов уведомлений].
 
-7.	И, наконец, в методе **viewDidAppear** добавьте вызов этого нового метода **registerForNotificationsWithBackEnd** после того, как пользователь успешно пройдет аутентификацию, как показано ниже:
+7.	И наконец, в методе **viewDidAppear** добавьте вызов этого нового метода **registerForNotificationsWithBackEnd** после того, как пользователь успешно пройдет проверку подлинности, как показано ниже.
 
 			- (void)viewDidAppear:(BOOL)animated
 			{
@@ -105,7 +105,7 @@
 			    }];
 			}
 
-	> [AZURE.NOTE] Это гарантирует, что регистрация запрашивается каждый раз при загрузке страницы. В вашем приложении можно сделать так, чтобы эта регистрация выполнялась только время от времени для гарантии актуальности регистрации.
+	> [AZURE.NOTE]Это гарантирует, что регистрация запрашивается каждый раз при загрузке страницы. В вашем приложении можно сделать так, чтобы эта регистрация выполнялась только время от времени для гарантии актуальности регистрации.
 	
 Теперь, когда клиентское приложение было обновлено, вернитесь к учебнику [Уведомление пользователей с помощью концентраторов уведомлений] и обновите мобильную службу для отправки уведомлений с помощью концентраторов уведомлений.
 
@@ -115,12 +115,10 @@
 
 
 <!-- URLs. -->
-[Уведомление пользователей с помощью центров уведомлений]: /ru-ru/manage/services/notification-hubs/notify-users
-[Приступая к работе с проверкой подлинности]: /ru-ru/develop/mobile/tutorials/get-started-with-users-ios/
+[Уведомление пользователей с помощью концентраторов уведомлений]: /manage/services/notification-hubs/notify-users
+[Приступая к работе с проверкой подлинности]: /develop/mobile/tutorials/get-started-with-users-ios/
 
-[Портал управления Azure]: https://manage.windowsazure.com/
-[Приступая к работе с центрами уведомлений]: /ru-ru/manage/services/notification-hubs/get-started-notification-hubs-ios/
+[Azure Management Portal]: https://manage.windowsazure.com/
+[Get Started with Notification Hubs]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
 
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

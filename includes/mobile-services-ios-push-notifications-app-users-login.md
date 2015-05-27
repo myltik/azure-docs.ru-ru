@@ -1,36 +1,14 @@
-﻿
-Затем, чтобы удостовериться, что перед попыткой регистрации пользователь прошел аутентификацию, нужно изменить способ регистрации push-уведомлений. 
 
-1. В файле **QSAppDelegate.m** полностью удалите реализацию **didFinishLaunchingWithOptions**:
+Затем необходимо изменить способ регистрации push-уведомлений, чтобы удостовериться, что перед попыткой регистрации пользователь прошел проверку подлинности.
 
-		
-		- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:
-		(NSDictionary *)launchOptions
-		{
-		    // Register for remote notifications
-		    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
-		    UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
-		    return YES;
-		}
+1. В файле **QSAppDelegate.m** полностью удалите реализацию **didFinishLaunchingWithOptions**.
 
-2. Откройте файл проекта **QSTodoListViewController.m** и добавьте в метод **viewDidLoad** код, удаленный перед добавлением:
+2. Откройте элемент **QSTodoListViewController.m** и добавьте следующий код в конец метода **viewDidLoad**:
 
-	
-		- (void)viewDidAppear:(BOOL)animated
-		{
-		    MSClient *client = self.todoService.client;
-		
-		    if (client.currentUser != nil) {
-		        return;
-		    }
-		
-		    [client loginWithProvider:@"facebook" controller:self animated:YES completion:^(MSUser *user, NSError *error) {
-		        [self refresh];
-		    }];
-		
-		    // Register for remote notifications
-		    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
-		    UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
-		}
+```
+// Register for remote notifications
+[[UIApplication sharedApplication] registerForRemoteNotificationTypes:
+UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
+```
 
-<!--HONumber=42-->
+<!--HONumber=54-->

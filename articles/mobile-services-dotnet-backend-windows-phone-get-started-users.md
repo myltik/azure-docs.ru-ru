@@ -10,37 +10,31 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/25/2015" 
+	ms.date="04/29/2015" 
 	ms.author="glenga"/>
 
-# Добавление проверки подлинности в приложение мобильных служб
+# Добавление проверки подлинности к приложению мобильных служб
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
 
-В этом разделе показано, как выполнять проверку подлинности пользователей в мобильных службах Azure из приложения Windows Phone. В этом учебнике вы добавите проверку подлинности к проекту быстрого запуска, используя поставщик удостоверений, поддерживаемый мобильными службами. После выполнения успешной проверки подлинности и авторизации мобильными службами отображается значение идентификатора пользователя.
+## Обзор
 
->[AZURE.NOTE] Этот учебник поддерживает только приложения Silverlight Windows Phone 8.0 и Windows Phone 8.1. При наличии Магазина Windows Phone 8.1 или универсального приложения Windows следуйте [версии этого учебника для универсального приложения Windows](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users.md).
+В этом разделе показано, как выполнять аутентификацию учетных данных пользователей в мобильных службах Azure из приложения Windows Phone. В этом учебнике вы добавите проверку подлинности к проекту быстрого запуска, используя поставщик удостоверений, поддерживаемый мобильными службами. После выполнения успешной проверки подлинности и авторизации мобильными службами отображается значение идентификатора пользователя.
 
-В этом учебнике рассматриваются следующие основные шаги для включения проверки подлинности в приложении:
+>[AZURE.NOTE]Этот учебник поддерживает только приложения Silverlight Windows Phone 8.0 и Windows Phone 8.1. При наличии Магазина Windows Phone 8.1 или универсального приложения Windows следуйте [версии этого учебника для универсального приложения Windows](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users.md).
 
-1. [Регистрация приложения для проверки подлинности и настройка мобильных служб]
-2. [Ограничение разрешений таблицы для пользователей, прошедших проверку подлинности]
-3. [Добавление проверки подлинности в приложение]
-4. [Хранение маркеров проверки подлинности в клиенте]
+Этот учебник создан на основе краткого руководства по мобильным службам. Вам также необходимо сначала ознакомиться с учебником [Приступая к работе с мобильными службами].
 
-Этот учебник создан на основе краткого руководства по мобильным службам. Вам также необходимо сначала ознакомиться с учебником [Приступая к работе с мобильными службами]. 
-
-
-##<a name="register"></a>Регистрация приложения для проверки подлинности и настройка мобильных служб
+## Регистрация приложения для проверки подлинности и конфигурация мобильных служб
 
 [AZURE.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-aad-server-extension](../includes/mobile-services-dotnet-backend-aad-server-extension.md)] 
 
-## <a name="permissions"></a>Ограничение разрешений для пользователей, прошедших проверку подлинности
+##  Предоставление разрешений только пользователям, прошедшим проверку подлинности
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)] 
 
@@ -53,40 +47,35 @@
 
 Далее приложение будет обновлено таким образом, что оно станет производить аутентификацию учетных данных пользователей, прежде чем запрашивать ресурсы из мобильной службы.
 
-##<a name="add-authentication"></a>Добавление проверки подлинности в приложение
+## Добавление проверки подлинности к приложению
 
 [AZURE.INCLUDE [mobile-services-windows-phone-authenticate-app](../includes/mobile-services-windows-phone-authenticate-app.md)]
 
-##<a name="tokens"></a>Хранение маркеров авторизации в клиенте
+## Хранение маркеров проверки подлинности в клиенте
 
 [AZURE.INCLUDE [mobile-services-windows-phone-authenticate-app-with-token](../includes/mobile-services-windows-phone-authenticate-app-with-token.md)] 
 
-## <a name="next-steps"> </a>Дальнейшие действия
+##  Дальнейшие действия
 
-В следующем учебнике, [Авторизация пользователей мобильных служб на стороне службы][Авторизация пользователей с помощью скриптов], показано, как идентификатор пользователя, прошедшего проверку подлинности, который предоставлен мобильными службами, применяется для фильтрации данных, возвращаемых мобильными службами. Дополнительные сведения об использовании мобильных служб с помощью .NET см. в разделе [Справочник принципов использования мобильных служб .NET].
+В следующем учебнике, который называется [Авторизация пользователей мобильных служб на стороне службы][Authorize users with scripts], значение ИД пользователя, предоставляемое мобильными службами на основе пользователя, прошедшего проверку подлинности, будет использоваться для фильтрации данных, возвращаемых мобильными службами. Дополнительные сведения об использовании мобильных служб с помощью .NET см. в разделе [Справочник принципов использования мобильных служб .NET].
 
 <!-- Anchors. -->
-[Регистрация приложения для проверки подлинности и настройка мобильных служб]: #register
-[Ограничение разрешений таблицы для пользователей, прошедших проверку подлинности]: #permissions
-[Добавление проверки подлинности в приложение]: #add-authentication
-[Хранение маркеров проверки подлинности в клиенте]: #tokens
-[Дальнейшие действия]: #next-steps
 
 
 <!-- URLs. -->
-[Отправка страницы приложения]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Мои приложения]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Live SDK для Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Единый вход для приложений Windows Phone с использованием Live Connect]: mobile-services-windows-phone-single-sign-on.md
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Single sign-on for Windows Phone apps by using Live Connect]: mobile-services-windows-phone-single-sign-on.md
 [Приступая к работе с мобильными службами]: mobile-services-dotnet-backend-windows-phone-get-started.md
-[Приступая к работе с данными]: mobile-services-dotnet-backend-windows-phone-get-started-data.md
-[Приступая к работе с проверкой подлинности]: mobile-services-dotnet-backend-windows-phone-get-started-users.md
-[Приступая к работе с push-уведомлениями]: mobile-services-dotnet-backend-windows-phone-get-started-push.md
-[Авторизация пользователей с помощью скриптов]: mobile-services-dotnet-backend-windows-phone-authorize-users-in-scripts.md
-[JavaScript и HTML]: mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
+[Get started with data]: mobile-services-dotnet-backend-windows-phone-get-started-data.md
+[Get started with authentication]: mobile-services-dotnet-backend-windows-phone-get-started-users.md
+[Get started with push notifications]: mobile-services-dotnet-backend-windows-phone-get-started-push.md
+[Authorize users with scripts]: mobile-services-dotnet-backend-windows-phone-authorize-users-in-scripts.md
+[JavaScript and HTML]: mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
 
-[Портал управления Azure]: https://manage.windowsazure.com/
-[Справочник принципов использования мобильных служб .NET]: /develop/mobile/how-to-guides/work-with-net-client-library
-[Регистрация пакета приложения для Магазина Windows для проверки подлинности Майкрософт]: mobile-services-how-to-register-store-app-package-microsoft-authentication.md
+[Azure Management Portal]: https://manage.windowsazure.com/
+[Справочник принципов использования мобильных служб .NET]: mobile-services-windows-dotnet-how-to-use-client-library.md
+[Register your Windows Store app package for Microsoft authentication]: mobile-services-how-to-register-store-app-package-microsoft-authentication.md
 
-<!--HONumber=49-->
+<!--HONumber=54-->

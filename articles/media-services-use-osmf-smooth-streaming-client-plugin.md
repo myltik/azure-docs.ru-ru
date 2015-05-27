@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Подключаемый модуль Smooth Streaming для платформы Open Source Media Framework" 
 	description="Узнайте, как использовать подключаемый модуль Smooth Streaming служб мультимедиа Azure для платформы Open Source Media Framework." 
 	services="media-services" 
@@ -25,9 +25,9 @@
 
 SS для OSMF включает в себя две версии подключаемого модуля:
 
-- статический подключаемый модуль Smooth Streaming для OSMF (SWC);
+- статический подключаемый модуль Smooth Streaming для OSMF (.swc);
 
-- динамический подключаемый модуль Smooth Streaming для OSMF (SWF).
+- динамический подключаемый модуль Smooth Streaming для OSMF (.swf).
 
 В настоящем документе предполагается, что читатель имеет общие знания о работе с OSMF и подключаемыми модулями OSMF. Дополнительные сведения об OSMF см. в документации на [официальном сайте OSMF](http://osmf.org/).
 
@@ -43,7 +43,7 @@ SS для OSMF включает в себя две версии подключа
 - поддержка нескольких языков аудио с помощью встроенных API-интерфейсов OSMF;
 - выбор качества воспроизведения с помощью встроенных API-интерфейсов OSMF;
 - боковые субтитры с использованием подключаемого модуля субтитров OSMF;
-- Adobe&reg; Flash&reg; Player 10.2 или более поздней версии.
+- Проигрыватель Adobe&reg; Flash&reg; 10.2 или более поздней версии.
 - Эта версия поддерживает только OSMF 2.0.
 
 Ниже приведены неподдерживаемые функции:
@@ -55,7 +55,7 @@ SS для OSMF включает в себя две версии подключа
 
 Ниже приведен список известных проблем.
 
-- При воспроизведении контента Smooth Streaming со звуковыми дорожками с частотой 48 кГц возникают проблемы. В среде выполнения Flash возникают проблемы с воспроизведением аудио с частотой 48 кГц. По этой причине контент Smooth Streaming с частотой 48 кГц может не работать должным образом. Дополнительную информацию см. в статьях [Использование Flash Player](http://forums.adobe.com/message/4483498#4483498) и [Adobe Flash Player 11.3  -  См. ошибку 3210964](https://bugbase.adobe.com/index.cfm?event=bug&id=3210964) для более подробной информации.
+- При воспроизведении контента Smooth Streaming со звуковыми дорожками с частотой 48 кГц возникают проблемы. В среде выполнения Flash возникают проблемы с воспроизведением аудио с частотой 48 кГц. По этой причине контент Smooth Streaming с частотой 48 кГц может не работать должным образом. Дополнительные сведения см. в статьях [Использование Flash Player](http://forums.adobe.com/message/4483498#4483498) и [Adobe Flash Player 11.3: ошибка 3210964](https://bugbase.adobe.com/index.cfm?event=bug&id=3210964).
 - Одновременное воспроизведение контента Smooth Streaming на одной странице может вызвать проблемы. Это известная проблема с OSMF.
 - Воспроизведение видео Stage может вызвать проблемы, на некоторых компьютерах видео может не отображаться. Для решения проблемы можно отключить аппаратное ускорение или видео Stage.
 
@@ -106,24 +106,24 @@ package
 		private function initMediaPlayer():void
 		{
 		
-			// Create the container (sprite) for managing display and layout
+			// Создание контейнера (sprite) для управления отображением и макетом
 			_mediaPlayerSprite = new MediaPlayerSprite();    
 			_mediaPlayerSprite.addEventListener(MediaErrorEvent.MEDIA_ERROR, onPlayerFailed);
 			_mediaPlayerSprite.addEventListener(MediaPlayerStateChangeEvent.MEDIA_PLAYER_STATE_CHANGE, onPlayerStateChange);
 			_mediaPlayerSprite.scaleMode = ScaleMode.NONE;
 			_mediaPlayerSprite.width = stage.stageWidth;
 			_mediaPlayerSprite.height = stage.stageHeight;
-			//Adds the container to the stage
+			//Добавление контейнера в стадию
 			addChild(_mediaPlayerSprite);
 			
-			// Create a mediafactory instance
+			//Создание экземпляра медиафабрики
 			_mediaFactory = new DefaultMediaFactory();
 			
-			// Add the listeners for PLUGIN_LOADING
+			// Добавление прослушивателей для PLUGIN_LOADING
 			_mediaFactory.addEventListener(MediaFactoryEvent.PLUGIN_LOAD,onPluginLoaded);
 			_mediaFactory.addEventListener(MediaFactoryEvent.PLUGIN_LOAD_ERROR, onPluginLoadFailed );
 			
-			// Load the plugin class 
+			// Загрузка класса подключаемого модуля 
 			loadAdaptiveStreamingPlugin( );  
 			
 		}
@@ -138,15 +138,15 @@ package
 		
 		private function onPluginLoaded( event:MediaFactoryEvent ):void
 		{
-			// The plugin is loaded successfully.
-			// Your web server needs to host a valid crossdomain.xml file to allow plugin to download Smooth Streaming files.
+			// Подключаемый модуль успешно загружен.
+			// На веб-сервере должен размещаться допустимый файл crossdomain.xml, чтобы подключаемый модуль смог скачать файлы Smooth Streaming.
 		loadMediaSource("http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest")
 		
 		}
 		
 		private function onPluginLoadFailed( event:MediaFactoryEvent ):void
 		{
-			// The plugin is failed to load ...
+			// Не удалось загрузить подключаемый модуль...
 		}
 		
 		
@@ -160,12 +160,12 @@ package
 			{
 				case MediaPlayerState.LOADING: 
 					
-					// A new source is started to load.
+					// Начинается загрузка нового источника.
 					
 					break;
 				
 				case  MediaPlayerState.READY :   
-					// Add code to deal with Player Ready when it is hit the first load after a source is loaded. 
+					// Добавьте код для обработки готовности проигрывателя при первой загрузке после загрузки источника. 
 					
 					break;
 				
@@ -175,18 +175,18 @@ package
 				
 				case  MediaPlayerState.PAUSED :
 					break;      
-				// other states ...          
+				// другие состояния...          
 			}
 		}
 		
 		private function onPlayerFailed(event:MediaErrorEvent) : void
 		{
-			// Media Player is failed .           
+			// Сбой мультимедиапроигрывателя.           
 		}
 		
 		private function loadMediaSource(sourceURL : String):void 
 		{
-			// Take an URL of SmoothStreamingSource's manifest and add it to the page.
+			// Получение URL-адреса из манифеста SmoothStreamingSource и добавление его на страницу.
 			
 			var resource:URLResource= new URLResource( sourceURL );
 			
@@ -195,7 +195,7 @@ package
 			_mediaPlayerSprite.width = stage.stageWidth;
 			_mediaPlayerSprite.height = stage.stageHeight;
 			
-			// Add the media element
+			// Добавление элемента мультимедиа
 			_mediaPlayerSprite.media = element;
 		}     
 		
@@ -223,7 +223,7 @@ package
 	import flash.system.Capabilities;
 
 	
-	//Sets the size of the SWF
+	// Задает размер SWF
 	
 	[SWF(width="1024", height="768", backgroundColor='#405050', frameRate="25")]
 	public class TestPlayer extends Sprite
@@ -242,22 +242,22 @@ package
 		private function initMediaPlayer():void
 		{
 			
-			// Create the container (sprite) for managing display and layout
+			// Создание контейнера (sprite) для управления отображением и макетом
 			_mediaPlayerSprite = new MediaPlayerSprite();    
 			_mediaPlayerSprite.addEventListener(MediaErrorEvent.MEDIA_ERROR, onPlayerFailed);
 			_mediaPlayerSprite.addEventListener(MediaPlayerStateChangeEvent.MEDIA_PLAYER_STATE_CHANGE, onPlayerStateChange);
 
-			//Adds the container to the stage
+			//Добавление контейнера в стадию
 			addChild(_mediaPlayerSprite);
 			
-			// Create a mediafactory instance
+			//Создание экземпляра медиафабрики
 			_mediaFactory = new DefaultMediaFactory();
 			
-			// Add the listeners for PLUGIN_LOADING
+			// Добавление прослушивателей для PLUGIN_LOADING
 			_mediaFactory.addEventListener(MediaFactoryEvent.PLUGIN_LOAD,onPluginLoaded);
 			_mediaFactory.addEventListener(MediaFactoryEvent.PLUGIN_LOAD_ERROR, onPluginLoadFailed );
 			
-			// Load the plugin class 
+			// Загрузка класса подключаемого модуля 
 			loadAdaptiveStreamingPlugin( );  
 			
 		}
@@ -267,7 +267,7 @@ package
 			var pluginResource:MediaResourceBase;
 			var adaptiveStreamingPluginUrl:String;
 
-			// Your dynamic plugin web server needs to host a valid crossdomain.xml file to allow loading plugins.
+			// Для загрузки подключаемых модулей на веб-сервере динамических подключаемых модулей должен быть размещен файл crossdomain.xml 
 
 			adaptiveStreamingPluginUrl = "http://yourdomain/MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf";
 			pluginResource = new URLResource(adaptiveStreamingPluginUrl);
@@ -277,16 +277,16 @@ package
 		
 		private function onPluginLoaded( event:MediaFactoryEvent ):void
 		{
-			// The plugin is loaded successfully.
+			// Подключаемый модуль успешно загружен.
 
-			// Your web server needs to host a valid crossdomain.xml file to allow plugin to download Smooth Streaming files.
+			// На веб-сервере должен размещаться допустимый файл crossdomain.xml, чтобы подключаемый модуль смог скачать файлы Smooth Streaming.
 
 	loadMediaSource("http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest")
 		}
 		
 		private function onPluginLoadFailed( event:MediaFactoryEvent ):void
 		{
-			// The plugin is failed to load ...
+			// Не удалось загрузить подключаемый модуль...
 		}
 		
 		
@@ -300,12 +300,12 @@ package
 			{
 				case MediaPlayerState.LOADING: 
 					
-					// A new source is started to load.
+					// Начинается загрузка нового источника.
 					
 					break;
 				
 				case  MediaPlayerState.READY :   
-					// Add code to deal with Player Ready when it is hit the first load after a source is loaded. 
+					// Добавьте код для обработки готовности проигрывателя при первой загрузке после загрузки источника. 
 					
 					break;
 				
@@ -315,18 +315,18 @@ package
 				
 				case  MediaPlayerState.PAUSED :
 					break;      
-				// other states ...          
+				// другие состояния...          
 			}
 		}
 		
 		private function onPlayerFailed(event:MediaErrorEvent) : void
 		{
-			// Media Player is failed .           
+			// Сбой мультимедиапроигрывателя.           
 		}
 		
 		private function loadMediaSource(sourceURL : String):void 
 		{
-			// Take an URL of SmoothStreamingSource's manifest and add it to the page.
+			// Получение URL-адреса из манифеста SmoothStreamingSource и добавление его на страницу.
 			
 			var resource:URLResource= new URLResource( sourceURL );
 			
@@ -334,7 +334,7 @@ package
 			_mediaPlayerSprite.scaleMode = ScaleMode.LETTERBOX;
 			_mediaPlayerSprite.width = stage.stageWidth;
 			_mediaPlayerSprite.height = stage.stageHeight;
-			// Add the media element
+			// Добавление элемента мультимедиа
 			_mediaPlayerSprite.media = element;
 		}     
 		
@@ -343,13 +343,13 @@ package
 </code></pre>
 
 ##Воспроизведение Strobe Media с помощью динамического подключаемого модуля SS ODMF
-Динамический подключаемый модуль Smooth Streaming для OSMF совместим с проигрывателем [Strobe Media Playback (SMP)](http://osmf.org/strobe_mediaplayback.html). Подключаемый модуль SS для OSMF можно использовать для поддержки воспроизведения контента в SMP. Для этого скопируйте "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf" на веб-сервер, чтобы выполнять загрузку по протоколу HTTP, и выполните следующие действия.
+Динамический подключаемый модуль Smooth Streaming для OSMF совместим с проигрывателем [Strobe Media Playback (SMP)](http://osmf.org/strobe_mediaplayback.html). Подключаемый модуль SS для OSMF можно использовать для поддержки воспроизведения контента в SMP. Для этого скопируйте "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf" на веб-сервер, чтобы выполнять загрузку по протоколу HTTP, и выполните следующие действия:
 
 1.	Откройте [страницу настройки Strobe Media Playback](http://osmf.org/dev/2.0gm/setup.html). 
-2.	Задайте src в качестве значения для источника Smooth Streaming, (например, http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest) 
+2.	Задайте src в качестве значения для источника Smooth Streaming (например, http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest). 
 3.	Внесите требуемые изменения и нажмите кнопку "Предварительный просмотр и обновление".
  
-	**Примечание.** На веб-сервере должен быть действительный файл crossdomain.xml. 
+	**Примечание.** На веб-сервере должен размещаться допустимый файл crossdomain.xml. 
 4.	Скопируйте и вставьте код на простую HTML-страницу, используя предпочитаемый текстовый редактор, как в следующем примере:
 
 
@@ -399,9 +399,9 @@ package
 		</html>
 
 
-6. 	Сохраните HTML-страницу и опубликуйте ее на веб-сервере. Перейдите к опубликованной веб-странице в предпочитаемом браузере с поддержкой проигрывателя Flash&reg; Player (Internet Explorer, Chrome, Firefox и т. д.).
-7. 	Наслаждайтесь просмотром контента Smooth Streaming в проигрывателе Adobe&reg; Flash&reg; Player.
+6. 	Сохраните HTML-страницу и опубликуйте ее на веб-сервере. Перейдите к опубликованной веб-странице в предпочитаемом браузере с поддержкой проигрывателя Flash&reg; (Internet Explorer, Chrome, Firefox и т. д.).
+7. 	Наслаждайтесь просмотром контента Smooth Streaming в проигрывателе Adobe&reg; Flash&reg;.
 
 Дополнительные сведения об общей процедуре разработки для OSMF см. на официальной [странице разработки OSMF](http://osmf.org/resources.html).
 
-<!--HONumber=49-->
+<!--HONumber=54-->

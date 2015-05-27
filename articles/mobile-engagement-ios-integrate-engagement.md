@@ -1,6 +1,6 @@
-﻿<properties 
+<properties 
 	pageTitle="Интеграция пакета iOS SDK для Azure Mobile Engagement" 
-	description="Последние обновления и процедуры пакета iOS SDK для Azure Mobile Engagement"
+	description="Последние обновления и указания для пакета SDK для iOS для Azure Mobile Engagement"
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
 	authors="kpiteira" 
@@ -16,34 +16,36 @@
 	ms.date="02/12/2015" 
 	ms.author="kapiteir" />
 
-
-<div class="dev-center-tutorial-selector sublanding"><a href="/documentation/articles/mobile-engagement-windows-store-integrate-engagement/" title="Windows Store">Windows Магазин</a><a href="/documentation/articles/mobile-engagement-windows-phone-integrate-engagement/" title="Windows Phone">Windows Phone</a><a href="/documentation/articles/mobile-engagement-ios-integrate-engagement/" title="iOS" class="current">iOS</a><a href="/documentation/articles/mobile-engagement-android-integrate-engagement/" title="Android" >Android</a></div>
-
-
 #Интеграция службы Engagement в iOS
 
-> [AZURE.IMPORTANT] Требуется пакет SDK iOS4 и выше для Engagement: цель развертывания приложения должна быть не ниже iOS 4.
+> [AZURE.SELECTOR] 
+- [Windows Universal](mobile-engagement-windows-store-integrate-engagement.md) 
+- [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md) 
+- [iOS](mobile-engagement-ios-integrate-engagement.md) 
+- [Android](mobile-engagement-android-integrate-engagement.md) 
 
 Эта процедура описывает самый простой способ активации функции аналитики и мониторинга службы Engagement в приложении iOS.
 
-Следующих действий достаточно для активации отчета журналов, который необходим при вычислении всех статистических данных о пользователях, сеансах, действиях сбоях и технических проблемах. Отчет журналов, необходимый для вычисления других статистических данных таких как события, ошибки и задания, необходимо делать вручную с помощью API Engagement (см. ios-sdk-engagement-advanced), поскольку эта статистика зависит от приложения.
+> [AZURE.IMPORTANT]Требуется пакет SDK iOS4 и выше для Engagement: цель развертывания приложения должна быть не ниже iOS 4.
+
+Достаточно выполнить следующие шаги, чтобы активировать отчеты по журналам, которые необходимы для вычисления всех статистических данных, касающихся пользователей, сеансов, действий, сбоев и технической информации. Отчеты по журналам, необходимые для вычисления других статистических данных (например, касающихся событий, ошибок и заданий), требуется создавать вручную с помощью API Engagement (см. статью [Как использовать API для расширенного добавления тегов Mobile Engagement в приложении iOS](mobile-engagement-ios-use-engagement-api.md)), так как эти статистические данные зависят от приложения.
 
 ##Внедрение пакета SDK для Engagement в проект iOS
 
-Добавьте пакет SDk для Engagement в проект iOS: в Xcode 4 щелкните правой кнопкой мыши проект, выберите **"Добавить файлы к..."** и выберите папку `EngagementSDK`.
+Добавьте пакет SDK для Engagement в проект iOS: в Xcode 4 щелкните правой кнопкой мыши проект, выберите **Добавить файлы к...** и укажите папку `EngagementSDK`.
 
-Служба Engagement требует дополнительные среды для работы: в обозревателе проектов откройте панель проекта и выберите правильную цель. Затем откройте вкладку **"Этапы построения"** и в меню **"Связать двоичные объекты с библиотеками"** добавьте следующие среды:
+Служба Engagement требует дополнительные среды для работы: в обозревателе проектов откройте панель проекта и выберите правильную цель. Затем откройте вкладку **Этапы сборки** и в меню **Связать двоичные объекты с библиотеками** добавьте следующие инфраструктуры:
 
-> -   `AdSupport.framework` - укажите связь как `необязательную`
+> -   `AdSupport.framework`: задайте для связи значение `Optional`
 > -   `SystemConfiguration.framework`
 > -   `CoreTelephony.framework`
 > -   `CFNetwork.framework`
 > -   `CoreLocation.framework`
 > -   `libxml2.dylib`
 
-> [AZURE.NOTE] Среду AdSupport можно удалить. Службе Engagement необходима эта среда для сбора IDFA. Однако сбор IDFA можно отключить \<ios-sdk-engagement-idfa\>, чтобы обеспечить соответствие с новой политикой Apple в отношении этого идентификатора.
+> [AZURE.NOTE]Среду AdSupport можно удалить. Службе Engagement необходима эта среда для сбора IDFA. Однако сбор IDFA можно отключить (<ios-sdk-engagement-idfa>), чтобы обеспечить соответствие новой политике Apple в отношении этого идентификатора.
 
-##Инициализация пакета SDK для Engagement
+##Запуск пакета SDK для Engagement
 
 Необходимо изменить делегат приложения:
 
@@ -52,7 +54,7 @@
 			[...]
 			#import "EngagementAgent.h"
 
--   Инициализация службы Engagement в методе '**applicationDidFinishLaunching:**' или '**application:didFinishLaunchingWithOptions:**':
+-   Инициализация Engagement в методе «**applicationDidFinishLaunching:**» или «**application:didFinishLaunchingWithOptions:**»:
 
 			- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 			{
@@ -61,13 +63,13 @@
 			  [...]
 			}
 
-##Базовые отчеты
+##Упрощенные отчеты
 
-### Рекомендуется использовать метод перегрузки классов `UIViewController`
+### Рекомендуемый метод: перегрузка классов `UIViewController`
 
-Для активации отчетов всех журналов, которые требуются службе Engagement для сравнения статистических данных пользователей, действий, сбоев и технических проблем, достаточно просто сделать все подклассы `UIViewController` наследуемыми из классов `EngagementViewController` (то же правило для `UITableViewController` -\> `EngagementTableViewController`).
+Для активации отчетов всех журналов, которые требуются службе Engagement для вычисления статистических данных пользователей, действий, сбоев и технических проблем, достаточно сделать все подклассы `UIViewController` наследуемыми из классов `EngagementViewController` (то же правило действует для `UITableViewController` -> `EngagementTableViewController`).
 
-**Без Engagement :**
+**Без Engagement:**
 
 			#import <UIKit/UIKit.h>
 			
@@ -79,7 +81,7 @@
 			@property (nonatomic, retain) IBOutlet UITextField* myTextField1;
 			@property (nonatomic, retain) IBOutlet UITextField* myTextField2;
 
-**С Engagement :**
+**С Engagement:**
 
 			#import <UIKit/UIKit.h>
 			#import "EngagementViewController.h"
@@ -92,23 +94,23 @@
 			@property (nonatomic, retain) IBOutlet UITextField* myTextField1;
 			@property (nonatomic, retain) IBOutlet UITextField* myTextField2;
 
-### Альтернативный способ: вызов `startActivity()` вручную
+### Альтернативный метод: вызов `startActivity()` вручную
 
-Если невозможно или нежелательно перегружать классы `UIViewController`, вместо этого можно запускать и останавливать действия с помощью прямого вызова методов `EngagementAgent`.
+Если вам не удается перегрузить классы `UIViewController` или вы не хотите этого делать, запустите действия, вызвав методы `EngagementAgent` напрямую.
 
-> [AZURE.IMPORTANT] Пакет iOS SDK автоматически вызывает метод `endActivity()` при закрытии приложения. Таким образом, *НАСТОЯТЕЛЬНО* рекомендуется вызывать метод `startActivity` при каждом изменении действия пользователя и *НИКОГДА* не вызывать метод `endActivity`, поскольку вызов этого метода приводит к завершению текущего сеанса.
+> [AZURE.IMPORTANT]Пакет SDK для iOS автоматически вызывает метод `endActivity()` при закрытии приложения. Поэтому мы *НАСТОЯТЕЛЬНО* рекомендуем вызывать метод `startActivity` при каждом изменении действия пользователя и *НИКОГДА* не вызывать метод `endActivity`, так как это приводит к завершению текущего сеанса.
 
 ##Отчеты о расположении
 
 Условия предоставления услуг Apple не позволяет приложениям использовать отслеживание расположения только для целей статистики. Таким образом, рекомендуется включить отчеты о расположении только в том случае, если приложение также использует расположение отслеживания по другой причине.
 
-Начиная с версии iOS 8, необходимо предоставить описание того, как приложение использует службы расположения, задав строку для ключа [NSLocationWhenInUseUsageDescription] или [NSLocationAlwaysUsageDescription] в файле Info.plist приложения. Если необходимо создать отчет о расположении в фоновом режиме с помощью службы Engagement, добавьте ключ NSLocationAlwaysUsageDescription. Во всех остальных случаях добавьте ключ NSLocationWhenInUseUsageDescription.
+Начиная с версии iOS 8, необходимо предоставлять описание того, как приложение использует службы расположений, задавая строку для ключа [NSLocationWhenInUseUsageDescription] или [NSLocationAlwaysUsageDescription] в файле Info.plist приложения. Если необходимо создать отчет о расположении в фоновом режиме с помощью службы Engagement, добавьте ключ NSLocationAlwaysUsageDescription. Во всех остальных случаях добавьте ключ NSLocationWhenInUseUsageDescription.
 
 ### Отчеты о расположении отложенной области
 
 Отчеты о расположении отложенной области позволяют включать в отчеты страну, область и населенный пункт, связанные с устройствами. Этот тип отчетов о расположении использует только сетевые расположения (на основе идентификатора ячейки или Wi-Fi). Отчеты об области устройства выполняются максимум один раз за сеанс. GPS никогда не используется, и в результате этот тип отчета о расположении оказывает исключительно небольшое (если не сказать вообще не оказывает) воздействие на батарею.
 
-Области в отчетах используются для вычисления географических статистических данных о пользователях, сеансах, событиях и ошибках. Они также могут использоваться в качестве критерия для рекламных компаний Reach. Последнюю зафиксированную область в отчете для устройства можно извлечь благодаря [API устройства].
+Области в отчетах используются для вычисления географических статистических данных о пользователях, сеансах, событиях и ошибках. Они также могут использоваться в качестве критерия для рекламных компаний Reach. Последнюю зафиксированную в отчете область для устройства можно получить благодаря [API устройств].
 
 Чтобы включить отчет о расположении отложенной области, добавьте следующую строку после инициализации агента Engagement:
 
@@ -123,8 +125,7 @@
 
 Отчет о расположении в реальном времени позволяет включать в отчет широту и долготу, связанные с устройствами. По умолчанию такой тип отчета о расположении использует только сетевые расположения (на основе идентификатора ячейки или Wi-Fi). Этот отчет активен только тогда, когда приложение выполняется в фоновом режиме (т.е во время сеанса).
 
-Расположения в реальном времени *НЕ* используются для вычисления статистических данных. Единственное их назначение - дать возможность использовать критерий
-географического разграничения \<Reach-Audience-geofencing\> в реальном времени в рекламных кампаниях Reach.
+Расположения в реальном времени *НЕ* используются для вычисления статистических данных. Единственное их назначение — дать возможность использовать критерий геозоны реального времени <Reach-Audience-geofencing> в рекламных кампаниях.
 
 Чтобы включить отчет о расположении в реальном времени, добавьте следующую строку после инициализации агента Engagement:
 
@@ -142,27 +143,26 @@
 
 			[[EngagementAgent shared] setBackgroundRealtimeLocationReport:YES withLaunchOptions:launchOptions];
 
-> [AZURE.NOTE] Когда приложение выполняется в фоновом режиме, в отчете показываются только расположения на основе сети, даже если включен GPS.
+> [AZURE.NOTE]Когда приложение выполняется в фоновом режиме, в отчете показываются только расположения на основе сети, даже если включен GPS.
 
 Реализация этой функции будет вызывать [startMonitoringSignificantLocationChanges] при переходе приложения в фоновый режим. Имейте в виду, что при этом автоматически выполняется повторный запуск приложения в фоновом режиме при поступлении нового события расположения.
 
 ##Расширенные отчеты
 
-При необходимости получения отчетов о событиях, ошибках и заданиях, имеющих отношение к приложению, следует использовать API службы Engagement при помощи методов класса `EngagementAgent`. Объект этого класса можно получить с помощью вызова статического метода`[EngagementAgent shared]`.
+Если вы хотите получать отчеты о событиях, ошибках и заданиях, относящихся к конкретному приложению, следует использовать API Engagement при помощи методов класса `EngagementAgent`. Объект этого класса можно получить с помощью вызова статического метода `[EngagementAgent shared]`.
 
-API службы Engagement позволяет использовать все расширенные возможности этой службы и подробно описывается в разделе "Использование
-API службы Engagement на iOS (а также в технической документации класса `EngagementAgent`).
+API службы Engagement позволяет использовать все расширенные возможности Engagement и подробно описывается в разделе «Как использовать API Engagement в iOS» (а также в технической документации по классу `EngagementAgent`).
 
 ##Отключение сбора IDFA
 
-По умолчанию служба Engagement будет использовать [IDFA] для уникальной идентификации пользователя. Но, если рекламу не используется где-либо еще в приложении, вы можете получить отказ в результате процесса проверки Магазина приложений. Сбор IDFA можно отключить, добавив макроопределение препроцессора `ENGAGEMENT_DISABLE_IDFA` в pch-файл (или в `параметры построения` приложения). Это обеспечит отсутствие ссылок на `ASIdentifierManager`, `advertisingIdentifier` или `isAdvertisingTrackingEnabled` в сборке приложения.
+По умолчанию служба Engagement будет использовать [IDFA]  для уникальной идентификации пользователя. Но, если рекламу не используется где-либо еще в приложении, вы можете получить отказ в результате процесса проверки Магазина приложений. Сбор IDFA можно отключить, добавив макроопределение препроцессора `ENGAGEMENT_DISABLE_IDFA` в PCH-файл (или в `Build Settings` приложения). Это обеспечит отсутствие ссылок на `ASIdentifierManager`, `advertisingIdentifier` или `isAdvertisingTrackingEnabled` в сборке приложения.
 
 Интеграция в файл **prefix.pch**:
 
 			#define ENGAGEMENT_DISABLE_IDFA
 			...
 
-Можно проверить выключение сбора IDFA в приложении, проверив журналы тестирования службы Engagement. См. документацию о тесте интеграции\<ios-sdk-engagement-test-idfa\> для получения дальнейшей информации.
+Можно проверить выключение сбора IDFA в приложении, проверив журналы тестирования службы Engagement. См. документацию о тесте интеграции (<ios-sdk-engagement-test-idfa>) для получения дальнейшей информации.
 
 ##Выключение отчетов журналов
 
@@ -172,13 +172,13 @@ API службы Engagement на iOS (а также в технической д
 
 			[[EngagementAgent shared] setEnabled:NO];
 
-Этот вызов является постоянным: он использует `NSUserDefaults` для хранения информации
+Этот вызов является постоянным: он использует `NSUserDefaults` для хранения информации.
 
-Можно снова включить отчеты журналов, вызвав ту же функцию со значением `ДА`.
+Вы можете снова включить отчеты журналов, вызвав ту же функцию со значением `YES`.
 
 ### Интеграция в пакет параметров
 
-Вместо вызова данной функции можно также интегрировать данный параметр прямо в существующий файл `Settings.bundle`. Строка `engagement_agent_enabled` должна использоваться как идентификатор параметра и должна быть связана с переключателем(`PSToggleSwitchSpecifier`).
+Вместо вызова данной функции вы также можете интегрировать данный параметр напрямую в существующий файл `Settings.bundle`. Строка `engagement_agent_enabled` должна использоваться как идентификатор параметра и быть связана с переключателем (`PSToggleSwitchSpecifier`).
 
 В следующем примере `Settings.bundle` показана реализация:
 
@@ -201,10 +201,10 @@ API службы Engagement на iOS (а также в технической д
 			</dict>
 
 <!-- URLs. -->
-[API устройства]: http://go.microsoft.com/?linkid=9876094
-[NSLocationWhenInUseUsageDescription]:https://developer.apple.com/library/prerelease/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW26
-[NSLocationAlwaysUsageDescription]:https://developer.apple.com/library/prerelease/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW18
-[startMonitoringSignificantLocationChanges]:http://developer.apple.com/library/IOs/#documentation/CoreLocation/Reference/CLLocationManager_Class/CLLocationManager/CLLocationManager.html#//apple_ref/occ/instm/CLLocationManager/startMonitoringSignificantLocationChanges
-[IDFA]:https://developer.apple.com/library/ios/documentation/AdSupport/Reference/ASIdentifierManager_Ref/ASIdentifierManager.html#//apple_ref/occ/instp/ASIdentifierManager/advertisingIdentifier
+[API устройств]: http://go.microsoft.com/?linkid=9876094
+[NSLocationWhenInUseUsageDescription]: https://developer.apple.com/library/prerelease/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW26
+[NSLocationAlwaysUsageDescription]: https://developer.apple.com/library/prerelease/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW18
+[startMonitoringSignificantLocationChanges]: http://developer.apple.com/library/IOs/#documentation/CoreLocation/Reference/CLLocationManager_Class/CLLocationManager/CLLocationManager.html#//apple_ref/occ/instm/CLLocationManager/startMonitoringSignificantLocationChanges
+[IDFA]: https://developer.apple.com/library/ios/documentation/AdSupport/Reference/ASIdentifierManager_Ref/ASIdentifierManager.html#//apple_ref/occ/instp/ASIdentifierManager/advertisingIdentifier
 
-<!--HONumber=47-->
+<!--HONumber=54-->

@@ -1,52 +1,35 @@
-﻿<properties 
+<properties 
    pageTitle="Пользовательский интерфейс Azure Mobile Engagement - Панель мониторинга" 
-   description="Обзор пользовательского интерфейса для Azure Mobile Engagement" 
+   description="Просмотр диаграмм данных о приложении о управление ими с помощью Azure Mobile Engagement" 
    services="mobile-engagement" 
-   documentationCenter="mobile" 
-   authors="v-micada" 
-   manager="mattgre" 
+   documentationCenter="" 
+   authors="piyushjo" 
+   manager="dwrede" 
    editor=""/>
 
 <tags
    ms.service="mobile-engagement"
-   ms.devlang="Java"
+   ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="mobile"
-   ms.workload="required" 
+   ms.tgt_pltfrm="mobile-multiple"
+   ms.workload="mobile" 
    ms.date="02/17/2015"
-   ms.author="v-micada"/>
+   ms.author="piyushjo"/>
 
-# Azure Mobile Engagement - Пользовательский интерфейс
+# Просмотр диаграмм данных о приложении о управление ими
+Раздел «Панель мониторинга» пользовательского интерфейса дает клиентам возможность создавать настраиваемые диаграммы, которые предоставляют точную информацию без необходимости ее поиска в разделе аналитики, позволяя сэкономить время. На панели мониторинга отображаются тенденции приложения и число активных пользователей для разных версий приложения за определенное время (час, день, неделя, месяц, другой заданный период). Ниже показаны тенденции за последние 7 дней.
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="../mobile-engagement-user-interface" title="Introduction">Введение</a>
-<a href="../mobile-engagement-user-interface-navigation" title="Navigation">Навигация</a>
-<a href="../mobile-engagement-user-interface-home/" title="Home">Главная</a>
-<a href="../mobile-engagement-user-interface-my-account" title="My Account">Моя учетная запись</a>
-<a href="../mobile-engagement-user-interface-analytics" title="Analytics">Аналитика</a>
-<a href="../mobile-engagement-user-interface-monitor" title="Monitor">Монитор</a>
-<a href="../mobile-engagement-user-interface-reach" title="Reach">Рекламные кампании</a>
-<a href="../mobile-engagement-user-interface-segments" title="Segments">Сегменты</a>
-<a href="../mobile-engagement-user-interface-dashboard" title="Dashboard">Панель мониторинга</a>
-<a href="../mobile-engagement-user-interface-settings" title="Settings">Параметры</a>
-</div>
+### Дополнительные материалы
+-  [Руководство по устранению неполадок — аналитика][Link 21]
 
-# Панель мониторинга
-
-Раздел "Панель мониторинга" пользовательского интерфейса дает клиентам возможность создавать настраиваемые диаграммы, которые предоставляют точную информацию без необходимости ее поиска в разделе аналитики, позволяя сэкономить время. На панели мониторинга отображаются тенденции приложения и число активных пользователей для разных версий приложения за определенное время (час, день, неделя, месяц, другой заданный период). Ниже показаны тенденции за последние 7 дней.
-
-**См. также** 
-
--  [Руководство по устранению неполадок - Аналитика][Link 2]
+## Панель мониторинга
+- Вы можете добавлять диаграммы на пустую панель мониторинга, выбрав действие «Отправить на панель мониторинга» в меню настроек в виде шестеренки любой диаграммы в разделе аналитики, которую требуется отобразить на панели мониторинга.
  
-## Панель мониторинга:
-- Вы можете добавлять диаграммы на пустую панель мониторинга, выбрав действие "Отправить на панель мониторинга" в меню настроек в виде шестеренки любой диаграммы в разделе аналитики, которую требуется отобразить на панели мониторинга.
+## + (Добавить панель мониторинга)
+- Вы можете использовать элемент меню ленты «+» для создания новой панели мониторинга, которая отобразится в меню ленты.
  
-## + (Добавить панель мониторинга).
-- Вы можете использовать элемент меню ленты "+" для создания новой панели мониторинга, которая отобразится в меню ленты.
- 
-## Меню настроек в виде шестеренки.
-- Вы можете использовать меню настроек в виде шестеренки панели мониторинга, чтобы удалять и переименовывать панель мониторинга, а также составлять расписание (приема по электронной почте) и предоставлять к ней общий доступ. Можно использовать параметр планирования, чтобы задать расписание получения пользовательской панели мониторинга по почте. Вы можете получать ее ежедневно, еженедельно или ежемесячно. Можно выбрать определенное время, день недели или день месяца, когда вы будете получать сообщения. Адрес почты и часовой пояс определяются на основе параметров, настроенных в разделе пользовательского интерфейса "Моя учетная запись".
+## Меню настроек в виде шестеренки
+- Вы можете использовать меню настроек в виде шестеренки панели мониторинга, чтобы удалять и переименовывать панель мониторинга, а также составлять расписание (приема по электронной почте) и предоставлять к ней общий доступ. Можно использовать параметр планирования, чтобы задать расписание получения пользовательской панели мониторинга по почте. Вы можете получать ее ежедневно, еженедельно или ежемесячно. Можно выбрать определенное время, день недели или день месяца, когда вы будете получать сообщения. Адрес почты и часовой пояс определяются на основе параметров, настроенных в разделе пользовательского интерфейса «Моя учетная запись».
  
  ![dashboard1][34]
 
@@ -70,20 +53,20 @@
 [17]: ./media/mobile-engagement-user-interface-monitor/monitor4.png
 [18]: ./media/mobile-engagement-user-interface-reach/reach1.png
 [19]: ./media/mobile-engagement-user-interface-reach/reach2.png
-[20]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign1.png
-[21]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign2.png
-[22]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign3.png
-[23]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign4.png
-[24]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign5.png
-[25]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign6.png
-[26]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign7.png
-[27]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign8.png
-[28]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign9.png
-[29]: ./media/mobile-engagement-user-interface-reach/Reach-Criterion1.png
-[30]: ./media/mobile-engagement-user-interface-reach/Reach-Content1.png
-[31]: ./media/mobile-engagement-user-interface-reach/Reach-Content2.png
-[32]: ./media/mobile-engagement-user-interface-reach/Reach-Content3.png
-[33]: ./media/mobile-engagement-user-interface-reach/Reach-Content4.png
+[20]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign1.png
+[21]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign2.png
+[22]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign3.png
+[23]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign4.png
+[24]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign5.png
+[25]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign6.png
+[26]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign7.png
+[27]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign8.png
+[28]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign9.png
+[29]: ./media/mobile-engagement-user-interface-reach-criterion/Reach-Criterion1.png
+[30]: ./media/mobile-engagement-user-interface-reach-content/Reach-Content1.png
+[31]: ./media/mobile-engagement-user-interface-reach-content/Reach-Content2.png
+[32]: ./media/mobile-engagement-user-interface-reach-content/Reach-Content3.png
+[33]: ./media/mobile-engagement-user-interface-reach-content/Reach-Content4.png
 [34]: ./media/mobile-engagement-user-interface-dashboard/dashboard1.png
 [35]: ./media/mobile-engagement-user-interface-segments/segments1.png
 [36]: ./media/mobile-engagement-user-interface-segments/segments2.png
@@ -111,9 +94,9 @@
 [58]: ./media/mobile-engagement-user-interface-settings/settings13.png
 
 <!--Link references-->
-[Link 1]: ../mobile-engagement-user-interface/
-[Link 2]: ../mobile-engagement-troubleshooting-guide/
-[Link 3]: ../mobile-engagement-how-tos/
+[Link 1]: mobile-engagement-user-interface.md
+[Link 2]: mobile-engagement-troubleshooting-guide.md
+[Link 3]: mobile-engagement-how-tos.md
 [Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
 [Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
 [Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
@@ -122,27 +105,27 @@
 [Link 9]: http://azure.microsoft.com/services/mobile-engagement/
 [Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
 [Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
-[Link 12]: ../mobile-engagement-user-interface-navigation/
-[Link 13]: ../mobile-engagement-user-interface-home/
-[Link 14]: ../mobile-engagement-user-interface-my-account/
-[Link 15]: ../mobile-engagement-user-interface-analytics/
-[Link 16]: ../mobile-engagement-user-interface-monitor/
-[Link 17]: ../mobile-engagement-user-interface-reach/
-[Link 18]: ../mobile-engagement-user-interface-segments/
-[Link 19]: ../mobile-engagement-user-interface-dashboard/
-[Link 20]: ../mobile-engagement-user-interface-settings/
-[Link 21]: ../mobile-engagement-troubleshooting-guide-analytics/
-[Link 22]: ../mobile-engagement-troubleshooting-guide-apis/
-[Link 23]: ../mobile-engagement-troubleshooting-guide-push-reach/
-[Link 24]: ../mobile-engagement-troubleshooting-guide-service/
-[Link 25]: ../mobile-engagement-troubleshooting-guide-sdk/
-[Link 26]: ../mobile-engagement-troubleshooting-guide-sr-info/
-[Link 27]: ../mobile-engagement-how-tos-first-push/
-[Link 28]: ../mobile-engagement-how-tos-test-campaign/
-[Link 29]: ../mobile-engagement-how-tos-personalize-push/
-[Link 30]: ../mobile-engagement-how-tos-differentiate-push/
-[Link 31]: ../mobile-engagement-how-tos-schedule-campaign/
-[Link 32]: ../mobile-engagement-how-tos-text-view/
-[Link 33]: ../mobile-engagement-how-tos-web-view/
+[Link 12]: mobile-engagement-user-interface-navigation.md
+[Link 13]: mobile-engagement-user-interface-home.md
+[Link 14]: mobile-engagement-user-interface-my-account.md
+[Link 15]: mobile-engagement-user-interface-analytics.md
+[Link 16]: mobile-engagement-user-interface-monitor.md
+[Link 17]: mobile-engagement-user-interface-reach.md
+[Link 18]: mobile-engagement-user-interface-segments.md
+[Link 19]: mobile-engagement-user-interface-dashboard.md
+[Link 20]: mobile-engagement-user-interface-settings.md
+[Link 21]: mobile-engagement-troubleshooting-guide-analytics.md
+[Link 22]: mobile-engagement-troubleshooting-guide-apis.md
+[Link 23]: mobile-engagement-troubleshooting-guide-push-reach.md
+[Link 24]: mobile-engagement-troubleshooting-guide-service.md
+[Link 25]: mobile-engagement-troubleshooting-guide-sdk.md
+[Link 26]: mobile-engagement-troubleshooting-guide-sr-info.md
+[Link 27]: mobile-engagement-how-tos-first-push.md
+[Link 28]: mobile-engagement-how-tos-test-campaign.md
+[Link 29]: mobile-engagement-how-tos-personalize-push.md
+[Link 30]: mobile-engagement-how-tos-differentiate-push.md
+[Link 31]: mobile-engagement-how-tos-schedule-campaign.md
+[Link 32]: mobile-engagement-how-tos-text-view.md
+[Link 33]: mobile-engagement-how-tos-web-view.md
 
-<!--HONumber=47-->
+<!--HONumber=54-->

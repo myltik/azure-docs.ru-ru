@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="План обучения работе с HDInsight для платформы Azure" 
 	description="Для успешного прохождения всех стадий изучения HDInsight вам необходимо обеспечить нормальную работу рекомендованных ресурсов." 
 	services="hdinsight" 
@@ -18,13 +18,12 @@
 
 
 # План обучения работе с HDInsight
-В HDInsight можно работать с большими объемами данных в облаке на Hadoop, HBase и настраиваемых кластеров. Следуйте указаниям на этой странице для эффективного обучения через документацию по HDInsight.
+В HDInsight можно работать с данными большого размера в облаке с помощью Hadoop, HBase и настраиваемых кластеров. Следуйте указаниям на этой странице для эффективного изучения документации по HDInsight:
 
-<object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/HDI.Content.Flow.svg" width="100%" height="100%">
-</object>
-
+<object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/HDI.Content.Flow.svg" width="100%" height="100%"> </object>
 
 
 
 
-<!--HONumber=42-->
+
+<!--HONumber=54-->
