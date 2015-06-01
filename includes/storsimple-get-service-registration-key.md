@@ -18,7 +18,7 @@
 
 ### Получение регистрационного ключа службы StorSimple
 
-1. На странице **службы диспетчера StorSimple** щелкните созданную службу. Отобразится страница **Быстрый запуск**. \(Для доступа к странице **Быстрый запуск** можно также в любое время щелкнуть значок быстрого запуска ![Значок быстрого запуска StorSimple](./media/storsimple-get-service-registration-key/HCS_QuickStartIcon-include.png).\)
+1. На странице **службы диспетчера StorSimple** щелкните созданную службу. Отобразится страница **Быстрый запуск**. (Для доступа к странице **Быстрый запуск** можно также в любое время щелкнуть значок быстрого запуска ![Значок быстрого запуска StorSimple](./media/storsimple-get-service-registration-key/HCS_QuickStartIcon-include.png).)
 
      ![Страница быстрого запуска StorSimple](./media/storsimple-get-service-registration-key/HCS_ServiceQuickStart-include.png)
 

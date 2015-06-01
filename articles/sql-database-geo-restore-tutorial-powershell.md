@@ -39,13 +39,13 @@
 1. Получите список баз данных, которые можно восстановить, используя командлет [Get-AzureSqlRecoverableDatabase](http://msdn.microsoft.com/library/azure/dn720219.aspx). Укажите следующий параметр:
 	* **ServerName** для имени сервера, на котором находится база данных.	
 
-	`PS C:\>Get-AzureSqlRecoverableDatabase -ServerName "myserver"`
+	`PS C:>Get-AzureSqlRecoverableDatabase -ServerName "myserver"`
 
 2. Выберите базу данных для восстановления, используя командлет [Get-AzureSqlRecoverableDatabase](http://msdn.microsoft.com/library/azure/dn720219.aspx). Укажите следующие параметры:
 	* **ServerName** для имени сервера, на котором находится база данных.
 	* **DatabaseName** для имени базы данных, из которой необходимо выполнить восстановление.
 
-	`PS C:\>$Database = Get-AzureSqlRecoverableDatabase -ServerName "myserver" -DatabaseName "mydb"`
+	`PS C:>$Database = Get-AzureSqlRecoverableDatabase -ServerName "myserver" -DatabaseName "mydb"`
 	 
 3. Начните восстановление, используя командлет [Start-AzureSqlDatabaseRecovery](http://msdn.microsoft.com/library/dn720224.aspx). Укажите следующие параметры:	
 	* **SourceDatabase** для исходной базы данных, которую требуется восстановить.
@@ -54,14 +54,14 @@
 
 	Сохраните результат, возвращенный переменной с именем **$RestoreRequest**. Эта переменная содержит идентификатор запроса восстановления, который используется для мониторинга состояния восстановления.
 
-	`PS C:\>$RecoveryRequest = Start-AzureSqlDatabaseRecovery -SourceDatabase $Database -TargetDatabaseName "myrecoveredDB" -TargetServerName "mytargetserver"`
+	`PS C:>$RecoveryRequest = Start-AzureSqlDatabaseRecovery -SourceDatabase $Database -TargetDatabaseName "myrecoveredDB" -TargetServerName "mytargetserver"`
 	
 Восстановление базы данных может занять некоторое время. Для мониторинга состояния восстановления используйте командлет [Get-AzureSqlDatabaseOperation](http://msdn.microsoft.com/library/azure/dn546738.aspx) и укажите следующие параметры:
 
 * **ServerName** для имени базы данных, в которую необходимо выполнить восстановление.
 * **OperationGuid** для глобального уникального идентификатора, которым является идентификатор запроса восстановления, хранимый в переменной **$RecoveryRequest** на шаге 3.
 
-	`PS C:\>Get-AzureSqlDatabaseOperation -ServerName "mytargetserver" -OperationGuid $RecoveryRequest.ID`
+	`PS C:>Get-AzureSqlDatabaseOperation -ServerName "mytargetserver" -OperationGuid $RecoveryRequest.ID`
 
 В полях **State** и **PercentComplete** отображается состояние восстановления.
 

@@ -33,7 +33,7 @@
 
 Этот учебник является частью [серии][hdinsight-hbase-replication] по созданию географической репликации HBase.
 
-- Настройка VPN-подключения между двумя виртуальными сетями \(данный учебник\)
+- Настройка VPN-подключения между двумя виртуальными сетями (данный учебник)
 - [Настройка DNS для виртуальных сетей][hdinsight-hbase-geo-replication-DNS]
 - [Настройка георепликации HBase][hdinsight-hbase-geo-replication]
 
@@ -74,18 +74,18 @@
 	- **ИМЯ**: Contoso-VNet-EU
 	- **РАСПОЛОЖЕНИЕ**: North Europe
 
-		This tutorial uses North Europe and East US datacenters. You can choose your own datacenters.
+		В этом учебнике используются центры обработки данных в Северной Европе и на востоке США. Можно выбрать собственные центры обработки данных.
 4.	Введите:
 
-	- **DNS-СЕРВЕР**: \(оставьте пустым\) 
+	- **DNS-СЕРВЕР**: (оставьте пустым) 
 	
-		You will need your own DNS server for name resolution within virtual networks. For more information on when to use Azure-provided name resolution and when to use your own DNS server, see [Name Resolution (DNS)](https://msdn.microsoft.com/library/azure/jj156088.aspx). For instructions to configure name resolution between VNets, see [Configure DNS between two Azure virtual networks][hdinsight-hbase-dns].
+		Вам понадобится собственный DNS-сервер для разрешения имен в виртуальных сетях. Дополнительную информацию о том, когда использовать предоставленный Azure модуль разрешения имен и собственный DNS-сервер, см. в разделе [Разрешение имен (DNS)] (https://msdn.microsoft.com/library/azure/jj156088.aspx). Инструкции по настройке разрешения имен между виртуальными сетями см. в разделе [Настройка DNS между двумя виртуальными сетями Azure][hdinsight-hbase-dns].
   
-	- **Настроить VPN между точкой и сайтом**: \(флажок не установлен\)
+	- **Настроить VPN между точкой и сайтом**: (флажок не установлен)
 
 		Point-to-site doesn't apply to this scenario.
 
- **Настроить VPN между сайтами**: \(флажок не установлен\)
+ **Настроить VPN между сайтами**: (флажок не установлен)
  	
 		You will configure the site-to-site VPN connection to the Azure virtual network in the East U.S. datacenter.
 5.	Введите:
@@ -104,9 +104,9 @@
 	- **ИМЯ**: Contoso-VNet-US
 	- **РАСПОЛОЖЕНИЕ**: Восток США
 	 
-	- **DNS-СЕРВЕР**: \(оставьте пустым\)
-	- **Настроить VPN между точкой и сайтом**: \(флажок не установлен\)
-	- **Настроить VPN между сайтами**: \(флажок не установлен\)
+	- **DNS-СЕРВЕР**: (оставьте пустым)
+	- **Настроить VPN между точкой и сайтом**: (флажок не установлен)
+	- **Настроить VPN между сайтами**: (флажок не установлен)
 	 
 	- **НАЧАЛЬНЫЙ IP АДРЕСНОГО ПРОСТРАНСТВА**: 10.2.0.0
 	- **CIDR АДРЕСНОГО ПРОСТРАНСТВА**: /16
@@ -144,7 +144,7 @@
 3. Введите:
 
 	- **ИМЯ**: Contoso-LNet-EU
-	- **IP-АДРЕС УСТРОЙСТВА VPN**: 192.168.0.1 \(этот адрес будет обновлен позднее\)
+	- **IP-АДРЕС УСТРОЙСТВА VPN**: 192.168.0.1 (этот адрес будет обновлен позднее)
 
 		Typically, you’d use the actual external IP address for a VPN device. For VNet to VNet configurations, you will use the VPN gateway IP address. Given that you have not created the VPN gateways for the two VNets yet, you enter an arbitary IP address and come back to fix it.
 4.	Введите:
@@ -159,7 +159,7 @@
 - Повторите последнюю процедуру со следующими параметрами:
 
 	- **ИМЯ**: Contoso-LNet-US
-	- **IP-АДРЕС УСТРОЙСТВА VPN**: 192.168.0.1 \(этот адрес будет обновлен позднее\)
+	- **IP-АДРЕС УСТРОЙСТВА VPN**: 192.168.0.1 (этот адрес будет обновлен позднее)
 	 
 	- **НАЧАЛЬНЫЙ IP АДРЕСНОГО ПРОСТРАНСТВА**: 10.2.0.0
 	- **CIDR АДРЕСНОГО ПРОСТРАНСТВА**: /16

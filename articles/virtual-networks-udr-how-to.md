@@ -96,7 +96,7 @@
 
 [Обзор определяемых пользователем маршрутов и IP-пересылки](../virtual-networks-udr-overview)
 
-[Общедоступный IP-адрес уровня экземпляра \(ILIP\)](../virtual-networks-instance-level-public-ip)
+[Общедоступный IP-адрес уровня экземпляра (ILIP)](../virtual-networks-instance-level-public-ip)
 
 [Обзор виртуальной сети](https://msdn.microsoft.com/library/azure/jj156007.aspx) 
 

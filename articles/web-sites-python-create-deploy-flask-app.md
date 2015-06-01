@@ -89,7 +89,7 @@
 
 Ниже приведен обзор файлов, которые можно найти в исходном репозитории Git. Мы клонируем его в следующем разделе.
 
-    \FlaskWebProject\__init__.py
+    \FlaskWebProject__init__.py
     \FlaskWebProject\views.py
     \FlaskWebProject\static\content\
     \FlaskWebProject\static\fonts\

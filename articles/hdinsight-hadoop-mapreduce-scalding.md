@@ -140,15 +140,15 @@ Scalding — это библиотека Scala, которая позволяе
 
     * **repositories**: репозитории, которые содержат файлы зависимостей, используемые данным проектом
 
-    * **scalding-core\_2.11** и **hadoop-core**: этот проект зависит от основных пакетов Scalding и Hadoop
+    * **scalding-core_2.11** и **hadoop-core**: этот проект зависит от основных пакетов Scalding и Hadoop
 
     * **maven-scala-plugin**: подключаемый модуль для компиляции приложений Scala
 
-    * **maven-shade-plugin**: подключаемый модуль для создания затененных JAR-файлов \(fat\). Этот подключаемый модуль применяет фильтры и преобразования; а именно:
+    * **maven-shade-plugin**: подключаемый модуль для создания затененных JAR-файлов (fat). Этот подключаемый модуль применяет фильтры и преобразования; а именно:
 
-        * **filters**: The filters applied modify the meta information included with in the jar file. To prevent signing exceptions at runtime, this excludes various signature files that may be included with dependencies.
+        * **Фильтры**: применяемые фильтры изменяют метаданные, которые содержатся в JAR-файле. Чтобы избежать исключений при подписи во время выполнения, здесь не учитываются различные файлы подписи, которые могут включаться вместе с зависимостями.
 
-        * **executions**: The package phase execution configuration specifies the **com.twitter.scalding.Tool** class as the main class for the package. Without this, you would need to specify com.twitter.scalding.Tool, as well as the class that contains the application logic, when running the job with the hadoop command.
+        * **Выполнения**: конфигурация выполнения фазы пакета указывает класс **com.twitter.scalding.Tool** как основной класс для пакета. Без этого понадобилось бы указать класс com.twitter.scalding.Tool, а также класс, который содержит логику приложения, при запуске задания с помощью команды Hadoop.
 
 3. Удалите каталог **src/test**, так как вы не будете создавать тесты в этом примере.
 

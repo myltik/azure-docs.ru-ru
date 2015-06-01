@@ -34,7 +34,7 @@
 
     New-AzureRemoteAppCollection -Collectionname RAppO365Col1 -ImageName "Office 365 ProPlus (Subscription required)" -Plan Basic -Location "West US" - Description "Office 365 Collection."
 
-Приведенная выше команда автоматически публикует приложения Microsoft Office 365 \(Excel, OneNote, Outlook, PowerPoint, Visio и Word\).
+Приведенная выше команда автоматически публикует приложения Microsoft Office 365 (Excel, OneNote, Outlook, PowerPoint, Visio и Word).
 
 Для создания коллекции может потребоваться 30 или более минут. В связи с этим команда возвращает идентификатор для отслеживания, который можно использовать следующим образом:
 

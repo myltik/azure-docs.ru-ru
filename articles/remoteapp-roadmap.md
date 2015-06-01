@@ -29,8 +29,8 @@
 |Доступность в австралийских центрах обработки данных| | |X| |
 |Командлеты PowerShell для RemoteApp и пакет SDK для развертывания и управления| | |X| |
 |Создание и отправка образа из виртуальной машины Azure| | |X| |
-|Развертывание в виртуальной сети без присоединения к домену \(подключение облачной коллекции к виртуальным машинам Azure\) \([отзыв](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/5928457-provide-ability-to-add-vnet-to-cloud-deloyment-th)\)| | | |X|	
-|Повторное использование существующей виртуальной сети для гибридной коллекции RemoteApp \(также позволяет использовать ExpressRoute\) \([отзыв](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/5933123-existing-virtual-network-does-not-appear-when-tryi)\)| | | |X|
-|ExpressRoute \([отзыв](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/5933123-existing-virtual-network-does-not-appear-when-tryi)\)| | | |X|
+|Развертывание в виртуальной сети без присоединения к домену (подключение облачной коллекции к виртуальным машинам Azure) ([отзыв](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/5928457-provide-ability-to-add-vnet-to-cloud-deloyment-th))| | | |X|	
+|Повторное использование существующей виртуальной сети для гибридной коллекции RemoteApp (также позволяет использовать ExpressRoute) ([отзыв](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/5933123-existing-virtual-network-does-not-appear-when-tryi))| | | |X|
+|ExpressRoute ([отзыв](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/5933123-existing-virtual-network-does-not-appear-when-tryi))| | | |X|
 
 <!--HONumber=52-->

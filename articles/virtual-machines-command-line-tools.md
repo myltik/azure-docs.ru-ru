@@ -348,7 +348,7 @@ info:   vm shutdown command OK
 
 Эта команда экспортирует образ виртуальной машины Azure в файл.
 
-	~$ azure vm export "myvm" "C:\"
+	~$ azure vm export "myvm" "C:"
 	info:    Executing command vm export
 	+ Getting virtual machines
 	+ Exporting the VM

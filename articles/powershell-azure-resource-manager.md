@@ -70,11 +70,11 @@
 
 Чтобы перейти в модуль AzureResoureManager, введите:
 
-    PS C:PS C:\> Switch-AzureMode -Name AzureResourceManagergt; Switch-AzureMode -Name AzureResourceManager
+    PS C:PS C:> Switch-AzureMode -Name AzureResourceManagergt; Switch-AzureMode -Name AzureResourceManager
 
 Чтобы вернуться в модуль Azure, введите:
 
-    PS C:PS C:\> Switch-AzureMode -Name AzureServiceManagementgt; Switch-AzureMode -Name AzureServiceManagement
+    PS C:PS C:> Switch-AzureMode -Name AzureServiceManagementgt; Switch-AzureMode -Name AzureServiceManagement
 
 По умолчанию действие командлета Switch-AzureMode распространяется только на текущий сеанс. Для эффективного переключения во всех сеансах Windows PowerShell используйте параметр **Global** командлета Switch-AzureMode.
 
@@ -82,7 +82,7 @@
 
 Чтобы получить список командлетов в модуле AzureResourceManager вместе с краткой справочной информацией, введите:
 
-    PS C:\> Get-Command -Module AzureResourceManager | Get-Help | Format-Table Name, Synopsis
+    PS C:> Get-Command -Module AzureResourceManager | Get-Help | Format-Table Name, Synopsis
 
     Name                                   Synopsis
     ----                                   --------
@@ -122,11 +122,11 @@
 
 2.  Используйте командлет **Switch-AzureMode** для импорта командлетов в модулях AzureResourceManager и AzureProfile.
 
-    `PS C:PS C:\>Switch-AzureMode AzureResourceManager`gt;Switch-AzureMode AzureResourceManager</code>
+    `PS C:PS C:>Switch-AzureMode AzureResourceManager`gt;Switch-AzureMode AzureResourceManager</code>
 
 3.  Чтобы добавить учетную запись Azure в сеанс Windows PowerShell, используйте командлет **Add-AzureAccount**.
 
-    `PS C:PS C:\> Add-AzureAccount`gt; Add-AzureAccount</code>
+    `PS C:PS C:> Add-AzureAccount`gt; Add-AzureAccount</code>
 
 Командлет запрашивает адрес электронной почты и пароль. Затем он загружает параметры учетной записи, чтобы они были доступны в Windows PowerShell.
 
@@ -144,7 +144,7 @@
 
 В командной строке Windows PowerShell введите:
 
-    PS C:PS C:\> Get-AzureResourceGroupGalleryTemplategt; Get-AzureResourceGroupGalleryTemplate
+    PS C:PS C:> Get-AzureResourceGroupGalleryTemplategt; Get-AzureResourceGroupGalleryTemplate
 
 Командлет возвращает список шаблонов коллекции вместе со свойствами Publisher и Identity. С помощью свойства **Identity** можно идентифицировать шаблон в командах.
 
@@ -162,7 +162,7 @@
 
 Нас интересует шаблон Microsoft.WebSiteSQLDatabase.0.1.0-preview1. Чтобы получить дополнительные сведения о шаблоне коллекции, используйте параметр **Identity**. Значение параметра Identity является идентификатором шаблона.
 
-    PS C:PS C:\> Get-AzureResourceGroupGalleryTemplate -Identity Microsoft.WebSiteSQLDatabase.0.1.0-preview1gt; Get-AzureResourceGroupGalleryTemplate -Identity Microsoft.WebSiteSQLDatabase.0.1.0-preview1
+    PS C:PS C:> Get-AzureResourceGroupGalleryTemplate -Identity Microsoft.WebSiteSQLDatabase.0.1.0-preview1gt; Get-AzureResourceGroupGalleryTemplate -Identity Microsoft.WebSiteSQLDatabase.0.1.0-preview1
 
 Командлет возвращает объект вместе с более подробной информацией о шаблоне, включая описание.
 
@@ -179,7 +179,7 @@
 
 Save-AzureResourceGroupGalleryTemplate сохраняет шаблон и возвращает путь к JSON-файлу шаблона.
 
-    PS C:\> Save-AzureResourceGroupGalleryTemplate -Identity Microsoft.WebSiteSQLDatabase.0.1.0-preview1 -Path D:\Azure\Templates
+    PS C:> Save-AzureResourceGroupGalleryTemplate -Identity Microsoft.WebSiteSQLDatabase.0.1.0-preview1 -Path D:\Azure\Templates
 
     Path
     ----
@@ -285,7 +285,7 @@ Save-AzureResourceGroupGalleryTemplate сохраняет шаблон и воз
 
 В команде используются параметр **Name** для указания имени группы ресурсов и параметр **Location** для указания ее расположения. Используйте выходные данные командлета **Get-AzureLocation** для выбора расположения группы ресурсов. В нем используется параметр **GalleryTemplateIdentity** для указания шаблона коллекции.
 
-    PS C:\> New-AzureResourceGroup ` 
+    PS C:> New-AzureResourceGroup ` 
             -Name TestRG1 `
             -Location "East Asia" `
             -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.1.0-preview1 `
@@ -297,30 +297,30 @@ Save-AzureResourceGroupGalleryTemplate сохраняет шаблон и воз
 
 Чтобы получить параметры, введите знак минус (-) для указания имени параметра, а затем нажмите клавишу TAB. Или введите первые несколько букв имени параметра, например siteName, а затем нажмите клавишу TAB.
 
-        PS C:\> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.1.0-preview1 
+        PS C:> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.1.0-preview1 
         -si<TAB>
 
 Windows PowerShell дополняет имя параметра. Для циклического перебора имен параметров повторно нажимайте клавишу TAB.
 
-        PS C:\> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.1.0-preview1 
+        PS C:> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.1.0-preview1 
         -siteName 
 
 Введите имя веб-сайта и повторите процесс с использованием клавиши TAB для каждого параметра. Параметры со значением по умолчанию не являются обязательными. Чтобы принять значение по умолчанию, не включайте параметр в команду.
 
 Если в шаблоне имеется параметр с перечислимыми значениями, например параметр sku в данном шаблоне, то для циклического перебора значений параметра нажимайте клавишу TAB.
 
-        PS C:\> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.1.0-preview1 
+        PS C:> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.1.0-preview1 
         -siteName TestSite -sku <TAB>
 
-        PS C:\> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.1.0-preview1 
+        PS C:> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.1.0-preview1 
         -siteName TestSite -sku Free<TAB>
 
-        PS C:\> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.1.0-preview1 
+        PS C:> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.1.0-preview1 
         -siteName TestSite -sku Basic<TAB>
 
-Ниже приведен пример команды New-AzureResourceGroup, которая задает только обязательные параметры шаблона и общий параметр **Verbose**. Заметьте, что параметр **administratorLoginPassword** не включен. (Обратный апостроф (\`) в Windows PowerShell является символом продолжения строки.)
+Ниже приведен пример команды New-AzureResourceGroup, которая задает только обязательные параметры шаблона и общий параметр **Verbose**. Заметьте, что параметр **administratorLoginPassword** не включен. (Обратный апостроф (`) в Windows PowerShell является символом продолжения строки.)
 
-    PS C:\> New-AzureResourceGroup 
+    PS C:> New-AzureResourceGroup 
     -Name TestRG `
     -Location "East Asia" `
     -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.1.0-preview1 `
@@ -403,7 +403,7 @@ Windows PowerShell дополняет имя параметра. Для цикл
 
 -   Чтобы получить ресурсы, входящие в группу ресурсов, используйте командлет **GetAzureResource** и его параметр ResourceGroupName. Без параметров командлет Get-AzureResource возвращает все ресурсы в подписке Azure.
 
-        PS C:\> Get-AzureResource -ResourceGroupName TestRG
+        PS C:> Get-AzureResource -ResourceGroupName TestRG
 
         Name                   ResourceType                          Location
         ----                   ------------                          --------
@@ -417,7 +417,7 @@ Windows PowerShell дополняет имя параметра. Для цикл
 
 -   Чтобы добавить ресурс в группу ресурсов, используйте командлет **New-AzureResource**. Эта команда добавляет новый веб-сайт в группу ресурсов TestRG. Эта команда является немного более сложной, поскольку в ней не используется шаблон.
 
-        PS C:\>New-AzureResource -Name TestSite2 `
+        PS C:>New-AzureResource -Name TestSite2 `
         -Location "North Europe" `
         -ResourceGroupName TestRG `
         -ResourceType "Microsoft.Web/sites" `
@@ -426,7 +426,7 @@ Windows PowerShell дополняет имя параметра. Для цикл
 
 -   Чтобы добавить новое развертывание на основе шаблона в группу ресурсов, используйте команду **New-AzureResourceGroupDeployment**.
 
-        PS C:\>New-AzureResourceGroupDeployment ` 
+        PS C:>New-AzureResourceGroupDeployment ` 
         -ResourceGroupName TestRG `
         -GalleryTemplateIdentity Microsoft.WebSite.0.1.0-preview1 `
         -siteName TestWeb2 `

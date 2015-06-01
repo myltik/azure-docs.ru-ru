@@ -36,11 +36,11 @@
 
 Чтобы получить список доступных подписок, выполните следующий командлет:
 
-	PS C:\> Get-AzureSubscription
+	PS C:> Get-AzureSubscription
 
 Выберите подписку, выполнив командлет:
 
-	PS C:\> Select-AzureSubscription "TestSubscription"
+	PS C:> Select-AzureSubscription "TestSubscription"
 
  
 ##Получение имени учетной записи хранения
@@ -73,14 +73,14 @@
 Для создания учетной записи служб мультимедиа используйте командлет [New-AzureMediaServicesAccount](https://msdn.microsoft.com/library/azure/dn495286.aspx), указав имя учетной записи служб мультимедиа, местоположение центра обработки данных, где она будет создана, и имя учетной записи хранения. 
 
 
-	PS C:\> New-AzureMediaServicesAccount -Name "amstestaccount001" -StorageAccountName "storagetest001" -Location "East US"
+	PS C:> New-AzureMediaServicesAccount -Name "amstestaccount001" -StorageAccountName "storagetest001" -Location "East US"
 
 ##Получение учетных записей служб мультимедиа
 
 После создания одной или нескольких учетных записей служб мультимедиа можно отобразить сведения с помощью комнадлета [Get-AzureMediaServicesAccount](https://msdn.microsoft.com/library/azure/dn495286.aspx)
 
 	
-	PS C:\> Get-AzureMediaServicesAccount
+	PS C:> Get-AzureMediaServicesAccount
 	
 	AccountId		Name				State
 	---------       ----       			 -----
@@ -88,7 +88,7 @@
 
 Передав параметр Name, вы получите более подробные сведения, включая ключи учетной записи.
 
-	PS C:\> Get-AzureMediaServicesAccount -Name amstestaccount001
+	PS C:> Get-AzureMediaServicesAccount -Name amstestaccount001
 
 ##Повторное создание ключей доступа служб мультимедиа
 
@@ -97,13 +97,13 @@
 
 Добавьте параметр -Force, чтобы не отображать запросы подтверждения PowerShell.
 
-	PS C:\> New-AzureMediaServicesKey -Name "amstestaccount001" -KeyType "Primary" -Force
+	PS C:> New-AzureMediaServicesKey -Name "amstestaccount001" -KeyType "Primary" -Force
 
 ##Удаление учетной записи служб мультимедиа
 
 Когда все готово для удаления учетной записи служб мультимедиа Azure, выполните командлет [Remove-AzureMediaServicesAccount](https://msdn.microsoft.com/library/azure/dn495220.aspx).
 
-	PS C:\> Remove-AzureMediaServicesAccount -Name "amstestaccount001" -Force
+	PS C:> Remove-AzureMediaServicesAccount -Name "amstestaccount001" -Force
 
 
 

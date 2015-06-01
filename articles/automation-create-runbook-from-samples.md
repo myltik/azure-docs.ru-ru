@@ -56,7 +56,7 @@
 
 	![Вкладка "Модули Runbook"](./media/automation/automation_04_RunbooksTab.png)
   
-6.	Щелкните **Создать** \> **Модуль Runbook** \> **Из Коллекции**.
+6.	Щелкните **Создать** > **Модуль Runbook** > **Из Коллекции**.
 
 	![Коллекция Runbook](./media/automation/automation_05_ImportGallery.png)
 

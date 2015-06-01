@@ -35,7 +35,7 @@
 * подписка на [Microsoft Azure][azure];
 * Visual Studio 2013 или более поздняя версия.
 
-## 1\. Создание ресурса Application Insights 
+## 1. Создание ресурса Application Insights 
 
 На [портале Azure][portal] создайте новый ресурс Application Insights.
 
@@ -50,7 +50,7 @@
 ![Откройте раскрывающуюся панель Essentials и выберите ключ инструментирования](./media/app-insights-windows-get-started/02-props.png)
 
 
-## 2\. Добавление пакета SDK Application Insights в приложение
+## 2. Добавление пакета SDK Application Insights в приложение
 
 В Visual Studio добавьте соответствующий пакет SDK в свой проект.
 
@@ -60,7 +60,7 @@
 
     ![](./media/app-insights-windows-get-started/03-nuget.png)
 
-2. Выберите узел **Online** \(В сети\), укажите **Include prerelease** \(Включить предварительный выпуск\) и выполните поиск «Application Insights».
+2. Выберите узел **Online** (В сети), укажите **Include prerelease** (Включить предварительный выпуск) и выполните поиск «Application Insights».
 
     ![](./media/app-insights-windows-get-started/04-ai-nuget.png)
 
@@ -68,9 +68,9 @@
    * Application Insights для приложений Windows *для приложений Магазина Windows*
    * Application Insights для приложений Windows Phone
    * Application Insights для веб-приложений * для классических приложений* 
-4. Отредактируйте файл ApplicationInsights.config \(который был добавлен установкой NuGet\). Вставьте следующий фрагмент непосредственно перед закрывающим тегом:
+4. Отредактируйте файл ApplicationInsights.config (который был добавлен установкой NuGet). Вставьте следующий фрагмент непосредственно перед закрывающим тегом:
 
-    `<InstrumentationKey>`\*скопированный ключ\*`</InstrumentationKey>`
+    `<InstrumentationKey>`*скопированный ключ*`</InstrumentationKey>`
 
 **Для универсальных приложений Windows**: повторите эти действия для  проектов Phone и Магазина.
 
@@ -116,7 +116,7 @@
 
 Выберите Application Insights в диалоговом окне создания проекта.
 
-Если появляется запрос на вход, используйте учетные данные для своей учетной записи Azure \(которая отличается от учетной записи Visual Studio Online\).
+Если появляется запрос на вход, используйте учетные данные для своей учетной записи Azure (которая отличается от учетной записи Visual Studio Online).
 
 ![](./media/appinsights/appinsights-d21-new.png)
 

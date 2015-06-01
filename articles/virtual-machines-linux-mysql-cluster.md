@@ -152,7 +152,7 @@
     CREATE DATABASE azureha;
     CREATE TABLE things ( id SERIAL, name VARCHAR(255) );
     INSERT INTO things VALUES (1, "Yet another entity");
-    GRANT ALL ON things.\* TO root;
+    GRANT ALL ON things.* TO root;
 
 **Внимание!**Последний оператор фактически отключает аутентификацию привилегированного пользователя в этой таблице. Она включена только для иллюстрации, и в инструкциях GRANT для рабочей среды это необходимо изменить.
 

@@ -31,7 +31,7 @@
 
 В этом документе приведен обзор технологии, а также поддерживаемые ею функции и сценарии. Он не является подробным техническим руководством.
 
-**Автор:** Дэвид Чаппелл \(David Chappell\), руководитель компании Chappell & Associates
+**Автор:** Дэвид Чаппелл (David Chappell), руководитель компании Chappell & Associates
 
 **Последнее обновление:** март 2015 г.
 
@@ -39,5 +39,5 @@
 
 **Загрузки:**
 
-* <a href="http://go.microsoft.com/fwlink/p/?LinkId=522547" target="_blank">«Введение в Поиск Azure» \(в формате PDF\)</a>
-* <a href="http://go.microsoft.com/fwlink/p/?LinkId=529011" target="_blank">«Введение в Поиск Azure» \(в формате Microsoft Word\)</a> <!--HONumber=52-->
+* <a href="http://go.microsoft.com/fwlink/p/?LinkId=522547" target="_blank">«Введение в Поиск Azure» (в формате PDF)</a>
+* <a href="http://go.microsoft.com/fwlink/p/?LinkId=529011" target="_blank">«Введение в Поиск Azure» (в формате Microsoft Word)</a> <!--HONumber=52-->

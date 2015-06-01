@@ -54,7 +54,7 @@ Run these commands:
 	$svcName="<cloud service name>"
 	$vmName="<virtual machine name>"
 	$localPath="<drive and folder location to store the downloaded RDP file, example: c:\temp >"
-	$localFile=$localPath + "\" + $vmname + ".rdp"
+	$localFile=$localPath + "" + $vmname + ".rdp"
 	Get-AzureRemoteDesktopFile -ServiceName $svcName -Name $vmName -LocalPath $localFile -Launch 
 -->
 
@@ -70,14 +70,14 @@ Run these commands:
 
     Stop-AzureVM -ResourceGroupName "<resource group name>" -Name "<virtual machine name>"
 
->[AZURE.IMPORTANT]Используйте параметр **StayProvisioned**, чтобы сохранить виртуальный IP-адрес \(VIP\) облачной службы, если эта виртуальная машина является последней в этой службе. При использовании этого параметра вам по-прежнему будут выставлять счета за использование виртуальной машины.
+>[AZURE.IMPORTANT]Используйте параметр **StayProvisioned**, чтобы сохранить виртуальный IP-адрес (VIP) облачной службы, если эта виртуальная машина является последней в этой службе. При использовании этого параметра вам по-прежнему будут выставлять счета за использование виртуальной машины.
 
 ## Перезапуск виртуальной машины
 
 	Restart-AzureVM -ResourceGroupName "<resource group name>" -Name "<virtual machine name>"
 
 ## Подключение диска данных
-Для этой задачи требуется несколько шагов. Во-первых, используйте командлет \*\*\*\*Add-AzureDataDisk\*\*\*\*, чтобы добавить диск в объект $vm, затем выполните командлет Update-AzureVM, чтобы обновить конфигурацию виртуальной машины.
+Для этой задачи требуется несколько шагов. Во-первых, используйте командлет ****Add-AzureDataDisk****, чтобы добавить диск в объект $vm, затем выполните командлет Update-AzureVM, чтобы обновить конфигурацию виртуальной машины.
 
 Вам необходимо решить, какой диск подключать — новый диск или диск с данными. При подключении нового диска команда создает VHD-файл и присоединяет его.
 

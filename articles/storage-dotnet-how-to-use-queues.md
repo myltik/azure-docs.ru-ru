@@ -40,10 +40,10 @@
 ### Получение сборки
 Можно использовать NuGet для получения сборки  `Microsoft.WindowsAzure.Storage.dll`. Щелкните правой кнопкой мыши проект в **Обозревателе решений** и выберите **Управление пакетами NuGet**.  Выполните в Интернете поиск "WindowsAzure.Storage" и нажмите кнопку **Установить**, чтобы установить пакет хранилища Azure и зависимые компоненты.
 
-Библиотека Microsoft.WindowsAzure.Storage.dll также включена в состав пакета SDK для Azure для .NET, который можно скачать в <a href="http://azure.microsoft.com/develop/net/#">Центре разработчиков .NET</a>. Сборка устанавливается в каталог  `%Program Files%\Microsoft SDKs\Azure\.NET SDK\<sdk-version>\ref\`.
+Библиотека Microsoft.WindowsAzure.Storage.dll также включена в состав пакета SDK для Azure для .NET, который можно скачать в <a href="http://azure.microsoft.com/develop/net/#">Центре разработчиков .NET</a>. Сборка устанавливается в каталог  `%Program Files%\Microsoft SDKs\Azure.NET SDK<sdk-version>\ref`.
 
 ### Объявления пространств имен
-Добавьте следующие объявления пространств имен кода в начало любого файла C\#, в котором вы собираетесь получать доступ к службе хранилища Azure программным способом.
+Добавьте следующие объявления пространств имен кода в начало любого файла C#, в котором вы собираетесь получать доступ к службе хранилища Azure программным способом.
 
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Auth;

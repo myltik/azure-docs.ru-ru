@@ -197,7 +197,7 @@
 
 -	Microsoft.Web.DistributedCache.dll.
 
->Эти сборки находятся в папке C:\\Program Files\\Microsoft SDKs\\Windows Azure\\.NET SDK\\2012-10\\ref\\Caching\\.
+>Эти сборки находятся в папке C:\\Program Files\\Microsoft SDKs\\Windows Azure\.NET SDK\\2012-10\\ref\\Caching.
 
 После настройки проекта клиента для кэширования можно использовать методы, описанные в следующих разделах, для работы с кэшем.
 

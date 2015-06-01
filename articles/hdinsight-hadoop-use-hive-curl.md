@@ -119,7 +119,7 @@ Curl используется для демонстрации возможнос
 
 		azure storage blob download <container-name> <blob-name> <destination-file>
 
-	> [AZURE.NOTE]Необходимо либо указать имя учетной записи хранения, содержащей большой двоичный объект, с помощью параметров `-a` и `-k`, либо задать переменные среды **AZURE\\_STORAGE\\_ACCOUNT** и **AZURE\\_STORAGE\\_ACCESS\\_KEY**. См. также: <a href="hdinsight-upload-data.md" target="_blank".
+	> [AZURE.NOTE]Необходимо либо указать имя учетной записи хранения, содержащей большой двоичный объект, с помощью параметров `-a` и `-k`, либо задать переменные среды **AZURE_STORAGE_ACCOUNT** и **AZURE_STORAGE_ACCESS_KEY**. См. также: <a href="hdinsight-upload-data.md" target="_blank".
 
 6. Используйте следующие операторы, чтобы создать новую «внутреннюю» таблицу с именем **errorLogs**.
 

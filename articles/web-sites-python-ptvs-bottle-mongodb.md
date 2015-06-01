@@ -105,7 +105,7 @@
 
 1.  на [портале управления Azure][] щелкните **НАДСТРОЙКИ**, а затем выберите созданную ранее службу MongoLab.
 
-1.  Щелкните **СВЕДЕНИЯ О ПОДКЛЮЧЕНИИ**.  Вы можете воспользоваться кнопкой копирования, чтобы поместить значение **MONGOLAB\_URI** в буфер обмена.
+1.  Щелкните **СВЕДЕНИЯ О ПОДКЛЮЧЕНИИ**.  Вы можете воспользоваться кнопкой копирования, чтобы поместить значение **MONGOLAB_URI** в буфер обмена.
 
   	![Connection Info Dialog](./media/web-sites-python-ptvs-bottle-mongodb/PollsCommonMongoLabConnectionInfo.png)
 
@@ -135,17 +135,17 @@
 
 Вы можете использовать приложение, такое как [RoboMongo][], для запросов и внесения изменений в базу данных MongoDB.  В этом разделе мы будем использовать RoboMongo для просмотра содержимого базы данных приложения опросов.
 
-1.  Создайте новое соединение.  Вам потребуется **MONGOLAB\_URI**, который мы получили в предыдущем разделе.
+1.  Создайте новое соединение.  Вам потребуется **MONGOLAB_URI**, который мы получили в предыдущем разделе.
 
     Обратите внимание на формат универсального кода ресурса: `mongodb://<name>:<password>@<address>:<port>/<name>`
 
     Имя будет совпадать с именем созданной службы Azure.  Оно будет использоваться как в качестве имени базы данных, так и имени пользователя.
 
-1.  На странице соединения в поле **Имя** укажите желаемое имя для данного соединения.  В полях **Адрес** и **Порт** задайте значения *address* и *port* из **MONGOLAB\_URI**.
+1.  На странице соединения в поле **Имя** укажите желаемое имя для данного соединения.  В полях **Адрес** и **Порт** задайте значения *address* и *port* из **MONGOLAB_URI**.
 
   	![Connection Settings Dialog](./media/web-sites-python-ptvs-bottle-mongodb/PollsCommonRobomongoCreateConnection1.png)
 
-1.  На странице аутентификации с помощью полей **База данных** и **Имя пользователя** укажите *name* из **MONGOLAB\_URI**.  Также укажите в поле **Пароль** значение *password* из **MONGOLAB\_URI**.
+1.  На странице аутентификации с помощью полей **База данных** и **Имя пользователя** укажите *name* из **MONGOLAB_URI**.  Также укажите в поле **Пароль** значение *password* из **MONGOLAB_URI**.
 
   	![Connection Settings Dialog](./media/web-sites-python-ptvs-bottle-mongodb/PollsCommonRobomongoCreateConnection2.png)
 
@@ -185,7 +185,7 @@ PTVS предоставляет простой способ развертыва
 
   	![Top Menu](./media/web-sites-python-ptvs-bottle-mongodb/PollsCommonWebSiteTopMenu.png)
 
-1.  Прокрутите список вниз до раздела **Параметры приложений** и присвойте переменным **REPOSITORY\_NAME**, **MONGODB\_HOST** и **MONGODB\_DATABASE** значения, описанные выше.
+1.  Прокрутите список вниз до раздела **Параметры приложений** и присвойте переменным **REPOSITORY_NAME**, **MONGODB_HOST** и **MONGODB_DATABASE** значения, описанные выше.
 
   	![App Settings](./media/web-sites-python-ptvs-bottle-mongodb/PollsCommonWebSiteConfigureSettingsMongoDB.png)
 

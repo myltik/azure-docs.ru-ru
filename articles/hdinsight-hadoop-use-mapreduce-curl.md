@@ -94,7 +94,7 @@ Curl используется для демонстрации возможнос
 
 	azure storage blob download <container-name> <blob-name> <destination-file>
 
-> [AZURE.NOTE]Необходимо указать имя учетной записи хранения, содержащей большой двоичный объект, с помощью параметров `-a` и `-k`, либо задать переменные среды **AZURE\\_STORAGE\\_ACCOUNT** и **AZURE\\_STORAGE\\_ACCESS\\_KEY**. См. также: [Как передать данные в HDInsight](hdinsight-upload-data.md).
+> [AZURE.NOTE]Необходимо указать имя учетной записи хранения, содержащей большой двоичный объект, с помощью параметров `-a` и `-k`, либо задать переменные среды **AZURE_STORAGE_ACCOUNT** и **AZURE_STORAGE_ACCESS_KEY**. См. также: [Как передать данные в HDInsight](hdinsight-upload-data.md).
 
 ##<a id="summary"></a>Сводка
 

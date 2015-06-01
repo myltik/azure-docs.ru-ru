@@ -42,13 +42,13 @@
 	* Используйте переключатель **RestorableDropped** и укажите значение параметра **ServerName** для сервера, с которого была удалена база данных.
 	* При выполнении следующей команды результаты сохраняются в переменной с именем **$RecoverableDBs**.
 	
-	`PS C:\>$RecoverableDBs = Get-AzureSqlDatabase -ServerName "myserver" -RestorableDropped`
+	`PS C:>$RecoverableDBs = Get-AzureSqlDatabase -ServerName "myserver" -RestorableDropped`
 
 2. Выберите удаленную базу данных, которую требуется восстановить, в списке удаленных баз данных.
 
 	* Введите номер удаленной базы данных из списка **$RecoverableDBs**.  
 
-	`PS C:\>$Database = $RecoverableDBs[<deleted database number>]`
+	`PS C:>$Database = $RecoverableDBs[<deleted database number>]`
 
 	* Дополнительную информацию о том, как получить объект удаленной базы данных, которую можно восстановить, см. в разделе [Get-AzureSqlDatabase](http://msdn.microsoft.com/library/dn546735.aspx).
 
@@ -58,14 +58,14 @@
 
 	Сохраните результат, возвращенный переменной с именем **$RestoreRequest**. Эта переменная содержит идентификатор запроса восстановления, который используется для мониторинга состояния восстановления.
 	
-	`PS C:\>$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceRestorableDroppedDatabase $Database -TargetDatabaseName "myrestoredDB"`
+	`PS C:>$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceRestorableDroppedDatabase $Database -TargetDatabaseName "myrestoredDB"`
 
 Восстановление может занять некоторое время. Для мониторинга состояния восстановления используйте командлет [Get-AzureSqlDatabaseOperation](http://msdn.microsoft.com/library/azure/dn546738.aspx) и укажите следующие параметры:
 
 * **ServerName** для имени базы данных, в которую необходимо выполнить восстановление.
 * **OperationGuid** для глобального уникального идентификатора, которым является идентификатор запроса восстановления, хранимый в переменной **$RestoreRequest** на шаге 3.
 
-	`PS C:\>Get-AzureSqlDatabaseOperation -ServerName "myserver" -OperationGuid $RestoreRequest.RequestID`
+	`PS C:>Get-AzureSqlDatabaseOperation -ServerName "myserver" -OperationGuid $RestoreRequest.RequestID`
 
 В полях **State** и **PercentComplete** отображается состояние восстановления.
 

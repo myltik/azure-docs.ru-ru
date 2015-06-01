@@ -124,7 +124,7 @@ SendGrid - это [облачная служба электронной почт
 
     // Local file name and path.
     String attachmentName = "myfile.zip";
-    String attachmentPath = "c:\\myfiles\\"; 
+    String attachmentPath = "c:\\myfiles"; 
     MimeBodyPart attachmentPart = new MimeBodyPart();
     // Specify the local file to attach.
     DataSource source = new FileDataSource(attachmentPath + attachmentName);
@@ -142,11 +142,11 @@ SendGrid поддерживает дополнительные функцион�
     отображение текста HTML в нижней части отправляемого сообщения электронной почты.
 
         message.addHeader("X-SMTPAPI", 
-			"{\"filters\": 
-			{\"footer\": 
-			{\"settings\": 
-        	{\"enable\":1,\"text/html\": 
-			\"<html><b>Thank you</b> for your business.</html>\"}}}}");
+			"{"filters": 
+			{"footer": 
+			{"settings": 
+        	{"enable":1,"text/html": 
+			"<html><b>Thank you</b> for your business.</html>"}}}}");
 
 -   Еще одним примером фильтра является отслеживание щелчков. Предположим, что текст вашего сообщения электронной почты содержит гиперссылку, похожую на приведенную ниже, и вы хотите отследить частоту переходов по ней.
 
@@ -160,10 +160,10 @@ SendGrid поддерживает дополнительные функцион�
 -   To enable the click tracking, use the following code:
 
         message.addHeader("X-SMTPAPI", 
-			"{\"filters\": 
-			{\"clicktrack\": 
-			{\"settings\": 
-        	{\"enable\":1}}}}");
+			"{"filters": 
+			{"clicktrack": 
+			{"settings": 
+        	{"enable":1}}}}");
 
 ## <a name="bkmk_HowToUpdateEmail"> </a>Практическое руководство. Обновление свойств электронной почты
 

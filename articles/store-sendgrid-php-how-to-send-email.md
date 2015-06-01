@@ -48,7 +48,7 @@ SendGrid.
 
 ### Интерфейс SMTP API
 
-Чтобы отправить сообщение электронной почты с помощью интерфейса SMTP API SendGrid, используйте *Swift Mailer* - библиотеку на основе компонентов, которая предназначена для отправки сообщений электронной почты из приложений PHP. Библиотеку *Swift Mailer* версии 5.3.0 можно скачать по адресу [http://swiftmailer.org/download][] (для ее установки используйте [Редактор]). Отправка сообщения электронной почты с помощью библиотеки включает в себя создание классов <span class="auto-style2">Swift\_SmtpTransport</span>, <span class="auto-style2">Swift\_Mailer</span>и <span class="auto-style2">Swift\_Message,</span> задание соответствующих свойств и вызов метода <span class="auto-style2">Swift\_Mailer::send</span> .
+Чтобы отправить сообщение электронной почты с помощью интерфейса SMTP API SendGrid, используйте *Swift Mailer* - библиотеку на основе компонентов, которая предназначена для отправки сообщений электронной почты из приложений PHP. Библиотеку *Swift Mailer* версии 5.3.0 можно скачать по адресу [http://swiftmailer.org/download][] (для ее установки используйте [Редактор]). Отправка сообщения электронной почты с помощью библиотеки включает в себя создание классов <span class="auto-style2">Swift_SmtpTransport</span>, <span class="auto-style2">Swift_Mailer</span>и <span class="auto-style2">Swift_Message,</span> задание соответствующих свойств и вызов метода <span class="auto-style2">Swift_Mailer::send</span> .
 
     <?php
      include_once "vendor/autoload.php";
@@ -227,7 +227,7 @@ SendGrid.
 
      $message->attach(Swift_Attachment::fromPath("path\to\file")->setFileName('file_name'));
 
-Эта строка кода вызывает метод вложения объекта <span class="auto-style2">Swift\_Message</span> и использует статический метод <span class="auto-style2">fromPath</span> класса <span class="auto-style2">Swift\_Attachment</span> для получения файла и его вложения в сообщение.
+Эта строка кода вызывает метод вложения объекта <span class="auto-style2">Swift_Message</span> и использует статический метод <span class="auto-style2">fromPath</span> класса <span class="auto-style2">Swift_Attachment</span> для получения файла и его вложения в сообщение.
 
 ### Веб-интерфейс API
 

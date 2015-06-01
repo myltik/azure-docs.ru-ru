@@ -53,7 +53,8 @@
 
 1. В меню Visual Studio **Файл** выберите **Создать**, затем щелкните **Проект**.
 
-   Откроется диалоговое окно **Новый проект**. 2. На панели **Типы проектов** разверните **Шаблоны**, **Visual C\#**, **Интернет**, затем выберите **Веб-приложение ASP.NET**.
+   	Откроется диалоговое окно **Новый проект**.
+2. На панели **Типы проектов** разверните **Шаблоны**, **Visual C#**, **Интернет**, затем выберите **Веб-приложение ASP.NET**.
 
   ![Снимок экрана: диалоговое окно «Новый проект» с выделенным типа проекта веб-приложения ASP.NET](./media/documentdb-dotnet-application/image10.png)
 
@@ -75,7 +76,7 @@
 
   Я не выбрала «Сервер базы данных» в этом случае, так как здесь мы не используем сервер базы данных SQL Azure. Позже мы создадим новую учетную запись Azure DocumentDB на портале Microsoft Azure.
 
-	For more information about choosing an **App Service plan** and **Resource group**, see [Azure App Service plans in-depth overview](azure-web-sites-web-hosting-plans-in-depth-overview.md).
+	Дополнительную информацию о выборе **Плана службы приложений** и **Группы ресурсов** см. в разделе [Подробный обзор планов службы приложений Azure](azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
   ![Снимок экрана: диалоговое окно «Настройка сайта Microsoft Azure»](./media/documentdb-dotnet-application/image11_1.png)
 
@@ -91,7 +92,7 @@
 
   ![Снимок экрана: параметры контекстного меню проекта в обозревателе решений с выделенным параметром «Управление пакетами NuGet»](./media/documentdb-dotnet-application/image21.png)
 
-    The **Manage NuGet Packages** dialog box appears.
+    Появится диалоговое окно **Управление пакетами NuGet**.
 
 2. В поле **Поиск в Интернете** введите ***Azure DocumentDB***. 
     
@@ -119,7 +120,7 @@
 
 ### <a name="_Toc395637764"></a>Добавление модели
 
-Давайте начнем с буквы **M** из аббревиатуры MVC, с модели \(Model\).
+Давайте начнем с буквы **M** из аббревиатуры MVC, с модели (Model).
 
 1. В **Обозревателе решений** щелкните правой кнопкой мыши папку **Модели**, нажмите **Добавить**, затем щелкните **Класс**.
 
@@ -150,7 +151,9 @@
         	[JsonProperty(PropertyName = "desc")]
         	public string Description { get; set; }
 		
-       [JsonProperty\(PropertyName="isComplete"\)] public bool Completed { get; set; } }
+       		[JsonProperty(PropertyName="isComplete")]
+        	public bool Completed { get; set; }    
+		}
 
 	Все данные в DocumentDB передаются по сети и хранятся в формате JSON. Для управления сериализацией и десериализацией объектов с помощью JSON.NET можно использовать атрибут **JsonProperty**, как показано на примере только что созданного класса **Item**. Вам **не обязательно** это делать, но, присваивая имена свойствам, я придерживаюсь правил наименования camelCase JSON.
 	
@@ -159,7 +162,7 @@
 
 ### <a name="_Toc395637765"></a>Добавление контроллера
 
-С буквой **M** \(моделями\) разобрались, теперь займемся **C**, т. е. классом контроллера \(Controller\).
+С буквой **M** (моделями) разобрались, теперь займемся **C**, т. е. классом контроллера (Controller).
 
 1. В **Обозревателе решений** щелкните правой кнопкой мыши папку **Контроллеры**, нажмите **Добавить**, затем щелкните **Контроллер**.
 
@@ -181,7 +184,7 @@
 
 ### <a name="_Toc395637766"></a>Добавление представлений
 
-И наконец, займемся буквой **V** из аббревиатуры MVC, т. .е представлениями \(Views\).
+И наконец, займемся буквой **V** из аббревиатуры MVC, т. .е представлениями (Views).
 
 - [Добавление представления «Индекс элементов»](#AddItemIndexView).
 - [Добавление представления «Создание элементов»](#AddNewIndexView).
@@ -197,9 +200,9 @@
 2. В диалоговом окне **Добавление представления** выполните следующие действия.
 	- В поле **Имя представления** введите ***Index***.
 	- В поле **Шаблон** выберите ***Список***.
-	- В поле **Класс модели** выберите ***Элемент \(todo.Models\)***.
+	- В поле **Класс модели** выберите ***Элемент (todo.Models)***.
 	- Оставьте пустым поле **Класс контекста данных**. 
-	- В поле страницы макета введите ***\~/Views/Shared/\_Layout.cshtml***.
+	- В поле страницы макета введите ***~/Views/Shared/_Layout.cshtml***.
 	
 	![Снимок экрана: диалоговое окно «Добавление представления»](./media/documentdb-dotnet-application/image18.png)
 
@@ -214,9 +217,9 @@
 2. В диалоговом окне **Добавление представления** выполните следующие действия.
     - В поле **Имя представления** введите ***Create***.
     - В поле **Шаблон** выберите ***Создание***.
-    - В поле **Класс модели** выберите ***Элемент \(todo.Models\)***.
+    - В поле **Класс модели** выберите ***Элемент (todo.Models)***.
     - Оставьте пустым поле **Класс контекста данных**.
-    - В поле страницы макета введите ***\~/Views/Shared/\_Layout.cshtml***.
+    - В поле страницы макета введите ***~/Views/Shared/_Layout.cshtml***.
     - Щелкните **Добавить**.
 
 #### <a name="_Toc395888515"></a>Добавление представления «Редактирование элементов»
@@ -228,9 +231,9 @@
 2. В диалоговом окне **Добавление представления** выполните следующие действия.
     - В поле **Имя представления** введите ***Edit***.
     - В поле **Шаблон** выберите ***Редактирование***.
-    - В поле **Класс модели** выберите ***Элемент \(todo.Models\)***.
+    - В поле **Класс модели** выберите ***Элемент (todo.Models)***.
     - Оставьте пустым поле **Класс контекста данных**. 
-    - В поле страницы макета введите ***\~/Views/Shared/\_Layout.cshtml***.
+    - В поле страницы макета введите ***~/Views/Shared/_Layout.cshtml***.
     - Щелкните **Добавить**.
 
 Как только все будет готово, закройте документы cshtml в Visual Studio, мы вернемся к этим представлениям позже.
@@ -289,7 +292,11 @@
 			
 			//Use the DocumentCollection if it exists, if not create a new Collection
 	    	private static DocumentCollection ReadOrCreateCollection(string databaseLink)
-	{ var col = Client.CreateDocumentCollectionQuery\(databaseLink\) .Where\(c =\> c.Id == CollectionId\) .AsEnumerable\(\) .FirstOrDefault\(\);
+	   		{
+	    	    var col = Client.CreateDocumentCollectionQuery(databaseLink)
+	        	                  .Where(c => c.Id == CollectionId)
+	        	                  .AsEnumerable()
+	        	                  .FirstOrDefault();
 		
 	        	if (col == null)
 	        	{
@@ -303,11 +310,19 @@
 	    	}
 			
 			//Expose the "database" value from configuration as a property for internal use
-    private static string databaseId; private static String DatabaseId { get { if \(string.IsNullOrEmpty\(databaseId\)\) { databaseId = ConfigurationManager.AppSettings["database"]; }
+     	   	private static string databaseId;
+     	   	private static String DatabaseId
+     	   	{
+				get
+				{
+					if (string.IsNullOrEmpty(databaseId))
+					{
+						databaseId = ConfigurationManager.AppSettings["database"];
+					}
 				
 					return databaseId;
 				}
-    }
+       	 	}
 			
 			//Expose the "collection" value from configuration as a property for internal use
     	    private static string collectionId;
@@ -387,7 +402,7 @@
 4. Теперь обновите значения для параметров *endpoint* и *authKey*, используя колонку «Ключи» на портале Azure. Используйте **URI** из колонки «Ключи» в качестве значения параметра endpoint. В качестве значения параметра authKey используйте значение **ПЕРВИЧНОГО КЛЮЧА** или **ВТОРИЧНОГО КЛЮЧА** из колонки «Ключи».
 
 
-    That takes care of wiring up the DocumentDB repository, now let's add our application logic.
+    Оно позволяет связываться с репозиторием DocumentDB. А теперь давайте добавим логику приложения.
 
 5. Прежде всего нам нужно отобразить незавершенные элементы в приложении «список дел». Скопируйте и вставьте следующий фрагмент кода в любом месте в класса **DocumentDBRepository**.
 
@@ -426,13 +441,13 @@
 
 Чтобы запустить приложение сейчас, нужно перейти к **Главному контроллеру** и представлению **Индекс** в этом контроллере. Это поведение по умолчанию для шаблона проекта MVC мы выбрали вначале, но нам нужно кое-что другое! Давайте изменим маршрутизацию в данном приложении MVC, чтобы изменить это поведение.
 
-Откройте файл ***App\\\_Start\\RouteConfig.cs***, найдите строку, начинающуюся с defaults: и измените ее следующим образом:
+Откройте файл ***App_Start\\RouteConfig.cs***, найдите строку, начинающуюся с defaults: и измените ее следующим образом:
 
     	defaults: new { controller = "Item", action = "Index", id = UrlParameter.Optional }
 
 Теперь приложение ASP.NET MVC будет знать, что, если вы не указали значение в поле URL-адреса для управления поведением маршрутизации, вместо **Главный** нужно использовать **Элемент** в качестве контроллера, а пользовательский **индекс** — в качестве представления.
 
-Теперь при запуске приложения оно будет вызывать **ItemController**, который вызывает класс репозитория и метод GetItems, чтобы вывести все незавершенные элементы в представлении **Представления**\\\*\*Элемент\*\*\\\*\*Индекс\*\*.
+Теперь при запуске приложения оно будет вызывать **ItemController**, который вызывает класс репозитория и метод GetItems, чтобы вывести все незавершенные элементы в представлении **Представления****Элемент****Индекс**.
 
 Если создать и запустить этот проект сейчас, отобразится примерно следующие данные.
 
@@ -447,9 +462,11 @@
 1.  Добавьте следующий метод в класс **DocumentDBRepository**.
 
     	public static async Task<Document> CreateItemAsync(T item)
-		{ return await Client.CreateDocumentAsync\(Collection.SelfLink, item\); }
+   	 	{
+   	   		return await Client.CreateDocumentAsync(Collection.SelfLink, item);
+   		}
 
-		Этот метод просто принимает любой объект, переданный ему, и сохраняет его в DocumentDB.
+	Этот метод просто принимает любой объект, переданный ему, и сохраняет его в DocumentDB.
 
 2. Откройте файл ItemController.cs и добавьте следующий фрагмент кода в класс. Теперь приложение ASP.NET MVC будет знать, что делать с действием **Создать**. В этом случае просто отобразите связанное представление Create.cshtml, созданное ранее.
 
@@ -458,13 +475,22 @@
 			return View(); 
 		}
 
-		Теперь нам нужно добавить еще немного кода в этом контроллере, который будет принимать данные из **Создание**.
+	Теперь нам нужно добавить еще немного кода в этом контроллере, который будет принимать данные из **Создание**.
 
 2. Добавьте следующий блок кода в класс ItemController.cs, который указывает приложению ASP.NET MVC, что нужно делать с формой POST для этого контроллера.
 	
     	[HttpPost]
     	[ValidateAntiForgeryToken]
-		public async Task<ActionResult> Create\([Bind\(Include = "Id,Name,Description,Completed"\)] Item item\) { if \(ModelState.IsValid\) { await DocumentDBRepository<Item>.CreateItemAsync\(item\); return RedirectToAction\("Index"\); } return View\(item\); } Этот код вызывает репозиторий DocumentDBRepository и использует метод CreateItemAsync для сохранения нового элемента списка дел в базе данных.
+   	 	public async Task<ActionResult> Create([Bind(Include = 	"Id,Name,Description,Completed")] Item item)  
+  	  	{
+			if (ModelState.IsValid)  
+			{  
+			    await DocumentDBRepository<Item>.CreateItemAsync(item);
+			    return RedirectToAction("Index");  
+			}   
+			return View(item);   
+		}
+	Этот код вызывает репозиторий DocumentDBRepository и использует метод CreateItemAsync для сохранения нового элемента списка дел в базе данных.
  
 	**Примечание о безопасности.**: Атрибут **ValidateAntiForgeryToken** используется для защиты этого приложения от атак с подделкой запроса между сайтами. Кроме добавления этого атрибута представления также должны работать с данным маркером защиты от подделки запросов. Дополнительные сведения об этом и примеры правильной реализации данной технологии см. в разделе [Предотвращение атак с подделкой межсайтовых запросов][]. Исходный код, предоставленный на  [GitHub][] имеет полную реализацию.
 
@@ -508,9 +534,17 @@
 2. Добавьте следующие методы в класс **ItemController**.
 
     	[HttpPost]
-		[ValidateAntiForgeryToken] public async Task<ActionResult> Edit\([Bind\(Include = "Id,Name,Description,Completed"\)] Item item\) { if \(ModelState.IsValid\) { await DocumentDBRepository<Item>.UpdateItemAsync\(item.Id, item\); return RedirectToAction\("Index"\); }
+   		[ValidateAntiForgeryToken]
+    	public async Task<ActionResult> Edit([Bind(Include = "Id,Name,Description,Completed")] Item item)
+    	{
+     	   if (ModelState.IsValid)
+    	    {
+    	        await DocumentDBRepository<Item>.UpdateItemAsync(item.Id, item);
+    	        return RedirectToAction("Index");
+    	    }
 
-  return View\(item\); }
+  	      return View(item);
+ 	   	}
 		
 		public ActionResult Edit(string id)
 		{
@@ -532,7 +566,7 @@
 	
 	Первый метод обрабатывает команду GET HTTP, которая формируется, когда пользователь щелкает ссылку "Изменить" в представлении индекса. Этот метод извлекает документ из DocumentDB и передает его в представление редактирования. [**Document**](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx).
 
-	Затем представление редактирования передает команду POST HTTP в IndexController. 
+	Затем представление **редактирования** передает команду POST HTTP в **IndexController**. 
 	
 	Второй метод, который мы добавили, обрабатывает передачу обновленного объекта для DocumentDB, чтобы сохранить его в базе данных.
 
@@ -590,7 +624,7 @@
 
 1. Установите [необходимое программное обеспечение](#_Toc395637760), в том числе Visual Studio и пакет Azure SDK для .NET 2.3 или более поздней версии.
 
-2. Клонируйте репозиторий azure-documentdb-net с помощью Git для Windows \([http://www.git-scm.com/](http://www.git-scm.com/)\) или загрузите ZIP-файл с портала [GitHub](https://github.com/Azure/azure-documentdb-net/).
+2. Клонируйте репозиторий azure-documentdb-net с помощью Git для Windows ([http://www.git-scm.com/](http://www.git-scm.com/)) или загрузите ZIP-файл с портала [GitHub](https://github.com/Azure/azure-documentdb-net/).
 
 2. В Visual Studio откройте файл todo.sln в каталоге azure-documentdb-net/tutorials/todo.
 
@@ -616,7 +650,7 @@
 7. Теперь можно [запустить приложение локально](#_Toc395637773) и [развернуть его на веб-сайтах Azure](#_Toc395637774).
 
 
-[\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
+[*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
 [установщике веб-платформы Майкрософт]: http://www.microsoft.com/web/downloads/platform.aspx
 [GitHub]: http://go.microsoft.com/fwlink/?LinkID=509838&clcid=0x409

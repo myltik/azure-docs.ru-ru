@@ -84,7 +84,7 @@ Mahout — это библиотека [машинного обучения][ml]
 	# So dynamically grab it using Hive.
 	$mahoutPath = Invoke-Hive -Query '!${env:COMSPEC} /c dir /b /s ${env:MAHOUT_HOME}\examples\target*-job.jar' | where {$_.startswith("C:\apps\dist")}
 	$noCRLF = $mahoutPath -replace "`r`n", ""
-	$cleanedPath = $noCRLF -replace "\", "/"
+	$cleanedPath = $noCRLF -replace "", "/"
 	$jarFile = "file:///$cleanedPath"
     #
 	# If you are using an earlier version of HDInsight,
@@ -344,7 +344,7 @@ Mahout — это библиотека [машинного обучения][ml]
 
 Mahout устанавливается на кластерах HDInsight версии 3.1, а также может устанавливаться вручную на кластерах HDInsight версии 3.0 или 2.1 следующим образом:
 
-1. Используемая версия Mahout зависит от версии HDInsight вашего кластера. Вы можете узнать версию кластера с помощью следующей команды [Azure PowerShell][aps]\:
+1. Используемая версия Mahout зависит от версии HDInsight вашего кластера. Вы можете узнать версию кластера с помощью следующей команды [Azure PowerShell][aps]:
 
     	PS C:> Get-AzureHDInsightCluster -Name YourClusterName | Select version
 

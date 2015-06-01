@@ -164,7 +164,7 @@ PTVS предоставляет простой способ развертыва
 
   	![Верхнее меню](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonWebSiteTopMenu.png)
 
-1.  Прокрутите список вниз до раздела **Параметры приложений** и присвойте переменным **REPOSITORY\_NAME**, **STORAGE\_NAME** и **STORAGE\_KEY** значения, описанные выше.
+1.  Прокрутите список вниз до раздела **Параметры приложений** и присвойте переменным **REPOSITORY_NAME**, **STORAGE_NAME** и **STORAGE_KEY** значения, описанные выше.
 
   	![Параметры приложения](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonWebSiteConfigureSettingsTableStorage.png)
 

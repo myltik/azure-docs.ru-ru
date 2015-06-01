@@ -21,7 +21,7 @@
 
 ## Инфраструктура CLI Azure
 
-Для поиска образа, который можно использовать с `azure vm quick-create` или для создания файла шаблона группы ресурсов, проще и быстрее всего воспользоваться командой `azure vm image list`, которой передается расположение, имя издателя \(без учета регистра\) и предложение \(если оно вам известно\). Например, вот короткий пример \(многие списки достаточно длинные\), в котором вам известно, что издателем образа является Canonical, а предложение называется UbuntuServer.
+Для поиска образа, который можно использовать с `azure vm quick-create` или для создания файла шаблона группы ресурсов, проще и быстрее всего воспользоваться командой `azure vm image list`, которой передается расположение, имя издателя (без учета регистра) и предложение (если оно вам известно). Например, вот короткий пример (многие списки достаточно длинные), в котором вам известно, что издателем образа является Canonical, а предложение называется UbuntuServer.
 
     azure vm image list westus canonical ubuntuserver
     info:    Executing command vm image list
@@ -40,7 +40,7 @@
     
 Столбец **Urn** — это форма, которая передается `azure vm quick-create`.
     
-Однако часто нам неизвестно, какие именно образы доступны. В этом случае можно просмотреть их список, сначала получив список издателей с помощью `azure vm image list-publishers` и указав в качестве расположения центр обработка данных, в котором вы собираетесь использовать группу ресурсов. Например, в приведенном ниже списке содержатся все издатели образов из западной части США \(при передаче аргумента расположения необходимо привести стандартное название расположения в нижний регистр и удалить из него все пробелы\).
+Однако часто нам неизвестно, какие именно образы доступны. В этом случае можно просмотреть их список, сначала получив список издателей с помощью `azure vm image list-publishers` и указав в качестве расположения центр обработка данных, в котором вы собираетесь использовать группу ресурсов. Например, в приведенном ниже списке содержатся все издатели образов из западной части США (при передаче аргумента расположения необходимо привести стандартное название расположения в нижний регистр и удалить из него все пробелы).
 
     azure vm image list-publishers
     info:    Executing command vm image list-publishers
@@ -149,8 +149,8 @@
 
 Ниже приведен пример.
 
-	PS C:\> $locName="West US"
-	PS C:\> Get-AzureVMImagePublisher -Location $locName | Select PublisherName
+	PS C:> $locName="West US"
+	PS C:> Get-AzureVMImagePublisher -Location $locName | Select PublisherName
 	
 	PublisherName
 	-------------
@@ -168,8 +168,8 @@
 
 Для издателя MicrosoftWindowsServer:
 
-	PS C:\> $pubName="MicrosoftWindowsServer"
-	PS C:\> Get-AzureVMImageOffer -Location $locName -Publisher $pubName | Select Offer
+	PS C:> $pubName="MicrosoftWindowsServer"
+	PS C:> Get-AzureVMImageOffer -Location $locName -Publisher $pubName | Select Offer
 	
 	Offer
 	-----
@@ -177,8 +177,8 @@
 
 Для предложения WindowsServer:
 
-	PS C:\> $offerName="WindowsServer"
-	PS C:\> Get-AzureVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
+	PS C:> $offerName="WindowsServer"
+	PS C:> Get-AzureVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
 	
 	Skus
 	----

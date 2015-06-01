@@ -106,7 +106,7 @@ API управления службами Azure см. в справочной с
 
 Для доступа к кэшированному содержимому в сети CDN воспользуйтесь URL-адресом CDN, отображаемым в портале. Адрес для кэшированного BLOB-объекта будет иметь следующий вид:
 
-http://<*CDNNamespace*\>.vo.msecnd.net/<*myPublicContainer*\>/<*BlobName*\>
+http://<*CDNNamespace*>.vo.msecnd.net/<*myPublicContainer*>/<*BlobName*>
 
 <a id="Step4"> </a>
 <h2>Шаг 4. Удаление содержимого из сети CDN</h2>

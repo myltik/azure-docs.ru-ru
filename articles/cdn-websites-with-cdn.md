@@ -96,7 +96,7 @@
 
 	![](media/cdn-websites-with-cdn/11-access-success.png)
 
-1. Далее попытайтесь получить доступ к файлу **\~/Content/bootstrap.css** в своем проекте ASP.NET. В окне браузера перейдите по адресу **http://*&lt;cdnName>*.vo.msecnd.net/Content/bootstrap.css**. В моей настройке это следующий URL-адрес:
+1. Далее попытайтесь получить доступ к файлу **~/Content/bootstrap.css** в своем проекте ASP.NET. В окне браузера перейдите по адресу **http://*&lt;cdnName>*.vo.msecnd.net/Content/bootstrap.css**. В моей настройке это следующий URL-адрес:
 
 		http://az673227.vo.msecnd.net/Content/bootstrap.css
 
@@ -318,7 +318,7 @@
 		...
     }
 
-Первая инструкция `bundles.Add()` добавляет пакет скриптов в виртуальный каталог `~/bundles/jquery`. Затем откройте файл *Views\\Shared_Layout.cshtml*, чтобы просмотреть, как обрабатывается тег пакета скриптов. Вы должны найти следующую строку кода Razor:
+Первая инструкция `bundles.Add()` добавляет пакет скриптов в виртуальный каталог `~/bundles/jquery`. Затем откройте файл *Views\\Shared\_Layout.cshtml*, чтобы просмотреть, как обрабатывается тег пакета скриптов. Вы должны найти следующую строку кода Razor:
 
     @Scripts.Render("~/bundles/jquery")
 
@@ -459,7 +459,7 @@
 
 4. В файле *App_Start\\StyleFundleExtensions.cs* переименуйте пространство имен для своего приложения ASP.NET (например, **cdnwebapp**).
 
-3. Вернитесь в файл `App_Start\BundleConfig.cs` и замените последнюю инструкцию `bundles.Add` следующим выделенным кодом: <pre class="prettyprint"> bundles.Add(new StyleBundle("\~/Content/css", string.Format(cdnUrl, "Content/css")) <mark>.IncludeFallback("\~/Content/css", "sr-only", "width", "1px")</mark> .Include( "\~/Content/bootstrap.css", "\~/Content/site.css")); </pre>
+3. Вернитесь в файл `App_Start\BundleConfig.cs` и замените последнюю инструкцию `bundles.Add` следующим выделенным кодом: <pre class="prettyprint"> bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css")) <mark>.IncludeFallback("~/Content/css", "sr-only", "width", "1px")</mark> .Include( "~/Content/bootstrap.css", "~/Content/site.css")); </pre>
 
 	Этот новый метод расширения использует ту же идею внедрения скрипта в HTML для поиска в модели DOM имени класса, имени правила и значения правила, соответствующих заданным в пакете CSS, и возвращения на исходный веб-сервер при отсутствии соответствия.
 
@@ -467,18 +467,18 @@
 5. Просмотрите код HTML для этой страницы. Вы должны найти внедренные скрипты, аналогичные показанным ниже.<pre class="prettyprint">...
 	
 		&lt;link href=&quot;http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474&quot; rel=&quot;stylesheet&quot;/&gt;
-	<mark>&lt;script&gt;(function() { var loadFallback, len = document.styleSheets.length; for (var i = 0; i &lt; len; i++) { var sheet = document.styleSheets[i]; if (sheet.href.indexOf(&#39;http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474&#39;) !== -1) { var meta = document.createElement(&#39;meta&#39;); meta.className = &#39;sr-only&#39;; document.head.appendChild(meta); var value = window.getComputedStyle(meta).getPropertyValue(&#39;width&#39;); document.head.removeChild(meta); if (value !== &#39;1px&#39;) { document.write(&#39;&lt;link href=&quot;/Content/css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;&#39;); } } } return true; }())||document.write(&#39;&lt;script src=&quot;/Content/css&quot;&gt;&lt;\/script&gt;&#39;);&lt;/script&gt;</mark>
+	<mark>&lt;script&gt;(function() { var loadFallback, len = document.styleSheets.length; for (var i = 0; i &lt; len; i++) { var sheet = document.styleSheets[i]; if (sheet.href.indexOf(&#39;http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474&#39;) !== -1) { var meta = document.createElement(&#39;meta&#39;); meta.className = &#39;sr-only&#39;; document.head.appendChild(meta); var value = window.getComputedStyle(meta).getPropertyValue(&#39;width&#39;); document.head.removeChild(meta); if (value !== &#39;1px&#39;) { document.write(&#39;&lt;link href=&quot;/Content/css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;&#39;); } } } return true; }())||document.write(&#39;&lt;script src=&quot;/Content/css&quot;&gt;&lt;/script&gt;&#39;);&lt;/script&gt;</mark>
 	
 	    &lt;script src=&quot;http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25474&quot;&gt;&lt;/script&gt;
-	<mark>&lt;script&gt;(window.Modernizr)||document.write(&#39;&lt;script src=&quot;/bundles/modernizr&quot;&gt;&lt;\/script&gt;&#39;);&lt;/script&gt;</mark>
+	<mark>&lt;script&gt;(window.Modernizr)||document.write(&#39;&lt;script src=&quot;/bundles/modernizr&quot;&gt;&lt;/script&gt;&#39;);&lt;/script&gt;</mark>
 	
 	...
 	
 	    &lt;script src=&quot;http://az673227.vo.msecnd.net/bundles/jquery?v=1.0.0.25474&quot;&gt;&lt;/script&gt;
-	<mark>&lt;script&gt;(window.jquery)||document.write(&#39;&lt;script src=&quot;/bundles/jquery&quot;&gt;&lt;\/script&gt;&#39;);&lt;/script&gt;</mark>
+	<mark>&lt;script&gt;(window.jquery)||document.write(&#39;&lt;script src=&quot;/bundles/jquery&quot;&gt;&lt;/script&gt;&#39;);&lt;/script&gt;</mark>
 	
 	    &lt;script src=&quot;http://az673227.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25474&quot;&gt;&lt;/script&gt;
-	<mark>&lt;script&gt;($.fn.modal)||document.write(&#39;&lt;script src=&quot;/bundles/bootstrap&quot;&gt;&lt;\/script&gt;&#39;);&lt;/script&gt;</mark>
+	<mark>&lt;script&gt;($.fn.modal)||document.write(&#39;&lt;script src=&quot;/bundles/bootstrap&quot;&gt;&lt;/script&gt;&#39;);&lt;/script&gt;</mark>
 	
 	... </pre>
 

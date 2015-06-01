@@ -208,7 +208,7 @@
 
 ### Создание входной таблицы
 
-1.	Создайте JSON-файл для таблицы фабрики данных, в котором содержатся данные таблицы **emp** в базе данных SQL Server. Запустите программу **Блокнот**, скопируйте в нее следующий JSON-сценарий и сохраните его как файл **EmpOnPremSQLTable.json** в папку с путем C:\ADFGetStarted\**OnPrem**. Создайте вложенную папку **OnPrem** в папке с путем **C:\ADFGetStarted**, если она еще не создана. 
+1.	Создайте JSON-файл для таблицы фабрики данных, в котором содержатся данные таблицы **emp** в базе данных SQL Server. Запустите программу **Блокнот**, скопируйте в нее следующий JSON-сценарий и сохраните его как файл **EmpOnPremSQLTable.json** в папку с путем C:\ADFGetStarted**OnPrem**. Создайте вложенную папку **OnPrem** в папке с путем **C:\ADFGetStarted**, если она еще не создана. 
 
 
         {
@@ -437,7 +437,7 @@
 	**Пример команды и выходных данных**:
 
 
-		PS C:\> New-AzureDataFactoryGateway -Name MyGateway -DataFactoryName $df -Location "West US" -ResourceGroupName ADF -Description "gateway for walkthrough"
+		PS C:> New-AzureDataFactoryGateway -Name MyGateway -DataFactoryName $df -Location "West US" -ResourceGroupName ADF -Description "gateway for walkthrough"
 
 		Name            : MyGateway
 		Location        : West US
@@ -459,12 +459,12 @@
 	**Пример вывода команды:**
 
 
-		PS C:\> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
+		PS C:> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
 
 	
-4. В Azure PowerShell перейдите к папке с путем **C:\Program Files\Microsoft Data Management Gateway\1.0\PowerShellScript\** и выполните сценарий **RegisterGateway.ps1**, связанный с локальной переменной **$Key**, как показано в следующей команде, чтобы зарегистрировать агент клиента, установленный на вашем компьютере с логическим шлюзом, созданным ранее.
+4. В Azure PowerShell перейдите к папке с путем **C:\Program Files\Microsoft Data Management Gateway\1.0\PowerShellScript** и выполните сценарий **RegisterGateway.ps1**, связанный с локальной переменной **$Key**, как показано в следующей команде, чтобы зарегистрировать агент клиента, установленный на вашем компьютере с логическим шлюзом, созданным ранее.
 
-		PS C:\> .\RegisterGateway.ps1 $Key.GatewayKey
+		PS C:> .\RegisterGateway.ps1 $Key.GatewayKey
 		
 		Agent registration is successful!
 
