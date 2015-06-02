@@ -18,7 +18,8 @@
 
 # Ограничения предварительной версии Azure Stream Analytics Preview и известные проблемы
 
-В этом документе описываются ограничения и известные проблемы [Azure Stream Analytics][stream.analytics.documentation] в версии для предварительного ознакомления. В большинстве случаев эти ограничения вводятся для быстрого получения от вас отзывов или в соответствии с действующими ограничениями объемов хранилища. <!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
+В этом документе описываются ограничения и известные проблемы [Azure Stream Analytics][stream.analytics.documentation] в версии для предварительного ознакомления. В большинстве случаев эти ограничения вводятся для быстрого получения от вас отзывов или в соответствии с действующими ограничениями объемов хранилища. 
+<!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
 
 
 ## Ограничения
