@@ -41,21 +41,23 @@
 - **Кластер Azure HDInsight**: указания по подготовке кластеров см. в статье [Приступая к работе с HDInsight][hdinsight-get-started] или [Подготовка кластеров HDInsight к работе][hdinsight-provision]. Для прохождения учебника необходимы следующие данные:
 
 	<table border="1">
-<tr><th>Свойство кластера</th><th>Имя переменной Azure PowerShell</th><th>Значение</th><th>Описание</th></tr>
-<tr><td>Имя кластера HDInsight.</td><td>$clusterName</td><td></td><td>Имя кластера HDInsight.</td></tr>
-<tr><td>Имя учетной записи хранения Azure</td><td>$storageAccountName</td><td></td><td>Учетная запись хранения Azure, доступная для кластера HDInsight. В этом учебнике используйте учетную запись хранения по умолчанию, указанную в процессе подготовки кластера.</td></tr>
-<tr><td>Имя контейнера BLOB-объектов Azure</td><td>$containerName</td><td></td><td>Для этого примера используйте имя большого двоичного объекта, который применяется для стандартной файловой системы кластера HDInsight. По умолчанию его имя совпадает с именем кластера HDInsight.</td></tr>
-</table>
+	<tr><th>Свойство кластера</th><th>Имя переменной Azure PowerShell</th><th>Значение</th><th>Описание</th></tr>
+	<tr><td>Имя кластера HDInsight.</td><td>$clusterName</td><td></td><td>Имя кластера HDInsight.</td></tr>
+	<tr><td>Имя учетной записи хранения Azure</td><td>$storageAccountName</td><td></td><td>Учетная запись хранения Azure, доступная для кластера HDInsight. В этом учебнике используйте учетную запись хранения по умолчанию, указанную в процессе подготовки кластера.</td></tr>
+	<tr><td>Имя контейнера BLOB-объектов Azure</td><td>$containerName</td><td></td><td>Для этого примера используйте имя большого двоичного объекта, который применяется для стандартной файловой системы кластера HDInsight. По умолчанию его имя совпадает с именем кластера HDInsight.</td></tr>
+	</table>
 
 - **База данных SQL Azure**: необходимо настроить правило брандмауэра для сервера базы данных SQL Azure, чтобы разрешить доступ с рабочей станции. Инструкции по созданию базы данных SQL Azure и настройке брандмауэра см. в статье [Приступая к работе с базой данных SQL Azure][sqldatabase-get-started]. Эта статья включает сценарий Windows PowerShell для создания таблицы базы данных SQL Azure, необходимой в рамках этого учебника.
 
 	<table border="1">
-<tr><th>Свойство базы данных SQL Azure</th><th>Имя переменной Azure PowerShell</th><th>Значение</th><th>Описание</th></tr>
-<tr><td>Имя сервера базы данных SQL Azure</td><td>$sqlDatabaseServer</td><td></td><td>Сервер базы данных SQL Azure, на который Sqoop экспортирует данные или с которого он импортирует их. </td></tr>
-<tr><td>Имя для входа в базу данных SQL Azure</td><td>$sqlDatabaseLogin</td><td></td><td>Имя для входа в базу данных SQL Azure.</td></tr>
-<tr><td>Пароль для входа в базу данных SQL Azure</td><td>$sqlDatabasePassword</td><td></td><td>Пароль для входа в базу данных SQL Azure.</td></tr>
-<tr><td>Имя базы данных SQL Azure</td><td>$sqlDatabaseName</td><td></td><td>Сервер базы данных SQL Azure, на который Sqoop экспортирует данные или с которого он импортирует их. </td></tr>
-</table>> [AZURE.NOTE]По умолчанию в базе данных SQL Azure разрешены подключения из служб Azure, таких как Azure HDInsight. Если этот параметр брандмауэра отключен, вы должны включить его на портале Azure. Инструкции по созданию базы данных SQL Azure и настройке правил брандмауэра см. в статье [Создание и настройка базы данных SQL Azure][sqldatabase-create-configue].
+	<tr><th>Свойство базы данных SQL Azure</th><th>Имя переменной Azure PowerShell</th><th>Значение</th><th>Описание</th></tr>
+	<tr><td>Имя сервера базы данных SQL Azure</td><td>$sqlDatabaseServer</td><td></td><td>Сервер базы данных SQL Azure, на который Sqoop экспортирует данные или с которого он импортирует их. </td></tr>
+	<tr><td>Имя для входа в базу данных SQL Azure</td><td>$sqlDatabaseLogin</td><td></td><td>Имя для входа в базу данных SQL Azure.</td></tr>
+	<tr><td>Пароль для входа в базу данных SQL Azure</td><td>$sqlDatabasePassword</td><td></td><td>Пароль для входа в базу данных SQL Azure.</td></tr>
+	<tr><td>Имя базы данных SQL Azure</td><td>$sqlDatabaseName</td><td></td><td>Сервер базы данных SQL Azure, на который Sqoop экспортирует данные или с которого он импортирует их. </td></tr>
+	</table>
+
+	> [AZURE.NOTE]По умолчанию в базе данных SQL Azure разрешены подключения из служб Azure, таких как Azure HDInsight. Если этот параметр брандмауэра отключен, вы должны включить его на портале Azure. Инструкции по созданию базы данных SQL Azure и настройке правил брандмауэра см. в статье [Создание и настройка базы данных SQL Azure][sqldatabase-create-configue].
 
 * **SQL Server**: если ваш кластер HDInsight находится в той же виртуальной сети Azure, что и SQL Server, эта статья поможет вам разобраться с импортом данных в базу данных SQL Server и их экспортом из нее.
 
@@ -71,15 +73,15 @@
 
 	* Сведения о подготовке кластера HDInsight в виртуальной сети см. в статье [Подготовка кластеров Hadoop в HDInsight с использованием настраиваемых параметров](hdinsight-provision-clusters.md).
 
-	> [AZURE.NOTE]Кроме того, SQL Server должен разрешать проверку подлинности. Для выполнения шагов, описанных в этой статье, вам понадобится использовать данные для входа на SQL Server.
+	> [AZURE.NOTE] Кроме того, SQL Server должен разрешать проверку подлинности. Для выполнения шагов, описанных в этой статье, вам понадобится использовать данные для входа на SQL Server.
 
 	<table border="1">
-<tr><th>Свойство базы данных SQL Server</th><th>Имя переменной Azure PowerShell</th><th>Значение</th><th>Описание</th></tr>
-<tr><td>Имя сервера SQL</td><td>$sqlDatabaseServer</td><td></td><td>Сервер SQL, куда Sqoop экспортирует данные или откуда импортирует данные. </td></tr>
-<tr><td>Имя пользователя для сервера SQL</td><td>$sqlDatabaseLogin</td><td></td><td>Имя для входа на SQL Server.</td></tr>
-<tr><td>Пароль для входа на SQL Server</td><td>$sqlDatabasePassword</td><td></td><td>Пароль имени для входа на SQL Server.</td></tr>
-<tr><td>Имя базы данных сервера SQL</td><td>$sqlDatabaseName</td><td></td><td>База данных SQL Server, в которую Sqoop экспортирует данные и из которой он импортирует их. </td></tr>
-</table>
+	<tr><th>Свойство базы данных SQL Server</th><th>Имя переменной Azure PowerShell</th><th>Значение</th><th>Описание</th></tr>
+	<tr><td>Имя сервера SQL</td><td>$sqlDatabaseServer</td><td></td><td>Сервер SQL, куда Sqoop экспортирует данные или откуда импортирует данные. </td></tr>
+	<tr><td>Имя пользователя для сервера SQL</td><td>$sqlDatabaseLogin</td><td></td><td>Имя для входа на SQL Server.</td></tr>
+	<tr><td>Пароль для входа на SQL Server</td><td>$sqlDatabasePassword</td><td></td><td>Пароль имени для входа на SQL Server.</td></tr>
+	<tr><td>Имя базы данных сервера SQL</td><td>$sqlDatabaseName</td><td></td><td>База данных SQL Server, в которую Sqoop экспортирует данные и из которой он импортирует их. </td></tr>
+	</table>
 
 
 > [AZURE.NOTE]Введите значения в предыдущие таблицы. Это будет полезно при прохождении данного учебника.
@@ -97,19 +99,19 @@
 - Таблица Hive с именем *hivesampletable*, которая ссылается на файл данных, расположенный в */hive/warehouse/hivesampletable*. Эта таблица содержит некоторые данные о мобильных устройствах. Схема таблицы Hive:
 
 	<table border="1">
-<tr><th>Поле</th><th>Тип данных</th></tr>
-<tr><td>clientid</td><td>string</td></tr>
-<tr><td>querytime</td><td>string</td></tr>
-<tr><td>market</td><td>string</td></tr>
-<tr><td>deviceplatform</td><td>string</td></tr>
-<tr><td>devicemake</td><td>string</td></tr>
-<tr><td>devicemodel</td><td>string</td></tr>
-<tr><td>state</td><td>string</td></tr>
-<tr><td>country</td><td>string</td></tr>
-<tr><td>querydwelltime</td><td>double</td></tr>
-<tr><td>sessionid</td><td>bigint</td></tr>
-<tr><td>sessionpagevieworder</td><td>bigint</td></tr>
-</table>
+	<tr><th>Поле</th><th>Тип данных</th></tr>
+	<tr><td>clientid</td><td>string</td></tr>
+	<tr><td>querytime</td><td>string</td></tr>
+	<tr><td>market</td><td>string</td></tr>
+	<tr><td>deviceplatform</td><td>string</td></tr>
+	<tr><td>devicemake</td><td>string</td></tr>
+	<tr><td>devicemodel</td><td>string</td></tr>
+	<tr><td>state</td><td>string</td></tr>
+	<tr><td>country</td><td>string</td></tr>
+	<tr><td>querydwelltime</td><td>double</td></tr>
+	<tr><td>sessionid</td><td>bigint</td></tr>
+	<tr><td>sessionpagevieworder</td><td>bigint</td></tr>
+	</table>
 
 Сначала вы экспортируете *sample.log* и *hivesampletable* в базу данных SQL Azur или на SQL Server, а затем импортируете таблицу с данными о мобильных устройствах обратно в HDInsight, используя следующий путь:
 
@@ -348,7 +350,7 @@ HDInsight использует для хранения данных хранил
 
 В этом разделе вы будете использовать Azure PowerShell для выполнения команды экспорта Sqoop с целью экспорта таблицы Hive и файла данных в базу данных SQL Azure или на SQL Server. Следующий раздел содержит пример HDInsight .NET.
 
-> [AZURE.NOTE]Кроме информации в строке соединения, описанные в этом разделе шаги должны подходить как для базы данных SQL Azure, так и для SQL Server. Эти шаги были протестированы для следующей конфигурации:
+> [AZURE.NOTE] Кроме информации в строке соединения, описанные в этом разделе шаги должны подходить как для базы данных SQL Azure, так и для SQL Server. Эти шаги были протестированы для следующей конфигурации:
 > 
 > * **Конфигурация виртуальной сети Azure типа "точка-сеть"**: кластер HDInsight, подключенный через виртуальную сеть к SQL Server в частном центре обработки данных. Дополнительную информацию см. в разделе [Настройка VPN "точка-сеть" на портале управления](http://msdn.microsoft.com/library/azure/dn133792.aspx) .
 > * **Azure HDInsight 3.1**: см. статью [Подготовка кластеров Hadoop в HDInsight с использованием настраиваемых параметров](hdinsight-provision-clusters.md) для получения более подробной информации о создании кластера в виртуальной сети.
@@ -403,7 +405,7 @@ HDInsight использует для хранения данных хранил
 		Write-Host "Standard Output" -BackgroundColor Green
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $sqoopJob.JobId -StandardOutput
 
-	Обратите внимание на то, что в качестве разделителя полей используется **\\0x20**, то есть пробел. Разделитель определяется в файле sample.log сценария Azure PowerShell. Чтобы узнать о **-m 1**, см. [руководство пользователя Sqoop][sqoop-user-guide-1.4.4].
+	Обратите внимание на то, что в качестве разделителя полей используется **\0x20**, то есть пробел. Разделитель определяется в файле sample.log сценария Azure PowerShell. Чтобы узнать о **-m 1**, см. [руководство пользователя Sqoop][sqoop-user-guide-1.4.4].
 
 5. Для выполнения скрипта щелкните **Выполнить скрипт** или нажмите клавишу **F5**.
 6. Используйте [портал Azure][azure-management-portal] для анализа экспортированных данных.
@@ -615,9 +617,9 @@ HDInsight использует для хранения данных хранил
 
 Теперь вы узнали, как использовать Sqoop. Дополнительные сведения см. на следующих ресурсах:
 
-- [Использование Oozie с HDInsight][hdinsight-use-oozie]\: используйте действие Sqoop в рабочем процессе Oozie.
-- [Анализ данных о задержке рейсов с помощью HDInsight][hdinsight-analyze-flight-data]\: используйте Hive для анализа данных о задержке рейсов, а затем используйте Sqoop для экспорта данных в базу данных SQL Azure.
-- [Передача данных в HDInsight][hdinsight-upload-data]\: узнайте о других способах отправки данных в HDInsight и хранилище больших двоичных объектов Azure.
+- [Использование Oozie с HDInsight][hdinsight-use-oozie]: используйте действие Sqoop в рабочем процессе Oozie.
+- [Анализ данных о задержке рейсов с помощью HDInsight][hdinsight-analyze-flight-data]: используйте Hive для анализа данных о задержке рейсов, а затем используйте Sqoop для экспорта данных в базу данных SQL Azure.
+- [Передача данных в HDInsight][hdinsight-upload-data]: узнайте о других способах отправки данных в HDInsight и хранилище больших двоичных объектов Azure.
 
 
  
