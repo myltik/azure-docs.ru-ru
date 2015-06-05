@@ -52,9 +52,9 @@
 2. Щелкните надстройку **MongoLab**.  
 ![MongoLab][entry-mongolab]
 3. Щелкните надстройку **MongoLab** в списке надстроек, а затем выберите пункт **Сведения о подключении**.  
-![ConnectionInfoButton][button-connectioninfo]  
+![ConnectionInfoButton](./media/store-mongolab-web-sites-nodejs-store-data-mongodb/button-connectioninfo.png)  
 4. Скопируйте **MONGOLAB_URI** в буфер обмена.  
-![ConnectionInfoScreen][screen-connectioninfo]
+![ConnectionInfoScreen](./media/store-mongolab-web-sites-nodejs-store-data-mongodb/dialog-mongolab_connectioninfo.png)
 
 	>[AZURE.NOTE]Этот универсальный код ресурса (URI) содержит имя пользователя базы данных и пароль. Считайте это конфиденциальной информацией и не передавайте ее.
 
@@ -543,7 +543,6 @@
 [button-store]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/button-store.png
 [entry-mongolab]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/entry-mongolab.png
 [button-connectioninfo]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/button-connectioninfo.png
-[screen-connectioninfo]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/dialog-mongolab_connectioninfo.png
 [focus-website-connectinfo]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/focus-mongolab-websiteconnectionstring.png
 [provision]: #provision
 [create]: #create
