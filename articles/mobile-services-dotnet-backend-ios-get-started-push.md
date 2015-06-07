@@ -55,7 +55,7 @@
 [AZURE.INCLUDE [mobile-services-apns-configure-push](../includes/mobile-services-apns-configure-push.md)]
 
 
-##<a id="update-server"></a>Обновление сервера для отправки push-уведомлений
+## <a id="update-server"></a>Обновление сервера для отправки push-уведомлений
 
 1. В обозревателе решений Visual Studio разверните папку **Контроллеры** в проекте мобильной службы. Откройте файл TodoItemController.cs. Добавьте следующие операторы `using` в начало файла:
 
@@ -86,7 +86,7 @@
     Этот код отправит push-уведомление (с текстом вставленного элемента) после вставки элемента списка дел. В случае возникновения ошибки код добавит запись в журнал ошибок, которую можно просмотреть на вкладке **Журналы** мобильной службы на портале управления.
 
 
-##<a name="publish-the-service"></a>Публикация мобильной службы в Azure
+## <a name="publish-the-service"></a>Публикация мобильной службы в Azure
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
@@ -147,7 +147,7 @@
 
 Ваше приложение теперь обновлено для поддержки push-уведомлений.
 
-##<a id="local-testing"></a> Включение push-уведомлений для локального тестирования
+## <a id="local-testing"></a> Включение push-уведомлений для локального тестирования
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-configure-local-push](../includes/mobile-services-dotnet-backend-configure-local-push.md)]
 

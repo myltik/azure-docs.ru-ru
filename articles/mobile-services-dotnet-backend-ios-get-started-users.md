@@ -22,27 +22,27 @@
 
 В этом учебнике вы добавляете проверку подлинности в проект быстрого запуска с помощью поддерживаемого поставщика удостоверений. Этот учебник создан на основе [краткого учебника по мобильным службам], который необходимо пройти в первую очередь.
 
-##<a name="register"></a>Регистрация приложения для проверки подлинности и настройка мобильных служб
+## <a name="register"></a>Регистрация приложения для проверки подлинности и настройка мобильных служб
 
 [AZURE.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)]
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-aad-server-extension](../includes/mobile-services-dotnet-backend-aad-server-extension.md)]
 
-##<a name="permissions"></a>Предоставление разрешений только пользователям, прошедшим проверку подлинности
+## <a name="permissions"></a>Предоставление разрешений только пользователям, прошедшим проверку подлинности
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
 
 В Xcode откройте проект. Нажмите кнопку **Запустить**, чтобы открыть приложение. Убедитесь, что после запуска приложения возникло исключение с кодом состояния 401 (Unauthorized). Это происходит, потому что приложение пытается получить доступ к мобильным службам как пользователь, не прошедший проверку подлинности, а таблица _TodoItem_ теперь требует выполнения проверки подлинности.
 
-##<a name="add-authentication"></a>Добавление проверки подлинности в приложение
+## <a name="add-authentication"></a>Добавление проверки подлинности в приложение
 
 [AZURE.INCLUDE [mobile-services-ios-authenticate-app](../includes/mobile-services-ios-authenticate-app.md)]
 
-##<a name="store-authentication"></a>Сохранение маркеров проверки подлинности в приложении
+## <a name="store-authentication"></a>Сохранение маркеров проверки подлинности в приложении
 
 [AZURE.INCLUDE [mobile-services-ios-authenticate-app-with-token](../includes/mobile-services-ios-authenticate-app-with-token.md)]
 
-##<a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 
 В следующем учебнике, который называется [Авторизация пользователей мобильных служб на стороне службы], вы воспользуетесь ИД пользователя для фильтрации возвращаемых данных.
 

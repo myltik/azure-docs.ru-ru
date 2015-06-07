@@ -219,9 +219,28 @@
 1. В **обозревателе решений** щелкните правой кнопкой мыши папку *Модели* и выберите **Добавить** -> **Класс**. ![Выбор класса](./media/web-sites-dotnet-web-forms-secure/SecureWebForms12.png) Откроется диалоговое окно **Добавление нового элемента**.  
 
 2. Назовите этот новый класс *Contacts.cs*. ![Диалоговое окно "Добавление нового элемента"](./media/web-sites-dotnet-web-forms-secure/SecureWebForms13.png)
-3. Замените код по умолчанию следующим кодом: <pre class="prettyprint"> using System.ComponentModel.DataAnnotations; using System.Globalization;
+3. Замените код по умолчанию следующим кодом: 
+	<pre class="prettyprint">
+	using System.ComponentModel.DataAnnotations;
+	using System.Globalization;
 	
-	namespace ContactManager.Models { public class Contacts { [ScaffoldColumn(false)][Key] public int ContactId { get; set; } public string Name { get; set; } public string Address { get; set; } public string City { get; set; } public string State { get; set; } public string Zip { get; set; } [DataType(DataType.EmailAddress)] public string Email { get; set; } } } </pre>
+	namespace ContactManager.Models
+	{
+	    public class Contacts
+	    {
+	        [ScaffoldColumn(false)]
+	        [Key]
+	        public int ContactId { get; set; }
+	        public string Name { get; set; }
+	        public string Address { get; set; }
+	        public string City { get; set; }
+	        public string State { get; set; }
+	        public string Zip { get; set; }
+	        [DataType(DataType.EmailAddress)]
+	        public string Email { get; set; }
+	    }
+	}
+	</pre>
 
 Класс **Contacts** определяет данные, которые будут храниться для каждого контакта, а также первичный ключ (`ContactID`), необходимый для базы данных. Класс **Contacts** отражает контактные данные, которые будут отображаться. Каждый экземпляр объекта Contacts будет соответствовать ряду в таблице реляционной базы данных, а каждое свойство класса Contacts — столбцу в таблице реляционной базе данных. Далее в этом учебнике вы просмотрите контактные данные, содержащиеся в базе данных.
 

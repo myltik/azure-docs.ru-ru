@@ -41,7 +41,8 @@
 
 **Создание проекта с помощью Maven**
 
-1. Создайте каталог **C:\\Tutorials\\WordCountJava**.2. В командной строке в вашей среде разработки перейдите во вновь созданный каталог.
+1. Создайте каталог **C:\\Tutorials\\WordCountJava**.
+2. В командной строке в вашей среде разработки перейдите во вновь созданный каталог.
 3. Используйте команду __mvn__, которая будет установлена вместе с Maven, для создания шаблона проекта.
 
 		mvn archetype:generate -DgroupId=org.apache.hadoop.examples -DartifactId=wordcountjava -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false

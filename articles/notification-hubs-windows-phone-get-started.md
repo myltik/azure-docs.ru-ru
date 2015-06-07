@@ -77,7 +77,7 @@
 
 	In Visual Studio 2013 Update 2 or later, you instead create a Windows Phone Silverlight application.
 	
-	![][11]
+	![][11]	
 
 2. В Visual Studio щелкните правой кнопкой мыши решение, а затем щелкните **Управление пакетами NuGet**. 
 
@@ -154,8 +154,8 @@
         {
             NotificationHubClient hub = NotificationHubClient
 				.CreateClientFromConnectionString("<connection string with full access>", "<hub name>");
-            string toast = "<?xml version="1.0" encoding="utf-8"?>" +
-                "<wp:Notification xmlns:wp="WPNotification">" +
+            string toast = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
+                "<wp:Notification xmlns:wp=\"WPNotification\">" +
                    "<wp:Toast>" +
                         "<wp:Text1>Hello from a .NET App!</wp:Text1>" +
                    "</wp:Toast> " +
