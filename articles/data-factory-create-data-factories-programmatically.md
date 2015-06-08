@@ -1,38 +1,53 @@
-﻿<properties title="Create, monitor, and manage Azure data factories using Data Factory SDK" pageTitle="Создание, отслеживание фабрик данных Azure и управление ими с помощью Data Factory SDK" description="Узнайте, как программно создавать, мониторинга и управления фабрики данных Azure с помощью пакета SDK фабрики данных." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+<properties 
+	pageTitle="Создание, отслеживание фабрик данных Azure и управление ими с помощью Data Factory SDK" 
+	description="Узнайте, как программным способом создания, мониторинга и управления фабрики данных Azure с помощью пакета SDK фабрики данных." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/08/2014" ms.author="spelluru" />
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="04/14/2015" 
+	ms.author="spelluru"/>
 
 # Создание, отслеживание фабрик данных Azure и управление ими с помощью Data Factory .NET SDK
-Создание, отслеживание фабрик данных и управление ими программным способом с помощью Data Factory .NET SDK. Эта статья содержит пошаговое руководство по созданию образца консольного приложения .NET, которое будет создавать и отслеживать фабрику данных. См. подробные сведения о Data Factory .NET SDK в [справочнике по библиотеке классов фабрики данных][adf-class-library-reference]. 
+## Обзор
+Создание, отслеживание фабрик данных и управление ими программным способом с помощью Data Factory .NET SDK. Эта статья содержит пошаговое руководство по созданию образца консольного приложения .NET, которое будет создавать и отслеживать фабрику данных. В разделе [Справочник по библиотеке классов данных фабрики][adf-class-library-reference] подробные сведения о данных фабрики .NET SDK.
 
-## Пошаговое руководство. Создание фабрики данных Azure с помощью Data Factory .NET SDK
 
-**Предварительные требования:**
+
+## Предварительные требования
 
 - Visual Studio 2012 или 2013
-- Загрузите и установите [Microsoft Azure .NET SDK][azure-developer-center]
+- Загрузите и установите [Azure .NET SDK][azure-developer-center]
 - Загрузите и установите пакеты NuGet для фабрик данных Azure. Инструкции приведены в этом пошаговом руководстве.
 
-### Шаг 1. Создание фабрики данных Azure с помощью Data Factory .NET SDK
+## Пошаговое руководство
 1. С помощью Visual Studio 2012 или 2013 создайте консольное приложение C# .NET.
 	<ol type="a">
-		<li>Запустите <b>Visual Studio 2012</b> или <b>Visual Studio 2013</b>.</li>
-		<li>Щелкните  <b>Файл</b>, выберите <b>Создать</b>и щелкните <b>Проект</b>.</li> 
-		<li>Развернуть <b>Шаблоны</b>и выберите <b>Visual C#</b>. В этом пошаговом руководстве используется C#, но можно использовать любой язык .NET.</li> 
-		<li>Выберите <b>Консольное приложение</b> в списке типов проектов справа.</li>
-		<li>Введите: <b>DataFactoryAPITestApp</b> для <b>Имя</b>.</li> 
-		<li>Выберите <b>C:\ADFGetStarted</b> для <b>Расположение</b>.</li>
-		<li>Щелкните <b>OK</b> , чтобы создать проект.</li>
-	</ol>
-2. Щелкните <b>Средства</b>, выберите <b>Диспетчер пакетов NuGet</b>и щелкните <b>Консоль диспетчера пакетов</b>.
-3.	В диалоговом окне <b>Консоль диспетчера пакетов</b>, выполните следующие команды.</b>. 
+	<li>Запустите <b>Visual Studio 2012</b> или <b>Visual Studio 2013</b>.</li>
+	<li>Щелкните <b>файл</b>, пункты <b>Создать</b>, и нажмите кнопку <b>проекта</b>.</li> 
+	<li>Разверните <b>шаблоны</b>, и выберите <b>Visual C#</b>. В этом пошаговом руководстве используется C#, но можно использовать любой язык .NET.</li> 
+	<li>Выберите <b>консольного приложения</b> в списке типов проектов справа.</li>
+	<li>Введите <b>DataFactoryAPITestApp</b> для <b>имя</b>.</li> 
+	<li>Выберите <b>C:\ADFGetStarted</b> для <b>расположение</b>.</li>
+	<li>Нажмите кнопку <b>ОК</b>, чтобы создать проект.</li>
+</ol>
+2. Щелкните <b>средства</b>, пункты <b>Диспетчер пакетов NuGet</b>, и нажмите кнопку <b>консоли диспетчера пакетов</b>.
+3.	В <b>консоли диспетчера пакетов</b>, выполните следующие команды по одному.</b>. 
 
-		Install-Package Microsoft.Azure.Management.DataFactories -Pre
-		Install-Package Microsoft.DataFactories.Runtime -Pre
+		Install-Package Microsoft.Azure.Management.DataFactories –Pre
+		Install-Package Microsoft.DataFactories.Runtime –Pre
 		Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
-6. Добавьте следующий раздел **appSetttings** файла **App.config**. Они используются вспомогательным методом: **GetAuthorizationHeader**. 
+6. Добавьте следующий **appSetttings** раздел **App.config** файл. Они используются при помощи вспомогательного метода: **GetAuthorizationHeader**. 
 
-	Замените значения **SubscriptionId** и **ActiveDirectoryTenantId** идентификаторами подписки Azure и клиента. Эти значения можно получить, выполнив **Get-AzureAccount** из Azure PowerShell (может потребоваться сначала войти в систему через Add-AzureAccount).
+	Замените значения **SubscriptionId** и **ActiveDirectoryTenantId** на идентификаторы подписки Azure и клиента. Эти значения можно получить, выполнив **Get-AzureAccount** из Azure PowerShell (может потребоваться сначала войти в систему с помощью Add-AzureAccount).
  
 		<appSettings>
 		    <!--CSM Prod related values-->
@@ -45,7 +60,7 @@
 		    <add key="SubscriptionId" value="49fb6e5f-3098-4fb2-ba2f-6d6eed843a65" />
     		<add key="ActiveDirectoryTenantId" value="37330244-7828-4a28-99b7-c8c3a437c7ac" />
 		</appSettings>
-6. Добавьте следующие инструкции с оператором **using** в исходный файл (Program.cs) в проекте.
+6. Добавьте следующий **с помощью** инструкции к файлу исходного кода (Program.cs) в проекте.
 
 		using System.Threading;
 		using System.Configuration;
@@ -54,8 +69,8 @@
 		using Microsoft.Azure.Management.DataFactories;
 		using Microsoft.Azure.Management.DataFactories.Models;
 		using Microsoft.IdentityModel.Clients.ActiveDirectory;
-		using Microsoft.WindowsAzure; 
-6. Добавьте следующий код для создания экземпляра класса **DataPipelineManagementClient** в метод **Main**. Этот объект служит для создания фабрики данных, связанной службы, входных и выходных таблиц и конвейера. Кроме того, этот объект используется для отслеживания фрагментов таблицы во время выполнения.    
+		using Microsoft.Azure; 
+6. Добавьте следующий код, который создает экземпляр **DataPipelineManagementClient** класса **Main** метод. Этот объект служит для создания фабрики данных, связанной службы, входных и выходных таблиц и конвейера. Кроме того, этот объект используется для отслеживания фрагментов таблицы во время выполнения.    
 
         // create data pipeline management client
         string resourceGroupName = "ADF";
@@ -69,7 +84,7 @@
         Uri resourceManagerUri = new Uri(ConfigurationManager.AppSettings["ResourceManagerEndpoint"]);
 
         DataPipelineManagementClient client = new DataPipelineManagementClient(aadTokenCredentials, resourceManagerUri);
-7. Add the following code that creates a **data factory** to the **Main** method.
+7. Добавьте следующий код, создающий **фабрика данных** для **Main** метод.
 
         // create a data factory
         Console.WriteLine("Creating a data factory");
@@ -84,8 +99,8 @@
                 }
             }
         );
-8. Добавьте следующий код, который создает **связанную службу**, в метод **Main**. 
-	> [WACOM.NOTE] Укажите **имя учетной записи** и **ключ учетной записи** для своей учетной записи хранения Azure в **ConnectionString**. 
+8. Добавьте следующий код, создающий **связанные службы** для **Main** метод.
+	> [AZURE.NOTE]**Имя учетной записи****ключ учетной записи****ConnectionString** 
 
 		// create a linked service
         Console.WriteLine("Creating a linked service");
@@ -102,11 +117,11 @@
                 }
             }
         );
-9. Добавьте следующий код для создания **входных и выходных таблиц** в метод **Main**. 
+9. Добавьте следующий код, создающий **входных и выходных таблицах** для **Main** метод. 
 
-	Обратите внимание, что **FolderPath** для входного большого двоичного объекта имеет значение **adftutorial/**, где **adftutorial** - это имя контейнера в хранилище больших двоичных объектов. Если этот контейнер не существует в хранилище больших двоичных объектов Azure, то создайте контейнер с именем **adftutorial** и отправьте текстовый файл в контейнер.
+	Обратите внимание, что **FolderPath** для входного большого двоичного объекта имеет значение **adftutorial /** где **adftutorial** имя контейнера в хранилище больших двоичных объектов. Если этот контейнер не существует в хранилище Azure blob, создать контейнер с таким именем: **adftutorial** и отправки текстового файла в контейнер.
 	
-	Обратите внимание, что FolderPath для выходного большого двоичного объекта имеет значение **adftutorial/apifactoryoutput/{срез}**, где **срез** динамически рассчитывается на основе значения из **SliceStart** (дата-время начала каждого фрагмента).  
+	Обратите внимание, что FolderPath выходные данные большого двоичного объекта равен: **adftutorial/apifactoryoutput / {срез}** где **срез** динамически рассчитывается на основе значения из **SliceStart** (запуск даты и времени каждого среза).
 
  
         // create input and output tables
@@ -180,7 +195,7 @@
                     }
                 }
             });
-10. Добавьте следующий код, который **создает и активирует конвейер**, в метод **Main**. Этот конвейер содержит **CopyActivity**, который принимает **BlobSource** как источник и **BlobSink** как приемник. 
+10. Добавьте следующий код, **создает и активирует конвейера** для **Main** метод. Этот конвейер имеет **CopyActivity** принимающий **BlobSource** как источник и **BlobSink** как приемника. 
 
         // create a pipeline
         Console.WriteLine("Creating a pipeline");
@@ -252,7 +267,7 @@
                 }
             });
 
-11. Добавьте следующий вспомогательный метод, используемый методом **Main**, в класс **Program**. Этот метод выводит диалоговое окно для ввода **имени пользователя** и **пароля** для входа на портал Azure. 
+11. Добавьте следующий вспомогательный метод, используемый **Main** метод **программы** класса. Этот метод выводит диалоговое окно позволяет задать **имя пользователя** и **пароль** используемой для входа на портал Azure.
  
 		public static string GetAuthorizationHeader()
         {
@@ -288,7 +303,7 @@
             throw new InvalidOperationException("Failed to acquire token");
         }  
  
-13. Добавьте следующий код в метод **Main**, чтобы получить состояние среза данных выходной таблицы. Существует только срез, ожидаемый в этом образце.   
+13. Добавьте следующий код, чтобы **Main** метод для получения состояния срез данных выходной таблицы. Существует только срез, ожидаемый в этом образце.
  
         // Pulling status within a timeout threshold
         DateTime start = DateTime.Now;
@@ -319,7 +334,7 @@
             }
         }
 
-14. Добавьте в метод **Main** следующий код для получения данных о выполнении для среза данных.
+14. Добавьте следующий код для получения выполнения сведения для фрагмента срез данных, чтобы **Main** метод.
 
         Console.WriteLine("Getting run details of a data slice");
 
@@ -341,40 +356,35 @@
         Console.ReadKey();
     }
 
-15. Постройте консольное приложение. Щелкните **Построить** в меню и щелкните **Построить решение**.
+15. Постройте консольное приложение. Щелкните **построения** меню и нажмите кнопку **Построить решение**.
 16. Убедитесь, что как минимум один файл существует в контейнере adftutorial в хранилище больших двоичных объектов Azure. В противном случае создайте файл Emp.txt в блокноте со следующим содержимым и передайте его в контейнер adftutorial.
 
         John, Doe
 		Jane, Doe
 	 
-17. Запустите образец, нажав кнопку **Отладка** -> **Начать отладку** в меню.
-18. На портале предварительной версии Azure убедитесь, что фабрика данных **APITutorialFactory** создана со следующими артефактами: 
-	- Связанная служба: **LinkedService_AzureStorage** 
-	- Tables: **TableBlobSource** b **TableBlobDestination**.
+17. Запуск образца, нажав кнопку **отладки** -> **Начать отладку** меню.
+18. Использовать портал предварительной версии Azure убедитесь, что фабрика данных: **APITutorialFactory** создается с следующие артефакты: 
+	- Связанные службы: **LinkedService_AzureStorage** 
+	- Таблицы: **TableBlobSource** и **TableBlobDestination**.
 	- Конвейер: **PipelineBlobSample** 
-18. Убедитесь, что выходной файл создается в папке **apifactoryoutput** в контейнере **adftutorial**.
+18. Убедитесь, что выходной файл создается в **apifactoryoutput** папки в **adftutorial** контейнера.
 
 
 ## См. также
 
 Статья | Описание
 ------ | ---------------
-[Введение в фабрику данных Azure][data-factory-introduction] | Данная статья содержит обзор служб фабрики данных Azure, основных ее принципов, предоставляемых значений и поддерживаемых сценариев.
-[Приступая к работе с фабрикой данных Azure][adf-getstarted] | В этой статье содержится подробный учебник по созданию образца фабрики данных Azure, которая копирует данные из большого двоичного объекта Azure в базу данных SQL Azure.
-[Включение конвейеров для работы с локальными данными][use-onpremises-datasources] | Эта статья содержит пошаговое руководство, которое показывает, как скопировать данные из локальной базы данных SQL Server в большой двоичный объект Azure.
-[Учебник. Перемещение и обработка файлов журнала с помощью фабрики данных][adf-tutorial] | В этой статье содержится подробное пошаговое руководство, которое показывает, как реализовать практически реальный сценарий с использованием фабрики данных Azure для преобразования данных из файлов журнала в подробные данные.
-[Использование пользовательских действий в фабрике данных][use-custom-activities] | В этой статье приводится подробное руководство с пошаговыми инструкциями по созданию пользовательских действий и использованию их в конвейере. 
-[Справочник разработчика фабрики данных Azure][developer-reference] | Справочник разработчика содержит полную справку по командлетам, сценарию JSON, функциям и т. д. 
+[Справочник разработчика фабрики данных Azure][developer-reference] | Справочник разработчика имеет полный справочные материалы по библиотеке классов .NET, командлеты, скрипта JSON, функции, и т. д... 
 
 
-[data-factory-introduction]: ../data-factory-introduction
-[adf-getstarted]: ../data-factory-get-started
-[use-onpremises-datasources]: ../data-factory-use-onpremises-datasources
-[adf-tutorial]: ../data-factory-tutorial
-[use-custom-activities]: ../data-factory-use-custom-activities
+[data-factory-introduction]: data-factory-introduction.md
+[adf-getstarted]: data-factory-get-started.md
+[use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
+[adf-tutorial]: data-factory-tutorial.md
+[use-custom-activities]: data-factory-use-custom-activities.md
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
  
 [adf-class-library-reference]: http://go.microsoft.com/fwlink/?LinkID=521877
-[azure-developer-center]: http://azure.microsoft.com/ru-ru/downloads/
+[azure-developer-center]: http://azure.microsoft.com/downloads/
 
-<!--HONumber=35.2-->
+<!---HONumber=GIT-SubDir-->

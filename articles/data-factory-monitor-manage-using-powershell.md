@@ -1,6 +1,6 @@
-﻿<properties 
-	pageTitle="Мониторинг и управление фабрикой данных Azure с помощью Azure PowerShell" 
-	description="Узнайте, как отслеживать и контролировать созданные фабрики данных Azure с помощью Azure PowerShell." 
+<properties 
+	pageTitle="Учебник: Создание и отслеживание фабрику данных Azure с помощью Azure PowerShell" 
+	description="Узнайте, как использовать Azure PowerShell для создания и мониторинга фабрики данных Azure." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -13,417 +13,415 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2/10/2015" 
+	ms.date="05/04/2015" 
 	ms.author="spelluru"/>
 
-# Мониторинг и управление фабрикой данных Azure с помощью Azure PowerShell
-В следующей таблице перечислены командлеты, которые вы можете использовать для мониторинга и управления фабриками данных Azure с помощью Azure PowerShell. 
+# Учебник: Создание и отслеживание фабрику данных с помощью Azure PowerShell
+> [AZURE.SELECTOR]
+- [Tutorial Overview](data-factory-get-started.md)
+- [Using Data Factory Editor](data-factory-get-started-using-editor.md)
+- [Using PowerShell](data-factory-monitor-manage-using-powershell.md)
 
-> [WACOM.NOTE] Полная документация по командлетам фабрики данных содержится в [справочнике по командлетам фабрики данных][cmdlet-reference]. 
+ [Приступая к работе с фабрикой данных Azure][adf-get-started] учебнике показано, как создавать и отслеживать фабрики данных Azure с помощью [предварительной версии портала Azure][azure-preview-portal]. В этом учебнике будет создавать и отслеживать фабрику данных Azure с помощью командлетов Azure PowerShell. Конвейер в фабрике данных создан в этом учебнике копирует данные из Azure blob в базу данных Azure SQL.
+
+> [AZURE.NOTE]В данной статье не рассматриваются все командлеты фабрика данных. В разделе [Справочник по командлетам фабрики данных][cmdlet-reference] для Полная документация по командлетам фабрика данных.
+
+##Предварительные требования
+Помимо необходимых компонентов, перечисленных в разделе Обзор учебника необходимо иметь Azure PowerShell, установленной на компьютере. Если у вас его уже, загрузите и установите [Azure PowerShell][download-azure-powershell] на компьютере.
+
+##Вот какие темы рассматривает этот учебник:
+В следующей таблице перечислены действия, которые необходимо выполнить в рамках этого учебника и их описания.
+
+Шаг | Описание
+-----| -----------
+[Шаг 1: Создание фабрики данных Azure](#CreateDataFactory) | На этом шаге вы создадите фабрику данных Azure с именем **ADFTutorialDataFactoryPSH**. 
+[Шаг 2: Создание связанные службы](#CreateLinkedServices) | На этом шаге вы создадите две связанные службы: **StorageLinkedService** и **AzureSqlLinkedService**. StorageLinkedService связывает хранилища Azure и AzureSqlLinkedService ADFTutorialDataFactoryPSH связывает базу данных Azure SQL.
+[Шаг 3: Создания входных и выходных наборов данных](#CreateInputAndOutputDataSets) | На этом шаге будут определены два набора данных (** EmpTableFromBlob ** и **EmpSQLTable**), которые используются как входные и выходные таблицы для **Действие копирования** в ADFTutorialPipeline, который будет создан на следующем шаге.
+[Шаг 4: Создание и запуск конвейера](#CreateAndRunAPipeline) | На этом шаге вы создадите конвейера с именем **ADFTutorialPipeline** в фабрике данных: **ADFTutorialDataFactoryPSH**... Конвейер будет иметь **Действие копирования** копирует данные из Azure BLOB-объект для выходной таблицы базы данных SQL Azure.
+[Шаг 5: Мониторинг наборов данных и конвейера](#MonitorDataSetsAndPipeline) | На этом шаге будет отслеживать наборы данных и с помощью Azure PowerShell на этом этапе конвейера.
+
+## <a name="CreateDataFactory"></a>Шаг 1: Создание фабрики данных Azure
+На этом шаге использовать Azure PowerShell для создания фабрики данных Azure с именем **ADFTutorialDataFactoryPSH**.
+
+1. Запустите **Azure PowerShell** и выполните следующие команды. Не закрывайте Azure PowerShell до завершения этого учебника. Если закрыть и снова открыть, необходимо еще раз выполните следующие команды.
+	- Запустите **Add-AzureAccount** и введите имя пользователя и пароль, используемый для входа на портале Azure предварительной версии.  
+	- Запустите **Get-AzureSubscription** для просмотра всех подписок для этой учетной записи.
+	- Запустите **Select-AzureSubscription** выберите подписку, которую требуется работать с. Эта подписка должна совпадать с той, которая используется на портале предварительной версии Azure. 
+2. Переключитесь в **AzureResourceManager** режиме как командлеты фабрика данных Azure доступны в этом режиме.
+
+		Switch-AzureMode AzureResourceManager 
+3. Создание группы ресурсов Azure с именем: **ADFTutorialResourceGroup** выполнив следующую команду.
+   
+		New-AzureResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+
+	Некоторые действия, описанные в этом учебнике предполагается использовать группу ресурсов с именем **ADFTutorialResourceGroup**. При использовании различных группах ресурсов, необходимо будет использовать его вместо ADFTutorialResourceGroup в этом учебнике. 
+4. Запустите **Создать AzureDataFactory** командлет, чтобы создать фабрику данных с именем: **ADFTutorialDataFactoryPSH**.  
+
+		New-AzureDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH –Location "West US"
 
 
-- [Get-AzureDataFactory](#get-azuredatafactory)
-- [Get-AzureDataFactoryLinkedService](#get-azuredatafactorylinkedservice)
-- [Get-AzureDataFactoryTable](#get-azuredatafactorytable)
-- [Get-AzureDataFactoryPipeline](#get-azuredatafactorypipeline)
-- [Get-AzureDataFactorySlice](#get-azuredatafactoryslice)
-- [Get-AzureDataFactoryRun](#get-azuredatafactoryrun)
-- [Save-AzureDataFactoryLog](#save-azuredatafactorylog)
-- [Get-AzureDataFactoryGateway](#get-azuredatafactorygateway)
-- [Set-AzureDataFactoryPipelineActivePeriod](#set-azuredatafactorypipelineactiveperiod)
-- [Set-AzureDataFactorySliceStatus](#set-azuredatafactoryslicestatus)
-- [Suspend-AzureDataFactoryPipeline](#suspend-azuredatafactorypipeline)
-- [Resume-AzureDataFactoryPipeline](#resume-azuredatafactorypipeline)
+	> [AZURE.NOTE]Имя фабрики данных Azure должно быть глобально уникальным. Если сообщение об ошибке: **данных фабрики имя «ADFTutorialDataFactoryPSH» недоступно**, измените имя (например, yournameADFTutorialDataFactoryPSH). Используйте это имя вместо ADFTutorialFactoryPSH при выполнении шагов в этом учебнике.
 
+## <a name="CreateLinkedServices"></a>Шаг 2: Создание связанные службы
+Связанные службы связывают хранилища данных или вычислительные службы с фабрикой данных Azure. Хранилище данных может быть хранилище Azure, база данных SQL Azure или локальной базы данных SQL Server содержит входные данные или сохраняет выходные данные для конвейера данных фабрики. Службы вычислений — это служба, которая обрабатывает входные данные и формирует выходные данные.
 
-##<a name="get-azuredatafactory"></a>Get-AzureDataFactory
-Сообщает информацию об определенной фабрике данных или всех фабриках данных в подписке Azure в пределах указанной группы ресурсов.
- 
-###Пример 1
+На этом шаге вы создадите две связанные службы: **StorageLinkedService** и **AzureSqlLinkedService**. StorageLinkedService связанные ссылки службы учетную запись хранилища Azure и AzureSqlLinkedService связывает фабрику данных базы данных Azure SQL: **ADFTutorialDataFactoryPSH**. Далее в этом учебнике, копирующего данные из контейнера BLOB-объектов в StorageLinkedService в таблицу SQL AzureSqlLinkedService будет создать конвейер.
 
-    Get-AzureDataFactory -ResourceGroupName ADFTutorialResourceGroup
+### Создание связанной службы для учетной записи хранения Azure
+1.	Создайте файл JSON **StorageLinkedService.json** в **C:\ADFGetStartedPSH** со следующим содержимым. Создайте папку ADFGetStartedPSH, если он еще не существует.
 
-Эта команда возвращает все фабрики данных в группе ресурсов ADFTutorialResourceGroup.
- 
-###Пример 2
+		{
+		    "name": "StorageLinkedService",
+		    "properties":
+		    {
+		        "type": "AzureStorageLinkedService",
+		        "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+		    }
+		}
+2.	В **Azure PowerShell**, переключитесь в **ADFGetStartedPSH** папки. 
+3.	Можно использовать **Создать AzureDataFactoryLinkedService** командлет для создания связанной службы. Этот командлет и другие командлеты фабрика данных использовать в этом учебнике требуется передавать значения **ResourceGroupName** и **DataFactoryName** параметров. Кроме того, можно использовать **Get AzureDataFactory** для получения объекта DataFactory и передать ему объект без ввода ResourceGroupName и DataFactoryName при каждом выполнении командлета. Выполните следующую команду для назначения выходные данные **Get AzureDataFactory** командлета переменной: **$df**. 
 
-    Get-AzureDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactory
+		$df=Get-AzureDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoyPSH
 
-Эта команда возвращает информацию о фабрике данных ADFTutorialDataFactory в группе ресурсов ADFTutorialResourceGroup. 
+4.	Теперь запустите **Создать AzureDataFactoryLinkedService** командлет, чтобы создать связанные службы: **StorageLinkedService**.
 
-## <a name="get-azuredatafactorylinkedservice"></a> Get-AzureDataFactoryLinkedService ##
-Командлет Get-AzureDataFactoryLinkedService получает информацию об определенной связанной службе или о всех связанных службах в фабрике данных Azure.
+		New-AzureDataFactoryLinkedService $df -File .\StorageLinkedService.json
 
-### Пример 1 ###
+	При запуске не **Get AzureDataFactory** командлета и назначен выходные данные **$df** переменной необходимо указать значения для параметров ResourceGroupName и DataFactoryName следующим образом.
+		
+		New-AzureDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactoryPSH -File .\StorageLinkedService.json
 
-    Get-AzureDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory
- 
-Эта команда возвращает информацию обо всех связанных службах в фабрике данных Azure ADFTutorialDataFactory.
+	Если закрыть Azure PowerShell в центре учебника будет выполнения командлета Get-AzureDataFactory следующий раз запустить Azure PowerShell для работы с учебником.
 
+### Создание связанной службы для базы данных SQL Azure
+1.	Создайте файл JSON AzureSqlLinkedService.json со следующим содержимым.
 
-Вы можете использовать параметр -DataFactory вместо параметров DataFactoryName и ResourceGroupName. Это позволит ввести имена группы ресурсов и фабрики только один раз и использовать объект фабрики данных в качестве параметра для всех командлетов, которые принимают в качестве параметров ResourceGroupName и DataFactoryName.
-
-    $df = Get-AzureDataFactory -ResourceGroup ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory
+		{
+		    "name": "AzureSqlLinkedService",
+		    "properties":
+		    {
+		        "type": "AzureSqlLinkedService",
+		        "connectionString": "Server=tcp:<server>.database.windows.net,1433;Database=<databasename>;User ID=user@server;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+		    }
+		}
+2.	Выполните следующую команду для создания связанной службы. 
 	
-	Get-AzureDataFactoryLinkedService -DataFactory $df 
+		New-AzureDataFactoryLinkedService $df -File .\AzureSqlLinkedService.json
 
-### Пример 2
+	> [AZURE.NOTE]Убедитесь, что **Разрешить доступ к службам Azure** включен для сервера Azure SQL. Для проверки и включить его, выполните следующие действия.
+	>
+	> <ol>
+<li>Щелкните <b>Обзор</b> концентратора слева, затем щелкните <b>серверов SQL Server</b>.</li>
+<li>Выберите сервер и нажмите кнопку <b>Параметры</b> на <b>SQL SERVER</b> выноски.</li>
+<li>В <b>Параметры</b> стоечный модуль, щелкните <b>брандмауэра</b>.</li>
+<li>В <b>Параметры Firewalll</b> стоечный модуль, щелкните <b>ON</b> для <b>Разрешить доступ к службам Azure</b>.</li>
+<li>Щелкните <b>ACTIVE</b> концентратора слева, чтобы переключиться на <b>фабрика данных</b> были на выноске.</li>
+</ol>
 
-    Get-AzureDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -Name MyBlobStore
+## <a name="CreateInputAndOutputDataSets"></a>Шаг 3: Создания входных и выходных таблиц
 
-Эта команда возвращает информацию о связанной службе MyBlobStore в фабрике данных Azure ADFTutorialDataFactory. 
+На предыдущем шаге вы создали связанные службы **StorageLinkedService** и **AzureSqlLinkedService** связать учетную запись хранилища Azure и базы данных Azure SQL в фабрику данных: **ADFTutorialDataFactoryPSH**. На этом шаге вы создадите таблицы, представления входных данных и выходные данные для операции копирования в конвейере, которые будут созданы на следующем шаге.
 
-Вы можете использовать параметр -DataFactory вместо параметров -ResourceGroup и -DataFactoryName, как показано ниже: 
+Таблица представляет собой прямоугольный набор данных, и это единственный тип набора данных, поддерживаемый в настоящее время. Входной таблицы в этом учебнике означает контейнер больших двоичных объектов в хранилище Azure, StorageLinkedService точек, а выходной таблицы в таблицу SQL в базе данных Azure SQL, указывающего AzureSqlLinkedService.
+
+### Подготовка хранилища больших двоичных объектов Azure и базы данных SQL Azure для учебника
+Пропустите этот шаг, если Вы завершили учебника [Приступая к работе с фабрикой данных Azure][adf-get-started] статьи.
+
+Необходимо выполнить следующие действия, чтобы подготовить хранилище больших двоичных объектов и базой данных Azure SQL для этого учебника.
+ 
+* Создание контейнера BLOB-объекта с именем **adftutorial** в Azure хранилище BLOB-объектов, **StorageLinkedService** указывает. 
+* Создание и отправка текстового файла, **emp.txt**, как BLOB-объект для **adftutorial** контейнера. 
+* Создать таблицу с именем **emp** в базе данных SQL Azure в Azure SQL database **AzureSqlLinkedService** указывает.
 
 
-    $df = Get-AzureDataFactory -ResourceGroup ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory
+1. Запустите Блокнот и вставьте следующий текст сохраняется как **emp.txt** для **C:\ADFGetStartedPSH** папку на жестком диске. 
+
+        John, Doe
+		Jane, Doe
+				
+2. Использовать средства, такие как [обозревателя хранилищ Azure](https://azurestorageexplorer.codeplex.com/) для создания **adftutorial** контейнера и передачи **emp.txt** файла в контейнер.
+
+    ![Обозреватель хранилищ Azure][image-data-factory-get-started-storage-explorer]
+3. Используйте следующий сценарий SQL для создания **emp** таблицы в базе данных SQL Azure.  
+
+
+        CREATE TABLE dbo.emp 
+		(
+			ID int IDENTITY(1,1) NOT NULL,
+			FirstName varchar(50),
+			LastName varchar(50),
+		)
+		GO
+
+		CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID); 
+
+	При наличии на компьютере SQL Server 2014: следуйте инструкциям из [Шаг 2: подключение к базе данных SQL, управление базы данных SQL Azure с помощью SQL Server Management Studio][sql-management-studio] статьи для подключения к серверу Azure SQL и запустите сценарий SQL.
+
+	При наличии на компьютере установлена Visual Studio 2013: в предварительной версии портала Azure ([http://portal.azure.com](http://portal.sazure.com)), нажмите кнопку **Обзор** концентратора на левый, нажмите кнопку **серверов SQL Server**, выберите базу данных и нажмите кнопку **в среде Visual Studio** кнопки на панели инструментов для подключения к серверу Azure SQL и запустите сценарий. Если ваш клиент не может получить доступ к серверу Azure SQL, необходимо настроить брандмауэр разрешить доступ с компьютера (IP-адрес) сервера Azure SQL. См. в статье выше шаги по настройке брандмауэра для сервера Azure SQL.
+		
+### Создание входной таблицы 
+Таблица представляет собой прямоугольный набор данных, который имеет схему. На этом шаге создается таблица с именем **EmpBlobTable** указывающего на контейнер больших двоичных объектов в хранилище Azure, представленного **StorageLinkedService** связанные службы. Этот контейнер больших двоичных объектов (** adftutorial **) содержит входные данные в файле: **emp.txt**.
+
+1.	Создайте файл JSON **EmpBlobTable.json** в **C:\ADFGetStartedPSH** папку со следующим содержимым:
+
+		{
+	    	"name": "EmpTableFromBlob",
+	        "properties":
+	        {
+	            "structure":  
+	                [ 
+	                { "name": "FirstName", "type": "String"},
+	                { "name": "LastName", "type": "String"}
+	            ],
+	            "location": 
+	            {
+	                "type": "AzureBlobLocation",
+	                "folderPath": "adftutorial/",
+	                "format":
+	                {
+	                    "type": "TextFormat",
+	                    "columnDelimiter": ","
+	                },
+	                "linkedServiceName": "StorageLinkedService"
+	            },
+	            "availability": 
+	            {
+	                "frequency": "hour",
+	                "interval": 1,
+	                "waitonexternal": {}
+	                }
+	        }
+		}
 	
-	Get-AzureDataFactoryLinkedService -DataFactory $df -Name MyBlobStore
-
-
-## <a name="get-azuredatafactorytable"></a> Get-AzureDataFactoryTable
-Командлет Get-AzureDataFactoryTable получает информацию об определенной таблице или всех таблицах в фабрике данных Azure. 
-
-### Пример 1
-
-    Get-AzureDataFactoryTable -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory
-
-Эта команда возвращает информацию обо всех таблицах в фабрике данных Azure ADFTutorialDataFactory.
-
-Вы можете использовать параметр -DataFactory вместо параметров -ResourceGroup и -DataFactoryName, как показано ниже: 
-
-
-    $df = Get-AzureDataFactory -ResourceGroup ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory
+	Обратите внимание на следующее:
 	
-	Get-AzureDataFactoryTable -DataFactory $df
+	- расположение **тип** равен **AzureBlobLocation**.
+	- **linkedServiceName** равен **StorageLinkedService**. 
+	- **folderPath** равен **adftutorial** контейнера. Вы также можете указать имя большого двоичного объекта внутри папки. Так как вы не указываете имя большого двоичного объекта, данные из всех больших двоичных объектов в контейнере считаются входными данными.  
+	- формат **тип** равен **TextFormat**
+	- Существует два поля в текстовом файле — **FirstName** и **LastName** —, разделенных запятой (** columnDelimiter **)	
+	-  **Доступности** равен **каждый час** (** частоты ** равен **час** и **интервал** имеет значение **1** ), поэтому служба фабрики данных будет искать входных данных каждый час в корневой папке в контейнер больших двоичных объектов (** adftutorial **) было задано.
 
-### Пример 2
-
-    Get-AzureDataFactoryTable -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -Name EmpTableFromBlob
-
-Эта команда возвращает информацию о таблице EmpTableFromBlob в фабрике данных Azure ADFTutorialDataFactory.
-
-
-
-## <a name="get-azuredatafactorypipeline"></a>Get-AzureDataFactoryPipeline
-Командлет Get-AzureDataFactoryPipeline получает информацию об определенном конвейере или всех конвейерах в фабрике данных Azure.
-
-### Пример 1
-
-    Get-AzureDataFactoryPipeline -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory
-
-Эта команда возвращает информацию обо всех конвейерах в фабрике данных Azure ADFTutorialDataFactory.
-
-### Пример 2
-
-    Get-AzureDataFactoryPipeline -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -Name ADFTutorialPipeline
-
-Получает информацию о конвейере ADFTutorialPipeline в фабрике данных Azure ADFTutorialDataFactory.
-
-## <a name="get-azuredatafactoryslice"> </a> Get-AzureDataFactorySlice
-Командлет Get-AzureDataFactorySlice получает все срезы для таблицы в фабрике данных Azure, которые производятся после StartDateTime и до EndDateTime. Срез данных с состоянием Ready уже готов для использования зависимыми срезами.
-
-В следующей таблице перечислены все состояния среза и их описания.
-
-<table border="1">	
-	<tr>
-		<th align="left">Состояние</th>
-		<th align="left">Описание</th>
-	</tr>	
-
-	<tr>
-		<td>PendingExecution</td>
-		<td>Обработка данных еще не началась.</td>
-	</tr>	
-
-	<tr>
-		<td>InProgress</td>
-		<td>Обработка данных выполняется.</td>
-	</tr>
-
-	<tr>
-		<td>Ready</td>
-		<td>Обработка данных завершена, и срез данных готов.</td>
-	</tr>
-
-	<tr>
-		<td>Failed</td>
-		<td>При выполнении запуска, который производит срез, произошла ошибка.</td>
-	</tr>
-
-	<tr>
-		<td>Skip</td>
-		<td>Пропуск обработки среза.</td>
-	</tr>
-
-	<tr>
-		<td>Retry</td>
-		<td>Повторная попытка запуска, который производит срез.</td>
-	</tr>
-
-	<tr>
-		<td>Timed Out</td>
-		<td>Истекло время ожидания обработки данных среза.</td>
-	</tr>
-
-	<tr>
-		<td>PendingValidation</td>
-		<td>Срез данных ожидает проверки на соответствие политикам проверки перед обработкой.</td>
-	</tr>
-
-	<tr>
-		<td>Retry Validation</td>
-		<td>Повторная попытка проверки среза.</td>
-	</tr>
-
-	<tr>
-		<td>Failed Validation</td>
-		<td>Не удалось проверить срез.</td>
-	</tr>
-
-	<tr>
-		<td>LongRetry</td>
-		<td>Срез будет в этом состоянии, если в таблице JSON указано LongRetry, и при регулярных повторных попытках среза произошли ошибки.</td>
-	</tr>
-
-	<tr>
-		<td>ValidationInProgress</td>
-		<td>Выполняется проверка среза (с учетом политик, определенных в таблице JSON).</td>
-	</tr>
-
-</table>
-
-Используя командлеты Get-AzureDataFactoryRun и Save-AzureDataFactoryLog, вы можете проанализировать каждый из срезов глубже и просмотреть дополнительную информацию о запуске, который производит срез.
-
-### Пример
-
-    Get-AzureDataFactorySlice -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -TableName EmpSQLTable -StartDateTime 2014-05-20T10:00:00
-
-Эта команда получает все срезы для таблицы EmpSQLTable в фабрике данных Azure ADFTutorialDataFactory, произведенные после 2014-05-20T10:00:00 (GMT). Замените значения даты и времени значениями даты и времени начала, которые вы указали при запуске Set-AzureDataFactoryPipelineActivePeriod.
-
-## <a name="get-azuredatafactoryrun"></a> Get-AzureDataFactoryRun
-
-Командлет Get-AzureDataFactoryRun получает все данные запусков для среза данных таблицы в фабрике данных Azure.  Таблица в фабрике данных Azure состоит из срезов, сделанных по оси времени. Ширина среза определяется расписанием - ежечасно или ежедневно. Запуск - это единица обработки среза. Может быть один или несколько запусков для среза, если выполняются повторные попытки, или вы повторно производите срез в случае сбоя. Срез идентифицируется по времени начала. Поэтому для командлета Get-AzureDataFactoryRun необходимо передать время начала среза из результатов командлета Get-AzureDataFactorySlice.
-
-Например, чтобы получить запуск для следующего среза, используйте 2015-04-02T20:00:00. 
-
-    ResourceGroupName  	: ADFTutorialResourceGroup
-    DataFactoryName 	: ADFTutorialDataFactory
-    TableName 			: EmpSQLTable
-    Start 				: 5/2/2014 8:00:00 PM
-    End 				: 5/3/2014 8:00:00 PM
-    RetryCount 			: 0
-    Status 				: Ready
-    LatencyStatus 		:
-
-
-
-### Пример
-
-    Get-AzureDataFactoryRun -DataFactoryName ADFTutorialDataFactory -TableName EmpSQLTable -ResourceGroupName ADFTutorialResourceGroup -StartDateTime 2014-05-21T16:00:00
-
-Эта команда возвращает все запуски для срезов таблицы EmpSQLTable в фабрике данных Azure ADFTutorialDataFactory, начиная с 16:00 (4 PM GMT) 21.05.2014.
-
-## <a name="save-azuredatafactorylog"></a> Save-AzureDataFactoryLog
-Командлет Save-AzureDataFactoryLog скачивает файлы журнала, связанные с обработкой Azure HDInsight проектов Pig или Hive, или для пользовательских действий на вашем локальном жестком диске. Сначала запустите командлет Get-AzureDataFactoryRun для получения идентификатора запуска действия для среза данных, а затем воспользуйтесь этим идентификатором для получения файлов журнала из хранилища больших двоичных объектов (BLOB), связанного с кластером HDInsight. 
-
-Если не указать параметр **-DownloadLogs**, командлет будет возвращать только расположение файлов журнала. 
-
-Если указать параметр **-DownloadLogs**, не задав при этом выходного каталога (параметр **-Output **), файлы журнала будут загружаться в папку **Documents** по умолчанию. 
-
-Если указать параметр **-DownloadLogs** и выходную папку (**-Output**), файлы журнала будут загружаться в указанную папку. 
-
-
-### Пример 1
-Эта команда сохраняет файлы журнала для запуска действия с идентификатором 841b77c9-d56c-48d1-99a3-8c16c3e77d39, где действие принадлежит конвейеру в фабрике данных с именем LogProcessingFactory в группе ресурсов с именем ADF. Файлы журнала сохраняются в папке C:\Test. 
-
-	Save-AzureDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39" -DownloadLogs -Output "C:\Test"
+	Если не указать **fileName** для **ввода** **таблицы**, все файлы и большие двоичные объекты из входной папки (** folderPath **) рассматриваются в качестве входных данных. Если указать fileName в JSON, только указанный файл или большой двоичный объект рассматриваются как входные данные. Образцы файлов в разделе [учебника][adf-tutorial] примеры.
  
+	Если вы не укажете **fileName** для **выходную таблицу**, созданных файлов в **folderPath** именами в следующем формате: данных. < Guid > .txt (пример: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
-### Пример 2
-Эта команда сохраняет файлы журнала в папке Documents (по умолчанию).
+	Чтобы динамически установить параметры **folderPath** и **fileName** на основе времени **SliceStart**, используйте свойство **partitionedBy**. В следующем примере folderPath использует год, месяц и день из SliceStart (время начала обработки среза), а в fileName используется время (часы) из SliceStart. Например, если срез выполняется для временной отметки 2014-10-20T08:00:00, folderName получает значение wikidatagateway/wikisampledataout/2014/10/20, а fileName – 08.csv.
+
+	  	"folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
+        "fileName": "{Hour}.csv",
+        "partitionedBy": 
+        [
+        	{ "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
+            { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } }, 
+            { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } }, 
+            { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
+        ],
+
+	> [AZURE.NOTE]В разделе [ссылки сценария JSON](http://go.microsoft.com/fwlink/?LinkId=516971) подробные сведения о свойствах JSON.
+
+2.	Выполните следующую команду для создания таблицы данных фабрики.
+
+		New-AzureDataFactoryTable $df -File .\EmpBlobTable.json
+
+### Создание выходной таблицы
+В этой части шага вы создадите выходную таблицу с именем **EmpSQLTable** указывающего на таблицу SQL (** emp **) в базе данных Azure SQL, представленного **AzureSqlLinkedService** связанные службы. Конвейер копирует данные из входного большого двоичного объекта для **emp** таблицы.
+
+1.	Создайте файл JSON **EmpSQLTable.json** в **C:\ADFGetStartedPSH** папку со следующим содержимым.
+		
+		{
+		    "name": "EmpSQLTable",
+		    "properties":
+		    {
+		        "structure":
+		        [
+		            { "name": "FirstName", "type": "String"},
+		            { "name": "LastName", "type": "String"}
+		        ],
+		        "location":
+		        {
+		            "type": "AzureSQLTableLocation",
+		            "tableName": "emp",
+		            "linkedServiceName": "AzureSqlLinkedService"
+		        },
+		        "availability": 
+		        {
+		            "frequency": "Hour",
+		            "interval": 1            
+		        }
+		    }
+		}
+
+     Обратите внимание на следующее:
+	
+	* расположение **тип** равен **AzureSQLTableLocation**.
+	* **linkedServiceName** равен **AzureSqlLinkedService**.
+	* **tablename** равен **emp**.
+	* Имеются три столбца — **идентификатор**, **FirstName**, и **LastName** — в таблице emp в базе данных, но идентификатор является столбцом идентификаторов, поэтому необходимо указать только **FirstName** и **LastName** здесь.
+	*  **Доступности** равен **каждый час** (** частоты ** значение **час** и **интервал** значение **1**). Служба фабрики данных создает фрагмент выходных данных каждый час в **emp** таблицы в базе данных Azure SQL.
+
+2.	Выполните следующую команду для создания таблицы данных фабрики.
+	
+		New-AzureDataFactoryTable $df -File .\EmpSQLTable.json
 
 
-	Save-AzureDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39" -DownloadLogs
+## <a name="CreateAndRunAPipeline"></a>Шаг 4: Создание и запуск конвейера
+На этом этапе можно создать конвейер с **Действие копирования** использующий **EmpTableFromBlob** в качестве входного и **EmpSQLTable** как output.
+
+1.	Создайте файл JSON **ADFTutorialPipeline.json** в **C:\ADFGetStartedPSH** папку со следующим содержимым: 
+
+		{
+		    "name": "ADFTutorialPipeline",
+		    "properties":
+		    {   
+		        "description" : "Copy data from an Azure blob to an Azure SQL table",
+		        "activities":   
+		        [
+		            {
+		                "name": "CopyFromBlobToSQL",
+		                "description": "Copy data from the adftutorial blob container to emp SQL table",
+		                "type": "CopyActivity",
+		                "inputs": [ {"name": "EmpTableFromBlob"} ],
+		                "outputs": [ {"name": "EmpSQLTable"} ],     
+		                "transformation":
+		                {
+		                    "source":
+		                    {                               
+		                        "type": "BlobSource"
+		                    },
+		                    "sink":
+		                    {
+		                        "type": "SqlSink"
+		                    }   
+		                },
+		                "Policy":
+		                {
+		                    "concurrency": 1,
+		                    "executionPriorityOrder": "NewestFirst",
+		                    "style": "StartOfInterval",
+		                    "retry": 0,
+		                    "timeout": "01:00:00"
+		                }       
+		            }
+		        ],
+		        "start": "2015-03-03T00:00:00Z",
+		        "end": "2015-03-04T00:00:00Z"
+		    }
+		}  
+
+	Обратите внимание на следующее:
+
+	- В разделе «действия» имеется только одно действие, **тип** равен **CopyActivity**.
+	- Ввод действия задается **EmpTableFromBlob** и вывода задается действие **EmpSQLTable**.
+	- В **преобразования** разделе **BlobSource** указан в качестве типа источника и **SqlSink** указан как тип приемника.
+
+	> [AZURE.NOTE]Замените значение **Запуск** свойство с текущего дня и **конец** значение со следующего дня. Как запустить и даты окончания должны находиться в [Формат ISO](http://en.wikipedia.org/wiki/ISO_8601). Например: 2014-10-14T16:32:41Z.  **Конец** время необязательно, но мы будем использовать в этом учебнике. Если не указать значение для **конец** свойство, оно вычисляется как "** start + 48 часов **». Укажите на бесконечное выполнение конвейера **9, 9-9999** как значение **end** свойство. В приведенном выше примере будет 24 среза данных, так как срезы данных производятся каждый час.
+	
+	> [Ссылки сценария JSON](http://go.microsoft.com/fwlink/?LinkId=516971)
+2.	Выполните следующую команду для создания таблицы данных фабрики. 
+		
+		New-AzureDataFactoryPipeline $df -File .\ADFTutorialPipeline.json
+
+**Поздравляем!** Вы успешно создали фабрику данных Azure, связанные службы, таблицы и конвейер, а также выполнили планирование конвейера.
+
+## <a name="MonitorDataSetsAndPipeline"></a>Шаг 5: Мониторинг наборы данных и конвейера
+На этом шаге будет использовать Azure PowerShell для наблюдения за то, что происходит в фабрику данных Azure.
+
+1.	Запустите **Get AzureDataFactory** и присвойте результат переменной $df.
+
+		$df=Get-AzureDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH
  
+2.	Запустите **Get AzureDataFactorySlice** для получения сведений о всех фрагментов из **EmpSQLTable**, являющийся конвейера выходной таблицы.
 
-### Пример 3
-Эта команда возвращает расположение файлов журнала. Обратите внимание, что параметр -DownloadLogs не указан. 
-  
-	Save-AzureDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39"
- 
+		Get-AzureDataFactorySlice $df -TableName EmpSQLTable -StartDateTime 2015-03-03T00:00:00
 
+	> [AZURE.NOTE]Замените год, месяц и дату **StartDateTime** параметра с текущего года, месяца и даты. Оно должно соответствовать **Запуск** значение в конвейере JSON.
 
+	Вы увидите 24 срезов — по одному для каждого часа с 00: 00 текущего дня до 00: 00 следующего дня.
+	
+	**Первый фрагмент:**
 
-## <a name="get-azuredatafactorygateway"></a> Get-AzureDataFactoryGateway
-Командлет Get-AzureDataFactoryGateway получает информацию об определенном шлюзе или всех шлюзах в фабрике данных Azure. Необходимо установить шлюз на локальном компьютере, чтобы иметь возможность добавлять локальный сервер SQL Server в фабрику данных как связанную службу.
+		ResourceGroupName : ADFTutorialResourceGroup
+		DataFactoryName   : ADFTutorialDataFactoryPSH
+		TableName         : EmpSQLTable
+		Start             : 3/3/2015 12:00:00 AM
+		End               : 3/3/2015 1:00:00 AM
+		RetryCount        : 0
+		Status            : PendingExecution
+		LatencyStatus     :
+		LongRetryCount    : 0
 
-### Пример 1
-    Get-AzureDataFactoryGateway -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory
-Эта команда возвращает информацию обо всех шлюзах в фабрике данных Azure ADFTutorialDataFactory.
+	**Последний фрагмент:**
 
-### Пример 2
+		ResourceGroupName : ADFTutorialResourceGroup
+		DataFactoryName   : ADFTutorialDataFactoryPSH
+		TableName         : EmpSQLTable
+		Start             : 3/4/2015 11:00:00 PM
+		End               : 3/4/2015 12:00:00 AM
+		RetryCount        : 0
+		Status            : PendingExecution
+		LatencyStatus     : 
+		LongRetryCount    : 0
 
-    Get-AzureDataFactoryGateway -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -Name ADFTutorialGateway
+3.	Запустите **Get AzureDataFactoryRun** чтобы получить сведения о действие выполняется **конкретного** срез. Измените значение **StartDateTime** параметр в соответствии с **Запуск** время фрагмента в приведенном выше примере. Значение **StartDateTime** должен находиться в [Формат ISO](http://en.wikipedia.org/wiki/ISO_8601). Например: 2014-03-03T22:00:00Z.
 
-Эта команда возвращает информацию о шлюзе ADFTutorialGateway в фабрике данных Azure ADFTutorialDataFactory.
+		Get-AzureDataFactoryRun $df -TableName EmpSQLTable -StartDateTime 2015-03-03T22:00:00
 
-## <a name="set-azuredatafactorypipelineactiveperiod"></a> Set-AzureDataFactoryPipelineActivePeriod
-Этот командлет задает период активности для срезов данных, которые обрабатываются конвейером. При использовании Set-AzureDataFactorySliceStatus убедитесь, что дата начала и дата окончания среза находятся в периоде активности конвейера.
+	Вы должны увидеть результат, аналогичный приведенному ниже:
 
-После создания конвейеров вы можете указать время, в течение которого будет выполняться обработка данных. Указывая период активности для конвейера, вы определяете интервал времени, в который будут производиться срезы данных на основе свойств доступности, определенных для каждой таблицы фабрики данных Azure.
+		Id                  : 3404c187-c889-4f88-933b-2a2f5cd84e90_635614488000000000_635614524000000000_EmpSQLTable
+		ResourceGroupName   : ADFTutorialResourceGroup
+		DataFactoryName     : ADFTutorialDataFactoryPSH
+		TableName           : EmpSQLTable
+		ProcessingStartTime : 3/3/2015 11:03:28 PM
+		ProcessingEndTime   : 3/3/2015 11:04:36 PM
+		PercentComplete     : 100
+		DataSliceStart      : 3/8/2015 10:00:00 PM
+		DataSliceEnd        : 3/8/2015 11:00:00 PM
+		Status              : Succeeded
+		Timestamp           : 3/8/2015 11:03:28 PM
+		RetryAttempt        : 0
+		Properties          : {}
+		ErrorMessage        :
+		ActivityName        : CopyFromBlobToSQL
+		PipelineName        : ADFTutorialPipeline
+		Type                : Copy
 
-### Пример
+> [AZURE.NOTE]В разделе [Справочник по командлетам фабрики данных][cmdlet-reference] для Полная документация по командлетам фабрика данных.
 
-    Set-AzureDataFactoryPipelineActivePeriod  -Name ADFTutorialPipeline -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-22T16:00:00
-
-Эта команда задает такой период активности для срезов данных, которые обрабатываются конвейером ADFTutoiralPipeline: с 16:00 (4 PM GMT) 21.05.2014 до 16:00 (4 PM GMT) 22.05.2014.
-
-## <a name="set-azuredatafactoryslicestatus"></a> Set-AzureDataFactorySliceStatus
-Задает состояние среза для таблицы. Дата начала и дата окончания среза должны находиться в периоде активности конвейера.
-
-### Поддерживаемые значения для состояния
-Каждый срез данных для таблицы проходит различные этапы. Эти этапы немного отличаются в зависимости от того, указаны ли политики проверки.
-
-
-- Если политики проверки не указаны: PendingExecution -> InProgress -> Ready
-- Если политики проверки указаны: PendingExecution -> Pending Validation -> InProgress -> Ready
-
-В следующей таблице приводится описание возможных состояний среза, а также указывается, можно ли задавать состояние с помощью Set-AzureDataFactorySliceStatus.
-
-<table border="1">	
-	<tr>
-		<th>Состояние</th>
-		<th>Описание</th>
-		<th>Может ли задаваться с помощью командлета></th>
-	</tr>	
-
-	<tr>
-		<td>PendingExecution</td>
-		<td>Обработка данных еще не началась.</td>
-		<td>Да</td>
-	</tr>	
-
-	<tr>
-		<td>InProgress</td>
-		<td>Обработка данных выполняется.</td>
-		<td>Нет</td>
-	</tr>
-
-	<tr>
-		<td>Ready</td>
-		<td>Обработка данных завершена, и срез данных готов.</td>
-		<td>Да</td>
-	</tr>
-
-	<tr>
-		<td>Failed</td>
-		<td>При выполнении запуска, который производит срез, произошла ошибка.</td>
-		<td>Нет</td>
-	</tr>
-
-	<tr>
-		<td>Skip</td>
-		<td>Пропуск обработки среза.</td>
-		<td>Да</td>
-	</tr>
-
-	<tr>
-		<td>Retry</td>
-		<td>Повторная попытка запуска, который производит срез.</td>
-		<td>Нет</td>
-	</tr>
-
-	<tr>
-		<td>Timed Out</td>
-		<td>Истекло время ожидания обработки данных.</td>
-		<td>Нет</td>
-	</tr>
-
-	<tr>
-		<td>PendingValidation</td>
-		<td>Срез данных ожидает проверки на соответствие политикам проверки перед обработкой.</td>
-		<td>Да</td>
-	</tr>
-
-	<tr>
-		<td>Retry Validation</td>
-		<td>Повторная попытка проверки среза.</td>
-		<td>Нет</td>
-	</tr>
-
-	<tr>
-		<td>Failed Validation</td>
-		<td>Не удалось проверить срез.</td>
-		<td>Нет</td>
-	</tr>
-	</table>
-
-
-### Поддерживаемые значения - тип обновления
-Когда вы указываете состояние среза, для каждой таблицы в фабрике данных Azure необходимо указать, применяется ли обновление состояний только к таблице или распространяется на все затронутые срезы.
-
-<table border="1">	
-	<tr>
-		<th>Тип обновления</th>
-		<th>Описание</th>
-		<th>Может ли задаваться с помощью командлета</th>
-	</tr>
-
-	<tr>
-		<td>Individual</td>
-		<td>Задает состояние каждого среза для таблицы в указанном диапазоне времени</td>
-		<td>Да</td>
-	</tr>
-
-	<tr>
-		<td>UpstreamInPipeline</td>
-		<td>Задает состояние каждого среза для таблицы и всех зависимых (вышестоящих) таблиц, используемых в качестве входных таблиц для действий в конвейере.</td>
-		<td>Да</td>
-	</tr>
-
-</table>
-## <a name="suspend-azuredatafactorypipeline"></a> Suspend-AzureDataFactoryPipeline
-Командлет Suspend-AzureDataFactoryPipeline приостанавливает указанный конвейер в фабрике данных Azure. Вы можете возобновить работу конвейера позже с помощью командлета Resume-AzureDataFactoryPipeline.
-
-### Пример
-
-    Suspend-AzureDataFactoryPipeline -Name ADFTutorialPipeline -DataFactoryName ADFTutorialDataFactory -ResourceGroupName ADFTutorialResourceGroup
-
-Эта команда приостанавливает конвейер ADFTutorialPipeline в фабрике данных Azure ADFTutorialDataFactory.
-
-## <a name="resume-azuredatafactorypipeline"></a> Resume-AzureDataFactoryPipeline
-Командлет Resume-AzureDataFactoryPipeline возобновляет работу указанного конвейера, который находится в приостановленном состоянии в фабрике данных Azure. 
-
-### Пример
-
-    Resume-AzureDataFactoryPipeline ADFTutorialPipeline -DataFactoryName ADFTutorialDataFactory -ResourceGroupName ADFTutorialResourceGroup
-
-Эта команда в фабрике данных Azure ADFTutorialDataFactory возобновляет работу конвейера ADFTutorialPipeline, который был приостановлен с помощью команды Suspend-AzureDataFactoryPipeline.
-
-## См. также
+## Дальнейшие действия
 
 Статья | Описание
 ------ | ---------------
-[Мониторинг и управление фабрикой данных Azure с помощью портала предварительной версии Azure][monitor-manage-using-portal] | В этой статье описывается, как выполнять мониторинг и управление фабрикой данных Azure с помощью портала предварительной версии Azure.
-[Включение конвейеров для работы с локальными данными][use-onpremises-datasources] | Эта статья содержит пошаговое руководство, которое показывает, как скопировать данные из локальной базы данных SQL Server в большой двоичный объект Azure.
-[Использование сценариев Pig и Hive с фабрикой данных][use-pig-and-hive-with-data-factory] | В этой статье показано, как использовать действия HDInsight для выполнения сценариев Hive и Pig, чтобы обработать входные данные и получить выходные данные. 
-[Учебник. Перемещение и обработка файлов журнала с помощью фабрики данных][adf-tutorial] | В этой статье содержится подробное пошаговое руководство, которое показывает, как реализовать практически реальный сценарий с использованием фабрики данных Azure для преобразования данных из файлов журнала в подробные данные.
-[Использование пользовательских действий в фабрике данных][use-custom-activities] | В этой статье приводится подробное руководство с пошаговыми инструкциями по созданию пользовательских действий и использованию их в конвейере. 
-[Устранение неполадок фабрики данных][troubleshoot] | В этой статье описывается устранение неполадок в работе фабрики данных Azure.
-[Справочник разработчика фабрики данных Azure][developer-reference] | Справочник разработчика содержит полную справку по командлетам, сценарию JSON, функциям и т. д. 
-[Справочник по командлетам фабрики данных Azure][cmdlet-reference] | Этот справочник содержит подробную информацию обо всех **командлетах фабрики данных**.
+[Копирование данных с фабрикой данных Azure - действие копирования][copy-activity] | В этой статье содержит подробное описание **Действие копирования** используемые в этом учебнике. 
+[Включить конвейеры для работы с локальными данными][use-onpremises-datasources] | Данная статья содержит пошаговое руководство, которое показано, как скопировать данные из **локальной базы данных SQL Server** в BLOB-объект Azure. 
+[Использование Pig и Hive с фабрикой данных][use-pig-and-hive-with-data-factory] | Данная статья содержит пошаговое руководство, которое показывает, как использовать **HDInsight действия** для запуска **hive и pig** сценарий для обработки входных данных для получения выходных данных.
+[Учебник: Перемещение и обрабатывать файлы журнала, с помощью фабрики данных][adf-tutorial] | В этой статье приведены **в сквозном примере** показано, как реализовать **реалистичном** используется фабрика данных Azure для преобразования данных из файлов журнала в дополнительная информация.
+[Использовать настраиваемые действия в фабрике данных][use-custom-activities] | Эта статья содержит пошаговое руководство с пошаговые инструкции по созданию **настраиваемое действие** и их использования в конвейере. 
+[Устранение неполадок фабрика данных][troubleshoot] | В этой статье описывается как **Устранение** выдает фабрика данных Azure. Вы можете использовать руководство из этой статьи на учебной фабрике данных ADFTutorialDataFactory, намеренно создав ошибки (удалив таблицу в базе данных SQL Azure). 
+[Справочник по командлетам фабрики данных Azure][cmdlet-reference] | Это справочные материалы содержит подробные сведения обо всех **командлеты фабрика данных**.
+[Справочник разработчика фабрики данных Azure][developer-reference] | Справочник разработчика имеется содержимое полный Справочник командлетов, скрипта JSON, функции и т. д... 
 
-[use-onpremises-datasources]: ../data-factory-use-onpremises-datasources
-[use-pig-and-hive-with-data-factory]: ../data-factory-pig-hive-activities
-[adf-tutorial]: ../data-factory-tutorial
-[use-custom-activities]: ../data-factory-use-custom-activities
-[monitor-manage-using-portal]: ../data-factory-monitor-manage-using-management-portal
-
-[troubleshoot]: ../data-factory-troubleshoot
+[copy-activity]: data-factory-copy-activity.md
+[use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
+[use-pig-and-hive-with-data-factory]: data-factory-pig-hive-activities.md
+[adf-tutorial]: data-factory-tutorial.md
+[use-custom-activities]: data-factory-use-custom-activities.md
+[troubleshoot]: data-factory-troubleshoot.md
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
-[cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 
-<!--HONumber=35.2-->
+[cmdlet-reference]: https://msdn.microsoft.com/library/dn820234.aspx
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[data-factory-create-storage]: storage-create-storage-account.md
 
-<!--HONumber=46--> 
+[adf-get-started]: data-factory-get-started.md
+[azure-preview-portal]: http://portal.azure.com
+[download-azure-powershell]: powershell-install-configure.md
+[data-factory-create-sql-database]: sql-database-create-configure.md
+[data-factory-introduction]: data-factory-introduction.md
+
+[image-data-factory-get-started-storage-explorer]: ./media/data-factory-monitor-manage-using-powershell/getstarted-storage-explorer.png
+
+[sql-management-studio]: sql-database-manage-azure-ssms.md#Step2
+
+<!---HONumber=GIT-SubDir-->
