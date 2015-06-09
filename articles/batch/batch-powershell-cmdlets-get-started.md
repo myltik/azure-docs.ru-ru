@@ -25,11 +25,11 @@
 ## Предварительные требования
 
 * **Предварительная версия Пакетной службы** – для работы со службой зарегистрируйтесь в [Предварительной версии Пакетной службы](https://account.windowsazure.com/PreviewFeatures), если вы этого еще не сделали.
-* **Azure PowerShell** – см. раздел [Как установить и настроить Azure PowerShell](powershell-install-configure.md), чтобы узнать предварительные требования, и получить инструкции по скачиванию и установке. Командлеты Пакетной службы появились в версии 0.8.10 и более поздних версиях.
+* **Azure PowerShell** – см. раздел [Как установить и настроить Azure PowerShell](../powershell-install-configure.md), чтобы узнать предварительные требования, и получить инструкции по скачиванию и установке. Командлеты Пакетной службы появились в версии 0.8.10 и более поздних версиях.
 
 ## Использование командлетов Пакетной службы
 
-Чтобы запустить Azure PowerShell и [подключиться к подпискам Azure](powershell-install-configure.md#Connect), выполните стандартные действия. Кроме этого:
+Чтобы запустить Azure PowerShell и [подключиться к подпискам Azure](../powershell-install-configure.md#Connect), выполните стандартные действия. Кроме этого:
 
 * **Выберите подписку Azure** — если у вас есть больше одной подписки, выберите подписку, в которую вы добавили компонент предварительной версии Пакетной службы:
 
@@ -37,7 +37,7 @@
     Select-AzureSubscription -SubscriptionName <SubscriptionName>
     ```
 
-* **Переключиться в режим AzureResourceManage** – командлеты Пакетной службы поставляются в модуле диспетчера ресурсов Azure. Подробнее об этом см. [Использование Windows PowerShell с диспетчером ресурсов](powershell-azure-resource-manager.md). Чтобы использовать этот модуль, запустите командлет [Switch-AzureMode](https://msdn.microsoft.com/library/dn722470.aspx):
+* **Переключиться в режим AzureResourceManage** – командлеты Пакетной службы поставляются в модуле диспетчера ресурсов Azure. Подробнее об этом см. [Использование Windows PowerShell с диспетчером ресурсов](../powershell-azure-resource-manager.md). Чтобы использовать этот модуль, запустите командлет [Switch-AzureMode](https://msdn.microsoft.com/library/dn722470.aspx):
 
     ```
     Switch-AzureMode -Name AzureResourceManager
