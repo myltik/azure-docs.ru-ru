@@ -1,12 +1,10 @@
-﻿
-Ниже приведены снимки экрана готового приложения:
 
-![](./media/app-service-mobile-windows-universal-get-started-preview/mobile-quickstart-completed.png)
-<br/>Приложение Магазина Windows
+Ниже приведены снимки экрана готового приложения.
 
-![](./media/app-service-mobile-windows-universal-get-started-preview/mobile-quickstart-completed-wp8.png)
-<br/>Приложение Магазина Windows Phone
+![](./media/app-service-mobile-windows-universal-get-started-preview/mobile-quickstart-completed.png) <br/>Приложение Магазина Windows
 
-Завершение изучения этого учебника является необходимым условием для работы со всеми другими учебниками, посвященными использованию мобильных приложений для Магазина Windows и Windows Phone. 
+![](./media/app-service-mobile-windows-universal-get-started-preview/mobile-quickstart-completed-wp8.png) <br/>Приложение Магазина Windows Phone
 
-<!--HONumber=49-->
+Завершение изучения этого учебника является необходимым условием для работы со всеми другими учебниками, посвященными использованию мобильных приложений для Магазина Windows и Windows Phone.
+
+<!---HONumber=58-->

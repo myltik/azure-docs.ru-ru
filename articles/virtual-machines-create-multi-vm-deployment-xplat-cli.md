@@ -1,6 +1,6 @@
-﻿<properties
-   pageTitle="Развертывание нескольких виртуальных машин с помощью интерфейса Azure xplat-cli | Azure"
-   description="Узнайте, как выполнить развертывание нескольких виртуальных машин с помощью интерфейса Azure xplat-cli"
+<properties
+   pageTitle="Развертывание нескольких виртуальных машин с помощью интерфейса командной строки Azure | Azure"
+   description="Узнайте, как выполнить развертывание нескольких виртуальных машин с помощью интерфейса командной строки Azure"
    services="virtual-machines"
    documentationCenter="nodejs"
    authors="AlanSt"
@@ -16,24 +16,24 @@
    ms.date="02/20/2015"
    ms.author="alanst;kasing"/>
 
-# Развертывание нескольких виртуальных машин с помощью интерфейса Azure xplat-cli
+# Развертывание нескольких виртуальных машин с помощью интерфейса командной строки Azure
 
-В приведенном ниже сценарии показано, как настроить развертывание нескольких виртуальных машин несколькими облачными службами для создания виртуальной сети с помощью кроссплатформенного интерфейса командной строки Azure (xplat-cli).
+В описанном ниже сценарии показано, как настроить развертывание нескольких виртуальных машин c несколькими облачными службами в виртуальной сети с помощью интерфейса командной строки Azure.
 
 На изображении ниже показано, как будет выглядеть развернутая виртуальная сеть по завершении выполнения сценария:
 
 ![](./media/virtual-machines-create-multi-vm-deployment-xplat-cli/multi-vm-xplat-cli.png)
 
-Согласно сценарию будет создана одна виртуальная машина (**servervm**) с двумя подключенными дисками в облачной службе **servercs** и две виртуальные машины (**clientvm1 clientvm2**) в облачной службе **workercs**. Обе облачные службы будут размещены в виртуальной сети **samplevnet**. В облачной службе **servercs** также будет настроена конечная точка для внешних подключений.
+Этот сценарий создаст одну виртуальную машину (**servervm**) с двумя подключенными дисками с данными в облачной службе **servercs** и две виртуальные машины (**clientvm1, clientvm2**) — в облачной службе **workercs**. Обе облачные службы будут размещены в виртуальной сети **samplevnet**. Кроме того, в облачной службе **servercs** будет настроена конечная точка для внешних подключений.
 
 ## Сценарий CLI для выполнения развертывания
 Код для настройки относительно прост:
 
->[AZURE.NOTE] Возможно, вам понадобится задать вместо имен облачных служб servercs и workercs уникальные имена.
+>[AZURE.NOTE]Возможно, вам понадобится задать вместо имен облачных служб servercs и workercs уникальные имена.
 
     azure network vnet create samplevnet -l "West US"
     azure vm create -l "West US" -w samplevnet -e 10000 -z Small -n servervm servercs b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-ru-ru-30GB azureuser Password@1
-    azure vm create -l "West US" -w samplevnet -e 10001 -z Small -n clientvm1 clientcs b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-ru-ru-30GB azureuser Password@1
+    azure vm create -l "West US" -w samplevnet -e 10001 -z Small –n clientvm1 clientcs b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-ru-ru-30GB azureuser Password@1
     azure vm create -l "West US" -w samplevnet -e 10002 -c -z Small -n clientvm2 clientcs b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-ru-ru-30GB azureuser Password@1
     azure vm disk attach-new servervm 100
     azure vm disk attach-new servervm 500
@@ -46,11 +46,11 @@
     azure vm delete -b -q clientvm2
     azure network vnet delete -q samplevnet
 
-*Параметр -q отключает интерактивное подтверждение при удалении объектов, параметр -b выполняет очистку дисков или больших двоичных объектов, связанных с виртуальной машиной.*
+*Параметр –q отключает интерактивное подтверждение при удалении объектов, а параметр -b выполняет очистку дисков или больших двоичных объектов, связанных с виртуальной машиной.*
 
 ## Универсальные формы используемых команд
 
-Для получения дополнительной информации о командах, которые вводятся в командной строке Azure, вы можете воспользоваться параметром -help. Ниже приведены универсальные формы использованных выше команд.
+Для получения дополнительной информации о командах, которые вводятся в командной строке Azure, вы можете воспользоваться параметром –help. Ниже приведены универсальные формы использованных выше команд.
 
     azure network vnet create -l <Region> <VNet_name>
     azure network vnet delete -q <VNet_name>
@@ -62,8 +62,8 @@
 
 ## Дальнейшие действия
 
- 
-* [Linux и вычисления с открытым кодом в Azure](virtual-machines-linux-opensource.md)
-* [Как войти в виртуальную машину под управлением Linux](virtual-machines-linux-how-to-log-on.md)
 
-<!--HONumber=47-->
+* [ОС Linux и использование средств с открытым кодом в Azure](virtual-machines-linux-opensource.md)
+* [Вход в виртуальную машину под управлением ОС Linux](virtual-machines-linux-how-to-log-on.md)
+
+<!---HONumber=58-->

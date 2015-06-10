@@ -3,7 +3,7 @@
 	description="В этой статье приведены инструкции, касающиеся начала использования хранилища Azure Premium Storage с сервером SQL Server на виртуальных машинах Azure. Статья содержит примеры новых развертываний и миграции существующих развертываний SQL Server в IaaS." 
 	services="virtual-machines" 
 	documentationCenter="" 
-	authors="rothja" 
+	authors="danielsollondon" 
 	manager="jeffreyg"
 	editor=""/>
 
@@ -31,6 +31,8 @@
 - Комплексный пример, иллюстрирующий действия в Azure, Windows и SQL Server для миграции существующей реализации AlwaysOn.
 
 Более детальная дополнительная информация о сервере SQL Server в виртуальных машинах Azure содержится в разделе [SQL Server в виртуальных машинах Azure](virtual-machines-sql-server-infrastructure-services.md).
+
+**Технические редакторы:** Луис Карлос Варгас Херринг (Luis Carlos Vargas Herring), Санджай Мишра (Sanjay Mishra), Правин Митал (Pravin Mital), Юрген Томас (Juergen Thomas), Гонсало Руис (Gonzalo Ruiz)
 
 ## Необходимые условия для использования хранилища Premium Storage
 
@@ -1139,4 +1141,4 @@
 [24]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_14.png
 [25]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_15.png
 
-<!--HONumber=54-->
+<!---HONumber=58-->

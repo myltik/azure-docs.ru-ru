@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Шаблон диспетчера ресурсов для высокодоступной фермы SharePoint" 
-	description="Последовательно изучите структуру файла шаблона диспетчера ресурсов Azure для высокодоступной фермы SharePoint." 
+	pageTitle="Шаблон диспетчера ресурсов для трехсерверной фермы Sharepoint" 
+	description="Последовательно изучите структуру шаблона диспетчера ресурсов Azure для трехсерверной фермы SharePoint." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
@@ -16,9 +16,19 @@
 	ms.date="04/29/2015" 
 	ms.author="josephd"/>
 
-# Шаблон диспетчера ресурсов для высокодоступной фермы SharePoint
+# Шаблон диспетчера ресурсов для трехсерверной фермы Sharepoint
 
-В этом разделе последовательно рассматривается структура файла шаблона azuredeploy.json для высокодоступной фермы SharePoint.
+В этом разделе последовательно рассматривается структура файла шаблона azuredeploy.json для трехсерверной фермы SharePoint. Кроме того, просмотреть содержимое этого шаблона можно в браузере [здесь](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm/azuredeploy.json).
+
+Для того чтобы ознакомиться с локальной копией файла azuredeploy.json, в качестве альтернативы укажите локальную папку для расположения файла и создайте его (например, C:\Azure\Templates\SharePointFarm). Введите имя папки и запустите эти команды в командной строке Azure PowerShell.
+
+	$folderName="<folder name, such as C:\Azure\Templates\SharePointFarm>"
+	$webclient = New-Object System.Net.WebClient
+	$url = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm/azuredeploy.json"	
+	$filePath = $folderName + "\azuredeploy.json"
+	$webclient.DownloadFile($url,$filePath)
+
+Откройте шаблон azuredeploy.json в текстовом редакторе или с помощью другого выбранного средства. Ниже описана структура файла шаблона и назначение каждого раздела.
 
 ## Раздел parameters
 
@@ -43,14 +53,16 @@
 
 В разделе variables указываются переменные, которые могут использоваться в данном шаблоне. Можно определить до 100 переменных. Ниже приведены некоторые примеры:
 
-	"RDPNAT":"RDP", 
-	"spWebLB":"spWeb", 
-	"SQLAOListener":"SQLAlwaysOnEndPointListener", 
-	"SQLAOProbe":"SQLAlwaysOnEndPointProbe", 
-	"staticSubnetName": "staticSubnet", 
-	"sqlSubnetName": "sqlSubnet", 
-	"spwebSubnetName": "spwebSubnet", 
-	"spappSubnetName": "spappSubnet", 
+	"LBFE": "LBFE",
+	"LBBE": "LBBE",
+	"RDPNAT": "RDP",
+	"spWebNAT": "spWeb",
+	"adSubnetName": "adSubnet",
+	"sqlSubnetName": "sqlSubnet",
+	"spSubnetName": "spSubnet",
+	"adNicName": "adNic",
+	"sqlNicName": "sqlNic",
+	"spNicName": "spNic",
 
 ## Раздел resources
 
@@ -65,7 +77,7 @@
 	{
 	  "type": "Microsoft.Storage/storageAccounts",
 	  "name": "[parameters('newStorageAccountName')]",
-	  "apiVersion": "2014-12-01-preview",
+	  "apiVersion": "2015-05-01-preview",
 	  "location": "[parameters('deploymentLocation')]",
 	  "properties": {
 		"accountType": "[parameters('storageAccountType')]"
@@ -77,7 +89,7 @@
 Эти разделы создают набор общедоступных IP-адресов, по которым к каждой виртуальной машине можно обратиться через Интернет. Пример:
 
 	{
-		"apiVersion": "2014-12-01-preview",
+		"apiVersion": "2015-05-01-preview",
 		"type": "Microsoft.Network/publicIPAddresses",
 		"name": "[variables('adpublicIPAddressName')]",
 		"location": "[parameters('deploymentLocation')]",
@@ -91,35 +103,34 @@
 
 ### Microsoft.Compute/availabilitySets
 
-Эти разделы создают четыре группы доступности, по одной для каждого уровня развертывания:
+Эти разделы создают три группы доступности, по одной для каждого уровня развертывания:
 
 - Контроллеры домена Active Directory
 - Кластер SQL Server
-- Серверы уровня приложений
-- Серверы уровня интернета
+- Серверы SharePoint
 
 Пример:
 
 	{
 		"type": "Microsoft.Compute/availabilitySets",
 		"name": "[variables('spAvailabilitySetName')]",
-		"apiVersion": "2014-12-01-preview",
+		"apiVersion": "2015-05-01-preview",
 		"location": "[parameters('deploymentLocation')]"
 	},
 
 ### Microsoft.Network/virtualNetworks
 
-Этот раздел создает облачную виртуальную сеть с четырьмя подсетями (по одной для каждого уровня развертывания), в которой размещаются виртуальные машины. Ниже приведен код JSON:
+Этот раздел создает облачную виртуальную сеть с тремя подсетями (по одной для каждого уровня развертывания), в которой размещаются виртуальные машины. Ниже приведен код JSON:
 
 	{
 		"name": "[parameters('virtualNetworkName')]",
 		"type": "Microsoft.Network/virtualNetworks",
 		"location": "[parameters('deploymentLocation')]",
-		"apiVersion": "2014-12-01-preview",
+		"apiVersion": "2015-05-01-preview",
 		"properties": {
 			"addressSpace": {
 			"addressPrefixes": [
-				"[parameters('virtualNetworkPrefix')]"
+				"[parameters('virtualNetworkAddressRange')]"
 			]
 			},
 			"subnets": "[variables('subnets')]"
@@ -127,93 +138,90 @@
 	},
 
 
-
 ### Microsoft.Network/loadBalancers
 
-Эти разделы создают экземпляры подсистемы балансировки нагрузки для каждой виртуальной машины, чтобы обеспечить фильтрацию NAT и трафика для входящего трафика из Интернета. Для каждой подсистемы балансировки нагрузки параметры задают внешний интерфейс, серверную часть и правила для входящих подключений NAT. Например, существуют правила трафика удаленных рабочих столов для каждой виртуальной машины и правило, разрешающее входящий веб-трафик (TCP-порт 80) из Интернета для серверов уровня Интернета. Ниже приведен пример сервера уровня Интернета:
+Эти разделы создают экземпляры подсистемы балансировки нагрузки для каждой виртуальной машины, чтобы обеспечить фильтрацию NAT и трафика для входящего трафика из Интернета. Для каждой подсистемы балансировки нагрузки параметры задают внешний интерфейс, серверную часть и правила для входящих подключений NAT. Например, есть правила трафика удаленных рабочих столов для каждой виртуальной машины и правило, разрешающее входящий веб-трафик (TCP-порт 80) из Интернета. Ниже приведен пример сервера SharePoint:
 
-        {
-            "apiVersion": "2014-12-01-preview",
-            "name": "[variables('splbName')]",
-            "type": "Microsoft.Network/loadBalancers",
-            "location": "[parameters('deploymentLocation')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Network/publicIPAddresses',variables('spIPAddressName'))]"
-            ],
-            "properties": {
-                "frontendIPConfigurations": [
-                    {
-                        "name": "[variables('spLBFE')]",
-                        "properties": {
-                            "publicIPAddress": {
-                                "id": "[resourceId('Microsoft.Network/publicIPAddresses',variables('spIPAddressName'))]"
-                            },
-                        }
-                    }
-                ],
-                "backendAddressPools": [
-                    {
-                        "name": "[variables('spWebLBBE')]"
-                    }
-                ],
-                "loadBalancingRules": [
-                    {
-                        "name": "[variables('spWebLB')]",
-                        "properties": {
-                        "frontendIPConfiguration": {
-                            "id": "[variables('splbFEConfigID')]"
-                        },
-                        "probe": {
-                            "id": "[variables('spwebProbeID')]"
-                        },
-                        "protocol": "tcp",
-                        "frontendPort": 80,
-                        "backendPort": 80,
-                        "enableFloatingIP": false
-                        }
-                    }
-                ],
-                "probes": [
-                    {
-                        "name": "[variables('spWebProbe')]",
-                        "properties": {
-                            "protocol": "http",
-                            "port": "[variables('spWebProbePort')]",
-                            "intervalInSeconds": "15",
-                            "numberOfProbes": "5",
-                            "requestPath":"/"
-                        }
-                    }
-                ]
-            }
-        },
+
+	{
+		"apiVersion": "2015-05-01-preview",
+		"name": "[variables('spLBName')]",
+		"type": "Microsoft.Network/loadBalancers",
+		"location": "[parameters('deploymentLocation')]",
+		"dependsOn": [
+			"[resourceId('Microsoft.Network/publicIPAddresses',variables('sppublicIPAddressName'))]"
+		],
+		"properties": {
+			"frontendIPConfigurations": [
+				{
+					"name": "[variables('LBFE')]",
+					"properties": {
+						"publicIPAddress": {
+							"id": "[resourceId('Microsoft.Network/publicIPAddresses',variables('sppublicIPAddressName'))]"
+						}
+					}
+				}
+			],
+			"backendAddressPools": [
+				{
+					"name": "[variables('LBBE')]"
+				}
+			],
+			"inboundNatRules": [
+				{
+					"name": "[variables('RDPNAT')]",
+					"properties": {
+						"frontendIPConfiguration": {
+							"id": "[variables('splbFEConfigID')]"
+						},
+						"protocol": "tcp",
+						"frontendPort": "[parameters('RDPPort')]",
+						"backendPort": 3389,
+						"enableFloatingIP": false
+					}
+				},
+				{
+					"name": "[variables('spWebNAT')]",
+					"properties": {
+						"frontendIPConfiguration": {
+							"id": "[variables('splbFEConfigID')]"
+						},
+						"protocol": "tcp",
+						"frontendPort": 80,
+						"backendPort": 80,
+						"enableFloatingIP": false
+					}
+				}
+			]
+		}
+	},
 
 ### Microsoft.Network/networkInterfaces
 
-Эти разделы создают один сетевой интерфейс для каждой виртуальной машины и настраивают статические IP-адреса контроллеров домена. Ниже приведен пример сетевого интерфейса для основного контроллера домена:
+Эти разделы создают один сетевой интерфейс для каждой виртуальной машины и настраивают статический IP-адрес контроллера домена. Ниже приведен пример сетевого интерфейса для контроллера домена:
 
 	{
-		"name": "[variables('adPDCNicName')]",
+		"name": "[variables('adNicName')]",
 		"type": "Microsoft.Network/networkInterfaces",
 		"location": "[parameters('deploymentLocation')]",
 		"dependsOn": [
 			"[parameters('virtualNetworkName')]",
-			"[concat('Microsoft.Network/loadBalancers/',variables('rdpLBName'))]"
+			"[concat('Microsoft.Network/loadBalancers/',variables('adlbName'))]"
 		],
-		"apiVersion": "2014-12-01-preview",
+		"apiVersion": "2015-05-01-preview",
 		"properties": {
 			"ipConfigurations": [
 				{
 					"name": "ipconfig1",
 					"properties": {
 						"privateIPAllocationMethod": "Static",
-						"privateIPAddress" :"[parameters('adPDCNicIPAddress')]",
+						"privateIPAddress": "[parameters('adNicIPAddress')]",
 						"subnet": {
-							"id": "[variables('staticSubnetRef')]"
+							"id": "[variables('adSubnetRef')]"
 						},
 						"loadBalancerBackendAddressPools": [
 							{
-								"id":"[variables('adBEAddressPoolID')]"
+								"id": "[variables('adBEAddressPoolID')]"
 							}
 						],
 						"loadBalancerInboundNatRules": [
@@ -230,121 +238,126 @@
 
 ### Microsoft.Compute/virtualMachines
 
-Эти разделы создают и настраивают девять виртуальных машин в развертывании.
+Эти разделы создают и настраивают три виртуальные машины в развертывании.
 
-Первые два основных раздела создают и настраивают контроллеры домена в развертывании. Каждый раздел:
+Первый раздел создает и настраивает контроллер домена, который:
 
-- Указывает учетную запись хранения, группу доступности, сетевой интерфейс и экземпляр подсистемы балансировки нагрузки для каждой виртуальной машины контроллера домена.
-- Добавляет дополнительный диск в каждую виртуальную машину контроллера домена.
-- Запускает сценарий PowerShell для настройки виртуальных машин в качестве контроллеров домена.
+- указывает учетную запись хранения, группу доступности, сетевой интерфейс и экземпляр подсистемы балансировки нагрузки;
+- добавляет дополнительный диск;
+- выполняет сценарий PowerShell для настройки контроллера домена.
 
-Вот пример сетевого интерфейса для основного контроллера домена:
+Ниже приведен код JSON:
 
-        {
-            "apiVersion": "2014-12-01-preview",
-            "type": "Microsoft.Compute/virtualMachines",
-            "name": "[variables('adPDCVMName')]",
-            "location": "[parameters('deploymentLocation')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts',parameters('newStorageAccountName'))]",
-                "[resourceId('Microsoft.Network/networkInterfaces',variables('adPDCNicName'))]",
-                "[resourceId('Microsoft.Compute/availabilitySets', variables('adAvailabilitySetName'))]",
-                "[resourceId('Microsoft.Network/loadBalancers',variables('rdpLBName'))]"
-            ],
-            "properties": {
-                "hardwareProfile": {
-                    "vmSize": "[parameters('adVMSize')]"
-                },
-                "availabilitySet": {
-                    "id": "[resourceId('Microsoft.Compute/availabilitySets', variables('adAvailabilitySetName'))]"
-                },
-                "osProfile": {
-                    "computername": "[variables('adPDCVMName')]",
-                    "adminUsername": "[parameters('adminUsername')]",
-                    "adminPassword": "[parameters('adminPassword')]",
-                    "windowsProfile": {
-                        "provisionVMAgent": "true"
-                    }
-                },
-                "storageProfile": {
-                    "sourceImage": {
-                        "id": "[variables('adSourceImageName')]"
-                    },
-                    "destinationVhdsContainer": "[concat('http://',parameters('newStorageAccountName'),'.blob.core.windows.net/',parameters('vmContainerName'),'/')]",
-                    "dataDisks": [
-                        {
-                            "vhd": {
-                                "uri":"[concat('http://',parameters('newStorageAccountName'),'.blob.core.windows.net/',parameters('vmContainerName'),'/', variables('adPDCVMName'),'data-1.vhd')]"
-                                },
-                            "name":"[concat(variables('adPDCVMName'),'-data-disk1')]",
-                            "caching" : "None",
-                            "diskSizeGB": "[variables('adDataDiskSize')]",
-                            "lun": 0
-                        }
-                    ]
-                },
-                "networkProfile": {
-                    "networkInterfaces": [
-                        {
-                            "id": "[resourceId('Microsoft.Network/networkInterfaces',variables('adPDCNicName'))]"
-                        }
-                    ]
-                }
-            },
-            "resources" :[
-                {
-                    "type": "Microsoft.Compute/virtualMachines/extensions",
-                    "name": "[concat(variables('adPDCVMName'),'/InstallDomainController')]",
-                    "apiVersion": "2014-12-01-preview",
-                    "location": "[parameters('deploymentLocation')]",
-                    "dependsOn":[
-                        "[resourceId('Microsoft.Compute/virtualMachines', variables('adPDCVMName'))]"
-                    ],
-                    "properties": {
-                        "publisher": "Microsoft.Powershell",
-                        "type": "DSC",
-                        "typeHandlerVersion": "1.7",
-                        "settings": {
-                            "ModulesUrl": "[variables('adPDCModulesURL')]",
-                            "ConfigurationFunction": "[variables('adPDCConfigurationFunction')]",
-                            "Properties": {
-                                "DomainName": "[parameters('domainName')]",
-                                "AdminCreds":{
-                                    "UserName": "[parameters('adminUserName')]",
-                                    "Password": "PrivateSettingsRef:AdminPassword"
-                                }
-                            }
-                        },
-                        "protectedSettings": {
-                            "Items": {
-                                "AdminPassword": "[parameters('adminPassword')]"
-                            }
-                        }
-                    }
-                }
-            ]
-        },
+		{
+			"apiVersion": "2015-05-01-preview",
+			"type": "Microsoft.Compute/virtualMachines",
+			"name": "[parameters('adVMName')]",
+			"location": "[parameters('deploymentLocation')]",
+			"dependsOn": [
+				"[resourceId('Microsoft.Storage/storageAccounts',parameters('newStorageAccountName'))]",
+				"[resourceId('Microsoft.Network/networkInterfaces',variables('adNicName'))]",
+				"[resourceId('Microsoft.Compute/availabilitySets', variables('adAvailabilitySetName'))]",
+				"[resourceId('Microsoft.Network/loadBalancers',variables('adlbName'))]"
+			],
+			"properties": {
+				"hardwareProfile": {
+					"vmSize": "[parameters('adVMSize')]"
+				},
+				"availabilitySet": {
+					"id": "[resourceId('Microsoft.Compute/availabilitySets', variables('adAvailabilitySetName'))]"
+				},
+				"osProfile": {
+					"computername": "[parameters('adVMName')]",
+					"adminUsername": "[parameters('adminUsername')]",
+					"adminPassword": "[parameters('adminPassword')]"
+				},
+				"storageProfile": {
+					"imageReference": {
+						"publisher": "[parameters('adImagePublisher')]",
+						"offer": "[parameters('adImageOffer')]",
+						"sku": "[parameters('adImageSKU')]",
+						"version": "latest"
+					},
+					"osDisk": {
+						"name": "osdisk",
+						"vhd": {
+							"uri": "[concat('http://',parameters('newStorageAccountName'),'.blob.core.windows.net/',parameters('vmContainerName'),'/',parameters('adVMName'),'-osdisk.vhd')]"
+						},
+						"caching": "ReadWrite",
+						"createOption": "FromImage"
+					},
+					"dataDisks": [
+						{
+							"vhd": {
+								"uri": "[concat('http://',parameters('newStorageAccountName'),'.blob.core.windows.net/',parameters('vmContainerName'),'/', variables('adDataDisk'),'-1.vhd')]"
+							},
+							"name": "[concat(parameters('adVMName'),'-data-disk1')]",
+							"caching": "None",
+							"createOption": "empty",
+							"diskSizeGB": "[variables('adDataDiskSize')]",
+							"lun": 0
+						}
+					]
+				},
+				"networkProfile": {
+					"networkInterfaces": [
+						{
+							"id": "[resourceId('Microsoft.Network/networkInterfaces',variables('adNicName'))]"
+						}
+					]
+				}
+			},
+			"resources": [
+				{
+					"type": "Microsoft.Compute/virtualMachines/extensions",
+					"name": "[concat(parameters('adVMName'),'/InstallDomainController')]",
+					"apiVersion": "2015-05-01-preview",
+					"location": "[parameters('deploymentLocation')]",
+					"dependsOn": [
+						"[resourceId('Microsoft.Compute/virtualMachines', parameters('adVMName'))]"
+					],
+					"properties": {
+						"publisher": "Microsoft.Powershell",
+						"type": "DSC",
+						"typeHandlerVersion": "1.7",
+						"settings": {
+							"ModulesUrl": "[variables('adModulesURL')]",
+							"ConfigurationFunction": "[variables('adConfigurationFunction')]",
+							"Properties": {
+								"DomainName": "[parameters('domainName')]",
+								"AdminCreds": {
+									"UserName": "[parameters('adminUserName')]",
+									"Password": "PrivateSettingsRef:AdminPassword"
+								}
+							}
+						},
+						"protectedSettings": {
+							"Items": {
+								"AdminPassword": "[parameters('adminPassword')]"
+							}
+						}
+					}
+				}
+			]
+		},
 
+Дополнительный раздел после каждого контроллера домена, начинающийся с **"name": "UpdateVNetDNS"**, настраивает DNS-сервер виртуальной сети для использования статического IP-адреса контроллера домена.
 
-Дополнительный раздел после каждого контроллера домена, начинающийся с **"name": "UpdateVNetDNS"**, настраивает DNS-серверы виртуальной сети для использования статических IP-адресов двух контроллеров домена.
+Следующий раздел **"type": "Microsoft.Compute/virtualMachines"** создает виртуальные машины SQL Server в развертывании, а также:
 
-Следующие три раздела **"type": "Microsoft.Compute/virtualMachines"** создают виртуальные машины кластера SQL Server в развертывании. Каждый раздел:
+- указывает учетную запись хранения, группу доступности, подсистему балансировки нагрузки, виртуальную сеть и сетевой интерфейс;
+- добавляет дополнительный диск.
 
-- Указывает учетную запись хранения, группу доступности, подсистему балансировки нагрузки, виртуальную сеть и сетевой интерфейс для каждой виртуальной машины.
-- Добавляет два дополнительных диска для каждого экземпляра SQL Server.
+Дополнительные разделы **"Microsoft.Compute/virtualMachines/extensions"** вызывают сценарий PowerShell для настройки сервера SharePoint.
 
-Дополнительные разделы **"Microsoft.Compute/virtualMachines/extensions"** вызывают сценарий PowerShell для настройки виртуальных машин кластера SQL Server, кластера SQL Server и включения групп доступности AlwaysOn.
-
-Следующие четыре раздела **"type": "Microsoft.Compute/virtualMachines"** создают виртуальные машины фермы SharePoint в развертывании. Каждый раздел указывает учетную запись хранения, группу доступности, подсистему балансировки нагрузки и сетевой интерфейс для каждой виртуальной машины.
-
-Дополнительные разделы **"Microsoft.Compute/virtualMachines/extensions"** вызывают сценарий PowerShell для настройки серверов SharePoint в качестве фермы SharePoint.
+Следующий раздел **"type": "Microsoft.Compute/virtualMachines"** создает виртуальную машину SharePoint в развертывании, указывая учетную запись хранения, группу доступности, подсистему балансировки нагрузки, виртуальную сеть и сетевой интерфейс. Дополнительный раздел **"Microsoft.Compute/virtualMachines/extensions"** вызывает сценарий PowerShell для настройки фермы PowerShell.
 
 Обратите внимание на общую структуру подразделов в разделе **"resources"** JSON-файла:
 
 1.	Создание элементов инфраструктуры Azure, которые необходимы для поддержки нескольких виртуальных машин (учетная запись хранения, общедоступные IP-адреса, группы доступности, виртуальная сеть, сетевые интерфейсы, экземпляры подсистемы балансировки нагрузки).
-2.	Создание виртуальных машин контроллера домена, которые используют ранее созданные общие и специализированные элементы инфраструктуры Azure, добавление дисков данных и запуск сценариев PowerShell. А также обновление виртуальной сети для использования статических IP-адресов контроллеров домена.
-3.	Создание виртуальных машин кластера SQL Server, которые используют ранее созданные общие и конкретные элементы Azure, созданные для контроллеров домена, добавление дисков данных и запуск сценариев PowerShell для настройки кластера и групп доступности AlwaysOn SQL Server.
-4.	Создание виртуальных машин сервера SharePoint, которые используют ранее созданные общие и специализированные элементы инфраструктуры Azure, добавление дисков данных и запуск сценариев PowerShell для настройки фермы SharePoint.
+2.	Создание виртуальной машины контроллера домена, которая использует ранее созданные общие и специализированные элементы инфраструктуры Azure, добавляет диски данных и запускает сценарий PowerShell. А также обновление виртуальной сети для использования статического IP-адреса контроллера домена.
+3.	Создание виртуальной машины SQL Server, которая использует ранее созданные общие и специализированные элементы инфраструктуры Azure, созданные для контроллера домена, добавляет диски данных и запускает сценарий PowerShell для настройки SQL Server.
+4.	Создание виртуальной машины сервера SharePoint, которая использует ранее созданные общие и специализированные элементы инфраструктуры Azure и запускает сценарий PowerShell для настройки фермы SharePoint.
 
 Ваш шаблон JSON для построения многоуровневой инфраструктуры в Azure должен выполнить те же действия:
 
@@ -352,7 +365,6 @@
 2.	Для каждого уровня в приложения (например, аутентификация, базы данных, Интернет) создайте и настройте серверы с помощью общих (учетная запись хранения, виртуальная сеть), относящихся к уровню (группа доступности) и относящихся к виртуальным машинам (общедоступные IP-адреса, сетевые интерфейсы, экземпляры подсистемы балансировки нагрузки) элементов.
 
 Дополнительную информацию см. в разделе [Язык шаблонов диспетчера ресурсов Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
-
 
 ## Дополнительные ресурсы
 
@@ -364,5 +376,4 @@
 
 [Документация по виртуальным машинам](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-
-<!--HONumber=52-->
+<!---HONumber=58-->

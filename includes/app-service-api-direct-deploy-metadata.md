@@ -26,6 +26,8 @@
 		    "apiDefinition": "/swagger/docs/v1"
 		}
 
+> **Примечание.** Если вы используете пакет Swashbuckle для создания определения API Swagger, перегрузки метода HTTP в контроллерах приводят к дублированию идентификаторов. Дополнительную информацию см. в разделе [Настройка идентификаторов операций, созданных с помощью Swashbuckle](app-service-api-dotnet-swashbuckle-customize.md).
+  
 ### Определение статического API Swagger
 
 Для предоставления статического файла определения API [Swagger](http://swagger.io/) 2.0, сохраните файл в папке *Metadata* и присвойте ему имя *apiDefinition.swagger.json*.
@@ -34,9 +36,5 @@
 
 Удалите `endpoints.apiDefinition` из файла *apiapp.json* или задайте для него значение null. Если вы оставите и URL-адрес `endpoints.apiDefinition`, и файл *apiDefinition.swagger.json*, URL-адрес будет иметь приоритет, а файл будет игнорироваться.
  
-### Другие метаданные приложения API
 
-Подробнее о файле *apiapp.json* и папке *Metadata* см. [Создание пакета приложения API](app-service-api-create-package.md).
-
-
-<!--HONumber=54-->
+<!---HONumber=58-->

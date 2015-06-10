@@ -1,62 +1,67 @@
-<properties 
-	pageTitle="Использование Azure PowerShell для создания и предварительной настройки виртуальных машин под управлением Windows" 
-	description="Узнайте, как использовать Azure PowerShell для создания и предварительной настройки виртуальных машин под управлением Windows в Azure." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+<properties
+	pageTitle="Использование Azure PowerShell для создания и предварительной настройки виртуальных машин под управлением Windows"
+	description="Узнайте, как использовать Azure PowerShell для создания и предварительной настройки виртуальных машин под управлением Windows в Azure."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/05/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/22/2015"
 	ms.author="josephd"/>
 
 # Использование Azure PowerShell для создания и предварительной настройки виртуальных машин под управлением Windows
+
+> [AZURE.SELECTOR]
+- [Azure Preview Portal](virtual-machines-windows-tutorial.md)
+- [Azure Management Portal](virtual-machines-windows-tutorial-classic-portal.md)
+- [PowerShell](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
 Ниже показано, как настроить набор команд Azure PowerShell для создания и предварительной настройки виртуальной машины Azure под управлением Windows, используя подход на базе стандартных блоков. Этот процесс можно использовать для быстрого создания набора команд для новой виртуальной машины под управлением Windows и расширения существующего развертывания либо создания нескольких наборов команд, позволяющих быстро создать настраиваемую среду для разработки/тестирования или для ИТ-специалистов.
 
 Материал в этих шагах для создания наборов команд Azure PowerShell представлен таким образом, что достаточно лишь заполнить пробелы. Этот подход может оказаться полезным, если вы не знакомы с PowerShell или хотите знать, какие именно значения следует задать для обеспечения работоспособности конфигурации. Опытные пользователи PowerShell могут подставить в команды собственные значения для переменных (строки, начинающиеся со знака "$").
 
-Дополнительные сведения о настройке виртуальных машин под управлением Linux см. в разделе [Использование Azure PowerShell для создания и предварительной настройки виртуальных машин под управлением Linux](http://azure.microsoft.com/documentation/articles/virtual-machines-ps-create-preconfigure-linux-vms/).
+Дополнительные сведения о настройке виртуальных машин под управлением Linux см. в разделе [Использование Azure PowerShell для создания и предварительной настройки виртуальных машин под управлением Linux](virtual-machines-ps-create-preconfigure-linux-vms.md).
 
 ## Шаг 1. Установка Azure PowerShell
 
-Если вы еще не сделали этого, воспользуйтесь инструкциями в разделе [Установка и настройка Azure PowerShell](install-configure-powershell.md), чтобы установить Azure PowerShell на локальном компьютере. После этого откройте командную строку Azure PowerShell.
+Если вы еще не сделали этого, следуйте указаниям в разделе [Как установить и настроить Azure PowerShell](install-configure-powershell.md), чтобы установить Azure PowerShell на локальном компьютере. После этого откройте командную строку Azure PowerShell.
 
 ## Шаг 2. Указание подписки и учетной записи хранения
 
-Укажите подписку Azure и учетную запись хранения, выполнив следующие команды в командной строке Azure PowerShell. Замените все содержимое внутри кавычек, включая символы < и >, на правильные имена.
+Укажите подписку Azure и учетную запись хранения, выполнив следующие команды в командной строке Azure PowerShell. Замените все содержимое внутри кавычек, включая символы < and >, на правильные имена.
 
 	$subscr="<subscription name>"
 	$staccount="<storage account name>"
-	Select-AzureSubscription -SubscriptionName $subscr -Current
+	Select-AzureSubscription -SubscriptionName $subscr –Current
 	Set-AzureSubscription -SubscriptionName $subscr -CurrentStorageAccountName $staccount
 
-Правильное имя подписки можно получить из свойства SubscriptionName в выходных данных команды **Get-AzureSubscription**. Правильное имя учетной записи хранения можно получить из свойства Label в выходных данных команды **Get-AzureStorageAccount** команды после выполнения команды **Select-AzureSubscription**. Эти команды также можно сохранить в текстовом файле для последующего использования.
+Правильное имя подписки можно получить из свойства SubscriptionName в выходных данных команды **Get-AzureSubscription**. Правильное имя учетной записи хранения можно получить из свойства Label в выходных данных команды **Get-AzureStorageAccount** после выполнения команды **Select-AzureSubscription**. Эти команды также можно сохранить в текстовом файле для последующего использования.
 
 ## Шаг 3. Определение ImageFamily
 
 Затем необходимо определить значение ImageFamily или Label для определенного образа, соответствующего создаваемой виртуальной машине Azure. Ниже приведены некоторые примеры из коллекции на портале управления Azure.
 
 ![](./media/virtual-machines-use-PS-create-preconfigure-windows-vms/PSPreconfigWindowsVMs_1.png)
- 
+
 Список доступных значений ImageFamily можно получить с помощью данной команды.
 
 	Get-AzureVMImage | select ImageFamily -Unique
 
 Ниже приведено несколько примеров значений ImageFamily для компьютеров под управлением Windows:
 
-- Центр обработки данных Windows Server 2012 R2 
-- Windows Server 2008 R2 с пакетом обновления 1 
-- Windows Server Technical Preview 
-- SQL Server 2012 SP1 Enterprise на базе Windows Server 2012 
+- Центр обработки данных Windows Server 2012 R2;
+- Windows Server 2008 R2 с пакетом обновления 1
+- Windows Server Technical Preview
+- SQL Server 2012 SP1 Enterprise на базе Windows Server 2012
 
-Если вы найдете нужный образ, откройте новый экземпляр любого текстового редактора и скопируйте следующий код в новый текстовый файл, заменив значение ImageFamily. 
+Если вы найдете нужный образ, откройте новый экземпляр любого текстового редактора (или экземпляр интегрированной среды сценариев PowerShell [ISE]) и скопируйте следующий код в новый текстовый файл, заменив значение ImageFamily.
 
 	$family="<ImageFamily value>"
 	$image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
@@ -65,17 +70,16 @@
 
 	Get-AzureVMImage | select Label -Unique
 
-Если вы найдете нужный образ с помощью этой команды, откройте новый экземпляр любого текстового редактора и скопируйте следующий код в новый текстовый файл, заменив значение Label. 
+Если вы найдете нужный образ с помощью этой команды, откройте новый экземпляр любого текстового редактора (или экземпляр интегрированной среды сценариев PowerShell ISE)  и скопируйте следующий код в новый текстовый файл, заменив значение Label.
 
 	$label="<Label value>"
 	$image = Get-AzureVMImage | where { $_.Label -eq $label } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 
 ## Шаг 4. Создание своего набора команд
 
-Сформируйте остальную часть набора команд, скопировав соответствующий набор приведенных ниже блоков в новый текстовый файл, а затем подставив значения переменных и удалив символы < и >. Общее представление о результатах можно получить из двух [примеров](#examples), приведенных в конце этой статьи.
+Сформируйте остальную часть набора команд, скопировав соответствующий набор приведенных ниже блоков в новый текстовый файл, а затем подставив значения переменных и удалив символы < and >. Чтобы иметь представление о конечном результате, см. два [примера](#examples), приведенных в конце этой статьи.
 
 Начните создавать свой набор команд, выбрав один из этих двух блоков команд (обязательно).
-
 
 Вариант 1. Укажите имя и размер виртуальной машины.
 
@@ -94,21 +98,18 @@
 
 При необходимости для автономного компьютера Windows укажите учетную запись локального администратора и пароль.
 
-	$localadminusername="<local administrator account name>"
-	$localadminpassword="<local administrator account password>"
-	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $localadminusername -Password $localadminpassword
+	$cred=Get-Credential -Message "Type the name and password of the local administrator account."
+	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
+
+ Выберите надежный пароль. Чтобы проверить его надежность, см. раздел [Проверка надежности пароля. Использование надежных паролей](https://www.microsoft.com/security/pc-security/password-checker.aspx).
 
 Если потребуется добавить компьютер с Windows в существующий домен Active Directory, укажите учетную запись локального администратора и пароль, домен, а также имя и пароль учетной записи домена.
 
-	$localadminusername="<local administrator account name>"
-	$localadminpassword="<local administrator account password>"
+	$cred1=Get-Credential –Message "Type the name and password of the local administrator account."
+	$cred2=Get-Credential –Message "Now type the name (not including the domain) and password of an account that has permission to add the machine to the domain."
 	$domaindns="<FQDN of the domain that the machine is joining>"
 	$domacctdomain="<domain of the account that has permission to add the machine to the domain>"
-	$domacctname="<domain account name that has permission to add the machine to the domain>"
-	$domacctpassword="<password of the domain account that has permission to add the machine to the domain>"
-	$vm1 | Add-AzureProvisioningConfig -AdminUserName $localadminusername -Password $localadminpassword -WindowsDomain -Domain $domacctdomain -DomainUserName $domacctname -DomainPassword $domacctpassword -JoinDomain $domaindns
-
-Обратите внимание, что оба этих варианта требуют указания имен пользователей и паролей. При сохранении полученного набора команд в виде файла используйте для этого надежное место, чтобы защитить эти данные.
+	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password -WindowsDomain -Domain $domacctdomain -DomainUserName $cred2.GetNetworkCredential().Username -DomainPassword $cred2.GetNetworkCredential().Password -JoinDomain $domaindns
 
 Дополнительные параметры предварительной настройки для виртуальных машин под управлением Windows см. в описании синтаксиса для набора параметров **Windows** и **WindowsDomain** в [Add-AzureProvisioningConfig](https://msdn.microsoft.com/library/azure/dn495299.aspx).
 
@@ -118,13 +119,13 @@
 
 Доступность определенного IP-адреса можно проверить следующим образом:
 
-	Test-AzureStaticVNetIP -VNetName <VNet name> -IPAddress <IP address>
+	Test-AzureStaticVNetIP –VNetName <VNet name> –IPAddress <IP address>
 
 При необходимости назначьте виртуальную машину определенной подсети в виртуальной сети Azure.
 
 	$vm1 | Set-AzureSubnet -SubnetNames "<name of the subnet>"
 
-При необходимости добавьте в виртуальную машину один диск данных. 
+При необходимости добавьте в виртуальную машину один диск данных.
 
 	$disksize=<size of the disk in GB>
 	$disklabel="<the label on the disk>"
@@ -148,32 +149,28 @@
 
 Наконец, начните процесс создания виртуальной машины, выбрав один из следующих блоков команд (обязательно).
 
-Вариант 1. Создайте виртуальную машину в новой облачной службы. 
+Вариант 1. Создайте виртуальную машину в существующей облачной службе.
 
-	New-AzureVM -Location "<An Azure location, such as US West>" -VMs $vm1
+	New-AzureVM –ServiceName "<short name of the cloud service>" -VMs $vm1
 
-Вариант 2. Создайте виртуальную машину в существующей облачной службе. 
+Короткое имя облачной службы — это то имя, которое отображается в списке облачных служб на портале управления Azure или в списке групп ресурсов на портале предварительной версии Azure.
 
-	New-AzureVM -ServiceName "<short name of the cloud service>" -VMs $vm1
-
-Короткое имя облачной службы - это то имя, которое отображается в списке облачных служб на портале управления Azure или в списке групп ресурсов на портале предварительной версии Azure. 
-
-Вариант 3. Создайте виртуальную машину в существующей облачной службе и виртуальной сети.
+Вариант 2. Создайте виртуальную машину в существующей облачной службе и виртуальной сети.
 
 	$svcname="<short name of the cloud service>"
 	$vnetname="<name of the virtual network>"
-	New-AzureVM -ServiceName $svcname -VMs $vm1 -VNetName $vnetname
+	New-AzureVM –ServiceName $svcname -VMs $vm1 -VNetName $vnetname
 
 ## Шаг 5. Запуск набора команд
 
-Просмотрите в текстовом редакторе созданный набор команд Azure PowerShell, состоящий из нескольких блоков команд из шага 4. Убедитесь, что указаны все необходимые переменные и что они имеют правильные значения. Также убедитесь, что удалены все символы < и >.
+Просмотрите в текстовом редакторе созданный набор команд Azure PowerShell, состоящий из нескольких блоков команд из шага 4. Убедитесь, что указаны все необходимые переменные и что они имеют правильные значения. Также убедитесь, что удалены все символы < and >.
 
 Скопируйте набор команд в буфер обмена и щелкните правой кнопкой мыши открытую командную строку Azure PowerShell. При этом набор команд выполняется в виде последовательности команд PowerShell, и создается виртуальная машина Azure.
 
-Если вы собираетесь снова создать эту или подобную виртуальную машину, можно предпринять следующее: 
+Если вы собираетесь снова создать эту или подобную виртуальную машину, можно предпринять следующее:
 
 - Сохраните этот набор команд как текстовый файл или файл сценария PowerShell (PS1).
-- Сохраните этот набор команд как Runbook автоматизации Azure в разделе **Автоматизация** портала управления Azure. 
+- Сохраните этот набор команд как Runbook автоматизации Azure в разделе **Автоматизация** портала управления Azure.
 
 ## <a id="examples"></a>Примеры
 
@@ -184,7 +181,7 @@
 Мне требуется набор команд PowerShell для создания исходной виртуальной машины Linux для контроллера домена Active Directory, который:
 
 - использует образ Windows Server 2012 R2 Datacenter;
-- имеет имя AZDC1; 
+- имеет имя AZDC1;
 - является автономным компьютером;
 - имеет дополнительный диск данных объемом 20 ГБ;
 - имеет статический IP-адрес 192.168.244.4;
@@ -199,9 +196,8 @@
 	$vmsize="Medium"
 	$vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image
 
-	$localadminusername="DCLocalAdmin"
-	$localadminpassword="DCeq7294*"
-	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $localadminusername -Password $localadminpassword
+	$cred=Get-Credential -Message "Type the name and password of the local administrator account."
+	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
 
 	$vm1 | Set-AzureSubnet -SubnetNames "BackEnd"
 
@@ -215,7 +211,7 @@
 
 	$svcname="Azure-TailspinToys"
 	$vnetname="AZDatacenter"
-	New-AzureVM -ServiceName $svcname -VMs $vm1 -VNetName $vnetname
+	New-AzureVM –ServiceName $svcname -VMs $vm1 -VNetName $vnetname
 
 ### Пример 2
 
@@ -224,7 +220,7 @@
 - использует образ Windows Server 2012 R2 Datacenter;
 - имеет имя LOB1;
 - является членом домена corp.contoso.com;
-- имеет дополнительный диск данных объемом 200 ГБ; 
+- имеет дополнительный диск данных объемом 200 ГБ;
 - находится в подсети FrontEnd виртуальной сети AZDatacenter;
 - находится в облачной службе Azure-TailspinToys.
 
@@ -236,13 +232,11 @@
 	$vmsize="Large"
 	$vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image
 
-	$localadminusername="LOBLocalAdmin"
-	$localadminpassword="LOBmx7137*"
-	$domacctdomain="CORP"
-	$domacctname="admin7"
-	$domacctpassword="frank0987&"
+	$cred1=Get-Credential –Message "Type the name and password of the local administrator account."
+	$cred2=Get-Credential –Message "Now type the name (not including the domain) and password of an account that has permission to add the machine to the domain."
 	$domaindns="corp.contoso.com"
-	$vm1 | Add-AzureProvisioningConfig -AdminUserName $localadminusername -Password $ localadminpassword -WindowsDomain -Domain $domacctdomain -DomainUserName $domacctname -DomainPassword $domacctpassword -JoinDomain $domaindns
+	$domacctdomain="CORP"
+	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password -WindowsDomain -Domain $domacctdomain -DomainUserName $cred2.GetNetworkCredential().Username -DomainPassword $cred2.GetNetworkCredential().Password -JoinDomain $domaindns
 
 	$vm1 | Set-AzureSubnet -SubnetNames "FrontEnd"
 
@@ -254,14 +248,14 @@
 
 	$svcname="Azure-TailspinToys"
 	$vnetname="AZDatacenter"
-	New-AzureVM -ServiceName $svcname -VMs $vm1 -VNetName $vnetname
+	New-AzureVM –ServiceName $svcname -VMs $vm1 -VNetName $vnetname
 
 
 ## Дополнительные ресурсы
 
 [Документация по виртуальным машинам](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-[Часто задаваемые вопросы о виртуальных машинах Azure](http://msdn.microsoft.com/library/azure/dn683781.aspx)
+[Виртуальные машины Azure. Вопросы и ответы](http://msdn.microsoft.com/library/azure/dn683781.aspx)
 
 [Общие сведения о виртуальных машинах Azure](http://msdn.microsoft.com/library/azure/jj156143.aspx)
 
@@ -269,4 +263,4 @@
 
 [Использование Azure PowerShell для создания и предварительной настройки виртуальных машин под управлением Linux](virtual-machines-ps-create-preconfigure-linux-vms.md)
 
-<!--HONumber=47-->
+<!---HONumber=58-->

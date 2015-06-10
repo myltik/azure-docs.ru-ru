@@ -1,24 +1,24 @@
-﻿<table cellspacing="0" border="1">
+<table cellspacing="0" border="1">
 <tr>
    <th align="left" valign="middle">Ресурс</th>
    <th align="left" valign="middle">Бесплатно</th>
    <th align="left" valign="middle">Shared (предварительная версия)</th>
-   <th align="left" valign="middle">Basic </th>
-   <th align="left" valign="middle">Standard</th>
+   <th align="left" valign="middle">базовая;</th>
+   <th align="left" valign="middle">Стандарт</th>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/services/web-sites/">Веб-сайты</a><sup>1</sup> <a href="http://azure.microsoft.com/documentation/articles/web-sites-web-hosting-plan-overview/">План размещения веб-сайтов</a></p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/services/web-sites/">Количество веб-сайтов</a><sup>1</sup> на <a href="http://azure.microsoft.com/documentation/articles/web-sites-web-hosting-plan-overview/">план веб-хостинга</a></p></td>
    <td valign="middle"><p>10</p></td>
    <td valign="middle"><p>100</p></td>
    <td valign="middle"><p>500<sup>2</sup></p></td>
    <td valign="middle"><p>500<sup>2</sup></p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>План размещения веб-сайтов</a><sup>3</sup></p></td>
+   <td valign="middle"><p>План веб-хостинга</a><sup>3</sup></p></td>
    <td valign="middle"><p>1 для каждого региона</p></td>
    <td valign="middle"><p>до 10 шт.</p></td>
    <td valign="middle"><p>до 10 шт.</p></td>
-   <td valign="middle"><p>до 10 шт.<sup>3</sup></p></td>
+   <td valign="middle"><p>до 10&#160;шт.<sup>3</sup></p></td>
 </tr>
 <tr>
    <td valign="middle"><p>Тип вычислительной операции<sup>4</sup></p></td>
@@ -36,28 +36,28 @@
 </tr>
 <tr>
    <td valign="middle"><p>Хранилище<sup>5</sup></p></td>
-   <td valign="middle"><p>1 ГБ</p></td>
-   <td valign="middle"><p>1 ГБ</p></td>
-   <td valign="middle"><p>10 ГБ</p></td>
-   <td valign="middle"><p>50 ГБ<sup>5</sup></p></td>
+   <td valign="middle"><p>1 GB</p></td>
+   <td valign="middle"><p>1 GB</p></td>
+   <td valign="middle"><p>10&#160;ГБ</p></td>
+   <td valign="middle"><p>50&#160;ГБ<sup>5</sup></p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Время ЦП (в день)<sup>6</sup></p></td>
+   <td valign="middle"><p>Время ЦП (дни)<sup>6</sup></p></td>
    <td valign="middle"><p>60 минут</p></td>
    <td valign="middle"><p>240 минут</p></td>
    <td valign="middle"><p>Без ограничений, оплата по стандартным тарифам</p></td>
    <td valign="middle"><p>Без ограничений, оплата по стандартным тарифам</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Память (1 час)<sup>7</sup></p></td>
-   <td valign="middle"><p>1024 МБ<sup>7</sup></p></td>
-   <td valign="middle"><p>1024 МБ</p></td>
+   <td valign="middle"><p>Память (1&#160;час)<sup>7</sup></p></td>
+   <td valign="middle"><p>1024&#160;МБ<sup>7</sup></p></td>
+   <td valign="middle"><p>1024&#160;МБ</p></td>
    <td valign="middle"><p>Недоступно</p></td>
    <td valign="middle"><p>Недоступно</p></td>
 </tr>
 <tr>
    <td valign="middle"><p>Пропускная способность</p></td>
-   <td valign="middle"><p>165 МБ</p></td>
+   <td valign="middle"><p>165 MB</p></td>
    <td valign="middle"><p>Без ограничений, оплата по стандартным тарифам</p></td>
    <td valign="middle"><p>Без ограничений, оплата по стандартным тарифам</p></td>
    <td valign="middle"><p>Без ограничений, оплата по стандартным тарифам</p></td>
@@ -81,19 +81,19 @@
    <td valign="middle"><p>1</p></td>
    <td valign="middle"><p>5</p></td>
 </tr><tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/web-sites-configure-ssl-certificate/">поддомен на домене azurewebsites.net с доступом по FTP/S и SSL</a></p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/web-sites-configure-ssl-certificate/">Поддомен azurewebsites.net с доступом по FTP/S и SSL</a></p></td>
    <td valign="middle"><p>X</p></td>
    <td valign="middle"><p>X</p></td>
    <td valign="middle"><p>X</p></td>
    <td valign="middle"><p>X</p></td>
 </tr><tr>
-   <td valign="middle"><p>Поддержка <a href="http://azure.microsoft.com/documentation/articles/web-sites-custom-domain-name/">пользовательских доменов</a></p></td>
+   <td valign="middle"><p>Поддержка <a href="http://azure.microsoft.com/documentation/articles/web-sites-custom-domain-name/">личных доменов</a></p></td>
    <td valign="middle"><p></p></td>
    <td valign="middle"><p>X</p></td>
    <td valign="middle"><p>X</p></td>
    <td valign="middle"><p>X</p></td>
 </tr><tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/web-sites-configure-ssl-certificate/">Поддержка протокола SSL</a> для пользовательских доменов<sup>9</sup></p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/web-sites-configure-ssl-certificate/">Поддержка протокола SSL для личных доменов</a><sup>9</sup></p></td>
    <td valign="middle"><p></p></td>
    <td valign="middle"><p></p></td>
    <td valign="middle"><p>X</p></td>
@@ -144,14 +144,14 @@
    <td valign="middle"><p>X</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/web-sites-staged-publishing/">Рабочие слоты (предварительная версия)</a></p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/web-sites-staged-publishing/">Промежуточные слоты (предварительная версия)</a></p></td>
    <td valign="middle"><p>0</p></td>
    <td valign="middle"><p>0</p></td>
    <td valign="middle"><p>1</p></td>
    <td valign="middle"><p>5</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Пользовательские домены</a></p></td>
+   <td valign="middle"><p>Личные домены</a></p></td>
    <td valign="middle"><p>0</p></td>
    <td valign="middle"><p>250</p></td>
    <td valign="middle"><p>250</p></td>
@@ -166,7 +166,7 @@
 </tr>
 </table>
 
-<sup>1</sup>Квоты на количество веб-сайтов и объем хранилища выделяются в соответствии с планом веб-хостинга, если не указано иное.
+<sup>1</sup>Квоты на количество веб-сайтов и на объем хранилища выделяются в соответствии с планом веб-хостинга, если не указано иное.
 
 <sup>2</sup>Сайты уровня Basic и Standard выполняются на выделенных машинах. Фактическое количество сайтов, которое может разместить клиент, определяется интенсивностью их использования, размером экземпляров виртуальных машин и соответствующим использованием аппаратных ресурсов.
 
@@ -180,14 +180,14 @@
 
 <sup>7</sup>Предельный объем памяти на уровне Free устанавливается сразу для всех веб-сайтов в плане веб-хостинга. Предельный объем памяти на уровне Shared выделяется для каждого веб-сайта в отдельности.
 
-<sup>8</sup>Это значение представляет собой количество параллельных подключений веб-сокетов на один экземпляр веб-сайта. Например, если вы отмасштабируете веб-сайт уровня Basic на два экземпляра, фактически вы получите 700 одновременных подключений (350 x 2).
+<sup>8</sup>Это значение представляет собой количество параллельных подключений через веб-сокеты на один экземпляр веб-сайта. Например, если вы отмасштабируете веб-сайт уровня Basic на два экземпляра, фактически вы получите 700 одновременных подключений (350 x 2).
 
 <sup>9</sup>Для уровня Basic применяются [стандартные расценки на SSL][sslpricing].
 
-<sup>10</sup>Запускает пользовательские исполняемые файлы и (или) скрипты по запросу, по расписанию или непрерывно как фоновую задачу в вашем экземпляре веб-сайтов. Для обеспечения непрерывной работы веб-заданий требуется установка опции "Всегда включено". Для обеспечения работы веб-заданий по расписанию на уровнях Free или Standard требуется использование планировщика Azure.
+<sup>10</sup>Запускает пользовательские исполняемые файлы и (или) сценарии по запросу, по расписанию или непрерывно как фоновую задачу в вашем экземпляре веб-сайтов. Для обеспечения непрерывной работы веб-заданий требуется установка опции "Всегда включено". Для обеспечения работы веб-заданий по расписанию на уровнях Free или Standard требуется использование планировщика Azure.
 
   [useresourcegroups]: http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups/
   [websitespricing]: http://azure.microsoft.com/pricing/details/web-sites/
   [sslpricing]: http://azure.microsoft.com/pricing/details/web-sites/#ssl-connections
 
-<!--HONumber=47-->
+<!---HONumber=58-->

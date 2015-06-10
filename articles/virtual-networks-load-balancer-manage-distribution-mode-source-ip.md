@@ -1,47 +1,44 @@
 <properties 
-	authors="danielceckert" 
-	documentationCenter="dev-center-name" 
-	editor=""
-	manager="jefco" 
-	pageTitle="Управление: Режим распределения балансировщика нагрузки (соответствие исходному IP-адресу)" 
-	description="Функции управления для режима распределения балансировщика нагрузки Azure" 
-	services="virtual-network" 
-	/>
+   pageTitle="Управление: режим распределения балансировщика нагрузки (соответствие исходному IP-адресу)"
+   description="Функции управления для режима распределения балансировщика нагрузки Azure" 
+   services="virtual-network" 
+   documentationCenter="" 
+   authors="telmosampaio" 
+   manager="carolz" 
+   editor=""
+   />
 
 <tags
-	ms.author="danecke"
-	ms.date="02/20/2015"
-	ms.devlang="na"
-	ms.service="virtual-network"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"/>
-<!--HEAD:articles/virtual-networks-load-balancer-manage-distribution-mode.md-->
-
+   ms.service="virtual-network"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="05/27/2015"
+   ms.author="telmos"
+   />
    
-# Управление виртуальной сетью Режим распределения балансировщика нагрузки (соответствие исходному IP-адресу)
-
-
-**Соответствие исходному IP-адресу** (также известное, как **соответствие сеансу** или **соответствие клиентскому IP-адресу**), являющееся режимом распределения балансировщика нагрузки Azure, привязывает подключения одного клиента к одному серверу, размещенному в Azure, а не динамически распределяет каждое клиентское подключение по разным серверам, размещенным в Azure (поведение балансировщика нагрузки по умолчанию).
+# Управление виртуальной сетью: режим распределения балансировщика нагрузки (соответствие исходному IP-адресу)
+**Соответствие исходному IP-адресу** (также используется термин **соответствие сеансу** или **соответствие клиентскому IP-адресу**) — специальный режим распределения балансировщика нагрузки Azure, который привязывает подключения одного клиента к одному серверу, размещенному в Azure, а не динамически распределяет клиентские подключения по разным серверам, размещенным в Azure (режим работы балансировщика нагрузки по умолчанию).
 
 С помощью соответствия исходному IP-адресу для балансировщика нагрузки Azure можно настроить использование сочетания 2 кортежей (исходный IP-адрес, целевой IP-адрес) или 3 кортежей (исходный IP-адрес, целевой IP-адрес, протокол) для сопоставления трафика с пулом доступных серверов, размещенных в Azure. При использовании соответствия исходному IP-адресу подключения, инициированные с одного клиентского компьютера, обрабатываются одной конечной точкой DIP (одним сервером, размещенным в Azure).
 
 ## Происхождение службы
 
-Соответствие исходному IP-адресу позволяет решить предыдущую [несовместимость балансировщика нагрузки Azure и шлюза удаленных рабочих столов (DOC)](http://go.microsoft.com/fwlink/p/?LinkId=517389).
+Режим соответствия исходному IP-адресу позволяет устранить существовавшую ранее [несовместимость балансировщика нагрузки Azure и шлюза удаленных рабочих столов (DOC)](http://go.microsoft.com/fwlink/p/?LinkId=517389).
 
 ## Реализация
 
-Соответствие исходному IP-адресу можно настроить для: 
+Соответствие исходному IP-адресу можно настроить для:
 
-* [конечных точек виртуальных машин](http://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/);
-* [наборов балансировки нагрузки для конечных точек](http://msdn.microsoft.com/library/azure/dn655055.aspx);
+* [Конечные точки виртуальных машин](virtual-machines-set-up-endpoints.md)
+* [Настройка комплекта балансировки нагрузки](http://msdn.microsoft.com/library/azure/dn655055.aspx)
 * [Веб-роли](http://msdn.microsoft.com/library/windowsazure/ee758711.aspx)
 * [Рабочие роли](http://msdn.microsoft.com/library/windowsazure/ee758711.aspx)
 
 ## Сценарии
 1. Кластер шлюза удаленных рабочих столов с использованием одной облачной службы.
-2. Отправка мультимедиа (т. е. UDP для данных и TCP для управления).
+2. Отправка мультимедиа (т. е. UDP для данных и TCP для управления).
   * Клиент инициирует сеанс TCP для общедоступного IP-адреса с балансировкой нагрузки, размещенного в Azure.
   * Балансировщик нагрузки отправляет запрос клиента по DIP. Этот канал остается активным, чтобы контролировать состояние подключения.
   * Клиент инициирует сеанс UDP для того же общедоступного IP-адреса с балансировкой нагрузки, размещенного в Azure.
@@ -49,36 +46,23 @@
   * Клиент передает мультимедиа по UDP с более высокой пропускной способностью, поддерживая при этом канал управления по TCP для обеспечения надежности.
   
 ## Предупреждения
-* При изменении набора балансировки нагрузки (т. е. при добавлении или удалении виртуальной машины) распределение каналов клиента вычисляется заново. Новые подключения могут обрабатываться сервером, отличным от использованного изначально.
+* При изменении набора балансировки нагрузки (т. е. при добавлении или удалении виртуальной машины) распределение каналов клиента вычисляется заново. Новые подключения могут обрабатываться сервером, отличным от использованного изначально.
 * Использование соответствия исходному IP-адресу может привести к неравномерному распределению трафика между серверами, размещенными в Azure.
 * Клиенты, маршрутизирующие трафик через прокси-сервер, могут интерпретироваться балансировщиком нагрузки Azure как один клиент.
 
-<<<<<<< HEAD:articles/virtual-networks-load-balancer-manage-distribution-mode.md
-=======
-## Дальнейшие действия
-* ПОДЛЕЖИТ УТОЧНЕНИЮ
-   
->>>>>>> 5781a6382194f50134d2a16bd9d72a6cca290f3d:articles/virtual-networks-load-balancer-manage-distribution-mode-source-ip.md
 ## Примеры для PowerShell
-Скачайте [последний выпуск Azure PowerShell](https://github.com/Azure/azure-sdk-tools/releases) для достижения лучших результатов.
+Рекомендуем скачать [последний выпуск Azure PowerShell](https://github.com/Azure/azure-sdk-tools/releases).
 
 ### Добавление конечной точки Azure в виртуальную машину и установка режима распределения балансировщика нагрузки
 
-<<<<<<< HEAD:articles/virtual-networks-load-balancer-manage-distribution-mode.md
-    Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 -LoadBalancerDistribution "sourceIP"| Update-AzureVM  
-=======
-    Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 â€"LoadBalancerDistribution â€œsourceIPâ€�| Update-AzureVM  
->>>>>>> 5781a6382194f50134d2a16bd9d72a6cca290f3d:articles/virtual-networks-load-balancer-manage-distribution-mode-source-ip.md
+    Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 –LoadBalancerDistribution “sourceIP”| Update-AzureVM  
 
-Для LoadBalancerDistribution можно задать sourceIP для балансировки нагрузки по 2 кортежам (исходный IP-адрес, целевой IP-адрес), sourceIPProtocol для балансировки нагрузки по 3 кортежам (исходный IP-адрес, целевой IP-адрес, протокол) или none для поведения по умолчанию (балансировка нагрузки по 5 кортежам).  
+    Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 â€“LoadBalancerDistribution â€œsourceIPâ€�| Update-AzureVM  
+
+Для LoadBalancerDistribution можно задать sourceIP для балансировки нагрузки по 2 кортежам (исходный IP-адрес, целевой IP-адрес), sourceIPProtocol для балансировки нагрузки по 3 кортежам (исходный IP-адрес, целевой IP-адрес, протокол) или none для поведения по умолчанию (балансировка нагрузки по 5 кортежам).
 
 ### Получение конфигурации режима распределения балансировщика нагрузки для конечной точки
-
-<<<<<<< HEAD:articles/virtual-networks-load-balancer-manage-distribution-mode.md
-    PS C:> Get-AzureVM -ServiceName "MyService" -Name "MyVM" | Get-AzureEndpoint
-=======
-    PS C:> Get-AzureVM â€"ServiceName â€œMyServiceâ€� â€"Name â€œMyVMâ€� | Get-AzureEndpoint
->>>>>>> 5781a6382194f50134d2a16bd9d72a6cca290f3d:articles/virtual-networks-load-balancer-manage-distribution-mode-source-ip.md
+    PS C:> Get-AzureVM –ServiceName "mySvc" -Name "MyVM1" | Get-AzureEndpoint
     
     VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
     LBSetName : MyLoadBalancedSet
@@ -102,11 +86,9 @@
 
 ### Установка режима распределения для набора балансировки нагрузки для конечных точек
 
-<<<<<<< HEAD:articles/virtual-networks-load-balancer-manage-distribution-mode.md
-    Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 -LoadBalancerDistribution "sourceIP"
-=======
-    Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 â€"LoadBalancerDistribution "sourceIP"
->>>>>>> 5781a6382194f50134d2a16bd9d72a6cca290f3d:articles/virtual-networks-load-balancer-manage-distribution-mode-source-ip.md
+    Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 –LoadBalancerDistribution "sourceIP"
+
+    Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 â€“LoadBalancerDistribution "sourceIP"
     
 Если набор балансировки нагрузки для конечных точек содержит конечные точки, для него следует установить режим распределения.
 
@@ -136,7 +118,7 @@
     
 ## Примеры с API
 
-Разработчики могут настроить распределение балансировщика нагрузки с помощью API управления службами.  Обязательно добавьте заголовок x-ms-version, для которого задана версия 2014-09-01 или более поздняя версия.
+Разработчики могут настроить распределение балансировщика нагрузки с помощью API управления службами. Обязательно добавьте заголовок x-ms-version с номером версии 01.09.2014 или более поздним.
 
 ### Обновление конфигурации указанного набора балансировки нагрузки в развертывании
 
@@ -166,7 +148,7 @@
       </InputEndpoint> 
     </LoadBalancedEndpointList>
 
-LoadBalancerDistribution может иметь значение sourceIP для соответствия по 2 кортежам, sourceIPProtocol для соответствия по 3 кортежам или none (для отсутствия соответствия, т. е. балансировки по 5 кортежам).
+LoadBalancerDistribution может иметь значение sourceIP для соответствия по 2 кортежам, sourceIPProtocol для соответствия по 3 кортежам или none (для отсутствия соответствия, т. е. балансировки по 5 кортежам).
 
 #### Ответ
 
@@ -178,4 +160,4 @@ LoadBalancerDistribution может иметь значение sourceIP для 
     x-ms-request-id: 9c7bda3e67c621a6b57096323069f7af 
     Date: Thu, 16 Oct 2014 22:49:21 GMT
 
-<!--HONumber=47-->
+<!---HONumber=58-->

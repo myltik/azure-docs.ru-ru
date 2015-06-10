@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Отслеживание заданий Stream Analytics | Azure" 
-	description="Отслеживание заданий Stream Analytics программным путем." 
+	pageTitle="Отслеживание заданий Stream Analytics программным способом | Microsoft Azure" 
+	description="Узнайте, как отслеживать задания Stream Analytics, созданные с помощью API REST, пакета SDK для Azure или PowerShell." 
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -13,12 +13,12 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="05/07/2015" 
+	ms.date="05/21/2015" 
 	ms.author="jeffstok"/>
 
 
-# Отслеживание заданий Stream Analytics программным путем
-В этой статье показано, как включить отслеживание задания Stream Analytics. Отслеживание заданий Stream Analytics, созданных с помощью интерфейсов API REST, пакета SDK для Azure и оболочки PowerShell, по умолчанию отключено. Вы можете вручную включить отслеживание на портале Azure. Для этого перейдите на страницу "Отслеживание" задания и нажмите кнопку "Включить". Этот процесс также можно автоматизировать, выполнив описанные в этой статье действия. Данные отслеживания будут отображаться на вкладке "Отслеживание" на портале Azure для задания Stream Analytics.
+# Отслеживание заданий Stream Analytics программным способом 
+В этой статье рассказывается, как включить функцию отслеживания задания Stream Analytics. Отслеживание заданий Stream Analytics, созданных с помощью интерфейсов API REST, пакета SDK для Azure и оболочки PowerShell, по умолчанию отключено. Вы можете вручную включить отслеживание на портале Azure. Для этого перейдите на страницу "Отслеживание" задания и нажмите кнопку "Включить". Этот процесс также можно автоматизировать, выполнив описанные в этой статье действия. Данные отслеживания будут отображаться на вкладке "Отслеживание" на портале Azure для задания Stream Analytics.
 
 ![Вкладка "Отслеживание заданий"](./media/stream-analytics-monitor-jobs/stream-analytics-monitor-jobs-tab.png)
 
@@ -45,6 +45,9 @@
     ```
     <appSettings>
     	<!--CSM Prod related values-->
+    	<add key="ResourceGroupName" value="RESOURCE GROUP NAME" />
+    	<add key="JobName" value="YOUR JOB NAME" />
+    	<add key="StorageAccountName" value="YOUR STORAGE ACCOUNT"/>
     	<add key="ActiveDirectoryEndpoint" value="https://login.windows-ppe.net/" />
     	<add key="ResourceManagerEndpoint" value="https://api-current.resources.windows-int.net/" />
     	<add key="WindowsManagementUri" value="https://management.core.windows.net/" />
@@ -135,7 +138,13 @@
 
 С помощью следующего кода можно включить отслеживание **существующего** задания Stream Analytics. В первой части кода в службу Stream Analytics отправляется запрос GET, что позволяет получить сведения о конкретном задании Stream Analytics. Во второй части кода, где запрос PUT отправляется в службу Insights для включения отслеживания задания Stream Analytics, свойство Id (полученное в результате выполнения запроса GET) используется в качестве параметра метода Put.
 
-> [AZURE.WARNING]— Если вы ранее включали отслеживание для другого задания Stream Analytics (через портал Azure или программным путем с помощью приведенного ниже кода), **рекомендуется указать имя учетной записи хранения, которое ранее использовалось для включения отслеживания.** — Учетная запись хранения связана с регионом, в котором вы создали задание Stream Analytics, а не с самим заданием. — Эта учетная запись используется для хранения данных отслеживания всех заданий Stream Analytics (и всех других ресурсов Azure). Если указать другую учетную запись хранения, это может привести к непредвиденным проблемам при отслеживании заданий Stream Analytics и других ресурсов Azure. — Учетная запись хранения, используемая для замены ```“<YOUR STORAGE ACCOUNT NAME>”``` ниже, должна входить в ту же подписку, что и задание Stream Analytics, отслеживание которого вы включаете.
+> [AZURE.WARNING]Если ранее вы включили функцию отслеживания для другого задания Stream Analytics либо на портале Azure, либо программным способом с помощью указанного ниже кода, то **рекомендуется использовать ту же учетную запись хранения, которую вы использовали для включения функции отслеживания.**
+> 
+> Учетная запись хранения связана с регионом, в котором вы создали свое задание Stream Analytics, а не с самим заданием.
+> 
+> Все задания Stream Analytics (и все другие ресурсы Azure) в этом регионе совместно используют эту учетную запись хранения для хранения данных отслеживания. Если указать другую учетную запись хранения, это может привести к непредвиденным побочным эффектам при отслеживании других заданий Stream Analytics и других ресурсов Azure.
+> 
+> Имя учетной записи хранения, используемой для замены ```“<YOUR STORAGE ACCOUNT NAME>”``` ниже, должно представлять собой учетную запись хранения, которая входит в ту же подписку, что и задание Stream Analytics, для которого вы включаете функцию отслеживания.
 
     // Get an existing Stream Analytics job
     JobGetParameters jobGetParameters = new JobGetParameters()
@@ -168,4 +177,4 @@
 - [Справочник по языку запросов Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--HONumber=54-->
+<!---HONumber=58-->

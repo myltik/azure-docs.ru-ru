@@ -13,12 +13,21 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="05/13/2015" 
 	ms.author="josephd"/>
 
 # Развертывание виртуальных машин и управление ими с использованием шаблонов диспетчера ресурсов Azure и PowerShell
 
-В этой статье показано, как использовать шаблоны диспетчера ресурсов Azure и Azure PowerShell для автоматизации общих задач по развертыванию виртуальных машин Azure и управлению ими.
+В этой статье рассказывается, как с помощью шаблонов диспетчера ресурсов Azure и PowerShell автоматизировать стандартные задачи по развертыванию виртуальных машин Azure и управлению ими. Дополнительные шаблоны см. в статье [Шаблоны быстрого запуска Azure](http://azure.microsoft.com/documentation/templates/) и в разделе [Платформы приложений](virtual-machines-app-frameworks.md).
+
+Ниже перечислены стандартные задачи.
+
+- [Развертывание виртуальной машины под управлением ОС Windows](#windowsvm)
+- [Создание образа настраиваемой виртуальной машины](#customvm)
+- [Развертывание приложения для нескольких виртуальных машин, использующего виртуальную сеть и внешнюю подсистему балансировки нагрузки](#multivm)
+- [Вход в виртуальную машину](#logon)
+- [Запуск виртуальной машины](#start)
+- [Останов виртуальной машины](#stop)
 
 Перед началом работы убедитесь, что среда Azure PowerShell готова к работе.
 
@@ -26,7 +35,7 @@
 
 ## Общая информация о шаблонах ресурсов Azure и группах ресурсов
 
-Большинство приложений, которые развертывают и используют в Microsoft Azure, созданы на основе сочетания облачных ресурсов различных типов (например, одной или нескольких виртуальных машин и учетных записей хранения, базы данных SQL, виртуальной сети или CDN). *Шаблоны диспетчера ресурсов Azure* позволяют вам развертывать эти ресурсы и управлять ими совокупно, используя описание ресурсов в формате JSON и связанные параметры конфигурации и развертывания.
+Большинство приложений, развертываемых и используемых в Microsoft Azure, созданы на основе сочетания облачных ресурсов различных типов (например, одной или нескольких виртуальных машин и учетных записей хранения, базы данных SQL или виртуальной сети). С помощью шаблонов диспетчера ресурсов Azure можно развертывать эти ресурсы и управлять ими совокупно, используя описание ресурсов в формате JSON и связанные параметры конфигурации и развертывания.
 
 Определив шаблон ресурсов на основе JSON, вы можете выполнить его и развернуть определенные в нем ресурсы в Azure с помощью команды PowerShell. Вы можете выполнять следующие команды отдельно в командной оболочке PowerShell или интегрировать их в сценарий, который содержит дополнительную логику автоматизации.
 
@@ -37,9 +46,9 @@
 - вести аудит операций; 
 - отмечать ресурсы с помощью дополнительных метаданных для более точного отслеживания. 
 
-Дополнительную информацию о диспетчере ресурсов Azure см. [здесь](virtual-machines-azurerm-versus-azuresm.md).
+Дополнительную информацию о диспетчере ресурсов Azure см. [здесь](virtual-machines-azurerm-versus-azuresm.md). Если вас интересует разработка шаблонов, см. раздел [Создание шаблонов диспетчера ресурсов Azure](resource-group-authoring-templates.md).
 
-## Общая задача. Развертывание виртуальной машины Windows
+## <a id="windowsvm"></a>Развертывание виртуальной машины под управлением ОС Windows
 
 Используйте указания в этих разделах для развертывания новой виртуальной машины Azure с помощью шаблона диспетчера ресурсов и Azure PowerShell. Этот шаблон позволяет создать одну виртуальную машину в новой виртуальной сети с единой подсетью.
 
@@ -236,7 +245,7 @@
 	$RGName="<resource group name>"
 	$locName="<Azure location, such as West US>"
 	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
-	New-AzureResourceGroup –Name $RGName –Location $locName
+	New-AzureResourceGroup -Name $RGName -Location $locName
 	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
 При выполнении команды **New-AzureResourceGroupDeployment** вы увидите запрос на ввод значений для параметров раздела parameters, который находится в JSON-файле. Если вы указали значения всех необходимых параметров, команда создаст группу ресурсов и виртуальную машину.
@@ -247,7 +256,7 @@
 	$RGName="TestRG"
 	$locname="West US"
 	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
-	New-AzureResourceGroup –Name $RGName –Location $locName
+	New-AzureResourceGroup -Name $RGName -Location $locName
 	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
 Должно отобразиться примерно следующее:
@@ -290,7 +299,7 @@
 
 Теперь в новой группе ресурсов есть новая виртуальная машина Windows с именем MyWindowsVM.
 
-## Общая задача. Создание образа настраиваемой виртуальной машины
+## <a id="customvm"></a>Создание образа настраиваемой виртуальной машины
 
 Используйте указания в этих разделах для создания образа настраиваемой виртуальной машины в Azure с использованием шаблона диспетчера ресурсов с помощью Azure PowerShell. Этот шаблон позволяет создать одну виртуальную машину из указанного виртуального жесткого диска.
 
@@ -383,13 +392,13 @@
 
 ### Шаг 3. Создание виртуальной машины с помощью шаблона
 
-Чтобы создать виртуальную машину на основе виртуального жесткого диска, замените элементы, выделенные символами "< >", своими данными и выполните следующие команды:
+Чтобы создать виртуальную машину на основе виртуального жесткого диска, замените элементы, выделенные символами < и >, своими данными и выполните указанные ниже команды.
 
 	$deployName="<deployment name>"
 	$RGName="<resource group name>"
 	$locName="<Azure location, such as West US>"
 	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-from-specialized-vhd/azuredeploy.json"
-	New-AzureResourceGroup –Name $RGName –Location $locName
+	New-AzureResourceGroup -Name $RGName -Location $locName
 	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
 Появится запрос на указание значений параметров в разделе parameters JSON-файла. Если вы указали значения всех параметров, диспетчер ресурсов Azure создаст группу ресурсов и виртуальную машину.
@@ -400,11 +409,11 @@
 	$RGName="TestRG"
 	$locname="West US"
 	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-from-specialized-vhd/azuredeploy.json"
-	New-AzureResourceGroup –Name $RGName –Location $locName
+	New-AzureResourceGroup -Name $RGName -Location $locName
 	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
 
-Отобразится такая информация:
+Появятся такие сведения:
 
 	cmdlet New-AzureResourceGroup at command pipeline position 1
 	Supply values for the following parameters:
@@ -415,7 +424,7 @@
 	vmSize: Standard_A3
 	...
 
-## Общая задача. Развертывание приложения для нескольких виртуальных машин, использующего виртуальную сеть и внешнюю подсистему балансировки нагрузки
+## <a id="multivm"></a>Развертывание приложения для нескольких виртуальных машин, использующего виртуальную сеть и внешнюю подсистему балансировки нагрузки
 
 Используйте указания в этих разделах для развертывания приложения для нескольких виртуальных машин, при котором используется виртуальная сеть и балансировщик нагрузки, с помощью Azure PowerShell и шаблона диспетчера ресурсов. Этот шаблон позволяет создать две виртуальные машины в новой виртуальной сети с единой подсетью в новой облачной службе и добавить их во внешний набор балансировки нагрузки для входящего трафика TCP-порта 80.
 
@@ -746,7 +755,7 @@
 	$RGName="<resource group name>"
 	$locName="<Azure location, such as West US>"
 	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json"
-	New-AzureResourceGroup –Name $RGName –Location $locName
+	New-AzureResourceGroup -Name $RGName -Location $locName
 	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
 При выполнении команды New-AzureResourceGroupDeployment вы увидите запрос на ввод значений для параметров JSON-файла. Если вы указали значения всех параметров, команда создаст группу ресурсов и развертывание.
@@ -755,7 +764,7 @@
 	$RGName="TestRG"
 	$locname="West US"
 	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json"
-	New-AzureResourceGroup –Name $RGName –Location $locName
+	New-AzureResourceGroup -Name $RGName -Location $locName
 	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
 Должно отобразиться примерно следующее:
@@ -783,7 +792,7 @@
 	Are you sure you want to remove resource group 'BuildRG'
 	[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
 
-## Вход в виртуальную машину Windows
+## <a id="logon"></a>Вход в виртуальную машину под управлением ОС Windows
 
 Пошаговые указания см. в разделе [Как войти в виртуальную машину под управлением Windows Server](virtual-machines-log-on-windows-server.md).
 
@@ -791,7 +800,7 @@
 
 Информацию о виртуальной машине можно просмотреть, выполнив команду **Get-AzureVM**. Эта команда возвращает объект виртуальной машины, которым можно управлять, используя другие командлеты для обновления состояния виртуальной машины. Замените все содержимое внутри кавычек, включая символы < and >, на правильные имена.
 
-	Get-AzureVM –ResourceGroupName "<resource group name>" –Name "<VM name>"
+	Get-AzureVM -ResourceGroupName "<resource group name>" -Name "<VM name>"
 
 Вы увидите примерно такую информацию о виртуальной машине:
 
@@ -855,11 +864,11 @@
 	Type                     : Microsoft.Compute/virtualMachines
 
 
-## запуск виртуальной машины
+## <a id="start"></a>Запуск виртуальной машины
 
 Вы можете запустить виртуальную машину, используя команду **Start-AzureVM**. Замените все содержимое внутри кавычек, включая символы < and >, на правильные имена.
 
-	Start-AzureVM –ResourceGroupName "<resource group name>" –Name "<VM name>"
+	Start-AzureVM -ResourceGroupName "<resource group name>" -Name "<VM name>"
 
 Вы увидите примерно такую информацию:
 
@@ -872,11 +881,11 @@
 	RequestId           : aac41de1-b85d-4429-9a3d-040b922d2e6d
 	StatusCode          : OK
 
-## Остановка виртуальной машины
+## <a id="stop"></a>Останов виртуальной машины
 
 Вы можете остановить виртуальную машину, используя команду **Stop-AzureVM**. Замените все содержимое внутри кавычек, включая символы < and >, на правильные имена.
 
-	Stop-AzureVM –ResourceGroupName "<resource group name>" –Name "<VM name>"
+	Stop-AzureVM -ResourceGroupName "<resource group name>" -Name "<VM name>"
 
 Вы увидите примерно такую информацию:
 
@@ -894,11 +903,11 @@
 	RequestId           : 5cc9ddba-0643-4b5e-82b6-287b321394ee
 	StatusCode          : OK
 
-##Перезапуск виртуальной машины
+## Перезапуск виртуальной машины
 
 Вы можете перезапустить виртуальную машину, используя команду **Restart-AzureVM**. Замените все содержимое внутри кавычек, включая символы < and >, на правильные имена.
 
-	Restart-AzureVM –ResourceGroupName "<resource group name>" –Name "<VM name>"
+	Restart-AzureVM -ResourceGroupName "<resource group name>" -Name "<VM name>"
 
 Вы увидите примерно такую информацию:
 
@@ -913,9 +922,9 @@
 
 ## удаление виртуальной машины
 
-Вы можете удалить виртуальную машину, используя команду **Remove-AzureVM**. Замените все содержимое внутри кавычек, включая символы < and >, на правильные имена. Используйте параметр **–Force**, чтобы пропустить запрос на подтверждение.
+Вы можете удалить виртуальную машину, используя команду **Remove-AzureVM**. Замените все содержимое внутри кавычек, включая символы < and >, на правильные имена. Чтобы пропустить запрос на подтверждение, используйте параметр **–Force**.
 
-	Remove-AzureVM –ResourceGroupName "<resource group name>" –Name "<VM name>"
+	Remove-AzureVM -ResourceGroupName "<resource group name>" –Name "<VM name>"
 
 Вы увидите примерно такую информацию:
 
@@ -943,7 +952,6 @@
 
 [Документация по виртуальным машинам](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-[Как установить и настроить Azure PowerShell](install-configure-powershell.md)
+[Установка и настройка Azure PowerShell](install-configure-powershell.md)
 
-
-<!--HONumber=52-->
+<!---HONumber=58-->
