@@ -569,7 +569,7 @@ HDInsight использует большие двоичные объекты в
 
 
 
-[azure-data-factory-pig-hive]: data-factory-pig-hive-activities.md
+[azure-data-factory-pig-hive]: ./data-factory/data-factory-pig-hive-activities.md
 [hdinsight-oozie-coordinator-time]: hdinsight-use-oozie-coordinator-time.md
 [hdinsight-versions]: hdinsight-component-versioning.md
 [hdinsight-storage]: hdinsight-use-blob-storage.md
