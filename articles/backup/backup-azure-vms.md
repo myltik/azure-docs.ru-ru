@@ -186,4 +186,4 @@
 - [Восстановление виртуальных машин](backup-azure-restore-vms.md)
 - [Управление виртуальными машинами](backup-azure-manage-vms)
 
-<!---HONumber=GIT-SubDir-->
+<!---HONumber=GIT-SubDir--> 

@@ -101,4 +101,4 @@
 ## Дальнейшие действия
 - [Управление виртуальными машинами](backup-azure-manage-vms)
 
-<!---HONumber=GIT-SubDir-->
+<!---HONumber=GIT-SubDir--> 

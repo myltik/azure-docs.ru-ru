@@ -94,4 +94,4 @@
 - Дополнительную информацию о службе архивации Azure см. в разделе [Общие сведения о резервном копировании Azure](http://go.microsoft.com/fwlink/p/?LinkId=222425). 
 - Посетите [форум о службе архивации Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=GIT-SubDir-->
+<!---HONumber=GIT-SubDir--> 

@@ -65,4 +65,4 @@
 + Часто задаваемые вопросы о службе архивации Azure можно найти [здесь](backup-azure-backup-faq.md).
 + Посетите [форум о службе архивации Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=GIT-SubDir-->
+<!---HONumber=GIT-SubDir--> 
