@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Способы переноса хранимых данных в облако|Azure" 
 	description="Рекомендации по выбору оптимального варианта для переноса данных из локального развертывания или других облачных источников в Microsoft Azure для расширенного анализа." 
 	services="data-factory, hdinsight, machine-learning, storage, sql-database" 
@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="big-data" 
-	ms.date="1/7/2014" 
+	ms.date="01/07/2014" 
 	ms.author="cgronlun"/>
 
 # Способы переноса хранимых данных в облако Azure
