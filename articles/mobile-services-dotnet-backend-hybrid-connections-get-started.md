@@ -49,7 +49,7 @@
 
 Для использования локальной базы данных SQL Server или SQL Server Express с помощью гибридного подключения в статическом порте должен быть включен протокол TCP/IP. Экземпляры SQL Server по умолчанию используют статический порт 1433, а именованные экземпляры не используют этот порт.
 
-Подробные инструкции по настройке SQL Server, чтобы он соответствовал приведенным выше условиям, см. в разделе [Установка SQL Server Express, включение TCP/IP и создание локальной базы данных SQL Server](web-sites-hybrid-connection-connect-on-premises-sql-server.md#InstallSQL). Если SQL Server уже установлен в конфигурации и среде, которые соответствуют приведенным выше условиям, можно пропустить этот этап и перейти к разделу [Создание локальной базы данных SQL Server](web-sites-hybrid-connection-connect-on-premises-sql-server.md#CreateSQLDB).
+Подробные инструкции по настройке SQL Server, чтобы он соответствовал приведенным выше условиям, см. в разделе [Установка SQL Server Express, включение TCP/IP и создание локальной базы данных SQL Server](app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md#InstallSQL). Если SQL Server уже установлен в конфигурации и среде, которые соответствуют приведенным выше условиям, можно пропустить этот этап и перейти к разделу [Создание локальной базы данных SQL Server](app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md#CreateSQLDB).
 
 В рамках данного руководства мы будем считать, что база данных имеет имя **OnPremisesDB**, запущена в порте **1433**, и имя узла компьютера — **onPremisesServer**.
 

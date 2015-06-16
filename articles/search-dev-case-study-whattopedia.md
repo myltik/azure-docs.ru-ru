@@ -64,7 +64,7 @@ WhatToPedia — это стартап-компания, которая тест�
 
 - [Поиск Azure;](http://azure.microsoft.com/services/search/)
 - [веб-сайты Azure, разработанные с использованием платформы MVC 4;](http://azure.microsoft.com/services/websites/)
-- [веб-задания Azure для запланированных задач;](websites-webjobs-resources.md)
+- [веб-задания Azure для запланированных задач;](app-service-web/websites-webjobs-resources.md)
 - [база данных SQL Azure;](http://azure.microsoft.com/services/sql-database/)
 - [хранилище BLOB-объектов Azure;](http://azure.microsoft.com/services/storage/)
 - [почтовая служба SendGrid.](http://azure.microsoft.com/marketplace/partners/sendgrid/sendgrid-azure/)
@@ -417,7 +417,7 @@ WhatToPedia — это стартап-компания, которая тест�
 
 <!--Link references-->
 [Link 1 to another azure.microsoft.com documentation topic]: virtual-machines-windows-tutorial.md
-[Link 2 to another azure.microsoft.com documentation topic]: web-sites-custom-domain-name.md
+[Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
 <!--HONumber=54-->
