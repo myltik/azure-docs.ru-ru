@@ -1,4 +1,4 @@
-﻿# Создание приложения с мобильным клиентом и веб-клиентом в службе приложений Azure
+# Создание приложения с мобильным клиентом и веб-клиентом в службе приложений Azure
 
 В этой статье рассказывается, как создать приложение, у которого будет как мобильный клиент, так и веб-клиент. Вы создадите мобильное приложение и веб-приложение и для каждого из них используете одну и ту же основную базу данных.
 
@@ -77,6 +77,6 @@
 <!-- Links -->
 
 [MultiChannelToDo]: https://github.com/Azure/mobile-services-samples/tree/web-mobile/MultiChannelToDo
-[Создание мобильного приложения]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md
+[Создание мобильного приложения]: ../article/app-service-mobile/app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md
 
 <!--HONumber=49-->

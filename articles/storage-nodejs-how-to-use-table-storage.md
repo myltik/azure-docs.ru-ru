@@ -430,9 +430,9 @@ ACL реализуется с помощью массива политик до�
   [Облачная служба Node.js]: cloud-services-nodejs-develop-deploy-app.md
   [Хранение и доступ к данным в Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Посетите блог рабочей группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
-  [Веб-сайт с WebMatrix]: web-sites-nodejs-use-webmatrix.md
+  [Веб-сайт с WebMatrix]: app-service-web/web-sites-nodejs-use-webmatrix.md
   [Облачная служба Node.js с хранилищем]: storage-nodejs-use-table-storage-cloud-service-app.md
-  [Веб-приложение Node.js с хранилищем]: storage-nodejs-use-table-storage-web-site.md
-  [Создание и развертывание приложения Node.js на веб-сайте Azure]: web-sites-nodejs-develop-deploy-mac.md
+  [Веб-приложение Node.js с хранилищем]: app-service-web/storage-nodejs-use-table-storage-web-site.md
+  [Создание и развертывание приложения Node.js на веб-сайте Azure]: app-service-web/web-sites-nodejs-develop-deploy-mac.md
 
 <!--HONumber=49-->

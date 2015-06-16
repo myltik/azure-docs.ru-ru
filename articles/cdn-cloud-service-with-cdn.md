@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Интеграция облачной службы с Azure CDN" 
 	description="В этом учебнике объясняется, как развернуть облачную службу, которая обслуживает содержимое из интегрированной конечной точки CDN Azure" 
 	services="cdn, cloud-services" 
@@ -625,7 +625,7 @@ public ActionResult Show(string id)
 # Дополнительные сведения #
 - [Общие сведения о сети доставки содержимого (CDN) Azure](http://msdn.microsoft.com/library/azure/ff919703.aspx)
 - [Обслуживание содержимого из CDN Azure в вашем веб-приложении](cdn-serve-content-from-cdn-in-your-web-application.md)
-- [Интеграция веб-сайта Azure с Azure CDN](cdn-websites-with-cdn.md)
+- [Интеграция веб-сайта Azure с Azure CDN](app-service-web/cdn-websites-with-cdn.md)
 - [Объединение и минификация ASP.NET](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
 - [Использование CDN для Azure](cdn-how-to-use.md)
 

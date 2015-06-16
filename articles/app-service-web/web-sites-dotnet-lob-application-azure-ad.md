@@ -1,0 +1,360 @@
+<properties 
+	pageTitle="Создание веб-приложения .NET MVC в службе приложений Azure с аутентификацией Azure Active Directory" 
+	description="Ознакомьтесь с методом создания бизнес-приложения ASP.NET MVC в службе приложений Azure, осуществляющего аутентификацию при помощи Azure Active Directory" 
+	services="app-service\web, active-directory" 
+	documentationCenter=".net" 
+	authors="cephalin" 
+	manager="wpickett" 
+	editor=""/>
+
+<tags 
+	ms.service="app-service-web" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="web" 
+	ms.date="04/09/2015" 
+	ms.author="cephalin"/>
+
+# Создание веб-приложения .NET MVC в службе приложений Azure с аутентификацией Azure Active Directory #
+
+В данной статье вы ознакомитесь с методом создания бизнес-приложения ASP.NET MVC на основе [веб-приложений службы приложений Azure](http://go.microsoft.com/fwlink/?LinkId=529714) с использованием [Azure Active Directory](/services/active-directory/) в качестве поставщика удостоверений. Вы также узнаете, как использовать [клиентскую библиотеку Azure Active Directory Graph](http://blogs.msdn.com/b/aadgraphteam/archive/2014/06/02/azure-active-directory-graph-client-library-1-0-publish.aspx) для запроса данных каталога в приложении.
+
+Используемый клиент Azure Active Directory может включать в себя только каталог Azure или синхронизироваться с локальной службой Active Directory (AD) для создания возможности единого входа локальных или удаленных сотрудников.
+
+>[AZURE.NOTE] Функция Easy Auth в веб-приложениях службы приложений Azure дает возможность настраивать простую аутентификацию с помощью клиента Azure Active Directory всего несколькими нажатиями кнопки. Дополнительные сведения см. в статье [Использование службы Active Directory для аутентификации в службе приложений Azure](web-sites-authentication-authorization.md).
+
+<a name="bkmk_build"></a>
+## Что будет создано ##
+
+Вы создадите простое бизнес-приложение по шаблону "создать-прочитать-обновить-удалить" (CRUD) в веб-приложениях службы приложений, которое отслеживает рабочие элементы с помощью следующих компонентов:
+
+- аутентификация пользователей в службе Azure Active Directory;
+- функции входа и выхода
+- использование действия [Авторизировать] для авторизации пользователей для различных действий CRUD;
+- запросы данных Azure Active Directory при помощи [Azure Active Directory Graph API](http://msdn.microsoft.com/library/azure/hh974476.aspx)
+- использование [Microsoft.Owin](http://www.asp.net/aspnet/overview/owin-and-katana/an-overview-of-project-katana) (вместо Windows Identity Foundation, то есть WIF). Этот интерфейс является будущим ASP.NET, он гораздо проще в настройке для проверки подлинности и авторизации, чем WIF.
+
+<a name="bkmk_need"></a>
+## Необходимые условия ##
+
+[AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
+
+>[AZURE.NOTE] Если вы хотите начать работу со службой приложений Azure еще до создания учетной записи Azure, перейдите на страницу [ознакомительной версии службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751). Там вы сможете сразу создать свое первое веб-приложение, правда срок его службы будет ограничен. Никаких кредитных карт и обязательств.
+
+Чтобы выполнить этот учебник, необходимо следующее:
+
+- Клиент Azure Active Directory с пользователями в различных группах
+- Разрешения на создание приложений в клиенте Azure Active Directory
+- Visual Studio 2013
+- [Пакет SDK Azure 2.5.1](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) или более поздней версии
+
+<a name="bkmk_sample"></a>
+## Использование образца приложения в качестве шаблона бизнес-приложения ##
+
+Пример приложения в этом учебнике [WebApp-GroupClaims-DotNet](https://github.com/AzureADSamples/WebApp-GroupClaims-DotNet) создано рабочей группой Azure Active Directory и может использоваться в качестве шаблона для простого создания новых бизнес-приложений. Оно имеет следующие встроенные функции:
+
+- использует [OpenID Connect](http://openid.net/connect/) для аутентификации с помощью Azure Active Directory;
+- контроллер ролей, который содержит фильтр поиска Azure Active Directory и позволяет легко сопоставлять пользователей или группы Azure Active Directory с ролями приложения;
+- пример контроллера `TaskTracker` для демонстрации авторизации различных ролей для определенных действий в приложении, в том числе стандартного использования действия [Авторизовать]. 
+
+![](./media/web-sites-dotnet-lob-application-azure-ad/role-management.png)
+
+<a name="bkmk_run" />
+## Запуск примера приложения ##
+
+1.	Создайте клон или загрузите пример решения с сайта  [WebApp-GroupClaims-DotNet](https://github.com/AzureADSamples/WebApp-GroupClaims-DotNet) в локальный каталог.
+2.	Следуйте инструкциям в файле  [README.md](https://github.com/AzureADSamples/WebApp-GroupClaims-DotNet/blob/master/README.md), чтобы настроить приложение Azure Active Directory и проект.
+
+	> [AZURE.NOTE] Разрешения, настроенные в приложении Azure Active Directory, требуют наличия только роли <strong>Пользователь</strong>, а не **Глобальный администратор**.
+	
+3.	Завершив настройку приложения, введите "F5" и запустите его.
+4.	После загрузки приложения щелкните  **Вход**. .
+5.	Если приложение Azure Active Directory настроено правильно и заданы соответствующие параметры в файле Web.config, должно произойти перенаправление на страницу входа. Просто войдите в учетную запись, которая использовалась для создания приложения Azure Active Directory на портале Azure, так как это владелец приложения Azure Active Directory по умолчанию. 
+	
+	> [AZURE.NOTE] В файле Startup.Auth.cs примера проекта обратите внимание на метод приложения с названием <code>AddOwnerAdminClaim</code>, который используется для присвоения владельцу приложения роли администратора. Это дает возможность немедленно начать управление ролями приложения в <code>контроллере</code> ролей.
+	
+4.	После входа щелкните **Роли**, чтобы начать управление ролями приложения.
+5.	В поле **Поиск пользователей или групп** начните вводить нужное имя пользователя или группы. Вы увидите в раскрывающемся списке отфильтрованный список пользователей и/или групп из клиента Azure Active Directory.
+
+	![](./media/web-sites-dotnet-lob-application-azure-ad/select-user-group.png) 
+
+	> [AZURE.NOTE] В файле Views\Roles\Index.cshtml можно увидеть, что представление использует объект JavaScript под названием <code>AadPicker</code> (определенный в файле Scripts\AadPickerLibrary.js) для доступа к действию <code>Поиск</code> в <code>контроллере</code> ролей.
+		<pre class="prettyprint">var searchUrl = window.location.protocol + "//" + window.location.host + "<mark>/Roles/Search</mark>";
+	...
+    var picker = new <mark>AadPicker(searchUrl, maxResultsPerPage, input, token, tenant)</mark>;</pre>
+		В файле Controllers\RolesController.cs можно увидеть, что действие <code>Поиск</code> отправляет действительный запрос в Azure Active Directory Graph API и возвращает ответ обратно на страницу.
+		Позднее вы будете использовать этот же метод для создания простой функциональности в приложении.
+
+6.	Выберите пользователя или группу из раскрывающегося списка, выберите роль и нажмите кнопку **Назначить роль**.
+
+<a name="bkmk_deploy"></a>
+## Развертывание примера приложения в веб-приложениях службы приложений
+
+Теперь мы опубликуем приложение в веб-приложение службы приложений Azure. В файле [README.md](https://github.com/AzureADSamples/WebApp-GroupClaims-DotNet/blob/GroupClaims/README.md) уже есть инструкции по развертыванию веб-приложений службы приложений, но выполнение этих действий также приводит к уничтожению конфигурации локальной среды отладки. Я покажу вам, как выполнить развертывание с сохранением конфигурации отладки.
+
+1. Щелкните правой кнопкой мыши свой проект и выберите **Опубликовать**.
+
+	![](./media/web-sites-dotnet-lob-application-azure-ad/publish-app.png)
+
+2. Выберите **Веб-приложения Microsoft Azure**.
+3. Если вы еще не вошли в систему Azure, нажмите кнопку **Вход** и используйте учетную запись Майкрософт для вашей подписки Azure, чтобы войти.
+4. После входа щелкните **Создать**, чтобы создать новое веб-приложение в Azure.
+5. Заполните все обязательные поля. Для этого приложения необходимо подключение к базе данных, чтобы хранить сопоставления ролей, кэшированные токены и любые данные приложения.
+
+	![](./media/web-sites-dotnet-lob-application-azure-ad/4-create-website.png)
+
+6. Щелкните **Создать**. После создания веб-приложения открывается диалоговое окно публикации в Интернете.
+7. В поле **Конечный URL-адрес** замените **http** на **https**. Скопируйте весь URL-адрес в текстовый редактор. Он вам понадобится позднее. Затем нажмите кнопку **Далее**.
+
+	![](./media/web-sites-dotnet-lob-application-azure-ad/5-change-to-https.png)
+
+8. Снимите флажок **Включить проверку подлинности в организации**.
+
+	![](./media/web-sites-dotnet-lob-application-azure-ad/6-disable-organizational-authentication.png)
+
+9. Вместо того, чтобы нажать кнопку **Опубликовать** для выполнения операции веб-публикации, щелкните **Закрыть**. Щелкните **Да** для сохранения изменений в профиле публикации.
+2. На [портале управления Azure](https://manage.windowsazure.com) перейдите к клиенту Azure Active Directory и откройте вкладку **Приложения**.
+2. В нижней части страницы нажмите кнопку **Добавить**.
+3. Выберите **Веб-приложение и/или веб-API**.
+4. Присвойте приложению имя и щелкните **Далее**.
+5. В окне свойств приложения укажите в поле **URL-адрес входа** ранее сохраненный URL-адрес веб-приложения (например, `https://<site-name>.azurewebsites.net`), а в поле **URI кода приложения** укажите `https://<aad-tenanet-name>/<app-name>`. Затем нажмите кнопку **Завершить**.
+
+	![](./media/web-sites-dotnet-lob-application-azure-ad/7-app-properties.png)
+
+6. После создания приложения щелкните **Настройка**.
+7. В разделе **Ключи** создайте новый ключ, выбрав **1 год** в раскрывающемся списке.
+8. В разделе **Разрешения для других приложений** для записи **Azure Active Directory** выберите **Доступ к каталогу вашей организации** в раскрывающемся списке **Делегированные разрешения**.
+
+	> [AZURE.NOTE] Необходимые разрешения зависят от желаемой функциональности приложения. Для задания некоторых разрешений требуется роль **глобального администратора**, но разрешения, необходимые для этого учебника, требуют использования только роли **пользователя**.
+
+9.  Нажмите кнопку **Сохранить**.  
+10.  Прежде чем покинуть страницу сохраненной конфигурации, скопируйте следующую информацию в текстовый редактор.
+
+	-	Идентификатор клиента
+	-	Ключ (если покинуть страницу, ключ нельзя будет увидеть снова)
+
+11. В Visual Studio откройте файл **Web.Release.config** в вашем проекте. Вставьте следующий XML-код в тег <configuration> и замените значение каждого ключа на информацию, которая была сохранена для нового приложения Azure Active Directory.  
+	<pre class="prettyprint">
+&lt;appSettings&gt;
+   &lt;add key="ida:ClientId" value="<mark>[e.g. 82692da5-a86f-44c9-9d53-2f88d52b478b]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" /&gt;
+   &lt;add key="ida:AppKey" value="<mark>[e.g. rZJJ9bHSi/cYnYwmQFxLYDn/6EfnrnIfKoNzv9NKgbo=]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" /&gt;
+   &lt;add key="ida:PostLogoutRedirectUri" value="<mark>[e.g. https://mylobapp.azurewebsites.net/]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" /&gt;
+&lt;/appSettings&gt;</pre>
+
+	Убедитесь, что значение ida:PostLogoutRedirectUri заканчивается косой чертой "/".
+
+1. Щелкните правой кнопкой мыши свой проект еще раз и выберите **Опубликовать**.
+2. Щелкните **Опубликовать** для публикации в веб-приложениях службы приложений Azure.
+
+После завершения операции вы получите два приложения Azure Active Directory, настроенные на портале управления Azure. Одно из них используется для среды отладки в Visual Studio, а второе - для опубликованного веб-приложения в Azure. Во время отладки параметры приложения в файле Web.config используются, чтобы конфигурация **Отладка** работала со службой Azure Active Directory. После его публикации (по умолчанию публикуется конфигурация **Выпуск**) отправляется измененный файл Web.config, который содержит изменения параметров приложения в файле Web.Release.config.
+
+Если требуется подключить опубликованное веб-приложение к отладчику (т.е. когда нужно отправить символы отладки кода в опубликованное веб-приложение), можно создать клон конфигурации отладки для отладки в Azure. Этот клон должен иметь собственный настраиваемый файл преобразования Web.config (например, Web.AzureDebug.config), в котором используются параметры приложения из файла Web.Release.config. Это дает возможность поддерживать статическую конфигурацию в различных средах.
+
+<a name="bkmk_crud"></a>
+## Добавление функциональности бизнес-приложения к примеру приложения
+
+В этой части учебника вы научитесь создавать необходимую функциональность бизнес-приложения на основе примера приложения. Вы займетесь созданием простого приложения CRUD для отслеживания рабочих элементов, аналогичного контроллеру TaskTracker, но с использованием формирования стандартного шаблона CRUD и шаблона разработки. Кроме этого, будут использоваться приведенные скрипты Scripts\AadPickerLibrary.js для обогащения приложения данными из API Azure Active Directory Graph.  
+
+5.	В папке Models создайте новую модель с именем WorkItem.cs и замените код следующим кодом:
+
+		using System.ComponentModel.DataAnnotations;
+		
+		namespace WebAppGroupClaimsDotNet.Models
+		{
+		    public class WorkItem
+		    {
+		        [Key]
+		        public int ItemID { get; set; }
+		        public string AssignedToID { get; set; }
+		        public string AssignedToName { get; set; }
+		        public string Description { get; set; }
+		        public WorkItemStatus Status { get; set; }
+		    }
+		
+		    public enum WorkItemStatus
+		    {
+		        Open, 
+		        Investigating, 
+		        Resolved, 
+		        Closed
+		    }
+		}
+
+6.	Откройте DAL\GroupClaimContext.cs и добавьте выделенный код:  
+	<pre class="prettyprint">
+    public class GroupClaimContext : DbContext
+    {
+        public GroupClaimContext() : base("GroupClaimContext") { }
+
+        public DbSet&lt;RoleMapping&gt; RoleMappings { get; set; }
+        public DbSet&lt;Task&gt; Tasks { get; set; }
+        <mark>public DbSet&lt;WorkItem&gt; WorkItems { get; set; }</mark>
+        public DbSet&lt;TokenCacheEntry&gt; TokenCacheEntries { get; set; }
+    }</pre>
+
+7.	Постройте проект, чтобы сделать новую модель доступной для логики формирования шаблона в Visual Studio.
+8.	Добавьте новый сформированный элемент шаблона `WorkItemsController` в папку "Контроллеры". Чтобы это сделать, щелкните правой кнопкой мыши **Контроллеры**, выберите **Добавить**, а затем выберите **Новый сформированный элемент шаблона**. 
+9.	Выберите **Контроллер MVC 5 с представлениями, использующий Entity Framework**, и щелкните **Добавить**.
+10.	Выберите только что созданную модель и щелкните **Добавить**.
+
+	![](./media/web-sites-dotnet-lob-application-azure-ad/8-add-scaffolded-controller.png)
+
+9.	Откройте Controllers\WorkItemsController.cs
+
+11. Добавьте выделенные оформления [Авторизовать] к соответствующим действиям ниже.
+	<pre class="prettyprint">
+	...
+
+    <mark>[Authorize(Roles = "Admin, Observer, Writer, Approver")]</mark>
+    public class WorkItemsController : Controller
+    {
+		...
+
+        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+        public ActionResult Create()
+        ...
+
+        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+        public async Task&lt;ActionResult&gt; Create([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
+        ...
+
+        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+        public async Task&lt;ActionResult&gt; Edit(int? id)
+        ...
+
+        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+        public async Task&lt;ActionResult&gt; Edit([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
+        ...
+
+        <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
+        public async Task&lt;ActionResult&gt; Delete(int? id)
+        ...
+
+        <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
+        public async Task&lt;ActionResult&gt; DeleteConfirmed(int id)
+        ...
+	}</pre>
+
+	Поскольку нас интересует сопоставление ролей к контроллере ролей, достаточно просто убедиться, что каждое действие авторизует соответствующую роль.
+
+	> [AZURE.NOTE] Возможно, вы обратили внимание на оформление <code>[ValidateAntiForgeryToken]</code> на некоторых действиях. Из-за поведения, описанного [Алленом Броком](https://twitter.com/BrockLAllen) в статье [MVC 4, AntiForgeryToken и утверждения](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/), команда HTTP POST может завершиться ошибкой при проверке маркеров защиты от подделки по следующей причине:
+	> + Azure Active Directory не отправляет http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, что требуется по умолчанию для маркера защиты от подделки.
+	> + Если Azure Active Directory является каталогом, синхронизированным с AD FS, то средство доверия AD FS по умолчанию также не отправляет утверждение http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, хотя можно настроить вручную AD FS для отправки такого утверждения.
+	> Мы займемся этим на следующем шаге.
+
+12.  В файле App_Start\Startup.Auth.cs добавьте следующую строку кода в метод `ConfigureAuth`:
+
+		AntiForgeryConfig.UniqueClaimTypeIdentifier = ClaimTypes.NameIdentifier;
+	
+	ClaimTypes.NameIdentifies определяет утверждение `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`, которое служба Azure Active Directory не предоставляет. Теперь после того, как решен вопрос с авторизацией (честно говоря, на это ушло немного времени), можно посвятить свое время фактической функциональности действий. 
+
+13.	В Create() и Edit() добавьте следующий код, чтобы позднее сделать некоторые переменные доступными для JavaScript:
+            ViewData["token"] = GraphHelper.AcquireToken(ClaimsPrincipal.Current.FindFirst(Globals.ObjectIdClaimType).Value);
+            ViewData["tenant"] = ConfigHelper.Tenant;
+14.	В файле Views\WorkItems\Create.cshtml (автоматически сформированный элемент шаблона) найдите вспомогательный метод `Html.BeginForm` и измените его следующим образом:  
+	<pre class="prettyprint">@using (Html.BeginForm(<mark>"Create", "WorkItems", FormMethod.Post, new { id = "main-form" }</mark>))
+	{
+	    @Html.AntiForgeryToken()
+	    
+	    &lt;div class="form-horizontal"&gt;
+	        &lt;h4&gt;WorkItem&lt;/h4&gt;
+	        &lt;hr /&gt;
+	        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+	
+	        &lt;div class="form-group"&gt;
+	            &lt;div class="col-md-10"&gt;
+	                @Html.EditorFor(model =&gt; model.AssignedToID, new { htmlAttributes = new { @class = "form-control"<mark>, @type=&quot;hidden&quot;</mark> } })
+	                @Html.ValidationMessageFor(model =&gt; model.AssignedToID, "", new { @class = "text-danger" })
+	            &lt;/div&gt;
+	        &lt;/div&gt;
+	
+	        &lt;div class="form-group"&gt;
+	            @Html.LabelFor(model =&gt; model.AssignedToName, htmlAttributes: new { @class = "control-label col-md-2" })
+	            &lt;div class="col-md-10"&gt;
+	                @Html.EditorFor(model =&gt; model.AssignedToName, new { htmlAttributes = new { @class = "form-control" } })
+	                @Html.ValidationMessageFor(model =&gt; model.AssignedToName, "", new { @class = "text-danger" })
+	            &lt;/div&gt;
+	        &lt;/div&gt;
+	
+	        &lt;div class="form-group"&gt;
+	            @Html.LabelFor(model =&gt; model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+	            &lt;div class="col-md-10"&gt;
+	                @Html.EditorFor(model =&gt; model.Description, new { htmlAttributes = new { @class = "form-control" } })
+	                @Html.ValidationMessageFor(model =&gt; model.Description, "", new { @class = "text-danger" })
+	            &lt;/div&gt;
+	        &lt;/div&gt;
+	
+	        &lt;div class="form-group"&gt;
+	            @Html.LabelFor(model =&gt; model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
+	            &lt;div class="col-md-10"&gt;
+	                @Html.EnumDropDownListFor(model =&gt; model.Status, htmlAttributes: new { @class = "form-control" })
+	                @Html.ValidationMessageFor(model =&gt; model.Status, "", new { @class = "text-danger" })
+	            &lt;/div&gt;
+	        &lt;/div&gt;
+	
+	        &lt;div class="form-group"&gt;
+	            &lt;div class="col-md-offset-2 col-md-10"&gt;
+	                &lt;input type="submit" value="Create" class="btn btn-default" <mark>id="submit-button"</mark> /&gt;
+	            &lt;/div&gt;
+	        &lt;/div&gt;
+	    &lt;/div&gt;
+	
+	    <mark>&lt;script&gt;
+	            // People/Group Picker Code
+	            var maxResultsPerPage = 14;
+	            var searchUrl = window.location.protocol + "//" + window.location.host + "/Roles/Search";
+	            var input = document.getElementById("AssignedToName");
+	            var token = "@ViewData["token"]";
+	            var tenant = "@ViewData["tenant"]";
+	
+	            var picker = new AadPicker(searchUrl, maxResultsPerPage, input, token, tenant);
+	
+	            // Submit the selected user/group to be asssigned.
+	            $("#submit-button").click({ picker: picker }, function () {
+	                if (!picker.Selected())
+	                    return;
+	                $("#main-form").get()[0].elements["AssignedToID"].value = picker.Selected().objectId;
+	            });
+	    &lt;/script&gt;</mark>
+	
+	}</pre>
+
+	В скрипте объект AadPicker ищет в действии ~/Roles/Search пользователей и группы Azure Active Directory, которые соответствуют введенным данным. Затем при нажатии кнопки "Отправить" объект AadPicker сохраняет идентификатор пользователя в скрытом поле `AssignedToID`.  
+
+15. Теперь можно либо запустить приложение в отладчике Visual Studio, либо опубликовать его в веб-приложениях службы приложений Azure. Войдите в систему как владелец приложения и перейдите на страницу ~/WorkItems/Create. Для своего опубликованного бизнес-приложения я перехожу на страницу `https://mylobapp.azurewebsites.net/WorkItems/Create`. Теперь вы увидите, что можно использовать тот же фильтр поиска AadPicker для выбора пользователя Azure Active Directory.
+
+	![](./media/web-sites-dotnet-lob-application-azure-ad/9-create-workitem.png)
+
+16. Заполните оставшуюся часть формы и щелкните **Создать**. На странице ~/WorkItems/Index теперь отображается вновь созданный элемент. На приведенном ниже снимке экрана вы увидите, что я удалил столбец `AssignedToID` в файле Views\WorkItems\Index.cshtml. 
+
+	![](./media/web-sites-dotnet-lob-application-azure-ad/10-workitem-index.png)
+
+11.	Сейчас необходимо сделать аналогичные изменения в представлении **Изменить**. В файле Views\WorkItems\Edit.cshtml внесите такие же изменения во вспомогательном методе `Html.BeginForm`, которые были сделаны на предыдущем шаге в Views\WorkItems\Create.cshtml(замените Create на Edit в выделенном коде выше).
+
+Вот и все!
+
+Теперь после настройки авторизаций и функциональности бизнес-приложения для различных действия в контроллере WorkItems можно попробовать входить в систему как пользователи с различными ролями приложения.
+
+![](./media/web-sites-dotnet-lob-application-azure-ad/11-edit-unauthorized.png)
+
+<a name="bkmk_resources"></a>
+## Дополнительные ресурсы
+
+- [Защита приложения с помощью SSL и атрибута авторизации](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md#protect-the-application-with-ssl-and-the-authorize-attribute)
+- [Использование Active Directory для аутентификации в службе приложений Azure](web-sites-authentication-authorization.md)
+- [Создание веб-приложения .NET MVC в службе приложений Azure с аутентификацией AD FS](web-sites-dotnet-lob-application-adfs.md)
+- [Примеры и документация Microsoft Azure Active Directory](https://github.com/AzureADSamples)
+- [Блог Витторио Берточчи](http://blogs.msdn.com/b/vbertocci/)
+- [Миграция веб-проекта VS2013 из WIF в Katana](http://www.cloudidentity.com/blog/2014/09/15/MIGRATE-A-VS2013-WEB-PROJECT-FROM-WIF-TO-KATANA/)
+- [Новые гибридные подключения Azure, а не старый элемент #hybridCloud](/documentation/videos/new-hybrid-connections-not-your-fathers-hybridcloud/)
+- [Сходства Active Directory и Azure AD](http://technet.microsoft.com/library/dn518177.aspx)
+- [DirSync с единым входом](http://technet.microsoft.com/library/dn441213.aspx)
+- [Поддерживаемые типы маркеров и утверждений](http://msdn.microsoft.com/library/azure/dn195587.aspx)
+
+## Изменения
+* Сведения об изменении веб-сайтов на службу приложений см. в статье [Служба приложений Azure и ее влияние на существующие службы Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
+* Сведения о переходе со старого портала на новый см. в статье [Справочная информация о навигации по предварительной версии портала](http://go.microsoft.com/fwlink/?LinkId=529715).
+
+
+<!--HONumber=52--> 

@@ -89,7 +89,7 @@
 [3]: ./media/cache-java-get-started/cache03.png
 [4]: ./media/cache-java-get-started/cache04.png
 
-[Создание приложения для разговора Node.js с помощью Socket.IO на веб-сайте Azure]: web-sites-nodejs-chat-app-socketio.md
+[Создание приложения для разговора Node.js с помощью Socket.IO на веб-сайте Azure]: app-service-web/web-sites-nodejs-chat-app-socketio.md
 
 
 <!--HONumber=49-->

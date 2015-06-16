@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Информация о пакете Azure SDK для NET" 
 	description="Узнайте, что включено в пакет SDK для Azure для .NET." 
 	documentationCenter=".net" 

@@ -1,4 +1,4 @@
-﻿#Включение протокола HTTPS для веб-приложения в службе приложений Azure
+#Включение протокола HTTPS для веб-приложения в службе приложений Azure
 
 > [AZURE.NOTE]
 > Приступите к работе быстрее - воспользуйтесь НОВЫМ [пошаговым руководством](http://support.microsoft.com/kb/2990804) по Azure!  Оно поможет легко и быстро связать личное доменное имя с облачными службами Azure или [службой приложений](http://go.microsoft.com/fwlink/?LinkId=529714) и защитить обмен данными (SSL) с ними.
@@ -444,7 +444,7 @@ OpenSSL можно использовать для создания запрос
 
 Служба приложений Azure принудительно *not* не использует протокол HTTPS. Посетители по-прежнему могут получить доступ к вашему веб-приложению, используя протокол HTTP, что может поставить под угрозу безопасность веб-приложения. Если вы хотите принудительно обеспечить использование HTTPS для своего веб-приложения, можно воспользоваться модулем **Переопределения URL-адресов**. Модуль переопределения URL-адресов включен в службу приложений Azure и дает возможность определять правила, которые применяются к входящим запросам перед их обработкой и отправкой в приложение. **Его можно использовать для приложений, написанных на любом языке программирования, поддерживаемом Azure.** 
 
-> [AZURE.NOTE] Приложения .NET MVC вместо модуля переопределения URL-адресов должны использовать фильтр [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx). Дополнительные сведения об использовании фильтра RequireHttps см. в статье [Развертывание безопасного приложения ASP.NET MVC 5 на веб-приложении](../articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
+> [AZURE.NOTE] Приложения .NET MVC вместо модуля переопределения URL-адресов должны использовать фильтр [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx). Дополнительные сведения об использовании фильтра RequireHttps см. в статье [Развертывание безопасного приложения ASP.NET MVC 5 на веб-приложении](../article/app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
 > 
 > Сведения о программном перенаправлении запросов с помощью других языков программирования и платформ см. в документации для этих технологий.
 
@@ -512,8 +512,8 @@ OpenSSL можно использовать для создания запрос
 ## Дополнительные ресурсы ##
 - [Центр управления безопасностью Microsoft Azure](/support/trust-center/security/)
 - [Параметры конфигурации, разблокированные на веб-сайтах Azure](http://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/)
-- [Включение ведения журналов диагностики](../articles/web-sites-enable-diagnostic-log.md)
-- [Настройка веб-сайтов](../articles/web-sites-configure.md)
+- [Включение ведения журналов диагностики](../article/app-service-web/web-sites-enable-diagnostic-log.md)
+- [Настройка веб-сайтов](../article/app-service-web/web-sites-configure.md)
 - [Портал управления Azure](https://manage.windowsazure.com)
 
 >[AZURE.NOTE] Если вы хотите начать работу со службой приложений Azure еще до создания учетной записи Azure, перейдите на страницу [ознакомительной версии службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751). Там вы сможете сразу создать свое первое веб-приложение, правда срок его службы будет ограничен. Никаких кредитных карт и обязательств.
@@ -522,7 +522,7 @@ OpenSSL можно использовать для создания запрос
 * Сведения об изменении веб-сайтов на службу приложений см. в статье [Служба приложений Azure и ее влияние на существующие службы Azure](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Сведения о переходе со старого портала на новый см. в статье [Справочная информация о навигации по предварительной версии портала](http://go.microsoft.com/fwlink/?LinkId=529715).
 
-[customdomain]: ../articles/web-sites-custom-domain-name.md
+[customdomain]: ../article/app-service-web/web-sites-custom-domain-name.md
 [iiscsr]: http://technet.microsoft.com/library/cc732906(WS.10).aspx
 [cas]: http://go.microsoft.com/fwlink/?LinkID=269988
 [installcertiis]: http://technet.microsoft.com/library/cc771816(WS.10).aspx

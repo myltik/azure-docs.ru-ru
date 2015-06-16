@@ -35,7 +35,7 @@
 - Активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](../../pricing/free-trial/).
 - [Комплект разработчика Java (JDK 7 +)](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 - [Интегрированная среда разработки Eclipse для разработчиков Java EE.](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunasr1)
-- [Открытый веб-сайт Azure со средой выполнения Java (например, Tomcat или Jetty).](web-sites-java-get-started.md)
+- [Открытый веб-сайт Azure со средой выполнения Java (например, Tomcat или Jetty).](app-service-web/web-sites-java-get-started.md)
 
 При первой установке этих средств воспользуйтесь пошаговым руководством по установке, представленным на сайте coreservlets.com в разделе «Быстрый запуск» статьи [Учебник по установке TomCat7 и его использованию с Eclipse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html).
 
@@ -743,7 +743,7 @@
  - В поле Destination (Назначение) выберите место назначения для сохранения WAR-файла.
  - Нажмите кнопку **Готово**
 
-3. Теперь, имея WAR-файл, можно просто передать его на веб-сайт Azure в каталог **webapps** (Веб-приложения). Инструкции по передаче файла см. в разделе [Добавление приложения на веб-сайт Java в Azure](web-sites-java-add-app.md).
+3. Теперь, имея WAR-файл, можно просто передать его на веб-сайт Azure в каталог **webapps** (Веб-приложения). Инструкции по передаче файла см. в разделе [Добавление приложения на веб-сайт Java в Azure](app-service-web/web-sites-java-add-app.md).
 
 	После загрузки WAR-файла в каталог веб-приложения среда выполнения обнаруживает, что вы добавили его и автоматически загрузит ее.
 4. Для просмотра вашего готового продукта перейдите на страницу http://YOUR_SITE_NAME.azurewebsites.net/azure-documentdb-java-sample/ и начните добавлять задачи.
