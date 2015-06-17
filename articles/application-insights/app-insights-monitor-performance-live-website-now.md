@@ -2,6 +2,7 @@
 	pageTitle="Диагностика проблем производительности на запущенном веб-сайте" 
 	description="Мониторинг производительности веб-сайта без необходимости его повторного развертывания. Использовать автономно или с пакетом SDK Application Insights" 
 	services="application-insights" 
+documentationCenter=".net"
 	authors="alancameronwills" 
 	manager="kamrani"/>
 
@@ -11,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-01-23" 
+	ms.date="01/23/2015" 
 	ms.author="awills"/>
  
 

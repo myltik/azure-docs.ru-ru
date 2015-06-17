@@ -2,6 +2,7 @@
 	pageTitle="Мониторинг доступности и скорости реагирования любого веб-сайта" 
 	description="Настройка веб-тестов в Application Insights. Получение оповещений, когда веб-сайт становится недоступным или медленно реагирует на запросы." 
 	services="application-insights" 
+documentationCenter=""
 	authors="alancameronwills" 
 	manager="kamrani"/>
 
@@ -11,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-01-27" 
+	ms.date="01/27/2015" 
 	ms.author="awills"/>
  
 # Наблюдение за доступностью и скоростью реагирования веб-сайта
