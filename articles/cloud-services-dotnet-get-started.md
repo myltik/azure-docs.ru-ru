@@ -811,8 +811,8 @@
 * [Облачные службы Azure, часть 1: Введение](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Облачные службы Azure](/documentation/services/cloud-services/)
 * [Служба хранилища Azure](/documentation/services/storage/)
-* [Использование хранилища BLOB-объектов из .NET](storage-dotnet-how-to-use-blobs.md)
-* [Как использовать хранилище очередей из .NET](storage-dotnet-how-to-use-queues.md)
+* [Использование хранилища BLOB-объектов из .NET](storage/storage-dotnet-how-to-use-blobs.md)
+* [Как использовать хранилище очередей из .NET](storage/storage-dotnet-how-to-use-queues.md)
 
 
 <!--HONumber=52-->

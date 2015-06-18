@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Планирование облачной среды обработки и анализа данных | Azure" 
 	description="Планирование облачной среды обработки и анализа данных" 
 	metaKeywords="" 
@@ -62,7 +62,7 @@
 
 В зависимости от сценария также может понадобиться следующее:
 
-1.  Инструменты Azure. [Пакет SDK для PowerShell для Azure](install-configure-powershell.md), [обозреватель хранилищ Azure](http://azurestorageexplorer.codeplex.com/), [AzCopy](storage-use-azcopy.md) и пр.
+1.  Инструменты Azure. [Пакет SDK для PowerShell для Azure](install-configure-powershell.md), [обозреватель хранилищ Azure](http://azurestorageexplorer.codeplex.com/), [AzCopy](storage/storage-use-azcopy.md) и пр.
 2.  Виртуальные машины Azure, на которых работает SQL Server.
 3.  Служба Azure HDInsight (Hadoop).
 4.  Виртуальные сети Azure для совместного использования файлов Azure локально.
