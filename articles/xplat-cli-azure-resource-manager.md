@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Использование межплатформенного интерфейса командной строки Microsoft Azure совместно с диспетчером ресурсов" 
 	description="Использование кроссплатформенного интерфейса командной строки Microsoft Azure совместно с диспетчером ресурсов" 
 	editor="tysonn" 
@@ -185,3 +185,4 @@
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
 <!--HONumber=47-->
+ 

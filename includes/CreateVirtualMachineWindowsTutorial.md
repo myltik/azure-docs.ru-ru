@@ -53,7 +53,7 @@
 
 ## <a id="attachdisk"> </a>Как присоединить диск данных к новой виртуальной машине ##
 
-В настоящем разделе показано, как присоединить пустой диск данных к виртуальной машине. Дополнительную информацию о присоединении пустых, а также существующих дисков см. в [учебнике «Присоединение диска данных»](../articles/storage-windows-attach-disk.md).
+В настоящем разделе показано, как присоединить пустой диск данных к виртуальной машине. Дополнительную информацию о присоединении пустых, а также существующих дисков см. в [учебнике «Присоединение диска данных»](../articles/virtual-machines/storage-windows-attach-disk.md).
 
 1. Выполните вход на [Портал управления](http://manage.windowsazure.com) Azure.
 
@@ -113,11 +113,11 @@
 
 Для получения дополнительных сведений о настройке виртуальных машин Windows в Azure см. следующие статьи:
 
-[Подключение к виртуальным машинам в облачной службе](../articles/cloud-services-connect-virtual-machine.md)
+[Подключение к виртуальным машинам в облачной службе](../articles/virtual-machines/cloud-services-connect-virtual-machine.md)
 
-[Создание и отправка собственного виртуального жесткого диска с операционной системой Windows Server](../articles/virtual-machines-create-upload-vhd-windows-server.md)
+[Создание и отправка собственного виртуального жесткого диска с операционной системой Windows Server](../articles/virtual-machines/virtual-machines-create-upload-vhd-windows-server.md)
 
-[Присоединение диска данных к виртуальной машине](../articles/storage-windows-attach-disk.md)
+[Присоединение диска данных к виртуальной машине](../articles/virtual-machines/storage-windows-attach-disk.md)
 
 [Управление доступностью виртуальных машин](../articles/manage-availability-virtual-machines.md)
 

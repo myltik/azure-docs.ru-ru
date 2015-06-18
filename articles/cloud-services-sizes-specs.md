@@ -78,6 +78,6 @@
 
  [Сведения о ресурсоемких вычислительных экземплярах A8, A9, A10 и A11](http://go.microsoft.com/fwlink/p/?linkid=328042)
 
- [Размеры виртуальных машин](virtual-machines-size-specs.md)
+ [Размеры виртуальных машин](virtual-machines/virtual-machines-size-specs.md)
 
 <!---HONumber=58-->

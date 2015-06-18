@@ -1,4 +1,4 @@
-﻿<properties
+<properties
   pageTitle="Подключение ролей облачных служб Azure к контроллеру личного домена AD, размещенному в Azure"
   description="Сведения о подключении веб-ролей и рабочих ролей к личному домену AD с помощью Powershell и расширения домена AD"
   services="cloud-services"
@@ -30,7 +30,7 @@
 
 ## Создайте виртуальную сеть
 
-Создать виртуальную сеть в Azure можно с помощью портала Azure или Powershell. В этом учебнике используется Powershell. Сведения о создании виртуальной сети с помощью портала Azure см. в разделе [Создание виртуальной сети](create-virtual-network.md).
+Создать виртуальную сеть в Azure можно с помощью портала Azure или Powershell. В этом учебнике используется Powershell. Сведения о создании виртуальной сети с помощью портала Azure см. в разделе [Создание виртуальной сети](virtual-machines/create-virtual-network.md).
 
     #Create Virtual Network
 
