@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Способы переноса хранимых данных в облако|Azure" 
 	description="Рекомендации по выбору оптимального варианта для переноса данных из локального развертывания или других облачных источников в Microsoft Azure для расширенного анализа." 
 	services="data-factory, hdinsight, machine-learning, storage, sql-database" 
