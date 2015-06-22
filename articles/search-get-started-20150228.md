@@ -78,7 +78,7 @@
 
 Для простоты данные внедряются в рамках решения в текстовый файл, созданный на основе данных на [веб-сайте Геологической службы США (USGS)](http://geonames.usgs.gov/domestic/download_data.htm).
 
-Альтернативные варианты внедрения данных включают использование [индексаторов для DocumentDB](documentdb-search-indexer.md) или [индексаторов для Базы данных SQL Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md). Индексаторы собирают данные в индекс Поиска Azure, что может значительно упростить код, который необходимо написать и обслуживать.
+Альтернативные варианты внедрения данных включают использование [индексаторов для DocumentDB](documentdb/documentdb-search-indexer.md) или [индексаторов для Базы данных SQL Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md). Индексаторы собирают данные в индекс Поиска Azure, что может значительно упростить код, который необходимо написать и обслуживать.
 
 Вы также можете загрузить данные из локальной базы данных SQL Server. В [этом учебнике](http://azure.microsoft.com/blog/2014/11/10/how-to-sync-sql-server-data-with-azure-search/) показано, как это сделать.
 

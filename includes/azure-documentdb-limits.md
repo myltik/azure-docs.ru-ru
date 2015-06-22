@@ -106,6 +106,6 @@
 </tr>
 </table>
 
-Квоты, перечисленные со звездочкой (*), [могут быть изменены при обращении в службу поддержки Azure](../articles/documentdb-increase-limits.md).
+Квоты, перечисленные со звездочкой (*), [могут быть изменены при обращении в службу поддержки Azure](../articles/documentdb/documentdb-increase-limits.md).
 
 <!---HONumber=58-->
