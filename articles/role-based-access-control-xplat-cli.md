@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Управление доступом на основе ролей с помощью межплатформенного интерфейса командной строки Azure" 
 	description="Управление доступом на основе ролей с помощью межплатформенного интерфейса командной строки" 
 	services="" 
@@ -148,3 +148,4 @@ RBAC работает только с диспетчером ресурсов Az
 - [Устранение неполадок при управлении доступом на основе ролей](http://azure.microsoft.com/documentation/articles/role-based-access-control-troubleshooting/)
 
 <!--HONumber=46--> 
+ 

@@ -40,7 +40,7 @@
 
 Теперь, когда вы познакомились с основами службы автоматизации Azure и способами ее использования для управления служебной шиной Azure, пройдите по ссылкам, чтобы получить дополнительные сведения о службе автоматизации Azure.
 
-* См. [Учебник по началу работы](automation-create-runbook-from-samples.md) в службе автоматизации Azure
+* См. [Учебник по началу работы](automation/automation-create-runbook-from-samples.md) в службе автоматизации Azure
 * См. статью [Управление служебной шиной с помощью PowerShell](service-bus-powershell-how-to-provision.md)
 
 <!---HONumber=58-->
