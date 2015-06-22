@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="Проверка подлинности субъекта-службы в диспетчере ресурсов Azure"
    description="В статье объясняется, как предоставить доступ субъекту-службе с помощью управления доступом на основе ролей, а также проверить его подлинность. Показано, как выполнять эти задачи с помощью PowerShell и CLI Azure."
    services="na"
@@ -126,17 +126,17 @@
 
 - [Общие сведения о диспетчере ресурсов Azure](./resource-group-overview.md)  
 - [Использование Azure PowerShell с диспетчером ресурсов Azure](./powershell-azure-resource-manager.md)
-- [Использование CLI Azure для Mac, Linux и Windows со средствами управления ресурсами Azure](./xplat-cli-azure-resource-manager.md)  
-- [Управление ресурсами Azure с помощью портала Azure](azure-portal/resource-group-portal.md)  
+- [Использование CLI Azure для Mac, Linux и Windows со средствами управления ресурсами Azure](virtual-machines/xplat-cli-azure-resource-manager.md)  
+- [Управление ресурсами Azure с помощью портала Azure](./resource-group-portal.md)  
   
 Создание и развертывание приложений
   
 - [Создание шаблонов диспетчера ресурсов Azure](./resource-group-authoring-templates.md)  
-- [Развертывание приложения с использованием шаблона диспетчера ресурсов Azure](azure-portal/resource-group-template-deploy.md)  
-- [Устранение неполадок при развертывании групп ресурсов в Azure](./resource-group-deploy-debug.md)  
+- [Развертывание приложения с использованием шаблона диспетчера ресурсов Azure](./resource-group-template-deploy.md)  
+- [Устранение неполадок при развертывании групп ресурсов в Azure](virtual-machines/resource-group-deploy-debug.md)  
 - [Функции шаблонов в диспетчере ресурсов Azure](./resource-group-template-functions.md)  
 - [Расширенные операции с шаблонами](./resource-group-advanced-template.md)  
-- [Развертывание ресурсов Azure с использованием библиотек .NET и шаблона](./arm-template-deployment.md)
+- [Развертывание ресурсов Azure с использованием библиотек .NET и шаблона](virtual-machines/arm-template-deployment.md)
   
 Упорядочение ресурсов
   

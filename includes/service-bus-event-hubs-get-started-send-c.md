@@ -1,7 +1,7 @@
 ## Отправка сообщений в концентраторы событий
 В этом разделе мы напишем приложение на языке C для отправки событий в концентратор событий. Мы будем использовать библиотеку Proton AMQP из проекта [Apache Qpid](http://qpid.apache.org/). Эта процедура аналогична использованию очередей и разделов служебной шины с AMQP на языке C, как показано [здесь](https://code.msdn.microsoft.com/windowsazure/Using-Apache-Qpid-Proton-C-afd76504). Дополнительные сведения см. в [документации по Qpid Proton](http://qpid.apache.org/proton/index.html).
 
-1. На странице [Qpid AMQP Messenger](http://qpid.apache.org/components/messenger/index.html) щелкните ссылку **Установка Qpid Proton** и следуйте инструкциям в зависимости от среды. Подразумевается среда Linux, например, [виртуальная машина Linux Azure](../articles/virtual-machines-linux-tutorial.md) с Ubuntu 14.04.
+1. На странице [Qpid AMQP Messenger](http://qpid.apache.org/components/messenger/index.html) щелкните ссылку **Установка Qpid Proton** и следуйте инструкциям в зависимости от среды. Подразумевается среда Linux, например, [виртуальная машина Linux Azure](../articles/virtual-machines/virtual-machines-linux-tutorial.md) с Ubuntu 14.04.
 
 2. Для компиляции библиотеки Proton установите следующие пакеты.
 

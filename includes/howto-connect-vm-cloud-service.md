@@ -1,4 +1,4 @@
-﻿<properties authors="kathydav" editor="tysonn" manager="timlt" /> 
+<properties authors="kathydav" editor="tysonn" manager="timlt" /> 
 
 
 #Подключение виртуальных машин с помощью виртуальной сети или облачной службы
