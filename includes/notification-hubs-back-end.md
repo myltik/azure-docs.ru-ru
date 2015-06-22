@@ -1,6 +1,6 @@
 
 В этом разделе показано, как отправлять уведомления из консольного приложения .NET и других приложений.
-Если вы используете мобильные службы, просмотрите учебник [Приступая к работе с push-уведомлениями](../articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md). Если вы хотите использовать Java или PHP, ознакомьтесь со статьей [Использование концентраторов уведомлений из Java/PHP](notification-hubs-java-backend-how-to.md). Можно отправлять уведомления из любого серверного компонента с помощью [интерфейса REST центров уведомлений].
+Если вы используете мобильные службы, просмотрите учебник [Приступая к работе с push-уведомлениями](../articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md). Если вы хотите использовать Java или PHP, ознакомьтесь со статьей [Использование концентраторов уведомлений из Java/PHP](../articles/notification-hubs/notification-hubs-java-backend-how-to.md). Можно отправлять уведомления из любого серверного компонента с помощью [интерфейса REST центров уведомлений].
 
 Следующий код отправляет уведомления в Магазин Windows, на устройства Windows Phone, iOS и Android. 
 
@@ -92,8 +92,8 @@
 [16]: ./media/notification-hubs-back-end/notification-hub-scheduler2.png
 
 <!-- URLs. -->
-[приступая к работе]: ../articles/notification-hubs-windows-store-dotnet-get-started.md
-[get-started]: ../articles/notification-hubs-windows-store-dotnet-get-started.md
+[приступая к работе]: ../articles/notification-hubs/notification-hubs-windows-store-dotnet-get-started.md
+[get-started]: ../articles/notification-hubs/notification-hubs-windows-store-dotnet-get-started.md
 [Использование концентраторов уведомлений для отправки уведомлений пользователям]: ../articles/tutorial-notify-users-mobileservices.md
 [Приступая к работе с мобильными службами]: /develop/mobile/tutorials/get-started/#create-new-service
 [Портал управления Azure]: https://manage.windowsazure.com/

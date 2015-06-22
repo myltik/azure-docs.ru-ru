@@ -210,8 +210,8 @@
 
 [Отправка push-уведомлений прошедшим проверку пользователям]: mobile-services-dotnet-backend-windows-phone-push-notifications-app-users.md
 
-[Что такое концентраторы уведомлений?]: notification-hubs-overview.md
-[Send broadcast notifications to subscribers]: notification-hubs-windows-phone-send-breaking-news.md
+[Что такое концентраторы уведомлений?]: notification-hubs/notification-hubs-overview.md
+[Send broadcast notifications to subscribers]: notification-hubs/notification-hubs-windows-phone-send-breaking-news.md
 [Send template-based notifications to subscribers]: notification-hubs-windows-phone-send-localized-breaking-news.md
 
 

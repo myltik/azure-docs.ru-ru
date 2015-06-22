@@ -262,8 +262,8 @@
 
 [Отправка push-уведомлений прошедшим проверку пользователям]: mobile-services-dotnet-backend-ios-push-notifications-app-users.md
 
-[Что такое концентраторы уведомлений?]: notification-hubs-overview.md
-[Send broadcast notifications to subscribers]: notification-hubs-ios-send-breaking-news.md
-[Send template-based notifications to subscribers]: notification-hubs-ios-send-localized-breaking-news.md
+[Что такое концентраторы уведомлений?]: notification-hubs/notification-hubs-overview.md
+[Send broadcast notifications to subscribers]: notification-hubs/notification-hubs-ios-send-breaking-news.md
+[Send template-based notifications to subscribers]: notification-hubs/notification-hubs-ios-send-localized-breaking-news.md
 
 <!--HONumber=54-->

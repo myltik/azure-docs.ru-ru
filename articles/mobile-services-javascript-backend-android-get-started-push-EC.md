@@ -208,7 +208,7 @@
 
 [Send push notifications to authenticated users]: mobile-services-javascript-backend-android-push-notifications-app-users.md
 
-[Что такое концентраторы уведомлений?]: notification-hubs-overview.md
+[Что такое концентраторы уведомлений?]: notification-hubs/notification-hubs-overview.md
 [Send broadcast notifications to subscribers]: notification-hubs-android-send-breaking-news.md
 [Send template-based notifications to subscribers]: notification-hubs-android-send-localized-breaking-news.md
 

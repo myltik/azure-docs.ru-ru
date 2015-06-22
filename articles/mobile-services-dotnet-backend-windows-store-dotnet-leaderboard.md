@@ -757,7 +757,7 @@ Model-View-ViewModel (MVVM) является вариантом Model-View-Contr
 [Дополнительные сведения о мобильных службах Azure]: /develop/mobile/resources/
 [Дополнительные сведения о веб-API]: http://asp.net/web-api
 [Обработка конфликтов записей базы данных]: mobile-services-windows-store-dotnet-handle-database-conflicts.md
-[Добавление push-уведомлений]: notification-hubs-windows-store-dotnet-get-started.md
+[Добавление push-уведомлений]: notification-hubs/notification-hubs-windows-store-dotnet-get-started.md
 [Приступая к работе с проверкой подлинности]: /develop/mobile/tutorials/get-started-with-users-dotnet
 
 
