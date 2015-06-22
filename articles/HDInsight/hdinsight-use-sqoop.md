@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Подготовка Hadoop Sqoop в HDInsight для платформы Azure" 
 	description="Вы узнаете, как использовать Azure PowerShell с рабочей станции для запуска Sqoop, импорта и экспорта между кластером HDInsight и базой данных Azure SQL." 
 	editor="cgronlun" 
@@ -634,10 +634,8 @@ HDInsight использует для хранения данных хранил
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
-
 [sqldatabase-get-started]: ../sql-database-get-started.md
 [sqldatabase-create-configue]: ../sql-database-create-configure.md
-
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
 [powershell-install]: ../install-configure-powershell.md
 [powershell-script]: http://technet.microsoft.com/library/ee176949.aspx

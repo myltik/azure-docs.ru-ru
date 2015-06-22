@@ -25,7 +25,7 @@
 Для работы с этим учебником необходимы указанные ниже компоненты.
 
 - [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
-- [Учетная запись хранения Azure.](storage-create-storage-account.md)
+- [Учетная запись хранения Azure.](storage/storage-create-storage-account.md)
 - [Windows Management Framework 3.0](http://www.microsoft.com/ru-ru/download/details.aspx?id=34595) или [Windows Management Framework 4.0.](http://www.microsoft.com/ru-ru/download/details.aspx?id=40855)
 - [Azure PowerShell](install-configure-powershell.md)
 

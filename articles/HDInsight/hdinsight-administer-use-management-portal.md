@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Управление кластерами Hadoop в HDInsight с помощью портала Azure | Microsoft Azure" 
 	description="Сведения об управлении службой HDInsight. Создайте кластер HDInsight, откройте интерактивную консоль JavaScript и командную консоль Hadoop." 
 	services="hdinsight" 

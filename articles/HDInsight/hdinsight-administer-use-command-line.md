@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Управление кластерами Hadoop с помощью интерфейса командной строки | Microsoft Azure" 
 	description="Узнайте, как использовать кроссплатформенный интерфейс командной строки для управления кластерами Hadoop в HDIsight на любой платформе, поддерживающей Node.js, включая Windows, Mac и Linux." 
 	services="hdinsight" 

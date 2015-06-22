@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Использование Hadoop Oozie в HDInsight для платформы Azure" 
 	description="Использование Oozie с Hadoop в Azure HDInsight — решение для работы с данными большого размера. Вы узнаете, как определить рабочий процесс и отправить задание для Oozie." 
 	services="hdinsight" 

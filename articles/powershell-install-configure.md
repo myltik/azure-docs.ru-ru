@@ -1,4 +1,4 @@
-﻿<properties
+<properties
 	pageTitle="Установка и настройка Azure PowerShell"
 	description="Сведения об установке и настройке Azure PowerShell."
 	editor="tysonn"

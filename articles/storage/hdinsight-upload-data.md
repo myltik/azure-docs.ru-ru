@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Отправка данных для заданий Hadoop в HDInsight | Microsoft Azure" 
 	description="Вы узнаете, как отправить и получить доступ к данным в HDInsight с помощью обозревателя хранилищ Azure, Azure PowerShell, командной строки Hadoop или Sqoop." 
 	services="storage, hdinsight" 
@@ -254,8 +254,7 @@ Sqoop — это средство, предназначенное для пер�
 [hdinsight-use-hive]: hdinsight/hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight/hdinsight-use-pig.md
 [hdinsight-provision]: hdinsight/hdinsight-provision-clusters.md
-
-[sqldatabase-create-configure]: ../sql-database-create-configure.md
+[sqldatabase-create-configure]: ../sql-database/sql-database-create-configure.md
 
 [apache-sqoop-guide]: http://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 

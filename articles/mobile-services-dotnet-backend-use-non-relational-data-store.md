@@ -118,7 +118,7 @@
 [Приступая к работе с мобильными службами]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [Приступая к работе с данными]: mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md
 [портале управления Azure]: https://manage.windowsazure.com/
-[What is the Table Service]: storage-dotnet-how-to-use-tables.md#what-is
+[What is the Table Service]: storage/storage-dotnet-how-to-use-tables.md#what-is
 [странице надстройки MongoLab]: /gallery/store/mongolab/mongolab
 
 <!--HONumber=54-->

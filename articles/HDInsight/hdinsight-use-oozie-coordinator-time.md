@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Использование временного координатора Oozie с Hadoop в Azure HDInsight" 
 	description="Использование временного координатора Oozie с Hadoop в Azure HDInsight — решение для работы с данными большого размера. Вы узнаете, как задать настройки потока данных и координаторов в Oozie, а также как отправить координатору задачу." 
 	services="hdinsight" 

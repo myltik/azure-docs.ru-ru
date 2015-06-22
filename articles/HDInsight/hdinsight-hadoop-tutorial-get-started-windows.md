@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
    pageTitle="Учебник по Hadoop: начало работы с Hadoop в Windows" 
    description="Начало работы с Hadoop в HDInsight. Узнайте, как подготовить кластеры Hadoop в Windows, выполните запрос Hive на данных и проанализируйте выходные данные в Excel." 
    keywords="hadoop tutorial,hadoop on windows,hadoop cluster,learn hadoop, hive query"

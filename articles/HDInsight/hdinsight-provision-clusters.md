@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
    pageTitle="Подготовка кластеров Hadoop в HDInsight для платформы Azure" 
    description="Узнайте, как подготовить кластеры Azure HDInsight с помощью портала Azure, Azure PowerShell, командной строки или пакета SDK для HDInsight .NET." 
    services="hdinsight" 
@@ -721,8 +721,8 @@ HDInsight использует контейнер хранилища BLOB-объ
 
 [azure-command-line-tools]: ../xplat-cli.md
 
-[azure-create-storageaccount]: ../storage-create-storage-account.md
 
+[azure-create-storageaccount]: ../storage-create-storage-account.md
 [apache-hadoop]: http://go.microsoft.com/fwlink/?LinkId=510084
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/

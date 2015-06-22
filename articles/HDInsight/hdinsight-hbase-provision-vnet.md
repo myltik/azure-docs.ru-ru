@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Подготовка кластеров HBase в виртуальной сети | Microsoft Azure" 
 	description="Приступите к работе с HBase в Azure HDInsight. Узнайте, как создать кластеры HDInsight HBase в виртуальной сети Azure." 
 	keywords=""	

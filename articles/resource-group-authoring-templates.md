@@ -254,7 +254,7 @@
 
 ## Дальнейшие действия
 - [Функции шаблонов в диспетчере ресурсов Azure](./resource-group-template-functions.md)
-- [Развертывание приложения с использованием шаблона диспетчера ресурсов Azure](./resource-group-template-deploy.md)
+- [Развертывание приложения с использованием шаблона диспетчера ресурсов Azure](azure-portal/resource-group-template-deploy.md)
 - [Расширенные операции с шаблонами](./resource-group-advanced-template.md)
 - [Общие сведения о диспетчере ресурсов Azure](./resource-group-overview.md)
 

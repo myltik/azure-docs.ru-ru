@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Обработка данных в Azure на практике с использованием SQL Server | Azure" 
 	description="Обработка данных в Azure на практике" 
 	metaKeywords="" 
@@ -76,7 +76,7 @@
 
 Чтобы настроить среду научной обработки данных в Azure, выполните следующие действия.
 
-1. [Создайте учетную запись хранения](../storage-create-storage-account.md).
+1. [Создайте учетную запись хранения](storage/storage-create-storage-account.md).
 
 2. [Создайте рабочую область машинного обученияL](machine-learning-create-workspace.md).
 

@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Перемещение данных в хранилище и из него  Хранилище больших двоичных объектов Azure" 
 	description="Перемещение данных в хранилище и из него  Хранилище больших двоичных объектов Azure" 
 	services="machine-learning" 

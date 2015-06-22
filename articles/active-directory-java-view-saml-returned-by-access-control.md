@@ -203,4 +203,4 @@
 [Проверка подлинности веб-пользователей с помощью службы контроля доступа Azure и Eclipse]: active-directory-java-authenticate-users-access-control-eclipse.md
 [saml_output]: ./media/active-directory-java-view-saml-returned-by-access-control/SAML_Output.png
 
-<!---HONumber=58-->
+<!---HONumber=58--> 
