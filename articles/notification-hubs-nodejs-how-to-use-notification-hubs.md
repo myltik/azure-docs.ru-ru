@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Использование концентраторов уведомлений с Node.js" 
 	description="Узнайте, как использовать концентраторы уведомлений для отправки push-уведомлений из приложения Node.js." 
 	services="notification-hubs" 
@@ -210,7 +210,7 @@
   [Концентраторы уведомлений служебной шины Azure]: http://msdn.microsoft.com/library/windowsazure/jj927170.aspx
   [SqlFilter]: http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
   [Веб-сайт с WebMatrix]: /develop/nodejs/tutorials/web-site-with-webmatrix/
-  [Облачная служба Node.js]: cloud-services-nodejs-develop-deploy-app.md
+  [Облачная служба Node.js]: cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Предыдущая версия портала управления]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/previous-portal.png
   [nodejswebsite]: /develop/nodejs/tutorials/create-a-website-(mac)/
   [Облачная служба Node.js с хранилищем]: /develop/nodejs/tutorials/web-app-with-storage/

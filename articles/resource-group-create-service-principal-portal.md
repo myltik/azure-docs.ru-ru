@@ -99,12 +99,12 @@
 - [Общие сведения о диспетчере ресурсов Azure](./resource-group-overview.md)  
 - [Использование Azure PowerShell с диспетчером ресурсов Azure](./powershell-azure-resource-manager.md)
 - [Использование инфраструктуры Azure CLI для Mac, Linux и Windows со средствами управления ресурсами Azure](./xplat-cli-azure-resource-manager.md)  
-- [Управление ресурсами Azure с помощью портала Azure](./resource-group-portal.md)  
+- [Управление ресурсами Azure с помощью портала Azure](azure-portal/resource-group-portal.md)  
   
 Создание и развертывание приложений
   
 - [Создание шаблонов диспетчера ресурсов Azure](./resource-group-authoring-templates.md)  
-- [Развертывание приложения с использованием шаблона диспетчера ресурсов Azure](./resource-group-template-deploy.md)  
+- [Развертывание приложения с использованием шаблона диспетчера ресурсов Azure](azure-portal/resource-group-template-deploy.md)  
 - [Устранение неполадок в развертывании групп ресурсов в Azure](./resource-group-deploy-debug.md)  
 - [Функции шаблонов в диспетчере ресурсов Azure](./resource-group-template-functions.md)  
 - [Расширенные операции с шаблонами](./resource-group-advanced-template.md)  
@@ -116,7 +116,7 @@
   
 Управление доступом и его контроль
   
-- [Управление доступом к ресурсам и его контроль](./resource-group-rbac.md)  
+- [Управление доступом к ресурсам и его контроль](azure-portal/resource-group-rbac.md)  
 - [Проверка подлинности субъекта-службы в диспетчере ресурсов Azure](./resource-group-authenticate-service-principal.md)  
 
 <!-- Images. -->

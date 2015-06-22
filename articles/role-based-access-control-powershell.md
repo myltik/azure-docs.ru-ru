@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Управление доступом на основе ролей с помощью Windows PowerShell" 
 	description="Управление доступом на основе ролей с помощью Windows PowerShell" 
 	services="" 
@@ -165,3 +165,4 @@ RBAC работает только с диспетчером ресурсов Az
 <!--HONumber=35.2-->
 
 <!--HONumber=46--> 
+ 
