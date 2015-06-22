@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	urldisplayname="Service Bus AMQP" 
 	headerexpose="" 
 	pageTitle="Использование AMQP 1.0 с API служебной шины для Java в Azure" 
@@ -370,3 +370,4 @@ JMS использует интерфейс JNDI для разделения л�
 * [Как использовать очереди служебной шины](http://azure.microsoft.com/develop/net/how-to-guides/service-bus-queues/)
 
 <!--HONumber=47-->
+ 

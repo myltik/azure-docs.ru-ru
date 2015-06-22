@@ -237,9 +237,9 @@
 
 [Отправка push-уведомлений пользователям, прошедшим проверку подлинности]: mobile-services-javascript-backend-ios-push-notifications-app-users.md
 
-[Что такое концентраторы уведомлений?]: notification-hubs-overview.md
-[Рассылка широковещательных уведомлений подписчикам]: notification-hubs-ios-send-breaking-news.md
-[Отправка подписчикам уведомлений на основе шаблонов]: notification-hubs-ios-send-localized-breaking-news.md
+[Что такое концентраторы уведомлений?]: notification-hubs/notification-hubs-overview.md
+[Рассылка широковещательных уведомлений подписчикам]: notification-hubs/notification-hubs-ios-send-breaking-news.md
+[Отправка подписчикам уведомлений на основе шаблонов]: notification-hubs/notification-hubs-ios-send-localized-breaking-news.md
 
 [Справочник принципов использования мобильных служб Objective-C]: mobile-services-windows-dotnet-how-to-use-client-library.md
 

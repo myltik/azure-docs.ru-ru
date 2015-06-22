@@ -117,9 +117,9 @@
 [Отправка push-уведомлений пользователям, прошедшим проверку подлинности]: mobile-services-dotnet-backend-android-push-notifications-app-users.md
 [Отправка push-уведомлений прошедшим проверку пользователям]: mobile-services-dotnet-backend-android-push-notifications-app-users.md
 
-[Что такое Центры уведомлений?]: notification-hubs-overview.md
-[Рассылка широковещательных уведомлений подписчикам]: notification-hubs-windows-store-dotnet-send-breaking-news.md
-[Отправка подписчикам уведомлений на основе шаблонов]: notification-hubs-windows-store-dotnet-send-localized-breaking-news.md
+[Что такое Центры уведомлений?]: notification-hubs/notification-hubs-overview.md
+[Рассылка широковещательных уведомлений подписчикам]: notification-hubs/notification-hubs-windows-store-dotnet-send-breaking-news.md
+[Отправка подписчикам уведомлений на основе шаблонов]: notification-hubs/notification-hubs-windows-store-dotnet-send-localized-breaking-news.md
 [Azure Management Portal]: https://manage.windowsazure.com/
 
 <!--HONumber=54-->

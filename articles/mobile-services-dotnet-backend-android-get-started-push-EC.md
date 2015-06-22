@@ -248,9 +248,9 @@
 
 [Send push notifications to authenticated users]: mobile-services-dotnet-backend-android-push-notifications-app-users.md
 
-[Что такое концентраторы уведомлений?]: notification-hubs-overview.md
-[Send broadcast notifications to subscribers]: notification-hubs-windows-store-dotnet-send-breaking-news.md
-[Send template-based notifications to subscribers]: notification-hubs-windows-store-dotnet-send-localized-breaking-news.md
+[Что такое концентраторы уведомлений?]: notification-hubs/notification-hubs-overview.md
+[Send broadcast notifications to subscribers]: notification-hubs/notification-hubs-windows-store-dotnet-send-breaking-news.md
+[Send template-based notifications to subscribers]: notification-hubs/notification-hubs-windows-store-dotnet-send-localized-breaking-news.md
 [портал управления Azure]: https://manage.windowsazure.com/
 
 <!--HONumber=54-->

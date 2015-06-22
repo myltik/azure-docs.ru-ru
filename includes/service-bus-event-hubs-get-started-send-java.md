@@ -1,5 +1,5 @@
 ## Отправка сообщений в концентраторы событий
-В этом разделе мы напишем консольное приложение Java для отправки событий в концентратор событий. Мы будем использовать поставщик JMS AMQP из проекта [Apache Qpid](http://qpid.apache.org/). Эта процедура аналогична использованию очередей и разделов служебной шины с AMQP на языке Java, как показано [здесь](../articles/service-bus-java-how-to-use-jms-api-amqp.md). Дополнительные сведения см. в [документации по Qpid JMS](http://qpid.apache.org/releases/qpid-0.30/programming/book/QpidJMS.html) и [службе сообщений Java](http://www.oracle.com/technetwork/java/jms/index.html).
+В этом разделе мы напишем консольное приложение Java для отправки событий в концентратор событий. Мы будем использовать поставщик JMS AMQP из проекта [Apache Qpid](http://qpid.apache.org/). Эта процедура аналогична использованию очередей и разделов служебной шины с AMQP на языке Java, как показано [здесь](../articles/service-bus/service-bus-java-how-to-use-jms-api-amqp.md). Дополнительные сведения см. в [документации по Qpid JMS](http://qpid.apache.org/releases/qpid-0.30/programming/book/QpidJMS.html) и [службе сообщений Java](http://www.oracle.com/technetwork/java/jms/index.html).
 
 1. В Eclipse создайте новый проект Java с именем **Sender**.
 

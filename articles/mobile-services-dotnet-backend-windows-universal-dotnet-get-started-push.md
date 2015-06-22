@@ -110,7 +110,7 @@ public static MobileServiceClient todolistClient = new MobileServiceClient(
 
 [Отправка push-уведомлений прошедшим проверку пользователям]: mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md
 
-[Что такое концентраторы уведомлений?]: notification-hubs-overview.md
+[Что такое концентраторы уведомлений?]: notification-hubs/notification-hubs-overview.md
 
 [Использование клиента .NET для мобильных служб Azure]: mobile-services-windows-dotnet-how-to-use-client-library.md
 
