@@ -2,7 +2,7 @@
 
 Новые интерфейсы API Twitter версии 1.1 нуждаются в проверке подлинности до получения доступа к ресурсам. Сначала необходимо получить учетные данные, необходимые для запроса доступа с помощью OAuth 2.0. Затем необходимо надежно сохранить эти учетные данные в настройках приложения для ваших мобильных служб.
 
-1. Если это еще не сделано, выполните действия, описанные в разделе <a href="../articles/mobile-services-how-to-register-twitter-authentication.md/" target="_blank">Регистрация приложений для входа в Твиттер с помощью мобильных служб</a>. 
+1. Если это еще не сделано, выполните действия, описанные в разделе <a href="../articles/mobile-services/mobile-services-how-to-register-twitter-authentication.md/" target="_blank">Регистрация приложений для входа в Твиттер с помощью мобильных служб</a>. 
   
   	Twitter создает учетные данные, необходимые для включения доступа к интерфейсам API Twitter версии 1.1. Эти учетные данные можно получить с веб-сайта разработчиков Twitter.
 
@@ -34,7 +34,7 @@
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Портал управления Windows Azure]: https://manage.windowsazure.com/
-[Register your apps for Twitter login with Mobile Services]: ../articles/mobile-services-how-to-register-twitter-authentication.md
+[Register your apps for Twitter login with Mobile Services]: ../articles/mobile-services/mobile-services-how-to-register-twitter-authentication.md
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [Параметры приложения]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 <!--HONumber=54-->
