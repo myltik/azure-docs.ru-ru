@@ -36,6 +36,6 @@
 6. Снова щелкните на портале управления Azure кнопку **Управление манифестом** для приложения и нажмите **Отправить манифест**. Откройте обновленную папку манифеста приложения и отправьте манифест.
 
 <!-- URLs. -->
-[Регистрация с помощью Azure Active Directory]: ../articles/mobile-services-how-to-register-active-directory-authentication.md
+[Регистрация с помощью Azure Active Directory]: ../articles/mobile-services/mobile-services-how-to-register-active-directory-authentication.md
 [портале управления Azure]: https://manage.windowsazure.com/
 <!--HONumber=54-->

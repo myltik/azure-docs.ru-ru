@@ -17,7 +17,7 @@
 	- 	Найдите метод **OnCreate** в **TodoActivity.java** и найдите код, который создает экземпляр клиента мобильных служб. Код отображается на предыдущем изображении.
 	- 	Замените "MobileServiceUrl" фактическим URL-адресом вашей мобильной службы.
 	- 	Замените "AppKey" ключом вашей мобильной службы.
-	- 	Для получения дополнительных сведений обратитесь к учебнику [Добавление мобильных служб к существующему приложению](../articles/mobile-services-android-get-started-data.md). 
+	- 	Для получения дополнительных сведений обратитесь к учебнику [Добавление мобильных служб к существующему приложению](../articles/mobile-services/mobile-services-android-get-started-data.md). 
 
 6. Для запуска проекта в эмуляторе Android в меню **Запуск** щелкните **Выполнить**.
 
@@ -52,9 +52,9 @@
 [15]: ./media/mobile-services-android-get-started/mobile-services-import-android-project.png
 
 <!-- URLs. -->
-[Add Mobile Services to an existing app]: ../articles/mobile-services-android-get-started-data.md
-[Get started with authentication]: ../articles/mobile-services-android-get-started-users.md
-[Get started with push notifications]: ../articles/mobile-services-javascript-backend-android-get-started-push.md
+[Add Mobile Services to an existing app]: ../articles/mobile-services/mobile-services-android-get-started-data.md
+[Get started with authentication]: ../articles/mobile-services/mobile-services-android-get-started-users.md
+[Get started with push notifications]: ../articles/mobile-services/mobile-services-javascript-backend-android-get-started-push.md
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 [Android Studio]: https://developer.android.com/sdk/index.html
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
