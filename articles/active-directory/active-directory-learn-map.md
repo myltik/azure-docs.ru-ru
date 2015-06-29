@@ -13,12 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2015"
+	ms.date="06/02/2015"
 	ms.author="curtand"/>
 
 # Дополнительные сведения об Azure AD
 
-[Что такое Azure AD?](active-directory-whatis.md)<br> [Как это работает?](active-directory-works.md)<br> [Приступая к работе](active-directory-get-started.md)<br> [Дальнейшие действия](active-directory-next-steps.md)
+###Другие статьи на эту тему
+[Что такое Azure AD?](active-directory-whatis.md)<br> [Как это работает?](active-directory-works.md)<br> [Приступая к работе](active-directory-get-started.md)<br> [Дальнейшие действия](active-directory-next-steps.md)<br> [Подробнее](active-directory-learn-map.md)
 
 У меня уже есть подписка на Azure. Как с этим связана Azure AD? [Как подписки связаны с каталогом](active-directory-how-subscriptions-associated-directory.md)
 
@@ -33,7 +34,8 @@
 
 ## Дополнительные ресурсы
 
-* [Подпишитесь на Azure как организация](sign-up-organization.md)
+* [Регистрация организации в Azure](sign-up-organization.md)
 * [Удостоверение Azure](fundamentals-identity.md)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

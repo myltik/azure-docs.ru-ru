@@ -1,7 +1,9 @@
-## <a name="setupdevenv"></a>Set up the development environment
+## <a name="setupdevenv"></a>Настройка среды разработки
 
-To start, set up your development environment by installing the [Azure SDK for Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003).
+Для начала настройте среду разработки, установив [пакет SDK Azure для Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003).
 
-If you don't have Visual Studio installed, Visual Studio Express for Web will be installed along with the SDK.
+Если у вас не установлена служба Visual Studio, вместе с пакетом SDK будет установлена служба Visual Studio Express for Web.
 
->[AZURE.NOTE] Depending on how many of the SDK dependencies you already have on your machine, installing the SDK could take a long time, from several minutes to a half hour or more.
+>[AZURE.NOTE] В зависимости от того, сколько зависимостей пакета SDK уже имеется на компьютере, установка пакета SDK может занять определенное время, от нескольких минут до получаса или более.
+
+<!---HONumber=58_postMigration-->

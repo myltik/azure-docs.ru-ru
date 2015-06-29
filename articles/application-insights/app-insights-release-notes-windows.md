@@ -4,17 +4,33 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 <tags 
 	ms.service="application-insights" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2015" 
+	ms.date="06/18/2015" 
 	ms.author="sergkanz"/>
  
-# Заметки о выпуске пакета SDK Application Insights для ASP.NET
+# Заметки о выпуске для пакета SDK Application Insights для Windows Phone и Магазина Windows
+
+[Пакет SDK Application Insights](app-insights-windows-get-started.md) отправляет сведения о телеметрии, относящиеся к вашему работающему приложению, в службу [Application Insights](http://azure.microsoft.com/services/application-insights/), где вы можете проанализировать использование и производительность приложения.
+
+
+#### Установка пакета SDK в приложении
+
+См. статью [Приступая к работе со службой Application Insights для приложений Windows Phone и Магазина Windows](app-insights-windows-get-started.md).
+
+#### Обновление до последнего пакета SDK 
+
+* Создайте копию файла ApplicationInsights.config, чтобы сохранить выполненные вами настройки.
+* В обозревателе решений щелкните правой кнопкой мыши свой проект и выберите элемент **Управление пакетами NuGet**.
+* Настройте фильтр, чтобы отображались установленные пакеты. 
+* Выберите установленные пакеты Application Insights и щелкните элемент «Обновить».
+* Сравните старую и новую версии файла ApplicationInsights.config. Снова объедините настройки, выполненные вами в старой версии.
+* Перестройте свое решение.
 
 
 ## Версия 0.16 
@@ -34,4 +50,4 @@
 
 Для более старых версий заметки о выпуске не доступны.
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

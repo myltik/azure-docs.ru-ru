@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Optional: Configure a new storage account for the service"
-   description="Explains how to configure a storage account for the StorSimple Manager service running Update 1."
+   pageTitle="(Необязательно.) Настройте новую учетную запись хранения для службы."
+   description="Рассказывается о том, как настроить учетную запись хранения для службы &quot;Диспетчер StorSimple&quot;, где выполняется обновление 1."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -15,20 +15,20 @@
    ms.date="05/18/2015"
    ms.author="alkohli" />
 
-#### To add a storage account in StorSimple 8000 Series Update 1.0
+#### Добавление учетной записи хранения в обновлении 1.0 для серии StorSimple 8000
 
-1. On the StorSimple Manager service landing page, select your service and double-click it. This will take you to the **Quick Start** page. Select the **Configure** page.
+1. На стартовой странице службы "Диспетчер StorSimple" выберите службу и дважды щелкните ее. После этого вы перейдете на страницу **Быстрый запуск**. Выберите страницу **Настройка**.
 
-2. Click **Add/edit storage account**.
+2. Щелкните **Добавить/изменить учетную запись хранения**.
 
-3. In the **Add/Edit Storage Account** dialog box, click **Add new**.
+3. В диалоговом окне **Добавление или изменение учетной записи хранения** нажмите кнопку **Добавить новую**.
 
-4. In the **Provider** field, select the appropriate cloud service provider. The supported providers are Azure, Amazon S3, Amazon S3 with RRS, HP and OpenStack. Specify the credentials and the location associated with the storage account of your cloud service providers. The fields presented for credentials will be different depending upon the cloud service provider you have specified. 
-  - If you have selected Azure as your cloud service provider, supply the **Name** and the primary **Access Key** for your Microsoft Azure storage account. For an Azure account, the location will be automatically populated.
+4. В поле **Поставщик** выберите соответствующего поставщика облачных служб. Поддерживаются следующие поставщики: Azure, Amazon S3, Amazon S3 с RRS, HP и OpenStack. Укажите учетные данные и расположение, связанное с учетной записью хранения своих поставщиков облачных служб. В зависимости от указанного поставщика облачных служб, для ввода учетных данных будут отображаться разные поля.
+  - Если в качестве поставщика облачных служб вы выбрали Azure, укажите **Имя** и основной **Ключ доступа** для своей учетной записи хранения Microsoft Azure. Для учетной записи Azure расположение будет подставлено автоматически.
 
         ![Add Azure storage account](./media/storsimple-configure-new-storage-account-u1/AddAzureStorageaccount-include.png)
 
- - If you have selected Amazon S3 or Amazon S3 with RRS, provide a friendly **Storage Account name**, **Access Key**, and **Secret Key**. For Amazon S3 and Amazon S3 with RRS, the following locations are supported:
+ - Если вы выбрали Amazon S3 или S3 Amazon с RRS, введите понятное **Имя учетной записи хранения**, **Ключ доступа** и **Секретный ключ**. Для Amazon S3 и Amazon S3 с RRS поддерживаются следующие расположения:
 
 		- US Standard
 		- US West (Oregon)
@@ -41,23 +41,25 @@
 
         ![Add Amazon storage account](./media/storsimple-configure-new-storage-account-u1/AddAmazonStorageaccount-include.png)
 	  		
- - If you have selected HP as your cloud service provider, supply a friendly **Storage Account Name**, **Tenant ID**, **Username**, and **Password**. For HP, the following locations are supported:
+ - Если в качестве поставщика облачных служб вы выбрали HP, введите понятное **Имя учетной записи хранения**, **Идентификатор клиента**, **Имя пользователя** и **Пароль**. Для HP поддерживаются следующие расположения:
 
 		- US East
 		- US West
 	  
         ![Add HP storage account](./media/storsimple-configure-new-storage-account-u1/AddHPStorageaccount-include.png)
 	  		
- - If you have selected **Openstack** as your cloud service provider, provide a **Hostname**, **Access Key**, and **Secret Key**.
+ - Если в качестве поставщика облачных служб вы выбрали **Openstack**, введите **Имя узла**, **Ключ доступа** и **Секретный ключ**.
 
         > [AZURE.NOTE] For all the cloud service providers, excluding Azure, a friendly name is allowed. You can use different friendly names and create more than one storage account with the same set of credentials.
 
         ![Add Openstack storage account](./media/storsimple-configure-new-storage-account-u1/AddOpenstackStorageaccount-include.png)
 
-5. Select **Enable SSL Mode** to create a secure channel for network communication between your device and the cloud. Clear the **Enable SSL Mode** check box only if you are operating within a private cloud.
+5. Выберите **Включить режим SSL**, чтобы создать безопасный канал для обмена данными между вашим устройством и облаком. Снимайте флажок **Включить режим SSL** только в том случае, если вы работаете в частном облаке.
 
-      > [AZURE.NOTE] If you are using HP as your provider, SSL will always be enabled.
+      >[AZURE.NOTE]Если в качестве своего поставщика вы используете HP, SSL будет всегда включен.
   		
-6. Click the check icon ![check icon](./media/storsimple-configure-new-storage-account/HCS_CheckIcon-include.png). You will be notified after the storage account is successfully created.
+6. Щелкните значок галочки ![значок галочки](./media/storsimple-configure-new-storage-account/HCS_CheckIcon-include.png). После успешного создания учетной записи хранения вы получите уведомление.
 
-7. The newly created storage account will be displayed on the **Configure** page under **Storage accounts**. Click **Save** to save the new storage account. Click **OK** when prompted for confirmation.
+7. Только что созданная учетная запись хранения будет отображаться на странице **Настройка** в разделе **Учетные записи хранения**. Щелкните **Сохранить**, чтобы сохранить новую учетную запись хранения. При выводе запроса подтверждения нажмите кнопку **ОК**.
+
+<!---HONumber=58_postMigration-->

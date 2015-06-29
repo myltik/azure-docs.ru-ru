@@ -13,88 +13,86 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2014" 
+	ms.date="06/16/2015" 
 	ms.author="sdanie"/>
 
 # Как импортировать определение API с операциями в Azure API Management
 
-В API Management (предварительная версия) новые интерфейсы API можно создавать, а также добавлять операции, вручную, либо API можно импортировать вместе с операциями за один шаг.
+В управлении API можно создавать новые интерфейсы API и добавлять операции вручную, либо API можно импортировать вместе с операциями за один шаг.
 
 Интерфейсы API и их операции можно импортировать с помощью следующих форматов.
 
--   WADL
--   Swagger
+-	WADL
+-	Swagger
 
-В этом руководстве показано, как создать новый API и импортировать его операции за один шаг.
-
-> Дополнительные сведения о создании API и добавлении операций вручную см. в разделе [Как создать интерфейсы API][Как создать интерфейсы API] и [Как добавить операции к API][Как добавить операции к API].
-
-## Содержание раздела
-
--   [Импорт API][Импорт API]
--   [Экспорт API][Экспорт API]
--   [Дальнейшие действия][Дальнейшие действия]
+В этом руководстве показано, как создать новый API и импортировать его операции за один шаг. Дополнительные сведения о создании API и добавлении операций вручную см. в разделе [Как создать интерфейсы API][] и [Как добавить операции к API][].
 
 ## <a name="import-api"> </a>Импорт API
 
-Для создания и настройки интерфейсов API щелкните **Консоль управления** на портале Azure службы API Management. Открывается административный портал API Management.
+API создаются и настраиваются на портале издателя. Чтобы перейти на портал издателя, щелкните **Управление** на портале Azure для службы управления API. Если экземпляр службы API Management еще не создан, см. раздел [Создание экземпляра службы API Management][] в руководстве [Начинаем работу с API Management][].
 
-> Если экземпляр службы API Management еще не создан, см. раздел [Создание экземпляра службы API Management][Создание экземпляра службы API Management] в руководстве [Начинаем работу с API Management][Начинаем работу с API Management].
-
-![Консоль управления][Консоль управления]
+![Портал издателя][api-management-management-console]
 
 Щелкните **API** в расположенном слева меню **API Management**, а затем **Импортировать API**.
 
-![Импорт API][1]
+![Импорт API][api-management-import-apis]
 
 Окно **Импорт API** содержит три вкладки, которые соответствуют трем способам ввода спецификации API.
 
--   **Из буфера обмена** позволяет вставлять спецификацию API в указанное текстовое поле.
--   **Из файла** позволяет искать и выбирать файл, который содержит спецификацию API.
--   **Из URL-адреса** позволяет ввести URL-адрес спецификации для API.
+-	**Из буфера обмена** позволяет вставлять спецификацию API в указанное текстовое поле.
+-	**Из файла** позволяет искать и выбирать файл, который содержит спецификацию API.
+-	**Из URL-адреса** позволяет ввести URL-адрес спецификации для API.
 
-![Формат импорта API][Формат импорта API]
+![Формат импорта API][api-management-import-api-clipboard]
 
 После предоставления спецификации API используйте переключатели, расположенные справа, для выбора формата спецификации. Поддерживаются следующие форматы.
 
--   WADL
--   Swagger
+-	WADL
+-	Swagger
 
 Затем, введите **Суффикс URL-адреса веб-API**. Он добавляется к основному URL-адресу для вашей службы API Management. Основной URL-адрес является общим для всех интерфейсов API, размещенных в каждом экземпляре службы API Management. API Management различает интерфейсы API по их суффиксу. Следовательно, суффикс должен быть уникальным для каждого API в конкретном экземпляре службы API Management.
 
 После ввода всех значений щелкните **Сохранить** для создания API и связанных операций.
 
-## <a name="export-api"> </a> Экспорт API
+>[AZURE.NOTE]Инструкции по импорту базового API калькулятора в формате Swagger см. в статье [Управление API в службе управления API Azure](api-management-get-started.md).
 
-В дополнение к импорту новых интерфейсов API с консоли управления можно экспортировать определения своих интерфейсов API. Для этого щелкните **Экспорт API** на вкладке **Сводка** своего интерфейса **API**.
+## <a name="export-api"> </a>Экспорт API
 
-![Экспорт API][2]
+Помимо импорта новых API можно экспортировать определения своих API с портала издателя. Для этого щелкните **Экспорт API** на вкладке **Сводка** своего интерфейса **API**.
+
+![Экспорт API][api-management-export-api]
 
 Интерфейсы API можно экспортировать в формате WADL или Swagger. Выберите требуемый формат, щелкните **Сохранить** и выберите папку, в которую следует сохранить файл.
 
-![Формат экспорта API][Формат экспорта API]
+![Формат экспорта API][api-management-export-api-format]
 
 ## <a name="next-steps"> </a>Дальнейшие действия
 
 Как только API создан, и операции импортированы, можно просмотреть и настроить все дополнительные параметры, добавить API к продукту, и опубликовать его, чтобы он стал доступен для разработчиков. Дополнительные сведения см. в следующих руководствах.
 
--   [Как настраивать параметры API][Как настраивать параметры API]
--   [Как создать и опубликовать продукт][Как создать и опубликовать продукт]
+-	[Как настраивать параметры API][]
+-	[Как создать и опубликовать продукт][]
 
-  [Как создать интерфейсы API]: ../api-management-howto-create-apis
-  [Как добавить операции к API]: ../api-management-howto-add-operations
-  [Импорт API]: #import-api
-  [Экспорт API]: #export-api
-  [Дальнейшие действия]: #next-steps
-  [Создание экземпляра службы API Management]: ../api-management-get-started/#create-service-instance
-  [Начинаем работу с API Management]: ../api-management-get-started
-  [Консоль управления]: ./media/api-management-howto-import-api/api-management-management-console.png
-  [1]: ./media/api-management-howto-import-api/api-management-api-import-apis.png
-  [Формат импорта API]: ./media/api-management-howto-import-api/api-management-import-api-wizard.png
-  [2]: ./media/api-management-howto-import-api/api-management-export-api.png
-  [Формат экспорта API]: ./media/api-management-howto-import-api/api-management-export-api-format.png
-  [Как настраивать параметры API]: ../api-management-howto-create-apis/#configure-api-settings
-  [Как создать и опубликовать продукт]: ../api-management-howto-add-products
 
-<!--HONumber=46--> 
- 
+
+
+[api-management-management-console]: ./media/api-management-howto-import-api/api-management-management-console.png
+[api-management-import-apis]: ./media/api-management-howto-import-api/api-management-api-import-apis.png
+[api-management-import-api-clipboard]: ./media/api-management-howto-import-api/api-management-import-api-wizard.png
+[api-management-export-api]: ./media/api-management-howto-import-api/api-management-export-api.png
+[api-management-export-api-format]: ./media/api-management-howto-import-api/api-management-export-api-format.png
+
+[Import an API]: #import-api
+[Export an API]: #export-api
+[Configure API settings]: #configure-api-settings
+[Next steps]: #next-steps
+
+[Начинаем работу с API Management]: api-management-get-started.md
+[Создание экземпляра службы API Management]: api-management-get-started.md#create-service-instance
+
+[Как добавить операции к API]: api-management-howto-add-operations.md
+[Как создать и опубликовать продукт]: api-management-howto-add-products.md
+[Как создать интерфейсы API]: api-management-howto-create-apis.md
+[Как настраивать параметры API]: api-management-howto-create-apis.md#configure-api-settings
+
+<!---HONumber=58_postMigration-->

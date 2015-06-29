@@ -3,7 +3,7 @@
 	description="Начало работы с использованием хранилища больших двоичных объектов Azure в проекте ASP.NET 5 в Visual Studio" 
 	services="storage" 
 	documentationCenter="" 
-	authors="kempb" 
+	authors="patshea123" 
 	manager="douge" 
 	editor="tglee"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/20/2015" 
-	ms.author="kempb"/>
+	ms.author="patshea123"/>
 
 # Начало работы со службой хранилища Azure (проекты ASP.NET 5)
 
@@ -149,5 +149,6 @@
 	await blockBlob.DeleteAsync();
 
 [Дополнительные сведения о службе хранилища Azure](http://azure.microsoft.com/documentation/services/storage/) См. также статьи [Обзор ресурсов хранения и управление ими в обозревателе серверов](http://msdn.microsoft.com/library/azure/ff683677.aspx) и [ASP.NET 5](http://www.asp.net/vnext).
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Использование Azure CLI для Mac, Linux и Windows со службой управления ресурсами Azure"
-	description="Сведения об использовании средств командной строки компьютеров Mac и компьютеров с ОС Linux и Windows для управления Azure с помощью интерфейса командной строки Azure в режиме asm."
+	pageTitle="Использование Azure CLI для Mac, Linux и Windows со службой управления ресурсами Azure | Microsoft Azure"
+	description="Сведения об использовании Azure CLI для Mac, Linux и Windows для управления ресурсами Azure с помощью Azure CLI в режиме arm."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="squillace"
+	authors="dlepow"
 	manager="timlt"
 	editor="tysonn"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/23/2015"
-	ms.author="rasquill"/>
+	ms.date="06/09/2015"
+	ms.author="danlep"/>
 
 # Использование Azure CLI для Mac, Linux и Windows со службой управления ресурсами Azure
 
@@ -940,7 +940,7 @@
  	-l, --lb-name <lb-name>                the name of the load balancer
  	-s, --subscription <subscription>      the subscription identifier
 
-[Параметры] <BR> network lb address-pool delete <resource-group> <lb-name> <name>
+<BR> network lb address-pool delete [параметры] <resource-group> <lb-name> <name>
 
 Удаляет ресурс диапазона пула IP-адресов из подсистемы балансировки нагрузки.
 
@@ -1245,7 +1245,7 @@
 	info:    network public-ip create command OK
 
 
-Параметры: -h, --help вывод сведений -v, --verbose использовать подробный вывод --json использовать формат JSON для вывода -g, --resource-group <resource-group> имя группы ресурсов -n, --name <name> имя общедоступного IP-адреса -l, --location <location> расположение -d, --domain-name-label <domain-name-label> метка имени домена. Задать DNS в значение <domain-name-label>.<location>.cloudapp.azure.com -a, --allocation-method <allocation-method> метод распределения [Static][Dynamic] -i, --idletimeout <idletimeout> время задержки в минутах -f, --reverse-fqdn <reverse-fqdn> обратное значение fqdn -t, --tags <tags> вывести список тегов. Может быть несколько. В формате "имя=значение". Имя является обязательным, а значение — необязательным. Например, -t тег1=значение1;тег2 -s, --subscription <subscription> идентификатор подписки <br>
+Параметры: -h, --help — вывод сведений об использовании. -v, --verbose — использование подробного вывода. --json — использование формата JSON для вывода. -g, --resource-group <resource-group> — имя группы ресурсов. -n, --name <name> — имя общедоступного IP-адреса. -l, --location <location> — расположение. -d, --domain-name-label <domain-name-label> — метка имени домена. Задает в качестве DNS адрес <domain-name-label>.<location>.cloudapp.azure.com. -a, --allocation-method <allocation-method> — способ выделения [статическое][динамическое]. -i, --idletimeout <idletimeout> — таймаут простоя в минутах. -f, --reverse-fqdn <reverse-fqdn> — обратное полное доменное имя. -t, --tags <tags> — список тегов. Может быть несколько. В формате "имя=значение". Имя является обязательным, а значение — необязательным. Например, -t тег1=значение1;тег2 -s, --subscription <subscription> идентификатор подписки <br>
 
 	network public-ip set [options] <resource-group> <name>
 Обновляет свойства существующего ресурса с общедоступным IP-адресом. В следующем примере изменен общедоступный IP-адрес с динамического на статический.
@@ -1286,7 +1286,7 @@
 	--no-tags                                    remove all existing tags
 	-s, --subscription <subscription>            the subscription identifier
 
-[Параметры] <br> network public-ip list <resource-group> Выводит список всех ресурсов IP-адреса в группе ресурсов.
+<br> network public-ip list [параметры] <resource-group> Вывод списка всех общедоступных IP-ресурсов в группе ресурсов.
 
 	azure network public-ip list -g myresourcegroup
 
@@ -1306,7 +1306,7 @@
 	--json                                 use json output
 	-g, --resource-group <resource-group>  the name of the resource group
 	-s, --subscription <subscription>      the subscription identifier
-[Параметры] <BR> network public-ip show <resource-group> <name> Показывает свойства общедоступного IP-адреса для открытого ресурса в группе ресурсов.
+<BR> network public-ip show [параметры] <resource-group> <name> Отображение свойств общедоступного IP-адреса для общедоступного IP-ресурса в группе ресурсов.
 
 	azure network public-ip show -g myresourcegroup -n mytestpublicip
 
@@ -1735,5 +1735,6 @@
 	vm image list-offers [options] <location> <publisher>
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

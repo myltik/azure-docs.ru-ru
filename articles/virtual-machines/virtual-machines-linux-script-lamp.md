@@ -20,7 +20,7 @@
 
 Расширение Azure CustomScript для Linux позволяет использовать для настройки виртуальных машин произвольный код, написанный на одном из языков сценариев, которые поддерживаются виртуальной машиной (например, Python, Bash). Это обеспечивает гибкую автоматизацию развертывания приложения на нескольких виртуальных машинах.
 
-Расширение CustomScript можно развернуть с помощью портала Azure, PowerShell или кроссплатформенного интерфейса командной строки Azure (CLI Azure).
+Расширение CustomScript можно развернуть с помощью портала Azure, PowerShell или интерфейса командной строки Azure (Azure CLI).
 
 В этом примере мы развернем простое приложение LAMP в Ubuntu с помощью интерфейса CLI Azure.
 
@@ -105,5 +105,6 @@
 [Расширения Azure для Linux (GitHub)](https://github.com/Azure/azure-linux-extensions)
 
 [Linux и вычисления с открытым кодом в Azure](virtual-machines-linux-opensource.md)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Использование образцов наборов данных в Machine Learning Studio | Azure" 
-	description="Описания примеров наборов данных, которые включены в Студию машинного обучения Azure" 
+	pageTitle="Использование примеров наборов данных Студии машинного обучения | Microsoft Azure" 
+	description="Описания наборов данных, используемых в примерах моделей, который входят в состав Студии машинного обучения. Эти наборы данных можно использовать для собственных экспериментов." 
+	keywords="data sets,datasets,ml studio,sample data sets"
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="garyericson" 
@@ -13,345 +14,365 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/16/2014" 
+	ms.date="04/22/2015" 
 	ms.author="garye"/>
 
 
-# Использование образцов наборов данных в Azure Machine Learning Studio
+# Использование образцов наборов данных в Студии машинного обучения Azure
 
-ML Studio содержит несколько образцов наборов данных, которыми можно пользоваться. Это стандартные наборы данных для машинного обучения, взятые из открытых источников. 
+[top]: #machine-learning-sample-datasets
 
-Эти наборы данных можно использовать в своих экспериментах при изучении аналитических моделей машинного обучения различного типа в ML Studio. 
+При создании новой рабочей области в службе машинного обучения Azure по умолчанию в нее добавляется ряд примеров экспериментов и наборов данных. Многие из этих наборов используются моделями из [коллекции моделей машинного обучения Azure](http://azure.microsoft.com/documentation/services/machine-learning/models/), а остальные включены в качестве примеров различных типов данных, используемых в машинном обучении.
 
-- Для просмотра списка этих стандартных наборов данных в ML Studio перейдите на вкладку **НАБОРЫ ДАННЫХ**. Для каждого набора данных указываются такие сведения, как имя набора данных, пользователь, который ввел его в систему, и краткое описание.
- 
-    Для сортировки наборов данных щелкните заголовок любого столбца. Например, щелкните **ОТПРАВЛЕНО** для группирования всех образцов наборов данных, предоставленных корпорацией Майкрософт. Данный способ также позволяет просматривать наборы данных, импортированные вами и другими пользователями в вашей рабочей области. 
+Некоторые из этих наборов доступны в хранилище больших двоичных объектов Azure. Прямые ссылки на эти наборы данных приведены в таблицах ниже. Эти наборы можно использовать в экспериментах с помощью [модуля чтения][reader]: чтобы узнать, как обращаться к набору данных, просмотрите свойства [модуля чтения][reader] в примере эксперимента, связанного с набором данных.
 
-- Для использования набора данных в эксперименте разверните раздел **Сохраненные наборы данных** палитры модулей слева от полотна эксперимента или найдите конкретный набор данных путем ввода его имени в окне поиска над палитрой. Перетащите набор данных на полотно для добавления его в эксперимент. 
+Остальная часть этих наборов данных предоставлена в разделе **Сохраненные наборы данных** на палитре модуля слева от холста эксперимента. Эти наборы отображаются каждый раз, когда вы открываете или создаете новый эксперимент в Студии машинного обучения. Любой из этих наборов данных можно просто перетянуть на холст собственного эксперимента.
 
-##Образцы наборов данных
 
-Следующая таблица содержит дополнительные сведения о наборах данных, которые могут быть полезны пользователям при изучении функций машинного обучения ML Studio. Для каждого набора данных данная таблица показывает следующую информацию:
- 
-- Имя и источник каждого набора данных
-- Описание возможных вариантов применения набора данных, а также ссылки на проект исследования машинного обучения, где применялся этот набор данных
-- Сводка важных столбцов, включенных в набор данных, и других полезных атрибутов
+<!--
+For a list of sample experiments available in ML Studio, see [Machine Learning Sample Experiments][sample-experiments].
 
-Некоторые описания взяты из документации, предоставленной источником (обычно это [репозиторий машинного обучения UC Irvine Machine Learning Repository](http://archive.ics.uci.edu/ml/ "UC Irvine Machine Learning Repository")), в то время как другие описания основаны на дополнительном анализе или отражают изменения, внесенные в эти образцы.
-
-<table>
-<tr valign=top>
-<th>Имя набора данных</th>
-<th>Описание набора данных</th>
-<th>Связанное исследование</th>
-</tr>
-<tr valign=top>
-<td>Набор данных "Adult Census Income Binary Classification"</td>
-<td>
-<p>Подмножество данных из базы данных переписи 1994 года с информацией о работающих взрослых старше 16 лет с регулируемым индексом роста дохода > 100.</p>
-<p><strong>Использование:</strong> классификация людей с помощью демографических данных для прогнозирования, зарабатывает ли человек более 50 000 в год.</p>
-</td>
-<td>
-<p>Kohavi, R., Becker, B. (1996). Репозиторий машинного обучения UCI [<a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>]. Ирвин, Калифорния: Калифорнийский университет, школа информационных и компьютерных наук</p>
-</td>
-</tr>
-
-<tr valign=top>
-<td>
-<p>Данные о ценах на автомобили (необработанные)</p>
-</td>
-<td>
-<p>Информация об автомобилях по изготовителю и модели, включая цену, особенности, например число цилиндров и MPG, а также оценки страховых рисков.</p>
-<p>Оценка рисков изначально связывается с ценой автомобиля, а затем регулируется по фактическому риску в процессе, известном актуариям как <legacyItalic>symboling</legacyItalic>. Значение "+3" указывает, что автомобиль является опасным, а значение "-3" - что он, вероятно, довольно безопасен.</p>
-<p><strong>Использование:</strong> прогнозирование оценки рисков с учетом особенностей (функций) с помощью регрессионной или многомерной классификации.</p>
-</td>
-<td>
-<p>
-Schlimmer, J.C. (1987). Репозиторий машинного обучения UCI [<a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>]. Ирвин, Калифорния: Калифорнийский университет, школа информационных и компьютерных наук
-</p>
-</td>
-</tr>
-
-<tr valign=top>
-<td>
-<p>Данные о донорах крови</p>
-</td>
-<td>
-<p>Подмножество данных из базы данных доноров Центра переливания крови в Синьчжу-Сити, Тайвань.</p>
-  <p>Данные о донорах включают в себя число месяцев после последней дачи крови, частота или общее количество дач крови, время, прошедшее с даты последней дачи крови, и объем сданной (донорской) крови.</p>
-  <p><strong>Использование:</strong> цель - спрогнозировать путем классификации, сдавал ли донор кровь в марте 2007 г., где "1" указывает донора в течение целевого периода, а 0 - не донора.</p>
-</td>
-<td>
-<list class="bullet">
-<listItem>
-<p>
-Yeh, I.C. (2008). Репозиторий машинного обучения UCI [<a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>]. Ирвин, Калифорния: Калифорнийский университет, школа информационных и компьютерных наук
-</p>
-</listItem>
-<listItem>
-<p>
-Yeh, I-Cheng, Yang, King-Jang и Ting, Tao-Ming, "Knowledge discovery on RFM model using Bernoulli sequence, "Expert Systems with Applications, 2008, [<a href="http://dx.doi.org/10.1016/j.eswa.2008.07.018">http://dx.doi.org/10.1016/j.eswa.2008.07.018</a>]
-</p>
-</listItem>
-</list>
-</td>
-</tr>
-
-<tr valign=top>
-<td>
-<p>Данные о раке молочной железы</p>
-</td>
-<td>
-<p>Один из трех наборов данных, связанных с раком, предоставленных Институтом онкологии, который часто используется в литературе о машинном обучении. Объединяет диагностическую информацию с функциями из лабораторных анализов приблизительно 300 образцов ткани.</p>
-<p><strong>Использование:</strong> классификация типа рака на основе 9 атрибутов, некоторые из которых являются линейными, а некоторые - категориальными.</p>
-</td>
-<td>
-<p>
-Wohlberg, W.H., Street, W.N. и Mangasarian, O.L. (1995). Репозиторий машинного обучения UCI [<a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>]. Ирвин, Калифорния: Калифорнийский университет, школа информационных и компьютерных наук
-</p>
-</td>
-</tr>
-
-<tr valign=top>
-<td>
-<p>Данные о регрессии энергетического КПД</p>
-</td>
-<td>
-<p>Набор смоделированных энергетических профилей, основанных на 12 различных формах здания. Здания отличаются 8 факторами, например зоной застекления, распределением зоны застекления, а также ориентацией.</p>
-<p><strong>Использование:</strong> использование регрессии или классификации для прогнозирования оценки энергетического КПД, основанной на одном из двух реальных ответов. Для многоклассовой классификации переменная ответа округляется до ближайшего целого числа.</p>
-</td>
-<td>
-<p>
-Xifara, A. и Tsanas, A. (2012). Репозиторий машинного обучения UCI   [<a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>]. Ирвин, Калифорния: Калифорнийский университет, школа информационных и компьютерных наук
-</p>
-</td>
-</tr>
-
-<tr valign=top>
-<td>
-<p>Данные о соблюдении графиков рейсов (необработанные)</p>
-</td>
-<td>
-<p>Записи об отправлении и прибытии авиарейсов в США начиная с октября 2011 г.</p>
-<p><strong>Использование:</strong> прогнозирование задержки рейсов.</p>
-</td>
-<td>
-<p>
-Данные Министерства транспорта США [<a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&amp;DB_Short_Name=On-Time</a>]
-</p>
-</td>
-</tr>
-
-<tr valign=top>
-<td>
-<p>Данные о лесных пожарах</p>
-</td>
-<td>
-<p>Содержит данные о погоде, такие как температура, влажность и скорость ветра, из северо-восточной Португалии, объединенные с записями о лесных пожарах.</p>
-<p><strong>Использование:</strong> это сложная регрессионная задача, цель которой состоит в прогнозировании площади выгорания из-за лесных пожаров.</p>
-</td>
-<td>
-<list class="bullet">
-<listItem>
-<p>
-Cortez, P. и Morais, A. (2008). Репозиторий машинного обучения UCI [<a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>]. Ирвин, Калифорния: Калифорнийский университет, школа информационных и компьютерных наук
-</p>
-</listItem>
-<listItem>
-<p>
-[Cortez и Morais, 2007] P. Cortez и A. Morais. 
-A Data Mining Approach to Predict Forest Fires using Meteorological Data. 
-In J. Neves, M. F. Santos и J. Machado Eds., New Trends in Artificial Intelligence, 
-Материалы конференции 13th EPIA 2007 - Portuguese Conference on Artificial Intelligence, 
-December, Guimar&#227;es, Portugal, pp. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. Доступно в Интернете:
-[<a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a>]
-</p>
-</listItem>
-</list>
-</td>
-</tr>
-
-<tr valign=top>
-<td>
-<p>Двухклассовые данные об ирисе</p>
-</td>
-<td>
-<p>Это, вероятно, наиболее известная база данных, которую можно найти в литературе по распознаванию образов. Набор данных относительно небольшой и содержит 50 примеров измерения лепестков трех разновидностей ириса.</p>
-<p><strong>Использование:</strong> прогнозирование типа ириса на основе результатов измерений. 
-<!-- I believe the following doesn't apply anymore, but I'm not sure so I'll remove it for now.
-One class is linearly separable from the other two; but the latter are not linearly separable from each other.
+[sample-experiments]: machine-learning-sample-experiments.md
 -->
-</p>
-</td>
-<td>
-<p>
-Fisher, R.A. (1988). Репозиторий машинного обучения UCI   [<a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>]. Ирвин, Калифорния: Калифорнийский университет, школа информационных и компьютерных наук
-</p>
+
+[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+
+## Примеры наборов данных, связанные с моделями в коллекции машинного обучения
+
+Перечисленные ниже наборы данных используются в примерах моделей из [коллекции моделей машинного обучения Azure](http://azure.microsoft.com/documentation/services/machine-learning/models/). Дополнительную информацию о модели и связанным с ней экспериментом можно получить, перейдя по ссылке в таблице, чтобы просмотреть сведения о модели.
+
+<table>
+
+<tr>
+  <th align=left>Пример модели</th>
+  <th align=left>Связанный эксперимент</th>
+  <th align=left>Имя набора данных</th>
+  <th align=left>Описание набора данных</th>
+</tr>
+
+<tr ID=bill-gates-rgb-image>
+  <td valign=top><a href="http://azure.microsoft.com/documentation/articles/machine-learning-sample-color-quantization-using-k-means-clustering/">Квантование цвета с помощью кластеризации K-средних</a></td>
+  <td valign=top>Пример эксперимента — Сжатие изображения на основе цвета с помощью кластеризации K-средних — Разработка</td>
+  <td valign=top>Изображение RGB Билла Гейтса</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-bill-gates-rgb-image](../../includes/machine-learning-sample-dataset-bill-gates-rgb-image.md)]
+  </td>
+</tr>
+
+<tr ID=german-credit-card-uci-dataset>
+  <td valign=top><a href="http://azure.microsoft.com/documentation/articles/machine-learning-sample-credit-risk-prediction/">Прогнозирование кредитных рисков</a></td>
+  <td valign=top>Пример эксперимента — German Credit — Разработка</td>
+  <td valign=top>Набор данных German Credit Card UCI</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-german-credit-card-uci-dataset](../../includes/machine-learning-sample-dataset-german-credit-card-uci-dataset.md)]
+  </td>
+</tr>
+
+<tr ID=crm-dataset-shared>
+  <td rowspan=4 valign=top><a href="http://azure.microsoft.com/documentation/articles/machine-learning-sample-crm-task/">Задача CRM</a></td>
+  <td rowspan=4 valign=top>Примеры экспериментов — CRM — Разработка</td>
+  <td valign=top>Общий набор данных CRM</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-crm-dataset-shared](../../includes/machine-learning-sample-dataset-crm-dataset-shared.md)]
+  </td>
+</tr>
+<tr ID=crm-appetency-labels-shared>
+  <td valign=top>Общие метки стремления CRM</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-crm-appetency-labels-shared](../../includes/machine-learning-sample-dataset-crm-appetency-labels-shared.md)]
+  </td>
+</tr>
+<tr ID=crm-churn-labels-shared>
+  <td valign=top>Общие метки оттока CRM</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-crm-churn-labels-shared](../../includes/machine-learning-sample-dataset-crm-churn-labels-shared.md)]
+  </td>
+</tr>
+<tr ID=crm-upselling-labels-shared>
+  <td valign=top>Общие метки увеличения суммы покупок CRM</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-crm-upselling-labels-shared](../../includes/machine-learning-sample-dataset-crm-upselling-labels-shared.md)]
+  </td>
+</tr>
+
+<tr ID=wikipedia-sp-500-dataset>
+  <td valign=top><a href="http://azure.microsoft.com/documentation/articles/machine-learning-sample-finding-similar-companies/">Поиск похожих компаний</a></td>
+  <td valign=top>Пример эксперимента — Кластеризация компаний S&amp;P 500 — Разработка</td>
+  <td valign=top>Набор данных SP 500 из Википедии</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-wikipedia-sp-500](../../includes/machine-learning-sample-dataset-wikipedia-sp-500.md)]
+  </td>
+</tr>
+
+<tr ID=airport-codes-dataset>
+  <td rowspan=3 valign=top><a href="http://azure.microsoft.com/documentation/articles/machine-learning-sample-flight-delay-prediction/">Прогнозирование задержек рейсов</a></td>
+  <td rowspan=3 valign=top>Пример эксперимента — Прогнозирование задержек рейсов — Разработка</td>
+  <td valign=top>Набор данных кодов аэропортов</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-airport-codes](../../includes/machine-learning-sample-dataset-airport-codes.md)]
+  </td>
+</tr>
+
+<tr ID=flight-delays-data>
+  <td valign=top>Данные о задержках рейсов</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-flight-delays-data](../../includes/machine-learning-sample-dataset-flight-delays-data.md)]
 </td>
 </tr>
 
-<tr valign=top>
-<td>
-<p>Данные об MPG для различных автомобилей</p>
-</td>
-<td>
-<p>Этот набор данных является несколько модифицированной версией набора данных, предоставленного библиотекой StatLib университета Карнеги-Меллон. Набор данных использовался на выставке Американской статистической ассоциации в 1983 г.</p>
-<p>Данные включают в себя потребление топлива для различных автомобилей в милях за галлон вместе с такой информацией, как число цилиндров, объем двигателя, мощность в лошадиных силах, общая масса и разгон.</p>
-<p><strong>Использование:</strong> прогнозирование уровня экономии топлива на основе 3 многозначных дискретных атрибутов и 5 непрерывных атрибутов.</p>
-</td>
-<td>
-<p>
-StatLib, Университет Карнеги-Меллон (1993). Репозиторий машинного обучения UCI [<a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>]. Ирвин, Калифорния: Калифорнийский университет, школа информационных и компьютерных наук
-</p>
-</td>
+<tr ID=weather-dataset>
+  <td valign=top>Набор погодных данных</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-weather-dataset](../../includes/machine-learning-sample-dataset-weather-dataset.md)]
+  </td>
 </tr>
 
-<tr valign=top>
-<td>
-<p>Набор данных Pima Indians Diabetes Binary Classification</p>
-</td>
-<td>
-<p>Подмножество данных из базы данных национального института диабета, болезней пищеварительного тракта и почек. Набор данных был отфильтрован для отбора пациенток из индейского племени пима. Эти данные включают медицинские данные, такие как уровни глюкозы и инсулина, а также факторы образа жизни.</p>
-<p><strong>Использование:</strong> прогнозирование диабета у людей (двоичная классификация).</p>
-</td>
-<td>
-<p>
-Sigillito, V. (1990). Репозиторий машинного обучения UCI [<a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>]. Ирвин, Калифорния: Калифорнийский университет, школа информационных и компьютерных наук
-</p>
-</td>
+<tr ID=intrusion-detection>
+  <td valign=top> <a href="http://azure.microsoft.com/documentation/articles/machine-learning-sample-network-intrusion-detection/">Обнаружение сетевого вторжения</a></td>
+  <td valign=top>Пример эксперимента — Обнаружение сетевого вторжения — Разработка</td>
+  <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">network_intrusion_detection.csv</a><br></td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-network-intrusion](../../includes/machine-learning-sample-dataset-network-intrusion.md)]
+  </td>
 </tr>
 
-<tr valign=top>
-<td>
-<p>Данные о клиентах ресторанов</p>
-</td>
-<td>
-<p>Набор метаданных о клиентах, включая демографические сведения и предпочтения.</p>
-<p><strong>Использование:</strong> этот набор данных в комбинации с другими двумя наборами данных о ресторанах применяется для обучения и тестирования рекомендательной системы.</p>
-</td>
-<td>
-<p>
-Bache, K. и Lichman, M. (2013). Репозиторий машинного обучения UCI 
-[<a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>].
-Ирвин, Калифорния: Калифорнийский университет, школа информационных и компьютерных наук
-</p>
-</td>
+<tr ID=bike-rental-uci-dataset>
+  <td valign=top><a href="http://azure.microsoft.com/documentation/articles/machine-learning-sample-prediction-of-number-of-bike-rentals/">Прогнозирование количества прокатов велосипедов</a></td>
+  <td valign=top>Пример эксперимента — Прогнозирование спроса на велосипеды</td>
+  <td valign=top>Набор данных по прокату велосипедов UCI</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-bike-rental-uci-dataset](../../includes/machine-learning-sample-dataset-bike-rental-uci-dataset.md)]
+  </td>
 </tr>
 
-<tr valign=top>
-<td>
-<p>Данные об услугах ресторанов</p>
-</td>
-<td>
-<p>Набор метаданных о ресторанах и их услугах, например о типе пищи, стиле ресторанов и местоположении.</p>
-<p><strong>Использование:</strong> этот набор данных в комбинации с другими двумя наборами данных о ресторанах применяется для обучения и тестирования рекомендательной системы.</p>
-</td>
-<td>
-<p>
-Bache, K. и Lichman, M. (2013). Репозиторий машинного обучения UCI 
-[<a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>].
-Ирвин, Калифорния: Калифорнийский университет, школа информационных и компьютерных наук
-</p>
-</td>
+<tr ID=student-performance>
+  <td valign=top><a href="http://azure.microsoft.com/documentation/articles/machine-learning-sample-prediction-of-student-performance/">Прогнозирование успеваемости учащихся</a></td>
+  <td valign=top>Пример эксперимента — Успеваемость учащихся — Разработка</td>
+  <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a></td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-student-performance](../../includes/machine-learning-sample-dataset-student-performance.md)]
+  </td>
 </tr>
 
-<tr valign=top>
-<td>
-<p>Оценки ресторанов</p>
-</td>
-<td>
-<p>Содержит оценки, данные ресторанам пользователями по шкале от 0 до 2.</p>
-<p><strong>Использование:</strong> этот набор данных в комбинации с другими двумя наборами данных о ресторанах применяется для обучения и тестирования рекомендательной системы.</p>
-</td>
-<td>
-<p>
-Bache, K. и Lichman, M. (2013). Репозиторий машинного обучения UCI 
-[<a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>].
-Ирвин, Калифорния: Калифорнийский университет, школа информационных и компьютерных наук
-</p>
-</td>
-</tr>
-
-<tr valign=top>
-<td>
-<p>Многоклассовый набор данных об отжиге стали</p>
-</td>
-<td>
-<p>Этот набор данных содержит различные записи испытаний отжига стали с физическими атрибутами (ширина, толщина, тип (рулонная, листовая и т. д.)) результирующих типов стали.</p>
-<p><strong>Использование:</strong> прогнозирование любого из двух числовых атрибутов класса (твердость или сопротивление). Вы также можете анализировать корреляции между атрибутами.</p>
-<p>Марка стали соответствует заданному стандарту, определенному ассоциацией SAE и другими организациями. Вы ищете конкретную "марку" стали (переменную класса) и хотите понять необходимые значения.</p>
-</td>
-<td>
-<p>
-Sterling, D. и Buntine, W. (NA). Репозиторий машинного обучения UCI   [<a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>]. Ирвин, Калифорния: Калифорнийский университет, школа информационных и компьютерных наук
-</p>
-<p>Полезное руководство по маркам стали:</p>
-<p>[<a href="http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf">http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf>]
-  </p>
-</td>
-</tr>
-
-<tr valign=top>
-<td>
-<p>Данные телескопов</p>
-</td>
-<td>
-<p>Записи данных о пучках высокоэнергетичных гамма-частиц вместе с фоновым шумом, которые моделируются с помощью метода Монте-Карло.</p>
-<p>Цель моделирования заключалась в повышении уровня точности наземных атмосферных гамма-телескопов Черенкова с помощью статистических методов дифференцирования требуемого сигнала (ливни радиации Черенкова) и фонового шума (адронные ливни, инициируемые космическими лучами в верхней атмосфере).</p>
-<p>Данные были предварительно обработаны для создания удлиненного кластера с продольной осью, ориентированной в центр камеры. Характеристики этого эллипса (часто называемые параметрами Hillas) относятся к параметрам изображения, которые могут использоваться для распознавания.</p>
-<p><strong>Использование:</strong> прогнозирование, представляет изображение ливня сигнал или фоновый шум.</p>
-<p><strong>Примечания.</strong> Уровень точности простой классификации не имеет значения для этих данных, так как классификация фонового события в качестве сигнала хуже, чем классификация события сигнала в качестве фона. Для сравнения различных классификаторов следует использовать график ROC. Вероятность классификации фонового события в качестве сигнала должна быть меньше одного из следующих пороговых значений: 0,01; 0,02; 0,05; 0,1 или 0,2.</p>
-<p>Кроме того, следует отметить, что число фоновых событий (h - адронные ливни) является недооцененной, в то время как при реальных измерениях "h" (класс шума) представляет большинство событий.</p>
-</td>
-<td>
-<p>
-Bock, R.K. (1995). Репозиторий машинного обучения UCI [<a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>]. Ирвин, Калифорния: Калифорнийский университет, школа информационных и компьютерных наук
-</p>
-</td>
+<tr ID=book-reviews-from-amazon>
+  <td valign=top><a href="http://azure.microsoft.com/documentation/articles/machine-learning-sample-sentiment-analysis/">Анализ мнений</a></td>
+  <td valign=top>Пример эксперимента — Классификация мнений — Разработка</td>
+  <td valign=top>Обзоры книг на Amazon</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-book-reviews-from-amazon](../../includes/machine-learning-sample-dataset-book-reviews-from-amazon.md)]
+  </td>
 </tr>
 
 </table>
 
-Ниже указаны типы наборов данных, которые вы можете найти.
+
+
+## Наборы данных, используемые в примерах экспериментов в Студии машинного обучения
+
+Перечисленные ниже наборы данных используются в примерах экспериментов, которые содержатся в [Студии машинного обучения](https://studio.azureml.net/Home).
+
+Эти наборы отображаются в разделе **Сохраненные наборы данных** на палитре модуля слева от холста эксперимента, когда вы открываете или создаете новый эксперимент в Студии машинного обучения. Любой из этих наборов данных можно просто перетянуть на холст собственного эксперимента.
+
+Все примеры экспериментов перечислены на вкладке **Примеры** страницы **Эксперименты** Студии машинного обучения Microsoft Azure. Чтобы создать копию примера эксперимента, которую можно изменить, откройте эксперимент в Студии машинного обучения Microsoft Azure и щелкните **Сохранить как**.
+
+
+<table>
+
+<tr>
+  <th align=left>Имя набора данных</th>
+  <th align=left>Пример эксперимента</th>
+  <th align=left>Описание набора данных</th>
+</tr>
+
+<tr ID=breast-cancer-features>
+  <td valign=top>Признаки рака молочной железы
+  <td valign=top>Пример эксперимента — рак молочной железы — развитие</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-breast-cancer-features](../../includes/machine-learning-sample-dataset-breast-cancer-features.md)]
+  </td>
+</tr>
+
+<tr ID=breast-cancer-info>
+  <td valign=top>Информация о раке молочной железы</td>
+  <td valign=top><i>—||—</i></td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-breast-cancer-info](../../includes/machine-learning-sample-dataset-breast-cancer-info.md)]
+  </td>
+</tr>
+
+<tr ID=direct-marketing>
+  <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/direct_marketing.csv">direct_marketing.csv</a></td>
+  <td valign=top>Пример эксперимента — прямой маркетинг — разработка — обучение</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-direct-marketing](../../includes/machine-learning-sample-dataset-direct-marketing.md)]
+  </td>
+</tr>
+
+<tr ID=imdb-movie-titles>
+  <td valign=top>Названия фильмов на сайте IMDB</td>
+  <td valign=top>Пример эксперимента — система рекомендаций фильмов — развитие</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-imdb-movie-titles](../../includes/machine-learning-sample-dataset-imdb-movie-titles.md)]
+  </td>
+</tr>
+
+<tr ID=movie-tweets>
+  <td valign=top>Твиты о фильмах</td>
+  <td valign=top>Пример эксперимента — ранжирование твитов о фильмах в соответствии с их будущей популярностью — разработка</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-movie-tweets](../../includes/machine-learning-sample-dataset-movie-tweets.md)]
+  </td>
+</tr>
+
+<tr ID=lyrl2004-tokens-test>
+  <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/lyrl2004_tokens_test.csv">lyrl2004_tokens_test.csv</a></td>
+  <td valign=top>Пример эксперимента — классификация новостей — разработка</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-lyrl2004-tokens-test](../../includes/machine-learning-sample-dataset-lyrl2004-tokens-test.md)]
+  </td>
+</tr>
+
+<tr ID=lyrl2004-tokens-train>
+  <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/lyrl2004_tokens_train.csv">lyrl2004_tokens_train.csv</a></td>
+  <td valign=top><i>—||—</i></td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-lyrl2004-tokens-train](../../includes/machine-learning-sample-dataset-lyrl2004-tokens-train.md)]
+  </td>
+</tr>
+
+<tr ID=rcv1-v2-topics-qrels>
+  <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/rcv1-v2.topics.qrels.csv">rcv1-v2.topics.qrels.csv</a></td>
+  <td valign=top><i>—||—</i></td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-rcv1-v2-topics](../../includes/machine-learning-sample-dataset-rcv1-v2-topics.md)]
+  </td>
+</tr>
+
+</table>
+
+
+
+## Прочие образцы наборов данных в Студии машинного обучения
+
+Перечисленные ниже наборы данных включены в [Студию машинного обучения](https://studio.azureml.net/Home) в качестве примеров различных типов данных, используемых в машинном обучении. Их можно будет найти в разделе **Сохраненные наборы данных** на палитре модуля слева от холста эксперимента, когда вы откроете или создадите новый эксперимент в Студии машинного обучения Microsoft Azure. Любой из этих наборов данных можно просто перетянуть на холст собственного эксперимента.
 
 <table>
 <tr>
-<th>Формат данных</th>
-<th>Описание</th>
+  <th align=left>Имя набора данных</th>
+  <th align=left>Описание</th>
 </tr>
+
 <tr>
-<td>
-Значения, разделенные запятыми (CSV)
-</td>
-<td>
-Широко известный формат обмена информацией для всех платформ данных. ML Studio загружает эти данные и встраивает модуль предположений (guesser) поколоночного типа, который применяет метаданные на основе данных, выбранных из каждого столбца.
-</td>
+  <td valign=top>Набор данных Adult Census Income Binary Classification</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-adult-census-income](../../includes/machine-learning-sample-dataset-adult-census-income.md)]
+  </td>
 </tr>
+
 <tr>
-<td>
-Формат файла связей между атрибутами (ARFF)
-</td>
-<td>
-Формат данных машинного обучения, определенный ассоциацией WEKA. Содержит метаданные (для номинальных, числовых и строковых типов), которые преобразуются непосредственно в таблицы данных ML Studio.
-</td>
+  <td valign=top>Данные о ценах на автомобили (необработанные)</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-automobile-price](../../includes/machine-learning-sample-dataset-automobile-price.md)]
+  </td>
 </tr>
+
 <tr>
-<td>
-Обычный текст
-</td>
-<td>
-Обычный текст можно считывать, а затем разбивать на столбцы с помощью нижестоящих модулей предварительной обработки. Основной поддерживаемый формат обычного текста - JSON.
-</td>
+  <td valign=top>Данные о донорах крови</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-blood-donation](../../includes/machine-learning-sample-dataset-blood-donation.md)]
+  </td>
 </tr>
+
 <tr>
-<td>
-DotNetTable
-</td>
-<td>
-Сериализованная версия первичного контейнера, передаваемого между модулями в ML Studio (<i>набор данных</i>).
-</td>
+  <td valign=top>Данные о раке молочной железы</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-breast-cancer-data](../../includes/machine-learning-sample-dataset-breast-cancer-data.md)]
+  </td>
 </tr>
+
+<tr>
+  <td valign=top>Данные о регрессии энергетического КПД</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-energy-efficiency-regression](../../includes/machine-learning-sample-dataset-energy-efficiency-regression.md)]
+  </td>
+</tr>
+
+<tr>
+  <td valign=top>Данные о соблюдении графиков рейсов (необработанные)</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-flight-on-time-performance](../../includes/machine-learning-sample-dataset-flight-on-time-performance.md)]
+  </td>
+</tr>
+
+<tr>
+  <td valign=top>Данные о лесных пожарах</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-forest-fires](../../includes/machine-learning-sample-dataset-forest-fires.md)]
+  </td>
+</tr>
+
+<tr>
+  <td valign=top>Двухклассовые данные об ирисе</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-iris-two-class](../../includes/machine-learning-sample-dataset-iris-two-class.md)]
+  </td>
+</tr>
+
+<tr>
+  <td valign=top>Данные об MPG для различных автомобилей</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-automobile-mpg](../../includes/machine-learning-sample-dataset-automobile-mpg.md)]
+  </td>
+</tr>
+
+<tr>
+  <td valign=top>Набор данных Pima Indians Diabetes Binary Classification</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-pima-indians-diabetes](../../includes/machine-learning-sample-dataset-pima-indians-diabetes.md)]
+  </td>
+</tr>
+
+<tr>
+  <td valign=top>Данные о клиентах ресторанов</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-restaurant-customer-data](../../includes/machine-learning-sample-dataset-restaurant-customer-data.md)]
+  </td>
+</tr>
+
+<tr>
+  <td valign=top>Данные об услугах ресторанов</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-restaurant-feature-data](../../includes/machine-learning-sample-dataset-restaurant-feature-data.md)]
+  </td>
+</tr>
+
+<tr>
+  <td valign=top>Оценки ресторанов</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-restaurant-ratings](../../includes/machine-learning-sample-dataset-restaurant-ratings.md)]
+  </td>
+</tr>
+
+<tr>
+  <td valign=top>Многоклассовый набор данных об отжиге стали</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-steel-annealing](../../includes/machine-learning-sample-dataset-steel-annealing.md)]
+  </td>
+</tr>
+
+<tr>
+  <td valign=top>Данные телескопов</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-telescope-data](../../includes/machine-learning-sample-dataset-telescope-data.md)]
+  </td>
+</tr>
+
+
 </table>
 
-<!--HONumber=46--> 
+
+<!-- Module References -->
+[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
+
+<!---HONumber=58_postMigration-->

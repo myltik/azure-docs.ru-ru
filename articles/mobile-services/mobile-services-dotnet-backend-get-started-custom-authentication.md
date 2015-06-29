@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="05/02/2015" 
+	ms.date="06/09/2015" 
 	ms.author="mahender"/>
 
 # Начало работы с настраиваемой проверкой подлинности
@@ -52,15 +52,13 @@
 
         public DbSet<Account> Accounts { get; set; }
 
-	>[AZURE.NOTE]Во фрагментах кода этого учебника в качестве имени контекста используется `todoContext`. Их нужно обновить, указав имя контекста вашего проекта.
-
-	Далее будут настраиваться компоненты безопасности для работы с этими данными.
+	>[AZURE.NOTE]Во фрагментах кода этого учебника в качестве имени контекста используется `todoContext`. Вам необходимо обновить фрагменты кода для контекста своего проекта. Далее вы настроите функции безопасности для работы с этими данными.
  
-5. Создайте класс с именем  `CustomLoginProviderUtils` и добавьте в него следующий оператор `using`:
+5. Создайте класс с именем `CustomLoginProviderUtils` и добавьте в него следующий оператор `using`:
 
 		using System.Security.Cryptography;
 
-6. Добавьте следующие метод кода в новый класс :
+6. Добавьте следующие метод кода в новый класс:
 
 
         public static byte[] hash(string plaintext, byte[] salt)
@@ -162,7 +160,7 @@
 
         [AuthorizeLevel(AuthorizationLevel.Anonymous)]
 
->[AZURE.IMPORTANT]К этой конечной точке регистрации могут получать доступ любые клиенты по протоколу HTTP. Перед публикацией
+>[AZURE.IMPORTANT]К этой конечной точке регистрации могут получать доступ любые клиенты по протоколу HTTP. Прежде чем опубликовать эту службу в рабочей среде, следует реализовывать какую-либо схему для проверки регистрации, например, проверку на основе SMS или электронной почты. Это поможет предотвратить создание мошеннических регистраций хакером.
 
 ## Создание поставщика входа в систему
 
@@ -217,9 +215,16 @@
             return;
         }
 
-	Этот метод представляет собой пустышку, так как класс **CustomLoginProvider** не интегрируется с конвейером проверки подлинности.
+	Этот метод не реализован, так как класс **CustomLoginProvider** не интегрируется с конвейером проверки подлинности.
 
-4. Добавьте следующую реализацию абстрактного метода `ParseCredentials` для **CustomLoginProvider**. public override ProviderCredentials ParseCredentials(JObject serialized) { if (serialized == null) { throw new ArgumentNullException("serialized"); }
+4. Добавьте следующую реализацию абстрактного метода `ParseCredentials` в класс **CustomLoginProvider**.
+
+        public override ProviderCredentials ParseCredentials(JObject serialized)
+        {
+            if (serialized == null)
+            {
+                throw new ArgumentNullException("serialized");
+            }
 
             return serialized.ToObject<CustomLoginProviderCredentials>();
         }
@@ -245,6 +250,12 @@
         }
 
 	Этот метод преобразует [ClaimsIdentity] в объект [ProviderCredentials], который используется на этапе выдачи маркера проверки подлинности. В этом методе может снова потребоваться записывать все дополнительные утверждения.
+	
+6. После создания **ConfigOptions** откройте файл проекта WebApiConfig.cs в папке App_Start и перейдите к следующей строке кода:
+		
+		options.LoginProviders.Add(typeof(CustomLoginProvider));
+
+	
 
 ## Создание конечной точки входа
 
@@ -375,7 +386,7 @@
 
 1. Создайте в клиентском приложении элементы пользовательского интерфейса, необходимые для ввода имени пользователя и пароля.
 
-2. Используйте подходящий метод **invokeApi** для **MobileServiceClient** в клиентской библиотеке, чтобы вызвать конечную точку **CustomRegistration** , передав имя пользователя и пароль, предоставленные во время выполнения, в тексте сообщения.
+2. Используйте подходящий метод **invokeApi** для **MobileServiceClient** в клиентской библиотеке, чтобы вызвать конечную точку **CustomRegistration**, передав имя пользователя и пароль, предоставленные во время выполнения, в тексте сообщения.
 
 	Для создания учетной записи определенного пользователя потребуется вызвать конечную точку **CustomRegistration** всего один раз, если учетные данные для входа хранятся в таблице учетных записей. Примеры того, как вызывать настраиваемый API для различных поддерживаемых клиентских платформ, см. в статье [Настраиваемый API в мобильных службах Azure — клиентские пакеты SDK](http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx).
 	 
@@ -385,7 +396,7 @@
 
 	В этот раз необходимо записать значения *userId* и *authenticationToken*, возвращаемые в объекте отклика после успешного входа.
 	
-4. Используйте возвращенные значения *userId* и *authenticationToken*, чтобы создать объект **MobileServiceUser** и задать его в качестве текущего пользователя для экземпляра **MobileServiceClient**, как показано в разделе [Добавление проверки подлинности к существующему приложению](mobile-services-dotnet-backend-ios-get-started-users.md). Так как результат CustomLogin имеет такую же форму, что и объект **MobileServiceUser** , можно будет выполнить прямое приведение результата.
+4. Используйте возвращенные значения *userId* и *authenticationToken*, чтобы создать объект **MobileServiceUser** и задать его в качестве текущего пользователя для экземпляра **MobileServiceClient**, как показано в разделе [Добавление проверки подлинности к существующему приложению](mobile-services-dotnet-backend-ios-get-started-users.md). Так как результат CustomLogin имеет такую же форму, что и объект **MobileServiceUser**, можно будет выполнить прямое приведение результата.
 
 На этом учебник завершен.
 
@@ -407,4 +418,6 @@
 
 [ClaimsIdentity]: https://msdn.microsoft.com/library/system.security.claims.claimsidentity(v=vs.110).aspx
 [ProviderCredentials]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.security.providercredentials.aspx
-<!--HONumber=54--> 
+ 
+
+<!---HONumber=58_postMigration-->

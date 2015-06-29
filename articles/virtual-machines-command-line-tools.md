@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Управление службами Azure с помощью интерфейса командной строки Azure на компьютерах Mac, а также на компьютерах с ОС Linux и Windows"
+	pageTitle="Управление службами Azure с помощью интерфейса командной строки Azure на компьютерах Mac, а также на компьютерах с ОС Linux и Windows | Microsoft Azure"
 	description="Узнайте, как использовать средства командной строки для компьютеров Mac и компьютеров с ОС Linux и Windows, чтобы управлять Azure с помощью интерфейса командной строки Azure в режиме asm."
 	services="web-sites, virtual-machines, mobile-services, cloud-services"
 	documentationCenter=""
-	authors="squillace"
+	authors="dlepow"
 	manager="timlt"
 	editor="tysonn"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/23/2015"
-	ms.author="rasquill"/>
+	ms.date="06/09/2015"
+	ms.author="danlep"/>
 
 # Управление службами Azure с помощью интерфейса командной строки Azure на компьютерах Mac, а также на компьютерах с ОС Linux и Windows
 
@@ -24,7 +24,7 @@
 
 Инструкции по установке см. в разделе[Установка и настройка интерфейса командной строки Azure](xplat-cli-install.md).
 
-Необязательные параметры заключены в квадратные скобки (пример: [параметр]). Все остальные параметры являются обязательными.
+Необязательные параметры заключены в квадратные скобки (например, [параметр]). Все остальные параметры являются обязательными.
 
 Помимо описанных здесь необязательных параметров для конкретных команд существуют три необязательных параметра, которые можно использовать для отображения подробных выходных данных, например параметров запроса и кодов состояния. Параметр -v предоставляет подробные выходные данные, а параметр -vv — еще более подробные выходные данные. Параметр --json будет выводить результат в необработанном JSON-формате.
 
@@ -151,7 +151,7 @@
 	data:    AzureChinaCloud
 	info:    account env list command OK
 
-**account env show [параметры][environment]**
+**account env show [параметры] [среда]**
 
 Отображает сведения о среде учетной записи
 
@@ -162,15 +162,15 @@
 	data:    Environment portal  http://go.microsoft.com/fwlink/?LinkId=2544
 	info:    account env show command OK
 
-**account env add [параметры][environment]**
+**account env add [параметры] [среда]**
 
 Эта команда добавляет среду в учетную запись.
 
-**account env set [параметры][environment]**
+**account env set [параметры] [среда]**
 
 Эта команда задает среду учетной записи.
 
-**account env delete [параметры][environment]**
+**account env delete [параметры] [среда]**
 
 Эта команда удаляет указанную среду из учетной записи.
 
@@ -181,7 +181,7 @@
 
 **create-new** создает диск в хранилище BLOB-объектов (e:\ на схеме); **attach** присоединяет уже созданный, но еще неприсоединенный диск к виртуальной машине.
 
-**vm create [параметры] &lt;имя_DNS> &lt;образ> &lt;имя_пользователя> [пароль]**
+**vm create [параметры] &lt;DNS-имя> &lt;образ> &lt;имя_пользователя> [пароль]**
 
 Эта команда создает новую виртуальную машину Azure. По умолчанию каждая виртуальная машина создается в собственной облачной службе, однако с помощью параметра -c вы можете указать, что виртуальную машину следует добавить в существующую облачную службу, как описано здесь.
 
@@ -328,7 +328,7 @@ info:   vm shutdown command OK
 
 Внешние запросы к виртуальным машинам проходят через подсистему балансировки нагрузки. Таким образом, в развертываниях с несколькими виртуальными машинами невозможно указывать запросы для конкретной виртуальной машины. Для развертываний с несколькими виртуальными машинами необходимо настроить сопоставление портов между виртуальными машинами (порт-виртуальной-машины) и средством балансировки нагрузки (порт-балансировщика-нагрузки).
 
-**vm endpoint create &lt;имя_виртуальной_машины> &lt;порт_LB> [порт_виртуальной_Машины]**
+**vm endpoint create &lt;имя_виртуальной_машины> &lt;порт_балансировщика_нагрузки> [порт_виртуальной_машины]**
 
 Эта команда создает конечную точку виртуальной машины. Можно также с помощью параметра -u или --enable-direct-server-return указать, нужно ли включить отключенную по умолчанию службу Direct Server Return в этой конечной точке.
 
@@ -340,7 +340,7 @@ info:   vm shutdown command OK
 	+ Updating network configuration
 	info:   vm endpoint create command OK
 
-**vm endpoint create-multiple [параметры] &lt;имя_виртуальной машины> &lt;порт_LB>[:&lt;порт_виртуальной_машины>[:&lt;протокол>[:&lt;включить_функцию_прямого_возврата_сервера>[:&lt;имя_набора_LB>[:&lt;протокол_зонда>[:&lt;порт_зонда>[:&lt;путь_к_зонду>[:&lt;внутреннее_имя_LB>]]]]]]]] {1-*}**
+**vm endpoint create-multiple [параметры] &lt;имя_виртуальной_машины> &lt;порт_балансировщика_нагрузки>[:&lt;порт_виртуальной_машины>[:&lt;протокол>[:&lt;enable-direct-server-return>[:&lt;имя_набора_балансировщика_нагрузки>[:&lt;протокол_зонда>[:&lt;порт_зонда>[:&lt;путь_к_зонду>[:&lt;внутреннее_имя_балансировщика_нагрузки>]]]]]]]] {1-*}**
 
 Создает несколько конечных точек виртуальной машины.
 
@@ -474,7 +474,7 @@ info:   vm shutdown command OK
 
 При отключении диска с данными с помощью команды azure vm disk detach используйте параметр &lt;LUN&gt;, чтобы указать, какой именно диск необходимо отключить.
 
-> [AZURE: ПРИМЕЧАНИЕ] Обратите внимание, что диски с данными всегда необходимо отключать в обратном порядке, начиная с LUN с наибольшим номером. На уровне Linux SCSI не поддерживается отсоединение дисков с меньшими номерами LUN, если все еще присоединены диски с большими номерами LUN. Например, не следует отсоединять LUN 0, если все еще присоединен LUN 1.
+> [AZURE>NOTE] Обратите внимание, что диски с данными всегда необходимо отключать в обратном порядке, начиная с LUN с наибольшим номером. На уровне Linux SCSI не поддерживается отсоединение дисков с меньшими номерами LUN, если все еще присоединены диски с большими номерами LUN. Например, не следует отсоединять LUN 0, если все еще присоединен LUN 1.
 
 **vm disk show [параметры] &lt;имя>**
 
@@ -493,7 +493,7 @@ info:   vm shutdown command OK
 	data:   SourceImageName "OpenLogic__OpenLogic-CentOS-62-20120509-ru-ru-30GB.vhd"
 	info:   vm disk show command OK
 
-**vm disk list [параметры][vm-name]**
+**vm disk list [параметры] [имя_виртуальной_машины]**
 
 Эта команда выводит список дисков Azure или дисков, подключенных к указанной виртуальной машине. Если в команде в качестве параметра указывается имя виртуальной машины, она возвращает все диски, присоединенные к ней. LUN 1 создан вместе с виртуальной машиной, а все остальные перечисленные диски присоединены отдельно.
 
@@ -524,9 +524,9 @@ info:   vm shutdown command OK
 	info:   Disk deleted: mycentos-mycentos-2-20120525055052
 	info:   vm disk delete command OK
 
-**vm disk create &lt;name> [путь_к_источнику]**
+**vm disk create &lt;имя> [путь_к_источнику]**
 
-Эта команда отправляет и регистрирует диск Azure. Необходимо указать параметр --blob-url, --location или --affinity-group. Если использовать эту команду с параметром [путь_к_источнику], то будет отправлен указанный файл виртуального жесткого диска и создан еще один образ. Затем можно присоединить этот образ к виртуальной машине, используя команду vm disk attach.
+Эта команда отправляет и регистрирует диск Azure. Необходимо указать параметр --blob-url, --location или --affinity-group. Если в этой команде используется параметр [путь-к-источнику], передается указанный VHD-файл и создается новый образ. Затем можно присоединить этот образ к виртуальной машине, используя команду vm disk attach.
 
 В некоторых системах устанавливается ограничение для дескрипторов файлов в каждом процессе. Если это ограничение превышено, появляется ошибка ограничения дескрипторов файлов. Можно выполнить команду еще раз, используя параметр -p &lt;количество>, чтобы уменьшить максимальное количество параллельно выполняющихся отправок. Максимальное число параллельных передач по умолчанию: 96.
 
@@ -538,7 +538,7 @@ info:   vm shutdown command OK
 	info:   http://account.blob.core.azure.com/disks/test.vhd is uploaded successfully
 	info:   vm disk create command OK
 
-**vm disk upload [параметры] &lt;путь_к_источнику> &lt;URL-адрес_большого_двоичного_объекта> &lt;ключ_учетной_записи_хранения>**
+**vm disk upload [параметры] &lt;путь_к_источнику> &lt;URL-адрес_BLOB-объекта> &lt;ключ_учетной_записи_хранения>**
 
 Эта команда позволяет передать диск виртуальной машины.
 
@@ -555,7 +555,7 @@ info:   vm shutdown command OK
 	info:   Executing command vm disk attach
 	info:   vm disk attach command OK
 
-**vm disk attach-new &lt;имя_виртуальной_машины> &lt;размер_в_ГБ> [URL-адрес_большого_двоичного_объекта]**
+**vm disk attach-new &lt;имя_виртуальной_машины> &lt;размер_в_ГБ> [URL-адрес_BLOB-объекта]**
 
 Эта команда присоединяет диск данных к виртуальной машине Azure. В этом примере 20 — это размер (в гигабайтах) нового диска, который нужно присоединить. В качестве последнего аргумента при желании можно использовать URL-адрес BLOB-объекта, чтобы явно указать целевой BLOB-объект для создания. Если URL-адрес BLOB-объекта не указан, BLOB-объект создается автоматически.
 
@@ -650,7 +650,7 @@ info:   vm shutdown command OK
 	data:   myservice  262DBF95B5E61375FA27F1E74AC7D9EAE842916C  sha1
 	info:   service cert list command OK
 
-**service cert create &lt;префикс_DNS> &lt;файл> [параметры]**
+**service cert create &lt;префикс_DNS> &lt;файл> [пароль]**
 
 Эта команда передает сертификат. Не указывайте пароль для сертификатов, которые не защищены паролем.
 
@@ -688,9 +688,9 @@ info:   vm shutdown command OK
 	data:   mydrupalsite36  Running  mydrupalsite36.antdf0.antares.windows.net
 	info:   site list command OK
 
-**site set [параметры][name]**
+**site set [параметры] [имя]**
 
-Эта команда задает параметры конфигурации для [имени] веб-приложения.
+Эта команда задает параметры конфигурации для веб-приложения, указанного в качестве аргумента [имя].
 
 	~$ azure site set
 	info:    Executing command site set
@@ -709,7 +709,7 @@ info:   vm shutdown command OK
 	info:    Generated deployment script files
 	info:    site deploymentscript command OK
 
-**site create [параметры][name]**
+**site create [параметры] [имя]**
 
 Эта команда создает новое веб-приложение и локальный каталог.
 
@@ -724,7 +724,7 @@ info:   vm shutdown command OK
 
 > [AZURE.NOTE]Имя сайта должно быть уникальным. Нельзя создать сайт, DNS-имя которого совпадает с существующим сайтом.
 
-**site browse [параметры][name]**
+**site browse [параметры] [имя]**
 
 Эта команда открывает веб-приложение в браузере.
 
@@ -733,7 +733,7 @@ info:   vm shutdown command OK
 	info:   Launching browser to http://mysite.antdf0.antares-test.windows-int.net
 	info:   site browse command OK
 
-**site show [параметры][name]**
+**site show [параметры] [имя]**
 
 Эта команда отображает сведения о веб-приложении.
 
@@ -763,7 +763,7 @@ info:   vm shutdown command OK
 	data:   Repository https://mysite.scm.antdf0.antares-test.windows-int.net/
 	info:   site show command OK
 
-**site delete [параметры][name]**
+**site delete [параметры] [имя]**
 
 Эта команда удаляет веб-приложение.
 
@@ -773,7 +773,7 @@ info:   vm shutdown command OK
 	info:   Site mysite has been deleted
 	info:   site delete command OK
 
- **site swap [параметры][name]**
+ **site swap [параметры] [имя]**
 
 Эта команда переключает слоты двух веб-приложений.
 
@@ -782,7 +782,7 @@ info:   vm shutdown command OK
 **-q или **--quiet**: не запрашивать подтверждение. Используйте этот параметр в автоматизированных сценариях.
 
 
-**site start [параметры][name]**
+**site start [параметры] [имя]**
 
 Эта команда запускает веб-приложение.
 
@@ -792,7 +792,7 @@ info:   vm shutdown command OK
 	info:   Site mysite has been started
 	info:   site start command OK
 
-**site stop [параметры][name]**
+**site stop [параметры] [имя]**
 
 Эта команда останавливает веб-приложение.
 
@@ -802,7 +802,7 @@ info:   vm shutdown command OK
 	info:   Site mysite has been stopped
 	info:   site stop command OK
 
-**site restart [параметры][name]
+**site restart [параметры] [имя]
 
 Эта команда останавливает, а затем запускает указанное веб-приложение.
 
@@ -830,7 +830,7 @@ info:   vm shutdown command OK
 
 ###Команды для управления параметрами веб-приложений
 
-**site appsetting list [параметры][name]**
+**site appsetting list [параметры] [имя]**
 
 Эта команда отображает параметр приложения, добавленный в веб-приложение.
 
@@ -844,7 +844,7 @@ info:   vm shutdown command OK
 	data:    test  value
 	info:    site appsetting list command OK
 
-**site appsetting add [параметры] &lt;пара_ключ-значение> [имя]**
+**site appsetting add [параметры] &lt;пара_ключ/значение> [имя]**
 
 Эта команда добавляет параметр приложения в веб-приложение в качестве пары "ключ-значение".
 
@@ -883,7 +883,7 @@ info:   vm shutdown command OK
 
 ###Команды для управления сертификатами веб-приложения
 
-**site cert list [параметры][name]**
+**site cert list [параметры] [имя]**
 
 Эта команда отображает список сертификатов веб-приложения.
 
@@ -923,7 +923,7 @@ info:   vm shutdown command OK
 
 ###Команды для управления строками подключения веб-приложения
 
-**site connectionstring list [параметры][name]**
+**site connectionstring list [параметры] [имя]**
 
 **site connectionstring add [параметры] &lt;имя_подключения> &lt;значение> &lt;тип> [имя]**
 
@@ -933,7 +933,7 @@ info:   vm shutdown command OK
 
 ###Команды управления документами по умолчанию для веб-приложения
 
-**site defaultdocument list [параметры][name]**
+**site defaultdocument list [параметры] [имя]**
 
 **site defaultdocument add [параметры] &lt;документ> [имя]**
 
@@ -941,19 +941,19 @@ info:   vm shutdown command OK
 
 ###Команды для управления развертываниями веб-приложения
 
-**site deployment list [параметры][name]**
+**site deployment list [параметры] [имя]**
 
 **site deployment show [параметры] &lt;идентификатор_фиксации> [имя]**
 
 **site deployment redeploy [параметры] &lt;идентификатор_фиксации> [имя]**
 
-**site deployment github [параметры][name]**
+**site deployment github [параметры] [имя]**
 
-**site deployment user set [параметры][username] [этап]**
+**site deployment user set [параметры] [имя_пользователя] [пароль]**
 
 ###Команды для управления доменами веб-приложения
 
-**site domain list [параметры][name]**
+**site domain list [параметры] [имя]**
 
 **site domain add [параметры] &lt;доменное_имя> [имя]**
 
@@ -961,7 +961,7 @@ info:   vm shutdown command OK
 
 ###Команды для управления сопоставлениями обработчиков веб-приложения
 
-**site handler list [параметры][name]**
+**site handler list [параметры] [имя]**
 
 **site handler add [параметры] &lt;расширение> &lt;обработчик> [имя]**
 
@@ -969,7 +969,7 @@ info:   vm shutdown command OK
 
 ###Команды для управления веб-заданиями
 
-**site job list [параметры][name]**
+**site job list [параметры] [имя]**
 
 Эта команда отображает список всех веб-заданий веб-приложения.
 
@@ -988,7 +988,7 @@ info:   vm shutdown command OK
 + **--job-type** &lt;тип_задания>: обязательный параметр. Тип веб-задания. Допустимым является значение triggered или continuous.
 + **--slot** &lt;слот>: имя слота, который необходимо перезапустить.
 
-**site job delete [параметры] &lt;имя_задания> &lt;тия_задания> [имя]**
+**site job delete [параметры] &lt;имя_задания> &lt;тип_задания> [имя]**
 
 Эта команда удаляет указанное веб-задание.
 
@@ -1031,7 +1031,7 @@ info:   vm shutdown command OK
 
 ###Команды для управления журналом веб-заданий
 
-**site job history list [параметры][jobName] [имя]**
+**site job history list [параметры] [имя_задания] [имя]**
 
 Эта команда отображает журнал запусков указанного веб-задания.
 
@@ -1040,7 +1040,7 @@ info:   vm shutdown command OK
 + **--job-name** &lt;имя_задания>: обязательный параметр. Имя веб-задания.
 + **--slot** &lt;слот>: имя слота, который необходимо перезапустить.
 
-**site job history show [параметры][jobName] [RunID][name]**
+**site job history show [параметры] [имя_задания] [RunID] [имя]**
 
 Эта команда возвращает информацию о запусках задания для указанного веб-задания.
 
@@ -1052,7 +1052,7 @@ info:   vm shutdown command OK
 
 ###Команды для управления диагностикой веб-приложения
 
-**site log download [параметры][name]**
+**site log download [параметры] [имя]**
 
 Скачивает ZIP-файл, содержащий данные диагностики веб-приложения.
 
@@ -1064,7 +1064,7 @@ info:   vm shutdown command OK
 	+ Downloading diagnostic log to diagnostics.zip
 	info:    site log download command OK
 
-**site log tail [параметры][name]**
+**site log tail [параметры] [имя]**
 
 Эта команда подключает терминал к службе потоковой передачи журналов.
 
@@ -1075,7 +1075,7 @@ info:   vm shutdown command OK
 	+ Getting site information
 	2013-11-19T17:24:17  Welcome, you are now connected to log-streaming service.
 
-**site log set [параметры][name]**
+**site log set [параметры] [имя]**
 
 Эта команда настраивает параметры диагностики для веб-приложения.
 
@@ -1098,9 +1098,9 @@ info:   vm shutdown command OK
 
 **site repository branch [параметры] &lt;ветвь> [имя]**
 
-**site repository delete [параметры][name]**
+**site repository delete [параметры] [имя]**
 
-**site repository sync [параметры][name]**
+**site repository sync [параметры] [имя]**
 
 ###Команды для управления масштабированием веб-приложения
 
@@ -1139,7 +1139,7 @@ info:   vm shutdown command OK
 	info:    West US
 	info:    North Europe
 
-**mobile create [параметры][servicename] [имя_пользователя_администратора_SQL][sqlAdminPassword]**
+**mobile create [параметры] [имя_службы] [имя_администратора_SQL] [пароль_администратора_SQL]**
 
 Эта команда создает мобильные службы вместе с базой данных и сервером SQL.
 
@@ -1159,7 +1159,7 @@ info:   vm shutdown command OK
 + **-l `<location>`** или **--location `<location>`**: создать службу в определенном расположении, заданном как `<location>`. Для получения дополнительных расположений выполните команду azure mobile locations.
 + **--sqlLocation `<location>`**: создать сервер SQL в определенном `<location>`; по умолчанию используется расположение мобильной службы.
 
-**mobile delete [параметры][servicename]**
+**mobile delete [параметры] [имя_службы]**
 
 Эта команда удаляет мобильные службы вместе с соответствующей базой данных и сервером SQL.
 
@@ -1194,7 +1194,7 @@ info:   vm shutdown command OK
 	data:    mymobileapp   Ready  https://mymobileapp.azure-mobile.net/
 	info:    mobile list command OK
 
-**mobile show [параметры][servicename]**
+**mobile show [параметры] [имя_службы]**
 
 Эта команда отображает сведения о мобильной службе.
 
@@ -1220,7 +1220,7 @@ info:   vm shutdown command OK
 	data:    tables TodoItem
 	info:    mobile show command OK
 
-**mobile restart [параметры][servicename]**
+**mobile restart [параметры] [имя_службы]**
 
 Эта команда перезапускает экземпляр мобильной службы.
 
@@ -1230,7 +1230,7 @@ info:   vm shutdown command OK
 	info:    Service was restarted.
 	info:    mobile restart command OK
 
-**mobile log [параметры][servicename]**
+**mobile log [параметры] [имя_службы]**
 
 Эта команда возвращает журналы мобильной службы, отфильтровывая все типы журналов, кроме `error`.
 
@@ -1253,7 +1253,7 @@ info:   vm shutdown command OK
 
 > [AZURE.NOTE]Параметр **--query** имеет приоритет над параметрами **--type**, **--skip** и **--top**.
 
-**mobile recover [параметры][unhealthyservicename] [имя_работоспособной_службы]**
+**mobile recover [параметры] [имя_неработоспособной_службы] [имя_работоспособной_службы]**
 
 Эта команда восстанавливает неработоспособную мобильную службу, перенося ее в работоспособную службу в другом регионе.
 
@@ -1261,7 +1261,7 @@ info:   vm shutdown command OK
 
 **-q** или **--quiet**: отключает запрос на подтверждение восстановления.
 
-**mobile key regenerate [параметры][servicename] [тип]**
+**mobile key regenerate [параметры] [имя_службы] [тип]**
 
 Эта команда заново создает ключ приложения мобильной службы.
 
@@ -1274,14 +1274,14 @@ info:   vm shutdown command OK
 
 > [AZURE.NOTE]При повторном создании ключей клиенты, использующие старый ключ, не смогут получить доступ к вашей мобильной службе. При повторном создании ключа приложения следует обновить приложение, используя новое значение ключа.
 
-**mobile key set [параметры][servicename] [тип][value]**
+**mobile key set [параметры] [имя_службы] [тип] [значение]**
 
 Эта команда задает определенное значение ключу мобильной службы.
 
 
 ###<a name="Mobile_Configuration"></a>Команды для управления конфигурацией мобильных служб
 
-**mobile config list [параметры][servicename]**
+**mobile config list [параметры] [имя службы]**
 
 Эта команда выводит список параметров конфигурации для мобильной службы.
 
@@ -1303,7 +1303,7 @@ info:   vm shutdown command OK
 	data:    apnsCertifcate Not configured
 	info:    mobile config list command OK
 
-**mobile config get [параметры][servicename] [ключ]**
+**mobile config get [параметры] [имя_службы] [ключ]**
 
 Эта команда возвращает конкретный параметр конфигурации для мобильной службы, в данном случае динамическую схему.
 
@@ -1312,7 +1312,7 @@ info:   vm shutdown command OK
 	data:    dynamicSchemaEnabled true
 	info:    mobile config get command OK
 
-**mobile config set [параметры][servicename] [ключ][value]**
+**mobile config set [параметры] [имя_службы] [ключ] [значение]**
 
 Эта команда задает конкретный параметр конфигурации для мобильной службы, в данном случае динамическую схему.
 
@@ -1323,7 +1323,7 @@ info:   vm shutdown command OK
 
 ###<a name="Mobile_Tables"></a>Команды для управления таблицами мобильных служб
 
-**mobile table list [параметры][servicename]**
+**mobile table list [параметры] [имя службы]**
 
 Эта команда выводит список всех таблиц в вашей мобильной службе.
 
@@ -1335,7 +1335,7 @@ info:   vm shutdown command OK
 	data:    TodoItem  1        0
 	info:    mobile table list command OK
 
-**mobile table show [параметры][servicename] [имя_таблицы]**
+**mobile table show [параметры] [имя_службы] [имя_таблицы]**
 
 Эта команда возвращает сведения о конкретной таблице.
 
@@ -1359,7 +1359,7 @@ info:   vm shutdown command OK
 	data:    complete  boolean
 	info:    mobile table show command OK
 
-**mobile table create [параметры][servicename] [имя_таблицы]**
+**mobile table create [параметры] [имя_службы] [имя_таблицы]**
 
 Эта команда создает таблицу.
 
@@ -1372,7 +1372,7 @@ info:   vm shutdown command OK
 
 + **-p `&lt;permissions>`** или **--permissions `&lt;permissions>`**: список (разделитель — запятая) пар `<operation>`=`<permission>`, где `<operation>` принимает значение `insert`, `read`, `update` или `delete`, а `&lt;permissions>` — значение `public`, `application` (по умолчанию), `user` или `admin`.
 
-**mobile data read [параметры][servicename] [имя_таблицы][query]**
+**mobile data read [параметры] [имя_службы] [имя_таблицы] [запрос]**
 
 Эта команда читает данные из таблицы.
 
@@ -1392,7 +1392,7 @@ info:   vm shutdown command OK
 + **-t `<top>`** или **--top `<top>`**: возвратить определенное количество строк, заданное значением `<top>`.
 + **-l** или **--list**: возвратить данные в формате списка.
 
-**mobile table update [параметры][servicename] [имя_таблицы]**
+**mobile table update [параметры] [имя_службы] [имя_таблицы]**
 
 Эта команда изменяет разрешения на удаление таблицы, оставляя это разрешение только администратору.
 
@@ -1410,7 +1410,7 @@ info:   vm shutdown command OK
 + **--addIndex `<columns>`**: список (разделитель — запятая) столбцов, включаемых в индекс.
 + **--deleteIndex `<columns>`**: список (разделитель — запятая) столбцов, исключаемых из индекса.
 
-**mobile table delete [параметры][servicename] [имя таблицы]**
+**mobile table delete [параметры] [имя_службы] [имя_таблицы]**
 
 Эта команда удаляет таблицу.
 
@@ -1422,7 +1422,7 @@ info:   vm shutdown command OK
 
 Укажите параметр -q, чтобы удалить таблицу без подтверждения. Это необходимо для предотвращения блокировки скриптов автоматизации.
 
-**mobile data truncate [параметры][servicename] [имя_таблицы]**
+**mobile data truncate [параметры] [имя_службы] [имя_таблицы]**
 
 Эта команда удаляет все строки данных из таблицы.
 
@@ -1438,7 +1438,7 @@ info:   vm shutdown command OK
 
 Описанные в этом разделе команды используются для управления серверными сценариями, которые относятся к мобильной службе. Дополнительную информацию см. в разделе [Работа с серверными сценариями в мобильных службах](mobile-services/mobile-services-how-to-use-server-scripts.md).
 
-**mobile script list [параметры][servicename]**
+**mobile script list [параметры] [имя_службы]**
 
 Эта команда выводит список зарегистрированных скриптов, включая и таблицы, и скрипты планировщика.
 
@@ -1458,7 +1458,7 @@ info:   vm shutdown command OK
 	data:    scheduler/undefined  undefined  undefined  undefined  undefined
 	info:    mobile script list command OK
 
-**mobile script download [параметры][servicename] [имя_сценария]**
+**mobile script download [параметры] [имя_службы] [имя_сценария]**
 
 Эта команда скачивает сценарий вставки из таблицы TodoItem в файл с именем `todoitem.insert.js` во вложенной папке `table`.
 
@@ -1474,7 +1474,7 @@ info:   vm shutdown command OK
 + **-o** или **--override**: перезаписать существующий файл.
 + **-c** или **--console**: записать сценарий на консоль, а не в файл.
 
-**mobile script upload [параметры][servicename] [имя_сценария]**
+**mobile script upload [параметры] [имя_службы] [имя_сценария]**
 
 Эта команда отправляет новый сценарий с именем `todoitem.insert.js` из вложенной папки `table`.
 
@@ -1485,7 +1485,7 @@ info:   vm shutdown command OK
 Имя файла должно состоять из имен таблицы и операции, и файл должен находиться во вложенной папке таблицы относительно расположения, где выполняется команда. Кроме того, с помощью параметра **-f `<file>`** или **--file `<file>`** можно указать другое имя файла и путь к файлу, содержащему сценарий, который необходимо зарегистрировать.
 
 
-**mobile script delete [параметры][servicename] [имя_сценария]**
+**mobile script delete [параметры] [имя_службы] [имя_сценария]**
 
 Эта команда удаляет существующий скрипт вставки из таблицы TodoItem.
 
@@ -1497,7 +1497,7 @@ info:   vm shutdown command OK
 
 Описанные в этом разделе команды используются для управления запланированными заданиями, относящимися к мобильной службе. Дополнительные сведения см. в разделе [Расписание заданий](http://msdn.microsoft.com/library/windowsazure/jj860528.aspx).
 
-**mobile job list [параметры][servicename]**
+**mobile job list [параметры] [имя_службы]**
 
 Эта команда выводит список запланированных заданий.
 
@@ -1510,7 +1510,7 @@ info:   vm shutdown command OK
 	info:    You can manipulate scheduled job scripts using the 'azure mobile script' command.
 	info:    mobile job list command OK
 
-**mobile job create [параметры][servicename] [имя_задания]**
+**mobile job create [параметры] [имя_службы] [имя_задания]**
 
 Эта команда создает новое задание с именем `getUpdates`, которое будет выполняться каждый час согласно расписанию.
 
@@ -1533,7 +1533,7 @@ info:   vm shutdown command OK
 
 > [AZURE.NOTE]Новые задания создаются в отключенном состоянии, так как необходимо еще передать сценарий. Используйте команду **mobile script upload** для передачи сценария и команду **mobile job update** для включения задания.
 
-**mobile job update [параметры][servicename] [имя_задания]**
+**mobile job update [параметры] [имя_службы] [имя_задания]**
 
 Указанная ниже команда включает выключенное задание `getUpdates`.
 
@@ -1553,7 +1553,7 @@ info:   vm shutdown command OK
 + **-t `<time>`** **--startTime `<time>`** Время начала первого выполнения сценария в формате ISO; по умолчанию используется значение `now`.
 + **-a `<status>`** или **--status `<status>`**: состояние задания. Может принимать значение `enabled` или `disabled`.
 
-**mobile job delete [параметры][servicename] [имя_задания]**
+**mobile job delete [параметры] [имя_службы] [имя_задания]**
 
 Эта команда удаляет запланированное задание getUpdates с сервера TodoList.
 
@@ -1567,7 +1567,7 @@ info:   vm shutdown command OK
 
 Описанные в этом разделе команды используются для масштабирования мобильной службы. Дополнительную информацию см. в разделе [Масштабирование мобильной службы](http://msdn.microsoft.com/library/windowsazure/jj193178.aspx).
 
-**mobile scale show [параметры][servicename]**
+**mobile scale show [параметры] [имя_службы]**
 
 Эта команда отображает сведения о масштабировании, включая текущий режим среды выполнения и число экземпляров.
 
@@ -1578,7 +1578,7 @@ info:   vm shutdown command OK
 	data:    numberOfInstances 1
 	info:    mobile scale show command OK
 
-**mobile scale change [параметры][servicename]**
+**mobile scale change [параметры] [имя_службы]**
 
 Эта команда изменяет масштаб мобильной службы с бесплатного на расширенный.
 
@@ -1597,7 +1597,7 @@ info:   vm shutdown command OK
 
 ###Команды для включения предварительных версий компонентов для мобильной службы
 
-**mobile preview list [параметры][servicename]**
+**mobile preview list [параметры] [имя_службы]**
 
 Эта команда отображает предварительные версии компонентов, доступные в указанной службе, а также показывает, включены ли они.
 
@@ -1611,13 +1611,13 @@ info:   vm shutdown command OK
 	info:    You can enable preview features using the 'azure mobile preview enable' command.
 	info:    mobile preview list command OK
 
-**mobile preview enable [параметры][servicename] [имя_компонента]**
+**mobile preview enable [параметры] [имя_службы] [имя_компонента]**
 
 Эта команда включает указанную предварительную версию компонента для мобильной службы. Обратите внимание, что после включения предварительную версию компонента для мобильной службы нельзя отключить.
 
 ###Команды для управления интерфейсами API мобильных служб
 
-**mobile api list [параметры][servicename]**
+**mobile api list [параметры] [имя_службы]**
 
 Эта команда отображает список настраиваемых интерфейсов API мобильных служб, которые вы создали для своей мобильной службы.
 
@@ -1631,7 +1631,7 @@ info:   vm shutdown command OK
 	info:    You can manipulate API scripts using the 'azure mobile script' command.
 	info:    mobile api list command OK
 
-**mobile api create [параметры][servicename] [имя_api]**
+**mobile api create [параметры] [имя_службы] [имя_API]**
 
 Создает настраиваемый API мобильных служб.
 
@@ -1645,7 +1645,7 @@ info:   vm shutdown command OK
 
 **-p** или **--permissions** &lt;разрешения>: список (разделитель — запятая) пар &lt;метод>=&lt;разрешение>.
 
-**mobile api update [параметры][servicename] [имя_api]**
+**mobile api update [параметры] [имя_службы] [имя_API]**
 
 Эта команда обновляет указанный настраиваемый API мобильных служб.
 
@@ -1656,7 +1656,7 @@ info:   vm shutdown command OK
 + **-p** или **--permissions** &lt;разрешения>: список (разделитель — запятая) пар &lt;метод>=&lt;разрешение>.
 + **-f** или **--force**: переопределяет любые пользовательские изменения в файле метаданных разрешений.
 
-**mobile api delete [параметры][servicename] [имя_api]**
+**mobile api delete [параметры] [имя_службы] [имя_API]**
 
 	~$ azure mobile api delete mysite myCustomRetrieveAPI
 	info:    Executing command mobile api delete
@@ -1667,7 +1667,7 @@ info:   vm shutdown command OK
 
 ###Команды для управления параметрами мобильных приложений
 
-**mobile appsetting list [параметры][servicename]**
+**mobile appsetting list [параметры] [имя_службы]**
 
 Эта команда отображает параметры мобильных приложений для указанной службы.
 
@@ -1679,7 +1679,7 @@ info:   vm shutdown command OK
 	data:    enablebetacontent  true
 	info:    mobile appsetting list command OK
 
-**mobile appsetting add [параметры][servicename] [имя][value]**
+**mobile appsetting add [параметры] [имя_службы] [имя] [значение]**
 
 Эта команда добавляет настраиваемый параметр приложений для мобильной службы.
 
@@ -1689,7 +1689,7 @@ info:   vm shutdown command OK
 	+ Adding app setting
 	info:    mobile appsetting add command OK
 
-**mobile appsetting delete [параметры][servicename] [имя]**
+**mobile appsetting delete [параметры] [имя_службы] [имя]**
 
 Эта команда удаляет указанный параметр приложений для мобильной службы.
 
@@ -1699,7 +1699,7 @@ info:   vm shutdown command OK
 	+ Removing app setting 'enablebetacontent'
 	info:    mobile appsetting delete command OK
 
-**mobile appsetting show [параметры][servicename] [имя]**
+**mobile appsetting show [параметры] [имя_службы] [имя]**
 
 Эта команда удаляет указанный параметр приложений для мобильной службы.
 
@@ -1868,14 +1868,13 @@ info:   vm shutdown command OK
 + **-d** или **--description** &lt;описание>: описание учетной записи хранения.
 + **-l** или **--location** &lt;имя>: географический регион, в котором необходимо создать учетную запись хранения.
 + **-a** или **--affinity-group** &lt;имя>: территориальная группа, с которой необходимо сопоставить учетную запись хранения.
-+ **--geoReplication**: показывает, включена ли георепликация.
-+ **--disable-geoReplication**: показывает, выключена ли георепликация.
++ **--type**: тип создаваемой учетной записи (либо хранилище класса Standard с возможностью настройки избыточности (LRS/ZRS/GRS/RAGRS), либо хранилище класса Premium (PLRS)).
 
 **storage account set [параметры] <name>**
 
 Эта команда обновляет указанную учетную запись хранения.
 
-	~$ azure storage account set mybasestorage --geoReplication
+	~$ azure storage account set mybasestorage --type GRS
 	info:    Executing command storage account set
 	+ Updating storage account
 	info:    storage account set command OK
@@ -1885,8 +1884,7 @@ info:   vm shutdown command OK
 + **-e** или **--label** &lt;метка>: метка для учетной записи хранения.
 + **-d** или **--description** &lt;описание>: описание учетной записи хранения.
 + **-l** или **--location** &lt;имя>: географический регион, в котором необходимо создать учетную запись хранения.
-+ **--geoReplication**: показывает, включена ли георепликация.
-+ **--disable-geoReplication**: показывает, выключена ли георепликация.
++ **--type**: новый тип учетной записи (либо хранилище класса Standard с возможностью настройки избыточности (LRS/ZRS/GRS/RAGRS), либо хранилище класса Premium (PLRS)).
 
 **storage account delete [параметры] <name>**
 
@@ -1906,7 +1904,7 @@ info:   vm shutdown command OK
 
 ###Команды для управления контейнером службы хранилища
 
-**storage container list [параметры][prefix]**
+**storage container list [параметры] [префикс]**
 
 Эта команда отображает список контейнеров службы хранилища для указанной учетной записи хранения. Учетная запись хранения указывается как строка подключения или имя учетной записи хранения с ключом учетной записи.
 
@@ -1918,7 +1916,7 @@ info:   vm shutdown command OK
 + **-c** или **--connection-string** &lt;строка_подключения>: строка подключения к службе хранилища.
 + **--debug**: запуск команды storage в режиме отладки.
 
-**storage container show [параметры][container]** **storage container create [параметры][container]**
+**storage container show [параметры] [контейнер]** **storage container create [параметры] [контейнер]**
 
 Эта команда создает контейнер службы хранилища для указанной учетной записи хранения. Учетная запись хранения указывается как строка подключения или имя учетной записи хранения с ключом учетной записи.
 
@@ -1931,7 +1929,7 @@ info:   vm shutdown command OK
 + **-c** или **--connection-string** &lt;строка_подключения>: строка подключения к службе хранилища.
 + **--debug**: запуск команды storage в режиме отладки.
 
-**storage container delete [параметры][container]**
+**storage container delete [параметры] [контейнер]**
 
 Эта команда удаляет указанный контейнер службы хранилища. Учетная запись хранения указывается как строка подключения или имя учетной записи хранения с ключом учетной записи.
 
@@ -1944,7 +1942,7 @@ info:   vm shutdown command OK
 + **-c** или **--connection-string** &lt;строка_подключения>: строка подключения к службе хранилища.
 + **--debug**: запуск команды storage в режиме отладки.
 
-**storage container set [параметры][container]**
+**storage container set [параметры] [контейнер]**
 
 Эта команда задает список управления доступом для контейнера службы хранилища. Учетная запись хранения указывается как строка подключения или имя учетной записи хранения с ключом учетной записи.
 
@@ -1959,7 +1957,7 @@ info:   vm shutdown command OK
 
 ###Команды для управления большими двоичными объектами службы хранилища
 
-**storage blob list [параметры][container] [префикс]**
+**storage blob list [параметры] [контейнер] [префикс]**
 
 Эта команда возвращает список больших двоичных объектов службы хранилища в указанном контейнере службы хранилища.
 
@@ -1972,7 +1970,7 @@ info:   vm shutdown command OK
 + **-c** или **--connection-string** &lt;строка_подключения>: строка подключения к службе хранилища.
 + **--debug**: запуск команды storage в режиме отладки.
 
-**storage blob show [параметры][container] [большой двоичный объект]**
+**storage blob show [параметры] [контейнер] [BLOB-объект]**
 
 Эта команда отображает информацию об указанном большом двоичном объекте службы хранилища.
 
@@ -1985,7 +1983,7 @@ info:   vm shutdown command OK
 + **-c** или **--connection-string** &lt;строка_подключения>: строка подключения к службе хранилища.
 + **--debug**: запуск команды storage в режиме отладки.
 
-**storage blob delete [параметры][container] [большой двоичный объект]**
+**storage blob delete [параметры] [контейнер] [BLOB-объект]**
 
 Эта команда поддерживает следующие дополнительные параметры:
 
@@ -1997,7 +1995,7 @@ info:   vm shutdown command OK
 + **-c** или **--connection-string** &lt;строка_подключения>: строка подключения к службе хранилища.
 + **--debug**: запуск команды storage в режиме отладки.
 
-**storage blob upload [параметры][file] [контейнер][blob]**
+**storage blob upload [параметры] [файл] [контейнер] [BLOB-объект]**
 
 Эта команда передает указанный файл в указанный большой двоичный объект службы хранилища.
 
@@ -2015,7 +2013,7 @@ info:   vm shutdown command OK
 + **-c** или **--connection-string** &lt;строка_подключения>: строка подключения к службе хранилища.
 + **--debug**: запуск команды storage в режиме отладки.
 
-**storage blob download [параметры][container] [большой_двоичный_объект][destination]**
+**storage blob download [параметры] [контейнер] [BLOB-объект] [назначение]**
 
 Эта команда скачивает указанный большой двоичный объект службы хранилища.
 
@@ -2023,7 +2021,7 @@ info:   vm shutdown command OK
 
 + **--container** &lt;контейнер>: имя контейнера службы хранилища, который необходимо создать.
 + **-b** или **--blob** &lt;имя_большого_двоичного_объекта>: имя большого двоичного объекта службы хранилища
-+ **-d** или **--destination** [назначение]: конечный путь файла или каталога назначения для скачивания.
++ **-d** или **--destination** [назначение]: конечный путь к файлу или каталогу, в который будет скачан объект.
 + **-m** или **--checkmd5**: проверка контрольной суммы MD5 для скачанного файла.
 + **--concurrenttaskcount** &lt;количество_одновременно_выполняющихся_задач>: максимальное количество одновременных запросов на отправку.
 + **-q** или **--quiet**: перезапись конечного файла без подтверждения.
@@ -2190,7 +2188,7 @@ info:   vm shutdown command OK
 	+ Creating Firewall Rule
 	info:    sql firewallrule create command OK
 
-**sql firewallrule show [параметры] &lt;имя_Сервера> &lt;имя_правила>**
+**sql firewallrule show [параметры] &lt;имя_сервера> &lt;имя_правила>**
 
 Отображает информацию о правиле брандмауэра.
 
@@ -2340,4 +2338,4 @@ info:   vm shutdown command OK
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
 
-<!---HONumber=58-->
+<!---HONumber=58_postMigration-->

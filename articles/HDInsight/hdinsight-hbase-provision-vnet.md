@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Подготовка кластеров HBase в виртуальной сети | Microsoft Azure" 
 	description="Приступите к работе с HBase в Azure HDInsight. Узнайте, как создать кластеры HDInsight HBase в виртуальной сети Azure." 
 	keywords=""	
@@ -30,9 +30,9 @@
 ##Предварительные требования
 Перед началом работы с этим учебником необходимо иметь следующее:
 
-- **Подписка Azure.**. Azure — это платформа на основе подписок. Дополнительные сведения о получении подписки см. в разделах [Варианты приобретения][azure-purchase-options], [Предложения для участников][azure-member-offers] или [Бесплатное пробное использование][azure-free-trial].
+- **Подписка Azure.**. См. [Бесплатная пробная версия Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- **Рабочая станция, на которой установлена и настроена среда Azure PowerShell**. Инструкции см. в разделе [Установка и настройка Azure PowerShell](../install-configure-powershell.md). Для выполнения сценариев Azure PowerShell необходимо запустить Azure PowerShell с правами администратора и задать политику выполнения *RemoteSigned*. См. раздел [Использование командлета Set-ExecutionPolicy][2].
+- **Рабочая станция с Azure PowerShell.**. Обратитесь к разделу [Установка и использование Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). Инструкции см. в разделе [Установка и настройка Azure PowerShell](../install-configure-powershell.md). Для выполнения сценариев Azure PowerShell необходимо запустить Azure PowerShell с правами администратора и задать политику выполнения *RemoteSigned*. См. раздел [Использование командлета Set-ExecutionPolicy][2].
 
 	Перед выполнением сценариев Azure PowerShell убедитесь, что вы подключены к подписке Azure, с помощью следующего командлета:
 
@@ -129,9 +129,7 @@ DNS-сервер является необязательным, но в неко
 	<tr><td>Размер головного узла</td><td><p>Выберите размер виртуальной машины для головного узла.</p></td></tr>
 	<tr><td>Размер узла данных</td><td><p>Выберите размер виртуальной машины для узлов данных.</p></td></tr>
 	<tr><td>Размер Zookeeper</td><td><p>Выберите размер виртуальной машины для узла Zookeeper.</p></td></tr>
-</table>
-
-	>[AZURE.NOTE]Цены зависят от размера выбранных виртуальных машин. HDInsight поддерживает для узлов кластера все виртуальные машины стандартного уровня. Дополнительную информацию о том, как размер виртуальной машины влияет на цены, см. в разделе <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">HDInsight Цены</a>.
+</table> >[AZURE.NOTE]Цены зависят от размера выбранных виртуальных машин. HDInsight поддерживает для узлов кластера все виртуальные машины стандартного уровня. Дополнительную информацию о том, как размер виртуальной машины влияет на цены, см. в разделе <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">HDInsight Цены</a>.
 
 	Щелкните стрелку вправо.
 
@@ -302,7 +300,7 @@ DNS-сервер является необязательным, но в неко
 
 		В результате будет возвращен DNS-суффикс. Например, **yourclustername.b4.internal.cloudapp.net**.
 
-	> [AZURE.NOTE]Для подключения к кластеру HBase (вы будете подключены к головному узлу) и выполнения команды **ipconfig** в командной строке для  получения DNS-суффикса также можно использовать удаленный рабочий стол. Для получения указаний по включению протокола удаленного рабочего стола и подключению к кластеру с его помощью см. раздел [Управление кластерами Hadoop в HDInsight с использованием портала Azure][hdinsight-admin-portal].
+	> [AZURE.NOTE]Для подключения к кластеру HBase (вы будете подключены к головному узлу) и выполнения команды **ipconfig** в командной строке для получения DNS-суффикса также можно использовать удаленный рабочий стол. Для получения указаний по включению протокола удаленного рабочего стола и подключению к кластеру с его помощью см. раздел [Управление кластерами Hadoop в HDInsight с использованием портала Azure][hdinsight-admin-portal].
 	>
 	> ![hdinsight.hbase.dns.surffix][img-dns-surffix]
 
@@ -402,7 +400,7 @@ DNS-сервер является необязательным, но в неко
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md#rdp
 
-[hdinsight-powershell-reference]: http://msdn.microsoft.com/library/windowsazure/dn479228.aspx
+[hdinsight-powershell-reference]: https://msdn.microsoft.com/library/dn858087.aspx
 
 
 [twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
@@ -427,5 +425,6 @@ DNS-сервер является необязательным, но в неко
 [img-primary-dns-suffix]: ./media/hdinsight-hbase-provision-vnet/PrimaryDNSSuffix.png
 [img-provision-cluster-page1]: ./media/hdinsight-hbase-provision-vnet/hbasewizard1.png "Подготовка сведений для нового кластера HBase"
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "Использование действия сценария для настройки кластера HBase"
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=58_postMigration-->

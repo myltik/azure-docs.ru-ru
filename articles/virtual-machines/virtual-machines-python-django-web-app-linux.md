@@ -81,7 +81,7 @@
 		$ cd /var/www
 		$ sudo django-admin.py startproject helloworld
 
-    Сценарий **django admin.py** создает базовую структуру для веб-сайтов на базе Django: - **helloworld/manage.py** помогает вам начать и остановить размещение вашего веб-сайта на базе Django; - **helloworld/helloworld/settings.py**  содержит параметры Django для приложения; - **helloworld/helloworld/urls.py** содержит код сопоставления между каждым URL-адресом и его представлением.
+    Сценарий **django admin.py** создает базовую структуру для веб-сайтов на базе Django: - **helloworld/manage.py** помогает вам начать и остановить размещение вашего веб-сайта на базе Django; - **helloworld/helloworld/settings.py** содержит параметры Django для приложения; - **helloworld/helloworld/urls.py** содержит код сопоставления между каждым URL-адресом и его представлением.
 
 1.  Создайте новый файл с именем **views.py** в каталоге **/var/www/helloworld/helloworld**. Он будет содержать представление, которое осуществляет отрисовку страницы "hello world". Запустите редактор и введите следующую команду:
 		
@@ -127,5 +127,6 @@
 
 
 [portal-vm]: /manage/linux/tutorials/virtual-machine-from-gallery/
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

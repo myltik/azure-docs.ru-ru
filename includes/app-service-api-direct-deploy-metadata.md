@@ -20,7 +20,7 @@
 
 ### Динамическое определение API Swagger
 
-Чтобы назначить URL-адрес конечной точки для динамического определения API [Swagger](http://swagger.io/), сохраните в свойстве `endpoints.apiDefinition` относительный URL-адрес API, предоставляемый API приложения, которое возвращает определение API Swagger 2.0 на запрос GET. Например:
+Если приложение API может возвращать динамическое определение API [Swagger](http://swagger.io/), сохраните относительный URL-адрес для запроса GET, который возвращает JSON-файл определения API в свойстве `endpoints.apiDefinition`. Например:
 
 		"endpoints": {
 		    "apiDefinition": "/swagger/docs/v1"
@@ -35,6 +35,5 @@
 ![](./media/app-service-api-direct-deploy-metadata/apidefinmetadata.png)
 
 Удалите `endpoints.apiDefinition` из файла *apiapp.json* или задайте для него значение null. Если вы оставите и URL-адрес `endpoints.apiDefinition`, и файл *apiDefinition.swagger.json*, URL-адрес будет иметь приоритет, а файл будет игнорироваться.
- 
 
-<!---HONumber=58-->
+<!---HONumber=58_postMigration-->

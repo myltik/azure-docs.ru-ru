@@ -31,9 +31,11 @@
 * Существует ли брандмауэр между вашим эмулятором или тестовым устройством и порталом Application Insights? Вам, возможно, потребуется открыть TCP-порты 80 и 443 для исходящего трафика, идущего на сайты dc.services.visualstudio.com и f5.services.visualstudio.com.
 * На начальном экране Microsoft Azure посмотрите на карту состояния службы. Если есть какие-либо предупреждения, дождитесь возвращения всех модулей в состояние ОК, затем закройте и заново откройте модуль приложения Application Insights.
 
+
 #### Ранее видимые данные перестали отображаться
 
-* Проверьте [блог состояния](http://blogs.msdn.com/b/applicationinsights-status/)
+* Проверьте [блог состояний](http://blogs.msdn.com/b/applicationinsights-status/).
+* Вы достигли месячной квоты точек данных? Чтобы выяснить это, см. разделы «Параметры», «Квота» и «Расценки». Если вы достигли квоты, вы можете изменить свой тарифный план или заплатить за дополнительную емкость. См. [таблицу расценок](http://azure.microsoft.com/pricing/details/application-insights/).
 
 
 ## Как добавить Application Insights в универсальное приложение?
@@ -116,4 +118,6 @@
 [usage]: app-insights-web-track-usage.md
 [windows]: app-insights-windows-get-started.md
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

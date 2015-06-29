@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Create a custom StorSimple backup policy"
-   description="Explains how you can use the StorSimple Manager service to create a custom backup policy."
+   pageTitle="Создание настраиваемой политики резервного копирования StorSimple"
+   description="В статье рассказывается о том, как с помощью службы диспетчера StorSimple создать пользовательскую политику резервного копирования."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -15,44 +15,44 @@
    ms.date="05/14/2015"
    ms.author="v-sharos" />
 
-#### To create a custom backup policy
+#### Создание пользовательской политики резервного копирования
 
-1. On the **Devices** page, click **Backup Policies** and then click **Add**.
+1. На странице **Устройства** выберите **Политики резервного копирования** и нажмите кнопку **Добавить**.
 
-2. In the **Add a backup policy** dialog box, under **Define your backup policy**:
+2. В диалоговом окне **Добавление политики резервного копирования** в разделе **Задать политику резервного копирования** выполните указанные ниже действия:
 
-    1. Specify a backup policy name.
+    1. Укажите название политики резервного копирования.
 
-    2. Select the volumes to be added to this policy. You can choose to add multiple volumes by selecting them from the drop-down list.
+    2. Выберите тома, которые нужно добавить в политику. В политику можно добавить несколько томов, выбрав их из раскрывающегося списка.
 
-    3. Click the check icon ![check icon](./media/storsimple-add-backup-policy/HCS_CheckIcon-include.png).
+    3. Щелкните значок галочки ![значок галочки](./media/storsimple-add-backup-policy/HCS_CheckIcon-include.png).
 
-     You will be notified after the policy is created successfully. The backup policies page will also be updated to show the newly created policy.
+     После успешного создания политики вы получите уведомление. Страница с политиками резервного копирования также обновится с учетом созданной вами политики.
 
-4. Click the policy name (first column) to drill down into details of the policy you just created.
+4. Щелкните имя политики (первый столбец), чтобы открыть подробные сведения о созданной политике.
 
-5. Click **manage schedules**.
+5. Щелкните **Управление расписаниями**.
 
-6. In the **Manage Schedules** dialog box:
+6. В диалоговом окне **Управление расписаниями** выполните следующие действия:
 
-    1. Select **Create new** to add another schedule.
+    1. Выберите **Создать**, чтобы добавить расписание.
 
-    2. From the drop-down list, choose the backup type as **local** or **cloud** snapshot.
+    2. Выберите из раскрывающегося списка тип резервного копирования: **локальный** или **облачный** мгновенный снимок.
 
-    3. Specify the backup frequency in minutes, hours, days, or weeks.
+    3. Укажите интервал резервного копирования в минутах, часах, днях или неделях.
 
-    4. Select a retention. The retention choices depend on the backup frequency. For instance, for a daily policy, the retention can be specified in weeks, whereas retention for a monthly policy is in months.
+    4. Выберите период хранения. Возможные периоды хранения зависят от периодичности резервного копирования. Например, для ежедневной политики резервного копирования период хранения можно указать в неделях, а для ежемесячной — в месяцах.
  
-    5. Select the starting time and date for the policy.
+    5. Выберите время и дату начала применения политики.
 
-    6. Select the check box to enable the policy.
+    6. Установите флажок, чтобы включить политику.
 
-7. Click the check icon ![check icon](./media/storsimple-add-backup-policy/HCS_CheckIcon-include.png) to finish.
+7. Щелкните значок флажка ![значок галочки](./media/storsimple-add-backup-policy/HCS_CheckIcon-include.png), чтобы завершить настройку.
 
-8. You will return to the policy details. Click **Save** to save the changes you made to this policy. You will be notified when the policy has been saved.
+8. Вы вернетесь на страницу со сведениями о политике. Чтобы сохранить изменения, внесенные в политику, нажмите кнопку **Сохранить**. Когда политика будет сохранена, вы получите соответствующее уведомление.
 
-9. Navigate back to the **Backup Policies** page. The tabular listing of the backup policies will be updated to display the modified policy.
+9. Вернитесь на страницу **Политики резервного копирования**. Таблица со списком политик резервного копирования будет обновлена с учетом внесенных вами изменений.
 
-    ![Custom backup policy](./media/storsimple-create-custom-backup-policy/HCS_CustomBackupPolicyM-include.png).
+    ![Настраиваемая политика резервного копирования](./media/storsimple-create-custom-backup-policy/HCS_CustomBackupPolicyM-include.png).
 
-
+<!---HONumber=58_postMigration-->

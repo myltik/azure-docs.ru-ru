@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/29/2015"
+   ms.date="06/01/2015"
    ms.author="mbaldwin"/>
 
 # Поддерживаемые токены и типы утверждений
@@ -409,8 +409,8 @@ Tenant ID — неизменяемый идентификатор без воз�
     }.
 
 ##См. также
-### Основные понятия
 
-[Протоколы аутентификации Azure Active Directory](active-directory-authentication-protocols.md)
+[Протоколы аутентификации Azure Active Directory](https://msdn.microsoft.com/library/azure/dn151124.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Разработка клиентских приложений и быстрый запуск примеров кода в базе данных SQL" 
-	description="Содержит минимальное количество версий для каждого драйвера, который клиентские приложения могут использовать для подключения к базе данных SQL Azure и Microsoft SQL Server. Ссылка на сведения о версиях драйверов, выпущенных сообществом разработчиков, а не корпорацией Майкрософт."
+	pageTitle="Простые примеры кода клиентских приложений для работы с базой данных SQL | Microsoft Azure" 
+	description="В статье приведены ссылки на образцы кода и драйверы для Node.js в ОС Linux, Python в Mac OS, Java в Windows и много других полезных инструментов для клиентов базы данных SQL Azure."
 	services="sql-database" 
 	documentationCenter="" 
 	authors="MightyPen" 
@@ -14,23 +14,24 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/19/2015" 
+	ms.date="06/10/2015" 
 	ms.author="genemi"/>
 
 
-# Разработка клиентских приложений и быстрый запуск примеров кода в базе данных SQL
+# Простые примеры кода клиентских приложений для работы с базой данных SQL
 
 
 В этом разделе представлены ссылки на примеры кода для быстрого запуска, которые можно использовать для подключения к базе данных SQL Azure. Примеры включают:
 
 
 - различные языки программирования;
-- ОС Windows и Linux в качестве сред для выполнения клиентского приложения;
-- короткие примеры кода для быстрого запуска, а также более длинные примеры для обработки временных ошибок с логикой автоматических повторных попыток;
+- ОС Windows, Linux и Mac OS в качестве сред для выполнения клиентского приложения;
+- простые примеры кода;
+- более сложные примеры кода с обработкой ошибок и логикой автоматических повторных попыток;
 - примеры кода, которые преобразуют реляционные результирующие наборы в объектно-ориентированный формат.
 
 
-> [AZURE.NOTE]По состоянию на 19 мая 2015 года подготавливаются примеры кода для других языков, ссылки на них будут добавлены в раздел позднее.
+> [AZURE.NOTE]По состоянию на 10 июня 2015 года готовятся примеры кода для других языков, ссылки на которые будут добавлены в раздел позднее.
 
 
 ## Клиенты в Linux
@@ -41,8 +42,19 @@
 
 | Язык | Сокращение | Retry | Относится к объекту |
 | :-- | :-- | :-- | :-- |
-| Node.js | [Node.js](sql-database-develop-nodejs-simple-linux.md) | . | . |
-| Python | [Python](sql-database-develop-python-simple-unbutu-linux.md) | . | . |
+| Node.js | [Tedious](sql-database-develop-nodejs-simple-linux.md) | . | . |
+| Python | [FreeTDS, pymssql](sql-database-develop-python-simple-unbutu-linux.md) | . | . |
+
+
+## Клиенты в Mac OS
+
+
+В этом разделе содержатся ссылки на разделы с примерами кода для клиентских приложений, которые предназначены для Mac OS.
+
+
+| Язык | Сокращение | Retry | Относится к объекту |
+| :-- | :-- | :-- | :-- |
+| Python | [pymssql](sql-database-develop-python-simple-mac-osx.md) | . | . |
 
 
 ## Клиенты в Windows
@@ -56,17 +68,21 @@
 | C# | [ADO.NET](sql-database-develop-dotnet-simple.md) | [ADO.NET](http://msdn.microsoft.com/library/azure/ee336243.aspx)<br/><br/>[ADO.NET с Enterprise Library](http://msdn.microsoft.com/library/azure/dn961167.aspx) | [ADO.NET Entity Framework](http://msdn.microsoft.com/library/azure/ff951633.aspx) |
 | C++ | [Драйвер ODBC](http://msdn.microsoft.com/library/azure/hh974312.aspx) | . | . |
 | Java | [Java. JDBC, JDK. Insert, Transaction, Select.](sql-database-develop-java-simple-windows.md)<br/><br/>[Java. Eclipse](sql-data-java-how-to-use-sql-database.md)<br/><br/>[Java. JDBC](http://msdn.microsoft.com/library/azure/gg715284.aspx) | . | . |
-| Node.js | [Node.js](sql-database-develop-nodejs-simple-windows.md) | . | . |
-| PHP | [PHP](sql-database-develop-php-simple-windows.md) | . | . |
-| Python | [Python](sql-database-develop-python-simple-windows.md) | . | . |
+| Node.js | [msnodesql](sql-database-develop-nodejs-simple-windows.md) | . | . |
+| PHP | [ODBC](sql-database-develop-php-simple-windows.md) | . | . |
+| Python | [pymssql](sql-database-develop-python-simple-windows.md) | . | . |
 
 
 ## См. также
 
 
+- [Файлы пакетов SDK и средств для различных языков и платформ](http://azure.microsoft.com/downloads/#cmd-line-tools)
+- [Библиотеки подключений для базы данных SQL и SQL Server](sql-database-libraries.md)
+- [Список числовых кодов временных ошибок](http://msdn.microsoft.com/library/azure/ff394106.aspx#bkmk_connection_errors)<br/>& nbsp;
 - [Разработка для базы данных SQL Azure: разделы практического руководства](http://msdn.microsoft.com/library/azure/ee621787.aspx)
 - [Подключение к базе данных SQL: ссылки, рекомендации и советы по разработке](sql-database-connect-central-recommendations.md)
 - [Создание первой базы данных SQL Azure](sql-database-get-started.md)
-- [Библиотеки подключений для базы данных SQL и SQL Server](sql-database-libraries.md)
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

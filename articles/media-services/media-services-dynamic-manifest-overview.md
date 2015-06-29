@@ -176,7 +176,7 @@ URL-адрес Smooth Streaming с фильтром
 
 В следующем разделе обсуждаются сущности служб мультимедиа, которые связаны с фильтрами. В разделе также показано, как создавать фильтры программным путем.
 
-[Создание фильтров с помощью интерфейсов REST API](media-services-rest-create-filters).
+[Создание фильтров с помощью интерфейсов REST API](media-services-rest-dynamic-manifest.md).
 
 ##Известные проблемы и ограничения
 
@@ -207,5 +207,6 @@ URL-адрес Smooth Streaming с фильтром
 [language_filter]: ./media/media-services-dynamic-manifest-overview/media-services-language-filter.png
 [dvr_filter]: ./media/media-services-dynamic-manifest-overview/media-services-dvr-filter.png
 [skiing]: ./media/media-services-dynamic-manifest-overview/media-services-skiing.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

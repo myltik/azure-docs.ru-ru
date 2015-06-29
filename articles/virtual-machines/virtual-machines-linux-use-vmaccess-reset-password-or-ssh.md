@@ -115,7 +115,7 @@
 
 > [AZURE.NOTE]Файл конфигурации SSH расположен по следующему пути: /etc/ssh/sshd_config.
 
-Шаг 1. Создайте файл с именем PrivateConf.json  с таким содержанием.
+Шаг 1. Создайте файл с именем PrivateConf.json с таким содержанием.
 
 	{
 	"reset_ssh":"True",
@@ -251,7 +251,7 @@
 
 ## Дополнительные ресурсы
 
-[Расширения и компоненты виртуальной машины Azure][]
+[Расширения и компоненты виртуальных машин Azure][]
 
 [Подключение к виртуальной машине Azure с помощью RDP или SSH][]
 
@@ -259,7 +259,8 @@
 <!--Link references-->
 [Руководство пользователя агента Linux для Azure]: virtual-machines-linux-agent-user-guide.md
 [Установка и настройка Azure PowerShell]: ../install-configure-powershell.md
-[Расширения и компоненты виртуальной машины Azure]: http://msdn.microsoft.com/library/azure/dn606311.aspx
+[Расширения и компоненты виртуальных машин Azure]: http://msdn.microsoft.com/library/azure/dn606311.aspx
 [Подключение к виртуальной машине Azure с помощью RDP или SSH]: http://msdn.microsoft.com/library/azure/dn535788.aspx
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Application Insights для приложений JavaScript и веб-страниц" 
-	description="Получайте данные о количестве просмотров страницы и количестве сеансов, данные веб-клиента и отслеживайте закономерности использования. Обнаруживайте исключения и проблемы с производительностью в приложениях JavaScript и на веб-страницах." 
+	pageTitle="Application Insights для веб-приложений JavaScript" 
+	description="Получайте данные о количестве просмотров страницы и количестве сеансов, данные веб-клиента и отслеживайте закономерности использования. Выявляйте исключения и проблемы с производительностью на веб-страницах JavaScript." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,10 +12,10 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/26/2015" 
+	ms.date="06/03/2015" 
 	ms.author="awills"/>
  
-# Application Insights для приложений JavaScript и веб-страниц
+# Application Insights для веб-приложений JavaScript
 
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
@@ -51,16 +51,6 @@
 
 *(Если вы используете известную платформу веб-страницы, найдите адаптеры Application Insights. Например, [модуль AngularJS](http://ngmodules.org/modules/angular-appinsights).)*
 
-#### Если приложение не является веб-страницей...
-
-Если приложение JavaScript — приложение [Cordova](http://cordova.apache.org/), вставьте дополнительную строку после ключа инструментирования:
-
-    ...{
-        instrumentationKey:"00000000-662d-4479-0000-40c89770e67c",
-        endpointUrl:"https://dc.services.visualstudio.com/v2/track"
-    } ...
-
-Если это [приложение среды выполнения Windows, использующее JavaScript](https://msdn.microsoft.com/library/windows/apps/br211385.aspx), добавьте в проект пакет NuGet *Application Insights для приложений Javascript*. (В обозревателе решений щелкните правой кнопкой мыши свой проект и выберите «Управление пакетами NuGet». Укажите «Включить предварительный выпуск» и найдите Application Insights.)
  
 ## <a name="run"></a>Запуск приложения
 
@@ -185,4 +175,6 @@
 [qna]: app-insights-troubleshoot-faq.md
 [track]: app-insights-custom-events-metrics-api.md
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

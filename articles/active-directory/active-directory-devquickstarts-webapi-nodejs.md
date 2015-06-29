@@ -25,7 +25,7 @@
 По окончании работы с этим пошаговым руководством вы сможете построить работающий сервер REST API со следующими возможностями:
 
 * сервер Node.js, в котором выполняется интерфейс REST API с JSON и используется MongoDB в качестве постоянного хранилища;
-* интерфейсы REST API, в которых применяется защита OAuth2 API с маркерами носителя при использовании Azure Active Directory.
+* интерфейсы API на основе REST, в которых применяется защита OAuth2 с маркерами носителя при использовании Azure Active Directory.
 
 
 Мы выпустили весь исходный код для данного рабочего примера в GitHub на условиях лицензии Apache 2.0, поэтому вы можете спокойно клонировать (или даже разветвлять!), предоставлять отзывы и запросы на получение.
@@ -1176,5 +1176,6 @@ server.get('/tasks', passport.authenticate('provider', { session: false }), list
 [ADAL для Android](https://github.com/MSOpenTech/azure-activedirectory-library-for-android)
 
 [ADAL для .Net](http://msdn.microsoft.com/library/windowsazure/jj573266.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

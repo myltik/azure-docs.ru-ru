@@ -63,6 +63,7 @@ Ubuntu — это очень популярный и рекомендуемый 
 9. [Образы. Moodle](http://azure.microsoft.com/marketplace/partners/bitnami/moodle270ubuntu1404/)
 11. [Образы. Mono as a Service](http://azure.microsoft.com/marketplace/partners/aegis/monoasaserviceubuntu1204/)
 
+
 ### [Debian](https://vmdepot.msopentech.com/List/Index?sort=Featured&search=Debian)
 
 Debian — это важный дистрибутив для Linux и всего мира программного обеспечения с открытым исходным кодом, основанный на управлении пакетами dpgk и apt-get. MSOpenTech VM Depot содержит несколько образом, которые можно использовать.
@@ -72,26 +73,26 @@ Debian — это важный дистрибутив для Linux и всего
 Дистрибутив CentOS Linux — это стабильная, предсказуемая, управляемая и воспроизводимая платформа, созданная на основе исходного кода Red Hat Enterprise Linux (RHEL).
 
 1. [MSOpenTech VM Depot](https://vmdepot.msopentech.com/List/Index?sort=Featured&search=centos)
-2. [Коллекция образов](http://azure.microsoft.com/en-in/marketplace/partners/OpenLogic/)
+2. [Коллекция образов](http://azure.microsoft.com/ru-ru/marketplace/partners/OpenLogic/)
 3. [Практическое руководство. Подготовка пользовательской виртуальной машины на основе CentOS для Azure](virtual-machines-linux-create-upload-vhd-centos.md)
 4. [Блог. Развертывание образа виртуальной машины CentOS из OpenLogic](http://azure.microsoft.com/blog/2013/01/11/deploying-openlogic-centos-images-on-windows-azure-virtual-machines/)
 6. [Практическое руководство. Установка Apache Qpid Proton-C для AMQP и служебной шины](http://msdn.microsoft.com/library/azure/dn235560.aspx)
 7. [Образы. Apache 2.2.15 на базе OpenLogic CentOS 6.3](http://azure.microsoft.com/marketplace/partners/cognosys/apache2215onopenlogiccentos63/)
 8. [Образы. Drupal 7.2, LAMP Server на базе OpenLogic CentOS 6.3](http://azure.microsoft.com/marketplace/partners/cognosys/drupal720lampserveronopenlogiccentos63/)
 
-### SUSE Enterprise Linux и OpenSUSE
+### SUSE Linux Enterprise Server и openSUSE
 
 9. [MSOpenTech VM Depot](https://vmdepot.msopentech.com/List/Index?sort=Featured&search=OpenSUSE)
 11. [Практическое руководство. Установка и запуск MySQL](virtual-machines-linux-mysql-use-opensuse.md)
 12. [Практическое руководство. Подготовка пользовательской виртуальной машины SLES или openSUSE](virtual-machines-linux-create-upload-vhd-suse.md)  
-13. [[Форум по SUSE] Практическое руководство. Перемещение на новый сервер исправления](https://forums.suse.com/showthread.php?5622-New-Update-Infrastructure)
+13. [[Форум по SUSE] Практическое руководство. Переход на новый сервер исправлений](https://forums.suse.com/showthread.php?5622-New-Update-Infrastructure)
 14. [Образы. SUSE Linux Enterprise Server для SAP Cloud Appliance Library](http://azure.microsoft.com/marketplace/partners/suse/suselinuxenterpriseserver11sp3forsapcloudappliance/)
 
 ### CoreOS
 
 CoreOS — это небольшой оптимизированный дистрибутив, который ориентирован исключительно на вычисления и допускает гибкую настройку управления.
 
-10. [Коллекция образов](http://azure.microsoft.com/en-in/marketplace/partners/coreos/)  
+10. [Коллекция образов](http://azure.microsoft.com/ru-ru/marketplace/partners/coreos/)  
 11. [Практическое руководство. Использование CoreOS в Azure](virtual-machines-linux-coreos-how-to.md)
 12. [Практическое руководство. Начало работы с Fleet и Docker на CoreOS в Azure](virtual-machines-linux-coreos-fleet-get-started.md)
 13. [Блог. TechEd Europe — клиент Windows Docker и контейнеры Linux](http://azure.microsoft.com/blog/2014/10/28/new-docker-coreos-topics-linux-on-azure/)
@@ -167,7 +168,6 @@ CoreOS — это небольшой оптимизированный дистр
 5. [Пакет SDK для управления службами Azure: Go](https://github.com/MSOpenTech/azure-sdk-for-go)
 5. [Пакет SDK для управления службами Azure: Ruby](https://github.com/MSOpenTech/azure-sdk-for-ruby)
     - [Практическое руководство. Установка Ruby on Rails](virtual-machines-ruby-rails-web-app-linux.md)
-    - [Практическое руководство. Установка Ruby on Rails с использованием Capistrano, Nginx, Unicorn и PostgreSQL](virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn.md)
 6. [Пакет SDK для управления службами Azure: Python](https://github.com/Azure/azure-sdk-for-python)
     - [Практическое руководство. Веб-приложение Hello World на Django (Mac и Linux)](virtual-machines-python-django-web-app-linux.md)
 7. [Пакет SDK для управления службами Azure: Node.js](https://github.com/MSOpenTech/azure-sdk-for-node)
@@ -228,8 +228,6 @@ CoreOS — это небольшой оптимизированный дистр
     - [Архитектура высокой доступности MySQL в Microsoft Azure](http://download.microsoft.com/download/6/1/C/61C0E37C-F252-4B33-9557-42B90BA3E472/MySQL_HADR_solution_in_Azure.pdf)
 7. MariaDB
     - [Практическое руководство. Создание кластера MariaDbs с несколькими источниками](virtual-machines-mariadb-cluster.md)
-7. PostgreSQL
-    - [Практическое руководство. Установка Ruby on Rails с использованием Capistrano, Nginx, Unicorn и PostgreSQL](virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn.md)
 8. [Установка Postgres с использованием corosync и pg_bouncer с помощью ILB](https://github.com/chgeuer/postgres-azure)
 
 
@@ -296,5 +294,6 @@ CoreOS — это небольшой оптимизированный дистр
 <!--Link references--In actual articles, you only need a single period before the slash. -->
 [How to use docker-machine on Azure]: virtual-machines-docker-machine.md
 [How to use docker with swarm on Azure]: virtual-machines-docker-swarm.md
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

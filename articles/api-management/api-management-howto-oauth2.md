@@ -13,35 +13,26 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2014" 
+	ms.date="06/10/2015" 
 	ms.author="sdanie"/>
 
 # Авторизация учетных записей разработчиков с помощью протокола OAuth 2.0 в Azure API Management
 
-Служба API Management дает пользователям возможность получать доступ к порталу разработчика с помощью авторизации по протоколу OAuth 2.0. В этом руководстве описано, как настроить экземпляр службы API Management для авторизации по протоколу OAuth 2.0.
+Многие интерфейсы API поддерживают протокол [OAuth 2.0](http://oauth.net/2/), позволяющий защитить API, а также и предоставлять доступ только действительным пользователям и только к ресурсам, на которые эти пользователи имеют право. Чтобы использовать интерактивную консоль разработчика управления API Azure с такими API, служба позволяет настроить экземпляр службы для работы с API с поддержкой OAuth 2.0.
 
->Дополнительные сведения о протоколе OAuth 2.0 см. в спецификации на сайте [http://oauth.net/2/][http://oauth.net/2/].
-
-## Содержание раздела
-
-- [Предварительные требования][Предварительные требования]
-- [Настройка сервера авторизации OAuth 2.0 в службе API Management][Настройка сервера авторизации OAuth 2.0 в службе API Management]
-- [Настройка API для авторизации пользователей по протоколу OAuth 2.0][Настройка API для авторизации пользователей по протоколу OAuth 2.0]
-- [Тестирование авторизации пользователей по протоколу OAuth 2.0 на портале разработчика][Тестирование авторизации пользователей по протоколу OAuth 2.0 на портале разработчика]
-
-## <a name="prerequisites"></a> Предварительные требования
+## <a name="prerequisites"> </a>Предварительные требования
 
 В этом руководстве описано, как настроить экземпляр службы API Management для авторизации учетных записей разработчиков по протоколу OAuth 2.0. В нем не рассматривается настройка поставщика OAuth 2.0. Настройка каждого поставщика OAuth 2.0 имеет свои особенности, хотя инструкции в целом схожи, а данные, необходимые для настройки этого протокола в экземпляре службы API Management, одинаковы. В примерах в этом разделе в качестве поставщика OAuth 2.0 используется служба Azure Active Directory.
 
-> Дополнительные сведения о настройке OAuth 2.0 с использованием Azure Active Directory см. в примере [WebApp-GraphAPI-DotNet][WebApp-GraphAPI-DotNet].
+>[AZURE.NOTE]Дополнительные сведения о настройке OAuth 2.0 с использованием Azure Active Directory см. в примере [WebApp-GraphAPI-DotNet][].
 
-## <a name="step1"></a> Настройка сервера авторизации OAuth 2.0 в службе API Management
+## <a name="step1"> </a>Настройка сервера авторизации OAuth 2.0 в управлении API
 
-Для начала щелкните **Консоль управления** на портале Azure службы API Management. Открывается административный портал API Management.
+Для начала щелкните **Управление** на портале Azure службы управления API. Будет открыт портал издателя службы управления API.
 
-![Консоль API Management][api-management-management-console]
+![Портал издателя][api-management-management-console]
 
->Если экземпляр службы API Management еще не создан, см. раздел [Создание экземпляра службы API Management][Создание экземпляра службы API Management] в руководстве [Начинаем работу с API Management][Начинаем работу с API Management].
+>[AZURE.NOTE]Если экземпляр службы API Management еще не создан, см. раздел [Создание экземпляра службы API Management][] в руководстве [Начинаем работу с API Management][].
 
 В меню **API Management** (Управление API) слева выберите пункт **Security** (Безопасность), перейдите на вкладку **OAuth 2.0** и щелкните ссылку **Add authorization server** (Добавить сервер авторизации).
 
@@ -53,9 +44,9 @@
 
 В полях **Name** (Имя) и **Description** (Описание) введите имя и (при желании) описание.
 
->Эти поля служат для идентификации сервера авторизации OAuth 2.0 в текущем экземпляре службы API Management. Их значения не извлекаются с сервера OAuth 2.0.
+>[AZURE.NOTE]Эти поля служат для идентификации сервера авторизации OAuth 2.0 в текущем экземпляре службы API Management. Их значения не извлекаются с сервера OAuth 2.0.
 
-Заполните поле **Client registration page URL** (URL-адрес страницы регистрации клиента). Это страница, на которой пользователи могут создавать свои учетные записи и управлять ими. Ее URL-адрес зависит от используемого поставщика OAuth 2.0.
+Заполните поле **Client registration page URL** (URL-адрес страницы регистрации клиента). Это страница, на которой пользователи могут создавать свои учетные записи и управлять ими. Ее URL-адрес зависит от используемого поставщика OAuth 2.0. **URL-адрес страницы регистрации клиента** указывает на страницу, на которой пользователи могут создавать и настраивать собственные учетные записи для поставщиков OAuth 2.0, поддерживающих пользовательское управление учетными записями. В некоторых организациях эта функциональность не настраивается и не используется, даже если поставщик OAuth 2.0 ее поддерживает. Если у вашего поставщика OAuth 2.0 не настроено пользовательское управление учетными записями, введите здесь URL-адрес-заполнитель, такой как URL-адрес вашей компании или URL-адрес `https://placeholder.contoso.com`.
 
 В следующем разделе формы содержатся параметры **Authorization code grant types** (Типы предоставления кода авторизации), **Authorization endpoint URL** (URL-адрес конечной точки авторизации) и **Authorization request method** (Метод запроса авторизации).
 
@@ -63,7 +54,7 @@
 
 Установите нужные флажки в разделе **Authorization code grant types**. По умолчанию выбран вариант **Authorization code** (Код авторизации).
 
-Введите URL-адрес в поле **Authorization endpoint URL**. Для Azure Active Directory этот URL-адрес выглядит, как показано ниже. Вместо `<client_id>` нужно подставить идентификатор клиента, по которому сервер OAuth 2.0 опознает ваше приложение.
+Введите URL-адрес в поле **Authorization endpoint URL**. Для Azure Active Directory этот URL-адрес будет аналогичен следующему URL-адресу, где `<client_id>` заменяется идентификатором клиента, по которому сервер OAuth 2.0 опознает ваше приложение.
 
     https://login.windows.net/<client_id>/oauth2/authorize
 
@@ -73,7 +64,7 @@
 
 ![Новый сервер][api-management-oauth2-server-3]
 
-Для сервера OAuth 2.0 Azure Active Directory параметр **Token endpoint URL** имеет вид, показанный ниже, где `<APPID>` имеет формат `yourapp.onmicrosoft.com`.
+Для сервера OAuth 2.0 Azure Active Directory параметр **Token endpoint URL** будет иметь следующий формат, где `<APPID>` имеет вид `yourapp.onmicrosoft.com`.
 
     https://login.windows.net/<APPID>/oauth2/token
 
@@ -89,7 +80,7 @@
 
 После заполнения формы нажмите кнопку **Save** (Сохранить), чтобы сохранить конфигурацию сервера авторизации OAuth 2.0 для службы API Management. Сохранив конфигурацию сервера, вы можете настроить интерфейсы API для ее использования, как описано в следующем разделе.
 
-## <a name="step2"></a> Настройка API для авторизации пользователей по протоколу OAuth 2.0
+## <a name="step2"> </a>Настройка API для авторизации пользователей по протоколу OAuth 2.0
 
 В меню **API Management** (Управление API) слева выберите пункт **APIs** (Интерфейсы API), щелкните имя нужного API, перейдите на вкладку **Security** (Безопасность) и установите флажок **OAuth 2.0**.
 
@@ -99,7 +90,7 @@
 
 ![Авторизация пользователя][api-management-user-authorization-save]
 
-## <a name="step3"></a> Тестирование авторизации пользователей по протоколу OAuth 2.0 на портале разработчика
+## <a name="step3"> </a>Тестирование авторизации пользователей по протоколу OAuth 2.0 на портале разработчика
 
 Настроив сервер авторизации OAuth 2.0 и его использование интерфейсом API, вы можете протестировать сервер, перейдя на портал разработчика и вызвав интерфейс API. В правом верхнем меню выберите пункт **Developer portal** (Портал разработчика).
 
@@ -109,7 +100,7 @@
 
 ![Echo API][api-management-apis-echo-api]
 
-> Если есть только один настроенный или видимый API для данной учетной записи, тогда щелчок по API сразу приведет к операциям для этого API.
+>[AZURE.NOTE]Если есть только один настроенный или видимый API для данной учетной записи, тогда щелчок по API сразу приведет к операциям для этого API.
 
 Выберите операцию **GET Resource**, щелкните **Open Console** (Открыть консоль) и выберите в раскрывающемся списке пункт **Authorization code** (Код авторизации).
 
@@ -117,24 +108,22 @@
 
 После выбора пункта **Authorization code** появляется всплывающее окно с формой входа поставщика OAuth 2.0. В этом примере форма входа предоставляется службой Azure Active Directory.
 
->Если всплывающие окна отключены, то в браузере появится запрос на их включение. Включив всплывающие окна, еще раз выберите пункт **Authorization code**, чтобы открыть форму входа.
+>[AZURE.NOTE]Если всплывающие окна отключены, то в браузере появится запрос на их включение. Включив всплывающие окна, еще раз выберите пункт **Authorization code**, чтобы открыть форму входа.
 
 ![Вход][api-management-oauth2-signin]
 
-После входа в систему поле **Request headers** (Заголовки запроса) заполняется заголовком `Authorization : Bearer`, используемым для авторизации запроса.
+После входа поле **Request headers** (Заголовки запроса) заполняется заголовком `Authorization : Bearer`, используемым для авторизации запроса.
 
 ![Маркер заголовка запроса][api-management-request-header-token]
 
 Теперь вы можете настроить остальные параметры и отправить запрос.
 
-[http://oauth.net/2/]: http://oauth.net/2/
-[Предварительные требования]: #prerequisites
-[Настройка сервера авторизации OAuth 2.0 в службе API Management]: #step1
-[Настройка API для авторизации пользователей по протоколу OAuth 2.0]: #step2
-[Тестирование авторизации пользователей по протоколу OAuth 2.0 на портале разработчика]: #step3
-[WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
-[Создание экземпляра службы API Management]: ../api-management-get-started/#create-service-instance
-[Начинаем работу с API Management]: ../api-management-get-started
+## Дальнейшие действия
+
+Для получения дополнительных сведений об использовании OAuth 2.0 и службы управления API см. следующий видеоролик.
+
+> [AZURE.VIDEO protecting-web-api-backend-with-azure-active-directory-and-api-management]
+
 [api-management-management-console]: ./media/api-management-howto-oauth2/api-management-management-console.png
 [api-management-oauth2]: ./media/api-management-howto-oauth2/api-management-oauth2.png
 [api-management-user-authorization]: ./media/api-management-howto-oauth2/api-management-user-authorization.png
@@ -150,5 +139,25 @@
 [api-management-oauth2-server-5]: ./media/api-management-howto-oauth2/api-management-oauth2-server-5.png
 [api-management-apis-echo-api]: ./media/api-management-howto-oauth2/api-management-apis-echo-api.png
 
-<!--HONumber=46--> 
- 
+
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to add and publish a product]: api-management-howto-add-products.md
+[Monitoring and analytics]: api-management-monitoring.md
+[Add APIs to a product]: api-management-howto-add-products.md#add-apis
+[Publish a product]: api-management-howto-add-products.md#publish-product
+[Начинаем работу с API Management]: api-management-get-started.md
+[Get started with advanced API configuration]: api-management-get-started-advanced.md
+[API Management policy reference]: api-management-policy-reference.md
+[Caching policies]: api-management-policy-reference.md#caching-policies
+[Создание экземпляра службы API Management]: api-management-get-started.md#create-service-instance
+
+[http://oauth.net/2/]: http://oauth.net/2/
+[WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
+
+[Prerequisites]: #prerequisites
+[Configure an OAuth 2.0 authorization server in API Management]: #step1
+[Configure an API to use OAuth 2.0 user authorization]: #step2
+[Test the OAuth 2.0 user authorization in the Developer Portal]: #step3
+[Next steps]: #next-steps
+
+<!---HONumber=58_postMigration-->

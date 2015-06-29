@@ -5,8 +5,7 @@
    documentationCenter="NA"
    authors="SharS"
    manager="adinah"
-   editor="tysonn" /> 
-
+   editor="tysonn" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
@@ -16,7 +15,7 @@
    ms.date="04/28/15"
    ms.author="v-sharos" />
 
-### Создание тома
+#### Создание тома
 
 1. На странице устройства **Быстрый запуск** щелкните **Добавить том**. Запустится мастер добавления тома.
 
@@ -39,7 +38,4 @@
 
 4. Щелкните значок галочки ![значок галочки](./media/storsimple-create-volume/HCS_CheckIcon-include.png). Будет создан том с указанными настройками.
 
-
-
-
-<!--HONumber=52-->
+<!---HONumber=58_postMigration-->

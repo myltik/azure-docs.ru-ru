@@ -1,18 +1,14 @@
-### Retrieving your connection string
-You can use the **CloudStorageAccount** type to represent 
-your Storage Account information. If you are using an 
-Azure project template and/or have a reference to the
-Microsoft.WindowsAzure.CloudConfigurationManager namespace, you 
-can use the **CloudConfigurationManager** type
-to retrieve your storage connection string and storage account
-information from the Azure service configuration:
+### Получение строки подключения
+Для представления информации об учетной записи хранения можно использовать тип **CloudStorageAccount**. Если вы используете шаблон проекта Azure и/или ссылаетесь на пространство имен Microsoft.WindowsAzure.CloudConfigurationManager, то с помощью типа **CloudConfigurationManager** можно извлечь строку подключения и информацию об учетной записи хранения из конфигурации службы Azure:
 
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-If you are creating an application with no reference to Microsoft.WindowsAzure.CloudConfigurationManager, and your connection string is located in the `web.config` or `app.config` as show above, then you can use **ConfigurationManager** to retrieve the connection string.  You will need to add a reference to System.Configuration.dll to your project and add another namespace declaration for it:
+Если вы создаете приложение без ссылки на пространство имен Microsoft.WindowsAzure.CloudConfigurationManager и строка подключения находится в `web.config` или `app.config`, как показано выше, то для получения строки подключения можно использовать **ConfigurationManager**. Необходимо добавить ссылку на файл System.Configuration.dll в проект и добавить для него другое объявление пространства имен:
 
 	using System.Configuration;
 	...
 	CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 		ConfigurationManager.ConnectionStrings["StorageConnectionString"]);
+
+<!---HONumber=58_postMigration-->

@@ -1,12 +1,4 @@
-<properties 
-   pageTitle="Create a manual backup"
-   description="Explains how to start a manual, on-demand backup job."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   edito**r="tysonn" />
-<tags 
+<properties pageTitle="Создание резервной копии вручную" description="Описание того, как вручную запускать задания резервного копирования по требованию." services="storsimple" documentationCenter="NA" authors="SharS" manager="adinah" edito**r="tysonn" /> <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
@@ -15,24 +7,26 @@
    ms.date="04/01/2015"
    ms.author="v-sharos" />
 
-#### To create a manual backup
+#### Создание резервной копии вручную
 
-1. On the **Devices** page, go to the **Backup Policies** tab. This tab lists all the backup policies in a tabular format, including the policy for the volume that you want to back up.
+1. На странице **Устройства** перейдите на вкладку **Политики архивации**. На этой вкладке приведен список всех политик резервного копирования в табличном формате, включая политику для тома, резервную копию которого требуется создать.
 
-2. Select the policy by clicking anywhere in the corresponding row except for the first column. At the bottom of the page, click **Take backup**. The button will expand to show the backup options: local snapshot and cloud snapshot. 
+2. Выберите политику, щелкнув по любому месту соответствующей строки, но не по первому столбцу. В нижней части страницы щелкните **Создать резервную копию**. Кнопка расширится так, чтобы отобразить варианты резервного копирования: локальный и облачный моментальный снимок.
 
-3. When you choose either of these options, you will be prompted for confirmation. Click **Yes**. 
+3. При выборе любого из этих вариантов отобразится запрос подтверждения. Щелкните **Да**.
 
-    ![Create manual backup1](./media/storsimple-create-manual-backup-gov/HCS_CreateManualBackup1-gov-include.png)
+    ![Создание вручную копии backup1](./media/storsimple-create-manual-backup-gov/HCS_CreateManualBackup1-gov-include.png)
  
-    This will start a job to create a snapshot. You will see a notification at the bottom of the page after the job is successfully created.
+    После этого будет запущено задание по созданию моментального снимка. После успешного создания задания в нижней части страницы отобразится уведомление.
 
-4. To monitor the job, click **View Job** in the notification area (at the bottom of the page). 
+4. Чтобы отслеживать ход выполнения задания, щелкните **Просмотр задания** в области уведомлений (в нижней части страницы).
 
-    ![Create manual backup2](./media/storsimple-create-manual-backup-gov/HCS_CreateManualBackup2-gov-include.png)
+    ![Создание вручную копии backup2](./media/storsimple-create-manual-backup-gov/HCS_CreateManualBackup2-gov-include.png)
 
-5. After the backup job is finished, go to the **Backup catalog** tab.
+5. После выполнения задания архивации перейдите на вкладку **Каталог резервного копирования**.
 
-6. Set the filter selections to the appropriate device, backup policy, and time range. Click the check icon ![check icon](./media/storsimple-create-manual-backup/HCS_CheckIcon-include.png) after setting the filters.
+6. С помощью фильтров отобразите нужное устройство, политику резервного копирования и диапазон времени. После установки фильтров нажмите значок галочки ![значок галочки](./media/storsimple-create-manual-backup/HCS_CheckIcon-include.png).
 
-  The backup should appear in the list of backup sets that is displayed in the catalog.
+  Резервная копия должна появиться в списке резервных наборов данных, которые отображаются в каталоге.
+
+<!---HONumber=58_postMigration-->

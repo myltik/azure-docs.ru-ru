@@ -4,7 +4,7 @@
 	editor="tysonn"
 	manager="timlt"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="dlepow"
 	services=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/22/2015"
-	ms.author="dkshir"/>
+	ms.date="06/02/2015"
+	ms.author="danlep"/>
 
 # Установка Azure CLI
 
@@ -94,7 +94,7 @@
 
 	npm install -g azure-cli
 
-После установки Azure CLI для доступа к соответствующим функциям можно использовать команду **azure** в интерфейсе командной строки (Bash, терминал, cmd.exe и т. п.). В конце установки экран будет выглядеть следующим образом:
+Установив Azure CLI, с помощью команды **azure** вы сможете вызывать соответствующие команды в пользовательском интерфейсе командной строки. В конце установки экран будет выглядеть следующим образом:
 
 	azure-cli@0.8.0 ..\node_modules\azure-cli
 	|-- easy-table@0.0.1
@@ -116,20 +116,27 @@
 
 >[AZURE.NOTE]В системах Linux установить Azure CLI также можно путем компиляции [исходного кода](http://go.microsoft.com/fwlink/?linkid=253472&clcid=0x409). Дополнительные сведения о компиляции исходного кода см. в файле INSTALL, который включен в архив.
 
-Теперь все готово к работе. Вы можете [подключиться к среде Azure из интерфейса Azure CLI](xplat-cli-connect.md) и приступать к использованию команд **azure**.
-
 ## Использование контейнера Docker
 
 На узле Docker выполните следующую команду: ```
-	docker run -it kmouss/azure-cli
+	docker run -it microsoft/azure-cli
 ```
+
+## Выполнение команд Azure CLI
+
+После установки Azure CLI для доступа к соответствующим функциям можно использовать команду **azure** в интерфейсе командной строки (Bash, терминал, cmd.exe и т. п.). Например, чтобы выполнить команду справки (help) в Windows, запустите командную строку (cmd.exe) с правами администратора: ```
+	c:> azure help
+```
+
+Теперь все готово к работе. Вы можете [подключиться к среде Azure из интерфейса Azure CLI](xplat-cli-connect.md) и приступать к использованию команд **azure**.
+
 
 <a id="additional-resources"></a>
 ## Дополнительные ресурсы
 
-* [Использование межплатформенного интерфейса командной строки Microsoft Azure совместно с диспетчером служб][xplatasm]
+* [Использование межплатформенного интерфейса командной строки Microsoft Azure совместно с диспетчером служб][cliasm]
 
-* [Использование межплатформенного интерфейса командной строки Microsoft Azure совместно с диспетчером ресурсов][xplatarm]
+* [Использование межплатформенного интерфейса командной строки Microsoft Azure совместно с диспетчером ресурсов][cliarm]
 
 * Найти дополнительные сведения об интерфейсе Azure CLI, загрузить исходный код, сообщить о проблеме или внести свой вклад в проект можно на странице[репозитория GitHub для Azure CLI](https://github.com/azure/azure-xplat-cli).
 
@@ -143,7 +150,7 @@
 [mac-installer]: http://go.microsoft.com/fwlink/?LinkId=252249
 [windows-installer]: http://go.microsoft.com/?linkid=9828653&clcid=0x409
 [linux-installer]: http://go.microsoft.com/fwlink/?linkid=253472
-[xplatasm]: virtual-machines-command-line-tools.md
-[xplatarm]: xplat-cli-azure-resource-manager.md
+[cliasm]: virtual-machines-command-line-tools.md
+[cliarm]: xplat-cli-azure-resource-manager.md
 
-<!---HONumber=58-->
+<!---HONumber=58_postMigration-->

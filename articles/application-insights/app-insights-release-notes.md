@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,20 +12,25 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.date="06/11/2015" 
 	ms.author="awills"/>
  
-# Заметки о выпуске Application Insights
-
-На странице [Обновления служб](http://azure.microsoft.com/updates/?service=application-insights) можно ознакомиться со списком основных улучшений.
+# Заметки о выпуске пакета SDK для Application Insights
 
 
+Ниже приведены подробные заметки о выпуске и инструкции по обновлению для наших пакетов SDK.
 
 * [.NET](app-insights-release-notes-dotnet.md)
-* [Android](app-insights-release-notes-android.md)
-* [iOS](app-insights-release-notes-ios.md)
+* [Android](https://github.com/Microsoft/ApplicationInsights-Android)
+* [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
 * [Java](app-insights-release-notes-java.md)
 * [JavaScript](app-insights-release-notes-javascript.md)
-* [Windows](app-insights-release-notes-windows.md)
+* [Windows Phone и Магазин Windows C#|VB](app-insights-release-notes-windows.md)
+* [Windows Phone и Магазин Windows C++](app-insights-release-notes-windows-cpp.md)
+* [другие платформы](https://github.com/Microsoft/ApplicationInsights-Home).
 
-<!---HONumber=58--> 
+Ознакомьтесь также с нашими [обновлениями службы](http://azure.microsoft.com/updates/?service=application-insights), которые содержат сводку основных улучшений службы Application Insights.
+
+ 
+
+<!---HONumber=58_postMigration-->

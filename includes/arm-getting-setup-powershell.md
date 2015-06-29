@@ -77,4 +77,4 @@
 
 > [AZURE.NOTE]Чтобы переключиться обратно на набор команд по умолчанию, выполните команду **Switch-AzureMode AzureServiceManagement**.
 
-<!---HONumber=58-->
+<!---HONumber=58_postMigration-->

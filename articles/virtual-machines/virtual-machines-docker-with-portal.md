@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Использование расширения виртуальных машин Docker для Linux на Azure"
-	description="Описание механизма Docker и расширений Виртуальных машин Azure, а также программного создания виртуальных машин в Azure как узлов Docker с помощью интерфейса командной строки azure-cli."
+	description="Описание механизма Docker и расширений Виртуальных машин Azure, а также программного создания виртуальных машин в Azure как узлов Docker с помощью интерфейса CLI Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="squillace"
@@ -142,5 +142,6 @@ WARNING: No swap limit support
 
 [Работа Docker с https]: http://docs.docker.com/articles/https/
 [Руководству пользователя Docker]: https://docs.docker.com/userguide/
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

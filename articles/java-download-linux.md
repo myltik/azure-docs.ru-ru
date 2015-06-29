@@ -1,11 +1,11 @@
-﻿<properties 
+<properties 
 	pageTitle="Скачивание пакета Azure SDK для Java (Linux)" 
 	description="Скачивание пакета SDK для Azure для Java. Код предоставляется для случая, если для сборки используется Maven." 
 	services="" 
 	documentationCenter="java" 
 	authors="rmcmurray" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor="jimbe"/>
 
 <tags 
 	ms.service="multiple" 
@@ -13,10 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="09/25/2014" 
+	ms.date="06/03/2015" 
 	ms.author="robmcm"/>
 
+#Загрузка пакета Azure SDK для Java
 
-[WACOM.INCLUDE [download_libraries](../includes/download_libraries.md)]
+[AZURE.INCLUDE [download_libraries](../includes/download_libraries.md)]
 
-<!--HONumber=46--> 
+<!---HONumber=58_postMigration-->

@@ -12,7 +12,7 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
-	ms.topic="hero-article"
+	ms.topic="get-started-article"
 	ms.date="05/22/2015"
 	ms.author="rasquill"/>
 
@@ -288,12 +288,13 @@
 
 - [Linux и вычисления с открытым кодом в Azure](virtual-machines-linux-opensource.md)
 
-- [Средства командной строки Azure для Mac и Linux](../virtual-machines-command-line-tools.md)
+- [Использование интерфейса командной строки Azure](../virtual-machines-command-line-tools.md)
 
 - [Развертывание приложения LAMP с помощью расширения Azure CustomScript для Linux](virtual-machines-linux-script-lamp.md)
 
 - [О параметрах конфигурации виртуальной машины Azure](http://msdn.microsoft.com/library/azure/dn763935.aspx)
 
 - [Расширение виртуальных машин Docker для Linux в Azure](virtual-machines-docker-vm-extension.md)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

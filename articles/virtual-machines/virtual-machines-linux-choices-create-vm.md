@@ -97,4 +97,4 @@ Azure поддерживает несколько способов создан�
 [Тестовая среда с базовой конфигурацией]: virtual-machines-base-configuration-test-environment.md
 [Гибридные облачные тестовые среды Azure]: virtual-machines-hybrid-cloud-test-environments.md
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

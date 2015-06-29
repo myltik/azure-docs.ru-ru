@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Add or modify a StorSimple backup schedule"
-   description="Explains how you can use the StorSimple Manager service to create and edit backup schedules."
+   pageTitle="Добавление или изменение расписания резервного копирования StorSimple "
+   description="В статье рассказывается о том, как с помощью службы диспетчера StorSimple создать и изменить расписание резервного копирования."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -15,32 +15,33 @@
    ms.date="05/13/2015"
    ms.author="v-sharos" />
 
-#### To add or modify a StorSimple backup schedule
+#### Добавление или изменение расписания резервного копирования StorSimple
 
-1. On the device **Quick Start** page, click the **Backup Policies** tab. This will take you to the **Backup Policies** page.
+1. На странице устройства **Быстрый запуск** перейдите на вкладку **Политики резервного копирования**. В результате откроется страница **Политики резервного копирования**.
 
-2. In the tabular listing of the policies, select and click the policy that you want to edit.
+2. В таблице со списком политик выберите ту, которую хотите изменить.
 
-3. Under **general**, you can modify the backup policy name.
+3. В разделе **Общие** можно изменить имя политики резервного копирования.
 
-4. Under **schedules**, click **manage schedules** to add or remove schedules. In the **Manage Schedule** dialog box, do the following:
+4. В разделе **Расписания** щелкните **Управление расписаниями**, чтобы добавить или удалить расписание. В диалоговом окне **Управление расписанием** выполните указанные ниже действия:
 
-    1. Choose an existing schedule or create a new schedule.
+    1. Выберите существующее расписание или создайте новое.
 
-    2. Select the type of backup as local or cloud snapshot.
+    2. Выберите тип резервного копирования (локальный или облачный мгновенный снимок).
 
-    3. Specify the backup frequency, retention, and starting time of the schedule.
+    3. Укажите периодичность резервного копирования, период удержания и время запуска расписания.
 
-    4. Enable or disable the schedule.
+    4. Включите или отключите расписание.
 
-    5. Click the check icon ![check icon](./media/storsimple-add-modify-backup-schedule/HCS_CheckIcon-include.png) to save the changes to the schedule.
+    5. Щелкните значок галочки ![значок галочки](./media/storsimple-add-modify-backup-schedule/HCS_CheckIcon-include.png), чтобы сохранить изменения в расписании.
 
-5. In the **Volumes** section, add or remove the volumes to this policy.
+5. В разделе **Тома** добавьте в политику или удалите из нее тома.
 
-6. Save the changes to this policy.
+6. Сохраните изменения политики.
 
-7. You will prompted for confirmation. Click **OK** to save the policy.
+7. Появится сообщение с предложением подтвердить операцию. Нажмите кнопку **ОК**, чтобы сохранить политику.
 
-The **Backup Policies** page will be updated to save the changes to the policy.
+Страница **Политики резервного копирования** обновится с учетом сохраненных изменений.
  
 
+<!---HONumber=58_postMigration-->

@@ -13,33 +13,26 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2014" 
+	ms.date="06/18/2015" 
 	ms.author="sdanie"/>
 
 # Защита фоновых служб посредством взаимной проверки подлинности с помощью сертификата в службе Azure API Management
 
-Служба API Management дает возможность защищать доступ к фоновым службам API путем взаимной проверки подлинности с помощью сертификата. В этом руководстве описано, как управлять сертификатами в консоли API Management и как настроить использование сертификата для доступа из API к фоновой службе.
+Служба API Management дает возможность защищать доступ к фоновым службам API путем взаимной проверки подлинности с помощью сертификата. В этом руководстве описывается, как управлять сертификатами на портале издателя API и как настроить использование сертификата в API для доступа к фоновой службе.
 
-> Дополнительные сведения об управлении сертификатами с помощью API REST API Management см. в разделе [Объект сертификата API REST Azure API Management][Объект сертификата API REST Azure API Management].
+Сведения об управлении сертификатами с помощью REST API службы управления API см. в разделе [Объект сертификата REST API службы управления API Azure ][].
 
-## Содержание раздела
+## <a name="prerequisites"> </a>Предварительные требования
 
-- [Предварительные требования][Предварительные требования]
-- [Добавление сертификата клиента][Добавление сертификата клиента]
-- [Удаление сертификата клиента][Удаление сертификата клиента]
-- [Настройка API для проверки подлинности прокси с помощью взаимного сертификата][Настройка API для проверки подлинности прокси с помощью взаимного сертификата]
+В этом руководстве описано, как настроить для экземпляра службы API Management взаимную проверку подлинности с помощью сертификата при доступе из API к фоновой службе. Перед выполнением инструкций, приведенных в этом разделе, вам необходимо настроить фоновую службу для взаимной проверки подлинности с помощью сертификата. Кроме того, нужно иметь доступ к сертификату, который следует отправить на портал издателя управления API, и его паролю.
 
-## <a name="prerequisites"></a> Предварительные требования
+## <a name="step1"> </a>Отправка сертификата клиента
 
-В этом руководстве описано, как настроить для экземпляра службы API Management взаимную проверку подлинности с помощью сертификата при доступе из API к фоновой службе. Перед выполнением инструкций, приведенных в этом разделе, вам необходимо настроить фоновую службу для взаимной проверки подлинности с помощью сертификата. Кроме того, нужно иметь доступ к сертификату, который следует добавить в консоль API Management, и его паролю.
+Для начала щелкните **Управление** на портале Azure службы управления API. Будет открыт портал издателя службы управления API.
 
-## <a name="step1"></a> Добавление сертификата клиента
+![Портал издателя API][api-management-management-console]
 
-Для начала щелкните **Консоль управления** на портале Azure службы API Management. Открывается административный портал API Management.
-
-![Консоль API Management][api-management-management-console]
-
->Если экземпляр службы API Management еще не создан, см. раздел [Создание экземпляра службы API Management][Создание экземпляра службы API Management] в руководстве [Начинаем работу с API Management][Начинаем работу с API Management].
+>Если экземпляр службы API Management еще не создан, см. раздел [Создание экземпляра службы API Management][] в руководстве [Начинаем работу с API Management][].
 
 В меню **API Management** (Управление API) слева выберите пункт **Security** (Безопасность), а затем перейдите на вкладку **Client certificates** (Сертификаты клиента).
 
@@ -47,13 +40,13 @@
 
 Чтобы добавить новый сертификат, щелкните ссылку **Upload certificate** (Загрузить сертификат).
 
-![Добавление сертификата][api-management-upload-certificate]
+![Передача сертификата][api-management-upload-certificate]
 
 Выберите сертификат и введите пароль к нему.
 
 >Сертификат должен быть в формате **PFX**. Разрешено использовать самозаверяющие сертификаты.
 
-![Добавление сертификата][api-management-upload-certificate-form]
+![Передача сертификата][api-management-upload-certificate-form]
 
 Нажмите кнопку **Upload** (Загрузить).
 
@@ -61,9 +54,9 @@
 
 ![Сертификат добавлен][api-management-certificate-uploaded]
 
-После добавления сертификат появляется на вкладке **Client certificates** (Сертификаты клиента). Если у вас несколько сертификатов, запишите субъект или последние четыре символа отпечатка. Эти данные используются для выбора сертификата при настройке API для использования сертификатов, как описано в следующем разделе [Настройка API для проверки подлинности прокси с помощью взаимного сертификата][Настройка API для проверки подлинности прокси с помощью взаимного сертификата].
+После добавления сертификат появляется на вкладке **Client certificates** (Сертификаты клиента). Если у вас несколько сертификатов, запишите субъект или последние четыре символа отпечатка. Эти данные используются для выбора сертификата при настройке API для использования сертификатов, как описано в следующем разделе [Настройка API для проверки подлинности прокси с помощью взаимного сертификата][].
 
-## <a name="step1a"></a> Удаление сертификата клиента
+## <a name="step1a"> </a>Удаление сертификата клиента
 
 Чтобы удалить сертификат, щелкните рядом с ним ссылку **Delete** (Удалить).
 
@@ -77,7 +70,7 @@
 
 ![Подтверждение удаления][api-management-confirm-delete-policy]
 
-## <a name="step2"></a> Настройка API для проверки подлинности прокси с помощью взаимного сертификата
+## <a name="step2"> </a>Настройка API для проверки подлинности прокси с помощью взаимного сертификата
 
 В меню **API Management** (Управление API) слева выберите пункт **APIs** (Интерфейсы API), щелкните имя нужного API и перейдите на вкладку **Security** (Безопасность).
 
@@ -93,22 +86,20 @@
 
 Чтобы сохранить изменение конфигурации в API, нажмите кнопку **Save** (Сохранить).
 
-> Изменение вступает в силу немедленно, и для проверки подлинности на фоновом сервере при вызове операций этого API теперь будет использоваться сертификат.
+>Изменение вступает в силу немедленно, и для проверки подлинности на фоновом сервере при вызове операций этого API теперь будет использоваться сертификат.
 
 ![Сохранение изменений в API][api-management-save-api]
 
-> Если сертификат настроен для проверки подлинности прокси при доступе из API к фоновой службе, он становится частью политики для этого API и его можно увидеть в редакторе политики.
+>Если сертификат настроен для проверки подлинности прокси при доступе из API к фоновой службе, он становится частью политики для этого API и его можно увидеть в редакторе политики.
 
 ![Политика сертификата][api-management-certificate-policy]
 
+## Дальнейшие действия
 
-[Объект сертификата API REST Azure API Management]: http://msdn.microsoft.com/library/azure/dn783483.aspx
-[Предварительные требования]: #prerequisites
-[Добавление сертификата клиента]: #step1
-[Удаление сертификата клиента]: #step1a
-[Настройка API для проверки подлинности прокси с помощью взаимного сертификата]: #step2
-[Создание экземпляра службы API Management]: ../api-management-get-started/#create-service-instance
-[Начинаем работу с API Management]: ../api-management-get-started
+Для получения дополнительных сведений см. следующее видео.
+
+> [AZURE.VIDEO last-mile-security]
+
 [api-management-management-console]: ./media/api-management-howto-mutual-certificates/api-management-management-console.png
 [api-management-security-client-certificates]: ./media/api-management-howto-mutual-certificates/api-management-security-client-certificates.png
 [api-management-upload-certificate]: ./media/api-management-howto-mutual-certificates/api-management-upload-certificate.png
@@ -123,5 +114,31 @@
 [api-management-confirm-delete]: ./media/api-management-howto-mutual-certificates/api-management-confirm-delete.png
 [api-management-confirm-delete-policy]: ./media/api-management-howto-mutual-certificates/api-management-confirm-delete-policy.png
 
-<!--HONumber=46--> 
+
+
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to add and publish a product]: api-management-howto-add-products.md
+[Monitoring and analytics]: ../api-management-monitoring.md
+[Add APIs to a product]: api-management-howto-add-products.md#add-apis
+[Publish a product]: api-management-howto-add-products.md#publish-product
+[Начинаем работу с API Management]: api-management-get-started.md
+[Get started with advanced API configuration]: api-management-get-started-advanced.md
+[API Management policy reference]: api-management-policy-reference.md
+[Caching policies]: api-management-policy-reference.md#caching-policies
+[Создание экземпляра службы API Management]: api-management-get-started.md#create-service-instance
+
+[Объект сертификата REST API службы управления API Azure ]: http://msdn.microsoft.com/library/azure/dn783483.aspx
+[WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
+
+[Prerequisites]: #prerequisites
+[Upload a client certificate]: #step1
+[Delete a client certificate]: #step1a
+[Настройка API для проверки подлинности прокси с помощью взаимного сертификата]: #step2
+[Test the configuration by calling an operation in the Developer Portal]: #step3
+[Next steps]: #next-steps
+
+
+
  
+
+<!---HONumber=58_postMigration-->

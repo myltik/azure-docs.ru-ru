@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/15/2015" 
+	ms.date="06/03/2015" 
 	ms.author="szark"/>
 
 
@@ -29,7 +29,7 @@
 
 Драйверы Linux Integration Services (LIS) для Hyper-V и Azure представляют из себя модули ядра, которые Майкрософт встраивает непосредственно в основное ядро Linux. Драйверы LIS либо встроены в ядро дистрибутива по умолчанию, либо (для более старых дистрибутивов на основе RHEL или CentOS) доступны [здесь](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) в качестве отдельной загрузки. Дополнительные сведения о драйверах LIS см. в [этой ](virtual-machines-linux-create-upload-vhd-generic.md#linux-kernel-requirements) статье.
 
-Агент Linux для Azure уже предварительно установлен в образах коллекции Linux и обычно доступен из репозитория пакета дистрибутива. Исходный код можно найти на сайте [GitHub](https://github.com/azure/walinuxagent).
+Агент Linux для Azure уже предварительно установлен в образах коллекции Azure и обычно доступен из репозитория пакета дистрибутива. Исходный код можно найти на сайте [GitHub](https://github.com/azure/walinuxagent).
 
 <table border="1" width="600">
   <tr bgcolor="#E9E7E7">
@@ -40,14 +40,14 @@
 			</tr>
 	<tr>
 		<th>  Каноническая Ubuntu </th>
-		<td> Ubuntu 12.04.1+, 14.04 и 14.10 </td>
+		<td> Ubuntu&#160;12.04, 14.04, 14.10 и 15.04 </td>
 		<td>В ядре</td>
 		<td>Пакет: в репозитории под именем walinuxagent <br />
 			Источник: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
 			</tr>
 	<tr>
 		<th> CentOS через OpenLogic </th>
-		<td> CentOS 6.3+</td>
+		<td> CentOS&#160;6.3+, 7.0+</td>
 	    <td> CentOS 6.3: <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409">скачивание LIS</a><br/>
 	        CentOS 6.4 и более поздних версий: в ядре</td>
 		<td>Пакет: в <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">репозитории пакетов</a> под именем WALinuxAgent<br />
@@ -63,7 +63,7 @@
 	</tr>
 	<tr>
 		<th> Oracle Linux </th>
-		<td> 6.4 +</td>
+		<td> 6.4+, 7.0+ </td>
         <td>В ядре</td>
 		<td>Пакет: в репозитории под именем WALinuxAgent<br />
 			Источник: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
@@ -71,9 +71,9 @@
 	</tr>
 	<tr>
 		<th> SUSE Linux Enterprise </th>
-		<td> SLES 11 SP3+</td>
+		<td> SLES&#160;11 SP3+, SLES&#160;12+ и <br /> SLES для SAP&#160;11.3+ </td>
         <td>В ядре</td>
-		<td>Пакет: в репозитории <a href="https://build.opensuse.org/project/show/Cloud:Tools" >Cloud:Tools</a> под именем WALinuxAgent<br />
+		<td>Пакет: в репозитории <a href="https://build.opensuse.org/project/show/Cloud:Tools">Cloud:Tools</a> под именем WALinuxAgent<br />
 			Источник: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
 		
 	</tr>
@@ -122,4 +122,6 @@ Oracle предлагает широкий набор решений для об
 
 SUSE Linux Enterprise Server в Azure — проверенная платформа, предоставляющая высокую степень надежности и безопасности для работы в облаке. Универсальная платформа SUSE Linux легко интегрируется с облачными службами Azure, создавая облачную среду с простым управлением. Свыше 9200 сертифицированных приложений для SUSE Linux Enterprise Server от более чем 1800 независимых поставщиков программного обеспечения гарантируют, что рабочие нагрузки, поддерживаемые в центре обработки данных, могут быть беспрепятственно развернуты в Azure.
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

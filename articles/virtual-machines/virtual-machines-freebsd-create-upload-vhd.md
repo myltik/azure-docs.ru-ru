@@ -204,5 +204,6 @@
 4. После завершения подготовки вы увидите в Azure запущенную виртуальную машину FreeBSD.
 
 	![образ FreeBSD в Azure](./media/virtual-machines-freebsd-create-upload-vhd/freebsdimageinazure.png)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

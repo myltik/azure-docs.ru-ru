@@ -1,0 +1,96 @@
+<properties
+   pageTitle="Настройка среды разработки Service Fabric"
+   description="Установка среды выполнения, пакета SDK и инструментов, а также создание локального кластера разработки."
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="seanmck"
+   manager="samgeo"
+   editor=""/>
+
+<tags
+   ms.service="service-fabric"
+   ms.devlang="dotNet"
+   ms.topic="hero-article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="05/04/2015"
+   ms.author="seanmck"/>
+
+# Настройка среды разработки Service Fabric
+ В этой статье рассматривается все, что требуется для начала разработки приложений на платформе [Service Fabric][1], включая установку среды выполнения, пакет SDK и инструменты, а также настройку локального кластера.
+
+## Предварительные требования
+### Поддерживаемые версии операционных систем
+Поддерживаются следующие операционные системы:
+
+- Windows 8, Windows 8.1
+- Windows Server 2012 R2
+- Windows 10 Technical Preview
+
+### Visual Studio 2015
+
+В случае установки Visual Studio 2015 RC набор инструментов в Service Fabric Preview 1 может отличаться. Загрузить Visual Studio 2015 RC можно [здесь][2].
+
+> [AZURE.NOTE]Если у вас не установлена ни одна из поддерживаемых операционных систем или вы не хотите устанавливать на компьютер Visual Studio 2015 RC, [настройте виртуальную машину Azure][3] c предустановленными Windows Server 2012 R2 и Visual Studio 2015, используя образ из галереи виртуальных машин.
+
+## Установка среды выполнения, пакета SDK и инструментов
+
+Установите компоненты Service Fabric с помощью установщика веб-платформы, следуя этим инструкциям:
+
+1. Щелкните [здесь][4], чтобы загрузить пакет SDK, используя установщик веб-платформы.
+
+2. Чтобы приступить к установке, нажмите кнопку «Установить».
+
+3. Прочитайте и примите условия лицензионного соглашения.
+
+Установка начнется автоматически.
+
+## Включение сценариев PowerShell
+
+Для создания локального кластера разработки и развертывания приложений из Visual Studio в Service Fabric используются сценарии Windows PowerShell. По умолчанию Windows блокирует выполнение этих сценариев. Чтобы включить их, необходимо изменить политику выполнения PowerShell. Для этого запустите PowerShell с правами администратора и введите следующую команду:
+
+    Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
+
+
+## Настройка и запуск локального кластера
+Локальный кластер представляет собой топологию из нескольких компьютеров, которые вы запускаете с компьютера для разработки и используете в качестве рабочей среды. Чтобы настроить локальный кластер:
+
+
+1. Закройте все окна PowerShell и откройте новое от имени администратора.
+
+2. Перейдите в каталог установки кластера с помощью команды `cd "$env:ProgramW6432\Microsoft SDKs\Service Fabric\ClusterSetup"`
+
+3. Запустите `.\DevClusterSetup.ps1`
+
+Через несколько секунд вы увидите сведения об узле и подтверждение успешного создания кластера. В некоторых случаях при запуске хост-службы и служб имен Service Fabric могут отображаться предупреждения. Их можно проигнорировать — практически сразу же будут выведены основные сведения о кластере.
+
+> [AZURE.NOTE]Ваш локальный кластер использует ту же среду выполнения, что и Azure. Ее не требуется эмулировать или моделировать. Единственное отличие заключается в том, что все узлы размещаются на одном компьютере, а не на нескольких распределенных, как в Azure.
+
+## Проверка настроек кластера
+
+Вы можете проверить, успешно ли создан кластер, используя инструмент Service Fabric Explorer, который входит в пакет SDK.
+
+1. Запустите Service Fabric Explorer с помощью команды `. "$env:ProgramW6432\Microsoft SDKs\Service Fabric\Tools\ServiceFabricExplorer\ServiceFabricExplorer.exe"`
+
+2. Разверните узел кластера Onebox/Local в левом верхнем углу.
+
+3. Убедитесь, что представления «Приложение» и «Узел» выделены зеленым.
+
+Если какой-либо из элементов не зеленый или выводится сообщение об ошибке, подождите несколько секунд и нажмите кнопку «Обновить». Если это не решит проблему, выполните [действия по устранению неполадок при настройке](service-fabric-troubleshoot-local-cluster-setup.md).
+
+## Дальнейшие действия
+Среда разработки настроена, и вы готовы к созданию и запуску собственных приложений.
+
+- [Информация о моделях программирования на основе надежных субъектов и служб](service-fabric-choose-framework.md)
+- [Начало работы с интерфейсом API надежных служб](service-fabric-reliable-services-quick-start.md)
+- [Начало работы с интерфейсом API надежных субъектов](service-fabric-reliable-actors-get-started.md)
+- [Знакомство с примерами Service Fabric на GitHub](https://github.com/azure/servicefabric-samples)
+- [Визуализация кластера с помощью обозревателя Service Fabric](service-fabric-visualizing-your-cluster.md)
+
+[1]: http://azure.microsoft.com/campaigns/service-fabric/ "Страница кампании Service Fabric"
+[2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
+[3]: http://blogs.msdn.com/b/visualstudioalm/archive/2014/06/04/visual-studio-14-ctp-now-available-in-the-virtual-machine-azure-gallery.aspx "Azure"
+[4]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "Ссылка WebPI"
+ 
+
+<!---HONumber=58_postMigration-->

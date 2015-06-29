@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="SharS"
    manager="adinah"
-   editor="tysonn" /> 
+   editor="tysonn" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
@@ -15,7 +15,7 @@
    ms.date="04/27/2015"
    ms.author="v-sharos" />
 
-### Получение IQN узла Windows
+#### Получение IQN узла Windows
 
 1. Запустите инициатор iSCSI (Майкрософт) на узле Windows.
 
@@ -25,4 +25,4 @@
 
 3. Сохраните эту строку.
 
-<!--HONumber=52-->
+<!---HONumber=58_postMigration-->

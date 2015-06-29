@@ -20,137 +20,211 @@
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
-При разработке классического приложения служба Microsoft Azure Active Directory позволяет разработчику упростить проверку подлинности учетных записей пользователей в Active Directory. Также разработчик получает возможность безопасно использовать любые веб-API, защищенные Azure AD, такие как интерфейсы Office 365 API или интерфейс Azure API.
-
-Клиентские приложения для iOS, которым необходим доступ к защищенным ресурсам, могут использовать библиотеку проверки подлинности Azure AD (ADAL). Единственное предназначение ADAL — упростить для разработчика процесс получения маркеров доступа. Чтобы показать, насколько это просто, создадим приложение To Do List (список дел) на Objective C, которое:
+Клиентские приложения для iOS, которым необходим доступ к защищенным ресурсам, могут использовать библиотеку проверки подлинности Azure AD (ADAL). Единственная задача ADAL — упрощение процесса получения приложением маркеров доступа. Чтобы показать, насколько это просто, создадим приложение To Do List (список дел) на Objective C, которое:
 
 -	Получает маркеры доступа для вызова интерфейса API Graph Azure AD с помощью [протокола проверки подлинности OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx).
 -	Осуществляет поиск пользователей в каталоге по псевдониму.
--	Обеспечивает функцию выхода пользователя из приложения.
 
 Для создания полного рабочего приложения необходимо:
 
-2. Зарегистрировать приложение в Azure AD.
-3. Установить и настроить библиотеку ADAL.
+2. зарегистрировать свое приложение в Azure AD;
+3. установить и настроить ADAL;
 5. Использовать ADAL для получения маркеров из Azure AD.
 
-Чтобы начать работу, [загрузите каркас приложения](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/skeleton.zip) или [завершенный пример](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip). Вам также потребуется клиент Azure AD, в котором можно будет создавать пользователей и регистрировать приложение. Если у вас еще нет клиента, [узнайте, как его получить](active-directory-howto-tenant.md).
+Чтобы начать работу, [загрузите каркас приложения](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/skeleton.zip) или [завершенный пример](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip). Вам также потребуется клиент Azure AD, в котором можно будет создавать пользователей и зарегистрировать приложение. Если у вас еще нет клиента, [узнайте, как его получить](active-directory-howto-tenant.md).
 
-## Этап 1. Загрузка и запуск образца серверного кода, реализующего интерфейс REST API приложения To Do List для Node.js или для .NET.
+## *1. Выбор URI перенаправления для iOS*
 
-Описываемый в этой статье образец специально создается так, чтобы можно было сравнить его работу с существующим образцом, создающим интерфейс REST API для однотенантного  приложения To Do List под управлением Azure AD. Вышеупомянутый образец службы необходим для данного примера быстрого старта.
+Для безопасного запуска приложений в некоторых сценариях использования единого входа требуется создать **URI перенаправления** в определенном формате. URI перенаправления используются, чтобы гарантировать, что маркеры получает именно то приложение, которое их запрашивало.
 
-Для получения информации об его установке просмотрите пример здесь:
+Формат URI перенаправления в iOS:
 
-* [Образец службы REST API под управлением Azure AD для Node.js](active-directory-devquickstarts-webapi-nodejs.md)
-
-## Этап 2. Регистрация веб-API с помощью клиента Azure AD
-
-**Что я делаю?**
-
-*Служба каталогов Microsoft Active Directory позволяет добавлять приложения двух типов: веб-интерфейсы API, которые предоставляют услуги пользователям, и приложения (работающие через Интернет или на устройстве), использующие эти веб-API. На этом этапе вы зарегистрируете веб-API, который будет работать локально для тестирования данного образца. Обычно этот веб-интерфейс API является службой REST, предоставляющей приложению необходимую функциональность. Microsoft Azure Active Directory может обеспечить защитой любую конечную точку!*
-
-*Здесь выполняется регистрация интерфейса REST API приложения To Do List, но описанная процедура регистрации будет работать для любого веб-интерфейса API, защищаемого Azure AD.*
-
-Действия по регистрации веб-интерфейса API с помощью Azure AD
-
-1. Войдите на [Портал управления Azure](https://manage.windowsazure.com).
-2. Щелкните "Active Directory" в левой панели навигации.
-3. Выберите клиента каталога, в котором нужно зарегистрировать приложение-пример.
-4. Откройте вкладку Приложения.
-5. На выдвижной панели нажмите кнопку Добавить.
-6. Щелкните "Добавить приложение, которое разрабатывает моя организация".
-7. Введите понятное имя для приложения, например "TodoListService", выберите "Веб-приложение и/или веб-API" и нажмите кнопку "Далее".
-8. В качестве URL-адреса единого входа введите базовый URL-адрес образца, который по умолчанию имеет значение `https://localhost:8080`.
-9. В качестве идентификатора URI приложения введите `https://<your_tenant_name>/TodoListService`, заменив `<your_tenant_name>` на имя вашего клиента Azure AD. Для завершения регистрации нажмите кнопку "OK".
-10. Не выходя из портала Azure, откройте вкладку "Конфигурация" приложения.
-11. **Найдите значение идентификатора клиента и скопируйте его**, оно потребуются позже при настройке приложения.
-
-## Этап 3. Регистрация образца нативного клиентского приложения для iOS 
-
-Прежде всего необходимо зарегистрировать веб-приложение. Далее необходимо сообщить о приложении в Azure AD. Это позволяет приложению взаимодействовать с только что зарегистрированным веб-API.
-
-**Что я делаю?**
-
-*Как уже говорилось, служба каталогов Microsoft Active Directory позволяет добавлять приложения двух типов: веб-интерфейсы API, которые предоставляют услуги пользователям, и приложения (работающие через Интернет или на устройстве), использующие эти веб-API. На этом этапе регистрируется приложение-образец. Это необходимо для того, чтобы приложение могло запросить доступ к только что зарегистрированному веб-API. Если приложение не зарегистрировано, то Azure AD не позволит ему даже запросить данные для входа. Это часть модели безопасности.*
-
-*Здесь выполняется регистрация приложения-образца, но описанная процедура регистрации будет работать для любого разрабатываемого приложения.*
-
-**Почему приложение и веб-интерфейс API размещаются в одном клиенте?**
-
-*Как вы могли догадаться, можно создать приложение, которое обращается к внешнему интерфейсу API, зарегистрированному в Azure AD из другого клиента. При этом пользователям будет предложено дать согласие на использование этого интерфейса API в приложении. Радует то, что библиотека проверки подлинности ADAL для iOS выполняет все необходимые операции для обработки данного согласия! В более сложных задачах становится очевидным, что обработка согласия является важной составляющей доступа к интерфейсам Microsoft API от Azure и Office, а также любого другого поставщика услуг. Пока приложение и веб-интерфейс зарегистрированы в рамках одного и того же клиента, пользователь не увидит запросы на согласие. Это типично для приложений, предназначенных для использования только внутри компании.*
-
-1. Войдите на [Портал управления Azure](https://manage.windowsazure.com).
-2. Щелкните "Active Directory" в левой панели навигации.
-3. Выберите клиента каталога, в котором нужно зарегистрировать приложение-пример.
-4. Откройте вкладку "Приложения".
-5. На выдвижной панели нажмите "Добавить".
-6. Щелкните "Добавить приложение, которое разрабатывает моя организация".
-7. Введите понятное имя для приложения, например "TodoListClient-iOS", выберите "Собственное клиентское приложение" и нажмите кнопку "Далее".
-8. В качестве URI переадресации укажите `http://TodoListClient`. Нажмите кнопку "Готово"
-9. Перейдите на вкладку приложения "Настройка".
-10. Найдите значение идентификатора клиента и скопируйте его, оно потребуются позже при настройке приложения.
-11. В меню "Разрешения для других приложений" щелкните "Добавить приложение". Из раскрывающегося списка "Показать" выберите "Другое" и щелкните флажок вверху. Найдите и щелкните TodoListService, затем установите флажок внизу, чтобы добавить приложение. Выберите "Доступ к TodoListService" из раскрывающегося списка "Делегированные разрешения" и сохраните конфигурацию.
-
-
-## Этап 4. Загрузка образца кода нативного клиентского приложения для iOS
-
-* `$ git clone git@github.com:AzureADSamples/NativeClient-iOS.git`
-
-## Этап 5. Загрузка библиотеки ADAL для iOS и добавление ее в рабочую область XCode
-
-#### Загрузка ADAL для iOS:
-
-* `git clone git@github.com:MSOpenTech/azure-activedirectory-library-for-ios.git`
-
-#### Импорт библиотеки в рабочую область
-
-В XCode щелкните правой кнопкой мыши каталог проекта и выберите в контекстном меню команду "Add files to “iOS Sample”..." (Добавить файлы в “Образец для iOS”).
-
-При появлении запроса укажите каталог, в который будет клонирована библиотека ADAL для iOS.
-
-#### Добавление libADALiOS.a к связанным платформам и библиотекам
-
-Нажмите кнопку добавления в разделе "Linked Frameworks and Libraries" (Связанные платформы и библиотеки) и добавьте файл библиотеки из раздела импортированных платформ.
-
-Выполните сборку проекта, чтобы убедиться в отсутствии ошибок компиляции.
-
-
-## Этап 6. Настройка файла settings.plist на использование веб-интерфейса API
-
-Файл settings.plist находится в разделе "Supporting Files" (Вспомогательные файлы). Он содержит следующую информацию:
-
-```XML
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>authority</key>
-	<string>https://login.windows.net/common/oauth2/token</string>
-	<key>clientId</key>
-	<string>xxxxxxx-xxxxxx-xxxxxxx-xxxxxxx</string>
-	<key>resourceString</key>
-	<string>https://localhost/todolistservice</string>
-	<key>redirectUri</key>
-	<string>http://demo_todolist_app</string>
-	<key>userId</key>
-	<string>user@domain.com</string>
-	<key>taskWebAPI</key>
-	<string>https://localhost/api/todolist/</string>
-</dict>
-</plist>
+```
+<app-scheme>://<bundle-id>
 ```
 
-Замените параметры, указанные в этом файле, на параметры вашего веб-API.
+- 	Схема **aap-scheme** регистрируется в проекте XCode и используется для вызова из других приложений. Данные сведения можно найти в файле Info.plist (URL Types -> URL Identifier). Если вы еще не создали или не настроили хотя бы одну схему, следует сделать это.
+- 	**bundle-id** — это идентификатор пакета, который можно найти в разделе "identity" параметров проекта XCode.
+	
+Пример для рассматриваемого проекта QuickStart: ***msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
 
-##### ПРИМЕЧАНИЕ
+## *2. Регистрация приложения DirectorySearcher*
+Чтобы приложение могло получать маркеры, сначала необходимо его зарегистрировать в клиенте Azure AD и предоставить ему разрешение на доступ к интерфейсу Graph API Azure AD:
 
-Текущие значения по умолчанию настроены для работы с нашей [службой-образцом REST API под управлением Azure AD, реализованной для Node.js](https://github.com/AzureADSamples/WebAPI-Nodejs). Но вам потребуется указать clientID вашего веб-интерфейса API. При использовании собственного интерфейса API вам потребуется обновить конечные точки так, как это необходимо.
+-	Войдите на портал управления Azure.
+-	В левой панели навигации щелкните **Active Directory**.
+-	Выберите клиента, в котором будет зарегистрировано приложение.
+-	Перейдите на вкладку **Приложения** и нажмите кнопку **Добавить** в нижней панели.
+-	Следуйте инструкциям на экране, а затем создайте новое **Собственное клиентское приложение**.
+    -	**Имя** приложения отображает его описание конечным пользователям.
+    -	**URI перенаправления** представляет собой сочетание схемы и строки, используемое Azure AD для возвращения любых маркеров, запрошенных приложением. Введите значение для конкретного приложения, используя приведенные сведения.
+-	После завершения регистрации служба Azure AD присваивает приложению уникальный идентификатор клиента. Это значение понадобится в следующих разделах, поэтому скопируйте его с вкладки **Настройка**.
+- Также на вкладке **Настройка** найдите раздел "Разрешения для других приложений". Для приложения Azure Active Directory добавьте разрешение на **Допуск к каталогу вашей организации** в списке **Делегированные разрешения**. Это позволит приложению запрашивать интерфейс Graph API для пользователей.
 
-## Этап 7. Создание и запуск приложения
+## *3. Установка и настройка ADAL*
+Теперь, когда приложение зарегистрировано в Azure AD, можно установить библиотеку ADAL и написать код для работы с удостоверением. Чтобы библиотека ADAL могла взаимодействовать с Azure AD, необходимо предоставить некоторые сведения о регистрации приложения. В первую очередь добавьте ADAL в проект DirectorySearcher, используя Cocoapods.
 
-Вы сможете подключиться к конечной точке REST API, и будут запрошены учетные данные из вашей учетной записи Azure AD.
+```
+$ vi Podfile
+```
+Добавьте в файл Podfile следующий код:
 
-Дополнительные ресурсы: - [AzureADSamples на GitHub >>](https://github.com/AzureAdSamples) -  документация по Azure AD на [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
+```
+source 'https://github.com/CocoaPods/Specs.git'
+link_with ['QuickStart']
+xcodeproj 'QuickStart'
 
-<!---HONumber=58--> 
+pod 'ADALiOS'
+```
+
+Теперь загрузите файл Podfile с помощью Cocoapods. Будет создана новая рабочая область XCode.
+
+```
+$ pod install
+...
+$ open QuickStart.xcworkspace
+```
+
+-	В проекте QuickStart откройте файл `settings.plist`. Замените значения элементов в соответствующем разделе на значения, введенные на портале Azure. Код будет использовать эти значения при каждом обращении к библиотеке ADAL.
+    -	`tenant` — это домен вашего клиента Azure AD, например contoso.onmicrosoft.com
+    -	`clientId` — это идентификатор clientId приложения, скопированный с портала.
+    -	`redirectUri` — это URL-адрес перенаправления, зарегистрированный на портале.
+
+## *4. Использование библиотеки ADAL для получения маркеров из Azure AD*
+Основной принцип ADAL состоит в том, что каждый раз, когда вашему приложению необходим маркер доступа, оно будет просто вызывать сompletionBlock `+(void) getToken : `, а библиотека ADAL сделает все остальное.
+
+-	В проекте `QuickStart` откройте `GraphAPICaller.m` и найдите комментарий "`// TODO: getToken for generic Web API flows. Returns a token with no additional parameters provided.`" вверху. Здесь вы указываете координаты, которые требуются библиотеке ADAL для взаимодействия с Azure AD, и сообщаете способ кэширования маркеров.
+
+```ObjC
++(void) getToken : (BOOL) clearCache
+           parent:(UIViewController*) parent
+completionHandler:(void (^) (NSString*, NSError*))completionBlock;
+{
+    AppData* data = [AppData getInstance];
+    if(data.userItem){
+        completionBlock(data.userItem.accessToken, nil);
+        return;
+    }
+    
+    ADAuthenticationError *error;
+    authContext = [ADAuthenticationContext authenticationContextWithAuthority:data.authority error:&error];
+    authContext.parentController = parent;
+    NSURL *redirectUri = [[NSURL alloc]initWithString:data.redirectUriString];
+    
+    [ADAuthenticationSettings sharedInstance].enableFullScreen = YES;
+    [authContext acquireTokenWithResource:data.resourceId
+                                 clientId:data.clientId
+                              redirectUri:redirectUri
+                           promptBehavior:AD_PROMPT_AUTO
+                                   userId:data.userItem.userInformation.userId
+                     extraQueryParameters: @"nux=1" // if this strikes you as strange it was legacy to display the correct mobile UX. You most likely won't need it in your code.
+                          completionBlock:^(ADAuthenticationResult *result) {
+                              
+                              if (result.status != AD_SUCCEEDED)
+                              {
+                                  completionBlock(nil, result.error);
+                              }
+                              else
+                              {
+                                  data.userItem = result.tokenCacheStoreItem;
+                                  completionBlock(result.tokenCacheStoreItem.accessToken, nil);
+                              }
+                          }];
+}
+
+```
+
+- Мы будем использовать этот маркер для поиска пользователей в графе. Найдите комментарий `// TODO: implement SearchUsersList`. Этот метод выполняет запрос GET в интерфейс API Graph службы Azure AD для получения списка пользователей, чьи UPN начинаются с определенного слова. Но для отправки запросов в Graph API необходимо включить access_token в заголовок `Authorization` запроса — именно отсюда ADAL начинает свою работу.
+
+```ObjC
++(void) searchUserList:(NSString*)searchString
+                parent:(UIViewController*) parent
+       completionBlock:(void (^) (NSMutableArray* Users, NSError* error)) completionBlock
+{
+    if (!loadedApplicationSettings)
+    {
+        [self readApplicationSettings];
+    }
+    
+    AppData* data = [AppData getInstance];
+    
+    NSString *graphURL = [NSString stringWithFormat:@"%@%@/users?api-version=%@&$filter=startswith(userPrincipalName, '%@')", data.taskWebApiUrlString, data.tenant, data.apiversion, searchString];
+
+    
+    [self craftRequest:[self.class trimString:graphURL]
+                parent:parent
+     completionHandler:^(NSMutableURLRequest *request, NSError *error) {
+         
+         if (error != nil)
+         {
+             completionBlock(nil, error);
+         }
+         else
+         {
+             
+             NSOperationQueue *queue = [[NSOperationQueue alloc]init];
+             
+             [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+                 
+                 if (error == nil && data != nil){
+                     
+                     NSDictionary *dataReturned = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+                     
+                     // We can grab the top most JSON node to get our graph data.
+                     NSArray *graphDataArray = [dataReturned objectForKey:@"value"];
+                     
+                     // Don't be thrown off by the key name being "value". It really is the name of the
+                     // first node. :-)
+                     
+                     //each object is a key value pair
+                     NSDictionary *keyValuePairs;
+                     NSMutableArray* Users = [[NSMutableArray alloc]init];
+                     
+                     for(int i =0; i < graphDataArray.count; i++)
+                     {
+                         keyValuePairs = [graphDataArray objectAtIndex:i];
+                         
+                         User *s = [[User alloc]init];
+                         s.upn = [keyValuePairs valueForKey:@"userPrincipalName"];
+                         s.name =[keyValuePairs valueForKey:@"givenName"];
+                         
+                         [Users addObject:s];
+                     }
+                     
+                     completionBlock(Users, nil);
+                 }
+                 else
+                 {
+                     completionBlock(nil, error);
+                 }
+                 
+             }];
+         }
+     }];
+    
+}
+
+```
+- Когда приложение запрашивает маркер путем вызова `getToken(...)`, библиотека ADAL пытается вернуть маркер без запроса учетных данных пользователя. Если ADAL решит, что пользователь должен выполнить вход для получения маркера, будет отображено диалоговое окно входа. Введенные учетные данные пользователя будут использованы для проверки подлинности, и в случае успешной проверки библиотека вернет маркер. Если библиотеке ADAL не удастся по какой-либо причине вернуть маркер, она вызовет исключение `AdalException`.
+- Обратите внимание, что объект `AuthenticationResult` содержит объект `tokenCacheStoreItem`, который может использоваться для сбора сведений, необходимых приложению. В проекте QuickStart объект `tokenCacheStoreItem` используется, чтобы определить, была ли выполнена проверка подлинности. 
+
+
+## Этап 5. Компиляция и запуск приложения
+
+
+
+Поздравляем! Теперь у нас есть рабочее приложение для iOS, которое позволяет проверять подлинность пользователей, безопасно вызывать методы веб-API по протоколу OAuth 2.0 и получать основные сведения о пользователе. Если же вы этого еще не сделали, пришло время добавить в клиент нескольких пользователей. Запустите приложение QuickStart и выполните вход как один из пользователей. Осуществите поиск других пользователей по их имени участника-пользователя. Закройте приложение и снова запустите его. Обратите внимание на то, что пользовательский сеанс остался без изменений.
+
+Библиотека ADAL упрощает включение в приложение всех этих типичных функций работы с удостоверением. Он отвечает за всю грязную работу: управление кэшем, поддержку протокола OAuth, предоставление пользователю пользовательского интерфейса для входа, обновление истекших маркеров и многое другое. Все, что вам действительно нужно знать, — это вызов интерфейса API `getToken`.
+
+Завершенный образец (без ваших настроек) вы можете загрузить [отсюда](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip). Теперь можно приступить к изучению других сценариев. Вы можете попробовать:
+
+[Безопасность веб-API с Azure AD для Node.js>>](../active-directory-devquickstarts-webapi-nodejst.md)
+
+##Дополнительные ресурсы:
+- [AzureADSamples на GitHub >>](https://github.com/AzureAdSamples)
+- [CloudIdentity.com >>](https://cloudidentity.com)
+- Документация по Azure AD [на сайте Azure.com](http://azure.microsoft.com/documentation/services/active-directory/)
+ 
+
+<!---HONumber=58_postMigration-->

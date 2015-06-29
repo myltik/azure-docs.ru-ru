@@ -1,25 +1,25 @@
 <properties
-	pageTitle="Приступая к работе с командлетами Azure PowerShell"
-	description="Предоставляет командлеты Azure PowerShell, используемые для управления Пакетной службой Azure"
-	services="batch"
-	documentationCenter=""
-	authors="dlepow"
-	manager="timlt"
-	editor="yidingz"/>
+   pageTitle="Приступая к работе с командлетами PowerShell Пакетной службы Azure | Microsoft Azure"
+   description="Предоставляет командлеты Azure PowerShell, используемые для управления Пакетной службой Azure"
+   services="batch"
+   documentationCenter=""
+   authors="dlepow"
+   manager="timlt"
+   editor=""/>
 
 <tags
-	ms.service="batch"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="powershell"
-	ms.workload="big-compute"
-	ms.date="04/15/2015"
-	ms.author="danlep"/>
+   ms.service="batch"
+   ms.devlang="NA"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="powershell"
+   ms.workload="big-compute"
+   ms.date="05/29/2015"
+   ms.author="danlep"/>
 
 # Приступая к работе с командлетами Azure PowerShell
 Эта статья представляет краткое введение в командлеты Azure PowerShell, которые можно использовать для управления учетными записями Пакетной службы и получения сведений о рабочих элементах службы, ее заданиях и задачах.
 
-Подробный синтаксис командлета: введите ```get-help <Cmdlet_name>```.
+Для получения подробных сведений о синтаксисе командлета введите `get-help <Cmdlet_name>` или см. [справку по командлету Пакетной службы Azure](https://msdn.microsoft.com/library/azure/mt125957.aspx).
 
 
 ## Предварительные требования
@@ -123,9 +123,9 @@ Get-AzureBatchPool -BatchContext $context
 Чтобы найти объекты, которые вас интересуют, установите фильтр OData в параметре **Фильтр**. Например, можно найти все рабочие элементы с именами, начинающимися с «myWork»:
 
 ```
-$filter = "startswith(name,'myWork') and state eq 'active'" 
+$filter = "startswith(name,'myWork') and state eq 'active'"
 Get-AzureBatchWorkItem -Filter $filter -BatchContext $context
-``` 
+```
 
 Этот способ не такой гибкий, как использование «Where-Object» в локальном конвейере. Но запрос отправляется непосредственно Пакетной службе, чтобы вся фильтрация выполнялась на стороне сервера, сохраняя пропускную способность Интернета.
 
@@ -133,8 +133,8 @@ Get-AzureBatchWorkItem -Filter $filter -BatchContext $context
 
 Альтернатива фильтру OData – использование параметра **Имя**. Отправить запрос на конкретный рабочий элемент с именем «myWorkItem» можно так:
 
-``` 
-Get-AzureBatchWorkItem -Name "myWorkItem" -BatchContext $context 
+```
+Get-AzureBatchWorkItem -Name "myWorkItem" -BatchContext $context
 
 ```
 Параметр **Имя** поддерживает поиск только полного имени без подстановочных знаков или фильтров в стиле OData.
@@ -144,7 +144,7 @@ Get-AzureBatchWorkItem -Name "myWorkItem" -BatchContext $context
 Командлеты Пакетной службы могут использовать конвейер PowerShell для передачи данных между командлетами. Это имеет тот же эффект, что и указание параметра, но упрощает вывод нескольких сущностей. Например, вы можете найти все задачи в своей учетной записи:
 
 ```
-Get-AzureBatchWorkItem -BatchContext $context | Get-AzureBatchJob -BatchContext $context | Get-AzureBatchTask -BatchContext $context 
+Get-AzureBatchWorkItem -BatchContext $context | Get-AzureBatchJob -BatchContext $context | Get-AzureBatchTask -BatchContext $context
 ```
 
 ### Использование параметра MaxCount
@@ -152,7 +152,7 @@ Get-AzureBatchWorkItem -BatchContext $context | Get-AzureBatchJob -BatchContext 
 По умолчанию каждый командлет возвращает максимум 1000 объектов. Если этот предел достигнут, вы можете сузить свой фильтр для возврата меньшего количества объектов или явно задать максимальное использование параметра **MaxCount**. Например:
 
 ```
-Get-AzureBatchWorkItem -MaxCount 2500 -BatchContext $context 
+Get-AzureBatchWorkItem -MaxCount 2500 -BatchContext $context
 
 ```
 
@@ -161,6 +161,7 @@ Get-AzureBatchWorkItem -MaxCount 2500 -BatchContext $context
 ## Связанные разделы
 * [Технический обзор Пакетной службы Azure](batch-technical-overview.md)
 * [Скачать Azure PowerShell](http://go.microsoft.com/p/?linkid=9811175)
-* [Справка по командлетам Azure](https://msdn.microsoft.com/library/jj554330.aspx)
+* [Справка по командлету Пакетной службы Azure](https://msdn.microsoft.com/library/azure/mt125957.aspx)
+* [Эффективные запросы списков](batch-efficient-list-queries.md)
 
-<!---HONumber=GIT-SubDir-->
+<!---HONumber=58_postMigration-->

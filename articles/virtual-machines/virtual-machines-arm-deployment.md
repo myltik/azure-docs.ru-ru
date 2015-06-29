@@ -25,15 +25,15 @@
 Для работы с этим учебником необходимы указанные ниже компоненты.
 
 - [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
-- [Учетная запись хранения Azure](../storage-create-storage-account.md)
-- [Windows Management Framework 3.0](http://www.microsoft.com/ru-ru/download/details.aspx?id=34595) или [Windows Management Framework 4.0](http://www.microsoft.com/ru-ru/download/details.aspx?id=40855)
+- [Учетная запись хранения Azure.](../storage-create-storage-account.md)
+- [Windows Management Framework 3.0](http://www.microsoft.com/ru-ru/download/details.aspx?id=34595) или [Windows Management Framework 4.0.](http://www.microsoft.com/ru-ru/download/details.aspx?id=40855)
 - [Azure PowerShell](../install-configure-powershell.md)
 
 На выполнение этих действий требуется примерно 30 минут.
 
-## Действие 1. Добавление приложения в Azure AD и настройка разрешений
+## Шаг 1. Добавление приложения в Azure AD и настройка разрешений
 
-Чтобы использовать Azure AD для проверки подлинности запросов к диспетчеру ресурсов Azure, необходимо добавить приложение в каталог по умолчанию. Чтобы добавить приложение, выполните указанные ниже действия.
+Чтобы использовать Azure AD для аутентификации запросов к диспетчеру ресурсов Azure, необходимо добавить приложение в каталог по умолчанию. Чтобы добавить приложение, выполните указанные ниже действия.
 
 1. Откройте командную строку Azure PowerShell и выполните следующую команду:
 
@@ -53,7 +53,7 @@
 
 	>[AZURE.NOTE]Кроме того, идентификатор приложения отображается в поле идентификатора клиента приложения на портале управления.
 
-5. Замените выражение {application-id} только что записанным идентификатором, а затем создайте субъект-службу для приложения:
+5. Замените {application-id} только что записанным идентификатором, а затем создайте субъект-службу для приложения:
 
         New-AzureADServicePrincipal -ApplicationId {application-id} 
 
@@ -71,7 +71,7 @@
 
 3. В обозревателе решений щелкните правой кнопкой мыши имя проекта и выберите пункт **Управление пакетами NuGet**.
 
-4. В поле поиска введите текст *Active Directory*, нажмите кнопку **Установить** для пакета библиотеки проверки подлинности Active Directory, а затем следуйте инструкциям по установке пакета.
+4. В поле поиска введите текст *Active Directory*, нажмите кнопку **Установить** для пакета библиотеки аутентификации Active Directory, а затем следуйте указаниям по установке пакета.
 
 5. В верхней части страницы выберите пункт **Включить предварительный выпуск**. В поле поиска введите текст *Azure Compute*, нажмите кнопку **Установить**, чтобы установить библиотеки Compute для .NET, а затем следуйте инструкциям по установке пакета.
 
@@ -87,7 +87,7 @@
 
 Теперь, когда создано приложение Azure Active Directory и установлена библиотека проверки подлинности, можно на основе сведений о приложении создать учетные данные, которые будут использоваться для проверки подлинности запросов к диспетчеру ресурсов Azure. Выполните следующие действия.
 
-1.	Откройте файл Program.cs для созданного вами проекта и добавьте в начало файла указанные ниже операторы.
+1.	Откройте файл Program.cs для созданного вами проекта и добавьте в начало файла указанные ниже операторы using:
 
         using Microsoft.Azure;
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
@@ -101,7 +101,7 @@
 		using Microsoft.Azure.Management.Compute.Models;
 
 
-2. Добавьте в класс Program указанный ниже метод, чтобы получить маркер, необходимый для создания учетных данных.
+2. Добавьте в класс Program указанный ниже метод, чтобы получить токен, необходимый для создания учетных данных:
 
 		private static string GetAuthorizationHeader()
         {
@@ -119,7 +119,7 @@
           return token;
         }
 
-	Замените текст {application-id} записанным ранее идентификатором приложения, текст {password} — паролем, заданным вами для приложения AD, и текст {tenant-id} — идентификатором клиента для вашей подписки. Чтобы узнать идентификатор клиента, выполните команду Get-AzureSubscription.
+	Замените {application-id} записанным ранее идентификатором приложения, {password} — паролем, заданным вами для приложения AD, и {tenant-id} — идентификатором клиента для своей подписки. Чтобы узнать идентификатор клиента, выполните команду Get-AzureSubscription.
 
 3.	Чтобы создать учетные данные, добавьте указанный ниже код в метод Main в файле Program.cs.
 
@@ -136,7 +136,7 @@
 
 Ресурсы всегда развертываются в группу ресурсов. Чтобы создать группу ресурсов, в которую будут развернуты ресурсы, используйте классы [ResourceGroup](https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.models.resourcegroup.aspx) и [ResourceManagementClient](https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.resourcemanagementclient.aspx).
 
-1.	Чтобы создать группу ресурсов, добавьте указанный ниже метод в класс Program.
+1.	Чтобы создать группу ресурсов, добавьте указанный ниже метод в класс Program:
 
 		public async static void CreateResourceGroup(TokenCloudCredentials credential)
 		{
@@ -387,4 +387,4 @@
 
 	![Создание приложения AD](./media/virtual-machines-arm-deployment/crpportal.png)
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

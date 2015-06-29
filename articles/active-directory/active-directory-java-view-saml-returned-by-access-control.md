@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Просмотр кода SAML, возвращаемого службой контроля доступа (Java)" 
-	description="Узнайте, как просматривать SAML, возвращенный службой контроля доступа в приложениях Java, размещенных в Azure." 
-	services="" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
-	editor="mollybos"/>
+<properties
+    pageTitle="Просмотр кода SAML, возвращаемого службой контроля доступа (Java)"
+    description="Узнайте, как просматривать SAML, возвращенный службой контроля доступа в приложениях Java, размещенных в Azure."
+	services="active-directory" 
+    documentationCenter="java"
+    authors="rmcmurray"
+    manager="wpickett"
+    editor="jimbe" />
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="09/25/2014" 
-	ms.author="robmcm"/>
+<tags
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="Java"
+    ms.topic="article"
+    ms.date="06/03/2015"
+    ms.author="robmcm" />
 
 # Как просматривать SAML, возвращенный службой Azure Access Control
 
@@ -26,20 +26,11 @@
 
 > [AZURE.NOTE]Фильтр служб Azure Access Control (от Microsoft Open Technologies) — это CTP-версия. Эта предварительная версия программного обеспечения не располагает официальной поддержкой со стороны Microsoft Open Technologies, Inc. и корпорации Майкрософт.
 
-## Оглавление
-
--   [Предварительные требования][]
--   [Добавление библиотеки JspWriter к пути построения и сборке развертывания][]
--   [Изменение JSP-файла для отображения кода SAML][]
--   [запуск приложения][].
--   [Дальнейшие действия][]
-
-
-## <a name="pre"></a>Предварительные требования
+## Предварительные требования
 
 Прежде чем выполнять задачи данного руководства, выполните образец, представленный в разделе [Проверка подлинности веб-пользователей с помощью службы контроля доступа Azure и Eclipse][], и используйте его в качестве отправной точки для дальнейшей работы.
 
-## <a name="add_library"></a>Добавление библиотеки JspWriter к пути построения и сборке развертывания
+## Добавление библиотеки JspWriter к пути построения и сборке развертывания
 
 Добавьте библиотеку, содержащую класс **javax.servlet.jsp.JspWriter**, к пути построения и сборке развертывания. Библиотека **jsp-api.jar** для сервера Tomcat размещается в папке Apache **lib**.
 
@@ -51,7 +42,7 @@
 6. Выберите соответствующую библиотеку и нажмите кнопку **Готово**.
 7. Нажмите кнопку **ОК**, чтобы закрыть диалоговое окно **Свойства MyACSHelloWorld**.
 
-## <a name="modify_jsp"></a>Изменение JSP-файла для отображения кода SAML
+## Изменение JSP-файла для отображения кода SAML
 
 Измените файл **index.jsp**, используя следующий код.
 
@@ -185,22 +176,23 @@
 	</body>
 	</html>
 
-## <a name="run_application"></a>Выполнение приложения
+## Выполнение приложения
 
 1. Запустите свое приложение в эмуляторе среды выполнения приложений или разверните его в среде Azure, следуя инструкциям раздела [Проверка подлинности веб-пользователей с помощью службы контроля доступа Azure и Eclipse][].
 2. Запустите браузер и откройте в нем свое веб-приложение. После того, как вы войдете в приложение, будут показаны данные SAML, включая утверждения безопасности, предоставляемые поставщиком удостоверений.
 
-## <a name="next_steps"></a>Дальнейшие действия
+## Дальнейшие действия
 
 Чтобы продолжить изучение функций ACS и поэкспериментировать с более сложными сценариями, см. раздел [Служба Access Control 2.0][].
 
-[Предварительные требования]: #pre
-[Изменение JSP-файла для отображения кода SAML]: #modify_jsp
-[Добавление библиотеки JspWriter к пути построения и сборке развертывания]: #add_library
-[запуск приложения]: #run_application
-[Дальнейшие действия]: #next_steps
+[Prerequisites]: #pre
+[Modify the JSP file to display SAML]: #modify_jsp
+[Add the JspWriter library to your build path and deployment assembly]: #add_library
+[Run the application]: #run_application
+[Next steps]: #next_steps
 [Служба Access Control 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
-[Проверка подлинности веб-пользователей с помощью службы контроля доступа Azure и Eclipse]: active-directory-java-authenticate-users-access-control-eclipse.md
+[Проверка подлинности веб-пользователей с помощью службы контроля доступа Azure и Eclipse]: ../active-directory-java-authenticate-users-access-control-eclipse
 [saml_output]: ./media/active-directory-java-view-saml-returned-by-access-control/SAML_Output.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

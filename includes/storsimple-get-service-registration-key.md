@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="SharS"
    manager="adinah"
-   editor="tysonn" /> 
+   editor="tysonn" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
@@ -16,7 +16,7 @@
    ms.author="v-sharos" />
 
 
-### Получение регистрационного ключа службы StorSimple
+#### Получение регистрационного ключа службы StorSimple
 
 1. На странице **службы диспетчера StorSimple** щелкните созданную службу. Отобразится страница **Быстрый запуск**. (Для доступа к странице **Быстрый запуск** можно также в любое время щелкнуть значок быстрого запуска ![Значок быстрого запуска StorSimple](./media/storsimple-get-service-registration-key/HCS_QuickStartIcon-include.png).)
 
@@ -35,4 +35,5 @@
 > [AZURE.NOTE]Регистрационный ключ службы используется для регистрации всех устройств, которые необходимо зарегистрировать в службе диспетчера StorSimple.
 
  
-<!--HONumber=52-->
+
+<!---HONumber=58_postMigration-->

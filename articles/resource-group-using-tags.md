@@ -112,4 +112,4 @@
 - [Создание нового субъекта-службы Azure с помощью классического портала Azure](./resource-group-create-service-principal-portal.md)  
   
 
-<!---HONumber=58-->
+<!---HONumber=58_postMigration-->

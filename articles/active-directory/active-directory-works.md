@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2015"
+	ms.date="06/02/2015"
 	ms.author="curtand"/>
 
 
@@ -21,7 +21,8 @@
 # Как работает Azure Active Directory?
 
 
-[Что такое Azure AD?](active-directory-whatis.md)<br> [Приступая к работе](active-directory-get-started.md)<br> [Дальнейшие действия](active-directory-next-steps.md)<br> [Подробнее](active-directory-learn-map.md)
+###Другие статьи на эту тему
+[Что такое Azure AD?](active-directory-whatis.md)<br> [Как это работает?](active-directory-works.md)<br> [Приступая к работе](active-directory-get-started.md)<br> [Дальнейшие действия](active-directory-next-steps.md)<br> [Подробнее](active-directory-learn-map.md)
 
 
 Azure AD создает ваш личный идентификационный ландшафт в облаке. Его можно подключить к локальной идентификационной системе или использовать отдельно.
@@ -47,5 +48,6 @@ Azure AD поддерживает несколько широко использ
 
 * [Регистрация организации в Azure](sign-up-organization.md)
 * [Удостоверение Azure](fundamentals-identity.md)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

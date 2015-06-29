@@ -1,67 +1,56 @@
-﻿## Создание проекта веб-API
+## Создание проекта веб-интерфейса API
 
-С помощью этого учебника вы научитесь создавать серверную часть веб-API ASP.NET для аутентификации клиентов и создания уведомлений, изменять существующую серверную часть из предыдущих проектов и [отправлять push-уведомления пользователям, которые прошли аутентификацию](../articles/mobile-services-dotnet-backend-ios-push-notifications-app-users.md)  [AU1]
+В следующих разделах будет создаваться новый серверный веб-API ASP.NET. Он будет иметь три основные функции:
 
-> [AZURE.NOTE] **Важно!** Перед тем как начать работу с этим учебником, убедитесь, что у вас установлена последняя версия диспетчера пакетов NuGet. Чтобы проверить, запустите Visual Studio. В меню **Средства** щелкните пункт **Расширения и обновления**. Найдите **Диспетчер пакетов NuGet для Visual Studio 2013** и убедитесь, что у вас версия 2.8.50313.46 или более поздняя. Если это не так, переустановите диспетчер пакетов NuGet.
+1. **Аутентификация клиентов**: позже будет добавлен обработчик сообщений для аутентификации клиентских запросов и связывания пользователя с запросом.
+2. **Регистрация клиентов для получения уведомлений**: позже будет добавлен контроллер для обработки новых регистраций клиентских устройств для получения уведомлений. Имя пользователя, прошедшего аутентификацию, будет автоматически добавляться в регистрацию как [тег](https://msdn.microsoft.com/library/azure/dn530749.aspx).
+3. **Отправка уведомлений клиентам**: затем также будет добавлен контроллер, дающий пользователю возможность инициировать отправку безопасных push-уведомлений устройствам и клиентам, связанным с тегом. 
+
+Следующие шаги демонстрируют, как создать новую серверную часть веб-API ASP.NET:
+
+
+> [AZURE.NOTE]**Важно!** Перед тем как начать работу с этим учебником, убедитесь, что у вас установлена последняя версия диспетчера пакетов NuGet. Чтобы проверить, запустите Visual Studio. В меню **Средства** щелкните пункт **Расширения и обновления**. Найдите **Диспетчер пакетов NuGet для Visual Studio 2013** и убедитесь, что у вас версия 2.8.50313.46 или более поздняя. Если это не так, переустановите диспетчер пакетов NuGet.
 > 
-> ![][4]
+> ![][B4]
 
-> [AZURE.NOTE] Убедитесь, что вы установили Visual Studio [SDK Azure](http://azure.microsoft.com/downloads/) для развертывания веб-сайта.
+> [AZURE.NOTE]Убедитесь, что вы установили [пакет SDK для Azure](http://azure.microsoft.com/downloads/) для Visual Studio, используемый для развертывания веб-сайта.
 
 1. Запустите Visual Studio или Visual Studio Express.
-2. В Visual Studio щелкните **Файл**, **Создать**, **Проект**, откройте **Шаблоны**, **Visual C#**, выберите пункт **Веб-приложения** и **Веб-приложение ASP.NET**, введите имя **AppBackend** и нажмите кнопку **ОК**. 
+2. В Visual Studio щелкните **Файл**, **Создать**, **Проект**, откройте **Шаблоны**, **Visual C\#**, выберите пункт **Веб-приложения** и **Веб-приложение ASP.NET**, введите имя **AppBackend** и нажмите кнопку **ОК**. 
 	
-	![][1]
+	![][B1]
 
 3. В диалоговом окне **Новый проект ASP.NET** выберите **Веб-интерфейс API** и нажмите кнопку **ОК**.
 
-	![][2]
+	![][B2]
 
-4. В диалоговом окне **Настройка сайта Azure** выберите подписку, регион и базу данных для этого проекта. Затем нажмите кнопку **ОК**, чтобы создать проект.
+4. В диалоговом окне **Настройка сайта Azure** выберите подписку, регион и базу данных для этого проекта. Введите пароль для учетной записи и нажмите кнопку **ОК**, чтобы создать проект.
 
-	![][5]
+	![][B5]
 
-5. В обозревателе решений щелкните правой кнопкой мыши проект **AppBackend** и выберите **Управление пакетами NuGet**.
 
-6. В левой части нажмите **В сети** и найдите пакет **servicebus**, задав это значение в поле **Поиск**.
 
-7. В списке результатов щелкните **Служебная шина Microsoft Azure**, а затем нажмите кнопку **Установить**. Завершите установку и закройте окно диспетчера пакетов NuGet.
+## Аутентификация клиентов в серверной части веб-API
 
-	![][14]
+В этом разделе вы создадите новый класс обработчика сообщений с именем **AuthenticationTestHandler** для новой серверной части. Этот класс является производным от [DelegatingHandler](https://msdn.microsoft.com/library/system.net.http.delegatinghandler.aspx) и добавлен в качестве обработчика сообщений, чтобы он мог обрабатывать все запросы, поступающие в серверную часть.
 
-8. Теперь создадим новый класс **Notifications.cs**. Перейдите в обозреватель решений, нажмите правой кнопкой папку **Модели**, выберите **Добавить**, затем **Класс**. После присвоения имени новому классу **Notifications.cs** нажмите кнопку **Добавить**, чтобы сформировать класс. В этом модуле представлены разные уведомления безопасности, которые будут отправлены. В полной реализации уведомления хранятся в базе данных. Для упрощения пример из этого учебника сохраняет их в памяти.
 
-	![][6]
 
-9. В Notifications.cs добавьте следующую инструкцию `using` в начало файла:
+1. В обозревателе решений щелкните правой кнопкой мыши проект **AppBackend**, выберите **Добавить**, затем щелкните **Класс**. Присвойте новому классу имя **AuthenticationTestHandler.cs** и нажмите кнопку **Добавить**, чтобы создать класс. Этот класс используется для аутентификации пользователей с помощью *обычной проверки подлинности*. Обратите внимание, что ваше приложение может использовать любую схему проверки подлинности.
 
-        using Microsoft.ServiceBus.Notifications;
-
-10. Затем замените определение класса `Notifications` на следующее и замените два заполнителя на строку соединения (с полным доступом) для вашего центра уведомлений и имя центра (доступно на [портале управления Azure](http://manage.windowsazure.com)):
-
-		public class Notifications
-        {
-            public static Notifications Instance = new Notifications();
-        
-            public NotificationHubClient Hub { get; set; }
-
-            private Notifications() {
-                Hub = NotificationHubClient.CreateClientFromConnectionString("{conn string with full access}", "{hub name}");
-            }
-        }
-
-11. Затем создадим новый класс **AuthenticationTestHandler.cs**. В обозревателе решений нажмите правой кнопкой проект **AppBackend**, выберите **Добавить**, затем нажмите **Класс**. Дайте имя новому классу **AuthenticationTestHandler.cs** и нажмите кнопку **Добавить**, чтобы сформировать класс. Этот класс используется для проверки подлинности пользователей с помощью метода *Basic Authentication*. Обратите внимание, что ваше приложение может использовать любую схему проверки подлинности.
-
-12. В AuthenticationTestHandler.cs добавьте следующие инструкции `using`:
+2. В AuthenticationTestHandler.cs добавьте следующие операторы `using`:
 
         using System.Net.Http;
-        using System.Threading.Tasks;
         using System.Threading;
-        using System.Text;
         using System.Security.Principal;
         using System.Net;
+        using System.Web;
 
-13. В AuthenticationTestHandler.cs замените определение класса `AuthenticationTestHandler` на следующее:
+3. В AuthenticationTestHandler.cs замените определение класса `AuthenticationTestHandler` следующим кодом.
+
+	Этот обработчик будет обрабатывать все запросы, включающие заголовок *Authorization*. Если запрос использует *обычную* проверку подлинности, а строка имени пользователя соответствует строке пароля, то он будет авторизован серверной частью. В противном случае запрос будет отклонен. Этот подход нельзя назвать настоящим методом аутентификации и авторизации. Это очень простой пример для этого учебника.
+
+	Если сообщение запроса аутентифицируется и авторизуется `AuthenticationTestHandler`, то пользователь обычной проверки подлинности будет подключен к текущему запросу в [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx). Информацию о пользователе в HttpContext будет использовать другой контроллер (RegisterController), чтобы добавить [тег](https://msdn.microsoft.com/library/azure/dn530749.aspx) в запрос регистрации для получения уведомлений.
 
 		public class AuthenticationTestHandler : DelegatingHandler
 	    {
@@ -88,9 +77,9 @@
 	                    System.Threading.Thread.CurrentPrincipal =
 	                        System.Web.HttpContext.Current.User;
 	                }
-	                else return Unauthorised();
+	                else return Unauthorized();
 	            }
-	            else return Unauthorised();
+	            else return Unauthorized();
 	
 	            return base.SendAsync(request, cancellationToken);
 	        }
@@ -101,7 +90,7 @@
 	            return user == password;
 	        }
 	
-	        private Task<HttpResponseMessage> Unauthorised()
+	        private Task<HttpResponseMessage> Unauthorized()
 	        {
 	            var response = new HttpResponseMessage(HttpStatusCode.Forbidden);
 	            var tsc = new TaskCompletionSource<HttpResponseMessage>();
@@ -110,19 +99,59 @@
 	        }
 	    }
 
-	> [AZURE.NOTE] **Примечание о безопасности**. Класс `AuthenticationTestHandler` не обеспечивает настоящую проверку подлинности. Этот класс используется лишь для имитации базовой проверки подлинности и не является безопасным. В реальных приложениях и службах необходимо реализовать безопасный механизм проверки подлинности.				
+	> [AZURE.NOTE]**Примечание о безопасности**. Класс `AuthenticationTestHandler` не обеспечивает настоящую аутентификацию. Этот класс используется лишь для имитации базовой проверки подлинности и не является безопасным. В реальных приложениях и службах необходимо реализовать безопасный механизм проверки подлинности.
 
-14. Добавьте следующий код в конец метода `Register` в классе **App_Start/WebApiConfig.cs**:
+4. Добавьте следующий код в конец метода `Register` в классе **App_Start/WebApiConfig.cs**, чтобы зарегистрировать обработчик событий:
 
 		config.MessageHandlers.Add(new AuthenticationTestHandler());
 
-15. Next we create a new controller **RegisterController**. In Solution Explorer, right-click the **Controllers** folder, then click **Add**, then click **Controller**. Click the **Web API 2 Controller -- Empty** item, and then click **Add**. Name the new class **RegisterController**, and then click **Add** again to generate the controller.
+5. Сохраните изменения.
 
-	![][7]
+## Регистрация для получения уведомлений с помощью серверной части веб-API
 
-	![][8]
+В этом разделе мы добавим новый контроллер в серверный веб-API, который будет обрабатывать запросы регистрации пользователя и устройства на получение уведомлений с помощью клиентской библиотеки для центров уведомлений, которая является клиентской библиотекой служебной шины Azure. Контроллер будет добавлять тег пользователя для пользователя, который прошел аутентификацию и подключен к HttpContext с помощью `AuthenticationTestHandler`. Тег будет в виде строки: `"username:<actual username>"`.
 
-16. В RegiterController.cs добавьте следующие инструкции `using`:
+
+ 
+
+1. В обозревателе решений щелкните правой кнопкой мыши проект **AppBackend** и выберите **Управление пакетами NuGet**.
+
+2. В левой части щелкните **В сети** и найдите пакет **servicebus**, задав это значение в поле **Поиск**.
+
+3. В списке результатов щелкните **Служебная шина Microsoft Azure**, а затем нажмите кнопку **Установить**. Завершите установку и закройте окно диспетчера пакетов NuGet.
+
+	![][B14]
+
+4. Теперь мы создадим файл нового класса, представляющий разные безопасные уведомления, которые будут отправлены. В полной реализации уведомления хранятся в базе данных. Для упрощения пример из этого учебника сохраняет их в памяти. В обозревателе решений щелкните правой кнопкой мыши папку **Модели**, щелкните **Добавить**, а затем выберите **Класс**. Назовите новый класс **Notifications.cs** и нажмите кнопку **Добавить** для создания класса.
+
+	![][B6]
+
+5. В Notifications.cs добавьте следующий оператор `using` в начало файла:
+
+        using Microsoft.ServiceBus.Notifications;
+
+6. Замените определение класса `Notifications` указанным ниже и замените два заполнителя строкой подключения (с полным доступом) для своего центра уведомлений и именем центра (доступно на [портале управления Azure](http://manage.windowsazure.com)):
+
+		public class Notifications
+        {
+            public static Notifications Instance = new Notifications();
+        
+            public NotificationHubClient Hub { get; set; }
+
+            private Notifications() {
+                Hub = NotificationHubClient.CreateClientFromConnectionString("<conn string with full access>", "<hub name>");
+            }
+        }
+
+
+
+7. Далее мы создадим новый контроллер **RegisterController**. В обозревателе решений щелкните правой кнопкой мыши папку **Контроллеры**, нажмите кнопку **Добавить**, затем **Контроллер**. Щелкните элемент **Контроллер веб-интерфейса API 2 — пустой** и нажмите кнопку **Добавить**. Назовите новый класс **RegisterController** и снова щелкните **Добавить**, чтобы создать контроллер.
+
+	![][B7]
+
+	![][B8]
+
+8. В RegiterController.cs добавьте следующие операторы `using`:
 
         using Microsoft.ServiceBus.Notifications;
         using AppBackend.Models;
@@ -130,7 +159,7 @@
         using Microsoft.ServiceBus.Messaging;
         using System.Web;
 
-17. Добавьте в определение класса `RegisterController` следующий код: Обратите внимание, что в этом коде мы добавляем тег пользователя для пользователя, проверка подлинности которого была выполнена обработчиком. Вы можете также добавить дополнительные проверки, чтобы убедиться, что у пользователя есть право регистрации запрошенных тегов.
+9. Добавьте в определение класса `RegisterController` следующий код: Обратите внимание, что в этом коде мы добавьте тег пользователя для пользователя, который подключен к HttpContext. Пользователь был аутентифицирован и подключен к HttpContext фильтром сообщений, который мы добавили, `AuthenticationTestHandler`. Вы можете также добавить дополнительные проверки, чтобы убедиться, что у пользователя есть право регистрации запрошенных тегов.
 
 		private NotificationHubClient hub;
 
@@ -150,9 +179,9 @@
         // This creates a registration id
         public async Task<string> Post(string handle = null)
         {
-            // make sure there are no existing registrations for this push handle (used for iOS and Android)
             string newRegistrationId = null;
             
+            // make sure there are no existing registrations for this push handle (used for iOS and Android)
             if (handle != null)
             {
                 var registrations = await hub.GetRegistrationsByChannelAsync(handle, 100);
@@ -170,7 +199,8 @@
                 }
             }
 
-            if (newRegistrationId == null) newRegistrationId = await hub.CreateRegistrationIdAsync();
+            if (newRegistrationId == null) 
+				newRegistrationId = await hub.CreateRegistrationIdAsync();
 
             return newRegistrationId;
         }
@@ -235,69 +265,98 @@
             }
         }
 
-18. Создайте новый контроллер **NotificationsController** по примеру **RegisterController**. Этот компонент предоставляет возможность устройству безопасно получить уведомление и позволяет пользователю инициировать на устройствах безопасную операцию push. Обратите внимание, что при отправке уведомления в центр уведомлений мы отправляем только необработанное уведомление с идентификатором уведомления (без фактического сообщения).
+10. Сохраните изменения.
 
-19. В NotificationsController.cs добавьте следующие инструкции `using`:
+## Отправка уведомлений из серверной части веб-API
+
+В этом разделе добавьте нового контроллера, который предоставляет способ для клиентских устройств для отправки уведомления на основании тег имени пользователя, с помощью клиентской библиотеки Azure Service Bus в серверной ASP.NET WebAPI.
+
+
+1. Создайте еще один новый контроллер с именем **NotificationsController**. Создайте его так же, как создали **RegisterController** в предыдущем разделе.
+
+2. В NotificationsController.cs добавьте следующие операторы `using`:
 
         using AppBackend.Models;
         using System.Threading.Tasks;
         using System.Web;
 
-20. Добавьте следующий код в определение класса **NotificationsController** и убедитесь, что фрагменты для тех платформ, с которыми вы не работаете, закомментированы.
+3. Добавьте следующий метод в класс **NotificationsController**:
 
-        public async Task<HttpResponseMessage> Post()
+	Этот код отправляет тип уведомлений, основанный на параметре `pns` Службы уведомлений платформы (PNS). Значение `to_tag` используется для задания тега *имени пользователя* в сообщении. Этот тег должен соответствовать тегу имени пользователя активной регистрации центра уведомлений. Сообщение уведомления извлекается из текста запроса POST.
+
+        public async Task<HttpResponseMessage> Post(string pns, [FromBody]string message, string to_tag)
         {
             var user = HttpContext.Current.User.Identity.Name;
-            var userTag = "username:"+user;
+            string[] userTag = new string[2];
+            userTag[0] = "username:" + to_tag;
+            userTag[1] = "from:" + user;
 
+            Microsoft.ServiceBus.Notifications.NotificationOutcome outcome = null;
+            HttpStatusCode ret = HttpStatusCode.InternalServerError;
 
-            // windows
-            var toast = @"<toast><visual><binding template=""ToastText01""><text id=""1"">Hello, " + user + "</text></binding></visual></toast>";
-            await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, userTag);
+            switch (pns.ToLower())
+            {
+                case "wns":
+                    // Windows 8.1 / Windows Phone 8.1
+                    var toast = @"<toast><visual><binding template=""ToastText01""><text id=""1"">" + 
+                                "From " + user + ": " + message + "</text></binding></visual></toast>";
+                    outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, userTag);
+                    break;
+                case "apns":
+                    // iOS
+                    var alert = "{"aps":{"alert":"" + "From " + user + ": " + message + ""}}";
+                    outcome = await Notifications.Instance.Hub.SendAppleNativeNotificationAsync(alert, userTag);
+                    break;
+                case "gcm":
+                    // Android
+                    var notif = "{ "data" : {"message":"" + "From " + user + ": " + message + ""}}";
+                    outcome = await Notifications.Instance.Hub.SendGcmNativeNotificationAsync(notif, userTag);
+                    break;
+            }
 
+            if (outcome != null)
+            {
+                if (!((outcome.State == Microsoft.ServiceBus.Notifications.NotificationOutcomeState.Abandoned) ||
+                    (outcome.State == Microsoft.ServiceBus.Notifications.NotificationOutcomeState.Unknown)))
+                {
+                    ret = HttpStatusCode.OK;
+                }
+            }
 
-            // apns
-            var alert = "{"aps":{"alert":"Hello"}}";
-            await Notifications.Instance.Hub.SendAppleNativeNotificationAsync(alert, userTag);
-
-
-            // gcm
-            var notif = "{ "data" : {"msg":"Hello"}}";
-            await Notifications.Instance.Hub.SendGcmNativeNotificationAsync(notif, userTag);
-
-
-            return Request.CreateResponse(HttpStatusCode.OK);
+            return Request.CreateResponse(ret);
         }
 
-21. Нажмите клавишу **F5**, чтобы запустить приложение и убедиться в правильности действий на данный момент. Приложение должно запустить браузер и отобразить домашнюю страницу ASP.NET. 
 
-22. После этого развернем это приложение на веб-сайте Azure, чтобы сделать его доступным для всех устройств. Щелкните правой кнопкой мыши проект **AppBackend** и нажмите кнопку **Опубликовать**.
+4. Нажмите клавишу **F5**, чтобы запустить приложение и убедиться в правильности своих действий до сих пор. Приложение должно запустить браузер и отобразить домашнюю страницу ASP.NET.
 
-23. Выберите в качестве цели публикации веб-сайт Azure.
+##Публикация новой серверной части веб-API
+
+1. После этого развернем это приложение на веб-сайте Azure, чтобы сделать его доступным для всех устройств. Щелкните правой кнопкой мыши проект **AppBackend** и нажмите кнопку **Опубликовать**.
+
+2. Выберите в качестве цели публикации веб-сайт Azure.
 
     ![][B15]
 
-24. Войдите в учетную запись Azure и выберите существующий или новый веб-сайт.
+3. Войдите в учетную запись Azure и выберите существующий или новый веб-сайт.
 
     ![][B16]
 
-25. Запишите свойство **URL-адрес назначения** во вкладке **Подключение**. Далее в учебнике этот URL-адрес будет называться *backend endpoint*. Щелкните **Опубликовать**.
+4. Запишите свойство **URL-адрес назначения** с вкладки **Подключение**. Далее в учебнике этот URL-адрес будет называться *конечная точка сервера*. Щелкните **Опубликовать**.
 
     ![][B18]
 
 
-[1]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push1.png
-[2]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push2.png
-[3]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push3.png
-[4]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push4.png
-[5]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push5.png
-[6]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push6.png
-[7]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push7.png
-[8]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push8.png
-[14]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push14.png
+[B1]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push1.png
+[B2]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push2.png
+[B3]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push3.png
+[B4]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push4.png
+[B5]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push5.png
+[B6]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push6.png
+[B7]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push7.png
+[B8]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push8.png
+[B14]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push14.png
 [B15]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users15.PNG
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG
-[AU1]By design, please ignore
 
-<!--HONumber=49-->
+<!---HONumber=58_postMigration-->

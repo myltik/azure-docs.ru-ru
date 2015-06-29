@@ -1,11 +1,4 @@
-<properties 
-	pageTitle="Создание резервной копии вручную" 
-	description="Описание того, как вручную запускать задания резервного копирования по требованию." services="storsimple" documentationCenter="NA" 
-	authors="SharS" 
-	manager="adinah" 
-	editor="tysonn" /> 
-
-<tags 
+<properties pageTitle="Создание резервной копии вручную" description="Описание того, как вручную запускать задания резервного копирования по требованию." services="storsimple" documentationCenter="NA" authors="SharS" manager="adinah" edito**r="tysonn" /> <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
@@ -14,7 +7,7 @@
    ms.date="04/01/2015"
    ms.author="v-sharos" />
 
-### Создание резервной копии вручную
+#### Создание резервной копии вручную
 
 1. На странице **Устройства** перейдите на вкладку **Политики архивации**. На этой вкладке приведен список всех политик резервного копирования в табличном формате, включая политику для тома, резервную копию которого требуется создать.
 
@@ -36,4 +29,4 @@
 
   Резервная копия должна появиться в списке резервных наборов данных, которые отображаются в каталоге.
 
-<!--HONumber=52-->
+<!---HONumber=58_postMigration-->

@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="Локальное приложение с хранилищем больших двоичных объектов (Java) - Microsoft Azure" 
+	pageTitle="Локальное приложение с хранилищем больших двоичных объектов (Java) — Microsoft Azure" 
 	description="Вы узнаете, как использовать консольное приложение для загрузки изображения на Azure, а затем отобразить изображение в вашем браузере. Примеры кода написаны на Java." 
 	services="storage" 
 	documentationCenter="java" 
 	authors="rmcmurray" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor="jimbe"/>
 
 <tags 
 	ms.service="storage" 
@@ -13,48 +13,41 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="09/25/2014" 
+	ms.date="06/03/2015" 
 	ms.author="robmcm"/>
 
 # Локальное приложение с хранилищем больших двоичных объектов
 
-В следующем примере показано, как использовать службу хранилища Azure для сохранения изображений в Azure. Ниже представлен код для консольного приложения, которое загружает изображение в Azure и затем создает
-HTML-файл для отображения изображения в вашем браузере.
+## Обзор
 
-## Оглавление
+В следующем примере показано, как использовать службу хранилища Azure для сохранения изображений в Azure. Ниже представлен код для консольного приложения, которое загружает изображение в Azure и затем создает HTML-файл для представления изображения в вашем браузере.
 
--   [Предварительные требования][]
--   [Использование хранилища больших двоичных объектов Azure для отправки файла][]
--   [Удаление контейнера][]
-
-## <a name="bkmk_prerequisites"> </a>Предварительные требования
+## Предварительные требования
 
 1.  Установленный пакет Java Developer Kit (JDK) версии 1.6 или более поздней.
 2.  Установленный пакет Azure SDK.
-3.  JAR-файл для библиотек Azure для Java и JAR-файлы для любых применимых зависимостей, установлены и указаны в пути сборки, который используется компилятором Java. Информация об установке библиотек Azure для Java см. в разделе [Загрузка пакета Azure SDK для Java].
-4.  Настроенная учетная запись хранения Azure. Имя учетной записи и ключ учетной записи для учетной записи хранилища будут использоваться в следующем коде. Ознакомьтесь с разделом [Создание учетной записи хранения], чтобы получить информацию о создании учетной записи хранения, а также изучите раздел [Управление учетными записями хранения] для получения информации о том, как получить ключ учетной записи.
-5.  Вы создали локальный файл изображения, который был сохранен с именем c:\\myimages\\image1.jpg. Можно также изменить конструктор **FileInputStream** в данном примере, чтобы использовать другой путь и другое имя для изображения.
+3.  JAR-файл для библиотек Azure для Java и JAR-файлы для любых применимых зависимостей, установлены и указаны в пути сборки, который используется компилятором Java. Сведения об установке библиотек Azure для Java см. в статье [Загрузка пакета Azure SDK для Java].
+4.  Настроенная учетная запись хранения Azure. Имя учетной записи и ключ учетной записи для учетной записи хранилища будут использоваться в следующем коде. Сведения о создании учетной записи хранения см. в разделе [Создание учетной записи хранения]; сведения о получении ключа учетной записи см. в разделе [Управление учетными записями хранения].
+5.  Вы создали локальный файл изображения, который был сохранен с именем C:\myimages\image1.jpg. Как вариант, можно изменить конструктор **FileInputStream** в данном примере, чтобы использовать другой путь и другое имя для изображения.
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## <a name="bkmk_uploadfile"> </a>Использование хранилища больших двоичных объектов Azure для отправки файла
+## Использование хранилища больших двоичных объектов Azure для отправки файла
 
 В этом разделе пошагово описывается данная процедура. Если вы хотите пропустить описание шагов, полная версия кода будет представлена далее в этом разделе.
 
-Начните работу с кодом, включив операции импорта для базовых классов службы хранилища Azure, классов клиента больших двоичных объектов Azure, классов ввода-вывода Java и класса **URISyntaxException**:
+Начните код с операций импорта для базовых классов службы хранилища Azure, клиентских классов BLOB-объектов Azure, классов ввода-вывода Java и класса **URISyntaxException**:
 
-    import com.microsoft.windowsazure.services.core.storage.*;
-    import com.microsoft.windowsazure.services.blob.client.*;
+    import com.microsoft.azure.storage.*;
+    import com.microsoft.azure.storage.blob.*;
     import java.io.*;
     import java.net.URISyntaxException;
 
-Объявите класс с именем **StorageSample** и включите открывающую скобку
-**{**.
+Объявите класс с именем **StorageSample** и включите открывающую скобку **{**.
 
     public class StorageSample {
 
-В классе **StorageSample** объявите строковую переменную, которая будет содержать протокол конечной точки по умолчанию, имя вашей учетной записи хранения и ключ доступа к хранилищу, как указано в вашей учетной записи хранения Azure. Замените значения заполнителей **your_account_name** и
-**your_account_key** на имя учетной записи и ключ учетной записи соответственно
+В классе **StorageSample** объявите строковую переменную, которая будет содержать протокол конечной точки по умолчанию, имя вашей учетной записи хранения и ключ доступа к хранилищу, как указано в вашей учетной записи хранения Azure. Замените значения заполнителей **your_account_name** и **your_account_key** именем и ключом своей учетной записи соответственно.
 
     public static final String storageConnectionString = 
            "DefaultEndpointsProtocol=http;" + 
@@ -70,9 +63,9 @@ HTML-файл для отображения изображения в вашем
 
 Объявите переменные следующего типа (описания их использования приведены в этом примере):
 
--   **CloudStorageAccount**: используется для инициализации объекта учетной записи с использованием имени и ключа учетной записи хранения Azure, а также для создания большого двоичного объекта клиента.
+-   **CloudStorageAccount**: используется для инициализации объекта учетной записи с использованием имени и ключа учетной записи хранения Azure, а также для создания BLOB-объекта клиента.
 -   **CloudBlobClient**: используется для доступа к службе BLOB-объектов.
--   **CloudBlobContainer**: используется для создания контейнера больших двоичных объектов, перечисления больших двоичных объектов в контейнере и удаления контейнера.
+-   **CloudBlobContainer**: используется для создания контейнера больших двоичных объектов, перечисления BLOB-объектов в контейнере и удаления контейнера.
 -   **CloudBlockBlob**: используется для отправки локального файла изображения в контейнер.
 
 <!-- -->
@@ -90,40 +83,36 @@ HTML-файл для отображения изображения в вашем
 
     serviceClient = account.createCloudBlobClient();
 
-Присвойте значение переменной **container**. Мы получим ссылку на контейнер с именем **gettingstarted**.
+Присвойте значение переменной **container**. В результате вы получите ссылку на контейнер с именем **gettingstarted**.
 
     // Container name must be lower case.
     container = serviceClient.getContainerReference("gettingstarted");
 
-Создайте контейнер. Этот метод создает контейнер, если он не существует (и возвращает значение **true**). Если контейнер существует, он возвращает значение
-**false**. Вместо метода **createIfNotExist** можно использовать метод **create** (который возвращает ошибку, если контейнер уже существует).
+Создайте контейнер. Этот метод создает контейнер, если он не существует (и возвращает значение **true**). Если контейнер не существует, метод вернет значение **false**. Вместо метода **createIfNotExist** можно использовать метод **create** (который возвращает ошибку, если контейнер уже существует).
 
-    container.createIfNotExist();
+    container.createIfNotExists();
 
 Настройте анонимный доступ к контейнеру.
 
     // Set anonymous access on the container.
     BlobContainerPermissions containerPermissions;
     containerPermissions = new BlobContainerPermissions();
-     containerPermissions.setPublicAccess(BlobContainerPublicAccessType.CONTAINER);
+    containerPermissions.setPublicAccess(BlobContainerPublicAccessType.CONTAINER);
     container.uploadPermissions(containerPermissions);
 
-Получите ссылку на блок большого двоичного объекта, который представляет собой большой двоичных объект в
-хранилище Azure.
+Получите ссылку на блочный BLOB-объект, который будет представлять BLOB-объект в хранилище Azure.
 
     blob = container.getBlockBlobReference("image1.jpg");
 
 Используйте конструктор **File**, чтобы получить ссылку на локально созданный файл, который требуется отправить. (Перед выполнением этого кода убедитесь,что вы создали этот файл.)
 
-    File fileReference = new File ("c:\\myimages\\image1.jpg");
+    File fileReference = new File ("C:\myimages\image1.jpg");
 
-Отправьте локальный файл путем вызова метода **CloudBlockBlob.upload**. Первым параметром для метода **CloudBlockBlob.upload** является
-объект **FileInputStream**, представляющий локальный файл, который будет отправлен в службу хранилища Azure. Вторым параметром является размер файла в байтах.
+Отправьте локальный файл путем вызова метода **CloudBlockBlob.upload**. Первым параметром метода **CloudBlockBlob.upload** является объект **FileInputStream**, представляющий локальный файл, предназначенный для отправки в хранилище Azure. Вторым параметром является размер файла в байтах.
 
     blob.upload(new FileInputStream(fileReference), fileReference.length());
 
-Вызовите вспомогательную функцию с именем **MakeHTMLPage**, чтобы создать базовую страницу HTML, содержащую элемент **&lt;image&gt;** с источником в виде большого двоичного объекта, присутствующего в вашей учетной записи хранения Azure. (Код для
-**MakeHTMLPage** рассматривается ниже в этом разделе.)
+Вызовите вспомогательную функцию с именем **MakeHTMLPage**, чтобы создать базовую страницу HTML, содержащую элемент **&lt;image&gt;** с источником в виде BLOB-объекта, присутствующего в вашей учетной записи хранения Azure. (Код для **MakeHTMLPage** рассматривается ниже в этом разделе.)
 
     MakeHTMLPage(container);
 
@@ -136,9 +125,9 @@ HTML-файл для отображения изображения в вашем
 
 Реализуйте обработку следующих исключений:
 
--   **FileNotFoundException**: может вызываться конструкторами **FileInputStream**  или **FileOutputStream**.
+-   **FileNotFoundException**: может вызываться конструктором **FileInputStream** или **FileOutputStream**.
 -   **StorageException**: может вызываться клиентской библиотекой хранилища Azure.
--   **URISyntaxException**: может вызываться методом **ListBlobItem.getUri** .
+-   **URISyntaxException**: может вызываться методом **ListBlobItem.getUri**.
 -   **Исключение**: обработка универсального исключения.
 
 <!-- -->
@@ -170,7 +159,7 @@ HTML-файл для отображения изображения в вашем
 
 Закройте **main**, вставив закрывающую скобку: **}**
 
-Создайте метод с именем **MakeHTMLPage** для создания базовой страницы HTML. Этот метод содержит параметр типа **CloudBlobContainer**, который будет использоваться для выполнения итерации по списку отправленных больших двоичных объектов. Данный метод может вызвать исключение типа **FileNotFoundException**, которое может быть вызвано конструктором, или исключения типов **FileOutputStream** и **URISyntaxException**, которые могут быть вызваны методом **ListBlobItem.getUri**. Укажите открывающую скобку **{**.
+Создайте метод с именем **MakeHTMLPage** для создания базовой страницы HTML. Этот метод содержит параметр типа **CloudBlobContainer**, который будет использоваться для выполнения итерации по списку отправленных BLOB-объектов. Данный метод вызовет исключения типа **FileNotFoundException**, которые могут быть обусловлены конструктором **FileOutputStream**, и типа **URISyntaxException**, которые могут быть обусловлены методом **ListBlobItem.getUri**. Вставьте открывающую скобку **{**.
 
     public static void MakeHTMLPage(CloudBlobContainer container) throws FileNotFoundException, URISyntaxException
     {
@@ -180,15 +169,13 @@ HTML-файл для отображения изображения в вашем
     PrintStream stream;
     stream = new PrintStream(new FileOutputStream("index.html"));
 
-Выполните запись в локальный файл, добавив элементы **&lt;html&gt;**, **&lt;header&gt;** и
-**&lt;body&gt;**.
+Выполните запись в локальный файл, добавив элементы **&lt;html&gt;**, **&lt;header&gt;** и **&lt;body&gt;**.
 
     stream.println("<html>");
     stream.println("<header/>");
     stream.println("<body>");
 
-Выполните итерацию по списку отправленных BLOB-объектов. Для каждого большого двоичного объекта на странице HTML создайте элемент **&lt;img&gt;**, атрибут **src** которого отправляется в URI большого двоичного объекта в том виде, в котором он существует в вашей учетной записи хранения Azure.
-Хотя в этот пример было добавлено всего одно изображение, при добавлении нескольких изображений код будет выполнять итерации по всем изображениям.
+Выполните итерацию по списку отправленных BLOB-объектов. Для каждого BLOB-объекта на странице HTML создайте элемент **&lt;img&gt;**, атрибут **src** которого отправляется в URI BLOB-объекта в том виде, в котором он существует в вашей учетной записи хранения Azure. Хотя в этот пример было добавлено всего одно изображение, при добавлении нескольких изображений код будет выполнять итерации по всем изображениям.
 
 Для простоты в этом примере предполагается, что каждый отправленный BLOB-объект является изображением. Если вы обновили большие двоичные объекты, отличные от изображений или которые являются страницами больших двоичных объектов, а не блоками больших двоичных объектов, скорректируйте код соответствующим образом.
 
@@ -198,7 +185,7 @@ HTML-файл для отображения изображения в вашем
     stream.println("<img src='" + blobItem.getUri() + "'/><br/>");
     }
 
-Закройте элементы **&lt;body&gt;** и **&lt;html&gt;**.
+Закройте элемент **&lt;body&gt;** и элемент **&lt;html&gt;**.
 
     stream.println("</body>");
     stream.println("</html>");
@@ -211,11 +198,10 @@ HTML-файл для отображения изображения в вашем
 
 Закройте **StorageSample**, вставив закрывающую скобку: **}**
 
-Ниже приведен полный код для этого примера. Не забудьте изменить значения заполнителей **your_account_name** и
-**your_account_key** на имя учетной записи и ключа учетной записи соответственно.
+Ниже приведен полный код для этого примера. Не забудьте изменить значения заполнителей **your_account_name** и **your_account_key** на имя и ключ своей учетной записи соответственно.
 
-    import com.microsoft.windowsazure.services.core.storage.*;
-    import com.microsoft.windowsazure.services.blob.client.*;
+    import com.microsoft.azure.storage.*;
+    import com.microsoft.azure.storage.blob.*;
     import java.io.*;
     import java.net.URISyntaxException;
 
@@ -224,26 +210,24 @@ HTML-файл для отображения изображения в вашем
     // to use a different image path and file that you have already created.
     public class StorageSample {
 
-        public static final String storageConnectionString = 
-                "DefaultEndpointsProtocol=http;" + 
-                   "AccountName=your_account_name;" + 
-                   "AccountKey=your_account_name"; 
+        public static final String storageConnectionString =
+                "DefaultEndpointsProtocol=http;" +
+                       "AccountName=your_account_name;" + 
+                       "AccountKey=your_account_name"; 
 
-        public static void main(String[] args) 
-        {
-            try
-            {
+        public static void main(String[] args) {
+            try {
                 CloudStorageAccount account;
                 CloudBlobClient serviceClient;
                 CloudBlobContainer container;
                 CloudBlockBlob blob;
-                
+
                 account = CloudStorageAccount.parse(storageConnectionString);
                 serviceClient = account.createCloudBlobClient();
                 // Container name must be lower case.
                 container = serviceClient.getContainerReference("gettingstarted");
-                container.createIfNotExist();
-                
+                container.createIfNotExists();
+
                 // Set anonymous access on the container.
                 BlobContainerPermissions containerPermissions;
                 containerPermissions = new BlobContainerPermissions();
@@ -252,7 +236,8 @@ HTML-файл для отображения изображения в вашем
 
                 // Upload an image file.
                 blob = container.getBlockBlobReference("image1.jpg");
-                File fileReference = new File ("c:\\myimages\\image1.jpg");
+
+                File fileReference = new File("C:\myimages\image1.jpg");
                 blob.upload(new FileInputStream(fileReference), fileReference.length());
 
                 // At this point the image is uploaded.
@@ -262,27 +247,19 @@ HTML-файл для отображения изображения в вашем
                 System.out.println("Processing complete.");
                 System.out.println("Open index.html to see the images stored in your storage account.");
 
-            }
-            catch (FileNotFoundException fileNotFoundException)
-            {
+            } catch (FileNotFoundException fileNotFoundException) {
                 System.out.print("FileNotFoundException encountered: ");
                 System.out.println(fileNotFoundException.getMessage());
                 System.exit(-1);
-            }
-            catch (StorageException storageException)
-            {
+            } catch (StorageException storageException) {
                 System.out.print("StorageException encountered: ");
                 System.out.println(storageException.getMessage());
                 System.exit(-1);
-            }
-            catch (URISyntaxException uriSyntaxException)
-            {
+            } catch (URISyntaxException uriSyntaxException) {
                 System.out.print("URISyntaxException encountered: ");
                 System.out.println(uriSyntaxException.getMessage());
                 System.exit(-1);
-            }
-            catch (Exception e)
-            {
+            } catch (Exception e) {
                 System.out.print("Exception encountered: ");
                 System.out.println(e.getMessage());
                 System.exit(-1);
@@ -292,7 +269,7 @@ HTML-файл для отображения изображения в вашем
         // Create an HTML page that can be used to display the uploaded images.
         // This example assumes all of the blobs are for images.
         public static void MakeHTMLPage(CloudBlobContainer container) throws FileNotFoundException, URISyntaxException
-    {
+        {
             PrintStream stream;
             stream = new PrintStream(new FileOutputStream("index.html"));
 
@@ -319,20 +296,17 @@ HTML-файл для отображения изображения в вашем
 
 Поскольку код содержит имя учетной записи и ключ учетной записи, обеспечьте безопасность исходного кода.
 
-## <a name="bkmk_deletecontainer"></a>Удаление контейнера
+## Удаление контейнера
 
-Поскольку за хранилище начисляется плата, вам может потребоваться удалить
-Контейнер **GettingStarted** после окончания работы с этим примером. Чтобы удалить контейнер, используйте метод **CloudBlobContainer.delete**:
+Поскольку за использование хранилища начисляется плата, вам может потребоваться удалить контейнер **gettingstarted** после окончания работы с данным примером. Чтобы удалить контейнер, используйте метод **CloudBlobContainer.delete**:
 
     container = serviceClient.getContainerReference("gettingstarted");
     container.delete();
 
-Для вызова метода **CloudBlobContainer.delete** необходимо выполнить процесс инициализации объектов **CloudStorageAccount**, **ClodBlobClient** и
-**CloudBlobContainer**, который аналогичен приведенному процессу для
-**метода createIfNotExist**. Ниже приведен полный пример удаления контейнера с именем **gettingstarted**.
+Чтобы вызвать метод **CloudBlobContainer.delete**, необходимо выполнить процесс инициализации объектов **CloudStorageAccount**, **ClodBlobClient** и **CloudBlobContainer**, который аналогичен приведенному процессу для метода **createIfNotExist**. Ниже приведен полный пример удаления контейнера с именем **gettingstarted**.
 
-    import com.microsoft.windowsazure.services.core.storage.*;
-    import com.microsoft.windowsazure.services.blob.client.*;
+    import com.microsoft.azure.storage.*;
+    import com.microsoft.azure.storage.blob.*;
 
     public class DeleteContainer {
 
@@ -373,15 +347,25 @@ HTML-файл для отображения изображения в вашем
         }
     }
 
-Обзор других классов и методов хранилища больших двоичных объектов см. в разделе [Использование Как использовать службу хранилища больших двоичных объектов из Java].
+Обзор других классов и методов хранения больших двоичных объектов см. в разделе [Как использовать службу хранилища BLOB-объектов из Java].
 
-  [Предварительные требования]: #bkmk_prerequisites
-  [Использование хранилища больших двоичных объектов Azure для отправки файла]: #bkmk_uploadfile
-  [Удаление контейнера]: #bkmk_deletecontainer
-  [Скачивание пакета Azure SDK для Java]: http://azure.microsoft.com/develop/java/
-  [Как создать учетную запись хранения]: http://azure.microsoft.com/manage/services/storage/how-to-create-a-storage-account/
-  [Управление учетными записями хранения]: http://azure.microsoft.com/manage/services/storage/how-to-manage-a-storage-account/
-  [Использование Как использовать службу хранилища больших двоичных объектов из Java]: http://azure.microsoft.com/develop/java/how-to-guides/blob-storage/
+## Дальнейшие действия
 
-<!--HONumber=42-->
+Дополнительную информацию о выполнении более сложных задач хранения см. по указанным ссылкам.
+
+- [Пакет SDK для службы хранилища Azure для Java]
+- [Справочник по пакету SDK для клиента хранилища Azure]
+- [REST API службы хранилища Azure]
+- [Блог рабочей группы службы хранилища Azure]
+
+  [Download the Azure SDK for Java]: http://azure.microsoft.com/develop/java/
+  [Создание учетной записи хранения]: storage-create-storage-account.md#create-a-storage-account
+  [Управление учетными записями хранения]: storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys
+  [Как использовать службу хранилища BLOB-объектов из Java]: storage-java-how-to-use-blob-storage.md
+  [Пакет SDK для службы хранилища Azure для Java]: https://github.com/azure/azure-storage-java
+  [Справочник по пакету SDK для клиента хранилища Azure]: http://dl.windowsazure.com/storage/javadoc/
+  [REST API службы хранилища Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+  [Блог рабочей группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
  
+
+<!---HONumber=58_postMigration-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Отправка заданий Hadoop в HDInsight для платформы Azure" 
+	pageTitle="Отправка заданий Hadoop в HDInsight | Microsoft Azure" 
 	description="Вы узнаете, как отправлять задания Hadoop в HDInsight для платформы Azure." 
 	editor="cgronlun" 
 	manager="paulettm" 
@@ -13,25 +13,32 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
+	ms.date="06/15/2015" 
 	ms.author="jgao"/>
 
 # Отправка заданий Hadoop в HDInsight
 
 Узнайте, как с помощью Azure PowerShell отправлять задания MapReduce и Hive, а также как с помощью пакета SDK для HDInsight .NET отправлять задания MapReduce, Hive и задания потоковой передачи Hadoop.
 
+> [AZURE.NOTE]Действия, описанные в этой статье, необходимо выполнять из клиента Windows. Сведения об использовании клиента Linux, OS X или Unix для работы с MapReduce, Hive или Pig в HDInsight см. в следующих статьях (в каждой из них на выбор доступны ссылки **SSH** и **Curl**):
+>
+> - [Использование Hive с HDInsight](hdinsight-use-hive.md)
+> - [Использование Pig с HDInsight](hdinsight-use-pig.md)
+> - [Использование MapReduce с HDInsight](hdinsight-use-mapreduce.md)
+
 ##Предварительные требования
 
 Перед началом работы с этой статьей необходимо иметь следующее:
 
-* Кластер Azure HDInsight. Инструкции см. в разделе [Приступая к работе с HDInsight][hdinsight-get-started] или [Подготовка кластеров HDInsight][hdinsight-provision].
-* Azure PowerShell. Инструкции см. в разделе [Установка и настройка Azure PowerShell][powershell-install-configure].
+* **Кластер Azure HDInsight**. Инструкции см. в разделе [Приступая к работе с HDInsight][hdinsight-get-started] или [Подготовка кластеров HDInsight][hdinsight-provision].
+- **Рабочая станция с Azure PowerShell**. См. раздел [Установка и использование Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
+
 
 
 ##Отправка заданий MapReduce с помощью Azure PowerShell
 Azure PowerShell — это полнофункциональная среда сценариев, которую можно использовать для контроля и автоматизации развертывания и управления вашей рабочей нагрузкой в Azure. Дополнительные сведения об использовании Azure PowerShell с HDInsight см. в статье [Управление службой HDInsight с помощью PowerShell][hdinsight-admin-powershell].
 
-Hadoop MapReduce — это программная платформа для написания приложений, обрабатывающих большие объемы данных. Кластеры HDInsight содержат JAR-файл (в папке *\\example\\jars\\hadoop-mapreduce-examples.jar*), в котором есть несколько примеров MapReduce.
+Hadoop MapReduce — это программная платформа для написания приложений, обрабатывающих большие объемы данных. Кластеры HDInsight содержат JAR-файл (в папке *\example\jars\hadoop-mapreduce-examples.jar*), в котором есть несколько примеров MapReduce.
 
 Один из примеров предназначен для подсчета частоты слов в исходных файлах. В этом разделе вы узнаете, как с помощью PowerShell на рабочей станции запустить пример для подсчета частоты слов. Дополнительные сведения о создании и выполнении заданий MapReduce см. в статье [Использование MapReduce в Hadoop в HDInsight][hdinsight-use-mapreduce].
 
@@ -104,7 +111,7 @@ Hadoop MapReduce — это программная платформа для н
 
 	Папка *example/data/WordCountOutput* — выходная папка, указанная при запуске задания MapReduce. *part-r-00000* — имя файла по умолчанию для выходных данных задания MapReduce. Файл будет загружен в локальную папку с сохранением структуры каталогов. Например, на приведенном ниже снимке экрана текущая папка — корневая папка C:. Файл будет скачан в такой каталог:
 
-*C:\\example\\data\\WordCountOutput*
+*C:\example\data\WordCountOutput*
 
 5. Выполните следующую команду, чтобы напечатать выходной файл задания MapReduce:
 
@@ -116,6 +123,142 @@ Hadoop MapReduce — это программная платформа для н
 
 
 > [AZURE.NOTE]Если открыть файл ./example/data/WordCountOutput/part-r-00000 (многострочный файл результатов задания MapReduce) в Блокноте, вы заметите, что разрывы строк отображаются неправильно. Это ожидаемое поведение.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ##Отправка заданий Hive с помощью Azure PowerShell
 [Apache Hive][apache-hive] предоставляет средства для выполнения задания MapReduce через SQL-подобный язык сценариев под названием *HiveQL*. Он может использоваться для сведения данных, создания запросов и анализа больших объемов информации.
@@ -157,7 +300,7 @@ Hadoop MapReduce — это программная платформа для н
 См. раздел [Использование Sqoop с HDInsight][hdinsight-use-sqoop].
 
 ##Отправка заданий MapReduce с использованием пакета SDK для HDInsight .NET
-Пакет SDK для HDInsight .NET содержит клиентские библиотеки .NET, которые упрощают работу с кластерами HDInsight из .NET. Кластеры HDInsight содержат JAR-файл (в папке *\\example\\jars\\hadoop-mapreduce-examples.jar*), в котором есть несколько примеров MapReduce. Один из примеров предназначен для подсчета частоты слов в исходных файлах. В этом сеансе вы узнаете, как создать приложение .NET для запуска примера подсчета слов. Дополнительные сведения о создании и выполнении заданий MapReduce см. в статье [￼Использование MapReduce в Hadoop в HDInsight][hdinsight-use-mapreduce].
+Пакет SDK для HDInsight .NET содержит клиентские библиотеки .NET, которые упрощают работу с кластерами HDInsight из .NET. Кластеры HDInsight содержат JAR-файл (в папке *\example\jars\hadoop-mapreduce-examples.jar*), в котором есть несколько примеров MapReduce. Один из примеров предназначен для подсчета частоты слов в исходных файлах. В этом сеансе вы узнаете, как создать приложение .NET для запуска примера подсчета слов. Дополнительные сведения о создании и выполнении заданий MapReduce см. в статье [￼Использование MapReduce в Hadoop в HDInsight][hdinsight-use-mapreduce].
 
 
 Подготовка кластера HDInsight с использованием пакета SDK предусматривает следующие процедуры.
@@ -576,13 +719,14 @@ Hadoop MapReduce — это программная платформа для н
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-develop-streaming-jobs]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 
-[hdinsight-powershell-reference]: http://msdn.microsoft.com/library/windowsazure/dn479228.aspx
+[hdinsight-powershell-reference]: https://msdn.microsoft.com/library/dn858087.aspx
 
-[Powershell-install-configure]: ../install-configure-powershell.md
+[powershell-install-configure]: ../install-configure-powershell.md
 
 [image-hdi-gettingstarted-runmrjob]: ./media/hdinsight-submit-hadoop-jobs-programmatically/HDI.GettingStarted.RunMRJob.png
 [image-hdi-gettingstarted-mrjoboutput]: ./media/hdinsight-submit-hadoop-jobs-programmatically/HDI.GettingStarted.MRJobOutput.png
 
 [apache-hive]: http://hive.apache.org/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=58_postMigration-->

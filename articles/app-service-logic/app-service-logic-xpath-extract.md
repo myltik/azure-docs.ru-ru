@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Средство извлечения XPath BizTalk" 
-   description="Средство извлечения XPath BizTalk" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="prkumar" 
-   manager="dwrede" 
+<properties
+   pageTitle="Средство извлечения XPath BizTalk"
+   description="Средство извлечения XPath BizTalk"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="prkumar"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
+   ms.workload="integration"
    ms.date="03/20/2015"
    ms.author="rajram"/>
 
@@ -23,9 +23,11 @@
 ##Использование средства извлечения XPath BizTalk
 1. Чтобы использовать средство извлечения XPath BizTalk, необходимо сначала создать экземпляр приложения API средства извлечения XPath BizTalk. Это можно сделать либо в процессе, при создании приложения логики, либо выбрав приложение API средства извлечения XPath BizTalk на сайте Azure Marketplace.
 
-		NOTE: There are no configuration settings associated with BizTalk Xpath Extractor.
-2. Конструктор отображает действие, связанное с приложением API средства извлечения XPath BizTalk.
-	
+	>[AZURE.NOTE]
+2. [Создайте новое приложение логики]. Откройте раздел «Триггеры и действия» в созданном приложении логики, чтобы открыть конструктор приложений логики для настройки потока.
+3. В конструкторе в правой части перечисляются приложения API, доступные для построения потока. Найдите приложение BizTalk XPath Extractor. С его выбором в поток добавится приложение Xpath Extractor и будет подготовлен его экземпляр.
+2. После подготовки конструктор отобразит действие, связанное с приложением API BizTalk XPath Extractor.
+
 ![Выбор действия средства извлечения XPath BizTalk][1]
 
 3. Выберите «Извлечь с помощью XPath».
@@ -58,4 +60,7 @@
 [1]: ./media/app-service-logic-xpath-extract/ChooseAction.PNG
 [2]: ./media/app-service-logic-xpath-extract/ConfigureInput.PNG
 
-<!---HONumber=58--> 
+<!-- Links -->
+[Создайте новое приложение логики]: app-service-logic-create-a-logic-app.md
+
+<!---HONumber=58_postMigration-->

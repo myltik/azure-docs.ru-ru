@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="infrastructure"
-   ms.date="05/14/2015"
+   ms.date="06/03/2015"
    ms.author="rasquill"/>
 
 # Создание платформы приложений с помощью шаблонов
@@ -22,7 +22,7 @@
 
 | Имя шаблона | Описание | Просмотрите шаблон | Разверните его прямо сейчас |
 |:---|:---|:---:|:---:|
-| Лес и домен Active Directory | Этот шаблон позволяет развернуть 2 новые виртуальные машины (в том числе новую виртуальную сеть, учетную запись хранения и подсистему балансировки нагрузки) и создать новый лес и домен Active Directory. Каждая виртуальная машина создается в качестве контроллера домена для нового домена и помещается в группу доступности. В нее также будет добавлена конечная точка RDP наряду с общедоступным IP-адресом с балансировкой нагрузки. | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/activedirectorynewdomain-ha-2-dc) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Factivedirectorynewdomain-ha-2-dc%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
+| Лес и домен Active Directory | Этот шаблон позволяет развернуть 2 новые виртуальные машины (в том числе новую виртуальную сеть, учетную запись хранения и подсистему балансировки нагрузки) и создать новый лес и домен Active Directory. Каждая виртуальная машина создается в качестве контроллера домена для нового домена и помещается в группу доступности. В нее также будет добавлена конечная точка RDP наряду с общедоступным IP-адресом с балансировкой нагрузки. | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/active-directory-new-domain-ha-2-dc) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Factive-directory-new-domain-ha-2-dc%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
 | Веб-сервер Apache | Этот шаблон использует расширение Azure CustomScript для Linux для развертывания веб-сервера Apache. Он позволяет создать виртуальную машину Ubuntu, установить Apache2 и создать простой HTML-файл.| [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/apache2-on-ubuntu-vm) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapache2-on-ubuntu-vm%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 | Кластер Couchbase | Этот шаблон позволяет развернуть кластер Couchbase в виртуальных машинах Ubuntu. | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/couchbase-on-ubuntu) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fcouchbase-on-ubuntu%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
 | Кластер Datastax | Этот шаблон позволяет установить кластер Datastax в виртуальных машинах Ubuntu, используя расширение Azure CustomScript для Linux. [Подробное пошаговое руководство.](virtual-machines-datastax-template.md)| [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/datastax-on-ubuntu) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fdatastax-on-ubuntu%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
@@ -47,5 +47,6 @@
 Ознакомьтесь со всеми шаблонами в вашем распоряжении на сайте [GitHub](https://github.com/Azure/azure-quickstart-templates).
 
 Дополнительную информацию о диспетчере ресурсов Azure см. [здесь](../resource-group-template-deploy.md).
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

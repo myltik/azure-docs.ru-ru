@@ -1,57 +1,53 @@
-<properties 
-	pageTitle="Как кэшировать результаты операции в Azure API Management" 
-	description="Сведения об уменьшении задержки, использования пропускной способности и загрузки веб-службы для вызовов службы управления API." 
-	services="api-management" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="dwrede" 
+<properties
+	pageTitle="Добавление кэширования для повышения производительности в управлении API Azure"
+	description="Сведения об уменьшении задержки, использования пропускной способности и загрузки веб-службы для вызовов службы управления API."
+	services="api-management"
+	documentationCenter=""
+	authors="steved0x"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="api-management" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/18/2014" 
+<tags
+	ms.service="api-management"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article" 
+	ms.date="06/16/2015"
 	ms.author="sdanie"/>
 
-# Как кэшировать результаты операции в Azure API Management
+# Добавление кэширования для повышения производительности в управлении API Azure
 
-Операции в API Management (предварительная версия) можно настроить для кэширования ответов. Кэширование ответов может значительно уменьшить время задержки API, потребляемую пропускную способность, и нагрузку на веб-службу применительно к данным, которые изменяются редко.
+Операции в управлении API можно настроить для кэширования ответов. Кэширование ответов может значительно уменьшить время задержки API, потребляемую пропускную способность, и нагрузку на веб-службу применительно к данным, которые изменяются редко.
 
-В этом учебнике будут рассмотрены параметры и политики кэширования для одной из типовых операций интерфейса Echo API, а также вызов операции на портале разработчика, чтобы увидеть процесс кэширования в действии.
+В этом руководстве показано, как добавить кэширование ответов для API и настроить политики для примеров операций Echo API. Затем можно вызвать операцию из портала разработчика, чтобы проверить кэширование в действии.
 
-## Содержание раздела
 
--   [Настройка операции для кэширования][Настройка операции для кэширования]
--   [Анализ политик кэширования][Анализ политик кэширования]
--   [Вызов операции и проверка кэширования][Вызов операции и проверка кэширования]
--   [Дальнейшие действия][Дальнейшие действия]
+## Предварительные требования
+
+Перед выполнением шагов из этого руководства необходимо получить экземпляр службы управления API с настроенным API и продуктом. Если экземпляр службы управления API еще не создан, см. раздел [Создание экземпляра службы управления API][] в руководстве [Приступая к работе с управлением API][].
 
 ## <a name="configure-caching"> </a>Настройка операции для кэширования
 
 На этом этапе необходимо проанализировать параметры кэширования операции **GET Resource (cached)** типового интерфейса Echo Api.
 
-> Каждый экземпляр службы API Management поставляется предварительно настроенным с Echo API, с которым можно экспериментировать при изучении API Management. Дополнительные сведения см. в разделе [Начало работы с Azure API Management][Начало работы с Azure API Management].
+>[AZURE.NOTE]Каждый экземпляр службы API Management поставляется предварительно настроенным с Echo API, с которым можно экспериментировать при изучении API Management. Дополнительные сведения см. в разделе [Начало работы с Azure API Management][].
 
-Для начала щелкните **Консоль управления** на портале Azure службы API Management. Открывается административный портал API Management.
+Для начала щелкните **Управление** на портале Azure службы управления API. Будет открыт портал издателя службы управления API.
 
-![Консоль API Management][Консоль API Management]
-
-> Если экземпляр службы API Management еще не создан, см. раздел [Создание экземпляра службы API Management][Создание экземпляра службы API Management] в руководстве [Начинаем работу с API Management][Начало работы с Azure API Management].
+![Портал издателя][api-management-management-console]
 
 Щелкните **API** в левом меню **API Management**, а затем **Echo API**.
 
-![Echo API][Echo API]
+![Echo API][api-management-echo-api]
 
 Перейдите на вкладку **Операции** и щелкните операцию **GET Resource (cached)** в списке **Операции**.
 
-![Операции интерфейса Echo API][Операции интерфейса Echo API]
+![Операции интерфейса Echo API][api-management-echo-api-operations]
 
 Перейдите на вкладку **Кэширование** для просмотра параметров кэширования для этой операции.
 
-![Вкладка «Кэширование»][Вкладка «Кэширование»]
+![Вкладка «Кэширование»][api-management-caching-tab]
 
 Чтобы включить кэширование для операции, установите флажок **Включить**. В этом примере кэширование включено.
 
@@ -63,54 +59,56 @@
 
 ## <a name="caching-policies"> </a>Анализ политик кэширования
 
+На этом шаге необходимо проанализировать параметры кэширования для операции **GET Resource (cached)** образца Echo API.
+
 После настройки параметров кэширования на вкладке **Кэширование** для операции добавляются политики кэширования. Эти политики можно просматривать и изменять в редакторе политик.
 
 Щелкните **Политики** в левом меню **API Management** и выберите **Echo API / GET Resource (cached)** в раскрывающемся списке **Операция**.
 
-![Операция с диапазоном политик][Операция с диапазоном политик]
+![Операция с диапазоном политик][api-management-operation-dropdown]
 
 При этом в редакторе политик отображаются политики для данной операции.
 
-![Редактор политик API Management][Редактор политик API Management]
+![Редактор политик API Management][api-management-policy-editor]
 
 Определение политики для этой операции содержит политики, определяющие конфигурацию кэширования, которые были проанализированы с помощью вкладки **Кэширование** на предыдущем этапе.
 
-    <policies>
-        <inbound>
-            <base />
-            <cache-lookup vary-by-developer="false" vary-by-developer-groups="false">
-                <vary-by-header>Accept</vary-by-header>
-                <vary-by-header>Accept-Charset</vary-by-header>
-            </cache-lookup>
-            <rewrite-uri template="/resource" />
-        </inbound>
-        <outbound>
-            <base />
-            <cache-store caching-mode="cache-on" duration="3600" />
-        </outbound>
-    </policies>
+	<policies>
+		<inbound>
+			<base />
+			<cache-lookup vary-by-developer="false" vary-by-developer-groups="false">
+				<vary-by-header>Accept</vary-by-header>
+				<vary-by-header>Accept-Charset</vary-by-header>
+			</cache-lookup>
+			<rewrite-uri template="/resource" />
+		</inbound>
+		<outbound>
+			<base />
+			<cache-store caching-mode="cache-on" duration="3600" />
+		</outbound>
+	</policies>
 
-> Изменения, внесенные в политики кэширования в редакторе политик, будут отражаться на вкладке **Кэширование** операции и наоборот.
+>Изменения, внесенные в политики кэширования в редакторе политик, будут отражаться на вкладке **Кэширование** операции и наоборот.
 
 ## <a name="test-operation"> </a>Вызов операции и проверка кэширования
 
-Чтобы увидеть процесс кэширования в действии, можно вызвать операцию из портала разработчика. Щелкните **Портал разработчика** в верхнем правом меню.
+Чтобы увидеть процесс кэширования в действии, можно вызвать операцию из портала разработчика. В правом верхнем меню выберите пункт **Developer portal** (Портал разработчика).
 
-![Портал разработчика][Портал разработчика]
+![Портал разработчика][api-management-developer-portal-menu]
 
 Щелкните **API** в меню вверху и выберите **Echo API**.
 
-![Echo API][1]
+![Echo API][api-management-apis-echo-api]
 
-> Если есть только один настроенный или видимый API для данной учетной записи, тогда щелчок по API сразу приведет к операциям для этого API.
+>Если есть только один настроенный или видимый API для данной учетной записи, тогда щелчок по API сразу приведет к операциям для этого API.
 
 Выберите операцию **GET Resource (cached)** и щелкните **Открыть консоль**.
 
-![Открытие консоли][Открытие консоли]
+![Открытие консоли][api-management-open-console]
 
 Консоль позволяет вызывать операции прямо на портале разработчика.
 
-![Консоль][Консоль]
+![Консоль][api-management-console]
 
 Сохраните значения по умолчанию для **param1** и **param2**.
 
@@ -130,28 +128,38 @@
 
 ## <a name="next-steps"> </a>Дальнейшие действия
 
--   Просмотрите другие разделы в руководстве [Приступая к работе с расширенными параметрами API][Приступая к работе с расширенными параметрами API].
--   Дополнительные сведения о политиках кэширования см. в разделе [Политики кэширования][Политики кэширования] в [Справочнике по политикам API Management][Справочнике по политикам API Management].
+-	Просмотрите другие разделы в руководстве [Приступая к работе с расширенными параметрами API][].
+-	Дополнительные сведения о политиках кэширования см. в разделе [Политики кэширования][] в [Справочнике по политикам API Management][].
 
-  [Настройка операции для кэширования]: #configure-caching
-  [Анализ политик кэширования]: #caching-policies
-  [Вызов операции и проверка кэширования]: #test-operation
-  [Дальнейшие действия]: #next-steps
-  [Начало работы с Azure API Management]: ../api-management-get-started
-  [Консоль API Management]: ./media/api-management-howto-cache/api-management-management-console.png
-  [Создание экземпляра службы API Management]: ../api-management-get-started/#create-service-instance
-  [Echo API]: ./media/api-management-howto-cache/api-management-echo-api.png
-  [Операции интерфейса Echo API]: ./media/api-management-howto-cache/api-management-echo-api-operations.png
-  [Вкладка «Кэширование»]: ./media/api-management-howto-cache/api-management-caching-tab.png
-  [Операция с диапазоном политик]: ./media/api-management-howto-cache/api-management-operation-dropdown.png
-  [Редактор политик API Management]: ./media/api-management-howto-cache/api-management-policy-editor.png
-  [Портал разработчика]: ./media/api-management-howto-cache/api-management-developer-portal-menu.png
-  [1]: ./media/api-management-howto-cache/api-management-apis-echo-api.png
-  [Открытие консоли]: ./media/api-management-howto-cache/api-management-open-console.png
-  [Консоль]: ./media/api-management-howto-cache/api-management-console.png
-  [Приступая к работе с расширенными параметрами API]: ../api-management-get-started-advanced
-  [Политики кэширования]: ../api-management-policy-reference/#caching-policies
-  [Справочнике по политикам API Management]: ../api-management-policy-reference
+[api-management-management-console]: ./media/api-management-howto-cache/api-management-management-console.png
+[api-management-echo-api]: ./media/api-management-howto-cache/api-management-echo-api.png
+[api-management-echo-api-operations]: ./media/api-management-howto-cache/api-management-echo-api-operations.png
+[api-management-caching-tab]: ./media/api-management-howto-cache/api-management-caching-tab.png
+[api-management-operation-dropdown]: ./media/api-management-howto-cache/api-management-operation-dropdown.png
+[api-management-policy-editor]: ./media/api-management-howto-cache/api-management-policy-editor.png
+[api-management-developer-portal-menu]: ./media/api-management-howto-cache/api-management-developer-portal-menu.png
+[api-management-apis-echo-api]: ./media/api-management-howto-cache/api-management-apis-echo-api.png
+[api-management-open-console]: ./media/api-management-howto-cache/api-management-open-console.png
+[api-management-console]: ./media/api-management-howto-cache/api-management-console.png
 
-<!--HONumber=46--> 
- 
+
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to add and publish a product]: api-management-howto-add-products.md
+[Monitoring and analytics]: api-management-monitoring.md
+[Add APIs to a product]: api-management-howto-add-products.md#add-apis
+[Publish a product]: api-management-howto-add-products.md#publish-product
+[Начало работы с Azure API Management]: api-management-get-started.md
+[Приступая к работе с управлением API]: api-management-get-started.md
+[Приступая к работе с расширенными параметрами API]: api-management-get-started-advanced.md
+
+[Справочнике по политикам API Management]: https://msdn.microsoft.com/library/azure/dn894081.aspx
+[Политики кэширования]: https://msdn.microsoft.com/library/azure/dn894086.aspx
+
+[Создание экземпляра службы управления API]: api-management-get-started.md#create-service-instance
+
+[Configure an operation for caching]: #configure-caching
+[Review the caching policies]: #caching-policies
+[Call an operation and test the caching]: #test-operation
+[Next steps]: #next-steps
+
+<!---HONumber=58_postMigration-->

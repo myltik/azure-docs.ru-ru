@@ -4,8 +4,8 @@
 	services="active-directory" 
 	documentationCenter="" 
 	authors="billmath" 
-	manager="terrylan" 
-	editor="lisatoft"/>
+	manager="swadhwa" 
+	editor="curtand"/>
 
 <tags 
 	ms.service="active-directory" 
@@ -13,22 +13,21 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.date="05/28/2015" 
 	ms.author="billmath"/>
 
 # Azure Active Directory Connect — дополнительные сведения
 
 <div class="dev-center-tutorial-selector sublanding">
-<a href="/ru-ru/documentation/articles/active-directory-aadconnect/" title="Что это такое" class="current">Что это такое</a> <a href="/ru-ru/documentation/articles/active-directory-aadconnect-how-it-works/" title="Как это работает">Как это работает</a> <a href="/ru-ru/documentation/articles/active-directory-aadconnect-get-started/" title="Приступая к работе">Приступая к работе</a> <a href="/ru-ru/documentation/articles/active-directory-aadconnect-whats-next/" title="Что дальше">Что дальше</a> <a href="/ru-ru/documentation/articles/active-directory-aadconnect-learn-more/" title="Подробнее">Подробнее</a>
+<a href="../active-directory-aadconnect/" title="Что это такое">Что это такое</a> <a href="../active-directory-aadconnect-how-it-works/" title="Как это работает">Как это работает</a> <a href="../active-directory-aadconnect-get-started/" title="Приступая к работе">Приступая к работе</a> <a href="../active-directory-aadconnect-whats-next/" title="Что дальше">Что дальше</a> <a href="../active-directory-aadconnect-learn-more/" title="Подробнее" class="current">Подробнее</a>
 </div>
 
 Ниже приведен список дополнительных ресурсов для использования Azure AD Connect и интеграции локальных каталогов с Azure AD.
 
->[AZURE.NOTE]Azure AD Connect применяет компоненты и функции, ранее выпущенные как Dirsync и служба синхронизации AAD. Они больше не выпускаются по отдельности, а все будущие улучшения будут включены в обновления для Azure AD Connect, поэтому вам всегда будут доступны самые последние функции.
+>[AZURE.NOTE]Azure AD Connect применяет компоненты и функции, ранее выпущенные как Dirsync и служба синхронизации AAD. Они больше не выпускаются по отдельности. Все усовершенствования будут включаться в обновления для Azure AD Connect, поэтому вам всегда будут доступны самые последние функции.
 
 ## Документация
 
-[DirSync с единым входом](https://msdn.microsoft.com/library/azure/dn441213.aspx) — создайте федерацию вашей локальной среды Active Directory с Azure AD, используя AD FS для единого входа.
 
 [Синхронизации каталогов в нескольких лесах с единым входом](https://msdn.microsoft.com/library/azure/dn510976.aspx) — интегрируйте нескольких каталогов с Azure AD.
 
@@ -36,17 +35,16 @@
 
 ## Видео
 
-[AZURE.VIDEO edge-show115-azure-ad-connect-preview-configuring-hybrid-identity-with-azure-ad-] [AZURE.VIDEO 04] 
+Презентация по интеграции локальных и облачных каталогов с конференции Ignite 2015.
 
-[AZURE.VIDEO 10] [AZURE.VIDEO teched-new-zealand-2014-microsoft-office-365-directory-synchronization-and-federation-options]
+[AZURE.VIDEO microsoft-ignite-2015-extending-on-premises-directories-to-the-cloud-made-easy-with-azure-active-directory-connect]
 
+<br> <br>
 
-**Дополнительные ресурсы**
+Посмотрите это видео, чтобы узнать, как легко интегрировать локальную и облачную службы каталогов Active Directory, используя стандартные настройки Azure Active Directory Connect.
 
-* [Использование локальной инфраструктуры удостоверений в облаке](active-directory-aadconnect.md)
-* [Принципы работы Azure AD Connect](active-directory-aadconnect-how-it-works.md)
-* [Приступая к работе с Azure AD Connect](active-directory-aadconnect-get-started.md)
-* [Что дальше с Azure AD Connect](active-directory-aadconnect-whats-next.md)
-* [Azure AD Connect на портале MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx)
+[AZURE.VIDEO azure-active-directory-connect-express-settings]
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

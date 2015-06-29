@@ -1,27 +1,27 @@
-
-<properties 
-	pageTitle="Подключение и выполнение запросов к базе данных SQL с помощью языка C#" 
+<properties
+	pageTitle="Подключение и выполнение запросов к базе данных SQL с помощью языка C#"
 	description="Пример кода, позволяющий использовать C# и ADO.NET для подключения к и взаимодействия с базой данных AdventureWorks в базе данных SQL Azure."
-	services="sql-database" 
-	documentationCenter="" 
-	authors="ckarst" 
-	manager="jeffreyg" 
+	services="sql-database"
+	documentationCenter=""
+	authors="ckarst"
+	manager="jeffreyg"
 	editor=""/>
 
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="04/14/2015" 
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="get-started-article" 
+	ms.date="04/14/2015"
 	ms.author="cakarst"/>
 
 
-# Подключение и выполнение запросов к базе данных SQL с помощью языка C# 
+# Подключение к базе данных SQL и отправка запросов в нее с помощью языка C&#x23;
 
-В этой статье приведен пример кода на C#, показывающий, как подключиться к существующей базе данных SQL AdventureWorks, используя ADO.NET. Код из примера компилируется в консольное приложение, которое отправляет запрос к базе данных и выводит результаты.
+
+В этой статье приведен пример кода на C#, показывающий, как подключиться к существующей базе данных SQL AdventureWorks, используя ADO.NET. Код из примера компилируется в консольное приложение, которое отправляет запросы в базу данных и выводит результаты.
 
 
 ## Предварительные требования
@@ -34,7 +34,7 @@
 ## Шаг 1. Консольное приложение
 
 
-1. С помощью Visual Studio создайте консольное приложение C#.
+1. Создайте в Visual Studio консольное приложение C#.
 
 
 ![Подключение и запросы](./media/sql-database-connect-query/ConnectandQuery_VisualStudio.png)
@@ -70,7 +70,7 @@
 	using System.Text;
 	using System.Threading.Tasks;
 	using System.Data.SqlClient;
-	
+
 	namespace ConnectandQuery_Example
 	{
 		class Program
@@ -114,20 +114,20 @@
 ## Шаг 3. Получение строки подключения к базе данных
 
 
-1. Откройте [портал Azure](http://portal.azure.com/).
+1. Войдите на [портал предварительной версии Azure](http://portal.azure.com/).
 2. Щелкните **Обзор** > **Базы данных SQL** > **База данных Adventure Works** > **Свойства** > **Показать строки подключения к базе данных**.
 
 
-![Портал](media/sql-database-connect-query/ConnectandQuery_portal.png)
+![Портал](./media/sql-database-connect-query/ConnectandQuery_portal.png)
 
 
-В колонке строк подключения к базе данных вы увидите соответствующие строки подключения для ADO.NET, ODBC, PHP и JDBC.
+В колонке строк подключения к базе данных вы найдете соответствующие строки подключения для ADO.NET, ODBC, PHP и JDBC.
 
 
 ## Шаг 4. Вставка фактической информации для подключения
 
 
-Во вставленном исходном коде замените *[Your_Connection_String]* на строку подключения, а *your_password_here* в ней — на действительный пароль.
+- Во вставленном исходном коде замените *[Your_Connection_String]* на строку подключения, а *your_password_here* в ней — на действительный пароль.
 
 
 ## Шаг 5. Выполнение приложения
@@ -135,5 +135,6 @@
 
 1. Чтобы скомпилировать и запустить приложение, щелкните **ОТЛАДКА** > **Начать отладку**.
 2. Программа выведет результаты запроса в окне консоли.
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

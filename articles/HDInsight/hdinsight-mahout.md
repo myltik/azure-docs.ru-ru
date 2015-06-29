@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Создание списка рекомендуемых к просмотру фильмов с использованием Mahout с Microsoft Azure HDInsight (Hadoop)"
-	description="Вы узнаете, как использовать библиотеку для обучения Apache Mahout для создания списка рекомендуемых к просмотру фильмов с помощью HDInsight (Hadoop)"
+	pageTitle="Создание рекомендаций с помощью Mahout и Hadoop | Microsoft Azure"
+	description="Узнайте, как использовать библиотеку машинного обучения Apache Mahout для создания списка рекомендуемых фильмов с помощью HDInsight (Hadoop)."
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -13,16 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/06/2015"
+	ms.date="06/16/2015"
 	ms.author="larryfr"/>
 
-#Создание списка рекомендуемых к просмотру фильмов с использованием Apache Mahout с HDInsight
+#Создание списка рекомендуемых фильмов с использованием Apache Mahout и Hadoop в HDInsight
+
+[AZURE.INCLUDE [mahout-selector](../../includes/hdinsight-selector-mahout.md)]
 
 Узнайте, как использовать библиотеку машинного обучения [Apache Mahout](http://mahout.apache.org) для создания списка рекомендуемых к просмотру фильмов с помощью Azure HDInsight.
 
-> [AZURE.NOTE]Для использования информации, приведенной в этой статье, вам понадобится кластер HDInsight. Для получения информации о создании кластера см. раздел [Приступая к работе с Hadoop в HDInsight][getstarted].
->
-> Mahout входит в состав кластеров HDInsight версии 3.1. Если вы используете более раннюю версию HDInsight, перед тем как продолжить, см. раздел [Установка Mahout](#install).
+> [AZURE.NOTE]Действия, описанные в этом документе, требуют наличия клиента Windows и кластера HDInsight на основе Windows. Сведения об использовании Mahout из клиента Linux, OS X или Unix с кластером HDInsight под управлением Linux см. в разделе [Создание рекомендаций по фильмам с использованием Apache Mahout с Hadoop на основе Linux в HDInsight](hdinsight-hadoop-mahout-linux-mac.md)
+
 
 ##<a name="learn"></a>О чем вы узнаете
 
@@ -33,6 +34,15 @@ Mahout — это библиотека [машинного обучения][ml]
 * - как запускать задания Mahout из командной строки Hadoop;
 
 * Как устанавливать Mahout на кластерах HDInsight версий 3.0 и 2.0.
+
+	> [AZURE.NOTE]Mahout входит в состав кластеров HDInsight версии 3.1. Если вы используете более раннюю версию HDInsight, перед тем как продолжить, см. раздел [Установка Mahout](#install).
+
+##Необходимые компоненты
+
+* **Кластер Hadoop на платформе Windows в HDInsight**. Для получения информации о создании кластера см. раздел [Приступая к работе с Hadoop в HDInsight][getstarted].
+
+- **Рабочая станция с Azure PowerShell**. См. раздел [Установка и использование Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
+
 
 ##<a name="recommendations"></a>Создание рекомендаций с использованием Windows PowerShell
 
@@ -84,7 +94,7 @@ Mahout — это библиотека [машинного обучения][ml]
 	# So dynamically grab it using Hive.
 	$mahoutPath = Invoke-Hive -Query '!${env:COMSPEC} /c dir /b /s ${env:MAHOUT_HOME}\examples\target*-job.jar' | where {$_.startswith("C:\apps\dist")}
 	$noCRLF = $mahoutPath -replace "`r`n", ""
-	$cleanedPath = $noCRLF -replace "", "/"
+	$cleanedPath = $noCRLF -replace "\", "/"
 	$jarFile = "file:///$cleanedPath"
     #
 	# If you are using an earlier version of HDInsight,
@@ -134,11 +144,11 @@ Mahout — это библиотека [машинного обучения][ml]
 	3	[284:5.0,285:4.828125,508:4.7543354,845:4.75,319:4.705128,124:4.7045455,150:4.6938777,311:4.6769233,248:4.65625,272:4.649266]
 	4	[690:5.0,12:5.0,234:5.0,275:5.0,121:5.0,255:5.0,237:5.0,895:5.0,282:5.0,117:5.0]
 
-Первый столбец — `userID`. Значения, хранящиеся в «[» и «]», — это `movieId`:`recommendationScore`.
+Первый столбец — `userID`. Значения, хранящиеся в скобках «[» и «]», — это `movieId`:`recommendationScore`.
 
 ###Просмотр результатов
 
-Сформированный результат может подходить для использования в приложении, хотя и не быть достаточно удобочитаемым. Некоторые извлеченные ранее в папку __ml-100k__ файлы можно использовать для разрешения `movieId` в название фильма. В папке __ml-100k__ уже имеется сценарий Python, который выполняет эту задачу (show_recommendations.py). Вы также можете использовать следующий сценарий Windows PowerShell:
+Сформированный результат может подходить для использования в приложении, хотя и не быть достаточно удобочитаемым. Некоторые файлы, извлеченные ранее в папку __ml-100k__, можно использовать для разрешения `movieId` в название фильма. Именно это делает следующий сценарий PowerShell:
 
 	<#
 	.SYNOPSIS
@@ -225,9 +235,6 @@ Mahout — это библиотека [машинного обучения][ml]
 Для использования этого сценария необходимо наличие ранее распакованной папки __ml-100k__, а также локальная копия выходного файла __part-r-00000__, созданного заданием Mahout. Ниже приводится пример запуска сценария:
 
 	PS C:> show-recommendation.ps1 -userId 4 -userDataFile .\ml-100k\u.data -movieFile .\ml-100k\u.item -recommendationFile .\output.txt
-
-
-> [AZURE.NOTE]Пример сценария Python, __show_recommendations.py__, имеет те же параметры запуска.
 
 Результат должен выглядеть аналогично следующему:
 
@@ -359,9 +366,9 @@ Mahout устанавливается на кластерах HDInsight верс
 
     	> [AZURE.NOTE] When Mahout 1.0 is released, you should be able to use the prebuilt packages with HDInsight 3.0.
 
-2. Загрузите файл jar в каталог __example/jars__ в хранилище по умолчанию для вашего кластера. Следующий пример использует сценарий [send-hdinsight][sendhdinsight] для передачи файла:
+2. Загрузите файл jar в каталог __example/jars__ в хранилище по умолчанию для вашего кластера. В следующем примере add-hdinsightfile из [средств HDInsight][tools] используется для отправки файла:
 
-    	PS C:> .\Send-HDInsight -LocalPath "path\to\mahout-core-0.9-job.jar" -DestinationPath "example/jars/mahout-core-0.9-job.jar" -ClusterName "your cluster name"
+    	PS C:> .\Add-HDInsightFile -LocalPath "path\to\mahout-core-0.9-job.jar" -DestinationPath "example/jars/mahout-core-0.9-job.jar" -ClusterName "your cluster name"
 
 ###Отсутствие возможности перезаписи файлов
 
@@ -399,13 +406,20 @@ Mahout устанавливается на кластерах HDInsight верс
 
 Для запуска заданий, использующих указанные классы, подключитесь к кластеру HDInsight и запустите их, используя командную строку Hadoop. Пример см. в разделе [Классификация данных с использованием командной строки Hadoop](#classify).
 
+##Дальнейшие действия
+
+Теперь, когда вы узнали, как использовать Mahout, откройте для себя другие способы работы с данными в HDInsight:
+
+* [Hive с HDInsight](../hadoop-use-hive.md)
+* [Pig с HDInsight](../hadoop-use-pig.md)
+* [MapReduce с HDInsight](../hadoop-use-mapreduce.md)
 
 [build]: http://mahout.apache.org/developers/buildingmahout.html
-[aps]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
+[aps]: ../powershell-install-configure.md
 [movielens]: http://grouplens.org/datasets/movielens/
 [100k]: http://files.grouplens.org/datasets/movielens/ml-100k.zip
-[getstarted]: http://azure.microsoft.com/documentation/articles/hdinsight-get-started/
-[upload]: http://azure.microsoft.com/documentation/articles/hdinsight-upload-data/
+[getstarted]: ../hdinsight-get-started.md
+[upload]: hdinsight-upload-data.md
 [ml]: http://en.wikipedia.org/wiki/Machine_learning
 [forest]: http://en.wikipedia.org/wiki/Random_forest
 [management]: https://manage.windowsazure.com/
@@ -413,5 +427,6 @@ Mahout устанавливается на кластерах HDInsight верс
 [connect]: ./media/hdinsight-mahout/connect.png
 [hadoopcli]: ./media/hdinsight-mahout/hadoopcli.png
 [tools]: https://github.com/Blackmist/hdinsight-tools
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=58_postMigration-->

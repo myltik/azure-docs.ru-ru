@@ -31,7 +31,7 @@
 
 ## Объекты
 
-- Нет никаких ограничений для подписчиков Azure Active Directory Premium или Azure Active Directory Basic, Enterprise Mobility Suite, Office 365, Windows Intune или любой другой веб-службы Microsoft, использующей Azure Active Directory для служб каталогов.
+- Для подписчиков Azure Active Directory Premium, Azure Active Directory Basic, Enterprise Mobility Suite, Office 365, Microsoft Intune или других веб-служб Майкрософт, использующих службы каталогов Azure Active Directory, нет никаких ограничений.
 - В одном каталоге с бесплатным выпуском Azure Active Directory можно использовать не более 500 000 объектов.
 - Пользователь без прав администратора может создать до 250 объектов.
 
@@ -72,4 +72,7 @@
 - [Как подписки Azure связаны с Azure AD](active-directory-how-subscriptions-associated-directory.md)
 - [Терминология Azure Active Directory](active-directory-terminology.md)
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=58_postMigration-->

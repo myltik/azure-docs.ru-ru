@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Отсоединение диска данных от виртуальной машины Windows Azure" 
-	description="Вы научитесь отсоединять диск данных от виртуальной машины Windows на платформе Azure." 
+	description="Узнайте, как отключать диск от виртуальной машины в Azure." 
 	services="virtual-machines, storage" 
 	documentationCenter="" 
 	authors="KBDAzure" 
@@ -13,14 +13,19 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/22/2014" 
+	ms.date="05/27/2015" 
 	ms.author="kathydav"/>
 
 
 
-
+# Отключение диска от виртуальной машины Windows
 
 [AZURE.INCLUDE [howto-detach-disk-windows-linux](../../includes/howto-detach-disk-windows-linux.md)]
 
-<!--HONumber=42-->
+## Дополнительные ресурсы
+
+[Подключение диска данных к виртуальной машине Windows](storage-windows-attach-disk.md)
+
  
+
+<!---HONumber=58_postMigration-->

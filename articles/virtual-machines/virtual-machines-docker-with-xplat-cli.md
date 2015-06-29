@@ -137,5 +137,6 @@ azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d
 [Использование расширения виртуальных машин Docker на портале]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-portal/
 
 [Руководству пользователя Docker]: https://docs.docker.com/userguide/
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->
