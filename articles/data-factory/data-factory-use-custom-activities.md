@@ -36,16 +36,16 @@
 
 4. Обновите класс для реализации интерфейса **IDotNetActivity**.
 	<ol type='a'>
-	<li>
-		Определите класс, производный от <b>IDotNetActivity</b>.
-		<br/>
-		Пример: <br/>
-		public class <b>MyDotNetActivity: IDotNetActivity</b>
-	</li>
+		<li>
+			Определите класс, производный от <b>IDotNetActivity</b>.
+			<br/>
+			Пример: <br/>
+			public class <b>MyDotNetActivity: IDotNetActivity</b>
+		</li>
 
-	<li>
-		Реализуйте метод <b>Execute</b> интерфейса <b>IDotNetActivity</b>.
-	</li>
+		<li>
+			Реализуйте метод <b>Execute</b> интерфейса <b>IDotNetActivity</b>.
+		</li>
 
 	</ol>
 5. Скомпилируйте проект.
@@ -61,10 +61,12 @@
 		<li>для <b>типа действия</b> должно быть установлено значение <b>CustomActivity</b>;</li>
 		<li><b>AssemblyName</b>&#160;— это имя выходной библиотеки DLL из проекта Visual Studio;</li>
 		<li><b>EntryPoint</b> определяет <b>пространство имен</b> и <b>имя</b> <b>класса</b>, реализующего интерфейс <b>IDotNetActivity</b>;</li>
-	<li><b>PackageLinkedService</b>&#160;— это связанная служба, которая относится к большому двоичному объекту, содержащему ZIP-файл; </li>
+		<li><b>PackageLinkedService</b>&#160;— это связанная служба, которая относится к большому двоичному объекту, содержащему ZIP-файл; </li>
 		<li><b>PackageFile</b> указывает расположение и имя ZIP-файла, отправленного в службу хранилища больших двоичных объектов Azure;</li>
 		<li><b>LinkedServiceName</b>&#160;— это имя связанной службы, связывающей кластер HDInsight (по запросу или собственный) с фабрикой данных. В кластере HDInsight настраиваемое действие выполняется только как задание сопоставления.</li>
 	</ol>
+
+	
 
 	**Пример части JSON-файла**
 
