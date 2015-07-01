@@ -207,7 +207,8 @@
 [Справочник серверных скриптов мобильных служб]: http://go.microsoft.com/fwlink/?LinkId=262293
 
 [Send push notifications to authenticated users]: mobile-services-javascript-backend-android-push-notifications-app-users.md
-
+[Приступая к работе с мобильными службами]: mobile-services-android-get-started.md
+[портал управления Azure]: https://manage.windowsazure.com/
 [Что такое концентраторы уведомлений?]: ../notification-hubs-overview.md
 [Send broadcast notifications to subscribers]: ../notification-hubs-android-send-breaking-news.md
 [Send template-based notifications to subscribers]: ../notification-hubs-android-send-localized-breaking-news.md
