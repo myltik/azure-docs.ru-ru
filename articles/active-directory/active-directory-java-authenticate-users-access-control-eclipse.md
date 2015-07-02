@@ -315,4 +315,4 @@ Azure создает и активирует пространство имен. 
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
  
 
-<!---HONumber=58_postMigration-->
+<!----HONumber=58_postMigration-->
