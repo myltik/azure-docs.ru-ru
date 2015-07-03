@@ -117,9 +117,9 @@ Azure создает и активирует пространство имен. 
         App**.
     2.  В поле **Режим** выберите **Ввод параметров вручную**.
     3.  В поле **Область** введите URI, к которому применяется маркер безопасности, выданный ACS. Для данной задачи введите **http://localhost:8080/**.
-        ![Область действия проверяющей стороны для использования в эмуляторе среды выполнения приложений][relying_party_realm_emulator]
+        ![Relying party realm for use in compute emulator][relying_party_realm_emulator]
     4.  В поле **URL возврата** введите URL-адрес, по которому ACS возвращает маркер безопасности. Для данной задачи введите **http://localhost:8080/MyACSHelloWorld/index.jsp**
-        ![URL-адрес возврата проверяющей стороны для использования в эмуляторе среды выполнения приложений][relying_party_return_url_emulator]
+        ![Relying party return URL for use in compute emulator][relying_party_return_url_emulator]
     5.  Примите значения по умолчанию в остальных полях.
 
 4.  Щелкните **Сохранить**.
@@ -315,4 +315,4 @@ Azure создает и активирует пространство имен. 
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
  
 
-<!----HONumber=58_postMigration-->
+<!-----HONumber=58_postMigration-->
