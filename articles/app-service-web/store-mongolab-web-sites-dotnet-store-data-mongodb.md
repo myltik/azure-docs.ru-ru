@@ -37,14 +37,14 @@
 ## Быстрый запуск
 Если у вас уже есть необходимое веб-приложение в службе приложений Azure или опыт работы с Azure Marketplace, используйте этот раздел в качестве краткого руководства. В противном случае изучите приведенный ниже раздел [Подготовка базы данных][provision].
  
-1. Откройте Azure Marketplace, последовательно щелкнув **Создать** > **Marketplace**. 
+1. Откройте Azure Marketplace, последовательно щелкнув **Создать** > **Marketplace**.  
 	<!-- ![Store][button-store] -->
 
-1. Приобретите надстройку MongoLab. 
+1. Приобретите надстройку MongoLab.  
 	![MongoLab][entry-mongolab]
 
 1. Щелкните надстройку MongoLab в списке надстроек, а затем выберите пункт **Сведения о подключении**.  
-	![ConnectionInfoButton][button-connectioninfo]
+	![ConnectionInfoButton][button-connectioninfo]  
 
 1. Скопируйте MONGOLAB_URI в буфер обмена.  
 	![ConnectionInfoScreen][screen-connectioninfo]  
@@ -499,4 +499,4 @@
 [manage]: #manage
 
 
-<!---HONumber=54--> 
+<!-----HONumber=54--> 
