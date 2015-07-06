@@ -560,4 +560,4 @@ Contoso — это компания, которая создает игры дл
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial-using-powershell/DataFactoryCreateButton.png
 
-<!---HONumber=58_postMigration-->
+<!----HONumber=58_postMigration-->
