@@ -1,7 +1,7 @@
 <properties 
-   pageTitle="Настройка репликации HBase между двумя центрами обработки данных Azure | Azure" 
-   description="Подробные сведения о настройке VPN-подключений между двумя виртуальными сетями Azure, о настройке разрешения доменных имен между двумя виртуальными сетями, а также о настройке географической репликации HBase" 
-   services="hdinsight" 
+   pageTitle="Настройка репликации HBase между двумя центрами обработки данных | Microsoft Azure" 
+   description="Узнайте, как настроить репликации HBase между двумя центрами обработки данных и о вариантах использования репликации кластера." 
+   services="hdinsight,virtual-network" 
    documentationCenter="" 
    authors="mumian" 
    manager="paulettm" 
@@ -42,12 +42,13 @@
 
 ![Схема виртуальной сети репликации HBase в HDInsight][img-vnet-diagram]
 
-##<a id="prerequisites"></a>Предварительные требования
+## <a id="prerequisites"></a>Предварительные требования
+
 Перед началом работы с этим учебником необходимо иметь следующее:
 
-- **Подписка Azure.**. Azure — это платформа на основе подписок. Дополнительные сведения о получении подписки см. в разделах [Варианты приобретения][azure-purchase-options], [Предложения для участников][azure-member-offers] или [Бесплатное пробное использование][azure-free-trial].
+- **Подписка Azure.**. См. [Бесплатная пробная версия Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- ** Рабочая станция, на которой установлена и настроена среда Azure PowerShell**. Инструкции см. в разделе [Установка и настройка Azure PowerShell][powershell-install]. Для выполнения скриптов PowerShell необходимо запустить Azure PowerShell с правами администратора и задать политику выполнения *RemoteSigned*. См. раздел [Использование командлета Set-ExecutionPolicy][2].
+- **Рабочая станция с Azure PowerShell**. См. [Установка и использование Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). Для выполнения скриптов PowerShell необходимо запустить Azure PowerShell с правами администратора и задать политику выполнения *RemoteSigned*. См. раздел Использование командлета Set-ExecutionPolicy.
 
 - **Две виртуальные сети Azure с настроенными VPN-подключением и службой DNS**. Инструкции см. в разделах [Настройка VPN-подключения между двумя виртуальными сетями Azure][hdinsight-hbase-replication-vnet] и [Настройка DNS между двумя виртуальными сетями Azure][hdinsight-hbase-replication-dns].
 
@@ -62,7 +63,7 @@
 
 
 
-##Подготовка кластеров HBase в HDInsight
+## Подготовка кластеров HBase в HDInsight
 
 В разделе [Настройка VPN-подключения между двумя виртуальными сетями Azure][hdinsight-hbase-replication-vnet] вы создали виртуальную сеть в европейском центре обработки данных и виртуальную сеть в центре обработки данных, расположенном в США. Две виртуальные сети соединены через VPN. На этом занятии вы подготовите кластер HBase в каждой из виртуальных сетей. Далее в этом учебнике вы настроите репликацию одним из этих кластеров другого.
 
@@ -147,7 +148,7 @@
 
 
 
-# Настройка DNS-сервера условной пересылки
+## Настройка DNS-сервера условной пересылки
 
 В разделе [Настройка DNS для виртуальных сетей][hdinsight-hbase-replication-dns] вы настроили DNS-серверы для двух сетей. Кластеры HBase имеют разные суффиксы доменов. Таким образом, требуется настроить дополнительные DNS-серверы условной пересылки.
 
@@ -193,7 +194,7 @@
 
 >[AZURE.IMPORTANT]Служба DNS должна работать, прежде чем можно будет перейти к дальнейшим действиям.
 
-##Включение репликации между таблицами HBase
+## Включение репликации между таблицами HBase
 
 Теперь можно создать образец таблицы HBase, включить репликацию и затем протестировать ее с данными. Образец таблицы, который будет использоваться, содержит два семейства столбцов: Personal и Office.
 
@@ -273,14 +274,14 @@
 		hbase org.apache.hadoop.hbase.mapreduce.LoadIncrementalHFiles /tmpOutput Contacts
 
 
-##Убедитесь, что выполняется репликация данных
+## Убедитесь, что выполняется репликация данных
 
 Проверить наличие репликации можно путем сканирования таблиц из обоих кластеров с помощью следующих команд оболочки HBase:
 
 		Scan 'Contacts'
 
 
-##Дальнейшие действия
+## Дальнейшие действия
 
 В этом учебнике вы изучили настройку репликации HBase между двумя центрами обработки данных. Для получения дополнительных сведений о HDInsight и HBase см. следующие ресурсы:
 
@@ -298,7 +299,7 @@
 
 [img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication/HDInsight.HBase.Replication.Network.diagram.png
 
-
+[powershell-install]: ../install-configure-powershell.md
 [hdinsight-hbase-get-started]: ../hdinsight-hbase-get-started.md
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
@@ -309,5 +310,5 @@
 [hdinsight-hbase-overview]: hdinsight-hbase-overview.md
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
 [hdinsight-hbase-get-started]: ../hdinsight-hbase-get-started.md
-<!--HONumber=52-->
- 
+
+<!---HONumber=62-->

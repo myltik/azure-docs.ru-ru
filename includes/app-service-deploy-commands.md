@@ -1,8 +1,9 @@
 
-To deploy the resources to Azure, you must be logged in to your Azure account and you must use the Azure Resource Manager module. To learn about using Azure Resource Manager with either Azure PowerShell or Azure CLI, 
-see:
+Чтобы развернуть ресурсы в Azure, войдите в свою учетную запись Azure и воспользуйтесь модулем диспетчера ресурсов Azure. Информацию об использовании диспетчера ресурсов Azure с помощью Azure PowerShell или интерфейса командной строки Azure см. в следующих статьях.
 
-- [Using Azure PowerShell with Azure Resource Manager](powershell-azure-resource-manager.md)
-- [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](xplat-cli-azure-resource-manager.md).
+- [Использование Azure PowerShell с диспетчером ресурсов Azure](powershell-azure-resource-manager.md)
+- [Использование интерфейса командной строки Azure для Mac, Linux и Windows со службой управления ресурсами Azure](../articles/virtual-machines/xplat-cli-azure-resource-manager.md).
 
-The examples below assume you already have a resource group in your account with the specified name. 
+В приведенных ниже примерах предполагается, что в вашей учетной записи уже есть группа ресурсов с указанным именем.
+
+<!---HONumber=62-->

@@ -1,11 +1,13 @@
 
-- **Visual Studio 2013** <br/>This a requirement for using To download a free trial version of Visual Studio 2013, see [Visual Studio Downloads](http://www.visualstudio.com/downloads/download-visual-studio-vs). 
+- **Visual Studio 2013** <br/> Это требования к использованию. Для загрузки бесплатной пробной версии Visual Studio 2013 см. [Загружаемые файлы для Visual Studio](http://www.visualstudio.com/downloads/download-visual-studio-vs). 
 
-- **SQL Server 2014 Express with Tools** <br/>Download Microsoft SQL Server Express for free at the [Microsoft SQL Server Express Edition page](http://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx). Choose the **Download SQL Server Express** and fill out your profile, choosing **SQL Server 2014 Express with Tools**, then click continue. This starts the download of the installer for both SQL Server Express and the SQL Server Express Management Tools. Save the installer package to your on-premises computer.
+- **SQL Server 2014, экспресс-выпуск с инструментами** <br/>Загрузите экспресс-выпуск Microsoft SQL Server бесплатно на странице [экспресс-выпуска Microsoft SQL Server](http://www.microsoft.com/ru-ru/server-cloud/Products/sql-server-editions/sql-server-express.aspx). Выберите **Загрузить экспресс-выпуск SQL Server** и заполните свой профиль, выбрав **SQL Server 2014, экспресс-выпуск с инструментами**, а затем нажмите кнопку "Продолжить". Начнется загрузка установщика для экспресс-выпуска SQL Server и средств управления SQL Server Express. Сохраните пакет установщика на локальный компьютер.
 
-- **An on-premises computer** <br/>You can run the Hybrid Connections Manger on the same on-premises computer as your SQL Server instance, or you can run each on a separate computer. The computer on which the Hybrid Connection Manager runs must meet the following criteria:
+- **Локальный компьютер** <br/>Диспетчер гибридных подключений можно запустить на том же локальном компьютере, где установлен экземпляр SQL Server, или можно запустить их на разных компьютерах. Компьютер, на котором запускается диспетчер гибридных подключений, должен удовлетворять следующим условиям:
 
-	- Be able to connect to Azure over port 5671.
-	- Be able to access the *hostname*:*portnumber* of the computer running your SQL Server instance.  
+	- иметь возможность подключения к Azure через порт 5671.
+	- иметь доступ к *имя_узла*: * номер_порта * на компьютере с экземпляром SQL Server.  
 
-	For more information see [Hybrid Connections Overview](../articles/integration-hybrid-connection-overview.md).
+	Дополнительные сведения см. [обзор гибридных подключений](../articles/integration-hybrid-connection-overview.md).
+
+<!---HONumber=62-->

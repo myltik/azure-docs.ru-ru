@@ -1,7 +1,7 @@
 <properties 
-   pageTitle="Настройка VPN-подключения между двумя виртуальными сетями Azure | Azure" 
-   description="Подробные сведения о настройке VPN-подключений между двумя виртуальными сетями Azure, о настройке разрешения доменных имен между двумя виртуальными сетями, а также о настройке географической репликации HBase" 
-   services="hdinsight" 
+   pageTitle="Настройка VPN-подключения между двумя виртуальными сетями Azure | Microsoft Azure" 
+   description="Узнайте, как настроить VPN-подключения между двумя виртуальными сетями Azure, как настроить разрешения доменных имен между двумя виртуальными сетями, а также о настройке географической репликации HBase." 
+   services="hdinsight,virtual-network" 
    documentationCenter="" 
    authors="mumian" 
    manager="paulettm" 
@@ -31,6 +31,10 @@
 
 Дополнительные сведения см. в разделе [Настройка подключения между двумя виртуальными сетями](https://msdn.microsoft.com/library/azure/dn690122.aspx).
 
+Для просмотра его на видео:
+
+> [AZURE.VIDEO configure-the-vpn-connectivity-between-two-azure-virtual-networks]
+
 Этот учебник является частью [серии][hdinsight-hbase-replication] по созданию географической репликации HBase.
 
 - Настройка VPN-подключения между двумя виртуальными сетями (данный учебник)
@@ -45,9 +49,9 @@
 ##Предварительные требования
 Перед началом работы с этим учебником необходимо иметь следующее:
 
-- **Подписка Azure.**. Azure — это платформа на основе подписок. Дополнительные сведения о получении подписки см. в разделах [Варианты приобретения][azure-purchase-options], [Предложения для участников][azure-member-offers] или [Бесплатное пробное использование][azure-free-trial].
+- **Подписка Azure.**. См. [Бесплатная пробная версия Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- ** Рабочая станция, на которой установлена и настроена среда Azure PowerShell**. Инструкции см. в разделе [Установка и настройка Azure PowerShell][powershell-install].
+- **Рабочая станция с Azure PowerShell**. См. [Установка и использование Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
 	Перед выполнением скриптов PowerShell убедитесь, что вы подключены к подписке Azure, с помощью следующего командлета:
 
@@ -74,20 +78,20 @@
 	- **ИМЯ**: Contoso-VNet-EU
 	- **РАСПОЛОЖЕНИЕ**: North Europe
 
-		В этом учебнике используются центры обработки данных в Северной Европе и на востоке США. Можно выбрать собственные центры обработки данных.
+		В этом учебнике используется ЦОД Северная Европа и Восток США. Вы можете выбрать собственные центры обработки данных.
 4.	Введите:
 
 	- **DNS-СЕРВЕР**: (оставьте пустым) 
 	
-		Вам понадобится собственный DNS-сервер для разрешения имен в виртуальных сетях. Дополнительную информацию о том, когда использовать предоставленный Azure модуль разрешения имен и собственный DNS-сервер, см. в разделе [Разрешение имен (DNS)] (https://msdn.microsoft.com/library/azure/jj156088.aspx). Инструкции по настройке разрешения имен между виртуальными сетями см. в разделе [Настройка DNS между двумя виртуальными сетями Azure][hdinsight-hbase-dns].
+		Вам потребуется DNS-сервер для разрешения имен в виртуальных сетях. Дополнительные сведения об использовании разрешения имен Azure и когда следует использовать собственный DNS-сервер смотрите в разделе [Разрешение имен (DNS)](https://msdn.microsoft.com/library/azure/jj156088.aspx). Инструкции по настройке разрешений имен между виртуальными сетями вы можете найти в разделе [Настройка DNS между двумя виртуальными сетями Azure][hdinsight-hbase-dns].
   
 	- **Настроить VPN между точкой и сайтом**: (флажок не установлен)
 
-		Point-to-site doesn't apply to this scenario.
+		Соединение "точка-сеть" не применяется для этого сценария.
 
- **Настроить VPN между сайтами**: (флажок не установлен)
+ 	- **Настроить VPN между сайтами**: (флажок не установлен)
  	
-		You will configure the site-to-site VPN connection to the Azure virtual network in the East U.S. datacenter.
+		VPN-подключение "сеть-сеть" к виртуальной сети Azure настраивается в центре обработки данных Восток США.
 5.	Введите:
 
 	- 	**НАЧАЛЬНЫЙ IP АДРЕСНОГО ПРОСТРАНСТВА**: 10.1.0.0
@@ -146,7 +150,7 @@
 	- **ИМЯ**: Contoso-LNet-EU
 	- **IP-АДРЕС УСТРОЙСТВА VPN**: 192.168.0.1 (этот адрес будет обновлен позднее)
 
-		Typically, you’d use the actual external IP address for a VPN device. For VNet to VNet configurations, you will use the VPN gateway IP address. Given that you have not created the VPN gateways for the two VNets yet, you enter an arbitary IP address and come back to fix it.
+		Как правило, для VPN-устройства используется фактический внешний IP-адрес. Для конфигураций подключений между виртуальными сетями вы воспользуетесь IP-адресом шлюза. Учитывая, что VPN-шлюзы для двух виртуальных сетей еще не созданы, вы можете ввести любой IP-адрес, а затем вернуться к этому шагу и исправить это значение.
 4.	Введите:
 
 	- **НАЧАЛЬНЫЙ IP АДРЕСНОГО ПРОСТРАНСТВА**: 10.1.0.0
@@ -266,5 +270,5 @@
 [img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.diagram.png
 [img-vnet-lnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.LNet.diagram.png
 [img-vpn-status]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.status.png
-<!--HONumber=52-->
- 
+
+<!---HONumber=62-->

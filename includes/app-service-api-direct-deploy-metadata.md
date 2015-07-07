@@ -36,4 +36,4 @@
 
 Удалите `endpoints.apiDefinition` из файла *apiapp.json* или задайте для него значение null. Если вы оставите и URL-адрес `endpoints.apiDefinition`, и файл *apiDefinition.swagger.json*, URL-адрес будет иметь приоритет, а файл будет игнорироваться.
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

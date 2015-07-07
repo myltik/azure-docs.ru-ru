@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Развертывание шаблона с помощью Azure CLI для Mac, Linux и Windows"
+   pageTitle="Развертывание шаблона с помощью интерфейса командной строки Azure для Mac, Linux и Windows | Microsoft Azure"
    description="Описывает основные шаги для развертывания или обновления любого шаблона."
    services="virtual-machines"
    documentationCenter=""
-   authors="squillace"
+   authors="dlepow"
    manager="timlt"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="infrastructure"
-   ms.date="04/21/2015"
-   ms.author="rasquill"/>
+   ms.date="06/09/2015"
+   ms.author="danlep"/>
 
 # Развертывание шаблона с помощью Azure CLI для Mac, Linux и Windows
 
@@ -30,11 +30,11 @@
 Скачайте файл azuredeploy parameters.json, если он существует для шаблона, который требуется развернуть.
 
     curl -O https://github.com/azure/azurermtemplates/raw/master/linux-virtual-machine-with-customdata/azuredeploy-parameters.json
-    
+
 ## Ввод данных для развертывания группы ресурсов
-    
+
 Откройте этот файл в предпочитаемом редакторе. Вы увидите, что необходимо указать значение для нескольких ключей, в частности для **adminUsername** и **adminPassword** (помните о правилах сложности!), а также имя учетной записи хранения и нужные DNS-имена.
-    
+
     {
       "newStorageAccountName": {
         "value": "uniquestorageaccountname"
@@ -70,13 +70,13 @@
         "value": "myNic"
       }
     }
-    
+
 Добавьте новые значения — Azure создаст новое хранилище и ресурсы DNS автоматически, если сможет — или используйте ресурсы, которые уже созданы. В следующем файле azuredeploy parameters.json приведен пример:
 
 
 
 
-приведенный ниже URL-адрес извлекает файл параметров из «пустого» azuredeploy-parameters.json, что сработает, если используется интерактивный метод. Если используются скаченный файл с  настраиваемыми параметрами, вместо этого потребуется использовать параметр --template-file<template-file>. Я также создал сценарии, которые извлекают отдельные разделы из любой части этих файлов, в зависимости от того, что требуется сделать. Следует упомянуть, что чтобы выполнить синтаксический анализ json, может потребоваться ввести jq: curl http://stedolan.github.io/jq/download/linux64/jq -o /usr/bin/jq.
+приведенный ниже URL-адрес извлекает файл параметров из «пустого» azuredeploy-parameters.json, что сработает, если используется интерактивный метод. Если используются скаченный файл с настраиваемыми параметрами, вместо этого потребуется использовать параметр --template-file<template-file>. Я также создал сценарии, которые извлекают отдельные разделы из любой части этих файлов, в зависимости от того, что требуется сделать. Следует упомянуть, что чтобы выполнить синтаксический анализ json, может потребоваться ввести jq: curl http://stedolan.github.io/jq/download/linux64/jq -o /usr/bin/jq.
 
 
 ### Развертывание файлов шаблона и параметров
@@ -105,6 +105,6 @@ Primis ipsum ante Vestibul в faucibus orci luctus et cubilia posuere ultrices C
 [6]: ./media/markdown-template-for-new-articles/pretty49.png
 [7]: ./media/markdown-template-for-new-articles/channel-9.png
 [8]: ./media/markdown-template-for-new-articles/copytemplate.png
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

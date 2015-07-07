@@ -3,7 +3,7 @@
 	description="Следуйте указаниям этого учебника, чтобы приступить к использованию службы приложений Azure для разработки приложений для iOS."
 	services="app-service\mobile"
 	documentationCenter="ios"
-	authors="yuaxu"
+	authors="ysxu"
 	manager="dwrede"
 	editor=""/>
 
@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
-	ms.topic="hero-article"
+	ms.topic="get-started-article"
 	ms.date="02/20/2015"
 	ms.author="yuaxu"/>
 
@@ -27,7 +27,7 @@
 * Активная учетная запись Azure. Если у вас нет учетной записи, можно зарегистрироваться для получения бесплатной пробной версии Azure и получить до 10 бесплатных мобильных приложений, которые можно использовать и после окончания пробного периода. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://azure.microsoft.com/pricing/free-trial/).
 * <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>.
 
->[AZURE.NOTE] Если вы хотите ознакомиться со службой приложений Azure до создания учетной записи, перейдите к разделу [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile), где вы можете быстро создать краткосрочное начальное мобильное приложение в службе приложений. Никаких кредитных карт и обязательств.
+>[AZURE.NOTE]Если вы хотите ознакомиться со службой приложений Azure до создания учетной записи, перейдите к разделу [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile), где вы можете быстро создать краткосрочное начальное мобильное приложение в службе приложений. Никаких кредитных карт и обязательств.
 
 ## <a name="create-new-service"> </a>Создание серверной части мобильного приложения
 
@@ -47,7 +47,7 @@
 
 3. Если вы еще не сделали этого, скачайте и установите <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a> на локальном компьютере или виртуальной машине.
 
-4. Скачайте и установите [Xcode] v4.4 или более позднюю версию и [Xamarin Studio]. Вы также можете использовать Xamarin для Visual Studio.
+4. Загрузите и установите [Xcode] 4.4 или более поздней версии, а также [Xamarin Studio]. Вы также можете использовать Xamarin для Visual Studio.
 
 5. В разделе **Скачивание и публикация службы в облаке** щелкните элемент **Скачать**.
 
@@ -84,6 +84,6 @@
 
 [Management Portal]: https://manage.windowsazure.com/
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

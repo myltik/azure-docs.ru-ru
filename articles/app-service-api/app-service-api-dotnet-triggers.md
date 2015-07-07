@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
+	ms.date="06/09/2015" 
 	ms.author="guayan;tarcher"/>
 
 # Триггеры приложения API службы приложений Azure
@@ -22,11 +22,7 @@
 
 В этой статье описывается, как реализовать триггеры приложения API и использовать их из приложения логики.
 
-Если вы не знакомы с приложениями API, вот некоторые статьи, которые помогут вам приступить к работе.
-
-1. [Создание приложения API](app-service-dotnet-create-api-app.md) — создание нового приложения API с самого начала или преобразования существующего проекта веб-API в приложение API. 
-2. [Развертывание приложения API](app-service-dotnet-deploy-api-app.md) — развертывание приложения API в подписке Azure.
-3. [Отладка приложения API](../app-service-dotnet-remotely-debug-api-app.md) — использование Visual Studio для удаленной отладки приложения API, запущенного в службе Azure.
+Если вы не знакомы с [приложениями API](app-service-api-apps-why-best-platform.md) в [службе приложений Azure](../app-service/app-service-value-prop-what-is.md), мы советуем вам ознакомиться с циклом статей о [создании приложений API](app-service-dotnet-create-api-app.md).
 
 Кроме того, все фрагменты кода в этом разделе копируются из [примера кода приложения API FileWatcher](http://go.microsoft.com/fwlink/?LinkId=534802).
 
@@ -343,6 +339,6 @@
             }
         }
     }
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

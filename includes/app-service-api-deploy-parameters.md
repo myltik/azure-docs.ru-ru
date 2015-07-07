@@ -1,12 +1,10 @@
-With Azure Resource Manager, you define parameters for values you want to specify when the template is deployed. The template includes a section called Parameters that contains all of the parameter values.
-You should define a parameter for those values that will vary based on the project you are deploying or based on the 
-environment you are deploying to. Do not define parameters for values that will always stay the same. Each parameter value is used in the template to define the resources that are deploy. 
+С помощью диспетчера ресурсов Azure можно определить параметры значений, которые должны указываться на этапе развертывания шаблона. В шаблоне есть раздел «Параметры», содержащий все значения параметров. Для этих значений необходимо определить параметры, которые будут зависеть от развертываемого проекта либо от среды, в которой выполняется развертывание. Не задавайте параметры для значений, которые не меняются. Значение каждого параметра в шаблоне определяет развертываемые ресурсы.
 
-We will describe each parameter in the template.
+Далее следует описание каждого параметра в шаблоне.
 
 ### gatewayName
 
-The name of the gateway you wish to create. The API app gets registered to this gateway.
+Имя шлюза, который требуется создать. Приложение API регистрируется в этом шлюзе.
 
     "gatewayName": {
       "type": "string"
@@ -14,7 +12,7 @@ The name of the gateway you wish to create. The API app gets registered to this 
 
 ### apiAppName
 
-The name of the API app to create.
+Имя создаваемого приложения API.
     
     "apiAppName": {
       "type": "string"
@@ -22,7 +20,7 @@ The name of the API app to create.
 
 ### apiAppSecret
 
-The secret for the API app. This value must be a base64-encoded string.
+Секрет приложения API. Это значение должно быть строкой с кодировкой Base64.
 
     "apiAppSecret": {
       "type": "securestring"
@@ -30,9 +28,10 @@ The secret for the API app. This value must be a base64-encoded string.
 
 ### location
 
-The location for the new API app.
+Расположение нового приложения API.
 
     "location": {
       "type": "string"
     }
 
+<!---HONumber=62-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Использование Python с Hive и Pig в Azure HDInsight"
-	description="Вы узнаете, как использовать пользовательские функции (UDF) на Python с Hive и Pig в Azure HDInsight"
+	pageTitle="Использование Python с Hive и Pig в HDInsight | Microsoft Azure"
+	description="Узнайте, как использовать пользовательские функции (UDF) технологической платформы Hadoop на базе Azure — Python с Hive и Pig в HDInsight."
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -329,5 +329,6 @@ Hive и Pig отлично подходят для работы с данным�
 * [Использование Pig с HDInsight](hdinsight-use-pig.md)
 
 * [Использование MapReduce с HDInsight](hdinsight-use-mapreduce.md)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

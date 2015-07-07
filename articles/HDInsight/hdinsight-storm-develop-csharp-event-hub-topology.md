@@ -1,7 +1,7 @@
 <properties
    pageTitle="Обработка событий из службы концентраторов событий Azure с помощью Storm в HDInsight | Azure"
    description="Узнайте, как обрабатывать данные службы концентраторов событий с использованием топологии C# Storm, созданной в Visual Studio с помощью средств HDInsight для Visual Studio."
-   services="hdinsight"
+   services="hdinsight,notification hubs"
    documentationCenter=""
    authors="Blackmist"
    manager="paulettm"
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/28/2015"
+   ms.date="05/29/2015"
    ms.author="larryfr"/>
 
-# Обработка событий из службы концентраторов событий Azure с помощью Storm в HDInsight (C#)
+# Обработка событий из службы концентраторов событий Azure с помощью Storm в HDInsight (C\#)
 
 Служба концентраторов событий Azure позволяет обрабатывать значительные объемы данных из веб-сайтов, приложений и устройств. Воронка службы концентраторов событий упрощает использование Apache Storm в HDInsight для анализа этих данных в режиме реального времени. Вы также можете записывать данные в службу концентраторов событий из Storm с помощью сита службы концентраторов событий.
 
-В этом документе вы узнаете, как использовать средства HDInsight для Visual Studio, а также воронку и сито службы концентраторов событий для создания двух гибридных топологий C#/Java:
+В этом документе вы узнаете, как использовать средства HDInsight для Visual Studio, а также воронку и сито службы концентраторов событий для создания двух гибридных топологий C\#/Java:
 
 * **EventHubWriter** — случайным образом генерирует данные и записывает их в службу концентраторов событий
 
@@ -44,7 +44,7 @@
 
 ## Воронка и сито службы концентраторов событий
 
-Воронка и сито службы концентраторов событий — это компоненты Java, которые позволяют работать со службой концентраторов событий из Apache Storm. Хотя эти компоненты написаны на языке Java, средства HDInsight для Visual Studio позволяют создавать гибридные топологии, сочетающие в себе компоненты C# и Java.
+Воронка и сито службы концентраторов событий — это компоненты Java, которые позволяют работать со службой концентраторов событий из Apache Storm. Хотя эти компоненты написаны на языке Java, средства HDInsight для Visual Studio позволяют создавать гибридные топологии, сочетающие в себе компоненты C#и Java.
 
 Воронка и сито распространяются в виде отдельного файла архива Java (JAR) с именем **eventhubs-storm-spout-0.9-jar-with-dependencies.jar**.
 
@@ -186,7 +186,7 @@
 
 	Он создает воронку и использует количество разделов службы концентраторов событий в качестве указания параллелизма для этого компонента. Этот код должен создавать экземпляр воронки для каждого раздела.
 
-	Это также связывает созданный ранее десериализатор с выходным потоком из данного компонента. Это позволяет нижестоящему в потоке компоненту EventHubSpout использовать данные, полученные из воронки C#.
+	Это также связывает созданный ранее десериализатор с выходным потоком из данного компонента. Это позволяет нижестоящему в потоке компоненту EventHubSpout использовать данные, полученные из воронки C\#.
 
 5. Сразу после предыдущего кода добавьте следующий код:
 
@@ -226,12 +226,12 @@
 
 Работа с **Program.cs** завершена. Топология определена, однако теперь необходимо изменить **Spout.cs** таким образом, чтобы он создавал данные в формате, который может использовать сито службы концентраторов событий.
 
-> [AZURE.NOTE]По умолчанию эта топология создает один рабочий процесс, которого достаточно для примера. Если вы адаптируете эту топологию для рабочего кластера, следует добавить этот код и указать количество рабочих процессов, которые вы хотите создать.
->
-> ```topologyBuilder.SetTopologyConfig(new Dictionary<string, string>()
-                {
-                    {"topology.workers", "1"}  //Change to set the number of workers to create
-                });```
+> [AZURE.NOTE]По умолчанию эта топология создает один рабочий процесс, которого достаточно для примера. Если вы адаптируете эту топологию для рабочего кластера, следует добавить следующее для изменения количества рабочих процессов:
+
+    StormConfig config = new StormConfig();
+    config.setNumWorkers(1);
+    topologyBuilder.SetTopologyConfig(config);
+
 
 ### Изменение воронки
 
@@ -304,9 +304,9 @@
 <tr><th style="text-align:left">TableName</th><th style="text-align:left">string</th><th style="text-align:left">Приложение</th></tr>
 </table>Для **TableName** введите имя таблицы, в которой должны храниться события.
 
-  Для **StorageConnection** введите значение `DefaultEndpointsProtocol=https;AccountName=myAccount;AccountKey=myKey;`. Замените **myAccount** и **myKey** именем учетной записи хранения и ключом, полученными ранее.
+    Для **StorageConnection** введите значение `DefaultEndpointsProtocol=https;AccountName=myAccount;AccountKey=myKey;`. Замените **myAccount** и **myKey** именем учетной записи хранения и ключом, полученными ранее.
 
-	These values will be used by the topology to communicate with Event Hubs and Table Storage.
+	Эти значения будут использоваться топологией для связи с концентраторами событий и табличным хранилищем.
 
 4. Сохраните изменения и закройте страницу **Свойства**.
 
@@ -317,23 +317,16 @@
 2. Откройте файл **Program.cs** и добавьте следующий код непосредственно после строки`TopologyBuilder topologyBuilder = new TopologyBuilder("EventHubReader");`.
 
 		int partitionCount = Properties.Settings.Default.EventHubPartitionCount;
-		JavaComponentConstructor constructor = JavaComponentConstructor.CreateFromClojureExpr(
-            String.Format(@"(com.microsoft.eventhubs.spout.EventHubSpout. (com.microsoft.eventhubs.spout.EventHubSpoutConfig. " +
-                @"""{0}"" ""{1}"" ""{2}"" ""{3}"" {4} ""{5}""))",
+		EventHubSpoutConfig ehConfig = new EventHubSpoutConfig(
                 Properties.Settings.Default.EventHubPolicyName,
                 Properties.Settings.Default.EventHubPolicyKey,
                 Properties.Settings.Default.EventHubNamespace,
                 Properties.Settings.Default.EventHubName,
-                partitionCount,
-                "")); //Last value is the zookeeper connection string - leave empty
+                partitionCount);
 
 	Количество разделов считывается и назначается локальной переменной. Она будет использоваться несколько раз.
 
-	`JavaComponentConstructor` определяет, как будет создаваться воронка Java во время выполнения. В данном случае вы используете <a href="http://storm.apache.org/documentation/Clojure-DSL.html" target="_blank">Apache Storm Clojure DSL</a>, чтобы настроить воронку с использованием добавленных ранее сведений о конфигурации службы концентраторов событий. В частности, этот код используется HDInsight во время выполнения в следующих целях:
-
-	* Создание нового экземпляра **com.microsoft.eventhubs.spout.EventHubSpoutConfig** с помощью указанных вами сведений о службе концентраторов событий.
-
-	* Создание нового экземпляра **com.microsoft.eventhubs.spout.EventHubSpout** посредством передачи экземпляра **EventHubSpoutConfig**.
+	`EventHubSpoutConfig` определяет конфигурацию для воронки концентратора событий. В этом случае данные конфигурации концентраторов событий, добавленные ранее. Использование воронки концентратора событий Java в фоновом режиме и создание нового экземпляра **com.microsoft.eventhubs.spout.EventHubSpoutConfig** с помощью сведений о службе концентраторов событий.
 
 5. Найдите следующий код:
 
@@ -348,18 +341,18 @@
 
 	Замените его следующим кодом:
 
-        topologyBuilder.SetJavaSpout(
-            "EventHubSpout",
-            constructor,
-            partitionCount);
+        topologyBuilder.SetEventHubSpout(
+            "EventHubSpout", 
+            ehConfig, 
+            partitionCount); 
 
-	Он дает топологии указание использовать **JavaComponentConstructor** из предыдущего шага в качестве воронки и назначает ей имя EventHubSpout. Он также задает указание параллелизма равным количеству разделов в концентраторе событий.
+	Он дает топологии указание создать новую воронку концентратора событий и использовать `EventHubSpoutConfig` из предыдущего шага в конфигурации. EventHubSpout задает понятное имя воронки, а `partitionCount` используется для определения подсказки параллелизма. В фоновом режиме создается новый экземпляр компонента Java **com.microsoft.eventhubs.spout.EventHubSpout** на основе предоставленной информации о конфигурации.
 
 2. Добавьте следующий код сразу после предыдущего кода:
 
          List<string> javaSerializerInfo = new List<string>() { "microsoft.scp.storm.multilang.CustomizedInteropJSONSerializer" };
 
-	При этом создается пользовательский сериализатор для сериализации информации, созданной компонентами Java (например, EventHubSpout), в формат JSON, который могут использовать нижестоящие компоненты C#.
+	При этом создается пользовательский сериализатор для сериализации информации, созданной компонентами Java (например, EventHubSpout), в формат JSON, который могут использовать нижестоящие компоненты C\#.
 
 3. Найдите следующий код:
 
@@ -386,12 +379,12 @@
 
 На данном этапе работа с **Program.cs** завершена. Топология определена, однако теперь необходимо создать вспомогательный класс для записи данных в табличное хранилище, после чего необходимо изменить файл **Bolt.cs**, чтобы он мог распознать созданные воронкой данные.
 
-> [AZURE.NOTE]По умолчанию эта топология создает один рабочий процесс, которого достаточно для примера. Если вы адаптируете эту топологию для рабочего кластера, следует добавить этот код и указать количество рабочих процессов, которые вы хотите создать.
->
-> ```topologyBuilder.SetTopologyConfig(new Dictionary<string, string>()
-                {
-                    {"topology.workers", "1"}  //Change to set the number of workers to create
-                });```
+> [AZURE.NOTE]По умолчанию эта топология создает один рабочий процесс, которого достаточно для примера. Если вы адаптируете эту топологию для рабочего кластера, следует добавить следующее для изменения количества рабочих процессов:
+
+    StormConfig config = new StormConfig();
+    config.setNumWorkers(1);
+    topologyBuilder.SetTopologyConfig(config);
+
 
 ### Создание вспомогательного класса
 
@@ -529,44 +522,6 @@
 
 ## Примечания
 
-### Конфигурация
-
-При создании EventHubSpoutConfig существует несколько перегруженных методов. Используйте приведенные ниже сведения, чтобы найти метод, который наилучшим образом соответствует вашим потребностям.
-
-* EventHubSpoutConfig (строка PolicyName, строка PolicyKey, строка Namespace, строка HubName, Int PartitionCount)
-
-    * PolicyName — имя политики общего доступа, которая может читать информацию из указанного концентратора.
-
-    * PolicyKey – ключ для политики общего доступа.
-
-    * Namespace — пространство имен ServiceBus, в котором существует концентратор.
-
-    * HubName — имя концентратора событий для чтения.
-
-    * PartitionCount — количество разделов для концентратора.
-
-* EventHubSpoutConfig (строка PolicyName, строка PolicyKey, строка Namespace, строка HubName, Int PartitionCount, строка ZooKeeperConnection)
-
-    В дополнение к свойствам, описанным ранее:
-
-    * ZooKeeperConnection — строка подключения для узла ZooKeeper. Оставьте эту строку пустой на серверах HDInsight для Storm.
-
-* EventHubSpoutConfig (строка PolicyName, строка PolicyKey, строка Namespace, строка HubName, Int PartitionCount, строка ZooKeeperConnection, Int CheckPointIntervalInSeconds, Int ReceiverCredits)
-
-    В дополнение к свойствам, описанным ранее:
-
-    * CheckPointIntervalInSeconds — частота сохранения состояния Zookeeper.
-
-    * ReceiverCredits — количество событий, которые объединены перед выпуском в топологию Storm.
-
-* EventHubSpoutConfig (строка PolicyName, строка PolicyKey, строка Namespace, строка HubName, Int PartitionCount, строка ZooKeeperConnection, Int CheckPointIntervalInSeconds, Int ReceiverCredits, Int MaxPendingMsgsPerPartition, Long EnqueueTimeFilter)
-
-    В дополнение к свойствам, описанным ранее:
-
-    * MaxPendingMsgsPerPartition — максимальное количество событий, извлеченных из концентратора. По умолчанию — 1024.
-
-    * EnqueueTimeFilter — фильтры событий на основе отметок времени постановки события в очередь.
-
 ### Контрольные точки
 
 EventHubSpout периодически передает информацию о своем состоянии на узел Zookeeper, который сохраняет текущее смещение для прочитанных сообщений из очереди. Это позволяет компоненту принимать сообщения при сохраненном смещении в следующих сценариях:
@@ -595,10 +550,11 @@ EventHubSpout периодически передает информацию о 
 
 ## Сводка
 
-В этом документе рассмотрено использование воронки и сита Java службы концентраторов событий из топологии C# для работы с данными в концентраторе событий Azure. Дополнительные сведения о создании топологий C# см. в следующих статьях.
+В этом документе рассмотрено использование воронки и сита Java службы концентраторов событий из топологии C#для работы с данными в концентраторе событий Azure. Дополнительные сведения о создании топологий C#см. в следующих статьях.
 
-* [Разработка топологий для Apache Storm в HDInsight на C# с помощью Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md)
+* [Разработка топологий для Apache Storm в HDInsight на C#с помощью Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 
 * [Примеры топологий для Storm в HDInsight](hdinsight-storm-example-topology.md)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

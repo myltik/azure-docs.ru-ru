@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/18/2015"
+   ms.date="05/19/2015"
    ms.author="larryfr"/>
 
 #Разработка программ потоковой передачи на Python для HDInsight
 
 Hadoop предоставляет API-интерфейс для MapReduce, позволяющий создавать функции map и reduce на языках, отличных от Java. В этой статье вы узнаете, как использовать Python для выполнения операций MapReduce.
 
-> [AZURE.NOTE]Эта статья основана на информации и примерах, опубликованных Майклом Ноллом (Michael Noll) на странице [http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/] («Написание программы Hadoop MapReduce в Python»).
+> [AZURE.NOTE]Эта статья основана на информации и примерах, опубликованных Майклом Ноллом (Michael Noll) на странице [http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/] ("Написание программы Hadoop MapReduce в Python").
 
 ##Предварительные требования
 
@@ -201,5 +201,6 @@ Python позволяет с легкостью выполнить эти тре
 * [Использование Hive с HDInsight](hdinsight-use-hive.md)
 * [Использование Pig с HDInsight](hdinsight-use-pig.md)
 * [Использование заданий MapReduce с HDInsight](hdinsight-use-mapreduce.md)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

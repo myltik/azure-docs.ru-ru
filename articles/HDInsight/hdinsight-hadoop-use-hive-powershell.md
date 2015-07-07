@@ -1,6 +1,6 @@
 <properties
    pageTitle="Использование Hive в Hadoop в HDInsight с помощью PowerShell | Microsoft Azure"
-   description="Использование Hive в Hadoop в HDInsight с помощью PowerShell"
+   description="Использование PowerShell для выполнения запросов Hive в Hadoop в HDInsight."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -29,10 +29,8 @@
 
 Чтобы выполнить действия, описанные в этой статье, необходимо следующее.
 
-* Кластер Azure HDInsight (Hadoop в HDInsight) (на платформе Windows или Linux).
-
-* <a href="http://azure.microsoft.com/documentation/articles/install-configure-powershell/" target="_blank">Azure PowerShell</a>.
-
+- **Кластер Azure HDInsight (Hadoop в HDInsight) (на платформе Windows или Linux)**
+- **Рабочая станция с Azure PowerShell**. См. [Установка и использование Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
 ##<a id="powershell">Выполнение запросов Hive с помощью Azure PowerShell</a>
 
@@ -144,5 +142,6 @@ Azure PowerShell предоставляет *командлеты*, позвол
 * [Использование Pig с Hadoop в HDInsight](hdinsight-use-pig.md)
 
 * [Использование MapReduce с Hadoop в HDInsight](hdinsight-use-mapreduce.md)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

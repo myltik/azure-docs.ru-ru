@@ -1,3 +1,5 @@
-### Azure Resource Manager and Azure Service Management
+### Диспетчер ресурсов Azure и управление службами Azure
  
-This article is for a Resource Manager-based Azure resource, which Microsoft recommends over the use of Azure Service Management. For an explanation of the advantages of Resource Manager, see [Azure Compute, Network & Storage Providers under Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md). To do the equivalent task with Azure Service Management, see the following article:
+Это статья о ресурсе Azure на основе диспетчера ресурсов Azure, который корпорация Майкрософт рекомендует использовать вместо управления службами Azure. Объяснение преимуществ диспетчера ресурсов см. в статье [Поставщики вычислительных и сетевых ресурсов, а также ресурсов хранения Azure в диспетчере ресурсов Azure](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md). Выполнение аналогичной задачи с помощью управления службами Azure описано в следующей статье:
+
+<!---HONumber=62-->

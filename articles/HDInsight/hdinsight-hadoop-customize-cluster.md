@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Настройка кластеров HDInsight с помощью действия скрипта| Azure" 
+	pageTitle="Настройка кластеров HDInsight с помощью действий скрипта | Microsoft Azure" 
 	description="Дополнительные сведения о настройке кластеров Hadoop с помощью действия скрипта." 
 	services="hdinsight" 
 	documentationCenter="" 
@@ -162,5 +162,6 @@
 
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Этапы подготовки кластера"
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

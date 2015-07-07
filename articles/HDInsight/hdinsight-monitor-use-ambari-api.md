@@ -1,26 +1,26 @@
-<properties 
-	pageTitle="Отслеживание кластеров Hadoop в HDInsight с помощью интерфейса Ambari API для платформы Azure" 
-	description="Набор интерфейсов API для Apache Ambari используется для подготовки, отслеживания кластеров Apache Hadoop и управления ими. Сложность организации Hadoop компенсируется интуитивным дизайном средств управления пользователя и интерфейсов API." 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="mumian" 
-	editor="cgronlun" 
+<properties
+	pageTitle="Отслеживание кластеров Hadoop в HDInsight с помощью интерфейса Ambari API для платформы Microsoft Azure"
+	description="Набор интерфейсов API для Apache Ambari используется для подготовки, отслеживания кластеров Apache Hadoop и управления ими. Сложность организации Hadoop компенсируется интуитивным дизайном средств управления пользователя и интерфейсов API."
+	services="hdinsight"
+	documentationCenter=""
+	authors="mumian"
+	editor="cgronlun"
 	manager="paulettm"/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/31/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/08/2015"
 	ms.author="jgao"/>
 
 # Отслеживание кластеров Hadoop в HDInsight с помощью интерфейса Ambari API
- 
+
 Узнайте, как наблюдать за кластерами HDInsight версии 3.1 и 2.1 с помощью интерфейсов Ambari API.
 
-
+> [AZURE.NOTE]Информация в этой статье касается преимущественно кластеров HDInsight на платформе Windows, которые предоставляют версию интерфейса API REST Ambari только для чтения. Информацию о кластерах на платформе Linux см. в разделе [Управление кластерами Hadoop с помощью Ambari](hdinsight-hadoop-manage-ambari.md).
 
 ## <a id="whatisambari"></a>Что такое Ambari?
 
@@ -34,7 +34,8 @@
 
 Перед началом работы с этим учебником необходимо иметь следующее:
 
-- **Рабочая станция**, на которой установлена и настроена среда Azure PowerShell. Инструкции см. в разделе [Установка и настройка Azure PowerShell][powershell-install]. Для выполнения сценариев Azure PowerShell необходимо запустить Azure PowerShell с правами администратора и задать политику выполнения *RemoteSigned*. Дополнительную информацию см. в статье [Выполнение сценариев Windows PowerShell][powershell-script].
+- **Рабочая станция с Azure PowerShell**. См. [Установка и использование Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
+
 
 - [cURL][curl] (необязательно). Для установки см. раздел [выпусков и скачиваемых файлов cURL][curl-download].
 
@@ -62,15 +63,15 @@
 	$clusterName = "<HDInsightClusterName>"
 	$clusterUsername = "<HDInsightClusterUsername>"
 	$clusterPassword = "<HDInsightClusterPassword>"
-	
+
 	$ambariUri = "https://$clusterName.azurehdinsight.net:443/ambari"
 	$uriJobTracker = "$ambariUri/api/v1/clusters/$clusterName.azurehdinsight.net/services/yarn/components/resourcemanager"
-	
+
 	$passwd = ConvertTo-SecureString $clusterPassword -AsPlainText -Force
 	$creds = New-Object System.Management.Automation.PSCredential ($clusterUsername, $passwd)
-	
-	$response = Invoke-RestMethod -Method Get -Uri $uriJobTracker -Credential $creds -OutVariable $OozieServerStatus 
-	
+
+	$response = Invoke-RestMethod -Method Get -Uri $uriJobTracker -Credential $creds -OutVariable $OozieServerStatus
+
 	$response.metrics.'yarn.queueMetrics'
 
 Ниже приведен сценарий Azure PowerShell для получения данных модуля отслеживания заданий MapReduce *в кластере HDInsight 2.1*.
@@ -78,15 +79,15 @@
 	$clusterName = "<HDInsightClusterName>"
 	$clusterUsername = "<HDInsightClusterUsername>"
 	$clusterPassword = "<HDInsightClusterPassword>"
-	
+
 	$ambariUri = "https://$clusterName.azurehdinsight.net:443/ambari"
 	$uriJobTracker = "$ambariUri/api/v1/clusters/$clusterName.azurehdinsight.net/services/mapreduce/components/jobtracker"
-	
+
 	$passwd = ConvertTo-SecureString $clusterPassword -AsPlainText -Force
 	$creds = New-Object System.Management.Automation.PSCredential ($clusterUsername, $passwd)
-	
-	$response = Invoke-RestMethod -Method Get -Uri $uriJobTracker -Credential $creds -OutVariable $OozieServerStatus 
-	
+
+	$response = Invoke-RestMethod -Method Get -Uri $uriJobTracker -Credential $creds -OutVariable $OozieServerStatus
+
 	$response.metrics.'mapred.JobTracker'
 
 Результаты:
@@ -100,7 +101,7 @@
 	curl -u <username>:<password> -k https://<ClusterName>.azurehdinsight.net:443/ambari/api/v1/clusters/<ClusterName>.azurehdinsight.net
 
 Результаты:
-	
+
 	{"href":"https://hdi0211v2.azurehdinsight.net/ambari/api/v1/clusters/hdi0211v2.azurehdinsight.net/",
 	 "Clusters":{"cluster_name":"hdi0211v2.azurehdinsight.net","version":"2.1.3.0.432823"},
 	 "services"[
@@ -133,7 +134,7 @@
 <tr><td>Получение компонентов службы</td><td><tt>/api/v1/clusters/&lt;ClusterName>.azurehdinsight.net/services/&lt;ServiceName>/components</tt></td><td>HDFS: namenode, datanode<br/>MapReduce: jobtracker; tasktracker</td></tr>
 <tr><td>Получение сведений о компонентах.</td><td><tt>/api/v1/clusters/&lt;ClusterName>.azurehdinsight.net/services/&lt;ServiceName>/components/&lt;ComponentName></tt></td><td>ServiceComponentInfo, host-components, metrics</td></tr>
 <tr><td>Получение узлов</td><td><tt>/api/v1/clusters/&lt;ClusterName>.azurehdinsight.net/hosts</tt></td><td>headnode0, workernode0</td></tr>
-<tr><td>Получение сведений об узлах.</td><td><tt>/api/v1/clusters/&lt;ClusterName>.azurehdinsight.net/hosts/&lt;HostName> 
+<tr><td>Получение сведений об узлах.</td><td><tt>/api/v1/clusters/&lt;ClusterName>.azurehdinsight.net/hosts/&lt;HostName>
 </td><td></td></tr>
 <tr><td>Получение компонентов узлов</td><td><tt>/api/v1/clusters/&lt;ClusterName>.azurehdinsight.net/hosts/&lt;HostName>/host_components </tt></td><td>namenode, resourcemanager</td></tr>
 <tr><td>Получение сведений о компонентах узла.</td><td><tt>/api/v1/clusters/&lt;ClusterName>.azurehdinsight.net/hosts/&lt;HostName>/host_components/&lt;ComponentName> </tt></td><td>HostRoles, component, host, metrics</td></tr>
@@ -142,7 +143,7 @@
 </table>
 
 
-##<a id="nextsteps"></a>Дальнейшие действия 
+##<a id="nextsteps"></a>Дальнейшие действия
 
 Теперь вы узнали, как использовать Ambari API для мониторинга. Дополнительные сведения см. на следующих ресурсах:
 
@@ -162,8 +163,8 @@
 
 [microsoft-hadoop-SDK]: http://hadoopsdk.codeplex.com/wikipage?title=Ambari%20Monitoring%20Client
 
-[Powershell-install]: ../install-configure-powershell.md
-[Powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
+[powershell-install]: ../install-configure-powershell.md
+[powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
@@ -173,6 +174,6 @@
 [hdinsight-provision]: hdinsight-provision-clusters.md
 
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
+ 
 
-
-<!--HONumber=54--> 
+<!---HONumber=62-->

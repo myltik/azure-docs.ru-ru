@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Использование Apache Phoenix и SQuirrel в HDinsight | Azure" 
-   description="Узнайте о том, как использовать Apache Phoenix в HDInsight, а также как установить и настроить SQuirrel на рабочей станции для подключения к кластеру HBase в HDInsight." 
+   pageTitle="Использование Apache Phoenix и SQuirreL в HDInsight | Microsoft Azure" 
+   description="Узнайте о том, как использовать Apache Phoenix в HDInsight, а также как установить и настроить SQuirreL на рабочей станции для подключения к кластеру HBase в HDInsight." 
    services="hdinsight" 
    documentationCenter="" 
    authors="mumian" 
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/15/2015"
+   ms.date="05/05/2015"
    ms.author="jgao"/>
 
-# Использование Apache Phoenix и SQuirrel в HDinsight  
+# Использование Apache Phoenix и SQuirreL с кластерами HBase в HDinsight  
 
-Узнайте о том, как использовать [Apache Phoenix](http://phoenix.apache.org/) в HDInsight, а также как установить и настроить SQuirrel на рабочей станции для подключения к кластеру HBase в HDInsight. Дополнительные сведения о Phoenix см. в разделе [Phoenix за 15 минут или меньше](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html).
+Узнайте о том, как использовать [Apache Phoenix](http://phoenix.apache.org/) в HDInsight, а также как установить и настроить SQuirreL на рабочей станции для подключения к кластеру HBase в HDInsight. Дополнительные сведения о Phoenix см. в разделе [Phoenix за 15 минут или меньше](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html). Для информации по грамматике Phoenix обратитесь к разделу [Грамматика Phoenix](http://phoenix.apache.org/language/index.html).
 
 >[AZURE.NOTE]Для получения информации о версии Phoenix в HDInsight см. раздел [Новые возможности версий кластера Hadoop, предоставляемых HDInsight][hdinsight-versions].
 
@@ -34,7 +34,7 @@
 **Определение имени узла**
 
 1. Откройте **командную строку Hadoop** с рабочего стола.
-2. Выполните следующую команду
+2. Выполните следующую команду, чтобы получить DNS-суффикс:
 
 		ipconfig
 
@@ -43,14 +43,24 @@
 **Использование SQLLine**
 
 1. Откройте **командную строку Hadoop** с рабочего стола.
-2. Выполните следующие команды:
+2. Выполните следующие команды, чтобы открыть SQLLine:
 
 		cd %phoenix_home%\bin
 		sqlline.py [The FQDN of one of the Zookeepers]
 
 	![hdinsight hbase phoenix sqlline][hdinsight-hbase-phoenix-sqlline]
 
-Дополнительные сведения см. в [руководстве по SQLLine](http://sqlline.sourceforge.net/#manual).
+	Команды, используемые в образце:
+
+		CREATE TABLE Company (COMPANY_ID INTEGER PRIMARY KEY, NAME VARCHAR(225));
+		
+		!tables;
+		
+		UPSERT INTO Company VALUES(1, 'Microsoft');
+		
+		SELECT * FROM Company;
+
+Для получения дополнительных сведений обратитесь к разделу [Руководство по SQLLine](http://sqlline.sourceforge.net/#manual) и [Грамматика Phoenix](http://phoenix.apache.org/language/index.html).
 
 
 
@@ -69,11 +79,11 @@
 
 
 
-##Использование SQuirrel
+##Использование SQuirreL
 
-[SQL-клиент SQuirreL ](http://squirrel-sql.sourceforge.net/) — это графическая программа Java, позволяющая просматривать структуру JDBC-совместимой базы данных, просматривать данные в таблицах, выполнять команды SQL и т. д.
+[SQL-клиент SQuirreL ](http://squirrel-sql.sourceforge.net/) — это графическая программа Java, позволяющая просматривать структуру JDBC-совместимой базы данных, просматривать данные в таблицах, выполнять команды SQL и т. д. Используется для подключения к Phoenix Apache на HDInsight.
 
-В этом разделе показано, как установить и настроить SQuirrel на рабочей станции для подключения к кластеру HBase в HDInsight через VPN.
+В этом разделе показано, как установить и настроить SQuirreL на рабочей станции для подключения к кластеру HBase в HDInsight через VPN.
 
 ###Предварительные требования
 
@@ -81,13 +91,13 @@
 
 - Кластер HBase, развернутый в виртуальной сети Azure с виртуальной машиной DNS. Инструкции см. в разделе [Подготовка кластеров HBase в виртуальной сети Azure][hdinsight-hbase-provision-vnet]. 
 
-	>[AZURE.IMPORTANT]Необходимо установить DNS-сервер в виртуальной сети.
+	>[AZURE.IMPORTANT]Необходимо установить DNS-сервер в виртуальной сети. Для получения инструкций обратитесь к разделу [Настройка VPN-подключения между двумя виртуальными сетями Azure](hdinsight-hbase-geo-replication-configure-DNS.md).
 
 - Получить для кластера HBase DNS-суффикс, зависящий от подключения. Для этого войдите в кластер с помощью RDP и запустите команду IPConfig. DNS-суффикс имеет следующий вид:
 
 		myhbase.b7.internal.cloudapp.net
 - Загрузить и установить [Microsoft Visual Studio Express 2013 для Windows Desktop](https://www.visualstudio.com/products/visual-studio-express-vs.aspx) на рабочую станцию. Необходимо выполнить команду makecert из пакета для создания сертификата.  
-- Загрузить и установить среду [Java Runtime Environment](http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html) на рабочую станцию. Для SQL-клиента SQuirrel версии 3.0 и выше требуется JRE версии 1.6 или выше.  
+- Загрузить и установить среду [Java Runtime Environment](http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html) на рабочую станцию. Для SQL-клиента SQuirreL версии 3.0 и выше требуется JRE версии 1.6 или выше.  
 
 
 ###Настройка VPN-подключения «точка-сайт» к виртуальной сети Azure
@@ -151,15 +161,15 @@
 
 - В той же командной строке (она должна быть открыта на том же компьютере, где был создан корневой сертификат. Клиентский сертификат необходимо создавать на основе корневого) выполните следующую команду:
 
-  makecert.exe -n "CN=HBaseVnetVPNClientCertificate" -pe -sky exchange -m 96 -ss My -in "HBaseVnetVPNRootCertificate" -is my -a sha1
+  		makecert.exe -n "CN=HBaseVnetVPNClientCertificate" -pe -sky exchange -m 96 -ss My -in "HBaseVnetVPNRootCertificate" -is my -a sha1
 
-	HBaseVnetVPNRootCertificate — это имя корневого сертификата.  Оно должно совпадать с именем корневого сертификата.  
+	HBaseVnetVPNRootCertificate — это имя корневого сертификата. Он должен соответствовать имени корневого сертификата.
 
-	Корневой сертификат и сертификат клиента хранятся в хранилище личных сертификатов на вашем компьютере. Для проверки используйте certmgr.msc.
+	Корневой сертификат и сертификат клиента хранятся в хранилище личных сертификатов на компьютере. Используйте certmgr.msc для проверки.
 
-	![Azure virtual network point-to-site vpn certificate][img-certificate]
+	![Схема виртуальной сети Azure{b> <b}«точка-сайт»][img-certificate]
 
-	Сертификат клиента необходимо установить на каждом компьютере, который будет подключаться к виртуальной сети. Рекомендуется создать уникальные сертификаты клиента для каждого компьютера, который будет подключаться к виртуальной сети. Экспортируйте сертификаты клиента с помощью certmgr.msc. 
+	Сертификат клиента необходимо установить на каждый компьютер, который будет подключаться к виртуальной сети. Рекомендуем создавать уникальные сертификаты клиентов для всех компьютеров, которые будут подключаться к виртуальной сети. Для экспорта сертификатов клиента используйте команду certmgr.msc.
 
 **Передача корневого сертификата на портал Azure**
 
@@ -198,17 +208,17 @@
 		headnode1.myhbase.b7.internal.cloudapp.net
 		workernode0.myhbase.b7.internal.cloudapp.net
 
-###Установка и настройка SQuirrel на рабочей станции
+###Установка и настройка SQuirreL на рабочей станции
 
-**Установка SQuirrel**
+**Установка SQuirreL**
 
-1. Загрузите jar-файл SQL-клиента SQuirrel с сайта [http://squirrel-sql.sourceforge.net/#installation](http://squirrel-sql.sourceforge.net/#installation).
+1. Загрузите jar-файл SQL-клиента SQuirreL с сайта [http://squirrel-sql.sourceforge.net/\#installation](http://squirrel-sql.sourceforge.net/#installation).
 2. Откройте/запустите jar-файл. Для него требуется среда [Java Runtime Environment](http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html).
 3. Нажмите кнопку **Далее** дважды.
 4. Укажите путь, для которого у вас есть разрешения на запись, и нажмите кнопку **Далее**.
 	>[AZURE.NOTE]Папка установки по умолчанию — C:\\Program Files\\squirrel-sql-3.6. Для записи в эту папку программе установки необходимо предоставить права администратора. Можно открыть командную строку от имени администратора, перейти в папку bin Java, а затем выполнить
 	>
-	>     java.exe -jar [the path of the SQuirrel jar file] 
+	>     java.exe -jar [the path of the SQuirreL jar file] 
 5. Нажмите **ОК** для подтверждения создания целевого каталога.
 6. Настройка по умолчанию — установка базового и стандартного пакетов. Нажмите кнопку **Далее**.
 7. Нажмите кнопку **Далее** дважды, а затем нажмите **Готово**.
@@ -221,9 +231,9 @@ JAR-файл драйвера phoenix находится в кластере HBa
 	C:\apps\dist\phoenix-4.0.0.2.1.11.0-2316\phoenix-4.0.0.2.1.11.0-2316-client.jar
 Этот файл необходимо скопировать на рабочую станцию по пути [папка установки SQuirrel]/lib. Самый простой способ — войти в кластер с помощью RDP, а затем с помощью команд копирования и вставки (CTRL+C и CTRL+V) скопировать файл на рабочую станцию.
 
-**Добавление драйвера Phoenix в SQuirrel**
+**Добавление драйвера Phoenix в SQuirreL**
 
-1. Откройте SQL-клиент SQuirrel на рабочей станции.
+1. Откройте SQL-клиент SQuirreL на рабочей станции.
 2. Выберите вкладку **Драйвер** в левой части окна.
 2. В меню **Драйверы** выберите **Новый драйвер**.
 3. Введите следующие сведения:
@@ -232,28 +242,28 @@ JAR-файл драйвера phoenix находится в кластере HBa
 	- **Пример URL-адреса**: jdbc:phoenix:zookeeper2.contoso-hbase-eu.f5.internal.cloudapp.net
 	- **Имя класса**: org.apache.phoenix.jdbc.PhoenixDriver
 
-	>[AZURE.WARNING]В примере URL-адреса следует использовать исключительно символы нижнего регистра.
+	>[AZURE.WARNING]В примере URL-адреса следует использовать исключительно символы нижнего регистра. Можно использовать весь набор zookeeper в случае, если один из них не работает. Их имена — zookeeper0, zookeeper1 и zookeeper2.
 
-	![Драйвер HDInsight HBase Phoenix SQuirrel][img-squirrel-driver]
+	![Драйвер HDInsight HBase Phoenix SQuirreL][img-squirrel-driver]
 4. Нажмите кнопку **ОК**.
 
 **Создание псевдонима для кластера HBase**
 
-1. В SQuirrel выберите вкладку **Псевдонимы** слева.
+1. В SQuirreL выберите вкладку **Псевдонимы** слева.
 2. В меню **Псевдонимы** щелкните **Новый псевдоним**.
 3. Введите следующие сведения:
 
 	- **Имя**: имя кластера HBase или любое предпочитаемое имя.
 	- **Драйвер**: Phoenix. Это значение должно соответствовать имени драйвера, созданному в предыдущей процедуре.
 	- **URL-адрес**: копируется из конфигурации драйвера. Убедитесь, что используются исключительно символы нижнего регистра.
-	- **Имя пользователя**: имя пользователя HTTP кластера HBase
-	- **Пароль**: пароль пользователя HTTP кластера HBase
+	- **Имя пользователя**: может быть любой текстовой строкой. Поскольку здесь используется VPN-подключение, имя пользователя не используется вообще.
+	- **Пароль**: может быть любой текстовой строкой.
 
-	![Драйвер HDInsight HBase Phoenix SQuirrel][img-squirrel-alias]
+	![Драйвер HDInsight HBase Phoenix SQuirreL][img-squirrel-alias]
 4. Нажмите **Проверить**. 
-5. Щелкните **Подключить**. При установлении подключения SQuirrel выглядит следующим образом:
+5. Щелкните **Подключить**. При установлении подключения SQuirreL выглядит следующим образом:
 
-	![HBase Phoenix SQuirrel][img-squirrel]
+	![HBase Phoenix SQuirreL][img-squirrel]
 
 **Выполнение проверки**
 
@@ -263,7 +273,7 @@ JAR-файл драйвера phoenix находится в кластере HBa
 		CREATE TABLE IF NOT EXISTS us_population (state CHAR(2) NOT NULL, city VARCHAR NOT NULL, population BIGINT  CONSTRAINT my_pk PRIMARY KEY (state, city))
 3. Нажмите кнопку выполнения.
 
-	![HBase Phoenix SQuirrel][img-squirrel-sql]
+	![HBase Phoenix SQuirreL][img-squirrel-sql]
 4. Переключитесь обратно на вкладку **Объекты**.
 5. Разверните имя псевдонима, а затем разверните узел **ТАБЛИЦА**. В нем должна отобразиться новая таблица.
  
@@ -294,6 +304,6 @@ JAR-файл драйвера phoenix находится в кластере HBa
 [img-squirrel-sql]: ./media/hdinsight-hbase-phoenix-squirrel/hdinsight-hbase-squirrel-sql.png
 
 
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

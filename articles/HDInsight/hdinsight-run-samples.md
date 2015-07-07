@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Выполнение учебных задач Hadoop в Azure HDInsight"
+	pageTitle="Выполнение учебных задач Hadoop в Azure HDInsight | Microsoft Azure"
 	description="Вы начнете использовать службу Azure HDInsight с помощью представленных примеров. Использование сценариев PowerShell, которые запускают программы MapReduce в кластерах данных."
 	services="hdinsight"
 	documentationCenter=""
@@ -23,7 +23,7 @@
 
 Предоставляется ряд примеров, которые помогут начать работу с заданиями MapReduce на кластерах Hadoop с использованием Azure HDInsight. Эти примеры доступны на каждом создаваемом управляемом кластере HDInsight. Выполнение примеров позволит вам научиться использовать командлеты Azure PowerShell для запуска заданий в кластерах Hadoop.
 
-Программы MapReduce также можно запускать программно из приложения, используя API Microsoft .NET для HDInsight. Дополнительные сведения об отправке заданий с помощью интерфейсов API для HDInsight см. в статье [Отправка заданий Hadoop в HDInsight][hdinsight-submit-hadoop-jobs-programmatically].
+Программы MapReduce также можно запускать программно из приложения, используя API Microsoft .NET для HDInsight. Дополнительные сведения об отправке заданий с помощью интерфейсов API для HDInsight см. в статье [Отправка заданий Hadoop в HDInsight][hdinsight-submit-jobs].
 
 В Интернете есть много дополнительной документации по связанным с Hadoop технологиям, например по программированию и потоковой передаче MapReduce с использованием Java, а также документация по командлетам, используемым в сценариях PowerShell. Дополнительные сведения об этих ресурсах см. в статье [Основные сведения об Azure HDInsight][hdinsight-introduction] в итоговом разделе **Ресурсы для HDInsight**.
 
@@ -34,11 +34,11 @@
 
 **Предварительные требования**:
 
-- У вас должна быть учетная запись Microsoft Azure. Сведения о регистрации учетной записи см. на странице [Бесплатная пробная версия Azure один месяц](http://azure.microsoft.com/pricing/free-trial/).
+- **Подписка Azure.**. См. [Бесплатная пробная версия Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Кластер HDInsight**. Сведения по различным способам создания таких кластеров см. в разделе [Подготовка кластеров HDInsight](hdinsight-provision-clusters.md)
+- **Рабочая станция с Azure PowerShell**. См. [Установка и использование Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
-- Вы должны были подготовить кластер HDInsight. Инструкции по созданию таких кластеров различными способами см. в статье [Подготовка кластеров Hadoop в HDInsight с использованием пользовательских настроек](hdinsight-provision-clusters.md).
 
-- У вас должна быть установлена среда Azure PowerShell, настроенная для работы с вашей учетной записью. Сведения о том, как это сделать, см. в статье [Установка и настройка Azure PowerShell][powershell-install-configure].
 
 ## Примеры ##
 
@@ -47,7 +47,7 @@ HDInsight поставляется вместе со следующими при
 - [**Пример оценки числа пи с помощью Hadoop**][hdinsight-sample-pi-estimator]. Этот пример демонстрирует, как запустить программу MapReduce в службе HDInsight, в которой используется статистический метод (квази-Монте-Карло) для оценки числа пи.
 - [**Пример счетчика слов в кластере Hadoop**][hdinsight-sample-wordcount]. Этот пример демонстрирует, как с помощью кластера HDInsight запустить программу MapReduce, которая подсчитывает количество вхождений слова в текстовом файле.
 - [**Пример сортировки данных объемом 10 ГБ (Graysort)**][hdinsight-sample-10gb-graysort] Этот пример демонстрирует, как выполнить универсальную сортировку GraySort для файла размером 10 ГБ, используя службу HDInsight. Выполняются три задания: Teragen создает данные, Terasort сортирует эти данных и Teravalidate проверяет правильность их сортировки.
-- [**Пример потокового счетчика слов MapReduce на C#**][hdinsight-sample-csharp-streaming]. В этом примере показано, как на C# написать программу MapReduce, в которой используется интерфейс потоковой передачи Hadoop.
+- [**Пример потокового счетчика слов MapReduce на C\#**][hdinsight-sample-csharp-streaming]. В этом примере показано, как на C#написать программу MapReduce, в которой используется интерфейс потоковой передачи Hadoop.
 
 
 ## Как выполнять примеры ##
@@ -86,5 +86,6 @@ HDInsight поставляется вместе со следующими при
 
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

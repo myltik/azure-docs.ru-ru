@@ -1,15 +1,12 @@
-With Azure Resource Manager, you define parameters for values you want to specify when the template is deployed. The template includes a section called Parameters that contains all of the parameter values.
-You should define a parameter for those values that will vary based on the project you are deploying or based on the 
-environment you are deploying to. Do not define parameters for values that will always stay the same. Each parameter value is used in the template to define the resources that are deploy. 
+С помощью диспетчера ресурсов Azure можно определить параметры значений, которые должны указываться на этапе развертывания шаблона. В шаблоне есть раздел «Параметры», содержащий все значения параметров. Необходимо определить параметры для тех значений, которые будут зависеть от развертываемого проекта либо от среды, в которой выполняется развертывание. Не задавайте параметры для значений, которые не меняются. Значение каждого параметра в шаблоне определяет развертываемые ресурсы.
 
-When defining parameters, use the **allowedValues** field to specify which values a user can provide during deployment. Use the **defaultValue** field to assign a value to the parameter, if no value is provided 
-during deployment.
+При определении параметров задать значения, указываемые пользователем во время развертывания, можно с помощью поля **allowedValues**. С помощью поля **defaultValue** можно назначить параметру значение, которое будет использоваться в случае, если значение во время развертывания не указано.
 
-We will describe each parameter in the template.
+Далее следует описание каждого параметра в шаблоне.
 
 ### siteName
 
-The name of the web app that you wish to create.
+Имя создаваемого веб-приложения.
 
     "siteName":{
       "type":"string"
@@ -17,7 +14,7 @@ The name of the web app that you wish to create.
 
 ### hostingPlanName
 
-The name of the App Service plan to use for hosting the web app.
+Имя плана службы приложений для размещения веб-приложения.
     
     "hostingPlanName":{
       "type":"string"
@@ -25,7 +22,7 @@ The name of the App Service plan to use for hosting the web app.
 
 ### siteLocation
 
-The location to use for creating the web app and hosting plan. It must be one of the Azure locations that support web apps.
+Расположение, в котором создаются веб-приложение и план размещения. Это должно быть расположение Azure, поддерживающее веб-приложения.
 
     "siteLocation":{
       "type":"string"
@@ -33,7 +30,7 @@ The location to use for creating the web app and hosting plan. It must be one of
 
 ### sku
 
-The pricing tier for the hosting plan.
+Ценовая категория плана размещения.
 
     "sku":{
       "type":"string",
@@ -46,11 +43,11 @@ The pricing tier for the hosting plan.
       "defaultValue":"Free"
     }
 
-The template defines the values that are permitted for this parameter (Free, Shared, Basic, or Standard), and assigns a default value (Free) if no value is specified.
+В шаблоне определены значения, допустимые для этого параметра (Free, Shared, Basic и Standard). Если значение не указано, параметру назначается значение по умолчанию (Free).
 
 ### workerSize
 
-The instance size of the hosting plan (small, medium, or large).
+Размер экземпляра плана размещения (малый, средний или большой).
 
     "workerSize":{
       "type":"string",
@@ -62,4 +59,6 @@ The instance size of the hosting plan (small, medium, or large).
       "defaultValue":"0"
     }
     
-The template defines the values that are permitted for this parameter (0, 1, or 2), and assigns a default value (0) if no value is specified. The values correspond to small, medium and large.
+В шаблоне определены значения, допустимые для этого параметра (0, 1 и 2). Если значение не указано, параметру назначается значение по умолчанию (0). Эти величины соответствуют малому, среднему и большому размерам.
+
+<!---HONumber=62-->

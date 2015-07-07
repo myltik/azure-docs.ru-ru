@@ -1,18 +1,18 @@
-<properties 
-	pageTitle="Приступая к работе с хранилищем ключей Azure | Обзор" 
-	description="Этот учебник поможет вам начать работу с хранилищем ключей Azure. В нем содержится информация о создании зафиксированного контейнера (хранилища), хранении криптографических ключей и секретов, а также об управлении ими в Azure." 
-	services="key-vault" 
-	documentationCenter="" 
-	authors="cabailey" 
+<properties
+	pageTitle="Приступая к работе с хранилищем ключей Azure | Обзор"
+	description="Этот учебник поможет вам начать работу с хранилищем ключей Azure. В нем содержится информация о создании зафиксированного контейнера (хранилища), хранении криптографических ключей и секретов, а также об управлении ими в Azure."
+	services="key-vault"
+	documentationCenter=""
+	authors="cabailey"
 	manager="mbaldwin"/>
 
-<tags 
-	ms.service="key-vault" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/04/2015" 
+<tags
+	ms.service="key-vault"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="hero-article" 
+	ms.date="05/04/2015"
 	ms.author="cabailey"/>
 
 # Приступая к работе с хранилищем ключей Azure #
@@ -28,7 +28,7 @@
 
 Общую информацию о хранилище ключей Azure см. в статье [Что такое хранилище ключей Azure?](key-vault-whatis.md)
 
-## Предварительные требования 
+## Предварительные требования
 
 Для работы с этим учебником требуется:
 
@@ -92,7 +92,7 @@
 
 Например, если вы используете хранилище с именем **ContosoKeyVault**, группу ресурсов с именем **ContosoResourceGroup** и расположение **Восточная Азия**, введите:
 
-    New-AzureKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia' 
+    New-AzureKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia'
 
 В выходных данных командлета будут показаны свойства хранилища ключей, которое вы только что создали. Среди всех свойств есть два самых важных:
 
@@ -117,7 +117,7 @@
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -KeyFilePath 'c:\softkey.pfx' -KeyFilePassword $securepfxpwd
 
 
-Теперь созданный или переданный в хранилище ключей Azure ключ можно вызвать, используя его URI. Например, **https://ContosoKeyVault.vault.azure.net/Keys/ContosoFirstKey/a10f5336-9d93-44a3-9e26-e86e3488b768**.
+Теперь созданный или переданный в хранилище ключей Azure ключ можно вызвать, используя его URI. Например, **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87**.
 
 Чтобы отобразить URI для этого ключа, введите:
 
@@ -131,7 +131,7 @@
 
 	$secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPassword' -SecretValue $secretvalue
 
-Теперь пароль, добавленный в хранилище ключей Azure, можно вызвать, используя его URI. Например, **https://ContosoVault.vault.azure.net/Secrets/778c3e43-3fdb-4cdf-b58e-7f501eb41d68**.
+Теперь пароль, добавленный в хранилище ключей Azure, можно вызвать, используя его URI. Например: **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d**
 
 Чтобы отобразить URI для этого секрета, введите:
 
@@ -168,7 +168,7 @@
 5.	На странице **Расскажите о своем приложении** укажите имя своего приложения и выберите **ВЕБ-ПРИЛОЖЕНИЕ И/ИЛИ ВЕБ-API** (по умолчанию). Щелкните значок «Далее».
 6.	На странице **Свойства приложения** укажите данные в полях **URL-АДРЕС ВХОДА** и **URI КОДА ПРИЛОЖЕНИЯ** для своего веб-приложения. Если в вашем приложении нет этих значений, можно придумать их для этого шага (например, можно указать http://test1.contoso.com в обоих полях). Не важно, существуют ли эти сайты. Важно то, что URI кода приложения отличается для каждого приложения в каталоге. Каталог использует эту строку для идентификации приложения.
 7.	Щелкните значок «Готово», чтобы сохранить изменения в мастере.
-8.	На странице «Быстрый запуск» щелкните **НАСТРОИТЬ**. 
+8.	На странице «Быстрый запуск» щелкните **НАСТРОИТЬ**.
 9.	Прокрутите страницу до раздела **ключей**, выберите длительность и щелкните **СОХРАНИТЬ**. Страница обновится и отобразится значение ключа. Необходимо настроить приложение, указав это значение ключа и значение **ИДЕНТИФИКАТОР КЛИЕНТА** (указания по этой конфигурации зависят от конкретного приложения).
 10.	Скопируйте значение идентификатора клиента на этой странице. Вы будете использовать его на следующем шаге, чтобы задать разрешения в своем хранилище.
 
@@ -239,10 +239,11 @@
 
 ## <a id="next"></a>Дальнейшие действия ##
 
+Учебник по использованию хранилища ключей Azure в веб-приложении см. в разделе [Использование хранилища ключей Azure из веб-приложения](key-vault-use-from-web-application.md)
+
 Полный список командлетов Windows PowerShell для хранилища ключей Azure см. в разделе [Командлеты для хранилища ключей Azure](https://msdn.microsoft.com/library/azure/dn868052.aspx).
 
-Справочные материалы по программированию см. в разделах [Справочник по REST API хранилища ключей Azure](https://msdn.microsoft.com/library/azure/dn903609.aspx) и [Справочник по API клиента C# для хранилища ключей Azure](https://msdn.microsoft.com/library/azure/dn903628.aspx).
+Справочные материалы по программированию см. в разделах [Справочник по REST API хранилища ключей Azure](https://msdn.microsoft.com/library/azure/dn903609.aspx) и [Справочник по API клиента C#для хранилища ключей Azure](https://msdn.microsoft.com/library/azure/dn903628.aspx).
+ 
 
-
-
-<!--HONumber=54--> 
+<!---HONumber=62-->

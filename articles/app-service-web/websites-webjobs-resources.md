@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Ресурсы по веб-заданиям Azure" 
+	pageTitle="Документация по веб-заданиям Azure" 
 	description="Рекомендуемые ресурсы для обучения работе с элементами Azure WebJob и пакетом SDK для Azure для WebJobs." 
 	services="app-service\web" 
 	documentationCenter=".net" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/03/2015" 
+	ms.date="06/07/2015" 
 	ms.author="tdykstra"/>
 
-# Ресурсы по веб-заданиям Azure
+# Документация по веб-заданиям Azure
 
 ## Обзор
 
@@ -31,6 +31,7 @@
 ##<a name="getstarted"></a>Начало работы с веб-заданиями и пакетом SDK веб-заданий
 
 * [Общие сведения о веб-заданиях Azure](http://www.hanselman.com/blog/IntroducingWindowsAzureWebJobs.aspx)
+* [Веб-задания Azure потрясающие, начните использовать их прямо сейчас!](http://www.troyhunt.com/2015/01/azure-webjobs-are-awesome-and-you.html) (Запись блога Троя Ханта (Troy Hunt)).
 * [Компоненты веб-заданий Azure](/blog/2014/10/22/webjobs-goes-into-full-production/)
 * [Информация о пакете SDK веб-заданий](websites-dotnet-webjobs-sdk.md)
 * [Руководство по фоновым заданиям на основе шаблонов и рекомендаций от Майкрософт](https://github.com/mspnp/azure-guidance/blob/master/Background-Jobs.md)
@@ -54,8 +55,9 @@
 * [Развертывание веб-заданий Azure с помощью Visual Studio](websites-dotnet-deploy-webjobs.md)
 * [Как развернуть веб-задания с использованием портала управления Azure](web-sites-create-web-jobs.md)
 * [Включение предоставления веб-заданий Azure из командной строки или постоянно](http://azure.microsoft.com/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/)
-* [Развертывание из Git приложения консоли .NET на Azure с помощью веб-заданий](http://blog.amitapple.com/post/73574681678/git-deploy-console-app/) 
-* Видеоролики
+* [Развертывание из Git приложения консоли .NET на Azure с помощью веб-заданий](http://blog.amitapple.com/post/73574681678/git-deploy-console-app/)
+* [Развертывание веб-заданий F#в Azure](http://blogs.msdn.com/b/dave_crooks_dev_blog/archive/2015/02/18/deploying-f-web-job-to-azure.aspx)
+* Видео
 	* [Введение в средства для работы с веб-заданиями для Visual Studio](http://channel9.msdn.com/Shows/Web+Camps+TV/Introducing-WebJobs-Tooling-for-Visual-Studio-with-Brady-Gaster) 
 	* [Средства для работы с веб-заданиями и удаленная отладка](http://channel9.msdn.com/Shows/Web+Camps+TV/WebJobs-GA-Series-Episode-1-WebJobs-Tooling-with-Brady-Gaster) 
 
@@ -102,12 +104,7 @@
 ##<a name="additionalsdk"></a>Дополнительные ресурсы по пакету SDK для веб-заданий
 
 * [Исходный код пакета SDK веб-заданий](https://github.com/Azure/azure-webjobs-sdk)
-* [Переключатели, привязки, маршрутные параметры в заданиях Azure](http://blogs.msdn.com/b/jmstall/archive/2014/01/28/trigger-bindings-and-route-parameters-in-azurejobs.aspx) 
-* Привязки хранилищ Azure
-	* [BLOB-объекты](http://blogs.msdn.com/b/jmstall/archive/2014/02/18/azure-storage-bindings-part-1-blobs.aspx)
-	* [Очереди](http://blogs.msdn.com/b/jmstall/archive/2014/02/18/azure-storage-bindings-part-2-queues.aspx)
-	* [Таблицы](http://blogs.msdn.com/b/jmstall/archive/2014/03/06/azure-storage-bindings-part-3-tables.aspx)
-* [Как работает [BlobTrigger]?](http://blogs.msdn.com/b/jmstall/archive/2014/04/17/how-does-blobinput-work.aspx) 
+* [Как работает [BlobTrigger]](http://blogs.msdn.com/b/jmstall/archive/2014/04/17/how-does-blobinput-work.aspx) 
 * [Расширенные привязки с помощью SDK веб-заданий Azure](http://victorhurdugaci.com/advanced-bindings-with-the-windows-azure-web-jobs-sdk/)
 * [Веб-задания по загрузке файлов FREB в службу хранилища Azure с помощью пакета SDK для веб-заданий](http://thenextdoorgeek.com/post/WAWS-WebJob-to-upload-FREB-files-to-Azure-Storage-using-the-WebJobs-SDK)
 * [Размещение веб-заданий Azure вне Azure с преимуществами ведения журнала из веб-заданий, размещенных на Azure](http://bypassion.dk/?p=510)
@@ -134,10 +131,12 @@
 * [Форум по Azure и ASP.NET](http://forums.asp.net/1247.aspx)
 * [Форум по веб-приложениям службы приложений Azure](http://social.msdn.microsoft.com/Forums/azure/home?forum=windowsazurewebsitespreview)
 * [Сайт пользовательских мнений по веб-приложениям Azure](http://feedback.azure.com/forums/169385-websites)
-* [Twitter](http://twitter.com/). Используйте хештег #AzureWebJobs.
+* [Twitter](http://twitter.com/). Используйте хештег \#AzureWebJobs.
+* [Сообщение об ошибке или проблеме в веб-задании](https://github.com/projectkudu/kudu/wiki/Reporting-WebJobs-issues)
 
 ## Изменения
 * Указания по изменениям при переходе от веб-сайтов к службе приложений см. в разделе [Служба приложений Azure и ее влияние на существующие службы Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
 * Руководство по смене старого портала на новый портал см. в разделе [Справочник по навигации на предварительной версии портала](http://go.microsoft.com/fwlink/?LinkId=529715).
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

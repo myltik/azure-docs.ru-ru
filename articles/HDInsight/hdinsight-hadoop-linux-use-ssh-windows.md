@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Использование ключей SSH с Hadoop в HDInsight на платформе Linux в Windows | Aure"
-   description="Узнайте, как создавать и использовать ключи SSH для аутентификации в кластерах HDInsight на основе Linux."
+   pageTitle="Использование ключей SSH с Hadoop в кластерах на платформе Linux из Windows | Microsoft Azure"
+   description="Узнайте, как создавать и использовать ключи SSH для аутентификации в кластерах HDInsight на основе Linux. Подключайте кластеры с клиентов под управлением Windows с помощью клиента PuTTY SSH."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -28,7 +28,7 @@
 
 ##Предварительные требования
 
-* **PuTTY** и **PuTTYGen** для клиентов Windows. Эти служебные программы доступны по адресу <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">http://www.chiark.greenend.org.uk/\~sgtatham/putty/download.html</a>.
+* **PuTTY** и **PuTTYGen** для клиентов Windows. Эти служебные программы доступны по адресу <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html</a>.
 
 * Современный веб-браузер, который поддерживает HTML5.
 
@@ -42,7 +42,7 @@ SSH — это служебная программа для входа в сис
 
 ##Создание ключа SSH (необязательно)
 
-При создании кластера HDInsight под управлением Linux с использованием SSH вы можете использовать пароль или ключ SSH для аутентификации на сервере. Ключи SSH считаются более надежными, так как они основаны на сертификатах. Если вы планируете использовать ключи SSH на своем кластере, используйте следующую информацию.
+При создании кластера HDInsight под управлением Linux в случае использования SSH вы можете использовать пароль или ключ SSH для аутентификации на сервере. Ключи SSH считаются более надежными, так как они основаны на сертификатах. Если вы планируете использовать ключи SSH на своем кластере, используйте следующую информацию.
 
 1. Откройте PuTTYGen.
 
@@ -124,7 +124,7 @@ SSH — это служебная программа для входа в сис
 
 Если вы указали ключ SSH при создании учетной записи пользователя, необходимо выполнить следующие шаги, чтобы использовать закрытый ключ при аутентификации в кластере для подключения к рабочим узлам.
 
-1. Pageant можно установить по адресу <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">http://www.chiark.greenend.org.uk/\~sgtatham/putty/download.html</a>. Эта служебная программа используется для кэширования ключей SSH для PuTTY.
+1. Pageant можно установить по адресу <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html</a>. Эта служебная программа используется для кэширования ключей SSH для PuTTY.
 
 2. Запустите агент Pageant. Он будет свернут в значок в области состояния. Щелкните его правой кнопкой мыши и выберите **Добавить ключ**.
 
@@ -277,5 +277,6 @@ SSH может также использоваться для туннелиро
 * [Использование Pig с HDInsight](hdinsight-use-pig.md)
 
 * [Использование заданий MapReduce с HDInsight](hdinsight-use-mapreduce.md)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

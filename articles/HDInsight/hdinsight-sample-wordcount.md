@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Запуск примера подсчета слов Hadoop MapReduce в HDInsight | Azure"
-	description="Запуск примера подсчета слов MapReduce в кластере Hadoop в HDInsight. Программа, написанная на языке Java, подсчитывает вхождения слов в текстовом файле."
+	pageTitle="Пример подсчета слов Hadoop MapReduce в HDInsight | Microsoft Azure"
+	description="Выполнение примера подсчета слов MapReduce в кластере Hadoop в HDInsight. Программа, написанная на языке Java, подсчитывает вхождения слов в текстовом файле."
 	editor="cgronlun"
 	manager="paulettm"
 	services="hdinsight"
@@ -13,13 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2015" 
+	ms.date="06/15/2015" 
 	ms.author="bradsev"/>
 
-#Выполнение примера подсчета слов MapReduce в кластере Hadoop в HDInsight.
+#Выполнение примера подсчета слов MapReduce на Java в кластере Hadoop в HDInsight
 
 В этом учебнике демонстрируется выполнение примера подсчета слов MapReduce в кластере Hadoop в HDInsight. Программа написана на языке Java. Эта программа подсчитывает частоту использования слова в текстовом файле и создает новый текстовый файл, в котором каждое слово приводится с частотой его использования. В качестве анализируемого текстового файла здесь используется выпуск электронной книги проекта "Гутенберг" "The Notebooks of Leonardo Da Vinci" (Записки Леонардо да Винчи).
 
+> [AZURE.NOTE]Для выполнения действий, описанных в этом документе, требуется клиент Windows. Действия по использованию примера подсчета слов в клиенте Linux, OS X или Unix в кластере HDInsight на платформе Linux см. в разделе [Использование MapReduce с Hadoop в HDInsight с помощью SSH](hdinsight-hadoop-use-mapreduce-ssh.md) или [Использование MapReduce с Hadoop в HDInsight с помощью Curl](hdinsight-hadoop-use-mapreduce-curl.md).
 
 **Вы узнаете:**
 
@@ -29,13 +30,15 @@
 
 **Предварительные требования**:
 
-- Необходимо иметь учетную запись Azure. Варианты регистрации учетной записи см. на странице [Бесплатное пробное использование Azure](http://azure.microsoft.com/pricing/free-trial/).
+- **Подписка Azure.**. См. [Бесплатная пробная версия Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- Вы должны были подготовить кластер HDInsight. Инструкции по созданию кластеров см. в разделе [Начало работы с Azure HDInsight][hdinsight-get-started] или [Подготовка кластеров HDInsight](hdinsight-provision-clusters.md).
+- **Кластер HDInsight**. Инструкции по созданию кластеров см. в разделе [Начало работы с Azure HDInsight][hdinsight-get-started] или [Подготовка кластеров HDInsight](hdinsight-provision-clusters.md).
 
-- У вас должна быть установлена среда Azure PowerShell, настроенная для работы с вашей учетной записью. Инструкции по настройке см. в разделе [Установка и настройка Azure PowerShell][powershell-install-configure].
+- **Рабочая станция с Azure PowerShell**. См. [Установка и использование Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
-<h2><a id="run-sample"></a>Выполнение примера с использованием Azure PowerShell</h2>
+
+
+## <a id="run-sample"></a>Выполнение примера с использованием Azure PowerShell</h2>
 
 **Отправка задания MapReduce**
 
@@ -110,7 +113,7 @@
 
 Обратите внимание, что выходные файлы задания MapReduce являются неизменяемыми. Поэтому при повторном выполнении этого примера потребуется изменить имя выходного файла.
 
-<h2><a id="java-code"></a>Код Java для программы MapReduce WordCount</h2>
+## <a id="java-code"></a>Код Java для программы MapReduce WordCount</h2>
 
 
 
@@ -186,14 +189,14 @@
 
 В этом учебнике вы узнали, как выполнить программу MapReduce, которая подсчитывает частоту использования слов в текстовом файле, в HDInsight с использованием Azure PowerShell.
 
-<h2><a id="next-steps"></a>Дальнейшие действия</h2>
+## <a id="next-steps"></a>Дальнейшие действия</h2>
 
 Учебники по выполнению других примеров и инструкции по использованию заданий Pig, Hive и MapReduce в Azure HDInsight с Azure PowerShell см. в следующих статьях.
 
 * [Начало работы с Azure HDInsight][hdinsight-get-started]
 * [Пример: GraySort 10 ГБ][hdinsight-sample-10gb-graysort]
 * [Пример: оценка числа пи][hdinsight-sample-pi-estimator]
-* [Пример: потоковая передача на C#][hdinsight-sample-cs-streaming]
+* [Пример: потоковая передача на C\#][hdinsight-sample-cs-streaming]
 * [Использование Pig с HDInsight][hdinsight-use-pig]
 * [Использование Hive с HDInsight][hdinsight-use-hive]
 * [Документация по пакету SDK для Azure HDInsight][hdinsight-sdk-documentation]
@@ -210,8 +213,9 @@
 
 [hdinsight-get-started]: ../hdinsight-get-started.md
 
-[Powershell-install-configure]: ../install-configure-powershell.md
+[powershell-install-configure]: ../install-configure-powershell.md
 
 [image-hdi-sample-wordcount-output]: ./media/hdinsight-sample-wordcount/HDI.Sample.WordCount.Output.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

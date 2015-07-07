@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Использование ключей SSH с Hadoop в HDInsight на платформе Linux из Linux, Unix или OS X | Azure"
-   description="Узнайте, как создавать и использовать ключи SSH для аутентификации в кластерах HDInsight на основе Linux."
+   pageTitle="Использование ключей SSH с Hadoop на платформе Linux из Linux, Unix или OS X | Microsoft Azure"
+   description="Можно получить доступ к HDInsight под управлением Linux с помощью Secure Shell (SSH). В этом документе содержатся сведения об использовании SSH с HDInsight из клиентов OS X, Linux и Unix."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -66,7 +66,7 @@ SSH — это служебная программа для входа в сис
 
 		> [AZURE.NOTE]Мы настоятельно рекомендуем использовать безопасную парольную фразу для ключа. Однако если вы забудете парольную фразу, восстановить ее будет невозможно.
 
-	После выполнения команды у вас будет два новых файла: закрытый ключ (например, **id_rsa**) и открытый ключ (например, **id_rsa.pub**).
+	После выполнения команды у вас будет два новых файла: закрытый ключ (например, **id\\_rsa**) и открытый ключ (например, **id\\_rsa.pub**).
 
 ##Создание кластера HDInsight на основе Linux
 
@@ -294,5 +294,6 @@ SSH может также использоваться для туннелиро
 * [Использование Pig с HDInsight](hdinsight-use-pig.md)
 
 * [Использование заданий MapReduce с HDInsight](hdinsight-use-mapreduce.md)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

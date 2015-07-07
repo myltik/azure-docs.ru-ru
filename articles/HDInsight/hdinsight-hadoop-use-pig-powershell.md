@@ -28,9 +28,9 @@
 
 Чтобы выполнить действия, описанные в этой статье, необходимо следующее.
 
-* Кластер Azure HDInsight (Hadoop в HDInsight) (на платформе Windows или Linux).
+- **Подписка Azure.**. См. [Бесплатная пробная версия Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-* <a href="http://azure.microsoft.com/documentation/articles/install-configure-powershell/" target="_blank">Azure PowerShell</a>.
+- **Рабочая станция с Azure PowerShell**. См. [Установка и использование Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
 
 ##<a id="powershell"></a>Выполнение заданий Pig с помощью PowerShell
@@ -141,5 +141,6 @@ Azure PowerShell предоставляет *командлеты*, позвол
 * [Использование Hive с Hadoop в HDInsight](hdinsight-use-hive.md)
 
 * [Использование MapReduce с Hadoop в HDInsight](hdinsight-use-mapreduce.md)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

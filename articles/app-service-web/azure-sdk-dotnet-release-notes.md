@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Заметки о выпуске пакета Azure SDK для .NET" 
+	pageTitle="Заметки о выпуске пакета SDK для Azure для .NET" 
 	description="Заметки о выпуске пакета Azure SDK для .NET" 
 	services="app-service/web" 
 	documentationCenter="" 
@@ -22,7 +22,12 @@
 
 Этот раздел содержит ссылки на заметки о выпусках пакетов Azure SDK для .NET.
 
-##Заметки о выпуске пакета Azure SDK для .NET 2.5.1
+
+##Заметки о выпуске пакета SDK для Azure для .NET 2.6
+
+[Заметки о выпуске пакета SDK для Azure для .NET 2.6](azure-sdk-dotnet-release-notes-2_6.md)
+
+##Заметки о выпуске Azure SDK для .NET 2.5.1
 
 [Заметки о выпуске пакета Azure SDK для .NET 2.5.1](../app-service/app-service-release-notes.md)
 
@@ -54,7 +59,7 @@
 
 [Пакет Azure SDK для .NET](http://azure.microsoft.com/downloads/archive-net-downloads/)
 
-[Заметки о выпуске пакета Azure SDK на сайте MSDN](https://msdn.microsoft.com/library/azure/dn627519.aspx) 
-
-<!--HONumber=52-->
+[Заметки о выпуске пакета Azure SDK на сайте MSDN](https://msdn.microsoft.com/library/azure/dn627519.aspx)
  
+
+<!---HONumber=62-->

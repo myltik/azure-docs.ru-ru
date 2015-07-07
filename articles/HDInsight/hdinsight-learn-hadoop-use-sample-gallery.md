@@ -1,19 +1,19 @@
-<properties 
-   pageTitle="Изучение Hadoop в HDInsight с помощью коллекции примеров | Microsoft Azure" 
-   description="С помощью коллекции для начала работы с HDInsight вы можете быстро изучить Hadoop, запуская примеры приложений в HDInsight. В некоторых примерах уже имеются данные, в некоторых их можно ввести самостоятельно." 
-   services="hdinsight" 
-   documentationCenter="" 
-   authors="mumian" 
-   manager="paulettm" 
+<properties
+   pageTitle="Изучение Hadoop в HDInsight с помощью коллекции примеров | Microsoft Azure"
+   description="С помощью коллекции для начала работы с HDInsight вы можете быстро изучить Hadoop, запуская примеры приложений. Можно использовать как предоставленный пример данных или как собственный."
+   services="hdinsight"
+   documentationCenter=""
+   authors="mumian"
+   manager="paulettm"
    editor="cgronlun"/>
 
-<tags 
-   ms.service="hdinsight" 
-   ms.workload="big-data" 
-   ms.tgt_pltfrm="na" 
-   ms.devlang="na" 
-   ms.topic="article" 
-   ms.date="03/31/2015" 
+<tags
+   ms.service="hdinsight"
+   ms.workload="big-data"
+   ms.tgt_pltfrm="na"
+   ms.devlang="na"
+   ms.topic="get-started-article" 
+   ms.date="03/31/2015"
    ms.author="jgao"/>
 
 # Изучение Hadoop с помощью коллекции для начала работы с HDInsight
@@ -39,7 +39,7 @@
 **Запуск примера из коллекции для начала работы**
 
 1.	Войдите на [портал Azure][azure.portal].
-2.	В меню слева щелкните **HDInsight**. Появится список существующих кластеров HDInsight, в том числе Hadoop, Storm и HBase. 
+2.	В меню слева щелкните **HDInsight**. Появится список существующих кластеров HDInsight, в том числе Hadoop, Storm и HBase.
 3.	Щелкните кластер, в котором вы хотите запустить пример.
 4.	В нижней части страницы щелкните **КОНСОЛЬ ЗАПРОСОВ**.
 5.	Введите имя пользователя и пароль Hadoop для кластера.
@@ -62,4 +62,6 @@ HDInsight можно также изучить другими способами
 [hdinsight.learn.map]: hdinsight-learn-map.md
 [hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960
 [azure.portal]: https://manage.windowsazure.com
-<!--HONumber=54--> 
+ 
+
+<!---HONumber=62-->

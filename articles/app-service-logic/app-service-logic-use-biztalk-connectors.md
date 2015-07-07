@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Использование соединителей" 
-   description="Использование соединителей" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="anuragdalmia" 
-   manager="dwrede" 
+<properties
+   pageTitle="Использование соединителей"
+   description="Использование соединителей"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
+   ms.workload="integration"
    ms.date="03/20/2015"
    ms.author="prkumar"/>
 
@@ -35,7 +35,6 @@
 * [Соединитель HTTP]
 * [Соединитель Office 365]
 * [Соединитель OneDrive]
-* [Соединитель Oracle]
 * [Соединитель POP3]
 * [Соединитель QuickBooks]
 * [Соединитель Salesforce]
@@ -53,18 +52,18 @@
 ##Соединители Premium и приложения API##
 * Соединитель AS2
 * BizTalk EDIFACT
-* Кодировщик неструктурированных файлов BizTalk
+* [Кодировщик неструктурированных файлов BizTalk]
 * Служба преобразования BizTalk
-* Правила BizTalk
+* [Правила BizTalk]
 * BizTalk X12
-* Средство извлечения XPath BizTalk
-* Средство проверки XML BizTalk
+* [Средство извлечения XPath BizTalk]
+* [Средство проверки XML BizTalk]
 * Соединитель DB2
 * Соединитель Informix
-* Соединитель баз данных Oracle
+* [Соединитель Oracle]
 * Соединитель MQ
 * [Соединитель SAP]
- 
+
 Дополнительные сведения см. в справочнике по соединителям API [http://aka.ms/appservicesconnectorreference](http://aka.ms/appservicesconnectorreference).
 
 ##Соединители и приложения логики##
@@ -108,6 +107,10 @@
 [Соединитель OneDrive]: app-service-logic-connector-onedrive.md
 [Соединитель File]: app-service-logic-connector-file.md
 [Соединитель Slack]: app-service-logic-connector-slack.md
+[Кодировщик неструктурированных файлов BizTalk]: app-service-logic-flatfile-encoder.md
+[Средство извлечения XPath BizTalk]: app-service-logic-xpath-extract.md
+[Средство проверки XML BizTalk]: app-service-logic-xml-validator.md
+[Правила BizTalk]: app-service-logic-use-biztalk-rules.md
+ 
 
-
-<!--HONumber=54--> 
+<!---HONumber=62-->

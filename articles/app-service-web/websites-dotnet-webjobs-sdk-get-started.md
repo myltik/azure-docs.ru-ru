@@ -112,7 +112,7 @@
 
 	Этот параметр указывает, в каком центре обработки данных Azure будет размещаться учетная запись хранения. Теоретически этот выбор не имеет большого значения. Но для рабочего веб-приложения веб-сервер и учетная запись хранения должны находиться в одном регионе, чтобы свести к минимуму задержку и стоимость исходящих данных. Веб-приложение (которое будет создано позже) должно находиться как можно ближе к браузерам, получившим доступ к нему, чтобы свести к минимуму задержку.
 
-6. В раскрывающемся списке **Репликация** установите значение **Локально избыточное**.
+6. В раскрывающемся списке **Репликация ** установите значение **Локально избыточное**.
 
 	При включении георепликации для учетной записи хранения хранящиеся данные реплицируются в дополнительный центр обработки данных для обеспечения возможности отработки отказа в это расположение в случае крупной аварии в основном расположении. Георепликация может потребовать дополнительных затрат. Для учетных записей тестирования и разработки оплачивать георепликацию обычно не требуется. Дополнительные сведения см. в разделе [Создание, удаление учетной записи хранения или управление ей](../storage-create-storage-account/#replication-options).
 
@@ -145,11 +145,9 @@
 	В примере строки подключения к хранилищу использованы заполнители для имени учетной записи хранения и ключа доступа. Замените это строкой подключения, которая содержит имя и ключ для вашей учетной записи хранения.
 
 	<pre class="prettyprint">&lt;connectionStrings>
-	  &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" /&gt;
-	  &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
-	&lt;/connectionStrings&gt;</pre>
-
-	Строка подключения хранилища называется AzureWebJobsStorage, поскольку пакет SDK веб-заданий использует это имя по умолчанию. Здесь используется то же имя, поэтому вам нужно задать только одно значение строки подключения в среде Azure.
+  &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" />
+  &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/>
+&lt;/connectionStrings></pre>Строка подключения хранилища называется AzureWebJobsStorage, поскольку пакет SDK веб-заданий использует это имя по умолчанию. Здесь используется то же имя, поэтому вам нужно задать только одно значение строки подключения в среде Azure.
  
 2. В **обозревателе серверов** щелкните правой кнопкой мыши учетную запись хранения в узле **Хранилище** и щелкните **Свойства**.
 
@@ -167,19 +165,9 @@
 
 4. Откройте файл *App.config* в проекте ContosoAdsWebJob.
 
-	Этот файл содержит две строки подключения хранилища: одну для данных приложения, а другую для ведения журнала. В этом учебнике будет использоваться одна учетная запись. В строках подключения имеются заполнители для учетной записи хранения.
-  	<pre class="prettyprint">&lt;configuration&gt;
-    &lt;connectionStrings&gt;
-        &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
-        &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
-        &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/&gt;
-    &lt;/connectionStrings&gt;
-        &lt;startup&gt; 
-            &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" /&gt;
-    &lt;/startup&gt;
-&lt;/configuration&gt;</pre>
+	Этот файл содержит две строки подключения хранилища: одну для данных приложения, а другую для ведения журнала. В этом учебнике будет использоваться одна учетная запись. В строках подключения имеются заполнители для ключей учетной записи хранения. <pre class="prettyprint">&lt;configuration&gt; &lt;connectionStrings&gt; &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt; &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt; &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/&gt; &lt;/connectionStrings&gt; &lt;startup&gt; &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" /&gt; &lt;/startup&gt; &lt;/configuration&gt;</pre>
 
-	По умолчанию пакет SDK веб-заданий ищет строки подключения с именем AzureWebJobsStorage и AzureWebJobsDashboard. В качестве альтернативы можно [сохранить строку подключения любым способом и передать ее явно в объект `JobHost`](websites-dotnet-webjobs-sdk-storage-queues-how-to.md/#config).
+	По умолчанию пакет SDK веб-заданий ищет строки подключения с именами AzureWebJobsStorage и AzureWebJobsDashboard. В качестве альтернативы можно [сохранить строку подключения любым способом и передать ее явно в объект `JobHost`](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#config).
 
 1. Замените обе строки подключения к хранилищу скопированной ранее строкой подключения.
 
@@ -383,7 +371,7 @@
 
 1. В Visual Studio нажмите кнопку **Создать** > **Проект** в меню **Файл**.
 
-2. В диалоговом окне **Новый проект** щелкните **Visual C#** > **Веб-приложение** > **Веб-приложение ASP.NET**.
+2. В диалоговом окне **Новый проект** щелкните **Visual C\#** > **Веб-приложение** > **Веб-приложение ASP.NET**.
 
 3. Назовите проект "ContosoAdsWeb", назовите решение "ContosoAdsWebJobsSDK" (измените имя решения, если планируете поместить его в ту же папку, что и скачанное решение), а затем нажмите кнопку **ОК**.
 
@@ -407,7 +395,7 @@
 
 9. в **обозревателе решений** щелкните правой кнопкой мыши решение (а не проект) и выберите **Добавить** > **Новый проект**.
 
-11. В диалоговом окне **Добавление нового проекта** выберите шаблон **Visual C#** > **Классические приложения Windows** > **Библиотека классов**.
+11. В диалоговом окне **Добавление нового проекта** выберите шаблон **Visual C\#** > **Классические приложения Windows** > **Библиотека классов**.
 
 10. Присвойте проекту имя *ContosoAdsCommon* и нажмите кнопку **ОК**.
 
@@ -783,16 +771,13 @@
 Дополнительную информацию о написании функций, использующих атрибуты пакета SDK для заданий WebJob, см. на следующих ресурсах:
 
 * [Использование пакета SDK веб-заданий для работы с хранилищем очередей Azure](websites-dotnet-webjobs-sdk-storage-queues-how-to.md)
-* [Использование хранилища больших двоичных объектов Azure с пакетом SDK для веб-заданий](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
-* [Использование табличного хранилища Azure с пакетом SDK для веб-заданий](websites-dotnet-webjobs-sdk-storage-tables-how-to.md)
+* [Использование хранилища больших двоичных объектов Azure с пакетом SDK веб-заданий](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
+* [Использование табличного хранилища Azure с пакетом SDK веб-заданий](websites-dotnet-webjobs-sdk-storage-tables-how-to.md)
 * [Использование служебной шины Azure с пакетом SDK для веб-заданий](websites-dotnet-webjobs-sdk-service-bus.md)
 
->[AZURE.NOTE]
->* Если ваше веб-приложение работает на нескольких виртуальных машинах, эта программа запустится на каждой машине и каждая машина будет ожидать триггеров и попытается запустить функции. В определенных ситуациях это может привести к тому, что некоторые функции обработают одни и те же данные дважды, поэтому функции должны быть идемпотентными (написанными так, что постоянный их вызов с одинаковыми входными данными не создаст повторяющиеся результаты). 
->* Сведения о нормальном завершении работы см. в разделе [Правильное завершение работы](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#graceful).   
->* Для упрощения код в методе `ConvertImageToThumbnailJPG` (не показан) использует классы в пространстве имен `System.Drawing`. Однако классы в этом пространстве имен были спроектированы для использования с формами Windows. Они не поддерживаются в службе Windows или ASP.NET.
+>[AZURE.NOTE]* Если ваше веб-приложение работает на нескольких виртуальных машинах, эта программа запустится на каждой машине и каждая машина будет ожидать триггеров и попытается запустить функции. В определенных ситуациях это может привести к тому, что некоторые функции обработают одни и те же данные дважды, поэтому функции должны быть идемпотентными (написанными так, что постоянный их вызов с одинаковыми входными данными не создаст повторяющиеся результаты). * Сведения о нормальном завершении работы см. в разделе [Правильное завершение работы](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#graceful). * Для упрощения код в методе `ConvertImageToThumbnailJPG` (не показан) использует классы в пространстве имен `System.Drawing`. Однако классы в этом пространстве имен были спроектированы для использования с формами Windows. Они не поддерживаются в службе Windows или ASP.NET. Дополнительные сведения о параметрах обработки изображений см. в статьях [Создание динамического образа](http://www.hanselman.com/blog/BackToBasicsDynamicImageGenerationASPNETControllersRoutingIHttpHandlersAndRunAllManagedModulesForAllRequests.aspx) и [Особенности изменения размеров изображения](http://www.hanselminutes.com/313/deep-inside-image-resizing-and-scaling-with-aspnet-and-iis-with-imageresizingnet-author-na).
 
-### Сравнение веб-заданий SDK и рабочей роли облачной службы без веб-заданий SDK
+### Преимущества пакета SDK веб-заданий перед рабочей ролью облачной службы без пакета SDK веб-заданий
 
 Если сравнить объем кода в методе `GenerateThumbnails` из этого примера приложения с кодом рабочей роли в [версии приложения для облачной службы](../cloud-services-dotnet-get-started.md), можно увидеть, сколько работы выполняется пакетом SDK веб-заданий автоматически. Преимуществ больше, чем кажется, поскольку код примера приложения облачной службы не выполняет всего (например, обработку сообщений о сбоях), что требуется в рабочем приложении, в отличие от пакета SDK веб-заданий.
 
@@ -815,5 +800,6 @@ https://{webappname}.scm.azurewebsites.net/azurejobs/#/functions
 ## Изменения
 * Указания по изменениям при переходе от веб-сайтов к службе приложений см. в разделе [Служба приложений Azure и ее влияние на существующие службы Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
 * Руководство по смене старого портала на новый портал см. в разделе [Справочник по навигации на предварительной версии портала](http://go.microsoft.com/fwlink/?LinkId=529715).
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

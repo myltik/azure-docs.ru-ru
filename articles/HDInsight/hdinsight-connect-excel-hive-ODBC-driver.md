@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Подключение Excel к Hadoop с помощью драйвера Hive ODBC | Microsoft Azure" 
-   description="Узнайте, как установить и использовать драйвер Microsoft Hive ODBC для Excel, чтобы запрашивать данные из кластера HDInsight." 
-   services="hdinsight" 
-   documentationCenter="" 
-   authors="bradsev" 
-   manager="paulettm" 
+<properties
+   pageTitle="Подключение Excel к Hadoop с помощью драйвера Hive ODBC | Microsoft Azure"
+   description="Узнайте, как установить и использовать драйвер Microsoft Hive ODBC для Excel, чтобы запрашивать данные из кластера HDInsight."
+   services="hdinsight"
+   documentationCenter=""
+   authors="bradsev"
+   manager="paulettm"
    editor="cgronlun"/>
 
 <tags
@@ -12,8 +12,8 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
-   ms.date="03/31/2015"
+   ms.workload="big-data"
+   ms.date="06/08/2015"
    ms.author="bradsev"/>
 
 #Подключение Excel к Hadoop с помощью драйвера Microsoft Hive ODBC
@@ -23,13 +23,14 @@
 
 Можно также подключить данные, связанные с кластером HDInsight, и другими источниками данных, включая другие кластеры Hadoop (не HDInsight) из Excel с использованием надстройки Microsoft Power Query для Excel. Сведения об установке и использовании Power Query см. в разделе [Подключение Excel к HDInsight с использованием Power Query][hdinsight-power-query]
 
+> [AZURE.NOTE]Хотя действия, описанные в этой статье, применимы к кластеру HDInsight под управлением Windows или Linux, Windows является обязательным для клиентской рабочей станции.
+
 **Предварительные требования**:
 
 Перед началом работы с этой статьей необходимо иметь следующее:
 
-- Кластер HDInsight. Для настройки кластера ознакомьтесь с разделом [Приступая к работе с Azure HDInsight][hdinsight-get-started].
-- Компьютер под управлением Windows 8, Windows 7, Windows Server 2012 или Windows Server 2008 R2.
-- Office 2013 профессиональный плюс, Office 365 профессиональный плюс, Excel 2013 автономный или Office 2010 профессиональный плюс.
+- **Кластер HDInsight**. Для настройки кластера ознакомьтесь с разделом [Приступая к работе с Azure HDInsight][hdinsight-get-started].
+- **Рабочая станция** с Office 2013 профессиональный плюс, Office 365 профессиональный плюс, Excel 2013 автономный или Office 2010 профессиональный плюс.
 
 
 ##<a id="InstallHiveODBCDriver"></a>Установка драйвера Microsoft Hive ODBC
@@ -43,12 +44,12 @@
 Ниже показано, как создать источник данных Hive ODBC.
 
 1. В Windows 8 нажмите клавишу Windows, чтобы открыть начальный экран, затем введите **источники данных**.
-2. Нажмите кнопку **Настройка источников данных ODBC (32-разр.)** или **Настройка источников данных ODBC (64-разр.)** в зависимости от версии Office. Если вы используете Windows 7, выберите **Источники данных ODBC (32-разр.)** или **Источники данных ODBC (64-разр.)** в разделе **Администрирование**. Это приведет к запуску диалогового окна **Администратор источника данных ODBC**. 
- 
+2. Нажмите кнопку **Настройка источников данных ODBC (32-разр.)** или **Настройка источников данных ODBC (64-разр.)** в зависимости от версии Office. Если вы используете Windows 7, выберите **Источники данных ODBC (32-разр.)** или **Источники данных ODBC (64-разр.)** в разделе **Администрирование**. Это приведет к запуску диалогового окна **Администратор источника данных ODBC**.
+
 	![Администратор источника данных ODBC][img-hdi-simbahiveodbc-datasource-admin]
 
 3. Из DNS пользователя щелкните **Добавить**, чтобы открыть мастер **Создать новый источник данных**.
-4. Выберите **Драйвер Microsoft Hive ODBC** и щелкните **Готово**. Это приведет к открытию диалогового окна **Настройка DNS драйвера Microsoft Hive ODBC**. 
+4. Выберите **Драйвер Microsoft Hive ODBC** и щелкните **Готово**. Это приведет к открытию диалогового окна **Настройка DNS драйвера Microsoft Hive ODBC**.
 
 5. Введите или выберите следующие значения:
 
@@ -74,9 +75,9 @@
 </table>![Дополнительные параметры][img-HiveOdbc-DataSource-AdvancedOptions]
 
 6. Нажмите **Тест** для проверки источника данных. При правильной настройке источника данных здесь отображается *ТЕСТЫ УСПЕШНО ЗАВЕРШЕНЫ!*
-7. Нажмите **OK**, чтобы закрыть диалоговое окно Тест. Новый источник данных не должен быть указан в **администраторе источника данных ODBC**. 
+7. Нажмите **OK**, чтобы закрыть диалоговое окно Тест. Новый источник данных не должен быть указан в **администраторе источника данных ODBC**.
 8. Нажмите **OK**, чтобы завершить работу мастера.
-	
+
 ##<a id="ImportData"></a>Импорт данных в Excel из кластера HDInsight
 
 Ниже описан способ импорта данных из таблицы hive в рабочую книгу Excel с помощью источника данных ODBC, созданного ранее.
@@ -124,5 +125,6 @@
 [img-HiveOdbc-DataSource-AdvancedOptions]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.HiveOdbc.DataSource.AdvancedOptions1.png
 [img-hdi-simbahiveodbc-excel-connectionproperties]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveODBC.Excel.ConnectionProperties1.png
 [img-hdi-simbahiveodbc.excel.dataconnection]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveOdbc.Excel.DataConnection1.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

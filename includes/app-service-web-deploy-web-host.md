@@ -1,7 +1,6 @@
-### App Service plan
+### План службы приложений
 
-Creates the service plan for hosting the web app. You provide the name of the plan through the **hostingPlanName** parameter. The location of the plan is the 
-same location used for the web app. The pricing tier and worker size are specified in the **sku** and **workerSize** parameters
+Создает план обслуживания для размещения веб-приложения. Имя плана задается с помощью параметра **hostingPlanName**. Расположение плана совпадает с расположением веб-приложения. Ценовая категория и размер рабочего процесса задаются с помощью параметров **sku** и **workerSize**.
 
     {
        "apiVersion":"2015-04-01",
@@ -15,3 +14,5 @@ same location used for the web app. The pricing tier and worker size are specifi
          "numberOfWorkers":1
        }
     }
+
+<!---HONumber=62-->

@@ -1,29 +1,28 @@
-<properties 
-	pageTitle="План обучения работе с HDInsight для платформы Azure" 
-	description="Для успешного прохождения всех стадий изучения HDInsight вам необходимо обеспечить нормальную работу рекомендованных ресурсов." 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="nitinme" 
-	manager="paulettm" 
+<properties
+	pageTitle="Схема обучения для Hadoop в HDInsight | Microsoft Azure"
+	description="Чтобы узнать, как использовать Hadoop и соответствующие компоненты в HDInsight, воспользуйтесь этой схемой изучения документации и ресурсов."
+	services="hdinsight"
+	documentationCenter=""
+	authors="nitinme"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/16/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article" 
+	ms.date="01/16/2015"
 	ms.author="nitinme"/>
 
 
-# План обучения работе с HDInsight
-В HDInsight можно работать с данными большого размера в облаке с помощью Hadoop, HBase и настраиваемых кластеров. Следуйте указаниям на этой странице для эффективного изучения документации по HDInsight:
+
+# Схема обучения для Hadoop в HDInsight
+В HDInsight можно работать с большими объемами данных в облаке с помощью Hadoop, HBase, Apache Storm и настраиваемых кластеров. Для получения помощи при изучении Hadoop и соответствующих компонентов следуйте указаниям этой схемы обучения, касающимся документации по HDInsight:
+
 
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/HDI.Content.Flow.svg" width="100%" height="100%"> </object>
+ 
 
-
-
-
-
-<!--HONumber=54--> 
+<!---HONumber=62-->

@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter="windows"
 	authors="alancameronwills" 
-	manager="keboyd"/>
+	manager="ronmart"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/02/2015" 
+	ms.date="05/12/2015" 
 	ms.author="awills"/>
 
 # Application Insights для приложений Windows Phone и Магазина Windows
@@ -23,7 +23,7 @@
 
 С помощью Visual Studio Application Insights можно отслеживать следующие показатели опубликованного приложения.
 
-* [**Использование**][windowsUsage] — узнайте, сколько пользователей у вас есть, и что они делают с вашим приложением.
+* [**Использование**][windowsUsage] — узнайте, сколько пользователей у вас есть и что они делают с вашим приложением.
 * [**Сбои**][windowsCrash] — получайте диагностические отчеты о сбоях и исследуйте их влияние на пользователей.
 
 ![](./media/app-insights-windows-get-started/appinsights-d018-oview.png)
@@ -64,19 +64,17 @@
 
     ![](./media/app-insights-windows-get-started/04-ai-nuget.png)
 
-3. Выберите последнюю версию соответствующего пакета — одного из следующих:
-   * Application Insights для приложений Windows *для приложений Магазина Windows*
-   * Application Insights для приложений Windows Phone
-   * Application Insights для веб-приложений * для классических приложений* 
+3. Выберите **Application Insights для приложений для Windows**.
+
 4. Отредактируйте файл ApplicationInsights.config (который был добавлен установкой NuGet). Вставьте следующий фрагмент непосредственно перед закрывающим тегом:
 
     `<InstrumentationKey>`*скопированный ключ*`</InstrumentationKey>`
 
-**Для универсальных приложений Windows**: повторите эти действия для  проектов Phone и Магазина.
+**Для универсальных приложений Windows**: повторите эти действия для проектов Phone и Магазина.
 
 ## <a name="network"></a>3. Включение доступа к сети для вашего приложения
 
-Если приложение еще не [запросило исходящий доступ к сети](https://msdn.microsoft.com/library/windows/apps/hh452752.aspx), вам нужно  добавить это в его манифест как [обязательную возможность](https://msdn.microsoft.com/library/windows/apps/br211477.aspx).
+Если приложение еще не [запросило исходящий доступ к сети](https://msdn.microsoft.com/library/windows/apps/hh452752.aspx), вам нужно добавить это в его манифест как [обязательную возможность](https://msdn.microsoft.com/library/windows/apps/br211477.aspx).
 
 ## <a name="run"></a>4. Запуск проекта
 
@@ -108,7 +106,14 @@
 
 [Опубликуйте свое приложение](http://dev.windows.com/publish) и наблюдайте за данными, которые собираются по мере загрузки и использования этого приложения пользователями.
 
-## <a name="ide"></a>Автоматизированный способ
+## Что дальше?
+
+* [Обнаружение и диагностика сбоев в приложении][windowsCrash]
+* [Дополнительная информация о метриках][metrics].
+* [Дополнительная информация о поиске по журналу диагностики][diagnostic].
+
+
+## <a name="ide"></a>Автоматическая установка
 
 Если вы предпочитаете использовать Visual Studio для выполнения шагов настройки, это можно сделать с приложениями Windows Phone, Магазина Windows и многими другими типами приложений.
 
@@ -131,11 +136,13 @@
 
 ## <a name="usage"></a>Дальнейшие действия
 
-[Отслеживание использования приложения][windowsUsage]
 
 [Обнаружение и диагностика сбоев в приложении][windowsCrash]
 
 [Ведение журналов диагностики и поиск по ним][diagnostic]
+
+
+[Отслеживание использования приложения][windowsUsage]
 
 [Использование API для отправки пользовательской телеметрии][api]
 
@@ -148,11 +155,13 @@
 [api]: app-insights-api-custom-events-metrics.md
 [azure]: ../insights-perf-analytics.md
 [diagnostic]: app-insights-diagnostic-search.md
+[metrics]: app-insights-metrics-explorer.md
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
 [windowsCrash]: app-insights-windows-crashes.md
 [windowsUsage]: app-insights-windows-usage.md
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

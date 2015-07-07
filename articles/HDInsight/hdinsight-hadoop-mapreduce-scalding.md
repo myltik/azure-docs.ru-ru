@@ -1,20 +1,19 @@
 <properties
-	 pageTitle="Разработка заданий Scalding MapReduce с помощью Maven"
-	 description="Узнайте, как использовать Maven для создания задания Scalding MapReduce, а затем развернуть и запустить задание на Hadoop в кластере HDInsight."
-	 services="hdinsight"
-	 documentationCenter=""
-	 authors="Blackmist"
-	 manager="paulettm"
-	 editor="cgronlun"/> 
-
+ pageTitle="Разработка заданий Scalding MapReduce с помощью Maven | Microsoft Azure"
+ description="Узнайте, как использовать Maven для создания задания Scalding MapReduce, а затем развернуть и запустить задание на Hadoop в кластере HDInsight."
+ services="hdinsight"
+ documentationCenter=""
+ authors="Blackmist"
+ manager="paulettm"
+ editor="cgronlun"/>
 <tags
-	 ms.service="hdinsight"
-	 ms.devlang="na"
-	 ms.topic="article"
-	 ms.tgt_pltfrm="na"
-	 ms.workload="big-data"
-	 ms.date="04/17/2015"
-	 ms.author="larryfr"/>
+ ms.service="hdinsight"
+ ms.devlang="na"
+ ms.topic="article"
+ ms.tgt_pltfrm="na"
+ ms.workload="big-data"
+ ms.date="04/17/2015"
+ ms.author="larryfr"/>
 
 # Разработка заданий Scalding MapReduce с помощью Apache Hadoop в HDInsight
 
@@ -24,13 +23,12 @@ Scalding — это библиотека Scala, которая позволяе
 
 ## Предварительные требования
 
-* Подписка Azure
+- **Подписка Azure.**. См. [Бесплатная пробная версия Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* **Hadoop на основе Windows или Linux в кластере HDInsight **. Дополнительные сведения см. в разделе [Подготовка Hadoop на основе Linux в HDInsight](hdinsight-hadoop-provision-linux-clusters.md) или [Подготовка Hadoop на основе Windows в HDInsight](hdinsight-provision-clusters.md).
 
-* Hadoop на основе Windows или Linux в кластере HDInsight — дополнительные сведения см. в разделе [Подготовка Hadoop на основе Linux в HDInsight](hdinsight-hadoop-provision-linux-clusters.md) или [Подготовка Hadoop на основе Windows в HDInsight](hdinsight-provision-clusters.md).
+* **[Maven](http://maven.apache.org/)**
 
-* [Maven](http://maven.apache.org/)
-
-* [Пакет JDK для платформы Java](http://www.oracle.com/technetwork/java/javase/downloads/index.html) версии 7 или более поздней
+* **[Пакет JDK для платформы Java](http://www.oracle.com/technetwork/java/javase/downloads/index.html) версии 7 или более поздней**
 
 ## Создание и сборка проекта
 
@@ -77,7 +75,7 @@ Scalding — это библиотека Scala, которая позволяе
             </dependency>
           </dependencies>
           <build>
-            <sourceDirectory>src/main/scala</sourceDirectory
+            <sourceDirectory>src/main/scala</sourceDirectory>
             <plugins>
               <plugin>
                 <groupId>org.scala-tools</groupId>
@@ -109,7 +107,7 @@ Scalding — это библиотека Scala, которая позволяе
                       <excludes>
                         <exclude>META-INF/*.SF</exclude>
                         <exclude>META-INF/*.DSA</exclude>
-                        <exclude>META-INF/*.RSA</exclude>y
+                        <exclude>META-INF/*.RSA</exclude>
                       </excludes>
                     </filter>
                   </filters>
@@ -146,9 +144,9 @@ Scalding — это библиотека Scala, которая позволяе
 
     * **maven-shade-plugin**: подключаемый модуль для создания затененных JAR-файлов (fat). Этот подключаемый модуль применяет фильтры и преобразования; а именно:
 
-        * **Фильтры**: применяемые фильтры изменяют метаданные, которые содержатся в JAR-файле. Чтобы избежать исключений при подписи во время выполнения, здесь не учитываются различные файлы подписи, которые могут включаться вместе с зависимостями.
+        * **Фильтры**: примененные фильтры изменяют метаданные, включенные в состав jar-файла. Чтобы предотвратить исключения подписи во время выполнения, обеспечивает исключение различных файлов подписей, которые могли быть включены с зависимостями.
 
-        * **Выполнения**: конфигурация выполнения фазы пакета указывает класс **com.twitter.scalding.Tool** как основной класс для пакета. Без этого понадобилось бы указать класс com.twitter.scalding.Tool, а также класс, который содержит логику приложения, при запуске задания с помощью команды Hadoop.
+        * **Выполнения**: конфигурация выполнения этапа пакета задает класс **com.twitter.scalding.Tool** как основной класс для пакета. Без этого потребовалось бы указать com.twitter.scalding.Tool, а также класс, содержащий логику приложения, при запуске задания с помощью команды hadoop.
 
 3. Удалите каталог **src/test**, так как вы не будете создавать тесты в этом примере.
 
@@ -290,6 +288,6 @@ Scalding — это библиотека Scala, которая позволяе
 * [Использование Pig с HDInsight](hdinsight-use-pig.md)
 
 * [Использование заданий MapReduce с HDInsight](hdinsight-use-mapreduce.md)
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

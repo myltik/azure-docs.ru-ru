@@ -1,39 +1,35 @@
-<properties 
-	pageTitle="Настройка личного доменного имени в службе приложений Azure (GoDaddy)" 
-	description="Узнайте, как использовать доменное имя из GoDaddy с веб-приложениями Azure" 
-	services="app-service\web" 
-	documentationCenter="" 
-	authors="wadepickett" 
-	manager="wpickett" 
+<properties
+	pageTitle="Настройка личного доменного имени в службе приложений Azure (GoDaddy)"
+	description="Узнайте, как использовать доменное имя из GoDaddy с веб-приложениями Azure"
+	services="app-service\web"
+	documentationCenter=""
+	authors="MikeWasson"
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="app-services-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/24/2015" 
-	ms.author="wpickett"/>
+<tags
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/12/2015"
+	ms.author="mwasson"/>
 
-#Настройка личного доменного имени в службе приложений Azure (GoDaddy)
+# Настройка имени личного домена в службе приложений Azure (покупка у GoDaddy)
 
 [AZURE.INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
 
 
 [AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
-[AZURE.INCLUDE [intro](../../includes/custom-dns-web-site-intro.md)]
+> [AZURE.NOTE]Если вы приобрели домен через веб-приложения службы приложений Azure, см. последний шаг статьи <a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="Web Apps" class="current">Покупка домена для веб-приложений</a>.
 
-В этой статье представлены инструкции по использованию личного доменного имени, приобретенного у [Go Daddy](https://godaddy.com), с [веб-приложениями службы приложений](http://go.microsoft.com/fwlink/?LinkId=529714).
+[AZURE.INCLUDE [общие сведения](../../includes/custom-dns-web-site-intro.md)]
 
-[AZURE.INCLUDE [introfooter](../../includes/custom-dns-web-site-intro-notes.md)]
+В этой статье вы найдете инструкции по использованию имени личного домена, приобретенного у [GoDaddy](https://godaddy.com), с [веб-приложениями службы приложений](http://go.microsoft.com/fwlink/?LinkId=529714).
 
-Содержание:
-
--   [Общие сведения о записях DNS](#understanding-records)
--   [Добавление записи DNS для пользовательского домена](#bkmk_configurecname)
--   [Включение домена на веб-сайте](#enabledomain)
+[AZURE.INCLUDE [нижний колонтитул](../../includes/custom-dns-web-site-intro-notes.md)]
 
 <a name="understanding-records"></a>
 ##Общие сведения о записях DNS
@@ -42,7 +38,7 @@
 
 
 <a name="bkmk_configurecname"></a>
-## Добавление записи DNS для пользовательского домена 
+## Добавление записи DNS для пользовательского домена
 
 Чтобы сопоставить личный домен с веб-приложением в службе приложений, добавьте новую запись в таблицу DNS для этого домена с помощью средств, предоставляемых GoDaddy. Выполните следующие действия, чтобы найти средства DNS для GoDaddy.com.
 
@@ -69,11 +65,11 @@
 	![добавление записи о зоне](./media/web-sites-godaddy-custom-domain-name/godaddy-addzonerecord.png)
 
 	* При добавлении **записи A (узел)** вам необходимо указать в поле **Узел** символ **@** (представляющий имя корневого домена, например **contoso.com**), * (подстановочный знак для сопоставления с несколькими поддоменами) либо поддомен, который вы хотите использовать (например, **www**). Задайте в поле **Указывает на** IP-адрес вашего веб-приложения Azure.
-	
+
 		> [AZURE.NOTE]При добавлении записи A (узла) вам необходимо также добавить запись CNAME со следующей конфигурацией:
-		> 
+		>
 		> * Значение **узла** **awverify**, которое **указывает на** значение **awverify.&lt;yourwebappname&gt;.azurewebsites.net**.
-		> 
+		>
 		> Запись CNAME позволяет Azure проверить, что именно вы являетесь владельцем домена, описанного в записи A.
 
 	* При добавлении записи (псевдонима) CNAME необходимо задать в поле **Узел** тот поддомен, который вы хотите использовать. Например, **www**. Задайте в поле **Указывает на** доменное имя **.azurewebsites.net** вашего веб-приложения Azure. Например, **contoso.azurwebsites.net**.
@@ -82,7 +78,7 @@
 5. По завершении добавления или изменения записей нажмите кнопку **Завершить** для сохранения изменений.
 
 <a name="enabledomain"></a>
-## Включение доменного имени в веб-приложении 
+## Включение доменного имени в веб-приложении
 
 [AZURE.INCLUDE [режимы](../../includes/custom-dns-web-site-enable-on-web-site.md)]
 
@@ -91,5 +87,6 @@
 ## Изменения
 * Указания по изменениям при переходе от веб-сайтов к службе приложений см. в разделе [Служба приложений Azure и ее влияние на существующие службы Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
 * Руководство по смене старого портала на новый портал см. в разделе [Справочник по навигации на предварительной версии портала](http://go.microsoft.com/fwlink/?LinkId=529715).
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

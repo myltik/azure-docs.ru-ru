@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Создание приложения для разговоров на Node.js с использованием Socket.IO в службе приложений Azure" 
-	description="В этом учебнике рассматривается использование Socket.io в веб-приложениях Node.js, размещенных в Azure." 
-	services="app-service\web" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+<properties
+	pageTitle="Создание приложения для разговоров на Node.js с использованием Socket.IO в службе приложений Azure"
+	description="В этом учебнике рассматривается использование Socket.io в веб-приложениях Node.js, размещенных в Azure."
+	services="app-service\web"
+	documentationCenter="nodejs"
+	authors="MikeWasson"
+	manager="wpickett"
 	editor="mollybos"/>
 
-<tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="03/24/2015" 
+<tags
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="03/24/2015"
 	ms.author="mwasson"/>
 
 
@@ -67,13 +67,13 @@ Socket.IO обеспечивает связь в режиме реального
 
 Выполните следующие действия, чтобы создать веб-приложение Azure, включить публикацию Git, а затем включить поддержку WebSocket для этого веб-приложения.
 
-> [AZURE.NOTE]Для работы с этим учебником требуется учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Бесплатная пробная версия Azure</a>.
+> [AZURE.NOTE]Для работы с этим учебником требуется учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Бесплатная пробная версия Azure</a>;
 
-1. Установите межплатформенный интерфейс командной строки Azure (xplat-cli) и подключитесь к своей подписке Azure. См. статью [Установка и настройка межплатформенного интерфейса командной строки Azure](xplat-cli).
+1. Установите интерфейс командной строки Azure (Azure CLI) и подключитесь к своей подписке Azure. См. статью [Установка и настройка интерфейса командной строки Azure](xplat-cli).
 
-2. Если вы настраиваете репозиторий в Azure впервые, потребуется создать для него учетные данные для входа. В xplat-cli введите команду:
+2. Если вы настраиваете репозиторий в Azure впервые, потребуется создать для него учетную запись. В интерфейсе командной строки Azure введите такую команду:
 
-		azure site deployment user set [username] [password] 
+		azure site deployment user set [username] [password]
 
 
 3. Измените каталог на **\\node\\chat** и выполните следующую команду, чтобы создать новое веб-приложение Azure и локальный репозиторий Git. Эта команда также создает удаленный Git с именем azure.
@@ -101,29 +101,29 @@ Socket.IO обеспечивает связь в режиме реального
 
 	При появлении запроса введите имя веб-приложения.
 
-	>[AZURE.NOTE]Команда "azure site set -w" действует только в межплатформенном интерфейсе командной строки Azure версии 0.7.4 или более поздней. Вы также можете включить поддержку WebSocket с помощью [портала Azure](https://portal.azure.com).
+	>[AZURE.NOTE]Команда azure site set -w действует только в интерфейсе командной строки Azure, начиная с версии 0.7.4. Вы также можете включить поддержку WebSocket с помощью [портала Azure](https://portal.azure.com).
 	>
 	>Чтобы включить WebSockets с помощью портала Azure, щелкните веб-приложение в колонке веб-приложений и откройте **Все параметры** > **Параметры приложения**. В разделе **Веб-сокеты** щелкните **Включить**. Нажмите кнопку **Сохранить**.
-	
+
 5. Для просмотра веб-сайта на платформе Azure выполните следующую команду, чтобы запустить веб-браузер и перейти к размещенному веб-приложению:
 
 		azure site browse
 
 Теперь ваше приложение работает на платформе Azure и может передавать сообщения разговора между различными клиентами с использованием Socket.IO.
 
-## Масштабирование
+##Масштабирование
 
 Приложения Socket.IO могут быть масштабированы при использовании __адаптера__ для распределения сообщений и событий между несколькими экземплярами приложения. Хотя доступно несколько адаптеров, адаптер [socket.io-redis](https://github.com/automattic/socket.io-redis) можно легко использовать с функцией кэша Azure Redis Cache.
 
 > [AZURE.NOTE]Дополнительным требованием к масштабированию решений Socket.IO является поддержка прикрепленных сеансов. Прикрепленные сеансы включены для веб-приложений Azure по умолчанию через маршрутизацию запросов Azure. Дополнительные сведения см. в разделе [Территориальные группы экземпляров в веб-сайтах Azure](http://azure.microsoft.com/blog/2013/11/18/disabling-arrs-instance-affinity-in-windows-azure-web-sites/).
 
-### Создание кэша Redis
+###Создание кэша Redis
 
 Выполните шаги, приведенные в разделе [Создание кэша Azure Redis](http://go.microsoft.com/fwlink/p/?linkid=398592&clcid=0x409), чтобы создать новый кэш.
 
 > [AZURE.NOTE]Сохраните значения __Имя узла__ и __Первичный ключ__ кэша, так как они понадобятся позднее.
 
-### Добавление модулей redis и socket.io-redis
+###Добавление модулей redis и socket.io-redis
 
 1. В командной строке перейдите в каталог __\\node\\chat__ и выполните следующую команду:
 
@@ -135,7 +135,7 @@ Socket.IO обеспечивает связь в режиме реального
 
 		var pub = require('redis').createClient(6379,'redishostname', {auth_pass: 'rediskey', return_buffers: true});
 		var sub = require('redis').createClient(6379,'redishostname', {auth_pass: 'rediskey', return_buffers: true});
-		
+
 		var redis = require('socket.io-redis');
 		io.adapter(redis({pubClient: pub, subClient: sub}));
 
@@ -144,12 +144,12 @@ Socket.IO обеспечивает связь в режиме реального
 	Будет создан клиент публикации и подписки для ранее созданного кэша Redis. С помощью клиентов и адаптера будет настроен Socket.IO для использования кэша Redis, что обеспечит передачу сообщений и событий между экземплярами вашего приложения.
 
 	> [AZURE.NOTE]Хотя адаптер __socket.io-redis__ может взаимодействовать непосредственно с Redis, текущая версия не поддерживает проверку подлинности, требуемую кэшем Redis для Azure. Поэтому первоначальное соединение создается с помощью модуля __redis__, а затем клиент передается адаптеру __socket.io-redis__.
-	> 
+	>
 	> Хотя кэш Azure Redis поддерживает безопасные подключения через порт 6380, модули, использованные в данном примере, по состоянию на 14.7.2014 не поддерживают безопасные подключения. В приведенном выше коде используется небезопасный порт по умолчанию — 6380.
 
 3. Сохраните файл __app.js__.
 
-### Подтверждение изменений и повторное развертывание
+###Подтверждение изменений и повторное развертывание
 
 В командной строке в каталоге __\\node\\chat__ выполните следующую команду для подтверждения изменений и повторного развертывания приложения.
 
@@ -161,17 +161,17 @@ Socket.IO обеспечивает связь в режиме реального
 
 	azure site scale instances --instances #
 
-где __#__ — количество экземпляров, которое требуется создать.
+где __\#__ — количество экземпляров, которое требуется создать.
 
 Вы можете подключиться к своему веб-приложению из разных браузеров и с разных компьютеров, чтобы убедиться, что сообщения должным образом отправляются всем клиентам.
 
 ## Устранение неполадок
 
-### Ограничения на подключения
+###Ограничения на подключения
 
 Веб-приложения Azure доступны в нескольких номерах SKU, которые определяются ресурсами, доступными для вашего сайта. Сюда входит количество разрешенных соединений WebSocket. Дополнительные сведения см. на странице [Цены на веб-приложения][pricing].
 
-### Не отправляются сообщения через WebSockets
+###Не отправляются сообщения через WebSockets
 
 Если браузеры клиентов по-прежнему переходят к длинному опросу и не используют WebSockets, возможны следующие причины.
 
@@ -215,10 +215,10 @@ Socket.IO обеспечивает связь в режиме реального
 		<!--
 		     This configuration file is required if iisnode is used to run node processes behind
 		     IIS or IIS Express.  For more information, visit:
-		
+
 		     https://github.com/tjanczuk/iisnode/blob/master/src/samples/configuration/web.config
 		-->
-		
+
 		<configuration>
 		  <system.webServer>
 		    <!-- Visit http://blogs.msdn.com/b/windowsazure/archive/2013/11/14/introduction-to-websockets-on-windows-azure-web-sites.aspx for more information on WebSocket support -->
@@ -233,12 +233,12 @@ Socket.IO обеспечивает связь в режиме реального
 		        <rule name="NodeInspector" patternSyntax="ECMAScript" stopProcessing="true">
 		          <match url="^app.js/debug[/]?" />
 		        </rule>
-		
+
 		        <!-- First we consider whether the incoming URL matches a physical file in the /public folder -->
 		        <rule name="StaticContent">
 		          <action type="Rewrite" url="public{REQUEST_URI}"/>
 		        </rule>
-		
+
 		        <!-- All other URLs are mapped to the node.js web app entry point -->
 		        <rule name="DynamicContent">
 		          <conditions>
@@ -253,7 +253,7 @@ Socket.IO обеспечивает связь в режиме реального
 		        * watchedFiles: semi-colon separated list of files that will be watched for changes to restart the server
 		        * node_env: will be propagated to node as NODE_ENV environment variable
 		        * debuggingEnabled - controls whether the built-in debugger is enabled
-		
+
 		      See https://github.com/tjanczuk/iisnode/blob/master/src/samples/configuration/web.config for a full list of options
 		    -->
 		    <!--<iisnode watchedFiles="web.config;*.js"/>-->
@@ -264,7 +264,7 @@ Socket.IO обеспечивает связь в режиме реального
 
 >[AZURE.NOTE]Чтобы приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
 
-## Дальнейшие действия
+##Дальнейшие действия
 
 В данном учебнике рассмотрено создание приложения для разговоров, размещенного в веб-приложении Azure. Это приложение также можно разместить в качестве облачной службы Azure. Инструкции о том, как это сделать, см. в разделе [Создание приложения разговора Node.js с Socket.IO на основе облачной службы Azure][cloudservice]
 
@@ -281,5 +281,6 @@ Socket.IO обеспечивает связь в режиме реального
 [chat-example-view]: ./media/web-sites-nodejs-chat-app-socketio/socketio-2.png
 [npm-output]: ./media/web-sites-nodejs-chat-app-socketio/socketio-7.png
 [pricing]: /pricing/details/web-sites/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

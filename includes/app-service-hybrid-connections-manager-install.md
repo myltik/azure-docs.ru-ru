@@ -1,26 +1,28 @@
 
-1. In the **Hybrid connections** blade, click the hybrid connection you just created, then click **Listener Setup**.
+1. В колонке **Гибридные подключения** щелкните только что созданное гибридное подключение, а затем нажмите кнопку **Настройка прослушивателя**.
 	
-	![Click Listener Setup](./media/app-service-hybrid-connections-manager-install/D04ClickListenerSetup.png)
+	![Щелкните «Установка прослушивателя»](./media/app-service-hybrid-connections-manager-install/D04ClickListenerSetup.png)
 	
-4. The **Hybrid connection properties** blade opens. Under **On-premises Hybrid Connection Manager**, choose **download and configure manually**, save the downloaded the HybridConnectionManager.msi package, and copy the the gateway connection string.
+4. Откроется выноска **Свойства гибридного подключения**. В разделе **Локальный диспетчер гибридного подключения** выберите **Скачать и настроить вручную**, сохраните скачанный пакет HybridConnectionManager.msi и скопируйте строку подключения шлюза.
 	
-	![Click here to install](./media/app-service-hybrid-connections-manager-install/D05ClickToInstallHCM.png)
+	![Щелкните здесь, чтобы установить](./media/app-service-hybrid-connections-manager-install/D05ClickToInstallHCM.png)
 	
-5. From an administrator command prompt, type the following command to start the installer:
+5. Введите следующую команду в командной строке администратора, чтобы запустить установщик:
 
 		start HybridConnectionManager.msi
  
-7. After the installer runs, click **Not now**, then browse to the %ProgramFiles%\Microsoft\HybridConnectionManager folder, run HCMConfigWizard.exe and click **Yes** in the **User Account Control** dialog.
+7. После выполнения установки щелкните **Подождать**, перейдите в папку %ProgramFiles%\\Microsoft\\HybridConnectionManager, запустите HCMConfigWizard.exe и нажмите кнопку **Да** в диалоговом окне **Контроль учетных записей пользователей**.
 		
-7. Paste the hybrid connection string that you copied earlier and click **OK**. 
+7. Вставьте заранее скопированную гибридную строку подключения и нажмите кнопку **ОК**.
 	
-	![Installing](./media/app-service-hybrid-connections-manager-install/D08aHCMInstallManual.png)
+	![Установка](./media/app-service-hybrid-connections-manager-install/D08aHCMInstallManual.png)
 	
-8. When the install completes, click **Close**.
+8. После завершения установки щелкните кнопку **Закрыть**.
 	
-	![Click Close](./media/app-service-hybrid-connections-manager-install/D09HCMInstallComplete.png)
+	![Щелкните кнопку «Закрыть»](./media/app-service-hybrid-connections-manager-install/D09HCMInstallComplete.png)
 	
-	On the **Hybrid connections** blade, the **Status** column now shows **Connected**. 
+	На выноске **Гибридные подключения** в столбце **Состояние** теперь отображается **Подключено**.
 	
-	![Connected Status](./media/app-service-hybrid-connections-manager-install/D10HCStatusConnected.png)
+	![Состояние «Подключено»](./media/app-service-hybrid-connections-manager-install/D10HCStatusConnected.png)
+
+<!---HONumber=62-->

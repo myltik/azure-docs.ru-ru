@@ -1,231 +1,237 @@
-<properties 
-	pageTitle="Создание и настройка расширенных параметров продукта в службе управления API Azure" 
-	description="Настройка продукта с квотой и оценка политик ограничения." 
-	services="api-management" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="dwrede" 
+<properties
+	pageTitle="Защита API путем ограничения скорости с помощью управления API Azure"
+	description="Информация о том, как защитить API с помощью политик квот и регулирования (ограничения скорости)."
+	services="api-management"
+	documentationCenter=""
+	authors="steved0x"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="api-management" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/11/2015" 
+<tags
+	ms.service="api-management"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article" 
+	ms.date="06/10/2015"
 	ms.author="sdanie"/>
 
-# Как создать и задать расширенные настройки продукта в Azure API Management
+# Защита API путем ограничения скорости с помощью управления API Azure
 
-В Azure API Management (предварительной версии) продукты детально настраиваются для соответствия требованиям издателей API. Этот раздел демонстрирует, как задать некоторые расширенные настройки продукта, включая ограничение скорости и политики квот.
+В этом руководстве показано, как просто защитить серверный API, настроив политики ограничения скорости и политики квот с помощью управления API Azure.
 
-В этом руководстве создается продукт бесплатной пробной версии, который допускает до 10 вызовов в минуту и до 200 вызовов в неделю, выполняется его публикация и тестируется политика ограничения скорости.
+Дополнительную информацию, а также демонстрацию настройки ограничений скорости и квот см. в следующем видео.
 
-## Содержание раздела
+> [AZURE.VIDEO rate-limits-and-quotas]
 
--   [Создание продукта][Создание продукта]
--   [Добавление API к продукту][Добавление API к продукту]
--   [Задание ограничений скорости вызова и политик квот][Задание ограничений скорости вызова и политик квот]
--   [Публикация продукта][Публикация продукта]
--   [Подписка учетной записи разработчика на продукт][Подписка учетной записи разработчика на продукт]
--   [Вызов операции и тестирование ограничения скорости][Вызов операции и тестирование ограничения скорости]
--   [Дальнейшие действия][Дальнейшие действия]
+В этом учебнике будет создан продукт API Free Trial, который позволяет разработчикам вызывать API до 10 раз в минуту и до 200 раз в неделю. Затем выполняется публикация API и тестируется политика ограничения скорости.
 
-## <a name="create-product"> </a>Создание продукта
+>[AZURE.NOTE]Если вы уже настроили продукт и хотите использовать его в этом учебнике, можно сразу перейти к разделу [Настройка политик ограничения скорости вызова и политик квот][] и выполнять указания учебника с этого места, используя вместо продукта **Free Trial** свой продукт.
+
+## <a name="create-product"></a>Создание продукта
 
 На этом шаге создается бесплатный пробный продукт, который не требует утверждения подписки.
 
-Для начала щелкните **Консоль управления** на портале Azure службы API Management. Открывается административный портал API Management.
+Для начала щелкните **Управление** на портале Azure службы управления API. Будет открыт портал издателя службы управления API.
 
-> Если экземпляр службы API Management еще не создан, см. раздел [Создание экземпляра службы API Management][Создание экземпляра службы API Management] в руководстве [Начинаем работу с API Management][Начинаем работу с API Management].
+![Портал издателя][api-management-management-console]
 
-![Консоль API Management][Консоль API Management]
+>Если экземпляр службы API Management еще не создан, см. раздел [Создание экземпляра службы API Management][] в руководстве [Начинаем работу с API Management][].
 
 Щелкните **Продукты** в меню **API Management** слева для вывода страницы **Продукты**.
 
-![Добавление продукта][Добавление продукта]
+![Добавление продукта][api-management-add-product]
 
 Щелкните **Добавить продукт** для вывода всплывающего окна **Добавление нового продукта**.
 
-![Добавление нового продукта][Добавление нового продукта]
+![Добавление нового продукта][api-management-new-product-window]
 
 Введите **Free Trial** в текстовом поле **Имя**.
 
 Введите **Подписчики смогут выполнять до 10 вызовов в минуту и до 200 вызовов в неделю, после чего доступ запрещается** в текстовом поле **Описание**.
 
+Продукты в службе управления API могут быть **открытыми** или **защищенными**. Прежде чем можно будет использовать защищенные продукты, на них необходимо подписаться, а открытые продукты могут использоваться без подписки. Обязательно установите флажок **Требуется подписка**, чтобы создать защищенный продукт, требующий подписки. Это значение по умолчанию.
+
 Для просмотра и утверждения администратором попыток подписки на продукт установите флажок **Требуется утверждение администратором**. Если флажок не установлен, попытки подписки получат автоматическое утверждение. В этом примере подписки утверждаются автоматически, поэтому не устанавливайте этот флажок.
+
+Чтобы разрешить для учетных записей разработчика многоразовую подписку на новый продукт, установите флажок **Разрешить несколько одновременных подписок**. В этом разделе не используются несколько одновременных подписок, поэтому не устанавливайте этот флажок.
 
 После ввода значений щелкните **Сохранить** для создания продукта.
 
-![Продукт создан][Продукт создан]
+![Продукт создан][api-management-product-added]
 
 По умолчанию новые продукты видимы пользователям группы **Администраторы**. Мы добавим группу **Разработчики**. Щелкните **Free Trial** и выберите вкладку **Видимость**.
 
-> В API Management группы используются для управления видимостью продуктов для разработчиков. Продукты предоставляют видимость группам, и разработчики могут просматривать и подписываться на продукты, видимые для групп, к которым они принадлежат. Для получения дополнительной информации см. раздел [Как создать и использовать группы в Azure API Management][Как создать и использовать группы в Azure API Management].
+>В API Management группы используются для управления видимостью продуктов для разработчиков. Продукты предоставляют видимость группам, и разработчики могут просматривать и подписываться на продукты, видимые для групп, к которым они принадлежат. Для получения дополнительной информации см. раздел [Как создать и использовать группы в Azure API Management][].
 
-![Добавление группы разработчиков][Добавление группы разработчиков]
+![Добавление группы разработчиков][api-management-add-developers-group]
 
 Отметьте группу **Разработчики** и щелкните **Сохранить**.
 
-## <a name="add-api"> </a>Добавление API к продукту
+## <a name="add-api"></a>Добавление API к продукту
 
 На этом шаге руководства будет добавлен Echo API для нового продукта Free Trial.
 
-> Каждый экземпляр службы API Management поставляется предварительно настроенным с Echo API, с которым можно экспериментировать при изучении API Management. Дополнительные сведения см. в разделе [Начало работы с Azure API Management][Начинаем работу с API Management].
+>Каждый экземпляр службы API Management поставляется предварительно настроенным с Echo API, с которым можно экспериментировать при изучении API Management. Дополнительные сведения см. в разделе [Начало работы с Azure API Management][].
 
 Щелкните **Продукты** в меню **API Management** слева и щелкните **Free Trial** для настройки продукта.
 
-![Настройка продукта][Настройка продукта]
+![Настройка продукта][api-management-configure-product]
 
 Щелкните **Добавить API к продукту**.
 
-![Добавление API к продукту][1]
+![Добавление API к продукту][api-management-add-api]
 
 Установите флажок около **Echo API** и щелкните **Сохранить**.
 
-![Добавление Echo API][Добавление Echo API]
+![Добавление Echo API][api-management-add-echo-api]
 
-## <a name="policies"> </a>Задание ограничений скорости вызова и политик квот
+## <a name="policies"></a>Настройка ограничений скорости вызова и политик квот
 
 Ограничения скорости и квоты настраиваются в редакторе политик. Щелкните **Продукты** в меню **API Management** слева и выберите **Free Trial** из раскрывающегося списка **Диапазон политик продукта**.
 
-![Политика продукта][Политика продукта]
+![Политика продукта][api-management-product-policy]
 
 Щелкните **Добавить политику** для импорта шаблона политики и начала создания ограничения скорости и политики квот.
 
-![Добавление политики][Добавление политики]
+![Добавление политики][api-management-add-policy]
 
 Для вставки политик наведите курсор на раздел **inbound** или **outbound** в шаблоне политики. Ограничение скорости и политики квот — это входящие политики, поэтому поместите курсор в раздел входящих.
 
-![Редактор политики][Редактор политики]
+![Редактор политики][api-management-policy-editor-inbound]
 
-В этом руководстве добавляются две политики, **Ограничить скорость вызова** и **Задать квоту использования**.
+В этом руководстве добавляются две политики, [Ограничить скорость вызова][] и [Задать квоту использования][].
 
-![Правила политики][Правила политики]
+![Правила политики][api-management-limit-policies]
 
 Поместив курсор в элемент политики **входящие**, щелкните стрелку около **Ограничить скорость вызова** для вставки шаблона политики.
 
-    <rate-limit calls="number" renewal-period="seconds">
-    <api name="name" calls="number">
-    <operation name="name" calls="number" />
-    </api>
-    </rate-limit>
+	<rate-limit calls="number" renewal-period="seconds">
+	<api name="name" calls="number">
+	<operation name="name" calls="number" />
+	</api>
+	</rate-limit>
 
-Политика **Ограничить скорость вызова** может использоваться на уровне продукта и может также быть использована на уровнях API и индивидуального имени операции. В этом руководстве используется только уровень политик продукта, поэтому удалите элементы **api** и **operation** из элемента **rate-limit**, как показано в следующем примере.
+Политика **Ограничить скорость вызова** может использоваться на уровне продукта и может также быть использована на уровнях API и индивидуального имени операции. В этом учебнике используется только политики уровня продукта, поэтому удалите элементы **api** и **operation** из элемента **rate-limit**, чтобы остался только внешний элемент **rate-limit**, как показано в следующем примере.
 
-    <rate-limit calls="number" renewal-period="seconds">
-    </rate-limit>
+	<rate-limit calls="number" renewal-period="seconds">
+	</rate-limit>
 
 В продукте **Free Trial** максимальная разрешенная скорость вызова — 10 вызовов в минуту, поэтому введите **10** в качестве атрибута вызовов и **60** в качестве атрибута **renewal-period**.
 
-    <rate-limit calls="10" renewal-period="60">
-    </rate-limit>
+	<rate-limit calls="10" renewal-period="60">
+	</rate-limit>
 
 Для настройки политики **Задать квоту использования** установите курсор непосредственно внизу только что добавленного элемента **rate-limit** в элементе **inbound** и щелкните стрелку слева от **Задать квоту использования**.
 
-    <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
-    <api name="name" calls="number" bandwidth="kilobytes">
-    <operation name="name" calls="number" bandwidth="kilobytes" />
-    </api>
-    </quota>
+	<quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
+	<api name="name" calls="number" bandwidth="kilobytes">
+	<operation name="name" calls="number" bandwidth="kilobytes" />
+	</api>
+	</quota>
 
 Поскольку эта политика также предназначена для уровня продукта, удалите элементы **api** и **operation**, как показано в следующем примере.
 
-    <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
-    </quota>
+	<quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
+	</quota>
 
 Квоты могут основываться на числе вызовов за интервал или полосе пропускания или обоих факторах. В этом руководстве нет проверки на основе полосы пропускания, поэтому удалите атрибут **bandwidth**.
 
-    <quota calls="number" renewal-period="seconds">
-    </quota>
+	<quota calls="number" renewal-period="seconds">
+	</quota>
 
 Для продукта **Free Trial** квота составит 200 вызовов в неделю. Укажите **200** как значение атрибута вызовов и укажите **604800** как значение для "renewal-period".
 
-    <quota calls="200" bandwidth="kilobytes" renewal-period="604800">
-    </quota>
+	<quota calls="200" renewal-period="604800">
+	</quota>
 
-> Интервалы политики указываются в секундах. Для вычисления интервала в неделю можно умножить число дней (7) на число часов в дне (24), на число минут в часе (60) и на число секунд в минуте (60). 7 * 24 * 60 * 60 = 604800.
+>Интервалы политики указываются в секундах. Для вычисления интервала в неделю можно умножить число дней (7) на число часов в дне (24), на число минут в часе (60) и на число секунд в минуте (60). 7 * 24 * 60 * 60 = 604800.
 
 После окончания настройки политики она должна соответствовать следующему примеру.
 
-    <policies>
-        <inbound>
-            <rate-limit calls="10" renewal-period="60">
-            </rate-limit>
-            <quota calls="200" renewal-period="604800">
-            </quota>
-            <base />
-        
-    </inbound>
-    <outbound>
-        
-        <base />
-        
-        </outbound>
-    </policies>
+	<policies>
+		<inbound>
+			<rate-limit calls="10" renewal-period="60">
+			</rate-limit>
+			<quota calls="200" renewal-period="604800">
+			</quota>
+			<base />
+
+	</inbound>
+	<outbound>
+
+		<base />
+
+		</outbound>
+	</policies>
 
 После настройки желаемой политики щелкните **Сохранить**.
 
-![Сохранение политики][Сохранение политики]
+![Сохранение политики][api-management-policy-save]
 
 ## <a name="publish-product"> </a> Публикация продукта
 
 Теперь API добавлены, политики настроены и готовы к использованию разработчиками. Прежде чем продукт смогут использовать разработчики, его нужно опубликовать. Щелкните **Продукты** в меню **API Management** слева и щелкните **Free Trial** для настройки продукта.
 
-![Настройка продукта][Настройка продукта]
+![Настройка продукта][api-management-configure-product]
 
 Щелкните **Опубликовать** и затем щелкните **Да, опубликовать** для подтверждения.
 
-![Публикация продукта][2]
+![Публикация продукта][api-management-publish-product]
 
-## <a name="subscribe-account"> </a>Подписка учетной записи разработчика на продукт
+## <a name="subscribe-account"></a>Подписка учетной записи разработчика на продукт
 
 Теперь продукт опубликован и доступен для подписки и использования разработчиками.
 
-> Администраторы экземпляра API Management автоматически подписываются на каждый продукт. На этом шаге руководства будет проведена подписка одной из учетных записей, не принадлежащей администратору, на продукт Free Trial. Если учетная запись разработчика является частью роли "Администраторы", также можно выполнить этот шаг, хотя подписка уже и проведена.
+>Администраторы экземпляра API Management автоматически подписываются на каждый продукт. На этом шаге руководства будет проведена подписка одной из учетных записей, не принадлежащей администратору, на продукт Free Trial. Если учетная запись разработчика является частью роли "Администраторы", также можно выполнить этот шаг, хотя подписка уже и проведена.
 
-Щелкните **Разработчики** в меню **API Management** слева и щелкните имя учетной записи администратора. В этом примере используется учетная запись **Clayton Gragg**.
+Щелкните **Пользователи** в меню **Управление API** слева и выберите имя учетной записи разработчика. В этом примере используется учетная запись **Clayton Gragg**.
 
-![Настройка разработчика][Настройка разработчика]
+![Настройка разработчика][api-management-configure-developer]
 
 Нажмите кнопку **Добавить подписку**.
 
-![Добавление подписки][Добавление подписки]
+![Добавление подписки][api-management-add-subscription-menu]
 
 Установите флажок около **Free Trial** и щелкните **Подписать**.
 
-![Добавление подписки][3]
+![Добавление подписки][api-management-add-subscription]
 
-## <a name="test-rate-limit"> </a>Вызов операции и тестирование ограничения скорости
+>[AZURE.NOTE]В этом учебнике для продукта **Free Trial** не включаются несколько одновременных подписок. Если бы они включались, вам было бы предложено назвать подписку, как показано в следующем примере.
+
+![Добавление подписки][api-management-add-subscription-multiple]
+
+После нажатия кнопки **Подписаться** продукт появляется в списке **Подписки** для пользователя.
+
+![Подписка добавлена][api-management-subscription-added]
+
+## <a name="test-rate-limit"></a>Вызов операции и тестирование ограничения скорости
 
 Теперь, когда продукт Free Trial настроен и опубликован, можно вызвать некоторые операции и протестировать политику ограничения скорости. Перейдите на портал разработчика, щелкнув **Портал разработчика** в меню вверху справа.
 
-![Портал разработчика][Портал разработчика]
+![Портал разработчика][api-management-developer-portal-menu]
 
 Щелкните **API** в меню вверху и выберите **Echo API**.
 
-![Портал разработчика][4]
-
-> Если есть только один настроенный или видимый API для данной учетной записи, тогда щелчок по API сразу приведет к операциям для этого API.
+![Портал разработчика][api-management-developer-portal-api-menu]
 
 Выберите операцию **GET Resource** и щелкните **Открыть консоль**.
 
-![Открытие консоли][Открытие консоли]
+![Открытие консоли][api-management-open-console]
 
 Сохраните значения по умолчанию и выберите ключ подписки для продукта **Free Trial**.
 
-![Ключ подписки][Ключ подписки]
+![Ключ подписки][api-management-select-key]
 
-> Если у вас несколько подписок, убедитесь, что выбран ключ для **Free Trial**, иначе политики, настроенные на предыдущем шаге, не смогут вступить в силу.
+>[AZURE.NOTE]Если у вас несколько подписок, убедитесь, что выбран ключ для **Free Trial**, иначе политики, настроенные на предыдущем шаге, не смогут вступить в силу.
 
 Щелкните **HTTP Get** и просмотрите ответ. Обратите внимание, что **Состояние ответа** — **200 OK**.
 
-![Результаты операции][Результаты операции]
+![Результаты операции][api-management-http-get-results]
 
 Щелкайте **HTTP Get** на скорости, превышающей ограничение скорости политики в 10 вызовов в минуту. Как только ограничение скорости политики будет превышено, возвращается ответ **429 — Слишком много запросов**.
 
-![Результаты операции][5]
+![Результаты операции][api-management-http-get-429]
 
 **Заголовки ответа** и **Содержимое ответа** указывают оставшийся интервал, после которого повторы будут успешными.
 
@@ -233,42 +239,59 @@
 
 ## <a name="next-steps"> </a>Дальнейшие действия
 
--   Просмотрите другие разделы в руководстве [Приступая к работе с расширенными параметрами API][Приступая к работе с расширенными параметрами API].
+-	Просмотрите другие разделы в руководстве [Приступая к работе с расширенными параметрами API][].
 
-  [Создание продукта]: #create-product
-  [Добавление API к продукту]: #add-api
-  [Задание ограничений скорости вызова и политик квот]: #policies
-  [Публикация продукта]: #publish-product
-  [Подписка учетной записи разработчика на продукт]: #subscribe-account
-  [Вызов операции и тестирование ограничения скорости]: #test-rate-limit
-  [Дальнейшие действия]: #next-steps
-  [Создание экземпляра службы API Management]: ../api-management-get-started/#create-service-instance
-  [Начинаем работу с API Management]: ../api-management-get-started
-  [Консоль API Management]: ./media/api-management-howto-product-with-rules/api-management-management-console.png
-  [Добавление продукта]: ./media/api-management-howto-product-with-rules/api-management-add-product.png
-  [Добавление нового продукта]: ./media/api-management-howto-product-with-rules/api-management-new-product-window.png
-  [Продукт создан]: ./media/api-management-howto-product-with-rules/api-management-product-added.png
-  [Как создать и использовать группы в Azure API Management]: ../api-management-howto-create-groups
-  [Добавление группы разработчиков]: ./media/api-management-howto-product-with-rules/api-management-add-developers-group.png
-  [Настройка продукта]: ./media/api-management-howto-product-with-rules/api-management-configure-product.png
-  [1]: ./media/api-management-howto-product-with-rules/api-management-add-api.png
-  [Добавление Echo API]: ./media/api-management-howto-product-with-rules/api-management-add-echo-api.png
-  [Политика продукта]: ./media/api-management-howto-product-with-rules/api-management-product-policy.png
-  [Добавление политики]: ./media/api-management-howto-product-with-rules/api-management-add-policy.png
-  [Редактор политики]: ./media/api-management-howto-product-with-rules/api-management-policy-editor-inbound.png
-  [Правила политики]: ./media/api-management-howto-product-with-rules/api-management-limit-policies.png
-  [Сохранение политики]: ./media/api-management-howto-product-with-rules/api-management-policy-save.png
-  [2]: ./media/api-management-howto-product-with-rules/api-management-publish-product.png
-  [Настройка разработчика]: ./media/api-management-howto-product-with-rules/api-management-configure-developer.png
-  [Добавление подписки]: ./media/api-management-howto-product-with-rules/api-management-add-subscription-menu.png
-  [3]: ./media/api-management-howto-product-with-rules/api-management-add-subscription.png
-  [Портал разработчика]: ./media/api-management-howto-product-with-rules/api-management-developer-portal-menu.png
-  [4]: ./media/api-management-howto-product-with-rules/api-management-developer-portal-api-menu.png
-  [Открытие консоли]: ./media/api-management-howto-product-with-rules/api-management-open-console.png
-  [Ключ подписки]: ./media/api-management-howto-product-with-rules/api-management-select-key.png
-  [Результаты операции]: ./media/api-management-howto-product-with-rules/api-management-http-get-results.png
-  [5]: ./media/api-management-howto-product-with-rules/api-management-http-get-429.png
-  [Приступая к работе с расширенными параметрами API]: ../api-management-get-started-advanced
 
-<!--HONumber=46--> 
+[api-management-management-console]: ./media/api-management-howto-product-with-rules/api-management-management-console.png
+[api-management-add-product]: ./media/api-management-howto-product-with-rules/api-management-add-product.png
+[api-management-new-product-window]: ./media/api-management-howto-product-with-rules/api-management-new-product-window.png
+[api-management-product-added]: ./media/api-management-howto-product-with-rules/api-management-product-added.png
+[api-management-add-policy]: ./media/api-management-howto-product-with-rules/api-management-add-policy.png
+[api-management-policy-editor-inbound]: ./media/api-management-howto-product-with-rules/api-management-policy-editor-inbound.png
+[api-management-limit-policies]: ./media/api-management-howto-product-with-rules/api-management-limit-policies.png
+[api-management-policy-save]: ./media/api-management-howto-product-with-rules/api-management-policy-save.png
+[api-management-configure-product]: ./media/api-management-howto-product-with-rules/api-management-configure-product.png
+[api-management-add-api]: ./media/api-management-howto-product-with-rules/api-management-add-api.png
+[api-management-add-echo-api]: ./media/api-management-howto-product-with-rules/api-management-add-echo-api.png
+[api-management-developer-portal-menu]: ./media/api-management-howto-product-with-rules/api-management-developer-portal-menu.png
+[api-management-publish-product]: ./media/api-management-howto-product-with-rules/api-management-publish-product.png
+[api-management-configure-developer]: ./media/api-management-howto-product-with-rules/api-management-configure-developer.png
+[api-management-add-subscription-menu]: ./media/api-management-howto-product-with-rules/api-management-add-subscription-menu.png
+[api-management-add-subscription]: ./media/api-management-howto-product-with-rules/api-management-add-subscription.png
+[api-management-developer-portal-api-menu]: ./media/api-management-howto-product-with-rules/api-management-developer-portal-api-menu.png
+[api-management-open-console]: ./media/api-management-howto-product-with-rules/api-management-open-console.png
+[api-management-http-get]: ./media/api-management-howto-product-with-rules/api-management-http-get.png
+[api-management-http-get-results]: ./media/api-management-howto-product-with-rules/api-management-http-get-results.png
+[api-management-http-get-429]: ./media/api-management-howto-product-with-rules/api-management-http-get-429.png
+[api-management-product-policy]: ./media/api-management-howto-product-with-rules/api-management-product-policy.png
+[api-management-add-developers-group]: ./media/api-management-howto-product-with-rules/api-management-add-developers-group.png
+[api-management-select-key]: ./media/api-management-howto-product-with-rules/api-management-select-key.png
+[api-management-subscription-added]: ./media/api-management-howto-product-with-rules/api-management-subscription-added.png
+[api-management-add-subscription-multiple]: ./media/api-management-howto-product-with-rules/api-management-add-subscription-multiple.png
+
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to add and publish a product]: api-management-howto-add-products.md
+[Monitoring and analytics]: ../api-management-monitoring.md
+[Add APIs to a product]: api-management-howto-add-products.md#add-apis
+[Publish a product]: api-management-howto-add-products.md#publish-product
+[Get started with Azure API Management]: api-management-get-started.md
+[Как создать и использовать группы в Azure API Management]: api-management-howto-create-groups.md
+[View subscribers to a product]: api-management-howto-add-products.md#view-subscribers
+[Начало работы с Azure API Management]: api-management-get-started.md
+[Начинаем работу с API Management]: api-management-get-started.md
+[Создание экземпляра службы API Management]: api-management-get-started.md#create-service-instance
+[Next steps]: #next-steps
+
+[Create a product]: #create-product
+[Настройка политик ограничения скорости вызова и политик квот]: #policies
+[Add an API to the product]: #add-api
+[Publish the product]: #publish-product
+[Subscribe a developer account to the product]: #subscribe-account
+[Call an operation and test the rate limit]: #test-rate-limit
+[Приступая к работе с расширенными параметрами API]: api-management-get-started-advanced.md
+
+[Ограничить скорость вызова]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
+[Задать квоту использования]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
  
+
+<!---HONumber=62-->

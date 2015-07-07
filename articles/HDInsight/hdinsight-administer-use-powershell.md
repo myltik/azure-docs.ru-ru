@@ -25,9 +25,9 @@ Azure PowerShell — это полнофункциональная среда с
 
 Перед началом работы с этой статьей необходимо иметь следующее:
 
-- Подписка Azure. Azure — это платформа на основе подписок. Командлеты Azure PowerShell для HDInsight предназначены для выполнения задач с использованием вашей подписки. Дополнительные сведения о получении подписки см. в разделах [Варианты приобретения][azure-purchase-options], [Предложения для участников][azure-member-offers] или [Бесплатное пробное использование][azure-free-trial].
+- **Подписка Azure.**. См. [Бесплатная пробная версия Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- Рабочая станция с Azure PowerShell. Инструкции см. в разделе [Установка и настройка Azure PowerShell][powershell-install-configure].
+- **Рабочая станция с Azure PowerShell**. См. [Установка и использование Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
 
 ##Подготовка кластеров HDInsight к работе
@@ -270,12 +270,13 @@ Azure PowerShell не может создать контейнер больши�
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-flight]: hdinsight-analyze-flight-delay-data.md
 
-[hdinsight-powershell-reference]: http://msdn.microsoft.com/library/windowsazure/dn479228.aspx
+[hdinsight-powershell-reference]: https://msdn.microsoft.com/library/dn858087.aspx
 
 [powershell-install-configure]: ../install-configure-powershell.md
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

@@ -1,10 +1,10 @@
-<properties 
-	pageTitle="Создание и развертывание приложения API Node.js в службе приложений Azure" 
-	description="Сведения о создании пакета приложения API Node.js и его развертывание в службе приложений Azure." 
-	services="app-service\api" 
-	documentationCenter="nodejs" 
+<properties
+	pageTitle="Создание и развертывание приложения API Node.js в службе приложений Azure"
+	description="Узнайте, как создать пакет приложения API Node.js и развернуть его в службе приложений Azure."
+	services="app-service\api"
+	documentationCenter="nodejs"
 	authors="pkefal"
-	manager="",
+	manager=""
 	editor=""/>
 
 <tags
@@ -23,6 +23,8 @@
 Снимок экрана завершенного приложения:
 
 ![][sample-api-app-page]
+
+> [AZURE.NOTE]Вы также можете использовать код Visual Studio, чтобы выполнить сборку приложения API Node.js и развернуть его в службе приложений Azure. Дополнительную информацию о коде Visual Studio и Node.js см. в разделе о [коде Visual Studio](http://code.visualstudio.com/Docs/) и [Разработка приложений узла](http://code.visualstudio.com//Docs/nodejs).
 
 ## Создание приложения API на портале предварительной версии Azure
 
@@ -189,7 +191,7 @@
 
 		remote: Deployment successful.
 		To https://user@testsite.scm.azurewebsites.net/testsite.git
-		* [новая ветвь]    master -> master
+	 	* [new branch]      master -> master
 
 ## Просмотр определения API на портале предварительной версии Azure
 
@@ -219,8 +221,6 @@
 
 Браузер отобразит домашнюю страницу, которую вы видели ранее при запуске примера приложения локально.
 
-## Метаданные приложения API
-
 [AZURE.INCLUDE [app-service-api-direct-deploy-metadata](../../includes/app-service-api-direct-deploy-metadata.md)]
 
 ## Дальнейшие действия
@@ -243,6 +243,6 @@
 [server-js]: ./media/app-service-api-nodejs-api-app/server-js.png
 [sample-api-app-page]: ./media/app-service-api-nodejs-api-app/sample-api-app-page.png
 [browse-api-app-page]: ./media/app-service-api-nodejs-api-app/browse-api-app-page.png
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

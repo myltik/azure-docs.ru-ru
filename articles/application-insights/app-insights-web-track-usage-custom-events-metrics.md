@@ -1,9 +1,10 @@
 <properties 
-	pageTitle="Использование трассировки и событий в веб-приложении с помощью API Application Insights " 
-	description="Вставьте несколько строк кода для отслеживания использования и диагностики проблем." 
-	services="application-insights" 
+	pageTitle="API Application Insights для пользовательских событий и метрик" 
+	description="Вставьте несколько строк кода в устройство или классическое приложение, на веб-страницу или в службу, чтобы отслеживать использование приложения и диагностировать проблемы." 
+	services="application-insights"
+    documentationCenter="" 
 	authors="alancameronwills" 
-	manager="kamrani"/>
+	manager="ronmart"/>
  
 <tags 
 	ms.service="application-insights" 
@@ -11,210 +12,324 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/06/2015" 
+	ms.date="06/01/2015" 
 	ms.author="awills"/>
 
-# Отслеживание использования пользовательских событий и метрик в веб-приложении
+# API Application Insights для пользовательских событий и метрик 
 
-*Служба Application Insights доступна в предварительной версии.*
+*Доступна только предварительная версия Application Insights.*
 
-Вставьте несколько строк кода в свое веб-приложение и узнайте, как пользователи его используют. Вы можете отслеживать события, метрики, а также просмотры страниц. Вы сможете просматривать диаграммы и таблицы данных, составленные по всем пользователям. 
+Вставьте несколько строк кода в свое приложение, чтобы узнать, как пользователи его используют, или чтобы диагностировать неполадки. Вы можете отправлять телеметрию из устройств и классических приложений, веб-клиентов и веб-серверов.
 
-> [AZURE.NOTE] В настоящее время полные данные о взаимодействии с пользователем не доступны. Вы можете отправлять настраиваемые события и метрики в Application Insights, а также осуществлять поиск необработанных данных телеметрии в разделе[Поиск данных диагностики][diagnostic]. Сейчас просмотр диаграмм с обработанной статистикой не доступен - эта функция будет добавлена в ближайшее время.
+Сборщики данных Application Insights используют этот API для отправки стандартной телеметрии, такой как отчеты о количестве просмотров страницы и отчеты об исключениях, но его также можно использовать для отправки пользовательской телеметрии.
 
-<!-- Sample pic -->
+## Сводные данные API
 
-* [Отслеживание клиента и сервера](#clientServer)
-* [Перед началом работы](#prep)
-* [Отслеживание метрик](#metrics)
-* [Отслеживание событий](#events)
-* [Отслеживание просмотров страниц](#pageViews)
-* [Фильтрация, поиск и сегментация данных с помощью свойств](#properties)
-* [Объединение метрик и событий](#measurements)
-* [Задание значений свойств по умолчанию](#defaults)
-* [Определение нескольких контекстов](#contexts)
-* [Отключение и включение телеметрии](#disable)
-* [Дальнейшие действия](#next)
+Этот API используется на всех платформах, кроме некоторых небольших исключений.
 
+Метод | Область использования
+---|---
+[`TrackPageView`](#page-views) | Страницы, экраны, колонки или формы
+[`TrackEvent`](#track-event) | Действия пользователя и другие события. Используется для отслеживания поведения пользователя или мониторинга производительности.
+[`TrackMetric`](#track-metric) | Измерения производительности, не связанные с конкретными событиями, например измерение длины очереди
+[`TrackException`](#track-exception)|Регистрация исключений для диагностики. Отслеживайте исключения, связанные с другими событиями, и изучайте трассировку стека.
+[`TrackRequest`](#track-request)| Регистрация частоты и длительности запросов к серверу для анализа производительности.
+[`TrackTrace`](#track-trace)|Сообщения журналов диагностики. Можно также использовать журналы сторонних приложений.
 
-
-## <a name="clientServer"></a> Отслеживание клиента и сервера
-
-Вы можете отправлять телеметрию как со стороны клиента (веб-страница), так и со стороны сервера своего приложения, а также с обеих сторон.
-
-Клиентские и серверные API очень похожи. Вы можете отправлять данные телеметрии одного и того же типа как с веб-браузеров своих пользователей, так и со своего веб-сервера. Различие состоит в объеме данных, которые можно отправить.
-
-* Отслеживание в веб-клиенте особенно полезно при наличии очень активных веб-страниц с большим количеством скриптов Java. Например, вы можете отслеживать, с какой частотой пользователи нажимают на определенную кнопку и часто ли возникают ошибки проверки подлинности.
-* Отслеживание на веб-сервере более полезно для мониторинга бизнес-метрик и событий, таких как стоимость товаров в корзине покупателя или количество отмененных заказов.
-
-В обычном веб-приложении ASP.NET на главной веб-странице есть стандартный вызов trackPageView() через JavaScript. Вам остается добавить в программный код серверной части приложения несколько вызовов для отслеживания событий и метрик. Если объем программного кода на стороне клиента очень большой, вы также можете добавить несколько вызовов для отслеживания событий и метрик в клиенте.
+Вы можете [прикрепить свойства и метрики](#properties) к большинству этих вызовов телеметрии.
 
 
 ## <a name="prep"></a>Перед началом работы
 
 Если вы еще не сделали этого, понадобится следующее.
 
-* Чтобы получить данные телеметрии из веб-приложения ASP.NET:
-    [Добавление Application Insights в ваш проект][greenbrown]
-    В программный код серверной части необходимо добавить:
-    (C#) `using Microsoft.ApplicationInsights;`
-	(VB) `Imports Microsoft.ApplicationInsights`
-* [Настройка аналитики использования веб-сайта][usage]. Код инициализации JavaScript, который необходимо добавить в каждую веб-страницу, где вы планируете написать код мониторинга, или в главную веб-страницу. 
-    Если он работает, вы увидите данные в модуле "Обзор" в разделе "Аналитика использования".
+* Добавьте пакет SDK Application Insights в свой проект:
+ * [проект ASP.NET][greenbrown];
+ * [проект Windows][windows];
+ * [проект Java][java]; 
+ * [JavaScript на каждой веб-странице][client].   
 
-После запуска приложения на компьютере разработчика в режиме отладки результаты появятся в Application Insights через несколько секунд. При развертывании приложения передача данных от вашего сервера и клиентов через конвейер займет больше времени.
+* В программный код устройства или веб-сервера необходимо добавить:
 
-<!--
-## <a name="metrics"></a> Отслеживание метрик
+    *C\#:* `using Microsoft.ApplicationInsights;`
 
-Для получения основных данных об использовании, таких как данные о просмотре веб-страниц, больше ничего не требуется. Но вы можете написать несколько строк кода, чтобы получить больше информации о том, что ваши пользователи делают с приложением.
+    *VB:* `Imports Microsoft.ApplicationInsights`
 
-Например, если приложение является игрой, вам может потребоваться среднее значение очков, набранных пользователями в игре, чтобы после выпуска новой версии определить, стала ли ваша игра проще или сложнее.
+    *Java:* `import com.microsoft.applicationinsights.TelemetryClient;`
 
-Для отслеживания числовой метрики, например набранных очков, следует добавить в соответствующем месте кода вашего приложения примерно такую строку кода:
+## Создание класса TelemetryClient
 
-JavaScript на стороне клиента
+Создайте экземпляр TelemetryClient (за исключением JavaScript на веб-страницах):
 
-    appInsights.trackMetric("Alerts", notifications.Count);
+*C\#:*
 
-C# на стороне сервера
+    private TelemetryClient telemetry = new TelemetryClient();
 
-    var telemetry = new TelemetryClient();
-    telemetry.TrackMetric ("Users online", currentUsers.Count);
+*VB:*
 
-VB на стороне сервера
+    Private Dim telemetry As New TelemetryClient
 
-    Dim telemetry = New TelemetryClient
-    telemetry.TrackMetric ("Users online", currentUsers.Count)
+*Java*
 
-Протестируйте приложение и используйте его для выполнения вызова trackMetric().
+    private TelemetryClient telemetry = new TelemetryClient();
 
+Советуем использовать один экземпляр `TelemetryClient` для каждого запроса в веб-приложении или для каждого сеанса в других приложениях. Можно задать свойства, такие как `TelemetryClient.Context.User.Id`, для отслеживания пользователей и сеансов. Эти данные прикрепляются ко всем событиям, отправляемым экземпляром.
 
-Затем перейдите в приложение в Application Insights и щелкните плитку [Метрики][metrics]. Выберите свою метрику, чтобы просмотреть первые результаты.
+Класс TelemetryClient является потокобезопасным.
 
 
-На диаграмме отображаются текущие средние значения, зарегистрированные по всем вашим пользователям. 
 
+## Отслеживание событий
 
-(Учите: метрики не оптимизированы для диагностирования проблем. Если вам нужна диагностика, см. раздел [Ведение журналов диагностики][diagnostic].) -->
+События могут отображаться в [обозревателе метрик][metrics] в качестве объединенной статистики. Можно также отображать отдельные вхождения на вкладке [Поиск по журналу диагностики][diagnostic].
 
+Внедряйте события в код, чтобы вычислить, как часто в них используется определенная функция, как часто они достигают определенной цели или приводят к определенному выбору.
 
-## <a name="events"></a>Отслеживание событий
+Например, отправляйте событие в игровом приложении при каждом выигрыше пользователя:
 
-Для событий можно узнать частоту их возникновения, усредненную по пользователям. Предположим, вы хотите узнать, как часто пользователи полностью проходят вашу игру. Для этого в коде, который завершает игру, вставьте следующую строку:
+*JavaScript*
 
-JavaScript на стороне клиента
+    appInsights.trackEvent("WinGame");
 
-    appInsights.trackEvent("EndOfGame");
-
-C# на стороне сервера
+*C\#*
     
-    var telemetry = new TelemetryClient();
-    telemetry.TrackEvent("EndOfGame");
+    telemetry.TrackEvent("WinGame");
 
-VB на стороне сервера
-
-
-    Dim telemetry = New TelemetryClient
-    telemetry.TrackEvent("EndOfGame")
-
-Если вы отправляете данные телеметрии и с клиента, и с сервера, обязательно присваивайте событиям разные имена.
+*VB*
 
 
-## <a name="pageViews"></a>Просмотры страницы (только для клиента)
+    telemetry.TrackEvent("WinGame")
 
-По умолчанию сценарий инициализации в заголовке веб-страницы регистрирует просмотры страницы и присваивает событиям имена в виде URL-адреса соответствующей страницы. Эти вызовы предоставляют основную статистику использования страницы. 
+*Java*
 
-![Usage analytics on main app blade](./media/app-insights-web-track-usage-custom-events-metrics/appinsights-05-usageTiles.png)
+    telemetry.trackEvent("WinGame");
 
-### Настраиваемые данные страницы
 
-Если это требуется, можно изменить имена, присваиваемые событиям при вызове, или добавить дополнительные вызовы. Например, если на единственной странице вашего веб-приложения отображается несколько вкладок, вам может потребоваться регистрация просмотра страницы при переходе пользователя на другую вкладку. Например: 
+Щелкните плитку «Пользовательские события» в колонке «Обзор»:
 
-JavaScript на стороне клиента:
+![Перейдите к своему ресурсу приложения на сайте portal.azure.com](./media/app-insights-web-track-usage-custom-events-metrics/01-custom.png)
 
-    appInsights.trackPageView("tab1");
+Щелкните плитку, чтобы просмотреть общую диаграмму и полный список.
 
-Если у вас есть несколько вкладок на различных HTML-страницах, можно также указать URL-адрес:
+Выделите диаграмму и сегментируйте ее по именам событий, чтобы увидеть относительный вклад наиболее значимых событий.
 
-    appInsights.trackPageView("tab1", "http://fabrikam.com/page1.htm");
+![Выделите диаграмму и установите группирование](./media/app-insights-web-track-usage-custom-events-metrics/02-segment.png)
 
+Выберите имя события в списке под диаграммой. Щелкните его, чтобы увидеть отдельные вхождения события.
+
+![Подробно просмотрите события](./media/app-insights-web-track-usage-custom-events-metrics/03-instances.png)
+
+Щелкните любое из них, чтобы просмотреть подробные данные.
 
 ## <a name="properties"></a>Фильтрация, поиск и сегментация данных с помощью свойств
 
-Вы можете прикрепить свойства и результаты измерений к своим событиям, просмотрам страниц и другим данным телеметрии. 
+Вы можете прикрепить свойства и результаты измерений к своим событиям, а также метрикам, просмотрам страниц и другим данным телеметрии.
 
-**Свойства** - это строковые значения, которые можно использовать для фильтрации телеметрии в отчетах об использовании. Например, если приложение содержит несколько игр, имеет смысл к каждому событию присоединять имя игры, чтобы видеть, какие игры наиболее популярны.
+**Свойства** — это строковые значения, которые можно использовать для фильтрации телеметрии в отчетах об использовании. Например, если приложение содержит несколько игр, имеет смысл к каждому событию присоединять имя игры, чтобы видеть, какие игры наиболее популярны.
 
-**Измерения** - это числовые значения, из которых можно извлечь статистику для отчетов об использовании.
+В каждой строке может отображаться до 1000 событий. (Если вы хотите отправлять большие блоки данных, используйте параметр сообщения [TrackTrace](#track-trace).)
+
+**Метрики** являются числовыми значениями, которые могут быть представлены в графическом виде. Например, вам может потребоваться увидеть, постепенно ли увеличиваются зарабатываемые игроками очки. Графы можно сегментировать по свойствам, отправленным с событием, чтобы получать отдельные графы или набор графов для разных игр.
+
+Чтобы значения метрик верно отображались, они должны быть >= 0.
 
 
-JavaScript на стороне клиента
+Количество используемых [свойств, значений свойств и метрик ограничено](#limits).
 
-    appInsights.trackEvent("EndOfGame",
+
+*JavaScript*
+
+    appInsights.trackEvent // or trackPageView, trackMetric, ...
+      ("WinGame",
          // String properties:
          {Game: currentGame.name, Difficulty: currentGame.difficulty},
-         // Numeric measurements:
+         // Numeric metrics:
          {Score: currentGame.score, Opponents: currentGame.opponentCount}
          );
 
-C# на стороне сервера
+*C\#*
 
-    // Set up some properties:
+    // Set up some properties and metrics:
     var properties = new Dictionary <string, string> 
        {{"game", currentGame.Name}, {"difficulty", currentGame.Difficulty}};
-    var measurements = new Dictionary <string, double>
+    var metrics = new Dictionary <string, double>
        {{"Score", currentGame.Score}, {"Opponents", currentGame.OpponentCount}};
 
     // Send the event:
-    telemetry.TrackEvent("endOfGame", properties, measurements);
+    telemetry.TrackEvent("WinGame", properties, metrics);
 
 
-VB на стороне сервера
+*VB*
 
     ' Set up some properties:
     Dim properties = New Dictionary (Of String, String)
     properties.Add("game", currentGame.Name)
     properties.Add("difficulty", currentGame.Difficulty)
 
-    Dim measurements = New Dictionary (Of String, Double)
-    measurements.Add("Score", currentGame.Score)
-    measurements.Add("Opponents", currentGame.OpponentCount)
+    Dim metrics = New Dictionary (Of String, Double)
+    metrics.Add("Score", currentGame.Score)
+    metrics.Add("Opponents", currentGame.OpponentCount)
 
     ' Send the event:
-    telemetry.TrackEvent("endOfGame", properties, measurements)
+    telemetry.TrackEvent("WinGame", properties, metrics)
 
 
-Таким же образом прикрепите свойства к просмотрам страниц:
-
-JavaScript на стороне клиента
-
-    appInsights.trackPageView("Win", 
-     {Game: currentGame.Name}, 
-     {Score: currentGame.Score});
-
- 
-
-<!--
-To see the filters, expand the parent event group, and select a particular event in the table - in this example, we expanded 'open' and selected 'buy':
-
-////// pic //////
--->
-
-> [WACOM.NOTE] Постарайтесь не указывать в свойствах личные сведения.
+*Java*
+    
+    Map<String, String> properties = new HashMap<String, String>();
+    properties.put("game", currentGame.getName());
+    properties.put("difficulty", currentGame.getDifficulty());
+    
+    Map<String, Double> metrics = new HashMap<String, Double>();
+    metrics.put("Score", currentGame.getScore());
+    metrics.put("Opponents", currentGame.getOpponentCount());
+    
+    telemetry.trackEvent("WinGame", properties, metrics2/7/2015 12:05:25 AM );
 
 
-## События и просмотры страниц с меткой времени
+> [AZURE.NOTE]Постарайтесь не указывать в свойствах личные сведения.
 
-К просмотрам страниц и событиям можно прикрепить данные о времени. Используйте эти вызовы вместо вызова trackEvent или trackPageView:
+**При использовании метрик** откройте обозреватель метрик и выберите метрику из группы «Пользовательские»:
 
-JavaScript на стороне клиента
+![Откройте обозреватель метрик, выделите диаграмму и выберите метрику](./media/app-insights-web-track-usage-custom-events-metrics/03-track-custom.png)
 
-    // At the start of the game:
-    appInsights.startTrackEvent(game.id);
+*Если метрика не отображается, закройте колонку выбора, подождите некоторое время и щелкните «Обновить»*.
 
-    // At the end of the game:
-    appInsights.stopTrackEvent(game.id, {GameName: game.name}, {Score: game.score});
+**При использовании свойств и метрик** сегментируйте метрики по свойствам:
+
+
+![Задайте группирование, а затем выберите свойство в списке «Группировать по»](./media/app-insights-web-track-usage-custom-events-metrics/04-segment-metric-event.png)
+
+
+
+**В колонке поиска по журналу диагностики** можно просматривать свойства и метрики, щелкая отдельные вхождения события.
+
+
+![Выберите экземпляр, а затем выберите «...»](./media/app-insights-web-track-usage-custom-events-metrics/appinsights-23-customevents-4.png)
+
+
+Используйте поле поиска для просмотра вхождений события с определенным значением свойства.
+
+
+![Введите слово в поле поиска](./media/app-insights-web-track-usage-custom-events-metrics/appinsights-23-customevents-5.png)
+
+[Дополнительная информация о выражениях поиска][diagnostic].
+
+#### Альтернативный способ настройки свойств и метрик
+
+Для удобства вы можете собирать параметры события в отдельный объект:
+
+    var event = new EventTelemetry();
+
+    event.Name = "WinGame";
+    event.Metrics["processingTime"] = stopwatch.Elapsed.TotalMilliseconds;
+    event.Properties["game"] = currentGame.Name;
+    event.Properties["difficulty"] = currentGame.Difficulty;
+    event.Metrics["Score"] = currentGame.Score;
+    event.Metrics["Opponents"] = currentGame.Opponents.Length;
+
+    telemetry.TrackEvent(event);
+
+
+#### <a name="timed"></a> События времени
+
+Иногда требуется отобразить на диаграмме продолжительность выполнения некоторых действий. Например, может понадобиться определить, сколько времени требуется пользователю для выбора решения в игре. Это полезный пример использования параметра измерения.
+
+
+*C\#*
+
+    var stopwatch = System.Diagnostics.Stopwatch.StartNew();
+
+    // ... perform the timed action ...
+
+    stopwatch.Stop();
+
+    var metrics = new Dictionary <string, double>
+       {{"processingTime", stopwatch.Elapsed.TotalMilliseconds}};
+
+    // Set up some properties:
+    var properties = new Dictionary <string, string> 
+       {{"signalSource", currentSignalSource.Name}};
+
+    // Send the event:
+    telemetry.TrackEvent("SignalProcessed", properties, metrics);
+
+
+
+## Отслеживание метрик
+
+Используйте TrackMetric для отправки метрик, которые не привязаны к определенным событиям. Например, можно отслеживать длину очереди через регулярные промежутки времени.
+
+Метрики отображаются в качестве статистических графиков в обозревателе метрик, но в отличие от событий, невозможно выполнить поиск отдельных вхождений в поиске в журнале диагностики.
+
+Чтобы значения метрик верно отображались, они должны быть >= 0.
+
+
+*JavaScript*
+
+    appInsights.trackMetric("Queue", queue.Length);
+
+*C\#*
+
+    telemetry.TrackMetric("Queue", queue.Length);
+
+*VB*
+
+    telemetry.TrackMetric("Queue", queue.Length)
+
+*Java*
+
+    telemetry.trackMetric("Queue", queue.Length);
+
+На самом деле это можно выполнить в фоновом потоке:
+
+*C\#*
+
+    private void Run() {
+     var appInsights = new TelemetryClient();
+     while (true) {
+      Thread.Sleep(60000);
+      appInsights.TrackMetric("Queue", queue.Length);
+     }
+    }
+
+
+Чтобы увидеть результаты, откройте обозреватель метрик и добавьте новую диаграмму. Настройте ее для отображения своей метрики.
+
+![Добавьте новую диаграмму или выберите существующую, а в поле «Пользовательские» выберите свою метрику](./media/app-insights-web-track-usage-custom-events-metrics/03-track-custom.png)
+
+Количество используемых [метрик ограничено](#limits).
+
+## Просмотры страниц
+
+В устройстве или приложении веб-страницы телеметрия просмотров страницы отображается по умолчанию при загрузке каждого экрана или каждой страницы. Однако это можно изменить, чтобы отслеживать количество просмотров страницы в дополнительное или другое время. Например, в приложении, которое отображает вкладки или колонки, может потребоваться отслеживать страницу каждый раз, когда пользователь открывает новую колонку.
+
+![Область «Использование» в колонке «Обзор»](./media/app-insights-web-track-usage-custom-events-metrics/appinsights-47usage-2.png)
+
+Данные о пользователе и сеансе отправляются в качестве свойств вместе с количеством просмотров страниц, поэтому диаграммы для пользователей и сеансов активируются при наличии телеметрии по количеству просмотров страницы.
+
+#### Пользовательские данные о просмотре страницы
+
+*JavaScript*
+
+    appInsights.trackPageView("tab1");
+
+*C\#*
+
+    telemetry.TrackPageView("GameReviewPage");
+
+*VB*
+
+    telemetry.TrackPageView("GameReviewPage")
+
+
+Если у вас есть несколько вкладок на различных HTML-страницах, можно также указать URL-адрес:
+
+    appInsights.trackPageView("tab1", "http://fabrikam.com/page1.htm");
+
+#### Время просмотра страницы
+
+Вызвав эту пару методов вместо trackPageView, можно проанализировать, сколько времени пользователи проводят на ваших страницах.
 
     // At the start of a page view:
     appInsights.startTrackPage(myPage.name);
@@ -224,34 +339,271 @@ JavaScript на стороне клиента
 
 Используйте ту же строку, что и в первом параметре, для вызовов запуска и остановки.
 
-## <a name="defaults"></a>Задание значений свойств по умолчанию (не на веб-клиенте)
+Просмотрите метрику «Продолжительность посещения страницы» в [обозревателе метрик][metrics].
 
-Можно задать значения по умолчанию в TelemetryContext. Они присоединяются ко всем метрикам и событиям, отправляемым из контекста. 
+
+## Отслеживание запросов
+
+Используется пакетом SDK для сервера для регистрации HTTP-запросов.
+
+Его можно также вызвать самостоятельно, чтобы смодулировать запросы в контексте, в котором отсутствует выполняющийся модуль веб-службы.
+
+*C\#*
+
+    // At start of processing this request:
+
+    // Operation Id is attached to all telemetry and helps you identify
+    // telemetry associated with one request:
+    telemetry.Context.Operation.Id = Guid.NewGuid().ToString();
     
+    var stopwatch = System.Diagnostics.Stopwatch.StartNew();
 
-C# на стороне сервера
+    // ... process the request ...
 
-    var context = new TelemetryContext();
-    context.Properties["Game"] = currentGame.Name;
-    var telemetry = new TelemetryClient(context);
+    stopwatch.Stop();
+    telemetryClient.TrackRequest(requestName, DateTime.Now,
+       stopwatch.Elapsed, 
+       "200", true);  // Response code, success
+
+## Отслеживание исключений
+
+Отправляйте исключения в Application Insights, чтобы [вычислить их количество][metrics], что может указывать на частоту возникновения проблемы, и чтобы[проверить отдельные вхождения][diagnostic].
+
+*C\#*
+
+    try
+    {
+        ...
+    }
+    catch (Exception ex)
+    {
+       telemetry.TrackException(ex);
+    }
+
+В мобильных приложениях для Windows пакет SDK перехватывает необработанные исключения, поэтому вам не нужно их регистрировать. В ASP.NET можно [написать код для автоматического перехвата исключений][exceptions].
+
+
+## Отслеживание трассировки 
+
+Используйте его для диагностики неполадок, отправляя навигационную цепочку в Application Insights. Вы можете отправлять блоки диагностических данных и проверять их в колонке [Поиск по журналу диагностики][diagnostic].
+
+ 
+
+[Адаптеры журнала][trace] используют этот API для отправки журналов сторонних производителей на портал.
+
+
+*C\#*
+
+    telemetry.TrackTrace(message, SeverityLevel.Warning, properties);
+
+Ограничения по размеру `message` гораздо выше, чем ограничение для свойств. Вы можете выполнять поиск содержимого сообщения, но (в отличие от значений свойств) не можете фильтровать его.
+
+
+## <a name="default-properties"></a> Установка свойств по умолчанию для всей телеметрии
+
+Можно настроить универсальный инициализатор, чтобы все новые клиенты телеметрии TelemetryClient автоматически использовали ваш контекст. Сюда входит стандартная телеметрия, отправляемая модулями телеметрии платформы, например данные по отслеживанию запросов веб-сервера.
+
+Как правило, идентифицируется телеметрия из разных версий или компонентов приложения. На портале можно фильтровать или группировать результаты по этому свойству.
+
+*C\#*
+
+    // Telemetry initializer class
+    public class MyTelemetryInitializer : IContextInitializer
+    {
+        public void Initialize (TelemetryContext context)
+        {
+            context.Properties["AppVersion"] = "v2.1";
+        }
+    }
+
+    // In the app initializer such as Global.asax.cs:
+
+    protected void Application_Start()
+    {
+        // ...
+        TelemetryConfiguration.Active.ContextInitializers
+        .Add(new MyTelemetryInitializer());
+    }
+
+*Java*
+
+    import com.microsoft.applicationinsights.extensibility.ContextInitializer;
+    import com.microsoft.applicationinsights.telemetry.TelemetryContext;
+
+    public class MyTelemetryInitializer implements ContextInitializer {
+      @Override
+      public void initialize(TelemetryContext context) {
+        context.getProperties().put("AppVersion", "2.1");
+      }
+    }
+
+    // load the context initializer
+    TelemetryConfiguration.getActive().getContextInitializers().add(new MyTelemetryInitializer());
+
+
+Сейчас в веб-клиенте JavaScript нет возможности задавать свойства по умолчанию.
+
+## <a name="dynamic-ikey"></a> Динамический ключ инструментирования
+
+Во избежание смешивания телеметрии из среды разработки, тестовой и рабочей среды вы можете [создавать отдельные ресурсы Application Insights][create] и менять их ключи в зависимости от среды.
+
+Вместо получения ключа инструментирования из файла конфигурации можно задать его в коде. Задайте ключ в методе инициализации, таком как global.aspx.cs, в службе ASP.NET:
+
+*C\#*
+
+    protected void Application_Start()
+    {
+      Microsoft.ApplicationInsights.Extensibility.
+        TelemetryConfiguration.Active.InstrumentationKey = 
+          // - for example -
+          WebConfigurationManager.Settings["ikey"];
+      ...
+
+*JavaScript*
+
+    appInsights.config.instrumentationKey = myKey; 
+
+
+
+На веб-странице может потребоваться задать его, используя состояние веб-сервера, а не внедрить его в сценарий. Например, на веб-странице, созданной в приложении ASP.NET:
+
+*JavaScript в Razor*
+
+    <script type="text/javascript">
+    // Standard Application Insights web page script:
+    var appInsights = window.appInsights || function(config){ ...
+    // Modify this part:
+    }({instrumentationKey:  
+      // Generate from server property:
+      @Microsoft.ApplicationInsights.Extensibility.
+         TelemetryConfiguration.Active.InstrumentationKey"
+    }) // ...
+
+
+## <a name="defaults"></a>Установка значений по умолчанию для выбранной пользовательской телеметрии
+
+Если требуется задать значения свойств по умолчанию для некоторых создаваемых пользовательских событий, это можно сделать в классе TelemetryClient. Они прикреплены к каждому элементу телеметрии, отправляемой из этого клиента.
+
+*C\#*
+
+    using Microsoft.ApplicationInsights.DataContracts;
+
+    var gameTelemetry = new TelemetryClient();
+    gameTelemetry.Context.Properties["Game"] = currentGame.Name;
     // Now all telemetry will automatically be sent with the context property:
-    telemetry.TrackEvent("EndOfGame");
+    gameTelemetry.TrackEvent("WinGame");
     
-VB на стороне сервера
+*VB*
 
-    Dim context = New TelemetryContext
-    context.Properties("Game") = currentGame.Name
-    Dim telemetry = New TelemetryClient(context)
+    Dim gameTelemetry = New TelemetryClient()
+    gameTelemetry.Context.Properties("Game") = currentGame.Name
     ' Now all telemetry will automatically be sent with the context property:
-    telemetry.TrackEvent("EndOfGame")
+    gameTelemetry.TrackEvent("WinGame")
 
+*Java*
+
+    import com.microsoft.applicationinsights.TelemetryClient;
+    import com.microsoft.applicationinsights.TelemetryContext;
+    ...
+
+
+    TelemetryClient gameTelemetry = new TelemetryClient();
+    TelemetryContext context = gameTelemetry.getContext();
+    context.getProperties().put("Game", currentGame.Name);
     
+    gameTelemetry.TrackEvent("WinGame");
     
-Некоторые данные телеметрии могут отличаться от значений по умолчанию.
-
-Если вы хотите переключаться между группами значений свойств по умолчанию, следует настроить несколько контекстов.
+Вызовы отдельных данных телеметрии могут переопределить значения по умолчанию в словарях свойства.
 
 
+
+## <a name="ikey"></a> Установка ключа инструментирования для выбранной пользовательской телеметрии
+
+*C\#*
+    
+    var telemetry = new TelemetryClient();
+    telemetry.Context.InstrumentationKey = "---my key---";
+    // ...
+
+## Очистка данных
+
+Обычно пакет SDK отправляет данные в момент времени выбранный, чтобы свести влияние на пользователя к минимуму. Однако в некоторых случаях может потребоваться очистить буфер, например, при использовании пакета SDK в приложении, которое завершает работу.
+
+*C\#*
+
+    telemetry.Flush();
+
+Обратите внимание, что функция является синхронной.
+
+
+
+## Отключение стандартной телеметрии
+
+Вы можете [отключить отдельные части стандартной телеметрии][config], изменив файл `ApplicationInsights.config`. Это можно сделать, если вы, например, хотите отправить собственные данные TrackRequest.
+
+[Подробнее][config].
+
+
+## <a name="debug"></a>Режим разработчика
+
+Во время отладки полезно передавать телеметрию через конвейер, чтобы результаты можно было увидеть немедленно. Кроме того, вы можете получать дополнительные сообщения, которые помогают трассировать любые проблемы с телеметрией. Отключите этот режим в рабочей среде, так как он может замедлить работу приложения.
+
+
+*C\#*
+    
+    TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = true;
+
+*VB*
+
+    TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = True
+
+## Класс TelemetryContext
+
+Класс TelemetryClient включает свойство Context, содержащее несколько значений, которые отправляются вместе со всеми данными телеметрии. Как правило, их задают модули стандартной телеметрии, но их также можно задать самостоятельно.
+
+Если задать эти значения самостоятельно, мы советуем удалить соответствующую строку из файла [ApplicationInsights.config][config], чтобы не перепутать собственные значения и стандартные значения.
+
+* **Component** — определяет приложение и его версию.
+* **Device** — данные об устройстве, на котором выполняется приложение (в веб-приложениях это сервер или клиентское устройство, с которого отправляется телеметрия).
+* **InstrumentationKey** — определяет ресурс Application Insights в Azure, в котором будет отображаться телеметрия. Обычно этот ресурс получается из файла ApplicationInsights.config
+* **Location** — определяет географическое расположение устройства.
+* **Operation** — текущий HTTP-запрос в веб-приложениях. В приложениях других типов для этого значения можно задать значение «Группировать события совместно».
+ * **Id** — созданное значение, которое сопоставляет различные события, чтобы при проверке любого события в колонке «Поиск в журнале диагностики» можно было найти «Связанные элементы».
+ * **Name** — URL-адрес HTTP-запроса.
+ * **SyntheticSource** — если эта строка не пустая и не имеет значение null, она указывает, что источник запроса было определен как программа-робот или веб-тест. По умолчанию она будет исключена из вычислений в обозревателе метрик.
+* **Properties** — свойства, которые отправляются со всеми данными телеметрии. Это значение можно переопределить в отдельных вызовах отслеживания*.
+* **Session** — определяет сеанс пользователя. Для Id задается созданное значение, которое изменяется, если пользователь был неактивным в течение некоторого времени.
+* **User** — позволяет подсчитать пользователей. В веб-приложении идентификатор пользователя берется из файла cookie. Если такой файл отсутствует, создается новый идентификатор. Если пользователям требуется войти в приложение, вы можете использовать аутентифицированный идентификатор в качестве идентификатора, чтобы предоставить более надежный счетчик, который остается верным, даже если пользователь выполняет вход с другого компьютера. 
+
+## Ограничения
+
+Количество метрик и событий, используемых в приложении, ограничено.
+
+1. Максимальное количество точек данных телеметрии для каждого ключа инструментирования (т. е. для каждого приложения) — 500. К этим данным относится стандартная телеметрия, отправляемая модулями пакета SDK, а также пользовательские события, метрики и другая телеметрия, отправленная в коде.
+1.	Максимальное количество уникальных имен метрик — 200, а уникальных имен свойств — 200. Метрики включают данные, отправленные в TrackMetric, а также измерения по другим типам данных, таким как события. Имена метрик и свойств являются глобальными для каждого ключа инструментирования и не ограничиваются типом данных.
+2.	Свойства можно использовать для фильтрации и группирования, только если на каждое свойство приходится менее 100 уникальных значений. После превышения максимального количества уникальных значений (100 уникальных значений), свойство можно по-прежнему использовать для поиска и фильтрации, но не для фильтров.
+3.	Максимальное количество уникальных значений для стандартных свойств, таких как Request Name или Page URL, в неделю — 1000. После превышения максимального количества уникальных значений (1000 уникальных значений) дополнительные значения отмечаются как «Другие значения». Исходное значение можно по-прежнему использовать для полнотекстового поиска и фильтрации.
+
+* *Вопрос. Как долго хранятся данные?*
+
+    См. раздел [Хранение данных и конфиденциальность][data].
+
+## Справочная документация
+
+* [Справочник по ASP.NET](https://msdn.microsoft.com/library/dn817570.aspx)
+* [Справочник по Java](http://dl.windowsazure.com/applicationinsights/javadoc/)
+
+## Вопросы
+
+* *Могут ли создаваться исключения при вызове отслеживания*?*
+    
+    Нет. Вам не нужно помещать их в оболочку предложений перехвата.
+
+
+
+* *Создан ли REST API?*
+
+    Да, но мы его еще не опубликовали.
 
 ## <a name="next"></a>Дальнейшие действия
 
@@ -261,11 +613,21 @@ VB на стороне сервера
 [Устранение неполадок][qna]
 
 
-[AZURE.INCLUDE [app-insights-learn-more](../../includes/app-insights-learn-more.md)]
+<!--Link references-->
 
+[client]: app-insights-javascript.md
+[config]: app-insights-configuration-with-applicationinsights-config.md
+[create]: app-insights-create-new-resource.md
+[data]: app-insights-data-retention-privacy.md
+[diagnostic]: app-insights-diagnostic-search.md
+[exceptions]: app-insights-asp-net-exceptions.md
+[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[java]: app-insights-java-get-started.md
+[metrics]: app-insights-metrics-explorer.md
+[qna]: app-insights-troubleshoot-faq.md
+[trace]: app-insights-search-diagnostic-logs.md
+[windows]: app-insights-windows-get-started.md
 
-
-
-
-<!--HONumber=46--> 
  
+
+<!---HONumber=62-->

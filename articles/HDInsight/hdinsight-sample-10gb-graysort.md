@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Пример сортировки GraySort 10 ГБ | Azure"
+	pageTitle="Пример сортировки GraySort Hadoop MapReduce 10 ГБ | Microsoft Azure"
 	description="Узнайте, как выполнять сортировку graysort общего назначения для очень больших объемов данных, обычно не менее 100 ТБ, на Hadoop HDInsight с использованием Azure PowerShell."
 	editor="cgronlun"
 	manager="paulettm"
@@ -16,7 +16,7 @@
 	ms.date="03/30/2015" 
 	ms.author="bradsev"/>
 
-# Пример сортировки GraySort Hadoop 10 ГБ в HDInsight
+# Пример сортировки GraySort Hadoop MapReduce 10 ГБ в HDInsight
 
 В этом разделе объясняется, как выполнить программу сортировки GraySort Hadoop MapReduce общего назначения для Azure HDInsight с использованием Azure PowerShell. GraySort — это измерение производительности сортировки, показателем которой служит скорость (ТБ/мин), достигаемая при сортировке очень больших объемов данных, обычно не менее 100 ТБ.
 
@@ -31,18 +31,15 @@
 Формат ввода и вывода, используемый во всех трех приложениях, позволяет читать и записывать текстовые файлы в нужном формате. Для репликации выходных данных функции reduce указано значение 1, а не значение по умолчанию 3, поскольку при сравнительном измерении производительности не требуется репликация выходных данных на несколько узлов.
 
 
-**Вы узнаете:** 
-* Как использовать Azure PowerShell для выполнения серии программ MapReduce в Azure HDInsight. 
-* Как выглядит программа MapReduce, написанная на языке Java.
+**Вы узнаете:** * Как использовать Azure PowerShell для выполнения серии программ MapReduce в Azure HDInsight. * Как выглядит программа MapReduce, написанная на языке Java.
 
 
 **Предварительные требования:**
 
-- Необходимо иметь учетную запись Azure. Варианты регистрации учетной записи см. на странице [Бесплатное пробное использование Azure](http://azure.microsoft.com/pricing/free-trial/).
+- **Подписка Azure.**. См. [Бесплатная пробная версия Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Кластер HDInsight**. Сведения по различным способам создания таких кластеров см. в разделе [Подготовка кластеров HDInsight](hdinsight-provision-clusters.md)
+- **Рабочая станция с Azure PowerShell**. См. [Установка и использование Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
-- Вы должны были подготовить кластер HDInsight. Инструкции по созданию таких кластеров см. в разделе [Подготовка кластеров HDInsight](hdinsight-provision-clusters.md).
-
-- У вас должна быть установлена среда Azure PowerShell, настроенная для работы с вашей учетной записью. Инструкции по выполнению этой задачи см. в разделе [Установка и настройка Azure PowerShell][powershell-install-configure].
 
 
 ##Выполнение примера с использованием Azure PowerShell
@@ -412,7 +409,7 @@
 * [Начало работы с Azure HDInsight][hdinsight-get-started]
 * [Пример: оценка числа пи][hdinsight-sample-pi-estimator]
 * [Пример: счетчик слов][hdinsight-sample-wordcount]
-* [Пример: потоковая передача на C#][hdinsight-sample-csharp-streaming]
+* [Пример: потоковая передача на C\#][hdinsight-sample-csharp-streaming]
 * [Использование Pig с HDInsight][hdinsight-use-pig]
 * [Использование Hive с HDInsight][hdinsight-use-hive]
 * [Документация по пакету SDK для Azure HDInsight][hdinsight-sdk-documentation]
@@ -420,7 +417,7 @@
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
 
-[Powershell-install-configure]: ../install-configure-powershell.md
+[powershell-install-configure]: ../install-configure-powershell.md
 
 [hdinsight-get-started]: ../hdinsight-get-started.md
 
@@ -432,5 +429,6 @@
 
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

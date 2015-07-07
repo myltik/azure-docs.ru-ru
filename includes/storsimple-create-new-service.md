@@ -18,7 +18,7 @@
 
 #### Создание новой службы
 
-1. Используя учетную запись Майкрософт, войдите на портал управления: [http://azure.microsoft.com/](http://azure.microsoft.com/).
+1. Используя данные учетной записи Майкрософт, войдите на портал управления по этому URL-адресу: [http://azure.microsoft.com/](http://azure.microsoft.com/)
 
 2. На портале управления щелкните **Создать** > **Службы данных** > **Диспетчер StorSimple** > **Быстрое создание**.
 
@@ -35,4 +35,4 @@
  
        ![создание службы](./media/storsimple-create-new-service/HCS_StorSimpleManagerServicePage-include.png)
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

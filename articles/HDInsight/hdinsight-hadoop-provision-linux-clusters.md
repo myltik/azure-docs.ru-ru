@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Подготовка кластеров Hadoop на платформе Linux в HDInsight | Microsoft Azure" 
-   description="Узнайте, как подготовить кластеры Hadoop для HDInsight на платформе Linux с помощью портала управления, командной строки и пакета SDK для .NET." 
-   services="hdinsight" 
-   documentationCenter="" 
-   authors="nitinme" 
-   manager="paulettm" 
+<properties
+   pageTitle="Подготовка кластеров Hadoop на платформе Linux в HDInsight | Microsoft Azure"
+   description="Узнайте, как подготовить кластеры Hadoop для HDInsight на платформе Linux с помощью портала управления, командной строки и пакета SDK для .NET."
+   services="hdinsight"
+   documentationCenter=""
+   authors="nitinme"
+   manager="paulettm"
    editor="cgronlun"/>
 
 <tags
@@ -12,14 +12,14 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
+   ms.workload="big-data"
    ms.date="04/17/2015"
    ms.author="nitinme"/>
 
 
 #Подготовка кластеров Hadoop в HDInsight на платформе Linux с использованием настраиваемых параметров (предварительная версия)
 
-В этой статье вы ознакомитесь с различными способами настраиваемой подготовки кластера Hadoop на платформе Linux в Azure HDInsight с использованием портала Azure, Azure PowerShell, программ командной строки или пакета SDК для HDInsight .NET.
+В этой статье вы ознакомитесь с различными способами настраиваемой подготовки кластера Hadoop на платформе Linux в Azure HDInsight с использованием портала Azure, Azure PowerShell, командной строки Azure CLI или пакета SDК для HDInsight .NET.
 
 ## Что такое кластер HDInsight?
 
@@ -37,8 +37,8 @@
 
 Перед началом работы с этой статьей необходимо иметь следующее:
 
-- Подписка Azure. Azure — это платформа на основе подписок. Командлеты Azure PowerShell для HDInsight предназначены для выполнения задач по подписке. Дополнительную информацию о получении подписки см. в разделах о <a href="http://azure.microsoft.com/pricing/purchase-options/" target="_blank">вариантах приобретения</a>, <a href="http://azure.microsoft.com/pricing/member-offers/" target="_blank">предложениях для участников</a> или <a href="http://azure.microsoft.com/pricing/free-trial/" target="_blank">бесплатном пробном использовании</a>.
-- Ключи Secure Shell (SSH). При удаленном использовании кластера на платформе Linux с помощью SSH вместо пароля рекомендуется использовать ключ, так как он является более безопасным. Указания по созданию ключей SSH см. в следующих статьях:
+- **Подписка Azure.**. См. [Бесплатная пробная версия Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Ключи Secure Shell (SSH)**. При удаленном использовании кластера на платформе Linux с помощью SSH вместо пароля рекомендуется использовать ключ, так как он является более безопасным. Указания по созданию ключей SSH см. в следующих статьях:
 	-  на компьютере под управлением Linux — [Использование SSH с Hadoop под управлением Linux в HDInsight в Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md);
 	-  на компьютере под управлением Windows — [Использование SSH с кластерами HDInsight (Hadoop) под управлением Linux в Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
 
@@ -79,11 +79,7 @@ Windows | Щелкните [здесь](#portal) | Щелкните [здесь]
 
 ### <a id="portal"></a> Использование портала Azure
 
-<<<<<<< HEAD:articles/HDInsight/hdinsight-hadoop-provision-linux-clusters.md
 Кластеры HDInsight используют контейнер хранилища больших двоичных объектов Azure как файловую систему по умолчанию. Перед созданием кластера HDInsight необходимо создать учетную запись хранения Azure в том же центре обработки данных. Дополнительную информацию см. в статье [Использование хранилища больших двоичных объектов Azure с HDInsight](../hdinsight-use-blob-storage.md). Информацию о создании учетной записи хранения Azure см. в разделе [Как создать учетную запись хранения](../storage-create-storage-account.md).
-=======
-Кластеры HDInsight используют контейнер хранилища больших двоичных объектов Azure как файловую систему по умолчанию. Перед созданием кластера HDInsight необходимо создать учетную запись хранения Azure в том же центре обработки данных. Дополнительную информацию см. в статье [Использование хранилища больших двоичных объектов Azure с HDInsight](hdinsight-use-blob-storage.md). Информацию о создании учетной записи хранения Azure см. в разделе [Как создать учетную запись хранения](storage/storage-create-storage-account.md).
->>>>>>> master:articles/hdinsight-hadoop-provision-linux-clusters.md
 
 
 > [AZURE.NOTE]В настоящее время кластеры HDInsight на платформе Linux можно размещать только в регионах **Юго-Восточной Азии**, **Северной Европы**, **Восточной части США** и **Южно-центральной части США**.
@@ -150,7 +146,7 @@ Windows | Щелкните [здесь](#portal) | Щелкните [здесь]
 		<tr><td>Ввести куст или метахранилище Oozie</td>
 			<td>Установите флажок, чтобы указать базу данных SQL, которая будет использоваться в качестве метахранилища Hive или Oozie, в том же центре обработки данных, где расположен кластер. Если флажок установлен, на следующих страницах мастера нужно указать информацию о базе данных SQL Azure. Это может оказаться полезным, если необходимо сохранить метаданные заданий Hive/Oozie даже после удаления кластера.</td></tr>
 		</td></tr>
-		</table>
+	</table>
 
 
 	> [AZURE.NOTE]Мы советуем использовать для SSH аутентификацию с помощью открытого ключа SSH, так как это безопаснее, чем аутентификация с помощью пароля.
@@ -178,8 +174,8 @@ Windows | Щелкните [здесь](#portal) | Щелкните [здесь]
 		<tr><td>Учетная запись хранения</td>
 			<td>Укажите учетную запись хранения Azure, которая будет использована в качестве файловой системы по умолчанию для кластера HDInsight. Можно выбрать один из трех вариантов:
 			<ul>
-				<li><strong>Использовать существующее хранилище</strong>;</li>
-				<li><strong>Создать новое хранилище</strong>;</li>
+				<li><strong>Использовать существующее хранилище</strong>.</li>
+				<li><strong>Создать новое хранилище</strong>.</li>
 				<li><strong>Использовать хранилище другой подписки</strong>.</li>
 			</ul>
 			</td></tr>
@@ -191,9 +187,9 @@ Windows | Щелкните [здесь](#portal) | Щелкните [здесь]
 		<tr><td>Ключ учетной записи</td>
 			<td>Если используется параметр <strong>Использовать учетную запись из другой подписки</strong>, необходимо указать ключ этой учетной записи хранения.</td></tr>
 		<tr><td>Контейнер по умолчанию</td>
-			<td><p>Задайте контейнер по умолчанию в учетной записи хранения, которая используется в качестве файловой системы по умолчанию для кластера HDInsight. Если вы выберете <strong>Использовать существующее хранилище</strong> в поле <strong>Учетная запись хранения</strong> и в этой учетной записи нет контейнеров, то контейнер создается по умолчанию с тем же именем, что и имя кластера. Если контейнер с именем кластера уже существует, к имени контейнера будет добавлено последовательное число. Например, мой_контейнер1, мой_контейнер2 и т. д. Однако, если в существующей учетной записи хранения есть контейнер с иным, чем у кластера именем, можно также использовать и этот контейнер.</p>
+			<td><p>Задайте контейнер по умолчанию в учетной записи хранения, которая используется в качестве файловой системы по умолчанию для кластера HDInsight. Если вы выберете <strong>Использовать существующее хранилище</strong> в поле <strong>Учетная запись хранения</strong> и в этой учетной записи нет контейнеров, то контейнер создается по умолчанию с тем же именем, что и имя кластера. Если контейнер с именем кластера уже существует, к имени контейнера будет добавлено последовательное число. Например, мой_контейнер1, мой_контейнер2 и т. д. Однако, если в существующей учетной записи хранения есть контейнер с именем, отличающимся от имени кластера, можно также использовать и этот контейнер.</p>
             <p>Если создается новое хранилище или используется хранилище из другой подписки Azure, необходимо указать имя контейнера по умолчанию.</p>
-        </td></tr>
+         </td></tr>
 		<tr><td>Дополнительные учетные записи хранения</td>
 			<td>HDInsight поддерживает несколько учетных записей хранения. Ограничения на дополнительные учетные записи хранения, которые могут использоваться в кластере, отсутствуют. Тем не менее, при создании кластера с использованием портала Azure можно использовать не более семи учетных записей из-за ограничений пользовательского интерфейса. Каждая дополнительная учетная запись хранения, указанная в этом поле, добавляет дополнительную страницу <strong>учетной записи хранения</strong> к мастеру, где можно указать информацию об учетной записи. Например, на следующем снимке экрана выбрана одна дополнительная учетная запись хранения, поэтому в диалоговое окно добавляется страница 5.</td></tr>
 	</table>
@@ -212,33 +208,33 @@ Windows | Щелкните [здесь](#portal) | Щелкните [здесь]
 
  	Выбрав дополнительную учетную запись хранения, щелкните флажок, чтобы начать подготовку кластера.
 
-###<a id="cli"></a> Использование кроссплатформенной командной строки
+###<a id="cli"></a> Использование интерфейса командной строки Azure (Azure CLI)
 
-Другим вариантом подготовки кластера HDInsight является использование интерфейса командной строки Azure для Mac, Linux и Windows. Интерфейс командной строки Azure реализовано в Node.js. Его можно использовать на любой платформе, которая поддерживает Node.js, включая Windows, Mac и Linux. Вы можете установить интерфейс командной строки из следующих расположений:
+Другим вариантом подготовки кластера HDInsight является использование интерфейса командной строки Azure CLI. Интерфейс командной строки (CLI) Azure реализован в Node.js. Его можно использовать на любой платформе, которая поддерживает Node.js, включая Windows, Mac и Linux. Azure CLI можно установить из следующих расположений:
 
 - **пакет SDK для Node.js** — <a href="https://www.npmjs.com/package/azure-mgmt-hdinsight" target="_blank">https://www.npmjs.com/package/azure-mgmt-hdinsight</a>;
-- **интерфейс командной строки Azure для Mac, Linux и Windows** — <a href="https://github.com/Azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz" target="_blank">https://github.com/Azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz</a>.  
+- **Интерфейс командной строки Azure CLI для Mac, Linux и Windows** — <a href="https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz" target="_blank">https://github.com/Azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz</a>.  
 
-Общее руководство по использованию интерфейса командной строки см. в статье [Интерфейс командной строки Azure для Mac, Linux и Windows](../xplat-cli.md).
+Общее руководство по использованию интерфейса командной строки Azure CLI см. в статье [Интерфейс командной строки Azure для Mac, Linux и Windows](../xplat-cli.md).
 
-Приведенные ниже инструкции помогут в установке межплатформенной командной строки на базе Linux и Windows, а затем использовать командную строку для подготовки кластера.
+Приведенные ниже инструкции помогут в установке командной строки Azure CLI на базе Linux и Windows с дальнейшим использованием командной строки для подготовки кластера.
 
-- [Настройка кроссплатформенной командной строки для Linux](#clilin)
-- [Настройка кроссплатформенной командной строки для Windows](#cliwin)
-- [Подготовка кластеров HDInsight с помощью кроссплатформенной командной строки](#cliprovision)
+- [Настройка Azure CLI для Linux](#clilin)
+- [Настройка Azure CLI для Windows](#cliwin)
+- [Подготовка кластеров HDInsight с помощью Azure CLI](#cliprovision)
 
-#### <a id="clilin"></a>Настройка кроссплатформенной командной строки для Linux
+#### <a id="clilin"></a>Настройка Azure CLI для Linux
 
-Выполните следующие процедуры, чтобы настроить компьютер под управлением Linux для использования программ командной строки Azure.
+Выполните следующие процедуры, чтобы настроить компьютер с ОС Linux для использования интерфейса командной строки Azure (Azure CLI):
 
-- Установите интерфейс командной строки с помощью диспетчера пакетов Node.js (NPM).
+- Установите интерфейс командной строки Azure CLI с помощью диспетчера пакетов Node.js (NPM)
 - Подключение к подписке Azure
 
-**Установка интерфейса командной строки с помощью NPM**
+**Чтобы установить интерфейс командной строки Azure CLI с помощью NPM**
 
 1.	Откройте окно терминала на компьютере с ОС Linux и выполните следующую команду:
 
-		sudo npm install -g https://github.com/Azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz
+		sudo npm install -g https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz
 
 2.	Выполните следующую команду, чтобы проверить установку:
 
@@ -253,7 +249,7 @@ Windows | Щелкните [здесь](#portal) | Щелкните [здесь]
 
 **Подключение к подписке Azure**
 
-Прежде чем использовать интерфейс командной строки, необходимо настроить связь между рабочей станцией и Azure. Сведения о подписке Azure используются интерфейсом командной строки для подключения к учетной записи. Эти сведения можно получить через портал Azure в файле параметров публикации. Затем файл параметров публикации можно импортировать как постоянный локальный параметр конфигурации, который интерфейс командной строки будет использовать для последующих операций. Вам необходимо импортировать параметры публикации только один раз.
+Прежде чем использовать интерфейс командной строки Azure CLI, необходимо настроить связь между рабочей станцией и Azure. Информация о подписке Azure используется Azure CLI для подключения к учетной записи. Эти сведения можно получить через портал Azure в файле параметров публикации. Затем файл параметров публикации можно импортировать как постоянный локальный параметр конфигурации, который будет использоваться Azure CLI для последующих операций. Вам необходимо импортировать параметры публикации только один раз.
 
 
 > [AZURE.NOTE]Файл параметров публикации содержит конфиденциальную информацию. Рекомендуется удалить файл или выполнить дополнительные действия для шифрования папки, содержащей файл. В Windows измените свойства папки или используйте шифрование дисков BitLocker.
@@ -261,7 +257,7 @@ Windows | Щелкните [здесь](#portal) | Щелкните [здесь]
 
 
 1.	Откройте окно терминала.
-2.	Выполните следующую команду для входа под подпиской Azure:
+2.	Выполните следующую команду для входа в подписку Azure:
 
 		azure account download
 
@@ -274,25 +270,25 @@ Windows | Щелкните [здесь](#portal) | Щелкните [здесь]
 
 		azure account import <path/to/the/file>
 
-	
-#### <a id="cliwin"></a>Настройка кроссплатформенной командной строки для Windows
 
-Выполните следующие процедуры, чтобы настроить компьютер под управлением Windows для использования программ командной строки Azure.
+#### <a id="cliwin"></a>Настройка Azure CLI для Windows
 
-- Установите интерфейс командной строки с помощью NPM или установщика Windows.
+Выполните следующие процедуры, чтобы настроить компьютер с ОС Windows для использования интерфейса командной строки Azure (Azure CLI).
+
+- Установите интерфейс командной строки Azure CLI с помощью NPM или установщика Windows
 - Загрузите и импортируйте параметры публикации учетной записи Azure
 
 
-Интерфейс командной строки можно установить с помощью NPM или установщика Windows. Майкрософт советует выполнять установку, используя только один из двух вариантов.
+Интерфейс командной строки Azure CLI можно установить с помощью NPM или установщика Windows. Майкрософт советует выполнять установку, используя только один из двух вариантов.
 
-**Установка интерфейса командной строки с помощью NPM**
+**Чтобы установить интерфейс командной строки Azure CLI с помощью NPM**
 
 1.	Перейдите к **www.nodejs.org**
-2.	Щелкните **УСТАНОВИТЬ** и следуйте указаниям, используя параметры по умолчанию.
+2.	Нажмите **УСТАНОВИТЬ** и следуйте указаниям, используя параметры по умолчанию.
 3.	Откройте **окно командной строки** (или **окно командной строки Azure**, или **окно командной строки разработчика VS2012**) на своей рабочей станции.
 4.	Выполните следующую команду в окне командной строки:
 
-		npm install -g https://github.com/Azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz
+		npm install -g https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz
 
 	> [AZURE.NOTE]Если появилось сообщение об ошибке, в котором говорится, что команда NPM не найдена, проверьте наличие в переменной среды **PATH** следующих путей: <i>C:\\Program Files (x86)\\nodejs;C:\\Users[имя_пользователя]\\AppData\\Roaming\\npm</i> или <i>C:\\Program Files\\nodejs;C:\\Users[имя_пользователя]\\AppData\\Roaming\\npm</i>.
 
@@ -308,14 +304,14 @@ Windows | Щелкните [здесь](#portal) | Щелкните [здесь]
 		azure hdinsight cluster -h
 		azure hdinsight cluster create -h
 
-**Установка интерфейса командной строки с помощью установщика Windows**
+**Чтобы установить интерфейс командной строки Azure CLI с помощью установщика Windows**
 
-1.	Перейдите к **http://azure.microsoft.com/downloads/**.
-2.	Прокрутите вниз до раздела **Средства командной строки**, щелкните **Кроссплатформенный интерфейс командной строки** и следуйте инструкциям мастера установщика веб-платформы.
+1.	Перейдите в **http://azure.microsoft.com/downloads/**.
+2.	Прокрутите вниз до раздела **Средства командной строки**, щелкните **Интерфейс командной строки Azure** и следуйте инструкциям мастера установщика веб-платформы.
 
 **Скачивание и импорт параметров публикации**
 
-Прежде чем использовать интерфейс командной строки, необходимо настроить связь между рабочей станцией и Azure. Сведения о подписке Azure используются интерфейсом командной строки для подключения к учетной записи. Эти сведения можно получить через портал Azure в файле параметров публикации. Затем файл параметров публикации можно импортировать как постоянный локальный параметр конфигурации, который интерфейс командной строки будет использовать для последующих операций. Вам необходимо импортировать параметры публикации только один раз.
+Прежде чем использовать интерфейс командной строки Azure CLI, необходимо настроить связь между рабочей станцией и Azure. Информация о подписке Azure используется Azure CLI для подключения к учетной записи. Эти сведения можно получить через портал Azure в файле параметров публикации. Затем файл параметров публикации можно импортировать как постоянный локальный параметр конфигурации, который будет использоваться Azure CLI для последующих операций. Вам необходимо импортировать параметры публикации только один раз.
 
 
 > [AZURE.NOTE]Файл параметров публикации содержит конфиденциальную информацию. Рекомендуется удалить файл или выполнить дополнительные действия для шифрования папки, содержащей файл. В Windows измените свойства папки или используйте BitLocker.
@@ -340,10 +336,10 @@ Windows | Щелкните [здесь](#portal) | Щелкните [здесь]
 
 	![HDI.CLIAccountDownloadImport][image-cli-account-download-import]
 
-	
-#### <a id="cliprovision"></a>Подготовка кластеров HDInsight с помощью кроссплатформенной командной строки
 
-Для подготовки кластера HDInsight с помощью кроссплатформенной командной строки необходимы следующие процедуры:
+#### <a id="cliprovision"></a>Подготовка кластеров HDInsight с помощью Azure CLI
+
+Подготовка кластера HDInsight с использованием Azure CLI предусматривает следующие процедуры:
 
 - Создание учетной записи хранения Azure
 - Подготовка кластера
@@ -361,11 +357,7 @@ HDInsight использует контейнер хранилища BLOB-объ
 	При появлении запроса на указание расположения выберите то, в котором может быть подготовлен кластер HDInsight на платформе Linux. Хранилище должно находиться в одном местоположении с кластером HDInsight.
 
 
-<<<<<<< HEAD:articles/HDInsight/hdinsight-hadoop-provision-linux-clusters.md
 Информацию о создании новой учетной записи хранения Azure с помощью портала Azure см. в статье [Создание и удаление учетной записи хранения, а также управление ею](../storage-create-storage-account.md).
-=======
-Информацию о создании новой учетной записи хранения Azure с помощью портала Azure см. в статье [Создание и удаление учетной записи хранения, а также управление ею](storage/storage-create-storage-account.md).
->>>>>>> master:articles/hdinsight-hadoop-provision-linux-clusters.md
 
 Если у вас уже есть учетная запись хранения, но вы не знаете ни имени, ни ключа этой учетной записи, можно использовать следующие команды для получения нужной информации:
 
@@ -378,17 +370,13 @@ HDInsight использует контейнер хранилища BLOB-объ
 	-- Lists the keys for a Storage account
 	azure storage account keys list <StorageAccountName>
 
-<<<<<<< HEAD:articles/HDInsight/hdinsight-hadoop-provision-linux-clusters.md
 Дополнительную информацию о получении данных с использованием портала Azure см. в разделе «Практическое руководство. Просмотр, копирование и повторное создание ключей доступа к хранилищу» статьи [Создание и удаление учетной записи хранения, а также управление ею](../storage-create-storage-account.md).
-=======
-Дополнительную информацию о получении данных с использованием портала Azure см. в разделе «Практическое руководство. Просмотр, копирование и повторное создание ключей доступа к хранилищу» статьи [Создание и удаление учетной записи хранения, а также управление ею](storage/storage-create-storage-account.md).
->>>>>>> master:articles/hdinsight-hadoop-provision-linux-clusters.md
 
 Кластер HDInsight также требует наличия контейнера в учетной записи хранения. Если в указанной учетной записи хранения еще нет контейнера, команда **azure hdinsight cluster create** запросит имя контейнера и создаст его. Однако, для создания контейнера заранее, можно использовать следующую команду:
 
 	azure storage container create --account-name <StorageAccountName> --account-key <StorageAccountKey> [ContainerName]
 
-Как только вы создали учетную запись хранения и контейнер больших двоичных объектов, все готово к созданию кластера.
+После создания учетной записи хранения и подготовки контейнера больших двоичных объектов все готово к созданию кластера.
 
 **Подготовка кластера HDInsight**
 
@@ -403,7 +391,7 @@ HDInsight использует контейнер хранилища BLOB-объ
 
 **Подготовка кластера HDInsight с использованием файла конфигурации**
 
-Как правило, необходимо подготовить кластер HDInsight, выполнить задания, а затем удалить кластер для сокращения расходов. Интерфейс командной строки предоставляет возможность сохранения конфигураций в файле, который можно повторно использовать при каждой новой подготовке кластера.
+Как правило, необходимо подготовить кластер HDInsight, выполнить задания, а затем удалить кластер для сокращения расходов. Интерфейс командной строки Azure CLI предоставляет возможность сохранения конфигураций в файле, который можно повторно использовать при каждой новой подготовке кластера.
 
 - Введите в окне командной строки следующие команды:
 
@@ -429,7 +417,7 @@ HDInsight использует контейнер хранилища BLOB-объ
 	![HDI.CLIClusterCreationConfig][image-cli-clustercreation-config]
 
 
-**Отображение информации о кластере**
+**Отображение сведений о кластере**
 
 - Используйте следующие команды для отображения сведений о кластере:
 
@@ -446,7 +434,7 @@ HDInsight использует контейнер хранилища BLOB-объ
 		azure hdinsight cluster delete <ClusterName>
 
 ###<a id="powershell"></a>Использование Azure PowerShell
-Azure PowerShell — это полнофункциональная среда сценариев, которую можно использовать для контроля и автоматизации развертывания и управления вашей рабочей нагрузкой в Azure. В этом разделе содержатся указания по подготовке кластера HDInsight с помощью Azure PowerShell. Информацию о настройке рабочей станции для запуска командлетов HDInsight PowerShell см. в статье [Как установить и настроить Azure PowerShell](../install-configure-powershell.md). Дополнительную информацию об использовании Azure PowerShell с HDInsight см. в статье [Администрирование HDInsight с использованием PowerShell](hdinsight-administer-use-powershell.md). Список командлетов HDInsight PowerShell см. в разделе [Справочная документация по командлетам PowerShell для HDInsight](http://msdn.microsoft.com/library/windowsazure/dn479228.aspx).
+Azure PowerShell — это полнофункциональная среда сценариев, которую можно использовать для контроля и автоматизации развертывания и управления вашей рабочей нагрузкой в Azure. В этом разделе содержатся указания по подготовке кластера HDInsight с помощью Azure PowerShell. Информацию о настройке рабочей станции для запуска командлетов HDInsight PowerShell см. в статье [Как установить и настроить Azure PowerShell](../install-configure-powershell.md). Дополнительную информацию об использовании Azure PowerShell с HDInsight см. в статье [Администрирование HDInsight с использованием PowerShell](hdinsight-administer-use-powershell.md). Список командлетов HDInsight PowerShell см. в разделе [Справочная документация по командлетам PowerShell для HDInsight][hdinsight-powershell-reference].
 
 Для подготовки кластера HDInsight с помощью Azure PowerShell необходимы следующие процедуры:
 
@@ -455,12 +443,12 @@ Azure PowerShell — это полнофункциональная среда с
 - Создание кластера HDInsight
 
 Вы можете выполнять сценарии с помощью консоли Windows PowerShell или интегрированной среды сценариев (ISE) Windows PowerShell.
- 
+
 HDInsight использует контейнер хранилища BLOB-объектов Azure в качестве файловой системы по умолчанию. Перед созданием кластера HDInsight требуются учетная запись хранения Azure и контейнер хранилища. Учетная запись хранения должна находиться в том же центре обработки данных, что и кластер HDInsight. В настоящее время кластеры HDInsight на платформе Linux можно размещать только в регионах **Юго-Восточной Азии**, **Северной Европы**, **Восточной части США** и **Южно-центральной части США**.
 
 **Для подключения к учетной записи Azure**
 
-		Add-AzureAccount 
+		Add-AzureAccount
 
 Появится запрос на ввод учетных данных учетной записи Azure.
 
@@ -493,7 +481,7 @@ HDInsight использует контейнер хранилища BLOB-объ
 		# Create a Blob storage container
 		New-AzureStorageContainer -Name $containerName -Context $destContext
 
-Как только вы создали учетную запись хранения и контейнер больших двоичных объектов, все готово к созданию кластера.
+После создания учетной записи хранения и подготовки контейнера больших двоичных объектов все готово к созданию кластера.
 
 **Подготовка кластера HDInsight**
 
@@ -510,19 +498,19 @@ HDInsight использует контейнер хранилища BLOB-объ
 		$clusterName = "<HDInsightClusterName>"			  # The name for the HDInsight cluster to be created
 		$clusterNodes = <ClusterSizeInNodes>              # The number of nodes in the HDInsight cluster
         $containerName = $clusterName					  # Azure Blob container that is used as the default file system for the HDInsight cluster
-		
-		
+
+
 		# Get the credentials for HTTP and SSH users for the cluster
-		$clusterCredentials = Get-Credential            	  # Make sure you specify the username as "admin". This is the Hadoop user name and password for the cluster. You will use this account to connect to the cluster. 
+		$clusterCredentials = Get-Credential            	  # Make sure you specify the username as "admin". This is the Hadoop user name and password for the cluster. You will use this account to connect to the cluster.
         $sshCredentials = Get-Credential				      # SSH user name for the cluster. You will use this account to start an SSH session on the remote cluster.
-		$sshPublicKey = "<SSH public key>"           
+		$sshPublicKey = "<SSH public key>"
 
 		# Get the storage primary key based on the account name
 		Select-AzureSubscription $subscriptionName
 		$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
-		
+
         # The location of the HDInsight cluster. It must be in the same data center as the Storage account.
-        $location = Get-AzureStorageAccount -StorageAccountName $storageAccountName | %{$_.Location} 
+        $location = Get-AzureStorageAccount -StorageAccountName $storageAccountName | %{$_.Location}
 
 		# Create a new HDInsight cluster
 		New-AzureHDInsightCluster -Name $clusterName -Credential $clusterCredentials -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainerName $containerName  -ClusterSizeInNodes $clusterNodes -Version "3.2" -OSType Linux -SshCredential $sshCredentials -SshPublicKey $sshPublicKey
@@ -547,9 +535,9 @@ HDInsight использует контейнер хранилища BLOB-объ
 		$subscriptionName = "<AzureSubscriptionName>"	  # The Azure subscription used for the HDInsight cluster to be created
 		$clusterName = "<HDInsightClusterName>"			  # The name for the HDInsight cluster to be created
 		$clusterNodes = <ClusterSizeInNodes>              # The number of nodes in the HDInsight cluster
-        		
+
 		# Get the credentials for HTTP user, SSH user, and Hive/Oozie metastore databases for the cluster
-		$clusterCredentials = Get-Credential            	  # Make sure you specify the username as "admin". This is the Hadoop user name and password for the cluster. You will use this account to connect to the cluster. 
+		$clusterCredentials = Get-Credential            	  # Make sure you specify the username as "admin". This is the Hadoop user name and password for the cluster. You will use this account to connect to the cluster.
         $sshCredentials = Get-Credential				      # SSH user name for the cluster. You will use this account to start an SSH session on the remote cluster.
 		$sshPublicKey = "<SSH public key>"
 		$oozieCreds = Get-Credential -Message "Oozie metastore"
@@ -574,7 +562,7 @@ HDInsight использует контейнер хранилища BLOB-объ
 
 		# Create a cluster configuration file
 		$config = New-AzureHDInsightClusterConfig -ClusterSizeInNodes $clusterNodes | Set-AzureHDInsightDefaultStorage -StorageAccountName "$storageAccountName_Default.blob.core.windows.net" -StorageAccountKey $storageAccountKey_Default -StorageContainerName $containerName_Default | Add-AzureHDInsightStorage -StorageAccountName "$storageAccountName_Add1.blob.core.windows.net" -StorageAccountKey $storageAccountKey_Add1 | Add-AzureHDInsightMetastore -SqlAzureServerName "$hiveSQLDatabaseServerName.database.windows.net" -DatabaseName $hiveSQLDatabaseName -Credential $hiveCreds -MetastoreType HiveMetastore | Add-AzureHDInsightMetastore -SqlAzureServerName "$oozieSQLDatabaseServerName.database.windows.net" -DatabaseName $oozieSQLDatabaseName -Credential $oozieCreds -MetastoreType OozieMetastore
-		        
+
 		# Create the cluster
 		New-AzureHDInsightCluster -Name $clusterName -Config $config -Credential $clusterCredentials -Location $clusterLocation -Version "3.2" -OSType Linux -SshCredential $sshCredentials -SshPublicKey $sshPublicKey
 
@@ -610,22 +598,22 @@ HDInsight использует контейнер хранилища BLOB-объ
 
 2. В меню **Файл** выберите команду **Создать**, а затем — **Проект**.
 
-3. В окне **Новый проект** введите или выберите следующие значения:
+3. В окне **Новый проект** введите или выберите следующие значения.
 
 	<table style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse;">
-<tr>
-<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Свойство</th>
-<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Значение</th></tr>
-<tr>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Категория</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">Templates/Visual C#/Windows</td></tr>
-<tr>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Шаблон</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Консольное приложение</td></tr>
-<tr>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Имя</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">CreateHDICluster</td></tr>
-</table>
+	<tr>
+	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Свойство</th>
+	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Значение</th></tr>
+	<tr>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Категория</td>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">Templates/Visual C#/Windows</td></tr>
+	<tr>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Шаблон</td>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Консольное приложение</td></tr>
+	<tr>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Имя</td>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">CreateHDICluster</td></tr>
+	</table>
 
 4. Нажмите кнопку **ОК**, чтобы создать проект.
 
@@ -663,7 +651,7 @@ HDInsight использует контейнер хранилища BLOB-объ
 		string version = "<version>";
         string sshusername = "<ssh user name>";
         string sshpublickey = "<ssh public key>;
-		
+
 
 		// If required, provide details of the Hive and Oozie metastore that you want to configure. ServerName is the name of the server on which the SQL databases are provisioned. HiveStoreSqlDatabaseName and OozieStoreSqlDatabaseName are the names of databases created on the server. You can also use the same database for both Hive and Oozie metastores
 
@@ -701,7 +689,7 @@ HDInsight использует контейнер хранилища BLOB-объ
 		// Configure Hive and Oozie if you opted for the metastores earlier
 		clusterInfo.HiveConfiguration.ConfigurationCollection.Add(new KeyValuePair<string, string>("datanucleus.connectionPoolingType", "none"));
 		clusterInfo.OozieConfiguration.ConfigurationCollection.Add(new KeyValuePair<string, string>("oozie.service.AuthorizationService.security.enabled", "false"));
-        
+
 
 		// Create the cluster
         Console.WriteLine("Creating the HDInsight cluster ...");
@@ -724,7 +712,7 @@ HDInsight использует контейнер хранилища BLOB-объ
 В этой статье вы ознакомились с несколькими способами подготовки кластера HDInsight Hadoop в Linux. Для получения дополнительных сведений ознакомьтесь со следующими статьями:
 
 - [Работа с HDInsight в Linux](hdinsight-hadoop-linux-information.md) — узнайте об особенностях работы с кластером HDInsight в Linux.
-- [Управление кластерами HDInsight с помощью Ambari](hdinsight-hadoop-manage-ambari.md) — узнайте, как выполнять мониторинг кластера Hadoop HDInsight под управлением Linux, используя веб-интерфейс API Ambari или REST API Ambari. 
+- [Управление кластерами HDInsight с помощью Ambari](hdinsight-hadoop-manage-ambari.md) — узнайте, как выполнять мониторинг кластера Hadoop HDInsight под управлением Linux, используя веб-интерфейс API Ambari или REST API Ambari.
 - [Использование MapReduce с HDInsight](hdinsight-use-mapreduce.md) — узнайте о различных способах выполнения заданий MapReduce в кластере.
 - [Использование Hive с HDInsight](hdinsight-use-hive.md) — узнайте о различных способах выполнения запроса Hive в кластере.
 - [Использование Pig с HDInsight](hdinsight-use-pig.md) — узнайте о различных способах выполнения задания Pig в кластере.
@@ -744,7 +732,7 @@ HDInsight использует контейнер хранилища BLOB-объ
 [hdinsight-admin-powershell]: ../hdinsight-administer-use-powershell/
 
 [hdinsight-submit-jobs]: ../hdinsight-submit-hadoop-jobs-programmatically/
-[hdinsight-powershell-reference]: http://msdn.microsoft.com/library/windowsazure/dn479228.aspx
+[hdinsight-powershell-reference]: https://msdn.microsoft.com/library/dn858087.aspx
 
 [azure-management-portal]: https://manage.windowsazure.com/
 
@@ -777,6 +765,7 @@ HDInsight использует контейнер хранилища BLOB-объ
 
 [img-hdi-cluster]: ./media/hdinsight-hadoop-provision-linux-clusters/HDI.Cluster.png
 
-[89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Использование Sqoop вместе с HDInsight"
+  [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Использование Sqoop вместе с HDInsight"
+ 
 
-<!---HONumber=54--> 
+<!---HONumber=62-->

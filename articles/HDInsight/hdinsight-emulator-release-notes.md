@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Заметки о выпуске: эмулятор Microsoft HDInsight для Azure | Microsoft Azure" 
-	description="Получите самую свежую информацией о новейших версиях эмулятора Hadoop в HDInsight." 
+	description="Получите самую свежую информацию о новейших версиях эмулятора Hadoop в HDInsight, изолированной среды Hadoop." 
 	editor="cgronlun" 
 	manager="paulettm" 
 	services="hdinsight" 
@@ -19,7 +19,7 @@
 
 
 
-# Заметки о выпуске: эмулятор Microsoft HDInsight для Azure 
+# Заметки о выпуске: эмулятор Microsoft HDInsight для Hadoop 
 
 
 
@@ -274,5 +274,6 @@
 
 [hdinsight-hadoop-emulator-get-started]: ../hdinsight-get-started-emulator.md
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

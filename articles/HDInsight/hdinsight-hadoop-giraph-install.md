@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Использование Script Action в HDInsight для установки Giraph на кластере Hadoop| Azure" 
-	description="Дополнительные сведения о настройке кластера HDInsight для установки Giraph. Вы воспользуетесь параметром конфигурации действия скрипта (Script Action), чтобы использовать скрипт для установки Giraph" 
+	pageTitle="Установка и использование Giraph для кластеров Hadoop в HDInsight | Microsoft Azure" 
+	description="Дополнительные сведения о настройке кластера HDInsight с Giraph. Вы воспользуетесь параметром конфигурации действия скрипта (Script Action), чтобы использовать скрипт для установки Giraph." 
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="nitinme" 
@@ -16,7 +16,7 @@
 	ms.date="03/03/2015" 
 	ms.author="nitinme"/>
 
-# Установка и использование Giraph на кластерах HDInsight Hadoop
+# Установка Giraph в кластерах HDInsight Hadoop и использование Giraph для обработки диаграмм больших объемов
 
 Giraph можно установить в любой тип кластера Hadoop в Azure HDInsight с помощью параметра кластера **Действие сценария**. Действие скрипта позволяет выполнять скрипты для настройки кластера только во время его создания. Дополнительную информацию см. в статье [Настройка кластеров HDInsight с помощью действия сценария][hdinsight-cluster-customize].
 
@@ -71,7 +71,7 @@ Giraph можно установить в любой тип кластера Had
 
 	Отправьте файл tiny_graph.txt в основное хранилище для кластера HDInsight. Указания по отправке данных см. в статье [Отправка данных для заданий Hadoop в HDInsight](hdinsight-upload-data.md).
 
-	Эти данные описывают взаимоотношения между объектами в направленном графе, используя формат [source_id, source_value,[[dest_id], [edge_value],...]]. Каждая строка представляет взаимоотношение между объектом **source_id** и одним или несколькими объектами **dest_id**. Значение **edge_value** (или вес) можно представить себе как силу или расстояние подключения между **source_id** и **dest_id**.
+	Эти данные описывают взаимоотношения между объектами в направленном графе с использованием формата [source_id, source_value,[[dest_id], [edge_value],...]]. Каждая строка представляет взаимоотношение между объектом **source\\_id** и одним или несколькими объектами **dest\\_id**. Значение **edge\\_value** (или вес) можно представить себе как силу или расстояние подключения между **source_id** и **dest\\_id**.
 
 	В визуальной форме и с использованием значения (или веса) в качестве расстояния между объектами указанные выше данные могут выглядеть следующим образом.
 
@@ -79,7 +79,7 @@ Giraph можно установить в любой тип кластера Had
 
 	
 
-4. Запустите пример SimpleShortestPathsComputation. Воспользуйтесь следующими командлетами Azure PowerShell для запуска этого примера, используя файл tiny_graph.txt в качестве входных данных. Для выполнения необходимо установить и настроить [Azure PowerShell][powershell-install-configure].
+4. Запустите пример SimpleShortestPathsComputation. Воспользуйтесь следующими командлетами Azure PowerShell для запуска этого примера, используя файл tiny_graph.txt в качестве входных данных. Для выполнения необходимо установить и настроить [Azure PowerShell][powershell-install].
 
 		$clusterName = "clustername"
 		# Giraph examples jar
@@ -150,7 +150,7 @@ Giraph можно установить в любой тип кластера Had
 
 ## <a name="usingPS"></a>Установка Giraph в кластерах HDInsight Hadoop с помощью Azure PowerShell
 
-В этом разделе мы используем командлет **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>**, чтобы вызвать сценарии с помощью действия сценария для настройки кластера. Прежде чем продолжить, убедитесь, что вы установили и настроили Azure PowerShell. Информацию о настройке рабочей станции для запуска командлетов Azure PowerShell для HDInsight см. в статье [Как установить и настроить Azure PowerShell][powershell-install-configure].
+В этом разделе мы используем командлет **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>**, чтобы вызвать сценарии с помощью действия сценария для настройки кластера. Прежде чем продолжить, убедитесь, что вы установили и настроили Azure PowerShell. Информацию о настройке рабочей станции для запуска командлетов Azure PowerShell для HDInsight см. в статье [Как установить и настроить Azure PowerShell][powershell-install].
 
 Выполните следующие действия:
 
@@ -237,7 +237,7 @@ Giraph можно установить в любой тип кластера Had
 
 2. В меню **Файл** выберите команду **Создать**, а затем — **Проект**.
 
-3. В окне **Новый проект** введите или выберите следующие значения:
+3. В окне **Новый проект** введите или выберите следующие значения.
 	
 	<table style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse;">
 <tr>
@@ -346,9 +346,11 @@ Giraph можно установить в любой тип кластера Had
 [tools]: https://github.com/Blackmist/hdinsight-tools
 [aps]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
 
+[powershell-install]: ../powershell-install-configure.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

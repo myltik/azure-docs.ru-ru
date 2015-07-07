@@ -1,7 +1,7 @@
 <properties
- pageTitle="Обработка данных с датчиков автомобилей с использованием концентраторов событий и средств Apache Storm в HDInsight"
- description="Узнайте, как обрабатывать данные с датчиков автомобилей из концентраторов событий Azure с использованием средств Apache Storm в HDInsight. Во время обработки данные дополняются сведениями о модели автомобиля, полученными из базы DocumentDB. В конечном итоге данные записываются в хранилище Azure."
- services="hdinsight"
+ pageTitle="Обработка данных с датчиков автомобилей с использованием Apache Storm в HDInsight | Microsoft Azure"
+ description="Узнайте, как обрабатывать данные с датчиков автомобилей из концентраторов событий с использованием средств Apache Storm в HDInsight. Добавление модели данных из DocumentDB и сохранение выходных данных в хранилище."
+ services="hdinsight,documentdb,notification-hubs"
  documentationCenter=""
  authors="Blackmist"
  manager="paulettm"
@@ -16,11 +16,11 @@ ms.workload="big-data"
 ms.date="04/28/2015"
 ms.author="larryfr"/>
 
-#Обработка данных с датчиков из концентраторов событий Azure с использованием средств Apache Storm в HDInsight
+#Обработка данных с датчиков автомобилей из концентраторов событий Azure с использованием средств Apache Storm в HDInsight.
 
 Узнайте, как обрабатывать данные с датчиков автомобилей из концентраторов событий Azure с использованием средств Apache Storm в HDInsight. В этом примере производится считывание данных с датчиков из концентраторов событий Azure, которые дополняются сведениями из Azure DocumentDB, с последующей записью полученных данных в хранилище Azure с использованием файловой системы Hadoop (HDFS).
 
-![схема архитектуры](./media/hdinsight-storm-iot-eventhub-documentdb/iot.png)
+![HDInsight и схема архитектуры Интернета вещей (IoT)](./media/hdinsight-storm-iot-eventhub-documentdb/iot.png)
 
 ##Обзор
 
@@ -57,6 +57,6 @@ ms.author="larryfr"/>
 ## Дальнейшие действия
 
 Другие примеры топологий Storm см. в разделе [Примеры топологий для Storm в HDInsight](hdinsight-storm-example-topology.md).
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

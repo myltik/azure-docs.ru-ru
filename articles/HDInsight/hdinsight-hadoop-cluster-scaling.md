@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Масштабирование кластера в HDInsight | Azure"
-   description="Измените количество узлов данных кластера, работающего в HDInsight, без необходимости удалять и повторно создавать кластер."
+   pageTitle="Масштабирование кластеров Hadoop, HBase или Apache Storm в HDInsight | Microsoft Azure"
+   description="Измените количество узлов данных кластера Hadoop, Apache Storm или HBase, работающего в HDInsight, без необходимости удалять и повторно создавать кластер."
    services="hdinsight"
    documentationCenter=""
    authors="mumian"
@@ -16,7 +16,7 @@
    ms.date="04/02/2015"
    ms.author="jgao"/>
 
-#Масштабирование кластера в HDInsight
+#Масштабируйте кластеры Hadoop, HBase или Apache Storm для изменения количества их узлов данных в HDInsight 
 
 Масштабирование кластера позволяет вам изменить число узлов данных в кластере, который работает в Azure HDInsight. При этом не требуется удалять и повторно создавать кластер. Эту операцию можно выполнить с использованием Azure PowerShelll, пакета SDK для HDInsight или портала Azure.
 
@@ -24,7 +24,7 @@
 В этом разделе описывается влияние изменения количества узлов данных в кластере каждого типа, поддерживаемого в HDInsight:
 
 * Hadoop
-* Storm
+* Apache Storm
 * HBase 
 
 ## Hadoop 
@@ -143,5 +143,6 @@
 
 
 Дополнительную информацию об использовании пакета SDK для HDInsight .NET см. в статье [Подготовка кластеров Hadoop в HDInsight с использованием настраиваемых параметров](hdinsight-provision-clusters.md).
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

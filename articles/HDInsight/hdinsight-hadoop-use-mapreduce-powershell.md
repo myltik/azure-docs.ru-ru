@@ -24,11 +24,11 @@
 
 ##<a id="prereq"></a>Предварительные требования
 
-Чтобы выполнить действия, описанные в этой статье, необходимо следующее:
+Чтобы выполнить действия, описанные в этой статье, необходимо следующее.
 
-* Кластер Azure HDInsight (Hadoop в HDInsight) (на платформе Windows или Linux).
+- **Кластер Azure HDInsight (Hadoop в HDInsight) (на платформе Windows или Linux)**
 
-* <a href="http://azure.microsoft.com/documentation/articles/install-configure-powershell/" target="_blank">Azure PowerShell</a>.
+- **Рабочая станция с Azure PowerShell**. См. [Установка и использование Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
 ##<a id="powershell"></a>Выполнение задания MapReduce с помощью Azure PowerShell
 
@@ -172,5 +172,6 @@ Azure PowerShell предоставляет *командлеты*, позвол
 * [Использование Hive с Hadoop в HDInsight](hdinsight-use-hive.md)
 
 * [Использование Pig с Hadoop в HDInsight](hdinsight-use-pig.md)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

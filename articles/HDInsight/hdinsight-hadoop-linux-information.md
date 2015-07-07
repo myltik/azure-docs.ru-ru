@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Что нужно знать о Hadoop в HDInsight на платформе Linux | Azure"
-   description="Кластеры HDInsight на основе Linux предоставляют Hadoop в привычной среде Linux, выполняемой в облаке Azure."
+   pageTitle="Советы по использованию Hadoop в HDInsight на платформе Linux | Microsoft Azure"
+   description="Советы по использованию кластеров HDInsight (Hadoop) на базе Linux в привычной среде Linux, выполняемой в облаке Azure."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/17/2015"
+   ms.date="05/27/2015"
    ms.author="larryfr"/>
 
-# Работа с HDInsight в Linux (предварительная версия)
+# Сведения об использовании HDInsight в Linux (предварительная версия)
 
 Кластеры Azure HDInsight под управлением Linux предоставляют Hadoop в привычной среде Linux, выполняемой в облаке Azure. Для большинства задач они должны работать так же, как и любые другие установки Hadoop в Linux. В этом документе рассматриваются определенные отличия, которые при этом следует учитывать.
 
@@ -92,13 +92,24 @@ HDInsight также позволяет связать несколько уче
 
         curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1"
 
-2. Найдите запись `fs.defaultFS`. В ней содержатся контейнер по умолчанию и имя учетной записи хранения в формате, аналогичному следующему:
+2. В возвращенных данных JSON найдите запись `fs.defaultFS`. В ней содержатся контейнер по умолчанию и имя учетной записи хранения в формате, аналогичному следующему:
 
         wasb://CONTAINTERNAME@STORAGEACCOUNTNAME.blob.core.windows.net
 
-> [AZURE.TIP]Если вы установили [jq](http://stedolan.github.io/jq/), следующее можно использовать только для возврата записи `fs.defaultFS`:
->
-> `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'`
+	> [AZURE.TIP]Если вы установили [jq](http://stedolan.github.io/jq/), следующее можно использовать только для возврата записи `fs.defaultFS`:
+	>
+	> `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'`
+	
+3. Чтобы найти ключ, используемый для проверки подлинности учетной записи хранения, или найти все вторичные учетные записи хранения, связанные с кластером, используйте следующую команду:
+
+		curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1"
+		
+4. В возвращенных данных JSON найдите запись, которая начинается с `fs.azure.account.key`. Остаток имени записи является именем учетной записи хранения. Например, `fs.azure.account.key.mystorage.blob.core.windows.net`. Значение, хранящееся в этой записи, является ключом, используемым для проверки подлинности учетной записи хранения.
+
+	> [AZURE.TIP]Если вы установили [jq](http://stedolan.github.io/jq/), вы можете использовать следующую команду, чтобы вернуть список ключей и значений:
+	>
+	> `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties as $in | $in | keys[] | select(. | contains("fs.azure.account.key.")) as $item | $item | ltrimstr("fs.azure.account.key.") | { storage_account: ., storage_account_key: $in[$item] }'`
+
 
 **Портал Azure**
 
@@ -114,7 +125,7 @@ HDInsight также позволяет связать несколько уче
 
 Получить доступ к большим двоичным объектам можно не только с помощью команды Hadoop из кластера, но и множеством других способов:
 
-* [Инфраструктура CLI Azure для Mac, Linux и Windows](../xplat-cli.md) — набор кроссплатформенных команд для работы с Azure. После установки используйте команду `azure storage` для получения информации по использованию хранилища, а команду `azure blob` — для получения информации о больших двоичных объектах.
+* [CLI Azure для Mac, Linux и Windows](../xplat-cli.md) — это набор кроссплатформенных команд для работы с Azure. После установки используйте команду `azure storage` для получения информации по использованию хранилища, а команду `azure blob` — для получения информации о больших двоичных объектах.
 
 * [blobxfer.py](https://github.com/Azure/azure-batch-samples/tree/master/Python/Storage) — cценарий Python для работы с большими двоичными объектами в хранилище Azure.
 
@@ -139,5 +150,6 @@ HDInsight также позволяет связать несколько уче
 * [Использование Hive с HDInsight](hdinsight-use-hive.md)
 * [Использование Pig с HDInsight](hdinsight-use-pig.md)
 * [Использование заданий MapReduce с HDInsight](hdinsight-use-mapreduce.md)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

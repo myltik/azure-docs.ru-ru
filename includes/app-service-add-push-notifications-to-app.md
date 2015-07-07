@@ -1,14 +1,14 @@
 
-## <a id="add-push"></a>Add Push Notifications to App
+## <a id="add-push"></a>Добавление push-уведомлений в приложение
 
-* In QSAppDelegate.m, import the iOS SDK and QSTodoService.h:
+* В QSAppDelegate.m импортируйте пакет SDK для iOS и QSTodoService.h:
 
 ```
         #import <WindowsAzureMobileServices/WindowsAzureMobileServices.h>
         #import "QSTodoService.h"
 ```
 
-* In `didFinishLaunchingWithOptions` in QSAppDelegate.m, insert the following lines right before `return YES;`:
+* В `didFinishLaunchingWithOptions` QSAppDelegate.m вставьте следующие строки прямо перед `return YES;`:
 
 ```
         UIUserNotificationSettings* notificationSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
@@ -16,7 +16,7 @@
         [[UIApplication sharedApplication] registerForRemoteNotifications];
 ```
 
-* In QSAppDelegate.m, add the following handler methods. Your app is now updated to support push notifications.
+* В QSAppDelegate.m добавьте следующие методы обработчика. Ваше приложение теперь обновлено для поддержки push-уведомлений.
 
 ```
         // Registration with APNs is successful
@@ -56,3 +56,5 @@
             [alert show];
         }
 ```
+
+<!---HONumber=62-->

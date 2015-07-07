@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Application Insights: платформы" 
-	description="Можно ли использовать Application Insights  с...?" 
+	description="Можно ли использовать Application Insights с...?" 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="05/06/2015" 
 	ms.author="awills"/>
  
 # Application Insights: платформы
@@ -24,27 +24,34 @@
 
 ## Языки
 
-+ [C#, VB](app-insights-start-monitoring-app-health-usage.md)
-+ [Веб-страницы JavaScript](app-insights-web-track-usage.md)
-+ [Приложения JavaScript Магазина Windows](#cordova)
++ [C\#|VB (.NET)](app-insights-start-monitoring-app-health-usage.md)
++ [C\#|VB (Магазин Windows)](app-insights-windows-get-started.md)
++ [C++ (Магазин Windows)](app-insights-windows-cpp.md)
 + [Java](../app-insights-java.md)
-+ [Ruby](https://rubygems.org/gems/application_insights) 
-+ [PHP](https://github.com/Microsoft/AppInsights-PHP)
++ [Веб-страницы JavaScript](app-insights-web-track-usage.md)
++ [PHP](https://github.com/Microsoft/ApplicationInsights-PHP)
 + [Python](https://pypi.python.org/pypi/applicationinsights/0.1.0)
++ [Ruby](https://rubygems.org/gems/application_insights) 
++ [Другие варианты](#projects)
 
 ## Платформы
 
 + [ASP.NET](app-insights-start-monitoring-app-health-usage.md)
++ [ASP.NET 5](app-insights-asp-net-five.md)
++ [Android](https://github.com/Microsoft/ApplicationInsights-Android)
 + [Веб-приложения и виртуальные машины Azure](../insights-perf-analytics.md)
-+ [Android](https://github.com/Microsoft/AppInsights-Android)
-+ [iOS](https://github.com/Microsoft/AppInsights-iOS)
-+ [Cordova](#cordova)
++ [Облачные службы Azure](app-insights-cloudservices.md)
++ [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
++ [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 + [Angular](https://www.npmjs.com/package/angular-applicationinsights)
 + [Node.JS](https://www.npmjs.com/package/applicationinsights)
 + [Joomla](https://github.com/fidmor89/AppInsights-Joomla)
 + [SharePoint](app-insights-sharepoint.md)
 + [WordPress](https://wordpress.org/plugins/application-insights/)
-+ [Классические приложения Windows](app-insights-windows-desktop.md)
++ [C\#|VB в Магазине Windows](app-insights-windows-get-started.md)
++ [C++ в Магазине Windows](app-insights-windows-cpp.md)
++ [Классические приложения и службы Windows](app-insights-windows-desktop.md)
++ [Другие варианты](#projects)
 
 
 ## Платформы ведения журналов
@@ -53,27 +60,12 @@
 +	[Java, Log4J или Logback](app-insights-java-trace-logs.md)
 
 
-## Проекты
+## <a name="projects"></a> Создание собственного пакета SDK
 
-Посетите также [проект пакета SDK для Application Insights на GitHub](https://github.com/Microsoft/AppInsights-Home)
+Если для языка или платформы, которые вы используете, не существует пакета SDK, возможно, вы захотите создать его. Просмотрите код существующих пакетов SDK, перечисленных в описании [проекта пакета SDK для Application Insights на GitHub](https://github.com/Microsoft/AppInsights-Home).
 
 
-### <a name="cordova"></a>Приложения JavaScript Магазина Windows и Cordova
 
-В Visual Studio щелкните правой кнопкой мыши проект и выберите **Управление пакетами NuGet**.
-
-Выберите **Интернет** и выполните поиск по Application Insights.
-
-Установите **API Application Insights для приложений JavaScript**.
-
-Используйте стандартный клиентский [сценарий веб-приложения](app-insights-web-track-usage.md), но с одним изменением.
-
-При получении сценария на портале Application Insights вставьте строку после ключа инструментирования:
-
-    ...{
-        instrumentationKey:"00000000-662d-4479-0000-40c89770e67c",
-        endpointUrl:"https://dc.services.visualstudio.com/v2/track"
-    } ...
 
 [Cordova](http://cordova.apache.org/)
 
@@ -81,6 +73,4 @@
 
 <!--Link references-->
 
-
-
-<!--HONumber=54--> 
+<!---HONumber=62-->

@@ -1,133 +1,14 @@
 
-Служба push-уведомлений Apple (APNS) использует сертификаты для аутентификации вашей мобильной службы. Выполните следующие действия, чтобы создать необходимые сертификаты и передать их в мобильную службу. Официальную документацию по APNS см. в разделе [Служба push-уведомлений Apple](http://go.microsoft.com/fwlink/p/?LinkId=272584).
+## <a id="register"></a>Регистрация приложения для работы с push-уведомлениями
 
-## <a id="certificates"></a>Создание файла запроса подписи сертификата
+* [Зарегистрируйте идентификатор для своего приложения](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/MaintainingProfiles/MaintainingProfiles.html#//apple_ref/doc/uid/TP40012582-CH30-SW991). При регистрации приложения установите необязательный флажок **Push-уведомления** на панели **Службы приложений**.
 
-Сначала необходимо создать файл запроса подписи сертификата (с расширением CSR), используемый Apple для создания подписанного сертификата.
+> [AZURE.NOTE]Создайте явный идентификатор приложения (не подстановочный знак идентификатора приложения), а для параметра **ИД пакета** используйте тот же **ИД пакета**, что и в проекте быстрого запуска Xcode. Также очень важно при регистрации идентификатора приложения выбрать параметр **Push-уведомления** на панели **Службы приложений** . Push-уведомления не будут работать, если этот флажок не установлен.
 
-1. В папке "Служебные программы" запустите средство Keychain Access.
+* Теперь [включите push-уведомления для приложения](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringPushNotifications/ConfiguringPushNotifications.html#//apple_ref/doc/uid/TP40012582-CH32-SW6). Можно создать сертификат SSL "Разработка" или "Распространение" (не забудьте позже выбрать соответствующий параметр — "Изолированная среда" или "Рабочая среда" — на портале мобильных служб .)
 
-2. Щелкните **Keychain Access**, разверните **Certificate Assistant** (Помощник по сертификатам), а затем щелкните **Request a Certificate from a Certificate Authority...** (Запросить сертификат в центре сертификации...).
+* Далее [убедитесь, что идентификатор приложения обеспечивает работу push-уведомлений](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringPushNotifications/ConfiguringPushNotifications.html#//apple_ref/doc/uid/TP40012582-CH32-SW8).
 
-  	![](./media/enable-apple-push-notifications/mobile-services-ios-push-step5.png)
+* Наконец, [обновите профили подготовки в проекте быстрого запуска Xcode](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringPushNotifications/ConfiguringPushNotifications.html#//apple_ref/doc/uid/TP40012582-CH32-SW10) и затем [убедитесь, что профиль подготовки был создан или повторно генерирован, чтобы включить push-уведомления](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringPushNotifications/ConfiguringPushNotifications.html#//apple_ref/doc/uid/TP40012582-CH32-SW12).
 
-3. Выберите ваши параметры **User Email Address** (Адрес электронной почты пользователя) и **Common Name** (Общее имя), убедитесь, что установлен флажок **Saved to disk** (Сохранено на диск), а затем щелкните **Continue** (Продолжить). Оставьте поле **CA Email Address** (Адрес электронной почты ЦС) пустым, поскольку оно не является обязательным.
-
-  	![](./media/enable-apple-push-notifications/mobile-services-ios-push-step6.png)
-
-4. Введите имя файла запроса подписи сертификата (CSR) в поле **Save As** (Сохранить как), выберите расположение в поле **Where** (Папка) и нажмите кнопку **Save** (Сохранить).
-
-  	![](./media/enable-apple-push-notifications/mobile-services-ios-push-step7.png)
-
-  	При этом CSR-файл сохраняется в выбранном месте; по умолчанию — на рабочем столе. Запомните расположение, выбранное для этого файла.
-
-Затем вы зарегистрируете ваше приложение в Apple, включите push-уведомления и передадите этот экспортированный CSR-файл для создания сертификата push-уведомлений.
-
-## <a id="register"></a>Регистрация приложения для получения push-уведомлений
-
-Чтобы иметь возможность отправлять push-уведомления в приложение для iOS из мобильных служб, необходимо зарегистрировать ваше приложение в Apple, а также зарегистрировать его для получения push-уведомлений.
-
-1. Если ваше приложение еще не зарегистрировано, перейдите на <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">портал подготовки iOS</a> в центре разработчиков Apple, выполните вход с использованием вашего идентификатора Apple, щелкните **Идентификаторы**, а затем — **Идентификаторы приложений** и, наконец, нажмите кнопку **+**, чтобы зарегистрировать новое приложение.
-
-   	![](./media/enable-apple-push-notifications/mobile-services-ios-push-02.png)
-
-
-
-> [AZURE.NOTE]Если вы хотите указать значение <strong>Идентификатор набора</strong>, отличное от <i>MobileServices.Quickstart</i>, необходимо также обновить значение идентификатора набора в проекте Xcode. Рекомендуется использовать то же значение идентификатора набора, которое уже используется в проекте быстрого запуска.
-
-2. Введите имя приложения в поле **Описание**, введите значение _MobileServices.Quickstart_ в поле **Идентификатор набора**, выберите вариант «Push-уведомления» в разделе «Службы приложений», а затем щелкните кнопку **Продолжить**. В этом примере используется идентификатор **MobileServices.Quickstart**, но вы не можете повторно использовать тот же идентификатор, поскольку идентификаторы приложений должны быть уникальными для всех пользователей. Поэтому рекомендуется добавить ваше полное имя или инициалы после имени приложения.
-
-
-    ![](./media/enable-apple-push-notifications/mobile-services-ios-push-03.png)
-
-   	При этом создается идентификатор вашего приложения и появляется запрос об **отправке** информации. Нажмите кнопку **Submit** (Отправить).
-
-
-    ![](./media/enable-apple-push-notifications/mobile-services-ios-push-04.png)
-
-
-   	После нажатия кнопки **Submit** (Отправить) вы увидите экран **Registration complete** (Регистрация выполнена), представленный ниже. Нажмите кнопку **Done** (Готово).
-
-
-    ![](./media/enable-apple-push-notifications/mobile-services-ios-push-05.png)
-
-
-3. Найдите созданный вами идентификатор приложения и щелкните его строку.
-
-   	![](./media/enable-apple-push-notifications/mobile-services-ios-push-06.png)
-
-   	Если щелкнуть идентификатор приложения, отобразятся сведения о приложении и идентификаторе приложения. Нажмите кнопку **Параметры**.
-
-   	![](./media/enable-apple-push-notifications/mobile-services-ios-push-07.png)
-
-4. Прокрутите до нижней части экрана и нажмите кнопку **Create Certificate...** (Создать сертификат...) в разделе **Development Push SSL Certificate** (SSL-сертификат разработки push-уведомлений).
-
-   	![](./media/enable-apple-push-notifications/mobile-services-ios-push-08.png)
-
-   	Откроется помощник "Add iOS Certificate" (Добавление сертификата iOS).
-
-    > [AZURE.NOTE]В этом учебнике используется сертификат разработки. Тот же процесс используется при регистрации сертификата производства. Просто убедитесь, что задается тот же тип сертификата при отправке сертификата в мобильные службы.
-
-5. Щелкните **Choose File** (Выбрать файл), перейдите к папке, где был сохранен CSR-файл, созданный в первом задании, а затем щелкните **Generate** (Создать).
-
-  	![](./media/enable-apple-push-notifications/mobile-services-ios-push-10.png)
-
-6. После создания сертификата с помощью портала нажмите кнопку **Download** (Загрузить) и щелкните **Done** (Готово).
-
-  	![](./media/enable-apple-push-notifications/mobile-services-ios-push-11.png)
-
-   	При этом сертификат подписи загружается и сохраняется на вашем компьютере в папке "Загрузки".
-
-  	![](./media/enable-apple-push-notifications/mobile-services-ios-push-step9.png)
-
-    > [AZURE.NOTE]По умолчанию загруженный файл сертификата разработки называется **aps_development.cer**.
-
-7. Дважды щелкните скачанный сертификат push-уведомлений **aps_development.cer**.
-
-   	При этом новый сертификат устанавливается в Keychain, как показано ниже:
-
-   	![](./media/enable-apple-push-notifications/mobile-services-ios-push-step10.png)
-
-    > [AZURE.NOTE]Имя вашего сертификата может отличаться, но оно будет начинаться с префикса **Apple Development iOS Push Services:**.
-
-Позже этот сертификат будет использоваться для создания файла .p12 и отправки его в мобильные службы для включения проверки подлинности с помощью APNS.
-
-## <a id="profile"></a>Создание профиля подготовки для приложения
-
-1. На <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">портале подготовки iOS</a> выберите **Профили подготовки**, затем щелкните **Все** и нажмите кнопку **+**, чтобы создать новый профиль. Запустится мастер **Add iOS Provisiong Profile** (Добавление профиля подготовки для iOS).
-
-   	![](./media/enable-apple-push-notifications/mobile-services-ios-push-12.png)
-
-2. Выберите **iOS App Development** (Разработка приложений для iOS) в разделе **Development** (Разработка) в качестве типа профиля подготовки и нажмите кнопку **Continue** (Продолжить).
-
-   	![](./media/enable-apple-push-notifications/mobile-services-ios-push-13.png)
-
-3. Затем выберите идентификатор приложения для приложения быстрого начала работы с мобильными службами в раскрывающемся списке **App ID** (Идентификатор приложения) и нажмите кнопку **Continue** (Продолжить).
-
-   	![](./media/enable-apple-push-notifications/mobile-services-ios-push-14.png)
-
-4. На экране **Select certificates** (Выбор сертификатов) выберите ранее созданный сертификат и нажмите кнопку **Continue** (Продолжить).
-
-   	![](./media/enable-apple-push-notifications/mobile-services-ios-push-15.png)
-
-5. Затем выберите **Devices** (Устройства) для тестирования и нажмите кнопку **Continue** (Продолжить).
-
-   	![](./media/enable-apple-push-notifications/mobile-services-ios-push-16.png)
-
-6. Наконец, выберите имя профиля в поле **Profile Name** (Имя профиля), щелкните **Generate** (Создать) и нажмите кнопку **Done** (Готово).
-
-   	![](./media/enable-apple-push-notifications/mobile-services-ios-push-17.png)
-
-  	В результате создается новый профиль подготовки.
-
-7. В Xcode откройте Organizer (Диспетчер), выберите представление Devices (Устройства), выберите **Provisioning Profiles** (Профили подготовки) в разделе **Library** (Библиотека) на левой панели и нажмите кнопку **Refresh** (Обновить) в нижней части средней панели.
-
-8. Можно поступить иначе. В меню Xcode выберите **Preferences** (Предпочтения), а затем — **Accounts** (Учетные записи). На левой панели выберите свой идентификатор разработчика Apple. Нажмите кнопку **View Details** (Просмотр сведений) справа. Во всплывающем окне нажмите закругленную кнопку **Refresh** (Обновить). Списки профилей подготовки обновятся. Это может занять несколько минут. Рекомендуется нажать кнопку **Refresh** (Обновить) 2–3 раза, пока не появится новый профиль подготовки. Кроме того, убедитесь, что идентификатор набора данного проекта Xcode совпадает с идентификатором набора, связанным с идентификатором приложения и профилем подготовки, который вы уже создали.
-
-    ![](./media/enable-apple-push-notifications/mobile-services-ios-push-01.png)
-
-9. В разделе **Targets** (Цели) щелкните **Quickstart** (Быстрый запуск), разверните **Code Signing Identity** (Удостоверения подписи кода), а затем в разделе **Debug** (Отладка) выберите новый профиль. Это гарантирует, что проект Xcode использует новый профиль для подписи кода. Затем необходимо отправить этот сертификат в Azure.
-
-   	![](./media/enable-apple-push-notifications/mobile-services-ios-push-step17.png)
-
-<!--HONumber=54-->
+<!---HONumber=62-->

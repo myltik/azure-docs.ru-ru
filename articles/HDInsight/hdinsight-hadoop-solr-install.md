@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Использование действия сценария для установки Solr в кластере Hadoop | Microsoft Azure" 
-	description="Дополнительные сведения о настройке кластера HDInsight для установки Solr. Вы воспользуетесь параметром конфигурации действия скрипта (Script Action), чтобы использовать скрипт для установки Solr" 
+	description="Узнайте, как настроить кластер HDInsight для установки Solr. Вам следует воспользоваться параметром конфигурации действия скрипта (Script Action), чтобы использовать скрипт для установки Solr" 
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="nitinme" 
@@ -122,7 +122,7 @@ Solr можно установить в кластере Hadoop в Azure HDInsig
 			          "electronics and computer1"
 			        ],
 			        "features": [
-			          "30" TFT active matrix LCD, 2560 x 1600, .25mm dot pitch, 700:1 contrast"
+			          "30\" TFT active matrix LCD, 2560 x 1600, .25mm dot pitch, 700:1 contrast"
 			        ],
 			        "includes": "USB cable",
 			        "weight": 401.6,
@@ -251,7 +251,7 @@ Solr можно установить в кластере Hadoop в Azure HDInsig
 
 2. В меню **Файл** выберите команду **Создать**, а затем — **Проект**.
 
-3. В окне **Новый проект** введите или выберите следующие значения:
+3. В окне **Новый проект** введите или выберите следующие значения.
 	
 	<table style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse;">
 <tr>
@@ -363,5 +363,6 @@ Solr можно установить в кластере Hadoop в Azure HDInsig
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->
