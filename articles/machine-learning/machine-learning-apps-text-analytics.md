@@ -33,7 +33,7 @@ API возвращает список строк с обозначением к�
 
 ###GetSentiment###
 
-**URL-адрес**
+**URL-адрес**	
 
 	https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetSentiment
 
@@ -95,7 +95,7 @@ API возвращает список строк с обозначением к�
 
 ###GetSentimentBatch###
 
-**URL-адрес**
+**URL-адрес**	
 
 	https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetSentimentBatch
 
