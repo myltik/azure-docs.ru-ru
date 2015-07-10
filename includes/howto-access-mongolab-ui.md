@@ -4,10 +4,15 @@
 
 Для доступа к пользовательскому интерфейсу MongoLab, выполните следующие действия:
 
-1. Выберите **Надстройки**. ![AddonsButton][button-addons]
-1. Найдите нужную службу MongoLab в списке надстроек. ![MongolabEntry][entry-mongolabaddon]
+1. Выберите **Надстройки**.  
+![AddonsButton][button-addons]
+1. Найдите нужную службу MongoLab в списке надстроек.  
+![MongolabEntry][entry-mongolabaddon]
 1. Чтобы перейти на страницу надстройки, выберите ее имя.
-1. Нажмите кнопку **Управление**. ![ManageButton][button-manage] Откроется новая вкладка браузера с домашней страницей базы данных MongoLab: ![DbHome][screen-dblanding]
+1. Нажмите кнопку **Управление**.  
+![ManageButton][button-manage]  
+Откроется новая вкладка браузера с домашней страницей базы данных MongoLab:  
+![DbHome][screen-dblanding]
 
 Здесь можно выбрать конкретные коллекции и получить более подробную информацию по отдельным документам. Выйдите из системы после завершения.
 
@@ -16,4 +21,4 @@
 [button-addons]: ./media/howto-access-mongolab-ui/button-addons.png
 [screen-dblanding]: ./media/howto-access-mongolab-ui/screen-mongolab_dblanding.png
 
-<!---HONumber=62-->
+<!----HONumber=62-->
