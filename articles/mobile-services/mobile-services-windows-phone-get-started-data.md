@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="05/28/2015" 
 	ms.author="glenga"/>
 
 
@@ -29,17 +29,11 @@
 <div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkID=298628" target="_blank" class="label">Просмотр учебника</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-wp8-get-started-data-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkID=298628" target="_blank" class="dev-onpage-video"><span class="icon">Воспроизведение видео</span></a> <span class="time">12:54:00</span></div>
 </div>
 
-В этом учебнике рассматриваются следующие основные действия:
+##Предварительные требования 
 
-1. [Загрузка проекта приложения Windows Phone 8] 
-2. [Создание мобильной службы]
-3. [Добавление таблицы для хранения данных]
-4. [Обновление приложения для использования мобильных служб]
-5. [Тестирование работы приложения с мобильными службами]
++ Visual Studio 2012 Express для Windows Phone 8 и [пакет SDK для Windows Phone 8], запущенный в среде Windows 8. Чтобы завершить этот учебник и создать приложение для Windows Phone 8.1, следует использовать Visual Studio 2013 с обновлением 2 или более позднюю версию. 
 
-Для работы с этим учебником требуется Visual Studio 2012 Express для Windows Phone 8 и [пакет SDK для Windows Phone 8], запущенный в среде Windows 8. Чтобы завершить этот учебник и создать приложение для Windows Phone 8.1, следует использовать Visual Studio 2013 с обновлением 2 или более позднюю версию.
-
->[AZURE.NOTE]Для работы с этим учебником требуется учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fru-ru%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-wp8%2F" target="_blank">Бесплатная пробная версия Azure</a>.
++ Учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Farticles%2Fdocumentation%2Fmobile-services-windows-phone-get-started-data%2F).
 
 ##<a name="download-app"></a>Скачивание проекта GetStartedWithData
 
@@ -61,15 +55,15 @@
 
    	Обратите внимание, что сохраненный текст отображается в списке ниже.
 
-<h2><a name="create-service"></a>Создание мобильной службы на портале управления</h2>
+##<a name="create-service"></a>Создание мобильной службы на портале управления
 
 [AZURE.INCLUDE [mobile-services-create-new-service-data](../../includes/mobile-services-create-new-service-data.md)]
 
-<h2><a name="add-table"></a>Добавление новой таблицы в мобильную службу</h2>
+##<a name="add-table"></a>Добавление новой таблицы в мобильную службу
 
 [AZURE.INCLUDE [mobile-services-create-new-service-data-2](../../includes/mobile-services-create-new-service-data-2.md)]
 
-<h2><a name="update-app"></a>Обновление приложения для доступа к данным с помощью мобильной службы</h2>
+##<a name="update-app"></a>Обновление приложения для доступа к данным с помощью мобильной службы
 
 После настройки мобильной службы вы можете обновить приложение, чтобы хранить элементы в мобильных службах, а не в локальной коллекции.
 
@@ -93,7 +87,7 @@
 
        	using Microsoft.WindowsAzure.MobileServices;
 
-6. В том же файле раскомментируйте следующий код, который определяет переменную **MobileService**, и укажите URL-адрес и ключ приложения мобильной службы в конструкторе **MobileServiceClient** в указанном порядке.
+6. В том же файле раскомментируйте код, который определяет переменную **MobileService**, и укажите URL-адрес и ключ приложения мобильной службы в конструкторе **MobileServiceClient** в указанном порядке.
 
 		//public static MobileServiceClient MobileService = new MobileServiceClient( 
         //    "AppUrl", 
@@ -148,7 +142,7 @@
 
 Теперь, когда приложение обновлено для хранения данных на сервере с использованием мобильных служб, настало время протестировать приложение на работу с мобильными службами.
 
-<h2><a name="test-app"></a>Тестирование работы приложения с новой мобильной службой</h2>
+##<a name="test-app"></a>Тестирование работы приложения с новой мобильной службой
 
 1. В Visual Studio нажмите клавишу F5, чтобы запустить приложение.
 
@@ -170,41 +164,27 @@
 
 В этом учебнике показаны основы включения в приложении для Windows Phone 8 возможностей работы с данными в мобильных службах. Рекомендуем прочитать один из следующих разделов:
 
-* [Приступая к работе с проверкой подлинности] <br/>Узнайте, как проверять подлинность пользователей приложения.
+* [Добавление проверки подлинности в приложение](mobile-services-windows-phone-get-started-users.md) <br/>Узнайте, как проверять подлинность пользователей приложения.
 
-* [Приступая к работе с push-уведомлениями] <br/>Узнайте, как с помощью мобильных служб отправлять в приложение простейшие push-уведомления.
+* [Добавление push-уведомлений в приложение](mobile-services-javascript-backend-windows-phone-get-started-push.md) <br/>Узнайте, как с помощью мобильных служб отправлять в приложение простейшие push-уведомления.
 
-* [Справочник принципов использования мобильных служб C#](mobile-services-windows-dotnet-how-to-use-client-library.md) <br/>Дополнительные сведения об использовании мобильных служб с .NET.
+* [Справочник принципов использования мобильных служб C#](mobile-services-windows-dotnet-how-to-use-client-library.md) <br/>Узнайте, как использовать мобильные службы с .NET.
  
 <!-- Anchors. -->
-[Загрузка проекта приложения Windows Phone 8]: #download-app
-[Создание мобильной службы]: #create-service
-[Добавление таблицы для хранения данных]: #add-table
-[Обновление приложения для использования мобильных служб]: #update-app
-[Тестирование работы приложения с мобильными службами]: #test-app
+[Download the Windows Phone 8 app project]: #download-app
+[Create the mobile service]: #create-service
+[Add a data table for storage]: #add-table
+[Update the app to use Mobile Services]: #update-app
+[Test the app against Mobile Services]: #test-app
 [Next Steps]: #next-steps
 
 <!-- Images. -->
 [0]: ./media/mobile-services-windows-phone-get-started-data/mobile-quickstart-startup-wp8.png
-
-
-
-
-
-
 [7]: ./media/mobile-services-windows-phone-get-started-data/mobile-add-nuget-package-wp.png
 [8]: ./media/mobile-services-windows-phone-get-started-data/mobile-dashboard-tab.png
 [9]: ./media/mobile-services-windows-phone-get-started-data/mobile-todoitem-data-browse.png
 
-
-
 <!-- URLs. -->
-[Validate and modify data with scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-wp8
-[Refine queries with paging]: /develop/mobile/tutorials/add-paging-to-data-wp8
-[Get started with Mobile Services]: /develop/mobile/tutorials/get-started-wp8
-[Get started with data]: /develop/mobile/tutorials/get-started-with-data-wp8
-[Приступая к работе с проверкой подлинности]: /develop/mobile/tutorials/get-started-with-users-wp8
-[Приступая к работе с push-уведомлениями]: /develop/mobile/tutorials/get-started-with-push-wp8
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Портале управления]: https://manage.windowsazure.com/
@@ -212,5 +192,6 @@
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkID=268375
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=271146
 [примеров кода для разработчиков]: http://go.microsoft.com/fwlink/p/?LinkId=271146
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

@@ -46,10 +46,10 @@ Azure Active Directory (Azure AD) предоставляет компаниям 
 
 ## Дополнительные ресурсы
 
-* [Подписка на Azure как организация](sign-up-organization.md)
+* [Регистрация организации в Azure](sign-up-organization.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-whatis/Azure_Active_Directory.png
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

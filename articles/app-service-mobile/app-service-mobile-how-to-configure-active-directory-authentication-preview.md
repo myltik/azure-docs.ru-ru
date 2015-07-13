@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Настройка проверки подлинности Azure Active Directory для приложения служб приложений" 
 	description="Узнайте, как настроить проверку подлинности Azure Active Directory для приложения служб приложений." 
-	authors="mattchenderson,wesmc7777" 
+	authors="mattchenderson" 
 	services="app-service\mobile" 
 	documentationCenter="" 
 	manager="dwrede" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/19/2015" 
+	ms.date="05/26/2015" 
 	ms.author="mahender"/>
 
 # Настройка приложения для использования имени для входа Azure Active Directory
@@ -32,7 +32,7 @@
 
     ![][2]
 
-4. Выберите каталог, а затем откройте вкладку **Приложения** в верхней части окна. Щелкните **Добавить** в нижней части окна, чтобы зарегистрировать новое приложение.
+4. Выберите свой каталог, а затем откройте вкладку **Приложения** в верхней части окна. Щелкните **Добавить** в нижней части окна, чтобы зарегистрировать новое приложение.
 
 5. Выберите команду **Добавить приложение, разрабатываемое моей организацией**.
 
@@ -71,5 +71,6 @@
 [портал управления предварительной версии Azure]: https://portal.azure.com/
 [портал управления Azure]: https://manage.windowsazure.com/
 [ios-adal]: ../app-service-mobile-dotnet-backend-xamarin-ios-aad-sso-preview.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

@@ -84,6 +84,6 @@
 
 ## Связанные статьи
 
-- [Запуск модуля Runbook в службе автоматизации Azure](automation-starting-a-runbook.md)
+- [Запуск модуля Runbook в службе автоматизации Azure](automation-starting-a-runbook.md) 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

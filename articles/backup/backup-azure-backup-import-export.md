@@ -1,20 +1,19 @@
 <properties
-	pageTitle="Служба архивации Azure: автономное резервное копирование и начальное заполнение с помощью службы импорта и экспорта Azure"
-	description="Узнайте, как служба архивации Azure позволяет отправлять данные с помощью службы импорта и экспорта Azure без использования сети. В этой статье описывается автономное заполнение начальных резервных копий данных с помощью службы импорт и экспорт Azure."
-	services="backup"
-	documentationCenter=""
-	authors="prvijay"
-	manager="shreeshd"
-	editor=""/>
-
+   pageTitle="Служба архивации Azure: автономное резервное копирование и начальное заполнение с помощью службы импорта и экспорта Azure"
+   description="Узнайте, как служба архивации Azure позволяет отправлять данные с помощью службы импорта и экспорта Azure без использования сети. В этой статье описывается автономное заполнение начальных резервных копий данных с помощью службы импорт и экспорт Azure."
+   services="backup"
+   documentationCenter=""
+   authors="prvijay"
+   manager="shreeshd"
+   editor=""/>
 <tags
-	ms.service="backup"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="storage-backup-recovery"
-	ms.date="04/07/2015"
-	ms.author="prvijay"/>
+   ms.service="backup"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="storage-backup-recovery"
+   ms.date="04/07/2015"
+   ms.author="prvijay"/>
 
 # Автономное резервное копирование в службе архивации Azure
 
@@ -133,5 +132,6 @@
 [7]: ./media/backup-azure-backup-import-export/complete.png
 [8]: ./media/backup-azure-backup-import-export/dpmoffline.png
 [9]: ./media/backup-azure-backup-import-export/dpmbackupnow.png
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

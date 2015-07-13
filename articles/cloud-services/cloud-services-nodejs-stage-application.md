@@ -78,15 +78,16 @@
 - [Развертывание обновления службы в рабочей среде путем переключения виртуальных IP-адресов в Azure]
 - [Обзор управления развертываниями в Azure]
 
-[Шаг 1. Развертывание приложения в промежуточной среде.]: #step1
-[Step 2: Deploy an Application to Production by Swapping VIPs]: #step2
-[Шаг 2. Развертывание приложения в рабочей среде путем переключения виртуальных IP-адресов.]: #step2
-[портал управления Azure]: http://manage.windowsazure.com
+  [Шаг 1. Развертывание приложения в промежуточной среде.]: #step1
+  [Step 2: Deploy an Application to Production by Swapping VIPs]: #step2
+  [Шаг 2. Развертывание приложения в рабочей среде путем переключения виртуальных IP-адресов.]: #step2
+  [портал управления Azure]: http://manage.windowsazure.com
 [cloud-service]: ./media/cloud-services-nodejs-stage-application/staging-cloud-service-running.png
 [cloud-service-dashboard]: ./media/cloud-services-nodejs-stage-application/cloud-service-dashboard-staging.png
-[cloud-service-staging-url]: ./media/cloud-services-nodejs-stage-application/cloud-service-staging-url.png
-[vip-swap-dialog]: ./media/cloud-services-nodejs-stage-application/vip-swap-dialog.png
-[Развертывание обновления службы в рабочей среде путем переключения виртуальных IP-адресов в Azure]: http://msdn.microsoft.com/library/windowsazure/ee517253.aspx
-[Обзор управления развертываниями в Azure]: http://msdn.microsoft.com/library/windowsazure/hh386336.aspx
+  [cloud-service-staging-url]: ./media/cloud-services-nodejs-stage-application/cloud-service-staging-url.png
+  [vip-swap-dialog]: ./media/cloud-services-nodejs-stage-application/vip-swap-dialog.png
+  [Развертывание обновления службы в рабочей среде путем переключения виртуальных IP-адресов в Azure]: http://msdn.microsoft.com/library/windowsazure/ee517253.aspx
+  [Обзор управления развертываниями в Azure]: http://msdn.microsoft.com/library/windowsazure/hh386336.aspx
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

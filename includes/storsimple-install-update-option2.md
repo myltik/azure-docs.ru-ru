@@ -1,34 +1,18 @@
-<properties 
-   pageTitle="Option 2: Use the Azure Management Portal to apply Update 1"
-   description="Explains how to use the Management Portal to install StorSimple 8000 Series Update 1."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/14/2015"
-   ms.author="v-sharos" />
 
-#### To install Update 1 from the Azure Management Portal
+#### Установка обновления 1 с портала управления Azure
 
-1. In the Management Portal, go to the **Devices** page and select your device.
+1. На портале управления откройте страницу **Устройства** и выберите свое устройство.
  
-2. Navigate to **Devices** > **Configure**. 
+2. Перейдите в раздел **Устройства** > **Настройка**.
 
-3. Under **Network Interfaces**, locate the network interface that has a gateway assigned. This will be a network interface other than DATA 0. 
+3. В разделе **Сетевые интерфейсы** найдите интерфейс, которому назначен шлюз. Это будет сетевой интерфейс, отличный от DATA 0.
 
-4. Clear the gateway setting. Note that because gateway settings are required on a cloud-enabled network interface, you will need to disable the cloud access for this interface to clear the setting.
+4. Очистите параметр шлюза. Обратите внимание, что поскольку параметры шлюза на сетевом интерфейсе с поддержкой облачных технологий являются обязательными, вам потребуется отключить для этого интерфейса доступ к облачным службам, чтобы очистить этот параметр.
 
-5. Repeat step 4 for any other network interface that has a gateway assigned (excluding DATA 0).
+5. Повторите действие 4 для всех сетевых интерфейсов, которым назначен шлюз (кроме DATA 0).
 
-6. Save the modified configuration.
+6. Сохраните измененную конфигурацию.
 
-7. You can now [use the Management Portal to install Update 1](#use-the-management-portal-to-install-update-1). 
+7. Теперь можно [установить обновление 1 с помощью портала управления](#use-the-management-portal-to-install-update-1).
 
-
+<!---HONumber=62-->

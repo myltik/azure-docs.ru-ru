@@ -1,19 +1,19 @@
-<properties 
+<properties
 	pageTitle="Настройка проверки подлинности учетной записи Майкрософт для приложения служб приложений"
-	description="Настройка проверки подлинности учетной записи Майкрософт для приложения служб приложений." 
-	authors="mattchenderson,ggailey777" 
-	services="app-service\mobile" 
-	documentationCenter="" 
-	manager="dwrede" 
+	description="Настройка проверки подлинности учетной записи Майкрософт для приложения служб приложений."
+	authors="mattchenderson" 
+	services="app-service\mobile"
+	documentationCenter=""
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="app-service-mobile" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="02/19/2015" 
+<tags
+	ms.service="app-service-mobile"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="05/26/2015"
 	ms.author="mahender"/>
 
 # Настройка приложения для использования входа по учетной записи Майкрософт
@@ -22,7 +22,7 @@
 
 ## <a name="register"> </a>Регистрация приложения с помощью учетной записи Майкрософт
 
-1. Перейдите на страницу [Мои приложения] в центре разработки для учетной записи Майкрософт и войдите по учетной записи Майкрософт, если это требуется. 
+1. Перейдите на страницу [Мои приложения] в центре разработки для учетной записи Майкрософт и войдите по учетной записи Майкрософт, если это требуется.
 
 2. Щелкните элемент **Создать приложение**, введите **Имя приложения** и нажмите кнопку **Я принимаю**.
 
@@ -64,4 +64,6 @@
 
 [Мои приложения]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [портал управления Azure]: https://portal.azure.com/
-<!--HONumber=54--> 
+ 
+
+<!---HONumber=62-->

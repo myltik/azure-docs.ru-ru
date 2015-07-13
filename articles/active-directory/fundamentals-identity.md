@@ -1,14 +1,29 @@
-<properties urlDisplayName="Identity" pageTitle="Удостоверение Azure" metaKeywords="удостоверение Azure, Azure Active Directory, Azure AD, облачное удостоверение ad, облако active directory" description="Узнайте, как можно использовать службу каталогов Active Directory в Azure." metaCanonical="" services="active-directory" documentationCenter=".NET" title="" authors="terrylan" solutions="" manager="terrylan" editor="" />
+<properties
+	pageTitle="Удостоверение Azure"
+	description="Узнайте, как можно использовать службу каталогов Active Directory в Azure."
+	services="active-directory"
+	documentationCenter=".net"
+	authors="TerryLanfear"
+	manager="terrylan"
+	editor=""/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/01/2014" ms.author="terrylan" />
+<tags
+	ms.service="multiple"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/02/2015"
+	ms.author="terrylan"/>
+
+
+# Основы управления удостоверениями Azure
 
 
 
 
 
-
-
-[WACOM.INCLUDE [identity](../../includes/identity.md)]
-
-<!--HONumber=35.2-->
+[AZURE.INCLUDE [идентификация](../../includes/identity.md)]
  
+
+<!---HONumber=62-->

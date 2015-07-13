@@ -1,19 +1,3 @@
-<properties 
-   pageTitle="Создание настраиваемой политики резервного копирования StorSimple"
-   description="В статье рассказывается о том, как с помощью службы диспетчера StorSimple создать пользовательскую политику резервного копирования."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/14/2015"
-   ms.author="v-sharos" />
 
 #### Создание пользовательской политики резервного копирования
 
@@ -55,4 +39,4 @@
 
     ![Настраиваемая политика резервного копирования](./media/storsimple-create-custom-backup-policy/HCS_CustomBackupPolicyM-include.png).
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

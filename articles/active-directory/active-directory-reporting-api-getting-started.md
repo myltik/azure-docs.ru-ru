@@ -136,5 +136,6 @@ API отчетов использует [OAuth](https://msdn.microsoft.com/libra
 - Интересуют доступные отчеты о безопасности, аудиту и действиях? См. [Отчеты Azure AD о безопасности, аудите и активности](active-directory-view-access-usage-reports.md)
 - Дополнительную информацию об отчетах об аудите см. в статье [События отчетов AD Azure об аудите ](active-directory-reporting-audit-events.md)
 - Дополнительную информацию о службе Graph API REST см. в разделе [Отчеты и события Azure AD (предварительная версия)](https://msdn.microsoft.com/library/azure/mt126081.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

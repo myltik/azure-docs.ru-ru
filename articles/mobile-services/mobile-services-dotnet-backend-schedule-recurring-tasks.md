@@ -4,17 +4,16 @@
 	services="mobile-services" 
 	documentationCenter="" 
 	authors="ggailey777" 
-	writer="" 
 	manager="dwrede" 
 	editor=""/>
 
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="2/26/2015" 
+	ms.date="05/20/2015" 
 	ms.author="glenga"/>
 
 # Планирование повторяющихся заданий в мобильных службах 
@@ -30,13 +29,6 @@
 + Обработка или изменение размеров сохраненных изображений.
 
 В этом учебнике подробно описаны все действия, необходимые для использования планировщика заданий в целях создания запланированного задания, которое запрашивает данные твита из Twitter и сохраняет твиты в новой таблице Updates:
-
-1. [Регистрация для доступа к Твиттеру и сохранения учетных данных]
-2. [Загрузка и установка библиотеки LINQ to Twitter]
-3. [Создание новой таблицы Updates]
-4. [Создание нового запланированного задания]
-5. [Локальное тестирование запланированного задания]
-6. [Публикация службы и регистрация задания]
 
 >[AZURE.NOTE]В этом учебнике используется сторонняя библиотека LINQ to Twitter для упрощения доступа OAuth 2.0 к Twitter v1.1 API. Необходимо загрузить и установить пакет NuGet LINQ to Twitter для работы с этим учебником. Дополнительные сведения см. в разделе [Проект LINQ to Twitter CodePlex].
 
@@ -258,7 +250,7 @@
 
 2. Щелкните вкладку **Планировщик**, а затем нажмите кнопку **+Создать**.
 
-    >[AZURE.NOTE]При работе вашей мобильной службы на <em>бесплатном</em> уровне вы можете выполнять одновременно только одно запланированное задание. На оплачиваемых уровнях можно выполнять одновременно до десяти запланированных заданий.
+    >[AZURE.NOTE]При работе в вашей мобильной службе на <em>бесплатном</em> уровне вы можете выполнять одновременно только одно запланированное задание. На оплачиваемых уровнях можно выполнять одновременно до десяти запланированных заданий.
 
 3. В диалоговом окне планировщика введите _Sample_ в поле **Имя задания**, задайте интервал и единицы планирования, а затем нажмите кнопку проверки.
    
@@ -283,12 +275,12 @@
 Поздравляем, новое запланированное задание успешно создано в вашей мобильной службе. Это задание будет выполняться как запланированное, пока не будет отключено или изменено.
 
 <!-- Anchors. -->
-[Регистрация для доступа к Твиттеру и сохранения учетных данных]: #get-oauth-credentials
-[Загрузка и установка библиотеки LINQ to Twitter]: #install-linq2twitter
-[Создание новой таблицы Updates]: #create-table
-[Создание нового запланированного задания]: #add-job
-[Локальное тестирование запланированного задания]: #run-job-locally
-[Публикация службы и регистрация задания]: #register-job
+[Register for Twitter access and store credentials]: #get-oauth-credentials
+[Download and install the LINQ to Twitter library]: #install-linq2twitter
+[Create the new Updates table]: #create-table
+[Create a new scheduled job]: #add-job
+[Test the scheduled job locally]: #run-job-locally
+[Publish the service and register the job]: #register-job
 [Next steps]: #next-steps
 
 <!-- Images. -->
@@ -308,4 +300,5 @@
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 [Проект LINQ to Twitter CodePlex]: http://linqtotwitter.codeplex.com/
-<!--HONumber=54--> 
+
+<!---HONumber=62-->

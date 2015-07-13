@@ -1,4 +1,3 @@
-<properties title="Create a Virtual Machine Running Windows Server" pageTitle="Создание виртуальной машины под управлением Windows Server" description="Описывается, как создать виртуальную машину Windows, добавить диск данных и удаленно войти в систему." metaKeywords="" services="virtual machines" solutions="" documentationCenter="" authors="kathydav" videoId="" scriptId="" />
 
 # Создание виртуальной машины под управлением Windows Server #
 
@@ -53,7 +52,7 @@
 
 ## <a id="attachdisk"> </a>Как присоединить диск данных к новой виртуальной машине ##
 
-В настоящем разделе показано, как присоединить пустой диск данных к виртуальной машине. Дополнительную информацию о присоединении пустых, а также существующих дисков см. в [учебнике «Присоединение диска данных»](../articles/virtual-machines/storage-windows-attach-disk.md).
+В настоящем разделе показано, как присоединить пустой диск данных к виртуальной машине. Дополнительную информацию о присоединении пустых, а также существующих дисков см. в [учебнике "Присоединение диска данных"](../articles/virtual-machines/storage-windows-attach-disk.md).
 
 1. Выполните вход на [Портал управления](http://manage.windowsazure.com) Azure.
 
@@ -67,7 +66,7 @@
 
 4. На панели команд нажмите кнопку **Присоединить**, а затем — **Присоединить пустой диск**, после того как появится всплывающее окно.
 
-	![Выбрать «Присоединить» на панели команд](./media/CreateVirtualMachineWindowsTutorial/commandbarattach.png)
+	![Выбрать "Присоединить" на панели команд](./media/CreateVirtualMachineWindowsTutorial/commandbarattach.png)
 
 5. Значения **Имя виртуальной машины**, **Расположение хранилища**, **Имя файла** и **Настройки кэша узла** уже определены. Достаточно ввести размер диска. Введите **5** в поле **Размер**. Установите флажок, чтобы присоединить пустой диск данных к виртуальной машине.
 
@@ -127,6 +126,4 @@
 [How to attach a data disk to the new virtual machine]: #attachdisk
 [How to set up communication with the virtual machine]: #endpoints
 
-
-
-<!--HONumber=52-->
+<!---HONumber=62-->

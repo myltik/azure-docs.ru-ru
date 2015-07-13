@@ -21,7 +21,7 @@
 > [AZURE.NOTE]
 > 
 - Фирменная символика компании доступна только после обновления до выпуска Premium или Basic службы Azure Active Directory. Дополнительные сведения см. в статье [Выпуски Azure Active Directory](active-directory-editions.md).
-- Выпуски Azure Active Directory Premium и Basic доступны для клиентов в Китае, использующих всемирный экземпляр Azure Active Directory. Выпуски Azure Active Directory Premium и Basic в текущий момент не поддерживаются Microsoft Azure, обслуживаемой компанией 21Vianet в Китае. Чтобы получить дополнительную информацию, свяжитесь с нами на [форуме Azure Active Directory](http://feedback.azure.com/forums/169401-azure-active-directory).
+- Выпуски Azure Active Directory Premium и Basic доступны для клиентов в Китае, использующих всемирный экземпляр Azure Active Directory. Эти выпуски в настоящее время не поддерживает служба Microsoft Azure под управлением 21Vianet в Китае. Чтобы получить дополнительную информацию, свяжитесь с нами на [форуме Azure Active Directory](http://feedback.azure.com/forums/169401-azure-active-directory).
 
 Многим компаниям требуется применить согласованное оформление для всех веб-сайтов и служб, которыми они управляют, чтобы пользователи не путались при работе с этими сайтами. Azure Active Directory предоставляет такую возможность, позволяя настраивать внешний вид следующих веб-страниц, доступных пользователям, добавляя на них логотип и цветовые схемы компании:
 
@@ -185,4 +185,6 @@
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=62-->

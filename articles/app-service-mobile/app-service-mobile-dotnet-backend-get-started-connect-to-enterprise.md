@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Подключение мобильного приложения к корпоративному приложению SaaS | Центр разработки мобильных приложений" 
-	description="Выполнение вызовов в корпоративные ресурсы, такие как SharePoint Online" 
-	documentationCenter="" 
-	authors="mattchenderson" 
-	manager="dwrede" 
-	editor="na" 
+<properties
+	pageTitle="Подключение мобильного приложения к корпоративному приложению SaaS | Центр разработки мобильных приложений"
+	description="Выполнение вызовов в корпоративные ресурсы, такие как SharePoint Online"
+	documentationCenter=""
+	authors="mattchenderson"
+	manager="dwrede"
+	editor="na"
 	services="app-service\mobile"/>
 
-<tags 
-	ms.service="app-service-mobile" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="03/05/2015" 
+<tags
+	ms.service="app-service-mobile"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="get-started-article" 
+	ms.date="06/19/2015"
 	ms.author="mahender"/>
 
 # Подключение мобильного приложения к API SaaS
@@ -90,7 +90,7 @@
             AuthenticationResult ar = ac.AcquireToken(sharepointURL, new ClientCredential(clientId, clientSecret), new UserAssertion(userToken));
             accessToken = ar.AccessToken;
             string upn = ar.UserInfo.UserId;
-            mySiteApiPath = "/personal/" + upn.Replace('@','_').Replace('.','_') + "/_api/web"; 
+            mySiteApiPath = "/personal/" + upn.Replace('@','_').Replace('.','_') + "/_api/web";
             clientId = settings.AzureActiveDirectoryClientId;
             clientSecret = settings["SP_ClientSecret"];
             sharepointURL = settings["SP_SharePointURL"];
@@ -158,11 +158,11 @@
         public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
         {
             TodoItem current = await InsertAsync(item);
-            
+
             SharePointUploadContext context = await SharePointUploadContext.createContext((ServiceUser)this.User, Services.Settings);
             byte[] document = CreateWordDocument(item);
             bool uploadResult = await context.UploadDocument(item.Id, document);
-            
+
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
         }
 
@@ -185,5 +185,6 @@
 [SharePoint Online]: http://office.microsoft.com/ru-ru/sharepoint/
 [Проверка подлинности приложения с помощью единого входа библиотеки проверки подлинности Active Directory]: app-service-mobile-dotnet-backend-ios-aad-sso-preview.md
 [Расширение службы приложений серверной части .NET мобильных приложений]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.AppService/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

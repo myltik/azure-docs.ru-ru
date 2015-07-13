@@ -13,22 +13,24 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/01/2015" 
+	ms.date="06/22/2015" 
 	ms.author="tomfitz"/>
 
 # Подготовка веб-приложения к работе с базой данных SQL
 
-В этой статье рассказывается, как создать шаблон диспетчера ресурсов Azure, выполняющий развертывание веб-приложения и базы данных SQL. Вы узнаете, как определить развертываемые ресурсы и параметры, указываемые при развертывании. Этот шаблон можно использовать для собственных развертываний или настроить его в соответствии с конкретными требованиями.
+В этом разделе рассказывается, как создать шаблон диспетчера ресурсов Azure, выполняющий развертывание веб-приложения и базы данных SQL. Вы узнаете, как определить развертываемые ресурсы и параметры, указываемые при развертывании. Этот шаблон можно использовать для собственных развертываний или настроить его в соответствии с вашими требованиями.
 
 Дополнительную информацию о создании шаблонов см. в статье [Создание шаблонов диспетчера ресурсов Azure](../resource-group-authoring-templates.md).
 
-Полная версия шаблона приведена в файле [Шаблон веб-приложения с базой данных SQL](https://github.com/tfitzmac/AppServiceTemplates/blob/master/webandsql.json).
+Подробнее о развертывании приложений см. в статье [Предсказуемое развертывание сложного приложения в Azure](app-service-deploy-complex-application-predictably.md).
+
+Полная версия шаблона приведена в файле [Шаблон веб-приложения с базой данных SQL](../../templates/app-service-web-arm-with-sql-database-provision/).
 
 ## Что именно развертывается
 
 В этом шаблоне будут развернуты перечисленные ниже компоненты.
 
-- веб-приложение
+- Веб-приложение
 - Сервер базы данных SQL
 - База данных SQL
 - Параметры автомасштабирования
@@ -176,7 +178,7 @@
       },
       "properties": {
         "name": "[parameters('siteName')]",
-        "serverFarm": "[parameters('hostingPlanName')]"
+        "serverFarmId": "[parameters('hostingPlanName')]"
       },
       "resources": [
         {
@@ -187,7 +189,7 @@
           "properties": {
               "DefaultConnection":{
               "value":"[concat('Data Source=tcp:', reference(concat('Microsoft.Sql/servers/', parameters('serverName'))).fullyQualifiedDomainName, ',1433;Initial Catalog=', parameters('databaseName'), ';User Id=', parameters('administratorLogin'), '@', parameters('serverName'), ';Password=', parameters('administratorLoginPassword'), ';')]",
-              "type": 2 //SQL
+              "type": 2 
             },
           }
         }

@@ -128,9 +128,10 @@
 
 
 ## Дополнительные сведения о приложениях логики и веб-приложениях
-[Что такое приложения логики?](app-service-logic-what-are-logic-apps.md)<br/> [Веб-сайты и веб-приложения в службе приложений Azure](../app-service-web/app-service-web-app-azure-portal.md)
+[Что такое приложения логики?](app-service-logic-what-are-logic-apps.md)<br/> [Веб-сайты и веб-приложения в службе приложений Azure](../app-service-web/app-service-web-overview.md)
 
 
 ## Дополнительные сведения о соединителях
 [Корпоративные соединители](app-service-logic-enterprise-connectors.md)<br/> [Соединители «бизнес — бизнес»](app-service-logic-b2b-connectors.md)<br/> [Социальные соединители](app-service-logic-social-connectors.md)<br/> [Соединители протоколов](app-service-logic-protocol-connectors.md)<br/> [Соединители служб данных и приложений](app-service-logic-data-connectors.md)<br/> [Список соединителей и приложений API](app-service-logic-connectors-list.md)<br/><br/> [Что такое соединители и приложения API BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
-<!--HONumber=54--> 
+
+<!---HONumber=62-->

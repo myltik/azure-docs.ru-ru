@@ -21,7 +21,7 @@
 
 Существуют три выпуска Azure Active Directory: Free, Basic и Premium. Выпуск Free входит в состав подписки Azure или Office 365. Выпуски Basic и Premium доступны через [Соглашение Microsoft Enterprise Agreement](https://www.microsoft.com/ru-ru/licensing/licensing-programs/enterprise.aspx) или в рамках программы [Открытая корпоративная лицензия](https://www.microsoft.com/ru-ru/licensing/licensing-programs/open-license.aspx). Подписчики Azure и Office 365 также могут купить выпуск Active Directory Premium через Интернет. [Войдите здесь](https://portal.office.com/Commerce/Catalog.aspx), чтобы купить выпуск.
 
-> [AZURE.NOTE]Выпуски Azure Active Directory Premium и Basic доступны для клиентов в Китае, использующих всемирный экземпляр Azure Active Directory. Azure Active Directory Premium и Basic в настоящее время не поддерживаются в службе Microsoft Azure под управлением 21Vianet в Китае. Чтобы получить дополнительную информацию, свяжитесь с нами на [форуме Azure Active Directory](http://feedback.azure.com/forums/169401-azure-active-directory).
+> [AZURE.NOTE]Выпуски Azure Active Directory Premium и Basic доступны для клиентов в Китае, использующих всемирный экземпляр Azure Active Directory. Эти выпуски в настоящее время не поддерживает служба Microsoft Azure под управлением 21Vianet в Китае. Чтобы получить дополнительную информацию, свяжитесь с нами на [форуме Azure Active Directory](http://feedback.azure.com/forums/169401-azure-active-directory).
 
 Выпуск Azure Active Directory Premium также включен в **набор корпоративных служб мобильности**. Набор корпоративных служб мобильности представляет собой экономичный способ, благодаря которому организации могут совместно использовать службы Microsoft Intune, Azure Rights Management и Active Directory Premium в рамках одного плана лицензирования. Дополнительные сведения см. на веб-сайте [Набор корпоративных служб мобильности](https://www.microsoft.com/ru-ru/server-cloud/enterprise-mobility/overview.aspx).
 
@@ -105,7 +105,7 @@
 
 ## Что дальше?
 
-- [Добавление фирменной символики компании на страницах  входа и панели доступа](active-directory-add-company-branding.md)
+- [Добавление фирменной символики компании на страницах входа и панели доступа](active-directory-add-company-branding.md)
 - [Просмотр отчетов о доступе и использовании](active-directory-view-access-usage-reports.md)
 
 <!--Image references-->
@@ -122,4 +122,7 @@
 [11]: ./media/active-directory-get-started-premium/Assignlicensespicker.png
 [12]: ./media/active-directory-get-started-premium/Usagelocation.png
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=62-->

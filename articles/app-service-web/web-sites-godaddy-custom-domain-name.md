@@ -16,7 +16,7 @@
 	ms.date="05/12/2015"
 	ms.author="mwasson"/>
 
-# Настройка имени личного домена в службе приложений Azure (покупка у GoDaddy)
+# Настройка личного доменного имени в службе приложений Azure (приобретенного непосредственно у GoDaddy)
 
 [AZURE.INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
 
@@ -27,7 +27,7 @@
 
 [AZURE.INCLUDE [общие сведения](../../includes/custom-dns-web-site-intro.md)]
 
-В этой статье вы найдете инструкции по использованию имени личного домена, приобретенного у [GoDaddy](https://godaddy.com), с [веб-приложениями службы приложений](http://go.microsoft.com/fwlink/?LinkId=529714).
+В этой статье вы найдете указания по использованию личного доменного имени, приобретенного у [GoDaddy](https://godaddy.com), с использованием [веб-приложений службы приложений](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 [AZURE.INCLUDE [нижний колонтитул](../../includes/custom-dns-web-site-intro-notes.md)]
 

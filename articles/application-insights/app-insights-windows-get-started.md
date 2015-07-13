@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter="windows"
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2015" 
+	ms.date="06/16/2015" 
 	ms.author="awills"/>
 
 # Application Insights для приложений Windows Phone и Магазина Windows
@@ -60,11 +60,11 @@
 
     ![](./media/app-insights-windows-get-started/03-nuget.png)
 
-2. Выберите узел **Online** (В сети), укажите **Include prerelease** (Включить предварительный выпуск) и выполните поиск «Application Insights».
+2. Найдите Application Insights.
 
     ![](./media/app-insights-windows-get-started/04-ai-nuget.png)
 
-3. Выберите **Application Insights для приложений для Windows**.
+3. Выберите **Application Insights для приложений .NET для Windows**.
 
 4. Отредактируйте файл ApplicationInsights.config (который был добавлен установкой NuGet). Вставьте следующий фрагмент непосредственно перед закрывающим тегом:
 
@@ -109,11 +109,11 @@
 ## Что дальше?
 
 * [Обнаружение и диагностика сбоев в приложении][windowsCrash]
-* [Дополнительная информация о метриках][metrics].
-* [Дополнительная информация о поиске по журналу диагностики][diagnostic].
+* [Дополнительная информация о метриках][metrics]
+* [Дополнительная информация о поиске по журналу диагностики][diagnostic]
 
 
-## <a name="ide"></a>Автоматическая установка
+## <a name="ide"></a>Автоматизированная настройка
 
 Если вы предпочитаете использовать Visual Studio для выполнения шагов настройки, это можно сделать с приложениями Windows Phone, Магазина Windows и многими другими типами приложений.
 
@@ -132,6 +132,10 @@
 
 
 ![](./media/app-insights-windows-get-started/appinsights-d22-add.png)
+
+## Обновление до новой версии пакета SDK
+
+При [выпуске новой версии пакета SDK](app-insights-release-notes-windows.md): * Щелкните правой кнопкой мыши проект и выберите «Управление пакетами NuGet». * Выберите установленные пакеты Application Insights и выберите «Обновить».
 
 
 ## <a name="usage"></a>Дальнейшие действия

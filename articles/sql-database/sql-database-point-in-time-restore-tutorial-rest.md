@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="storage-backup-recovery" 
-   ms.date="02/24/2015"
+   ms.date="03/17/2015"
    ms.author="elfish; v-romcal"/>
 
 # Восстановление базы данных SQL Azure с использованием восстановления на момент времени с помощью API REST
 
 > [AZURE.SELECTOR]
-- [Восстановление на момент времени - портал](http://azure.microsoft.com/documentation/articles/sql-database-point-in-time-restore-tutorial-management-portal/)
-- [Восстановление на момент времени - PowerShell](http://azure.microsoft.com/documentation/articles/sql-database-point-in-time-restore-tutorial-powershell/)
+- [Point in Time Restore - portal](sql-database-point-in-time-restore-tutorial-management-portal.md)
+- [Point in Time Restore - PowerShell](sql-database-point-in-time-restore-tutorial-powershell.md) 
 
 ## Обзор
 
@@ -30,9 +30,9 @@
 
 ## Ограничения и безопасность
 
-См. [Восстановление базы данных SQL Azure с использованием восстановления на момент времени на портале Azure](http://azure.microsoft.com/documentation/articles/sql-database-point-in-time-restore-tutorial-management-portal/).
+См. раздел [Восстановление базы данных SQL Azure с использованием восстановления на момент времени на портале Azure](sql-database-point-in-time-restore-tutorial-management-portal.md).
 
-## Практическое руководство. Восстановление базы данных SQL Azure с использованием API REST
+## Практическое руководство. Восстановление базы данных SQL Azure с использованием REST API
 
 1.	Получите базу данных, которую необходимо восстановить, используя операцию [Get Database](http://msdn.microsoft.com/library/azure/dn505708.aspx).
 
@@ -42,15 +42,15 @@
 
 ## Дальнейшие действия
 
-Дополнительные сведения см. в следующих разделах. 
+Дополнительные сведения см. в следующих разделах.
 
-[Непрерывность бизнес-процессов базы данных SQL Azure](http://msdn.microsoft.com/library/azure/hh852669.aspx)
+[Обеспечение непрерывности работы базы данных SQL Azure](http://msdn.microsoft.com/library/azure/hh852669.aspx)
 
 [Резервное копирование и восстановление баз данных SQL Azure](http://msdn.microsoft.com/library/azure/jj650016.aspx)
 
 [Восстановление базы данных SQL Azure на определенный момент времени (блог)](http://azure.microsoft.com/blog/2014/10/01/azure-sql-database-point-in-time-restore/)
 
-[Справочник по API REST управления службами](https://msdn.microsoft.com/library/azure/ee460799.aspx)
-
-<!--HONumber=47-->
+[Справочник по API-интерфейсу управления службами REST](https://msdn.microsoft.com/library/azure/ee460799.aspx)
  
+
+<!---HONumber=62-->

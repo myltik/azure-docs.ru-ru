@@ -15,9 +15,9 @@
 	ms.date="04/13/2015" 
 	ms.author="heidist"/>
 
-<h1>Пример разработки решения в службе "Поиск Azure"</h1>
+# Пример разработки решения в службе "Поиск Azure"
 
-<font size="5">Как администраторы сайта [WhatToPedia.com](http://whattopedia.com/) создали информационный портал в службе Microsoft Azure</font>
+## Как администраторы сайта [WhatToPedia.com](http://whattopedia.com/) создали информационный портал в Microsoft Azure
 
  ![][6] & nbsp; & nbsp; & nbsp; <font size="9">Великолепная идея</font>
 
@@ -419,5 +419,6 @@ WhatToPedia — это стартап-компания, которая тест�
 [Link 1 to another azure.microsoft.com documentation topic]: ../virtual-machines-windows-tutorial.md
 [Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

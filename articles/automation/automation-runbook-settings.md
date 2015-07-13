@@ -58,6 +58,6 @@
 
 ## Связанные статьи
 - [Выходные данные Runbook и сообщения](../automation-runbook-output-and-messages) 
-- [Создание или импорт модуля Runbook](https://msdn.microsoft.com/library/dn643637.aspx)
+- [Создание или импорт модуля Runbook](https://msdn.microsoft.com/library/dn643637.aspx) 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

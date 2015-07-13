@@ -55,7 +55,7 @@ PM> Install-Package Microsoft.Owin.Security.Cookies
 PM> Install-Package Microsoft.Owin.Host.SystemWeb
 ```
 
--	Добавьте класс запуска OWIN в проект под названием `Startup.cs` Щелкните проект правой кнопкой мыши-->  **Добавить** --> **Новый элемент** --> Поиск «OWIN». При запуске вашего приложения промежуточный слой OWIN вызовет метод `Configuration(...)`.
+-	Добавьте класс запуска OWIN в проект под названием `Startup.cs` Щелкните проект правой кнопкой мыши--> **Добавить** --> **Новый элемент** --> Поиск «OWIN». При запуске вашего приложения промежуточный слой OWIN вызовет метод `Configuration(...)`.
 -	Замените объявление класса на `public partial class Startup` — часть этого класса уже была реализована в другом файле. В методе `Configuration(...)` отправьте вызов в ConfgureAuth(...), чтобы настроить проверку подлинности для веб-приложения.  
 
 ```C#
@@ -174,5 +174,6 @@ public ActionResult About()
 [Защита веб-интерфейса API с помощью Azure AD >>](active-directory-devquickstarts-webapi-dotnet.md)
 
 Дополнительные ресурсы: — [AzureADSamples на GitHub >>](https://github.com/AzureAdSamples) — [CloudIdentity.com >>](https://cloudidentity.com) — Документация Azure AD на [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

@@ -1,9 +1,10 @@
 <properties 
-	pageTitle="Использование пакета SDK для .NET для управления Azure Stream Analytics|Azure" 
-	description="Использование пакета SDK для .NET для управления Stream Analytics" 
+	pageTitle="Использование пакета SDK для .NET для управления Stream Analytics | Microsoft Azure" 
+	description="Приступая к работе с пакетом SDK для .NET для управления Stream Analytics. Дополнительная информация о настройке и выполнении заданий аналитики: создание проекта, входные и выходные данные и преобразования." 
+	keywords=".net skd,analytics jobs,event hub"
 	services="stream-analytics" 
 	documentationCenter="" 
-	authors="mumian" 
+	authors="jeffstokes72" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,47 +14,49 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="03/05/2015" 
-	ms.author="jgao"/>
+	ms.date="06/17/2015" 
+	ms.author="jeffstok"/>
 
 
-# Использование пакета SDK для .NET для управления Azure Stream Analytics
+# Настройка и запуск заданий аналитики с помощью пакета SDK для .NET для управления Azure Stream Analytics
 
-[Этот раздел из предварительной документации может быть изменен в будущих выпусках.] 
+Узнайте, как настраивать и запускать задания аналитики с помощью пакета SDK для .NET для управления Stream Analytics. Настраивайте проект, создавайте источники входных и выходных данных и преобразования, а также запускайте и останавливайте задания. Для выполнения заданий аналитики можно осуществлять потоковую передачу данных из хранилища больших двоичных объектов или из концентратора событий.
 
-Azure Stream Analytics является полностью управляемой службой, обеспечивающей низкую задержку и высокий уровень доступности, масштабируемую обработку сложных событий посредством потоковой передачи данных в облако. В предварительном выпуске Stream Analytics позволяет клиентам настраивать задания потоковой передачи данных для анализа потоков данных осуществлять аналитику в квазиреальном времени.  
+Azure Stream Analytics является полностью управляемой службой, обеспечивающей низкую задержку и высокий уровень доступности, масштабируемую обработку сложных событий посредством потоковой передачи данных в облако. Stream Analytics дает клиентам возможность настраивать задания потоковой передачи данных для анализа потоков данных и выполнять их в режиме, близком к режиму реального времени.
 
-В этой статье показано, как использовать пакет SDK для .NET для управления Azure Stream Analytics.
+Справочник по .NET API см. в разделе [Пакет SDK для .NET для управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn889315.aspx).
 
 
 ## Предварительные требования
 Перед началом работы с этой статьей необходимо иметь следующее:
 
 - Установите Visual Studio 2012 или 2013.
-- Скачайте и установите [пакет SDK для Azure .NET](http://azure.microsoft.com/downloads/). 
-- Создайте группу ресурсов Azure в своей подписке. Ниже приведен пример сценария Azure PowerShell. Сведения об Azure PowerShell см. в разделе [Установка и настройка Azure PowerShell](../install-configure-powershell.md);  
+- Скачанный и установленный [пакет SDK для Azure .NET](http://azure.microsoft.com/downloads/). 
+- Создайте группу ресурсов Azure в своей подписке. Ниже приведен пример сценария Azure PowerShell. Дополнительную информацию об Azure PowerShell см. в разделе [Установка и настройка Azure PowerShell](../install-configure-powershell.md).  
 
 
-		# Настройте сеанс Azure PowerShell для доступа к диспетчеру ресурсов Azure
+		# Configure the Azure PowerShell session to access Azure Resource Manager
 		Switch-AzureMode AzureResourceManager
 
-		# Войдите в учетную запись Azure
+		# Log in to your Azure account
 		Add-AzureAccount
 
-		# Выберите подписку Azure, которую нужно использовать для создания группы ресурсов
+		# Select the Azure subscription you want to use to create the resource group
 		Select-AzureSubscription -SubscriptionName <subscription name>
 
-		# Создайте группу ресурсов Azure	
+		# Create an Azure resource group	
 		New-AzureResourceGroup -Name <YOUR RESORUCE GROUP NAME> -Location <LOCATION>
 
 
--	Задайте источник входных данных и назначение выходных данных. См. раздел [Начало работы с Azure Stream Analytics](stream-analytics-get-started.md), чтобы задать пример входных или выходных данных для этой статьи.
+-	Задайте источник входных данных и назначение выходных данных. См. раздел [Приступая к работе с Azure Stream Analytics](stream-analytics-get-started.md), чтобы задать пример входных или выходных данных для этой статьи.
 
 
 ## Настройка проекта
 
+Чтобы создать задание аналитики, сначала настройте проект.
+
 1. Создайте консольное приложение Visual Studio C# .NET.
-2. В консоли диспетчера пакетов выполните следующие команды, чтобы установить пакеты NuGet. Первый - пакет SDK для .NET для управления Azure Stream Analytics. Второй - клиент Azure Active Directory, который будет использоваться для проверки подлинности.
+2. В консоли диспетчера пакетов выполните следующие команды, чтобы установить пакеты NuGet. Первый — пакет SDK для .NET для управления Azure Stream Analytics. Второй — клиент Azure Active Directory, который будет использоваться для проверки подлинности.
 
 		Install-Package Microsoft.Azure.Management.StreamAnalytics -Pre
 		Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
@@ -62,21 +65,21 @@ Azure Stream Analytics является полностью управляемо�
 
 		<appSettings>
 		  <!--CSM Prod related values-->
-		  <add key=ActiveDirectoryEndpoint value=https://login.windows.net/ />
-		  <add key=ResourceManagerEndpoint value=https://management.azure.com/ />
-		  <add key=WindowsManagementUri value=https://management.core.windows.net/ />
-		  <add key=AsaClientId value=1950a258-227b-4e31-a9cf-717495945fc2 />
-		  <add key=RedirectUri value=urn:ietf:wg:oauth:2.0:oob />
-		  <add key=SubscriptionId value=<YOUR AZURE SUBSCRIPTION> />
-		  <add key=ActiveDirectoryTenantId value=<YOU TENANT ID> />
+		  <add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
+		  <add key="ResourceManagerEndpoint" value="https://management.azure.com/" />
+		  <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
+		  <add key="AsaClientId" value="1950a258-227b-4e31-a9cf-717495945fc2" />
+		  <add key="RedirectUri" value="urn:ietf:wg:oauth:2.0:oob" />
+		  <add key="SubscriptionId" value="<YOUR AZURE SUBSCRIPTION>" />
+		  <add key="ActiveDirectoryTenantId" value="<YOU TENANT ID>" />
 		</appSettings>
 
 
-	Замените значения **SubscriptionId** и **ActiveDirectoryTenantId** идентификаторами подписки Azure и клиента. Вы можете получить эти значения, запустив следующий командлет Azure PowerShell:
+	Замените значения **SubscriptionId** и **ActiveDirectoryTenantId** на идентификаторы подписки Azure и клиента. Вы можете получить эти значения, запустив следующий командлет Azure PowerShell:
 
 		Get-AzureAccount
 
-5. Добавьте следующие инструкции **using** в исходный файл (Program.cs) в проекте:
+5. Добавьте следующие операторы **using** в файл исходного кода (Program.cs) в проекте:
 
 		using System;
 		using System.Configuration;
@@ -96,13 +99,13 @@ Azure Stream Analytics является полностью управляемо�
 		        try
 		        {
 		            var context = new AuthenticationContext(
-						ConfigurationManager.AppSettings[ActiveDirectoryEndpoint] +
-						ConfigurationManager.AppSettings[ActiveDirectoryTenantId]);
+						ConfigurationManager.AppSettings["ActiveDirectoryEndpoint"] +
+						ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
 		
 		            result = context.AcquireToken(
-		                resource: ConfigurationManager.AppSettings[WindowsManagementUri],
-		                clientId: ConfigurationManager.AppSettings[AsaClientId],
-		                redirectUri: new Uri(ConfigurationManager.AppSettings[RedirectUri]),
+		                resource: ConfigurationManager.AppSettings["WindowsManagementUri"],
+		                clientId: ConfigurationManager.AppSettings["AsaClientId"],
+		                redirectUri: new Uri(ConfigurationManager.AppSettings["RedirectUri"]),
 		                promptBehavior: PromptBehavior.Always);
 		        }
 		        catch (Exception threadEx)
@@ -121,32 +124,32 @@ Azure Stream Analytics является полностью управляемо�
 		        return result.AccessToken;
 		    }
 		
-		    throw new InvalidOperationException("Не удалось получить токен");
+		    throw new InvalidOperationException("Failed to acquire token");
 		}  
 
 
 ## Создание клиента управления Stream Analytics
 
-Объект **StreamAnalyticsManagementClient** позволяет управлять заданием и его компонентами, такими как входные и выходные данные, а также преобразование. 
+Объект **StreamAnalyticsManagementClient** позволяет управлять заданием и его компонентами, такими как входные и выходные данные, а также преобразованием.
 
-Добавьте следующий код в начало метода **Main**: 
+Добавьте следующий код в начало метода **Main**:
 
-	string resourceGroupName = <YOUR AZURE RESOURCE GROUP NAME>;
-	string streamAnalyticsJobName = <YOUR STREAM ANALYTICS JOB NAME>;
-	string streamAnalyticsInputName = <YOUR JOB INPUT NAME>;
-	string streamAnalyticsOutputName = <YOUR JOB OUTPUT NAME>;
-	string streamAnalyticsTransformationName = <YOUR JOB TRANSFORMATION NAME>;
+	string resourceGroupName = "<YOUR AZURE RESOURCE GROUP NAME>";
+	string streamAnalyticsJobName = "<YOUR STREAM ANALYTICS JOB NAME>";
+	string streamAnalyticsInputName = "<YOUR JOB INPUT NAME>";
+	string streamAnalyticsOutputName = "<YOUR JOB OUTPUT NAME>";
+	string streamAnalyticsTransformationName = "<YOUR JOB TRANSFORMATION NAME>";
 	
-	// Получение токена проверки подлинности
+	// Get authentication token
 	TokenCloudCredentials aadTokenCredentials =
 	    new TokenCloudCredentials(
-	        ConfigurationManager.AppSettings[SubscriptionId],
+	        ConfigurationManager.AppSettings["SubscriptionId"],
 	        GetAuthorizationHeader());
 	
-	// Создание клиента управления Stream Analytics
+	// Create Stream Analytics management client
 	StreamAnalyticsManagementClient client = new StreamAnalyticsManagementClient(aadTokenCredentials);
 
-Значение переменной **resourceGroupName** должно быть таким же, как имя группы ресурсов, созданной или выбранной в предварительных шагах.
+Значение переменной **resourceGroupName** должно быть таким же, как имя группы ресурсов, созданной или выбранной на предварительных шагах.
 
 В дальнейших разделах этой статьи предполагается, что этот код находится в начале метода **Main**.
 
@@ -154,19 +157,19 @@ Azure Stream Analytics является полностью управляемо�
 
 Следующий код создает задание Stream Analytics в группе ресурсов, которую вы определили. Вы добавите входные и выходные данные, а также преобразование в задание позже.
 
-	// Создание задания Stream Analytics
+	// Create a Stream Analytics job
 	JobCreateOrUpdateParameters jobCreateParameters = new JobCreateOrUpdateParameters()
 	{
 	    Job = new Job()
 	    {
 	        Name = streamAnalyticsJobName,
-	        Location = <LOCATION>,
+	        Location = "<LOCATION>",
 	        Properties = new JobProperties()
 	        {
 	            EventsOutOfOrderPolicy = EventsOutOfOrderPolicy.Adjust,
 	            Sku = new Sku()
 	            {
-	                Name = Standard
+	                Name = "Standard"
 	            }
 	        }
 	    }
@@ -179,7 +182,7 @@ Azure Stream Analytics является полностью управляемо�
 
 Следующий код создает источник входных данных Stream Analytics с типом источника входных данных BLOB-объекта и сериализацией CSV. Чтобы создать источник входных данных концентратора событий, используйте **EventHubStreamInputDataSource** вместо **BlobStreamInputDataSource**. Аналогично можно настроить тип сериализации источника входных данных.
 
-	// Создание источника входных данных Stream Analytics
+	// Create a Stream Analytics input source
 	InputCreateOrUpdateParameters jobInputCreateParameters = new InputCreateOrUpdateParameters()
 	{
 	    Input = new Input()
@@ -191,7 +194,7 @@ Azure Stream Analytics является полностью управляемо�
 	            {
 	                Properties = new CsvSerializationProperties
 	                {
-	                    Encoding = UTF8,
+	                    Encoding = "UTF8",
 	                    FieldDelimiter = ","
 	                }
 	            },
@@ -203,11 +206,11 @@ Azure Stream Analytics является полностью управляемо�
 	                    {
 	                        new StorageAccount()
 	                        {
-	                            AccountName = <YOUR STORAGE ACCOUNT NAME>,
-	                            AccountKey = <YOUR STORAGE ACCOUNT KEY>
+	                            AccountName = "<YOUR STORAGE ACCOUNT NAME>",
+	                            AccountKey = "<YOUR STORAGE ACCOUNT KEY>"
 	                        }
 	                    },
-	                    Container = samples,
+	                    Container = "samples",
 	                    PathPattern = ""
 	                }
 	            }
@@ -218,14 +221,14 @@ Azure Stream Analytics является полностью управляемо�
 	InputCreateOrUpdateResponse inputCreateResponse = 
 		client.Inputs.CreateOrUpdate(resourceGroupName, streamAnalyticsJobName, jobInputCreateParameters);
 
-Источники входных данных привязываются к определенному заданию. Чтобы использовать один источник для разных заданий, потребуется снова вызвать метод и указать другое имя задания.
+Источники входных данных из хранилища больших двоичных объектов или из концентратора событий привязываются к определенному заданию. Чтобы использовать один источник для разных заданий, потребуется снова вызвать метод и указать другое имя задания.
 
 
 ## Тестирование источника входных данных Stream Analytics
 
 Метод **TestConnection** тестирует, может ли задание Stream Analytics подключиться к источнику входных данных, а также другие аспекты, относящиеся к этому типу источника входных данных. Например, в источнике входных данных BLOB-объекта, созданном на более раннем шаге, метод проверит, может ли пара имени и ключа учетной записи хранения использоваться для подключения к учетной записи хранения, а также убедится, что указанный контекст существует.
 
-	// Тестирование подключения источника входных данных
+	// Test input source connection
 	DataSourceTestConnectionResponse inputTestResponse = 
 		client.Inputs.TestConnection(resourceGroupName, streamAnalyticsJobName, streamAnalyticsInputName);
 
@@ -235,7 +238,7 @@ Azure Stream Analytics является полностью управляемо�
 
 Следующий код создает назначение выходных данных (базу данных SQL Azure). Вы можете настроить тип данных и тип сериализации назначения выходных данных.
 
-	// Создание назначения выходных данных Stream Analytics
+	// Create a Stream Analytics output target
 	OutputCreateOrUpdateParameters jobOutputCreateParameters = new OutputCreateOrUpdateParameters()
 	{
 	    Output = new Output()
@@ -247,11 +250,11 @@ Azure Stream Analytics является полностью управляемо�
 	            {
 	                Properties = new SqlAzureOutputDataSourceProperties()
 	                {
-	                    Server = <YOUR DATABASE SERVER NAME>,
-	                    Database = <YOUR DATABASE NAME>,
-	                    User = <YOUR DATABASE LOGIN>,
-	                    Password = <YOUR DATABASE LOGIN PASSWORD>,
-	                    Table = <YOUR DATABASE TABLE NAME>
+	                    Server = "<YOUR DATABASE SERVER NAME>",
+	                    Database = "<YOUR DATABASE NAME>",
+	                    User = "<YOUR DATABASE LOGIN>",
+	                    Password = "<YOUR DATABASE LOGIN PASSWORD>",
+	                    Table = "<YOUR DATABASE TABLE NAME>"
 	                }
 	            }
 	        }
@@ -265,16 +268,16 @@ Azure Stream Analytics является полностью управляемо�
 
 Назначение выходных данных Stream Analytics также содержит метод **TestConnection** для тестирования подключений.
 
-	// Тестирование подключения к назначению выходных данных
+	// Test output target connection
 	DataSourceTestConnectionResponse outputTestResponse = 
 		client.Outputs.TestConnection(resourceGroupName, streamAnalyticsJobName, streamAnalyticsOutputName);
 
 ## Создание преобразования Stream Analytics
 
-Следующий код создает преобразование Stream Analytics с запросом select * from Input и задает выделение одной единицы потоковой передачи для задания Stream Analytics. Дополнительные сведения о настройке единиц потоковой передачи см. в разделе [Масштабирование заданий Azure Stream Analytics](stream-analytics-scale-jobs.md).
+Следующий код создает преобразование Stream Analytics с запросом select * from Input и задает выделение одной единицы потоковой передачи для задания Stream Analytics. Дополнительную информацию о настройке единиц потоковой передачи см. в статье [Масштабирование заданий Azure Stream Analytics](stream-analytics-scale-jobs.md).
 
 
-	// Создание преобразования Stream Analytics
+	// Create a Stream Analytics transformation
 	TransformationCreateOrUpdateParameters transformationCreateParameters = new TransformationCreateOrUpdateParameters()
 	{
 	    Transformation = new Transformation()
@@ -283,7 +286,7 @@ Azure Stream Analytics является полностью управляемо�
 	        Properties = new TransformationProperties()
 	        {
 	            StreamingUnits = 1,
-	            Query = select * from Input
+	            Query = "select * from Input"
 	        }
 	    }
 	};
@@ -294,11 +297,11 @@ Azure Stream Analytics является полностью управляемо�
 Как и входные и выходные данные, преобразования также привязываются к определенному заданию Stream Analytics, в котором они были созданы.
 
 ## Запуск задания Stream Analytics
-После создания задания Stream Analytics и его входных и выходных данных, а также преобразований, можно запустить задание, вызвав метод **Start**. 
+После создания задания Stream Analytics и его входных и выходных данных, а также преобразований, можно запустить задание, вызвав метод **Start**.
 
-В следующем примере кода запускается задание Stream Analytics с пользовательским временем запуска выходных данных "12 декабря 2012 г., 12:12:12 UTC":
+В следующем примере кода запускается задание Stream Analytics с пользовательским временем запуска выходных данных "12 декабря 2012 г., 12:12:12 UTC":
 
-	// Запуск задания Stream Analytics
+	// Start a Stream Analytics job
 	JobStartParameters jobStartParameters = new JobStartParameters
 	{
 	    OutputStartMode = OutputStartMode.CustomTime,
@@ -312,25 +315,30 @@ Azure Stream Analytics является полностью управляемо�
 ## Остановка задания Stream Analytics
 Вы можете остановить выполняющееся задание Stream Analytics, вызвав метод **Stop**.
 
-	// Остановка задания Stream Analytics
+	// Stop a Stream Analytics job
 	LongRunningOperationResponse jobStopResponse = client.StreamingJobs.Stop(resourceGroupName, streamAnalyticsJobName);
 
 ## Удаление задания Stream Analytics
 Метод **Delete** удалит задание, а также базовые вложенные ресурсы, включая входные данные, выходные данные и преобразование задания.
 
-	// Удаление задания Stream Analytics
+	// Delete a Stream Analytics job
 	LongRunningOperationResponse jobDeleteResponse = client.StreamingJobs.Delete(resourceGroupName, streamAnalyticsJobName);
+
+
+## Получение поддержки
+За дополнительной помощью обращайтесь на наш [форум Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/ru-ru/home?forum=AzureStreamAnalytics).
 
 
 ## Дальнейшие действия
 
-- [Введение в Azure Stream Analytics][stream.analytics.introduction]
-- [Начало работы с Azure Stream Analytics][stream.analytics.get.started]
-- [Масштабирование заданий Azure Stream Analytics][stream.analytics.scale.jobs]
-- [Ограничения и известные проблемы Azure Stream Analytics][stream.analytics.limitations]
-- [Справочник по языку запросов Azure Stream Analytics][stream.analytics.query.language.reference]
-- [Справочник по REST API управления Azure Stream Analytics][stream.analytics.rest.api.reference] 
+Вы изучили основы использования пакета SDK для .NET для создания и выполнения заданий аналитики. См. также:
 
+- [Введение в Azure Stream Analytics](stream-analytics-introduction.md)
+- [Приступая к работе с Azure Stream Analytics](stream-analytics-get-started.md)
+- [Масштабирование заданий в службе Azure Stream Analytics](stream-analytics-scale-jobs.md)
+- [Использование пакета SDK для .NET для управления Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn889315.aspx)
+- [Справочник по языку запросов Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+- [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 
 <!--Image references-->
@@ -353,9 +361,8 @@ Azure Stream Analytics является полностью управляемо�
 [stream.analytics.get.started]: stream-analytics-get-started.md
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
-[stream.analytics.limitations]: ../stream-analytics-limitations.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

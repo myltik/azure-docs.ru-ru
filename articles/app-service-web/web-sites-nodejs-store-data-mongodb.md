@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Создание веб-приложения Node.js в Azure с MongoDB на виртуальной машине" 
+<properties
+	pageTitle="Создание веб-приложения Node.js в Azure с MongoDB на виртуальной машине"
 	description="Использование MongoDB для хранения данных в приложении Node.js, размещенном в Azure."
-	tags="azure-portal" 
-	services="app-service\web, virtual-machines" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+	tags="azure-portal"
+	services="app-service\web, virtual-machines"
+	documentationCenter="nodejs"
+	authors="MikeWasson"
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="04/23/2015" 
+<tags
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="04/23/2015"
 	ms.author="mwasson"/>
 
 
@@ -26,19 +26,19 @@
 
 * Как настроить виртуальную машину с операционной системой Ubuntu и базой данных MongoDB с помощью VM Depot.
 * Как получить доступ к MongoDB из приложения Node.
-* Как использовать межплатформенные средства Azure для создания веб-приложения в службе приложений Azure
+* Создание веб-приложения в службе приложений Azure с использованием интерфейса Azure CLI
 
 В ходе учебного курса вы создадите простое веб-приложение для управления задачами, позволяющее создавать, извлекать и выполнять задачи. Эти задачи хранятся в MongoDB.
 
 > [AZURE.NOTE]В этом учебнике используется экземпляр MongoDB, установленный на виртуальной машине. Если же используется размещенный в другом месте экземпляр MongoDB, предоставленный MongoLabs, см. статью [Создание веб-приложения Node.js в Azure с MongoDB с помощью надстройки MongoLab](store-mongolab-web-sites-nodejs-store-data-mongodb).
- 
+
 Файлы проекта для этого учебного курса будут храниться в каталоге с именем **tasklist**, завершенное приложение будет выглядеть примерно следующим образом:
 
 ![Веб-страница, показывающая пустой список задач][node-mongo-finished]
 
 > [AZURE.NOTE]Во многих действиях из описанных ниже упоминается использование командной строки. Для выполнения этих действий используйте командную строку своей операционной системы, например **Windows PowerShell** (Windows) или **Bash** (Unix Shell). На компьютерах с OS X доступ к командной строке можно получить через приложение Terminal.
 
-## Предварительные требования
+##Предварительные требования
 
 В действиях в этом учебнике используется Node.js, поэтому в среде разработки должна быть установлена последняя версия [Node.js][node].
 
@@ -46,9 +46,9 @@
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
->[AZURE.NOTE]Если вы хотите приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
+>[AZURE.NOTE]Чтобы приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
 
-## Создание виртуальной машины
+##Создание виртуальной машины
 
 <!--
 After you have created the virtual machine in Azure and installed MongoDB, be sure to remember the DNS name of the virtual machine ("testlinuxvm.cloudapp.net", for example) and the external port for MongoDB that you specified in the endpoint.  You will need this information later in the tutorial.-->
@@ -86,7 +86,7 @@ After you have created the virtual machine in Azure and installed MongoDB, be su
 	* Протокол — TCP
 	* Общий порт — 28017
 	* Закрытый порт — 28017
-	
+
 	![снимок экрана настройки конечной точки][vmendpoint]
 
 9. Дважды нажмите **ОК**, затем щелкните **Создать** для создания ВМ.
@@ -105,28 +105,28 @@ After you have created the virtual machine in Azure and installed MongoDB, be su
 	Если журнал содержит ошибки, обратитесь к [документации MongoDB][mongodocs] для их устранения.
 
 
-## Установка модулей и создание шаблонов
+##Установка модулей и создание шаблонов
 
 В этом разделе вы создадите новое приложение Node в среде разработки и добавите пакеты модулей с помощью npm. Для приложения списка задач будут использованы модули [Express] и [Mongoose]. Модуль Express предоставляет платформу Model View Controller (Контроллер представления модели) для Node, а Mongoose — это драйвер для взаимодействия с MongoDB.
 
-### Установка модуля Express и формирование шаблонов
+###Установка модуля Express и формирование шаблонов
 
 1. В командной строке измените каталоги на каталог **tasklist**. Если каталог **tasklist** не существует, создайте его.
 
-	> [AZURE.NOTE]Этот учебный курс ссылается на папку **tasklist**. Полный путь к этой папке опущен, поскольку семантика путей зависит от операционной системы. Эту папку нужно создать в легкодоступном месте локальной файловой системы, например **\~/node/tasklist** или **c:\\node\\tasklist**
+	> [AZURE.NOTE]Этот учебный курс ссылается на папку **tasklist**. Полный путь к этой папке опущен, поскольку семантика путей зависит от операционной системы. Эту папку нужно создать в легкодоступном месте локальной файловой системы, например **~/node/tasklist** или **c:\node\tasklist**
 
 2. Введите следующую команду для установки команды express:
 
 	npm install express-generator -g
- 
+
 	> [AZURE.NOTE]При использовании параметра -g в некоторых операционных системах может появиться сообщение об ошибке ___Error: EPERM, chmod '/usr/local/bin/express'___ и предложение попробовать использовать учетную запись с правами администратора. В этом случае необходимо с помощью команды `sudo` запустить npm с более высоким уровнем привилегий.
 
     Результат этой команды должен выглядеть аналогично следующему:
 
 		express-generator@4.0.0 C:\Users\username\AppData\Roaming\npm\node_modules\express-generator
 		├── mkdirp@0.3.5
-		└── commander@1.3.2 (keypress@0.1.0)                                                                         
- 
+		└── commander@1.3.2 (keypress@0.1.0)
+
 	> [AZURE.NOTE]Параметр -g, используемый при установке модуля express, устанавливает его глобальным образом. Это делается для того, чтобы можно было получить доступ к команде ___express___ для формирования шаблонов веб-приложения без необходимости вводить дополнительные сведения о путях.
 
 4. Для создания шаблонов, которые будут использоваться для данного приложения, используйте команду **express**:
@@ -152,10 +152,10 @@ After you have created the virtual machine in Azure and installed MongoDB, be su
 		   create : ./public/javascripts
 		   create : ./bin
 		   create : ./bin/www
-		
+
 		   install dependencies:
 		     $ cd . && npm install
-		
+
 		   run the app:
 		     $ DEBUG=my-application ./bin/www
 
@@ -173,10 +173,10 @@ After you have created the virtual machine in Azure and installed MongoDB, be su
 
 	Это необходимо, поскольку **server.js** (ранее **bin/www**,) теперь находится в той же папке, что и требуемый файл **app.js**.
 
-### Установка дополнительных модулей
+###Установка дополнительных модулей
 
 Файл **package.json** является одним из файлов, созданных командой **express**. Этот файл содержит список дополнительных модулей, необходимых для приложения Express. Позднее при развертывании этого приложения в веб-приложениях службы приложений данный файл будет использоваться, чтобы определить, какие модули должны быть установлены в Azure для поддержки приложения.
-	
+
 1. В папке **tasklist** выполните следующую команду для установки модулей, описанных в файле **package.json**:
 
         npm install
@@ -184,19 +184,19 @@ After you have created the virtual machine in Azure and installed MongoDB, be su
     Результат этой команды должен выглядеть аналогично следующему:
 
 		debug@0.7.4 node_modules\debug
-		
+
 		cookie-parser@1.0.1 node_modules\cookie-parser
 		├── cookie-signature@1.0.3
 		└── cookie@0.1.0
-		
+
 		morgan@1.0.0 node_modules\morgan
 		└── bytes@0.2.1
-		
+
 		body-parser@1.0.2 node_modules\body-parser
 		├── qs@0.6.6
 		├── raw-body@1.1.4 (bytes@0.3.0)
 		└── type-is@1.1.0 (mime@1.2.11)
-		
+
 		express@4.0.0 node_modules\express
 		├── methods@0.1.0
 		├── parseurl@1.0.1
@@ -214,7 +214,7 @@ After you have created the virtual machine in Azure and installed MongoDB, be su
 		├── type-is@1.0.0 (mime@1.2.11)
 		├── accepts@1.0.0 (negotiator@0.3.0, mime@1.2.11)
 		└── serve-static@1.0.1 (send@0.1.4)
-		
+
 		jade@1.3.1 node_modules\jade
 		├── character-parser@1.2.0
 		├── commander@2.1.0
@@ -222,7 +222,7 @@ After you have created the virtual machine in Azure and installed MongoDB, be su
 		├── monocle@1.1.51 (readdirp@0.2.5)
 		├── constantinople@2.0.0 (uglify-js@2.4.13)
 		├── with@3.0.0 (uglify-js@2.4.13)
-		└── transformers@2.1.0 (promise@2.0.0, css@1.0.8, uglify-js@2.2.5)                                                                
+		└── transformers@2.1.0 (promise@2.0.0, css@1.0.8, uglify-js@2.2.5)
 
 	Будут установлены все стандартные модули, используемые приложением Express.
 
@@ -241,11 +241,11 @@ After you have created the virtual machine in Azure and installed MongoDB, be su
 		├── mpromise@0.4.3
 		├── ms@0.1.0
 		├── mquery@0.5.3
-		└── mongodb@1.3.23 (kerberos@0.0.3, bson@0.2.5)         
+		└── mongodb@1.3.23 (kerberos@0.0.3, bson@0.2.5)
 
     > [AZURE.NOTE]На любое сообщение об установке анализатора bson C++ можно не обращать внимания.
 
-## Использование MongoDB в приложении node
+##Использование MongoDB в приложении node
 
 В этом разделе базовое приложение, созданное командой **express**, будет расширено путем добавления файла **task.js**, содержащего модель для ваших задач. Также будет изменен существующий файл **app.js** и создан новый файл контроллера **tasklist.js** для использования этой модели.
 
@@ -273,7 +273,7 @@ After you have created the virtual machine in Azure and installed MongoDB, be su
 
 5. Сохраните и закройте файл **task.js**.
 
-### Создание контроллера
+###Создание контроллера
 
 1. В каталоге **tasklist/routes** создайте новый файл с именем **tasklist.js** и откройте его в текстовом редакторе.
 
@@ -309,7 +309,7 @@ After you have created the virtual machine in Azure and installed MongoDB, be su
     	    });
     	  	res.redirect('/');
   		  },
-  
+
 
   		  completeTask: function(req,res) {
     		var completedTasks = req.body;
@@ -356,7 +356,7 @@ After you have created the virtual machine in Azure and installed MongoDB, be su
 
 4. Сохраните файл **app.js**.
 
-### Изменение представления индекса
+###Изменение представления индекса
 
 1. Измените каталоги на каталог **views** и откройте файл **index.jade** в текстовом редакторе.
 
@@ -383,14 +383,14 @@ After you have created the virtual machine in Azure and installed MongoDB, be su
 		  input(type="submit", value="Update tasks")
 		hr
 		form(action="/addtask", method="post")
-		  table(border="1") 
+		  table(border="1")
 		    tr
-		      td Item Name: 
-		      td 
+		      td Item Name:
+		      td
 		        input(name="item[name]", type="textbox")
 		    tr
-		      td Item Category: 
-		      td 
+		      td Item Category:
+		      td
 		        input(name="item[category]", type="textbox")
 		  input(type="submit", value="Add item")
 
@@ -435,7 +435,7 @@ To test the application on your local machine, perform the following steps:
 
 7. To stop the node process, go to the command-line and press the **CTRL** and **C** keys. -->
 
-## Развертывание приложения в Azure
+##Развертывание приложения в Azure
 
 В действиях, описанных в этом разделе, для создания нового веб-приложения в службе приложений Azure используются средства командной строки Azure, а затем для развертывания приложения применяется Git. Для выполнения этих действий необходимо наличие подписки Azure.
 
@@ -443,26 +443,26 @@ To test the application on your local machine, perform the following steps:
 
 > [AZURE.NOTE]Если это первое созданное вами веб-приложение службы приложений, для его развертывания необходимо использовать портал Azure.
 
-### Установка межплатформенного интерфейса командной строки Azure
+###Установка интерфейса командной строки Azure (Azure CLI)
 
-Межплатформенный интерфейс командной строки Azure (xplat-cli) позволяет выполнять операции управления службами Azure. Если вы еще не установили и не настроили интерфейс xplat-cli в среде разработки, изучите раздел [Установка и настройка межплатформенного интерфейса командной строки Azure][xplatcli].
+Интерфейс Azure CLI позволяет выполнять операции управления службами Azure. Если вы еще не установили и не настроили Azure CLI в своей среде разработки, см. инструкции в статье [Установка и настройка интерфейса Azure CLI](../xplat-cli-install.md).
 
-### Создание веб-приложения службы приложений
+###Создание веб-приложения службы приложений
 
 1. В командной строке измените каталоги на каталог **tasklist**.
 
 2. Используйте следующую команду для создания нового веб-приложения службы приложений. Замените myuniqueappname уникальным именем для созданного веб-приложения. Это значение используется как часть URL-адреса для созданного веб-приложения.
 
 		azure site create myuniqueappname --git
-		
+
 	Будет предложено указать центр обработки данных, в котором будет создано веб-приложение. Выберите центр обработки данных, расположенный недалеко от вашего местоположения.
-	
+
 	Параметр `--git` создаст репозиторий Git локально в папке **tasklist**, если он отсутствует. Также будет создан [удаленный репозиторий Git] с именем "azure", который будет использоваться для публикации приложения в Azure. Будет создан файл [iisnode.yml], который содержит настройки, используемые Azure для размещения приложений Node. Наконец, также будет создан файл .gitignore, чтобы исключить папку Node-modules из публикации в .git.
-	
+
 	> [AZURE.NOTE]Если эта команда выполняется из каталога, который уже содержит репозиторий Git, каталог не будет инициализирован заново.
-	
+
 	> [AZURE.NOTE]Если параметр --git отсутствует, но каталог содержит репозиторий Git, то удаленный репозиторий "azure" все равно будет создан.
-	
+
 	После выполнения этой команды должен появиться результат, похожий на следующий. Обратите внимание, что строка, начинающаяся с **Created website at** (Созданный веб-сайт по адресу), содержит URL-адрес для веб-приложения службы приложений.
 
 		info:   Executing command site create
@@ -478,7 +478,7 @@ To test the application on your local machine, perform the following steps:
 
 	> [AZURE.NOTE> Если это первое веб-приложение службы приложений для вашей подписки, то для его создания необходимо использовать портал. Дополнительные сведения см. в разделе [Создание веб-приложения Node.js и его развертывание в службу приложений Azure](web-sites-nodejs-develop-deploy-mac.md).
 
-### Задание переменной среды MONGODB_URI
+###Задание переменной среды MONGODB_URI
 
 Приложение ожидает, что строка подключения для экземпляра MongoDB будет доступна в переменной среды MONGODB_URI. Чтобы задать для веб-приложения это значение, используйте следующую команду:
 
@@ -486,7 +486,7 @@ To test the application on your local machine, perform the following steps:
 
 При этом будет создан новый параметр для веб-приложения, который будет использоваться для заполнения переменной среды MONGODB_URI, считываемой веб-приложением. Замените значение "mymongodb.cloudapp.net" именем виртуальной машины, на которой была установлена MongoDB.
 
-### Публикация приложения
+###Публикация приложения
 
 1. В окне Terminal измените каталоги на каталог **tasklist**, если он еще не является текущим.
 
@@ -498,7 +498,7 @@ To test the application on your local machine, perform the following steps:
 3. При принудительной отправке последних изменений репозитория Git в веб-приложение службы приложений необходимо указать, что целевой ветвью, используемой для контента этого веб-сайта, является **master**.
 
 		git push azure master
-	
+
 	Должен появиться результат, аналогичный приведенному ниже. По мере выполнения развертывания Azure будет загружать все модули npm.
 
 		Counting objects: 17, done.
@@ -516,10 +516,10 @@ To test the application on your local machine, perform the following steps:
 		remote: Deployment successful.
 		To https://username@mongodbtasklist.azurewebsites.net/MongoDBTasklist.git
  		 * [new branch]      master -> master
- 
+
 4. После завершения операции принудительной отправки перейдите в веб-приложение с помощью команды `azure site browse` для просмотра приложения.
 
-## Дальнейшие действия
+##Дальнейшие действия
 
 Хотя в действиях этой статьи описывается использование MongoDB для хранения информации, можно также использовать табличную службу Azure. Дополнительные сведения см. в статье [Веб-приложение Node.js со службой таблиц Azure].
 
@@ -527,7 +527,7 @@ To test the application on your local machine, perform the following steps:
 
 Сведения о защите MongoDB см. в разделе [Безопасность MongoDB][mongosecurity].
 
-## Дополнительные ресурсы
+##Дополнительные ресурсы
 
 [Средства командной строки Azure для Mac и Linux][Build and deploy a Node.js web app in Azure App Service] [Непрерывное развертывание с использованием GIT в службе приложений Azure]
 
@@ -559,7 +559,7 @@ To test the application on your local machine, perform the following steps:
 [installguides]: http://docs.mongodb.org/manual/installation/
 [azureportal]: https://portal.azure.com
 [mongodocs]: http://docs.mongodb.org/manual/
-[xplatcli]: ../xplat-cli.md
+[Azure CLI]: ../xplat-cli.md
 
 [selectdepo]: ./media/web-sites-nodejs-store-data-mongodb/browsedepot.png
 [selectedimage]: ./media/web-sites-nodejs-store-data-mongodb/selectimage.png
@@ -570,4 +570,6 @@ To test the application on your local machine, perform the following steps:
 [vmconfig]: ./media/web-sites-nodejs-store-data-mongodb/vmconfig.png
 [vmendpoint]: ./media/web-sites-nodejs-store-data-mongodb/endpoints.png
 [mongodbonazure]: http://docs.mongodb.org/ecosystem/tutorial/install-mongodb-on-linux-in-azure/
-<!--HONumber=54--> 
+ 
+
+<!---HONumber=62-->

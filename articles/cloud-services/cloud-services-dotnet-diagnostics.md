@@ -207,7 +207,7 @@
   			<WadCfg>
     			<DiagnosticMonitorConfiguration overallQuotaInMB="25000">
       			<PerformanceCounters scheduledTransferPeriod="PT1M">
-        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)% Processor Time" sampleRate="PT1M" unit="percent" />
+        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT1M" unit="percent" />
         			<PerformanceCounterConfiguration counterSpecifier="\Memory\Committed Bytes" sampleRate="PT1M" unit="bytes"/>
       				</PerformanceCounters>
       				<EtwProviders>
@@ -332,7 +332,7 @@
 
 ### Шаг 3. Развертывание приложения
 1.	В **обозревателе решений** щелкните правой кнопкой мыши проект **WadExampleVM** и выберите **Открыть папку в проводнике**.
-2.	Перейдите к папке *bin\\Debug* и скопируйте все файлы (WadExampleVM.*)
+2.	Перейдите к папке *bin\Debug* и скопируйте все файлы (WadExampleVM.*)
 3.	В **обозревателе серверов** щелкните правой кнопкой мыши виртуальную машину и выберите **Подключиться с помощью удаленного рабочего стола**.
 4.	После подключения к виртуальной машине создайте папку с именем WadExampleVM и вставьте в нее свои файлы приложения.
 5.	Запустите приложение WadExampleVM.exe. Должно отобразиться пустое окно консоли.
@@ -351,7 +351,7 @@
   			<WadCfg>
     			<DiagnosticMonitorConfiguration overallQuotaInMB="25000">
       			<PerformanceCounters scheduledTransferPeriod="PT1M">
-        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)% Processor Time" sampleRate="PT1M" unit="percent" />
+        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT1M" unit="percent" />
         			<PerformanceCounterConfiguration counterSpecifier="\Memory\Committed Bytes" sampleRate="PT1M" unit="bytes"/>
       				</PerformanceCounters>
       				<EtwProviders>
@@ -397,7 +397,7 @@
 ### Система диагностики Azure не запускается
 Диагностика состоит из двух компонентов: подключаемого модуля гостевого агента и агента мониторинга. Файлы журнала подключаемого модуля гостевого агента расположены в файле:
 
-*%SystemDrive%\\ WindowsAzure\\Logs\\Plugins\\Microsoft.Azure.Diagnostics.PaaSDiagnostics<DiagnosticsVersion>*\\CommandExecution.log
+*%SystemDrive%\ WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics<DiagnosticsVersion>*\CommandExecution.log
 
 Подключаемый модуль возвращает следующие коды ошибок:
 
@@ -765,6 +765,7 @@
 [Additional Resources]: #additional
 [EventSource]: http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
 [класса EventSource]: http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
+  
 [Настройка системы диагностики для облачных служб и виртуальных машин Azure]: http://msdn.microsoft.com/library/windowsazure/dn186185.aspx
 [Отладка приложения Azure]: http://msdn.microsoft.com/library/windowsazure/ee405479.aspx
 [Сбор данных журнала с помощью системы диагностики Azure]: http://msdn.microsoft.com/library/windowsazure/gg433048.aspx
@@ -776,5 +777,6 @@
 [Set-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/library/dn495270.aspx
 [Get-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/library/dn495145.aspx
 [Remove-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/library/dn495168.aspx
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

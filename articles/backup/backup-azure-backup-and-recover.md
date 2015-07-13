@@ -1,15 +1,15 @@
 <properties
-	pageTitle="Служба архивации Azure — резервное копирование и восстановление с сервера или клиента Windows"
-	description="Узнайте, как выполнять резервное копирование и восстановление данных с сервера или клиента Windows. В этой статье также описана процедура восстановления с другого сервера."
-	services="backup"
-	documentationCenter=""
-	authors="prvijay"
-	manager="shreeshd"
-	editor=""/>
+   pageTitle="Служба архивации Azure — резервное копирование и восстановление с сервера или клиента Windows"
+   description="Узнайте, как выполнять резервное копирование и восстановление данных с сервера или клиента Windows. В этой статье также описана процедура восстановления с другого сервера."
+   services="backup"
+   documentationCenter=""
+   authors="prvijay"
+   manager="shreeshd"
+   editor=""/>
 
 <tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
+   ms.service="backup"
+   ms.workload="storage-backup-recovery"
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
@@ -112,5 +112,6 @@
 [16]: ./media/backup-azure-backup-and-recover/searchitems.png
 [17]: ./media/backup-azure-backup-and-recover/restorelocation.png
 [18]: ./media/backup-azure-backup-and-recover/encryption.png
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

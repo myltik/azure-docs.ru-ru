@@ -1,35 +1,36 @@
 
 
->[AZURE.NOTE]To complete this procedure, you must have a Google account that has a verified email address. To create a new Google account, go to <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
+>[AZURE.NOTE]Для выполнения этой процедуры необходима учетная запись Google с проверенным электронным адресом. Чтобы создать новую учетную запись Google, перейдите по ссылке <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
 
 
-1. Navigate to the <a href="http://cloud.google.com/console" target="_blank">Google Cloud Console</a> website, sign-in with your Google account credentials, and then click **Create Project**.
+1. Перейдите на веб-сайт <a href="http://cloud.google.com/console" target="_blank">Консоль Google Cloud</a> и войдите с помощью учетной записи Google. Щелкните элемент **Создать проект**.
 
-   	![](./media/notification-hubs-android-get-started/mobile-services-google-new-project.png)   
+   	![](./media/notification-hubs-android-get-started/mobile-services-google-new-project.png)
 
-	>[AZURE.NOTE]When you already have an existing project, you are directed to the <strong>Projects</strong> page after login. To create a new project from the Dashboard, expand <strong>API Project</strong>, click <strong>Create...</strong> under <strong>Other projects</strong>, then enter a project name and click <strong>Create project</strong>.
+	>[AZURE.NOTE]При наличии существующего проекта после входа в систему открывается страница <strong>Проекты</strong>. Чтобы создать новый проект из панели мониторинга, откройте <strong>Проект API</strong>, нажмите <strong>Создать...</strong> в разделе <strong>Другие проекты</strong>, введите имя проекта и нажмите кнопку <strong>Создать проект</strong>.
 
-2. Enter a project name, accept the terms of service, and click **Create**. If requested, carry out the SMS Verification, and click **Create** again.
+2. Введите имя проекта, примите условия предоставления услуг и щелкните кнопку **Создать**. Выполните требуемую проверку с помощью SMS и снова щелкните **Создать**.
 
-3. Make a note of the project number in the **Projects** section. 
+3. Запишите номер проекта в разделе **Проекты**.
 
-	Later in the tutorial you set this value as the PROJECT_ID variable in the client.
+	Позже в этом учебнике данное значение будет использоваться как переменная PROJECT_ID для клиента.
 
-4. In the left column, expand **APIs & auth**, click **APIs** then scroll down and click the toggle to enable **Google Cloud Messaging for Android** and accept the terms of service. 
+4. В левом столбце разверните **APIs & auth** (API и аутентификация), щелкните **APIs** (Интерфейсы API), прокрутите список вниз и щелкните переключатель, чтобы включить параметр **Google Cloud Messaging for Android** (Google Cloud Messaging для Android), и примите условия предоставления услуг.
 
 	![](./media/notification-hubs-android-get-started/mobile-services-google-enable-GCM.png)
 
-5. Click **Credentials**, and then click **Create new Key** 
+5. Щелкните **Credentials** (Учетные данные), а затем нажмите кнопку **Create new Key** (Создать новый ключ)
 
    	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key.png)
 
-6. In **Create a new key**, click **Server key**. In the next window click **Create**.
+6. В окне **Create a new key** (Создание нового ключа) щелкните **Server key** (Ключ сервера). В следующем окне щелкните элемент **Create** (Создать).
 
    	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key2.png)
 
-7. Make a note of the **API KEY** value.
+7. Запишите значение **API KEY** (Ключ API).
 
-   	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key3.png) 
+   	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key3.png)
 
-	You will use this API key value to enable Azure to authenticate with GCM and send push notifications on behalf of your app.
+	Этот ключ API службы Azure будут использовать для аутентификации в службе GCM и отправки push-уведомлений от имени вашего приложения.
 
+<!---HONumber=62-->

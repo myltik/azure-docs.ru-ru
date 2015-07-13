@@ -35,7 +35,7 @@ Visual Studio Application Insights осуществляет наблюдение
 
 ![Создание проекта ASP.NET](./media/app-service-app-insights-get-started/appinsights-01-vsnewp1.png)
 
-Visual Studio создает ресурс в Application Insights добавляет этот пакет SDK в проект и помещает ключ в файл `.config`.
+Visual Studio создает ресурс в Application Insights, добавляет этот пакет SDK в проект и помещает ключ в файл `.config`.
 
 Если проект содержит веб-страницы, он также добавляет [пакет SDK JavaScript][client] на эталонную веб-страницу.
 
@@ -45,7 +45,7 @@ Visual Studio создает ресурс в Application Insights добавля
 
 ![Выберите пункт Add Application Insights](./media/app-service-app-insights-get-started/appinsights-03-addExisting.png)
 
-Visual Studio создает ресурс в Application Insights добавляет этот пакет SDK в проект и помещает ключ в файл `.config`.
+Visual Studio создает ресурс в Application Insights, добавляет этот пакет SDK в проект и помещает ключ в файл `.config`.
 
 В этом случае он не добавляет [пакет SDK JavaScript][client] на веб-страницы — рекомендуется сделать это на следующем шаге.
 
@@ -123,5 +123,6 @@ Visual Studio создает ресурс в Application Insights добавля
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [windows]: app-insights-windows-get-started.md
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

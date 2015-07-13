@@ -3,7 +3,7 @@
 	description="Узнайте, как авторизовать пользователей с помощью Azure Active Directory в управлении API" 
 	services="api-management" 
 	documentationCenter="API Management" 
-	authors="sdanie" 
+	authors="steved0x" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/10/2015" 
+	ms.date="06/16/2015" 
 	ms.author="sdanie"/>
 
 # Авторизация учетных записей разработчиков с помощью Azure Active Directory в управлении API Azure
@@ -26,7 +26,7 @@
 
 ## Авторизация учетных записей разработчиков с помощью Azure Active Directory
 
-Чтобы приступить к работе, на портале Azure нажмите кнопку **Manage** (Управление) для вашей службы управления API. Откроется портал издателя управления API.
+Чтобы приступить к работе, на портале Azure нажмите кнопку **Manage** (Управление) для вашей службы управления API. Будет открыт портал издателя службы управления API.
 
 ![Портал издателя][api-management-management-console]
 
@@ -207,7 +207,7 @@
 
 [How to add operations to an API]: api-management-howto-add-operations.md
 [How to add and publish a product]: api-management-howto-add-products.md
-[Monitoring and analytics]: ../api-management-monitoring.md
+[Monitoring and analytics]: api-management-monitoring.md
 [Add APIs to a product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
 [Начинаем работу с API Management]: api-management-get-started.md
@@ -228,5 +228,4 @@
 
 [Вход на портал разработчика с помощью учетной записи Azure Active Directory]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account
 
-
-<!--HONumber=54--> 
+<!---HONumber=62-->

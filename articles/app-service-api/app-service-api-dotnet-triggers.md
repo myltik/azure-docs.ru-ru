@@ -22,7 +22,7 @@
 
 В этой статье описывается, как реализовать триггеры приложения API и использовать их из приложения логики.
 
-Если вы не знакомы с [приложениями API](app-service-api-apps-why-best-platform.md) в [службе приложений Azure](../app-service/app-service-value-prop-what-is.md), мы советуем вам ознакомиться с циклом статей о [создании приложений API](app-service-dotnet-create-api-app.md).
+Если вы не знакомы с [приложениями API](app-service-api-apps-why-best-platform.md) в [службе приложений Azure](../app-service/app-service-value-prop-what-is.md), рекомендуем вам ознакомиться с циклом статей о [создании приложений API](app-service-dotnet-create-api-app.md).
 
 Кроме того, все фрагменты кода в этом разделе копируются из [примера кода приложения API FileWatcher](http://go.microsoft.com/fwlink/?LinkId=534802).
 

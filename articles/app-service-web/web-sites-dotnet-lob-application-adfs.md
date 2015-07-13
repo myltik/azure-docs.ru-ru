@@ -20,7 +20,7 @@
 
 В этой статье вы узнаете, как создать бизнес-приложение ASP.NET MVC в [веб-приложениях службы приложений Azure](http://go.microsoft.com/fwlink/?LinkId=529714) с использованием локальных [служб федерации Active Directory](http://technet.microsoft.com/library/hh831502.aspx) в качестве поставщика удостоверений. Этот сценарий можно использовать, когда необходимо создать бизнес-приложения в веб-приложениях службы приложений Azure, но организация требует сохранять все данные локально.
 
->[AZURE.NOTE]Обзор различных вариантов корпоративной аутентификации и авторизации для веб-приложений службы приложений Azure см. в статье [Использование службы Active Directory для аутентификации в службе приложений Azure](web-sites-authentication-authorization.md).
+>[AZURE.NOTE]Обзор различных вариантов корпоративной аутентификации и авторизации для веб-приложений службы приложений Azure см. в статье [Использование Active Directory для проверки подлинности в службе приложений Azure](web-sites-authentication-authorization.md).
 
 <a name="bkmk_build"></a>
 ## Что будет строиться ##
@@ -40,32 +40,32 @@
 
 Чтобы выполнить инструкции этого учебника, необходимо следующее:
 
-- локальное развертывание AD FS (полное пошаговое руководство по лаборатории тестирования, которую я использую, см. в разделе [Лаборатория тестирования: автономная STS c AD FS в виртуальной машине Azure (только для тестирования)](TODO));
+- локальное развертывание AD FS (полное пошаговое руководство по лаборатории тестирования, которую я использую, см. в статье [Лаборатория тестирования: автономная STS c AD FS в виртуальной машине Azure (только для тестирования)](TODO));
 - разрешения для создания отношений доверия с проверяющей стороной в оснастке управления AD FS
 - Visual Studio 2013
-- [Пакет SDK Azure 2.5.1](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) или более поздней версии
+- [пакет SDK для Azure 2.5.1](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) или более поздней версии.
 
 <a name="bkmk_sample"></a>
-## Использование образца приложения в качестве шаблона бизнес-приложения ##
+## Использование примера приложения в качестве шаблона бизнес-приложения ##
 
-Пример приложения в этом учебнике, [WebApp-WSFederation-DotNet)](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet), создан рабочей группой Azure Active Directory. Так как службы AD FS поддерживают WS-Federation, можно использовать их для быстрого создания новых бизнес-приложений. Они имеют следующие возможности:
+Пример приложения в этом учебнике, [WebApp-WSFederation-DotNet)](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet), создала рабочая группа Azure Active Directory. Так как службы AD FS поддерживают WS-Federation, можно использовать их для быстрого создания новых бизнес-приложений. Они имеют следующие возможности:
 
 - использование [WS-Federation](http://msdn.microsoft.com/library/bb498017.aspx) для аутентификации с помощью локального развертывания служб федерации Active Directory;
 - функции входа и выхода
-- использование [Microsoft.Owin](http://www.asp.net/aspnet/overview/owin-and-katana/an-overview-of-project-katana) (вместо Windows Identity Foundation, то есть WIF). Этот интерфейс определяет будущее ASP.NET, он гораздо проще в настройке для проверки подлинности и авторизации, чем WIF.
+- использование [Microsoft.Owin](http://www.asp.net/aspnet/overview/owin-and-katana/an-overview-of-project-katana) (вместо Windows Identity Foundation, то есть WIF). Этот интерфейс определяет будущее ASP.NET. Он гораздо проще в настройке для аутентификации и авторизации, чем WIF.
 
 <a name="bkmk_setup"></a>
 ## настройка простого приложения ##
 
-2.	Создайте клон или загрузите пример решения [WebApp-WSFederation-DotNet](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet) в локальный каталог.
+2.	Создайте клон или скачайте пример решения [WebApp-WSFederation-DotNet](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet) в локальный каталог.
 
-	> [AZURE.NOTE]Инструкции в [README.md](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet/blob/master/README.md) показывают настройку приложения с помощью Azure Active Directory, но в этом учебнике настройка будет выполняться с использованием AD FS. Поэтому вместо этого необходимо выполнять указанные здесь действия.
+	> [AZURE.NOTE]Указания в [README.md](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet/blob/master/README.md) показывают настройку приложения с помощью Azure Active Directory, но в этом учебнике настройка будет выполняться с использованием AD FS. Поэтому вместо этого необходимо выполнять указанные здесь действия.
 
-3.	Откройте решение, а затем откройте Controllers\\AccountController.cs в **обозревателе решений**.
+3.	Откройте решение, а затем откройте файл Controllers\AccountController.cs в **обозревателе решений**.
 
-	Вы увидите, что код просто выдает запрос проверки подлинности для проверки подлинности пользователя с помощью WS-Federation. Вся проверка подлинности настраивается в App_Start\\Startup.Auth.cs.
+	Вы увидите, что код просто выдает запрос проверки подлинности для проверки подлинности пользователя с помощью WS-Federation. Вся проверка подлинности настраивается в App_Start\Startup.Auth.cs.
 
-4.  Откройте App_Start\\Startup.Auth.cs. В методе `ConfigureAuth` найдите строку:
+4.  Откройте App_Start\Startup.Auth.cs. В методе `ConfigureAuth` найдите строку:
 
         app.UseWsFederationAuthentication(
             new WsFederationAuthenticationOptions
@@ -79,7 +79,7 @@
 	-	Идентификатор RP: `https://contoso.com/MyLOBApp`
 	-	Адрес метаданных: `http://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`
 
-5.	В App_Start\\Startup.Auth.cs замените статические определения строки как показано ниже.
+5.	В App_Start\Startup.Auth.cs замените статические определения строки как показано ниже.
 	<pre class="prettyprint">
 private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIdentifier</mark>"];
 <mark><del>private static string aadInstance = ConfigurationManager.AppSettings["ida:AADInstance"];</del></mark>
@@ -131,7 +131,7 @@ private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIden
 
 	![](./media/web-sites-dotnet-lob-application-adfs/03-destination-url.png)
 
-11. В Visual Studio откройте в своем проекте файл **Web.Release.config**. Вставьте следующий XML-код в тег `<configuration>` и замените значение ключа на URL-адрес публикуемого веб-приложения.
+11. В Visual Studio откройте в своем проекте файл **Web.Release.config**. Вставьте следующий XML-код в тег `<configuration>` и замените значение ключа URL-адресом публикуемого веб-приложения.
 	<pre class="prettyprint">
 &lt;appSettings>
    &lt;add key="ida:RPIdentifier" value="<mark>[например, https://mylobapp.azurewebsites.net/]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
@@ -149,11 +149,11 @@ private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIden
 > [AZURE.NOTE]Не забудьте выполнить указанные ниже действия для обеих сред.
 
 4.	На сервере AD FS выполните вход с использование учетных данных, имеющих права управления для AD FS.
-5.	Откройте оснастку управления AD FS. Щелкните правой кнопкой мыши **AD FS\\Доверенные отношения\\Доверенные отношения с проверяющей стороной** и выберите **Добавить отношение доверия с проверяющей стороной**.
+5.	Откройте оснастку управления AD FS. Щелкните правой кнопкой мыши **AD FS\Доверенные отношения\Доверенные отношения с проверяющей стороной** и выберите **Добавить отношение доверия с проверяющей стороной**.
 
 	![](./media/web-sites-dotnet-lob-application-adfs/1-add-rptrust.png)
 
-5.	На странице **Выбор источника данных** выберите **Ввести данные о проверяющей стороне вручную**.
+5.	На странице **Выбрать источник данных** выберите **Ввести данные о проверяющей стороне вручную**.
 
 	![](./media/web-sites-dotnet-lob-application-adfs/2-enter-rp-manually.png)
 
@@ -161,30 +161,30 @@ private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIden
 7.	На странице **Выбор протокола** щелкните **Далее**.
 8.	На странице **Настройка сертификата** щелкните **Далее**.
 
-	> [AZURE.NOTE]Так как уже должен использоваться протокол HTTPS, зашифрованные токены необязательны. Если действительно необходимо шифровать токены из AD FS на этой странице, нужно добавить логику расшифровки токенов в код. Дополнительные сведения см. в статье [Ручная настройка промежуточного слоя OWIN WS-Federation и прием зашифрованных маркеров](http://chris.59north.com/post/2014/08/21/Manually-configuring-OWIN-WS-Federation-middleware-and-accepting-encrypted-tokens.aspx).
+	> [AZURE.NOTE]Так как уже должен использоваться протокол HTTPS, зашифрованные токены необязательны. Если действительно необходимо шифровать токены из AD FS на этой странице, нужно добавить логику расшифровки токенов в код. Дополнительную информацию см. в статье [Ручная настройка промежуточного слоя OWIN WS-Federation и прием зашифрованных маркеров](http://chris.59north.com/post/2014/08/21/Manually-configuring-OWIN-WS-Federation-middleware-and-accepting-encrypted-tokens.aspx).
   
 5.	Прежде чем переходить к следующему шагу, потребуется часть информации и проекта Visual Studio. В свойствах проекта обратите внимание на **URL-адрес SSL** приложения.
 
 	![](./media/web-sites-dotnet-lob-application-adfs/3-ssl-url.png)
 
-6.	Перейдите снова в оснастку управления AD FS. На странице **Настройка URL-адреса** **Мастера добавления отношения доверия с проверяющей стороной** выберите **Включить поддержку пассивного протокола WS-Federation** и введите URL-адрес SSL проекта Visual Studio, который вы записали на предыдущем шаге. Нажмите кнопку **Далее**.
+6.	Перейдите снова в оснастку управления AD FS. На странице **Настройка URL-адреса** в **Мастер добавления отношения доверия с проверяющей стороной** выберите **Включить поддержку пассивного протокола WS-Federation** и введите URL-адрес SSL проекта Visual Studio, который вы записали на предыдущем шаге. Нажмите кнопку **Далее**.
 
 	![](./media/web-sites-dotnet-lob-application-adfs/4-configure-url.png)
 
 	> [AZURE.NOTE]URL-адрес указывает, куда отправлять клиента после успешной проверки подлинности. Для среды отладки это должен быть <code>https://localhost:&lt;port&gt;/</code>. Для опубликованного веб-приложения это должен быть URL-адрес веб-приложения.
 
-7.	На странице **Настройка идентификаторов** убедитесь, что URL-адрес SSL проекта уже находится в списке, и щелкните **Далее**. Нажимайте кнопку **Далее** на всех страницах до конца мастера, выбирая значения по умолчанию.
+7.	На странице **Настройка идентификаторов** убедитесь, что URL-адрес SSL проекта уже есть в списке, и щелкните **Далее**. Щелкайте **Далее** на всех страницах мастера до конца, выбирая значения по умолчанию.
 
-	> [AZURE.NOTE]В файле App_Start\\Startup.Auth.cs проекта Visual Studio этот идентификатор сопоставляется со значением <code>WsFederationAuthenticationOptions.Wtrealm</code> во время федеративной аутентификации. По умолчанию URL-адрес приложения из предыдущего шага добавляется как идентификатор RP.
+	> [AZURE.NOTE]В файле App_Start\Startup.Auth.cs проекта Visual Studio этот идентификатор сопоставляется со значением <code>WsFederationAuthenticationOptions.Wtrealm</code> во время федеративной аутентификации. По умолчанию URL-адрес приложения из предыдущего шага добавляется как идентификатор RP.
 
 8.	Настройка приложения RP для проекта в AD FS завершена. Далее необходимо настроить это приложение, чтобы оно отправляло утверждения, необходимые вашему приложению. При окончании работы мастера по умолчанию открывается диалоговое окно **Изменение правил для утверждений** и можно сразу приступить к настройке. Как минимум, настроим следующие утверждения (со схемами в круглых скобках):
 
-	-	Имя (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name) — используется в ASP.NET для заполнения `User.Identity.Name`.
-	-	Имя участника-пользователя (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn) — используется для уникальной идентификации пользователей в организации.
-	-	Членства в группах как роли (http://schemas.microsoft.com/ws/2008/06/identity/claims/role) — могут использоваться с оформлением `[Authorize(Roles="role1, role2,...")]` для авторизации контроллеров/действий. На практике такой подход к авторизации ролей может оказаться не самым производительным, в особенности, если пользователи AD постоянно оказываются членами сотен групп безопасности, что преобразуется в сотни утверждения роли в токене SAML. В качестве альтернативного подхода можно отправить одной утверждение роли, условно зависящее от членства пользователя в определенной группе. Однако в нашем учебнике мы будем придерживаться простого подхода.
-	-	Идентификатор имени (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier) — может использоваться для проверки защиты от подделки. Дополнительные сведения о настройке проверки защиты от подделки см. в разделе **Добавление функциональности бизнес-приложения к примеру приложения** статьи [Создание веб-приложения .NET MVC в службе приложений Azure с аутентификацией Azure Active Directory](web-sites-dotnet-lob-application-azure-ad.md#bkmk_crud).
+	-	Имя (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name) — используется в ASP.NET для заполнения `User.Identity.Name`.
+	-	Имя субъекта-пользователя (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn) — используется для уникальной идентификации пользователей в организации.
+	-	Членства в группах в качестве ролей (http://schemas.microsoft.com/ws/2008/06/identity/claims/role) — могут использоваться с оформлением `[Authorize(Roles="role1, role2,...")]` для авторизации контроллеров или действий. На практике такой подход к авторизации ролей может оказаться не самым производительным, в особенности, если пользователи AD постоянно оказываются членами сотен групп безопасности, что преобразуется в сотни утверждения роли в токене SAML. В качестве альтернативного подхода можно отправить одной утверждение роли, условно зависящее от членства пользователя в определенной группе. Однако в нашем учебнике мы будем придерживаться простого подхода.
+	-	Идентификатор имени (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier) — может использоваться для проверки защиты от подделки. Дополнительную информацию о настройке проверки защиты от подделки см. в разделе **Добавление функциональности бизнес-приложения к примеру приложения** статьи [Создание веб-приложения .NET MVC в службе приложений Azure с аутентификацией Azure Active Directory](web-sites-dotnet-lob-application-azure-ad.md#bkmk_crud).
 
-	> [AZURE.NOTE]Типы утверждений, которые необходимо настроить для приложения определяются его потребностями. Список утверждений, поддерживаемых приложениями Azure Active Directory (т. е. отношениями доверия RP) см. в статье [Поддерживаемые типы маркеров и утверждений](http://msdn.microsoft.com/library/azure/dn195587.aspx).
+	> [AZURE.NOTE]Типы утверждений, которые необходимо настроить для приложения определяются его потребностями. Список утверждений, поддерживаемых приложениями Azure Active Directory (т. е. отношениями доверия RP) см. в разделе [Поддерживаемые типы токенов и утверждений](http://msdn.microsoft.com/library/azure/dn195587.aspx).
 
 8.	В диалоговом окне «Изменение правил для утверждений» щелкните **Добавить правило**.
 9.	Настройте имя, UPN и утверждения ролей, как показано ниже, а затем щелкните **Готово**.
@@ -249,7 +249,7 @@ c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticat
 - AD FS успешно выполняют проверку подлинности пользователя AD и перенаправляют вас обратно на домашнюю страницу приложения
 - AD FS успешно отправляет утверждение имени (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name) приложению. Это подтверждается тем, что имя пользователя отображается в углу. 
 
-Если утверждение имени отсутствует, вы увидите **Здравствуйте, !**. В файле Views\\Shared\\_LoginPartial.cshtml можно увидеть, что здесь используется `User.Identity.Name` для отображения имени пользователя. Как уже отмечалось ранее, ASP.NET заполняет это свойство утверждением имени прошедшего проверку подлинности пользователя, если оно доступно в токене SAML. Чтобы просмотреть все утверждения, отправленные AD FS, вставьте точку останова в Controllers\\HomeController.cs в методе действия индекса. После выполнения аутентификации пользователя проверьте коллекцию `System.Security.Claims.Current.Claims`.
+Если утверждение имени отсутствует, вы увидите **Здравствуйте, !**. В файле Views\Shared_LoginPartial.cshtml можно увидеть, что для отображения имени пользователя здесь используется `User.Identity.Name`. Как уже отмечалось ранее, ASP.NET заполняет это свойство утверждением имени прошедшего проверку подлинности пользователя, если оно доступно в токене SAML. Чтобы просмотреть все утверждения, отправленные AD FS, вставьте точку останова в Controllers\HomeController.cs в методе действия индекса. После аутентификации пользователя проверьте коллекцию `System.Security.Claims.Current.Claims`.
 
 ![](./media/web-sites-dotnet-lob-application-adfs/12-test-debugging-all-claims.png)
 
@@ -258,10 +258,10 @@ c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticat
 
 После включения членств в группах в качестве утверждений ролей в конфигурации отношения доверия с проверяющей стороной вы можете использовать их непосредственно в оформлении `[Authorize(Roles="...")]` для контроллеров и действий. В бизнес-приложении с шаблоном создать- прочитать-обновить-удалить (CRUD) можно выполнять авторизацию определенных ролей для доступа к каждому действию. На сегодня просто попробуем, как работает эта функция на примере существующего контроллера Home.
 
-1. Откройте Controllers\\HomeController.cs.
-2. Оформите методы действия `About` и `Contact` по образцу, показанному ниже, используя членства в группе безопасности пользователя, прошедшего аутентификацию.  
+1. Откройте Controllers\HomeController.cs.
+2. Оформите методы действия `About` и `Contact` по примеру, показанному ниже, используя членства в группе безопасности пользователя, прошедшего аутентификацию.  
 	<pre class="prettyprint">
-<mark>[Authorize(Roles="Test Group")]</mark>
+<mark>[Authorize(Roles="Тестовая группа")]</mark>
 public ActionResult About()
 {
     ViewBag.Message = "Страница описания вашего приложения.";
@@ -276,14 +276,14 @@ public ActionResult Contact()
 
     return View();
 }
-</pre>Поскольку я добавил **Тестового пользователя** в **Тестовую группу** в своей лабораторной среде AD FS, я буду использовать тестовую группу для проверки авторизации на `About`. Для `Contact` я проведу тестирование отрицательного случая группы **Администраторы домена**, к которой не принадлежит **Тестовый пользователь**.
+</pre>Так как я добавил **тестового пользователя** в группу **Тестовая группа** в своей лабораторной среде AD FS, я буду использовать тестовую группу для проверки авторизации на `About`. Для `Contact` я проведу тестирование отрицательного случая группы **Администраторы домена**, к которой не принадлежит **Тестовый пользователь**.
 
-3. Запустите отладчик, введя `F5`, и войдите в систему, а затем нажмите кнопку **Сведения о**. Должна отобразиться страница `~/About/Index`, если прошедший аутентификацию пользователь авторизован для этого действия.
-4. Далее нажмите кнопку **Контакт**, что в моем случае не должно авторизовать **Тестового пользователя** для этого действия. Тем не менее, браузер перенаправляется к AD FS, в результате чего, в конечном счете, показывается это сообщение:
+3. Запустите отладчик, нажав клавишу `F5`, и войдите в систему, а затем нажмите кнопку **О программе**. Должна отобразиться страница `~/About/Index`, если прошедший аутентификацию пользователь авторизован для этого действия.
+4. Далее щелкните **Контакт**, что в моем случае не должно авторизовать **тестового пользователя** для этого действия. Тем не менее, браузер перенаправляется к AD FS, в результате чего, в конечном счете, показывается это сообщение:
 
 	![](./media/web-sites-dotnet-lob-application-adfs/13-authorize-adfs-error.png)
 
-	Если исследовать эту ошибку в средстве просмотра событий на сервере AD FS, обнаружится следующее сообщение об исключении: <pre class="prettyprint"> Microsoft.IdentityServer.Web.InvalidRequestException: MSIS7042: <mark>Один и тот же сеанс браузера клиента сделал 6 запросов за последние 11 секунд.</mark> Обратитесь к администратору для получения дополнительных сведений. at Microsoft.IdentityServer.Web.Protocols.PassiveProtocolHandler.UpdateLoopDetectionCookie(WrappedHttpListenerContext context) at Microsoft.IdentityServer.Web.Protocols.WSFederation.WSFederationProtocolHandler.SendSignInResponse(WSFederationContext context, MSISSignInResponse response) at Microsoft.IdentityServer.Web.PassiveProtocolListener.ProcessProtocolRequest(ProtocolContext protocolContext, PassiveProtocolHandler protocolHandler) at Microsoft.IdentityServer.Web.PassiveProtocolListener.OnGetContext(WrappedHttpListenerContext context) </pre>
+	Если исследовать эту ошибку в средстве просмотра событий на сервере AD FS, обнаружится следующее сообщение об исключении: <pre class="prettyprint"> Microsoft.IdentityServer.Web.InvalidRequestException: MSIS7042: <mark>Один и тот же сеанс браузера клиента сделал 6 запросов за последние 11 секунд.</mark> Обратитесь к администратору для получения дополнительной информации. at Microsoft.IdentityServer.Web.Protocols.PassiveProtocolHandler.UpdateLoopDetectionCookie(WrappedHttpListenerContext context) at Microsoft.IdentityServer.Web.Protocols.WSFederation.WSFederationProtocolHandler.SendSignInResponse(WSFederationContext context, MSISSignInResponse response) at Microsoft.IdentityServer.Web.PassiveProtocolListener.ProcessProtocolRequest(ProtocolContext protocolContext, PassiveProtocolHandler protocolHandler) at Microsoft.IdentityServer.Web.PassiveProtocolListener.OnGetContext(WrappedHttpListenerContext context) </pre>
 
 	Это происходит потому, что по умолчанию MVC возвращает ошибку «401 Неавторизован», когда роли пользователя неавторизованы. В результате активируется запрос на повторную проверку подлинности к поставщику удостоверений(AD FS). Так как пользователь уж прошел проверку подлинности, AD FS возвращается на ту же страницу, которая издает другую ошибку 401, создавая цикл перенаправления. Можно переопределить метод `HandleUnauthorizedRequest` в AuthorizeAttribute с помощью простой логики, чтобы отображать более содержательную информацию вместо продолжения цикла перенаправления.
 
@@ -314,7 +314,7 @@ public ActionResult Contact()
 
 	Код переопределения отправляет ошибку HTTP 403 (Запрещено) вместо HTTP 401 (Неавторизован) в случаях «прошедший аутентификацию, но не авторизованный».
 
-6. Запустите отладчик снова с помощью `F5`. Нажатие кнопки **Контакт** теперь показывает более информативное (хотя и непривлекательное) сообщение об ошибке:
+6. Запустите отладчик снова, нажав клавишу `F5`. Щелкнув **Контакт**, теперь можно увидеть более информативное (хотя и непривлекательное) сообщение об ошибке:
 
 	![](./media/web-sites-dotnet-lob-application-adfs/14-unauthorized-forbidden.png)
 
@@ -323,9 +323,9 @@ public ActionResult Contact()
 <a name="bkmk_data"></a>
 ## Подключение к локальным данным
 
-Одна из причин реализации бизнес-приложения с AD FS вместо Azure Active Directory заключается в проблемах обеспечения соответствия, когда организации требуется сохранять данные локально. Это может также означать, что веб-приложение в Azure должно иметь доступ к локальной базе данных, поскольку вам запрещено использовать [базу данных SQL](/services/sql-database/) в качестве уровня данных для ваших веб-сайтов.
+Одна из причин реализации бизнес-приложения с AD FS вместо Azure Active Directory заключается в проблемах обеспечения соответствия, когда организации требуется сохранять данные локально. Это может также означать, что у веб-приложения в Azure должен быть доступ к локальной базе данных, так как вам запрещено использовать [Базу данных SQL](/services/sql-database/) в качестве уровня данных для своих веб-сайтов.
 
-Веб-приложения службы приложений Azure поддерживают доступ к локальным базам данных двумя способами: с помощью [гибридных подключений](../integration-hybrid-connection-overview.md) и [виртуальных сетей](web-sites-integrate-with-vnet.md). Дополнительные сведения см. в статье [Использование интеграции VNET и гибридных подключений с веб-приложениями службы приложений Azure](http://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/).
+Веб-приложения службы приложений Azure поддерживают доступ к локальным базам данных двумя способами: с помощью [гибридных подключений](../integration-hybrid-connection-overview.md) и [виртуальных сетей](web-sites-integrate-with-vnet.md). Дополнительную информацию см. в статье [Использование интеграции VNET и гибридных подключений с веб-приложениями службы приложений Azure](http://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/).
 
 <a name="bkmk_resources"></a>
 ## Дополнительные ресурсы
@@ -333,11 +333,11 @@ public ActionResult Contact()
 - [Защита приложения с помощью SSL и атрибута авторизации](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md#protect-the-application-with-ssl-and-the-authorize-attribute)
 - [Использование Active Directory для аутентификации в службе приложений Azure](web-sites-authentication-authorization.md)
 - [Создание веб-приложения .NET MVC в службе приложений Azure с аутентификацией Azure Active Directory](web-sites-dotnet-lob-application-azure-ad.md)
-- [Использование локальной проверки подлинности в организации (ADFS) с использованием ASP.NET в Visual Studio 2013](http://www.cloudidentity.com/blog/2014/02/12/use-the-on-premises-organizational-authentication-option-adfs-with-asp-net-in-visual-studio-2013/)
+- [Использование локальной аутентификации в организации (AD FS) с использованием ASP.NET в Visual Studio 2013](http://www.cloudidentity.com/blog/2014/02/12/use-the-on-premises-organizational-authentication-option-adfs-with-asp-net-in-visual-studio-2013/)
 - [Блог Витторио Берточчи](http://blogs.msdn.com/b/vbertocci/)
 - [Миграция веб-проекта VS2013 из WIF в Katana](http://www.cloudidentity.com/blog/2014/09/15/MIGRATE-A-VS2013-WEB-PROJECT-FROM-WIF-TO-KATANA/)
 - [Обзор служб федерации Active Directory](http://technet.microsoft.com/library/hh831502.aspx)
-- [Спецификация WS-Federation 1.1](http://download.boulder.ibm.com/ibmdl/pub/software/dw/specs/ws-fed/WS-Federation-V1-1B.pdf?S_TACT=105AGX04&S_CMP=LP)
+- [Спецификация WS-Federation 1.1](http://download.boulder.ibm.com/ibmdl/pub/software/dw/specs/ws-fed/WS-Federation-V1-1B.pdf?S_TACT=105AGX04&S_CMP=LP)
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
  

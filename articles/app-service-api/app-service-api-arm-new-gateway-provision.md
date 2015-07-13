@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.date="06/23/2015" 
 	ms.author="tomfitz"/>
 
 # Подготовка приложения API с помощью нового шлюза
@@ -22,7 +22,9 @@
 
 Дополнительную информацию о создании шаблонов см. в статье [Создание шаблонов диспетчера ресурсов Azure](../resource-group-authoring-templates.md).
 
-Полный шаблон см. в статье [Приложение API с новым шаблоном шлюза](https://github.com/tfitzmac/AppServiceTemplates/blob/master/new-gateway-new-plan-new-apiapp.json).
+Подробнее о развертывании приложений см. в статье [Предсказуемое развертывание сложного приложения в Azure](../app-service-web/app-service-deploy-complex-application-predictably.md).
+
+Полный шаблон см. в статье [Приложение API с новым шаблоном шлюза](../../templates/app-service-api-arm-new-gateway-provision/).
 
 ## Что вы развернете?
 
@@ -105,7 +107,7 @@
             },
             {
               "name": "EmaStorage",
-              "value": "D:\\home\\data\\apiapps"
+              "value": "D:\home\data\apiapps"
             },
             {
               "name": "WEBSITE_START_SCM_ON_SITE_CREATION",

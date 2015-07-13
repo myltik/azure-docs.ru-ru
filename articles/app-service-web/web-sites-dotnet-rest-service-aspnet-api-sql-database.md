@@ -75,10 +75,10 @@
 ### Задание верхнего и нижнего колонтитула страницы
 
 
-1. В **обозревателе решений** разверните папку *Views\\Shared* и откройте файл *_Layout.cshtml*. 
+1. В **обозревателе решений** разверните папку *Views\Shared* и откройте файл *_Layout.cshtml*. 
 	![_Layout.cshtml в обозревателе решений][newapp004]
 
-1. Замените содержимое файла *Views\\Shared_Layout.cshtml* кодом, приведенным ниже:
+1. Замените содержимое файла *Views\Shared_Layout.cshtml* кодом, приведенным ниже:
 
 
 		<!DOCTYPE html>
@@ -235,7 +235,7 @@ Visual Studio начнет процесс копирования файлов в
 
 	В классе **Initial** метод **Up** создает таблицу Contacts, а метод **Down** (используется при возвращении к предыдущему состоянию) удаляет эту таблицу.
 
-3. Откройте файл *Migrations\\Configuration.cs*.
+3. Откройте файл *Migrations\Configuration.cs*.
 
 4. Добавьте следующее пространства имен.
 
@@ -318,7 +318,7 @@ Visual Studio начнет процесс копирования файлов в
 
 <h2><a name="bkmk_addview"></a>Редактирование представления</h2>
 
-1. Откройте файл *Views\\Home\\Index.cshtml*. На следующем шаге мы заменим созданную разметку кодом, в котором используются [jQuery](http://jquery.com/) и [Knockout.js](http://knockoutjs.com/). Новый код извлекает список контактов с помощью веб-интерфейса API и JSON, а затем привязывает данные контактов к пользовательскому интерфейсу с использованием knockout.js. Дополнительные сведения см. в разделе [Дальнейшие действия](#nextsteps) в конце этого учебника. 
+1. Откройте файл *Views\Home\Index.cshtml*. На следующем шаге мы заменим созданную разметку кодом, в котором используются [jQuery](http://jquery.com/) и [Knockout.js](http://knockoutjs.com/). Новый код извлекает список контактов с помощью веб-интерфейса API и JSON, а затем привязывает данные контактов к пользовательскому интерфейсу с использованием knockout.js. Дополнительные сведения см. в разделе [Дальнейшие действия](#nextsteps) в конце этого учебника. 
 
 
 2. Замените содержимое файла на код, приведенный ниже.
@@ -475,7 +475,7 @@ Visual Studio начнет процесс копирования файлов в
 
 	Указанная таблица стилей будет определять макет, цвета и стили, используемые в приложении диспетчера контактов.
 
-6. Откройте файл *App_Start\\BundleConfig.cs*.
+6. Откройте файл *App_Start\BundleConfig.cs*.
 
 
 7. Добавьте следующий код для регистрации плагина [Knockout](http://knockoutjs.com/index.html "KO").
@@ -548,7 +548,7 @@ Visual Studio начнет процесс копирования файлов в
 
 Атака XSRF отличается от фишинговой атаки. При проведении фишинговой атаки требуется взаимодействие пользователя. В фишинговой атаке вредоносный веб-сайт практически идентичен целевому веб-сайту, поэтому жертва предоставляет атакующей стороне свои конфиденциальные данные. При атаке XSRF очень часто никаких действий со стороны жертвы не требуется. Злоумышленник больше полагается на то, что браузер автоматически отправляет все необходимые файлы cookie на целевой веб-сайт.
 
-Для получения дополнительной информации см. [Проект приложения безопасности в открытой сети](https://www.owasp.org/index.php/Main_Page) (OWASP) [XSRF](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)).
+Дополнительную информацию см. на [веб-сайте открытого проекта безопасности веб-приложений](https://www.owasp.org/index.php/Main_Page) (OWASP) [XSRF]https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)).
 
 1. В **Обозревателе решений** щелкните правой кнопкой пункт **ContactManager**, затем щелкните **Добавить** и **Класс**.
 
@@ -622,15 +622,15 @@ Visual Studio начнет процесс копирования файлов в
             }
         }
 
-1. Добавьте следующий оператор *using* в контроллер контактов, чтобы получить доступ к атрибуту **[ValidateHttpAntiForgeryToken]**.
+1. Добавьте в контроллер контактов следующую инструкцию *using*, которая обеспечивает доступ к атрибуту **[ValidateHttpAntiForgeryToken]**.
 
 	using ContactManager.Filters;
 
-1. Добавьте атрибут **[ValidateHttpAntiForgeryToken]**  в методы Post объекта **ContactsController**, чтобы защитить его от угроз XSRF. Этот атрибут необходимо добавить в методы действий "PutContact", "PostContact" и **DeleteContact**.
+1. Добавьте атрибут **[ValidateHttpAntiForgeryToken]** в методы Post объекта **ContactsController**, чтобы защитить его от угроз XSRF. Этот атрибут необходимо добавить в методы действий "PutContact", "PostContact" и **DeleteContact**.
 
 	[ValidateHttpAntiForgeryToken] public IHttpActionResult PutContact(int id, Contact contact) {
 
-1. Обновите раздел *Scripts* файла *Views\\Home\\Index.cshtml*, включив в него код для получения токенов XSRF.
+1. Обновите раздел *Scripts* файла *Views\Home\Index.cshtml*, включив в него код для получения токенов XSRF.
 
          @section Scripts {
             @Scripts.Render("~/bundles/knockout")
@@ -809,5 +809,6 @@ Visual Studio начнет процесс копирования файлов в
 [ValidateConnection]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/ValidateConnection.png
 [WebPIAzureSdk20NetVS12]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/WebPIAzureSdk20NetVS12.png
 [prevent-csrf-attacks]: http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-(csrf)-attacks
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

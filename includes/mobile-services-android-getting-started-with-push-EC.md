@@ -29,11 +29,11 @@
 		import com.microsoft.windowsazure.notifications.NotificationsManager;
 
 
-6. Добавьте в класс следующую частную переменную: замените _`<PROJECT_NUMBER>`_ номером проекта, назначенным со стороны Google вашему приложению в предыдущей процедуре:
+6. Добавьте в класс следующую частную переменную, где _`<PROJECT_NUMBER>`_ — номер проекта, назначенный Google вашему приложению в предыдущей процедуре:
 
 		public static final String SENDER_ID = "<PROJECT_NUMBER>";
 
-7. Измените определение *MobileServiceClient* с **частного** на **публичный статический**, чтобы он выглядел следующим образом:
+7. Измените определение *MobileServiceClient* с **частного** на **публичный статический**, чтобы оно выглядело следующим образом:
 
 		public static MobileServiceClient mClient;
 
@@ -58,7 +58,7 @@
 		import android.support.v4.app.NotificationCompat;
 
 	
-12. Далее добавьте в класс `MyHandler` следующие члены:
+12. Затем добавьте в класс `MyHandler` следующие члены:
 
 		public static final int NOTIFICATION_ID = 1;
 		private NotificationManager mNotificationManager;
@@ -66,7 +66,7 @@
 		Context ctx;
 
 
-13. В классе `MyHandler` добавьте следующий код для переопределения метода **onRegistered**, который регистрирует устройство в центре уведомлений мобильной службы.
+13. В классе `MyHandler` добавьте следующий код для переопределения метода **onRegistered**, который регистрирует устройство в Центре уведомлений мобильной службы.
 
 		@Override
 		public void onRegistered(Context context,  final String gcmRegistrationId) {
@@ -129,4 +129,4 @@
 <!-- URLs. -->
 [Android SDK мобильных служб]: http://aka.ms/Iajk6q
 
-<!--HONumber=54-->
+<!---HONumber=62-->

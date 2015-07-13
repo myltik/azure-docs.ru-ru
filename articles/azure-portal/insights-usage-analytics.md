@@ -1,48 +1,25 @@
 <properties 
-	pageTitle="Использование аналитики конечных пользователей" 
+	pageTitle="Application Insights для приложений JavaScript и веб-страниц" 
 	description="Аналитика пользователей для веб-сайтов Microsoft Azure." 
-	services="application-insights" 
+	services="azure-portal" 
+    documentationCenter=""
 	authors="alancameronwills" 
-	manager="kamrani"/>
+	manager="keboyd"/>
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
+<tags
+	ms.service="azure-portal" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-01-09" 
-	ms.author="awills"/>
-
-# Аналитика для веб-сайтов Microsoft Azure
-
-Хотите знать, сколько пользователей посетило ваш сайт?  Интересно, каково среднее время загрузки страницы или какие используются браузеры?  Вставив на веб-страницах несколько строк скрипта, можно собирать данные об использовании веб-сайта вашими клиентами. 
-
-*Вы можете выполнить эти действия и для других сайтов (не Azure): [Отслеживание использования веб-приложений с помощью Application Insights](../app-insights-web-track-usage.md).*
-
-![End User Analytics](./media/insights-usage-analytics/Insights_ConfiguredExperience.png)
-
-## Настройка аналитики конечных пользователей
-
-1. Щелкните часть **Аналитика конечных пользователей** в колонке **Веб-сайт**
-2. В колонке **Конфигурация** выделите весь скрипт инструментирования и скопируйте его.  
-    ![Configuration](./media/insights-usage-analytics/Insights_CopyCode.png)
-3. Вставьте скрипт на каждую из своих веб-страниц непосредственно перед закрывающим тегом </head>. Рекомендуется вставлять этот скрипт на все свои веб-страницы. При использовании ASP.NET это можно сделать, вставив скрипт на главную страницу приложения.
-4. Разверните и используйте свое веб-приложение. Аналитические сведения об использовании начнут появляться спустя примерно 5-10 минут.
-
-## Изучение данных
-
-Часть сеанса "Браузеры" позволяет углубиться в данные, чтобы увидеть различные браузеры, а затем их версии.
-
-![Browsers](./media/insights-usage-analytics/Insights_Browsers.png)
-
-Часть "Аналитика" содержит следующие данные:
-
-- Разделение различных типов устройств, включая настольные ПК и мобильные устройства.
-- Времена загрузки страницы для 5 страниц и графиков, загружавшихся дольше всего за последнюю неделю.  Кроме того, доступно определенное количество сеансов и представлений  .
-    ![Top Pages](./media/insights-usage-analytics/Insights_TopPages.png)
-- Самые медленные страницы за последнюю неделю, чтобы их можно было улучшить в соответствии с целями бизнеса.
+	ms.date="04/28/2015"
+	ms.author="awills" />
 
 
-<!--HONumber=46--> 
+# Application Insights для приложений JavaScript и веб-страниц
+
+> [AZURE.NOTE]Эта статья была перемещена. См. статью: [Application Insights для приложений JavaScript и веб-страниц](../app-insights-web-track-usage.md)
+
  
+
+<!---HONumber=62-->

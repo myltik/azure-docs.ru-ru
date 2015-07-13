@@ -1,8 +1,6 @@
+* Откройте файл **QSTodoListViewController.m** и добавьте следующий метод. Измените _facebook_ на _microsoftaccount_, _twitter_, _google_ или _windowsazureactivedirectory_, если вы не используете Facebook как поставщик удостоверений.
 
-
-1. Откройте файл **QSTodoListViewController.m** и добавьте следующий метод:
-
-
+```
         - (void) loginAndGetData
         {
             MSClient *client = self.todoService.client;
@@ -14,15 +12,14 @@
                 [self refresh];
             }];
         }
+```
 
+* Замените `[self refresh]` в `viewDidLoad` следующим кодом:
 
-    > [AZURE.NOTE]Если используется поставщик удостоверений, отличный от Facebook, измените значение, передаваемое в **loginWithProvider**. Поддерживаются такие значения: _microsoftaccount_, _facebook_, _twitter_, _google_ и _windowsazureactivedirectory_.
-
-
-2. Измените `viewDidLoad`, заменив `[self refresh]` в конце на следующий код:
-
+```
         [self loginAndGetData];
+```
 
-3. Нажмите кнопку **Выполнить**, чтобы запустить приложение и войти в систему с помощью выбранного поставщика удостоверений. После входа вы должны увидеть список Todo и сможете вносить изменения.
+* Нажмите **Выполнить**, чтобы запустить приложение, и войдите в систему. После входа вы должны увидеть список Todo и сможете вносить изменения.
 
-<!--HONumber=54-->
+<!---HONumber=62-->

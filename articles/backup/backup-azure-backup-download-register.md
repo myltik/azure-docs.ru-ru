@@ -1,20 +1,19 @@
 <properties
-	pageTitle="Загрузка, установка и регистрация агента службы архивации Azure"
-	description="Узнайте, как и откуда можно загрузить агент службы архивации Azure, а также ознакомьтесь с инструкциями по установке и регистрации этого агента с помощью файла учетных данных"
-	services="backup"
-	documentationCenter=""
-	authors="prvijay"
-	manager="shreeshd"
-	editor=""/>
-
+   pageTitle="Загрузка, установка и регистрация агента службы архивации Azure"
+   description="Узнайте, как и откуда можно загрузить агент службы архивации Azure, а также ознакомьтесь с инструкциями по установке и регистрации этого агента с помощью файла учетных данных"
+   services="backup"
+   documentationCenter=""
+   authors="prvijay"
+   manager="shreeshd"
+   editor=""/>
 <tags
-	ms.service="backup"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="storage-backup-recovery"
-	ms.date="04/08/2015"
-	ms.author="prvijay"/>
+   ms.service="backup"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="storage-backup-recovery"
+   ms.date="04/08/2015"
+   ms.author="prvijay"/>
 
 # Загрузка, установка и регистрация агента службы архивации Azure
 
@@ -57,5 +56,6 @@
 [4]: ./media/backup-azure-backup-download-register/vc.png
 [5]: ./media/backup-azure-backup-download-register/encryption.png
 [6]: ./media/backup-azure-backup-download-register/change.png
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

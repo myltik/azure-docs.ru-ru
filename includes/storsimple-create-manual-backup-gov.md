@@ -1,11 +1,3 @@
-<properties pageTitle="Создание резервной копии вручную" description="Описание того, как вручную запускать задания резервного копирования по требованию." services="storsimple" documentationCenter="NA" authors="SharS" manager="adinah" edito**r="tysonn" /> <tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="04/01/2015"
-   ms.author="v-sharos" />
 
 #### Создание резервной копии вручную
 
@@ -29,4 +21,4 @@
 
   Резервная копия должна появиться в списке резервных наборов данных, которые отображаются в каталоге.
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

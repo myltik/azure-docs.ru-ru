@@ -16,7 +16,7 @@
 > [AZURE.NOTE]Убедитесь, что вы установили [пакет SDK для Azure](http://azure.microsoft.com/downloads/) для Visual Studio, используемый для развертывания веб-сайта.
 
 1. Запустите Visual Studio или Visual Studio Express.
-2. В Visual Studio щелкните **Файл**, **Создать**, **Проект**, откройте **Шаблоны**, **Visual C\#**, выберите пункт **Веб-приложения** и **Веб-приложение ASP.NET**, введите имя **AppBackend** и нажмите кнопку **ОК**. 
+2. В Visual Studio щелкните **Файл**, **Создать**, **Проект**, откройте **Шаблоны**, **Visual C#**, выберите пункт **Веб-приложения** и **Веб-приложение ASP.NET**, введите имя **AppBackend** и нажмите кнопку **ОК**. 
 	
 	![][B1]
 
@@ -359,4 +359,4 @@
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

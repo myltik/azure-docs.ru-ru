@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="03/24/2015"
+	ms.date="06/24/2015"
 	ms.author="tomfitz"/>
 
 #Настройка PHP в веб-приложениях службы приложений Azure
@@ -40,30 +40,30 @@
 3. Нажмите кнопку **Сохранить** в верхней части колонки **Параметры веб-приложения**.
 
 	![Сохранение параметров конфигурации][save-button]
-	
+
 ### Azure PowerShell (только для Windows)
 
 1. Откройте Windows PowerShell
 2. Введите `Set-AzureWebsite -PhpVersion [5.4 | 5.5 | 5.6] -Name <site-name>` и нажмите клавишу "ВВОД".
 3. После этого версия PHP будет установлена.
-	
+
 	![Задание версии PHP с помощью Azure PowerShell][SETPHPVERPS]
 4. Чтобы подтвердить параметры, введите `Get-AzureWebiste -Name <site-name>` и нажмите клавишу "ВВОД".
-	
+
 	![Проверка версии PHP с помощью Azure PowerShell][GETPHPVERPS]
 
 ### Интерфейс командной строки Azure для Mac, Linux и Windows
 
->[Azure.Note]Для работы интерфейса командной строки Azure требуется установить на компьютер **Node.js**.
+Для использования интерфейса командной строки Azure требуется установить на компьютер **Node.js**.
 
 1. Откройте терминал.
 2. Введите `azure site set --php-version [5.4 | 5.5] [site-name]` и нажмите клавишу "ВВОД".
 3. После этого версия PHP будет установлена.
-	
-	![Задание версии PHP с помощью интерфейса командной строки Azure][SETPHPVERXPLAT]
+
+	![Задание версии PHP с помощью интерфейса командной строки Azure][SETPHPVERCLI]
 4. Чтобы подтвердить параметры, введите `azure site show [site-name]` и нажмите клавишу "ВВОД".
-	
-	![Проверка версии PHP с помощью интерфейса командной строки Azure][GETPHPVERXPLAT]
+
+	![Проверка версии PHP с помощью интерфейса командной строки Azure][GETPHPVERCLI]
 
 ## Практическое руководство. Изменение встроенной конфигурации PHP
 
@@ -120,7 +120,7 @@
 	![Параметры веб-приложения][settings-button]
 
 5. В колонке **Параметры** откройте **Параметры приложения** и выполните прокрутку к разделу **Параметры приложения**.
-6. В разделе **Параметры приложения** создайте ключ **PHP_EXTENSIONS**. Значением для этого ключа будет путь относительно корневого веб-сайта: **bin\\ваш-внешний-файл**.
+6. В разделе **Параметры приложения** создайте ключ **PHP_EXTENSIONS**. Значением для этого ключа будет путь относительно корневого веб-сайта: **bin\ваш-внешний-файл**.
 
 	![Включение расширения в параметрах приложения][php-extensions]
 
@@ -170,9 +170,10 @@
 [handler-mappings]: ./media/web-sites-php-configure/handler-mappings.png
 [http://windows.php.net/download/]: http://windows.php.net/download/
 [http://windows.php.net/downloads/releases/archives/]: http://windows.php.net/downloads/releases/archives/
-[SETPHPVERXPLAT]: ./media/web-sites-php-configure/ChangePHPVersion-XPlatCLI.png
-[GETPHPVERXPLAT]: ./media/web-sites-php-configure/ShowPHPVersion-XplatCLI.png
+[SETPHPVERCLI]: ./media/web-sites-php-configure/ChangePHPVersion-XPlatCLI.png
+[GETPHPVERCLI]: ./media/web-sites-php-configure/ShowPHPVersion-XplatCLI.png
 [SETPHPVERPS]: ./media/web-sites-php-configure/ChangePHPVersion-PS.png
 [GETPHPVERPS]: ./media/web-sites-php-configure/ShowPHPVersion-PS.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

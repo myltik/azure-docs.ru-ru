@@ -1,90 +1,59 @@
 <a id="what-are-service-bus-queues"></a>
-## What are Service Bus Queues?
+## Что такое очереди служебной шины?
 
-Service Bus queues support a **brokered messaging** communication
-model. When using queues, components of a distributed application do not
-communicate directly with each other; instead they exchange messages via
-a queue, which acts as an intermediary (broker). A message producer (sender)
-hands off a message to the queue and then continues its processing.
-Asynchronously, a message consumer (receiver) pulls the message from the
-queue and processes it. The producer does not have to wait for a reply
-from the consumer in order to continue to process and send further
-messages. Queues offer **First In, First Out (FIFO)** message delivery
-to one or more competing consumers. That is, messages are typically
-received and processed by the receivers in the order in which they were
-added to the queue, and each message is received and processed by only
-one message consumer.
+Очереди служебной шины поддерживают модель **обмена сообщениями через посредника**. При использовании очередей компоненты распределенного приложения не взаимодействуют между собой напрямую, а обмениваются сообщениями через очередь, которая выступает в качестве посредника. Производитель (отправитель) передает сообщение в очередь, а затем продолжает его обработку. Потребитель сообщения (получатель) асинхронно извлекает сообщение из очереди и обрабатывает его. Поставщику не нужно ждать ответа от потребителя, чтобы продолжить обработку и отправку дальнейших сообщений. Очереди предлагают доставку сообщений конкурирующим потребителям по типу **FIFO** (первым пришел, первым вышел). То есть обычно получатели принимают и обрабатывают сообщения в том порядке, в котором они были добавлены в очередь, и каждое сообщение принимается и обрабатывается только одним потребителем сообщений.
 
 ![QueueConcepts](./media/service-bus-java-how-to-create-queue/sb-queues-08.png)
 
-Service Bus queues are a general-purpose technology that can be used for
-a wide variety of scenarios:
+Очереди служебной шины — это технология общего назначения, которая может использоваться для разнообразных сценариев:
 
--   Communication between web and worker roles in a multi-tier
-    Azure application.
--   Communication between on-premises apps and Azure hosted apps
-    in a hybrid solution.
--   Communication between components of a distributed application
-    running on-premises in different organizations or departments of an
-    organization.
+-   Взаимодействие между веб-ролями и рабочими ролями в многоуровневом приложении Azure.
+-   Взаимодействие между локальными приложениями и приложениями, размещенными в Azure, в гибридном решении.
+-   Связь между компонентами распределенного приложения, которое работает в другой организации или в другом подразделении данной организации.
 
-Using queues enables you to scale out your applications more easily, and
-enable more resiliency to your architecture.
+С помощью очередей можно лучше масштабировать приложения и придать вашей архитектуре большую устойчивость.
 
-## Create a service namespace
+## Создание пространства имен службы
 
-To begin using Service Bus queues in Azure, you must first
-create a service namespace. A namespace provides a scoping
-container for addressing Service Bus resources within your application.
+Чтобы начать использовать очереди служебной шины в Azure, необходимо сначала создать пространство имен службы. Пространство имен предоставляет контейнер для адресации ресурсов служебной шины в вашем приложении.
 
-To create a service namespace:
+Создание пространства имен службы:
 
-1.  Log on to the [Azure Management Portal][].
+1.  Выполните вход на [портал управления Azure][].
 
-2.  In the left navigation pane of the Management Portal, click
-    **Service Bus**.
+2.  В левой области навигации портала управления нажмите кнопку **Service Bus**.
 
-3.  In the lower pane of the Management Portal, click **Create**.
-	![](./media/service-bus-java-how-to-create-queue/sb-queues-03.png)
+3.  В нижней части портала управления нажмите кнопку **Создать**. ![](./media/service-bus-java-how-to-create-queue/sb-queues-03.png)
 
-4.  In the **Add a new namespace** dialog, enter a namespace name.
-    The system immediately checks to see if the name is available.
-	![](./media/service-bus-java-how-to-create-queue/sb-queues-04.png)
+4.  В диалоговом окне**Добавление нового пространства имен** введите имя пространства имен. Система немедленно проверит, доступно ли это имя. ![](./media/service-bus-java-how-to-create-queue/sb-queues-04.png)
 
-5.  After making sure the namespace name is available, choose the
-    country or region in which your namespace should be hosted (make
-    sure you use the same country/region in which you are deploying your
-    compute resources).
+5.  Убедившись, что имя пространства имен доступно, выберите страну или регион, где будет размещено ваше пространство имен (необходимо указать страну и регион развертывания своих вычислительных ресурсов).
 
-	IMPORTANT: Pick the **same region** that you intend to choose for
-    deploying your application. This will give you the best performance.
+	ВАЖНО! Выберите **тот же регион**, который собираетесь выбрать для развертывания приложения. Это обеспечит наилучшую производительность.
 
-6. 	Leave the other fields in the dialog with their default values (**Messaging** and **Standard Tier**), then click the check mark. The system now creates your namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
+6. 	Оставьте в остальных полях диалогового окна значения по умолчанию ("Обмен сообщениями" и **Уровень Standard**), а затем установите флажок. Теперь система создает пространство имен и включает его. Вероятно, придется подождать несколько минут, пока система не выделит ресурсы для вашей учетной записи.
 
 	![](./media/service-bus-java-how-to-create-queue/getting-started-multi-tier-27.png)
 
-The namespace you created takes a moment to activate, and will then appear in the management portal. Wait until the namespace status is **Active** before continuing.
+Созданное пространство имен появится на портале управления, его активация займет некоторое время. Прежде чем продолжать, подождите, пока состояние не изменится на **Активное**.
 
-## Obtain the default management credentials for the namespace
+## Получение учетных данных управления по умолчанию для пространства имен
 
-In order to perform management operations, such as creating a queue on
-the new namespace, you must obtain the management credentials for the
-namespace. You can obtain these credentials from the Azure management portal.
+Для выполнения операций управления, таких как создание очереди в новом пространстве имен, необходимо получить учетные данные управления для пространства имен. Эти учетные данные можно получить на портале управления Azure.
 
-###To obtain management credentials from the portal
+###Получение учетных данных управления с портала
 
-1.  In the left navigation pane, click the **Service Bus** node, to
-    display the list of available namespaces:
-	![](./media/service-bus-java-how-to-create-queue/sb-queues-13.png)
+1.  В левой области навигации щелкните узел **Служебная шина**, чтобы отобразить список доступных пространств имен: ![](./media/service-bus-java-how-to-create-queue/sb-queues-13.png)
 
-2.  Click on the namespace you just created from the list shown.
+2.  Выберите пространство имен, которое вы только что создали из появившегося списка.
 
-3.  Click **Configure** to view the shared access policies for your namespace.
-	![](./media/service-bus-java-how-to-create-queue/sb-queues-14.png)
+3.  Нажмите кнопку **Настроить** для просмотра политик общего доступа пространства имен. ![](./media/service-bus-java-how-to-create-queue/sb-queues-14.png)
 
-4.  Make a note of the primary key, or copy it to the clipboard.
+4.  Запишите первичный ключ или скопируйте его в буфер обмена.
 
   [Azure Management Portal]: http://manage.windowsazure.com
-  [Azure Management Portal]: http://manage.windowsazure.com
+  [портал управления Azure]: http://manage.windowsazure.com
 
   [34]: ./media/service-bus-java-how-to-create-queue/VSProperties.png
+
+<!---HONumber=62-->

@@ -38,7 +38,7 @@
 
 Перед началом работы с этим учебником необходимо иметь следующее:
 
-- **Рабочая станция с Azure PowerShell**. См. раздел [Установка и использование Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). Для выполнения сценариев Azure PowerShell необходимо запустить Azure PowerShell с правами администратора и задать политику выполнения *RemoteSigned*. См. раздел [Выполнение скриптов Windows PowerShell][powershell-script].
+- **Рабочая станция с Azure PowerShell.**. Обратитесь к разделу [Установка и использование Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). Для выполнения сценариев Azure PowerShell необходимо запустить Azure PowerShell с правами администратора и задать политику выполнения *RemoteSigned*. См. раздел [Выполнение скриптов Windows PowerShell][powershell-script].
 
 - **Кластер Azure HDInsight**: указания по подготовке кластеров см. в статье [Приступая к работе с HDInsight][hdinsight-get-started] или [Подготовка кластеров HDInsight к работе][hdinsight-provision]. Для прохождения учебника необходимы следующие данные:
 
@@ -57,7 +57,7 @@
 <tr><td>Имя для входа в базу данных SQL Azure</td><td>$sqlDatabaseLogin</td><td></td><td>Имя для входа в базу данных SQL Azure.</td></tr>
 <tr><td>Пароль для входа в базу данных SQL Azure</td><td>$sqlDatabasePassword</td><td></td><td>Пароль для входа в базу данных SQL Azure.</td></tr>
 <tr><td>Имя базы данных SQL Azure</td><td>$sqlDatabaseName</td><td></td><td>Сервер базы данных SQL Azure, на который Sqoop экспортирует данные или с которого он импортирует их. </td></tr>
-</table> >[AZURE.NOTE]По умолчанию в базе данных SQL Azure разрешены подключения из служб Azure, таких как Azure HDInsight. Если этот параметр брандмауэра отключен, вы должны включить его на портале Azure. Инструкции по созданию базы данных SQL Azure и настройке правил брандмауэра см. в статье [Создание и настройка базы данных SQL Azure][sqldatabase-create-configue].
+</table>> [AZURE.NOTE]По умолчанию в базе данных SQL Azure разрешены подключения из служб Azure, таких как Azure HDInsight. Если этот параметр брандмауэра отключен, вы должны включить его на портале Azure. Инструкции по созданию базы данных SQL Azure и настройке правил брандмауэра см. в статье [Создание и настройка базы данных SQL Azure][sqldatabase-create-configue].
 
 * **SQL Server**: если ваш кластер HDInsight находится в той же виртуальной сети Azure, что и SQL Server, эта статья поможет вам разобраться с импортом данных в базу данных SQL Server и их экспортом из нее.
 
@@ -129,7 +129,7 @@ HDInsight использует для хранения данных хранил
 
 > [AZURE.NOTE]Кластер HDInsight версии 3.0 поддерживает только синтаксис *wasb://*. Прежний синтаксис *asv://* поддерживается в кластерах HDInsight 2.1 и 1.6, однако не поддерживается в кластерах HDInsight 3.0.
 
-> [AZURE.NOTE]Путь *wasb://* является виртуальным. Дополнительные сведения см. в статье [Использование хранилища BLOB-объектов Azure с HDInsight][hdinsight-storage].
+> [AZURE.NOTE]Путь *wasb://* является виртуальным. Дополнительную информацию см. в статье [Использование хранилища BLOB-объектов Azure с HDInsight][hdinsight-storage].
 
 Доступ к файлу, который хранится в большом двоичном объекте файловой системы, используемой по умолчанию, из HDInsight может осуществляться с помощью любого из следующих URI (в последующих примерах используется sample.log):
 
@@ -645,4 +645,4 @@ HDInsight использует для хранения данных хранил
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

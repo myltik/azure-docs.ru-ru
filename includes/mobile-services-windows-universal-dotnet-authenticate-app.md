@@ -1,9 +1,5 @@
 
-1. Откройте общий файл проекта MainPage.cs и добавьте следующий оператор using:
-
-        using Windows.UI.Popups;
-
-2. Добавьте в класс MainPage следующий фрагмент кода:
+1. Откройте файл общего проекта MainPage.xaml.cs и добавьте следующий фрагмент кода в класс MainPage:
 	
 		// Define a member variable for storing the signed-in user. 
         private MobileServiceUser user;
@@ -60,7 +56,10 @@
 		<Button Name="ButtonLogin" Click="ButtonLogin_Click" 
                         Visibility="Visible">Sign in</Button>
 
-6. Повторите предыдущий шаг для проекта приложения Магазина Windows Phone, но на этот раз добавьте элемент **Button** в **TitlePanel** после элемента **TextBlock**.
+6. В проекте приложения Windows Phone добавьте следующие элементы **Button** непосредственно перед элементом, определяющим кнопку **Save**:
+
+		<Button Grid.Row ="1" Grid.Column="1" Name="ButtonLogin" Click="ButtonLogin_Click" 
+                        Visibility="Visible">Sign in</Button> 
 
 5. Откройте общий файл проекта App.xaml.cs и добавьте следующий оператор using (если его еще нет):
 
@@ -90,4 +89,5 @@
    	После успешного входа в систему приложение должно работать без ошибок, а вы должны быть в состоянии выполнять запросы мобильных служб и обновлять данные.
 
 9. Щелкните правой кнопкой мыши проект приложения Магазина Windows Phone, выберите пункт **Назначить запускаемым проектом**, а затем повторите предыдущий шаг, чтобы проверить, правильно ли запускается приложение Магазина Windows Phone.
-<!--HONumber=54-->
+
+<!---HONumber=62-->

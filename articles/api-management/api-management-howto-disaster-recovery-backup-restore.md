@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/17/2015" 
+	ms.date="06/24/2015" 
 	ms.author="sdanie"/>
 
 # Реализация аварийного восстановления с помощью функций резервного копирования и восстановления службы в Azure API Management
@@ -38,7 +38,7 @@
 
 В первую очередь необходимо создать приложение Azure Active Directory. Войдите на [портал управления](http://manage.windowsazure.com/), используя подписку, включающую экземпляр службы управления API, и перейдите на вкладку **Приложения**, чтобы открыть используемый по умолчанию каталог Azure Active Directory.
 
->[AZURE.NOTE]Если этот каталог не отображается в вашей учетной записи, обратитесь к администратору подписки Azure, чтобы получить необходимые разрешения для учетной записи. Сведения о расположении каталога по умолчанию см. в статье [Поиск используемого по умолчанию каталога на портале Azure](resource-group-create-work-id-from-persona.md/#locate-your-default-directory-in-the-azure-portal).
+>[AZURE.NOTE]Если этот каталог не отображается в вашей учетной записи, обратитесь к администратору подписки Azure, чтобы получить необходимые разрешения для учетной записи. Сведения о расположении каталога по умолчанию см. в статье [Поиск используемого по умолчанию каталога на портале Azure](../virtual-machines/resource-group-create-work-id-from-persona.md/#locate-your-default-directory-in-the-azure-portal).
 
 ![Создание приложения Azure Active Directory][api-management-add-aad-application]
 
@@ -156,7 +156,7 @@
 	    backupName : {backup blob name}  
 	}'
 
-Для заголовка запроса `Content-Type` установите значение `application\json`.
+Для заголовка запроса `Content-Type` установите значение `application/json`.
 
 Восстановление — это длительная операция, которая может занять до 30 минут и более. Если запрос выполнен успешно и процесс восстановления инициирован, вы получите код состояния ответа `202 Accepted` с заголовком `Location`. Чтобы отслеживать состояние операции, отправляйте запросы GET на URL-адрес, указанный в заголовке `Location`. Пока восстановление выполняется, вы будете получать код состояния "202 Accepted". Код ответа `200 OK` указывает на то, что восстановление успешно завершено.
 
@@ -189,4 +189,4 @@
 [api-management-endpoint]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-endpoint.png
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

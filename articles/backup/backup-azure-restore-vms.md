@@ -55,9 +55,9 @@
   - Укажите имя виртуальной машины. В этой облачной службе имя виртуальной машины должно быть уникальным. Если вы планируете заменить существующую виртуальную машину машиной с таким же именем, сначала удалите существующую виртуальную машину и диски данных, а затем восстановите данные из службы архивации Azure.
   - Выберите облачную службу для виртуальной машины. Это действие обязательно для создания виртуальной машины. Можно использовать существующую облачную службу или создать новую.
 
-        Выбранное имя облачной службы должно быть глобально уникальным. Как правило, имя облачной службы связывается с общедоступным URL-адресом в формате [cloudservice].cloudapp.net. Azure не позволит создать новую облачную службу, если выбранное имя уже используется. Если вы решите создать новую облачную службу, ей будет назначено то же имя, что и виртуальной машине. В этом случае выбранное имя виртуальной машины должно быть также уникальным, иначе его нельзя будет использовать в качестве имени соответствующей облачной службы.
+        Whatever cloud service name is picked should be globally unique. Typically, the cloud service name gets associated with a public-facing URL in the form of [cloudservice].cloudapp.net. Azure will not allow you to create a new cloud service if the name has already been used. If you choose to create select create a new cloud service, it will be given the same name as the virtual machine – in which case the VM name picked should be unique enough to be applied to the associated cloud service.
 
-        В сведениях о восстанавливаемых экземплярах указаны только облачные службы и виртуальные сети, не связанные с группами сходства. [Дополнительная информация] (https://msdn.microsoft.com/ru-ru/library/azure/jj156085.aspx).
+        We only display cloud services and virtual networks that are not associated with any affinity groups in the restore instance details. [Learn More](https://msdn.microsoft.com/ru-ru/library/azure/jj156085.aspx).
 
 2. Выберите учетную запись хранения для виртуальной машины. Это действие обязательно для создания виртуальной машины. Можно выбрать существующую учетную запись хранения в том же регионе, что и хранилище службы архивации Azure. Учетные записи хранения с избыточностью в пределах зоны, а также типа Premium не поддерживаются.
 
@@ -104,4 +104,4 @@
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

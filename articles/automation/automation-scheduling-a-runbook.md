@@ -94,6 +94,6 @@
 ## Связанные статьи
 
 - [Создание расписания для средств в службе автоматизации Azure](http://msdn.microsoft.com/library/azure/dn940016.aspx)
-- [Запуск модуля Runbook в службе автоматизации Azure](automation-starting-a-runbook.md)
+- [Запуск модуля Runbook в службе автоматизации Azure](automation-starting-a-runbook.md) 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

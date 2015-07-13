@@ -1,19 +1,3 @@
-<properties 
-   pageTitle="Удаление политики резервного копирования StorSimple "
-   description="В статье рассказывается о том, как с помощью службы диспетчера StorSimple удалить политику резервного копирования."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/14/2015"
-   ms.author="v-sharos" />
 
 #### Удаление политики резервного копирования StorSimple
 
@@ -26,4 +10,4 @@
 Страница **Политики резервного копирования** обновится, и на ней появится новый список политик.
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

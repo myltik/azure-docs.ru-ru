@@ -107,4 +107,6 @@ Visual Studio Application Insights позволяет отслеживать п�
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [windows]: app-insights-windows-get-started.md
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=62-->

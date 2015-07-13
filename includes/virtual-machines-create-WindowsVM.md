@@ -40,4 +40,4 @@
 
 	![Настройка агента и конечных точек виртуальной машины](./media/virtual-machines-create-WindowsVM/vmcreated.png)
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

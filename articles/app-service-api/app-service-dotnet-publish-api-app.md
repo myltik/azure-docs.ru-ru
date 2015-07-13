@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/19/2015" 
+	ms.date="05/19/2015" 
 	ms.author="bradyg;tarcher"/>
 
 # Развертывание приложения API службы приложений Azure
@@ -120,5 +120,6 @@
 Вы увидели, как возможности прямого развертывания в Visual Studio упрощают итерацию и ускоряют развертывание и проверку правильности работы API. В [следующем учебнике](../app-service-dotnet-remotely-debug-api-app.md) будет показано, как отлаживать приложение API во время его выполнения в Azure.
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

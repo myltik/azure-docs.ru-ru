@@ -5,7 +5,7 @@
 
 Пропустите шаги 1-3, если создано консольное приложение при завершении раздела [Приступая к работе с концентраторами уведомлений][get-started].
 
-1. В Visual Studio создайте новое консольное приложение Visual C\#: 
+1. В Visual Studio создайте новое консольное приложение Visual C#: 
 
    	![][13]
 
@@ -100,4 +100,4 @@
 [Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
 [Notification Hubs REST interface]: http://msdn.microsoft.com/library/windowsazure/dn223264.aspx
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

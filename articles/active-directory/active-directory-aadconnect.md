@@ -1,33 +1,71 @@
-<properties pageTitle="Подключение Azure Active Directory" description="Мастер подключения Azure Active Directory - это универсальное средство и руководство по подключению локального сервера Windows к Azure Active Directory" services="active-directory" documentationCenter="" authors="Gayana" manager="terrylan" editor="" />
+<properties 
+	pageTitle="Обеспечение гибридного управления для каталога с помощью Azure AD Connect." 
+	description="В этой статье объясняется, что такое служба Azure AD Connect и зачем ее использовать." 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="swadhwa" 
+	editor="curtand"/>
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="02/27/2015" ms.author="gabag" />
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="06/22/2015" 
+	ms.author="billmath"/>
 
-<h1 id="vnettut1">Подключение Azure Active Directory</h1>
+# Обеспечение гибридного управления для каталога с помощью Azure AD Connect
 
-Мастер подключения Azure Active Directory - это универсальное средство и руководство по подключению локальных каталогов к Azure Active Directory  Мастер производит развертывание и настраивает все необходимые компоненты для интеграции и запуска каталогов, включая службы синхронизации, синхронизацию паролей или службы федерации Active Directory (AD FS), а также такие необходимые компоненты, как модуль Azure AD PowerShell.
-
->[AZURE.NOTE] **Подключение Azure Active Directory включает в себя функции, которые раньше выполняли службы синхронизации DirSync и AAD Sync. Эти инструменты больше не выпускаются по отдельности.** 
-
-> **Подключение Azure Active Directory теперь представляет собой единую службу для синхронизации, входа и других функций локальных серверов с интеграцией с Azure AD.**
+<div class="dev-center-tutorial-selector sublanding">
+<a href="../active-directory-aadconnect/" title="Что это такое" class="current">Что это такое</a> <a href="../active-directory-aadconnect-how-it-works/" title="Как это работает">Как это работает</a> <a href="../active-directory-aadconnect-get-started/" title="Приступая к работе">Приступая к работе</a> <a href="../active-directory-aadconnect-whats-next/" title="Что дальше">Что дальше</a> <a href="../active-directory-aadconnect-learn-more/" title="Подробнее">Подробнее</a>
+</div>
 
 
-Если вы сейчас анализируете или используете средство синхронизации Azure Active Directory (DirSync), службу синхронизации Azure Active Directory (AAD Sync) или Forefront Identity Manager 2010 R2, дополнительные сведения см. в разделе [Средства интеграции каталогов](http://msdn.microsoft.com/library/azure/dn757582.aspx "Directory Integration Tools").
+Сегодня пользователям нужно работать с приложениями в локальной среде и облаке, используя при этом любые устройства, будь то ноутбук, смартфон или планшет. Чтобы это стало возможным, вам и вашей организации требуется обеспечить доступ к этим приложениям для пользователей, однако полное перемещение в облако не всегда возможно.
+
+<center>![What is Azure AD Connect](./media/active-directory-aadconnect/arch.png)</center>
+
+С появлением Azure Active Directory Connect предоставление такого доступа и переход в облако стали гораздо проще. Преимущества Azure AD Connect:
+
+- Пользователи могут выполнять вход, используя одно и то же удостоверение как для облачной, так и для локальной среды. Им не нужно запоминать несколько паролей или учетных записей, а администраторам не нужно беспокоиться о работе со множеством учетных записей.
+- Универсальное средство и руководство по подключению локальных каталогов к Azure Active Directory. Когда вы установите мастер, он выполнит развертывание и настройку всех компонентов, необходимых для отлаженной интеграции каталогов, включая службы синхронизации (в том числе синхронизации паролей) или AD FS, а также таких необходимых компонентов, как модуль Azure AD PowerShell.
 
 
-##  Предварительная версия подключения Azure Active Directory 
 
-Текущая предварительная версия подключения Azure Active Directory включает руководство по интеграции одного или нескольких лесов Windows Server Active Directory с Azure AD. 
+<center>![What is Azure AD Connect](./media/active-directory-aadconnect/azuread.png)</center>
 
-[Скачать предварительную версию подключения Azure AD](http://connect.microsoft.com/site1164/program8612 "Azure Active Directory Connect") 
 
-В предварительной версии подключения Azure Active Directory выполните следующее. 
 
-- Выберите "Стандартные параметры" для быстрой и простой настройки одного леса за 4 щелчка мыши.
-- Выберите "Пользовательские параметры" для настройки нескольких лесов или AD FS для единого входа (SSO).
-- Настройте дополнительные параметры синхронизации, например "Exchange", в гибридном режиме, обратную запись паролей и альтернативные атрибуты идентификатора.
 
-##  Дополнительные ресурсы
-[Документация Azure Active Directory](http://azure.microsoft.com/documentation/services/active-directory/)
+## Почему Azure AD Connect? 
 
-<!--HONumber=47-->
+Интеграция локальных каталогов с Azure AD помогает повысить продуктивность пользователей, так как используется единая идентификация для доступа к облачным и локальным ресурсам. Благодаря этой интеграции пользователи и организации получат следующие преимущества:
+	
+* Организации могут предоставлять пользователям общее гибридное удостоверение для локальных и облачных служб, используя Windows Server Active Directory, а затем подключившись к Azure Active Directory. 
+* Администраторы могут предоставлять условный доступ на основе ресурсов приложения, удостоверения устройства и пользователя, сетевого расположения и многофакторной проверки подлинности.
+* Пользователи могут применять одно и то же удостоверение в различных учетных записях Azure AD, Office 365, Intune, приложениях SaaS и сторонних решениях.  
+* Разработчики могут создавать приложения, использующие модель общего удостоверения, интегрируя приложения с локальной службой Active Directory или с Azure для облачных приложений.
+
+Azure AD Connect облегчает интеграцию и упрощает управление инфраструктурой локальных и облачных удостоверений.
+
+
+
+----------------------------------------------------------------------------------------------------------
+## Загрузка Azure AD Connect
+
+Чтобы приступить к работе с Azure AD Connect, можно скачать последнюю версию [по этой ссылке](http://go.microsoft.com/fwlink/?LinkId=615771).
+
+----------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
  
+
+<!---HONumber=62-->

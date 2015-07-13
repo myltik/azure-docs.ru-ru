@@ -50,12 +50,12 @@
 * [Соединитель Yammer]
 
 ##Соединители Premium и приложения API##
-* Соединитель AS2
-* BizTalk EDIFACT
+* [Соединитель AS2]
+* [BizTalk EDIFACT]
 * [Кодировщик неструктурированных файлов BizTalk]
 * Служба преобразования BizTalk
 * [Правила BizTalk]
-* BizTalk X12
+* [BizTalk X12]
 * [Средство извлечения XPath BizTalk]
 * [Средство проверки XML BizTalk]
 * Соединитель DB2
@@ -111,6 +111,8 @@
 [Средство извлечения XPath BizTalk]: app-service-logic-xpath-extract.md
 [Средство проверки XML BizTalk]: app-service-logic-xml-validator.md
 [Правила BizTalk]: app-service-logic-use-biztalk-rules.md
- 
+[Соединитель AS2]: app-service-logic-connector-as2.md
+[BizTalk EDIFACT]: app-service-logic-connector-edifact
+[BizTalk X12]: app-service-logic-connector-x12.md
 
 <!---HONumber=62-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/13/2015" 
+	ms.date="06/16/2015"
 	ms.author="adegeo"/>
 
 
@@ -149,15 +149,16 @@ SSL-шифрование – это наиболее распространен�
 
 * [Настройка SSL-сертификата в конечной точке HTTPS][]
 
-[Создание сертификата для роли]: http://msdn.microsoft.com/library/azure/gg432987.aspx
-[Как связать сертификат со службой]: http://msdn.microsoft.com/library/azure/gg465718.aspx
-[Сопоставление сертификата со службой]: http://msdn.microsoft.com/library/azure/gg465718.aspx
-[портал управления Azure]: http://manage.windowsazure.com
-[0]: ./media/cloud-services-configure-ssl-certificate/CreateCloudService.png
-[1]: ./media/cloud-services-configure-ssl-certificate/AddCertificate.png
-[2]: ./media/cloud-services-configure-ssl-certificate/CopyURL.png
-[3]: ./media/cloud-services-configure-ssl-certificate/SSLCloudService.png
-[4]: ./media/cloud-services-configure-ssl-certificate/AddCertificateComplete.png
-[Настройка SSL-сертификата в конечной точке HTTPS]: http://msdn.microsoft.com/library/azure/ff795779.aspx
+  [Создание сертификата для роли]: http://msdn.microsoft.com/library/azure/gg432987.aspx
+  [Как связать сертификат со службой]: http://msdn.microsoft.com/library/azure/gg465718.aspx
+  [Сопоставление сертификата со службой]: http://msdn.microsoft.com/library/azure/gg465718.aspx
+  [портал управления Azure]: http://manage.windowsazure.com
+  [0]: ./media/cloud-services-configure-ssl-certificate/CreateCloudService.png
+  [1]: ./media/cloud-services-configure-ssl-certificate/AddCertificate.png
+  [2]: ./media/cloud-services-configure-ssl-certificate/CopyURL.png
+  [3]: ./media/cloud-services-configure-ssl-certificate/SSLCloudService.png
+  [4]: ./media/cloud-services-configure-ssl-certificate/AddCertificateComplete.png
+  [Настройка SSL-сертификата в конечной точке HTTPS]: http://msdn.microsoft.com/library/azure/ff795779.aspx
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

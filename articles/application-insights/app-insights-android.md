@@ -95,8 +95,8 @@ Visual Studio Application Insights позволяет отслеживать м�
 
 ```java
 
-    AppInsights.setup(this, "<YOUR-IKEY-GOES-HERE>");
-    AppInsights.start();
+    ApplicationInsights.setup(this, "<YOUR-IKEY-GOES-HERE>");
+    ApplicationInsights.start();
 ```
 
 
@@ -104,22 +104,22 @@ Visual Studio Application Insights позволяет отслеживать м�
 
 Инициализируйте пакет SDK и начните отслеживать телеметрию.
 
-Добавьте следующее утверждение import в корневое действие вашего приложения.
+Добавьте следующее утверждение import в корневой файл действий вашего приложения.
 
 ```java
 
-     import com.microsoft.applicationinsights.TelemetryClient;
+     import com.microsoft.applicationinsights.library.ApplicationInsights;
 ```
 
 Кроме того, добавьте следующий код в вызов `onCreate` действия.
 
 ```java
 
-    AppInsights.setup(this);
-    AppInsights.start();
+    ApplicationInsights.setup(this.getApplicationContext(), this.getApplication());
+    ApplicationInsights.start();
 ```
 
-Как только функция `AppInsights.start()` будет вызвана, пакет SDK начнет отслеживать действия, связанные с жизненным циклом приложения Android, и любые необработанные исключения.
+Как только функция `ApplicationInsights.start()` будет вызвана, пакет SDK начнет отслеживать действия, связанные с жизненным циклом приложения Android, и любые необработанные исключения.
 
 > [AZURE.NOTE]События жизненного цикла приложения собираются только в пакете Android SDK версии 15 и выше (Ice Cream Sandwich+).
 
@@ -139,9 +139,9 @@ Visual Studio Application Insights позволяет отслеживать м�
       @Override
       protected void onCreate(Bundle savedInstanceState) {
         
-        AppInsights.setup(this);
+        ApplicationInsights.setup(this);
         //... other initialization code ...//
-        AppInsights.start();
+        ApplicationInsights.start();
         
         // track telemetry data
         TelemetryClient client = TelemetryClient.getInstance();
@@ -197,4 +197,6 @@ Visual Studio Application Insights позволяет отслеживать м�
 [qna]: app-insights-troubleshoot-faq.md
 [track]: app-insights-custom-events-metrics-api.md
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=62-->

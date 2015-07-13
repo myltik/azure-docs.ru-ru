@@ -1,18 +1,18 @@
 
-For more information about disks, see [About Virtual Machine Disks in Azure](http://go.microsoft.com/fwlink/p/?LinkId=403697).
+Дополнительную информацию о дисках см. в разделе [О дисках виртуальных машин в Azure](http://go.microsoft.com/fwlink/p/?LinkId=403697).
 
-##<a id="cliattachempty"></a>How to: Attach an empty disk
-Attaching an empty disk is the simpler way to add a data disk. Run the following command to attach a new empty disk:
+##<a id="cliattachempty"></a>Практическое руководство. Подключение пустого диска
+Присоединение пустого диска — это простой способ добавления диска данных. Выполните следующую команду, чтобы присоединить новый пустой диск:
 
     vm disk attach-new <vm-name> <size-in-gb> [blob-url]
 
-Replace `vm-name` with the name of your virtual machine, and `size-in-gb` with the size of your new disk. You can optionally use a blob URL as the last argument to explicitly specify the target blob to create. If you do not specify a blob URL, a blob object will be automatically generated.  
+Замените `vm-name` на имя вашей виртуальной машины, а `size-in-gb` — на размер нового диска. В качестве последнего аргумента при желании можно использовать URL-адрес BLOB-объекта, чтобы явно указать целевой BLOB-объект для создания. Если URL-адрес BLOB-объекта не указан, BLOB-объект создается автоматически.
 
-Run the following command to verify that your disk has been created:
+Выполните следующую команду, чтобы убедиться, что диск был создан:
 
     vm disk list <vm-name>
 
-Here is a sample walkthrough of the above commands including terminal output:
+Ниже приведен пример выполнения указанных выше команд, включая выходные данные терминала:
 
     ~$ azure vm disk attach-new pinkylinux 20 http://pinkylinux.blob.core.windows.net/vhds/pinkydisk1.vhd
     info:   Executing command vm disk attach-new
@@ -30,3 +30,5 @@ Here is a sample walkthrough of the above commands including terminal output:
     data:    0    5         pinkydisk1.vhd
     data:    1    20        pinkylinux-f8ef0006ab182209.vhd
     info:    vm disk list command OK
+
+<!---HONumber=62-->

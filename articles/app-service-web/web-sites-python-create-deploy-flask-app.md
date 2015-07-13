@@ -59,7 +59,7 @@
 1. Войдите на портал Azure и нажмите кнопку **СОЗДАТЬ** в нижнем левом углу. 
 2. Щелкните **Веб + мобильное** > **Azure Marketplace** > **Веб-приложения**.
 3. В поле поиска введите "python".
-4. В результатах поиска выберите **Flask**, затем нажмите кнопку **Создать**.
+4. В результатах поиска выберите **Flask**, а затем нажмите кнопку **Создать**.
 5. Настройте новое приложение Flask, например создайте новый план службы приложений и новую группу ресурсов для него. Затем щелкните **Создать**.
 6. Настройте публикацию Git для вновь созданного веб-приложения, следуя инструкциям из раздела [Непрерывное развертывание с помощью GIT в службе приложений Azure](web-sites-publish-source-control.md).
 
@@ -375,8 +375,8 @@
 
 Дополнительную информацию об использовании табличного хранилища Azure и MongoDB см. в следующих статьях:
 
-- [Использование Flask и MongoDB в Azure с помощью инструментов Python 2.1 для Visual Studio]
-- [Использование Flask и табличного хранилища Azure с помощью средств Python Tools 2.1 для Visual Studio]
+- [Использование Flask и MongoDB в Azure с помощью инструментов Python 2.1 для Visual Studio]
+- [Использование Flask и табличного хранилища Azure с помощью инструментов Python 2.1 для Visual Studio]
 
 ## Изменения
 * Указания по изменениям при переходе от веб-сайтов к службе приложений см. в разделе [Служба приложений Azure и ее влияние на существующие службы Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -384,8 +384,8 @@
 
 
 <!--Link references-->
-[Использование Flask и MongoDB в Azure с помощью инструментов Python 2.1 для Visual Studio]: web-sites-python-ptvs-flask-mongodb.md
-[Использование Flask и табличного хранилища Azure с помощью средств Python Tools 2.1 для Visual Studio]: web-sites-python-ptvs-flask-table-storage.md
+[Использование Flask и MongoDB в Azure с помощью инструментов Python 2.1 для Visual Studio]: web-sites-python-ptvs-flask-mongodb.md
+[Использование Flask и табличного хранилища Azure с помощью инструментов Python 2.1 для Visual Studio]: web-sites-python-ptvs-flask-table-storage.md
 
 <!--External Link references-->
 [пакет SDK для Azure для Python 2.7]: http://go.microsoft.com/fwlink/?linkid=254281

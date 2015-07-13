@@ -3,24 +3,24 @@
 	description="Начало работы с использованием Azure Active Directory в Visual Studio" 
 	services="active-directory" 
 	documentationCenter="" 
-	authors="kempb" 
+	authors="patshea123" 
 	manager="douge" 
 	editor="tglee"/>
- 
+  
 <tags 
 	ms.service="active-directory" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/02/2015" 
-	ms.author="kempb"/>
+	ms.date="05/06/2015" 
+	ms.author="patshea123"/>
 
 # Приступая к работе с Azure Active Directory (проекты .NET)
 
 > [AZURE.SELECTOR]
-> - [Приступая к работе](vs-active-directory-dotnet-getting-started.md)
-> - [Что произошло](vs-active-directory-dotnet-what-happened.md)
+> - [Getting Started](vs-active-directory-dotnet-getting-started.md)
+> - [What Happened](vs-active-directory-dotnet-what-happened.md)
  
 #####Требование проверки подлинности для доступа к контроллерам 
 
@@ -28,7 +28,7 @@
  
 #####Добавление элементов управления SignIn и SignOut 
 
-Добавить в одно из представлений элементы управления входом и выходом можно в частичном представлении **_LoginPartial.cshtml**. Вот пример добавления такой функциональности в стандартное представление **_Layout.cshtml**. (обратите внимание на последний элемент в теге div с классом navbar-collapse):
+Чтобы добавить в одно из представлений элементы управления SignIn и SignOut, можно использовать частичное представление **_LoginPartial.cshtml**. Вот пример добавления такой функциональности в стандартное представление **_Layout.cshtml**. (Обратите внимание на последний элемент в теге div с классом navbar-collapse):
 
 <PRE class="prettyprint">
     &lt;!DOCTYPE html&gt; 
@@ -75,6 +75,6 @@
     &lt;/html&gt;
 </PRE>
 
-[Дополнительные сведения о службе Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
+[Дополнительная информация о службе Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
 
-<!--HONumber=49--> 
+<!---HONumber=62-->

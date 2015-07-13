@@ -1,16 +1,18 @@
 
-The Hybrid Connection Manager enables your on-premises machine to connect to Azure and relay TCP traffic. You must  install the manager to an on-premises computer that can connect to the your SQL Server instance.
+Диспетчер гибридных подключений позволяет локальному компьютеру подключаться к Azure и ретранслировать трафик TCP. Вам следует установить диспетчер на локальном компьютере, который может подключиться к экземпляру SQL Server.
 
-1. The connection you just created should have a **Status** of **On-premesis setup incomplete**. Click this connection and click **On-premises Setup**.
+1. **Состояние** созданного подключения должно быть указано как **Локальная установка не завершена**. Выберите это подключение и щелкните **Локальная установка**.
 
-	![On-Premises Setup](./media/hybrid-connections-install-connection-manager/5-1.png)
+	![Локальная установка](./media/hybrid-connections-install-connection-manager/5-1.png)
 
-2. Click **Install and Configure**.
+2. Щелкните элемент **Установка и настройка**.
 
-	This installs a customized instance of the Connection Manager, which is already pre-configured to work with the hybrid connection you just created.
+	Таким образом будет установлен пользовательский экземпляр диспетчера подключений, уже предварительно настроенный для работы с только что созданным гибридным подключением.
 
-3. Complete the rest of the setup steps for the Connection Manager.
+3. Выполните оставшиеся действия по установке диспетчера подключений.
 
-	After the installation is complete, the hybrid connection status will change to **1 Instance Connected**. You may need to refresh the browser and wait a few minutes. 
+	После завершения установки состояние гибридного подключения изменяется на **1 экземпляр подключен**. Может потребоваться обновить браузер и подождать несколько минут.
 
-The hybrid connection setup is now complete.
+На этом настройка гибридного подключения завершена.
+
+<!---HONumber=62-->

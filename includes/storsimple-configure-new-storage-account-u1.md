@@ -1,19 +1,3 @@
-<properties 
-   pageTitle="(Необязательно.) Настройте новую учетную запись хранения для службы."
-   description="Рассказывается о том, как настроить учетную запись хранения для службы &quot;Диспетчер StorSimple&quot;, где выполняется обновление 1."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/18/2015"
-   ms.author="alkohli" />
 
 #### Добавление учетной записи хранения в обновлении 1.0 для серии StorSimple 8000
 
@@ -50,7 +34,7 @@
 	  		
  - Если в качестве поставщика облачных служб вы выбрали **Openstack**, введите **Имя узла**, **Ключ доступа** и **Секретный ключ**.
 
-        > [AZURE.NOTE] Понятные имена разрешены для всех поставщиков облачных служб за исключением Azure. Вы можете использовать различные понятные имена и создавать несколько учетных записей хранения с помощью одинакового набора учетных данных.
+        > [AZURE.NOTE] For all the cloud service providers, excluding Azure, a friendly name is allowed. You can use different friendly names and create more than one storage account with the same set of credentials.
 
         ![Add Openstack storage account](./media/storsimple-configure-new-storage-account-u1/AddOpenstackStorageaccount-include.png)
 
@@ -62,4 +46,4 @@
 
 7. Только что созданная учетная запись хранения будет отображаться на странице **Настройка** в разделе **Учетные записи хранения**. Щелкните **Сохранить**, чтобы сохранить новую учетную запись хранения. При выводе запроса подтверждения нажмите кнопку **ОК**.
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

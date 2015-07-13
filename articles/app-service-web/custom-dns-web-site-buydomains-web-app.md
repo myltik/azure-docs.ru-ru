@@ -93,5 +93,6 @@
 	Once configuration has completed, the custom domain name will be listed in the **Hostname bindings** section of your web app.
 
 На этом этапе можно ввести личное доменное имя в браузере и удостовериться, что оно успешно принято вашим веб-приложением.
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

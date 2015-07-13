@@ -42,6 +42,6 @@
 
 - [Создание или импорт модуля Runbook](https://msdn.microsoft.com/library/dn643637.aspx)
 - [Ресурсы службы автоматизации](https://msdn.microsoft.com/library/dn939988.aspx)
-- [Командлеты Azure](https://msdn.microsoft.com/library/dn690262.aspx)
+- [Командлеты Azure](https://msdn.microsoft.com/library/dn690262.aspx) 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

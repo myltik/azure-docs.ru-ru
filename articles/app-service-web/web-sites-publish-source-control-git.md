@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Публикация с помощью Git (PHP) - Azure" 
+	pageTitle="Публикация с помощью Git (PHP) — Azure" 
 	keywords="publishing Git Azure, publish web app Azure" 
-	description="Узнайте, как использовать Git для публикации веб-приложений Azure, а затем настроить непрерывное развертывание из GitHub и CodePlex." 
+	description="Информация о том, как использовать Git для публикации веб-приложений Azure, а затем настроить непрерывное развертывание из GitHub и CodePlex." 
 	services="app-service\web" 
 	documentationCenter="php" 
 	authors="cephalin" 
@@ -18,5 +18,6 @@
 	ms.author="cephalin"/>
 
 [AZURE.INCLUDE [publishing-with-git](../../includes/publishing-with-git.md)]
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=62-->

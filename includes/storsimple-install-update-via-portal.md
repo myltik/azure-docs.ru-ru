@@ -1,19 +1,3 @@
-<properties 
-   pageTitle="Установка обновления 1 с портала управления Azure"
-   description="В этой статье рассказывается, как установить обновление 1 для StorSimple серии 8000 с помощью портала управления."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/22/2015"
-   ms.author="v-sharos" />
 
 #### Установка обновления 1 с портала управления
 
@@ -61,4 +45,4 @@
 
     ![Страница "Обслуживание"](./media/storsimple-install-update-via-portal/HCS_SoftwareUpdates7-include.png)
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

@@ -178,5 +178,6 @@ ADAL для Javascript представляет собой библиотеку 
 
 + [Примеры кода Azure Active Directory](https://msdn.microsoft.com/library/azure/dn646737.aspx)
 + [Сценарии проверки подлинности в Azure AD](https://msdn.microsoft.com/library/azure/dn499820.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

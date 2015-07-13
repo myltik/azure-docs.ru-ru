@@ -55,7 +55,7 @@ Azure DNS поддерживает все общие типы DNS-записей
 
 Создайте набор записей и назначьте его переменной $rs.
 
-	PS C:>$rs = New-AzureDnsRecordSet -Name "www" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 60
+	PS C:\>$rs = New-AzureDnsRecordSet -Name "www" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 60
 
 Относительное имя набора записей в зоне DNS "contoso.com" — "www", поэтому полным доменным именем записей будет "www.contoso.com". Тип записи — "A", а срока жизни составляет 60 секунд.
 
@@ -67,8 +67,8 @@ Azure DNS поддерживает все общие типы DNS-записей
 
 Добавьте записи A IPv4 в набор записей "www", используя переменную $rs, назначенную при создании набора записей на шаге 1:
 
-	PS C:> Add-AzureDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.185.46
-	PS C:> Add-AzureDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.188.221
+	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.185.46
+	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.188.221
 
 Добавление записей в набор записей с помощью команды Add-AzureDnsRecordConfig — это автономная операция. Обновляется только локальная переменная $rs.
 
@@ -81,7 +81,7 @@ Azure DNS поддерживает все общие типы DNS-записей
 Изменения завершены. Вы можете извлечь набор записей из Azure DNS с помощью командлета Get-AzureDnsRecordSet :
 
 
-	PS C:> Get-AzureDnsRecordSet –Name www –RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
+	PS C:\> Get-AzureDnsRecordSet –Name www –RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 
 
 	Name              : www
@@ -100,7 +100,7 @@ Azure DNS поддерживает все общие типы DNS-записей
 >[AZURE.NOTE]Как и при создании зоны, если вы еще не делегировали домен серверам имен Azure DNS, вам потребуется явно указать адрес сервера имен для зоны.
 
 
-	C:> nslookup www.contoso.com ns1-01.azure-dns.com
+	C:\> nslookup www.contoso.com ns1-01.azure-dns.com
 
 	Server: ns1-01.azure-dns.com
 	Address:  208.76.47.1
@@ -119,4 +119,4 @@ Azure DNS поддерживает все общие типы DNS-записей
 [Автоматизация операций Azure с помощью пакета SDK для .NET](dns-sdk.md)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

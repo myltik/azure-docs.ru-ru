@@ -211,4 +211,4 @@ Azure AD использует запись DNS, созданную на сайт
 - [Регистрация организации в Azure](sign-up-organization.md)
 - [Управление доменами в Azure AD](https://msdn.microsoft.com/library/azure/dn919677.aspx) 
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

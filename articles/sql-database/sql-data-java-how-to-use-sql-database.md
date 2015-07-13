@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Использование SQL Azure Database (Java) - руководство по компонентам Azure" 
+	pageTitle="Использование SQL Azure Database (Java) – руководство по компонентам Azure" 
 	description="Узнайте, как использовать базу данных SQL Azure из кода Java." 
 	services="sql-database" 
 	documentationCenter="java" 
@@ -13,21 +13,21 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="06/03/2015" 
 	ms.author="robmcm"/>
 
 # Использование базы данных SQL Azure в Java
 
-Ниже показано, как использовать базу данных SQL Azure с Java. Для простоты показаны примеры для командной строки, но очень похожие действия будут уместны для веб-приложений, размещенных в локальной среде, Azure или в других средах. В этом руководстве освещается создание сервера и базы данных с помощью [портала управления Azure](https://windows.azure.com).
+Ниже показано, как использовать базу данных SQL Azure с Java. Для простоты показаны примеры для командной строки, но очень похожие действия будут уместны для веб-приложений, размещенных в локальной среде, Azure или в других средах. В этом руководстве освещается создание сервера и базы данных с помощью [портала управления](https://windows.azure.com).
 
 ## Что такое база данных SQL Azure
 
-База данных SQL Azure, реализованная на базе SQL Server, представляет собой систему управления реляционными базами данных для Azure. С экземпляром базы данных SQL можно легко подготовить и развернуть решения реляционных баз данных в облаке и воспользоваться преимуществами центра распределенных данных, которые представляют собой корпоративные преимущества доступности, масштабируемости и безопасности вместе со встроенной защитой данных и возможностями самостоятельной регенерации.
+База данных SQL Azure предоставляет собой систему управления реляционной базой данных для Azure и основана на технологии SQL Server. С экземпляром базы данных SQL можно легко подготовить и развернуть решения реляционных баз данных в облаке и воспользоваться преимуществами центра распределенных данных, которые представляют собой корпоративные преимущества доступности, масштабируемости и безопасности вместе со встроенной защитой данных и возможностями самостоятельной регенерации.
 
 
 
 ## Основные понятия
-Так как база данных SQL Azure построена на основе технологий SQL Server, доступ к базе данных SQL из Java очень похож на доступ из Java к SQL Server. Можно разработать приложение локально (с использованием SQL Server), а затем подключиться к базе данных SQL, изменив только строку подключения. Вы можете использовать для своего приложения драйвер JDBC для SQL Server. Но существует ряд различий между базой данных SQL и SQL Server, которые могут повлиять на работу приложения. Дополнительную информацию см. в разделе [Рекомендации и ограничения (база данных SQL)](http://msdn.microsoft.com/library/windowsazure/ff394102.aspx).
+Так как база данных SQL Azure построена на основе технологий SQL Server, доступ к базе данных SQL из Java очень похож на доступ из Java к SQL Server. Можно разработать приложение локально (с использованием SQL Server), а затем подключиться к базе данных SQL, изменив только строку подключения. Вы можете использовать для своего приложения драйвер JDBC для SQL Server. Но существует ряд различий между базой данных SQL и SQL Server, которые могут повлиять на работу приложения. Дополнительные сведения см. в разделе [Рекомендации и ограничения (база данных SQL)](http://msdn.microsoft.com/library/windowsazure/ff394102.aspx).
 
 Дополнительные ресурсы для базы данных SQL см. в разделе [Дальнейшие действия][].
 
@@ -37,69 +37,62 @@
 
 * Java Developer Kit (JDK), версия 1.6 или более поздняя.
 * Подписка на Azure, которую можно получить на веб-странице <http://www.microsoft.com/windowsazure/offers/>.
-* Если вы используете Eclipse, потребуется интегрированная среда разработки Eclipse для разработчиков Java EE, версии Indigo или более поздней. Среду также можно загрузить с веб-страницы <http://www.eclipse.org/downloads/>. Вам также понадобится подключаемый модуль Azure для Eclipse с Java (от Microsoft Open Technologies). В процессе установки этого подключаемого модуля убедитесь, что в его состав входит Microsoft JDBC Driver 4.0 для SQL Server. Дополнительную информацию см. в разделе [Установка подключаемого модуля Azure для Eclipse с Java (от Microsoft Open Technologies)](http://msdn.microsoft.com/library/windowsazure/hh690946.aspx).
+* Если вы используете Eclipse, потребуется интегрированная среда разработки Eclipse для разработчиков Java EE, версии Indigo или более поздней. Среду также можно загрузить с веб-страницы <http://www.eclipse.org/downloads/>. Вам также понадобится подключаемый модуль Azure для Eclipse с Java (от Microsoft Open Technologies). В процессе установки этого подключаемого модуля убедитесь, что в его состав входит Microsoft JDBC Driver 4.0 для SQL Server. Дополнительные сведения см. в разделе [Установка подключаемого модуля Azure для Eclipse с Java (от Microsoft Open Technologies)](http://msdn.microsoft.com/library/windowsazure/hh690946.aspx).
 * Если вы не используете Eclipse, вам потребуется Microsoft JDBC Driver 4.0 для SQL Server, который можно скачать по адресу <http://www.microsoft.com/download/details.aspx?id=11774>.
 
 ## Создание базы данных SQL Azure
 
 Перед использованием базы данных SQL Azure в коде Java необходимо создать сервер базы данных SQL Azure.
 
-1. Выполните вход на [портал управления Azure](https://manage.windowsazure.com).
+1. Войдите на [портал управления Azure](https://manage.windowsazure.com).
 2. Нажмите кнопку **Создать**.
 
-    ![Create new SQL database][create_new]
+    ![Создание новой базы данных SQL][create_new]
 
 3. Щелкните **База данных SQL**, затем выберите **Настраиваемое создание**.
 
-    ![Create custom SQL database][create_new_sql_db]
+    ![Создание настраиваемой базы данных SQL][create_new_sql_db]
 
 4. В диалоговом окне **Параметры базы данных** укажите имя базы данных. В данном руководстве в качестве имени базы данных следует использовать **gettingstarted**.
 5. В поле **Сервер** выберите **Создать сервер базы данных SQL**. Для других полей используйте значения по умолчанию.
 
-    ![SQL database settings][create_database_settings]
+    ![Параметры базы данных SQL][create_database_settings]
 
-6. Щелкните стрелку "Далее".	
+6. Щелкните стрелку «Далее».
 7. В диалоговом окне **Параметры сервера** укажите имя входа SQL Server. В данном руководстве использовалось значение **MySQLAdmin**. Укажите и подтвердите пароль. Укажите регион и убедитесь, что установлен флажок **Разрешить службам Azure доступ к серверу**.
 
-    ![SQL server settings][create_server_settings]
+    ![Параметры SQL Server][create_server_settings]
 
 8. Нажмите кнопку завершения.
 
 ## Определение строки подключения для базы данных SQL
 
-1. Выполните вход на [портал управления Azure](https://manage.windowsazure.com).
-2. Щелкните **Базы данных SQL**.
+1. Войдите на [портал управления Azure](https://manage.windowsazure.com).
+2. Нажмите кнопку **Базы данных SQL**.
 3. Щелкните по базе данных, которую хотите использовать.
 4. Щелкните **Показать строки подключения**.
 5. Выделите содержимое для строки подключения **JDBC**.
 
-    ![Determine JDBC connection string][get_jdbc_connection_string]
+    ![Определение строки подключения JDBC][get_jdbc_connection_string]
 
-6. Щелкните правой кнопкой мыши выделенное содержимое строки подключения **JDBC** и выберите пункт **Копировать**.
+6. Щелкните правой кнопкой мыши по выделенному содержимому строки подключения **JDBC** и выберите пункт **Копировать**.
 7. Теперь это значение можно вставить в файл кода, чтобы создать строку подключения в следующей форме. Замените *your_server* (в двух местах) на текст, скопированный в предыдущем шаге, и замените *your_password* на значение пароля, указанное при создании учетной записи базы данных SQL. (Также замените значения, присвоенные **database=** и **user=**, если вы не использовали **gettingstarted** и **MySQLAdmin**, соответственно.) 
 
-    String connectionString =
-		"jdbc:sqlserver://*your_server*.database.windows.net:1433" + ";" +  
-    	"database=gettingstarted" + ";" + 
-    	"user=MySQLAdmin@*your_server*" + ";" +  
-    	"password=*your_password*" + ";" +  
-        "encrypt=true" + ";" +
-        "hostNameInCertificate=*.int.mscds.com" + ";" +  
-        "loginTimeout=30";
+    String connectionString = "jdbc:sqlserver://*your_server*.database.windows.net:1433" + ";" + "database=gettingstarted" + ";" + "user=MySQLAdmin@*ваш_сервер*" + ";" + "password=*ваш_пароль*" + ";" + "encrypt=true" + ";" + "hostNameInCertificate=*.int.mscds.com" + ";" + "loginTimeout=30";
 
 Эта строка понадобится нам позднее, а пока важно узнать о тех действиях, которые позволяют определить строку подключения. Кроме того, в зависимости от потребностей приложения вам может не понадобиться использовать параметры **encrypt** и **hostNameInCertificate** и может потребоваться изменить параметр **loginTimeout**.
 
 ## Разрешение доступа к диапазону IP-адресов
 
 1. Войдите на [портал управления](https://manage.windowsazure.com).
-2. Щелкните **Базы данных SQL**.
+2. Нажмите кнопку **Базы данных SQL**.
 3. Щелкните **Серверы**.
 4. Щелкните по серверу, который хотите использовать.
 5. Нажмите кнопку **Управление**.
 6. Нажмите **Настроить**.
 7. В разделе **Разрешенные IP-адреса** введите имя нового правила IP-адресов. Укажите начало и конец диапазона IP-адресов. Для вашего удобства отображается текущий IP-адрес клиента. В следующем примере используется отдельный IP-адрес клиента (ваш IP-адрес будет другим).
 
-    ![Allowed IP addresses dialog][allowed_ips_dialog]
+    ![Диалоговое окно "Разрешенные IP-адреса"][allowed_ips_dialog]
 
 8. Нажмите кнопку завершения. Теперь указанным IP-адресам будет разрешен доступ к серверу базы данных.
 
@@ -111,15 +104,15 @@
 
    Если вы используете Eclipse:
 
-    1. В обозревателе проектов Eclipse щелкните правой кнопкой мыши проект **HelloSQLAzure** и выберите пункт **Свойства**.
-    2. На левой панели диалогового окна **Свойства** щелкните элемент **Путь построения Java**.
-    3. Откройте вкладку **Библиотеки** и щелкните элемент **Добавить библиотеку**.
-    4. В диалоговом окне **Добавить библиотеку** выберите **Microsoft JDBC Driver 4.0 для SQL Server**, нажмите кнопку **Далее** и затем кнопку **Готово**.
-    5. Нажмите кнопку **ОК**, чтобы закрыть диалоговое окно **Свойства**.
+    1. Within Eclipse's Project Explorer, right-click the **HelloSQLAzure** project and click **Properties**.
+    2. In the left-hand pane of the **Properties** dialog, click **Java Build Path**.
+    3. Click the **Libraries** tab, and then click **Add Library**.
+    4. In the **Add Library** dialog, select **Microsoft JDBC Driver 4.0 for SQL Server**, click **Next**, and then click **Finish**.
+    5. Click **OK** to close the **Properties** dialog.
 
-    Если вы не используете Eclipse, добавьте JAR-файл Microsoft JDBC Driver 4.0 для SQL Server в путь класса. Дополнительную информацию см. в разделе [Использование драйвера JDBC](http://msdn.microsoft.com/library/ms378526.aspx).
+    If you are not using Eclipse, add the Microsoft JDBC Driver 4.0 for SQL Server JAR to your class path. For related information, see [Using the JDBC Driver](http://msdn.microsoft.com/library/ms378526.aspx).
 
-4. Добавьте инструкции `import` в код **HelloSQLAzure.java**, как показано ниже.
+4. Добавьте операторы `import` в код **HelloSQLAzure.java**, как показано ниже:
 
         import java.sql.*;
         import com.microsoft.sqlserver.jdbc.*;
@@ -140,7 +133,7 @@
 
 1. Подключение к серверу базы данных SQL.
 2. Определение инструкции SQL, например, для создания или удаления таблицы, вставки, выбора или удаления строк и т. д.
-3. Выполнение оператора SQL с помощью вызова **executeUpdate** или **executeQuery**.
+3. Выполнение инструкции SQL с помощью вызова **executeUpdate** или **executeQuery**.
 4. Отображение результатов запроса, если это уместно.
 
 Следующие разделы следует читать (и осваивать) в указанном порядке. Первый фрагмент представляет собой полноценный пример; остальные будут основываться на части платформы из полного примера, например инструкции **import**, объявления **class** и **main**, обработка ошибок и закрытие ресурсов.
@@ -397,7 +390,7 @@
 	
 Предложения WHERE можно использовать при извлечении данных счетчиков, обновлении строк или удалении строк.
 
-<h2><a id="to_retrieve_row_count"></a>Извлечение количества строк</h2>
+## Извлечение количества строк
 
 В следующем коде показано, как получить число строк из таблицы **Person**.
  
@@ -690,11 +683,11 @@
 
 **Упаковка Microsoft JDBC Driver 4.0 для SQL Server при использовании Eclipse**
 
-1. В обозревателе проектов Eclipse щелкните правой кнопкой мыши свой проект и выберите пункт **Свойства**.
-2. В левой части диалогового окна **Свойства** щелкните элемент **Сборка развертывания** и нажмите кнопку **Добавить**.
+1. В обозревателе проектов Eclipse щелкните правой кнопкой мыши по своему проекту и выберите пункт **Свойства**.
+2. В левой части диалогового окна **Свойства** щелкните по элементу **Сборка развертывания** и нажмите кнопку **Добавить**.
 3. В диалоговом окне **Новая директива сборки** щелкните **Записи пути построения Java** и нажмите кнопку **Далее**.
 4. Выберите **Microsoft JDBC Driver 4.0 для SQL Server** и нажмите кнопку **Готово**.
-5. Нажмите кнопку **ОК**, чтобы закрыть диалоговое окно **Свойства**.
+5. Нажмите **OK**, чтобы закрыть диалоговое окно **Свойства**.
 6. Экспортируйте WAR-файл проекта в папку approot и заново постройте проект Azure в соответствии с процедурой, описанной в разделе [Создание приложения Hello World с использованием подключаемого модуля Azure для Eclipse с помощью Java (Microsoft Open Technologies)](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx). В этом разделе также описывается выполнение приложения в эмуляторе вычислений и в Azure.
 
 **Упаковка Microsoft JDBC Driver 4.0 для SQL Server, когда Eclipse не используется**
@@ -703,34 +696,34 @@
 
 ## Дальнейшие действия
 
-Дополнительную информацию о Microsoft JDBC Driver для SQL Server см. в разделе [Обзор драйвера JDBC](http://msdn.microsoft.com/library/ms378749.aspx). Дополнительную информацию о базе данных SQL см. в разделе [Обзор базы данных SQL](http://msdn.microsoft.com/library/windowsazure/ee336241.aspx).
+Для получения дополнительных сведений о Microsoft JDBC Driver для SQL Server см. раздел [Обзор драйвера JDBC](http://msdn.microsoft.com/library/ms378749.aspx). Для получения дополнительных сведений о базе данных SQL см. раздел [Обзор базы данных SQL](http://msdn.microsoft.com/library/windowsazure/ee336241.aspx).
 
-[Основные понятия]:#concepts
-[Предварительные требования]:#prerequisites
-[Создание базы данных SQL Azure]:#create_db
-[Определение строки подключения для базы данных SQL]:#determine_connection_string
-[Разрешение доступа к диапазону IP-адресов]:#specify_allowed_ips
-[Использование базы данных SQL Azure в Java]:#use_sql_azure_in_java
-[Взаимодействие с базой данных SQL Azure из кода]:#communicate_from_code
-[Создание таблицы]:#to_create_table
-[Создание индекса для таблицы]:#to_create_index
-[Вставка строк]:#to_insert_rows
-[Извлечение строк]:#to_retrieve_rows
-[Извлечение строк с использованием предложения WHERE]:#to_retrieve_rows_using_where
-[Извлечение количества строк]:#to_retrieve_row_count
-[Обновление строк]:#to_update_rows
-[Удаление строк]:#to_delete_rows
-[Проверка существования таблицы]:#to_check_table_existence
-[Удаление индекса]:#to_drop_index
-[Удаление таблицы]:#to_drop_table
-[Использование базы данных SQL в Java в развертывании Azure]:#using_in_azure
-[Дальнейшие действия]:#nextsteps
+[Concepts]: #concepts
+[Prerequisites]: #prerequisites
+[Creating an Azure SQL Database]: #create_db
+[Determining the SQL Database connection string]: #determine_connection_string
+[To allow access to a range of IP addresses]: #specify_allowed_ips
+[To use Azure SQL Database in Java]: #use_sql_azure_in_java
+[Communicating with Azure SQL Database from your code]: #communicate_from_code
+[To create a table]: #to_create_table
+[To create an index on a table]: #to_create_index
+[To insert rows]: #to_insert_rows
+[To retrieve rows]: #to_retrieve_rows
+[To retrieve rows using a WHERE clause]: #to_retrieve_rows_using_where
+[To retrieve a count of rows]: #to_retrieve_row_count
+[To update rows]: #to_update_rows
+[To delete rows]: #to_delete_rows
+[To check whether a table exists]: #to_check_table_existence
+[To drop an index]: #to_drop_index
+[To drop a table]: #to_drop_table
+[Using SQL Database in Java within an Azure Deployment]: #using_in_azure
+[Дальнейшие действия]: #nextsteps
 [create_new]: ./media/sql-data-java-how-to-use-sql-database/WA_New.png
 [create_new_sql_db]: ./media/sql-data-java-how-to-use-sql-database/WA_SQL_DB_Create.png
 [create_database_settings]: ./media/sql-data-java-how-to-use-sql-database/WA_CustomCreate_1.png
 [create_server_settings]: ./media/sql-data-java-how-to-use-sql-database/WA_CustomCreate_2.png
 [get_jdbc_connection_string]: ./media/sql-data-java-how-to-use-sql-database/WA_SQL_JDBC_ConnectionString.png
 [allowed_ips_dialog]: ./media/sql-data-java-how-to-use-sql-database/WA_Allowed_IPs.png
-
-<!--HONumber=47-->
  
+
+<!---HONumber=62-->

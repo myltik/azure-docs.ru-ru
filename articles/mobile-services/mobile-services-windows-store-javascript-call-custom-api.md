@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Вызов настраиваемого API из клиента Магазина Windows JS - мобильные службы" 
+	pageTitle="Вызов настраиваемого API из клиента Магазина Windows JS — мобильные службы" 
 	description="Узнайте, как определить настраиваемый API и вызывать его из приложения магазина Windows, которое использует мобильные службы Azure." 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="09/26/2014" 
+	ms.date="06/04/2015" 
 	ms.author="glenga"/>
 
 # Вызов из клиента настраиваемого интерфейса API
@@ -22,54 +22,43 @@
 
 В этом разделе показано, как вызывать настраиваемый API из приложений Магазина Windows. Настраиваемый интерфейс API позволяет определить пользовательские конечные точки, которые предоставляют функциональные возможности сервера, не сопоставляемые с операциями вставки, обновления, удаления или чтения. При использовании настраиваемого интерфейса API вы получаете больше возможностей для управления сообщениями, в том числе для чтения и установки заголовков HTTP-сообщений, а также определения форматов текста сообщений, отличных от JSON.
 
-Настраиваемый API, созданный в данном разделе, дает возможность отправить один запрос POST, который устанавливает для флага завершения значение `true` для всех элементов задач в таблице. Без настраиваемого интерфейса API клиенту требуется отправлять отдельные просьбы, чтобы обновить флаг для каждого элемента списка дел в таблице.
+Настраиваемый интерфейс API, созданный в этом разделе, дает возможность отправить один запрос POST, который устанавливает для флага завершения значение `true` для всех элементов задач в таблице. Без настраиваемого интерфейса API клиенту требуется отправлять отдельные просьбы, чтобы обновить флаг для каждого элемента списка дел в таблице.
 
-Вы добавите эту функцию в приложение, созданное в учебнике [Приступая к работе с мобильными службами] или [Приступая к работе с данными]. Для этого требуются следующие действия:
-
-1. [Определение настраиваемого интерфейса API]
-2. [Обновление приложения для вызова настраиваемого интерфейса API]
-3. [Тестирование приложения] 
-
-Этот учебник создан на основе краткого руководства по мобильным службам. Перед работой с этим учебником необходимо сначала пройти учебник [Приступая к работе с мобильными службами] или [Приступая к работе с данными]. В этом учебнике используется Visual Studio 2012 Express для Windows 8.
+Этот учебник создан на основе краткого руководства по мобильным службам. Перед началом работы с данным учебником вам необходимо выполнить все задания в учебнике [Приступая к работе с мобильными службами] или [Добавление мобильных служб к существующему приложению].
 
 ## <a name="define-custom-api"></a>Определение настраиваемого интерфейса API
 
 [AZURE.INCLUDE [mobile-services-create-custom-api](../../includes/mobile-services-create-custom-api.md)]
 
 
-[AZURE.INCLUDE [mobile-services-windows-store-javascript-call-custom-api](mobile-services-windows-store-javascript-call-custom-api.md)]
+[AZURE.INCLUDE [mobile-services-windows-store-javascript-call-custom-api](../../includes/mobile-services-windows-store-javascript-call-custom-api.md)]
 
 ## Дальнейшие действия
 
-Узнав, как создать настраиваемый API и вызывать его из приложения для Магазина Windows, изучите следующие разделы о мобильных службах:
+В этой статье мы рассказали вам, как с помощью функции **invokeApi** вызывать относительно простой настраиваемый интерфейс API из приложения Windows. Подробнее об использовании функции **InvokeApi** см. в записи блога [Настраиваемый интерфейс API в мобильных службах Azure](http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx).
 
-* [Определение настраиваемого интерфейса API с поддержкой периодических уведомлений]
-	<br/>Узнайте, как использовать настраиваемый API для поддержки периодических уведомлений в приложениях Магазина Windows. Если периодические уведомления включены, Windows будет периодически обращаться к конечной точке настраиваемого интерфейса API и использовать полученный XML в формате для плиток, чтобы обновить плитку приложения в меню "Пуск".
+Также рекомендуем просмотреть дополнительные статьи, посвященные мобильным службам:
 
-* [Справочник серверных скриптов мобильных служб]
-  <br/>Дополнительные сведения о создании настраиваемых интерфейсов API.
+* [Справочник серверных скриптов мобильных служб] <br/>Узнайте больше о создании настраиваемых интерфейсов API.
 
-* [Хранение серверных скриптов в системе управления версиями]
-  <br/> Сведения о том, как использовать функцию управления версиями, чтобы легко разрабатывать и безопасно публиковать код сценариев настраиваемого интерфейса API.
+* [Хранение серверных сценариев в системе управления версиями] <br/>Узнайте, как использовать функцию управления версиями, чтобы легко и надежно разрабатывать и публиковать код сценариев настраиваемого API.
 
 <!-- Anchors. -->
-[Определение настраиваемого интерфейса API]: #define-custom-api
-[Обновление приложения для вызова настраиваемого интерфейса API]: #update-app
-[Тестирование приложения]: #test-app
-[Дальнейшие действия]: #next-steps
+[Define the custom API]: #define-custom-api
+[Update the app to call the custom API]: #update-app
+[Test the app]: #test-app
+[Next Steps]: #next-steps
 
 <!-- URLs. -->
 [Справочник серверных скриптов мобильных служб]: http://go.microsoft.com/fwlink/?LinkId=262293
-[Панель мониторинга "Мои приложения"]: http://go.microsoft.com/fwlink/?LinkId=262039
-[Приступая к работе с мобильными службами]: /ru-ru/documentation/articles/mobile-services-windows-store-get-started/
-[Приступая к работе с данными]: /ru-ru/documentation/articles/mobile-services-windows-store-javascript-get-started-data/
-[Приступая к работе с проверкой подлинности]: /ru-ru/documentation/articles/mobile-services-windows-store-javascript-get-started-users/
-[Приступая к работе с push-уведомлениями]: /ru-ru/documentation/articles/mobile-services-windows-store-javascript-get-started-push/
+[My Apps dashboard]: http://go.microsoft.com/fwlink/?LinkId=262039
+[Приступая к работе с мобильными службами]: ../mobile-services-windows-store-get-started.md
+[Добавление мобильных служб к существующему приложению]: mobile-services-windows-store-javascript-get-started-data.md
+[Get started with authentication]: mobile-services-windows-store-javascript-get-started-users.md
+[Get started with push notifications]: mobile-services-javascript-backend-windows-store-javascript-get-started-push.md
 
-[Определение настраиваемого интерфейса API с поддержкой периодических уведомлений]: /ru-ru/documentation/articles/mobile-services-windows-store-javascript-create-pull-notifications
-[Хранение серверных скриптов в системе управления версиями]: /ru-ru/documentation/articles/mobile-services-store-scripts-source-control
-
-
-
-<!--HONumber=42-->
+[Define a custom API that supports periodic notifications]: mobile-services-windows-store-javascript-create-pull-notifications.md
+[Хранение серверных сценариев в системе управления версиями]: mobile-services-store-scripts-source-control.md
  
+
+<!---HONumber=62-->

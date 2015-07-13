@@ -1,41 +1,26 @@
-<properties 
-   pageTitle="StorSimple system limits table"
-   description="Describes system limits and recommended sizes for StorSimple components and connections."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="adinah"
-   editor="" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="06/19/2015"
-   ms.author="alkohli" />
-
-| Limit identifier | Limit | Comments |
+| Идентификатор ограничения | Ограничение | Комментарии |
 |----------------- | ------|--------- |
-| Maximum number of storage account credentials | 64 | |
-| Maximum number of volume containers | 64 | |
-| Maximum number of volumes | 255 | |
-| Maximum number of bandwidth templates | 25 | |
-| Maximum number of schedules per bandwidth template | 168 | A schedule for every hour, every day of the week (24*7). |
-| Maximum size of a volume | 64 TB |  |
-| Maximum number of iSCSI connections | 512 | |
-| Maximum number of iSCSI connections from initiators | 512 | |
-| Maximum number of access control records per device | 64 | |
-| Maximum number of volumes per backup policy | 24 | |
-| Maximum number of backups retained per backup policy | 64 | |
-| Maximum number of schedules per backup policy | 10 | |
-| Maximum number of snapshots of any type that can be retained per volume | 256 | This includes local snapshots and cloud snapshots. |
-| Maximum number of snapshots that can be present in any device | 10,000 | |
-| Maximum number of volumes that can be processed in parallel for backup, restore, or clone | 16 |<ul><li>If there are more than 16 volumes, they will be processed sequentially as processing slots become available.</li><li>New backups of a cloned or a restored volume cannot occur until the operation is finished.</li></ul>|
-| Restore and clone recover time | < 2 minutes | <ul><li>The volume is made available within 2 minutes of restore or clone operation, regardless of the volume size.</li><li>The volume performance may initially be slower than normal as most of the data and metadata still resides in the cloud. Performance may increase as data flows from the cloud to the StorSimple device.</li><li>The total time to download metadata depends on the allocated volume size. Metadata is automatically brought into the device in the background at the rate of 5 minutes per TB of allocated volume data. This rate may be affected by Internet bandwidth to the cloud.</li><li>The restore or clone operation is complete when all the metadata is on the device.</li><li>Backup operations cannot be performed until the restore or clone operation is fully complete.|
-| Thin-restore availability | Last failover | |
-| Maximum client read/write throughput (when served from the SSD tier)* | 920/720 MB/s with a single 10GbE network interface | Up to 2x with MPIO and two network interfaces. |
-| Maximum client read/write throughput (when served from the HDD tier)* | 120/250 MB/s |
-| Maximum client read/write throughput (when served from the cloud tier)* | 11/41 MB/s | Read throughput depends on clients generating and maintaining sufficient I/O queue depth. |
+| Максимальное количество учетных данных учетной записи хранения | 64 | |
+| Максимальное количество контейнеров томов | 64 | |
+| Максимальное количество томов | 255 | |
+| Максимальное количество шаблонов пропускной способности | 25 | |
+| Максимальное число расписаний на шаблон пропускной способности | 168 | Расписание на каждый час, каждый день недели (24 * 7). |
+| Максимальный размер тома | 64 ТБ | Рекомендуемый размер тома NTFS — 64 ТБ. |
+| Максимальное число подключений iSCSI | 512 | |
+| Максимальное число подключений iSCSI от инициаторов | 512 | |
+| Максимальное число записей системы контроля доступом для каждого устройства | 64 | |
+| Максимальное число томов на политику резервного копирования | 24 | |
+| Максимальное число хранимых резервных копий на политику резервного копирования | 64 | |
+| Максимальное число расписаний на политику резервного копирования | 10 | |
+| Максимальное число моментальных снимков любого типа, которые могут храниться для одного тома | 256 | Сюда входят локальные моментальные снимки и облачные моментальные снимки. |
+| Максимальное число моментальных снимков, которые могут присутствовать в любом устройстве | 10 000 | |
+| Максимальное число томов, которые могут обрабатываться параллельно для резервного копирования, восстановления или клонирования | 16 |<ul><li>При наличии более 16 томов они будут обрабатываться последовательно, по мере появления свободных слотов обработки.</li><li>Новые резервные копии клонированных или восстановленных томов не могут быть созданы до завершения операции.</li></ul>|
+| Время восстановления и восстановления дубликата | < 2 минут | <ul><li>Том становится доступен в течение двух минут после операции восстановления или клонирования, независимо от его размера.</li><li>Производительность тома может быть ниже, чем обычно, так как большинство данных и метаданных по-прежнему находится в облаке. Производительность может расти по мере поступления потоков данных из облака на устройство StorSimple.</li><li>Общее время загрузки метаданных зависит от размера выделенного тома. Метаданные автоматически переносятся на устройство в фоновом режиме со скоростью один ТБ данных тома за 5 минут. Эта скорость может зависеть от пропускной способности Интернета в облаке.</li><li>Операция восстановления или клонирования завершается, когда все метаданные оказываются на устройстве.</li><li>Операции резервного копирования не могут быть выполнены до полного завершения операции восстановления или клонирования.|
+| Возможность тонкого восстановления данных | Отработка последнего отказа | |
+| Максимальная клиентская скорость чтения/записи (при использовании SSD) * | 920 или 720 МБ/с для одного сетевого интерфейса Ethernet 10 Гбит/с | Повышается до 2 раз при использовании MPIO и двух сетевых интерфейсов. |
+| Максимальная клиентская пропускная способность чтения/записи (при использовании HDD)* | 120/250 МБ/с |
+| Максимальная клиентская скорость чтения/записи (при выполнении операции из облака)* | 11/41 МБ/с | Скорость чтения зависит от создания и поддержания клиентами достаточной глубины очереди ввода-вывода. |
 
-&#42; Maximum throughput per I/O type was measured with 100 percent read and 100 percent write scenarios. Actual throughput may be lower and depends on I/O mix and network conditions.
+&#42; Максимальная пропускная способность для каждого типа операции ввода-вывода была измерена для сценариев со 100 % операций чтения и 100 % операций записи. Фактическая пропускная способность может быть ниже и зависит от состояния сети и сочетания операций ввода-вывода.
+
+<!---HONumber=62-->

@@ -1,20 +1,3 @@
-<properties 
-   pageTitle="Настройка и регистрация устройств"
-   description="Описан способ использования Windows PowerShell для StorSimple для настройки и регистрации устройства StorSimple, на котором выполняется обновление 1."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/22/2015"
-   ms.author="alkohli" />
-
 
 ### Настройка и регистрация устройства
 
@@ -144,10 +127,10 @@
    
     	![StorSimple Devices page](./media/storsimple-configure-and-register-device-gov/HCS_DeviceOnline-gov-include.png) 
   
-        Если состояние устройства **Вне сети**, подождите несколько минут, чтобы устройство могло перейти в оперативный режим. 
+        If the device status is **Offline**, wait for a couple of minutes for the device to come online. 
       
-        Если по прошествии нескольких минут устройство все еще находится не в сети, убедитесь, что защищенная брандмауэром сеть настроена в соответствии [с требованиями к сети для вашего устройства StorSimple](https://msdn.microsoft.com/library/dn772371.aspx).Если поддержка HTTP 1.1 отсутствует, проверьте порт 9354 и убедитесь в том, что он открыт для исходящей связи. Этот порт используется для связи между службой StorSimple Manager и вашим устройством StorSimple.
+        If the device is still offline after a few minutes, then you need to make sure that your firewall network was configured as described in the [network requirements for your StorSimple device](https://msdn.microsoft.com/library/dn772371.aspx). If you do not have HTTP 1.1 support, check port 9354 to make sure that it is open for outbound communication. This port is used for communication between the StorSimple Manager service and your StorSimple device.
      
         
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

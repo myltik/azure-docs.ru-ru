@@ -1,20 +1,3 @@
-<properties 
-   pageTitle="Получение регистрационного ключа службы"
-   description="Здесь объясняется, как получить регистрационный ключ, используемый для регистрации всех устройств StorSimple."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/20/2015"
-   ms.author="v-sharos" />
-
 
 #### Получение регистрационного ключа службы StorSimple
 
@@ -24,7 +7,7 @@
 
 2. Щелкните **Получить регистрационный ключ службы**. Можно также щелкнуть **Регистрационный ключ** в нижней части страницы. Для извлечения ключа может потребоваться несколько минут. Откроется диалоговое окно **Регистрационный ключ службы**.
 
-     ![Диалоговое окно «Регистрационный ключ»](./media/storsimple-get-service-registration-key-gov/HCS_ServiceRegistrationKey-gov-include.png)
+     ![Диалоговое окно "Регистрационный ключ"](./media/storsimple-get-service-registration-key-gov/HCS_ServiceRegistrationKey-gov-include.png)
 
 3. Найдите регистрационный ключ службы.
 
@@ -36,4 +19,4 @@
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

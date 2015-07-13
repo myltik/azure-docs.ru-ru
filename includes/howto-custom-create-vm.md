@@ -1,4 +1,3 @@
-<properties authors="kathydav" editor="tysonn" manager="jeffreyg" />
 
 #Как создать настраиваемую виртуальную машину
 
@@ -53,14 +52,12 @@
 17. Чтобы создать виртуальную машину, нажмите на кнопку со стрелкой.
 
 
-	![Custom virtual machine creation successful](./media/howto-custom-create-vm/VMSuccessWindows.png)
+	![Настраиваемая виртуальная машина успешно создана](./media/howto-custom-create-vm/VMSuccessWindows.png)
 
 ##Дальнейшие действия##
-После создания виртуальной машины она запускается автоматически. Когда отображается состояние портала «Выполняется», можно войти в виртуальную машину. Указания см. в одной из следующих статей:
+После создания виртуальной машины она запускается автоматически. Когда отображается состояние портала "Выполняется", можно войти в виртуальную машину. Указания см. в одной из следующих статей:
 
 - [Как войти в виртуальную машину под управлением Linux](../articles/virtual-machines/virtual-machines-linux-how-to-log-on.md)
 - [Как войти в виртуальную машину под управлением Windows Server](../articles/virtual-machines/virtual-machines-log-on-windows-server.md)
 
-
-
-<!--HONumber=52-->
+<!---HONumber=62-->

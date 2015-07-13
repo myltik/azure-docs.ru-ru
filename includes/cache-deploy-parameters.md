@@ -1,7 +1,7 @@
 
 ### redisCacheName
 
-The name of the Azure Redis Cache to create.
+Имя создаваемого кэша Redis Azure.
 
     "redisCacheName": {
       "type": "string"
@@ -9,7 +9,7 @@ The name of the Azure Redis Cache to create.
 
 ### redisCacheSKU
 
-The pricing tier of the new Azure Redis Cache.
+Ценовая категория нового кэша Azure Redis.
 
     "redisCacheSKU": {
       "type": "string",
@@ -17,12 +17,11 @@ The pricing tier of the new Azure Redis Cache.
       "defaultValue": "Basic"
     }
 
-The template defines the values that are permitted for this parameter (Basic or Standard), and assigns a default value (Basic) if no value is specified. Basic provides a single node with multiple sizes available up to 53 GB.
-Standard provides two-node Primary/Replica with multiple sizes available up to 53 GB and 99.9% SLA.
+В шаблоне определены значения, допустимые для этого параметра (Basic и Standard). Если значение не указано, параметру назначается значение по умолчанию (Basic). Уровень Basic предоставляет один узел с различными размерами (до 53 ГБ). Уровень Standard предоставляет два узла (основной и реплика) с различными размерами (до 53 ГБ) и соглашением об уровне обслуживания 99,9 %.
 
 ### redisCacheFamily
 
-The family for the sku.
+Семейство для SKU.
 
     "redisCacheFamily": {
       "type": "string",
@@ -32,7 +31,7 @@ The family for the sku.
 
 ### redisCacheCapacity
 
-The size of the new Azure Redis Cache instance. 
+Размер нового экземпляра кэша Azure Redis.
 
     "redisCacheCapacity": {
       "type": "int",
@@ -40,15 +39,16 @@ The size of the new Azure Redis Cache instance.
       "defaultValue": 0
     }
 
-The template defines the values that are permitted for this parameter (0, 1, 2, 3, 4, 5 or 6), and assigns a default value (0) if no value is specified. Those numbers correspond to following cache sizes: 
-0 = 250 MB, 1 = 1 GB, 2 = 2.5 GB, 3 = 6 GB, 4 = 13 GB, 5 = 26 GB, 6 = 53 GB
+В шаблоне определяются значения, допустимые для этого параметра (0, 1, 2, 3, 4, 5 и 6). Если значение не указано, параметру назначается значение по умолчанию (0). Эти числа соответствуют следующим размерам кэша: 0 = 250 МБ, 1 = 1 ГБ, 2 = 2,5 ГБ, 3 = 6 ГБ, 4 = 13 ГБ, 5 = 26 ГБ, 6 = 53 ГБ
 
 ### redisCacheVersion
 
-The Redis server version of the new cache.
+Версия сервера Redis нового кэша.
 
     "redisCacheVersion": {
       "type": "string",
       "allowedValues": [ "2.8" ],
       "defaultValue": "2.8"
     }
+
+<!---HONumber=62-->

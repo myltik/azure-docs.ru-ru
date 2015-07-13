@@ -1,20 +1,19 @@
 <properties
-	pageTitle="Скачивание учетных данных хранилища в службе архивации Azure"
-	description="Узнайте, как использовать учетные данные хранилища для проверки подлинности компьютера в хранилище службы архивации и самой службе архивации Azure."
-	services="backup"
-	documentationCenter=""
-	authors="prvijay"
-	manager="shreeshd"
-	editor=""/>
-
+   pageTitle="Скачивание учетных данных хранилища в службе архивации Azure"
+   description="Узнайте, как использовать учетные данные хранилища для проверки подлинности компьютера в хранилище службы архивации и самой службе архивации Azure."
+   services="backup"
+   documentationCenter=""
+   authors="prvijay"
+   manager="shreeshd"
+   editor=""/>
 <tags
-	ms.service="backup"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="storage-backup-recovery"
-	ms.date="03/27/2015"
-	ms.author="prvijay"/>
+   ms.service="backup"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="storage-backup-recovery"
+   ms.date="03/27/2015"
+   ms.author="prvijay"/>
 
 # Использование учетных данных хранилища для проверки подлинности в службе архивации Azure
 
@@ -52,5 +51,6 @@
 <!--Image references-->
 [1]: ./media/backup-azure-backup-download-vc/quickview.png
 [2]: ./media/backup-azure-backup-download-vc/downloadvc.png
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

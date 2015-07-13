@@ -26,12 +26,12 @@
 ### Шаг 1.
  Azure DNS использует диспетчер ресурсов Azure (ARM). Убедитесь, что выбран режим PowerShell для использования командлетов ARM. Подробнее: [Использование Windows Powershell с диспетчером ресурсов](../powershell-azure-resource-manager).<BR><BR>
 
-		PS C:> Switch-AzureMode -Name AzureResourceManager
+		PS C:\> Switch-AzureMode -Name AzureResourceManager
 
 ### Шаг 2.
  Войдите в учетную запись Azure.<BR><BR>
 
-		PS C:> Add-AzureAccount
+		PS C:\> Add-AzureAccount
 
 Вам будет предложено пройти проверку подлинности с вашими учетными данными.<BR>
 
@@ -39,14 +39,14 @@
 Выберите, какие подписки Azure будут использоваться. <BR>
 
 
-		PS C:> Select-AzureSubscription -SubscriptionName "MySubscription"
+		PS C:\> Select-AzureSubscription -SubscriptionName "MySubscription"
 
 Чтобы просмотреть список доступных подписок, выполните командлет Get-AzureSubscription.<BR>
 
 ### Шаг 4.
 Создайте группу ресурсов (пропустите этот шаг, если вы используете существующую группу).<BR>
 
-		PS C:> New-AzureResourceGroup -Name MyAzureResourceGroup -location "West US"
+		PS C:\> New-AzureResourceGroup -Name MyAzureResourceGroup -location "West US"
 
 
 Диспетчер ресурсов Azure требует, чтобы все группы ресурсов указывали расположение. Оно используется по умолчанию для ресурсов в этой группе. Но так как все ресурсы DNS глобальные, а не региональные, выбор расположения группы ресурсов не влияет на Azure DNS.<BR>
@@ -55,7 +55,7 @@
 
 Служба Azure DNS управляется поставщиком ресурсов Microsoft.Network. Вашу подписку Azure необходимо зарегистрировать, чтобы использовать этот поставщик ресурсов, прежде чем работать с Azure DNS. Это однократная операция для каждой подписки.
 
-	PS c:> Register-AzureProvider -ProviderNamespace Microsoft.Network
+	PS C:\> Register-AzureProvider -ProviderNamespace Microsoft.Network
 
 
 
@@ -75,13 +75,13 @@
 ### Теги
 Теги отличаются от Etag. Теги — это собой список пар "имя-значение", которые используются диспетчером ресурсов Azure для отметки ресурсов в целях выставления счетов или группировки. Дополнительные сведения о тегах см. в статье "Использование тегов для организации ресурсов Azure". PowerShell для Azure DNS поддерживает теги для зон и наборов записей, указанных с помощью параметра "-Tag". В следующем примере демонстрируется создание зоны DNS с двумя тегами, "project = demo" и "env = test":
 
-	PS C:> New-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGRoup -Tag @( @{ Name="project"; Value="demo" }, @{ Name="env"; Value="test" } )
+	PS C:\> New-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGRoup -Tag @( @{ Name="project"; Value="demo" }, @{ Name="env"; Value="test" } )
 
 
 ## Создание зоны DNS
 Зона DNS создается с помощью командлета New-AzureDnsZone. В примере ниже мы создадим зону DNS contoso.com в группе ресурсов MyResourceGroup:<BR>
 
-		PS C:> New-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGRoup
+		PS C:\> New-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGRoup
 
 >[AZURE.NOTE]В Azure DNS имена зон должны указываться без конечной точки ("."). Например, следует указать "contoso.com" вместо "contoso.com.".<BR>
 
@@ -95,7 +95,7 @@
 
 Для просмотра этих записей используйте командлет Get AzureDnsRecordSet:
 
-		PS C:> Get-AzureDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
+		PS C:\> Get-AzureDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 
 	Name              : @
 	ZoneName          : contoso.com
@@ -123,7 +123,7 @@
 
 Если вы еще не делегировали домен для использования новой зоны в Azure DNS, вам необходимо направить DNS-запрос непосредственно одному из серверов имен для вашей зоны. Серверы имен для вашей зоны указаны в записях NS, которые отображаются командлетом Get-AzureDnsRecordSet выше. Укажите правильные значения для вашей зоны в команде ниже.<BR>
 
-		C:> nslookup
+		C:\> nslookup
 		> set type=SOA
 		> server ns1-01.azure-dns.com
 		> contoso.com
@@ -147,4 +147,4 @@
 [Приступая к созданию наборов записей и записей](dns-getstarted-create-recordset.md)<BR> [Управление зонами DNS](dns-operations-dnszones.md)<BR> [Управление DNS-записями](dns-operations-recordsets.md)<BR> [Автоматизация операций Azure с помощью пакета SDK для .NET](dns-sdk.md)<BR> [Справочник по API REST для службы Azure DNS](https://msdn.microsoft.com/library/azure/mt163862.aspx)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

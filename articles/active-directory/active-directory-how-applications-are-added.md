@@ -75,7 +75,7 @@
 
 * приложения, которые вы разработали (интегрировали с AAD);
 * приложения, которые вы подключили для единого входа;
-* приложения, которые вы опубликовали с помощью прокси-сервера  приложений Azure AD.
+* приложения, которые вы опубликовали с помощью прокси-сервера приложений Azure AD.
 
 ### Несколько примечаний и исключений
 
@@ -145,5 +145,6 @@
 <!--Image references-->
 [apps_service_principals_directory]: media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg
 [app_settings]: media/active-directory-how-applications-are-added/IntegratedAppSettings.jpg
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

@@ -1,6 +1,3 @@
-<properties writer="kathydav" editor="tysonn" manager="timlt" />
-
-
 
 # Отключение диска данных от виртуальной машины 
 
@@ -38,4 +35,4 @@
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

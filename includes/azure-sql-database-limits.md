@@ -1,6 +1,8 @@
-For SQL Database Limits, please see the following topics:
+Ограничения на базу данных SQL см. в следующих разделах:
 
- - [Azure SQL Database Service Tiers (Editions)](http://msdn.microsoft.com/library/azure/dn741340.aspx)
- - [Azure SQL Database Service Tiers and Performance Levels](http://msdn.microsoft.com/library/azure/dn741336.aspx)
- - [Database Throughput Unit (DTU) Quotas](http://msdn.microsoft.com/library/azure/ee336245.aspx#DTUs)
- - [SQL Database Resource Limits](http://msdn.microsoft.com/library/azure/dn338081.aspx)
+ - [Уровни служб баз данных SQL Azure (выпуски)](http://msdn.microsoft.com/library/azure/dn741340.aspx)
+ - [Уровни служб и уровни производительности в базе данных SQL Azure](http://msdn.microsoft.com/library/azure/dn741336.aspx)
+ - [Квоты пропускной способности базы данных (DTU)](http://msdn.microsoft.com/library/azure/ee336245.aspx#DTUs)
+ - [Лимиты ресурсов базы данных SQL](http://msdn.microsoft.com/library/azure/dn338081.aspx)
+
+<!---HONumber=62-->

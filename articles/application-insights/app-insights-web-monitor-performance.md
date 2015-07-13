@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Отслеживание работоспособности и использования вашего приложения с помощью Application Insights" 
+	pageTitle="Отслеживание работоспособности и использования приложения с помощью Application Insights" 
 	description="Приступая к работе с Application Insights. Анализ использования, доступности и производительности локальных приложений или веб-приложений Microsoft Azure." 
 	services="application-insights" 
     documentationCenter=""
@@ -30,18 +30,18 @@
 Если вы еще не добавили Application Insights в проект (т. е. если в нем нет файла ApplicationInsights.config), вы можете приступить к работе с этой службой одним из следующих способов:
 
 * [Добавьте Application Insights в проект своего приложения в среде Visual Studio][greenbrown] (рекомендуется). Кроме пассивного мониторинга производительности, вы можете вести журналы диагностики и отслеживать использование.
-* [отслеживайте производительность работающего веб-сайта][redfield] — для этого не нужно обновлять проект приложения или выполнять повторное развертывание веб-сайта.
-* [Для веб-сайтов Microsoft Azure](../insights-how-to-customize-monitoring.md) вы можете просматривать метрики в области «Мониторинг» веб-сайта. 
+* [Отслеживайте производительность работающего веб-сайта][redfield] — для этого не нужно обновлять проект приложения или выполнять повторное развертывание веб-сайта.
+* [Для веб-сайтов Microsoft Azure](../insights-how-to-customize-monitoring.md) вы можете просматривать метрики в области веб-сайта «Мониторинг». 
 
 Любой из этих методов позволит быстро просмотреть данные в колонке «Обзор» в Application Insights.
 
 
 ## <a name="view"></a>Изучение метрик
 
-Щелкните любой заголовок, чтобы увидеть результаты более подробно и за больший период. Например, щелкните плитку "Запросы" и выберите временной диапазон.
+Щелкните любой заголовок, чтобы увидеть результаты более подробно и за больший период. Например, щелкните плитку «Запросы» и выберите временной диапазон.
 
 
-![Щелкните плитку, чтобы увидеть подробные данные, и выберите временной диапазон](./media/app-insights-web-monitor-performance/appinsights-48metrics.png)
+![Щелкните плитки, чтобы увидеть подробные данные, и выберите временной диапазон](./media/app-insights-web-monitor-performance/appinsights-48metrics.png)
 
 Щелкните диаграмму, чтобы выбрать, какие метрики отображать, а также добавить новую диаграмму и выбрать метрики для нее.
 
@@ -87,7 +87,7 @@ HTTP-запросы включают в себя все запросы GET и PO
 
 ![](./media/app-insights-web-monitor-performance/appinsights-46failed.png)
 
-Это счетчик запросов, которые вызвали неперехваченные исключения.
+Это счетчик запросов, которые вызвали не перехваченные исключения.
 
 Чтобы просмотреть подробные сведения о конкретных сбоях, щелкните плитку. Чтобы просмотреть подробные сведения об отдельном запросе, выберите его.
 
@@ -111,7 +111,7 @@ HTTP-запросы включают в себя все запросы GET и PO
     <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCollector.PerformanceCollectorModule, Microsoft.ApplicationInsights.Extensibility.PerfCollector">
       <Counters>
         <Add PerformanceCounter="\Objects\Processes"/>
-        <Add PerformanceCounter="\Sales(electronics)#Items Sold" ReportAs="Item sales"/>
+        <Add PerformanceCounter="\Sales(electronics)# Items Sold" ReportAs="Item sales"/>
       </Counters>
     </Add>
 
@@ -126,7 +126,7 @@ HTTP-запросы включают в себя все запросы GET и PO
     var perfCollector = new PerformanceCollectorModule();
     perfCollector.Counters = new List<CustomPerformanceCounterCollectionRquest>();
     perfCollector.Counters.Add(new CustomPerformanceCounterCollectionRquest(
-      @"\Sales(electronics)#Items Sold", "Items sold"));
+      @"\Sales(electronics)# Items Sold", "Items sold"));
     perfCollector.Initialize(TelemetryConfiguration.Active);
     TelemetryConfiguration.Active.TelemetryModules.Add(perfCollector);
 
@@ -150,7 +150,7 @@ HTTP-запросы включают в себя все запросы GET и PO
 
 * настройте [веб-тесты][availability], чтобы получать оповещения, когда веб-сайт выходит из строя либо отвечает неправильно или медленно; 
 * сравните число запросов с другими метриками, чтобы узнать, не связаны ли сбои или медленный ответ с нагрузкой;
-* [вставьте в код инструкции трассировки и выполняйте поиск по ним][diagnostic], чтобы упростить локализацию проблем.
+* [вставьте в код инструкции трассировки и выполняйте поиск по ним][diagnostic], чтобы упростить выявление проблем.
 
 ## <a name="next"></a>Дальнейшие действия
 

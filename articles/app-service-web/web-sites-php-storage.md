@@ -278,7 +278,7 @@
 
 * Первым действием при передаче объекта является его извлечение из таблицы:
 		
-		$result = $tableRestProxy->queryEntities('tasks', 'PartitionKey eq \''.$_GET['pk'].'\' and RowKey eq \''.$_GET['rk'].'\'');		
+		$result = $tableRestProxy->queryEntities('tasks', 'PartitionKey eq ''.$_GET['pk'].'' and RowKey eq ''.$_GET['rk'].''');		
 		$entities = $result->getEntities();		
 		$entity = $entities[0];
 
@@ -334,7 +334,7 @@
 
 	![Выбор управления ключами][storage-access-keys]
 
-7. Откройте файл **init.php** и замените `[YOUR_STORAGE_ACCOUNT_NAME]` и `[YOUR_STORAGE_ACCOUNT_KEY]` именем учетной записи и ключом, записанными на последнем шаге. Сохраните файл.
+7. Откройте файл **init.php** и замените `[YOUR_STORAGE_ACCOUNT_NAME]` и `[YOUR_STORAGE_ACCOUNT_KEY]` именем учетной записи и ключом, записанными на последнем шаге. Сохраните файл .
 
 ## Создание веб-приложения Azure и настройка публикации в Git
 
@@ -405,7 +405,7 @@
 
 ## Изменения
 * Указания по изменениям при переходе от веб-сайтов к службе приложений см. в разделе [Служба приложений Azure и ее влияние на существующие службы Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
-* Сведения о смене старого портала на новый см. в [справочнике по навигации на портале](http://go.microsoft.com/fwlink/?LinkId=529715).
+* Информацию о смене старого портала на новый см. в [справочнике по навигации на портале](http://go.microsoft.com/fwlink/?LinkId=529715).
 
 
 

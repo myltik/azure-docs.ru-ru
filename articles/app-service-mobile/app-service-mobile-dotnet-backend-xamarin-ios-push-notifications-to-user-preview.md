@@ -111,4 +111,5 @@
 [Приступая к работе с аутентификацией в мобильных службах]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-users-preview.md
 [Приступая к работе с push-уведомлениями]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-push-preview.md
 [шаблонов]: https://msdn.microsoft.com/ru-ru/library/dn530748.aspx
-<!--HONumber=54--> 
+
+<!---HONumber=62-->

@@ -3,7 +3,7 @@
 	description="Отправка push-уведомлений на все устройства определенного пользователя."
 	services="app-service\mobile" 
 	documentationCenter="windows" 
-	authors="yuaxu" 
+	authors="ysxu" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/17/2015"
+	ms.date="06/23/2015"
 	ms.author="yuaxu"/>
 
 # Отправка кроссплатформенных уведомлений определенному пользователю
@@ -105,5 +105,6 @@
 [Приступая к работе с аутентификацией в мобильных службах]: app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-users-preview.md
 [Приступая к работе с push-уведомлениями]: app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-push-preview.md
 [шаблонов]: https://msdn.microsoft.com/ru-ru/library/dn530748.aspx
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

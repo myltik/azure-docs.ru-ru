@@ -63,5 +63,6 @@
 Дополнительные сведения о балансировке нагрузки в диспетчере трафика Azure см. в разделе [Описание методов балансировки нагрузки в диспетчере трафика](http://msdn.microsoft.com/library/windowsazure/dn339010.aspx).
 
 Дополнительные сведения об использовании диспетчера трафика совместно с веб-приложениями см. в статьях [Использование диспетчера трафика Azure c веб-сайтами Azure](http://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx) и [Диспетчер трафика Azure теперь можно интегрировать с веб-сайтами Azure](http://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/).
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

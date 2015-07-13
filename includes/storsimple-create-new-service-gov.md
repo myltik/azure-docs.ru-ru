@@ -1,20 +1,3 @@
-<properties 
-   pageTitle="Создание новой службы &quot;Диспетчер StorSimple&quot;"
-   description="В статье рассказывается о том, как создать новый экземпляр службы &quot;Диспетчер StorSimple&quot; с использованием портала Azure для государственных организаций."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/20/2015"
-   ms.author="v-sharos" />
-
 
 #### Создание новой службы
 
@@ -35,4 +18,4 @@
  
        ![создание службы](./media/storsimple-create-new-service-gov/HCS_StorSimpleManagerServicePage-gov-include.png)
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

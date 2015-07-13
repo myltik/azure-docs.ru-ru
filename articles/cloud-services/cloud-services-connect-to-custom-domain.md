@@ -22,15 +22,13 @@
 
 Сначала настройте виртуальную сеть (VNET) в Azure. Затем добавьте контроллер домена Active Directory (размещенный на виртуальной машине Azure) к виртуальной сети. Следующим шагом добавьте существующие облачные роли служб в заранее созданную виртуальную сеть и последовательно подключите их к контроллеру домена.
 
-Прежде чем начать, пара моментов, которые стоит запомнить:
-1.	В этом учебнике используется Powershell, поэтому убедитесь, что Azure Powershell установлен и готов к использованию. Справку об установке Azure Powershell см. в разделе [Установка и настройка Azure PowerShell](../install-configure-powershell.md).
-2.	Экземпляры контроллера домена AD и веб-ролей или рабочих ролей должны быть в виртуальной сети.
+Прежде чем начать, пара моментов, которые стоит запомнить: 1. В этом учебнике используется Powershell, поэтому убедитесь, что Azure Powershell установлен и готов к использованию. Справку об установке Azure Powershell см. в разделе [Установка и настройка Azure PowerShell](../install-configure-powershell.md). 2. Экземпляры контроллера домена AD и веб-ролей или рабочих ролей должны быть в виртуальной сети.
 
 Следуйте этому пошаговому руководству и, если возникнут проблемы, оставьте нам комментарий ниже. Кто-нибудь из наших сотрудников вам ответит (да, мы читаем ваши комментарии).
 
 ## Создайте виртуальную сеть
 
-Создать виртуальную сеть в Azure можно с помощью портала Azure или Powershell. В этом учебнике используется Powershell. Сведения о создании виртуальной сети с помощью портала Azure см. в разделе [Создание виртуальной сети](../create-virtual-network.md).
+Создать виртуальную сеть в Azure можно с помощью портала Azure или Powershell. В этом учебнике используется Powershell. Информацию о создании виртуальной сети с помощью портала Azure см. в разделе [Создание виртуальной сети](../create-virtual-network.md).
 
     #Create Virtual Network
 
@@ -67,11 +65,11 @@
 
     $vnetname = '<your-vnet-name>'
     $subnetname = '<your-subnet-name>'
-    $vmsvc1 = '<your-hosted-service>'
-    $vm1 = '<your-vm-name>'
-    $username = '<your-username>'
-    $password = '<your-password>'
-    $ affgrp = '<your- affgrp>'
+    $vmsvc1 = ‘<your-hosted-service>’
+    $vm1 = ‘<your-vm-name>’
+    $username = ‘<your-username>’
+    $password = ‘<your-password>’
+    $ affgrp = ‘<your- affgrp>’
 
     #Create a VM and add it to the Virtual Network
 
@@ -119,7 +117,7 @@
       </NetworkConfiguration>
     </ServiceConfiguration>
 
-Затем создайте проект облачной службы и выполните его развертывание в Azure. Для получения справки о развертывании пакета облачных служб в Azure см. раздел [Создание и развертывание облачной службы](cloud-services-how-to-create-deploy.md#deploy)
+Затем создайте проект облачной службы и выполните его развертывание в Azure. Для получения справки о развертывании пакета облачных служб в Azure см. раздел [Создание и развертывание облачной службы](cloud-services-how-to-create-deploy.md#deploy).
 
 ## Подключите веб-роли и рабочие роли к личному домену с помощью расширения доменов AD
 
@@ -127,8 +125,8 @@
 
     #Initialize domain variables
 
-    $domain = '<your-domain-name>';
-    $dmuser = '$domain<your-username>';
+    $domain = ‘<your-domain-name>’;
+    $dmuser = ‘$domain<your-username>’;
     $dmpswd = '<your-domain-password>';
     $dmspwd = ConvertTo-SecureString $dmpswd -AsPlainText -Force;
     $dmcred = New-Object System.Management.Automation.PSCredential ($dmuser, $dmspwd);
@@ -139,7 +137,7 @@
 
 Вот и все.
 
-Облачные службы должны быть присоединены к контроллеру личного домена. Дополнительные сведения о различных параметрах настройки расширения домена AD см. в справке Powershell, как показано ниже.
+Облачные службы должны быть присоединены к контроллеру личного домена. Дополнительные сведения о различных параметрах настройки расширения домена AD см. в справке PowerShell, как показано ниже.
 
     help Set-AzureServiceADDomainExtension;
     help New-AzureServiceADDomainExtensionConfig;
@@ -147,6 +145,6 @@
 Так же хотелось бы получить от вас отзыв по поводу того, будет ли полезным расширение, которое повышает уровень виртуальной машины до контроллера домена. Если думаете, что будет, дайте нам знать в разделе комментариев.
 
 Надеемся, эта информация была вам полезна!
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

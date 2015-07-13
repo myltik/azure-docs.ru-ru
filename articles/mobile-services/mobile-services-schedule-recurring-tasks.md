@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/26/2015" 
+	ms.date="06/04/2015" 
 	ms.author="glenga"/>
 
 # Планирование повторяющихся заданий в мобильных службах 
@@ -28,11 +28,7 @@
 + Запрос и сохранение внешних данных, например твитов, RSS-записей и сведений о расположении.
 + Обработка или изменение размеров сохраненных изображений.
 
-В этом учебнике подробно описаны все действия, необходимые для использования планировщика заданий в целях создания запланированного задания, которое запрашивает данные твита из Twitter и сохраняет твиты в новой таблице Updates:
-
-+ [Регистрация для доступа к Twitter и сохранения учетных данных]
-+ [Создание таблицы Updates]
-+ [Создание запланированного задания]
+В этом учебнике показаны все действия, необходимые для использования планировщика заданий в целях создания запланированного задания, которое запрашивает данные твита из Twitter и сохраняет твиты в новой таблице Updates:
 
 ##<a name="get-oauth-credentials"></a>Регистрация для доступа к API v1.1 Твиттера и сохранение учетных данных
 
@@ -136,7 +132,7 @@
 
    	Этот скрипт вызывает API запросов Твиттера с использованием сохраненных учетных данных для запроса недавних твитов, содержащих хэш-тег `#mobileservices`. Повторяющиеся твиты и ответы исключаются из результатов еще до того, как они сохраняются в таблице.
 
-    >[AZURE.NOTE]В этом примере предполагается, что во время каждого запланированного выполнения в таблицу вставляются только несколько строк. В случае вставки большого количества строк в цикле при работе на бесплатном уровне могут закончиться подключения. В этом случае следует выполнить операции массовой вставки. Дополнительные сведения см. в разделе <a href="/develop/mobile/how-to-guides/work-with-server-scripts/#bulk-inserts">Практическое руководство. Выполнение массовой вставки</a>.
+    >[AZURE.NOTE]В этом примере предполагается, что во время каждого запланированного выполнения в таблицу вставляются только несколько строк. В случае вставки большого количества строк в цикле при работе на бесплатном уровне могут закончиться подключения. В этом случае следует выполнить операции массовой вставки. Дополнительную информацию см. в разделе [Практическое руководство. Выполнение массовой вставки](mobile-services-how-to-use-server-scripts.md#bulk-inserts).
 
 6. Щелкните **Запустить один раз** для проверки сценария.
 
@@ -150,29 +146,17 @@
 
 Поздравляем, новое запланированное задание успешно создано в вашей мобильной службе. Это задание будет выполняться как запланированное, пока не будет отключено или изменено.
 
-## <a name="nextsteps"> </a>Дальнейшие действия
+## <a name="nextsteps"> </a>См. также
 
 * [Справочник серверных скриптов мобильных служб] <br/>Узнайте больше о регистрации и использовании серверных скриптов.
 
 <!-- Anchors. -->
-[Регистрация для доступа к Twitter и сохранения учетных данных]: #get-oauth-credentials
-[Создание таблицы Updates]: #create-table
-[Создание запланированного задания]: #add-job
+[Register for Twitter access and store credentials]: #get-oauth-credentials
+[Create the new Updates table]: #create-table
+[Create a new scheduled job]: #add-job
 [Next steps]: #next-steps
 
 <!-- Images. -->
-[0]: ./media/mobile-services-schedule-recurring-tasks/mobile-twitter-my-apps.png
-[1]: ./media/mobile-services-schedule-recurring-tasks/mobile-twitter-app-secrets.png
-[2]: ./media/mobile-services-schedule-recurring-tasks/mobile-data-tab-empty-cli.png
-[3]: ./media/mobile-services-schedule-recurring-tasks/mobile-create-updates-table.png
-[4]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-new-job-cli.png
-[5]: ./media/mobile-services-schedule-recurring-tasks/mobile-create-job-dialog.png
-[6]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-job-script-new.png
-[7]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-job-script.png
-[8]: ./media/mobile-services-schedule-recurring-tasks/mobile-browse-updates-table.png
-[9]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-job-enabled.png
-[10]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-job-app-settings.png
-[11]: ./media/mobile-services-schedule-recurring-tasks/mobile-identity-tab-twitter-only.png
 
 <!-- URLs. -->
 [Справочник серверных скриптов мобильных служб]: http://go.microsoft.com/fwlink/?LinkId=262293
@@ -181,5 +165,6 @@
 [Register your apps for Twitter login with Mobile Services]: /develop/mobile/how-to-guides/register-for-twitter-authentication
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

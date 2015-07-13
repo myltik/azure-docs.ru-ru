@@ -6,9 +6,9 @@
 
 5. Как и ранее, введите содержательный текст, затем нажмите **Добавить**.
 
-   В результате в мобильную службу будет отправлен новый элемент в качестве вставки.
+   	В результате в мобильную службу будет отправлен новый элемент в качестве вставки.
 
-    You can restart the app to see that the changes were persisted to the database in Azure. You can also examine the database using the Azure Management portal:  the next two steps do this to view the changes in your database.
+    Можно перезапустить приложение, чтобы убедиться, что изменения были сохранены в базе данных в Azure. Можно также проверить базу данных с помощью портала управления Azure: в следующих двух шагах это реализуется для просмотра изменений в базе данных.
 
 
 4. На портале управления щелкните управление для базы данных, связанной с вашей мобильной службой.
@@ -21,4 +21,6 @@
 
     ![](./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/sql-azure-query.png)
 
-На этом изучение учебника для Android **Начало работы с данными** завершено. <!--HONumber=52-->
+Это заключительный шаг учебника **Приступая к работе с данными** для Android.
+
+<!---HONumber=62-->

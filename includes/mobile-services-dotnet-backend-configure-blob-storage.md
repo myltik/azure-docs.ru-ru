@@ -54,7 +54,7 @@
 
 	Мобильной службой эти сохраненные параметры используются при запуске локального компьютера, который позволяет проверить код перед его публикацией. При работе в Azure мобильная служба вместо этого использует значения параметров приложения, заданные на портале, и игнорирует эти параметры проекта.
 
-7.  В папке «Контроллеры» откройте файл TodoItemController.cs и добавьте следующие директивы **using**:
+7.  В папке "Контроллеры" откройте файл TodoItemController.cs и добавьте следующие директивы **using**:
 
 		using System;
 		using Microsoft.WindowsAzure.Storage.Auth;
@@ -120,27 +120,16 @@
 
    	Этот метод POST создает новый SAS для вставленного элемента, действительный в течение 5 минут, и присваивает значение созданного SAS свойству `sasQueryString` возвращенного элемента. Свойство `imageUri` также задается для пути ресурса нового BLOB-объекта, чтобы отображать изображение в пользовательском интерфейсе клиента во время привязки.
 
-	>[AZURE.NOTE]Этот код создает SAS для отдельных больших двоичных объектов. Если требуется добавить несколько BLOB-объектов в контейнер с помощью того же SAS, вместо этого можно вызвать <a href="http://go.microsoft.com/fwlink/?LinkId=390455" target="_blank">generateSharedAccessSignature method</a> с пустым именем ресурса BLOB-объекта:  <pre><code>blobService.generateSharedAccessSignature(containerName, '', sharedAccessPolicy);</code></pre>
+	>[AZURE.NOTE]Этот код создает SAS для отдельных больших двоичных объектов. Если требуется передать несколько BLOB-объектов в контейнер при помощи того же SAS, вместо этого можно вызвать <a href="http://go.microsoft.com/fwlink/?LinkId=390455" target="_blank">метод generateSharedAccessSignature</a> с именем пустого BLOB-ресурса, например: <pre><code>blobService.generateSharedAccessSignature(containerName, '', sharedAccessPolicy);</code></pre>
 
 Далее вы обновите приложение быстрого запуска, чтобы добавить функции передачи изображений с помощью SAS, созданных при вставке.
  
 <!-- Anchors. -->
 
 <!-- Images. -->
-[0]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-account.png
-[1]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-account-keys.png
-
-[3]: ./media/mobile-services-configure-blob-storage/mobile-portal-data-tables.png
-[4]: ./media/mobile-services-configure-blob-storage/mobile-insert-script-blob.png
-
-
-
-
-
-[10]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-app-settings.png
 
 <!-- URLs. -->
-[Создание учетной записи хранения]: /manage/services/storage/how-to-create-a-storage-account
+[Создание учетной записи хранения]: ../articles/storage/storage-create-storage-account.md
 [Параметры приложения]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!--HONumber=54-->
+<!---HONumber=62-->

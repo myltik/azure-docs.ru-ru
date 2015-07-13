@@ -1,15 +1,15 @@
 <properties
-	pageTitle="Служба архивации Azure: создание хранилища резервных копий и определение его избыточности"
-	description="Узнайте, как создать хранилище резервных копий и указать параметры его избыточности в службе архивации Azure."
-	services="backup"
-	documentationCenter=""
-	authors="prvijay"
-	manager="shreeshd"
-	editor=""/>
+   pageTitle="Служба архивации Azure: создание хранилища резервных копий и определение его избыточности"
+   description="Узнайте, как создать хранилище резервных копий и указать параметры его избыточности в службе архивации Azure."
+   services="backup"
+   documentationCenter=""
+   authors="prvijay"
+   manager="shreeshd"
+   editor=""/>
 
 <tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
+   ms.service="backup"
+   ms.workload="storage-backup-recovery"
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
@@ -62,5 +62,6 @@ GRS хранит шесть копий ваших данных. С GRS ваши 
 [3]: ./media/backup-azure-backup-create-vault/backupvaultstatus1.png
 [4]: ./media/backup-azure-backup-create-vault/grs.png
 [5]: ./media/backup-azure-backup-create-vault/lrs.png
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

@@ -1,25 +1,25 @@
-<properties 
+<properties
 	pageTitle="Настройка проверки подлинности Facebook для приложения служб приложений"
-	description="Настройка проверки подлинности Facebook для приложения служб приложений." 
-	services="app-service\mobile" 
-	documentationCenter="" 
-	authors="mattchenderson,ggailey777" 
-	manager="dwrede" 
+	description="Настройка проверки подлинности Facebook для приложения служб приложений."
+	services="app-service\mobile"
+	documentationCenter=""
+	authors="mattchenderson" 
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="app-service-mobile" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="02/19/2015" 
+<tags
+	ms.service="app-service-mobile"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="05/26/2015"
 	ms.author="mahender"/>
 
 # Настройка приложения для использования имени для входа Facebook
 
 В этом разделе показано, как настроить службы приложений Azure для использования Facebook в качестве поставщика проверки подлинности.
-	
+
 Чтобы выполнить процедуру, описанную в этом разделе, необходимо иметь учетную запись Facebook с проверенным электронным адресом и номером мобильного телефона. Чтобы создать новую учетную запись Facebook, перейдите по ссылке [facebook.com].
 
 ## <a name="register"> </a>Регистрация приложения с помощью Facebook
@@ -75,4 +75,6 @@
 [facebook.com]: http://go.microsoft.com/fwlink/p/?LinkId=268285
 [Get started with authentication]: /ru-ru/develop/mobile/tutorials/get-started-with-users-dotnet/
 [портал управления Azure]: https://portal.azure.com/
-<!--HONumber=54--> 
+ 
+
+<!---HONumber=62-->

@@ -113,7 +113,7 @@
 
 3. В колонке **Настройка** щелкните **Установить непосредственно на этот компьютер**. Это позволит скачать пакет установки для шлюза, а также установить, настроить и зарегистрировать шлюз на компьютере.
 
-	> [AZURE.NOTE] Используйте Internet Explorer или другой браузер, совместимый с Microsoft ClickOnce.
+	> [AZURE.NOTE]Используйте Internet Explorer или другой браузер, совместимый с Microsoft ClickOnce.
 
 	![Шлюз — колонка "Настройка"][image-data-factory-gateway-configure-blade]
 
@@ -123,7 +123,7 @@
 	
 	Дополнительную информацию о шлюзе, в том числе рекомендации и важные особенности, см. в разделе [Шлюз управления данными](#DMG).
 
-	>[AZURE.NOTE] Для успешной установки шлюза управления данными и его настройки вы должны обладать правами администратора на локальном компьютере. В локальную группу Windows "Пользователи шлюза управления данными" можно добавить дополнительных пользователей. Участники этой группы смогут использовать диспетчер конфигурации шлюза управления данными для настройки шлюза.
+	>[AZURE.NOTE]Для успешной установки шлюза управления данными и его настройки вы должны обладать правами администратора на локальном компьютере. В локальную группу Windows "Пользователи шлюза управления данными" можно добавить дополнительных пользователей. Участники этой группы смогут использовать диспетчер конфигурации шлюза управления данными для настройки шлюза.
 
 4. Щелкните раздел **УВЕДОМЛЕНИЯ** слева. Дождитесь появления сообщения **Быстрая установка adftutorialgateway успешно завершена** в колонке **Уведомления**.
 
@@ -161,10 +161,9 @@
 
 	![Кнопка "Создать хранилище данных" в редакторе][image-editor-newdatastore-onpremsql-button]
     
-3.	В панели справа должен появиться шаблон JSON для создания связанной службы локального сервера SQL Server.
-	![Связанная служба локальной базы данных SQ — параметры][image-editor-newdatastore-onpremsql-settings]
+3.	В панели справа должен появиться шаблон JSON для создания связанной службы локального сервера SQL Server. ![Связанная служба локальной базы данных SQ — параметры][image-editor-newdatastore-onpremsql-settings]
 
-4.	На панели JSON выполните указанные ниже действия. 
+4.	На панели JSON выполните указанные ниже действия.
 	1.	Для свойства **gatewayName** укажите **adftutorialgateway**, чтобы заменить весь текст, заключенный в двойные кавычки.  
 	2.	При использовании **проверки подлинности SQL**: 
 		1.	В свойстве **connectionString** замените **<servername>**, **<databasename>**, **<username>** и **<password>** на имя локального сервера SQL Server, имя базы данных, имя учетной записи пользователя и пароль.	
@@ -207,7 +206,7 @@
     
 6. Замените **<accountname>** и **<accountkey>** именем и ключом учетной записи хранения Azure.
 
-	![Хранилище больших двоичных объектов JSON в редакторе][image-editor-blob-storage-json]    
+	![Хранилище больших двоичных объектов JSON в редакторе][image-editor-blob-storage-json]
 	
 	Подробную информацию о свойствах JSON см. в [Справочнике по сценариям JSON](http://go.microsoft.com/fwlink/?LinkId=516971).
 
@@ -488,7 +487,7 @@
 	**Пример команды и выходных данных**:
 
 
-		PS C:> New-AzureDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
+		PS C:\> New-AzureDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
 
 		Name              : MyGateway
 		Description       : gateway for walkthrough
@@ -510,12 +509,12 @@
 	**Пример результата выполнения команды:**
 
 
-		PS C:> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
+		PS C:\> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
 
 	
 4. В Azure PowerShell перейдите к папке **C:\Program Files\Microsoft Data Management Gateway\1.0\PowerShellScript** и выполните сценарий **RegisterGateway.ps1**, связанный с локальной переменной **$Key**, как показано в следующей команде, чтобы зарегистрировать агент клиента, установленный на вашем компьютере с логическим шлюзом, созданным ранее.
 
-		PS C:> .\RegisterGateway.ps1 $Key.GatewayKey
+		PS C:\> .\RegisterGateway.ps1 $Key.GatewayKey
 		
 		Agent registration is successful!
 
@@ -523,7 +522,7 @@
 
 		Get-AzureDataFactoryGateway -DataFactoryName <dataFactoryName> -ResourceGroupName ADF
 
-Вы можете удалить шлюз, используя командлет **Remove-AzureDataFactoryGateway**, или обновить описание шлюза, используя командлет **Set-AzureDataFactoryGateway**. Дополнительную информацию о синтаксисе и другую информацию об этих командлетах см. в «Справочных материалах по командлетам фабрики данных».  
+Вы можете удалить шлюз, используя командлет **Remove-AzureDataFactoryGateway**, или обновить описание шлюза, используя командлет **Set-AzureDataFactoryGateway**. Дополнительную информацию о синтаксисе и другую информацию об этих командлетах см. в «Справочных материалах по командлетам фабрики данных».
 
 
 
@@ -628,4 +627,4 @@
 
 [image-data-factory-preview-portal-storage-key]: ./media/data-factory-get-started/PreviewPortalStorageKey.png
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

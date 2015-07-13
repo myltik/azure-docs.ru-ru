@@ -5,7 +5,7 @@
 		compile 'com.android.support:support-v4:21.0.3'
     	compile 'com.google.code.gson:gson:2.2.2'
 	    compile 'com.google.guava:guava:18.0'
-	    compile 'com.microsoft.azure:azure-mobile-services-android-sdk:2.0.2-beta'
+	    compile 'com.microsoft.azure:azure-mobile-services-android-sdk:2.0.2+'
 
 
 2. Теперь перестройте проект, щелкнув **Синхронизировать проект с файлами Gradle**.
@@ -15,11 +15,7 @@
 		<uses-permission android:name="android.permission.INTERNET" />
 
 
-6. Откройте файл AndroidManifest.xml и добавьте в него следующую строку, которая позволяет приложению получить доступ к мобильным службам в Azure.
-
-		<uses-permission android:name="android.permission.INTERNET" />
-
-5. В обозревателе проектов откройте файл TodoActivity.java, расположенный в папке **GetStartedWithData => app => src => java**, и раскомментируйте следующие строки кода:
+4. В обозревателе проектов откройте файл TodoActivity.java, расположенный в папке **GetStartedWithData => app => src => java**, и раскомментируйте следующие строки кода:
 
 
 
@@ -165,4 +161,5 @@
 
 <!-- URLs. -->
 [Mobile Services Android SDK]: http://aka.ms/Iajk6q
-<!--HONumber=54-->
+
+<!---HONumber=62-->

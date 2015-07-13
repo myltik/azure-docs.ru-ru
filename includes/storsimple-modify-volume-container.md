@@ -1,46 +1,28 @@
-<properties 
-   pageTitle="Modify a volume container"
-   description="Explains how you can use the StorSimple Manager service volume containers page to modify a volume container."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/13/2015"
-   ms.author="v-sharos" />
 
+#### Изменение контейнера томов
 
-#### To modify a volume container
+1. На странице **Устройства** выберите устройство, дважды щелкните его и перейдите на вкладку **Контейнеры томов**.
 
-1. On the **Devices** page, select the device, double-click it, and then click the **Volume containers** tab.
+2. В таблице со списком контейнеров томов выберите параметр, который хотите изменить, и щелкните **Изменить**.
 
-2. In the tabular listing of the volume containers, select the setting that you want to modify, and click **Modify**.
+3. В диалоговом окне **Изменение контейнера томов** выполните следующие действия:
 
-3. In the **Modify Volume container** dialog box, do the following:
+    1. Измените имя контейнера томов, назначенную для него пропускную способность, а также укажите, нужно ли шифровать данные, которые находятся в облаке.
 
-    1. Change the name of the volume container, modify the associated bandwidth, and specify whether or not the data residing in the cloud needs to be encrypted.
+        ![Изменение контейнера томов с использованием шаблона пропускной способности 1](./media/storsimple-modify-volume-container/HCS_ModifyVCBT1-include.png)
 
-        ![Modify Volume Container with Bandwidth Template 1](./media/storsimple-modify-volume-container/HCS_ModifyVCBT1-include.png)
+    2. Изменить указанные ключ шифрования и учетную запись хранения невозможно. Если вы указали вариант **Выбрать шаблон пропускной способности**, щелкните стрелку, чтобы перейти на следующую страницу.
 
-    2. The encryption key and storage account cannot be changed after they are specified. If you specified **Select a bandwidth template**, click the arrow to proceed to the next page.
+4. На следующей странице диалогового окна **Изменение контейнера томов** выполните следующие действия:
 
-4. In the next page of the **Modify Volume Container** dialog box:
+    1. Выберите из раскрывающегося списка шаблон пропускной способности.
 
-    1. From the drop-down list, choose an existing bandwidth template.
+    2. Проверьте параметры расписания для указанного шаблона.
 
-    2. Review the schedule settings for the specified bandwidth template.
+        ![Изменение контейнера томов с использованием шаблона пропускной способности 2](./media/storsimple-modify-volume-container/HCS_ModifyVCBT2-include.png)
 
-        ![Modify Volume Container with Bandwidth Template 2](./media/storsimple-modify-volume-container/HCS_ModifyVCBT2-include.png)
-
-    3. Click the check icon ![check icon](./media/storsimple-modify-volume-container/HCS_CheckIcon-include.png) to save the updated settings. The **Volume containers** page will be updated to reflect the changes.
+    3. Щелкните значок галочки ![значок галочки](./media/storsimple-modify-volume-container/HCS_CheckIcon-include.png), чтобы сохранить настройки. Содержимое страницы **Контейнеры томов** будет обновлено с учетом изменений.
 
  
 
-
-
+<!---HONumber=62-->

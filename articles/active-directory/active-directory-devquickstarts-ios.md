@@ -227,4 +227,4 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
 - Документация по Azure AD [на сайте Azure.com](http://azure.microsoft.com/documentation/services/active-directory/)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

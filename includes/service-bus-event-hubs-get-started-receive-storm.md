@@ -1,12 +1,12 @@
-## Получение сообщений с помощью Apache Storm
+## Прием сообщений с помощью Apache Storm
 
-[**Apache Storm**](https://storm.incubator.apache.org) - это распределенная вычислительная система реального времени, предназначенная для быстрой обработки больших потоков данных. В этом разделе показано использование программы Storm Spout концентраторов событий для приема событий от концентраторов событий. С помощью Apache Storm можно разделить события между несколькими процессами, размещенными в разных узлах. Интеграция концентраторов событий с помощью Storm упрощает использование событий путем прозрачного определения контрольных точек в ходе выполнения с помощью установки Storm Zookeeper, управляя постоянными контрольными точками и одновременно облегчает получение от концентраторов событий.
+[**Apache Storm**](https://storm.incubator.apache.org) — это распределенная вычислительная система реального времени, предназначенная для быстрой обработки неограниченных потоков данных. В этом разделе показано использование программы Storm Spout концентраторов событий для приема событий от концентраторов событий. С помощью Apache Storm можно разделить события между несколькими процессами, размещенными в разных узлах. Интеграция концентраторов событий с помощью Storm упрощает использование событий путем прозрачного определения контрольных точек в ходе выполнения с помощью установки Storm Zookeeper, управляя постоянными контрольными точками и одновременно облегчает получение от концентраторов событий.
 
 Дополнительные сведения о шаблонах получения концентраторов событий см. в разделе [Общие сведения о концентраторах событий].
 
 В данном учебнике используется установка программы [HDInsight Storm], которая поставляется вместе с уже доступным Spout концентраторов событий.
 
-1. Следуя процедуре, приведенной в разделе [Начало работы с HDInsight Storm],(../articles/hdinsight-storm-getting-started.md) создайте новый кластер HDInsight и подключитесь к нему через удаленный рабочий стол.
+1. Следуя процедурам, приведенным в разделе [HDInsight Storm — начало работы](../articles/hdinsight-storm-getting-started.md), создайте новый кластер HDInsight и подключитесь к нему через удаленный рабочий стол.
 
 2. Скопируйте файл `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` в локальную среду разработки. Он содержит пакет events-storm-spout.
 
@@ -24,7 +24,7 @@
 
 7. Вставьте **GroupId** и **ArtifactId**, а затем нажмите кнопку **Готово**
 
-8. В файле **pom.xml** добавьте следующие зависимости в узел "<dependency>"
+8. В файле **pom.xml** добавьте следующие зависимости в узел `<dependency>`.
 
 		<dependency>
 			<groupId>org.apache.storm</groupId>
@@ -66,7 +66,7 @@
 
 		eventhubspout.partitions.count = 16
 
-		# если не указано, будут использоваться параметры storm zookeeper
+		# if not provided, will use storm's zookeeper settings
 		# zookeeper.connectionstring=localhost:2181
 
 		eventhubspout.checkpoint.interval = 10
@@ -107,14 +107,14 @@
 
 			@Override
 			public void declareOutputFields(OutputFieldsDeclarer declarer) {
-				// без полей вывода
+				// no output fields
 			}
 
 		}
 
 	Этот Storm Bolt регистрирует содержимое полученного события. Эго можно легко расширить для хранения кортежей в службе хранилища. В [учебнике по анализу датчика HDInsight] используется аналогичный подход к хранению данных в HBase.
 
-11. Создайте новый класс с именем **LogTopology** с использованием следующего кода.
+11. Создайте класс с названием **LogTopology** и со следующим кодом:
 
 		import java.io.FileReader;
 		import java.util.Properties;
@@ -153,25 +153,25 @@
 						.getProperty("eventhubspout.checkpoint.interval"));
 				int receiverCredits = Integer.parseInt(properties
 						.getProperty("eventhub.receiver.credits")); // prefetch count
-																	// (необязательно)
-				System.out.println("Конфигурация Spout концентратора событий: ");
-				System.out.println("  количество разделов: " + partitionCount);
-				System.out.println("  интервал контрольных точек: "
+																	// (opt)
+				System.out.println("Eventhub spout config: ");
+				System.out.println("  partition count: " + partitionCount);
+				System.out.println("  checkpoint interval: "
 						+ checkpointIntervalInSeconds);
-				System.out.println("  данные получателя: " + receiverCredits);
+				System.out.println("  receiver credits: " + receiverCredits);
 
 				spoutConfig = new EventHubSpoutConfig(username, password,
 						namespaceName, entityPath, partitionCount, zkEndpointAddress,
 						checkpointIntervalInSeconds, receiverCredits);
 
-				// задайте количество рабочих полей, совпадающее с количеством разделов.
-				// Необходимо, чтобы Spout и Bolt средства ведения журнала существовали в одной
-				// рабочей роли: это позволит избежать попадания сообщений в рабочие роли кластера Storm.
+				// set the number of workers to be the same as partition number.
+				// the idea is to have a spout and a logger bolt co-exist in one
+				// worker to avoid shuffling messages across workers in storm cluster.
 				numWorkers = spoutConfig.getPartitionCount();
 
 				if (args.length > 0) {
-					// задайте имя топологии, чтобы его можно было использовать в топологии Trident как
-					// имя потока.
+					// set topology name so that sample Trident topology can use it as
+					// stream name.
 					spoutConfig.setTopologyName(args[0]);
 				}
 			}
@@ -222,7 +222,7 @@
 <!-- Links -->
 [Общие сведения о концентраторах событий]: http://msdn.microsoft.com/library/azure/dn836025.aspx
 [HDInsight Storm]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-overview/
-[Учебник по анализу датчика HDInsight]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-sensor-data-analysis/
+[учебнике по анализу датчика HDInsight]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-sensor-data-analysis/
 
 <!-- Images -->
 
@@ -230,5 +230,4 @@
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-
-<!--HONumber=52-->
+<!---HONumber=62-->

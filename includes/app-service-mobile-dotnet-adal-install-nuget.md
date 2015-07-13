@@ -3,4 +3,5 @@
 2. В диспетчере пакетов NuGet щелкните **В сети**. Введите в поиск **Microsoft.IdentityModel.Clients.ActiveDirectory**. Затем щелкните команду **Установить**, чтобы установить [пакет NuGet библиотеки проверки подлинности Active Directory].
 
 [пакет NuGet библиотеки проверки подлинности Active Directory]: http://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory
-<!--HONumber=54-->
+
+<!---HONumber=62-->

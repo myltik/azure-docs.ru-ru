@@ -461,7 +461,7 @@
 
 1. В разделе **Основные компоненты** найдите и скопируйте имя в поле **Имя узла FTP**. Это URI, аналогичный `ftp://waws-prod-bay-NNN.ftp.azurewebsites.windows.net`.
 
-2. В разделе **Основные компоненты** найдите и скопируйте **Имя пользователя FTP или развертывания**. У него будет такой формат: *webappname\\deployment-username* (например, `WebDemoWebApp\deployer77`).
+2. В разделе **Основные компоненты** найдите и скопируйте **Имя пользователя FTP или развертывания**. У него будет такой формат: *webappname\deployment-username* (например, `WebDemoWebApp\deployer77`).
 
 Чтобы получить информацию о подключении по FTP из профиля публикации:
 
@@ -542,7 +542,7 @@
 1. В FileZilla щелкните **Файл > Диспетчер сайтов**.
 2. В диалоговом окне **Диспетчер сайтов** щелкните **Создать сайт**. В **Выберите запись** отобразиться новый пустой FTP-сайт с запросом на указание имени. Укажите имя `AzureWebDemo-FTP` для использования в этой процедуре.
 
-    На вкладке **Общие** укажите следующие параметры: **Узел** — введите значение параметра **Имя узла FTP**, которое вы скопировали на панели мониторинга; **Порт** (оставьте это поле пустым, так как передача осуществляется пассивно, и порт определит сервер); **Протокол** — протокол передачи файлов FTP; **Шифрование** — используйте простой FTP; **Тип входа** — обычный; **Пользователь** — введите имя пользователя FTP или развертывания, которое вы скопировали на панели мониторинга. Это полное имя пользователя FTP в таком формате: *webappname\\username*; **Пароль** — введите пароль, указанный при установке учетных данных развертывания.
+    На вкладке **Общие** укажите следующие параметры: **Узел** — введите значение параметра **Имя узла FTP**, которое вы скопировали на панели мониторинга; **Порт** (оставьте это поле пустым, так как передача осуществляется пассивно, и порт определит сервер); **Протокол** — протокол передачи файлов FTP; **Шифрование** — используйте простой FTP; **Тип входа** — обычный; **Пользователь** — введите имя пользователя FTP или развертывания, которое вы скопировали на панели мониторинга. Это полное имя пользователя FTP в таком формате: *webappname\username*; **Пароль** — введите пароль, указанный при установке учетных данных развертывания.
 
     На вкладке **Параметры передачи** выберите **Пассивный**.
 
@@ -578,15 +578,16 @@
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
-[1]: ./media/java-create-azure-website-using-java-sdk/eclipse-maven-repositories-rebuild-index.png
-[2]: ./media/java-create-azure-website-using-java-sdk/eclipse-new-java-class.png
-[3]: ./media/java-create-azure-website-using-java-sdk/eclipse-new-dynamic-web-project.png
-[4]: ./media/java-create-azure-website-using-java-sdk/eclipse-java-build-path.png
-[5]: ./media/java-create-azure-website-using-java-sdk/eclipse-targeted-runtimes-tomcat-server.png
-[6]: ./media/java-create-azure-website-using-java-sdk/eclipse-targeted-runtimes-properties-page.png
-[7]: ./media/java-create-azure-website-using-java-sdk/eclipse-run-on-server.png
-[8]: ./media/java-create-azure-website-using-java-sdk/kudu-console-drag-drop.png
-[9]: ./media/java-create-azure-website-using-java-sdk/kudu-console-jsphello-war-1.png
-[10]: ./media/java-create-azure-website-using-java-sdk/kudu-console-jsphello-war-2.png
+  [1]: ./media/java-create-azure-website-using-java-sdk/eclipse-maven-repositories-rebuild-index.png
+  [2]: ./media/java-create-azure-website-using-java-sdk/eclipse-new-java-class.png
+  [3]: ./media/java-create-azure-website-using-java-sdk/eclipse-new-dynamic-web-project.png
+  [4]: ./media/java-create-azure-website-using-java-sdk/eclipse-java-build-path.png
+  [5]: ./media/java-create-azure-website-using-java-sdk/eclipse-targeted-runtimes-tomcat-server.png
+  [6]: ./media/java-create-azure-website-using-java-sdk/eclipse-targeted-runtimes-properties-page.png
+  [7]: ./media/java-create-azure-website-using-java-sdk/eclipse-run-on-server.png
+  [8]: ./media/java-create-azure-website-using-java-sdk/kudu-console-drag-drop.png
+  [9]: ./media/java-create-azure-website-using-java-sdk/kudu-console-jsphello-war-1.png
+  [10]: ./media/java-create-azure-website-using-java-sdk/kudu-console-jsphello-war-2.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

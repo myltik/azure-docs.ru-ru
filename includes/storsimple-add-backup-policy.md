@@ -1,19 +1,3 @@
-<properties 
-   pageTitle="Добавление политик резервного копирования StorSimple"
-   description="В статье рассказывается о том, как с помощью службы диспетчера StorSimple создать политику резервного копирования."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/22/2015"
-   ms.author="alkohli" />
 
 #### Добавление политики резервного копирования StorSimple
 
@@ -30,4 +14,4 @@
 Добавленная политика появится в таблице на странице **Политики резервного копирования**.
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

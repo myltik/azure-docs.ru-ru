@@ -77,9 +77,9 @@ SSL-шифрование – это наиболее распространен�
 
 При развертывании приложения Node.js в рабочую роль управление сертификатом сервера и SSL-подключением осуществляется с помощью Node.exe. Для обработки SSL-трафика вместо модуля http необходимо использовать https. Выполните следующие шаги, чтобы добавить SSL-сертификат в проект и настроить приложение для работы с ним.
 
-1.   Сохраните **PFX**-файл, предоставленный центром сертификации, в каталог с вашим приложением. Например, в этой статье используется приложение, размещаемое в каталоге **c:\\node\\securesite\\workerrole1**.
+1.   Сохраните **PFX**-файл, предоставленный центром сертификации, в каталог с вашим приложением. Например, в этой статье используется приложение, размещаемое в каталоге **c:\node\securesite\workerrole1**.
 
-2.   Откройте файл **c:\\node\\securesite\\workerrole1\\server.js** с помощью приложения "Блокнот" и замените его содержимое следующим кодом:
+2.   Откройте файл **c:\node\securesite\workerrole1\server.js** с помощью приложения "Блокнот" и замените его содержимое следующим кодом:
 
 		var https = require('https');
 		var fs = require('fs');
@@ -145,21 +145,32 @@ SSL-шифрование – это наиболее распространен�
 
 [Настройка SSL-сертификата в конечной точке HTTPS]
 
-[Шаг 1. Создание службы Node.js и ее публикация в облаке]: #step1
-[Шаг 2. Получение SSL-сертификата]: #step2
-[Шаг 3. Изменение приложения для использования SSL-сертификата]: #step3
-[Шаг 4. Изменение файла определения службы]: #step4
-[Шаг 5. Подключение к экземпляру роли с использованием HTTPS]: #step5
-[**Azure PowerShell**]: http://go.microsoft.com/?linkid=9790229&clcid=0x409
-[1]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-01.png
-[2]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-02-worker.png
-[3]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-03-worker.png
-[Azure Management Portal]: http://manage.windowsazure.com
-[Связь сертификата со службой]: http://msdn.microsoft.com/library/windowsazure/gg465718.aspx
-[site-url]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/site-url.png
-[8]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-08.png
-[Настройка SSL-сертификата в конечной точке HTTPS]: http://msdn.microsoft.com/library/windowsazure/ff795779.aspx
-[powershell-menu]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/azure-powershell-start.png
-[Настройка SSL для приложения Node.js в веб-роли Azure]: /develop/nodejs/common-tasks/enable-ssl/
+  [Шаг 1. Создание службы Node.js и ее публикация в облаке]: #step1
+  [Шаг 2. Получение SSL-сертификата]: #step2
+  [Шаг 3. Изменение приложения для использования SSL-сертификата]: #step3
+  [Шаг 4. Изменение файла определения службы]: #step4
+  [Шаг 5. Подключение к экземпляру роли с использованием HTTPS]: #step5
+  [**Azure PowerShell**]: http://go.microsoft.com/?linkid=9790229&clcid=0x409
+  
+  
+  
+  
+  [1]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-01.png
+  [2]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-02-worker.png
+  [3]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-03-worker.png
+  [Azure Management Portal]: http://manage.windowsazure.com
+  
+  
+  [Связь сертификата со службой]: http://msdn.microsoft.com/library/windowsazure/gg465718.aspx
+  
+  [site-url]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/site-url.png
+  [8]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-08.png
+  [Настройка SSL-сертификата в конечной точке HTTPS]: http://msdn.microsoft.com/library/windowsazure/ff795779.aspx
+  [powershell-menu]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/azure-powershell-start.png
+  
+  
+  [Настройка SSL для приложения Node.js в веб-роли Azure]: /develop/nodejs/common-tasks/enable-ssl/
+  
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

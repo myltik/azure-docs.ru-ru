@@ -18,4 +18,6 @@
 
 [Использование пакета SDK с JavaScript](app-insights-javascript.md)
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=62-->

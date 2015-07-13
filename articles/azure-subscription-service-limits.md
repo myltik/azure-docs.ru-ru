@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Подписка Microsoft Azure, ограничения служб, квоты и ограничения" 
+<properties
+	pageTitle="Подписка Microsoft Azure, ограничения служб, квоты и ограничения"
 	description="В данном разделе приводится перечень наиболее распространенных ограничений, относящихся к подписке Azure и различным службам, квот и ограничений. Сюда входит информация о том, как увеличить лимиты и максимальные значения."
-	services="" 
-	documentationCenter="" 
-	authors="rothja" 
-	manager="jeffreyg" 
+	services=""
+	documentationCenter=""
+	authors="rothja"
+	manager="jeffreyg"
 	editor="mollybos"/>
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/20/2015" 
+<tags
+	ms.service="multiple"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/07/2015"
 	ms.author="jroth"/>
 
 # Подписка Azure, границы, квоты и ограничения службы
@@ -22,313 +22,147 @@
 
 Настоящий документ описывает некоторые из наиболее известных ограничений Microsoft Azure. Учтите, что на текущий момент он охватывает не все службы Azure. Со временам эти ограничения будут расширены.
 
-> [AZURE.NOTE] Если требуется сделать лимит выше значения **Лимит по умолчанию**, то можно [бесплатно отправить запрос в службу поддержки][azurelimitsblogpost]. Лимиты нельзя поднять выше **максимального** значения, приведенного в таблицах ниже. Если столбца **Максимальный лимит** нет, то для указанного ресурса лимиты не регулируются.
+> [AZURE.NOTE]Если требуется сделать ограничение выше значения **ограничения по умолчанию**, то можно [бесплатно отправить запрос в службу поддержки](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). Ограничения не могут быть увеличены выше значения **Максимальное ограничение ** в таблицах ниже. Если столбца **Максимальное ограничение ** нет, то указанный ресурс не имеет настраиваемого ограничения.
+
+## Ограничения и диспетчер ресурсов Azure
+
+Теперь несколько ресурсов можно объединить в одной группе ресурсов Azure. При использовании групп ресурсов ограничения, которые были глобальными, становятся управляемыми на региональном уровне благодаря диспетчеру ресурсов Azure. Подробнее о группах ресурсов Azure см. в разделе [Использование групп ресурсов для управления ресурсами Azure](resource-group-portal.md).
+
+В следующие ограничения добавлена новая таблица, в которой отражены все различия ограничений при использовании диспетчера ресурсов Azure. Например, существует таблица **Ограничения подписки** и таблица **Ограничения подписки — диспетчер ресурсов Azure**. Если ограничение применяется в обоих случаях, оно показано только в первой таблице. Если не указано иное, ограничения глобальны во всех областях.
+
+> [AZURE.NOTE]Важно подчеркнуть, что квоты для ресурсов в группах ресурсов Azure доступны для каждого региона по подписке, а не для каждой подписки, как квоты управления службами. В качестве примера используем квоты ядер ЦП. Если вам необходимо запросить увеличение квоты с поддержкой ядер, следует решить, сколько ядер будут использоваться и в каких регионах, а затем отправить запрос на квоты ядер группы ресурсов Azure core с нужными регионами и количеством. Поэтому, если необходимо использовать 30 ядер в Западной Европе для запуска приложения, следует запросить 30 ядер в Западной Европе. Но других регионах квота ядер не увеличится не будет — только в Западной Европе будет 30 ядер. <!-- --> В результате может быть полезно проанализировать, какие квоты группы ресурсов Azure потребуется для вашей рабочей нагрузки в каждом регионе, и запросить эти ресурсы в регионах, где выполняется развертывание. Подробные сведения об определении текущих квот для конкретных регионов см. в разделе [Устранение неполадок развертывания](resource-group-deploy-debug.md##authentication-subscription-role-and-quota-issues).
 
 ## Ограничения подписки
 
-<table cellspacing="0" border="1">
-<tr>
-   <th align="left" valign="middle">Ресурс</th>
-   <th align="left" valign="middle">Ограничение по умолчанию</th>
-   <th align="left" valign="middle">Максимальное ограничение</th>
-</tr>
-<tr>
-   <td valign="middle"><p>Ядра на <a href="http://msdn.microsoft.com/library/azure/hh531793.aspx">подписку</a><sup>1</sup></p></td>
-   <td valign="middle"><p>20</p></td>
-   <td valign="middle"><p>10 000</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/azure/gg456328.aspx">Дополнительные администраторы</a> на подписку</p></td>
-   <td valign="middle"><p>200</p></td>
-   <td valign="middle"><p>200</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/storage-create-storage-account/">Учетные записи хранилища</a> на подписку</p></td>
-   <td valign="middle"><p>100</p></td>
-   <td valign="middle"><p>100</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/cloud-services-what-is/">Облачные службы</a> на подписку</p></td>
-   <td valign="middle"><p>20</p></td>
-   <td valign="middle"><p>200</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/azure/jj156007.aspx">Виртуальные сети</a> на подписку<sup>2</sup></p></td>
-   <td valign="middle"><p>10</p></td>
-   <td valign="middle"><p>100</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/jj157100.aspx">Локальные сети</a> на подписку</p></td>
-   <td valign="middle"><p>10</p></td>
-   <td valign="middle"><p>100</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Серверов баз данных SQL на подписку</p></td>
-   <td valign="middle"><p>6</p></td>
-   <td valign="middle"><p>150</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Баз данных SQL на сервер</p></td>
-   <td valign="middle"><p>150</p></td>
-   <td valign="middle"><p>500</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Серверы DNS на подписку</p></td>
-   <td valign="middle"><p>9</p></td>
-   <td valign="middle"><p>100</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Зарезервированные IP на подписку</p></td>
-   <td valign="middle"><p>5</p></td>
-   <td valign="middle"><p>100</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Сертификаты размещенной службы на подписку</p></td>
-   <td valign="middle"><p>400</p></td>
-   <td valign="middle"><p>400</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/azure/jj156085.aspx">Территориальные группы</a> на подписку</p></td>
-   <td valign="middle"><p>256</p></td>
-   <td valign="middle"><p>256</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups/">Группы ресурсов</a> на подписку</p></td>
-   <td valign="middle"><p>300</p></td>
-   <td valign="middle"><p>300</p></td>
-</tr>
+[AZURE.INCLUDE [azure-subscription-limits](../includes/azure-subscription-limits.md)]
 
-<tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/services/batch/">Предварительная версия пакета</a> учетных записей в регионе на подписку</p></td>
-   <td valign="middle"><p>1</p></td>
-   <td valign="middle"><p>50</p></td>   
-</tr>
-</table>
 
-<sup>1</sup>Каждый экземпляр размера Extra Small считается одним ядром ЦП при подсчете лимита по ядрам, хотя используется лишь часть ядра.
+## Ограничения подписки — диспетчер ресурсов Azure 
 
-<sup>2</sup>Каждая виртуальная сеть поддерживает один шлюз виртуальной сети.
+При использовании диспетчера ресурсов Azure и групп ресурсов Azure применяются следующие ограничения. Ограничения, которые не были изменены после выпуска диспетчера ресурсов Azure, ниже не перечислены. Их можно просмотреть в предыдущей таблице.
 
-## Ограничения облачной службы
+[AZURE.INCLUDE [azure-subscription-limits-azure-resource-manager](../includes/azure-subscription-limits-azure-resource-manager.md)]
 
-<table cellspacing="0" border="1">
-<tr>
-   <th align="left" valign="middle">Ресурс</th>
-   <th align="left" valign="middle">Ограничение по умолчанию</th>
-   <th align="left" valign="middle">Максимальное ограничение</th>
-</tr>
-<tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/cloud-services-what-is/">Рабочие и веб-роли в развертывании<sup>1</sup></a></p></td>
-   <td valign="middle"><p>25</p></td>
-   <td valign="middle"><p>25</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/gg557552.aspx#InstanceInputEndpoint">Входные конечные точки экземпляра</a> на развертывание</p></td>
-   <td valign="middle"><p>25</p></td>
-   <td valign="middle"><p>25</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/gg557552.aspx#InputEndpoint">Входные конечные точки</a> на развертывание</p></td>
-   <td valign="middle"><p>25</p></td>
-   <td valign="middle"><p>25</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/gg557552.aspx#InternalEndpoint">Внутренние конечные точки</a> на развертывание</p></td>
-   <td valign="middle"><p>25</p></td>
-   <td valign="middle"><p>25</p></td>
-</tr>
-</table>
 
-<sup>1</sup>Каждая облачная служба с рабочими и веб-ролями может иметь два развертывания: одно для производственной среды и одно для промежуточной. Необходимо также иметь в виду, что данное ограничение относится к количеству отдельных ролей (настройка), а не к количеству экземпляров для роли (масштабирование). 
+## Ограничения группы ресурсов
 
-## Ограничения виртуальной машины
+[AZURE.INCLUDE [azure-resource-groups-limits](../includes/azure-resource-groups-limits.md)]
 
-<table cellspacing="0" border="1">
-<tr>
-   <th align="left" valign="middle">Ресурс</th>
-   <th align="left" valign="middle">Ограничение по умолчанию</th>
-   <th align="left" valign="middle">Максимальное ограничение</th>
-</tr>
-<tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/services/virtual-machines/">Виртуальные машины</a> на облачную службу<sup>1</sup></p></td>
-   <td valign="middle"><p>50</p></td>
-   <td valign="middle"><p>50</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Конечных точек ввода на облачную службу<sup>2</sup></p></td>
-   <td valign="middle"><p>150</p></td>
-   <td valign="middle"><p>150</p></td>
-</tr>
-</table>
 
-<sup>1</sup>При создании виртуальной машины автоматически создается облачная служба. Можно далее добавить несколько виртуальных машин в ту же самую облачную службу.
+## Ограничения виртуальных машин
 
-<sup>2</sup>Конечные точки ввода используются для подключения к виртуальным машинам за пределами облачной службы, где размещается приложение. Виртуальным машинам в одной облачной службе автоматически разрешено подсоединение по всем портам UDP и TCP для внутренних коммуникаций.
+[AZURE.INCLUDE [azure-virtual-machines-limits](../includes/azure-virtual-machines-limits.md)]
 
-## Ограничения веб-сайтов
 
-[AZURE.INCLUDE [azure-websites-limits](../includes/azure-websites-limits.md)]
+## Ограничения виртуальных машин — диспетчер ресурсов Azure
+
+При использовании диспетчера ресурсов Azure и групп ресурсов Azure применяются следующие ограничения. Ограничения, которые не были изменены после выпуска диспетчера ресурсов Azure, ниже не перечислены. Их можно просмотреть в предыдущей таблице.
+
+[AZURE.INCLUDE [azure-virtual-machines-limits-azure-resource-manager](../includes/azure-virtual-machines-limits-azure-resource-manager.md)]
+
 
 ## Ограничения сети
 
+[AZURE.INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]
+
+
+## Ограничения сети — диспетчер ресурсов Azure
+
+При использовании диспетчера ресурсов Azure и групп ресурсов Azure применяются следующие ограничения. Ограничения, которые не были изменены после выпуска диспетчера ресурсов Azure, ниже не перечислены. Их можно просмотреть в предыдущей таблице.
+
+[AZURE.INCLUDE [azure-virtual-network-limits-azure-resource-manager](../includes/azure-virtual-network-limits-azure-resource-manager.md)]
+
+
+## Ограничения стандартного хранилища
+
+[AZURE.INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
+
+## Ограничения хранилища Premium
+
 <table cellspacing="0" border="1">
 <tr>
    <th align="left" valign="middle">Ресурс</th>
    <th align="left" valign="middle">Ограничение по умолчанию</th>
-   <th align="left" valign="middle">Максимальное ограничение</th>
 </tr>
 <tr>
-   <td valign="middle"><p>Всего машин<sup>1</sup> на <a href="http://msdn.microsoft.com/library/azure/jj156007.aspx">Виртуальную сеть</a><sup>2</sup></p></td>
-   <td valign="middle"><p>2048</p></td>
-   <td valign="middle"><p>2048</p></td>
+   <td valign="middle"><p>Общая емкость диска на учетную запись</p></td>
+   <td valign="middle"><p>35&#160;ТБ</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Параллельных соединений TCP для виртуальной машины или экземпляра роли</p></td>
-   <td valign="middle"><p>500 тыс.</p></td>
-   <td valign="middle"><p>500 тыс.</p></td>
+   <td valign="middle"><p>Общая емкость снимка на учетную запись</p></td>
+   <td valign="middle"><p>10&#160;ТБ</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Списков управления доступом (ACL) на конечную точку<sup>3</sup></p></td>
-   <td valign="middle"><p>50</p></td>
-   <td valign="middle"><p>50</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Сайтов локальной сети на виртуальную сеть</p></td>
-   <td valign="middle"><p>10</p></td>
-   <td valign="middle"><p>10</p></td>
+   <td valign="middle"><p>Максимальная пропускная способность на учетную запись (входящие + исходящие)</p></td>
+   <td valign="middle"><p>50&#160;Гбит/с</p></td>
 </tr>
 </table>
 
-<sup>1</sup>Общее число машин включает виртуальные машины, а также экземпляры рабочих и веб-ролей.
 
-<sup>2</sup>Каждая виртуальная сеть поддерживает один [шлюз виртуальной сети][gateway].
+## Ограничения хранилища — диспетчер ресурсов Azure
 
-<sup>3</sup>Список управления доступом поддерживается для конечных точек ввода виртуальных машин. Для ролей рабочего или веб-процесса поддерживаются для входных конечных точек и входных конечных точек экземпляра.
+При использовании диспетчера ресурсов Azure и групп ресурсов Azure применяются следующие ограничения. Ограничения, которые не были изменены после выпуска диспетчера ресурсов Azure, ниже не перечислены. Их можно просмотреть в предыдущей таблице.
 
-## Ограничения хранилища
+[AZURE.INCLUDE [azure-storage-limits-azure-resource-manager](../includes/azure-storage-limits-azure-resource-manager.md)]
 
-<table cellspacing="0" border="1">
-<tr>
-   <th align="left" valign="middle">Ресурс<sup>1</sup></th>
-   <th align="left" valign="middle">Ограничение по умолчанию</th>
-</tr>
-<tr>
-   <td valign="middle"><p>ТБ на учетную запись хранения</p></td>
-   <td valign="middle"><p>500 ТБ</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Максимальный размер одного контейнера BLOB-объектов, таблицы или очереди</p></td>
-   <td valign="middle"><p>500 ТБ</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Максимальное количество контейнеров BLOB-объектов, BLOB-объектов, общих папок, таблиц, очередей, сущностей или сообщений для учетной записи хранения</p></td>
-   <td valign="middle"><p>Ограничение касается только размера учетной записи хранения, который не может превышать 500 TБ</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Максимальный размер общей папки</p></td>
-   <td valign="middle"><p>5 TB</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Максимальное количество файлов в общей папке</p></td>
-   <td valign="middle"><p>Ограничение касается только размера общей папки, который не может превышать 5 TБ</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Максимум 8 КБ на операции ввода вывода в секунду для постоянного диска (уровень Basic)</p></td>
-   <td valign="middle"><p>300<sup>2</sup></p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Максимум 8 КБ на операции ввода вывода в секунду для постоянного диска (уровень Standard)</p></td>
-   <td valign="middle"><p>500<sup>2</sup></p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Частота запросов (предполагается размер объекта в 1 КБ) для учетной записи хранения</p></td>
-   <td valign="middle"><p>До 20 000 сущностей или сообщений в секунду</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Предельная пропускная способность для отдельного BLOB-объекта</p></td>
-   <td valign="middle"><p>До 60 МБ в секунду или до 500 запросов в секунду</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Предельная пропускная способность для отдельной очереди (размер сообщения 1 КБ)</p></td>
-   <td valign="middle"><p>До 2 000 сообщений в секунду</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Предельная пропускная способность для отдельного табличного раздела (размер сущностей 1 КБ)</p></td>
-   <td valign="middle"><p>До 2 000 сущностей в секунду</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Максимальный поток входящих данных на учетную запись хранения (регионы США)</p></td>
-   <td valign="middle"><p>10 Гбит/c, если включена функция GRS<sup>3</sup> , 20 Гбит/c для LRS</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Максимальный поток исходящих данных на учетную запись хранения (регионы США)</p></td>
-   <td valign="middle"><p>20 Гбит/c, если включена функция GRS<sup>3</sup> , 30 Гбит/c для LRS</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Максимальный поток входящих данных на учетную запись хранения (регионы Европы и Азии)</p></td>
-   <td valign="middle"><p>5 Гбит/c, если включена функция GRS<sup>3</sup> , 10 Гбит/c для LRS</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Максимальный поток исходящих данных на учетную запись хранения (регионы Европы и Азии)</p></td>
-   <td valign="middle"><p>10 Гбит/c, если включена функция GRS<sup>3</sup> , 15 Гбит/c для LRS</p></td>
-</tr>
-</table>
 
-<sup>1</sup>Дополнительные сведения об этих лимитах см. в разделе [Масштабируемость хранилища Azure и цели анализа производительности][storagelimits]. 
+## Ограничения облачных служб
 
-<sup>2</sup>Для виртуальных машин базового уровня не размещайте более 66 активно используемых VHD-образов на учетной записи хранилища, чтобы избежать превышения лимита на 20 000 запросов (20 000/300). Для виртуальных машин на уровне Standard не рекомендуется размещать в учетной записи хранилища более 40 виртуальных жестких дисков (20 000/500). Дополнительные сведения см. в разделе [Размеры виртуальных машин и облачных служб для Azure][vmsizes]. 
+[AZURE.INCLUDE [azure-cloud-services-limits](../includes/azure-cloud-services-limits.md)]
 
-<sup>3</sup>GRS - [географически избыточное хранилище][georedundantstorage]. LRS - [локально избыточное хранилище][locallyredundantstorage]. Следует иметь в виду, что GRS обладает также и локальной избыточностью.
+
+## Ограничения веб-приложений (веб-сайтов)
+
+[AZURE.INCLUDE [azure-websites-limits](../includes/azure-websites-limits.md)]
+
 
 ## Ограничения предварительной версии пакета
 
 [AZURE.INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
 
-## Ограничения DocumentDB (предварительная версия)
+
+## Ограничения DocumentDB
 
 [AZURE.INCLUDE [azure-documentdb-limits](../includes/azure-documentdb-limits.md)]
 
+
+## Ограничения взаимодействия через мобильные устройства
+
+[AZURE.INCLUDE [azure-mobile-engagement-limits](../includes/azure-mobile-engagement-limits.md)]
+
+
 ## Ограничения базы данных SQL
 
-Ограничения на базу данных SQL см. в следующих разделах:
+[AZURE.INCLUDE [azure-sql-database-limits](../includes/azure-sql-database-limits.md)]
 
- - [Уровни служб баз данных SQL Azure (выпуски)][sqltiers]
- - [Уровни служб баз данных SQL Azure и уровни производительности][sqltiersperflevels]
- - [Квоты пропускной способности базы данных (DTU)][sqlDTU]
- - [Ограничения ресурсов базы данных SQL][sqldblimits]
 
 ## Ограничения служб мультимедиа
 
 [AZURE.INCLUDE [azure-mediaservices-limits](../includes/azure-mediaservices-limits.md)]
 
+
 ## Ограничения служебной шины
 
 [AZURE.INCLUDE [azure-servicebus-limits](../includes/azure-servicebus-limits.md)]
 
+
 ## Лимиты Active Directory
 
-По Azure Active Directory (AD) см. следующий раздел:
+[AZURE.INCLUDE [azure-active-directory-limits](../includes/azure-active-directory-limits.md)]
 
- - [Лимиты и ограничения службы Azure Active Directory][adlimitsandrestrictions]
 
-## Дополнительные материалы
+## Ограничения удаленных приложений RemoteApp
 
-[Основные сведения о лимитах Azure и их увеличении][azurelimitsblogpost]
+[AZURE.INCLUDE [azure-remoteapp-limits](../includes/azure-remoteapp-limits.md)]
 
-[Размеры виртуальных машин и облачных служб для Azure][vmsizes]
+## Ограничения системы StorSimple
 
-[customersupportfaq]: http://azure.microsoft.com/support/faq/
-[azurelimitsblogpost]: http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/
-[gateway]: http://msdn.microsoft.com/library/azure/jj156210.aspx 
-[storagelimits]: http://msdn.microsoft.com/library/azure/dn249410.aspx
-[georedundantstorage]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/introducing-geo-replication-for-windows-azure-storage.aspx
-[sqldblimits]: http://msdn.microsoft.com/library/azure/dn338081.aspx
-[sqltiers]: http://msdn.microsoft.com/library/azure/dn741340.aspx
-[sqltiersperflevels]: http://msdn.microsoft.com/library/azure/dn741336.aspx
-[sqlDTU]: http://msdn.microsoft.com/library/azure/ee336245.aspx#DTUs
-[vmsizes]: http://msdn.microsoft.com/library/azure/dn197896.aspx
-[georedundantstorage]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/introducing-geo-replication-for-windows-azure-storage.aspx
-  [locallyredundantstorage]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/08/introducing-locally-redundant-storage-for-windows-azure-storage.aspx
-  [adlimitsandrestrictions]: http://msdn.microsoft.com/library/azure/dn764971.aspx
+[AZURE.INCLUDE [storsimple-limits-table](../includes/storsimple-limits-table.md)]
+ 
+## См. также
 
-<!--HONumber=47-->
+[Основные сведения о лимитах Azure и их увеличении](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
+
+[Размеры виртуальных машин и облачных служб для Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx)
+
+<!---HONumber=62-->

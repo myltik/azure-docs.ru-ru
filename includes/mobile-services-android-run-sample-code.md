@@ -1,4 +1,4 @@
-1. В обозревателе проектов разверните узлы **приложение** => **java** => **com.example.GetStartedWithData**, **src** и . **com.example.GetStartedWithData**, затем откройте файл *ToDoActivity.java*.
+1. В обозревателе проектов разверните узлы **app** > **src** > **main** > **java** > **com.example.GetStartedWithData**, затем откройте файл *ToDoActivity.java*.
 
    	![](./media/download-android-sample-code/mobile-services-android-studio-project.png)
 
@@ -24,4 +24,5 @@
    	![](./media/download-android-sample-code/mobile-quickstart-startup-android.png)
 
    	Обратите внимание, что сохраненный текст хранится в памяти и отображается в списке ниже.
-<!--HONumber=54-->
+
+<!---HONumber=62-->

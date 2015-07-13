@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/22/2015" 
+	ms.date="06/23/2015" 
 	ms.author="mahender"/>
 
 # Миграция существующей мобильной службы Azure в мобильное приложение службы приложений Azure
@@ -114,4 +114,5 @@
 [планировщике Azure]: /ru-ru/documentation/services/scheduler/
 [веб-задание]: ../app-service-web/websites-webjobs-resources.md
 [Отправка кроссплатформенных push-уведомлений]: app-service-mobile-dotnet-backend-xamarin-ios-push-notifications-to-user-preview.md
-<!--HONumber=54--> 
+
+<!---HONumber=62-->

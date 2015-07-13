@@ -61,8 +61,7 @@
 	![][6]
 7.	Аналогичным образом вы можете использовать действия Twitter в потоке. Выберите действие Twitter и настройте входные данные для этого действия.
 
-	![][7] 
-	![][8]
+	![][7] ![][8]
 
 	<!--Image references-->
 [1]: ./media/app-service-logic-connector-twitter/img1.png
@@ -73,5 +72,6 @@
 [6]: ./media/app-service-logic-connector-twitter/img6.png
 [7]: ./media/app-service-logic-connector-twitter/img7.png
 [8]: ./media/app-service-logic-connector-twitter/img8.png
+ 
 
-<!---HONumber=54--> 
+<!---HONumber=62-->

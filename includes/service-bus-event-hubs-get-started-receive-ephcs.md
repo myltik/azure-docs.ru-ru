@@ -1,26 +1,24 @@
-## Получение сообщений через EventProcessorHost
-
-**EventProcessorHost** представляет собой класс .NET, который упрощает прием событий от концентраторов событий путем управления постоянными контрольными точками и одновременно принимает сообщения от этих концентраторов событий в параллельном режиме. С помощью класса **EventProcessorHost** можно разделить события между несколькими получателями даже в том случае, если они размещены в разных узлах. В этом примере показано, как использовать **EventProcessorHost** для одного получателя. В [примере обработки масштабируемого события] показано, как использовать **EventProcessorHost** для нескольких получателей.
+## Прием сообщений через EventProcessorHost
 
 [EventProcessorHost] представляет собой класс .NET, который упрощает прием событий от концентраторов событий путем управления постоянными контрольными точками и одновременно принимает сообщения от этих концентраторов событий в параллельном режиме. С помощью класса [EventProcessorHost] можно разделить события между несколькими получателями даже в том случае, если они размещены в разных узлах. В этом примере показано, как использовать [EventProcessorHost] для одного получателя. В [примере обработки масштабируемого события] показано, как использовать [EventProcessorHost] для нескольких получателей.
 
 Для использования класса [EventProcessorHost] необходимо настроить [учетную запись хранения Azure].
 
-1. Войдите на [портал управления Azure] и щелкните пункт **СОЗДАТЬ** в нижней части экрана.
+1. Войдите на [портал управления Azure] и щелкните **СОЗДАТЬ** в нижней части экрана.
 
 2. Выберите **Службы данных**, **Хранилище**, **Быстрое создание**, а затем введите имя для своей учетной записи хранения. Выберите нужный регион и нажмите кнопку **Создать учетную запись хранения**.
 
-   	![][11]
+  ![][11]
 
 3. Выберите созданную учетную запись хранения и нажмите кнопку **Управление ключами доступа**.
 
-   	![][12]
+  ![][12]
 
-	Скопируйте ключ доступа, чтобы использовать позже в этом учебнике.
+	Copy the access key to use later in this tutorial.
 
-4. Создайте в Visual Studio новый проект приложения C# для настольных ПК с помощью шаблона **Консольное приложение**. Присвойте проекту имя **Получатель**.
+4. Создайте в Visual Studio новый проект Visual C# для классических приложений с помощью шаблона проекта **Консольное приложение**. Присвойте проекту имя **Получатель**.
 
-   	![][14]
+  ![][14]
 
 5. В обозревателе решений щелкните правой кнопкой мыши проект и выберите пункт **Управление пакетами NuGet**.
 
@@ -28,11 +26,11 @@
 
 6. Выполните поиск `Microsoft Azure Service Bus Event Hub - EventProcessorHost` и щелкните **Установить**, после чего примите условия использования.
 
-	![][13]
+  ![][13]
 
-	Будет скачана, установлена и добавлена ссылка на <a href="https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost">пакет концентратора событий служебной шины Azure - EventProcessorHost NuGet</a> со всеми его зависимостями.
+	This downloads, installs, and adds a reference to the <a href="https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost">Azure Service Bus Event Hub - EventProcessorHost NuGet package</a>, with all its dependencies.
 
-7. Щелкните правой кнопкой мыши проект **Получатель**, выберите пункт **Добавить**, а затем - **Класс**. Присвойте классу имя **SimpleEventProcessor**, а затем нажмите кнопку **ОК**, чтобы создать класс. 
+7. Щелкните правой кнопкой мыши проект **Получатель**, выберите пункт **Добавить**, а затем **Класс**. Присвойте классу имя **SimpleEventProcessor**, а затем нажмите кнопку **ОК**, чтобы создать класс.
 
 8. Добавьте в начало файла SimpleEventProcessor.cs следующие инструкции:
 
@@ -48,7 +46,7 @@
 
 	        async Task IEventProcessor.CloseAsync(PartitionContext context, CloseReason reason)
 	        {
-	            Console.WriteLine(string.Format("Processor Shuting Down. Partition '{0}', Reason: '{1}'.", context.Lease.PartitionId, reason.ToString()));
+	            Console.WriteLine("Processor Shutting Down. Partition '{0}', Reason: '{1}'.", context.Lease.PartitionId, reason);
 	            if (reason == CloseReason.Shutdown)
 	            {
 	                await context.CheckpointAsync();
@@ -57,7 +55,7 @@
 
 	        Task IEventProcessor.OpenAsync(PartitionContext context)
 	        {
-	            Console.WriteLine(string.Format("SimpleEventProcessor initialize.  Partition: '{0}', Offset: '{1}'", context.Lease.PartitionId, context.Lease.Offset));
+	            Console.WriteLine("SimpleEventProcessor initialized.  Partition: '{0}', Offset: '{1}'", context.Lease.PartitionId, context.Lease.Offset);
 	            this.checkpointStopWatch = new Stopwatch();
 	            this.checkpointStopWatch.Start();
 	            return Task.FromResult<object>(null);
@@ -73,7 +71,7 @@
 	                    context.Lease.PartitionId, data));
 	            }
 
-	            //Вызывайте контрольную точку каждые пять минут, чтобы рабочая роль могла возобновить обработку с момента не позже пяти минут назад в случае перезапуска.
+	            //Call checkpoint every 5 minutes, so that worker can resume processing from the 5 minutes back if it restarts.
 	            if (this.checkpointStopWatch.Elapsed > TimeSpan.FromMinutes(5))
                 {
                     await context.CheckpointAsync();
@@ -87,32 +85,38 @@
 9. В классе **Program** добавьте следующие инструкции `using` в начало.
 
 		using Microsoft.ServiceBus.Messaging;
+		using Microsoft.Threading;
 		using System.Threading.Tasks;
 
-	Затем добавьте следующий код в метод **Main**, подставив имя концентратора событий и строку подключения, учетную запись хранилища и ключ, который был скопирован в предыдущих разделах.
+	Затем измените метод **Main** в классе **Program**, как показано ниже, заменив имя центра событий и строку подключения, а также учетную запись хранения и ключ, скопированный в предыдущих разделах:
 
-		string eventHubConnectionString = "{event hub connection string}";
-        string eventHubName = "{event hub name}";
-        string storageAccountName = "{storage account name}";
-        string storageAccountKey = "{storage account key}";
-        string storageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}",
-                    storageAccountName, storageAccountKey);
+        static void Main(string[] args)
+        {
+          string eventHubConnectionString = "{event hub connection string}";
+          string eventHubName = "{event hub name}";
+          string storageAccountName = "{storage account name}";
+          string storageAccountKey = "{storage account key}";
+          string storageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}",
+              storageAccountName, storageAccountKey);
 
-        string eventProcessorHostName = Guid.NewGuid().ToString();
-        EventProcessorHost eventProcessorHost = new EventProcessorHost(eventProcessorHostName, eventHubName, EventHubConsumerGroup.DefaultGroupName, eventHubConnectionString, storageConnectionString);
-        eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>().Wait();
+          string eventProcessorHostName = Guid.NewGuid().ToString();
+          EventProcessorHost eventProcessorHost = new EventProcessorHost(eventProcessorHostName, eventHubName, EventHubConsumerGroup.DefaultGroupName, eventHubConnectionString, storageConnectionString);
+          Console.WriteLine("Registering EventProcessor...");
+          eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>().Wait();
 
-        Console.WriteLine("Идет получение. Нажмите клавишу ВВОД, чтобы остановить рабочую роль.");
-        Console.ReadLine();
+          Console.WriteLine("Receiving. Press enter key to stop worker.");
+          Console.ReadLine();
+          eventProcessorHost.UnregisterEventProcessorAsync().Wait();
+        }
 
-> [AZURE.NOTE] В данном учебнике используется один экземпляр [EventProcessorHost]. Чтобы увеличить пропускную способность, рекомендуется запустить несколько экземпляров [EventProcessorHost], как показано в примере [Обработка масштабированного события]. В этом случае различные экземпляры автоматически координируются друг с другом для распределения нагрузки полученных событий. Если каждый из нескольких получателей должен обрабатывать *all* события, то необходимо использовать понятие **ConsumerGroup**. При получении события от разных компьютеров может оказаться полезным указать имена экземпляров [EventProcessorHost] в компьютерах (или ролях), где они развернуты. Дополнительные сведения об этих темах см. в разделах [Общие сведения о концентраторах событий] и [Руководство по программированию концентраторов событий].
+> [AZURE.NOTE]В данном учебнике используется один экземпляр [EventProcessorHost]. Чтобы увеличить пропускную способность, рекомендуется запустить несколько экземпляров [EventProcessorHost], как показано в примере [Обработка масштабированного события]. В этом случае различные экземпляры автоматически координируются друг с другом для распределения нагрузки полученных событий. Если каждый из нескольких получателей должен обрабатывать *все* события, то необходимо использовать понятие **ConsumerGroup**. При получении события от разных компьютеров может оказаться полезным указать имена экземпляров [EventProcessorHost] в компьютерах (или ролях), где они развернуты. Дополнительные сведения об этих темах см. в разделах [Общие сведения о концентраторах событий] и [Руководство по программированию концентраторов событий].
 
 <!-- Links -->
 [Общие сведения о концентраторах событий]: http://msdn.microsoft.com/library/azure/dn836025.aspx
 [Обработка масштабированного события]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
-[Учетная запись хранения Azure]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/
+[учетную запись хранения Azure]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
-[Портал управления Azure]: http://manage.windowsazure.com
+[портал управления Azure]: http://manage.windowsazure.com
 
 <!-- Images -->
 
@@ -122,6 +126,7 @@
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
 [Руководство по программированию концентраторов событий]: http://msdn.microsoft.com/library/azure/dn789972.aspx
+[Async Await in Console Apps]: http://blogs.msdn.com/b/pfxteam/archive/2012/01/20/10259049.aspx
+[AsyncPump.cs]: http://blogs.msdn.com/cfs-file.ashx/__key/communityserver-components-postattachments/00-10-25-90-49/AsyncPump_2E00_cs
 
-
-<!--HONumber=52-->
+<!---HONumber=62-->

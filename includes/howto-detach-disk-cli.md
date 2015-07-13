@@ -1,28 +1,25 @@
-<properties writer="kathydav" editor="tysonn" manager="timlt" />
+
+#Отключение диска данных от виртуальной машины с помощью CLI
+
+Когда диск данных, подключенный к виртуальной машине, больше не нужен, его можно легко отключить. При данной операции происходит удаление диска из виртуальной машины, но не из хранилища. Если вы хотите снова использовать существующие данные на диске, его можно легко повторно подключить как к той же самой, так и к другой виртуальной машине.
+
+> [AZURE.NOTE]Виртуальная машина в Azure использует различные типы дисков: диск с операционной системой, временный локальный диск и дополнительные диски с данными. Диски данных рекомендуется использовать в качестве средства хранения данных для виртуальных машин. Более подробная информация о дисках приводится в разделе [О дисках и образах](http://go.microsoft.com/fwlink/p/?LinkId=263439). В настоящее время отсоединить диск операционной системы невозможно.
 
 
-
-#How to Detach a Data Disk from a Virtual Machine with the CLI
-
-When you no longer need a data disk that is attached to a virtual machine, you can easily detach it. This removes the disk from the virtual machine, but doesn't remove it from storage. If you want to use the existing data on the disk again, you can reattach it to the same virtual machine, or another one.
-
-> [AZURE.NOTE] A virtual machine in Azure uses different types of disks: an operating system disk, a local temporary disk, and optional data disks. Data disks are the recommended way to store data for a virtual machine. For details about disks, see [About disks and images](http://go.microsoft.com/fwlink/p/?LinkId=263439). It is not currently possible to detach an operating system disk.
-
-
-1. Get the list of disks attached to your VM:
+1. Получение списка дисков, подключенных к виртуальной машине:
 
         vm disk list <vm-name>
 
-    If you omit `<vm-name>`, you will get a list of all disks in your subscription.
+    Если опустить параметр `<vm-name>`, вы получите список всех дисков в вашей подписке.
 
 
-2. Detach a disk:
+2. Отсоединение диска:
 
         vm disk detach <vm-name> <lun>
 
-    `lun` identifies the disk to be detached, and will be a number which can be found in your VM's disk list.
+    `lun` определяет диск для отсоединения и представляет номер, который можно найти в списке дисков ВМ.
 
-Sample walkthrough including terminal output:
+Пошаговое руководство, включая выходные данные терминала:
 
     ~$ azure vm disk list kmlinux
     info:    Executing command vm disk list
@@ -50,3 +47,5 @@ Sample walkthrough including terminal output:
     data:         30        kmlinux-kmlinux-2015-02-05.vhd          Linux
     data:    1    5         kmlinux-f8ef0006ab182209.vhd
     info:    vm disk list command OK
+
+<!---HONumber=62-->

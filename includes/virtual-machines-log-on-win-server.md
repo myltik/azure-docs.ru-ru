@@ -1,4 +1,3 @@
-<properties services="virtual-machines" title="How to Log on to a Virtual Machine Running Windows Server" authors="KBDAzure" solutions="" manager="timlt" editor="tysonn" />
 
 1. Войдите на [портал управления Azure](http://manage.windowsazure.com) (если вы еще этого не сделали).
 
@@ -28,4 +27,4 @@
 
 Теперь с виртуальной машиной можно работать удаленно.
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

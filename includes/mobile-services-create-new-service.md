@@ -25,4 +25,4 @@
 <!-- URLs. -->
 [портал управления]: https://manage.windowsazure.com/
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

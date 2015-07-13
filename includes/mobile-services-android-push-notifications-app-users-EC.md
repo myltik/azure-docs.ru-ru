@@ -1,12 +1,12 @@
-﻿
+
 Затем нужно изменить время регистрации уведомлений, чтобы аутентификация пользователя проводилась до попытки регистрации.
 
 
-1. В обозревателе пакетов в Eclipse откройте файл ToDoActivity.java и найдите метод  `onCreate`. Переместите следующий код из метода  `onCreate` в начало метода  `createTable`.
+1. В обозревателе пакетов в Eclipse откройте файл ToDoActivity.java и найдите метод `onCreate`. Переместите следующий код из метода `onCreate` в начало метода `createTable`.
 
         NotificationsManager.handleNotifications(this, SENDER_ID, MyHandler.class);
 
-     Метод `createTable` вызывается после завершения метода `authenticate`. Весь метод `createTable` должен выглядеть следующим образом.
+     Метод `createTable` вызывается после завершения метода `authenticate`. Весь метод `createTable` должен выглядеть следующим образом:
 
         private void createTable() {
         
@@ -26,6 +26,4 @@
             refreshItemsFromTable();
         }	
 
-
-
-<!--HONumber=52-->
+<!---HONumber=62-->

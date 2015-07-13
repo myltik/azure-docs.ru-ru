@@ -24,8 +24,8 @@
 
 ## Языки
 
-+ [C\#|VB (.NET)](app-insights-start-monitoring-app-health-usage.md)
-+ [C\#|VB (Магазин Windows)](app-insights-windows-get-started.md)
++ [C#|VB (.NET)](app-insights-start-monitoring-app-health-usage.md)
++ [C#|VB (Магазин Windows)](app-insights-windows-get-started.md)
 + [C++ (Магазин Windows)](app-insights-windows-cpp.md)
 + [Java](../app-insights-java.md)
 + [Веб-страницы JavaScript](app-insights-web-track-usage.md)
@@ -48,8 +48,8 @@
 + [Joomla](https://github.com/fidmor89/AppInsights-Joomla)
 + [SharePoint](app-insights-sharepoint.md)
 + [WordPress](https://wordpress.org/plugins/application-insights/)
-+ [C\#|VB в Магазине Windows](app-insights-windows-get-started.md)
-+ [C++ в Магазине Windows](app-insights-windows-cpp.md)
++ [C#|VB для Магазина Windows](app-insights-windows-get-started.md)
++ [C++ для Магазина Windows](app-insights-windows-cpp.md)
 + [Классические приложения и службы Windows](app-insights-windows-desktop.md)
 + [Другие варианты](#projects)
 

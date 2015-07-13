@@ -1,20 +1,19 @@
 <properties
-	pageTitle="Использование службы архивации Azure для замены ленточной инфраструктуры"
-	description="Узнайте, как служба архивации Azure предоставляет ленточную семантику, которая дает возможность выполнять резервное копирование и восстановление данных в Azure"
-	services="backup"
-	documentationCenter=""
-	authors="prvijay"
-	manager="shreeshd"
-	editor=""/>
-
+   pageTitle="Использование службы архивации Azure для замены ленточной инфраструктуры"
+   description="Узнайте, как служба архивации Azure предоставляет ленточную семантику, которая дает возможность выполнять резервное копирование и восстановление данных в Azure"
+   services="backup"
+   documentationCenter=""
+   authors="prvijay"
+   manager="shreeshd"
+   editor=""/>
 <tags
-	ms.service="backup"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="storage-backup-recovery"
-	ms.date="03/27/2015"
-	ms.author="prvijay"/>
+   ms.service="backup"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="storage-backup-recovery"
+   ms.date="03/27/2015"
+   ms.author="prvijay"/>
 
 # Использование службы архивации Azure для замены ленточной инфраструктуры
 
@@ -77,5 +76,6 @@
 [3]: ./media/backup-azure-backup-cloud-as-tape/retentionpolicy.png
 [4]: ./media/backup-azure-backup-cloud-as-tape/samplescreen.png
 [5]: ./media/backup-azure-backup-cloud-as-tape/modify.png
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

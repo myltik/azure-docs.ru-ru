@@ -23,12 +23,13 @@
 
 Прокси-сервер приложений Azure AD доступен только после обновления до выпуска Premium или Basic службы Azure Active Directory. Дополнительные сведения см. в статье [Выпуски Azure Active Directory](active-directory-editions).
 
-> [AZURE.NOTE]Выпуски Azure Active Directory Premium и Basic доступны для клиентов в Китае, использующих всемирный экземпляр Azure Active Directory. Выпуски Azure Active Directory Premium и Basic в текущий момент не поддерживаются Microsoft Azure, обслуживаемой компанией 21Vianet в Китае. Для получения дополнительных сведений свяжитесь с нами на [форуме Azure Active Directory](http://feedback.azure.com/forums/169401-azure-active-directory).
+> [AZURE.NOTE]Выпуски Azure Active Directory Premium и Basic доступны для клиентов в Китае, использующих всемирный экземпляр Azure Active Directory. Эти выпуски в настоящее время не поддерживает служба Microsoft Azure под управлением 21Vianet в Китае. Для получения дополнительных сведений свяжитесь с нами на [форуме Azure Active Directory](http://feedback.azure.com/forums/169401-azure-active-directory).
 
 Чтобы начать работу с прокси-сервером приложений, выполните следующие действия: 1. [Включите службы прокси-сервера приложений.](https://msdn.microsoft.com/library/azure/dn768214.aspx) 2. [Опубликуйте приложения с помощью прокси-сервера приложений.](https://msdn.microsoft.com/library/azure/dn768220.aspx)
 
 ## Дальнейшие действия
 
 [Блог Microsoft Azure](http://azure.microsoft.com/blog/) [Включение служб прокси-сервера приложений](https://msdn.microsoft.com/library/azure/dn768214.aspx) [Публикация приложений с помощью прокси-сервера приложений](https://msdn.microsoft.com/library/azure/dn768220.aspx) [Устранение неполадок прокси-сервера приложений](https://msdn.microsoft.com/library/azure/dn768218.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

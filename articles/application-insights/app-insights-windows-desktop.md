@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Application Insights для классических приложений и служб для Windows" 
-	description="Анализ использования и производительности приложения Windows с помощью Application Insights." 
+	pageTitle="Application Insights для классических приложений и служб Windows" 
+	description="Анализ использования и производительности классического приложения для Windows с помощью Application Insights." 
 	services="application-insights" 
     documentationCenter="windows"
 	authors="alancameronwills" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/13/2015" 
+	ms.date="06/18/2015" 
 	ms.author="awills"/>
 
 # Application Insights в классических приложениях и службах для Windows
@@ -23,7 +23,7 @@
 
 С помощью Application Insights можно наблюдать за использованием и производительностью вашего развернутого приложения.
 
-Основной пакет SDK для Application Insights поддерживает классические приложения и службы для Windows. Этот пакет SDK обеспечивает полную поддержку API для всех данных телеметрии, но не содержит возможность автоматического сбора телеметрии.
+Основной пакет SDK для Application Insights поддерживает классические приложения и службы для Windows. Этот пакет SDK обеспечивает полную поддержку API для всех данных телеметрии, но не предоставляет возможности автоматического сбора телеметрии.
 
 
 ## <a name="add"></a> Создание ресурса Application Insights
@@ -33,6 +33,7 @@
 
     ![Нажмите «Создать» и «Application Insights»](./media/app-insights-windows-desktop/01-new.png)
 
+    (Выбор типа приложения определяет содержимое колонки «Обзор» и свойства, доступные в [обозревателе метрик][metrics].)
 
 2.  Сделайте копию ключа инструментирования
 
@@ -43,13 +44,13 @@
 
 1. В Visual Studio отредактируйте пакеты NuGet вашего проекта классического приложения. ![Щелкните проект правой кнопкой мыши и выберите пункт «Управление пакетами Nuget»](./media/app-insights-windows-desktop/03-nuget.png)
 
-2. Установите пакет SDK для Application Insights.
+2. Установите пакет API для Application Insights.
 
-    ![Выберите узел **Online** (В сети), укажите **Include prerelease** (Включить предварительный выпуск) и выполните поиск «Application Insights»](./media/app-insights-windows-desktop/04-ai-nuget.png)
+    ![Поиск Application Insights](./media/app-insights-windows-desktop/04-core-nuget.png)
 
 3. Отредактируйте файл ApplicationInsights.config (который был добавлен установкой NuGet). Вставьте следующий фрагмент непосредственно перед закрывающим тегом:
 
-    &lt;InstrumentationKey&gt;*скопированный ключ*&lt;/InstrumentationKey&gt;
+    `<InstrumentationKey>*the key you copied*</InstrumentationKey>`
 
     Тот же самый результат можно получить и с помощью следующего кода:
     
@@ -60,7 +61,7 @@
 
 Создайте экземпляр `TelemetryClient`, а затем [используйте его для отправки телеметрии][api].
 
-Используйте `TelemetryClient.Flush` для отправки сообщений перед закрытием приложения. (Это не рекомендуется для других типов приложений.)
+Используйте `TelemetryClient.Flush()` для отправки сообщений перед закрытием приложения. Основной пакет SDK использует буфер в памяти. Метод очистки гарантирует опорожнение буфера, чтобы при завершении процесса данные не были потеряны. (Это не рекомендуется для других типов приложений. Платформы SDK реализуют это поведение автоматически.)
 
 Например, в приложении Windows Forms можно написать следующее:
 
@@ -101,15 +102,16 @@
 
 * TrackPageView(pageName) при переключении форм, страниц или вкладок;
 * TrackEvent(eventName) для других действий пользователя;
-* TrackMetric(имя, значение) в фоновой задаче для отправки периодических отчетов с метриками, не присоединенными к определенным событиям.
+* TrackMetric(имя, значение) в фоновой задаче для отправки периодических отчетов с метриками, не присоединенными к определенным событиям;
 * TrackTrace(logEvent) для [ведения журнала диагностики][diagnostic];
-* TrackException(исключение) в предложениях catch;
+* TrackException(исключение) в предложениях перехвата.
 
 #### Инициализаторы контекста
 
-В качестве альтернативы заданию данных сеанса в каждом экземпляре TelemetryClient можно использовать инициализатор контекста:
+Чтобы просмотреть число пользователей и сеансов, можно задать значения для каждого экземпляра `TelemetryClient`. Кроме того можно использовать инициализатор контекста для выполнения этого добавления для всех клиентов:
 
 ```C#
+
     class UserSessionInitializer: IContextInitializer
     {
         public void Initialize(TelemetryContext context)
@@ -127,6 +129,7 @@
             TelemetryConfiguration.Active.ContextInitializers.Add(
                 new UserSessionInitializer());
             ...
+
 ```
 
 

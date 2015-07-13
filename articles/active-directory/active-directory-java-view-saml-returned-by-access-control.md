@@ -24,8 +24,7 @@
 
 Дополнительные сведения об ACS см. в разделе [Дальнейшие действия](#next_steps).
 
-> [AZURE.NOTE]
-> Фильтр служб Azure Access Control (от Microsoft Open Technologies) — это CTP-версия. Эта предварительная версия программного обеспечения не располагает официальной поддержкой со стороны Microsoft Open Technologies, Inc. и корпорации Майкрософт.
+> [AZURE.NOTE]Фильтр служб Azure Access Control (от Microsoft Open Technologies) — это CTP-версия. Эта предварительная версия программного обеспечения не располагает официальной поддержкой со стороны Microsoft Open Technologies, Inc. и корпорации Майкрософт.
 
 ## Предварительные требования
 
@@ -196,4 +195,4 @@
 [saml_output]: ./media/active-directory-java-view-saml-returned-by-access-control/SAML_Output.png
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

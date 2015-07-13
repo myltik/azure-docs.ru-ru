@@ -28,7 +28,7 @@ Azure DNS — это служба размещения для доменов DNS
 
 Домен — это уникальное имя в службе доменных имен, например "contoso.com". Регистратор доменных имен — это организация, которая может предоставлять доменные имена в Интернете. Она проверяет, доступен ли интернет-домен, который вы хотите использовать, и позволяет приобрести его. После регистрации имени домена вы станете законным владельцем доменного имени. Если у вас уже есть интернет-домен, вы будете использовать текущего регистратора доменных имен для делегирования в Azure DNS.
 
->[AZURE.NOTE]Чтобы узнать, кто владеет данным доменом, или приобрести домен, изучите статью "Регистраторы доменных имен, поиск и покупка домена".
+>[AZURE.NOTE]Подробные сведения об определении владельца доменного имени и о том, как приобрести домен, см. в разделе [Управление доменами Интернета в Azure AD](https://msdn.microsoft.com/library/azure/hh969248.aspx).
 
 Зона DNS используется для размещения DNS-записей определенного домена. Например, домен contoso.com может содержать несколько записей DNS, таких как mail.contoso.com (для почтового сервера) и www.contoso.com (для веб-сайта).
 
@@ -72,8 +72,8 @@ DNS-клиенты на ПК или мобильных устройствах о
 
 С помощью Azure PowerShell полномочные записи NS можно получить следующим образом (имя записи "@" используется для указания на записи на вершине зоны):
 
-	PS C:> $zone = New-AzureDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
-	PS C:> Get-AzureDnsRecordSet –Name “@” –RecordType NS –Zone $zone
+	PS C:\> $zone = New-AzureDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
+	PS C:\> Get-AzureDnsRecordSet –Name “@” –RecordType NS –Zone $zone
 
 	Name              : @
 	ZoneName          : contoso.com
@@ -93,7 +93,7 @@ DNS-клиенты на ПК или мобильных устройствах о
 
 Обратите внимание, что вам не требуется указывать серверы имен Azure DNS, так стандартный процесс разрешения DNS находит их автоматически, если делегирование настроено правильно.
 
-	PS C:> nslookup –type=SOA contoso.com
+	PS C:\> nslookup –type=SOA contoso.com
 
 	Server: ns1-04.azure-dns.com
 	Address: 208.76.47.4
@@ -119,22 +119,22 @@ DNS-клиенты на ПК или мобильных устройствах о
 
 Этот процесс продемонстрирован в приведенном ниже примере PowerShell. Сначала нужно создать родительскую и дочернюю зоны, при этом они могут находиться в одной и той же группе ресурсов или в разных группах.
 
-	PS C:> $parent = New-AzureDnsZone -Name contoso.com -ResourceGroupName RG1
-	PS C:> $child = New-AzureDnsZone -Name partners.contoso.com -ResourceGroupName RG1
+	PS C:\> $parent = New-AzureDnsZone -Name contoso.com -ResourceGroupName RG1
+	PS C:\> $child = New-AzureDnsZone -Name partners.contoso.com -ResourceGroupName RG1
 
 После этого нужно получить заслуживающие доверия записи сервера имен из дочерней зоны.
 
-	PS C:> $child_ns_recordset = Get-AzureDnsRecordSet -Zone $child -Name "@" -RecordType NS
+	PS C:\> $child_ns_recordset = Get-AzureDnsRecordSet -Zone $child -Name "@" -RecordType NS
 
 Наконец, чтобы завершить делегирование, в родительской зоне нужно создать соответствующий набор записей сервера имен (обратите внимание, что имя набора записей в родительской зоне совпадает с именем дочерней зоны, которая в этом случае названа «partners»).
 
-	PS C:> $parent_ns_recordset = New-AzureDnsRecordSet -Zone $parent -Name "partners" -RecordType NS -Ttl 3600
-	PS C:> $parent_ns_recordset.Records = $child_ns_recordset.Records
-	PS C:> Set-AzureDnsRecordSet -RecordSet $parent_ns_recordset 
+	PS C:\> $parent_ns_recordset = New-AzureDnsRecordSet -Zone $parent -Name "partners" -RecordType NS -Ttl 3600
+	PS C:\> $parent_ns_recordset.Records = $child_ns_recordset.Records
+	PS C:\> Set-AzureDnsRecordSet -RecordSet $parent_ns_recordset 
 
 Чтобы убедиться в корректности настройки зоны, нужно, как и при делегировании с помощью регистратора доменных имен, найти начальную запись дочерней зоны.
 
-	PS C:> nslookup –type=SOA partners.contoso.com
+	PS C:\> nslookup –type=SOA partners.contoso.com
 	
 	Server: ns1-08.azure-dns.com
 	Address: 208.76.47.8
@@ -161,4 +161,4 @@ DNS-клиенты на ПК или мобильных устройствах о
 [Справочник по REST API службы Azure DNS](https://msdn.microsoft.com/library/azure/mt163862.aspx)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

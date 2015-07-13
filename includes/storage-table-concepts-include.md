@@ -13,9 +13,9 @@
 
 Служба таблиц содержит следующие компоненты:
 
-![Таблица1][Table1]
+![Table1][Table1]
 
--   **Формат URL-адреса.** Код обращается к таблицам в учетной записи, используя следующий формат адреса: http://`<storage account>`.table.core.windows.net/`<table>\`  
+-   **Формат URL-адреса.** Код обращается к таблицам в учетной записи, используя следующий формат адреса: http://`<storage account>`.table.core.windows.net/`<table>`  
       
     К таблицам Azure можно обратиться напрямую, используя этот адрес с протоколом OData. Дополнительные сведения см. на странице [OData.org][]
 
@@ -29,7 +29,7 @@
 
 
   
-[Table1]: ./media/storage-table-concepts-include/table1.png
-[OData.org]: http://www.odata.org/
+  [Table1]: ./media/storage-table-concepts-include/table1.png
+  [OData.org]: http://www.odata.org/
 
-<!--HONumber=52-->
+<!---HONumber=62-->

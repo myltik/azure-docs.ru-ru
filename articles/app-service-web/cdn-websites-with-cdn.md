@@ -67,13 +67,11 @@
 
 8. Предположим, что вы не создали веб-приложение в Azure. Visual Studio может помочь создать его. В диалоговом окне **настройки веб-сайта Microsoft Azure** убедитесь, что имя вашего сайта является уникальным. Затем нажмите кнопку **ОК**.
 
-	<!--todo: need 2.5.1 screenshot-->
-	![](media/cdn-websites-with-cdn/5-create-website.png)
+	<!--todo: need 2.5.1 screenshot-->![](media/cdn-websites-with-cdn/5-create-website.png)
 
 9. Создав приложение ASP.NET, опубликуйте его в Azure в области действий веб-публикации, щелкнув **Опубликовать `<app name>` на этом сайте сейчас**. Для завершения процесса нажмите **Опубликовать**.
 
-	<!--todo: need 2.5.1 screenshot-->
-	![](media/cdn-websites-with-cdn/6-publish-website.png)
+	<!--todo: need 2.5.1 screenshot-->![](media/cdn-websites-with-cdn/6-publish-website.png)
 
 	После завершения публикации вы увидите опубликованное веб-приложение в браузере.
 
@@ -131,7 +129,7 @@
 
 С помощью интеграции Azure CDN с веб-приложением Azure вы можете указать, как статическое содержимое должно кэшироваться в конечной точке CDN. Для этого откройте файл *Web.config* из проекта ASP.NET (например, **cdnwebapp**) и добавьте элемент `<staticContent>` в `<system.webServer>`. XML, приведенный ниже, настраивает истечение срока кэша через 3 дня. <pre class="prettyprint"> &lt;system.webServer&gt; <mark>&lt;staticContent&gt; &lt;clientCache cacheControlMode=&quot;UseMaxAge&quot; cacheControlMaxAge=&quot;3.00:00:00&quot;/&gt; &lt;/staticContent&gt;</mark> ... &lt;/system.webServer&gt; </pre>
 
-После этого все статические файлы в веб-приложении Azure будут соблюдать то же правило в кэше CDN. Для более детального управления параметрами кэша добавьте файл *Web.config* в папку и добавьте в этом месте свои параметры. Например, добавьте файл *Web.config* в папку *\\Content* и замените содержимое следующим XML:
+После этого все статические файлы в веб-приложении Azure будут соблюдать то же правило в кэше CDN. Для более детального управления параметрами кэша добавьте файл *Web.config* в папку и добавьте в этом месте свои параметры. Например, добавьте файл *Web.config* в папку *\Content* и замените содержимое следующим XML:
 
 	<?xml version="1.0"?>
 	<configuration>
@@ -142,7 +140,7 @@
 	  </system.webServer>
 	</configuration>
 
-Этот параметр приводит к кэшированию всех статических файлов из папки *\\Content* на 15 дней.
+Этот параметр приводит к кэшированию всех статических файлов из папки *\Content* на 15 дней.
 
 Дополнительные сведения о настройке элемента `<clientCache>` см. в статье [Кэш клиента &lt;clientCache>](http://www.iis.net/configreference/system.webserver/staticcontent/clientcache).
 
@@ -161,7 +159,7 @@
 
 Чтобы настроить это действие контроллера, выполните следующие действия.
 
-1. В папке *\\Controllers* создайте новый CS-файл с именем *MemeGeneratorController.cs* и замените содержимое следующим кодом. Не забудьте заменить выделенный фрагмент путем к файлу и именем CDN.
+1. В папке *\Controllers* создайте новый CS-файл с именем *MemeGeneratorController.cs* и замените содержимое следующим кодом. Не забудьте заменить выделенный фрагмент путем к файлу и именем CDN.
 	<pre class="prettyprint">
 using System;
 using System.Collections.Generic;
@@ -193,7 +191,7 @@ namespace cdnwebapp.Controllers
                 Memes.Add(identifier, new Tuple&lt;string, string>(top, bottom));
             }
 
-            return Content("&lt;a href=\"" + Url.Action("Show", new {id = identifier}) + "\">here's your meme&lt;/a>");
+            return Content("&lt;a href="" + Url.Action("Show", new {id = identifier}) + "">here's your meme&lt;/a>");
         }
 
         [OutputCache(VaryByParam = "*", Duration = 1, Location = OutputCacheLocation.Downstream)]
@@ -205,11 +203,11 @@ namespace cdnwebapp.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.NotFound);
             }
 
-            if (Debugger.IsAttached) // Preserve the debug experience
+            if (Debugger.IsAttached) // Не изменять поведение отладки
             {
                 return Redirect(string.Format("/MemeGenerator/Generate?top={0}&amp;bottom={1}", data.Item1, data.Item2));
             }
-            else // Get content from Azure CDN
+            else // Получить содержимое из Azure CDN
             {
                 return Redirect(string.Format("http://<mark>&lt;yourCDNName></mark>.vo.msecnd.net/MemeGenerator/Generate?top={0}&amp;bottom={1}", data.Item1, data.Item2));
             }
@@ -241,16 +239,16 @@ namespace cdnwebapp.Controllers
 
         private Font FindBestFitFont(Image i, Graphics g, String text, Font font, out SizeF size)
         {
-            // Compute actual size, shrink if needed
+            // Вычисление фактического размера. При необходимости выполняется сжатие
             while (true)
             {
                 size = g.MeasureString(text, font);
 
-                // It fits, back out
+                // Если размер подходит, назад
                 if (size.Height &lt; i.Height &amp;&amp;
                      size.Width &lt; i.Width) { return font; }
 
-                // Try a smaller font (90% of old size)
+                // Попробовать меньший шрифт (90 % от предыдущего размера)
                 Font oldFont = font;
                 font = new Font(font.Name, (float)(font.Size * .9), font.Style);
                 oldFont.Dispose();
@@ -268,7 +266,7 @@ namespace cdnwebapp.Controllers
 
 	![](media/cdn-websites-with-cdn/cdn-7-configureview.PNG)
 
-4. Откройте новый файл *Views\\MemeGenerator\\Index.cshtml* и замените его содержимое следующим простым HTML для отправки гипербол:
+4. Откройте новый файл *Views\MemeGenerator\Index.cshtml* и замените его содержимое следующим простым HTML для отправки гипербол:
 
 		<h2>Meme Generator</h2>
 		
@@ -325,7 +323,7 @@ namespace cdnwebapp.Controllers
 -	Резервный механизм на случай сбоя конечной точки CDN.
 -	Минимальное изменение кода.
 
-В проекте ASP.NET, созданном при изучении раздела [Интеграция конечной точки Azure CDN с веб-сайтом Azure и обслуживание статического содержимого на веб-страницах из Azure CDN](#deploy), откройте *App_Start\\BundleConfig.cs* и взгляните на вызовы метода `bundles.Add()`.
+В проекте ASP.NET, созданном при изучении раздела [Интеграция конечной точки Azure CDN с веб-сайтом Azure и обслуживание статического содержимого на веб-страницах из Azure CDN](#deploy), откройте *App_Start\BundleConfig.cs* и взгляните на вызовы метода `bundles.Add()`.
 
     public static void RegisterBundles(BundleCollection bundles)
     {
@@ -334,7 +332,7 @@ namespace cdnwebapp.Controllers
 		...
     }
 
-Первая инструкция `bundles.Add()` добавляет пакет скриптов в виртуальный каталог `~/bundles/jquery`. Затем откройте файл *Views\\Shared_Layout.cshtml*, чтобы просмотреть, как обрабатывается тег пакета скриптов. Вы должны найти следующую строку кода Razor:
+Первая инструкция `bundles.Add()` добавляет пакет скриптов в виртуальный каталог `~/bundles/jquery`. Затем откройте файл *Views\Shared_Layout.cshtml*, чтобы просмотреть, как обрабатывается тег пакета скриптов. Вы должны найти следующую строку кода Razor:
 
     @Scripts.Render("~/bundles/jquery")
 
@@ -350,7 +348,7 @@ namespace cdnwebapp.Controllers
 
 Выполните приведенные ниже действия для интеграции объединения и минификации ASP.NET с конечной точкой CDN.
 
-1. Вернитесь в файл *App_Start\\BundleConfig.cs* и измените методы `bundles.Add()`, чтобы использовать другой [конструктор Bundle](http://msdn.microsoft.com/library/jj646464.aspx), который задает адрес CDN. Для этого замените определение метода `RegisterBundles` следующим кодом:  
+1. Вернитесь в файл *App_Start\BundleConfig.cs* и измените методы `bundles.Add()`, чтобы использовать другой [конструктор Bundle](http://msdn.microsoft.com/library/jj646464.aspx), который задает адрес CDN. Для этого замените определение метода `RegisterBundles` следующим кодом:  
 	<pre class="prettyprint">
 public static void RegisterBundles(BundleCollection bundles)
 {
@@ -365,8 +363,8 @@ public static void RegisterBundles(BundleCollection bundles)
     bundles.Add(new ScriptBundle("~/bundles/jqueryval"<mark>, string.Format(cdnUrl, "bundles/jqueryval")</mark>).Include(
                 "~/Scripts/jquery.validate*"));
 
-    // Use the development version of Modernizr to develop with and learn from. Then, when you're
-    // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
+    // Используйте версию разработки Modernizr как основу для обучения и разработки. Когда вы будете готовы
+    // к развертыванию в рабочей среде, используйте инструмент создания по адресу http://modernizr.com, что выбирать только необходимые тесты.
     bundles.Add(new ScriptBundle("~/bundles/modernizr"<mark>, string.Format(cdnUrl, "bundles/modernizer")</mark>).Include(
                 "~/Scripts/modernizr-*"));
 
@@ -392,7 +390,7 @@ public static void RegisterBundles(BundleCollection bundles)
 	
 	-	Источником этого URL-адреса CDN служит адрес `http://<yourSiteName>.azurewebsites.net/bundles/jquery?v=<W.X.Y.Z>`, который фактически является виртуальным каталогом пакета скриптов в веб-приложении.
 	-	Поскольку используется конструктор CDN, тег скрипта CDN для этого пакета больше не содержит автоматически созданную строку версии в обработанном URL-адресе. Необходимо вручную создавать уникальную строку версии каждый раз при изменении пакета скриптов, чтобы обеспечить промах кэша в Azure CDN. В то же время эта уникальная строка версии должна оставаться постоянной в течение всего срока существования развертывания для максимального увеличения попаданий в кэш в Azure CDN после развертывания пакета.
-	-	Строка запроса v=<W.X.Y.Z> берется из файла *Properties\\AssemblyInfo.cs* в вашем проекте ASP.NET. Можно создать рабочий процесс развертывания, включающий увеличение версии сборки при каждой публикации в Azure. Можно также просто изменить файл *Properties\\AssemblyInfo.cs* в проекте, задав автоматическое увеличение строки версии при каждом построении с помощью подстановочного знака '*'. Например:
+	-	Строка запроса v=<W.X.Y.Z> берется из файла *Properties\AssemblyInfo.cs* в вашем проекте ASP.NET. Можно создать рабочий процесс развертывания, включающий увеличение версии сборки при каждой публикации в Azure. Можно также просто изменить файл *Properties\AssemblyInfo.cs* в проекте, задав автоматическое увеличение строки версии при каждом построении с помощью подстановочного знака '*'. Например:
 	
 			[assembly: AssemblyVersion("1.0.0.*")]
 	
@@ -444,7 +442,7 @@ public static void RegisterBundles(BundleCollection bundles)
 
 Класс [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.aspx) содержит свойство с именем [CdnFallbackExpression](http://msdn.microsoft.com/library/system.web.optimization.bundle.cdnfallbackexpression.aspx), которое позволяет настраивать резервный механизм на случай сбоя CDN. Для использования этого свойства выполните приведенные ниже действия.
 
-1. В проекте ASP.NET откройте файл *App_Start\\BundleConfig.cs*, где в каждом [конструкторе Bundle](http://msdn.microsoft.com/library/jj646464.aspx) вы добавили URL-адрес CDN, и внесите следующие выделенные изменения, чтобы добавить резервный механизм в пакеты по умолчанию:  
+1. В проекте ASP.NET откройте файл *App_Start\BundleConfig.cs*, где в каждом [конструкторе Bundle](http://msdn.microsoft.com/library/jj646464.aspx) вы добавили URL-адрес CDN, и внесите следующие выделенные изменения, чтобы добавить резервный механизм в пакеты по умолчанию:  
 	<pre class="prettyprint">
 public static void RegisterBundles(BundleCollection bundles)
 {
@@ -461,8 +459,8 @@ public static void RegisterBundles(BundleCollection bundles)
 				<mark>{ CdnFallbackExpression = "$.validator" }</mark>
             	.Include("~/Scripts/jquery.validate*"));
 
-    // Use the development version of Modernizr to develop with and learn from. Then, when you're
-    // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
+    // Используйте версию разработки Modernizr как основу для обучения и разработки. Когда вы будете готовы
+    // к развертыванию в рабочей среде, используйте инструмент создания по адресу http://modernizr.com, что выбирать только необходимые тесты.
     bundles.Add(new ScriptBundle("~/bundles/modernizr", string.Format(cdnUrl, "bundles/modernizer")) 
 				<mark>{ CdnFallbackExpression = "window.Modernizr" }</mark>
 				.Include("~/Scripts/modernizr-*"));
@@ -489,7 +487,7 @@ public static void RegisterBundles(BundleCollection bundles)
 
 2. Чтобы использовать этот обходной путь для CSS, создайте в папке *App_Start* своего проекта ASP.NET новый CS-файл с именем *StyleBundleExtensions.cs* и замените его содержимое [кодом от GitHub](https://github.com/EmberConsultingGroup/StyleBundleFallback/blob/master/Website/App_Start/StyleBundleExtensions.cs).
 
-4. В файле *App_Start\\StyleFundleExtensions.cs* переименуйте пространство имен для своего приложения ASP.NET (например, **cdnwebapp**).
+4. В файле *App_Start\StyleFundleExtensions.cs* переименуйте пространство имен для своего приложения ASP.NET (например, **cdnwebapp**).
 
 3. Вернитесь в файл `App_Start\BundleConfig.cs` и замените последний оператор `bundles.Add` следующим выделенным кодом:
 	<pre class="prettyprint">
@@ -560,4 +558,4 @@ bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"
 * Руководство по смене старого портала на новый портал см. в разделе [Справочник по навигации на предварительной версии портала](http://go.microsoft.com/fwlink/?LinkId=529715).
  
 
-<!----HONumber=62-->
+<!---HONumber=62-->

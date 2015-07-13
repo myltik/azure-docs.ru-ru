@@ -132,4 +132,4 @@ Azure Active Directory является платформой для управл
 
 - **[Azure AD в Twitter](https://twitter.com/azuread)**: объявления Azure AD в 140 символов или меньше.
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

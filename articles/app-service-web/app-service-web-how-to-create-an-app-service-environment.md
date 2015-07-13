@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="Создание среды службы приложения" 
 	description="Описание процесса создания сред службы приложений" 
-	services="app-services\web" 
+	services="app-service\web" 
 	documentationCenter="" 
 	authors="ccompy" 
 	manager="stefsch" 
 	editor=""/>
 
 <tags 
-	ms.service="app-services-web" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -33,7 +33,7 @@
 
 ## Создание среды службы приложений ##
 
-Вы можете получить доступ к пользовательскому интерфейсу создания ASE двумя способами. Чтобы найти его, выполните поиск в Azure Marketplace по запросу ***Среда службы приложений*** или откройте меню Создать -> Интернет + мобильные устройства.
+Вы можете получить доступ к пользовательскому интерфейсу создания ASE двумя способами. Чтобы найти его, выполните поиск в Azure Marketplace по запросу ***Среда службы приложений*** или откройте меню "Создать -> Интернет + мобильные устройства".
 
 ### Быстро создать ###
 После входа в пользовательский интерфейс создания вы можете быстро создать ASE, для этого просто введите имя для развертывания. После этого будут созданы виртуальная сеть с 512 адресами, подсеть с 256 адресами в этой виртуальной сети и среда ASE с двумя внешними интерфейсами и двумя исполнителями в пуле исполнителей 1. Не забудьте выбрать расположение для размещения системы и подписку, в которой она должна находиться. В подписке, используемой для создания ASE, должны находиться только учетные записи, которые могут использовать ASE для размещения содержимого.
@@ -105,7 +105,7 @@
 - Количество внешних интерфейсов (минимальное: 2)
 - Количество исполнителей (минимальное: 2)
 - Количество IP-адресов
-- Размеры вычислительных ресурсов, используемых внешними интерфейсами или исполнителями (минимальный размер для внешнего интерфейса P2)
+- Размеры вычислительных ресурсов, используемых внешними интерфейсами или исполнителями (минимальный размер для внешнего интерфейса — P2)
 
 Нельзя изменить:
 
@@ -126,7 +126,10 @@
 
 Дополнительные сведения о платформе службы приложений Azure см. в статье [Служба приложений Azure][AzureAppService].
 
+[AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
+[AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
+ 
 
 <!--Image references-->
 [1]: ./media/app-service-web-how-to-create-an-app-service-environment/createaseblade.png
@@ -138,5 +141,5 @@
 [ASEConfig]: http://azure.microsoft.com/documentation/articles/app-service-web-configure-an-app-service-environment/
 [AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
-<!--HONumber=52-->
- 
+
+<!---HONumber=62-->

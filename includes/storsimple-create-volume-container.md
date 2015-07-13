@@ -1,19 +1,3 @@
-<properties 
-   pageTitle="Создание контейнеров томов"
-   description="Описание процесса создания контейнера томов на устройстве StorSimple."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="04/01/2015"
-   ms.author="v-sharos" />
 
 #### Создание контейнера томов
 
@@ -31,4 +15,4 @@
 
   Вновь созданный контейнер томов появится в списке на странице **Контейнеры томов**.
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

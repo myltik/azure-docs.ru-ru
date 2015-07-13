@@ -122,4 +122,6 @@ API трассировки в Application Insights можно вызывать �
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-get-started.md
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=62-->

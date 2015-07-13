@@ -1,31 +1,31 @@
-## How to deploy with Azure CLI
+## Развертывание с помощью Azure CLI
 
-1. Login to your Azure account.
+1. Войдите в свою учетную запись Azure.
 
         azure login
 
-  After providing your credentials, the command returns the result of your login.
+  После предоставления учетных данных команда возвращает результат вашего входа.
 
         ...
         info:    login command OK
 
-2. If you have multiple subscriptions, provide the subscription id you wish to use for deployment.
+2. Если у вас несколько подписок, укажите идентификатор подписки, которую вы хотите использовать для развертывания.
 
         azure account set <YourSubscriptionNameOrId>
 
-3. Switch to Azure Resource Manager module
+3. Переключитесь на модуль диспетчера ресурсов Azure.
 
         azure config mode arm
 
-   You will receive confirmation of the new mode.
+   Вы получите подтверждение нового режима.
 
         info:     New mode is arm
 
-4. If you do not have an existing resource group, create a new resource group. Provide the name of the resource group and location that you need for your solution.
+4. Создайте группу ресурсов, если у вас нет существующей группы ресурсов. Введите имя группы ресурсов и расположение, необходимое для решения.
 
         azure group create -n ExampleResourceGroup -l "West US"
 
-   A summary of the new resource group is returned.
+   Появится сводка по новой группе ресурсов.
 
         info:    Executing command group create
         + Getting resource group ExampleResourceGroup
@@ -39,23 +39,23 @@
         data:
         info:    group create command OK
 
-5. To create a new deployment for your resource group, run the following command and provide the necessary parameters. The parameters will include a name for your deployment, the name of your resource group, the path or URL to the template you created, and any other parameters needed for your scenario.
+5. Чтобы создать новое развертывание для группы ресурсов, выполните следующую команду и укажите необходимые параметры. Параметры будут включать в себя имя развертывания, имя группы ресурсов, путь или URL-адрес созданного шаблона и другие параметры, необходимые для вашего сценария.
 
-   You have the following options for providing parameter values:
+   Для предоставления значений параметров доступны следующие способы:
 
-   - Use inline parameters and a local template.
+   - Использование встроенных параметров и локального шаблона.
 
              azure group deployment create -f <PathToTemplate> {"ParameterName":"ParameterValue"} -g ExampleResourceGroup -n ExampleDeployment
 
-   - Use inline parameters and a link to a template.
+   - Использование встроенных параметров и ссылки на шаблон.
 
              azure group deployment create --template-uri <LinkToTemplate> {"ParameterName":"ParameterValue"} -g ExampleResourceGroup -n ExampleDeployment
 
-   - Use a parameter file.
+   - Использование файла параметров.
 
              azure group deployment create -f <PathToTemplate> -e <PathToParameterFile> -g ExampleResourceGroup -n ExampleDeployment
 
-  When the resource group has been deployed, you will see a summary of the deployment.
+  После развертывания группы ресурсов вы увидите сводку по развертыванию.
 
          info:    Executing command group deployment create
          + Initializing template configurations and parameters
@@ -64,10 +64,12 @@
          info:    group deployment create command OK
 
 
-6. To get information about your latest deployment.
+6. Вот как можно получить информацию о последнем развертывании.
 
          azure group log show -l ExampleResourceGroup
 
-7. To get detailed information about deployment failures.
+7. Вот как можно получить подробную информацию о сбоях развертывания.
 
          azure group log show -l -v ExampleResourceGroup
+
+<!---HONumber=62-->

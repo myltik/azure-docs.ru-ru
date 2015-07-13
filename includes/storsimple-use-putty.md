@@ -1,19 +1,3 @@
-<properties 
-   pageTitle="Подключение к последовательной консоли устройства с помощью PuTTY"
-   description="Объясняется, как использовать ПО эмуляции терминала PuTTY для подключения к устройству StorSimple."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="04/01/2015"
-   ms.author="v-sharos" />
 
 #### Подключение через последовательную консоль
 
@@ -40,9 +24,9 @@
 
      ![Параметры PuTTY](./media/storsimple-use-putty/HCS_PuttyConfig-include.png)
 
-    > [AZURE.NOTE]Если параметр управления потоком по умолчанию не работает, попробуйте задать для управления потоком значение «XON/XOFF».
+    > [AZURE.NOTE]Если параметр управления потоком по умолчанию не работает, попробуйте задать для управления потоком значение "XON/XOFF".
 
 7. Щелкните **Открыть**, чтобы запустить последовательный сеанс.
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

@@ -136,15 +136,15 @@ Azure Stream Analytics в настоящее время не допускает 
 	Command(s) completed successfully.
 
 ## Получение справки
-За дополнительной помощью обращайтесь на наш [форум Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Дополнительную помощь и поддержку вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/ru-ru/home?forum=AzureStreamAnalytics).
 
 ## Дальнейшие действия
 
 - [Введение в Azure Stream Analytics](stream-analytics-introduction.md)
 - [Приступая к работе с Azure Stream Analytics](stream-analytics-get-started.md)
-- [Задания по масштабированию в Azure Stream Analytics](stream-analytics-scale-jobs.md)
+- [Масштабирование заданий в службе Azure Stream Analytics](stream-analytics-scale-jobs.md)
 - [Справочник по языку запросов Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-- [Справочник по REST API для управления Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+- [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 
 [graphic1]: ./media/stream-analytics-login-credentials-inputs-outputs/1-stream-analytics-login-credentials-inputs-outputs.png
@@ -190,6 +190,6 @@ Azure Stream Analytics в настоящее время не допускает 
 [graphic41]: ./media/stream-analytics-login-credentials-inputs-outputs/41-stream-analytics-login-credentials-inputs-outputs.png
 [graphic42]: ./media/stream-analytics-login-credentials-inputs-outputs/42-stream-analytics-login-credentials-inputs-outputs.png
 [graphic43]: ./media/stream-analytics-login-credentials-inputs-outputs/43-stream-analytics-login-credentials-inputs-outputs.png
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

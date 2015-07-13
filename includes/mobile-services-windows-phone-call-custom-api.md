@@ -63,4 +63,5 @@
   	![](./media/mobile-services-windows-phone-call-custom-api/mobile-custom-api-windows-phone-completed.png)
 
 	Отображается окно сообщения, в котором указывается количество элементов, помеченных как завершенные; снова выполняется отфильтрованный запрос, что приводит к удалению из списка всех элементов.
-<!--HONumber=54-->
+
+<!---HONumber=62-->

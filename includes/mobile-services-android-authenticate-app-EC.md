@@ -1,4 +1,4 @@
-﻿
+
 1. В обозревателе пакетов в Eclipse откройте файл ToDoActivity.java и добавьте следующие инструкции импорта.
 
 		import java.util.concurrent.ExecutionException;
@@ -11,10 +11,9 @@
 		import com.microsoft.windowsazure.mobileservices.authentication.MobileServiceAuthenticationProvider;
 		import com.microsoft.windowsazure.mobileservices.authentication.MobileServiceUser;
 
-2. Добавьте в класс **TodoActivity** следующий метод: 
+2. Добавьте в класс **ToDoActivity** следующий метод:
 	
-	private void authenticate() {
-	    // Login using the Google provider.
+	private void authenticate() { // Войти с помощью поставщика Google.
 	    
 		ListenableFuture<MobileServiceUser> mLogin = mClient.login(MobileServiceAuthenticationProvider.Google);
 
@@ -36,15 +35,15 @@
 
 	При этом создается новый метод для обработки процесса проверки подлинности. Пользователь прошел проверку подлинности с использованием имени входа в Google. Открывается диалоговое окно, в котором отображается идентификатор пользователя, прошедшего проверку подлинности. Без успешной проверки подлинности продолжение невозможно.
 
-    > [AZURE.NOTE] Если используется поставщик удостоверений, отличный от Google, измените значение, передаваемое в метод **login** выше, на одно из следующих: _MicrosoftAccount_, _Facebook_, _Twitter_ или _windowsazureactivedirectory_.
+    > [AZURE.NOTE]Если используется поставщик идентификаторов, отличный от Google, измените значение, переданное в методе **login**, выше на одно из следующих: _MicrosoftAccount_, _Facebook_, _Twitter_ или _windowsazureactivedirectory_.
 
-3. Добавьте в метод **onCreate** следующую строку после кода, который формирует экземпляр объекта  `MobileServiceClient`.
+3. Добавьте в метод **onCreate** следующую строку после кода, который формирует экземпляр объекта `MobileServiceClient`:
 
 		authenticate();
 
 	Этот вызов запускает процесс проверки подлинности.
 
-4. Переместите оставшийся код после authenticate(); в методе **onCreate** в новый метод **createTable**, который выглядит следующим образом:
+4. Переместите оставшийся код после `authenticate();` в методе **onCreate** в новый метод **createTable**, который выглядит следующим образом:
 
 		private void createTable() {
 	
@@ -62,9 +61,8 @@
 			refreshItemsFromTable();
 		}
 
-9. В меню **Запуск** щелкните **Запуск**, чтобы запустить приложение и выполнить вход с помощью выбранного поставщика удостоверений. 
+9. В меню **Запуск** щелкните **Запуск**, чтобы запустить приложение и выполнить вход с помощью выбранного поставщика удостоверений.
 
    	После успешного входа в систему приложение должно работать без ошибок, а вы должны быть в состоянии выполнять запросы мобильных служб и обновлять данные.
 
-
-<!--HONumber=52-->
+<!---HONumber=62-->

@@ -15,13 +15,13 @@
 	ms.date="04/26/2015" 
 	ms.author="awills"/>
 
-# Приступая к работе с Visual Studio Application Insights
+# Начало работы с Visual Studio Application Insights
 
 *Доступна только предварительная версия Application Insights.*
 
 Обнаружение проблем, решение проблем и постоянное усовершенствование приложений. Быстрая диагностика любых проблем в работающем приложении. Понимание действий, выполняемых пользователями с этим приложением.
 
-Настроить службу очень легко, так что вы сможете увидеть результаты через несколько минут.
+Настроить службу очень легко, так что результаты будут видны уже через несколько минут.
 
 В настоящее время поддерживаются приложения для iOS, Android и Windows, веб-приложения J2EE и ASP.NET, а также службы WCF. Веб-приложения могут работать в Azure или на локальных серверах. Пакет SDK для JavaScript работает на всех веб-страницах.
 
@@ -29,9 +29,9 @@
 
 Начните с любого сочетания и любого порядка точек входа, приведенных в левой части схемы. Следуйте наиболее подходящему маршруту.
 
-Для работы Application Insights необходимо добавить в приложение пакет SDK, который отправляет данные телеметрии на [портал Azure](http://portal.azure.com). Существуют разные пакеты SDK для многих сочетаний поддерживаемых платформ, языков и сред IDE.
+Для работы Application Insights в приложение необходимо добавить пакет SDK, который отправляет данные телеметрии на [портал Azure](http://portal.azure.com). Существуют разные пакеты SDK для многих сочетаний поддерживаемых платформ, языков и сред IDE.
 
-Вам потребуется учетная запись в [Microsoft Azure](http://azure.com). Возможно, у вас уже есть доступ к учетной записи группы вашей организации. При необходимости можно получить учетную запись с оплатой по мере использования. (Пока Application Insights находится на стадии предварительной версии, это бесплатно.)
+Вам потребуется учетная запись в [Microsoft Azure](http://azure.com). Возможно, у вас уже есть доступ к учетной записи группы вашей организации. При необходимости можно получить учетную запись с оплатой по мере использования. Application Insights имеет уровень Free, поэтому вы можете не платить до тех пор, пока ваше приложение не станет популярным. См. страницу с [информацией о ценах](https://azure.microsoft.com/pricing/details/application-insights/).
 
 Что вам нужно | Что следует делать | Что вы получаете
 ---|---|---
@@ -39,7 +39,7 @@
 <a href="app-insights-monitor-performance-live-website-now.md">![Сайт ASP.NET уже работает.](./media/app-insights-get-started/appinsights-gs-i-04-red2.png)</a><br/><a href="app-insights-monitor-performance-live-website-now.md">![Мониторинг зависимостей и производительности](./media/app-insights-get-started/appinsights-gs-i-03-red.png)</a>|<a href="app-insights-monitor-performance-live-website-now.md">Установить монитор состояния на сервере IIS</a><br/>![gets](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-monitor-performance-live-website-now.md">![Мониторинг зависимостей ASP.NET](./media/app-insights-get-started/appinsights-gs-r-03-red.png)</a>
 <a href="insights-perf-analytics.md">![Веб-приложения или виртуальные машины Azure](./media/app-insights-get-started/appinsights-gs-i-10-azure.png)</a>|<a href="insights-perf-analytics.md">Включить Insights в веб-приложении Azure или в виртуальной машине</a> <br/> ![gets](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="insights-perf-analytics.md">![Мониторинг зависимостей и производительности](./media/app-insights-get-started/appinsights-gs-r-03-red.png)</a>
 <a href="app-insights-java-get-started.md">![Java](./media/app-insights-get-started/appinsights-gs-i-11-java.png)</a>|<a href="app-insights-java-get-started.md">Добавить пакет SDK в проект Java</a><br/>![gets](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-java-get-started.md">![Мониторинг производительности и использования](./media/app-insights-get-started/appinsights-gs-r-10-java.png)</a>
-<a href="app-insights-web-track-usage.md">![JavaScript](./media/app-insights-get-started/appinsights-gs-i-02-usage.png)</a>|<a href="app-insights-web-track-usage.md">Вставить сценарий Application Insights на свои веб-страницы</a><br/>![gets](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-web-track-usage.md">![Просмотры страниц и производительность браузера](./media/app-insights-get-started/appinsights-gs-r-02-usage.png)</a>
+<a href="app-insights-web-track-usage.md">![JavaScript](./media/app-insights-get-started/appinsights-gs-i-02-usage.png)</a>|<a href="app-insights-web-track-usage.md">Вставить сценарий Application Insights на свои веб-страницы</a><br/>![gets](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-web-track-usage.md">![просмотры страниц и производительность браузера](./media/app-insights-get-started/appinsights-gs-r-02-usage.png)</a>
 <a href="app-insights-monitor-web-app-availability.md">![Доступность](./media/app-insights-get-started/appinsights-gs-i-05-avail.png)</a>|<a href="app-insights-monitor-web-app-availability.md">Создать веб-тесты</a><br/>![gets](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-monitor-web-app-availability.md">![Доступность](./media/app-insights-get-started/appinsights-gs-r-05-avail.png)</a>
 <a href="app-insights-windows-get-started.md">![Windows и Windows Phone](./media/app-insights-get-started/appinsights-gs-i-06-device.png)</a>|<a href="app-insights-windows-get-started.md">Добавить Application Insights в проект приложения на своем устройстве</a><br/>![gets](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-windows-get-started.md">![Данные о сбоях и использовании](./media/app-insights-get-started/appinsights-gs-r-06-device.png)</a>
 
@@ -52,7 +52,7 @@
 * Ошибки
  * [Подключение](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
 * Предложения
- * [Пользовательские мнения](http://visualstudio.uservoice.com/forums/121579-visual-studio/category/77108-application-insights)
+ * [Пользовательское мнение](http://visualstudio.uservoice.com/forums/121579-visual-studio/category/77108-application-insights)
 
 
 

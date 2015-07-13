@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Django и MySQL для Azure с помощью инструментов Python 2.1 для Visual Studio" 
-	description="Узнайте, как создать веб-приложение Django, которое хранит данные в экземпляре базы данных MySQL, с помощью инструментов Python для Visual Studio и развернуть его в веб-приложениях службы приложений Azure." 
+	description="Информация о том, как создать веб-приложение Django, которое хранит данные в экземпляре базы данных MySQL, с помощью инструментов Python для Visual Studio и развернуть его в веб-приложениях службы приложений Azure." 
 	services="app-service\web" 
 	documentationCenter="python" 
 	authors="huguesv" 
@@ -33,7 +33,7 @@
  - [Средства Python 2.1 для Visual Studio]
  - [Образцы VSIX средств Python 2.1 для Visual Studio]
  - [Пакет инструментов SDK Azure для VS 2013] или [Пакет инструментов SDK Azure для VS 2012]
- - [Python 2.7 (32-разрядная версия)]
+ - [Python 2.7 (32-разрядная версия)]
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
@@ -53,7 +53,7 @@
 
   	![Диалоговое окно «Внешние пакеты»](./media/web-sites-python-ptvs-django-mysql/PollsDjangoExternalPackages.png)
 
-1.  Выберите **Python 2.7** в качестве базового интерпретатора.
+1.  Выберите **Python 2.7** в качестве базового интерпретатора.
 
   	![Диалоговое окно «Добавление виртуальной среды»](./media/web-sites-python-ptvs-django-mysql/PollsCommonAddVirtualEnv.png)
 
@@ -95,11 +95,11 @@
 
 1.  Войдите на [портал Azure].
 
-1.  В нижней части области навигации щелкните **СОЗДАТЬ**. Затем нажмите кнопку **Данные + Хранение** > **Azure Marketplace**.
+1.  В нижней части области навигации щелкните **СОЗДАТЬ**. Затем щелкните **Данные + Хранение** > **Azure Marketplace**.
 
   	<!-- ![New Button](./media/web-sites-python-ptvs-django-mysql/PollsCommonAzurePlusNew.png)-->
 
-1.  Введите **mysql** в поле поиска, нажмите кнопку **Базы данных MySQL** и щелкните **Создать**.
+1.  Введите **mysql** в поле поиска, нажмите кнопку **База данных MySQL** и щелкните **Создать**.
 
   	<!-- ![Choose Add-on Dialog](./media/web-sites-python-ptvs-django-mysql/PollsDjangoClearDBAddon1.png) -->
 
@@ -144,11 +144,11 @@
 
   	![Окно консоли управления Django](./media/web-sites-python-ptvs-django-mysql/PollsDjangoConsole.png)
 
-1.  Запустите приложение, нажав клавишу `F5`. Опросы, созданные с помощью действия **Создать примеры опросов** и отправленных данных голосования, будут сериализованы в базе данных MySQL.
+1.  Запустите приложение, нажав клавишу `F5`. Опросы, созданные с помощью команды **Создать примеры опросов** и отправленных данных голосования, будут сериализованы в базе данных MySQL.
 
 ## Публикация веб-приложения в службе приложений Azure
 
-С помощью пакета Azure SDK для .NET можно легко развернуть веб-приложение в службе приложений Azure.
+С помощью пакета SDK для Azure для .NET можно легко развернуть веб-приложение в службе приложений Azure.
 
 1.  В **обозревателе решений** щелкните правой кнопкой мыши узел проекта и выберите **Опубликовать**.
 
@@ -202,7 +202,7 @@
 [Образцы VSIX средств Python 2.1 для Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
 [Пакет инструментов SDK Azure для VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
 [Пакет инструментов SDK Azure для VS 2012]: http://go.microsoft.com/fwlink/?LinkId=323511
-[Python 2.7 (32-разрядная версия)]: http://go.microsoft.com/fwlink/?LinkId=517190
+[Python 2.7 (32-разрядная версия)]: http://go.microsoft.com/fwlink/?LinkId=517190
 [Документация по средствам Python для Visual Studio]: http://pytools.codeplex.com/documentation
 [Удаленная отладка в Microsoft Azure]: http://pytools.codeplex.com/wikipage?title=Features%20Azure%20Remote%20Debugging
 [Веб-проекты]: http://pytools.codeplex.com/wikipage?title=Features%20Web%20Project

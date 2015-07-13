@@ -1,19 +1,3 @@
-<properties 
-   pageTitle="Создание резервной копии"
-   description="Описание процесса определения политики резервного копирования StorSimple."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="04/01/2015"
-   ms.author="v-sharos" />
 
 ### Создание резервной копии
 
@@ -40,4 +24,4 @@
 
 Настройка устройства завершена.
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

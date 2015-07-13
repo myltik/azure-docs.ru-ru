@@ -92,7 +92,7 @@
 
 ### Пример графического Runbook
 
-Можно добавить **Get-AutomationCerticiate** в графический Runbook, щелкнув правой кнопкой мыши сертификат в области «Библиотека» графического редактора и выбрав пункт **Добавить на холст**.
+Можно добавить **Get-AutomationCerticiate** в графический Runbook, щелкнув правой кнопкой мыши сертификат в области "Библиотека" графического редактора и выбрав пункт **Добавить на холст**.
 
 ![](media/automation-certificates/certificate-add-canvas.png)
 
@@ -107,4 +107,4 @@
 
 - [Использование связей при создании графических модулей](automation-graphical-authoring-intro.md#links-and-workflow) 
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

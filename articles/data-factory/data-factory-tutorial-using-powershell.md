@@ -53,8 +53,7 @@ Contoso — это компания, которая создает игры дл
 	
 
 ## Обзор
-Полный рабочий процесс показан ниже:
-	![Полный процесс учебника][image-data-factory-tutorial-end-to-end-flow]
+Полный рабочий процесс показан ниже: ![Полный процесс учебника][image-data-factory-tutorial-end-to-end-flow]
 
 1. Конвейер **PartitionGameLogsPipeline** считывает необработанные события игры из хранилища больших двоичных объектов (RawGameEventsTable) и создает разделы, основываясь на годе, месяце и дне (PartitionedGameEventsTable).
 2. Конвейер **EnrichGameLogsPipeline** объединяет секционированные события игры (таблица PartitionedGameEvents, которая является результатом работы конвейера PartitionGameLogsPipeline) с геокодом (RefGetoCodeDictionaryTable) и дополняет их, сопоставляя IP-адреса с соответствующими географическими расположениями (EnrichedGameEventsTable).
@@ -194,7 +193,7 @@ Contoso — это компания, которая создает игры дл
  
 ## <a name="MainStep3"></a>Шаг 3. Создание связанных служб.
 
-> [AZURE.NOTE] В этой статье Azure PowerShell используется для создания связанных служб, таблиц и конвейеров. Если вы хотите выполнить процедуры, описанные в этом учебнике, с помощью портала Azure, прочитайте [учебник по использованию редактора фабрики данных][adftutorial-using-editor].
+> [AZURE.NOTE]В этой статье Azure PowerShell используется для создания связанных служб, таблиц и конвейеров. Если вы хотите выполнить процедуры, описанные в этом учебнике, с помощью портала Azure, прочитайте [учебник по использованию редактора фабрики данных][adftutorial-using-editor].
 
 В этом шаге вы создадите следующие связанные службы: StorageLinkedService, AzureSqlLinkedService, HDInsightStorageLinkedService и HDInsightLinkedService.
 
@@ -297,7 +296,7 @@ Contoso — это компания, которая создает игры дл
 
 ### Создание таблиц
 
-1.	В Azure PowerShell перейдите к папке **Tables** (**C:ADFWalkthrough\Tables**) из расположения, в которое вы извлекли примеры файлов. 
+1.	В Azure PowerShell перейдите к папке **Tables** (**C:\ADFWalkthrough\Tables**) из расположения, в которое вы извлекли примеры файлов. 
 2.	Воспользуйтесь командлетом **New-AzureDataFactoryTable**, чтобы создать таблицы для файла **RawGameEventsTable.json**, как показано далее.	
 
 
@@ -560,4 +559,4 @@ Contoso — это компания, которая создает игры дл
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial-using-powershell/DataFactoryCreateButton.png
 
-<!----HONumber=58_postMigration-->
+<!---HONumber=62-->

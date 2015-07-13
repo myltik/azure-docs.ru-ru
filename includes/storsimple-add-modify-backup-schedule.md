@@ -1,19 +1,3 @@
-<properties 
-   pageTitle="Добавление или изменение расписания резервного копирования StorSimple "
-   description="В статье рассказывается о том, как с помощью службы диспетчера StorSimple создать и изменить расписание резервного копирования."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/13/2015"
-   ms.author="v-sharos" />
 
 #### Добавление или изменение расписания резервного копирования StorSimple
 
@@ -44,4 +28,4 @@
 Страница **Политики резервного копирования** обновится с учетом сохраненных изменений.
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

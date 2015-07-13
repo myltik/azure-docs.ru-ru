@@ -1178,4 +1178,4 @@ server.get('/tasks', passport.authenticate('provider', { session: false }), list
 [ADAL для .Net](http://msdn.microsoft.com/library/windowsazure/jj573266.aspx)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

@@ -8,6 +8,6 @@
 	- иметь возможность подключения к Azure через порт 5671.
 	- иметь доступ к *имя_узла*: * номер_порта * на компьютере с экземпляром SQL Server.  
 
-	Дополнительные сведения см. [обзор гибридных подключений](../articles/integration-hybrid-connection-overview.md).
+	Дополнительную информацию см. [обзор гибридных подключений](../articles/integration-hybrid-connection-overview.md).
 
 <!---HONumber=62-->

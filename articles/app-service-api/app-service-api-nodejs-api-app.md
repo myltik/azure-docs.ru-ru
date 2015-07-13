@@ -4,8 +4,8 @@
 	services="app-service\api"
 	documentationCenter="nodejs"
 	authors="pkefal"
-	manager=""
-	editor=""/>
+  manager="" 
+  editor=""/>
 
 <tags
 	ms.service="app-service-api"
@@ -24,7 +24,7 @@
 
 ![][sample-api-app-page]
 
-> [AZURE.NOTE]Вы также можете использовать код Visual Studio, чтобы выполнить сборку приложения API Node.js и развернуть его в службе приложений Azure. Дополнительную информацию о коде Visual Studio и Node.js см. в разделе о [коде Visual Studio](http://code.visualstudio.com/Docs/) и [Разработка приложений узла](http://code.visualstudio.com//Docs/nodejs).
+> [AZURE.NOTE]Вы также можете использовать код Visual Studio, чтобы выполнить сборку приложения API Node.js и развернуть его в службе приложений Azure. Дополнительную информацию о коде Visual Studio и Node.js см. в разделах [Код Visual Studio](http://code.visualstudio.com/Docs/) и [Разработка приложений узла](http://code.visualstudio.com//Docs/nodejs).
 
 ## Создание приложения API на портале предварительной версии Azure
 
@@ -88,7 +88,7 @@
 
 	![][deployment-credentials]
 
-1. В колонке **Узел приложения API** щелкните **Параметры > Свойства**. В разделе «URL-адрес GIT» отображается URL-адрес удаленного репозитория Git, в который выполняется развертывание.
+1. В колонке **Узел приложения API** щелкните **Параметры > Свойства**. В разделе "URL-адрес GIT" отображается URL-адрес удаленного репозитория Git, в который выполняется развертывание.
 
 2. Скопируйте URL-адрес для дальнейшего использования в этом учебнике.
 
@@ -163,7 +163,7 @@
 
 ## Публикация кода приложения API в службе приложений Azure
 
-В этом разделе создается локальный репозиторий Git и выполняется принудительная отправка данных из этого репозитория в Azure для развертывания примера приложения в приложение API, работающее в службе приложений Azure.
+В этом разделе создается локальный репозиторий Git и выполняется принудительная отправка данных из этого репозитория в Azure для развертывания образца приложения в приложение API, работающее в службе приложений Azure.
 
 1. Если Git не установлен, установите его со [страницы загрузки Git](http://git-scm.com/download%20target="_blank").
 
@@ -201,7 +201,7 @@
 
 	![](./media/app-service-api-nodejs-api-app/clickgateway.png)
 
-7. В колонке **Шлюз** выберите команду **Перезапуск**. Теперь можно закрыть эту колонку.
+7. В колонке **Шлюз** щелкните **Перезапуск**. Теперь можно закрыть эту колонку.
 
 	![](./media/app-service-api-nodejs-api-app/gatewayrestart.png)
 
@@ -219,7 +219,7 @@
 
 ![][browse-api-app-page]
 
-Браузер отобразит домашнюю страницу, которую вы видели ранее при запуске примера приложения локально.
+Браузер отобразит домашнюю страницу, которую вы видели ранее при запуске образца приложения локально.
 
 [AZURE.INCLUDE [app-service-api-direct-deploy-metadata](../../includes/app-service-api-direct-deploy-metadata.md)]
 
@@ -227,7 +227,7 @@
 
 Вы развернули веб-приложение Node.js, которое использует серверную часть приложения API в Azure. Дополнительные сведения об использовании Node.js в Azure см. в разделе [Центр разработчиков Node.js](/develop/nodejs/).
 
-* Этот пример приложения можно попробовать использовать в [службе TryApp](http://tryappservice.azure.com)
+* Этот образец приложения API можно попробовать использовать в [службе TryApp](http://tryappservice.azure.com)
 
 [portal-quick-create]: ./media/app-service-api-nodejs-api-app/portal-quick-create.png
 [portal-create-api]: ./media/app-service-api-nodejs-api-app/portal-create-api.png

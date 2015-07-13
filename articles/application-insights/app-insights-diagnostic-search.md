@@ -87,7 +87,7 @@
 
 ![Выберите значение](./media/app-insights-diagnostic-search/05-reqDetails.png)
 
-Для событий "Запросы"  отображаются сведения об исключениях, возникших во время обработки запроса.
+Для событий "Запросы" отображаются сведения об исключениях, возникших во время обработки запроса.
 
 Для просмотра сведений об исключении щелкните его.
 
@@ -107,7 +107,7 @@
 
 
 
-## <a name="search"></a>Поиск данных
+## Поиск данных
 
 В любом из значений свойств можно искать слова. Это особенно полезно, если вы написали [пользовательские события][track] со значениями свойств.
 
@@ -180,8 +180,6 @@ database*|Находит database, database01, databaseNNNN<br/>Подстано
 
 
 
-
-
 <!--Link references-->
 
 [availability]: app-insights-monitor-web-app-availability.md
@@ -192,5 +190,6 @@ database*|Находит database, database01, databaseNNNN<br/>Подстано
 [trace]: app-insights-search-diagnostic-logs.md
 [track]: app-insights-custom-events-metrics-api.md
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

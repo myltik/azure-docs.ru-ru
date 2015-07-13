@@ -104,7 +104,7 @@
 
   	![Диалоговое окно «Сведения о подключении»](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonMongoLabConnectionInfo.png)
 
-1.  В Visual Studio в обозревателе решений щелкните правой кнопкой мыши узел проекта и выберите **Свойства**. Откройте вкладку **Отладка**.
+1.  В Visual Studio щелкните правой кнопкой мыши узел проекта в обозревателе решений и выберите **Свойства**. Откройте вкладку **Отладка**.
 
   	![Параметры отладки проекта](./media/web-sites-python-ptvs-flask-mongodb/PollsFlaskMongoDBProjectDebugSettings.png)
 

@@ -21,9 +21,9 @@
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-push-preview](../../includes/app-service-mobile-selector-get-started-push-preview.md)]
 
-В этой статье объясняется, как добавить push-уведомления в [проект быстрого запуска](app-service-mobile-dotnet-backend-ios-get-started-preview.md), чтобы ваша мобильная служба отправляла push-уведомление каждый раз при вставке записи. Сначала необходимо выполнить инструкции, описанные в статье [Создание приложения для iOS].
+В этом разделе показано, как добавить push-уведомления в [проект быстрого запуска](app-service-mobile-dotnet-backend-ios-get-started-preview.md), чтобы ваша мобильная служба отправляла push-уведомление при каждой вставке записи. Сначала необходимо выполнить действия, описанные в разделе [Приступая к работе с мобильными приложениями].
 
-> [AZURE.NOTE][Эмулятор iOS не поддерживает push-уведомления](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html), поэтому необходимо использовать физическое устройство iOS. Вам также потребуется платная подписка на [программу для разработчиков Apple Developer Program](https://developer.apple.com/programs/ios/).
+> [AZURE.NOTE][Симулятор iOS не поддерживает push-уведомления](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html), поэтому необходимо использовать физическое устройство под управлением iOS. Вам также необходимо оплатить подписку для [участия в программе разработки решений для Apple](https://developer.apple.com/programs/ios/).
 
 [AZURE.INCLUDE [Включение push-уведомлений Apple](../../includes/enable-apple-push-notifications.md)]
 
@@ -51,7 +51,7 @@
         NotificationHubClient Hub = NotificationHubClient.CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
 
         // iOS payload
-        var appleNotificationPayload = "{\"aps\":{\"alert\":\"" + item.Text + "\"}}";
+        var appleNotificationPayload = "{"aps":{"alert":"" + item.Text + ""}}";
 
         await Hub.SendAppleNativeNotificationAsync(appleNotificationPayload);
 ```
@@ -118,7 +118,7 @@
 [Azure Notification Hubs Nuget]: https://www.nuget.org/packages/WindowsAzure.ServiceBus/
 [Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
 [Get started with Mobile Services]: ../mobile-services-dotnet-backend-ios-get-started.md
-[Создание приложения для iOS]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
+[Приступая к работе с мобильными приложениями]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
 [Azure Management Portal]: https://manage.windowsazure.com/
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
  

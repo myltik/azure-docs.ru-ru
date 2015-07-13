@@ -21,7 +21,7 @@
 		    }
 		}
 
-Обратите внимание на конечную точку `apiDefinition` `/swagger/docs/v1`. По умолчанию в проектах приложения API используется пакет NuGet [Swashbuckle](https://www.nuget.org/packages/Swashbuckle), который обеспечивает функцию автоматического создания метаданных [Swagger](http://swagger.io/).
+Обратите внимание на конечную `apiDefinition` точку `/swagger/docs/v1`. По умолчанию в проектах приложения API используется пакет NuGet [Swashbuckle](https://www.nuget.org/packages/Swashbuckle), который обеспечивает функцию автоматического создания метаданных [Swagger](http://swagger.io/).
 
 Для этого учебника можно принять значения по умолчанию. В разделе [Метаданные приложения API](#api-app-metadata) ниже объясняется, как настроить эти метаданные.
 

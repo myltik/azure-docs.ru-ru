@@ -51,7 +51,7 @@
 
 * В программный код устройства или веб-сервера необходимо добавить:
 
-    *C\#:* `using Microsoft.ApplicationInsights;`
+    *C#:* `using Microsoft.ApplicationInsights;`
 
     *VB:* `Imports Microsoft.ApplicationInsights`
 
@@ -61,7 +61,7 @@
 
 Создайте экземпляр TelemetryClient (за исключением JavaScript на веб-страницах):
 
-*C\#:*
+*C#:*
 
     private TelemetryClient telemetry = new TelemetryClient();
 
@@ -91,7 +91,7 @@
 
     appInsights.trackEvent("WinGame");
 
-*C\#*
+*C#*
     
     telemetry.TrackEvent("WinGame");
 
@@ -147,7 +147,7 @@
          {Score: currentGame.score, Opponents: currentGame.opponentCount}
          );
 
-*C\#*
+*C#*
 
     // Set up some properties and metrics:
     var properties = new Dictionary <string, string> 
@@ -236,7 +236,7 @@
 Иногда требуется отобразить на диаграмме продолжительность выполнения некоторых действий. Например, может понадобиться определить, сколько времени требуется пользователю для выбора решения в игре. Это полезный пример использования параметра измерения.
 
 
-*C\#*
+*C#*
 
     var stopwatch = System.Diagnostics.Stopwatch.StartNew();
 
@@ -269,7 +269,7 @@
 
     appInsights.trackMetric("Queue", queue.Length);
 
-*C\#*
+*C#*
 
     telemetry.TrackMetric("Queue", queue.Length);
 
@@ -283,7 +283,7 @@
 
 На самом деле это можно выполнить в фоновом потоке:
 
-*C\#*
+*C#*
 
     private void Run() {
      var appInsights = new TelemetryClient();
@@ -314,7 +314,7 @@
 
     appInsights.trackPageView("tab1");
 
-*C\#*
+*C#*
 
     telemetry.TrackPageView("GameReviewPage");
 
@@ -348,7 +348,7 @@
 
 Его можно также вызвать самостоятельно, чтобы смодулировать запросы в контексте, в котором отсутствует выполняющийся модуль веб-службы.
 
-*C\#*
+*C#*
 
     // At start of processing this request:
 
@@ -369,7 +369,7 @@
 
 Отправляйте исключения в Application Insights, чтобы [вычислить их количество][metrics], что может указывать на частоту возникновения проблемы, и чтобы[проверить отдельные вхождения][diagnostic].
 
-*C\#*
+*C#*
 
     try
     {
@@ -392,7 +392,7 @@
 [Адаптеры журнала][trace] используют этот API для отправки журналов сторонних производителей на портал.
 
 
-*C\#*
+*C#*
 
     telemetry.TrackTrace(message, SeverityLevel.Warning, properties);
 
@@ -405,7 +405,7 @@
 
 Как правило, идентифицируется телеметрия из разных версий или компонентов приложения. На портале можно фильтровать или группировать результаты по этому свойству.
 
-*C\#*
+*C#*
 
     // Telemetry initializer class
     public class MyTelemetryInitializer : IContextInitializer
@@ -449,7 +449,7 @@
 
 Вместо получения ключа инструментирования из файла конфигурации можно задать его в коде. Задайте ключ в методе инициализации, таком как global.aspx.cs, в службе ASP.NET:
 
-*C\#*
+*C#*
 
     protected void Application_Start()
     {
@@ -484,7 +484,7 @@
 
 Если требуется задать значения свойств по умолчанию для некоторых создаваемых пользовательских событий, это можно сделать в классе TelemetryClient. Они прикреплены к каждому элементу телеметрии, отправляемой из этого клиента.
 
-*C\#*
+*C#*
 
     using Microsoft.ApplicationInsights.DataContracts;
 
@@ -519,7 +519,7 @@
 
 ## <a name="ikey"></a> Установка ключа инструментирования для выбранной пользовательской телеметрии
 
-*C\#*
+*C#*
     
     var telemetry = new TelemetryClient();
     telemetry.Context.InstrumentationKey = "---my key---";
@@ -529,7 +529,7 @@
 
 Обычно пакет SDK отправляет данные в момент времени выбранный, чтобы свести влияние на пользователя к минимуму. Однако в некоторых случаях может потребоваться очистить буфер, например, при использовании пакета SDK в приложении, которое завершает работу.
 
-*C\#*
+*C#*
 
     telemetry.Flush();
 
@@ -549,7 +549,7 @@
 Во время отладки полезно передавать телеметрию через конвейер, чтобы результаты можно было увидеть немедленно. Кроме того, вы можете получать дополнительные сообщения, которые помогают трассировать любые проблемы с телеметрией. Отключите этот режим в рабочей среде, так как он может замедлить работу приложения.
 
 
-*C\#*
+*C#*
     
     TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = true;
 

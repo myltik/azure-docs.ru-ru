@@ -15,7 +15,7 @@
 
 5. В разделе *defaultConfig* измените значение *minSdkVersion* на 9.
  
-6. Нажмите кнопку **Синхронизировать проект с файлами Gradle** на панели инструментов.
+6. Щелкните значок **Sync Project with Gradle Files** (Синхронизировать проект с файлами Gradle) на панели инструментов.
 
 7. Откройте файл **AndroidManifest.xml** и добавьте этот тег к тегу *application*.
 
@@ -23,8 +23,4 @@
             android:value="@integer/google_play_services_version" />
  
 
-
-
-
-
-<!--HONumber=54-->
+<!---HONumber=62-->

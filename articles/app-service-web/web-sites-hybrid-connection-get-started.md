@@ -88,14 +88,21 @@
 	
 5. На выноске «Создание гибридного подключения» щелкните кнопку **ОК**.
 	
-	![Щелкните кнопку «ОК»][CreateBTScomplete]
+	![Нажмите кнопку "ОК"][CreateBTScomplete]
 	
-6. По завершении процесса в области "Уведомления" на портале появится сообщение, что подключение успешно создано.
+6. После завершения процесса в области уведомлений на портале появится сообщение об успешном создании подключения.
 	<!-- TODO
 
-    На этом шаге ничего не получается. У меня не получается создать службу BizTalk на тестовой версии портала. Я переключился на старый портал (полная версия портала) и создал службу BizTalk, но, кажется, она не позволяет подключить их. По завершении шага создания гибридного подключения открывается сообщение об ошибке "Не удалось создать гибридное подключение RelecIoudHC". Тип ресурса не удалось найти в пространстве имен "Microsoft.BizTaIkServices для API-интерфейса версии 2014-06-01".
-	
-	Ошибка указывает, что невозможно найти тип, а не экземпляр. ![Уведомление о выполнении][CreateHCSuccessNotification] -->
+Everything fails at this step. I can't create a BizTalk service in the dogfood portal. I switch to the old portal
+(full portal) and created the BizTalk service but it doesn't seem to let you connnect them - When you finish the
+Create hybrid conn step, you get the following error
+Failed to create hybrid connection RelecIoudHC. The 
+resource type could not be found in the namespace 
+'Microsoft.BizTaIkServices for api version 2014-06-01'.
+
+The error indicates it couldn't find the type, not the instance.
+![Success notification][CreateHCSuccessNotification]
+-->
 7. Теперь в колонке веб-приложения значок **Гибридные подключения** показывает, что создано одно гибридное подключение.
 	
 	![Создано одно гибридное подключение][CreateHCOneConnectionCreated]
@@ -198,5 +205,6 @@
 [HCMInstalling]: ./media/web-sites-hybrid-connection-get-started/D08HCMInstalling.png
 [HCMInstallComplete]: ./media/web-sites-hybrid-connection-get-started/D09HCMInstallComplete.png
 [HCStatusConnected]: ./media/web-sites-hybrid-connection-get-started/D10HCStatusConnected.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->
