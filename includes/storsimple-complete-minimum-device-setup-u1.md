@@ -1,20 +1,3 @@
-<properties 
-   pageTitle="Минимальная настройка устройства"
-   description="Содержит описание способов выполнения минимальной настройки устройства StorSimple."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/21/2015"
-   ms.author="v-sharos" />
-
 #### Минимальная настройка устройства StorSimple
 
 1. Выберите устройство и нажмите кнопку **Быстрый запуск**. Щелкните **Настройка устройства** для запуска мастера настройки устройства.
