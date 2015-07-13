@@ -3,7 +3,6 @@
 	description="Узнайте, как использовать мобильные службы для отправки образов в хранилище BLOB-объектов Azure." 
 	documentationCenter="windows" 
 	authors="ggailey777" 
-	writer="glenga" 
 	services="mobile-services,storage" 
 	manager="dwrede" 
 	editor=""/>
@@ -11,28 +10,24 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/26/2015" 
+	ms.date="06/04/2015" 
 	ms.author="glenga"/>
 
 # Отправка образов в хранилище Azure с помощью мобильных служб
 
 [AZURE.INCLUDE [mobile-services-selector-upload-data-blob-storage](../../includes/mobile-services-selector-upload-data-blob-storage.md)]
 
+##Обзор
 В этом разделе показано, как использовать мобильные службы Azure, чтобы передавать и сохранять созданные изображения в хранилище Azure через свое приложение. Для хранения данных мобильные службы используют базу данных SQL. Однако данные больших двоичных объектов (BLOB) более эффективно хранить в службе хранения BLOB-объектов Azure.
 
 Невозможно безопасно передать в клиентском приложении учетные данные, необходимые для безопасной передачи данных в службу хранения BLOB-объектов. Вместо этого необходимо сохранить эти учетные данные в мобильной службе и использовать их для создания подписи общего доступа (SAS), которая используется для передачи нового изображения. Подпись общего доступа является типом учетных данных с быстрым окончанием срока действия, в данном случае это 5 минут. Она безопасно возвращается мобильными службами в клиентское приложение. Затем приложение использует эти временные учетные данные для передачи изображения. В этом примере файлы, загружаемые из службы BLOB-объектов, являются общедоступными.
 
-В этом учебнике вы добавите некоторые функциональные возможности к быстрому запуску мобильных служб для съемки фотографий и передачи изображений в Azure с помощью учетных данных SAS, созданных мобильными службами. Этот учебник поможет выполнить следующие базовые действия для обновления быстрого запуска мобильных служб, что позволит передавать изображения в службу хранения BLOB-объектов:
+В этом учебнике вы добавите некоторые функциональные возможности к учебному приложению мобильных служб для съемки фотографий и передачи изображений в Azure с помощью учетных данных SAS, созданных мобильными службами.
 
-1. [Установка библиотеки клиента хранилища]
-2. [Обновление клиентского приложения для захвата изображений]
-3. [Установка клиента хранилища в проекте мобильной службы]
-4. [Обновление определения TodoItem в модели данных]
-5. [Обновление контроллера таблицы для создания учетных данных SAS]
-6. [Передача изображений для проверки приложения]
+##Предварительные требования
 
 Для работы с данным учебником требуется следующее:
 
@@ -52,7 +47,7 @@
 
 2. В левой области выберите категорию **Интернет**, выберите **Включить предварительный выпуск**, выполните поиск пакета **WindowsAzure.Storage-Preview**, щелкните **Установить** для пакета **Хранилище Windows Azure**, затем примите условия лицензионных соглашений.
 
-  	![][2]
+  	![Добавление пакета NuGet хранилища Azure](./media/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage/mobile-add-storage-nuget-package-dotnet.png)
 
   	Это приведет к добавлению в проект библиотеки клиента для служб хранилища Azure.
 
@@ -62,16 +57,15 @@
 
  
 <!-- Anchors. -->
-[Установка библиотеки клиента хранилища]: #install-storage-client
-[Обновление клиентского приложения для захвата изображений]: #add-select-images
-[Установка клиента хранилища в проекте мобильной службы]: #storage-client-server
-[Обновление определения TodoItem в модели данных]: #update-data-model
-[Обновление контроллера таблицы для создания учетных данных SAS]: #update-scripts
-[Передача изображений для проверки приложения]: #test
+[Install the Storage Client library]: #install-storage-client
+[Update the client app to capture images]: #add-select-images
+[Install the storage client in the mobile service project]: #storage-client-server
+[Update the TodoItem definition in the data model]: #update-data-model
+[Update the table controller to generate an SAS]: #update-scripts
+[Upload images to test the app]: #test
 [Next Steps]: #next-steps
 
 <!-- Images. -->
-[2]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage/mobile-add-storage-nuget-package-dotnet.png
 
 <!-- URLs. -->
 [Send email from Mobile Services with SendGrid]: store-sendgrid-mobile-services-send-email-scripts.md
@@ -85,5 +79,6 @@
 [Windows Phone SDK 8.0]: http://www.microsoft.com/download/details.aspx?id=35471
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

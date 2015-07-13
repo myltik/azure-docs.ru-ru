@@ -13,62 +13,62 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2015" 
+	ms.date="06/05/2015" 
 	ms.author="juliako"/>
 
 
 
-#Динамическое шифрование. Настройка политики авторизации ключа содержимого 
-[AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)] 
+#Динамическое шифрование: настройка политики авторизации ключа содержимого 
+[AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
 
-Это одна из статей серии [Рабочий процесс для видео по запросу в службах мультимедиа](media-services-video-on-demand-workflow.md) и серии [Рабочий процесс для потоковой передачи в службах мультимедиа](media-services-live-streaming-workflow.md). 
+Это одна из статей циклов [Рабочий процесс для видео по запросу в службах мультимедиа](media-services-video-on-demand-workflow.md) и [Рабочий процесс для потоковой передачи в службах мультимедиа](media-services-live-streaming-workflow.md).
 
 ##Обзор
 
-Службы мультимедиа Microsoft Azure позволяют доставлять содержимое, зашифрованное (динамически) с помощью AES (с использованием 128-битных ключей шифрования) и PlayReady DRM. Они также обеспечивают службы доставки ключей и лицензий PlayReady авторизованным клиентам. 
+Службы мультимедиа Microsoft Azure позволяют доставлять содержимое, зашифрованное (динамически) с помощью AES (с использованием 128-битных ключей шифрования) и PlayReady DRM. Они также обеспечивают службы доставки ключей и лицензий PlayReady авторизованным клиентам.
 
-Если необходимо, чтобы службы мультимедиа зашифровали ресурс, необходимо связать ключ шифрования (**CommonEncryption** или **EnvelopeEncryption**) с ресурсом (как описано [здесь](media-services-rest-create-contentkey.md)), а также настроить политики авторизации ключа (как описано в этой статье). 
+Если необходимо, чтобы службы мультимедиа зашифровали ресурс, необходимо связать ключ шифрования (**CommonEncryption** или **EnvelopeEncryption**) с ресурсом (как описано [здесь](media-services-rest-create-contentkey.md)), а также настроить политики авторизации ключа (как описано в этой статье).
 
 В настоящее время поддерживается шифрование для следующих форматов потоковой передачи: HLS, MPEG DASH и Smooth Streaming. Шифрование формата потоковой передачи HDS и последовательных скачиваний не поддерживается.
 
 Когда поток запрашивается проигрыватель, службы мультимедиа используют указанный ключ для динамического шифрования содержимого с помощью шифрования AES или PlayReady. Чтобы расшифровать поток, проигрыватель запросит ключ у службы доставки ключей. Чтобы определить, есть ли у пользователя право на получение ключа, служба оценивает политики авторизации, заданные для ключа.
 
-Службы мультимедиа поддерживают несколько способов аутентификации пользователей, которые запрашивают ключи. Для политики авторизации ключа содержимого можно задать одно или несколько ограничений авторизации: **открытая**, **по маркеру** или **IP**. При ограничении по маркеру к политике должен прилагаться маркер, выданный службой маркеров безопасности (STS). Службы мультимедиа поддерживают маркеры в формате **простого веб-маркера** ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) и формате **веб-маркера JSON** (JWT).  
+Службы мультимедиа поддерживают несколько способов аутентификации пользователей, которые запрашивают ключи. Политики авторизации ключа содержимого могут иметь одно или несколько ограничений аутентификации: **открытый**, ограничение по **токену** или ограничение по **IP-адресу**. При ограничении по маркеру к политике должен прилагаться маркер, выданный службой маркеров безопасности (STS). Службы мультимедиа поддерживают маркеры в формате **простого веб-токена** ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) и формате **веб-маркера JSON (**JWT).
 
 Службы мультимедиа не предоставляют службы маркеров безопасности. Для выдачи маркеров можно создать пользовательскую службу STS или использовать службу Microsoft Azure ACS. Чтобы создать маркер, подписанный указанным ключом, и получить утверждения, указанные в конфигурации ограничения по маркерам, должна быть настроена служба маркеров безопасности (как описано в этой статье). Служба доставки ключей служб мультимедиа возвращает клиенту ключ шифрования, если маркер является допустимым и утверждения маркера соответствуют утверждениям, настроенным для ключа содержимого.
 
-Дополнительную информацию см. в разделе 
+Дополнительную информацию см. в разделе
 
-[Аутентификация по маркерам JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
+[Аутентификация по токенам JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
 
-[Интеграция приложения на основе OWIN MVC служб мультимедиа Azure с Azure Active Directory и ограничение доставки ключа содержимого на основе утверждений JWT](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
+[Интегрируйте приложение на основе OWIN MVC служб мультимедиа Azure с Azure Active Directory и ограничьте доставку ключей содержимого на основе утверждений JWT](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
 
-[Использования Azure ACS для выдачи маркеров](http://mingfeiy.com/acs-with-key-services).
+[Используйте Azure ACS для выдачи токенов](http://mingfeiy.com/acs-with-key-services).
 
 ###Важные особенности
 
-- Чтобы иметь возможность использовать динамическую упаковку и динамическое шифрование, необходимо иметь по крайней мере одну зарезервированную единицу потоковой передачи. Дополнительные сведения см. в разделе [Масштабирование службы мультимедиа](media-services-manage-origins.md#scale_streaming_endpoints). 
-- Ресурс должен содержать набор MP4-файлов с адаптивной скоростью или файлов Smooth Streaming с адаптивной скоростью. Дополнительные сведения см. в разделе [Кодирование ресурса](media-services-encode-asset.md).  
+- Чтобы иметь возможность использовать динамическую упаковку и динамическое шифрование, необходимо иметь по крайней мере одну зарезервированную единицу потоковой передачи. Дополнительную информацию см. в разделе [Масштабирование службы мультимедиа](media-services-manage-origins.md#scale_streaming_endpoints). 
+- Ресурс должен содержать набор MP4-файлов с адаптивной скоростью или файлов Smooth Streaming с адаптивной скоростью. Дополнительную информацию см. в разделе [Кодирование ресурса](media-services-encode-asset.md).  
 - Отправляйте и кодируйте ресурсы с помощью параметра **AssetCreationOptions.StorageEncrypted**.
 - Если вы планируете использовать несколько ключей содержимого, для которых требуется одинаковая конфигурация политики, настоятельно рекомендуется создать единую политику авторизации и повторно использовать ее с несколькими ключами содержимого.
-- Служба доставки ключей кэширует политику ContentKeyAuthorizationPolicy и связанные с ней объекты (параметры и ограничения политики) за 15 минут.  Если создать политику ContentKeyAuthorizationPolicy и задать для нее ограничение "по маркеру", а затем протестировать ее, то последующее обновление для использования ограничения "открытая" займет примерно 15 минут.
+- Служба доставки ключей кэширует политику ContentKeyAuthorizationPolicy и связанные с ней объекты (параметры и ограничения политики) за 15 минут. Если создать политику ContentKeyAuthorizationPolicy и задать для нее ограничение «по маркеру», а затем протестировать ее, то последующее обновление для использования ограничения «открытая» займет примерно 15 минут.
 - При добавлении или обновлении политики доставки ресурсов необходимо удалить существующий указатель (если он есть) и создать новый.
 
 
 ##Динамическое шифрование AES-128 
 
->[AZURE.NOTE] При работе с REST API служб мультимедиа следует руководствоваться следующими рекомендациями.
+>[AZURE.NOTE]При работе с REST API служб мультимедиа следует руководствоваться следующими рекомендациями.
 >
->При доступе к сущностям в службах мультимедиа необходимо задать определенные поля и значения заголовков в HTTP-запросах. Дополнительные сведения см. в разделе [Настройка для разработки REST API служб мультимедиа(media-services-rest-how-to-use.md).
+>При доступе к сущностям в службах мультимедиа необходимо задать определенные поля и значения заголовков в HTTP-запросах. Дополнительную информацию см. в разделе [Настройка для разработки REST API служб мультимедиа](media-services-rest-how-to-use.md).
 
->После успешного подключения к https://media.windows.net вы получите ошибку 301 (перенаправление), в которой будет указан другой URI служб мультимедиа. Последующие вызовы необходимо осуществлять к новому URI, как описано в статье [Подключение к службам мультимедиа с помощью REST API](media-services-rest-connect_programmatically.md). 
+>После успешного подключения к https://media.windows.net вы получите ошибку 301 (перенаправление), в которой будет указан другой универсальный код ресурса (URI) служб мультимедиа. Последующие вызовы необходимо осуществлять к новому универсальному коду ресурса (URI), как описано в статье [Подключение к службам мультимедиа с помощью REST API](media-services-rest-connect_programmatically.md).
 
 
-###Ограничение "открытая"
+###Ограничение «открытая»
 
 Ограничение открытого типа означает, что система будет доставлять ключ всем, кто его запросит. Это ограничение подходит для тестирования.
 
-В следующем примере создается политика авторизации типа "открытая", которая затем добавляется в ключ содержимого.
+В следующем примере создается политика авторизации типа «открытая», которая затем добавляется в ключ содержимого.
 
 ####<a id="ContentKeyAuthorizationPolicies"></a>Создание ContentKeyAuthorizationPolicies
 
@@ -80,10 +80,8 @@
 	MaxDataServiceVersion: 3.0;NetFx
 	Accept: application/json
 	Accept-Charset: UTF-8
-	User-Agent: Microsoft ADO.NET Data Services
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=bbbef702-e769-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423578086&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=lZlyQ2%2bvH73qtJsb42%2fH3xF7r7EvQFR3UXyezuDENFU%3d
-	x-ms-version: 2.8
-	UserAgent: Azure Media Services .NET SDK v3.1.0.1
+	x-ms-version: 2.11
 	x-ms-client-request-id: d732dbfa-54fc-474c-99d6-9b46a006f389
 	Host: wamsbayclus001rest-hs.cloudapp.net
 	Content-Length: 36
@@ -119,17 +117,15 @@
 	MaxDataServiceVersion: 3.0;NetFx
 	Accept: application/json
 	Accept-Charset: UTF-8
-	User-Agent: Microsoft ADO.NET Data Services
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=bbbef702-e769-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423580006&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=Ref3EsonGF7fUKCwGwGgiMnZitzIzsDOvvMTeVrVVPg%3d
-	x-ms-version: 2.8
-	UserAgent: Azure Media Services .NET SDK v3.1.0.1
+	x-ms-version: 2.11
 	x-ms-client-request-id: d225e357-e60e-4f42-add8-9d93aba1409a
 	Host: wamsbayclus001rest-hs.cloudapp.net
 	Content-Length: 168
 	
 	{"Name":"policy","KeyDeliveryType":2,"KeyDeliveryConfiguration":"","Restrictions":[{"Name":"HLS Open Authorization Policy","KeyRestrictionType":0,"Requirements":null}]}
 
-Ответ:	
+Ответ:
 	
 	HTTP/1.1 201 Created
 	Cache-Control: no-cache
@@ -148,7 +144,7 @@
 	
 	{"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#ContentKeyAuthorizationPolicyOptions/@Element","Id":"nb:ckpoid:UUID:57829b17-1101-4797-919b-f816f4a007b7","Name":"policy","KeyDeliveryType":2,"KeyDeliveryConfiguration":"","Restrictions":[{"Name":"HLS Open Authorization Policy","KeyRestrictionType":0,"Requirements":null}]}
 
-####<a id="LinkContentKeyAuthorizationPoliciesWithOptions"></a>Привязка ContentKeyAuthorizationPolicies with Options
+####<a id="LinkContentKeyAuthorizationPoliciesWithOptions"></a>Привязка ContentKeyAuthorizationPolicies к Options
 
 Запрос:
 	
@@ -158,10 +154,8 @@
 	Accept: application/json
 	Accept-Charset: UTF-8
 	Content-Type: application/json
-	User-Agent: Microsoft ADO.NET Data Services
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423580006&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=Ref3EsonGF7fUKCwGwGgiMnZitzIzsDOvvMTeVrVVPg%3d
-	x-ms-version: 2.8
-	UserAgent: Azure Media Services .NET SDK v3.1.0.1
+	x-ms-version: 2.11
 	x-ms-client-request-id: 9847f705-f2ca-4e95-a478-8f823dbbaa29
 	Host: wamsbayclus001rest-hs.cloudapp.net
 	Content-Length: 154
@@ -182,10 +176,8 @@
 	MaxDataServiceVersion: 3.0;NetFx
 	Accept: application/json
 	Accept-Charset: UTF-8
-	User-Agent: Microsoft ADO.NET Data Services
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423581565&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=JiNSG3w6r2C0nIyfKvTZj1uPJGjuitD%2b0sbfZ%2b2JDZI%3d
-	x-ms-version: 2.8
-	UserAgent: Azure Media Services .NET SDK v3.1.0.1
+	x-ms-version: 2.11
 	x-ms-client-request-id: e613efff-cb6a-41b4-984a-f4f8fb6e76a4
 	Host: wamsbayclus001rest-hs.cloudapp.net
 	Content-Length: 78
@@ -196,13 +188,13 @@
 
 	HTTP/1.1 204 No Content
 
-###Ограничение "по маркеру"
+###Ограничение «по маркеру»
 
 В этом разделе рассказывается о том, как создать политику авторизации ключа содержимого и связать ее с ключом содержимого. Политика авторизации определяет, какие требования авторизации должны быть удовлетворены, чтобы у пользователя было право на получения ключа (например, должен ли список ключей проверки содержать ключ, с помощью которого был подписан маркер).
 
 Чтобы настроить параметр ограничения маркера, необходимо использовать XML для описания требований к авторизации маркера. XML-файл конфигурации ограничений по маркеру должен соответствовать следующей схеме XML.
 
-####<a id="schema"></a>Схема ограничения "по маркеру"
+####<a id="schema"></a>Схема ограничения «по токену»
 	
 	<?xml version="1.0" encoding="utf-8"?>
 	<xs:schema xmlns:tns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
@@ -251,13 +243,13 @@
 	  <xs:element name="SymmetricVerificationKey" nillable="true" type="tns:SymmetricVerificationKey" />
 	</xs:schema>
 
-При настройке политики ограничения по **маркеру** необходимо задать такие параметры, как **основной ключ проверки**, **издатель** и **аудитория**. **Основной ключ проверки** содержит ключ, которым подписан маркер, а **издатель** - это служба маркеров безопасности, которая выдает маркер. **Аудитория** (иногда называется **областью**) описывает назначение маркера или ресурс, доступ к которому обеспечивает маркер. Служба доставки ключей служб мультимедиа проверяет, соответствуют ли эти значения в маркере значениям в шаблоне. 
+При настройке политики ограничения **по токену** необходимо задать такие параметры, как **основной ключ проверки**, **издатель** и **аудитория**. **Основной ключ проверки **содержит ключ, которым подписан токен, а **издатель** — это служба токенов безопасности, которая выдает токен. **Аудитория** (иногда называется **областью**) описывает назначение токена или ресурс, доступ к которому обеспечивает токен. Служба доставки ключей служб мультимедиа проверяет, соответствуют ли эти значения в токене значениям в шаблоне. 
 
-В следующем примере создается политика авторизации с ограничением "по маркеру". В этом примере клиенту нужно будет предоставить маркер, в котором содержатся: ключ подписывания (VerificationKey), поставщик маркера и требуемые утверждения.
+В следующем примере создается политика авторизации с ограничением «по маркеру». В этом примере клиенту нужно будет предоставить маркер, в котором содержатся: ключ подписывания (VerificationKey), поставщик маркера и требуемые утверждения.
 	
 ###Создание ContentKeyAuthorizationPolicies
 
-Создайте "политику ограничения по маркеру", как показано [здесь](#ContentKeyAuthorizationPolicies).
+Создайте «политику ограничения по маркеру», как показано [здесь](#ContentKeyAuthorizationPolicies).
 
 
 ###Создание ContentKeyAuthorizationPolicyOptions
@@ -270,17 +262,15 @@
 	MaxDataServiceVersion: 3.0;NetFx
 	Accept: application/json
 	Accept-Charset: UTF-8
-	User-Agent: Microsoft ADO.NET Data Services
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=bbbef702-e769-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423580720&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=5LsNu%2b0D4eD3UOP3BviTLDkUjaErdUx0ekJ8402xidQ%3d
-	x-ms-version: 2.8
-	UserAgent: Azure Media Services .NET SDK v3.1.0.1
+	x-ms-version: 2.11
 	x-ms-client-request-id: 2643d836-bfe7-438e-9ba2-bc6ff28e4a53
 	Host: wamsbayclus001rest-hs.cloudapp.net
 	Content-Length: 1079
 	
 	{"Name":"Token option for HLS","KeyDeliveryType":2,"KeyDeliveryConfiguration":null,"Restrictions":[{"Name":"Token Authorization Policy","KeyRestrictionType":1,"Requirements":"<TokenRestrictionTemplate xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1"><AlternateVerificationKeys><TokenVerificationKey i:type="SymmetricVerificationKey"><KeyValue>BklyAFiPTQsuJNKriQJBZHYaKM2CkCTDQX2bw9sMYuvEC9sjW0W7GUIBygQL/+POEeUqCYPnmEU2g0o1GW2Oqg==</KeyValue></TokenVerificationKey></AlternateVerificationKeys><Audience>urn:test</Audience><Issuer>http://testacs.com/</Issuer><PrimaryVerificationKey i:type="SymmetricVerificationKey"><KeyValue>E5BUHiN4vBdzUzdP0IWaHFMMU3D1uRZgF16TOhSfwwHGSw+Kbf0XqsHzEIYk11M372viB9vbiacsdcQksA0ftw==</KeyValue></PrimaryVerificationKey><RequiredClaims><TokenClaim><ClaimType>urn:microsoft:azure:mediaservices:contentkeyidentifier</ClaimType><ClaimValue i:nil="true" /></TokenClaim></RequiredClaims><TokenType>SWT</TokenType></TokenRestrictionTemplate>"}]}
 
-Ответ:	
+Ответ:
 	
 	HTTP/1.1 201 Created
 	Cache-Control: no-cache
@@ -310,15 +300,15 @@
 
 ##Динамическое шифрование на основе PlayReady 
 
-Службы мультимедиа позволяют настраивать права и ограничения, которые должны применяться в среде выполнения PlayReady DRM при попытке пользователя воспроизвести защищенное содержимое. 
+Службы мультимедиа позволяют настраивать права и ограничения, которые должны применяться в среде выполнения PlayReady DRM при попытке пользователя воспроизвести защищенное содержимое.
 
-При защите содержимого с помощью PlayReady, среди прочего, в политике авторизации необходимо указать XML-строку, определяющую [шаблон лицензии PlayReady](https://msdn.microsoft.com/library/azure/dn783459.aspx). 
+При защите содержимого с помощью PlayReady, среди прочего, в политике авторизации необходимо указать XML-строку, определяющую [шаблон лицензии PlayReady](https://msdn.microsoft.com/library/azure/dn783459.aspx).
 
-###Ограничение "открытая"
+###Ограничение «открытая»
 	
 Ограничение открытого типа означает, что система будет доставлять ключ всем, кто его запросит. Это ограничение подходит для тестирования.
 
-В следующем примере создается политика авторизации типа "открытая", которая затем добавляется в ключ содержимого.
+В следующем примере создается политика авторизации типа «открытая», которая затем добавляется в ключ содержимого.
 	
 ####<a id="ContentKeyAuthorizationPolicies2"></a>Создание ContentKeyAuthorizationPolicies
 
@@ -330,17 +320,15 @@
 	MaxDataServiceVersion: 3.0;NetFx
 	Accept: application/json
 	Accept-Charset: UTF-8
-	User-Agent: Microsoft ADO.NET Data Services
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=bbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423581565&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=JiNSG3w6r2C0nIyfKvTZj1uPJGjuitD%2b0sbfZ%2b2JDZI%3d
-	x-ms-version: 2.8
-	UserAgent: Azure Media Services .NET SDK v3.1.0.1
+	x-ms-version: 2.11
 	x-ms-client-request-id: 9e7fa407-f84e-43aa-8f05-9790b46e279b
 	Host: wamsbayclus001rest-hs.cloudapp.net
 	Content-Length: 58
 	
 	{"Name":"Deliver Common Content Key"}
 	
-Response:
+Ответ:
 	
 	HTTP/1.1 201 Created
 	Cache-Control: no-cache
@@ -370,10 +358,8 @@ Response:
 	MaxDataServiceVersion: 3.0;NetFx
 	Accept: application/json
 	Accept-Charset: UTF-8
-	User-Agent: Microsoft ADO.NET Data Services
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423581565&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=JiNSG3w6r2C0nIyfKvTZj1uPJGjuitD%2b0sbfZ%2b2JDZI%3d
-	x-ms-version: 2.8
-	UserAgent: Azure Media Services .NET SDK v3.1.0.1
+	x-ms-version: 2.11
 	x-ms-client-request-id: f160ad25-b457-4bc6-8197-315604c5e585
 	Host: wamsbayclus001rest-hs.cloudapp.net
 	Content-Length: 593
@@ -408,9 +394,9 @@ Response:
 Добавьте AuthorizationPolicy в ContentKey, как показано [здесь](#AddAuthorizationPolicyToKey).
 
 
-###Ограничение "по маркеру"
+###Ограничение «по маркеру»
 
-Чтобы настроить параметр ограничения маркера, необходимо использовать XML для описания требований к авторизации маркера. XML-файл конфигурации ограничений по маркеру должен соответствовать схеме XML, показанной в [этом] разделе(#schema) .
+Чтобы настроить параметр ограничения маркера, необходимо использовать XML для описания требований к авторизации маркера. XML-файл конфигурации ограничений по токену должен соответствовать схеме XML, показанной в [этом](#schema) разделе.
 	
 ####Создание ContentKeyAuthorizationPolicies
 	
@@ -426,10 +412,8 @@ Response:
 	MaxDataServiceVersion: 3.0;NetFx
 	Accept: application/json
 	Accept-Charset: UTF-8
-	User-Agent: Microsoft ADO.NET Data Services
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423583561&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=5eZnkOsSv%2fLLEKmS%2bWObBlsNYyee8BQlp%2bUYbjugcJg%3d
-	x-ms-version: 2.8
-	UserAgent: Azure Media Services .NET SDK v3.1.0.1
+	x-ms-version: 2.11
 	x-ms-client-request-id: ab079b0e-2ba9-4cf1-b549-a97bfa6cd2d3
 	Host: wamsbayclus001rest-hs.cloudapp.net
 	Content-Length: 1525
@@ -486,8 +470,8 @@ Response:
 
 
 ##Дальнейшие действия
-Теперь, после настройки политики авторизации ключа содержимого, перейдите к разделу [Настройка политики доставки ресурса](media-services-rest-configure-asset-delivery-policy.md).
+Теперь, после настройки политики авторизации ключа содержимого, перейдите к разделу [Как настроить политику доставки ресурсов](media-services-rest-configure-asset-delivery-policy.md).
 
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO1-->

@@ -13,37 +13,29 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="02/03/2015" 
+	ms.date="06/03/2015" 
 	ms.author="ricksal"/>
 
 
 # Использование клиентской библиотеки Android для мобильных служб
 
-<div class="dev-center-tutorial-selector sublanding"> 
-  <a href="/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework">.NET Framework</a><a href="/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript">HTML/JavaScript</a><a href="/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS">iOS</a><a href="/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android" class="current">Android</a><a href="/develop/mobile/how-to-guides/work-with-xamarin-client-library/" title="Xamarin">Xamarin</a>
-</div>
-
+[AZURE.INCLUDE [mobile-services-selector-client-library](../../includes/mobile-services-selector-client-library.md)]
 
 В этом руководстве показано, как реализовать типичные сценарии с использованием клиента Android для мобильных служб Azure. В сценарии входят запрос данных, вставка, обновление и удаление данных, проверка подлинности пользователей, обработка ошибок и настройка клиента.
 
-Если вы не знакомы с мобильными службами, сначала прочтите [краткое руководство по мобильным службам][Get started with Mobile Services]. Успешное завершение этого учебника гарантирует, что у вас будет установлена служба Android Studio; она поможет вам настроить учетную запись и создать свою первую мобильную службу, а также установить Пакет SDK для мобильных служб, который поддерживает Android 2.2 или более поздние версии, но мы рекомендуем устанавливать Android 4.2 или более поздние версии.
+Впервые осваивая мобильные службы, следует вначале изучить краткое руководство по мобильным службам [Приступая к работе с мобильными службами]. Успешное завершение этого учебника гарантирует, что у вас будет установлена служба Android Studio; она поможет вам настроить учетную запись и создать свою первую мобильную службу, а также установить Пакет SDK для мобильных служб, который поддерживает Android 2.2 или более поздние версии, но мы рекомендуем устанавливать Android 4.2 или более поздние версии.
 
-
-
+Справочник Javadocs по API клиентской библиотеки Android находится [здесь](http://go.microsoft.com/fwlink/p/?LinkId=298735).
 
 [AZURE.INCLUDE [mobile-services-concepts](../../includes/mobile-services-concepts.md)]
 
-
-<h2><a name="setup"></a>Настройка и необходимые компоненты</h2>
+##<a name="setup"></a>Настройка и необходимые компоненты
 
 Мы предполагаем, что вы создали мобильную службу и таблицу. Дополнительные сведения см. в разделе [Создание таблицы](http://go.microsoft.com/fwlink/p/?LinkId=298592). В коде, используемом в данном разделе, мы предполагаем, что имя таблицы — *ToDoItem* и что она содержит следующие столбцы:
 
-<ul>
-<li>id</li>
-<li>текст</li>
-<li>complete</li>
-
-</ul>
+- id
+- текст
+- complete
 
 Соответствующий типизированный клиентский объект выглядит следующим образом:
 
@@ -55,20 +47,19 @@
 	
 Если динамическая схема включена, мобильные службы Azure автоматически создают новые столбцы на основе объекта в запросе вставки или обновления. Дополнительные сведения см. в разделе [Динамическая схема](http://go.microsoft.com/fwlink/p/?LinkId=296271).
 
-<h2><a name="create-client"></a>Практическое руководство. Создание клиента мобильных служб</h2>
-
+##<a name="create-client"></a>Практическое руководство. Создание клиента мобильных служб
 Следующий код создает объект [MobileServiceClient](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html), используемый для доступа к мобильной службе. Этот код размещается в методе `onCreate` класса Activity, указанного в *AndroidManifest.xml* в качестве главного (**MAIN**) действия в категории **LAUNCHER** (запуск).
 
-			MobileServiceClient mClient = new MobileServiceClient(
-					"MobileServiceUrl", // Replace with the above Site URL
-					"AppKey", 			// replace with the Application Key 
-					this)
+		MobileServiceClient mClient = new MobileServiceClient(
+				"MobileServiceUrl", // Replace with the above Site URL
+				"AppKey", 			// replace with the Application Key 
+				this)
 
 В приведенном выше коде замените `MobileServiceUrl` и `AppKey` на URL-адрес мобильной службы и ключ приложения соответственно. Оба эти варианты доступны на портале управления Azure: выберите свою мобильную службу и щелкните *Панель управления*.
 
-<h2><a name="instantiating"></a>Практическое руководство. Создание ссылки на таблицу</h2>
+##<a name="instantiating"></a>Практическое руководство. Создание ссылки на таблицу
 
-Самый простой способ запросить или изменить данные в мобильной службе — использование *типизированной модели программирования*, поскольку Java является строго типизированным языком (позже мы расскажем о *нетипизированной* модели). Эта модель обеспечивает простую сериализацию и десериализацию в JSON с помощью библиотеки <a href=" http://go.microsoft.com/fwlink/p/?LinkId=290801" target="_blank">gson</a> при передаче данных между клиентом и мобильной службой: разработчику не нужно ничего делать, платформа сама занимается обработкой.
+Самый простой способ запросить или изменить данные в мобильной службе — использование *типизированной модели программирования*, поскольку Java является строго типизированным языком (позже мы расскажем о *нетипизированной* модели). Эта модель обеспечивает простую сериализацию и десериализацию в формате JSON с помощью библиотеки [gson](http://go.microsoft.com/fwlink/p/?LinkId=290801) при передаче данных между клиентом и мобильной службой: разработчику не нужно ничего делать, платформа сама занимается обработкой.
 
 Первое, что необходимо сделать для запроса или изменения данных — создать объект [MobileServiceTable](http://go.microsoft.com/fwlink/p/?LinkId=296835), вызвав метод **getTable** объекта [**MobileServiceClient**](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html). Мы рассмотрим две перегрузки этого метода:
 
@@ -88,21 +79,18 @@
 
 		MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable("ToDoItemBackup", ToDoItem.class);
 
- 
-
-
 ## <a name="api"></a>Структура API
 
 Начиная с версии 2.0 клиентской библиотеки, операции с таблицами мобильных служб используют объекты [Future](http://developer.android.com/reference/java/util/concurrent/Future.html) и [AsyncTask](http://developer.android.com/reference/android/os/AsyncTask.html) во всех асинхронных операциях, например в методах, использующих запросы, и таких операциях, как вставка, обновление и удаление. Это облегчает выполнение нескольких операций (в фоновом потоке), так как исключает необходимость обрабатывать несколько вложенных обратных вызовов.
 
 
-<h2><a name="querying"></a>Практическое руководство. Запрос данных от мобильной службы</h2>
+##<a name="querying"></a>Практическое руководство. Запрос данных от мобильной службы
 
-В этом разделе описывается, как отправлять запросы мобильной службе. В подразделах описываются различные аспекты, например сортировка, фильтрация и разбиение по страницам. Наконец, мы обсудим, как можно объединять эти операции.
+В этом разделе показано, как отправлять запросы к мобильной службе. В подразделах описываются различные аспекты, например сортировка, фильтрация и разбиение по страницам. Наконец, мы обсудим, как можно объединять эти операции.
 
 ### <a name="showAll"></a>Практическое руководство. Возврат всех элементов из таблицы
 
-Следующий код возвращает все элементы в таблице*ToDoItem*. Они отображаются в пользовательском интерфейсе в виде добавлений к адаптеру. Этот код похож на код в [кратком руководстве по мобильным службам][Get started with Mobile Services].
+Следующий код возвращает все элементы в таблице*ToDoItem*. Они отображаются в пользовательском интерфейсе в виде добавлений к адаптеру. По функциям этот код похож на код, описанный в учебнике по быстрому запуску [Приступая к работе с мобильными службами].
 
 		new AsyncTask<Void, Void, Void>() {
 
@@ -241,7 +229,7 @@
 Главное требование при объединении методов состоит в том, что метод *where* и предикаты должны идти первыми. После этого можно вызвать последующие методы в том порядке, который лучше всего соответствует требованиям вашего приложения.
 
 
-<h2><a name="inserting"></a>Практическое руководство. Вставка данных в мобильную службу</h2>
+##<a name="inserting"></a>Практическое руководство. Вставка данных в мобильную службу
 
 В следующем коде показано, как вставить новую строку в таблицу.
 
@@ -310,133 +298,133 @@
 
 Значение для `id` должно быть уникальным и не должно содержать символы из следующих наборов:
 
-+ Управляющие символы: [0x0000–0x001F] и [0x007F–0x009F]. Дополнительные сведения см. в статье [Управляющие коды ASCII C0 и C1].
++ Управляющие символы: [0x0000-0x001F] и [0x007F-0x009F]. Дополнительные сведения см. в статье [Управляющие коды ASCII C0 и C1].
 +  Печатные символы: **"**(0x0022), **+** (0x002B), **/** (0x002F), **?** (0x003F), **** (0x005C), **`** (0x0060)
 +  Идентификаторы "." и ".."
 
 Также для таблиц можно использовать целочисленные идентификаторы. Для этого необходимо создать таблицу с помощью команды `mobile table create`, используя параметр `--integerId`. Эта команда используется в интерфейсе командной строки (CLI) Azure. Дополнительные сведения об использовании CLI см. в статье [Интерфейс командной строки для управления таблицами мобильных служб].
 
 
-<h2><a name="updating"></a>Практическое руководство. Обновление данных в мобильной службе</h2>
+##<a name="updating"></a>Обновление данных в мобильной службе
 
 В следующем коде показано, как обновить данные в таблице. В этом примере *item* — это ссылка на строку в таблице *ToDoItem*, в которую были внесены изменения. Следующий метод позволяет обновить таблицу и адаптер пользовательского интерфейса.
 
-		private void updateItem(final ToDoItem item) {
-		    if (mClient == null) {
-		        return;
-		    }
-		
-		    new AsyncTask<Void, Void, Void>() {
-		
-		        @Override
-		        protected Void doInBackground(Void... params) {
-		            try {
-		                mToDoTable.update(item).get();
-		                runOnUiThread(new Runnable() {
-		                    public void run() {
-		                        if (item.isComplete()) {
-		                            mAdapter.remove(item);
-		                        }
-		                        refreshItemsFromTable();
-		                    }
-		                });
-		            } catch (Exception exception) {
-		                createAndShowDialog(exception, "Error");
-		            }
-		            return null;
-		        }
-		    }.execute();
-}
-
-<h2><a name="deleting"></a>Практическое руководство. Удаление данных в мобильной службе</h2>
-
-В следующем коде показано, как удалить данные из таблицы. Удаляет из таблицы ToDoItem существующий элемент, для которого в пользовательском интерфейсе был установлен флажок  **Завершено**.
-
-		public void checkItem(final ToDoItem item) {
-			if (mClient == null) {
-				return;
-			}
+	private void updateItem(final ToDoItem item) {
+	    if (mClient == null) {
+	        return;
+	    }
 	
-			// Set the item as completed and update it in the table
-			item.setComplete(true);
-			
-			new AsyncTask<Void, Void, Void>() {
+	    new AsyncTask<Void, Void, Void>() {
 	
-	            @Override
-	            protected Void doInBackground(Void... params) {
-	                try {
-	                    mToDoTable.delete(item);
-	                    runOnUiThread(new Runnable() {
-	                        public void run() {
-	                            if (item.isComplete()) {
-	                                mAdapter.remove(item);
-	                            }
-	                            refreshItemsFromTable();
+	        @Override
+	        protected Void doInBackground(Void... params) {
+	            try {
+	                mToDoTable.update(item).get();
+	                runOnUiThread(new Runnable() {
+	                    public void run() {
+	                        if (item.isComplete()) {
+	                            mAdapter.remove(item);
 	                        }
-	                    });
-	                } catch (Exception exception) {
-	                    createAndShowDialog(exception, "Error");
-	                }
-	                return null;
+	                        refreshItemsFromTable();
+	                    }
+	                });
+	            } catch (Exception exception) {
+	                createAndShowDialog(exception, "Error");
 	            }
-	        }.execute();
+	            return null;
+	        }
+	    }.execute();
+	}
+
+##<a name="deleting"></a>Практическое руководство. Удаление данных в мобильной службе
+
+В следующем коде показано, как удалить данные из таблицы. Удаляет из таблицы ToDoItem существующий элемент, для которого в пользовательском интерфейсе был установлен флажок **Завершено**.
+
+	public void checkItem(final ToDoItem item) {
+		if (mClient == null) {
+			return;
 		}
+
+		// Set the item as completed and update it in the table
+		item.setComplete(true);
+		
+		new AsyncTask<Void, Void, Void>() {
+
+            @Override
+            protected Void doInBackground(Void... params) {
+                try {
+                    mToDoTable.delete(item);
+                    runOnUiThread(new Runnable() {
+                        public void run() {
+                            if (item.isComplete()) {
+                                mAdapter.remove(item);
+                            }
+                            refreshItemsFromTable();
+                        }
+                    });
+                } catch (Exception exception) {
+                    createAndShowDialog(exception, "Error");
+                }
+                return null;
+            }
+        }.execute();
+	}
 
 
 В следующем примере кода показан еще один способ для этого. Пример удаляет существующий элемент из таблицы ToDoItem, указывая значение в поле идентификатора строки (предполагается, что он равен 2FA404AB-E458-44CD-BC1B-3BC847EF0902). В настоящем приложении вы каким-либо образом получите идентификатор и передадите его в качестве переменной. Чтобы упростить тестирование, можно перейти на портал мобильных служб Azure для вашей службы, открыть вкладку **Данные** и скопировать идентификатор, который вы хотите протестировать.
 
-	    public void deleteItem(View view) {
-	
-	        final String ID = "2FA404AB-E458-44CD-BC1B-3BC847EF0902";
-	        new AsyncTask<Void, Void, Void>() {
-	
-	            @Override
-	            protected Void doInBackground(Void... params) {
-	                try {
-	                    mToDoTable.delete(ID);
-	                    runOnUiThread(new Runnable() {
-	                        public void run() {
-	                            refreshItemsFromTable();
-	                        }
-	               });
-	                } catch (Exception exception) {
-	                    createAndShowDialog(exception, "Error");
-	                }
-	                return null;
-	            }
-	        }.execute();
-	    }
+    public void deleteItem(View view) {
 
-<h2><a name="lookup"></a>Практическое руководство. Поиск определенного элемента</h2>
-Иногда вам требуется найти определенный элемент по его *идентификатору* в отличие от запросов, где вы обычно получаете коллекцию элементов, отвечающих некоторым критериям. В следующем коде показано, как это сделать для *id* = 0380BAFB-BCFF-443C-B7D5-30199F730335. В настоящем приложении вы каким-либо образом получите идентификатор и передадите его в качестве переменной. Чтобы упростить тестирование, можно перейти на портал мобильных служб Azure для вашей службы, открыть вкладку **Данные** и скопировать идентификатор, который вы хотите протестировать.
+        final String ID = "2FA404AB-E458-44CD-BC1B-3BC847EF0902";
+        new AsyncTask<Void, Void, Void>() {
 
-	    /**
-	     * Lookup specific item from table and UI
-	     */
-	    public void lookup(View view) {
-	
-	        final String ID = "0380BAFB-BCFF-443C-B7D5-30199F730335";
-	        new AsyncTask<Void, Void, Void>() {
-	
-	            @Override
-	            protected Void doInBackground(Void... params) {
-	                try {
-	                    final ToDoItem result = mToDoTable.lookUp(ID).get();
-	                    runOnUiThread(new Runnable() {
-	                        public void run() {
-	                            mAdapter.clear();
-	                            mAdapter.add(result);
-	                        }
-	               });
-	                } catch (Exception exception) {
-	                    createAndShowDialog(exception, "Error");
-	                }
-	                return null;
-	            }
-	        }.execute();
-	    }
+            @Override
+            protected Void doInBackground(Void... params) {
+                try {
+                    mToDoTable.delete(ID);
+                    runOnUiThread(new Runnable() {
+                        public void run() {
+                            refreshItemsFromTable();
+                        }
+               });
+                } catch (Exception exception) {
+                    createAndShowDialog(exception, "Error");
+                }
+                return null;
+            }
+        }.execute();
+    }
 
-<h2><a name="untyped"></a>Практическое руководство. Работа с нетипизированными данными</h2>
+##<a name="lookup"></a>Поиск определенного элемента
+Иногда вам требуется найти определенный элемент по его *идентификатору* в отличие от запросов, где вы обычно получаете коллекцию элементов, отвечающих некоторым критериям. В следующем коде показано, как это сделать для значения *id* `0380BAFB-BCFF-443C-B7D5-30199F730335`. В настоящем приложении вы каким-либо образом получите идентификатор и передадите его в качестве переменной. Чтобы упростить тестирование, можно перейти на портал мобильных служб Azure для вашей службы, открыть вкладку **Данные** и скопировать идентификатор, который вы хотите протестировать.
+
+    /**
+     * Lookup specific item from table and UI
+     */
+    public void lookup(View view) {
+
+        final String ID = "0380BAFB-BCFF-443C-B7D5-30199F730335";
+        new AsyncTask<Void, Void, Void>() {
+
+            @Override
+            protected Void doInBackground(Void... params) {
+                try {
+                    final ToDoItem result = mToDoTable.lookUp(ID).get();
+                    runOnUiThread(new Runnable() {
+                        public void run() {
+                            mAdapter.clear();
+                            mAdapter.add(result);
+                        }
+               });
+                } catch (Exception exception) {
+                    createAndShowDialog(exception, "Error");
+                }
+                return null;
+            }
+        }.execute();
+    }
+
+##<a name="untyped"></a>Практическое руководство. Работа с нетипизированными данными
 
 Нетипизированная модель программирования предоставляет полный контроль над сериализацией JSON. Существует несколько сценариев, в которых вы можете использовать ее, например, если таблица мобильной службы содержит множество столбцов, а вам нужно ссылаться только на небольшое их число. Для использования типизированной модели необходимо определить все столбцы таблицы мобильной службы в классе данных. Но с нетипизированной моделью требуется определить только столбцы, которые вы будете использовать.
 
@@ -513,42 +501,42 @@
 
 В следующем коде показано, как получить всю таблицу. Поскольку вы используете таблицы Json, можно выборочно вывести лишь некоторые столбцы таблицы.
 
-	    public void showAllUntyped(View view) {
-	        new AsyncTask<Void, Void, Void>() {
-	            @Override
-	            protected Void doInBackground(Void... params) {
-	                try {
-	                    final JsonElement result = mJsonToDoTable.execute().get();
-	                    final JsonArray results = result.getAsJsonArray();
-	                    runOnUiThread(new Runnable() {
-	
-	                        @Override
-	                        public void run() {
-	                            mAdapter.clear();
-	                            for (JsonElement item : results) {
-	                                String ID = item.getAsJsonObject().getAsJsonPrimitive("id").getAsString();
-	                                String mText = item.getAsJsonObject().getAsJsonPrimitive("text").getAsString();
-	                                Boolean mComplete = item.getAsJsonObject().getAsJsonPrimitive("complete").getAsBoolean();
-	                                ToDoItem mToDoItem = new ToDoItem();
-	                                mToDoItem.setId(ID);
-	                                mToDoItem.setText(mText);
-	                                mToDoItem.setComplete(mComplete);
-	                                mAdapter.add(mToDoItem);
-	                            }
-	                        }
-	                    });
-	                } catch (Exception exception) {
-	                    createAndShowDialog(exception, "Error");
-	                }
-	                return null;
-	            }
-	        }.execute();
-	    }
+    public void showAllUntyped(View view) {
+        new AsyncTask<Void, Void, Void>() {
+            @Override
+            protected Void doInBackground(Void... params) {
+                try {
+                    final JsonElement result = mJsonToDoTable.execute().get();
+                    final JsonArray results = result.getAsJsonArray();
+                    runOnUiThread(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            mAdapter.clear();
+                            for (JsonElement item : results) {
+                                String ID = item.getAsJsonObject().getAsJsonPrimitive("id").getAsString();
+                                String mText = item.getAsJsonObject().getAsJsonPrimitive("text").getAsString();
+                                Boolean mComplete = item.getAsJsonObject().getAsJsonPrimitive("complete").getAsBoolean();
+                                ToDoItem mToDoItem = new ToDoItem();
+                                mToDoItem.setId(ID);
+                                mToDoItem.setText(mText);
+                                mToDoItem.setComplete(mComplete);
+                                mAdapter.add(mToDoItem);
+                            }
+                        }
+                    });
+                } catch (Exception exception) {
+                    createAndShowDialog(exception, "Error");
+                }
+                return null;
+            }
+        }.execute();
+    }
 
 Можно выполнить фильтрацию, сортировку и разбиение по страницам, объединяя методы с такими же именами, как и в типизированной модели программирования.
 
 
-<h2><a name="binding"></a>Практическое руководство. Привязка данных к пользовательскому интерфейсу</h2>
+##<a name="binding"></a>Привязка данных к пользовательскому интерфейсу
 
 Привязка данных состоит из трех компонентов:
 
@@ -566,27 +554,27 @@
  
 Макет определяется несколькими фрагментами XML-кода. Учитывая существующий макет, предположим, что следующий код представляет объект **ListView**, который требуется заполнить данными с сервера.
 
-	    <ListView
-	        android:id="@+id/listViewToDo"
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        tools:listitem="@layout/row_list_to_do" >
-	    </ListView>
+    <ListView
+        android:id="@+id/listViewToDo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/row_list_to_do" >
+    </ListView>
 	
 
 В приведенном выше коде атрибут *listitem* указывает идентификатор макета для отдельной строки в списке. Вот код, который определяет флажок и связанный с ним текст. Экземпляр создается один раз для каждого элемента в списке. В более сложном макете указываются дополнительные поля. Этот код находится в файле *row_list_to_do.xml*.
 
-		<?xml version="1.0" encoding="utf-8"?>
-		<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-		    android:layout_width="match_parent"
-		    android:layout_height="match_parent"
-		    android:orientation="horizontal">		    
-		    <CheckBox
-		        android:id="@+id/checkToDoItem"
-		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"
-		        android:text="@string/checkbox_text" />
-		</LinearLayout>
+	<?xml version="1.0" encoding="utf-8"?>
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:orientation="horizontal">		    
+	    <CheckBox
+	        android:id="@+id/checkToDoItem"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/checkbox_text" />
+	</LinearLayout>
 		
 
 ### <a name="adapter"></a>Практическое руководство. Определение адаптера
@@ -595,87 +583,85 @@
 
 В нашем коде мы определим следующий класс, который расширяет класс *ArrayAdapter&lt;E&gt;*:
 
-		public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
-
+	public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
 
 
 Необходимо переопределить метод *getView* адаптера. Этот код — один из примеров того, как это сделать: конкретные сведения зависят от приложения.
 
 	public View getView(int position, View convertView, ViewGroup parent) {
 		View row = convertView;
-
+	
 		final ToDoItem currentItem = getItem(position);
-
+	
 		if (row == null) {
 			LayoutInflater inflater = ((Activity) mContext).getLayoutInflater();
 			row = inflater.inflate(R.layout.row_list_to_do, parent, false);
 		}
-
+	
 		row.setTag(currentItem);
-
+	
 		final CheckBox checkBox = (CheckBox) row.findViewById(R.id.checkToDoItem);
 		checkBox.setText(currentItem.getText());
 		checkBox.setChecked(false);
 		checkBox.setEnabled(true);
-
+	
 		return row;
 	}
 
 Мы создаем экземпляр этого класса в действии следующим образом:
 
-		ToDoItemAdapter mAdapter;
-		mAdapter = new ToDoItemAdapter(this, R.layout.row_list_to_do);
+	ToDoItemAdapter mAdapter;
+	mAdapter = new ToDoItemAdapter(this, R.layout.row_list_to_do);
 
 Обратите внимание, что второй параметр конструктора ToDoItemAdapter — это ссылка на макет. После вызова конструктора идет следующий код, который сначала получает ссылку на **ListView**, а затем вызывает *setAdapter* для настройки использования созданного адаптера:
 
-		ListView listViewToDo = (ListView) findViewById(R.id.listViewToDo);
-		listViewToDo.setAdapter(mAdapter);
+	ListView listViewToDo = (ListView) findViewById(R.id.listViewToDo);
+	listViewToDo.setAdapter(mAdapter);
 
 
 ### <a name="use-adapter"></a>Практическое руководство. Использование адаптера
 
 Теперь вы можете использовать привязку данных. В следующем коде показано, как получить элементы в таблице мобильной службы, очистить адаптер и вызвать метод *add*, чтобы заполнить его полученными элементами.
 
-	    public void showAll(View view) {
-	        new AsyncTask<Void, Void, Void>() {
-	            @Override
-	            protected Void doInBackground(Void... params) {
-	                try {
-	                    final MobileServiceList<ToDoItem> result = mToDoTable.execute().get();
-	                    runOnUiThread(new Runnable() {
-	
-	                        @Override
-	                        public void run() {
-	                            mAdapter.clear();
-	                            for (ToDoItem item : result) {
-	                                mAdapter.add(item);
-	                            }
-	                        }
-	                    });
-	                } catch (Exception exception) {
-	                    createAndShowDialog(exception, "Error");
-	                }
-	                return null;
-	            }
-	        }.execute();
-	    }
+    public void showAll(View view) {
+        new AsyncTask<Void, Void, Void>() {
+            @Override
+            protected Void doInBackground(Void... params) {
+                try {
+                    final MobileServiceList<ToDoItem> result = mToDoTable.execute().get();
+                    runOnUiThread(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            mAdapter.clear();
+                            for (ToDoItem item : result) {
+                                mAdapter.add(item);
+                            }
+                        }
+                    });
+                } catch (Exception exception) {
+                    createAndShowDialog(exception, "Error");
+                }
+                return null;
+            }
+        }.execute();
+    }
 
 Адаптер также необходимо вызывать при каждом изменении таблицы *ToDoItem*, если вы хотите показать результаты выполнения. Поскольку изменения выполняются на уровне отдельных записей, обрабатываться будут отдельные строки, а не коллекция. При вставке элемента вызывается метод *add* адаптера, а при удалении — метод *remove*.
 
 
-<h2><a name="authentication"></a>Практическое руководство. Проверка подлинности пользователей</h2>
+##<a name="authentication"></a>Практическое руководство. Проверка подлинности пользователей
 
-Мобильные службы поддерживают аутентификацию и авторизацию пользователей с помощью различных внешних поставщиков удостоверений: Facebook, Google, учетной записи Майкрософт, Twitter и Azure Active Directory. Можно задать разрешения таблиц, чтобы предоставить доступ к определенным операциям только пользователям, прошедшим проверку подлинности. Удостоверения пользователей, прошедших проверку подлинности, также можно применять для реализации правил авторизации в серверных скриптах. Дополнительные сведения см. в разделе [Приступая к работе с аутентификацией](http://go.microsoft.com/fwlink/p/?LinkId=296316).
+Мобильные службы поддерживают аутентификацию и авторизацию пользователей с помощью различных внешних поставщиков удостоверений: Facebook, Google, учетной записи Майкрософт, Twitter и Azure Active Directory. Можно задать разрешения таблиц, чтобы предоставить доступ к определенным операциям только пользователям, прошедшим проверку подлинности. Удостоверения пользователей, прошедших проверку подлинности, также можно применять для реализации правил авторизации в серверной части. Дополнительные сведения см. в разделе [Приступая к работе с аутентификацией](http://go.microsoft.com/fwlink/p/?LinkId=296316).
 
 Поддерживается два потока аутентификации: *серверный* и *клиентский*. Серверный поток обеспечивает самый простой способ проверки подлинности, так как он использует веб-интерфейс проверки подлинности. Клиентский поток обеспечивает более тесную интеграцию с возможностями устройства, такими как единый вход, так как использует пакеты SDK конкретного поставщика для конкретного устройства.
 
 Чтобы включить проверку подлинности в приложении, необходимо выполнить три действия.
 
-<ol>
-<li>Регистрация приложения для проверки подлинности у поставщика и настройка мобильных служб.</li>
-<li>Ограничение разрешений таблицы только пользователями, прошедшими проверку подлинности.</li>
-<li>Добавление кода проверки подлинности в приложение</li>
-</ol>
+- Регистрация приложения для проверки подлинности у поставщика и настройка мобильных служб.
+- Ограничение разрешений таблицы только пользователями, прошедшими проверку подлинности.
+- Добавление кода проверки подлинности в приложение
+
 
 Мобильные службы поддерживают следующие существующие поставщики удостоверений, которые можно использовать для проверки подлинности пользователей:
 
@@ -705,27 +691,27 @@
 
 2. Добавьте в метод **onCreate** класса действия следующую строку после кода, который создает объект `MobileServiceClient`: предполагается, что ссылка на объект `MobileServiceClient` представляет собой *mClient*.
 	
-		    // Login using the Google provider.
-		    
-			ListenableFuture<MobileServiceUser> mLogin = mClient.login(MobileServiceAuthenticationProvider.Google);
-	
-	    	Futures.addCallback(mLogin, new FutureCallback<MobileServiceUser>() {
-	    		@Override
-	    		public void onFailure(Throwable exc) {
-	    			createAndShowDialog((Exception) exc, "Error");
-	    		}   		
-	    		@Override
-	    		public void onSuccess(MobileServiceUser user) {
-	    			createAndShowDialog(String.format(
-	                        "You are now logged in - %1$2s",
-	                        user.getUserId()), "Success");
-	    			createTable();	
-	    		}
-	    	}); 
+	    // Login using the Google provider.
+	    
+		ListenableFuture<MobileServiceUser> mLogin = mClient.login(MobileServiceAuthenticationProvider.Google);
+
+    	Futures.addCallback(mLogin, new FutureCallback<MobileServiceUser>() {
+    		@Override
+    		public void onFailure(Throwable exc) {
+    			createAndShowDialog((Exception) exc, "Error");
+    		}   		
+    		@Override
+    		public void onSuccess(MobileServiceUser user) {
+    			createAndShowDialog(String.format(
+                        "You are now logged in - %1$2s",
+                        user.getUserId()), "Success");
+    			createTable();	
+    		}
+    	}); 
 
     Этот код выполняет проверку подлинности пользователя с помощью имени входа Google. Открывается диалоговое окно, в котором отображается идентификатор пользователя, прошедшего проверку подлинности. Без успешной проверки подлинности продолжение невозможно.
 
-    > [AZURE.NOTE]Если используется поставщик идентификаторов, отличный от Google, измените значение, передаваемое в метод **login** выше, на одно из следующих: _MicrosoftAccount_, _Facebook_, _Twitter_ или _WindowsAzureActiveDirectory_. </div>
+    > [AZURE.NOTE]Если вы используете поставщик удостоверений, отличный от Google, измените значение, переданное в методе **login**, выше на одно из следующих: _MicrosoftAccount_, _Facebook_, _Twitter_ или _WindowsAzureActiveDirectory_.
 
 
 3. При запуске приложения выполните вход с использованием выбранного поставщика удостоверений.
@@ -792,56 +778,60 @@
 	}
 
 
-Что произойдет, если срок действия маркера истекает? В этом случае при попытке использовать маркер для подключения вы получите ответ *401 unauthorized* (нет доступа). Пользователю придется войти в систему, чтобы получить новые маркеры. Можно избежать необходимости писать код для обработки таких случаев везде в приложении, которое вызывает мобильные службы, используя фильтры, которые позволяют перехватывать вызовы и ответы от мобильных служб. Код фильтра затем проверит наличие ответа 401, инициирует вход в систему при необходимости и возобновит запрос, вызвавший ответ 401.
+Что произойдет, если срок действия маркера истекает? В этом случае при попытке использовать маркер для подключения вы получите ответ *401 unauthorized* (нет доступа). Пользователю придется войти в систему, чтобы получить новые маркеры. Вы можете не писать код для обработки таких случаев везде в приложении, которое вызывает мобильные службы, используя фильтры, которые позволяют перехватывать вызовы и ответы от мобильных служб. Код фильтра затем проверит наличие ответа 401, инициирует вход в систему при необходимости и возобновит запрос, вызвавший ответ 401.
 
 
-<h2><a name="customizing"></a>Практическое руководство. Настройка клиента</h2>
+##<a name="customizing"></a>Практическое руководство. Настройка клиента
+
+Есть несколько способов для настройки клиента мобильных служб по умолчанию.
 
 ### <a name="headers"></a>Практическое руководство. Настройка заголовков запроса
 
-Вам может потребоваться присоединить настраиваемый заголовок к каждому исходящему запросу. Для этого можно настроить ServiceFilter следующим образом:
+Вам может потребоваться присоединить настраиваемый заголовок к каждому исходящему запросу. Для этого можно настроить **ServiceFilter** следующим образом.
 
-		private class CustomHeaderFilter implements ServiceFilter {
-	
-	        @Override
-	        public ListenableFuture<ServiceFilterResponse> handleRequest(
-	                	ServiceFilterRequest request, 
-						NextServiceFilterCallback next) {
-	
-	            runOnUiThread(new Runnable() {
-	
-	                @Override
-	                public void run() {
-		        		request.addHeader("My-Header", "Value");	                }
-	            });
-	
-	            SettableFuture<ServiceFilterResponse> result = SettableFuture.create();
-	            try {
-	                ServiceFilterResponse response = next.onNext(request).get();
-	                result.set(response);
-	            } catch (Exception exc) {
-	                result.setException(exc);
-	            }
-	        }
+	private class CustomHeaderFilter implements ServiceFilter {
+
+        @Override
+        public ListenableFuture<ServiceFilterResponse> handleRequest(
+                	ServiceFilterRequest request, 
+					NextServiceFilterCallback next) {
+
+            runOnUiThread(new Runnable() {
+
+                @Override
+                public void run() {
+	        		request.addHeader("My-Header", "Value");	                }
+            });
+
+            SettableFuture<ServiceFilterResponse> result = SettableFuture.create();
+            try {
+                ServiceFilterResponse response = next.onNext(request).get();
+                result.set(response);
+            } catch (Exception exc) {
+                result.setException(exc);
+            }
+        }
 
 ### <a name="serialization"></a>Практическое руководство. Настройка сериализации
 
-По умолчанию мобильные службы предполагают, что имен таблиц, имена столбцов и типы данных на сервере полностью соответствуют аналогам на клиенте. Но имена на сервере и клиенте могут не совпадать по множеству причин. Один из примеров — у вас есть клиент, который нужно изменить так, чтобы он использовал мобильные службы Azure вместо продукта конкурента.
+По умолчанию мобильные службы предполагают, что имен таблиц, имена столбцов и типы данных на сервере полностью соответствуют аналогам на клиенте. Но имена на сервере и клиенте могут не совпадать по множеству причин. Один из примеров: у вас есть клиент, который нужно изменить так, чтобы он использовал мобильные службы Azure вместо продукта конкурента.
 
-Вам может потребоваться выполнить следующие виды настройки: <ul> <li> Имена столбцов, используемые в таблице мобильной службы, не совпадают с именами, которые используются в клиенте</li>
+Может потребоваться выполнить следующие виды настройки:
 
-<li>Использование таблицы мобильной службы с именем, отличным от имени класса, с которым она сопоставляется в клиенте</li>
-<li>Включение автоматического использования прописных букв свойств</li>
-
-<li>Добавление сложных свойств в объект</li>
-
-</ul>
+- Имена столбцов, используемые в таблице мобильной службы, не совпадают с именами, которые используются в клиенте
+- Использование таблицы мобильной службы с именем, отличным от имени класса, с которым она сопоставляется в клиенте
+- Включение автоматического использования прописных букв свойств
+- Добавление сложных свойств в объект
 
 ### <a name="columns"></a>Практическое руководство. Сопоставление различных имен клиента и сервера
 
-Предположим, что клиентский код Java использует стандартные имена в стиле Java для свойств объекта *ToDoItem*, например следующие: <ul> <li>mId</li> <li>mText</li> <li>mComplete</li> <li>mDuration</li>.
+Предположим, что клиентский код Java использует стандартные имена в стиле Java для свойств объекта *ToDoItem*, как показано ниже.
 
-</ul>
+- mId
+- mText
+- mComplete
+- mDuration
+
 
 Имена клиентов необходимо сериализовать в имена JSON, совпадающие с именами столбцов таблицы*ToDoItem* на сервере. Это делает следующий код, использующий библиотеку <a href=" http://go.microsoft.com/fwlink/p/?LinkId=290801" target="_blank">gson</a>.
 
@@ -861,7 +851,7 @@
 
 Сопоставить клиентское имя таблицы с другим именем таблицы мобильных служб несложно: для этого достаточно использовать одно из переопределений функции <a href="http://go.microsoft.com/fwlink/p/?LinkId=296840" target="_blank">getTable()</a>, как показано в следующем коде.
 
-		mToDoTable = mClient.getTable("ToDoItemBackup", ToDoItem.class);
+	mToDoTable = mClient.getTable("ToDoItemBackup", ToDoItem.class);
 
 
 ### <a name="conversions"></a>Практическое руководство. Автоматизация сопоставления имен столбцов
@@ -895,11 +885,6 @@
 Пример см. в записи блога <a href="http://hashtagfail.com/post/44606137082/mobile-services-android-serialization-gson" target="_blank">Настройка сериализации с помощью библиотеки <a href=" http://go.microsoft.com/fwlink/p/?LinkId=290801" target="_blank">gson</a> в клиенте мобильных служб для Android</a>.
 
 Этот общий метод можно использовать всякий раз, когда у нас есть сложный объект, который не может быть автоматически сериализован в формат JSON и таблицу мобильных служб.
-
-
-## <a name="next-steps"></a>Дальнейшие действия
-
-Справочник Javadocs по API клиента Android находится по адресу [http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/package-summary.html](http://go.microsoft.com/fwlink/p/?LinkId=298735 "здесь")
 
 <!-- Anchors. -->
 
@@ -938,26 +923,9 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- URLs. -->
-[Get started with Mobile Services]: /develop/mobile/tutorials/get-started-android/
-[Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?linkid=280126
-[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-android/
+[Приступая к работе с мобильными службами]: mobile-services-android-get-started.md
 [Управляющие коды ASCII C0 и C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-[Интерфейс командной строки для управления таблицами мобильных служб]: http://azure.microsoft.com/documentation/articles/command-line-tools/#Commands_to_manage_mobile_services
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="02/15/2015" 
+	ms.date="05/28/2015" 
 	ms.author="glenga"/>
 
 # Добавление проверки подлинности к приложению мобильных служб 
@@ -22,21 +22,15 @@
 
 В этом разделе показано, как выполнять проверку подлинности пользователей в мобильных службах Azure из приложения на HTML, включая приложения PhoneGap или Cordova. В этом учебнике вы добавите проверку подлинности к проекту быстрого запуска, используя поставщик удостоверений, поддерживаемый мобильными службами. После выполнения успешной проверки подлинности и авторизации мобильными службами отображается значение идентификатора пользователя.
 
-В этом учебнике рассматриваются следующие основные шаги для включения проверки подлинности в приложении:
-
-1. [Регистрация приложения для проверки подлинности и настройка мобильных служб]
-2. [Предоставление разрешений на таблицу только пользователям, прошедшим проверку подлинности]
-3. [Добавление проверки подлинности в приложение]
-
 Этот учебник создан на основе краткого руководства по мобильным службам. Вам также необходимо сначала ознакомиться с учебником [Приступая к работе с мобильными службами].
 
 ##<a name="register"></a>Регистрация приложения для проверки подлинности и настройка мобильных служб
 
-[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)] 
+[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)]
 
 ##<a name="permissions"></a>Предоставление разрешений только пользователям, прошедшим проверку подлинности
 
-[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
+[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
 
 3. Запустите в подпапке **server** каталога приложения один из следующих файлов команд.
@@ -107,7 +101,7 @@
 			$("#logged-in button").click(logOut);
 		});
 
-    Это приведет к созданию набора функций для обработки процесса проверки подлинности. Пользователь прошел проверку подлинности с помощью имени входа в Facebook. Если используется поставщик удостоверений, отличный от Facebook, измените значение, переданное в методе <strong>login</strong> выше, на одно из следующих: <em>microsoftaccount</em>, <em>facebook</em>, <em>twitter</em>, <em>google</em> или <em>aad</em>.
+    Это приведет к созданию набора функций для обработки процесса проверки подлинности. Пользователь прошел проверку подлинности с помощью имени входа в Facebook. Если используется поставщик удостоверений, отличный от Facebook, измените значение, переданное в методе **login** выше, на одно из следующих: *microsoftaccount*, *facebook*, *twitter*, *google* или *aad*.
 
 	>[AZURE.IMPORTANT]В приложении PhoneGap также необходимо добавить в проект следующие подключаемые модули. <ul><li><code>phonegap plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-device.git</code></li> <li><code>phonegap plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git</code></li></ul>
 
@@ -122,9 +116,9 @@
 В следующем учебном курсе, который называется [Авторизация пользователей с помощью скриптов], значение ИД пользователя, предоставляемое мобильными службами на основе пользователя, прошедшего проверку подлинности, будет использоваться для фильтрации данных, возвращаемых мобильными службами. Дополнительные сведения об использовании мобильных служб с помощью HTML/JavaScript см. в разделе [Справочник принципов использования мобильных служб HTML/JavaScript].
 
 <!-- Anchors. -->
-[Регистрация приложения для проверки подлинности и настройка мобильных служб]: #register
-[Предоставление разрешений на таблицу только пользователям, прошедшим проверку подлинности]: #permissions
-[Добавление проверки подлинности в приложение]: #add-authentication
+[Register your app for authentication and configure Mobile Services]: #register
+[Restrict table permissions to authenticated users]: #permissions
+[Add authentication to the app]: #add-authentication
 [Next Steps]: #next-steps
 
 <!-- Images. -->
@@ -141,6 +135,7 @@
 [Авторизация пользователей с помощью скриптов]: mobile-services-javascript-backend-service-side-authorization.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Справочник принципов использования мобильных служб HTML/JavaScript]: /documentation/articles/mobile-services-html-how-to-use-client-library
+[Справочник принципов использования мобильных служб HTML/JavaScript]: mobile-services-html-how-to-use-client-library.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

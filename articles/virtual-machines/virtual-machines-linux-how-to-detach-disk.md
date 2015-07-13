@@ -13,13 +13,17 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/31/2014" 
+	ms.date="05/27/2015" 
 	ms.author="kathydav"/>
 
-
+# Отсоединение диска от виртуальной машины Linux
 
 
 [AZURE.INCLUDE [howto-detach-disk-windows-linux](../../includes/howto-detach-disk-windows-linux.md)]
 
-<!--HONumber=42-->
+## Дополнительные ресурсы
+
+[Подключение диска данных к виртуальной машине Linux](virtual-machines-linux-how-to-attach-disk.md)
  
+
+<!---HONumber=July15_HO1-->

@@ -10,10 +10,10 @@
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
-	ms.tgt_pltfrm=""
+	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/23/2014"
+	ms.date="05/14/2015"
 	ms.author="donnam"/>
 
 # Добавление проверки подлинности к приложению мобильных служб
@@ -32,11 +32,11 @@
 
 Для прохождения этого учебника требуется следующее ПО: [Xamarin.iOS], XCode 6.0 и iOS 7.0 или более поздних версий.
 
-<h2><a name="register"></a>Регистрация приложения для проверки подлинности и настройка мобильных служб</h2>
+##<a name="register"></a>Регистрация приложения для проверки подлинности и настройка мобильных служб
 
 [AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)]
 
-<h2><a name="permissions"></a>Ограничение разрешений для пользователей, прошедших проверку подлинности</h2>
+##<a name="permissions"></a>Предоставление разрешений только пользователям, прошедшим проверку подлинности
 
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
@@ -50,7 +50,7 @@
 
 Далее приложение будет обновлено таким образом, что оно станет производить аутентификацию учетных данных пользователей, прежде чем запрашивать ресурсы из мобильной службы.
 
-<h2><a name="add-authentication"></a>Добавление проверки подлинности в приложение</h2>
+##<a name="add-authentication"></a>Добавление проверки подлинности в приложение
 
 1. Откройте файл проекта **TodoService** и добавьте следующие переменные:
 
@@ -58,9 +58,9 @@
 		private MobileServiceUser user;
 		public MobileServiceUser User { get { return user; } }
 
-2. Добавьте в **TodoService** новый метод с именем **Authenticate**, определенный следующим образом:
+2. Добавьте в **TodoService** новый метод **Authenticate**, определенный как:
 
-        private async Task Authenticate(UIViewController view)
+        private async Task Authenticate(MonoTouch.UIKit.UIViewController view)
         {
             try
             {
@@ -78,30 +78,30 @@
 
         private async Task CreateTable()
         {
-            // Create an MSTable instance to allow us to work with the TodoItem table
-            todoTable = client.GetTable<TodoItem>();
+            // Create an MSTable instance to allow us to work with the ToDoItem table
+            todoTable = client.GetSyncTable<ToDoItem>();
         }
 
 4. Создайте новый асинхронный открытый метод с именем **LoginAndGetData**, определенный следующим образом:
 
-        public async Task LoginAndGetData(UIViewController view)
+        public async Task LoginAndGetData(MonoTouch.UIKit.UIViewController view)
         {
             await Authenticate(view);
             await CreateTable();
         }
 
-5. В **TodoListViewController** переопределите метод **ViewDidAppear**, как указано ниже. Будет выполнен вход пользователя в систему, если **TodoService** еще не имеет дескриптора для пользователя:
+5. В **TodoListViewController** переопределите метод **ViewDidAppear**, как указано ниже. Это позволяет пользователю войти, даже если у **TodoService** еще нет дескриптора пользователя:
 
         public override async void ViewDidAppear(bool animated)
         {
             base.ViewDidAppear(animated);
 
-            if (TodoService.DefaultService.User == null)
+            if (QSToDoService.DefaultService.User == null)
             {
-                await TodoService.DefaultService.LoginAndGetData(this);
+                await QSToDoService.DefaultService.LoginAndGetData(this);
             }
 
-            if (TodoService.DefaultService.User == null)
+            if (QSToDoService.DefaultService.User == null)
             {
                 // TODO:: show error
                 return;
@@ -149,5 +149,6 @@
 [Azure Management Portal]: https://manage.windowsazure.com/
 [полный пример проекта]: http://go.microsoft.com/fwlink/p/?LinkId=331328
 [Xamarin.iOS]: http://xamarin.com/download
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

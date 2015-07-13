@@ -1,6 +1,6 @@
 Для работы с этим учебником требуется:
 
-- учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://www.windowsazure.com/ru-ru/pricing/free-trial/?WT.mc_id=AED8DE357" target="_blank">Бесплатная пробная версия Azure</a>;
+- учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AED8DE357" target="_blank">Бесплатная пробная версия Azure</a>;
 
 
 - [пакет SDK для Android для мобильных служб Azure](http://aka.ms/Iajk6q);
@@ -14,4 +14,4 @@
 [Приступая к работе с мобильными службами]: ../articles/mobile-services/mobile-services-android-get-started.md
 [Добавление мобильных служб в существующее приложение]: ../articles/mobile-services/mobile-services-android-get-started-data.md
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

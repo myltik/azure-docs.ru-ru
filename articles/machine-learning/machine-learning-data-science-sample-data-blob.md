@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Выборка данных в хранилище BLOB-объектов Azure| Azure" 
+	pageTitle="Выборка данных в хранилище больших двоичных объектов Azure| Microsoft Azure" 
 	description="Выборка данных в хранилище BLOB-объектов Azure" 
-	services="machine-learning" 
+	services="machine-learning,storage" 
 	documentationCenter="" 
-	authors="sunliangms,fashah,msolhab" 
+	authors="msolhab" 
 	manager="paulettm" 
 	editor="cgronlun" />
 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2015" 
-	ms.author="sunliangms,fashah,msolhab,garye" /> 
+	ms.date="05/29/2015" 
+	ms.author="sunliangms;fashah;msolhab;garye;bradsev" />
 
-#<a name="heading"></a>Выборка данных в хранилище BLOB-объектов Azure
+#<a name="heading"></a>Выборка данных в хранилище больших двоичных объектов Azure
 
 Этот документ описывает выборку данных, содержащихся в хранилище BLOB-объектов Azure, путем их программной загрузки и последующей выборки с помощью образца кода на языке Python. Для этого необходимо выполнить следующие шаги:
 
@@ -45,7 +45,7 @@
 	    #directly ready from file on disk
     	dataframe_blobdata = pd.read_csv(LOCALFILE)
 
-3. Создать выборку данных с помощью `numpy`  `random.choice`:
+3. Создать выборку данных с помощью `random.choice` `numpy`:
 
 	    # A 1 percent sample
     	sample_ratio = 0.01 
@@ -85,10 +85,15 @@
 	    except:	        
 		    print ("Something went wrong with uploading to the blob:"+ BLOBNAME)
 
-3. Считывание данных из BLOB-объекта Azure с помощью модуля *Reader Module* в Azure ML, как показано на снимке экрана ниже:
+3. Считывание данных из большого двоичного объекта Azure с помощью модуля [считывателя](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) в Azure ML, как показано на изображении ниже:
  
-![reader blob][1]
+![большой двоичный объект считывателя][1]
 
 [1]: ./media/machine-learning-data-science-sample-data-blob/reader_blob.png
 
-<!--HONumber=49--> 
+
+<!-- Module References -->
+[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+ 
+
+<!---HONumber=July15_HO1-->

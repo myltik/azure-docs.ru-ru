@@ -1,5 +1,4 @@
-<properties pageTitle="" title="" description="" documentationCenter="" services="" solutions="" authors="" writer="kathydav" editor="tysonn" manager="jeffreyg" />
 
 > [AZURE.NOTE]Для работы с этим учебником требуется учетная запись Azure. Вы можете создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://azure.microsoft.com/pricing/free-trial/).
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

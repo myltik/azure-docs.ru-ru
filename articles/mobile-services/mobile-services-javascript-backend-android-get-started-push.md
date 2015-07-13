@@ -15,25 +15,23 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="02/03/2015" 
+	ms.date="06/01/2015" 
 	ms.author="ricksal"/>
 
 
-# Добавление push-уведомлений к приложению мобильных служб
+# Добавление push-уведомлений в приложение мобильных служб Android
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
 ## Сводка
 
-В этом разделе показано, как использовать мобильные службы Azure для отправки push-уведомлений в приложение Android с помощью Google Cloud Messaging (GCM). В этом учебнике объясняется включение push-уведомлений с помощью концентраторов уведомлений Azure в проекте быстрого запуска. По завершении работы ваша мобильная служба будет отправлять push-уведомление каждый раз при вставке записи.
+В этом разделе показано, как использовать мобильные службы Azure для отправки push-уведомлений в приложение Android с помощью Google Cloud Messaging (GCM). Вы добавите push-уведомления в проект быстрого запуска, что является необходимым условием для этого учебника. Push-уведомления включаются с помощью центра уведомлений Azure, который включен мобильную службу. По завершении работы ваша мобильная служба будет отправлять push-уведомление каждый раз при вставке записи.
 
 <!-- [AZURE.NOTE] If you would like to see the source code of the completed app, go <a href="https://github.com/RickSaling/mobile-services-samples/tree/androidStudio/GettingStartedWithPush/AndroidStudio" target="_blank">here</a>.
 -->
 
-> [AZURE.NOTE]Чтобы просмотреть версию этого учебника для Eclipse, перейдите к следующей статье: [Приступая к работе с push-уведомлениями (Eclipse)].
 
-
-##Предварительные требования
+## Предварительные требования
 
 [AZURE.INCLUDE [mobile-services-android-prerequisites](../../includes/mobile-services-android-prerequisites.md)]
 
@@ -47,9 +45,7 @@
 
 ##<a id="add-push"></a>Добавление push-уведомлений в приложение
 
-###Проверка версии Android SDK
 
-[AZURE.INCLUDE [Проверка пакета SDK](../../includes/mobile-services-verify-android-sdk-version.md)]
 
 Далее следует установить службы Google Play. Google Cloud Messaging предъявляет некоторые требования к минимальному уровню API для разработки и тестирования, которым должно удовлетворять свойство **minSdkVersion** в манифесте.
 
@@ -57,7 +53,7 @@
 
 ###Добавление служб Google Play в проект
 
-[AZURE.INCLUDE [Добавление служб Google Play](../../includes/mobile-services-add-Google-play-services.md)]
+[AZURE.INCLUDE [Добавление служб Play](../../includes/mobile-services-add-Google-play-services.md)]
 
 ###Добавление кода
 
@@ -77,17 +73,11 @@
 
 При запуске этого приложения в эмуляторе убедитесь, что используется виртуальное устройство на платформе Android (AVD), поддерживающее API-интерфейсы Google.
 
-1. Перезапустите Eclipse, в обозревателе пакетов щелкните правой кнопкой мыши проект, щелкните **Свойства**, выберите **Android**, установите флажок **API-интерфейсы Google**, а затем нажмите кнопку **ОК**.
-
-	![](./media/mobile-services-javascript-backend-android-get-started-push/mobile-services-import-android-properties.png)
-
-  	Проект будет предназначен для API-интерфейсов Google.
-
-2. В **Окно** выберите **Диспетчер виртуальных устройств Android**, выберите ваше устройство, щелкните **Изменить**.
+1. В правом конце панели инструментов выберите диспетчер виртуальных устройств Android, выберите свое устройство и щелкните значок изменения справа.
 
 	![](./media/mobile-services-javascript-backend-android-get-started-push/mobile-services-android-virtual-device-manager.png)
 
-3. Выберите **API-интерфейсы Google** в **Цель**, а затем нажмите кнопку ОК.
+2. Выберите **Изменить** в строке описания устройства, выберите **Интерфейсы Google API** и нажмите кнопку «ОК».
 
    	![](./media/mobile-services-javascript-backend-android-get-started-push/mobile-services-android-virtual-device-manager-edit.png)
 
@@ -95,16 +85,32 @@
 
 ###Выполнение теста
 
-1. В меню **Выполнить** в Eclipse выберите **Выполнить** для запуска приложения.
+1. В меню **Запуск** выберите **Запуск приложения**, чтобы запустить приложение.
 
 2. В приложении введите содержательный текст (например, _Новая задача для мобильных служб_, а затем нажмите кнопку **Добавить**.
 
   	![](./media/mobile-services-javascript-backend-android-get-started-push/mobile-quickstart-push1-android.png)
 
-3. Проведите пальцем вниз с верхней части экрана, чтобы открыть центр уведомлений для просмотра уведомления.
+3. Проведите пальцем вниз из верхней части экрана, чтобы открыть панель уведомлений для просмотра уведомления.
 
 
 Вы успешно завершили ознакомление с данным учебником.
+
+## Устранение неполадок
+
+### Проверка версии Android SDK
+
+[AZURE.INCLUDE [Проверка пакета SDK](../../includes/mobile-services-verify-android-sdk-version.md)]
+
+
+## Более ранние версии кода
+
+Чтобы просмотреть версию этого учебника для Eclipse, перейдите к следующей статье: [Приступая к работе с push-уведомлениями (Eclipse)].
+
+
+<!--
+To see a completed version of the source code in an Eclipse project, go <a href="https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithData/Android">here</a>.
+-->
 
 
 ## <a name="next-steps"> </a>Дальнейшие действия
@@ -123,13 +129,13 @@
 
 Дополнительные сведения о мобильных службах и концентраторах уведомлений см. в следующих разделах.
 
-* [Приступая к работе с данными] <br/>Узнайте больше о хранении данных и запросах к ним при помощи мобильных служб.
+* [Приступая к работе с данными] <br/>Дополнительные сведения о хранении данных и запросах к ним при помощи мобильных служб.
 
-* [Приступая к работе с проверкой подлинности] <br/>Узнайте, как проверять подлинность пользователей приложения с разными типами учетных записей, используя мобильные службы.
+* [Приступая к работе с проверкой подлинности] <br/>Дополнительные сведения о проверке подлинности пользователей приложения с разными типами учетных записей с помощью мобильных служб.
 
 * [Что такое концентраторы уведомлений?] <br/>Дополнительные сведения о работе концентраторов уведомлений по доставке уведомлений в приложения на всех основных клиентских платформах.
 
-* [Отладка приложений концентраторов уведомлений](http://go.microsoft.com/fwlink/p/?linkid=386630) </br>Получите руководство по устранению неполадок и отладке решений концентраторов уведомлений.
+* [Отладка приложений Центров уведомлений](http://go.microsoft.com/fwlink/p/?linkid=386630) </br>Устранение неполадок и отладка решений на основе Центров уведомлений.
 
 * [Использование клиентской библиотеки Android для мобильных служб] <br/>Узнайте, как использовать мобильные службы с Android.
 
@@ -171,5 +177,6 @@
 [Что такое концентраторы уведомлений?]: ../notification-hubs-overview.md
 [Send broadcast notifications to subscribers]: ../notification-hubs-android-send-breaking-news.md
 [Send template-based notifications to subscribers]: ../notification-hubs-android-send-localized-breaking-news.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

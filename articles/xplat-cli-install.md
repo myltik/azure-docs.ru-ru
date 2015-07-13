@@ -118,16 +118,14 @@
 
 ## Использование контейнера Docker
 
-На узле Docker выполните следующую команду: 
-```
+На узле Docker выполните следующую команду: ```
 	docker run -it microsoft/azure-cli
 ```
 
 ## Выполнение команд Azure CLI
 
-После установки Azure CLI для доступа к соответствующим функциям можно использовать команду **azure** в интерфейсе командной строки (Bash, терминал, cmd.exe и т. п.). Например, чтобы выполнить команду справки (help) в Windows, запустите командную строку (cmd.exe) с правами администратора: 
-```
-	c:> azure help
+После установки Azure CLI для доступа к соответствующим функциям можно использовать команду **azure** в интерфейсе командной строки (Bash, терминал, cmd.exe и т. п.). Например, чтобы выполнить команду справки (help) в Windows, запустите командную строку (cmd.exe) с правами администратора: ```
+	C:\> azure help
 ```
 
 Теперь все готово к работе. Вы можете [подключиться к среде Azure из интерфейса Azure CLI](xplat-cli-connect.md) и приступать к использованию команд **azure**.
@@ -152,7 +150,7 @@
 [mac-installer]: http://go.microsoft.com/fwlink/?LinkId=252249
 [windows-installer]: http://go.microsoft.com/?linkid=9828653&clcid=0x409
 [linux-installer]: http://go.microsoft.com/fwlink/?linkid=253472
-[cliasm]: virtual-machines-command-line-tools.md
-[cliarm]: xplat-cli-azure-resource-manager.md
+[cliasm]: virtual-machines/virtual-machines-command-line-tools.md
+[cliarm]: virtual-machines/xplat-cli-azure-resource-manager.md
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

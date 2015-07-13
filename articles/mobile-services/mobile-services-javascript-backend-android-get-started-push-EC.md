@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="02/06/2015" 
+	ms.date="06/03/2015" 
 	ms.author="ricksal"/>
 
 # Добавление push-уведомлений к приложению мобильных служб
@@ -58,7 +58,7 @@
 
 ###Добавление служб Google Play в проект
 
-[AZURE.INCLUDE [Добавление служб Google Play](../../includes/mobile-services-add-Google-play-services-EC.md)]
+[AZURE.INCLUDE [Добавление служб Play](../../includes/mobile-services-add-Google-play-services-EC.md)]
 
 ###Добавление кода
 
@@ -167,9 +167,9 @@
 
 * [Добавление проверки подлинности в приложение][Get started with authentication] <br/>Узнайте, как проверять подлинность пользователей приложения с разными типами учетных записей, используя мобильные службы.
 
-* [Что такое концентраторы уведомлений?] <br/>Дополнительные сведения о работе концентраторов уведомлений по доставке уведомлений в приложения на всех основных клиентских платформах.
+* [Что такое Центры уведомлений?] <br/>Дополнительные сведения о работе концентраторов уведомлений по доставке уведомлений в приложения на всех основных клиентских платформах.
 
-* [Отладка приложений концентраторов уведомлений](http://go.microsoft.com/fwlink/p/?linkid=386630) </br>Получите руководство по устранению неполадок и отладке решений концентраторов уведомлений.
+* [Отладка приложений Центров уведомлений](http://go.microsoft.com/fwlink/p/?linkid=386630) </br>Устранение неполадок и отладка решений на основе Центров уведомлений.
 
 * [Использование клиентской библиотеки Android для мобильных служб] <br/>Узнайте, как использовать мобильные службы с Android.
 
@@ -207,10 +207,10 @@
 [Справочник серверных скриптов мобильных служб]: http://go.microsoft.com/fwlink/?LinkId=262293
 
 [Send push notifications to authenticated users]: mobile-services-javascript-backend-android-push-notifications-app-users.md
-[Приступая к работе с мобильными службами]: mobile-services-android-get-started.md
-[портал управления Azure]: https://manage.windowsazure.com/
-[Что такое концентраторы уведомлений?]: ../notification-hubs-overview.md
+
+[Что такое Центры уведомлений?]: ../notification-hubs-overview.md
 [Send broadcast notifications to subscribers]: ../notification-hubs-android-send-breaking-news.md
 [Send template-based notifications to subscribers]: ../notification-hubs-android-send-localized-breaking-news.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

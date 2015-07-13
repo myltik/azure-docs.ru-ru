@@ -1,11 +1,10 @@
 <properties 
-	pageTitle="Обработка данных в  большом двоичном объекте Azure" 
-	description="Обработка данных в большом двоичном объекте Azure" 
-	metaKeywords="" 
-	services="machine-learning" 
+	pageTitle="Обработка больших двоичных данных Azure с применением методов расширенного анализа | Microsoft Azure" 
+	description="Обработка данных в хранилище больших двоичных объектов Azure." 
+	services="machine-learning,storage" 
 	solutions="" 
 	documentationCenter="" 
-	authors="sunliangms,fashah,msolhab" 
+	authors="msolhab" 
 	manager="paulettm" 
 	editor="cgronlun" />
 
@@ -15,12 +14,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2015" 
-	ms.author="sunliangms,fashah,msolhab,garye" /> 
+	ms.date="05/29/2015" 
+	ms.author="sunliangms;fashah;msolhab;garye;bradsev" />
 
-#<a name="heading"></a>Обработка данных большого двоичного объекта Azure в среде обработке данных
+#<a name="heading"></a>Обработка больших двоичных данных Azure с применением методов расширенного анализа
 
-Этот документ содержит сведения по просмотру данных, хранящихся в большом двоичном объекте Azure, и по созданию признаков на основе таких данных. Для этого нужно загрузить данные из большого двоичного объекта в локальный файл. Затем для просмотра данных и управления ими вы можете передать этот файл в блок данных Pandas. Вот какие действия нужно выполнить:
+Этот документ содержит сведения о работе с данными в хранилище больших двоичных объектов Azure и создании характеристик на их основе. Для этого нужно загрузить данные из большого двоичного объекта в локальный файл. Затем для просмотра данных и управления ими вы можете передать этот файл в блок данных Pandas. Вот какие действия нужно выполнить:
 
 1. Скачайте данные из большого двоичного объекта Azure с помощью службы BLOB-объектов. Для этого воспользуйтесь приведенным ниже примером кода Python. Замените переменные этого кода своими значениями. 
 
@@ -48,7 +47,7 @@
 
 Теперь вы готовы просматривать эти данные и создавать функции на основе этого набора данных.
 
-####<a name="blob-dataexploration"></a>Просмотр данных
+##<a name="blob-dataexploration"></a>Просмотр данных
 
 Вот несколько примеров того, как можно просматривать данные с помощью Pandas:
 
@@ -85,11 +84,11 @@
 		dataframe_blobdata_noNA = dataframe_blobdata.dropna()
 		dataframe_blobdata_noNA.shape
 
-	Другой способ заменить отсутствующие значения - воспользоваться функцией режима.
+	Другой способ заменить отсутствующие значения — воспользоваться функцией режима.
 	
 		dataframe_blobdata_mode = dataframe_blobdata.fillna({'<column_name>':dataframe_blobdata['<column_name>'].mode()[0]})		
 
-8. Создайте гистограмму, используя переменное количество ячеек, чтобы построить распределение переменной.	
+8. Создайте гистограмму, используя переменное количество ячеек, чтобы построить распределение переменной.
 	
 		dataframe_blobdata['<column_name>'].value_counts().plot(kind='bar')
 		
@@ -104,11 +103,11 @@
 		dataframe_blobdata[['<column_a>', '<column_b>']].corr()
 	
 	
-####<a name="blob-featuregen"></a>Создание характеристик
+##<a name="blob-featuregen"></a>Создание характеристик
 	
 Создавать функции с помощью Python вы можете приведенным ниже способом.
 
-#####<a name="blob-countfeature"></a>Создание функций на основе значений индикатора
+###<a name="blob-countfeature"></a>Создание функций на основе значений индикатора
 
 Вот как можно создавать категориальные функции:
 
@@ -121,7 +120,7 @@
 		#generate the indicator column
 		dataframe_blobdata_identity = pd.get_dummies(dataframe_blobdata['<categorical_column>'], prefix='<categorical_column>_identity')
 
-3. Объедините столбец индикатора с исходным блоком данных. 
+3. Объедините столбец индикатора с исходным блоком данных.
  
 			#Join the dummy variables back to the original data frame
 			dataframe_blobdata_with_identity = dataframe_blobdata.join(dataframe_blobdata_identity)
@@ -131,7 +130,7 @@
 		#Remove the original column rate_code in df1_with_dummy
 		dataframe_blobdata_with_identity.drop('<categorical_column>', axis=1, inplace=True)
 	
-#####<a name="blob-binningfeature"></a>Создание компонентов путем группирования данных
+###<a name="blob-binningfeature"></a>Создание характеристик путем группирования данных
 
 Вот как можно создавать функции группирования:
 
@@ -148,11 +147,9 @@
 
 		dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)	
 
-####<a name="sql-featuregen"></a>Запись данных обратно в большой двоичный объект Azure и использование их в Студии машинного обучения Azure
+##<a name="sql-featuregen"></a>Запись данных обратно в большой двоичный объект Azure и их использование в Студии машинного обучения Azure
 
-После просмотра данных и создания необходимых вам признаков вы можете отправить данные (в выборке или в признаке) в большой двоичный объект Azure и использовать их в Студии машинного обучения Azure. Вы можете это сделать приведенным ниже способом.
-Обратите внимание, что дополнительные функции вы можете создавать и в Студии машинного обучения Microsoft Azure. 
-1. Запишите блок данных в локальный файл.
+После просмотра данных и создания необходимых вам признаков вы можете отправить данные (в выборке или в признаке) в большой двоичный объект Azure и использовать их в Студии машинного обучения Azure. Вы можете это сделать описанным ниже способом. Обратите внимание на то, что дополнительные характеристики можно создавать и в Студии машинного обучения Microsoft Azure. 1. Запишите блок данных в локальный файл.
 
 		dataframe.to_csv(os.path.join(os.getcwd(),LOCALFILENAME), sep='\t', encoding='utf-8', index=False)
 
@@ -178,10 +175,15 @@
 	    except:	        
 		    print ("Something went wrong with uploading blob:"+BLOBNAME)
 
-3. Теперь вы можете считывать данные с большого двоичного объекта с помощью компонента *Reader Module* Студии машинного обучения Azure (см. рисунок ниже).
+3. Теперь вы можете считывать данные из большого двоичного объекта с помощью модуля [считывателя][reader] Студии машинного обучения Azure (см. рисунок ниже).
  
-![reader blob][1]
+![большой двоичный объект считывателя][1]
 
 [1]: ./media/machine-learning-data-science-process-data-blob/reader_blob.png
 
-<!--HONumber=49--> 
+
+<!-- Module References -->
+[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+ 
+
+<!---HONumber=July15_HO1-->

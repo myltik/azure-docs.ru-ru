@@ -29,16 +29,22 @@
 
 	Это обеспечит выполнение регистрации только для того экземпляра клиента, который имеет учетные данные пользователя, прошедшего проверку подлинности. В противном случае регистрация не удастся и будет возвращена ошибка "Не санкционировано" (401).
 
-3. Откройте файл проекта MainPage.xaml.cs и замените переопределение метода **OnNavigatedTo** следующим:
+3. Откройте общий файл проекта MainPage.cs и замените обработчик **ButtonLogin_Click** на приведенный ниже.
 
-	    protected override async void OnNavigatedTo(NavigationEventArgs e)
+        private async void ButtonLogin_Click(object sender, RoutedEventArgs e)
         {
-            await AuthenticateAsync();            
-            todolistPush.UploadChannel();
-            RefreshTodoItems();
+            // Login the user and then load data from the mobile service.
+            await AuthenticateAsync();
+			todolistPush.UploadChannel();
+
+            // Hide the login button and load items from the mobile service.
+            this.ButtonLogin.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+            await RefreshTodoItems();
         }
 
-	В этом коде следует заменить автоматически созданное имя класса push (`todolistPush`) именем класса, созданным мастером, обычно в формате <code><em>mobile_service</em>Push</code>.
+	Это гарантирует, что проверка подлинности будет выполняться до попытки принудительной регистрации.
+
+4. 	В предыдущем коде следует заменить автоматически созданное имя класса (`todolistPush`) именем класса, созданным мастером, обычно в формате <code><em>mobile_service</em>Push</code>.
 
 ###Push-уведомления, включаемые вручную		
 
@@ -48,13 +54,19 @@
  
 2. Измените диапазон доступа метода **InitNotificationsAsync** с `private` значением `public` и добавьте модификатор `static`.
 
-3. Откройте файл проекта MainPage.xaml.cs и замените переопределение метода **OnNavigatedTo** следующим:
+3. Откройте общий файл проекта MainPage.cs и замените обработчик **ButtonLogin_Click** на приведенный ниже.
 
-	    protected override async void OnNavigatedTo(NavigationEventArgs e)
+        private async void ButtonLogin_Click(object sender, RoutedEventArgs e)
         {
-            await AuthenticateAsync();            
-            App.InitNotificationsAsync();
-            RefreshTodoItems();
-        }
+            // Login the user and then load data from the mobile service.
+            await AuthenticateAsync();
+			App.InitNotificationsAsync();
 
-<!---HONumber=62-->
+            // Hide the login button and load items from the mobile service.
+            this.ButtonLogin.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+            await RefreshTodoItems();
+        }
+	
+	Это гарантирует, что проверка подлинности будет выполняться до попытки принудительной регистрации.
+
+<!---HONumber=July15_HO1-->

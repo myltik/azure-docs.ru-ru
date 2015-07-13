@@ -90,4 +90,4 @@ Azure воспринимает этот шаблон как образ и хра
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

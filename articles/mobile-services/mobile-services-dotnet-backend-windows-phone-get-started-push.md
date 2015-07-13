@@ -1,10 +1,9 @@
 <properties 
-	pageTitle="Приступая к работе с концентраторами push-уведомлений при использовании мобильных служб среды выполнения .NET" 
+	pageTitle="Использование мобильных служб и центры уведомлений Azure для отправки уведомлений в приложение Windows Phone." 
 	description="Дополнительные сведения об использовании концентраторов уведомлений с мобильными службами Azure для отправки push-уведомлений в приложение Windows Phone." 
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
-	authors="wesmc7777" 
-	writer="wesmc" 
+	authors="ggailey777" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -14,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/23/2015" 
+	ms.date="06/04/2015" 
 	ms.author="wesmc"/>
 
 # Добавление push-уведомлений к приложению мобильных служб
@@ -23,12 +22,11 @@
 
 ##Обзор
 
-В этом разделе показано, как использовать мобильные службы Azure с серверной службой .NET для отправки push-уведомлений в приложение для Windows Phone Silverlight 8. В этом учебнике вам предстоит использовать push-уведомления с помощью концентраторов уведомлений Azure в проекте быстрого запуска. По завершении работы ваша мобильная служба будет отправлять push-уведомление с использованием концентраторов уведомлений каждый раз при вставке записи. Создаваемый вами концентратор уведомлений является бесплатным для вашей мобильной службы, может управляться независимо от мобильной службы и может использоваться другими приложениями и службами.
+В этом разделе описано использование мобильных служб Azure с серверной службой .NET для отправки push-уведомлений в приложение для Windows Phone Silverlight 8 с помощью службы push-уведомлений Майкрософт (MPNS). В этом учебнике вам предстоит использовать push-уведомления с помощью концентраторов уведомлений Azure в проекте быстрого запуска. По завершении работы ваша мобильная служба будет отправлять push-уведомление с использованием концентраторов уведомлений каждый раз при вставке записи. Создаваемый вами центр уведомлений является бесплатным для вашей мобильной службы, может управляться независимо от мобильной службы и может использоваться другими приложениями и службами.
 
+Этот учебник создан на основе проекта TodoList, посвященному мобильным службам. Прежде чем приступить к изучению данного учебника, необходимо выполнить задания учебника [Добавление мобильных служб к существующему приложению], чтобы подключить свой проект к мобильной службе.
 
-Этот учебник создан на основе краткого руководства по мобильным службам. Прежде чем приступить к изучению данного учебника, необходимо выполнить задания учебника [Добавление мобильных служб к существующему приложению], чтобы подключить свой проект к мобильной службе.
-
->[AZURE.NOTE]Этот учебник направлен на приложения для Windows Phone 8.1 Silverlight. Если же вы создаете приложение для Магазина Windows Phone 8.1, см. версию этого учебника для [приложения для Магазина Windows](mobile-services-dotnet-backend-windows-store-dotnet-get-started-push). Информацию о приложениях для Windows Phone Silverlight и их сравнении с приложениями для Магазина Windows Phone см. в разделе [Приложения для Windows Phone Silverlight 8.1].
+>[AZURE.NOTE]Этот учебник ориентирован на приложения Windows Phone 8.1 Silverlight. Если же вы создаете приложение для Магазина Windows Phone 8.1, см. версию этого учебника для [приложения для Магазина Windows](mobile-services-dotnet-backend-windows-store-dotnet-get-started-push). Информацию о приложениях для Windows Phone Silverlight и их сравнении с приложениями для Магазина Windows Phone см. в разделе [Приложения для Windows Phone Silverlight 8.1].
 
 ##Обновление приложения: регистрация для получения уведомлений
 
@@ -140,7 +138,7 @@
 
 3. Откройте вкладку **Push-уведомления**, установите флажок **Включить push-уведомления без проверки подлинности**, затем щелкните **Сохранить**.
 
-   	![][4]
+   	![Вкладка push-уведомлений мобильных служб](./media/mobile-services-dotnet-backend-windows-phone-get-started-push/mobile-push-tab.png)
 
 	>[AZURE.NOTE]В этом учебнике используется MPNS в режиме без проверки подлинности. В этом режиме MPNS ограничивает количество уведомлений, которые могут быть отправлены в канал устройства. Чтобы снять это ограничение, необходимо создать и отправить сертификат, щелкнув <strong>Отправить</strong> и выбрав нужный сертификат. Дополнительные сведения о создании сертификата см. в статье <a href="http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx">Настройка веб-службы с проверкой подлинности для отправки push-уведомлений в Windows Phone</a>.
 
@@ -155,37 +153,29 @@
 
 1. В Visual Studio нажмите клавишу F5, чтобы запустить приложение.
 
-    >[AZURE.NOTE]При проверке в эмуляторе Windows Phone может возникнуть исключение "401 Не санкционировано" RegistrationAuthorizationException. Это может произойти во время вызова `RegisterNativeAsync()` из-за способа синхронизации часов в эмуляторе Windows Phone с главным компьютером. В результате маркер безопасности может быть не принят. Чтобы устранить эту проблему, вручную переведите часы в эмуляторе перед тестированием.
+    >[AZURE.NOTE]При проверке в эмуляторе Windows Phone может возникнуть исключение "401 Не санкционировано" RegistrationAuthorizationException. Это может произойти при выполнении вызова `RegisterNativeAsync()` из-за способа синхронизации часов в эмуляторе Windows Phone с главным компьютером. В результате маркер безопасности может быть не принят. Чтобы устранить эту проблему, вручную переведите часы в эмуляторе перед тестированием.
 
 5. В приложении введите в текстовое поле слова «hello push», щелкните **Сохранить**, а затем сразу же щелкните кнопку запуска или кнопку «Назад», чтобы выйти из приложения.
 
-   	![][2]
+   	![Вставка текста][2]
 
   	При этом в мобильную службу будет отправлен запрос на сохранение добавленного элемента. Заметьте, что устройство получает всплывающее уведомление с текстом **hello push**.
 
-	![][5]
+	![Получено push-уведомление](./media/mobile-services-dotnet-backend-windows-phone-get-started-push/mobile-quickstart-push5-wp8.png)
 
 	>[AZURE.NOTE]Вы не получите уведомление, пока находитесь в приложении. Чтобы получить всплывающее уведомление, пока приложение активно, необходимо обработать событие [ShellToastNotificationReceived](http://msdn.microsoft.com/library/windowsphone/develop/microsoft.phone.notification.httpnotificationchannel.shelltoastnotificationreceived.aspx).
 
 ##Дальнейшие действия
 
-В этом учебнике показаны основы включения в приложении для Windows Phone возможностей отправки push-уведомлений с помощью мобильных служб и центров уведомлений. Далее мы рекомендуем изучить учебник [Отправка push-уведомлений прошедшим проверку пользователям], в котором показано, как использовать теги для отправки push-уведомлений из мобильной службы только пользователям, прошедшим проверку.
+В этом учебнике показаны основы включения в приложении для Windows Phone возможностей отправки push-уведомлений с помощью мобильных служб и центров уведомлений. Далее полезно пройти следующий учебник [Отправка push-уведомлений аутентифицированным пользователям]. Узнайте, как использовать теги для отправки push-уведомлений из мобильной службы только аутентифицированным пользователям.
 
-<!--+ [Send push notifications to authenticated users]
-	<br/>Learn how to use tags to send push notifications from a Mobile Service to only an authenticated user.
-
-+ [Send broadcast notifications to subscribers]
-	<br/>Learn how users can register and receive push notifications for categories they're interested in.
--->
 Просмотрите следующие разделы, посвященные мобильным службам и центрам уведомлений:
 
-* [Приступая к работе с данными] <br/>Дополнительные сведения о хранении данных и запросах к ним при помощи мобильных служб.
+* [Добавление проверки подлинности в приложение] <br/>Узнайте, как проверять подлинность пользователей приложения с разными типами учетных записей, используя мобильные службы.
 
-* [Приступая к работе с проверкой подлинности] <br/>Дополнительные сведения о проверке подлинности пользователей приложения с разными типами учетных записей при помощи мобильных служб.
+* [Что такое Центры уведомлений?] <br/>Дополнительные сведения о работе концентраторов уведомлений по доставке уведомлений в приложения на всех основных клиентских платформах.
 
-* [Что такое концентраторы уведомлений?] <br/>Дополнительные сведения о работе концентраторов уведомлений по доставке уведомлений в приложения на всех основных клиентских платформах.
-
-* [Отладка приложений концентраторов уведомлений](http://go.microsoft.com/fwlink/p/?linkid=386630) </br>Устранение неполадок и отладка решений на основе концентраторов уведомлений.
+* [Отладка приложений концентраторов уведомлений](http://go.microsoft.com/fwlink/p/?linkid=386630) </br>Получите руководство по устранению неполадок и отладке решений концентраторов уведомлений.
 
 * [Справочник принципов использования мобильных служб .NET] <br/>Дополнительные сведения об использовании мобильных служб в .NET.
 
@@ -197,20 +187,14 @@
 [1]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-push/mobile-app-enable-push-wp8.png
 [2]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-push/mobile-quickstart-push3-wp8.png
 [3]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-push/mobile-quickstart-push4-wp8.png
-[4]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-push/mobile-push-tab.png
-[5]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-push/mobile-quickstart-push5-wp8.png
 
 <!-- URLs. -->
-[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Get started with Mobile Services]: ../mobile-services-dotnet-backend-windows-phone-get-started.md
 [Добавление мобильных служб к существующему приложению]: mobile-services-dotnet-backend-windows-phone-get-started-data.md
-[Приступая к работе с проверкой подлинности]: mobile-services-dotnet-backend-windows-phone-get-started-users.md
+[Добавление проверки подлинности в приложение]: mobile-services-dotnet-backend-windows-phone-get-started-users.md
 
-[Отправка push-уведомлений прошедшим проверку пользователям]: mobile-services-dotnet-backend-windows-phone-push-notifications-app-users.md
+[Отправка push-уведомлений аутентифицированным пользователям]: mobile-services-dotnet-backend-windows-phone-push-notifications-app-users.md
 
-[Что такое концентраторы уведомлений?]: ../notification-hubs-overview.md
+[Что такое Центры уведомлений?]: ../notification-hubs-overview.md
 [Send broadcast notifications to subscribers]: ../notification-hubs-windows-phone-send-breaking-news.md
 [Send template-based notifications to subscribers]: ../notification-hubs-windows-phone-send-localized-breaking-news.md
 
@@ -218,5 +202,6 @@
 [Справочник принципов использования мобильных служб .NET]: mobile-services-html-how-to-use-client-library.md
 [Приложения для Windows Phone Silverlight 8.1]: http://msdn.microsoft.com/library/windowsphone/develop/dn642082(v=vs.105).aspx
 [портал управления Azure]: https://manage.windowsazure.com/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

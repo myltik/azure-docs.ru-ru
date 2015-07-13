@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Хранилище Premium: высокопроизводительное хранилище для рабочих нагрузок виртуальных машин Azure"
+	pageTitle="Хранилище Premium: высокопроизводительное хранилище для рабочих нагрузок виртуальных машин Azure | Microsoft Azure"
 	description="Узнайте о хранилище Azure Premium для дисков. Вы узнаете, как создавать учетную запись хранения Premium."
 	services="storage"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/11/2015"
+	ms.date="06/30/2015"
 	ms.author="tamram;selcint"/>
 
 
@@ -391,4 +391,4 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

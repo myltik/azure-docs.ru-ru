@@ -59,4 +59,4 @@
 
 [Image6]: ./media/create-and-configure-opensuse-vm-in-portal/putty.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Веб-роли и рабочие роли Python с помощью Python Tools 2.1 для Visual Studio" 
-	description="Обзор использования Python Tools в Visual Studio для создания облачных служб Azure, включая веб-роли и рабочие роли." 
-	services="" 
-	documentationCenter="python" 
-	authors="huguesv" 
-	manager="wpickett" 
+<properties
+	pageTitle="Веб-роли и рабочие роли Python с помощью Python Tools 2.1 для Visual Studio"
+	description="Обзор использования Python Tools в Visual Studio для создания облачных служб Azure, включая веб-роли и рабочие роли."
+	services=""
+	documentationCenter="python"
+	authors="huguesv"
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="python" 
-	ms.topic="article" 
-	ms.date="02/09/2015" 
+<tags
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="python"
+	ms.topic="get-started-article" 
+	ms.date="02/09/2015"
 	ms.author="huvalo"/>
 
 
@@ -104,7 +104,7 @@ Azure предоставляет три вычислительные модел�
 - [Проекты для облачной службы][]
 
 Для получения более подробной информации об использовании служб Azure из веб-ролей или рабочих ролей, например об использовании хранилища Azure или шины обслуживания, рекомендуется обратиться к следующим руководствам:
- 
+
 - [Служба больших двоичных объектов][]
 - [Служба таблиц][]
 - [Служба очередей][]
@@ -139,4 +139,4 @@ Azure предоставляет три вычислительные модел�
 [Python 2.7 (32-разрядный)]: http://go.microsoft.com/fwlink/?LinkId=517190
 [Python 3.4 (32-разрядный)]: http://go.microsoft.com/fwlink/?LinkId=517191
 
-<!--HONumber=54-->
+<!---HONumber=July15_HO1-->

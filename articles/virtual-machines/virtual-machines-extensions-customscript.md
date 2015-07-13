@@ -9,9 +9,9 @@
 
 <tags
    ms.service="virtual-machines"
-   ms.devlang=""
+   ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm=""
+   ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/19/2015"
    ms.author="kundanap"/>
@@ -78,5 +78,6 @@
 
 <!--Image references-->
 [5]: ./media/virtual-machines-extensions-customscript/addcse.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO1-->

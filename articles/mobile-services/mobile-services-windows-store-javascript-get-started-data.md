@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="02/26/2015" 
+	ms.date="06/04/2015" 
 	ms.author="glenga"/>
 
 
@@ -21,8 +21,8 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-data-legacy](../../includes/mobile-services-selector-get-started-data-legacy.md)]
 
-#Обзор
-В этом разделе показано, как использовать мобильные службы Azure для эффективного использования данных в приложении Магазина Windows. В этом учебнике предстоит загрузить проект 2013 Visual Studio для приложения, которое хранит данные в памяти, создать новые услуги мобильной связи, интегрировать мобильную службу с приложением, а затем выполнить вход на портал управления Azure для просмотра изменений, внесенных в данные в ходе выполнения приложения.
+##Обзор
+В этом разделе показано, как использовать мобильные службы Azure для эффективного использования данных в приложении Магазина Windows. В этом учебнике вам предстоит скачать проект Visual Studio 2013 для приложения, которое хранит данные в памяти, создать новую мобильную службу, интегрировать мобильную службу в приложение, а затем выполнить вход на портал управления Azure для просмотра изменений, внесенных в данные в ходе выполнения приложения.
 
 Для работы с этим учебником требуется:
 
@@ -35,7 +35,7 @@
 
 1. Скачайте версию примера приложения GetStartedWithData, созданную на JavaScript , с веб-сайта [примеров кода для разработчиков]. 
 
-2. В Visual Studio 2012 Express для Windows 8 откройте скачанный проект, разверните папку **js** и просмотрите файл default.js.
+2. Откройте загруженный проект в Visual Studio, разверните папку **js** и ознакомьтесь с файлом default.js.
 
    	Обратите внимание, что добавленные объекты **TodoItem** хранятся в объекте **List** в локальной памяти.
 
@@ -66,7 +66,7 @@
 
 [AZURE.INCLUDE [mobile-services-create-new-table-vs2013](../../includes/mobile-services-create-new-table-vs2013.md)]
 
-#Обновление приложения для использования мобильной службы
+##Обновление приложения для использования мобильной службы
 
 [AZURE.INCLUDE [mobile-services-windows-javascript-update-data-app](../../includes/mobile-services-windows-javascript-update-data-app.md)]
 
@@ -110,9 +110,9 @@
 
 В этом учебнике показаны основы включения в приложении для магазина Windows возможностей работы с данными в мобильных службах. Рекомендуем прочитать один из следующих разделов:
 
-* [Приступая к работе с проверкой подлинности] <br/>Узнайте, как проверять подлинность пользователей приложения.
+* [Добавление проверки подлинности в приложение](mobile-services-windows-store-javascript-get-started-users.md) <br/>Узнайте, как проверять подлинность пользователей приложения.
 
-* [Приступая к работе с push-уведомлениями] <br/>Узнайте, как отправлять в приложение простейшие push-уведомления.
+* [Добавление push-уведомлений в приложение](mobile-services-javascript-backend-windows-store-javascript-get-started-push.md) <br/>Узнайте, как отправлять в приложение простейшие push-уведомления.
 
 * [Справочник принципов использования мобильных служб HTML/JavaScript](mobile-services-html-how-to-use-client-library.md) <br/>Узнайте, как использовать мобильные службы с HTML и JavaScript.
 
@@ -133,18 +133,12 @@
 
 
 <!-- URLs. -->
-[Validate and modify data with scripts]: ../mobile-services-windows-store-javascript-validate-modify-data-server-scripts.md
-[Refine queries with paging]: ../mobile-services-windows-store-javascript-add-paging-data.md
-[Get started with Mobile Services]: mobile-services-javascript-backend-windows-store-javascript-get-started.md
-[Get started with data]: mobile-services-windows-store-javascript-get-started-data.md
-[Приступая к работе с проверкой подлинности]: mobile-services-windows-store-javascript-get-started-users.md
-[Приступая к работе с push-уведомлениями]: mobile-services-javascript-backend-windows-store-javascript-get-started-push.md
-
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Портале управления]: https://manage.windowsazure.com/
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=328660
 [примеров кода для разработчиков]: http://go.microsoft.com/fwlink/p/?LinkId=328660
 [Mobile Services HTML/JavaScript How-to Conceptual Reference]: mobile-services-html-how-to-use-client-library.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

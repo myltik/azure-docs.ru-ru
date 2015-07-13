@@ -52,5 +52,6 @@
 
 <!-- LINKS -->
 [Как сбросить пароль или ключ SSH в виртуальных машинах Linux]: http://go.microsoft.com/fwlink/p/?LinkId=512138
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO1-->

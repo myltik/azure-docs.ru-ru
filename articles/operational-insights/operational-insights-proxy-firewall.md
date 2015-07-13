@@ -27,7 +27,8 @@
 
 |**Ресурс агента**|**Порты**|
 |--------------|-----|
-|*.ods.opinsights.azure.com|порт 443| |*.oms.opinsights.azure.com|Порт 443|
+|*.ods.opinsights.azure.com|порт 443|
+|*.oms.opinsights.azure.com|Порт 443|
 |ods.systemcenteradvisor.com|Порт 443|
 |*.blob.core.windows.net/*|Порт 443|
 
@@ -85,7 +86,11 @@ $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetN
 
 |**Ресурс сервера управления**|**Порты**|
 |--------------|-----|
-|*.ods.opinsights.azure.com|порт 443| |service.systemcenteradvisor.com|порт 443| |scadvisor.accesscontrol.windows.net|порт 443| |scadvisorservice.accesscontrol.windows.net|порт 443| |*.blob.core.windows.net/*|Порт 443|
+|*.ods.opinsights.azure.com|порт 443|
+|service.systemcenteradvisor.com|порт 443|
+|scadvisor.accesscontrol.windows.net|порт 443|
+|scadvisorservice.accesscontrol.windows.net|порт 443|
+|*.blob.core.windows.net/*|Порт 443|
 |data.systemcenteradvisor.com|Порт 443|
 |ods.systemcenteradvisor.com|Порт 443|
 |*.systemcenteradvisor.com|Порт 443|
@@ -93,8 +98,10 @@ $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetN
 
 |**Ресурс консоли Operations Manager и Operational Insights**|**Порты**|
 |---|---|
-|*.systemcenteradvisor.com|порт 80 и 443| |*.live.com|Порты 80 и 443|
-|*.microsoftonline.com|порты 80 и 443| |login.windows.net|порты 80 и 443|
+|*.systemcenteradvisor.com|порт 80 и 443|
+|*.live.com|Порты 80 и 443|
+|*.microsoftonline.com|порты 80 и 443|
+|login.windows.net|порты 80 и 443|
 
 
 Используйте следующие процедуры для регистрации группы управления Operations Manager в службе Operational Insights. При возникновении проблем связи между группой управления и службой Operational Insights используйте процедуры проверки, чтобы устранить неполадки передачи данных в службу Operational Insights.
@@ -169,5 +176,6 @@ $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetN
 3. Добавьте все счетчики, которые начинаются с **HTTP**. ![добавление счетчиков](./media/operational-insights-proxy-firewall/sendingdata1.png)
 4. Если Operations Manager настроен правильно, вы увидите активность счетчиков управления службы работоспособности для событий и других данных для пакетов управления, которые вы добавили в оперативной аналитике и для которых настроили политику сбора данных журналов. ![Отображение активности на мониторе производительности](./media/operational-insights-proxy-firewall/sendingdata2.png)
  
+<!--BugFixing Comment-->
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

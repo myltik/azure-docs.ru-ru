@@ -49,4 +49,4 @@
 
 [Подключение диска данных к виртуальной машине Windows](../articles/virtual-machines/storage-windows-attach-disk.md)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

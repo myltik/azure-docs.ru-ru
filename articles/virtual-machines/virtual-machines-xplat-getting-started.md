@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Как создать виртуальную машину Azure с помощью интерфейса xplat-cli"
-   description="В этой статье описано, как установить интерфейс xplat-cli на любой платформе, как его использовать для подключения к учетной записи Azure и как с его помощью создавать виртуальные машины."
+   pageTitle="Как создать виртуальную машину Azure с помощью интерфейса CLI Azure | Microsoft Azure"
+   description="В этой статье описано, как установить интерфейс CLI Azure на любой платформе, как его использовать для подключения к учетной записи Azure и как с его помощью создавать виртуальные машины."
    services="virtual-machines"
    documentationCenter="virtual-machines"
-   authors="squillace"
+   authors="dlepow"
    manager="timlt"
    editor="tysonn"/>
 
@@ -13,21 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="command-line-interface"
    ms.workload="infrastructure-services"
-   ms.date="02/20/2015"
-   ms.author="rasquill"/>
+   ms.date="06/09/2015"
+   ms.author="danlep"/>
 
-# Создание виртуальной машины с помощью кроссплатформенного интерфейса командной строки Azure (xplat-cli)
-Интерфейс xplat-cli позволяет управлять инфраструктурой Azure с любой платформы.
+# Создание виртуальной машины с помощью интерфейса командной строки Azure (CLI Azure)
+Интерфейс CLI Azure позволяет управлять инфраструктурой Azure с любой платформы.
 
-Чтобы приступать к созданию виртуальной машины, нужно установить xplat-cli и оформить подписку Azure. Давайте сделаем это. Если у вас еще нет учетной записи Azure, [вы можете бесплатно получить ее](http://azure.microsoft.com/pricing/free-trial/).
+Чтобы приступить к созданию виртуальной машины, нужно установить CLI Azure и оформить подписку Azure. Давайте сделаем это. Если у вас еще нет учетной записи Azure, [вы можете бесплатно получить ее](http://azure.microsoft.com/pricing/free-trial/).
 
-## Установка интерфейса xplat-cli
+## Установка CLI Azure
 
-Чтобы установить интерфейс [xplat-cli](http://azure.microsoft.com/documentation/articles/xplat-cli/#install), следуйте приведенным ниже указаниям.
+Чтобы установить интерфейс [CLI Azure](../xplat-cli.md#install), следуйте приведенным ниже указаниям.
 
-## Подключение к Azure с помощью интерфейса xplat-cli
+## Подключение к Azure с помощью интерфейса CLI Azure
 
-Установленный интерфейс xplat-cli можно подключить к личной или рабочей учетной записи Azure. Ознакомьтесь с различными возможностями подписок в разделе [Подключение к подписке Azure](http://azure.microsoft.com/documentation/articles/xplat-cli/#configure) и выберите нужную подписку.
+Установленный интерфейс CLI Azure можно подключить к личной или рабочей учетной записи Azure. Ознакомьтесь с различными возможностями подписок в разделе [Подключение к подписке Azure](../xplat-cli.md#configure) и выберите нужную подписку.
 
 ## Создание виртуальной машины и подключение к ней в Azure
 
@@ -57,24 +57,24 @@
 
     Для выбора расположения можно воспользоваться командой `vm location list`, чтобы выбрать близлежащий регион.
 
-  Заданное DNS-имя должно быть уникальным (оно будет сопоставляться с  `dnsname.cloudapp.net`) и совпадать с именем виртуальной машины, если оно отдельно не указано в командной строке.  
+  Заданное DNS-имя должно быть уникальным (оно будет сопоставляться с `dnsname.cloudapp.net`) и совпадать с именем виртуальной машины, если оно отдельно не указано в командной строке.
 
-    Приведенный ниже пример для Linux демонстрирует создание виртуальной машины, для которой указан западный регион США и порт SSH по умолчанию 22 (аргумент -e), а также пользователя с именем `myadminuser`:
+    The Linux example below creates a VM in West US, opens the default SSH port 22 (the -e argument), and creates a user called `myadminuser`:
 
         azure vm create -e -l "West US"  my-new-cli-vm b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-ru-ru-30GB "myadminuser" "myAdm1n@passwd"
 
 ## Дальнейшие действия
 
-Давайте попробуем поработать с виртуальной машиной. 
+Давайте попробуем поработать с виртуальной машиной.
 
 Так как в примере выше открывается порт SSH по умолчанию, вы можете с легкостью подключиться к виртуальной машине сразу же после ее создания и запуска. Введите в командной строке Linux:
 
     ssh myadminuser@my-new-cli-vm.cloudapp.net
 
-Больше примеров использования интерфейса xplat-cli для управления инфраструктурой Azure можно найти в разделе [Программа командной строки Azure для Mac и Linux](http://azure.microsoft.com/documentation/articles/virtual-machines-command-line-tools/).
+Больше примеров использования интерфейса CLI Azure для управления инфраструктурой Azure можно найти на [странице со справочной информацией по программе командной строки Azure](../virtual-machines-command-line-tools.md).
 
 <!--Image references-->
 [5]: ./media/markdown-template-for-new-articles/octocats.png
-
-<!--HONumber=47-->
  
+
+<!---HONumber=July15_HO1-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="02/23/2015" 
+	ms.date="06/03/2015" 
 	ms.author="wesmc"/>
 
 
@@ -40,7 +40,7 @@
 
 ##Обновление службы с учетом требования по проверке подлинности для регистрации
 
-[AZURE.INCLUDE [mobile-services-javascript-backend-push-notifications-app-users](../../includes/mobile-services-javascript-backend-push-notifications-app-users.md)] 
+[AZURE.INCLUDE [mobile-services-javascript-backend-push-notifications-app-users](../../includes/mobile-services-javascript-backend-push-notifications-app-users.md)]
 
 <ol start="5"><li><p>Замените функцию вставки следующим кодом и нажмите кнопку <strong>Сохранить</strong>.</p>
 <pre><code>function insert(item, user, request) {
@@ -78,11 +78,11 @@
 
 ##Обновление приложения с учетом требования по входу в систему перед регистрацией
 
-[AZURE.INCLUDE [mobile-services-android-push-notifications-app-users](mobile-services-android-push-notifications-app-users.md)] 
+[AZURE.INCLUDE [mobile-services-android-push-notifications-app-users](mobile-services-android-push-notifications-app-users.md)]
 
 ##Тестирование приложения
 
-[AZURE.INCLUDE [mobile-services-android-test-push-users](../../includes/mobile-services-android-test-push-users.md)] 
+[AZURE.INCLUDE [mobile-services-android-test-push-users](../../includes/mobile-services-android-test-push-users.md)]
 
 <!---##Next steps
 
@@ -93,8 +93,9 @@ In the next tutorial, [Service-side authorization of Mobile Services users](mobi
 [Добавление проверки подлинности в приложение мобильных служб]: mobile-services-android-get-started-users.md
 [Get started with push notifications]: mobile-services-javascript-backend-android-get-started-push.md
 [Приступая к работе с push-уведомлениями в мобильных службах]: mobile-services-javascript-backend-android-get-started-push.md
-[портал управления Azure]: https://manage.windowsazure.com/
+
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

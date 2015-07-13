@@ -211,4 +211,4 @@
 [Шаг 4. Загрузка VHD-файла]: #upload
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

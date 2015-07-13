@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Использование API (PHP) для управления службами в Azure" 
-	description="Узнайте, как можно использовать API (PHP), предназначенные для управления службами в Azure, чтобы осуществлять управление облачными службами и другими приложениями Azure." 
-	services="web-sites" 
-	documentationCenter="php" 
-	authors="tfitzmac" 
-	manager="wpickett" 
+<properties
+	pageTitle="Использование API (PHP) для управления службами в Azure"
+	description="Узнайте, как можно использовать API (PHP), предназначенные для управления службами в Azure, чтобы осуществлять управление облачными службами и другими приложениями Azure."
+	services="web-sites"
+	documentationCenter="php"
+	authors="tfitzmac"
+	manager="wpickett"
 	editor="mollybos"/>
 
-<tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="PHP" 
-	ms.topic="article" 
-	ms.date="11/17/2014" 
+<tags
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="PHP"
+	ms.topic="article"
+	ms.date="11/17/2014"
 	ms.author="tomfitz"/>
 
 # Использование управления службами в PHP
@@ -52,14 +52,14 @@ API управления службой обеспечивает програм�
 
 Дополнительные сведения о сертификатах Azure см. в разделе [Обзор сертификатов в Azure](http://msdn.microsoft.com/library/azure/gg981929.aspx). Полное описание параметров OpenSSL см. в документации по адресу [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
 
-Если вы загрузили и импортировали файл со своими настройками публикации с помощью [средств командной строки Azure][command-line-tools], можно воспользоваться `.pem`-файлом, который создается этими средствами, вместо создания такого файла собственноручно. Эти средства создают `.cer`-файл для вас и загружают его в Azure, а также помещают соответствующий `.pem`-файл в каталог`.azure` на вашем компьютере (в вашем каталоге пользователя).
+Если вы загрузили и импортировали свой файл параметров публикации с помощью [интерфейса командной строки Azure][Azure CLI], можно использовать файл `.pem`, вместо того чтобы создавать собственный. Эти средства создают `.cer`-файл для вас и загружают его в Azure, а также помещают соответствующий `.pem`-файл в каталог`.azure` на вашем компьютере (в вашем каталоге пользователя).
 
 После создания этих файлов необходимо передать `.cer`-файл в Azure с помощью [портала управления][management-portal] и отметить, где сохранен `.pem`-файл.
 
 После получения ИД подписки, создания сертификата и передачи `.cer`-файла в Azure можно подключиться к конечной точке управления Azure, создав строку подключения и передав ее в метод **createServiceManagementService** класса **ServicesBuilder**.
 
 	require_once 'vendor\autoload.php';
-	
+
 	use WindowsAzure\Common\ServicesBuilder;
 
 	$conn_string = "SubscriptionID=<your_subscription_id>;CertificatePath=<path_to_.pem_certificate>";
@@ -79,9 +79,9 @@ API управления службой обеспечивает програм�
 
 	try{
 		$serviceManagementRestProxy = ServicesBuilder::getInstance()->createServiceManagementService($conn_string);
-	
+
 		$result = $serviceManagementRestProxy->listLocations();
-	
+
 		$locations = $result->getLocations();
 
 		foreach($locations as $location){
@@ -90,7 +90,7 @@ API управления службой обеспечивает програм�
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -99,19 +99,19 @@ API управления службой обеспечивает програм�
 
 При создании облачной службы, служба хранилища или территориальной группы необходимо предоставить допустимое расположение. Метод **listLocations** всегда будет возвращать текущий список доступных в настоящее время расположений. На момент написания этой статьи были доступны следующие расположения:
 
-- В любом месте в США 
-- В любом месте в Европе 
-- Западная Европа 
-- В любом месте в Азии 
-- Юго-Восточная Азия 
-- Восточная Азия 
-- Северо-центральный регион США 
-- Северная Европа 
-- Южно-центральный регион США 
-- Запад США 
+- В любом месте в США
+- В любом месте в Европе
+- Западная Европа
+- В любом месте в Азии
+- Юго-Восточная Азия
+- Восточная Азия
+- Северо-центральный регион США
+- Северная Европа
+- Южно-центральный регион США
+- Запад США
 - Восток США
 
-В следующих ниже примерах кода расположения передаются в методы как строки. Тем не менее расположения можно также передавать как перечисления с помощью класса <code>WindowsAzure\\ServiceManagement\\Models\\Locations</code>. Например, вместо передачи в метод, принимающий расположение, значения «Запад США», можно передать <code>Locations::WEST_US</code>.
+В следующих ниже примерах кода расположения передаются в методы как строки. Тем не менее расположения можно также передавать как перечисления с помощью класса <code>WindowsAzure\ServiceManagement\Models\Locations</code>. Например, вместо передачи в метод, принимающий расположение, значения «Запад США», можно передать <code>Locations::WEST_US</code>.
 
 ## Практическое руководство. Создание облачной службы
 
@@ -126,7 +126,7 @@ API управления службой обеспечивает програм�
 	try{
 		// Create REST proxy.
 		$serviceManagementRestProxy = ServicesBuilder::getInstance()->createServiceManagementService($conn_string);
-		
+
         $name = "myhostedservice";
         $label = base64_encode($name);
         $options = new CreateServiceOptions();
@@ -138,14 +138,14 @@ API управления службой обеспечивает програм�
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
 	}
 
-Можно получить список всех размещенных служб подписки с помощью метода **listHostedServices**, который возвращает объект [ListHostedServicesResult]. Последующий вызов метода **getHostedServices** позволит перебрать массив объектов [HostedServices] и извлечь свойства службы:
+Можно получить список всех размещенных служб подписки с помощью метода **listHostedServices**, который возвращает объект [ListHostedServicesResult]. Вызов метода **getHostedServices** позволит перебрать массив объектов [HostedServices] и извлечь свойства службы.
 
 	$listHostedServicesResult = $serviceManagementRestProxy->listHostedServices();
 
@@ -162,9 +162,9 @@ API управления службой обеспечивает програм�
 Чтобы получить сведения о конкретной размещенной службе, можно передать имя размещенной службы в метод **getHostedServiceProperties**:
 
 	$getHostedServicePropertiesResult = $serviceManagementRestProxy->getHostedServiceProperties("myhostedservice");
-		
+
 	$hosted_service = $getHostedServicePropertiesResult->getHostedService();
-		
+
 	echo "Service name: ".$hosted_service->getName()."<br />";
 	echo "Management URL: ".$hosted_service->getUrl()."<br />";
 	echo "Affinity group: ".$hosted_service->getAffinityGroup()."<br />";
@@ -203,7 +203,7 @@ API управления службой обеспечивает програм�
 	try{
 		// Create REST proxy.
 		$serviceManagementRestProxy = ServicesBuilder::getInstance()->createServiceManagementService($conn_string);
-		
+
         $name = "myhostedservice";
 		$deploymentName = "v1";
         $slot = DeploymentSlot::PRODUCTION;
@@ -217,13 +217,13 @@ API управления службой обеспечивает програм�
 														 $packageUrl,
 														 $configuration,
 														 $label);
-		
+
 		$status = $serviceManagementRestProxy->getOperationStatus($result);
 		echo "Operation status: ".$status->getStatus()."<br />";
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -236,7 +236,7 @@ API управления службой обеспечивает програм�
 
 	$options = new GetDeploymentOptions();
 	$options->setSlot(DeploymentSlot::PRODUCTION);
-		
+
 	$getDeploymentResult = $serviceManagementRestProxy->getDeployment("myhostedservice", $options);
 	$deployment = $getDeploymentResult->getDeployment();
 
@@ -268,20 +268,20 @@ API управления службой обеспечивает програм�
 	try{
 		// Create REST proxy.
 		$serviceManagementRestProxy = ServicesBuilder::getInstance()->createServiceManagementService($conn_string);
-		
+
         $name = "myhostedservice";
 		$configuration = base64_encode(file_get_contents('path to .cscfg file'));
 		$options = new ChangeDeploymentConfigurationOptions();
 		$options->setSlot(DeploymentSlot::PRODUCTION);
 
         $result = $serviceManagementRestProxy->changeDeploymentConfiguration($name, $configuration, $options);
-		
+
 		$status = $serviceManagementRestProxy->getOperationStatus($result);
 		echo "Operation status: ".$status->getStatus()."<br />";
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -299,19 +299,19 @@ API управления службой обеспечивает програм�
 	use WindowsAzure\ServiceManagement\Models\DeploymentSlot;
 	use WindowsAzure\ServiceManagement\Models\GetDeploymentOptions;
 	use WindowsAzure\Common\ServiceException;
-	
+
 	try{
 		// Create REST proxy.
 		$serviceManagementRestProxy = ServicesBuilder::getInstance()->createServiceManagementService($conn_string);
-		
+
 		$options = new GetDeploymentOptions();
 		$options->setSlot(DeploymentSlot::PRODUCTION);
-		
+
         $result = $serviceManagementRestProxy->updateDeploymentStatus("myhostedservice", DeploymentStatus::RUNNING, $options);
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -324,7 +324,7 @@ Azure предоставляет две среды развертывания: �
 
 В следующем примере показано, как с помощью метода **swapDeployment** переключаться между двумя развертываниями (с именами `v1` и `v2`). В этом примере перед вызовом метода **swapDeployment** развертывание `v1` находится в рабочей области, а развертывание `v2` — в промежуточной. После вызова метода **swapDeployment** развертывание `v2` переходит в рабочую область, а `v1` — в промежуточную.
 
-	require_once 'vendor\autoload.php';	
+	require_once 'vendor\autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\Common\ServiceException;
@@ -332,12 +332,12 @@ Azure предоставляет две среды развертывания: �
 	try{
 		// Create REST proxy.
 		$serviceManagementRestProxy = ServicesBuilder::getInstance()->createServiceManagementService($conn_string);
-		
+
 		$result = $serviceManagementRestProxy->swapDeployment("myhostedservice", "v2", "v1");
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -358,15 +358,15 @@ Azure предоставляет две среды развертывания: �
 	try{
 		// Create REST proxy.
 		$serviceManagementRestProxy = ServicesBuilder::getInstance()->createServiceManagementService($conn_string);
-		
+
 		$options = new GetDeploymentOptions();
 		$options->setSlot(DeploymentSlot::STAGING);
-		
+
 		$result = $serviceManagementRestProxy->deleteDeployment("myhostedservice", $options);
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -378,16 +378,16 @@ Azure предоставляет две среды развертывания: �
 Служба [хранилища] предоставляет доступ к [Blob-объектам][azure-blobs], [таблицам][azure-tables] и [запросам][azure-queues] Azure. Для создания службы хранилища требуется указать имя службы (от 3 до 24 символов в нижнем регистре, уникальное имя в Azure), описание, метка (имя службы с 64-разрядным шифрованием, до 100 символов) и расположение или территориальную группу. Описание для службы не является обязательным. Расположение, территориальная группа и описание задаются в объекте [CreateServiceOptions], который передается в метод **createStorageService**. В следующем примере показано, как создать службу хранилища путем указания расположения. Если вы хотите использовать территориальную группу, следует сначала создать эту группу (см. раздел [Практическое руководство. Создание территориальной группы](#CreateAffinityGroup)) и настроить ее с помощью метода **CreateServiceOptions->setAffinityGroup**.
 
 	require_once 'vendor\autoload.php';
-	 
+
 	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\ServiceManagement\Models\CreateServiceOptions;
 	use WindowsAzure\Common\ServiceException;
-	 
-	 
+
+
 	try{
 		// Create REST proxy.
 		$serviceManagementRestProxy = ServicesBuilder::getInstance()->createServiceManagementService($conn_string);
-		
+
         $name = "mystorageaccount";
         $label = base64_encode($name);
         $options = new CreateServiceOptions();
@@ -401,7 +401,7 @@ Azure предоставляет две среды развертывания: �
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -430,19 +430,19 @@ Azure предоставляет две среды развертывания: �
 Можно удалить облачную службу, передав имя облачной службы в метод **deleteStorageService**. Удаление службы хранилища приведет к удалению всех данных, хранящихся в службе (BLOB-объектов, таблиц и очередей).
 
 	require_once 'vendor\autoload.php';
-	
+
 	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\Common\ServiceException;
 
 	try{
 		// Create REST proxy.
 		$serviceManagementRestProxy = ServicesBuilder::getInstance()->createServiceManagementService($conn_string);
-		
+
 		$serviceManagementRestProxy->deleteStorageService("mystorageservice");
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -456,27 +456,27 @@ Azure предоставляет две среды развертывания: �
 Чтобы создать территориальную группу, необходимо указать имя, метку (имя в кодировке Base64) и расположение. При необходимости можно предоставить описание:
 
 	require_once 'vendor\autoload.php';
-	
+
 	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\ServiceManagement\Models\CreateAffinityGroupOptions;
 	use WindowsAzure\Common\ServiceException;
-	 
+
 	try{
 		// Create REST proxy.
 		$serviceManagementRestProxy = ServicesBuilder::getInstance()->createServiceManagementService($conn_string);
-		
+
         $name = "myAffinityGroup";
         $label = base64_encode($name);
         $location = "West US";
 
         $options = new CreateAffinityGroupOptions();
 		$options->setDescription = "My affinity group description.";
-		
+
         $serviceManagementRestProxy->createAffinityGroup($name, $label, $location, $options);
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -485,10 +485,10 @@ Azure предоставляет две среды развертывания: �
 
 После создания территориальной группы при [создании службы хранилища](#CreateStorageService) можно указать группу (вместо расположения).
 
-Чтобы вывести список территориальных групп и просмотреть их свойства, следует вызвать метод **listAffinityGroups**, а затем — соответствующие методы класса [AffinityGroup]\:
+Чтобы вывести список территориальных групп и просмотреть их свойства, следует вызвать метод **listAffinityGroups**, а затем — соответствующие методы класса [AffinityGroup]:
 
 	$result = $serviceManagementRestProxy->listAffinityGroups();
-	
+
 	$groups = $result->getAffinityGroups();
 
 	foreach($groups as $group){
@@ -499,30 +499,31 @@ Azure предоставляет две среды развертывания: �
 	}
 
 ## Практическое руководство. Удаление территориальной группы
-	
+
 Можно удалить территориальную группу, передав имя группы в метод **deleteAffinityGroup**. Обратите внимание, что перед удалением территориальной группы следует отменить сопоставление этой группы с любыми службами (или необходимо удалить службы, которые используют эту территориальную группу).
 
 	require_once 'vendor\autoload.php';
-	
+
 	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\Common\ServiceException;
 
 	try{
 		// Create REST proxy.
 		$serviceManagementRestProxy = ServicesBuilder::getInstance()->createServiceManagementService($conn_string);
-		
-		// An affinity group must be disassociated from all services 
+
+		// An affinity group must be disassociated from all services
 		// before it can be deleted.
 		$serviceManagementRestProxy->deleteAffinityGroup("myAffinityGroup");
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
 	}
+
 [ServiceManagementRestProxy]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/ServiceManagementRestProxy.php
 [management-portal]: https://manage.windowsazure.com/
 [svc-mgmt-rest-api]: http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
@@ -530,7 +531,7 @@ Azure предоставляет две среды развертывания: �
 [storage-account]: storage/storage-create-storage-account.md
 
 [download-SDK-PHP]: php-download-sdk.md
-[command-line-tools]: virtual-machines-command-line-tools.md
+[Azure CLI]: virtual-machines/virtual-machines-command-line-tools.md
 [Composer]: http://getcomposer.org/
 [ServiceManagementSettings]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/ServiceManagementSettings.php
 
@@ -554,4 +555,4 @@ Azure предоставляет две среды развертывания: �
 
 [Схема конфигурации служб Azure (CSCFG)]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
 
-<!--HONumber=54-->
+<!---HONumber=July15_HO1-->

@@ -5,7 +5,7 @@
 	services=""
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="mollybos"
+	editor="jimbe"
 	tags="mysql"/>
 
 <tags
@@ -14,12 +14,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="02/24/2015"
+	ms.date="06/03/2015"
 	ms.author="robmcm"/>
+
+#Создание базы данных MySQL в Azure
 
 [AZURE.INCLUDE [create-mysql-db](../includes/create-mysql-db.md)]
 
-
 Пример, демонстрирующий использование MySQL с PHP на платформе Azure, доступен по адресу <https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/tasklist-mysql>.
 
-<!--HONumber=52-->
+<!---HONumber=July15_HO1-->

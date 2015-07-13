@@ -206,4 +206,4 @@
 	![образ FreeBSD в Azure](./media/virtual-machines-freebsd-create-upload-vhd/freebsdimageinazure.png)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

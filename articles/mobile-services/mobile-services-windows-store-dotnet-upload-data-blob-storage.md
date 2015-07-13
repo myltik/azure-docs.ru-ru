@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/22/2015" 
+	ms.date="05/28/2015" 
 	ms.author="glenga"/>
 
 # Отправка образов в хранилище Azure с помощью мобильных служб
@@ -24,17 +24,14 @@
 
 Невозможно безопасно передать в клиентском приложении учетные данные, необходимые для безопасной передачи данных в службу хранения BLOB-объектов. Вместо этого необходимо сохранить эти учетные данные в мобильной службе и использовать их для создания подписи общего доступа (SAS), которая используется для передачи нового изображения. SAS, учетные данные с кратким сроком действия (в данном случае 5 минут), возвращаются безопасно в клиентское приложение мобильными службами. Затем приложение использует эти временные учетные данные для передачи изображения. В этом примере файлы, загружаемые из службы BLOB-объектов, являются общедоступными.
 
-В этом учебнике вы добавите некоторые функциональные возможности к быстрому запуску мобильных служб для съемки фотографий и передачи изображений в Azure с помощью учетных данных SAS, созданных мобильными службами. Этот учебник поможет выполнить следующие базовые действия для обновления быстрого запуска мобильных служб, что позволит передавать изображения в службу хранения BLOB-объектов:
+В этом учебнике вы добавите некоторые функциональные возможности к учебному приложению мобильных служб для съемки фотографий и передачи изображений в Azure с помощью учетных данных SAS, созданных мобильными службами.
 
-1. [Установка библиотеки клиента хранилища]
-2. [Обновление скрипта вставки для создания учетных данных SAS]
-3. [Обновление клиентского приложения для захвата изображений]
-4. [Передача изображений для проверки приложения]
+##Предварительные требования
 
 Для работы с данным учебником требуется следующее:
 
 + Microsoft Visual Studio 2012 Express для Windows 8 или более поздней версии.
-+ [Учетная запись хранения Azure][How To Create a Storage Account]
++ [Учетная запись хранения Azure](../storage-create-storage-account.md)
 + Камера или другое устройство для съемки, подключенное к компьютеру.
 
 Этот учебник создан на основе краткого руководства по мобильным службам. Перед началом работы с учебником необходимо пройти задания учебника [Приступая к работе с мобильными службами].
@@ -81,10 +78,10 @@
   
  
 <!-- Anchors. -->
-[Установка библиотеки клиента хранилища]: #install-storage-client
-[Обновление клиентского приложения для захвата изображений]: #add-select-images
-[Обновление скрипта вставки для создания учетных данных SAS]: #update-scripts
-[Передача изображений для проверки приложения]: #test
+[Install the Storage Client library]: #install-storage-client
+[Update the client app to capture images]: #add-select-images
+[Update the insert script to generate an SAS]: #update-scripts
+[Upload images to test the app]: #test
 [Next Steps]: #next-steps
 
 <!-- Images. -->
@@ -93,16 +90,17 @@
 
 
 <!-- URLs. -->
-[Отправка сообщений электронной почты из мобильных служб с помощью SendGrid]: /develop/mobile/tutorials/send-email-with-sendgrid/
+[Отправка сообщений электронной почты из мобильных служб с помощью SendGrid]: store-sendgrid-mobile-services-send-email-scripts.md
 [Планирование серверных заданий в мобильных службах]: mobile-services-schedule-recurring-tasks.md
 [Send push notifications to Windows Store apps using Service Bus from a .NET back-end]: http://go.microsoft.com/fwlink/?LinkId=277073&clcid=0x409
-[Справочник серверных скриптов мобильных служб]: http://go.microsoft.com/fwlink/p/?LinkId=262293
-[Приступая к работе с мобильными службами]: ../mobile-services-windows-store-get-started.md
+[Справочник серверных скриптов мобильных служб]: mobile-services-how-to-use-server-scripts.md
+[Приступая к работе с мобильными службами]: mobile-services-javascript-backend-windows-store-dotnet-get-started.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
-[How To Create a Storage Account]: /manage/services/storage/how-to-create-a-storage-account
+[How To Create a Storage Account]: ../storage-create-storage-account.md
 [Azure Storage Client library for Store apps]: http://go.microsoft.com/fwlink/p/?LinkId=276866
-[Справочник принципов использования мобильных служб .NET]: /develop/mobile/how-to-guides/work-with-net-client-library
+[Справочник принципов использования мобильных служб .NET]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

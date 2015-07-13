@@ -10,17 +10,17 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="06/09/2015" 
 	ms.author="wesmc"/>
 
 # Управление доступом на основе ролей в мобильных службах и Azure Active Directory
 
 [AZURE.INCLUDE [mobile-services-selector-rbac](../../includes/mobile-services-selector-rbac.md)]
 
-## Обзор
+##Обзор
 
 Управление доступом на основе ролей (RBAC) — это способ назначения разрешений ролям, которые могут быть назначены пользователям. Этот способ четко определяет рамки того, что определенные классы пользователей могут делать, а что — нет. Этот учебник поможет разобраться, как добавлять основное управление RBAC в мобильные службы Azure.
 
@@ -29,7 +29,7 @@
 
 >[AZURE.NOTE]Цель этого учебника — предоставить дополнительные сведения о методах авторизации в проверке подлинности. Предполагается, что вы сначала закончите учебник [Добавление проверки подлинности в приложение], используя поставщика проверки подлинности Azure Active Directory. В этом учебнике продолжается обновление приложения TodoItem, которое использовалось в учебнике [Добавление проверки подлинности в приложение].
 
-## Предварительные требования
+##Предварительные требования
 
 Для работы с данным учебником требуется следующее:
 
@@ -39,30 +39,30 @@
  
 
 
-## Создание ключа для встроенного приложения
+##Создание ключа для встроенного приложения
 
 
 В учебнике [Добавление проверки подлинности в приложение] во время выполнения шага [Регистрация для использования имени входа Azure Active Directory] вы создали регистрацию для встроенного приложения. В этом разделе предстоит создать ключ для использования при чтении сведений каталога с помощью идентификатора клиента встроенного приложения.
 
-Если вы закончили учебник [Получение доступа к сведениям Graph Azure Active Directory], значит, вы уже выполнили этот шаг, поэтому данный раздел можно пропустить.
+Если вы выполнили задания учебника [Получение доступа к сведениям Graph Azure Active Directory], значит, вы уже выполнили этот шаг, поэтому этот раздел можно пропустить.
 
 [AZURE.INCLUDE [mobile-services-generate-aad-app-registration-access-key](../../includes/mobile-services-generate-aad-app-registration-access-key.md)]
 
 
 
-## Создание группы продаж с членством
+##Создание группы продаж с членством
 
 [AZURE.INCLUDE [mobile-services-aad-rbac-create-sales-group](../../includes/mobile-services-aad-rbac-create-sales-group.md)]
 
 
 
-## Создание пользовательского атрибута авторизации в мобильной службе 
+##Создание пользовательского атрибута авторизации в мобильной службе 
 
 В этом разделе предстоит создать пользовательский атрибут авторизации, который можно использовать для выполнения проверок доступа в операциях мобильной службы. Атрибут будет искать группу Active Directory в соответствии с переданным именем роли. Затем он выполнит проверки доступа на основе членства этой группы.
 
 1. В Visual Studio щелкните правой кнопкой мыши проект внутреннего сервера .NET мобильной службы и щелкните кнопку **Управление пакетами NuGet**.
 
-2. В диалоговом окне диспетчера пакетов NuGet введите условие поиска **ADAL**, чтобы найти и установить **библиотеку проверки подлинности Active Directory** для мобильной службы. Этот учебник последний раз был протестирован с помощью версии 3.0.110281957-alpha (предварительная) пакета ADAL.
+2. В диалоговом окне диспетчера пакетов NuGet введите условие поиска **ADAL**, чтобы найти и установить **библиотеку проверки подлинности Active Directory** для мобильной службы. Это руководство в последний раз было протестировано с помощью версии 3.3.205061641-alpha (предварительный выпуск) пакета ADAL.
 
 3. В Visual Studio щелкните правой кнопкой мыши проект мобильной службы и нажмите кнопку **Добавить**, а затем — **Создать папку**. Назовите папку **Служебные программы**.
 
@@ -178,7 +178,8 @@
 
     >[AZURE.NOTE]ADAL для .NET по умолчанию включает содержащийся в памяти кэш маркеров, чтобы разгрузить интенсивный сетевой трафик, связанный с Active Directory. Тем не менее, можно написать собственную реализацию кэша или отключить кэширование полностью. Дополнительные сведения см. в статье [Библиотека проверки подлинности Azure AD для .NET].
 
-        private string GetAADToken()
+        // Use ADAL and the authentication app settings from the Mobile Service to get an AAD access token
+        private async Task<string> GetAADToken()
         {
             // Try to get the required AAD authentication app settings from the mobile service.  
             if (!(services.Settings.TryGetValue("AAD_CLIENT_ID", out clientid) &
@@ -192,8 +193,8 @@
             ClientCredential clientCred = new ClientCredential(clientid, clientkey);
             string authority = String.Format(CultureInfo.InvariantCulture, AadInstance, tenantdomain);
             AuthenticationContext authContext = new AuthenticationContext(authority);
-            AuthenticationResult result = authContext.AcquireTokenAsync(GraphResourceId, clientCred).Result;
 
+            AuthenticationResult result = await authContext.AcquireTokenAsync(GraphResourceId, clientCred);
             if (result != null)
                 token = result.AccessToken;
             else
@@ -324,7 +325,7 @@
 
 12. Сохраните изменения в файле AuthorizeAadRole.cs.
 
-## Добавление проверки доступа на основе ролей в операции базы данных
+##Добавление проверки доступа на основе ролей в операции базы данных
 
 1. В Visual Studio разверните папку **Контроллеры** в проекте мобильной службы. Откройте файл TodoItemController.cs.
 
@@ -366,7 +367,7 @@
 5. Опубликуйте мобильную службу в учетной записи Azure.
 
 
-## Тестирование доступа клиентского приложения
+##Тестирование доступа клиентского приложения
 
 [AZURE.INCLUDE [mobile-services-aad-rbac-test-app](../../includes/mobile-services-aad-rbac-test-app.md)]
 
@@ -390,4 +391,5 @@
 [IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
 [Получение доступа к сведениям Graph Azure Active Directory]: mobile-services-dotnet-backend-windows-store-dotnet-aad-graph-info.md
 [Библиотека проверки подлинности Azure AD для .NET]: https://msdn.microsoft.com/library/azure/jj573266.aspx
-<!--HONumber=54--> 
+
+<!---HONumber=July15_HO1-->

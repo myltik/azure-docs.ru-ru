@@ -2,6 +2,7 @@
 	pageTitle="Авторизация пользователей на стороне службы в мобильных службах с помощью серверной части .NET | Центр разработчиков для мобильных устройств"
 	description="Информация о том, как осуществить авторизацию пользователей в серверной части .NET мобильных служб Azure."
 	services="mobile-services"
+	documentationCenter="windows"
 	authors="krisragh"
 	manager="dwrede"
 	editor=""/>
@@ -9,9 +10,10 @@
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
-	ms.tgt_pltfrm=""
+	ms.tgt_pltfrm="mobile-multiple"
 	ms.topic="article"
-	ms.date="2/18/2015"
+	ms.devlang="dotnet"
+	ms.date="05/10/2015"
 	ms.author="krisragh"/>
 
 # Авторизация пользователей на стороне службы в мобильных службах
@@ -20,7 +22,7 @@
 - [(Any | .NET)](mobile-services-dotnet-backend-service-side-authorization.md)
 - [(Any | Javascript)](mobile-services-javascript-backend-service-side-authorization.md)
 
-В этом разделе показано, как использовать логику на стороне сервера для авторизации пользователей. В этом учебнике описывается изменение методов доступа к данным в .NET, фильтрация запросов на основе идентификаторов пользователей и предоставление пользователям доступа только к их данным.
+В этом разделе показано, как использовать логику на стороне сервера для авторизации пользователей. В этом учебнике описывается изменение контролеров таблицы, фильтрация запросов на основе идентификаторов пользователей и предоставление пользователям доступа только к их данным. Фильтрация результатов запроса по идентификатору пользователя — это самая простая форма авторизации. В зависимости от конкретного сценария вам также может потребоваться создать таблицы пользователей или ролей для отслеживания более подробных сведений авторизации пользователей, например конечных точек, к которым данному пользователю разрешен доступ.
 
 Этот учебник создан на основе краткого руководства по мобильным службам и учебника [Добавление проверки подлинности в существующее приложение мобильных служб]. Сначала ознакомьтесь с учебником [Добавление проверки подлинности в существующее приложение мобильных служб].
 
@@ -67,11 +69,7 @@
 [3]: ./media/mobile-services-dotnet-backend-ios-authorize-users-in-scripts/mobile-quickstart-startup-ios.png
 
 <!-- URLs. -->
-[Get started with Mobile Services]: mobile-services-dotnet-backend-ios-get-started.md
-[Get started with data]: mobile-services-dotnet-backend-ios-get-started-data.md
 [Добавление проверки подлинности в существующее приложение мобильных служб]: mobile-services-dotnet-backend-ios-get-started-users.md
-[Get started with push notifications]: mobile-services-dotnet-backend-ios-get-started-push.md
+ 
 
-[Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
-
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

@@ -11,16 +11,17 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/23/2014" 
+	ms.date="06/05/2015" 
 	ms.author="yuaxu"/>
 
 # Хранение данных в табличном хранилище Azure с использованием мобильных служб
 
-Узнайте о работе с табличным хранилищем с помощью мобильных служб. Ознакомьтесь с учебником Криса Ризнера (Chris Risner) [Мобильные службы и хранилище Windows Azure].
+Узнайте о работе с табличным хранилищем с помощью мобильных служб в учебнике Криса Ризнера (Chris Risner) [Мобильные службы и служба хранилища Microsoft Azure].
 
-[Мобильные службы и хранилище Windows Azure]: http://chrisrisner.com/Mobile-Services-and-Windows-Azure-Storage
-<!--HONumber=47-->
+[Мобильные службы и служба хранилища Microsoft Azure]: http://chrisrisner.com/Mobile-Services-and-Windows-Azure-Storage
  
+
+<!---HONumber=July15_HO1-->

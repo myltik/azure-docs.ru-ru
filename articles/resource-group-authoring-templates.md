@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/28/2015"
-   ms.author="tomfitz;ilygre"/>
+   ms.date="06/22/2015"
+   ms.author="tomfitz"/>
 
 # Создание шаблонов диспетчера ресурсов Azure
 
@@ -397,9 +397,9 @@
 
 ## Дальнейшие действия
 - [Функции шаблонов в диспетчере ресурсов Azure](./resource-group-template-functions.md)
-- [Развертывание приложения с использованием шаблона диспетчера ресурсов Azure](./resource-group-template-deploy.md)
+- [Развертывание приложения с использованием шаблона диспетчера ресурсов Azure](azure-portal/resource-group-template-deploy.md)
 - [Расширенные операции с шаблонами](./resource-group-advanced-template.md)
+- [Предсказуемое развертывание сложного приложения в Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
 - [Общие сведения о диспетчере ресурсов Azure](./resource-group-overview.md)
 
-<!---HONumber=58-->
-
+<!---HONumber=July15_HO1-->

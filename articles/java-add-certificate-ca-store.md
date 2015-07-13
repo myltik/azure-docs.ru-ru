@@ -52,4 +52,4 @@
 
 Дополнительные сведения об используемых в Azure корневых сертификатах см. в статье [Перенос корневых сертификатов Azure](http://blogs.msdn.com/b/windowsazure/archive/2013/03/15/windows-azure-root-certificate-migration.aspx).
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

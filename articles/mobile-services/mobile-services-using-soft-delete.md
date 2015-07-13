@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/19/2015" 
+	ms.date="06/18/2015" 
 	ms.author="wesmc"/>
 
 # Использование удаления с возможностью восстановления в мобильных службах
@@ -161,5 +161,6 @@
 [портале управления]: https://manage.windowsazure.com/
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

@@ -40,7 +40,7 @@
 Вы также можете включить работу sudo без пароля, изменив файл `/etc/sudoers.d/waagent`, например:
 
 	#/etc/sudoers.d/waagent
-	azureuser (ALL) = (ALL) NOPASSWD: ALL
+	azureuser ALL = (ALL) NOPASSWD: ALL
 
 Это изменение позволит пользователю azureuser использовать sudo без пароля.
 
@@ -52,4 +52,6 @@
 
 В этом случае пользователю **не будет** предложено ввести пароль. После нажатия клавиши `<enter>` `sudo` выполнит команду с привилегиями `root`.
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=July15_HO1-->

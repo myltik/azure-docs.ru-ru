@@ -10,16 +10,16 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/23/2015" 
+	ms.date="06/15/2015" 
 	ms.author="wesmc"/>
 
 
 # Обработка конфликтов синхронизации автономных данных в мобильных службах
 
-[WACOM.INCLUDE [mobile-services-selector-offline-conflicts](../../includes/mobile-services-selector-offline-conflicts.md)]
+[AZURE.INCLUDE [mobile-services-selector-offline-conflicts](../../includes/mobile-services-selector-offline-conflicts.md)]
 
 ##Обзор
 
@@ -51,7 +51,7 @@
 
 2. Если вы еще не установили SQLite для Windows 8.1 и Windows Phone 8.1, как указано в учебнике [Приступая к работе с автономными данными], установите обе эти среды выполнения.
 
-3. В Visual Studio 2013 откройте файл решения *mobile-services-samples\\TodoOffline\\WindowsUniversal\\TodoOffline-Universal.sln*. Нажмите клавишу **F5**, чтобы перестроить и запустить проект. Убедитесь, что пакеты NuGet восстанавливаются, а ссылки заданы правильно.
+3. В Visual Studio 2013 откройте файл решения *mobile-services-samples\TodoOffline\WindowsUniversal\TodoOffline-Universal.sln*. Нажмите клавишу **F5**, чтобы перестроить и запустить проект. Убедитесь, что пакеты NuGet восстанавливаются, а ссылки заданы правильно.
 
     >[AZURE.NOTE]Может потребоваться удалить все старые ссылки на среду выполнения SQLite и заменить их обновленными, как упоминалось в учебнике [Приступая к работе с автономными данными].
 
@@ -164,5 +164,6 @@
 [Handling Database Conflicts]: mobile-services-windows-store-dotnet-handle-database-conflicts.md#test-app
 [репозитория примеров мобильных служб Github]: http://go.microsoft.com/fwlink/?LinkId=512865
 [пример мобильных служб TODO]: http://go.microsoft.com/fwlink/?LinkId=512866
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

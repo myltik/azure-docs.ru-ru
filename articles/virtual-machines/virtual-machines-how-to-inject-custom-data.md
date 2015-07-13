@@ -79,4 +79,4 @@
 [Интерфейс командной строки Azure](https://github.com/Azure/azure-sdk-tools-xplat)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Краткое руководство по языку программирования R для службы машинного обучения | Microsoft Azure" 
-	description="Это руководство по языку программирования R поможет быстро создать прогностическое решение, используя язык R в Студии машинного обучения Azure." 
+<properties
+	pageTitle="Краткое руководство по языку программирования R для службы машинного обучения | Microsoft Azure"
+	description="Это руководство по языку программирования R поможет быстро создать прогностическое решение, используя язык R в Студии машинного обучения Azure."
 	keywords="quickstart,r language,r programming language,r programming tutorial"
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="Blackmist" 
-	manager="paulettm" 
+	services="machine-learning"
+	documentationCenter=""
+	authors="Blackmist"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/22/2015" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/26/2015"
 	ms.author="larryfr"/>
 
 # Краткое руководство по языку программирования R для службы машинного обучения Azure
@@ -164,23 +164,23 @@ RStudio — широко распространенная среда IDE для 
 
 - Щелкните значок плюса (+) в нижнем левом углу экрана и выберите **Набор данных**.
 
-- Выберите файл, выбрав **Обзор**.
+- Выберите **Из локального файла** и нажмите кнопку **Обзор**, чтобы выбрать файл.
 
-- Убедитесь, что выбран тип **Универсальный CSV-файл с заголовком**.
+- Убедитесь, что в качестве типа набора данных выбран вариант **Универсальный CSV-файл с заголовком**.
 
 - Щелкните значок галочки.
 
-- Вы увидите новые наборы данных, открыв вкладку **Наборы данных**.
+- После загрузки набора данных он появится на вкладке **Наборы данных**.
 
 ####Создание эксперимента
 
 Теперь, когда у нас есть определенные данные в Студии машинного обучения, нужно создать эксперимент, чтобы выполнить анализ.
 
-- Щелкните значок плюса (+) в нижнем левом углу и выберите **Эксперимент**.
+- Щелкните значок плюса (+) в левом нижнем углу и выберите **Эксперимент**, а затем – **Пустой эксперимент**.
 
-- Дайте имя своему эксперименту. Я назову свой **Анализ молочных продуктов**.
+- Чтобы задать для него название, выделите и отредактируйте заголовок **Эксперимент создан...** вверху страницы. Например, можно изменить его на **Анализ молочных продуктов**.
 
-- Выполните поиск набора данных, который вы только что передали.
+- В левой части страницы эксперимента разверните узел **Сохраненные наборы данных**, а затем – **Мои наборы данных**. Вы должны увидеть загруженный ранее файл **cadairydata.csv**.
 
 - Перетащите **набор данных csdairydata.csv** на рабочую область эксперимента.
 
@@ -200,7 +200,7 @@ RStudio — широко распространенная среда IDE для 
 
 ####Проверка данных
 
-Рассмотрим данные, загруженные в наш эксперимент. В эксперименте дважды щелкните порт вывода **набора данных cadairydata.csv** и выберите **Визуализировать**. Вы увидите нечто вроде этого (рис. 4):
+Рассмотрим данные, загруженные в наш эксперимент. В эксперименте щелкните порт вывода **набора данных cadairydata.csv** и выберите **Визуализировать**. Вы увидите нечто вроде этого (рис. 4):
 
 ![Сводка набора данных cadairydata.csv][4]
 
@@ -432,7 +432,7 @@ R — динамически типизированный язык. Други�
 	num.month <- function(Year, Month) {
 	  ## Find the starting year
 	  min.year  <- min(Year)
-	
+
 	  ## Compute the number of months from the start of the time series
 	  12 * (Year - min.year) + Month - 1
 	}
@@ -461,31 +461,31 @@ R — динамически типизированный язык. Други�
 	log.transform <- function(invec, multiplier = 1) {
 	  ## Function for the transformation, which is the log
 	  ## of the input value times a multiplier
-	
+
 	  warningmessages <- c("ERROR: Non-numeric argument encountered in function log.transform",
 	                       "ERROR: Arguments to function log.transform must be greate than zero",
 	                       "ERROR: Aggurment multiplier to funcition log.transform must be a scaler",
 	                       "ERROR: Invalid time seies value encountered in function log.transform"
 	                       )
-	
+
 	  ## Check the input arguments
 	  if(!is.numeric(invec) | !is.numeric(multiplier)) {warning(warningmessages[1]); return(NA)}  
 	  if(any(invec < 0.0) | any(multiplier < 0.0)) {warning(warningmessages[2]); return(NA)}
 	  if(length(multiplier) != 1) {{warning(warningmessages[3]); return(NA)}}
-	
+
 	  ## Wrap the multiplication in tryCatch
 	  ## If there is an exception, print the warningmessage to
 	  ## standard error and return NA
 	  tryCatch(log(multiplier * invec),
 	           error = function(e){warning(warningmessages[4]); NA})
 	}
-	
-	
+
+
 	## Apply the transformation function to the 4 columns
 	## of the dataframe with production data
 	multipliers  <- list(1.0, 6.5, 1000.0, 1000.0)
 	cadairydata[, 4:7] <- Map(log.transform, cadairydata[, 4:7], multipliers)
-	
+
 	## Get rid of any rows with NA values
 	cadairydata <- na.omit(cadairydata)  
 
@@ -523,8 +523,7 @@ R — динамически типизированный язык. Други�
 
 Как уже упоминалось, временные ряды представляют собой ряды значений данных, индексированные по времени. Объекты временных рядов на R используются для создания индексов времени и управления ними. Использование объектов временных рядов имеет несколько преимуществ. Оно избавляет от необходимости вникать в подробности управления значениями индексов временных рядов, которые уже включены в объект. Кроме того, использование объектов временных рядов позволяет применять многочисленные методы временных рядов для построения диаграмм, моделирования и много другого.
 
-Класс временных рядов POSIXct довольно распространен и относительно прост. Этот класс временных рядов измеряет количество времени, прошедшее с начала эры UNIX — 1 января 1970 г. В этом примере мы будем использовать объекты временных рядов POSIXct. Другие распространенные классы объектов временных рядов R включают в себя zoo и xts (расширяемые временные ряды). 
-<!-- Additional information on R time series objects is provided in the references in Section 5.7. [commenting because this section doesn't exist, even in the original] -->
+Класс временных рядов POSIXct довольно распространен и относительно прост. Этот класс временных рядов измеряет количество времени, прошедшее с начала эры UNIX — 1 января 1970 г. В этом примере мы будем использовать объекты временных рядов POSIXct. Другие распространенные классы объектов временных рядов R включают в себя zoo и xts (расширяемые временные ряды). <!-- Additional information on R time series objects is provided in the references in Section 5.7. [commenting because this section doesn't exist, even in the original] -->
 
 ###	Пример объекта временных рядов
 
@@ -554,11 +553,11 @@ R — динамически типизированный язык. Други�
 
 	# Comment the following if using RStudio
 	cadairydata <- maml.mapInputPort(1)
-	
+
 	## Create a new column as a POSIXct object
 	Sys.setenv(TZ = "PST8PDT")
 	cadairydata$Time <- as.POSIXct(strptime(paste(as.character(cadairydata$Year), "-", as.character(cadairydata$Month.Number), "-01 00:00:00", sep = ""), "%Y-%m-%d %H:%M:%S"))
-	
+
 	str(cadairydata) # Check the results
 
 Теперь проверьте данные с порта вывода "Устройство R". Результат приведен на рисунке 15.
@@ -591,7 +590,7 @@ R — динамически типизированный язык. Други�
 
 	ts.detrend <- function(ts, Time, min.length = 3){
 	  ## Function to de-trend and standardize a time series
-	
+
 	  ## Define some messages if they are NULL  
 	  messages <- c('ERROR: ts.detrend requires arguments ts and Time to have the same length',
 	                'ERROR: ts.detrend requires argument ts to be of type numeric',
@@ -602,33 +601,33 @@ R — динамически типизированный язык. Други�
   	)
 	  # Create a vector of zeros to return as a default in some cases
 	  zerovec  <- rep(length(ts), 0.0)
-	
+
 	  # The input arguments are not of the same length, return ts and quit
 	  if(length(Time) != length(ts)) {warning(messages[1]); return(ts)}
-	
+
 	  # If the ts is not numeric, just return a zero vector and quit
 	  if(!is.numeric(ts)) {warning(messages[2]); return(zerovec)}
-	
+
 	  # If the ts is too short, just return it and quit
 	  if((ts.length <- length(ts)) < min.length) {warning(messages[3]); return(ts)}
-	
+
 	  ## Check that the Time variable is of class POSIXct
 	  if(class(cadairydata$Time)[[1]] != "POSIXct") {warning(messages[4]); return(ts)}
-	
+
 	  ## De-trend the time series by using a linear model
 	  ts.frame  <- data.frame(ts = ts, Time = Time)
 	  tryCatch({ts <- ts - fitted(lm(ts ~ Time, data = ts.frame))},
 	           error = function(e){warning(messages[5]); zerovec})
-	
+
 	  tryCatch( {stdev <- sqrt(sum((ts - mean(ts))^2))/(ts.length - 1)
 	             ts <- ts/stdev},
 	            error = function(e){warning(messages[6]); zerovec})
-	
+
 	  ts
 	}  
 	## Apply the detrend.ts function to the variables of interest
 	df.detrend <- data.frame(lapply(cadairydata[, 4:7], ts.detrend, cadairydata$Time))
-	
+
 	## Plot the results to look at the relationships
 	pairs(~ Cotagecheese.Prod + Icecream.Prod + Milk.Prod + N.CA.Fat.Price, data = df.detrend, main = "Pairwise Scatterplots of detrended standardized time series")
 
@@ -655,13 +654,13 @@ R — динамически типизированный язык. Други�
 	pair.cor <- function(pair.ind, ts.list, lag.max = 1, plot = FALSE){
 	  ccf(ts.list[[pair.ind[1]]], ts.list[[pair.ind[2]]], lag.max = lag.max, plot = plot)
 	}
-	
+
 	## A list of the pairwise indices
 	corpairs <- list(c(1,2), c(1,3), c(1,4), c(2,3), c(2,4), c(3,4))
-	
+
 	## Compute the list of ccf objects
 	cadairycorrelations <- lapply(corpairs, pair.cor, df.detrend)  
-	
+
 	cadairycorrelations
 
 Пример вывода данных после выполнения этого кода приведен на рисунке 18.
@@ -679,7 +678,7 @@ R — динамически типизированный язык. Други�
 Следующий код извлекает значения задержек из списка CCF-объектов, которые и сами являются списками.
 
 	df.correlations <- data.frame(do.call(rbind, lapply(cadairycorrelations, '[[', 1)))
-	
+
 	c.names <- c("-1 lag", "0 lag", "+1 lag")
 	r.names  <- c("Corr Cot Cheese - Ice Cream",
 	              "Corr Cot Cheese - Milk Prod",
@@ -687,14 +686,14 @@ R — динамически типизированный язык. Други�
 	              "Corr Ice Cream - Mik Prod",
 	              "Corr Ice Cream - Fat Price",
 	              "Corr Milk Prod - Fat Price")
-	
+
 	## Build a dataframe with the row names column and the
 	## correlation data frame and assign the column names
 	outframe <- cbind(r.names, df.correlations)
 	colnames(outframe) <- c.names
 	outframe
-	
-	
+
+
 	## WARNING!
 	## The following line works only in Azure Machine Learning
 	## When running in RStudio, this code will result in an error
@@ -736,11 +735,11 @@ R — динамически типизированный язык. Други�
 
 	# If running in Machine Learning Studio, uncomment the first line with maml.mapInputPort()
 	cadairydata <- maml.mapInputPort(1)
-	
+
 	## Create a new column as a POSIXct object
 	Sys.setenv(TZ = "PST8PDT")
 	cadairydata$Time <- as.POSIXct(strptime(paste(as.character(cadairydata$Year), "-", as.character(cadairydata$Month.Number), "-01 00:00:00", sep = ""), "%Y-%m-%d %H:%M:%S"))
-	
+
 	str(cadairydata)
 
 Выполните этот код и просмотрите вывод данных порта "Устройство R". Результат приведен на рисунке 21.
@@ -756,12 +755,12 @@ R — динамически типизированный язык. Други�
 Имея готовую таблицу данных, нужно создать учебный набор данных. Эти данные будут включать все наблюдения за исключением последних 12 (за 2013 год), которые станут тестовым набором данных. Приведенный ниже код разбивает таблицу данных на подмножества и создает диаграммы переменных: цены и производства молочных продуктов. Затем создаем диаграммы четырех переменных: цены и производства молочных продуктов. Анонимная функция используется для определения приращений диаграммы и последующей итерации для списка оставшихся двух аргументов с помощью `Map()`. Если вам кажется, что здесь пригодилась бы структура for ... loop, вы совершенно правы. Но поскольку язык R оперирует функциями, я продемонстрирую решение с использованием функций.
 
 	cadairytrain <- cadairydata[1:216, ]
-	
+
 	Ylabs  <- list("Log CA Cotage Cheese Production, 1000s lb",
 	               "Log CA Ice Cream Production, 1000s lb",
 	               "Log CA Milk Production 1000s lb",
 	               "Log North CA Milk Milk Fat Price per 1000 lb")
-	
+
 	Map(function(y, Ylabs){plot(cadairytrain$Time, y, xlab = "Time", ylab = Ylabs, type = "l")}, cadairytrain[, 4:7], Ylabs)
 
 После выполнения кода получаем серию диаграмм временных рядов через порт вывода "Устройство R" (см. рис. 22). Заметьте, что по оси времени расположены даты. Это приятный бонус при использовании метода построения диаграмм временных рядов.
@@ -843,7 +842,7 @@ R — динамически типизированный язык. Други�
 Для проверки корректности создадим диаграмму временных рядов данных молочного производства Калифорнии с использованием полученной линии тренда. Для создания модели и построения диаграммы я добавил приведенный ниже код в модуль [Выполнение сценария R][execute-r-script] в Машинном обучении Azure (а не RStudio). Результат показан на рис. 23.
 
 	milk.lm <- lm(Milk.Prod ~ Time + I(Month.Count^3), data = cadairytrain)
-	
+
 	plot(cadairytrain$Time, cadairytrain$Milk.Prod, xlab = "Time", ylab = "Log CA Milk Production 1000s lb", type = "l")
 	lines(cadairytrain$Time, predict(milk.lm, cadairytrain), lty = 2, col = 2)
 
@@ -901,7 +900,7 @@ R — динамически типизированный язык. Други�
 Построим еще одну диаграмму временного ряда данных по молочному производству Калифорнии, чтобы проверить работу модели. Я добавил следующий код в модуль [Выполнение сценария R][execute-r-script] Машинного обучения Azure, чтобы создать модель и построить диаграмму.
 
 	milk.lm2 <- lm(Milk.Prod ~ Time + I(Month.Count^3) + Month - 1, data = cadairytrain)
-	
+
 	plot(cadairytrain$Time, cadairytrain$Milk.Prod, xlab = "Time", ylab = "Log CA Milk Production 1000s lb", type = "l")
 	lines(cadairytrain$Time, predict(milk.lm2, cadairytrain), lty = 2, col = 2)
 
@@ -918,7 +917,7 @@ R — динамически типизированный язык. Други�
 	## Compute predictions from our models
 	predict1  <- predict(milk.lm, cadairydata)
 	predict2  <- predict(milk.lm2, cadairydata)
-	
+
 	## Compute and plot the residuals
 	residuals <- cadairydata$Milk.Prod - predict2
 	plot(cadairytrain$Time, residuals[1:216], xlab = "Time", ylab ="Residuals of Seasonal Model")
@@ -961,21 +960,21 @@ R — динамически типизированный язык. Други�
 	RMS.error <- function(series1, series2, is.log = TRUE, min.length = 2){
 	  ## Function to compute the RMS error or difference between two
 	  ## series or vectors
-	
+
 	  messages <- c("ERROR: Input arguments to function RMS.error of wrong type encountered",
 	                "ERROR: Input vector to function RMS.error is too short",
 	                "ERROR: Input vectors to function RMS.error must be of same length",
 	                "WARNING: Funtion rms.error has received invald input time series.")
-	
+
 	  ## Check the arguments
 	  if(!is.numeric(series1) | !is.numeric(series2) | !is.logical(is.log) | !is.numeric(min.length)) {
     	warning(messages[1])
 	    return(NA)}
-	
+
 	  if(length(series1) < min.length) {
     	warning(messages[2])
 	    return(NA)}
-	
+
 	  if((length(series1) != length(series2))) {
 	   	warning(messages[3])
 	    return(NA)}
@@ -995,7 +994,7 @@ R — динамически типизированный язык. Други�
 	 ## Compute predictions from our models
 	predict1  <- predict(milk.lm, cadairydata)
 	predict2  <- predict(milk.lm2, cadairydata)
-	
+
 	## Compute the RMS error in a dataframe
 	  tryCatch( {
 	    sqrt(sum((temp1 - temp2)^2) / length(temp1))},
@@ -1019,7 +1018,7 @@ R — динамически типизированный язык. Други�
 	    RMS.error(predict2[217:228], cadairydata$Milk.Prod[217:228]))
 	)
 	RMS.df
-	
+
 	## The following line should be executed only when running in
 	## Azure Machine Learning Studio
 	maml.mapOutputPort('RMS.df')
@@ -1117,6 +1116,5 @@ R — динамически типизированный язык. Други�
 
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
- 
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

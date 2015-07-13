@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Выборка данных на сервере SQL Server в Azure| Azure" 
+	pageTitle="Выборка данных на сервере SQL Server в Azure| Microsoft Azure" 
 	description="Выборка данных на сервере SQL Server в Azure" 
 	services="machine-learning" 
 	documentationCenter="" 
@@ -13,20 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2015" 
-	ms.author="fashah,garye" /> 
+	ms.date="05/29/2015" 
+	ms.author="fashah;garye;bradsev" />
 
 #<a name="heading"></a>Выборка данных на сервере SQL Server в Azure
 
-В этом документе описывается выборка данных, хранящихся на сервере SQL Server в системе Azure, одним из следующих способов:
+В этом документе описывается выборка данных, хранящихся на сервере SQL Server в системе Azure, с помощью SQL и языка программирования Python.
 
-1. [С помощью SQL](#sql)
-2. [С помощью языка программирования Python](#python) 
+>[AZURE.NOTE]Образец кода SQL в этом документе предполагает, что данные содержатся на сервере SQL Server на платформе Azure. Если это не так, воспользуйтесь инструкциями по переносу данных в SQL Server в среде Azure, изложенными в разделе [Перемещение данных в SQL Server в Azure  
+](machine-learning-data-science-move-sql-server-virtual-machine.md) [руководства по расширенной обработке данных](machine-learning-data-science-advanced-data-processing.md).
 
-**Примечание**
->Образец кода SQL в этом документе предполагает, что данные содержатся на сервере SQL Server на платформе Azure. Если этот не так, обратитесь к карте процесса обработки облачных данных для получения инструкций по перемещению данных на сервер SQL Server в системе Azure.
-
-###<a name="SQL"></a>С помощью SQL
+##<a name="SQL"></a>Использование SQL
 
 В этом разделе описываются несколько методов использования SQL для выполнения простой случайной выборки из данных, содержащихся в базе данных. Выберите нужный метод в зависимости от размера ваших данных и их распределения.
 
@@ -37,7 +34,7 @@
 	    select  * from <table_name> where <primary_key> in 
     	(select top 10 percent <primary_key> from <table_name> order by newid())
 
-2. Более случайная выборка 
+2. Более случайная выборка
 
 	    SELECT * FROM <table_name>
     	WHERE 0.1 >= CAST(CHECKSUM(NEWID(), <primary_key>) & 0x7fffffff AS float)/ CAST (0x7fffffff AS int)
@@ -48,36 +45,36 @@
 	FROM <table_name> 
 	TABLESAMPLE (10 PERCENT)
 
-**Примечание**
+**Примечание**.
 > Можно просматривать данные этой выборки и создавать характеристики, сохранив ее в новой таблице
 
 
-####<a name="sql-aml"></a>Подключение к службе машинного обучения Azure
+###<a name="sql-aml"></a>Подключение к службе машинного обучения Azure
 
 Приведенные выше примеры запросов можно использовать непосредственно в модуле Azure ML Reader для уменьшения выборки данных на лету и подачи их в эксперимент Azure ML. Ниже показан снимок экрана при использовании модуля Reader для считывания данных выборки:
    
-![reader sql][1]
+![считыватель sql][1]
 
-###<a name="python"></a>С помощью языка программирования Python 
+##<a name="python"></a>Использование языка программирования Python 
 
-В этом разделе демонстрируется использование библиотеки pyodbc для подключения к базе данных SQL Server на языке Python. Строка подключения к базе данных выглядит следующим образом: (замените servername, dbname, username и password соответственно именем сервера, именем базы данных, именем пользователя и паролем из вашей конфигурации):
+В этом разделе демонстрируется использование библиотеки pyodbc для подключения к базе данных SQL Server на языке Python. Строка подключения к базе данных выглядит следующим образом (замените servername, dbname, username и password соответственно именем сервера, именем базы данных, именем пользователя и паролем из вашей конфигурации):
 
 	#Set up the SQL Azure connection
 	import pyodbc	
 	conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
 
-Библиотека [Pandas](http://pandas.pydata.org/) в языке Python предоставляет широкий набор структур данных и средств анализа данных для манипуляций с данными при программировании на языке Python. Приведенный ниже код считывает 0,1%-ную выборку данных из таблицы базы данных Azure SQL в данные Pandas:
+[Библиотека Pandas](http://pandas.pydata.org/) в языке Python предлагает большой выбор структур данных и средств анализа данных для манипуляций со значениями с помощью языке Python. Приведенный ниже код считывает 0,1%-ную выборку данных из таблицы базы данных Azure SQL в данные Pandas:
 
 	import pandas as pd
 
 	# Query database and load the returned results in pandas data frame
 	data_frame = pd.read_sql('''select column1, cloumn2... from <table_name> tablesample (0.1 percent)''', conn)
 
-Теперь можно работать с данными выборки во фрейме данных Pandas. 
+Теперь можно работать с данными выборки во фрейме данных Pandas.
 
-####<a name="python-aml"></a>Подключение к службе машинного обучения Azure
+###<a name="python-aml"></a>Подключение к службе машинного обучения Azure
 
-С помощью следующего образца кода можно сохранить данные уменьшенной выборки в файл и передать его в BLOB-объект Azure. Данные в BLOB-объекте можно непосредственно считать в эксперимент Azure ML с помощью модуля *Reader Module*. Для этого необходимо выполнить следующие шаги: 
+С помощью следующего образца кода можно сохранить данные уменьшенной выборки в файл и передать его в BLOB-объект Azure. Данные в большом двоичном объекте можно непосредственно считать в эксперименте машинного обучения Azure с помощью *модуля считывателя*. Для этого необходимо выполнить следующие шаги:
 
 1. Запись фрейма данных pandas в локальный файл
 
@@ -105,16 +102,17 @@
 	    except:	        
 		    print ("Something went wrong with uploading blob:"+BLOBNAME)
 
-3. Считывание данных из BLOB-объекта Azure с помощью модуля Azure ML *Reader Module*, как показано на снимке экрана ниже:
+3. Считывание данных из большого двоичного объекта Azure с помощью *модуля считывателя* Azure ML, как показано на снимке экрана ниже:
  
-![reader blob][2]
+![большой двоичный объект считывателя][2]
 
-### Пример применения обработки данных в Azure на практике
+## Практический пример процесса обработки аналитических данных и технологии расширенного анализа (ADAPT)
 
-Пример комплексного пошагового руководства по обработке данных в Azure с использованием общедоступного набора данных см. в разделе [Обработка данных в Azure на практике](machine-learning-data-science-process-sql-walkthrough.md).
+Полный пошаговый пример использования технологии ADAPT с общедоступным набором данных см. в статье [Обработка данных в Azure на практике с использованием SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
 
 [1]: ./media/machine-learning-data-science-sample-sql-server-virtual-machine/reader_database.png
 [2]: ./media/machine-learning-data-science-sample-sql-server-virtual-machine/reader_blob.png
 
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO1-->

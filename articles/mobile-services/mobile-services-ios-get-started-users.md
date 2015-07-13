@@ -10,29 +10,25 @@
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
-	ms.tgt_pltfrm=""
+	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="2/16/2015"
+	ms.date="05/28/2015"
 	ms.author="krisragh"/>
 
-# Добавление проверки подлинности в существующее приложение мобильных служб Azure
+# Добавление проверки подлинности в существующее приложение
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
-В этом учебнике вы добавляете проверку подлинности в проект быстрого запуска с помощью поддерживаемого поставщика удостоверений.
+В этом учебнике вы добавляете проверку подлинности в [краткий учебник по мобильным службам] с помощью поддерживаемого поставщика удостоверений. В первую очередь необходимо пройти [краткий учебник по мобильным службам].
 
-Этот учебник создан на основе [краткого учебника по мобильным службам], который необходимо пройти в первую очередь.
-
-##<a name="register"></a>Регистрация приложения для проверки подлинности и настройка мобильных служб
+##<a name="register"></a>Регистрация приложения для проверки подлинности
 
 [AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)]
 
 ##<a name="permissions"></a>Предоставление разрешений только пользователям, прошедшим проверку подлинности
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
-
-Откройте проект в Xcode. Нажмите кнопку **Выполнить**, чтобы открыть приложение. Убедитесь, что после запуска приложения возникло исключение с кодом состояния 401 (неавторизованный доступ). Это происходит, потому что приложение пытается получить доступ к мобильным службам как пользователь, не прошедший проверку подлинности, а таблица _TodoItem_ теперь требует выполнения проверки подлинности.
 
 ##<a name="add-authentication"></a>Добавление проверки подлинности в приложение
 
@@ -44,7 +40,7 @@
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-В следующем учебнике, который называется [Авторизация пользователей мобильных служб на стороне службы], вы воспользуетесь идентификатором пользователя для фильтрации возвращаемых данных.
+Узнайте, [как использовать значение идентификатора пользователя для фильтрации возвращаемых данных](mobile-services-javascript-backend-service-side-authorization.md).
 
 <!-- Anchors. -->
 [Register your app for authentication and configure Mobile Services]: #register
@@ -73,17 +69,18 @@
 
 
 <!-- URLs. -->
-[Авторизация пользователей мобильных служб на стороне службы]: mobile-services-javascript-backend-service-side-authorization.md
+[Service-side authorization of Mobile Services users]: mobile-services-javascript-backend-service-side-authorization.md
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [Single sign-on for Windows Store apps by using Live Connect]: /develop/mobile/tutorials/single-sign-on-windows-8-dotnet
-[краткого учебника по мобильным службам]: /develop/mobile/tutorials/get-started-ios
+[краткий учебник по мобильным службам]: /develop/mobile/tutorials/get-started-ios
 [Get started with data]: /develop/mobile/tutorials/get-started-with-data-ios
 [Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-ios
 [Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-ios
 [Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
 
 [Azure Management Portal]: https://manage.windowsazure.com/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

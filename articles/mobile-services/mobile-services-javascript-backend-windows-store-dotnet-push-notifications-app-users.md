@@ -10,17 +10,17 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/28/2015" 
+	ms.date="06/03/2015" 
 	ms.author="glenga"/>
 
 # Рассылка push-уведомлений проверенным пользователям
 
 [AZURE.INCLUDE [mobile-services-selector-push-users](../../includes/mobile-services-selector-push-users.md)]
 
-В этом разделе демонстрируется отправка push-уведомлений прошедшему проверку подлинности пользователю на любом зарегистрированном устройстве. В отличие от предыдущего учебника по [push-уведомлениям][Get started with push notifications], в данном учебнике будет изменяться мобильная служба, чтобы она требовала выполнение проверки подлинности пользователя перед регистрацией клиента в концентраторе уведомлений для получения push-уведомлений. Регистрация также изменяется — добавляется тег на основе идентификатора назначенного пользователя. Наконец, обновляется серверный скрипт, чтобы уведомление отправлялось не всем зарегистрированным пользователям, а только тем, кто прошел проверку подлинности.
+В этом разделе показано, как передавать push-уведомления пользователю, прошедшему проверку подлинности, на любом зарегистрированном устройстве. В отличие от предыдущего учебника [Добавление push-уведомлений в приложение], в данном учебнике будут описаны изменения мобильной службы, обеспечивающие выполнение проверки подлинности пользователя перед регистрацией клиента в концентраторе уведомлений для получения push-уведомлений. Регистрация также изменяется — добавляется тег на основе идентификатора назначенного пользователя. Наконец, обновляется серверный скрипт, чтобы уведомление отправлялось не всем зарегистрированным пользователям, а только тем, кто прошел проверку подлинности.
 
 В этом учебнике выполняются следующие действия.
 
@@ -34,15 +34,15 @@
 
 Перед началом работы с этим учебником необходимо изучить следующие учебники по мобильным службам.
 
-+ [Приступая к работе с аутентификацией в мобильных службах]<br/>В этом учебнике в демонстрационное приложение TodoList добавляется требование входа.
++ [Добавление проверки подлинности в приложение]<br/>Добавляет требование входа в демонстрационное приложение TodoList.
 
-+ [Приступая к работе с push-уведомлениями в мобильных службах]<br/>В этом учебнике выполняется настройка демонстрационного приложения TodoList для push-уведомлений с использованием концентратора уведомлений.
++ [Добавление push-уведомлений в приложение]<br/>Настраивает демонстрационное приложение TodoList для push-уведомлений с использованием центров уведомлений.
 
 После выполнения обоих учебников можно приступить к запрету регистрации непроверенных пользователей для получения push-уведомлений от мобильной службы.
 
 ##<a name="register"></a>Обновление службы с учетом требования по проверке подлинности для регистрации
 
-[AZURE.INCLUDE [mobile-services-javascript-backend-push-notifications-app-users](../../includes/mobile-services-javascript-backend-push-notifications-app-users.md)] 
+[AZURE.INCLUDE [mobile-services-javascript-backend-push-notifications-app-users](../../includes/mobile-services-javascript-backend-push-notifications-app-users.md)]
 
 <ol start="5"><li><p>Замените функцию вставки следующим кодом и нажмите кнопку <strong>Сохранить</strong>.</p>
 <pre><code>function insert(item, user, request) {
@@ -76,15 +76,11 @@
 
 ##<a name="update-app"></a>Обновление приложения с учетом требования по входу в систему перед регистрацией
 
-[AZURE.INCLUDE [mobile-services-windows-store-dotnet-push-notifications-app-users](../../includes/mobile-services-windows-store-dotnet-push-notifications-app-users.md)] 
+[AZURE.INCLUDE [mobile-services-windows-store-dotnet-push-notifications-app-users](../../includes/mobile-services-windows-store-dotnet-push-notifications-app-users.md)]
 
 ##<a name="test"></a>Тестирование приложения
 
-[AZURE.INCLUDE [mobile-services-windows-test-push-users](../../includes/mobile-services-windows-test-push-users.md)] 
-
-<!---## <a name="next-steps"> </a>Next steps
-
-In the next tutorial, [Service-side authorization of Mobile Services users][Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. Learn more about how to use Mobile Services with .NET in [Mobile Services .NET How-to Conceptual Reference]-->
+[AZURE.INCLUDE [mobile-services-windows-test-push-users](../../includes/mobile-services-windows-test-push-users.md)]
 
 <!-- Anchors. -->
 [Обновление службы с учетом требования по проверке подлинности для регистрации]: #register
@@ -94,11 +90,10 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 
 
 <!-- URLs. -->
-[Приступая к работе с аутентификацией в мобильных службах]: ../mobile-services-windows-store-dotnet-get-started-users.md
-[Get started with push notifications]: ../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md
-[Приступая к работе с push-уведомлениями в мобильных службах]: ../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md
-[портал управления Azure]: https://manage.windowsazure.com/
-[Azure Management Portal]: https://manage.windowsazure.com/
-[Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
+[Добавление проверки подлинности в приложение]: ../mobile-services-windows-store-dotnet-get-started-users.md
+[Добавление push-уведомлений в приложение]: ../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md
 
-<!--HONumber=54--> 
+[Azure Management Portal]: https://manage.windowsazure.com/
+ 
+
+<!---HONumber=July15_HO1-->
