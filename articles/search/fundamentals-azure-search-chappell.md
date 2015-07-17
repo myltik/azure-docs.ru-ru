@@ -40,5 +40,6 @@
 **Загрузки:**
 
 * <a href="http://go.microsoft.com/fwlink/p/?LinkId=522547" target="_blank">«Введение в Поиск Azure» (в формате PDF)</a>
-* <a href="http://go.microsoft.com/fwlink/p/?LinkId=529011" target="_blank">«Введение в Поиск Azure» (в формате Microsoft Word)</a> <!--HONumber=52-->
+* <a href="http://go.microsoft.com/fwlink/p/?LinkId=529011" target="_blank">«Введение в Поиск Azure» (в формате Microsoft Word)</a> 
+<!---HONumber=52-->
  

@@ -63,9 +63,9 @@
 	
 	Измените следующие строки в файле конфигурации сети, заменив значения собственными.
 
-	**Старое значение:** <VirtualNetworkSitename="VNetUSWest" AffinityGroup="VNetDemoAG">
+	**Старое значение:** \<VirtualNetworkSitename="VNetUSWest" AffinityGroup="VNetDemoAG"> 
 
-	**Новое значение:** <VirtualNetworkSitename="VNetUSWest" Location="West US">
+	**Новое значение:** \<VirtualNetworkSitename="VNetUSWest" Location="West US">
 
 1. Сохраните изменения и [импортируйте](../virtual-networks-using-network-configuration-file/) конфигурацию сети в Azure.
 
