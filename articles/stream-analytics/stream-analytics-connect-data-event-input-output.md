@@ -126,7 +126,8 @@
 На следующей странице введите сведения о таблице Azure. Псевдоним выхода — имя, которое можно использовать в запросе для направления выходных данных запроса в эту таблицу.
 
 
-![рисунок14][graphic14] ![рисунок15][graphic15]
+![рисунок14][graphic14]
+![рисунок15][graphic15]
 
 Размер пакета — это количество записей для пакетной операции. Оставьте значение по умолчанию, если еще не знакомы с возможностями его применения, или просмотрите статью [https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx), чтобы получить дополнительную информацию.
 
