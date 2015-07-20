@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="06/24/2015" 
 	ms.author="patshea123"/>
 
 # Начало работы со службой хранилища Azure (проекты облачных служб)
@@ -418,7 +418,7 @@
 <ul>
 <li>Дополнительные сведения о доступных API-интерфейсах см. в справочной документации по службе таблиц:
   <ul>
-    <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409">Справочник по клиентской библиотеке хранилища для .NET</a>
+    <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731">Справочник по клиентской библиотеке хранилища для .NET</a>
     </li>
     <li><a href="http://msdn.microsoft.com/library/azure/dd179355">Справочник по REST API</a></li>
   </ul>
@@ -444,7 +444,7 @@
   [Blob9]: ./media/storage-dotnet-how-to-use-table-storage/blob9.png
   
   [записи блога]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
-  [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
+  [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731
   [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
   [Configuring Connection Strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx
@@ -456,4 +456,4 @@
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

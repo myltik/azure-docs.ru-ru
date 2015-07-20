@@ -65,5 +65,6 @@
 
 * [ОС Linux и использование средств с открытым кодом в Azure](virtual-machines-linux-opensource.md)
 * [Вход в виртуальную машину под управлением ОС Linux](virtual-machines-linux-how-to-log-on.md)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

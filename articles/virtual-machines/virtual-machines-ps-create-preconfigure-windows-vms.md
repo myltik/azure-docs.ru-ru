@@ -270,4 +270,4 @@
 [Создание и предварительная настройка виртуальной машины Windows с помощью диспетчера ресурсов и Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

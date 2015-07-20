@@ -192,4 +192,4 @@
 - [Развертывание решения StorSimple](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/28/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 # Анализ полученных с датчиков данных с использованием Apache Storm, концентратора событий и базы данных HBase в службе HDInsight (Hadoop)
@@ -258,7 +258,7 @@
 
 2. Когда сайт будет создан, перейдите к нему на портале Azure и откройте вкладку **Настройка**. Включите **Подключения Web Socket** и в нижней части страницы нажмите кнопку **Сохранить**.
 
-2. Откройте файл **hdinsight-eventhub-example\TemperatureMonitor\src\main\java\com\microsoft\examples\bolts\DashboardBolt.java** и в следующей строке укажите URL-адрес опубликованной панели мониторинга.
+2. Откройте файл **hdinsight-eventhub-example\\TemperatureMonitor\\src\\main\\java\\com\\microsoft\\examples\\bolts\\DashboardBolt.java** и в следующей строке укажите URL-адрес опубликованной панели мониторинга.
 
 		socket = IO.socket("http://mywebsite.azurewebsites.net");
 
@@ -362,13 +362,13 @@
 
 ### Активация «сита» HBase
 
-1. Откройте файл **hdinsight-eventhub-example\TemperatureMonitor\conf\hbase-site.xml** и в указанной ниже строке замените записи `suffix` на DNS-суффикс кластера HBase. После внесения этих изменений сохраните файл.
+1. Откройте файл **hdinsight-eventhub-example\\TemperatureMonitor\\conf\\hbase-site.xml** и в указанной ниже строке замените записи `suffix` на DNS-суффикс кластера HBase. После внесения этих изменений сохраните файл.
 
 		<value>zookeeper0.suffix,zookeeper1.suffix,zookeeper2.suffix</value>
 
 	«Сито» HBase будет использовать эти сведения для обмена данными с кластером HBase.
 
-1. Откройте файл **hdinsight-eventhub-example\TemperatureMonitor\src\main\java\com\microsoft\examples\bolts** в текстовом редакторе и раскомментируйте следующие строки (удалите `//` в начале строк). После внесения этих изменений сохраните файл.
+1. Откройте файл **hdinsight-eventhub-example\\TemperatureMonitor\\src\\main\\java\\com\\microsoft\\examples\\bolts** в текстовом редакторе и раскомментируйте следующие строки (удалите `//` в начале строк). После внесения этих изменений сохраните файл.
 
 		topologyBuilder.setBolt("HBase", new HBaseBolt("SensorData", mapper).withConfigKey("hbase.conf"), spoutConfig.getPartitionCount())
     	  .fieldsGrouping("Parser", "hbasestream", new Fields("deviceid")).setNumTasks(spoutConfig.getPartitionCount());
@@ -385,7 +385,7 @@
 
 2. На рабочем столе откройте окно командной строки HDInsight и введите следующую команду.
 
-    cd %HBASE_HOME% bin\hbase shell
+    cd %HBASE_HOME% bin\\hbase shell
 
 3. В оболочке HBase введите следующую команду, чтобы создать таблицу, в которой будут храниться данные с датчиков.
 
@@ -419,6 +419,5 @@
 * Сведения о создании топологий на .NET см. в статье [Разработка топологий для Apache Storm в HDInsight на C# с помощью Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
 [azure-portal]: https://manage.windowsazure.com/
- 
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

@@ -214,4 +214,4 @@
 [Image1]: ./media/storage-azure-cli/azure_command.png
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

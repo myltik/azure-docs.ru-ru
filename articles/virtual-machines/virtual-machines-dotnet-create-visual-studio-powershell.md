@@ -53,7 +53,8 @@
 
 <br/> 13. При необходимости можно подключиться к новой виртуальной машине. В **обозревателе сервера** разверните узел **Виртуальные машины**, выберите узел для созданной виртуальной машины, а затем в его контекстном меню выберите **Подключиться к удаленному рабочему столу**.
 
-	![][5]
+ ![][5]
+
 
 ## Дальнейшие действия
 
@@ -64,7 +65,6 @@
 [2]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/CreateVM_CreateVM.PNG
 [3]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/CreateVM_Provisioning.png
 [4]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/CreateVM_SolutionExplorer.png
-[5]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/VS_CreateVM_Connect.png
- 
+[5]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/VS_Create_VM_Connect.png
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

@@ -194,7 +194,7 @@
 
 ###<a name="scenarios"></a>Сценарии данных журнала IIS W3C
 
-Сценарий W3C создает и импортирует наборы данных журнала IIS W3C трех размеров в HDFS или хранилище больших двоичных объектов Azure: 1 МБ (небольшой), 500 МБ (средний) и 2 ГБ (большой). Он предоставляет три типа заданий и реализует каждое из них на C\#, Java, Pig и Hive.
+Сценарий W3C создает и импортирует наборы данных журнала IIS W3C трех размеров в HDFS или хранилище больших двоичных объектов Azure: 1 МБ (небольшой), 500 МБ (средний) и 2 ГБ (большой). Он предоставляет три типа заданий и реализует каждое из них на C#, Java, Pig и Hive.
 
 - **totalhits** — вычисление общего числа запросов для конкретной страницы.
 - **avgtime** — вычисление среднего времени (в секундах) для запроса на страницу.
@@ -239,7 +239,7 @@
 
 ###<a name="javamapreduce"></a>Выполнение заданий MapReduce на Java
 
-MapReduce — основной механизм вычислений для Hadoop. По умолчанию он реализован на языке Java, но существуют также примеры, в которых используются .NET и Hadoop Streaming, использующие C\#. Синтаксис для выполнения задания MapReduce :
+MapReduce — основной механизм вычислений для Hadoop. По умолчанию он реализован на языке Java, но существуют также примеры, в которых используются .NET и Hadoop Streaming, использующие C#. Синтаксис для выполнения задания MapReduce :
 
 	hadoop jar <jarFileName>.jar <className> <inputFiles> <outputFolder>
 
@@ -461,7 +461,7 @@ The samples currently contain all the required binaries, so building is not requ
 
 - [Приступая к работе с Azure HDInsight](../hdinsight-get-started.md)
 - [Разработка программ MapReduce на Java для HDInsight](hdinsight-develop-deploy-java-mapreduce.md)
-- [Разработка программ MapReduce потоковой передачи Hadoop на C#для HDInsight](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
+- [Разработка программ MapReduce потоковой передачи Hadoop на C# для HDInsight](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
 - [Заметки к версии эмулятора HDInsight](hdinsight-emulator-release-notes.md)
 - [Форум MSDN с обсуждением HDInsight](http://social.msdn.microsoft.com/Forums/hdinsight)
 
@@ -491,4 +491,4 @@ The samples currently contain all the required binaries, so building is not requ
 [image-hdi-emulator-services]: ./media/hdinsight-hadoop-emulator-get-started/HDI.Emulator.Services.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

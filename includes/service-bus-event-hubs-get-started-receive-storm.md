@@ -6,7 +6,7 @@
 
 В данном учебнике используется установка программы [HDInsight Storm], которая поставляется вместе с уже доступным Spout концентраторов событий.
 
-1. Следуя процедурам, приведенным в разделе [HDInsight Storm — начало работы](../articles/hdinsight-storm-getting-started.md), создайте новый кластер HDInsight и подключитесь к нему через удаленный рабочий стол.
+1. Следуя процедурам, приведенным в разделе [HDInsight Storm — начало работы](../hdinsight/hdinsight-storm-overview.md), создайте новый кластер HDInsight и подключитесь к нему через удаленный рабочий стол.
 
 2. Скопируйте файл `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` в локальную среду разработки. Он содержит пакет events-storm-spout.
 
@@ -220,9 +220,9 @@
 	Этот класс создает новый spout концентраторов событий, используя свойства в файле конфигурации для создания экземпляров. Важно отметить, что в данном примере создается такое же количество задач Spout, сколько и разделов в концентраторе событий для использования максимального параллелизма, разрешенного этим концентратором событий.
 
 <!-- Links -->
-[Общие сведения о концентраторах событий]: http://msdn.microsoft.com/library/azure/dn836025.aspx
-[HDInsight Storm]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-overview/
-[учебнике по анализу датчика HDInsight]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-sensor-data-analysis/
+[Общие сведения о концентраторах событий]: event-hubs-overview.md
+[HDInsight Storm]: ../hdinsight/hdinsight-storm-overview.md
+[учебнике по анализу датчика HDInsight]: ../hdinsight/hdinsight-storm-sensor-data-analysis.md
 
 <!-- Images -->
 
@@ -230,4 +230,4 @@
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO2-->

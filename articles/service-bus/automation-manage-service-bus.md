@@ -42,5 +42,6 @@
 
 * См. [Учебник по началу работы](../automation-create-runbook-from-samples.md) в службе автоматизации Azure
 * См. статью [Управление служебной шиной с помощью PowerShell](service-bus-powershell-how-to-provision.md)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

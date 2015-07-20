@@ -111,5 +111,6 @@
 [клиентскую библиотеку ADM]: https://developer.amazon.com/sdk/adm/setup.html
 [интегрировали ADM]: https://developer.amazon.com/sdk/adm/integrating-app.html
 [следующую процедуру]: https://developer.amazon.com/sdk/adm/integrating-app.html#Asset
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -13,21 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/13/2015" 
+	ms.date="05/20/2015" 
 	ms.author="glenga"/>
 
 
 # Сборка службы с использованием существующей базы данных SQL на внутреннем сервере мобильных служб .NET
 
 Серверная часть мобильных служб .NET упрощает использования существующих ресурсов при создании мобильной службы. Один особенно интересный сценарий — использование существующей БД SQL (в локальной среде или в облаке), которая может использоваться другими приложениями, чтобы сделать существующие данные доступными для мобильных клиентов. В этом случае требуется, чтобы модель базы данных (или *схема*) не изменялась, иначе существующие решения перестанут работать.
-
-Это учебное руководство содержит следующие разделы:
-
-1. [Изучение существующей модели базы данных](#ExistingModel)
-2. [Создание объектов передачи данных (DTO) для вашей мобильной службы](#DTOs)
-3. [Установка сопоставления между объектами DTO и моделью](#Mapping)
-4. [Реализация логики для домена](#DomainManager)
-5. [Реализация TableController с помощью объектов DTO](#Controller)
 
 <a name="ExistingModel"></a>
 ## Изучение существующей модели базы данных
@@ -158,7 +150,7 @@
         using System.ComponentModel.DataAnnotations;
         using System;
 
-    Затем добавьте следующие дополнительные свойства к каждому из этих классов:
+4. Затем добавьте следующие дополнительные свойства для каждого из этих классов:
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Index]
@@ -187,7 +179,7 @@
         using Microsoft.WindowsAzure.Mobile.Service.Tables;
         using System.Linq;
 
-    Затем в тексте **ExistingContext** переопределите [**OnModelCreating**](http://msdn.microsoft.com/library/system.data.entity.dbcontext.onmodelcreating.aspx):
+5. В тексте **ExistingContext** переопределите [**OnModelCreating**](http://msdn.microsoft.com/library/system.data.entity.dbcontext.onmodelcreating.aspx):
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -198,7 +190,7 @@
             base.OnModelCreating(modelBuilder);
         } 
 
-5. Заполним базу данных примерами данных. Откройте файл **WebApiConfig.cs**. Создайте новый [**IDatabaseInitializer**](http://msdn.microsoft.com/library/gg696323.aspx) и настройте его в методе **Register**, как показано ниже.
+5. Заполним базу данных образцовыми данными. Откройте файл **WebApiConfig.cs**. Создайте новый [**IDatabaseInitializer**](http://msdn.microsoft.com/library/gg696323.aspx) и настройте его в методе **Register**, как показано ниже.
 
         using Microsoft.WindowsAzure.Mobile.Service;
         using ShoppingService.Models;
@@ -621,5 +613,6 @@
 
     }
 
-В качестве следующего шага можно собрать клиентское приложение для доступа к службе.
-<!--HONumber=54--> 
+В качестве следующего шага можно собрать клиентское приложение для доступа к службе. Дополнительные сведения см. в статье [Добавление мобильных служб в существующее приложение](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md#update-the-app-to-use-the-mobile-service).
+
+<!---HONumber=July15_HO2-->

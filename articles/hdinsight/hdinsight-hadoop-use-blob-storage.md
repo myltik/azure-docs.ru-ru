@@ -328,4 +328,4 @@ HDInsight предоставляет доступ к распределенно�
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

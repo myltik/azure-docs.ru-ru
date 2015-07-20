@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/02/2015"
+   ms.date="06/30/2015"
    ms.author="jgao"/>
 
 #Масштабируйте кластеры Hadoop, HBase или Apache Storm для изменения количества их узлов данных в HDInsight 
@@ -145,4 +145,4 @@
 Дополнительную информацию об использовании пакета SDK для HDInsight .NET см. в статье [Подготовка кластеров Hadoop в HDInsight с использованием настраиваемых параметров](hdinsight-provision-clusters.md).
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

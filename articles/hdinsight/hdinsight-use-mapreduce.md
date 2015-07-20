@@ -1,6 +1,6 @@
 <properties
-   pageTitle="MapReduce с Hadoop в HDInsight"
-   description="Узнайте, как использовать MapReduce с Hadoop в HDInsight."
+   pageTitle="MapReduce с Hadoop в HDInsight | Microsoft Azure"
+   description="Узнайте, как запускать задания MapReduce в Hadoop в кластере HDInsight. Мы запустим простую операцию подсчета слов, реализованную как задание MapReduce на Java."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/23/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 # Использование MapReduce в Hadoop в HDInsight
@@ -192,4 +192,4 @@ HDInsight может запускать задания HiveQL с помощью 
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-use-mapreduce/HDI.WordCountDiagram.gif
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

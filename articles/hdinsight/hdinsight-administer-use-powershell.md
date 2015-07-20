@@ -27,7 +27,7 @@ Azure PowerShell — это полнофункциональная среда с
 
 - **Подписка Azure.**. См. [Бесплатная пробная версия Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- **Рабочая станция с Azure PowerShell**. См. [Установка и использование Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
+- **Рабочая станция с Azure PowerShell.**. См. [Установка и использование Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
 
 ##Подготовка кластеров HDInsight к работе
@@ -279,4 +279,4 @@ Azure PowerShell не может создать контейнер больши�
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

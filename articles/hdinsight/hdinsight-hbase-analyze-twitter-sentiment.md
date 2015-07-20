@@ -98,17 +98,15 @@
 3. Введите **имя**, **описание** и **веб-сайт**. Поле "Веб-сайт" на самом деле не используется. В нем не обязательно указывать действительный URL-адрес. В следующей таблице приведены некоторые примеры значений:
 
 	<table border="1">
-	<tr><th>Поле</th><th>Значение</th></tr>
-	<tr><td>Имя</td><td>MyHDInsightHBaseApp</td></tr>
-	<tr><td>Описание</td><td>MyHDInsightHBaseApp</td></tr>
-	<tr><td>Веб-сайт</td><td>http://www.myhdinsighthbaseapp.com</td></tr>
-	</table>
-
-	> [AZURE.NOTE]Имя приложения Twitter должно быть уникальным.
+<tr><th>Поле</th><th>Значение</th></tr>
+<tr><td>Имя</td><td>MyHDInsightHBaseApp</td></tr>
+<tr><td>Описание</td><td>MyHDInsightHBaseApp</td></tr>
+<tr><td>Веб-сайт</td><td>http://www.myhdinsighthbaseapp.com</td></tr>
+</table>> [AZURE.NOTE]Имя приложения Twitter должно быть уникальным.
 
 4. Установите значок **Да, я согласен** и нажмите кнопку **Создать приложение Twitter**.
 5. Выберите вкладку **Разрешения**. Разрешение по умолчанию: **Только для чтения**. Этого разрешения достаточно для данного учебника. 
-6. Откройте вкладку **Ключи и маркеры доступа**.
+6. Перейдите на вкладку **Ключи и токены доступа**.
 7. Нажмите кнопку **Создать маркер доступа**.
 8. Нажмите кнопку **Проверить OAuth** в правом верхнем углу страницы.
 9. Скопируйте значения **Ключ клиента**, **Секрет клиента**, **Маркер доступа** и **Секрет маркера доступа**. Они потребуются позже для изучения этого учебника.
@@ -222,7 +220,7 @@
         // Sentiment dictionary file and the punctuation characters
         const string DICTIONARYFILENAME = @"....\data\dictionary\dictionary.tsv";
         private static char[] _punctuationChars = new[] { 
-            ' ', '!', '"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/',   //ascii 23--47
+            ' ', '!', '"', '#', '$', '%', '&', ''', '(', ')', '*', '+', ',', '-', '.', '/',   //ascii 23--47
             ':', ';', '<', '=', '>', '?', '@', '[', ']', '^', '_', '`', '{', '|', '}', '~' };   //ascii 58--64 + misc.
 
         // For writting to HBase
@@ -415,8 +413,8 @@
 	Этот код обеспечивает следующие функциональные возможности:
 
 	- **Подключение к Hbase [ HBaseWriter() ]**: используйте пакет SDK для HBase для создания объекта *ClusterCredentials* с URL-адресом кластера и учетными данными пользователя Hadoop, а затем создайте с его помощью объект *HBaseClient*.
-	- **Создание таблицы HBase [ HBaseWriter() ]**: вызов метода — *HBaseClient.CreateTable()*.
-	- **Запись в таблицу HBase [WriterThreadFunction()]**: вызов метода — *HBaseClient.StoreCells()*.
+	- **Создание таблицы HBase [ HBaseWriter() ]**: вызов метода — *HBaseClient.CreateTable()*.
+	- **Запись в таблицу HBase [ WriterThreadFunction() ]**: вызов метода — *HBaseClient.StoreCells()*.
 
 **Завершение файла Program.cs**
 
@@ -1177,8 +1175,7 @@
 
 **Изменение файла layout.cshtml**
 
-1. В **обозревателе решений** последовательно разверните узлы **TweetSentimentWeb**, **Представления**, **Общий ресурс**, а затем дважды щелкните элемент _**Layout.cshtml**.
-2. Замените содержимое на приведенное ниже:
+1. В **обозревателе решений** последовательно разверните узлы **TweetSentimentWeb**, **Представления**, **Общий ресурс**, а затем дважды щелкните элемент _**Layout.cshtml**. 2. Замените содержимое на приведенное ниже:
 
 		<!DOCTYPE html>
 		<html>
@@ -1356,5 +1353,6 @@
 [hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

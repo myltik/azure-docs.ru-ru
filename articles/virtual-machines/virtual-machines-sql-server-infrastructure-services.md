@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="SQL Server на виртуальных машинах Azure" 
-	description="В этой статье приводятся общие сведения о размещении SQL Server на  виртуальных машинах Azure (IaaS). Также включены ссылки на более подробное содержимое." 
+	description="В этой статье приводятся общие сведения о размещении SQL Server на виртуальных машинах Azure (IaaS). Также включены ссылки на более подробное содержимое." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="rothja" 
@@ -32,7 +32,7 @@
 Можно достичь высокого уровня доступности SQL Server с помощью группы доступности AlwaysOn SQL Server. Это подразумевает использование нескольких виртуальных машин Azure в виртуальной сети. На портале предварительной версии Azure есть шаблон, который настраивает эту конфигурацию. Дополнительную информацию см. в разделе [Предложения AlwaysOn SQL Server в коллекции портала Microsoft Azure][sqlalwaysonportal]. Или можно [вручную настроить группу доступности AlwaysOn][sqlalwaysonmanual]. Дополнительные рекомендации по обеспечению высокого уровня доступности см. в разделе [Высокий уровень доступности и аварийное восстановление для SQL Server в виртуальных машинах Azure][sqlhadr].
 
 ## Выполнение бизнес-аналитики, хранение данных и рабочие нагрузки OLTP в Azure   
-Вы можете выполнять общие рабочие нагрузки SQL Server на виртуальных машинах Azure. Для SQL Server есть несколько оптимизированных  образов виртуальных машин, которые доступны в коллекции. Это образы для [бизнес-аналитики][sqlbi], [хранения данных][sqldw] и [OLTP][sqloltp].
+Вы можете выполнять общие рабочие нагрузки SQL Server на виртуальных машинах Azure. Для SQL Server есть несколько оптимизированных образов виртуальных машин, которые доступны в коллекции. Это образы для [бизнес-аналитики][sqlbi], [хранения данных][sqldw] и [OLTP][sqloltp].
 
 ## Перенос данных
 Существует несколько возможных способов перенести данные в виртуальные машины Azure с SQL Server. Сначала подготовьте виртуальную машину SQL Server с помощью портала Azure, инструментов автоматизации PowerShell или мастера развертывания в среде SQL Server Management Studio. В модели ценообразования оптимизированных образов SQL Server учтено лицензирование, но вы можете также установить SQL Server, используя собственную лицензию. Существует несколько возможностей перенести данные, например использовать мастер развертывания или перенести диск данных в целевую виртуальную машину. Дополнительную информацию см. в разделе [Подготовка к миграции на SQL Server на виртуальных машинах Azure][migratesql].
@@ -51,27 +51,27 @@
 
 [Технические статьи о SQL Server в виртуальных машинах Azure][technicalarticles]
 
-[sqlvmlanding]: http://azure.microsoft.com/services/virtual-machines/sql-server/
-[sqldbcompared]: http://azure.microsoft.com/documentation/articles/data-management-azure-sql-database-and-sql-server-iaas
-[createvmportal]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/
-[setupconnectivity]: https://msdn.microsoft.com/library/azure/dn133152.aspx
-[provisionsqlvm]: http://azure.microsoft.com/documentation/articles/virtual-machines-provision-sql-server/
-[sqlalwaysonportal]: http://go.microsoft.com/fwlink/?LinkId=526941
-[sqlalwaysonmanual]: https://msdn.microsoft.com/library/azure/dn249504.aspx
-[sqlhadr]: https://msdn.microsoft.com/library/azure/jj870962.aspx
-[sqlbi]: https://msdn.microsoft.com/library/azure/jj992719.aspx
-[sqldw]: https://msdn.microsoft.com/library/azure/dn387396.aspx
-[sqloltp]: https://msdn.microsoft.com/library/azure/eb0188e2-5569-48ff-b92c-1f6c0bf79620#about
-[migratesql]: https://msdn.microsoft.com/library/azure/dn133142.aspx
-[backupurl]: https://msdn.microsoft.com/library/dn435916(v=sql.120).aspx
-[managedbackup]: https://msdn.microsoft.com/library/dn449496.aspx
-[autobackup]: https://msdn.microsoft.com/library/azure/dn906091.aspx
-[autopatching]: https://msdn.microsoft.com/library/azure/dn961166.aspx
-[managementtasks]: https://msdn.microsoft.com/library/azure/dn906886.aspx
-[sqlmsdnlanding]: https://msdn.microsoft.com/library/azure/jj823132.aspx
-[sqlvmgetstarted]: https://msdn.microsoft.com/library/azure/dn133151.aspx
-[sqlperf]: https://msdn.microsoft.com/library/azure/dn133149.aspx
-[sqlsecurity]: https://msdn.microsoft.com/library/azure/dn133147.aspx
-[technicalarticles]: https://msdn.microsoft.com/library/azure/dn248435.aspx
-<!--HONumber=52-->
- 
+  [sqlvmlanding]: http://azure.microsoft.com/services/virtual-machines/sql-server/
+  [sqldbcompared]: http://azure.microsoft.com/documentation/articles/data-management-azure-sql-database-and-sql-server-iaas
+  [createvmportal]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/
+  [setupconnectivity]: https://msdn.microsoft.com/library/azure/dn133152.aspx
+  [provisionsqlvm]: http://azure.microsoft.com/documentation/articles/virtual-machines-provision-sql-server/
+  [sqlalwaysonportal]: http://go.microsoft.com/fwlink/?LinkId=526941
+  [sqlalwaysonmanual]: https://msdn.microsoft.com/library/azure/dn249504.aspx
+  [sqlhadr]: https://msdn.microsoft.com/library/azure/jj870962.aspx
+  [sqlbi]: https://msdn.microsoft.com/library/azure/jj992719.aspx
+  [sqldw]: https://msdn.microsoft.com/library/azure/dn387396.aspx
+  [sqloltp]: https://msdn.microsoft.com/library/azure/eb0188e2-5569-48ff-b92c-1f6c0bf79620#about
+  [migratesql]: https://msdn.microsoft.com/library/azure/dn133142.aspx
+  [backupurl]: https://msdn.microsoft.com/library/dn435916(v=sql.120).aspx
+  [managedbackup]: https://msdn.microsoft.com/library/dn449496.aspx
+  [autobackup]: https://msdn.microsoft.com/library/azure/dn906091.aspx
+  [autopatching]: https://msdn.microsoft.com/library/azure/dn961166.aspx
+  [managementtasks]: https://msdn.microsoft.com/library/azure/dn906886.aspx
+  [sqlmsdnlanding]: https://msdn.microsoft.com/library/azure/jj823132.aspx
+  [sqlvmgetstarted]: https://msdn.microsoft.com/library/azure/dn133151.aspx
+  [sqlperf]: https://msdn.microsoft.com/library/azure/dn133149.aspx
+  [sqlsecurity]: https://msdn.microsoft.com/library/azure/dn133147.aspx
+  [technicalarticles]: https://msdn.microsoft.com/library/azure/dn248435.aspx
+
+<!---HONumber=July15_HO2-->

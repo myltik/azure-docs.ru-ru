@@ -1,22 +1,21 @@
 
 <properties 
-  pageTitle="Задание и получение свойств и метаданных | Microsoft Azure" 
-  description="Узнайте, как Задание и получение свойств и метаданных Для Azure Storage BLOB-объекты и контейнеры хранилища." 
-  services="storage" 
-  documentationCenter="" 
-  authors="tamram"
-  manager="adinah" 
-  editor=""/>
+  pageTitle="Задание и получение свойств и метаданных для хранилища больших двоичных объектов | Microsoft Azure" 
+  description="Узнайте о том, как задавать и получать свойства и метаданные для контейнеров и больших двоичных объектов службы хранилища Azure." 
+  services="storage" 
+  documentationCenter="" 
+  authors="tamram" 
+  manager="adinah" 
+  editor=""/>
 
-<tags 
-  ms.service="storage" 
-  ms.workload="storage" 
-  ms.tgt_pltfrm="na" 
-  ms.devlang="na" 
-  ms.topic="article" 
-  ms.date="04/21/2015" 
-  ms.author="tamram"/>
-
+<tags 
+  ms.service="storage" 
+  ms.workload="storage" 
+  ms.tgt_pltfrm="na" 
+  ms.devlang="na" 
+  ms.topic="article" 
+  ms.date="04/21/2015" 
+  ms.author="tamram"/>
 
 
 # Задание и получение свойств и метаданных #
@@ -160,6 +159,6 @@
 
 - [Справочник по клиентской библиотеке службы хранилища Azure](http://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
 - [Начало работе с хранилищем больших двоичных объектов для .NET](storage-dotnet-how-to-use-blobs.md)  
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/11/2015"
+    ms.date="07/02/2015"
     ms.author="banders"/>
 
 # Решения Operational Insights
@@ -42,11 +42,15 @@
 
 - [Оценка SQL и Active Directory](operational-insights-assessment.md).
 
-Однако Microsoft Monitoring Agent *не* поддерживает следующие решения:
+Тем не менее следующие решения *не* поддерживаются Microsoft Monitoring Agent, и для них необходим System Center Operations Manager (SCOM).
 
 - [Управление емкостью](operational-insights-capacity.md);
 
-- [Оценка конфигурации](../operational-insights-configuration-assessment.md).
+- [Управление оповещениями](operational-insights-alerts.md)
+
+- [Оценка конфигурации](operational-insights-solutions.md#configuration-assessment).
+
+Рекомендации по использованию этих решений с Operations Manager см. в разделе [Факторы, которые необходимо учитывать при использовании Operations Manager с Operational Insights](operational-insights-operations-manager.md).
 
 Сбор данных журналов IIS поддерживается на компьютерах под управлением следующих ОС:
 
@@ -85,6 +89,5 @@
 
 
 3. На странице подтверждения нажмите кнопку **Да**, чтобы удалить решение.
- 
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

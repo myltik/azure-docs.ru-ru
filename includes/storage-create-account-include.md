@@ -5,4 +5,4 @@
 Создать учетную запись хранения Azure можно с помощью [Azure PowerShell](../articles/storage/storage-powershell-guide-full.md), [интерфейса командной строки Azure](../articles/storage/storage-azure-cli.md) или [REST API поставщика ресурсов службы хранилища Azure](https://msdn.microsoft.com/library/azure/mt163683.aspx).
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

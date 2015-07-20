@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Прогнозирование — ETS+STL | Azure" 
+	pageTitle="Прогнозирование ETS + STL | Microsoft Azure" 
 	description="Прогнозирование ETS+STL" 
 	services="machine-learning" 
 	documentationCenter="" 
@@ -13,99 +13,93 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/11/2015" 
-	ms.author="jaymathe"/>  
+	ms.date="06/24/2015" 
+	ms.author="jaymathe"/>
 
 #Прогнозирование ETS+STL  
- 
- 
+
+Эта [веб-служба](https://datamarket.azure.com/dataset/aml_labs/demand_forecast) реализует сезонную декомпозицию (STL) и модель экспоненциального сглаживания (ETS) для прогнозирования на основе исторических данных, предоставленных пользователем. Увеличится ли в этом году спрос на определенный продукт? Могу ли я предсказать объем продаж в сезон Рождества, чтобы эффективно спланировать товарные запасы? Модели прогнозирования позволяют решать такие задачи. Используя прошлые данные в качестве базы, эти модели анализируют скрытые тенденции и сезонные колебания для прогнозирования будущих тенденций.
 
 
-
-Эта [веб-служба]( https://datamarket.azure.com/dataset/aml_labs/demand_forecast) реализует сезонную декомпозицию (STL) и модель экспоненциального сглаживания (ETS) для прогнозирования на основе исторических данных, предоставленных пользователем. Увеличится ли в этом году спрос на определенный продукт? Могу ли я предсказать объем продаж в сезон Рождества, чтобы эффективно спланировать товарные запасы? Модели прогнозирования позволяют решать такие задачи. Используя прошлые данные в качестве базы, эти модели анализируют скрытые тенденции и сезонные колебания для прогнозирования будущих тенденций.  
+[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
  
->Хотя эта веб-служба может применяться пользователями (потенциально через мобильное приложение, веб-сайт или даже на локальном компьютере), она также служит примером использования Azure ML для создания веб-служб на основе кода R. С помощью всего нескольких строк кода R и нажатий кнопки в Azure ML Studio можно создать эксперимент с кодом R и опубликовать его как веб-службу. Затем веб-службу можно опубликовать в Магазине Azure, и она может применяться пользователями и устройствами по всему миру без необходимости настройки инфраструктуры автором веб-службы.  
+>Эту веб-службу можно использовать через мобильное приложение, веб-сайт или на локальном компьютере. Веб-служба также служит примером того, как машинное обучение Azure можно использовать для создания веб-служб на основе кода R. Чтобы создать эксперимент с использованием кода R и опубликовать его как веб-службу, достаточно написать несколько строк кода R и нажать несколько кнопок в студии машинного обучения Azure. Затем веб-службу можно опубликовать в Azure Marketplace, и ее смогут применять пользователи и устройства по всему миру, при этом автору веб-службы не придется настраивать инфраструктуру.
  
 ##Использование веб-службы 
 
-Эта служба принимает 4 аргумента и рассчитывает прогнозы.
-Входные аргументы:
+Эта служба принимает 4 аргумента и рассчитывает прогнозы. Входные аргументы:
 
-* Частота: указывает частоту необработанных данных (ежедневно, еженедельно, ежемесячно, ежеквартально или ежегодно)
-* Период: временные рамки будущего прогноза
-* Дата: добавление новых данных временных рядов для времени
-* Значение: добавление новых значений данных временных рядов
+* Частота: частота необработанных данных (ежедневно, еженедельно, ежемесячно, ежеквартально или ежегодно).
+* Горизонт: временные рамки прогноза на будущее.
+* Дата: добавление новых данных временных рядов для времени.
+* Значение: добавление новых значений данных временных рядов.
 
 Результатом выполнения службы являются рассчитанные значения прогноза.
  
-Пример вводимых данных: 
+Пример вводимых данных:
 
 * Частота: 12
-* Период: 12
-* Date:1/15/2012;2/15/2012;3/15/2012;4/15/2012;5/15/2012;6/15/2012;7/15/2012;8/15/2012;9/15/2012;10/15/2012;11/15/2012;12/15/2012;
-1/15/2013;2/15/2013;3/15/2013;4/15/2013;5/15/2013;6/15/2013;7/15/2013;8/15/2013;9/15/2013;10/15/2013;11/15/2013;12/15/2013;
-1/15/2014;2/15/2014;3/15/2014;4/15/2014;5/15/2014;6/15/2014;7/15/2014;8/15/2014;9/15/2014
-* Значение: 3.479;3.68;3.832;3.941;3.797;3.586;3.508;3.731;3.915;3.844;3.634;3.549;3.557;3.785;3.782;3.601;3.544;3.556;3.65;3.709;3.682;3.511;
-3.429;3.51;3.523;3.525;3.626;3.695;3.711;3.711;3.693;3.571;3.509
+* Горизонт: 12
+* Дата: 1/15/2012;2/15/2012;3/15/2012;4/15/2012;5/15/2012;6/15/2012;7/15/2012;8/15/2012;9/15/2012;10/15/2012;11/15/2012;12/15/2012; 1/15/2013;2/15/2013;3/15/2013;4/15/2013;5/15/2013;6/15/2013;7/15/2013;8/15/2013;9/15/2013;10/15/2013;11/15/2013;12/15/2013; 1/15/2014;2/15/2014;3/15/2014;4/15/2014;5/15/2014;6/15/2014;7/15/2014;8/15/2014;9/15/2014
+* Значение: 3.479;3.68;3.832;3.941;3.797;3.586;3.508;3.731;3.915;3.844;3.634;3.549;3.557;3.785;3.782;3.601;3.544;3.556;3.65;3.709;3.682;3.511; 3.429;3.51;3.523;3.525;3.626;3.695;3.711;3.711;3.693;3.571;3.509
 
->Эта служба, размещенная в Магазине Microsoft Azure, является службой на основе OData. Вызвать ее можно методами POST и GET. 
+>Эта служба, размещенная в Azure Marketplace, является службой OData. Вызвать ее можно методами POST и GET.
 
-Есть несколько способов использования службы в автоматическом режиме (см. пример приложения [здесь](http://microsoftazuremachinelearning.azurewebsites.net/StlEtsForecasting.aspx )).
+Есть несколько способов использования службы в автоматическом режиме (см. пример приложения [здесь](http://microsoftazuremachinelearning.azurewebsites.net/StlEtsForecasting.aspx)).
 
 ###Начало кода C# для использования веб-службы:
 
-	public class Input{
-	public double Recency;
-	public double Frequency;
-	public double Monetary;
-	public double Time;
-	public double Class;
+	public class Input
+	{
+	        public string frequency;
+	        public string horizon;
+	        public string date;
+	        public string value;
 	}
-
-	public AuthenticationHeaderValue CreateBasicHeader(string username, string password)
-    {
-        byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
-        System.Diagnostics.Debug.WriteLine("AuthenticationHeaderValue" + new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray)));
-        return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
-    }
-       
+	
+    public AuthenticationHeaderValue CreateBasicHeader(string username, string password)
+	{
+	        byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
+	        return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
+	}
+	
 	void Main()
 	{
-  	var input = new Input(){Recency =1, Frequency=0,Monetary=0,Time=1, Class= 0};
-	var json = JsonConvert.SerializeObject(input);
-	var acitionUri =  "PutAPIURLHere,e.g.https://api.datamarket.azure.com/..../v1/Score";
-       
-  	var httpClient = new HttpClient();
-   	httpClient.DefaultRequestHeaders.Authorization = CreateBasicHeader("PutEmailAddressHere","ChangeToAPIKey");
-   	httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-  	var query = httpClient.PostAsync(acitionUri,new StringContent(json));
-  	var result = query.Result.Content;
-  	var scoreResult = result.ReadAsStringAsync().Result;
-  	scoreResult.Dump();
+	        var input = new Input() { frequency = TextBox1.Text, horizon = TextBox2.Text, date = TextBox3.Text, value = TextBox4.Text };         var json = JsonConvert.SerializeObject(input);
+	        var acitionUri = "PutAPIURLHere,e.g.https://api.datamarket.azure.com/..../v1/Score";
+	        var httpClient = new HttpClient();
+	
+	        httpClient.DefaultRequestHeaders.Authorization = CreateBasicHeader("PutEmailAddressHere", "ChangeToAPIKey");
+	        httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+	
+	        var response = httpClient.PostAsync(acitionUri, new StringContent(json));
+	        var result = response.Result.Content;
+		    var scoreResult = result.ReadAsStringAsync().Result;
 	}
+
 
 ##Создание веб-службы 
 
->Эта веб-служба была создана с помощью Azure ML. Для получения бесплатной пробной версии и вводных видеоматериалов по созданию экспериментов и [публикации веб-служб](http://azure.microsoft.com/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/) посетите веб-страницу [azure.com/ml](http://azure.com/ml). Ниже приведен снимок экрана эксперимента, в результате которого была создана веб-служба, и пример кода для каждого модуля в эксперименте.
+>Эта веб-служба была создана с помощью системы машинного обучения Azure. Чтобы получить бесплатную пробную версию и вводные видеоматериалы по созданию экспериментов и [публикации веб-служб](machine-learning-publish-a-machine-learning-web-service.md), посетите веб-страницу [azure.com/ml](http://azure.com/ml). Ниже приведен снимок экрана эксперимента, в результате которого была создана веб-служба, и пример кода для каждого модуля в эксперименте.
 
-В Azure ML был создан новый пустой эксперимент. Был загружен образец входных данных с предопределенной схемой данных. Со схемой данных связан модуль "Выполнение скрипта R", который формирует модель прогнозирования на основе сезонной декомпозиции (STL) и экспоненциального сглаживания (ETS) с помощью функций "stl", "ets" и "forecast" из языка R. 
+В службах машинного обучения Azure создан пустой эксперимент. Загружен образец входных данных с заранее заданной схемой данных. Со схемой данных связан модуль [Выполнение сценария R][execute-r-script], который создает модель прогнозирования ARIMA с помощью функций ets и forecast языка R.
 
 ###Ход эксперимента:
 
-![Experiment flow][2]
+![Ход эксперимента][2]
 
 ####Модуль 1:
  
-	# Добавьте в CSV-файл данные в формате, показанном ниже. 
-![Sample data][3]	
+	# Add in the CSV file with the data in the format shown below 
+![Пример данных][3]
 
 ####Модуль 2:
 
-	# data input
+	# Data input
 	data <- maml.mapInputPort(1) # class: data.frame
 	library(forecast)
 	
-	# preprocessing
+	# Preprocessing
 	colnames(data) <- c("frequency", "horizon", "dates", "values")
 	dates <- strsplit(data$dates, ";")[[1]]
 	values <- strsplit(data$values, ";")[[1]]
@@ -113,30 +107,34 @@
 	dates <- as.Date(dates, format = '%m/%d/%Y')
 	values <- as.numeric(values)
 	
-	# fit a time-series model
+	# Fit a time series model
 	train_ts<- ts(values, frequency=data$frequency)
 	fit1 <- stl(train_ts,  s.window="periodic")
 	train_model <- forecast(fit1, h = data$horizon, method = 'ets')
 	plot(train_model)
 	
-	# produce forcasting
+	# Produce forcasting
 	train_pred <- round(train_model$mean,2)
 	data.forecast <- as.data.frame(t(train_pred))
 	colnames(data.forecast) <- paste("Forecast", 1:data$horizon, sep="")
 	
-	# data output
+	# Data output
 	maml.mapOutputPort("data.forecast");
 
 ##Ограничения 
 
-Это очень простой пример прогнозирования ETS+STL. Как можно увидеть из приведенного выше примера кода, перехват ошибок не происходит и служба предполагает, что все переменные являются непрерывными/положительными значениями и частота должна быть положительным целым числом больше 1. Длина векторов даты и времени должна совпадать, а длина временного ряда должна быть больше произведения "2*частота". Переменная даты должна быть в формате "мм/дд/гггг".
+Это очень простой пример прогнозирования ETS+STL. Как видно из приведенного выше образца кода, в нем не отслеживаются ошибки, служба предполагает, что все переменные являются непрерывными или положительными значениями, а частота должна быть целым числом больше 1. Длины векторов дат и значений должны совпадать, а длина временных рядов должна превышать частоту, умноженную на 2. Переменная даты должна быть в формате "мм/дд/гггг".
 
 ##Часто задаваемые вопросы
-Ознакомиться с часто задаваемыми вопросами по использованию веб-службы и публикации в Магазине можно [здесь](http://azure.microsoft.com/documentation/articles/machine-learning-marketplace-faq).
+Ознакомиться с часто задаваемыми вопросами по использованию веб-службы и публикации в Azure Marketplace можно [здесь](machine-learning-marketplace-faq.md).
 
 [1]: ./media/machine-learning-r-csharp-retail-demand-forecasting/retail-img1.png
 [2]: ./media/machine-learning-r-csharp-retail-demand-forecasting/retail-img2.png
 [3]: ./media/machine-learning-r-csharp-retail-demand-forecasting/retail-img3.png
 
-<!--HONumber=46--> 
+
+<!-- Module References -->
+[execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
  
+
+<!---HONumber=July15_HO2-->

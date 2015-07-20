@@ -5,7 +5,8 @@
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags 
 	ms.service="virtual-network" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/29/2015" 
+	ms.date="07/08/2015" 
 	ms.author="josephd"/>
 
 # Создание гибридной облачной среды для тестирования
@@ -52,7 +53,7 @@
 
 Воспользуйтесь инструкциями из раздела «Этапы настройки подсети Corpnet» [руководства по практической работе «Базовая конфигурация Windows Server 2012 R2»](http://www.microsoft.com/download/details.aspx?id=39638) для настройки компьютеров DC1, APP1 и CLIENT1 в подсети с именем Corpnet. **Эта подсеть должна быть изолирована от сети организации, поскольку она будет подключена прямо к Интернету через компьютер RRAS1.**
 
-Далее войдите в DC1 с учетными данными CORP\User1. Для настройки домена CORP таким образом, чтобы компьютеры и пользователи использовали свой локальный контроллер домена для проверки подлинности, выполните следующие команды из командной строки Windows PowerShell с правами администратора.
+Далее войдите в DC1 с учетными данными CORP\\User1. Для настройки домена CORP таким образом, чтобы компьютеры и пользователи использовали свой локальный контроллер домена для проверки подлинности, выполните следующие команды из командной строки Windows PowerShell с правами администратора.
 
 	New-ADReplicationSite -Name "TestLab" 
 	New-ADReplicationSite -Name "TestVNET"
@@ -267,7 +268,7 @@ RRAS1 обеспечивает маршрутизацию трафика и сл
 	Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
 	Install-ADDSDomainController -Credential (Get-Credential CORP\User1) -DomainName "corp.contoso.com" -InstallDns:$true -DatabasePath "F:\NTDS" -LogPath "F:\Logs" -SysvolPath "F:\SYSVOL"
 
-Следует иметь в виду, что вам будет предложено ввести пароль CORP\User1 и пароль режима восстановления служб каталогов (DSRM), а также перезапустить DC2.
+Следует иметь в виду, что вам будет предложено ввести пароль CORP\\User1 и пароль режима восстановления служб каталогов (DSRM), а также перезапустить DC2.
 
 Отметим, что виртуальная сеть TestVNET имеет собственный DNS-сервер(DC2). Необходимо настроить виртуальную сеть TestVNET для использования этого DNS-сервера.
 
@@ -325,4 +326,4 @@ RRAS1 обеспечивает маршрутизацию трафика и сл
 После этого перейдите на портал управления Azure на локальном компьютере и дождитесь, пока виртуальная сеть TestVNET не покажет подключенное состояние.
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

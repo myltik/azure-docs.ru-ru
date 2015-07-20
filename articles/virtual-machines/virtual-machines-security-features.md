@@ -40,4 +40,7 @@ Azure предлагает несколько вариантов решений 
 ##Дополнительные ресурсы
 [Ресурсы](http://azure.microsoft.com/support/trust-center/resources/) в центре управления безопасностью Microsoft Azure
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=July15_HO2-->

@@ -25,20 +25,20 @@
 В этом учебнике рассматриваются следующие основные шаги для включения проверки подлинности в приложении:
 
 1. [Регистрация приложения для проверки подлинности и настройка мобильных служб]
-2. [Ограничение разрешений таблицы для пользователей, прошедших проверку подлинности]
+2. [Предоставление разрешений на таблицу только пользователям, прошедшим проверку подлинности]
 3. [Добавление проверки подлинности в приложение]
 
 Этот учебник создан на основе краткого руководства по мобильным службам. Вам также необходимо сначала ознакомиться с учебником [Приступая к работе с мобильными службами].
 
 ##<a name="register"></a>Регистрация приложения для проверки подлинности и настройка мобильных служб
 
-[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)] 
+[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)]
 
-[AZURE.INCLUDE [mobile-services-dotnet-backend-aad-server-extension](../../includes/mobile-services-dotnet-backend-aad-server-extension.md)] 
+[AZURE.INCLUDE [mobile-services-dotnet-backend-aad-server-extension](../../includes/mobile-services-dotnet-backend-aad-server-extension.md)]
 
 ##<a name="permissions"></a>Предоставление разрешений только пользователям, прошедшим проверку подлинности
 
-[AZURE.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../../includes/mobile-services-restrict-permissions-dotnet-backend.md)] 
+[AZURE.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
 
 <ol start="6">
 <li><p>В Visual Studio или Xamarin Studio запустите проект клиента на устройстве или симуляторе. Убедитесь, что после запуска приложения возникает необработанное исключение с кодом состояния 401 (неавторизованный).</p>
@@ -52,7 +52,7 @@
 
 1. Добавьте в класс **TodoActivity** следующее свойство:
 
-			private MobileServiceUser user;
+			private MobileServiceUser user;
 
 2. Добавьте в класс **TodoActivity** следующий метод:
 
@@ -94,7 +94,7 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
  -->
 <!-- Anchors. -->
 [Регистрация приложения для проверки подлинности и настройка мобильных служб]: #register
-[Ограничение разрешений таблицы для пользователей, прошедших проверку подлинности]: #permissions
+[Предоставление разрешений на таблицу только пользователям, прошедшим проверку подлинности]: #permissions
 [Добавление проверки подлинности в приложение]: #add-authentication
 [Next Steps]: #next-steps
 
@@ -110,5 +110,6 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 [JavaScript and HTML]: ../mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -1,24 +1,24 @@
-<properties 
-	pageTitle="Как использовать приложение Fiddler для оценки и тестирования интерфейсов API REST &quot;Поиск Azure&quot;" 
-	description="Приложение Fiddler позволяет проверить доступность службы &quot;Поиск Azure&quot; и опробовать интерфейсы API REST, не используя код." 
-	services="search" 
-	documentationCenter="" 
-	authors="HeidiSteen" 
-	manager="mblythe" 
+<properties
+	pageTitle="Как использовать приложение Fiddler для оценки и тестирования интерфейсов API REST &quot;Поиск Azure&quot;"
+	description="Приложение Fiddler позволяет проверить доступность службы &quot;Поиск Azure&quot; и опробовать интерфейсы API REST, не используя код."
+	services="search"
+	documentationCenter=""
+	authors="HeidiSteen"
+	manager="mblythe"
 	editor=""/>
 
-<tags 
-	ms.service="search" 
-	ms.devlang="rest-api" 
-	ms.workload="search" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.date="03/12/2015" 
+<tags
+	ms.service="search"
+	ms.devlang="rest-api"
+	ms.workload="search"
+	ms.topic="get-started-article"
+	ms.tgt_pltfrm="na"
+	ms.date="07/08/2015"
 	ms.author="heidist"/>
 
 # Как использовать приложение Fiddler для оценки и тестирования интерфейсов API REST "Поиск Azure"
 
-В этой процедуре используется приложение Fiddler, которое можно [бесплатно загрузить на сайте компании Telerik](http://www.telerik.com/fiddler). Оно позволяет выдавать HTTP-запросы и просматривать ответы с помощью API REST "Поиск Azure" без необходимости написания кода. На сайте [MSDN](https://msdn.microsoft.com/ru-ru/library/azure/dn798935.aspx) доступна документация, посвященная интерфейсам API REST "Поиск Azure".
+В этой статье рассказывается, как использовать приложение Fiddler, которое можно [бесплатно загрузить на сайте компании Telerik](http://www.telerik.com/fiddler). Оно позволяет выдавать HTTP-запросы и просматривать ответы с помощью API REST службы поиска Azure без необходимости написания кода. На сайте [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx) доступна документация, посвященная интерфейсам API REST "Поиск Azure".
 
 Выполнив приведенные ниже шаги, вы создадите индекс, загрузите документы, выполните запрос к индексу, а затем запросите у системы служебную информацию.
 
@@ -26,7 +26,7 @@
 
 ## Создание индекса
 
-1. Запустите Fiddler. В меню File выключите **Capture Traffic (Захватывать трафик)**, чтобы не показывать постороннюю активность HTTP, не связанную с текущей задачей. 
+1. Запустите Fiddler. В меню File выключите **Capture Traffic (Захватывать трафик)**, чтобы не показывать постороннюю активность HTTP, не связанную с текущей задачей.
 
 3. На вкладке Composer сформулируйте запрос, который выглядит как:
 
@@ -66,7 +66,7 @@
           {"name": "lastRenovationDate", "type": "Edm.DateTimeOffset"},
           {"name": "rating", "type": "Edm.Int32"},
           {"name": "location", "type": "Edm.GeographyPoint"}
-         ] 
+         ]
         }
 
 6.	Нажмите **Execute (Выполнить)**.
@@ -183,7 +183,7 @@
         api-key: 1111222233334444
 
 Код ответа должен быть 200 и сам ответ должен выглядеть похожим на приведенный на рисунке.
- 
+
    ![][4]
 
 Ниже приведен пример запроса из [Работа с поисковым индексом (API Поиска Azure)](http://msdn.microsoft.com/library/dn798927.aspx) на MSDN. Многие примеры запросов в данном разделе включают пробелы, что является недопустимым в Fiddler. Замените все пробелы символом + перед вставкой в строку запроса и его выполнением в Fiddler:
@@ -206,7 +206,7 @@
 
 2.	Введите URL, включающий URL-адрес вашей службы, а затем "/indexes/hotels/stats?api-version=2015-02-28":
 
-        https://my-app.search.windows.net/indexes/hotels/stats?api-version=2015-02-28 
+        https://my-app.search.windows.net/indexes/hotels/stats?api-version=2015-02-28
 
 3.	Укажите заголовок запроса, заменив адрес узла и ключ API значениями, соответствующими вашей службе.
 
@@ -234,6 +234,6 @@
 [3]: ./media/search-fiddler/AzureSearch_Fiddler3_Query.png
 [4]: ./media/search-fiddler/AzureSearch_Fiddler4_QueryResults.png
 [5]: ./media/search-fiddler/AzureSearch_Fiddler5_QueryStats.png
+ 
 
-
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

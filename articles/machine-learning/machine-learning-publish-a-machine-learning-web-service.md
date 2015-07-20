@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Публикация веб-службы машинного обучения | Azure" 
+	pageTitle="Публикация веб-службы машинного обучения | Microsoft Azure" 
 	description="Как преобразовать эксперимент по обучению в эксперимент по оценке, подготовить его к публикации, а затем опубликовать как веб-службу машинного обучения Azure." 
 	services="machine-learning" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2015" 
+	ms.date="05/27/2015" 
 	ms.author="garye"/>
 
 #Публикация веб-службы машинного обучения Azure
@@ -93,8 +93,7 @@
 
 На портале управления Azure можно управлять веб-службами. Для этого можно щелкнуть службу **машинного обучения**, открыть рабочую область машинного обучения, а затем открыть веб-службу на вкладке **Веб-службы**. На этой странице можно наблюдать за веб-службой, а также обновить или удалить ее. Можно также добавить вторую конечную точку для веб-службы в дополнение к конечной точке по умолчанию, которая создается при публикации.
 
-Дополнительную информацию см. в разделе [Управление рабочей областью машинного обучения Azure](machine-learning-manage-workspace.md).
-<!-- When this article gets published, fix the link and uncomment
+Дополнительную информацию см. в разделе [Управление рабочей областью машинного обучения Azure](machine-learning-manage-workspace.md). <!-- When this article gets published, fix the link and uncomment
 For more information on how to manage Azure Machine Learning web service endpoints using the REST API, see **Azure machine learning web service endpoints**. 
 -->
 
@@ -107,5 +106,6 @@ For more information on how to manage Azure Machine Learning web service endpoin
 
 > [AZURE.NOTE]Если вы внесли изменения в конфигурацию исходной веб-службы, например, введя новое отображаемое имя или описание, необходимо будет снова ввести эти значения.
 
+Один из вариантов обновления веб-службы — переобучить модель программно. Дополнительные сведения см. в статье [Программное переобучение моделей машинного обучения](machine-learning-retrain-models-programmatically.md).
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

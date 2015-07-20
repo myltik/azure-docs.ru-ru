@@ -164,4 +164,4 @@
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Этапы подготовки кластера"
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

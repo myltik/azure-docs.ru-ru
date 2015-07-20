@@ -13,13 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2015" 
+	ms.date="03/30/2015"
 	ms.author="bradsev"/>
 
 
 
 
 #Выполнение примеров Hadoop в HDInsight
+
+[AZURE.INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
 
 Предоставляется ряд примеров, которые помогут начать работу с заданиями MapReduce на кластерах Hadoop с использованием Azure HDInsight. Эти примеры доступны на каждом создаваемом управляемом кластере HDInsight. Выполнение примеров позволит вам научиться использовать командлеты Azure PowerShell для запуска заданий в кластерах Hadoop.
 
@@ -47,7 +49,7 @@ HDInsight поставляется вместе со следующими при
 - [**Пример оценки числа пи с помощью Hadoop**][hdinsight-sample-pi-estimator]. Этот пример демонстрирует, как запустить программу MapReduce в службе HDInsight, в которой используется статистический метод (квази-Монте-Карло) для оценки числа пи.
 - [**Пример счетчика слов в кластере Hadoop**][hdinsight-sample-wordcount]. Этот пример демонстрирует, как с помощью кластера HDInsight запустить программу MapReduce, которая подсчитывает количество вхождений слова в текстовом файле.
 - [**Пример сортировки данных объемом 10 ГБ (Graysort)**][hdinsight-sample-10gb-graysort] Этот пример демонстрирует, как выполнить универсальную сортировку GraySort для файла размером 10 ГБ, используя службу HDInsight. Выполняются три задания: Teragen создает данные, Terasort сортирует эти данных и Teravalidate проверяет правильность их сортировки.
-- [**Пример потокового счетчика слов MapReduce на C\#**][hdinsight-sample-csharp-streaming]. В этом примере показано, как на C#написать программу MapReduce, в которой используется интерфейс потоковой передачи Hadoop.
+- [**Пример потокового счетчика слов MapReduce на C#**][hdinsight-sample-csharp-streaming]. В этом примере показано, как на C# написать программу MapReduce, в которой используется интерфейс потоковой передачи Hadoop.
 
 
 ## Как выполнять примеры ##
@@ -86,6 +88,5 @@ HDInsight поставляется вместе со следующими при
 
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

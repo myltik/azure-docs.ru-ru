@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/03/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 # Выполнение запросов Hive с помощью консоли запросов
@@ -34,7 +34,7 @@
 
 ##<a id="run"></a> Выполнение запросов Hive с помощью консоли запросов
 
-1. Откройте <a href="https://manage.windowsazure.com" target="_blank">портал Azure</a> и выберите свой кластер HDInsight. В нижней части страницы выберите **Консоль запросов**. При появлении запроса введите имя пользователя и пароль, которые были введены при создании кластера.
+1. Откройте [портал Azure](https://manage.windowsazure.com) и выберите свой кластер HDInsight. В нижней части страницы выберите **Консоль запросов**. При появлении запроса введите имя пользователя и пароль, которые были введены при создании кластера.
 
     > [AZURE.NOTE]Доступ к консоли запроса также можно получить , введя **https://CLUSTERNAME.azurehdinsight.net** в браузере.
 
@@ -61,7 +61,7 @@
 
     * **ROW FORMAT**: инструкции по форматированию данных для Hive. В данном случае поля всех журналов разделены пробелом.
     * **STORED AS TEXTFILE LOCATION**: информация для Hive о расположении хранения данных (каталог example/data) и об их формате (текстовый).
-    * **SELECT**: подсчет количества строк, у которых столбец **t4** содержит значение **[ERROR]**. Эта команда должна вернуть значение **3**, так как данное значение содержат три строки.
+    * **SELECT**: подсчет количества строк, у которых столбец **t4** содержит значение **ERROR**. Эта команда должна вернуть значение **3**, так как данное значение содержат три строки.
 
 2. Нажмите кнопку **Submit** (Отправить). В поле **Сеанс задания** в нижней части страницы должна отображаться подробная информация о задании.
 
@@ -106,18 +106,18 @@
 
 
 
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
+[hdinsight-storage]: hdinsight-use-blob-storage.md
 
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-get-started]: ../hdinsight-get-started.md
+[hdinsight-get-started]: hdinsight-get-started.md
 
-[Powershell-install-configure]: ../install-configure-powershell.md
+[Powershell-install-configure]: install-configure-powershell.md
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
 [image-hdi-hive-powershell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

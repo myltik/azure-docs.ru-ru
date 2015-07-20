@@ -57,16 +57,25 @@
 			    <category android:name="android.intent.category.DEFAULT" />
 			  </intent-filter>
 			</activity>
-			<receiver android:name="com.microsoft.azure.engagement.reach.EngagementReachReceiver"
-			  android:exported="false">
+			<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementLoadingActivity" android:theme="@android:style/Theme.Dialog">
+			  <intent-filter>
+			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.LOADING"/>
+			    <category android:name="android.intent.category.DEFAULT"/>
+			  </intent-filter>
+			</activity>
+			<receiver android:name="com.microsoft.azure.engagement.reach.EngagementReachReceiver" android:exported="false">
 			  <intent-filter>
 			    <action android:name="android.intent.action.BOOT_COMPLETED"/>
 			    <action android:name="com.microsoft.azure.engagement.intent.action.AGENT_CREATED"/>
 			    <action android:name="com.microsoft.azure.engagement.intent.action.MESSAGE"/>
 			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.ACTION_NOTIFICATION"/>
 			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.EXIT_NOTIFICATION"/>
-			    <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
 			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.DOWNLOAD_TIMEOUT"/>
+			  </intent-filter>
+			</receiver>
+			<receiver android:name="com.microsoft.azure.engagement.reach.EngagementReachDownloadReceiver">
+			  <intent-filter>
+			    <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
 			  </intent-filter>
 			</receiver>
 
@@ -95,6 +104,19 @@
 
 			-dontwarn android.**
 			-keep class android.support.v4.** { *; }
+
+## Системные push-уведомления
+
+Теперь, когда модуль Reach настроен, необходимо настроить системные push-уведомления, чтобы можно было получать уведомления в рамках кампаний на устройстве.
+
+Для Android поддерживаются две службы:
+
+  - Устройства Google Play: используйте [Google Cloud Messaging], следуя инструкциям в руководстве по [интеграции GCM с Engagement](mobile-engagement-android-gcm-integrate.md).
+  - Устройства Amazon: используйте [Amazon Device Messaging], следуя инструкциям в руководстве по интеграции [ADM с Engagement](mobile-engagement-android-adm-integrate.md).
+
+Если нужно задействовать и устройства Amazon, и устройства Google, можно поместить все в один файл AndroidManifest.xml/APK для разработки. Но при отправке в Amazon приложение может быть отвергнуто, если в нем будет обнаружен код GCM.
+
+В этом случае следует использовать несколько APK.
 
 **Теперь приложение готово к получению и отображению кампаний.**
 
@@ -148,19 +170,6 @@
 
 -   `Replied` увеличивается, если один из широковещательных получателей возвратил `true` или `false`.
 -   `Actioned` увеличивается, если один из широковещательных получателей возвратил `true`.
-
-##Получение кампаний в любое время
-
-При выполнении описанной выше процедуры интеграции служба Engagement подключается к серверам Engagement, только когда нужно передать статистику (плюс 1 минута времени ожидания). Следовательно, **кампании Reach могут приниматься только в ходе пользовательского сеанса**. К счастью, можно настроить Engagement так, чтобы **разрешить вашему приложению принимать кампании Reach в любое время**, в том числе и когда устройство находится в состоянии сна (разумеется, у устройства должно быть активное сетевое подключение; сообщения будут задерживаться, пока устройство отключено).
-
-Чтобы использовать push-обновления в любое время. требуется одна или несколько собственных служб push-обновлений, в зависимости от устройств, для которых они предназначены:
-
-  - Устройства Google Play: используйте [Google Cloud Messaging], следуя инструкциям в руководстве по [интеграции GCM с Engagement](mobile-engagement-android-gcm-integrate.md).
-  - Устройства Amazon: используйте [Amazon Device Messaging], следуя инструкциям в руководстве по интеграции [ADM с Engagement](mobile-engagement-android-adm-integrate.md).
-
-Если нужно задействовать и устройства Amazon, и устройства Google, можно поместить все в один файл AndroidManifest.xml/APK для разработки. Но при отправке в Amazon приложение может быть отвергнуто, если в нем будет обнаружен код GCM.
-
-В этом случае следует использовать несколько APK.
 
 ##Как настраивать кампании
 
@@ -636,5 +645,6 @@
 [здесь]: http://developer.android.com/tools/extras/support-library.html#Downloading
 [Google Cloud Messaging]: http://developer.android.com/guide/google/gcm/index.html
 [Amazon Device Messaging]: https://developer.amazon.com/sdk/adm.html
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

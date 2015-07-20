@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Управление виртуальными машинами Azure с помощью Azure CLI для Mac, Linux и Windows"
+   pageTitle="Управление виртуальными машинами Azure с помощью интерфейса командной строки Azure для Mac, Linux и Windows | Microsoft Azure"
    description="Описывается создание, управление и удаление виртуальных машин Azure с помощью Azure CLI для Mac, Linux и Windows."
    services="virtual-machines"
    documentationCenter="virtual-machines"
-   authors="squillace"
+   authors="dlepow"
    manager="timlt"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="04/23/2015"
-   ms.author="rasquill"/>
+   ms.date="06/09/2015"
+   ms.author="danlep"/>
 
 # Управление виртуальными машинами с помощью Azure CLI для Mac, Linux и Windows
 
@@ -38,7 +38,7 @@
 Чтобы сохранить выходные данные в переменной $vm в качестве документа в формате JSON, выполните:
 
     vmInfo=$(azure vm show -g <group name> -n <virtual machine name> --json)
-    
+
 Как вариант, вы также можете передать параметр stdout в файл.
 
 ## Вход в виртуальную машину под управлением ОС Linux
@@ -62,7 +62,7 @@
 
 Чтобы подключить новый диск, выполните следующую команду:
 
-     azure vm disk attach-new <resource-group> <vm-name> <size-in-gb> 
+     azure vm disk attach-new <resource-group> <vm-name> <size-in-gb>
 
 Чтобы подключить существующий диск, выполните следующую команду:
 
@@ -73,20 +73,12 @@
 Для создания новой виртуальной машины под управлением Linux вам понадобится несколько значений, включая имя группы ресурсов, расположение, имя образа, имя виртуальной машины и учетная запись хранения для хранения VHD-файла резервного образа. После получения информации, которую вы хотите использовать, Azure CLI сможет создать интерактивный сеанс для ввода этих значений. Для этого следует ввести:
 
     azure vm create
-    
+
 Конечно, если у вас уже есть эти значения, можно найти соответствующие параметры, чтобы передать их напрямую, введя `azure help vm create`.
 
 ## Дальнейшие действия
 
 Дополнительные примеры использования интерфейса командной строки Azure в режиме **ARM** см. в разделе [Использование интерфейса командной строки Microsoft Azure для Mac, Linux и Windows в режиме управления ресурсами Azure](../xplat-cli-resource-manager.md). Дополнительную информацию о ресурсах Azure и их основных понятиях см. в разделе [Обзор диспетчера ресурсов Azure](../resource-group-overview.md).
-
-
-
-
-
-
-
-
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

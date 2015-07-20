@@ -68,4 +68,4 @@
 
 Дополнительные сведения о подписках и учетных записях Azure см. в разделе [Подключение к подписке](powershell-install-configure.md#Connect).
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

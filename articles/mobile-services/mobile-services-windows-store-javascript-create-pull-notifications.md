@@ -157,5 +157,6 @@
 [портал управления Azure]: https://manage.windowsazure.com/
 [Периодические уведомления]: http://msdn.microsoft.com/library/windows/apps/jj150587.aspx
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

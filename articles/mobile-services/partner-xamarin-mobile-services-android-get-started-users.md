@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/01/2015" 
+	ms.date="05/14/2015" 
 	ms.author="donnam"/>
 
 # Добавление проверки подлинности к приложению мобильных служб
@@ -28,21 +28,21 @@
 2. [Предоставление разрешений на таблицу только пользователям, прошедшим проверку подлинности]
 3. [Добавление проверки подлинности в приложение]
 
-Этот учебник создан на основе краткого руководства по мобильным службам. Вам также необходимо сначала ознакомиться с учебником [Приступая к работе с мобильными службами].
+Этот учебник создан на основе краткого руководства по мобильным службам. Кроме того, вам необходимо сначала ознакомиться с учебником [Приступая к работе с мобильными службами].
 
 Для изучения этого учебника необходимы Xamarin.Android и пакет SDK для Android версии 4.2 или более поздней.
 
 ##<a name="register"></a>Регистрация приложения для проверки подлинности и настройка мобильных служб
 
-[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)] 
+[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)]
 
 ##<a name="permissions"></a>Предоставление разрешений только пользователям, прошедшим проверку подлинности
 
 
-[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
+[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
 
-3. В Eclipse откройте проект, созданный после завершения учебника [Приступая к работе с мобильными службами]. 
+3. В Eclipse откройте проект, созданный после прохождения учебника [Приступая к работе с мобильными службами]. 
 
 4. В меню **Запуск** щелкните **Запуск**, чтобы запустить приложение; убедитесь, что после запуска приложения возникает необработанное исключение с кодом состояния 401 (Не санкционировано).
 
@@ -54,9 +54,9 @@
 
 1. Добавьте в класс **TodoActivity** следующее свойство:
 
-		private MobileServiceUser user;
+		private MobileServiceUser user;
 
-2. Добавьте в класс **TodoActivity** следующий метод:
+2. Добавьте в класс **ToDoActivity** следующий метод:
 
         private async Task Authenticate()
         {
@@ -85,14 +85,17 @@
 
         private async Task CreateTable()
         {
-            // Get the Mobile Service Table instance to use
-            todoTable = client.GetTable<TodoItem>();
+            
+            await InitLocalStoreAsync();
 
-            textNewTodo = FindViewById<EditText>(Resource.Id.textNewTodo);
+            // Get the Mobile Service Table instance to use
+            toDoTable = client.GetTable<ToDoItem>();
+
+            textNewToDo = FindViewById<EditText>(Resource.Id.textNewToDo);
 
             // Create an adapter to bind the items with the view
-            adapter = new TodoItemAdapter(this, Resource.Layout.Row_List_To_Do);
-            var listViewTodo = FindViewById<ListView>(Resource.Id.listViewTodo);
+            adapter = new ToDoItemAdapter(this, Resource.Layout.Row_List_To_Do);
+            var listViewTodo = FindViewById<ListView>(Resource.Id.listViewToDo);
             listViewTodo.Adapter = adapter;
 
             // Load the items from the Mobile Service
@@ -133,5 +136,6 @@
 [Авторизация пользователей с помощью скриптов]: mobile-services-javascript-backend-service-side-authorization.md
 [Azure Management Portal]: https://manage.windowsazure.com/
 [полный пример проекта]: http://go.microsoft.com/fwlink/p/?LinkId=331328
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

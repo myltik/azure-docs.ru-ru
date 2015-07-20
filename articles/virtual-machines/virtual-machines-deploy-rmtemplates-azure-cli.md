@@ -1281,7 +1281,9 @@
 
 ## <a id="start-a-virtual-machine"></a>ЗАДАНИЕ: запуск виртуальной машины
 
-Выполните следующую команду: azure vm start (обзор диспетчера ресурсов Azure). <group name><virtual machine name>
+Выполните следующую команду:
+
+    azure vm start <group name> <virtual machine name>
 
 ## <a id="attach-a-data-disk"></a>ЗАДАНИЕ: присоединение диска данных
 
@@ -1313,4 +1315,4 @@
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

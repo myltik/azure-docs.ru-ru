@@ -18,7 +18,7 @@
 
 # Управляемая клиентом проверка подлинности приложения Магазина Windows с использованием учетной записи Майкрософт
 
-[AZURE.INCLUDE [mobile-services-selector-single-signon](../../includes/mobile-services-selector-single-signon.md)] 
+[AZURE.INCLUDE [mobile-services-selector-single-signon](../../includes/mobile-services-selector-single-signon.md)]
 
 ##Обзор
 В этом разделе показано, как получить маркер проверки подлинности для учетной записи Майкрософт, используя пакет Live SDK из универсального приложения Windows. Затем этот маркер используется для проверки подлинности пользователей с помощью мобильных служб Azure. В этом учебнике возможности проверки подлинности учетных записей Майкрософт добавляются в существующий проект с помощью пакета Live SDK. После успешного прохождения проверки подлинности вошедший в систему пользователь приветствуется по имени. Кроме того, отображается значение идентификатора пользователя.
@@ -41,7 +41,7 @@
 
 Далее необходимо ограничить доступ к ресурсу (в этом случае — таблице *TodoItems*), чтобы доступ к ней могли получать только пользователи, которые выполнили вход.
 
-[AZURE.INCLUDE [mobile-services-restrict-permissions-windows](../../includes/mobile-services-restrict-permissions-windows.md)] 
+[AZURE.INCLUDE [mobile-services-restrict-permissions-windows](../../includes/mobile-services-restrict-permissions-windows.md)]
 
 ##<a name="add-authentication"></a>Добавление проверки подлинности в приложение
 
@@ -161,5 +161,6 @@
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Справочник принципов использования мобильных служб .NET]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [Пакет Live SDK]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

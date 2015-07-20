@@ -1,11 +1,11 @@
 <properties 
 	pageTitle="Начало работы с хранилищем Azure" 
-	description="" 
+	description="Описание произошедшего при создании хранилища Azure в проекте Visual Studio ASP.NET 5" 
 	services="storage" 
 	documentationCenter="" 
-	authors="kempb" 
+	authors="patshea123" 
 	manager="douge" 
-	editor=""/>
+	editor="tglee"/>
 
 <tags 
 	ms.service="storage" 
@@ -13,19 +13,25 @@
 	ms.tgt_pltfrm="vs-what-happened" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/10/2014" 
-	ms.author="kempb"/>
+	ms.date="04/20/2015" 
+	ms.author="patshea123"/>
+
+# Что произошло с моим проектом?
 
 > [AZURE.SELECTOR]
-> - [Приступая к работе](vs-storage-aspnet5-getting-started-blobs.md)
-> - [Что случилось](vs-storage-aspnet5-what-happened.md)
+> - [Getting Started](vs-storage-aspnet5-getting-started-blobs.md)
+> - [What Happened](vs-storage-aspnet5-what-happened.md)
 
-### <span id="whathappened">Что произошло с моим проектом?</span>
+> [AZURE.SELECTOR]
+> - [Blobs](vs-storage-aspnet5-getting-started-blobs.md)
+> - [Queues](vs-storage-aspnet5-getting-started-queues.md)
+> - [Tables](vs-storage-aspnet5-getting-started-tables.md)
+
+###<span id="whathappened">Что произошло с моим проектом?</span>
 
 ##### Добавленные ссылки
 
-Пакет NuGet хранилища Azure был добавлен в проект Visual Studio.  
-Этот пакет добавляет следующие ссылки .NET:
+Пакет NuGet хранилища Azure был добавлен в проект Visual Studio. Этот пакет добавляет следующие ссылки .NET:
 
 - `Microsoft.Data.Edm`
 - `Microsoft.Data.OData`
@@ -38,11 +44,10 @@
 
 Также добавлен пакет NuGet **Microsoft.Framework.ConfigurationModel.Json**.
 
-##### Добавлена строка подключения к хранилищу Azure 
+#####Добавлена строка подключения к хранилищу Azure 
 В файле config.json проекта был создан элемент с ключом и строкой подключения выбранной учетной записи хранилища.
 
-Дополнительные сведения см. в разделе [ASP.NET 5](http://www.asp.net/vnext).
-
-
-<!--HONumber=42-->
+Дополнительную информацию см. в [ASP.NET 5](http://www.asp.net/vnext).
  
+
+<!---HONumber=July15_HO2-->

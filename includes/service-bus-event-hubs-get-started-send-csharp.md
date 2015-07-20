@@ -1,4 +1,5 @@
 ## Отправка сообщений концентраторам событий
+
 В этом разделе создается консольное приложение Windows для отправки событий в концентратор событий.
 
 1. Создайте в Visual Studio новый проект Visual C# для классических приложений с помощью шаблона проекта **Консольное приложение**. Назовите проект **Sender**.
@@ -63,4 +64,4 @@
 [7]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 [8]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp2.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

@@ -85,7 +85,7 @@
 
 [AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
 
-Публикация ресурсов (путем создания указателей) с использованием **портала управления Azure** или **.NET**.
+Опубликуйте ресурсы (создав указатели) с помощью **портала управления Azure** или **.NET**.
 
 [AZURE.INCLUDE [media-services-selector-publish](../../includes/media-services-selector-publish.md)]
 
@@ -97,4 +97,4 @@
 - MP4-файлы в формате Dolby Digital Plus.
 - Файлы Smooth в формате Dolby Digital Plus. 
 
-<!--HONumber=52-->
+<!---HONumber=July15_HO2-->

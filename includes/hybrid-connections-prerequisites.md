@@ -10,4 +10,4 @@
 
 	Дополнительную информацию см. [обзор гибридных подключений](../articles/integration-hybrid-connection-overview.md).
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

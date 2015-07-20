@@ -121,4 +121,4 @@
 
 [Руководство по реализации служб инфраструктуры Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

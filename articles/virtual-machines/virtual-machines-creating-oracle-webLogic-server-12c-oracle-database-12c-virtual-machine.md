@@ -1,0 +1,54 @@
+<properties title="Creating an Oracle WebLogic Server 12c and Oracle Database 12c Virtual Machine in Azure" pageTitle="Создание виртуальной машины Oracle WebLogic Server 12c и Oracle Database 12c в Azure" description="Пошагово создайте пример образа Oracle WebLogic Server 12c и Oracle Database 12c под управлением Windows Server 2012 в Microsoft Azure." services="virtual-machines" authors="bbenz" documentationCenter=""/>
+<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
+#Создание виртуальной машины Oracle WebLogic Server 12c и Oracle Database 12c в Azure
+В следующем примере показано, как можно создать в Azure виртуальную машину на основе предоставленного корпорацией Майкрософт образа Oracle WebLogic Server 12c и Oracle Database 12c под управлением Windows Server 2012 12c.
+
+##Создание виртуальной машины Oracle WebLogic Server 12c и Oracle Database 12c в Azure
+
+1. Войдите на [портал Azure](https://ms.portal.azure.com/).
+
+2.	Щелкните **Marketplace**, щелкните **Среда выполнения приложений**, затем введите **Oracle** в поле поиска.
+
+3.	Выберите образ **Oracle Database 12c и WebLogic Server 12c Standard Edition на Windows Server 2012** или **Oracle Database 12c и WebLogic Server 12c Enterprise Edition на Windows Server 2012**. Просмотрите информацию о выбранном образе (например, минимальный рекомендуемый размер) и нажмите кнопку **Далее**.
+
+4.	Укажите **Имя узла** для виртуальной машины.
+
+5.	Укажите **Имя пользователя** для виртуальной машины. Обратите внимание, что это пользователь для удаленного входа в виртуальную машину. Это не имя пользователя базы данных Oracle.
+
+6.	Укажите и подтвердите пароль для виртуальной машины или предоставьте открытый ключ SSH.
+
+7.	Выберите **ценовую категорию**. Обратите внимание, что по умолчанию отображаются рекомендуемые ценовые категории. Чтобы увидеть все варианты конфигурации, нажмите кнопку «Просмотреть все» в правом верхнем углу.
+
+8. При необходимости задайте дополнительную конфигурацию, приняв к сведению следующие рекомендации:
+
+	1. Оставьте значение **Учетная запись хранения** как есть, чтобы создать новую учетную запись хранения с именем виртуальной машины.
+
+	2. Оставьте в поле **Группа доступности** значение «Не настроено».
+
+	3. Пока не добавляйте **конечные точки**.
+
+9.	Выберите или создайте [группу ресурсов](resource-group-portal.md).
+
+10. Выберите **подписку**.
+
+11. Выберите **расположение**.
+
+
+##Создание базы данных, размещенной на этой виртуальной машине
+Следуйте указаниям в разделе [Создание виртуальной машины Oracle Database 12c в Azure](virtual-machines-creating-oracle-database-virtual-machine.md), начиная с подраздела **Создание базы данных с помощью виртуальной машины Oracle Database 12c в Azure**.
+
+##Настройка Oracle WebLogic Server 12c, размещенного на этой виртуальной машине
+Следуйте указаниям в разделе [Создание виртуальной машины Oracle WebLogic Server 12c в Azure](virtual-machines-creating-oracle-webLogic-server-12c-virtual-machine.md), начиная с подраздела **Настройка виртуальной машины Oracle WebLogic Server 12c в Azure**. Если вы хотите настроить кластер WebLogic Server, также см. раздел [Создание кластера Oracle WebLogic Server 12c в Azure](virtual-machines-creating-oracle-webLogic-server-12c-cluster.md).
+
+##Дополнительные ресурсы
+[Образы виртуальных машин Oracle. Различные рекомендации](miscellaneous-considerations-for-oracle-virtual-machine-images-new-article.md)
+
+[Образы виртуальных машин Oracle для Azure](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
+
+[Подключение к базе данных Oracle из приложения Java](http://docs.oracle.com/cd/E11882_01/appdev.112/e12137/getconn.htm#TDPJD136)
+
+[Oracle WebLogic Server 12c с использованием Linux в Microsoft Azure](http://www.oracle.com/technetwork/middleware/weblogic/learnmore/oracle-weblogic-on-azure-wp-2020930.pdf)
+
+[Oracle Database 2 Day DBA 12c Release 1](http://docs.oracle.com/cd/E16655_01/server.121/e17643/toc.htm)
+
+<!---HONumber=July15_HO2-->

@@ -23,27 +23,88 @@
 
 Если вы пропустили несколько версий пакета SDK, вам понадобиться выполнить несколько процедур. Например, при миграции из версии 1.4.0 в 1.6.0, необходимо сначала выполнить процедуру "из версии 1.4.0 в 1.5.0", а затем процедуру "из версии 1.5.0 в 1.6.0".
 
-Вне зависимости от того, из какой версии выполняется обновление, необходимо заменить все `mobile-engagement-VERSION.jar` на новые версии.
+Независимо от того, с какой версии выполняется обновление, необходимо заменить `mobile-engagement-VERSION.jar` на новую версию.
 
-###Из версии 2.4.0 в 3.0.0
+##С версии 3.0.0 до версии 4.0.0
 
-Ниже описан процесс переноса интеграции пакета SDK из службы Capptain от Capptain SAS в приложение на платформе Azure Mobile Engagement.
+### Системные push-уведомления
 
->[AZURE.IMPORTANT]Службы Capptain и Azure Mobile Engagement отличаются между собой. В представленных ниже процедурах описывается способ переноса только для клиентского приложения. При переносе пакета SDK в приложение данные НЕ будут перенесены с серверов Capptain на серверы Mobile Engagement.
+Системные push-уведомления (GCM/ADM) теперь также используются для уведомлений из приложений, поэтому их учетные данные необходимо задавать для всех типов кампаний push-уведомлений.
 
-При выполнении миграции из более ранней версии получите рекомендации на веб-сайте Capptain, чтобы сначала перейти на версию 2.4, а затем примените следующие процедуры
+Если вы еще не сделали этого, следуйте [этой процедуре](mobile-engagement-android-integrate-engagement-reach.md#native-push).
 
-#### JAR-файл
+### AndroidManifest.xml
+
+Возможности интеграции с Reach были изменены в ``AndroidManifest.xml``.
+
+Замените это:
+
+    <receiver
+      android:name="com.microsoft.azure.engagement.reach.EngagementReachReceiver"
+      android:exported="false">
+      <intent-filter>
+        <action android:name="android.intent.action.BOOT_COMPLETED"/>
+        <action android:name="com.microsoft.azure.engagement.intent.action.AGENT_CREATED"/>
+        <action android:name="com.microsoft.azure.engagement.intent.action.MESSAGE"/>
+        <action android:name="com.microsoft.azure.engagement.reach.intent.action.ACTION_NOTIFICATION"/>
+        <action android:name="com.microsoft.azure.engagement.reach.intent.action.EXIT_NOTIFICATION"/>
+        <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
+        <action android:name="com.microsoft.azure.engagement.reach.intent.action.DOWNLOAD_TIMEOUT"/>
+      </intent-filter>
+    </receiver>
+
+на
+
+    <receiver
+      android:name="com.microsoft.azure.engagement.reach.EngagementReachReceiver"
+      android:exported="false">
+      <intent-filter>
+        <action android:name="android.intent.action.BOOT_COMPLETED"/>
+        <action android:name="com.microsoft.azure.engagement.intent.action.AGENT_CREATED"/>
+        <action android:name="com.microsoft.azure.engagement.intent.action.MESSAGE"/>
+        <action android:name="com.microsoft.azure.engagement.reach.intent.action.ACTION_NOTIFICATION"/>
+        <action android:name="com.microsoft.azure.engagement.reach.intent.action.EXIT_NOTIFICATION"/>
+        <action android:name="com.microsoft.azure.engagement.reach.intent.action.DOWNLOAD_TIMEOUT"/>
+      </intent-filter>
+    </receiver>
+    <receiver android:name="com.microsoft.azure.engagement.reach.EngagementReachDownloadReceiver">
+      <intent-filter>
+        <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
+      </intent-filter>
+    </receiver>
+
+Теперь при выборе объявления (текстового или с веб-содержимым) или опроса может отображаться экран загрузки. Чтобы кампании работали в версии 4.0.0, необходимо добавить этот код:
+
+    <activity
+      android:name="com.microsoft.azure.engagement.reach.activity.EngagementLoadingActivity"
+      android:theme="@android:style/Theme.Dialog">
+      <intent-filter>
+        <action android:name="com.microsoft.azure.engagement.reach.intent.action.LOADING"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+      </intent-filter>
+    </activity>
+
+### Ресурсы
+
+Внедрите новый файл `res/layout/engagement_loading.xml` в проект.
+
+##Из версии 2.4.0 в 3.0.0
+
+Ниже описан процесс переноса интеграции пакета SDK из службы Capptain от Capptain SAS в приложение на платформе Azure Mobile Engagement. При миграции с более ранней версии сначала ознакомьтесь с информацией о переносе на версию 2.4.0 на веб-сайте Capptain, а затем примените следующую процедуру.
+
+>[AZURE.IMPORTANT]Службы Capptain и Azure Mobile Engagement отличаются друг от друга. В представленных ниже процедурах описывается способ переноса только для клиентского приложения. При переносе пакета SDK в приложение данные НЕ будут перенесены с серверов Capptain на серверы Mobile Engagement.
+
+### JAR-файл
 
 Замените `capptain.jar` на `mobile-engagement-VERSION.jar` в папке `libs`.
 
-#### Файлы ресурсов
+### Файлы ресурсов
 
 Каждый предоставленный файл ресурсов (с префиксом `capptain_`) должен быть заменен на новый (с префиксом `engagement_`).
 
-Если вы настроили эти файл, потребуется повторно применить настройку к новым файлам. **Все идентификаторы фалов ресурсов также были переименованы.**
+Если вы настроили эти файлы, потребуется повторно применить настройку к новым файлам. **Все идентификаторы фалов ресурсов также были переименованы.**
 
-#### Идентификатор приложения
+### Идентификатор приложения
 
 Теперь служба Engagement использует строку подключения для настройки идентификаторов пакета SDK, таких как идентификатор приложения.
 
@@ -63,15 +124,15 @@
 
 			<meta-data android:name="capptain:appId" android:value="<YOUR_APPID>"/>
 
-#### API Java
+### API Java
 
-Любой вызов любого класса Java пакета SDK должен быть переименован, например  `CapptainAgent.getInstance(this)` нужно переименовать в `EngagementAgent.getInstance(this)`, `extends CapptainActivity` нужно переименовать в `extends EngagementActivity` и т. д.
+Любой вызов любого класса Java пакета SDK должен быть переименован, например `CapptainAgent.getInstance(this)` нужно переименовать в `EngagementAgent.getInstance(this)`, `extends CapptainActivity` нужно переименовать в `extends EngagementActivity` и т. д.
 
 Если была выполнена интеграция с файлами параметров агента по умолчанию, то теперь имя файла по умолчанию — `engagement.agent`, а ключ — `engagement:agent`.
 
 При создании веб-объявлений теперь используется модуль привязки Javascript `engagementReachContent`.
 
-#### AndroidManifest.xml
+### AndroidManifest.xml
 
 Выполнено много изменений. Служба больше не используется совместно, а большое количество получателей больше нельзя экспортировать.
 
@@ -79,7 +140,7 @@
 
 Кроме того, все переименовано для использования службы Engagement.
 
-Теперь это должно выглядеть следующим образом:
+Теперь это выглядит следующим образом:
 
 			<service
 			  android:name="com.microsoft.azure.engagement.service.EngagementService"
@@ -289,7 +350,7 @@
 
 			sendXMPPMessage(android.os.Bundle msg)
 
-#### Proguard
+### Proguard
 
 На настройку Proguard может оказать влияние ребрендинг, правила теперь выглядят следующим образом:
 
@@ -300,5 +361,6 @@
 			-keep class com.microsoft.azure.engagement.reach.activity.EngagementWebAnnouncementActivity$EngagementReachContentJS {
 			  <methods>;
 			}
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

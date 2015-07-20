@@ -119,4 +119,4 @@ Service Fabric управляет временем существования с
 + [Прочитайте о модели программирования надежных субъектов](../service-fabric/service-fabric-reliable-actors-introduction.md)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

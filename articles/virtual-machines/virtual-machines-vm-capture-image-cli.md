@@ -162,4 +162,4 @@ Azure воспринимает этот шаблон как образ и ото
 [Подключение диска с данными к виртуальной машине]: storage-windows-attach-disk.md
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

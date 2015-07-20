@@ -35,10 +35,11 @@
 
 1. Добавьте следующие объявления пространств имен кода в начало любого файла C#,в котором вы собираетесь получать доступ к хранилищу Azure программным способом.
 
-		using Microsoft.Framework.ConfigurationModel;
+		using Microsoft.Framework.Configuration;
 		using Microsoft.WindowsAzure.Storage;
 		using Microsoft.WindowsAzure.Storage.Blob;
 		using System.Threading.Tasks;
+		using LogLevel = Microsoft.Framework.Logging.LogLevel;
 
 2. Используйте следующий код для получения параметров настройки.
 
@@ -148,8 +149,7 @@
 	// Delete the blob.
 	await blockBlob.DeleteAsync();
 
-[Дополнительные сведения о службе хранилища Azure](http://azure.microsoft.com/documentation/services/storage/)
-См. также статьи [Обзор ресурсов хранения и управление ими в обозревателе серверов](http://msdn.microsoft.com/library/azure/ff683677.aspx) и [ASP.NET 5](http://www.asp.net/vnext).
+[Дополнительные сведения о службе хранилища Azure](http://azure.microsoft.com/documentation/services/storage/) См. также статьи [Обзор ресурсов хранения и управление ими в обозревателе серверов](http://msdn.microsoft.com/library/azure/ff683677.aspx) и [ASP.NET 5](http://www.asp.net/vnext).
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

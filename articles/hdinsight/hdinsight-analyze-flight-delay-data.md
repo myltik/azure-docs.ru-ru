@@ -48,7 +48,7 @@ Hive предоставляет средства для выполнения з�
 
 - **Подписка Azure.**. См. [Бесплатная пробная версия Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- **Рабочая станция с Azure PowerShell**. См. [Установка и использование Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
+- **Рабочая станция с Azure PowerShell.**. См. [Установка и использование Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
 **Общие сведения о хранилище HDInsight**
 
@@ -845,7 +845,7 @@ Hadoop MapReduce представляет из себя пакетную обр�
 * [Использование Sqoop с HDInsight][hdinsight-use-sqoop]
 * [Использование Pig с HDInsight][hdinsight-use-pig]
 * [Разработка программ MapReduce на Java для HDInsight][hdinsight-develop-mapreduce]
-* [Разработка программ потоковой передачи Hadoop на C#для HDInsight][hdinsight-develop-streaming]
+* [Разработка программ потоковой передачи Hadoop на C# для HDInsight][hdinsight-develop-streaming]
 
 
 
@@ -880,4 +880,4 @@ Hadoop MapReduce представляет из себя пакетную обр�
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

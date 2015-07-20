@@ -65,4 +65,4 @@
 
 [Удаление виртуальной сети](../virtual-networks-delete-vnet)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

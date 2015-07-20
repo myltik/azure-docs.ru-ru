@@ -20,7 +20,7 @@
 
 В этом разделе последовательно рассматривается структура файла шаблона azuredeploy.json для трехсерверной фермы SharePoint. Кроме того, просмотреть содержимое этого шаблона можно в браузере [здесь](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm/azuredeploy.json).
 
-Для того чтобы ознакомиться с локальной копией файла azuredeploy.json, в качестве альтернативы укажите локальную папку для расположения файла и создайте его (например, C:\Azure\Templates\SharePointFarm). Введите имя папки и запустите эти команды в командной строке Azure PowerShell.
+Для того чтобы ознакомиться с локальной копией файла azuredeploy.json, в качестве альтернативы укажите локальную папку для расположения файла и создайте его (например, C:\\Azure\\Templates\\SharePointFarm). Введите имя папки и запустите эти команды в командной строке Azure PowerShell.
 
 	$folderName="<folder name, such as C:\Azure\Templates\SharePointFarm>"
 	$webclient = New-Object System.Net.WebClient
@@ -378,4 +378,4 @@
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

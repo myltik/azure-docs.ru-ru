@@ -95,7 +95,7 @@
 	
 	New-AzureVM –ServiceName $serviceName -VMs $vm1 -VNetName $vnetName
 
-С помощью процедуры [Вход на виртуальную машину с использованием подключения к удаленному рабочему столу](virtual-machines-workload-intranet-sharepoint-phase2.md#logon) войдите на каждый из четырех серверов SharePoint с учетной записью [Домен]\\sp_farm_db, которую вы создали на [этапе 2 «Настройка контроллеров домена»](virtual-machines-workload-intranet-sharepoint-phase2.md).
+С помощью процедуры, описанной в разделе [Вход на виртуальную машину с использованием подключения к удаленному рабочему столу](virtual-machines-workload-intranet-sharepoint-phase2.md#logon), войдите на каждый из четырех серверов SharePoint с учетной записью [Домен]\\sp_farm_db, которую вы создали на [этапе 2 «Настройка контроллеров домена»](virtual-machines-workload-intranet-sharepoint-phase2.md).
 
 На каждом из четырех серверов SharePoint с помощью процедуры [проверки подключения](virtual-machines-workload-intranet-sharepoint-phase2.md#testconn) убедитесь в наличии доступа к ресурсам в сети организации.
 
@@ -109,7 +109,7 @@
 4.	На странице подключения к ферме серверов выберите **Создать новую ферму серверов** и нажмите кнопку **Далее**.
 5.	Откроется страница «Указание параметров базы данных конфигурации».
 - В поле **Сервер базы данных** введите имя сервера-источника SQL Server. 
-- В поле **Имя пользователя** введите [Домен]**\\sp_farm_db** (эта учетная запись была создана на [этапе 2 «Настройка контроллеров домена»](virtual-machines-workload-intranet-sharepoint-phase2.md)). Обратите внимание на то, что у учетной записи sp_farm_db есть привилегии sysadmin на сервере SQL Server. 
+- В поле **Имя пользователя** введите [Домен]**\\sp_farm_db** (эта учетная запись была создана на [этапе 2 «Настройка контроллеров домена»](virtual-machines-workload-intranet-sharepoint-phase2.md)). Обратите внимание на то, что у учетной записи sp_farm_db есть привилегии sysadmin на сервере SQL Server. 
 - В поле **Пароль** введите пароль к учетной записи sp_farm_db.
 6.	Нажмите кнопку **Далее**.
 7.	На странице «Задание параметров безопасности фермы» дважды введите парольную фразу. Запишите эту парольную фразу и сохраните ее в надежном месте. Нажмите кнопку **Далее**.
@@ -188,4 +188,7 @@
 
 [Архитектуры Microsoft Azure для SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
 
-<!--HONumber=54--> 
+[Руководство по реализации служб инфраструктуры Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
+ 
+
+<!---HONumber=July15_HO2-->

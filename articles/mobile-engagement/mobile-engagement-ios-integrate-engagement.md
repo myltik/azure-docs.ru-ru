@@ -155,7 +155,7 @@ API службы Engagement позволяет использовать все �
 
 ##Отключение сбора IDFA
 
-По умолчанию служба Engagement будет использовать [IDFA]  для уникальной идентификации пользователя. Но, если рекламу не используется где-либо еще в приложении, вы можете получить отказ в результате процесса проверки Магазина приложений. Сбор IDFA можно отключить, добавив макроопределение препроцессора `ENGAGEMENT_DISABLE_IDFA` в PCH-файл (или в `Build Settings` приложения). Это обеспечит отсутствие ссылок на `ASIdentifierManager`, `advertisingIdentifier` или `isAdvertisingTrackingEnabled` в сборке приложения.
+По умолчанию служба Engagement будет использовать [IDFA] для уникальной идентификации пользователя. Но, если рекламу не используется где-либо еще в приложении, вы можете получить отказ в результате процесса проверки Магазина приложений. Сбор IDFA можно отключить, добавив макроопределение препроцессора `ENGAGEMENT_DISABLE_IDFA` в PCH-файл (или в `Build Settings` приложения). Это обеспечит отсутствие ссылок на `ASIdentifierManager`, `advertisingIdentifier` или `isAdvertisingTrackingEnabled` в сборке приложения.
 
 Интеграция в файл **prefix.pch**:
 
@@ -206,5 +206,6 @@ API службы Engagement позволяет использовать все �
 [NSLocationAlwaysUsageDescription]: https://developer.apple.com/library/prerelease/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW18
 [startMonitoringSignificantLocationChanges]: http://developer.apple.com/library/IOs/#documentation/CoreLocation/Reference/CLLocationManager_Class/CLLocationManager/CLLocationManager.html#//apple_ref/occ/instm/CLLocationManager/startMonitoringSignificantLocationChanges
 [IDFA]: https://developer.apple.com/library/ios/documentation/AdSupport/Reference/ASIdentifierManager_Ref/ASIdentifierManager.html#//apple_ref/occ/instp/ASIdentifierManager/advertisingIdentifier
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

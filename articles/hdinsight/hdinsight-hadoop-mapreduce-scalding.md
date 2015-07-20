@@ -12,7 +12,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="04/17/2015"
+ ms.date="07/06/2015"
  ms.author="larryfr"/>
 
 # Разработка заданий Scalding MapReduce с помощью Apache Hadoop в HDInsight
@@ -288,6 +288,5 @@ Scalding — это библиотека Scala, которая позволяе
 * [Использование Pig с HDInsight](hdinsight-use-pig.md)
 
 * [Использование заданий MapReduce с HDInsight](hdinsight-use-mapreduce.md)
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

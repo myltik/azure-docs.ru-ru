@@ -98,7 +98,7 @@
 	
 4.	На странице **DNS-серверы и VPN-соединения** укажите следующие сведения и нажмите стрелку вперед в правом нижнем углу.
 
-> [AZURE.NOTE] На этой странице можно выбрать одновременно два варианта конфигурации **точка-сеть** и **сеть-сеть**. В целях данного руководства будет выбрана только конфигурация **сеть-сеть**. Дополнительную информацию о настройке параметров на этой странице см. на странице **DNS-серверы и подключение VPN** раздела [Информация о настройке виртуальной сети с использованием портала управления](http://go.microsoft.com/fwlink/p/?LinkID=248092).
+> [AZURE.NOTE]На этой странице можно выбрать одновременно два варианта конфигурации **точка-сеть** и **сеть-сеть**. В целях данного руководства будет выбрана только конфигурация **сеть-сеть**. Дополнительную информацию о настройке параметров на этой странице см. на странице **DNS-серверы и подключение VPN** раздела [Информация о настройке виртуальной сети с использованием портала управления](http://go.microsoft.com/fwlink/p/?LinkID=248092).
 
 	-  **DNS SERVERS:** Enter the DNS server name and IP address that you want to use for name resolution. Typically this would be a DNS server that you use for on-premises name resolution. This setting does not create a DNS server. For the example in this tutorial, type **YourDNS** for the name and **10.1.0.4** for the IP address.
 	-  **Configure Point-To-Site VPN:** Leave this field blank. 
@@ -150,7 +150,7 @@
  
 	![](./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVNet_07_ClickYourVirtualNetwork.png)
 
-2.	Нажмите **ПАНЕЛЬ МОНИТОРИНГА** в верхней части страницы. В нижней части страницы панели мониторинга нажмите кнопку **СОЗДАТЬ ШЛЮЗ**. В качестве типа создаваемого шлюза выберите **Динамическая маршрутизация** или **Статическая маршрутизация**. 
+2.	Нажмите **ПАНЕЛЬ МОНИТОРИНГА** в верхней части страницы. В нижней части страницы панели мониторинга нажмите кнопку **СОЗДАТЬ ШЛЮЗ**. В качестве типа создаваемого шлюза выберите **Динамическая маршрутизация** или **Статическая маршрутизация**.
 
 	Обратите внимание, что если вам необходимо использовать эту виртуальную сеть для соединений типа «точка-сеть», то в качестве типа шлюза следует выбрать **Динамическая маршрутизация**. Перед созданием шлюза, убедитесь, что устройство VPN будет поддерживать тип шлюза, который требуется создать. См. раздел [Устройства VPN для виртуальной сети](http://go.microsoft.com/fwlink/p/?LinkID=248098). Когда система запрашивает подтверждение создания шлюза, нажмите кнопку **ДА**.
 
@@ -215,30 +215,30 @@
 3.	Проверьте подключение, выполнив одну из следующих команд:
 
 	<table border="1">
-	<tr>
-	<th>-</th>
-	<th>Cisco ASA</th>
-	<th>Cisco ISR/ASR</th>
-	<th>Juniper SSG/ISG</th>
-	<th>Juniper SRX/J</th>
-	</tr>
+<tr>
+<th>-</th>
+<th>Cisco ASA</th>
+<th>Cisco ISR/ASR</th>
+<th>Juniper SSG/ISG</th>
+<th>Juniper SRX/J</th>
+</tr>
 
-	<tr>
-	<td><b>Проверка сопоставлений безопасности основного режима</b></td>
-	<td><FONT FACE="courier" SIZE="-1">show crypto isakmp sa</FONT></td>
-	<td><FONT FACE="courier" SIZE="-1">show crypto isakmp sa</FONT></td>
-	<td><FONT FACE="courier" SIZE="-1">get ike cookie</FONT></td>
-	<td><FONT FACE="courier" SIZE="-1">show security ike security-association</FONT></td>
-	</tr>
+<tr>
+<td><b>Проверка сопоставлений безопасности основного режима</b></td>
+<td><FONT FACE="courier" SIZE="-1">show crypto isakmp sa</FONT></td>
+<td><FONT FACE="courier" SIZE="-1">show crypto isakmp sa</FONT></td>
+<td><FONT FACE="courier" SIZE="-1">get ike cookie</FONT></td>
+<td><FONT FACE="courier" SIZE="-1">show security ike security-association</FONT></td>
+</tr>
 
-	<tr>
-	<td><b>Проверка сопоставлений безопасности быстрого режима</b></td>
-	<td><FONT FACE="courier" SIZE="-1">show crypto ipsec sa</FONT></td>
-	<td><FONT FACE="courier" SIZE="-1">show crypto ipsec sa</FONT></td>
-	<td><FONT FACE="courier" SIZE="-1">get sa</FONT></td>
-	<td><FONT FACE="courier" SIZE="-1">show security ipsec security-association</FONT></td>
-	</tr>
-	</table>
+<tr>
+<td><b>Проверка сопоставлений безопасности быстрого режима</b></td>
+<td><FONT FACE="courier" SIZE="-1">show crypto ipsec sa</FONT></td>
+<td><FONT FACE="courier" SIZE="-1">show crypto ipsec sa</FONT></td>
+<td><FONT FACE="courier" SIZE="-1">get sa</FONT></td>
+<td><FONT FACE="courier" SIZE="-1">show security ipsec security-association</FONT></td>
+</tr>
+</table>
 
 
 ##  Дальнейшие действия
@@ -271,4 +271,4 @@
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

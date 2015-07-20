@@ -58,5 +58,6 @@
 -   Класс `CapptainTableViewController` переименовывается в `EngagementTableViewController`.
 -   Класс `CapptainUtils` переименовывается в `EngagementUtils`.
 -   Класс `CapptainViewController` переименовывается в `EngagementViewController`.
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

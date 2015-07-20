@@ -31,7 +31,7 @@ Mahout — это библиотека [машинного обучения][ml]
 
 * Как запускать задания Mahout с помощью Windows PowerShell.
 
-* как запускать задания Mahout из командной строки Hadoop;
+* - как запускать задания Mahout из командной строки Hadoop;
 
 * Как устанавливать Mahout на кластерах HDInsight версий 3.0 и 2.0.
 
@@ -362,9 +362,9 @@ Mahout устанавливается на кластерах HDInsight верс
 
 			mvn -Dhadoop2.version=2.2.0 -DskipTests clean package
 
-    	После завершения сборки JAR-файл можно будет найти в расположении __mahout\mrlegacy\target\mahout-mrlegacy-1.0-SNAPSHOT-job.jar__.
+    	After the build completes, you can find the JAR file at __mahout\mrlegacy\target\mahout-mrlegacy-1.0-SNAPSHOT-job.jar__.
 
-    	> [AZURE.NOTE] После выпуска Mahout 1.0 вы сможете использовать предварительно созданные пакеты с HDInsight 3.0.
+    	> [AZURE.NOTE] When Mahout 1.0 is released, you should be able to use the prebuilt packages with HDInsight 3.0.
 
 2. Загрузите файл jar в каталог __example/jars__ в хранилище по умолчанию для вашего кластера. В следующем примере add-hdinsightfile из [средств HDInsight][tools] используется для отправки файла:
 
@@ -410,9 +410,9 @@ Mahout устанавливается на кластерах HDInsight верс
 
 Теперь, когда вы узнали, как использовать Mahout, откройте для себя другие способы работы с данными в HDInsight:
 
-* [Hive с HDInsight](../hadoop-use-hive.md)
-* [Pig с HDInsight](../hadoop-use-pig.md)
-* [MapReduce с HDInsight](../hadoop-use-mapreduce.md)
+* [Использование Hive с HDInsight](../hadoop-use-hive.md)
+* [Использование Pig с HDInsight](../hadoop-use-pig.md)
+* [Использование MapReduce с HDInsight](../hadoop-use-mapreduce.md)
 
 [build]: http://mahout.apache.org/developers/buildingmahout.html
 [aps]: ../powershell-install-configure.md
@@ -429,4 +429,4 @@ Mahout устанавливается на кластерах HDInsight верс
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

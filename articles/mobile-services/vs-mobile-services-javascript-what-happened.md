@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="JavaScript" 
 	ms.topic="article" 
-	ms.date="05/06/2015" 
+	ms.date="07/02/2015" 
 	ms.author="patshea123"/>
 
 # Что произошло с моим проектом?
@@ -24,12 +24,26 @@
 
 ###<span id="whathappened">Что произошло с моим проектом?</id>
 
-#####Добавленные ссылки
+#####Добавлен пакет NuGet
 
-В проект была добавлена библиотека мобильной службы Azure в виде файла **MobileServices.js**.
+Пакет NuGet **WindowsAzure.MobileServices.WinJS** установлен вместе с библиотекой мобильной службы Azure в файл `js\MobileServices.js`.
   
 #####Значения строк подключения для мобильных служб 
 
 В папке `services\mobileServices\settings` создан новый файл JavaScript (JS) с объектом **MobileServiceClient**, содержащий URL-адрес и ключ приложения выбранной мобильной службы.
 
-<!--HONumber=54--> 
+
+#####Ссылки добавлены в файл default.html
+
+Ссылки на `MobileServices.js` и файл параметров добавлены в `default.html`.
+
+
+#####Добавлены файлы подключенных служб
+
+В папку службы добавлены файлы конфигурации подключенных служб.
+
+
+
+ 
+
+<!---HONumber=July15_HO2-->

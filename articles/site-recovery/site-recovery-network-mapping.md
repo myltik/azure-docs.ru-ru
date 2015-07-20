@@ -136,4 +136,4 @@ VM2 (реплика VM1) | VMNetwork1-Chicago
 Теперь, когда вы получили представление о сетевом сопоставлении, изучите [лучшие методики](site-recovery-best-practices.md) для подготовки к развертыванию.
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

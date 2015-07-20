@@ -107,4 +107,4 @@ Primis ipsum ante Vestibul в faucibus orci luctus et cubilia posuere ultrices C
 [8]: ./media/markdown-template-for-new-articles/copytemplate.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

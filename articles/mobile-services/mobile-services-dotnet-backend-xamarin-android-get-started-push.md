@@ -33,7 +33,7 @@
 Для работы с данным учебником требуется следующее:
 
 + Активная учетная запись Google.
-+ [Компонент клиента Google Cloud Messaging] Этот компонент будет добавлен при прохождении учебника.
++ [Компонент клиента Google Cloud Messaging]. Этот компонент будет добавлен при прохождении учебника.
 
 У вас в проекте уже должны быть установлены компоненты [Xamarin.Android] и [мобильные службы Azure][Azure Mobile Services Component] после завершения учебника [Приступая к работе с мобильными службами].
 
@@ -53,7 +53,7 @@
 
 [AZURE.INCLUDE [mobile-services-xamarin-android-push-configure-project](../../includes/mobile-services-xamarin-android-push-configure-project.md)]
 
-##<a id="add-push"></a>Добавление push-уведомлений в приложение
+##<a id="add-push"></a>Добавление кода push-уведомлений в приложение
 
 [AZURE.INCLUDE [mobile-services-xamarin-android-push-add-to-app](../../includes/mobile-services-xamarin-android-push-add-to-app.md)]
 
@@ -61,7 +61,7 @@
 
 Приложение можно проверить, подключив телефон Android напрямую с помощью USB-кабеля или используя виртуальное устройство в эмуляторе.
 
-###<a id="local-testing"></a> Включение push-уведомлений для локального тестирования
+###<a id="local-testing"></a>Включение push-уведомлений для локального тестирования
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-configure-local-push](../../includes/mobile-services-dotnet-backend-configure-local-push.md)]
 
@@ -74,4 +74,5 @@
 [Компонент клиента Google Cloud Messaging]: http://components.xamarin.com/view/GCMClient/
 [Xamarin.Android]: http://xamarin.com/download/
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
-<!--HONumber=54--> 
+
+<!---HONumber=July15_HO2-->

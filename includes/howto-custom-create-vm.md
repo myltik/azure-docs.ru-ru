@@ -60,4 +60,4 @@
 - [Как войти в виртуальную машину под управлением Linux](../articles/virtual-machines/virtual-machines-linux-how-to-log-on.md)
 - [Как войти в виртуальную машину под управлением Windows Server](../articles/virtual-machines/virtual-machines-log-on-windows-server.md)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

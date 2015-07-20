@@ -3,7 +3,7 @@
    description="Обзор пользовательского интерфейса для Azure Mobile Engagement" 
    services="mobile-engagement" 
    documentationCenter="" 
-   authors="v-micada" 
+   authors="piyushjo" 
    manager="dwrede" 
    editor=""/>
 
@@ -13,27 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/17/2015"
-   ms.author="v-micada"/>
-
-<div class="dev-center-tutorial-selector sublanding">
-<a href="../mobile-engagement-user-interface" title="Введение">Введение</a> 
-<a href="../mobile-engagement-user-interface-navigation" title="Навигация">Навигация</a> 
-<a href="../mobile-engagement-user-interface-home/" title="Главная">Главная</a> 
-<a href="../mobile-engagement-user-interface-my-account" title="Моя учетная запись">Моя учетная запись</a> 
-<a href="../mobile-engagement-user-interface-analytics" title="Аналитика">Аналитика</a> 
-<a href="../mobile-engagement-user-interface-monitor" title="Монитор">Монитор</a> 
-<a href="../mobile-engagement-user-interface-reach" title="Рекламная кампания">Рекламная кампания</a> 
-<a href="../mobile-engagement-user-interface-reach-campaign" title="Рекламная кампания — кампания">Рекламная кампания — кампания</a> 
-<a href="../mobile-engagement-user-interface-reach-criterion" title="Рекламная кампания — критерий">Рекламная кампания — критерий</a> 
-<a href="../mobile-engagement-user-interface-reach-content" title="Рекламная кампания — содержимое">Рекламная кампания — содержимое</a> 
-<a href="../mobile-engagement-how-tos" title="Рекламная кампания — инструкции">Рекламная кампания — инструкции</a> 
-<a href="../mobile-engagement-user-interface-segments" title="Сегменты">Сегменты</a> 
-<a href="../mobile-engagement-user-interface-dashboard" title="Панель мониторинга">Панель мониторинга</a> 
-<a href="../mobile-engagement-user-interface-settings" title="Параметры">Параметры</a>
-</div>
+   ms.date="05/12/2015"
+   ms.author="piyushjo"/>
 
 # Начало работы с push-уведомлениями и управление ими для взаимодействия с конечными пользователями
+
 После полной интеграции пакета SDK в приложение вы можете использовать раздел «Рекламная компания» в пользовательском интерфейсе для отправки push-уведомлений пользователям приложения.
 
 ## Создание первой кампании push-уведомлений
@@ -307,5 +291,6 @@
 [Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

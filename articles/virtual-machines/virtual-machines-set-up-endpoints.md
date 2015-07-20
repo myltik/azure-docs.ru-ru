@@ -95,4 +95,7 @@
 
 [Сведения о группах безопасности сети](https://msdn.microsoft.com/library/azure/dn848316.aspx)
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=July15_HO2-->

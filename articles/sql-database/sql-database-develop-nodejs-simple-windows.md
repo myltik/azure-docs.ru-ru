@@ -49,14 +49,16 @@
 	npm install -g node-gyp
 
 
-Теперь, когда узел gyp установлен, перейдите в каталог *YourProjectDirectory*, а затем — в папку **node_modules\msnodesql**. Затем выполните следующие команды в окне **cmd.exe**.
+Теперь, когда узел gyp установлен, перейдите в каталог *YourProjectDirectory*, а затем — в папку **node_modules\\msnodesql**. Затем выполните следующие команды в окне **cmd.exe**.
 
 
 	node-gyp configure 
 	node-gyp build
 
 
-Затем перейдите в каталог **build\release**. Скопируйте файл **sqlserver.node** и вставьте его в каталог **msnodesql\lib**. Замените старый файл, если необходимо.
+Затем перейдите в каталог **build\\release**. Скопируйте файл **sqlserver.node** и вставьте его в каталог **msnodesql\\lib**. Замените старый файл, если необходимо.
+
+Чтобы узнать, как установить и настроить перечисленные выше компоненты, посетите наш [блог группы](http://blogs.msdn.com/b/sqlphp/archive/2015/05/12/getting-started-with-node-js-and-microsoft-sql-server-and-azure-sql-database.aspx) и просмотрите [видео](https://www.youtube.com/watch?v=kQo_L-D_zk8).
 
 
 ### Создание базы данных и получение строки подключения
@@ -230,4 +232,6 @@
 	    });
 	});
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=July15_HO2-->

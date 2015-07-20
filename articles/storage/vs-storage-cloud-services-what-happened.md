@@ -3,7 +3,7 @@
 	description="Описание произошедшего при создании хранилища Azure в проекте облачной службы Visual Studio" 
 	services="storage" 
 	documentationCenter="" 
-	authors="kempb" 
+	authors="patshea123" 
 	manager="douge" 
 	editor="tglee"/>
 
@@ -13,19 +13,20 @@
 	ms.tgt_pltfrm="vs-what-happened" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/02/2015" 
-	ms.author="kempb"/>
+	ms.date="04/20/2015" 
+	ms.author="patshea123"/>
+
+# Что произошло с моим проектом?
 
 > [AZURE.SELECTOR]
-> - [Приступая к работе](vs-storage-cloud-services-getting-started-blobs.md)
-> - [Что произошло?](vs-storage-cloud-services-what-happened.md)
+> - [Getting Started](vs-storage-cloud-services-getting-started-blobs.md)
+> - [What Happened](vs-storage-cloud-services-what-happened.md)
 
 ###<span id="whathappened">Что произошло с моим проектом?</span>
 
 ###### Добавленные ссылки
 
-Пакет NuGet хранилища Azure был добавлен в проект Visual Studio. 
-Этот пакет добавляет следующие ссылки .NET:
+Пакет NuGet хранилища Azure был добавлен в проект Visual Studio. Этот пакет добавляет следующие ссылки .NET:
 
 - `Microsoft.Data.Edm`
 - `Microsoft.Data.OData`
@@ -43,6 +44,6 @@
 - `ServiceConfiguration.Cloud.cscfg`
 - `ServiceConfiguration.Local.cscfg`
 
-
-<!--HONumber=46--> 
  
+
+<!---HONumber=July15_HO2-->

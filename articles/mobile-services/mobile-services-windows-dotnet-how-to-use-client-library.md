@@ -130,7 +130,7 @@
 
 ### <a name="sorting"></a>Практическое руководство. Сортировка возвращаемых данных
 
-В следующем коде показано, как сортировать данные, включив в запрос функцию `OrderBy` или `OrderByDescending`. Он возвращает элементы таблицы `todoTable`, упорядочивая их по возрастанию значений в поле `Text`.
+В следующем коде показано, как сортировать данные, включив в запрос функцию `OrderBy` или `OrderByDescending` Он возвращает элементы таблицы `todoTable`, упорядочивая их по возрастанию значений в поле `Text`.
 
 	// Sort items in ascending order by Text field
 	MobileServiceTableQuery<TodoItem> query = todoTable
@@ -232,7 +232,7 @@
 
 Мобильные службы поддерживают уникальные настраиваемые строковые значения для столбца **id** таблицы. Это позволяет приложениям использовать в качестве идентификатора настраиваемые значения, такие как адреса электронной почты или имена пользователей.
 
-Строковые идентификаторы предоставляют следующие преимущества:
+Строковые идентификаторы предоставляют следующие преимущества.
 
 + Идентификаторы создаются без обмена данными с базой данных.
 + Можно легко объединять записи из разных таблиц или баз данных.
@@ -699,5 +699,6 @@
 [Custom API in Azure Mobile Services Client SDKs]: http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx
 [Вызов из клиента настраиваемого интерфейса API]: mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api.md
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

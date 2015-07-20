@@ -63,7 +63,7 @@ Spark работает под управлением диспетчеров кл
 
 ```powershell
 # Define variables
-$folderName="C:\Azure\Templates\Spark\"
+$folderName="C:\Azure\Templates\Spark"
 $baseAddress = "https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/spark-on-ubuntu/"
 $webclient = New-Object System.Net.WebClient
 $files = $("azuredeploy.json", `
@@ -844,4 +844,4 @@ $webclient.DownloadFile($url,$filePath)
 [Устранение неполадок при развертывании с помощью шаблонов](resource-group-deploy-debug.md).
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

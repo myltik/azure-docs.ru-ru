@@ -196,7 +196,7 @@
 * [Начало работы с Azure HDInsight][hdinsight-get-started]
 * [Пример: GraySort 10 ГБ][hdinsight-sample-10gb-graysort]
 * [Пример: оценка числа пи][hdinsight-sample-pi-estimator]
-* [Пример: потоковая передача на C\#][hdinsight-sample-cs-streaming]
+* [Пример: потоковая передача на C#][hdinsight-sample-cs-streaming]
 * [Использование Pig с HDInsight][hdinsight-use-pig]
 * [Использование Hive с HDInsight][hdinsight-use-hive]
 * [Документация по пакету SDK для Azure HDInsight][hdinsight-sdk-documentation]
@@ -218,4 +218,4 @@
 [image-hdi-sample-wordcount-output]: ./media/hdinsight-sample-wordcount/HDI.Sample.WordCount.Output.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

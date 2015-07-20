@@ -73,10 +73,7 @@
 Пример кода ниже выполняет следующие задачи.
 
 1. Создает экземпляр CloudMediaContext. 
-1. Создает экземпляры CloudStorageAccount: _sourceStorageAccount и _destinationStorageAccount.
-1. Передает файлы Smooth Streaming из локального каталога в контейнер BLOB-объектов, который находится в _sourceStorageAccount. 
-1. Создает новый файл. Контейнер BLOB-объектов, созданный для этого актива, находится в _destinationStorageAccount. 
-1. Использует пакет SDK хранилища Azure для копирования указанных BLOB-объектов в контейнер, связанный с файлом.
+1. Создает экземпляры CloudStorageAccount: _sourceStorageAccount и _destinationStorageAccount. 1. Передает файлы Smooth Streaming из локального каталога в контейнер BLOB-объектов, который находится в _sourceStorageAccount. 1. Создает новый файл. Контейнер BLOB-объектов, созданный для этого актива, находится в _destinationStorageAccount. 1. Использует пакет SDK хранилища Azure для копирования указанных BLOB-объектов в контейнер, связанный с файлом.
 
 >[AZURE.NOTE]Если срок действия указателя истек, операция копирования не выдает исключение.
 
@@ -286,4 +283,4 @@
 		}
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

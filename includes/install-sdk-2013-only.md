@@ -8,4 +8,4 @@
 
 [пакет SDK Azure для Visual Studio 2013]: http://go.microsoft.com/fwlink/?LinkID=324322
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

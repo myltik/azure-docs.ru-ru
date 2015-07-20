@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/10/2015" 
+	ms.date="06/22/2015" 
 	ms.author="tamram"/>
 
 # Комплексный поиск и устранение неполадок с помощью метрик хранилища Azure и ведения журнала, AzCopy и анализатора сообщений 
@@ -23,7 +23,7 @@
 
 В этом учебнике показано, как определить конкретные ошибки, которые могут повлиять на производительность, и устранить их с помощью средств, предоставляемых корпорацией Майкрософт и службой хранилища Azure, для оптимизации клиентского приложения.
 
-В этом учебнике содержатся практические исследования сквозного сценария устранения неполадок. Подробное концептуальное руководство по устранению неполадок в приложениях хранилища Azure см. в разделе [Мониторинг, диагностика и устранение неполадок хранилища](../articles/storage-monitoring-diagnosing-troubleshooting/).
+В этом учебнике содержатся практические исследования сквозного сценария устранения неполадок. Подробное концептуальное руководство по устранению неполадок в приложениях хранилища Azure см. в разделе [Мониторинг, диагностика и устранение неполадок хранилища](../articles/storage-monitoring-diagnosing-troubleshooting.md).
 
 ## Средства для устранения неполадок приложений хранилища Azure
 
@@ -292,7 +292,7 @@ AzCopy можно загрузить на странице [Загрузки Azu
 
 ![Макет представления хранилища Azure](./media/storage-e2e-troubleshooting/400-range-errors1.png)
 
-После применения фильтра исключаются строки журнала клиента, так как журнал клиента не содержит столбец **StatusCode**. Для начала просмотрим журналы сервера и трассировки сети, чтобы найти ошибки 404, а затем вернемся в журнал клиента для проверки операций клиента, которые приводят к их возникновению.
+После применения фильтра вы увидите, что строки из клиентского журнала исключены, поскольку в клиентском журнале нет столбца **StatusCode**. Для начала просмотрим журналы сервера и трассировки сети, чтобы найти ошибки 404, а затем вернемся в журнал клиента для проверки операций клиента, которые приводят к их возникновению.
 
 >[AZURE.NOTE]Можно выполнить фильтрацию по столбцу **StatusCode** и по-прежнему отображать данные из всех трех журналов, включая журнал клиента, если добавить выражение в фильтр, которое включает записи журнала с кодом состояния, имеющим значение null. Чтобы создать этот критерий фильтра, используйте следующее:
 >
@@ -349,18 +349,7 @@ AzCopy можно загрузить на странице [Загрузки Azu
 | Непредвиденные задержки при доставке сообщений в очередь | AzureStorageClientDotNetV4.Description содержит "Повторное выполнение неудавшейся операции". | Клиент |
 | Увеличение HTTP в PercentThrottlingError | HTTP.Response.StatusCode == 500 &#124;&#124; HTTP.Response.StatusCode == 503 | Сеть |
 | Увеличение PercentTimeoutError | HTTP.Response.StatusCode == 500 | Сеть |
-| Увеличение PercentTimeoutError (все) | *StatusCode == 500 | All | 
-| Increase in PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Client | 
-| HTTP 403 (Forbidden) messages | HTTP.Response.StatusCode == 403 | Network | 
-| HTTP 404 (Not found) messages | HTTP.Response.StatusCode == 404 | Network | 
-| 404 (all) | *StatusCode == 404 | All |
-| Shared Access Signature (SAS) authorization issue | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Network |
-| HTTP 409 (Conflict) messages | HTTP.Response.StatusCode == 409 | Network | 
-| 409 (all) | *StatusCode == 409 | All |
-| Low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors | AzureStorageLog.RequestStatus == "ClientOtherError" | Server |
-| Nagle Warning | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) and \AzureStorageLog.RequestPacketSize <1460) and (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | Server | 
-| Range of time in Server and Network logs | #Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39 | Server, Network | 
-| Range of time in Server logs | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 and AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | Server |
+| Увеличение PercentTimeoutError (все) | *StatusCode == 500 | All | | Increase in PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Client | | HTTP 403 (Forbidden) messages | HTTP.Response.StatusCode == 403 | Network | | HTTP 404 (Not found) messages | HTTP.Response.StatusCode == 404 | Network | | 404 (all) | *StatusCode == 404 | All | | Shared Access Signature (SAS) authorization issue | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Network | | HTTP 409 (Conflict) messages | HTTP.Response.StatusCode == 409 | Network | | 409 (all) | *StatusCode == 409 | All | | Low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors | AzureStorageLog.RequestStatus == "ClientOtherError" | Server | | Nagle Warning | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) and (AzureStorageLog.RequestPacketSize <1460) and (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | Server | | Range of time in Server and Network logs | #Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39 | Server, Network | | Range of time in Server logs | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 and AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | Server |
 
 
 ## Дальнейшие действия
@@ -373,6 +362,6 @@ AzCopy можно загрузить на странице [Загрузки Azu
 - [Использование AzCopy со службой хранилища Microsoft Azure](storage-use-azcopy.md)
 - [Руководство по работе с анализатором сообщений (Майкрософт)](http://technet.microsoft.com/library/jj649776.aspx)
  
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

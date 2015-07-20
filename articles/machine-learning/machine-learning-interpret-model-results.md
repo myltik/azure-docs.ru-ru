@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Интерпретация результатов модели в машинном обучении Azure | Azure" 
+	pageTitle="Интерпретация результатов модели в машинном обучении | Microsoft Azure" 
 	description="Выбор оптимального набора параметров для алгоритма с помощью наглядного представления результатов работы модели оценки." 
 	services="machine-learning"
 	documentationCenter="" 
@@ -21,7 +21,7 @@
  
 **Трактовка и визуализация результатов «Модели оценки»**. В этом разделе объясняется, как визуализировать и интерпретировать результаты прогнозирования в Студии машинного обучения Azure. После обучения модели и получения прогнозов на ее основе («оценки модели»), необходимо понять и интерпретировать полученный результат прогнозирования.
 
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)] 
+[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 Существует четыре основных типа машинного обучения моделей в Студии машинного обучения Azure:
 
@@ -307,5 +307,6 @@
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 [train-clustering-model]: https://msdn.microsoft.com/library/azure/bb43c744-f7fa-41d0-ae67-74ae75da3ffd/
 [train-matchbox-recommender]: https://msdn.microsoft.com/library/azure/fa4aa69d-2f1c-4ba4-ad5f-90ea3a515b4c/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

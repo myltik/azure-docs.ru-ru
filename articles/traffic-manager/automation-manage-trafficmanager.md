@@ -42,4 +42,4 @@
 * Ознакомьтесь с содержанием [руководства по началу работы](http://go.microsoft.com/fwlink/?LinkId=390560) в службе автоматизации Azure
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

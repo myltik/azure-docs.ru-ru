@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Руководство по устранению неполадок Azure Mobile Engagement — API" 
-   description="Руководства по устранению неполадок для Azure Mobile Engagement" 
+   description="Руководства по устранению неполадок для Azure Mobile Engagement —API" 
    services="mobile-engagement" 
    documentationCenter="" 
    authors="piyushjo" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/17/2015"
+   ms.date="06/18/2015"
    ms.author="piyushjo"/>
 
 # Поиск и устранение неполадок API
@@ -33,9 +33,10 @@
     - Еще одна распространенная проблема с интеграцией пакета SDK и использованием API — неправильное использование ключа пакета SDK и ключа API.
     - Скрипты, подключающиеся к интерфейсам API, должны отправлять данные по крайней мере каждые 10 минут, в противном случае время ожидания подключения истечет (эта проблема особенно распространена в скриптах Monitor API, прослушивающих данные). Чтобы предотвратить возникновение задержки, ваш скрипт должен отправлять команду ping XMPP каждые 10 минут, чтобы сеанс работы с сервером не завершался.
 
-### Дополнительные материалы
+### См. также
  
-- [Принципы — глоссарий][Link 6], [Документация по API][Link 4], [Сведения о протоколе XMPP](http://xmpp.org/extensions/xep-0199.html)
+- [Документация по API][Link 4]
+- [Сведения о протоколе XMPP](http://xmpp.org/extensions/xep-0199.html)
  
 ## Не удается использовать API для выполнения действия, доступного в пользовательском интерфейсе Azure Mobile Engagement.
 
@@ -77,7 +78,7 @@
         409        Name already associated to a different device ID or campaign.
         413        Too many device identifiers (current limit is 1,000), POST URL encoded entity is over 2MB, or the period is too large to be displayed (the server didn’t retrieve the analytics because the user request is for a period that is too large).
         503        Analytics not available yet (the requested information is not computed yet for an application).
-        504         The server was not able to handle your request in a reasonable time (if you make multiple calls to an API very quickly, try to make one call at a time and spread the calls out over time).
+        504        The server was not able to handle your request in a reasonable time (if you make multiple calls to an API very quickly, try to make one call at a time and spread the calls out over time).
 
 ### Дополнительные материалы
 
@@ -93,9 +94,9 @@
 - При неправильной интеграции многие элементы будут отключены в пользовательском интерфейсе Azure Mobile Engagement и незаметно завершатся ошибкой в API, поэтому не забудьте проверить определенную функцию в пользовательском интерфейсе, чтобы убедиться, что она работает.
 - Служба Azure Mobile Engagement и множество дополнительных функций этой службы, которые вы намереваетесь применять, перед использованием необходимо отдельно интегрировать в приложение с помощью пакета SDK.
 
-### Дополнительные материалы
+### См. также
 
-- [Руководство по устранению неполадок — пакет SDK][Link 25], [Документация к пакету SDK][Link 5]
+- [Руководство по устранению неполадок — пакет SDK][Link 25]
  
 <!--Link references-->
 [Link 1]: mobile-engagement-user-interface.md
@@ -127,5 +128,6 @@
 [Link 27]: mobile-engagement-user-interface-reach-campaign.md
 [Link 28]: mobile-engagement-user-interface-reach-criterion.md
 [Link 29]: mobile-engagement-user-interface-reach-content.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

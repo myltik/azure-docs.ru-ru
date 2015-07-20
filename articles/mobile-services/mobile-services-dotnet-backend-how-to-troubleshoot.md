@@ -68,7 +68,7 @@
 
     ![Настройка загрузки символов][SymbolLoading]
 
-3. Выберите узел **Символы** слева и добавьте ссылку на сервер (SymbolSource)[http://symbolsource.org] с помощью URI [http://srv.symbolsource.org/pdb/Public](http://srv.symbolsource.org/pdb/Public). Символы для серверной части .NET мобильных служб становятся доступными здесь с каждым новым выпуском.
+3. Выберите узел **Символы** слева и добавьте ссылку на сервер (SymbolSource)[http://symbolsource.org], используя URI [http://srv.symbolsource.org/pdb/Public](http://srv.symbolsource.org/pdb/Public). Символы для серверной части .NET мобильных служб становятся доступными здесь с каждым новым выпуском.
  
     ![Настройка сервера символов][SymbolServer]
 
@@ -153,4 +153,5 @@
 [LogsServerExplorer]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/12.png
 [LogsPortal]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/13.png
 [HelpConflict]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/14.png
-<!--HONumber=54--> 
+
+<!---HONumber=July15_HO2-->

@@ -13,22 +13,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="04/14/2015"
-   ms.author="guscatal;spatnaik"/>
+   ms.date="07/07/2015"
+   ms.author="guscatal;spatnaik;elizapo"/>
 
 
 
-Начало работы с Azure RemoteApp с помощью PowerShell
+# Начало работы с Azure RemoteApp с помощью PowerShell
 =====================================
 
 
-Загрузка командлетов ------------- Сначала необходимо загрузить командлеты PowerShell для Azure [здесь](http://go.microsoft.com/?linkid=9811175); в их состав уже входят командлеты для RemoteApp.
+## Загрузка командлетов 
+-------------
+Сначала необходимо загрузить командлеты PowerShell для Azure [здесь](http://go.microsoft.com/?linkid=9811175); в их состав уже входят командлеты для RemoteApp.
 
-Настройка командлетов Azure для работы с подпиской
+## Настройка командлетов Azure для работы с подпиской
 ------------------
 С помощью [этого руководства](../powershell-install-configure.md) вы сможете сделать так, чтобы командлеты можно было использовать с вашей подпиской Azure.
 
-Создание облачной коллекции
+## Создание облачной коллекции
 --------------------
 Это просто. Выполните следующую команду:
 
@@ -47,6 +49,7 @@
 
 Готово! Этот пользователь сможет подключиться к приложению с помощью клиента Azure RemoteApp, который можно найти [здесь](https://www.remoteapp.windowsazure.com/).
 
+## Доступные командлеты
 Доступно множество других команд, документация для которых скоро будет опубликована.
 
 Основные командлеты для коллекций RemoteApp
@@ -94,6 +97,6 @@
 - Get-AzureRemoteAppWorkspace
 - Set-AzureRemoteAppWorkspace
 - Get-AzureRemoteAppOperationResult
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

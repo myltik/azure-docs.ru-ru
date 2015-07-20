@@ -1,18 +1,18 @@
-<properties 
+<properties
    pageTitle="Поддерживаемые конфигурации для службы оперативной аналитики"
    description="Информация о конфигурациях для работы службы оперативной аналитики"
    services="operational-insights"
    documentationCenter=""
    authors="bandersmsft"
    manager="jwhit"
-   editor="tysonn" /> 
-<tags 
+   editor="tysonn" />
+<tags
    ms.service="operational-insights"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/30/2015"
+   ms.date="07/02/2015"
    ms.author="banders" />
 
 # Поддерживаемые конфигурации для службы оперативной аналитики
@@ -39,14 +39,8 @@
 
 Инструкции по установке и настройке см. в статье [Просмотр оповещений службы оперативной аналитики](http://go.microsoft.com/fwlink/?LinkID=293793).
 
-Если вы хотите просматривать оповещения службы оперативной аналитики о SharePoint Server 2010, Lync Server 2013, Lync Server 2010 или System Center 2012 SP1 — Virtual Machine Manager, необходимо настроить учетную запись запуска от имени для этих рабочих нагрузок. См. следующую информацию:
+Если вы хотите просматривать оповещения службы оперативной аналитики о SharePoint Server 2010, Lync Server 2013, Lync Server 2010 или System Center 2012 SP1 — Virtual Machine Manager, необходимо настроить учетную запись запуска от имени для этих рабочих нагрузок. Дополнительные сведения о настройке учетных записей запуска от имени см. в разделе [Факторы, которые необходимо учитывать при использовании Operations Manager с Operational Insights](operational-insights-operations-manager.md).
 
-
-- [Настройка учетной записи запуска от имени для SharePoint](../operational-insights-run-as.md)
-
-- [Настройка учетной записи запуска от имени для Lync Server](../operational-insights-run-as.md)
-
-- [Настройка учетной записи запуска от имени для Virtual Machine Manager](../operational-insights-run-as.md)
 
 ### Операционные системы Operations Manager
 
@@ -106,5 +100,4 @@
 
 Кроме того, 32-разрядный выпуск SQL Server поддерживается при работе в режиме реализации WOW64.
 
-
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

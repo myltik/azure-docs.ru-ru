@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2015" 
+	ms.date="03/30/2015"
 	ms.author="bradsev"/>
 
 # Пример сортировки GraySort Hadoop MapReduce 10 ГБ в HDInsight
 
 В этом разделе объясняется, как выполнить программу сортировки GraySort Hadoop MapReduce общего назначения для Azure HDInsight с использованием Azure PowerShell. GraySort — это измерение производительности сортировки, показателем которой служит скорость (ТБ/мин), достигаемая при сортировке очень больших объемов данных, обычно не менее 100 ТБ.
+
+> [AZURE.NOTE]Действия, описанные в этом документе, требуют наличия кластера HDInsight на основе Windows. Сведения о запуске этого и других примеров с использованием кластеров на основе Linux приведены в разделе [Выполнение примеров Hadoop в HDInsight](hdinsight-hadoop-run-samples-linux.md)
 
 В этом примере используется небольшой объем данных, 10 ГБ, чтобы можно было выполнить сортировку достаточно быстро. Используется приложение MapReduce, разработанное Оуэном О'Мэлли (Owen O'Malley) и Аруном Мёрти (Arun Murthy). Это приложение победило в 2009 г. на конкурсе приложений сортировки общего назначения (daytona) для больших объемов данных, показав скорость 0,578 ТБ/мин (100 ТБ за 173 минуты). Дополнительные сведения об этом и других измерениях производительности сортировки см. на сайте [Sortbenchmark](http://sortbenchmark.org/).
 
@@ -409,7 +411,7 @@
 * [Начало работы с Azure HDInsight][hdinsight-get-started]
 * [Пример: оценка числа пи][hdinsight-sample-pi-estimator]
 * [Пример: счетчик слов][hdinsight-sample-wordcount]
-* [Пример: потоковая передача на C\#][hdinsight-sample-csharp-streaming]
+* [Пример: потоковая передача на C#][hdinsight-sample-csharp-streaming]
 * [Использование Pig с HDInsight][hdinsight-use-pig]
 * [Использование Hive с HDInsight][hdinsight-use-hive]
 * [Документация по пакету SDK для Azure HDInsight][hdinsight-sdk-documentation]
@@ -429,6 +431,5 @@
 
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

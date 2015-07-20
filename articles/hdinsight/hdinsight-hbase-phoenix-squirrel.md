@@ -212,7 +212,7 @@
 
 **Установка SQuirreL**
 
-1. Загрузите jar-файл SQL-клиента SQuirreL с сайта [http://squirrel-sql.sourceforge.net/\#installation](http://squirrel-sql.sourceforge.net/#installation).
+1. Загрузите jar-файл SQL-клиента SQuirreL с сайта [http://squirrel-sql.sourceforge.net/#installation](http://squirrel-sql.sourceforge.net/#installation).
 2. Откройте/запустите jar-файл. Для него требуется среда [Java Runtime Environment](http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html).
 3. Нажмите кнопку **Далее** дважды.
 4. Укажите путь, для которого у вас есть разрешения на запись, и нажмите кнопку **Далее**.
@@ -306,4 +306,4 @@ JAR-файл драйвера phoenix находится в кластере HBa
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

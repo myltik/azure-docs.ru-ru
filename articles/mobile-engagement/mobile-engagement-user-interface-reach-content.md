@@ -50,7 +50,7 @@
 
 - **Действия для Android и iOS**
     - Открытие веб-страницы
-    - http://[web-site-domain] 
+    - http://[web-site-domain\] 
     - Пример:http://www.azure.com
     - Отправка сообщения электронной почты
     - mailto:[e-mail-recipient]?subject=[subject]&body=[message] 
@@ -70,11 +70,11 @@
     - Пример:geo:0,0?q=starbucks,paris
 - **Действия только для iOS**
     - Скачивание приложения из магазина App Store
-    - имя http://itunes.apple.com/[country]/app/[app]/id[app id]?mt=8 
+    - http://itunes.apple.com/[country]/app/[app name]/id[app id]?mt=8 
     - Пример:http://itunes.apple.com/fr/app/briquet-virtuel/id430154748?mt=8
     - Действия для Windows
     - Открытие веб-страницы
-    - http://[web-site-domain] 
+    - http://[web-site-domain\] 
     - Пример:http://www.azure.com
     - Отправка сообщения электронной почты
     - mailto:[e-mail-recipient]?subject=[subject]&body=[message] 
@@ -228,5 +228,6 @@
 [Link 27]: mobile-engagement-user-interface-reach-campaign.md
 [Link 28]: mobile-engagement-user-interface-reach-criterion.md
 [Link 29]: mobile-engagement-user-interface-reach-content.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

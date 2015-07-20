@@ -1,27 +1,29 @@
-<properties 
+<properties
    pageTitle="Просмотр оповещений из Operations Manager"
    description="Узнайте об управлении оповещениями из Operations Manager для отслеживаемых серверов в инфраструктуре."
    services="operational-insights"
    documentationCenter=""
    authors="bandersmsft"
    manager="jwhit"
-   editor="tysonn"/>
-<tags 
+   editor="" />
+<tags
    ms.service="operational-insights"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/20/2015"
-   ms.author="banders"/>
+   ms.date="07/02/2015"
+   ms.author="banders" />
 
 
 
 # Просмотр оповещений Operations Manager
 
-Перед использованием функции управления оповещениями в Microsoft Azure Operational Insights необходимо установить пакет аналитики. Дополнительные сведения об установке пакетов аналитики см. в разделе [Использование коллекции для добавления или удаления пакетов аналитики](../operational-insights-add-intelligence-packs.md). Пакет аналитики работает только в том случае, если серверы отслеживаются агентами Operations Manager. Сведения об использовании Operations Manager с Operational Insights см. в статье [Сбор данных компьютера](../operational-insights-collect-data.md).
+[AZURE.INCLUDE [operational-insights-note-moms](../../includes/operational-insights-note-moms.md)]
 
-После установки пакета аналитики можно просмотреть оповещения для отслеживаемых серверов, воспользовавшись плиткой **Управление оповещениями** на панели мониторинга **Обзор** в службе Operational Insights. 
+Перед использованием функции управления оповещениями в Microsoft Azure Operational Insights необходимо установить решение. Дополнительные сведения об установке решений см. в разделе [Использование коллекции решений для добавления или удаления решений](operational-insights-add-solution.md). Решение работает только в том случае, если ваши серверы отслеживаются агентами Operations Manager. Дополнительные сведения об использовании Operations Manager с Operational Insights см. в разделе [Подключение к Operational Insights из System Center Operations Manager](operational-insights-connect-scom.md).
+
+После установки решения можно просмотреть оповещения для отслеживаемых серверов, воспользовавшись плиткой **Управление оповещениями** на панели мониторинга **Обзор** в службе Operational Insights.
 
 ![image of Alert Management tile](./media/operational-insights-alerts/overview-alert.png)
 
@@ -50,12 +52,8 @@
 ## Просмотр оповещений Operational Insights
 
 1. На странице **Обзор** щелкните плитку **Управление оповещениями**.
-
 2. На панели мониторинга **Управление оповещениями** просмотрите категории оповещений и выберите одну для работы.
-
-3. Щелкните плитку или любой элемент, чтобы просмотреть подробные сведения о нем на странице **Поиск**.
-
+3. Щелкните плитку или любой элемент, чтобы просмотреть подробную информацию о нем на странице **Поиск**.
 4. С помощью полученной информации можно изучить оповещение и определить действия, которые могут потребоваться для его устранения.
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO2-->

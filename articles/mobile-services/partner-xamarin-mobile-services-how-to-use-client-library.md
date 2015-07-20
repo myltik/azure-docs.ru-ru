@@ -102,7 +102,7 @@
 	WHERE ISNULL(complete, 0) = 0
 	      AND ISNULL(text, 0) = 0
 
-Инструкция `where` выше будет находить элементы, для состояния `Complete` которых задано значение false, со значением `Text`, не равным NULL.
+Инструкция `where` выше будет находить элементы, для состояния `Complete` которых задано значение "Ложь", со значением `Text`, не равным NULL.
 
 Это же выражение можно написать с использованием нескольких строк:
 
@@ -117,7 +117,7 @@
 
 ### <a name="sorting"></a>Практическое руководство. Сортировка возвращаемых данных
 
-В следующем коде показано, как сортировать данные, включив в запрос функцию `OrderBy` или `OrderByDescending`. Он возвращает элементы таблицы `todoTable`, упорядочивая их по возрастанию значений в поле `Text`. По умолчанию сервер возвращает только первые 50 элементов.
+В следующем коде показано, как сортировать данные, включив в запрос функцию `OrderBy` или `OrderByDescending` Он возвращает элементы таблицы `todoTable`, упорядочивая их по возрастанию значений в поле `Text`. По умолчанию сервер возвращает только первые 50 элементов.
 
 > [AZURE.NOTE]Чтобы не допустить возврата всех элементов, по умолчанию используется размер страницы, устанавливаемый сервером. Это предотвращает негативное воздействие больших наборов данных на функционирование службы.
 
@@ -471,5 +471,6 @@
 [MobileServiceUser]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.aspx
 [UserID]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx
 [MobileServiceAuthenticationToken]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

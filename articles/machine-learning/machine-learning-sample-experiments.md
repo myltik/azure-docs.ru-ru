@@ -1,19 +1,19 @@
-<properties 
-    pageTitle="Использование образцов экспериментов для создания новых экспериментов | Azure" 
-    description="Создавайте новые эксперименты машинного обучения Azure из образцов экспериментов и экспериментов, представленных в сообществе." 
-    services="machine-learning" 
-    documentationCenter="" 
-    authors="cjgronlund" 
-    manager="paulettm" 
+<properties
+    pageTitle="Использование образцов экспериментов для создания новых экспериментов | Microsoft Azure"
+    description="Создавайте новые эксперименты машинного обучения Azure из образцов экспериментов и экспериментов, представленных в сообществе."
+    services="machine-learning"
+    documentationCenter=""
+    authors="cjgronlund"
+    manager="paulettm"
     editor="cgronlun"/>
 
-<tags 
-    ms.service="machine-learning" 
-    ms.workload="data-services" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="02/16/2015" 
+<tags
+    ms.service="machine-learning"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article" 
+    ms.date="06/29/2015"
     ms.author="chhavib;olgali"/>
 
 # Использование образцов экспериментов для создания новых экспериментов
@@ -24,12 +24,12 @@
 ## Просмотр коллекции
 1. Перейдите в раздел [Коллекция](http://gallery.azureml.net/).
 2. Перейдите к просмотру из раздела **Эксперименты в тренде** или **Образцы Майкрософт**.
-3. Используйте поиск и фильтры, чтобы уменьшить число выводимых результатов: ![](./media/machine-learning-sample-experiments/image1.png)
-4. Щелкните эксперимент, чтобы узнать о нем подробнее. Чтобы запустить или изменить эксперимент, щелкните **Открыть в студии**. ![](./media/machine-learning-sample-experiments/image2.png)
+3. Используйте поиск и фильтры, чтобы уменьшить число выводимых результатов: ![](./media/machine-learning-sample-experiments/image1.png) 
+4. Щелкните эксперимент, чтобы узнать о нем подробнее. Чтобы запустить или изменить эксперимент, щелкните **Открыть в студии**. ![](./media/machine-learning-sample-experiments/image2.png) 
 5.  Выполните вход при помощи данных вашей учетной записи Майкрософт. Если у вас еще нет рабочего пространства машинного обучения, создается бесплатное пробное рабочее пространство. [Узнать, что входит в бесплатную пробную программу освоения машинного обучения](http://azure.microsoft.com/pricing/details/machine-learning/) ![](./media/machine-learning-sample-experiments/image3.png) 
 
 ## Использовать в качестве шаблона в студии
-1. Выполните вход, используя данные для входа в учетную запись Майкрософт в [студии](https://studio.azureml.net), после чего щелкните **Создать***, чтобы создать новый эксперимент 
+1. Выполните вход, используя данные для входа в учетную запись Майкрософт в [студии](https://studio.azureml.net), после чего щелкните **Создать***, чтобы создать новый эксперимент
 2. Просмотрите содержание образца, после чего воспользуйтесь одним из них в качестве шаблона.
 
 ## Дальнейшие действия
@@ -38,9 +38,6 @@
 - [Просмотрите образцы экспериментов на R](machine-learning-r-csharp-web-service-examples.md)
 - [Создайте API веб-службы](machine-learning-publish-a-machine-learning-web-service.md)
 - [Просмотрите приложения, готовые к использованию](https://datamarket.azure.com/browse?query=machine+learning)
+ 
 
-
-
-
-
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

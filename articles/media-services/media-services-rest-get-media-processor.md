@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Как создать обработчик мультимедиа - Azure" 
+	pageTitle="Как создать обработчик мультимедиа — Azure" 
 	description="Узнайте, как создать компонент обработчика мультимедиа для кодирования, преобразования формата, шифрования или расшифровки мультимедийного контента служб мультимедиа Azure." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2015" 
+	ms.date="05/12/2015" 
 	ms.author="juliako"/>
 
 
-#Практическое руководство. Получение экземпляра обработчика мультимедиа
+#Получение экземпляра процессора мультимедиа
 
-Это одна из статей серии [Рабочий процесс для видео по запросу в службах мультимедиа](media-services-video-on-demand-workflow.md). 
+Это одна из статей цикла [Рабочий процесс для видео по запросу в службах мультимедиа](media-services-video-on-demand-workflow.md).
 
 
 ##Обзор
@@ -40,17 +40,17 @@
     <tr>
        <td>Azure Media Encoder</td>
        <td>Позволяет выполнять задачи кодирования с использованием обработчика мультимедиа Azure.</td>
-       <td><a href="http://msdn.microsoft.com/library/jj129582.aspx"> Строки предустановок задачи для обработчика мультимедиа Azure</a></td>
+       <td><a href="http://msdn.microsoft.com/library/jj129582.aspx">Строки предустановок задачи для кодировщика службы мультимедиа Azure</a></td>
     </tr>
     <tr>
        <td>Рабочий процесс Premium обработчика мультимедиа</td>
        <td>Позволяет выполнять задачи кодирования с использованием рабочего процесса Premium обработчика мультимедиа.</td>
-       <td><a href="http://azure.microsoft.com/documentation/articles/media-services-encode-with-premium-workflow/">Кодирование с помощью рабочего процесса Premium обработчика мультимедиа.</a></td>
+       <td><a href="http://azure.microsoft.com/documentation/articles/media-services-encode-with-premium-workflow/">Кодирование с помощью расширенного рабочего процесса кодировщика мультимедиа.</a></td>
     </tr>    
 	<tr>
         <td>Azure Media Indexer</td>
         <td>Позволяет сделать мультимедийные файлы и контент доступными для поиска, а также создавать дорожки и ключевые слова для субтитров.</td>
-		<td><a href="http://azure.microsoft.com/documentation/articles/media-services-index-content/">Индексирование файлов мультимедиа с помощью индексатора мультимедиа Azure</a>.</td>
+		<td><a href="http://azure.microsoft.com/documentation/articles/media-services-index-content/">Индексирование файлов мультимедиа с помощью индексатора мультимедийных данных Azure</a>.</td>
     </tr>
     <tr>
         <td>Microsoft Azure Media Packager</td>
@@ -60,8 +60,13 @@
     <tr>
         <td>Microsoft Azure Media Encryptor</td>
         <td>Позволяет шифровать мультимедийные активы с использованием PlayReady Protection.</td>
-        <td><a href="http://msdn.microsoft.com/library/hh973610.aspx">Строки предустановок задачи для Azure Media Packager</a></td>
+        <td><a href=" http://go.microsoft.com/fwlink/?LinkId=613274">Строки предустановок задачи для Azure Media Packager</a></td>
     </tr>
+	<tr>
+		<td>Azure Media Hyperlapse (предварительная версия)</td>
+		<td>Позволяет сгладить «неровности» видео с помощью стабилизации видео. Также позволяет ускорить содержимое в виде пригодного к использованию клипа.</td>
+		<td><a href="http://azure.microsoft.com/blog/?p=286281&preview=1&_ppp=61e1a0b3db">Azure Media Hyperlapse</a></td>
+	</tr>
     <tr>
         <td>Расшифровка хранилища</td>
         <td>Позволяет расшифровать мультимедийные активы, которые были зашифрованы с помощью шифрования хранилища.</td>
@@ -73,15 +78,15 @@
 
 ##Получение MediaProcessor
 
->[AZURE.NOTE] При работе с REST API служб мультимедиа следует руководствоваться следующими рекомендациями.
+>[AZURE.NOTE]При работе с REST API служб мультимедиа следует руководствоваться следующими рекомендациями.
 >
->При доступе к сущностям в службах мультимедиа необходимо задать определенные поля и значения заголовков в HTTP-запросах. Дополнительные сведения см. в разделе [Настройка для разработки REST API служб мультимедиа(media-services-rest-how-to-use.md).
+>При доступе к сущностям в службах мультимедиа необходимо задать определенные поля и значения заголовков в HTTP-запросах. Дополнительную информацию см. в разделе [Настройка для разработки REST API служб мультимедиа](media-services-rest-how-to-use.md).
 
->После успешного подключения к https://media.windows.net вы получите ошибку 301 (перенаправление), в которой будет указан другой URI служб мультимедиа. Последующие вызовы необходимо осуществлять к новому URI, как описано в статье [Подключение к службам мультимедиа с помощью REST API](media-services-rest-connect_programmatically.md). 
+>После успешного подключения к https://media.windows.net вы получите ошибку 301 (перенаправление), в которой будет указан другой универсальный код ресурса (URI) служб мультимедиа. Последующие вызовы необходимо осуществлять к новому универсальному коду ресурса (URI), как описано в статье [Подключение к службам мультимедиа с помощью REST API](media-services-rest-connect_programmatically.md).
 
 
 
-Следующий вызов REST показывает, как получить экземпляр обработчика мультимедиа по имени (в данном случае это **кодировщик службы мультимедиа Azure**). 
+Следующий вызов REST показывает, как получить экземпляр обработчика мультимедиа по имени (в данном случае это **кодировщик службы мультимедиа Azure**).
 
 	
 Запрос:
@@ -119,8 +124,7 @@
 Теперь, когда вы знаете, как получить экземпляр обработчика мультимедиа, перейдите в раздел [Кодировка актива][], в котором будет показано, как использовать кодировщик Azure Media для кодирования актива.
 
 [Кодировка актива]: media-services-rest-encode-asset.md
-[Строки предустановок задачи для обработчика мультимедиа Azure]: http://msdn.microsoft.com/library/jj129582.aspx
-[Практическое руководство. Подключение к службам мультимедиа программными средствами]: ../media-services-rest-connect_programmatically/
+[Task Preset Strings for the Azure Media Encoder]: http://msdn.microsoft.com/library/jj129582.aspx
+[How to: Connect to Media Services Programmatically]: ../media-services-rest-connect_programmatically/
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO2-->

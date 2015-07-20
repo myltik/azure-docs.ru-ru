@@ -40,7 +40,7 @@
 
 ## Принцип работы
 
-Этот пример содержит топологию Storm C\#, которая случайным образом создает предложение, разбивает его на слова, подсчитывает их и отправляет результат в API REST Power BI. Для взаимодействия с Power BI используется пакет NuGet [PowerBi.Api.Client](https://github.com/Vtek/PowerBI.Api.Client).
+Этот пример содержит топологию Storm C#, которая случайным образом создает предложение, разбивает его на слова, подсчитывает их и отправляет результат в API REST Power BI. Для взаимодействия с Power BI используется пакет NuGet [PowerBi.Api.Client](https://github.com/Vtek/PowerBI.Api.Client).
 
 Следующие файлы в этом проекте реализуют функции, относящиеся к Power BI:
 
@@ -54,15 +54,15 @@
 
 ## Регистрация приложения Power BI
 
-1. Следуйте указаниям в [кратком руководстве по Power BI](https://msdn.microsoft.com/ru-ru/library/dn931989.aspx) для регистрации в Power BI.
+1. Следуйте указаниям в [кратком руководстве по Power BI](https://msdn.microsoft.com/en-US/library/dn931989.aspx) для регистрации в Power BI.
 
-2. Создайте регистрацию приложения, выполнив инструкции в статье [Регистрация приложения](https://msdn.microsoft.com/ru-ru/library/dn877542.aspx). Она будет использоваться при доступе к API REST Power BI.
+2. Создайте регистрацию приложения, выполнив инструкции в статье [Регистрация приложения](https://msdn.microsoft.com/en-US/library/dn877542.aspx). Она будет использоваться при доступе к API REST Power BI.
 
     > [AZURE.IMPORTANT]Сохраните **идентификатор клиента** для регистрации приложения.
 
 ## Скачивание примера
 
-Скачайте [пример Power BI с HDInsight C#Storm](https://github.com/Blackmist/hdinsight-csharp-storm-powerbi). Для этого скопируйте или клонируйте его с помощью [git](http://git-scm.com/) либо используйте ссылку **Скачать**, чтобы скачать ZIP-файл архива.
+Скачайте [пример Power BI с HDInsight C# Storm](https://github.com/Blackmist/hdinsight-csharp-storm-powerbi). Для этого скопируйте или клонируйте его с помощью [git](http://git-scm.com/) либо используйте ссылку **Скачать**, чтобы скачать ZIP-файл архива.
 
 ## Настройка примера
 
@@ -139,4 +139,4 @@
 * [Примеры топологий для Storm в HDInsight](hdinsight-storm-example-topology.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

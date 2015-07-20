@@ -4,4 +4,4 @@
 
 `Microsoft.WindowsAzure.Storage.dll` также включена в состав пакета Azure SDK для .NET, который можно скачать из <a href="http://azure.microsoft.com/develop/net/#">Центра разработчиков .NET</a>. Эта сборка устанавливается в каталог `%Program Files%\Microsoft SDKs\Azure.NET SDK<sdk-version>\ref`.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

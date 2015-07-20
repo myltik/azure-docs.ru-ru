@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/07/2015" 
+	ms.date="06/25/2015" 
 	ms.author="josephd"/>
 
 # Сброс пароля или службы удаленных рабочих столов для виртуальных машин Windows
 
 Если вы не можете подключиться к виртуальной машине Windows, так как забыли пароль или у вас возникла проблема с конфигурацией службы удаленных рабочих столов, воспользуйтесь порталом предварительной версии Azure или расширением VMAccess, чтобы сбросить пароль локального администратора или конфигурацию службы удаленных рабочих столов.
+
+> [AZURE.NOTE]Эта статья не касается виртуальных машин на основе диспетчера ресурсов Azure.
 
 ## Портал предварительной версии Azure
 
@@ -88,7 +90,7 @@
 
 	Эта команда включает встроенную группу брандмауэра Windows, которая разрешает входящий трафик удаленного рабочего стола через TCP-порт 3389.
 
-- **Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' -name "fDenyTSConnections" -Value 0**
+- **Set-ItemProperty -Path 'HKLM:\\System\\CurrentControlSet\\Control\\Terminal Server' -name "fDenyTSConnections" -Value 0**
 
 	Эта команда задает значение реестра fDenyTSConnections равным 0, включая подключения удаленного рабочего стола.
 
@@ -108,4 +110,6 @@
 
 [Подключение к виртуальной машине Azure с помощью RDP или SSH](http://msdn.microsoft.com/library/azure/dn535788.aspx)
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=July15_HO2-->

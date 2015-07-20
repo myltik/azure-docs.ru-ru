@@ -427,4 +427,4 @@ Spark SQL позволяет использовать Spark для выполн�
 [powershell-install-configure]: ../install-configure-powershell.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

@@ -3,7 +3,7 @@
 	description="Узнайте, как создавать ключи содержимого, которые обеспечивают безопасный доступ к ресурсам." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,27 +13,27 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/15/2015" 
+	ms.date="04/15/2015" 
 	ms.author="juliako"/>
 
 
 #Создание ContentKey с использованием .NET
 
-Это одна из статей серии [Рабочий процесс для видео по запросу в службах мультимедиа](media-services-video-on-demand-workflow.md) и серии [Рабочий процесс для потоковой трансляции в службах мультимедиа](media-services-live-streaming-workflow.md).  
+Это одна из статей циклов [Рабочий процесс для видео по запросу в службах мультимедиа](media-services-video-on-demand-workflow.md) и [Рабочий процесс для потоковой передачи в службах мультимедиа](media-services-live-streaming-workflow.md).
 
-Службы мультимедиа позволяют создавать новые ресурсы и доставлять зашифрованные ресурсы. **ContentKey** обеспечивает безопасный доступ к вашим **ресурсам**. 
+Службы мультимедиа позволяют создавать и доставлять зашифрованные ресурсы. **ContentKey** обеспечивает безопасный доступ к вашим **ресурсам**.
 
-При создании нового ресурса (например, перед [передачей файлов](media-services-dotnet-upload-files.md)) можно указать следующие параметры шифрования: **StorageEncrypted**, **CommonEncryptionProtected** или **EnvelopeEncryptionProtected**. 
+При создании нового актива (например, перед [передачей файлов](media-services-dotnet-upload-files.md)) можно указать следующие параметры шифрования: **StorageEncrypted**, **CommonEncryptionProtected** или **EnvelopeEncryptionProtected**.
 
-При доставке ресурсов клиентам можно [настроить выполнение динамического шифрования ресурсов](media-services-dotnet-configure-asset-delivery-policy.md). Вы можете использовать один из двух следующих типов шифрования: **DynamicEnvelopeEncryption** или **DynamicCommonEncryption**.
+При доставке активов клиентам можно [настроить выполнение динамического шифрования ресурсов](media-services-dotnet-configure-asset-delivery-policy.md). Вы можете использовать один из двух следующих типов шифрования: **DynamicEnvelopeEncryption** или **DynamicCommonEncryption**.
 
 Зашифрованные ресурсы должны быть связаны с сущностями **ContentKey**. В этой статье описано, как создать ключ содержимого.
 
->[AZURE.NOTE] При создании нового ресурса **StorageEncrypted** с помощью пакета SDK служб мультимедиа для .NET **ключ содержимого** создается и связывается с ресурсом автоматически.
+>[AZURE.NOTE]Когда создается ресурс **StorageEncrypted** с помощью пакета SDK служб мультимедиа для .NET, ключ содержимого (**ContentKey**) создается и связывается с ресурсом автоматически.
 
 ##ContentKeyType
 
-Одно из значений, которые необходимо задать при создания ключа содержимого - тип ключа содержимого. Выберите одно из следующих значений. 
+Одно из значений, которые необходимо задать при создания ключа содержимого — тип ключа содержимого. Выберите одно из следующих значений.
 
     /// <summary>
     /// Specifies the type of a content key.
@@ -55,16 +55,6 @@
         /// Specifies a content key for encrypting encoding configuration data that may contain sensitive preset information. 
         /// </summary>
         ConfigurationEncryption = 2,
-
-        /// <summary>
-        /// Specifies a content key for url encryption.  Only used internally.
-        /// </summary>
-        UrlEncryption = 3,
-
-        /// <summary>
-        /// Specifies a content key for Envelope encryption.  Only used internally.
-        /// </summary>
-        EnvelopeEncryption = 4
     }
 
 ##<a id="envelope_contentkey"></a>Создание конвертного типа ContentKey
@@ -99,7 +89,7 @@
         return randomBytes;
     }
 
-call
+вызывает
 
 	IContentKey key = CreateEnvelopeTypeContentKey(encryptedsset);
 
@@ -139,9 +129,8 @@ call
 
         return returnValue;
     }
-call
+вызывает
 
-	IContentKey key = CreateCommonTypeContentKey(encryptedsset);
+	IContentKey key = CreateCommonTypeContentKey(encryptedsset); 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO2-->

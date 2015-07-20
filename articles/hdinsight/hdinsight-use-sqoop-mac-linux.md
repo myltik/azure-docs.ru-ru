@@ -75,10 +75,6 @@
 
     Например, `azure sql server create admin password "West US"`.
 
-    > [AZURE.NOTE]Если появится ошибка от отсутствии доступа, необходимо добавить IP-адрес рабочей станции клиента для брандмауэра базы данных SQL с помощью следующей команды:
-    >
-    > `sql firewallrule create [options] <serverName> <ruleName> <startIPAddress> <endIPAddress>`
-
     По завершении работы команды появится ответ, аналогичный приведенному ниже:
 
         info:    Executing command sql server create
@@ -94,6 +90,9 @@
 
     После ее завершения появится сообщение «ОК».
 
+	> [AZURE.NOTE]Если появится ошибка от отсутствии доступа, необходимо добавить IP-адрес рабочей станции клиента для брандмауэра базы данных SQL с помощью следующей команды:
+	>
+	> `sql firewallrule create [options] <serverName> <ruleName> <startIPAddress> <endIPAddress>`
 
 ##Создание таблицы
 
@@ -264,6 +263,5 @@ Sqoop можно также использовать для импорта и э
 [powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

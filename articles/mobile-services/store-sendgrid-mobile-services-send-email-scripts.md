@@ -134,5 +134,6 @@ SendGrid — это [облачная служба электронной поч
 [облачная служба электронной почты]: https://sendgrid.com/email-solutions
 [доставки электронной почты]: https://sendgrid.com/transactional-email
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -251,4 +251,4 @@ Script Action можно развернуть с помощью пакета SDK
 [1]: https://msdn.microsoft.com/library/96xafkes(v=vs.110).aspx
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

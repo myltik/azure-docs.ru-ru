@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/03/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 #Выполнение запросов Hive с помощью PowerShell
@@ -22,7 +22,7 @@
 
 В этом документе приведен пример использования Azure PowerShell для выполнения запросов Hive в Hadoop на кластере HDInsight.
 
-> [AZURE.NOTE]В этом документе не приводится подробное описание процессов, которые выполняют инструкции HiveQL, используемые в примерах. Информацию об операторах HiveQL, используемых в данном примере, см. в статье <a href="hdinsight-use-hive.md" target="_blank">Использование Hive с Hadoop в HDInsight</a>.
+> [AZURE.NOTE]В этом документе не приводится подробное описание процессов, которые выполняют инструкции HiveQL, используемые в примерах. Информацию об операторах HiveQL, используемых в данном примере, см. в статье [Использование Hive с Hadoop в HDInsight](hdinsight-use-hive.md).
 
 
 ##<a id="prereq"></a>Предварительные требования
@@ -34,7 +34,7 @@
 
 ##<a id="powershell">Выполнение запросов Hive с помощью Azure PowerShell</a>
 
-Azure PowerShell предоставляет *командлеты*, позволяющие удаленно запускать запросы Hive в HDInsight. Внутренне это достигается с помощью выполнения вызовов REST для <a href="https://cwiki.apache.org/confluence/display/Hive/WebHCat" target="_blank">WebHCat</a> (ранее называвшегося Templeton), запущенного в кластере HDInsight.
+Azure PowerShell предоставляет *командлеты*, позволяющие удаленно запускать запросы Hive в HDInsight. Внутренне это достигается с помощью выполнения вызовов REST для [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (прежнее название — Templeton) на кластере HDInsight.
 
 При выполнении запросов Hive на удаленном кластере HDInsight используются следующие командлеты:
 
@@ -142,6 +142,5 @@ Azure PowerShell предоставляет *командлеты*, позвол
 * [Использование Pig с Hadoop в HDInsight](hdinsight-use-pig.md)
 
 * [Использование MapReduce с Hadoop в HDInsight](hdinsight-use-mapreduce.md)
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

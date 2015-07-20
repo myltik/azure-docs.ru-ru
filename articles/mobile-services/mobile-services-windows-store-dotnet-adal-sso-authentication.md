@@ -216,4 +216,5 @@
 [Приступая к работе с данными]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md
 [Приступая к работе с мобильными службами]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [панель мониторинга Центра разработки для Windows]: http://go.microsoft.com/fwlink/p/?LinkID=266734
-<!--HONumber=54--> 
+
+<!---HONumber=July15_HO2-->

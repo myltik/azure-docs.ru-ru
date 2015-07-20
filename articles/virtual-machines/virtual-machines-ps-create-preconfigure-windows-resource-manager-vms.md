@@ -338,4 +338,4 @@
 [Установка и настройка Azure PowerShell](../install-configure-powershell.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

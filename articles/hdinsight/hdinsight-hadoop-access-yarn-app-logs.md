@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Программный доступ к журналам приложений YARN в HDInsight | Azure" 
-	description="Осуществляйте программный доступ к журналам приложений HDInsight." 
+	pageTitle="Программный доступ к журналам приложений Hadoop YARN в HDInsight | Microsoft Azure" 
+	description="Программный доступ к журналам приложений в кластере Hadoop в HDInsight." 
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="bradsev" 
@@ -16,7 +16,7 @@
 	ms.date="03/31/2015" 
 	ms.author="bradsev"/>
 
-# Программный доступ к журналам приложений YARN в HDInsight
+# Программный доступ к журналам приложений YARN в Hadoop в HDInsight
 
 В этом разделе объясняется, как программно перечислить приложения YARN (Yet Another Resource Negotiator), которые завершены в кластере Hadoop в Azure HDInsight, и как получить программный доступ к журналам приложений без необходимости подключения к кластерам по протоколу удаленного рабочего стола (RDP). В частности, добавлены новый компонент и новый интерфейс API.
 
@@ -163,10 +163,14 @@ YARN поддерживает несколько моделей программ
 	{
 	    appHistoryClient.DownloadApplicationLogs(container, downloadLocation);
 	}
+
+
+
 [YARN-timeline-server]: http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html
 [log-aggregation]: http://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/
 [T-file]: https://issues.apache.org/jira/secure/attachment/12396286/TFile%20Specification%2020081217.pdf
 [binary-format]: https://issues.apache.org/jira/browse/HADOOP-3315
 [YARN-concepts]: http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

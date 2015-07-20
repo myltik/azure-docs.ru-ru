@@ -76,4 +76,4 @@
 [процесс подготовки SendGrid к работе]: https://support.sendgrid.com/hc/articles/200181628-Why-is-my-account-being-provisioned-
 [всем интерфейсам API]: https://sendgrid.com/docs/API_Reference/index.html
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO2-->

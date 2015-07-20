@@ -107,4 +107,4 @@
 [Linux и вычисления с открытым кодом в Azure](virtual-machines-linux-opensource.md)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

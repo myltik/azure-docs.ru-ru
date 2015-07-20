@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/20/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 #Использование SSH с Hadoop в HDInsight под управлением Linux в Windows (предварительная версия)
@@ -28,7 +28,7 @@
 
 ##Предварительные требования
 
-* **PuTTY** и **PuTTYGen** для клиентов Windows. Эти служебные программы доступны по адресу <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html</a>.
+* **PuTTY** и **PuTTYGen** для клиентов Windows. Эти служебные программы доступны по адресу [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 * Современный веб-браузер, который поддерживает HTML5.
 
@@ -78,7 +78,7 @@ SSH — это служебная программа для входа в сис
 
 * **с помощью интерфейса командной строки Azure для Mac, Linux и Windows** — для создания кластера используются команды командной строки.
 
-Для каждого из этих способов потребуется открытый ключ. Полную информацию о создании кластера HDInsight под управлением Linux см. в статье <a href="./hdinsight-hadoop-provision-linux-clusters/" target="_blank">Подготовка кластеров HDInsight под управлением Linux</a>.
+Для каждого из этих способов потребуется открытый ключ. Полную информацию о создании кластера HDInsight под управлением Linux см. в статье [Подготовка кластеров HDInsight под управлением Linux](hdinsight-hadoop-provision-linux-clusters.md).
 
 ###Портал Azure
 
@@ -92,7 +92,7 @@ SSH — это служебная программа для входа в сис
 
 Вы можете использовать [интерфейс командной строки Azure для Mac, Linux и Windows](../xplat-cli.md) для создания нового кластера с помощью команды `azure hdinsight cluster create`.
 
-Дополнительную информацию об использовании этой команды см. в статье <a href="../hdinsight-hadoop-provision-linux-clusters/" target="_blank">Подготовка кластеров Hadoop под управлением Linux в HDInsight с помощью настраиваемых параметров</a>.
+Дополнительную информацию об использовании этой команды см. в статье [Подготовка кластеров Hadoop под управлением Linux в HDInsight с помощью настраиваемых параметров](hdinsight-hadoop-provision-linux-clusters.md).
 
 ##Подключение к кластеру HDInsight на основе Linux
 
@@ -124,7 +124,7 @@ SSH — это служебная программа для входа в сис
 
 Если вы указали ключ SSH при создании учетной записи пользователя, необходимо выполнить следующие шаги, чтобы использовать закрытый ключ при аутентификации в кластере для подключения к рабочим узлам.
 
-1. Pageant можно установить по адресу <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html</a>. Эта служебная программа используется для кэширования ключей SSH для PuTTY.
+1. Загрузите файл установки Pageant с этой страницы: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). Эта служебная программа используется для кэширования ключей SSH для PuTTY.
 
 2. Запустите агент Pageant. Он будет свернут в значок в области состояния. Щелкните его правой кнопкой мыши и выберите **Добавить ключ**.
 
@@ -224,11 +224,11 @@ SSH может также использоваться для туннелиро
 
 	> [AZURE.NOTE]Если выбрать параметр **Удаленная служба DNS**, то запросы DNS будут разрешаться с использованием кластера HDInsight. Если этот параметр не выбран, запросы DNS будут разрешаться локально.
 
-	Вы можете убедиться, что трафик направляется через туннель, посетив сайт, например <a href="http://www.whatismyip.com/" target="_blank">http://www.whatismyip.com/</a>, при включенных и выключенных параметрах прокси в Firefox. Если они включены, IP-адрес будет относиться к компьютеру в центре обработки данных Microsoft Azure.
+	Вы можете убедиться, что трафик направляется через туннель, посетив сайт [http://www.whatismyip.com/](http://www.whatismyip.com/), при включенных и выключенных параметрах прокси в Firefox. Если они включены, IP-адрес будет относиться к компьютеру в центре обработки данных Microsoft Azure.
 
 ###Расширения браузера
 
-Обычно при настройке браузера для использования туннеля вы не хотите направлять через туннель весь трафик. Расширения браузера, такие как <a href="http://getfoxyproxy.org/" target="_blank">FoxyProxy</a>, поддерживают сопоставление шаблонов для запросов URL-адресов (только FoxyProxy Standard или Plus), что позволяет отправлять через туннель только запросы определенных URL-адресов.
+Обычно при настройке браузера для использования туннеля вы не хотите направлять через туннель весь трафик. Расширения браузера, такие как [FoxyProxy](http://getfoxyproxy.org/), поддерживают сопоставление шаблонов для запросов URL-адресов (только FoxyProxy Standard или Plus), что позволяет отправлять через туннель только запросы определенных URL-адресов.
 
 Если вы установили FoxyProxy Standard, выполните следующие действия, чтобы настроить его для перенаправления через туннель только трафика для HDInsight.
 
@@ -277,6 +277,5 @@ SSH может также использоваться для туннелиро
 * [Использование Pig с HDInsight](hdinsight-use-pig.md)
 
 * [Использование заданий MapReduce с HDInsight](hdinsight-use-mapreduce.md)
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

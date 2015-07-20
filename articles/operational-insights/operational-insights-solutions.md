@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA"
 	ms.devlang="NA"
 	ms.topic="article"
-	ms.date="05/20/2015"
+	ms.date="07/02/2015"
 	ms.author="alfran"/>
 
 # Решения в Operational Insights
@@ -128,6 +128,5 @@
 - метод включения автоматических обновлений;
 - число дней с момента последнего обновления;
 - версия агента обновления Windows.
- 
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

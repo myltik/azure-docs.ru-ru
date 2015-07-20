@@ -1,26 +1,26 @@
-<properties 
-	pageTitle="Создание группы доступности с использованием шаблонов диспетчера ресурсов Azure" 
-	description="Описывает, как использовать шаблон группы доступности, и содержит синтаксис шаблона" 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="KBDAzure" 
-	manager="timlt" 
+<properties
+	pageTitle="Создание группы доступности с использованием шаблонов диспетчера ресурсов Azure"
+	description="Описывает, как использовать шаблон группы доступности, и содержит синтаксис шаблона"
+	services="virtual-machines"
+	documentationCenter=""
+	authors="KBDAzure"
+	manager="timlt"
 	editor=""/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/04/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/04/2015"
 	ms.author="kathydav"/>
 
 # Создание группы доступности с использованием шаблонов диспетчера ресурсов Azure
 
 Вы можете легко создать группу доступности для виртуальной машины с помощью Azure PowerShell или командной строки Azure и шаблона диспетчера ресурсов. Этот шаблон позволяет создать группу доступности.
- 
-Перед началом работы убедитесь, что Azure PowerShell и интерфейс командной строки Azure настроены и готовы к работе.
+
+Перед началом работы убедитесь, что Azure PowerShell и Azure CLI настроены и готовы к работе.
 
 [AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
 
@@ -33,7 +33,7 @@
 
 ### Шаг 1. Скачивание JSON-файла
 
-Назначьте локальную папку в качестве расположения для файлов шаблонов JSON и создайте ее (например, с путем C:\Azure\Templates\availability).
+Назначьте локальную папку в качестве расположения для файлов шаблонов JSON и создайте ее (например, с путем C:\\Azure\\Templates\\availability).
 
 Замените имя папки, а затем скопируйте его и выполните следующие команды.
 
@@ -41,14 +41,14 @@
 	$webclient = New-Object System.Net.WebClient
 	$url = "https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-2-FDs-no-resource-loops/azuredeploy.json"
 	$filePath = $folderName + "\azuredeploy.json"
-	$webclient.DownloadFile($url,$filePath) 
+	$webclient.DownloadFile($url,$filePath)
 
 ### Шаг 2. Сбор сведений для обязательных параметров
 
-При использовании шаблона вам потребуется указать некоторые сведения, например расположение, имя набора и т. д. Чтобы узнать, какие параметры являются обязательными для шаблона, выполните одно из указанных ниже действий.
+При использовании шаблона вам потребуется указать некоторые сведения, например расположение и имя набора. Чтобы узнать, какие параметры являются обязательными для шаблона, выполните одно из указанных ниже действий.
 
 - Просмотрите список параметров [здесь](http://azure.microsoft.com/documentation/templates/201-2-vms-2-FDs-no-resource-loops/).
-- Откройте JSON-файл в каком-нибудь средстве или текстовом редакторе по вашему усмотрению. В верхней части файла найдите раздел parameters. Он содержит список параметров, необходимых шаблону для настройки виртуальной машины. 
+- Откройте JSON-файл в каком-нибудь средстве или текстовом редакторе по вашему усмотрению. В верхней части файла найдите раздел parameters. Он содержит список параметров, необходимых шаблону для настройки виртуальной машины.
 
 Соберите сведения, которые необходимо ввести. При выполнении команды развертывания шаблона вам будет предложено ввести эти сведения.
 
@@ -63,7 +63,7 @@
 	$deployName="<deployment name>"
 	$RGName="<resource group name>"
 	$locName="<Azure location, such as West US>"
-	$folderName="<folder name, such as C:\Azure\Templates\availability>" 
+	$folderName="<folder name, such as C:\Azure\Templates\availability>"
 	$templateFile= $folderName + "\azuredeploy.json"
 	New-AzureResourceGroup –Name $RGName –Location $locName
 	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateFile $templateFile
@@ -103,10 +103,4 @@
 
 	azure group deployment create <my-resource-group> <my-deployment-name> --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-2-FDs-no-resource-loops/azuredeploy.json
 
-
-
-
-
- 
-
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

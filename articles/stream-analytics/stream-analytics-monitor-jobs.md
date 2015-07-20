@@ -176,5 +176,6 @@
 - [Масштабирование заданий в службе Azure Stream Analytics](stream-analytics-scale-jobs.md)
 - [Справочник по языку запросов Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

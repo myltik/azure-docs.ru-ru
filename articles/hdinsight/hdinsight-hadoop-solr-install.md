@@ -122,7 +122,7 @@ Solr можно установить в кластере Hadoop в Azure HDInsig
 			          "electronics and computer1"
 			        ],
 			        "features": [
-			          "30\" TFT active matrix LCD, 2560 x 1600, .25mm dot pitch, 700:1 contrast"
+			          "30" TFT active matrix LCD, 2560 x 1600, .25mm dot pitch, 700:1 contrast"
 			        ],
 			        "includes": "USB cable",
 			        "weight": 401.6,
@@ -365,4 +365,4 @@ Solr можно установить в кластере Hadoop в Azure HDInsig
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

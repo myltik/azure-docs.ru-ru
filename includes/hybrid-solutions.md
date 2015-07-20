@@ -101,4 +101,4 @@ Service Bus — это мультитенантная облачная служ�
 [relay]: ./media/hybrid-solutions/SvcBus_04_relay.png
 [Обзор концентраторов событий]: https://msdn.microsoft.com/library/azure/dn836025.aspx
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

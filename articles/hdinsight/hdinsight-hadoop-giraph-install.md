@@ -353,4 +353,4 @@ Giraph можно установить в любой тип кластера Had
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

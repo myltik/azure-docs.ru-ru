@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/28/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 #Развертывание топологий Apache Storm в HDInsight и управление ими
@@ -114,7 +114,7 @@
 
 ##Средства HDInsight для Visual Studio
 
-Средства HDInsight можно использовать для отправки топологии C#или гибридной топологии в кластер Storm. Далее используется пример приложения. Информацию о создании собственных топологий, с помощью средств HDInsight см. в разделе [Разработка топологий на C#с помощью средств HDInsight для Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
+Средства HDInsight можно использовать для отправки топологии C# или гибридной топологии в кластер Storm. Далее используется пример приложения. Информацию о создании собственных топологий, с помощью средств HDInsight см. в разделе [Разработка топологий на C# с помощью средств HDInsight для Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
 Чтобы развернуть пример в Storm в кластере HDInsight, а затем просмотреть топологию и управлять ею, сделайте следующее.
 
@@ -168,7 +168,7 @@
 
 Теперь, когда вы знаете принципы развертывания и мониторинга топологии с помощью панели мониторинга Storm, вы можете ознакомиться с другими сведениями.
 
-* [Развертывание топологий C#с помощью средств HDInsight для Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md)
+* [Развертывание топологий C# с помощью средств HDInsight для Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 
 * [Разработка топологий на платформе Java с помощью Maven](hdinsight-storm-develop-java-topology.md)
 
@@ -177,6 +177,5 @@
 [hdinsight-dashboard]: ./media/hdinsight-storm-deploy-monitor-topology/dashboard-link.png
 [storm-dashboard-submit]: ./media/hdinsight-storm-deploy-monitor-topology/submit.png
 [storm-dashboard-ui]: ./media/hdinsight-storm-deploy-monitor-topology/storm-ui-summary.png
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

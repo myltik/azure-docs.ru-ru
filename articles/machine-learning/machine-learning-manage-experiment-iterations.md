@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Управление итерациями экспериментов в Студии машинного обучения | Azure" 
+	pageTitle="Управление итерациями экспериментов в Студии машинного обучения | Microsoft Azure" 
 	description="Как управлять итерациями экспериментов в Студии машинного обучения Azure" 
 	services="machine-learning" 
 	documentationCenter="" 
@@ -83,5 +83,6 @@
 
 <!-- Module References -->
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

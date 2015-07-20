@@ -385,4 +385,4 @@
 
 [Восстановление из резервного набора данных](../storsimple-restore-from-backupset.md)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

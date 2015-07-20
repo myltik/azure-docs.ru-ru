@@ -276,4 +276,4 @@ Microsoft Azure PowerShell — это среда сценариев, котор
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
 [API .NET для служебной шины]: https://msdn.microsoft.com/library/microsoft.servicebus.aspx
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

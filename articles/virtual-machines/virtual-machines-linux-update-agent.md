@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/23/2015"
+	ms.date="06/16/2015"
 	ms.author="mingzhan"/>
 
 
@@ -32,9 +32,13 @@
      
     #sudo apt-get install waagent
 
-Для CentOS и Oracle Linux введите:
+Для CentOS введите:
 
     #sudo yum install waagent
+
+Для Oracle Linux убедитесь, что дополнительный репозиторий включен в файле `/etc/yum.repo.d/public-yum-ol6.repo` или `/etc/yum.repo.d/public-yum-ol7.repo`, а затем введите:
+
+    #sudo yum install WALinuxAgent
 
 Обычно это все, что требуется. Но если по какой-либо причине необходимо установить его из https://github.com напрямую, выполните следующие действия.
 
@@ -94,6 +98,6 @@
 
 
 
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

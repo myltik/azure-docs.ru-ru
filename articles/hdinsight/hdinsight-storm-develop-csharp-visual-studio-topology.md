@@ -13,36 +13,36 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/28/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
-# Разработка топологий для Apache Storm в HDInsight на C#с помощью средств Hadoop для Visual Studio
+# Разработка топологий для Apache Storm в HDInsight на C# с помощью средств Hadoop для Visual Studio
 
-Информация о создании топологии Storm на C#с помощью средств HDInsight для Visual Studio. В этом учебнике приведены пошаговые инструкции по созданию нового проекта Storm в Visual Studio, его локальному тестированию и развертыванию в Apache Storm в кластере HDInsight.
+Информация о создании топологии Storm на C# с помощью средств HDInsight для Visual Studio. В этом учебнике приведены пошаговые инструкции по созданию нового проекта Storm в Visual Studio, его локальному тестированию и развертыванию в Apache Storm в кластере HDInsight.
 
-Вы также узнаете о том, как создавать гибридные топологии, использующие компоненты C#и Java.
+Вы также узнаете о том, как создавать гибридные топологии, использующие компоненты C# и Java.
 
 ##Предварительные требования
 
 -	Одна из следующих версий Visual Studio
 
-	-	Visual Studio 2012 с <a href="http://www.microsoft.com/download/details.aspx?id=39305" target="_blank">обновлением 4</a>
+	-	Visual Studio 2012 с [обновлением 4](http://www.microsoft.com/download/details.aspx?id=39305)
 
-	-	Visual Studio 2013 с <a href="http://www.microsoft.com/download/details.aspx?id=44921" target="_blank">обновлением 4</a> или <a href="http://go.microsoft.com/fwlink/?LinkId=517284" target="_blank">Visual Studio 2013 Community</a>
+	-	Visual Studio 2013 с [обновлением 4](http://www.microsoft.com/download/details.aspx?id=44921) или [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
 
-	-	<a href="http://visualstudio.com/downloads/visual-studio-2015-ctp-vs" target="_blank">Visual Studio 2015, CTP-версия 6</a>
+	-	[Visual Studio 2015 CTP6](http://visualstudio.com/downloads/visual-studio-2015-ctp-vs)
 
 -	Пакет SDK Azure 2.5.1 или более поздней версии
 
--	Средства HDInsight для Visual Studio. Инструкции по установке и настройке средств HDInsight для Visual Studio см. в статье<a href="../hdinsight-hadoop-visual-studio-tools-get-started/" target="_blank">Начало работы со средствами HDInsight для Visual Studio</a>.
+-	Средства HDInsight для Visual Studio. Инструкции по установке и настройке средств HDInsight для Visual Studio см. в статье [Начало работы со средствами HDInsight для Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
--	Кластер Apache Storm в HDInsight. Инструкции по созданию кластера см. в статье <a href="../hdinsight-storm-getting-started/" target="_blank">Начало работы с Apache Storm в HDInsight</a>
+-	Кластер Apache Storm в HDInsight. Инструкции по созданию кластера см. в статье [Начало работы с Apache Storm в HDInsight](hdinsight-storm-getting-started.md).
 
 	> [AZURE.NOTE]В настоящее время инструменты HDInsight для Visual Studio поддерживают только Storm в кластерах HDInsight версии 3.2.
 
-##Создание топологии на C\#
+##Создание топологии на C#
 
-1.	Если вы еще не установили последнюю версию средств HDInsight для Visual Studio, см. статью <a href="../hdinsight-hadoop-visual-studio-tools-get-started/" target="_blank">Начало работы со средствами HDInsight для Visual Studio</a>.
+1.	Если вы еще не установили последнюю версию средств HDInsight для Visual Studio, см. статью [Начало работы со средствами HDInsight для Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
 2.	Откройте Visual Studio, выберите **Файл** > **Создать**, а затем **Проект**.
 
@@ -58,7 +58,7 @@
 
 	-	**Bolt.cs** — пример сита, которое подсчитывает числа, созданные воронкой.
 
-	В рамках создания проекта с Nuget загружаются актуальные версии <a href="https://www.nuget.org/packages/Microsoft.SCP.Net.SDK/" target="_blank">пакетов SCP.NET</a>.
+	В рамках создания проекта с NuGet загружаются актуальные версии [пакетов SCP.NET](https://www.nuget.org/packages/Microsoft.SCP.Net.SDK/).
 
 В следующих разделах рассказывается о том, как превратить этот проект в базовое приложение WordCount.
 
@@ -340,7 +340,7 @@
     // Add topology config
     topologyBuilder.SetTopologyConfig(new Dictionary<string, string>()
     {
-        {"topology.kryo.register","[\"[B\"]"}
+        {"topology.kryo.register","["[B"]"}
     });
 
     return topologyBuilder;
@@ -390,15 +390,15 @@
 
 ##Гибридная топология
 
-Средства HDInsight для Visual Studio можно также использовать для создания гибридных топологий, в которых одни компоненты написаны на C\#, а другие — на Java.
+Средства HDInsight для Visual Studio можно также использовать для создания гибридных топологий, в которых одни компоненты написаны на C#, а другие — на Java.
 
 Чтобы получить пример гибридной топологии, создайте новый проект и выберите **Storm Hybrid Sample** (Пример гибридного решения Storm). В результате будет создан полностью закомментированный пример, содержащий несколько топологий, которые демонстрируют следующее:
 
--	**Воронка на Java** и **сито на C\#** — определены в **HybridTopology_javaSpout_csharpBolt**
+-	**Воронка на Java** и **сито на C#** — определены в **HybridTopology_javaSpout_csharpBolt**
 
 	-	Транзакционная версия определена в **HybridTopologyTx_javaSpout_csharpBolt**
 
--	**C#spout** и **Java bolt** — определены в **HybridTopology_csharpSpout_javaBolt**
+-	**C# spout** и **Java bolt** — определены в **HybridTopology_csharpSpout_javaBolt**
 
 	-	Транзакционная версия определена в **HybridTopologyTx_csharpSpout_javaBolt**
 
@@ -430,7 +430,7 @@
 
 ###Обновление компонентов SCP.Net
 
-При создании первой топологии Storm на C#будет установлена последняя версия SCP.Net. Тем не менее необходимо вручную выполнить обновление существующих проектов до последней версии.
+При создании первой топологии Storm на C# будет установлена последняя версия SCP.Net. Тем не менее необходимо вручную выполнить обновление существующих проектов до последней версии.
 
 1.	В **обозревателе решений** щелкните правой кнопкой мыши имя проекта и выберите **Управление пакетами NuGet**.
 
@@ -438,13 +438,13 @@
 
 	> [AZURE.IMPORTANT]По завершении установки вы сможете использовать обновленную версию SCP.Net в своей топологии, но могут возникнуть ошибки при развертывании топологии в кластере HDInsight. Это связано с тем, что необходимо также обновить версию, используемую во время развертывания.
 
-3.	После установки перейдите в каталог, который содержит решение, и откройте каталог **пакетов**. Там должен быть подкаталог с именем **Microsoft.SCP.Net.SDK.\#.\#.\#.\#\#\#** где #означает номер версии.
+3.	После установки перейдите в каталог, который содержит решение, и откройте каталог **пакетов**. Там должен быть подкаталог с именем **Microsoft.SCP.Net.SDK.#.#.#.###** где # означает номер версии.
 
-4.	Откройте каталог **Microsoft.SCP.Net.SDK.\#.\#.\#.\#\#\#** и скопируйте ее содержимое.
+4.	Откройте каталог **Microsoft.SCP.Net.SDK.#.#.#.###** и скопируйте ее содержимое.
 
-5.	В каталоге с решением откройте каталог, который содержит проект топологии Storm на C\#, и найдите папку **Microsoft.SCP.Net.SDK**. Она содержит компоненты SCP.Net, которые будут использоваться для упаковки и развертывания приложения в кластере HDInsight.
+5.	В каталоге с решением откройте каталог, который содержит проект топологии Storm на C#, и найдите папку **Microsoft.SCP.Net.SDK**. Она содержит компоненты SCP.Net, которые будут использоваться для упаковки и развертывания приложения в кластере HDInsight.
 
-6.	Удалить имеющееся содержимое каталога **Microsoft.SCP.Net.SDK** и замените его на версию, скопированную из **пакеты/Microsoft.SCP.Net.SDK.\#.\#.\#.\#\#\#**.
+6.	Удалить имеющееся содержимое каталога **Microsoft.SCP.Net.SDK** и замените его на версию, скопированную из **пакеты/Microsoft.SCP.Net.SDK.#.#.#.###**.
 
 На этом этапе проект обновлен для использования версии из NuGet как для локальной разработки, так и развертывания в кластере HDInsight.
 
@@ -452,7 +452,7 @@
 
 Хотя топологию легко развернуть в кластер, иногда ее необходимо проверять локально. Чтобы запустить и протестировать пример топологии, описанной в этой статье, локально в среде разработки, сделайте следующее.
 
-> [AZURE.WARNING]Локальное тестирование работает только для базовых топологий на C\#. Не следует использовать локальное тестирование для гибридных топологий или топологий, использующих несколько потоков, поскольку будут возникать ошибки.
+> [AZURE.WARNING]Локальное тестирование работает только для базовых топологий на C#. Не следует использовать локальное тестирование для гибридных топологий или топологий, использующих несколько потоков, поскольку будут возникать ошибки.
 
 1.	В **обозревателе решений** щелкните правой кнопкой мыши проект и выберите **Свойства**. В свойствах проекта измените **Тип выходных данных** на **Консольное приложение**.
 
@@ -615,9 +615,9 @@ Context.Logger.Info("Component started");
 
 Теперь, когда вы узнали, как разрабатывать и развертывать топологии Storm с помощью средств HDInsight для Visual Studio, вы можете изучить [обработку событий из концентратора событий Azure с помощью Storm в HDInsight](hdinsight-storm-develop-csharp-event-hub-topology.md).
 
-Пример топологии C\#, которая разбивает поток данных на несколько потоков, см. на странице [пример C#Storm](https://github.com/Blackmist/csharp-storm-example).
+Пример топологии C#, которая разбивает поток данных на несколько потоков, см. на странице [пример C# Storm](https://github.com/Blackmist/csharp-storm-example).
 
-Для получения дополнительных сведений о создании топологии C#перейдите по ссылке [SCP.NET GettingStarted.md](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/SCPNet-GettingStarted.md).
+Для получения дополнительных сведений о создании топологии C# перейдите по ссылке [SCP.NET GettingStarted.md](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/SCPNet-GettingStarted.md).
 
 Другие методы работы с HDInsight и дополнительные примеры Storm в HDinsight см. в следующих статьях.
 
@@ -638,6 +638,5 @@ Context.Logger.Info("Component started");
 **Apache HBase в HDInsight**
 
 -	[Начало работы с HBase в HDInsight](../hdinsight-hbase-get-started.md)
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

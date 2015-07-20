@@ -1,6 +1,6 @@
 ## Прием сообщений через EventProcessorHost
 
-[EventProcessorHost] представляет собой класс .NET, который упрощает прием событий от концентраторов событий путем управления постоянными контрольными точками и одновременно принимает сообщения от этих концентраторов событий в параллельном режиме. С помощью класса [EventProcessorHost] можно разделить события между несколькими получателями даже в том случае, если они размещены в разных узлах. В этом примере показано, как использовать [EventProcessorHost] для одного получателя. В [примере обработки масштабируемого события] показано, как использовать [EventProcessorHost] для нескольких получателей.
+[EventProcessorHost] представляет собой класс .NET, который упрощает прием событий от концентраторов событий путем управления постоянными контрольными точками и одновременно принимает сообщения от этих концентраторов событий в параллельном режиме. С помощью класса [EventProcessorHost] можно разделить события между несколькими получателями даже в том случае, если они размещены в разных узлах. В этом примере показано, как использовать [EventProcessorHost] для одного получателя. В примере [обработки масштабируемого события] показано, как использовать [EventProcessorHost] для нескольких получателей.
 
 Для использования класса [EventProcessorHost] необходимо настроить [учетную запись хранения Azure].
 
@@ -8,17 +8,17 @@
 
 2. Выберите **Службы данных**, **Хранилище**, **Быстрое создание**, а затем введите имя для своей учетной записи хранения. Выберите нужный регион и нажмите кнопку **Создать учетную запись хранения**.
 
-  ![][11]
+    ![][11]
 
 3. Выберите созданную учетную запись хранения и нажмите кнопку **Управление ключами доступа**.
 
-  ![][12]
+    ![][12]
 
-	Copy the access key to use later in this tutorial.
+    Скопируйте ключ доступа, чтобы использовать позже в этом учебнике.
 
 4. Создайте в Visual Studio новый проект Visual C# для классических приложений с помощью шаблона проекта **Консольное приложение**. Присвойте проекту имя **Получатель**.
 
-  ![][14]
+    ![][14]
 
 5. В обозревателе решений щелкните правой кнопкой мыши проект и выберите пункт **Управление пакетами NuGet**.
 
@@ -26,9 +26,9 @@
 
 6. Выполните поиск `Microsoft Azure Service Bus Event Hub - EventProcessorHost` и щелкните **Установить**, после чего примите условия использования.
 
-  ![][13]
+    ![][13]
 
-	This downloads, installs, and adds a reference to the <a href="https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost">Azure Service Bus Event Hub - EventProcessorHost NuGet package</a>, with all its dependencies.
+	Будет скачана, установлена и добавлена ссылка на <a href="https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost">пакет концентратора событий служебной шины Azure — EventProcessorHost NuGet</a> со всеми его зависимостями.
 
 7. Щелкните правой кнопкой мыши проект **Получатель**, выберите пункт **Добавить**, а затем **Класс**. Присвойте классу имя **SimpleEventProcessor**, а затем нажмите кнопку **ОК**, чтобы создать класс.
 
@@ -114,6 +114,7 @@
 <!-- Links -->
 [Общие сведения о концентраторах событий]: http://msdn.microsoft.com/library/azure/dn836025.aspx
 [Обработка масштабированного события]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
+[обработки масштабируемого события]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
 [учетную запись хранения Azure]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 [портал управления Azure]: http://manage.windowsazure.com
@@ -129,4 +130,4 @@
 [Async Await in Console Apps]: http://blogs.msdn.com/b/pfxteam/archive/2012/01/20/10259049.aspx
 [AsyncPump.cs]: http://blogs.msdn.com/cfs-file.ashx/__key/communityserver-components-postattachments/00-10-25-90-49/AsyncPump_2E00_cs
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

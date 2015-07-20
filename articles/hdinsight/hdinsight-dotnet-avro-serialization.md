@@ -19,7 +19,6 @@
 
 # Сериализация данных в Hadoop с помощью библиотеки Microsoft Avro
 
-##Обзор
 В этом разделе показывается, как использовать <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">библиотеку Microsoft Avro</a> для сериализации объектов и других структур данных в потоки, чтобы сохранить их в памяти, базе данных или файле, а также как десериализовать их, чтобы восстановить исходные объекты.
 
 
@@ -1397,9 +1396,14 @@
 Чтобы очистить кластер, выполните следующую команду:
 
     AvroHDISample clean
+
+
+
+
 [deflate-100]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.100).aspx
 [deflate-110]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.110).aspx
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -18,7 +18,7 @@
 
 # Добавление мобильных служб к существующему приложению
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data.md)] 
+[AZURE.INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data.md)]
 
 В этом разделе показано, как использовать мобильные службы Azure для эффективного использования данных в приложении Xamarin.Android. В этом учебнике предстоит загрузить проект для приложения, которое хранит данные в памяти, создать новые услуги мобильной связи, интегрировать мобильную службу с приложением, а затем выполнить вход на портал управления Azure для просмотра изменений, внесенных в данные в ходе выполнения приложения.
 
@@ -34,7 +34,7 @@
 
 > [AZURE.IMPORTANT]Для работы с этим учебником требуется учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A9C9624B5"%20target="_blank).
 
-Для прохождения этого учебника требуется следующее: [компонент мобильных служб Azure], [Xamarin.Android] и пакет Android SDK 4.2 или более поздней версии.
+Для этого учебника требуется [компонент мобильных служб Azure], [Xamarin.Android] и Android SDK 4.2 или более поздней версии.
 
 > [AZURE.NOTE]Загружаемый проект GetStartedWithData требует Android 4.2 или более поздней версии. Однако для пакета SDK для мобильных служб требуется только Android 2.2 или более поздней версии.
 
@@ -281,5 +281,6 @@
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 
 [полный пример проекта]: http://go.microsoft.com/fwlink/p/?LinkId=331302
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -1,29 +1,30 @@
-<properties 
-	pageTitle="Приступая к работе с Azure Mobile Engagement" 
+<properties
+	pageTitle="Приступая к работе с Azure Mobile Engagement"
 	description="Узнайте, как использовать Azure Mobile Engagement с аналитическими функциями и push-уведомлениями для приложений Android."
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="05/01/2015" 
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="Java"
+	ms.topic="get-started-article" 
+	ms.date="05/01/2015"
 	ms.author="piyushjo" />
-	
+
 # Начало работы с Azure Mobile Engagement для приложений Android
 
 > [AZURE.SELECTOR]
 - [Windows Universal](mobile-engagement-windows-store-dotnet-get-started.md)
 - [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md)
-- [iOS - Obj C](mobile-engagement-ios-get-started.md) 
+- [iOS - Obj C](mobile-engagement-ios-get-started.md)
 - [iOS - Swift](mobile-engagement-ios-swift-get-started.md)
 - [Android](mobile-engagement-android-get-started.md)
+- [Cordova](mobile-engagement-cordova-get-started.md)
 
 В этом разделе рассматривается применение Azure Mobile Engagement для получения информации об использовании приложения и отправки push-уведомлений сегментированным пользователям приложения Android. В этом учебнике описывается простой сценарий вещания с использованием Mobile Engagement. В рассматриваемом сценарии создается пустое приложение Android, которое собирает основные данные и получает push-уведомления с помощью службы Google Cloud Messaging (GCM). По завершении вы сможете рассылать push-уведомления на все устройства или взять за цель конкретных пользователей на основе свойств их устройств. Рекомендуем вам изучить следующий учебник, чтобы узнать об использовании Mobile Engagement для охвата определенных пользователей и групп устройств.
 
@@ -45,14 +46,14 @@ You will use your GCM API key later when setting up your app for Mobile Engageme
 
 ##<a id="setup-azme"></a>Настройка Mobile Engagement для вашего приложения
 
-1. Войдите на [портал управления Аzure] и нажмите элемент **+СОЗДАТЬ** в нижней части экрана.
+1. Войдите на [портал управления Аzure](https://manage.windowsazure.com) и нажмите элемент **+СОЗДАТЬ** в нижней части экрана.
 
 2. Щелкните **Службы приложений**, **Mobile Engagement**, а затем — **Создать**.
 
    	![][7]
 
 3. Во всплывающем окне введите следующую информацию:
- 
+
    	![][8]
 
 	1. **Имя приложения**: введите имя своего приложения. Вы можете использовать любые символы.
@@ -66,11 +67,11 @@ You will use your GCM API key later when setting up your app for Mobile Engageme
 	По окончании нажмите кнопку с галочкой, чтобы завершить создание приложения.
 
 4. Теперь щелкните или выберите только что созданное приложение на вкладке **Приложение**.
- 
+
    	![][9]
 
 5. Затем щелкните **Сведения о подключении**, чтобы отобразить параметры подключения, которые следует использовать при интеграции пакета SDK.
- 
+
    	![][10]
 
 6. После этого введите значение в поле **Строка подключения**, которая понадобится для определения этого приложения в коде приложения.
@@ -118,7 +119,7 @@ Android Studio создаст демонстрационное приложен�
 
 1. Скачайте [пакет SDK Android для Mobile Engagement].
 2. Извлеките файл архива в папку на своем компьютере.
-3. Определите библиотеку JAR-файлов для текущей версии этого пакета SDK (данная документация была подготовлена для версии 3.0.0) с скопируйте его в буфер обмена.
+3. Определите библиотеку JAR-файлов для текущей версии этого пакета SDK и скопируйте ее в буфер обмена.
 
 	![][17]
 
@@ -154,34 +155,27 @@ Android Studio создаст демонстрационное приложен�
 ###Добавление разрешений и объявления службы
 
 1. Добавьте эти разрешения в Manifest.xml проекта непосредственно перед тегом `<application>` или после него:
-	
+
 		<uses-permission android:name="android.permission.INTERNET"/>
 		<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 		<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 		<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 		<uses-permission android:name="android.permission.VIBRATE" />
-		<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 		<uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
 
 	Вы должны получить результат, показанный ниже:
 
 	![][21]
 
-2. Добавьте следующий код между тегами < application > и </application >, чтобы объявить службу агента:
+2. Добавьте следующий код между тегами `<application>` и `</application>`, чтобы объявить службу агента:
 
 		<service
  			android:name="com.microsoft.azure.engagement.service.EngagementService"
  			android:exported="false"
- 			android:label="<Your application name>Service"
+ 			android:label="<Your application name>"
  			android:process=":Engagement"/>
 
-3. В только что вставленном коде замените "< Your application name>" в метке. Например:
-
-		<service
- 			android:name="com.microsoft.azure.engagement.service.EngagementService"
- 			android:exported="false"
- 			android:label="MySuperAppService"
- 			android:process=":Engagement"/>
+3. В только что вставленном коде замените `"<Your application name>"` в метке реальным значением. Это название отображается в меню параметров, где отображены службы, выполняющиеся на устройстве пользователя. Вы можете добавить в метку слово, например Service (служба).
 
 ###Отправка экрана в Mobile Engagement
 
@@ -218,7 +212,7 @@ Mobile Engagement позволяет взаимодействовать и св�
 
 ### Включение обмена сообщениями внутри приложения
 
-1. Скопируйте ресурсы обмена сообщениями внутри приложения в Manifest.xml между тегами < application > и </application >.
+1. Скопируйте ресурсы обмена сообщениями внутри приложения в Manifest.xml между тегами `<application>` и `</application>`.
 
 		<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementTextAnnouncementActivity" android:theme="@android:style/Theme.Light">
   			<intent-filter>
@@ -240,6 +234,12 @@ Mobile Engagement позволяет взаимодействовать и св�
 				<category android:name="android.intent.category.DEFAULT" />
 			</intent-filter>
 		</activity>
+		<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementLoadingActivity" android:theme="@android:style/Theme.Dialog">
+			<intent-filter>
+				<action android:name="com.microsoft.azure.engagement.reach.intent.action.LOADING"/>
+				<category android:name="android.intent.category.DEFAULT"/>
+			</intent-filter>
+		</activity>
 		<receiver android:name="com.microsoft.azure.engagement.reach.EngagementReachReceiver" android:exported="false">
 			<intent-filter>
 				<action android:name="android.intent.action.BOOT_COMPLETED"/>
@@ -247,33 +247,49 @@ Mobile Engagement позволяет взаимодействовать и св�
 				<action android:name="com.microsoft.azure.engagement.intent.action.MESSAGE"/>
 				<action android:name="com.microsoft.azure.engagement.reach.intent.action.ACTION_NOTIFICATION"/>
 				<action android:name="com.microsoft.azure.engagement.reach.intent.action.EXIT_NOTIFICATION"/>
-				<action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
 				<action android:name="com.microsoft.azure.engagement.reach.intent.action.DOWNLOAD_TIMEOUT"/>
+			</intent-filter>
+		</receiver>
+		<receiver android:name="com.microsoft.azure.engagement.reach.EngagementReachDownloadReceiver">
+			<intent-filter>
+				<action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
 			</intent-filter>
 		</receiver>
 
 2. Скопируйте ресурсы в проект, выполнив следующие действия.
-	1. Перейдите назад к скачанному содержимому пакета SDK и откройте папку res.
-	2. Выберите две папки и скопируйте их в буфер обмена.
+	1. Вернитесь к содержимому скачанного пакета SDK и скопируйте папку res.
 
 		![][23]
 
-	4. Вернитесь в Android Studio, выберите часть res проекта и вставьте ее, чтобы добавить ресурсы в проект.
+	2. Перейдите к Android Studio, выберите каталог main в папке проекта и вставьте скопированную папку, чтобы добавить ресурсы в проект.
 
 		![][24]
 
-###Задание значка по умолчанию в уведомлениях
-В следующем коде задается значок по умолчанию, который будет отображаться вместе с уведомлениями. Здесь используется значок, который предоставляется вместе с проектом, созданным с помощью Android Studio. Этот фрагмент XML-кода необходимо вставить в Manifest.xml между тегами < application > и </application >. Убедитесь, что в приложении есть ic_launcher или другой файл значка. В противном случае уведомление не будет отображаться.
+###Добавление значка для уведомлений
 
-		<meta-data android:name="engagement:reach:notification:icon" android:value="ic_launcher" />
+Следующий код определяет значок, который будет использоваться как для системных уведомлений, так для и уведомлений из приложения.
+
+Для уведомлений из приложений добавлять значок необязательно, однако он является обязательным для системных уведомлений, так как Android отклоняет системные уведомления с недопустимыми значками.
+
+Этот фрагмент XML-кода необходимо вставить в Manifest.xml между тегами `<application>` и `</application>`.
+
+Убедитесь, что вы используете значок, который находится в одной из **папок с рисунками**, например ``engagement_close.png``. Мы не поддерживаем **папки MIP-карт**.
+	
+		<meta-data android:name="engagement:reach:notification:icon" android:value="engagement_close"/>
+
+В этой статье приведен пример, чтобы продемонстрировать синтаксис. Естественно, вам следует использовать значок, который подходит для уведомлений в соответствии с [рекомендациями по разработке для Android](http://developer.android.com/design/patterns/notifications.html).
+
+Не следует использовать значок запуска, так как он имеет другое разрешение и, как правило, находится в неподдерживаемых папках MIP-карт.
+
+>[AZURE.TIP]Чтобы убедиться, что используется значок с правильным разрешением, ознакомьтесь с [этими примерами](https://www.google.com/design/icons). Прокрутите страницу вниз до раздела *Уведомления*, щелкните значок и выберите команду `PNGS`, чтобы загрузить набор рисунков. Вы увидите, какие папки рисунков с каким разрешением следует использовать для каждой версии значка.
 
 ###Включение приложения для получения push-уведомлений GCM
 
-1. Введите метаданные gcm:отправитель, выполнив копирование и вставку в Manifest.xml между тегами < application > и </application >. Скрытое значение ниже (указанное звездочками) — это `project number`, полученный из консоли Google Play. Перенос строки (\\n) указан преднамеренно, поэтому добавьте его в конец номера проекта. 
+1. Введите метаданные gcm:отправитель, выполнив копирование и вставку в Manifest.xml между тегами `<application>` и `</application>`. Скрытое значение ниже (указанное звездочками) — это `project number`, полученный из консоли Google Play. Перенос строки (\\n) указан преднамеренно, поэтому добавьте его в конец номера проекта.
 
 		<meta-data android:name="engagement:gcm:sender" android:value="************\n" />
 
-2. Вставьте приведенный ниже код в Manifest.xml между тегами < application > и </application >. Обратите внимание, что в `<category android:name="com.mycompany.mysuperapp" />` мы использовали имя пакета проекта. В вашем рабочем проекте оно будет другим.
+2. Вставьте приведенный ниже код в Manifest.xml между тегами `<application>` и `</application>`. Замените имя пакета <Your package name>.
 
 		<receiver android:name="com.microsoft.azure.engagement.gcm.EngagementGCMEnabler"
 		android:exported="false">
@@ -281,20 +297,20 @@ Mobile Engagement позволяет взаимодействовать и св�
 				<action android:name="com.microsoft.azure.engagement.intent.action.APPID_GOT" />
 			</intent-filter>
 		</receiver>
-		
+
 		<receiver android:name="com.microsoft.azure.engagement.gcm.EngagementGCMReceiver" android:permission="com.google.android.c2dm.permission.SEND">
 			<intent-filter>
 				<action android:name="com.google.android.c2dm.intent.REGISTRATION" />
 				<action android:name="com.google.android.c2dm.intent.RECEIVE" />
-				<category android:name="com.mycompany.mysuperapp" />
+				<category android:name="<Your package name>" />
 			</intent-filter>
 		</receiver>
 
-3. Добавьте последний набор разрешений, выделенный ниже, перед тегом < application> или после него. Еще раз отметим, что использовалось это имя пакета проекта, которое вам необходимо заменить в своем рабочем приложении.
+3. Добавьте последний выделенный набор разрешений перед тегом `<application>`. Замените `<Your package name>` на фактическое имя пакета вашего приложения.
 
 		<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-		<uses-permission android:name="com.mycompany.mysuperapp.permission.C2D_MESSAGE" />
-		<permission android:name="com.mycompany.mysuperapp.permission.C2D_MESSAGE" android:protectionLevel="signature" />
+		<uses-permission android:name="<Your package name>.permission.C2D_MESSAGE" />
+		<permission android:name="<Your package name>.permission.C2D_MESSAGE" android:protectionLevel="signature" />
 
 ###Предоставление доступа в ключу API GCM для Mobile Engagement
 
@@ -378,4 +394,4 @@ Mobile Engagement позволяет взаимодействовать и св�
 [38]: ./media/mobile-engagement-android-get-started/campaign-create.png
 [39]: ./media/mobile-engagement-android-get-started/campaign-activate.png
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

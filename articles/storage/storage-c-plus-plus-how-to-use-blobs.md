@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="04/06/2015" 
+	ms.date="05/11/2015" 
     ms.author="tamram"/>
 
 # Использование хранилища BLOB-объектов из C++  
@@ -21,9 +21,9 @@
 [AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
 
 ## Обзор
-В этом руководстве показано, как реализовать типичные сценарии с использованием службы хранилища больших двоичных объектов Azure. Примеры написаны на C++ и используют [клиентскую библиотеку хранилища Azure для C++](https://github.com/Azure/azure-storage-cpp/blob/v0.5.0-preview/README.md). Здесь описаны такие сценарии, как **отправка**, **перечисление**,**загрузка** и **удаление** BLOB-объектов.
+В этом руководстве показано, как реализовать типичные сценарии с использованием службы хранилища больших двоичных объектов Azure. Примеры написаны на C++ и используют [клиентскую библиотеку хранилища Azure для C++](https://github.com/Azure/azure-storage-cpp/blob/v1.0.0/README.md). Здесь описаны такие сценарии, как **отправка**, **перечисление**,**загрузка** и **удаление** BLOB-объектов.
 
->[AZURE.NOTE]Данное руководство предназначено для клиентской библиотеки хранилища Azure для C++ версии 0.5.0 и выше. Рекомендуемая версия — клиентская библиотека хранилища 0.5.0, которая доступна через [NuGet](http://www.nuget.org/packages/wastorage) или [GitHub](https://github.com/).
+>[AZURE.NOTE]Данное руководство предназначено для клиентской библиотеки хранилища Azure для C++ версии 1.0.0 и выше. Рекомендуемая версия — клиентская библиотека хранилища 1.0.0, которая доступна через [NuGet](http://www.nuget.org/packages/wastorage) или [GitHub](https://github.com/Azure/azure-storage-cpp).
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
@@ -38,7 +38,7 @@
 -	**Linux:** следуйте инструкциям, указанным в файле README [клиентской библиотеки хранилища Azure для C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md).  
 -	**Windows:** в Visual Studio нажмите **Инструменты > Диспетчер пакетов NuGet > Консоль диспетчера пакетов**. Введите следующую команду в [консоли диспетчера пакетов NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) и нажмите клавишу **ВВОД**.  
 
-		Install-Package wastorage -Pre
+		Install-Package wastorage
 
 ## Настройка приложения для доступа к хранилищу BLOB-объектов  
 Добавьте следующие инструкции в начало файла C++, где требуется использовать API-интерфейсы Azure для доступа к BLOB-объектам.
@@ -52,7 +52,7 @@
 	// Define the connection-string with your values.
 	const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key"));
 
-Чтобы протестировать приложение на локальном компьютере Windows, можно использовать [эмулятор хранения](https://msdn.microsoft.com/library/azure/hh403989.aspx) Microsoft Azure, установленный с [Azure SDK](http://azure.microsoft.com/downloads/). Эмулятор хранения — это утилита, моделирующая службы больших двоичных объектов, очередей и таблиц, доступных в Azure на локальном компьютере разработки. В следующем примере показано, как объявить статическое поле для размещения строки подключения для эмулятора локального хранилища.
+Чтобы протестировать приложение на локальном компьютере Windows, можно использовать [эмулятор хранения](https://msdn.microsoft.com/library/azure/hh403989.aspx) Microsoft Azure, установленный с [Azure SDK](http://azure.microsoft.com/downloads/). Эмулятор хранения — это программа, моделирующая службы больших двоичных объектов, очередей и таблиц, доступных в Azure на локальном компьютере разработки. В следующем примере показано, как объявить статическое поле для размещения строки подключения для эмулятора локального хранилища.
 
 	// Define the connection-string with Azure Storage Emulator.
 	const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
@@ -73,26 +73,29 @@
 	azure::storage::cloud_blob_client blob_client = storage_account.create_cloud_blob_client();  
 
 ## Практическое руководство. Создание контейнера
-Каждый BLOB-объект в Azure должен располагаться в контейнере. В этом примере показано, как создать контейнер:
+
+[AZURE.INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
+
+В этом примере показано, как создать контейнер:
 
 	try 
 	{
-	// Retrieve storage account from connection string.
-	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
+		// Retrieve storage account from connection string.
+		azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-       // Create the blob client.
-       azure::storage::cloud_blob_client blob_client = storage_account.create_cloud_blob_client();
+		// Create the blob client.
+		azure::storage::cloud_blob_client blob_client = storage_account.create_cloud_blob_client();
 
-       // Retrieve a reference to a container.
-       azure::storage::cloud_blob_container container = blob_client.get_container_reference(U("my-sample-container"));
+		// Retrieve a reference to a container.
+		azure::storage::cloud_blob_container container = blob_client.get_container_reference(U("my-sample-container"));
 
-       // Create the container if it doesn't already exist.
-       container.create_if_not_exists();
+		// Create the container if it doesn't already exist.
+		container.create_if_not_exists();
 	}
 	catch (const std::exception& e)
 	{
-	std::wcout << U("Error: ") << e.what() << std::endl;
-	} 
+		std::wcout << U("Error: ") << e.what() << std::endl;
+	}  
 
 По умолчанию новый контейнер закрытый, и вам необходимо указать ключ доступа к хранилищу, чтобы загрузить BLOB-объекты из этого контейнера. Чтобы сделать файлы (BLOB) в этом контейнере доступными для всех пользователей, сделайте контейнер открытым, используя следующий код.
 
@@ -137,34 +140,30 @@
 Кроме того, можно использовать метод **upload_from_file** для отправки файла в блочный BLOB-объект.
 
 ## Практическое руководство. Перечисление BLOB-объектов в контейнере
-Для перечисления BLOB-объектов в контейнере сначала необходимо получить ссылку на контейнер. Затем можно использовать метод контейнера **list_blobs_segmented** для извлечения BLOB-объектов или находящихся в нем каталогов. Для доступа к широкому набору свойств и методов возвращаемого **blob_result_segment** необходимо вызвать свойство **blob_result_segment.blobs** для получения объекта **cloud_blob** или свойство **blob_result_segment.directories** для получения объекта cloud_blob_directory. В следующем коде показано, как получить и вывести URI каждого элемента в контейнере **my-sample-container**.
+Для перечисления BLOB-объектов в контейнере сначала необходимо получить ссылку на контейнер. Затем вы можете использовать метод контейнера **list_blobs**, чтобы получить большие двоичные объекты или каталоги внутри них. Для доступа к широкому набору свойств и методов возвращаемого объекта **list_blob_item** необходимо вызвать метод **list_blob_item.as_blob**, чтобы получить объект **cloud_blob**, или метод **list_blob.as_directory**, чтобы получить объект cloud_blob_directory. В следующем коде показано, как получить и вывести URI каждого элемента в контейнере **my-sample-container**.
 
 	// Retrieve storage account from connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
-	
+
 	// Create the blob client.
 	azure::storage::cloud_blob_client blob_client = storage_account.create_cloud_blob_client();
-	
+
 	// Retrieve a reference to a previously created container.
 	azure::storage::cloud_blob_container container = blob_client.get_container_reference(U("my-sample-container"));
-	
-	// Retrieve reference to a blob named "my-blob-1".
-	azure::storage::cloud_block_blob blockBlob = container.get_block_blob_reference(U("my-blob-1"));
-	
-	// Create or overwrite the "my-blob-1" blob with contents from a local file.
-	concurrency::streams::istream input_stream = concurrency::streams::file_stream<uint8_t>::open_istream(U("DataFile.txt")).get();
-	blockBlob.upload_from_stream(input_stream);
-	input_stream.close().wait();
-	
-	// Create or overwrite the "my-blob-2" and "my-blob-3" blobs with contents from text.
-	// Retrieve a reference to a blob named "my-blob-2".
-	azure::storage::cloud_block_blob blob2 = container.get_block_blob_reference(U("my-blob-2"));
-	blob2.upload_text(U("more text"));
-	
-	// Retrieve a reference to a blob named "my-blob-3".
-	azure::storage::cloud_block_blob blob3 = container.get_block_blob_reference(U("my-directory/my-sub-directory/my-blob-3"));
-	blob3.upload_text(U("other text")); 
 
+	// Output URI of each item.
+	azure::storage::list_blob_item_iterator end_of_results;
+	for (auto it = container.list_blobs(); it != end_of_results; ++it)
+	{
+		if (it->is_blob())
+		{
+			std::wcout << U("Blob: ") << it->as_blob().uri().primary_uri().to_string() << std::endl;
+		}
+		else
+		{
+			std::wcout << U("Directory: ") << it->as_directory().uri().primary_uri().to_string() << std::endl;
+		}
+	}
 
 ## Практическое руководство. Загрузка BLOB-объектов
 Для загрузки BLOB-объектов сначала нужно получить ссылку на BLOB-объект и затем вызвать метод **download_to_stream**. В следующем примере используется метод **download_to_stream** для переноса содержимого BLOB-объекта в объект потока, который затем можно сохранить в локальном файле.
@@ -239,6 +238,6 @@
 
 
 
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

@@ -1,29 +1,32 @@
-<properties 
-	pageTitle="Разработка программ MapReduce на Java для Hadoop | Microsoft Azure" 
-	description="Познакомьтесь с разработкой программ MapReduce на Java с помощью эмулятора HDInsight, а также с процессом их развертывания на HDInsight." 
-	services="hdinsight" 
-	editor="cgronlun" 
-	manager="paulettm" 
-	authors="nitinme" 
+<properties
+	pageTitle="Разработка программ MapReduce на Java для Hadoop | Microsoft Azure"
+	description="Познакомьтесь с разработкой программ MapReduce на Java с помощью эмулятора HDInsight, а также с процессом их развертывания на HDInsight."
+	services="hdinsight"
+	editor="cgronlun"
+	manager="paulettm"
+	authors="nitinme"
 	documentationCenter=""/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="04/01/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="04/01/2015"
 	ms.author="nitinme"/>
 
 # Разработка программ MapReduce на Java для Hadoop в HDInsight
-В данном учебнике приводится полный цикл разработки задания для Hadoop MapReduce по подсчету количества слов на языке Java с помощью Apache Maven. Здесь же демонстрируется, как тестировать приложения на эмуляторе HDInsight для Azure, а затем развертывать их и запускать на кластере HDInsight Azure.
+
+[AZURE.INCLUDE [pig-selector](../../includes/hdinsight-maven-mapreduce-selector.md)]
+
+В данном учебнике приводится полный цикл разработки задания для Hadoop MapReduce по подсчету количества слов на языке Java с помощью Apache Maven. Здесь же демонстрируется, как тестировать приложения на эмуляторе HDInsight для Azure, а затем развертывать их и запускать в кластере HDInsight под управлением Windows.
 
 ##<a name="prerequisites"></a>Предварительные требования
 
 Перед началом работы с этим учебником необходимо выполнить следующие действия:
 
-- Установка эмулятора HDInsight Инструкции см. в разделе [Приступая к работе с эмулятором HDInsight][hdinsight-emulator]. Убедитесь, что все необходимые службы запущены. На компьютере с установленным эмулятором HDInsight запустите командную строку Hadoop из ярлыка на рабочем столе, перейдите в каталог **C:\\hdp** и выполните команду **start_local_hdp_services.cmd**.	
+- Установка эмулятора HDInsight Инструкции см. в разделе [Приступая к работе с эмулятором HDInsight][hdinsight-emulator]. Убедитесь, что все необходимые службы запущены. На компьютере с установленным эмулятором HDInsight запустите командную строку Hadoop из ярлыка на рабочем столе, перейдите в каталог **C:\\hdp** и выполните команду **start_local_hdp_services.cmd**.
 - Установите среду Azure PowerShell на компьютере с эмулятором. Инструкции см. в разделе [Установка и настройка Azure PowerShell][powershell-install-configure].
 - Установите пакет JDK 7 или выше для платформы Java на компьютере с эмулятором. Он уже есть на этом компьютере.
 - Установите и настройте [Apache Maven](http://maven.apache.org/).
@@ -41,8 +44,7 @@
 
 **Создание проекта с помощью Maven**
 
-1. Создайте каталог **C:\\Tutorials\\WordCountJava**.
-2. В командной строке в вашей среде разработки перейдите во вновь созданный каталог.
+1. Создайте каталог **C:\\Tutorials\\WordCountJava**.2. В командной строке в вашей среде разработки перейдите во вновь созданный каталог.
 3. Используйте команду __mvn__, которая будет установлена вместе с Maven, для создания шаблона проекта.
 
 		mvn archetype:generate -DgroupId=org.apache.hadoop.examples -DartifactId=wordcountjava -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -68,10 +70,10 @@
       	  <artifactId>hadoop-mapreduce-client-common</artifactId>
       	  <version>2.5.1</version>
     	</dependency>
-    	<dependency>                                                                                     
-      	  <groupId>org.apache.hadoop</groupId>                                                                                                       
-      	  <artifactId>hadoop-common</artifactId>                                                                                                         
-      	  <version>2.5.1</version>                                                                                            
+    	<dependency>
+      	  <groupId>org.apache.hadoop</groupId>
+      	  <artifactId>hadoop-common</artifactId>
+      	  <version>2.5.1</version>
     	</dependency>
 
 	Это указывает Maven, что для проекта требуются библиотеки (перечисленные в параметре <artifactId>) определенной версии (указанной в параметре <version>). При компиляции он будет загружено из репозитория Maven по умолчанию. Можно воспользоваться [поиском по репозиторию Maven](http://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar), чтобы получить дополнительную информацию.
@@ -98,7 +100,7 @@
           			</goals>
         	    </execution>
       		  </executions>
-      	    </plugin>       
+      	    </plugin>
   		  </plugins>
 	    </build>
 
@@ -115,7 +117,7 @@
 2. Скопируйте следующую программу и вставьте ее в Блокнот.
 
 		package org.apache.hadoop.examples;
-		
+
 		import java.io.IOException;
 		import java.util.StringTokenizer;
 		import org.apache.hadoop.conf.Configuration;
@@ -130,13 +132,13 @@
 		import org.apache.hadoop.util.GenericOptionsParser;
 
 		public class WordCount {
-		
-		  public static class TokenizerMapper 
+
+		  public static class TokenizerMapper
 		       extends Mapper<Object, Text, Text, IntWritable>{
-		    
+
 		    private final static IntWritable one = new IntWritable(1);
 		    private Text word = new Text();
-		      
+
 		    public void map(Object key, Text value, Context context
 		                    ) throws IOException, InterruptedException {
 		      StringTokenizer itr = new StringTokenizer(value.toString());
@@ -146,12 +148,12 @@
 		      }
 		    }
 		  }
-		  
-		  public static class IntSumReducer 
+
+		  public static class IntSumReducer
 		       extends Reducer<Text,IntWritable,Text,IntWritable> {
 		    private IntWritable result = new IntWritable();
-		
-		    public void reduce(Text key, Iterable<IntWritable> values, 
+
+		    public void reduce(Text key, Iterable<IntWritable> values,
 		                       Context context
 		                       ) throws IOException, InterruptedException {
 		      int sum = 0;
@@ -162,7 +164,7 @@
 		      context.write(key, result);
 		    }
 		  }
-		
+
 		  public static void main(String[] args) throws Exception {
 		    Configuration conf = new Configuration();
 		    String[] otherArgs = new GenericOptionsParser(conf, args).getRemainingArgs();
@@ -184,7 +186,7 @@
 		}
 
 	Обратите внимание, что пакет имеет имя **org.apache.hadoop.examples**, а класс — имя **WordCount**. Эти имена будут использоваться при отправке задания MapReduce.
-	
+
 3. Сохраните файл.
 
 **Сборка и создание пакета приложения**
@@ -256,7 +258,7 @@
 
 Для успешного выполнения задания MapReduce в кластере необходимо создать группу пользователей с именем hdfs. К этой группе также следует добавить пользователя hadoop, а также локального пользователя, под именем которого вы будете входить в эмулятор. Выполните следующие команды в окне команд с повышенными привилегиями:
 
-		# Add a user group called hdfs		
+		# Add a user group called hdfs
 		net localgroup hdfs /add
 
 		# Adds a user called hadoop to the group
@@ -321,10 +323,10 @@ Azure HDInsight использует для хранения данных хра
 
 		# Select an Azure subscription
 		Select-AzureSubscription $subscriptionName
-		
+
 		# Create a Storage account
 		New-AzureStorageAccount -StorageAccountName $storageAccountName_Data -location $location
-				
+
 		# Create a Blob storage container
 		$storageAccountKey = Get-AzureStorageKey $storageAccountName_Data | %{ $_.Primary }
 		$destContext = New-AzureStorageContext –StorageAccountName $storageAccountName_Data –StorageAccountKey $storageAccountKey  
@@ -356,7 +358,7 @@ Azure HDInsight использует для хранения данных хра
 		# Get a list of the .txt files
 		$filesAll = Get-ChildItem $localFolder
 		$filesTxt = $filesAll | where {$_.Extension -eq ".txt"}
-		
+
 4. Выполните следующие команды, чтобы создать объект контекста хранилища:
 
 		# Create a storage context object
@@ -366,14 +368,14 @@ Azure HDInsight использует для хранения данных хра
 
 5. Выполните следующие команды, чтобы скопировать файлы:
 
-		# Copy the files from the local workstation to the Blob container        
+		# Copy the files from the local workstation to the Blob container
 		foreach ($file in $filesTxt){
-		 
+
 		    $fileName = "$localFolder\$file"
 		    $blobName = "$destFolder/$file"
-		
+
 		    write-host "Copying $fileName to $blobName"
-		
+
 		    Set-AzureStorageBlobContent -File $fileName -Container $containerName_Data -Blob $blobName -Context $destContext
 		}
 
@@ -397,7 +399,7 @@ Azure HDInsight использует для хранения данных хра
 		$jarFile = "C:\Tutorials\WordCountJava\wordcountjava\target\wordcountjava-1.0-SNAPSHOT.jar"
 		$blobFolder = "WordCount/jars"
 
-	Значения переменных **$storageAccountName_Data** и **$containerName_Data** — те же, что вы определили в последней процедуре, то есть файл данных и приложение будут переданы в тот же контейнер в той же учетной записи хранения.
+	Значения переменных **$storageAccountName\\_Data** и **$containerName\\_Data** — те же, что вы определили в последней процедуре, то есть файл данных и приложение будут переданы в тот же контейнер в той же учетной записи хранения.
 
 	Заметьте, целевой является папка **WordCount/jars**.
 
@@ -425,9 +427,9 @@ Azure HDInsight использует для хранения данных хра
 В этом разделе вы будете создавать скрипты Azure PowerShell, предназначенные для выполнения следующих задач:
 
 1. Подготовка кластера HDInsight
-	
+
 	1. Создание учетной записи хранения, которая будет использоваться в качестве файловой системы по умолчанию для кластера HDInsight
-	2. Создание контейнера хранилища BLOB-объектов 
+	2. Создание контейнера хранилища BLOB-объектов
 	3. Создание кластера HDInsight
 
 2. Отправка задания MapReduce
@@ -448,7 +450,7 @@ Azure HDInsight использует для хранения данных хра
 
 1. Откройте Блокнот.
 2. Скопируйте следующий код и вставьте в Блокнот:
-		
+
 		# The Storage account and the HDInsight cluster variables
 		$subscriptionName = "<AzureSubscriptionName>"
 		$stringPrefix = "<StringForPrefix>"
@@ -457,9 +459,9 @@ Azure HDInsight использует для хранения данных хра
 
 		$storageAccountName_Data = "<TheDataStorageAccountName>"
 		$containerName_Data = "<TheDataBlobStorageContainerName>"
-		
+
 		$clusterName = $stringPrefix + "hdicluster"
-		
+
 		$storageAccountName_Default = $stringPrefix + "hdistore"
 		$containerName_Default =  $stringPrefix + "hdicluster"
 
@@ -469,62 +471,62 @@ Azure HDInsight использует для хранения данных хра
 		$mrInput = "wasb://$containerName_Data@$storageAccountName_Data.blob.core.windows.net/WordCount/Input/"
 		$mrOutput = "wasb://$containerName_Data@$storageAccountName_Data.blob.core.windows.net/WordCount/Output/"
 		$mrStatusOutput = "wasb://$containerName_Data@$storageAccountName_Data.blob.core.windows.net/WordCount/MRStatusOutput/"
-		
+
 		# Create a PSCredential object. The user name and password are hardcoded here. You can change them if you want.
 		$password = ConvertTo-SecureString "Pass@word1" -AsPlainText -Force
-		$creds = New-Object System.Management.Automation.PSCredential ("Admin", $password) 
-		
+		$creds = New-Object System.Management.Automation.PSCredential ("Admin", $password)
+
 		Select-AzureSubscription $subscriptionName
-		
+
 		#=============================
 		# Create a Storage account used as the default file system
 		Write-Host "Create a storage account" -ForegroundColor Green
 		New-AzureStorageAccount -StorageAccountName $storageAccountName_Default -location $location
-		
+
 		#=============================
 		# Create a Blob storage container used as the default file system
 		Write-Host "Create a Blob storage container" -ForegroundColor Green
 		$storageAccountKey_Default = Get-AzureStorageKey $storageAccountName_Default | %{ $_.Primary }
 		$destContext = New-AzureStorageContext –StorageAccountName $storageAccountName_Default –StorageAccountKey $storageAccountKey_Default
-		
+
 		New-AzureStorageContainer -Name $containerName_Default -Context $destContext
-		
+
 		#=============================
 		# Create an HDInsight cluster
 		Write-Host "Create an HDInsight cluster" -ForegroundColor Green
 		$storageAccountKey_Data = Get-AzureStorageKey $storageAccountName_Data | %{ $_.Primary }
-		
+
 		$config = New-AzureHDInsightClusterConfig -ClusterSizeInNodes $clusterNodes |
 		    Set-AzureHDInsightDefaultStorage -StorageAccountName "$storageAccountName_Default.blob.core.windows.net" -StorageAccountKey $storageAccountKey_Default -StorageContainerName $containerName_Default |
 		    Add-AzureHDInsightStorage -StorageAccountName "$storageAccountName_Data.blob.core.windows.net" -StorageAccountKey $storageAccountKey_Data
-		
+
 		New-AzureHDInsightCluster -Name $clusterName -Location $location -Credential $creds -Config $config
-		
+
 		#=============================
 		# Create a MapReduce job definition
 		Write-Host "Create a MapReduce job definition" -ForegroundColor Green
 		$mrJobDef = New-AzureHDInsightMapReduceJobDefinition -JobName mrWordCountJob  -JarFile $jarFile -ClassName $className -Arguments $mrInput, $mrOutput -StatusFolder /WordCountStatus
-		
+
 		#=============================
 		# Run the MapReduce job
 		Write-Host "Run the MapReduce job" -ForegroundColor Green
-		$mrJob = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $mrJobDef 
-		Wait-AzureHDInsightJob -Job $mrJob -WaitTimeoutInSeconds 3600 
-		
-		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $mrJob.JobId -StandardError 
+		$mrJob = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $mrJobDef
+		Wait-AzureHDInsightJob -Job $mrJob -WaitTimeoutInSeconds 3600
+
+		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $mrJob.JobId -StandardError
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $mrJob.JobId -StandardOutput
-				
+
 		#=============================
 		# Delete the HDInsight cluster
 		Write-Host "Delete the HDInsight cluster" -ForegroundColor Green
 		Remove-AzureHDInsightCluster -Name $clusterName  
-		
+
 		# Delete the default file system Storage account
 		Write-Host "Delete the storage account" -ForegroundColor Green
 		Remove-AzureStorageAccount -StorageAccountName $storageAccountName_Default
 
 3. Задайте первые шесть переменных скрипта: Переменная **$stringPrefix** используется для добавления префикса к имени кластера HDInsight, имени учетной записи хранения и имени контейнера хранилища больших двоичных объектов. Так как количество символов в этих именах должно быть больше 3 и меньше 24, следите за тем, чтобы общее количество символов в строке и именах, используемых сценарием, не превышало это ограничение. Для **$stringPrefix** необходимо использовать только строчные буквы.
- 
+
 	Переменные **$storageAccountName_Data** и **$containerName_Data** — это учетная запись хранения и контейнер, которые используются для хранения файлов данных и приложения. Переменная **$location** должна соответствовать расположению учетной записи хранения данных.
 
 4. Просмотрите остальные переменные.
@@ -551,9 +553,9 @@ Azure HDInsight использует для хранения данных хра
 		$storageAccountName_Data = "<TheDataStorageAccountName>"
 		$containerName_Data = "<TheDataBlobStorageContainerName>"
 		$blobName = "WordCount/Output/part-r-00000"
-	
+
 3. Выполните следующие команды для создания объекта контекста хранилища Azure:
-		
+
 		Select-AzureSubscription $subscriptionName
 		$storageAccountKey = Get-AzureStorageKey $storageAccountName_Data | %{ $_.Primary }
 		$storageContext = New-AzureStorageContext –StorageAccountName $storageAccountName_Data –StorageAccountKey $storageAccountKey  
@@ -607,5 +609,4 @@ Azure HDInsight использует для хранения данных хра
 [image-emulator-wordcount-compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
 [image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
 
-
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

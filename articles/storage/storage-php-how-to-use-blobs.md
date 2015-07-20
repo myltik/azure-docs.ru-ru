@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Использование хранилища BLOB-объектов из PHP в Microsoft Azure" 
+	pageTitle="Использование хранилища больших двоичных объектов из PHP | Microsoft Azure" 
 	description="Узнайте, как использовать службу BLOB-объектов Azure для отправки, перечисления, загрузки и удаления больших двоичных объектов. Примеры кода написаны на PHP." 
 	documentationCenter="php" 
 	services="storage" 
-	authors="tfitzmac,tamram" 
+	authors="tfitzmac" 
 	manager="wpickett" 
 	editor="mollybos"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="03/11/2015" 
+	ms.date="05/11/2015" 
 	ms.author="tomfitz"/>
 
 # Использование хранилища BLOB-объектов из PHP
@@ -22,7 +22,7 @@
 
 ## Обзор
 
-В этом руководстве показано, как реализовать типичные сценарии с использованием службы BLOB-объектов Azure. Примеры написаны на PHP и используют [пакет SDK Azure для PHP] [загрузка]. Здесь описаны такие сценарии, как **отправка**, **перечисление**, **скачивание** и **удаление** больших двоичных объектов. Дополнительную информацию о больших двоичных объектах см. в разделе [Дальнейшие действия](#NextSteps) .
+В этом руководстве показано, как реализовать типичные сценарии с использованием службы BLOB-объектов Azure. Примеры написаны на PHP и используют [пакет Azure SDK для PHP][download]. Здесь описаны такие сценарии, как **отправка**, **перечисление**,**загрузка** и **удаление** BLOB-объектов. Дополнительные сведения о BLOB-объектах см. в разделе [Дальнейшие действия](#NextSteps).
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -42,18 +42,18 @@
 
 Чтобы использовать интерфейсы API службы BLOB-объектов Azure, необходимо следующее:
 
-1. Ссылка на файл автозагрузчика с использованием оператора [require_once][require_once] и
+1. Ссылка на файл автозагрузчика с использованием инструкции [require_once][require_once] и
 2. Ссылка на любые классы, которые могут использоваться.
 
 В следующем примере показано, как включить файл автозагрузчика и сослаться на класс **ServicesBuilder**.
 
-> [AZURE.NOTE] В этом примере (и других примерах в этой статье) предполагается, что установлены клиентские библиотеки PHP для Azure через Composer. При установке библиотек вручную или в качестве пакета PEAR необходимо добавить ссылку на файл автозагрузчика `WindowsAzure.php`.
+> [AZURE.NOTE]В этом примере (и других примерах в этой статье) предполагается, что установлены клиентские библиотеки PHP для Azure через Composer. При установке библиотек вручную или в качестве пакета PEAR необходимо добавить ссылку на файл автозагрузчика `WindowsAzure.php`.
 
 	require_once 'vendor\autoload.php';
 	use WindowsAzure\Common\ServicesBuilder;
 
 
-В приведенных ниже примерах всегда будет отображаться оператор `require_once`, однако обращение будет осуществляться только к классам, которые необходимы для выполнения этого примера.
+В приведенных ниже примерах всегда будет отображаться инструкция ￼￼￼ `require_once`, но ссылки будут приводиться только на классы, которые необходимы для использования этого примера.
 
 ## Настройка подключения к хранилищу Azure
 
@@ -72,8 +72,8 @@
 
 * передать строку подключения напрямую или
 * использовать **CloudConfigurationManager (CCM)** для проверки нескольких внешних источников на наличие строки подключения:
-	* по умолчанию предоставляется поддержка одного внешнего источника - переменных среды
-	* можно добавить новые источники, расширив класс **ConnectionStringSource**.
+	* по умолчанию предоставляется поддержка одного внешнего источника – переменных среды
+	* можно добавить новые источники, расширив класс **ConnectionStringSource**
 
 В приведенных здесь примерах строка подключения передается напрямую.
 
@@ -84,6 +84,8 @@
 	$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
 
 ## Практическое руководство. Создание контейнера
+
+[AZURE.INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
 
 Объект **BlobRestProxy** позволяет создать контейнер BLOB-объектов с помощью метода **createContainer**. При создании контейнера можно задать параметры контейнера, однако это не является обязательным. (В приведенном ниже примере показано, как задать ACL и метаданные контейнера).
 
@@ -135,13 +137,13 @@
 		echo $code.": ".$error_message."<br />";
 	}
 
-Вызов **setPublicAccess(PublicAccessType::CONTAINER_AND_BLOBS)** позволяет получить доступ к данным контейнера и больших двоичных объектов через анонимные запросы. Вызов **setPublicAccess(PublicAccessType::BLOBS_ONLY)** позволяет получить доступ через анонимные запросы только к данным BLOB-объектов. Дополнительные сведения о ACL контейнера см. в разделе [Определение ACL контейнера (REST API)][container-acl].
+Вызов **setPublicAccess(PublicAccessType::CONTAINER_AND_BLOBS)** делает контейнер и данные BLOB-объектов доступными через анонимные запросы. Вызов **setPublicAccess(PublicAccessType::BLOBS_ONLY)** делает доступными через анонимные запросы только данные BLOB-объектов. Дополнительные сведения о ACL контейнера см. в разделе [Определение ACL контейнера (REST API)][container-acl]
 
-Дополнительные сведения о кодах ошибок службы BLOB-объектов см. в разделе [Коды ошибок службы BLOB-объектов][error-codes].
+Дополнительные сведения о кодах ошибок службы Blob-объектов см. в разделе [Коды ошибок службы Blob-объектов][error-codes].
 
 ## Практическое руководство. Отправка BLOB-объекта в контейнер
 
-Чтобы передать файл в виде большего двоичного объекта, используйте метод **BlobRestProxy->createBlockBlob**. Эта операция создает BLOB-объект, если он еще не существует, или заменяет его, если он существует. В примере кода предполагается, что контейнер уже был создан и использует [fopen][fopen] для открытия файла в виде потока.
+Чтобы передать файл в виде BLOB-объекта, используйте метод **BlobRestProxy->createBlockBlob**. Эта операция создает BLOB-объект, если он еще не существует, или заменяет его, если он существует. В примере кода предполагается, что контейнер уже был создан и использует [fopen][fopen] для открытия файла в виде потока.
 
 	require_once 'vendor\autoload.php';
 
@@ -168,7 +170,7 @@
 		echo $code.": ".$error_message."<br />";
 	}
 
-Обратите внимание, что в приведенном выше примере BLOB-объект передается в виде потока. Однако BLOB-объект может быть передан как строка, например с помощью функции [file_get_contents][file_get_contents]. Для этого замените $content = fopen("c:\myfile.txt", "r"); из приведенного выше примера на $content = filegetcontents("c:\myfile.txt");.
+Обратите внимание, что в приведенном выше примере BLOB-объект передается в виде потока. Однако BLOB-объект может быть передан как строка с помощью, к примеру, функции [file_get_contents][file_get_contents]. Для этого измените в приведенном выше примере `$content = fopen("c:\myfile.txt", "r");` на `$content = file_get_contents("c:\myfile.txt");`.
 
 ## Практическое руководство. Перечисление BLOB-объектов в контейнере
 
@@ -234,7 +236,7 @@
 
 ## Практическое руководство. Удаление BLOB-объекта
 
-Чтобы удалить BLOB-объект, передайте имя контейнера и имя BLOB-объекта в **BlobRestProxy->deleteBlob**. 
+Чтобы удалить BLOB-объект, передайте имя контейнера и имя BLOB-объекта в **BlobRestProxy->deleteBlob**.
 
 	require_once 'vendor\autoload.php';
 
@@ -288,18 +290,19 @@
 
 Вы изучили основные сведения о службе BLOB-объектов Azure. Дополнительные сведения о более сложных задачах по использованию хранилища можно найти по следующим ссылкам.
 
-- См. справочник MSDN: [Хранилище Azure](http://msdn.microsoft.com/library/azure/gg433040.aspx)
-- Посетите [блог рабочей группы службы хранилища Azure](http://blogs.msdn.com/b/windowsazurestorage/)
+- См. справочник MSDN: [Служба хранилища Azure](http://msdn.microsoft.com/library/azure/gg433040.aspx)
+- Посетите [блог команды разработчиков хранилища Azure](http://blogs.msdn.com/b/windowsazurestorage/).
 - См. пример блочного BLOB-объекта РНР по адресу: <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/BlockBlobExample.php>.
 - См. пример страничного BLOB-объекта PHP по адресу: <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/PageBlobExample.php>
 
-[загрузка]: http://go.microsoft.com/fwlink/?LinkID=252473
-[Хранение и доступ к данным в Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+[download]: http://go.microsoft.com/fwlink/?LinkID=252473
+[Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [container-acl]: http://msdn.microsoft.com/library/azure/dd179391.aspx
 [error-codes]: http://msdn.microsoft.com/library/azure/dd179439.aspx
 [file_get_contents]: http://php.net/file_get_contents
 [require_once]: http://php.net/require_once
 [fopen]: http://www.php.net/fopen
 [stream-get-contents]: http://www.php.net/stream_get_contents
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO2-->

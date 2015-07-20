@@ -173,7 +173,7 @@ R можно установить в любой тип кластера Hadoop �
 
 2. В меню **Файл** выберите команду **Создать**, а затем — **Проект**.
 
-3. В окне **Новый проект** введите или выберите следующие значения:
+3. В окне **Новый проект** введите или выберите следующие значения.
 	
 	<table style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse;">
 <tr>
@@ -281,5 +281,6 @@ R можно установить в любой тип кластера Hadoop �
 [hdinsight-provision]: ../hdinsight-provision-clusters/
 [hdinsight-cluster-customize]: ../hdinsight-hadoop-customize-cluster
 [hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

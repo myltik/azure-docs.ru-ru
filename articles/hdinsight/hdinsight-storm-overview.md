@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Основные сведения об Apache Storm в службе HDInsight | Microsoft Azure"
-	description="Получите общие сведения об Apache Storm и узнайте, как с помощью кластера Apache Storm в HDInsight создавать облачные решения для анализа данных в реальном времени."
+	description="Изучите общие сведения об Apache Storm и узнайте, как создавать облачные решения для анализа данных в реальном времени с помощью Storm в HDInsight."
 	keywords="apache storm,real time analytics"
 	services="hdinsight"
 	documentationCenter=""
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/28/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 #Основные сведения об Apache Storm в службе HDInsight. Аналитика в реальном времени для Hadoop
@@ -186,7 +186,7 @@ Storm может обеспечить различные уровни гаран
 
 Если вы пользуетесь Trident, он основан на обработке потоков кортежей.
 
-###Кэширование
+###Caching
 
 Для ускорения обработки часто используется кэширование в памяти, при котором в памяти сохраняются часто используемые ресурсы. Так как топология распределяется между несколькими узлами и несколькими процессами в пределах каждого узла, рекомендуем использовать [fieldsGrouping](http://javadox.com/org.apache.storm/storm-core/0.9.1-incubating/backtype/storm/topology/InputDeclarer.html#fieldsGrouping%28java.lang.String,%20backtype.storm.tuple.Fields%29) (группирование полей). Благодаря этому кортежи с полями, которые используются для поиска данных в кэше, будут всегда перенаправляться к одному и тому же процессу. Это избавит от дублирования записей кэша в процессах.
 
@@ -209,4 +209,4 @@ Storm может обеспечить различные уровни гаран
 [apachetutorial]: https://storm.incubator.apache.org/documentation/Tutorial.html
 [gettingstarted]: ../hdinsight-storm-getting-started.md
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

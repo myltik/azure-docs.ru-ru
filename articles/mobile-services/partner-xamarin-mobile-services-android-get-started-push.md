@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Добавление push-уведомлений в приложение мобильных служб — мобильные службы" 
-	description="Узнайте, как использовать push-уведомления в приложениях Xamarin.Android с помощью мобильных служб Azure." 
+	pageTitle="Добавление push-уведомлений в приложение Xamarin Android|мобильные службы Android" 
+	description="Вы узнаете, как настраивать push-уведомления в Google Cloud Messaging для ваших приложений Xamarin.Android с помощью мобильных служб Azure и концентраторов уведомлений Azure." 
 	documentationCenter="xamarin" 
 	authors="ggailey777" 
 	manager="dwrede" 
@@ -13,31 +13,24 @@
 	ms.tgt_pltfrm="mobile-xamarin-android" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/12/2015" 
+	ms.date="06/19/2015" 
 	ms.author="glenga"/>
 
 # Добавление push-уведомлений к приложению мобильных служб
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
+##Обзор
 В этом разделе показано, как использовать мобильные службы Azure для отправки push-уведомлений в приложение Xamarin.Android. В этом учебнике вам предстоит добавить push-уведомления в проект [Приступая к работе с мобильными службами] с помощью службы Google Cloud Messaging (GCM). По завершении работы ваша мобильная служба будет отправлять push-уведомление каждый раз при вставке записи.
-
-В этом учебнике рассматриваются следующие основные шаги для включения push-уведомлений:
-
-1. [Включение службы Google Cloud Messaging](#register)
-2. [Настройка мобильных служб](#configure)
-4. [Настройка проекта для push-уведомлений](#configure-app)
-5. [Добавление кода push-уведомлений в приложение](#add-push)
-6. [Вставка данных для получения уведомлений](#test)
 
 Для работы с данным учебником требуется следующее:
 
 + Активная учетная запись Google.
 + [Компонент клиента Google Cloud Messaging]. Этот компонент будет добавлен при прохождении учебника.
 
-У вас в проекте уже должны быть установлены компоненты [Xamarin.Android] и [мобильные службы Azure][Azure Mobile Services Component] после прохождения учебника [Приступая к работе с мобильными службами] или [Добавление мобильных служб в существующее приложение].
+В вашем проекте уже должны быть компоненты [Xamarin.Android] и [мобильные службы Azure], которые вы установили после прохождения учебника [Приступая к работе с мобильными службами] или [Добавление мобильных служб в существующее приложение].
 
-##<a id="register"></a>Включение службы Google Cloud Messaging
+##<a id="register"></a>Включение Google Cloud Messaging
 
 [AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
@@ -47,7 +40,7 @@
 
 ##<a id="update-scripts"></a>Обновление зарегистрированного скрипта вставки для отправки уведомлений
 
->[AZURE.NOTE]Ниже показано, как обновить скрипт, зарегистрированный для операции вставки в таблице TodoItem на портале управления Azure. Вы также можете вызвать и изменить этот скрипт мобильной службы непосредственно в Visual Studio на узле Azure в обозревателе сервера.
+>[AZURE.TIP]Ниже показано, как обновить скрипт, зарегистрированный для операции вставки в таблице TodoItem на портале управления Azure. Вы также можете вызвать и изменить этот скрипт мобильной службы непосредственно в Visual Studio на узле Azure в обозревателе сервера.
 
 [AZURE.INCLUDE [mobile-services-javascript-backend-android-push-insert-script](../../includes/mobile-services-javascript-backend-android-push-insert-script.md)]
 
@@ -90,5 +83,7 @@
 
 [Компонент клиента Google Cloud Messaging]: http://components.xamarin.com/view/GCMClient/
 [Xamarin.Android]: http://xamarin.com/download/
-[Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
-<!--HONumber=54--> 
+[мобильные службы Azure]: http://components.xamarin.com/view/azure-mobile-services/
+ 
+
+<!---HONumber=July15_HO2-->

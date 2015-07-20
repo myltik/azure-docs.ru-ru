@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/23/2015" 
+	ms.date="06/18/2015" 
 	ms.author="wesmc"/>
 
 # Получение доступа к сведениям Graph Azure Active Directory
@@ -142,7 +142,7 @@
 ##Обновление приложения для использования GetUserInfo
 
 
-В этом разделе вы обновите метод `AuthenticateAsync`, реализованный в учебнике [Приступая к работе с проверкой подлинности] для вызова настраиваемого API и возвращения дополнительных сведений о пользователе из AAD.
+В этом разделе вам предстоит обновить метод `AuthenticateAsync`, применяемый в учебнике [Приступая к работе с проверкой подлинности] для вызова настраиваемого API и получения дополнительных сведений о пользователе из службы AAD.
 
 [AZURE.INCLUDE [mobile-services-aad-graph-info-update-app](../../includes/mobile-services-aad-graph-info-update-app.md)]
 
@@ -181,4 +181,5 @@
 [Get User]: http://msdn.microsoft.com/library/azure/dn151678.aspx
 [Управление доступом в мобильных службах на основе ролей с помощью AAD]: mobile-services-javascript-backend-windows-store-dotnet-aad-rbac.md
 [Блог команды разработчиков Azure Active Directory Graph]: http://go.microsoft.com/fwlink/?LinkId=510536
-<!--HONumber=54--> 
+
+<!---HONumber=July15_HO2-->

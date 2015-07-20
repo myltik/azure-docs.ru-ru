@@ -152,4 +152,4 @@ HDInsight также позволяет связать несколько уче
 * [Использование заданий MapReduce с HDInsight](hdinsight-use-mapreduce.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

@@ -70,4 +70,6 @@
 
 - Чтобы просмотреть показатели по событиям подключений к базе данных, используйте представление [**sys.database_connection_stats (база данных SQL Azure)**](https://msdn.microsoft.com/library/dn269986.aspx).
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=July15_HO2-->

@@ -67,4 +67,6 @@
 
 [Фермы SharePoint, размещенные в службах инфраструктуры Azure](virtual-machines-sharepoint-infrastructure-services.md)
 
-<!--HONumber=54--> 
+[Руководство по реализации служб инфраструктуры Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
+
+<!---HONumber=July15_HO2-->

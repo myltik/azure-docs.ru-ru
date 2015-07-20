@@ -221,4 +221,4 @@
 [Блог рабочей группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

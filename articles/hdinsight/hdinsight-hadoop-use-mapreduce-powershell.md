@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/18/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 #Выполнение запросов Hive с помощью PowerShell с использованием Hadoop в HDInsight
@@ -28,11 +28,11 @@
 
 - **Кластер Azure HDInsight (Hadoop в HDInsight) (на платформе Windows или Linux)**
 
-- **Рабочая станция с Azure PowerShell**. См. [Установка и использование Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
+- **Рабочая станция с Azure PowerShell.**. См. [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
 
 ##<a id="powershell"></a>Выполнение задания MapReduce с помощью Azure PowerShell
 
-Azure PowerShell предоставляет *командлеты*, позволяющие удаленно запускать задания MapReduce в HDInsight. Внутренне это достигается с помощью выполнения вызовов REST для <a href="https://cwiki.apache.org/confluence/display/Hive/WebHCat" target="_blank">WebHCat</a> (ранее называвшегося Templeton), запущенного в кластере HDInsight.
+Azure PowerShell предоставляет *командлеты*, позволяющие удаленно запускать задания MapReduce в HDInsight. Внутренне это достигается с помощью выполнения вызовов REST для [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (прежнее название — Templeton) на кластере HDInsight.
 
 При выполнении заданий MapReduce в удаленном кластере HDInsight используются следующие командлеты:
 
@@ -99,7 +99,7 @@ Azure PowerShell предоставляет *командлеты*, позвол
 		JobId           : job_1415949758166_0071
 
 	Такие выходные данные означают, что задание завершено успешно.
-	
+
 	> [AZURE.NOTE]Если значение **ExitCode** не равно 0, см. раздел [Устранение неполадок](#troubleshooting).
 
 ##<a id="results"></a>Просмотр выходных данных задания
@@ -172,6 +172,5 @@ Azure PowerShell предоставляет *командлеты*, позвол
 * [Использование Hive с Hadoop в HDInsight](hdinsight-use-hive.md)
 
 * [Использование Pig с Hadoop в HDInsight](hdinsight-use-pig.md)
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

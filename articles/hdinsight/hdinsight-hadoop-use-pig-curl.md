@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/03/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 #Выполнение заданий Pig с помощью Curl с использованием Hadoop в HDInsight
@@ -24,7 +24,7 @@
 
 Curl используется для демонстрации возможностей взаимодействия с HDInsight с помощью необработанных HTTP-запросов для выполнения заданий Pig, их мониторинга и получения их результатов. Для этого используется REST API для WebHCat (прежнее название — Templeton), предоставляемый кластером HDInsight.
 
-> [AZURE.NOTE]Если вы уже знакомы с серверами Hadoop под управлением Linux, но не знакомы с HDInsight, см. статью <a href="../hdinsight-hadoop-linux-information/" target="_blank">Что нужно знать о Hadoop в HDInsight на платформе Linux</a>.
+> [AZURE.NOTE]Если вы уже знаете, как использовать серверы Hadoop на платформе Linux, но не знакомы с HDInsight, см. статью [Советы по использованию HDInsight на платформе Linux](hdinsight-hadoop-linux-information.md).
 
 ##<a id="prereq"></a>Предварительные требования
 
@@ -32,9 +32,9 @@ Curl используется для демонстрации возможнос
 
 * Кластер Azure HDInsight (Hadoop в HDInsight) (на платформе Linux или Windows).
 
-* <a href="http://curl.haxx.se/" target="_blank">Curl</a>
+* [Curl](http://curl.haxx.se/)
 
-* <a href="http://stedolan.github.io/jq/" target="_blank">jq</a>
+* [jq](http://stedolan.github.io/jq/)
 
 ##<a id="curl"></a>Выполнение заданий Pig с помощью Curl
 
@@ -42,7 +42,7 @@ Curl используется для демонстрации возможнос
 >
 > В командах, описанных в этом разделе, замените **USERNAME** на имя пользователя для аутентификации в кластере, а **PASSWORD** — на пароль учетной записи пользователя. Параметр **CLUSTERNAME** требуется заменить именем кластера.
 >
-> REST API защищается с помощью <a href="http://en.wikipedia.org/wiki/Basic_access_authentication" target="_blank">обычной проверки подлинности доступа</a>. Чтобы обеспечить безопасную отправку учетных данных на сервер, все запросы следует отправлять с помощью протокола HTTPS.
+> REST API защищается с помощью [обычной проверки подлинности](http://en.wikipedia.org/wiki/Basic_access_authentication). Чтобы обеспечить безопасную отправку учетных данных на сервер, все запросы следует отправлять с помощью протокола HTTPS.
 
 1. Используйте следующую команду в командной строке, чтобы проверить возможность подключения к кластеру HDInsight:
 
@@ -97,8 +97,7 @@ Curl используется для демонстрации возможнос
 
 	azure storage blob download <container-name> <blob-name> <destination-file>
 
-> [AZURE.NOTE]Необходимо указать имя учетной записи хранения, содержащей большой двоичный объект, с помощью параметров `-a` и `-k`, либо задать переменные среды **AZURE_STORAGE_ACCOUNT** и **AZURE_STORAGE_ACCESS_KEY**. См. также: <a href="../hdinsight-upload-data/" target="_blank".
-
+> [AZURE.NOTE]Необходимо указать имя учетной записи хранения, содержащей большой двоичный объект, с помощью параметров `-a` и `-k`, либо задать переменные среды **AZURE\\_STORAGE\\_ACCOUNT** и **AZURE\\_STORAGE\\_ACCESS\\_KEY**.
 
 ##<a id="summary"></a>Сводка
 
@@ -118,4 +117,4 @@ Curl используется для демонстрации возможнос
 
 * [Использование MapReduce с Hadoop в HDInsight](hdinsight-use-mapreduce.md)
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

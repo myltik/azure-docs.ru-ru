@@ -110,4 +110,7 @@
 [Общие сведения о виртуальных сетях]: http://msdn.microsoft.com/library/azure/jj156007.aspx
 [О параметрах конфигурации виртуальной машины Azure]: http://msdn.microsoft.com/library/azure/dn763935.aspx
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=July15_HO2-->

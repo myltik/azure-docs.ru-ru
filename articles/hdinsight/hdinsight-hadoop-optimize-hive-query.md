@@ -215,4 +215,4 @@ Hive поддерживает различные форматы. Наприме�
 [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query/partitioning_1.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

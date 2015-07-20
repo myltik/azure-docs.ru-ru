@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Учебник по Azure «Многоуровневое приложение .NET"
+	pageTitle="Учебник по Azure «Многоуровневое приложение .NET»"
 	description="Учебник, посвященный разработке многоуровневого приложения в Azure, которое использует очереди Service Bus для взаимодействия между уровнями. Примеры на .NET."
 	services="service-bus"
 	documentationCenter=".net"
@@ -12,15 +12,11 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="hero-article"
-	ms.date="03/17/2015"
+	ms.topic="get-started-article"
+	ms.date="07/02/2015"
 	ms.author="sethm"/>
 
-
-
-
-
-# Многоуровневое приложение .NET, использующее очереди Service Bus
+# Многоуровневое приложение .NET, использующее очереди служебной шины
 
 ## Введение
 
@@ -35,7 +31,7 @@
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-В этом учебнике вы создадите и запустите многоуровневое приложение в облачной службе Azure. Интерфейсная часть будет реализована с использованием веб-роли MVC ASP.NET, а серверная с помощью рабочей роли. Вы также можете создать аналогичное многоуровневое приложение, интерфейсная часть которого будет реализована в виде веб-проекта и развернута на веб-сайте Azure, а не в облачной службе. Дополнительную информацию об отличиях при реализации интерфейсной части для веб-сайта Azure см. в разделе [Дальнейшие действия](#nextsteps).
+В этом учебнике вы создадите и запустите многоуровневое приложение в облачной службе Azure. Интерфейсная часть будет реализована с использованием веб-роли MVC ASP.NET, а серверная — с помощью рабочей роли. Вы также можете создать аналогичное многоуровневое приложение, интерфейсная часть которого будет реализована в виде веб-проекта и развернута на веб-сайте Azure, а не в облачной службе. Дополнительную информацию об отличиях при реализации интерфейсной части для веб-сайта Azure см. в разделе [Дальнейшие действия](#nextsteps).
 
 Снимок экрана готового приложения приведен ниже.
 
@@ -126,26 +122,6 @@
     ![][35]
 
 10.  Запишите эти учетные данные или скопируйте их в буфер обмена.
-
-## Управление пространствами имен или сущностями обмена сообщениями с помощью обозревателя серверов Visual Studio
-
-Чтобы вместо портала управления Azure использовать Visual Studio для управления пространством имен и получения сведений о подключении, выполните процедуру, описанную [здесь](http://msdn.microsoft.com/library/ff687127.aspx), в разделе **Подключение к Azure из Visual Studio**. При входе в Azure узел **Service Bus** в дереве **Microsoft Azure** в обозревателе серверов автоматически заполняется уже созданными пространствами имен. Щелкните правой кнопкой мыши любое пространство имен и выберите **Свойства**, чтобы увидеть строку подключения и другие метаданные, связанные с этим пространством имен, которые отображаются в области **Свойства** Visual Studio.
-
-Запишите значение **SharedAccessKey** или скопируйте его в буфер обмена.
-
-![][34]
-
-**Примечание** Можно также использовать **Обозреватель серверов** для управления пространством имен Service Bus в другой подписке, используя следующую процедуру:
-
-1. Выберите **Вид** в строке меню Visual Studio и щелкните **Обозреватель сервера**. В иерархии обозревателя серверов узел **Service Bus** отображается в узле **Azure** (см. следующий рисунок).
-
-	![][21]
-
-2. В обозревателе серверов разверните узел **Microsoft Azure**, затем щелкните правой кнопкой мыши **Service Bus** и выберите команду **Добавить новое подключение**.
-
-3. В диалоговом окне **Добавление подключения** введите имя пространства имен службы, имя издателя и его ключ, или же вставьте строку подключения для пространства имен. Разрешения, связанные с ключом издателя, определяют операции, которые можно выполнить в этом пространстве имен. Нажмите кнопку **ОК**, чтобы установить подключение.
-
-	![][22]
 
 ## Создание веб-роли
 
@@ -258,19 +234,19 @@
             }
         }
 
-4.  В меню **Сборка** выберите **Построить решение**.
+4.  В меню **Сборка** щелкните **Собрать решение** для проверки корректности работы на текущий момент.
 
 5.  Далее необходимо создать представление для ранее созданного метода **Submit()**. Щелкните метод Submit() правой кнопкой мыши и выберите **Добавить представление**.
 
     ![][14]
 
-6.  Откроется диалоговое окно создания представления. Выберите класс **OnlineOrder** в раскрывающемся списке **Класс модели** и элемент **Создать** в раскрывающемся списке **Шаблон**.
+6.  Откроется диалоговое окно создания представления. В раскрывающемся списке **Шаблон** выберите **Создать**. В раскрывающемся списке **Класс модели** выберите класс **OnlineOrder**.
 
     ![][15]
 
 7.  Щелкните **Добавить**.
 
-8.  Теперь измените отображаемое имя приложения. В **Обозревателе решений** дважды щелкните файл **Views\\Shared\_Layout.cshtml**, чтобы открыть его в редакторе Visual Studio.
+8.  Укажите новое отображаемое имя приложения. В **обозревателе решений** дважды щелкните файл **Views\\Shared\\\\_Layout.cshtml**, чтобы открыть его в редакторе Visual Studio.
 
 9.  Замените все вхождения элемента **Мое приложение ASP.NET** текстом **Продукты LITWARE**.
 
@@ -280,7 +256,7 @@
 
 11. Наконец, добавьте на страницу отправки необходимые сведения об очереди. В **Обозревателе решений** дважды щелкните файл **Views\\Home\\Submit.cshtml**, чтобы открыть его в редакторе Visual Studio. Добавьте следующую строку после **&lt;h2>Submit&lt;/h2>**. Сейчас элемент **ViewBag.MessageCount** пуст. Вы заполните его позже.
 
-        <p>Current Number of Orders in Queue Waiting to be Processed: @ViewBag.MessageCount</p>
+        <p>Current number of orders in queue waiting to be processed: @ViewBag.MessageCount</p>
 
 
 12. Пользовательский интерфейс реализован. Нажмите клавишу **F5**, чтобы запустить приложение и убедиться в его работоспособности.
@@ -289,7 +265,7 @@
 
 ### Написание кода для отправки элементов в очередь Service Bus
 
-Далее вам необходимо добавить код, реализующий отправку элементов в очередь. Сначала требуется создать класс, содержащий информацию о подключении к очереди Service Bus. Далее следует инициализировать подключение из **Global.aspx.cs**. Наконец, необходимо обновить код, созданный ранее в файле **HomeController.cs**, чтобы реализовать фактическую отправку элементов в очередь Service Bus.
+Далее вам необходимо добавить код, реализующий отправку элементов в очередь. Сначала требуется создать класс, содержащий информацию о подключении к очереди служебной шины. Далее следует инициализировать подключение из **Global.aspx.cs**. Наконец, необходимо обновить код, созданный ранее в файле **HomeController.cs**, чтобы реализовать фактическую отправку элементов в очередь служебной шины.
 
 1.  В обозревателе решений щелкните правой кнопкой мыши **FrontendWebRole** (проект, а не роль). Нажмите кнопку **Добавить** и выберите **Класс**.
 
@@ -355,15 +331,15 @@
             }
         }
 
-    **Примечание** Позже в этом учебнике вы узнаете, как сохранить имя вашего пространства имен (**Namespace**) и значение ключа SAS в файле конфигурации.
+    Обратите внимание, что позже в этом учебнике вы узнаете, как сохранить имя вашего **пространства имен** и значение ключа SAS в файле конфигурации.
 
-4.  Теперь следует обеспечить вызов метода **Initialize**. В **обозревателе решений** дважды щелкните **Global.asax\\Global.asax.cs**.
+4.  Теперь убедитесь, что ваш метод **Инициализация** вызывается. В **обозревателе решений** дважды щелкните **Global.asax\\Global.asax.cs**.
 
 5.  Добавьте в конец метода **Application_Start** следующую строку:
 
         FrontendWebRole.QueueConnector.Initialize();
 
-6.  Наконец, обновите ранее созданный код веб-уровня, чтобы отправить элементы в очередь. В **Обозревателе решений** дважды щелкните файл **Controllers\\HomeController.cs**, созданный ранее.
+6.  Наконец, обновите ранее созданный код веб-уровня, чтобы отправить элементы в очередь. В **Обозревателе решений** дважды щелкните **Controllers\\HomeController.cs**.
 
 7.  Внесите следующие изменения в метод **Submit()**, чтобы реализовать счетчик сообщений очереди:
 
@@ -518,52 +494,49 @@
 Дополнительную информацию о развертывании приложения на веб-сайте Azure см. в разделе [Развертывание веб-приложения ASP.NET на веб-сайте Azure](http://azure.microsoft.com/develop/net/tutorials/get-started/). Дополнительную информацию о развертывании серверной части в облачной службе Azure см. в статье [Многоуровневое приложение .NET, использующее таблицы, очереди и BLOB-объекты хранилища][mutitierstorage].
 
 
-[0]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
-[1]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-100.png
-[sbqueuecomparison]: http://msdn.microsoft.com/library/hh767287.aspx
-[2]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-101.png
-[Получить инструменты и SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
-[3]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-3.png
+  [0]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
+  [1]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-100.png
+  [sbqueuecomparison]: http://msdn.microsoft.com/library/hh767287.aspx
+  [2]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-101.png
+  [Получить инструменты и SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
+  [3]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-3.png
 
 
 
-[Azure Management Portal]: http://manage.windowsazure.com
-[портал управления Azure]: http://manage.windowsazure.com
-[6]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-03.png
-[7]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-04.png
-[8]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-09.png
-[9]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-10.png
-[10]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-11.png
-[11]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-02.png
-[12]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-12.png
-[13]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-13.png
-[14]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-33.png
-[15]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-34.png
-[16]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-35.png
-[17]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-36.png
-[18]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-37.png
+  [Azure Management Portal]: http://manage.windowsazure.com
+  [портал управления Azure]: http://manage.windowsazure.com
+  [6]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-03.png
+  [7]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-04.png
+  [8]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-09.png
+  [9]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-10.png
+  [10]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-11.png
+  [11]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-02.png
+  [12]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-12.png
+  [13]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-13.png
+  [14]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-33.png
+  [15]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-34.png
+  [16]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-35.png
+  [17]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-36.png
+  [18]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-37.png
 
-[19]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-38.png
-[20]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-39.png
-[21]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/SBExplorer.png
-[22]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/SBExplorerAddConnect.png
-[23]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/SBWorkerRole1.png
-[24]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/SBExplorerProperties.png
-[25]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/SBWorkerRoleProperties.png
-[26]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/SBNewWorkerRole.png
-[27]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-27.png
-[28]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-40.png
-[30]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-09.png
-[31]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-06.png
-[32]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-41.png
-[33]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-4-2-WebPI.png
-[34]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/VSProperties.png
-[35]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/multi-web-45.png
-[sbmsdn]: http://msdn.microsoft.com/library/ee732537.aspx
-[sbwacom]: /documentation/services/service-bus/
-[sbwacomqhowto]: /develop/net/how-to-guides/service-bus-queues/
-[mutitierstorage]: /develop/net/tutorials/multi-tier-web-site/1-overview/
-[executionmodels]: http://azure.microsoft.com/develop/net/fundamentals/compute/
-
-<!--HONumber=52-->
+  [19]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-38.png
+  [20]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-39.png
+  [23]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/SBWorkerRole1.png
+  [24]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/SBExplorerProperties.png
+  [25]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/SBWorkerRoleProperties.png
+  [26]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/SBNewWorkerRole.png
+  [27]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-27.png
+  [28]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-40.png
+  [30]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-09.png
+  [31]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-06.png
+  [32]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-41.png
+  [33]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-4-2-WebPI.png
+  [35]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/multi-web-45.png
+  [sbmsdn]: http://msdn.microsoft.com/library/azure/ee732537.aspx
+  [sbwacom]: /documentation/services/service-bus/
+  [sbwacomqhowto]: /develop/net/how-to-guides/service-bus-queues/
+  [mutitierstorage]: /develop/net/tutorials/multi-tier-web-site/1-overview/
+  [executionmodels]: http://azure.microsoft.com/develop/net/fundamentals/compute/
  
+
+<!---HONumber=July15_HO2-->

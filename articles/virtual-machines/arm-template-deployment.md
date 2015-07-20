@@ -450,4 +450,4 @@
 
 	![Создание приложения AD](./media/arm-template-deployment/crpportal.png)
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

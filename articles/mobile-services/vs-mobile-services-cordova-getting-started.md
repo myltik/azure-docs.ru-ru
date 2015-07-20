@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="05/22/2015" 
+	ms.date="06/22/2015" 
 	ms.author="patshea123"/>
 
 # Приступая к работе с мобильными службами (проекты Cordova)
@@ -34,7 +34,7 @@
 
 Следующий код получает ссылку на таблицу, содержащую данные для TodoItem, которые можно использовать в последующих операциях чтения и обновления таблицы данных. Таблица TodoItem создается автоматически при создании мобильной службы.
 
-var todoTable = mobileServiceClient.getTable('TodoItem');
+    var todoTable = mobileServiceClient.getTable('TodoItem');
 
 Чтобы эти примеры работали, необходимо установить уровень разрешений таблицы на **Кто угодно с ключом приложения**. Позднее можно настроить проверку подлинности. См. [Начало работы с проверкой подлинности](mobile-services-html-get-started-users.md).
 
@@ -42,19 +42,35 @@ var todoTable = mobileServiceClient.getTable('TodoItem');
 
 Вставьте новый элемент в таблицу данных. Автоматически создается идентификатор (GUID строки типа) в качестве основного ключа для новой строки. Вызовите метод `done()` для возвращенного объекта [Promise](https://msdn.microsoft.com/library/dn802826.aspx), чтобы получить копию вставленного объекта и обработать все ошибки.
 
-function TodoItem(text) { this.text = text; this.complete = false; }
-
-var items = new Array(); todoTable.insert(todoItem).done(function (item) { items.push(item) }); };
+    function TodoItem(text) {
+        this.text = text;
+        this.complete = false;
+    }
+    
+    var items = new Array();
+    var insertTodoItem = function (todoItem) {
+        todoTable.insert(todoItem).done(function (item) {
+            items.push(item)
+        });
+    };
 
 #####Чтение таблицы и отправка к ней запросов
 
 Следующий код выполняет запрос ко всем элементам таблицы, отсортированным по текстовому полю. Можно добавлять код для обработки результатов запроса в обработчике success. В этом случае обновляется локальный массив элементов.
 
-todoTable.orderBy('text') .read().done(function (results) { items = results.slice(); }); });
+    todoTable.orderBy('text')
+        .read().done(function (results) {
+            items = results.slice();
+        });
 
 Можно использовать метод where для изменения запроса. Вот пример кода, который отфильтровывает завершенные элементы.
 
-todoTable.where(function () { return (this.complete === false); }) .read().done(function (results) { items = results.slice(); });
+    todoTable.where(function () {
+            return (this.complete === false);
+        })
+        .read().done(function (results) {
+            items = results.slice();
+        });
 
 Дополнительные примеры запросов см. в разделе, посвященному объекту [query](http://msdn.microsoft.com/library/azure/jj613353.aspx).
 
@@ -62,14 +78,19 @@ todoTable.where(function () { return (this.complete === false); }) .read().done(
 
 Обновите какую-либо строку в таблице данных. Пример кода, когда при ответе мобильной службы из списка удаляется элемент. Вызовите метод `done()` для возвращенного объекта [Promise](https://msdn.microsoft.com/library/dn802826.aspx), чтобы получить копию вставленного объекта и обработать все ошибки.
 
-todoTable.update(todoItem).done(function (item) { // Обновите локальную коллекцию элементов. items.splice(items.indexOf(todoItem), 1, item); });
+    todoTable.update(todoItem).done(function (item) {
+        // Update a local collection of items.
+        items.splice(items.indexOf(todoItem), 1, item);
+    });
 
 #####Удаление элемента таблицы
 
 Для удаления строки из таблицы данных используется метод **del**. Вызовите метод `done()` для возвращенного объекта [Promise](https://msdn.microsoft.com/library/dn802826.aspx), чтобы получить копию вставленного объекта и обработать все ошибки.
 
-todoTable.del(todoItem).done(function (item) { items.splice(items.indexOf(todoItem), 1); });
+    todoTable.del(todoItem).done(function (item) {
+        items.splice(items.indexOf(todoItem), 1);
+    });
 
 [Дополнительные сведения о мобильных службах](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

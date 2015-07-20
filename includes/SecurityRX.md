@@ -444,4 +444,4 @@ WIF используется во всех случаях. WIF поддержи�
 [Web SSO Design]: http://technet.microsoft.com/library/dd807033(WS.10).aspx
 [Federated Web SSO Design]: http://technet.microsoft.com/library/dd807050(WS.10).aspx
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

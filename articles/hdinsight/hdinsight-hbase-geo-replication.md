@@ -48,7 +48,7 @@
 
 - **Подписка Azure.**. См. [Бесплатная пробная версия Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- **Рабочая станция с Azure PowerShell**. См. [Установка и использование Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). Для выполнения скриптов PowerShell необходимо запустить Azure PowerShell с правами администратора и задать политику выполнения *RemoteSigned*. См. раздел Использование командлета Set-ExecutionPolicy.
+- **Рабочая станция с Azure PowerShell.**. См. [Установка и использование Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). Для выполнения скриптов PowerShell необходимо запустить Azure PowerShell с правами администратора и задать политику выполнения *RemoteSigned*. См. раздел Использование командлета Set-ExecutionPolicy.
 
 - **Две виртуальные сети Azure с настроенными VPN-подключением и службой DNS**. Инструкции см. в разделах [Настройка VPN-подключения между двумя виртуальными сетями Azure][hdinsight-hbase-replication-vnet] и [Настройка DNS между двумя виртуальными сетями Azure][hdinsight-hbase-replication-dns].
 
@@ -311,4 +311,4 @@
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
 [hdinsight-hbase-get-started]: ../hdinsight-hbase-get-started.md
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

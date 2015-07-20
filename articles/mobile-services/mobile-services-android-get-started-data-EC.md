@@ -60,7 +60,7 @@
 
 [AZURE.INCLUDE [mobile-services-android-run-sample-code](../../includes/mobile-services-android-run-sample-code-EC.md)]
 
-##<a name="create-service"></a>Создание новой мобильной службы на портале управления
+##<a name="create-service"></a>Создание мобильной службы на портале управления
 
 [AZURE.INCLUDE [mobile-services-create-new-service-data](../../includes/mobile-services-create-new-service-data.md)]
 
@@ -72,7 +72,7 @@
 
 [AZURE.INCLUDE [mobile-services-android-getting-started-with-data](../../includes/mobile-services-android-getting-started-with-data-EC.md)]
 
-##<a name="test-app"></a>Тестирование приложения в новой мобильной службе
+##<a name="test-app"></a>Тестирование работы приложения с новой мобильной службой
 
 Теперь, когда приложение обновлено для хранения данных на сервере с использованием мобильных служб, можно протестировать работу приложения с мобильными службами, используя либо эмулятор Android, либо телефон Android.
 
@@ -100,11 +100,9 @@
 
 Далее обратитесь к одному из следующих учебников по Android:
 
-* [Приступая к работе с проверкой подлинности]
-	<br/> Дополнительные сведения о проверке подлинности пользователей приложения.
+* [Приступая к работе с проверкой подлинности]<br/> Дополнительные сведения о проверке подлинности пользователей приложения.
 
-* [Приступая к работе с push-уведомлениями]
-  <br/>Сведения об отправке в приложение простейших push-уведомлений с помощью мобильных служб.
+* [Приступая к работе с push-уведомлениями] <br/>Сведения об отправке в приложение простейших push-уведомлений с помощью мобильных служб.
 
 <!-- Anchors. -->
 [Download the Android app project]: #download-app
@@ -132,5 +130,6 @@
 [Android SDK для мобильных служб]: http://aka.ms/Iajk6q
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkID=282122
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

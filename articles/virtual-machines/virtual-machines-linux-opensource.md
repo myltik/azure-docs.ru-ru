@@ -73,7 +73,7 @@ Debian — это важный дистрибутив для Linux и всего
 Дистрибутив CentOS Linux — это стабильная, предсказуемая, управляемая и воспроизводимая платформа, созданная на основе исходного кода Red Hat Enterprise Linux (RHEL).
 
 1. [MSOpenTech VM Depot](https://vmdepot.msopentech.com/List/Index?sort=Featured&search=centos)
-2. [Коллекция образов](http://azure.microsoft.com/ru-ru/marketplace/partners/OpenLogic/)
+2. [Коллекция образов](http://azure.microsoft.com/en-in/marketplace/partners/OpenLogic/)
 3. [Практическое руководство. Подготовка пользовательской виртуальной машины на основе CentOS для Azure](virtual-machines-linux-create-upload-vhd-centos.md)
 4. [Блог. Развертывание образа виртуальной машины CentOS из OpenLogic](http://azure.microsoft.com/blog/2013/01/11/deploying-openlogic-centos-images-on-windows-azure-virtual-machines/)
 6. [Практическое руководство. Установка Apache Qpid Proton-C для AMQP и служебной шины](http://msdn.microsoft.com/library/azure/dn235560.aspx)
@@ -92,7 +92,7 @@ Debian — это важный дистрибутив для Linux и всего
 
 CoreOS — это небольшой оптимизированный дистрибутив, который ориентирован исключительно на вычисления и допускает гибкую настройку управления.
 
-10. [Коллекция образов](http://azure.microsoft.com/ru-ru/marketplace/partners/coreos/)  
+10. [Коллекция образов](http://azure.microsoft.com/en-in/marketplace/partners/coreos/)  
 11. [Практическое руководство. Использование CoreOS в Azure](virtual-machines-linux-coreos-how-to.md)
 12. [Практическое руководство. Начало работы с Fleet и Docker на CoreOS в Azure](virtual-machines-linux-coreos-fleet-get-started.md)
 13. [Блог. TechEd Europe — клиент Windows Docker и контейнеры Linux](http://azure.microsoft.com/blog/2014/10/28/new-docker-coreos-topics-linux-on-azure/)
@@ -296,4 +296,4 @@ CoreOS — это небольшой оптимизированный дистр
 [How to use docker with swarm on Azure]: virtual-machines-docker-swarm.md
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

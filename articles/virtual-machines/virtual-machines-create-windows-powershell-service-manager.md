@@ -153,7 +153,7 @@
 	$svcName="<cloud service name>"
 	$vmName="<virtual machine name>"
 	$localPath="<drive and folder location to store the downloaded RDP file, example: c:\temp >"
-	$localFile=$localPath + "\" + $vmname + ".rdp"
+	$localFile=$localPath + "" + $vmname + ".rdp"
 	Get-AzureRemoteDesktopFile -ServiceName $svcName -Name $vmName -LocalPath $localFile -Launch
 
 >[AZURE.NOTE]Имя виртуальной машины и облачной службы можно получить из вывода команды **Get-AzureVM**.
@@ -203,4 +203,4 @@
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

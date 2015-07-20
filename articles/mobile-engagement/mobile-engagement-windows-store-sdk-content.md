@@ -53,5 +53,6 @@
 - `EngagementOverlayNotification.xaml.cs`: код, связанный с `EngagementOverlayNotification.xaml`.
  
 - `EngagementPageOverlay.cs`: кода для отображения объявлений и уведомлений `Overlay`.
- 
-<!--HONumber=54--> 
+  
+
+<!---HONumber=July15_HO2-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Расширение возможностей эксперимента с помощью R | Azure"
+	pageTitle="Расширение возможностей эксперимента с помощью R | Microsoft Azure"
 	description="Рассматривается, как расширить функциональные возможности Студии машинного обучения Microsoft Azure с помощью языка R, используя модуль «Выполнение сценария R»."
 	services="machine-learning"
 	documentationCenter=""
@@ -501,5 +501,6 @@
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 [convert-to-csv]: https://msdn.microsoft.com/library/azure/faa6ba63-383c-4086-ba58-7abf26b85814/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

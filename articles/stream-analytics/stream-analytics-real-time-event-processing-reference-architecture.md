@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Обработка событий в режиме реального времени средствами Stream Analytics| Azure" 
+	pageTitle="Обработка событий в режиме реального времени средствами Stream Analytics| Microsoft Azure" 
 	description="Узнайте о том, как обрабатывать и анализировать события в режиме реального времени с помощью различных служб Azure." 
 	services="stream-analytics,event-hubs,storage,sql-database" 
 	documentationCenter="" 
@@ -56,9 +56,10 @@
 
 - [Введение в Azure Stream Analytics](stream-analytics-introduction.md)
 - [Приступая к работе с Azure Stream Analytics](stream-analytics-get-started.md)
-- [Задания по масштабированию в Azure Stream Analytics](stream-analytics-scale-jobs.md)
+- [Масштабирование заданий в службе Azure Stream Analytics](stream-analytics-scale-jobs.md)
 - [Справочник по языку запросов Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-- [Справочник по REST API для управления Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+- [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->
