@@ -285,6 +285,7 @@
 [SQLite для Windows Phone 8]: http://go.microsoft.com/fwlink/?LinkId=397953
 [Пакет SDK для Windows Phone 8]: http://go.microsoft.com/fwlink/p/?linkid=268374
 [Soft Delete]: mobile-services-using-soft-delete.md
+[Обратимое удаление]: mobile-services-using-soft-delete.md
 [обратимое удаление]: mobile-services-using-soft-delete.md
 
 [Mobile Services SDK Nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0

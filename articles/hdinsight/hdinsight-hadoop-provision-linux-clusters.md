@@ -106,19 +106,23 @@ Windows | Щелкните [здесь](#portal) | Щелкните [здесь]
 		<td>Выберите <b>предварительную версию Ubuntu 12.04 LTS</b> для подготовки кластера HDInsight в Linux. Информацию о подготовке кластера на платформе Windows см. в статье <a href="http://azure.microsoft.com/documentation/articles/hdinsight-provision-clusters/" target="_blank">Подготовка кластеров Hadoop на платформе Windows в HDInsight</a>.</td></tr>
 	<tr><td>Версия HDInsight</td>
 		<td>Выберите версию. Для HDInsight на платформе Linux по умолчанию используется HDInsight версии 3.2, которая использует Hadoop 2.6.</td></tr>
-	</table>Введите или выберите значения, указанные в таблице, а затем щелкните стрелку вправо.
+	</table>
+
+	Введите или выберите значения, указанные в таблице, а затем щелкните стрелку вправо.
 
 4. На странице **Настройка кластера** введите или выберите следующие значения:
 
 	![Укажите подробную информацию о кластере Hadoop HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CustomProvision.Page2.png)
 
 	<table border="1">
-<tr><th>Имя</th><th>Значение</th></tr>
-<tr><td>Узлы данных</td><td>Число узлов данных, которые требуется развернуть. В рамках тестирования создайте кластер с одним узлом. <br />Максимальный размер кластера зависит от подписки Azure. Обратитесь в службу поддержки Azure по вопросам выставления счетов для увеличения лимита.</td></tr>
-<tr><td>Регион/виртуальная сеть</td><td><p>Выберите тот же регион, в котором ранее была создана учетная запись хранения. Для кластеров HDInsight требуется, чтобы учетная запись хранения находилась в том же регионе. При последующей настройке можно выбрать только учетную запись хранения, которая находится в том же регионе, который указан здесь.</p></td></tr>
-<tr><td>Размер головного узла</td><td><p>Выберите размер виртуальной машины для головного узла.</p></td></tr>
-<tr><td>Размер узла данных</td><td><p>Выберите размер виртуальной машины для узлов данных.</p></td></tr>
-</table>>[AZURE.NOTE]Цены зависят от размера выбранных виртуальных машин. HDInsight поддерживает для узлов кластера все виртуальные машины стандартного уровня. Дополнительную информацию о том, как размер виртуальной машины влияет на цены, см. в разделе <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">HDInsight Цены</a>.
+	<tr><th>Имя</th><th>Значение</th></tr>
+	<tr><td>Узлы данных</td><td>Число узлов данных, которые требуется развернуть. В рамках тестирования создайте кластер с одним узлом. <br />Максимальный размер кластера зависит от подписки Azure. Обратитесь в службу поддержки Azure по вопросам выставления счетов для увеличения лимита.</td></tr>
+	<tr><td>Регион/виртуальная сеть</td><td><p>Выберите тот же регион, в котором ранее была создана учетная запись хранения. Для кластеров HDInsight требуется, чтобы учетная запись хранения находилась в том же регионе. При последующей настройке можно выбрать только учетную запись хранения, которая находится в том же регионе, который указан здесь.</p></td></tr>
+	<tr><td>Размер головного узла</td><td><p>Выберите размер виртуальной машины для головного узла.</p></td></tr>
+	<tr><td>Размер узла данных</td><td><p>Выберите размер виртуальной машины для узлов данных.</p></td></tr>
+	</table>
+
+	>[AZURE.NOTE]Цены зависят от размера выбранных виртуальных машин. HDInsight поддерживает для узлов кластера все виртуальные машины стандартного уровня. Дополнительную информацию о том, как размер виртуальной машины влияет на цены, см. в разделе <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">HDInsight Цены</a>.
 
 
 5. На странице **Настройка пользователя кластера** введите следующие значения:
@@ -142,7 +146,9 @@ Windows | Щелкните [здесь](#portal) | Щелкните [здесь]
 	<tr><td>Ввести куст или метахранилище Oozie</td>
 		<td>Установите флажок, чтобы указать базу данных SQL, которая будет использоваться в качестве метахранилища Hive или Oozie, в том же центре обработки данных, где расположен кластер. Если флажок установлен, на следующих страницах мастера нужно указать информацию о базе данных SQL Azure. Это может оказаться полезным, если необходимо сохранить метаданные заданий Hive/Oozie даже после удаления кластера.</td></tr>
 	</td></tr>
-	</table>> [AZURE.NOTE]Мы советуем использовать для SSH аутентификацию с помощью открытого ключа SSH, так как это безопаснее, чем аутентификация с помощью пароля.
+	</table>
+
+	> [AZURE.NOTE]Мы советуем использовать для SSH аутентификацию с помощью открытого ключа SSH, так как это безопаснее, чем аутентификация с помощью пароля.
 
 	Щелкните стрелку вправо.
 
@@ -185,7 +191,9 @@ Windows | Щелкните [здесь](#portal) | Щелкните [здесь]
     </td></tr>
 	<tr><td>Дополнительные учетные записи хранения</td>
 		<td>HDInsight поддерживает несколько учетных записей хранения. Ограничения на дополнительные учетные записи хранения, которые могут использоваться в кластере, отсутствуют. Тем не менее, при создании кластера с использованием портала Azure можно использовать не более семи учетных записей из-за ограничений пользовательского интерфейса. Каждая дополнительная учетная запись хранения, указанная в этом поле, добавляет дополнительную страницу <strong>учетной записи хранения</strong> к мастеру, где можно указать информацию об учетной записи. Например, на следующем снимке экрана выбрана одна дополнительная учетная запись хранения, поэтому в диалоговое окно добавляется страница 5.</td></tr>
-</table>Щелкните стрелку вправо.
+	</table>
+
+	Щелкните стрелку вправо.
 
 7. Если вы решили настроить дополнительное хранилище для кластера, на странице **Учетная запись хранения** введите данные для дополнительной учетной записи хранения:
 
@@ -297,7 +305,8 @@ Windows | Щелкните [здесь](#portal) | Щелкните [здесь]
 
 **Чтобы установить интерфейс командной строки Azure с помощью установщика Windows**
 
-1.	Перейдите в **http://azure.microsoft.com/downloads/**.2.	Прокрутите вниз до раздела **Средства командной строки**, щелкните **Интерфейс командной строки Azure** и следуйте инструкциям мастера установщика веб-платформы.
+1.	Перейдите в **http://azure.microsoft.com/downloads/**.
+2.	Прокрутите вниз до раздела **Средства командной строки**, щелкните **Интерфейс командной строки Azure** и следуйте инструкциям мастера установщика веб-платформы.
 
 **Скачивание и импорт параметров публикации**
 
@@ -591,19 +600,19 @@ HDInsight использует контейнер хранилища BLOB-объ
 3. В окне **Новый проект** введите или выберите следующие значения.
 
 	<table style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse;">
-<tr>
-<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Свойство</th>
-<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Значение</th></tr>
-<tr>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Категория</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">Templates/Visual C#/Windows</td></tr>
-<tr>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Шаблон</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Консольное приложение</td></tr>
-<tr>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Имя</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">CreateHDICluster</td></tr>
-</table>
+	<tr>
+	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Свойство</th>
+	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Значение</th></tr>
+	<tr>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Категория</td>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">Templates/Visual C#/Windows</td></tr>
+	<tr>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Шаблон</td>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Консольное приложение</td></tr>
+	<tr>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Имя</td>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">CreateHDICluster</td></tr>
+	</table>
 
 4. Нажмите кнопку **ОК**, чтобы создать проект.
 
