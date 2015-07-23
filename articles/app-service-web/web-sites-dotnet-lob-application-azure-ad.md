@@ -223,36 +223,36 @@ public class GroupClaimContext : DbContext
 
 11. Добавьте выделенные оформления [Authorize] к соответствующим действиям ниже.
 	<pre class="prettyprint">
-...
-
-<mark>[Authorize(Roles = "Admin, Observer, Writer, Approver")]</mark>
-public class WorkItemsController : Controller
-{
 	...
 
-    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
-    public ActionResult Create()
-    ...
+    <mark>[Authorize(Roles = "Admin, Observer, Writer, Approver")]</mark>
+    public class WorkItemsController : Controller
+    {
+		...
 
-    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+        public ActionResult Create()
+        ...
+
+        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
         public async Task&lt;ActionResult&gt; Create([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
-    ...
+        ...
 
-    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
         public async Task&lt;ActionResult&gt; Edit(int? id)
-    ...
+        ...
 
-    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
         public async Task&lt;ActionResult&gt; Edit([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
-    ...
+        ...
 
-    <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
+        <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
         public async Task&lt;ActionResult&gt; Delete(int? id)
-    ...
+        ...
 
-    <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
+        <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
         public async Task&lt;ActionResult&gt; DeleteConfirmed(int id)
-    ...
+        ...
 	}</pre>
 	Поскольку нас интересует сопоставление ролей к контроллере ролей, достаточно просто убедиться, что каждое действие авторизует соответствующую роль.
 
@@ -375,4 +375,4 @@ public class WorkItemsController : Controller
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
  
 
-<!----HONumber=62-->
+<!-----HONumber=62-->

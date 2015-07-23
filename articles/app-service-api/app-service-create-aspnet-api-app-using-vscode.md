@@ -47,30 +47,33 @@ ASP.NET 5 и DNX представляют собой простой стек .NE
 	<pre class="prettyprint">
 	@powershell -NoProfile -ExecutionPolicy unrestricted -Command "&{$Branch='dev';iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/aspnet/Home/dev/dnvminstall.ps1'))}"
 	</pre> 
+
 	Она скачает сценарий DNVM и поместит его в ваш профиль пользователя.
 
 2. Возможно, после ввода приведенной выше команды необходимо будет выйти из системы, чтобы изменение переменной среды PATH вступило в силу.
 3. Проверьте расположение DNVM, выполнив в командной строке следующее: 
 
 	<pre class="prettyprint">
-where dnvm
+	where dnvm
 	</pre>
-	В окне командной строки будет отображаться путь следующего вида:
+
+	В командном окне будет отображаться путь следующего вида:
 
 	![dnvm location](./media/app-service-create-aspnet-api-app-using-vscode/00-where-dnvm.png)
 
 4. Теперь, установив DNVM, необходимо с его помощью скачать DNX для запуска приложений. Выполните следующую команду в окне командной строки:
 
 	<pre class="prettyprint">
-dnvm upgrade
-</pre>
+	dnvm upgrade
+	</pre>
 
 5. Проверьте установленный DNVM и просмотрите активную среду выполнения, введя следующее в окне командной строки:
 
 	<pre class="prettyprint">
-dnvm list
+	dnvm list
 	</pre>
-	В окне командной строки будет показана подробная информация об активной среде выполнения:
+
+	В командном окне будет показана подробная информация об активной среде выполнения:
 
 	![dnvm location](./media/app-service-create-aspnet-api-app-using-vscode/00b-dnvm-list.png)
 
@@ -113,8 +116,9 @@ yo aspnet
 9. В **палитре команд** введите следующие команды:
 
 	<pre class="prettyprint">
-dnx:dnu restore - (ContactsList)
+	dnx:dnu restore - (ContactsList)
 	</pre>
+
 	Начав ввод, вы увидите полную командную строку в списке.
 
 	![Команда Restore](./media/app-service-create-aspnet-api-app-using-vscode/04-dnu-restore.png)
@@ -146,36 +150,37 @@ namespace ContactsList.Models
 3. Щелкните правой кнопкой мыши папку **Controllers** и добавьте файл *ContactsController.cs* следующего вида:
 
 	<pre class="prettyprint">
-using System.Collections.Generic;
-using Microsoft.AspNet.Mvc;
-using ContactsList.Models;
-
-namespace ContactsList.Controllers
-{
-    [Route("api/[controller]")]
-    public class ContactsController : Controller
-    {
-        // GET: api/Contacts
-        [HttpGet]
+	using System.Collections.Generic;
+	using Microsoft.AspNet.Mvc;
+	using ContactsList.Models;
+	
+	namespace ContactsList.Controllers
+	{
+	    [Route("api/[controller]")]
+	    public class ContactsController : Controller
+	    {
+	        // GET: api/Contacts
+	        [HttpGet]
 	        public IEnumerable&lt;Contact&gt; Get()
-        {
-            return new Contact[]{
-                new Contact { Id = 1, EmailAddress = "barney@contoso.com", Name = "Barney Poland"},
-                new Contact { Id = 2, EmailAddress = "lacy@contoso.com", Name = "Lacy Barrera"},
-                new Contact { Id = 3, EmailAddress = "lora@microsoft.com", Name = "Lora Riggs"}
-            };
-        }
-    }
-}
-</pre>
+	        {
+	            return new Contact[]{
+	                new Contact { Id = 1, EmailAddress = "barney@contoso.com", Name = "Barney Poland"},
+	                new Contact { Id = 2, EmailAddress = "lacy@contoso.com", Name = "Lacy Barrera"},
+	                new Contact { Id = 3, EmailAddress = "lora@microsoft.com", Name = "Lora Riggs"}
+	            };
+	        }
+	    }
+	}
+	</pre>
 
 4. Убедитесь, что все файлы сохранены, выбрав **Файл** > **Сохранить все**.
 5. В **палитре команд** введите следующую команду, чтобы запустить приложение локально:
 
 	<pre class="prettyprint">
-dnx: kestrel - (ContactsList, Microsoft.AspNet.Hosting --server Kestrel --server.urls http://localhost:5001
+	dnx: kestrel - (ContactsList, Microsoft.AspNet.Hosting --server Kestrel --server.urls http://localhost:5001
 	</pre>
-	В окне командной строки отобразится состояние *Запущено*. Если в командном окне не отображается состояние *Запущено*, проверьте нижний левый угол VSCode н наличие ошибок в проекте.
+
+	В командном окне отобразится состояние *Запущено*. Если в командном окне не отображается состояние *Запущено*, проверьте нижней левый угол VSCode н наличие ошибок в проекте.
 
 5. Откройте браузер и перейдите по следующему URL-адресу:
 
@@ -193,18 +198,18 @@ dnx: kestrel - (ContactsList, Microsoft.AspNet.Hosting --server Kestrel --server
 3. Добавьте в файл *apiapp.json* следующее:
 
 	<pre class="prettyprint">
-{
-    "$schema": "http://json-schema.org/schemas/2014-11-01/apiapp.json#",
-    "id": "ContactsList",
-    "namespace": "microsoft.com",
-    "gateway": "2015-01-14",
-    "version": "1.0.0",
-    "title": "ContactsList",
-    "summary": "",
-    "author": "",
-    "endpoints": null
-}
-</pre>
+	{
+	    "$schema": "http://json-schema.org/schemas/2014-11-01/apiapp.json#",
+	    "id": "ContactsList",
+	    "namespace": "microsoft.com",
+	    "gateway": "2015-01-14",
+	    "version": "1.0.0",
+	    "title": "ContactsList",
+	    "summary": "",
+	    "author": "",
+	    "endpoints": null
+	}
+	</pre>
 
 В файле *apiapp.json* можно указать конечную точку для JSON динамического определения Swagger API, но в этом учебнике будет использоваться статический файл определения API. Пример, в котором используется динамическое создание Swagger, см. в разделе [Настройка проекта веб-API как приложения API](app-service-dotnet-create-api-app-visual-studio.md).
 
@@ -216,106 +221,106 @@ dnx: kestrel - (ContactsList, Microsoft.AspNet.Hosting --server Kestrel --server
 3. Добавьте следующий синтаксис JSON в новый файл:
 
 	<pre class="prettyprint">
-{
-  "swagger": "2.0",
-  "info": {
-    "version": "v1",
-    "title": "ContactsList"
-  },
-  "host": "СЛЕДУЕТ ЗАМЕНИТЬ ЭТУ СТРОКУ НА URL-АДРЕС УЗЛА",
-  "schemes": [
-    "https"
-  ],
-  "paths": {
-    "/api/Contacts": {
-      "get": {
-        "tags": [
-          "Contacts"
-        ],
-        "operationId": "Contacts_Get",
-        "consumes": [],
-        "produces": [
-          "application/json",
-          "text/json",
-          "application/xml",
-          "text/xml"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/Contact"
-              }
-            }
-          }
-        },
-        "deprecated": false
-      },
-      "post": {
-        "tags": [
-          "Contacts"
-        ],
-        "operationId": "Contacts_Post",
-        "consumes": [
-          "application/json",
-          "text/json",
-          "application/xml",
-          "text/xml",
-          "application/x-www-form-urlencoded"
-        ],
-        "produces": [
-          "application/json",
-          "text/json",
-          "application/xml",
-          "text/xml"
-        ],
-        "parameters": [
-          {
-            "name": "contact",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/Contact"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Object"
-            }
-          }
-        },
-        "deprecated": false
-      }
-    }
-  },
-  "definitions": {
-    "Contact": {
-      "type": "object",
-      "properties": {
-        "Id": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "Name": {
-          "type": "string"
-        },
-        "EmailAddress": {
-          "type": "string"
-        }
-      }
-    },
-    "Object": {
-      "type": "object",
-      "properties": {}
-    }
-  }
-}
-</pre>
+	{
+	  "swagger": "2.0",
+	  "info": {
+	    "version": "v1",
+	    "title": "ContactsList"
+	  },
+	  "host": "СЛЕДУЕТ ЗАМЕНИТЬ ЭТУ СТРОКУ НА URL-АДРЕС УЗЛА",
+	  "schemes": [
+	    "https"
+	  ],
+	  "paths": {
+	    "/api/Contacts": {
+	      "get": {
+	        "tags": [
+	          "Contacts"
+	        ],
+	        "operationId": "Contacts_Get",
+	        "consumes": [],
+	        "produces": [
+	          "application/json",
+	          "text/json",
+	          "application/xml",
+	          "text/xml"
+	        ],
+	        "responses": {
+	          "200": {
+	            "description": "OK",
+	            "schema": {
+	              "type": "array",
+	              "items": {
+	                "$ref": "#/definitions/Contact"
+	              }
+	            }
+	          }
+	        },
+	        "deprecated": false
+	      },
+	      "post": {
+	        "tags": [
+	          "Contacts"
+	        ],
+	        "operationId": "Contacts_Post",
+	        "consumes": [
+	          "application/json",
+	          "text/json",
+	          "application/xml",
+	          "text/xml",
+	          "application/x-www-form-urlencoded"
+	        ],
+	        "produces": [
+	          "application/json",
+	          "text/json",
+	          "application/xml",
+	          "text/xml"
+	        ],
+	        "parameters": [
+	          {
+	            "name": "contact",
+	            "in": "body",
+	            "required": true,
+	            "schema": {
+	              "$ref": "#/definitions/Contact"
+	            }
+	          }
+	        ],
+	        "responses": {
+	          "200": {
+	            "description": "OK",
+	            "schema": {
+	              "$ref": "#/definitions/Object"
+	            }
+	          }
+	        },
+	        "deprecated": false
+	      }
+	    }
+	  },
+	  "definitions": {
+	    "Contact": {
+	      "type": "object",
+	      "properties": {
+	        "Id": {
+	          "format": "int32",
+	          "type": "integer"
+	        },
+	        "Name": {
+	          "type": "string"
+	        },
+	        "EmailAddress": {
+	          "type": "string"
+	        }
+	      }
+	    },
+	    "Object": {
+	      "type": "object",
+	      "properties": {}
+	    }
+	  }
+	}
+	</pre>
 
 Далее в этом учебнике вы замените строку заполнителя URL-адреса узла URL-адресом узла Azure, который создадите и скопируете позже.
 
@@ -415,20 +420,21 @@ Git является распределенной системой управл�
 7. В **GitBash** измените папки на свою папку проекта VSCode, например
 
 	<pre class="prettyprint">
-cd c:\VSCodeProjects\ContactsList
-</pre>
+	cd c:\VSCodeProjects\ContactsList
+	</pre>
 
 7. Создайте внешнюю ссылку для публикации обновлений в ранее созданное веб-приложение (узел приложений API), используя URL-адрес Git (заканчивающийся на .git), скопированный ранее:
 
 	<pre class="prettyprint">
-git remote add azure [URL-адрес удаленного репозитория]
-</pre>
+	git remote add azure [URL-адрес удаленного репозитория]
+	</pre>
 
 8. Отправьте обновления в Azure с помощью следующей команды:
 
 	<pre class="prettyprint">
-git push azure master
+	git push azure master
 	</pre>
+
 	Появится запрос на ввод ранее заданного пароля. **Примечание. Ваш пароль не будет отображаться.**
 
 	Вывод этой команды завершается сообщением об успешном развертывании:
@@ -436,8 +442,8 @@ git push azure master
 	<pre class="prettyprint">
 	удаленный: успешное развертывание.
 	По адресу https://user@testsite.scm.azurewebsites.net/testsite.git
-[new branch]      master -> master
-</pre>
+	[new branch]      master -> master
+	</pre>
 
 > [AZURE.NOTE]При внесении изменений в приложение его можно опубликовать повторно, установив флажок **Фиксировать все** в VSCode, а затем введя команду **git push azure master** в **GitBash**.
 
@@ -457,4 +463,4 @@ git push azure master
 В этом учебнике вы узнали, как создать приложение API в Visual Studio Code. Дополнительную информацию о Visual Studio Code см. в разделе [Visual Studio Code](https://code.visualstudio.com/Docs/). Информацию о приложениях API см. в разделе [Что такое приложения API?](app-service-api-apps-why-best-platform.md).
  
 
-<!---HONumber=62-->
+<!----HONumber=62-->
