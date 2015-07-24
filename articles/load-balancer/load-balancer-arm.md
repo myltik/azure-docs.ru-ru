@@ -35,7 +35,7 @@
 - Правила NAT для входящего трафика: правила NAT, определяющие входящий трафик, который проходит через внешний IP-адрес и передается серверному IP-адресу.
 
 
-![](https://acomdpsstorage.blob.core.windows.net/dpsmedia-prod/azure.microsoft.com/ru-ru/documentation/articles/resource-groups-networking/20150429054039/figure5.png)
+![](https://acomdpsstorage.blob.core.windows.net/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/resource-groups-networking/20150429054039/figure5.png)
 
 
 

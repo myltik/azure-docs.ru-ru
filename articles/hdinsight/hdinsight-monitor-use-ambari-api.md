@@ -44,11 +44,13 @@
 - **Кластер Azure HDInsight**. Указания по подготовке кластеров см. в разделе [Приступая к работе с HDInsight][hdinsight-get-started] или [Подготовка кластеров HDInsight][hdinsight-provision]. Для выполнения учебника необходимы следующие данные:
 
 	<table border="1">
-<tr><th>Свойство кластера</th><th>Имя переменной Azure PowerShell</th><th>Значение</th><th>Описание</th></tr>
-<tr><td>Имя кластера HDInsight.</td><td>$clusterName</td><td></td><td>Это имя вашего кластера HDInsight.</td></tr>
-<tr><td>Имя пользователя кластера</td><td>$clusterUsername</td><td></td><td>Имя пользователя кластера, указанное при подготовке.</td></tr>
-<tr><td>Пароль кластера</td><td>$clusterPassword</td><td></td><td>Пароль пользователя кластера.</td></tr>
-</table>> [AZURE.NOTE]Введите значения в таблицу. Это будет полезно для изучения данного учебника.
+	<tr><th>Свойство кластера</th><th>Имя переменной Azure PowerShell</th><th>Значение</th><th>Описание</th></tr>
+	<tr><td>Имя кластера HDInsight.</td><td>$clusterName</td><td></td><td>Это имя вашего кластера HDInsight.</td></tr>
+	<tr><td>Имя пользователя кластера</td><td>$clusterUsername</td><td></td><td>Имя пользователя кластера, указанное при подготовке.</td></tr>
+	<tr><td>Пароль кластера</td><td>$clusterPassword</td><td></td><td>Пароль пользователя кластера.</td></tr>
+	</table>
+
+	> [AZURE.NOTE] Введите значения в таблицу. Это будет полезно для изучения данного учебника.
 
 
 
