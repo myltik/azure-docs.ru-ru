@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Как использовать приложение Chrome Postman со службой &quot;Поиск Azure&quot;" 
-	description="Как использовать приложение Chrome Postman со службой &quot;Поиск Azure&quot;" 
-	services="search" 
-	documentationCenter="" 
-	authors="HeidiSteen" 
-	manager="mblythe" 
+<properties
+	pageTitle="Как использовать приложение Chrome Postman со службой "Поиск Azure""
+	description="Как использовать приложение Chrome Postman со службой "Поиск Azure""
+	services="search"
+	documentationCenter=""
+	authors="HeidiSteen"
+	manager="mblythe"
 	editor=""
-    tags="azure-portal"/>
+	tags="azure-portal"/>
 
-<tags 
-	ms.service="search" 
-	ms.devlang="rest-api" 
-	ms.workload="search" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.date="04/27/2015" 
+<tags
+	ms.service="search"
+	ms.devlang="rest-api"
+	ms.workload="search"
+	ms.topic="get-started-article" 
+	ms.tgt_pltfrm="na"
+	ms.date="07/08/2015"
 	ms.author="heidist"/>
 
 # Как использовать приложение Chrome Postman со службой "Поиск Azure" #
@@ -22,7 +22,7 @@
 [Postman](https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm "Chrome Postman") — это приложение для браузера Google Chrome, которое позволяет разработчикам эффективно работать со службами на основе интерфейса API REST, такими как Поиск Azure. Приложение Postman отправляет вызовы API для быстрого создания и запроса индексов поиска без необходимости написания кода. С помощью этого средства вы сможете быстро изучить интерфейс API и опробовать новые компоненты.
 
 ![][1]
- 
+
 ## Требования ##
 
 Требуется служба "Поиск Azure". Как и с любым пользовательским приложением, использующим службу "Поиск Azure", для создания индекса вам потребуется URL-адрес службы, а также ключ API (`api-key`). Инструкции о том, как получить значения для службы поиска, приведены в [статье, посвященной созданию службы на портале](search-create-service-portal.md) .
@@ -31,7 +31,7 @@
 Чтобы загрузить приложение Postman, посетите [интернет-магазин Google Chrome](https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm). По ссылке на этой странице можно загрузить и установить клиент REST для приложения Postman. После установки это приложение можно запустить на панели запуска Chrome.
 
 ![][2]
- 
+
 ## Настройка приложения Postman для отправки запросов в службу "Поиск Azure" ##
 Чтобы настроить приложение Postman, выполните следующие действия.
 
@@ -40,7 +40,7 @@
 3. Убедитесь, что выбран метод `GET`.
 4. Нажмите кнопку **Headers** (Заголовки).
 5. Введите значения для следующих параметров:
-	- `api-key`: [ключ администратора];
+	- `api-key`: [ключ администратора]
 	- `Content-Type`: `application/json; charset=utf-8`.
 6. Нажмите кнопку **Send** (Отправить), чтобы отправить вызов REST в службу "Поиск Azure" и визуализировать ответ JSON.
 
@@ -55,19 +55,19 @@
 3. В основном содержимом RAW введите следующий объект JSON.
 
 	    {
-	    "name": "trails", 
+	    "name": "trails",
 	    "fields": [
-	    {"name": "id", "type": "Edm.String", "key": true, "searchable": false}, 
-	    {"name": "name", "type": "Edm.String"}, 
-	    {"name": "county", "type": "Edm.String"}, 
-	    {"name": "elevation", "type": "Edm.Int32"}, 
+	    {"name": "id", "type": "Edm.String", "key": true, "searchable": false},
+	    {"name": "name", "type": "Edm.String"},
+	    {"name": "county", "type": "Edm.String"},
+	    {"name": "elevation", "type": "Edm.Int32"},
 	    {"name": "location", "type": "Edm.GeographyPoint"} ]
 	    }
 
 4. Нажмите кнопку **Send** (Отправить).
 
 ![][4]
- 
+
 ## Публикация документов в индексе службы "Поиск Azure" с помощью приложения Postman ##
 После создания индекса в него можно загрузить документы. Для этого мы опубликуем группу документов в пакете, используя сведения о пяти маршрутах из набора данных, предоставленных Геологической службой США (USGS).
 
@@ -84,7 +84,7 @@
 		    {"@search.action": "upload", "id": "1517508", "name": "Cavanaugh-Oso Truck Trail", "county": "Skagit", "elevation":339, "location": { "type": "Point", "coordinates": [-121.9470829,48.2981608] }}
 	      ]
 	    }
-    
+
 4. Нажмите кнопку **Send** (Отправить).
 
 ![][5]
@@ -95,7 +95,7 @@
 1. Используя имя службы поиска, включите в URL-адрес следующие данные: `https://[SEARCH SERVICE].search.windows.net/indexes/trails/docs?api-version=2015-02-28&search=trail`. Обратите внимание, что URL-адрес включает параметр запроса `search` и условие поиска *trail* (маршрут).
 2. Измените тип запроса HTTP на `GET`.
 3. Нажмите кнопку **Send** (Отправить).
- 
+
 В ответе отобразятся результаты поиска в формате JSON, возвращаемые службой "Поиск Azure".
 
 ![][6]
@@ -117,5 +117,6 @@
 [4]: ./media/search-chrome-postman/create_index.png
 [5]: ./media/search-chrome-postman/upload_documents.png
 [6]: ./media/search-chrome-postman/query.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

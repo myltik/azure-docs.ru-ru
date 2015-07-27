@@ -1,7 +1,6 @@
 <properties 
 	pageTitle="Памятка по алгоритмам Машинного обучения Microsoft Azure | Microsoft Azure" 
 	description="Памятка по алгоритмам Машинного обучения Microsoft Azure для печати поможет выбрать в Студии машинного обучения Azure правильный алгоритм для модели прогнозирования."
-	keywords="algorithm cheat sheet,cheat sheet,machine learning algorithm"	
 	services="machine-learning"
 	documentationCenter="" 
 	authors="brohrer" 
@@ -90,4 +89,4 @@ Here's an example from the [Azure Machine Learning Gallery](http://gallery.azure
 [one-vs-all-multiclass]: https://msdn.microsoft.com/library/azure/7191efae-b4b1-4d03-a6f8-7205f87be664/
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

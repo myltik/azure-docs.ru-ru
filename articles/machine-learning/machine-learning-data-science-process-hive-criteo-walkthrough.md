@@ -1,9 +1,7 @@
 <properties 
 	pageTitle="Обработка аналитических данных и технология расширенного анализа данных на практике: использование кластеров Hadoop для обработки набора данных Criteo объемом 1 ТБ | Microsoft Azure" 
 	description="Использование обработки аналитических данных и технологии расширенного анализа данных (ADAPT) для комплексного сценария, включающего использование кластера HDInsight Hadoop для создания и развертывания модели на основе общедоступного набора данных большого объема (1 ТБ)" 
-	metaKeywords="" 
 	services="machine-learning,hdinsight" 
-	solutions="" 
 	documentationCenter="" 
 	authors="bradsev" 
 	manager="paulettm" 
@@ -648,4 +646,4 @@
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

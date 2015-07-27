@@ -5,7 +5,8 @@
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -36,7 +37,7 @@
 
 [AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
 
-## Общая информация о шаблонах ресурсов Azure и группах ресурсов
+## Общая информация о шаблонах диспетчера ресурсов Azure и группах ресурсов
 
 Большинство приложений, развертываемых и используемых в Microsoft Azure, созданы на основе сочетания облачных ресурсов различных типов (например, одной или нескольких виртуальных машин и учетных записей хранения, базы данных SQL или виртуальной сети). С помощью шаблонов диспетчера ресурсов Azure можно развертывать эти ресурсы и управлять ими совокупно, используя описание ресурсов в формате JSON и связанные параметры конфигурации и развертывания.
 
@@ -1126,4 +1127,4 @@
 
 [Установка и настройка Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

@@ -1,13 +1,11 @@
 <properties
-	urlDisplayName="How to connect to an Azure SQL database using SSMS"
 	pageTitle="Подключение к базе данных SQL Azure с помощью среды SSMS" metaKeywords=""
 	description="Узнайте, как подключиться к базе данных SQL Azure с помощью среды SSMS."
-	metaCanonical=""
 	services="sql-database"
 	documentationCenter=""
-	title="How to connect to an Azure SQL database using SSMS"
-	authors="sidneyh" solutions=""
-	manager="jhubbard" editor="" />
+	authors="sidneyh" 
+	manager="jhubbard" 
+	editor="" />
 
 <tags
 	ms.service="sql-database"
@@ -15,19 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="04/02/2015"
+	ms.date="06/25/2015"
 	ms.author="sidneyh" />
 
-# Подключение к Базе данных SQL Azure с помощью среды SSMS
+# Подключение к Базе данных SQL Azure с помощью SQL Server Management Studio
 
-В этой статье приведены действия, необходимые для подключения к Базе данных SQL Microsoft Azure с помощью среды SQL Server Management Studio.
+В этой статье приведены действия, необходимые для подключения к Базе данных SQL Microsoft Azure с помощью среды SQL Server Management Studio (SSMS).
 
 ## Предварительные требования
 * Подготовленная и запущенная База данных SQL Azure. Информацию о создании базы данных читайте в статье [Начало работы с Базой данных SQL Microsoft Azure](sql-database-get-started.md).
 * Имя и пароль администратора Базы данных SQL.
 * Среда SQL Server Management Studio 2014. Чтобы получить ее, [загрузите SQL Express](http://www.hanselman.com/blog/DownloadSQLServerExpress.aspx).
+* Настройте параметры брандмауэра для базы данных. См. [Практическое руководство. Настройка параметров брандмауэра (база данных Azure SQL)](sql-database-configure-firewall-settings.md)
 
-## Для подключения к экземпляру Базы данных SQL:
+## Для подключения к экземпляру Базы данных SQL
 1. Войдите на [портал управления Azure](https://portal.azure.com).
 2. Нажмите кнопку **Обзор**, а затем выберите **Базы данных SQL** (b).
 
@@ -63,4 +62,4 @@
 [5]: ./media/sql-database-connect-to-database/ssms-master.png
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

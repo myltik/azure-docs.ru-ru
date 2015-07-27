@@ -1,0 +1,592 @@
+<properties
+	pageTitle="Сравнение Apache Storm и Azure Stream Analytics | Microsoft Azure"
+	description="Информация об использовании Stream Analytics для анализа тональности данных Twitter в режиме реального времени. Пошаговое руководство с шагами от создания событий до отображения данных на динамической панели мониторинга."
+	services="stream-analytics"
+	documentationCenter=""
+	authors="jeffstokes72"
+	manager="paulettm"
+	editor="cgronlun"/>
+
+<tags
+	ms.service="stream-analytics"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="big-data"
+	ms.date="07/01/2015"
+	ms.author="jeffstok"/>
+
+# Сравнение служб Apache Storm и Azure Stream Analytics #
+
+## Введение ##
+
+В этом документе проведено сравнение Azure Stream Analytics и Apache Storm, управляемых служб в HDInsight. Цель состоит в том, чтобы ознакомить пользователей с основными преимуществами обеих служб и помочь им сделать выбор в пользу той службы, что подходит именно для их бизнеса.
+
+Хотя обе службы и обладают таким преимуществом, как решение типа PaaS, между ними существует несколько фундаментальных отличий. Мы считаем, что описание возможностей и ограничений этих служб поможет пользователям принять решение, способствующее достижению их целей.
+
+## Общие сведения ##
+<table border="1" cellspacing="0" cellpadding="0">
+    <tbody>
+        <tr>
+            <td width="174" valign="top">
+                <p>
+                    <strong> </strong>
+                </p>
+            </td>
+            <td width="204" valign="top">
+                <p>
+                    <strong>Azure Stream Analytics</strong>
+                </p>
+            </td>
+            <td width="246" valign="top">
+                <p>
+                    <strong>Apache Storm в HDInsight</strong>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="174" valign="top">
+                <p>
+                    <strong>Открытый код</strong>
+                </p>
+            </td>
+            <td width="204" valign="top">
+                <p>
+                    Нет, служба Azure Stream Analytics принадлежит исключительно корпорации Майкрософт.
+                </p>
+            </td>
+            <td width="246" valign="top">
+                <p>
+                    Да, служба Apache Storm является лицензированной технологией Apache.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="174" valign="top">
+                <p>
+                    <strong>Поддерживается корпорацией Майкрософт</strong>
+                </p>
+            </td>
+            <td width="204" valign="top">
+                <p>
+                    Да
+                </p>
+            </td>
+            <td width="246" valign="top">
+                <p>
+                    Да
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="174" valign="top">
+                <p>
+                    <strong>Требования к оборудованию</strong>
+                </p>
+            </td>
+            <td width="204" valign="top">
+                <p>
+                    Требования к оборудованию отсутствуют. Azure Stream Analytics является службой Azure.
+                </p>
+            </td>
+            <td width="246" valign="top">
+                <p>
+                    Требования к оборудованию отсутствуют. Apache Storm является службой Azure.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="174" valign="top">
+                <p>
+                    <strong>Единица верхнего уровня</strong>
+                </p>
+            </td>
+            <td width="204" valign="top">
+                <p>
+                    При помощи Azure Stream Analytics клиенты могут развертывать и отслеживать задания потоковой передачи.
+                </p>
+            </td>
+            <td width="246" valign="top">
+                <p>
+                    При помощи Apache Storm в HDInsight клиенты могут развертывать и отслеживать целый кластер, который может содержать многочисленные задания Storm, а также другие рабочие нагрузки (включая пакетную службу).
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="174" valign="top">
+                <p>
+                    <strong>Цена</strong>
+                </p>
+            </td>
+            <td width="204" valign="top">
+                <p>
+                    Stream Analytics оценивается согласно объему обработанных данных и требуемому количеству единиц потоковой передачи (на каждый час выполнения задания).
+                </p>
+                <p>
+                    <a href="http://azure.microsoft.com/pricing/details/stream-analytics/">Дополнительную информацию о ценах можно посмотреть здесь.</a>
+                </p>
+            </td>
+            <td width="246" valign="top">
+                <p>
+                    Для Apache Storm в HDInsight вы платите за продолжительность работы кластера, независимо от развернутых заданий.
+                </p>
+                <p>
+                    <a href="http://azure.microsoft.com/pricing/details/hdinsight/">Дополнительную информацию о ценах можно посмотреть здесь.</a>
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+## Разработка ##
+<table border="1" cellspacing="0" cellpadding="0">
+    <tbody>
+        <tr>
+            <td width="174" valign="top">
+                <p>
+                    <strong> </strong>
+                </p>
+            </td>
+            <td width="204" valign="top">
+                <p>
+                    <strong>Azure Stream Analytics</strong>
+                </p>
+            </td>
+            <td width="246" valign="top">
+                <p>
+                    <strong>Apache Storm в HDInsight</strong>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="174" valign="top">
+                <p>
+                    <strong>Возможности: SQL DSL</strong>
+                </p>
+            </td>
+            <td width="204" valign="top">
+                <p>
+                    Да, доступна легкая в использовании поддержка языка SQL
+                </p>
+            </td>
+            <td width="246" valign="top">
+                <p>
+                    Нет, пользователь должен написать код на языке Java C# или использовать API Trident.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="174" valign="top">
+                <p>
+                    <strong>Возможности: временные операторы</strong>
+                </p>
+            </td>
+            <td width="204" valign="top">
+                <p>
+                    По умолчанию поддерживаются агрегаты данных на основе периодов времени и временные соединения.
+                </p>
+            </td>
+            <td width="246" valign="top">
+                <p>
+                    Пользователь сам должен выполнить реализацию временных операторов.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="174" valign="top">
+                <p>
+                    <strong>Разработка</strong>
+                </p>
+            </td>
+            <td width="204" valign="top">
+                <p>
+                    Интерактивная разработка и отладка демонстрационных данных при помощи портала Azure.
+                </p>
+            </td>
+            <td width="246" valign="top">
+                <p>
+                    Для пользователей .NET разработка, отладка и отслеживание обеспечиваются инструментами Visual Studio, в то время как для Java и других языков разработчики могут использовать IDE по своему выбору.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="174" valign="top">
+                <p>
+                    <strong>Поддержка отладки</strong>
+                </p>
+            </td>
+            <td width="204" valign="top">
+                <p>
+                    Stream Analytics предлагает базовые состояния заданий и операционные журналы для отладки, но в настоящее время не обеспечивает гибкость содержания журналов и его количества,например, режим подробного протоколирования.
+                </p>
+            </td>
+            <td width="246" valign="top">
+                <p>
+                    Для отладки доступны подробные журналы. Пользователь может вызывать журналы двумя способами: через Visual Studio или с помощью подключения к кластеру по протоколу удаленного рабочего стола.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="174" valign="top">
+                <p>
+                    <strong>Поддержка для UDF (пользовательские функции)</strong>
+                </p>
+            </td>
+            <td width="204" valign="top">
+                <p>
+                    В настоящее время UDF не поддерживается.
+                </p>
+            </td>
+            <td width="246" valign="top">
+                <p>
+                    UDF можно написать на C#, Java или другом языке по вашему выбору.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="174" valign="top">
+                <p>
+                    <strong>Расширяемый – пользовательский код </strong>
+                </p>
+            </td>
+            <td width="204" valign="top">
+                <p>
+                    Расширяемый код не поддерживается в Stream Analytics.
+                </p>
+            </td>
+            <td width="246" valign="top">
+                <p>
+                    Да, есть возможность написать пользовательский код на C#, Java или другом поддерживаемом в Storm языке.
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+## Входные и выходные данные ##
+<table border="1" cellspacing="0" cellpadding="0">
+    <tbody>
+        <tr>
+            <td width="174" valign="top">
+                <p>
+                    <strong> </strong>
+                </p>
+            </td>
+            <td width="204" valign="top">
+                <p>
+                    <strong>Azure Stream Analytics</strong>
+                </p>
+            </td>
+            <td width="246" valign="top">
+                <p>
+                    <strong>Apache Storm в HDInsight</strong>
+                </p>
+            </td>
+        </tr>
+		<tr>
+            <td width="174" valign="top">
+				<p>
+				 <strong>Источники входных данных</strong>
+                </p>
+            </td>
+            <td width="204" valign="top">
+                <p>Поддерживаемые источники входных данных: концентраторы событий Azure и большие двоичные объекты Azure.
+                </p>
+            </td>
+            <td width="246" valign="top">
+                <p>
+                    Для концентраторов событий, служебных шин, Kafka и т.&#160;д. доступны соединители. Неподдерживаемые соединители могут реализовываться при помощи пользовательского кода.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="174" valign="top">
+                <p>
+                    <strong>Форматы входных данных</strong>
+                </p>
+            </td>
+            <td width="204" valign="top">
+                <p>
+                    Поддерживаемые форматы входных данных: Avro, JSON, CSV.
+                </p>
+            </td>
+            <td width="246" valign="top">
+                <p>
+                    Все форматы могут быть реализованы через пользовательский код.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="174" valign="top">
+                <p>
+                    <strong>Выходные данные</strong>
+                </p>
+            </td>
+            <td width="204" valign="top">
+                <p>
+                    Задание потоковой передачи может направлять результаты обработки в различные среды. Поддерживаемые источники выходных данных: концентраторы событий Azure, хранилище больших двоичных объектов Azure, таблицы Azure, базы данных SQL Azure  и PowerBI.
+                </p>
+            </td>
+            <td width="246" valign="top">
+                <p>
+                    Поддержка нескольких выходных данных в топологии. Все данные могут иметь настраиваемую логику для последующей обработки. По умолчанию Storm включает соединители для PowerBI, концентраторов событий Azure, хранилищ больших двоичных объектов Azure, DocumentDB Azure, SQL и HBase. Неподдерживаемые соединители могут реализовываться при помощи пользовательского кода.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="174" valign="top">
+                <p>
+                    <strong>Форматы кодирования данных</strong>
+                </p>
+            </td>
+            <td width="204" valign="top">
+                <p>
+                    Stream Analytics требует использования формата данных UTF-8.
+                </p>
+            </td>
+            <td width="246" valign="top">
+                <p>
+                    Все форматы кодирования данных могут быть реализованы через пользовательский код.
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+## Управление и использование ##
+<table border="1" cellspacing="0" cellpadding="0">
+    <tbody>
+        <tr>
+            <td width="174" valign="top">
+                <p>
+                    <strong> </strong>
+                </p>
+            </td>
+            <td width="204" valign="top">
+                <p>
+                    <strong>Azure Stream Analytics</strong>
+                </p>
+            </td>
+            <td width="246" valign="top">
+                <p>
+                    <strong>Apache Storm в HDInsight</strong>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="174" valign="top">
+                <p>
+                    <strong>Модель развертывания задания</strong>
+                </p>
+                <p>
+                    - <strong>Портал Azure</strong>
+                </p>
+                <p>
+                    - <strong>Visual Studio</strong>
+                </p>
+                <p>
+                    - <strong>PowerShell</strong>
+                </p>
+            </td>
+            <td width="204" valign="top">
+                <p>
+                    Развертывание реализуется через портал Azure, PowerShell и REST API.
+                </p>
+            </td>
+            <td width="246" valign="top">
+                <p>
+                    Развертывание реализуется через портал Azure, PowerShell, Visual Studio и REST API.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="174" valign="top">
+                <p>
+                    <strong>Мониторинг (статистика, счетчики, и т.&#160;д.)</strong>
+                </p>
+            </td>
+            <td width="204" valign="top">
+                <p>
+                    Мониторинг реализуется через портал Azure и REST API.
+                </p>
+                <p>
+                    Пользователь также может настроить оповещения Azure.
+                </p>
+            </td>
+            <td width="246" valign="top">
+                <p>
+                    Мониторинг реализуется через пользовательский интерфейс Storm и REST API.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="174" valign="top">
+                <p>
+                    <strong>Масштабируемость</strong>
+                </p>
+            </td>
+            <td width="204" valign="top">
+                <p>
+                    Число единиц потоковой передачи для каждого задания. Каждая единица потоковой передачи обрабатывает до 1&#160;МБ/с По умолчанию максимальное число единиц – 50. Увеличение лимита по звонку.
+                </p>
+            </td>
+            <td width="246" valign="top">
+                <p>
+                    Количество узлов в кластере HDI Storm. Нет ограничений на количество узлов (верхний предел определяется вашей квотой Azure). Увеличение лимита по звонку.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="174" valign="top">
+                <p>
+                    <strong>Ограничения обработки данных</strong>
+                </p>
+            </td>
+            <td width="204" valign="top">
+                <p>
+                    Пользователи могут масштабировать число единиц потоковой передачи для увеличения скорости обработки данных или оптимизации затрат.
+                </p>
+                <p>
+                    Возможность увеличения до 1 Гбит/с
+                </p>
+            </td>
+            <td width="246" valign="top">
+                <p>
+                    Пользователь может масштабировать размер кластера в соответствии с потребностями.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="174" valign="top">
+                <p>
+                    <strong>Остановка и возобновление</strong>
+                </p>
+            </td>
+            <td width="204" valign="top">
+                <p>
+                    Возможность остановки и возобновления работы с последнего места остановки.
+                </p>
+            </td>
+            <td width="246" valign="top">
+                <p>
+                    Возможность остановки и возобновления работы с последнего места остановки в зависимости от значения предела.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="174" valign="top">
+                <p>
+                    <strong>Обновление услуг и платформы</strong>
+                </p>
+            </td>
+            <td width="204" valign="top">
+                <p>
+                    Автоматическое исправление без простоев.
+                </p>
+            </td>
+            <td width="246" valign="top">
+                <p>
+                    Автоматическое исправление без простоев.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="174" valign="top">
+                <p>
+                    <strong>Непрерывность бизнес-процессов благодаря службам высокой доступности с гарантированным SLA</strong>
+                </p>
+            </td>
+            <td width="204" valign="top">
+                <p>
+                    SLA с временем бесперебойной работы на уровне 99,9%
+                </p>
+                <p>
+                    Автоматическое восстановление после сбоев
+                </p>
+                <p>
+                    Встроенная функция восстановления временных операторов с отслеживанием состояния.
+                </p>
+            </td>
+            <td width="246" valign="top">
+                <p>
+                    SLA с временем бесперебойной работы на уровне 99,9% кластера Storm. Apache Storm является отказоустойчивой платформой потоковой передачи, однако пользователь должен самостоятельно следить за непрерывностью выполнения своих заданий потоковой передачи.
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+## Дополнительные функции ##
+<table border="1" cellspacing="0" cellpadding="0">
+    <tbody>
+        <tr>
+            <td width="174" valign="top">
+                <p>
+                    <strong> </strong>
+                </p>
+            </td>
+            <td width="204" valign="top">
+                <p>
+                    <strong>Azure Stream Analytics</strong>
+                </p>
+            </td>
+            <td width="246" valign="top">
+                <p>
+                    <strong>Apache Storm в HDInsight</strong>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="174" valign="top">
+                <p>
+                    <strong>Позднее прибытие и обработка событий не по порядку</strong>
+                </p>
+            </td>
+            <td width="204" valign="top">
+                <p>
+                    Встроенные настраиваемые политики для изменения порядка и  удаления событий или настройки времени продолжительности события.
+                </p>
+            </td>
+            <td width="246" valign="top">
+                <p>
+                    Пользователь должен реализовать логику для обработки этого сценария.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="174" valign="top">
+                <p>
+                    <strong>Справочные материалы</strong>
+                </p>
+            </td>
+            <td width="204" valign="top">
+                <p>
+                    Ссылочные данные доступны из больших двоичных объектов Azure с максимальным размером кэша просмотра в памяти – 100 МБ. Обновление ссылочных данных управляется службой.
+                </p>
+            </td>
+            <td width="246" valign="top">
+                <p>
+                    Нет ограничений на размер данных. Соединители для HBase, DocumentDB, SQL Server и Azure. Неподдерживаемые соединители могут быть реализованы при помощи пользовательского кода. 
+                </p>
+                <p>
+                    Обновление ссылочных данных должно реализоваться через пользовательский код.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="174" valign="top">
+                <p>
+                    <strong>Интеграция машинного обучения</strong>
+                </p>
+            </td>
+            <td width="204" valign="top">
+                <p>
+                    Да, путем настройки опубликованных моделей машинного обучения Azure в виде функций во время создания задания ASA.
+                </p>
+            </td>
+            <td width="246" valign="top">
+                <p>
+                    Доступно с помощью компонентов «сито»(bolts) в Storm.
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<!---HONumber=July15_HO2-->

@@ -2,7 +2,6 @@
     pageTitle="Переход с платформы RemoteApp VNET на платформу Azure VNET"
     description="Сведения о переходе с платформы RemoteApp VNET на платформу Azure VNET" 
     services="remoteapp" 
-    solutions="" 
 	documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
@@ -13,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="04/23/2015" 
+    ms.date="05/28/2015" 
     ms.author="elizapo" />
 
 
@@ -27,7 +26,7 @@
 
 1.	На вкладке **Сети** [портала управления](http://manage.windowsazure.com/) создайте VNET-сеть под названием *AzureVNET* с тем же расположением, конфигурацией DNS и адресным пространством (как минимум для одной из подсетей *AzureVNET*), чтобы и у виртуальной сети *RemoteAppVNET*.
 2.	Настройте сеть *AzureVNET* таким образом, чтобы в ней размещалось развертывание Active Directory, в которое входит домен *OriginalCollection*, или между ними был организован сетевой доступ.
-3.	На вкладке **RemoteApps** создайте новую коллекцию RemoteApp под названием *NewCollection*. (Используйте вариант **Создать с виртуальной частной сетью**, а не **быстрое создание**.)
+3.	На вкладке **RemoteApps** создайте новую коллекцию RemoteApp под названием *NewCollection*. (Используйте вариант **Создать с VNET**, а не **быстрое создание**.)
 3.	Разверните коллекцию *NewCollection* в подсети виртуальной сети *AzureVNET*.
 4.	Задайте для *NewCollection* те же параметры образа и присоединения к домену, что и для коллекции *OriginalCollection*.
 5.	Через несколько часов коллекция *NewCollection* появится в списке коллекции в активном состоянии.
@@ -49,6 +48,6 @@
 Готово!
 
 Если у вас есть какие-либо вопросы или вам необходима дополнительная помощь, напишите по адресу [remoteappforum@microsoft.com](mailto:remoteappforum@microsoft.com?subject=Azure%20RemoteApp%20VNET%20migration%20help).
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

@@ -5,7 +5,8 @@
    documentationCenter="dev-center-name"
    authors="mahthi"
    manager="coreysa"
-   editor=""/>
+   editor=""
+	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
    ms.service="virtual-machines"
@@ -107,6 +108,6 @@
 **Можно ли подключить виртуальные сети, созданные с помощью новых интерфейсов API диспетчера ресурсов Azure, к каналу ExpressRoute?**
 
 Сейчас такая возможность не поддерживается. Вы не можете подключить виртуальные сети, созданные с помощью новых интерфейсов API диспетчера ресурсов Azure, к каналу ExpressRoute. Эта возможность будет добавлена в будущем.
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->
