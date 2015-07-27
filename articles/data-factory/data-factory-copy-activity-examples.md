@@ -202,7 +202,7 @@
 	    }
 	}
 
-> [AZURE.NOTE]Помните, что необходимо использовать escape-символ '' для имен узлов и папок в файлы JSON. Для **\\Contoso** укажите **\\\\Contoso**.
+> [AZURE.NOTE] Помните, что необходимо использовать escape-символ '\' для имен узлов и папок в файлы JSON. Для **\\Contoso** укажите **\\\\Contoso**.
 
 Подробные сведения об элементах JSON для определения связанной службы локальной файловой системы см. в разделе [Связанная служба локальной файловой системы](https://msdn.microsoft.com/library/dn930836.aspx).
 
@@ -228,7 +228,7 @@
 	    "properties": {
 	        "location": {
 	            "type": "OnPremisesFileSystemLocation",
-	            "folderPath": "marketingcampaign\\regionaldata\\{Slice}",
+	            "folderPath": "marketingcampaign\regionaldata\{Slice}",
 	            "partitionedBy": [
 	                { "name": "Slice", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyyMMddHH" } }
 	            ],
@@ -321,7 +321,7 @@
 	    "properties": {
 	        "location": {
 	            "type": "OnPremisesFileSystemLocation",
-	            "folderPath": "marketingcampaign\\regionaldata\\na",
+	            "folderPath": "marketingcampaign\regionaldata\na",
 	            "linkedServiceName": "FolderDataStore"
 	        },
 	        ...
@@ -336,7 +336,7 @@
 	    "properties": {
 	        "location": {
 	            "type": "OnPremisesFileSystemLocation",
-	            "folderPath": "marketingcampaign\\regionaldata\\na",
+	            "folderPath": "marketingcampaign\regionaldata\na",
 	            "fileFilter": "*.csv",
 	            "linkedServiceName": "FolderDataStore"
 	        },
@@ -352,7 +352,7 @@
 	    "properties": {
 	        "location": {
 	            "type": "OnPremisesFileSystemLocation",
-	            "folderPath": "marketingcampaign\\regionaldata\\na",
+	            "folderPath": "marketingcampaign\regionaldata\na",
 	            "fileFilter": "201501.csv",
 	            "linkedServiceName": "FolderDataStore"
 	        },
@@ -461,7 +461,7 @@
 	                "transformation": {
 	                    "source": {
 	                        "type": "OracleSource",
-	                        "oracleReaderQuery": "$$Text.Format('select * from LOG where "Timestamp" >= to_date(\'{0:yyyy-MM-dd}\', \'YYYY-MM-DD\') AND "Timestamp" < to_date(\'{1:yyyy-MM-dd}\', \'YYYY-MM-DD\')', SliceStart, SliceEnd)"
+	                        "oracleReaderQuery": "$$Text.Format('select * from LOG where "Timestamp" >= to_date('{0:yyyy-MM-dd}', 'YYYY-MM-DD') AND "Timestamp" < to_date('{1:yyyy-MM-dd}', 'YYYY-MM-DD')', SliceStart, SliceEnd)"
 	                    },
 	                    "sink": {
 	                        "type": "BlobSink"

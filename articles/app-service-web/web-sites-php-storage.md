@@ -280,7 +280,7 @@
 
 * Первым действием при передаче объекта является его извлечение из таблицы:
 		
-		$result = $tableRestProxy->queryEntities('tasks', 'PartitionKey eq ''.$_GET['pk'].'' and RowKey eq ''.$_GET['rk'].''');		
+		$result = $tableRestProxy->queryEntities('tasks', 'PartitionKey eq \''.$_GET['pk'].'\' and RowKey eq \''.$_GET['rk'].'\'');		
 		$entities = $result->getEntities();		
 		$entity = $entities[0];
 

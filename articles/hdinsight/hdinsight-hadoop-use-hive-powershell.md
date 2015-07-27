@@ -32,7 +32,7 @@
 - **Кластер Azure HDInsight (Hadoop в HDInsight) (на платформе Windows или Linux)**
 - **Рабочая станция с Azure PowerShell**. См. [Установка и использование Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
-##<a id="powershell">Выполнение запросов Hive с помощью Azure PowerShell</a>
+##<a id="powershell"></a>Выполнение запросов Hive с помощью Azure PowerShell
 
 Azure PowerShell предоставляет *командлеты*, позволяющие удаленно запускать запросы Hive в HDInsight. Внутренне это достигается с помощью выполнения вызовов REST для [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (прежнее название — Templeton) на кластере HDInsight.
 
@@ -143,4 +143,4 @@ Azure PowerShell предоставляет *командлеты*, позвол
 
 * [Использование MapReduce с Hadoop в HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=July15_HO2-->
+<!----HONumber=July15_HO2-->
