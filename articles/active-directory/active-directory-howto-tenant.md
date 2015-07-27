@@ -12,8 +12,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="04/28/2015"
+	ms.topic="hero-article"
+	ms.date="07/02/2015"
 	ms.author="dastrock"/>
 
 # Как получить клиент Azure Active Directory
@@ -64,6 +64,5 @@
 Если вам не понятно ничего из указанного выше, не беспокойтесь. Просто перейдите по адресу [https://account.windowsazure.com/organization](https://account.windowsazure.com/organization), чтобы подписаться на Azure для новой организации. После выполнения процесса вы получите собственный клиент Azure AD с доменным именем, выбранным во время подписки. Вы можете найти свой клиент на [портале управления Azure](https://manage.windowsazure.com) в Active Directory на панели навигации слева.
 
 При регистрации для получения подписки Azure вам потребуется предоставить информацию о кредитной карте. Не беспокойтесь, плата за публикацию приложений в Azure AD или создание новых клиентов не взимается.
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

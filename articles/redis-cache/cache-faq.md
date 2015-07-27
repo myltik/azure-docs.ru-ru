@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/01/2015" 
+	ms.date="07/09/2015" 
 	ms.author="sdanie"/>
 
 # Кэш Redis для Azure. Вопросы и ответы
@@ -217,7 +217,7 @@ StackExchange.Redis имеет много параметров. В этом ра
 -	Группа Microsoft Patterns & Practices имеет следующие руководства.
 	-	[Руководство по кэшированию](https://github.com/mspnp/azure-guidance/blob/master/Caching.md).
 	-	[Руководство по проектированию и реализации облачных приложений Azure](https://github.com/mspnp/azure-guidance)
--	[Распространенные шаблоны кэша в кэше Redis для Azure](cache-howto-common-cache-patterns/)
+-	[Распространенные шаблоны кэша в кэше Redis для Azure](cache-howto-common-cache-patterns.md)
 
 <a name="cache-reference"></a>
 ## Почему в кэше Redis для Azure отсутствует ссылка на библиотеку классов MSDN, как в некоторых других службах Azure?
@@ -226,4 +226,4 @@ StackExchange.Redis имеет много параметров. В этом ра
 
 Поскольку все клиенты разные, отсутствует одна централизованная ссылка на классы в MSDN; вместо этого каждый клиент поддерживает свою собственную справочную документацию. Помимо справочной документации на веб-сайте Azure.com на странице [документации по кэшу Redis](http://azure.microsoft.com/documentatgion/services/redis-cache/) имеется несколько учебников, показывающих, как приступить к работе с кэшем Redis для Azure, используя разные языки и клиенты кэша.
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

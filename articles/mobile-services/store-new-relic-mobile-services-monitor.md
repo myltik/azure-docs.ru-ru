@@ -3,7 +3,7 @@
 	description="Узнайте, как использовать надстройку New Relic для мониторинга своей мобильной службы." 
 	documentationCenter="" 
 	authors="stepsic-microsoft-com" 
-	manager="carolz" 
+	manager="carolz"
 	editor="" 
 	services="mobile-services"/>
 
@@ -154,4 +154,4 @@
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

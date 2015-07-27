@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter="java"
 	authors="alancameronwills" 
-	manager="keboyd"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/03/2015" 
+	ms.date="07/13/2015" 
 	ms.author="awills"/>
  
 # Приступая к работе с Application Insights на Java в Eclipse
@@ -24,10 +24,10 @@
 
 В настоящее время подключаемый модуль работает для динамических веб-проектов в Eclipse. ([Добавление Application Insights в другие типы проектов Java][java].)
 
-Что вам понадобится:
+Вам потребуется следующее:
 
 * Oracle JRE 1.6 или более поздней версии;
-* подписка на [Microsoft Azure](http://azure.microsoft.com/). (Можно начать с [бесплатной пробной версии](http://azure.microsoft.com/pricing/free-trial/).);
+* подписка на [Microsoft Azure](http://azure.microsoft.com/) (можно начать с [бесплатной пробной версии](http://azure.microsoft.com/pricing/free-trial/));
 * [интегрированная среда разработки Eclipse для разработчиков Java EE](http://www.eclipse.org/downloads/), версия Indigo или более поздняя;
 * Windows 7 или более поздней версии либо Windows Server 2008 или более поздней версии.
 
@@ -100,9 +100,17 @@
 
 ## Телеметрия на стороне клиента
 
-С помощью плитки быстрого запуска в колонке обзора можно получить скрипт для добавления на веб-страницы.
+В колонке быстрого запуска щелкните ссылку «Получить код для мониторинга моих веб-страниц»:
 
-В колонке обзора будут отображены метрики просмотра страниц, пользователей и сеансов:
+![В колонке обзора приложения последовательно выберите элементы «Быстрый запуск», «Получить код для мониторинга моих веб-страниц». Скопируйте сценарий.](./media/app-insights-java-eclipse/02-monitor-web-page.png)
+
+Вставьте фрагмент кода в заголовок HTML-файлов.
+
+#### Просмотр данных на стороне клиента
+
+Откройте обновленные веб-страницы и выполните с ними какое-либо действие. Подождите минуту или две, а затем вернитесь в Application Insights и обновите колонку использования.
+
+В колонке использования появятся метрики просмотра страниц, пользователей и сеансов:
 
 ![Сеансы, пользователи и просмотры страниц](./media/app-insights-java-eclipse/appinsights-47usage-2.png)
 
@@ -110,7 +118,7 @@
 
 ## Доступность веб-тестов
 
-Application Insights может тестировать ваш веб-сайт через равные промежутки времени для проверки, работает ли он и правильно ли отвечает на запросы. Щелкните пустую диаграмму веб-тестов в колонке обзора и укажите общедоступный URL-адрес.
+Application Insights может тестировать ваш веб-сайт через равные промежутки времени для проверки, работает ли он и правильно ли отвечает на запросы. Чтобы выполнить настройку, щелкните пустую диаграмму веб-тестов в колонке обзора и укажите общедоступный URL-адрес.
 
 Если ваш сайт выйдет из строя, вы получите диаграмму значений времени ответа, а также уведомление по электронной почте.
 
@@ -156,9 +164,9 @@ Application Insights может тестировать ваш веб-сайт ч
 [java]: app-insights-java-get-started.md
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
-[track]: app-insights-custom-events-metrics-api.md
+[track]: app-insights-api-custom-events-metrics.md
 [usage]: app-insights-web-track-usage.md
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

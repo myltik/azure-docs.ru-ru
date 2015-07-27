@@ -5,9 +5,7 @@
     authors="arramac"      
     manager="johnmac"      
     editor="monicar"      
-    documentationCenter=""/> 
-
-<tags      
+    documentationCenter=""/> <tags      
     ms.service="documentdb"      
     ms.workload="data-services"      
     ms.tgt_pltfrm="na"      
@@ -115,4 +113,4 @@
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

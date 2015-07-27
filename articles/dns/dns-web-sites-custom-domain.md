@@ -32,7 +32,7 @@
  
 Создайте запись A и назначьте ее переменной $rs.
 	
-	PS C:\>$rs=New-AzureDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 600 
+	PS C:>$rs=New-AzureDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 600 
 
 ### Шаг 2.
 
@@ -40,7 +40,7 @@
 
 > [AZURE.NOTE]Чтобы найти IP-адрес для веб-приложения, выполните действия, описанные в статье [Настройка пользовательского имени домена в службе приложений Azure](../web-sites-custom-domain-name/#Find-the-virtual-IP-address).
 
-	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs -Ipv4Address <your web app IP address>
+	PS C:> Add-AzureDnsRecordConfig -RecordSet $rs -Ipv4Address <your web app IP address>
 
 ### Шаг 3.
 
@@ -56,7 +56,7 @@
 
 Откройте PowerShell, создайте набор записей CNAME и назначьте его переменной $rs:
 
-	PS C:\> $rs = New-AzureDnsRecordSet -ZoneName contoso.com -ResourceGroupName myresourcegroup -Name "www" -RecordType "CNAME" -Ttl 600
+	PS C:> $rs = New-AzureDnsRecordSet -ZoneName contoso.com -ResourceGroupName myresourcegroup -Name "www" -RecordType "CNAME" -Ttl 600
  
 	Name              : www
 	ZoneName          : contoso.com
@@ -75,7 +75,7 @@
 
 Используя ранее назначенную переменную $rs, можно выполнить следующую команду PowerShell, чтобы создать псевдоним для доменного имени contoso.azurewebsites.net веб-приложения.
 
-	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs -Cname "contoso.azurewebsites.net"
+	PS C:> Add-AzureDnsRecordConfig -RecordSet $rs -Cname "contoso.azurewebsites.net"
  
 	Name              : www
 	ZoneName          : contoso.com
@@ -90,11 +90,11 @@
 
 Примените изменения, используя командлет Set-AzureDnsRecordSet:
 
-	PS C:\>Set-AzureDnsRecordSet -RecordSet $rs
+	PS C:>Set-AzureDnsRecordSet -RecordSet $rs
 
 Вы можете проверить, была ли запись правильно создана, запросив www.contoso.com с помощью nslookup, как показано ниже:
 
-	PS C:\> nslookup
+	PS C:> nslookup
 	Default Server:  Default
 	Address:  192.168.0.1
  
@@ -117,7 +117,7 @@
 
 ### Шаг 1.
 
-	PS C:\> $rs = New-AzureDnsRecordSet -ZoneName contoso.com -ResourceGroupName myresourcegroup -Name "awverify" -RecordType "CNAME" -Ttl 600
+	PS C:> $rs = New-AzureDnsRecordSet -ZoneName contoso.com -ResourceGroupName myresourcegroup -Name "awverify" -RecordType "CNAME" -Ttl 600
  
 	Name              : awverify
 	ZoneName          : contoso.com
@@ -133,7 +133,7 @@
 
 После создания набора записей awverify необходимо назначить псевдоним набора записей CNAME домену awverify.contoso.azurewebsites.net, как показано в следующем примере:
 
-	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs -Cname "awverify.contoso.azurewebsites.net"
+	PS C:> Add-AzureDnsRecordConfig -RecordSet $rs -Cname "awverify.contoso.azurewebsites.net"
  
 	Name              : awverify
 	ZoneName          : contoso.com
@@ -148,7 +148,7 @@
 
 Примените изменения с помощью командлета Set-AzureDnsRecordSet, как показано ниже:
 
-	PS C:\>Set-AzureDnsRecordSet -RecordSet $rs
+	PS C:>Set-AzureDnsRecordSet -RecordSet $rs
 
 Теперь вы можете перейти к инструкциям в разделе [Настройка пользовательского имени домена для службы приложений](../web-sites-custom-domain-name), чтобы применить пользовательский домен для веб-приложения.
 
@@ -165,4 +165,4 @@
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

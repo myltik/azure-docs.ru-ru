@@ -107,4 +107,4 @@
 [шаблонов]: https://msdn.microsoft.com/ru-ru/library/dn530748.aspx
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -42,7 +42,7 @@
 	* **ServerName** для имени сервера, на котором находится база данных.
 	* **DatabaseName** для имени базы данных, которую хотите восстановить.	
 
-	`PS C:\>$Database = Get-AzureSqlDatabase -ServerName "myserver" –DatabaseName “mydb”`
+	`PS C:>$Database = Get-AzureSqlDatabase -ServerName "myserver" –DatabaseName “mydb”`
 
 2. Начните восстановление, используя командлет [Start-AzureSqlDatabaseRestore](http://msdn.microsoft.com/library/azure/dn720218.aspx). Укажите следующие параметры:
 	* **SourceDatabase** для исходной базы данных, из которой требуется выполнить восстановление.
@@ -51,14 +51,14 @@
 
 	Сохраните результат, возвращенный переменной с именем **$RestoreRequest**. Эта переменная содержит идентификатор запроса восстановления, который используется для мониторинга состояния восстановления.
 
-	`PS C:\>$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceDatabase $Database –TargetDatabaseName “myrestoredDB” –PointInTime “2015-01-01 06:00:00”`
+	`PS C:>$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceDatabase $Database –TargetDatabaseName “myrestoredDB” –PointInTime “2015-01-01 06:00:00”`
 
 Восстановление может занять некоторое время. Для мониторинга состояния восстановления используйте командлет [Get-AzureSqlDatabaseOperation](http://msdn.microsoft.com/library/azure/dn546738.aspx) и укажите следующие параметры:
 
 * **ServerName** для имени базы данных, в которую необходимо выполнить восстановление.
 * **OperationGuid** для глобального уникального идентификатора, которым является идентификатор запроса восстановления, хранимый в переменной **$RestoreRequest** на шаге 2.
 
-	`PS C:\>Get-AzureSqlDatabaseOperation –ServerName "myserver" –OperationGuid $RestoreRequest.RequestID`
+	`PS C:>Get-AzureSqlDatabaseOperation –ServerName "myserver" –OperationGuid $RestoreRequest.RequestID`
 
 В полях **State** и **PercentComplete** отображается состояние восстановления.
 
@@ -75,4 +75,4 @@
 [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

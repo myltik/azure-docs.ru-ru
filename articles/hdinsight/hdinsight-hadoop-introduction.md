@@ -247,4 +247,4 @@ Apache YARN — это следующее поколение MapReduce (MapReduc
 [zookeeper]: http://zookeeper.apache.org/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

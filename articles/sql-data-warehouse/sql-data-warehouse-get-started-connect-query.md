@@ -141,13 +141,13 @@
 Таким образом, для подключения к экземпляру хранилища данных SQL нужно ввести следующее.
 
 ```
-C:\>sqlcmd -U <User>@<Server Name>.database.windows.net -P <Password> -S <Server Name>.database.windows.net -d <Database> -I
+C:>sqlcmd -U <User>@<Server Name>.database.windows.net -P <Password> -S <Server Name>.database.windows.net -d <Database> -I
 ```
 
 После подключения можно подавать любые поддерживаемые инструкции Transact-SQL для экземпляра. Например, инструкция [CREATE TABLE](https://msdn.microsoft.com/library/azure/dn268335.aspx) позволяет создать таблицу.
 
 ```
-C:\>sqlcmd -U <User>@<Server Name>.database.windows.net -P <Password> -S <Server Name>.database.windows.net -d <Database> -I
+C:>sqlcmd -U <User>@<Server Name>.database.windows.net -P <Password> -S <Server Name>.database.windows.net -d <Database> -I
 1> CREATE TABLE table1 (Col1 int, Col2 varchar(20));
 2> GO
 3> QUIT
@@ -183,4 +183,4 @@ C:\>sqlcmd -U <User>@<Server Name>.database.windows.net -P <Password> -S <Server
 ## Дальнейшие действия ##
 [Start developing code]: ./articles/sql-data-warehouse-overview-develop/
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

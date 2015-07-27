@@ -2,7 +2,6 @@
 	pageTitle="Перемещение данных в SQL Server в Azure | Microsoft Azure" 
 	description="Перемещение данных в SQL Server в Azure" 
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
 	authors="msolhab" 
 	manager="paulettm" 
@@ -43,7 +42,7 @@
   </td>
 </tr>
 <tr>
-  <td><b>Локальный SQL Server</b></td>
+  <td><b>Локальный сервер SQL Server</b></td>
   <td>
     1. <a href="#export-flat-file">Экспорт в неструктурированный файл</a><br>
     2. <a href="#sql-migration">Мастер миграции баз данных SQL</a> <br>    
@@ -64,7 +63,7 @@
 В этом документе описано перемещение данных из следующих источников данных:
   
 1. [Из неструктурированных файлов](#filesource_to_sqlonazurevm) 
-2. [Из локального SQL Server](#sqlonprem_to_sqlonazurevm)
+2. [С локального сервера SQL Server](#sqlonprem_to_sqlonazurevm)
 
 
 ### <a name="filesource_to_sqlonazurevm"></a>Источник файла
@@ -233,4 +232,4 @@ SQL Server поддерживает:
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

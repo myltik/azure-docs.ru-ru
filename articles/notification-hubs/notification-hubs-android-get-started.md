@@ -66,7 +66,7 @@
 
 ###Добавление кода
 
-1. Скачайте пакет SDK для Android для центров уведомлений <a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">отсюда</a>. Извлеките содержимое ZIP-файла и скопируйте файлы **notificationhubs\notification-hubs-0.4.jar** и **notifications\notifications-1.0.1.jar** в каталог **app\libs** проекта. Это можно сделать, перетащив файлы в папку **libs** в окне представления проекта Android Studio. Обновите папку libs.
+1. Скачайте пакет SDK для Android для центров уведомлений <a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">отсюда</a>. Извлеките содержимое ZIP-файла и скопируйте файлы **notificationhubs\\notification-hubs-0.4.jar** и **notifications\\notifications-1.0.1.jar** в каталог **app\\libs** проекта. Это можно сделать, перетащив файлы в папку **libs** в окне представления проекта Android Studio. Обновите папку libs.
 
 
 
@@ -511,4 +511,4 @@
 [Использование концентраторов уведомлений для передачи экстренных новостей]: notification-hubs-aspnet-backend-android-breaking-news.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

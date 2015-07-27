@@ -1,19 +1,19 @@
 <properties
    pageTitle="Общие сведения о диспетчере ресурсов Azure"
    description="Описывает, как использовать диспетчер ресурсов Azure для развертывания, контроля ресурсов в Azure и управления доступом к ним."
-   services="multiple"
+   services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
    editor=""/>
 
 <tags
-   ms.service="multiple"
+   ms.service="azure-resource-manager"
    ms.devlang="na"
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/22/2015"
+   ms.date="07/15/2015"
    ms.author="tomfitz"/>
 
 # Общие сведения о диспетчере ресурсов Azure
@@ -67,6 +67,8 @@
 Наконец, шаблон становится частью исходного кода для вашего приложения. Можно включить его в репозиторий исходного кода и обновлять по мере развития приложения. Шаблон можно изменить в Visual Studio.
 
 Дополнительную информацию об определении шаблона см. в разделе [Создание шаблонов диспетчера ресурсов Azure](./resource-group-authoring-templates.md).
+
+Схемы шаблонов см. в разделе [Схемы диспетчера ресурсов Azure](https://github.com/Azure/azure-resource-manager-schemas).
 
 Сведения об использовании шаблона для развертывания см. в разделах [Развертывание приложения с использованием шаблона диспетчера ресурсов Azure](azure-portal/resource-group-template-deploy.md) и [Предсказуемое развертывание сложного приложения в Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 
@@ -124,6 +126,7 @@
 - [Развертывание с использованием библиотек .NET и шаблона](virtual-machines/arm-template-deployment.md)
 - [Функции шаблонов](./resource-group-template-functions.md)
 - [Расширенные операции с шаблонами](./resource-group-advanced-template.md)
+- [Cхемы шаблонов](https://github.com/Azure/azure-resource-manager-schemas)
 
 Упорядочение ресурсов
 
@@ -136,4 +139,4 @@
 - [Проверка подлинности субъекта-службы](./resource-group-authenticate-service-principal.md)
 - [Создание нового субъекта-службы с помощью портала Azure](./resource-group-create-service-principal-portal.md)
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

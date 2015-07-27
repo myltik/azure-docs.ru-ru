@@ -175,4 +175,4 @@ New Relic тесно интегрируется с веб-ролями и раб
 [custom]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrcustom.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

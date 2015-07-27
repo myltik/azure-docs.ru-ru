@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/16/2015" 
+	ms.date="07/08/2015" 
 	ms.author="awills"/>
  
 # Диагностика проблем с зависимостями в Application Insights
@@ -31,7 +31,7 @@
 Сейчас монитор зависимостей по умолчанию предоставляет отчеты о вызовах зависимостей таких типов:
 
 * Базы данных SQL;
-* веб-службы и службы WCF ASP.NET;
+* Веб-службы и службы WCF ASP.NET, использующие привязки на основе HTTP
 * вызовы локальных или удаленных HTTP;
 * Azure DocumentDB, очередь, таблица и хранилище больших двоичных объектов.
 
@@ -96,6 +96,32 @@
 ![Щелкните тип запроса, а затем его экземпляр, чтобы открыть этот же экземпляр в другом представлении. Щелкните его еще раз, чтобы просмотреть подробную информацию об исключении.](./media/app-insights-dependencies/07-faildetail.png)
 
 
+## Пользовательское отслеживание зависимостей
+
+Стандартный модуль отслеживания зависимостей выявляет внешние зависимости, например базы данных и API REST, автоматически. Однако при необходимости аналогичную обработку можно настроить и для других компонентов.
+
+Можно написать код, который отправляет сведения о зависимостях, используя тот же [API TrackDependency](app-insights-api-custom-events-metrics.md#track-dependency), который используется стандартными модулями.
+
+Например, формируя код на основе готовой сборки, можно назначить время для всех вызовов этого кода и таким образом выяснить, как он влияет на время отклика вашей системы. Чтобы эти данные отображались в диаграммах зависимостей в Application Insights, отправляйте их с помощью командлета `TrackDependency`.
+
+```C#
+
+            var success = false;
+            var startTime = DateTime.UtcNow;
+            var timer = System.Diagnostics.Stopwatch.StartNew();
+            try
+            {
+                success = dependency.Call();
+            }
+            finally
+            {
+                timer.Stop();
+                telemetry.TrackDependency("myDependency", "myCall", startTime, timer.Elapsed, success);
+            }
+```
+
+Чтобы отключить стандартный модуль отслеживания зависимостей, удалите ссылку на DependencyTrackingTelemetryModule в файле [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md).
+
 <!--Link references-->
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

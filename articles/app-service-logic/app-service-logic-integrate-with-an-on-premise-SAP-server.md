@@ -1,10 +1,10 @@
-<properties 
+<properties
 	pageTitle="Интеграция с локальным сервером SAP в службе приложений Microsoft Azure"
 	description="Узнайте, как выполнить интеграцию с локальным сервером SAP."
-	authors="rajeshramabathiran" 
-	manager="dwrede" 
-	editor="" 
-	services="app-service\logic" 
+	authors="rajeshramabathiran"
+	manager="dwrede"
+	editor=""
+	services="app-service\logic"
 	documentationCenter=""/>
 
 <tags
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/22/2015"
-	ms.author="harish"/>
+	ms.date="07/02/2015"
+	ms.author="sameerch"/>
 
 
 # Интеграция с локальным сервером SAP
 С помощью соединителя SAP вы можете подключать веб-приложения, мобильные приложения и приложения логики службы приложений Azure к вашему существующему серверу SAP. Вы можете вызывать RFC, BAPI, tRFC, а также отправлять IDOC на сервер SAP.
-	
+
 Сервер SAP может даже находиться за вашим брандмауэром в локальной среде. В случае локального сервера подключение устанавливается посредством гибридного прослушивателя, как показано на рисунке.
 
 ![Поток гибридного подключения][1]
@@ -40,12 +40,12 @@
 
 
 ## Создание нового адаптера SAP
-1. Войдите на портал управления Azure. 
+1. Войдите на портал управления Azure.
 2. Нажмите кнопку **Создать**.
 3. В колонке создания выберите **Вычисления** > **Azure Marketplace**.
 4. В колонке Marketplace выберите **Приложения API** и в поле поиска задайте поиск по ключевому слову SAP:
-	
-	![Приложение API соединителя SAP][2]	
+
+	![Приложение API соединителя SAP][2]
 5. Выберите **соединитель SAP**, опубликованный Майкрософт.
 6. В колонке соединителя SAP нажмите кнопку **Создать**.
 7. В новой открывшейся колонке введите следующее.
@@ -125,8 +125,4 @@
 [8]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/SAPConnector.HybridConnection.Connected.PNG
 [9]: http://download.microsoft.com/download/2/D/7/2D7CE8DF-A6C5-45F0-8319-14C3F1F9A0C7/InstallationGuide.htm
 
-
-
- 
-
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

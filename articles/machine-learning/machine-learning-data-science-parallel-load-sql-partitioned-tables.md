@@ -2,7 +2,6 @@
 	pageTitle="Параллельный массовый импорт данных с использованием таблиц секционирования SQL | Microsoft Azure" 
 	description="Параллельный массовый импорт данных с использованием таблиц секционирования SQL" 
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
 	authors="msolhab"
 	manager="paulettm" 
@@ -185,4 +184,4 @@
 Полный пошаговый пример использования технологии ADAPT с общедоступным набором данных см. в статье [Обработка данных в Azure на практике с использованием SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -3,7 +3,7 @@
     pageTitle="Бесплатная пробная версия Azure RemoteApp на 30 дней"
     description="Испытайте бесплатную пробную версию Azure RemoteApp на 30 дней."
     services="remoteapp"
-    solutions="" documentationCenter=""
+	documentationCenter=""
     authors="lizap"
     manager="mbaldwin" />
 
@@ -30,4 +30,4 @@
 
 Хотите отправить отзыв? Задайте вопросы на [форумах обсуждений](http://feedback.azure.com/forums/247748-azure-remoteapp). Если у вас есть [план поддержки Azure](http://azure.microsoft.com/support/plans/), вы можете отправить обращение в службу поддержки. Любой пользователь может отправить отзыв на [форуме отзывов](http://feedback.azure.com/forums/247748-azure-remoteapp).
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

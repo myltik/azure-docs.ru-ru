@@ -17,7 +17,7 @@
 
 # Application Insights для приложений Windows Phone и Магазина Windows
 
-*Application Insights находится в состоянии предварительной версии.*
+*Доступна только предварительная версия Application Insights.*
 
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
@@ -35,7 +35,7 @@
 * подписка на [Microsoft Azure][azure];
 * Visual Studio 2013 или более поздняя версия.
 
-## 1. Создание ресурса Application Insights 
+## 1\. Создание ресурса Application Insights 
 
 На [портале Azure][portal] создайте новый ресурс Application Insights.
 
@@ -50,7 +50,7 @@
 ![Откройте раскрывающуюся панель Essentials и выберите ключ инструментирования](./media/app-insights-windows-get-started/02-props.png)
 
 
-## 2. Добавление пакета SDK Application Insights в приложение
+## 2\. Добавление пакета SDK Application Insights в приложение
 
 В Visual Studio добавьте соответствующий пакет SDK в свой проект.
 
@@ -64,13 +64,33 @@
 
     ![](./media/app-insights-windows-get-started/04-ai-nuget.png)
 
-3. Выберите **Application Insights для приложений .NET для Windows**.
+3. Выберите **Application Insights для приложений Windows**.
 
-4. Отредактируйте файл ApplicationInsights.config (который был добавлен установкой NuGet). Вставьте следующий фрагмент непосредственно перед закрывающим тегом:
+4. Добавьте файл ApplicationInsights.config в корневой каталог решения и вставьте скопированный ранее ключ инструментирования. Ниже приведен пример XML-кода для этого файла конфигурации. **В файле ApplicationInsights.config установите для параметра «Действие при построении» значение «Содержимое», а для параметра «Копировать в выходной каталог» — значение «Копировать всегда»**.
 
-    `<InstrumentationKey>`*скопированный ключ*`</InstrumentationKey>`
+	```xml
+		<?xml version="1.0" encoding="utf-8" ?>
+		<ApplicationInsights>
+			<InstrumentationKey>YOUR COPIED KEY FROM ABOVE</InstrumentationKey>
+		</ApplicationInsights>
+	```
+	
+	![](./media/app-insights-windows-get-started/AIConfigFileSettings.png)
 
-**Для универсальных приложений Windows**: повторите эти действия для проектов Phone и Магазина.
+5. Добавьте приведенный ниже код инициализации. Рекомендуем добавить этот код в конструктор `App()`. Если инициализация в конструкторе приложений не выполняется, можно пропустить начальный автоматический сбор данных по просмотрам страниц.
+
+```C#
+	public App()
+	{
+	   // Add this initilization line. 
+	   WindowsAppInitializer.InitializeAsync();
+	
+	   this.InitializeComponent();
+	   this.Suspending += OnSuspending;
+	}  
+```
+
+**Для универсальных приложений Windows**: повторите эти действия для проектов Windows Phone и магазина Windows. [Пример универсального приложения Windows 8.1](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/Windows%208.1%20Universal).
 
 ## <a name="network"></a>3. Включение доступа к сети для вашего приложения
 
@@ -86,6 +106,7 @@
 
 В режиме отладки телеметрия отправляется сразу же после ее создания. В режиме выпуска телеметрия хранится на устройстве и отправляется только тогда, когда приложение возобновляет работу.
 
+
 ## <a name="monitor"></a>5. Просмотр данных мониторинга
 
 Откройте Application Insights из проекта.
@@ -97,7 +118,7 @@
 
 ![Щелкните плитки, чтобы увидеть больше данных](./media/app-insights-windows-get-started/appinsights-26-devices-01.png)
 
-Нажмите кнопку «Обновить» через несколько секунд, если ожидаете дополнительные данные.
+Если вам требуется больше данных, нажмите кнопку «Обновить» через несколько секунд.
 
 Щелкните любую диаграмму, чтобы просмотреть более подробные сведения.
 
@@ -105,6 +126,44 @@
 ## <a name="deploy"></a>5. Публикация приложения в Магазине
 
 [Опубликуйте свое приложение](http://dev.windows.com/publish) и наблюдайте за данными, которые собираются по мере загрузки и использования этого приложения пользователями.
+
+## Настройка телеметрии
+
+#### Выбор сборщиков
+
+Пакет SDK Application Insights включает несколько сборщиков, которые автоматически собирают различные типы данных из приложения. По умолчанию все они активны, однако сборщики для инициализации в конструкторе приложений можно выбрать.
+
+    WindowsAppInitializer.InitializeAsync( "00000000-0000-0000-0000-000000000000",
+       WindowsCollectors.Metadata
+       | WindowsCollectors.PageView
+       | WindowsCollectors.Session 
+       | WindowsCollectors.UnhandledException);
+
+#### Отправка собственных данных телеметрии
+
+Для отправки событий, метрик и данных диагностики в службу Application Insights используйте [API][api]. Ниже приведены эти инструкции.
+
+```C#
+
+ var tc = new TelemetryClient(); // Call once per thread
+
+ // Send a user action or goal:
+ tc.TrackEvent("Win Game");
+
+ // Send a metric:
+ tc.TrackMetric("Queue Length", q.Length);
+
+ // Provide properties by which you can filter events:
+ var properties = new Dictionary{"game", game.Name};
+
+ // Provide metrics associated with an event:
+ var measurements = new Dictionary{"score", game.score};
+
+ tc.TrackEvent("Win Game", properties, measurements);
+
+```
+
+Дополнительные сведения см. в статье [Пользовательские события и метрики][api].
 
 ## Что дальше?
 
@@ -168,4 +227,4 @@
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

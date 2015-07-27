@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/15/2015" 
+	ms.date="07/08/2015" 
 	ms.author="tamram"/>
 
 # Настройка строк подключения службы хранилища Azure
@@ -41,15 +41,7 @@
 
 ## Создание строки подключения в эмуляторе хранения
 
-Учетная запись эмулятора хранения является локальной учетной записью с известным именем и ключом. Можно использовать формат сокращенной строки `UseDevelopmentStorage=true` для обращения к эмулятору хранения в строке подключения. Например, строка подключения к эмулятору хранения в файле app.config будет выглядеть следующим образом:
-
-    <appSettings>
-      <add key="StorageConnectionString" value="UseDevelopmentStorage=true" />
-    </appSettings>
-
-Если вы тестируете службу на эмуляторе хранения, можно также указать прокси-сервер HTTP. Это может быть полезно для отслеживания HTTP-запросов и ответов при отладке операций со службами хранилища. Чтобы указать прокси-сервер, добавьте параметр `DevelopmentStorageProxyUri` в строку подключения и присвойте ему значение URI прокси-сервера. В качестве примера приведена строка подключения, которая указывает эмулятор хранения и задает прокси-сервер HTTP:
-
-    UseDevelopmentStorage=true;DevelopmentStorageProxyUri=http://myProxyUri
+[AZURE.INCLUDE [storage-emulator-connection-string-include](../../includes/storage-emulator-connection-string-include.md)]
 
 Дополнительные сведения об эмуляторе хранения см. в разделе [Использование эмулятора хранения Azure для разработки и тестирования](storage-use-emulator.md).
 
@@ -60,9 +52,10 @@
     DefaultEndpointsProtocol=[http|https];AccountName=myAccountName;AccountKey=myAccountKey
 
 Созданная строка подключения будет выглядеть так, как строка из следующего примера:
-
-```        DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=KWPLd0rpW2T0U7K2pVpF8rYr1BgYtB7wYQw33AYiXeUoquiaY6o0TWqduxmPHlqeCNZ3LU0DHptbeIAy5l/Yhg==
-```
+ 
+	DefaultEndpointsProtocol=https;
+	AccountName=storagesample;
+	AccountKey=<account-key>
 
 > [AZURE.NOTE]Служба хранилища Azure поддерживает как HTTP, так и HTTPS в строке подключения; однако настоятельно рекомендуется использовать HTTPS.
     
@@ -75,9 +68,12 @@
 
 Чтобы создать строку подключения, определяющую явную конечную точку BLOB-объекта, укажите полную конечную точку для каждой службы, включая спецификацию протокола (HTTP или HTTPS), в следующем формате:
 
-``` 
-BlobEndpoint=myBlobEndpoint;QueueEndpoint=myQueueEndpoint;TableEndpoint=myTableEndpoint;FileEndpoint=myFileEndpoint;[credentials]
-```
+	BlobEndpoint=myBlobEndpoint;
+	QueueEndpoint=myQueueEndpoint;
+	TableEndpoint=myTableEndpoint;
+	FileEndpoint=myFileEndpoint;
+	[credentials]
+
 
 Вы должны указать хотя бы одну конечную точку службы, но необязательно указывать их все. Например, если вы создаете строку подключения для использования с пользовательской конечной точкой большого двоичного объекта, можно не указывать конечные точки для очереди и таблицы. Обратите внимание, что, если вы решили не указывать в строке подключения конечные точки очередей и таблиц, вы не сможете получить доступ к службам очередей и таблиц из кода, используя эту строку подключения.
 
@@ -92,9 +88,11 @@ BlobEndpoint=myBlobEndpoint;QueueEndpoint=myQueueEndpoint;TableEndpoint=myTableE
 
 Например, строка подключения к конечной точке BLOB-объекта в пользовательском доменном имени может выглядеть следующим образом:
 
-```
-DefaultEndpointsProtocol=https;BlobEndpoint=www.mydomain.com;AccountName=storagesample;AccountKey=KWPLd0rpW2T0U7K2pVpF8rYr1BgYtB7wYQw33AYiXeUoquiaY6o0TWqduxmPHlqeCNZ3LU0DHptbeIAy5l/Yhg== 
-```
+	DefaultEndpointsProtocol=https;
+	BlobEndpoint=www.mydomain.com;
+	AccountName=storagesample;
+	AccountKey=<account-key> 
+
 
 ### Назначение конечной точки BLOB-объекта с помощью подписанного URL-адреса 
 
@@ -116,8 +114,12 @@ DefaultEndpointsProtocol=https;BlobEndpoint=www.mydomain.com;AccountName=storage
 
 Созданная строка подключения должна выглядеть так, как строка из следующего примера:
 
-	DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=KWPLd0rpW2T0U7K2pVpF8rYr1BgYtR7wYQk33AYiXeUoquiaY6o0TWqduxmPHlqeCNZ3LU0DHptbeIHy5l/Yhg==;EndpointSuffix=core.chinacloudapi.cn;
+	DefaultEndpointsProtocol=https;
+	AccountName=storagesample;
+	AccountKey=<account-key>;
+	EndpointSuffix=core.chinacloudapi.cn;
+
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

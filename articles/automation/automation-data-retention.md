@@ -36,4 +36,4 @@
 ## Связанные статьи
 - [Резервное копирование службы автоматизации Azure](https://msdn.microsoft.com/library/dn643635.aspx) 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

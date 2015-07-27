@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2015" 
+	ms.date="07/08/2015" 
 	ms.author="mandia"/>
 
 # Использование диспетчера гибридных подключений в службе приложений Azure
@@ -133,4 +133,4 @@ TCP-порт | Назначение
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

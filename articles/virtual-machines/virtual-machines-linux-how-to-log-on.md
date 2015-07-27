@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Вход в виртуальную машину под управлением Linux в Azure" 
-	description="Узнайте, как войти в виртуальную машину Azure под управлением Linux, используя клиент Secure Shell (SSH)." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="KBDAzure" 
-	manager="timlt" 
+<properties
+	pageTitle="Вход в виртуальную машину под управлением Linux в Azure"
+	description="Узнайте, как войти в виртуальную машину Azure под управлением Linux, используя клиент Secure Shell (SSH)."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="squillace"
+	manager="timlt"
 	editor=""/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/16/2015" 
-	ms.author="kathydav"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="03/16/2015"
+	ms.author="rasquill"/>
 
 
 
@@ -47,11 +47,10 @@
 	![Вход на виртуальную машину](./media/virtual-machines-linux-how-to-log-on/sshlogin.png)
 
 >[AZURE.NOTE]Расширение VMAccess поможет вам сбросить значения ключа или пароля SSH, если вы их забыли. Если вы забыли имя пользователя, то можете воспользоваться этим расширением для создания нового имени с полномочиями sudo. Указания см. в статье [Как сбросить пароль или ключ SSH в виртуальных машинах Linux].
-	
+
 Теперь вы сможете работать с виртуальной машиной, так же как и с любым сервером.
 
 <!-- LINKS -->
 [Как сбросить пароль или ключ SSH в виртуальных машинах Linux]: http://go.microsoft.com/fwlink/p/?LinkId=512138
- 
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

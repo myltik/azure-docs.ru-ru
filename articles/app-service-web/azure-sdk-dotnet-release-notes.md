@@ -62,4 +62,4 @@
 [Заметки о выпуске пакета Azure SDK на сайте MSDN](https://msdn.microsoft.com/library/azure/dn627519.aspx)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

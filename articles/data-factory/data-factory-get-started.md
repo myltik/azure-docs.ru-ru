@@ -66,7 +66,7 @@
 ### Подготовка хранилища больших двоичных объектов Azure и базы данных SQL Azure для учебника
 Теперь подготовьте хранилище больших двоичных объектов Azure и базу данных SQL Azure к изучению этого учебника, выполнив следующие действия.
 
-1. Запустите блокнот, вставьте следующий текст и сохраните файл на жестком диске под именем **emp.txt** в папке **C:\ADFGetStarted**.
+1. Запустите блокнот, вставьте следующий текст и сохраните файл на жестком диске под именем **emp.txt** в папке **C:\\ADFGetStarted**.
 
         John, Doe
 		Jane, Doe
@@ -218,4 +218,4 @@
 [image-data-factory-name-not-available]: ./media/data-factory-get-started/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

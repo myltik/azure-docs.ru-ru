@@ -79,12 +79,12 @@
 
     ![Выберите типы событий.](./media/app-insights-code-sample-export-telemetry-sql-database/085-types.png)
 
-После завершения предоставьте пользователям возможность попользоваться приложением на протяжении некоторого времени. После получения телеметрии в [обозревателе метрик][metrics] вы увидите статистические диаграммы, а в разделе [Поиск по журналу диагностики][diagnostic] – отдельные события.
+После завершения предоставьте пользователям возможность попользоваться приложением на протяжении некоторого времени. После получения данных телеметрии в [обозревателе метрик][metrics] отобразятся статистические диаграммы, а в разделе [Поиск по журналу диагностики][diagnostic] – отдельные события.
 
 Кроме того, данные будут экспортированы в хранилище, в котором можно просмотреть содержимое. Например, в Visual Studio есть обозреватель хранилища:
 
 
-![В Visual Studio откройте «Обозреватель сервера», Azure, «Хранилище».](./media/app-insights-code-sample-export-telemetry-sql-database/087-explorer.png)
+![В Visual Studio откройте «Обозреватель сервера», «Azure», «Хранилище».](./media/app-insights-code-sample-export-telemetry-sql-database/087-explorer.png)
 
 События записываются в JSON-файлы больших двоичных объектов. В каждом файле может содержаться одно или несколько событий. Поэтому мы напишем код для чтения данных событий и фильтрации необходимых полей. Вообще с данными можно выполнять любые действия, но сейчас мы напишем код для перемещения данных в базу данных SQL. Это облегчит выполнение многих любопытных запросов.
 
@@ -246,13 +246,15 @@
               case "PageViewPerformance":
     
               if (dict.ContainsKey("clientPerformance"))
-                {GenerateDictionary(((System.Dynamic.ExpandoObject[])dict["clientPerformance"])[0], dict, "");
+                {
+                  GenerateDictionary(((System.Dynamic.ExpandoObject[])dict["clientPerformance"])[0], dict, "");
     	        }
     
               if (dict.ContainsKey("context_custom_dimensions"))
               {
                 if (dict["context_custom_dimensions"].GetType() == typeof(System.Dynamic.ExpandoObject[]))
-                {GenerateDictionary(((System.Dynamic.ExpandoObject[])dict["context_custom_dimensions"])[0], dict, "");
+                {
+                  GenerateDictionary(((System.Dynamic.ExpandoObject[])dict["context_custom_dimensions"])[0], dict, "");
                 }
               }
     
@@ -356,7 +358,8 @@
 
     public class PageViewPerformance
     {
-    	public int Id { get; set; }
+    	[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public Guid Id { get; set; }
 
         public string url { get; set; }
 
@@ -527,4 +530,4 @@
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

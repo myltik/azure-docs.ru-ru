@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/22/2015"
+   ms.date="07/08/2015"
    ms.author="yossib"/>
 
 
@@ -76,7 +76,7 @@ API отчетов использует [OAuth](https://msdn.microsoft.com/libra
 Чтобы изменить указанный ниже сценарий PowerShell для работы со своим каталогом, замените $ClientID, $ClientSecret и $tenantdomain правильными значения из «Делегирование доступа в Azure AD».
 
     # This script will require the Web Application and permissions setup in Azure Active Directory
-    $ClientID      = <<YOUR CLIENT ID HERE>>                # Should be a ~35 character string insert your info here
+    $ClientID      = "<<YOUR CLIENT ID HERE>>"                # Should be a ~35 character string insert your info here
     $ClientSecret  = "<<YOUR CLIENT SECRET HERE>>"          # Should be a ~44 character string insert your info here
     $loginURL      = "https://login.windows.net"
     $tenantdomain  = "<<YOUR TENANT NAME HERE>>"            # For example, contoso.onmicrosoft.com
@@ -127,7 +127,7 @@ API отчетов использует [OAuth](https://msdn.microsoft.com/libra
 
 
 ## Выполнение сценария
-Завершив редактирование сценария, запустите его и убедитесь, что он вернул ожидаемые данные.
+Завершив редактирование сценария, запустите его и убедитесь, что он вернул ожидаемые данные из отчета AuditEvents.
 
 Сценарий возвращает список всех доступных отчетов, а в окне PowerShell — выходные данные в отчете AccountProvisioningEvents в формате JSON. Он также создает файлы с такими же выходными JSON-, текстовыми и XML-данными. Эксперимент можно настроить, изменив его сценарий так, чтобы он возвращал данные из других отчетов, и закомментировав необходимые форматы выходных данных.
 
@@ -136,6 +136,5 @@ API отчетов использует [OAuth](https://msdn.microsoft.com/libra
 - Интересуют доступные отчеты о безопасности, аудиту и действиях? См. [Отчеты Azure AD о безопасности, аудите и активности](active-directory-view-access-usage-reports.md)
 - Дополнительную информацию об отчетах об аудите см. в статье [События отчетов AD Azure об аудите ](active-directory-reporting-audit-events.md)
 - Дополнительную информацию о службе Graph API REST см. в разделе [Отчеты и события Azure AD (предварительная версия)](https://msdn.microsoft.com/library/azure/mt126081.aspx)
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

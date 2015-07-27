@@ -3,7 +3,7 @@
 	description="Сведения о создании интерфейсов API, операций и продуктов в службе управления API." 
 	services="app-service\logic" 
 	documentationCenter="" 
-	authors="jtwist" 
+	authors="joshtwist" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/05/2015" 
+	ms.date="07/08/2015" 
 	ms.author="jtwist"/>
 
-##Шаблоны BizTalk и приложения логики
+# Шаблоны BizTalk и приложения логики
 
-###Эта документация будет выпущена в ближайшее время.
+### Эта документация будет выпущена в ближайшее время.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

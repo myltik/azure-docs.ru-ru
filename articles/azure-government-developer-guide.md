@@ -57,7 +57,7 @@ Microsoft Azure Government – это отдельный экземпляр сл
 
 
 ## <a name="Features"></a> Функции Microsoft Azure Government, доступные в настоящее время
-Azure Government в настоящее время имеет следующие службы, доступные в регионах штата US GOV IOWA и US GOV VIRGINIA:
+Azure Goverment в настоящее время имеет следующие службы, доступные в регионах штата US GOV IOWA и US GOV VIRGINIA:
 
 - Виртуальные машины
 - Облачные службы
@@ -118,4 +118,4 @@ Service Management</td><td>	management.core.windows.net</td><td>	management.core
 [Link 2 to another azure.microsoft.com documentation topic]: web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

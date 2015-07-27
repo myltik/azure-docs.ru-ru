@@ -1,28 +1,28 @@
-<properties 
-	pageTitle="Управление доступом на основе ролей на портале Microsoft Azure" 
-	description="Описывает, как работает управление доступом на основе ролей и как его настроить" 
-	services="" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="terrylan" 
+<properties
+	pageTitle="Управление доступом на основе ролей на портале Microsoft Azure"
+	description="Описывает, как работает управление доступом на основе ролей и как его настроить"
+	services=""
+	documentationCenter=""
+	authors="Justinha"
+	manager="terrylan"
 	editor=""/>
 
-<tags 
-	ms.service="multiple" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="Ibiza" 
-	ms.workload="infrastructure-services" 
-	ms.date="05/05/2015" 
+<tags
+	ms.service="multiple"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="Ibiza"
+	ms.workload="infrastructure-services"
+	ms.date="06/29/2015"
 	ms.author="justinha"/>
 
-# Управление доступом на основе ролей на портале Microsoft Azure 
+# Управление доступом на основе ролей на портале Microsoft Azure
 
 На портал предварительной версии Microsoft Azure добавлена дополнительная поддержка управления доступом на основе ролей (RBAC), чтобы помочь организациям просто и точно выполнять требования к управлению доступом. В [этой записи блога](http://go.microsoft.com/fwlink/?LinkId=511576) вы найдете краткую вводную информацию, которая поможет вам приступить к использованию этой функции. В данном разделе приведены подробные сведения о ней и описаны дополнительные варианты использования.
 
 
 ## Управление доступом на основе ролей в Azure
-                                                                   
+
 Каждая подписка Azure связана с Azure Active Directory. Пользователи и службы, пытающиеся получить доступ к ресурсам подписки через портал управления Microsoft Azure или API диспетчера ресурсов Azure, сначала должны пройти аутентификацию в Azure Active Directory.
 
 ![][1]
@@ -43,7 +43,7 @@
 
 + **Пользователи**: роли можно назначать пользователям организации, включенным в каталог Azure AD, с которым связана подписка Azure. Роли можно также назначать пользователям с внешними учетными записями Майкрософт (например, joe@outlook.com) с помощью действия приглашения на портале Azure. При этом в Azure AD для такого пользователя создается учетная запись гостя. Если эта гостевая учетная запись отключена в каталоге, то внешний пользователь не сможет реализовать свое право на доступ к какому-либо из ресурсов Azure.
 + **Группы**: роли можно назначать группам безопасности Azure AD. Пользователю автоматически предоставляется доступ к ресурсу, когда он становится членом группы, у которой есть доступ к этому ресурсу. Аналогично после удаления из группы пользователь автоматически теряет доступ к ресурсу. Управлять доступом рекомендуется путем назначения ролей группам и добавления пользователей в эти группы, а не путем назначения ролей отдельным пользователям. Управление доступом на основе ролей для Azure RBAC не позволяет назначать роли для списков распределения. Способность назначать роли группам позволяет организации расширять ее существующую модель контроля доступа от своего локального каталога к облаку, и группы безопасности, уже настроенные для управления доступом к локальным ресурсам, могут быть использованы и для контроля доступа к ресурсам на портале Azure. Дополнительные сведения о различных вариантах синхронизации пользователей и групп из локального каталога см. в статье [Общие сведения об интеграции каталогов](http://technet.microsoft.com/library/jj573653.aspx). В службе Azure AD Premium также предусмотрена [функция делегированного управления группами](http://msdn.microsoft.com/library/azure/dn641267.aspx), благодаря которой право на создание групп и управление ими можно делегировать обычным пользователям (не администраторам) из Azure AD.
-+ **Субъекты-службы**: удостоверения службы представлены как субъекты-службы в каталоге. Они проходят проверку подлинности в Azure AD и безопасно взаимодействуют друг с другом. Службе можно предоставить доступ к ресурсам Azure путем назначения ролей субъекту-службе Azure AD, представляющему данную службу, с помощью модуля Azure для Windows PowerShell. 
++ **Субъекты-службы**: удостоверения службы представлены как субъекты-службы в каталоге. Они проходят проверку подлинности в Azure AD и безопасно взаимодействуют друг с другом. Службе можно предоставить доступ к ресурсам Azure путем назначения ролей субъекту-службе Azure AD, представляющему данную службу, с помощью модуля Azure для Windows PowerShell.
 
 #### Область ресурсов
 
@@ -73,7 +73,7 @@
 
 В таблице ниже перечислены требуемые права доступа и указаны способы их настройки в Azure.
 
-Пользователь или группа | Требуемые права доступа | Роль и область доступа	
+Пользователь или группа | Требуемые права доступа | Роль и область доступа
 ------------- | -------------  | ------------
 Все члены рабочей группы Ольги Зуевой | Чтение всех ресурсов Azure | Добавьте группу Active Directory, представляющую рабочую группу Ольги Зуевой, в роль "Читатель" на уровне подписки Azure.
 Все члены рабочей группы Ольги Зуевой | Создание всех ресурсов в группе ресурсов "Тест" и управление ими | Добавьте группу Active Directory, представляющую рабочую группу Ольги Зуевой, в роль "Участник" для группы ресурсов "Тест".
@@ -98,7 +98,7 @@
 
 Назначение ролей можно также выполнять с помощью модуля Microsoft Azure для Windows PowerShell. Вот пример добавления учетной записи Павла не через портал, а с помощью командлета New-AzureRoleAssignment:
 
-	PS C:\> New-AzureRoleAssignment -Mail brockh@contoso.com -RoleDefinitionName Contributor -ResourceGroupName ProdDB
+	PS C:> New-AzureRoleAssignment -Mail brockh@contoso.com -RoleDefinitionName Contributor -ResourceGroupName ProdDB
 
 Дополнительные сведения об использовании Windows PowerShell для предоставления и запрета доступа см. в разделе [Управление доступом на основе ролей с помощью Windows PowerShell](role-based-access-control-powershell.md).
 
@@ -110,7 +110,7 @@
 
 В этом примере показано, как удалить Брэда Адамса с помощью командлета Remove-AzureRoleAssignment:
 
-	PS C:\> Remove-AzureRoleAssignment -Mail badams@contoso.com -RoleDefinitionName Reader -ResourceGroupName TestDB
+	PS C:> Remove-AzureRoleAssignment -Mail badams@contoso.com -RoleDefinitionName Reader -ResourceGroupName TestDB
 
 ### Предоставление или запрет доступа для внешнего пользователя
 
@@ -137,7 +137,296 @@
 При добавлении внешнего пользователя в каталоге создается гостевая учетная запись. Затем этого гостя можно добавить в группу или удалить из нее, а также добавить в отдельную роль и удалить из нее так же, как любого другого пользователя в каталоге.
 
 Вы также можете удалить гостя из любой роли, как всякого другого пользователя. При удалении из роли для конкретного ресурса гость не будет удален из каталога.
- 
+
+## Как отслеживать изменения назначений ролей
+
+Изменения назначений ролей регистрируются в [журналах аудита](http://azure.microsoft.com/updates/audit-logs-in-azure-preview-portal/) вместе с остальными событиями. Вы можете получить журнал изменений назначений ролей с помощью [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx) или [REST API диспетчера ресурсов Azure](https://msdn.microsoft.com/library/azure/dn931927.aspx).
+
+Например, чтобы получить список изменений назначений ролей для всей подписки, выполните следующие два командлета с помощью Azure PowerShell. Первый из них выполняет переключение в режим диспетчера ресурсов Azure.
+
+`Switch-AzureMode -name AzureResourceManager`
+
+`Get-AzureSubscriptionIdLog –DetailedOutput -StartTime '06-15-15' -EndTime '06-29-15'`
+
+Изменения назначений ролей записываются в событиях, где значение параметра ResourceProviderName — `Microsoft.Authorization`. Фактические данные о назначении содержатся в подробной информации о событии (какой субъект был присвоен, для какой роли и области применения). Изменения назначений ролей отображаются при просмотре журналов аудита на портале, но на нем не отображается информация о событии. Чтобы просмотреть подробную информацию о событии, используйте Azure PowerShell.
+
+###Информация о событии
+
+Ниже приведен пример подробной информации о событии изменения назначения роли:
+
+```
+Authorization        :
+                       Scope     : /subscriptions/ff945b8d-441a-41ef-a9db-7bd5fcc99978/resourceGroups/Default-Storage-W
+                       estUS/providers/Microsoft.ClassicStorage/storageAccounts/authzwaes/providers/Microsoft.Authoriza
+                       tion/roleAssignments/531f036a-37ff-40c1-9bb9-aa580ebe7e78
+                       Action    : Microsoft.Authorization/roleAssignments/write
+                       Role      : Subscription Admin
+                       Condition :
+Caller               : William.Hennum@contoso.com
+Claims               :
+                       aud            : https://management.core.windows.net/
+                       iss            : https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/
+                       iat            : 1435333533
+                       nbf            : 1435333533
+                       exp            : 1435337433
+                       ver            : 1.0
+                       http://schemas.microsoft.com/identity/claims/tenantid: 72f988bf-86f1-41af-91ab-2d7cd011db47
+                       http://schemas.microsoft.com/identity/claims/objectidentifier:
+                       dda50086-5e3d-4a4b-b8bc-f54771104d89
+                       http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn: William.Hennum@contoso.com
+                       puid           : 10030000803CDC0B
+                       http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier:
+                       MJwntjqWaULfl30NJMiDRVSVCWMX5GzmMNU4oqitDXs
+                       http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname: William
+                       http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname: Hennum
+                       name           : William Hennum
+                       http://schemas.microsoft.com/claims/authnmethodsreferences: rsa,wia,mfa
+                       _claim_names   : {"groups":"src1"}
+                       _claim_sources : {"src1":{"endpoint":"https://graph.windows.net/72f988bf-86f1-41af-91ab-2d7cd011
+                       db47/users/dda50086-5e3d-4a4b-b8bc-f54771104d89/getMemberObjects"}}
+                       http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name: William.Hennum@contoso.com
+                       onprem_sid     : S-1-5-21-1721254763-462695806-1538882281-3175325
+                       appid          : c44b4083-3bb0-49c1-b47d-974e53cbdf3c
+                       appidacr       : 2
+                       http://schemas.microsoft.com/identity/claims/scope: user_impersonation
+                       http://schemas.microsoft.com/claims/authnclassreference: 1
+CorrelationId        : d724ffd0-31a4-4564-941b-f3a5d32ad8a4
+Description          :
+EventChannels        : Operation
+EventDataId          : ed8e79b6-c7d1-4332-adcf-70d37546c5a6
+EventName            : BeginRequest
+EventSource          : Administrative
+EventTimestamp       : 6/26/2015 3:53:34 PM
+HttpRequest          :
+                       ClientId        : F7272386-295A-4545-96BD-21F0856A43FE
+                       Method          : PUT
+                       Url             :
+                       ClientIpAddress : 23.99.81.159
+Id                   : /subscriptions/ff945b8d-441a-41ef-a9db-7bd5fcc99978/resourceGroups/Default-Storage-WestUS/provid
+                       ers/Microsoft.ClassicStorage/storageAccounts/authzwaes/providers/Microsoft.Authorization/roleAss
+                       ignments/531f036a-37ff-40c1-9bb9-aa580ebe7e78/events/ed8e79b6-c7d1-4332-adcf-70d37546c5a6/ticks/
+                       635709308140011864
+Level                : Informational
+OperationId          : d724ffd0-31a4-4564-941b-f3a5d32ad8a4
+OperationName        : Microsoft.Authorization/roleAssignments/write
+Properties           :
+                       requestbody    : {"Id":"531f036a-37ff-40c1-9bb9-aa580ebe7e78","Properties":{"PrincipalId":"dda50
+                       086-5e3d-4a4b-b8bc-f54771104d89","RoleDefinitionId":"/subscriptions/ff945b8d-441a-41ef-a9db-7bd5
+                       fcc99978/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7"
+                       ,"Scope":"/subscriptions/ff945b8d-441a-41ef-a9db-7bd5fcc99978/resourceGroups/Default-Storage-Wes
+                       tUS/providers/Microsoft.ClassicStorage/storageAccounts/authzwaes"}}
+ResourceGroupName    : Default-Storage-WestUS
+ResourceProviderName : Microsoft.Authorization
+ResourceId           : /subscriptions/ff945b8d-441a-41ef-a9db-7bd5fcc99978/resourceGroups/Default-Storage-WestUS/provid
+                       ers/Microsoft.ClassicStorage/storageAccounts/authzwaes/providers/Microsoft.Authorization/roleAss
+                       ignments/531f036a-37ff-40c1-9bb9-aa580ebe7e78
+Status               : Started
+SubmissionTimestamp  : 6/26/2015 3:53:50 PM
+SubscriptionId       : ff945b8d-441a-41ef-a9db-7bd5fcc99978
+SubStatus            :`
+```
+
+Информация в событии интерпретируется следующим образом:
+
+| Поле | Значение | Сведения |
+| --- | --- | --- |
+| Caller |	`William.Hennum@contoso.com` | Субъект, совершивший назначение ролей. Субъектом может быть пользователь, группа или субъект-служба.
+| HttpRequest: Method | `PUT` | Выполненное действие. PUT присваивает назначение, а DELETE удаляет его. |
+| Properties: PrincipalId | `dda50086-5e3d-4a4b-b8bc-f54771104d89` | 	Идентификатор объекта для субъекта, который был назначен для роли. Субъектом может быть пользователь, группа или субъект-служба. Вы можете определить имя и тип субъекта, выполнив их поиск в Azure Active Directory с помощью Azure PowerShell. |
+| Properties: RoleDefinitionId |	`/subscriptions/ff945b8d-441a-41ef-a9db-7bd5fcc99978/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7	` | Назначенная роль. Вы можете определить отображаемое имя роли с помощью Azure PowerShell. |
+| Properties: Scope | `/subscriptions/ff945b8d-441a-41ef-a9db-7bd5fcc99978/resourceGroups/Default-Storage-WestUS/providers/Microsoft.ClassicStorage/storageAccounts/authzwaes` |	Ресурс, в котором было выполнено назначение роли. Это может быть ресурс, группа ресурсов или подписка. |
+
+###Примеры фрагментов кода PowerShell
+
+Для начала рассмотрим пример кода Azure PowerShell для сопоставления PrincipalId с именем и типом:
+
+```
+# Sample - how to resolve a principal
+function Get-PrincipalDetails($principalId)
+{
+    $principalDetails = "" | select Name, Type
+    $user = Get-AzureADUser -ObjectId $principalId
+    if ($user) {
+        $principalDetails.Name = $user.DisplayName
+        $principalDetails.Type = "User"
+    } else {
+        $group = Get-AzureADGroup -ObjectId $principalId
+        if ($group) {
+            $principalDetails.Name = $group.DisplayName
+            $principalDetails.Type = "Group"
+        } else {
+            $servicePrincipal = Get-AZureADServicePrincipal -objectId $principalId
+            if ($servicePrincipal) {
+                $principalDetails.Name = $servicePrincipal.DisplayName
+                $principalDetails.Type = "Service Principal"
+            }
+        }
+    }
+
+    $principalDetails
+}
+```
+
+Ниже также приведен пример кода Azure PowerShell для сопоставления Scope с именем и типом ресурса:
+
+```
+# Sample - how to resolve a resource
+function Get-ResourceDetails($resourceId)
+{
+    $resourceDetails = "" | select Name, Type
+    $resource = Get-AzureResource -Id $resourceId -OutputObjectFormat New
+    if ($resource) {
+        if ($resource.ResourceName) {
+            $resourceDetails.Name = $resource.ResourceName
+            $resourceDetails.Type = "Resource"
+        } elseif ($resource.ResourceGroupName) {
+            $resourceDetails.Name = $resource.ResourceGroupName
+            $resourceDetails.Type = "Resource Group"
+        } elseif ($resource.SubscriptionId) {
+            $resourceDetails.Name = $resource.SubscriptionId
+            $resourceDetails.Type = "Subscription"
+        }
+    }
+    $resourceDetails
+}
+```
+Следующий пример кода Azure PowerShell приведен для сопоставления RoleDefinitionId с отображаемым именем роли:
+
+```
+
+# Get the name of a role
+function Get-AzureRoleDefinitionName($roleDefinitionId)
+{
+    if (!$Global:_azureRoleDefinitionCache) {
+        $Global:_azureRoleDefinitionCache = @{}
+        Get-AzureRoleDefinition | % { $Global:_azureRoleDefinitionCache[$_.Id] = $_; }
+    }
+
+    if ($Global:_azureRoleDefinitionCache[$roleDefinitionId]) {
+        return $Global:_azureRoleDefinitionCache[$roleDefinitionId].Name
+    } else {
+        return ""
+    }
+}
+
+```
+
+###Пример сценария Azure PowerShell
+
+Чтобы соединить все это вместе, ниже приведен пример сценария, который получает события назначений ролей для указанного диапазона дат и выводит их в виде таблицы:
+
+```
+# Sample - how to resolve a principal
+function Get-PrincipalDetails($principalId)
+{
+    $principalDetails = "" | select Name, Type
+    $user = Get-AzureADUser -ObjectId $principalId
+    if ($user) {
+        $principalDetails.Name = $user.DisplayName
+        $principalDetails.Type = "User"
+    } else {
+        $group = Get-AzureADGroup -ObjectId $principalId
+        if ($group) {
+            $principalDetails.Name = $group.DisplayName
+            $principalDetails.Type = "Group"
+        } else {
+            $servicePrincipal = Get-AZureADServicePrincipal -objectId $principalId
+            if ($servicePrincipal) {
+                $principalDetails.Name = $servicePrincipal.DisplayName
+                $principalDetails.Type = "Service Principal"
+            }
+        }
+    }
+
+    $principalDetails
+}
+# Sample - how to resolve a resource
+function Get-ResourceDetails($resourceId)
+{
+    $resourceDetails = "" | select Name, Type
+    $resource = Get-AzureResource -Id $resourceId -OutputObjectFormat New
+    if ($resource) {
+        if ($resource.ResourceName) {
+            $resourceDetails.Name = $resource.ResourceName
+            $resourceDetails.Type = "Resource"
+        } elseif ($resource.ResourceGroupName) {
+            $resourceDetails.Name = $resource.ResourceGroupName
+            $resourceDetails.Type = "Resource Group"
+        } elseif ($resource.SubscriptionId) {
+            $resourceDetails.Name = $resource.SubscriptionId
+            $resourceDetails.Type = "Subscription"
+        }
+    }
+    $resourceDetails
+}
+# Get the name of a role
+function Get-AzureRoleDefinitionName($roleDefinitionId)
+{
+    if (!$Global:_azureRoleDefinitionCache) {
+        $Global:_azureRoleDefinitionCache = @{}
+        Get-AzureRoleDefinition | % { $Global:_azureRoleDefinitionCache[$_.Id] = $_; }
+    }
+
+    if ($Global:_azureRoleDefinitionCache[$roleDefinitionId]) {
+        return $Global:_azureRoleDefinitionCache[$roleDefinitionId].Name
+    } else {
+        return ""
+    }
+}
+# Sample - output the list of role assignment events
+function Get-AzureRBACAuditLog($startDateTime, $endDateTime)
+{
+    $log = Get-AzureSubscriptionIdLog -DetailedOutput -StartTime $startDateTime -EndTime $endDateTime
+    $log = $log | ? { $_.ResourceProviderName -ieq "Microsoft.Authorization" }
+    $startEvents = $log | ? { $_.httpRequest -and $_.Status -ieq "Started" }
+    $endEvents = @{}
+    $log | ? { $_.httpRequest -and $_.Status -ne "Started" } | % { $endEvents[$_.OperationId] = $_ }
+
+    $startEvents | ? { $endEvents.ContainsKey($_.OperationId) } | % {
+        $endEvent = $endEvents[$_.OperationId];
+        $out = "" | select Timestamp, Caller, Action, PrincipalId, PrincipalName, PrincipalType, RoleName, Scope, ScopeName, ScopeType, RoleDefinitionId
+        $out.Timestamp = $endEvent.EventTimestamp
+        $out.Caller = $_.Caller
+        if ($_.HttpRequest.Method -ieq "PUT") {
+            $out.Action = "Granted"
+            if ($_.Properties.Content.ContainsKey("requestbody")) {
+                $messageBody = ConvertFrom-Json $_.Properties.Content["requestbody"]
+            }
+        }
+        elseif ($_.HttpRequest.Method -ieq "DELETE") {
+            $out.Action = "Revoked"
+            if ($endEvent.Properties.Content.ContainsKey("responseBody")) {
+                $messageBody = ConvertFrom-Json $endEvent.Properties.Content["responseBody"]
+            }
+        }
+
+        if ($messageBody) {
+            $out.PrincipalId = $messageBody.properties.principalId
+            $pd = Get-PrincipalDetails $out.PrincipalId
+            $out.PrincipalName = $pd.Name
+            $out.PrincipalType = $pd.Type
+            $out.RoleName = (Get-AzureRoleDefinitionName $messageBody.properties.roleDefinitionId)
+            $out.Scope = $messageBody.properties.Scope
+            $rd = Get-ResourceDetails $out.Scope
+            $out.ScopeName = $rd.Name
+            $out.ScopeType = $rd.Type
+            $out.RoleDefinitionId = $messageBody.properties.roleDefinitionId
+        }
+
+        $out
+    }
+}
+
+```
+
+А вот команды для выполнения сценария:
+
+```
+$log = Get-AzureRBACAuditLog '2015-06-26' '2015-06-27'
+
+$log | Format-Table
+```
+
 ## Известные проблемы при использовании управления доступом на основе ролей
 
 Если при использовании функции управления доступом на основе ролей у вас возникла проблема, см. известные причины проблем в статье [Устранение неполадок при управлении доступом на основе ролей](role-based-access-control-troubleshooting.md).
@@ -150,7 +439,7 @@
 Щелкните соответствующую ссылку для просмотра свойств **actions** и **not actions** в определении роли. Свойство **actions** указывает разрешенные действия с ресурсами Azure. В строках действий можно использовать подстановочные знаки. Свойство **not actions** определения роли указывает действия, которые должны быть исключены из списка разрешенных действий.
 
 
-Имя роли | Описание  	
+Имя роли | Описание
 ------------- | -------------  
 [Участник службы управления API](#api-management-service-contributor) | Позволяет управлять службами управления API, но не доступом к ним.
 [Участник компонента Application Insights](#application-insights-component-contributor) | Позволяет управлять компонентами Application Insights, но не доступом к ним.
@@ -1004,4 +1293,4 @@
 [9]: ./media/role-based-access-control-configure/RBACInviteExtUser_NEW.png
 [10]: ./media/role-based-access-control-configure/RBACDirConfigTab.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -3,8 +3,8 @@
 	description="Последний пакет Android SDK - Использование API службы Engagement в Android"
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
-	authors="kapiteir" 
-	manager="dwrede" 
+	authors="kpiteira" 
+	manager="dwrede"
 	editor="" />
 
 <tags 
@@ -18,7 +18,7 @@
 
 #Использование API службы Engagement в Android
 
-Этот документ представляет собой дополнение к документу [Интеграция службы Engagement на Android](mobile-engagement-android-integrate-engagement.md). В нем подробно рассказывается о том, как с помощью Engagement API получать статистику по приложению.
+Этот документ представляет собой приложение к документу [Интеграция службы Engagement в Android](mobile-engagement-android-integrate-engagement.md). В нем рассказывается о том, как с помощью Engagement API предоставлять статистику по приложению.
 
 Следует иметь в виду, что если вы хотите использовать службу Engagement только для получения отчетов о сеансах, действиях, сбоях и технической информации, проще всего сделать так, чтобы все подклассы `Activity` наследовались из класса `EngagementActivity`.
 
@@ -298,4 +298,4 @@ API Engagement предоставляется в классе `EngagementAgent`.
 			{"expiration":"2016-12-07","status":"premium"}
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

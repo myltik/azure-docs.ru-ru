@@ -152,4 +152,4 @@
 Сравнение очередей служебной шины Azure, описанных в этой статье, и очередей служебной шины Azure, описанных в статье [Использование службы очередей Azure](/develop/ruby/how-to-guides/queue-service/), см. в статье [Очереди Azure и очереди служебной шины Azure — сходство и отличия](http://msdn.microsoft.com/library/windowsazure/hh767287.aspx)
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

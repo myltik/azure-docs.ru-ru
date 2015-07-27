@@ -124,4 +124,4 @@ SUSE Linux Enterprise Server в Azure — проверенная платфор
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

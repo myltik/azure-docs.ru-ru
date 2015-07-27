@@ -3,7 +3,7 @@
     pageTitle="Настройка Active Directory для Azure RemoteApp" 
     description="Узнайте, как настроить Active Directory для работы с Azure RemoteApp." 
     services="remoteapp" 
-    solutions="" documentationCenter="" 
+	documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
@@ -108,4 +108,4 @@
 Теперь запустите средство синхронизации Microsoft Azure Active Directory. В первом запросе используйте учетные данные **myAzureSyncUser@mydomain.com** (учетные данные администратора Microsoft Azure Active Directory), а во втором — учетные данные **myDomainSyncUser@mydomain.com**.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

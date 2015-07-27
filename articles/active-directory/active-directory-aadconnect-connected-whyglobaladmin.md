@@ -34,4 +34,4 @@
 * [Выборочная установка Azure AD Connect](active-directory-aadconnect-get-started-custom.md)
 * [Azure AD Connect на портале MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx) 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

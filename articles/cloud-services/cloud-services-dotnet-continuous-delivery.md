@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Непрерывная отправка для облачных служб с помощью TFS в Azure" 
-	description="Узнайте, как настраивать непрерывную отправку для облачных приложений Azure. Примеры программного кода для инструкций командной строки MSBuild и сценариев PowerShell." 
-	services="cloud-services" 
-	documentationCenter="" 
-	authors="kempb" 
-	manager="douge" 
+<properties
+	pageTitle="Непрерывная отправка для облачных служб с помощью TFS в Azure"
+	description="Узнайте, как настраивать непрерывную отправку для облачных приложений Azure. Примеры программного кода для инструкций командной строки MSBuild и сценариев PowerShell."
+	services="cloud-services"
+	documentationCenter=""
+	authors="kempb"
+	manager="douge"
 	editor="tglee"/>
 
-<tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="05/29/2015" 
+<tags
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="07/07/2015"
 	ms.author="kempb"/>
 
 # Непрерывная доставка для облачных служб в Azure
@@ -33,7 +33,7 @@ Visual Studio необязательно должна быть установл�
 1.  На сервере сборки установите [.NET Framework 4][], [.NET Framework 4.5][] или [.NET Framework 4.5.2][], которые включают MSBuild.
 2.  Установите [инструменты разработки Azure][] (ищите MicrosoftAzureAuthoringTools-x86.msi или MicrosoftAzureAuthoringTools-x64.msi в зависимости от процессора сервера сборки). Более старые версии файлов могут содержать в имени файла WindowsAzure.
 3. Установите [библиотеки Azure][] (ищите MicrosoftAzureLibsForNet-x86.msi или MicrosoftAzureLibsForNet-x64.msi).
-4.  Скопируйте файл Microsoft.WebApplication.targets из установленного экземпляра Visual Studio на сервер сборки. На компьютере с установленным экземпляром Visual Studio этот файл находится в каталоге C:\Program Files(x86)\MSBuild\Microsoft\VisualStudio\v11.0\WebApplications (версия 12.0 для Visual Studio 2013). Нужно скопировать его в тот же каталог на сервере сборки.
+4.  Скопируйте файл Microsoft.WebApplication.targets из установленного экземпляра Visual Studio на сервер сборки. На компьютере с установленным экземпляром Visual Studio этот файл находится в каталоге C:\\Program Files(x86)\\MSBuild\\Microsoft\\VisualStudio\\v11.0\\WebApplications (версия 12.0 для Visual Studio 2013). Нужно скопировать его в тот же каталог на сервере сборки.
 5.  Установите [инструменты Azure для Visual Studio][]. Для выполнения сборки проектов Visual Studio 2012 ищите MicrosoftAzureTools.VS110.exe, для проектов Visual Studio 2013 — MicrosoftAzureTools.VS120.exe, а для проектов предварительной версии Visual Studio 2015 — MicrosoftAzureTools.VS140.exe.
 
 ## Шаг 2. Создание пакета с помощью команд MSBuild
@@ -42,7 +42,7 @@ Visual Studio необязательно должна быть установл�
 
 1.  Если Visual Studio установлен на сервере сборки, нажмите **Пуск** и **Все программы**, а затем найдите и щелкните элемент **Командная строка Visual Studio** в папке **Visual Studio Tools**.
 
-    Если экземпляр Visual Studio не установлен на сервере сборки, откройте командную строку и убедитесь, что файл MSBuild.exe доступен в пути. MSBuild устанавливается вместе с .NET Framework по пути %WINDIR%\Microsoft.NET\Framework*Версия*. Например, чтобы добавить файл MSBuild.exe в переменную среды PATH при наличии платформы .NET Framework 4, введите следующую команду в командной строке:
+    Если экземпляр Visual Studio не установлен на сервере сборки, откройте командную строку и убедитесь, что файл MSBuild.exe доступен в пути. MSBuild устанавливается вместе с .NET Framework по пути %WINDIR%\\Microsoft.NET\\Framework\\*Версия*. Например, чтобы добавить файл MSBuild.exe в переменную среды PATH при наличии платформы .NET Framework 4, введите следующую команду в командной строке:
 
         set PATH=%PATH%;"C:\Windows\Microsoft.NET\Framework\v4.0.30319"
 
@@ -56,7 +56,7 @@ Visual Studio необязательно должна быть установл�
 
     Дополнительно можно указать имя проекта в качестве параметра MSBuild. Если не указано, используется текущий каталог. Дополнительные сведения о параметрах командной строки MSBuild см. в [справочнике по командной строке MSBuild][1].
 
-4.  Найдите данные вывода. По умолчанию эта команда создает каталог относительно корневой папки проекта, например *ProjectDir*\bin*Configuration*\app.publish\. При сборке проекта Azure создается два файла — собственно файл пакета и сопутствующий файл конфигурации:
+4.  Найдите данные вывода. По умолчанию эта команда создает каталог относительно корневой папки проекта, например *ProjectDir*\\bin\\*Configuration*\\app.publish\\. При сборке проекта Azure создается два файла — собственно файл пакета и сопутствующий файл конфигурации:
 
     -   Project.cspkg
     -   ServiceConfiguration.*TargetProfile*.cscfg
@@ -67,9 +67,9 @@ Visual Studio необязательно должна быть установл�
 
         MSBuild /t:Publish /p:TargetProfile=Cloud
 
-6.  Укажите расположение для данных вывода. Задайте путь с помощью параметра /p:PublishDir=*Каталог*\, включая конечный символ обратной косой черты в качестве разделителя, как показано в следующем примере.
+6.  Укажите расположение для данных вывода. Задайте путь с помощью параметра /p:PublishDir=*Каталог*\\, включая конечный символ обратной косой черты в качестве разделителя, как показано в следующем примере.
 
-        MSBuild /target:Publish /p:PublishDir=\myserver\drops\
+        MSBuild /target:Publish /p:PublishDir=\\myserver\drops\
 
     После создания и тестирования соответствующей командной строки MSBuild для сборки проектов и объединения их в пакет Azure можно добавить эту команду в сценарии сборки. Если сервер сборки использует пользовательские сценарии, этот процесс будет зависеть от особенностей пользовательского процесса сборки. Если в качестве среды сборки используется TFS, вы можете следовать указаниям на следующем шаге, чтобы добавить пакет сборки Azure в процессе сборки.
 
@@ -79,7 +79,7 @@ Visual Studio необязательно должна быть установл�
 
 Чтобы настроить TFS для выполнения сборки пакетов Azure, выполните следующее:
 
-1.  В Visual Studio на компьютере разработчика в меню «Вид» выберите **Team Explorer** или нажмите сочетание клавиш Ctrl + \, Ctrl + M. В окне Team Explorer разверните узел **Сборки** или выберите страницу **Сборки**, а затем выберите пункт**Определение новой сборки**.
+1.  В Visual Studio на компьютере разработчика в меню «Вид» выберите **Team Explorer** или нажмите сочетание клавиш Ctrl + \\, Ctrl + M. В окне Team Explorer разверните узел **Сборки** или выберите страницу **Сборки**, а затем выберите пункт**Определение новой сборки**.
 
     ![][0]
 
@@ -91,7 +91,7 @@ Visual Studio необязательно должна быть установл�
 
 5.  Нажмите вкладку **Процесс**. На вкладке «Процесс» выберите шаблон по умолчанию, в разделе **Сборка** выберите проект, если он еще не выбран, и разверните раздел **Дополнительно** в разделе сетки **Сборка**.
 
-6.  Выберите **Аргументы MSBuild** и задайте соответствующие командной строки MSBuild, как описано в шаге 2 выше. Например, введите **/t:Publish /p:PublishDir=\\myserver\drops**, чтобы собрать пакет и скопировать файлы пакета в расположение \\myserver\drops\\:
+6.  Выберите **Аргументы MSBuild** и задайте соответствующие командной строки MSBuild, как описано в шаге 2 выше. Например, введите **/t:Publish /p:PublishDir=\\\\myserver\\drops\**, чтобы собрать пакет и скопировать файлы пакета в расположение \\\\myserver\\drops\\\:
 
     ![][2]
 
@@ -113,7 +113,7 @@ Visual Studio необязательно должна быть установл�
 
 4.  Проверьте возможность подключения к подписке Azure, выполнив импорт информации о подписке из PUBLISHSETTINGS-файла.
 
-    Import-AzurePublishSettingsFile c:\scripts\WindowsAzure\default.publishsettings
+    Import-AzurePublishSettingsFile c:\\scripts\\WindowsAzure\\default.publishsettings
 
     Затем дайте команду
 
@@ -121,7 +121,7 @@ Visual Studio необязательно должна быть установл�
 
     Отобразятся сведения о подписке. Убедитесь, что все работает правильно.
 
-4.  Сохраните шаблон скрипта, приведенный в [конце этой статьи][], в папке скриптов, например в C:\scripts\WindowsAzure**PublishCloudService.ps1**.
+4.  Сохраните шаблон скрипта, приведенный в [конце этой статьи][], в папке скриптов, например в C:\\scripts\\WindowsAzure\\**PublishCloudService.ps1**.
 
 5.  Просмотрите раздел параметров скрипта. Добавьте или измените любые значения по умолчанию. Эти значения можно всегда переопределить с помощью передачи явных параметров.
 
@@ -295,7 +295,7 @@ Visual Studio необязательно должна быть установл�
 	            </Sequence.Variables>
 	            <mtbwa:ConvertWorkspaceItem DisplayName="Convert publish script filename" sap2010:WorkflowViewState.IdRef="ConvertWorkspaceItem_1" Input="[PublishScriptLocation]" Result="[PublishScriptFilePath]" Workspace="[Workspace]" />
 	            <mtbwa:ConvertWorkspaceItem DisplayName="Convert subscription filename" sap2010:WorkflowViewState.IdRef="ConvertWorkspaceItem_2" Input="[SubscriptionDataFileLocation]" Result="[SubscriptionDataFilePath]" Workspace="[Workspace]" />
-	            <mtbwa:InvokeProcess Arguments="[String.Format(&quot; -File &quot;&quot;{0}&quot;&quot; -serviceName {1}&#xD;&#xA;            -storageAccountName {2} -packageLocation &quot;&quot;{3}&quot;&quot;&#xD;&#xA;            -cloudConfigLocation &quot;&quot;{4}&quot;&quot; -subscriptionDataFile &quot;&quot;{5}&quot;&quot;&#xD;&#xA;            -selectedSubscription {6} -environment &quot;&quot;{7}&quot;&quot;&quot;,&#xD;&#xA;            PublishScriptFilePath, ServiceName, StorageAccountName,&#xD;&#xA;            PackageLocation, CloudConfigLocation,&#xD;&#xA;            SubscriptionDataFilePath, SubscriptionName, Environment)]" DisplayName="'Execute Publish Script'" FileName="[PowerShell]" sap2010:WorkflowViewState.IdRef="InvokeProcess_1">
+	            <mtbwa:InvokeProcess Arguments="[String.Format("; -File ";";{0}";"; -serviceName {1}&#xD;&#xA;            -storageAccountName {2} -packageLocation ";";{3}";";&#xD;&#xA;            -cloudConfigLocation ";";{4}";"; -subscriptionDataFile ";";{5}";";&#xD;&#xA;            -selectedSubscription {6} -environment ";";{7}";";";,&#xD;&#xA;            PublishScriptFilePath, ServiceName, StorageAccountName,&#xD;&#xA;            PackageLocation, CloudConfigLocation,&#xD;&#xA;            SubscriptionDataFilePath, SubscriptionName, Environment)]" DisplayName="'Execute Publish Script'" FileName="[PowerShell]" sap2010:WorkflowViewState.IdRef="InvokeProcess_1">
 	              <mtbwa:InvokeProcess.ErrorDataReceived>
 	                <ActivityAction x:TypeArguments="x:String">
 	                  <ActivityAction.Argument>
@@ -325,11 +325,11 @@ Visual Studio необязательно должна быть установл�
 
 9.  Задайте для значения свойств параметров в разделе "Разное" следующим образом:
 
-    1.  CloudConfigLocation ='c:\drops\app.publish\ServiceConfiguration.Cloud.cscfg' *Это значение является производным от: ($PublishDir)ServiceConfiguration.Cloud.cscfg*
+    1.  CloudConfigLocation ='c:\\drops\\app.publish\\ServiceConfiguration.Cloud.cscfg' *Это значение является производным от: ($PublishDir)ServiceConfiguration.Cloud.cscfg*
 
-    2.  PackageLocation = 'c:\drops\app.publish\ContactManager.Azure.cspkg' *Это значение является производным от: ($PublishDir)($ProjectName).cspkg*
+    2.  PackageLocation = 'c:\\drops\\app.publish\\ContactManager.Azure.cspkg' *Это значение является производным от: ($PublishDir)($ProjectName).cspkg*
 
-    3.  PublishScriptLocation = 'c:\scripts\WindowsAzure\PublishCloudService.ps1'
+    3.  PublishScriptLocation = 'c:\\scripts\\WindowsAzure\\PublishCloudService.ps1'
 
     4.  ServiceName = "mycloudservicename" *Используйте здесь соответствующее имя облачной службы*
 
@@ -337,7 +337,7 @@ Visual Studio необязательно должна быть установл�
 
     6.  StorageAccountName = 'mystorageaccountname' *Используйте здесь соответствующее имя учетной записи хранения*
 
-    7.  SubscriptionDataFileLocation = 'c:\scripts\WindowsAzure\Subscription.xml'
+    7.  SubscriptionDataFileLocation = 'c:\\scripts\\WindowsAzure\\Subscription.xml'
 
     8.  SubscriptionName = 'default'
 
@@ -349,7 +349,7 @@ Visual Studio необязательно должна быть установл�
 
 ### Шаблон сценария PublishCloudService.ps1
 
-<pre>
+```
 Param(  $serviceName = "",
         $storageAccountName = "",
         $packageLocation = "",
@@ -362,11 +362,11 @@ Param(  $serviceName = "",
         $selectedsubscription = "default",
         $subscriptionDataFile = ""
      )
-      
+
 
 function Publish()
 {
-	$deployment = Get-AzureDeployment -ServiceName $serviceName -Slot $slot -ErrorVariable a -ErrorAction silentlycontinue 
+	$deployment = Get-AzureDeployment -ServiceName $serviceName -Slot $slot -ErrorVariable a -ErrorAction silentlycontinue
     if ($a[0] -ne $null)
     {
         Write-Output "$(Get-Date -f $timeStampFormat) - No deployment is detected. Creating a new deployment. "
@@ -376,7 +376,7 @@ function Publish()
 	{
 		switch ($alwaysDeleteExistingDeployments)
 	    {
-	        1 
+	        1
 			{
                 switch ($enableDeploymentUpgrade)
                 {
@@ -390,7 +390,7 @@ function Publish()
                         Write-Output "$(Get-Date -f $timeStampFormat) - Deployment exists in $servicename.  Deleting deployment."
 				        DeleteDeployment
                         CreateNewDeployment
-                        
+
                     }
                 } # switch ($enableDeploymentUpgrade)
 			}
@@ -411,13 +411,13 @@ function CreateNewDeployment()
 	Write-Output "$(Get-Date -f $timeStampFormat) - Creating New Deployment: In progress"
 
 	$opstat = New-AzureDeployment -Slot $slot -Package $packageLocation -Configuration $cloudConfigLocation -label $deploymentLabel -ServiceName $serviceName
-	    
+
     $completeDeployment = Get-AzureDeployment -ServiceName $serviceName -Slot $slot
     $completeDeploymentID = $completeDeployment.deploymentid
 
     write-progress -id 3 -activity "Creating New Deployment" -completed -Status "Complete"
 	Write-Output "$(Get-Date -f $timeStampFormat) - Creating New Deployment: Complete, Deployment ID: $completeDeploymentID"
-    
+
 	StartInstances
 }
 
@@ -428,10 +428,10 @@ function UpgradeDeployment()
 
     # perform Update-Deployment
 	$setdeployment = Set-AzureDeployment -Upgrade -Slot $slot -Package $packageLocation -Configuration $cloudConfigLocation -label $deploymentLabel -ServiceName $serviceName -Force
-    
+
     $completeDeployment = Get-AzureDeployment -ServiceName $serviceName -Slot $slot
     $completeDeploymentID = $completeDeployment.deploymentid
-    
+
     write-progress -id 3 -activity "Upgrading Deployment" -completed -Status "Complete"
 	Write-Output "$(Get-Date -f $timeStampFormat) - Upgrading Deployment: Complete, Deployment ID: $completeDeploymentID"
 }
@@ -447,7 +447,7 @@ function DeleteDeployment()
 
 	write-progress -id 2 -activity "Deleting Deployment: Complete" -completed -Status $removeDeployment
 	Write-Output "$(Get-Date -f $timeStampFormat) - Deleting Deployment: Complete"
-	
+
 }
 
 function StartInstances()
@@ -458,13 +458,13 @@ function StartInstances()
     $deployment = Get-AzureDeployment -ServiceName $serviceName -Slot $slot
     $runstatus = $deployment.Status
 
-    if ($runstatus -ne 'Running') 
+    if ($runstatus -ne 'Running')
     {
 	    $run = Set-AzureDeployment -Slot $slot -ServiceName $serviceName -Status Running
     }
 	$deployment = Get-AzureDeployment -ServiceName $serviceName -Slot $slot
 	$oldStatusStr = @("") * $deployment.RoleInstanceList.Count
-	
+
 	while (-not(AllInstancesRunning($deployment.RoleInstanceList)))
 	{
 		$i = 1
@@ -502,10 +502,10 @@ function StartInstances()
 
 		$i = $i + 1
 	}
-	
+
     $deployment = Get-AzureDeployment -ServiceName $serviceName -Slot $slot
-	$opstat = $deployment.Status 
-	
+	$opstat = $deployment.Status
+
 	write-progress -id 4 -activity "Starting Instances" -completed -status $opstat
 	Write-Output "$(Get-Date -f $timeStampFormat) - Starting Instances: $opstat"
 }
@@ -519,7 +519,7 @@ function AllInstancesRunning($roleInstanceList)
 			return $false
 		}
 	}
-	
+
 	return $true
 }
 
@@ -538,18 +538,18 @@ $subscriptionname = $subscription.subscriptionname
 $subscriptionid = $subscription.subscriptionid
 $slot = $environment
 
-#main driver - publish &amp; write progress to activity log
+#main driver - publish & write progress to activity log
 Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy script started."
 Write-Output "$(Get-Date -f $timeStampFormat) - Preparing deployment of $deploymentLabel for $subscriptionname with Subscription ID $subscriptionid."
 
-Опубликовать
+Publish
 
 $deployment = Get-AzureDeployment -slot $slot -serviceName $servicename
 $deploymentUrl = $deployment.Url
 
 Write-Output "$(Get-Date -f $timeStampFormat) - Created Cloud Service with URL $deploymentUrl."
 Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy script finished."
-</pre>
+```
 
 ## Дальнейшие действия
 
@@ -572,11 +572,10 @@ Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy scrip
   [командлеты Azure PowerShell]: http://go.microsoft.com/fwlink/?LinkId=256262
   [the .publishsettings file]: https://manage.windowsazure.com/download/publishprofile.aspx?wa=wsignin1.0
   [конце этой статьи]: #script
-  
+
   [3]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-03.png
   [4]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-04.png
   [5]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-05.png
   [6]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-06.png
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

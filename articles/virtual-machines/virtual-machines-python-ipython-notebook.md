@@ -17,9 +17,6 @@
 	ms.author="huvalo"/>
 
 
-
-
-
 # IPython Notebook в Azure
 
 Этот [проект IPython](http://ipython.org) предоставляет набор инструментов для научных вычислений, включая мощную интерактивную среду, высокопроизводительные и удобные в использовании библиотеки параллельных вычислений, а также веб-среду под названием IPython Notebook. Notebook содержит рабочую среду для интерактивных вычислений, которая сочетает в себе выполнение кода с созданием документа вычислений в реальном времени. Эти файлы записной книжки могут содержать произвольный текст, математические формулы, код ввода, результаты, графику, видео и любые другие виды носителей, которые может отображать современный веб-браузер.
@@ -149,7 +146,7 @@
 
 В Windows:
 
-    cd \users\azureuser.ipython\profile_nbserver
+    cd \users\azureuser\.ipython\profile_nbserver
 
 Создайте сертификат SSL следующим образом (Linux и Windows):
 
@@ -180,7 +177,7 @@
     c.NotebookApp.certfile = u'/home/azureuser/.ipython/profile_nbserver/mycert.pem'
     
     # And if using a Windows VM:
-    c.NotebookApp.certfile = r'C:\Users\azureuser.ipython\profile_nbserver\mycert.pem'
+    c.NotebookApp.certfile = r'C:\Users\azureuser\.ipython\profile_nbserver\mycert.pem'
     
     # Create your own password as indicated above
     c.NotebookApp.password = u'sha1:b86e933199ad:a02e9592e5 etc... '
@@ -262,9 +259,9 @@ IPython Notebook предоставляет богатый возможност�
 
 
 [tornado]: http://www.tornadoweb.org/ "Tornado"
-[PyZMQ]: https://github.com/zeromq/pyzmq "PyZMQ"
-[NumPy]: http://www.numpy.org/ "NumPy"
-[Matplotlib]: http://matplotlib.sourceforge.net/ "Matplotlib"
+[pyzmq]: https://github.com/zeromq/pyzmq "PyZMQ"
+[numpy]: http://www.numpy.org/ "NumPy"
+[matplotlib]: http://matplotlib.sourceforge.net/ "Matplotlib"
 
 [portal-vm-windows]: /manage/windows/tutorials/virtual-machine-from-gallery/
 [portal-vm-linux]: /manage/linux/tutorials/virtual-machine-from-gallery/
@@ -272,8 +269,8 @@ IPython Notebook предоставляет богатый возможност�
 [репозитории]: https://github.com/ipython/ipython
 [Средствах Python для Visual Studio]: http://aka.ms/ptvs
 
-[Python 2.7]: http://www.python.org/download
-[OpenSSL]: http://slproweb.com/products/Win32OpenSSL.html
+[python 2.7]: http://www.python.org/download
+[openssl]: http://slproweb.com/products/Win32OpenSSL.html
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

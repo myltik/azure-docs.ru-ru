@@ -47,7 +47,7 @@
 
 * Вопросы и проблемы
  * [Устранение неполадок][qna]
- * [Форум MSDN](https://social.msdn.microsoft.com/Forums/vstudio/ru-ru/home?forum=ApplicationInsights)
+ * [Форум MSDN](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
  * [Stackoverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
 * Ошибки
  * [Подключение](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
@@ -73,4 +73,4 @@
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

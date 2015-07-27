@@ -3,7 +3,7 @@
 	description="Узнайте, как отправлять push-уведомления на все устройства пользователя" 
 	services="app-service\mobile" 
 	documentationCenter="windows" 
-	authors="yuaxu" 
+	authors="ysxu" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/17/2015"
+	ms.date="06/25/2015"
 	ms.author="yuaxu"/>
 
 # Отправка кроссплатформенных уведомлений определенному пользователю
@@ -112,4 +112,4 @@
 [Приступая к работе с push-уведомлениями]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-push-preview.md
 [шаблонов]: https://msdn.microsoft.com/ru-ru/library/dn530748.aspx
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

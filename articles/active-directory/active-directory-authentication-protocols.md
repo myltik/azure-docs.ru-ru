@@ -56,4 +56,4 @@
 [Примеры кода Active Directory](active-directory-code-samples.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

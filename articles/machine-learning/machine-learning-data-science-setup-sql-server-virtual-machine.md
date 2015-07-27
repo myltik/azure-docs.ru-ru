@@ -2,7 +2,7 @@
 	pageTitle="Настройка SQL Server на виртуальной машине, как сервера IPython Notebook | Microsoft Azure"
 	description="Настройте виртуальную машину для обработки данных с использованием SQL Server и IPython Server."
 	services="machine-learning"
-	solutions="" documentationCenter=""
+	documentationCenter=""
 	authors="msolhab" 
 	manager="paulettm"
 	editor="cgronlun" />
@@ -137,7 +137,7 @@
 
     При первом открытии Management Studio необходимо создать среду пользователей Management Studio. Это может занять несколько минут.
 
-2.  При открытии Management Studio появляется диалоговое окно **Подключение к серверу**. В поле **Имя сервера** введите имя виртуальной машины для подключения к компоненту Database Engine с помощью обозревателя объектов. (Вместо имени виртуальной машины можно также использовать **(local)** или один период в качестве **имени сервера**. Выберите **Проверка подлинности Windows** и оставьте ***your_VM_name*\your_local_administrator** в поле **Имя пользователя**. Щелкните **Подключить**.
+2.  При открытии Management Studio появляется диалоговое окно **Подключение к серверу**. В поле **Имя сервера** введите имя виртуальной машины для подключения к компоненту Database Engine с помощью обозревателя объектов. (Вместо имени виртуальной машины можно также использовать **(local)** или один период в качестве **имени сервера**. Выберите **Проверка подлинности Windows** и оставьте ***your_VM_name*\\your_local_administrator** в поле **Имя пользователя**. Щелкните **Подключить**.
 
     ![Подключение к серверу][6]
 
@@ -298,4 +298,4 @@
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Использование хранилища BLOB-объектов из .NET в Microsoft Azure"
-	description="Узнайте, как использовать хранилище больших двоичных объектов (BLOB) Microsoft Azure для отправки, загрузки, вывода списка и удаления содержимого больших двоичных объектов. Примеры написаны на C#."
+	description="Узнайте о хранилище больших двоичных объектов Azure, а также о том, как создать контейнер и отправлять, загружать, перечислять и удалять содержимое BLOB-объектов."
 	services="storage"
 	documentationCenter=".net"
 	authors="tamram"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="06/15/2015"
+	ms.date="07/06/2015"
 	ms.author="tamram"/>
 
 
@@ -304,4 +304,4 @@
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

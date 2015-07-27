@@ -1,7 +1,6 @@
 <properties
 	pageTitle="Краткое руководство по языку программирования R для службы машинного обучения | Microsoft Azure"
 	description="Это руководство по языку программирования R поможет быстро создать прогностическое решение, используя язык R в Студии машинного обучения Azure."
-	keywords="quickstart,r language,r programming language,r programming tutorial"
 	services="machine-learning"
 	documentationCenter=""
 	authors="Blackmist"
@@ -1117,4 +1116,4 @@ R — динамически типизированный язык. Други�
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

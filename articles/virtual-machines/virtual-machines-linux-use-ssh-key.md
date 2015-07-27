@@ -43,13 +43,13 @@
 
 3.	Измените разрешения для закрытого ключа, чтобы защитить его.
 
-			# chmod 600 myPrivateKey.key
+		# chmod 600 myPrivateKey.key
 
 4.	При создании виртуальной машины Linux загрузите `myCert.pem`. В процессе подготовки открытый ключ в этом сертификате будет автоматически установлен в файл `authorized_keys` для указанного пользователя в виртуальной машине.
 
 5.	Если вы собираетесь обойтись без портала управления и использовать API напрямую, преобразуйте `myCert.pem` в `myCert.cer` (сертификат X509 с кодировкой DER) с помощью следующей команды:
 
-			# openssl  x509 -outform der -in myCert.pem -out myCert.cer
+		# openssl  x509 -outform der -in myCert.pem -out myCert.cer
 
 
 ## Создание ключа из существующего ключа, совместимого с OpenSSH
@@ -68,7 +68,7 @@
 
 2.	Подключитесь к виртуальной машине Linux с помощью `ssh`. Будет предложено принять отпечаток пальца открытого ключа узла при первом входе.
 
-			# ssh -i  myPrivateKey.key -p <port> username@servicename.cloudapp.net
+		# ssh -i  myPrivateKey.key -p <port> username@servicename.cloudapp.net
 
 3.	(Дополнительно) Вы можете скопировать `myPrivateKey.key` в `~/.ssh/id_rsa`, чтобы клиент OpenSSH мог автоматически получать его без использования параметра `-i`.
 
@@ -79,7 +79,7 @@
 ### Использование Msysgit ###
 
 1.	Загрузите и установите msysgit из следующего расположения:[http://msysgit.github.com/](http://msysgit.github.com/)
-2.	Запустите `msys` из каталога установки (например, c:\msysgit\msys.exe)
+2.	Запустите `msys` из каталога установки (например, c:\\msysgit\\msys.exe)
 3.	Перейдите в каталог `bin`, введя `cd bin`
 
 
@@ -176,4 +176,4 @@
 5.	Щелкните **Открыть**, чтобы подключится к виртуальной машине.
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

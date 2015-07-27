@@ -14,7 +14,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="04/27/2015" 
+	ms.date="07/08/2015" 
 	ms.author="heidist"/>
 
 # Управление службой Поиска в Microsoft Azure
@@ -210,4 +210,4 @@ Azure предоставляет глобальную модель автори�
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

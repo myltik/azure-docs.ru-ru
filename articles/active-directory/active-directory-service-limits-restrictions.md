@@ -1,78 +1,30 @@
-<properties 
-	pageTitle="Ограничения службы Azure AD" 
-	description="Ограничения на использование и другие ограничения для службы Azure Active Directory." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	writer="Justinha" 
-	manager="TerryLan" 
-	editor="LisaToft"/>
+<properties
+	pageTitle="Ограничения службы Azure AD"
+	description="Ограничения на использование и другие ограничения для службы Azure Active Directory."
+	services="active-directory"
+	documentationCenter=""
+	authors="curtand"
+	manager="TerryLan"
+	editor=""/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/27/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/30/2015"
+	ms.author="curtand"/>
 
 # Ограничения службы Azure AD
 
-Ниже перечислены ограничения на использование и другие ограничения для службы Azure Active Directory. Если вам нужно ознакомиться с полным перечнем ограничений для службы Microsoft Azure, см. раздел [Лимиты, квоты и ограничения подписки и обслуживания Azure](../azure-subscription-service-limits.md).
+ Если вам нужно ознакомиться с полным перечнем ограничений для службы Microsoft Azure, см. раздел [Лимиты, квоты и ограничения подписки и обслуживания Azure](azure-subscription-service-limits.md).
 
-## Каталоги
-
-Один пользователь может быть связан не более чем с 20 каталогами Azure Active Directory. Это ограничение может быть достигнуто в любом из таких случаев:
-
-- один пользователь создает 20 каталогов;
-- один пользователь добавлен в 20 каталогов как участник;
-- один пользователь создает 10 каталогов и позднее другими добавляется в другие 10 каталогов.
-
-## Объекты
-
-- Для подписчиков Azure Active Directory Premium, Azure Active Directory Basic, Enterprise Mobility Suite, Office 365, Microsoft Intune или других веб-служб Майкрософт, использующих службы каталогов Azure Active Directory, нет никаких ограничений.
-- В одном каталоге с бесплатным выпуском Azure Active Directory можно использовать не более 500 000 объектов.
-- Пользователь без прав администратора может создать до 250 объектов.
-
-##Расширения схемы
-
-Сейчас сущности User, Group, TenantDetail, Device, Application и ServicePrincipal можно дополнить однозначными атрибутами типов String или Binary. К ним применяются такие ограничения:
-
-- расширения типа String не должны превышать 256 символов;
-- расширения типа Binary не должны превышать 256 байт;
-- в один объект можно записать не более 100 значений расширений (для всех типов и всех приложений);
-- расширения схемы доступны только в API Graph версии 1.21-preview. Приложению должен быть предоставлен доступ на запись для регистрации расширения.
-
-## Приложения
-
-Владельцами одного приложения могут быть не более 10 пользователей.
-
-## Группы 
-
-- Владельцами одной группы могу быть не более 10 пользователей.
-- Участниками одной группы в Azure Active Directory может быть любое число объектов.
-
-
-> [AZURE.NOTE]
-> 
-Число объектов, которые можно синхронизировать из локальных служб Active Directory в Azure Active Directory, ограничено. При использовании DirSync ограничение составляет 15 тыс. пользователей. При использовании Azure AD Connect ограничение составляет 50 тыс. пользователей.
-
-## Панель доступа
-
-- На число приложений, которые можно видеть на панели доступа каждого конечного пользователя, для подписчиков Azure AD Premium, Azure AD Basic или Enterprise Mobility Suite ограничений нет.
-- Не более 10 предварительно интегрированных SaaS-приложений (например: Box, Salesforce или Dropbox) можно увидеть на панели доступа для каждого пользователя с бесплатным выпуском Azure Active Directory. Конечные пользователи могут видеть более 10 приложений, если ваша организация разработала приложения, которые впоследствии были интегрированы с Azure Active Directory. Это ограничение не действует для учетной записи администратора.
-
-## Отчеты
-
-В любом отчете можно просматривать и загружать не более 1000 строк. Любые дополнительные данные будут усечены.
+[AZURE.INCLUDE [AAD-service-limits](../../includes/active-directory-service-limits-include.md)]
 
 ## Что дальше?
 - [Регистрация организации в Azure](sign-up-organization.md)
 - [Как подписки Azure связаны с Azure AD](active-directory-how-subscriptions-associated-directory.md)
 - [Терминология Azure Active Directory](active-directory-terminology.md)
 
-
- 
-
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

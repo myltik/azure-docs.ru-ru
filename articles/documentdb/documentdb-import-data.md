@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Импорт данных в DocumentDB| Azure" 
-	description="Из этой статьи вы узнаете, как использовать средство переноса данных DocumentDB для импорта данных в DocumentDB из различных источников, включая JSON-файлы, CSV-файлы, SQL, MongoDB, хранилище таблиц Azure и коллекции DocumentDB." 
+	description="Из этой статьи вы узнаете, как использовать средство переноса данных DocumentDB для импорта данных в DocumentDB из различных источников, включая JSON-файлы, CSV-файлы, SQL, MongoDB, табличное хранилище Azure, Amazon DynamoDB и коллекции DocumentDB." 
 	services="documentdb" 
 	authors="stephbaron" 
 	manager="johnmac" 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.date="07/10/2015" 
 	ms.author="stbaro"/>
 
 # Импорт данных в DocumentDB #
 
-В этой статье показано, как использовать средство переноса данных DocumentDB для импорта данных в [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) из различных источников, включая JSON-файлы, CSV-файлы, SQL, MongoDB, табличное хранилище Azure и коллекции DocumentDB.
+В этой статье показано, как использовать средство переноса данных DocumentDB для импорта данных в [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) из различных источников, включая JSON-файлы, CSV-файлы, SQL, MongoDB, табличное хранилище Azure, Amazon DynamoDB и коллекции DocumentDB.
 
 Ознакомившись с данной статьей, вы сможете ответить на следующие вопросы.
 
@@ -27,6 +27,8 @@
 -	Как импортировать данные SQL Server в DocumentDB?
 -	Как импортировать данные MongoDB в DocumentDB?
 -	Как импортировать данные из табличного хранилища Azure в DocumentDB?
+-	Как импортировать данные из Amazon DynamoDB в DocumentDB?
+-	Как импортировать данные из HBase в DocumentDB?
 -	Как переносить данные между коллекциями DocumentDB?
 
 ##<a id="Prerequisites"></a>Предварительные требования ##
@@ -44,6 +46,8 @@
 - SQL Server
 - СЫМ-файлы;
 - табличное хранилище Azure;
+- Amazon DynamoDB
+- HBase
 - коллекции DocumentDB.
 
 Хотя средство импорта предоставляет графический интерфейс пользователя (dtui.exe), им также можно управлять из командной строки (dt.exe). К слову, существует параметр для вывода соответствующей команды после настройки импорта в пользовательском интерфейсе. Табличный источник данных (например, SQL Server или CSV-файлы) можно преобразовать так, чтобы создать иерархические связи (вложенные документы) во время импорта. Читайте дальше, чтобы узнать о доступных источниках, примерах команд для импорта из каждого источника, возможных целевых объектах и просмотре результатов импорта.
@@ -77,7 +81,7 @@
 	dt.exe /s:JsonFile /s.Files:C:\Tweets*.*;C:\LargeDocs***.*;C:\TESessions\Session48172.json;C:\TESessions\Session48173.json;C:\TESessions\Session48174.json;C:\TESessions\Session48175.json;C:\TESessions\Session48177.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:subs /t.CollectionTier:S3
 
 	#Import a single JSON file and partition the data across 4 collections
-	dt.exe /s:JsonFile /s.Files:D:\CompanyData\Companies.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:comp[1-4] /t.PartitionKey:name /t.CollectionTier:S3
+	dt.exe /s:JsonFile /s.Files:D:\\CompanyData\\Companies.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:comp[1-4] /t.PartitionKey:name /t.CollectionTier:S3
 
 ##<a id="MongoDB"></a>Импорт из MongoDB ##
 
@@ -197,6 +201,34 @@
 
 	dt.exe /s:AzureTable /s.ConnectionString:"DefaultEndpointsProtocol=https;AccountName=<Account Name>;AccountKey=<Account Key>" /s.Table:metrics /s.InternalFields:All /s.Filter:"PartitionKey eq 'Partition1' and RowKey gt '00001'" /s.Projection:ObjectCount;ObjectSize  /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:metrics /t.CollectionTier:S3
 
+##<a id="DynamoDBSource"></a>Импорт из Amazon DynamoDB ##
+
+Параметр импортера источника Amazon DynamoDB позволяет выполнять импорт из отдельной таблицы Amazon DynamoDB и при необходимости фильтровать сущности для импорта. Чтобы максимально упростить настройку импорта, представлено несколько шаблонов.
+
+![Снимок экрана: параметры источника DynamoDB Amazon](./media/documentdb-import-data/dynamodbsource1.png)
+
+![Снимок экрана: параметры источника DynamoDB Amazon](./media/documentdb-import-data/dynamodbsource2.png)
+
+Формат строки подключения Amazon DynamoDB выглядит следующим образом:
+
+	ServiceURL=<Service Address>;AccessKey=<Access Key>;SecretKey=<Secret Key>;
+
+> [AZURE.NOTE]Используйте команду Verify, чтобы проверить доступ к экземпляру Amazon DynamoDB, указанному в строке подключения.
+
+Ниже приведен пример команды для импорта данных из Amazon DynamoDB:
+
+	dt.exe /s:DynamoDB /s.ConnectionString:ServiceURL=https://dynamodb.us-east-1.amazonaws.com;AccessKey=<accessKey>;SecretKey=<secretKey> /s.Request:"{   """TableName""": """ProductCatalog""" }" /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:catalogCollection /t.CollectionTier:S3
+
+##<a id="BlobImport"></a>Импорт файлов из хранилища больших двоичных объектов Azure##
+
+JSON-файл, файл экспорта MongoDB и параметры импорта источника файла CSV позволяют импортировать из хранилища больших двоичных объектов Azure один или несколько файлов. Чтобы выбрать файлы для импорта, просто предоставьте регулярное выражение после указания URL-адреса или ключа учетной записи для контейнера больших двоичных объектов.
+
+![Снимок экрана: параметры исходного файла больших двоичных объектов](./media/documentdb-import-data/blobsource.png)
+
+Ниже приведен пример команды для импорта JSON-файлов из хранилища больших двоичных объектов Azure:
+
+	dt.exe /s:JsonFile /s.Files:"blobs://<account key>@account.blob.core.windows.net:443/importcontainer/.*" /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:doctest
+
 ##<a id="DocumentDBSource"></a>Импорт из DocumentDB ##
 
 Параметр импортера источников DocumentDB позволяет импортировать данные из коллекций DocumentDB и, если нужно, фильтровать документы с помощью запроса.
@@ -233,7 +265,25 @@
 	dt.exe /s:DocumentDB /s.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /s.Collection:comp1|comp2|comp3|comp4 /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:singleCollection /t.CollectionTier:S3
 
 	#Export a DocumentDB collection to a JSON file
-	dt.exe /s:DocumentDB /s.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /s.Collection:StoresSub /t:JsonFile /t.File:StoresExport.json /t.Overwrite /t.CollectionTier:S3
+	dt.exe /s:DocumentDB /s.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /s.Collection:StoresSub /t:JsonFile /t.File:StoresExport.json /t.Overwrite /t.CollectionTier:S3
+
+##<a id="HBaseSource"></a>Импорт из HBase ##
+
+Параметр импортера источника HBase позволяет импортировать данные из таблицы HBase и фильтровать данные при необходимости. Чтобы максимально упростить настройку импорта, представлено несколько шаблонов.
+
+![Снимок экрана: параметры источника HBase](./media/documentdb-import-data/hbasesource1.png)
+
+![Снимок экрана: параметры источника HBase](./media/documentdb-import-data/hbasesource2.png)
+
+Формат строки подключения HBase Stargate выглядит следующим образом:
+
+	ServiceURL=<server-address>;Username=<username>;Password=<password>
+
+> [AZURE.NOTE]Используйте команду Verify, чтобы проверить доступ к экземпляру HBase, указанному в строке подключения.
+
+Ниже приведен пример команды для импорта данных из HBase:
+
+	dt.exe /s:HBase /s.ConnectionString:ServiceURL=<server-address>;Username=<username>;Password=<password> /s.Table:Contacts /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:hbaseimport
 
 ##<a id="DocumentDBBulkTarget"></a>Импорт в DocumentDB (массовый импорт) ##
 
@@ -333,11 +383,33 @@
 
 > [AZURE.TIP]Средство импорта по умолчанию использует режим подключения DirectTcp. При возникновении проблем с брандмауэром перейдите на режим шлюза, так как он использует только порт 443.
 
+##<a id="IndexingPolicy"></a>Указание политики индексирования при создании коллекций DocumentDB ##
+
+Если вы разрешили средству миграции создавать коллекции во время импорта, можно указать политику индексирования коллекций. В разделе дополнительных параметров массового импорта DocumentDB и параметров последовательной записи DocumentDB перейдите в раздел "Политика индексации".
+
+![Снимок экрана: дополнительные параметры политики индексации DocumentDB](./media/documentdb-import-data/indexingpolicy1.png)
+
+С помощью дополнительного параметра политики индексации можно выбрать файл политики индексации, вручную ввести политику индексации или выбрать из набора шаблонов по умолчанию (щелкнув правой кнопкой в текстовом поле политики индексации).
+
+Шаблоны политик, предоставляемые средством:
+
+- По умолчанию. Эта политика лучше всего подходит при выполнении запросов равенства строк и использовании предложения ORDER BY, диапазона и запросов равенства для чисел. Эта политика имеет более низкий индекс служебных данных хранилища, чем "Диапазон".
+- Хэш. Эта политика лучше всего подходит при выполнении запросов равенства для чисел и строк. Эта политика имеет низкий индекс служебных данных хранилища.
+- Диапазон. Эта политика лучше всего подходит при использовании предложения ORDER BY, диапазона и запросов равенства на числах и строках. Эта политика имеет более высокий индекс служебных данных хранилища, чем "По умолчанию" или "Хэш".
+
+
+![Снимок экрана: дополнительные параметры политики индексации DocumentDB](./media/documentdb-import-data/indexingpolicy2.png)
+
+> [AZURE.NOTE]Если не указать политику индексации, будет применена политика по умолчанию. Дополнительные сведения о политике индексации DocumentDB можно узнать [здесь](documentdb-indexing-policies.md).
+
+
 ## Экспорт в файл JSON
 
-Средство экспорта JSON DocumentDB позволяет экспортировать любые доступные источники в JSON-файл, содержащий массив документов JSON. Средство автоматически выполняет экспорт или же вы можете просмотреть результирующую команду миграции и выполнить ее самостоятельно.
+Средство экспорта JSON DocumentDB позволяет экспортировать любые доступные источники в JSON-файл, содержащий массив документов JSON. Средство автоматически выполняет экспорт или же вы можете просмотреть результирующую команду миграции и выполнить ее самостоятельно. Результирующий JSON-файл может храниться локально или в хранилище больших двоичных объектов Azure.
 
-![Снимок экрана: параметры экспорта JSON DocumentDB](./media/documentdb-import-data/jsontarget.png)
+![Снимок экрана: параметры экспорта в локальный файл DocumentDB JSON](./media/documentdb-import-data/jsontarget.png)
+
+![Снимок экрана: параметр экспорта в хранилище больших двоичных объектов Azure DocumentDB JSON](./media/documentdb-import-data/jsontarget2.png)
 
 При необходимости можно настроить результирующий JSON, что приведет к увеличению размера полученного документа, но при этом содержимое станет более удобным для чтения.
 
@@ -404,4 +476,4 @@
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO3-->

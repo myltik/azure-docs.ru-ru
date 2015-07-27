@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Авторизация пользователей на стороне службы в мобильных службах с помощью серверной части JavaScript | Центр разработчиков для мобильных устройств"
+	pageTitle="Авторизация пользователей на стороне службы в серверной мобильной службе JavaScript | Мобильные службы Azure"
 	description="Информация об авторизации пользователей в серверной части JavaScript мобильных служб Azure"
 	services="mobile-services"
 	documentationCenter=""
@@ -70,4 +70,4 @@
 [портал управления Azure]: https://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

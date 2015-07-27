@@ -374,4 +374,4 @@
 [Использование концентраторов уведомлений для передачи экстренных новостей]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 [руководстве по использованию центров уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

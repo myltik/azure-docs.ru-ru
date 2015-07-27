@@ -76,4 +76,4 @@
 [Build and deploy a Node.js application to an Azure Cloud Service]: cloud-services-nodejs-develop-deploy-app.md
 [Пользовательские сценарии развертывания веб-сайтов с использованием Kudu]: /documentation/videos/custom-web-site-deployment-scripts-with-kudu/
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

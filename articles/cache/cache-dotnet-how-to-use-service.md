@@ -95,12 +95,12 @@
 
 Ход выполнения операции создания можно отслеживать в окне Azure PowerShell. Когда кэш будет готов к использованию с помощью командлета [New-AzureManagedCache][], можно посмотреть сведения о кэше, как показано в следующем примере.
 
-	PS C:\> Add-AzureAccount
+	PS C:> Add-AzureAccount
 	VERBOSE: Account "user@domain.com" has been added.
 	VERBOSE: Subscription "MySubscription" is selected as the default subscription.
 	VERBOSE: To view all the subscriptions, please use Get-AzureSubscription.
 	VERBOSE: To switch to a different subscription, please use Select-AzureSubscription.
-	PS C:\> New-AzureManagedCache -Name contosocache -Location "South Central US" -Sku Basic -Memory 128MB
+	PS C:> New-AzureManagedCache -Name contosocache -Location "South Central US" -Sku Basic -Memory 128MB
 	VERBOSE: Intializing parameters...
 	VERBOSE: Creating prerequisites...
 	VERBOSE: Verify cache service name...
@@ -116,7 +116,7 @@
 
 
 
-	PS C:\>
+	PS C:>
 
 
 
@@ -486,4 +486,4 @@
 [Какой кэш Azure подходит мне лучше всего?]: http://msdn.microsoft.com/library/azure/dn766201.aspx
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

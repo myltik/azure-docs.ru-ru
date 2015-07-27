@@ -152,4 +152,4 @@ Microsoft Azure StorSimple содержит адаптер StorSimple для Sha
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

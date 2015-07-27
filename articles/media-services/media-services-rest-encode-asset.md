@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="06/28/2015" 
 	ms.author="juliako"/>
 
 
@@ -26,13 +26,19 @@
 
 Задания кодирования — одни из самых распространенных операций обработки в службах мультимедиа. Они создаются для преобразования файлов мультимедиа из одного формата кодирования в другой. При кодировании можно использовать встроенный кодировщик служб мультимедиа. Также можно использовать кодировщик, предоставленный партнером служб мультимедиа, кодировщики сторонних производителей доступны в Магазине Azure. Информацию о задачах кодировки можно указать с помощью строк предустановок, заданных для кодировщика, или файлов конфигурации. См. типы доступных предустановок в разделе [Предустановки задач для служб мультимедиа Azure](https://msdn.microsoft.com/library/azure/dn619392.aspx). Если вы использовали сторонний кодировщик, вам следует [проверить свои файлы](https://msdn.microsoft.com/library/azure/dn750842.aspx).
 
-Каждое задание может состоять из одной или нескольких задач в зависимости от типа обработки, которую необходимо выполнить. Задания и связанные с ними задачи можно создавать через REST API двумя способами: задачи можно определять прямо в сущностях Job в свойстве навигации задач или через пакетную обработку по протоколу OData. Пакет SDK служб мультимедиа использует пакетную обработку, однако для удобства чтения примеров кода в этом разделе задачи определены встроенными средствами. Сведения о пакетной обработке см. в статье [Пакетная обработка по протоколу OData](http://www.odata.org/documentation/odata-version-3-0/batch-processing/). Пример пакетной обработки можно также найти в статье о [сущности Job](https://msdn.microsoft.com/library/azure/hh974289.aspx).
+
+Каждое задание может состоять из одной или нескольких задач в зависимости от типа обработки, которую необходимо выполнить. REST API позволяет создавать задания и связанные с ними задачи одним из двух способов:
+
+- встроенными средствами с помощью свойств навигации задач в сущностях Job или 
+- с помощью пакетной обработки OData.
+  
 
 Мы советуем всегда кодировать мезонинные файлы в набор MP4-файлов с адаптивной скоростью, а затем преобразовывать его в нужный формат с помощью [динамической упаковки](https://msdn.microsoft.com/library/azure/jj889436.aspx). Для использования динамической упаковки вам потребуется получить по крайней мере одну единицу потоковой передачи по запросу для конечной точки потоковой передачи, из которой планируется передавать содержимое. Дополнительные сведения см. в статье [Масштабирование служб мультимедиа](media-services-manage-origins.md#scale_streaming_endpoints).
 
 Если выходящий ресурс зашифрован в хранилище, необходимо настроить политику доставки ресурсов. Дополнительную информацию см. в разделе [Настройка политики доставки ресурсов](media-services-rest-configure-asset-delivery-policy.md).
 
 
+>[AZURE.NOTE]Прежде чем начать ссылаться на обработчики мультимедиа, убедитесь, что у вас есть правильный идентификатор обработчика мультимедиа. Дополнительные сведения см. в статье [Получение обработчиков мультимедиа](media-services-rest-get-media-processor.md).
 
 ##Создание задания с одной задачей кодирования 
 
@@ -58,13 +64,19 @@
 	Host: media.windows.net
 
 	
-	{"Name" : "NewTestJob", "InputMediaAssets" : [{"__metadata" : {"uri" : "https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3Aaab7f15b-3136-4ddf-9962-e9ecb28fb9d2')"}}],  "Tasks" : [{"Configuration" : "H264 Broadband 720p", "MediaProcessorId" : "nb:mpid:UUID:70bdc2c3-ebf4-42a9-8542-5afc1e55d217",  "TaskBody" : "<?xml version="1.0" encoding="utf-8"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset>JobOutputAsset(0)</outputAsset></taskBody>"}]}
+	{"Name" : "NewTestJob", "InputMediaAssets" : [{"__metadata" : {"uri" : "https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3Aaab7f15b-3136-4ddf-9962-e9ecb28fb9d2')"}}],  "Tasks" : [{"Configuration" : "H264 Broadband 720p", "MediaProcessorId" : "nb:mpid:UUID:1b1da727-93ae-4e46-a8a1-268828765609",  "TaskBody" : "<?xml version="1.0" encoding="utf-8"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset>JobOutputAsset(0)</outputAsset></taskBody>"}]}
 
 Ответ:
 	
 	HTTP/1.1 201 Created
 
 	. . . 
+
+###Задание имени выходного актива
+
+В следующем примере показано, как установить атрибут assetName:
+
+	{ "TaskBody" : "<?xml version="1.0" encoding="utf-8"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName="CustomOutputAssetName">JobOutputAsset(0)</outputAsset></taskBody>"}
 
 ##Рекомендации
 
@@ -77,11 +89,6 @@
 - Так как службы мультимедиа созданы на платформе OData версии 3, ссылки на отдельные ресурсы в коллекциях свойств навигации ресурсов InputMediaAsset и OutputMediaAsset добавляются в виде пары «имя-значение» __metadata: uri.
 - Ресурсы InputMediaAsset сопоставляются с одним или несколькими ресурсами, созданными в службах мультимедиа. Ресурсы OutputMediaAsset создаются системой. Они не ссылаются на существующий ресурс.
 - Ресурсам OutputMediaAsset можно присвоить имя с помощью атрибута assetName. Если этот атрибут отсутствует, именем ресурса OutputMediaAsset будет внутреннее текстовое значение элемента <outputAsset> с суффиксом, которым может быть значение параметра имени задания или параметра идентификатора задания (если свойство Name не определено). Например, если задать для атрибута assetName значение Sample, для свойства Name ресурса OutputMediaAsset будет задано значение Sample. Тем не менее, если значение атрибута assetName не задано, но в качестве имени задания задано NewJob, имя OutputMediaAsset будет выглядеть следующим образом: JobOutputAsset(значение)_NewJob. 
-
-В следующем примере показано, как установить атрибут assetName:
-
-	{ "TaskBody" : "<?xml version="1.0" encoding="utf-8"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName="CustomOutputAssetName">JobOutputAsset(0)</outputAsset></taskBody>"}
-
 
 
 ##Создание задания с цепными задачами
@@ -112,16 +119,17 @@
 	   "Tasks":[  
 	      {  
 	         "Configuration":"H264 Adaptive Bitrate MP4 Set 720p",
-	         "MediaProcessorId":"nb:mpid:UUID:2e7aa8f3-4961-4e0c-b4db-0e0439e524f5",
+	         "MediaProcessorId":"nb:mpid:UUID:1b1da727-93ae-4e46-a8a1-268828765609",
 	         "TaskBody":"<?xml version="1.0" encoding="utf-8"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset>JobOutputAsset(0)</outputAsset></taskBody>"
 	      },
 	      {  
 	         "Configuration":"H264 Smooth Streaming 720p",
-	         "MediaProcessorId":"nb:mpid:UUID:2e7aa8f3-4961-4e0c-b4db-0e0439e524f5",
+	         "MediaProcessorId":"nb:mpid:UUID:1b1da727-93ae-4e46-a8a1-268828765609",
 	         "TaskBody":"<?xml version="1.0" encoding="utf-16"?><taskBody><inputAsset>JobOutputAsset(0)</inputAsset><outputAsset>JobOutputAsset(1)</outputAsset></taskBody>"
 	      }
 	   ]
 	}
+
 
 ###Рекомендации
 
@@ -129,6 +137,67 @@
 
 - в задании должно быть по крайней мере 2 задачи;
 - должна существовать хотя бы одна задача, входные данные которой являются выходными данными другой задачи в задании.
+
+## Использование пакетной обработки OData 
+
+В следующем примере показано, как использовать пакетную обработку OData для создания задания и задач. Сведения о пакетной обработке см. в статье [Пакетная обработка по протоколу OData](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
+ 
+	POST https://media.windows.net/api/$batch HTTP/1.1
+	DataServiceVersion: 1.0;NetFx
+	MaxDataServiceVersion: 3.0;NetFx
+	Content-Type: multipart/mixed; boundary=batch_a01a5ec4-ba0f-4536-84b5-66c5a5a6d34e
+	Accept: multipart/mixed
+	Accept-Charset: UTF-8
+	Authorization: Bearer <token>
+	x-ms-version: 2.11
+	x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
+	Host: media.windows.net
+	
+	
+	--batch_a01a5ec4-ba0f-4536-84b5-66c5a5a6d34e
+	Content-Type: multipart/mixed; boundary=changeset_122fb0a4-cd80-4958-820f-346309967e4d
+	
+	--changeset_122fb0a4-cd80-4958-820f-346309967e4d
+	Content-Type: application/http
+	Content-Transfer-Encoding: binary
+	
+	POST https://media.windows.net/api/Jobs HTTP/1.1
+	Content-ID: 1
+	Content-Type: application/json
+	Accept: application/json
+	DataServiceVersion: 3.0
+	MaxDataServiceVersion: 3.0
+	Accept-Charset: UTF-8
+	Authorization: Bearer <token>
+	x-ms-version: 2.11
+	x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
+	
+	{"Name" : "NewTestJob", "InputMediaAssets@odata.bind":["https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3A2a22445d-1500-80c6-4b34-f1e5190d33c6')"]}
+	
+	--changeset_122fb0a4-cd80-4958-820f-346309967e4d
+	Content-Type: application/http
+	Content-Transfer-Encoding: binary
+	
+	POST https://media.windows.net/api/$1/Tasks HTTP/1.1
+	Content-ID: 2
+	Content-Type: application/json;odata=verbose
+	Accept: application/json;odata=verbose
+	DataServiceVersion: 3.0
+	MaxDataServiceVersion: 3.0
+	Accept-Charset: UTF-8
+	Authorization: Bearer <token>
+	x-ms-version: 2.11
+	x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
+	
+	{  
+	   "Configuration":"H264 Adaptive Bitrate MP4 Set 720p",
+	   "MediaProcessorId":"nb:mpid:UUID:1b1da727-93ae-4e46-a8a1-268828765609",
+	   "TaskBody":"<?xml version="1.0" encoding="utf-8"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName="Custom output name">JobOutputAsset(0)</outputAsset></taskBody>"
+	}
+
+	--changeset_122fb0a4-cd80-4958-820f-346309967e4d--
+	--batch_a01a5ec4-ba0f-4536-84b5-66c5a5a6d34e--
+ 
 
 
 ## Создание задания с помощью сущности JobTemplate
@@ -184,63 +253,13 @@
 	. . . 
 
 
-##Управление именами выходных файлов кодировщика служб мультимедиа 
-
-По умолчанию кодировщик служб мультимедиа Azure создает имена выходных файлов, совмещая различные атрибуты входного ресурса и процесса кодирования. Каждый атрибут определяется с помощью макроса, как описано ниже.
-
-Ниже приведен полный список макросов, которые можно использовать для именования выходных файлов. Audio Bitrate — скорость кодированного звука, указанная в килобитах в секунду.
-
-- Audio Codec — кодек, используемый для кодирования звука. Допустимые значения: AAC, WMA и DDP.
-- Channel Count — количество кодируемых каналов. Допустимые значения: 1, 2 и 6.
-- Default extension — расширение файла по умолчанию. 
-- Language — код языка BCP-47, который обозначает язык звуковой дорожки. Текущее значение по умолчанию: und. 
-- Original File Name — имя файла, переданного в службу хранилища Azure.
-- StreamId — идентификатор потока, указанный в атрибуте streamID элемента <StreamInfo> в файле с предустановками. 
-- Video Codec — кодек, используемый для кодирования видео. Допустимые значения: H264 и VC1.
-- Video Bitrate — скорость кодированного видео, указанная в килобитах в секунду.
-
-Различные комбинации этих макросов позволяют определять имена файлов, которые будет создавать кодировщик служб мультимедиа. Например, по умолчанию применяется такой способ именования:
-
-	{Original File Name}_{Video Codec}{Video Bitrate}{Audio Codec}{Language}{Channel Count}{Audio Bitrate}.{Default Extension}
-
-Способ именования файлов определяется с помощью атрибута DefaultMediaOutputFileName элемента [Preset](https://msdn.microsoft.com/library/azure/dn554334.aspx). Например:
-
-	<Preset DefaultMediaOutputFileName="{Original file name}{StreamId}_LongOutputFileName{Bit Rate}{Video Codec}{Video Bitrate}{Audio Codec}{Audio Bitrate}{Language}{Channel Count}.{Default extension}"
-	  Version="5.0">
-	<MediaFile …>
-	   <OutputFormat>
-	      <MP4OutputFormat StreamCompatibility="Standard">
-	         <VideoProfile>
-	            <MainH264VideoProfile … >
-	               <Streams  AutoSize="False"
-	                         FreezeSort="False">
-	                  <StreamInfo StreamId="1"
-	                              Size="1280, 720">
-	                     <Bitrate>
-	                       <ConstantBitrate Bitrate="3400"
-	                                        IsTwoPass="False"
-	                                        BufferWindow="00:00:05" />
-	                     </Bitrate>
-	                   </StreamInfo>
-	                  </Streams>
-	               </MainH264VideoProfile>
-	            </VideoProfile>
-	         </MP4OutputFormat>
-	   </OutputFormat>
-	</MediaFile>
-
-Кодировщик вставит между макросами символы подчеркивания. Например, указанная выше конфигурации создаст такое имя файла: MyVideo_H264_4500kpbs_AAC_und_ch2_128kbps.mp4.
 
 ##Дальнейшие действия
 Вы узнали, как создать задание для кодирования актива. Теперь вы можете приступить к изучению статьи [Проверка хода выполнения задания с помощью служб мультимедиа](media-services-rest-check-job-progress.md).
 
-[Azure Marketplace]: https://datamarket.azure.com/
-[Encoder Preset]: http://msdn.microsoft.com/library/dn619392.aspx
-[How to: Get a Media Processor Instance]: http://go.microsoft.com/fwlink/?LinkId=301732
-[How to: Upload an Encrypted Asset]: http://go.microsoft.com/fwlink/?LinkId=301733
-[How to: Deliver an Asset by Download]: http://go.microsoft.com/fwlink/?LinkId=301734
-[How to Check Job Progress]: http://go.microsoft.com/fwlink/?LinkId=301737
-[Task Preset for Azure Media Packager]: http://msdn.microsoft.com/library/windowsazure/hh973635.aspx
- 
 
-<!---HONumber=62-->
+ ##См. также
+
+[Получение обработчиков мультимедиа](media-services-rest-get-media-processor.md)
+
+<!---HONumber=July15_HO3-->

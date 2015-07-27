@@ -108,4 +108,4 @@
 
 Квоты, перечисленные со звездочкой (*), [могут быть изменены при обращении в службу поддержки Azure](../articles/documentdb/documentdb-increase-limits.md).
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

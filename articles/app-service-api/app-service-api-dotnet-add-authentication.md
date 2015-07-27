@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="06/26/2015" 
 	ms.author="tdykstra"/>
 
 # Защита приложения API: добавление проверки подлинности Azure Active Directory или поставщика социальных сетей
@@ -30,6 +30,8 @@
 - Вход в систему настроенного поставщика.
 - Повторный вызов приложения API, чтобы убедиться, что доступ с проверкой подлинности работает.
 - Написание и тестирование кода, который извлекает утверждения для вошедшего в систему пользователя.
+
+Дополнительные сведения о проверке подлинности в службе приложений Azure см. в статье [Проверка подлинности для приложений API и мобильных приложений](../app-service/app-service-authentication-overview.md).
 
 ## Предварительные требования
 
@@ -85,61 +87,13 @@
 
 Чтобы настроить в приложении API возможность принимать только запросы, прошедшие проверку подлинности, необходимо задать его уровень доступности **Общедоступный (с проверкой подлинности)** и настроить в шлюзе запрос проверки подлинности от поставщика, такого как Azure Active Directory, Google или Facebook.
 
-1. Вернитесь в колонку **Приложение API** для приложения API, которое требуется защитить.
+[AZURE.INCLUDE [app-service-api-config-auth](../../includes/app-service-api-config-auth.md)]
 
-2. В колонке **Приложение API** щелкните пункт **Параметры**, а затем выберите пункт **Параметры приложения**.
-
-	![Щелкните «Параметры»](./media/app-service-api-dotnet-add-authentication/clicksettings.png)
-
-	![Щелкните «Параметры приложения»](./media/app-service-api-dotnet-add-authentication/clickbasicsettings.png)
-
-3. В колонке **Параметры приложения** измените **уровень доступа** на **Общедоступный (с проверкой подлинности)**, а затем нажмите кнопку **Сохранить**.
-
-	![Щелкните «Основные параметры»](./media/app-service-api-dotnet-add-authentication/setpublicauth.png)
-
-	Теперь вы защитили приложение API от несанкционированного доступа. Далее в шлюзе потребуется указать, какого поставщика проверки подлинности следует использовать.
+Теперь вы защитили приложение API от несанкционированного доступа. Далее в шлюзе потребуется указать, какого поставщика проверки подлинности следует использовать.
 
 ### <a id="gateway"></a>Настройка шлюза для использования поставщика проверки подлинности
 
-4. Прокрутите экран влево к колонке **Приложение API** и щелкните ссылку на шлюз.
-
-	![Выберите шлюз](./media/app-service-api-dotnet-add-authentication/gateway.png)
-
-7. В колонке **Шлюз** щелкните пункт **Параметры**, а затем выберите **Удостоверение**.
-
-	![Щелкните «Параметры»](./media/app-service-api-dotnet-add-authentication/clicksettingsingateway.png)
-
-	![Щелкните «Удостоверение»](./media/app-service-api-dotnet-add-authentication/clickidentity.png)
-
-	Из колонки **Удостоверение** можно переходить к другим колонкам для настройки проверки подлинности с помощью Azure Active Directory и некоторых других поставщиков.
-
-	![Колонка «Удостоверение»](./media/app-service-api-dotnet-add-authentication/identityblade.png)
-  
-3. Выберите поставщика удостоверений, которого следует использовать, и выполните шаги в соответствующей статье, чтобы настроить приложение API с помощью того же поставщика. Эти статьи были написаны для мобильных приложений, но действия не отличаются от действий для приложений API. В некоторых процедурах требуется использовать [портал Azure].
-
- - [Учетная запись Майкрософт](../app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication-preview.md)
- - [Вход в Facebook](../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication-preview.md)
- - [Вход в Twitter](../app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication-preview.md)
- - [Вход в Google](../app-service-mobile/app-service-mobile-how-to-configure-google-authentication-preview.md)
- - [Azure Active Directory](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication-preview.md)
-
-Например, на следующих снимках экрана показано, что должно отображаться на страницах [Портала Azure] и в колонках [портала предварительной версии Azure] после настройки проверки подлинности Azure Active Directory.
-
-На портале предварительной версии Azure в колонке **Azure Active Directory** содержится **идентификатор клиента** из приложения, созданного на вкладке «Azure Active Directory» портала Active, а в колонке **Разрешенные клиенты** содержится ваш клиент Azure Active Directory (например, contoso.onmicrosoft.com).
-
-![Колонка Azure Active Directory](./media/app-service-api-dotnet-add-authentication/tdinaadblade.png)
-
-На портале Azure на вкладке **Настройка** для приложения, созданного на вкладке **Azure Active Directory**, содержатся значения **URL-адрес единого входа**, **URI идентификатора приложения** и **URL-адрес ответа** из колонки **Azure Active Directory** на портале предварительной версии Azure.
-
-![](./media/app-service-api-dotnet-add-authentication/oldportal1.png)
-
-![](./media/app-service-api-dotnet-add-authentication/oldportal2.png)
-
-![](./media/app-service-api-dotnet-add-authentication/oldportal3.png)
-
-![](./media/app-service-api-dotnet-add-authentication/oldportal4.png)
-
-(В поле «URL-адрес ответа», показанном на рисунке, один и тот же URL-адрес отображается дважды, один раз с префиксом `http:` и второй раз с префиксом `https:`.)
+[AZURE.INCLUDE [app-service-api-gateway-config-auth](../../includes/app-service-api-gateway-config-auth.md)]
 
 ## Контроль работоспособности проверки подлинности
 
@@ -188,6 +142,8 @@
 	![Вход выполнен](./media/app-service-api-dotnet-add-authentication/logincomplete.png)
 
 	![Ответ GET Chrome](./media/app-service-api-dotnet-add-authentication/chromeget.png)
+
+	Включив пользовательский интерфейс Swagger, вы также можете перейти на страницу пользовательского интерфейса Swagger. При этом в правом нижнем углу страницы появится красный значок **ОШИБКА**. Если его щелкнуть, откроется сообщение о том, что файл JSON Swagger недоступен. Причина в том, что Swagger осуществляет вызов AJAX, не включая маркер Zumo при попытке получить файл JSON. Это не мешает работе страницы пользовательского интерфейса Swagger.
 
 ## Использование Postman для отправки запроса POST
 
@@ -307,15 +263,10 @@
 
 ## Дальнейшие действия
 
-Вы узнали, как защитить приложение API Azure с помощью запроса проверки подлинности Azure Active Directory или поставщика социальных сетей. Дополнительные сведения см. в разделе [Что такое приложения API?](app-service-api-apps-why-best-platform.md).
+Вы узнали, как защитить приложение API Azure с помощью запроса проверки подлинности Azure Active Directory или поставщика социальных сетей. Дополнительные сведения см. в статье [Проверка подлинности для приложений API и мобильных приложений](../app-service/app-service-authentication-overview.md).
 
-[Портала Azure]: https://manage.windowsazure.com/
-[портал Azure]: https://manage.windowsazure.com/
+[портала Azure]: https://manage.windowsazure.com/
 [портал предварительной версии Azure]: https://portal.azure.com/
-[портала предварительной версии Azure]: https://portal.azure.com/
 [портале предварительной версии Azure]: https://portal.azure.com/
 
-
- 
-
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

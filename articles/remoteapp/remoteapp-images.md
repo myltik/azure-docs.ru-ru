@@ -2,7 +2,7 @@
     pageTitle="Что входит в образы шаблонов RemoteApp?"
     description="Узнайте об образах шаблона, которые поставляются с RemoteApp."
     services="remoteapp"
-    solutions="" documentationCenter=""
+	documentationCenter=""
     authors="lizap"
     manager="mbaldwin" />
 
@@ -101,4 +101,4 @@
 > [AZURE.IMPORTANT]**Юридическая информация.** Этот образ не включает в себя лицензию Microsoft Office и *не может использоваться в производственных целях*. Образ Office 2013 профессиональный плюс предназначен исключительно для пробного использования. Если вам нужно использовать приложения Office в Azure RemoteApp в рабочей среде, используйте образ Office 365 профессиональный плюс. Дополнительные сведения о лицензировании в RemoteApp см. в [статье о лицензировании в Azure RemoteApp](remoteapp-licensing.md).
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

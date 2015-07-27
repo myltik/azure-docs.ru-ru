@@ -1,7 +1,6 @@
 <properties 
 	pageTitle="Использование пакета SDK для .NET для управления Stream Analytics | Microsoft Azure" 
 	description="Приступая к работе с пакетом SDK для .NET для управления Stream Analytics. Дополнительная информация о настройке и выполнении заданий аналитики: создание проекта, входные и выходные данные и преобразования." 
-	keywords=".net skd,analytics jobs,event hub"
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -14,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="06/17/2015" 
+	ms.date="07/16/2015" 
 	ms.author="jeffstok"/>
 
 
@@ -58,7 +57,7 @@ Azure Stream Analytics является полностью управляемо�
 1. Создайте консольное приложение Visual Studio C# .NET.
 2. В консоли диспетчера пакетов выполните следующие команды, чтобы установить пакеты NuGet. Первый — пакет SDK для .NET для управления Azure Stream Analytics. Второй — клиент Azure Active Directory, который будет использоваться для проверки подлинности.
 
-		Install-Package Microsoft.Azure.Management.StreamAnalytics -Pre
+		Install-Package Microsoft.Azure.Management.StreamAnalytics
 		Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 
 4. Добавьте следующий раздел **appSettings** в файл App.config:
@@ -70,8 +69,8 @@ Azure Stream Analytics является полностью управляемо�
 		  <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
 		  <add key="AsaClientId" value="1950a258-227b-4e31-a9cf-717495945fc2" />
 		  <add key="RedirectUri" value="urn:ietf:wg:oauth:2.0:oob" />
-		  <add key="SubscriptionId" value="<YOUR AZURE SUBSCRIPTION>" />
-		  <add key="ActiveDirectoryTenantId" value="<YOU TENANT ID>" />
+		  <add key="SubscriptionId" value="YOUR AZURE SUBSCRIPTION" />
+		  <add key="ActiveDirectoryTenantId" value="YOU TENANT ID" />
 		</appSettings>
 
 
@@ -326,7 +325,7 @@ Azure Stream Analytics является полностью управляемо�
 
 
 ## Получение поддержки
-За дополнительной помощью обращайтесь на наш [форум Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/ru-ru/home?forum=AzureStreamAnalytics).
+За дополнительной помощью обращайтесь на наш [форум Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 
 ## Дальнейшие действия
@@ -365,4 +364,4 @@ Azure Stream Analytics является полностью управляемо�
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

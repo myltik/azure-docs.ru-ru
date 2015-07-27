@@ -57,4 +57,4 @@
 [Справочник по API-интерфейсу управления службами REST](https://msdn.microsoft.com/library/azure/ee460799.aspx)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

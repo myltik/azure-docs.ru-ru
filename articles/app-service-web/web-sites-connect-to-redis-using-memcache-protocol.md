@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="windows"
    ms.workload="web"
-   ms.date="03/31/2015"
+   ms.date="06/30/2015"
    ms.author="cfowler"/>
 
 # Присоединение веб-приложения в службе приложений Azure к кэшу Redis при помощи протокола Memcache
@@ -83,7 +83,7 @@
 
 ### Включение расширения php_memcache
 
-После скачивания файла распакуйте его и выложите **php_memcache.dll** в каталог **d:\home\site\wwwroot\bin\ext**. После передачи файла php_memcache.dll в веб-приложение, необходимо включить расширение в среде выполнения PHP. Чтобы включить расширение Memcache на портале Azure, откройте колонку **Параметры приложения** для веб-приложения, затем добавьте новый параметр приложения с ключом **PHP_EXTENSIONS** и значением **bin\ext\php_memcache.dll**.
+После скачивания файла распакуйте его и выложите **php_memcache.dll** в каталог **d:\\home\\site\\wwwroot\\bin\\ext\**. После передачи файла php_memcache.dll в веб-приложение, необходимо включить расширение в среде выполнения PHP. Чтобы включить расширение Memcache на портале Azure, откройте колонку **Параметры приложения** для веб-приложения, затем добавьте новый параметр приложения с ключом **PHP_EXTENSIONS** и значением **bin\\ext\\php_memcache.dll**.
 
 
 > Если для веб-приложения необходимо загрузить несколько расширений PHP, значение параметра PHP_EXTENSIONS должно быть списком относительных путей к DLL-файлам с разделителями-запятыми.
@@ -93,6 +93,8 @@
 По завершении щелкните **Сохранить**.
 
 ## Установка подключаемого модуля Memcache WordPress
+
+> На сайте WordPress.org. можно также загрузить подключаемый модуль [Memcached Object Cache](https://wordpress.org/plugins/memcached/).
 
 На странице подключаемых модулей WordPress нажмите кнопку **Добавить новый**.
 
@@ -150,7 +152,7 @@ $memcached_servers = array(
 
 После этого отобразится установленный порт, не использующий протокол SSL. Щелкните **Сохранить**.
 
-![Портал доступа Redis к кэшу Redis для Azure (без SSL)](./media/web-sites-connect-to-redis-using-memcache-protocol/18-azure-redis-cache-access-port-non-ssl.png)
+![Портал доступа к кэшу Redis для Azure (без SSL)](./media/web-sites-connect-to-redis-using-memcache-protocol/18-azure-redis-cache-access-port-non-ssl.png)
 
 ### Подключение к кэшу Redis для Azure через Redis CLI
 
@@ -195,4 +197,4 @@ redis-cli –h <hostname-for-redis-cache> –a <primary-key-for-redis-cache> –
 [13]: http://memcached.org
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

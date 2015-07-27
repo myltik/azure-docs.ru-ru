@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/06/2015" 
+	ms.date="07/11/2015" 
 	ms.author="awills"/>
  
 # Application Insights: платформы
@@ -40,7 +40,7 @@
 + [ASP.NET 5](app-insights-asp-net-five.md)
 + [Android](https://github.com/Microsoft/ApplicationInsights-Android)
 + [Веб-приложения и виртуальные машины Azure](../insights-perf-analytics.md)
-+ [Облачные службы Azure](app-insights-cloudservices.md)
++ [Облачные службы Azure](app-insights-cloudservices.md), рабочие и веб-роли
 + [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
 + [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 + [Angular](https://www.npmjs.com/package/angular-applicationinsights)
@@ -58,7 +58,7 @@
 
 +	[Log4Net, NLog или System.Diagnostics.Trace](app-insights-diagnostic-search.md)
 +	[Java, Log4J или Logback](app-insights-java-trace-logs.md)
-
++   [Семантическое ведение журнала](https://github.com/fidmor89/SLAB_AppInsights) — интегрируется с [блоком приложения для семантического ведения журнала](https://msdn.microsoft.com/library/dn440729.aspx)
 
 ## <a name="projects"></a> Создание собственного пакета SDK
 
@@ -73,4 +73,4 @@
 
 <!--Link references-->
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

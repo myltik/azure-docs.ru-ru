@@ -4,7 +4,7 @@
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
 	authors="piyushjo" 
-	manager="dwrede" 
+	manager="dwrede"
 	editor="" />
 
 <tags 
@@ -32,7 +32,7 @@
 
 ##Заметки о выпуске
 
-###3.0.0 (03.04.2015)
+###3\.0.0 (03.04.2015)
 
 -   Обновлен стандартный значок уведомления.
 -   При щелчке уведомления отправляется отклик на действие с системным уведомлением.
@@ -55,4 +55,4 @@
 См. статью [Процедуры обновления](mobile-engagement-windows-phone-upgrade-procedure/).
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

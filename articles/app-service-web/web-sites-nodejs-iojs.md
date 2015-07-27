@@ -61,4 +61,4 @@
 [Сценарий развертывания платформы io.js]: https://github.com/felixrieseberg/iojs-azure
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

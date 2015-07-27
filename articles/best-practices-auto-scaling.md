@@ -133,4 +133,4 @@ API управления службой можно использовать дл
 - [Пространство имен Microsoft.WindowsAzure.Management.Monitoring.Autoscale](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.management.monitoring.autoscale.aspx)
 - Документация и ключевые сценарии на веб-сайте MSDN, посвященные [блоку приложения автоматического масштабирования](http://msdn.microsoft.com/library/hh680892%28v=pandp.50%29.aspx)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

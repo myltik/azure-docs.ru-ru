@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.date="06/29/2015" 
 	ms.author="tomfitz"/>
 
 # Развертывание веб-приложения, связанного с репозиторием GitHub
@@ -22,15 +22,37 @@
 
 Дополнительную информацию о создании шаблонов см. в статье [Создание шаблонов диспетчера ресурсов Azure](../resource-group-authoring-templates.md).
 
-Полная версия шаблона приведена в файле [Веб-приложение, связанное с шаблоном GitHub](https://github.com/tfitzmac/AppServiceTemplates/blob/master/WebAppLinkedToGithub.json).
+Полная версия шаблона приведена в файле [Веб-приложение, связанное с шаблоном GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-github-deploy/azuredeploy.json).
 
 ## Что именно развертывается
 
 С помощью этого шаблона можно развернуть веб-приложение, содержащее код проекта из GitHub.
 
+Чтобы выполнить развертывание автоматически, нажмите следующую кнопку.
+
+[![Развертывание в Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-github-deploy%2Fazuredeploy.json)
+
 ## Параметры
 
 [AZURE.INCLUDE [app-service-web-deploy-web-parameters](../../includes/app-service-web-deploy-web-parameters.md)]
+
+### repoURL
+
+URL-адрес репозитория GitHub, в котором расположен развертываемый проект. Этот параметр содержит значение по умолчанию, которое лишь показывает, как указывать URL-адрес для репозитория. Это значение можно использовать при проверке шаблона, но при работе с ним вам нужно будет указать URL-адрес своего репозитория.
+
+    "repoURL": {
+        "type": "string",
+        "defaultValue": "https://github.com/davidebbo-test/Mvc52Application.git"
+    }
+
+### ветвь
+
+Ветвь репозитория для развертывания приложения. По умолчанию указана основная ветвь, но можно указать любую другую ветвь репозитория, из которой вы хотите развернуть приложение.
+
+    "branch": {
+        "type": "string",
+        "defaultValue": "master"
+    }
     
 ## Развертываемые ресурсы
 
@@ -77,13 +99,13 @@
 
 ### PowerShell
 
-    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/WebAppLinkedToGithub.json -siteName ExampleSite -hostingPlanName ExamplePlan -siteLocation "West US" -ResourceGroupName ExampleDeployGroup
+    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-github-deploy/azuredeploy.json -siteName ExampleSite -hostingPlanName ExamplePlan -siteLocation "West US" -ResourceGroupName ExampleDeployGroup
 
 ### Инфраструктура CLI Azure
 
-    azure group deployment create --template-uri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/WebAppLinkedToGithub.json
+    azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-github-deploy/azuredeploy.json
 
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

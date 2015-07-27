@@ -164,4 +164,4 @@
 [Как создать и опубликовать продукт]: api-management-howto-add-products.md
 [Кэширование результатов операции в Azure API Management]: api-management-howto-cache.md
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

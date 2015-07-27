@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Приложение API соединителя Yammer" 
-   description="Использование соединителя Yammer" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="anuragdalmia" 
-   manager="dwrede" 
+<properties
+   pageTitle="Приложение API соединителя Yammer"
+   description="Использование соединителя Yammer"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,9 +12,9 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="03/31/2015"
-   ms.author="adgoda"/>
+   ms.workload="integration"
+   ms.date="07/02/2015"
+   ms.author="sameerch"/>
 
 
 # Использование соединителя Yammer в приложении логики #
@@ -29,42 +29,42 @@
 1.	Откройте Azure Marketplace, нажав кнопку "+ СОЗДАТЬ" в нижнем левом углу портала Azure.
 2.	Перейдите в раздел "Мобильные и веб-приложения > Приложения API" и выполните поиск элемента "Соединитель Yammer".
 3.	Настройте соединитель Yammer следующим образом.
- 
+
  ![][1]
- 
+
 	- **Location** - choose the geographic location where you would like the connector to be deployed
 	- **Subscription** - choose a subscription you want this connector to be created in
 	- **Resource group** - select or create a resource group where the connector should reside
 	- **App Service plan** - select or create a web hosting plan
 	- **Pricing tier** - choose a pricing tier for the connector
-	- **Name** - give a name for your Yammer Connector 
+	- **Name** - give a name for your Yammer Connector
 
 4.	Нажмите кнопку "Создать". Будет создан новый соединитель Yammer.
-5.	После создания экземпляра приложения API можно создать логику приложения в той же группе ресурсов для использования соединителя Yammer. 
+5.	После создания экземпляра приложения API можно создать логику приложения в той же группе ресурсов для использования соединителя Yammer.
 
 ## Использование соединителя Yammer в приложении логики ##
 После создания приложения API можно использовать соединитель Yammer как триггер или действие для приложения логики. Для этого необходимо выполнить следующие действия.
 
 1.	Создайте новое приложение логики и выберите ту же группу ресурсов, что и для соединителя Yammer.
- 
+
 ![][2]
- 
-2.	Открыть раздел "Триггеры и действия", чтобы открыть конструктор приложения логики и настроить поток. 
- 
+
+2.	Открыть раздел "Триггеры и действия", чтобы открыть конструктор приложения логики и настроить поток.
+
 ![][3]
- 
+
 3.	Соединитель Yammer отображается в разделе "Приложения API в этой группе ресурсов" в коллекции с правой стороны.
- 
+
 ![][4]
- 
+
 4. Можно удалить приложение API соединителя Yammer в редакторе, щелкнув "Соединитель Yammer". Нажмите кнопку "Авторизовать". Укажите учетные данные Yammer. Нажмите кнопку "Разрешить".
 
 ![][5]
- 
+
 ![][6]
- 
+
 ![][7]
- 
+
 Теперь можно использовать соединитель Yammer в потоке.
 
 ## Использование соединителя Yammer в качестве триггера
@@ -74,7 +74,7 @@
 	- **Идентификатор группы** — идентификатор группы, от которой должно быть получено новое сообщение. Если не указан идентификатор группы, сообщение будет извлечено из следующего канала. Идентификатор группы может быть извлечен из URL-адреса группы в Yammer. Например, идентификатор группы в следующем URL-адресе — 5453203 https://www.yammer.com/microsoft.com/#/threads/inGroup?type=in_group&feedId=5453203
 
 	![][8]
- 
+
 	![][9]
 
 ## Соединитель Yammer позволяет отправлять сообщения
@@ -83,10 +83,10 @@
 
 	- **Текст сообщения** — текстовое содержимое отправляемого сообщения.
 	- **Идентификатор группы** — укажите идентификатор группы, в которую следует добавлять новые сообщения. Если не указан идентификатор группы, сообщение будет отправлено в канал всей компании. Идентификатор группы может быть извлечен из URL-адреса группы в Yammer. Например, идентификатор группы в следующем URL-адресе — 5453203 https://www.yammer.com/microsoft.com/#/threads/inGroup?type=in_group&feedId=5453203
-	- 	**Отметить пользователей** — массив, содержащий сетевые имена сети, которые должны быть отмечены в сообщении. 
+	- 	**Отметить пользователей** — массив, содержащий сетевые имена сети, которые должны быть отмечены в сообщении.
 
 	![][10]
- 
+
 	![][11]
 
 	<!--Image references-->
@@ -102,4 +102,4 @@
 [10]: ./media/app-service-logic-connector-yammer/img10.PNG
 [11]: ./media/app-service-logic-connector-yammer/img11.PNG
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

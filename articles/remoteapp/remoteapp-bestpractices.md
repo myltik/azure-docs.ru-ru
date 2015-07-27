@@ -2,7 +2,7 @@
     pageTitle="Рекомендации по Azure RemoteApp"
     description="Рекомендации по настройке и использованию Azure RemoteApp."
     services="remoteapp"
-    solutions="" documentationCenter=""
+	documentationCenter=""
     authors="lizap"
     manager="mbaldwin" />
 
@@ -44,4 +44,4 @@
 	- Отключите автоматические обновления ПО для опубликованных приложений. Вместо этого применяйте их вручную к образу шаблону и тестируйте перед развертыванием из шаблона.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

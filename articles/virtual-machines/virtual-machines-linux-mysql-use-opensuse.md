@@ -36,11 +36,10 @@
 [AZURE.INCLUDE [install-and-run-mysql-on-opensuse-vm](../../includes/install-and-run-mysql-on-opensuse-vm.md)]
 
 ##Сводка
-В этом учебнике вы научились создавать виртуальную машину под управлением OpenSUSE Linux и удаленно подключаться к ней с помощью SSH или PuTTY. Вы также узнали, как установить и настроить MySQL на виртуальной машине Linux. Дополнительные сведения о MySQL см. в [документации по MySQL][MySQLDocs].
+В этом учебнике вы научились создавать виртуальную машину под управлением OpenSUSE Linux и удаленно подключаться к ней с помощью SSH или PuTTY. Кроме того, вы узнали, как установить и настроить MySQL на виртуальной машине Linux. Дополнительные сведения о MySQL см. в [документации по MySQL][MySQLDocs].
 
 [MySQLDocs]: http://dev.mysql.com/doc/
 [MySQL]: http://www.mysql.com
 [AzurePortal]: http://manage.windowsazure.com
- 
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

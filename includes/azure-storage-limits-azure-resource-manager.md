@@ -1,3 +1,5 @@
+Указанные ниже ограничения применяются только при использовании диспетчера ресурсов Azure и групп ресурсов Azure.
+
 <table cellspacing="0" border="1">
 <tr>
    <th align="left" valign="middle">Ресурс</th>
@@ -13,4 +15,4 @@
 </tr>
 </table>
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

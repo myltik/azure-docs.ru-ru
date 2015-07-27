@@ -76,9 +76,9 @@
 - Интегрированная среда разработки Eclipse для разработчиков Java EE, версия Indigo или более поздняя. Среду также можно загрузить с веб-страницы <http://www.eclipse.org/downloads/>. 
 - Дистрибутив веб-сервера или сервера приложений на основе Java, например Apache Tomcat, GlassFish, сервера приложений JBoss или Jetty.
 - Подписка на Azure, которую можно получить на веб-странице http://www.microsoft.com/windowsazure/offers/.
-- Подключаемый модуль Azure для Eclipse с Java (на основе Microsoft Open Technologies), выпуск от апреля 2014 г. Дополнительные сведения см. в разделе [Установка подключаемого модуля Azure для Eclipse с Java (от Microsoft Open Technologies)](http://msdn.microsoft.com/ru-ru/library/windowsazure/hh690946.aspx).
+- Подключаемый модуль Azure для Eclipse с Java (на основе Microsoft Open Technologies), выпуск от апреля 2014 г. Дополнительные сведения см. в разделе [Установка подключаемого модуля Azure для Eclipse с Java (от Microsoft Open Technologies)](http://msdn.microsoft.com/library/windowsazure/hh690946.aspx).
 - Сертификат X.509 для использования с приложением. Этот сертификат потребуется в обоих форматах: открытый сертификат (CER) и файл обмена личной информацией (PFX). (Возможности для создания этого сертификата будут описаны далее в этом руководстве.)
-- Знакомство с эмулятором среды выполнения приложений Azure и методами развертывания, которые обсуждаются в разделе [Создание приложения Hello World для Azure в Eclipse](http://msdn.microsoft.com/ru-ru/library/windowsazure/hh690944.aspx).
+- Знакомство с эмулятором среды выполнения приложений Azure и методами развертывания, которые обсуждаются в разделе [Создание приложения Hello World для Azure в Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx).
 
 ## Создание пространства имен ACS
 
@@ -203,7 +203,7 @@ Azure создает и активирует пространство имен. 
 
 1. В обозревателе проектов Eclipse щелкните правой кнопкой мыши **MyACSHelloWorld**, выберите **Azure**, затем щелкните **Пакет для Azure**.
 2. В поле **Имя проекта** введите **MyAzureACSProject** и нажмите кнопку **Далее**.
-3. Выберите JDK и сервер приложений. (Эти шаги подробно описаны в учебнике [Создание приложения Hello World для Azure в Eclipse](http://msdn.microsoft.com/ru-ru/library/windowsazure/hh690944.aspx).)
+3. Выберите JDK и сервер приложений. (Эти шаги подробно описаны в учебнике [Создание приложения Hello World для Azure в Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx).)
 4. Нажмите кнопку **Готово**
 5. Нажмите кнопку **Запуск в эмуляторе Azure**.
 6. После запуска веб-приложения Java в эмуляторе среды выполнения приложений закройте все экземпляры браузера (чтобы все текущие сеансы браузера не мешали тестированию входа в ACS).
@@ -237,11 +237,11 @@ Azure создает и активирует пространство имен. 
 
 13. Нажмите кнопку **Готово**, чтобы закрыть диалоговое окно **Изменить библиотеку**.
 14. Нажмите кнопку **ОК**, чтобы закрыть диалоговое окно **Свойства MyACSHelloWorld**.
-15. В Eclipse нажмите кнопку **Опубликовать в облаке Azure**. На запросы отвечайте примерно так, как это сделано в подразделе **Развертывание приложения в Azure** раздела [Создание приложения Hello World для Azure в Eclipse](http://msdn.microsoft.com/ru-ru/library/windowsazure/hh690944.aspx). 
+15. В Eclipse нажмите кнопку **Опубликовать в облаке Azure**. На запросы отвечайте примерно так, как это сделано в подразделе **Развертывание приложения в Azure** раздела [Создание приложения Hello World для Azure в Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx). 
 
 После развертывания веб-приложения закройте все открытые сеансы браузера и запустите веб-приложение. Вам будет предложено выполнить вход с учетными данными Windows Live ID, а затем произойдет отправка на URL-возврата приложения проверяющей стороны.
 
-После применения приложения ACS Hello World не забудьте удалить развертывание (сведения об удалении развертывания см. в разделе [Создание приложения Hello World для Azure в Eclipse](http://msdn.microsoft.com/ru-ru/library/windowsazure/hh690944.aspx)).
+После применения приложения ACS Hello World не забудьте удалить развертывание (сведения об удалении развертывания см. в разделе [Создание приложения Hello World для Azure в Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx)).
 
 
 ## <a name="next_steps"></a>Дальнейшие действия
@@ -308,4 +308,4 @@ Azure создает и активирует пространство имен. 
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

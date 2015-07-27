@@ -42,7 +42,7 @@
 
 Если для ресурса задано шифрование с использованием параметра **StorageEncrypted**, пакет SDK служб мультимедиа для .NET создаст для ресурса зашифрованный в хранилище ключ содержимого (**StorateEncrypted** **ContentKey**).
 
->[AZURE.NOTE]При создании URL-адресов для потоковой передачи содержимого службы мультимедиа используют значение свойства IAssetFile.Name (например, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.). Поэтому кодирование с помощью знака процента не допускается. Значение свойства **Name** не может содержать ни один из следующих [символов, зарезервированных для кодирования с помощью знака процента](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#". Кроме того, может использоваться только один символ "." для расширения имени файла.
+>[AZURE.NOTE]При создании URL-адресов для потоковой передачи содержимого службы мультимедиа используют значение свойства IAssetFile.Name (например, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.). Поэтому кодирование с помощью знака процента не допускается. Значение свойства **Name** не может содержать следующие [символы, зарезервированные для кодирования с помощью знака процента](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#". Кроме того, может использоваться только один символ "." для расширения имени файла.
 
 В этом разделе показано, как использовать пакет SDK служб мультимедиа для .NET, а также расширения пакета SDK служб мультимедиа для .NET для передачи файлов в ресурс служб мультимедиа.
 
@@ -214,7 +214,7 @@
 	        CloudBlobClient blobClient = storageaccount.CreateCloudBlobClient();
 	        CloudBlobContainer blobContainer = blobClient.GetContainerReference(destBlobURI);
 	
-	        string[] splitfilename = filename.Split('');
+	        string[] splitfilename = filename.Split('\');
 	        var blob = blobContainer.GetBlockBlobReference(splitfilename[splitfilename.Length - 1]);
 	
 	        using (var stream = System.IO.File.OpenRead(filename))
@@ -306,4 +306,4 @@
 [Получение процессора мультимедиа]: media-services-get-media-processor.md
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=".net"
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="06/07/2015" 
 	ms.author="awills"/>
  
 # Устранение неполадок и ответы на вопросы по Application Insights для ASP.NET
@@ -128,7 +128,7 @@
 + На странице «Обзор» щелкните плитку «Поиск», чтобы открыть колонку «Поиск по журналу диагностики». Сначала данные отображаются здесь.
 + Нажмите кнопку «Обновить». В текущей версии содержимое модулей автоматически не обновляется.
 + На начальном экране Microsoft Azure посмотрите на карту состояния службы. Если есть какие-либо предупреждения, дождитесь возвращения всех модулей в состояние ОК, затем закройте и заново откройте модуль приложения Application Insights.
-+ Кроме того, просмотрите [наш блог о состояниях](http://blogs.msdn.com/b/applicationinsights-status/archive/2015/04/14/data-latency-and-data-access-issue-with-data-storage-service-4-14-investigating.aspx).
++ Кроме того, просмотрите [наш блог о состояниях](http://blogs.msdn.com/b/applicationinsights-status/).
 + В брандмауэре вам может потребоваться открыть TCP-порты 80 и 443 для исходящего трафика, идущего на сайты dc.services.visualstudio.com и f5.services.visualstudio.com.
 + Если для отправки из корпоративной сети необходимо использовать прокси-сервер, установите значение [defaultProxy](https://msdn.microsoft.com/library/aa903360.aspx) в файле Web.config.
 + Для Windows Server 2008. Убедитесь в том, что установлены следующие обновления: [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://support.microsoft.com/kb/2600217).
@@ -232,4 +232,4 @@
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -50,4 +50,4 @@ Azure AD поддерживает несколько широко использ
 * [Удостоверение Azure](fundamentals-identity.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

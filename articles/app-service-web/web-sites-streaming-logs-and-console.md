@@ -92,4 +92,4 @@ console.log("My trace statement").
 [ConsoleScreenshot]: ./media/web-sites-streaming-logs-and-console/console.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

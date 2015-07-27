@@ -50,10 +50,10 @@ Microsoft Azure StorSimple предоставляет следующие пре�
 
 ## Дальнейшие действия
 
-Прочтите раздел [Компоненты StorSimple](https://technet.microsoft.com/library/cc754482.aspx) и ознакомьтесь с [заметками о выпуске StorSimple](https://msdn.microsoft.com/library/azure/dn772367.aspx)
+Узнайте о [компонентах StorSimple](storsimple-components.md).
 
 
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

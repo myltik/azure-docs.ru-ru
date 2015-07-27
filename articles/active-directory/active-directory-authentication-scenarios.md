@@ -466,4 +466,4 @@ Azure Active Directory (Azure AD) упрощает процесс проверк
 [OAuth 2.0 в Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

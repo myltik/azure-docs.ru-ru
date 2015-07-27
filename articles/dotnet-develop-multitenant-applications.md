@@ -95,4 +95,4 @@ Azure предоставляет ряд способов подготовки н
 [Размещение мультитенантного приложения в Azure]: http://msdn.microsoft.com/library/hh534480.aspx
 [Designing Multitenant Applications on Azure]: http://msdn.microsoft.com/library/windowsazure/hh689716
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

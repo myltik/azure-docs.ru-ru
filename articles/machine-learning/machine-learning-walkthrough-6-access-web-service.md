@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2015" 
+	ms.date="07/10/2015" 
 	ms.author="garye"/>
 
 
@@ -40,6 +40,6 @@
 
 Страница справки API содержит примеры для языков программирования R, C# и Python.
 
-<!-- Add link to Derrick's articles on web services -->
+Дополнительные сведения о доступе к веб-службе и ее использовании см. в статье [Настройка веб-службы машинного обучения Azure, опубликованной из эксперимента машинного обучения](machine-learning-consume-web-services.md).
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

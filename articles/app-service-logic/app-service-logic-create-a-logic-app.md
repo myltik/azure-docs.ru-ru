@@ -172,4 +172,4 @@
 [Использование функций приложения логики]: app-service-logic-use-logic-app-features.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

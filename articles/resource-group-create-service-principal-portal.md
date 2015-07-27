@@ -1,19 +1,19 @@
 <properties
    pageTitle="Создание нового субъекта-службы Azure с помощью портала Azure"
    description="В этом разделе рассматривается создание нового субъекта-службы Azure, который можно использовать в сочетании со средствами контроля доступа на базе ролей в диспетчере ресурсов Azure для управления доступом к ресурсам."
-   services="na"
+   services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
    editor=""/>
 
 <tags
-   ms.service="na"
+   ms.service="azure-resource-manager"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/28/2015"
+   ms.date="07/15/2015"
    ms.author="tomfitz"/>
 
 # Создание нового субъекта-службы Azure с помощью портала Azure
@@ -134,4 +134,4 @@
 [12]: ./media/resource-group-create-service-principal-portal/add-icon.png
 [13]: ./media/resource-group-create-service-principal-portal/save-icon.png
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Начало работы с DocumentDB .NET SDK | Azure" 
-	description="Сведения о создании и настройке учетной записи Azure DocumentDB, создании баз данных и коллекций, а также хранении документов JSON в учетной записи базы данных документов NoSQL." 
-	services="documentdb" 
-	documentationCenter=".net" 
-	authors="AndrewHoh" 
-	manager="jhubbard" 
+<properties
+	pageTitle="Приступая к работе с пакетом SDK для DocumentDB .NET | Azure"
+	description="Сведения о создании и настройке учетной записи Azure DocumentDB, создании баз данных и коллекций, а также хранении документов JSON в учетной записи базы данных документов NoSQL."
+	services="documentdb"
+	documentationCenter=".net"
+	authors="AndrewHoh"
+	manager="jhubbard"
 	editor="monicar"/>
 
-<tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="hero-article" 
-	ms.date="04/29/2015" 
+<tags
+	ms.service="documentdb"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="get-started-article" 
+	ms.date="05/19/2015"
 	ms.author="anhoh"/>
 
 #Начало работы с DocumentDB .NET SDK  
@@ -29,8 +29,8 @@ DocumentDB — это служба баз данных документов NoS
 - создание баз данных;
 - создание коллекций;
 - создание документов JSON;
-- отправка запросов к ресурсам; 
-- удаление баз данных. 
+- отправка запросов к ресурсам;
+- удаление баз данных.
 
 Нет времени на знакомство с учебником, и вы просто хотите получить рабочее решение? Не беспокойтесь. Завершенное решение доступно на [GitHub](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started). Краткие инструкции см. в разделе [Получение завершенного решения](#GetSolution).
 
@@ -56,7 +56,7 @@ DocumentDB — это служба баз данных документов NoS
 5. Не выходя из меню, щелкните элемент **Управление пакетами NuGet**.
 6. На левой панели окна **Управление пакетами NuGet** последовательно щелкните элементы **В сети** / **nuget.org**.
 7. В поле ввода **Поиск в Интернете** начните поиск **клиентской библиотеки DocumentDB**.
-8. Найдите **клиентскую библиотеку Microsoft Azure DocumentDB** и нажмите кнопку **Установить**.
+8. Найдите **клиентскую библиотеку Microsoft Azure DocumentDB** и нажмите кнопку **Установить**. Идентификатором пакета для клиентской библиотеки DocumentDB является [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB)
 
 Отлично! Теперь вы готовы начать работу с DocumentDB.
 
@@ -68,7 +68,7 @@ DocumentDB — это служба баз данных документов NoS
     using Microsoft.Azure.Documents.Client;
     using Microsoft.Azure.Documents.Linq;
     using Newtonsoft.Json;
- 
+
 Вы можете создать экземпляр **DocumentClient** с использованием конечной точки учетной записи DocumentDB и первичного или вторичного ключа, связанного с учетной записью. Добавьте эти свойства в класс.
 
     private static string EndpointUrl = "<your endpoint URI>";
@@ -79,7 +79,7 @@ DocumentDB — это служба баз данных документов NoS
 	private static async Task GetStartedDemo()
     {
 		// Create a new instance of the DocumentClient.
-    	var client = new DocumentClient(new Uri(EndpointUrl), AuthorizationKey); 
+    	var client = new DocumentClient(new Uri(EndpointUrl), AuthorizationKey);
 	}
 
 Вызовите асинхронную задачу из метода Main, используя код, похожий на тот, что приведен ниже.
@@ -101,8 +101,8 @@ DocumentDB — это служба баз данных документов NoS
 
 Значения EndpointUrl и AuthorizationKey являются, соответственно, универсальным кодом ресурса и первичным ключом для вашей учетной записи DocumentDB. Их можно получить в колонке [Ключи](https://portal.azure.com), относящейся к этой учетной записи.
 
-![Снимок экрана портала Azure, на котором отображена учетная запись DocumentDB с выделенным АКТИВНЫМ концентратором, выделенной кнопкой «КЛЮЧИ» в колонке учетной записи DocumentDB и выделенными универсальным кодом ресурса, первичным ключом и вторичным ключом в колонке «Ключи».][keys]
- 
+![Снимок экрана портала предварительной версии Azure, на котором показаны учетная запись DocumentDB с выделенным АКТИВНЫМ концентратором, выделенной кнопкой «Ключи» в колонке учетной записи DocumentDB и выделенными универсальным кодом ресурса, ПЕРВИЧНЫМ КЛЮЧОМ И ВТОРИЧНЫМ КЛЮЧОМ в колонке «Ключи».][keys]
+
 Эти ключи предоставляют административный доступ к вашей учетной записи DocumentDB и ресурсам в ней. DocumentDB также поддерживает использование ключей ресурсов, позволяющих клиентам читать, записывать и удалять ресурсы в учетной записи DocumentDB в соответствии с предоставленными вами разрешениями без необходимости использования ключа учетной записи. Дополнительные сведения о ключах ресурсов см. в разделах [Разрешения](documentdb-resources.md#permissions) и [Просмотр, копирование и повторное формирование ключей доступа](documentdb-manage-account.md#keys).
 
 Теперь, когда вы знаете, как подключаться к учетной записи DocumentDB и создавать экземпляр **DocumentClient**, давайте посмотрим на работу с ресурсами DocumentDB.
@@ -123,10 +123,15 @@ DocumentDB — это служба баз данных документов NoS
 
 Вы можете создать [коллекцию](documentdb-resources.md#collections), используя метод [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) класса **DocumentClient**. Коллекция представляет собой контейнер документов JSON и связанную с ними логику в виде приложения JavaScript. Созданная коллекция будет сопоставлена с [уровнем производительности S1](documentdb-performance-levels.md). База данных, созданная на предыдущем этапе, имеет несколько свойств, среди которых есть свойство [CollectionsLink](https://msdn.microsoft.com/library/microsoft.azure.documents.database.collectionslink.aspx). Располагая этой информацией, вы, создав базу данных, можете теперь создать коллекцию.
 
-  // Create a document collection. DocumentCollection documentCollection = await client.CreateDocumentCollectionAsync(database.CollectionsLink, new DocumentCollection { Id = "FamilyCollection" });
-    
+  	// Create a document collection.
+  	DocumentCollection documentCollection = await client.CreateDocumentCollectionAsync(database.CollectionsLink,
+  		new DocumentCollection
+  		    {
+  			    Id = "FamilyCollection"
+  		    });
+
 ##<a id="CreateDoc"></a>Этап 6: создание документов
-Вы можете создать [документ](documentdb-resources.md#documents) с помощью метода [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx), который относится к классу **DocumentClient**. Документы относятся к пользовательскому (произвольному) содержимому JSON. Коллекция, созданная на предыдущем этапе, имеет несколько свойств, среди которых есть свойство [DocumentsLink](https://msdn.microsoft.com/library/microsoft.azure.documents.documentcollection.documentslink.aspx). Располагая этой информацией, мы можем добавить один или несколько документов.
+Вы можете создать [документ](documentdb-resources.md#documents) с помощью метода [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx), который относится к классу **DocumentClient**. Документы относятся к пользовательскому (произвольному) содержимому JSON. Коллекция, созданная на предыдущем этапе, имеет несколько свойств, среди которых есть свойство [DocumentsLink](https://msdn.microsoft.com/library/microsoft.azure.documents.documentcollection.documentslink.aspx). Располагая этой информацией, мы можем добавить один или несколько документов. Если у вас уже есть данные, которые необходимо хранить в базе данных, можно использовать [средство миграции данных](documentdb-import-data.md) в DocumentDB.
 
 Сначала нужно создать классы **Parent**, **Child**, **Pet**, **Address** и **Family**. Для этого нужно добавить приведенные ниже подклассы.
 
@@ -180,21 +185,21 @@ DocumentDB — это служба баз данных документов NoS
             new Parent { FirstName = "Mary Kay"}
         },
         Children = new Child[] {
-            new Child { 
-                FirstName = "Henriette Thaulow", 
-                Gender = "female", 
-                Grade = 5, 
+            new Child {
+                FirstName = "Henriette Thaulow",
+                Gender = "female",
+                Grade = 5,
                 Pets = new Pet[] {
-                    new Pet { GivenName = "Fluffy" } 
+                    new Pet { GivenName = "Fluffy" }
                 }
-            } 
+            }
         },
         Address = new Address { State = "WA", County = "King", City = "Seattle" },
         IsRegistered = true
     };
 
     await client.CreateDocumentAsync(documentCollection.DocumentsLink, AndersenFamily);
-    
+
     // Create the WakeField family document.
     Family WakefieldFamily = new Family
     {
@@ -205,9 +210,9 @@ DocumentDB — это служба баз данных документов NoS
         },
         Children = new Child[] {
             new Child {
-                FamilyName= "Merriam", 
-                FirstName= "Jesse", 
-                Gender= "female", 
+                FamilyName= "Merriam",
+                FirstName= "Jesse",
+                Gender= "female",
                 Grade= 8,
                 Pets= new Pet[] {
                     new Pet { GivenName= "Goofy" },
@@ -215,9 +220,9 @@ DocumentDB — это служба баз данных документов NoS
                 }
             },
             new Child {
-                FamilyName= "Miller", 
-                FirstName= "Lisa", 
-                Gender= "female", 
+                FamilyName= "Miller",
+                FirstName= "Lisa",
+                Gender= "female",
                 Grade= 1
             }
         },
@@ -226,7 +231,7 @@ DocumentDB — это служба баз данных документов NoS
     };
 
     await client.CreateDocumentAsync(documentCollection.DocumentsLink, WakefieldFamily);
- 
+
 Теперь в своей учетной записи DocumentDB вы создали следующие базу данных, коллекцию и документы.
 
 ![Схема, иллюстрирующая иерархические отношения между учетной записью, базой данных, коллекцией и документами](./media/documentdb-get-started/account-database.png)
@@ -432,16 +437,28 @@ DocumentDB — это служба баз данных документов NoS
 	} from LINQ query
 	{
 	  "id": "AndersenFamily",
-	"child": "Henriette Thaulow" } { "id": "WakefieldFamily", "child": "Jesse" } { "id": "WakefieldFamily", "child": "Lisa" } { family = AndersenFamily, child = Henriette Thaulow } { family = WakefieldFamily, child = Jesse } { family = WakefieldFamily, child = Lisa }
+ 	  "child": "Henriette Thaulow"
+	}
+	{
+	  "id": "WakefieldFamily",
+	  "child": "Jesse"
+	}
+	{
+	  "id": "WakefieldFamily",
+	  "child": "Lisa"
+	}
+	{ family = AndersenFamily, child = Henriette Thaulow }
+	{ family = WakefieldFamily, child = Jesse }
+	{ family = WakefieldFamily, child = Lisa }
 
 
 > [AZURE.NOTE]Если запустить приложение несколько раз, не удалив при этом базу данных, может возникнуть такая проблема: будет создана база данных с уже используемым ИД. Чтобы избежать этого, вы можете проверить, существует ли уже база данных, коллекция или документ с таким же ИД. Ссылка на информацию о том, как это можно сделать, доступна на нашей странице [GitHub](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started).
-	
+
 ##<a id="GetSolution"></a> Получение полного решения
 Чтобы собрать решение GetStarted, которое содержит все примеры из данной статьи, вам понадобится следующее:
 
 -   [учетная запись DocumentDB][documentdb-create-account];
--   решение [GetStarted](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started), доступное в GitHub. 
+-   решение [GetStarted](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started), доступное в GitHub.
 
 Для восстановления ссылок на DocumentDB .NET SDK в Visual Studio 2013 щелкните правой кнопкой мыши решение **GetStarted** в обозревателе решений, а затем щелкните элемент **Включить восстановление пакета NuGet**. Затем в файле App.config обновите значения EndpointUrl и AuthorizationKey согласно инструкциям раздела [Подключение к учетной записи DocumentDB](#Connect).
 
@@ -449,13 +466,13 @@ DocumentDB — это служба баз данных документов NoS
 -   Требуется более сложный пример ASP.NET MVC? См. статью [Создание веб-приложения ASP.NET MVC с использованием DocumentDB](documentdb-dotnet-application.md).
 -	Узнайте, как [контролировать учетную запись DocumentDB](documentdb-monitor-accounts.md).
 -	Отправьте запросы образцу набора данных в [Площадке для запросов](https://www.documentdb.com/sql/demo).
--	Дополнительные сведения о модели программирования см. в разделе «Разработка» [на странице документации DocumentDB](../../services/documentdb/). 
+-	Дополнительные сведения о модели программирования см. в разделе «Разработка» [на странице документации DocumentDB](../../services/documentdb/).
 
 [doc-landing-page]: ../../services/documentdb/
 [documentdb-create-account]: documentdb-create-account.md
 [documentdb-manage]: documentdb-manage.md
 
 [keys]: media/documentdb-get-started/keys.png
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO3-->

@@ -3,7 +3,7 @@
     pageTitle="Новые возможности приложения RemoteApp"
     description="Узнайте об изменениях и усовершенствованиях в Azure RemoteApp" 
     services="remoteapp" 
-    solutions="" documentationCenter="" 
+	documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
@@ -51,4 +51,4 @@
 
 Благодарим вас за проявленный интерес, ждите новых обновлений в следующем месяце.
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

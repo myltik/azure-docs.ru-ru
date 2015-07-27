@@ -68,7 +68,7 @@
 На этом шаге создаются две связанные службы: **StorageLinkedService** и **AzureSqlLinkedService**. Связанная служба StorageLinkedService связывает учетную запись хранения Azure, а служба AzureSqlLinkedService связывает базу данных SQL Azure с фабрикой данных **ADFTutorialDataFactoryPSH**. Далее в этом учебнике будет создан конвейер, который копирует данные из контейнера больших двоичных объектов в StorageLinkedService в таблицу SQL в AzureSqlLinkedService.
 
 ### Создание связанной службы для учетной записи хранения Azure
-1.	Создайте файл JSON с именем **StorageLinkedService.json** в **C:\ADFGetStartedPSH** со следующим содержимым. Создайте папку ADFGetStartedPSH, если она еще не существует.
+1.	Создайте файл JSON с именем **StorageLinkedService.json** в **C:\\ADFGetStartedPSH** со следующим содержимым. Создайте папку ADFGetStartedPSH, если она еще не существует.
 
 		{
 		    "name": "StorageLinkedService",
@@ -133,7 +133,7 @@
 * Создайте таблицу с именем **emp** в базе данных SQL Azure, на которую указывает **AzureSqlLinkedService**.
 
 
-1. Запустите «Блокнот», вставьте следующий текст и сохраните его с именем **emp.txt** в папке **C:\ADFGetStartedPSH** на жестком диске. 
+1. Запустите «Блокнот», вставьте следующий текст и сохраните его с именем **emp.txt** в папке **C:\\ADFGetStartedPSH** на жестком диске. 
 
         John, Doe
 		Jane, Doe
@@ -161,7 +161,7 @@
 ### Создание входной таблицы 
 Таблица представляет собой прямоугольный набор данных, который имеет схему. На этом шаге создается таблица с именем **EmpBlobTable**, указывающая на контейнер больших двоичных объектов в хранилище Azure, представленном связанной службой **StorageLinkedService**. Этот контейнер больших двоичных объектов (**adftutorial**) содержит входные данные в файле **emp.txt**.
 
-1.	Создайте файл JSON с именем **EmpBlobTable.json** в папке **C:\ADFGetStartedPSH** со следующим содержимым:
+1.	Создайте файл JSON с именем **EmpBlobTable.json** в папке **C:\\ADFGetStartedPSH** со следующим содержимым:
 
 		{
 	    	"name": "EmpTableFromBlob",
@@ -226,7 +226,7 @@
 ### Создание выходной таблицы
 В этой части шага создается выходная таблица с именем **EmpSQLTable**, которая указывает на таблицу SQL (**emp**) в базе данных SQL Azure, представленную связанной службой **AzureSqlLinkedService**. Конвейер копирует данные из входного большого двоичного объекта в таблицу **emp**.
 
-1.	Создайте файл JSON с именем **EmpSQLTable.json** в папке **C:\ADFGetStartedPSH** со следующим содержимым.
+1.	Создайте файл JSON с именем **EmpSQLTable.json** в папке **C:\\ADFGetStartedPSH** со следующим содержимым.
 		
 		{
 		    "name": "EmpSQLTable",
@@ -267,7 +267,7 @@
 ## <a name="CreateAndRunAPipeline"></a>Шаг 4. Создание и запуск конвейера
 На этом шаге создается конвейер с **действием копирования**, которое использует **EmpTableFromBlob** в качестве входных данных и **EmpSQLTable** в качестве выходных.
 
-1.	Создайте файл JSON с именем **ADFTutorialPipeline.json** в папке **C:\ADFGetStartedPSH** со следующим содержимым: 
+1.	Создайте файл JSON с именем **ADFTutorialPipeline.json** в папке **C:\\ADFGetStartedPSH** со следующим содержимым: 
 
 		{
 		    "name": "ADFTutorialPipeline",
@@ -428,4 +428,4 @@
 [sql-management-studio]: ../sql-database-manage-azure-ssms.md#Step2
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

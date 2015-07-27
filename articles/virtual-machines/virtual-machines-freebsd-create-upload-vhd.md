@@ -66,12 +66,12 @@
 
 5. Необходимые условия для агента Azure
 
-    5.1. **Установка python**
+    5\.1. **Установка python**
 
 		# pkg install python27 py27-asn1
 		# ln -s /usr/local/bin/python2.7 /usr/bin/python
 
-    5.2. **Установка wget**
+    5\.2. **Установка wget**
 
 		# pkg install wget 
 
@@ -206,4 +206,4 @@
 	![образ FreeBSD в Azure](./media/virtual-machines-freebsd-create-upload-vhd/freebsdimageinazure.png)
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

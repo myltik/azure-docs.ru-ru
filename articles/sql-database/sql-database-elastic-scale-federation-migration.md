@@ -143,4 +143,4 @@
 [3]: ./media/sql-database-elastic-scale-federation-migration/migrate-3.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

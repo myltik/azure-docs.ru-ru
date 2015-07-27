@@ -64,10 +64,10 @@
 <!--Image references-->
 
 <!--Article references-->
-[business continuity overview]: sql-database-business-continuity.md
-[Finalize a recovered database]: sql-database-recovered-finalize.md
+[business continuity overview]: ../sql-database/sql-database-business-continuity.md
+[Finalize a recovered database]: ../sql-database/sql-database-recovered-finalize.md
 [Варианты избыточности хранилища Azure]: storage-redundancy/#read-access-geo-redundant-storage-ra-grs.md
-[Обзор непрерывности бизнес-процессов базы данных SQL]: sql-database-business-continuity.md
+[Обзор непрерывности бизнес-процессов базы данных SQL]: ../sql-database/sql-database-business-continuity.md
 [Восстановление базы данных после ошибки пользователя в хранилище данных SQL]: sql-data-warehouse-business-continuity-recover-from-user-error.md
 
 <!--MSDN references-->
@@ -78,4 +78,4 @@
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

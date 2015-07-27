@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Учебник &quot;Приступая к работе с библиотекой Пакетной службы Azure для .NET&quot;"
+	pageTitle="Учебник ";Приступая к работе с библиотекой Пакетной службы Azure для .NET";"
 	description="Основные концепции пакетной службы Azure и использование пакетной службы в простом сценарии"
 	services="batch"
 	documentationCenter=".net"
@@ -602,4 +602,4 @@ RunExternalTaskProcess вызывается для всех задач без с
 [3]: ./media/batch-dotnet-get-started/batch-dotnet-get-started-03.jpg
 [4]: ./media/batch-dotnet-get-started/batch-dotnet-get-started-04.jpg
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

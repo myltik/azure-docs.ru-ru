@@ -48,14 +48,9 @@
 
     ![Поиск Application Insights](./media/app-insights-windows-desktop/04-core-nuget.png)
 
-3. Отредактируйте файл ApplicationInsights.config (который был добавлен установкой NuGet). Вставьте следующий фрагмент непосредственно перед закрывающим тегом:
+3. Укажите ключ инструментирования InstrumentationKey в коде с помощью объекта `TelemetryConfiguration.Active`.
 
-    `<InstrumentationKey>*the key you copied*</InstrumentationKey>`
-
-    Тот же самый результат можно получить и с помощью следующего кода:
-    
     `TelemetryConfiguration.Active.InstrumentationKey = "your key";`
-
 
 ## <a name="telemetry"></a>Вставка вызовов телеметрии
 
@@ -178,4 +173,4 @@
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

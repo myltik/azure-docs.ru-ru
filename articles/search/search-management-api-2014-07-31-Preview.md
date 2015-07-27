@@ -1,6 +1,6 @@
 <properties pageTitle="Интерфейс управления поисковой службой Azure REST API версии 2014-07-31-Preview" description="API REST управления службой поиска Azure: версия 2014-07-31-Preview" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
 
-<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="05/21/2015" ms.author="heidist" />
+<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="07/08/2015" ms.author="heidist" />
 
 # API управления: версия 2014-07-31-Preview
 
@@ -815,4 +815,4 @@ API-ключи, особенно ключи администраторов, не
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

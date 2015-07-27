@@ -1,8 +1,6 @@
 <properties 
-	title="" 
 	pageTitle="Выбор алгоритмов машинного обучения | Microsoft Azure" 
-	description="Как выбрать алгоритмы машинного обучения Azure для контролируемого и неконтролируемого обучения в экспериментах кластеризации, классификации или регрессии." 
-	keywords="machine learning algorithms,types of machine learning algorithms,types of machine learning,clustering,clustering algorithm"	
+	description="Как выбрать алгоритмы машинного обучения Azure для контролируемого и неконтролируемого обучения в экспериментах кластеризации, классификации или регрессии." 	
 	services="machine-learning"
 	documentationCenter="" 
 	authors="garyericson" 
@@ -264,4 +262,4 @@
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO3-->

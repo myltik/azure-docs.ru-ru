@@ -1,24 +1,26 @@
 <properties
    pageTitle="Создание шаблонов диспетчера ресурсов Azure"
    description="Создание шаблонов диспетчера ресурсов Azure с помощью декларативного синтаксиса JSON для развертывания приложений в Azure."
-   services="multiple"
+   services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
    editor=""/>
 
 <tags
-   ms.service="multiple"
+   ms.service="azure-resource-manager"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/22/2015"
+   ms.date="07/15/2015"
    ms.author="tomfitz"/>
 
 # Создание шаблонов диспетчера ресурсов Azure
 
 Приложениям Azure обычно требуется сочетание ресурсов (таких как сервер баз данных, база данных или веб-сайт) для соответствия поставленным целям. Вместо развертывания и управления каждым ресурсом по отдельности можно создать шаблон диспетчера ресурсов Azure, который развертывает и подготавливает все ресурсы для вашего приложения в ходе одной скоординированной операции. В шаблоне определяются ресурсы, необходимые для работы приложения, и указываются параметры развертывания в качестве входных значений для различных сред. Шаблон состоит из JSON и выражений, на основе которых можно создавать значения для развертывания.
+
+В этом разделе описываются разделы шаблона. Фактические схемы см. в разделе [Схемы диспетчера ресурсов Azure](https://github.com/Azure/azure-resource-manager-schemas).
 
 ## Формат шаблона
 
@@ -401,5 +403,6 @@
 - [Расширенные операции с шаблонами](./resource-group-advanced-template.md)
 - [Предсказуемое развертывание сложного приложения в Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
 - [Общие сведения о диспетчере ресурсов Azure](./resource-group-overview.md)
+- [Схемы диспетчера ресурсов Azure](https://github.com/Azure/azure-resource-manager-schemas)
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

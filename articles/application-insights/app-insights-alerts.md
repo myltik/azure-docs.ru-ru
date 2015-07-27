@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/17/2015" 
+	ms.date="07/13/2015" 
 	ms.author="awills"/>
  
 # Настройка оповещений в Application Insights
@@ -36,7 +36,7 @@ Application Insights выполняет мониторинг живого при
 
 ![В колонке правил оповещений нажмите кнопку «Добавить оповещение». Установите приложение в качестве ресурса для измерения, введите имя оповещения и выберите метрику.](./media/app-insights-alerts/01-set-metric.png)
 
-Выбирайте ресурс прежде других свойств. Не выбирайте ресурсы webtest, если нужно задать предупреждения метрик производительности или использования.
+Выбирайте ресурс прежде других свойств. **Выберите ресурс («компоненты»)**, если нужно задать предупреждения для метрик производительности или использования.
 
 Аккуратно указывайте единицы измерения для пороговых значений.
 
@@ -80,4 +80,4 @@ Application Insights выполняет мониторинг живого при
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

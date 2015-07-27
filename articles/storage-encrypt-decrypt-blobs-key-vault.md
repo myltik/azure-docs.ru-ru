@@ -237,4 +237,4 @@
 <!--Image references-->
 [1]: ./media/storage-encrypt-decrypt-blobs-key-vault/blobmetadata.png
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

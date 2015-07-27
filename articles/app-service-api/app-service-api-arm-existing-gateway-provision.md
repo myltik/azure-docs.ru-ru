@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2015" 
+	ms.date="07/08/2015" 
 	ms.author="tomfitz"/>
 
 # Подготовка приложения API с помощью существующего шлюза
@@ -24,11 +24,15 @@
 
 Дополнительную информацию о развертывании приложений см. в статье [Предсказуемое развертывание сложного приложения в Azure](../app-service-web/app-service-deploy-complex-application-predictably.md).
 
-Полный шаблон см. в статье [Приложение API с существующим шаблоном шлюза](../../templates/app-service-api-arm-existing-gateway-provision/).
+Полный шаблон см. в статье [Приложение API с существующим шаблоном шлюза](https://github.com/Azure/azure-quickstart-templates/blob/master/201-api-app-gateway-existing/azuredeploy.json).
 
 ## Что именно развертывается
 
 В этом шаблоне вы развернете приложение API, связанное с планом размещения существующей службы приложений и существующим шлюзом.
+
+Чтобы выполнить развертывание автоматически, нажмите следующую кнопку.
+
+[![Развертывание в Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-api-app-gateway-existing%2Fazuredeploy.json)
 
 ## Параметры
 
@@ -178,13 +182,13 @@
 
 ### PowerShell
 
-    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/existing-gateway-existing-plan-new-apiapp.json
+    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-api-app-gateway-existing/azuredeploy.json
 
 ### Инфраструктура CLI Azure
 
-    azure group deployment create --template-uri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/existing-gateway-existing-plan-new-apiapp.json
+    azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-api-app-gateway-existing/azuredeploy.json
 
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

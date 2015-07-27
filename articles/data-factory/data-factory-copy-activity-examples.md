@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="07/07/2015" 
 	ms.author="spelluru"/>
 
 # Примеры использования действия копирования в фабрике данных Azure
@@ -144,7 +144,7 @@
 - свойству **type** присваивается значение **CopyActivity**;
 - свойство **MyOnPremTable** определяется как входные данные (тег **inputs**);
 - свойство **MyAzureBlob** определяется как выходные данные (тег **outputs**).
-- В разделе **Transformation** есть два подраздела: **source** и **sink**. Для источника (source) задан тип **SqlSource**, а для приемника (sink) — тип **BlobSink**. **sqlReaderQuery** определяет преобразование (проекцию), которое необходимо выполнить в источнике. Дополнительную информацию о всех свойствах см. в [справочнике по сценариям JSON][json-script-reference].
+- В разделе **Transformation** есть два подраздела: **source** и **sink**. Для источника (source) задан тип **SqlSource**, а для приемника (sink) — тип **BlobSink**. **sqlReaderQuery** определяет преобразование (проекцию), которое необходимо выполнить в источнике. Подробную информацию обо всех свойствах см. в [справочнике по сценариям JSON](https://msdn.microsoft.com/library/dn835050.aspx).
 
          
 		{
@@ -186,8 +186,8 @@
 ### Предположения
 В этом примере предполагается следующее:
 
-- **Host** — имя сервера, на котором размещена файловая система: **\contoso**.
-- **Folder** — имя папки, которая содержит входные файлы: **marketingcampaign\regionaldata\{срез}, где файлы расположены в папке с именем {среза}, например 2014121112 (2014 год, 12 месяц, 11 день, 12 часов). 
+- **Host** — имя сервера, на котором размещена файловая система: **\\contoso**.
+- **Folder** — имя папки, которая содержит входные файлы: **marketingcampaign\\regionaldata\\{срез}, где файлы расположены в папке с именем {среза}, например 2014121112 (2014 год, 12 месяц, 11 день, 12 часов). 
 ### Создание связанной службы локальной файловой системы
 Следующий пример JSON можно использовать для создания связанной службы с именем **FolderDataStore** и типом **OnPremisesFileSystemLinkedService**.
 
@@ -195,14 +195,14 @@
 	    "name": "FolderDataStore",
 	    "properties": {
 	        "type": "OnPremisesFileSystemLinkedService",
-	        "host": "\\contoso",
+	        "host": "\\\\contoso",
 	        "userId": "username",
 	        "password": "password",
 	        "gatewayName": "ContosoGateway"
 	    }
 	}
 
-> [AZURE.NOTE]Помните, что необходимо использовать escape-символ '' для имен узлов и папок в файлы JSON. Для **\Contoso** укажите **\\Contoso**.
+> [AZURE.NOTE]Помните, что необходимо использовать escape-символ '' для имен узлов и папок в файлы JSON. Для **\\Contoso** укажите **\\\\Contoso**.
 
 Подробные сведения об элементах JSON для определения связанной службы локальной файловой системы см. в разделе [Связанная служба локальной файловой системы](https://msdn.microsoft.com/library/dn930836.aspx).
 
@@ -228,7 +228,7 @@
 	    "properties": {
 	        "location": {
 	            "type": "OnPremisesFileSystemLocation",
-	            "folderPath": "marketingcampaign\regionaldata\{Slice}",
+	            "folderPath": "marketingcampaign\\regionaldata\\{Slice}",
 	            "partitionedBy": [
 	                { "name": "Slice", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyyMMddHH" } }
 	            ],
@@ -321,7 +321,7 @@
 	    "properties": {
 	        "location": {
 	            "type": "OnPremisesFileSystemLocation",
-	            "folderPath": "marketingcampaign\regionaldata\na",
+	            "folderPath": "marketingcampaign\\regionaldata\\na",
 	            "linkedServiceName": "FolderDataStore"
 	        },
 	        ...
@@ -336,7 +336,7 @@
 	    "properties": {
 	        "location": {
 	            "type": "OnPremisesFileSystemLocation",
-	            "folderPath": "marketingcampaign\regionaldata\na",
+	            "folderPath": "marketingcampaign\\regionaldata\\na",
 	            "fileFilter": "*.csv",
 	            "linkedServiceName": "FolderDataStore"
 	        },
@@ -352,7 +352,7 @@
 	    "properties": {
 	        "location": {
 	            "type": "OnPremisesFileSystemLocation",
-	            "folderPath": "marketingcampaign\regionaldata\na",
+	            "folderPath": "marketingcampaign\\regionaldata\\na",
 	            "fileFilter": "201501.csv",
 	            "linkedServiceName": "FolderDataStore"
 	        },
@@ -461,7 +461,7 @@
 	                "transformation": {
 	                    "source": {
 	                        "type": "OracleSource",
-	                        "oracleReaderQuery": "$$Text.Format('select * from LOG where "Timestamp" >= to_date('{0:yyyy-MM-dd}', 'YYYY-MM-DD') AND "Timestamp" < to_date('{1:yyyy-MM-dd}', 'YYYY-MM-DD')', SliceStart, SliceEnd)"
+	                        "oracleReaderQuery": "$$Text.Format('select * from LOG where "Timestamp" >= to_date(\'{0:yyyy-MM-dd}\', \'YYYY-MM-DD\') AND "Timestamp" < to_date(\'{1:yyyy-MM-dd}\', \'YYYY-MM-DD\')', SliceStart, SliceEnd)"
 	                    },
 	                    "sink": {
 	                        "type": "BlobSink"
@@ -491,4 +491,4 @@
 [adf-copyactivity]: data-factory-copy-activity.md
 [copy-activity-video]: http://azure.microsoft.com/documentation/videos/introducing-azure-data-factory-copy-activity/
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

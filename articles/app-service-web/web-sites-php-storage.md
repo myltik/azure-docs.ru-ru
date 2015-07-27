@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="07/02/2015" 
 	ms.author="tomfitz"/>
 
 # Создание веб-приложения PHP в службе приложений Azure с помощью хранилища Azure
@@ -41,23 +41,24 @@
 
 1. [Установите Git][install-git].
 
-	> [AZURE.NOTE]
-	> В системе Windows необходимо также добавить исполняемый файл Git в переменную среды PATH.
+	> [AZURE.NOTE]В системе Windows необходимо также добавить исполняемый файл Git в переменную среды PATH.
 
 2. Создайте файл с именем **composer.json** в корневой папке проекта и добавьте в него следующий код:
 
-		{
-			"require": {
-				"microsoft/windowsazure": "*"
-			},			
-			"repositories": [
-				{
-					"type": "pear",
-					"url": "http://pear.php.net"
-				}
-			],
-			"minimum-stability": "dev"
-		}
+         {
+             "repositories": [
+                 {
+                     "type": "pear",
+                     "url": "http://pear.php.net"
+                 }
+             ],
+             "require": {
+                 "pear-pear.php.net/mail_mime" : "*",
+                 "pear-pear.php.net/http_request2" : "*",
+                 "pear-pear.php.net/mail_mimedecode" : "*",
+                 "microsoft/windowsazure": "*"
+             }
+         }
 
 3. Загрузите **[composer.phar][composer-phar]** в корневой каталог проекта.
 
@@ -279,7 +280,7 @@
 
 * Первым действием при передаче объекта является его извлечение из таблицы:
 		
-		$result = $tableRestProxy->queryEntities('tasks', 'PartitionKey eq \''.$_GET['pk'].'\' and RowKey eq \''.$_GET['rk'].'\'');		
+		$result = $tableRestProxy->queryEntities('tasks', 'PartitionKey eq ''.$_GET['pk'].'' and RowKey eq ''.$_GET['rk'].''');		
 		$entities = $result->getEntities();		
 		$entity = $entities[0];
 
@@ -429,4 +430,4 @@
 [git-instructions]: ./media/web-sites-php-storage/git-instructions.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

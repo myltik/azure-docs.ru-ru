@@ -175,4 +175,4 @@ URL: **Путь** + имя MP4-файла ресурса
         OnDemandOrigin = 2,
     } 
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

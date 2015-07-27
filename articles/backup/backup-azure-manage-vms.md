@@ -160,4 +160,4 @@
   ![Панель мониторинга](./media/backup-azure-manage-vms/dashboard-protectedvms.png)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

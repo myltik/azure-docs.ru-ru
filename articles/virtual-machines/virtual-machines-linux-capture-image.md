@@ -3,7 +3,7 @@
 	description="Узнайте, как записать образ виртуальной машины (ВМ) Azure под управлением Linux."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="dsk-2015"
 	manager="timlt"
 	editor="tysonn"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/11/2015" 
-	ms.author="kathydav"/>
+	ms.date="06/11/2015"
+	ms.author="dkshir"/>
 
 
 # Как записать образ виртуальной машины Linux для использования в качестве шаблона##
@@ -88,6 +88,4 @@ Azure воспринимает этот шаблон как образ и хра
 [Создание настраиваемой виртуальной машины]: virtual-machines-create-custom.md
 [Подключение диска с данными к виртуальной машине]: storage-windows-attach-disk.md
 
- 
-
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

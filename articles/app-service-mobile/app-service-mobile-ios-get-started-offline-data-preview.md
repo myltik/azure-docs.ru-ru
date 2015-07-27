@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="02/23/2015"
+	ms.date="07/01/2015"
 	ms.author="donnam"/>
 
 # Включение автономной синхронизации для мобильного приложения iOS
@@ -48,7 +48,7 @@
 
     Для получения ссылки на таблицу синхронизации используйте метод `syncTableWithName`. Чтобы удалить функциональность автономной синхронизации, используйте `tableWithName`.
 
-3. Прежде чем можно будет выполнить операции с таблицами, необходимо инициализировать локальное хранилище. Это соответствующий код в методе `QSTodoService.init`:
+2. Прежде чем можно будет выполнить операции с таблицами, необходимо инициализировать локальное хранилище. Это соответствующий код в методе `QSTodoService.init`:
 
         MSCoreDataStore *store = [[MSCoreDataStore alloc] initWithManagedObjectContext:context];
 
@@ -58,9 +58,9 @@
 
     Первый параметр `initWithDelegate` используется для указания обработчика конфликтов. Поскольку мы передали `nil`, то получим обработчик конфликтов по умолчанию, который завершается с ошибкой всякий раз, когда возникает конфликт.
 
-<!-- For details on how to implement a custom conflict handler, see the tutorial [Handling conflicts with offline support for Mobile Services]. -->
+	<!-- For details on how to implement a custom conflict handler, see the tutorial [Handling conflicts with offline support for Mobile Services]. -->
 
-4. Методы `pullData` и `syncData` выполняют операцию фактической синхронизации: `syncData` сначала передает новые изменения, а затем вызывает `pullData` для получения данных из удаленного внутреннего сервера.
+3. Методы `pullData` и `syncData` выполняют операцию фактической синхронизации: `syncData` сначала передает новые изменения, а затем вызывает `pullData` для получения данных из удаленного внутреннего сервера.
 
         -(void)syncData:(QSCompletionBlock)completion
         {
@@ -98,7 +98,7 @@
 
     Второй параметр для `pullWithQuery` — это идентификатор запроса, который используется для *добавочной синхронизации*. Добавочная синхронизация извлекает только те записи, которые были изменены с момента последней синхронизации, используя для этого метку времени `UpdatedAt` записи (в локальном хранилище она называется `ms_updatedAt`). Идентификатор запроса должен быть описательной строкой, уникальной для каждого логического запроса в приложении. Чтобы явно отказаться от добавочной синхронизации, передайте `nil` в качестве идентификатора запроса. Помните, что это может привести к снижению производительности, поскольку при каждой операции принудительного получения будут извлекаться все записи.
 
-<!--     >[AZURE.NOTE] To remove records from the device local store when they have been deleted in your mobile service database, you should enable [Soft Delete]. Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to purge the local store.
+	<!--     >[AZURE.NOTE] To remove records from the device local store when they have been deleted in your mobile service database, you should enable [Soft Delete]. Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to purge the local store.
  -->
 
 5. В классе `QSTodoService` метод `syncData` вызывается после операций, которые изменяют данные, — `addItem` и `completeItem`. Он также вызывается из `QSTodoListViewController.refresh`, поэтому пользователь получает последние данные при каждом выполнении жеста обновления. Приложение также выполняет синхронизацию при запуске, поскольку `QSTodoListViewController.init` вызывает `refresh`.
@@ -212,13 +212,13 @@
 
 Для поддержки функции автономной синхронизации мы использовали интерфейс `MSSyncTable` и инициализировали `MSClient.syncContext` в локальном хранилище. В этом случае локальным хранилищем была база данных Core Data.
 
-При использовании локального хранилища Core Data необходимо определить несколько таблиц с помощью [подходящих системных свойств] [Обзор модели Core Data].
+При использовании локального хранилища Core Data необходимо определить несколько таблиц с помощью [правильных системных свойств](#review-core-data).
 
 Обычные операции CRUD для мобильных приложений работают так, как если бы приложение по-прежнему было подключено, но все операции выполнялись в локальном хранилище.
 
 Когда мы хотели синхронизировать локальное хранилище с сервером, то использовали методы `MSSyncTable.pullWithQuery` и `MSClient.syncContext.pushWithCompletion`.
 
-*  Для отправки изменений на сервер мы вызывали метод `Review the Core Data model`. Этот метод является членом `MSSyncContext`, а не таблицы синхронизации, поскольку он будет передавать изменения во все таблицы.
+*  Для отправки изменений на сервер мы вызывали метод `pushWithCompletion`. Этот метод является членом `MSSyncContext`, а не таблицы синхронизации, поскольку он будет передавать изменения во все таблицы.
 
     Только те записи, которые были каким-либо образом локально изменены (с помощью операций CUD), будут отправлены на сервер.
 
@@ -275,7 +275,7 @@
 [Soft Delete]: ../mobile-services-using-soft-delete.md
 
 [Облачное покрытие: автономная синхронизация в мобильных службах Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
-[Azure Friday: приложения с поддержкой автономной работы в мобильных службах Azure]: http://azure.microsoft.com/ru-ru/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
+[Azure Friday: приложения с поддержкой автономной работы в мобильных службах Azure]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

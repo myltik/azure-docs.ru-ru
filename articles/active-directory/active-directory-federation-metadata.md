@@ -149,4 +149,4 @@ URL-адреса входа и выхода отображаются в элем
 
 [Руководство разработчика по Azure Active Directory](active-directory-developers-guide.md)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

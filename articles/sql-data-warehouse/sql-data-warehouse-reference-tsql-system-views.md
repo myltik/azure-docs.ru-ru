@@ -258,16 +258,16 @@
 - [VIEWS (Transact-SQL)](http://msdn.microsoft.com/library/ms181381.aspx)
 
 ## Дальнейшие действия
-Дополнительные сведения см. в разделе [Общие сведения о хранилище данных SQL][].
+Дополнительные справочные сведения см. в обзоре [Общие справочные сведения о хранилище данных SQL][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Общие сведения о хранилище данных SQL]: sql-data-warehouse-overview-reference.md
+[Общие справочные сведения о хранилище данных SQL]: sql-data-warehouse-overview-reference.md
 
 <!--MSDN references-->
 
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

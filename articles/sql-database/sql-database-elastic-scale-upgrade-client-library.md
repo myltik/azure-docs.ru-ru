@@ -1,8 +1,6 @@
 <properties 
-	title="Upgrade to the latest elastic database client library" 
 	pageTitle="Обновление до последней версии клиентской библиотеки эластичной базы данных" 
 	description="Указания по обновлению с помощью PowerShell и C#" 
-	metaKeywords="sharding,elastic scale, Azure SQL DB sharding" 
 	services="sql-database" 
 	documentationCenter="" 
 	manager="jeffreyg" 
@@ -50,7 +48,7 @@
 
 4. Скачайте сценарий обновления клиента эластичного масштабирования из [Центра сценариев](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-Database-Elastic-6442e6a9) и сохраните его в папке, содержащей библиотеку DLL.
 
-5. Находясь в этой папке, выполните в командной строке команду PowerShell .\upgrade.ps1 и следуйте указаниям на экране.
+5. Находясь в этой папке, выполните в командной строке команду PowerShell .\\upgrade.ps1 и следуйте указаниям на экране.
  
 ***Вариант 2. Обновление метаданных с помощью C#***
 
@@ -96,4 +94,4 @@
 [1]: ./media/sql-database-elastic-scale-upgrade-client-library/nuget-upgrade.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

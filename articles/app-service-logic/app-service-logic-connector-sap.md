@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Соединитель SAP" 
-   description="Использование соединителя SAP" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="harishkragarwal" 
-   manager="dwrede" 
+<properties
+   pageTitle="Соединитель SAP"
+   description="Использование соединителя SAP"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="harishkragarwal"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,9 +12,9 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="03/20/2015"
-   ms.author="hariag"/>
+   ms.workload="integration"
+   ms.date="07/02/2015"
+   ms.author="sameerch"/>
 
 
 # Соединитель SAP #
@@ -39,7 +39,9 @@
 2. Перейдите в раздел «Мобильные и веб-приложения > Приложения API» и найдите элемент «Соединитель SAP».
 3. Настройте его следующим образом.
 	1. Предоставьте общие сведения, такие как имя, план обслуживания приложения и т. д., в первой колонке.
-	2. В параметрах пакета предоставьте учетные данные SAP. Также укажите строку подключения к служебной шине службы Azure. Это будет использоваться для установки гибридного подключения к локальной среде SAP. 
+
+	2. В параметрах пакета предоставьте учетные данные SAP. Также укажите строку подключения к служебной шине Azure. Она будет использоваться для установки гибридного подключения к локальной среде SAP.
+
 	3. Параметры RFC, TRFC, BAPI и IDOC необходимо настроить в соответствии с нужным сценарием. При указании нескольких значений разделяйте их запятыми.
 
 ![][1]
@@ -92,7 +94,4 @@
 [6]: ./media/app-service-logic-connector-sap/LogicApp2.jpg
 [7]: ./media/app-service-logic-connector-sap/LogicApp3.jpg
 
-
- 
-
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

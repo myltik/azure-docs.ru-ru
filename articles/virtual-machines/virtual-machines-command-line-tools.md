@@ -188,7 +188,7 @@
 
 ![Техническая схема Azure](./media/virtual-machines-command-line-tools/architecturediagram.jpg)
 
-**create-new** создает диск в хранилище BLOB-объектов (e:\ на схеме); **attach** присоединяет уже созданный, но еще неприсоединенный диск к виртуальной машине.
+**create-new** создает диск в хранилище BLOB-объектов (e:\\ на схеме); **attach** присоединяет уже созданный, но еще неприсоединенный диск к виртуальной машине.
 
 **vm create [параметры] &lt;DNS-имя> &lt;образ> &lt;имя_пользователя> [пароль]**
 
@@ -2346,4 +2346,4 @@ info:   vm shutdown command OK
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

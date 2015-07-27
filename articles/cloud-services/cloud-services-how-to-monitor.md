@@ -124,7 +124,7 @@
 2. Введите путь к большим двоичным объектам, используя шаблон **DeploymentId/RoleName/RoleInstance**, чтобы найти настройки для вашего экземпляра роли. 
 
 	![Обозреватель хранилищ Visual Studio](./media/cloud-services-how-to-monitor/CloudServices_Monitor_VisualStudioStorage.png)
-3. Скачайте файл конфигурации для экземпляра роли и обновите его, чтобы задействовать все пользовательские счетчики производительности. Например, для мониторинга *Скорости записи на диск (байт/сек)* для *диска C* добавьте следующий код в узел **PerformanceCounters\Subscriptions**
+3. Скачайте файл конфигурации для экземпляра роли и обновите его, чтобы задействовать все пользовательские счетчики производительности. Например, для мониторинга *Скорости записи на диск (байт/сек)* для *диска C* добавьте следующий код в узел **PerformanceCounters\\Subscriptions**
 
 	```xml
 	<PerformanceCounterConfiguration>
@@ -192,4 +192,4 @@
 	WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRITable (hourly aggregations for role instances)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

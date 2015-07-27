@@ -13,11 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
+	ms.date="07/08/2015" 
 	ms.author="mandia"/>
 
 
 # Приложения API BizTalk Integration в службе приложений Microsoft Azure
+
+> [AZURE.NOTE]Этот раздел закрывается. См. статью [Список соединителей и приложений API](app-service-logic-connectors-list.md), чтобы ознакомиться со списком всех доступных встроенных соединителей и приложений API.
+
+
 Служба приложений Microsoft Azure (или для краткости просто служба приложений) включает много приложений API BizTalk, которые крайне необходимы в средах интеграции. Эти приложения API построены на концепциях и инструментах, используемых в BizTalk Server, но теперь доступны как часть службы приложений Azure.
 
 Одной из категорий таких приложений API являются приложения API BizTalk Integration. С помощью этих приложений API BizTalk вы можете легко добавлять бизнес-правила, преобразовывать и проверять XML-сообщения, кодировать неструктурированные файлы и данные JSON, а также выполнять многие другие действия так же, как это делается локально с помощью BizTalk Server.
@@ -132,6 +136,7 @@
 
 
 ## Дополнительные сведения о соединителях
-[Корпоративные соединители](app-service-logic-enterprise-connectors.md)<br/> [Соединители «бизнес — бизнес»](app-service-logic-b2b-connectors.md)<br/> [Социальные соединители](app-service-logic-social-connectors.md)<br/> [Соединители протоколов](app-service-logic-protocol-connectors.md)<br/> [Соединители служб данных и приложений](app-service-logic-data-connectors.md)<br/> [Список соединителей и приложений API](app-service-logic-connectors-list.md)<br/><br/> [Что такое соединители и приложения API BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
 
-<!---HONumber=62-->
+[Список соединителей и приложений API](app-service-logic-connectors-list.md)<br/><br/> [Что такое соединители и приложения API BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
+
+<!---HONumber=July15_HO3-->

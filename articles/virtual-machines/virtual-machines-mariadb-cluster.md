@@ -370,4 +370,4 @@
 [другим способом кластеризации MySQL в ОС Linux]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-mysql-cluster/
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

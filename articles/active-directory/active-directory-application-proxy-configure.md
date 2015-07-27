@@ -32,4 +32,4 @@
 [Блог Microsoft Azure](http://azure.microsoft.com/blog/) [Включение служб прокси-сервера приложений](https://msdn.microsoft.com/library/azure/dn768214.aspx) [Публикация приложений с помощью прокси-сервера приложений](https://msdn.microsoft.com/library/azure/dn768220.aspx) [Устранение неполадок прокси-сервера приложений](https://msdn.microsoft.com/library/azure/dn768218.aspx)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

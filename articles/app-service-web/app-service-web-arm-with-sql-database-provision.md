@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2015" 
+	ms.date="06/29/2015" 
 	ms.author="tomfitz"/>
 
 # Подготовка веб-приложения к работе с базой данных SQL
@@ -24,7 +24,7 @@
 
 Подробнее о развертывании приложений см. в статье [Предсказуемое развертывание сложного приложения в Azure](app-service-deploy-complex-application-predictably.md).
 
-Полная версия шаблона приведена в файле [Шаблон веб-приложения с базой данных SQL](../../templates/app-service-web-arm-with-sql-database-provision/).
+Полная версия шаблона приведена в файле [Шаблон веб-приложения с базой данных SQL](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.json).
 
 ## Что именно развертывается
 
@@ -36,6 +36,10 @@
 - Параметры автомасштабирования
 - Правила оповещения
 - Анализ приложения
+
+Чтобы выполнить развертывание автоматически, нажмите следующую кнопку.
+
+[![Развертывание в Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-sql-database%2Fazuredeploy.json)
 
 ## Указываемые параметры
 
@@ -101,12 +105,16 @@
 
 ### maxSizeBytes
 
+Максимальный размер базы данных в байтах.
+
     "maxSizeBytes": {
       "type": "string",
       "defaultValue": "1073741824"
     }
 
 ### requestedServiceObjectiveId
+
+Идентификатор GUID, соответствующий уровню производительности выпуска. Список доступных значений см. в разделе [Создание базы данных](https://msdn.microsoft.com/library/azure/dn505701.aspx). Значение по умолчанию соответствует уровню веб-производительности.
 
     "requestedServiceObjectiveId": {
         "type": "string",
@@ -168,7 +176,7 @@
 ### Веб-приложение
 
     {
-      "apiVersion": "2014-06-01",
+      "apiVersion": "2015-06-01",
       "name": "[parameters('siteName')]",
       "type": "Microsoft.Web/Sites",
       "location": "[parameters('siteLocation')]",
@@ -426,13 +434,13 @@
 
 ### PowerShell
 
-    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/webandsql.json
+    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json
 
 ### Инфраструктура CLI Azure
 
-    azure group deployment create --template-uri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/webandsql.json
+    azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json
 
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

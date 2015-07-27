@@ -63,8 +63,8 @@ Apache Cordova позволяет разрабатывать приложени�
 	-   [ios-sim](https://www.npmjs.org/package/ios-sim) — позволяет запускать приложения iOS в симуляторе iOS из командной строки (можно легко установить через терминал: `npm install -g ios-sim`).
 
 - Чтобы собрать и запустить приложение для Android, требуется:
-	- Установить [пакет средств разработки Java (JDK) версии 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) или более поздней. Убедитесь, что `JAVA_HOME` (переменная среды) указывает путь установки JDK (например, C:\Program Files\Java\jdk1.7.0_75).
-	- Установить [Android SDK](http://developer.android.com/sdk/installing/index.html?pkg=tools) и добавить расположение `<android-sdk-location>\tools` (например, C:\tools\Android\android-sdk\tools) в переменную среды `PATH`.
+	- Установить [пакет средств разработки Java (JDK) версии 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) или более поздней. Убедитесь, что `JAVA_HOME` (переменная среды) указывает путь установки JDK (например, C:\\Program Files\\Java\\jdk1.7.0_75).
+	- Установить [Android SDK](http://developer.android.com/sdk/installing/index.html?pkg=tools) и добавить расположение `<android-sdk-location>\tools` (например, C:\\tools\\Android\\android-sdk\\tools) в переменную среды `PATH`.
 	- Открыть диспетчер Android SDK (например, через терминал: `android`) и установить:
     - Платформу SDK *Android 5.0.1 (API уровня 21)*;
     - *Android SDK Build-tools* версии 19.1.0 или более поздней;
@@ -255,4 +255,4 @@ Azure AD предоставляет маркеры только известны
 Дополнительные ресурсы: - [AzureADSamples на GitHub >>](https://github.com/AzureAdSamples); - [CloudIdentity.com >>](https://cloudidentity.com); -документация Azure AD на [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

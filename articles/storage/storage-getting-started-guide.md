@@ -107,4 +107,4 @@
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

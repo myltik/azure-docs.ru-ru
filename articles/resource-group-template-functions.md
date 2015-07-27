@@ -1,19 +1,19 @@
 <properties
    pageTitle="Функции шаблонов в диспетчере ресурсов Azure"
    description="Описывает функции, используемые в шаблоне диспетчера ресурсов Azure для извлечения значений, форматирования строк и получения сведений о развертывании."
-   services="na"
+   services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
    editor=""/>
 
 <tags
-   ms.service="na"
+   ms.service="azure-resource-manager"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/08/2015"
+   ms.date="07/15/2015"
    ms.author="tomfitz"/>
 
 # Функции шаблонов в диспетчере ресурсов Azure
@@ -382,4 +382,4 @@
 - [Развертывание приложения с использованием шаблона диспетчера ресурсов Azure](azure-portal/resource-group-template-deploy.md)
 - [Общие сведения о диспетчере ресурсов Azure](./resource-group-overview.md)
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

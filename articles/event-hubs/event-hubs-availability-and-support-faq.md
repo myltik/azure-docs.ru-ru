@@ -111,4 +111,4 @@
 [Решение для обмена сообщениями в очереди]: ../cloud-services-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

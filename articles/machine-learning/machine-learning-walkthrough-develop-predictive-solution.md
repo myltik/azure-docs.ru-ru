@@ -1,7 +1,6 @@
 <properties
 	pageTitle="Прогнозное решение для оценки кредитных рисков с помощью машинного обучения | Microsoft Azure"
-	description="Подробное пошаговое руководство по созданию решения для прогнозной аналитики в Студии машинного обучения Azure для оценки кредитных рисков."
-	keywords="credit risk, predictive analytics solution,risk assessment"	
+	description="Подробное пошаговое руководство по созданию решения для прогнозной аналитики в Студии машинного обучения Azure для оценки кредитных рисков."	
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -14,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="04/22/2015"
+	ms.date="07/10/2015"
 	ms.author="garye"/>
 
 
@@ -42,4 +41,4 @@
 Это пошаговое руководство построено на упрощенной версии [примера эксперимента прогнозирования кредитных рисков](../machine-learning-sample-credit-risk-prediction.md), включенного в Студию машинного обучения.
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -54,4 +54,4 @@ CDN для вашего источника можно включить на по
 [customorigin]: ./media/cdn-create-new-endpoint/cdn-custom-origin.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

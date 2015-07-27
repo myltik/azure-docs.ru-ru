@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="06/24/2015" 
 	ms.author="riande"/>
 
 
@@ -24,10 +24,10 @@
 
 Если ваше веб-приложение ASP.NET использует состояние сеанса, вам потребуется настроить поставщик состояния внешнего сеанса (либо службу Redis Cache или поставщик состояния сеанса SQL Server). Если вы используете дату сеанса и не используете внешний поставщик, вы будете ограничены одним экземпляром вашего веб-приложения. Служба Redis Cache самая простая, и включить ее можно очень быстро.
 
-<h2><a id="createcache"></a>Создание кэша</h2>
+##<a id="createcache"></a>Создание кэша
 Следуйте [этим инструкциям](../cache-dotnet-how-to-use-azure-redis-cache.md#create-cache), чтобы создать кэш.
 
-<h2><a id="configureproject"></a>Добавьте пакет NuGet RedisSessionStateProvider в свое веб-приложение</h2>
+##<a id="configureproject"></a>Добавление пакета NuGet RedisSessionStateProvider в веб-приложение
 Установите пакет NuGet `RedisSessionStateProvider`. Используйте следующую команду, чтобы установить из консоли менеджера пакетов (**Сервис** > **Диспетчер пакетов NuGet** > **Консоль диспетчера пакетов**):
 
   `PM> Install-Package Microsoft.Web.RedisSessionStateProvider`
@@ -36,7 +36,7 @@
 
 Для получения дополнительных сведений см. [страницу NuGet RedisSessionStateProvider](http://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider/) и [Настройка клиента кэша](../cache-dotnet-how-to-use-azure-redis-cache.md#NuGet).
 
-<h2><a id="configurewebconfig"></a>Изменение файла Web.Config</h2>
+##<a id="configurewebconfig"></a>Изменение файла Web.Config
 Кроме внесения ссылки на сборку для кэша, NuGet-пакет добавляет записи заглушки в файл *web.config*.
 
 1. Откройте *web.config* и найдите элемент **sessionState**.
@@ -74,8 +74,7 @@
   &lt;/system.web></pre>
 
 
-<h2><a id="usesessionobject"></a>Использование объекта сеанса в коде</h2>
-Последним шагом является начало использования объекта сеанса в коде ASP.NET. Добавление объектов к состоянию сеанса выполняется с помощью метода **Session.Add**. Этот метод использует пары "ключ-значение" для хранения элементов в кэше состояния сеанса.
+<a id="usesessionobject"></a>Использование объекта сеанса в коде. Последний шаг — начало использования объекта сеанса в коде ASP.NET. Добавление объектов к состоянию сеанса выполняется с помощью метода **Session.Add**. Этот метод использует пары "ключ-значение" для хранения элементов в кэше состояния сеанса.
 
     string strValue = "yourvalue";
 	Session.Add("yourkey", strValue);
@@ -109,4 +108,4 @@
   [ManageKeys]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_ManageAccessKeys.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

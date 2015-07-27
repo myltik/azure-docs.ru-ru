@@ -118,4 +118,4 @@ ms.author="mahender" />
  [Начало работы с мобильными приложениями]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.date="06/29/2015" 
 	ms.author="tomfitz"/>
 
 # Создание приложения логики с помощью шаблона
@@ -24,11 +24,15 @@
 
 Дополнительную информацию о создании шаблонов см. в статье [Создание шаблонов диспетчера ресурсов Azure](../resource-group-authoring-templates.md).
 
-Полный шаблон см. в разделе [Шаблон приложения логики](https://github.com/tfitzmac/AppServiceTemplates/blob/master/LogicApp.json).
+Полный шаблон см. в разделе [Шаблон приложения логики](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json).
 
 ## Что вы развернете?
 
 С помощью этого шаблона развертывается приложение логики.
+
+Чтобы выполнить развертывание автоматически, нажмите следующую кнопку.
+
+[![Развертывание в Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
 
 ## Параметры
 
@@ -38,7 +42,7 @@
 
      "testUri": {
         "type": "string",
-        "defaultValue": "http://azure.microsoft.com/ru-ru/status/feed/"
+        "defaultValue": "http://azure.microsoft.com/status/feed/"
       }
     
 ## Развертываемые ресурсы
@@ -127,13 +131,13 @@
 
 ### PowerShell
 
-    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/LogicApp.json -ResourceGroupName ExampleDeployGroup
+    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json -ResourceGroupName ExampleDeployGroup
 
 ### Интерфейс командной строки Azure
 
-    azure group deployment create --template-uri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/LogicApp.json -g ExampleDeployGroup
+    azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json -g ExampleDeployGroup
 
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

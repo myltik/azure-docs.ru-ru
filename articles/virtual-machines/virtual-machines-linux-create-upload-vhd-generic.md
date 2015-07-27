@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Создание и передача виртуального жесткого диска с операционной системой Linux в Azure" 
-	description="Узнайте, как создать и передать виртуальный жесткий диск (VHD-файл) Azure, содержащий операционную систему Linux." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="szarkos" 
-	manager="timlt" 
+	pageTitle="Создание и передача виртуального жесткого диска с операционной системой Linux в Azure"
+	description="Узнайте, как создать и передать виртуальный жесткий диск (VHD-файл) Azure, содержащий операционную систему Linux."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="szarkos"
+	manager="timlt"
 	editor="tysonn"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/15/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/15/2015"
 	ms.author="szarkos"/>
 
 
@@ -92,7 +92,7 @@
 		echo "Rounded Size = $rounded_size"
 
  3. Измените размер необработанного диска с помощью $rounded_size, как показано в сценарии выше.
- 
+
 		# qemu-img resize MyLinuxVM.raw $rounded_size
 
  4. А теперь преобразуйте необработанный диск обратно в VHD с фиксированным размером памяти.
@@ -189,7 +189,4 @@
 
 - Затем необходимо завершить работу виртуальной машины и передать виртуальный жесткий диск в Azure.
 
-
- 
-
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

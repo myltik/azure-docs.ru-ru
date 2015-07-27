@@ -67,7 +67,7 @@
 
 ### Создание нового подключения с помощью Windows PowerShell
 
-Создайте новое подключение в Windows PowerShell с помощью командлета [New-AzureAutomationConnection](http://msdn.microsoft.com/library/dn921825.aspx). У этого командлета есть параметр **ConnectionFieldValues**, который ожидает [хэш-таблицу](http://technet.microsoft.com/ru-ru/library/hh847780.aspx), задающую значения для каждого свойства, определенного типом подключения.
+Создайте новое подключение в Windows PowerShell с помощью командлета [New-AzureAutomationConnection](http://msdn.microsoft.com/library/dn921825.aspx). У этого командлета есть параметр **ConnectionFieldValues**, который ожидает [хэш-таблицу](http://technet.microsoft.com/library/hh847780.aspx), задающую значения для каждого свойства, определенного типом подключения.
 
 
 Команды в приведенном ниже примере создают новое подключение к [Twilio](http://www.twilio.com) — службе телефонии, позволяющий отправлять и принимать текстовые сообщения. Пример модуля интеграции, содержащий тип подключения Twilio, доступен в на сайте [Script Center](http://gallery.technet.microsoft.com/scriptcenter/Twilio-PowerShell-Module-8a8bfef8). Этот тип подключения определяет свойства идентификатора безопасности учетной записи и маркера авторизации, необходимых для проверки учетной записи при подключении к Twilio. Необходимо [скачать этот модуль](http://gallery.technet.microsoft.com/scriptcenter/Twilio-PowerShell-Module-8a8bfef8) и установить его в учетной записи службы автоматизации, чтобы этот пример кода работал.
@@ -120,4 +120,4 @@
 - [Использование связей при создании графических модулей](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

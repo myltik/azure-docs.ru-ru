@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="04/22/2015" 
+	ms.date="07/07/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -175,9 +175,7 @@
 
 	![WebMatrix — опубликовать][edit_publish]
 
-3. Щелкните **Выбрать существующий сайт из Microsoft Azure**.
-
-	![](./media/web-sites-php-mysql-use-webmatrix/webmatrix-publish-existing-site.png)
+3. Щелкните **Выбрать существующий сайт Microsoft Azure**.
 
 3. Выберите созданное ранее веб-приложение службы приложений.
 
@@ -263,4 +261,4 @@
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

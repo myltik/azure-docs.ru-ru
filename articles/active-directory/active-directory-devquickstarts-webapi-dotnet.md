@@ -141,4 +141,4 @@ public IEnumerable<TodoItem> Get()
 Дополнительные ресурсы: - [AzureADSamples на GitHub >>](https://github.com/AzureAdSamples); - [CloudIdentity.com >>](https://cloudidentity.com); -Документация Azure AD на [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

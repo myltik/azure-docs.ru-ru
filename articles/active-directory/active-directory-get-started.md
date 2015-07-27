@@ -12,8 +12,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="06/02/2015"
+	ms.topic="article"
+	ms.date="07/02/2015"
 	ms.author="curtand"/>
 
 # Приступая к работе с Azure AD
@@ -43,6 +43,5 @@ Azure AD предоставляет администраторам различ�
 
 * [Регистрация организации в Azure](sign-up-organization.md)
 * [Удостоверение Azure](fundamentals-identity.md)
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

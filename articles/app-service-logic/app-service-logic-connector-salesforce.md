@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Соединитель Salesforce" 
-   description="Использование соединителя Salesforce" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="sutalasi" 
-   manager="dwrede" 
+<properties
+   pageTitle="Соединитель Salesforce"
+   description="Использование соединителя Salesforce"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,22 +12,22 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="03/20/2015"
-   ms.author="sutalasi"/>
+   ms.workload="integration"
+   ms.date="07/02/2015"
+   ms.author="sameerch"/>
 
 
 #Использование соединителя SalesForce в приложении логики#
 
 Приложения логики могут запускаться на основе разных источников данных и предлагать соединители для получения и обработки данных в рамках потока. Соединитель SalesForce позволяет создавать и изменять различные сущности, такие как учетные записи, интересы и т. д. Ниже приведены типичные сценарии интеграции, включающие Salesforce.
 
-- Синхронизация учетной записи между Salesforce и системами ERP, такими как SAP и QuickBooks.	
+- Синхронизация учетной записи между Salesforce и системами ERP, такими как SAP и QuickBooks.
 
 - Заказ движения денежных средств из Salesforce в системы ERP.
 
 
 В рамках параметров пакета соединителя пользователь может задать сущности, которыми может управлять соединитель, и действия; входные и выходные параметры заполняются динамически. Ниже перечислены различные действия, доступные в соединителе Salesforce.
- 
+
 - Создать сущность. Это действие используется для создания новой сущности Salesforce, такой как учетная запись, обращение или пользовательский объект.
 
 - Обновить сущность. Это действие используется для обновления существующей сущности Salesforce.
@@ -133,7 +133,4 @@
 [14]: ./media/app-service-logic-connector-salesforce/14_Update_Account_Address.png
 [15]: ./media/app-service-logic-connector-salesforce/15_Create_new_salesforce_connector.png
 
-
- 
-
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

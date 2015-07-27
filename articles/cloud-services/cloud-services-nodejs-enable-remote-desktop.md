@@ -116,4 +116,4 @@
   [Использование удаленного рабочего стола с ролями Azure]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

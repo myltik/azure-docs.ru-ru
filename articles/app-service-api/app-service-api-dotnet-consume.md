@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2015" 
+	ms.date="06/30/2015" 
 	ms.author="tdykstra"/>
 
 # Использование приложения API в службе приложений Azure из клиента .NET 
@@ -59,27 +59,9 @@
  
 2. В Visual Studio создайте проект консольного приложения.
  
-### Добавление кода клиента, созданного пакетом SDK службы приложений
+### <a id="addclient"></a>Добавление клиентского кода, созданного пакетом SDK службы приложений
 
-3. В **Обозревателе решений** щелкните правой кнопкой мыши проект (не решение) и выберите команду **Добавить > Клиент приложения API Azure**. 
-
-	![](./media/app-service-api-dotnet-consume/03-add-azure-api-client-v3.png)
-	
-3. В диалоговом окне **Добавление клиента приложения API Azure ** установите переключатель **Загрузить из приложения API Azure**.
-
-5. В раскрывающемся списке выберите приложение API, которое необходимо вызвать.
-
-7. Нажмите кнопку **ОК**.
-
-	![Экран создания](./media/app-service-api-dotnet-consume/04-select-the-api-v3.png)
-
-	Мастер загружает файл метаданных API и создает типизированный интерфейс для вызова приложения API.
-
-	![Процесс создания](./media/app-service-api-dotnet-consume/05-metadata-downloading-v3.png)
-
-	После завершения создания кода в **Обозревателе решений** появится новая папка с именем приложения API. Эта папка содержит код, который реализует клиентские классы и модели данных.
-
-	![Создание завершено](./media/app-service-api-dotnet-consume/06-code-gen-output-v3.png)
+[AZURE.INCLUDE [app-service-api-dotnet-add-generated-client](../../includes/app-service-api-dotnet-add-generated-client.md)]
 
 ### Добавление кода для вызова приложения API
 
@@ -116,9 +98,7 @@
 
 ## Вызов с проверкой подлинности из классического приложения для Windows
 
-В этом разделе создается проект классического приложения для Windows и добавляется к нему код, вызывающий приложение API, для которого необходима проверка подлинности. Этот код реализует *поток проверки подлинности сервера* Oauth 2, что означает, что шлюз приложения API, а не клиентское приложение, получает маркер от поставщика проверки подлинности.
-
-Приложения API Azure также поддерживают поток проверки подлинности клиента. Сценарий с потоком проверки подлинности клиента будет добавлен в этот учебник в будущем.
+В этом разделе создается проект классического приложения для Windows и добавляется к нему код, вызывающий приложение API, для которого необходима проверка подлинности.
 
 ### Настройка приложения API и создание проекта
 
@@ -198,11 +178,31 @@
 
 	![](./media/app-service-api-dotnet-consume/formaftercall.png)
 
+### <a id="client-flow"></a>Сравнение клиентского потока и серверного потока
+
+Этот пример приложения иллюстрирует [серверный поток](../app-service/app-service-authentication-overview.md#server-flow). Это значит, что шлюз получает маркер доступа поставщика удостоверений. В рамках [клиентского потока](../app-service/app-service-authentication-overview.md#client-flow), когда клиентское приложение получает маркер доступа непосредственно от поставщика удостоверений и отправляет его шлюзу, следует вызвать `LoginAsync` вместо `SetCurrentUser`.
+
+В следующем примере кода предполагается, что у вас есть маркер доступа поставщика удостоверений в строковой переменной с именем `providerAccessToken`, а также индикатор поставщика удостоверений («aad», «microsoftaccount», «google», «twitter» или «facebook») в строковой переменной с именем `idProvider`.
+
+		var appServiceClient = new AppServiceClient(GATEWAY_URL);
+		var providerAccessTokenJSON = new JObject();
+		providerAccessTokenJSON["access_token"] = providerAccessToken;
+		var appServiceUser = await appServiceClient.LoginAsync(idProvider, providerAccessTokenJSON);
+
+		var contactsListClient = appServiceClient.CreateContactsList();
+		var contacts = contactsListClient.Contacts.Get();
+		foreach (Contact contact in contacts)
+		{
+		    textBox1.Text += contact.Name + " " + contact.EmailAddress + System.Environment.NewLine;
+		}
+
 ## Дальнейшие действия
 
 В этой статье показано, как использовать приложение API из клиента .NET для приложений API с уровнем доступа **Общедоступный (с проверкой подлинности)** и **Общедоступный (анонимный)**.
 
 Для получения дополнительных примеров кода, который вызывает приложение API из клиентов .NET, загрузите образец приложения [Карты Azure](https://github.com/Azure-Samples/API-Apps-DotNet-AzureCards-Sample).
+
+Сведения об использовании проверки подлинности в приложениях API см. в статье [Проверка подлинности для приложений API и мобильных приложений в службе приложений Azure](../app-service/app-service-authentication-overview.md).
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

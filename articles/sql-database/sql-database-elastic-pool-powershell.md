@@ -43,7 +43,7 @@
 
 Командлеты для создания Баз данных SQL Azure и эластичных пулов и управления ими находятся в модуле диспетчера ресурсов Azure. При запуске Azure PowerShell командлеты в модуле Azure импортируются по умолчанию. Для перехода в модуль диспетчера ресурсов Azure используйте командлет Switch-AzureMode.
 
-	PS C:\>Switch-AzureMode -Name AzureResourceManager
+	PS C:>Switch-AzureMode -Name AzureResourceManager
 
 Дополнительную информацию можно узнать в статье [Использование Windows PowerShell с диспетчером ресурсов](powershell-azure-resource-manager.md).
 
@@ -52,7 +52,7 @@
 
 Теперь, после запуска модуля диспетчера ресурсов Azure, вам доступны все командлеты, необходимые для создания и настройки эластичного пула. Сначала необходимо организовать доступ к учетной записи Azure. Выполните следующую команду; откроется окно входа, в котором необходимо ввести свои учетные данные. Используйте тот же адрес электронной почты и пароль, который вы используете для входа на портал Azure.
 
-	PS C:\>Add-AzureAccount
+	PS C:>Add-AzureAccount
 
 После успешного входа на экране будут отображаться некоторые сведения, включая идентификатор, под которым вы вошли в систему, и подписки Azure, к которым у вас есть доступ.
 
@@ -61,7 +61,7 @@
 
 Для выбора подписки вам понадобится идентификатор или имя подписки (**-SubscriptionName**). Идентификатор или имя можно скопировать из предыдущего шага или, если у вас несколько подписок, запустить командлет **Get-AzureSubscription** и скопировать необходимые сведения о подписке из набора результатов. Если у вас есть подписка, запустите следующий командлет:
 
-	PS C:\>Select-AzureSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
+	PS C:>Select-AzureSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
 
 ## Создание группы ресурсов, сервера и правила брандмауэра
@@ -70,13 +70,13 @@
 
 Если у вас уже есть группа ресурсов, вы можете перейти к следующему шагу или выполнить команду ниже, чтобы создать новую группу ресурсов:
 
-	PS C:\>New-AzureResourceGroup -Name "resourcegroup1" -Location "West US"
+	PS C:>New-AzureResourceGroup -Name "resourcegroup1" -Location "West US"
 
 ### Создание сервера 
 
 Эластичные пулы создаются внутри серверов баз данных SQL Azure. Если у вас уже есть сервер, вы можете перейти к следующему шагу или выполнить команду ниже, чтобы создать новый сервер версии 12. Замените строку ServerName на имя вашего сервера. Это имя должно быть уникальным для серверов SQL Azure, поэтому, если оно уже занято, может появиться ошибка. Кроме того, выполнение этой команды может занять несколько минут. После успешного создания сервера будут запрошены сведения о сервере и PowerShell. Вы можете отредактировать эту команду, чтобы использовать любое другое допустимое расположение.
 
-	PS C:\>New-AzureSqlServer -ResourceGroupName "resourcegroup1" -ServerName "server1" -Location "West US" -ServerVersion "12.0"
+	PS C:>New-AzureSqlServer -ResourceGroupName "resourcegroup1" -ServerName "server1" -Location "West US" -ServerVersion "12.0"
 
 При выполнении этой команды появится окно, запрашивающее **Имя пользователя** и **Пароль**. Это не учетные данные Azure; введите имя пользователя и пароль, которые станут учетными данными администратора нового сервера.
 
@@ -87,7 +87,7 @@
 
 Если ваш сервер должен предоставлять доступ к другим службам Azure, добавьте параметр **-AllowAllAzureIPs**, который добавит специальное правило брандмауэра и предоставит всему трафику Azure доступ к серверу.
 
-	PS C:\>New-AzureSqlServerFirewallRule -ResourceGroupName "resourcegroup1" -ServerName "server1" -FirewallRuleName "rule1" -StartIpAddress "192.168.0.198" -EndIpAddress "192.168.0.199"
+	PS C:>New-AzureSqlServerFirewallRule -ResourceGroupName "resourcegroup1" -ServerName "server1" -FirewallRuleName "rule1" -StartIpAddress "192.168.0.198" -EndIpAddress "192.168.0.199"
 
 Дополнительные сведения см. в статье [Брандмауэр Базы данных SQL Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx).
 
@@ -97,7 +97,7 @@
 Сейчас у вас есть группа ресурсов, сервер и правило брандмауэра, настроенные для получения доступа к серверу. Следующая команда создаст эластичный пул. Данная команда создает пул, использующий 400 единиц передачи данных (DTU). Каждая база данных в пуле всегда гарантированно имеет 10 доступных единиц передачи данных (DatabaseDtuMin). Отдельные базы данных в пуле могут использовать максимум 100 единиц передачи данных (DatabaseDtuMax). Более подробные сведения см. в статье [Эластичные пулы Базы данных SQL Azure](sql-database-elastic-pool.md).
 
 
-	PS C:\>New-AzureSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
+	PS C:>New-AzureSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
 
 
 ### Создание или добавление эластичных баз данных в пул
@@ -110,7 +110,7 @@
 Для создания новой базы данных прямо в эластичном пуле воспользуйтесь командлетом **New-AzureSqlDatabase** и задайте параметр **ElasticPoolName**.
 
 
-	PS C:\>New-AzureSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
+	PS C:>New-AzureSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
 
 
@@ -121,11 +121,11 @@
 
 В качестве примера создайте базу данных, не находящуюся в эластичном пуле.
 
-	PS C:\>New-AzureSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -Edition "Standard"
+	PS C:>New-AzureSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -Edition "Standard"
 
 Переместите существующую базу данных в эластичный пул.
 
-	PS C:\>Set-AzureSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
+	PS C:>Set-AzureSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
 ## Мониторинг эластичных баз данных и эластичных пулов
 
@@ -133,12 +133,12 @@
 
 Вы можете отслеживать состояние операций эластичного пула, включая создание и обновления.
 
-	PS C:\> Get-AzureSqlElasticPoolActivity –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” 
+	PS C:> Get-AzureSqlElasticPoolActivity –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” 
 
 
 ### Получение состояния перемещения эластичной базы данных в эластичный пул и из него
 
-	PS C:\>Get-AzureSqlElasticPoolDatabaseActivity -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
+	PS C:>Get-AzureSqlElasticPoolDatabaseActivity -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
 ### Получение показателей потребления ресурсов для эластичного пула
 
@@ -165,19 +165,19 @@
 
 Получите показатели:
 
-	PS C:\> $metrics = (Get-Metrics -ResourceId /subscriptions/d7c1d29a-ad13-4033-877e-8cc11d27ebfd/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/elasticPools/franchisepool -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015") 
+	PS C:> $metrics = (Get-Metrics -ResourceId /subscriptions/d7c1d29a-ad13-4033-877e-8cc11d27ebfd/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/elasticPools/franchisepool -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015") 
 
 Извлеките дополнительные дни при повторном вызове и добавлении данных:
 
-	PS C:\> $metrics = $metrics + (Get-Metrics -ResourceId /subscriptions/d7c1d29a-ad13-4033-877e-8cc11d27ebfd/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/elasticPools/franchisepool -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/21/2015" -EndTime "4/24/2015") 
+	PS C:> $metrics = $metrics + (Get-Metrics -ResourceId /subscriptions/d7c1d29a-ad13-4033-877e-8cc11d27ebfd/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/elasticPools/franchisepool -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/21/2015" -EndTime "4/24/2015") 
  
 Отформатируйте таблицу:
 
-    PS C:\> $table = Format-MetricsAsTable $metrics 
+    PS C:> $table = Format-MetricsAsTable $metrics 
 
 Экспортируйте в CSV-файл:
 
-    PS C:\> foreach($e in $table) { Export-csv -Path c:\temp\metrics.csv -input $e -Append -NoTypeInformation} 
+    PS C:> foreach($e in $table) { Export-csv -Path c:\temp\metrics.csv -input $e -Append -NoTypeInformation} 
 
 ### Получение показателей потребления ресурсов для эластичной базы данных
 
@@ -185,19 +185,19 @@
 
 * Для этого интерфейса API полученные показатели выражаются в виде процента от каждого показателя databaseDtuMax (или эквивалентного предельного значения для базовой метрики, например ЦП, ввода/вывода и т. д.), установленного для данного эластичного пула. Например, 50 % загрузка любого из этих показателей указывает, что потребление ресурсов составляет 50 % от предельного значения БД для этого ресурса в родительском эластичном пуле. 
 
-Получите метрики: PS C:\> $metrics = (Get-Metrics -ResourceId /subscriptions/d7c1d29a-ad13-4033-877e-8cc11d27ebfd/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/databases/myDB -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015")
+Получите метрики: PS C:> $metrics = (Get-Metrics -ResourceId /subscriptions/d7c1d29a-ad13-4033-877e-8cc11d27ebfd/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/databases/myDB -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015")
 
 При необходимости получите дополнительные дни, повторив вызов и добавив данные:
 
-    PS C:\> $metrics = $metrics + (Get-Metrics -ResourceId /subscriptions/d7c1d29a-ad13-4033-877e-8cc11d27ebfd/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/databases/myDB -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/21/2015" -EndTime "4/24/2015") 
+    PS C:> $metrics = $metrics + (Get-Metrics -ResourceId /subscriptions/d7c1d29a-ad13-4033-877e-8cc11d27ebfd/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/databases/myDB -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/21/2015" -EndTime "4/24/2015") 
 
 Отформатируйте таблицу:
 
-    PS C:\> $table = Format-MetricsAsTable $metrics 
+    PS C:> $table = Format-MetricsAsTable $metrics 
 
 Экспортируйте в CSV-файл:
 
-    PS C:\> foreach($e in $table) { Export-csv -Path c:\temp\metrics.csv -input $e -Append -NoTypeInformation}
+    PS C:> foreach($e in $table) { Export-csv -Path c:\temp\metrics.csv -input $e -Append -NoTypeInformation}
 
 
 ## Сборка
@@ -234,4 +234,4 @@
 
 Дополнительные сведения об эластичных базах данных и их пулах, включая интерфейс API и сведения об ошибках, можно узнать в статье [Справка по эластичным пулам баз данных](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

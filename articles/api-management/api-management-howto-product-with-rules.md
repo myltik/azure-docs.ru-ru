@@ -293,4 +293,4 @@
 [Задать квоту использования]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

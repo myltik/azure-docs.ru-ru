@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter="windows"
 	authors="alancameronwills" 
-	manager="kamrani"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/28/2015" 
+	ms.date="07/01/2015" 
 	ms.author="awills"/>
 
 # Обнаружение и диагностика сбоев в приложениях Магазина Windows и Windows Phone с помощью Application Insights
@@ -21,7 +21,7 @@
 
 Если у пользователей возникают сбои в приложении, необходимо узнать об этом быстро и в подробностях. С помощью Application Insights можно отслеживать, как часто происходят сбои, получать оповещения при возникновении сбоев и изучить отчеты об отдельных случаях.
 
-"Сбой" означает, что приложение завершает работу из-за неперехваченного исключения. Если приложение перехватывает исключение, можно сообщить о нем с помощью API TrackException(), но продолжить работу. В этом случае исключение не будет запротоколировано как сбой.
+«Сбой» означает, что приложение завершает работу из-за неперехваченного исключения. Если приложение перехватывает исключение, можно сообщить о нем с помощью [API TrackException][apiexceptions], не останавливая работу. В этом случае исключение не будет запротоколировано как сбой.
 
 
 ## Отслеживание частоты сбоев
@@ -80,6 +80,8 @@
 
 [Обнаружение, рассмотрение и диагностика проблем с помощью Application Insights][detect]
 
+[API Application Insights][api]
+
 [Запись журналов диагностики][trace]
 
 [Устранение неполадок](app-insights-windows-troubleshoot.md)
@@ -89,12 +91,15 @@
 
 <!--Link references-->
 
+[api]: app-insights-api-custom-events-metrics.md
+[apiexceptions]: app-insights-api-custom-events-metrics.md#track-exception
 [detect]: app-insights-detect-triage-diagnose.md
 [diagnostic]: app-insights-diagnostic-search.md
+[platforms]: app-insights-platforms.md
 [portal]: http://portal.azure.com/
 [trace]: app-insights-search-diagnostic-logs.md
 [windows]: app-insights-windows-get-started.md
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

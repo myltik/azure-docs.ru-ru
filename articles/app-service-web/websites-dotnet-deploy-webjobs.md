@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
-	ms.date="04/03/2015" 
+	ms.date="06/29/2015" 
 	ms.author="tdykstra"/>
 
 # Развертывание веб-заданий с помощью Visual Studio
@@ -193,11 +193,11 @@
 
 ## <a id="nextsteps"></a>Дальнейшие действия
 
-Дополнительные сведения о развертывании веб-заданий Azure из Visual Studio и использовании режима непрерывного выполнения см. в разделе [Веб-задания Azure. Рекомендуемые ресурсы. Развертывание](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/azure-webjobs-recommended-resources#deploying).
+В этой статье показано, как развернуть WebJob с помощью Visual Studio. Дополнительные сведения о развертывании WebJob Azure из Visual Studio и использовании режима непрерывного выполнения см. в разделе [Веб-задания Azure. Рекомендуемые ресурсы. Развертывание](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/azure-webjobs-recommended-resources#deploying).
 
 ## Изменения
-* Указания по изменениям при переходе от веб-сайтов к службе приложений см. в разделе [Служба приложений Azure и ее влияние на существующие службы Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
-* Руководство по смене старого портала на новый портал см. в разделе [Справочник по навигации на предварительной версии портала](http://go.microsoft.com/fwlink/?LinkId=529715).
+* Руководство по переходу от веб-сайтов к службе приложений см. в статье [Служба приложений Azure и существующие службы Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
+* Руководство по смене портала Azure на портал предварительной версии Azure см. в разделе [Справочная информация о навигации по предварительной версии портала](http://go.microsoft.com/fwlink/?LinkId=529715).
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

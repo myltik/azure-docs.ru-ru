@@ -395,4 +395,4 @@
 Теперь, после настройки политики авторизации ключа содержимого, перейдите к разделу [Как настроить политику доставки ресурсов](media-services-dotnet-configure-asset-delivery-policy.md).
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -58,7 +58,7 @@
 <center>![User Signin](./media/active-directory-aadconnect-get-started-custom/connectaad.png) </center>
 
 ### Подключение к каталогам
-Чтобы подключиться к службе домена Active Directory, Azure AD Connect нужны имя пользователя и пароль учетной записи с достаточными разрешениями. Эта учетная запись может принадлежать обычному пользователю, так как стандартных разрешений для чтения вполне достаточно. Однако для некоторых сценариев могут потребоваться дополнительные разрешения. Дополнительные сведения см. в статье [Сводка об учетной записи Azure AD Connect](active-directory-addconnect-account-summary).
+Чтобы подключиться к службе домена Active Directory, Azure AD Connect нужны имя пользователя и пароль учетной записи с достаточными разрешениями. Эта учетная запись может принадлежать обычному пользователю, так как стандартных разрешений для чтения вполне достаточно. Однако для некоторых сценариев могут потребоваться дополнительные разрешения. Дополнительные сведения см. в статье [Сводка об учетной записи Azure AD Connect](active-directory-aadconnect-account-summary.md).
 
 <center>![User Signin](./media/active-directory-aadconnect-get-started-custom/connectdir.png) </center>
 
@@ -125,6 +125,9 @@ sAMAccountName и MailNickName|Это параметр соединяет атр
 <center>![Sync Filtering](./media/active-directory-aadconnect-get-started-custom/extension4.png) </center>
 
 ## Обратная запись пользователя (предварительная версия)
+
+> [AZURE.WARNING]Если у вас запущено средство синхронизации DirSync или Azure AD Sync, не активируйте функции обратной записи в Azure AD Connect.
+
 Обратная запись пользователя позволяет обратно записать в доменные службы Active Directory пользователя, созданного в Azure AD (с помощью портала, диаграммы, PowerShell или другого метода). Чтобы включить эту функцию, выберите «Обратная запись пользователя» на странице дополнительных функций. Теперь отобразится расположение, в котором вы можете создать пользователей. В конфигурации по умолчанию все пользователи создаются в одном расположении доменных служб Active Directory.
 
 <center>![Sync Filtering](./media/active-directory-aadconnect-get-started-custom/writeback2.png) </center>
@@ -133,6 +136,9 @@ sAMAccountName и MailNickName|Это параметр соединяет атр
 >[AZURE.NOTE]Синхронизация паролей и обратная запись паролей не совместимы с этой функцией предварительной версии.
 
 ## Обратная запись группы (предварительная версия)
+
+> [AZURE.WARNING]Если у вас запущено средство синхронизации DirSync или Azure AD Sync, не активируйте функции обратной записи в Azure AD Connect.
+
 Обратная запись группы в дополнительных функциях позволит вам обратно записывать «Группы в Office 365» в лес с установленным Exchange. Это новый тип группы, управление которым всегда происходит в облаке. Его можно найти на сайте outlook.office365.com или myapps.microsoft.com как показано ниже.
 
 
@@ -152,7 +158,16 @@ sAMAccountName и MailNickName|Это параметр соединяет атр
 Дополнительную информацию см. [здесь](http://blogs.office.com/2014/09/25/delivering-first-chapter-groups-office-365/).
 
 ## Обратная запись устройства (предварительная версия)
-Функция обратной записи устройства позволяет помещать устройства, зарегистрированные в облаке, например в Intune, в доменные службы Active Directory для условного доступа. Чтобы включить эту функцию, необходимо подготовить доменные службы Active Directory. Если вы установили доменные службы Active Directory и службу регистрации устройств (DRS), DRS предоставляет командлеты PowerShell для подготовки AD для обратной записи устройства. Если у вас установлена DRS, вы можете запустить C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncAdPrep.psm1 от имени администратора предприятия.
+
+> [AZURE.WARNING]Если у вас запущено средство синхронизации DirSync или Azure AD Sync, не активируйте функции обратной записи в Azure AD Connect.
+
+Функция обратной записи устройства позволяет помещать устройства, зарегистрированные в облаке, например в Intune, в доменные службы Active Directory для условного доступа. Чтобы включить эту функцию, необходимо подготовить доменные службы Active Directory. Если вы установили доменные службы Active Directory и службу регистрации устройств (DRS), DRS предоставляет командлеты PowerShell для подготовки AD для обратной записи устройства. Если у вас установлена DRS, вы можете запустить C:\\Program Files\\Microsoft Azure Active Directory Connect\\AdPrep\\AdSyncAdPrep.psm1 от имени администратора предприятия.
+
+Чтобы запустить командлет PowerShell, сначала нужно его импортировать.
+
+	Import-Module 'C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncPrep.psm1'
+
+Для этого нужно установить Active Directory и MSOnline PowerShell локально.
 
 
 
@@ -258,4 +273,4 @@ sAMAccountName и MailNickName|Это параметр соединяет атр
 * [Подробнее](active-directory-aadconnect-learn-more.md)
 * [Azure AD Connect на портале MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx) 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -317,4 +317,4 @@
 - [Очереди Azure и очереди служебной шины: сходства и различия](http://msdn.microsoft.com/library/hh767287.aspx)
 - [Включение диагностики в облачной службе](http://msdn.microsoft.com/library/dn482131.aspx)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

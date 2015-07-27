@@ -66,4 +66,4 @@
 - [Создание расписания для Runbook в службе автоматизации Azure](automation-scheduling-a-runbook.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

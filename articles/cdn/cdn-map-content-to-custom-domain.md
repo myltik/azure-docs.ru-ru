@@ -12,7 +12,7 @@
 	 ms.tgt_pltfrm="na" 
 	 ms.devlang="na" 
 	 ms.topic="article" 
-	 ms.date="03/05/2015" 
+	 ms.date="07/07/2015" 
 	 ms.author="mazha"/>
 
 #Как сопоставить личный домен с конечной точкой сети доставки содержимого (CDN)
@@ -83,11 +83,11 @@
 
 		http://www.mydomain.com/cdn/mycloudservice
 
-#См. также
+##См. также
 
 
-[Включение сети доставки содержимого (CDN) для Azure](./cdn-create-new-endpoint.md) **Обзор Azure CDN**
+[Включение сети доставки содержимого (CDN) для Azure](./cdn-create-new-endpoint.md)
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

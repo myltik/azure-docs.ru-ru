@@ -48,4 +48,4 @@
 - [Управление группами в Azure AD](active-directory-manage-groups.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

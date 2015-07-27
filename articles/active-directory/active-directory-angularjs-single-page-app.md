@@ -180,4 +180,4 @@ ADAL для Javascript представляет собой библиотеку 
 + [Сценарии проверки подлинности в Azure AD](https://msdn.microsoft.com/library/azure/dn499820.aspx)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

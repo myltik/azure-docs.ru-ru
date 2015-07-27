@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="storage-backup-recovery" 
-   ms.date="03/18/2015"
+   ms.date="07/15/2015"
    ms.author="elfish; v-romcal"/>
 
 # Восстановление удаленной базы данных SQL Azure на портале Azure
@@ -73,4 +73,4 @@
 
 [Резервное копирование и восстановление баз данных SQL Azure](http://msdn.microsoft.com/library/azure/jj650016.aspx)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

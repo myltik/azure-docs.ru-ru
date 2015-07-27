@@ -4,7 +4,6 @@
 	services="mobile-services"
 	documentationCenter="ios"
 	authors="krisragh"
-	writer="krisragh"
 	manager="dwrede"
 	editor=""/>
 
@@ -57,4 +56,4 @@
 [Хранение серверных сценариев в системе управления версиями]: mobile-services-store-scripts-source-control.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

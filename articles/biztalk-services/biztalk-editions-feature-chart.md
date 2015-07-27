@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="03/03/2015"
+	ms.date="06/23/2015"
 	ms.author="mandia"/>
 
 
@@ -60,7 +60,7 @@
 
 <tr>
 <td><strong>Начальная цена</strong></td>
-<td colspan="5"><a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011">Цены — службы BizTalk Azure</a> <br/><br/> <a HREF="http://azure.microsoft.com/pricing/calculator/?scenario=full">Калькулятор стоимости — оцените свои расходы</a></td>
+<td colspan="5"><a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011">Цены — службы BizTalk Azure</a> <br/><br/> <a HREF="http://azure.microsoft.com/pricing/calculator/?scenario=full">Калькулятор цен — оцените свои расходы</a></td>
 </tr>
 <tr>
 <td><strong>Минимальная конфигурация по умолчанию</strong></td>
@@ -136,7 +136,7 @@
 <li>FTP</li>
 <li>SFTP</li>
 <li>WCF</li>
-<li>Шина обслуживания (SB)</li>
+<li>Служебная шина (SB)</li>
 <li>BLOB-объект Azure</li>
 <li>Интерфейсы API REST</li>
 </ul>
@@ -214,7 +214,7 @@
 
 - Вам не требуется управлять виртуальными машинами или настраивать их.
 - Майкрософт обеспечивает доступность.
-- Управлять масштабом легко — просто запросите необходимую нагрузку на портале Azure.
+- Управлять масштабом легко — просто запросите необходимую нагрузку на портале управления Azure.
 
 BizTalk Server на виртуальных машинах Azure предоставляет архитектуру "инфраструктура как услуга" (IaaS). Вы создаете виртуальные машины и настраиваете их точно так же, как локальную среду, упрощая запуск существующих приложений в облаке без изменения кода. При использовании модели IaaS вы сами отвечаете за настройку виртуальных машин, управление виртуальными машинами (например, за установку исправлений ПО и ОС) и обеспечение высокой доступности приложения.
 
@@ -237,7 +237,7 @@ BizTalk Server на виртуальных машинах Azure предоста
 
 #### Как перейти от одного уровня служб BizTalk к другому?
 
-Используйте резервное копирование и восстановление данных для перехода с одного уровня на другой. Поддерживаются только некоторые пути миграции. Дополнительную информацию о поддерживаемых путях миграции см. в разделе [Службы BizTalk: архивация и восстановление](http://go.microsoft.com/fwlink/p/?LinkID=329873).
+Используйте резервное копирование и восстановление данных для перехода с одного уровня на другой. Поддерживаются только некоторые пути миграции. Дополнительную информацию о поддерживаемых путях миграции см. в разделе [Службы BizTalk: архивация и восстановление](biztalk-backup-restore.md).
 
 #### Включена ли сюда служба адаптера BizTalk? Как получить это программное обеспечение?
 
@@ -245,16 +245,16 @@ BizTalk Server на виртуальных машинах Azure предоста
 
 ## Далее
 
-Чтобы создать службы BizTalk Azure на портале управления Azure, перейдите по ссылке [Службы BizTalk: подготовка с использованием портала управления Azure](http://go.microsoft.com/fwlink/p/?LinkID=302280). Чтобы приступить к созданию приложений, перейдите по ссылке [Службы BizTalk Azure](http://go.microsoft.com/fwlink/p/?LinkID=235197).
+Чтобы создать службы BizTalk Azure на портале управления Azure, перейдите по ссылке [Службы BizTalk: подготовка с использованием портала управления Azure](biztalk-provision-services.md). Чтобы приступить к созданию приложений, перейдите по ссылке [Службы BizTalk Azure](http://go.microsoft.com/fwlink/p/?LinkID=235197).
 
 ## См. также
-- [Службы BizTalk: подготовка с использованием портала управления Azure](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
-- [Службы BizTalk. Диаграмма состояния подготовки](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
-- [Службы BizTalk: вкладки «Панель мониторинга», «Монитор» и «Масштаб»](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
-- [Службы BizTalk: архивация и восстановление](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
-- [Службы BizTalk: регулирование](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
-- [Службы BizTalk: имя и ключ издателя](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
+- [Службы BizTalk: подготовка с использованием портала управления Azure](biztalk-provision-services.md)<br/>
+- [Службы BizTalk. Диаграмма состояния подготовки](biztalk-service-state-chart.md)<br/>
+- [Службы BizTalk: вкладки «Панель мониторинга», «Монитор» и «Масштаб»](biztalk-dashboard-monitor-scale-tabs.md)<br/>
+- [Службы BizTalk: архивация и восстановление](biztalk-backup-restore.md)<br/>
+- [Службы BizTalk: регулирование](biztalk-throttling-thresholds.md)<br/>
+- [Службы BizTalk: имя и ключ издателя](biztalk-issuer-name-issuer-key.md)<br/>
 - [Как приступить к работе с пакетом SDK для служб BizTalk Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

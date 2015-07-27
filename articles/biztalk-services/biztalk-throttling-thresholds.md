@@ -88,4 +88,4 @@
 - [Службы BizTalk: имя и ключ издателя](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

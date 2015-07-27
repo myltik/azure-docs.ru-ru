@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/23/2015" 
+	ms.date="07/01/2015" 
 	ms.author="tomfitz"/>
 
 # Подготовка приложения API с помощью нового шлюза
@@ -24,7 +24,7 @@
 
 Подробнее о развертывании приложений см. в статье [Предсказуемое развертывание сложного приложения в Azure](../app-service-web/app-service-deploy-complex-application-predictably.md).
 
-Полный шаблон см. в статье [Приложение API с новым шаблоном шлюза](../../templates/app-service-api-arm-new-gateway-provision/).
+Полный шаблон см. в статье [Приложение API с новым шаблоном шлюза](https://github.com/Azure/azure-quickstart-templates/blob/master/201-api-app-gateway-new/azuredeploy.json).
 
 ## Что вы развернете?
 
@@ -34,9 +34,28 @@
 - новый шлюз;
 - новый план размещения службы приложений.
 
+Чтобы выполнить развертывание автоматически, нажмите следующую кнопку.
+
+[![Развертывание в Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-api-app-gateway-new%2Fazuredeploy.json)
+
 ## Параметры
 
 [AZURE.INCLUDE [app-service-api-deploy-parameters](../../includes/app-service-api-deploy-parameters.md)]
+
+### hostingPlanSettings
+
+Параметры нового плана размещения.
+
+    "hostingPlanSettings": {
+      "type": "Object",
+      "defaultValue": {
+        "computeMode": "Dedicated",
+        "siteMode": "Limited",
+        "sku": "Standard",
+        "workerSize": "0",
+        "hostingEnvironment": ""
+      }
+    }
     
 ## Переменные
 
@@ -72,7 +91,7 @@
 
 Создает веб-приложение, на котором размещен шлюз.
 
-Обратите внимание, что для параметра **kind** задано значение **gateway**, что служит уведомлением для портала Azure, что это веб-приложение размещает шлюз. Портал скроет веб-приложение в колонке «Обзор» веб-приложения. Между размещающим приложением и шлюзом определяется связь. Раздел параметров приложения содержит значения, необходимые для размещения приложения API.
+Обратите внимание, что для параметра **kind** задано значение **gateway**, что служит уведомлением для портала Azure, что это веб-приложение размещает шлюз. Портал не будет отображать веб-приложение в колонке обзора веб-приложений. Между размещением веб-приложения и шлюзом определяется связь. Раздел параметров приложения содержит значения, необходимые для размещения приложения API.
 
 
     {
@@ -107,7 +126,7 @@
             },
             {
               "name": "EmaStorage",
-              "value": "D:\home\data\apiapps"
+              "value": "D:\\home\\data\\apiapps"
             },
             {
               "name": "WEBSITE_START_SCM_ON_SITE_CREATION",
@@ -159,7 +178,7 @@
 
 Создает веб-приложение, в котором размещается приложение API.
 
-Обратите внимание, что для параметра **kind** задано значение **apiApp**, что служит уведомлением для портала Azure о том, что это веб-приложение размещает приложение API. Портал скроет веб-приложение в колонке «Обзор» веб-приложения. Приложение содержит расширение для установки пустого пакета приложения API по умолчанию. Между приложением API и размещением веб-приложения определяется связь. Раздел параметров приложения содержит значения, необходимые для размещения приложения API.
+Обратите внимание: для параметра **kind** задано значение **apiApp**. Для портала Azure это служит уведомлением о том, что приложение API размещается в данном веб-приложении. Портал не будет отображать веб-приложение в колонке обзора веб-приложений. Приложение содержит расширение для установки пустого пакета приложения API по умолчанию. Между приложением API и размещением веб-приложения определяется связь. Раздел параметров приложения содержит значения, необходимые для размещения приложения API.
 
     {
       "type": "Microsoft.Web/sites",
@@ -272,13 +291,13 @@
 
 ### PowerShell
 
-    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/new-gateway-new-plan-new-apiapp.json
+    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-api-app-gateway-new/azuredeploy.json
 
 ### Инфраструктура CLI Azure
 
-    azure group deployment create --template-uri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/new-gateway-new-plan-new-apiapp.json
+    azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-api-app-gateway-new/azuredeploy.json
 
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

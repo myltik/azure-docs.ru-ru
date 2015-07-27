@@ -523,4 +523,4 @@ Content-Length: ...
 - [Подробная инструкция по RESTful](http://restcookbook.com/) содержит общие сведения о создании API RESTful.
 - [Контрольный список веб-API](https://mathieu.fenniak.net/the-api-checklist/) содержит полезный список элементов, которые следует учесть при проектировании и реализации веб-API.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

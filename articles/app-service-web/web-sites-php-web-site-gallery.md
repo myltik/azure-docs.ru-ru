@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="04/10/2015" 
+	ms.date="07/02/2015" 
 	ms.author="tomfitz"/>
 
 # Создание веб-приложения WordPress в службе приложений Azure
@@ -31,4 +31,4 @@
 * Руководство по смене старого портала на новый портал см. в разделе [Справочник по навигации на предварительной версии портала](http://go.microsoft.com/fwlink/?LinkId=529715).
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

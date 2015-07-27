@@ -65,4 +65,4 @@
 
 Если вы не хотите использовать Visual Studio, но вам по-прежнему требуются средства для развертывания приложения логики из системы управления версиями, всегда можно напрямую использовать [API](https://msdn.microsoft.com/library/azure/dn948510.aspx) или [Powershell](../powershell-azure-resource-manager.md) для автоматизации развертываний.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

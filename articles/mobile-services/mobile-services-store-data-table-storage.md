@@ -3,7 +3,6 @@
 	description="Узнайте, как использовать мобильные службы для хранения данных в табличном хранилище." 
 	documentationCenter="" 
 	authors="ysxu" 
-	writer="yuaxu" 
 	services="mobile-services" 
 	manager="dwrede" 
 	editor=""/>
@@ -24,4 +23,4 @@
 [Мобильные службы и служба хранилища Microsoft Azure]: http://chrisrisner.com/Mobile-Services-and-Windows-Azure-Storage
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

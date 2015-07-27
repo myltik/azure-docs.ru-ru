@@ -62,7 +62,7 @@
 Для LoadBalancerDistribution можно задать sourceIP для балансировки нагрузки по 2 кортежам (исходный IP-адрес, целевой IP-адрес), sourceIPProtocol для балансировки нагрузки по 3 кортежам (исходный IP-адрес, целевой IP-адрес, протокол) или none для поведения по умолчанию (балансировка нагрузки по 5 кортежам).
 
 ### Получение конфигурации режима распределения балансировщика нагрузки для конечной точки
-    PS C:\> Get-AzureVM â€“ServiceName "mySvc" -Name "MyVM1" | Get-AzureEndpoint
+    PS C:> Get-AzureVM â€“ServiceName "mySvc" -Name "MyVM1" | Get-AzureEndpoint
     
     VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
     LBSetName : MyLoadBalancedSet
@@ -161,4 +161,4 @@ LoadBalancerDistribution может иметь значение sourceIP для 
     Date: Thu, 16 Oct 2014 22:49:21 GMT
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

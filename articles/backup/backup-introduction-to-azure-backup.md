@@ -66,4 +66,4 @@
 + Посетите [форум о службе архивации Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

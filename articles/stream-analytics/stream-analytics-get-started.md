@@ -1,7 +1,6 @@
 <properties
 	pageTitle="Приступая к работе со службой Stream Analytics: выявление мошенничества в режиме реального времени | Microsoft Azure"
 	description="Информация о том, как с помощью службы Stream Analytics создать решение для выявления мошенничества в режиме реального времени. Используйте концентратор событий для обработки событий в реальном времени."
-	keywords="event hub,fraud detection,real-time,real-time processing"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -246,7 +245,7 @@ Stream Analytics поддерживает простую декларативн�
 ![Выявление мошенничества. Связанные с мошенническими действиями события, просмотренные в режиме реального времени](./media/stream-analytics-get-started/stream-ananlytics-view-real-time-fraudent-events.png)
 
 ## Получение поддержки
-За дополнительной помощью обращайтесь на наш [форум Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/ru-ru/home?forum=AzureStreamAnalytics).
+За дополнительной помощью обращайтесь на наш [форум Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 
 ## Дальнейшие действия
@@ -258,4 +257,4 @@ Stream Analytics поддерживает простую декларативн�
 - [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

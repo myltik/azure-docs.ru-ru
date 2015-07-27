@@ -13,10 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="03/20/2015"
+   ms.date="07/07/2015"
    ms.author="prkumar"/>
 
 #Соединители#
+
+> [AZURE.NOTE]Этот раздел закрывается. См. статью [Список соединителей и приложений API](app-service-logic-connectors-list.md), чтобы ознакомиться со списком всех доступных встроенных соединителей и приложений API.
+
+
 Соединители — это приложения API, позволяющие подключаться к данным и службам, работающим в облаке или локально. Соединители упрощают получение данных с помощью множества встроенных триггеров и действий, доступ к которым можно легко получить в приложениях логики, и многое другое.
 
 Службы приложений Azure предоставляет ряд соединителей по умолчанию.
@@ -46,14 +50,16 @@
 * [Соединитель SugarCRM]
 * [Соединитель Twilio]
 * [Соединитель Twitter]
-* Соединитель Wait
+* [Соединитель Wait]
 * [Соединитель Yammer]
+
 
 ##Соединители Premium и приложения API##
 * [Соединитель AS2]
 * [BizTalk EDIFACT]
 * [Кодировщик неструктурированных файлов BizTalk]
-* Служба преобразования BizTalk
+* [Кодировщик BizTalk JSON]
+* [Служба преобразования BizTalk]
 * [Правила BizTalk]
 * [BizTalk X12]
 * [Средство извлечения XPath BizTalk]
@@ -112,7 +118,10 @@
 [Средство проверки XML BizTalk]: app-service-logic-xml-validator.md
 [Правила BizTalk]: app-service-logic-use-biztalk-rules.md
 [Соединитель AS2]: app-service-logic-connector-as2.md
-[BizTalk EDIFACT]: app-service-logic-connector-edifact
+[BizTalk EDIFACT]: app-service-logic-connector-edifact.md
 [BizTalk X12]: app-service-logic-connector-x12.md
+[JSON Encoder]: app-service-logic-json-encoder.md
+[Служба преобразования BizTalk]: app-service-logic-transform-xml-documents.md
+[Соединитель Wait]: app-service-logic-wait.md
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -236,7 +236,7 @@
       </reactiveRules>
       <operands>
         <performanceCounter alias="WebRoleA_CPU_Avg_5m"
-          performanceCounterName="\Processor(_Total)\% Processor Time"
+          performanceCounterName="\Processor(_Total)% Processor Time"
           source ="AutoscalingApplicationRole"
           timespan="00:05:00" aggregate="Average"/>
       </operands>
@@ -381,4 +381,4 @@
   [Снижение затрат на размещение TechNet и MSDN и воздействия на окружающую среду с помощью автомасштабирования в среде Azure]: http://msdn.microsoft.com/library/jj838718(PandP.50).aspx
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

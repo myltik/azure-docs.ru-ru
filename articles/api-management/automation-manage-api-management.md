@@ -44,4 +44,4 @@
 * Прочтите запись [Модуль PowerShell для REST API управления API #Azure](https://alexandrebrisebois.wordpress.com/2014/08/17/powershell-module-for-the-azure-api-management-rest-apis/) в блоге сообщества.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

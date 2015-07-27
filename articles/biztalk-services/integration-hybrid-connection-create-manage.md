@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/08/2015" 
+	ms.date="07/14/2015" 
 	ms.author="mandia"/>
 
 
@@ -99,6 +99,7 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 	- Автоматическая настройка локального ресурса для использования основной локальной строки подключения.
 
 - Для прохождения авторизации диспетчер гибридных подключений должен использовать допустимую локальную строку подключения. Для прохождения авторизации веб-приложение или мобильное приложение Azure должны использовать допустимую строку подключения к приложению.
+- Гибридные подключения можно масштабировать путем установки другого экземпляра диспетчера гибридных подключений на другом сервере. Настройте локальный прослушиватель для использования того же адреса в качестве первого локального прослушивателя. В этом случае трафик распределяется случайно (путем циклического перебора) между активными локальными прослушивателями. 
 
 
 ## <a name="ManageHybridConnection"></a>Управление гибридными подключениями
@@ -123,8 +124,8 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 2. Извлеките файлы.
 3. На компьютере, где осуществляется изменение групповой политики, выполните следующие действия. 
 
-	- Скопируйте файлы ADMX в папку *%WINROOT%\PolicyDefinitions*.
-	- Скопируйте файлы ADMX в папку *%WINROOT%\PolicyDefinitions\ru-ru*.
+	- Скопируйте файлы ADMX в папку *%WINROOT%\\PolicyDefinitions*.
+	- Скопируйте файлы ADMX в папку *%WINROOT%\\PolicyDefinitions\\ru-ru*.
 
 После копирования файлов можно изменить политику с помощью редактора групповой политики.
 
@@ -138,11 +139,11 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 
 ## См. также
 
-[REST API для управления службами BizTalk в Microsoft Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx)<br/> [Службы BizTalk: Диаграмма выпусков](biztalk-editions-feature-chart.md)<br/> [Создание службы BizTalk с помощью портала управления Azure](biztalk-provision-services.md)<br/> [Службы BizTalk: вкладки «Панель мониторинга», «Монитор» и «Масштаб»](biztalk-dashboard-monitor-scale-tabs.md)<br/>
+[REST API для управления службами BizTalk в Microsoft Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx)<br/> [Службы BizTalk: Диаграмма выпусков](biztalk-editions-feature-chart.md)<br/> [Создание службы BizTalk с помощью портала управления Azure](biztalk-provision-services.md)<br/> [Службы BizTalk: вкладки "Панель мониторинга", "Монитор" и "Масштаб"](biztalk-dashboard-monitor-scale-tabs.md)<br/>
 
 
 [HybridConnectionTab]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionTab.png
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

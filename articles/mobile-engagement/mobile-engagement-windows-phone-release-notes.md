@@ -12,13 +12,13 @@
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="article"
 	ms.date="04/07/2015" 
 	ms.author="piyushjo" />
 
 #Заметки о выпуске пакета SDK для Windows Phone Silverlight
 
-##3.0.0 (03.04.2015)
+##3\.0.0 (03.04.2015)
 
 -   Обновлен стандартный значок уведомления.
 -   При щелчке уведомления отправляется отклик на действие с системным уведомлением.
@@ -31,4 +31,4 @@
 -   Улучшения безопасности.
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

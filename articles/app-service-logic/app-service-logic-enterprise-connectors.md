@@ -13,10 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
+	ms.date="07/08/2015" 
 	ms.author="mandia"/>
 
 # Корпоративные соединители в службе приложений Microsoft Azure
+
+> [AZURE.NOTE]Этот раздел закрывается. См. статью [Список соединителей и приложений API](app-service-logic-connectors-list.md), чтобы ознакомиться со списком всех доступных встроенных соединителей и приложений API.
+
 Служба приложений Microsoft Azure (или для краткости просто служба приложений) включает несколько соединителей, которые можно использовать с корпоративными системами, такими как SAP и Marketo. С помощью этих соединителей можно легко подключаться к корпоративной системе и выполнять различные задачи.
 
 Эти корпоративные соединители предлагают возможности «Триггер» или «Действие». Триггер запускает новый экземпляр на основе определенного события, такого как обновление записи в MongoDb. Действие — это результат, например, после обновления записи в MongoDB получение записи из MongoDB.
@@ -152,6 +155,7 @@ SugarCRM | <ul><li>URL-адрес сервера</li><li>Имя поставщи
 
 
 ## Дополнительные сведения о соединителях
-[Соединители BizTalk Integration](app-service-logic-integration-connectors.md)<br/> [Соединители «бизнес — бизнес»](app-service-logic-b2b-connectors.md)<br/> [Социальные соединители](app-service-logic-social-connectors.md)<br/> [Соединители протоколов](app-service-logic-protocol-connectors.md)<br/> [Соединители служб данных и приложений](app-service-logic-data-connectors.md)<br/> [Список соединителей и приложений API](app-service-logic-connectors-list.md)<br/><br/> [Что такое соединители и приложения API BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
 
-<!---HONumber=62-->
+[Список соединителей и приложений API](app-service-logic-connectors-list.md)<br/><br/> [Что такое соединители и приложения API BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
+
+<!---HONumber=July15_HO3-->

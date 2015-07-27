@@ -139,4 +139,4 @@ azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d
 [Руководству пользователя Docker]: https://docs.docker.com/userguide/
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

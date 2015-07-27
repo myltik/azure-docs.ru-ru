@@ -174,7 +174,7 @@ ORDER BY 1,2,3
 Дополнительные советы по разработке см. в статье [Общие сведения о разработке][].
 
 <!--Image references-->
-[1]: media/sql-data-warehouse-develop-group-by/sql-data-warehouse-develop-group-by-cube.png
+[1]: media/sql-data-warehouse-develop-group-by-options/sql-data-warehouse-develop-group-by-cube.png
 
 <!--Article references-->
 [Общие сведения о разработке]: sql-data-warehouse-overview-develop.md
@@ -185,4 +185,4 @@ ORDER BY 1,2,3
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

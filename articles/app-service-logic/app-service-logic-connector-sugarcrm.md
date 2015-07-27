@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Соединитель SugarCRM" 
-   description="Использование соединителя SugarCRM" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="anuragdalmia" 
-   manager="dwrede" 
+<properties
+   pageTitle="Соединитель SugarCRM"
+   description="Использование соединителя SugarCRM"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,9 +12,9 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="04/01/2015"
-   ms.author="vagarw"/>
+   ms.workload="integration"
+   ms.date="07/02/2015"
+   ms.author="sameerch"/>
 
 
 #Использование соединителя SugarCRM в приложении логики#
@@ -32,7 +32,7 @@
 
 ##Действия соединителя SugarCRM##
 Ниже перечислены различные действия, доступные в соединителе SugarCRM.
- 
+
 - Создать модуль — с помощью этого действия создается новая запись для модуля SugarCRM, например учетная запись, интерес, контакт.
 
 - Обновить модуль — это действие используется для обновления существующей записи для модуля SugarCRM.
@@ -48,7 +48,7 @@
 - Проверить модуль на повторения — действие используется для проверки наличия повторяющихся записей в модуле.
 
 *Примечание*. Дополнительные сведения о поддерживаемых аргументах в запросе см. в документации по интерфейсу API REST SugarCRM.
-   
+
 ##Создание приложения API соединителя SugarCRM##
 1.	Откройте Azure Marketplace с помощью кнопки "+ СОЗДАТЬ" в нижнем правом углу портала Azure.
 2.	Перейдите в раздел "Мобильные и веб-приложения > Приложения API" и выполните поиск SugarCRM.
@@ -154,7 +154,4 @@
 [8]: ./media/app-service-logic-connector-sugarcrm/8_Update_Account_Address.png
 [9]: ./media/app-service-logic-connector-sugarcrm/9_Create_new_SugarCRM_connector.png
 
-
- 
-
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

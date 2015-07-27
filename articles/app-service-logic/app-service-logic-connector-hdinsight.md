@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Соединитель HDInsight" 
-   description="Использование соединителя HDInsight" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="anuragdalmia" 
-   manager="dwrede" 
+<properties
+   pageTitle="Соединитель HDInsight"
+   description="Использование соединителя HDInsight"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,9 +12,9 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="03/20/2015"
-   ms.author="sutalasi"/>
+   ms.workload="integration"
+   ms.date="07/02/2015"
+   ms.author="sameerch"/>
 
 
 # Соединитель Microsoft HDInsight #
@@ -22,7 +22,7 @@
 Соединители можно использовать в приложениях логики для извлечения, обработки или отправки данных в рамках потока. Соединитель HDInsight позволяет создавать кластеры Hadoop в Azure и отправлять различные задания Hadoop, такие как Hive, Pig, MapReduce и Streaming MapReduce. Azure HDInsight — служба, которая позволяет развернуть и подготовить в облаке кластеры Apache Hadoop, обеспечивая программную платформу для анализа, составления отчетов по большим данным и управления ими. Ядро Hadoop обеспечивает надежное хранение данных в распределенной файловой системе Hadoop (HDFS), а также простую модель программирования MapReduce для параллельной обработки и анализа данных, хранящихся в этой распределенной системе. С помощью соединителя HDInsight можно создать или удалить кластер, отправить задание и ожидать его завершения.
 
 ###Базовые действия
-		
+
 - Создать кластер
 - Ожидать создания кластера
 - Отправить задание Pig
@@ -78,7 +78,7 @@
 
 
 
-- Действие отобразится в приложении логики как настроенное. Будут показаны результаты действия, которые можно использовать в качестве входных данных в следующих действиях. 
+- Действие отобразится в приложении логики как настроенное. Будут показаны результаты действия, которые можно использовать в качестве входных данных в следующих действиях.
 
 ![][7]
 
@@ -121,6 +121,5 @@
 [9]: ./media/app-service-logic-connector-hdinsight/LogicApp5.jpg
 [10]: ./media/app-service-logic-connector-hdinsight/LogicApp6.jpg
 [11]: ./media/app-service-logic-connector-hdinsight/LogicApp7.jpg
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

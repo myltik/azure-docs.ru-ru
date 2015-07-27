@@ -363,4 +363,4 @@ API Rest соответствует спецификации протокола 
 
 [Развертывания шаблонов](https://msdn.microsoft.com/library/azure/dn790549.aspx)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

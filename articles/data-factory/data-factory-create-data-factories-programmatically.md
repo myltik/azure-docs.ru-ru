@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="07/07/2015" 
 	ms.author="spelluru"/>
 
 # Создание, отслеживание фабрик данных Azure и управление ими с помощью Data Factory .NET SDK
@@ -388,4 +388,4 @@
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

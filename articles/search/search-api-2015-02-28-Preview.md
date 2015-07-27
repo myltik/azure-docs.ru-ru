@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search" 
-   ms.date="05/25/2015"
+   ms.date="07/10/2015"
    ms.author="heidist"/>
 
 # API REST службы поиска Azure, версия 2015-02-28-Preview
@@ -795,7 +795,7 @@ ________________________________________
 	</tr>
   	<tr>
 		<td>Корейский</td>
-		<td>ko.microsfot</td>
+		<td>ko.microsoft</td>
 		<td>
 		<ul>
 			<li>Редуктивный парадигматический модуль (с лемматизацией)</li>
@@ -1872,7 +1872,7 @@ ________________________________________
 
     GET /indexes/hotels/docs?search=*&$skip=0&$top=10&api-version=2015-02-28-Preview
 
-7) Разбиение на страницы: получение второй страницы элементов (размер страницы — 10).
+8) Разбиение на страницы: получение второй страницы элементов (размер страницы — 10).
 
     GET /indexes/hotels/docs?search=*&$skip=10&$top=10&api-version=2015-02-28-Preview
 
@@ -2107,4 +2107,4 @@ URI запроса содержит параметр [index name] и [key], ко
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

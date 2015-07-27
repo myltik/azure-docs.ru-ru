@@ -2,7 +2,6 @@
 	pageTitle="Служба приложений Azure и ее влияние на существующие службы Azure" 
 	description="В этом разделе объясняется, как новая служба приложений Azure и ее функциональные возможности влияют на существующие службы в Azure." 
 	authors="yochayk" 
-	writer="yochayk" 
 	editor="yochayk" 
 	manager="nirma" 
 	services="app-service\web" 
@@ -91,4 +90,4 @@
 Дополнительные сведения см. в [документации по службе приложений](http://azure.microsoft.com/documentation/services/app-service/).
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

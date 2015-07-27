@@ -73,8 +73,7 @@
 
 2. Щелкните значок **Создать** в левом нижнем углу страницы, затем выберите **Данные + Хранилище** > **Хранилище**. Присвойте учетной записи хранения уникальное имя и создайте для нее новую [группу ресурсов](../resource-group-overview.md).
 
-  	<!-- ![New Button](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzurePlusNew.png) -->
-	После создания учетной записи хранения на кнопке **Уведомления**загорится зеленым слово **УСПЕШНО** и откроется колонка учетной записи хранения, в которой будет видно, что учетная запись относится к созданной вами группе ресурсов.
+  	<!-- ![New Button](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzurePlusNew.png) -->После создания учетной записи хранения на кнопке **Уведомления**загорится зеленым слово **УСПЕШНО** и откроется колонка учетной записи хранения, в которой будет видно, что учетная запись относится к созданной вами группе ресурсов.
 
   	<!-- ![Quick Create](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzureStorageCreate.png) -->
 
@@ -217,4 +216,4 @@
 [Пакет SDK для Azure для Python]: https://github.com/Azure/azure-sdk-for-python
  
 
-<!----HONumber=62-->
+<!---HONumber=July15_HO3-->

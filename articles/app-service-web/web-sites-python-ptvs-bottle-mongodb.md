@@ -239,4 +239,4 @@
 [Проекты для облачной службы]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

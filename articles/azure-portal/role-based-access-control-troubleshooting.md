@@ -4,7 +4,6 @@
 	services="azure-portal"
 	documentationCenter="na" 
 	authors="stepsic-microsoft-com" 
-	writer="" 
 	manager="terrylan" 
 	editor=""/>
 
@@ -83,4 +82,4 @@
     
 Если у вас нет доступа ни к одной из этих плиток, попросите администратора предоставить вам доступ к группе ресурсом с правами участника.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
 	pageTitle="Использование тегов для организации ресурсов в Azure" 
-	description="" 
-	services="" 
+	description="Здесь описано, как применить теги, чтобы организовать ресурсы для выставления счетов и управления." 
+	services="azure-resource-manager" 
 	documentationCenter="" 
 	authors="tfitzmac"
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="multiple" 
+	ms.service="azure-resource-manager" 
 	ms.workload="multiple" 
 	ms.tgt_pltfrm="AzurePortal" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.date="07/15/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -121,4 +121,4 @@
 - [Создание нового субъекта-службы Azure с помощью классического портала Azure](./resource-group-create-service-principal-portal.md)  
   
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

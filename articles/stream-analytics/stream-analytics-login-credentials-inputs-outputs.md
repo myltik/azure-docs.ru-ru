@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="04/24/2015" 
+	ms.date="07/01/2015" 
 	ms.author="jeffstok"/>
 
 #Смена учетных данных для источников входных данных и мест назначения выходных данных
@@ -56,7 +56,8 @@ Azure Stream Analytics в настоящее время не допускает 
 11. Перейдите к части 2.  
 
 ###База данных SQL
-[AZURE.NOTE]Примечание. Необходимо подключиться к службе базы данных SQL. Здесь будет показано, как это сделать с помощью средств управления на портале управления Azure, но вы можете также использовать клиентские средства, например SQL Server Management Studio.
+
+>[AZURE.NOTE]Примечание. Необходимо подключиться к службе базы данных SQL. Здесь будет показано, как это сделать с помощью средств управления на портале управления Azure, но вы можете также использовать клиентские средства, например SQL Server Management Studio.
 
 1.  Перейдите к расширению «Базы данных SQL» на портале управления Azure: ![рисунок14][graphic14]
 2.  Найдите базы данных SQL, используемые заданием, и **щелкните ссылку на сервер** в той же строке: ![рисунок15][graphic15]
@@ -136,7 +137,7 @@ Azure Stream Analytics в настоящее время не допускает 
 	Command(s) completed successfully.
 
 ## Получение справки
-Дополнительную помощь и поддержку вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/ru-ru/home?forum=AzureStreamAnalytics).
+Дополнительную помощь и поддержку вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## Дальнейшие действия
 
@@ -192,4 +193,4 @@ Azure Stream Analytics в настоящее время не допускает 
 [graphic43]: ./media/stream-analytics-login-credentials-inputs-outputs/43-stream-analytics-login-credentials-inputs-outputs.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

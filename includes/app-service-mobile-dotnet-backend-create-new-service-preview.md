@@ -41,4 +41,4 @@
 <!-- URLs. -->
 [портал Azure]: https://portal.azure.com/
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

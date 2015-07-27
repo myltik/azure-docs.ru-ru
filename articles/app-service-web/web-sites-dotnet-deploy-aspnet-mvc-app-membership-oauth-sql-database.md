@@ -6,7 +6,7 @@
 	authors="Rick-Anderson" 
 	writer="Rick-Anderson" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor=""/>
 
 <tags 
 	ms.service="app-service-web" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/06/2015" 
+	ms.date="06/16/2015" 
 	ms.author="riande"/>
 
 
@@ -78,7 +78,7 @@
 ### Задание верхнего и нижнего колонтитула страницы
 
 
-1. В **обозревателе решений** откройте файл *Layout.cshtml* в папке *Views\Shared*.
+1. В **обозревателе решений** откройте файл *Layout.cshtml* в папке *Views\\Shared*.
 
 	![_Layout.cshtml в обозревателе решений][newapp004]
 
@@ -275,7 +275,7 @@
 
 
 	Команда **add-migration Initial** создает файл с именем **&lt;date_stamp&gt;Initial** в папке *Migrations*, использованной при создании базы данных. Первый параметр (**Initial**) является произвольным и используется для создания имени файла. Новые файлы классов можно просмотреть в **обозревателе решений**. В классе **Initial** метод **Up** создает таблицу Contacts, а метод **Down** (используется при возвращении к предыдущему состоянию) удаляет эту таблицу.
-3. Откройте файл *Migrations\Configuration.cs*. 
+3. Откройте файл *Migrations\\Configuration.cs*. 
 4. Добавьте следующее пространство имен. 
 
     	 using ContactManager.Models;
@@ -365,7 +365,7 @@
 ## Использование API членства
 В этом разделе в базу данных членства будут добавлены локальный пользователь и роль *canEdit*. Только пользователи, входящие в роль *canEdit*, смогут изменять данные. Рекомендуется именовать роли по выполняемым ими действиям, например имя *canEdit* предпочтительнее имени *admin*. По мере развития приложения можно добавлять новые роли, например роль *canDeleteMembers*, имя которой предпочтительнее, чем менее описательное имя *superAdmin*.
 
-1. Откройте файл *migrations\configuration.cs* и добавьте следующие инструкции `using`:
+1. Откройте файл *migrations\\configuration.cs* и добавьте следующие инструкции `using`:
 
         using Microsoft.AspNet.Identity;
         using Microsoft.AspNet.Identity.EntityFramework;
@@ -408,9 +408,9 @@
    Этот код создает новую роль с именем *canEdit*, создает нового локального пользователя *user1@contoso.com* и добавляет *user1@contoso.com* к роли *canEdit*. Дополнительную информацию см. в [учебниках по удостоверениям ASP.NET](http://www.asp.net/identity/overview/features-api).
 
 ## Использование временного кода для добавления новых пользователей социальных сетей к роли canEdit  ##
-В этом разделе будет временно изменен метод **ExternalLoginConfirmation** в контроллере Account для добавления новых пользователей, регистрирующихся с помощью поставщика OAuth, к роли *canEdit*. Мы временно изменим метод **ExternalLoginConfirmation** таким образом, чтобы новые пользователи автоматически добавлялись к роли администратора. Пока нет средств для добавления ролей и управления ими, мы будем использовать приведенный ниже код временной автоматической регистрации. Надеемся в будущем предоставить средство, аналогичное [WSAT](http://msdn.microsoft.com/ru-ru/library/ms228053.aspx), которое позволит вам создавать и изменять учетные записи пользователей и роли.
+В этом разделе будет временно изменен метод **ExternalLoginConfirmation** в контроллере Account для добавления новых пользователей, регистрирующихся с помощью поставщика OAuth, к роли *canEdit*. Мы временно изменим метод **ExternalLoginConfirmation** таким образом, чтобы новые пользователи автоматически добавлялись к роли администратора. Пока нет средств для добавления ролей и управления ими, мы будем использовать приведенный ниже код временной автоматической регистрации. Надеемся в будущем предоставить средство, аналогичное [WSAT](http://msdn.microsoft.com/library/ms228053.aspx), которое позволит вам создавать и изменять учетные записи пользователей и роли.
 
-1. Откройте файл **Controllers\AccountController.cs** и перейдите к методу **ExternalLoginConfirmation**.
+1. Откройте файл **Controllers\\AccountController.cs** и перейдите к методу **ExternalLoginConfirmation**.
 1. Добавьте следующий вызов в **AddToRoleAsync** прямо перед вызовом **SignInAsync**.
 
                 await UserManager.AddToRoleAsync(user.Id, "canEdit");
@@ -429,7 +429,7 @@
 
 В этом разделе будет применен атрибут [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) для ограничения доступа к методам действий. Анонимные пользователи смогут просматривать только метод действия **Индекс** главного контроллера. Зарегистрированные пользователи смогут видеть контактные данные (страницы **Индекс** и **Сведения** контроллера Cm), сведения о программе и страницы связи. Только пользователи с назначенной ролью *canEdit* получат доступ к методам действий, изменяющих данные.
 
-1. Добавьте в приложение фильтры [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) и [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx). В качестве альтернативы можно добавить атрибуты [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) и [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) для каждого контроллера, но с точки зрения безопасности рекомендуется применять их ко всему приложению. В случае глобального добавления атрибутов каждый новый контроллер и метод действия будет защищен автоматически, вам не потребуется помнить о необходимости их применения. Дополнительные сведения см. в разделе [Защита приложений ASP.NET MVC и новый атрибут AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) Откройте файл *App_Start\FilterConfig.cs* и замените метод *RegisterGlobalFilters* следующим кодом (который добавляет два фильтра): <pre> public static void RegisterGlobalFilters(GlobalFilterCollection filters) { filters.Add(new HandleErrorAttribute()); <mark>filters.Add(new System.Web.Mvc.AuthorizeAttribute()); filters.Add(new RequireHttpsAttribute());</mark> } </pre>
+1. Добавьте в приложение фильтры [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) и [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx). В качестве альтернативы можно добавить атрибуты [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) и [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) для каждого контроллера, но с точки зрения безопасности рекомендуется применять их ко всему приложению. В случае глобального добавления атрибутов каждый новый контроллер и метод действия будет защищен автоматически, вам не потребуется помнить о необходимости их применения. Дополнительные сведения см. в разделе [Защита приложений ASP.NET MVC и новый атрибут AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) Откройте файл *App_Start\\FilterConfig.cs* и замените метод *RegisterGlobalFilters* следующим кодом (который добавляет два фильтра): <pre> public static void RegisterGlobalFilters(GlobalFilterCollection filters) { filters.Add(new HandleErrorAttribute()); <mark>filters.Add(new System.Web.Mvc.AuthorizeAttribute()); filters.Add(new RequireHttpsAttribute());</mark> } </pre>
 
 
 
@@ -627,4 +627,4 @@
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

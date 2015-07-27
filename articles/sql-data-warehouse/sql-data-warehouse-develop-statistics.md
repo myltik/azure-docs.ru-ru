@@ -152,7 +152,7 @@ CREATE STATISTICS stats_col1 ON table1 (col1) WHERE col1 > '2000101' AND col1 < 
 
 > [AZURE.NOTE]Гистограмма, используемая для оценки количества строк в результатах запроса, доступна только для первого столбца, указанного в определении объекта статистики.
 
-В этом примере гистограмма создана для *product_category*. Статистика между столбцами вычисляется по *product_category* и *product_sub_c\ategory*:
+В этом примере гистограмма создана для *product_category*. Статистика между столбцами вычисляется по *product_category* и *product_sub_c\\ategory*:
 
 ```
 CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category) WHERE product_category > '2000101' AND product_category < '20001231' WITH SAMPLE = 50 PERCENT;
@@ -429,12 +429,12 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 
 
 ## Дальнейшие действия
-Дополнительные советы по разработке см. в [обзоре разработки для хранилища данных SQL][].
+Дополнительные советы по разработке см. в разделе [Общие сведения о разработке для хранилища данных SQL][].
 
 <!--Image references-->
 
 <!--Link references--In actual articles, you only need a single period before the slash.-->
-[обзоре разработки для хранилища данных SQL]: ./sql-data-warehouse-overview-develop/
+[Общие сведения о разработке для хранилища данных SQL]: ./sql-data-warehouse-overview-develop/
 [временных таблицах]: ./sql-data-warehouse-develop-temporary-tables/
 
 <!-- External Links -->
@@ -452,4 +452,4 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 [sys.table_types]: https://msdn.microsoft.com/library/bb510623.aspx
 [Обновление статистики]: https://msdn.microsoft.com/library/ms187348.aspx
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

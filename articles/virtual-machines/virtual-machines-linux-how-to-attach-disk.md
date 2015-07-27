@@ -3,7 +3,7 @@
 	description="Узнайте, как присоединить диск данных к виртуальной машине Azure и инициализировать, чтобы подготовить к использованию."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="dsk-2015"
 	manager="timlt"
 	editor="tysonn"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/29/2015"
-	ms.author="kathydav"/>
+	ms.author="dkshir"/>
 
 # Подключение диска данных к виртуальной машине Linux
 
@@ -140,6 +140,5 @@
 <!--Link references-->
 [Agent]: virtual-machines-linux-agent-user-guide.md
 [Logon]: virtual-machines-linux-how-to-log-on.md
- 
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

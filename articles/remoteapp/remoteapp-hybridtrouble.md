@@ -3,7 +3,7 @@
     pageTitle="Устранение неполадок при создании гибридных коллекций RemoteApp"
     description="Устранение неполадок при сбоях создания гибридной коллекции RemoteApp" 
     services="remoteapp" 
-    solutions="" documentationCenter="" 
+	documentationCenter="" 
     authors="vkbucha" 
     manager="mbaldwin" />
 
@@ -83,4 +83,4 @@
 
 Созданное или добавленное имя домена должно быть внутренним именем домена (а не именем домена Azure AD) и иметь разрешимый формат DNS (contoso.local). Например, если у вас имеется внутреннее имя Active Directory (contoso.local) и имя участника-пользователя Active Directory (contoso.com), при создании коллекции необходимо использовать внутреннее имя.
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -4,7 +4,6 @@
 	services="app-service\web" 
 	documentationCenter="" 
 	authors="MikeWasson" 
-	writer="mwasson" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -94,4 +93,4 @@
 * Руководство по смене старого портала на новый портал см. в разделе [Справочник по навигации на предварительной версии портала](http://go.microsoft.com/fwlink/?LinkId=529715).
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

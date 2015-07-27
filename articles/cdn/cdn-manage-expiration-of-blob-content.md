@@ -23,7 +23,7 @@
 Имеется два варианта управления сроком жизни.
 
 1.	Не задавайте значения кэша, чтобы использовать срок жизни по умолчанию длиной в 7 дней. 
-2.	Явно задайте свойство *x-ms-blob-cache-control* в запросе **Put Blob**, **Put Block List** или **Set Blob Properties** или используйте управляемую библиотеку Azure для задания свойства [BlobProperties.CacheControl](http://msdn.microsoft.com/library/microsoft.windowsazure.storageclient.blobproperties.cachecontrol.aspx). При установке этого свойства задается значение заголовка *Cache-Control* BLOB-объекта. В заголовке или свойстве должно быть указано соответствующее значение в секундах. Например, чтобы задать максимальный период кэширования, равный одному году, можно указать заголовок запроса `x-ms-blob-cache-control: public, max-age=31556926`. Дополнительные сведения о задании заголовков кэширования см. в [спецификации HTTP/1.1](http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html).  
+2.	Явно задайте свойство *x-ms-blob-cache-control* в запросе **Put Blob**, **Put Block List** или **Set Blob Properties** или используйте управляемую библиотеку Azure для задания свойства [BlobProperties.CacheControl](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol.aspx). При установке этого свойства задается значение заголовка *Cache-Control* BLOB-объекта. В заголовке или свойстве должно быть указано соответствующее значение в секундах. Например, чтобы задать максимальный период кэширования, равный одному году, можно указать заголовок запроса `x-ms-blob-cache-control: public, max-age=31556926`. Дополнительные сведения о задании заголовков кэширования см. в [спецификации HTTP/1.1](http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html).  
 
 Любое содержимое, которое вы хотите кэшировать через CDN, должно храниться в вашей учетной записи хранения Azure в виде общедоступного BLOB-объекта. Дополнительные сведения о службе BLOB-объектов Azure см. в разделе **Основные понятия службы BLOB-объектов**.
 
@@ -96,4 +96,4 @@
 
 [Управление сроком действия содержимого облачных служб в сети доставки содержимого (CDN Azure)](./cdn-manage-expiration-of-cloud-service-content.md)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

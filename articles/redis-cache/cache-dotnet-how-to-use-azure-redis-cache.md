@@ -372,4 +372,4 @@
 
 [Бесплатная пробная версия Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

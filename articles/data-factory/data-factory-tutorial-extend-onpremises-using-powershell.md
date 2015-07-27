@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="07/07/2015" 
 	ms.author="spelluru"/>
 
 
@@ -73,14 +73,14 @@
 
 Прежде всего необходимо создать базу данных SQL Server, таблицу, пользовательские типы и хранимые процедуры. Они будут использоваться для перемещения результатов **MarketingCampaignEffectiveness** из большого двоичного объекта Azure в базу данных SQL Server.
 
-1.	В **проводнике Windows** перейдите к вложенной папке **OnPremises** в папке **C:\ADFWalkthrough** (или в расположении, в которое вы извлекли примеры файлов).
+1.	В **проводнике Windows** перейдите к вложенной папке **OnPremises** в папке **C:\\ADFWalkthrough** (или в расположении, в которое вы извлекли примеры файлов).
 2.	Откройте **prepareOnPremDatabase&Table.ps1** в любом редакторе, замените выделенные данные информацией своего сервера SQL Server и сохраните файл (укажите данные **проверки подлинности SQL**. Для примера в этом учебнике включите проверку подлинности SQL для базы данных. 
 			
 		$dbServerName = "<servername>"
 		$dbUserName = "<username>"
 		$dbPassword = "<password>"
 
-3. В **Azure PowerShell** перейдите к папке **C:\ADFWalkthrough\OnPremises**.
+3. В **Azure PowerShell** перейдите к папке **C:\\ADFWalkthrough\\OnPremises**.
 4.	Запустите **prepareOnPremDatabase&Table.ps1** **(знак & в двойных кавычках или как показано ниже)**.
 			
 		& '.\prepareOnPremDatabase&Table.ps1'
@@ -115,7 +115,7 @@
 
 ### Создание локальной логической таблицы
 
-1.	В **Azure PowerShell** перейдите к папке **C:\ADFWalkthrough\OnPremises**. 
+1.	В **Azure PowerShell** перейдите к папке **C:\\ADFWalkthrough\\OnPremises**. 
 2.	Воспользуйтесь командлетом **New-AzureDataFactoryTable**, чтобы создать таблицы, как показано для **MarketingCampaignEffectivenessOnPremSQLTable.json**.
 
 			
@@ -171,4 +171,4 @@
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

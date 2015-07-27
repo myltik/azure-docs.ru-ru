@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Соединитель FTP"
 	description="Начало работы с соединителем FTP"
-	authors="anuragdalmia"
+	authors="rajram"
 	manager="dwrede"
 	editor=""
 	services="app-service\logic"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/05/2015"
-	ms.author="rajeshramabathiran"/>
+	ms.date="07/01/2015"
+	ms.author="rajram"/>
 
 #Соединитель FTP
 
@@ -178,4 +178,4 @@
 [13]: ./media/app-service-logic-connector-ftp/ConfiguredUploadFile.PNG
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

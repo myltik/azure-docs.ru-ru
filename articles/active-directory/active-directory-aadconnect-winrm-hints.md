@@ -32,7 +32,7 @@
 - в командном окне PSH с повышенными привилегиями выполните команду Enable-PSRemoting -force.
 	- На компьютере, где запущен мастер (если целевой компьютер не присоединен к домену или присоединен к ненадежному домену), выполните следующие действия. 
 
-- В командном окне PSH с повышенными привилегиями выполните команду Set-Item WSMan:\localhost\Client\TrustedHosts –Value <DMZServerFQDN> -Force -Concatenate.
+- В командном окне PSH с повышенными привилегиями выполните команду Set-Item WSMan:\\localhost\\Client\\TrustedHosts –Value <DMZServerFQDN> -Force -Concatenate.
 	- В диспетчере серверов:
 		- Добавьте узел DMZ WAP в пул компьютеров (Диспетчер серверов -> Управление -> Добавление серверов -> DNS (вкладка)). 
 		- В диспетчере серверов на вкладке «Все серверы» щелкните правой кнопкой мыши WAP-сервер и выберите параметр «Управлять как», введите локальные учетные данные (не домена) для WAP-компьютера. 
@@ -45,4 +45,4 @@
 * [Выборочная установка Azure AD Connect](active-directory-aadconnect-get-started-custom.md)
 * [Azure AD Connect на портале MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx) 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -113,7 +113,7 @@ After you have created the virtual machine in Azure and installed MongoDB, be su
 
 1. В командной строке измените каталоги на каталог **tasklist**. Если каталог **tasklist** не существует, создайте его.
 
-	> [AZURE.NOTE]Этот учебный курс ссылается на папку **tasklist**. Полный путь к этой папке опущен, поскольку семантика путей зависит от операционной системы. Эту папку нужно создать в легкодоступном месте локальной файловой системы, например **~/node/tasklist** или **c:\node\tasklist**
+	> [AZURE.NOTE]Этот учебный курс ссылается на папку **tasklist**. Полный путь к этой папке опущен, поскольку семантика путей зависит от операционной системы. Эту папку нужно создать в легкодоступном месте локальной файловой системы, например **~/node/tasklist** или **c:\\node\\tasklist**
 
 2. Введите следующую команду для установки команды express:
 
@@ -572,4 +572,4 @@ To test the application on your local machine, perform the following steps:
 [mongodbonazure]: http://docs.mongodb.org/ecosystem/tutorial/install-mongodb-on-linux-in-azure/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

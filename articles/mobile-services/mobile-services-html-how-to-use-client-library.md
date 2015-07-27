@@ -608,4 +608,4 @@
 [Вызов из клиента настраиваемого интерфейса API]: mobile-services-html-call-custom-api.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

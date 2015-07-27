@@ -1,9 +1,9 @@
 
 <properties 
-    pageTitle="Требования к образам RemoteApp"
-    description="Требования для создания образов для RemoteApp" 
+    pageTitle="Требования к образам Azure RemoteApp"
+    description="Узнайте требования к созданию образов, используемых с Azure RemoteApp" 
     services="remoteapp" 
-    solutions="" documentationCenter="" 
+	documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
@@ -13,15 +13,15 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="05/28/2015" 
+    ms.date="07/06/2015" 
     ms.author="elizapo" />
 
 
 
-# Требования к образам RemoteApp
-RemoteApp использует образ Windows Server 2012 R2 для размещения всех программ, которыми вы хотите поделиться с пользователями. Чтобы создать пользовательский образ RemoteApp, вы можете начать с существующего образа или [создать новый](remoteapp-create-custom-image.md).
+# Требования к образам Azure RemoteApp
+Azure RemoteApp использует образ Windows Server 2012 R2 для размещения всех программ, доступ к которым необходимо предоставить пользователям. Чтобы создать собственный образ, можно начать с имеющегося образа или [создать новый](remoteapp-create-custom-image.md).
 
-> [AZURE.TIP]Знали ли вы, что подписка на Azure RemoteApp предоставляет доступ к готовому образу с Windows Server 2012 R2 в коллекции виртуальных машин Azure, который можно использовать для создания собственного образа шаблона? [Узнайте об этом подробнее](remoteapp-image-on-azurevm.md).
+> [AZURE.TIP]Знаете ли вы, что ваша подписка на Azure RemoteApp дает вам доступ к образу Windows Server 2012 R2 в коллекции виртуальных машин Azure, который можно использовать для создания собственного шаблона образа? [Узнайте об этом подробнее](remoteapp-image-on-azurevm.md).
 
 
 К образу, который может быть передан для использования с Azure RemoteApp, предъявляются следующие требования:
@@ -43,4 +43,4 @@ RemoteApp использует образ Windows Server 2012 R2 для разм
 - Отправка VHD из цепочки моментальных снимков не поддерживается.
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

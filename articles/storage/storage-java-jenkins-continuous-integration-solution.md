@@ -1,18 +1,11 @@
 <properties 
-	urlDisplayName="Jenkins Continuous Integration" 
 	pageTitle="Использование хранилища Azure с решением непрерывной интеграции Jenkins — Microsoft Azure" 
-	metaKeywords="" 
 	description="В этом уроке вы научитесь использовать службы BLOB-объектов Azure в качестве репозитория для артефактов построения, созданных решением непрерывной интеграции Jenkins." 
-	metaCanonical="" 
 	services="storage" 
 	documentationCenter="java" 
-	title="" 
 	authors="rmcmurray" 
-	solutions="" 
 	manager="wpickett" 
-	editor="jimbe" 
-	scriptId="" 
-	videoId=""/>
+	editor="jimbe" />
 
 <tags 
 	ms.service="storage" 
@@ -172,4 +165,4 @@ Jenkins обеспечивает непрерывную интеграцию п�
   [ms-open-tech]: http://msopentech.com
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO3-->

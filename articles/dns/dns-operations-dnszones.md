@@ -24,7 +24,7 @@
 
 Чтобы создать зону DNS для размещения домена, используйте командлет New-AzureDnsZone:
 
-		PS C:\> $zone = New-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup [–Tag $tags] 
+		PS C:> $zone = New-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup [–Tag $tags] 
 
 Эта операция создает новую зону DNS в службе Azure DNS и возвращает локальный объект, соответствующий этой зоне. При необходимости можно указать массив тегов диспетчера ресурсов Azure. Дополнительные сведения см. в разделе [Etag и теги](../dns-getstarted-create-dnszone#Etags-and-tags).
 
@@ -36,14 +36,14 @@
 
 Чтобы получить зону DNS, используйте командлет Get-AzureDnsZone:
 
-		PS C:\> $zone = Get-AzureDnsZone -Name contoso.com –ResourceGroupName MyAzureResourceGroup
+		PS C:> $zone = Get-AzureDnsZone -Name contoso.com –ResourceGroupName MyAzureResourceGroup
 
 Эта операция возвращает объект зоны DNS, представляющий существующую зону в Azure DNS. Объект содержит данные о зоне (например, число наборов записей), но не сами наборы записей.
 
 ## Перечисление зон DNS
 Если опустить имя зоны в командлете Get-AzureDnsZone, можно получить список всех зон в группе ресурсов:
 
-	PS C:\> $zoneList = Get-AzureDnsZone -ResourceGroupName MyAzureResourceGroup
+	PS C:> $zoneList = Get-AzureDnsZone -ResourceGroupName MyAzureResourceGroup
 Эта операция возвращает массив объектов зоны.
 
 ## Обновление зоны DNS
@@ -55,14 +55,14 @@
  
 Укажите зону с помощью имени и группы ресурсов.
 
-	PS C:\> Set-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup [-Tag $tags]
+	PS C:> Set-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup [-Tag $tags]
 
 ### Вариант 2
 Укажите зону с помощью объекта $zone, полученного из командлета Get-AzureDnsZone:
 
-	PS C:\> $zone = Get-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
-	PS C:\> <..modify $zone.Tags here...>
-	PS C:\> Set-AzureDnsZone -Zone $zone [-Overwrite]
+	PS C:> $zone = Get-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
+	PS C:> <..modify $zone.Tags here...>
+	PS C:> Set-AzureDnsZone -Zone $zone [-Overwrite]
 
 При использовании команды Set-AzureDnsZone с объектом $zone используются проверки Etag, чтобы параллельные изменения не удалялись. Для подавления этих проверок укажите флажок "-Overwrite". Подробные сведения см. в разделе [Etag и теги](../dns-getstarted-create-dnszone#Etags-and-tags).
 
@@ -78,15 +78,15 @@
 
 Укажите зону с помощью имени зоны и имени группы ресурсов:
 
-	PS C:\> Remove-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup [-Force] 
+	PS C:> Remove-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup [-Force] 
 
 Для этой операции можно использовать необязательный параметр "-Force", который подавляет запрос подтверждения на удаление зоны DNS.
 ### Вариант 2
 
 Укажите зону с помощью объекта $zone, полученного из командлета Get-AzureDnsZone:
 
-	PS C:\> $zone = Get-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
-	PS C:\> Remove-AzureDnsZone -Zone $zone [-Force] [-Overwrite]
+	PS C:> $zone = Get-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
+	PS C:> Remove-AzureDnsZone -Zone $zone [-Force] [-Overwrite]
 
 Параметр "-Force" имеет такой же эффект, что и в 1 варианте.
 
@@ -94,7 +94,7 @@
 
 Объект зоны также можно направить в конвейер, а не передавать в качестве параметра:
 
-	PS C:\> Get-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup | Remove-AzureDnsZone [-Force] [-Overwrite]
+	PS C:> Get-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup | Remove-AzureDnsZone [-Force] [-Overwrite]
 
 ## Дальнейшие действия
 
@@ -103,4 +103,4 @@
 
 [Автоматизация операций с помощью пакета SDK для .NET](../dns-sdk)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

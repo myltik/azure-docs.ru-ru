@@ -86,4 +86,4 @@
 - [Службы BizTalk: регулирование](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

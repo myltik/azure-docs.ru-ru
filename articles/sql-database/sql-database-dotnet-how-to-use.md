@@ -3,7 +3,7 @@
 	description="Приступая к работе с Базой данных SQL. Узнайте, как создать экземпляр Базы данных SQL и подключиться к нему с помощью поставщика ADO.NET, ODBC и EntityClient." 
 	services="sql-database" 
 	documentationCenter=".net" 
-	authors="jeffreyg" 
+	authors="jeffgoll" 
 	manager="jeffreyg" 
 	editor=""/>
 
@@ -13,13 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/16/2015" 
+	ms.date="07/07/2015" 
 	ms.author="jeffreyg"/>
-
-
-
-
-
 
 
 # Как использовать базу данных SQL Azure в приложениях .NET
@@ -46,11 +41,11 @@
 
 Теперь создайте и настройте базу данных и сервер. На портале управления исправленные рабочие процессы позволяют сначала создать базу данных, а затем подготовить сервер к работе.
 
-<h3 name="createsrvr">Создание логического сервера и экземпляра базы данных</h3>
+**Создание логического сервера и экземпляра базы данных**
 
-1. Выполните вход на [портал управления Azure][].
+1. Выполните вход на [портал управления Azure](http://manage.windowsazure.com).
 
-2. В нижней части страницы щелкните **+СОЗДАТЬ**.
+2. В нижней части страницы щелкните **СОЗДАТЬ**.
 
 3. Щелкните элемент **Службы данных**.
 
@@ -66,7 +61,7 @@
 
 	МАКСИМАЛЬНЫЙ РАЗМЕР задается при создании базы данных, и затем может быть изменен с помощью элемента "ИЗМЕНИТЬ БАЗУ ДАННЫХ". МАКСИМАЛЬНЫЙ РАЗМЕР обеспечивает возможность ограничивать размер базы данных.
 
-	Для любой базы данных, созданной на Azure, существует три реплики. Это необходимо для обеспечения высокой доступности. Отработка отказа является прозрачной и интегрирована в службу. [Соглашение об уровне обслуживания][] обеспечивает 99,9 % рабочего времени для Базы данных SQL.
+	Для любой базы данных, созданной на Azure, существует три реплики. Это необходимо для обеспечения высокой доступности. Отработка отказа является прозрачной и интегрирована в службу.
 
 8. В разделе «Сервер» выберите **Создать сервер базы данных SQL**.
 
@@ -91,16 +86,16 @@
 После создания базы данных щелкните ее, чтобы открыть соответствующую панель мониторинга. Панель мониторинга содержит строки подключения, которые можно копировать и использовать в коде приложения. В ней также отображается URL-адрес управления, который необходимо указать при подключении к базе данных из среды Management Studio или другого средства администрирования.
 
 
-![изображение](./media/sql-database-dotnet-how-to-use/SQLDbDashboard.PNG)
+![Панель мониторинга Базы данных SQL](./media/sql-database-dotnet-how-to-use/SQLDbDashboard.PNG)
 
 
 На следующем шаге будет настроен брандмауэр, чтобы разрешить подключение для приложений, работающих в вашей сети.
 
-<h3 name="configFWLogical">Настройка брандмауэра для логического сервера</h3>
+**Настройка брандмауэра для логического сервера**
 
 1. Выберите **Базы данных SQL**, щелкните элемент **Серверы** в верхней части страницы, а затем — только что созданный сервер.
 
-	![Image2](./media/sql-database-dotnet-how-to-use/SQLDBFirewall.PNG)
+	![Настройка брандмауэра](./media/sql-database-dotnet-how-to-use/SQLDBFirewall.PNG)
 
 2. Нажмите **Настроить**.
 
@@ -114,7 +109,7 @@
 
 6. Щелкните значок галочки рядом с правилом, чтобы сохранить его.
 
-	![Image3](./media/sql-database-dotnet-how-to-use/SQLDBIPRange.PNG)
+	![Диапазон IP-адресов для настройки брандмауэра](./media/sql-database-dotnet-how-to-use/SQLDBIPRange.PNG)
 
 7. Чтобы завершить шаг, нажмите кнопку **Сохранить** в нижней части страницы. Если кнопка **Сохранить** не видна, обновите страницу браузера.
 
@@ -126,7 +121,7 @@
 В этом разделе описано подключение к экземпляру базы данных SQL с помощью других поставщиков данных .NET Framework. Основные рекомендации по подключению к серверу Базы данных и базе данных SQL см. в статье:
 
 
-- [Подключение к базе данных SQL: основные рекомендации](../sql-database-connect-central-recommendations/).
+- [Подключение к базе данных SQL: основные рекомендации](../sql-database-connect-central-recommendations.md).
 
 
 Если вы решили использовать Visual Studio и при этом текущая конфигурация не содержит внешнее веб-приложение Azure, на компьютере разработчика не потребуется устанавливать какие-либо дополнительные инструменты или пакеты SDK. Просто начните разработку вашего приложения.
@@ -209,35 +204,11 @@
 
     metadata=res://*/SchoolModel.csdl|res://*/SchoolModel.ssdl|res://*/SchoolModel.msl;provider=System.Data.SqlClient;provider connection string="Data Source=xxxxxxxxxx.database.windows.net;Initial Catalog=School;Persist Security Info=True;User ID=MyAdmin;Password=***********"
 
-Дополнительную информацию см. в разделе [Поставщик EntityClient для платформы Entity Framework][].
+Дополнительную информацию см. в разделе [Поставщик EntityClient для платформы Entity Framework](http://msdn.microsoft.com/library/bb738561.aspx).
 
 ## Дальнейшие действия
 
-Теперь, когда вы ознакомились с основами подключения к базе данных SQL, перейдите к следующим ресурсам для получения дополнительной информации о базе данных SQL.
-
--   [Разработка в базе данных SQL Azure: инструкции][]
--   [База данных SQL][]
-
-
-  [What is SQL Database]: #WhatIs
-  [Sign in to Azure]: #PreReq1
-  [Create and Configure SQL Database]: #PreReq2
-  [Connect to SQL Database]: #connect-db
-  [Connect Using ADO.NET]: #using-sql-server
-  [Connect Using ODBC]: #using-ODBC
-  [Connect Using EntityClient Provider]: #using-entity
-  [Next Steps]: #next-steps
-  [Azure Free Trial]: {localLink:2187} "«Бесплатная пробная версия»"
-  [портал управления Azure]: http://manage.windowsazure.com
-  [How to Create a SQL Database Server]: http://social.technet.microsoft.com/wiki/contents/articles/how-to-create-a-sql-azure-server.aspx
-  [Management Portal for SQL Database]: http://msdn.microsoft.com/library/windowsazure/gg442309.aspx
-  [SQL Database Firewall]: http://social.technet.microsoft.com/wiki/contents/articles/sql-azure-firewall.aspx
-  [Tools and Utilities Support (SQL Database)]: http://msdn.microsoft.com/library/windowsazure/ee621784.aspx
-  [How to Create a SQL Database on Azure]: http://social.technet.microsoft.com/wiki/contents/articles/how-to-create-a-sql-azure-database.aspx
-  [Соглашение об уровне обслуживания]: {localLink:1132} "Соглашение об уровне обслуживания"
-  [Поставщик EntityClient для платформы Entity Framework]: http://msdn.microsoft.com/library/bb738561.aspx
-  [Разработка в базе данных SQL Azure: инструкции]: http://msdn.microsoft.com/library/windowsazure/ee621787.aspx
-  [База данных SQL]: http://msdn.microsoft.com/library/windowsazure/ee336279.aspx
+Ознакомившись с основами подключения к базе данных SQL, просмотрите раздел [Разработка в базе данных SQL Azure: инструкции](http://msdn.microsoft.com/library/windowsazure/ee621787.aspx)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

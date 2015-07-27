@@ -67,4 +67,4 @@
 [Как использовать инспектор API для трассировки вызовов в службе управления API Azure]: api-management-howto-api-inspector.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

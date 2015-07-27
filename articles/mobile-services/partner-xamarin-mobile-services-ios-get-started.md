@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/16/2015"
+	ms.date="07/09/2015"
 	ms.author="craig.dunn@xamarin.com"/>
 
 # <a name="getting-started"> </a>Приступая к работе с мобильными службами
@@ -98,6 +98,8 @@
 ## Дальнейшие действия
 Теперь, когда вы закончили быстрый запуск, узнайте, как выполнять дополнительные важные задачи в мобильных службах:
 
+* [Начало работы с данными] <br/>Узнайте, как добавить новую таблице в мобильную службу, а затем считывать и записывать данные в этой таблице.
+
 * [Приступая к работе с синхронизацией автономных данных] <br/>Узнайте, как использовать синхронизацию автономных данных, чтобы приложения были более быстрыми и надежными.
 
 * [Приступая к работе с проверкой подлинности ] <br/>Дополнительные сведения о проверке подлинности учетных данных пользователей приложения с помощью поставщика удостоверений.
@@ -122,15 +124,14 @@
 
 
 <!-- URLs. -->
-[Get started with data]: /develop/mobile/tutorials/get-started-with-data-xamarin-ios
-[Приступая к работе с синхронизацией автономных данных]: /develop/mobile/tutorials/mobile-services-xamarin-ios-get-started-offline-data
-[Приступая к работе с проверкой подлинности ]: /develop/mobile/tutorials/get-started-with-users-xamarin-ios
-[Приступая к работе с push-уведомлениями]: /develop/mobile/tutorials/get-started-with-push-xamarin-ios
+[Начало работы с данными]: partner-xamarin-mobile-services-ios-get-started-data.md
+[Приступая к работе с синхронизацией автономных данных]: mobile-services-xamarin-ios-get-started-offline-data.md
+[Приступая к работе с проверкой подлинности ]: partner-xamarin-mobile-services-ios-get-started-users.md
+[Приступая к работе с push-уведомлениями]: partner-xamarin-mobile-services-ios-get-started-push.md
 
 [Xamarin Studio]: http://xamarin.com/download
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
 [Management Portal]: https://manage.windowsazure.com/
- 
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

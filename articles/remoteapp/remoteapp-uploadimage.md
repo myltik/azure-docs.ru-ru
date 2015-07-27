@@ -3,7 +3,7 @@
     pageTitle="Отправка пользовательского образа для Azure RemoteApp"
     description="Сведения о процессе отправки пользовательского образа для Azure RemoteApp" 
     services="remoteapp" 
-    solutions="" documentationCenter="" 
+	documentationCenter="" 
     authors="ericorman" 
     manager="mbaldwin" />
 
@@ -52,4 +52,4 @@
 - Если VHD-файл будет заблокирован во время отправки, скопируйте файл или переместите его в новое расположение и повторите попытку отправки. Возможно, какой-то процесс Windows препятствует отправке.  
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

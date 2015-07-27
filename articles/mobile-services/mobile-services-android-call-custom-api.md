@@ -1,5 +1,4 @@
 <properties 
-	writer="ricksal" 
 	pageTitle="Вызов настраиваемого интерфейса API из клиента Android | Центр мобильных разработок" 
 	description="Узнайте, как определить настраиваемый API и вызывать его из приложения Android, которое использует мобильные службы Azure." 
 	services="mobile-services" 
@@ -70,4 +69,4 @@
 [Хранение серверных сценариев в системе управления версиями]: mobile-services-store-scripts-source-control.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

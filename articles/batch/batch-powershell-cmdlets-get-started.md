@@ -13,25 +13,23 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="powershell"
    ms.workload="big-compute"
-   ms.date="05/29/2015"
+   ms.date="07/08/2015"
    ms.author="danlep"/>
 
 # Приступая к работе с командлетами Azure PowerShell
-Эта статья представляет краткое введение в командлеты Azure PowerShell, которые можно использовать для управления учетными записями Пакетной службы и получения сведений о рабочих элементах службы, ее заданиях и задачах.
+В этой статье представлено краткое введение в командлеты Azure PowerShell, которые можно использовать для управления учетными записями Пакетной службы и получения сведений о заданиях, задачах Пакетной службы и других сведений.
 
-Для получения подробных сведений о синтаксисе командлета введите `get-help <Cmdlet_name>` или см. [справку по командлету Пакетной службы Azure](https://msdn.microsoft.com/library/azure/mt125957.aspx).
-
+Для получения подробных сведений о синтаксисе командлета введите `get-help <Cmdlet_name>` или см. [справку по командлету Пакетной службы Azure](https://msdn.microsoft.com/library/azure/mt125957.aspx). a
 
 ## Предварительные требования
 
-* **Предварительная версия Пакетной службы** – для работы со службой зарегистрируйтесь в [Предварительной версии Пакетной службы](https://account.windowsazure.com/PreviewFeatures), если вы этого еще не сделали.
 * **Azure PowerShell** – см. раздел [Как установить и настроить Azure PowerShell](../powershell-install-configure.md), чтобы узнать предварительные требования, и получить инструкции по скачиванию и установке. Командлеты Пакетной службы появились в версии 0.8.10 и более поздних версиях.
 
 ## Использование командлетов Пакетной службы
 
 Чтобы запустить Azure PowerShell и [подключиться к подпискам Azure](../powershell-install-configure.md#Connect), выполните стандартные действия. Кроме этого:
 
-* **Выберите подписку Azure** — если у вас есть больше одной подписки, выберите подписку, в которую вы добавили компонент предварительной версии Пакетной службы:
+* **Выбрать подписку Azure**. Если у вас несколько подписок, выберите нужную:
 
     ```
     Select-AzureSubscription -SubscriptionName <SubscriptionName>
@@ -55,7 +53,7 @@
 New-AzureResourceGroup –Name MyBatchResourceGroup –location "Central US"
 ```
 
-Затем создайте новую учетную запись Пакетной службы в группе ресурсов, указав имя учетной записи в < * account_name * > и расположение, где доступна Пакетная служба. Создание учен=тной записи может занять несколько минут. Например:
+Затем создайте новую учетную запись Пакетной службы в группе ресурсов, указав имя учетной записи в < * account_name * > и расположение, где доступна Пакетная служба. Создание учетной записи может занять несколько минут. Например:
 
 ```
 New-AzureBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName MyBatchResourceGroup
@@ -90,9 +88,9 @@ Remove-AzureBatchAccount -AccountName <account_name>
 
 При появлении запроса на удаление учетной записи подтвердите удаление. Удаление учетной записи может занять некоторое время.
 
-## Запрос рабочих элементов, заданий и задач
+## Запрос для получения сведений о заданиях, задачах и других сведений
 
-Чтобы послать запрос на сущности, созданные в учетной записи воспользуйтесь командлетами **Get-AzureBatchWorkItem**, **Get-AzureBatchJob**, **Get-AzureBatchTask** и **Get-AzureBatchPool**.
+Для отправки запроса о сущностях, созданных в данной учетной записи, воспользуйтесь командлетами **Get-AzureBatchJob**, **Get-AzureBatchTask** и **Get-AzureBatchPool**.
 
 Чтобы использовать эти командлеты, сначала нужно создать объект AzureBatchContext для хранения имени учетной записи и ключей:
 
@@ -102,39 +100,33 @@ $context = Get-AzureBatchAccountKeys "<account_name>"
 
 Передайте этот контекст в командлеты, которые взаимодействуют с Пакетной службой, через параметр **BatchContext**.
 
-> [AZURE.NOTE]По умолчанию первичный ключ учетной записи используется для проверки подлинности, но вы можете явно выбрать ключ, который нужно использовать, изменив свойство **KeyInUse** объекта BatchAccountContext: ```$context.KeyInUse = "Secondary"```.
+> [AZURE.NOTE]По умолчанию первичный ключ учетной записи используется для проверки подлинности, но вы можете явно выбрать ключ, который нужно использовать, изменив свойство **KeyInUse** объекта BatchAccountContext: `$context.KeyInUse = "Secondary"`.
 
 
 ### Запрос данных
 
-Например, чтобы найти свои рабочие элементы, выполните **Get-AzureBatchWorkItem**. По умолчанию это запрос всех рабочих элементов в вашей учетной записи при условии, что вы уже сохранили объект BatchAccountContext в *$context*:
-
-```
-Get-AzureBatchWorkItem -BatchContext $context
-```
-
-Это можно делать с другими сущностями, например пулами:
+Например, для поиска пулов используйте**Get AzureBatchPools**. По умолчанию этот командлет опрашивает все рабочие элементы вашей учетной записи при условии, что вы уже сохранили объект BatchAccountContext в *$context*:
 
 ```
 Get-AzureBatchPool -BatchContext $context
 ```
 ### Использование фильтра OData
 
-Чтобы найти объекты, которые вас интересуют, установите фильтр OData в параметре **Фильтр**. Например, можно найти все рабочие элементы с именами, начинающимися с "myWork":
+Чтобы найти объекты, которые вас интересуют, установите фильтр OData в параметре **Фильтр**. Например, можно найти все пулы с именами, начинающимися с myPool:
 
 ```
-$filter = "startswith(name,'myWork') and state eq 'active'"
-Get-AzureBatchWorkItem -Filter $filter -BatchContext $context
+$filter = "startswith(name,'myPool')"
+Get-AzureBatchPool -Filter $filter -BatchContext $context
 ```
 
 Этот способ не такой гибкий, как использование "Where-Object" в локальном конвейере. Но запрос отправляется непосредственно Пакетной службе, чтобы вся фильтрация выполнялась на стороне сервера, сохраняя пропускную способность Интернета.
 
 ### Использование параметра "Имя"
 
-Альтернатива фильтру OData – использование параметра **Имя**. Отправить запрос на конкретный рабочий элемент с именем "myWorkItem" можно так:
+Альтернатива фильтру OData – использование параметра **Имя**. Для запроса конкретного пула с именем myPool сделайте следующее:
 
 ```
-Get-AzureBatchWorkItem -Name "myWorkItem" -BatchContext $context
+Get-AzureBatchPool -Name "myPool" -BatchContext $context
 
 ```
 Параметр **Имя** поддерживает поиск только полного имени без подстановочных знаков или фильтров в стиле OData.
@@ -144,7 +136,7 @@ Get-AzureBatchWorkItem -Name "myWorkItem" -BatchContext $context
 Командлеты Пакетной службы могут использовать конвейер PowerShell для передачи данных между командлетами. Это имеет тот же эффект, что и указание параметра, но упрощает вывод нескольких сущностей. Например, вы можете найти все задачи в своей учетной записи:
 
 ```
-Get-AzureBatchWorkItem -BatchContext $context | Get-AzureBatchJob -BatchContext $context | Get-AzureBatchTask -BatchContext $context
+Get-AzureBatchJob -BatchContext $context | Get-AzureBatchTask -BatchContext $context
 ```
 
 ### Использование параметра MaxCount
@@ -152,7 +144,7 @@ Get-AzureBatchWorkItem -BatchContext $context | Get-AzureBatchJob -BatchContext 
 По умолчанию каждый командлет возвращает максимум 1000 объектов. Если этот предел достигнут, вы можете сузить свой фильтр для возврата меньшего количества объектов или явно задать максимальное использование параметра **MaxCount**. Например:
 
 ```
-Get-AzureBatchWorkItem -MaxCount 2500 -BatchContext $context
+Get-AzureBatchTask -MaxCount 2500 -BatchContext $context
 
 ```
 
@@ -164,4 +156,4 @@ Get-AzureBatchWorkItem -MaxCount 2500 -BatchContext $context
 * [Справка по командлету Пакетной службы Azure](https://msdn.microsoft.com/library/azure/mt125957.aspx)
 * [Эффективные запросы списков](batch-efficient-list-queries.md)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

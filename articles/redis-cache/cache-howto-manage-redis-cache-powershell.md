@@ -4,7 +4,6 @@
  services="redis-cache" 
    documentationCenter="" 
    authors="Rick-Anderson" 
-   writer="Rick-Anderson" 
    manager="wpickett" 
    editor=""/>
 
@@ -27,7 +26,7 @@
 
 - Windows PowerShell версии 3.0 или 4.0. Чтобы найти версию Windows PowerShell, введите `$PSVersionTable` и убедитесь, что для `PSVersion` указано значение 3.0 или 4.0. Чтобы установить совместимую версию, см. статью [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) или [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
 	
-- Azure PowerShell версии 0.0.8 или более поздней. Чтобы установить последнюю версию и связать ее со своей подпиской Azure, см. статью [Как установить и настроить Azure PowerShell](../powershell-install-configure.md);
+- Azure PowerShell версии 0.8.0 или более поздней. Чтобы установить последнюю версию и связать ее со своей подпиской Azure, см. статью [Как установить и настроить Azure PowerShell](../powershell-install-configure.md);
 
 Этот учебник предназначен для начинающих пользователей Windows PowerShell. Дополнительные сведения о Windows PowerShell см. в разделе [Начало работы с Windows PowerShell](http://technet.microsoft.com/library/hh857337.aspx).
 
@@ -87,12 +86,13 @@
 		Remove-AzureRedisCache -Name $movieCache.Name -ResourceGroupName $movieCache.ResourceGroupName  -Force 
 
 ## Дальнейшие действия
-Дополнительные сведения об использовании Windows Azure PowerShell см. в статье:
+
+Дополнительные сведения об использовании Windows PowerShell с Azure см. в следующих ресурсах:
  
-- [Командлеты диспетчера ресурсов Azure](http://go.microsoft.com/fwlink/?LinkID=394765&clcid=0x409): узнайте, как использовать командлеты в модуле диспетчера ресурсов Azure.
-- [Использование групп ресурсов для управления ресурсами Azure](http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups): узнайте, как создавать группы ресурсов и управлять ими на портале управления Azure.
+- [Командлеты диспетчера ресурсов Azure](http://go.microsoft.com/fwlink/?LinkID=394765): узнайте, как использовать командлеты в модуле диспетчера ресурсов Azure.
+- [Использование групп ресурсов для управления ресурсами Azure](../azure-portal/resource-group-portal): узнайте, как создавать группы ресурсов и управлять ими на портале управления Azure.
 - [Блог Azure](http://blogs.msdn.com/windowsazure): узнайте о новых возможностях в Azure.
 - [Блог Windows PowerShell](http://blogs.msdn.com/powershell): узнайте о новых возможностях в Windows PowerShell.
 - [Блог "Hey, Scripting Блог](http://blogs.technet.com/b/heyscriptingguy/): реальные советы и рекомендации от сообщества Windows PowerShell.
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -36,4 +36,4 @@
 * [Использование локальной инфраструктуры удостоверений в облаке](active-directory-aadconnect.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

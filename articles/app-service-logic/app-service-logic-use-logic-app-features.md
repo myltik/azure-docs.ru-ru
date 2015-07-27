@@ -133,4 +133,4 @@
 [Создание нового приложения логики]: app-service-logic-create-a-logic-app.md
 [портале Azure]: https://portal.azure.com
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -36,9 +36,9 @@
 Для работы с данным учебником требуется следующее:
 
 * Visual Studio 2013 в Windows 8.1.
-* Выполнение заданий на странице [Создание приложения для Windows].
-* [Пакет SDK для мобильных служб Azure версии 2.0.0 или более поздней][Azure Mobile App SDK Nuget]
-* [Хранилище SQLite для мобильных служб Azure версии 1.0.2 или более поздней][SQLite store Nuget]
+* Выполнение заданий на странице [Создание приложения для Windows][create a windows app].
+* [Пакет SDK для мобильных служб Azure версии 2.0.0 или более поздней][azure mobile app sdk nuget]
+* [Хранилище SQLite для мобильных служб Azure версии 1.0.2 или более поздней][sqlite store nuget]
 * [SQLite для Windows 8.1](www.sqlite.org/downloads)
 
 >[AZURE.NOTE]Для работы с этим учебником требуется учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Бесплатная пробная версия Azure</a>.
@@ -264,13 +264,14 @@
 
 
 <!-- URLs. -->
-[TodoList Offline Sample]: http://go.microsoft.com/fwlink/?LinkId=394777
+[todolist offline sample]: http://go.microsoft.com/fwlink/?LinkId=394777
+[create a windows app]: /documentation/articles/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview/
 [Создание приложения для Windows]: /documentation/articles/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview/
 [SQLite для Windows 8.1]: http://go.microsoft.com/fwlink/?LinkId=394776
 [SQLite для Windows Phone 8.1]: http://go.microsoft.com/fwlink/?LinkId=397953
 
-[Azure Mobile App SDK Nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/2.0.0-beta
-[SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.2
+[azure mobile app sdk nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/2.0.0-beta
+[sqlite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.2
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

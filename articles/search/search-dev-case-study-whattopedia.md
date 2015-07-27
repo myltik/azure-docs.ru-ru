@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Пример разработки решения в службе &quot;Поиск Azure&quot;: как компания WhatToPedia создала информационный портал в службе Microsoft Azure" 
+	pageTitle="Пример разработки решения в службе ";Поиск Azure";: как компания WhatToPedia создала информационный портал в службе Microsoft Azure" 
 	description="Узнайте, как создать информационный портал и поисковую систему, использующую метаданные, с помощью службы поиска Microsoft Azure." 
 	services="search, sql-database,  storage, web-sites" 
 	documentationCenter="" 
@@ -12,7 +12,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="search" 
-	ms.date="04/13/2015" 
+	ms.date="07/08/2015" 
 	ms.author="heidist"/>
 
 # Пример разработки решения в службе "Поиск Azure"
@@ -421,4 +421,4 @@ WhatToPedia — это стартап-компания, которая тест�
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

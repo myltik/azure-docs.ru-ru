@@ -4,7 +4,6 @@
 	services="" 
 	documentationCenter="" 
 	authors="JustinBeckwith" 
-	writer="" 
 	manager="carolz" 
 	editor=""/>
 
@@ -26,11 +25,11 @@
 ### Поддерживаемые браузеры
 Поддерживаются последние версии следующих браузеров:
 
-- Internet Explorer (10 и выше)
+- Internet Explorer (версии 11 и более поздней версии);
 - Safari (7 и выше)
 - Chrome (последняя)
 - Firefox (последняя)
 
 *Safari 6 и ниже не поддерживаются. Если используется OS X, можно использовать Chrome, Firefox или выполнить обновление до OS X Mavericks для получения Safari 7.*
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

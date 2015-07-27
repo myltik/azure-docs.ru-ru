@@ -67,4 +67,4 @@ PurgeBackupBizTalkService | Операция удаления резервных
 [ViewLogs]: ./media/biztalk-troubleshoot-using-ops-logs/Operation-Logs.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

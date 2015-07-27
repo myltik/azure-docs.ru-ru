@@ -104,4 +104,4 @@
 >_Интеллектуальный анализ данных: концепции и методы_. Издание третье, Morgan Kaufmann Publishers, 2011. Цзявей Хань (Jiawei Han), Мишлин Кэмбер (Micheline Kamber) и Цзянь Пей (Jian Pei)
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

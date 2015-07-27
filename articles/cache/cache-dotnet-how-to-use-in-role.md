@@ -411,4 +411,4 @@
 [Какой кэш Azure подходит мне лучше всего?]: http://msdn.microsoft.com/library/azure/dn766201.aspx
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

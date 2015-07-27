@@ -1,6 +1,6 @@
 <properties 
-pageTitle="Операции с индексаторами (API REST службы &quot;Поиск Azure&quot;: версия 2015-02-28-Preview)" 
-description="Операции с индексаторами (API REST службы &quot;Поиск Azure&quot;: версия 2015-02-28-Preview)" 
+pageTitle="Операции с индексаторами (API REST службы ";Поиск Azure";: версия 2015-02-28-Preview)" 
+description="Операции с индексаторами (API REST службы ";Поиск Azure";: версия 2015-02-28-Preview)" 
 services="search" 
 documentationCenter="" 
 authors="HeidiSteen" 
@@ -12,12 +12,12 @@ ms.service="search"
 ms.devlang="rest-api" 
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na" 
-ms.date="04/23/2015" 
+ms.date="07/08/2015" 
 ms.author="heidist" />
 
 #Операции с индексаторами (API REST службы "Поиск Azure": версия 2015-02-28-Preview)
 
-> [AZURE.NOTE]В этой статье описываются индексаторы, доступные в версии [2015-02-28-Preview](../search-api-2015-02-28-preview.md). В настоящее время единственное различие между версией `2015-02-28`, документация к которой приведена на сайте [MSDN](http://go.mirosoft.com/fwlink/p/?LinkID=528173), и описанной здесь версией `2015-02-28-Preview` состоит в том, что в предварительной версии предоставлено свойство *fieldMappings* (см. раздел [Создание индексатора](#CreateIndexer)).
+> [AZURE.NOTE]В этой статье описываются индексаторы, доступные в версии [2015-02-28-Preview](search-api-2015-02-28-preview.md). В настоящее время единственное различие между версией `2015-02-28`, документация к которой приведена на сайте [MSDN](http://go.mirosoft.com/fwlink/p/?LinkID=528173), и описанной здесь версией `2015-02-28-Preview` состоит в том, что в предварительной версии предоставлено свойство *fieldMappings* (см. раздел [Создание индексатора](#CreateIndexer)).
 
 ## Обзор
 
@@ -775,4 +775,4 @@ ms.author="heidist" />
 </tr>
 </table>
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

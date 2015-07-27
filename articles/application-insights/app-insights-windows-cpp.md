@@ -46,11 +46,11 @@ Visual Studio Application Insights позволяет отслеживать м�
     ![Укажите **Включить предварительный выпуск** и найдите Application Insights.](./media/app-insights-windows-cpp/04-nuget.png)
 
 3. В параметрах проектов для выпуска и отладки:
-  - добавьте $(SolutionDir)packages\ApplicationInsights-CPP.1.0.0-Beta\src\inc в свойства проекта, выбрав элементы «Каталоги VC++» -> «Каталоги включения»;
-  - добавьте $(SolutionDir)packages\ApplicationInsights.1.0.0-Beta\lib\native<PLATFORM TYPE>\release\AppInsights_Win10-UAP в свойства проекта, выбрав элементы «Каталоги VC++» -> «Каталоги библиотек».
+  - добавьте $(SolutionDir)packages\\ApplicationInsights-CPP.1.0.0-Beta\\src\\inc в свойства проекта, выбрав элементы «Каталоги VC++» -> «Каталоги включения»;
+  - добавьте $(SolutionDir)packages\\ApplicationInsights.1.0.0-Beta\\lib\\native<PLATFORM TYPE>\\release\\AppInsights_Win10-UAP в свойства проекта, выбрав элементы «Каталоги VC++» -> «Каталоги библиотек».
 
-4. Добавьте файл ApplicationInsights.winmd в качестве ссылки на проект из $(SolutionDir)packages\ApplicationInsights.1.0.0-Beta\lib\native<PLATFORM TYPE>\release\ApplicationInsights.
-5. Добавьте файл AppInsights_Win10-UAP.dll из $(SolutionDir)packages\ApplicationInsights.1.0.0-Beta\lib\native<PLATFORM TYPE>\release\AppInsights_Win10-UAP. Перейдите к свойствам и установите значение «ДА» для содержимого. Таким образом, DLL-файл будет скопирован в каталог сборки.
+4. Добавьте файл ApplicationInsights.winmd в качестве ссылки на проект из $(SolutionDir)packages\\ApplicationInsights.1.0.0-Beta\\lib\\native<PLATFORM TYPE>\\release\\ApplicationInsights.
+5. Добавьте файл AppInsights_Win10-UAP.dll из $(SolutionDir)packages\\ApplicationInsights.1.0.0-Beta\\lib\\native<PLATFORM TYPE>\\release\\AppInsights_Win10-UAP. Перейдите к свойствам и установите значение «ДА» для содержимого. Таким образом, DLL-файл будет скопирован в каталог сборки.
 
 
 #### Обновление до будущих версий пакета SDK
@@ -139,4 +139,4 @@ Visual Studio Application Insights позволяет отслеживать м�
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

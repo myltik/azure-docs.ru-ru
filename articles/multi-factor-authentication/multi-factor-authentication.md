@@ -4,8 +4,8 @@
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	manager="swadwha" 
+	editor="curtand"/>
 
 <tags 
 	ms.service="multi-factor-authentication" 
@@ -13,11 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.date="07/02/2015" 
 	ms.author="billmath"/>
 
-# Повышенная безопасность для постоянного подключения к Интернету
-
+# Что такое многофакторная проверка подлинности Azure?
 Многофакторная проверка подлинности — это метод проверки подлинности, который требует применения более одного метода проверки и добавляет критически важный второй уровень безопасности для операций входа и транзакций пользователя. Во время работы он требует использования двух и более методов проверки следующего характера:
 
 - Что-то, что известно вам (обычно это пароль).
@@ -26,7 +25,7 @@
 
 <center>![Username and Password](./media/multi-factor-authentication/pword.png) &#160;&#160;&#160;&#160;&#160;![Certificates](./media/multi-factor-authentication/phone.png) &#160;&#160;&#160;&#160;&#160;![Smart Phone](./media/multi-factor-authentication/hware.png) &#160;&#160;&#160;&#160;&#160;![Smart Card](./media/multi-factor-authentication/smart.png) &#160;&#160;&#160;&#160;&#160;![Virtual Smart Card](./media/multi-factor-authentication/vsmart.png) &#160;&#160;&#160;&#160;&#160;![Username and Password](./media/multi-factor-authentication/cert.png)</center>
 
-## Что такое многофакторная проверка подлинности Azure?
+
 
 Azure Multi-factor authentication — это метод проверки идентичности пользователя, при котором используются дополнительные средства, а не только имя пользователя и пароль. Это второй уровень безопасности, который применяется для входа пользователя в систему и выполнения транзакций.
 
@@ -58,7 +57,8 @@ Azure Multi-Factor Authentication — это простое в использо
 
 **Дополнительные ресурсы**
 
-* [Для пользователей](multi-factor-authentication-end-user.md)
+* [Что для меня означает многофакторная проверка подлинности?](multi-factor-authentication-end-user.md)
+* [Настройка многофакторной проверки подлинности для Office 365](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-8f0454b2-f51a-4d9c-bcde-2c48e41621c6)
 * [Azure Multi-Factor Authentication в MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx) 
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

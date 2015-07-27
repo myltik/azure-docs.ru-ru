@@ -57,10 +57,13 @@
 		
 5. В проекте приложения Магазина Windows откройте файл проекта MainPage.xaml и добавьте следующий элемент **Button** непосредственно перед элементом, определяющим кнопку **Сохранить**:
 
-		<Button Name="ButtonLogin" Click="ButtonLogin_Click" 
-                        Visibility="Visible">Sign in</Button>
+	<Button Name="ButtonLogin" Click="ButtonLogin_Click" 
+                Visibility="Visible">Вход</Button>
 
-6. Повторите предыдущий шаг для проекта приложения Магазина Windows Phone, но на этот раз добавьте элемент **Button** в **TitlePanel** после элемента **TextBlock**.
+6. В проекте приложения для Магазина Windows Phone после элемента **TextBlock** на панели **ContentPanel** добавьте указанный ниже элемент**Button**.
+
+        <Button Grid.Row ="1" Grid.Column="1" Name="ButtonLogin" Click="ButtonLogin_Click" 
+        Margin="10, 0, 0, 0" Visibility="Visible">Sign in</Button>
 
 7. Откройте общий файл проекта App.xaml.cs и добавьте следующий оператор using (если его еще нет):
 
@@ -91,4 +94,4 @@
 
 10. Щелкните правой кнопкой мыши проект приложения Магазина Windows Phone, выберите пункт **Назначить запускаемым проектом**, а затем повторите предыдущий шаг, чтобы проверить, правильно ли запускается приложение Магазина Windows Phone.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

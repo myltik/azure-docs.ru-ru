@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="04/29/2015"
+   ms.date="06/30/2015"
    ms.author="sstein"/>
 
 # Рекомендации по выбору ценовой категории для базы данных SQL
@@ -83,11 +83,11 @@ Azure позволяет анализировать текущие произв�
 <!--Image references-->
 [1]: ./media/sql-database-service-tier-advisor/select-database.png
 [2]: ./media/sql-database-service-tier-advisor/pricing-tier.png
-[3]: ./media/sql-database-pricing-tier-recommendations/preview-sign-up.png
+[3]: ./media/sql-database-service-tier-advisor/preview-sign-up.png
 [4]: ./media/sql-database-service-tier-advisor/choose-pricing-tier.png
 [5]: ./media/sql-database-service-tier-advisor/usage-details.png
 
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -135,4 +135,4 @@
 [Дополнительная информация о службе Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

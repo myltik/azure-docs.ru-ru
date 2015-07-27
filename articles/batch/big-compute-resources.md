@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Большие вычисления в Azure: технические ресурсы для Пакетных служб и высокопроизводительных вычислительных систем (HPC)"
-   description="В этой статье приведены технические ресурсы, которые помогут вам выполнять крупномасштабные параллельные и пакетные задания, а также рабочие нагрузки HPC в Azure."
+   pageTitle="Большие вычисления: технические ресурсы для пакетных и высокопроизводительных вычислений (HPC) | Microsoft Azure"
+   description="В этой статье приведены технические ресурсы, которые помогут вам запускать крупномасштабные параллельные и пакетные задания, а также рабочие нагрузки HPC в Azure."
    services="batch, cloud-services, virtual-machines"
    documentationCenter=""
    authors="dlepow"
@@ -13,17 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
-   ms.date="06/24/2015"
+   ms.date="07/09/2015"
    ms.author="danlep"/>
 
-# Большие вычисления в Azure: технические ресурсы для Пакетных служб и высокопроизводительных вычислительных систем (HPC)
+# Большие вычисления в Azure: технические ресурсы для Пакетных служб и высокопроизводительных вычислений (HPC)
 Это руководство по техническим ресурсам поможет вам выполнять крупномасштабные параллельные и пакетные задания, а также рабочие нагрузки HPC в Azure. Перенесите свои текущие пакетные задания или рабочие нагрузки HPC в облако Azure или создайте в Azure новые решения для больших вычислений с помощью набора служб Azure.
 
 ## Варианты решений
 
 Узнайте, какие решения для больших вычислений существуют в Azure, и выберите вариант, который подходит для рабочих нагрузок и потребностей вашей организации.
 
-* [Обзор](https://msdn.microsoft.com/library/azure/dn482130.aspx)
+* [Пакетные и HPC решения](batch-hpc-solutions.md)
 
 * [Большие вычисления в облаке с помощью Azure и HPC (видео)](http://azure.microsoft.com/documentation/videos/teched-europe-2014-big-compute-in-the-cloud-with-high-performance-computing-on-azure/)
 
@@ -31,8 +31,6 @@
 ## Пакетная служба Azure
 
 [Пакетная служба](http://azure.microsoft.com/services/batch/) — это платформа как услуга, которая позволяет легко переводить приложения в облако и выполнять задания без настройки кластера или планировщика и управления ими. С помощью пакета SDK вы можете интегрировать клиентские приложения в Пакетную службу Azure, используя различные языки, размещать данные в Azure и создавать конвейеры выполнения заданий.
-
-* Регистрация в [предварительной версии](http://azure.microsoft.com/services/preview/)
 
 * [Документация](http://azure.microsoft.com/documentation/services/batch/)
 
@@ -50,13 +48,13 @@
 
 ### Пакет Microsoft HPC
 
-[Пакет HPC](https://technet.microsoft.com/library/cc514029) — это бесплатный диспетчер кластеров и планировщик заданий от Майкрософт для локальных, гибридных и облачных систем HPC.
+[Пакет HPC](https://technet.microsoft.com/library/jj899572.aspx) — это бесплатный диспетчер кластеров и планировщик заданий от Майкрософт для локальных, гибридных и облачных систем HPC.
 
 * [Использование пакета HPC совместно с Azure](https://technet.microsoft.com/library/gg481749.aspx)
 
 * [Пакет HPC на виртуальных машинах Azure](https://msdn.microsoft.com/library/azure/dn518135.aspx)
 
-* [Учебник: настройка гибридного кластера с пакетом HPC в Azure](../cloud-services-setup-hybrid-hpcpack-cluster.md)
+* [Учебник: настройка гибридного кластера с пакетом HPC в Azure](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)
 
 * [Форумы по Windows HPC](https://social.microsoft.com/Forums/home?category=windowshpc)
 
@@ -81,9 +79,9 @@
 
 ## Экземпляры для ресурсоемких вычислений
 
-В Azure предлагается [целый ряд экземпляров разных размеров](../virtual-machines/virtual-machines-size-specs.md), включая ресурсоемкие [размеры A8, A9, A10 и A11](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md), для выполнения пакетных заданий и рабочих нагрузок HPC.
+Azure предлагает вычислительные экземпляры [различных размеров](../virtual-machines/virtual-machines-size-specs.md), включая ресурсоемкие [A8, A9, A10 и A11](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md), для выполнения рабочих нагрузок HPC в Windows и Linux.
 
-* [Экземпляры A8 и A9: краткое руководство для пакета HPC](https://msdn.microsoft.com/library/azure/dn594431.aspx)
+* [Экземпляры A8 и A9: руководство быстрого запуска для пакета HPC](https://msdn.microsoft.com/library/azure/dn594431.aspx)
 
 * [Запуск приложений MPI на экземплярах A8 и A9](https://msdn.microsoft.com/library/azure/dn592104.aspx)
 
@@ -118,4 +116,4 @@
 * Последние объявления см. в [блоге группы Microsoft HPC и Пакетной службы](http://blogs.technet.com/b/windowshpc/), а также в [блоге Azure](http://azure.microsoft.com/blog/tag/hpc/).
 * Следите также за лентой [новостей о Пакетной службе](http://azure.microsoft.com/updates/?service=batch) или подпишитесь на [RSS-канал](http://azure.microsoft.com/updates/feed/?service=batch).
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->
