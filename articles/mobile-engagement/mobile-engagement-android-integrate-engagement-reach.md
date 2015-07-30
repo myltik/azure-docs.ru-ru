@@ -318,7 +318,7 @@
 			  }
 			}
 
-**Пример `my_notification_overlay.xml`: **
+**Пример `my_notification_overlay.xml`:**
 
 			<?xml version="1.0" encoding="utf-8"?>
 			<RelativeLayout
@@ -333,7 +333,7 @@
 
 Как видите, идентификатор представления наложения отличается от стандартного. Важно, чтобы у каждой разметки использовался уникальный идентификатор для наложений.
 
-**Пример `my_notification_area.xml`: **
+**Пример `my_notification_area.xml`:**
 
 			<?xml version="1.0" encoding="utf-8"?>
 			<merge

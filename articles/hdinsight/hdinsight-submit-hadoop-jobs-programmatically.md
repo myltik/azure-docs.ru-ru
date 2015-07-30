@@ -300,7 +300,7 @@ Hadoop MapReduce — это программная платформа для н
 См. раздел [Использование Sqoop с HDInsight][hdinsight-use-sqoop].
 
 ##Отправка заданий MapReduce с использованием пакета SDK для HDInsight .NET
-Пакет SDK для HDInsight .NET содержит клиентские библиотеки .NET, которые упрощают работу с кластерами HDInsight из .NET. Кластеры HDInsight содержат JAR-файл (в папке *\\example\\jars\\hadoop-mapreduce-examples.jar*), в котором есть несколько примеров MapReduce. Один из примеров предназначен для подсчета частоты слов в исходных файлах. В этом сеансе вы узнаете, как создать приложение .NET для запуска примера подсчета слов. Дополнительные сведения о создании и выполнении заданий MapReduce см. в статье [￼Использование MapReduce в Hadoop в HDInsight][hdinsight-use-mapreduce].
+Пакет SDK для HDInsight .NET содержит клиентские библиотеки .NET, которые упрощают работу с кластерами HDInsight из .NET. Кластеры HDInsight содержат JAR-файл (в папке *\\example\\jars\\hadoop-mapreduce-examples.jar*), в котором есть несколько примеров MapReduce. Один из примеров предназначен для подсчета частоты слов в исходных файлах. В этом сеансе вы узнаете, как создать приложение .NET для запуска примера подсчета слов. Дополнительные сведения о создании и выполнении заданий MapReduce см. в статье [Использование MapReduce в Hadoop в HDInsight][hdinsight-use-mapreduce].
 
 
 Подготовка кластера HDInsight с использованием пакета SDK предусматривает следующие процедуры.
@@ -729,4 +729,4 @@ Hadoop MapReduce — это программная платформа для н
 [apache-hive]: http://hive.apache.org/
  
 
-<!---HONumber=July15_HO2-->
+<!-----HONumber=July15_HO2-->

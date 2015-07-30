@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Развертывание ресурсов Azure с помощью библиотек компонентов Compute, Network и Storage для .NET" 
-	description="Узнайте, как использовать некоторые из доступных клиентов в библиотеках компонентов Compute, Storage и Network для .NET, чтобы создавать и удалять ресурсы в Microsoft Azure." 
+	description="Узнайте, как использовать некоторые из доступных клиентов в библиотеках компонентов Compute, Storage и Network для .NET, чтобы создавать и удалять ресурсы в Microsoft Azure" 
 	services="virtual-machines,virtual-network,storage" 
 	documentationCenter="" 
 	authors="davidmu1" 

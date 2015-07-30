@@ -113,7 +113,7 @@
 [Приступая к работе с проверкой подлинности]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md
 [Приступая к работе с push-уведомлениями]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md
 
-[Get started with offline data sync]: mobile-services-windows-store-dotnet-get-started-offline-data.md
+[Приступая к работе с синхронизацией автономных данных]: mobile-services-windows-store-dotnet-get-started-offline-data.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
