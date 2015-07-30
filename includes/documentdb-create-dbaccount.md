@@ -1,9 +1,11 @@
 1.	Войдите на [веб-портал предварительной версии Microsoft Azure](https://portal.azure.com/).
 2.	На навигационной панели щелкните **Создать**, затем **Данные + хранилище** и **DocumentDB**. 
 
-	![Снимок экрана портала предварительной версии Azure с выделением кнопки "Создать", элемента "Данные + хранилище" в области "Создать" и Azure DocumentDB в колонке "Данные + хранилище"][1]
+	![Снимок экрана портала предварительной версии Azure с выделением кнопки "Создать", элемента "Данные + хранилище" в области "Создать" и Azure DocumentDB в колонке "Данные + хранилище"][1]   
 
-	<!-- Alternatively, from the Startboard, you can browse the Azure Marketplace, select **Data + storage**, choose **DocumentDB**, and then click **Create**.  --><!-- ![Screen shot of the Azure preview portal, showing the Marketplace blade with the DocumentDB tile highlighted, and the DocumentDB blade with the Create database button highlighted][2]    -->
+	<!-- Alternatively, from the Startboard, you can browse the Azure Marketplace, select **Data + storage**, choose **DocumentDB**, and then click **Create**.  -->
+	
+	<!-- ![Screen shot of the Azure preview portal, showing the Marketplace blade with the DocumentDB tile highlighted, and the DocumentDB blade with the Create database button highlighted][2]    -->
    
 
 3. В разделе **Новая учетная запись DocumentDB** укажите желаемую конфигурацию учетной записи DocumentDB.
@@ -21,17 +23,18 @@
  
 	- В поле **Расположение** укажите географическое расположение, где будет размещена учетная запись DocumentDB.
 
-4.	После настройки параметров DocumentDB нажмите кнопку **Создать**. Создание учетной записи DocumentDB может занять несколько минут. Для проверки состояния можно отслеживать прогресс на начальной панели. ![Снимок экрана: плитка "Создание" для уровня Startboard – создатель базы данных в Интернете][4]
+4.	После настройки параметров DocumentDB нажмите кнопку **Создать**. Создание учетной записи DocumentDB может занять несколько минут. Для проверки состояния можно отслеживать прогресс на начальной панели.  
+	![Снимок экрана: плитка "Создание" для уровня Startboard – создатель базы данных в Интернете][4]  
   
 	Или вы можете наблюдать за ходом выполнения на портале "Уведомления".
 
 	![Быстрое создание баз данных - снимок экрана концентратора уведомлений, на котором показано создание учетной записи DocumentDB - уведомление создателя базы данных в Интернете][5]
 
-	![Снимок экрана: центр уведомлений, где показано, что учетная запись DocumentDB успешно создана и развернута в группе ресурсов][6]
+	![Снимок экрана: центр уведомлений, где показано, что учетная запись DocumentDB успешно создана и развернута в группе ресурсов][6]  
 
 5.	После создания учетной записи DocumentDB она готова к использованию с параметрами по умолчанию на веб-портале. Обратите внимание, что по умолчанию для уровня согласованности учетной записи DocumentDB будет установлено значение **Сеанс**. Для настройки уровня согласованности по умолчанию можно щелкнуть плитку **Согласованность по умолчанию** в колонке **Учетная запись DocumentDB**.
 
-    ![Снимок экрана: выноска "Группа ресурсов"][7]
+    ![Снимок экрана: выноска "Группа ресурсов"][7]  
 
 <!--Image references-->
 [1]: media/documentdb-create-dbaccount/ca1.png
@@ -46,4 +49,4 @@
 [Next steps]: #NextSteps
 [documentdb-manage]: ../articles/documentdb/documentdb-manage.md
 
-<!---HONumber=July15_HO3-->
+<!----HONumber=July15_HO3-->
