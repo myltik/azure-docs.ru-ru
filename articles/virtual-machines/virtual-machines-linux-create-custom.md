@@ -1,27 +1,27 @@
-<properties 
-	pageTitle="Создание настраиваемой виртуальной машины под управлением Linux в Azure" 
-	description="Узнайте, как создать настраиваемую виртуальную машину под управлением Linux в Azure." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="KBDAzure" 
-	manager="timlt" 
+<properties
+	pageTitle="Создание настраиваемой виртуальной машины под управлением Linux в Azure"
+	description="Узнайте, как создать настраиваемую виртуальную машину под управлением Linux в Azure."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="dsk-2015"
+	manager="timlt"
 	editor="tysonn"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/23/2015" 
-	ms.author="kathydav"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/23/2015"
+	ms.author="dkshir"/>
 
 #Как создать настраиваемую виртуальную машину под управлением Linux в Azure
 
 *Настраиваемая виртуальная машина* — это просто виртуальная машина, созданная с помощью метода **Из коллекции**, что дает больший выбор настроек, чем метод **Быстрое создание**. Вот какие параметры доступны:
 
 - Подключение виртуальной машины к виртуальной сети.
-- Установка агента виртуальной машины и расширений, таких как защита от вредоносных программ 
+- Установка агента виртуальной машины и расширений, таких как защита от вредоносных программ
 - Добавление виртуальной машины к существующей облачной службе.
 - Добавление виртуальной машины к существующей учетной записи хранения
 - Добавление виртуальной машины в группу доступности.
@@ -30,7 +30,4 @@
 
 [AZURE.INCLUDE [virtual-machines-create-LinuxVM](../../includes/virtual-machines-create-LinuxVM.md)]
 
-
- 
-
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

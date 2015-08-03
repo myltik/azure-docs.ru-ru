@@ -1,19 +1,12 @@
-<properties 
-	pageTitle="Развертывание ресурсов Azure с помощью шаблона" 
-	description="Узнайте, как использовать некоторые из доступных клиентов в библиотеке управления ресурсами Azure для развертывания виртуальной машины, виртуальной сети и учетной записи хранения." 
-	services="virtual-machines,virtual-networks,storage" 
-	documentationCenter="" 
-	authors="davidmu1" 
-	manager="timlt" 
-	editor="tysonn"/>
+<properties pageTitle="Развертывание ресурсов Azure с помощью шаблона" description="Узнайте, как использовать доступные в библиотеке управления ресурсами Azure клиенты для развертывания виртуальной машины, виртуальной сети и учетной записи хранения" services="virtual-machines,virtual-networks,storage" documentationCenter="" authors="davidmu1" manager="timlt" editor="tysonn" tags="azure-resource-manager/>
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="vm-windows" 
+<tags
+	ms.service="multiple"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/15/2015" 
+	ms.topic="article"
+	ms.date="06/15/2015"
 	ms.author="davidmu"/>
 
 # Развертывание ресурсов Azure с использованием библиотек .NET и шаблона
@@ -55,7 +48,7 @@
 
 5. Замените {application-id} только что записанным идентификатором, а затем создайте субъект-службу для приложения:
 
-        New-AzureADServicePrincipal -ApplicationId {application-id} 
+        New-AzureADServicePrincipal -ApplicationId {application-id}
 
 6. Настройте разрешение на использование приложения:
 
@@ -186,7 +179,7 @@
           "resources": [ {
             "apiVersion": "2014-12-01-preview",
             "type": "Microsoft.Storage/storageAccounts",
-            "name": "[parameters('newStorageAccountName')]",       
+            "name": "[parameters('newStorageAccountName')]",
             "location": "[parameters('location')]",
             "properties": { "accountType": "[parameters('storageAccountType')]" }
           },
@@ -195,7 +188,7 @@
             "type": "Microsoft.Network/publicIPAddresses",
             "name": "[parameters('publicIPAddressName')]",
             "location": "[parameters('location')]",
-            "properties": { 
+            "properties": {
               "publicIPAllocationMethod": "[parameters('publicIPAddressType')]",
               "dnsSettings": { "domainNameLabel": "[parameters('dnsName')]" }
             }
@@ -256,7 +249,7 @@
                 "adminPassword": "[parameters('adminPassword')]",
                 "windowsProfile": { "provisionVMAgent": "true" }
               },
-              "storageProfile": { 
+              "storageProfile": {
                 "sourceImage": { "id": "[variables('sourceImageName')]" },
                 "destinationVhdsContainer" : "[concat('http://',parameters('newStorageAccountName'),'.blob.core.windows.net/',parameters('vmStorageAccountContainerName'),'/')]"
               },
@@ -283,7 +276,7 @@
 
         {
           "contentVersion": "1.0.0.0",
-          "parameters": { 
+          "parameters": {
             "vmName": { "value": "mytestvm1" },
             "newStorageAccountName": { "value": "mytestsa1" },
             "storageAccountType": { "value": "Standard_LRS" },
@@ -296,8 +289,8 @@
             "adminUserName": { "value": "mytestacct1" },
             "adminPassword": { "value": "mytestpass1" },
             "virtualNetworkName": { "value": "mytestvn1" },
-            "dnsName": { "value": "mytestdns1" }, 
-            "nicName": { "value": "mytestnic1" } 
+            "dnsName": { "value": "mytestdns1" },
+            "nicName": { "value": "mytestnic1" }
           }
         }
 
@@ -450,4 +443,4 @@
 
 	![Создание приложения AD](./media/arm-template-deployment/crpportal.png)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

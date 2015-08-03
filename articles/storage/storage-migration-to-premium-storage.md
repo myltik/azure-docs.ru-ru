@@ -179,13 +179,13 @@
 2. Откройте Azure PowerShell и перейдите в папку, где установлена AzCopy.  
 3. Используйте следующую команду для копирования файла виртуального жесткого диска из "Источника" в "Место назначения". 
 
-		AzCopy /Source: <source> /SourceKey: <source-account-key> /Destination: <destination> /DestKey: <dest-account-key> /BlobType:page /Pattern: <file-name>  
+		AzCopy /Source: <source> /SourceKey: <source-account-key> /Dest: <destination> /DestKey: <dest-account-key> /BlobType:page /Pattern: <file-name>  
 
 	Ниже приведено описание параметров, используемых в команде AzCopy.
 
  - **/Source: *&lt;source&gt;:*** расположение папки или URL-адрес контейнера хранения с виртуальным жестким диском.    
  - **/SourceKey: *&lt;source-account-key&gt;:*** ключ исходной учетной записи хранения.  
- - **/Destination: *&lt;destination&gt;:*** URL-адрес контейнера хранения для копирования виртуального жесткого диска.
+ - **/Dest: *&lt;destination&gt;:*** URL-адрес контейнера хранилища для копирования виртуального жесткого диска.
  - **/DestKey: *&lt;dest-account-key&gt;:*** ключ целевой учетной записи хранения.
  - **/BlobType: page:** указывает, что местом назначения является страничный BLOB-объект.
  - **/Pattern: *&lt;file-name&gt;:*** указывает имя файла копируемого виртуального жесткого диска.
@@ -315,4 +315,4 @@
 [2]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [3]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-3.png
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

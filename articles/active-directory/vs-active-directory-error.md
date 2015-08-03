@@ -97,4 +97,4 @@
 Дополнительные сведения см. в разделе [Сценарии проверки подлинности для Azure AD](active-directory-authentication-scenarios.md).
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

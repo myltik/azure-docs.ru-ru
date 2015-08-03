@@ -44,7 +44,7 @@ Redis — это кэш и хранилище значений ключей с �
 
 ### Шаг 1-а. Скачивание файлов шаблонов с помощью Azure PowerShell
 
-Создайте локальную папку для JSON-файлов шаблонов и других файлов (например, C:\\Azure\\Templates\\RedisCluster).
+Создайте локальную папку для JSON-файлов шаблонов и других файлов (например, C:\Azure\Templates\RedisCluster).
 
 Подставьте имя своей локальной папки и выполните следующие команды:
 
@@ -96,7 +96,7 @@ $webclient.DownloadFile($url,$filePath)
 git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
 ```
 
-После завершения клонирования найдите папку **redis-high-availability** в своем каталоге C:\\Azure\\Templates.
+После завершения клонирования найдите папку **redis-high-availability** в своем каталоге C:\Azure\Templates.
 
 ### Шаг 2 (необязательный). Изучение параметров шаблона
 
@@ -283,7 +283,7 @@ New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -T
 
 Во время развертывания экран выглядит приблизительно следующим образом:
 
-	PS C:> New-AzureResourceGroup –Name $RGName –Location $locName
+	PS C:\> New-AzureResourceGroup –Name $RGName –Location $locName
 
 	ResourceGroupName : TestRG
 	Location          : westus
@@ -296,7 +296,7 @@ New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -T
 
 	ResourceId        : /subscriptions/1234abc1-abc1-1234-12a1-ab1ab12345ab/resourceGroups/TestRG
 
-	PS C:> New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateParameterFile $templateParameterFile -TemplateFile $templateFile
+	PS C:\> New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateParameterFile $templateParameterFile -TemplateFile $templateFile
 	VERBOSE: 2:39:10 PM - Template is valid.
 	VERBOSE: 2:39:14 PM - Create template deployment 'TestDeployment'.
 	VERBOSE: 2:39:25 PM - Resource Microsoft.Resources/deployments 'shared-resources' provisioning status is running
@@ -387,7 +387,7 @@ azure group deployment list TestRG
 
 В этом разделе содержится описание структуры шаблона azuredeploy.json для кластера Redis.
 
-Если вы не загрузили копию файла шаблона, укажите локальную папку для расположения файла и создайте его (например, C:\\Azure\\Templates\\RedisCluster). Введите имя папки, а затем скопируйте его и выполните следующие команды:
+Если вы не загрузили копию файла шаблона, укажите локальную папку для расположения файла и создайте его (например, C:\Azure\Templates\RedisCluster). Введите имя папки, а затем скопируйте его и выполните следующие команды:
 
 ```powershell
 $folderName="<folder name, such as C:\Azure\Templates\RedisCluster>"
@@ -666,4 +666,4 @@ $webclient.DownloadFile($url,$filePath)
 
 Дополнительную информацию см. в разделе [Язык шаблонов диспетчера ресурсов Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

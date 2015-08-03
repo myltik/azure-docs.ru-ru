@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="06/23/2015" 
+	ms.date="07/21/2015" 
 	ms.author="sethm"/>
 
 
@@ -71,30 +71,12 @@ AMQP 1.0 разрабатывался с 2008 г. активной группо�
 
 В настоящее время для работы с шиной Service Bus доступны следующие клиентские библиотеки:
 
-<table>
-  <tr>
-    <th>Язык</th>
-    <th>Библиотека</th>
-  </tr>
-  <tr>
-    <td>Java</td>
-    <td>Клиент Apache Qpid Java Message Service (JMS)<br/>
-        Java-клиент IIT Software SwiftMQ</td>
-  </tr>
-  <tr>
-    <td>C</td>
-    <td>Apache Qpid Proton-C</td>
-  </tr>
-  <tr>
-    <td>PHP</td>
-    <td>Apache Qpid Proton-PHP</td>
-  </tr>
-  <tr>
-    <td>Python</td>
-    <td>Apache Qpid Proton-Python</td>
-  </tr>
-
-</table>
+| Язык | Библиотека |
+|----------|-------------------------------------------------------------------------------|
+| Java | Клиент Apache Qpid Java Message Service (JMS)<br/>Java-клиент IIT Software SwiftMQ |
+| C | Apache Qpid Proton-C |
+| PHP | Apache Qpid Proton-PHP |
+| Python | Apache Qpid Proton-Python |
 
 
 **Рисунок 2. Таблица клиентских библиотек AMQP 1.0**
@@ -116,4 +98,4 @@ AMQP 1.0 разрабатывался с 2008 г. активной группо�
 [0]: ./media/service-bus-amqp-overview/Example1.png
 [руководстве разработчика AMQP для служебной шины]: http://msdn.microsoft.com/library/jj841071.aspx
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -350,7 +350,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 <!-- URLs. -->
 [управлении оптимистичным параллелизмом]: http://go.microsoft.com/fwlink/?LinkId=330935
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started/#create-new-service
-[Учетная запись Azure]: http://www.windowsazure.com/pricing/free-trial/
+[Учетная запись Azure]: http://azure.microsoft.com/pricing/free-trial/
 [Validate and modify data with scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
 [Refine queries with paging]: /develop/mobile/tutorials/add-paging-to-data-dotnet
 [Приступая к работе с мобильными службами]: /develop/mobile/tutorials/get-started
@@ -366,4 +366,4 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 [Системные свойства]: http://go.microsoft.com/fwlink/?LinkId=331143
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -1,20 +1,21 @@
-<properties 
-	pageTitle="Установка и настройка Symantec Endpoint Protection на виртуальной машине Azure" 
-	description="Описывается установка и настройка расширения безопасности Symantec Endpoint Protection на новой или существующей виртуальной машине в Azure." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="KBDAzure" 
-	manager="timlt" 
-	editor=""/>
+<properties
+	pageTitle="Установка и настройка Symantec Endpoint Protection на виртуальной машине Azure"
+	description="Описывается установка и настройка расширения безопасности Symantec Endpoint Protection на новой или существующей виртуальной машине в Azure."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="dsk-2015"
+	manager="timlt"
+	editor=""
+	tags="azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-multiple" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/29/2015" 
-	ms.author="kathydav"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-multiple"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/14/2015"
+	ms.author="dkshir"/>
 
 # Установка и настройка Symantec Endpoint Protection на виртуальной машине Azure
 
@@ -45,17 +46,17 @@
 
 Для этого потребуются следующие компоненты.
 
-- Модуль Azure PowerShell версии не ниже 0.8.2. Установленную версию Azure PowerShell можно проверить с помощью команды **Get-Module azure | format-table version**. Инструкции и ссылку на последнюю версию см. в статье [Установка и настройка Azure PowerShell][PS].  
+- Модуль Azure PowerShell версии не ниже 0.8.2, установленный на рабочем компьютере. Номер установленной версии Azure PowerShell можно уточнить с помощью команды **Get-Module azure | format-table version** Инструкции и ссылку на последнюю версию см. в статье [Установка и настройка Azure PowerShell][PS]. Войдите в подписку Azure.
 
-- Агент ВМ.
+- Агент VM запущен на виртуальной машине Azure.
 
-Сначала убедитесь, что агент ВМ уже установлен. Укажите имя облачной службы и имя виртуальной машины, а затем выполните следующие команды в командной строке Azure PowerShell уровня администратора. Замените все содержимое внутри кавычек, включая символы < and >.
+Сначала убедитесь, что агент VM уже установлен на виртуальной машине. Укажите имя облачной службы и имя виртуальной машины, а затем выполните следующие команды в командной строке Azure PowerShell уровня администратора. Замените все содержимое внутри кавычек, включая символы < and >.
 
 > [AZURE.TIP]Если вы не знаете имена облачной службы и виртуальной машины, выполните командлет **Get-AzureVM** и просмотрите список имен всех виртуальных машин в вашей текущей подписке.
 
 	$CSName = "<cloud service name>"
 	$VMName = "<virtual machine name>"
-	$vm = Get-AzureVM -ServiceName $CSName -Name $VMName 
+	$vm = Get-AzureVM -ServiceName $CSName -Name $VMName
 	write-host $vm.VM.ProvisionGuestAgent
 
 Если команда **write-host** отображает значение **True**, агент виртуальных машин установлен. Если она отображает значение **False**, см. инструкции и ссылку для скачивания во [второй части записи блога Azure, посвященной агенту и расширениям виртуальных машин][Agent].
@@ -63,6 +64,7 @@
 Если агент ВМ установлен, выполните следующие команды, чтобы установить агент Symantec Endpoint Protection.
 
 	$Agent = Get-AzureVMAvailableExtension -Publisher Symantec -ExtensionName SymantecEndpointProtection
+
 	Set-AzureVMExtension -Publisher Symantec –Version $Agent.Version -ExtensionName SymantecEndpointProtection -VM $vm | Update-AzureVM
 
 Чтобы проверить, установлен ли модуль безопасности Symantec, и убедиться в актуальности его версии, сделайте следующее:
@@ -93,6 +95,4 @@
 
 [Ext]: http://go.microsoft.com/fwlink/p/?linkid=390493
 
- 
-
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

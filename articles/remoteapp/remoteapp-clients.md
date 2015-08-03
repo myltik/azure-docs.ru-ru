@@ -207,4 +207,4 @@
 ![Демонстрационный веб-канал с приложениями Azure RemoteApp](./media/remoteapp-clients/WinPhone8.png)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="TwoUnder"
    manager="barbkess"
-   editor=""/>
+   editor="JRJ@BigBangData.co.uk"/>
 
 <tags
    ms.service="sql-data-warehouse"
@@ -71,13 +71,15 @@ GO
 20150101,1,3
 ```
 
-Сохраните файл в локальный временный каталог C:\\Temp\\DimDate2.txt.
+Сохраните файл в локальный временный каталог C:\Temp\DimDate2.txt.
+
+> [AZURE.NOTE]Важно помнить, что bcp.exe не поддерживает кодировку UTF-8. Используйте файлы в кодировке ASCII или UTF-16 для файлов при работе с bcp.exe.
 
 ### Шаг 3. Подключение и импорт данных
 С помощью программы bcp подключитесь и импортируйте данные, для чего замените в следующей команде значения соответствующим образом.
 
 ```
-bcp DimDate2 in C:\Temp\DimDate2.txt -S <Server Name> -d <Database Name> -U <Username> -P <password> -q -w -t
+bcp DimDate2 in C:\Temp\DimDate2.txt -S <Server Name> -d <Database Name> -U <Username> -P <password> -q -c -t  ','
 ```
 
 Вы можете проверить, что данные загружены, для этого подключитесь с помощью утилиты sqlcmd, как и раньше, и выполните следующую команду TSQL:
@@ -94,15 +96,15 @@ DateId |CalendarQuarter |FiscalQuarter
 20150101 |1 |3
 20150201 |1 |3
 20150301 |1 |3
-20150401 |2 |4\.
-20150501 |2 |4\.
-20150601 |2 |4\.
+20150401 |2 |4.
+20150501 |2 |4.
+20150601 |2 |4.
 20150701 |3 |1
 20150801 |3 |1
 20150801 |3 |1
-20151001 |4\. |2
-20151101 |4\. |2
-20151201 |4\. |2
+20151001 |4. |2
+20151101 |4. |2
+20151201 |4. |2
 
 ## Экспорт данных из хранилища данных SQL
 Работая с этим учебником, вы создадите файл данных из таблицы, находящейся в хранилище данных SQL. Созданные данные будут экспортированы в новый файл данных DimDate2_export.txt.
@@ -112,7 +114,7 @@ DateId |CalendarQuarter |FiscalQuarter
 С помощью программы bcp подключитесь и экспортируйте данные, для чего замените в следующей команде значения соответствующим образом.
 
 ```
-bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name> -U <Username> -P <password> -q -w -t
+bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name> -U <Username> -P <password> -q -c -t ','
 ```
 Убедитесь, что данные экспортированы, открыв новый файл. Данные в файле должны совпадать с приведенным далее текстом:
 
@@ -150,4 +152,4 @@ bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name>
 <!--Other Web references-->
 [Центре загрузки Майкрософт]: http://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

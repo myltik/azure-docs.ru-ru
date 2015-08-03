@@ -193,4 +193,4 @@ Azure Stream Analytics в настоящее время не допускает 
 [graphic43]: ./media/stream-analytics-login-credentials-inputs-outputs/43-stream-analytics-login-credentials-inputs-outputs.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

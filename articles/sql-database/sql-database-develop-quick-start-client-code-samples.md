@@ -14,24 +14,32 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/10/2015" 
+	ms.date="07/21/2015" 
 	ms.author="genemi"/>
 
 
-# Простые примеры кода клиентских приложений для работы с базой данных SQL
+# Простые примеры кода клиентских приложений для работы с Базой данных SQL
 
 
-В этом разделе представлены ссылки на примеры кода для быстрого запуска, которые можно использовать для подключения к базе данных SQL Azure. Примеры включают:
+В этом разделе представлены ссылки на примеры кода для быстрого запуска, которые можно использовать для подключения к Базе данных SQL Azure.
+
+
+- Краткие примеры подключения и запросов.
+- Примеры выполняют подключение и запросы, но автоматически повторяют попытку, если возникшая ошибка классифицируется как [*временный сбой*](http://msdn.microsoft.com/library/azure/ff394106.aspx#bkmk_connection_errors) (например, истечение срока ожидания подключения).
+
+
+Примеры включают:
 
 
 - различные языки программирования;
 - ОС Windows, Linux и Mac OS в качестве сред для выполнения клиентского приложения;
+- Ссылки на скачивание для необходимых драйверов подключения.
 - простые примеры кода;
-- более сложные примеры кода с обработкой ошибок и логикой автоматических повторных попыток;
+- Более длинные примеры, которые включают обработку временных сбоев в виде логики автоматического повтора.
 - примеры кода, которые преобразуют реляционные результирующие наборы в объектно-ориентированный формат.
 
 
-> [AZURE.NOTE]По состоянию на 10 июня 2015 года готовятся примеры кода для других языков, ссылки на которые будут добавлены в раздел позднее.
+> [AZURE.NOTE]Подготавливаются примеры кода для других языков, ссылки на которые будут добавлены в раздел позднее.
 
 
 ## Клиенты в Linux
@@ -40,10 +48,11 @@
 Этот раздел содержит ссылки на разделы с примерами кода для клиентских приложений, которые выполняются в системе Linux.
 
 
-| Язык | Сокращение | Retry | Относится к объекту |
+| Язык | Краткий пример | Пример повторной попытки | Относится к объекту |
 | :-- | :-- | :-- | :-- |
 | Node.js | [Tedious](sql-database-develop-nodejs-simple-linux.md) | . | . |
 | Python | [FreeTDS, pymssql](sql-database-develop-python-simple-unbutu-linux.md) | . | . |
+| Ruby | [FreeTDS, TinyTDS](sql-database-develop-ruby-simple-linux.md) | . | . |
 
 
 ## Клиенты в Mac OS
@@ -52,9 +61,10 @@
 В этом разделе содержатся ссылки на разделы с примерами кода для клиентских приложений, которые предназначены для Mac OS.
 
 
-| Язык | Сокращение | Retry | Относится к объекту |
+| Язык | Краткий пример | Пример повторной попытки | Относится к объекту |
 | :-- | :-- | :-- | :-- |
 | Python | [pymssql](sql-database-develop-python-simple-mac-osx.md) | . | . |
+| Ruby | [Homebrew<br/>FreeTDS, TinyTDS](sql-database-develop-ruby-simple-mac-osx.md) | . | . |
 
 
 ## Клиенты в Windows
@@ -63,13 +73,13 @@
 Этот раздел содержит ссылки на разделы с примерами кода для клиентских приложений, которые выполняются в системе Windows.
 
 
-| Язык | Сокращение | Retry | Относится к объекту |
+| Язык | Краткий пример | Пример повторной попытки | Относится к объекту |
 | :-- | :-- | :-- | :-- |
 | C# | [ADO.NET](sql-database-develop-dotnet-simple.md) | [ADO.NET](http://msdn.microsoft.com/library/azure/ee336243.aspx)<br/><br/>[ADO.NET с Enterprise Library](http://msdn.microsoft.com/library/azure/dn961167.aspx) | [ADO.NET Entity Framework](http://msdn.microsoft.com/library/azure/ff951633.aspx) |
 | C++ | [Драйвер ODBC](http://msdn.microsoft.com/library/azure/hh974312.aspx) | . | . |
 | Java | [Java. JDBC, JDK. Insert, Transaction, Select.](sql-database-develop-java-simple-windows.md)<br/><br/>[Java. Eclipse](sql-data-java-how-to-use-sql-database.md)<br/><br/>[Java. JDBC](http://msdn.microsoft.com/library/azure/gg715284.aspx) | . | . |
 | Node.js | [msnodesql](sql-database-develop-nodejs-simple-windows.md) | . | . |
-| PHP | [ODBC](sql-database-develop-php-simple-windows.md) | . | . |
+| PHP | [ODBC](sql-database-develop-php-simple-windows.md) | [ODBC](sql-database-develop-php-retry-windows.md) | . |
 | Python | [pymssql](sql-database-develop-python-simple-windows.md) | . | . |
 
 
@@ -83,6 +93,4 @@
 - [Подключение к базе данных SQL: ссылки, рекомендации и советы по разработке](sql-database-connect-central-recommendations.md)
 - [Создание первой базы данных SQL Azure](sql-database-get-started.md)
 
- 
-
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

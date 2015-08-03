@@ -110,4 +110,4 @@
 
 [Устранение неполадок с подключением Secure Shell (SSH) к виртуальной машине Azure под управлением Linux](virtual-machines-troubleshoot-ssh-connections.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

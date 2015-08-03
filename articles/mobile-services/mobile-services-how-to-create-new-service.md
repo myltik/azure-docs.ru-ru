@@ -20,7 +20,7 @@
 
 В этом разделе показано, как использовать [портал управления Azure][Management Portal] для создания новой серверной части JavaScript в мобильных службах Azure, которая применяет JavaScript для серверной бизнес-логики. Процедуру создания серверной части мобильной службы и мобильного клиентского приложения, которое использует новую мобильную службу, см. раздел [Приступая к работе с мобильными службами].
 
->[AZURE.NOTE]Для работы с этим учебником необходима учетная запись Azure с включенным компонентом мобильных служб Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A30A4DDE2&amp;returnurl=http%3A%2F%2FFru-ru%2Fdocumentation%2Farticles%2Fmobile-services-how-to-create-new-service%2F" target="_blank">Бесплатная пробная версия Azure</a>;
+>[AZURE.NOTE]Для работы с этим учебником необходима учетная запись Azure с включенным компонентом мобильных служб Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A30A4DDE2&amp;returnurl=http%3A%2F%2FFru-ru%2Fdocumentation%2Farticles%2Fmobile-services-how-to-create-new-service%2F" target="_blank">Бесплатная пробная версия Azure</a>;
 
 [AZURE.INCLUDE [mobile-services-create-new-service](../../includes/mobile-services-create-new-service.md)]
 
@@ -41,4 +41,4 @@
 [.NET backend version]: ../mobile-services-dotnet-backend-windows-phone-get-started.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

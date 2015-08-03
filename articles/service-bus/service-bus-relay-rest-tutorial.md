@@ -568,7 +568,7 @@ namespace Microsoft.ServiceBus.Samples
 
 После построения решения выполните следующие действия, чтобы запустить приложение:
 
-1. Запустите службу из командной строки (ImageListener\\bin\\Debug\\ImageListener.exe).
+1. Запустите службу из командной строки (ImageListener\bin\Debug\ImageListener.exe).
 
 2. Скопируйте из командной строки адрес и вставьте его в браузере, чтобы увидеть изображение.
 
@@ -580,4 +580,4 @@ namespace Microsoft.ServiceBus.Samples
 
 - [Как использовать службу ретранслятора служебной шины](service-bus-dotnet-how-to-use-relay.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

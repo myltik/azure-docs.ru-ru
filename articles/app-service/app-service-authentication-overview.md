@@ -214,4 +214,4 @@
 
 * [Получение маркера доступа и вызов API SharePoint в мобильном приложении](../app-service-mobile/app-service-mobile-dotnet-backend-get-started-connect-to-enterprise.md#obtain-token)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

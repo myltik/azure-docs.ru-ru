@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="07/20/2015" 
 	ms.author="juliako"/>
 
 
@@ -33,7 +33,8 @@
 
 Файлы рабочего процесса по умолчанию можно изменить с помощью средств конструктора. Файлы используемого по умолчанию рабочего процесса можно получить [здесь](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows). Папка также содержит описание этих файлов.
 
+Следующий блог содержит учебные видеоматериалы по использованию конструктора:
 
->[AZURE.NOTE]Дополнительные сведения будут доступны в ближайшее время.
+[Учебные видеоматериалы по расширенному рабочему процессу кодировщика служб мультимедиа Azure](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

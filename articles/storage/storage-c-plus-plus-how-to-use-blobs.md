@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-	ms.date="05/11/2015" 
+	ms.date="07/19/2015" 
     ms.author="tamram"/>
 
 # Использование хранилища BLOB-объектов из C++  
@@ -165,6 +165,8 @@
 		}
 	}
 
+Дополнительные сведения об операциях перечисления см. в разделе [Перечисление ресурсов хранилища Azure в C++](storage-c-plus-plus-enumeration.md).
+
 ## Практическое руководство. Загрузка BLOB-объектов
 Для загрузки BLOB-объектов сначала нужно получить ссылку на BLOB-объект и затем вызвать метод **download_to_stream**. В следующем примере используется метод **download_to_stream** для переноса содержимого BLOB-объекта в объект потока, который затем можно сохранить в локальном файле.
 
@@ -231,6 +233,7 @@
 
 -	[Использование хранилища очередей из C++](storage-c-plus-plus-how-to-use-queues.md)
 -	[Использование табличного хранилища из C++](storage-c-plus-plus-how-to-use-tables.md)
+-	[Перечисление ресурсов хранилища Azure в C++](storage-c-plus-plus-enumeration.md)
 -	[Клиентская библиотека хранилища для C++](https://msdn.microsoft.com/library/azure/gg433040.aspx) 
 -	[Справочник MSDN хранилища Azure](https://msdn.microsoft.com/library/azure/gg433040.aspx)
 -	[Документация по хранилищу Azure](http://azure.microsoft.com/documentation/services/storage/)
@@ -240,4 +243,4 @@
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -50,4 +50,4 @@ Azure Mobile Engagement — предоставляемая по принципу
 [Учебник по началу работы (для разработчиков)](/documentation/services/mobile-engagement/)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

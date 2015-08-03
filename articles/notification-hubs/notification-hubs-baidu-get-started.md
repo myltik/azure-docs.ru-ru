@@ -482,4 +482,4 @@ Push-облако Baidu — это китайская облачная служ
 [портал Baidu]: http://www.baidu.com/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

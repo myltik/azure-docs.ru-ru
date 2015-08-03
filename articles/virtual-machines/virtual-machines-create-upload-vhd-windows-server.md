@@ -53,7 +53,7 @@
 
 1. Войдите в операционную систему.
 
-2. Откройте окно командной строки с правами администратора. Измените каталог на **%windir%\\system32\\sysprep** и запустите файл `sysprep.exe`.
+2. Откройте окно командной строки с правами администратора. Измените каталог на **%windir%\system32\sysprep** и запустите файл `sysprep.exe`.
 
 	![Откройте окно командной строки](./media/virtual-machines-create-upload-vhd-windows-server/sysprep_commandprompt.png)
 
@@ -211,4 +211,4 @@
 [Шаг 4. Загрузка VHD-файла]: #upload
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

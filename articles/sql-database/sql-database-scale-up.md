@@ -209,7 +209,8 @@
 
 **Предварительные требования**
 
-Для использования командлетов Azure PowerShell, описанных в этом разделе, на компьютере, где запускается PowerShell, должно быть установлено следующее программное обеспечение. 1. Загрузите Windows PowerShell версии не ниже 3.0 на странице http://www.microsoft.com/ru-ru/download/details.aspx?id=34595.
+Для использования командлетов Azure PowerShell, описанных в этом разделе, на компьютере, где запускается PowerShell, должно быть установлено следующее программное обеспечение.
+1. Загрузите Windows PowerShell версии не ниже 3.0 на странице http://www.microsoft.com/ru-ru/download/details.aspx?id=34595.
 
 2. Загрузите Azure PowerShell в разделе программы командной строки на странице [загрузок пакета Azure SDK и инструментов](http://azure.microsoft.com/downloads/).
 
@@ -231,7 +232,8 @@
 		$serverContext = New-AzureSqlDatabaseServerContext -ServerName "myserver" -UseSubscription
 
 
-**Справочник по PowerShell для Azure** Дополнительные сведения о командлетах Azure PowerShell, используемых в этом разделе, см. раздел [Командлеты Базы данных SQL Azure](https://msdn.microsoft.com/library/dn546726.aspx).
+**Справочник по PowerShell для Azure**
+Дополнительные сведения о командлетах Azure PowerShell, используемых в этом разделе, см. раздел [Командлеты Базы данных SQL Azure](https://msdn.microsoft.com/library/dn546726.aspx).
 
 [New-AzureSqlDatabaseServerContext](http://go.microsoft.com/fwlink/?LinkId=391026)
 
@@ -240,4 +242,4 @@
 [Set-AzureSqlDatabase](http://go.microsoft.com/fwlink/?LinkId=391412)
  
 
-<!----HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

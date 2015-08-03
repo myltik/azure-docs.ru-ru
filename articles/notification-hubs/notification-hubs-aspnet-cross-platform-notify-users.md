@@ -112,4 +112,4 @@
 [Инструкции по использованию концентраторов уведомлений для магазина Windows]: http://msdn.microsoft.com/library/windowsazure/jj927172.aspx
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

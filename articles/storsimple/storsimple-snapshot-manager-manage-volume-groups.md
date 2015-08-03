@@ -142,4 +142,4 @@
 
 [Создание политик архивации и управление ими с помощью диспетчера моментальных снимков StorSimple](storsimple-snapshot-manager-manage-backup-policies.md).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -97,4 +97,4 @@
 [Task Preset Strings for the Azure Media Encoder]: http://msdn.microsoft.com/library/jj129582.aspx
 [Практическое руководство. Подключение к службам мультимедиа программными средствами]: ../media-services-set-up-computer/
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

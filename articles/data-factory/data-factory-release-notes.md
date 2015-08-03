@@ -13,10 +13,253 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.date="07/16/2015" 
 	ms.author="spelluru"/>
 
 # Заметки о выпуске фабрики данных Azure
+
+## Заметки о выпуске фабрики данных от 17.07.2015 г.
+Следующие изменения JSON представлены в выпуске Azure PowerShell от июля 2015 г.
+
+## Обновление типов связанных служб, таблиц и действий
+Тип ресурса | Текущее имя в формате JSON | Новое имя в формате JSON
+------------- | -------------------- | ----------------
+Связанная служба (источник данных) | AzureSqlLinkedService; | AzureSqlDatabase
+Связанная служба (источник данных) | AzureStorageLinkedService | AzureStorage
+Связанная служба (источник данных) | DocumentDbLinkedService | DocumentDb
+Связанная служба (источник данных) | OnPremisesFileSystemLinkedService | OnPremisesFileServer
+Связанная служба (источник данных) | OnPremisesOracleLinkedService | OnPremisesOracle
+Связанная служба (источник данных) | OnPremisesSqlLinkedService | OnPremisesSqlServer
+Связанная служба (источник данных) | OnPremisesMySqlLinkedService | OnPremisesMySql
+Связанная служба (источник данных) | OnPremisesDb2LinkedService | OnPremisesDb2
+Связанная служба (источник данных) | OnPremisesTeradataLinkedService | OnPremisesTeradata
+Связанная служба (источник данных) | OnPremisesSybaseLinkedService | OnPremisesSybase
+Связанная служба (источник данных) | OnPremisesPostgreSqlLinkedService | OnPremisesPostgreSql
+Связанная служба (вычисления) | AzureMlLinkedService | AzureML
+Связанная служба (вычисления) | HDInsightBYOCLinkedService | HDInsight
+Связанная служба (вычисления) | HDInsightOnDemandLinkedService | HDInsightOnDemand
+Связанная служба (вычисления) | AzureBatchLinkedService | AzureBatch
+Выборка | AzureBlobLocation | AzureBlob
+Выборка | AzureTableLocation | AzureTable
+Выборка | AzureSqlTableLocation | AzureSqlTable
+Выборка | DocumentDbCollectionLocation | DocumentDbCollection 
+Выборка | OnPremisesFileSystemLocation | FileShare
+Выборка | OnPremisesOracleTableLocation | OracleTable
+Выборка | OnPremisesSqlServerTableLocation | SqlServerTable
+Выборка | RelationTableLocation | RelationalTable
+Действие | CopyActivity | Копировать
+Действие | HDInsightActivity (преобразование Hive) | HDInsightHive
+Действие | HDInsightActivity (преобразование Pig) | HDInsightPig
+Действие | HDInsightActivity (преобразование MapReduce) | HDInsightMapReduce
+Действие | HDInsightActivity (потоковая передача) | HDInsightHadoopStreaming
+Действие | AzureMLBatchScoringActivity | AzureMLBatchScoring
+Действие | StoredProcedureActivity | SqlServerStoredProcedure
+
+## Новый элемент typeProperties
+Новый элемент **typeProperties** содержит свойства конкретного типа для связанной службы, таблицы или действия.
+
+### Старая связанная служба JSON
+	{
+	    "name": "StorageLinkedService",
+	    "properties":
+	    {
+	        "type": "AzureStorageLinkedService",
+	        "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>" "
+	    }
+	}
+
+### Новая связанная служба JSON
+	{
+	  "name": "StorageLinkedService",
+	  "properties": {
+	    "type": "AzureStorage",
+	    "typeProperties": {
+	      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<Account key>"
+	    }
+	  }
+	}
+
+Обратите внимание на следующее.
+
+- Свойство **Тип** перемещено на один уровень вверх и имеет значение **AzureStorage** (изменено с **AzureStorageLinkedService** на **AzureStorage**) 
+- Новый элемент **typeProperties**, содержащий свойства, поддерживаемые связанной службой хранилища Azure (**connectionString** в этом примере).  
+
+### Старый набор данных JSON
+	{
+	    "name": "EmpTable",
+	    "properties":
+	    {
+	        "location":
+	        {
+	            "type": "AzureTableLocation",
+	            "tableName": "myazuretable",
+	            "linkedServiceName": "MyLinkedService"
+	        },
+	        "availability":
+	        {
+	            "frequency": "Hour",
+	            "interval": 1
+	        }
+	    }
+	}
+
+### Новый набор данных JSON
+
+	{
+	    "name": "EmpTable",
+	    "properties": {
+	        "type": "AzureTable",
+	        "linkedServiceName": "MyLinkedServiceName",
+	        "typeProperties": {
+	            "tableName": "myazuretable"
+	        },
+	        "availability": {
+	            "frequency": "Hour",
+	            "interval": "1"
+	        }
+	    }
+	}
+
+Обратите внимание на следующее.
+
+- Свойство **type** перемещено на один уровень вверх, а имя свойства **AzureTableLocation** изменено на **AzureTable**.
+- **LinkedServiceName** перемещено на один уровень вверх. 
+- Элемент **location** теперь удален, и свойства конкретного типа, например **tableName**, указанные в разделе **location**, указаны в новом разделе **typeProperties**.  
+
+### Старое действие JSON
+
+	{
+	    "name": "CopyFromSQLtoBlob   ",
+	    "description": "description", 
+	    "type": "CopyActivity",
+	    "inputs":  [ { "name": "InputSqlDA"  } ],
+	    "outputs":  [ { "name": "OutputBlobDA" } ],
+	    "transformation":
+	    {
+	        "source":
+	        {
+	            "type": "SqlSource",
+	            "sqlReaderQuery": "select * from MyTable"
+	        },
+	        "sink":
+	        {
+	            "type": "BlobSink"
+	        }
+	    }
+	}   
+
+### Новое действие JSON
+	
+	{
+	    "name": "CopyFromSQLtoBlob   ",
+	    "description": "description", 
+	    "type": "Copy",
+	    "inputs":  [ { "name": "InputSqlDA"  } ],
+	    "outputs":  [ { "name": "OutputBlobDA" } ],
+	    "typeProperties":
+	    {
+	        "source":
+	        {
+	            "type": "SqlSource",
+	            "sqlReaderQuery": "select * from MyTable"
+	        },
+	        "sink":
+	        {
+	            "type": "BlobSink"
+	        }
+	    }
+	}
+
+Обратите внимание на следующее.
+
+- Обратите внимание, что элемент **transformation** заменен новым элементом **typeProperties**.
+
+## Элемент waitOnExternal удален
+Элемент **WaitOnExternal** заменен новыми свойствами **external** и **externalData**.
+
+### Старый JSON
+	{
+	    "name": "EmpTableFromBlob",
+	    "properties":
+	    {
+	        "location": 
+	        {
+	            "type": "AzureBlobLocation",
+	            "folderPath": "adftutorial/",
+	            "format":
+	            {
+	                "type": "TextFormat",
+	                "columnDelimiter": ","
+	            },
+	            "linkedServiceName": "StorageLinkedService"
+	        },
+	        "availability": 
+	        {
+	            "frequency": "hour",
+	            "interval": 1,
+                "waitOnExternal": 
+				{
+			        "retryInterval": "00:01:00",
+			        "retryTimeout": "00:10:00",
+			        "maximumRetry": "3"			
+				}
+	        }
+	    }
+	} 
+
+### Новый JSON
+	{
+	  "name": "EmpTableFromBlob",
+	  "properties": {
+	    "type": "AzureBlob",
+	    "linkedServiceName": "StorageLinkedService",
+	    "typeProperties": {
+	      "folderPath": "adftutorial/",
+	      "format": {
+	        "type": "TextFormat",
+	        "columnDelimiter": ","
+	      }
+	    },
+	    "external": true,
+	    "availability": {
+	      "frequency": "hour",
+	      "interval": 1
+	    },
+	    "policy": {
+	      "externalData": {
+	        "retryInterval": "00:01:00",
+	        "retryTimeout": "00:10:00",
+	        "maximumRetry": "3"
+	      }
+	    }
+	  }
+	}
+
+Обратите внимание на следующее.
+
+- Свойство **WaitOnExternal** удалено из раздела **availability** 
+- Новое свойство **external** добавлено уровнем выше и имеет значение **true** для внешней таблицы. 
+- Свойства элемента **waitOnExternal**, такие как **retryInterval**, добавлены в новый раздел **externalData** элемента **Policy**.
+- **ExternalData** — это необязательный элемент. 
+- При использовании элемента **externalData** для свойства **external** должно быть установлено значение **true**. 
+ 
+
+## Новое свойство copyBehavior для BlobSink
+**BlobSink** поддерживает новое свойство с именем **copyBehavior**. Это свойство определяет поведение копирования, если источником является **BlobSource** или **FileSystem**. Существует три возможных значения для свойства **copyBehavior**.
+
+**PreserveHierarchy**: сохраняет иерархию файлов в папке назначения, т. е. относительный путь исходного файла в исходной папке идентичен относительному пути целевого файла в целевой папке.
+
+
+**FlattenHierarchy**: все файлы из исходной папки будут размещены на первом уровне в целевой папке. Целевые файлы будут иметь автоматически сформированное имя.
+
+
+**MergeFiles**: объединяет все файлы из исходной папки в один файл. Если указано имя файла или большого двоичного объекта, именем объединенного файла будет указанное имя; в противном случае имя файла будет автоматически сформировано.
+ 
+## Новое свойство getDebugInfo для всех действий HDInsight
+Действия HDInsight (Hive, Pig, MapReduce, потоковая передача Hadoop) поддерживают новое свойство **getDebugInfo**. Свойство **GetDebugInfo** является необязательным элементом. Если для него установлено значение**Failure**, журналы загружаются только при сбое выполнения. Если для него установлено значение **All**, журналы загружаются всегда независимо от состояния выполнения. Если для него установлено значение **None**, журналы не загружаются.
+
+  
+     
 
 ## Заметки о выпуске фабрики данных от 10 апреля 2015 г.
 Добавлена возможность просмотра списков **Недавно обновленные срезы** и **Последние срезы с ошибками** в колонке **ТАБЛИЦА**. Эти списки сортируются по времени обновления среза. Время обновления среза изменяется в таких ситуациях:
@@ -78,7 +321,7 @@
 - Дополнительные параметры конфигурации для HDInsightOnDemandLinkedService
 	- В этом выпуске мы добавлена поддержка нескольких дополнительных параметров конфигурации для HDInsightOnDemandLinked (кластера HDInsight по запросу). Подробные сведения см. в статье [Свойства ClusterCreateParameters][on-demand-hdi-parameters].
 - Удалено расположение шлюза
-	- При создании шлюза фабрики данных Azure через портал или с помощью PowerShell (New-AzureDataFactoryGateway) теперь не требуется указывать расположение шлюза. Будет наследоваться область фабрики данных. Таким же образом, больше не требуется настраивать связанную службу сервера SQL Server с помощью свойства JSON "gatewayLocation". Пакет .NET SDK фабрики данных также обновлен для отражения этих изменениями.
+	- При создании шлюза фабрики данных Azure через портал или с помощью PowerShell (New-AzureDataFactoryGateway) теперь не требуется указывать расположение шлюза. Будет наследоваться регион фабрики данных. Таким же образом, больше не требуется настраивать связанную службу сервера SQL Server с помощью свойства JSON "gatewayLocation". Пакет .NET SDK фабрики данных также обновлен для отражения этих изменениями.
 	- При использовании более ранней версии SDK и Azure PowerShell вам по-прежнему придется выполнять настройку расположения.
  
      
@@ -112,4 +355,4 @@
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

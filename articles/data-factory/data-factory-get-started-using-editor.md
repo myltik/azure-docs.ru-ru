@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.date="07/17/2015" 
 	ms.author="spelluru"/>
 
 # Учебник. Создание и отслеживание фабрик данных с помощью редактора фабрики данных
@@ -21,6 +21,8 @@
 - [Tutorial Overview](data-factory-get-started.md)
 - [Using Data Factory Editor](data-factory-get-started-using-editor.md)
 - [Using PowerShell](data-factory-monitor-manage-using-powershell.md)
+- [Using Visual Studio](data-factory-get-started-using-vs.md)
+
 
 
 ##Вот какие темы рассматривает этот учебник:
@@ -314,7 +316,7 @@
 5. В колонке **Наборы данных** щелкните **EmpTableFromBlob**. Это входная таблица для **ADFTutorialPipeline**.
 
 	![Наборы данных с выбранным объектом EmpTableFromBlob][image-data-factory-get-started-datasets-emptable-selected]   
-5. Обратите внимание, что срезы данных до настоящего момента уже произведены и находятся в состоянии **Готов**, поскольку файл **emp.txt** все это время существует в контейнере больших двоичных объектов **adftutorial\\input**. Убедитесь, что срезы не отображаются в разделе **Срезы, в которых недавно произошел сбой** в нижней части.
+5. Обратите внимание, что срезы данных до настоящего момента уже произведены и находятся в состоянии **Готов**, поскольку файл **emp.txt** все это время существует в контейнере больших двоичных объектов **adftutorial\input**. Убедитесь, что срезы не отображаются в разделе **Срезы, в которых недавно произошел сбой** в нижней части.
 
 	Оба списка, **Недавно обновленные срезы** и **Срезы, в которых недавно произошел сбой**, сортируются по **ПОСЛЕДНЕМУ ВРЕМЕНИ ОБНОВЛЕНИЯ**. Время обновления среза изменяется в таких ситуациях:
     
@@ -506,4 +508,4 @@
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Рекомендации по обработке состояния в шаблонах диспетчера ресурсов Azure"
 	description="Здесь описываются рекомендуемые подходы к использованию составных объектов для совместного использования данных о состоянии с шаблонами диспетчера ресурсов Azure и связанными шаблонами."
-	services="virtual-machines"
+	services="azure-resource-manager"
 	documentationCenter=""
 	authors="mmercuri"
 	manager="georgem"
@@ -381,4 +381,4 @@ enableJumpbox | Строка из ограниченного списка (enabl
 - [Создание шаблонов диспетчера ресурсов Azure](resource-group-authoring-templates.md)
 - [Функции шаблонов в диспетчере ресурсов Azure](resource-group-template-functions.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

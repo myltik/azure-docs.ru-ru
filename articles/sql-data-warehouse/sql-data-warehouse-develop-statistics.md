@@ -3,8 +3,8 @@
    description="Советы по управлению статистикой в хранилище данных SQL Azure для разработки решений."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="barbkess"
-   manager="jhubbard"
+   authors="jrowlandjones"
+   manager="barbkess"
    editor=""/>
 
 <tags
@@ -152,7 +152,7 @@ CREATE STATISTICS stats_col1 ON table1 (col1) WHERE col1 > '2000101' AND col1 < 
 
 > [AZURE.NOTE]Гистограмма, используемая для оценки количества строк в результатах запроса, доступна только для первого столбца, указанного в определении объекта статистики.
 
-В этом примере гистограмма создана для *product_category*. Статистика между столбцами вычисляется по *product_category* и *product_sub_c\\ategory*:
+В этом примере гистограмма создана для *product_category*. Статистика между столбцами вычисляется по *product_category* и *product_sub_c\ategory*:
 
 ```
 CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category) WHERE product_category > '2000101' AND product_category < '20001231' WITH SAMPLE = 50 PERCENT;
@@ -280,13 +280,13 @@ prc_sqldw_create_stats;
 Для обновления указанного объекта статистики используйте следующий синтаксис:
 
 ```
-UPDATE STATISTICS ON [schema_name].[table_name]([stat_name]);
+UPDATE STATISTICS [schema_name].[table_name]([stat_name]);
 ```
 
 Например:
 
 ```
-UPDATE STATISTICS ON [dbo].[table1] ([stats_col1]);
+UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
 ```
 
 Обновляя определенные объекты статистики, можно свести к минимуму затраты времени и ресурсов на управление статистикой. Однако необходимо хорошенько подумать, чтобы выбрать наиболее подходящие объекты статистики для обновления.
@@ -296,13 +296,13 @@ UPDATE STATISTICS ON [dbo].[table1] ([stats_col1]);
 Ниже показан простой метод обновления всех объектов статистики для таблицы.
 
 ```
-UPDATE STATISTICS ON [schema_name].[table_name];
+UPDATE STATISTICS [schema_name].[table_name];
 ```
 
 Например:
 
 ```
-UPDATE STATISTICS ON dbo.table1;
+UPDATE STATISTICS dbo.table1;
 ```
 
 Эта инструкция проста в использовании. Просто помните, что она обновляет всю статистику для таблицы, и, следовательно, может выполнять больше работы, чем необходимо. Если производительность не является проблемой — это самый простой и эффективный способ обеспечения актуальности статистики.
@@ -452,4 +452,4 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 [sys.table_types]: https://msdn.microsoft.com/library/bb510623.aspx
 [Обновление статистики]: https://msdn.microsoft.com/library/ms187348.aspx
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

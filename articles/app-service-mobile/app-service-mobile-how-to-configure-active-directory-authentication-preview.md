@@ -18,6 +18,8 @@
 
 # Настройка приложения для использования имени для входа Azure Active Directory
 
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+
 В этом разделе показано, как настроить службы приложений Azure для использования Azure Active Directory в качестве поставщика проверки подлинности.
 
 ## <a name="register"> </a>Регистрация приложения в Azure Active Directory
@@ -73,4 +75,4 @@
 [ios-adal]: ../app-service-mobile-dotnet-backend-xamarin-ios-aad-sso-preview.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

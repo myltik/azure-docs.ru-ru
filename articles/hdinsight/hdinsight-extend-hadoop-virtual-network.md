@@ -173,4 +173,4 @@
 
 Дополнительные сведения о виртуальных сетях Azure см. в статье [Общие сведения о виртуальных сетях Azure](http://msdn.microsoft.com/library/azure/jj156007.aspx).
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

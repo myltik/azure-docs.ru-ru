@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/06/2015" 
+	ms.date="07/19/2015" 
 	ms.author="arramac"/>
 
 # Сортировка данных DocumentDB с помощью Order By
@@ -176,4 +176,4 @@ DocumentDB поддерживает сортировку по одиночном
 * [Образцы Order By в DocumentDB](https://github.com/Azure/azure-documentdb-net/tree/master/samples/orderby)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

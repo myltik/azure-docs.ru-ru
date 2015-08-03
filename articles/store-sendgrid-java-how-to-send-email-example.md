@@ -213,7 +213,7 @@
 
 Этот код был представлен для того, чтобы показать вам, как использовать SendGrid для языка Java в Azure. Возможно, перед развертыванием в рабочей среде Azure потребуется добавить в него дополнительные обработчики ошибок и другие функции. Например:
 
-* Вместо веб-формы для сохранения адресов и электронных сообщений вы можете использовать хранилище больших двоичных объектов Azure или базу данных SQL. Дополнительные сведения об использовании BLOB-объектов Azure в Java см. в разделе [Использование службы хранилища BLOB-объектов Azure из Java](http://www.windowsazure.com/develop/java/how-to-guides/blob-storage/). Дополнительные сведения об использовании базы данных SQL в Java см. в разделе [Использование базы данных SQL в Java](http://www.windowsazure.com/develop/java/how-to-guides/using-sql-azure-in-java/).
+* Вместо веб-формы для сохранения адресов и электронных сообщений вы можете использовать хранилище больших двоичных объектов Azure или базу данных SQL. Дополнительные сведения об использовании BLOB-объектов Azure в Java см. в разделе [Использование службы хранилища BLOB-объектов Azure из Java](http://azure.microsoft.com/develop/java/how-to-guides/blob-storage/). Дополнительные сведения об использовании базы данных SQL в Java см. в разделе [Использование базы данных SQL в Java](http://azure.microsoft.com/develop/java/how-to-guides/using-sql-azure-in-java/).
 * Для получения имени пользователя и пароля SendGrid из параметров конфигурации развертывания вместо веб-формы можно использовать `RoleEnvironment.getConfigurationSettings`. Дополнительные сведения о классе `RoleEnvironment` см. в разделе [Использование библиотеки среды выполнения служб Azure в JSP](http://msdn.microsoft.com/library/windowsazure/hh690948), а также в документации по пакету среды выполнения служб Azure по адресу <http://dl.windowsazure.com/javadoc>.
 * Дополнительную информацию об использовании SendGrid в Java см. в разделе [Как отправлять электронную почту с помощью SendGrid из Java](store-sendgrid-java-how-to-send-email.md).
 
@@ -221,4 +221,4 @@
 [emailsent]: ./media/store-sendgrid-java-how-to-send-email-example/SendGridJavaEmailSent.jpg
 [emailresult]: ./media/store-sendgrid-java-how-to-send-email-example/SendGridJavaResult.jpg
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

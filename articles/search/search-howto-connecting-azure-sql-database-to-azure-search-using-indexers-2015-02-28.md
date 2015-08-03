@@ -68,7 +68,21 @@
 
 Затем создайте целевой индекс Поиска Azure, если вы еще не сделали это. Создать индекс можно с помощью [пользовательского интерфейса портала](https://portal.azure.com) или [API создания индекса](https://msdn.microsoft.com/library/azure/dn798941.aspx). Убедитесь, что схема целевого индекса совместима со схемой исходной таблицы. Особенности сопоставления типов данных SQL и Поиска Azure см. в следующей таблице.
 
-**Сопоставление типов данных SQL и Поиска Azure** <table style="font-size:12"> <tr> <td>Тип данных SQL</td> <td>Допустимые типы поля целевого индекса</td> <td>Примечания</td> </tr> <tr> <td>bit</td> <td>Edm.Boolean, Edm.String</td> <td></td> </tr> <tr> <td>int, smallint, tinyint</td> <td>Edm.Int32 Edm.Int64, Edm.String</td> <td></td> </tr> <tr> <td>bigint</td> <td>Edm.Int64, Edm.String</td> <td></td> </tr> <tr> <td>real, float</td> <td>Edm.Double, Edm.String</td> <td></td> </tr> <tr> <td>smallmoney money<br/>decimal<br/>numeric </td> <td>Edm.String</td> <td>Поиск Azure не поддерживает преобразование десятичных типов в Edm.Double, так как это сократит точность</td> </tr> <tr> <td>char, nchar, varchar, nvarchar</td> <td>Edm.String<br/>Collection(Edm.String)</td> <td>Для преобразования строкового столбца в Collection(Edm.String) необходимо использовать ознакомительную версию API 2015-02-28-Preview. Подробнее см. [в этой статье](search-api-indexers-2015-02-28-Preview.md#create-indexer) </td> </tr> <tr> <td>smalldatetime, datetime, datetime2, date, datetimeoffset</td> <td>Edm.DateTimeOffset, Edm.String</td> <td></td> </tr> <tr> <td>uniqueidentifer</td> <td>Edm.String</td> <td></td> </tr> <tr> <td>geography</td> <td>Edm.GeographyPoint</td> <td>Поддерживаются только географические экземепляры типа POINT с идентификатором SRID 4326 (значение по умолчанию)</td> </tr> <tr> <td>rowversion</td> <td>н/д</td> <td>Столбцы версий строк нельзя хранить в индексе поиска, но их можно использовать для отслеживания изменений</td> </tr> <tr> <td>time, timespan<br>binary, varbinary, image,<br>xml, geometry, CLR types</td> <td>н/д</td> <td>Не поддерживается</td> </tr> </table>
+**Сопоставление типов данных SQL и типов данных службы "Поиск Azure"**
+
+|Тип данных SQL | Совместимые типы полей целевого индекса |Примечания 
+|------|-----|----|
+|bit|Edm.Boolean, Edm.String| |
+|int, smallint, tinyint |Edm.Int32, Edm.Int64, Edm.String| |
+| bigint | Edm.Int64, Edm.String | |
+| real, float |Edm.Double, Edm.String | |
+| smallmoney, money decimal numeric | Edm.String| Поиск Azure не поддерживает преобразование десятичных типов в Edm.Double, так как это отрицательно скажется на точности. |
+| char, nchar, varchar, nvarchar | Edm.String<br/>Collection(Edm.String)|Для преобразования строкового столбца в Collection(Edm.String) требуется API предварительной версии 2015-02-28-Preview. Подробные сведения см. в [этой статье](search-api-indexers-2015-02-28-Preview.md#create-indexer)| 
+|smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset, Edm.String| |
+|uniqueidentifer | Edm.String | |
+|geography | Edm.GeographyPoint | Поддерживаются только географические объекты типа POINT с SRID 4326 (значение по умолчанию). | | 
+|rowversion| Недоступно |Столбцы версии строк не могут храниться в индексе поиска, но их можно использовать для отслеживания изменений. | |
+| time, timespan, binary, varbinary, image, xml, geometry, CLR types | Недоступно |Не поддерживается |
 
 Наконец, создайте индексатор, задав ему имя и связав источник данных с целевым индексом:
 
@@ -263,4 +277,4 @@
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

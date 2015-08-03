@@ -117,7 +117,7 @@
 
 	![Шлюз — колонка "Настройка"][image-data-factory-gateway-configure-blade]
 
-	Это самый простой способ (одним щелчком) скачать, установить, настроить и зарегистрировать шлюз в один шаг. Вы увидите, что на компьютере установлено приложение **Microsoft Data Management Gateway Configuration Manager**. Вы также можете найти исполняемый файл **ConfigManager.exe** в папке по следующему пути: **C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\Shared**.
+	Это самый простой способ (одним щелчком) скачать, установить, настроить и зарегистрировать шлюз в один шаг. Вы увидите, что на компьютере установлено приложение **Microsoft Data Management Gateway Configuration Manager**. Вы также можете найти исполняемый файл **ConfigManager.exe** в папке по следующему пути: **C:\Program Files\Microsoft Data Management Gateway\1.0\Shared**.
 
 	Шлюз также можно скачать и установить вручную, используя ссылки в этой колонке. Затем вы можете зарегистрировать его с помощью ключа, указанного в текстовом поле **ЗАРЕГИСТРИРОВАТЬ С ПОМОЩЬЮ КЛЮЧА**.
 	
@@ -166,7 +166,7 @@
 4.	На панели JSON выполните указанные ниже действия.
 	1.	Для свойства **gatewayName** укажите **adftutorialgateway**, чтобы заменить весь текст, заключенный в двойные кавычки.  
 	2.	При использовании **проверки подлинности SQL**: 
-		1.	В свойстве **connectionString** замените **<servername>**, **<databasename>**, **<username>** и **<password>** на имя локального сервера SQL Server, имя базы данных, имя учетной записи пользователя и пароль. Чтобы указать имя экземпляра, используйте экранирующий символ: . Пример: **сервер\\имя_экземпляра**. 	
+		1.	В свойстве **connectionString** замените **<servername>**, **<databasename>**, **<username>** и **<password>** на имя локального сервера SQL Server, имя базы данных, имя учетной записи пользователя и пароль. Чтобы указать имя экземпляра, используйте экранирующий символ: . Пример: **сервер\имя_экземпляра**. 	
 		2.	Удалите последние два свойства (**username** и **password**) из файла JSON, а также удалите **запятую (,)** в конце последней строки в оставшейся части сценария JSON.
 		
 				{
@@ -487,7 +487,7 @@
 	**Пример команды и выходных данных**:
 
 
-		PS C:> New-AzureDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
+		PS C:\> New-AzureDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
 
 		Name              : MyGateway
 		Description       : gateway for walkthrough
@@ -509,12 +509,12 @@
 	**Пример результата выполнения команды:**
 
 
-		PS C:> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
+		PS C:\> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
 
 	
-4. В Azure PowerShell перейдите к папке **C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\PowerShellScript** и выполните сценарий **RegisterGateway.ps1**, связанный с локальной переменной **$Key**, как показано в следующей команде, чтобы зарегистрировать агент клиента, установленный на вашем компьютере с логическим шлюзом, созданным ранее.
+4. В Azure PowerShell перейдите к папке **C:\Program Files\Microsoft Data Management Gateway\1.0\PowerShellScript** и выполните сценарий **RegisterGateway.ps1**, связанный с локальной переменной **$Key**, как показано в следующей команде, чтобы зарегистрировать агент клиента, установленный на вашем компьютере с логическим шлюзом, созданным ранее.
 
-		PS C:> .\RegisterGateway.ps1 $Key.GatewayKey
+		PS C:\> .\RegisterGateway.ps1 $Key.GatewayKey
 		
 		Agent registration is successful!
 
@@ -627,4 +627,4 @@
 
 [image-data-factory-preview-portal-storage-key]: ./media/data-factory-get-started/PreviewPortalStorageKey.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

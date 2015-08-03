@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="Использование пакета SDK для .NET для управления Stream Analytics | Microsoft Azure" 
 	description="Приступая к работе с пакетом SDK для .NET для управления Stream Analytics. Дополнительная информация о настройке и выполнении заданий аналитики: создание проекта, входные и выходные данные и преобразования." 
+	keywords=".net skd,analytics jobs,event hub"
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -364,4 +365,4 @@ Azure Stream Analytics является полностью управляемо�
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

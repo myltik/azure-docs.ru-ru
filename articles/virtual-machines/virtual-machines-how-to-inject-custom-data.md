@@ -80,4 +80,4 @@
 [Интерфейс командной строки Azure](https://github.com/Azure/azure-sdk-tools-xplat)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

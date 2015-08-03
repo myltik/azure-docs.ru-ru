@@ -54,7 +54,7 @@
 
 ## <a id="setup"></a>Настройка Python и Django
 
-**Примечание.** Для скачивания с помощью Internet Explorer может потребоваться настроить параметры конфигурации усиленной безопасности Internet Explorer (выберите "Пуск > Администрирование > Диспетчер серверов > Локальный сервер", щелкните **Конфигурация усиленной безопасности Internet Explorer** и установите значение "Выкл.").
+**Примечание.** Для скачивания с помощью Internet Explorer может потребоваться настроить параметры конфигурации усиленной безопасности Internet Explorer (выберите «Пуск > Администрирование > Диспетчер серверов > Локальный сервер», щелкните **Конфигурация усиленной безопасности Internet Explorer** и установите значение «Выкл.»).
 
 1. Установите [установщик веб-платформы][].
 1. Установите Python и WFastCGI с помощью установщика веб-платформы. В папку сценариев Python будет установлен wfastcgi.py.
@@ -76,7 +76,7 @@
 
 1. Установите службы IIS с поддержкой FastCGI. Это может занять несколько минут.
 
-		start /wait %windir%\System32\\PkgMgr.exe /iu:IIS-WebServerRole;IIS-WebServer;IIS-CommonHttpFeatures;IIS-StaticContent;IIS-DefaultDocument;IIS-DirectoryBrowsing;IIS-HttpErrors;IIS-HealthAndDiagnostics;IIS-HttpLogging;IIS-LoggingLibraries;IIS-RequestMonitor;IIS-Security;IIS-RequestFiltering;IIS-HttpCompressionStatic;IIS-WebServerManagementTools;IIS-ManagementConsole;WAS-WindowsActivationService;WAS-ProcessModel;WAS-NetFxEnvironment;WAS-ConfigurationAPI;IIS-CGI
+		start /wait %windir%\System32\PkgMgr.exe /iu:IIS-WebServerRole;IIS-WebServer;IIS-CommonHttpFeatures;IIS-StaticContent;IIS-DefaultDocument;IIS-DirectoryBrowsing;IIS-HttpErrors;IIS-HealthAndDiagnostics;IIS-HttpLogging;IIS-LoggingLibraries;IIS-RequestMonitor;IIS-Security;IIS-RequestFiltering;IIS-HttpCompressionStatic;IIS-WebServerManagementTools;IIS-ManagementConsole;WAS-WindowsActivationService;WAS-ProcessModel;WAS-NetFxEnvironment;WAS-ConfigurationAPI;IIS-CGI
 
 
 ### Python 2,7
@@ -148,7 +148,7 @@
 ## Создание нового приложения Django
 
 
-1.  Для создания проекта Django в папке *C:\\inetpub\\wwwroot* введите указанную ниже команду.
+1.  Для создания проекта Django в папке *C:\inetpub\wwwroot* введите указанную ниже команду.
 
     Для Python 2.7 используйте указанную ниже команду.
 
@@ -162,13 +162,13 @@
 
 1.  Команда **django-admin** создает базовую структуру для веб-сайтов на основе Django:
 
-  -   **helloworld\\manage.py** помогает вам начать и остановить размещение веб-сайта Django.
-  -   **helloworld\\helloworld\\settings.py** содержит параметры Django для приложения.
-  -   **helloworld\\helloworld\\urls.py** содержит код сопоставления между каждым URL-адресом и его представлением.
+  -   **helloworld\manage.py** помогает вам начать и остановить размещение веб-сайта Django.
+  -   **helloworld\helloworld\settings.py** содержит параметры Django для приложения.
+  -   **helloworld\helloworld\urls.py** содержит код сопоставления между каждым URL-адресом и его представлением.
 
 
 
-1.  Создайте новый файл с именем **views.py** в папке *C:\\inetpub\\wwwroot\\helloworld\\helloworld*. Он будет содержать представление, которое осуществляет отрисовку страницы "hello world". Запустите редактор и введите указанную ниже команду.
+1.  Создайте новый файл с именем **views.py** в папке *C:\inetpub\wwwroot\helloworld\helloworld*. Он будет содержать представление, которое осуществляет отрисовку страницы "hello world". Запустите редактор и введите указанную ниже команду.
 
 		from django.http import HttpResponse
 		def home(request):
@@ -198,4 +198,4 @@
 
 [установщик веб-платформы]: http://www.microsoft.com/web/downloads/platform.aspx
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

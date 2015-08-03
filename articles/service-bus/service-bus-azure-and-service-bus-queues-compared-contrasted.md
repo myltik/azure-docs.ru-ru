@@ -318,4 +318,4 @@ Microsoft Azure поддерживает два типа очередей: **о�
 - [Общая информация о плате за использование хранилища Azure: пропускная способность, транзакции и емкость](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

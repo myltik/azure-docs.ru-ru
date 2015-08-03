@@ -279,4 +279,4 @@ Sqoop — это средство, предназначенное для пер�
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

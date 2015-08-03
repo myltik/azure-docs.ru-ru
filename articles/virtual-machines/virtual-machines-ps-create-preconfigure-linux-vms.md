@@ -1,21 +1,21 @@
-<properties 
-	pageTitle="Использование Azure PowerShell для создания и предварительной настройки виртуальных машин под управлением Linux" 
-	description="Узнайте, как использовать Azure PowerShell для создания и предварительной настройки виртуальных машин под управлением Linux в Azure." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+<properties
+	pageTitle="Использование Azure PowerShell для создания и предварительной настройки виртуальных машин под управлением Linux"
+	description="Узнайте, как использовать Azure PowerShell для создания и предварительной настройки виртуальных машин под управлением Linux в Azure."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="KBDAzure"
+	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/09/2015" 
-	ms.author="josephd"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/09/2015"
+	ms.author="kathydav"/>
 
 # Использование Azure PowerShell для создания и предварительной настройки виртуальных машин под управлением Linux
 
@@ -57,7 +57,7 @@
 - SUSE Linux Enterprise Server 12
 
 Откройте новый экземпляр любого текстового редактора или интегрированную среду сценариев PowerShell (ISE). Скопируйте следующий текст в новый текстовый файл или среду PowerShell ISE, замещая значение ImageFamily.
- 
+
 	$family="<ImageFamily value>"
 	$image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 
@@ -84,7 +84,7 @@
 
 Укажите исходное имя пользователя Linux и пароль (обязательно). Выберите надежный пароль. Чтобы проверить его надежность, см. раздел [Проверка надежности пароля. Использование надежных паролей](https://www.microsoft.com/security/pc-security/password-checker.aspx).
 
-	$cred=Get-Credential -Message "Type the name and password of the initial Linux account."	
+	$cred=Get-Credential -Message "Type the name and password of the initial Linux account."
 	$vm1 | Add-AzureProvisioningConfig -Linux -LinuxUser $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
 
 Кроме того, можно указать набор пар ключей SSH, уже развернутых в подписке.
@@ -158,7 +158,7 @@
 Если вы собираетесь снова создать эту или подобную виртуальную машину, можно предпринять следующее:
 
 - Сохраните этот набор команд как файл сценария PowerShell (PS1).
-- Сохраните этот набор команд как Runbook автоматизации Azure в разделе **Автоматизация** портала управления Azure. 
+- Сохраните этот набор команд как Runbook автоматизации Azure в разделе **Автоматизация** портала управления Azure.
 
 ## <a id="examples"></a>Примеры
 
@@ -169,7 +169,7 @@
 Мне требуется набор команд PowerShell для создания исходной виртуальной машины Linux для сервера MySQL, который:
 
 - использует образ Ubuntu Server 12.10;
-- имеет имя AZMYSQL1; 
+- имеет имя AZMYSQL1;
 - имеет дополнительный диск данных объемом 500 ГБ;
 - имеет статический IP-адрес 192.168.244.4;
 - находится в подсети BackEnd виртуальной сети AZDatacenter;
@@ -184,7 +184,7 @@
 	$vmsize="Large"
 	$vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image
 
-	$cred=Get-Credential -Message "Type the name and password of the initial Linux account."	
+	$cred=Get-Credential -Message "Type the name and password of the initial Linux account."
 	$vm1 | Add-AzureProvisioningConfig -Linux -LinuxUser $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
 
 	$vm1 | Set-AzureSubnet -SubnetNames "BackEnd"
@@ -207,7 +207,7 @@
 
 - использует образ SUSE Linux Enterprise Server 12;
 - имеет имя LOB1;
-- имеет дополнительный диск данных объемом 50 ГБ; 
+- имеет дополнительный диск данных объемом 50 ГБ;
 - является участником подсистемы балансировки нагрузки LOBServers, заданной для стандартного веб-трафика;
 - находится в подсети FrontEnd виртуальной сети AZDatacenter;
 - находится в облачной службе Azure-TailspinToys.
@@ -221,7 +221,7 @@
 	$vmsize="Medium"
 	$vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image
 
-	$cred=Get-Credential -Message "Type the name and password of the initial Linux account."	
+	$cred=Get-Credential -Message "Type the name and password of the initial Linux account."
 	$vm1 | Add-AzureProvisioningConfig -Linux -LinuxUser $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
 
 	$vm1 | Set-AzureSubnet -SubnetNames "FrontEnd"
@@ -260,6 +260,4 @@
 
 [Использование Azure PowerShell для создания и предварительной настройки виртуальных машин под управлением Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
- 
-
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

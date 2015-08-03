@@ -44,7 +44,7 @@
 * [Хранилище SQLite для мобильных служб Azure версии 1.0.0 или более поздней][SQLite store nuget]
 * [SQLite для Windows Phone 8]
 
->[AZURE.NOTE]Для работы с этим учебником требуется учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Бесплатная пробная версия Azure</a>.
+>[AZURE.NOTE]Для работы с этим учебником требуется учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Бесплатная пробная версия Azure</a>.
 
 ## <a name="enable-offline-app"></a>Обновление приложения для поддержки автономных функций
 
@@ -285,10 +285,11 @@
 [SQLite для Windows Phone 8]: http://go.microsoft.com/fwlink/?LinkId=397953
 [Пакет SDK для Windows Phone 8]: http://go.microsoft.com/fwlink/p/?linkid=268374
 [Soft Delete]: mobile-services-using-soft-delete.md
+[Обратимое удаление]: mobile-services-using-soft-delete.md
 [обратимое удаление]: mobile-services-using-soft-delete.md
 
 [Mobile Services SDK Nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0
 [SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

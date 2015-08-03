@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="" 
-	description="Описываются изменения в проекте Visual Studio после запуска мастера Azure Active Directory" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="patshea123" 
-	manager="douge" 
+<properties
+	pageTitle=""
+	description="Описываются изменения в проекте Visual Studio после запуска мастера Azure Active Directory"
+	services="active-directory"
+	documentationCenter=""
+	authors="patshea123"
+	manager="douge"
 	editor="tglee"/>
- 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="vs-what-happened" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/06/2015" 
+
+<tags
+	ms.service="active-directory"
+	ms.workload="web"
+	ms.tgt_pltfrm="vs-what-happened"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/06/2015"
 	ms.author="patshea123"/>
 
 # Что произошло с моим проектом?
@@ -26,7 +26,7 @@
 
 Добавлены ссылки.
 
-#####Ссылки на пакет NuGet 
+#####Ссылки на пакет NuGet
 
 - `Microsoft.Owin`
 - `Microsoft.Owin.Host.SystemWeb`
@@ -37,7 +37,7 @@
 - `Owin`
 - `System.IdentityModel.Tokens.Jwt`
 
-#####Ссылки на .NET 
+#####Ссылки на .NET
 
 - `Microsoft.Owin`
 - `Microsoft.Owin.Host.SystemWeb`
@@ -46,31 +46,68 @@
 - `Microsoft.Owin.Security.Jwt`
 - `Microsoft.Owin.Security.OAuth`
 - `Owin`
-- `System.IdentityModel.Tokens.Jwt` 
+- `System.IdentityModel.Tokens.Jwt`
 
-#####В проект добавлены файлы с кодом 
+#####В проект добавлены файлы с кодом
 
 К проекту добавлен класс запуска проверки подлинности **App_Start/Startup.Auth.cs**, содержащий логику запуска для проверки подлинности на основе Azure AD.
 
-#####В проект добавлен код запуска 
+#####В проект добавлен код запуска
 
 Если в проекте уже есть класс запуска, метод **Configuration** обновляется для добавления вызова `ConfigureAuth(app)`. В противном случае в проект добавляется класс запуска.
 
 
 #####Один из файлов app.config или web.config имеет новое значение конфигурации.
 
-Были добавлены следующие записи конфигурации. <pre> `<appSettings> 
-    		<add key="ida:ClientId" value="ClientId from the new Azure AD App" /> 
-    		<add key="ida:Tenant" value="Your selected Azure AD Tenant" /> 
-    		<add key="ida:Audience" value="The App ID Uri from the wizard" /> 
+Были добавлены следующие записи конфигурации. <pre> `<appSettings>
+    		<add key="ida:ClientId" value="ClientId from the new Azure AD App" />
+    		<add key="ida:Tenant" value="Your selected Azure AD Tenant" />
+    		<add key="ida:Audience" value="The App ID Uri from the wizard" />
 	</appSettings>` </pre>
 
-###Создано приложение Azure AD 
+###Создано приложение Azure AD
 
 В каталоге, выбранном в мастере, создано приложение Azure AD.
 
+[Дополнительная информация о службе Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
+
+###Какие дополнительные изменения были внесены в мой проект после установки флажка *Отключить проверку подлинности для отдельных учетных записей пользователей*
+Удалены ссылки на пакет NuGet. Для файлов созданы резервные копии, а сами файлы удалены. В зависимости от состояния проекта вам, возможно, придется вручную удалить дополнительные ссылки или файлы либо изменить код соответствующим образом.
+
+#####Ссылки на существующие пакеты NuGet удалены
+
+- `Microsoft.AspNet.Identity.Core`
+- `Microsoft.AspNet.Identity.EntityFramework`
+- `Microsoft.AspNet.Identity.Owin`
+
+#####Для существующих файлов кода созданы резервные копии, а сами файлы удалены.
+
+Для каждого из следующих файлов создана резервная копия, а сами файлы удалены из проекта. Резервные копии файлов расположены в папке Backup в корневом каталоге проекта.
+
+- `App_Start\IdentityConfig.cs`
+- `Controllers\AccountController.cs`
+- `Controllers\ManageController.cs`
+- `Models\IdentityModels.cs`
+- `Providers\ApplicationOAuthProvider.cs`
+
+#####Для существующих файлов кода созданы резервные копии
+
+Для каждого из следующих файлов создана резервная копия, после чего файлы были заменены. Резервные копии файлов расположены в папке Backup в корневом каталоге проекта.
+
+- `Startup.cs`
+- `App_Start\Startup.Auth.cs`
+
+###Какие дополнительные изменения были внесены в мой проект после установки флажка *Чтение данных каталога*
+
+#####В файл app.config или web.config внесены дополнительные изменения
+
+Были добавлены следующие дополнительные записи конфигурации. <pre> `<appSettings>
+	    <add key="ida:Password" value="Your Azure AD App's new password" />
+	</appSettings>` </pre>
+
+#####Обновлено приложение Azure Active Directory
+В приложение Azure Active Directory добавлены разрешения *Чтение данных каталога*. Также создан дополнительный ключ, который затем использовался в качестве параметра *ida:Password* в файле `web.config`.
 
 [Дополнительная информация о службе Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
- 
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

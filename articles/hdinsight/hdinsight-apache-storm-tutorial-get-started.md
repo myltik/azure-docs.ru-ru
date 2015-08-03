@@ -192,7 +192,7 @@ Storm в HDInsight использует хранилище BLOB-объектов
 
 	Дополнительную информацию см. в статье [Начало работы со средствами HDInsight Hadoop для Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
-* **Примеры файлов** — кластер HDInsight Storm приводит несколько примеров в каталоге **%STORM_HOME%\\contrib**. Каждый пример должен содержать следующие элементы:
+* **Примеры файлов** — кластер HDInsight Storm приводит несколько примеров в каталоге **%STORM_HOME%\contrib**. Каждый пример должен содержать следующие элементы:
 
 	* Исходный код, например, storm-starter-0.9.1.2.1.5.0-2057-sources.jar
 
@@ -204,7 +204,7 @@ Storm в HDInsight использует хранилище BLOB-объектов
 
 	> [AZURE.NOTE]Документы Java состоят из веб-страниц. После извлечения откройте файл **index.html** браузером.
 
-	Чтобы открыть эти образцы, необходимо включить удаленный рабочий стол для Storm в кластере HDInsight и скопировать файлы из папки **%STORM_HOME%\\contrib**.
+	Чтобы открыть эти образцы, необходимо включить удаленный рабочий стол для Storm в кластере HDInsight и скопировать файлы из папки **%STORM_HOME%\contrib**.
 
 * Следующий документ содержит список других примеров, которые могут использоваться со Storm на HDInsight:
 
@@ -217,4 +217,4 @@ Storm в HDInsight использует хранилище BLOB-объектов
 [azureportal]: https://manage.windowsazure.com/
 [hdinsight-provision]: hdinsight-provision-clusters.md
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

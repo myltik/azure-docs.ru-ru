@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Профили оценки (API REST службы &quot;Поиск Azure&quot;, версия 2014-10-20-Preview)" 
-	description="Профили оценки (API REST службы &quot;Поиск Azure&quot;, версия 2014-10-20-Preview)" 
+	pageTitle="Профили оценки (API REST службы ";Поиск Azure";, версия 2014-10-20-Preview)" 
+	description="Профили оценки (API REST службы ";Поиск Azure";, версия 2014-10-20-Preview)" 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -325,4 +325,4 @@
 [1]: ./media/search-api-scoring-profiles-2014-10-20-Preview/scoring_interpolations.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

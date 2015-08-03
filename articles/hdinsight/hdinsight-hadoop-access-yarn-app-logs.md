@@ -3,7 +3,7 @@
 	description="Программный доступ к журналам приложений в кластере Hadoop в HDInsight." 
 	services="hdinsight" 
 	documentationCenter="" 
-	authors="bradsev" 
+	authors="mumian" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
-	ms.author="bradsev"/>
+	ms.date="07/09/2015" 
+	ms.author="jgao"/>
 
 # Программный доступ к журналам приложений YARN в Hadoop в HDInsight
 
@@ -115,7 +115,7 @@ YARN поддерживает несколько моделей программ
 Теперь с помощью клиента журнала приложения вы можете просматривать список завершенных приложений, фильтровать приложения на основе своих критериев и скачивать соответствующие журналы приложений. В следующем фрагменте кода показано, как это делается программным путем:
 
 	// Local download folder location where the logs will be placed
-	string downloadLocation = "E:\\YarnApplicationLogs";
+	string downloadLocation = "E:\YarnApplicationLogs";
 	
 	// List completed applications on your cluster that were submitted in the last 24 hours but failed
 	// Search for applications based on application name
@@ -173,4 +173,4 @@ YARN поддерживает несколько моделей программ
 [YARN-concepts]: http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -152,4 +152,4 @@
 
 Узнайте о больше о [безопасности StorSimple](storsimple-security.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

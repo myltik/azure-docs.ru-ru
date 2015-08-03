@@ -333,11 +333,11 @@
 * Информацию о работе с диспетчером ресурсов с помощью Azure PowerShell см. в разделе [Использование Azure PowerShell с диспетчером ресурсов Azure](../powershell-azure-resource-manager.md).
 * Информацию о работе с диспетчером ресурсов на портале Azure см. в статье [Использование групп ресурсов для управления ресурсами Azure][psrm].
 
-[signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
+[signuporg]: http://azure.microsoft.com/documentation/articles/sign-up-organization/
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [portal]: https://manage.windowsazure.com/
 [clisetup]: ../xplat-cli.md
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

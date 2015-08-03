@@ -268,4 +268,4 @@
   [MSDN]: https://msdn.microsoft.com/ru-ru/library/azure/dn194201.aspx
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -88,4 +88,4 @@
 - [Диагностика надежных служб с отслеживанием состояния](service-fabric-reliable-services-diagnostics.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

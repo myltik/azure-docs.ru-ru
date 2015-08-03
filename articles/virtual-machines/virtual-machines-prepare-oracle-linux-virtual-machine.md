@@ -1,5 +1,19 @@
-<properties title="Prepare an Oracle Linux Virtual Machine for Azure" pageTitle="Подготовка виртуальной машины Oracle Linux для Azure" description="Выполните пошаговую настройку виртуальной машины Oracle под управлением Linux в Microsoft Azure." services="virtual-machines" authors="bbenz" documentationCenter=""/>
-<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
+<properties 
+	pageTitle="Подготовка виртуальной машины Oracle Linux для Azure" 
+	description="Выполните пошаговую настройку виртуальной машины Oracle под управлением Linux в Microsoft Azure." 
+	services="virtual-machines" 
+	authors="bbenz" 
+	documentationCenter=""/>
+
+<tags 
+	ms.service="virtual-machines" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="infrastructure-services" 
+	ms.date="06/22/2015" 
+	ms.author="bbenz" />
+
 #Подготовка виртуальной машины Oracle Linux для Azure
 -   [Подготовка виртуальной машины Oracle Linux версии 6.4 или более поздней для Azure](virtual-machines-linux-create-upload-vhd-oracle.md)
 
@@ -202,4 +216,4 @@
 
 15.  В диспетчере Hyper-V выберите **Действие -> Завершение работы**. Виртуальный жесткий диск Linux готов к передаче в Azure.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

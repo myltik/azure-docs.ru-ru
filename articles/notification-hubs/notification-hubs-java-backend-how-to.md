@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="java" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="07/17/2015" 
 	ms.author="yuaxu"/>
 
 # Использование концентраторов уведомлений из Java
@@ -298,12 +298,12 @@ API установки — это альтернативный механизм 
 [пакет SDK для Java]: https://github.com/Azure/azure-notificationhubs-java-backend
 [пакета SDK для Java]: https://github.com/Azure/azure-notificationhubs-java-backend
 [Get started tutorial]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
-[Приступая к работе с центрами уведомлений]: http://www.windowsazure.com/manage/services/notification-hubs/getting-started-windows-dotnet/
-[Отправка экстренных новостей]: http://www.windowsazure.com/manage/services/notification-hubs/breaking-news-dotnet/
-[Отправка локализованных экстренных новостей]: http://www.windowsazure.com/manage/services/notification-hubs/breaking-news-localized-dotnet/
-[Отправка уведомлений проверенным пользователям]: http://www.windowsazure.com/manage/services/notification-hubs/notify-users/
-[Отправка кроссплатформенных уведомлений проверенным пользователям]: http://www.windowsazure.com/manage/services/notification-hubs/notify-users-xplat-mobile-services/
+[Приступая к работе с центрами уведомлений]: http://azure.microsoft.com/manage/services/notification-hubs/getting-started-windows-dotnet/
+[Отправка экстренных новостей]: http://azure.microsoft.com/manage/services/notification-hubs/breaking-news-dotnet/
+[Отправка локализованных экстренных новостей]: http://azure.microsoft.com/manage/services/notification-hubs/breaking-news-localized-dotnet/
+[Отправка уведомлений проверенным пользователям]: http://azure.microsoft.com/manage/services/notification-hubs/notify-users/
+[Отправка кроссплатформенных уведомлений проверенным пользователям]: http://azure.microsoft.com/manage/services/notification-hubs/notify-users-xplat-mobile-services/
 [Maven]: http://maven.apache.org/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -1,5 +1,18 @@
-<properties title="Creating an Oracle WebLogic Server 12c cluster in Azure" pageTitle="Создание кластера Oracle WebLogic Server 12c в Azure" description="Пошагово создайте пример с кластера Oracle WebLogic Server 12c в Microsoft Azure." services="virtual-machines" authors="bbenz" documentationCenter=""/>
-<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
+<properties 
+	pageTitle="Создание кластера Oracle WebLogic Server 12c в Azure" description="Пошагово создайте пример с кластера Oracle WebLogic Server 12c в Microsoft Azure." 
+	services="virtual-machines" 
+	authors="bbenz" 
+	documentationCenter=""/>
+
+<tags 
+	ms.service="virtual-machines" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="infrastructure-services" 
+	ms.date="06/22/2015" 
+	ms.author="bbenz" />
+
 #Создание кластера Oracle WebLogic Server 12c в Azure
 В следующем примере показано, как создать кластер Oracle WebLogic Server в Azure на основе образа Oracle WebLogic Server 12c от корпорации Майкрософт под управлением Windows Server 2012.
 
@@ -119,7 +132,7 @@
 
 9. В консоли администрирования WebLogic Server щелкните **Activate Changes** (Активировать изменения).
 
-10. На виртуальной машине администратора создайте переменную среды **SERVER_HOME** со значением **C:\\Oracle\\Middleware\\Oracle_Home\\wlserver**. Создать переменную среды можно, выполнив следующие действия:
+10. На виртуальной машине администратора создайте переменную среды **SERVER_HOME** со значением **C:\Oracle\Middleware\Oracle_Home\wlserver**. Создать переменную среды можно, выполнив следующие действия:
 
 	1. Нажмите кнопку **Пуск** Windows, введите **панель управления**, щелкните значок **Панель управления**, затем последовательно щелкните **Система и безопасность**, **Система** и **Дополнительные параметры системы**.
 
@@ -127,7 +140,7 @@
 
 	3. В разделе **Системные переменные** нажмите кнопку **Создать**, чтобы создать переменную.
 
-	4. В диалоговом окне **Новая системная переменная** введите **SERVER_HOME** в качестве имени переменной и введите значение **C:\\Oracle\\Middleware\\Oracle_Home\\wlserver**.
+	4. В диалоговом окне **Новая системная переменная** введите **SERVER_HOME** в качестве имени переменной и введите значение **C:\Oracle\Middleware\Oracle_Home\wlserver**.
 
 	5. Нажмите кнопку **ОК**, чтобы сохранить новую переменную среды и закрыть диалоговое окно **Новая системная переменная**.
 
@@ -141,9 +154,9 @@
 
 12. Выполните следующую команду:
 
-		%SERVER_HOME%\\common\\bin\\pack.cmd -managed=true -domain=C:\\Oracle\\Middleware\\Oracle_Home\\user_projects\\domains\\base_domain -template=c:\\mytestdomain.jar -template_name="mytestdomain" 
+		%SERVER_HOME%\common\bin\pack.cmd -managed=true -domain=C:\Oracle\Middleware\Oracle_Home\user_projects\domains\base_domain -template=c:\mytestdomain.jar -template_name="mytestdomain" 
 
-	Эта команда создает JAR-файл с именем **c:\\mytestdomain.jar**. Позднее вы скопируете этот JAR-файл на управляемые виртуальные машины в кластере.
+	Эта команда создает JAR-файл с именем **c:\mytestdomain.jar**. Позднее вы скопируете этот JAR-файл на управляемые виртуальные машины в кластере.
 
 13. Разрешите в брандмауэре входящие подключения через порт 7001:
 
@@ -165,17 +178,17 @@
 
 	1. Войдите на виртуальную машину.
 
-	2. Создайте переменную среды **SERVER_HOME** со значением **C:\\Oracle\\Middleware\\Oracle_Home\\wlserver**.
+	2. Создайте переменную среды **SERVER_HOME** со значением **C:\Oracle\Middleware\Oracle_Home\wlserver**.
 
-	3. Скопируйте файл c:\\mytestdomain.jar из виртуальной машины администрирования в файл c:\\mytestdomain.jar на управляемой виртуальной машине.
+	3. Скопируйте файл c:\mytestdomain.jar из виртуальной машины администрирования в файл c:\mytestdomain.jar на управляемой виртуальной машине.
 
 	4. Откройте командную строку (и не забудьте выполнить команду **title %COMPUTERNAME%**, чтобы понять, к какому компьютеру вы получаете доступ).
 
 	5. Выполните следующую команду:
 
-			%SERVER_HOME%\\common\\bin\\unpack.cmd -domain=C:\\Oracle\\Middleware\\Oracle_Home\\user_projects\\domains\\base_domain -template=c:\\mytestdomain.jar
+			%SERVER_HOME%\common\bin\unpack.cmd -domain=C:\Oracle\Middleware\Oracle_Home\user_projects\domains\base_domain -template=c:\mytestdomain.jar
 
-	6. Смените текущий каталог командной строки на **C:\\Oracle\\Middleware\\Oracle_Home\\user_projects\\domains\\base_domain\\bin**.
+	6. Смените текущий каталог командной строки на **C:\Oracle\Middleware\Oracle_Home\user_projects\domains\base_domain\bin**.
 
 	7. Выполните команду "start <<*имя_компьютера*>>.cmd", где <<*имя_компьютера*>> — это имя управляемого компьютера. Например, **startMYVM2-MANAGED**.
 
@@ -238,13 +251,13 @@
 
 1. Войдите на виртуальную машину, которая служит сервером администрирования кластера WebLogic Server (например, **MYVM1-ADMIN**). 
 
-2. Локально скопируйте файл shoppingcart.war. Например, создайте папку с именем **c:\\mywar** и сохраните WAR-файл, полученный по адресу <http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war>, в **c:\\mywar**.
+2. Локально скопируйте файл shoppingcart.war. Например, создайте папку с именем **c:\mywar** и сохраните WAR-файл, полученный по адресу <http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war>, в **c:\mywar**.
 
 3. Откройте **консоль администрирования WebLogic Server**, <http://localhost:7001/console>. При появлении запроса укажите имя пользователя и пароль WebLogic.
 
 4. В **консоли администрирования WebLogic Server** последовательно щелкните **Lock & Edit** (Заблокировать и изменить), **Deployments** (Развертывания) и нажмите кнопку **Install** (Установить).
 
-5. В поле **Path** (Путь) введите **c:\\myway\\shoppingcart.war**.
+5. В поле **Path** (Путь) введите **c:\myway\shoppingcart.war**.
 
 	![](media/virtual-machines-creating-oracle-webLogic-server-12c-cluster/image004.png)
 
@@ -305,4 +318,4 @@
 
 - [Oracle WebLogic Server 12c с использованием Linux в Microsoft Azure](http://www.oracle.com/technetwork/middleware/weblogic/learnmore/oracle-weblogic-on-azure-wp-2020930.pdf)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -1,24 +1,25 @@
-<properties 
-	pageTitle="Присоединение диска данных к виртуальной машине Azure" 
-	description="Узнайте, как присоединить диск данных к виртуальной машине Azure и инициализировать, чтобы подготовить к использованию." 
-	services="virtual-machines, storage" 
-	documentationCenter="" 
-	authors="KBDAzure" 
-	manager="timlt" 
-	editor="tysonn"/>
+<properties
+	pageTitle="Присоединение диска данных к виртуальной машине Azure"
+	description="Узнайте, как присоединить диск данных к виртуальной машине Azure и инициализировать, чтобы подготовить к использованию."
+	services="virtual-machines, storage"
+	documentationCenter=""
+	authors="KBDAzure"
+	manager="timlt"
+	editor="tysonn"
+	tags="azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-windows" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/24/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/16/2015"
 	ms.author="kathydav"/>
 
 # Подключение диска данных к виртуальной машине Windows
 
-Можно подключать пустые диски и диски с данными. В обоих случаях это фактически файлы .vhd, которые размещаются в вашей учетной записи хранения Azure. Также в обоих случаях после присоединения диска необходимо его инициализировать, чтобы подготовить к использованию.
+Вы можете подключить пустые диски и диски с данными. В обоих случаях это фактически файлы .vhd, которые размещаются в вашей учетной записи хранения Azure. Также в обоих случаях после присоединения диска необходимо его инициализировать, чтобы подготовить к использованию.
 
 > [AZURE.NOTE]Рекомендуется использовать один или несколько отдельных дисков для хранения данных виртуальной машины. При создании виртуальной машины Azure у нее есть диск для операционной системы (диск C) и временный диск (диск D). **Не используйте диск D для хранения данных.** Как и предполагает его имя, он предназначен только для временного хранения. Этот диск не обеспечивает избыточности или резервного копирования, поскольку он не размещается в хранилище Azure.
 
@@ -42,8 +43,14 @@
 
 	![Том успешно инициализирован](./media/storage-windows-attach-disk/newvolumecreated.png)
 
-> [AZURE.NOTE]Размер виртуальной машины определяет, сколько дисков к ней можно подключить. Подробнее см. в разделе [Размеры облачных служб и виртуальных машин](https://msdn.microsoft.com/library/azure/dn197896.aspx).
+> [AZURE.NOTE]Размер виртуальной машины определяет, сколько дисков к ней можно подключить. Дополнительную информацию см. в статье [Размеры виртуальных машин](virtual-machines-size-specs.md).
+
+## Дополнительные ресурсы
+
+[Отключение диска от виртуальной машины Windows](storage-windows-detach-disk.md)
+
+[О дисках и виртуальных жестких дисках для виртуальных машин](virtual-machines-disks-vhds.md)
 
 [logon]: virtual-machines-log-on-windows-server.md
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

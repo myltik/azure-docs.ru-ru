@@ -50,4 +50,4 @@
 
 [Управление сроком действия содержимого BLOB-объекта в сети доставки содержимого (CDN) Azure](./cdn-manage-expiration-of-blob-content.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

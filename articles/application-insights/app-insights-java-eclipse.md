@@ -24,10 +24,10 @@
 
 В настоящее время подключаемый модуль работает для динамических веб-проектов в Eclipse. ([Добавление Application Insights в другие типы проектов Java][java].)
 
-Вам потребуется следующее:
+Что вам понадобится:
 
 * Oracle JRE 1.6 или более поздней версии;
-* подписка на [Microsoft Azure](http://azure.microsoft.com/) (можно начать с [бесплатной пробной версии](http://azure.microsoft.com/pricing/free-trial/));
+* подписка на [Microsoft Azure](http://azure.microsoft.com/). (Можно начать с [бесплатной пробной версии](http://azure.microsoft.com/pricing/free-trial/).);
 * [интегрированная среда разработки Eclipse для разработчиков Java EE](http://www.eclipse.org/downloads/), версия Indigo или более поздняя;
 * Windows 7 или более поздней версии либо Windows Server 2008 или более поздней версии.
 
@@ -39,7 +39,7 @@
 
     ![Help, Install New Software](./media/app-insights-java-eclipse/0-plugin.png)
 
-2. Пакет SDK находится по адресу http://dl.msopentech.com/eclipse в разделе Azure Toolkit.
+2. Пакет SDK находится по адресу http://dl.windowsazure.com/eclipse в разделе Azure Toolkit.
 3. Снимите флажок **Contact all update sites...** (При установке обращаться ко всем сайтам обновления для поиска обновленного ПО).
 
     ![Для установки пакета SDK Application Insights снимите флажок "Contact all update sites..."](./media/app-insights-java-eclipse/1-plugin.png)
@@ -169,4 +169,4 @@ Application Insights может тестировать ваш веб-сайт ч
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

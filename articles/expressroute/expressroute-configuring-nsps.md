@@ -58,11 +58,11 @@ Windows PowerShell — это полнофункциональная среда 
 
 	Перед созданием канала потребуется список поставщиков услуг, поддерживаемых расположений и значений пропускной способности для каждого расположения. Следующий командлет PowerShell возвращает эти сведения, которые будет использоваться в последующих шагах.
 
-		PS C:> Get-AzureDedicatedCircuitServiceProvider
+		PS C:\> Get-AzureDedicatedCircuitServiceProvider
 
 	Возвращаемые сведения будут выглядеть приблизительно как в приведенном ниже примере:
 
-		PS C:> Get-AzureDedicatedCircuitServiceProvider
+		PS C:\> Get-AzureDedicatedCircuitServiceProvider
 	
 		Name                 DedicatedCircuitLocations      DedicatedCircuitBandwidths                                                                                                                                                                                   
 		----                 -------------------------      --------------------------                                                                                                                                                                                   
@@ -118,7 +118,7 @@ Windows PowerShell — это полнофункциональная среда 
 
 	Вы можете получить эти сведения в любое время с помощью командлета Get-AzureCircuit. Если выполнить этот вызов без параметров, то будут перечислены все каналы. Ваш ключ службы будет приведен в поле ServiceKey.
 
-		PS C:> Get-AzureDedicatedCircuit
+		PS C:\> Get-AzureDedicatedCircuit
 		
 		Bandwidth                        : 500
 		CircuitName                      : NetBondSVTest
@@ -145,9 +145,9 @@ Windows PowerShell — это полнофункциональная среда 
 
 	Убедитесь, что у вас есть по крайней мере одна виртуальная сеть Azure с созданным шлюзом. Шлюз должен быть запущен.
 
-		PS C:> $Vnet = "MyTestVNet"
+		PS C:\> $Vnet = "MyTestVNet"
 		New-AzureDedicatedCircuitLink -ServiceKey $ServiceKey -VNetName $Vnet
 		
 		Provisioned 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

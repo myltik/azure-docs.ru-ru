@@ -62,4 +62,4 @@ API и операции можно импортировать за один ша
 [Как импортировать определение API с операциями]: api-management-howto-import-api.md
 [Как создать и настроить расширенные настройки продукта]: api-management-howto-product-with-rules.md
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

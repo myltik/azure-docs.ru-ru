@@ -6,7 +6,7 @@
 	authors="HeidiSteen"
 	manager="mblythe"
 	editor=""
-	tags="azure-portal"/>
+    tags="azure-portal"/>
 
 <tags
 	ms.service="search"
@@ -131,4 +131,4 @@ API REST состоит из HTTP-запросов и ответов с соде
 
 [Использование службы поиска Azure в .NET](search-howto-dotnet-sdk.md) [Начало работы со службой поиска Azure в .NET](search-get-started-dotnet.md) [Поиск Azure: учебники, видеодемонстрации и примеры](https://msdn.microsoft.com/library/azure/dn818681.aspx)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

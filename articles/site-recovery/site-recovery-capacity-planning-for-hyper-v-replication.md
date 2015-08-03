@@ -120,7 +120,7 @@
 
 	g. В разделе **Авторизация и хранилище** установите разрешение на отправку данных репликации на этот сервер-реплику для **любого** прошедшего проверку (основного) сервера или ограничение на получение данных от конкретных основных серверов. Чтобы ограничить получение данных на серверах от определенного домена без указания их по отдельности можно использовать подстановочные знаки (например, *. contoso.com).
 
-	h. Откройте порты брандмауэра на всех узлах восстановления Hyper-V: порт 443 (проверка подлинности сертификата): Get-ClusterNode | ForEach-Object {Invoke-command - computername \\$_.name - scriptblock {Enable-Netfirewallrule - displayname «HTTPS-прослушиватель реплики Hyper-V (TCP-In)»}}
+	h. Откройте порты брандмауэра на всех узлах восстановления Hyper-V: порт 443 (проверка подлинности сертификата): Get-ClusterNode | ForEach-Object {Invoke-command - computername \$_.name - scriptblock {Enable-Netfirewallrule - displayname «HTTPS-прослушиватель реплики Hyper-V (TCP-In)»}}
 
 
           Port 80 (Kerberos auth):
@@ -193,11 +193,11 @@ c. Любой узел кластера
 
     Местонахождение отчета по умолчанию:
 
-    %systemdrive%\\Users\\Public\\Documents\\Capacity Planner
+    %systemdrive%\Users\Public\Documents\Capacity Planner
 
     Местонахождение журналов:
 
-    %systemdrive%\\Users\\Public\\Documents\\CapacityPlanner
+    %systemdrive%\Users\Public\Documents\CapacityPlanner
 
 ## Шаг 4. Интерпретация результатов
 Метрики, не указанные ни в одном из следующих двух сценариев, можно игнорировать, так как они не используются в этом сценарии.
@@ -239,4 +239,4 @@ c. Любой узел кластера
 - [Настройка защиты с одним сервером VMM](site-recovery-single-vmm)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

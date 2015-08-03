@@ -105,4 +105,4 @@
 - [Просмотр состояния задания Runbook службы автоматизации Azure](automation-viewing-the-status-of-a-runbook-job)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

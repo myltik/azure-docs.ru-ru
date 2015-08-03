@@ -1,21 +1,20 @@
-<properties 
-	pageTitle="Развертывание виртуальных машин Azure и управление ими с использованием шаблонов диспетчера ресурсов и PowerShell" 
-	description="С легкостью развертывайте наиболее распространенные наборы конфигураций для виртуальных машин Azure и управляйте ими с помощью шаблонов диспетчера ресурсов и PowerShell." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
-	editor=""
-	tags="azure-resource-manager"/>
+<properties
+	pageTitle="Развертывание виртуальных машин Azure и управление ими с использованием шаблонов диспетчера ресурсов и PowerShell"
+	description="С легкостью развертывайте наиболее распространенные наборы конфигураций для виртуальных машин Azure и управляйте ими с помощью шаблонов диспетчера ресурсов и PowerShell."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="davidmu1"
+	manager="timlt"
+	editor=""/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/19/2015" 
-	ms.author="josephd"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/02/2015"
+	ms.author="davidmu"/>
 
 # Развертывание виртуальных машин и управление ими с использованием шаблонов диспетчера ресурсов Azure и PowerShell
 
@@ -24,7 +23,6 @@
 - [Развертывание виртуальной машины под управлением ОС Windows](#windowsvm)
 - [Создание образа настраиваемой виртуальной машины](#customvm)
 - [Развертывание приложения для нескольких виртуальных машин, использующего виртуальную сеть и внешнюю подсистему балансировки нагрузки](#multivm)
-- [Обновление виртуальной машины, развернутой с использованием шаблона диспетчера ресурсов](#updatevm)
 - [Удаление группы ресурсов](#removerg)
 - [Вход в виртуальную машину](#logon)
 - [Отображение информации о виртуальной машине](#displayvm)
@@ -37,7 +35,7 @@
 
 [AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
 
-## Общая информация о шаблонах диспетчера ресурсов Azure и группах ресурсов
+## Общая информация о шаблонах ресурсов Azure и группах ресурсов
 
 Большинство приложений, развертываемых и используемых в Microsoft Azure, созданы на основе сочетания облачных ресурсов различных типов (например, одной или нескольких виртуальных машин и учетных записей хранения, базы данных SQL или виртуальной сети). С помощью шаблонов диспетчера ресурсов Azure можно развертывать эти ресурсы и управлять ими совокупно, используя описание ресурсов в формате JSON и связанные параметры конфигурации и развертывания.
 
@@ -45,19 +43,19 @@
 
 Ресурсы, созданные с использованием шаблонов диспетчера ресурсов Azure, можно развернуть как в новой, так и в существующей группе ресурсов Azure. *Группа ресурсов Azure* позволяет управлять несколькими развернутыми ресурсами совокупно в качестве логической группы. Благодаря этому вы можете управлять общим жизненным циклом группы или приложения и использовать API управления, которые позволяют:
 
-- остановить, запустить или удалить все ресурсы в группе одновременно; 
-- применить правила управления доступом на основе ролей (RBAC) для блокировки разрешений безопасности для ресурсов; 
-- вести аудит операций; 
-- отмечать ресурсы с помощью дополнительных метаданных для более точного отслеживания. 
+- остановить, запустить или удалить все ресурсы в группе одновременно;
+- применить правила управления доступом на основе ролей (RBAC) для блокировки разрешений безопасности для ресурсов;
+- вести аудит операций;
+- отмечать ресурсы с помощью дополнительных метаданных для более точного отслеживания.
 
-Дополнительную информацию о диспетчере ресурсов Azure см. [здесь](virtual-machines-azurerm-versus-azuresm.md). Если вас интересует разработка шаблонов, см. раздел [Создание шаблонов диспетчера ресурсов Azure](../resource-group-authoring-templates.md).
+Дополнительную информацию о диспетчере ресурсов Azure см. [здесь](virtual-machines-azurerm-versus-azuresm.md). Если вас интересует разработка шаблонов, см. раздел [Создание шаблонов диспетчера ресурсов Azure](resource-group-authoring-templates.md).
 
 ## <a id="windowsvm"></a>ЗАДАЧА: развертывание виртуальной машины под управлением ОС Windows
 
 Используйте указания в этих разделах для развертывания новой виртуальной машины Azure с помощью шаблона диспетчера ресурсов и Azure PowerShell. Этот шаблон позволяет создать одну виртуальную машину в новой виртуальной сети с единой подсетью.
 
 ![](./media/virtual-machines-deploy-rmtemplates-powershell/windowsvm.png)
- 
+
 Выполните следующие шаги, чтобы создать виртуальную машину Windows с использованием шаблона диспетчера ресурсов в репозитории шаблонов Github с помощью Azure PowerShell.
 
 ### Шаг 1. Поиск шаблона в JSON-файле
@@ -96,9 +94,9 @@
             "type": "string",
             "defaultValue": "2012-R2-Datacenter",
             "allowedValues": [
-                "2008-R2-SP1", 
-                "2012-Datacenter", 
-                "2012-R2-Datacenter", 
+                "2008-R2-SP1",
+                "2012-Datacenter",
+                "2012-R2-Datacenter",
                 "Windows-Server-Technical-Preview"
             ],
             "metadata": {
@@ -108,11 +106,11 @@
     },
     "variables": {
         "location": "West US",
-        "imagePublisher": "MicrosoftWindowsServer", 
-        "imageOffer": "WindowsServer", 
+        "imagePublisher": "MicrosoftWindowsServer",
+        "imageOffer": "WindowsServer",
         "OSDiskName": "osdiskforwindowssimple",
         "nicName": "myVMNic",
-        "addressPrefix": "10.0.0.0/16", 
+        "addressPrefix": "10.0.0.0/16",
         "subnetName": "Subnet",
         "subnetPrefix": "10.0.0.0/24",
         "storageAccountType": "Standard_LRS",
@@ -121,10 +119,10 @@
         "vmStorageAccountContainerName": "vhds",
         "vmName": "MyWindowsVM",
         "vmSize": "Standard_D1",
-        "virtualNetworkName": "MyVNET",        
+        "virtualNetworkName": "MyVNET",
         "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
         "subnetRef": "[concat(variables('vnetID'),'/subnets/',variables('subnetName'))]"
-    },    
+    },
     "resources": [
         {
             "type": "Microsoft.Storage/storageAccounts",
@@ -238,7 +236,7 @@
             }
         }
     ]
-	} 
+	}
 
 
 ### Шаг 2. Создание виртуальной машины с помощью шаблона
@@ -282,8 +280,8 @@
 	VERBOSE: 10:57:45 AM - Resource Microsoft.Compute/virtualMachines 'MyWindowsVM' provisioning status is running
 	VERBOSE: 10:57:45 AM - Resource Microsoft.Network/networkInterfaces 'myVMNic' provisioning status is succeeded
 	VERBOSE: 11:01:59 AM - Resource Microsoft.Compute/virtualMachines 'MyWindowsVM' provisioning status is succeeded
-	
-	
+
+
 	DeploymentName    : TestDeployment
 	ResourceGroupName : TestRG
 	ProvisioningState : Succeeded
@@ -298,7 +296,7 @@
 	                    adminPassword    SecureString
 	                    dnsNameForPublicIP  String                     contoso9875
 	                    windowsOSVersion  String                     2012-R2-Datacenter
-	
+
 	Outputs           :
 
 Теперь в новой группе ресурсов есть новая виртуальная машина Windows с именем MyWindowsVM.
@@ -784,171 +782,6 @@
 	vmNamePrefix: WEBFARM
 	...
 
-## <a id="updatevm"></a>ЗАДАЧА: обновление виртуальной машины, развернутой с использованием шаблона диспетчера ресурсов
-
-Ниже приведен пример изменения файла шаблона JSON для обновления конфигурации виртуальной машины, развернутой с помощью шаблона диспетчера ресурсов. В этом примере вы создадите виртуальную машину Windows, а затем обновите ее, чтобы установить расширение Symantec Endpoint Protection.
-
-### Шаг 1. Создание виртуальной машины с помощью шаблона
-
-При необходимости создайте на компьютере папку для хранения файлов шаблона. Введите имя папки и выполните эти команды Azure PowerShell.
-
-	$myFolder="<your folder path, such as C:\azure\templates\CreateVM>"
-	$webClient=New-Object System.Net.WebClient
-	$url="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
-	$filePath=$myFolder + "\azuredeploy.json"
-	$webclient.DownloadFile($url,$filePath)
-	$url = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.parameters.json"
-	$filePath = $myFolder + "\azuredeploy.parameters.json"
-	$webclient.DownloadFile($url,$filePath)
-
-Найдите в папке файл azuredeploy.parameters.json, откройте его в текстовом редакторе, укажите значения для четырех параметров, а затем сохраните файл.
-
-Введите имя нового развертывания, имя новой группы ресурсов и расположение Azure, а затем выполните следующие команды.
-
-	$deployName="<name for the new deployment>"
-	$RGName="<name for the new Resource Group>"
-	$locName="<an Azure location, such as West US>"
-	cd $myFolder
-	Switch-AzureMode AzureResourceManager
-	New-AzureResourceGroup –Name $RGName –Location $locName
-	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateFile azuredeploy.json -TemplateParameterFile azuredeploy.parameters.json
-
-Вы увидите нечто вроде этого:
-
-	PS C:\azure\templates\windowsvm> $deployName="winvmexttest"
-	PS C:\azure\templates\windowsvm> $RGName="winvmexttest"
-	PS C:\azure\templates\windowsvm> $locname="West US"
-	PS C:\azure\templates\windowsvm> New-AzureResourceGroup -Name $RGName -Location $locName
-	VERBOSE: 11:22:02 AM - Created resource group 'winvmexttest' in location 'westus'
-	
-	
-	ResourceGroupName : winvmexttest
-	Location          : westus
-	ProvisioningState : Succeeded
-	Tags              :
-	Permissions       :
-	                    Actions  NotActions
-	                    =======  ==========
-	                    *
-	
-	ResourceId        : /subscriptions/a58ce54a-c262-460f-b8ef-fe36e6d5f5ec/resourceGroups/winvmexttest
-
-	PS C:\azure\templates\windowsvm> New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -Template
-	File azuredeploy.json -TemplateParameterFile azuredeploy.parameters.json
-	VERBOSE: 11:22:05 AM - Template is valid.
-	VERBOSE: 11:22:05 AM - Create template deployment 'winvmexttest'.
-	VERBOSE: 11:22:14 AM - Resource Microsoft.Storage/storageAccounts 'contososa' provisioning status is running
-	VERBOSE: 11:22:21 AM - Resource Microsoft.Network/publicIPAddresses 'myPublicIP' provisioning status is running
-	VERBOSE: 11:22:21 AM - Resource Microsoft.Network/virtualNetworks 'MyVNET' provisioning status is running
-	VERBOSE: 11:22:37 AM - Resource Microsoft.Network/virtualNetworks 'MyVNET' provisioning status is succeeded
-	VERBOSE: 11:22:39 AM - Resource Microsoft.Network/publicIPAddresses 'myPublicIP' provisioning status is succeeded
-	VERBOSE: 11:22:41 AM - Resource Microsoft.Storage/storageAccounts 'contososa' provisioning status is succeeded
-	VERBOSE: 11:22:43 AM - Resource Microsoft.Network/networkInterfaces 'myVMNic' provisioning status is succeeded
-	VERBOSE: 11:22:52 AM - Resource Microsoft.Compute/virtualMachines 'MyWindowsVM' provisioning status is running
-	VERBOSE: 11:26:36 AM - Resource Microsoft.Compute/virtualMachines 'MyWindowsVM' provisioning status is succeeded
-	
-	DeploymentName    : winvmexttest
-	ResourceGroupName : winvmexttest
-	ProvisioningState : Succeeded
-	Timestamp         : 6/3/2015 6:26:38 PM
-	Mode              : Incremental
-	TemplateLink      :
-	Parameters        :
-	                    Name             Type                       Value
-	                    ===============  =========================  ==========
-	                    newStorageAccountName  String                     contososa
-	                    adminUsername    String                     admin0987
-	                    adminPassword    SecureString
-	                    dnsNameForPublicIP  String                     contosovm
-	                    windowsOSVersion  String                     2012-R2-Datacenter
-	
-	Outputs           :
-
-После этого подключитесь к виртуальной машине на портале предварительной версии Azure (**Обзор > Виртуальные машины (v2) > ** *Имя виртуальной машины* **> Подключиться**).
-
-На начальном экране введите **Symantec**. Обратите внимание, что компоненты Symantec Endpoint Protection не установлены (результаты поиска со словом «Symantec» в названии отсутствуют).
-
-Закройте подключение к удаленному рабочему столу.
-
-### Шаг 2. Изменение файла azuredeploy.json для добавления расширения Symantec Endpoint Protection
-
-Откройте файл azuredeploy.json в любом текстовом редакторе. В разделе **переменных** добавьте сразу после строки, которая определяет переменную publicIPAddressType, такую строку:
-
-	"vmExtensionName" : "SymantecExtension",
-
-В разделе **ресурсов** добавьте перед строкой с последней левой квадратной скобкой (]) такой раздел:
-
-	       {
-	         "type": "Microsoft.Compute/virtualMachines/extensions",
-	        "name": "[concat(variables('vmName'),'/', variables('vmExtensionName'))]",
-	        "apiVersion": "2014-12-01-preview",
-	        "location": "[variables('location')]",
-	        "dependsOn": [
-	            "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
-	        ],
-	        "properties": {
-	            "publisher": "Symantec",
-	            "type": "SymantecEndpointProtection",
-	            "typeHandlerVersion": "12.1",
-	            "settings": null,
-	            "protectedSettings": null
-	        }
-	    }
-
-Сохраните файл azuredeploy.json с этими изменениями. Убедитесь, что изменения были внесены правильно, используя следующую команду.
-
-	Test-AzureResourceGroupTemplate -ResourceGroupName $RGName -TemplateFile azuredeploy.json
-
-Если изменения внесены правильно, вы увидите такой результат:
-
-	Template is valid.
-
-Если вместо этого сообщения появилось сообщение об ошибке, проанализируйте ее и определите причину.
-
-### Шаг 3. Выполнение измененного шаблона для добавления расширения Symantec Endpoint Protection
-
-В командной строке Azure PowerShell выполните такую команду:
-
-	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateFile azuredeploy.json -TemplateParameterFile azuredeploy.parameters.json
-
-Вы увидите нечто вроде этого:
-
-	PS C:\azure\templates\winvmext> New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateF	ile azuredeploy.json -TemplateParameterFile azuredeploy.parameters.json
-	VERBOSE: 12:49:42 PM - Template is valid.
-	VERBOSE: 12:49:42 PM - Create template deployment 'winvmexttest'.
-	VERBOSE: 12:49:45 PM - Resource Microsoft.Network/publicIPAddresses 'myPublicIP' provisioning status is succeeded
-	VERBOSE: 12:49:45 PM - Resource Microsoft.Network/virtualNetworks 'MyVNET' provisioning status is succeeded
-	VERBOSE: 12:49:47 PM - Resource Microsoft.Storage/storageAccounts 'contososa' provisioning status is succeeded
-	VERBOSE: 12:49:49 PM - Resource Microsoft.Network/networkInterfaces 'myVMNic' provisioning status is succeeded
-	VERBOSE: 12:49:51 PM - Resource Microsoft.Compute/virtualMachines 'MyWindowsVM' provisioning status is running
-	VERBOSE: 12:50:08 PM - Resource Microsoft.Compute/virtualMachines 'MyWindowsVM' provisioning status is succeeded
-	VERBOSE: 12:50:15 PM - Resource Microsoft.Compute/virtualMachines/extensions 'MyWindowsVM/SymantecExtension'	provisioning status is running
-	VERBOSE: 12:53:07 PM - Resource Microsoft.Compute/virtualMachines/extensions 'MyWindowsVM/SymantecExtension' provisioning status is succeeded
-	
-	
-	DeploymentName    : winvmexttest
-	ResourceGroupName : winvmexttest
-	ProvisioningState : Succeeded
-	Timestamp         : 6/3/2015 7:53:07 PM
-	Mode              : Incremental
-	TemplateLink      :
-	Parameters        :
-	                    Name             Type                       Value
-	                    ===============  =========================  ==========
-	                    newStorageAccountName  String                     contososa
-	                    adminUsername    String                     admin0987
-	                    adminPassword    SecureString
-	                    dnsNameForPublicIP  String                     contosovm
-	                    windowsOSVersion  String                     2012-R2-Datacenter
-	
-	Outputs           :
-
-Подключитесь к виртуальной машине на портале предварительной версии Azure (**Обзор > Виртуальные машины (v2) > ** *Имя виртуальной машины* **> Подключиться**).
-
-На начальном экране введите **Symantec**. На рисунке ниже показан возможный результат поискового запроса. Он свидетельствует о том, расширение Symantec Endpoint Protection установлено.
-
-![](./media/virtual-machines-deploy-rmtemplates-powershell/SymantecExt.png)
-
 ## <a id="removerg"></a>ЗАДАЧА: удаление группы ресурсов
 
 Вы можете удалить все созданные группы ресурсов с помощью команды **Remove-AzureResourceGroup**. Замените все содержимое внутри кавычек, включая символы < and >, на правильные имена.
@@ -963,11 +796,7 @@
 
 ## <a id="logon"></a>ЗАДАЧА: вход в виртуальную машину под управлением ОС Windows
 
-На [портале предварительной версии Azure](https://portal.azure.com/) последовательно щелкните **Просмотреть все > Виртуальные машины (v2) >** *Имя виртуальной машины* **> Подключиться**.
-
-Когда будет предложено открыть или сохранить файл RDP, нажмите кнопку **Открыть**, а затем нажмите кнопку **Подключиться**. Введите учетные данные действительной учетной записи и нажмите кнопку **ОК**.
-
-Когда будет предложено подключиться, несмотря на ошибки сертификатов, нажмите кнопку **Да**.
+Пошаговые указания см. в разделе [Как войти в виртуальную машину под управлением Windows Server](virtual-machines-log-on-windows-server.md).
 
 ## <a id="displayvm"></a>ЗАДАЧА: отображение информации о виртуальной машине
 
@@ -1065,8 +894,8 @@
 	Virtual machine stopping operation
 	This cmdlet will stop the specified virtual machine. Do you want to continue?
 	[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
-	
-	
+
+
 	EndTime             : 4/28/2015 11:09:08 AM -07:00
 	Error               :
 	Output              :
@@ -1104,8 +933,8 @@
 	Virtual machine removal operation
 	This cmdlet will remove the specified virtual machine. Do you want to continue?
 	[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
-	
-	
+
+
 	EndTime             : 4/28/2015 11:21:55 AM -07:00
 	Error               :
 	Output              :
@@ -1119,12 +948,12 @@
 
 [Поставщики вычислительных и сетевых ресурсов, а также ресурсов хранения Azure в диспетчере ресурсов Azure](virtual-machines-azurerm-versus-azuresm.md)
 
-[Обзор диспетчера ресурсов Azure](../resource-group-overview.md)
+[Обзор диспетчера ресурсов Azure](resource-group-overview.md)
 
 [Развертывание виртуальных машин и управление ими с помощью шаблонов диспетчера ресурсов Azure и интерфейса командной строки Azure](virtual-machines-deploy-rmtemplates-azure-cli.md)
 
 [Документация по виртуальным машинам](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-[Установка и настройка Azure PowerShell](../install-configure-powershell.md)
+[Установка и настройка Azure PowerShell](install-configure-powershell.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -39,4 +39,4 @@
 [Регистрация с помощью Azure Active Directory]: ../articles/mobile-services/mobile-services-how-to-register-active-directory-authentication.md
 [портале управления Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

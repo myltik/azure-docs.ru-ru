@@ -1,3 +1,3 @@
-*Это одна из статей цикла [Руководство разработчика по Azure Active Directory](../articles/active-directory/active-directory-developers-guide.md).*
+> Это одна из статей серии [Руководство разработчика по Azure Active Directory](../articles/active-directory/active-directory-developers-guide.md).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="07/21/2015"
    ms.author="banders" />
 
 # Установка системных обновлений на серверах
@@ -34,4 +34,6 @@
 5. Статья с описанием обновления откроется в веб-браузере. ![image of the Updates page](./media/operational-insights-updates/updates05.png)
 6. Используя найденную информацию, можно создать план для установки пропущенных обновлений.
 
-<!---HONumber=July15_HO2-->
+[AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
+
+<!---HONumber=July15_HO4-->

@@ -345,4 +345,4 @@ MySQL — база данных с высокой степенью паралл
 [14]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-14.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

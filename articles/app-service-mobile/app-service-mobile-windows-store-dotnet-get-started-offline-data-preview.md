@@ -41,7 +41,11 @@
 * [Хранилище SQLite для мобильных служб Azure версии 1.0.2 или более поздней][sqlite store nuget]
 * [SQLite для Windows 8.1](www.sqlite.org/downloads)
 
->[AZURE.NOTE]Для работы с этим учебником требуется учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Бесплатная пробная версия Azure</a>.
+>[AZURE.NOTE]Для работы с этим учебником требуется учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Бесплатная пробная версия Azure</a>.
+
+##<a name="review"></a>Проверка конфигурации сервера проекта (необязательное действие)
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-offline-preview](../../includes/app-service-mobile-dotnet-backend-enable-offline-preview.md)]
 
 ## <a name="enable-offline-app"></a>Обновление приложения для поддержки автономных функций
 
@@ -274,4 +278,4 @@
 [sqlite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.2
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

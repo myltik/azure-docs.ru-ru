@@ -278,4 +278,4 @@ SSH может также использоваться для туннелиро
 
 * [Использование заданий MapReduce с HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

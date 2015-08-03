@@ -78,7 +78,7 @@
 
     'Get-AzureVM -ServiceName AzureDC1 -Name AzureDC1 | Set-AzureStaticVNetIP -IPAddress 10.0.0.4 | Update-AzureVM
 
-Дополнительные сведения о настройке статического IP-адреса см. в разделе [Настройка статического внутреннего IP-адреса для виртуальной машины](https://msdn.microsoft.com/library/azure/dn630228.aspx).
+Дополнительные сведения о настройке статического IP-адреса см. в разделе [Настройка статического внутреннего IP-адреса для виртуальной машины](../virtual-network/virtual-networks-reserved-private-ip.md).
 
 ## Установка служб AD DS на виртуальных машинах Azure
 
@@ -123,4 +123,4 @@
 [1]: ./media/virtual-networks-install-replica-active-directory-domain-controller/ReplicaDCsOnAzureVNet.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

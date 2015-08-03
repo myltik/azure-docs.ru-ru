@@ -421,4 +421,4 @@ WhatToPedia — это стартап-компания, которая тест�
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

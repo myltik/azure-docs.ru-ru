@@ -259,4 +259,4 @@ VB на стороне сервера
 [start]: app-insights-get-started.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

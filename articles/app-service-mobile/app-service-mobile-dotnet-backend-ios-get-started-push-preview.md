@@ -25,6 +25,10 @@
 
 > [AZURE.NOTE][Симулятор iOS не поддерживает push-уведомления](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html), поэтому необходимо использовать физическое устройство под управлением iOS. Вам также необходимо оплатить подписку для [участия в программе разработки решений для Apple](https://developer.apple.com/programs/ios/).
 
+##<a name="review"></a>Проверка конфигурации сервера проекта (необязательное действие)
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-push-preview](../../includes/app-service-mobile-dotnet-backend-enable-push-preview.md)]
+
 [AZURE.INCLUDE [Включение push-уведомлений Apple](../../includes/enable-apple-push-notifications.md)]
 
 ## Настройка Azure для отправки push-уведомлений
@@ -123,4 +127,4 @@
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

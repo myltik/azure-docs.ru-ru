@@ -81,4 +81,4 @@
  
 [AMSPlayer]: ./media/media-services-playback-content-with-existing-players/media-services-portal-player.png
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

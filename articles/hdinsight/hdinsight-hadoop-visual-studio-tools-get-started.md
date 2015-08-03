@@ -14,14 +14,14 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="04/08/2015"
+	ms.date="07/21/2015"
 	ms.author="jgao"/>
 
 # Приступая к работе с инструментами Hadoop в Visual Studio для HDInsight для выполнения запроса Hive
 
 Узнайте, как использовать средства HDInsight для Visual Studio, чтобы подключаться к кластерам HDInsight и отправлять запросы Hive. Дополнительную информацию об использовании HDInsight см. в разделах [Введение в HDInsight][hdinsight.introduction] и [Приступая к работе с HDInsight][hdinsight.get.started]. Дополнительную информацию о подключении к кластеру Storm см. в статье [Разработка топологий для Apache Storm в HDInsight на C# с помощью Visual Studio][hdinsight.storm.visual.studio.tools].
 
->[AZURE.NOTE]В последнем выпуске появились новые функции, например поддержка IntelliSense в редакторе Hive, локальная проверка сценариев Hive и доступ к журналам YARN.
+>[AZURE.NOTE]В последнем выпуске появились новые функции, например поддержка редактора Hive, локальная проверка сценариев Hive и доступ к журналам YARN.
 
 
 ## Предварительные требования
@@ -39,12 +39,12 @@
 	- Одна из следующих версий Visual Studio:
 		- Visual Studio 2012 Professional, Premium или Ultimate с [обновлением 4](http://www.microsoft.com/download/details.aspx?id=39305);
 		- Visual Studio 2013 Community, Professional, Premium или Ultimate с [обновлением 4](https://www.microsoft.com/download/details.aspx?id=44921);
-		- Visual Studio 2015 RC (Community/Enterprise).
+		- Visual Studio 2015 (Community/Enterprise)
 
 	>[AZURE.NOTE]Сейчас доступна только английская версия инструментов HDInsight для Visual Studio.
 
 
-## Установка инструментов Hadoop для Visual Studio
+## Установка средств HDInsight для Visual Studio
 
 Инструменты HDInsight для Visual Studio поставляются с пакетом SDK для Microsoft Azure для .NET версии 2.5.1 или более поздней. Их можно установить с помощью [установщика веб-платформы](http://go.microsoft.com/fwlink/?LinkId=255386). Необходимо выбрать установщик, который соответствует вашей версии Visual Studio. При установке пакета инструментов Hadoop будет установлен драйвер Microsoft Hive ODBC (32-разрядный и 64-разрядный).
 
@@ -53,7 +53,7 @@
 
 >[AZURE.NOTE]Если у вас установлено приложение Visual Studio 2015 или 2012 и пакет SDK для Azure 2.5, необходимо вручную удалить старую версию перед установкой самой новой версии. Visual Studio 2013 поддерживает прямое обновление.
 
-## Подключение к подписке Azure
+## Подключение к подпискам Azure
 Средства HDInsight для Visual Studio позволяют подключаться к кластерам HDInsight, осуществлять некоторые базовые операции управления и выполнять запросы Hive.
 
 >[AZURE.NOTE]Дополнительную информацию об использовании эмулятора HDInsight см. в разделе [Приступая к работе с эмулятором HDInsight](../hdinsight-get-started-emulator.md/#vstools).
@@ -135,7 +135,7 @@
 
 1. В **обозревателе сервера** разверните **Azure**, а затем — **Кластеры HDInsight**.
 2. Правой кнопкой мыши щелкните кластер, в котором вы хотите выполнить запрос, и выберите **Написать запрос Hive**.
-3. Введите запросы Hive. Обратите внимание, что редактор Hive поддерживает технологию IntelliSense. Теперь инструменты HDInsight для Visual Studio поддерживают загрузку удаленных метаданных при редактировании сценария Hive. Например при вводе «SELECT * FROM» IntelliSense отображает все предлагаемые имена таблиц. Если указано имя таблицы, IntelliSense выведет список имен столбцов.
+3. Введите запросы Hive. Обратите внимание, что редактор Hive поддерживает технологию IntelliSense. Теперь инструменты HDInsight для Visual Studio поддерживают загрузку удаленных метаданных при редактировании сценария Hive. Например при вводе «SELECT * FROM» IntelliSense отображает все предлагаемые имена таблиц. Если указано имя таблицы, IntelliSense выведет список имен столбцов. Средство поддерживает почти все инструкции, подзапросы и встроенные определяемые пользователем функции Hive DML. 
 
 	![Инструменты Hadoop: Intellisense в инструментах HDInsight для Visual Studio][13]
 
@@ -181,6 +181,18 @@
 
 	![Инструменты Hadoop: просмотр заданий Hive с помощью инструментов HDInsight для Visual Studio][12]
 
+### Диаграмма выполнения задания Tez Hive
+
+Средства Visual Studio HDInsight поддерживают отображение диаграмм производительности для заданий Hive, выполняемых механизмом выполнения Tez. Сведения о включении Tez см. в разделе [Использование Hive в HDInsight][hdinsight.hive]. После отправки в Visual Studio задания Hive Visual Studio отобразит диаграмму по завершении задания. Может потребоваться нажать кнопку обновления для получения последнего состояния задания.
+
+> [AZURE.NOTE]Эта функция доступна только для кластера HDInsight версии выше 3.2.4.593 и может работать только для выполненных заданий. Она работает для кластеров на основе Windows и на основе Linux.
+
+![Диаграмма производительности Tez для Hadoop Hive](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.hive.tez.performance.graph.png)
+
+## Запуск сценариев Pig
+
+Средства HDInsight для Visual Studio поддерживают создание и отправку сценариев Pig в кластеры HDInsight. Пользователи могут создать проект Pig из шаблона и затем отправить сценарий в кластеры HDInsight.
+
 ## Дальнейшие действия
 В этой статье вы узнали, как подключаться к кластерам HDInsight из Visual Studio, использовать пакет инструментов Hadoop и выполнять запросы Hive. Дополнительные сведения см. в разделе:
 
@@ -211,6 +223,7 @@
 [13]: ./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.intellisense.table.names.png
 [14]: ./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.intellisense.column.names.png
 
+
 <!--Link references-->
 [hdinsight-provision]: ../hdinsight/hdinsight-provision-clusters.md
 [hdinsight.introduction]: ../hdinsight-introduction.md
@@ -223,4 +236,4 @@
 
 [apache.hive]: http://hive.apache.org
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

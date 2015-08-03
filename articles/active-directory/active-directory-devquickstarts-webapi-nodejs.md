@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="04/28/2015"
+	ms.date="07/17/2015"
 	ms.author="brandwe"/>
 
 # Приступая к работе с веб-интерфейсом API для узла
@@ -847,7 +847,7 @@ var server = restify.createServer({
     formatters: {
         'application/json': function(req, res, body){
             if(req.params.callback){
-                var callbackFunctionName = req.params.callback.replace(/[^A-Za-z0-9_\.]/g, '');
+                var callbackFunctionName = req.params.callback.replace(/[^A-Za-z0-9_.]/g, '');
                 return callbackFunctionName + "(" + JSON.stringify(body) + ");";
             } else {
                 return JSON.stringify(body);
@@ -1029,7 +1029,7 @@ var passport = require('passport')
   , OAuth2Strategy = require('passport-oauth').OAuth2Strategy;
 ```
 
-### 2\. Информирование сервера, что используется проверка подлинности
+### 2. Информирование сервера, что используется проверка подлинности
 
 Откройте свой файл `server.js` в любом удобном редакторе и добавьте следующие сведения **под server.get()**, где вы определили свои маршруты, но выше метода **server.listen()**.
 
@@ -1043,7 +1043,7 @@ var passport = require('passport')
 ```
 
 
-### 3\. Добавление модуля Passport OAuth2 в код
+### 3. Добавление модуля Passport OAuth2 в код
 
 Здесь мы используем определенные параметры OAuth2, которые были добавлены в файл config.js. Если наш файл `aadutils.js` выполнил синтаксический анализ нашего документа метаданных федерации, все эти значения должны быть указаны для нас даже в том случае, если они не указаны в файле config.js.
 
@@ -1176,6 +1176,8 @@ server.get('/tasks', passport.authenticate('provider', { session: false }), list
 [ADAL для Android](https://github.com/MSOpenTech/azure-activedirectory-library-for-android)
 
 [ADAL для .Net](http://msdn.microsoft.com/library/windowsazure/jj573266.aspx)
+
+[AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

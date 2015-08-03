@@ -57,4 +57,4 @@
 - [Общие сведения о службе архивации Azure](backup-introduction-to-azure-backup.md)
 - [Знакомство со службой архивации Azure](backup-try-azure-backup-in-10-mins)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

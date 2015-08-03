@@ -364,7 +364,7 @@
   [Практическое руководство. Определение модели службы]: #DefineServiceModel
   [Практическое руководство. Определение правил автоматического масштабирования]: #DefineAutoscalingRules
   [Практическое руководство. Настройка блока приложения автомасштабирования]: #Configure
-  [Использование счетчиков производительности в Azure]: http://www.windowsazure.com/develop/net/common-tasks/performance-profiling/
+  [Использование счетчиков производительности в Azure]: http://azure.microsoft.com/develop/net/common-tasks/performance-profiling/
   [NuGet]: http://nuget.org/
   [портал управления Azure]: http://manage.windowsazure.com
   [Сохранение сведений о службе]: http://msdn.microsoft.com/library/hh680878(PandP.50).aspx
@@ -381,4 +381,4 @@
   [Снижение затрат на размещение TechNet и MSDN и воздействия на окружающую среду с помощью автомасштабирования в среде Azure]: http://msdn.microsoft.com/library/jj838718(PandP.50).aspx
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

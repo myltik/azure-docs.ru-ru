@@ -63,7 +63,7 @@ IdleTimeoutInMinutes — необязательный параметр. Если
  
 Получение конфигурации времени ожидания простоя
 
-	PS C:> Get-AzureVM –ServiceName “MyService” –Name “MyVM” | Get-AzureEndpoint
+	PS C:\> Get-AzureVM –ServiceName “MyService” –Name “MyVM” | Get-AzureEndpoint
 	VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
 	LBSetName : MyLoadBalancedSet
 	LocalPort : 80
@@ -166,4 +166,4 @@ IdleTimeoutInMinutes — необязательный параметр. Если
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

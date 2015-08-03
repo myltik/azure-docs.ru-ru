@@ -26,7 +26,7 @@
 
 Убедитесь, что ваша локальная среда разработки настроена согласно инструкциям в статье о [настройке среды разработки Service Fabric](service-fabric-get-started.md).
 
-Запустите обозреватель Service Fabric по локальному пути установки (%Program Files%\\Microsoft SDKs\\Service Fabric\\Tools\\ServiceFabricExplorer\\ServiceFabricExplorer.exe). Средство автоматически подключится к локальному кластеру разработки при его наличии. Оно отображает следующие сведения о кластере:
+Запустите обозреватель Service Fabric по локальному пути установки (%Program Files%\Microsoft SDKs\Service Fabric\Tools\ServiceFabricExplorer\ServiceFabricExplorer.exe). Средство автоматически подключится к локальному кластеру разработки при его наличии. Оно отображает следующие сведения о кластере:
 
 - приложения, выполняемые на кластере;
 - сведения об узлах кластера;
@@ -76,4 +76,4 @@
 [servicefabricexplorer]: ./media/service-fabric-visualizing-your-cluster/servicefabricexplorer.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

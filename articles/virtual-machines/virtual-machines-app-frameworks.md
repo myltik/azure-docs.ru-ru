@@ -50,4 +50,4 @@
 Дополнительную информацию о диспетчере ресурсов Azure см. [здесь](../resource-group-template-deploy.md).
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

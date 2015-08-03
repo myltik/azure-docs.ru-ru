@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="05/21/2015" 
+	ms.date="07/16/2015" 
 	ms.author="jeffstok"/>
 
 
@@ -35,7 +35,7 @@
 2.	В консоли диспетчера пакетов выполните следующие команды, чтобы установить пакеты NuGet. Первый — пакет SDK для .NET для управления Azure Stream Analytics. Второй — пакет SDK Azure Insights, который будет использоваться для включения отслеживания. Последний — клиент Azure Active Directory, который будет использоваться для проверки подлинности.
 
     ```
-    Install-Package Microsoft.Azure.Management.StreamAnalytics –Pre
+    Install-Package Microsoft.Azure.Management.StreamAnalytics
     Install-Package Microsoft.Azure.Insights -Pre
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
     ```
@@ -48,12 +48,12 @@
     	<add key="ResourceGroupName" value="RESOURCE GROUP NAME" />
     	<add key="JobName" value="YOUR JOB NAME" />
     	<add key="StorageAccountName" value="YOUR STORAGE ACCOUNT"/>
-    	<add key="ActiveDirectoryEndpoint" value="https://login.windows-ppe.net/" />
-    	<add key="ResourceManagerEndpoint" value="https://api-current.resources.windows-int.net/" />
+    	<add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
+    	<add key="ResourceManagerEndpoint" value="https://management.azure.com/" />
     	<add key="WindowsManagementUri" value="https://management.core.windows.net/" />
     	<add key="AsaClientId" value="1950a258-227b-4e31-a9cf-717495945fc2" />
     	<add key="RedirectUri" value="urn:ietf:wg:oauth:2.0:oob" />
-    	<add key="SubscriptionId" value="<YOUR AZURE SUBSCRIPTION ID>" />
+    	<add key="SubscriptionId" value="YOUR AZURE SUBSCRIPTION ID" />
     	<add key="ActiveDirectoryTenantId" value="YOUR TENANT ID" />
     </appSettings>
 	```
@@ -178,4 +178,4 @@
 - [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

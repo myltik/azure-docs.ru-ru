@@ -1,11 +1,4 @@
-<properties 
-	pageTitle="Использование хранилища ключей Azure из веб-приложения | Обзор" 
-	description="В этом учебнике показано, как использовать хранилище ключей Azure из веб-приложения."
-	services="key-vault" 
-	documentationCenter="" 
-	authors="adamhurwitz"
-	manager=""
-	tags="azure-resource-manager"/>
+<properties pageTitle="Использование хранилища ключей Azure из веб-приложения | Обзор" description="В этом учебнике показано, как использовать хранилище ключей Azure из веб-приложения." services="key-vault" documentationCenter="" authors="adamhurwitz" manager="" tags="azure-resource-manager"//>
 
 <tags 
 	ms.service="key-vault" 
@@ -132,4 +125,4 @@
 [1]: ./media/key-vault-use-from-web-application/PortalAppSettings.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

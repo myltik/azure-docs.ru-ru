@@ -306,4 +306,4 @@
 [Получение процессора мультимедиа]: media-services-get-media-processor.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

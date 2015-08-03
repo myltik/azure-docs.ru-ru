@@ -357,4 +357,4 @@ HBase на HDInsight поставляется с веб-интерфейсом �
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-bigtable.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -60,7 +60,7 @@ Windows PowerShell — это полнофункциональная среда 
 
 	Перед созданием канала потребуется список поставщиков услуг, поддерживаемых расположений и значений пропускной способности для каждого расположения. Следующий командлет PowerShell возвращает эти сведения, которые будет использоваться в последующих шагах.
 
-    	PS C:> Get-AzureDedicatedCircuitServiceProvider
+    	PS C:\> Get-AzureDedicatedCircuitServiceProvider
 		**The information returned will look similar to the example below:**
 
 
@@ -117,7 +117,7 @@ Windows PowerShell — это полнофункциональная среда 
 
 	Вы можете получить эти сведения в любое время с помощью командлета Get-AzureCircuit. Если выполнить этот вызов без параметров, то будут перечислены все каналы. Ваш ключ службы будет приведен в поле ServiceKey.
 
-		PS C:> Get-AzureDedicatedCircuit
+		PS C:\> Get-AzureDedicatedCircuit
 
 		Bandwidth                        : 200
 		CircuitName                      : EquinixSVTest
@@ -136,7 +136,7 @@ Windows PowerShell — это полнофункциональная среда 
 
 	Это позволит узнать, когда поставщик подключит ваш канал. После включения канала состояние *ServiceProviderProvisioningState* будет отображаться как *Provisioned* (подготовлен), как показано в следующем примере.
 
-		PS C:> Get-AzureDedicatedCircuit
+		PS C:\> Get-AzureDedicatedCircuit
 
 		Bandwidth                        : 200
 		CircuitName                      : EquinixSVTest
@@ -170,7 +170,7 @@ Windows PowerShell — это полнофункциональная среда 
 
 	В ответе, приведенном ниже, предоставлены сведения, необходимые для выполнения следующих действий. Используйте узел ASN для настройки BGP в VRF вашего маршрутизатора.
 
-		PS C:> New-AzureBGPPeering -ServiceKey $ServiceKey -PrimaryPeerSubnet $PriSN -SecondaryPeerSubnet $SecSN -PeerAsn $ASN -VlanId $VLAN –AccessType Private
+		PS C:\> New-AzureBGPPeering -ServiceKey $ServiceKey -PrimaryPeerSubnet $PriSN -SecondaryPeerSubnet $SecSN -PeerAsn $ASN -VlanId $VLAN –AccessType Private
 
 		AzureAsn            : 12076
 		PeerAsn             : 65001
@@ -205,7 +205,7 @@ Windows PowerShell — это полнофункциональная среда 
 
 	В ответе, приведенном ниже, предоставлены сведения, необходимые для выполнения следующих действий. Используйте узел ASN для настройки BGP в VRF вашего маршрутизатора.
 
-		PS C:> New-AzureBGPPeering -ServiceKey $ServiceKey -PrimaryPeerSubnet $PriSN -SecondaryPeerSubnet $SecSN -PeerAsn $ASN -VlanId $VLAN –AccessType Private
+		PS C:\> New-AzureBGPPeering -ServiceKey $ServiceKey -PrimaryPeerSubnet $PriSN -SecondaryPeerSubnet $SecSN -PeerAsn $ASN -VlanId $VLAN –AccessType Private
 
 		AzureAsn            : 12076
 		PeerAsn             : 65001
@@ -224,8 +224,8 @@ Windows PowerShell — это полнофункциональная среда 
 	- ServiceProviderProvisioningState: Provisioned
 	- Status: Enabled
 
-			PS C:> $Vnet = "MyTestVNet"
+			PS C:\> $Vnet = "MyTestVNet"
 			New-AzureDedicatedCircuitLink -ServiceKey $ServiceKey -VNetName $Vnet
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

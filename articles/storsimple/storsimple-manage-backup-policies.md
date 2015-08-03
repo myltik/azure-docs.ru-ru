@@ -84,4 +84,4 @@
 
 Узнайте, как управлять резервными копиями StorSimple с помощью [диспетчера моментальных снимков StorSimple](https://msdn.microsoft.com/library/azure/dn772365.aspx).
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

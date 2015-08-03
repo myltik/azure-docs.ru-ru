@@ -308,4 +308,4 @@ AMQP 1.0 — это эффективный и надежный протокол 
 * [Использование очередей служебной шины](service-bus-dotnet-how-to-use-queues.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

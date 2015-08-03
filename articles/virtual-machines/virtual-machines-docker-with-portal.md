@@ -144,4 +144,4 @@ WARNING: No swap limit support
 [Руководству пользователя Docker]: https://docs.docker.com/userguide/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

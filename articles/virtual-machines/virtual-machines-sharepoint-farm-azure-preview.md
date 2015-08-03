@@ -95,4 +95,4 @@
 
 [Фермы SharePoint, размещенные в службах инфраструктуры Azure](virtual-machines-sharepoint-infrastructure-services.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

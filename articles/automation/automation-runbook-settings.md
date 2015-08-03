@@ -60,4 +60,4 @@
 - [Выходные данные Runbook и сообщения](../automation-runbook-output-and-messages) 
 - [Создание или импорт модуля Runbook](https://msdn.microsoft.com/library/dn643637.aspx) 
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

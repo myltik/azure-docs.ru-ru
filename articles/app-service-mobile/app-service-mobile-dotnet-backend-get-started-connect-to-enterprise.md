@@ -187,4 +187,4 @@
 [Расширение службы приложений серверной части .NET мобильных приложений]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.AppService/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

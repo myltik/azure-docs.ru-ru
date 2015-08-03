@@ -219,4 +219,4 @@
 [Проверка подлинности приложения с помощью единого входа библиотеки проверки подлинности Active Directory]: http://azure.microsoft.com/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

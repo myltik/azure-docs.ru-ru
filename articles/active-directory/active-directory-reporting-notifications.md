@@ -67,4 +67,4 @@
 - [Начало работы с Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Добавление фирменной символики компании на страницах входа и панели доступа](active-directory-add-company-branding.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -138,4 +138,4 @@
 [полный пример проекта]: http://go.microsoft.com/fwlink/p/?LinkId=331328
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

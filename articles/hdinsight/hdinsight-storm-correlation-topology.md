@@ -197,4 +197,4 @@
 Другие примеры топологий для Storm см. в разделе [Примеры топологий для Storm в HDInsight](hdinsight-storm-example-topology.md).
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

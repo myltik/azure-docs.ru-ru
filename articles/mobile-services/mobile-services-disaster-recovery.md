@@ -97,11 +97,11 @@
 [руководстве по обеспечению непрерывности бизнеса на основе базы данных SQL]: http://msdn.microsoft.com/library/windowsazure/hh852669.aspx
 [Team Foundation Service]: http://tfs.visualstudio.com/
 
-[системы управления версиями]: http://www.windowsazure.com/develop/mobile/tutorials/store-scripts-in-source-control/
-[с помощью Azure CLI]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
+[системы управления версиями]: http://azure.microsoft.com/develop/mobile/tutorials/store-scripts-in-source-control/
+[с помощью Azure CLI]: http://azure.microsoft.com/develop/mobile/tutorials/command-line-administration/
 [портале Azure]: http://manage.windowsazure.com/
-[Панель мониторинга служб Azure]: http://www.windowsazure.com/support/service-dashboard/
-[Автоматизация мобильных служб с помощью Azure CLI]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
+[Панель мониторинга служб Azure]: http://azure.microsoft.com/support/service-dashboard/
+[Автоматизация мобильных служб с помощью Azure CLI]: http://azure.microsoft.com/develop/mobile/tutorials/command-line-administration/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

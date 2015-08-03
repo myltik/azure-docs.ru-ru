@@ -1,8 +1,7 @@
 <properties 
 	pageTitle="Мультитенантные приложения со средствами эластичных баз данных и безопасностью на уровне строк" 
 	description="Узнайте, как использовать средства эластичных баз данных совместно с безопасностью на уровне строк для создания приложения с высокомасштабируемым уровнем данных в базе данных SQL Azure, поддерживающей мультитенантные сегменты." 
-	services="sql-database" 
-	documentationCenter=""  
+	services="sql-database" documentationCenter=""  
 	manager="jeffreyg" 
 	authors="tmullaney"/>
 
@@ -340,4 +339,4 @@ GO
 [1]: ./media/sql-database-elastic-tools-multi-tenant-row-level-security/blogging-app.png
 <!--anchors-->
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

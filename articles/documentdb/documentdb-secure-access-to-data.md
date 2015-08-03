@@ -163,4 +163,4 @@ DocumentDB содержит понятия первого класса, позв
 - Сведения о создании маркеров авторизации DocumentDB можно узнать [здесь](https://msdn.microsoft.com/library/azure/dn783368.aspx).
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

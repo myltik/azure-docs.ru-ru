@@ -78,7 +78,7 @@ Mahout — это библиотека [машинного обучения][ml]
 
 3. Передайте файл __u.data__ в каталог __example/data/u.data__ на кластере HDInsight. Если у вас имеется [Azure PowerShell][aps], то для передачи файла можно использовать модуль [HDInsight-Tools][tools]. Другие способы загрузки файлов можно найти в документе [Отправка данных для заданий Hadoop в HDInsight][upload]. Следующая команда использует `Add-HDInsightFile` для передачи файла:
 
-    	PS C:> Add-HDInsightFile -LocalPath "path\to\u.data" -DestinationPath "example/data/u.data" -ClusterName "your cluster name"
+    	PS C:\> Add-HDInsightFile -LocalPath "path\to\u.data" -DestinationPath "example/data/u.data" -ClusterName "your cluster name"
 
     Она передает файл __u.data__ в каталог __example/data/u.data__ в хранилище по умолчанию вашего кластера. Теперь получить доступ к этим данным можно будет с помощью __универсального кода ресурса (URI) wasb:///example/data/u.data__ из заданий HDInsight.
 
@@ -234,7 +234,7 @@ Mahout — это библиотека [машинного обучения][ml]
 
 Для использования этого сценария необходимо наличие ранее распакованной папки __ml-100k__, а также локальная копия выходного файла __part-r-00000__, созданного заданием Mahout. Ниже приводится пример запуска сценария:
 
-	PS C:> show-recommendation.ps1 -userId 4 -userDataFile .\ml-100k\u.data -movieFile .\ml-100k\u.item -recommendationFile .\output.txt
+	PS C:\> show-recommendation.ps1 -userId 4 -userDataFile .\ml-100k\u.data -movieFile .\ml-100k\u.item -recommendationFile .\output.txt
 
 Результат должен выглядеть аналогично следующему:
 
@@ -353,7 +353,7 @@ Mahout устанавливается на кластерах HDInsight верс
 
 1. Используемая версия Mahout зависит от версии HDInsight вашего кластера. Вы можете узнать версию кластера с помощью следующей команды [Azure PowerShell][aps]:
 
-    	PS C:> Get-AzureHDInsightCluster -Name YourClusterName | Select version
+    	PS C:\> Get-AzureHDInsightCluster -Name YourClusterName | Select version
 
 
   * __Для HDInsight 2.1__ можно скачать архив Java (JAR-файл), содержащий [Mahout 0.9](http://repo2.maven.org/maven2/org/apache/mahout/mahout-core/0.9/mahout-core-0.9-job.jar).
@@ -368,7 +368,7 @@ Mahout устанавливается на кластерах HDInsight верс
 
 2. Загрузите файл jar в каталог __example/jars__ в хранилище по умолчанию для вашего кластера. В следующем примере add-hdinsightfile из [средств HDInsight][tools] используется для отправки файла:
 
-    	PS C:> .\Add-HDInsightFile -LocalPath "path\to\mahout-core-0.9-job.jar" -DestinationPath "example/jars/mahout-core-0.9-job.jar" -ClusterName "your cluster name"
+    	PS C:\> .\Add-HDInsightFile -LocalPath "path\to\mahout-core-0.9-job.jar" -DestinationPath "example/jars/mahout-core-0.9-job.jar" -ClusterName "your cluster name"
 
 ###Отсутствие возможности перезаписи файлов
 
@@ -429,4 +429,4 @@ Mahout устанавливается на кластерах HDInsight верс
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

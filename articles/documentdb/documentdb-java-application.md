@@ -13,7 +13,7 @@
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="NA" 
 	ms.workload="data-services" 
-	ms.date="04/29/2015" 
+	ms.date="07/21/2015" 
 	ms.author="andrl"/>
 
 # Создание веб-приложения Node.js с использованием DocumentDB #
@@ -34,7 +34,7 @@
 
 - Активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](../../pricing/free-trial/).
 - [Комплект разработчика Java (JDK 7 +)](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
-- [Интегрированная среда разработки Eclipse для разработчиков Java EE.](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunasr1)
+- [IDE Eclipse для разработчиков Java EE.](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunasr1)
 - [Открытый веб-сайт Azure со средой выполнения Java (например, Tomcat или Jetty).](../web-sites-java-get-started.md)
 
 При первой установке этих средств воспользуйтесь пошаговым руководством по установке, представленным на сайте coreservlets.com в разделе «Быстрый запуск» статьи [Учебник по установке TomCat7 и его использованию с Eclipse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html).
@@ -88,7 +88,7 @@
 4. В окне **Select Dependency** (Выбор зависимости) выполните следующие действия.
  - В поле **GroupId** (Идентификатор группы) введите com.microsoft.azure.
  - В поле **Artifact Id** (Идентификатор артефакта) введите azure-documentdb.
- - В поле **Version** (Версия) введите 1.0.0.
+ - В поле **Version** (Версия) введите 1.1.0.
 
 	![](./media/documentdb-java-application/image13.png)
 
@@ -97,7 +97,7 @@
 	    <dependency>
 		    <groupId>com.microsoft.azure</groupId>
 		    <artifactId>azure-documentdb</artifactId>
-		    <version>1.0.0</version>
+		    <version>1.1.0</version>
 	    </dependency>
 
 5. После нажатия кнопки **Ok** Maven установит пакет DocumentDB Java SDK.
@@ -116,7 +116,7 @@
 		    private String name;
 	    }
 
-	В этом проекте мы используем [Проект Lombok](http://projectlombok.org/) для создания конструктора, получателя, задания и построителя. Альтернационным способом можно написать следующий код вручную, либо сгенерировать его в интегрированной среде разработки.
+	В этом проекте мы используем [Проект Lombok](http://projectlombok.org/) для создания конструктора, получателя, задания и построителя. Альтернационным способом можно написать следующий код вручную, либо сгенерировать его в IDE.
 
 2. Чтобы вызвать службу DocumentDB, необходимо создать новый экземпляр ** DocumentClient**. В общем случае рекомендуется повторно использовать **DocumentClient** вместо создания нового клиента для каждого последующего запроса. Мы можем повторно использовать клиент, поместив его в **DocumentClientFactory**: Здесь же необходимо вставить универсальный код ресурса (URI) и ПЕРВИЧНЫЙ КЛЮЧ, сохраненные в буфер обмена в [шаге 1](#CreateDB). Замените [YOUR_ENDPOINT_HERE] на URI и замените [YOUR_KEY_HERE] на первичный ключ.
 
@@ -662,7 +662,7 @@
 		      var id = checkboxElement.attr('id');
 		      var isComplete = checkboxElement.is(':checked');
 		
-		      // Togle table row color
+		      // Toggle table row color
 		      if (isComplete) {
 		        rowElement.addClass("active");
 		        rowElement.removeClass("warning");
@@ -732,7 +732,7 @@
 
 5. Отлично! Теперь осталось протестировать приложение. Запустите приложение локально и добавьте несколько элементов Todo, заполнив имя элемента и категории и нажав кнопку **Add Task** (Добавить задачу).
 
-6. После появления элемента, можно проверить его завершение, отметив флажком и щелкнув команду **Update Tasks** (Обновить задачи).
+6. После появления элемента можно проверить его завершение, отметив флажком и щелкнув команду **Update Tasks** (Обновить задачи).
 
 ##<a id="Deploy"></a>Шаг 6. Развертывание приложения на веб-сайтах Azure ##
 
@@ -763,7 +763,7 @@
 8. На экране **Local Destination** (Локальная папка назначения) нажмите кнопку **Browse** (Обзор), выберите папку, в которую можно копировать репозитории, и нажмите кнопку **Next** (Далее).
 9. На экране **Select a wizard to use for importing projects** (Выбор мастера для импорта проектов) убедитесь, что установлен флажок **Import existing projects** (Импортировать существующие проекты) и нажмите кнопку **Next** (Далее).
 10. На экране **Import Projects** (Импорт проектов) снимите флажок возле проекта **DocumentDB** и нажмите кнопку **Finish** (Далее). В проекте DocumentDB содержится пакет DocumentDB Java SDK, который будет добавлен в качестве зависимости.
-11. В **обозревателе проектов** перейдите в расположение azure-documentdb-java-sample\\src\\com.microsoft.azure.documentdb.sample.dao\\DocumentClientFactory.java и замените значения в полях HOST (Узел) и MASTER_KEY (Основной ключ) значениями URI и ПЕРВИЧНОГО КЛЮЧА для вашей учетной записи DocumentDB, а затем сохраните файл. Дополнительные сведения см. в инструкции [Шаг 1. Создание учетной записи базы данных DocumentDB](#CreateDB).
+11. В **обозревателе проектов** перейдите в расположение azure-documentdb-java-sample\src\com.microsoft.azure.documentdb.sample.dao\DocumentClientFactory.java и замените значения в полях HOST (Узел) и MASTER_KEY (Основной ключ) значениями URI и ПЕРВИЧНОГО КЛЮЧА для вашей учетной записи DocumentDB, а затем сохраните файл. Дополнительные сведения см. в инструкции [Шаг 1. Создание учетной записи базы данных DocumentDB](#CreateDB).
 12. В **обозревателе проектов** правой кнопкой мыши щелкните элемент **azure-documentdb-java-sample**, затем выберите **Build Path** (Построить путь) и щелкните **Configure Build Path** (Настроить построение пути).
 13. На экране **Java Build Path** (Путь построения Java) в правой области откройте вкладку **Libraries** (Библиотеки) и щелкните **Add External JAR** (Добавить внешние JAR-файлы). Перейдите в расположение файла lombok.jar, щелкните **Open** (Открыть), а затем нажмите кнопку **ОК** (ОК).
 14. С помощью инструкции из шага 12 снова откройте окно **Properties** (Свойства), а затем в левой области щелкните **Targeted Runtimes** (Целевые среды выполнения).
@@ -779,4 +779,4 @@
 [1]: media/documentdb-java-application/keys.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

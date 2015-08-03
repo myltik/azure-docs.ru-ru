@@ -157,4 +157,4 @@
 
 Перейдите на [форум каталога данных Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Ответы на вопросы, заданные на форуме, будут опубликованы здесь.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/22/2015" 
+	ms.date="07/19/2015" 
     ms.author="tamram"/>
 
 # Использование табличного хранилища из C++
@@ -410,9 +410,10 @@
 
 -	[Использование хранилища BLOB-объектов из C++](storage-c-plus-plus-how-to-use-blobs.md)
 -	[Использование хранилища очередей из C++](storage-c-plus-plus-how-to-use-queues.md)
+-	[Перечисление ресурсов хранилища Azure в C++](storage-c-plus-plus-enumeration.md)
 -	[Клиентская библиотека хранилища для C++](https://msdn.microsoft.com/library/azure/gg433040.aspx) 
 -	[Справочник MSDN хранилища Azure](https://msdn.microsoft.com/library/azure/gg433040.aspx)
 -	[Документация по хранилищу Azure](http://azure.microsoft.com/documentation/services/storage/)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

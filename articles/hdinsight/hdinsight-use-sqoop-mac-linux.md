@@ -186,7 +186,6 @@
 ##Импорт Sqoop
 
 1. Для импорта данных из таблицы **mobiledata** базы данных SQL в каталог **wasb:///tutorials/usesqoop/importeddata** в HDInsight используйте следующую команду:
-
         sqoop import --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
 
     В импортированных данных будут содержаться поля, разделенные символом табуляции, а строки будут завершаться символом новой строки.
@@ -265,4 +264,4 @@ Sqoop можно также использовать для импорта и э
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

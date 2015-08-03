@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/17/2015"
+   ms.date="07/10/2015"
    ms.author="claudioc"/>
 
 # Надежные субъекты: пошаговое руководство по началу работы на примере HelloWorld
@@ -36,14 +36,17 @@
 Установив инструменты Visual Studio для работы с Service Fabric, можно приступать к созданию новых типов проекта. Для этого разверните группу «Облако» в диалоговом окне «Новый проект».
 
 
-![][1]
+![Инструменты Service Fabric для VS — новый проект][1]
 
+В следующем диалоговом окне вы можете выбрать тип проекта, который нужно создать.
+
+![Шаблоны проектов Service Fabric][5]
 
 Для проекта HelloWorld мы воспользуемся службой субъектов Service Fabric.
 
 Созданное решение будет иметь такую структуру:
 
-![][2]
+![Структура проекта Service Fabric][2]
 
 ## Простые стандартные блоки в решении на базе надежных субъектов
 
@@ -138,12 +141,12 @@ fabricRuntime.RegisterActor(typeof(MyNewActor));
 
 Инструменты Visual Studio для работы с Service Fabric поддерживают отладку на локальном компьютере. Чтобы запустить сеанс отладки, нажмите клавишу F5. Visual Studio скомпилирует (при необходимости), упакует и развернет приложение в локальном кластере Service Fabric, а затем присоединит отладчик. Процесс в целом аналогичен отладке приложений ASP.NET. За ходом развертывания можно следить, используя окно вывода.
 
-![][3]
+![Окно вывода отладки Service Fabric][3]
 
 ## Развертывание приложения
 Используя Visual Studio, вы можете также упаковать и развернуть приложение в локальном кластере, не запуская отладчик. Для этого выберите проект приложения Service Fabric и щелкните правой кнопкой мыши.
 
-![][4]
+![Service Fabric — меню проекта для развертывания и упаковывания приложений][4]
 
 * **Развернуть**. Создание пакета приложения и запуск процесса развертывания.
 * **Удалить развертывание**. Удаление приложения из локального кластера.
@@ -151,8 +154,7 @@ fabricRuntime.RegisterActor(typeof(MyNewActor));
 
 ## Дальнейшие действия
 
-[Общие сведения о субъектах Service Fabric](service-fabric-reliable-actors-introduction.md)
-
+[Общие сведения о субъектах Service Fabric](service-fabric-reliable-actors-introduction.md) [Справочник по API-интерфейсам субъектов](https://msdn.microsoft.com/library/azure/dn971626.aspx) [Пример кода](https://github.com/Azure/servicefabric-samples)
 
 
 <!--Image references-->
@@ -160,6 +162,7 @@ fabricRuntime.RegisterActor(typeof(MyNewActor));
 [2]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-projectstructure.PNG
 [3]: ./media/service-fabric-reliable-actors-get-started/debugging-output.PNG
 [4]: ./media/service-fabric-reliable-actors-get-started/vs-context-menu.png
+[5]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject1.PNG
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

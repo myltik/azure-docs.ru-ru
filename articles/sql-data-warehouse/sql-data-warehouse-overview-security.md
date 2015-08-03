@@ -78,4 +78,4 @@ ALTER ROLE db_datawriter ADD MEMBER ApplicationUser; -- allows ApplicationUser t
 <!--Other Web references-->
 [Контроль доступа на основе ролей в предварительной версии портала Azure]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -47,7 +47,7 @@
 
 Получение конфигурации режима распределения балансировщика нагрузки для конечной точки
 
-	PS C:> Get-AzureVM –ServiceName “MyService” –Name “MyVM” | Get-AzureEndpoint
+	PS C:\> Get-AzureVM –ServiceName “MyService” –Name “MyVM” | Get-AzureEndpoint
 
 	VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
 	LBSetName : MyLoadBalancedSet
@@ -149,4 +149,4 @@ LoadBalancerDistribution может иметь значение sourceIP для 
 
 [Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

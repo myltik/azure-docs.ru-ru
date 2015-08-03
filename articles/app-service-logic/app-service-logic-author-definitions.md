@@ -688,4 +688,4 @@ Content-type: application/json
 
 Затем в каждой среде можно предоставить другое значение для параметра `connection`. В [документации по интерфейсу API REST](https://msdn.microsoft.com/library/azure/dn948513.aspx) описаны все параметры для создания приложений логики и управления ими.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

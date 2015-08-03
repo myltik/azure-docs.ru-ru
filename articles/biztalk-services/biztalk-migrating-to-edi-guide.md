@@ -142,4 +142,4 @@
 
 [EDImessageflow]: ./media/biztalk-migrating-to-edi-guide/IC719455.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

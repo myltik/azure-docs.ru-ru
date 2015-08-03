@@ -110,4 +110,4 @@ Azure упорядочивает набор пар регионов. Во вре
 [Virtual Machines Manage Availability]: virtual-machines-windows-tutorial.md
 [Различия планового и внепланового обслуживания]: virtual-machines-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

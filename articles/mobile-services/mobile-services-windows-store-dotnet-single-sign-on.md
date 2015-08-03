@@ -163,4 +163,4 @@
 [Пакет Live SDK]: http://go.microsoft.com/fwlink/p/?LinkId=262253
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

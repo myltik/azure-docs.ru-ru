@@ -19,4 +19,4 @@
 
 Как показано на [рисунке](#appservice_diagram), вы можете опубликовать код и другое веб-содержимое в службе приложений Azure несколькими разными способами. Можно использовать FTP, FTPS или технологию Майкрософт WebDeploy. Кроме того, служба приложений Azure поддерживает публикацию кода из систем управления версиями, включая Git, GitHub, CodePlex, BitBucket, Dropbox, Mercurial, Team Foundation Server и облачную версию Team Foundation Service.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

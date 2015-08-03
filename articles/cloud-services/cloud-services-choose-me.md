@@ -36,4 +36,4 @@ Azure предоставляет разные модели размещения 
 [Виртуальные машины]: ../virtual-machines-choose-me.md
 [Облачные службы]: #tellmecs
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

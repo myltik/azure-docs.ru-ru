@@ -136,7 +136,7 @@ SendGrid — это [облачная служба электронной поч
 
     // Local file name and path.
     String attachmentName = "myfile.zip";
-    String attachmentPath = "c:\\myfiles\"; 
+    String attachmentPath = "c:\myfiles\"; 
     MimeBodyPart attachmentPart = new MimeBodyPart();
     // Specify the local file to attach.
     DataSource source = new FileDataSource(attachmentPath + attachmentName);
@@ -228,4 +228,4 @@ SendGrid поддерживает различные веб-интерфейсы
   [облачная служба электронной почты]: https://sendgrid.com/email-solutions
   [доставки электронной почты]: https://sendgrid.com/transactional-email
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

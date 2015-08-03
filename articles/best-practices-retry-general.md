@@ -115,4 +115,4 @@
 * [Шаблон компенсации транзакций](http://msdn.microsoft.com/library/dn589804.aspx)
 * [Шаблоны идемпотентности](http://blog.jonathanoliver.com/2010/04/idempotency-patterns/)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

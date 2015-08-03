@@ -106,4 +106,4 @@
 [Начинаем работу со службой управления API]: api-management-get-started.md
 [Создание экземпляра службы управления API]: api-management-get-started.md#create-service-instance
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

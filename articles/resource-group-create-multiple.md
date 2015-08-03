@@ -1,7 +1,7 @@
 <properties
    pageTitle="Создание нескольких экземпляров ресурса"
    description="В этом разделе описывается, как использовать операцию копирования в шаблоне диспетчера ресурсов Azure для выполнения нескольких итераций при развертывании ресурсов."
-   services="na"
+   services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
@@ -114,4 +114,4 @@
 - [Функции шаблонов в диспетчере ресурсов Azure](./resource-group-template-functions.md)
 - [Развертывание приложения с использованием шаблона диспетчера ресурсов Azure](azure-portal/resource-group-template-deploy.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

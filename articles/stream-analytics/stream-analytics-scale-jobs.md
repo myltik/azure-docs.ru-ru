@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="07/01/2015"
+	ms.date="07/13/2015"
 	ms.author="jeffstok"/>
 
 # Задания по масштабированию в Azure Stream Analytics для увеличения пропускной способности #
@@ -151,7 +151,7 @@
 3. Выберите задание Stream Analytics, которое необходимо расширить.
 4. В верхней части страницы щелкните **МАСШТАБ**.
 
-![Масштабирование заданий Azure Stream Analytics][img.stream.analytics.configure.scale]
+![Масштабирование единиц потоковой передачи Azure Stream Analytics][img.stream.analytics.streaming.units.scale]
 
 
 ## Мониторинг производительности задания ##
@@ -260,4 +260,4 @@
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

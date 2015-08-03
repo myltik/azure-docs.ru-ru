@@ -48,4 +48,4 @@ Azure Active Directory Connect состоит из трех основных к�
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -1,32 +1,32 @@
-<properties 
-	pageTitle="Развертывание ферм SharePoint с помощью шаблонов диспетчера ресурсов Azure" 
+<properties
+	pageTitle="Развертывание ферм SharePoint с помощью шаблонов диспетчера ресурсов Azure"
 	description="Информация о том, как легко развернуть трех- или девятисерверную ферму SharePoint с помощью шаблонов диспетчера ресурсов и портала предварительной версии Azure, Azure PowerShell или интерфейса командной строки Azure."
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	services="virtual-machines"
+	documentationCenter=""
+	authors="davidmu1"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/29/2015" 
-	ms.author="josephd"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/29/2015"
+	ms.author="davidmu"/>
 
 # Развертывание ферм SharePoint с помощью шаблонов диспетчера ресурсов Azure
 
 Используйте указания в этой статье для развертывания новой трех- или девятисерверной фермы SharePoint Server 2013 с помощью шаблонов диспетчера ресурсов.
- 
-## Развертывание трехсерверной фермы SharePoint 
+
+## Развертывание трехсерверной фермы SharePoint
 
 Для базовой фермы SharePoint Server 2013 шаблон диспетчера ресурсов создает три виртуальные машины в новой виртуальной сети в трех разных подсетях.
 
 ![](./media/virtual-machines-workload-template-sharepoint/three-server-sharepoint-farm.png)
- 
+
 Шаблон можно запустить с помощью портала предварительной версии Azure, Azure PowerShell или интерфейса командной строки Azure.
 
 ### Портал предварительной версии Azure
@@ -34,13 +34,13 @@
 Для развертывания этой рабочей нагрузки с помощью шаблона диспетчера ресурсов и портала предварительной версии Azure щелкните [здесь](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsharepoint-three-vm%2Fazuredeploy.json).
 
 ![](./media/virtual-machines-workload-template-sharepoint/azure-portal-template.png)
- 
+
 1.	В области **Шаблон** нажмите кнопку **Сохранить**.
 2.	Щелкните **Параметры**. В области **Параметры** введите новые значения, выберите среди допустимых значений или примите значения по умолчанию и нажмите кнопку **ОК**.
 3.	При необходимости щелкните **Подписка** и выберите правильную подписку Azure.
 4.	Щелкните **Группа ресурсов** и выберите существующую группу ресурсов. Или щелкните **Или создать новую**, чтобы создать группу для этой рабочей нагрузки.
 5.	При необходимости щелкните **Расположение группы ресурсов** и укажите правильное расположение Azure.
-6.	При необходимости выберите юридические условия, чтобы ознакомиться с условиями и соглашением для использования шаблона.
+6.	При необходимости выберите **юридические условия**, чтобы ознакомиться с условиями и соглашением для использования шаблона.
 7.	Щелкните **Создать**.
 
 В зависимости от шаблона для создания рабочей нагрузки в Azure может потребоваться некоторое время. По завершении вы получите новую трехсерверную ферму SharePoint в существующей или новой группе ресурсов.
@@ -99,13 +99,13 @@
 Для широкодоступной фермы SharePoint Server 2013 шаблон диспетчера ресурсов создает девять виртуальных машин в новой виртуальной сети в четырех разных подсетях.
 
 ![](./media/virtual-machines-workload-template-sharepoint/nine-server-sharepoint-farm.png)
- 
+
 ### Портал предварительной версии Azure
 
 Для развертывания этой рабочей нагрузки с помощью шаблона диспетчера ресурсов и портала предварительной версии Azure щелкните [здесь](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsharepoint-server-farm-ha%2Fazuredeploy.json).
 
 ![](./media/virtual-machines-workload-template-sharepoint/azure-portal-template.png)
- 
+
 1.	В области **Шаблон** нажмите кнопку **Сохранить**.
 2.	Щелкните **Параметры**. В области **Параметры** введите новые значения, выберите среди допустимых значений или примите значения по умолчанию и нажмите кнопку **ОК**.
 3.	При необходимости щелкните **Подписка** и выберите правильную подписку Azure.
@@ -113,7 +113,7 @@
 5.	При необходимости щелкните **Расположение группы ресурсов** и укажите правильное расположение Azure.
 6.	При необходимости выберите юридические условия, чтобы ознакомиться с условиями и соглашением для использования шаблона.
 7.	Щелкните **Создать**.
- 
+
 В зависимости от шаблона для создания рабочей нагрузки в Azure может потребоваться некоторое время. По завершении вы получите новую девятисерверную ферму SharePoint в существующей или новой группе ресурсов.
 
 ### Azure PowerShell
@@ -168,11 +168,11 @@
 
 ## Дополнительные ресурсы
 
-[Развертывание виртуальных машин и управление ими с использованием шаблонов диспетчера ресурсов Azure и PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
+[Развертывание виртуальных машин и управление ими с использованием шаблонов диспетчера ресурсов Azure и Azure PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
 
 [Поставщики вычислительных и сетевых ресурсов, а также ресурсов хранения Azure в диспетчере ресурсов Azure](virtual-machines-azurerm-versus-azuresm.md)
 
-[Обзор диспетчера ресурсов Azure](../resource-group-overview.md)
+[Общие сведения о диспетчере ресурсов Azure](../resource-group-overview.md)
 
 [Развертывание виртуальных машин и управление ими с помощью шаблонов диспетчера ресурсов Azure и интерфейса командной строки Azure](virtual-machines-deploy-rmtemplates-azure-cli.md)
 
@@ -180,4 +180,4 @@
 
 [Установка и настройка Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

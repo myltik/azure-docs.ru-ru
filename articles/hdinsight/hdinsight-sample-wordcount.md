@@ -5,7 +5,7 @@
 	manager="paulettm"
 	services="hdinsight"
 	documentationCenter=""
-	authors="bradsev"/>
+	authors="mumian"/>
 
 <tags
 	ms.service="hdinsight"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/15/2015" 
-	ms.author="bradsev"/>
+	ms.date="07/09/2015" 
+	ms.author="jgao"/>
 
 #Выполнение примера подсчета слов MapReduce на Java в кластере Hadoop в HDInsight
 
@@ -98,7 +98,7 @@
 		# Download the job output to the workstation
 		Get-AzureStorageBlobContent -Container $ContainerName -Blob example/data/WordCountOutput/part-r-00000 -Context $storageContext -Force
 
-	Папка */example/data/WordCountOutput* — выходная папка, указанная при запуске задания MapReduce. *part-r-00000* — имя файла по умолчанию для выходных данных задания MapReduce. Этот файл будет загружен в ту же структуру папок в локальной папке. Например, на следующем снимке экрана текущая папка — корневая папка C. Файл будет загружен в папку *C:\\example\\data\\WordCountOutput*.
+	Папка */example/data/WordCountOutput* — выходная папка, указанная при запуске задания MapReduce. *part-r-00000* — имя файла по умолчанию для выходных данных задания MapReduce. Этот файл будет загружен в ту же структуру папок в локальной папке. Например, на следующем снимке экрана текущая папка — корневая папка C. Файл будет загружен в папку *C:\example\data\WordCountOutput*.
 
 5. Выполните следующую команду, чтобы напечатать выходной файл задания MapReduce:
 
@@ -218,4 +218,4 @@
 [image-hdi-sample-wordcount-output]: ./media/hdinsight-sample-wordcount/HDI.Sample.WordCount.Output.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

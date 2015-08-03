@@ -77,4 +77,4 @@
 [Веб-сайты](http://go.microsoft.com/fwlink/p/?LinkId=393327)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

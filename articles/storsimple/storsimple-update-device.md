@@ -121,4 +121,4 @@ Windows PowerShell для StorSimple используется, чтобы при
 Подробнее о [Windows PowerShell для StorSimple](https://msdn.microsoft.com/library/azure/dn772425.aspx).
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

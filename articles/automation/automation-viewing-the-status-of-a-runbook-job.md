@@ -86,4 +86,4 @@
 
 - [Запуск модуля Runbook в службе автоматизации Azure](automation-starting-a-runbook.md) 
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

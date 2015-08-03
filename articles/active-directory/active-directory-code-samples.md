@@ -130,7 +130,7 @@
 | C#/.NET | [Авторизация на основе ролей и на основе ACL в приложении Microsoft Azure AD](http://go.microsoft.com/fwlink/?LinkId=331694) | Выполнение авторизации на основе роли (RBAC) и авторизации на основе ACL в приложении, интегрированным Azure AD.
 | C#/.NET | [AAL — приложение магазина Windows для службы REST — проверка подлинности](http://go.microsoft.com/fwlink/?LinkId=330605) | Использование библиотеки проверки подлинности [Azure AD (ADAL)](http://go.microsoft.com/fwlink/?LinkID=258232) (ранее AAL) для бета-версии Магазина Windows, чтобы добавить возможности проверки подлинности пользователя в приложение Магазина Windows.
 | C#/.NET | [ADAL — собственное приложение для службы REST — проверка подлинности с помощью диалогового окна обозревателя AAD](http://go.microsoft.com/fwlink/?LinkId=259814) | Использование [библиотеки проверки подлинности Azure AD (ADAL)](http://go.microsoft.com/fwlink/?LinkID=258232) для добавления возможности проверки подлинности пользователя в клиент WPF.
-| C#/.NET | [ADAL — собственное приложение для службы REST — проверка подлинности с помощью диалогового окна обозревателя ACS](http://code.msdn.microsoft.com/AAL-Native-App-to-REST-de57f2cc) | Использование [библиотеки проверки подлинности Azure AD (ADAL)](http://go.microsoft.com/fwlink/?LinkID=258232) и [2\.0 службы контроля доступа (ACS)](http://msdn.microsoft.com/library/azure/hh147631.aspx) для добавления возможности проверки подлинности пользователя в клиент WPF.
+| C#/.NET | [ADAL — собственное приложение для службы REST — проверка подлинности с помощью диалогового окна обозревателя ACS](http://code.msdn.microsoft.com/AAL-Native-App-to-REST-de57f2cc) | Использование [библиотеки проверки подлинности Azure AD (ADAL)](http://go.microsoft.com/fwlink/?LinkID=258232) и [2.0 службы контроля доступа (ACS)](http://msdn.microsoft.com/library/azure/hh147631.aspx) для добавления возможности проверки подлинности пользователя в клиент WPF.
 | C#/.NET | [ADAL — проверка подлинности между серверами](http://go.microsoft.com/fwlink/?LinkId=259816) | Использование библиотеки проверки подлинности [Azure AD (ADAL)](http://go.microsoft.com/fwlink/?LinkID=258232) для обеспечения безопасности вызовов из серверного процесса службы веб-интерфейса API REST MVC4.
 | C#/.NET | [Добавление единого входа в веб-приложение с помощью Azure AD](https://msdn.microsoft.com/library/azure/dn151790.aspx) | Настройка приложения .NET в каталоге организации Azure AD для выполнения единого входа через Интернет.
 | C#/.NET | [Разработка мультитенантных веб-приложений с помощью Azure AD](https://msdn.microsoft.com/library/azure/dn151789.aspx) | Использование Azure AD для добавления единого входа и возможности доступа к каталогу одного приложения .NET для работы в нескольких организациях.
@@ -156,4 +156,4 @@ PHP | [Образец приложения PHP для API Graph Azure AD](http:/
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

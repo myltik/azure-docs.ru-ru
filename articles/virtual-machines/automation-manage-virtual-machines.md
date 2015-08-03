@@ -42,4 +42,4 @@
 
 [Приступая к работе со службой автоматизации Azure](../automation-create-runbook-from-samples.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

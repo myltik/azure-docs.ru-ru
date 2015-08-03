@@ -71,4 +71,4 @@
 
 [Настройка виртуальной сети с помощью файлов конфигурации сети](http://go.microsoft.com/fwlink/?LinkId=248094)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

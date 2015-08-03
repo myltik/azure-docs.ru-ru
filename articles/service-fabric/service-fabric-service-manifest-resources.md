@@ -69,4 +69,4 @@ Service Fabric автоматически создает список управ
 ```
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

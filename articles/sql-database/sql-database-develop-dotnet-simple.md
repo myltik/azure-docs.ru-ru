@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.date="07/16/2015" 
 	ms.author="tobiast"/>
 
 
@@ -38,60 +38,60 @@
 
 Для подключения к Базе данных SQL используется класс [System.Data.SqlClient.SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx).
 	
-	```
-	using System.Data.SqlClient;
-	
-	class Sample
-	{
-	  static void Main()
+```
+using System.Data.SqlClient;
+
+class Sample
+{
+  static void Main()
+  {
+	  using(var conn = new SqlConnection("Server=tcp:yourserver.database.windows.net,1433;Database=yourdatabase;User ID=yourlogin@yourserver;Password={your_password_here};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
 	  {
-		  using(var conn = new SqlConnection("Server=tcp:yourserver.database.windows.net,1433;Database=yourdatabase;User ID=yourlogin@yourserver;Password={your_password_here};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
-		  {
-			  conn.Open();	
-		  }
+		  conn.Open();	
 	  }
-	}	
-	```
+  }
+}	
+```
 
 ## Выполнение запроса и получение результирующего набора 
 
 Для получения результирующего набора по запросу к Базе данных SQL можно использовать классы [System.Data.SqlClient.SqlCommand](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.aspx) и [SqlDataReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqldatareader.aspx). Обратите внимание, что System.Data.SqlClient также поддерживает извлечение данных в автономный набор [System.Data.DataSet](https://msdn.microsoft.com/library/system.data.dataset.aspx).
 	
-	```
-	using System;
-	using System.Data.SqlClient;
-	
-	class Sample
+```
+using System;
+using System.Data.SqlClient;
+
+class Sample
+{
+	static void Main()
 	{
-		static void Main()
+	  using(var conn = new SqlConnection("Server=tcp:yourserver.database.windows.net,1433;Database=yourdatabase;User ID=yourlogin@yourserver;Password={your_password_here};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
 		{
-		  using(var conn = new SqlConnection("Server=tcp:yourserver.database.windows.net,1433;Database=yourdatabase;User ID=yourlogin@yourserver;Password={your_password_here};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
+			var cmd = conn.CreateCommand();
+			cmd.CommandText = @"
+					SELECT 
+						c.CustomerID
+						,c.CompanyName
+						,COUNT(soh.SalesOrderID) AS OrderCount
+					FROM SalesLT.Customer AS c
+					LEFT OUTER JOIN SalesLT.SalesOrderHeader AS soh ON c.CustomerID = soh.CustomerID
+					GROUP BY c.CustomerID, c.CompanyName
+					ORDER BY OrderCount DESC;";
+
+			conn.Open();	
+		
+			using(var reader = cmd.ExecuteReader())
 			{
-				var cmd = conn.CreateCommand();
-				cmd.CommandText = @"
-						SELECT 
-							c.CustomerID
-							,c.CompanyName
-							,COUNT(soh.SalesOrderID) AS OrderCount
-						FROM SalesLT.Customer AS c
-						LEFT OUTER JOIN SalesLT.SalesOrderHeader AS soh ON c.CustomerID = soh.CustomerID
-						GROUP BY c.CustomerID, c.CompanyName
-						ORDER BY OrderCount DESC;";
-	
-				conn.Open();	
-			
-				using(var reader = cmd.ExecuteReader())
+				while(reader.Read())
 				{
-					while(reader.Read())
-					{
-						Console.WriteLine("ID: {0} Name: {1} Order Count: {2}", reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2));
-					}
-				}					
-			}
+					Console.WriteLine("ID: {0} Name: {1} Order Count: {2}", reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2));
+				}
+			}					
 		}
 	}
-	
-	```
+}
+
+```
 
 ## Вставка строки, передача параметров и получение автоматически созданного значения первичного ключа 
 
@@ -99,34 +99,34 @@
 
 Для выполнения инструкции и получения возвращаемых ей первых столбца и строки можно использовать метод [ExecuteScalar](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executescalar.aspx) в классе [System.Data.SqlClient.SqlCommand](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.aspx). Для возврата вызывающему приложению вставленных значений в качестве результирующего набора можно включить в инструкцию INSERT предложение [OUTPUT](https://msdn.microsoft.com/library/ms177564.aspx). Обратите внимание, что предложение OUTPUT также поддерживается в инструкциях [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx), [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) и [MERGE](https://msdn.microsoft.com/library/bb510625.aspx). При вставке нескольких строк используйте метод [ExecuteReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executereader.aspx), чтобы получить вставленные значения для всех строк.
 	
-	```
-	class Sample
-	{
-	    static void Main()
-	    {
-			using(var conn = new SqlConnection("Server=tcp:yourserver.database.windows.net,1433;Database=yourdatabase;User ID=yourlogin@yourserver;Password={your_password_here};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
-	        {
-	            var cmd = conn.CreateCommand();
-	            cmd.CommandText = @"
-	                INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) 
-	                OUTPUT INSERTED.ProductID
-	                VALUES (@Name, @Number, @Cost, @Price, CURRENT_TIMESTAMP)";
-	
-	            cmd.Parameters.AddWithValue("@Name", "SQL Server Express");
-	            cmd.Parameters.AddWithValue("@Number", "SQLEXPRESS1");
-	            cmd.Parameters.AddWithValue("@Cost", 0);
-	            cmd.Parameters.AddWithValue("@Price", 0);
-	
-	            conn.Open();
-	
-	            int insertedProductId = (int)cmd.ExecuteScalar();
-	
-	            Console.WriteLine("Product ID {0} inserted.", insertedProductId);
-	        }
-	    }
-	}
-	```
+```
+class Sample
+{
+    static void Main()
+    {
+		using(var conn = new SqlConnection("Server=tcp:yourserver.database.windows.net,1433;Database=yourdatabase;User ID=yourlogin@yourserver;Password={your_password_here};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
+        {
+            var cmd = conn.CreateCommand();
+            cmd.CommandText = @"
+                INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) 
+                OUTPUT INSERTED.ProductID
+                VALUES (@Name, @Number, @Cost, @Price, CURRENT_TIMESTAMP)";
+
+            cmd.Parameters.AddWithValue("@Name", "SQL Server Express");
+            cmd.Parameters.AddWithValue("@Number", "SQLEXPRESS1");
+            cmd.Parameters.AddWithValue("@Cost", 0);
+            cmd.Parameters.AddWithValue("@Price", 0);
+
+            conn.Open();
+
+            int insertedProductId = (int)cmd.ExecuteScalar();
+
+            Console.WriteLine("Product ID {0} inserted.", insertedProductId);
+        }
+    }
+}
+```
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -3,11 +3,11 @@
 	description="Общие сведения о резервном копировании серверов Azure с помощью службы архивации Azure"
 	services="backup"
 	documentationCenter=""
-	authors="Jim-Parker"
+	authors="SamirMehta"
 	manager="jwhit"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/02/2015" ms.author="sammehta"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/16/2015" ms.author="sammehta"; "jimpark"/>
 
 # Введение в службу резервного копирования Azure DPM
 
@@ -81,4 +81,4 @@
 
 >[AZURE.NOTE]Начиная с версии System Center 2012 DPM с пакетом обновления 1 (SP1) и выше, в службе Azure можно создавать резервные копии рабочих нагрузок, защищенных DPM, с помощью службы архивации Microsoft Azure.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -140,4 +140,4 @@
 [Настройка фермы SharePoint интрасети в гибридном облаке для тестирования](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

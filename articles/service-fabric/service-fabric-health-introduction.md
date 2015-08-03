@@ -255,9 +255,9 @@
 В приведенном ниже фрагменте отправляется отчет о работоспособности приложения fabric:/WordCount из источника MyWatchdog с помощью PowerShell. Отчет содержит сведения по свойству Availability (доступность): состояние — Error (ошибка), срок действия — не ограничен. Затем выполняется запрос работоспособности приложения, который возвращает сводное состояние Error (ошибка) и рассматриваемое событие работоспособности в списке других событий работоспособности.
 
 ```powershell
-PS C:> Send-ServiceFabricApplicationHealthReport –ApplicationName fabric:/WordCount –SourceId "MyWatchdog" –HealthProperty "Availability" –HealthState Error
+PS C:\> Send-ServiceFabricApplicationHealthReport –ApplicationName fabric:/WordCount –SourceId "MyWatchdog" –HealthProperty "Availability" –HealthState Error
 
-PS C:> Get-ServiceFabricApplicationHealth fabric:/WordCount
+PS C:\> Get-ServiceFabricApplicationHealth fabric:/WordCount
 
 ApplicationName                 : fabric:/WordCount
 AggregatedHealthState           : Error
@@ -336,4 +336,4 @@ HealthEvents                    :
 [Обновление приложения Service Fabric](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

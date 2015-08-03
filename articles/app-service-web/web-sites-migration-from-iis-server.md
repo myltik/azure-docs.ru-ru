@@ -4,7 +4,6 @@
 	services="app-service\web" 
 	documentationCenter="" 
 	authors="cephalin" 
-	writer="cephalin" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -132,4 +131,4 @@
 * Руководство по смене старого портала на новый портал см. в разделе [Справочник по навигации на предварительной версии портала](http://go.microsoft.com/fwlink/?LinkId=529715).
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -1,11 +1,13 @@
 <properties
 	pageTitle="Настройка виртуальной машины как сервера IPython Notebook | Microsoft Azure"
 	description="Настройка виртуальной машины Azure для использования в среде обработки и анализа данных с сервером IPython для расширенной аналитики."
+	metaKeywords=""
 	services="machine-learning"
+	solutions="" 
 	documentationCenter=""
 	authors="msolhab"
 	manager="paulettm"
-	editor="cgronlun" />
+	editor="cgronlun"  />
 
 <tags
 	ms.service="machine-learning"
@@ -145,4 +147,4 @@ Chrome: ![Создание рабочей области][21]
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

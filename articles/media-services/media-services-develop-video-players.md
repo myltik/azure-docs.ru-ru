@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/27/2015" 
+	ms.date="07/20/2015" 
 	ms.author="juliako"/>
 
 
@@ -38,7 +38,7 @@
 - [Azure Media Player](http://aka.ms/ampinfo)
 - [Документация Azure Media Player](http://aka.ms/ampdocs) 
 - [Блог о начале работы с Azure Media Player](http://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player)
-- [Подпишитесь, чтобы оставаться в курсе последних новостей об Azure Media Player](http://aka.ms/ampsignup)
+- [Подпишитесь, чтобы оставаться в курсе последних новостей о мультимедиапроигрывателе Azure](http://aka.ms/ampsignup)
 - [Добавление новых запросов функций, идей, отзывов](http://feedback.azure.com/forums/293565-azure-media-player/filters/my_feedback) 
 
 
@@ -51,9 +51,8 @@
 - [платформа проигрывателя Microsoft Media Platform](http://playerframework.codeplex.com/); 
 - [документация по платформе проигрывателя HTML5](http://playerframework.codeplex.com/wikipage?title=HTML5%20Player&referringTitle=Documentation); 
 - [подключаемый модуль Microsoft Smooth Streaming для OSMF](https://www.microsoft.com/download/details.aspx?id=36057); 
-- [платформа проигрывателя для iOS](https://github.com/Azure/azure-media-player-framework); 
-- [лицензирование пакета для портирования клиента бесперебойной потоковой передачи Microsoft® Smooth Streaming](https://www.microsoft.com/mediaplatform/sspk.aspx); 
-- [разработка приложений для воспроизведения видео на XBOX](http://xbox.create.msdn.com/). 
+- [Лицензирование пакета для портирования клиента бесперебойной потоковой передачи Microsoft® Smooth Streaming](https://www.microsoft.com/mediaplatform/sspk.aspx) 
+- [Разработка приложений для воспроизведения видео на XBOX](http://xbox.create.msdn.com/) 
  
 
 ##Реклама
@@ -66,9 +65,9 @@
 
 сопутствующая — рекламные объявления, отображаемые за пределами проигрывателя.
 
-Рекламу можно размещать в любой временной точке основного видео. Необходимо сообщить проигрывателю, когда будет показана реклама и какие рекламные объявления следует показать. Для этого используется набор стандартных XML-файлов: Video Ad Service Template (VAST), Digital Video Multiple Ad Playlist (VMAP), Media Abstract Sequencing Template (MAST) и Digital Video Player Ad Interface Definition (VPAID). VAST-файлы указывают, какая реклама будет отображаться. VMAP-файлы указывают, когда следует воспроизводить различные рекламные ролики, и содержат XML-код VAST. MAST-файлы представляют собой еще один способ упорядочивания рекламных объявлений, которые также могут содержать XML VAST. VPAID-файлы определяют интерфейс между видеопроигрывателем и рекламой или сервером рекламы. Дополнительные сведения см. в разделе [Вставка рекламных объявлений](https://msdn.microsoft.com/library/dn387398.aspx).
+Рекламу можно размещать в любой временной точке основного видео. Необходимо сообщить проигрывателю, когда будет показана реклама и какие рекламные объявления следует показать. Для этого используется набор стандартных XML-файлов: Video Ad Service Template (VAST), Digital Video Multiple Ad Playlist (VMAP), Media Abstract Sequencing Template (MAST) и Digital Video Player Ad Interface Definition (VPAID). VAST-файлы указывают, какая реклама будет отображаться. VMAP-файлы указывают, когда следует воспроизводить различные рекламные ролики, и содержат XML-код VAST. MAST-файлы представляют собой еще один способ упорядочивания рекламных объявлений, которые также могут содержать XML VAST. VPAID-файлы определяют интерфейс между видеопроигрывателем и рекламой или сервером рекламы. Дополнительные сведения см. в статье [Вставка рекламных объявлений](https://msdn.microsoft.com/library/dn387398.aspx).
 
-Сведения о поддержке субтитров и рекламы в динамических потоковых видео см. в разделе [Поддерживаемые стандарты субтитров и рекламы](https://msdn.microsoft.com/library/c49e0b4d-357e-4cca-95e5-2288924d1ff3#caption_ad).
+Сведения о поддержке субтитров и рекламы в динамических потоковых видео см. в статье [Поддерживаемые стандарты субтитров и рекламы](https://msdn.microsoft.com/library/c49e0b4d-357e-4cca-95e5-2288924d1ff3#caption_ad).
 
 ##См. также
 
@@ -77,4 +76,4 @@
 [Репозиторий dash.js на GitHub](https://github.com/Dash-Industry-Forum/dash.js)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

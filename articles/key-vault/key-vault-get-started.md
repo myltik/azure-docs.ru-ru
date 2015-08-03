@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="06/25/2015"
+	ms.date="07/22/2015"
 	ms.author="cabailey"/>
 
 # Приступая к работе с хранилищем ключей Azure #
@@ -211,7 +211,7 @@
 
 	$key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -KeyFilePath 'c:\ITByok.byok' -Destination 'HSM'
 
-Более подробные указания по созданию пакета BYOK см. в разделе [Как использовать ключи, защищенные аппаратным модулем безопасности, с помощью хранилища ключей Azure](https://msdn.microsoft.com/library/azure/dn903624.aspx).
+Более подробные указания по созданию пакета BYOK см. в разделе [Как создавать и передавать защищенные аппаратным модулем безопасности ключи для хранилища ключей Azure](key-vault-hsm-protected-keys.md).
 
 ## <a id="delete"></a>Удаление хранилища ключей, а также связанных ключей и секретов ##
 
@@ -248,4 +248,4 @@
 Справочные материалы по программированию см. в разделе [Хранилище ключей](https://msdn.microsoft.com/library/azure/dn903625.aspx) в библиотеке документации Microsoft Azure на сайте MSDN.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

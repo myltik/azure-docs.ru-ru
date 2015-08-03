@@ -4,18 +4,11 @@
 	description="Узнайте, как управлять виртуальной машиной Azure."
 	services="backup"
 	documentationCenter=""
-	authors="jimpark"
-	manager="jwhit"
+	authors="aashishr"
+	manager="shreeshd"
 	editor=""/>
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="05/28/2015"
-	ms.author="jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/17/2015" ms.author="aashishr"; "jimpark"/>
 
 # Управление виртуальными машинами
 
@@ -158,6 +151,5 @@
 На странице **Панель мониторинга** можно просмотреть сведения о виртуальных машинах Azure, их хранилище и заданиях, которые с ними связаны (за последние 24 часа). Здесь также можно просмотреть состояние резервного копирования и все связанные с ним ошибки.
 
   ![Панель мониторинга](./media/backup-azure-manage-vms/dashboard-protectedvms.png)
- 
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

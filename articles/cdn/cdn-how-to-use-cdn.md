@@ -54,4 +54,4 @@
 [Общие сведения о сети доставки контента (CDN) Azure](cdn-overview.md)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

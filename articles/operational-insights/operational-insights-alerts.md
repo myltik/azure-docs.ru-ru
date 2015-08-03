@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="07/21/2015"
    ms.author="banders" />
 
 
@@ -56,4 +56,6 @@
 3. Щелкните плитку или любой элемент, чтобы просмотреть подробную информацию о нем на странице **Поиск**.
 4. С помощью полученной информации можно изучить оповещение и определить действия, которые могут потребоваться для его устранения.
 
-<!---HONumber=July15_HO2-->
+[AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
+
+<!---HONumber=July15_HO4-->

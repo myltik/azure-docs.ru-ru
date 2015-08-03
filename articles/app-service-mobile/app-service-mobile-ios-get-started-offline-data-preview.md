@@ -31,6 +31,10 @@
 
 Если вы первый раз работаете с мобильными приложениями, сначала пройдите учебник [Создание приложения iOS].
 
+##<a name="review"></a>Проверка конфигурации сервера проекта (необязательное действие)
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-offline-preview](../../includes/app-service-mobile-dotnet-backend-enable-offline-preview.md)]
+
 ## <a name="get-app"></a>Получить пример автономного приложения списка дел
 
 В разделе [Пример репозитория мобильных приложений на GitHub] клонируйте репозиторий и откройте проект [Пример автономного приложения iOS] в Xcode.
@@ -278,4 +282,4 @@
 [Azure Friday: приложения с поддержкой автономной работы в мобильных службах Azure]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

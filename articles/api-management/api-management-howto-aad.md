@@ -228,4 +228,4 @@
 
 [Вход на портал разработчика с помощью учетной записи Azure Active Directory]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

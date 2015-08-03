@@ -2,10 +2,11 @@
 	pageTitle="Создание и загрузка данных в таблицы Hive из хранилища больших двоичных объектов | Microsoft Azure" 
 	description="Создание таблиц Hive и загрузка в них данных больших двоичных объектов" 
 	services="machine-learning" 
+	solutions="" 
 	documentationCenter="" 
 	authors="hangzh-msft" 
 	manager="paulettm" 
-	editor="cgronlun" />
+	editor="cgronlun"  />
 
 <tags 
 	ms.service="machine-learning" 
@@ -145,4 +146,4 @@
 Теперь у нас есть готовая к использованию таблица, которая содержит данные в формате ORC.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

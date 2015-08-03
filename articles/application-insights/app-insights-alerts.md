@@ -80,4 +80,4 @@ Application Insights выполняет мониторинг живого при
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

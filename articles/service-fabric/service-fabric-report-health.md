@@ -79,7 +79,7 @@ var fabricClient = new FabricClient(clientSettings);
 Такие же параметры можно задать при создании подключения к кластеру через Powershell. Приведенный ниже код запускает подключение к локальному кластеру.
 
 ```powershell
-PS C:> Connect-ServiceFabricCluster -HealthOperationTimeoutInSec 120 -HealthReportSendIntervalInSec 0 -HealthReportRetrySendIntervalInSec 40
+PS C:\> Connect-ServiceFabricCluster -HealthOperationTimeoutInSec 120 -HealthReportSendIntervalInSec 0 -HealthReportRetrySendIntervalInSec 40
 True
 
 ConnectionEndpoint   :
@@ -181,9 +181,9 @@ public static void SendReport(object obj)
 В следующем примере показано создание периодических отчетов по загрузке ЦП на узле. Отчеты должны отправляться каждые 30 секунд, срок их жизни составляет 2 минуты. Если срок хранения истекает, это означает, что возникли проблемы с докладчиком, поэтому узел будет считаться ошибочным. Если загрузка ЦП превышает пороговое значение, состояние работоспособности в отчете —предупреждение, а если загрузка ЦП превышает пороговое значение в течение заданного времени, состоянием работоспособности будет ошибка. В противном случае докладчик отправляет состояние «ОК».
 
 ```powershell
-PS C:> Send-ServiceFabricNodeHealthReport -NodeName Node.1 -HealthState Warning -SourceId PowershellWatcher -HealthProperty CPU -Description "CPU is above 80% threshold" -TimeToLiveSec 120
+PS C:\> Send-ServiceFabricNodeHealthReport -NodeName Node.1 -HealthState Warning -SourceId PowershellWatcher -HealthProperty CPU -Description "CPU is above 80% threshold" -TimeToLiveSec 120
 
-PS C:> Get-ServiceFabricNodeHealth -NodeName Node.1
+PS C:\> Get-ServiceFabricNodeHealth -NodeName Node.1
 NodeName              : Node.1
 AggregatedHealthState : Warning
 UnhealthyEvaluations  :
@@ -218,13 +218,13 @@ HealthEvents          :
 В следующем примере создается временное предупреждение о реплике. Сначала берется идентификатор раздела и реплики для нужной службы, а затем отправляется отчет из PowershellWatcher о свойстве ResourceDependency. Отчет хранится только 2 минуты, затем автоматически удаляется из хранилища.
 
 ```powershell
-PS C:> $partitionId = (Get-ServiceFabricPartition -ServiceName fabric:/WordCount/WordCount.Service).PartitionId
+PS C:\> $partitionId = (Get-ServiceFabricPartition -ServiceName fabric:/WordCount/WordCount.Service).PartitionId
 
-PS C:> $replicaId = (Get-ServiceFabricReplica -PartitionId $partitionId | where {$_.ReplicaRole -eq "Primary"}).ReplicaId
+PS C:\> $replicaId = (Get-ServiceFabricReplica -PartitionId $partitionId | where {$_.ReplicaRole -eq "Primary"}).ReplicaId
 
-PS C:> Send-ServiceFabricReplicaHealthReport -PartitionId $partitionId -ReplicaId $replicaId -HealthState Warning -SourceId PowershellWatcher -HealthProperty ResourceDependency -Description "The external resource that the primary is using has been rebooted at 4/21/2015 9:01:21 PM. Expect processing delays for a few minutes." -TimeToLiveSec 120 -RemoveWhenExpired
+PS C:\> Send-ServiceFabricReplicaHealthReport -PartitionId $partitionId -ReplicaId $replicaId -HealthState Warning -SourceId PowershellWatcher -HealthProperty ResourceDependency -Description "The external resource that the primary is using has been rebooted at 4/21/2015 9:01:21 PM. Expect processing delays for a few minutes." -TimeToLiveSec 120 -RemoveWhenExpired
 
-PS C:> Get-ServiceFabricReplicaHealth  -PartitionId $partitionId -ReplicaOrInstanceId $replicaId
+PS C:\> Get-ServiceFabricReplicaHealth  -PartitionId $partitionId -ReplicaOrInstanceId $replicaId
 
 
 PartitionId           : 8f82daff-eb68-4fd9-b631-7a37629e08c0
@@ -274,4 +274,4 @@ HealthEvents          :
 [Обновление приложения Service Fabric](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

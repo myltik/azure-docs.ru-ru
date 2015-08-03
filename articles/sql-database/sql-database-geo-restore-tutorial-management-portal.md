@@ -80,4 +80,4 @@
 
 [Географическое восстановление баз данных SQL Azure (блог)](http://azure.microsoft.com/blog/2014/09/13/azure-sql-database-geo-restore/)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

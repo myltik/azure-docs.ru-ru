@@ -36,4 +36,4 @@
 [Обзор диспетчера трафика](traffic-manager-overview.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

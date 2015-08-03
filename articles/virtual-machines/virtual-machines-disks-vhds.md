@@ -65,4 +65,4 @@ Azure создает диск операционной системы при с�
 -  [Запись образа виртуальной машины Windows](virtual-machines-capture-image-windows-server.md)
 -  [Отсоединение диска](storage-windows-detach-disk.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

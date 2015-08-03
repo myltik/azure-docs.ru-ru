@@ -245,4 +245,4 @@
 [Список соединителей и приложений API](app-service-logic-connectors-list.md)<br/><br/> [Что такое соединители и приложения API BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

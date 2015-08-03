@@ -847,4 +847,4 @@ APNS использует сертификаты для аутентификац
 [Готовый образец push-уведомления Azure для приложения Xamarin.Forms ]: https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithPushXamarinForms
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

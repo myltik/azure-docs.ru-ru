@@ -52,4 +52,4 @@
 <!--Other Web references-->
 [документации к фабрике данных Azure]: https://azure.microsoft.com/documentation/services/data-factory/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

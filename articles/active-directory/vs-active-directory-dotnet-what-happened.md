@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Приступая к работе с проверкой подлинности на основе Active Directory. Что произошло?" 
-	description="Описание произошедшего с проектом Azure Active Directory в Visual Studio" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="patshea123" 
-	manager="douge" 
+<properties
+	pageTitle="Приступая к работе с проверкой подлинности на основе Active Directory. Что произошло?"
+	description="Описание произошедшего с проектом Azure Active Directory в Visual Studio"
+	services="active-directory"
+	documentationCenter=""
+	authors="patshea123"
+	manager="douge"
 	editor="tglee"/>
-  
-<tags 
-	ms.service="active-directory" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="vs-what-happened" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/06/2015" 
+
+<tags
+	ms.service="active-directory"
+	ms.workload="web"
+	ms.tgt_pltfrm="vs-what-happened"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/06/2015"
 	ms.author="patshea123"/>
 
 # Что произошло с моим проектом?
@@ -23,7 +23,7 @@
 > - [What Happened](vs-active-directory-dotnet-what-happened.md)
 
 ###<span id="whathappened">Что произошло с моим проектом?</span>
- 
+
 Добавлены ссылки.
 
 #####Ссылки на пакет NuGet
@@ -50,28 +50,55 @@
 - `System.IdentityModel.Tokens.Jwt`
 - `System.Runtime.Serialization`
 
-#####В проект добавлены файлы с кодом 
+#####В проект добавлены файлы с кодом
 
 В проект добавлен класс запуска аутентификации, `App_Start/Startup.Auth.cs`, содержащий логику запуска для аутентификации на основе Azure AD. Также добавлен класс контроллера, Controllers/AccountController.cs, который содержит методы `SignIn()` и `SignOut()`. Наконец, добавлено частичное представление, `Views/Shared/_LoginPartial.cshtml`, содержащее ссылку для действий входа и выхода.
 
 #####В проект добавлен код запуска
- 
+
 Если в проекте уже есть класс запуска, метод **Configuration** обновляется для добавления вызова `ConfigureAuth(app)`. В противном случае в проект добавляется класс запуска.
 
-#####В файл app.config или web.config добавлены значения конфигурации 
+#####В файл app.config или web.config добавлены значения конфигурации
 
 Были добавлены следующие записи конфигурации. <pre> `<appSettings>
-	    <add key="ida:ClientId" value="ClientId from the new Azure AD App" /> 
-	    <add key="ida:AADInstance" value="https://login.windows.net/" /> 
+	    <add key="ida:ClientId" value="ClientId from the new Azure AD App" />
+	    <add key="ida:AADInstance" value="https://login.microsoftonline.com/" />
 	    <add key="ida:Domain" value="The selected Azure AD Domain" />
 	    <add key="ida:TenantId" value="The Id of your selected Azure AD Tenant" />
-	    <add key="Ida:PostLogoutRedirectURI" value="Your project start page" /> 
+	    <add key="ida:PostLogoutRedirectUri" value="Your project start page" />
 	</appSettings>` </pre>
 
-#####Создано приложение Azure Active Directory (AD) 
+#####Создано приложение Azure Active Directory (AD)
 В каталоге, выбранном в мастере, создано приложение Azure AD.
 
-###Какие дополнительные изменения были внесены в мой проект из-за установки флажка *Чтение данных каталога*?
+###Какие дополнительные изменения были внесены в мой проект после установки флажка *Отключить проверку подлинности для отдельных учетных записей пользователей*
+Удалены ссылки на пакет NuGet. Для файлов созданы резервные копии, а сами файлы удалены. В зависимости от состояния проекта вам, возможно, придется вручную удалить дополнительные ссылки или файлы либо изменить код соответствующим образом.
+
+#####Ссылки на существующие пакеты NuGet удалены
+
+- `Microsoft.AspNet.Identity.Core`
+- `Microsoft.AspNet.Identity.EntityFramework`
+- `Microsoft.AspNet.Identity.Owin`
+
+#####Для существующих файлов кода созданы резервные копии, а сами файлы удалены.
+
+Для каждого из следующих файлов создана резервная копия, а сами файлы удалены из проекта. Резервные копии файлов расположены в папке Backup в корневом каталоге проекта.
+
+- `App_Start\IdentityConfig.cs`
+- `Controllers\ManageController.cs`
+- `Models\IdentityModels.cs`
+- `Models\ManageViewModels.cs`
+
+#####Для существующих файлов кода созданы резервные копии
+
+Для каждого из следующих файлов создана резервная копия, после чего файлы были заменены. Резервные копии файлов расположены в папке Backup в корневом каталоге проекта.
+
+- `Startup.cs`
+- `App_Start\Startup.Auth.cs`
+- `Controllers\AccountController.cs`
+- `Views\Shared_LoginPartial.cshtml`
+
+###Какие дополнительные изменения были внесены в мой проект после установки флажка *Чтение данных каталога*
 Добавлены дополнительные ссылки.
 
 #####Дополнительные ссылки на пакет NuGet
@@ -96,18 +123,18 @@
 - `Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms`
 - `System.Spatial`
 
-#####В проект добавлены дополнительные файлы с кодом 
+#####В проект добавлены дополнительные файлы с кодом
 
 Добавлены два файла для поддержки кэширования маркеров: `Models\ADALTokenCache.cs` и `Models\ApplicationDbContext.cs`. Чтобы проиллюстрировать получение доступа к информации о пользовательском профиле с помощью интерфейсов API Graph Azure, были добавлены дополнительные контроллер и представление. Они содержатся в файлах `Controllers\UserProfileController.cs` и `Views\UserProfile\Index.cshtml`.
 
 #####В проект добавлен дополнительный код запуска
- 
+
 В файле `startup.auth.cs` в элемент `Notifications`, который содержится в `OpenIdConnectAuthenticationOptions`, был добавлен новый объект `OpenIdConnectAuthenticationNotifications`. Он был добавлен для включения возможности получения кода OAuth и его обмена на маркер доступа.
 
 #####В файл app.config или web.config внесены дополнительные изменения
 
 Были добавлены следующие дополнительные записи конфигурации. <pre> `<appSettings>
-	    <add key="Ida:ClientSecret" value="Your Azure AD App's new client secret" /> 
+	    <add key="ida:ClientSecret" value="Your Azure AD App's new client secret" />
 	</appSettings>` </pre>
 
 Были добавлены следующие разделы конфигурации и строка подключения. <pre> `<configSections>
@@ -130,9 +157,8 @@
 
 
 #####Обновлено приложение Azure Active Directory
-Ваше приложение Azure Active Directory было обновлено для включения разрешения *Чтение данных каталога*, а также был создан дополнительный ключ, который затем использовался в качестве параметра *ClientSecret* в файле `web.config`.
+В приложение Azure Active Directory добавлены разрешения *Чтение данных каталога*. Также создан дополнительный ключ, который затем использовался в качестве параметра *ida:ClientSecret* в файле `web.config`.
 
 [Дополнительная информация о службе Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
- 
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

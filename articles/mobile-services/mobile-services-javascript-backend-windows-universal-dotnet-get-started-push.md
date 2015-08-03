@@ -99,4 +99,4 @@
 [Использование клиента .NET для мобильных служб Azure]: mobile-services-windows-dotnet-how-to-use-client-library.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

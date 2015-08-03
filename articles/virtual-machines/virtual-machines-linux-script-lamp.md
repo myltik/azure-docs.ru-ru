@@ -107,4 +107,4 @@
 [Linux и вычисления с открытым кодом в Azure](virtual-machines-linux-opensource.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

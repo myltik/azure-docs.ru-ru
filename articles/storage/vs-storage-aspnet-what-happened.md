@@ -42,4 +42,4 @@
 
 Дополнительные сведения см. в разделе [ASP.NET](http://www.asp.net).
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

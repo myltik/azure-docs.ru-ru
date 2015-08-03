@@ -171,4 +171,4 @@ fleetctl --tunnel coreos-cluster.cloudapp.net:22 unload apache@{1,2,3}.service
 [Linux и вычисления с открытым кодом в Azure]: virtual-machines-linux-opensource.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

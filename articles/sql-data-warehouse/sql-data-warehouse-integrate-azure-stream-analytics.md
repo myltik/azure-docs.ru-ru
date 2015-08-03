@@ -82,4 +82,4 @@ Azure Stream Analytics является полностью управляемо�
 <!--Other Web references-->
 [Azure Stream Analytics documentation]: http://azure.microsoft.com/documentation/services/stream-analytics/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

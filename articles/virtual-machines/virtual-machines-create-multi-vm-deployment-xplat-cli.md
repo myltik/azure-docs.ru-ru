@@ -67,4 +67,4 @@
 * [Вход в виртуальную машину под управлением ОС Linux](virtual-machines-linux-how-to-log-on.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

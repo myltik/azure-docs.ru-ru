@@ -58,4 +58,4 @@ API обмена данными структуры служб использую
 * [Стек обмена данными WCF для Reliable Services](service-fabric-reliable-services-communication-wcf.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -55,4 +55,4 @@ Azure Active Directory предоставляет администраторам
  - [Отчеты Azure Active Directory](active-directory-view-access-usage-reports.md)
  - [Отчеты о событиях аудита Azure Active Directory ](active-directory-reporting-audit-events.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

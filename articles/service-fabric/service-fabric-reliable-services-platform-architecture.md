@@ -92,4 +92,4 @@
 [Настройка надежных служб](../Service-Fabric/service-fabric-reliable-services-configuration.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

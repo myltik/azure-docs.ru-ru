@@ -458,9 +458,9 @@
 
 1. Сохраните измененный файл предустановки на локальный жесткий диск. Для кодирования с настраиваемой предустановкой используйте код, подобный приведенному ниже.
 	
-	// Upload file and create asset IAsset asset = CreateAssetAndUploadSingleFile(AssetCreationOptions.None, @"C:\\TEMP\\Original.mp4");
+	// Upload file and create asset IAsset asset = CreateAssetAndUploadSingleFile(AssetCreationOptions.None, @"C:\TEMP\Original.mp4");
 	 
-	string inputPresetFile = @"C:\\TEMP\\H264 Broadband 720p NoAudioNorm.xml"; string presetName = Path.GetFileNameWithoutExtension(inputPresetFile);
+	string inputPresetFile = @"C:\TEMP\H264 Broadband 720p NoAudioNorm.xml"; string presetName = Path.GetFileNameWithoutExtension(inputPresetFile);
 	 
 	IJob job = _context.Jobs.Create("Encode Job for " + asset.Name + ", encoded using " + presetName);
 	
@@ -482,4 +482,4 @@
 
 [XML-схема кодировщика служб мультимедиа Azure](https://msdn.microsoft.com/library/azure/dn584702.aspx)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

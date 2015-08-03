@@ -18,6 +18,8 @@
 
 # Настройка приложения для использования имени для входа Facebook
 
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+
 В этом разделе показано, как настроить службы приложений Azure для использования Facebook в качестве поставщика проверки подлинности.
 
 Чтобы выполнить процедуру, описанную в этом разделе, необходимо иметь учетную запись Facebook с проверенным электронным адресом и номером мобильного телефона. Чтобы создать новую учетную запись Facebook, перейдите по ссылке [facebook.com].
@@ -77,4 +79,4 @@
 [портал управления Azure]: https://portal.azure.com/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

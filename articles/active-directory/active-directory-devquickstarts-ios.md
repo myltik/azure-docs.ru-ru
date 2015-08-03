@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="04/28/2015"
+	ms.date="07/17/2015"
 	ms.author="brandwe"/>
 
 # Интеграция Azure AD в приложение для iOS
+
+[AZURE.INCLUDE [active-directory-devquickstarts-switcher](../../includes/active-directory-devquickstarts-switcher.md)]
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
@@ -221,10 +223,6 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
 
 [Безопасность веб-API с Azure AD для Node.js>>](../active-directory-devquickstarts-webapi-nodejst.md)
 
-##Дополнительные ресурсы:
-- [AzureADSamples на GitHub >>](https://github.com/AzureAdSamples)
-- [CloudIdentity.com >>](https://cloudidentity.com)
-- Документация по Azure AD [на сайте Azure.com](http://azure.microsoft.com/documentation/services/active-directory/)
- 
+[AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Отключение диска от виртуальной машины Windows | Azure" 
+	pageTitle="Отключение диска от виртуальной машины Windows | Azure"
 	description="Узнайте, как отключать диск от виртуальной машины в Azure."
 	services="virtual-machines, storage"
 	documentationCenter=""
 	authors="KBDAzure"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/27/2015"
+	ms.date="07/14/2015"
 	ms.author="kathydav"/>
 
 
@@ -24,6 +25,8 @@
 
 ## Дополнительные ресурсы
 
+[О дисках и виртуальных жестких дисках для виртуальных машин](virtual-machines-disks-vhds.md)
+
 [Подключение диска данных к виртуальной машине Windows](storage-windows-attach-disk.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

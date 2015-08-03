@@ -310,7 +310,7 @@
             $scope.refresh();
         });
 
-1\. В коде, который вы добавили в файл index.html, замените номер порта в базовом URL-адресе (`http://localhost:1578`) на фактический номер порта для проекта API.
+1. В коде, который вы добавили в файл index.html, замените номер порта в базовом URL-адресе (`http://localhost:1578`) на фактический номер порта для проекта API.
 
 	> **Note** Don't use the port number of the HTML client project. You can right-click the API project and click **Debug > Start New Instance** to get a browser window that shows the port number.
 
@@ -371,4 +371,4 @@
 
 В этом примере показан доступ к приложению API без проверки подлинности. Сведения о проверке подлинности в службе приложений см. в статье [Проверка подлинности для приложений API и мобильных приложений](../app-service/app-service-authentication-overview.md).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

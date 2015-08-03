@@ -18,6 +18,8 @@
 
 # Настройка приложения для использования входа по учетной записи Майкрософт
 
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+
 В этом разделе показано, как настроить службы приложений Azure для использования учетной записи Майкрософт в качестве поставщика проверки подлинности.
 
 ## <a name="register"> </a>Регистрация приложения с помощью учетной записи Майкрософт
@@ -66,4 +68,4 @@
 [портал управления Azure]: https://portal.azure.com/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

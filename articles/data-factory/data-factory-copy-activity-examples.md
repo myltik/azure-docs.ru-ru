@@ -186,8 +186,8 @@
 ### Предположения
 В этом примере предполагается следующее:
 
-- **Host** — имя сервера, на котором размещена файловая система: **\\contoso**.
-- **Folder** — имя папки, которая содержит входные файлы: **marketingcampaign\\regionaldata\\{срез}, где файлы расположены в папке с именем {среза}, например 2014121112 (2014 год, 12 месяц, 11 день, 12 часов). 
+- **Host** — имя сервера, на котором размещена файловая система: **\contoso**.
+- **Folder** — имя папки, которая содержит входные файлы: **marketingcampaign\regionaldata\{срез}, где файлы расположены в папке с именем {среза}, например 2014121112 (2014 год, 12 месяц, 11 день, 12 часов). 
 ### Создание связанной службы локальной файловой системы
 Следующий пример JSON можно использовать для создания связанной службы с именем **FolderDataStore** и типом **OnPremisesFileSystemLinkedService**.
 
@@ -195,14 +195,14 @@
 	    "name": "FolderDataStore",
 	    "properties": {
 	        "type": "OnPremisesFileSystemLinkedService",
-	        "host": "\\\\contoso",
+	        "host": "\\contoso",
 	        "userId": "username",
 	        "password": "password",
 	        "gatewayName": "ContosoGateway"
 	    }
 	}
 
-> [AZURE.NOTE] Помните, что необходимо использовать escape-символ '\' для имен узлов и папок в файлы JSON. Для **\\Contoso** укажите **\\\\Contoso**.
+> [AZURE.NOTE]Помните, что необходимо использовать escape-символ '' для имен узлов и папок в файлы JSON. Для **\Contoso** укажите **\\Contoso**.
 
 Подробные сведения об элементах JSON для определения связанной службы локальной файловой системы см. в разделе [Связанная служба локальной файловой системы](https://msdn.microsoft.com/library/dn930836.aspx).
 
@@ -461,7 +461,7 @@
 	                "transformation": {
 	                    "source": {
 	                        "type": "OracleSource",
-	                        "oracleReaderQuery": "$$Text.Format('select * from LOG where "Timestamp" >= to_date('{0:yyyy-MM-dd}', 'YYYY-MM-DD') AND "Timestamp" < to_date('{1:yyyy-MM-dd}', 'YYYY-MM-DD')', SliceStart, SliceEnd)"
+	                        "oracleReaderQuery": "$$Text.Format('select * from LOG where "Timestamp" >= to_date(\'{0:yyyy-MM-dd}\', \'YYYY-MM-DD\') AND "Timestamp" < to_date(\'{1:yyyy-MM-dd}\', \'YYYY-MM-DD\')', SliceStart, SliceEnd)"
 	                    },
 	                    "sink": {
 	                        "type": "BlobSink"
@@ -491,4 +491,4 @@
 [adf-copyactivity]: data-factory-copy-activity.md
 [copy-activity-video]: http://azure.microsoft.com/documentation/videos/introducing-azure-data-factory-copy-activity/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

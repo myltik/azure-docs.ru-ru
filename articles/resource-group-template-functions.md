@@ -382,4 +382,4 @@
 - [Развертывание приложения с использованием шаблона диспетчера ресурсов Azure](azure-portal/resource-group-template-deploy.md)
 - [Общие сведения о диспетчере ресурсов Azure](./resource-group-overview.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -102,4 +102,4 @@
 [Мобильные службы уровня Standard]: /pricing/details/mobile-services/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

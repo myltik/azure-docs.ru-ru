@@ -198,7 +198,7 @@
 [add_ca_cert]: java-add-certificate-ca-store.md
 [azure_java_eclipse_hello_world]: http://msdn.microsoft.com/library/windowsazure/hh690944.aspx
 [howto_twilio_voice_sms_java]: partner-twilio-java-how-to-use-voice-sms.md
-[howto_blob_storage_java]: http://www.windowsazure.com/develop/java/how-to-guides/blob-storage/
+[howto_blob_storage_java]: http://azure.microsoft.com/develop/java/how-to-guides/blob-storage/
 [howto_sql_azure_java]: http://msdn.microsoft.com/library/windowsazure/hh749029.aspx
 [azure_runtime_jsp]: http://msdn.microsoft.com/library/windowsazure/hh690948.aspx
 [azure_javadoc]: http://dl.windowsazure.com/javadoc
@@ -208,4 +208,4 @@
 [twilio_java]: ./media/partner-twilio-java-phone-call-example/WA_TwilioJavaCallForm.jpg
 [twilio_java_response]: ./media/partner-twilio-java-phone-call-example/WA_TwilioJavaMakeCall.jpg
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

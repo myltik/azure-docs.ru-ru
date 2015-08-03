@@ -32,7 +32,7 @@
 
 ### Использование диспетчера пакета Node (NPM) для получения пакета
 
-1.  Используя **окно командной строки Windows PowerShell для Node.js**, перейдите в папку **c:\\node\\sbqueues\\WebRole1**, в которой создан пример приложения.
+1.  Используя **окно командной строки Windows PowerShell для Node.js**, перейдите в папку **c:\node\sbqueues\WebRole1**, в которой создан пример приложения.
 
 2.  Введите в командной строке **npm install azure**, что должно привести к результату, аналогичному следующему:
 
@@ -190,4 +190,4 @@
   [Веб-приложение Node.js с хранилищем]: ../storage/storage-nodejs-how-to-use-table-storage.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

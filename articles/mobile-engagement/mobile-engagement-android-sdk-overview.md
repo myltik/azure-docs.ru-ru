@@ -118,4 +118,4 @@
 
 Внедрите новый файл `res/layout/engagement_loading.xml` в проект.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

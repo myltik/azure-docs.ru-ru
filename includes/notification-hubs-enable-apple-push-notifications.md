@@ -125,4 +125,4 @@
 
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-profile-ready.png)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

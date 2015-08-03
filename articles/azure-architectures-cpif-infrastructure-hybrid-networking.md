@@ -58,4 +58,4 @@
 
 [Уровень пакетной обработки](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-0bc3f8b1)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

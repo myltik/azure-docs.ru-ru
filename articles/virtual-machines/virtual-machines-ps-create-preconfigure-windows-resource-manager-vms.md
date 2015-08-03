@@ -3,9 +3,10 @@
 	description="Узнайте, как использовать Azure PowerShell для создания и предварительной настройки виртуальных машин под управлением Windows в Azure."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="JoeDavies-MSFT"
+	authors="KBDAzure"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -13,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/09/2015"
-	ms.author="josephd"/>
+	ms.date="07/09/2015"
+	ms.author="kathydav"/>
 
 # Создание и предварительная настройка виртуальной машины под управлением Windows с помощью диспетчера ресурсов и Azure PowerShell
 
@@ -28,7 +29,7 @@
 
 ## Шаг 1. Установка Azure PowerShell
 
-У Azure PowerShell должна быть версия не ниже 0.9.0. Если вы еще не установили и не настроили Azure PowerShell, см. соответствующие инструкции [здесь](../powershell-install-configure.md).
+У Azure PowerShell должна быть версия не ниже 0.9.0. Если вы еще не установили и не настроили Azure PowerShell, см. соответствующие инструкции [здесь](powershell-install-configure.md).
 
 Чтобы узнать, какая версия Azure PowerShell установлена, используйте эту команду Azure PowerShell:
 
@@ -40,7 +41,7 @@
 	-------
 	0.9.0
 
-Если установлена версия ниже 0.9.0, удалите Azure PowerShell с помощью компонента «Программы и компоненты» панели управления, а затем установите последнюю версию. Дополнительные сведения см. в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
+Если установлена версия ниже 0.9.0, удалите Azure PowerShell с помощью компонента «Программы и компоненты» панели управления, а затем установите последнюю версию. Дополнительные сведения см. в статье [Установка и настройка Azure PowerShell](powershell-install-configure.md).
 
 ## Шаг 2. Настройка подписки
 
@@ -57,7 +58,7 @@
 
 Перейдите в режим диспетчера ресурсов Azure PowerShell.
 
-	Switch-AzureMode AzureResourceManager 
+	Switch-AzureMode AzureResourceManager
 
 ## Шаг 3. Создание необходимых ресурсов
 
@@ -95,7 +96,7 @@
 
 Если в результате выполнения команды Test-AzureName отображается значение False, предложенное имя является уникальным. После выбора уникального имени вернитесь в режим диспетчера ресурсов Azure PowerShell, используя эту команду.
 
-	Switch-AzureMode AzureResourceManager 
+	Switch-AzureMode AzureResourceManager
 
 Виртуальные машины на основе диспетчера ресурсов могут использовать общедоступные доменные имена, содержащие только буквы, цифры и дефисы. Первый и последний символ в поле должны быть буквами или цифрами.
 
@@ -103,8 +104,8 @@
 
 	$domName="<domain name label to test>"
 	$loc="<short name of an Azure location, for example, for West US, the short name is westus>"
-	Get-AzureCheckDnsAvailability -DomainQualifiedName $domName -Location $loc 
-	
+	Get-AzureCheckDnsAvailability -DomainQualifiedName $domName -Location $loc
+
 Если DNSNameAvailability возвращает значение True, предложенное имя является глобально уникальным.
 
 Виртуальные машины на базе диспетчера ресурсов можно поместить в группу доступности на базе диспетчера ресурсов. При необходимости создайте для новой виртуальной машины группу доступности, используя следующие команды.
@@ -144,14 +145,14 @@
 
 	$rgName="<resource group name>"
 	$vnetName="<virtual network name>"
-	Get-AzureVirtualNetwork -Name $vnetName -ResourceGroupName $rgName | Select Subnets 
+	Get-AzureVirtualNetwork -Name $vnetName -ResourceGroupName $rgName | Select Subnets
 
 Индекс подсети — это порядковый номер подсети в параметрах команды; подсети нумеруются последовательно слева направо начиная с 0.
 
 В нашем примере:
 
-	PS C:> Get-AzureVirtualNetwork -Name TestNet -ResourceGroupName LOBServers | Select Subnets
-	
+	PS C:\> Get-AzureVirtualNetwork -Name TestNet -ResourceGroupName LOBServers | Select Subnets
+
 	Subnets
 	-------
 	{frontendSubnet, backendSubnet}
@@ -201,7 +202,7 @@
 	$vmName="<VM name>"
 	$vmSize="<VM size string>"
 	$avName="<availability set name>"
-	$avSet=Get-AzureAvailabilitySet –Name $avName –ResourceGroupName $rgName 
+	$avSet=Get-AzureAvailabilitySet –Name $avName –ResourceGroupName $rgName
 	$vm=New-AzureVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avset.Id
 
 Чтобы определить возможные значения для строки размера виртуальной машины (вариант 2), используйте следующие команды.
@@ -242,7 +243,7 @@
 	$pubName="<Image publisher name>"
 	$offerName="<Image offer name>"
 	$skuName="<Image SKU name>"
-	$cred=Get-Credential -Message "Type the name and password of the local administrator account." 
+	$cred=Get-Credential -Message "Type the name and password of the local administrator account."
 	$vm=Set-AzureVMOperatingSystem -VM $vm -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
 	$vm=Set-AzureVMSourceImage -VM $vm -PublisherName $pubName -Offer $offerName -Skus $skuName -Version "latest"
 	$vm=Add-AzureVMNetworkInterface -VM $vm -Id $nic.Id
@@ -271,36 +272,36 @@
 - использовать образ Windows Server 2012 R2 Datacenter;
 - иметь имя LOB07 и входить в существующую группу доступности WEB_AS;
 - иметь сетевой адаптер с общедоступным IP-адресом в подсети FrontEnd (индекс подсети — 0) существующей виртуальной сети AZDatacenter;
-- иметь дополнительный диск данных объемом 200 ГБ. 
+- иметь дополнительный диск данных объемом 200 ГБ.
 
 Вот набор команд Azure PowerShell для создания такой виртуальной машины (в соответствии с процессом, описанным для шага 4).
 
-	# Switch to the Resource Manager mode	
+	# Switch to the Resource Manager mode
 	Switch-AzureMode AzureResourceManager
-	
+
 	# Set values for existing resource group and storage account names
 	$rgName="LOBServers"
 	$locName="West US"
 	$saName="contosoLOBServersSA"
-	
+
 	# Set the existing virtual network and subnet index
 	$vnetName="AZDatacenter"
 	$subnetIndex=0
 	$vnet=Get-AzurevirtualNetwork -Name $vnetName -ResourceGroupName $rgName
-	
+
 	# Create the NIC
 	$nicName="AzureInterface"
 	$domName="contoso-vm-lob07"
 	$pip=New-AzurePublicIpAddress -Name $nicName -ResourceGroupName $rgName -DomainNameLabel $domName -Location $locName -AllocationMethod Dynamic
 	$nic=New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[$subnetIndex].Id -PublicIpAddressId $pip.Id
-	
+
 	# Specify the name, size, and existing availability set
 	$vmName="LOB07"
 	$vmSize="Standard_A3"
 	$avName="WEB_AS"
 	$avSet=Get-AzureAvailabilitySet –Name $avName –ResourceGroupName $rgName
 	$vm=New-AzureVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avset.Id
-	
+
 	# Add a 200 GB additional data disk
 	$diskSize=200
 	$diskLabel="APPStorage"
@@ -308,16 +309,16 @@
 	$storageAcc=Get-AzureStorageAccount -ResourceGroupName $rgName -Name $saName
 	$vhdURI=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/" + $vmName + $diskName  + ".vhd"
 	Add-AzureVMDataDisk -VM $vm -Name $diskLabel -DiskSizeInGB $diskSize -VhdUri $vhdURI -CreateOption empty
-	
+
 	# Specify the image and local administrator account, and then add the NIC
 	$pubName="MicrosoftWindowsServer"
 	$offerName="WindowsServer"
 	$skuName="2012-R2-Datacenter"
-	$cred=Get-Credential -Message "Type the name and password of the local administrator account." 
+	$cred=Get-Credential -Message "Type the name and password of the local administrator account."
 	$vm=Set-AzureVMOperatingSystem -VM $vm -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
 	$vm=Set-AzureVMSourceImage -VM $vm -PublisherName $pubName -Offer $offerName -Skus $skuName -Version "latest"
 	$vm=Add-AzureVMNetworkInterface -VM $vm -Id $nic.Id
-	
+
 	# Specify the OS disk name and create the VM
 	$diskName="OSDisk"
 	$storageAcc=Get-AzureStorageAccount -ResourceGroupName $rgName -Name $saName
@@ -329,13 +330,12 @@
 
 [Поставщики вычислительных и сетевых ресурсов, а также ресурсов хранения Azure в диспетчере ресурсов Azure](virtual-machines-azurerm-versus-azuresm.md)
 
-[Общие сведения о диспетчере ресурсов Azure](../resource-group-overview.md)
+[Общие сведения о диспетчере ресурсов Azure](resource-group-overview.md)
 
 [Развертывание виртуальных машин Azure и управление ими с использованием шаблонов диспетчера ресурсов и PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
 
 [Создание виртуальной машины Windows с помощью шаблона диспетчера ресурсов и PowerShell](virtual-machines-create-windows-powershell-resource-manager-template-simple)
 
-[Установка и настройка Azure PowerShell](../install-configure-powershell.md)
- 
+[Установка и настройка Azure PowerShell](install-configure-powershell.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

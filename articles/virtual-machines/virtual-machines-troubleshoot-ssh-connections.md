@@ -166,4 +166,4 @@
 [Устранение неполадок доступа к приложению, выполняющемуся в виртуальной машине Azure](virtual-machines-troubleshoot-access-application.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

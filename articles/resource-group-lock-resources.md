@@ -85,7 +85,7 @@
 
 Вы можете заблокировать развернутые ресурсы с помощью Azure PowerShell, используя командлет **New-AzureResourceLock**, как показано ниже.
 
-    PS C:> New-AzureResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName ExampleGroup
+    PS C:\> New-AzureResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName ExampleGroup
 
 PowerShell предоставляет другие команды для рабочих блокировок, такие как **Set-AzureResourceLock**, чтобы обновить блокировку, и **Remove-AzureResourceLock**, чтобы удалить ее.
 
@@ -94,4 +94,4 @@ PowerShell предоставляет другие команды для раб�
 - [Использование тегов для организации ресурсов](resource-group-using-tags.md)
 - [Перемещение ресурсов в новую группу ресурсов](resource-group-move-resources.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

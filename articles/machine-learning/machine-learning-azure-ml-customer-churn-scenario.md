@@ -239,4 +239,4 @@ AUC обычно используется в качестве меры ценн�
 [10]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-10.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

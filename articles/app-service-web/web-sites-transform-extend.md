@@ -2,7 +2,6 @@
 	pageTitle="Дополнительные настройки и расширения веб-приложений службы приложений Azure"
 	description="Используйте объявления преобразования XML-документов (XDT), чтобы преобразовать файл ApplicationHost.config в веб-приложении службы приложений Azure и добавить частные расширения. Это позволит выполнять дополнительные действия по администрированию."
 	authors="cephalin"
-	writer="cephalin"
 	editor="mollybos"
 	manager="wpickett"
 	services="app-service\web"
@@ -42,7 +41,7 @@
 	</configuration>
 
 
-Файл журнала с состоянием преобразования и соответствующими сведениями находится в папке LogFiles\\Transform корневого каталога FTP.
+Файл журнала с состоянием преобразования и соответствующими сведениями находится в папке LogFiles\Transform корневого каталога FTP.
 
 Дополнительные примеры см. по адресу [https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions).
 
@@ -81,7 +80,7 @@
 
 ![TransformSiteSolEx][TransformSiteSolEx]
 
-Для файлового ввода-вывода требуется единственная специальная логика — указать расположение каталога wwwroot в веб-приложении. Как показано в следующем примере кода, переменная среды HOME задает путь к корневому каталогу веб-приложения, а путь к каталогу wwwroot можно сформировать, добавив site\\wwwroot.
+Для файлового ввода-вывода требуется единственная специальная логика — указать расположение каталога wwwroot в веб-приложении. Как показано в следующем примере кода, переменная среды HOME задает путь к корневому каталогу веб-приложения, а путь к каталогу wwwroot можно сформировать, добавив site\wwwroot.
 
 	/// <summary>
 	/// Gives the location of the .user.ini file, even if one doesn't exist yet
@@ -93,7 +92,7 @@
     		{
         		rootPath = System.IO.Path.GetTempPath(); // For testing purposes
     		};
-    		var userSettingsFile = Path.Combine(rootPath, @"site\wwwroot\.user.ini");
+    		var userSettingsFile = Path.Combine(rootPath, @"site\wwwroot.user.ini");
     		return userSettingsFile;
 	}
 
@@ -112,7 +111,7 @@
 
 ####<a id="XDT"></a> Файл applicationHost.xdt
 
-Код расширения веб-приложения находится в каталоге %HOME%\\SiteExtensions\\имя_вашего_расширения. Мы назовем его корневым каталогом расширения.
+Код расширения веб-приложения находится в каталоге %HOME%\SiteExtensions\имя_вашего_расширения. Мы назовем его корневым каталогом расширения.
 
 Чтобы зарегистрировать расширение веб-приложения в файле applicationHost.config, необходимо поместить файл с именем ApplicationHost.xdt в корневой каталог расширения. Содержимое файла ApplicationHost.xdt должно выглядеть следующим образом.
 
@@ -180,4 +179,4 @@
 [TransformSiteSolEx]: ./media/web-sites-transform-extend/TransformSiteSolEx.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

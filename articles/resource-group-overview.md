@@ -139,4 +139,4 @@
 - [Проверка подлинности субъекта-службы](./resource-group-authenticate-service-principal.md)
 - [Создание нового субъекта-службы с помощью портала Azure](./resource-group-create-service-principal-portal.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

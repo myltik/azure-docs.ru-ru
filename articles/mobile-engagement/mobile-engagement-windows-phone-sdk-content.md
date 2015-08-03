@@ -37,4 +37,4 @@
 - `EngagementConfiguration.xml`: файл конфигурации Mobile Engagement, в котором вы можете настроить параметры Engagement (строку подключения Engagement, сообщение о сбое и т. д.).
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

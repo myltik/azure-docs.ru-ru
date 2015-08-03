@@ -94,7 +94,7 @@ Curl используется для демонстрации возможнос
 
 	azure storage blob download <container-name> <blob-name> <destination-file>
 
-> [AZURE.NOTE]Необходимо указать имя учетной записи хранения, содержащей большой двоичный объект, с помощью параметров `-a` и `-k`, либо задать переменные среды **AZURE\\_STORAGE\\_ACCOUNT** и **AZURE\\_STORAGE\\_ACCESS\\_KEY**. См. также: [Как передать данные в HDInsight](hdinsight-upload-data.md).
+> [AZURE.NOTE]Необходимо указать имя учетной записи хранения, содержащей большой двоичный объект, с помощью параметров `-a` и `-k`, либо задать переменные среды **AZURE\_STORAGE\_ACCOUNT** и **AZURE\_STORAGE\_ACCESS\_KEY**. См. также: [Как передать данные в HDInsight](hdinsight-upload-data.md).
 
 ##<a id="summary"></a>Сводка
 
@@ -114,4 +114,4 @@ Curl используется для демонстрации возможнос
 
 * [Использование Pig с Hadoop в HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -205,4 +205,4 @@
 [Обновление указателей служб мультимедиа после отката ключей хранилища](media-services-roll-storage-access-keys.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

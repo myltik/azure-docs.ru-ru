@@ -91,4 +91,4 @@
 
 [Построение приложения для разговоров Node.js с помощью Socket.IO на веб-сайте Azure]: ../app-service-web/web-sites-nodejs-chat-app-socketio.md
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

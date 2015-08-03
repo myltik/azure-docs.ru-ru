@@ -28,7 +28,7 @@
 2.  Установленный пакет Azure SDK.
 3.  JAR-файл для библиотек Azure для Java и JAR-файлы для любых применимых зависимостей, установлены и указаны в пути сборки, который используется компилятором Java. Сведения об установке библиотек Azure для Java см. в статье [Загрузка пакета Azure SDK для Java].
 4.  Настроенная учетная запись хранения Azure. Имя учетной записи и ключ учетной записи для учетной записи хранилища будут использоваться в следующем коде. Сведения о создании учетной записи хранения см. в разделе [Создание учетной записи хранения]; сведения о получении ключа учетной записи см. в разделе [Управление учетными записями хранения].
-5.  Вы создали локальный файл изображения, который был сохранен с именем c:\\myimages\\image1.jpg. Как вариант, можно изменить конструктор **FileInputStream** в данном примере, чтобы использовать другой путь и другое имя для изображения.
+5.  Вы создали локальный файл изображения, который был сохранен с именем c:\myimages\image1.jpg. Как вариант, можно изменить конструктор **FileInputStream** в данном примере, чтобы использовать другой путь и другое имя для изображения.
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
@@ -106,7 +106,7 @@
 
 Используйте конструктор **File**, чтобы получить ссылку на локально созданный файл, который требуется отправить. (Перед выполнением этого кода убедитесь,что вы создали этот файл.)
 
-    File fileReference = new File ("c:\\myimages\\image1.jpg");
+    File fileReference = new File ("c:\myimages\image1.jpg");
 
 Отправьте локальный файл путем вызова метода **CloudBlockBlob.upload**. Первым параметром метода **CloudBlockBlob.upload** является объект **FileInputStream**, представляющий локальный файл, предназначенный для отправки в хранилище Azure. Вторым параметром является размер файла в байтах.
 
@@ -237,7 +237,7 @@
                 // Upload an image file.
                 blob = container.getBlockBlobReference("image1.jpg");
 
-                File fileReference = new File("c:\\myimages\\image1.jpg");
+                File fileReference = new File("c:\myimages\image1.jpg");
                 blob.upload(new FileInputStream(fileReference), fileReference.length());
 
                 // At this point the image is uploaded.
@@ -368,4 +368,4 @@
   [Блог рабочей группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

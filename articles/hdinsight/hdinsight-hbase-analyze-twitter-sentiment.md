@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/27/2015" 
+	ms.date="07/09/2015" 
 	ms.author="jgao"/>
 
 # Анализ мнений пользователей Twitter в режиме реального времени с использованием HBase в HDInsight
@@ -75,11 +75,11 @@
 
 
 	<table border="1">
-	<tr><th>Свойство кластера</th><th>Описание</th></tr>
-	<tr><td>Имя кластера HBase</td><td>Имя вашего кластера HBase в HDInsight. Пример: https://myhbase.azurehdinsight.net/</td></tr>
-	<tr><td>Имя пользователя кластера</td><td>Имя учетной записи пользователя Hadoop. Имя пользователя Hadoop по умолчанию&#160;— <strong>admin</strong>.</td></tr>
-	<tr><td>Пароль пользователя кластера</td><td>Пароль пользователя кластера Hadoop.</td></tr>
-	</table>
+<tr><th>Свойство кластера</th><th>Описание</th></tr>
+<tr><td>Имя кластера HBase</td><td>Имя вашего кластера HBase в HDInsight. Пример: https://myhbase.azurehdinsight.net/</td></tr>
+<tr><td>Имя пользователя кластера</td><td>Имя учетной записи пользователя Hadoop. Имя пользователя Hadoop по умолчанию&#160;— <strong>admin</strong>.</td></tr>
+<tr><td>Пароль пользователя кластера</td><td>Пароль пользователя кластера Hadoop.</td></tr>
+</table>
 
 - **Рабочая станция**, на которой установлено программное обеспечение Visual Studio 2013. Инструкции см. в разделе [Установка Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx).
 
@@ -98,13 +98,11 @@
 3. Введите **имя**, **описание** и **веб-сайт**. Поле "Веб-сайт" на самом деле не используется. В нем не обязательно указывать действительный URL-адрес. В следующей таблице приведены некоторые примеры значений:
 
 	<table border="1">
-	<tr><th>Поле</th><th>Значение</th></tr>
-	<tr><td>Имя</td><td>MyHDInsightHBaseApp</td></tr>
-	<tr><td>Описание</td><td>MyHDInsightHBaseApp</td></tr>
-	<tr><td>Веб-сайт</td><td>http://www.myhdinsighthbaseapp.com</td></tr>
-	</table>
-
-	> [AZURE.NOTE]Имя приложения Twitter должно быть уникальным.
+<tr><th>Поле</th><th>Значение</th></tr>
+<tr><td>Имя</td><td>MyHDInsightHBaseApp</td></tr>
+<tr><td>Описание</td><td>MyHDInsightHBaseApp</td></tr>
+<tr><td>Веб-сайт</td><td>http://www.myhdinsighthbaseapp.com</td></tr>
+</table>> [AZURE.NOTE]Имя приложения Twitter должно быть уникальным.
 
 4. Установите значок **Да, я согласен** и нажмите кнопку **Создать приложение Twitter**.
 5. Выберите вкладку **Разрешения**. Разрешение по умолчанию: **Только для чтения**. Этого разрешения достаточно для данного учебника. 
@@ -163,7 +161,7 @@
 
 	- Шаблон: **Visual C# / Рабочий стол Windows / Консольное приложение**
 	- Имя: **TweetSentimentStreaming** 
-	- Расположение: **C:\\Tutorials**
+	- Расположение: **C:\Tutorials**
 	- Имя решения: **TweetSentimentStreaming**
 
 4. Чтобы продолжить, нажмите кнопку **ОК**.
@@ -541,7 +539,7 @@
 	- Категория шаблона: **Visual C# или веб-сайт**
 	- Шаблон: **веб-приложение ASP.NET**
 	- Имя: **TweetSentimentWeb**
-	- Расположение: **C:\\Tutorials** 
+	- Расположение: **C:\Tutorials** 
 4. Нажмите кнопку **ОК**.
 5. В разделе **Выбор шаблона** щелкните **MVC**. 
 6. В **Microsoft Azure** щелкните **Управление подписками**.
@@ -1354,7 +1352,6 @@
 [hdinsight-use-sqoop]: hdinsight-use-sqoop.md
 [hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
-
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -28,4 +28,4 @@ Testability — это набор инструментов, специально
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

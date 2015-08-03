@@ -41,4 +41,4 @@
 
 [Параметры виртуальной сети на портале управления](http://go.microsoft.com/fwlink/?LinkId=248092)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

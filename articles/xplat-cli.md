@@ -274,13 +274,13 @@
 [Azure Web Site]: ../media/freetrial.png
 [select a preview feature]: ../media/antares-iaas-preview-02.png
 [select subscription]: ../media/antares-iaas-preview-03.png
-[free-trial]: http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A7171371E
+[free-trial]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A7171371E
 [advanced-bash]: http://tldp.org/LDP/abs/html/
 [script]: http://en.wikipedia.org/wiki/Shell_script
 [batch]: http://technet.microsoft.com/library/bb490890.aspx
 [cliarm]: xplat-cli-azure-resource-manager.md
 [portal]: https://manage.windowsazure.com
-[signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
+[signuporg]: http://azure.microsoft.com/documentation/articles/sign-up-organization/
 [Using the Azure CLI]: virtual-machines-command-line-tools.md
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

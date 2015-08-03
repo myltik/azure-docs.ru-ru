@@ -1,8 +1,6 @@
 <properties 
 	pageTitle="Подходит ли мне служба приложений Azure в качестве варианта вычисления?" 
 	description="Подробнее о вариантах размещения вычислений Azure и о том, как они работают: служба приложений, облачные службы и виртуальные машины" 
-	headerExpose="" 
-	footerExpose="" 
 	services="cloud-services"
 	authors="cephalin" 
 	documentationCenter=""
@@ -36,4 +34,4 @@ Azure предоставляет разные модели размещения 
 [Виртуальные машины]: ../virtual-machines-choose-me.md
 [Облачные службы]: cloud-services-choose-me.md
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

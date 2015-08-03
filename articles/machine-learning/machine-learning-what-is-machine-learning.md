@@ -1,6 +1,7 @@
 <properties
     pageTitle="Что такое машинное обучение в Microsoft Azure? | Microsoft Azure"
     description="Здесь описываются основные понятия полностью управляемой службы машинного обучения, облачные технологии, которые можно использовать для создания, развертывания решения и получения от него прибыли."
+	keywords="what is machine learning,cloud technology,predictive,what is predictive analytics,operationalize"
 	services="machine-learning"
     documentationCenter=""
     authors="cjgronlund"
@@ -115,4 +116,4 @@
 <!-- Module References -->
 [learning-with-counts]: https://msdn.microsoft.com/library/azure/81c457af-f5c0-4b2d-922c-fdef2274413c/
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

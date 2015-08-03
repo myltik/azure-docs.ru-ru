@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Создание, отслеживание фабрик данных Azure и управление ими с помощью Data Factory SDK" 
+	pageTitle="Создание, отслеживание фабрик данных Azure и управление ими с помощью пакета SDK фабрики данных" 
 	description="Узнайте, как программным способом создавать, отслеживать и контролировать фабрики данных Azure с помощью пакета SDK фабрики данных." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -13,19 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.date="07/16/2015" 
 	ms.author="spelluru"/>
 
-# Создание, отслеживание фабрик данных Azure и управление ими с помощью Data Factory .NET SDK
+# Создание, отслеживание фабрик данных Azure и управление ими с помощью пакета .NET SDK фабрики данных
 ## Обзор
-Создание, отслеживание фабрик данных и управление ими программным способом с помощью Data Factory .NET SDK. Эта статья содержит пошаговое руководство по созданию образца консольного приложения .NET, которое будет создавать и отслеживать фабрику данных. См. подробные сведения о Data Factory .NET SDK в [справочнике по библиотеке классов фабрики данных][adf-class-library-reference].
+Создание, отслеживание фабрик данных и управление ими программным способом с помощью пакета .NET SDK фабрики данных. Эта статья содержит пошаговое руководство по созданию образца консольного приложения .NET, которое будет создавать и отслеживать фабрику данных. См. подробные сведения о пакете .NET SDK фабрики данных в [справочнике по библиотеке классов фабрики данных][adf-class-library-reference].
 
 
 
 ## Предварительные требования
 
 - Visual Studio 2012 или 2013
-- Скачайте и установите [пакет SDK Azure для .NET][azure-developer-center].
+- Скачайте и установите пакет [Azure .NET SDK][azure-developer-center].
 - Загрузите и установите пакеты NuGet для фабрик данных Azure. Инструкции приведены в этом пошаговом руководстве.
 
 ## Пошаговое руководство
@@ -43,7 +43,6 @@
 3.	В окне <b>Консоль диспетчера пакетов</b> последовательно выполните следующие команды.</b>. 
 
 		Install-Package Microsoft.Azure.Management.DataFactories –Pre
-		Install-Package Microsoft.DataFactories.Runtime –Pre
 		Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 6. Добавьте следующий раздел **appSetttings** в файл **App.config**. Они используются вспомогательным методом **GetAuthorizationHeader**. 
 
@@ -57,24 +56,26 @@
 		    <add key="AdfClientId" value="1950a258-227b-4e31-a9cf-717495945fc2" />
 		    <add key="RedirectUri" value="urn:ietf:wg:oauth:2.0:oob" />
 		    <!--Make sure to write your own tenenat id and subscription ID here-->
-		    <add key="SubscriptionId" value="49fb6e5f-3098-4fb2-ba2f-6d6eed843a65" />
-    		<add key="ActiveDirectoryTenantId" value="37330244-7828-4a28-99b7-c8c3a437c7ac" />
+		    <add key="SubscriptionId" value="<subscription ID>" />
+    		<add key="ActiveDirectoryTenantId" value="<tenant ID" />
 		</appSettings>
 6. Добавьте следующие операторы **using** в файл исходного кода (Program.cs) в проекте.
 
 		using System.Threading;
 		using System.Configuration;
 		using System.Collections.ObjectModel;
-				
+		
 		using Microsoft.Azure.Management.DataFactories;
 		using Microsoft.Azure.Management.DataFactories.Models;
+		using Microsoft.Azure.Management.DataFactories.Common.Models;
+		
 		using Microsoft.IdentityModel.Clients.ActiveDirectory;
-		using Microsoft.Azure; 
+		using Microsoft.Azure;
 6. Добавьте в метод **Main** следующий код, который создает экземпляр класса **DataPipelineManagementClient**. Этот объект служит для создания фабрики данных, связанной службы, входных и выходных таблиц и конвейера. Кроме того, этот объект используется для отслеживания фрагментов таблицы во время выполнения.    
 
-        // create data pipeline management client
+        // create data factory management client
         string resourceGroupName = "ADF";
-        string dataFactoryName = "APITutorialFactory";
+        string dataFactoryName = "APITutorialFactorySP";
 
         TokenCloudCredentials aadTokenCredentials =
             new TokenCloudCredentials(
@@ -83,7 +84,8 @@
 
         Uri resourceManagerUri = new Uri(ConfigurationManager.AppSettings["ResourceManagerEndpoint"]);
 
-        DataPipelineManagementClient client = new DataPipelineManagementClient(aadTokenCredentials, resourceManagerUri);
+        DataFactoryManagementClient client = new DataFactoryManagementClient(aadTokenCredentials, resourceManagerUri);
+
 7. Добавьте следующий код, создающий **фабрику данных**, в метод **Main**.
 
         // create a data factory
@@ -99,10 +101,11 @@
                 }
             }
         );
-8. Добавьте следующий код, создающий **связанную службу**, в метод **Main**.
-	> [AZURE.NOTE]**имя учетной записи****ключ учетной записи****ConnectionString** 
 
-		// create a linked service
+8. Добавьте следующий код, создающий **связанную службу**, в метод **Main**.
+	> [AZURE.NOTE]Укажите **имя учетной записи** и **ключ учетной записи** для своей учетной записи хранения Azure в **ConnectionString**.
+
+        // create a linked service
         Console.WriteLine("Creating a linked service");
         client.LinkedServices.CreateOrUpdate(resourceGroupName, dataFactoryName,
             new LinkedServiceCreateOrUpdateParameters()
@@ -110,10 +113,10 @@
                 LinkedService = new LinkedService()
                 {
                     Name = "LinkedService-AzureStorage",
-                    Properties = new AzureStorageLinkedService()
-                    {
-                        ConnectionString = "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=account key",
-                    }
+                    Properties = new LinkedServiceProperties
+                    (
+                        new AzureStorageLinkedService("DefaultEndpointsProtocol=https;AccountName=spestore;AccountKey=4VwviDOId32nYKABQy9NHsMG0vC/CXx9iuR02HJdGL+0kieqHqbT3ap+bM/c+aGnGoA7SqkwNFq90hqV1bmV0w==")
+                    )
                 }
             }
         );
@@ -137,17 +140,17 @@
                     Name = Table_Source,
                     Properties = new TableProperties()
                     {
-                        Location = new AzureBlobLocation()
+                        LinkedServiceName = "LinkedService-AzureStorage",
+                        TypeProperties = new AzureBlobDataset()
                         {
                             FolderPath = "adftutorial/",
-                            LinkedServiceName = "LinkedService-AzureStorage",
+                            FileName = "emp.txt"
                         },
-
+                        External = true,
                         Availability = new Availability()
                         {
                             Frequency = SchedulePeriod.Hour,
                             Interval = 1,
-                            WaitOnExternal = new WaitOnExternal()
                         },
 
                         Policy = new Policy()
@@ -169,7 +172,9 @@
                     Name = Table_Destination,
                     Properties = new TableProperties()
                     {
-                        Location = new AzureBlobLocation()
+
+                        LinkedServiceName = "LinkedService-AzureStorage",
+                        TypeProperties = new AzureBlobDataset()
                         {
                             FolderPath = "adftutorial/apifactoryoutput/{Slice}",
                             PartitionedBy = new Collection<Partition>()
@@ -183,8 +188,7 @@
                                         Format = "yyyyMMdd-HH"
                                     }
                                 }
-                            },
-                            LinkedServiceName = "LinkedService-AzureStorage",
+                            }
                         },
 
                         Availability = new Availability()
@@ -195,9 +199,10 @@
                     }
                 }
             });
-10. Добавьте следующий код, который **создает и активирует конвейер**, в метод **Main**. В этом конвейер есть действие **CopyActivity**, принимающие **BlobSource** как источник и **BlobSink** как приемник. 
 
-        // create a pipeline
+11. Добавьте следующий код, который **создает и активирует конвейер**, в метод **Main**. В этом конвейер есть действие **CopyActivity**, принимающие **BlobSource** как источник и **BlobSink** как приемник.
+
+            // create a pipeline
         Console.WriteLine("Creating a pipeline");
         DateTime PipelineActivePeriodStartTime = new DateTime(2014, 8, 9, 0, 0, 0, 0, DateTimeKind.Utc);
         DateTime PipelineActivePeriodEndTime = PipelineActivePeriodStartTime.AddMinutes(60);
@@ -217,48 +222,36 @@
                         Start = PipelineActivePeriodStartTime,
                         End = PipelineActivePeriodEndTime,
 
-                        Activities = new List<BaseActivity>()
-                        {
-                            new CopyActivity()
-                            {
+                        Activities = new List<Activity>()
+                        {                                
+                            new Activity()
+                            {   
                                 Name = "BlobToBlob",
                                 Inputs = new List<ActivityInput>()
                                 {
-                                    new ActivityInput()
-                                    {
-                                        Name = Table_Source,
+                                    new ActivityInput() {
+                                        Name = Table_Source
                                     }
                                 },
-                        
                                 Outputs = new List<ActivityOutput>()
                                 {
                                     new ActivityOutput()
                                     {
-                                        Name = Table_Destination, 
+                                        Name = Table_Destination
                                     }
                                 },
-                     
-                                Transformation = new CopyActivityProperties()
+                                TypeProperties = new CopyActivity()
                                 {
                                     Source = new BlobSource()
                                     {
                                         BlobColumnSeparators = ",",
                                     },
-                            
+                        
                                     Sink = new BlobSink()
                                     {
                                         WriteBatchSize = 10000,
                                         WriteBatchTimeout = TimeSpan.FromMinutes(10)
-                                    },
-
-                                },
-
-                                Policy = new ActivityPolicy()
-                                {
-                                    ExecutionPriorityOrder = ExecutionPriorityOrder.NewestFirst,
-                                    Concurrency = 1,
-                                    Retry = 2,
-                                    Timeout = TimeSpan.FromMinutes(10),
+                                    }
                                 }
                             }
 
@@ -267,7 +260,9 @@
                 }
             });
 
-11. Добавьте следующий вспомогательный метод, используемый методом **Main**, в класс **Program**. Этот метод выводит диалоговое окно, которое позволяет ввести **имя пользователя** и **пароль**, используемые для входа на портал Azure.
+	
+
+12. Добавьте следующий вспомогательный метод, используемый методом **Main**, в класс **Program**. Этот метод выводит диалоговое окно, которое позволяет ввести **имя пользователя** и **пароль**, используемые для входа на портал Azure.
  
 		public static string GetAuthorizationHeader()
         {
@@ -334,13 +329,23 @@
             }
         }
 
-14. Добавьте в метод **Main** следующий код для получения сведений о выполнения для фрагмента среза данных.
+14. **(Необязательно)** Добавьте в метод **Main** следующий код для получения сведений о выполнения для фрагмента среза данных.
 
         Console.WriteLine("Getting run details of a data slice");
 
-        var datasliceRunListResponse = client.DataSliceRuns.List(resourceGroupName, dataFactoryName, Table_Destination,
-                PipelineActivePeriodStartTime.ConvertToISO8601DateTimeString());
+		// give it a few minutes for the output slice to be ready
+        Console.ReadKey();
 
+        var datasliceRunListResponse = client.DataSliceRuns.List(
+                resourceGroupName,
+                dataFactoryName,
+                Table_Destination,
+                new DataSliceRunListParameters()
+                {
+                    DataSliceStartTime = PipelineActivePeriodStartTime.ConvertToISO8601DateTimeString()
+                }
+            );
+        
         foreach (DataSliceRun run in datasliceRunListResponse.DataSliceRuns)
         {
             Console.WriteLine("Status: \t\t{0}", run.Status);
@@ -354,15 +359,14 @@
 
         Console.WriteLine("\nPress any key to exit.");
         Console.ReadKey();
-    }
 
-15. Постройте консольное приложение. В меню щелкните **Построить** и выберите **Построить решение**.
+15. Постройте консольное приложение. В меню щелкните **Построить** и выберите **Построить решение**. Если приходит сообщение об ошибке относительно класса **ConfigurationManager**, добавьте ссылку на сборку **System.Configuration** и повторите попытку сборки.
 16. Убедитесь, что как минимум один файл существует в контейнере adftutorial в хранилище больших двоичных объектов Azure. В противном случае создайте файл Emp.txt в блокноте со следующим содержимым и передайте его в контейнер adftutorial.
 
         John, Doe
 		Jane, Doe
 	 
-17. Запустите пример, щелкнув **Отладка** > **Начать отладку** в меню.
+17. Запустите пример, щелкнув **Отладка** > **Начать отладку** в меню. При появлении сообщения **Получение сведений о выполнении для среза данных** подождите несколько минут и нажмите клавишу **ВВОД**.
 18. Используйте портал предварительной версии Azure, чтобы убедиться, что фабрика данных **APITutorialFactory** создана с использованием следующих артефактов: 
 	- Связанная служба: **LinkedService_AzureStorage**. 
 	- Таблицы: **TableBlobSource** и **TableBlobDestination**.
@@ -388,4 +392,4 @@
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

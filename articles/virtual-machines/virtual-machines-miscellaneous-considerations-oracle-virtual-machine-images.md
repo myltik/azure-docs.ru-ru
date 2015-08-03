@@ -1,5 +1,19 @@
-<properties title="Miscellaneous Considerations for Oracle Virtual Machine Images" pageTitle="Различные рекомендации по образам виртуальных машин Oracle" description="Дополнительная информация о рекомендациях касательно подготовки развертывания виртуальной машины Oracle в Microsoft Azure." services="virtual-machines" authors="bbenz" documentationCenter=""/>
-<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
+<properties 
+	pageTitle="Различные рекомендации по образам виртуальных машин Oracle" 
+	description="Дополнительная информация о рекомендациях касательно подготовки развертывания виртуальной машины Oracle в Microsoft Azure." 
+	services="virtual-machines" 
+	authors="bbenz" 
+	documentationCenter=""/>
+
+<tags 
+	ms.service="virtual-machines" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="infrastructure-services" 
+	ms.date="06/22/2015" 
+	ms.author="bbenz" />
+
 #Различные рекомендации по образам виртуальных машин Oracle
 В этой статье рассматриваются рекомендации для виртуальных машин Oracle в Azure на основе образов программного обеспечения Oracle, предоставляемых корпорацией Майкрософт, на базе ОС Windows Server.
 
@@ -87,4 +101,4 @@ Azure назначает внутренний IP-адрес каждой вир�
 ##Дополнительные ресурсы
 [Образы виртуальных машин Oracle для Azure](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

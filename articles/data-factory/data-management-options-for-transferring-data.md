@@ -3,8 +3,8 @@
 	description="Рекомендации по выбору оптимального варианта для переноса данных из локального развертывания или других облачных источников в Microsoft Azure для расширенного анализа." 
 	services="data-factory, hdinsight, machine-learning, storage, sql-database" 
 	documentationCenter="" 
-	authors="cjgronlund" 
-	manager="paulettm" 
+	authors="spelluru" 
+	manager="jeffgoll" 
 	editor=""/>
 
 <tags 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.workload="big-data" 
 	ms.date="01/07/2014" 
-	ms.author="cgronlun"/>
+	ms.author="spelluru"/>
 
 # Способы переноса хранимых данных в облако Azure
 
@@ -270,4 +270,4 @@ SQL Data Sync (предварительная версия) дает возмо�
 [hybrid]: ../integration-hybrid-connection-overview.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -41,4 +41,4 @@
 * [Удостоверение Azure](fundamentals-identity.md)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

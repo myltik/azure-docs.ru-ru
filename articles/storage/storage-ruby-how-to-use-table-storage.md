@@ -159,4 +159,4 @@
 - Посетите репозиторий [Azure SDK для Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) на веб-сайте GitHub
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

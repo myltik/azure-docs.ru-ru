@@ -48,4 +48,4 @@
 
     ![Настройка службы архивации Azure](./media/backup-install-agent/configure.png)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

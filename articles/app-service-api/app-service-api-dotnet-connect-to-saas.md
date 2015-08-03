@@ -86,7 +86,7 @@
 		    ]
 		}
 
-2. Сохраните файл.
+2. Сохраните файл .
 
 Настройка свойства `authentication` вызовет следующие изменения.
 
@@ -121,7 +121,7 @@
 	 
 			install-package DropboxRestAPI  
 
-1. Откройте файл *Controllers\\ValuesController.cs* и замените весь код в файле следующим кодом.
+1. Откройте файл *Controllers\ValuesController.cs* и замените весь код в файле следующим кодом.
 
 		using DropboxRestAPI;
 		using Microsoft.Azure.AppService.ApiApps.Service;
@@ -447,4 +447,4 @@ URL-адрес перенаправления после входа в Dropbox �
 [Azure preview portal]: https://portal.azure.com/
 [Azure portal]: https://manage.windowsazure.com/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/10/2015" 
+	ms.date="07/19/2015" 
 	ms.author="nitinme"/>
 
 
@@ -41,7 +41,7 @@
 
 1. Запустите записную книжку Jupyter. Выберите кластер Spark на портале Azure, затем на панели задач портала в нижней части экрана щелкните элемент **Jupyter Notebook**. При появлении запроса введите учетные данные администратора для кластера Spark.
 
-2. Создайте новую записную книжку. Щелкните**New** (Создать), а затем выберите пункт **Python2**.
+2. Создайте новую записную книжку. Щелкните **New** (Создать), а затем выберите пункт **Python 2**.
 
 	![Создание новой записной книжки Jupyter](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.Note.Jupyter.CreateNotebook.png "Создание новой записной книжки Jupyter")
 
@@ -63,7 +63,7 @@
 
 	 ![Состояние задания записной книжки Jupyter](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.Jupyter.Job.Status.png "Состояние задания записной книжки Jupyter")
 
-4. Загрузите демонстрационные данные во временную таблицу. При подготовке кластера Spark в HDInsight файл с демонстрационными данными **hvac.csv** копируется в связанную учетную запись по следующему пути: **\\HdiSamples\\SensorSampleData\\hvac**.
+4. Загрузите демонстрационные данные во временную таблицу. При подготовке кластера Spark в HDInsight файл с демонстрационными данными **hvac.csv** копируется в связанную учетную запись хранения по следующему пути: **\HdiSamples\SensorSampleData\hvac**.
 
 	Вставьте следующий фрагмент кода в пустую ячейку и нажмите клавиши **SHIFT+ВВОД**. Этот фрагмент кода регистрирует данные в таблице Hive, которая называется **hvac**.
 
@@ -181,14 +181,14 @@
 
 	 Визуализация данных должна измениться следующим образом:
 
-	![Визуализация](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.Tableau.Final.Visual.png "Визуализация")
+	![Визуализация:](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.Tableau.Final.Visual.png "Визуализация:")
 	 
 9. Щелкните элемент **Сохранить**, чтобы сохранить изменения на листе. Можно создать панели мониторинга и добавить на них один или несколько листов.
 
 ##<a name="seealso"></a>См. также:
 
 * [Обзор: Apache Spark в Azure HDInsight](hdinsight-apache-spark-overview.md)
-* [Краткое руководство: подготовка Apache Spark в HDInsight и выполнение интерактивных запросов с помощью Spark SQL](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md)
+* [Быстрый запуск: подготовка Apache Spark в HDInsight и выполнение интерактивных запросов с помощью Spark SQL](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md)
 * [Создание приложений машинного обучения с помощью Spark в HDInsight](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 * [Использование Spark в HDInsight для создания приложений потоковой передачи данных в режиме реального времени](hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md)
 * [Управление ресурсами кластера Apache Spark в Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
@@ -205,4 +205,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

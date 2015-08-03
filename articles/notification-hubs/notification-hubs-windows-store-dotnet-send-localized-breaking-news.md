@@ -233,4 +233,4 @@
 [Инструкциях по использованию концентраторов уведомлений для Магазина Windows]: http://msdn.microsoft.com/library/jj927172.aspx
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

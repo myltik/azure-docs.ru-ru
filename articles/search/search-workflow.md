@@ -191,4 +191,4 @@ API для операций поиска включают:
 [1]: ./media/search-workflow/AzSearch-Workflow.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

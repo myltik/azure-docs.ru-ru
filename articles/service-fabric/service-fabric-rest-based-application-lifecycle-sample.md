@@ -49,9 +49,9 @@
 
 Чтобы создать пакеты приложений и скопировать их в ImageStore, выполните следующие действия.
 
-1. Скопируйте C:\\Samples\\Services\\VS2015\\WordCountUpgrade\\WordCount\\pkg\\Debug в папку C:\\Temp\\WordCount. Будет создан пакет приложения WordCount. 
-2. Скопируйте C:\\Temp\\WordCount в папку C:\\Temp\\WordCountUpgrade. Будет создан пакет приложения WordCountUpgrade.
-3. Откройте файл C:\\Temp\\WordCountUpgrade\\ApplicationManifest.xml в текстовом редакторе.
+1. Скопируйте C:\Samples\Services\VS2015\WordCountUpgrade\WordCount\pkg\Debug в папку C:\Temp\WordCount. Будет создан пакет приложения WordCount. 
+2. Скопируйте C:\Temp\WordCount в папку C:\Temp\WordCountUpgrade. Будет создан пакет приложения WordCountUpgrade.
+3. Откройте файл C:\Temp\WordCountUpgrade\ApplicationManifest.xml в текстовом редакторе.
 4. В элементе ApplicationManifest измените атрибут ApplicationTypeVersion на "1.1.0.0". Будет обновлен номер версии приложения.
 5. Сохраните измененный файл ApplicationManifest.xml.
 6. Запустите следующий сценарий PowerShell как администратор, чтобы скопировать приложения в ImageStore:
@@ -712,4 +712,4 @@ namespace ServiceFabricRestCaller
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

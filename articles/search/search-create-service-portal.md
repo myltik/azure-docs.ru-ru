@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Создание службы "Поиск Azure" на портале"
-	description="Добавление бесплатной или стандартной службы "Поиск Azure" к существующей подписке на портале управления"
+	pageTitle="Создание службы ";Поиск Azure"; на портале"
+	description="Добавление бесплатной или стандартной службы ";Поиск Azure"; к существующей подписке на портале управления"
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
 	manager="mblythe"
 	editor=""
-	tags="azure-portal"/>
+    tags="azure-portal"/>
 
 <tags
 	ms.service="search"
@@ -120,4 +120,4 @@
 [2]: ./media/search-create-service-portal/create-search-portal-2.PNG
 [3]: ./media/search-create-service-portal/create-search-portal-3.PNG
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

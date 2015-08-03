@@ -99,4 +99,4 @@
 [Очереди, разделы и подписки]: http://msdn.microsoft.com/library/azure/hh367516.aspx
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -54,4 +54,4 @@
 - [Масштабируемость служб структуры служб](service-fabric-concepts-scalability.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

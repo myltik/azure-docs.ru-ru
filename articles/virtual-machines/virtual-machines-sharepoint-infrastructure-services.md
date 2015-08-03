@@ -1,29 +1,29 @@
-<properties 
-	pageTitle="Фермы SharePoint, размещенные в службах инфраструктуры Azure" 
-	description="Ознакомьтесь с основными статьями, в которых описывается настройка фермы SharePoint 2013 для разработки и тестирования или работы в службах инфраструктуры Azure." 
-	documentationCenter="" 
+<properties
+	pageTitle="Фермы SharePoint, размещенные в службах инфраструктуры Azure"
+	description="Ознакомьтесь с основными статьями, в которых описывается настройка фермы SharePoint 2013 для разработки и тестирования или работы в службах инфраструктуры Azure."
+	documentationCenter=""
 	services="virtual-machines"
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-service-management,azure-resource-manager"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-windows-sharepoint" 
-	ms.devlang="na" 
-	ms.topic="index-page" 
-	ms.date="07/07/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.devlang="na"
+	ms.topic="index-page"
+	ms.date="07/21/2015"
 	ms.author="josephd"/>
 
 # Фермы SharePoint, размещенные в службах инфраструктуры Azure
 
 Настройте свою первую или очередную ферму SharePoint для разработки и тестирования или производства в службах инфраструктуры Microsoft Azure, где можно воспользоваться преимуществами простоты настройки и возможностью быстро развернуть ферму, чтобы использовать новую емкость или оптимизировать основные функции.
 
-## Простая ферма SharePoint для разработки и тестирования 
+## Простая ферма SharePoint для разработки и тестирования
 
-Для виртуальных машин, созданных в службе управления, используйте функцию [SharePoint Server Farm](virtual-machines-sharepoint-farm-azure-preview.md) портала предварительной версии Azure, чтобы создать базовую ферму для разработки и тестирования для веб-сайта SharePoint с доступом из Интернета.
+Для виртуальных машин, созданных в службе управления, используйте функцию [фермы серверов SharePoint](virtual-machines-sharepoint-farm-azure-preview.md) портала предварительной версии Azure, чтобы создать базовую ферму для разработки и тестирования для веб-сайта SharePoint с доступом из Интернета.
 
 Автоматически созданная среда состоит из трех серверов для контроллера домена, сервера SQL Server и сервера SharePoint в облачной виртуальной сети Azure.
 
@@ -31,7 +31,7 @@
 
 ## Высокодоступная ферма SharePoint для разработки и тестирования
 
-Для виртуальных машин, созданных в службе управления, используйте функцию [SharePoint Server Farm](virtual-machines-sharepoint-farm-azure-preview.md) портала предварительной версии Azure, чтобы создать высокодоступную ферму SharePoint для разработки и тестирования для веб-сайта SharePoint с доступом из Интернета.
+Для виртуальных машин, созданных в службе управления, используйте функцию [фермы серверов SharePoint](virtual-machines-sharepoint-farm-azure-preview.md) портала предварительной версии Azure, чтобы создать высокодоступную ферму SharePoint для разработки и тестирования для веб-сайта SharePoint с доступом из Интернета.
 
 Автоматически созданная среда состоит из девяти серверов в облачной виртуальной сети Azure: два для контроллеров домена, три для кластера SQL Server, два сервера SharePoint уровня приложений и два сервера SharePoint уровня Интернета.
 
@@ -45,17 +45,22 @@
 
 ## Высокодоступная рабочая ферма SharePoint в интрасети
 
-[Развертывая SharePoint 2013 с группами доступности AlwaysOn SQL Server в Azure](virtual-machines-workload-intranet-sharepoint-overview.md), можно создать готовую высокодоступную ферму интрасети SharePoint Server 2013 в Azure.
+Развертывая [SharePoint 2013 с группами доступности AlwaysOn SQL Server в Azure](virtual-machines-workload-intranet-sharepoint-overview.md), можно создать готовую высокодоступную ферму интрасети SharePoint Server 2013 в Azure.
 
 В этой конфигурации используются виртуальные машины, созданные в управлении службами.
 
 ## Дополнительные ресурсы
 
-[SharePoint Server в службах инфраструктуры Azure](https://msdn.microsoft.com/library/dn275955.aspx)
+Дополнительную информацию о SharePoint в Azure см. в следующих ресурсах:
 
-[Планирование SharePoint 2013 в службах инфраструктуры Azure](https://msdn.microsoft.com/library/dn275958.aspx)
+- [Архитектуры Microsoft Azure для SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
 
-[Архитектуры Microsoft Azure для SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
- 
+- [Веб-сайты в Microsoft Azure с использованием SharePoint Server 2013](https://technet.microsoft.com/library/dn635307.aspx)
 
-<!---HONumber=July15_HO2-->
+- [Аварийное восстановление SharePoint Server 2013 в Microsoft Azure](https://technet.microsoft.com/library/dn635313.aspx)
+
+- [Использование службы Microsoft Azure Active Directory для проверки подлинности в SharePoint 2013](https://technet.microsoft.com/library/dn635311.aspx)
+
+- [Развертывание службы синхронизации каталогов Office 365 (DirSync) в Microsoft Azure](https://technet.microsoft.com/library/dn635310.aspx)
+
+<!---HONumber=July15_HO4-->

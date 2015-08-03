@@ -1,30 +1,30 @@
-<properties 
-	pageTitle="Шаблон диспетчера ресурсов для трехсерверной фермы Sharepoint" 
-	description="Последовательно изучите структуру шаблона диспетчера ресурсов Azure для трехсерверной фермы SharePoint." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+<properties
+	pageTitle="Шаблон диспетчера ресурсов для трехсерверной фермы Sharepoint"
+	description="Последовательно изучите структуру шаблона диспетчера ресурсов Azure для трехсерверной фермы SharePoint."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="davidmu1"
+	manager="timlt"
 	editor=""/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/29/2015" 
-	ms.author="josephd"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/29/2015"
+	ms.author="davidmu"/>
 
 # Шаблон диспетчера ресурсов для трехсерверной фермы Sharepoint
 
 В этом разделе последовательно рассматривается структура файла шаблона azuredeploy.json для трехсерверной фермы SharePoint. Кроме того, просмотреть содержимое этого шаблона можно в браузере [здесь](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm/azuredeploy.json).
 
-Для того чтобы ознакомиться с локальной копией файла azuredeploy.json, в качестве альтернативы укажите локальную папку для расположения файла и создайте его (например, C:\\Azure\\Templates\\SharePointFarm). Введите имя папки и запустите эти команды в командной строке Azure PowerShell.
+Для того чтобы ознакомиться с локальной копией файла azuredeploy.json, в качестве альтернативы укажите локальную папку для расположения файла и создайте его (например, C:\Azure\Templates\SharePointFarm). Введите имя папки и запустите эти команды в командной строке Azure PowerShell.
 
 	$folderName="<folder name, such as C:\Azure\Templates\SharePointFarm>"
 	$webclient = New-Object System.Net.WebClient
-	$url = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm/azuredeploy.json"	
+	$url = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm/azuredeploy.json"
 	$filePath = $folderName + "\azuredeploy.json"
 	$webclient.DownloadFile($url,$filePath)
 
@@ -370,12 +370,10 @@
 
 [Поставщики вычислительных и сетевых ресурсов, а также ресурсов хранения Azure в диспетчере ресурсов Azure](virtual-machines-azurerm-versus-azuresm.md)
 
-[Общие сведения о диспетчере ресурсов Azure](../resource-group-overview.md)
+[Общие сведения о диспетчере ресурсов Azure](resource-group-overview.md)
 
-[Создание шаблонов диспетчера ресурсов Azure](../resource-group-authoring-templates.md)
+[Создание шаблонов диспетчера ресурсов Azure](resource-group-authoring-templates.md)
 
 [Документация по виртуальным машинам](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
- 
-
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

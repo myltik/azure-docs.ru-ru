@@ -17,10 +17,6 @@
 	ms.author="mwasson"/>
 
 
-
-
-
-
 # Использование разделов и подписок служебной шины
 
 В этом руководстве показано, как использовать разделы и подписки служебной шины в приложениях Node.js В этой статье описаны такие сценарии, как **создание разделов и подписок, создание фильтров подписок, отправка сообщений** в раздел, **получение сообщений от подписки** и **удаление разделов и подписок**. Дополнительные сведения о разделах и подписках см. в разделе [Дальнейшие действия](#next-steps).
@@ -140,9 +136,9 @@
 
 > [AZURE.NOTE]
 
-> Так как ко всем новым подпискам автоматически применяется фильтр по умолчанию, сначала необходимо удалить фильтр по умолчанию, иначе <strong>MatchAll</strong> переопределит все другие заданные фильтры. Вы можете удалить правило по умолчанию с помощью метода <strong>deleteRule</strong> объекта <strong>ServiceBusService</strong>.
+> Так как ко всем новым подпискам автоматически применяется фильтр по умолчанию, сначала необходимо удалить фильтр по умолчанию либо **MatchAll** переопределит поведение всех остальных заданных фильтров. Вы можете удалить правило по умолчанию с помощью метода **deleteRule** объекта **ServiceBusService**.
 
-В следующем примере создается подписка с именем HighMessages, содержащая фильтр **SqlFilter**, который выбирает только сообщения, значение настраиваемого свойства **messagenumber** которых превышает 3:
+В следующем примере создается подписка с именем HighMessages, содержащая фильтр **SqlFilter**, который выбирает только сообщения, значение настраиваемого свойства **MessageNumber** которых превышает 3:
 
     serviceBusService.createSubscription('MyTopic', 'HighMessages', function (error){
         if(!error){
@@ -175,7 +171,7 @@
         }
     }
 
-Аналогичным образом в следующем примере создается подписка с именем LowMessages и фильтром **SqlFilter**, который выбирает только сообщения, у которых значение свойства **messagenumber** меньше или равно 3:
+Аналогично, следующий пример создает подписку с именем "LowMessages" и фильтром **SqlFilter**, который выбирает только сообщения, у которых значение свойства **messagenumber** меньше или равно 3:
 
     serviceBusService.createSubscription('MyTopic', 'LowMessages', function (error){
         if(!error){
@@ -294,14 +290,14 @@
 
 Вы узнали основные сведения о разделах служебной шины. Для получения дополнительных сведений используйте следующие ссылки.
 
--   См. справочник MSDN: [Очереди, разделы и подписки][].
+-   См. справочник MSDN: [Очереди, темы и подписки][]
 -   Справочник API для [SqlFilter][].
 -   Посетите репозиторий [Пакет SDK хранилища Azure для Node] на веб-сайте GitHub.
 
   [Пакет SDK хранилища Azure для Node]: https://github.com/WindowsAzure/azure-sdk-for-node
   [Azure Management Portal]: http://manage.windowsazure.com
   [SqlFilter.SqlExpression]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
-  [Очереди, разделы и подписки]: http://msdn.microsoft.com/library/azure/hh367516.aspx
+  [Очереди, темы и подписки]: http://msdn.microsoft.com/library/azure/hh367516.aspx
   [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
   [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
   [Создание и развертывание приложения Node.js на веб-сайте Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
@@ -309,4 +305,4 @@
   [Веб-приложение Node.js с хранилищем]: /develop/nodejs/tutorials/web-site-with-storage/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

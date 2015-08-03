@@ -1,27 +1,27 @@
-<properties 
-	pageTitle="Создание виртуальной машины Windows с использованием шаблона диспетчера ресурсов" 
-	description="Используйте шаблон диспетчера ресурсов, чтобы с легкостью создать виртуальную машину Windows с помощью Azure PowerShell или интерфейса командной строки Azure." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+<properties
+	pageTitle="Создание виртуальной машины Windows с использованием шаблона диспетчера ресурсов"
+	description="Используйте шаблон диспетчера ресурсов, чтобы с легкостью создать виртуальную машину Windows с помощью Azure PowerShell или интерфейса командной строки Azure."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="davidmu1"
+	manager="timlt"
 	editor=""/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/29/2015" 
-	ms.author="josephd"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/29/2015"
+	ms.author="davidmu"/>
 
 # Создание виртуальной машины Windows с использованием шаблона диспетчера ресурсов
 
 Вы можете с легкостью создать виртуальную машину Azure под управлением Windows, используя шаблон диспетчера ресурсов с помощью Azure PowerShell или интерфейса командной строки Azure. Этот шаблон позволяет создать одну виртуальную машину под управлением Windows в новой виртуальной сети с единой подсетью в новой группе ресурсов.
 
 ![](./media/virtual-machines-create-windows-powershell-resource-manager-template/windowsvm.png)
- 
+
 Перед началом работы убедитесь, что Azure, PowerShell и интерфейс командной строки Azure настроены и готовы к работе.
 
 [AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
@@ -68,9 +68,9 @@
             "type": "string",
             "defaultValue": "2012-R2-Datacenter",
             "allowedValues": [
-                "2008-R2-SP1", 
-                "2012-Datacenter", 
-                "2012-R2-Datacenter", 
+                "2008-R2-SP1",
+                "2012-Datacenter",
+                "2012-R2-Datacenter",
                 "Windows-Server-Technical-Preview"
             ],
             "metadata": {
@@ -80,11 +80,11 @@
     },
     "variables": {
         "location": "West US",
-        "imagePublisher": "MicrosoftWindowsServer", 
-        "imageOffer": "WindowsServer", 
+        "imagePublisher": "MicrosoftWindowsServer",
+        "imageOffer": "WindowsServer",
         "OSDiskName": "osdiskforwindowssimple",
         "nicName": "myVMNic",
-        "addressPrefix": "10.0.0.0/16", 
+        "addressPrefix": "10.0.0.0/16",
         "subnetName": "Subnet",
         "subnetPrefix": "10.0.0.0/24",
         "storageAccountType": "Standard_LRS",
@@ -93,10 +93,10 @@
         "vmStorageAccountContainerName": "vhds",
         "vmName": "MyWindowsVM",
         "vmSize": "Standard_D1",
-        "virtualNetworkName": "MyVNET",        
+        "virtualNetworkName": "MyVNET",
         "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
         "subnetRef": "[concat(variables('vnetID'),'/subnets/',variables('subnetName'))]"
-    },    
+    },
     "resources": [
         {
             "type": "Microsoft.Storage/storageAccounts",
@@ -210,7 +210,7 @@
             }
         }
     ]
-	} 
+	}
 
 
 ### Шаг 2. Создание виртуальной машины с помощью шаблона
@@ -254,8 +254,8 @@
 	VERBOSE: 10:57:45 AM - Resource Microsoft.Compute/virtualMachines 'MyWindowsVM' provisioning status is running
 	VERBOSE: 10:57:45 AM - Resource Microsoft.Network/networkInterfaces 'myVMNic' provisioning status is succeeded
 	VERBOSE: 11:01:59 AM - Resource Microsoft.Compute/virtualMachines 'MyWindowsVM' provisioning status is succeeded
-	
-	
+
+
 	DeploymentName    : TestDeployment
 	ResourceGroupName : TestRG
 	ProvisioningState : Succeeded
@@ -270,7 +270,7 @@
 	                    adminPassword    SecureString
 	                    dnsNameForPublicIP  String                     contoso9875
 	                    windowsOSVersion  String                     2012-R2-Datacenter
-	
+
 	Outputs           :
 
 Теперь в новой группе ресурсов есть новая виртуальная машина Windows с именем MyWindowsVM.
@@ -293,15 +293,15 @@
 
 	azure group create testrg westus
 	info:    Executing command group create
-	+ Getting resource group testrg                                             
-	+ Creating resource group testrg                                            
+	+ Getting resource group testrg
+	+ Creating resource group testrg
 	info:    Created resource group testrg
 	data:    Id:                  /subscriptions/2c73c582-4b11-4800-96f9-a9bd790a861c/resourceGroups/testrg
 	data:    Name:                testrg
 	data:    Location:            westus
 	data:    Provisioning State:  Succeeded
-	data:    Tags: 
-	data:    
+	data:    Tags:
+	data:
 	info:    group create command OK
 
 	azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json testrg firstdeployment
@@ -312,17 +312,17 @@
 	adminPassword: Pa$$W0rd1
 	dnsNameForPublicIP: contoso
 	windowsOSVersion: 2012-R2-Datacenter
-	+ Initializing template configurations and parameters                          
-	+ Creating a deployment                                                        
+	+ Initializing template configurations and parameters
+	+ Creating a deployment
 	info:    Created template deployment "firstdeployment"
-	+ Registering providers                                                        
+	+ Registering providers
 
 
 ## Дополнительные ресурсы
 
 [Поставщики вычислительных и сетевых ресурсов, а также ресурсов хранения Azure в диспетчере ресурсов Azure](virtual-machines-azurerm-versus-azuresm.md)
 
-[Обзор диспетчера ресурсов Azure](../resource-group-overview.md)
+[Обзор диспетчера ресурсов Azure](resource-group-overview.md)
 
 [Создание виртуальной машины Windows с помощью диспетчера ресурсов Azure и PowerShell](virtual-machines-create-windows-powershell-resource-manager.md)
 
@@ -330,7 +330,6 @@
 
 [Документация по виртуальным машинам](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-[Установка и настройка Azure PowerShell](../install-configure-powershell.md)
- 
+[Установка и настройка Azure PowerShell](install-configure-powershell.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="04/13/2015"
+   ms.date="07/14/2015"
    ms.author="elfish"/>
 
 # Восстановление базы данных SQL Azure после сбоя
@@ -101,4 +101,4 @@
 После восстановления базы данных вы можете настроить ее для использования. Для этого следуйте инструкциям руководства [Завершение восстановленной базы данных](sql-database-recovered-finalize.md).
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

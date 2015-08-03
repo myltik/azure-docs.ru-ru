@@ -321,4 +321,4 @@
 <LI>При наличии вопросов обращайтесь на <a href="http://go.microsoft.com/fwlink/?LinkId=313628">форум по службам восстановления Azure</a>.</LI> </UL>
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

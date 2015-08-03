@@ -1,6 +1,19 @@
-<properties pageTitle="Операции с индексаторами (API REST службы поиска Azure: версия 2014-10-20-Preview)" description="Операции с индексаторами (API REST службы поиска Azure: версия 2014-10-20-Preview)" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" />
+<properties 
+	pageTitle="Операции с индексаторами (API REST службы поиска Azure: версия 2014-10-20-Preview)" 
+	description="Операции с индексаторами (API REST службы поиска Azure: версия 2014-10-20-Preview)" 
+	services="search"
+	documentationCenter="" 
+	authors="HeidiSteen" 
+	manager="mblythe" />
 
-<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="07/08/2015" ms.author="heidist" />
+<tags 
+	ms.service="search" 
+	ms.devlang="rest-api" 
+	ms.workload="search" 
+	ms.topic="article"  
+	ms.tgt_pltfrm="na" 
+	ms.date="07/08/2015" 
+	ms.author="heidist" />
 
 #Операции с индексаторами (API REST службы поиска Azure: версия 2014-10-20-Preview)
 
@@ -657,4 +670,4 @@
 </tr>
 </table>
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

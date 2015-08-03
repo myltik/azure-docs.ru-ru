@@ -360,10 +360,8 @@ Apache Oozie — это система рабочих процессов и ко
 		  </property>
 		</configuration>
 
-	* Замените все вхождения **wasb://mycontainer@mystorageaccount.blob.core.windows.net** значением, полученным ранее.
-
-
-	> [AZURE.WARNING] В составе пути необходимо использовать полный путь WASB с контейнером и учетной записью хранилища. Использование короткого формата (wasb:///) приведет к сбою при запуске задания RunHiveScript.
+	* Замените все вхождения **wasb://mycontainer@mystorageaccount.blob.core.windows.net** значением, полученным ранее. 
+	> [AZURE.WARNING]В составе пути необходимо использовать полный путь WASB с контейнером и учетной записью хранилища. Использование короткого формата (wasb:///) приведет к сбою при запуске задания RunHiveScript.
 
 	* Замените **JOBTRACKERADDRESS** на адрес JobTracker/ResourceManager, полученный ранее.
 
@@ -727,4 +725,4 @@ Oozie REST API позволяет создавать собственные ут
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!-----HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

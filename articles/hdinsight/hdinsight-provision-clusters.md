@@ -437,7 +437,7 @@ HDInsight использует контейнер хранилища BLOB-объ
 
 		npm install -g https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz
 
-	> [AZURE.NOTE]Если появилось сообщение об ошибке, в котором говорится, что команда NPM не найдена, проверьте наличие в переменной среды PATH следующих путей: <i>C:\\Program Files (x86)\\nodejs;C:\\Users[имя_пользователя]\\AppData\\Roaming\\npm</i> или <i>C:\\Program Files\\nodejs;C:\\Users[имя_пользователя]\\AppData\\Roaming\\npm</i>.
+	> [AZURE.NOTE]Если появилось сообщение об ошибке, в котором говорится, что команда NPM не найдена, проверьте наличие в переменной среды PATH следующих путей: <i>C:\Program Files (x86)\nodejs;C:\Users[имя_пользователя]\AppData\Roaming\npm</i> или <i>C:\Program Files\nodejs;C:\Users[имя_пользователя]\AppData\Roaming\npm</i>.
 
 5.	Выполните следующую команду, чтобы проверить установку:
 
@@ -754,4 +754,4 @@ HDInsight использует контейнер хранилища BLOB-объ
   [89e2276a]: hdinsight-use-sqoop.md "Использование Sqoop вместе с HDInsight"
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -222,4 +222,4 @@
 [Инструкции по использованию концентраторов уведомлений для iOS]: http://msdn.microsoft.com/library/jj927168.aspx
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

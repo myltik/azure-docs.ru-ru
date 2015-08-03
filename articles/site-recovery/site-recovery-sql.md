@@ -436,4 +436,4 @@ Site Recovery не поддерживает гостевой кластер пр
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

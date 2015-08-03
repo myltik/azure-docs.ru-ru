@@ -196,4 +196,4 @@
 
 [Размеры виртуальных машин и облачных служб для Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

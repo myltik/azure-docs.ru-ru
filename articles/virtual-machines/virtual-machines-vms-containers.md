@@ -1,13 +1,10 @@
 <properties 
-	title="Virtual Machines and Containers in Azure" 
 	pageTitle="Виртуальные машины и контейнеры в Azure" 
 	description="Описываются виртуальные машины, контейнеры Docker и Linux, а также их использование в группах в Azure, включая преимущества каждого из них и сценарии, в которых лучше всего работает соответствующий подход." 
 	services="virtual-machines" 
-	solutions="infrastructure" 
 	documentationCenter="virtual-machines" 
 	authors="squillace" 
-	manager="timlt" 
-/>
+	manager="timlt" />
 	
 
 <tags 
@@ -17,8 +14,7 @@
 	ms.tgt_pltfrm="infrastructure" 
 	ms.workload="infrastructure" 
 	ms.date="07/02/2015" 
-	ms.author="rasquill" 
-/>
+	ms.author="rasquill" />
 
 <!--The next line, with one pound sign at the beginning, is the page title-->
 # Виртуальные машины и контейнеры в Azure
@@ -238,4 +234,4 @@ Docker в Microsoft Azure:
 [микрослужбо]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -376,4 +376,4 @@ ACL реализуется с помощью массива политик до�
 [Справочник по пакету SDK службы хранилища Azure для API Node]: http://dl.windowsazure.com/nodestoragedocs/index.html
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

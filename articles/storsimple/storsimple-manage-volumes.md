@@ -55,7 +55,7 @@
 
 ## Добавление тома
 
-[Создание тома](storsimple-deployment-walkthrough.md#step-6:-create-a-volume) происходит во время развертывания решения StorSimple. Добавление тома происходит аналогичным образом.
+[Создание тома](storsimple-deployment-walkthrough.md#to-create-a-volume) происходит во время развертывания решения StorSimple. Добавление тома происходит аналогичным образом.
 
 ### Добавление тома
 
@@ -181,4 +181,4 @@
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

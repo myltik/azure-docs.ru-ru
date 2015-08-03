@@ -53,4 +53,4 @@ Azure сообщает каждый раз, когда происходит пр
 * [Отслеживайте доступность и скорость реагирования любой веб-страницы](../app-insights-monitor-web-app-availability.md) с помощью Application Insights, так вы сможете узнать, что страница не работает.
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

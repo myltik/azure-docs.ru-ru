@@ -93,4 +93,4 @@
 [4]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "Ссылка WebPI"
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

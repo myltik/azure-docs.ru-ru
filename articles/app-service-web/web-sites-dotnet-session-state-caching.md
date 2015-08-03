@@ -95,7 +95,7 @@
 
   *Автор: [Рик Андерсон (Rick Anderson)](https://twitter.com/RickAndMSFT)*
   
-  [installed the latest]: http://www.windowsazure.com/downloads/?sdk=net
+  [installed the latest]: http://azure.microsoft.com/downloads/?sdk=net
   [Общие сведения о состоянии сеанса ASP.NET]: http://msdn.microsoft.com/library/ms178581.aspx
 
   [NewIcon]: ./media/web-sites-dotnet-session-state-caching/CacheScreenshot_NewButton.png
@@ -108,4 +108,4 @@
   [ManageKeys]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_ManageAccessKeys.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

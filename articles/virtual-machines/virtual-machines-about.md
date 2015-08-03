@@ -6,15 +6,15 @@
 	authors="KBDAzure"
 	manager="timlt"
 	editor="tysonn"
-	tags="azure-resource-manager, azure-service-management"/>
+	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
-	ms.date="06/19/2015"
+	ms.topic="get-started-article"
+	ms.date="07/14/2015"
 	ms.author="kathydav"/>
 
 #О виртуальных машинах Azure
@@ -26,7 +26,7 @@
 Эта таблица поможет сравнить варианты, предлагаемые Azure.
 
 [AZURE.INCLUDE [virtual-machines-choose-me-content](../../includes/virtual-machines-choose-me-content.md)]
- 
+
 ## Дальнейшие действия
 
 Опробуйте простую виртуальную машину, быстро создав ее. Указания см. в одном из следующих учебников:
@@ -41,7 +41,7 @@
 
 [Различные способы создания виртуальной машины Windows](virtual-machines-windows-choices-create-vm.md)
 
-Если вы только начинаете осваивать виртуальные машины Azure, обязательно ознакомьтесь с часто задаваемыми вопросами.
+Если вы только начинаете осваивать виртуальные машины Azure, обязательно ознакомьтесь с [часто задаваемыми вопросами](virtual-machines-questions.md).
 
 
 <!--links-->
@@ -49,4 +49,4 @@
 [Virtual Machines]: #tellmevm
 [Cloud Services]: cloud-services-choose-me.md
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

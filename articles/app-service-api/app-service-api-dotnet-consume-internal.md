@@ -265,4 +265,4 @@
 Сведения о проверке подлинности в службе приложений см. в статье [Проверка подлинности для приложений API и мобильных приложений](../app-service/app-service-authentication-overview.md).
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="07/21/2015" 
 	ms.author="johnmac"/>
 
 #Уровни производительности в DocumentDB
@@ -141,4 +141,4 @@ DocumentDB предлагает широкий набор операций в б
 
 [1]: ./media/documentdb-performance-levels/img1.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

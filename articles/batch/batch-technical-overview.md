@@ -39,7 +39,7 @@
 
 * Моделирование финансовых рисков.
 * Обработка и визуализация изображений.
-* Кодирование и перекодирование мультимедиа.
+* Кодирование и перекодировка мультимедиа.
 * Анализ генетических последовательностей.
 * Тестирование программного обеспечения.
 
@@ -153,4 +153,4 @@
 [work_item_workflow]: ./media/batch-technical-overview/work_item_workflow.png
 [app_pub_workflow]: ./media/batch-technical-overview/app_pub_workflow.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

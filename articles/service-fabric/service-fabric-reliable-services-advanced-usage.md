@@ -62,4 +62,4 @@
 - [Защита трафика при репликации служб с отслеживанием состояния в Service Fabric (Azure)](../service-fabric/service-fabric-replication-security.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -42,15 +42,15 @@ Windows PowerShell — это полнофункциональная среда 
 	Вы можете получить сведения о канале ExpressRoute с помощью следующего командлета PowerShell:
 		
 
-    	PS C:> Get-AzureDedicatedCircuit
+    	PS C:\> Get-AzureDedicatedCircuit
 	
 	Эта команда возвращает список всех каналов, созданных в подписке. Чтобы получить подробные сведения о конкретных каналах ExpressRoute, можно использовать следующую команду, если у вас есть ключ службы:
 
-		 PS C:> Get-AzureDedicatedCircuit -ServiceKey <skey>
+		 PS C:\> Get-AzureDedicatedCircuit -ServiceKey <skey>
 
 	Замените <skey> действующим ключом службы.
 	
-		PS C:> Get-AzureDedicatedCircuit -ServiceKey *********************************
+		PS C:\> Get-AzureDedicatedCircuit -ServiceKey *********************************
 
 		Bandwidth                        : 200
 		CircuitName                      : TestCircuit
@@ -66,7 +66,7 @@ Windows PowerShell — это полнофункциональная среда 
 	
 	Параметры пропускной способности, поддерживаемые для вашего поставщика, см. на странице [ExpressRoute: часто задаваемые вопросы](expressroute-faqs.md). Можно выбрать любой размер, больший, чем размер существующего канала. Решив, какой размер вам необходим, вы можете использовать следующую команду для изменения размера канала.
 
-		PS C:> Set-AzureDedicatedCircuitProperties -ServiceKey ********************************* -Bandwidth 1000
+		PS C:\> Set-AzureDedicatedCircuitProperties -ServiceKey ********************************* -Bandwidth 1000
 		
 		Bandwidth                        : 1000
 		CircuitName                      : TestCircuit
@@ -85,4 +85,4 @@ Windows PowerShell — это полнофункциональная среда 
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

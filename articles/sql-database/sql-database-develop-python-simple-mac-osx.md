@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.date="07/16/2015" 
 	ms.author="mebha"/>
 
 
@@ -83,7 +83,7 @@
 
 ## Вставка строки, передача параметров и получение созданного первичного ключа
 
-Для получения автоматически созданных значений [первичного ключа](https://msdn.microsoft.com/library/ms179610.aspx) в базе данных SQL можно использовать свойство [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) и объект [SEQUENECE](https://msdn.microsoft.com/library/ff878058.aspx).
+Для получения автоматически созданных [значений первичного ключа](https://msdn.microsoft.com/library/ms179610.aspx) в Базе данных SQL можно использовать свойство [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) и объект [SEQUENCE](https://msdn.microsoft.com/library/ff878058.aspx).
 
 
 	import pymssql
@@ -118,4 +118,4 @@
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

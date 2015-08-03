@@ -255,4 +255,4 @@ Mahout — это библиотека [машинного обучения][ml]
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

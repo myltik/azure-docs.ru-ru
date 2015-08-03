@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Создание виртуальной машины Windows с помощью диспетчера ресурсов Azure и Azure PowerShell" 
-	description="Используйте режим управления ресурсами в Azure PowerShell, чтобы с легкостью создавать виртуальные машины Windows." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+<properties
+	pageTitle="Создание виртуальной машины Windows с помощью диспетчера ресурсов Azure и Azure PowerShell"
+	description="Используйте режим управления ресурсами в Azure PowerShell, чтобы с легкостью создавать виртуальные машины Windows."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="davidmu1"
+	manager="timlt"
 	editor=""/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
-	ms.author="josephd"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/02/2015"
+	ms.author="davidmu"/>
 
 # Создание виртуальной машины Windows с помощью диспетчера ресурсов Azure и Azure PowerShell
 
@@ -30,7 +30,7 @@
 
 	Get-Module azure | format-table version
 
-Если вы еще не сделали этого или вам нужно обновить версию установленной Azure PowerShell, следуйте указаниям в разделе [Как установить и настроить Azure PowerShell](../install-configure-powershell.md), чтобы установить Azure PowerShell на локальном компьютере. Затем откройте командную строку Azure PowerShell.
+Если вы еще не сделали этого или вам нужно обновить версию установленной Azure PowerShell, следуйте указаниям в разделе [Как установить и настроить Azure PowerShell](install-configure-powershell.md), чтобы установить Azure PowerShell на локальном компьютере. Затем откройте командную строку Azure PowerShell.
 
 Сначала необходимо войти в систему Azure с помощью следующей команды.
 
@@ -63,7 +63,7 @@
 
 Теперь скопируйте следующий блок команд PowerShell в текстовый редактор. Введите выбранную учетную запись хранения и расположение, заменив все содержимое в кавычках, в том числе символы < and >.
 
-	$stName="<chosen storage account name>"	
+	$stName="<chosen storage account name>"
 	$locName="<chosen Azure location name>"
 	$rgName="TestRG"
 	New-AzureResourceGroup -Name $rgName -Location $locName
@@ -79,19 +79,19 @@
 	$vm = Add-AzureVMNetworkInterface -VM $vm -Id $nic.Id
 	$osDiskUri = $storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/WindowsVMosDisk.vhd"
 	$vm = Set-AzureVMOSDisk -VM $vm -Name "windowsvmosdisk" -VhdUri $osDiskUri -CreateOption fromImage
-	New-AzureVM -ResourceGroupName $rgName -Location $locName -VM $vm 
+	New-AzureVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
 Наконец, скопируйте набор команд в буфер обмена и щелкните правой кнопкой мыши открытую командную строку Azure PowerShell. Это позволит вызвать набор команд в виде последовательности команд PowerShell. Затем вы увидите запрос на ввод имени и пароля учетной записи локального администратора, после чего будет создана виртуальная машина Azure.
 
 Должно отобразиться примерно следующее:
 
-	PS C:> $stName="contosost"
-	PS C:> $locName="West US"
-	PS C:> $rgName="TestRG"
-	PS C:> New-AzureResourceGroup -Name $rgName -Location $locName
+	PS C:\> $stName="contosost"
+	PS C:\> $locName="West US"
+	PS C:\> $rgName="TestRG"
+	PS C:\> New-AzureResourceGroup -Name $rgName -Location $locName
 	VERBOSE: 12:45:15 PM - Created resource group 'TestRG' in location 'westus'
-	
-	
+
+
 	ResourceGroupName : TestRG
 	Location          : westus
 	ProvisioningState : Succeeded
@@ -100,25 +100,25 @@
 	                    Actions  NotActions
 	                    =======  ==========
 	                    *
-	
+
 	ResourceId        : /subscriptions/fd92919d-eeca-4f5b-840a-e45c6770d92e/resourceGroups/TestRG
-	
-	
-	PS C:> $storageAcc=New-AzureStorageAccount -ResourceGroupName $rgName -Name $stName -Type "Standard_GRS" -Location $locName
-	PS C:> $singleSubnet=New-AzureVirtualNetworkSubnetConfig -Name singleSubnet -AddressPrefix 10.0.0.0/24
-	PS C:> $vnet=New-AzurevirtualNetwork -Name TestNet3 -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
-	PS C:> $pip = New-AzurePublicIpAddress -Name TestNIC -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
-	PS C:> $nic = New-AzureNetworkInterface -Name TestNIC -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
-	PS C:> $cred = Get-Credential -Message "Type the name and password of the local administrator account."
-	PS C:> $vm = New-AzureVMConfig -VMName WindowsVM -VMSize "Standard_A1"
-	PS C:> $vm = Set-AzureVMOperatingSystem -VM $vm -Windows -ComputerName MyWindowsVM -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-	PS C:> $vm = Set-AzureVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
-	PS C:> $vm = Add-AzureVMNetworkInterface -VM $vm -Id $nic.Id
-	PS C:> $osDiskUri = $storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/MyWindowsVMosDisk.vhd"
-	PS C:> $vm = Set-AzureVMOSDisk -VM $vm -Name "windowsvmosdisk" -VhdUri $osDiskUri -CreateOption fromImage
-	PS C:> New-AzureVM -ResourceGroupName $rgName -Location $locName -VM $vm
-	
-	
+
+
+	PS C:\> $storageAcc=New-AzureStorageAccount -ResourceGroupName $rgName -Name $stName -Type "Standard_GRS" -Location $locName
+	PS C:\> $singleSubnet=New-AzureVirtualNetworkSubnetConfig -Name singleSubnet -AddressPrefix 10.0.0.0/24
+	PS C:\> $vnet=New-AzurevirtualNetwork -Name TestNet3 -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
+	PS C:\> $pip = New-AzurePublicIpAddress -Name TestNIC -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
+	PS C:\> $nic = New-AzureNetworkInterface -Name TestNIC -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
+	PS C:\> $cred = Get-Credential -Message "Type the name and password of the local administrator account."
+	PS C:\> $vm = New-AzureVMConfig -VMName WindowsVM -VMSize "Standard_A1"
+	PS C:\> $vm = Set-AzureVMOperatingSystem -VM $vm -Windows -ComputerName MyWindowsVM -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
+	PS C:\> $vm = Set-AzureVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
+	PS C:\> $vm = Add-AzureVMNetworkInterface -VM $vm -Id $nic.Id
+	PS C:\> $osDiskUri = $storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/MyWindowsVMosDisk.vhd"
+	PS C:\> $vm = Set-AzureVMOSDisk -VM $vm -Name "windowsvmosdisk" -VhdUri $osDiskUri -CreateOption fromImage
+	PS C:\> New-AzureVM -ResourceGroupName $rgName -Location $locName -VM $vm
+
+
 	EndTime             : 4/28/2015 1:00:05 PM -07:00
 	Error               :
 	Output              :
@@ -132,7 +132,7 @@
 
 [Поставщики вычислительных и сетевых ресурсов, а также ресурсов хранения Azure в диспетчере ресурсов Azure](virtual-machines-azurerm-versus-azuresm.md)
 
-[Обзор диспетчера ресурсов Azure](../resource-group-overview.md)
+[Обзор диспетчера ресурсов Azure](resource-group-overview.md)
 
 [Создание виртуальной машины Windows с помощью шаблона диспетчера ресурсов и PowerShell](virtual-machines-create-windows-powershell-resource-manager-template-simple.md)
 
@@ -140,9 +140,6 @@
 
 [Документация по виртуальным машинам](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-[Установка и настройка Azure PowerShell](../install-configure-powershell.md)
+[Установка и настройка Azure PowerShell](install-configure-powershell.md)
 
-
- 
-
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

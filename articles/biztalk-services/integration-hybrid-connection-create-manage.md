@@ -124,8 +124,8 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 2. Извлеките файлы.
 3. На компьютере, где осуществляется изменение групповой политики, выполните следующие действия. 
 
-	- Скопируйте файлы ADMX в папку *%WINROOT%\\PolicyDefinitions*.
-	- Скопируйте файлы ADMX в папку *%WINROOT%\\PolicyDefinitions\\ru-ru*.
+	- Скопируйте файлы ADMX в папку *%WINROOT%\PolicyDefinitions*.
+	- Скопируйте файлы ADMX в папку *%WINROOT%\PolicyDefinitions\ru-ru*.
 
 После копирования файлов можно изменить политику с помощью редактора групповой политики.
 
@@ -139,11 +139,11 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 
 ## См. также
 
-[REST API для управления службами BizTalk в Microsoft Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx)<br/> [Службы BizTalk: Диаграмма выпусков](biztalk-editions-feature-chart.md)<br/> [Создание службы BizTalk с помощью портала управления Azure](biztalk-provision-services.md)<br/> [Службы BizTalk: вкладки "Панель мониторинга", "Монитор" и "Масштаб"](biztalk-dashboard-monitor-scale-tabs.md)<br/>
+[REST API для управления службами BizTalk в Microsoft Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx)<br/> [Службы BizTalk: Диаграмма выпусков](biztalk-editions-feature-chart.md)<br/> [Создание службы BizTalk с помощью портала управления Azure](biztalk-provision-services.md)<br/> [Службы BizTalk: вкладки «Панель мониторинга», «Монитор» и «Масштаб»](biztalk-dashboard-monitor-scale-tabs.md)<br/>
 
 
 [HybridConnectionTab]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionTab.png
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

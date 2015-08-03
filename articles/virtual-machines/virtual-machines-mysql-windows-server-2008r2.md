@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="07/10/2015" 
 	ms.author="kathydav"/>
 
 
@@ -22,6 +22,7 @@
 
 [MySQL](http://www.mysql.com) является популярной базой данных SQL с открытым исходным кодом. С помощью [портала управления Azure](http://manage.windowsazure.com) можно создать виртуальную машину под управлением Windows Server 2012 R2 из коллекции образов. Затем можно установить и настроить ее в качестве сервера MySQL.
 
+Указания по установке MySQL в Linux см. в разделе [Как установить MySQL в Azure](virtual-machines-linux-install-mysql.md).
 
 В этом учебнике описаны следующие процедуры.
 
@@ -83,7 +84,7 @@
 
 	![](./media/virtual-machines-mysql-windows-server-2008r2/MySQL_CommandPrompt.png)
  
-19.	Можно также настроить для конфигурации сервера параметры по умолчанию, например каталоги базы и данных и диски, с помощью записей в файле **C:\\Program Files (x86)\\MySQL\\MySQL Server 5.6\\my-default.ini**. Дополнительные сведения см. в разделе [Значения по умолчанию для конфигурации сервера 5.1.2](http://dev.mysql.com/doc/refman/5.6/en/server-configuration-defaults.html).
+19.	Можно также настроить для конфигурации сервера параметры по умолчанию, например каталоги базы и данных и диски, с помощью записей в файле **C:\Program Files (x86)\MySQL\MySQL Server 5.6\my-default.ini**. Дополнительные сведения см. в разделе [Значения по умолчанию для конфигурации сервера 5.1.2](http://dev.mysql.com/doc/refman/5.6/en/server-configuration-defaults.html).
 
 
 Если требуется, чтобы служба сервера MySQL была доступна для клиентских компьютеров MySQL в Интернете, необходимо настроить конечную точку для TCP-порта, который прослушивает служба сервера MySQL, и создать дополнительное правило брандмауэра Windows. Это порт TCP 3306, если только вы не указали другой порт, на странице "Type and Networking" (Тип и сеть) (шаг 10 предыдущей процедуры).
@@ -127,4 +128,4 @@
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

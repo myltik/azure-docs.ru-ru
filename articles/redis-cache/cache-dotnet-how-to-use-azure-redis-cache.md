@@ -350,7 +350,7 @@
 
 
 [NuGet Package Manager Installation]: http://go.microsoft.com/fwlink/?LinkId=240311
-[Сведения о ценах — кэш]: http://www.windowsazure.com/pricing/details/cache/
+[Сведения о ценах — кэш]: http://azure.microsoft.com/pricing/details/cache/
 [портал предварительной версии Microsoft Azure]: https://portal.azure.com/
 
 [Обзор кэша Azure Redis]: http://go.microsoft.com/fwlink/?LinkId=320830
@@ -372,4 +372,4 @@
 
 [Бесплатная пробная версия Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -21,8 +21,8 @@
 </tr>
 <tr>
    <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/resource-group-overview/">Групп ресурсов</a> на подписку</p></td>
-   <td valign="middle"><p>500</p></td>
-   <td valign="middle"><p>500</p></td>
+   <td valign="middle"><p>800</p></td>
+   <td valign="middle"><p>800</p></td>
 </tr>
 <tr>
    <td valign="middle"><p>Операций чтения API диспетчера ресурсов</p></td>
@@ -52,4 +52,4 @@
 
 <sup>3</sup>Эти возможности больше не требуются для групп ресурсов Azure и диспетчера ресурсов Azure.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

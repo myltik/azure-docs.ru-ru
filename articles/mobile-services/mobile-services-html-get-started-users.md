@@ -138,4 +138,4 @@
 [Справочник принципов использования мобильных служб HTML/JavaScript]: mobile-services-html-how-to-use-client-library.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

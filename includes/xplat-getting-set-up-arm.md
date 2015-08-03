@@ -1,13 +1,3 @@
-<properties services="virtual-machines" title="Using Azure CLI with Azure Resource Manager" authors="squillace" solutions="" manager="timlt" editor="tysonn" />
-
-<tags
-   ms.service="virtual-machine"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="linux"
-   ms.workload="infrastructure"
-   ms.date="04/13/2015"
-   ms.author="rasquill" />
 
 ## Использование Azure CLI с диспетчером ресурсов Azure (ARM)
 
@@ -64,4 +54,4 @@
 
 > [AZURE.NOTE]Вернуться к использованию команд управления службами Azure можно, введя `azure config mode asm`.
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO4-->

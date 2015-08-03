@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/19/2015"
+   ms.date="07/13/2015"
    ms.author="larryfr"/>
 
 #Разработка программ потоковой передачи на Python для HDInsight
@@ -97,19 +97,19 @@ Python позволяет с легкостью выполнить эти тре
 Создайте новый файл с именем **reducer.py** и в качестве его содержимого используйте следующий код:
 
 	#!/usr/bin/env python
-	
+
 	# import modules
 	from itertools import groupby
 	from operator import itemgetter
 	import sys
-	
+
 	# 'file' in this case is STDIN
 	def read_mapper_output(file, separator='\t'):
 		# Go through each line
 	    for line in file:
 			# Strip out the separator character
 	        yield line.rstrip().split(separator, 1)
-	
+
 	def main(separator='\t'):
 	    # Read the data using read_mapper_output
 	    data = read_mapper_output(sys.stdin, separator=separator)
@@ -127,7 +127,7 @@ Python позволяет с легкостью выполнить эти тре
 	        except ValueError:
 	            # Count was not a number, so do nothing
 	            pass
-	
+
 	if __name__ == "__main__":
 	    main()
 
@@ -153,12 +153,12 @@ Python позволяет с легкостью выполнить эти тре
 
 2. Используйте следующую команду для запуска задания MapReduce.
 
-		hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files mapper.py,reducer.py -mapper mapper.py -reducer reducer.py -input wasb:///example/data/davinci.txt -output wasb:///example/wordcountout
+		hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files mapper.py,reducer.py -mapper mapper.py -reducer reducer.py -input wasb:///example/data/gutenberg/davinci.txt -output wasb:///example/wordcountout
 
 	Эта команда состоит из следующих частей:
 
 	* **hadoop streaming.jar** — используется при выполнении операций потоковой передачи MapReduce. Эта часть обеспечивает взаимодействие Hadoop с предоставленным внешним кодом MapReduce.
-	
+
 	* **-files** — сообщает Hadoop, что для этого задания MapReduce необходимы указанные файлы, которые нужно скопировать на все рабочие узлы.
 
 	* **-mapper** — сообщает Hadoop о том, какой файл следует использовать в качестве модуля сопоставления.
@@ -201,6 +201,5 @@ Python позволяет с легкостью выполнить эти тре
 * [Использование Hive с HDInsight](hdinsight-use-hive.md)
 * [Использование Pig с HDInsight](hdinsight-use-pig.md)
 * [Использование заданий MapReduce с HDInsight](hdinsight-use-mapreduce.md)
- 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

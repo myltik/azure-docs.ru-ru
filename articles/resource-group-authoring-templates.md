@@ -405,4 +405,4 @@
 - [Общие сведения о диспетчере ресурсов Azure](./resource-group-overview.md)
 - [Схемы диспетчера ресурсов Azure](https://github.com/Azure/azure-resource-manager-schemas)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

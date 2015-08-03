@@ -141,4 +141,4 @@
 [расширением Xamarin]: http://xamarin.com/visual-studio
 [Xamarin Studio]: http://xamarin.com/download
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

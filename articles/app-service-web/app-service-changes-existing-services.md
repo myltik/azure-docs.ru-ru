@@ -90,4 +90,4 @@
 Дополнительные сведения см. в [документации по службе приложений](http://azure.microsoft.com/documentation/services/app-service/).
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

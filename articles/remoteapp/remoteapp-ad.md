@@ -108,4 +108,4 @@
 Теперь запустите средство синхронизации Microsoft Azure Active Directory. В первом запросе используйте учетные данные **myAzureSyncUser@mydomain.com** (учетные данные администратора Microsoft Azure Active Directory), а во втором — учетные данные **myDomainSyncUser@mydomain.com**.
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

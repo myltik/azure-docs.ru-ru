@@ -139,4 +139,4 @@ Application Insights может также получать данные тел�
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

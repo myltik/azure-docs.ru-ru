@@ -40,4 +40,4 @@
 ## Дальнейшие действия
 [Загрузка, регистрация и установка агента резервного копирования Azure](backup-azure-backup-download-register)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

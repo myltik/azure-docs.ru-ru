@@ -37,6 +37,10 @@
 * активная [учетная запись Microsoft Store](http://go.microsoft.com/fwlink/p/?LinkId=280045);
 * <a href="https://go.microsoft.com/fwLink/p/?LinkID=391934" target="_blank">Visual Studio Community 2013</a>.
 
+##<a name="review"></a>Проверка конфигурации сервера проекта (необязательное действие)
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-push-preview](../../includes/app-service-mobile-dotnet-backend-enable-push-preview.md)]
+
 ##<a id="register"></a>Регистрация приложения для получения push-уведомлений
 
 Для отправки push-уведомлений в универсальные приложения в службе приложений Azure необходимо отправить приложение в Магазин Windows. Затем следует интегрировать учетные данные службы push-уведомлений мобильного приложения с WNS.
@@ -191,4 +195,4 @@
 <!-- URLs. -->
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

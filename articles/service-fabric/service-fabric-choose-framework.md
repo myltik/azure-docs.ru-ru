@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/15/2015"
+   ms.date="07/09/2015"
    ms.author="seanmck"/>
 
 # Выбор платформы для службы
@@ -35,6 +35,5 @@
 
 - [Подробнее об API Reliable Actors](service-fabric-reliable-actors-introduction.md)
 - [Подробнее об API Reliable Services](../Service-Fabric/service-fabric-reliable-services-introduction.md)
- 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

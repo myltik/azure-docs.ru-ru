@@ -122,9 +122,9 @@ Azure PowerShell — это модуль, предоставляющий ком�
 
 	- **$ContainerName**: используйте заданное в сценарии имя или введите новое имя для своего контейнера.
 
-	- **$ImageToUpload**: введите путь к изображению на локальном компьютере (например, "C:\\Images\\HelloWorld.png").
+	- **$ImageToUpload**: введите путь к изображению на локальном компьютере (например, "C:\Images\HelloWorld.png").
 
-	- **$DestinationFolder**: введите путь к локальному каталогу для хранения файлов, скачанных из службы хранилища Azure (например, "C:\\DownloadImages").
+	- **$DestinationFolder**: введите путь к локальному каталогу для хранения файлов, скачанных из службы хранилища Azure (например, "C:\DownloadImages").
 
 7.	После обновления переменных сценария в файле "mystoragescript.ps1", щелкните **Файл** > **Сохранить**. Щелкните **Отладка** > **Выполнить** или нажмите клавишу **F5** для выполнения сценария.
 
@@ -421,17 +421,17 @@ Azure позволяет создать моментальный снимок BL
 Следующий пример демонстрирует добавление сущности в таблицу. В примере показано получение таблицы «employee» и добавление в нее нескольких сущностей. Во-первых, устанавливается соединение со службой хранилища Azure с помощью контекста учетной записи хранения, который включает имя учетной записи хранения и ее ключ доступа. Затем заданная таблица извлекается с помощью командлета [Get-AzureStorageTable](http://msdn.microsoft.com/library/azure/dn806411.aspx). Если таблица не существует, то используется командлет [New-AzureStorageTable](http://msdn.microsoft.com/library/azure/dn806417.aspx) для создания таблицы в хранилище Azure. Далее в примере определяется пользовательская функция Add-Entity для добавления сущности в таблицу путем указания раздела и ключа строки каждой сущности. Функция Add-Entity вызывает командлет [New-Object](http://technet.microsoft.com/library/hh849885.aspx) с классом [Microsoft.WindowsAzure.Storage.Table.DynamicTableEntity](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.dynamictableentity.aspx) для создания объекта сущности. Позже в примере вызывается метод [Microsoft.WindowsAzure.Storage.Table.TableOperation.Insert](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tableoperation.insert.aspx) этого объекта сущности для добавления в таблицу.
 
     #Function Add-Entity: Adds an employee entity to a table.
-    function Add-Entity()
-    {
-    param(
-       $table,
-       [String]$partitionKey,
-       [String]$rowKey,
-       [String]$name,
-       [Int]$id
-    )
+    function Add-Entity() {
+        [CmdletBinding()]
+        param(
+           $table,
+           [String]$partitionKey,
+           [String]$rowKey,
+           [String]$name,
+           [Int]$id
+        )
 
-      $entity = New-Object Microsoft.WindowsAzure.Storage.Table.DynamicTableEntity $partitionKey, $rowKey
+      $entity = New-Object -TypeName Microsoft.WindowsAzure.Storage.Table.DynamicTableEntity -ArgumentList $partitionKey, $rowKey
       $entity.Properties.Add("Name", $name)
       $entity.Properties.Add("ID", $id)
 
@@ -440,8 +440,8 @@ Azure позволяет создать моментальный снимок BL
 
     #Define the storage account and context.
     $StorageAccountName = "yourstorageaccount"
-    $StorageAccountKey = "Storage key for yourstorageaccount ends with =="
-    $Ctx = New-AzureStorageContext $StorageAccountName -StorageAccountKey $StorageAccountKey
+    $StorageAccountKey = Get-AzureStorageKey -StorageAccountName $StorageAccountName
+    $Ctx = New-AzureStorageContext $StorageAccountName -StorageAccountKey $StorageAccountKey.Primary
     $TableName = "Employees"
 
     #Retrieve the table if it already exists.
@@ -454,19 +454,18 @@ Azure позволяет создать моментальный снимок BL
     }
 
     #Add multiple entities to a table.
-    Add-Entity $table "Partition1" "Row1" "Chris" 1
-    Add-Entity $table "Partition1" "Row2" "Jessie" 2
-    Add-Entity $table "Partition2" "Row1" "Christine" 3
-    Add-Entity $table "Partition2" "Row2" "Steven" 4
-
+    Add-Entity -Table $table -PartitionKey Partition1 -RowKey Row1 -Name Chris -Id 1
+    Add-Entity -Table $table -PartitionKey Partition1 -RowKey Row2 -Name Jessie -Id 2
+    Add-Entity -Table $table -PartitionKey Partition2 -RowKey Row1 -Name Christine -Id 3
+    Add-Entity -Table $table -PartitionKey Partition1 -RowKey Row2 -Name Steven -Id 4
 
 #### Запрос сущностей таблицы
 Для запроса к таблице используется класс [Microsoft.WindowsAzure.Storage.Table.TableQuery](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tablequery.aspx). В следующем примере предполагается, что уже был запущен сценарий, приведенный в разделе о добавлении раздела сущностей данного руководства. Сначала пример устанавливает соединение со службой хранилища Azure, используя контекст хранилища, который включает имя учетной записи хранения и ее ключ доступа. Затем предпринимается попытка получить ранее созданную таблицу "employee" с помощью командлета [Get-AzureStorageTable](http://msdn.microsoft.com/library/azure/dn806411.aspx). Вызов[ New-Object](http://technet.microsoft.com/library/hh849885.aspx) в классе Microsoft.WindowsAzure.Storage.Table.TableQuery создает новый объект запроса. В примере выполняется поиск сущностей, которые содержат столбец «ID», значение которого равно 1, как указано в фильтре строк. Дополнительные сведения см. в разделе [Запросы к таблицам и сущностям](http://msdn.microsoft.com/library/azure/dd894031.aspx). При выполнении этого запроса он возвращает все сущности, которые соответствуют условиям фильтра.
 
     #Define the storage account and context.
     $StorageAccountName = "yourstorageaccount"
-    $StorageAccountKey = "Storage key for yourstorageaccount ends with =="
-    $Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+    $StorageAccountKey = Get-AzureStorageKey -StorageAccountName $StorageAccountName
+    $Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey.Primary;
     $TableName = "Employees"
 
     #Get a reference to a table.
@@ -497,16 +496,15 @@ Azure позволяет создать моментальный снимок BL
 
     #Define the storage account and context.
     $StorageAccountName = "yourstorageaccount"
-    $StorageAccountKey = "Storage key for yourstorageaccount ends with =="
-    $Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+    $StorageAccountKey = Get-AzureStorageKey -StorageAccountName $StorageAccountName
+    $Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey.Primary
 
     #Retrieve the table.
     $TableName = "Employees"
     $table = Get-AzureStorageTable -Name $TableName -Context $Ctx -ErrorAction Ignore
 
     #If the table exists, start deleting its entities.
-    if ($table -ne $null)
-    {
+    if ($table -ne $null) {
        #Together the PartitionKey and RowKey uniquely identify every  
        #entity within a table.
        $tableResult = $table.CloudTable.Execute([Microsoft.WindowsAzure.Storage.Table.TableOperation]::Retrieve(“Partition2”, "Row1"))
@@ -527,8 +525,8 @@ Azure позволяет создать моментальный снимок BL
 
     #Define the storage account and context.
     $StorageAccountName = "yourstorageaccount"
-    $StorageAccountKey = "Storage key for yourstorageaccount ends with =="
-    $Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+    $StorageAccountKey = Get-AzureStorageKey -StorageAccountName $StorageAccountName
+    $Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey.Primary
     $QueueName = "queuename"
     $Queue = New-AzureStorageQueue –Name $QueueName -Context $Ctx
 
@@ -560,18 +558,17 @@ Azure позволяет создать моментальный снимок BL
 
     #Define the storage account and context.
     $StorageAccountName = "yourstorageaccount"
-    $StorageAccountKey = "Storage key for yourstorageaccount ends with =="
-    $Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+    $StorageAccountKey = Get-AzureStorageKey -StorageAccountName $StorageAccountName
+    $Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey.Primary
 
     #Retrieve the queue.
     $QueueName = "queuename"
     $Queue = Get-AzureStorageQueue -Name $QueueName -Context $ctx
 
     #If the queue exists, add a new message.
-    if ($Queue -ne $null)
-    {
+    if ($Queue -ne $null) {
        # Create a new message using a constructor of the CloudQueueMessage class.
-       $QueueMessage = New-Object "Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage" "MessageInfo"
+       $QueueMessage = New-Object -TypeName Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage -ArgumentList MessageInfo
 
        #Add a new message to the queue.
        $Queue.CloudQueue.AddMessage($QueueMessage)
@@ -583,8 +580,8 @@ Azure позволяет создать моментальный снимок BL
 
     #Define the storage account and context.
     $StorageAccountName = "yourstorageaccount"
-    $StorageAccountKey = "Storage key for yourstorageaccount ends with =="
-    $Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+    $StorageAccountKey = Get-AzureStorageKey -StorageAccountName $StorageAccountName
+    $Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey.Primary
 
     #Retrieve the queue.
     $QueueName = "queuename"
@@ -739,4 +736,4 @@ Azure позволяет создать моментальный снимок BL
 [Next Steps]: #next
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

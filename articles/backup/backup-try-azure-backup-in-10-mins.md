@@ -45,4 +45,4 @@
 - Дополнительную информацию о службе архивации Azure см. в разделе [Общие сведения о резервном копировании Azure](backup-introduction-to-azure-backup.md).
 - Посетите [форум о службе архивации Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

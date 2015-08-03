@@ -41,7 +41,7 @@
 
 В данном примере командлет показан в первой строке, а затем выходные данные.
 
-	PS C:> New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
+	PS C:\> New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
 
 	VERBOSE: 4:31:35 PM - Begin Operation: New-AzureApplicationGateway 
 	VERBOSE: 4:32:37 PM - Completed Operation: New-AzureApplicationGateway
@@ -56,7 +56,7 @@
 
 В данном примере командлет показан в первой строке, а затем выходные данные.
 
-	PS C:> Get-AzureApplicationGateway AppGwTest
+	PS C:\> Get-AzureApplicationGateway AppGwTest
 
 	VERBOSE: 4:39:39 PM - Begin Operation:
 	Get-AzureApplicationGateway VERBOSE: 4:39:40 PM - Completed 
@@ -78,7 +78,7 @@
 
 В данном примере командлет показан в первой строке, а затем выходные данные. Подставьте в пример свои собственные значения.
 
-	PS C:> Add-AzureApplicationGatewaySslCertificate  -Name AppGwTest -CertificateName GWCert -Password <password> -CertificateFile <full path to pfx file> 
+	PS C:\> Add-AzureApplicationGatewaySslCertificate  -Name AppGwTest -CertificateName GWCert -Password <password> -CertificateFile <full path to pfx file> 
 	
 	VERBOSE: 5:05:23 PM - Begin Operation: Get-AzureApplicationGatewaySslCertificate 
 	VERBOSE: 5:06:29 PM - Completed Operation: Get-AzureApplicationGatewaySslCertificate
@@ -90,7 +90,7 @@
 
 В данном примере командлет показан в первой строке, а затем выходные данные.
 
-	PS C:> Get-AzureApplicationGatewaySslCertificate AppGwTest 
+	PS C:\> Get-AzureApplicationGatewaySslCertificate AppGwTest 
 
 	VERBOSE: 5:07:54 PM - Begin Operation: Get-AzureApplicationGatewaySslCertificate 
 	VERBOSE: 5:07:55 PM - Completed Operation: Get-AzureApplicationGatewaySslCertificate
@@ -177,7 +177,7 @@
 Теперь шлюз приложений необходимо настроить. Для этого можно использовать командлет `Set-AzureApplicationGatewayConfig` либо с объектом конфигурации, либо с XML-файлом конфигурации.
 
 
-	PS C:> Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile D:\config.xml
+	PS C:\> Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile D:\config.xml
 
 	VERBOSE: 7:54:59 PM - Begin Operation: Set-AzureApplicationGatewayConfig 
 	VERBOSE: 7:55:32 PM - Completed Operation: Set-AzureApplicationGatewayConfig
@@ -193,7 +193,7 @@
 **Примечание.** Выполнение командлета `Start-AzureApplicationGateway` занимает до 15–20 минут.
 
    
-	PS C:> Start-AzureApplicationGateway AppGwTest 
+	PS C:\> Start-AzureApplicationGateway AppGwTest 
 
 	VERBOSE: 7:59:16 PM - Begin Operation: Start-AzureApplicationGateway 
 	VERBOSE: 8:05:52 PM - Completed Operation: Start-AzureApplicationGateway
@@ -208,7 +208,7 @@
 
 В данном примере показан рабочий шлюз приложений, готовый к приему трафика.
 
-	PS C:> Get-AzureApplicationGateway AppGwTest 
+	PS C:\> Get-AzureApplicationGateway AppGwTest 
 
 	Name          : AppGwTest2
 	Description   : 
@@ -229,4 +229,4 @@
 - [Подсистема балансировщика нагрузки Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Диспетчер трафика Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

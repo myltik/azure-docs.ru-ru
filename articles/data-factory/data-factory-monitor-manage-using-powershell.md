@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.date="07/17/2015" 
 	ms.author="spelluru"/>
 
 # Учебник. Создание и мониторинг фабрики данных с помощью Azure PowerShell
@@ -21,6 +21,8 @@
 - [Tutorial Overview](data-factory-get-started.md)
 - [Using Data Factory Editor](data-factory-get-started-using-editor.md)
 - [Using PowerShell](data-factory-monitor-manage-using-powershell.md)
+- [Using Visual Studio](data-factory-get-started-using-vs.md)
+
 
 В уроке [Начало работы с фабрикой данных Azure][adf-get-started] рассматривается создание и мониторинг фабрики данных Azure при помощи [портала предварительной версии Azure][azure-preview-portal]. В этом учебнике создается и отслеживается фабрика данных Azure с помощью командлетов Azure PowerShell. Конвейер в фабрике данных, который создается на этом уроке, будет выполнять копирование данных из двоичного объекта Azure в базу данных SQL Azure.
 
@@ -44,7 +46,7 @@
 На этом шаге с помощью Azure PowerShell создается фабрика данных Azure с именем **ADFTutorialDataFactoryPSH**.
 
 1. Запустите **Azure PowerShell** и выполните следующие команды. Не закрывайте Azure PowerShell до завершения этого учебника. Если закрыть и снова открыть это окно, то придется вновь выполнять эти команды.
-	- Выполните командлет **Add-AzureAccount** и введите имя пользователя и пароль, которые применяются для входа на предварительную версию портала Azure.  
+	- Выполните командлет **Add-AzureAccount** и введите имя пользователя и пароль, которые применяются для входа на портал предварительной версии Azure.  
 	- Выполните командлет **Get-AzureSubscription**, чтобы просмотреть все подписки для этой учетной записи.
 	- Выполните командлет **Select-AzureSubscription**, чтобы выбрать подписку, с которой вы собираетесь работать. Эта подписка должна совпадать с той, которая используется на портале предварительной версии Azure. 
 2. Переключитесь в режим **AzureResourceManager**, поскольку командлеты фабрики данных Azure доступны только в этом режиме.
@@ -63,12 +65,12 @@
 	Имя фабрики данных Azure должно быть глобально уникальным. При выводе сообщения об ошибке **Имя фабрики данных ADFTutorialDataFactoryPSH недоступно** измените это имя (например, на вашеимяADFTutorialDataFactoryPSH). Используйте это имя вместо ADFTutorialFactoryPSH при выполнении шагов в этом учебнике.
 
 ## <a name="CreateLinkedServices"></a>Шаг 2. Создание связанных служб
-Связанные службы связывают хранилища данных или вычислительные службы с фабрикой данных Azure. Хранилище данных может располагаться в хранилище Azure, в базе данных SQL Azure или в локальной базе данных SQL Server, которая содержит вводные данные или в которой сохраняются выходные данные для конвейера фабрики данных. Служба вычислений — это служба, которая обрабатывает вводные данные и создает выходные данные.
+Связанные службы связывают хранилища данных или службы вычислений с фабрикой данных Azure. Хранилище данных может располагаться в хранилище Azure, в базе данных SQL Azure или в локальной базе данных SQL Server, которая содержит вводные данные или в которой сохраняются выходные данные для конвейера фабрики данных. Служба вычислений — это служба, которая обрабатывает вводные данные и создает выходные данные.
 
 На этом шаге создаются две связанные службы: **StorageLinkedService** и **AzureSqlLinkedService**. Связанная служба StorageLinkedService связывает учетную запись хранения Azure, а служба AzureSqlLinkedService связывает базу данных SQL Azure с фабрикой данных **ADFTutorialDataFactoryPSH**. Далее в этом учебнике будет создан конвейер, который копирует данные из контейнера больших двоичных объектов в StorageLinkedService в таблицу SQL в AzureSqlLinkedService.
 
 ### Создание связанной службы для учетной записи хранения Azure
-1.	Создайте файл JSON с именем **StorageLinkedService.json** в **C:\\ADFGetStartedPSH** со следующим содержимым. Создайте папку ADFGetStartedPSH, если она еще не существует.
+1.	Создайте файл JSON с именем **StorageLinkedService.json** в **C:\ADFGetStartedPSH** со следующим содержимым. Создайте папку ADFGetStartedPSH, если она еще не существует.
 
 		{
 		    "name": "StorageLinkedService",
@@ -133,12 +135,12 @@
 * Создайте таблицу с именем **emp** в базе данных SQL Azure, на которую указывает **AzureSqlLinkedService**.
 
 
-1. Запустите «Блокнот», вставьте следующий текст и сохраните его с именем **emp.txt** в папке **C:\\ADFGetStartedPSH** на жестком диске. 
+1. Запустите «Блокнот», вставьте следующий текст и сохраните его с именем **emp.txt** в папке **C:\ADFGetStartedPSH** на жестком диске. 
 
         John, Doe
 		Jane, Doe
 				
-2. При помощи таких средств, как [Обозреватель хранилища Azure](https://azurestorageexplorer.codeplex.com/), создайте контейнер **adftutorial** и загрузите файл **emp.txt** в этот контейнер.
+2. При помощи таких средств, как [обозреватель хранилища Azure](https://azurestorageexplorer.codeplex.com/), создайте контейнер **adftutorial** и загрузите файл **emp.txt** в этот контейнер.
 
     ![Обозреватель хранилищ Azure][image-data-factory-get-started-storage-explorer]
 3. Используйте следующий скрипт SQL, чтобы создать таблицу **emp** в базе данных SQL Azure.  
@@ -161,7 +163,7 @@
 ### Создание входной таблицы 
 Таблица представляет собой прямоугольный набор данных, который имеет схему. На этом шаге создается таблица с именем **EmpBlobTable**, указывающая на контейнер больших двоичных объектов в хранилище Azure, представленном связанной службой **StorageLinkedService**. Этот контейнер больших двоичных объектов (**adftutorial**) содержит входные данные в файле **emp.txt**.
 
-1.	Создайте файл JSON с именем **EmpBlobTable.json** в папке **C:\\ADFGetStartedPSH** со следующим содержимым:
+1.	Создайте файл JSON с именем **EmpBlobTable.json** в папке **C:\ADFGetStartedPSH** со следующим содержимым:
 
 		{
 	    	"name": "EmpTableFromBlob",
@@ -226,7 +228,7 @@
 ### Создание выходной таблицы
 В этой части шага создается выходная таблица с именем **EmpSQLTable**, которая указывает на таблицу SQL (**emp**) в базе данных SQL Azure, представленную связанной службой **AzureSqlLinkedService**. Конвейер копирует данные из входного большого двоичного объекта в таблицу **emp**.
 
-1.	Создайте файл JSON с именем **EmpSQLTable.json** в папке **C:\\ADFGetStartedPSH** со следующим содержимым.
+1.	Создайте файл JSON с именем **EmpSQLTable.json** в папке **C:\ADFGetStartedPSH** со следующим содержимым.
 		
 		{
 		    "name": "EmpSQLTable",
@@ -239,7 +241,7 @@
 		        ],
 		        "location":
 		        {
-		            "type": "AzureSQLTableLocation",
+		            "type": "AzureSqlTableLocation",
 		            "tableName": "emp",
 		            "linkedServiceName": "AzureSqlLinkedService"
 		        },
@@ -253,7 +255,7 @@
 
      Обратите внимание на следующее:
 	
-	* **Тип** расположения имеет значение **AzureSQLTableLocation**;
+	* **Тип** расположения имеет значение **AzureSqlTableLocation**.
 	* **LinkedServiceName** имеет значение **AzureSqlLinkedService**.
 	* **Tablename** имеет значение **emp**.
 	* В таблице emp базы данных имеются три столбца: **ID**, **FirstName** и **LastName**, но ID — это столбец идентификаторов, поэтому здесь необходимо задать только **FirstName** и **LastName**.
@@ -267,7 +269,7 @@
 ## <a name="CreateAndRunAPipeline"></a>Шаг 4. Создание и запуск конвейера
 На этом шаге создается конвейер с **действием копирования**, которое использует **EmpTableFromBlob** в качестве входных данных и **EmpSQLTable** в качестве выходных.
 
-1.	Создайте файл JSON с именем **ADFTutorialPipeline.json** в папке **C:\\ADFGetStartedPSH** со следующим содержимым: 
+1.	Создайте файл JSON с именем **ADFTutorialPipeline.json** в папке **C:\ADFGetStartedPSH** со следующим содержимым: 
 
 		{
 		    "name": "ADFTutorialPipeline",
@@ -428,4 +430,4 @@
 [sql-management-studio]: ../sql-database-manage-azure-ssms.md#Step2
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

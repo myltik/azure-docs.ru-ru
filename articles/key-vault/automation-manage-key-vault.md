@@ -46,4 +46,4 @@
 * Изучите раздел [Скрипты PowerShell хранилища ключей Azure](https://gallery.technet.microsoft.com/scriptcenter/Azure-Key-Vault-Powershell-1349b091).
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -70,16 +70,16 @@ None | Отправка электронной почты
 
 Теперь можно настроить соединитель SMTP для использования в рабочем процессе. Выберите действие **Отправить электронное письмо** и настройте входные свойства следующим образом:
 
-	Property | Description
+	Свойство | Описание
 	--- | ---
-	To | Enter the email address of recipient(s). Separate multiple email addresses using a semicolon (;). For example, enter: *recipient1@domain.com;recipient2@domain.com*.
-	Cc | Enter the email address of the carbon copy recipient(s). Separate multiple email addresses using a semicolon (;). For example, enter: *recipient1@domain.com;recipient2@domain.com*.
-	Subject | Enter the subject of the email.
-	Body | Enter body of the email.
-	Is HTML | When this property is set to true, the contents of the body are sent as HTML.
-	Bcc | Enter the email address of recipient(s) for blind carbon copy. Separate multiple email addresses using a semicolon (;). For example, enter: *recipient1@domain.com;recipient2@domain.com*.
-	Importance | Enter the Importance of the email. The options are Normal, Low, and High.
-	Attachments | Attachments to be sent along with the email. It contains the following fields: <ul><li>Content (String)</li><li>Content transfer Encoding (Enum) (“none”|”base64”)</li><li>Content Type (String)</li><li>Content ID (String)</li><li>File Name (String)</li></ul>
+	To | Введите адрес электронной почты получателя. При вводе нескольких адресов электронной почты отделите их точкой с запятой (;). Например, введите recipient1@domain.com;recipient2@domain.com.
+	Cc | Введите адрес электронной почты получателя копии письма. При вводе нескольких адресов электронной почты отделите их точкой с запятой (;). Например, введите recipient1@domain.com;recipient2@domain.com.
+	Subject | Введите тему электронного сообщения.
+	Body | Введите текст электронного сообщения.
+	Is HTML | Если для этого свойства установлено значение true, содержимое письма отправляется как HTML.
+	Bcc | Введите адрес электронной почты получателя скрытой копии письма. При вводе нескольких адресов электронной почты отделите их точкой с запятой (;). Например, введите recipient1@domain.com;recipient2@domain.com.
+	Importance | Укажите важность письма (нормальная, низкая, высокая).
+	Attachments | Вложения, отправляемые вместе с сообщением электронной почты. Доступны следующие поля: <ul><li>Content (String)</li><li>Content transfer Encoding (Enum) (“none”|”base64”)</li><li>Content Type (String)</li><li>Content ID (String)</li><li>File Name (String)</li></ul>
 
 	![][5]
 	![][6]
@@ -91,7 +91,7 @@ None | Отправка электронной почты
 
 Можно также просматривать статистику производительности и управлять безопасностью соединителя. См. статью [Управление встроенными приложениями API и соединителями, а также их мониторинг](app-service-logic-monitor-your-connectors.md).
 
-	<!--Image references-->
+<!--Image references-->
 [1]: ./media/app-service-logic-connector-smtp/img1.PNG
 [2]: ./media/app-service-logic-connector-smtp/img2.PNG
 [3]: ./media/app-service-logic-connector-smtp/img3.png
@@ -99,4 +99,4 @@ None | Отправка электронной почты
 [5]: ./media/app-service-logic-connector-smtp/img5.PNG
 [6]: ./media/app-service-logic-connector-smtp/img6.PNG
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

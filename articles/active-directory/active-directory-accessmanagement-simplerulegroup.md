@@ -36,4 +36,4 @@
 
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

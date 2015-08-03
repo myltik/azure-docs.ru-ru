@@ -1,5 +1,19 @@
-<properties title="Creating an Oracle Database Virtual Machine in Azure" pageTitle="Создание виртуальной машины базы данных Oracle в Azure" description="Пошагово создайте пример виртуальной машины Oracle в Microsoft Azure, а затем создайте в ней базу данных Oracle." services="virtual-machines" authors="bbenz" documentationCenter=""/>
-<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
+<properties 
+	pageTitle="Создание виртуальной машины базы данных Oracle в Azure" 
+	description="Пошагово создайте пример виртуальной машины Oracle в Microsoft Azure, а затем создайте в ней базу данных Oracle." 
+	services="virtual-machines" 
+	authors="bbenz" 
+	documentationCenter=""/>
+
+<tags 
+	ms.service="virtual-machines" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="infrastructure-services" 
+	ms.date="06/22/2015" 
+	ms.author="bbenz" />
+
 #Создание виртуальной машины базы данных Oracle в Azure
 В следующем примере показано, как можно создать в Azure виртуальную машину на основе предоставленного корпорацией Майкрософт образа базы данных Oracle под управлением Windows Server 2012. Для этого выполняется два шага: создание виртуальной машины, а затем — создание базы данных Oracle на ней. В приведенном примере используется база данных Oracle версии 12c, но шаги для версии 11g практически идентичны.
 
@@ -144,7 +158,7 @@
 
 7.	Щелкните **Добавить**.
 
-8.	Укажите имя конечной точки.
+8.	Укажите имя конечной точки:
 
 	1. Укажите протокол **TCP**.
 	
@@ -179,4 +193,4 @@
 
 -	[Oracle Database 2 Day DBA 12c Release 1](http://docs.oracle.com/cd/E16655_01/server.121/e17643/toc.htm)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

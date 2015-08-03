@@ -202,4 +202,4 @@ HDInsight работает со множеством компонентов Hado
 [image-hdiclustercreate-uploadcert]: ./media/hdinsight-administer-use-management-portal/HDI.ClusterCreate.UploadCert.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -296,4 +296,4 @@ CoreOS — это небольшой оптимизированный дистр
 [How to use docker with swarm on Azure]: virtual-machines-docker-swarm.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

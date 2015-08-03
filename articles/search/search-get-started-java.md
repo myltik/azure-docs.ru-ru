@@ -145,7 +145,7 @@
 
 	![][7]
 
-6. На следующей странице укажите каталог установки Tomcat. На компьютере под управлением Windows это, скорее всего, будет C:\\Program Files\\Apache Software Foundation\\Tomcat *версия*
+6. На следующей странице укажите каталог установки Tomcat. На компьютере под управлением Windows это, скорее всего, будет C:\Program Files\Apache Software Foundation\Tomcat *версия*
 
 6. Нажмите кнопку **Готово**
 
@@ -232,4 +232,4 @@
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -44,4 +44,4 @@
 - [Ресурсы службы автоматизации](https://msdn.microsoft.com/library/dn939988.aspx)
 - [Командлеты Azure](https://msdn.microsoft.com/library/dn690262.aspx) 
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

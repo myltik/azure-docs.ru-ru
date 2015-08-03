@@ -205,4 +205,4 @@
 Сведения об использовании проверки подлинности в приложениях API см. в статье [Проверка подлинности для приложений API и мобильных приложений в службе приложений Azure](../app-service/app-service-authentication-overview.md).
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

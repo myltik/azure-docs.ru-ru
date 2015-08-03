@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
-   ms.date="07/09/2015"
+   ms.date="07/14/2015"
    ms.author="danlep"/>
 
 # Большие вычисления в Azure: технические ресурсы для Пакетных служб и высокопроизводительных вычислений (HPC)
@@ -81,7 +81,9 @@
 
 Azure предлагает вычислительные экземпляры [различных размеров](../virtual-machines/virtual-machines-size-specs.md), включая ресурсоемкие [A8, A9, A10 и A11](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md), для выполнения рабочих нагрузок HPC в Windows и Linux.
 
-* [Экземпляры A8 и A9: руководство быстрого запуска для пакета HPC](https://msdn.microsoft.com/library/azure/dn594431.aspx)
+* [Настройка кластера Linux RDMA для выполнения приложений MPI](../virtual-machines/virtual-machines-linux-cluster-rdma.md)
+
+* [Экземпляры A8 и A9: краткое руководство для пакета HPC](https://msdn.microsoft.com/library/azure/dn594431.aspx)
 
 * [Запуск приложений MPI на экземплярах A8 и A9](https://msdn.microsoft.com/library/azure/dn592104.aspx)
 
@@ -116,4 +118,4 @@ Azure предлагает вычислительные экземпляры [р
 * Последние объявления см. в [блоге группы Microsoft HPC и Пакетной службы](http://blogs.technet.com/b/windowshpc/), а также в [блоге Azure](http://azure.microsoft.com/blog/tag/hpc/).
 * Следите также за лентой [новостей о Пакетной службе](http://azure.microsoft.com/updates/?service=batch) или подпишитесь на [RSS-канал](http://azure.microsoft.com/updates/feed/?service=batch).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

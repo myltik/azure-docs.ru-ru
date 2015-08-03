@@ -84,4 +84,4 @@
 
 [Кодирование содержимого по запросу с помощью служб мультимедиа Azure](media-services-encode-asset.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

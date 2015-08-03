@@ -136,4 +136,4 @@
 
 [Команды интерфейса командной строки Azure для управления службами](virtual-machines-command-line-tools.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

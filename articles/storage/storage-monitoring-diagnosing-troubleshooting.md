@@ -1225,4 +1225,4 @@ Wireshark — это анализатор сетевых протоколов, 
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-2.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

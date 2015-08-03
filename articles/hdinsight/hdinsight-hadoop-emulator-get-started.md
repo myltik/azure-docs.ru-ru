@@ -76,9 +76,9 @@
 
 ![Службы экосистемы Hadoop перечислены в окне эмулятора.][image-hdi-emulator-services]
 
-Службы, связанные с эмулятором HDInsight, не запускаются по умолчанию. Для запуска служб запустите из командной строки Hadoop командлет **start_local_hdp_services.cmd** из папки C:\\hdp (расположение по умолчанию). Для автоматического запуска служб после перезагрузки компьютера запустите командлет **set-onebox-autostart.cmd**.
+Службы, связанные с эмулятором HDInsight, не запускаются по умолчанию. Для запуска служб запустите из командной строки Hadoop командлет **start_local_hdp_services.cmd** из папки C:\hdp (расположение по умолчанию). Для автоматического запуска служб после перезагрузки компьютера запустите командлет **set-onebox-autostart.cmd**.
 
-Известные проблемы установки и запуска эмулятора HDInsight см. в статье [Заметки к версии эмулятора HDInsight](hdinsight-emulator-release-notes.md). Журнал установки находится по пути: **C:\\HadoopFeaturePackSetup\\HadoopFeaturePackSetupTools\\gettingStarted.winpkg.install.log**.
+Известные проблемы установки и запуска эмулятора HDInsight см. в статье [Заметки к версии эмулятора HDInsight](hdinsight-emulator-release-notes.md). Журнал установки находится по пути: **C:\HadoopFeaturePackSetup\HadoopFeaturePackSetupTools\gettingStarted.winpkg.install.log**.
 
 ##<a name="vstools"></a>Использование эмулятора с инструментами HDInsight для Visual Studio
 
@@ -108,9 +108,9 @@
 
 ## Устранение неполадок. Подключение инструментов HDInsight к эмулятору HDInsight
 
-1. При подключении к эмулятору HDInsight, несмотря на то, что в диалоговом окне отображается, что HiveServer2 подключен успешно, необходимо вручную задать для свойства **hive.security.authorization.enabled** значение **false** в файле конфигурации Hive, который расположен в папке C:\\hdp\\hive-*версия*\\conf\\hive-site.xml, а затем перезапустить локальный эмулятор. Инструменты HDInsight для Visual Studio подключаются к HiveServer2 только при просмотре 100 верхних строк таблицы. Если вы не планируете использовать такой запрос, можно не изменять конфигурацию Hive.
+1. При подключении к эмулятору HDInsight, несмотря на то, что в диалоговом окне отображается, что HiveServer2 подключен успешно, необходимо вручную задать для свойства **hive.security.authorization.enabled** значение **false** в файле конфигурации Hive, который расположен в папке C:\hdp\hive-*версия*\conf\hive-site.xml, а затем перезапустить локальный эмулятор. Инструменты HDInsight для Visual Studio подключаются к HiveServer2 только при просмотре 100 верхних строк таблицы. Если вы не планируете использовать такой запрос, можно не изменять конфигурацию Hive.
 
-2. При использовании выделения динамических IP-адресов (DHCP) на компьютере с эмулятором HDInsight может потребоваться обновить файл, расположенный в папке C:\\hdp\\hadoop-*версия*\\etc\\hadoop\\core-site.xml, и изменить значение свойства **hadoop.proxyuser.hadoop.hosts** на (*). Благодаря этому пользователь Hadoop может подключаться со всех узлов, чтобы войти под именем пользователя, введенного в Visual Studio.
+2. При использовании выделения динамических IP-адресов (DHCP) на компьютере с эмулятором HDInsight может потребоваться обновить файл, расположенный в папке C:\hdp\hadoop-*версия*\etc\hadoop\core-site.xml, и изменить значение свойства **hadoop.proxyuser.hadoop.hosts** на (*). Благодаря этому пользователь Hadoop может подключаться со всех узлов, чтобы войти под именем пользователя, введенного в Visual Studio.
 
 		<property>
 			<name>hadoop.proxyuser.hadoop.hosts</name>
@@ -123,7 +123,7 @@
 
 Теперь, когда эмулятор HDInsight настроен на рабочей станции, можно запустить учебник MapReduce, чтобы проверить правильность установки. Сначала нужно будет отправить несколько файлов данных в HDFS, а затем запустить задание на подсчет слов MapReduce для определения частоты упоминания определенных слов в этих файлах.
 
-Программа подсчета слов MapReduce упакована в архив *hadoop-mapreduce-examples-2.4.0.2.1.3.0-1981.jar*. Необходимый JAR-файл находится в папке *C:\\hdp\\hadoop-2.4.0.2.1.3.0-1981\\share\\hadoop\\mapreduce*.
+Программа подсчета слов MapReduce упакована в архив *hadoop-mapreduce-examples-2.4.0.2.1.3.0-1981.jar*. Необходимый JAR-файл находится в папке *C:\hdp\hadoop-2.4.0.2.1.3.0-1981\share\hadoop\mapreduce*.
 
 Задание на подсчет слов MapReduce принимает два аргумента:
 
@@ -209,7 +209,7 @@
 **Импорт примера данных журнала W3C**
 
 1. Откройте командную строку Hadoop с рабочего стола.
-2. Измените каталог на **C:\\hdp\\GettingStarted**.
+2. Измените каталог на **C:\hdp\GettingStarted**.
 3. Выполните следующую команду, чтобы создать и импортировать данные в HDFS:
 
 		powershell -File importdata.ps1 w3c -ExecutionPolicy unrestricted
@@ -243,12 +243,12 @@ MapReduce — основной механизм вычислений для Hado
 
 	hadoop jar <jarFileName>.jar <className> <inputFiles> <outputFolder>
 
-JAR-файл и исходные файлы находятся в папке C:\\Hadoop\\GettingStarted\\Java.
+JAR-файл и исходные файлы находятся в папке C:\Hadoop\GettingStarted\Java.
 
 **Выполнение задания MapReduce для расчета посещений веб-страницы**
 
 1. Откройте командную строку Hadoop.
-2. Измените каталог на **C:\\hdp\\GettingStarted**.
+2. Измените каталог на **C:\hdp\GettingStarted**.
 3. Выполните следующую команду, чтобы удалить выходной каталог, если такая папка уже существует. Если выходная папка уже есть, задание MapReduce завершится ошибкой.
 
 		hadoop fs -rm -r /w3c/output
@@ -257,7 +257,7 @@ JAR-файл и исходные файлы находятся в папке C:\
 
 		hadoop jar .\Java\w3c_scenarios.jar "microsoft.hadoop.w3c.TotalHitsForPage" "/w3c/input/small/data_w3c_small.txt" "/w3c/output"
 
-	В следующей таблице описаны элементы этой команды: <table border="1"> <tr><td>Параметр</td><td>Примечание</td></tr> <tr><td>w3c_scenarios.jar</td><td>JAR-файл находится в папке C:\\hdp\\GettingStarted\\Java.</td></tr> <tr><td>microsoft.hadoop.w3c.TotalHitsForPage</td><td>Тип может быть заменен одним из следующих: <ul> <li>microsoft.hadoop.w3c.AverageTimeTaken</li>; <li>microsoft.hadoop.w3c.ErrorsByPage</li>; </ul></td></tr> <tr><td>/w3c/input/small/data_w3c_small.txt</td>.<td>Входной файл может быть заменен одним из следующих: <ul> <li>/w3c/input/medium/data_w3c_medium.txt</li>; <li>/w3c/input/large/data_w3c_large.txt</li>; </ul></td></tr> <tr><td>/w3c/output</td>.<td>Это имя выходной папки.</td></tr> </table>
+	В следующей таблице описаны элементы этой команды: <table border="1"> <tr><td>Параметр</td><td>Примечание</td></tr> <tr><td>w3c_scenarios.jar</td><td>JAR-файл находится в папке C:\hdp\GettingStarted\Java.</td></tr> <tr><td>microsoft.hadoop.w3c.TotalHitsForPage</td><td>Тип может быть заменен одним из следующих: <ul> <li>microsoft.hadoop.w3c.AverageTimeTaken</li>; <li>microsoft.hadoop.w3c.ErrorsByPage</li>; </ul></td></tr> <tr><td>/w3c/input/small/data_w3c_small.txt</td>.<td>Входной файл может быть заменен одним из следующих: <ul> <li>/w3c/input/medium/data_w3c_medium.txt</li>; <li>/w3c/input/large/data_w3c_large.txt</li>; </ul></td></tr> <tr><td>/w3c/output</td>.<td>Это имя выходной папки.</td></tr> </table>
 
 4. Выполните следующую команду, чтобы отобразить выходной файл:
 
@@ -278,7 +278,7 @@ JAR-файл и исходные файлы находятся в папке C:\
 **Выполнение задания Hive**
 
 1. Откройте командную строку Hadoop.
-2. Измените каталог на **C:\\hdp\\GettingStarted**.
+2. Измените каталог на **C:\hdp\GettingStarted**.
 3. Выполните следующую команду, чтобы удалить папку **/w3c/hive/input**, если такая уже существует. Если выходная папка уже есть, задание Hive завершится ошибкой.
 
 		hadoop fs -rmr /w3c/hive/input
@@ -315,7 +315,7 @@ JAR-файл и исходные файлы находятся в папке C:\
 
         C:\hdp\hive-0.13.0.2.1.3.0-1981\bin\hive.cmd -f ./Hive/w3c/w3ctotalhitsbypage.hql
 
-	В следующей таблице описаны элементы этой команды: <table border="1"> <tr><td>Файл</td><td>Описание</td></tr> <tr><td>C:\\hdp\\hive-0.13.0.2.1.3.0-1981\\bin\\hive.cmd</td><td>Командный сценарий Hive.</td></tr> <tr><td>C:\\hdp\\GettingStarted\\Hive\\w3c\\w3ctotalhitsbypage.hql</td><td> Вы можете заменить файл сценария Hive одним из следующих: <ul> <li>C:\\hdp\\GettingStarted\\Hive\\w3c\\w3caveragetimetaken.hql</li>; <li>C:\\hdp\\GettingStarted\\Hive\\w3c\\w3cerrorsbypage.hql</li>. </ul> </td></tr>
+	В следующей таблице описаны элементы этой команды: <table border="1"> <tr><td>Файл</td><td>Описание</td></tr> <tr><td>C:\hdp\hive-0.13.0.2.1.3.0-1981\bin\hive.cmd</td><td>Командный сценарий Hive.</td></tr> <tr><td>C:\hdp\GettingStarted\Hive\w3c\w3ctotalhitsbypage.hql</td><td> Вы можете заменить файл сценария Hive одним из следующих: <ul> <li>C:\hdp\GettingStarted\Hive\w3c\w3caveragetimetaken.hql</li>; <li>C:\hdp\GettingStarted\Hive\w3c\w3cerrorsbypage.hql</li>. </ul> </td></tr>
 
 	</table>
 
@@ -352,12 +352,12 @@ JAR-файл и исходные файлы находятся в папке C:\
 **Выполнение заданий Pig**
 
 1. Откройте командную строку Hadoop.
-2. Измените каталог на **C:\\hdp\\GettingStarted**.
+2. Измените каталог на **C:\hdp\GettingStarted**.
 3. Выполните следующую команду, чтобы отправить задание Pig:
 
 		C:\hdp\pig-0.12.1.2.1.3.0-1981\bin\pig.cmd -f ".\Pig\w3c\TotalHitsForPage.pig" -p "input=/w3c/input/small/data_w3c_small.txt"
 
-	В следующей таблице описаны элементы этой команды: <table border="1"> <tr><td>Файл</td><td>Описание</td></tr> <tr><td>C:\\hdp\\pig-0.12.1.2.1.3.0-1981\\bin\\pig.cmd</td>.<td>Командный сценарий Pig.</td></tr> <tr><td>C:\\hdp\\GettingStarted\\Pig\\w3c\\TotalHitsForPage.pig</td><td> Вы можете заменить файл сценария Pig Latin одним из следующих: <ul> <li>C:\\hdp\\GettingStarted\\Pig\\w3c\\AverageTimeTaken.pig</li>; <li>C:\\hdp\\GettingStarted\\Pig\\w3c\\ErrorsByPage.pig</li> </ul>. </td></tr> <tr><td>/w3c/input/small/data_w3c_small.txt</td><td> Вы можете заменить этот параметр файлом большего размера:
+	В следующей таблице описаны элементы этой команды: <table border="1"> <tr><td>Файл</td><td>Описание</td></tr> <tr><td>C:\hdp\pig-0.12.1.2.1.3.0-1981\bin\pig.cmd</td>.<td>Командный сценарий Pig.</td></tr> <tr><td>C:\hdp\GettingStarted\Pig\w3c\TotalHitsForPage.pig</td><td> Вы можете заменить файл сценария Pig Latin одним из следующих: <ul> <li>C:\hdp\GettingStarted\Pig\w3c\AverageTimeTaken.pig</li>; <li>C:\hdp\GettingStarted\Pig\w3c\ErrorsByPage.pig</li> </ul>. </td></tr> <tr><td>/w3c/input/small/data_w3c_small.txt</td><td> Вы можете заменить этот параметр файлом большего размера:
 
 	<ul>
 <li>/w3c/input/medium/data_w3c_medium.txt</li>
@@ -406,7 +406,7 @@ The samples currently contain all the required binaries, so building is not requ
 
 **Настройка подключения к учетной записи хранения Azure**
 
-1. Откройте файл, расположенный в папке **C:\\hdp\\hadoop-2.4.0.2.1.3.0-1981\\etc\\hadoop\\core-site.xml**, в Блокноте.
+1. Откройте файл, расположенный в папке **C:\hdp\hadoop-2.4.0.2.1.3.0-1981\etc\hadoop\core-site.xml**, в Блокноте.
 2. Добавьте следующий тег <property> рядом с другими тегами <property>:
 
 		<property>
@@ -491,4 +491,4 @@ The samples currently contain all the required binaries, so building is not requ
 [image-hdi-emulator-services]: ./media/hdinsight-hadoop-emulator-get-started/HDI.Emulator.Services.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

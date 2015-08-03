@@ -18,14 +18,6 @@
 
 # Финализация восстановленной Базы данных SQL Azure
 
-> [AZURE.SELECTOR]
-- [Point in Time Restore - portal](sql-database-point-in-time-restore-tutorial-management-portal.md)
-- [Point in Time Restore - PowerShell](sql-database-point-in-time-restore-tutorial-powershell.md)
-- [Point in Time Restore - REST API](sql-database-point-in-time-restore-tutorial-rest.md)
-- [Geo-Restore - portal](sql-database-geo-restore-tutorial-management-portal.md)
-- [Geo-Restore - PowerShell](sql-database-geo-restore-tutorial-powershell.md)
-- [Geo-Restore - REST API](sql-database-geo-restore-tutorial-rest.md)
-
 ## Обзор
 
 В этой статье представлен контрольный список задач, которые необходимо выполнить перед добавлением только что восстановленной базы данных SQL Azure обратно в рабочую среду. Этот контрольный список применяется к базам данных, восстановленным после отработки отказа георепликации, удаленным базам данных, восстановленным базам данных на момент времени, а также к географически восстановленным базам данных.
@@ -64,4 +56,4 @@
 Если для доступа к базе данных требуется аудит, то после восстановления базы данных необходимо включить аудит. Индикатором того, что необходим аудит, служит использование в клиентских приложениях строк безопасного подключения вида *. database.secure.windows.net. Дополнительные сведения см. в статье [Приступая к работе с аудитом базы данных SQL](sql-database-auditing-get-started.md). 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

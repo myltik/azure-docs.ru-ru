@@ -105,4 +105,4 @@
 [Дополнительные сведения о службе хранилища Azure](http://azure.microsoft.com/documentation/services/storage/) См. также статьи [Обзор ресурсов хранения и управление ими в обозревателе серверов](http://msdn.microsoft.com/library/azure/ff683677.aspx) и [ASP.NET 5](http://www.asp.net/vnext).
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.date="07/16/2015" 
 	ms.author="spelluru"/>
 
 # Использование настраиваемых действий в конвейере фабрики данных Azure
@@ -21,68 +21,9 @@
 
 В этой статье описывается процесс создания настраиваемого действия и методы его использования в конвейере фабрики данных Azure. Кроме того, в ней содержится подробное руководство с пошаговыми указаниями для создания и использования настраиваемого действия. В этом пошаговом руководстве используется связанная служба HDInsight. Чтобы вместо нее использовать связанную Пакетную службу Azure, создайте связанную службу типа **AzureBatchLinkedService** и используйте ее в разделе действия в конвейере JSON (**linkedServiceName**). Дополнительные сведения об использовании Пакетной службы Azure с пользовательским действием см. в разделе [Связанная Пакетная служба Azure](#AzureBatch).
 
-## Предварительные требования
-Скачайте последний [пакет NuGet для фабрики данных Azure][nuget-package] и установите его. Инструкции приведены в [пошаговом руководстве](#SupportedSourcesAndSinks) этой статьи.
-
-## Создание настраиваемого действия
-
-Чтобы создать настраиваемое действие:
- 
-1.	Создайте проект **Библиотека классов** в Visual Studio 2013.
-3. Добавьте следующие инструкции с оператором using в начало исходного файла в библиотеке классов.
-	
-		using Microsoft.Azure.Management.DataFactories.Models;
-		using Microsoft.DataFactories.Runtime; 
-
-4. Обновите класс для реализации интерфейса **IDotNetActivity**.
-	<ol type='a'>
-	<li>
-		Определите класс, производный от <b>IDotNetActivity</b>.
-		<br/>
-		Пример: <br/>
-		public class <b>MyDotNetActivity: IDotNetActivity</b>
-	</li>
-
-	<li>
-		Реализуйте метод <b>Execute</b> интерфейса <b>IDotNetActivity</b>.
-	</li>
-
-</ol>
-5. Скомпилируйте проект.
-
-
-## Использование настраиваемого действия в конвейере
-Использование настраиваемого действия в конвейере
-
-1.	**Запакуйте** все двоичные файлы из выходной папки **bin\\debug** или **bin\\release** для проекта. 
-2.	**Отправьте ZIP-файл** в качестве большого двоичного объекта в **службу хранилища больших двоичных объектов Azure**. 
-3.	Обновите **JSON-файл конвейера** для ссылки на ZIP-файл, библиотеку DLL для настраиваемого действия, класс действия и большой двоичный объект, содержащий ZIP-файл в JSON-файле конвейера. В JSON-файле:
-	<ol type ="a">
-	<li>для <b>типа действия</b> должно быть установлено значение <b>CustomActivity</b>;</li>
-	<li><b>AssemblyName</b>&#160;— это имя выходной библиотеки DLL из проекта Visual Studio;</li>
-	<li><b>EntryPoint</b> определяет <b>пространство имен</b> и <b>имя</b> <b>класса</b>, реализующего интерфейс <b>IDotNetActivity</b>;</li>
-	<li><b>PackageLinkedService</b>&#160;— это связанная служба, которая относится к большому двоичному объекту, содержащему ZIP-файл; </li>
-	<li><b>PackageFile</b> указывает расположение и имя ZIP-файла, отправленного в службу хранилища больших двоичных объектов Azure;</li>
-	<li><b>LinkedServiceName</b>&#160;— это имя связанной службы, связывающей кластер HDInsight (по запросу или собственный) с фабрикой данных. В кластере HDInsight настраиваемое действие выполняется только как задание сопоставления.</li>
-</ol>**Пример части JSON-файла**
-
-		"Name": "MyDotNetActivity",
-    	"Type": "DotNetActivity",
-    	"Inputs": [{"Name": "EmpTableFromBlob"}],
-    	"Outputs": [{"Name": "OutputTableForCustom"}],
-		"LinkedServiceName": "myhdinsightcluster",
-    	"Transformation":
-    	{
-	    	"AssemblyName": "MyDotNetActivity.dll",
-    	    "EntryPoint": "MyDotNetActivityNS.MyDotNetActivity",
-    	    "PackageLinkedService": "MyBlobStore",
-    	    "PackageFile": "customactivitycontainer/MyDotNetActivity.zip",
-
-## Обновление настраиваемого действия
-Если вы обновляете код для настраиваемого действия, создайте его и отправьте ZIP-файл, содержащий новые двоичные файлы, в службу хранилища больших двоичных объектов.
 
 ## <a name="walkthrough" /> Пошаговое руководство
-В этом руководстве содержатся пошаговые указания для создания настраиваемого действия и его использования в конвейере фабрики данных Azure Это руководство представляет собой расширенную версию учебника из статьи [Приступая к работе с фабрикой данных Azure][adfgetstarted]. Если вы хотите увидеть, как работает настраиваемое действие, сначала ознакомьтесь с учебником по началу работы, а затем приступайте к этому руководству.
+В этом руководстве содержатся пошаговые указания для создания настраиваемого действия и его использования в конвейере фабрики данных Azure. Это руководство представляет собой расширенную версию учебника из статьи [Приступая к работе с фабрикой данных Azure][adfgetstarted]. Если вы хотите увидеть, как работает настраиваемое действие, сначала ознакомьтесь с учебником по началу работы, а затем приступайте к этому руководству.
 
 **Предварительные требования:**
 
@@ -90,7 +31,7 @@
 - Учебник из статьи [Приступая к работе с фабрикой данных Azure][adfgetstarted]. Прежде чем продолжить работу с руководством, вам следует ознакомиться с этим учебником.
 - Visual Studio 2012 или 2013
 - Скачайте и установите пакет [Azure .NET SDK][azure-developer-center].
-- Скачайте последний [пакет NuGet для фабрики данных Azure][nuget-package] и установите его. Инструкции приведены в этом пошаговом руководстве.
+- Скачайте последний [пакет NuGet для фабрики данных Azure](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactories/) и установите его. Инструкции приведены в этом пошаговом руководстве.
 - Скачайте и установите пакет NuGet для службы хранилища Azure. В руководстве содержатся указания, так что вы можете пропустить этот шаг.
 
 ## Шаг 1. Создание настраиваемого действия
@@ -99,7 +40,7 @@
 	<ol type="a">
 	<li>запустите <b>Visual Studio 2012</b> или <b>Visual Studio 2013</b>;</li>
 	<li>Щелкните <b>Файл</b>, наведите указатель мыши на пункт <b>Создать</b> и щелкните <b>Проект</b>.</li> 
-	<li>разверните раздел <b>Шаблоны</b> и выберите <b>Visual C#</b>. В этом руководстве используется язык C#, но для создания настраиваемого действия вы можете использовать любой язык .NET.;</li> 
+	<li>Разверните раздел <b>Шаблоны</b> и выберите <b>Visual C#</b>. В этом руководстве используется язык C#, но для создания настраиваемого действия вы можете использовать любой язык .NET.;</li> 
 	<li>выберите тип <b>Библиотека классов</b> в списке типов проектов справа;</li>
 	<li>в поле <b>Имя</b> введите <b>MyDotNetActivity</b>;</li> 
 	<li>в поле <b>Расположение</b> выберите <b>C:\ADFGetStarted</b>;</li>
@@ -109,10 +50,6 @@
 3.	В <b>консоли диспетчера пакетов</b> выполните следующую команду, чтобы импортировать пакет <b>Microsoft.Azure.Management.DataFactories</b>. 
 
 		Install-Package Microsoft.Azure.Management.DataFactories –Pre
-
-3.	В <b>консоли диспетчера пакетов</b> выполните следующую команду, чтобы импортировать пакет <b>Microsoft.DataFactories.Runtime</b>. Введите вместо имени папки расположение, в котором содержится скачанный пакет NuGet для фабрики данных.
-
-		Install-Package Microsoft.DataFactories.Runtime –Pre
 
 4. Импортируйте пакет NuGet для службы хранилища Azure в проект.
 
@@ -125,8 +62,8 @@
 		using System.Diagnostics;
 	
 		using Microsoft.Azure.Management.DataFactories.Models;
-		using Microsoft.DataFactories.Runtime; 
-	
+		using Microsoft.Azure.Management.DataFactories.Runtime;
+
 		using Microsoft.WindowsAzure.Storage;
 		using Microsoft.WindowsAzure.Storage.Blob;
   
@@ -145,22 +82,22 @@
 	В следующем примере кода подсчитывается количество строк во входном большом двоичном объекте и выводит в выходном большом двоичном объекте следующее содержимое: путь к большому двоичному объекту, количество строк в большом двоичном объекте, имя компьютера, на котором выполняется действие, текущие дата и время.
 
         public IDictionary<string, string> Execute(
-                    IEnumerable<ResolvedTable> inputTables, 
-                    IEnumerable<ResolvedTable> outputTables, 
-                    IDictionary<string, string> extendedProperties, 
-                    IActivityLogger logger)
+          IEnumerable<DataSet> inputTables,
+          IEnumerable<DataSet> outputTables,
+          IDictionary<string, string> extendedProperties,
+          IActivityLogger logger)
         {
             string output = string.Empty;
 
-            logger.Write(TraceEventType.Information, "Before anything...");
+            logger.Write("Before anything...");
 
-            logger.Write(TraceEventType.Information, "Printing dictionary entities if any...");
+            logger.Write("Printing dictionary entities if any...");
             foreach (KeyValuePair<string, string> entry in extendedProperties)
             {
-                logger.Write(TraceEventType.Information, "<key:{0}> <value:{1}>", entry.Key, entry.Value);
+                logger.Write("<key:{0}> <value:{1}>", entry.Key, entry.Value);
             }
 
-            foreach (ResolvedTable inputTable in inputTables)
+            foreach (DataSet inputTable in inputTables)
             {
                 string connectionString = GetConnectionString(inputTable.LinkedService);
                 string folderPath = GetFolderPath(inputTable.Table);
@@ -171,7 +108,7 @@
                     continue;
                 }
 
-                logger.Write(TraceEventType.Information, "Reading blob from: {0}", folderPath);
+                logger.Write("Reading blob from: {0}", folderPath);
 
                 CloudStorageAccount inputStorageAccount = CloudStorageAccount.Parse(connectionString);
                 CloudBlobClient inputClient = inputStorageAccount.CreateCloudBlobClient();
@@ -180,13 +117,13 @@
 
                 do
                 {
-                    BlobResultSegment result = inputClient.ListBlobsSegmented(folderPath, 
-												true, 
-												BlobListingDetails.Metadata, 
-												null, 
-												continuationToken, 
-												null, 
-												null);
+                    BlobResultSegment result = inputClient.ListBlobsSegmented(folderPath,
+                                                true,
+                                                BlobListingDetails.Metadata,
+                                                null,
+                                                continuationToken,
+                                                null,
+                                                null);
                     foreach (IListBlobItem listBlobItem in result.Results)
                     {
                         CloudBlockBlob inputBlob = listBlobItem as CloudBlockBlob;
@@ -200,7 +137,7 @@
                                     string line = sr.ReadLine();
                                     if (count == 0)
                                     {
-                                        logger.Write(TraceEventType.Information, "First line: [{0}]", line);
+                                        logger.Write("First line: [{0}]", line);
                                     }
                                     count++;
                                 }
@@ -222,7 +159,7 @@
                 } while (continuationToken != null);
             }
 
-            foreach (ResolvedTable outputTable in outputTables)
+            foreach (DataSet outputTable in outputTables)
             {
                 string connectionString = GetConnectionString(outputTable.LinkedService);
                 string folderPath = GetFolderPath(outputTable.Table);
@@ -233,7 +170,7 @@
                     continue;
                 }
 
-                logger.Write(TraceEventType.Information, "Writing blob to: {0}", folderPath);
+                logger.Write("Writing blob to: {0}", folderPath);
 
                 CloudStorageAccount outputStorageAccount = CloudStorageAccount.Parse(connectionString);
                 Uri outputBlobUri = new Uri(outputStorageAccount.BlobEndpoint, folderPath + "/" + Guid.NewGuid() + ".csv");
@@ -245,19 +182,21 @@
             return new Dictionary<string, string>();
 
         }
+    } }
 
 9. Добавьте следующие вспомогательные методы. Эти вспомогательные методы вызывает метод **Execute**. Метод **GetConnectionString** извлекает строку подключения к службе хранилища Azure, а **GetFolderPath** — расположение большого двоичного объекта.
 
 
         private static string GetConnectionString(LinkedService asset)
         {
-            AzureStorageLinkedService storageAsset;
+
             if (asset == null)
             {
                 return null;
             }
 
-            storageAsset = asset.Properties as AzureStorageLinkedService;
+            AzureStorageLinkedService storageAsset = asset.Properties.TypeProperties as AzureStorageLinkedService;
+          
             if (storageAsset == null)
             {
                 return null;
@@ -268,26 +207,25 @@
 
         private static string GetFolderPath(Table dataArtifact)
         {
-            AzureBlobLocation blobLocation;
             if (dataArtifact == null || dataArtifact.Properties == null)
             {
                 return null;
             }
 
-            blobLocation = dataArtifact.Properties.Location as AzureBlobLocation;
-            if (blobLocation == null)
+            AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
+            if (blobDataset == null)
             {
                 return null;
             }
 
-            return blobLocation.FolderPath;
+            return blobDataset.FolderPath;
         }
    
 
 
 10. Скомпилируйте проект. В меню щелкните **Построить** и **Построить решение**.
-11. Запустите **Проводник Windows** и перейдите к папке **bin\\debug** или **bin\\release** в зависимости от типа сборки.
-12. Создайте ZIP-файл **MyDotNetActivity.zip**, который содержит все двоичные файлы из папки <project folder>\\bin\\Debug.
+11. Запустите **Проводник Windows** и перейдите к папке **bin\debug** или **bin\release** в зависимости от типа сборки.
+12. Создайте ZIP-файл **MyDotNetActivity.zip**, который содержит все двоичные файлы из папки <project folder>\bin\Debug.
 13. Отправьте архив **MyDotNetActivity.zip** в качестве большого двоичного объекта в контейнер больших двоичных объектов **customactvitycontainer** из хранилища больших двоичных объектов Azure, используемого связанной службой **MyBlobStore** в **ADFTutorialDataFactory**. Создайте контейнер больших двоичных объектов **blobcustomactivitycontainer**, если он еще не создан. 
 
 
@@ -341,11 +279,11 @@
 	3. В свойстве **Password** укажите пароль этого пользователя. 
 	4. В свойстве **LinkedServiceName** введите **StorageLinkedService**. Это связанная служба, которая была создана в учебнике по началу работы. 
 
-2. Нажмите кнопку **Развернуть** на панели команд, чтобы развернуть эту связанную службу.
+2. Чтобы развернуть эту службу, нажмите кнопку **Развернуть** на панели команд.
 
 ### Создание выходной таблицы
 
-1. В **редакторе фабрики данных** нажмите кнопку **Создать набор данных** и щелкните **Хранилище BLOB-объектов Azure** на панели команд.
+1. В **редакторе фабрики данных** нажмите кнопку **Создать набор данных** и щелкните **Хранилище больших двоичных объектов Azure** на панели команд.
 2. Замените сценарий JSON в правой области на следующий:
 
 		{
@@ -358,11 +296,11 @@
 					"folderPath": "adftutorial/customactivityoutput/{Slice}",
 					"partitionedBy": [ { "name": "Slice", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyyMMddHH" } }],
 
-					"linkedServiceName": "MyBlobStore"
+					"linkedServiceName": "StorageLinkedService"
         		},
         		"availability": 
         		{
-            		"frequency": "hour",
+            		"frequency": "Hour",
             		"interval": 1
         		}   
     		}
@@ -396,7 +334,7 @@
                      	{
                         	"AssemblyName": "MyDotNetActivity.dll",
                             "EntryPoint": "MyDotNetActivityNS.MyDotNetActivity",
-                            "PackageLinkedService": "MyBlobStore",
+                            "PackageLinkedService": "StorageLinkedService",
                             "PackageFile": "customactivitycontainer/MyDotNetActivity.zip",
                             "ExtendedProperties":
 							{
@@ -447,6 +385,9 @@
 	![скачивание журналов из настраиваемого действия][image-data-factory-download-logs-from-custom-activity]
    
 См. статью [Приступая к работе с фабрикой данных Azure][adfgetstarted], чтобы просмотреть подробные шаги по мониторингу наборов данных и конвейеров.
+
+## Обновление настраиваемого действия
+Если вы обновляете код для настраиваемого действия, создайте его и отправьте ZIP-файл, содержащий новые двоичные файлы, в службу хранилища больших двоичных объектов.
     
 ## <a name="AzureBatch"></a> Использование связанной Пакетной службы Azure 
 > [AZURE.NOTE]В статье [Технический обзор Пакетной службы Azure][batch-technical-overview] представлен обзор Пакетной службы Azure. Статья [Приступая к работе с Пакетной службой Azure для .NET][batch-get-started] поможет быстро начать работать с Пакетной службой Azure.
@@ -523,4 +464,4 @@
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

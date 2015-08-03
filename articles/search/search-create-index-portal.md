@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Создание индекса службы "Поиск Azure" на портале"
-	description="Добавление индекса к службе "Поиск Azure" путем заполнения определений полей на портале управления"
+	pageTitle="Создание индекса службы ";Поиск Azure"; на портале"
+	description="Добавление индекса к службе ";Поиск Azure"; путем заполнения определений полей на портале управления"
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
 	manager="mblythe"
 	editor=""
-	tags="azure-portal"/>
+    tags="azure-portal"/>
 
 <tags
 	ms.service="search"
@@ -100,4 +100,4 @@
 [4]: ./media/search-create-index-portal/AzureSearch-PortalIndex-4.PNG
 [5]: ./media/search-create-index-portal/AzureSearch-PortalIndex-5.PNG
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

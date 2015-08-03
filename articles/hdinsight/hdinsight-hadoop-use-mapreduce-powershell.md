@@ -173,4 +173,4 @@ Azure PowerShell предоставляет *командлеты*, позвол
 
 * [Использование Pig с Hadoop в HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -139,7 +139,7 @@
 
 2. Создайте файл с именем `_backup.filter` и поместите в него приведенный выше список, при этом удалив `D:\home`. В одной строке указывайте один каталог или файл. В результате содержимое файла будет выглядеть так:
 
-    \\site\\wwwroot\\Logs \\LogFiles \\site\\wwwroot\\Images\\2013 \\site\\wwwroot\\Images\\2014 \\site\\wwwroot\\Images\\brand.png
+    \site\wwwroot\Logs \LogFiles \site\wwwroot\Images\2013 \site\wwwroot\Images\2014 \site\wwwroot\Images\brand.png
 
 3. Загрузите этот файл в каталог `D:\home\site\wwwroot` своего сайта с помощью [ftp](web-sites-deploy.md#ftp) или любым другим способом. При желании можно создать файл непосредственно в `http://{yourapp}.scm.azurewebsites.net/DebugConsole` и вставить в него содержимое.
 
@@ -219,4 +219,4 @@
 [GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -285,4 +285,4 @@ Set-AzureVMExtension -VM $vm -Publisher 'Microsoft.EnterpriseCloud.Monitoring' -
 
 [Настройка параметров прокси-сервера и брандмауэра (необязательно)](../operational-insights-proxy-filewall.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

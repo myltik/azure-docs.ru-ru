@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Знакомство с основными понятиями Stream Analytics | Microsoft Azure" 
-	description="Ознакомьтесь с основными понятиями Azure Stream Analytics — компонентами задания Stream Analytics, в том числе со сведениями о поддерживаемых входных и выходных данных, конфигурации задания и метриках." 	
+	description="Ознакомьтесь с основными понятиями Azure Stream Analytics — компонентами задания Stream Analytics, в том числе со сведениями о поддерживаемых входных и выходных данных, конфигурации задания и метриках." 
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -206,4 +206,4 @@ Azure Stream Analytics — это полностью управляемая сл
 - [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

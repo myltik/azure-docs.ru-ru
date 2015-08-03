@@ -234,4 +234,4 @@
 
 [Шифрование на стороне клиента для службы хранилища Microsoft Azure — предварительная версия](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/04/28/client-side-encryption-for-microsoft-azure-storage-preview.aspx) Скачайте [клиентскую библиотеку хранилища Azure для пакета .NET NuGet](http://www.nuget.org/packages/WindowsAzure.Storage/4.4.0-preview) Скачайте [клиентскую библиотеку хранилища Azure для исходного кода .NET](https://github.com/Azure/azure-storage-net/tree/preview) из GitHub Скачайте пакеты NuGet [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/) для хранилища ключей Azure, [клиентское приложение](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) и [расширения](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) Просмотрите [документацию по хранилищу ключей Azure](../articles/key-vault-whatis.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

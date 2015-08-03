@@ -3,7 +3,7 @@
    description="Описывается, как распаковать, установить в стойку и подключить устройство StorSimple 8600."
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
+   authors="alkohli"
    manager="carolz"
    editor="" />
 <tags 
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/08/2015"
-   ms.author="v-sharos" />
+   ms.date="07/17/2015"
+   ms.author="alkohli" />
 
 # Установка устройства StorSimple 8600
 
@@ -138,7 +138,7 @@ Microsoft Azure StorSimple 8600 представляет собой устрой
      1 | Зажимной винт
      2 | Винт для квадратного отверстия передней стенки стойки
      3 | Расположение штифтов на левой передней рельсовой направляющей
-     4 | Зажимной винт
+     4. | Зажимной винт
      5 | Расположение штифтов на правой передней рельсовой направляющей
 
 ### Монтирование корпуса EBOD в стойку 
@@ -382,4 +382,4 @@ H, I | Узлы (например, файловые серверы)
 Теперь вы готовы к [Развертыванию и настройке локального устройства StorSimple](storsimple-deployment-walkthrough.md)
  
 
-<!----HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -48,4 +48,4 @@ Azure RemoteApp использует Azure Active Directory (Azure AD), чтоб
 
 Теперь вы можете использовать нового клиента Azure AD для контроля доступа к подписке Azure и настройки доступа пользователей в Azure RemoteApp.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

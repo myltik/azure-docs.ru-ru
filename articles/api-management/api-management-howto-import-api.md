@@ -95,4 +95,4 @@ API создаются и настраиваются на портале изд�
 [Как создать интерфейсы API]: api-management-howto-create-apis.md
 [Как настраивать параметры API]: api-management-howto-create-apis.md#configure-api-settings
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

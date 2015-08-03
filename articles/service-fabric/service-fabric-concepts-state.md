@@ -41,4 +41,4 @@
 - [Разделение служб структуры служб](service-fabric-concepts-partitioning.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

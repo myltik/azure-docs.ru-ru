@@ -23,4 +23,4 @@
 <!-- URLs. -->
 [портал предварительной версии Azure]: https://portal.azure.com/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

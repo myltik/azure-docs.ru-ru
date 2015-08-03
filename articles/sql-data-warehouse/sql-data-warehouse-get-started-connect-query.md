@@ -21,6 +21,8 @@
 
 **Visual Studio** — встроенный редактор кода и отладчик Visual Studio — и средства SQL Server Data Tools, которые полностью совместимы с SQLDW и обеспечивают простое подключение, отправку запросов и управление хранилищем данных SQL.
 
+> [AZURE.NOTE]Для хранилища данных SQL требуется по крайней мере предварительная версия 12.0.50623 служб SSDT или более поздняя версия.
+
 **sqlcmd** — это средство командной строки, которое обеспечивает простые возможности подключения и отправки запросов.
 
 К концу статьи будут выполнены следующие задачи:
@@ -62,7 +64,9 @@
 На этом обновление Visual Studio 2013 завершено.
 
 ### Обновление SSDT 
-Возможно, также потребуется обновить службы SSDT. Это нормально. Разработчики служб SSDT обновляют плагин очень часто, добавляя новые возможности, поэтому обновление нужно выполнять регулярно. Это очень просто. Чтобы проверить, требуется ли обновить службы SSDT, выполните следующие действия.
+> [AZURE.IMPORTANT]Для хранилища данных SQL требуется по крайней мере предварительная версия 12.0.50623 служб SSDT или более поздняя версия.
+
+Разработчики служб SSDT обновляют плагин очень часто, добавляя новые возможности, поэтому обновление нужно выполнять регулярно. Это очень просто. Чтобы проверить, требуется ли обновить службы SSDT, выполните следующие действия.
 
 1. Откройте Visual Studio 2013.  
 2. Щелкните меню "Сервис" и выберите "Расширения и обновления...".
@@ -83,7 +87,7 @@
 
 Теперь у вас установлена последняя версия Visual Studio 2013 с обновленным расширением служб SSDT.
 
-> [AZURE.NOTE]В настоящее время рекомендуется использовать [предварительную версию служб SSDT для Visual Studio 2013](http://go.microsoft.com/fwlink/?LinkID=616714&clcid=0x409).
+> [AZURE.NOTE]В настоящее время мы рекомендуем использовать [предварительную версию 12.0.50623 служб SSDT для Visual Studio 2013 или более позднюю версию](http://go.microsoft.com/fwlink/?LinkID=616714&clcid=0x409).
 
 ## Подключение к Visual Studio 2013
 Если вы используете нужную версию Visual Studio, подключиться к экземпляру хранилища данных SQL можно двумя способами:
@@ -141,13 +145,13 @@
 Таким образом, для подключения к экземпляру хранилища данных SQL нужно ввести следующее.
 
 ```
-C:>sqlcmd -U <User>@<Server Name>.database.windows.net -P <Password> -S <Server Name>.database.windows.net -d <Database> -I
+C:\>sqlcmd -U <User>@<Server Name>.database.windows.net -P <Password> -S <Server Name>.database.windows.net -d <Database> -I
 ```
 
 После подключения можно подавать любые поддерживаемые инструкции Transact-SQL для экземпляра. Например, инструкция [CREATE TABLE](https://msdn.microsoft.com/library/azure/dn268335.aspx) позволяет создать таблицу.
 
 ```
-C:>sqlcmd -U <User>@<Server Name>.database.windows.net -P <Password> -S <Server Name>.database.windows.net -d <Database> -I
+C:\>sqlcmd -U <User>@<Server Name>.database.windows.net -P <Password> -S <Server Name>.database.windows.net -d <Database> -I
 1> CREATE TABLE table1 (Col1 int, Col2 varchar(20));
 2> GO
 3> QUIT
@@ -183,4 +187,4 @@ C:>sqlcmd -U <User>@<Server Name>.database.windows.net -P <Password> -S <Server 
 ## Дальнейшие действия ##
 [Start developing code]: ./articles/sql-data-warehouse-overview-develop/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

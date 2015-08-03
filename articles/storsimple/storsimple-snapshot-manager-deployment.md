@@ -93,7 +93,7 @@
 
 3. В окне **Распаковка сжатых ZIP-папок** в поле **Выберите конечную папку и извлеките файлы** введите или укажите путь к расположению, в которое вы хотите извлечь файл.
 
-    >[AZURE.IMPORTANT]Диспетчер моментальных снимков StorSimple необходимо установить на диске C:.
+      >[AZURE.IMPORTANT]Диспетчер моментальных снимков StorSimple необходимо установить на диске C:.
  
 4. Установите флажок **Показать извлеченные файлы** и нажмите кнопку **Извлечь**.
 
@@ -201,7 +201,7 @@
 
         ![Stop the StorSimple Manager service](./media/storsimple-snapshot-manager-deployment/HCS_SSM_stop_service.png)
 
-2. Перейдите в папку C:\\ProgramData\\Microsoft\\StorSimple\\BACatalog.
+2. Перейдите в папку C:\ProgramData\Microsoft\StorSimple\BACatalog.
 
     >[AZURE.NOTE]ProgramData — это скрытая папка.
 
@@ -233,7 +233,7 @@
 
     4. На панели справа в разделе **Служба управления Microsoft StorSimple** щелкните **Остановить службу**.
 
-2. Перейдите в папку C:\\ProgramData\\Microsoft\\StorSimple\\BACatalog.
+2. Перейдите в папку C:\ProgramData\Microsoft\StorSimple\BACatalog.
 
      >[AZURE.NOTE]ProgramData — это скрытая папка.
 
@@ -253,4 +253,4 @@
 
 Чтобы узнать больше о пользовательском интерфейсе диспетчера моментальных снимков StorSimple, см. статью [Пользовательский интерфейс диспетчера моментальных снимков StorSimple](storsimple-use-snapshot-manager.md).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -3,7 +3,7 @@
    description="Узнайте, как установить и использовать драйвер Microsoft Hive ODBC для Excel, чтобы запрашивать данные из кластера HDInsight."
    services="hdinsight"
    documentationCenter=""
-   authors="bradsev"
+   authors="mumian"
    manager="paulettm"
    editor="cgronlun"/>
 
@@ -13,11 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/08/2015"
-   ms.author="bradsev"/>
+   ms.date="07/09/2015"
+   ms.author="jgao"/>
 
 #Подключение Excel к Hadoop с помощью драйвера Microsoft Hive ODBC
 
+[AZURE.INCLUDE [ODBC-JDBC-selector](../../includes/hdinsight-selector-odbc-jdbc.md)]
 
 Решение Майкрософт для работы с данными большого размера интегрирует компоненты бизнес-аналитики Майкрософт с кластерами Apache Hadoop, которые были развернуты с помощью Azure HDInsight. Примером такой интеграции является возможность подключения Excel к хранилищу данных Hive на кластере Hadoop в HDInsight с помощью драйвера Microsoft Hive ODBC.
 
@@ -125,6 +126,5 @@
 [img-HiveOdbc-DataSource-AdvancedOptions]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.HiveOdbc.DataSource.AdvancedOptions1.png
 [img-hdi-simbahiveodbc-excel-connectionproperties]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveODBC.Excel.ConnectionProperties1.png
 [img-hdi-simbahiveodbc.excel.dataconnection]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveOdbc.Excel.DataConnection1.png
- 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

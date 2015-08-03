@@ -69,7 +69,7 @@
 
 	Обратите внимание, что образец кода содержит комментарии, указывающие на части кода, которые необходимо обновить. Кроме того, если указать расположение output1 в полезной нагрузке запроса, то расширение файла RelativeLocation необходимо изменить на .ileaner, как в Outputs: {Global Parameters ... { "output1": { "ConnectionString": "DefaultEndpointsProtocol=https;AccountName=mystorageacct;AccountKey=Dx9WbMIThAvXRQWap/aLnxT9LV5txxw==", "RelativeLocation": "mycontainer/output1results.ilearner"}}.
 
-	1. Предоставление сведений хранилища Azure Образец кода для BES выгрузит файл с локального диска (например, C:\\temp\\CensusIpnput.csv) в хранилище Azure, обработает его и снова запишет результаты в хранилище Azure.  
+	1. Предоставление сведений хранилища Azure Образец кода для BES выгрузит файл с локального диска (например, C:\temp\CensusIpnput.csv) в хранилище Azure, обработает его и снова запишет результаты в хранилище Azure.  
 
 		Для этого потребуется получить имя учетной записи хранения, ключ и сведения о контейнере на портале управления Azure для вашей учетной записи хранения и кода для обновления здесь. Также нужно обеспечить доступность файла вводных данных в местоположении, указанном в коде.
 
@@ -107,4 +107,4 @@
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -45,4 +45,4 @@
 	- [Настройка подключения ExpressRoute через поставщика Exchange](expressroute-configuring-exps.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

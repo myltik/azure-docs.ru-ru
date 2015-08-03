@@ -200,7 +200,7 @@
 
 	При первом открытии Management Studio необходимо создать среду пользователей Management Studio. Это может занять несколько минут.
 
-2. Management Studio отображает диалоговое окно **Подключение к серверу**. В поле **Имя сервера** введите имя виртуальной машины для подключения к компоненту Database Engine с помощью обозревателя объектов. (Вместо имени виртуальной машины можно также использовать **(local)** или один период в качестве **имени сервера**. Выберите **Проверка подлинности Windows** и оставьте **_your_VM_name_\\your_local_administrator** в поле **Имя пользователя**. Щелкните **Подключить**.
+2. Management Studio отображает диалоговое окно **Подключение к серверу**. В поле **Имя сервера** введите имя виртуальной машины для подключения к компоненту Database Engine с помощью обозревателя объектов. (Вместо имени виртуальной машины можно также использовать **(local)** или один период в качестве **имени сервера**. Выберите **Проверка подлинности Windows** и оставьте **_your_VM_name_\your_local_administrator** в поле **Имя пользователя**. Щелкните **Подключить**.
 
 	![Подключение к серверу][Image19]
 
@@ -299,17 +299,6 @@
 
 [Подготовка к переходу на SQL Server в виртуальных машинах Azure](http://go.microsoft.com/fwlink/p/?LinkId=294721)
 
-- Как перенести файлы базы данных SQL Server и схемы между виртуальными машинами в Azure с использованием дисков данных
-
-[Развертывание SQL Server в виртуальных машинах Azure](http://go.microsoft.com/fwlink/p/?LinkId=294722)
-
-- Как скопировать файлы данных и настройки SQL Server на диск данных из локального источника в Azure с помощью CSUpload
-- Как создать базовую локальную виртуальную машину с использованием Hyper-V
-- Как создать виртуальную машину SQL Server в Azure с использованием существующего локального диска SQL Server
-- Как создать виртуальную машину SQL Server в Azure с использованием существующей локальной виртуальной машины SQL Server 
-- Как использовать PowerShell для настройки виртуальной машины с SQL Server в Azure 
-- Как использовать подключенный диск с данными для хранения файлов базы данных
-
 [Рекомендации по подключению SQL Server в виртуальных машинах Azure](http://go.microsoft.com/fwlink/p/?LinkId=294723)
 
 [Рекомендации по оптимизации производительности SQL Server в виртуальных машинах Azure](http://go.microsoft.com/fwlink/?LinkId=294724)
@@ -330,21 +319,13 @@
 
 [SQL Server Business Intelligence в виртуальных машинах Azure](http://go.microsoft.com/fwlink/p/?LinkId=294729)
 
-- Использование PowerShell для создания ВМ Azure с помощью SQL Server BI и SharePoint 2010
-- Использование PowerShell для создания ВМ Azure с помощью SQL Server BI и SharePoint 2013
-- Использование PowerShell для создания виртуальной машины Azure с помощью сервера отчетов, работающего в собственном режиме
-
-[Хранение данных SQL Server в виртуальных машинах Azure](http://msdn.microsoft.com/library/windowsazure/dn387396.aspx)
+[Хранение данных SQL Server и транзакционных рабочих нагрузок в виртуальных машинах Azure](http://msdn.microsoft.com/library/windowsazure/dn387396.aspx)
 
 [Технические статьи о SQL Server в виртуальных машинах Azure](http://msdn.microsoft.com/library/azure/dn248435.aspx)
 
 - [Технический документ. Общее представление о базе данных SQL Azure и SQL Server в виртуальных машинах Azure](sql-database/data-management-azure-sql-database-and-sql-server-iaas.md)
 
 - [Технический документ. Модели приложений и стратегии разработки для SQL Server в виртуальных машинах Azure](http://msdn.microsoft.com/library/azure/dn574746.aspx)
-
-- [Технический документ. Развертывание бизнес-аналитики SQL Server в виртуальных машинах Azure](http://msdn.microsoft.com/library/windowsazure/dn321998.aspx)
-
-- [Технический документ. Элемент управления средства просмотра отчетов Reporting Services и серверы отчетов на основе виртуальных машин Microsoft Azure](http://msdn.microsoft.com/library/azure/dn753698.aspx)
 
 [Image4]: ./media/virtual-machines-provision-sql-server/4VM-Config.png
 [Image5]: ./media/virtual-machines-provision-sql-server/5VM-Mode.png
@@ -381,4 +362,4 @@
 [Image38]: ./media/virtual-machines-provision-sql-server/credentials.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

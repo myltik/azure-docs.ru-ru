@@ -280,7 +280,7 @@
 
 * Первым действием при передаче объекта является его извлечение из таблицы:
 		
-		$result = $tableRestProxy->queryEntities('tasks', 'PartitionKey eq \''.$_GET['pk'].'\' and RowKey eq \''.$_GET['rk'].'\'');		
+		$result = $tableRestProxy->queryEntities('tasks', 'PartitionKey eq ''.$_GET['pk'].'' and RowKey eq ''.$_GET['rk'].''');		
 		$entities = $result->getEntities();		
 		$entity = $entities[0];
 
@@ -430,4 +430,4 @@
 [git-instructions]: ./media/web-sites-php-storage/git-instructions.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

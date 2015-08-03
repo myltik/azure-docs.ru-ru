@@ -30,4 +30,4 @@
 <!--References-->
 [1]: app-service-logic-create-a-trading-partner-agreement.md
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

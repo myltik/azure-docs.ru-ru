@@ -54,7 +54,7 @@ System.FM, которая представляет из себя службу д
 
 ```powershell
 
-PS C:> Get-ServiceFabricNodeHealth -NodeName Node.1
+PS C:\> Get-ServiceFabricNodeHealth -NodeName Node.1
 NodeName              : Node.1
 AggregatedHealthState : Ok
 HealthEvents          :
@@ -100,7 +100,7 @@ System.CM, которая представляет из себя службу д
 Ниже показано событие State в приложении fabric:/WordCount.
 
 ```powershell
-PS C:> Get-ServiceFabricApplicationHealth fabric:/WordCount -ServicesHealthStateFilter ([System.Fabric.Health.HealthStateFilter]::None) -DeployedApplicationsHealthStateFilter ([System.Fabric.Health.HealthStateFilter]::None)
+PS C:\> Get-ServiceFabricApplicationHealth fabric:/WordCount -ServicesHealthStateFilter ([System.Fabric.Health.HealthStateFilter]::None) -DeployedApplicationsHealthStateFilter ([System.Fabric.Health.HealthStateFilter]::None)
 
 ApplicationName                 : fabric:/WordCount
 AggregatedHealthState           : Ok
@@ -132,7 +132,7 @@ System.FM, которая представляет из себя службу д
 Ниже показано событие State в службе fabric:/WordCount/WordCountService.
 
 ```powershell
-PS C:> Get-ServiceFabricServiceHealth fabric:/WordCount/WordCountService
+PS C:\> Get-ServiceFabricServiceHealth fabric:/WordCount/WordCountService
 
 ServiceName           : fabric:/WordCount/WordCountService
 AggregatedHealthState : Ok
@@ -174,7 +174,7 @@ System.FM, которая представляет из себя службу д
 Ниже показан работоспособный раздел.
 
 ```powershell
-PS C:> Get-ServiceFabricPartition fabric:/StatelessPiApplication/StatelessPiService | Get-ServiceFabricPartitionHealth
+PS C:\> Get-ServiceFabricPartition fabric:/StatelessPiApplication/StatelessPiService | Get-ServiceFabricPartitionHealth
 PartitionId           : 29da484c-2c08-40c5-b5d9-03774af9a9bf
 AggregatedHealthState : Ok
 ReplicaHealthStates   : None
@@ -195,7 +195,7 @@ HealthEvents          :
 Ниже показаны данные о работоспособности раздела, количество реплик в котором меньше целевого значения. Дальнейшие действия: получите описание раздела со сведениями о его конфигурации: MinReplicaSetSize равно 2, а TargetReplicaSetSize — 7. Затем получите данные о количестве узлов в кластере: 5. Поэтому в этом случае невозможно разместить 2 реплики.
 
 ```powershell
-PS C:> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricPartitionHealth -ReplicasHealthStateFilter ([System.Fabric.Health.HealthStateFilter]::None)
+PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricPartitionHealth -ReplicasHealthStateFilter ([System.Fabric.Health.HealthStateFilter]::None)
 
 PartitionId           : 875a1caa-d79f-43bd-ac9d-43ee89a9891c
 AggregatedHealthState : Warning
@@ -216,7 +216,7 @@ HealthEvents          :
                         IsExpired             : False
                         Transitions           : Ok->Warning = 4/24/2015 6:13:31 PM
 
-PS C:> Get-ServiceFabricPartition fabric:/WordCount/WordCountService
+PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService
 
 PartitionId            : 875a1caa-d79f-43bd-ac9d-43ee89a9891c
 PartitionKind          : Int64Range
@@ -231,7 +231,7 @@ DataLossNumber         : 130743727710830900
 ConfigurationNumber    : 8589934592
 
 
-PS C:> @(Get-ServiceFabricNode).Count
+PS C:\> @(Get-ServiceFabricNode).Count
 5
 ```
 
@@ -253,7 +253,7 @@ System.RA, которая представляет из себя компоне�
 Ниже показана работоспособная реплика.
 
 ```powershell
-PS C:> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricReplica | where {$_.ReplicaRole -eq "Primary"} | Get-ServiceFabricReplicaHealth
+PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricReplica | where {$_.ReplicaRole -eq "Primary"} | Get-ServiceFabricReplicaHealth
 PartitionId           : 875a1caa-d79f-43bd-ac9d-43ee89a9891c
 ReplicaId             : 130743727717237310
 AggregatedHealthState : Ok
@@ -288,7 +288,7 @@ HealthEvents          :
 В следующем примере показан раздел с потерей кворума и приведены действия, позволяющие определить причину проблемы. Для одной из реплик получено предупреждение о состоянии работоспособности, поэтому мы получаем данные о ее работоспособности. Они свидетельствуют, что выполнение операций службы занимает больше времени, чем ожидалось (об этом событии сообщает система System.RAP). После получения этих сведений необходимо рассмотреть и изучить код службы. В этом случае реализация RunAsync службы с отслеживанием состояния вызывает необработанное исключение. Обратите внимание, что реплики перезапускаются, поэтому может не отображаться ни одной реплики с состоянием предупреждения. Снова получите данные о работоспособности и посмотрите, имеются ли различия в идентификаторе реплики. В некоторых случаях это помогает.
 
 ```powershell
-PS C:> Get-ServiceFabricPartition fabric:/HelloWorldStatefulApplication/HelloWorldStateful | Get-ServiceFabricPartitionHealth
+PS C:\> Get-ServiceFabricPartition fabric:/HelloWorldStatefulApplication/HelloWorldStateful | Get-ServiceFabricPartitionHealth
 
 PartitionId           : 72a0fb3e-53ec-44f2-9983-2f272aca3e38
 AggregatedHealthState : Error
@@ -321,7 +321,7 @@ HealthEvents          :
                         IsExpired             : False
                         Transitions           : Warning->Error = 4/24/2015 6:51:31 PM
 
-PS C:> Get-ServiceFabricPartition fabric:/HelloWorldStatefulApplication/HelloWorldStateful
+PS C:\> Get-ServiceFabricPartition fabric:/HelloWorldStatefulApplication/HelloWorldStateful
 
 PartitionId            : 72a0fb3e-53ec-44f2-9983-2f272aca3e38
 PartitionKind          : Int64Range
@@ -335,7 +335,7 @@ HealthState            : Error
 DataLossNumber         : 130743746152927699
 ConfigurationNumber    : 227633266688
 
-PS C:> Get-ServiceFabricReplica 72a0fb3e-53ec-44f2-9983-2f272aca3e38 130743746195428808
+PS C:\> Get-ServiceFabricReplica 72a0fb3e-53ec-44f2-9983-2f272aca3e38 130743746195428808
 
 ReplicaId           : 130743746195428808
 ReplicaAddress      : PartitionId: 72a0fb3e-53ec-44f2-9983-2f272aca3e38, ReplicaId: 130743746195428808
@@ -345,7 +345,7 @@ ReplicaStatus       : Ready
 LastInBuildDuration : 00:00:01
 HealthState         : Warning
 
-PS C:> Get-ServiceFabricReplicaHealth 72a0fb3e-53ec-44f2-9983-2f272aca3e38 130743746195428808
+PS C:\> Get-ServiceFabricReplicaHealth 72a0fb3e-53ec-44f2-9983-2f272aca3e38 130743746195428808
 
 PartitionId           : 72a0fb3e-53ec-44f2-9983-2f272aca3e38
 ReplicaId             : 130743746195428808
@@ -407,7 +407,7 @@ System.Hosting — это система для работы с разверну
 Ниже приведен пример успешной активации.
 
 ```powershell
-PS C:> Get-ServiceFabricDeployedApplicationHealth -NodeName Node.1 -ApplicationName fabric:/WordCount
+PS C:\> Get-ServiceFabricDeployedApplicationHealth -NodeName Node.1 -ApplicationName fabric:/WordCount
 
 ApplicationName                    : fabric:/WordCount
 NodeName                           : Node.1
@@ -463,7 +463,7 @@ System.Hosting сообщает об отсутствии проблем, есл
 Ниже приведен пример работоспособного развернутого пакета службы.
 
 ```powershell
-PS C:> Get-ServiceFabricDeployedServicePackageHealth -NodeName Node.1 -ApplicationName fabric:/WordCount -ServiceManifestName WordCountServicePkg
+PS C:\> Get-ServiceFabricDeployedServicePackageHealth -NodeName Node.1 -ApplicationName fabric:/WordCount -ServiceManifestName WordCountServicePkg
 
 
 ApplicationName       : fabric:/WordCount
@@ -530,4 +530,4 @@ System.Hosting сообщает об ошибке проверки во врем
 [Обновление приложения Service Fabric](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

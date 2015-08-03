@@ -124,7 +124,7 @@ ClusterHealth clusterHealth = fabricClient.HealthManager.GetClusterHealthAsync(q
 Следующий командлет возвращает сведения о работоспособности кластера с помощью политик работоспособности по умолчанию. Сводное состояние работоспособности — "Warning", поскольку приложение fabric:/WordCount находится в таком же состоянии. Обратите внимание, что оценки неработоспособности отображаются с подробными сведениями об условии, вызвавшем такое сводное состояние.
 
 ```xml
-PS C:> Get-ServiceFabricClusterHealth
+PS C:\> Get-ServiceFabricClusterHealth
 
 AggregatedHealthState   : Warning
 UnhealthyEvaluations    :
@@ -242,7 +242,7 @@ NodeHealth nodeHealth = fabricClient.HealthManager.GetNodeHealthAsync(queryDescr
 Командлет для получения сведений о работоспособности узла — Get-ServiceFabricNodeHealth. Сначала подключитесь к кластеру при помощи командлета Connect-ServiceFabricCluster. Следующий командлет возвращает сведения о работоспособности узла с помощью политик работоспособности по умолчанию.
 
 ```powershell
-PS C:> Get-ServiceFabricNodeHealth -NodeName Node.1
+PS C:\> Get-ServiceFabricNodeHealth -NodeName Node.1
 
 NodeName              : Node.1
 AggregatedHealthState : Ok
@@ -263,7 +263,7 @@ HealthEvents          :
 Следующий командлет возвращает сведения о работоспособности всех узлов в кластере.
 
 ```powershell
-PS C:> Get-ServiceFabricNode | Get-ServiceFabricNodeHealth | select NodeName, AggregatedHealthState | ft -AutoSize
+PS C:\> Get-ServiceFabricNode | Get-ServiceFabricNodeHealth | select NodeName, AggregatedHealthState | ft -AutoSize
 
 NodeName AggregatedHealthState
 -------- ---------------------
@@ -390,7 +390,7 @@ HealthEvents                    :
 Следующий командлет PowerShell передает настраиваемую политику и фильтрует дочерние элементы и события.
 
 ```powershell
-PS C:> $errorFilter = [System.Fabric.Health.HealthStateFilter]::Error.value__
+PS C:\> $errorFilter = [System.Fabric.Health.HealthStateFilter]::Error.value__
 Get-ServiceFabricApplicationHealth -ApplicationName fabric:/WordCount -ConsiderWarningAsError $true -ServicesHealthStateFilter $errorFilter -EventsHealthStateFilter $errorFilter -DeployedApplicationsHealthStateFilter $errorFilter
 
 ApplicationName                 : fabric:/WordCount
@@ -448,7 +448,7 @@ ServiceHealth serviceHealth = fabricClient.HealthManager.GetServiceHealthAsync(q
 Следующий командлет возвращает сведения о работоспособности службы с помощью политик работоспособности по умолчанию.
 
 ```powershell
-PS C:> Get-ServiceFabricServiceHealth -ServiceName fabric:/WordCount/WordCount.Service
+PS C:\> Get-ServiceFabricServiceHealth -ServiceName fabric:/WordCount/WordCount.Service
 
 
 ServiceName           : fabric:/WordCount/WordCount.Service
@@ -500,7 +500,7 @@ PartitionHealth partitionHealth = fabricClient.HealthManager.GetPartitionHealthA
 Следующий командлет возвращает сведения о работоспособности для всех разделов службы WordCount.
 
 ```powershell
-PS C:> Get-ServiceFabricPartition fabric:/WordCount/WordCount.Service | Get-ServiceFabricPartitionHealth
+PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCount.Service | Get-ServiceFabricPartitionHealth
 
 PartitionId           : 8f82daff-eb68-4fd9-b631-7a37629e08c0
 AggregatedHealthState : Warning
@@ -559,7 +559,7 @@ ReplicaHealth replicaHealth = fabricClient.HealthManager.GetReplicaHealthAsync(p
 Следующий командлет возвращает сведения о работоспособности основной реплики для всех разделов службы.
 
 ```powershell
-PS C:> Get-ServiceFabricPartition fabric:/WordCount/WordCount.Service | Get-ServiceFabricReplica | where {$_.ReplicaRole -eq "Primary"} | Get-ServiceFabricReplicaHealth
+PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCount.Service | Get-ServiceFabricReplica | where {$_.ReplicaRole -eq "Primary"} | Get-ServiceFabricReplicaHealth
 
 PartitionId           : 8f82daff-eb68-4fd9-b631-7a37629e08c0
 ReplicaId             : 130740415502123433
@@ -601,7 +601,7 @@ DeployedApplicationHealth health = fabricClient.HealthManager.GetDeployedApplica
 Следующий командлет возвращает сведения о работоспособности приложения fabric:/WordCount, развернутого на узле Node.1.
 
 ```powershell
-PS C:> Get-ServiceFabricDeployedApplicationHealth -ApplicationName fabric:/WordCount -NodeName Node.1
+PS C:\> Get-ServiceFabricDeployedApplicationHealth -ApplicationName fabric:/WordCount -NodeName Node.1
 ApplicationName                    : fabric:/WordCount
 NodeName                           : Node.1
 AggregatedHealthState              : Ok
@@ -651,7 +651,7 @@ DeployedServicePackageHealth health = fabricClient.HealthManager.GetDeployedServ
 Следующий командлет возвращает сведения о работоспособности пакета службы WordCount.Service приложения fabric:/WordCount, развернутого на узле Node.1. Эта сущность составляет отчеты System.Hosting при успешной активации пакета службы и точки входа, а также при успешной регистрации типа службы.
 
 ```powershell
-PS C:> Get-ServiceFabricDeployedApplication -ApplicationName fabric:/WordCount -NodeName Node.1 | Get-ServiceFabricDeployedServicePackageHealth -ServiceManifestName WordCount.Service
+PS C:\> Get-ServiceFabricDeployedApplication -ApplicationName fabric:/WordCount -NodeName Node.1 | Get-ServiceFabricDeployedServicePackageHealth -ServiceManifestName WordCount.Service
 
 ApplicationName       : fabric:/WordCount
 ServiceManifestName   : WordCount.Service
@@ -738,7 +738,7 @@ var applications = fabricClient.QueryManager.GetApplicationListAsync().Result.Wh
 Следующий командлет возвращает сведения о приложении fabric:/WordCount. Обратите внимание, что состояние работоспособности — "Warning".
 
 ```powershell
-PS C:> Get-ServiceFabricApplication -ApplicationName fabric:/WordCount
+PS C:\> Get-ServiceFabricApplication -ApplicationName fabric:/WordCount
 
 ApplicationName        : fabric:/WordCount
 ApplicationTypeName    : WordCount
@@ -751,7 +751,7 @@ ApplicationParameters  : { "_WFDebugParams_" = "[{"ServiceManifestName":"WordCou
 Следующий командлет возвращает службы с состоянием работоспособности "Warning".
 
 ```powershell
-PS C:> Get-ServiceFabricApplication | Get-ServiceFabricService | where {$_.HealthState -eq "Warning"}
+PS C:\> Get-ServiceFabricApplication | Get-ServiceFabricService | where {$_.HealthState -eq "Warning"}
 
 ServiceName            : fabric:/WordCount/WordCount.Service
 ServiceKind            : Stateful
@@ -771,7 +771,7 @@ HealthState            : Warning
 Далее показано состояние обновления для измененного приложения fabric:/WordCount. Модуль наблюдения сообщил об ошибке на одной из реплик. Выполняется откат обновления из-за несоответствия условиям проверок работоспособности.
 
 ```powershell
-PS C:> Get-ServiceFabricApplicationUpgrade fabric:/WordCount
+PS C:\> Get-ServiceFabricApplicationUpgrade fabric:/WordCount
 
 ApplicationName               : fabric:/WordCount
 ApplicationTypeName           : WordCount
@@ -836,4 +836,4 @@ UpgradeReplicaSetCheckTimeout : 00:15:00
 [Обновление приложения Service Fabric](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

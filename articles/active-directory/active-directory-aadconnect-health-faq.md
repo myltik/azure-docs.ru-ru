@@ -68,7 +68,7 @@
 - Шаг 1. Добавление записи в файл machine.config
 
 
-Найдите файл machine.config. Файл расположен по адресу in%windir%\\Microsoft.NET\\Framework64[version]\\config\\machine.config</li>.
+Найдите файл machine.config. Файл расположен по адресу in%windir%\Microsoft.NET\Framework64[version]\config\machine.config</li>.
 
 Добавьте следующую запись в элемент <configuration></configuration> в файле machine.config.
  
@@ -125,4 +125,4 @@
 
 Чтобы агент Azure AD Connect Health мог взаимодействовать с конечными точками службы Azure AD Health, вам необходимо открыть порты TCP/UDP 80 и 443.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -148,4 +148,4 @@
 
 [Скачайте диспетчер моментальных снимков StorSimple](https://www.microsoft.com/download/details.aspx?id=44220).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

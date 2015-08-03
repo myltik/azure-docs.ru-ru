@@ -1,21 +1,21 @@
-<properties 
-	pageTitle="Автоматизация с помощью диспетчера ресурсов Azure" 
-	description="Ссылки на разделы, в которых показано, как автоматизировать виртуальные машины с помощью диспетчера ресурсов Azure." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+<properties
+	pageTitle="Автоматизация с помощью диспетчера ресурсов Azure"
+	description="Получите ссылки на разделы, в которых описывается, как автоматизировать создание виртуальных машин и управление ими с помощью диспетчера ресурсов Azure."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="davidmu1"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/12/2015" 
-	ms.author="josephd"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="index-page"
+	ms.date="07/09/2015"
+	ms.author="davidmu"/>
 
 # Автоматизация с помощью диспетчера ресурсов Azure
 
@@ -59,7 +59,7 @@
 ## Автоматизация с помощью .NET
 
 [Развертывание ресурсов Azure с помощью библиотеки .NET](virtual-machines-arm-deployment.md)
-   
+
 ## Автоматизация с помощью службы автоматизации Azure
 
 [Управление задачами виртуальных машин с помощью службы автоматизации Azure](automation-manage-virtual-machines.md)
@@ -70,6 +70,4 @@
 
 [Документация по виртуальным машинам](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
- 
-
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

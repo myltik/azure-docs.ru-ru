@@ -76,4 +76,4 @@
 
 Узнайте, как [устранять неполадки устройства StorSimple](storsimple-troubleshoot-operational-device.md).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

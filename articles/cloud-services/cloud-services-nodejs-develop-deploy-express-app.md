@@ -39,7 +39,7 @@ Node.js включает минимальный набор функционал�
 
 	[AZURE.INCLUDE [install-dev-tools](../../includes/install-dev-tools.md)]
 
-2. Перейдите в каталог **c:\\node**, а затем введите указанные ниже команды для создания нового решения с именем **expressapp** и рабочей роли с именем **WebRole1**.
+2. Перейдите в каталог **c:\node**, а затем введите указанные ниже команды для создания нового решения с именем **expressapp** и рабочей роли с именем **WebRole1**.
 
 		PS C:\node> New-AzureServiceProject expressapp
 		PS C:\Node\expressapp> Add-AzureNodeWebRole
@@ -129,10 +129,10 @@ Node.js включает минимальный набор функционал�
 ![В веб-браузере отображается страница Express. URL-адрес указывает, что страница теперь размещается в Azure.](./media/cloud-services-nodejs-develop-deploy-express-app/node36.png)
 
 
-  [Node.js Web Application]: http://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
+  [Node.js Web Application]: http://azure.microsoft.com/develop/nodejs/tutorials/getting-started/
   [Express]: http://expressjs.com/
   [http://jade-lang.com]: http://jade-lang.com
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

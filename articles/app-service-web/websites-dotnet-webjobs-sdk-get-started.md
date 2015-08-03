@@ -165,17 +165,7 @@
 
 4. Откройте файл *App.config* в проекте ContosoAdsWebJob.
 
-	Этот файл содержит две строки подключения хранилища: одну для данных приложения, а другую для ведения журнала. В этом учебнике будет использоваться одна учетная запись. В строках подключения есть заполнители для ключей учетной записи хранения. 
-  	<pre class="prettyprint">&lt;configuration&gt;
-    &lt;connectionStrings&gt;
-        &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
-        &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
-        &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/&gt;
-    &lt;/connectionStrings&gt;
-        &lt;startup&gt; 
-            &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" /&gt;
-    &lt;/startup&gt;
-&lt;/configuration&gt;</pre>
+	Этот файл содержит две строки подключения хранилища: одну для данных приложения, а другую для ведения журнала. В этом учебнике будет использоваться одна учетная запись. В строках подключения есть заполнители для ключей учетной записи хранения. <pre class="prettyprint">&lt;configuration&gt; &lt;connectionStrings&gt; &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt; &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt; &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/&gt; &lt;/connectionStrings&gt; &lt;startup&gt; &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" /&gt; &lt;/startup&gt; &lt;/configuration&gt;</pre>
 
 	По умолчанию пакет SDK веб-заданий ищет строки подключения с именами AzureWebJobsStorage и AzureWebJobsDashboard. В качестве альтернативы можно [сохранить строку подключения любым способом и передать ее явно в объект `JobHost`](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#config).
 
@@ -300,7 +290,7 @@
 
 	Вы можете проигнорировать предупреждение об отсутствии баз данных для публикации. Entity Framework Code First создаст базу данных; ее не нужно публиковать.
 
-	В окне "Предварительный просмотр" отобразится, что двоичные файлы и файлы конфигурации из проекта веб-задания будут скопированы в папку *app_data\\jobs\\continuous* веб-приложения.
+	В окне "Предварительный просмотр" отобразится, что двоичные файлы и файлы конфигурации из проекта веб-задания будут скопированы в папку *app_data\jobs\continuous* веб-приложения.
 
 	![Окно "Предварительный просмотр файлов веб-заданий"](./media/websites-dotnet-webjobs-sdk-get-started/previewwjfiles.png)
 
@@ -489,9 +479,9 @@
 	- *Web.config*
 	- *Global.asax.cs*  
 	- В папку *Controllers*: *AdController.cs* 
-	- В папку *Views\\Shared*: файл <em>_Layout.cshtml</em>. 
-	- В папку *Views\\Home*: файл *Index.cshtml*. 
-	- В папку *Views\\Ad* (сначала создайте эту папку): пять файлов *.cshtml*.<br/><br/>
+	- В папку *Views\Shared*: файл <em>_Layout.cshtml</em>. 
+	- В папку *Views\Home*: файл *Index.cshtml*. 
+	- В папку *Views\Ad* (сначала создайте эту папку): пять файлов *.cshtml*.<br/><br/>
 
 3. В проекте ContosoAdsWebJob добавьте следующие файлы из скачанного проекта.
 
@@ -797,10 +787,7 @@
 * [Использование табличного хранилища Azure с пакетом SDK веб-заданий](websites-dotnet-webjobs-sdk-storage-tables-how-to.md)
 * [Использование служебной шины Azure с пакетом SDK для веб-заданий](websites-dotnet-webjobs-sdk-service-bus.md)
 
->[AZURE.NOTE]
->* Если ваше веб-приложение работает на нескольких виртуальных машинах, эта программа запустится на каждой машине и каждая машина будет ожидать триггеров и попытается запустить функции. В определенных ситуациях это может привести к тому, что некоторые функции обработают одни и те же данные дважды, поэтому функции должны быть идемпотентными (написанными так, что постоянный их вызов с одинаковыми входными данными не создаст повторяющиеся результаты). 
->* Сведения о нормальном завершении работы см. в разделе [Правильное завершение работы](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#graceful). 
->* Для упрощения код в методе `ConvertImageToThumbnailJPG` (не показан) использует классы в пространстве имен `System.Drawing`. Однако классы в этом пространстве имен были спроектированы для использования с формами Windows. Они не поддерживаются в службе Windows или ASP.NET. Дополнительную информацию о параметрах обработки изображений см. в статьях [Динамическое создание образов](http://www.hanselman.com/blog/BackToBasicsDynamicImageGenerationASPNETControllersRoutingIHttpHandlersAndRunAllManagedModulesForAllRequests.aspx) и [Особенности изменения размеров изображения](http://www.hanselminutes.com/313/deep-inside-image-resizing-and-scaling-with-aspnet-and-iis-with-imageresizingnet-author-na).
+>[AZURE.NOTE]* Если ваше веб-приложение работает на нескольких виртуальных машинах, эта программа запустится на каждой машине и каждая машина будет ожидать триггеров и попытается запустить функции. В определенных ситуациях это может привести к тому, что некоторые функции обработают одни и те же данные дважды, поэтому функции должны быть идемпотентными (написанными так, что постоянный их вызов с одинаковыми входными данными не создаст повторяющиеся результаты). * Сведения о нормальном завершении работы см. в разделе [Правильное завершение работы](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#graceful). * Для упрощения код в методе `ConvertImageToThumbnailJPG` (не показан) использует классы в пространстве имен `System.Drawing`. Однако классы в этом пространстве имен были спроектированы для использования с формами Windows. Они не поддерживаются в службе Windows или ASP.NET. Дополнительную информацию о параметрах обработки изображений см. в статьях [Динамическое создание образов](http://www.hanselman.com/blog/BackToBasicsDynamicImageGenerationASPNETControllersRoutingIHttpHandlersAndRunAllManagedModulesForAllRequests.aspx) и [Особенности изменения размеров изображения](http://www.hanselminutes.com/313/deep-inside-image-resizing-and-scaling-with-aspnet-and-iis-with-imageresizingnet-author-na).
 
 ### Преимущества пакета SDK веб-заданий перед рабочей ролью облачной службы без пакета SDK веб-заданий
 
@@ -826,4 +813,4 @@ https://{webappname}.scm.azurewebsites.net/azurejobs/#/functions
 * Руководство по переходу от веб-сайтов к службе приложений см. в статье [Служба приложений Azure и существующие службы Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
 * Руководство по смене портала Azure на портал предварительной версии Azure см. в разделе [Справочная информация о навигации по предварительной версии портала](http://go.microsoft.com/fwlink/?LinkId=529715).
 
-<!----HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -104,4 +104,4 @@ DocumentDB позволяет вам реализовать логику при�
 [1]: ./media/documentdb-introduction/intro.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

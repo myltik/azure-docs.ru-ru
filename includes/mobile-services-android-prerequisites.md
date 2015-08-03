@@ -4,8 +4,8 @@
 
 
 <!-- URLs. 
-[Приступая к работе с мобильными службами]: ../articles/mobile-services-android-get-started.md
-[Добавление мобильных служб в существующее приложение]: ../articles/mobile-services-android-get-started-data.md
+[Get started with Mobile Services]: ../articles/mobile-services-android-get-started.md
+[Add Mobile Services to an existing app]: ../articles/mobile-services-android-get-started-data.md
 -->
 
-<!----HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

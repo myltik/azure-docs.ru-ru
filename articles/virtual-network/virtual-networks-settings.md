@@ -100,4 +100,4 @@
 
 [Удаление виртуальной сети](../virtual-networks-delete-vnet)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

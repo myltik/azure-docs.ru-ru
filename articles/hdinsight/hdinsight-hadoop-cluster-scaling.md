@@ -145,4 +145,4 @@
 Дополнительную информацию об использовании пакета SDK для HDInsight .NET см. в статье [Подготовка кластеров Hadoop в HDInsight с использованием настраиваемых параметров](hdinsight-provision-clusters.md).
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

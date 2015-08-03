@@ -72,4 +72,4 @@ Operational Insights — это служба аналитики, которая 
 ### Где находится Operational Insights?
 Microsoft Azure Operational Insights находится в США. Несмотря на то, что рабочим языком Operational Insights является английский язык, служба доступна на некоторых других рынках. Дополнительные сведения см. в разделе [Международный доступ](http://go.microsoft.com/fwlink/?LinkId=229842).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

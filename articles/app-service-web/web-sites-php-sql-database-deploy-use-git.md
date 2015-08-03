@@ -20,7 +20,7 @@
 
 В этом учебном курсе рассматривается создание веб-приложения PHP в [службе приложений Azure](http://go.microsoft.com/fwlink/?LinkId=529714), которое подключается к базе данных Azure SQL, а также его развертывание с помощью Git. В этом учебнике предполагается, что на компьютере установлены [PHP][install-php], [SQL Server Express][install-SQLExpress], [драйверы Microsoft SQL Server для PHP](http://www.microsoft.com/download/en/details.aspx?id=20098), веб-сервер и [Git][install-git]. После завершения работы с этим учебником у вас будет работающее в Azure веб-приложение PHP-SQL.
 
-> [AZURE.NOTE]Для установки и настройки PHP, SQL Server Express, драйверов Майкрософт для SQL Server для PHP, а также служб IIS можно воспользоваться [ Установщиком веб-платформы Майкрософт](http://www.microsoft.com/web/downloads/platform.aspx).
+> [AZURE.NOTE]Для установки и настройки PHP, SQL Server Express, драйверов Майкрософт для SQL Server для PHP, а также служб IIS можно воспользоваться [Установщиком веб-платформы Майкрософт](http://www.microsoft.com/web/downloads/platform.aspx).
 
 Вы узнаете:
 
@@ -292,4 +292,4 @@
 [pdo-sqlsrv]: http://php.net/pdo_sqlsrv
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

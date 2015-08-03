@@ -106,7 +106,7 @@
 
 	![Параметры сертификата][upload_cert1]
 
-4. На головном узле перейдите к файлу C:\\Program Files\\Microsoft HPC Pack 2012\\Bin\\hpccert.cer. Затем нажмите кнопку **Проверить**.
+4. На головном узле перейдите к файлу C:\Program Files\Microsoft HPC Pack 2012\Bin\hpccert.cer. Затем нажмите кнопку **Проверить**.
 
 	![Загрузка сертификата][install_hpc10]
 
@@ -348,4 +348,4 @@
 [stop_node4]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/stop_node4.png
 [view_instances2]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/view_instances2.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

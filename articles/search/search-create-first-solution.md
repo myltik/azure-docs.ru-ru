@@ -206,4 +206,4 @@
 [11]: ./media/search-create-first-solution/AzureSearch_Create1_Suggestions.PNG
 [12]: ./media/search-create-first-solution/AzureSearch_Create1_CodeplexDownload.PNG
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

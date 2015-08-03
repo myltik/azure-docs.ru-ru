@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Подключение к базе данных SQL Azure с помощью среды SSMS" metaKeywords=""
+	pageTitle="Подключение к базе данных SQL Azure с помощью среды SSMS" 
 	description="Узнайте, как подключиться к базе данных SQL Azure с помощью среды SSMS."
 	services="sql-database"
 	documentationCenter=""
@@ -13,41 +13,56 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="06/25/2015"
+	ms.date="07/15/2015"
 	ms.author="sidneyh" />
 
-# Подключение к Базе данных SQL Azure с помощью SQL Server Management Studio
+# Соединение с SQL Server Management Studio
 
-В этой статье приведены действия, необходимые для подключения к Базе данных SQL Microsoft Azure с помощью среды SQL Server Management Studio (SSMS).
+Указания по установке SQL Server Management Studio (SSMS) и использованию SSMS для подключения к Базе данных SQL и отправки запросов к ней.
 
 ## Предварительные требования
-* Подготовленная и запущенная База данных SQL Azure. Информацию о создании базы данных читайте в статье [Начало работы с Базой данных SQL Microsoft Azure](sql-database-get-started.md).
-* Имя и пароль администратора Базы данных SQL.
-* Среда SQL Server Management Studio 2014. Чтобы получить ее, [загрузите SQL Express](http://www.hanselman.com/blog/DownloadSQLServerExpress.aspx).
-* Настройте параметры брандмауэра для базы данных. См. [Практическое руководство. Настройка параметров брандмауэра (база данных Azure SQL)](sql-database-configure-firewall-settings.md)
+* Пример базы данных AdventureWorks Базы данных SQL, описанный в статье [Начало работы с Базой данных SQL Microsoft Azure](sql-database-get-started.md).
 
-## Для подключения к экземпляру Базы данных SQL
-1. Войдите на [портал управления Azure](https://portal.azure.com).
-2. Нажмите кнопку **Обзор**, а затем выберите **Базы данных SQL** (b).
+## Установка и запуск SQL Server Management Studio (SSMS)
+1. Перейдите на страницу загрузки [SQL Server 2014 Express](http://www.microsoft.com/download/details.aspx?id=42299), нажмите **Скачать** и выберите либо 32-разрядную (x86), либо 64-разрядную (x64) версию MgmtStudio.
 
-	![Нажмите кнопку «Обзор» и выберите «База данных SQL»][1]
-3. Выделив группу **Базы данных SQL** (a), щелкните имя базы данных на сервере, к которому хотите подключиться (b).
+	![MgtmtStudio32BIT или MgmtStudio64BIT][1]
+2.	Следуйте указаниям на экране во время установки SSMS с использованием параметров по умолчанию.
+3.	После загрузки найдите SQL Server 2014 Management Studio на своем компьютере и запустите SSMS.
 
-	![Щелкните имя базы данных][2]
-4. Выделив имя (a), нажмите кнопку «Свойства» (b). Скопируйте имя сервера (c) и имя администратора (d). Имя и пароль администратора создаются вместе с Базой данных SQL. Для перехода к следующему шагу вам потребуется пароль.
 
-	![Щелкните «SQL Server», «Параметры» и «Свойства»][3]
-5. Откройте среду SQL Server Management Studio 2014.
-6. В диалоговом окне «Соединение с сервером» вставьте скопированное имя сервера в поле **Имя сервера** (a). В раскрывающемся списке «Аутентификация» выберите значение **Аутентификация SQL Server** (b). Вставьте имя администратора сервера в поле **Имя для входа** (c) и введите пароль (d). Щелкните **Параметры** (e).
+## Подключение к базе данных SQL
+1. Откройте среду SSMS.
+2. В окне **Подключение к серверу** в поле **Имя сервера** введите имя сервера в формате *&lt;имя_сервера>*.**database.windows.net**
+3. В раскрывающемся списке **Проверка подлинности** выберите пункт **Проверка подлинности SQL Server**.
+4. Введите **имя пользователя** и **пароль**, указанные при создании сервера Базы данных SQL.
 
-	![Диалоговое окно входа в SSMS][4]
-7. На вкладке «Свойства подключения» выберите в списке **Подключение к базе данных** значение **master** (или укажите другую базу данных, к которой вы хотите подключиться). Затем нажмите кнопку **Подключить**.
+	![Диалоговое окно подключения к серверу][2]
+5. Нажмите кнопку **Параметры**.
+6. В поле **Подключение к базе данных** введите **AdventureWorks** и нажмите кнопку **Подключиться**.
 
-	![Выберите значение «master» и щелкните «Соединить»][5]
+	![Подключение к базе данных][3]
 
-## Устранение неполадок с подключением
+### Действия при сбое подключения
+Убедитесь, что брандмауэр на созданном вами логическом сервере разрешает подключения с локального компьютера. См. [Практическое руководство. Настройка параметров брандмауэра (База данных Azure SQL)](https://msdn.microsoft.com/library/azure/jj553530.aspx).
 
-В случае возникновения проблем ознакомьтесь со статьей [Устранение неполадок при подключении к Базе данных SQL Azure](https://support.microsoft.com/kb/2980233/) Список возможных проблем и способов их устранения см. на странице [Устранение неполадок подключения к Базе данных SQL Microsoft Azure](https://support2.microsoft.com/common/survey.aspx?scid=sw;en;3844&showpage=1).
+## Запуск образцов запросов
+
+1. В **обозревателе объектов** перейдите к базе данных **AdventureWorks**.
+2. Щелкните базу данных правой кнопкой мыши и выберите пункт **Создать запрос**.
+
+	![Новый запрос][4]
+3. В открывшемся окне запроса скопируйте и вставьте следующий код:
+
+		SELECT 
+		CustomerId
+		,Title
+		,FirstName
+		,LastName
+		,CompanyName
+		FROM SalesLT.Customer;
+
+4. Затем нажмите кнопку **Выполнить**. В случае успешного подключения должно появиться следующее: ![Успешное выполнение][5]
 
 
 ## Дальнейшие действия
@@ -55,11 +70,11 @@
 
 <!--Image references-->
 
-[1]: ./media/sql-database-connect-to-database/browse-vms.png
-[2]: ./media/sql-database-connect-to-database/sql-databases.png
-[3]: ./media/sql-database-connect-to-database/blades.png
-[4]: ./media/sql-database-connect-to-database/ssms-connect-to-server.png
-[5]: ./media/sql-database-connect-to-database/ssms-master.png
+[1]: ./media/sql-database-connect-to-database/1-download.png
+[2]: ./media/sql-database-connect-to-database/2-connect.png
+[3]: ./media/sql-database-connect-to-database/3-connect-to-database.png
+[4]: ./media/sql-database-connect-to-database/4-run-query.png
+[5]: ./media/sql-database-connect-to-database/5-success.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

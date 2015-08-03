@@ -3,7 +3,7 @@
    description="Как начать работу с API отчетов Azure Active Directory"
    services="active-directory"
    documentationCenter=""
-   authors="yossibanai"
+   authors="kenhoff"
    manager="mbaldwin"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/08/2015"
-   ms.author="yossib"/>
+   ms.date="07/17/2015"
+   ms.author="kenhoff;yossib"/>
 
 
 # Приступая к работе с API отчетов Azure AD
@@ -137,4 +137,4 @@ API отчетов использует [OAuth](https://msdn.microsoft.com/libra
 - Дополнительную информацию об отчетах об аудите см. в статье [События отчетов AD Azure об аудите ](active-directory-reporting-audit-events.md)
 - Дополнительную информацию о службе Graph API REST см. в разделе [Отчеты и события Azure AD (предварительная версия)](https://msdn.microsoft.com/library/azure/mt126081.aspx)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -1,8 +1,7 @@
 <properties 
 	pageTitle="Обзор службы заданий эластичной базы данных" 
 	description="Описание службы заданий эластичной базы данных" 
-	services="sql-database" 
-	documentationCenter=""  
+	services="sql-database" documentationCenter=""  
 	manager="jeffreyg" 
 	authors="sidneyh"/>
 
@@ -58,4 +57,4 @@
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -248,4 +248,4 @@
   [Очереди, разделы и подписки служебной шины]: http://msdn.microsoft.com/library/hh367516.aspx
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

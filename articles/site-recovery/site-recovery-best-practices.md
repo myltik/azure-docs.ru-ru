@@ -189,4 +189,4 @@ VMM в System Center 2012 с пакетом обновления 1 (SP1) и по
 - [Настройка защиты с одним сервером VMM](site-recovery-single-vmm.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -45,4 +45,4 @@ X12 и EDIFACT имеют аналогичные представления от
 [1]: ./media/app-service-logic-track-b2b-messages/AS2Tracking.jpg
 [2]: ./media/app-service-logic-track-b2b-messages/EDIFACTTracking.jpg
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

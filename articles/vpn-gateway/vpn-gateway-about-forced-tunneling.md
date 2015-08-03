@@ -1,19 +1,11 @@
-<properties 
-	pageTitle="Настройка принудительного туннелирования для VPN-шлюзов Microsoft Azure" 
-	description="Если имеется виртуальная сеть с распределенным VPN-шлюзом, вы можете перенаправлять или "принудительно направлять" весь Интернет-трафик обратно в локальное расположение" 
-	services="vpn-gateway" 
-	documentationCenter="na" 
-	authors="cherylmc" 
-	manager="jdial" 
-	editor="tysonn" /> 
-<tags 
-	ms.service="vpn-gateway"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="07/13/2015"
-	ms.author="cherylmc" />
+<properties pageTitle="Configure Forced Tunneling for Microsoft Azure VPN Gateways" description="If you have a virtual network with a cross-premises VPN-gateway, you can redirect or "force" all Internet-bound traffic back to your on-premises location. " services="vpn-gateway" documentationCenter="na" authors="cherylmc" manager="jdial" editor="tysonn" /> <tags 
+   ms.service="vpn-gateway"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="07/13/2015"
+   ms.author="cherylmc" />
 
 # Сведения о принудительном туннелировании
 
@@ -152,4 +144,4 @@
 
 В виртуальную сеть можно добавлять виртуальные машины. Соответствующие инструкции см. в статье [Создание настраиваемой виртуальной машины](../virtual-machines/virtual-machines-create-custom.md).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

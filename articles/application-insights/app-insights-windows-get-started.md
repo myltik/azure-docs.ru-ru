@@ -17,7 +17,7 @@
 
 # Application Insights для приложений Windows Phone и Магазина Windows
 
-*Доступна только предварительная версия Application Insights.*
+*Application Insights находится в состоянии предварительной версии.*
 
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
@@ -35,7 +35,7 @@
 * подписка на [Microsoft Azure][azure];
 * Visual Studio 2013 или более поздняя версия.
 
-## 1\. Создание ресурса Application Insights 
+## 1. Создание ресурса Application Insights 
 
 На [портале Azure][portal] создайте новый ресурс Application Insights.
 
@@ -50,7 +50,7 @@
 ![Откройте раскрывающуюся панель Essentials и выберите ключ инструментирования](./media/app-insights-windows-get-started/02-props.png)
 
 
-## 2\. Добавление пакета SDK Application Insights в приложение
+## 2. Добавление пакета SDK Application Insights в приложение
 
 В Visual Studio добавьте соответствующий пакет SDK в свой проект.
 
@@ -118,7 +118,7 @@
 
 ![Щелкните плитки, чтобы увидеть больше данных](./media/app-insights-windows-get-started/appinsights-26-devices-01.png)
 
-Если вам требуется больше данных, нажмите кнопку «Обновить» через несколько секунд.
+Нажмите кнопку «Обновить» через несколько секунд, если ожидаете дополнительные данные.
 
 Щелкните любую диаграмму, чтобы просмотреть более подробные сведения.
 
@@ -227,4 +227,4 @@
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -98,4 +98,4 @@ DocumentDB поддерживает хранимые процедуры, кот�
 [query]: documentdb-sql-query.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

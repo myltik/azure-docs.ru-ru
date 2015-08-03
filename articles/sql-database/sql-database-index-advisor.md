@@ -171,4 +171,4 @@
 [3]: ./media/sql-database-index-advisor/recommended-indexes.png
 [4]: ./media/sql-database-index-advisor/index-operations.png
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

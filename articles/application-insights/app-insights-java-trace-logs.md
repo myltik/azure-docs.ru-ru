@@ -87,9 +87,9 @@
 
 Средство ведения журнала | Загрузить | Библиотека
 ----|----|----
-Logback|[Пакет SDK с аппендером Logback](http://dl.msopentech.com/applicationinsights/javabin/logbackAppender.zip)|applicationinsights-logging-logback
-Log4J версии 2.0|[Пакет SDK с аппендером Log4J версии 2.0](http://dl.msopentech.com/applicationinsights/javabin/log4j2Appender.zip)|applicationinsights-logging-log4j2 
-Log4J версии 1.2|[Пакет SDK с аппендером Log4J версии 1.2](http://dl.msopentech.com/applicationinsights/javabin/log4j1_2Appender.zip)|applicationinsights-logging-log4j1_2 
+Logback|[Пакет SDK с аппендером Logback](http://dl.windowsazure.com/applicationinsights/javabin/logbackAppender.zip)|applicationinsights-logging-logback
+Log4J версии 2.0|[Пакет SDK с аппендером Log4J версии 2.0](http://dl.windowsazure.com/applicationinsights/javabin/log4j2Appender.zip)|applicationinsights-logging-log4j2 
+Log4J версии 1.2|[Пакет SDK с аппендером Log4J версии 1.2](http://dl.windowsazure.com/applicationinsights/javabin/log4j1_2Appender.zip)|applicationinsights-logging-log4j1_2 
 
 
 
@@ -149,4 +149,4 @@ Log4J версии 1.2|[Пакет SDK с аппендером Log4J верси�
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -95,4 +95,4 @@ Service Fabric предоставляет широкие возможности 
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -476,4 +476,4 @@ SQL-запросы можно создавать в динамических а�
 [Сколько стоит ключ?]: http://www.sqlskills.com/blogs/kimberly/how-much-does-that-key-cost-plus-sp_helpindex9/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

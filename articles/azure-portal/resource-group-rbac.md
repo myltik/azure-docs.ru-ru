@@ -59,7 +59,7 @@
 
 1. Войдите в свою учетную запись Azure с помощью своих учетных данных. Команда возвращает информацию о вашей учетной записи.
 
-        PS C:> Add-AzureAccount
+        PS C:\> Add-AzureAccount
           
         Id                             Type       ...
         --                             ----    
@@ -67,16 +67,16 @@
 
 2. Если у вас несколько подписок, укажите идентификатор подписки, которую вы хотите использовать для развертывания.
 
-        PS C:> Select-AzureSubscription -SubscriptionID <YourSubscriptionId>
+        PS C:\> Select-AzureSubscription -SubscriptionID <YourSubscriptionId>
 
 3. Переключитесь на модуль диспетчера ресурсов Azure.
 
-        PS C:> Switch-AzureMode AzureResourceManager
+        PS C:\> Switch-AzureMode AzureResourceManager
 
 ### Просмотр доступных ролей
 Чтобы просмотреть все доступные роли для подписки, выполните команду **Get AzureRoleDefinition**.
 
-    PS C:> Get-AzureRoleDefinition
+    PS C:\> Get-AzureRoleDefinition
 
     Name                          Id                            Actions                  NotActions
     ----                          --                            -------                  ----------
@@ -87,7 +87,7 @@
 ### Предоставление разрешений для чтения группе для подписки.
 1. Просмотрите определение роли **Чтение**, указав имя роли при выполнении команды **Get AzureRoleDefinition**. Убедитесь, что разрешены именно те действия, которые вы хотите назначить.
 
-        PS C:> Get-AzureRoleDefinition Reader
+        PS C:\> Get-AzureRoleDefinition Reader
    
         Name            Id                            Actions           NotActions
         ----            --                            -------           ----------
@@ -95,11 +95,11 @@
 
 2. Найдите нужную группу безопасности, выполнив команду **Get AzureADGroup**. Укажите фактическое имя группы в своей подписке. Ниже приведен пример группы ExampleAuditorGroup.
 
-        PS C:> $group = Get-AzureAdGroup -SearchString ExampleAuditorGroup
+        PS C:\> $group = Get-AzureAdGroup -SearchString ExampleAuditorGroup
 
 3. Создайте назначение ролей для группы безопасности аудитора. По завершении выполнения команды возвращается новое назначение ролей.
 
-        PS C:> New-AzureRoleAssignment -ObjectId $group.Id -Scope /subscriptions/{subscriptionId}/ -RoleDefinitionName Reader
+        PS C:\> New-AzureRoleAssignment -ObjectId $group.Id -Scope /subscriptions/{subscriptionId}/ -RoleDefinitionName Reader
 
         Mail               :
         RoleAssignmentId   : /subscriptions/####/providers/Microsoft.Authorization/roleAssignments/####
@@ -113,32 +113,32 @@
 ###Предоставьте разрешение участника приложению для группы ресурсов.
 1. Просмотрите определение роли **Участник**, указав имя роли при выполнении команды **Get-AzureRoleDefinition**. Убедитесь, что разрешены именно те действия, которые вы хотите назначить.
 
-        PS C:> Get-AzureRoleDefinition Contributor
+        PS C:\> Get-AzureRoleDefinition Contributor
 
 2. Получите ObjectId субъекта-службы, выполнив команду **Get AzureADServicePrincipal** и указав имя приложения в вашей подписке. Ниже приведен пример приложения ExampleApplication.
 
-        PS C:> $service = Get-AzureADServicePrincipal -SearchString ExampleApplicationName
+        PS C:\> $service = Get-AzureADServicePrincipal -SearchString ExampleApplicationName
 
 3. Создайте назначения ролей для субъекта-службы, выполнив команду **New-AzureRoleAssignment**.
 
-        PS C:> New-AzureRoleAssignment -ObjectId $service.Id -ResourceGroupName ExampleGroupName -RoleDefinitionName Contributor
+        PS C:\> New-AzureRoleAssignment -ObjectId $service.Id -ResourceGroupName ExampleGroupName -RoleDefinitionName Contributor
 
 Более подробное описание настройки приложения Azure Active Directory и субъекта-службы см. в разделе [Аутентификация субъекта-службы с помощью диспетчера ресурсов Azure](../resource-group-authenticate-service-principal.md).
 
 ###Предоставление разрешения владельца пользователю для ресурса.
 1. Просмотрите определение роли **Владелец**, указав имя роли при выполнении команды **Get AzureRoleDefinition**. Убедитесь, что разрешены именно те действия, которые вы хотите назначить.
 
-        PS C:> Get-AzureRoleDefinition Owner
+        PS C:\> Get-AzureRoleDefinition Owner
 
 2. Создайте назначения ролей для пользователя.
 
-        PS C:> New-AzureRoleAssignment -UserPrincipalName "someone@example.com" -ResourceGroupName {groupName} -ResourceType "Microsoft.Web/sites" -ResourceName "mysite" -RoleDefinitionName Owner
+        PS C:\> New-AzureRoleAssignment -UserPrincipalName "someone@example.com" -ResourceGroupName {groupName} -ResourceType "Microsoft.Web/sites" -ResourceName "mysite" -RoleDefinitionName Owner
 
 
 ###Составление списка журналов аудита группы ресурсов.
 Чтобы получить журнал аудита для группы ресурсов, выполните команду **Get-AzureResourceGroupLog**.
 
-      PS C:> Get-AzureResourceGroupLog -ResourceGroup ExampleGroupName
+      PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleGroupName
 
 ## Использование интерфейса командной строки Azure для Mac, Linux и Windows
 
@@ -270,4 +270,4 @@
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

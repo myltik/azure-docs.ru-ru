@@ -57,4 +57,4 @@
 [Сведения о методах балансировки нагрузки диспетчера трафика](../about-traffic-manager-balancing-methods.md) [Задачи настройки диспетчера трафика](https://msdn.microsoft.com/library/azure/hh744830.aspx) [Диспетчер трафика](../traffic-manager.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

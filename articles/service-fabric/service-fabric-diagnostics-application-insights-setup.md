@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/22/2015"
+   ms.date="07/20/2015"
    ms.author="mattrow"/>
 
 # Настройка Application Insights для приложения Service Fabric
@@ -41,7 +41,7 @@
     Microsoft.ServiceFabric.Telemetry.ApplicationInsights.Listener.Enable(EventLevel.Verbose);
 ```
  
-### Пример для StatefulActor\\Program.cs:
+### Пример для StatefulActor\Program.cs:
 
 ```csharp
     public static void Main(string[] args)
@@ -89,4 +89,4 @@
 - [Создание собственных событий и метрик](../app-insights-custom-events-metrics-api.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

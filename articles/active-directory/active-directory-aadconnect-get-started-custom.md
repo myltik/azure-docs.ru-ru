@@ -161,7 +161,7 @@ sAMAccountName и MailNickName|Это параметр соединяет атр
 
 > [AZURE.WARNING]Если у вас запущено средство синхронизации DirSync или Azure AD Sync, не активируйте функции обратной записи в Azure AD Connect.
 
-Функция обратной записи устройства позволяет помещать устройства, зарегистрированные в облаке, например в Intune, в доменные службы Active Directory для условного доступа. Чтобы включить эту функцию, необходимо подготовить доменные службы Active Directory. Если вы установили доменные службы Active Directory и службу регистрации устройств (DRS), DRS предоставляет командлеты PowerShell для подготовки AD для обратной записи устройства. Если у вас установлена DRS, вы можете запустить C:\\Program Files\\Microsoft Azure Active Directory Connect\\AdPrep\\AdSyncAdPrep.psm1 от имени администратора предприятия.
+Функция обратной записи устройства позволяет помещать устройства, зарегистрированные в облаке, например в Intune, в доменные службы Active Directory для условного доступа. Чтобы включить эту функцию, необходимо подготовить доменные службы Active Directory. Если вы установили доменные службы Active Directory и службу регистрации устройств (DRS), DRS предоставляет командлеты PowerShell для подготовки AD для обратной записи устройства. Если у вас установлена DRS, вы можете запустить C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncAdPrep.psm1 от имени администратора предприятия.
 
 Чтобы запустить командлет PowerShell, сначала нужно его импортировать.
 
@@ -273,4 +273,4 @@ sAMAccountName и MailNickName|Это параметр соединяет атр
 * [Подробнее](active-directory-aadconnect-learn-more.md)
 * [Azure AD Connect на портале MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx) 
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

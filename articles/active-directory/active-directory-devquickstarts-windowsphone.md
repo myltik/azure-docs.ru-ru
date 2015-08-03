@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/28/2015"
+	ms.date="07/17/2015"
 	ms.author="dastrock"/>
 
 
 
 # Интеграция Azure AD с помощью приложения Windows Phone
+
+[AZURE.INCLUDE [active-directory-devquickstarts-switcher](../../includes/active-directory-devquickstarts-switcher.md)]
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
@@ -168,7 +170,7 @@ private void SignOut()
 
 [Безопасность веб-API .NET с Azure AD >>](active-directory-devquickstarts-webapi-dotnet.md)
 
-Дополнительные ресурсы: — [AzureADSamples на GitHub >>](https://github.com/AzureAdSamples) — [CloudIdentity.com >>](https://cloudidentity.com) — Документация Azure AD на [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
+[AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

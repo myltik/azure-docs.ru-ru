@@ -51,14 +51,14 @@
 Убедитесь, что выбран режим PowerShell для использования командлетов ARM. Дополнительную информацию см. в статье [Использование Windows PowerShell с диспетчером ресурсов](powershell-azure-resource-manager.md).
 
 
-    PS C:> Switch-AzureMode -Name AzureResourceManager
+    PS C:\> Switch-AzureMode -Name AzureResourceManager
 
 ### Шаг 2.
 
 Войдите в свою учетную запись Azure.
 
 
-    PS C:> Add-AzureAccount
+    PS C:\> Add-AzureAccount
 
 Вам будет предложено указать свои учетные данные для проверки подлинности.
 
@@ -67,7 +67,7 @@
 
 Выберите подписку Azure.
 
-    PS C:> Select-AzureSubscription -SubscriptionName "MySubscription"
+    PS C:\> Select-AzureSubscription -SubscriptionName "MySubscription"
 
 Чтобы просмотреть перечень доступных подписок, воспользуйтесь командлетом Get-AzureSubscription.
 
@@ -76,7 +76,7 @@
 
 Создайте группу ресурсов (пропустите этот шаг, если вы используете существующую группу).
 
-    PS C:> New-AzureResourceGroup -Name NRP-RG -location "West US"
+    PS C:\> New-AzureResourceGroup -Name NRP-RG -location "West US"
 
 Диспетчер ресурсов Azure требует, чтобы все группы ресурсов указывали расположение. Оно используется по умолчанию для ресурсов в этой группе. Убедитесь, что во всех командах создания подсистемы балансировки нагрузки используется одна группа ресурсов.
 
@@ -184,7 +184,7 @@
 Результат будет аналогичным следующему:
 
 
-PS C:> $backendnic1
+PS C:\> $backendnic1
 
 
 	Name                 : lb-nic1-be
@@ -245,4 +245,4 @@ PS C:> $backendnic1
 [Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -1,5 +1,19 @@
-<properties title="List of Oracle Virtual Machine Images" pageTitle="Список образов виртуальных машин Oracle" description="Просмотрите список образов Oracle в коллекции Azure и узнайте, как создать виртуальную машину Oracle на основе такого образа." services="virtual-machines" authors="bbenz" documentationCenter=""/>
-<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
+<properties 
+	pageTitle="Список образов виртуальных машин Oracle" 
+	description="Просмотрите список образов Oracle в коллекции Azure и узнайте, как создать виртуальную машину Oracle на основе такого образа." 
+	services="virtual-machines" 
+	authors="bbenz" 
+	documentationCenter=""/>
+
+<tags 
+	ms.service="virtual-machines" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="infrastructure-services" 
+	ms.date="06/22/2015" 
+	ms.author="bbenz" />
+
 #Список образов виртуальных машин Oracle
 Чтобы создать виртуальную машину на основе образа Oracle, войдите на [портал Azure](https://ms.portal.azure.com/), щелкните **Marketplace**, выберите меню **Вычисление**, а затем в поле поиска введите **Oracle**. Выберите образ и следуйте указаниям, чтобы установить образ в Microsoft Azure. Обратите внимание, что в образах Oracle корпорации Майкрософт на [портале Azure](https://ms.portal.azure.com/) используется Windows, а в образах Oracle корпорации Oracle используется Oracle Linux.
 
@@ -50,4 +64,4 @@
 
 [Образы виртуальных машин Oracle. Различные рекомендации.](#miscellaneous-considerations-for-oracle-virtual-machine-images-new-article)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

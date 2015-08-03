@@ -88,4 +88,4 @@
 [9]: ./media/app-service-logic-connector-http/9.png
 [10]: ./media/app-service-logic-connector-http/10.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

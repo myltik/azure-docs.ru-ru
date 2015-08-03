@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Использование хранилища Azure для резервного копирования и восстановления данных SQL сервера на платформе Azure." 
-	description="Создайте резервную копию сервера SQL Server и базы данных SQL в хранилище Azure. В этой статье описаны преимущества резервного копирования баз данных SQL в хранилище Azure. В ней также рассказывается об обязательных компонентах сервера SQL Server и хранилища Azure." 
-	services="sql-database, virtual-machines" 
-	documentationCenter="" 
-	authors="jeffgoll" 
-	manager="jeffreyg" 
+<properties
+	pageTitle="Использование хранилища Azure для резервного копирования и восстановления данных SQL сервера на платформе Azure."
+	description="Создайте резервную копию сервера SQL Server и базы данных SQL в хранилище Azure. В этой статье описаны преимущества резервного копирования баз данных SQL в хранилище Azure. В ней также рассказывается об обязательных компонентах сервера SQL Server и хранилища Azure."
+	services="sql-database, virtual-machines"
+	documentationCenter=""
+	authors="carlrabeler"
+	manager="jeffreyg"
 	editor="tysonn"/>
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/06/2015" 
-	ms.author="jeffreyg"/>
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="vm-windows-sql-server"
+	ms.topic="article"
+	ms.date="07/16/2015"
+	ms.author="carlrab"/>
 
 
 
@@ -43,7 +43,7 @@
 
 Полное пошаговое руководство по созданию учетной записи хранения и выполнению простого восстановления см. в статье [Архивация и восстановление SQL Server с помощью службы хранилища BLOB-объектов Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=271615)
 
-## Компоненты службы хранилища BLOB-объектов Azure 
+## Компоненты службы хранилища BLOB-объектов Azure
 
 * Учетная запись хранения: учетная запись хранения является отправной точкой для всех служб хранилища. Для доступа к службе хранилища BLOB-объектов Azure необходимо сначала создать учетную запись хранения Azure. Имя учетной записи хранения и свойства ее ключей доступа необходимы для проверки подлинности при взаимодействии со службой хранилища BLOB-объектов Azure и ее компонентами. Дополнительные сведения о службе хранилища больших двоичных объектов Azure см. в разделе [Использование службы хранилища больших двоичных объектов](http://azure.microsoft.com/develop/net/how-to-guides/blob-storage/)
 
@@ -69,17 +69,7 @@
 [Начало работы с резервным копированием и восстановлением SQL Server с использованием службы хранилища BLOB-объектов Azure](http://go.microsoft.com/fwlink/?LinkID=271615 "Учебник")
 
 **Рекомендации и устранение неполадок:**
-	
+
 [Рекомендации по резервному копированию и восстановлению (служба хранилища BLOB-объектов Azure)](http://go.microsoft.com/fwlink/?LinkId=272394)
 
-
-
-
-	
-
-
-
-
- 
-
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

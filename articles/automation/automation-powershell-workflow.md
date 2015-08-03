@@ -163,9 +163,9 @@ InlineScript использует описанный ниже синтаксис
 
 Рассмотрим, например, приведенные ниже команды PowerShell, которые копируют несколько файлов в определенный узел сети. Команды выполняются последовательно, поэтому следующий файл не копируется, пока не закончится копирование предыдущего.
 
-	$Copy-Item -Path C:\LocalPath\File1.txt -Destination \\NetworkPath\File1.txt
-	$Copy-Item -Path C:\LocalPath\File2.txt -Destination \\NetworkPath\File2.txt
-	$Copy-Item -Path C:\LocalPath\File3.txt -Destination \\NetworkPath\File3.txt
+	$Copy-Item -Path C:\LocalPath\File1.txt -Destination \NetworkPath\File1.txt
+	$Copy-Item -Path C:\LocalPath\File2.txt -Destination \NetworkPath\File2.txt
+	$Copy-Item -Path C:\LocalPath\File3.txt -Destination \NetworkPath\File3.txt
 
 Приведенный ниже рабочий процесс выполняет те же команды параллельно, так что все файлы копируются одновременно. При этом сообщение о завершении отображается только после того, как все файлы будут скопированы.
 
@@ -173,9 +173,9 @@ InlineScript использует описанный ниже синтаксис
 	{
 		Parallel 
 		{
-			$Copy-Item -Path "C:\LocalPath\File1.txt" -Destination "\\NetworkPath"
-			$Copy-Item -Path "C:\LocalPath\File2.txt" -Destination "\\NetworkPath"
-			$Copy-Item -Path "C:\LocalPath\File3.txt" -Destination "\\NetworkPath"
+			$Copy-Item -Path "C:\LocalPath\File1.txt" -Destination "\NetworkPath"
+			$Copy-Item -Path "C:\LocalPath\File2.txt" -Destination "\NetworkPath"
+			$Copy-Item -Path "C:\LocalPath\File3.txt" -Destination "\NetworkPath"
 		}
 
 		Write-Output "Files copied."
@@ -199,7 +199,7 @@ InlineScript использует описанный ниже синтаксис
 
 		ForEach -Parallel ($File in $Files) 
 		{
-			$Copy-Item -Path $File -Destination \\NetworkPath
+			$Copy-Item -Path $File -Destination \NetworkPath
 			Write-Output "$File copied."
 		}
 		
@@ -231,7 +231,7 @@ InlineScript использует описанный ниже синтаксис
 
 		ForEach ($File in $Files) 
 		{
-			$Copy-Item -Path $File -Destination \\NetworkPath
+			$Copy-Item -Path $File -Destination \NetworkPath
 			Write-Output "$File copied."
 			Checkpoint-Workflow
 		}
@@ -249,4 +249,4 @@ InlineScript использует описанный ниже синтаксис
 
 - [Начало работы с рабочим процессом Windows PowerShell](http://technet.microsoft.com/library/jj134242.aspx) 
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

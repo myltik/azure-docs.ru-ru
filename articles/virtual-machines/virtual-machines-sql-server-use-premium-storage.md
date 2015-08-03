@@ -1143,4 +1143,4 @@
 [25]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_15.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

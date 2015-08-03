@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="11/21/2014" 
+	ms.date="07/17/2015" 
 	ms.author="tomfitz"/>
 
 # Единый вход в Интернете с помощью PHP и Azure Active Directory
@@ -131,7 +131,7 @@
 
 5. В диалоговом окне **Создать файл PHP** присвойте проекту имя **secureResource.php**, затем нажмите кнопку **Готово**.
 
-6. В новом файле **secureResource.php** введите приведенный ниже код, указав вместо пути **c:\\phpLibraries** корневую папку, в которую вы загрузили пример кода. Корневая папка должна содержать файл **simpleSAML.php** и папку **federation**.
+6. В новом файле **secureResource.php** введите приведенный ниже код, указав вместо пути **c:\phpLibraries** корневую папку, в которую вы загрузили пример кода. Корневая папка должна содержать файл **simpleSAML.php** и папку **federation**.
 
 		<?php
 		ini_set('include_path', ini_get('include_path').';c:\phpLibraries\;');
@@ -203,4 +203,4 @@
 [Пример PHP-кода для Azure Active Directory]: https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/WAAD.WebSSO.PHP
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

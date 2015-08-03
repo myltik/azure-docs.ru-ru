@@ -161,4 +161,4 @@
 - [Начало работе с хранилищем больших двоичных объектов для .NET](storage-dotnet-how-to-use-blobs.md)  
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

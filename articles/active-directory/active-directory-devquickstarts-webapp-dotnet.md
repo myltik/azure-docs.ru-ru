@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Приступая к работе с .NET Azure AD | Microsoft Azure"
+	pageTitle="Приступая к работе с Azure AD для .NET | Microsoft Azure"
 	description="Как построить веб-приложение .NET MVC, которое интегрируется с Azure AD для входа."
 	services="active-directory"
 	documentationCenter=".net"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/28/2015"
+	ms.date="07/17/2015"
 	ms.author="dastrock"/>
 
 # Вход и выход веб-приложения с использованием Azure AD
@@ -173,7 +173,7 @@ public ActionResult About()
 
 [Защита веб-интерфейса API с помощью Azure AD >>](active-directory-devquickstarts-webapi-dotnet.md)
 
-Дополнительные ресурсы: — [AzureADSamples на GitHub >>](https://github.com/AzureAdSamples) — [CloudIdentity.com >>](https://cloudidentity.com) — Документация Azure AD на [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
+[AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -74,7 +74,7 @@ API управления службой обеспечивает програм�
 	from azure.servicemanagement import *
 
 	subscription_id = '<your_subscription_id>'
-	certificate_path = 'CURRENT_USER\\my\\AzureCertificate'
+	certificate_path = 'CURRENT_USER\my\AzureCertificate'
 
 	sms = ServiceManagementService(subscription_id, certificate_path)
 
@@ -445,4 +445,4 @@ API управления службой обеспечивает програм�
 [Virtual Machines]: http://msdn.microsoft.com/library/windowsazure/jj156003.aspx
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

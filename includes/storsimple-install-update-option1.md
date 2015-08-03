@@ -37,7 +37,7 @@
     Пример выходных данных этой команды показан ниже.
 
         ````
-        Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
+        Controller0>Start-HcsHotfix -Path \10.100.100.100\share
         \hcsmdssoftwareupdate.exe -Credential contoso\John
       
         Confirm
@@ -97,4 +97,4 @@
 
     Для встроенного программного обеспечения должно отображаться состояние **UpToDate**.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

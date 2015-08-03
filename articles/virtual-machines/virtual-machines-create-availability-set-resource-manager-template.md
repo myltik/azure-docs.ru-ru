@@ -33,7 +33,7 @@
 
 ### Шаг 1. Скачивание JSON-файла
 
-Назначьте локальную папку в качестве расположения для файлов шаблонов JSON и создайте ее (например, с путем C:\\Azure\\Templates\\availability).
+Назначьте локальную папку в качестве расположения для файлов шаблонов JSON и создайте ее (например, с путем C:\Azure\Templates\availability).
 
 Замените имя папки, а затем скопируйте его и выполните следующие команды.
 
@@ -103,4 +103,4 @@
 
 	azure group deployment create <my-resource-group> <my-deployment-name> --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-2-FDs-no-resource-loops/azuredeploy.json
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

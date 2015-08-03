@@ -182,4 +182,4 @@
 [Управление доступом в мобильных службах на основе ролей с помощью AAD]: mobile-services-javascript-backend-windows-store-dotnet-aad-rbac.md
 [Блог команды разработчиков Azure Active Directory Graph]: http://go.microsoft.com/fwlink/?LinkId=510536
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

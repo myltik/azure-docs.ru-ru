@@ -141,4 +141,4 @@
 [пакет Azure для Python]: https://pypi.python.org/pypi/azure
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

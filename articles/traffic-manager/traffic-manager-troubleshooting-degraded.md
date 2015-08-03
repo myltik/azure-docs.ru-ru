@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Устранение неполадок с состоянием &quot;Деградация&quot; в диспетчере трафика Azure"
-   description="Устранение неполадок с профилями диспетчера трафика при отображении состояния &quot;Деградация&quot;."
+   pageTitle="Устранение неполадок с состоянием ";Деградация"; в диспетчере трафика Azure"
+   description="Устранение неполадок с профилями диспетчера трафика при отображении состояния ";Деградация";."
    services="traffic-manager"
    documentationCenter=""
    authors="kwill-MSFT"
@@ -79,4 +79,4 @@
 [Командлеты для диспетчера трафика Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

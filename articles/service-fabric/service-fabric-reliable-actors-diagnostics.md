@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/22/2015"
+   ms.date="07/21/2015"
    ms.author="abhisram"/>
 
 # Диагностика и мониторинг производительности субъектов Fabric
@@ -154,6 +154,5 @@
 |---|---|---|---|---|
 |ActorActivated|5|Информация|0x1|Субъект активирован.|
 |ActorDeactivated|6|Информация|0x1|Субъект отключен.|
- 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

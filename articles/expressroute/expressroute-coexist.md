@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Настройка подключения существующих одновременно VPN типа ExpressRoute и «сеть-сеть» "
+   pageTitle="Настройка подключения существующих одновременно VPN типа ExpressRoute и «сеть-сеть»"
    description="В этом учебнике описывается настройка существующих одновременно подключений к сети VPN ExpressRoute и сети типа «сеть-сеть»."
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="adinah"
+   manager="jdial"
    editor="tysonn" />
 <tags
    ms.service="expressroute"
@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/30/2015"
+   ms.date="07/20/2015"
    ms.author="cherylmc"/>
 
 # Настройка подключения существующих одновременно VPN типа ExpressRoute и «сеть-сеть»
@@ -45,10 +45,11 @@
 
 ### Примечания и ограничения
 
+- Нельзя настроить маршрутизацию (через Azure) от локальной сети, подключенной к сети VPN типа «сеть-сеть», до локальной сети, подключенной к сети ExpressRoute.
+- Невозможно включить подключения VPN «точка — сеть» к одной виртуальной сети, подключенной к ExpressRoute. VPN «точка — сеть» и ExpressRoute невозможно использовать совместно для одной виртуальной сети.
 - Оба шлюза, к сети VPN ExpressRoute и к сети типа «сеть-сеть», должны иметь номера SKU Standard или HighPerformance. Сведения о номерах SKU шлюзов см. в разделе [Номера SKU шлюзов](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 - Если локальная сеть подключена как к сети VPN ExpressRoute, так и к сети типа «сеть-сеть» (сценарий 1), необходимо иметь статический маршрут, определенный в локальной сети, для маршрутизации VPN-подключения типа «сеть-сеть» к Интернету. 
 - Сначала необходимо создать шлюз ExpressRoute, а затем — добавить VPN-шлюз к сети типа «сеть-сеть».
-- Нельзя настроить маршрутизацию (через Azure) от локальной сети, подключенной к сети VPN типа «сеть-сеть», до локальной сети, подключенной к сети ExpressRoute.
 - В обеих процедурах предполагается, что канал ExpressRoute уже настроен. Если это не так, см. следующие статьи. 
 
 	- [Настройка подключения ExpressRoute через поставщика сетевых услуг (NSP)](expressroute-configuring-nsps.md) 
@@ -107,7 +108,7 @@
 
 	`New-AzureVirtualNetworkGateway -VNetName MyAzureVNET -GatewayName S2SVPN -GatewayType DynamicRouting -GatewaySKU  HighPerformance`
 
-	Чтобы получить параметры шлюза виртуальной сети, включая идентификатор шлюза и общедоступный IP-адрес, используйте командлет `Get-AzureVirtualNetworkGateway`.
+	Чтобы получить параметры виртуального сетевого шлюза, включая идентификатор шлюза и общедоступный IP-адрес, используйте командлет `Get-AzureVirtualNetworkGateway`.
 
 		Get-AzureVirtualNetworkGateway
 		
@@ -138,7 +139,7 @@
 
 	`New-AzureLocalNetworkGateway -GatewayName MyLocalNetwork -IpAddress <local-network- gateway-public-IP> -AddressSpace <local-network-address-space>`
 
-	Чтобы получить параметры шлюза виртуальной сети, включая идентификатор шлюза и общедоступный IP-адрес, используйте командлет `Get-AzureVirtualNetworkGateway`. См. пример ниже.
+	Чтобы получить параметры виртуального сетевого шлюза, включая идентификатор шлюза и общедоступный IP-адрес, используйте командлет `Get-AzureVirtualNetworkGateway`. См. пример ниже.
 
 		Get-AzureLocalNetworkGateway
 		
@@ -151,7 +152,7 @@
 		OperationStatus      : Succeeded
 
 	
-8. Настройте локальное VPN-устройство для подключения к новому шлюзу. При настройке VPN-устройства используйте сведения, полученные на этапе 6. Дополнительные сведения о настройке VPN-устройства см. в разделе [Настройка VPN-устройства](vpn-gateway-configure-vpn-gateway-mp.md/#gather-information-for-your-vpn-device-configuration).
+8. Настройте локальное VPN-устройство для подключения к новому шлюзу. При настройке VPN-устройства используйте сведения, полученные на этапе 6. Дополнительные сведения о настройке VPN-устройства см. в разделе [Настройка VPN-устройства](http://go.microsoft.com/fwlink/p/?linkid=615099).
 	
 
 9. Свяжите VPN-шлюз к сети типа «сеть-сеть» в Azure с локальным шлюзом.
@@ -203,4 +204,4 @@
 
 Дополнительные сведения о VPN-шлюзах. См. раздел [Сведения о VPN-шлюзах](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

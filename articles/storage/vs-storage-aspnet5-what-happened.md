@@ -50,4 +50,4 @@
 Дополнительную информацию см. в [ASP.NET 5](http://www.asp.net/vnext).
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

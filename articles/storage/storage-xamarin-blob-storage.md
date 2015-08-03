@@ -38,10 +38,10 @@ Xamarin позволяет разработчикам использовать �
 
 Откройте сеанс Azure PowerShell и выполните следующие команды. Не забудьте заменить `ACCOUNT_NAME` и `ACCOUNT_KEY== ` на учетные данные вашей учетной записи хранения. Замените `CONTAINER_NAME` на имя по вашему выбору.
 
-    PS C:> $context = New-AzureStorageContext -StorageAccountName "ACCOUNT_NAME" -StorageAccountKey "ACCOUNT_KEY=="
-	PS C:> New-AzureStorageContainer CONTAINER_NAME -Permission Off -Context $context
-	PS C:> $now = Get-Date
-	PS C:> New-AzureStorageContainerSASToken -Name CONTAINER_NAME -Permission rwdl -ExpiryTime $now.AddDays(1.0) -Context $context -FullUri
+    PS C:\> $context = New-AzureStorageContext -StorageAccountName "ACCOUNT_NAME" -StorageAccountKey "ACCOUNT_KEY=="
+	PS C:\> New-AzureStorageContainer CONTAINER_NAME -Permission Off -Context $context
+	PS C:\> $now = Get-Date
+	PS C:\> New-AzureStorageContainerSASToken -Name CONTAINER_NAME -Permission rwdl -ExpiryTime $now.AddDays(1.0) -Context $context -FullUri
 
 URI подписи коллективного доступа для нового контейнера должен быть аналогичен следующему:
 
@@ -176,4 +176,4 @@ URI подписи коллективного доступа для нового
 [Введение в хранилище Microsoft Azure](storage-introduction.md) [Использование хранилища BLOB-объектов из .NET](storage-dotnet-how-to-use-blobs.md) [Использование табличного хранилища из .NET](storage-dotnet-how-to-use-tables.md) [Использование хранилища очередей из .NET](storage-dotnet-how-to-use-queues.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

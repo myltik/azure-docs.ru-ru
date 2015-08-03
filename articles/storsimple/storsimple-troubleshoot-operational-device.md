@@ -48,4 +48,4 @@
 ## Дальнейшие действия
 Если устранить проблему не удалось, [обратитесь в службу поддержки Майкрософт](https://msdn.microsoft.com/library/azure/dn757750.aspx).
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

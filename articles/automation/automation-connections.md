@@ -120,4 +120,4 @@
 - [Использование связей при создании графических модулей](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -1,7 +1,7 @@
 <properties
    pageTitle="Использование связанных шаблонов в диспетчере ресурсов Azure"
    description="Описывает, как использовать связанные шаблоны в шаблоне диспетчера ресурсов Azure для создания решения модульных шаблонов. Показывает, как передавать значения параметров, указывать файл параметров и динамически создаваемые URL-адреса."
-   services="na"
+   services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
@@ -100,4 +100,4 @@
 - [Создание шаблонов](./resource-group-authoring-templates.md)
 - [Развертывание шаблонов](azure-portal/resource-group-template-deploy.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

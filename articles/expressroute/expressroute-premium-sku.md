@@ -63,7 +63,7 @@ Windows PowerShell — это полнофункциональная среда 
 ### 3. Проверка включения надстройки ExpressRoute Premium
 Можно проверить, включена ли надстройка ExpressRoute Premium для канала. В следующем примере надстройка ExpressRoute Premium для канала ExpressRoute не включена. Значение SKU будет отображаться как ***Premium***, если надстройка включена.
 
-		PS C:> Get-AzureDedicatedCircuit -ServiceKey *********************************
+		PS C:\> Get-AzureDedicatedCircuit -ServiceKey *********************************
 
 		Bandwidth                        : 200
 		CircuitName                      : TestCircuit
@@ -86,15 +86,15 @@ Windows PowerShell — это полнофункциональная среда 
 	Вы можете получить сведения о канале ExpressRoute с помощью следующего командлета PowerShell:
 		
 
-    	PS C:> Get-AzureDedicatedCircuit
+    	PS C:\> Get-AzureDedicatedCircuit
 	
 	Эта команда возвращает список всех каналов, созданных в подписке. Чтобы получить подробные сведения о конкретных каналах ExpressRoute, можно использовать следующую команду, если у вас есть ключ службы
 
-		 PS C:> Get-AzureDedicatedCircuit -ServiceKey <skey>
+		 PS C:\> Get-AzureDedicatedCircuit -ServiceKey <skey>
 
 	Замените <skey> действующим ключом службы.
 	
-		PS C:> Get-AzureDedicatedCircuit -ServiceKey *********************************
+		PS C:\> Get-AzureDedicatedCircuit -ServiceKey *********************************
 
 		Bandwidth                        : 200
 		CircuitName                      : TestCircuit
@@ -111,7 +111,7 @@ Windows PowerShell — это полнофункциональная среда 
 
 	Вы можете включить надстройку ExpressRoute Premium для существующего канала с помощью следующего командлета PowerShell:
 	
-		PS C:> Set-AzureDedicatedCircuitProperties -ServiceKey "*********************************" -Sku Premium
+		PS C:\> Set-AzureDedicatedCircuitProperties -ServiceKey "*********************************" -Sku Premium
 		
 		Bandwidth                        : 1000
 		CircuitName                      : TestCircuit
@@ -136,15 +136,15 @@ Windows PowerShell — это полнофункциональная среда 
 	Вы можете получить сведения о канале ExpressRoute с помощью следующего командлета PowerShell:
 		
 
-    	PS C:> Get-AzureDedicatedCircuit
+    	PS C:\> Get-AzureDedicatedCircuit
 	
 	Эта команда возвращает список всех каналов, созданных в подписке. Чтобы получить подробные сведения о конкретных каналах ExpressRoute, можно использовать следующую команду, если у вас есть ключ службы
 
-		 PS C:> Get-AzureDedicatedCircuit -ServiceKey <skey>
+		 PS C:\> Get-AzureDedicatedCircuit -ServiceKey <skey>
 
 	Замените <skey> действующим ключом службы.
 	
-		PS C:> Get-AzureDedicatedCircuit -ServiceKey *********************************
+		PS C:\> Get-AzureDedicatedCircuit -ServiceKey *********************************
 
 		Bandwidth                        : 200
 		CircuitName                      : TestCircuit
@@ -161,7 +161,7 @@ Windows PowerShell — это полнофункциональная среда 
 
 	Вы можете выключить надстройку ExpressRoute Premium для существующего канала с помощью следующего командлета PowerShell:
 	
-		PS C:> Set-AzureDedicatedCircuitProperties -ServiceKey "*********************************" -Sku Standard
+		PS C:\> Set-AzureDedicatedCircuitProperties -ServiceKey "*********************************" -Sku Standard
 		
 		Bandwidth                        : 1000
 		CircuitName                      : TestCircuit
@@ -177,4 +177,4 @@ Windows PowerShell — это полнофункциональная среда 
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

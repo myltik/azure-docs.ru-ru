@@ -498,7 +498,7 @@
 	
 	Этого должно быть достаточно для работы нашего приложения.
 
-5. Откройте файл **style.css** в каталоге **public\\stylesheets** и замените код следующим:
+5. Откройте файл **style.css** в каталоге **public\stylesheets** и замените код следующим:
 
 		body {
 		  padding: 50px;
@@ -559,4 +559,4 @@
   [Git]: http://git-scm.com/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

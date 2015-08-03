@@ -18,6 +18,8 @@ ms.author="mahender" />
 
 [AZURE.INCLUDE [app-service-mobile-selector-aad-sso](../../includes/app-service-mobile-selector-aad-sso.md)]
 
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+
 В этом руководстве в проект быстрого запуска будет добавляться проверка подлинности с помощью библиотеки проверки подлинности Active Directory.
 
 Чтобы получить возможность проверки подлинности пользователей, необходимо зарегистрировать приложение в клиенте Azure Active Directory (AAD). Это делается в два этапа. Сначала необходимо зарегистрировать службу приложений и предоставить в ней разрешения. Далее нужно зарегистрировать приложение iOS и предоставить ему доступ к этим разрешениям.
@@ -28,6 +30,10 @@ ms.author="mahender" />
 * Прохождение учебника [Начало работы с мобильными приложениями].
 * Microsoft Azure Mobile Services SDK
 * Библиотека проверки подлинности [Active Directory для iOS]
+
+##<a name="review"></a>Проверка конфигурации сервера проекта (необязательное действие)
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-auth-preview](../../includes/app-service-mobile-dotnet-backend-enable-auth-preview.md)]
 
 ## <a name="register-application"></a>Регистрация приложения в Azure Active Directory
 
@@ -118,4 +124,4 @@ ms.author="mahender" />
  [Начало работы с мобильными приложениями]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

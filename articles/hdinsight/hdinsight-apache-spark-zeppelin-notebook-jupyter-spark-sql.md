@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/10/2015" 
+	ms.date="07/19/2015" 
 	ms.author="nitinme"/>
 
 
-# Краткое руководство: подготовка Apache Spark в HDInsight и выполнение интерактивных запросов с помощью Spark SQL
+# Быстрый запуск: подготовка Apache Spark в HDInsight и выполнение интерактивных запросов с помощью Spark SQL
 
 Узнайте о том, как подготовить кластер Apache Spark в HDInsight с помощью параметра "Быстрое создание", а затем использовать веб-записные книжки [Zeppelin](https://zeppelin.incubator.apache.org) и [Jupyter](https://jupyter.org) для выполнения интерактивных запросов Spark SQL в кластере Spark.
 
@@ -42,7 +42,7 @@
 
 >[AZURE.NOTE]Создавайте учетную запись хранения в том расположении, в котором поддерживается кластер,
 
-Выберите новую учетную запись хранения в списке и щелкните **УПРАВЛЕНИЕ КЛЮЧАМИ ДОСТУПА** в нижней части страницы. Запишите значения в полях **ПЕРВИЧНЫЙ КЛЮЧ ДОСТУПА** (или **ВТОРИЧНЫЙ КЛЮЧ ДОСТУПА** —любой из ключей будет работать). Они потребуются позже в этом учебнике. Дополнительные сведения см. в статье [Создание учетной записи хранения][azure-create-storageaccount].
+Выберите новую учетную запись хранения в списке и щелкните **УПРАВЛЕНИЕ КЛЮЧАМИ ДОСТУПА** в нижней части страницы. Запишите значения в полях **ПЕРВИЧНАЯ КЛАВИША ДОСТУПА** (или **ВТОРИЧНАЯ КЛАВИША ДОСТУПА** —любая из клавиш будет работать). Они потребуются позже в этом учебнике. Дополнительные сведения см. в статье [Создание учетной записи хранения][azure-create-storageaccount].
 	
 ##<a name="provision"></a>Подготовка кластера HDInsight Spark
 
@@ -57,7 +57,7 @@
 
 2. Щелкните **СОЗДАТЬ** в левом нижнем углу и введите значения, как показано на рисунке.
 
-	![Создание кластера Spark в HDInsight](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.QuickCreateCluster.png "Создание кластера Spark в HDInsight")
+	![Создать кластер Spark в HDInsight](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.QuickCreateCluster.png "Создать кластер Spark в HDInsight")
 
 
 ##<a name="zeppelin"></a>Выполнение интерактивных запросов Spark SQL с помощью записной книжки Zeppelin
@@ -78,7 +78,7 @@
 
 	![Состояния записной книжки Zeppelin](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.NewNote.Connected.png "Состояния записной книжки Zeppelin")
 
-4. Загрузите демонстрационные данные во временную таблицу. При подготовке кластера Spark в HDInsight файл с демонстрационными данными **hvac.csv** копируется в связанную учетную запись по следующему пути: **\\HdiSamples\\SensorSampleData\\hvac**.
+4. Загрузите демонстрационные данные во временную таблицу. При подготовке кластера Spark в HDInsight файл с демонстрационными данными **hvac.csv** копируется в связанную учетную запись хранения по следующему пути: **\HdiSamples\SensorSampleData\hvac**.
 
 	В пустой абзац, созданный по умолчанию в новой записной книжке, вставьте следующий фрагмент кода.
 
@@ -140,14 +140,14 @@
 
 	![Перезапуск интерпретатора Zeppelin](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.Zeppelin.Restart.Interpreter.png "Перезапуск интерпретатора Zeppelin")
 
-##<a name="jupyter"></a>Выполнение запросов Spark SQL с помощью записной книжки Jupyter на основе Python
+##<a name="jupyter"></a>Выполнение запросов Spark SQL с помощью записной книжки Jupyter
 
-Выполнять запросы Spark SQL можно также с помощью Python. В этом разделе записная книжка Jupyter используется для выполнения запросов Spark SQL к кластеру Spark.
+В этом разделе записная книжка Jupyter используется для выполнения запросов Spark SQL к кластеру Spark.
 
 >[AZURE.NOTE]Записная книжка, которую вы создадите, следуя приведенным ниже инструкциям, также по умолчанию доступна в кластере. После запуска Jupyter эту записную книжку можно найти по имени **HVACTutorial.ipynb**.
 
 1. Запустите записную книжку Jupyter. Выберите кластер Spark на портале Azure, затем на панели задач портала в нижней части экрана щелкните элемент **Jupyter Notebook**. При появлении запроса введите учетные данные администратора для кластера Spark.
-2. Создайте новую записную книжку. Щелкните**New** (Создать), а затем выберите пункт **Python2**.
+2. Создайте новую записную книжку. Щелкните **New** (Создать), а затем выберите пункт **Python2**.
 
 	![Создание новой записной книжки Jupyter](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.Note.Jupyter.CreateNotebook.png "Создание новой записной книжки Jupyter")
 
@@ -169,7 +169,7 @@
 
 	 ![Состояние задания записной книжки Jupyter](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.Jupyter.Job.Status.png "Состояние задания записной книжки Jupyter")
 
-4. Загрузите демонстрационные данные во временную таблицу. При подготовке кластера Spark в HDInsight файл с демонстрационными данными **hvac.csv** копируется в связанную учетную запись по следующему пути: **\\HdiSamples\\SensorSampleData\\hvac**.
+4. Загрузите демонстрационные данные во временную таблицу. При подготовке кластера Spark в HDInsight файл с демонстрационными данными **hvac.csv** копируется в связанную учетную запись хранения по следующему пути: **\HdiSamples\SensorSampleData\hvac**.
 
 	Вставьте следующий фрагмент кода в пустую ячейку и нажмите клавиши **SHIFT+ВВОД**. Этот фрагмент кода регистрирует данные во временной таблице, которая называется **hvac**.
 
@@ -243,4 +243,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

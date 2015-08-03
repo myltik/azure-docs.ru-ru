@@ -498,4 +498,4 @@ Push-уведомления обычно отправляются в серве�
 [Компонент обмена сообщениями в Azure]: http://components.xamarin.com/view/azure-messaging
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

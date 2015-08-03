@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="php"
 	ms.topic="article"
-	ms.date="06/10/2015"
+	ms.date="07/20/2015"
 	ms.author="mebha"/>
 
 
@@ -27,19 +27,7 @@
 В этом разделе объясняется, как подключиться к базе данных SQL Azure из клиентского приложения PHP, которое запущено в ОС Windows.
 
 
-## Предварительные требования
-
-
-Чтобы запустить пример кода PHP, приведенный в этом разделе, на клиентский компьютер необходимо установить следующее программное обеспечение.
-
-
-- [Драйверы Microsoft для PHP для Microsoft SQL Server](http://www.microsoft.com/download/details.aspx?id=20098) (файл SQLSRV32.EXE содержит последнюю версию).
-- [Microsoft SQL Server Native Client 11.0](http://www.microsoft.com/download/details.aspx?id=36434).
-- [Драйвер ODBC Microsoft](https://www.microsoft.com/ru-ru/download/details.aspx?id=36434).
-- IIS Express.
-- [PHP 5.6 для IIS Express](http://www.microsoft.com/web/downloads/platform.aspx). Скачайте дистрибутив с помощью установщика платформы. Для скачивания установщика платформы используйте Internet Explorer.
-
-Чтобы узнать, как установить и настроить перечисленные выше компоненты, посетите наш [блог группы](http://blogs.msdn.com/b/sqlphp/archive/2015/05/11/getting-started-with-php-and-microsoft-sql-server.aspx) и просмотрите [видео](https://www.youtube.com/watch?v=0oCjiRK_tUk).
+[AZURE.INCLUDE [sql-database-develop-includes-prerequisites-php-windows](../../includes/sql-database-develop-includes-prerequisites-php-windows.md)]
 
 
 ## Создание базы данных и получение строки подключения
@@ -105,7 +93,7 @@
 ## Вставка строки, передача параметров и получение созданного первичного ключа
 
 
-Для получения автоматически созданных значений [первичного ключа](https://msdn.microsoft.com/library/ms179610.aspx) в базе данных SQL можно использовать свойство [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) и объект [SEQUENECE](https://msdn.microsoft.com/library/ff878058.aspx).
+Для получения автоматически созданных [значений первичного ключа](https://msdn.microsoft.com/library/ms179610.aspx) в Базе данных SQL можно использовать свойство [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) и объект [SEQUENCE](https://msdn.microsoft.com/library/ff878058.aspx).
 
 
 	function InsertData()
@@ -192,4 +180,4 @@
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -126,4 +126,4 @@
 
 - [Расширение виртуальных машин Docker для Linux в Azure](virtual-machines-docker-vm-extension.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

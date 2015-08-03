@@ -32,4 +32,4 @@
 
 *Safari 6 и ниже не поддерживаются. Если используется OS X, можно использовать Chrome, Firefox или выполнить обновление до OS X Mavericks для получения Safari 7.*
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

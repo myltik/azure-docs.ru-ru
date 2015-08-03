@@ -23,12 +23,12 @@
 
 ## Добавление сертификата в хранилище cacerts
 
-1. В командной строке для папки JDK **jdk\\jre\\lib\\security** выполните следующие действия, чтобы узнать, какие сертификаты установлены:
+1. В командной строке для папки JDK **jdk\jre\lib\security** выполните следующие действия, чтобы узнать, какие сертификаты установлены:
 
 	`keytool -list -keystore cacerts`
 
 	Вам будет предложено ввести пароль хранилища. Пароль по умолчанию – **changeit**. (Чтобы изменить пароль, ознакомьтесь с документацией keytool, находящейся на странице <http://docs.oracle.com/javase/7/docs/technotes/tools/windows/keytool.html>.) В этом примере предполагается, что сертификат с отпечатком пальцев MD5 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4 отсутствует в списке и вы хотите его импортировать (этот конкретный сертификат необходим для API-службы Twilio).
-2. Получение сертификата из списка сертификатов, перечисленных в [корневых сертификатах GeoTrust](http://www.geotrust.com/resources/root-certificates/). Щелкните правой кнопкой мыши ссылку сертификата с серийным номером 35:DE:F4:CF и сохраните его в папку **jdk\\jre\\lib\\security**. Для целей этого примера он был сохранен в файл с именем **Equifax_Secure_Certificate_Authority.cer**.
+2. Получение сертификата из списка сертификатов, перечисленных в [корневых сертификатах GeoTrust](http://www.geotrust.com/resources/root-certificates/). Щелкните правой кнопкой мыши ссылку сертификата с серийным номером 35:DE:F4:CF и сохраните его в папку **jdk\jre\lib\security**. Для целей этого примера он был сохранен в файл с именем **Equifax_Secure_Certificate_Authority.cer**.
 3. Импортируйте сертификат с помощью следующей команды:
 
 	`keytool -keystore cacerts -importcert -alias equifaxsecureca -file Equifax_Secure_Certificate_Authority.cer`
@@ -52,4 +52,4 @@
 
 Дополнительные сведения об используемых в Azure корневых сертификатах см. в статье [Перенос корневых сертификатов Azure](http://blogs.msdn.com/b/windowsazure/archive/2013/03/15/windows-azure-root-certificate-migration.aspx).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

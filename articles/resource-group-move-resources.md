@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Перемещение ресурсов в новую группу ресурсов" 
 	description="Перемещайте ресурсы в новую группу ресурсов для диспетчера ресурсов Azure с помощью Azure PowerShell или REST API." 
-	services="" 
+	services="azure-resource-manager" 
 	documentationCenter="" 
 	authors="tfitzmac" 
 	manager="wpickett" 
@@ -47,7 +47,7 @@
 
 Службы с поддержкой перемещения в новую группу ресурсов, но не в новую подписку:
 
-- cлужба вычислений (классическая);
+- служба вычислений (классическая);
 - служба хранилища (классическая).
 
 Службы, которые в настоящее время не поддерживают перемещение ресурсов:
@@ -60,13 +60,13 @@
 
 В первом примере показано, как переместить один ресурс в новую группу ресурсов.
 
-    PS C:> Move-AzureResource -DestinationResourceGroupName TestRG -ResourceId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OtherExample/providers/Microsoft.ClassicStorage/storageAccounts/examplestorage
+    PS C:\> Move-AzureResource -DestinationResourceGroupName TestRG -ResourceId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OtherExample/providers/Microsoft.ClassicStorage/storageAccounts/examplestorage
 
 Во втором примере показано, как переместить несколько ресурсов в новую группу ресурсов.
 
-    PS C:> $webapp = Get-AzureResource -ResourceGroupName OldRG -ResourceName ExampleSite -ResourceType Microsoft.Web/sites
-    PS C:> $plan = Get-AzureResource -ResourceGroupName OldRG -ResourceName ExamplePlan -ResourceType Microsoft.Web/serverFarms
-    PS C:> Move-AzureResource -DestinationResourceGroupName NewRG -ResourceId ($webapp.ResourceId, $plan.ResourceId)
+    PS C:\> $webapp = Get-AzureResource -ResourceGroupName OldRG -ResourceName ExampleSite -ResourceType Microsoft.Web/sites
+    PS C:\> $plan = Get-AzureResource -ResourceGroupName OldRG -ResourceName ExamplePlan -ResourceType Microsoft.Web/serverFarms
+    PS C:\> Move-AzureResource -DestinationResourceGroupName NewRG -ResourceId ($webapp.ResourceId, $plan.ResourceId)
 
 Чтобы переместить ресурс в новую подписку, добавьте значение для параметра **DestinationSubscriptionId**.
 
@@ -95,4 +95,4 @@
 - [Управление ресурсами с помощью портала Azure](azure-portal/resource-group-portal.md)
 - [Использование тегов для организации ресурсов](./resource-group-using-tags.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

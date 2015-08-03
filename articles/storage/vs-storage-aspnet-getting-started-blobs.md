@@ -27,60 +27,68 @@
 > - [Queues](vs-storage-aspnet-getting-started-queues.md)
 > - [Tables](vs-storage-aspnet-getting-started-tables.md)
 
+>[AZURE.NOTE]В этой статье описывается, как приступить к использованию хранилища больших двоичных объектов после создания учетной записи хранения Azure или указания ссылки на нее в приложении ASP.NET с помощью диалогового окна **Добавление подключенных служб** в Visual Studio. Дополнительные сведения об использовании хранилища больших двоичных объектов Azure см. в разделе [Использование хранилища больших двоичных объектов в .NET](storage-dotnet-how-to-use-blobs.md).
+
 Хранилище больших двоичных объектов Azure — это служба хранения большого количества неструктурированных данных, к которым можно получить доступ практически из любой точки мира по протоколам HTTP или HTTPS. Один большой двоичный объект может быть любого размера. Большими двоичными объектами могут быть изображения, аудио- и видеофайлы, необработанные данные и файлы документов.
 
-Для начала работы необходимо сначала создать учетную запись хранилища Azure, а затем один или несколько контейнеров в хранилище. Например, можно создать хранилище с именем "Альбом", в нем создать контейнеры "изображения" для хранения картинок и "аудио" для хранения аудиофайлов. После создания контейнеров в них можно отправлять индивидуальные большие двоичные объекты. Дополнительные сведения о выполнении программных операций с большими двоичными объектами см. в статье [Использование хранилища BLOB-объектов из .NET](storage-dotnet-how-to-use-blobs.md/ "Использование хранилища BLOB-объектов из .NET").
+Так же как файлы располагаются в папках, большие двоичные объекты хранилища располагаются в контейнерах. После создания учетной записи хранения можно создать один или несколько контейнеров в хранилище. Например, в хранилище с именем "Альбом" можно создать контейнеры больших двоичных данных в хранилище "изображения" для хранения картинок, а также в хранилище "аудио" для хранения аудиофайлов. После создания контейнеров в них можно отправлять индивидуальные большие двоичные объекты.
 
-В этой статье описано выполнение стандартных сценариев с помощью службы хранилища BLOB-объектов Azure. Примеры написаны на C# и используют клиентскую библиотеку службы хранилища Azure для .NET. Здесь описаны такие сценарии, как **отправка**, **перечисление**,**загрузка** и **удаление** BLOB-объектов.
 
-Дополнительную информацию о проектах ASP.NET см. в разделе [ASP.NET](http://www.asp.net).
+В этой статье описано выполнение стандартных сценариев с помощью службы хранилища больших двоичных объектов Azure. Примеры написаны на C# и используют клиентскую библиотеку службы хранилища Azure для .NET. Здесь описаны такие сценарии, как **отправка**, **перечисление**,**загрузка** и **удаление** BLOB-объектов.
 
-## Программный доступ к хранилищу BLOB-объектов
+Подробнее о проектах ASP.NET см. в разделе [ASP.NET](http://www.asp.net).
 
-[AZURE.INCLUDE [storage-dotnet-obtain-assembly](../../includes/storage-dotnet-obtain-assembly.md)]
+##Создание контейнеров больших двоичных объектов в обозревателе серверов Visual Studio
 
-### Объявления пространств имен
-Добавьте следующие объявления пространств имен кода в начало любого файла C#, с помощью которого вы собираетесь получать доступ к службе хранилища Azure программным способом:
+[AZURE.INCLUDE [vs-create-blob-container-in-server-explorer](../../includes/vs-create-blob-container-in-server-explorer.md)]
 
-    using Microsoft.Azure;
-    using Microsoft.WindowsAzure.Storage;
-    using Microsoft.WindowsAzure.Storage.Auth;
-    using Microsoft.WindowsAzure.Storage.Blob;
+##Доступ к контейнерам больших двоичных объектов в коде 
 
-Обязательно используйте ссылку на сборку `Microsoft.WindowsAzure.Storage.dll`.
+Для программного доступа к большим двоичным объектам в проектах ASP.NET необходимо добавить следующие элементы, если они еще не существуют.
 
-[AZURE.INCLUDE [storage-dotnet-retrieve-conn-string](../../includes/storage-dotnet-retrieve-conn-string.md)]
+1. Добавьте следующие объявления пространств имен кода в начало любого файла C#,в котором вы собираетесь получать доступ к хранилищу Azure программным способом.
 
-Тип **CloudBlobClient** позволяет извлекать объекты, представляющие контейнеры и большие двоичные объекты, которые хранятся в службе хранилища больших двоичных объектов. Следующий код создает объект **CloudBlobClient** с помощью объекта учетной записи хранения, полученной выше:
+		using Microsoft.Framework.Configuration;
+		using Microsoft.WindowsAzure.Storage;
+		using Microsoft.WindowsAzure.Storage.Auth;
+		using Microsoft.WindowsAzure.Storage.Blob;
 
+
+2. Получите объект **CloudStorageAccount**, представляющий данные учетной записи хранения. Используйте следующий код, чтобы получить строку подключения и сведения об учетной записи хранения из конфигурации службы Azure.
+
+		CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+		   CloudConfigurationManager.GetSetting("<storage account name>_AzureStorageConnectionString"));
+
+    **ПРИМЕЧАНИЕ.** Вставьте весь код, представленный выше, перед кодом из следующих разделов.
+
+
+3. Получите объект **CloudBlobClient**, который ссылается на существующий контейнер в вашей учетной записи хранения.
+
+		// Create a blob client.
+		CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+
+        // Get a reference to a container named “mycontainer.”
+        CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
+
+**ПРИМЕЧАНИЕ.** Некоторые интерфейсы API, которые выполняют вызовы в хранилище Azure в ASP.NET 5, являются асинхронными. Дополнительные сведения см. в статье [Асинхронное программирование с использованием ключевых слов Async и Await](http://msdn.microsoft.com/library/hh191443.aspx).
+
+
+## Создание контейнера больших двоичных объектов в коде
+
+Вы также можете использовать объект **CloudBlobClient** для создания контейнера в вашей учетной записи хранения. Вам нужно всего лишь добавить вызов `CreateIfNotExistsAsync()`, как в следующем примере:
+
+	// Create a blob client.
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-[AZURE.INCLUDE [storage-dotnet-odatalib-dependencies](../../includes/storage-dotnet-odatalib-dependencies.md)]
+    // Get a reference to a container named “myNewContainer”.
+    CloudBlobContainer container = blobClient.GetContainerReference("myNewContainer");
 
-## Создание контейнера
+    // If “myNewContainer” doesn’t exist, create it.
+    await container.CreateIfNotExistsAsync();    
 
-Каждый BLOB-объект в Azure должен располагаться в контейнере. В этом примере показано, как создать контейнер:
 
-    // Retrieve storage account from connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-    // Create the blob client.
-    CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-    // Retrieve a reference to a container. 
-    CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
-
-    // Create the container if it doesn't already exist.
-    container.CreateIfNotExists();
-
-По умолчанию новый контейнер закрытый, и вам необходимо указать ключ доступа к хранилищу, чтобы загрузить BLOB-объекты из этого контейнера. Чтобы сделать файлы в этом контейнере доступными для всех пользователей, сделайте контейнер открытым, используя следующий код:
-
-    container.SetPermissions(
-        new BlobContainerPermissions { PublicAccess = 
- 	    BlobContainerPublicAccessType.Blob }); 
-
-Любой пользователь в Интернете может видеть большие двоичные объекты в открытом контейнере, но изменить или удалить их можно только при наличии ключа доступа.
 
 ## Отправка BLOB-объекта в контейнер
 
@@ -90,7 +98,7 @@
 
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("<storage account name>_AzureStorageConnectionString));
 
     // Create the blob client.
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
@@ -113,7 +121,7 @@
 
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("<storage account name>_AzureStorageConnectionString"));
 
     // Create the blob client. 
 	CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
@@ -157,7 +165,7 @@
 	2011/architecture/description.txt
 	2011/photo7.jpg
 
-При вызове метода **ListBlobs** в контейнере «photos» (как в примере выше) возвращаемая коллекция будет содержать объекты **CloudBlobDirectory** и **CloudBlockBlob**, представляющие собой каталоги и большие двоичные объекты верхнего уровня. Здесь результатом будет:
+При вызове метода **ListBlobs** в контейнере "photos" (как в примере выше) возвращаемая коллекция будет содержать объекты **CloudBlobDirectory** и **CloudBlockBlob**, представляющие собой каталоги и большие двоичные объекты верхнего уровня. Здесь результатом будет:
 
 	Directory: https://<accountname>.blob.core.windows.net/photos/2010/
 	Directory: https://<accountname>.blob.core.windows.net/photos/2011/
@@ -191,7 +199,7 @@
 
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("<storage account name>_AzureStorageConnectionString"));
 
     // Create the blob client.
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
@@ -290,7 +298,9 @@
 
 ## Дальнейшие действия
 
-Вы изучили основные сведения о хранилище BLOB-объектов. Дополнительные сведения о более сложных задачах по использованию хранилища можно найти по следующим ссылкам. <ul> <li>Подробную информацию о доступных интерфейсах API см. в справочной документации по службе BLOB-объектов: <ul> <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731">Справочник по клиентской библиотеке хранилища для .NET</a> </li> <li><a href="http://msdn.microsoft.com/library/azure/dd179355">Справочник по REST API</a></li> </ul> </li> <li>Дополнительную информацию о более сложных задачах, которые можно выполнять в службе хранилища Azure, см. в разделе <a href="http://msdn.microsoft.com/library/azure/gg433040.aspx">Хранение данных и получение доступа к ним в Azure</a>.</li> <li>Узнайте, как упростить код, предназначенный для работы со службой хранилища Azure, с помощью <a href="../websites-dotnet-webjobs-sdk/">пакета SDK для веб-заданий для Azure</li>. <li>Просмотрите дополнительные руководства, чтобы изучить дополнительные возможности хранения данных в Azure. <ul> <li>Использование <a href="/documentation/articles/storage-dotnet-how-to-use-tables/">табличного хранилища</a> для хранения структурированных данных.</li> <li>Использование <a href="/documentation/articles/storage-dotnet-how-to-use-queues/">хранилища очередей</a> для хранения неструктурированных данных.</li> <li>Использование <a href="/documentation/articles/sql-database-dotnet-how-to-use/">Базы данных SQL</a> для хранения реляционных данных.</li> </ul> </li> </ul>
+[AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
+
+
 
   [Blob5]: ./media/storage-dotnet-how-to-use-blobs/blob5.png
   [Blob6]: ./media/storage-dotnet-how-to-use-blobs/blob6.png
@@ -308,4 +318,4 @@
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

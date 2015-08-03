@@ -1,5 +1,19 @@
-<properties title="Configuring Oracle GoldenGate for Azure" pageTitle="Настройка Oracle GoldenGate для Azure" description="Изучите учебник по установке и реализации Oracle GoldenGate на виртуальных машинах Azure для обеспечения высокого уровня доступности и аварийного восстановления." services="virtual-machines" authors="bbenz" documentationCenter=""/>
-<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
+<properties 
+	pageTitle="Настройка Oracle GoldenGate для Azure" 
+	description="Изучите учебник по установке и реализации Oracle GoldenGate на виртуальных машинах Azure для обеспечения высокого уровня доступности и аварийного восстановления." 
+	services="virtual-machines" 
+	authors="bbenz" 
+	documentationCenter=""/>
+
+<tags 
+	ms.service="virtual-machines" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="infrastructure-services" 
+	ms.date="06/22/2015" 
+	ms.author="bbenz" />
+
 #Настройка Oracle GoldenGate для Azure
 В этом учебнике показано, как настроить Oracle GoldenGate для среды виртуальных машин Azure, чтобы обеспечить высокий уровень доступности и аварийное восстановление. Учебник посвящен [двунаправленной репликации](http://docs.oracle.com/goldengate/1212/gg-winux/GWUAD/wu_about_gg.htm) баз данных Oracle, не являющихся кластерами реальных приложений (RAC), и для него требуется, чтобы оба сайта были активны.
 
@@ -116,7 +130,7 @@ Oracle GoldenGate состоит из следующих основных ком
 	      grant delete any table to ggate;
 	      grant drop any table to ggate;
 
-Затем найдите файл INIT<ИД_безопасности_базы_данных>.ORA в папке %ORACLE_HOME%\\database на сайте A и сайте B и добавьте следующие параметры базы данных в INITTEST.ora:
+Затем найдите файл INIT<ИД_безопасности_базы_данных>.ORA в папке %ORACLE_HOME%\database на сайте A и сайте B и добавьте следующие параметры базы данных в INITTEST.ora:
 
 	UNDO_MANAGEMENT=AUTO
 	UNDO_RETENTION=86400
@@ -189,7 +203,7 @@ Oracle GoldenGate состоит из следующих основных ком
 ##3. Создание всех необходимых объектов для поддержки репликации DDL
 В этом разделе перечислены сценарии, которые надо использовать для создания всех объектов, необходимых для поддержки репликации DDL. Сценарии, указанные в этом разделе, необходимо выполнить на сайте А и сайте B.
 
-Откройте командную строку Windows и перейдите к папке Oracle GoldenGate, например C:\\OracleGG. Откройте командную строку SQL*Plus на сайте A и сайте B с привилегиями администратора базы данных, например, используя **SYSDBA**.
+Откройте командную строку Windows и перейдите к папке Oracle GoldenGate, например C:\OracleGG. Откройте командную строку SQL*Plus на сайте A и сайте B с привилегиями администратора базы данных, например, используя **SYSDBA**.
 
 Затем выполните следующие сценарии:
 	
@@ -277,7 +291,7 @@ Oracle GoldenGate состоит из следующих основных ком
 	GGSCI (MachineGG1) 17> add rmttrail C:\OracleGG\dirdat\ab extract dpump1
 	RMTTRAIL added.
 
-Откройте файл параметров с помощью команды EDIT PARAMS и добавьте в него следующую информацию: GGSCI (MachineGG1) 18> edit params ext1 EXTRACT ext1 USERID ggate, PASSWORD ggate EXTTRAIL C:\\OracleGG\\dirdat\\aa TRANLOGOPTIONS EXCLUDEUSER ggate TABLE scott.inventory, GETBEFORECOLS ( ON UPDATE KEYINCLUDING (prod_category,qty_in_stock, last_dml), ON DELETE KEYINCLUDING (prod_category,qty_in_stock, last_dml));
+Откройте файл параметров с помощью команды EDIT PARAMS и добавьте в него следующую информацию: GGSCI (MachineGG1) 18> edit params ext1 EXTRACT ext1 USERID ggate, PASSWORD ggate EXTTRAIL C:\OracleGG\dirdat\aa TRANLOGOPTIONS EXCLUDEUSER ggate TABLE scott.inventory, GETBEFORECOLS ( ON UPDATE KEYINCLUDING (prod_category,qty_in_stock, last_dml), ON DELETE KEYINCLUDING (prod_category,qty_in_stock, last_dml));
 
 Откройте файл параметров с помощью команды EDIT PARAMS и добавьте в него следующую информацию:
 
@@ -583,4 +597,4 @@ Oracle GoldenGate состоит из следующих основных ком
 ##Дополнительные ресурсы
 [Образы виртуальных машин Oracle для Azure](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

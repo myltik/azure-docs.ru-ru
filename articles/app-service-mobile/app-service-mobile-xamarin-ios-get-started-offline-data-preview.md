@@ -36,6 +36,10 @@
 * Visual Studio 2013
 * [Расширение Xamarin] Visual Studio **или** [Xamarin Studio] на OS X
 
+##<a name="review"></a>Проверка конфигурации сервера проекта (необязательное действие)
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-offline-preview](../../includes/app-service-mobile-dotnet-backend-enable-offline-preview.md)]
+
 ## Обзор кода синхронизации мобильных приложений
 
 Автономная синхронизация мобильных приложений позволяет конечным пользователям взаимодействовать с локальной базой данных, если сеть недоступна. Для использования этих возможностей в приложении вы инициализируете `MobileServiceClient.SyncContext` в локальное хранилище. Затем ссылаетесь на таблицу с помощью интерфейса `IMobileServiceSyncTable`. В этом разделе подробно рассматривается код, связанный с автономной синхронизацией, в `QSTodoService.cs`.
@@ -166,4 +170,4 @@
 [Расширение Xamarin]: http://xamarin.com/visual-studio
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

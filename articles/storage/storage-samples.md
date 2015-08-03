@@ -81,4 +81,4 @@
 - [Исходный код для клиентской библиотеки хранилища C++](https://github.com/Azure/azure-storage-cpp)
 - [Справочник по клиентской библиотеке C++](http://azure.github.io/azure-storage-cpp/) 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

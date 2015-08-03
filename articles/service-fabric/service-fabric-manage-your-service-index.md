@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/08/2015"
+   ms.date="07/09/2015"
    ms.author="ryanwi"/>
 
 # Управление службами Service Fabric
@@ -30,6 +30,7 @@
 - [Ресурсы манифеста службы](service-fabric-service-manifest-resources.md)
 - [Создание пакета приложения](service-fabric-application-model.md)
 - [Развертывание и удаление приложения](service-fabric-deploy-remove-applications.md)
+- [Развертывание существующего приложения](service-fabric-deploy-existing-app.md)
 - [Управление приложениями Service Fabric в Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 
 ## Обновление приложения
@@ -49,4 +50,4 @@
 - [Масштабирование приложений Service Fabric](service-fabric-concepts-scalability.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

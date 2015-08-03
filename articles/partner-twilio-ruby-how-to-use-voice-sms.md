@@ -193,6 +193,6 @@ TwiML — это набор инструкций на основе XML, кото
 [twilio_support]: http://www.twilio.com/help/contact
 [twilio_quickstarts]: http://www.twilio.com/docs/quickstart
 [sinatra]: http://www.sinatrarb.com/
-[azure_vm_setup]: http://www.windowsazure.com/develop/ruby/tutorials/web-app-with-linux-vm/
+[azure_vm_setup]: http://azure.microsoft.com/develop/ruby/tutorials/web-app-with-linux-vm/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

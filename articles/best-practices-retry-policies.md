@@ -184,11 +184,11 @@ public interface IRetryPolicy
 requestId | ""
 policyType | "RetryExponential"
 операция | "Get:https://retry-guidance-tests.servicebus.windows.net/TestQueue/?api-version=2014-05"
-operationStartTime | 05\.09.2014, 22:00:13
-operationEndTime | 05\.09.2014, 22:00:14
+operationStartTime | 05.09.2014, 22:00:13
+operationEndTime | 05.09.2014, 22:00:14
 Итерация | 0
 iterationSleep | "00:00:00.1000000"
 lastExceptionType | "Microsoft.ServiceBus.Messaging.MessagingCommunicationException"
 exceptionMessage | "Невозможно разрешить удаленное имя: 'retry-guidance-tests.servicebus.windows.net'.TrackingId:6a26f99c-dc6d-422e-8565-f89fdd0d4fe3,TimeStamp:9/5/2014 10:00:13 PM"
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

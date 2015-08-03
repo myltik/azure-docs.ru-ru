@@ -42,9 +42,9 @@
 
 	* __pom.xml__ — это модель объекта проекта ([POM](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)), которая содержит информацию и подробности конфигурации, использующиеся при сборке проекта;
 
-	* __src__ — каталог, в котором содержится каталог __main\\java\\com\\microsoft\\examples__, в котором будет создаваться приложение.
+	* __src__ — каталог, в котором содержится каталог __main\java\com\microsoft\examples__, в котором будет создаваться приложение.
 
-3. Удалите файл __src\\test\\java\\com\\microsoft\\examples\\apptest.java__, так как он не используется в этом примере.
+3. Удалите файл __src\test\java\com\microsoft\examples\apptest.java__, так как он не используется в этом примере.
 
 ##Обновление модели объекта проекта
 
@@ -103,7 +103,7 @@
 		  </plugins>
 		</build>
 
-	При этом настраивается ресурс (conf\\hbase-site.xml), который содержит информацию о конфигурации для HBase.
+	При этом настраивается ресурс (conf\hbase-site.xml), который содержит информацию о конфигурации для HBase.
 
 	> [AZURE.NOTE]Также можно настроить значения конфигурации непосредственно из кода. См. комментарии к примеру __CreateTable__ ниже, чтобы узнать, как это сделать.
 
@@ -155,13 +155,13 @@
 
 	Этот файл будет использоваться для загрузки конфигурации HBase для кластера HDInsight.
 
-	> [AZURE.NOTE]Это минимально возможный файл hbase-site.xml, содержащий лишь самые минимальные настройки для кластера HDInsight. Чтобы найти полную версию файла конфигурации hbase-site.xml, используемого HDInsight, см. раздел [Управление кластерами Hadoop в HDInsight с использованием портала Azure](hdinsight-administer-use-management-portal.md#rdp). Файл hbase-site.xml будет находиться в каталоге C:\\apps\\dist\\hbase-&lt;номер версии>-hadoop2\\conf. Часть пути с номером версии изменяется при обновлении версии HBase в кластере.
+	> [AZURE.NOTE]Это минимально возможный файл hbase-site.xml, содержащий лишь самые минимальные настройки для кластера HDInsight. Чтобы найти полную версию файла конфигурации hbase-site.xml, используемого HDInsight, см. раздел [Управление кластерами Hadoop в HDInsight с использованием портала Azure](hdinsight-administer-use-management-portal.md#rdp). Файл hbase-site.xml будет находиться в каталоге C:\apps\dist\hbase-&lt;номер версии>-hadoop2\conf. Часть пути с номером версии изменяется при обновлении версии HBase в кластере.
 
 3. Сохраните файл __hbase-site.xml__.
 
 ##Создание приложения
 
-1. Перейдите в каталог __hbaseapp\\src\\main\\java\\com\\microsoft\\examples__ и переименуйте файл app.java в __CreateTable.java__.
+1. Перейдите в каталог __hbaseapp\src\main\java\com\microsoft\examples__ и переименуйте файл app.java в __CreateTable.java__.
 
 2. Откройте файл __CreateTable.java__ и замените существующее содержимое следующим:
 
@@ -231,7 +231,7 @@
 
 3. Сохраните файл __CreateTable.java__.
 
-4. В каталоге __hbaseapp\\src\\main\\java\\com\\microsoft\\examples__ создайте новый файл с именем __SearchByEmail.java__. Используйте следующее в качестве содержимого этого файла:
+4. В каталоге __hbaseapp\src\main\java\com\microsoft\examples__ создайте новый файл с именем __SearchByEmail.java__. Используйте следующее в качестве содержимого этого файла:
 
 		package com.microsoft.examples;
 		import java.io.IOException;
@@ -308,7 +308,7 @@
 
 5. Сохраните файл __SearchByEmail.java__.
 
-6. В каталоге __hbaseapp\\src\\main\\hava\\com\\microsoft\\examples__ создайте новый файл с именем __DeleteTable.java__. Используйте следующее в качестве содержимого этого файла:
+6. В каталоге __hbaseapp\src\main\hava\com\microsoft\examples__ создайте новый файл с именем __DeleteTable.java__. Используйте следующее в качестве содержимого этого файла:
 
 		package com.microsoft.examples;
 		import java.io.IOException;
@@ -344,7 +344,7 @@
 
 	При этом будут удалены остатки предыдущих сборок, скачаны все неустановленные на текущий момент зависимости, затем будет произведена сборка и создание пакета приложения.
 
-3. После завершения выполнения команды в каталоге __hbaseapp\\target__ будет находиться файл с именем __hbaseapp-1.0-SNAPSHOT.jar__.
+3. После завершения выполнения команды в каталоге __hbaseapp\target__ будет находиться файл с именем __hbaseapp-1.0-SNAPSHOT.jar__.
 
 	> [AZURE.NOTE]Файл __hbaseapp-1.0-SNAPSHOT.jar__ относится к типу «uber jar» (другое название — «fat jar») и содержит все зависимости, необходимые для работы приложения.
 
@@ -483,7 +483,7 @@
 		    # Is the Azure module installed?
 		    if (-not(Get-Module -ListAvailable Azure))
 		    {
-		        throw "Azure PowerShell not found! For help, see http://www.windowsazure.com/documentation/articles/install-configure-powershell/"
+		        throw "Azure PowerShell not found! For help, see http://azure.microsoft.com/documentation/articles/install-configure-powershell/"
 		    }
 
 		    # Is there an active Azure subscription?
@@ -591,4 +591,4 @@
 
 Используйте параметр `-showErr` для просмотра стандартной ошибки (STDERR), выдаваемой при выполнении задания.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

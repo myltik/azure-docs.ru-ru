@@ -86,24 +86,24 @@
 
 **Расположение** | **Классификация** | **Связанное хранилище**
 ---|---|---
-Нью-Йорк | GOLD | <p>C:\\ClusterStorage\\SourceVolume1</p><p>\\FileServer\\SourceShare1</p>
- | SILVER | <p>C:\\ClusterStorage\\SourceVolume2</p><p>\\FileServer\\SourceShare2</p>
-Чикаго | GOLD_TARGET | <p>C:\\ClusterStorage\\TargetVolume1</p><p>\\FileServer\\TargetShare1</p>
- | SILVER_TARGET| <p>C:\\ClusterStorage\\TargetVolume2</p><p>\\FileServer\\TargetShare2</p>
+Нью-Йорк | GOLD | <p>C:\ClusterStorage\SourceVolume1</p><p>\FileServer\SourceShare1</p>
+ | SILVER | <p>C:\ClusterStorage\SourceVolume2</p><p>\FileServer\SourceShare2</p>
+Чикаго | GOLD_TARGET | <p>C:\ClusterStorage\TargetVolume1</p><p>\FileServer\TargetShare1</p>
+ | SILVER_TARGET| <p>C:\ClusterStorage\TargetVolume2</p><p>\FileServer\TargetShare2</p>
 
 В следующей таблице указывается поведение при включении защиты для виртуальных машин (VM1–VM5) в этом примере среде.
 
 **Виртуальная машина** | **Исходное хранилище** | **Исходная классификация** | **Сопоставленное целевое хранилище**
 ---|---|---|---
-VM1 | C:\\ClusterStorage\\SourceVolume1 | GOLD | <p>C:\\ClusterStorage\\SourceVolume1</p><p>\\\\FileServer\\SourceShare1</p><p>Оба GOLD_TARGET</p>
-VM2 | \\FileServer\\SourceShare1 | GOLD | <p>C:\\ClusterStorage\\SourceVolume1</p><p>\\FileServer\\SourceShare1</p> <p>Оба GOLD_TARGET</p>
-VM3 | C:\\ClusterStorage\\SourceVolume2 | SILVER | <p>C:\\ClusterStorage\\SourceVolume2</p><p>\\FileServer\\SourceShare2</p>
-VM4 | \\FileServer\\SourceShare2 | SILVER |<p>C:\\ClusterStorage\\SourceVolume2</p><p>\\FileServer\\SourceShare2</p><p>Оба SILVER_TARGET</p>
-VM5 | C:\\ClusterStorage\\SourceVolume3 | Недоступно | Без сопоставления, поэтому используется место хранения узла Hyper-V по умолчанию.
+VM1 | C:\ClusterStorage\SourceVolume1 | GOLD | <p>C:\ClusterStorage\SourceVolume1</p><p>\\FileServer\SourceShare1</p><p>Оба GOLD_TARGET</p>
+VM2 | \FileServer\SourceShare1 | GOLD | <p>C:\ClusterStorage\SourceVolume1</p><p>\FileServer\SourceShare1</p> <p>Оба GOLD_TARGET</p>
+VM3 | C:\ClusterStorage\SourceVolume2 | SILVER | <p>C:\ClusterStorage\SourceVolume2</p><p>\FileServer\SourceShare2</p>
+VM4 | \FileServer\SourceShare2 | SILVER |<p>C:\ClusterStorage\SourceVolume2</p><p>\FileServer\SourceShare2</p><p>Оба SILVER_TARGET</p>
+VM5 | C:\ClusterStorage\SourceVolume3 | Недоступно | Без сопоставления, поэтому используется место хранения узла Hyper-V по умолчанию.
 
 ## Дальнейшие действия
 
 Теперь, когда вы получили представление о сопоставлении хранилищ, изучите [лучшие методики](site-recovery-best-practices.md) для подготовки к развертыванию.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

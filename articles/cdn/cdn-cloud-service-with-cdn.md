@@ -170,14 +170,14 @@
 
 Альтернатива заключается в том, чтобы определить, какое содержимое должно обслуживаться из Azure CDN на индивидуальной основе в облачной службе. В отношении этого вы уже видели, как получать доступ к отдельным файлам контента из конечной точки CDN. Я покажу, как обслуживать определенное действие контроллера посредством конечной точки CDN, в разделе [Обслуживание контента из действий контроллера посредством Azure CDN](#controller).
 
-Можно указать более ограничивающее правило переопределения URL-адреса, чтобы ограничить содержимое, доступное через конечную точку CDN. Например, чтобы ограничить переопределение URL-адреса для папки *\\Scripts*, измените правило переопределения выше следующим образом: <pre class="prettyprint"> &lt;rule name=";RewriteIncomingCdnRequest"; stopProcessing=";true";&gt; &lt;match url=";^cdn/<mark>Scripts/</mark>(.*)$";/&gt; &lt;action type=";Rewrite"; url=";<mark>Scripts/</mark>{R:1}";/&gt; &lt;/rule&gt; </pre>
+Можно указать более ограничивающее правило переопределения URL-адреса, чтобы ограничить содержимое, доступное через конечную точку CDN. Например, чтобы ограничить переопределение URL-адреса для папки *\Scripts*, измените правило переопределения выше следующим образом: <pre class="prettyprint"> &lt;rule name=";RewriteIncomingCdnRequest"; stopProcessing=";true";&gt; &lt;match url=";^cdn/<mark>Scripts/</mark>(.*)$";/&gt; &lt;action type=";Rewrite"; url=";<mark>Scripts/</mark>{R:1}";/&gt; &lt;/rule&gt; </pre>
 
 <a name="caching"></a>
 ## Настройка параметров кэширования для статических файлов в облачной службе ##
 
 С помощью интеграции Azure CDN в облачной службе можно указать, как статическое содержимое должно кэшироваться в конечной точке CDN. Для этого откройте *Web.config* из проекта веб-роли (например, WebRole1) и добавьте элемент `<staticContent>` для `<system.webServer>`. XML, приведенный ниже, настраивает истечение срока кэша через 3 дня. <pre class="prettyprint"> &lt;system.webServer&gt; <mark>&lt;staticContent&gt; &lt;clientCache cacheControlMode=";UseMaxAge"; cacheControlMaxAge=";3.00:00:00";/&gt; &lt;/staticContent&gt;</mark> ... &lt;/system.webServer&gt; </pre>
 
-После этого все статические файлы в облачной службе будут соблюдать то же правило в кэше CDN. Для более детального управления параметрами кэша добавьте файл *Web.config* в папку и добавьте в этом месте свои параметры. Например, добавьте файл *Web.config* в папку *\\Content* и замените содержимое следующим XML:
+После этого все статические файлы в облачной службе будут соблюдать то же правило в кэше CDN. Для более детального управления параметрами кэша добавьте файл *Web.config* в папку и добавьте в этом месте свои параметры. Например, добавьте файл *Web.config* в папку *\Content* и замените содержимое следующим XML:
 
 	<?xml version="1.0"?>
 	<configuration>
@@ -188,7 +188,7 @@
 	  </system.webServer>
 	</configuration>
 
-Этот параметр приводит к кэшированию всех статических файлов из папки *\\Content* на 15 дней.
+Этот параметр приводит к кэшированию всех статических файлов из папки *\Content* на 15 дней.
 
 Дополнительные сведения о настройке элемента `<clientCache>` см. в статье [Кэш клиента &lt;clientCache>](http://www.iis.net/configreference/system.webserver/staticcontent/clientcache).
 
@@ -207,7 +207,7 @@
 
 Чтобы настроить это действие контроллера, выполните следующие действия.
 
-1. В папке *\\Controllers* создайте новый CS-файл с именем *MemeGeneratorController.cs* и замените содержимое следующим кодом. Не забудьте заменить выделенные фрагменты именем CDN.  
+1. В папке *\Controllers* создайте новый CS-файл с именем *MemeGeneratorController.cs* и замените содержимое следующим кодом. Не забудьте заменить выделенные фрагменты именем CDN.  
 	<pre class="prettyprint">
 using System;
 using System.Collections.Generic;
@@ -314,7 +314,7 @@ using System.Web.UI;
 
 	![](media/cdn-cloud-service-with-cdn/cdn-7-configureview.PNG)
 
-4. Откройте новый файл *Views\\MemeGenerator\\Index.cshtml* и замените его содержимое следующим простым HTML для отправки гипербол:
+4. Откройте новый файл *Views\MemeGenerator\Index.cshtml* и замените его содержимое следующим простым HTML для отправки гипербол:
 
 		<h2>Meme Generator</h2>
 		
@@ -371,7 +371,7 @@ using System.Web.UI;
 -	Резервный механизм на случай сбоя конечной точки CDN.
 -	Минимальное изменение кода.
 
-В проекте **WebRole1**, созданном в разделе [Развертывание облачной службы с интегрированной конечной точкой CDN](#deploy), откройте сценарий *App_Start\\BundleConfig.cs* и посмотрите на вызовы метода `bundles.Add()`.
+В проекте **WebRole1**, созданном в разделе [Развертывание облачной службы с интегрированной конечной точкой CDN](#deploy), откройте сценарий *App_Start\BundleConfig.cs* и посмотрите на вызовы метода `bundles.Add()`.
 
     public static void RegisterBundles(BundleCollection bundles)
     {
@@ -380,7 +380,7 @@ using System.Web.UI;
 		...
     }
 
-Первая инструкция `bundles.Add()` добавляет пакет скриптов в виртуальный каталог `~/bundles/jquery`. Затем откройте файл *Views\\Shared_Layout.cshtml*, чтобы просмотреть, как обрабатывается тег пакета скриптов. Вы должны найти следующую строку кода Razor:
+Первая инструкция `bundles.Add()` добавляет пакет скриптов в виртуальный каталог `~/bundles/jquery`. Затем откройте файл *Views\Shared_Layout.cshtml*, чтобы просмотреть, как обрабатывается тег пакета скриптов. Вы должны найти следующую строку кода Razor:
 
     @Scripts.Render("~/bundles/jquery")
 
@@ -396,7 +396,7 @@ using System.Web.UI;
 
 Выполните приведенные ниже действия для интеграции объединения и минификации ASP.NET с конечной точкой CDN.
 
-1. Вернитесь в файл *App_Start\\BundleConfig.cs* и измените методы `bundles.Add()`, чтобы использовать другой [конструктор Bundle](http://msdn.microsoft.com/library/jj646464.aspx), который задает адрес CDN. Для этого замените определение метода `RegisterBundles` следующим кодом:  
+1. Вернитесь в файл *App_Start\BundleConfig.cs* и измените методы `bundles.Add()`, чтобы использовать другой [конструктор Bundle](http://msdn.microsoft.com/library/jj646464.aspx), который задает адрес CDN. Для этого замените определение метода `RegisterBundles` следующим кодом:  
 	<pre class="prettyprint">
 public static void RegisterBundles(BundleCollection bundles)
 {
@@ -438,7 +438,7 @@ public static void RegisterBundles(BundleCollection bundles)
 	
 	-	Источником этого URL-адреса CDN служит адрес `http://<yourCloudService>.cloudapp.net/bundles/jquery?v=<W.X.Y.Z>`, который фактически является виртуальным каталогом пакета сценариев в облачной службе.
 	-	Поскольку используется конструктор CDN, тег скрипта CDN для этого пакета больше не содержит автоматически созданную строку версии в обработанном URL-адресе. Необходимо вручную создавать уникальную строку версии каждый раз при изменении пакета скриптов, чтобы обеспечить промах кэша в Azure CDN. В то же время эта уникальная строка версии должна оставаться постоянной в течение всего срока существования развертывания для максимального увеличения попаданий в кэш в Azure CDN после развертывания пакета.
-	-	Строка запроса v=<W.X.Y.Z> берется из файла *Properties\\AssemblyInfo.cs* в проекте веб-роли. Можно создать рабочий процесс развертывания, включающий увеличение версии сборки при каждой публикации в Azure. Можно также просто изменить файл *Properties\\AssemblyInfo.cs* в проекте, задав автоматическое увеличение строки версии при каждом построении с помощью подстановочного знака '*'. Например:
+	-	Строка запроса v=<W.X.Y.Z> берется из файла *Properties\AssemblyInfo.cs* в проекте веб-роли. Можно создать рабочий процесс развертывания, включающий увеличение версии сборки при каждой публикации в Azure. Можно также просто изменить файл *Properties\AssemblyInfo.cs* в проекте, задав автоматическое увеличение строки версии при каждом построении с помощью подстановочного знака '*'. Например:
 	
 			[assembly: AssemblyVersion("1.0.0.*")]
 	
@@ -490,7 +490,7 @@ public static void RegisterBundles(BundleCollection bundles)
 
 Класс [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.aspx) содержит свойство с именем [CdnFallbackExpression](http://msdn.microsoft.com/library/system.web.optimization.bundle.cdnfallbackexpression.aspx), которое позволяет настраивать резервный механизм на случай сбоя CDN. Для использования этого свойства выполните приведенные ниже действия.
 
-1. В проекте веб-роли откройте файл *App_Start\\BundleConfig.cs*, где в каждом [конструкторе Bundle](http://msdn.microsoft.com/library/jj646464.aspx) добавлялся URL-адрес CDN, и внесите следующие выделенные изменения, чтобы добавить резервный механизм в пакеты по умолчанию:  
+1. В проекте веб-роли откройте файл *App_Start\BundleConfig.cs*, где в каждом [конструкторе Bundle](http://msdn.microsoft.com/library/jj646464.aspx) добавлялся URL-адрес CDN, и внесите следующие выделенные изменения, чтобы добавить резервный механизм в пакеты по умолчанию:  
 	<pre class="prettyprint">
 public static void RegisterBundles(BundleCollection bundles)
 {
@@ -535,7 +535,7 @@ public static void RegisterBundles(BundleCollection bundles)
 
 2. Чтобы использовать этот обходной путь для CSS, создайте в папке *App_Start* новый CS-файл *StyleBundleExtensions.cs* и замените его содержимое [кодом от GitHub](https://github.com/EmberConsultingGroup/StyleBundleFallback/blob/master/Website/App_Start/StyleBundleExtensions.cs).
 
-4. В *App_Start\\StyleFundleExtensions.cs* измените имя пространства имен на имя веб-роли (например, **WebRole1**).
+4. В *App_Start\StyleFundleExtensions.cs* измените имя пространства имен на имя веб-роли (например, **WebRole1**).
 
 3. Вернитесь в файл `App_Start\BundleConfig.cs` и замените последний оператор `bundles.Add` следующим выделенным кодом:
 	<pre class="prettyprint">
@@ -596,4 +596,4 @@ bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"
 - [Использование CDN для Azure](cdn-how-to-use-cdn.md)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

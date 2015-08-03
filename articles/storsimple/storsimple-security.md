@@ -246,4 +246,4 @@ StorSimple использует следующие алгоритмы шифро
 [Начало работы с физическим устройством](https://msdn.microsoft.com/library/azure/dn772410.aspx)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

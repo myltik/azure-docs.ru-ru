@@ -98,7 +98,7 @@
 
 Назначение ролей можно также выполнять с помощью модуля Microsoft Azure для Windows PowerShell. Вот пример добавления учетной записи Павла не через портал, а с помощью командлета New-AzureRoleAssignment:
 
-	PS C:> New-AzureRoleAssignment -Mail brockh@contoso.com -RoleDefinitionName Contributor -ResourceGroupName ProdDB
+	PS C:\> New-AzureRoleAssignment -Mail brockh@contoso.com -RoleDefinitionName Contributor -ResourceGroupName ProdDB
 
 Дополнительные сведения об использовании Windows PowerShell для предоставления и запрета доступа см. в разделе [Управление доступом на основе ролей с помощью Windows PowerShell](role-based-access-control-powershell.md).
 
@@ -110,7 +110,7 @@
 
 В этом примере показано, как удалить Брэда Адамса с помощью командлета Remove-AzureRoleAssignment:
 
-	PS C:> Remove-AzureRoleAssignment -Mail badams@contoso.com -RoleDefinitionName Reader -ResourceGroupName TestDB
+	PS C:\> Remove-AzureRoleAssignment -Mail badams@contoso.com -RoleDefinitionName Reader -ResourceGroupName TestDB
 
 ### Предоставление или запрет доступа для внешнего пользователя
 
@@ -1293,4 +1293,4 @@ $log | Format-Table
 [9]: ./media/role-based-access-control-configure/RBACInviteExtUser_NEW.png
 [10]: ./media/role-based-access-control-configure/RBACDirConfigTab.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

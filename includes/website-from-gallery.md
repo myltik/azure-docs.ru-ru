@@ -88,4 +88,4 @@ Azure Marketplace предоставляет широкий спектр поп�
 [marketplace]: ./media/website-from-gallery/marketplace-icon.png
 [groupname]: ./media/website-from-gallery/set-rg.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

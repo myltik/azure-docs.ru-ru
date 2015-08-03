@@ -81,4 +81,4 @@ Orchestrator содержит набор [стандартных действи�
 - [Стандартные действия Orchestrator](http://technet.microsoft.com/library/hh403832.aspx)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -90,4 +90,4 @@
 - Информация о том, как [создавать маршруты](../virtual-networks-udr-how-to#How-to-manage-routes) и связывать их с подсетями.
 - Информация о том, как [включить IP-пересылку](../virtual-networks-udr-how-to#How-to-Manage-IP-Forwarding) для виртуальной машины, работающей на виртуальном устройстве. 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -61,7 +61,7 @@
 
 	Убедитесь, что у вас есть по крайней мере одна виртуальная сеть Azure с созданным шлюзом. Подсеть шлюза должна быть /28 или больше для работы с подключением ExpressRoute. Кроме того, она должна быть включена.
 
-			PS C:> $Vnet = "MyTestVNet"
+			PS C:\> $Vnet = "MyTestVNet"
 			New-AzureDedicatedCircuitLink -ServiceKey $ServiceKey -VNetName $Vnet
 			Provisioned
 
@@ -74,4 +74,4 @@
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

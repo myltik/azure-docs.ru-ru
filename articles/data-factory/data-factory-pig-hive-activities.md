@@ -24,7 +24,7 @@
 
 ### Предварительные требования
 1. Изучите инструкции, описанные в статье [Приступая к работе с фабрикой данных Azure][adfgetstarted].
-2. Создайте файл **hivequery.hql** в подпапке **Hive** в каталоге **C:\\ADFGetStarted** со следующим содержимым.
+2. Создайте файл **hivequery.hql** в подпапке **Hive** в каталоге **C:\ADFGetStarted** со следующим содержимым.
     		
     	DROP TABLE IF EXISTS adftutorialhivetable; 
 		CREATE EXTERNAL TABLE  adftutorialhivetable
@@ -140,7 +140,7 @@
 		                        "Month":"$$Text.Format('{0:%M}',SliceStart)",
 		                        "Day":"$$Text.Format('{0:%d}',SliceStart)"
 		                    },
-		                    "scriptpath": "adftutorial\\hivequery.hql",
+		                    "scriptpath": "adftutorial\hivequery.hql",
 						    "scriptLinkedService": "StorageLinkedService"
 						},
 						"policy":
@@ -258,7 +258,7 @@
 					"transformation":
 					{
     					"type": "Hive",
-    					"scriptpath": "adfwalkthrough\\scripts\\transformdata.hql",    		
+    					"scriptpath": "adfwalkthrough\scripts\transformdata.hql",    		
 						"scriptLinkedService": "StorageLinkedService", 
 						"extendedProperties":
 						{
@@ -353,4 +353,4 @@
 [Azure Portal]: http://portal.azure.com
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

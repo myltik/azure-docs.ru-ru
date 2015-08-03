@@ -38,8 +38,7 @@
 
 7. При тестировании или активации объявления появится уведомление с выбранным вами смайликом.
 
-	![][3] 
-	![][4]
+	![][3] ![][4]
 
 <!-- Images. -->
 [1]: ./media/mobile-engagement-use-emoji-with-push/emoji.png
@@ -48,4 +47,4 @@
 [4]: ./media/mobile-engagement-use-emoji-with-push/notification_ios.png
  
 
-<!----HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

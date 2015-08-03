@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="07/02/2015" 
+	ms.date="07/21/2015" 
 	ms.author="sethm"/>
 
 
@@ -50,104 +50,65 @@ AMQP 1.0 — это эффективный и надежный протокол 
 
 JMS использует интерфейс JNDI для разделения логических и физических имен. С помощью JNDI разрешаются два типа объектов JMS: ConnectionFactory и Destination. JNDI использует модель поставщика, к которой можно подключить различные службы каталогов для обработки заданий разрешения имен. Библиотека Apache Qpid JMS AMQP 1.0 поставляется с простым файловым поставщиком JNDI, настроенным с помощью файла свойств в следующем формате:
 
-	# servicebus.properties - sample JNDI configuration
+```
+# servicebus.properties - sample JNDI configuration
 	
-	# Register a ConnectionFactory in JNDI using the form:
-	# connectionfactory.[jndi_name] = [ConnectionURL]
-	connectionfactory.SBCF = amqps://[username]:[password]@[namespace].servicebus.windows.net
+# Register a ConnectionFactory in JNDI using the form:
+# connectionfactory.[jndi_name] = [ConnectionURL]
+connectionfactory.SBCF = amqps://[username]:[password]@[namespace].servicebus.windows.net
 	
-	# Register some queues in JNDI using the form
-	# queue.[jndi_name] = [physical_name]
-	# topic.[jndi_name] = [physical_name]
-	queue.QUEUE = queue1
-
+# Register some queues in JNDI using the form
+# queue.[jndi_name] = [physical_name]
+# topic.[jndi_name] = [physical_name]
+queue.QUEUE = queue1
+```
 
 #### Настройка ConnectionFactory
 
 Эта запись используется для определения **ConnectionFactory** в поставщике JNDI файла свойств Qpid в следующем формате:
 
-	connectionfactory.[jndi_name] = [ConnectionURL]
+```
+connectionfactory.[jndi_name] = [ConnectionURL]
+```
 
-где [jndi_name] и [ConnectionURL] имеют следующий смысл:
+где **[jndi_name]** и **[ConnectionURL]** имеют следующий смысл:
 
-<table>
-  <tr>
-    <td>[jndi_name]</td>
-    <td>Логическое имя ConnectionFactory. Это имя, которое будет разрешено в Java-приложении с помощью метода JNDI IntialContext.lookup().</td>
-  </tr>
-  <tr>
-    <td>[ConnectionURL]</td>
-    <td>URL-адрес, предоставляющий библиотеке JMS сведения, необходимые брокеру AMQP.</td>
-  </tr>
-</table>
+- **[jndi_name]**: логическое имя ConnectionFactory. Это имя, которое будет разрешено в Java-приложении с помощью метода JNDI IntialContext.lookup().
+- **[ConnectionURL]**: URL-адрес, предоставляющий библиотеке JMS сведения, необходимые брокеру AMQP.
 
 Формат **URL_подключения** выглядит следующим образом:
 
-	amqps://[username]:[password]@[namespace].servicebus.windows.net
+```
+amqps://[username]:[password]@[namespace].servicebus.windows.net
+```
+где **[namespace]**, **[username]** и **[password]** имеют следующий смысл:
 
-где [namespace], [username] и [password] имеют следующий смысл:
+- **[namespace]**: пространство имен служебной шины.
+- **[username]**: имя поставщика служебной шины.
+- **[password]**: ключ поставщика служебной шины с кодировкой URL.
 
-<table>
-  <tr>
-    <td>[namespace]</td>
-    <td>Пространство имен Service Bus, полученное с портала управления Azure.</td>
-  </tr>
-  <tr>
-    <td>[username]</td>
-    <td>Имя издателя Service Bus, полученное с портала управления Azure.</td>
-  </tr>
-  <tr>
-    <td>[password]</td>
-    <td>Закодированный URL-адрес ключа издателя служебной шины, полученный с портала управления Azure.</td>
-  </tr>
-</table>
-
-**Примечание**. Необходимо применить URL-кодирование к паролю вручную. Полезная служебная программа URL-кодирования доступна по адресу [http://www.w3schools.com/tags/ref_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
-
-Например, если с портала управления Azure получены следующие данные:
-
-<table>
-  <tr>
-    <td>Пространство имен:</td>
-    <td>foo.servicebus.windows.net</td>
-  </tr>
-  <tr>
-    <td>Имя издателя:</td>
-    <td>владелец</td>
-  </tr>
-  <tr>
-    <td>Ключ издателя:</td>
-    <td>j9VYv1q33Ea+cbahWsHFYnLkEzrF0yA5SAqcLNvU7KM=</td>
-  </tr>
-</table>
-
-Затем, чтобы определить **ConnectionFactory** с именем "SBCF", используется следующая строка конфигурации:
-
-	connectionfactory.SBCF = amqps://owner:j9VYv1q33Ea%2BcbahWsHFYnLkEzrF0yA5SAqcLNvU7KM%3D@foo.servicebus.windows.net
+> [AZURE.NOTE]Необходимо применить URL-кодирование к паролю вручную. Полезная служебная программа URL-кодирования доступна по адресу [http://www.w3schools.com/tags/ref_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
 
 #### Настройка назначений
 
 Эта запись используется для определения назначения в поставщике JNDI файла свойств Qpid в следующем формате:
 
-	queue.[jndi_name] = [physical_name]
+```
+queue.[jndi_name] = [physical_name]
+```
+
 или
 
-	topic.[jndi_name] = [physical_name]
+```
+topic.[jndi_name] = [physical_name]
+```
 
-где [jndi_name] и [physical_name] имеют следующий смысл:
+где **[jndi_name]** и **[physical_name]** имеют следующий смысл:
 
-<table>
-  <tr>
-    <td>[jndi_name]</td>
-    <td>Логическое имя назначения. Это имя, которое будет разрешено в Java-приложении с помощью метода JNDI IntialContext.lookup().</td>
-  </tr>
-  <tr>
-    <td>[physical_name]</td>
-    <td>Имя сущности служебной шины, которой приложение отправляет сообщения или от которого оно получает сообщения.</td>
-  </tr>
-</table>
+- **[jndi_name]**: логическое имя назначения. Это имя, которое будет разрешено в Java-приложении с помощью метода JNDI IntialContext.lookup().
+- **[physical_name]**: имя сущности служебной шины, которой приложение отправляет сообщения или от которого оно получает сообщения.
 
-**Примечание**. При получении данных из подписки раздела служебной шины физическое имя, указанное в JNDI, должно быть именем раздела. Имя подписки предоставляется при создании устойчивой подписки в коде приложения JMS. В [руководстве разработчика Service Bus AMQP 1.0](http://msdn.microsoft.com/library/jj841071.aspx) содержатся дополнительные сведения о работе с подписками разделов Service Bus в JMS.
+> [AZURE.NOTE]При получении данных из подписки раздела Service Bus физическое имя, указанное в JNDI, должно быть именем раздела. Имя подписки предоставляется при создании устойчивой подписки в коде приложения JMS. В [руководстве разработчика Service Bus AMQP 1.0](http://msdn.microsoft.com/library/jj841071.aspx) содержатся дополнительные сведения о работе с подписками разделов Service Bus в JMS.
 
 ### Написание приложения JMS
 
@@ -157,10 +118,12 @@ JMS использует интерфейс JNDI для разделения л�
 
 Для настройки среды JNDI хэш-таблица со сведениями о конфигурации передаются в конструктор класса javax.naming.InitialContext. Два обязательных элемента в хэш-таблице — это имя класса фабрики исходного контекста и URL-адрес поставщика. В следующем примере кода показано, как настроить среду JNDI для использования поставщика JNDI на основе файла свойств Qpid с именем **servicebus.properties**.
 
-	Hashtable<String, String> env = new Hashtable<String, String>(); 
-	env.put(Context.INITIAL_CONTEXT_FACTORY, "org.apache.qpid.amqp_1_0.jms.jndi.PropertiesFileInitialContextFactory"); 
-	env.put(Context.PROVIDER_URL, "servicebus.properties"); 
-	InitialContext context = new InitialContext(env); 
+```
+Hashtable<String, String> env = new Hashtable<String, String>(); 
+env.put(Context.INITIAL_CONTEXT_FACTORY, "org.apache.qpid.amqp_1_0.jms.jndi.PropertiesFileInitialContextFactory"); 
+env.put(Context.PROVIDER_URL, "servicebus.properties"); 
+InitialContext context = new InitialContext(env);
+``` 
 
 ### Простое приложение JMS, использующее очередь служебной шины
 
@@ -265,18 +228,20 @@ JMS использует интерфейс JNDI для разделения л�
 
 Запущенное приложение выводит следующие данные:
 
-	> java SimpleSenderReceiver
-	Press [enter] to send a message. Type 'exit' + [enter] to quit.
+```
+> java SimpleSenderReceiver
+Press [enter] to send a message. Type 'exit' + [enter] to quit.
 	
-	Sent message with JMSMessageID = ID:2867600614942270318
-	Received message with JMSMessageID = ID:2867600614942270318
+Sent message with JMSMessageID = ID:2867600614942270318
+Received message with JMSMessageID = ID:2867600614942270318
 	
-	Sent message with JMSMessageID = ID:7578408152750301483
-	Received message with JMSMessageID = ID:7578408152750301483
+Sent message with JMSMessageID = ID:7578408152750301483
+Received message with JMSMessageID = ID:7578408152750301483
 	
-	Sent message with JMSMessageID = ID:956102171969368961
-	Received message with JMSMessageID = ID:956102171969368961
-	exit
+Sent message with JMSMessageID = ID:956102171969368961
+Received message with JMSMessageID = ID:956102171969368961
+exit
+```
 
 ## Межплатформенный обмен сообщениями между JMS и .NET
 
@@ -297,21 +262,25 @@ JMS использует интерфейс JNDI для разделения л�
 
 #### Вывод приложения JMS
 
-	> java SimpleSenderReceiver sendonly
-	Press [enter] to send a message. Type 'exit' + [enter] to quit.
-	Sent message with JMSMessageID = ID:4364096528752411591
-	Sent message with JMSMessageID = ID:459252991689389983
-	Sent message with JMSMessageID = ID:1565011046230456854
-	exit
+```
+> java SimpleSenderReceiver sendonly
+Press [enter] to send a message. Type 'exit' + [enter] to quit.
+Sent message with JMSMessageID = ID:4364096528752411591
+Sent message with JMSMessageID = ID:459252991689389983
+Sent message with JMSMessageID = ID:1565011046230456854
+exit
+```
 
 #### Вывод приложения .NET
 
-	> SimpleSenderReceiver.exe	
-	Press [enter] to send a message. Type 'exit' + [enter] to quit.
-	Received message with MessageID = 4364096528752411591
-	Received message with MessageID = 459252991689389983
-	Received message with MessageID = 1565011046230456854
-	exit
+```
+> SimpleSenderReceiver.exe	
+Press [enter] to send a message. Type 'exit' + [enter] to quit.
+Received message with MessageID = 4364096528752411591
+Received message with MessageID = 459252991689389983
+Received message with MessageID = 1565011046230456854
+exit
+```
 
 ### Из .NET в JMS
 
@@ -324,22 +293,25 @@ JMS использует интерфейс JNDI для разделения л�
 
 #### Вывод приложения .NET
 
-	> SimpleSenderReceiver.exe sendonly
-	Press [enter] to send a message. Type 'exit' + [enter] to quit.
-	Sent message with MessageID = d64e681a310a48a1ae0ce7b017bf1cf3	
-	Sent message with MessageID = 98a39664995b4f74b32e2a0ecccc46bb
-	Sent message with MessageID = acbca67f03c346de9b7893026f97ddeb
-	exit
-
+```
+> SimpleSenderReceiver.exe sendonly
+Press [enter] to send a message. Type 'exit' + [enter] to quit.
+Sent message with MessageID = d64e681a310a48a1ae0ce7b017bf1cf3	
+Sent message with MessageID = 98a39664995b4f74b32e2a0ecccc46bb
+Sent message with MessageID = acbca67f03c346de9b7893026f97ddeb
+exit
+```
 
 #### Вывод приложения JMS
 
-	> java SimpleSenderReceiver	
-	Press [enter] to send a message. Type 'exit' + [enter] to quit.
-	Received message with JMSMessageID = ID:d64e681a310a48a1ae0ce7b017bf1cf3
-	Received message with JMSMessageID = ID:98a39664995b4f74b32e2a0ecccc46bb
-	Received message with JMSMessageID = ID:acbca67f03c346de9b7893026f97ddeb
-	exit
+```
+> java SimpleSenderReceiver	
+Press [enter] to send a message. Type 'exit' + [enter] to quit.
+Received message with JMSMessageID = ID:d64e681a310a48a1ae0ce7b017bf1cf3
+Received message with JMSMessageID = ID:98a39664995b4f74b32e2a0ecccc46bb
+Received message with JMSMessageID = ID:acbca67f03c346de9b7893026f97ddeb
+exit
+```
 
 ## Неподдерживаемые возможности и ограничения
 
@@ -366,4 +338,4 @@ JMS использует интерфейс JNDI для разделения л�
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

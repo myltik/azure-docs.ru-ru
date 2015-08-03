@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Как использовать приложение Fiddler для оценки и тестирования интерфейсов API REST &quot;Поиск Azure&quot;"
-	description="Приложение Fiddler позволяет проверить доступность службы &quot;Поиск Azure&quot; и опробовать интерфейсы API REST, не используя код."
+	pageTitle="Как использовать приложение Fiddler для оценки и тестирования интерфейсов API REST ";Поиск Azure";"
+	description="Приложение Fiddler позволяет проверить доступность службы ";Поиск Azure"; и опробовать интерфейсы API REST, не используя код."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -236,4 +236,4 @@
 [5]: ./media/search-fiddler/AzureSearch_Fiddler5_QueryStats.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

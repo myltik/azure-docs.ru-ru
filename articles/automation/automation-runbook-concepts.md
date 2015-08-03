@@ -19,4 +19,4 @@
 
 Содержимое данной статьи перемещено в статью [Изучение рабочего процесса PowerShell](automation-powershell-workflow.md).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

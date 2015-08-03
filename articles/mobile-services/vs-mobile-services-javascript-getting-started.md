@@ -84,7 +84,7 @@
 
 Удалите строку из таблицы данных. Вызовите метод [done]() для возвращенного объекта [Promise](), чтобы получить копию вставленного объекта и обработать какие-либо ошибки.
 
-	todoTable.delete(todoItem).done(function (item) {
+	todoTable.del(todoItem).done(function (item) {
 	    todoItems.splice(todoItems.indexOf(item), 1);
     }
 
@@ -92,4 +92,4 @@
 
 [Дополнительные сведения о мобильных службах](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

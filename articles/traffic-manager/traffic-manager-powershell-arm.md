@@ -67,18 +67,18 @@
 ### Шаг 2
 Переведите PowerShell в режим использования командлетов ARM. Дополнительную информацию см. в статье «Использование Windows PowerShell с диспетчером ресурсов».
 
-	PS C:> Switch-AzureMode -Name AzureResourceManager
+	PS C:\> Switch-AzureMode -Name AzureResourceManager
 ### Шаг 3
 Войдите в свою учетную запись Azure.
 
-	PS C:> Add-AzureAccount
+	PS C:\> Add-AzureAccount
 
 Вам будет предложено указать свои учетные данные для проверки подлинности.
 
 ### Шаг 4.
 Выберите подписку Azure.
 
-	PS C:> Select-AzureSubscription -SubscriptionName "MySubscription"
+	PS C:\> Select-AzureSubscription -SubscriptionName "MySubscription"
 
 Чтобы просмотреть перечень доступных подписок, воспользуйтесь командлетом Get-AzureSubscription.
 
@@ -86,12 +86,12 @@
 
  Для управления службой диспетчера трафика используется поставщик ресурсов Microsoft.Network. Прежде чем приступать к работе с диспетчером с помощью ARM, необходимо зарегистрировать подписку Azure для использования этого поставщика. Эта операция выполняется один раз для каждой подписки.
 
-	PS C:> Register-AzureProvider –ProviderNamespace Microsoft.Network
+	PS C:\> Register-AzureProvider –ProviderNamespace Microsoft.Network
 
 ### Шаг 6
 Создайте группу ресурсов (этот шаг можно пропустить, если вы используете существующую группу).
 
-	PS C:> New-AzureResourceGroup -Name MyAzureResourceGroup -location "West US"
+	PS C:\> New-AzureResourceGroup -Name MyAzureResourceGroup -location "West US"
 
 В диспетчере ресурсов Azure для всех групп ресурсов должно быть указано расположение. Оно используется в качестве расположения по умолчанию для всех ресурсов данной группы. Однако поскольку ресурсы профилей диспетчера трафика являются глобальными, а не региональными, выбор расположения группы ресурсов никак не повлияет на работу диспетчера трафика Azure.
 
@@ -99,7 +99,7 @@
 
 Чтобы создать профиль диспетчера трафика, воспользуйтесь командлетом New-AzureTrafficManagerProfile:
 
-	PS C:> $profile = New-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup -TrafficRoutingMethod Performance -RelativeDnsName contoso -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
+	PS C:\> $profile = New-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup -TrafficRoutingMethod Performance -RelativeDnsName contoso -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
 
 Он принимает перечисленные ниже параметры.
 
@@ -125,7 +125,7 @@
 
 Получить существующий объект профиля диспетчера трафика можно с помощью командлета Get-AzureTrafficManagerProfle:
 
-	PS C:> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
+	PS C:\> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
 
 Этот командлет возвращает профиль объекта трафика.
 
@@ -145,9 +145,9 @@
 
 Для добавления конечных точек в профиль диспетчера трафика можно использовать командлет Add-AzureTrafficManagerEndpointConfig:
 
-	PS C:> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
-	PS C:> Add-AzureTrafficManagerEndpointConfig –EndpointName site1 –TrafficManagerProfile $profile –Type ExternalEndpoints –Target site1.contoso.com –EndpointStatus Enabled –Weight 10 –Priority 1 –EndpointLocation “West US”
-	PS C:> Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
+	PS C:\> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
+	PS C:\> Add-AzureTrafficManagerEndpointConfig –EndpointName site1 –TrafficManagerProfile $profile –Type ExternalEndpoints –Target site1.contoso.com –EndpointStatus Enabled –Weight 10 –Priority 1 –EndpointLocation “West US”
+	PS C:\> Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
 
 Add-AzureTrafficManagerEndpointConfig принимает перечисленные ниже параметры.
 
@@ -173,36 +173,36 @@ Add-AzureTrafficManagerEndpointConfig принимает перечисленн�
 
 Чтобы удалить конечную точку из профиля, вызовите командлет Remove-AzureTrafficmanagerEndpointConfig, передав ему имя удаляемой точки:
 
-	PS C:> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
-	PS C:> Remove-AzureTrafficManagerEndpointConfig –EndpointName site1 –TrafficManagerProfile $profile
-	PS C:> Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
+	PS C:\> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
+	PS C:\> Remove-AzureTrafficManagerEndpointConfig –EndpointName site1 –TrafficManagerProfile $profile
+	PS C:\> Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
 
 Операции для добавления и удаления конечных точек также можно объединить в последовательность, передавая объект профиля по каналу, а не в качестве параметра. Например:
 
-	PS C:> Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup | Remove-AzureTrafficManagerEndpointConfig –EndpointName site1 | Set-AzureTrafficManagerProfile
+	PS C:\> Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup | Remove-AzureTrafficManagerEndpointConfig –EndpointName site1 | Set-AzureTrafficManagerProfile
 
 ### Изменение параметров профиля и конечных точек
 
 Параметры профиля и конечных точек можно изменить в автономном режиме, а затем зафиксировать изменения с помощью командлета Set-AzureTrafficManagerProfile. Единственное исключение связано с тем, что значение RelativeDnsName профиля невозможно изменить после его создания (для этого необходимо удалить и повторно создать профиль). Например, чтобы изменить TTL профиля и состояние первой конечной точки, выполните следующие команды:
 
-	PS C:> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
-	PS C:> $profile.Ttl = 300
-	PS C:> $profile.Endpoints[0].EndpointStatus = "Disabled"
-	PS C:> Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
+	PS C:\> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
+	PS C:\> $profile.Ttl = 300
+	PS C:\> $profile.Endpoints[0].EndpointStatus = "Disabled"
+	PS C:\> Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
 
 ### Удаление профиля диспетчера трафика
 Чтобы удалить профиль диспетчера трафика, вызовите командлет Remove-AzureTrafficManagerProfile, передав ему имя профиля и имя группы ресурсов:
 
-	PS C:> Remove-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup [-Force]
+	PS C:\> Remove-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup [-Force]
 
 Этот командлет запрашивает подтверждение. Чтобы отключить его, можно указать необязательный параметр -Force. Удаляемый профиль также можно указать с помощью объекта профиля:
 
-	PS C:> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
-	PS C:> Remove-AzureTrafficManagerProfile –TrafficManagerProfile $profile [-Force]
+	PS C:\> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
+	PS C:\> Remove-AzureTrafficManagerProfile –TrafficManagerProfile $profile [-Force]
 
 Эти операции также можно объединить в последовательность:
 
-	PS C:> Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup | Remove-AzureTrafficManagerProfile [-Force]
+	PS C:\> Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup | Remove-AzureTrafficManagerProfile [-Force]
 
 
 ## См. также
@@ -212,4 +212,4 @@ Add-AzureTrafficManagerEndpointConfig принимает перечисленн�
 [Начало работы с командлетами Azure](https://msdn.microsoft.com/library/jj554332.aspx)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

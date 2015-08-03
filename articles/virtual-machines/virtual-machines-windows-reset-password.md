@@ -5,7 +5,8 @@
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -13,23 +14,23 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/25/2015" 
+	ms.date="07/09/2015" 
 	ms.author="josephd"/>
 
 # Сброс пароля или службы удаленных рабочих столов для виртуальных машин Windows
 
 Если вы не можете подключиться к виртуальной машине Windows, так как забыли пароль или у вас возникла проблема с конфигурацией службы удаленных рабочих столов, воспользуйтесь порталом предварительной версии Azure или расширением VMAccess, чтобы сбросить пароль локального администратора или конфигурацию службы удаленных рабочих столов.
 
-> [AZURE.NOTE]Эта статья не касается виртуальных машин на основе диспетчера ресурсов Azure.
+> [AZURE.NOTE]Эта статья не касается виртуальных машин, созданных в диспетчере ресурсов.
 
 ## Портал предварительной версии Azure
 
-Чтобы выполнить сброс службы удаленных рабочих столов на [портале предварительной версии Azure](https://portal.azure.com), щелкните **Browse** (Обзор) > **Virtual Machines** (Виртуальные машины) > *ваша виртуальная машина Linux* > **Reset Remote Access** (Сброс удаленного доступа). Ниже приведен пример.
+Чтобы выполнить сброс службы удаленных рабочих столов на [портале предварительной версии Azure](https://portal.azure.com), щелкните **Просмотреть все** > **Виртуальные машины (классические)** > *ваша виртуальная машина Windows* > **Сброс удаленного доступа**. Ниже приведен пример.
 
 
 ![](./media/virtual-machines-windows-reset-password/Portal-RDP-Reset-Windows.png)
 
-Чтобы сбросить имя и пароль учетной записи локального администратора на [портале предварительной версии Azure](https://portal.azure.com), щелкните **Browse** (Обзор) > **Virtual Machines** (Виртуальные машины) > *ваша виртуальная машина Linux * > **All settings** (Все параметры) > **Password reset** (Сброс пароля). Ниже приведен пример.
+Чтобы сбросить имя и пароль учетной записи локального администратора на [портале предварительной версии Azure](https://portal.azure.com), щелкните **Просмотреть все** > **Виртуальные машины (классические)** > *ваша виртуальная машина Windows* > **Все параметры** > **Сброс пароля**. Ниже приведен пример.
 
 ![](./media/virtual-machines-windows-reset-password/Portal-PW-Reset-Windows.png)
 
@@ -46,9 +47,9 @@
  
 Сначала убедитесь, что агент ВМ уже установлен. Укажите имя облачной службы и имя виртуальной машины, а затем выполните следующие команды в командной строке Azure PowerShell уровня администратора. Замените все содержимое внутри кавычек, включая символы < and >.
 
-	$CSName = "<cloud service name>"
-	$VMName = "<virtual machine name>"
-	$vm = Get-AzureVM -ServiceName $CSName -Name $VMName 
+	$csName = "<cloud service name>"
+	$vmName = "<virtual machine name>"
+	$vm = Get-AzureVM -ServiceName $csName -Name $vmName 
 	write-host $vm.VM.ProvisionGuestAgent
 
 Если вы не знаете имя облачной службы и виртуальной машины, запустите командлет **Get-AzureVM**, чтобы отобразить эти сведения для всех виртуальных машин в вашей текущей подписке.
@@ -90,7 +91,7 @@
 
 	Эта команда включает встроенную группу брандмауэра Windows, которая разрешает входящий трафик удаленного рабочего стола через TCP-порт 3389.
 
-- **Set-ItemProperty -Path 'HKLM:\\System\\CurrentControlSet\\Control\\Terminal Server' -name "fDenyTSConnections" -Value 0**
+- **Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' -name "fDenyTSConnections" -Value 0**
 
 	Эта команда задает значение реестра fDenyTSConnections равным 0, включая подключения удаленного рабочего стола.
 
@@ -110,6 +111,7 @@
 
 [Подключение к виртуальной машине Azure с помощью RDP или SSH](http://msdn.microsoft.com/library/azure/dn535788.aspx)
 
+[Устранение неполадок с подключением к удаленному рабочему столу виртуальной машины Windows в службе Azure](virtual-machines-troubleshoot-remote-desktop-connections.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

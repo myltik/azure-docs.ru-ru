@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services" 
-   ms.date="04/02/2015"
+   ms.date="07/14/2015"
    ms.author="thmullan;jackr"/>
 
 
@@ -98,4 +98,4 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 Помимо обозначенных выше функций и возможностей, которые могут помочь обеспечить соответствие вашего приложения различным требованиям безопасности, в отношении Базы данных SQL Azure регулярно проводится аудит, а сама база данных сертифицирована в соответствии с рядом стандартов. Дополнительные сведения см. в [Центре управления безопасностью Microsoft Azure](http://azure.microsoft.com/support/trust-center/), где представлен актуальный список [сертификатов соответствия Базы данных SQL](http://azure.microsoft.com/support/trust-center/services/).
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

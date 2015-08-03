@@ -124,4 +124,4 @@
 [Служба преобразования BizTalk]: app-service-logic-transform-xml-documents.md
 [Соединитель Wait]: app-service-logic-wait.md
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

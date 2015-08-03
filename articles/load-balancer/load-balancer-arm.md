@@ -35,7 +35,7 @@
 - Правила NAT для входящего трафика: правила NAT, определяющие входящий трафик, который проходит через внешний IP-адрес и передается серверному IP-адресу.
 
 
-![](https://acomdpsstorage.blob.core.windows.net/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/resource-groups-networking/20150429054039/figure5.png)
+![](./media/load-balancer-arm/load-balancer-arm.png)
 
 
 
@@ -77,4 +77,4 @@
 [Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/17/2015"
+   ms.date="07/09/2015"
    ms.author="amanbha"/>
 
 
@@ -55,7 +55,7 @@ class GameEventsHandler : IGameEvents
 }
 ```
 
-Также на стороне клиента создайте прокси-сервер для субъекта, который публикует события, и подпишитесь на события.
+Также на стороне клиента создайте прокси-сервер для субъекта, который публикует события, и подпишитесь на его события.
 
 ```csharp
 var proxy = ActorProxy.Create<IGameActor>(
@@ -63,7 +63,7 @@ var proxy = ActorProxy.Create<IGameActor>(
 proxy.SubscribeAsync(new GameEventsHandler()).Wait();
 ```
 
-В случае отработки отказа субъект может переключиться на другой процесс или узел. Прокси-сервер субъекта управляет активными подписками и подписывается на них повторно автоматически. Чтобы изменить интервал между подписками, используйте API `ActorProxyEventExtensions.SubscribeAsync<TEvent>`. Чтобы отказаться от подписки, используйте API `ActorProxyEventExtensions.UnsubscribeAsync<TEvent>`.
+В случае отработки отказа субъект может переключиться на другой процесс или узел. Прокси-сервер субъекта управляет активными подписками и подписывается на них повторно автоматически. Чтобы изменить интервал между подписками, используйте API `ActorProxyEventExtensions.SubscribeAsync<TEvent>`. Для отмены подписки используйте API `ActorProxyEventExtensions.UnsubscribeAsync<TEvent>`.
 
 На стороне субъекта достаточно просто публиковать события, когда они происходят. При наличии подписок на событие субъекта среда выполнения будет отправлять подписчикам уведомление.
 
@@ -71,6 +71,5 @@ proxy.SubscribeAsync(new GameEventsHandler()).Wait();
 var ev = GetEvent<IGameEvents>();
 ev.GameScoreUpdated(Id.GetGuidId(), State.Status.Score);
 ```
- 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

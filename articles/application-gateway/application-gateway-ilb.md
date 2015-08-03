@@ -41,7 +41,7 @@
 
 **Для создания шлюза** используйте командлет `New-AzureApplicationGateway`, подставив в него свои значения. Обратите внимание, что выставление счетов для шлюза начинается не на данном этапе, а позднее, после успешного запуска шлюза.
 
-	PS C:> New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
+	PS C:\> New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
 
 	VERBOSE: 4:31:35 PM - Begin Operation: New-AzureApplicationGateway 
 	VERBOSE: 4:32:37 PM - Completed Operation: New-AzureApplicationGateway
@@ -53,7 +53,7 @@
 
 В примере параметры *Description* (Описание), *InstanceCount* (Количество экземпляров) и *GatewaySize* (Размер шлюза) являются необязательными. Значение параметра *InstanceCount* (Количество экземпляров) по умолчанию — 2, максимальное значение — 10. Значение *GatewaySize* (размер шлюза) по умолчанию — Medium (Средний). Также доступны значения Small (Маленький) и Large (Большой). Параметры *Vip* и *DnsName* отображаются без значений, поскольку шлюз еще не запущен. Эти значения будут заданы, как только шлюз перейдет в рабочее состояние.
 
-	PS C:> Get-AzureApplicationGateway AppGwTest
+	PS C:\> Get-AzureApplicationGateway AppGwTest
 
 	VERBOSE: 4:39:39 PM - Begin Operation:
 	Get-AzureApplicationGateway VERBOSE: 4:39:40 PM - Completed 
@@ -157,7 +157,7 @@
 
 Теперь шлюз приложений необходимо настроить. Для этого можно использовать командлет `Set-AzureApplicationGatewayConfig` с объектом конфигурации или с XML-файлом конфигурации.
 
-	PS C:> Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile D:\config.xml
+	PS C:\> Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile D:\config.xml
 
 	VERBOSE: 7:54:59 PM - Begin Operation: Set-AzureApplicationGatewayConfig 
 	VERBOSE: 7:55:32 PM - Completed Operation: Set-AzureApplicationGatewayConfig
@@ -172,7 +172,7 @@
 
 **Примечание.** Выполнение командлета `Start-AzureApplicationGateway` занимает до 15–20 минут.
    
-	PS C:> Start-AzureApplicationGateway AppGwTest 
+	PS C:\> Start-AzureApplicationGateway AppGwTest 
 
 	VERBOSE: 7:59:16 PM - Begin Operation: Start-AzureApplicationGateway 
 	VERBOSE: 8:05:52 PM - Completed Operation: Start-AzureApplicationGateway
@@ -186,7 +186,7 @@
 
 **Примечание.** В данном примере шлюз приложений настроен для приема трафика в заданной конечной точке ILB 10.0.0.10.
 
-	PS C:> Get-AzureApplicationGateway AppGwTest 
+	PS C:\> Get-AzureApplicationGateway AppGwTest 
 
 	VERBOSE: 8:09:28 PM - Begin Operation: Get-AzureApplicationGateway 
 	VERBOSE: 8:09:30 PM - Completed Operation: Get-AzureApplicationGateway
@@ -208,4 +208,4 @@
 - [Подсистема балансировщика нагрузки Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Диспетчер трафика Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

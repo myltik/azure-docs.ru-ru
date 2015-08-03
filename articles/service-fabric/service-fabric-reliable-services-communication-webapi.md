@@ -334,7 +334,7 @@ public class OwinCommunicationListener : ICommunicationListener
 
 Прежде чем назначить порт для веб-сервера, важно понимать, что платформа Service Fabric предоставляет слой приложения, который служит буфером между приложением и базовой операционной системой, в котором оно выполняется. Таким образом, Service Fabric предоставляет способ настройки *конечных точек* для ваших служб. Service Fabric обеспечивает доступность конечной точки для службы, чтобы вам не нужно было настраивать ее самостоятельно в среде базовой ОС. Это позволяет легко размещать приложение Service Fabric в различных средах без необходимости вносить изменения в приложение (например, можно разместить одно и то же приложение как в Azure, так и в собственном центре обработки данных).
 
-Настройте конечную точку HTTP в файле PackageRoot\\ServiceManifest.xml:
+Настройте конечную точку HTTP в файле PackageRoot\ServiceManifest.xml:
 
 ```xml
 
@@ -613,4 +613,4 @@ New-ServiceFabricService -ApplicationName "fabric:/WebServiceApplication" -Servi
 [Отладка приложения Service Fabric в Visual Studio](service-fabric-debugging-your-application.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

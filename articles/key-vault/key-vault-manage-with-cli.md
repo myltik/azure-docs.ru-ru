@@ -4,8 +4,7 @@
 	services="key-vault"
 	documentationCenter=""
 	authors="msmbaldwin"
-	manager="mbaldwin"
-	tags="azure-resource-manager"/>
+	manager="mbaldwin"tags="azure-resource-manager"/>
 
 <tags
 	ms.service="key-vault"
@@ -253,4 +252,4 @@
 
 Справочные материалы по программированию см. в разделах [Справочник по REST API хранилища ключей Azure](https://msdn.microsoft.com/library/azure/dn903609.aspx) и [Справочник по API клиента C# для хранилища ключей Azure](https://msdn.microsoft.com/library/azure/dn903628.aspx).
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

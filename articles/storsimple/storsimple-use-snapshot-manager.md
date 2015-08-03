@@ -540,4 +540,4 @@
 
 Узнайте, как [подключать устройства и управлять ими с помощью диспетчера моментальных снимков StorSimple](storsimple-snapshot-manager-manage-devices.md).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->
