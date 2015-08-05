@@ -93,7 +93,7 @@
 [Добавление проверки подлинности в приложение]: ../mobile-services-windows-store-dotnet-get-started-users.md
 [Добавление push-уведомлений в приложение]: ../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md
 
-[Azure Management Portal]: https://manage.windowsazure.com/
+[портал управления Azure]: https://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

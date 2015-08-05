@@ -41,7 +41,8 @@
 
 1. [Установите Git][install-git].
 
-	> [AZURE.NOTE]В системе Windows необходимо также добавить исполняемый файл Git в переменную среды PATH.
+> [AZURE.NOTE]
+> В системе Windows необходимо также добавить исполняемый файл Git в переменную среды PATH.
 
 2. Создайте файл с именем **composer.json** в корневой папке проекта и добавьте в него следующий код:
 
@@ -430,4 +431,4 @@
 [git-instructions]: ./media/web-sites-php-storage/git-instructions.png
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

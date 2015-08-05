@@ -565,7 +565,8 @@ Visual Studio обеспечивает доступ к подмножеству 
 
 1. В окне Visual Studio **Веб-приложение Azure** откройте вкладку **Журналы**, а затем щелкните **Настроить ведение журналов на портале управления**.
 
-    <!-- todo:screenshot of new portal if the VS page link goes to new portal -->![Настройка журнала](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
+    <!-- todo:screenshot of new portal if the VS page link goes to new portal -->
+	![Настройка журнала](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
 
 	После этого откроется вкладка **Настройки ** на портале управления вашим веб-приложением. Или откройте вкладку **Веб-приложения**, а затем щелкните вкладку **Настройки**.
 
@@ -763,4 +764,4 @@ Visual Studio обеспечивает доступ к подмножеству 
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

@@ -23,7 +23,7 @@
 
 Скачайте [Подробную инструкцию по миграции баз данных уровня Web и Business](http://download.microsoft.com/download/3/C/9/3C9FF3D8-E702-4F5D-A38C-5EFA1DBA73E6/Azure_SQL_Database_Migration_Cookbook.pdf).
 
-> [AZURE.NOTE] [Pricing tier recommendations]Теперь для баз данных уровня Web и Business стали доступны (sql-database-service-tier-advisor.md).
+> [AZURE.NOTE] [Pricing tier recommendations](sql-database-service-tier-advisor.md)Теперь для баз данных уровня Web и Business стали доступны.
 
 ## Обзор
 
@@ -309,4 +309,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

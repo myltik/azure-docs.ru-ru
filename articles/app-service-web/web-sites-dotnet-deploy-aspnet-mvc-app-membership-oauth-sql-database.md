@@ -36,7 +36,7 @@
 
 ![Страница входа][rxb]
 
->[AZURE.NOTE]Для работы с этим учебником необходимо использовать учетную запись Microsoft Azure. Если у вас нет учетной записи, можно <a href="/ru-ru/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">активировать преимущества для подписчиков MSDN</a> или <a href="/ru-ru/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">подписаться на бесплатную пробную версию</a>.
+>[AZURE.NOTE] Для работы с этим учебником необходимо использовать учетную запись Microsoft Azure. Если у вас нет учетной записи, можно <a href="/ru-ru/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">активировать преимущества для подписчиков MSDN</a> или <a href="/ru-ru/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">подписаться на бесплатную пробную версию</a>.
 
 >Чтобы приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
 
@@ -261,7 +261,8 @@
 
 Следующая задача заключается в активации компонента [Code First Migrations](http://msdn.microsoft.com/library/hh770484.aspx) для создания базы данных на основе созданной модели данных.
 
-1. В меню **Сервис** выберите **Диспетчер пакетов NuGet**, а затем **Консоль диспетчера пакетов**. !["Консоль диспетчера пакетов" в меню "Сервис"](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/SS6.png)
+1. В меню **Сервис** выберите **Диспетчер пакетов NuGet**, а затем **Консоль диспетчера пакетов**.
+	!["Консоль диспетчера пакетов" в меню "Сервис"](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/SS6.png)
 
 2. В окне **Консоль диспетчера пакетов** введите следующую команду:
 
@@ -273,7 +274,8 @@
 		add-migration Initial
 
 
-	Команда **add-migration Initial** создает файл с именем **&lt;date_stamp&gt;Initial** в папке *Migrations*, использованной при создании базы данных. Первый параметр (**Initial**) является произвольным и используется для создания имени файла. Новые файлы классов можно просмотреть в **обозревателе решений**. В классе **Initial** метод **Up** создает таблицу Contacts, а метод **Down** (используется при возвращении к предыдущему состоянию) удаляет эту таблицу.
+	Команда **add-migration Initial** создает файл с именем **&lt;date_stamp&gt;Initial** в папке *Migrations*, использованной при создании базы данных. Первый параметр (**Initial**) является произвольным и используется для создания имени файла. Новые файлы классов можно просмотреть в **обозревателе решений**.
+	В классе **Initial** метод **Up** создает таблицу Contacts, а метод **Down** (используется при возвращении к предыдущему состоянию) удаляет эту таблицу.
 3. Откройте файл *Migrations\Configuration.cs*. 
 4. Добавьте следующее пространство имен. 
 
@@ -399,8 +401,9 @@
         context.Contacts.AddOrUpdate(p => p.Name,
             // Код удален для краткости
     }
-</pre>
-<span></span> На следующих изображениях показаны изменения метода *Seed*:
+	</pre>  
+<span></span>
+	На следующих изображениях показаны изменения метода *Seed*:
 
 	![изображение кода](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss24.PNG)
 
@@ -414,7 +417,44 @@
 
                 await UserManager.AddToRoleAsync(user.Id, "canEdit");
 
-   Приведенный выше код добавляет вновь зарегистрированного пользователя в роль canEdit, что дает ему доступ к методам действий, которые изменяют (редактируют) данные. <pre> // POST: /Account/ExternalLoginConfirmation [HttpPost] [AllowAnonymous] [ValidateAntiForgeryToken] public async Task<ActionResult> ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, string returnUrl) { if (User.Identity.IsAuthenticated) { return RedirectToAction("Index", "Manage"); } if (ModelState.IsValid) { // Получение информации о пользователе от внешнего поставщика входа var info = await AuthenticationManager.GetExternalLoginInfoAsync(); if (info == null) { return View("ExternalLoginFailure"); } var user = new ApplicationUser { UserName = model.Email, Email = model.Email }; var result = await UserManager.CreateAsync(user); if (result.Succeeded) { result = await UserManager.AddLoginAsync(user.Id, info.Login); if (result.Succeeded) { <mark>await UserManager.AddToRoleAsync(user.Id, "canEdit");</mark> await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false); return RedirectToLocal(returnUrl); } } AddErrors(result); } ViewBag.ReturnUrl = returnUrl; return View(model); } </pre>
+   Приведенный выше код добавляет вновь зарегистрированного пользователя в роль canEdit, что дает ему доступ к методам действий, которые изменяют (редактируют) данные.
+	<pre>
+	      // POST: /Account/ExternalLoginConfirmation
+	      [HttpPost]
+	      [AllowAnonymous]
+	      [ValidateAntiForgeryToken]
+	      public async Task<ActionResult> ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, string returnUrl)
+	      {
+	         if (User.Identity.IsAuthenticated)
+	         {
+	            return RedirectToAction("Index", "Manage");
+	         }
+	         if (ModelState.IsValid)
+	         {
+	            // Get the information about the user from the external login provider
+	            var info = await AuthenticationManager.GetExternalLoginInfoAsync();
+	            if (info == null)
+	            {
+	               return View("ExternalLoginFailure");
+	            }
+	            var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+	            var result = await UserManager.CreateAsync(user);
+	            if (result.Succeeded)
+	            {
+	               result = await UserManager.AddLoginAsync(user.Id, info.Login);
+	               if (result.Succeeded)
+	               {
+	                  <mark>await UserManager.AddToRoleAsync(user.Id, "canEdit");</mark>
+	                  await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+	                  return RedirectToLocal(returnUrl);
+	               }
+	            }
+	            AddErrors(result);
+	         }
+	         ViewBag.ReturnUrl = returnUrl;
+	         return View(model);
+	      }
+	</pre>
 
 Далее в этом учебнике будет развернуто приложение в Azure, благодаря которому можно будет войти с помощью Google или другого стороннего поставщика проверки подлинности. Это добавит вновь зарегистрированную учетную запись к роли *canEdit*. Каждый, кому известен URL-адрес вашего веб-приложения, сможет использовать свой идентификатор Google для регистрации и обновления вашей базы данных. Чтобы предотвратить подобные действия со стороны других лиц, можно остановить сайт. Изучив базу данных, вы сможете проверить, кто входит в роль *canEdit*.
 
@@ -428,26 +468,88 @@
 
 В этом разделе будет применен атрибут [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) для ограничения доступа к методам действий. Анонимные пользователи смогут просматривать только метод действия **Индекс** главного контроллера. Зарегистрированные пользователи смогут видеть контактные данные (страницы **Индекс** и **Сведения** контроллера Cm), сведения о программе и страницы связи. Только пользователи с назначенной ролью *canEdit* получат доступ к методам действий, изменяющих данные.
 
-1. Добавьте в приложение фильтры [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) и [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx). В качестве альтернативы можно добавить атрибуты [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) и [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) для каждого контроллера, но с точки зрения безопасности рекомендуется применять их ко всему приложению. В случае глобального добавления атрибутов каждый новый контроллер и метод действия будет защищен автоматически, вам не потребуется помнить о необходимости их применения. Дополнительные сведения см. в разделе [Защита приложений ASP.NET MVC и новый атрибут AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) Откройте файл *App_Start\FilterConfig.cs* и замените метод *RegisterGlobalFilters* следующим кодом (который добавляет два фильтра): <pre> public static void RegisterGlobalFilters(GlobalFilterCollection filters) { filters.Add(new HandleErrorAttribute()); <mark>filters.Add(new System.Web.Mvc.AuthorizeAttribute()); filters.Add(new RequireHttpsAttribute());</mark> } </pre>
+1. Добавьте в приложение фильтры [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) и [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx). В качестве альтернативы можно добавить атрибуты [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) и [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) для каждого контроллера, но с точки зрения безопасности рекомендуется применять их ко всему приложению. В случае глобального добавления атрибутов каждый новый контроллер и метод действия будет защищен автоматически, вам не потребуется помнить о необходимости их применения. Дополнительные сведения см. в разделе [Защита приложений ASP.NET MVC и новый атрибут AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) Откройте файл *App_Start\FilterConfig.cs* и замените метод *RegisterGlobalFilters* следующим кодом (который добавляет два фильтра):
+		<pre>
+        public static void
+        RegisterGlobalFilters(GlobalFilterCollection filters)
+        {
+            filters.Add(new HandleErrorAttribute());
+            <mark>filters.Add(new System.Web.Mvc.AuthorizeAttribute());
+            filters.Add(new RequireHttpsAttribute());</mark>
+        }
+		</pre>
 
 
 
 
 	Фильтр [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx), применяемый приведенным выше кодом, не позволит анонимным пользователям получить доступ к методам в приложении. С помощью атрибута [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) вы сможете отказаться от обязательной авторизации в соответствующих методах, чтобы анонимные пользователи могли входить в систему и просматривать главную страницу. Фильтр [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) будет требовать использования HTTPS для доступа к веб-приложению.
 
-1. Добавьте атрибут [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) в метод **Index** контроллера Home. Атрибут [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) позволяет помещать в белый список методы, которые требуется вывести из-под авторизации. <pre> public class HomeController : Controller { <mark>[AllowAnonymous]</mark> public ActionResult Index() { return View(); } </pre>
+1. Добавьте атрибут [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) в метод **Index** контроллера Home. Атрибут [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) позволяет помещать в белый список методы, которые требуется вывести из-под авторизации. 
+		<pre>
+	public class HomeController : Controller
+   {
+      <mark>[AllowAnonymous]</mark>
+      public ActionResult Index()
+      {
+         return View();
+      }
+	</pre>
 
 2. Выполнив глобальный поиск для атрибута *AllowAnonymous*, вы увидите, что он используется в методах входа и регистрации контроллера Account.
-1. В файле *CmController.cs* добавьте `[Authorize(Roles = "canEdit")]` к методам HttpGet и HttpPost, которые изменяют данные (Create, Edit, Delete, все методы действия, кроме Index и Details), в контроллере *Cm*. Ниже показана часть готового кода: <pre> // GET: Cm/Create <mark>[Authorize(Roles = "canEdit")]</mark> public ActionResult Create() { return View(new Contact { Address = "123 N 456 W", City="Great Falls", Email = "ab@cd.com", Name="Joe Smith", State="MT", Zip = "59405"}); } // POST: Cm/Create // Для защиты от атак оверпостингом включите определенные свойства, к которым требуется установить привязку. // Дополнительную информацию см. на странице http://go.microsoft.com/fwlink/?LinkId=317598. [HttpPost] [ValidateAntiForgeryToken] <mark>[Authorize(Roles = "canEdit")]</mark> public ActionResult Create([Bind(Include = "ContactId,Name,Address,City,State,Zip,Email")] Contact contact) { if (ModelState.IsValid) { db.Contacts.Add(contact); db.SaveChanges(); return RedirectToAction("Index"); } return View(contact); } // GET: Cm/Edit/5 <mark>[Authorize(Roles = "canEdit")]</mark> public ActionResult Edit(int? id) { if (id == null) { return new HttpStatusCodeResult(HttpStatusCode.BadRequest); } Contact contact = db.Contacts.Find(id); if (contact == null) { return HttpNotFound(); } return View(contact); } </pre>
+1. В файле *CmController.cs* добавьте `[Authorize(Roles = "canEdit")]` к методам HttpGet и HttpPost, которые изменяют данные (Create, Edit, Delete, все методы действия, кроме Index и Details), в контроллере *Cm*. Ниже показана часть готового кода: 
+		<pre>
+	// GET: Cm/Create
+       <mark>[Authorize(Roles = "canEdit")]</mark>
+        public ActionResult Create()
+        {
+           return View(new Contact { Address = "123 N 456 W",
+            City="Great Falls", Email = "ab@cd.com", Name="Joe Smith", State="MT",
+           Zip = "59405"});
+        }
+        // POST: Cm/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+         <mark>[Authorize(Roles = "canEdit")]</mark>
+        public ActionResult Create([Bind(Include = "ContactId,Name,Address,City,State,Zip,Email")] Contact contact)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Contacts.Add(contact);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(contact);
+        }
+        // GET: Cm/Edit/5
+       <mark>[Authorize(Roles = "canEdit")]</mark>
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Contact contact = db.Contacts.Find(id);
+            if (contact == null)
+            {
+                return HttpNotFound();
+            }
+            return View(contact);
+        }
+		</pre>
 
 1. Если вы все еще не вышли из предыдущего сеанса, нажмите ссылку **Выход**.
 1. Щелкните ссылку **О программе** или **Связь**. Вы перейдете на страницу входа, поскольку анонимные пользователи не могут просматривать эти страницы. 
 1. Щелкните ссылку **Зарегистрироваться в качестве нового пользователя** и добавьте локального пользователя с адресом электронной почты *joe@contoso.com*. Проверьте, может ли *Joe* просматривать главную страницу, страницу сведений о программе и страницу связи. 
+
 	![вход](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss14.PNG)
 
 1. Щелкните ссылку *CM Demo* и убедитесь, что видите данные.
 1. Щелкнув ссылку "Изменить" на странице, вы перейдете на страницу входа (поскольку новый локальный пользователь не добавляется к роли *canEdit*).
-1. Войдите как *user1@contoso.com* с паролем P_assw0rd1 (0 в word — это нуль). Вы перейдете на ранее выбранную страницу изменения. <br/> Если не получается войти в систему с этой учетной записью и этим паролем, попробуйте скопировать пароль из исходного кода и вставить его. Если войти по-прежнему не удается, проверьте в столбце **UserName** таблицы **AspNetUsers**, добавлен ли пользователь *user1@contoso.com*. 
+1. Войдите как *user1@contoso.com* с паролем P_assw0rd1 (0 в word — это нуль). Вы перейдете на ранее выбранную страницу изменения. <br/>
+   Если не получается войти в систему с этой учетной записью и этим паролем, попробуйте скопировать пароль из исходного кода и вставить его. Если войти по-прежнему не удается, проверьте в столбце **UserName** таблицы **AspNetUsers**, добавлен ли пользователь *user1@contoso.com*. 
+
 1. Убедитесь, что можете изменять данные.
 
 ## Развертывание приложения в Azure
@@ -468,7 +570,8 @@
 	![Параметры](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rrc3.png)
 
 1. Щелкните **Опубликовать**.
-1. Войдите в систему как *user1@contoso.com* с паролем P_assw0rd1 и убедитесь, что вы можете изменять данные. 1. Выйдите из системы.
+1. Войдите в систему как *user1@contoso.com* с паролем P_assw0rd1 и убедитесь, что вы можете изменять данные.
+1. Выйдите из системы.
 1. Перейдите в [консоль разработчиков Google](https://console.developers.google.com/) и на вкладке **Учетные данные** обновите URI перенаправления и JavaScript Orgins для использования URL-адреса Azure.
 1. Войдите с помощью Google или Facebook. При этом учетная запись Google или Facebook добавится к роли **canEdit**. Если появится ошибка HTTP 400 с сообщением *URI перенаправления в запросе https://contactmanager{my version}.azurewebsites.net/signin-google не совпадает с зарегистрированным URI перенаправления*, вам придется подождать, пока распространяются изменения. Если эта ошибка будет появляться несколько минут, проверьте правильность универсальных кодов ресурсов.
 
@@ -485,7 +588,8 @@
 
 ### Удаление AddToRoleAsync, публикация и тестирование
 
-1. Закомментируйте или удалите следующий код из метода **ExternalLoginConfirmation** в контроллере Account: `await UserManager.AddToRoleAsync(user.Id, "canEdit");`
+1. Закомментируйте или удалите следующий код из метода **ExternalLoginConfirmation** в контроллере Account: 
+         `await UserManager.AddToRoleAsync(user.Id, "canEdit");`
 1. Создайте проект (который сохраняет изменения файла и проверяет наличие ошибок компиляции).
 5. Щелкните правой кнопкой мыши проект в **обозревателе решений** и выберите **Опубликовать**.
 
@@ -512,7 +616,8 @@
 	![Страница CM](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rrr4.png)
  
 1. Щелкните ссылку "Изменить". Вы перейдете на страницу входа. В разделе **Использовать другую службу для входа** щелкните Google или Facebook и войдите с использованием ранее зарегистрированной учетной записи. (Если вы работаете быстро и файл cookie сеанса еще действует, вы автоматически войдете с ранее использованной учетной записью Google или Facebook.)
-2. Убедитесь, что можете изменять данные при входе с этой учетной записью. **Примечание.** С помощью этого приложения вы не можете выйти из Google и войти в другую учетную запись Google в том же браузере. Если используется один браузер, необходимо перейти в Google и выйти из системы. Используя другой браузер, вы можете войти с другой учетной записью из того же стороннего приложения проверки подлинности (например, Google).
+2. Убедитесь, что можете изменять данные при входе с этой учетной записью.
+ 	**Примечание.** С помощью этого приложения вы не можете выйти из Google и войти в другую учетную запись Google в том же браузере. Если используется один браузер, необходимо перейти в Google и выйти из системы. Используя другой браузер, вы можете войти с другой учетной записью из того же стороннего приложения проверки подлинности (например, Google).
 
 Если вы не указали имя и фамилию в информации учетной записи Google, возникнет исключение NullReferenceException.
 
@@ -626,4 +731,4 @@
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

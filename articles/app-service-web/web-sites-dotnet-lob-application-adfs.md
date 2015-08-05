@@ -43,7 +43,7 @@
 - локальное развертывание AD FS (полное пошаговое руководство по лаборатории тестирования, которую я использую, см. в статье [Лаборатория тестирования: автономная STS c AD FS в виртуальной машине Azure (только для тестирования)](TODO));
 - разрешения для создания отношений доверия с проверяющей стороной в оснастке управления AD FS
 - Visual Studio 2013
-- [Пакет SDK для Azure 2.5.1](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) или более поздней версии.
+- [пакет SDK для Azure 2.5.1](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) или более поздней версии.
 
 <a name="bkmk_sample"></a>
 ## Использование примера приложения в качестве шаблона бизнес-приложения ##
@@ -81,30 +81,31 @@
 
 5.	В App_Start\Startup.Auth.cs замените статические определения строки как показано ниже.
 	<pre class="prettyprint">
-private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIdentifier</mark>"];
-<mark><del>private static string aadInstance = ConfigurationManager.AppSettings["ida:AADInstance"];</del></mark>
-<mark><del>private static string tenant = ConfigurationManager.AppSettings["ida:Tenant"];</del></mark>
-<mark><del>private static string metadata = string.Format("{0}/{1}/federationmetadata/2007-06/federationmetadata.xml", aadInstance, tenant);</del></mark>
-<mark>private static string metadata = string.Format("https://{0}/federationmetadata/2007-06/federationmetadata.xml", ConfigurationManager.AppSettings["ida:ADFS"]);</mark>
+	private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIdentifier</mark>"];
+    <mark><del>private static string aadInstance = ConfigurationManager.AppSettings["ida:AADInstance"];</del></mark>
+    <mark><del>private static string tenant = ConfigurationManager.AppSettings["ida:Tenant"];</del></mark>
+    <mark><del>private static string metadata = string.Format("{0}/{1}/federationmetadata/2007-06/federationmetadata.xml", aadInstance, tenant);</del></mark>
+    <mark>private static string metadata = string.Format("https://{0}/federationmetadata/2007-06/federationmetadata.xml", ConfigurationManager.AppSettings["ida:ADFS"]);</mark>
 
-<mark><del>string authority = String.Format(CultureInfo.InvariantCulture, aadInstance, tenant);</del></mark>
-</pre>
+    <mark><del>string authority = String.Format(CultureInfo.InvariantCulture, aadInstance, tenant);</del></mark>
+    </pre>
 
 6.	Теперь необходимо сделать соответствующие изменения в файле Web.config. Откройте файл Web.config и измените параметры приложения как показано ниже.
 	<pre class="prettyprint">
-&lt;appSettings>
-  &lt;add key="webpages:Version" value="3.0.0.0" />
-  &lt;add key="webpages:Enabled" value="false" />
-  &lt;add key="ClientValidationEnabled" value="true" />
-  &lt;add key="UnobtrusiveJavaScriptEnabled" value="true" />
-  <mark><del>&lt;add key="ida:Wtrealm" value="[Введите URI идентификатора приложения WebApp-WSFederation-DotNet https://contoso.onmicrosoft.com/WebApp-WSFederation-DotNet]" /></del></mark>
-  <mark><del>&lt;add key="ida:AADInstance" value="https://login.windows.net" /></del></mark>
-  <mark><del>&lt;add key="ida:Tenant" value="[Введите имя клиента, например contoso.onmicrosoft.com]" /></del></mark>
-  <mark>&lt;add key="ida:RPIdentifier" value="[Введите идентификатор проверяющей стороны, настроенной в AD FS, например https://localhost:44320/]" /></mark>
-  <mark>&lt;add key="ida:ADFS" value="[Введите полное доменное имя службы AD FS, например adfs.contoso.com]" /></mark>
+	&lt;appSettings&gt;
+	  &lt;add key="webpages:Version" value="3.0.0.0" /&gt;
+	  &lt;add key="webpages:Enabled" value="false" /&gt;
+	  &lt;add key="ClientValidationEnabled" value="true" /&gt;
+	  &lt;add key="UnobtrusiveJavaScriptEnabled" value="true" /&gt;
+	  <mark><del>&lt;add key="ida:Wtrealm" value="[EВведите URI идентификатора приложения WebApp-WSFederation-DotNet https://contoso.onmicrosoft.com/WebApp-WSFederation-DotNet]" /&gt;</del></mark>
+	  <mark><del>&lt;add key="ida:AADInstance" value="https://login.windows.net" /&gt;</del></mark>
+	  <mark><del>&lt;add key="ida:Tenant" value="[Введите имя клиента, например contoso.onmicrosoft.com]" /&gt;</del></mark>
+	  <mark>&lt;add key="ida:RPIdentifier" value="[Введите идентификатор проверяющей стороны, настроенной в AD FS, например https://localhost:44320/]" /&gt;</mark>
+	  <mark>&lt;add key="ida:ADFS" value="[Введите полное доменное имя службы AD FS, например adfs.contoso.com]" /&gt;</mark>
 
-&lt;/appSettings>
-</pre>Заполните значения ключа на базе данных вашей среды.
+	&lt;/appSettings&gt;
+	</pre>
+	Заполните значения ключа на базе данных вашей среды.
 
 7.	Постройте приложение, чтобы убедиться в отсутствии ошибок.
 
@@ -197,18 +198,19 @@ private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIden
 10.	Выберите **Отправить утверждения с использованием настраиваемого правила** и щелкните **Далее**.
 11.	Вставьте следующий язык правила в поле **Настраиваемое правило**, присвойте правилу имя **В соответствии с идентификатором сеанса** и нажмите кнопку **Готово**.  
 	<pre class="prettyprint">
-c1:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"] &amp;&amp;
-c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant"]
-	=> add(
-		store = "_OpaqueIdStore",
-		types = ("<mark>http://contoso.com/internal/sessionid</mark>"),
-		query = "{0};{1};{2};{3};{4}",
-		param = "useEntropy",
-		param = c1.Value,
-		param = c1.OriginalIssuer,
-		param = "",
-		param = c2.Value);
-</pre>Настраиваемое правило должно выглядеть следующим образом:
+	c1:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"] &amp;&amp;
+	c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant"]
+		=> add(
+			store = "_OpaqueIdStore",
+			types = ("<mark>http://contoso.com/internal/sessionid</mark>"),
+			query = "{0};{1};{2};{3};{4}",
+			param = "useEntropy",
+			param = c1.Value,
+			param = c1.OriginalIssuer,
+			param = "",
+			param = c2.Value);
+	</pre>
+	Настраиваемое правило должно выглядеть следующим образом:
 
 	![](./media/web-sites-dotnet-lob-application-adfs/6-per-session-identifier.png)
 
@@ -262,28 +264,37 @@ c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticat
 2. Оформите методы действия `About` и `Contact` по примеру, показанному ниже, используя членства в группе безопасности пользователя, прошедшего аутентификацию.  
 	<pre class="prettyprint">
 <mark>[Authorize(Roles="Тестовая группа")]</mark>
-public ActionResult About()
-{
-    ViewBag.Message = "Страница описания вашего приложения.";
+    public ActionResult About()
+    {
+        ViewBag.Message = "Страница описания вашего приложения.";
 
-    return View();
-}
+        return View();
+    }
 
-<mark>[Authorize(Roles="Администраторы домена")]</mark>
-public ActionResult Contact()
-{
-    ViewBag.Message = "Ваша страница контактов.";
+    <mark>[Authorize(Roles="Администраторы домена")]</mark>
+    public ActionResult Contact()
+    {
+        ViewBag.Message = "Ваша страница контактов.";
 
-    return View();
-}
-</pre>Так как я добавил **тестового пользователя** в группу **Тестовая группа** в своей лабораторной среде AD FS, я буду использовать тестовую группу для проверки авторизации на `About`. Для `Contact` я проведу тестирование отрицательного случая группы **Администраторы домена**, к которой не принадлежит **Тестовый пользователь**.
+        return View();
+    }
+	</pre>
+
+	Так как я добавил **тестового пользователя** в группу **Тестовая группа** в своей лабораторной среде AD FS, я буду использовать тестовую группу для проверки авторизации на `About`. Для `Contact` я проведу тестирование отрицательного случая группы **Администраторы домена**, к которой не принадлежит **Тестовый пользователь**.
 
 3. Запустите отладчик, нажав клавишу `F5`, и войдите в систему, а затем нажмите кнопку **О программе**. Должна отобразиться страница `~/About/Index`, если прошедший аутентификацию пользователь авторизован для этого действия.
 4. Далее щелкните **Контакт**, что в моем случае не должно авторизовать **тестового пользователя** для этого действия. Тем не менее, браузер перенаправляется к AD FS, в результате чего, в конечном счете, показывается это сообщение:
 
 	![](./media/web-sites-dotnet-lob-application-adfs/13-authorize-adfs-error.png)
 
-	Если исследовать эту ошибку в средстве просмотра событий на сервере AD FS, обнаружится следующее сообщение об исключении: <pre class="prettyprint"> Microsoft.IdentityServer.Web.InvalidRequestException: MSIS7042: <mark>Один и тот же сеанс браузера клиента сделал 6 запросов за последние 11 секунд.</mark> Обратитесь к администратору для получения дополнительной информации. at Microsoft.IdentityServer.Web.Protocols.PassiveProtocolHandler.UpdateLoopDetectionCookie(WrappedHttpListenerContext context) at Microsoft.IdentityServer.Web.Protocols.WSFederation.WSFederationProtocolHandler.SendSignInResponse(WSFederationContext context, MSISSignInResponse response) at Microsoft.IdentityServer.Web.PassiveProtocolListener.ProcessProtocolRequest(ProtocolContext protocolContext, PassiveProtocolHandler protocolHandler) at Microsoft.IdentityServer.Web.PassiveProtocolListener.OnGetContext(WrappedHttpListenerContext context) </pre>
+	Если исследовать эту ошибку в средстве просмотра событий на сервере AD FS, обнаружится следующее сообщение об исключении:  
+	<pre class="prettyprint">
+	Microsoft.IdentityServer.Web.InvalidRequestException: MSIS7042: <mark>Один и тот же сеанс браузера клиента сделал 6 запросов за последние 11 секунд.</mark> Обратитесь к администратору для получения дополнительных сведений.
+	   at Microsoft.IdentityServer.Web.Protocols.PassiveProtocolHandler.UpdateLoopDetectionCookie(WrappedHttpListenerContext context)
+	   at Microsoft.IdentityServer.Web.Protocols.WSFederation.WSFederationProtocolHandler.SendSignInResponse(WSFederationContext context, MSISSignInResponse response)
+	   at Microsoft.IdentityServer.Web.PassiveProtocolListener.ProcessProtocolRequest(ProtocolContext protocolContext, PassiveProtocolHandler protocolHandler)
+	   at Microsoft.IdentityServer.Web.PassiveProtocolListener.OnGetContext(WrappedHttpListenerContext context)
+	</pre>
 
 	Это происходит потому, что по умолчанию MVC возвращает ошибку «401 Неавторизован», когда роли пользователя неавторизованы. В результате активируется запрос на повторную проверку подлинности к поставщику удостоверений(AD FS). Так как пользователь уж прошел проверку подлинности, AD FS возвращается на ту же страницу, которая издает другую ошибку 401, создавая цикл перенаправления. Можно переопределить метод `HandleUnauthorizedRequest` в AuthorizeAttribute с помощью простой логики, чтобы отображать более содержательную информацию вместо продолжения цикла перенаправления.
 
@@ -343,4 +354,4 @@ public ActionResult Contact()
  
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

@@ -88,8 +88,8 @@
 [Добавление проверки подлинности в приложение]: mobile-services-windows-phone-get-started-users.md
 [Добавление push-уведомлений в приложение]: mobile-services-javascript-backend-windows-phone-get-started-push.md
 [Добавление push-уведомлений в приложение мобильных служб]: mobile-services-javascript-backend-windows-phone-get-started-push.md
-[Azure Management Portal]: https://manage.windowsazure.com/
+[портал управления Azure]: https://manage.windowsazure.com/
 
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->
