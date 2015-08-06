@@ -35,7 +35,9 @@
 
 Далее приводится общий обзор задач настройки, которые необходимо выполнить перед установкой диспетчера моментальных снимков StorSimple. Подробные сведения о конфигурации и настройке Microsoft Azure StorSimple, включая информацию о требованиях к системе и пошаговые инструкции, см. в статье [Развертывание локального устройства StorSimple](storsimple-deployment-walkthrough.md).
 
->[AZURE.IMPORTANT]Перед началом работы ознакомьтесь с разделами [Контрольный список предварительных операций перед установкой](storsimple-deployment-walkthrough.md#pre-installation-checklist) и [Предварительные условия для развертывания](storsimple-deployment-walkthrough.md#deployment-prerequisites) статьи [Развертывание локального устройства StorSimple](storsimple-deployment-walkthrough.md).<br>
+>[AZURE.IMPORTANT]Перед началом работы ознакомьтесь с разделами [Контрольный список предварительных операций перед установкой](storsimple-deployment-walkthrough.md#pre-installation-checklist)
+> и [Предварительные условия для развертывания](storsimple-deployment-walkthrough.md#deployment-prerequisites) статьи [Развертывание локального устройства StorSimple](storsimple-deployment-walkthrough.md).
+<br>
  
 ### Перед установкой диспетчера моментальных снимков StorSimple
 
@@ -253,4 +255,4 @@
 
 Чтобы узнать больше о пользовательском интерфейсе диспетчера моментальных снимков StorSimple, см. статью [Пользовательский интерфейс диспетчера моментальных снимков StorSimple](storsimple-use-snapshot-manager.md).
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->
