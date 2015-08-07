@@ -209,4 +209,4 @@ Azure Stream Analytics позволяет воспользоваться одн�
 [graphic10]: ./media/stream-analytics-power-bi-dashboard/10-stream-analytics-power-bi-dashboard.png
  
 
-<!------HONumber=July15_HO4-->
+<!-------HONumber=July15_HO4-->

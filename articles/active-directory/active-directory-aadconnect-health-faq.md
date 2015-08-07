@@ -125,4 +125,4 @@
 
 Чтобы агент Azure AD Connect Health мог взаимодействовать с конечными точками службы Azure AD Health, вам необходимо открыть порты TCP/UDP 80 и 443.
 
-<!---HONumber=July15_HO4-->
+<!-----HONumber=July15_HO4-->
