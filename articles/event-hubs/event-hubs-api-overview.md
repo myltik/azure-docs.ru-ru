@@ -188,4 +188,4 @@ public class SimpleEventProcessor : IEventProcessor
 - [Справочник по API узла обработчика событий](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.eventprocessorhost.aspx)
 - 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

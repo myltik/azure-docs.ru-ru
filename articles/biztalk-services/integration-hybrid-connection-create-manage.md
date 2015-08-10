@@ -45,8 +45,8 @@
 
 	Свойство | Описание
 --- | ---
-Имя | Имя гибридного подключения должно быть уникальным и не должно совпадать с именем службы BizTalk. Можно ввести любое имя, но рекомендуется использовать специальные имена, соответствующие назначению подключения. Примеры включают:<br/><br/>зPayroll*SQLServer*<br/>SupplyList*SharepointServer*<br/>Customers*OracleServer*
-Имя компьютера | Введите полное имя компьютера, только имя компьютера или IPv4-адрес локального ресурса. Примеры включают:<br/><br/>mySQLServer<br/>*mySQLServer*.*Domain*.corp.*yourCompany*.com<br/>*myHTTPSharePointServer*<br/>*myHTTPSharePointServer*.*yourCompany*.com<br/>10.100.10.10
+Имя | Имя гибридного подключения должно быть уникальным и не должно совпадать с именем службы BizTalk. Можно ввести любое имя, но рекомендуется использовать специальные имена, соответствующие назначению подключения. Примеры включают:<br/><br/>зPayroll\*SQLServer\*<br/>SupplyList\*SharepointServer\*<br/>Customers\*OracleServer\*
+Имя компьютера | Введите полное имя компьютера, только имя компьютера или IPv4-адрес локального ресурса. Примеры включают:<br/><br/>mySQLServer<br/>\*mySQLServer\*.\*Domain\*.corp.\*yourCompany\*.com<br/>\*myHTTPSharePointServer\*<br/>\*myHTTPSharePointServer\*.\*yourCompany\*.com<br/>10.100.10.10
 Порт | Укажите номер порта локального ресурса. Например если вы используете веб-приложения, введите порт 80 или 443. Если вы используете SQL Server, введите порт 1433.
 
 5. Установите флажок для завершения настройки.
@@ -124,8 +124,8 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 2. Извлеките файлы.
 3. На компьютере, где осуществляется изменение групповой политики, выполните следующие действия. 
 
-	- Скопируйте файлы ADMX в папку *%WINROOT%\PolicyDefinitions*.
-	- Скопируйте файлы ADMX в папку *%WINROOT%\PolicyDefinitions\ru-ru*.
+	- Скопируйте файлы ADMX в папку *%WINROOT%\\PolicyDefinitions*.
+	- Скопируйте файлы ADMX в папку *%WINROOT%\\PolicyDefinitions\\ru-ru*.
 
 После копирования файлов можно изменить политику с помощью редактора групповой политики.
 
@@ -146,4 +146,4 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

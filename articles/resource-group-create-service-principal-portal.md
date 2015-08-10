@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2015"
+   ms.date="07/24/2015"
    ms.author="tomfitz"/>
 
 # Создание нового субъекта-службы Azure с помощью портала Azure
@@ -94,30 +94,12 @@
 * **КЛЮЧ** — в качестве пароля.
 
 ## Дальнейшие действия
-Приступая к работе
 
-- [Общие сведения о диспетчере ресурсов Azure](./resource-group-overview.md)  
-- [Использование Azure PowerShell с диспетчером ресурсов Azure](./powershell-azure-resource-manager.md)
-- [Использование CLI Azure для Mac, Linux и Windows со средствами управления ресурсами Azure](virtual-machines/xplat-cli-azure-resource-manager.md)  
-- [Управление ресурсами Azure с помощью портала Azure](azure-portal/resource-group-portal.md)  
-  
-Создание и развертывание приложений
-  
-- [Создание шаблонов диспетчера ресурсов Azure](./resource-group-authoring-templates.md)  
-- [Развертывание приложения с использованием шаблона диспетчера ресурсов Azure](azure-portal/resource-group-template-deploy.md)  
-- [Устранение неполадок при развертывании групп ресурсов в Azure](virtual-machines/resource-group-deploy-debug.md)  
-- [Функции шаблонов в диспетчере ресурсов Azure](./resource-group-template-functions.md)  
-- [Расширенные операции с шаблонами](./resource-group-advanced-template.md)  
-- [Развертывание ресурсов Azure с использованием библиотек .NET и шаблона](virtual-machines/arm-template-deployment.md)
-  
-Упорядочение ресурсов
-  
-- [Использование тегов для организации ресурсов в Azure](./resource-group-using-tags.md)  
-  
-Управление доступом и его аудит
-  
-- [Управление доступом к ресурсам и его контроль](azure-portal/resource-group-rbac.md)  
-- [Проверка подлинности субъекта-службы в диспетчере ресурсов Azure](./resource-group-authenticate-service-principal.md)  
+- Дополнительные сведения о настройке политик безопасности см. в статье [Управление доступом к ресурсам и его аудит](azure-portal/resource-group-rbac.md).  
+- Инструкции по предоставлению доступа к ресурсам субъекту-службе см. в статье [Проверка подлинности субъекта-службы в диспетчере ресурсов Azure](./resource-group-authenticate-service-principal.md).  
+- Общие сведения об управлении доступом на основе ролей см. в статье [Управление доступом на основе ролей на портале Microsoft Azure](role-based-access-control-configure.md).
+- Рекомендации по обеспечению безопасной работы с диспетчером ресурсов Azure см. в статье [Вопросы безопасности при работе с диспетчером ресурсов Azure](best-practices-resource-manager-security.md).
+
 
 <!-- Images. -->
 [1]: ./media/resource-group-create-service-principal-portal/active-directory.png
@@ -134,4 +116,4 @@
 [12]: ./media/resource-group-create-service-principal-portal/add-icon.png
 [13]: ./media/resource-group-create-service-principal-portal/save-icon.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

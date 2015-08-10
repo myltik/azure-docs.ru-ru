@@ -1,51 +1,36 @@
-<properties 
-   pageTitle="Upgrade the StorSimple Adapter for SharePoint | Microsoft Azure"
-   description="Describes how to upgrade SharePoint and then install a new version of the StorSimple Adapter for SharePoint."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="carolz"
-   editor="" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="07/13/2015"
-   ms.author="v-sharos" />
+### Обновление SharePoint 2010 до SharePoint 2013 с последующей установкой адаптера StorSimple для SharePoint
 
-### Upgrade SharePoint 2010 to SharePoint 2013 and then install the StorSomple Adapter for SharePoint
-
->[AZURE.IMPORTANT] Any files that were previously moved to external storage via RBS will not be available until the upgrade is finished and the RBS feature is enabled again. To limit user impact, perform any upgrade or reinstallation during a planned maintenance window.
+>[AZURE.IMPORTANT]Все файлы, перемещенные ранее во внешнее хранилище через RBS, будут недоступны, пока не завершится обновление и снова не будет включена функция RBS. Для ограничения влияния на пользователей выполняйте все процедуры обновления или переустановки во время запланированного обслуживания.
 
 [AZURE.INCLUDE [storsimple-upgrade-sharepoint-adapter](../../includes/storsimple-upgrade-sharepoint-adapter.md)]
  
-#### To upgrade SharePoint 2010 to SharePoint 2013 and then install the adapter
+#### Обновление SharePoint 2010 до SharePoint 2013 с последующей установкой адаптера
 
-1. In the SharePoint 2010 farm, note the BLOB store path for the externalized BLOBs and the content databases for which RBS is enabled. 
+1. В ферме SharePoint 2010 запишите путь к хранилищу извлеченных больших двоичных объектов и базам данных содержимого, для которых включена RBS. 
 
-2. Install and configure the new SharePoint 2013 farm. 
+2. Установите и настройте новую ферму SharePoint 2013.
 
-3. Move databases, applications, and site collections from the SharePoint 2010 farm to the new SharePoint 2013 farm. For instructions, go to Overview of the upgrade process to SharePoint 2013.
+3. Переместите базы данных, приложения и коллекции веб-сайтов из фермы SharePoint 2010 в новую ферму SharePoint 2013. Инструкции см. в разделе «Общие сведения о процессе обновления до SharePoint 2013».
 
-4. Install the StorSimple Adapter for SharePoint on the new farm. Go to [Install the StorSimple Adapter for SharePoint](#install-the-storsimple-adapter-for-sharepoint) for procedures.
+4. Установите адаптер StorSimple для SharePoint на новой ферме. Процедуру см. в разделе [Установка адаптера StorSimple для SharePoint](#install-the-storsimple-adapter-for-sharepoint).
 
-5. Using the information that you noted in step 1, enable RBS for the same set of content databases and provide the same BLOB store path that was used in the SharePoint 2010 installation. Go to [Configure RBS](#configure-rbs) for procedures. After you complete this step, previously externalized files should be accessible from the new farm. 
+5. С помощью сведений, записанных в шаге 1, включите RBS для того же набора баз данных содержимого и укажите тот же путь хранилища больших двоичных объектов, который использовался в SharePoint 2010. Процедуру см. в разделе [Настройка RBS](#configure-rbs). После завершения этого шага ранее извлеченные файлы должны быть доступны с новой фермы.
 
-### Upgrade the StorSimple Adapter for SharePoint
+### Обновление адаптера StorSimple для SharePoint
 
->[AZURE.IMPORTANT] You should schedule this upgrade to occur during a planned maintenance window for the following reasons:
+>[AZURE.IMPORTANT]Следует запланировать это обновление на время обслуживания по расписанию по следующим причинам.
 >
->- Previously externalized content will not be available until the adapter is reinstalled.
+>- Ранее извлеченное содержимое будет недоступно, пока не будет переустановлен адаптер.
 >
->- Any content uploaded to the site after you uninstall the previous version of the StorSimple Adapter for SharePoint, but before you install the new version, will be stored in the content database. You will need to move that content to the StorSimple device after you install the new adapter. 
+>- Любое содержимое, отправляемое на сайт после удаления предыдущей версии адаптера StorSimple для SharePoint, но перед установкой новой версии, будет храниться в базе данных содержимого. Необходимо будет переместить содержимое на устройство StorSimple после установки нового адаптера.
 
 
-#### To upgrade the StorSimple Adapter for SharePoint 
+#### Обновление адаптера StorSimple для SharePoint 
 
-1. Uninstall the previous version of StorSimple Adapter for SharePoint.
+1. Удалите предыдущую версию адаптера StorSimple для SharePoint.
 
-    >[AZURE.NOTE] This will automatically disable RBS on the content databases. However, existing BLOBs will remain on the StorSimple device. Because RBS is disabled and the BLOBs have not been migrated back to the content databases, any requests for those BLOBs will fail. 
+    >[AZURE.NOTE]Будет автоматически отключена RBS в базах данных содержимого. Однако существующие большие двоичные объекты останутся на устройстве StorSimple. Поскольку RBS отключена, а большие двоичные объекты не были перенесены обратно в базы данных содержимого, любые запросы для этих больших двоичных объектов закончатся ошибкой.
  
-2. Install the new StorSimple Adapter for SharePoint. The new adapter will automatically recognize the content databases that were previously enabled or disabled for RBS and will use the previous settings.
+2. Установите новый адаптер StorSimple для SharePoint Новый адаптер автоматически распознает базы данных содержимого, которые ранее были включены или отключены для RBS, и будет использовать прежние параметры.
+
+<!---HONumber=July15_HO5-->

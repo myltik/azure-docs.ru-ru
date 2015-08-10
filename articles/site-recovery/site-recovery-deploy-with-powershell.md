@@ -354,7 +354,7 @@ PS C:\> New-AzureSiteRecoveryNetworkMapping -PrimaryNetwork $Networks[0] -AzureS
 
 ### Создайте план восстановления
 
-1. Создайте XML-файл в качестве шаблона для плана восстановления, используя приведенные ниже данные, и сохраните его под именем «C:\RPTemplatePath.xml».
+1. Создайте XML-файл в качестве шаблона для плана восстановления, используя приведенные ниже данные, и сохраните его под именем «C:\\RPTemplatePath.xml».
 2. Измените поля nodeId, Name, PrimaryServerId и SecondaryServerId объекта RecoveryPlan.
 3. Измените поле PrimaryProtectionEntityId объекта ProtectionEntity (указав в нем значение vmid из VMM).
 4. Можно добавить дополнительные виртуальные машины, добавив дополнительные узлы ProtectionEntity.
@@ -461,4 +461,4 @@ if($isJobLeftForProcessing)
 
 <LI>При наличии вопросов обращайтесь на <a href="http://go.microsoft.com/fwlink/?LinkId=313628">форум по службам восстановления Azure</a>.</LI> </UL>
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

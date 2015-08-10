@@ -20,9 +20,9 @@
 
 В данной статье вы ознакомитесь с методом создания бизнес-приложения ASP.NET MVC на основе [веб-приложений службы приложений Azure](http://go.microsoft.com/fwlink/?LinkId=529714) с использованием [Azure Active Directory](/services/active-directory/) в качестве поставщика удостоверений. Вы также узнаете, как использовать [клиентскую библиотеку Azure Active Directory Graph](http://blogs.msdn.com/b/aadgraphteam/archive/2014/06/02/azure-active-directory-graph-client-library-1-0-publish.aspx), чтобы запросить данные каталога в приложении.
 
-Используемый клиент Azure Active Directory может включать в себя только каталог Azure или синхронизироваться с локальной службой Active Directory (AD) для создания возможности единого входа локальных или удаленных сотрудников.
+Используемый клиент Azure Active Directory может представлять собой только каталог Azure или синхронизироваться с локальной службой Active Directory (AD) для создания возможности единого входа локальных или удаленных сотрудников.
 
->[AZURE.NOTE]Функция Easy Auth в веб-приложениях службы приложений Azure дает возможность настраивать простую аутентификацию с помощью клиента Azure Active Directory всего несколькими нажатиями кнопки. Дополнительную информацию см. в разделе [Использование Active Directory для проверки подлинности в службе приложений Azure](web-sites-authentication-authorization.md).
+>[AZURE.NOTE]Для веб-приложений службы приложений Azure вы можете настроить проверку подлинности с помощью клиента Azure Active Directory всего несколькими нажатиями кнопки. Дополнительную информацию см. в разделе [Использование Active Directory для проверки подлинности в службе приложений Azure](web-sites-authentication-authorization.md).
 
 <a name="bkmk_build"></a>
 ## Что будет строиться ##
@@ -83,7 +83,7 @@
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/select-user-group.png)
 
-	> [AZURE.NOTE]В файле Views\Roles\Index.cshtml вы увидите, что представление использует объект JavaScript с именем <code>AadPicker</code> (определенный в Scripts\AadPickerLibrary.js) для доступа к действию <code>Search</code> в контроллере <code>Roles</code>.
+	> [AZURE.NOTE]В файле Views\\Roles\\Index.cshtml вы увидите, что представление использует объект JavaScript с именем <code>AadPicker</code> (определенный в Scripts\\AadPickerLibrary.js) для доступа к действию <code>Search</code> в контроллере <code>Roles</code>.
 		<pre class="prettyprint">var searchUrl = window.location.protocol + "//" + window.location.host + "<mark>/Roles/Search</mark>";
 	...
     var picker = new <mark>AadPicker(searchUrl, maxResultsPerPage, input, token, tenant)</mark>;</pre>
@@ -170,7 +170,7 @@
 <a name="bkmk_crud"></a>
 ## Добавление функциональности бизнес-приложения к примеру приложения
 
-В этой части учебника вы научитесь создавать необходимую функциональность бизнес-приложения на основе примера приложения. Вы займетесь созданием простого приложения CRUD для отслеживания рабочих элементов, аналогичного контроллеру TaskTracker, но с использованием формирования стандартного шаблона CRUD и шаблона разработки. Кроме этого, будут использоваться приведенные скрипты Scripts\AadPickerLibrary.js для обогащения приложения данными из API Azure Active Directory Graph.
+В этой части учебника вы научитесь создавать необходимую функциональность бизнес-приложения на основе примера приложения. Вы займетесь созданием простого приложения CRUD для отслеживания рабочих элементов, аналогичного контроллеру TaskTracker, но с использованием формирования стандартного шаблона CRUD и шаблона разработки. Кроме этого, будут использоваться приведенные скрипты Scripts\\AadPickerLibrary.js для обогащения приложения данными из API Azure Active Directory Graph.
 
 5.	В папке Models создайте новую модель с именем WorkItem.cs и замените код следующим кодом:
 
@@ -223,36 +223,36 @@ public class GroupClaimContext : DbContext
 
 11. Добавьте выделенные оформления [Authorize] к соответствующим действиям ниже.
 	<pre class="prettyprint">
+...
+
+<mark>[Authorize(Roles = "Admin, Observer, Writer, Approver")]</mark>
+public class WorkItemsController : Controller
+{
 	...
 
-    <mark>[Authorize(Roles = "Admin, Observer, Writer, Approver")]</mark>
-    public class WorkItemsController : Controller
-    {
-		...
+    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+    public ActionResult Create()
+    ...
 
-        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
-        public ActionResult Create()
-        ...
+    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+    public async Task&lt;ActionResult> Create([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
+    ...
 
-        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
-        public async Task&lt;ActionResult&gt; Create([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
-        ...
+    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+    public async Task&lt;ActionResult> Edit(int? id)
+    ...
 
-        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
-        public async Task&lt;ActionResult&gt; Edit(int? id)
-        ...
+    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+    public async Task&lt;ActionResult> Edit([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
+    ...
 
-        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
-        public async Task&lt;ActionResult&gt; Edit([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
-        ...
+    <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
+    public async Task&lt;ActionResult> Delete(int? id)
+    ...
 
-        <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
-        public async Task&lt;ActionResult&gt; Delete(int? id)
-        ...
-
-        <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
-        public async Task&lt;ActionResult&gt; DeleteConfirmed(int id)
-        ...
+    <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
+    public async Task&lt;ActionResult> DeleteConfirmed(int id)
+    ...
 	}</pre>
 	Поскольку нас интересует сопоставление ролей к контроллере ролей, достаточно просто убедиться, что каждое действие авторизует соответствующую роль.
 
@@ -329,7 +329,7 @@ public class GroupClaimContext : DbContext
 
             var picker = new AadPicker(searchUrl, maxResultsPerPage, input, token, tenant);
 
-	            // Отправьте выбранного пользователя или группу для назначения.
+            // Отправьте выбранного пользователя или группу для назначения.
             $("#submit-button").click({ picker: picker }, function () {
                 if (!picker.Selected())
                     return;
@@ -375,4 +375,4 @@ public class GroupClaimContext : DbContext
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
  
 
-<!-----HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

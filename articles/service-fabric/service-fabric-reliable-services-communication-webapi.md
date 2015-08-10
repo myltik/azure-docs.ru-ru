@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="05/18/2015"
+   ms.date="07/23/2015"
    ms.author="vturecek"/>
 
 # Начало работы со службами веб-API Microsoft Azure Service Fabric с саморазмещением OWIN
@@ -35,9 +35,11 @@
 
 ## Настройка приложения веб-API
 
-Начните с создания новой службы без отслеживания состояния в Visual Studio 2015.
+Для начала в Visual Studio 2015 создайте новое приложение с единой службой без отслеживания состояния:
 
-![](media/service-fabric-reliable-services-communication-webapi/webapi-newproject.png)
+![Создание нового приложения Service Fabric](media/service-fabric-reliable-services-communication-webapi/webapi-newproject.png)
+
+![Создание единой службы без отслеживания состояния](media/service-fabric-reliable-services-communication-webapi/webapi-newproject2.png)
 
 Это даст нам пустую службу без отслеживания состояния, в которой будет размещено приложение веб-API. Мы настроим приложение с нуля, чтобы увидеть, как все компоненты согласуются между собой.
 
@@ -47,11 +49,11 @@
 
 После установки пакетов мы можем начать формировать базовую структуру проекта веб-API. Если вы уже использовали веб-API, структура проекта покажется очень знакомой. Начните с создания базовых каталогов веб-API:
 
- + App_Start;
+ + App\_Start;
  + Controllers;
  + Models.
 
-Добавьте базовые классы конфигурации веб-API в каталог App_Start:
+Добавьте базовые классы конфигурации веб-API в каталог App\_Start:
 
  + FormatterConfig.cs;
 
@@ -334,7 +336,7 @@ public class OwinCommunicationListener : ICommunicationListener
 
 Прежде чем назначить порт для веб-сервера, важно понимать, что платформа Service Fabric предоставляет слой приложения, который служит буфером между приложением и базовой операционной системой, в котором оно выполняется. Таким образом, Service Fabric предоставляет способ настройки *конечных точек* для ваших служб. Service Fabric обеспечивает доступность конечной точки для службы, чтобы вам не нужно было настраивать ее самостоятельно в среде базовой ОС. Это позволяет легко размещать приложение Service Fabric в различных средах без необходимости вносить изменения в приложение (например, можно разместить одно и то же приложение как в Azure, так и в собственном центре обработки данных).
 
-Настройте конечную точку HTTP в файле PackageRoot\ServiceManifest.xml:
+Настройте конечную точку HTTP в файле PackageRoot\\ServiceManifest.xml:
 
 ```xml
 
@@ -447,7 +449,7 @@ protected override ICommunicationListener CreateCommunicationListener()
 
 ```
 
-Здесь наконец встречаются *приложение* веб-API и *хост* OWIN: *хост* (**OwinCommunicationListener**) получает экземпляр *приложения* (веб-API через **Startup**), а Service Fabric управляет его жизненным циклом. Такого же шаблона можно придерживаться при использовании любого стека связи.
+Здесь наконец встречаются *приложение* веб-API и *хост* OWIN: *хост* (\*\*OwinCommunicationListener\*\*) получает экземпляр *приложения* (веб-API через **Startup**), а Service Fabric управляет его жизненным циклом. Такого же шаблона можно придерживаться при использовании любого стека связи.
 
 ## Сборка
 
@@ -611,6 +613,5 @@ New-ServiceFabricService -ApplicationName "fabric:/WebServiceApplication" -Servi
 ## Дальнейшие действия
 
 [Отладка приложения Service Fabric в Visual Studio](service-fabric-debugging-your-application.md)
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -325,4 +325,4 @@ API REST службы поиска Azure
 
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

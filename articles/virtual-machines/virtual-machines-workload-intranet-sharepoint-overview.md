@@ -5,20 +5,21 @@
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="vm-windows-sharepoint"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2015"
+	ms.date="07/22/2015"
 	ms.author="josephd"/>
 
 # Развертывание среды SharePoint с группами доступности AlwaysOn для SQL Server на платформе Azure
 
-В этой статье приведены пошаговые инструкции для развертывания фермы SharePoint 2013 для интрасети с группами доступности AlwaysOn для SQL Server на базе служб инфраструктуры Azure. В состав фермы входят перечисленные ниже компьютеры.
+В этой статье приведены пошаговые инструкции по развертыванию фермы SharePoint 2013 для интрасети с группами доступности AlwaysOn для SQL Server с помощью управления службами Azure. В состав фермы входят перечисленные ниже компьютеры.
 
 - Два веб-сервера SharePoint
 - Два сервера приложений SharePoint
@@ -69,4 +70,4 @@
 
 [Руководство по реализации служб инфраструктуры Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

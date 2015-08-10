@@ -112,4 +112,4 @@ DocumentDB поддерживает четыре четко заданных и 
  
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

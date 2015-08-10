@@ -181,7 +181,7 @@
 
     4. На панели справа в разделе **Служба управления Microsoft StorSimple** щелкните **Остановить службу**.
 
-2. На главном компьютере перейдите в папку C:\ProgramData\Microsoft\StorSimple\BACatalog.
+2. На главном компьютере перейдите в папку C:\\ProgramData\\Microsoft\\StorSimple\\BACatalog.
 
     >[AZURE.NOTE]ProgramData — это скрытая папка.
  
@@ -197,7 +197,7 @@
 
     3. На панели справа в разделе **Служба управления Microsoft StorSimple** щелкните **Перезапустить службу**.
 
-5. На главном компьютере перейдите в папку C:\ProgramData\Microsoft\StorSimple\BACatalog.
+5. На главном компьютере перейдите в папку C:\\ProgramData\\Microsoft\\StorSimple\\BACatalog.
 
 6. Удалите XML-файл каталога и замените его созданной версией резервной копии.
 
@@ -207,4 +207,4 @@
 
 Просмотрите доступные [задачи и рабочие процессы диспетчера моментальных снимков StorSimple](storsimple-what-is-snapshot-manager.md#storsimple-snapshot-manager-tasks-and-workflows).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Приступая к работе с мобильными службами с использованием PhoneGap | Центр мобильных разработок"
+	pageTitle="Начало работы с мобильными службами Azure для приложений PhoneGap или Cordova"
 	description="Следуйте указаниям этого учебника, чтобы приступить к использованию мобильных служб Azure для разработки приложений PhoneGap для iOS, Android и Windows Phone."
 	services="mobile-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-phonegap"
 	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="04/24/2015"
+	ms.date="07/21/2015"
 	ms.author="ggailey777"/>
 
 # Приступая к работе с мобильными службами
@@ -76,7 +76,7 @@
 
 	+ **Windows Phone 8**
 
-		1. Windows Phone 8: откройте SLN-файл в папке **platforms\wp8** в Visual Studio 2012 Express для Windows Phone.
+		1. Windows Phone 8: откройте SLN-файл в папке **platforms\\wp8** в Visual Studio 2012 Express для Windows Phone.
 
 		2. Нажмите клавишу **F5** для повторного построения проекта, после чего запустите приложение.
 
@@ -171,4 +171,4 @@
 [Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -44,6 +44,7 @@
 - Mobile Engagement;
 - Operational Insights;
 - Кэш Redis
+- Веб-приложения Azure (действуют [ограничения](app-service-web/app-service-move-resources.md))
 
 Службы с поддержкой перемещения в новую группу ресурсов, но не в новую подписку:
 
@@ -95,4 +96,4 @@
 - [Управление ресурсами с помощью портала Azure](azure-portal/resource-group-portal.md)
 - [Использование тегов для организации ресурсов](./resource-group-using-tags.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

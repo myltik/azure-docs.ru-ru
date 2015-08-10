@@ -85,8 +85,8 @@
 -	Даг Терри. Объяснение согласованности при репликации данных на примере игры в бейсбол (Replicated Data Consistency explained through baseball). [http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
 -	Даг Терри. Гарантии на уровне сеанса для репликации слабо согласованных данных. [http://dl.acm.org/citation.cfm?id=383631](http://dl.acm.org/citation.cfm?id=383631)
 -	Дэниэл Абади. Компромиссы согласованности в современных распределенных системах проектирования баз данных: распределенных: ограничением является частью статьи: теорема CAP — это только начало...". [http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html) 
--	Питер Бейлис, Шиварам Венкатараман, Майкл Дж. Франклин, Джозеф М. Хеллерштейн, Ион Стойка (Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein, Ion Stoica). Вероятностное ограниченное запаздывание (PBS) для практических неполных кворумов. (Probabilistic Bounded Staleness (PBS) for Practical Partial Quorums.) [http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
--	Вернер Вогелс. Возвращаясь к вопросу о согласованности в конечном счете. (Eventual Consistent - Revisited.). [http://allthingsdistributed.com/2008/12/eventually_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
+-	Питер Бейлис, Шиварам Венкатараман, Майкл Дж. Франклин, Джозеф М. Хеллерштейн, Ион Стойка (Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein, Ion Stoica). Вероятностное ограниченное запаздывание (PBS) для практических неполных кворумов. (Probabilistic Bounded Staleness (PBS) for Practical Partial Quorums.) [http://vldb.org/pvldb/vol5/p776\_peterbailis\_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
+-	Вернер Вогелс. Возвращаясь к вопросу о согласованности в конечном счете. (Eventual Consistent - Revisited.). [http://allthingsdistributed.com/2008/12/eventually\_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

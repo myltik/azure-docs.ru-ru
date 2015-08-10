@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="adinah"
+   manager="carolz"
    editor="tysonn"/>
 <tags
    ms.service="expressroute"
@@ -12,7 +12,7 @@
    ms.topic="get-started-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/06/2015"
+   ms.date="07/28/2015"
    ms.author="cherylmc"/>
 
 
@@ -40,9 +40,9 @@
 ## Дальнейшие действия
 
 - Дополнительную информацию об ExpressRoute см. в статье [Часто задаваемые вопросы об ExpressRoute](expressroute-faqs.md).
-- Информацию о настройке подключения ExpressRoute см. в статье:
+- Сведения о настройке подключения ExpressRoute см. в следующих статьях:
 	- [Настройка подключения ExpressRoute через поставщика сетевых услуг](expressroute-configuring-nsps.md)
 	- [Настройка подключения ExpressRoute через поставщика Exchange](expressroute-configuring-exps.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

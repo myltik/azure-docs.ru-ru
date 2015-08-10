@@ -13,10 +13,41 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/09/2015" 
+	ms.date="07/30/2015" 
 	ms.author="jeffstok"/>
 
 #Заметки о выпуске Microsoft Stream Analytic
+
+## Заметки о выпуске Stream Analytics от 30.07.2015 ##
+
+Этот выпуск содержит следующие обновления.
+
+<table border="1">
+<tr>
+<th>Название</th>
+<th>Описание</th>
+</tr>
+<tr>
+<td>ИД организации Power BI отключен от идентификатора Azure</td>
+<td>Эта функция позволяет получать выходные данные Power BI для задания ASA с любого типа учетной записи Azure (идентификатор Live или идентификатор организации). Кроме того, можно иметь один ИД организации для вашей учетной записи Azure и использовать другой для авторизации выходных данных Power BI.</td>
+</tr>
+<tr>
+<td>Поддержка выходных данных очередей служебной шины</td>
+<td>Выходные данные очереди служебной шины теперь доступны в заданиях Stream Analytics.</td>
+</tr>
+<tr>
+<td>Поддержка выходных данных разделов служебной шины</td>
+<td>Выходные данные разделов служебной шины теперь доступны в заданиях Stream Analytics.</td>
+</tr>
+<tr>
+<td>Новые функции массивов</td>
+<td>Добавлены функции массивов GetArrayElement, GetArrayElements, GetArrayLength.</td>
+</tr>
+<tr>
+<td>Новые функции записи</td>
+<td>Добавлены функции записей GetRecordProperties и GetRecordPropertyValue.</td>
+</tr>
+</table>
 
 ## Заметки о выпуске Stream Analytics 09.07.2015 ##
 
@@ -121,4 +152,4 @@
 - [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-what-happened" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="07/22/2015" 
 	ms.author="patshea123"/>
 
 # Что произошло с моим проектом?
@@ -27,7 +27,7 @@
 > - [Queues](vs-storage-aspnet5-getting-started-queues.md)
 > - [Tables](vs-storage-aspnet5-getting-started-tables.md)
 
-###<span id="whathappened">Что произошло с моим проектом?</span>
+###Что произошло с моим проектом?</span>
 
 ##### Добавленные ссылки
 
@@ -42,12 +42,12 @@
 - `System.Data`
 - `System.Spatial`
 
-Также добавлен пакет NuGet **Microsoft.Framework.ConfigurationModel.Json**.
+Кроме того, добавлен пакет NuGet **Microsoft.Framework.Configuration.Json**.
 
 #####Добавлена строка подключения к хранилищу Azure 
 В файле config.json проекта был создан элемент с ключом и строкой подключения выбранной учетной записи хранилища.
 
-Дополнительную информацию см. в [ASP.NET 5](http://www.asp.net/vnext).
+Дополнительную информацию см. на [веб-сайте, посвященном ASP.NET 5](http://www.asp.net/vnext).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

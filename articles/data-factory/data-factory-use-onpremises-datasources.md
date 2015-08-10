@@ -117,7 +117,7 @@
 
 	![Шлюз — колонка "Настройка"][image-data-factory-gateway-configure-blade]
 
-	Это самый простой способ (одним щелчком) скачать, установить, настроить и зарегистрировать шлюз в один шаг. Вы увидите, что на компьютере установлено приложение **Microsoft Data Management Gateway Configuration Manager**. Вы также можете найти исполняемый файл **ConfigManager.exe** в папке по следующему пути: **C:\Program Files\Microsoft Data Management Gateway\1.0\Shared**.
+	Это самый простой способ (одним щелчком) скачать, установить, настроить и зарегистрировать шлюз в один шаг. Вы увидите, что на компьютере установлено приложение **Microsoft Data Management Gateway Configuration Manager**. Вы также можете найти исполняемый файл **ConfigManager.exe** в папке по следующему пути: **C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\Shared**.
 
 	Шлюз также можно скачать и установить вручную, используя ссылки в этой колонке. Затем вы можете зарегистрировать его с помощью ключа, указанного в текстовом поле **ЗАРЕГИСТРИРОВАТЬ С ПОМОЩЬЮ КЛЮЧА**.
 	
@@ -166,29 +166,33 @@
 4.	На панели JSON выполните указанные ниже действия.
 	1.	Для свойства **gatewayName** укажите **adftutorialgateway**, чтобы заменить весь текст, заключенный в двойные кавычки.  
 	2.	При использовании **проверки подлинности SQL**: 
-		1.	В свойстве **connectionString** замените **<servername>**, **<databasename>**, **<username>** и **<password>** на имя локального сервера SQL Server, имя базы данных, имя учетной записи пользователя и пароль. Чтобы указать имя экземпляра, используйте экранирующий символ: . Пример: **сервер\имя_экземпляра**. 	
-		2.	Удалите последние два свойства (**username** и **password**) из файла JSON, а также удалите **запятую (,)** в конце последней строки в оставшейся части сценария JSON.
+		1.	В свойстве **connectionString** замените **<servername>**, **<databasename>**, **<username>** и **<password>** на имя локального сервера SQL Server, имя базы данных, имя учетной записи пользователя и пароль. Чтобы указать имя экземпляра, используйте экранирующий символ: . Пример: **сервер\\имя\_экземпляра**. 	
+		2.	Удалите последние два свойства (\*\*username\*\* и **password**) из файла JSON, а также удалите **запятую (,)** в конце последней строки в оставшейся части сценария JSON.
 		
 				{
-	    			"name": "SqlServerLinkedService",
-	    			"properties": {
-		        		"type": "OnPremisesSqlLinkedService",
-		        		"ConnectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;",
-		        		"gatewayName": "adftutorialgateway"
-	    			}
+				  "name": "SqlServerLinkedService",
+				  "properties": {
+				    "type": "OnPremisesSqlServer",
+				    "typeProperties": {
+				      "ConnectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;",
+				      "gatewayName": "adftutorialgateway"
+				    }
+				  }
 				}
 	3.	При использовании **проверки подлинности Windows**:
 		1. В свойстве **connectionString** замените **<servername>** и **<databasename>** именем вашего локального сервера SQL Server и базы данных. Задайте для параметра **Встроенная система безопасности** значение **True**. Удалите из строки подключения **идентификатор** и **пароль**.
 			
 				{
-    				"name": "SqlServerLinkedService",
-    				"properties": {
-        				"type": "OnPremisesSqlLinkedService",
-        				"ConnectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;",
-		   				"gatewayName": "adftutorialgateway",
-				        "username": "<Specify user name if you are using Windows Authentication>",
-				        "password": "<Specify password for the user account>"
-    				}
+				  "name": "SqlServerLinkedService",
+				  "properties": {
+				    "type": "OnPremisesSqlServer",
+				    "typeProperties": {
+				      "ConnectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;",
+				      "gatewayName": "adftutorialgateway",
+				      "username": "<Specify user name if you are using Windows Authentication>",
+				      "password": "<Specify password for the user account>"
+				    }
+				  }
 				}		
 		
 6. Нажмите кнопку **Развернуть** на панели инструментов, чтобы развернуть SqlServerLinkedService. Убедитесь, что в строке заголовка отображается сообщение **СВЯЗАННАЯ СЛУЖБА УСПЕШНО СОЗДАНА**. В представлении дерева слева также должна появиться служба **SqlServerLinkedService**.
@@ -223,7 +227,7 @@
 
 ### Подготовка локальной связанной службы SQL Server для учебника
 
-1. В базе данных SQL Server, которую вы указали для локальных связанных служб (**SqlServerLinkedService**), используйте следующий сценарий SQL, чтобы создать в базе данных таблицу **emp**.
+1. В базе данных SQL Server, которую вы указали для локальных связанных служб (\*\*SqlServerLinkedService\*\*), используйте следующий сценарий SQL, чтобы создать в базе данных таблицу **emp**.
 
 
         CREATE TABLE dbo.emp
@@ -249,39 +253,37 @@
 1.	В **редакторе фабрики данных** щелкните на панели команд **Создать набор данных** и выберите **Локальный SQL**. 
 2.	Замените сценарий JSON в области справа на следующий текст:    
 
-        {
-    		"name": "EmpOnPremSQLTable",
-    		"properties":
-    		{
-        		"location":
-        		{
-            		"type": "OnPremisesSqlServerTableLocation",
-            		"tableName": "emp",
-            		"linkedServiceName": "SqlServerLinkedService"
-        		},
-        		"availability": 
-        		{
-            		"frequency": "Hour",
-            		"interval": 1,       
-	    			"waitOnExternal":
-	    			{
-        				"retryInterval": "00:01:00",
-	        			"retryTimeout": "00:10:00",
-	        			"maximumRetry": 3
-	    			}
-		  
-        		}
-    		}
+		{
+		  "name": "EmpOnPremSQLTable",
+		  "properties": {
+		    "type": "SqlServerTable",
+		    "linkedServiceName": "SqlServerLinkedService",
+		    "typeProperties": {
+		      "tableName": "emp"
+		    },
+		    "external": true,
+		    "availability": {
+		      "frequency": "Hour",
+		      "interval": 1
+		    },
+		    "policy": {
+		      "externalData": {
+		        "retryInterval": "00:01:00",
+		        "retryTimeout": "00:10:00",
+		        "maximumRetry": 3
+		      }
+		    }
+		  }
 		}
 
 	Обратите внимание на следующее:
 	
-	- в качестве расположения в свойстве **type** указано значение **OnPremisesSqlServerTableLocation**;
+	- **type** имеет значение **SqlServerTable**.
 	- **tableName** имеет значение **emp**.
 	- Для параметра **linkedServiceName** установлено значение **SqlServerLinkedService** (вы создали эту связанную службу в шаге 2).
-	- Другие конвейеры фабрики данных Azure не создают эти параметры для входной таблицы, поэтому вам необходимо указать раздел **waitOnExternal** в JSON-файле. Это означает, что входные данные создаются вне службы фабрики данных Azure.   
+	- Другие конвейеры фабрики данных Azure не создают эти параметры для входной таблицы, поэтому вам необходимо задать для свойства **external** значение **true**. При необходимости можно настроить политики в разделе **externalData**.   
 
-	Подробную информацию о свойствах JSON см. в [справочнике по сценариям JSON][json-script-reference].
+	Подробную информацию о свойствах JSON см. в [Справочнике по сценариям JSON][json-script-reference].
 
 2. Нажмите кнопку **Развернуть** на панели команд, чтобы развернуть набор данных (таблица представляет собой прямоугольный набор данных). Убедитесь, что в заголовке окна отображается сообщение **ТАБЛИЦА УСПЕШНО РАЗВЕРНУТА**.
 
@@ -292,36 +294,32 @@
 2.	Замените сценарий JSON в области справа на следующий текст: 
 
 		{
-    		"name": "OutputBlobTable",
-    		"properties":
-    		{
-        		"location": 
-        		{
-            		"type": "AzureBlobLocation",
-            		"folderPath": "adftutorial/outfromonpremdf",
-            		"format":
-            		{
-                		"type": "TextFormat",
-                		"columnDelimiter": ","
-            		},
-            		"linkedServiceName": "StorageLinkedService"
-        		},
-        		"availability": 
-        		{
-            		"frequency": "Hour",
-            		"interval": 1
-        		}
-    		}
+		  "name": "OutputBlobTable",
+		  "properties": {
+		    "type": "AzureBlob",
+		    "linkedServiceName": "StorageLinkedService",
+		    "typeProperties": {
+		      "folderPath": "adftutorial/outfromonpremdf",
+		      "format": {
+		        "type": "TextFormat",
+		        "columnDelimiter": ","
+		      }
+		    },
+		    "availability": {
+		      "frequency": "Hour",
+		      "interval": 1
+		    }
+		  }
 		}
   
-	Обратите внимание на следующее:
+	Обратите внимание на следующее;
 	
-	- для **типа** расположения задано значение **AzureBlobLocation**;
+	- для параметра **type** задано значение **AzureBlob**;
 	- для параметра **linkedServiceName** установлено значение **StorageLinkedService** (вы создали эту связанную службу в шаге 2);
 	- для параметра **folderPath** установлено значение **adftutorial/outfromonpremdf**, где outfromonpremdf — это папка в контейнере adftutorial; вам просто нужно создать контейнер **adftutorial**;
-	- **availability** имеет значение **hourly** (**frequency** установлена в значение **hour**, а **interval** имеет значение **1**); служба фабрики данных будет создавать срез выходных данных каждый час в таблице **emp** в базе данных SQL Azure. 
+	- **availability** имеет значение **hourly** (\*\*frequency\*\* установлена в значение **hour**, а **interval** имеет значение **1**); служба фабрики данных будет создавать срез выходных данных каждый час в таблице **emp** в базе данных SQL Azure. 
 
-	Если вы не зададите параметр **fileName** для **входной таблицы**, все файлы или большие двоичные объекты из входной папки (**folderPath**) будут считаться входными файлами или объектами. Если указать fileName в JSON, только указанный файл или большой двоичный объект рассматриваются как входные данные. Примеры файлов см. в [учебнике][adf-tutorial].
+	Если вы не зададите параметр **fileName** для **входной таблицы**, все файлы или большие двоичные объекты из входной папки (\*\*folderPath\*\*) будут считаться входными файлами или объектами. Если указать fileName в JSON, только указанный файл или большой двоичный объект рассматриваются как входные данные. Примеры файлов см. в [учебнике][adf-tutorial].
  
 	Если не указать **fileName** для **выходной таблицы**, то созданные в**folderPath** файлы получают имена в следующем формате: Data.<Guid>.txt (например: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
@@ -351,57 +349,57 @@
 2.	Замените сценарий JSON в области справа на следующий текст:   
 
 
-        {
-			"name": "ADFTutorialPipelineOnPrem",
-    		"properties":
-    		{
-        		"description" : "This pipeline has one Copy activity that copies data from an on-prem SQL to Azure blob",
-	       		 "activities":
-	        	[
-			    	{
-						"name": "CopyFromSQLtoBlob",
-						"description": "Copy data from on-prem SQL server to blob",		
-						"type": "CopyActivity",
-						"inputs": [ {"name": "EmpOnPremSQLTable"} ],
-						"outputs": [ {"name": "OutputBlobTable"} ],
-						"transformation":
-						{
-							"source":
-							{                               
-								"type": "SqlSource",
-								"sqlReaderQuery": "select * from emp"
-							},
-							"sink":
-							{
-								"type": "BlobSink"
-							}	
-						},
-						"Policy":
-						{
-							"concurrency": 1,
-							"executionPriorityOrder": "NewestFirst",
-							"style": "StartOfInterval",
-							"retry": 0,
-							"timeout": "01:00:00"
-						}		
-
-				     }
-	        	],
-				"start": "2015-02-13T00:00:00Z",
-        		"end": "2015-02-14T00:00:00Z",
-        		"isPaused": false
-			}
+		{
+		  "name": "ADFTutorialPipelineOnPrem",
+		  "properties": {
+		    "description": "This pipeline has one Copy activity that copies data from an on-prem SQL to Azure blob",
+		    "activities": [
+		      {
+		        "name": "CopyFromSQLtoBlob",
+		        "description": "Copy data from on-prem SQL server to blob",
+		        "type": "Copy",
+		        "inputs": [
+		          {
+		            "name": "EmpOnPremSQLTable"
+		          }
+		        ],
+		        "outputs": [
+		          {
+		            "name": "OutputBlobTable"
+		          }
+		        ],
+		        "typeProperties": {
+		          "source": {
+		            "type": "SqlSource",
+		            "sqlReaderQuery": "select * from emp"
+		          },
+		          "sink": {
+		            "type": "BlobSink"
+		          }
+		        },
+		        "Policy": {
+		          "concurrency": 1,
+		          "executionPriorityOrder": "NewestFirst",
+		          "style": "StartOfInterval",
+		          "retry": 0,
+		          "timeout": "01:00:00"
+		        }
+		      }
+		    ],
+		    "start": "2015-02-13T00:00:00Z",
+		    "end": "2015-02-14T00:00:00Z",
+		    "isPaused": false
+		  }
 		}
-
-	Обратите внимание на следующее:
+	Обратите внимание на следующее.
  
-	- в разделе действий есть лишь одно действие, для параметра **type** которого установлено значение **CopyActivity**;
+	- В разделе действий есть только действие, для параметра **type** которого установлено значение **Copy**;
 	- для параметра действия **input** установлено значение **EmpOnPremSQLTable**, а для **output** — **OutputBlobTable**;
-	- в разделе **transformation** в качестве **типа источника** установлено **SqlSource**, а в качестве **типа приемника** — **BlobSink**. - для свойства **sqlReaderQuery** типа **SqlSource** задан вид SQL-запроса **select * from emp**.
+	- в разделе **transformation** в качестве **типа источника** установлено **SqlSource**, а в качестве **типа приемника** — **BlobSink**. - для свойства **sqlReaderQuery** типа **SqlSource** задан вид SQL-запроса **select \* from emp**.
 
 	Замените значение свойства **start** текущей датой, а значение свойства **end** — датой следующего дня. Даты начала и окончания должны быть в [формате ISO](http://en.wikipedia.org/wiki/ISO_8601). Например, 2014-10-14T16:32:41Z. Время **окончания** указывать не обязательно, однако в этом примере мы будем его использовать.
 	
-	Если не указать значение свойства **end**, оно вычисляется по формуле "**дата начала + 48 часов**". Чтобы запустить конвейер в течение неопределенного срока, укажите значение **9/9/9999** для свойства **end**.
+	Если не указать значение свойства **end**, оно вычисляется по формуле "\*\*дата начала + 48 часов\*\*". Чтобы запустить конвейер в течение неопределенного срока, укажите значение **9/9/9999** для свойства **end**.
 	
 	Вы определяете интервал времени, в который будут выполняться срезы данных на основе свойств **доступности**, определенных для каждой таблицы фабрики данных Azure.
 	
@@ -465,7 +463,7 @@
 	![Колонка "Сведения о выполняемых действиях"][image-data-factory-activity-run-details]
 
 11. Нажмите кнопку **X**, чтобы закрыть все колонки, пока вы не вернетесь к главной колонке для **ADFTutorialOnPremDF**.
-14. (Необязательное действие) щелкните плитку **Конвейеры**, а затем — конвейер **ADFTutorialOnPremDF** и детализируйте входные таблицы (**Использовано**) или выходные таблицы (**Выполнено**).
+14. (Необязательное действие) щелкните плитку **Конвейеры**, а затем — конвейер **ADFTutorialOnPremDF** и детализируйте входные таблицы (\*\*Использовано\*\*) или выходные таблицы (\*\*Выполнено\*\*).
 15. Используйте инструменты, такие как **обозреватель хранилищ Azure** для проверки выходных данных.
 
 	![Обозреватель хранилищ Azure][image-data-factory-stroage-explorer]
@@ -512,7 +510,7 @@
 		PS C:\> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
 
 	
-4. В Azure PowerShell перейдите к папке **C:\Program Files\Microsoft Data Management Gateway\1.0\PowerShellScript** и выполните сценарий **RegisterGateway.ps1**, связанный с локальной переменной **$Key**, как показано в следующей команде, чтобы зарегистрировать агент клиента, установленный на вашем компьютере с логическим шлюзом, созданным ранее.
+4. В Azure PowerShell перейдите к папке **C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\PowerShellScript\*\* и выполните сценарий **RegisterGateway.ps1**, связанный с локальной переменной **$Key**, как показано в следующей команде, чтобы зарегистрировать агент клиента, установленный на вашем компьютере с логическим шлюзом, созданным ранее.
 
 		PS C:\> .\RegisterGateway.ps1 $Key.GatewayKey
 		
@@ -627,4 +625,4 @@
 
 [image-data-factory-preview-portal-storage-key]: ./media/data-factory-get-started/PreviewPortalStorageKey.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

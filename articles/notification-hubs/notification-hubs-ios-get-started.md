@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Приступая к работе с концентраторами уведомлений Azure"
+	pageTitle="Приступая к работе с центрами уведомлений Azure"
 	description="Узнайте, как использовать центры уведомлений Azure для push-уведомлений."
 	services="notification-hubs"
 	documentationCenter="ios"
@@ -16,7 +16,7 @@
 	ms.date="05/27/2015"
 	ms.author="wesmc"/>
 
-# Приступая к работе с концентраторами уведомлений
+# Приступая к работе с центрами уведомлений
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -512,4 +512,4 @@
 [Руководстве по программированию локальных и push-уведомлений]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

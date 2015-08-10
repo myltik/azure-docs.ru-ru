@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="hero-article" 
-	ms.date="04/29/2015" 
+	ms.date="07/24/2015" 
 	ms.author="ryancraw"/>
 
 # <a name="_Toc395783175"></a>Создание веб-приложения Node.js с использованием DocumentDB
@@ -389,7 +389,7 @@
 		
 		module.exports = config;
 
-3. В файле **config.js** обновите значения HOST и AUTH_KEY значениями, найденными в колонке Keys учетной записи DocumentDB на [портале предварительной версии Microsoft Azure](http://portal.azure.com):
+3. В файле **config.js** обновите значения HOST и AUTH\_KEY значениями, найденными в колонке Keys учетной записи DocumentDB на [портале предварительной версии Microsoft Azure](http://portal.azure.com):
 
 4. Сохраните и закройте файл **config.js**.
  
@@ -498,7 +498,7 @@
 	
 	Этого должно быть достаточно для работы нашего приложения.
 
-5. Откройте файл **style.css** в каталоге **public\stylesheets** и замените код следующим:
+5. Откройте файл **style.css** в каталоге **public\\stylesheets** и замените код следующим:
 
 		body {
 		  padding: 50px;
@@ -559,4 +559,4 @@
   [Git]: http://git-scm.com/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

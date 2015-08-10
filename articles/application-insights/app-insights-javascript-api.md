@@ -218,4 +218,4 @@
 
 Внесите свой вклад в [код для пакета SDK](https://github.com/Microsoft/ApplicationInsights-js) или просто следите за его развитием.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

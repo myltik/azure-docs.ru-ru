@@ -31,7 +31,7 @@
 
 Многостолбцовая статистика — это статистика, созданная по списку столбцов. В первом столбце списка находится одностолбцовая статистика, а также некоторые сведения о корреляции между столбцами (т. н. плотность). Многостолбцовая статистика может повысить производительность запросов для некоторых операций, например составных соединений и группировки.
 
-Дополнительную информацию см. в разделе [DBCC SHOW_STATISTICS][] на сайте MSDN.
+Дополнительную информацию см. в разделе [DBCC SHOW\_STATISTICS][] на сайте MSDN.
 
 ## Почему статистика важна?
 Без правильной статистики вы не получите производительность, которую предназначено обеспечивать хранилище данных SQL. Хранилище данных SQL не формирует статистику таблиц и столбцов автоматически, поэтому необходимо делать это самостоятельно. Рекомендуется создать статистику при создании таблицы, а потом обновить после ее заполнения.
@@ -152,13 +152,13 @@ CREATE STATISTICS stats_col1 ON table1 (col1) WHERE col1 > '2000101' AND col1 < 
 
 > [AZURE.NOTE]Гистограмма, используемая для оценки количества строк в результатах запроса, доступна только для первого столбца, указанного в определении объекта статистики.
 
-В этом примере гистограмма создана для *product_category*. Статистика между столбцами вычисляется по *product_category* и *product_sub_c\ategory*:
+В этом примере гистограмма создана для *product\_category*. Статистика между столбцами вычисляется по *product\_category* и *product\_sub\_c\\ategory*:
 
 ```
 CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category) WHERE product_category > '2000101' AND product_category < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
-Так как между *product_category* и *product_sub_category* существует корреляция, многостолбцовая статистика может быть полезна, когда к этим столбцам обращаются одновременно.
+Так как между *product\_category* и *product\_sub\_category* существует корреляция, многостолбцовая статистика может быть полезна, когда к этим столбцам обращаются одновременно.
 
 ### Ж. Создание статистики для всех столбцов в таблице
 
@@ -177,14 +177,14 @@ WITH
   )
 ;
 
-CREATE STATISTICS stats_col1 on dbo.table1;
-CREATE STATISTICS stats_col2 on dbo.table2;
-CREATE STATISTICS stats_col3 on dbo.table3;
+CREATE STATISTICS stats_col1 on dbo.table1 (col1);
+CREATE STATISTICS stats_col2 on dbo.table2 (col2);
+CREATE STATISTICS stats_col3 on dbo.table3 (col3);
 ```
 
 ### З. Использование хранимой процедуры для создания статистики для всех столбцов в базе данных
 
-В хранилище данных SQL нет системной хранимой процедуры, эквивалентной [sp_create_stats][] в SQL Server. Эта хранимая процедура создает объект одностолбцовой статистики для каждого столбца базы данных, для которого статистики еще нет.
+В хранилище данных SQL нет системной хранимой процедуры, эквивалентной [sp\_create\_stats][] в SQL Server. Эта хранимая процедура создает объект одностолбцовой статистики для каждого столбца базы данных, для которого статистики еще нет.
 
 Это поможет приступить к проектированию базы данных. Вы можете адаптировать код в соответствии со своими нуждами.
 
@@ -325,9 +325,9 @@ UPDATE STATISTICS dbo.table1;
 | [sys.objects][] | Одна строка для каждого объекта в базе данных. | |
 | [sys.schemas][] | Одна строка для каждой схемы в базе данных. | |
 | [sys.stats][] | Одна строка для каждого объекта статистики. |
-| [sys.stats_columns][] | Одна строка для каждого столбца в объекте статистики. Ссылается на sys.columns. |
+| [sys.stats\_columns][] | Одна строка для каждого столбца в объекте статистики. Ссылается на sys.columns. |
 | [sys.tables][] | Одна строка для каждой таблицы (включая внешние таблицы). |
-| [sys.table_types][] | Одна строка для каждого типа данных. |
+| [sys.table\_types][] | Одна строка для каждого типа данных. |
 
 
 ### Системные функции для статистики
@@ -335,12 +335,12 @@ UPDATE STATISTICS dbo.table1;
 
 | Системная функция | Описание |
 | :-------------- | :---------- |
-| [STATS_DATE][] | Дата последнего обновления объекта статистики. |
-| [DBCC SHOW_STATISTICS][] | Предоставляет сводную и подробную информацию о распределении значений согласно объекту статистики. |
+| [STATS\_DATE][] | Дата последнего обновления объекта статистики. |
+| [DBCC SHOW\_STATISTICS][] | Предоставляет сводную и подробную информацию о распределении значений согласно объекту статистики. |
 
 ### Сочетание столбцов и функций статистики в одном представлении
 
-Это представление содержит столбцы, относящиеся к статистике, и результаты функции [STATS_DATE()][].
+Это представление содержит столбцы, относящиеся к статистике, и результаты функции [STATS\_DATE()][].
 
 ```
 CREATE VIEW dbo.vstats_columns
@@ -378,9 +378,9 @@ AND     sts.[user_created] = 1
 ;
 ```
 
-## Примеры DBCC SHOW_STATISTICS()
+## Примеры DBCC SHOW\_STATISTICS()
 
-DBCC SHOW_STATISTICS() отображает данные, хранящиеся в объекте статистики. Эти данные состоят из трех частей:
+DBCC SHOW\_STATISTICS() отображает данные, хранящиеся в объекте статистики. Эти данные состоят из трех частей:
 
 1. Заголовок
 2. вектор плотности;
@@ -402,7 +402,7 @@ DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>)
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
 ```
 
-### Отображение одной или нескольких частей DBCC SHOW_STATISTICS()
+### Отображение одной или нескольких частей DBCC SHOW\_STATISTICS()
 
 Если вы заинтересованы только в просмотре определенных частей, используйте предложение `WITH` и укажите, какие части требуется показать:
 
@@ -416,13 +416,13 @@ DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>) WITH stat_header
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 ```
 
-## Отличия DBCC SHOW_STATISTICS()
-В хранилище данных SQL используется более строгая реализация DBCC SHOW_STATISTICS(), чем в SQL Server.
+## Отличия DBCC SHOW\_STATISTICS()
+В хранилище данных SQL используется более строгая реализация DBCC SHOW\_STATISTICS(), чем в SQL Server.
 
 1. Недокументированные возможности не поддерживаются.
-- Нельзя использовать Stats_stream.
-- Нельзя соединить результаты для определенных подмножеств данных статистики, например (STAT_HEADER JOIN DENSITY_VECTOR).
-2. Невозможно задать NO_INFOMSGS для подавления сообщений.
+- Нельзя использовать Stats\_stream.
+- Нельзя соединить результаты для определенных подмножеств данных статистики, например (STAT\_HEADER JOIN DENSITY\_VECTOR).
+2. Невозможно задать NO\_INFOMSGS для подавления сообщений.
 3. Нельзя использовать квадратные скобки вокруг имен статистики.
 4. Нельзя использовать имена столбцов для идентификации объектов статистики.
 5. Пользовательская ошибка 2767 не поддерживается.
@@ -440,16 +440,16 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 <!-- External Links -->
 [Оценка количества элементов]: https://msdn.microsoft.com/library/dn600374.aspx
 [CREATE STATISTICS]: https://msdn.microsoft.com/library/ms188038.aspx
-[DBCC SHOW_STATISTICS]: https://msdn.microsoft.com/library/ms174384.aspx
+[DBCC SHOW\_STATISTICS]: https://msdn.microsoft.com/library/ms174384.aspx
 [Статистика]: https://msdn.microsoft.com/library/ms190397.aspx
-[STATS_DATE]: https://msdn.microsoft.com/library/ms190330.aspx
+[STATS\_DATE]: https://msdn.microsoft.com/library/ms190330.aspx
 [sys.columns]: https://msdn.microsoft.com/library/ms176106.aspx
 [sys.objects]: https://msdn.microsoft.com/library/ms190324.aspx
 [sys.schemas]: https://msdn.microsoft.com/library/ms190324.aspx
 [sys.stats]: https://msdn.microsoft.com/library/ms177623.aspx
-[sys.stats_columns]: https://msdn.microsoft.com/library/ms187340.aspx
+[sys.stats\_columns]: https://msdn.microsoft.com/library/ms187340.aspx
 [sys.tables]: https://msdn.microsoft.com/library/ms187406.aspx
-[sys.table_types]: https://msdn.microsoft.com/library/bb510623.aspx
+[sys.table\_types]: https://msdn.microsoft.com/library/bb510623.aspx
 [Обновление статистики]: https://msdn.microsoft.com/library/ms187348.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

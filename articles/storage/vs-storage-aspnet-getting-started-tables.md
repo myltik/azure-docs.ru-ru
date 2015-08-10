@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/17/2015" 
+	ms.date="07/22/2015" 
 	ms.author="patshea123"/>
 
 # Начало работы со службой хранилища Azure (проекты ASP.NET)
@@ -42,12 +42,7 @@
 
 ##Доступ к таблицам в коде 
 
-## Программный доступ к табличному хранилищу
 
-[AZURE.INCLUDE [storage-dotnet-obtain-assembly](../../includes/storage-dotnet-obtain-assembly.md)]
-
-### Объявления пространств имен
-Добавляйте следующие объявления пространств имен кода в начало каждого файла C#, в котором вы собираетесь обращаться к службе хранилища Azure программным способом.
 
 1. Убедитесь, что объявления пространств имен в верхней части файла C# содержат следующие операторы `using`.
 
@@ -65,14 +60,14 @@
 	    // Create the table client.
     	CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
-4. Получить ссылочный объект **CloudTable** для указания ссылки на определенную таблицу и сущности.
+4. Получите ссылочный объект **CloudTable** для указания ссылки на определенную таблицу и сущности.
 	
     	// Get a reference to a table named "peopleTable"
 	    CloudTable table = tableClient.GetTableReference("peopleTable");
 
 ###Создание таблицы в коде
 
-Чтобы создать таблицу Azure в коде, а не с помощью **обозревателя серверов** Visual Studio, просто добавьте вызов `CreateIfNotExistsAsync()`.
+Чтобы создать таблицу Azure в коде, а не с помощью **обозревателя сервера** Visual Studio, просто добавьте вызов `CreateIfNotExistsAsync()`.
 
 	// Create the CloudTable if it does not exist
 	await table.CreateIfNotExistsAsync();
@@ -92,7 +87,7 @@
 
 ##Вставка пакета сущностей
 
-В таблицу можно вставить несколько сущностей с помощью одной операции записи. В следующем примере кода показано создание двух объектов сущностей ("Jeff Smith" и "Ben Smith"), добавление их в объект **TableBatchOperation** с помощью метода Insert и запуск операции с помощью вызова CloudTable.ExecuteBatchAsync.
+В таблицу можно вставить несколько сущностей с помощью одной операции записи. В следующем примере кода показано создание двух объектов сущностей (Jeff Smith и Ben Smith), добавление их в объект **TableBatchOperation** с помощью метода Insert и запуск операции с помощью вызова CloudTable.ExecuteBatchAsync.
 
 	// Get a reference to a **CloudTable** object named 'peopleTable' as described in "Access a table in code"
 	
@@ -188,7 +183,7 @@
 
 ## Дальнейшие действия
 
-[AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
+[AZURE.INCLUDE [vs-storage-dotnet-tables-next-steps](../../includes/vs-storage-dotnet-tables-next-steps.md)]
 
 
 
@@ -215,4 +210,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

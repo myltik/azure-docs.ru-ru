@@ -21,7 +21,7 @@
 
 Данная документация содержит сведения об использовании выборочной установки для Azure AD Connect. Вы можете использовать этот тип установки, если у вас есть дополнительные параметры конфигурации или вам нужны дополнительные функции, которые не входят в экспресс-установку.
 
-Информацию об экспресс-установке см. в статье [Экспресс-установка](active-directory-aadconnect-get-started/#express-installation-of-azure-ad-connect). Сведения об обновлении DirSync до Azure AD Connect см. в статье [Обновление DirSync до Azure Active Directory Connect](active-directory-aadconnect-dirsync-upgrade-get-started.md).
+Информацию об экспресс-установке см. в статье [Экспресс-установка](active-directory-aadconnect/#getting-started-with-azure-ad-connect). Сведения об обновлении DirSync до Azure AD Connect см. в статье [Обновление DirSync до Azure Active Directory Connect](active-directory-aadconnect-dirsync-upgrade-get-started.md).
 
 
 
@@ -29,7 +29,8 @@
 
 При установке служб синхронизации вы можете пропустить дополнительный раздел конфигурации, а Azure AD Connect настроит все автоматически. Так, настраиваются экземпляр SQL Server 2012 Express, создаются соответствующие группы, а им назначаются разрешения. Если вы хотите изменить параметры по умолчанию, можно использовать следующую таблицу, чтобы изучить доступные дополнительные параметры.
 
-<center>![Required Components](./media/active-directory-aadconnect-get-started-custom/requiredcomponents.png) </center>
+![Необходимые компоненты](./media/active-directory-aadconnect-get-started-custom/requiredcomponents.png)
+
 
 Дополнительная настройка | Описание 
 ------------- | ------------- |
@@ -41,7 +42,8 @@
 ## Вход пользователя
 После установки необходимых компонентов вам будет предложено указать метод единого входа, который будут использовать пользователи. Таблица ниже содержит краткое описание доступных параметров.
 
-<center>![User Signin](./media/active-directory-aadconnect-get-started-custom/usersignin.png) </center>
+![Вход пользователя](./media/active-directory-aadconnect-get-started-custom/usersignin.png)
+
 
 
 Метод единого входа | Описание 
@@ -55,18 +57,21 @@
 ## Подключение к Azure AD
 В диалоговом окне «Подключение к Azure AD» введите учетную запись и пароль глобального администратора. Убедитесь, что для этой учетной записи не включена Multi-Factor Authentication. Если эта служба включена, это приведет к сбою проверки подлинности. Имейте в виду, что эта учетная запись используется только для создания учетной записи службы в Azure AD и не используется после завершения работы мастера.
 
-<center>![User Signin](./media/active-directory-aadconnect-get-started-custom/connectaad.png) </center>
+![Вход пользователя](./media/active-directory-aadconnect-get-started-custom/connectaad.png)
+
 
 ### Подключение к каталогам
 Чтобы подключиться к службе домена Active Directory, Azure AD Connect нужны имя пользователя и пароль учетной записи с достаточными разрешениями. Эта учетная запись может принадлежать обычному пользователю, так как стандартных разрешений для чтения вполне достаточно. Однако для некоторых сценариев могут потребоваться дополнительные разрешения. Дополнительные сведения см. в статье [Сводка об учетной записи Azure AD Connect](active-directory-aadconnect-account-summary.md).
 
-<center>![User Signin](./media/active-directory-aadconnect-get-started-custom/connectdir.png) </center>
+![Вход пользователя](./media/active-directory-aadconnect-get-started-custom/connectdir.png)
+
 
 ### Уникальная идентификация пользователей
 
 Функция согласования между лесами позволяет определить, как пользователи из лесов AD DS представлены в Azure AD. Пользователь может быть представлен во всех лесах только один раз или может иметь комбинацию включенных и отключенных учетных записей.
 
-<center>![User Signin](./media/active-directory-aadconnect-get-started-custom/unique.png) </center>
+![Вход пользователя](./media/active-directory-aadconnect-get-started-custom/unique.png)
+
 
 Настройка | Описание 
 ------------- | ------------- |
@@ -87,7 +92,8 @@ sAMAccountName и MailNickName|Это параметр соединяет атр
 ### Фильтрация синхронизации на основе групп
 Фильтрация на основе групп позволяет запустить небольшой пилотный проект, в котором должно быть создано только небольшое подмножество объектов в Azure AD и Office 365. Чтобы использовать эту функцию, создайте группу в Active Directory и добавьте пользователей и группы, которые должны быть синхронизированы с Azure AD как прямые участники. Позднее вы сможете добавлять пользователей в эту группу и удалять их, чтобы сохранить список объектов, которые должны присутствовать в Azure AD. Чтобы использовать эту функцию, в настроенном пути откроется эта страница:
 
-<center>![Sync Filtering](./media/active-directory-aadconnect-get-started-custom/filter2.png) </center>
+![Фильтрация синхронизации](./media/active-directory-aadconnect-get-started-custom/filter2.png)
+
 
 ### Дополнительные функции
 
@@ -114,15 +120,18 @@ sAMAccountName и MailNickName|Это параметр соединяет атр
 ## Синхронизация атрибутов расширения каталога
 С помощью расширений каталогов можно расширить схему в Azure AD с настраиваемыми атрибутами, добавленными в вашей организации, или другими атрибутами в Active Directory. Чтобы использовать эту функцию, выберите «Синхронизация атрибутов расширения каталога» на странице «Дополнительные функции». Отобразится эта страница, на которой вы сможете выбрать дополнительные атрибуты.
 
-<center>![Sync Filtering](./media/active-directory-aadconnect-get-started-custom/extension2.png) </center>
+![Фильтрация синхронизации](./media/active-directory-aadconnect-get-started-custom/extension2.png)
+
 
 Поддерживаются только однозначные атрибуты, значения которых не превышают 250 символов. Метавселенная и схема Azure AD будут расширены за счет выбранных атрибутов. В Azure AD новое приложение добавляется с атрибутами.
 
-<center>![Sync Filtering](./media/active-directory-aadconnect-get-started-custom/extension3.png) </center>
+![Фильтрация синхронизации](./media/active-directory-aadconnect-get-started-custom/extension3.png)
+
 
 Эти атрибуты будут доступны в Graph:
 
-<center>![Sync Filtering](./media/active-directory-aadconnect-get-started-custom/extension4.png) </center>
+![Фильтрация синхронизации](./media/active-directory-aadconnect-get-started-custom/extension4.png)
+
 
 ## Обратная запись пользователя (предварительная версия)
 
@@ -130,7 +139,8 @@ sAMAccountName и MailNickName|Это параметр соединяет атр
 
 Обратная запись пользователя позволяет обратно записать в доменные службы Active Directory пользователя, созданного в Azure AD (с помощью портала, диаграммы, PowerShell или другого метода). Чтобы включить эту функцию, выберите «Обратная запись пользователя» на странице дополнительных функций. Теперь отобразится расположение, в котором вы можете создать пользователей. В конфигурации по умолчанию все пользователи создаются в одном расположении доменных служб Active Directory.
 
-<center>![Sync Filtering](./media/active-directory-aadconnect-get-started-custom/writeback2.png) </center>
+![Фильтрация синхронизации](./media/active-directory-aadconnect-get-started-custom/writeback2.png)
+
 Во время создания пользователям будут назначены случайные пароли, поэтому вам нужно будет сбросить пароль в доменных службах Active Directory, чтобы пользователь мог входить в систему.
 
 >[AZURE.NOTE]Синхронизация паролей и обратная запись паролей не совместимы с этой функцией предварительной версии.
@@ -142,10 +152,12 @@ sAMAccountName и MailNickName|Это параметр соединяет атр
 Обратная запись группы в дополнительных функциях позволит вам обратно записывать «Группы в Office 365» в лес с установленным Exchange. Это новый тип группы, управление которым всегда происходит в облаке. Его можно найти на сайте outlook.office365.com или myapps.microsoft.com как показано ниже.
 
 
-<center>![Sync Filtering](./media/active-directory-aadconnect-get-started-custom/office365.png) </center>
+![Фильтрация синхронизации](./media/active-directory-aadconnect-get-started-custom/office365.png)
 
 
-<center>![Sync Filtering](./media/active-directory-aadconnect-get-started-custom/myapps.png) </center>
+
+![Фильтрация синхронизации](./media/active-directory-aadconnect-get-started-custom/myapps.png)
+
 
 Эта группа будет представлена в виде группы рассылки в локальной службе AD DS. На локальном сервере Exchange должна быть установлена версия Exchange 2013 с накопительным пакетом обновления 8 (выпущен в марте 2015 года), чтобы он мог распознавать этот новый тип группы.
 
@@ -161,7 +173,7 @@ sAMAccountName и MailNickName|Это параметр соединяет атр
 
 > [AZURE.WARNING]Если у вас запущено средство синхронизации DirSync или Azure AD Sync, не активируйте функции обратной записи в Azure AD Connect.
 
-Функция обратной записи устройства позволяет помещать устройства, зарегистрированные в облаке, например в Intune, в доменные службы Active Directory для условного доступа. Чтобы включить эту функцию, необходимо подготовить доменные службы Active Directory. Если вы установили доменные службы Active Directory и службу регистрации устройств (DRS), DRS предоставляет командлеты PowerShell для подготовки AD для обратной записи устройства. Если у вас установлена DRS, вы можете запустить C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncAdPrep.psm1 от имени администратора предприятия.
+Функция обратной записи устройства позволяет помещать устройства, зарегистрированные в облаке, например в Intune, в доменные службы Active Directory для условного доступа. Чтобы включить эту функцию, необходимо подготовить доменные службы Active Directory. Если вы установили доменные службы Active Directory и службу регистрации устройств (DRS), DRS предоставляет командлеты PowerShell для подготовки AD для обратной записи устройства. Если у вас установлена DRS, вы можете запустить C:\\Program Files\\Microsoft Azure Active Directory Connect\\AdPrep\\AdSyncAdPrep.psm1 от имени администратора предприятия.
 
 Чтобы запустить командлет PowerShell, сначала нужно его импортировать.
 
@@ -174,14 +186,16 @@ sAMAccountName и MailNickName|Это параметр соединяет атр
 ## Промежуточный режим
 Промежуточный режим позволяет устанавливать новый сервер синхронизации параллельно с существующим сервером. В этом режиме поддерживается только один сервер синхронизации, подключенный к одному каталогу в облаке. Но если требуется переместить данные с другого сервера, на котором работает, например, DirSync, можно включить Azure Connect AD в промежуточном режиме. Если модуль синхронизации включен, он импортирует и синхронизирует данные в обычном режиме, но он ничего не экспортирует в Azure AD и отключает синхронизацию паролей и обратную запись паролей.
 
-<center>![Sync Filtering](./media/active-directory-aadconnect-get-started-custom/stagingmode.png) </center>
+![Фильтрация синхронизации](./media/active-directory-aadconnect-get-started-custom/stagingmode.png)
+
 
 В промежуточном режиме можно вносить необходимые изменения в модуль синхронизации и просматривать данные перед экспортом. Если вы довольны конфигурацией, снова запустите мастер установки и отключите промежуточный режим. Это позволит экспортировать данные в Azure AD. Обязательно отключите другой сервер, чтобы только один сервер активно экспортировал данные.
 
 ### Предотвращение случайного удаления
 При установке Azure AD Connect компонент предотвращения случайного удаления включен по умолчанию и не разрешает экспорт с более чем 500 операций удаления. 500 — это значение по умолчанию, которое можно изменить. Если эта функция включена и запущено слишком много операций удаления, экспорт не будет продолжаться и вы получите следующее сообщение электронной почты:
 
-<center>![Sync Filtering](./media/active-directory-aadconnect-get-started-custom/email.png) </center>
+![Фильтрация синхронизации](./media/active-directory-aadconnect-get-started-custom/email.png)
+
 
 Если эта ситуация оказалась непредвиденной, выясните причину и выполните все действия для ее исправления.
 
@@ -200,7 +214,8 @@ sAMAccountName и MailNickName|Это параметр соединяет атр
 ### Создание новой фермы AD FS или использование существующей фермы AD FS
 Вы можете использовать существующую ферму AD FS или создать новую. Если вы решили создать новую, вам потребуется предоставить SSL-сертификат. Если SSL-сертификат защищен паролем, вам будет предложено ввести пароль.
 
-<center>![AD FS Farm](./media/active-directory-aadconnect-get-started-custom/adfs1.png) </center>
+![Ферма AD FS](./media/active-directory-aadconnect-get-started-custom/adfs1.png)
+
 **Примечание**. Если вы решили использовать существующую ферму AD FS, вы пропустите несколько страниц и перейдете непосредственно в диалоговое окно настройки отношений доверия между AD FS и Azure AD экрана.
 
 ### Указание серверов AD FS
@@ -210,18 +225,24 @@ sAMAccountName и MailNickName|Это параметр соединяет атр
 
 > [AZURE.NOTE]Убедитесь, что все серверы присоединены к домену AD перед выполнением этой настройки.
 
-<center>![AD FS Servers](./media/active-directory-aadconnect-get-started-custom/adfs2.png) </center>
+![Серверы AD FS](./media/active-directory-aadconnect-get-started-custom/adfs2.png)
+
+
+ 
 ### Указание прокси-серверов веб-приложений
 Здесь вы укажите конкретные серверы, которые будут использоваться как прокси-серверы веб-приложения. Прокси-сервер веб-приложения развертывается в промежуточной подсети (экстрасети с выходом) и поддерживает запросы проверки подлинности из внешней сети. Можно добавить один или несколько серверов в зависимости от потребностей запланированной загрузки. Рекомендуем установить одиночный прокси-сервер веб-приложения для тестирования и развертывания пилотного проекта и развернуть дополнительные серверы. Для этого откройте Azure AD Connect и разверните прокси-сервер веб-приложения на дополнительных серверах. Обычно рекомендуется использовать эквивалентное число прокси-серверов для выполнения проверки подлинности из интрасети.
 
 > [AZURE.NOTE]<li>Если учетная запись, используемая для установки Azure AD Connect, не является локальным администратором на серверах AD FS, вам будет предложено ввести учетные данные для учетной записи с достаточными разрешениями.</li><li>Прежде чем выполнять эту инструкцию, убедитесь, что между сервером Azure AD Connect и прокси-сервером веб-приложения установлено HTTP/HTTPS-подключение.</li><li> Также убедитесь, что между сервером веб-приложений и сервером AD FS установлено HTTP/HTTPS-подключение, которое будет разрешать сквозные запросы проверки подлинности.</li>
 
 
-<center>![Web App](./media/active-directory-aadconnect-get-started-custom/adfs3.png) </center>
+![Веб-приложение](./media/active-directory-aadconnect-get-started-custom/adfs3.png)
+
 
 Вам будет предложено ввести учетные данные, чтобы сервер веб-приложений мог установить безопасное подключение к серверу AD FS. Эти учетные данные должны иметь права локального администратора на сервере AD FS.
 
-<center>![Proxy](./media/active-directory-aadconnect-get-started-custom/adfs4.png) </center>
+![Прокси-сервер](./media/active-directory-aadconnect-get-started-custom/adfs4.png)
+
+ 
 ### Укажите учетную запись службы для службы AD FS
 Для службы AD FS требуется учетная запись службы домена для проверки подлинности пользователей и поиска информации о пользователях в Active Directory. Поддерживаются два типа учетных записей.
 
@@ -230,13 +251,16 @@ sAMAccountName и MailNickName|Это параметр соединяет атр
 
 Если вы войдете в систему как администратор домена, Azure AD Connect автоматически создаст групповые управляемые учетные записи службы.
  
-<center>![AD FS Service Account](./media/active-directory-aadconnect-get-started-custom/adfs5.png) </center>
+![Учетная запись службы AD FS](./media/active-directory-aadconnect-get-started-custom/adfs5.png)
+
 
 ### Выбор домена Azure AD, который нужно включить в федерацию
 Эта конфигурация используется для установки федеративных отношений между AD FS и Azure AD. Она настраивает службы федерации Active Directory для выдачи маркеров безопасности Azure AD и настраивает Azure AD для доверия маркерам из данного конкретного экземпляра AD FS. Во время первого входа на этой странице можно настроить только один домен. Дополнительные домены можно настроить в любое время. Для этого откройте Azure AD Connect снова и выполните эту задачу.
 
  
-<center>![Azure AD Domain](./media/active-directory-aadconnect-get-started-custom/adfs6.png) </center>
+![Домен Azure AD](./media/active-directory-aadconnect-get-started-custom/adfs6.png)
+
+ 
 ### Выполнение дополнительных задач по настройке федерации
 Для завершения настройки федерации необходимо выполнить следующие дополнительные задачи.
 
@@ -248,7 +272,9 @@ sAMAccountName и MailNickName|Это параметр соединяет атр
 
 Если вы нажмете кнопку «Проверить», Azure AD Connect проверит параметры DNS.
 
-<center>![Complete](./media/active-directory-aadconnect-get-started-custom/adfs7.png) </center>
+![Завершено](./media/active-directory-aadconnect-get-started-custom/adfs7.png)
+ 
+ 
 Кроме того выполните следующие шаги для проверки.
 
 - Проверьте вход через браузер Internet Explorer с компьютера, интрасети. Для этого подключитесь к https://myapps.microsoft.com и проверьте имя входа с помощью имени пользователя учетной записи, с помощью которой вы вошли в систему.
@@ -260,17 +286,4 @@ sAMAccountName и MailNickName|Это параметр соединяет атр
 	
 	Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.png"} –Illustration @{path=”c:\Contoso\illustration.png”}
 
-
-
-
-
-
-**Дополнительные ресурсы**
-
-* [Использование локальной инфраструктуры удостоверений в облаке](active-directory-aadconnect.md)
-* [Принципы работы Azure AD Connect](active-directory-aadconnect-how-it-works.md)
-* [Что дальше с Azure AD Connect](active-directory-aadconnect-whats-next.md)
-* [Подробнее](active-directory-aadconnect-learn-more.md)
-* [Azure AD Connect на портале MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx) 
-
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

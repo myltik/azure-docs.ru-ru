@@ -20,13 +20,13 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
-<div class="dev-onpage-video-clear clearfix">
-<div class="dev-onpage-left-content">
-<p>В этом учебнике показано, как использовать мобильные службы Azure в приложении Sencha Touch. Вы создадите простое приложение списка дел с помощью системы Sencha Touch, которая использует мобильные службы, определяемые на портале управления. Этот учебник предназначен для разработчиков веб-приложений среднего и высокого уровня, которые хорошо понимают принципы работы JavaScript и знакомы с платформой Sencha Touch. </p>
-<p>Если вы предпочитаете смотреть видео, то в клипе справа приведены те же действия, что и в учебнике. В видео Артур Кэй (Arthur Kay) объясняет, как создать приложение Sencha Touch с помощью серверного компонента мобильных служб Azure.</p>
-</div>
-<div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkId=392574" target="_blank" class="label">Просмотр учебника</a> <a style="background-image: url('/media/partner-sencha-mobile-services-get-started/mobile-sencha-get-started-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkId=392574" target="_blank" class="dev-onpage-video"><span class="icon">Воспроизведение видео</span></a> <span class="time">14:37:00</span></div>
-</div>
+##Обзор
+
+В этом учебнике показано, как использовать мобильные службы Azure в приложении Sencha Touch. Вы создадите простое приложение списка дел с помощью системы Sencha Touch, которая использует мобильные службы, определяемые на портале управления. Этот учебник предназначен для разработчиков веб-приложений среднего и высокого уровня, которые хорошо понимают принципы работы JavaScript и знакомы с платформой Sencha Touch.
+
+Кроме того, можно посмотреть видеоклип (см. ниже), где приведены те же действия, что и в учебнике. В этом видеоклипе Артур Кэй (Arthur Kay) объясняет, как создать приложение Sencha Touch с помощью серверного компонента мобильных служб Azure.
+
+> [AZURE.VIDEO getting-started-with-sencha-touch]
 
 
 Снимок экрана завершенного приложения приведен ниже:
@@ -35,9 +35,9 @@
 
 ##Требования
 
-- Скачайте и установите [Sencha Touch](http://wwww.sencha.com/products/touch/download" target="_blank").
+- Скачайте и установите [Sencha Touch](http://wwww.sencha.com/products/touch/download" target="\_blank").
 
-- Скачайте и установите [Sencha Cmd Tool](http://www.sencha.com/products/sencha-cmd/download" target="_blank").
+- Скачайте и установите [Sencha Cmd Tool](http://www.sencha.com/products/sencha-cmd/download" target="\_blank").
 
 - Среда выполнения Java (JRE) или набор разработки Java (при создании приложений Android)
 
@@ -667,7 +667,7 @@
 
     ![sencha web start](./media/partner-sencha-mobile-services-get-started/sencha-web-start.png)
 
-  3. Откройте указанный в терминале URL-адрес в веб-браузере, чтобы запустить приложение (например, http://localhost:1841).
+  3. Откройте указанный в терминале URL-адрес в веб-браузере, чтобы запустить приложение (например, http://localhost:1841)).
 
   4. В приложении введите содержательный текст, например "Завершение работы с учебником", и нажмите кнопку **Добавить**.
 
@@ -712,4 +712,4 @@
 [0]: ./media/partner-sencha-mobile-services-get-started/finished-app.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

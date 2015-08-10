@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.date="07/24/2015" 
 	ms.author="genemi"/>
 
 
@@ -25,7 +25,7 @@
 
 
 - Краткие примеры подключения и запросов.
-- Примеры выполняют подключение и запросы, но автоматически повторяют попытку, если возникшая ошибка классифицируется как [*временный сбой*](http://msdn.microsoft.com/library/azure/ff394106.aspx#bkmk_connection_errors) (например, истечение срока ожидания подключения).
+- Примеры повторного подключения: выполняются подключения и запросы, но, если возникшая ошибка классифицируется как [*временный сбой*](sql-database-develop-error-messages.md#bkmk_connection_errors) (например, истечение срока ожидания подключения), автоматически выполняется повторное подключение.
 
 
 Примеры включают:
@@ -75,11 +75,11 @@
 
 | Язык | Краткий пример | Пример повторной попытки | Относится к объекту |
 | :-- | :-- | :-- | :-- |
-| C# | [ADO.NET](sql-database-develop-dotnet-simple.md) | [ADO.NET](http://msdn.microsoft.com/library/azure/ee336243.aspx)<br/><br/>[ADO.NET с Enterprise Library](http://msdn.microsoft.com/library/azure/dn961167.aspx) | [ADO.NET Entity Framework](http://msdn.microsoft.com/library/azure/ff951633.aspx) |
+| C# | [ADO.NET](sql-database-develop-dotnet-simple.md) | [Пользовательский ADO.NET](sql-database-develop-csharp-retry-windows.md)<br/><br/>[ADO.NET с Enterprise Library](http://msdn.microsoft.com/library/azure/dn961167.aspx) | [ADO.NET Entity Framework](http://msdn.microsoft.com/library/azure/ff951633.aspx) |
 | C++ | [Драйвер ODBC](http://msdn.microsoft.com/library/azure/hh974312.aspx) | . | . |
 | Java | [Java. JDBC, JDK. Insert, Transaction, Select.](sql-database-develop-java-simple-windows.md)<br/><br/>[Java. Eclipse](sql-data-java-how-to-use-sql-database.md)<br/><br/>[Java. JDBC](http://msdn.microsoft.com/library/azure/gg715284.aspx) | . | . |
 | Node.js | [msnodesql](sql-database-develop-nodejs-simple-windows.md) | . | . |
-| PHP | [ODBC](sql-database-develop-php-simple-windows.md) | [ODBC](sql-database-develop-php-retry-windows.md) | . |
+| PHP | [ODBC](sql-database-develop-php-simple-windows.md) | [Пользовательский ODBC](sql-database-develop-php-retry-windows.md) | . |
 | Python | [pymssql](sql-database-develop-python-simple-windows.md) | . | . |
 
 
@@ -88,9 +88,9 @@
 
 - [Файлы пакетов SDK и средств для различных языков и платформ](http://azure.microsoft.com/downloads/#cmd-line-tools)
 - [Библиотеки подключений для базы данных SQL и SQL Server](sql-database-libraries.md)
-- [Список числовых кодов временных ошибок](http://msdn.microsoft.com/library/azure/ff394106.aspx#bkmk_connection_errors)<br/>& nbsp;
+- [Список числовых кодов временных ошибок](sql-database-develop-error-messages.md#bkmk_connection_errors)<br/>& nbsp;
 - [Разработка для базы данных SQL Azure: разделы практического руководства](http://msdn.microsoft.com/library/azure/ee621787.aspx)
 - [Подключение к базе данных SQL: ссылки, рекомендации и советы по разработке](sql-database-connect-central-recommendations.md)
 - [Создание первой базы данных SQL Azure](sql-database-get-started.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

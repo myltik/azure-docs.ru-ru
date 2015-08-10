@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Администрирование мобильной службы с помощью командной строки: учебник по Azure" 
+	pageTitle="Администрирование мобильной службы из командной строки | Мобильные службы Azure" 
 	description="Узнайте, как с помощью программ командной строки создать и развернуть мобильную службу Azure, а также управлять ею." 
 	services="mobile-services" 
 	documentationCenter="Mobile" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="07/22/2015" 
 	ms.author="glenga"/>
 
 # Автоматизация мобильных служб с помощью средств командной строки 
@@ -25,10 +25,6 @@
 При объединении в один скрипт или пакетный файл эти отдельные команды автоматизируют процесс создания, проверки и удаления мобильной службы.
 
 В этом разделе описывается набор общих задач администрирования, поддерживаемых средствами командной строки Azure. Дополнительные сведения см. в [документации средств командной строки Azure][reference-docs].
-
-<!--+  You must download and install the Azure command-line tools to your local machine. To do this, follow the instructions in the first section of this topic. 
-
-+ (Optional) To be able to execute HTTP requests directly from the command-line, you must use cURL or an equivalent tool. cURL runs on a variety of platforms. Locate and install cURL for your specific platform from the <a href=http://go.microsoft.com/fwlink/p/?LinkId=275676 target="_blank">cURL download  page</a>.-->
 
 ##Установка программ командной строки Azure
 
@@ -74,7 +70,7 @@
 
 	azure mobile create <service-name> <server-admin> <server-password>
 
-Команда `mobile create` завершается ошибкой, если указанная мобильная служба существует. В скриптах автоматизации следует попытаться удалить мобильную служб, прежде чем попытаться создать ее еще раз.
+Команда `mobile create` завершается ошибкой, если указанная мобильная служба существует. В скриптах автоматизации следует попытаться удалить мобильную службу, прежде чем попытаться создать ее еще раз.
 
 ##Перечисление существующих мобильных служб в подписке
 
@@ -110,11 +106,7 @@
 
 В следующей таблице показано значение разрешения скрипта в сравнении ос значением разрешения на [портале управления Azure].
 
-<table border="1" width="100%"><tr><th>Значение сценария</th><th>Значение портала управления</th></tr>
-<tr><td><code>public</code></td><td>Все</td></tr>
-<tr><td><code>application</code> (default)</td><td>Все с ключом приложения</td></tr>
-<tr><td><code>user</code></td><td>Только прошедшие проверку пользователи</td></tr>
-<tr><td><code>admin </code></td><td>Только скрипты и администраторы</td></tr></table>
+|Значение сценария|Значение портала управления| |========|========| |`public`|Все| |`application`(по умолчанию)|Все с ключом приложения| |`user`|Только прошедшие проверку пользователи| |`admin`|Только скрипты и администраторы|
 
 Команда `mobile table create` завершается ошибкой, если указанная таблица существует. В скриптах автоматизации следует попытаться удалить таблицу, прежде чем попытаться создать ее еще раз.
 
@@ -192,4 +184,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/19/2015" 
+	ms.date="07/26/2015" 
 	ms.author="spelluru"/>
 
 # Использование Pig и Hive с фабрикой данных
@@ -24,7 +24,7 @@
 
 ### Предварительные требования
 1. Изучите инструкции, описанные в статье [Приступая к работе с фабрикой данных Azure][adfgetstarted].
-2. Создайте файл **hivequery.hql** в подпапке **Hive** в каталоге **C:\ADFGetStarted** со следующим содержимым.
+2. Создайте файл **hivequery.hql** в подпапке **Hive** в каталоге **C:\\ADFGetStarted** со следующим содержимым.
     		
     	DROP TABLE IF EXISTS adftutorialhivetable; 
 		CREATE EXTERNAL TABLE  adftutorialhivetable
@@ -39,7 +39,7 @@
 		FROM hivesampletable 
 		group by country, state;
 
-	> [AZURE.NOTE]Чтобы использовать механизм **Tez** для выполнения запросов Hive в файле HQL, добавьте в начало файла строку **set hive.execution.engine=tez**;.
+	> [AZURE.NOTE]Чтобы использовать механизм **Tez** для выполнения запросов Hive в файле HQL, добавьте в начало файла строку \*\*set hive.execution.engine=tez\*\*;.
 		
 3.  Загрузите файл **hivequery.hql** в контейнер **adftutorial** в хранилище больших двоичных объектов.
 
@@ -133,14 +133,14 @@
 						"transformation":
 						{
                     		"type": "Hive",
-                    		"extendedProperties":
+                    		"defines":
                     		{
                         		"RESULTOUTPUT": "wasb://adftutorial@<your storage account>.blob.core.windows.net/hiveoutput/",
 		                        "Year":"$$Text.Format('{0:yyyy}',SliceStart)",
 		                        "Month":"$$Text.Format('{0:%M}',SliceStart)",
 		                        "Day":"$$Text.Format('{0:%d}',SliceStart)"
 		                    },
-		                    "scriptpath": "adftutorial\hivequery.hql",
+		                    "scriptpath": "adftutorial\\hivequery.hql",
 						    "scriptLinkedService": "StorageLinkedService"
 						},
 						"policy":
@@ -167,7 +167,7 @@
 2. Чтобы развернуть конвейер, нажмите кнопку **Развернуть** на панели команд.
 4. См. раздел [Мониторинг наборов данных и конвейеров][adfgetstartedmonitoring] статьи [Приступая к работе с фабрикой данных][adfgetstarted]. 
 
-	> [AZURE.NOTE]В колонке **СВЕДЕНИЯ О ВЫПОЛНЕННОМ ДЕЙСТВИИ** для среза выходной таблицы (выберите на портале выходную таблицу -> срез -> действие) вы увидите ссылки на журналы, созданные кластером HDInsight. Их можно просмотреть на самом портале или скачать на компьютер.
+	> [AZURE.NOTE]В колонке **СВЕДЕНИЯ О ЦИКЛЕ ВЫПОЛНЕНИЯ ДЕЙСТВИЯ** для среза выходной таблицы (выберите на портале выходную таблицу -> срез -> действие) вы увидите ссылки на журналы, созданные кластером HDInsight. Их можно просмотреть на самом портале или скачать на компьютер.
   
 
 ## Пример JSON Pig
@@ -184,7 +184,7 @@
 		{
 			"type": "Pig",
 			"script": "pig script",
-			"extendedProperties":
+			"defines":
 			{	
 				"param1": "param1Value"
  			}
@@ -197,7 +197,7 @@
 - свойству **linkedServiceName** задано значение **MyHDInsightLinkedService**. Подробные сведения о создании связанной службы HDInsight см. в соответствующем разделе ниже.
 - Для параметра **type** **преобразования** задано значение **Pig**.
 - Вы можете указать встроенный сценарий Pig, используя свойство **script**, или сохранить файлы сценария в хранилище BLOB-объектов Azure и связать их с файлом с помощью свойства **scriptPath**, о котором мы расскажем ниже. 
-- Задать параметры сценария Pig можно с помощью свойства **extendedProperties**. Дополнительная информация приведена далее в этой статье. 
+- Задать параметры сценария Pig можно с помощью свойства **defines**. Дополнительная информация приведена далее в этой статье. 
 
 
 ## Пример JSON Hive
@@ -214,7 +214,7 @@
 		{
 			"type": "Hive",
 			"script": "Hive script",
-			"extendedProperties":
+			"defines":
 			{	
 				"param1": "param1Value"
             }
@@ -227,7 +227,7 @@
 - свойству **linkedServiceName** задано значение **MyHDInsightLinkedService**. 
 - Параметру **type** **преобразования** задано значение **Hive**.
 - Вы можете указать встроенный сценарий Hive, используя свойство **script**, или сохранить файлы сценария в хранилище BLOB-объектов Azure и связать их с файлом с помощью свойства **scriptPath**, о котором мы расскажем далее. 
-- Задать параметры сценария Hive можно с помощью свойства **extendedProperties**. Дополнительная информация приведена далее в этой статье. 
+- Задать параметры сценария Hive можно с помощью свойства **defines**. Дополнительная информация приведена далее в этой статье. 
 
 > [AZURE.NOTE]Подробную информацию о командлетах, схемах JSON и используемых в них свойствах см. в [справочнике разработчика](http://go.microsoft.com/fwlink/?LinkId=516908).
 
@@ -258,9 +258,9 @@
 					"transformation":
 					{
     					"type": "Hive",
-    					"scriptpath": "adfwalkthrough\scripts\transformdata.hql",    		
+    					"scriptpath": "adfwalkthrough\\scripts\\transformdata.hql",    		
 						"scriptLinkedService": "StorageLinkedService", 
-						"extendedProperties":
+						"defines":
 						{
 						}		
 					},
@@ -277,16 +277,16 @@
 	}
 
 
-> [AZURE.NOTE]Чтобы запросы Hive обрабатывались с помощью механизма **Tez**, перед отправкой запроса выполните команду **set hive.execution.engine=tez**;.
+> [AZURE.NOTE]Чтобы запросы Hive обрабатывались с помощью механизма **Tez**, перед отправкой запроса выполните команду \*\*set hive.execution.engine=tez\*\*;.
 > 
 > Подробную информацию о командлетах, схемах JSON и используемых в них свойствах см. в [справочнике разработчика](http://go.microsoft.com/fwlink/?LinkId=516908).
 
 ## Параметризованные запросы Pig и Hive
-Действия Pig и Hive фабрики данных позволяют задавать параметры, используемые в сценариях Pig и Hive, с помощью свойства **extendedProperties**. Раздел extendedProperties состоит из имени и значения параметра.
+Действия Pig и Hive фабрики данных позволяют задавать параметры, используемые в сценариях Pig и Hive, с помощью свойства **defines**. Раздел defines состоит из имени и значения параметра.
 
-В следующем примере показано, как задавать параметры для сценария Hive с помощью свойства **extendedProperties**. Чтобы использовать параметризованные сценарии Hive, выполните следующие действия.
+В следующем примере показано, как задавать параметры для сценария Hive с помощью свойства **defines**. Чтобы использовать параметризованные сценарии Hive, выполните следующие действия.
 
-1.	Определите параметры в **extendedProperties**.
+1.	Задайте параметры в разделе **defines**.
 2.	Во встроенном сценарии Hive или файле сценария Hive, сохраненном в хранилище больших двоичных объектов, создайте ссылку на параметр, используя синтаксис **${hiveconf:parameterName}**.
 
    
@@ -307,7 +307,7 @@
 				  		"transformation":
 				  		{
 							"type": "Hive", 
-							"extendedProperties":
+							"defines":
 							{
 								"Param1": "$$Text.Format('{0:yyyy-MM-dd}', SliceStart)",
 								"Param2": "value"
@@ -353,4 +353,4 @@
 [Azure Portal]: http://portal.azure.com
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

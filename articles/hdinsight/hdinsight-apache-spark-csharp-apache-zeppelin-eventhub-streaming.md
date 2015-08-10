@@ -52,7 +52,7 @@
 <tr><th>Имя</th><th>Разрешения</th></tr>
 <tr><td>mysendpolicy</td><td>Отправка</td></tr>
 <tr><td>myreceivepolicy</td><td>Прослушивание</td></tr>
-</table>После создания разрешений выберите значок **Сохранить** в нижней части страницы. При этом создаются политики совместного доступа, которые будут использоваться для отправки (**mysendpolicy**) сообщений в этот концентратор событий и их прослушивания (**myreceivepolicy**).
+</table>После создания разрешений выберите значок **Сохранить** в нижней части страницы. При этом создаются политики совместного доступа, которые будут использоваться для отправки (\*\*mysendpolicy\*\*) сообщений в этот концентратор событий и их прослушивания (\*\*myreceivepolicy\*\*).
 
 	![политики](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Streaming.Event.Hub.Policies.png "Создание политик концентратора событий")
 
@@ -164,4 +164,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -31,4 +31,4 @@
 **Скачивание PDF-файла:** [Знакомство с DocumentDB — базой данных NoSQL для Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=511318)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

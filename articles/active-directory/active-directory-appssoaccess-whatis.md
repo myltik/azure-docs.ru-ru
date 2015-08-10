@@ -78,7 +78,7 @@ Azure AD поддерживает единый вход на основе пар
 
 Единый вход на основе пароля использует расширение браузера для безопасного получения данных о приложениях и пользователях из службы Azure AD и применения их к службе. Большинство сторонних приложений SaaS, поддерживаемых Azure AD, поддерживает эту возможность.
 
-Для единого входа на основе пароля можно использовать такие браузеры: * Internet Explorer 8, 9 и 10 в Windows 7 или более поздней версии * Chrome в Windows 7 или более поздней версии либо MacOS X или более поздней версии.
+Для единого входа на основе пароля можно использовать такие браузеры: \* Internet Explorer 8, 9 и 10 в Windows 7 или более поздней версии \* Chrome в Windows 7 или более поздней версии либо MacOS X или более поздней версии.
 
 ###Существующий единый вход
 
@@ -212,4 +212,4 @@ https://myapps.microsoft.com/contosobuild.com/signin/Twitter/230848d52c8745d4b05
 [5]: ./media/active-directory-appssoaccess-whatis/workdaymobile.png
 [6]: ./media/active-directory-appssoaccess-whatis/deeplink.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

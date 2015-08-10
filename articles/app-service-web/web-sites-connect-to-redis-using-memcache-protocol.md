@@ -39,31 +39,31 @@
 
 ![Колонка параметров кэша Redis для Azure](./media/web-sites-connect-to-redis-using-memcache-protocol/1-azure-redis-cache-settings.png)
 
-### Добавление параметра приложения REDIS_HOST
+### Добавление параметра приложения REDIS\_HOST
 
-Сначала нужно создать параметр приложения **REDIS_HOST**. Этот параметр определяет назначение, к которому оболочка совместимости направляет данные кэша. Значение, необходимое для параметра приложения REDIS_HOST, можно получить в колонке **Свойства** вашего экземпляра кэша Redis.
+Сначала нужно создать параметр приложения **REDIS\_HOST**. Этот параметр определяет назначение, к которому оболочка совместимости направляет данные кэша. Значение, необходимое для параметра приложения REDIS\_HOST, можно получить в колонке **Свойства** вашего экземпляра кэша Redis.
 
 ![Имя хоста кэша Redis для Azure](./media/web-sites-connect-to-redis-using-memcache-protocol/2-azure-redis-cache-hostname.png)
 
-Задайте ключ параметра приложения **REDIS_HOST** и значение параметра приложения **hostname** для экземпляра кэша Redis.
+Задайте ключ параметра приложения **REDIS\_HOST** и значение параметра приложения **hostname** для экземпляра кэша Redis.
 
-![Параметр веб-приложения REDIS_HOST](./media/web-sites-connect-to-redis-using-memcache-protocol/3-azure-website-appsettings-redis-host.png)
+![Параметр веб-приложения REDIS\_HOST](./media/web-sites-connect-to-redis-using-memcache-protocol/3-azure-website-appsettings-redis-host.png)
 
-### Добавление параметра приложения REDIS_KEY
+### Добавление параметра приложения REDIS\_KEY
 
-Затем необходимо создать параметр приложения **REDIS_KEY**. Этот параметр предоставляет маркер аутентификации для получения безопасного доступа к экземпляру кэша Redis. Значение, необходимое для параметра REDIS_KEY, можно получить в колонке **Ключи доступа** экземпляра кэша Redis.
+Затем необходимо создать параметр приложения **REDIS\_KEY**. Этот параметр предоставляет маркер аутентификации для получения безопасного доступа к экземпляру кэша Redis. Значение, необходимое для параметра REDIS\_KEY, можно получить в колонке **Ключи доступа** экземпляра кэша Redis.
 
 ![Первичный ключ кэша Redis для Azure](./media/web-sites-connect-to-redis-using-memcache-protocol/4-azure-redis-cache-primarykey.png)
 
-Задайте ключ параметра приложения **REDIS_KEY** и значение параметра приложения **Primary Key** для экземпляра кэша Redis.
+Задайте ключ параметра приложения **REDIS\_KEY** и значение параметра приложения **Primary Key** для экземпляра кэша Redis.
 
-![Параметр веб-приложения REDIS_KEY](./media/web-sites-connect-to-redis-using-memcache-protocol/5-azure-website-appsettings-redis-primarykey.png)
+![Параметр веб-приложения REDIS\_KEY](./media/web-sites-connect-to-redis-using-memcache-protocol/5-azure-website-appsettings-redis-primarykey.png)
 
-### Добавление параметра приложения MEMCACHESHIM_REDIS_ENABLE
+### Добавление параметра приложения MEMCACHESHIM\_REDIS\_ENABLE
 
-Последний параметр приложения используется для включения оболочки совместимости Memcache в веб-приложениях, которые будут использовать параметры REDIS_HOST и REDIS_KEY для подключения к кэшу Redis для Azure и переадресовывать вызовы кэша. Задайте ключ параметра приложения **MEMCACHESHIM_REDIS_ENABLE** и значение **true**.
+Последний параметр приложения используется для включения оболочки совместимости Memcache в веб-приложениях, которые будут использовать параметры REDIS\_HOST и REDIS\_KEY для подключения к кэшу Redis для Azure и переадресовывать вызовы кэша. Задайте ключ параметра приложения **MEMCACHESHIM\_REDIS\_ENABLE** и значение **true**.
 
-![Параметр веб-приложения MEMCACHESHIM_REDIS_ENABLE](./media/web-sites-connect-to-redis-using-memcache-protocol/6-azure-website-appsettings-enable-shim.png)
+![Параметр веб-приложения MEMCACHESHIM\_REDIS\_ENABLE](./media/web-sites-connect-to-redis-using-memcache-protocol/6-azure-website-appsettings-enable-shim.png)
 
 После добавления трех (3) параметров приложения щелкните **Сохранить**.
 
@@ -71,7 +71,7 @@
 
 Чтобы приложение использовало протокол Memcache, установите расширение Memcache в PHP (языковая платформа вашего сайта WordPress).
 
-### Загрузка расширения php_memcache
+### Загрузка расширения php\_memcache
 
 На сайте [PECL][6] в категории кэширования найдите и щелкните [memcache][7]. В столбце загрузок выберите ссылку DLL.
 
@@ -81,14 +81,14 @@
 
 ![Пакет Memcache веб-сайта PHP PECL](./media/web-sites-connect-to-redis-using-memcache-protocol/8-php-pecl-memcache-package.png)
 
-### Включение расширения php_memcache
+### Включение расширения php\_memcache
 
-После скачивания файла распакуйте его и выложите **php_memcache.dll** в каталог **d:\home\site\wwwroot\bin\ext\**. После передачи файла php_memcache.dll в веб-приложение, необходимо включить расширение в среде выполнения PHP. Чтобы включить расширение Memcache на портале Azure, откройте колонку **Параметры приложения** для веб-приложения, затем добавьте новый параметр приложения с ключом **PHP_EXTENSIONS** и значением **bin\ext\php_memcache.dll**.
+После скачивания файла распакуйте его и выложите **php\_memcache.dll** в каталог **d:\\home\\site\\wwwroot\\bin\\ext\\**. После передачи файла php\_memcache.dll в веб-приложение, необходимо включить расширение в среде выполнения PHP. Чтобы включить расширение Memcache на портале Azure, откройте колонку **Параметры приложения** для веб-приложения, затем добавьте новый параметр приложения с ключом **PHP\_EXTENSIONS** и значением **bin\\ext\\php\_memcache.dll**.
 
 
-> Если для веб-приложения необходимо загрузить несколько расширений PHP, значение параметра PHP_EXTENSIONS должно быть списком относительных путей к DLL-файлам с разделителями-запятыми.
+> Если для веб-приложения необходимо загрузить несколько расширений PHP, значение параметра PHP\_EXTENSIONS должно быть списком относительных путей к DLL-файлам с разделителями-запятыми.
 
-![Параметр веб-приложения PHP_EXTENSIONS](./media/web-sites-connect-to-redis-using-memcache-protocol/9-azure-website-appsettings-php-extensions.png)
+![Параметр веб-приложения PHP\_EXTENSIONS](./media/web-sites-connect-to-redis-using-memcache-protocol/9-azure-website-appsettings-php-extensions.png)
 
 По завершении щелкните **Сохранить**.
 
@@ -197,4 +197,4 @@ redis-cli –h <hostname-for-redis-cache> –a <primary-key-for-redis-cache> –
 [13]: http://memcached.org
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -273,11 +273,11 @@
     	{% endblock %}
 
 
-### Добавьте файл конфигурации и измените файл __init__.py
+### Добавьте файл конфигурации и измените файл \_\_init\_\_.py
 
 1. Щелкните правой кнопкой мыши имя проекта и добавьте файл **config.py**. Этот файл необходим для работы форм в Flask. Кроме того, его можно использовать для предоставления секретного ключа. В этом учебнике это не требуется.
 
-2. Добавьте следующий код в файл config.py. Измените значения **DOCUMENTDB_HOST** и **DOCUMENTDB_KEY**.
+2. Добавьте следующий код в файл config.py. Измените значения **DOCUMENTDB\_HOST** и **DOCUMENTDB\_KEY**.
 
     	CSRF_ENABLED = True
     	SECRET_KEY = 'you-will-never-guess'
@@ -289,7 +289,7 @@
     	DOCUMENTDB_COLLECTION = 'voting collection'
     	DOCUMENTDB_DOCUMENT = 'voting document'
 
-3. Аналогичным образом замените содержимое файла **__init__.py** на следующий код.
+3. Аналогичным образом замените содержимое файла **\_\_init\_\_.py** на следующий код.
 
     	from flask import Flask
     	app = Flask(__name__)
@@ -350,4 +350,4 @@
   [Azure Management Portal]: http://portal.azure.com
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

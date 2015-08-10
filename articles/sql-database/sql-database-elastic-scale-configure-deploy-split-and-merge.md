@@ -1,7 +1,8 @@
 <properties
 	pageTitle="Учебник по инструменту разбиения и объединения эластичной базы данных | Microsoft Azure"
 	description="Разбиение и объединение с помощью инструментов эластичной базы данных"
-	services="sql-database" documentationCenter=""  
+	services="sql-database" 
+	documentationCenter=""
 	manager="jeffreyg"
 	authors="sidneyh"/>
 
@@ -21,7 +22,7 @@
 2. Откройте командную строку и перейдите в каталог, куда вы загрузили nuget.exe.
 3. Скачайте последний пакет разбиения и объединения в текущем каталоге с помощью приведенной ниже команды: `nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge`.  
 
-Приведенные выше действия выполняют загрузку файлов Split-Merge в текущий каталог. Файлы находятся в каталоге **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x**, где *x.x.xxx.x* отражает номер версии. Файлы службы разбиения и объединения находятся в подкаталоге **content\splitmerge\service**, а сценарии разбиения и объединения PowerShell (и необходимые библиотеки DLL клиентов) — в подкаталоге **content\splitmerge\powershell**.
+Приведенные выше действия выполняют загрузку файлов Split-Merge в текущий каталог. Файлы находятся в каталоге **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x**, где *x.x.xxx.x* отражает номер версии. Файлы службы разбиения и объединения находятся в подкаталоге **content\\splitmerge\\service**, а сценарии разбиения и объединения PowerShell (и необходимые библиотеки DLL клиентов) — в подкаталоге **content\\splitmerge\\powershell**.
 
 ## Предварительные требования
 
@@ -328,4 +329,4 @@
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

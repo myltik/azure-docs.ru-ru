@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Планирование серверных задач с помощью планировщика — мобильные службы" 
+	pageTitle="Планирование повторяющихся заданий в мобильных службах Azure" 
 	description="Использование планировщика мобильных служб Azure для планирования заданий для мобильного приложения." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="05/20/2015" 
+	ms.date="07/21/2015" 
 	ms.author="glenga"/>
 
 # Планирование повторяющихся заданий в мобильных службах 
@@ -36,16 +36,14 @@
 
 [AZURE.INCLUDE [mobile-services-register-twitter-access](../../includes/mobile-services-register-twitter-access.md)]
 
-<ol start="7">
-<li><p>В обозревателе решений в Visual Studio откройте файл web.config для проекта мобильной службы, найдите параметры <strong>MS_TwitterConsumerKey</strong> и <strong>MS_TwitterConsumerSecret</strong> и замените их значения на ключ клиента и секрет клиента Twitter, заданные на портале.</p></li>
+&nbsp;&nbsp;7. В обозревателе решений Visual Studio откройте файл web.config для проекта мобильной службы, найдите параметры `MS_TwitterConsumerKey` и `MS_TwitterConsumerSecret` и замените их значения на ключ клиента и секрет клиента Twitter, заданные на портале.
 
-<li><p>В том же разделе добавьте следующие новые параметры приложения, заменив местозаполнители на маркер доступа и секрет маркера доступа Twitter, заданные на портале.</p>
+&nbsp;&nbsp;8. В том же разделе добавьте следующие новые параметры приложения, заменив местозаполнители на маркер доступа и секрет маркера доступа Twitter, заданные на портале.
 
-<pre><code>&lt;add key="TWITTER_ACCESS_TOKEN" value="**your_access_token**" />
-&lt;add key="TWITTER_ACCESS_TOKEN_SECRET" value="**your_access_token_secret**" /></code></pre>
+	<add key="TWITTER_ACCESS_TOKEN" value="**your_access_token**" />
+	<add key="TWITTER_ACCESS_TOKEN_SECRET" value="**your_access_token_secret**" />
 
-<p>Эти сохраненные параметры используются мобильной службой при запуске на локальном компьютере, и это позволяет проверить запланированное задание перед публикацией. При работе в Azure мобильная служба вместо этого использует значения параметров приложения, заданные на портале, и игнорирует эти параметры проекта.  </p></li>
-</ol>
+Эти сохраненные параметры используются мобильной службой при запуске на локальном компьютере, и это позволяет проверить запланированное задание перед публикацией. При работе в Azure мобильная служба вместо этого использует значения параметров приложения, заданные на портале, и игнорирует эти параметры проекта.
 
 ##<a name="install-linq2twitter"></a>Загрузка и установка библиотеки LINQ to Twitter
 
@@ -65,7 +63,7 @@
 
 	При этом создается новый файл проекта для класса Updates.
 
-2. Щелкните правой клавишей **Ссылки**, выберите **Добавить ссылку...**, выберите **Платформа** в разделе **Сборки**, установите флажок **System.ComponentModel.DataAnnotations** и щелкните **ОК**.
+2. Щелкните правой клавишей **Ссылки**, выберите **Добавить ссылку...**, а затем **Платформа** в разделе **Сборки**, установите флажок **System.ComponentModel.DataAnnotations** и нажмите кнопку **ОК**.
 
 	![][7]
 
@@ -88,7 +86,7 @@
 	        public DateTime Date { get; set; }
     	}
 
-4. Разверните папку Models, откройте файл контекста модели данных (с именем <em>имя_службы</em>Context.cs) и добавьте следующее свойство, которое возвращает объект с типом **DbSet**:
+4. Разверните папку Models, откройте файл контекста модели данных (с именем *имя\_службы\*Context.cs) и добавьте следующее свойство, которое возвращает объект с типом **DbSet**:
 
 		public DbSet<Updates> Updates { get; set; }
 
@@ -127,7 +125,8 @@
 		        private string accessToken;
 		        private string accessTokenSecret;
 		
-		        protected override void Initialize(ScheduledJobDescriptor scheduledJobDescriptor, CancellationToken cancellationToken)
+		        protected override void Initialize(ScheduledJobDescriptor scheduledJobDescriptor, 
+					CancellationToken cancellationToken)
 		        {
 		            base.Initialize(scheduledJobDescriptor, cancellationToken);
 		
@@ -214,7 +213,7 @@
 		    }
 		}
 
-	В приведенном выше коде необходимо заменить строки _todolistService_ и _todolistContext_ на пространство имен и DbContext загруженного проекта, т. е. <em>mobile&#95;service&#95;name</em>Service и <em>mobile&#95;service&#95;name</em>Context соответственно.
+	В приведенном выше коде необходимо заменить строки _todolistService_ и _todolistContext_ на пространство имен и DbContext загруженного проекта, т. е. *mobile&#95;service&#95;name\*Service и *mobile&#95;service&#95;name\*Context соответственно.
    	
 	В приведенном выше коде переопределяющий метод **ExecuteAsync** вызывает API запросов Твиттера с помощью сохраненных учетных данных для запроса последних твитов, содержащих хэш-тег `#mobileservices`. Повторяющиеся твиты и ответы исключаются из результатов еще до того, как они сохраняются в таблице.
 
@@ -301,4 +300,4 @@
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 [Проект LINQ to Twitter CodePlex]: http://linqtotwitter.codeplex.com/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

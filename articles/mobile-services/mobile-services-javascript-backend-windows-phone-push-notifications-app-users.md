@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Рассылка push-уведомлений проверенным пользователям" 
-	description="Узнайте, как отправлять push-уведомления для конкретного адресата" 
+	pageTitle="Отправка push-уведомлений пользователям, прошедшим проверку подлинности в приложении Windows Phone Silverlight | Мобильные службы Azure" 
+	description="Узнайте, как отправлять push-уведомления из мобильных служб Azure определенным пользователям приложения Windows Phone Silverlight." 
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.date="07/22/2015" 
 	ms.author="glenga"/>
 
 # Рассылка push-уведомлений проверенным пользователям
 
 [AZURE.INCLUDE [mobile-services-selector-push-users](../../includes/mobile-services-selector-push-users.md)]
+
+##Обзор
 
 В этом разделе демонстрируется отправка push-уведомлений прошедшему проверку подлинности пользователю на любом зарегистрированном устройстве. В отличие от предыдущего учебника [Добавление push-уведомлений в приложение мобильных служб], в данном учебнике будут описаны изменения мобильной службы, обеспечивающие выполнение проверки подлинности пользователя перед регистрацией клиента в концентраторе уведомлений для получения push-уведомлений. Регистрация также изменяется — добавляется тег на основе идентификатора назначенного пользователя. Наконец, обновляется серверный скрипт, чтобы уведомление отправлялось не всем зарегистрированным пользователям, а только тем, кто прошел проверку подлинности.
  
@@ -38,13 +40,14 @@
 
 [AZURE.INCLUDE [mobile-services-javascript-backend-push-notifications-app-users](../../includes/mobile-services-javascript-backend-push-notifications-app-users.md)]
 
-<ol start="5"><li><p>Замените функцию вставки следующим кодом и нажмите кнопку <strong>Сохранить</strong>.</p>
-<pre><code>function insert(item, user, request) {
+&nbsp;&nbsp;5. Замените функцию вставки следующим кодом и нажмите кнопку **Сохранить**.
+
+    function insert(item, user, request) {
 	// Define a payload for the Windows Phone toast notification.
-	var payload = '&lt;?xml version="1.0" encoding="utf-8"?>' +
-		'&lt;wp:Notification xmlns:wp="WPNotification">&lt;wp:Toast>' +
-		'&lt;wp:Text1>New Item&lt;/wp:Text1>&lt;wp:Text2>' + item.text + 
-		'&lt;/wp:Text2>&lt;/wp:Toast>&lt;/wp:Notification>';
+	var payload = '<?xml version="1.0" encoding="utf-8"?>' +
+		'<wp:Notification xmlns:wp="WPNotification"><wp:Toast>' +
+		'<wp:Text1>New Item</wp:Text1><wp:Text2>' + item.text + 
+		'</wp:Text2></wp:Toast></wp:Notification>';
 
 	// Get the ID of the logged-in user.
 	var userId = user.userId;		
@@ -64,11 +67,11 @@
 					});
 				}
 			});      
-}</code></pre>
+	}
 
-<p>Этот скрипт вставки использует тег идентификатора пользователя для отправки push-уведомления (с текстом вставленного элемента) во все регистрации приложения Windows Phone (MPNS), созданные выполнившим вход пользователем.</p></li></ol>
+&nbsp;&nbsp;Этот скрипт вставки использует тег идентификатора пользователя для отправки push-уведомления (с текстом вставленного элемента) во все регистрации приложения Windows Phone (MPNS), созданные выполнившим вход пользователем.
 
-##<a name="update-app"></a>Обновление приложения с учетом требования по входу в систему перед регистрацией
+##<a name="update-app"></a>Обновление приложения, чтобы для регистрации требовался вход
 
 [AZURE.INCLUDE [mobile-services-windows-phone-push-notifications-app-users](../../includes/mobile-services-windows-phone-push-notifications-app-users.md)]
 
@@ -92,4 +95,4 @@
 
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -43,4 +43,4 @@ Azure RemoteApp использует образ Windows Server 2012 R2 для р
 - Отправка VHD из цепочки моментальных снимков не поддерживается.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

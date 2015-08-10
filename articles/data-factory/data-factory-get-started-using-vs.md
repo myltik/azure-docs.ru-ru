@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Приступая к работе с фабрикой данных Azure" 
+	pageTitle="Учебник. Копирование данных из хранилища BLOB-объектов Azure в Azure SQL" 
 	description="В этом учебнике показано, как создать пример конвейера данных, который копирует данные из большого двоичного объекта в экземпляр базы данных SQL Azure." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/17/2015" 
+	ms.date="07/27/2015" 
 	ms.author="spelluru"/>
 
 # Учебник. Создание и мониторинг фабрики данных с помощью Visual Studio
@@ -249,4 +249,4 @@
 
 Инструкции по использованию портала предварительной версии Azure для мониторинга конвейера и наборов данных, созданных в этом учебнике, см. в разделе [Мониторинг наборов данных и конвейера](data-factory-get-started-using-editor.md/#MonitorDataSetsAndPipeline).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

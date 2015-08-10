@@ -1,26 +1,29 @@
 <properties 
-	pageTitle="Список образов виртуальных машин Oracle" 
-	description="Просмотрите список образов Oracle в коллекции Azure и узнайте, как создать виртуальную машину Oracle на основе такого образа." 
-	services="virtual-machines" 
-	authors="bbenz" 
-	documentationCenter=""/>
+pageTitle="Список образов виртуальных машин Oracle"
+description="Просмотрите список образов Oracle в коллекции Azure и узнайте, как создать виртуальную машину Oracle на основе такого образа."
+services="virtual-machines"
+documentationCenter=""
+authors="bbenz"
+manager=""
+editor=""
+tags=""/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="infrastructure-services" 
-	ms.date="06/22/2015" 
-	ms.author="bbenz" />
+<tags
+ms.service="virtual-machines"
+ms.devlang="na"
+ms.topic="article"
+ms.tgt_pltfrm="na"
+ms.workload="infrastructure-services"
+ms.date="06/22/2015"
+ms.author="bbenz" />
 
 #Список образов виртуальных машин Oracle
 Чтобы создать виртуальную машину на основе образа Oracle, войдите на [портал Azure](https://ms.portal.azure.com/), щелкните **Marketplace**, выберите меню **Вычисление**, а затем в поле поиска введите **Oracle**. Выберите образ и следуйте указаниям, чтобы установить образ в Microsoft Azure. Обратите внимание, что в образах Oracle корпорации Майкрософт на [портале Azure](https://ms.portal.azure.com/) используется Windows, а в образах Oracle корпорации Oracle используется Oracle Linux.
 
 ![](media/virtual-machines-oracle-list-oracle-virtual-machine-images/image1.png)
 
-##Образы виртуальных машин Windows
-Ниже приведен список доступных образов виртуальных машин Oracle, работающих на Windows Server в Azure. Эти образы оплачиваются по мере использования. Это означает, что стоимость лицензий на использование ПО Oracle включена в плату за использование этих образов. Можно также импортировать свои лицензии на программное обеспечение Oracle для его запуска в Windows или Linux. Ниже приведена подробная информация о [ценах и лицензировании для виртуальных машин и образов коллекции виртуальных машин](http://azure.microsoft.com/pricing/details/virtual-machines/#oracle-software). Щелкните вкладку **Oracle**, чтобы просмотреть цены для нужных решений Oracle.
+##Образы виртуальных машин под управлением Windows
+Ниже приведен список доступных образов виртуальных машин Oracle, работающих на Windows Server в Azure. Эти образы оплачиваются по мере использования. Это означает, что стоимость лицензий на использование ПО Oracle включена в плату за использование этих образов. Можно также импортировать свои лицензии на программное обеспечение Oracle для его запуска в Windows или Linux. Ниже приведены подробные сведения о [ценах и лицензировании для виртуальных машин Azure и виртуальных машин из коллекции образов](http://azure.microsoft.com/pricing/details/virtual-machines/#oracle-software). Щелкните вкладку **Oracle**, чтобы просмотреть цены для нужных решений Oracle.
 
 ###Образы виртуальных машин для базы данных Oracle
 - Oracle Database 12c Enterprise Edition на Windows Server 2012
@@ -51,17 +54,17 @@
 
 
 ##Образы виртуальных машин Oracle Linux
-Ниже приведен список доступных предварительно настроенных образов виртуальных машин Oracle, работающих под управлением Oracle Linux в Azure. Пользователи должны предоставить собственную лицензию для этих образов, так как лицензионные платежи Oracle не включаются в использование этих предварительно настроенных образов виртуальных машин. Вы можете также внедрить собственную лицензию для установки и запуска программного обеспечения Oracle на пользовательских виртуальных машинах в Windows или Linux. Ниже приведена подробная информация о [лицензировании Oracle в Azure](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html#support). А здесь приведена подробная информация о создании виртуальных машин с помощью [собственных образов](virtual-machines-create-upload-vhd-windows-server.md). Информацию об этом и других методах миграции Oracle и других рабочих нагрузок в Azure см. в статье [Различные способы создания виртуальной машины Windows](virtual-machines-windows-choices-create-vm.md).
+Ниже приведен список доступных предварительно настроенных образов виртуальных машин Oracle, работающих под управлением Oracle Linux в Azure. Пользователи должны предоставить собственную лицензию для этих образов, так как лицензионные платежи Oracle не включаются в использование этих предварительно настроенных образов виртуальных машин. Вы можете также внедрить собственную лицензию для установки и запуска программного обеспечения Oracle на пользовательских виртуальных машинах в Windows или Linux. Ниже приведена подробная информация о [лицензировании Oracle в Azure](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html#support). А здесь приведена подробная информация о создании виртуальных машин с помощью [собственных образов](virtual-machines-create-upload-vhd-windows-server.md). Информацию об этом и других методах миграции Oracle и других рабочих нагрузок в Azure см. в статье [Различные способы создания виртуальной машины под управлением Windows](virtual-machines-windows-choices-create-vm.md).
 
 - Oracle Database 12c Enterprise Edition на Oracle Linux
 - Oracle Database 12c Standard Edition на Oracle Linux
 - Oracle WebLogic Server 12c Enterprise Edition на Oracle Linux
-- Oracle Linux 6.4.0.0.0 
-- Oracle Linux 7.0.0.0.0 
+- Oracle Linux 6.4.0.0.0
+- Oracle Linux 7.0.0.0.0
 
 ##Дополнительные ресурсы
 [Новые универсальные образы Oracle в Azure Marketplace](https://msopentech.com/blog/2015/02/19/new-one-oracle-images-azure-marketplace/)
 
-[Образы виртуальных машин Oracle. Различные рекомендации.](#miscellaneous-considerations-for-oracle-virtual-machine-images-new-article)
+[Образы виртуальных машин Oracle. Различные рекомендации](#miscellaneous-considerations-for-oracle-virtual-machine-images-new-article)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

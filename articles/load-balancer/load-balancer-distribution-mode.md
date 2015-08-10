@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Настройка режима распределения подсистемы балансировки нагрузки | Microsoft Azure"
-   description="Информация о настройке режима распределения подсистемы балансировки нагрузки Azure для поддержки соответствия исходному IP-адресу, также называемому закрепленными сеансами"
+   description="Как настроить режим распределения подсистемы балансировки нагрузки Azure для поддержки соответствия исходному IP-адресу"
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
@@ -149,4 +149,4 @@ LoadBalancerDistribution может иметь значение sourceIP для 
 
 [Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

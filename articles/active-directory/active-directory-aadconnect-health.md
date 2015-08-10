@@ -155,4 +155,4 @@ Azure AD Connect Health для AD FS поддерживает AD FS 2.0 в Wind
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

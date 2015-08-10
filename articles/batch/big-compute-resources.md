@@ -13,17 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
-   ms.date="07/14/2015"
+   ms.date="07/28/2015"
    ms.author="danlep"/>
 
-# Большие вычисления в Azure: технические ресурсы для Пакетных служб и высокопроизводительных вычислений (HPC)
+# Большие вычисления в Azure: технические ресурсы для пакетных и высокопроизводительных вычислений (HPC)
 Это руководство по техническим ресурсам поможет вам выполнять крупномасштабные параллельные и пакетные задания, а также рабочие нагрузки HPC в Azure. Перенесите свои текущие пакетные задания или рабочие нагрузки HPC в облако Azure или создайте в Azure новые решения для больших вычислений с помощью набора служб Azure.
 
 ## Варианты решений
 
 Узнайте, какие решения для больших вычислений существуют в Azure, и выберите вариант, который подходит для рабочих нагрузок и потребностей вашей организации.
 
-* [Пакетные и HPC решения](batch-hpc-solutions.md)
+* [Пакетные и высокопроизводительные вычислительные решения](batch-hpc-solutions.md)
 
 * [Большие вычисления в облаке с помощью Azure и HPC (видео)](http://azure.microsoft.com/documentation/videos/teched-europe-2014-big-compute-in-the-cloud-with-high-performance-computing-on-azure/)
 
@@ -36,9 +36,9 @@
 
 * [Справочник по API](https://msdn.microsoft.com/library/azure/dn820177.aspx)
 
-* [Форум по Пакетной службе](https://social.msdn.microsoft.com/Forums/home?forum=azurebatch)
-
 * [Учебник «Приступая к работе с библиотекой Пакетной службы Azure для .NET»](batch-dotnet-get-started.md)
+
+* [Форум по Пакетной службе](https://social.msdn.microsoft.com/Forums/home?forum=azurebatch)
 
 * [Видеоролики о Пакетной службе](https://azure.microsoft.com/documentation/videos/index/?services=batch)
 
@@ -48,18 +48,46 @@
 
 ### Пакет Microsoft HPC
 
-[Пакет HPC](https://technet.microsoft.com/library/jj899572.aspx) — это бесплатный диспетчер кластеров и планировщик заданий от Майкрософт для локальных, гибридных и облачных систем HPC.
+Пакет HPC — бесплатное решение Майкрософт для высокопроизводительных вычислений, созданное на основе технологий Microsoft Azure и Windows Server.
 
-* [Использование пакета HPC совместно с Azure](https://technet.microsoft.com/library/gg481749.aspx)
+* [Загрузить пакет HPC 2012 R2 с обновлением 2](https://www.microsoft.com/ru-ru/download/details.aspx?id=47755)
 
-* [Пакет HPC на виртуальных машинах Azure](https://msdn.microsoft.com/library/azure/dn518135.aspx)
+* [Документация](https://technet.microsoft.com/library/jj899572.aspx)
 
-* [Учебник: настройка гибридного кластера с пакетом HPC в Azure](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)
+* **Образы виртуальных машин Azure**
+
+    * [Пакет HPC на Windows Server 2012 R2](http://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/)
+
+    * [Вычислительный узел пакета HPC на Windows Server 2012 R2](http://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2computenodeonwindowsserver2012r2/)
+
+    * [Вычислительный узел пакета HPC с Excel на Windows Server 2012 R2](http://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2computenodewithexcelonwindowsserver2012r2/)
+
+* **Шаблоны и скрипты для быстрого запуска Azure**
+
+    * [Создание кластера HPC](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/)
+
+    * [Создание кластера HPC с пользовательским образом вычислительного узла](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/)
+
+    * [Сценарий PowerShell для развертывания пакета HPC в виде IaaS](https://www.microsoft.com/download/details.aspx?id=44949)
+
+* **Учебники по Azure**
+
+    * [Учебник: начало работы с вычислительными узлами Linux в кластере пакета HPC в Azure](../virtual-machines/virtual-machines-linux-cluster-hpcpack.md)
+
+    * [Учебник: начало работы с кластером пакета HPC в Azure для запуска рабочих нагрузок Excel и SOA](../virtual-machines/virtual-machines-excel-cluster-hpcpack.md)
+
+    * [Учебник: настройка гибридного кластера с пакетом HPC в Azure](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)
+
+    * [Пакет HPC на виртуальных машинах Azure](https://msdn.microsoft.com/library/azure/dn518135.aspx)
+
+    * [Использование пакета HPC совместно с Azure](https://technet.microsoft.com/library/gg481749.aspx)
+
 
 * [Форумы по Windows HPC](https://social.microsoft.com/Forums/home?category=windowshpc)
 
-### Кластерные решения Linux
-Используйте эти шаблоны диспетчера ресурсов Azure для развертывания кластеров HPC под управлением Linux.
+### Кластерные решения Linux и OSS
+
+Используйте эти шаблоны быстрого запуска Azure для развертывания кластеров Linux HPC с помощью средств с открытым исходным кодом.
 
 * Шаблон [Spin up a SLURM cluster](http://azure.microsoft.com/documentation/templates/slurm/) и [запись блога](http://blogs.technet.com/b/windowshpc/archive/2015/06/06/deploy-a-slurm-cluster-on-azure.aspx)
 
@@ -79,7 +107,7 @@
 
 ## Экземпляры для ресурсоемких вычислений
 
-Azure предлагает вычислительные экземпляры [различных размеров](../virtual-machines/virtual-machines-size-specs.md), включая ресурсоемкие [A8, A9, A10 и A11](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md), для выполнения рабочих нагрузок HPC в Windows и Linux.
+Azure предлагает вычислительные экземпляры [различных размеров](../virtual-machines/virtual-machines-size-specs.md), включая ресурсоемкие [A8, A9, A10 и A11](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md), для выполнения рабочих нагрузок HPC в Linux и Windows.
 
 * [Настройка кластера Linux RDMA для выполнения приложений MPI](../virtual-machines/virtual-machines-linux-cluster-rdma.md)
 
@@ -118,4 +146,4 @@ Azure предлагает вычислительные экземпляры [р
 * Последние объявления см. в [блоге группы Microsoft HPC и Пакетной службы](http://blogs.technet.com/b/windowshpc/), а также в [блоге Azure](http://azure.microsoft.com/blog/tag/hpc/).
 * Следите также за лентой [новостей о Пакетной службе](http://azure.microsoft.com/updates/?service=batch) или подпишитесь на [RSS-канал](http://azure.microsoft.com/updates/feed/?service=batch).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

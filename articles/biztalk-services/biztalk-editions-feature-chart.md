@@ -257,4 +257,4 @@ BizTalk Server на виртуальных машинах Azure предоста
 - [Как приступить к работе с пакетом SDK для служб BizTalk Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Гибридные облачные тестовые среды Azure" 
-	description="Ознакомьтесь с ключевыми разделами с описанием создания тестовых сред, которые можно использовать для разработки, тестирования и экспериментального использования гибридного облака Azure." 
-	documentationCenter="" 
+<properties
+	pageTitle="Гибридные облачные тестовые среды Azure"
+	description="Ознакомьтесь с ключевыми разделами с описанием создания тестовых сред, которые можно использовать для разработки, тестирования и экспериментального использования гибридного облака Azure."
+	documentationCenter=""
 	services="virtual-machines"
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-windows" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/09/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/09/2015"
 	ms.author="josephd"/>
 
 # Гибридные облачные тестовые среды Azure
@@ -58,7 +58,4 @@
 
 [Руководство по реализации служб инфраструктуры Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-
- 
-
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

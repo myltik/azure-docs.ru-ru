@@ -24,7 +24,7 @@
 
 http://&lt;*StorageAccount*&gt;.blob.core.windows.net/&lt;*Container*&gt;/&lt;*BlobName*&gt
 
-&lt;*StorageAccount*&gt; — уникальный идентификатор, назначаемый при создании новой учетной записи хранения, а &lt;*Container*&gt; и &lt;*BlobName*&gt; — имя контейнера и имя BLOB-объекта в этом контейнере соответственно.
+&lt;\*StorageAccount\*&gt; — уникальный идентификатор, назначаемый при создании новой учетной записи хранения, а &lt;\*Container\*&gt; и &lt;\*BlobName\*&gt; — имя контейнера и имя BLOB-объекта в этом контейнере соответственно.
 
 В Azure предоставлены два различных типа BLOB-объектов. Возможны следующие варианты:
 
@@ -181,4 +181,4 @@ http://&lt;*StorageAccount*&gt;.table.core.windows.net/&lt;*TableName*&gt
 [SQL-tblstor]: ./media/cloud-storage/Data_06_TblStorage.png
 [hadoop]: ./media/cloud-storage/Data_07_Hadoop.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -206,8 +206,8 @@ Azure разрешает только одну точку входа для ве
 ###### Расположение программы командной строки CSPack (в Windows)
 | Версия пакета SDK | Путь |
 | ----------- | ---- |
-| 1.7+ | C:\Program Files\Microsoft SDKs\Azure\.NET SDK\[версия пакета sdk]\bin\ |
-| &lt;1.6 | C:\Program Files\Azure SDK\[версия пакета sdk]\bin\ |
+| 1\.7+ | C:\\Program Files\\Microsoft SDKs\\Azure\\.NET SDK\\[версия пакета sdk]\\bin\\ |
+| &lt;1.6 | C:\\Program Files\\Azure SDK\\[версия пакета sdk]\\bin\\ |
 
 >[AZURE.NOTE]Чтобы найти файл CSPack.exe (в Windows), запустите ярлык **Командная строка Microsoft Azure**, который устанавливается вместе с пакетом SDK.
 >  
@@ -274,4 +274,4 @@ Azure разрешает только одну точку входа для ве
 [vs_reconfigure]: https://msdn.microsoft.com/library/ee405486.aspx
 [vs_create]: https://msdn.microsoft.com/ru-ru/library/ee405487.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

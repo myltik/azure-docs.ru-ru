@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="04/14/2015"
+	ms.date="07/28/2015"
 	ms.author="yuaxu"/>
 
-# Приступая к работе с концентраторами уведомлений
+# Приступая к работе с центрами уведомлений
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -128,9 +128,9 @@
 
   	![][9]
 
-    > [AZURE.NOTE]По умолчанию загруженный файл сертификата разработки называется **aps_development.cer**.
+    > [AZURE.NOTE]По умолчанию загруженный файл сертификата разработки называется **aps\_development.cer**.
 
-7. Дважды щелкните скачанный сертификат push-уведомлений **aps_development.cer**.
+7. Дважды щелкните скачанный сертификат push-уведомлений **aps\_development.cer**.
 
 	При этом новый сертификат устанавливается в Keychain, как показано ниже:
 
@@ -481,4 +481,4 @@
 [WindowsAzure.Messaging]: https://github.com/infosupport/WindowsAzure.Messaging.iOS
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

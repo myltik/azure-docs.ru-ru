@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Приступая к работе с фабрикой данных Azure" 
+	pageTitle="Учебник. Копирование данных из хранилища BLOB-объектов Azure в Azure SQL" 
 	description="В этом учебнике показано, как создать пример конвейера данных, который копирует данные из большого двоичного объекта в экземпляр базы данных SQL Azure." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/17/2015" 
+	ms.date="07/27/2015" 
 	ms.author="spelluru"/>
 
 # Учебник. Создание и отслеживание фабрик данных с помощью редактора фабрики данных
@@ -111,47 +111,49 @@
 1. В **редакторе** для фабрики данных нажмите кнопку **Создать набор данных** на панели инструментов и щелкните **Таблица больших двоичных объектов** в раскрывающемся меню. 
 2. Замените JSON на правой панели следующим фрагментом JSON: 
 
-        {
-     	    "name": "EmpTableFromBlob",
-		    "properties":
-    		{
-        		"structure":  
-       			 [ 
-            		{ "name": "FirstName", "type": "String"},
-            		{ "name": "LastName", "type": "String"}
-        		],
-        		"location": 
-        		{
-            		"type": "AzureBlobLocation",
-            		"folderPath": "adftutorial/",
-            		"format":
-            		{
-                		"type": "TextFormat",
-                		"columnDelimiter": ","
-            		},
-            		"linkedServiceName": "StorageLinkedService"
-        		},
-        		"availability": 
-        		{
-            		"frequency": "hour",
-            		"interval": 1,
-            		"waitOnExternal": {}
-       		 	}
-    		}
+		{
+		  "name": "EmpTableFromBlob",
+		  "properties": {
+		    "structure": [
+		      {
+		        "name": "FirstName",
+		        "type": "String"
+		      },
+		      {
+		        "name": "LastName",
+		        "type": "String"
+		      }
+		    ],
+		    "type": "AzureBlob",
+		    "linkedServiceName": "StorageLinkedService",
+		    "typeProperties": {
+		      "folderPath": "adftutorial/",
+			  "fileName": "emp.txt",
+		      "format": {
+		        "type": "TextFormat",
+		        "columnDelimiter": ","
+		      }
+		    },
+		    "external": true,
+		    "availability": {
+		      "frequency": "Hour",
+		      "interval": 1
+		    }
+		  }
 		}
 
 		
      Обратите внимание на следующее:
 	
-	- для **типа** расположения задано значение **AzureBlobLocation**;
+	- для параметра **type** расположения задано значение **AzureBlob**;
 	- для **LinkedServiceName** задано значение **StorageLinkedService**. Эта связанная служба была создана на шаге 2.
 	- В качестве значения **FolderPath** установлен контейнер **adftutorial**. Вы также можете указать имя большого двоичного объекта внутри папки. Так как вы не указываете имя большого двоичного объекта, данные из всех больших двоичных объектов в контейнере считаются входными данными.  
 	- Для **типа** формата установлено значение **TextFormat**
-	- В этом текстовом файле имеются два поля, **FirstName** и **LastName**, которые разделяются запятой (**columnDelimiter**)	
-	- Параметр **availability** имеет значение **hourly** (каждый час) (**frequency** имеет значение **hour** (час), и **interval** имеет значение **1**), поэтому служба фабрики данных будет каждый час искать входные данные в корневой папке заданного контейнера больших двоичных объектов (**adftutorial**). 
+	- В этом текстовом файле имеются два поля, **FirstName** и **LastName**, которые разделяются запятой (\*\*columnDelimiter\*\*)	
+	- Параметр **availability** имеет значение **hourly** (каждый час) (\*\*frequency\*\* имеет значение **hour** (час), и **interval** имеет значение **1**), поэтому служба фабрики данных будет каждый час искать входные данные в корневой папке заданного контейнера больших двоичных объектов (\*\*adftutorial\*\*). 
 	
 
-	Если вы не указали **fileName** для **входной** **таблицы**, то все файлы и большие двоичные объекты из входной папки (**folderPath**) рассматриваются как входные данные. Если указать fileName в JSON, только указанный файл или большой двоичный объект рассматриваются как входные данные. Примеры файлов см. в [учебнике][adf-tutorial].
+	Если вы не указали **fileName** для **входной** **таблицы**, то все файлы и большие двоичные объекты из входной папки (\*\*folderPath\*\*) рассматриваются как входные данные. Если указать fileName в JSON, только указанный файл или большой двоичный объект рассматриваются как входные данные. Примеры файлов см. в [учебнике][adf-tutorial].
  
 	Если не указать **fileName** для **выходной таблицы**, то созданные в **folderPath** файлы получают имена в следующем формате: Data.&lt;Guid&gt;.txt (например, Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
@@ -177,29 +179,30 @@
 1. В **редакторе** для фабрики данных нажмите кнопку **Создать набор данных** на панели инструментов и щелкните **Таблица SQL Azure** в раскрывающемся меню. 
 2. Замените JSON на правой панели следующим фрагментом JSON:
 
-        {
-    		"name": "EmpSQLTable",
-    		"properties":
-    		{
-        		"structure":
-        		[
-                	{ "name": "FirstName", "type": "String"},
-                	{ "name": "LastName", "type": "String"}
-        		],
-        		"location":
-        		{
-            		"type": "AzureSqlTableLocation",
-            		"tableName": "emp",
-            		"linkedServiceName": "AzureSqlLinkedService"
-        		},
-        		"availability": 
-        		{
-            		"frequency": "Hour",
-            		"interval": 1            
-        		}
-    		}
+		{
+		  "name": "EmpSQLTable",
+		  "properties": {
+		    "structure": [
+		      {
+		        "name": "FirstName",
+		        "type": "String"
+		      },
+		      {
+		        "name": "LastName",
+		        "type": "String"
+		      }
+		    ],
+		    "type": "AzureSqlTable",
+		    "linkedServiceName": "AzureSqlLinkedService",
+		    "typeProperties": {
+		      "tableName": "emp"
+		    },
+		    "availability": {
+		      "frequency": "Hour",
+		      "interval": 1
+		    }
+		  }
 		}
-
 
 		
      Обратите внимание на следующее:
@@ -208,7 +211,7 @@
 	* **LinkedServiceName** имеет значение **AzureSqlLinkedService** (эта связанная служба была создана на шаге 2);
 	* **Tablename** имеет значение **emp**.
 	* В таблице emp базы данных имеются три столбца: **ID**, **FirstName** и **LastName**, но ID — это столбец идентификаторов, поэтому здесь необходимо задать только **FirstName** и **LastName**.
-	* **Availability** имеет значение **hourly** (**frequency** установлена в значение **hour**, а **interval** имеет значение **1**). Служба фабрики данных будет создавать срез выходных данных каждый час в таблице **emp** в базе данных SQL Azure.
+	* **Availability** имеет значение **hourly** (\*\*frequency\*\* установлена в значение **hour**, а **interval** имеет значение **1**). Служба фабрики данных будет создавать срез выходных данных каждый час в таблице **emp** в базе данных SQL Azure.
 
 
 3. Щелкните **Развернуть** на панели инструментов для создания и развертывания таблицы **EmpSQLTable**.
@@ -222,46 +225,48 @@
 	![Кнопка редактора "Создать конвейер"][image-editor-newpipeline-button]
  
 2. Замените JSON на правой панели следующим фрагментом JSON:
-
-         {
-			"name": "ADFTutorialPipeline",
-			"properties":
-			{	
-				"description" : "Copy data from a blob to Azure SQL table",
-				"activities":	
-				[
-					{
-						"name": "CopyFromBlobToSQL",
-						"description": "Push Regional Effectiveness Campaign data to Azure SQL database",
-						"type": "CopyActivity",
-						"inputs": [ {"name": "EmpTableFromBlob"} ],
-						"outputs": [ {"name": "EmpSQLTable"} ],		
-						"transformation":
-						{
-							"source":
-							{                               
-								"type": "BlobSource"
-							},
-							"sink":
-							{
-								"type": "SqlSink"
-							}	
-						},
-						"Policy":
-						{
-							"concurrency": 1,
-							"executionPriorityOrder": "NewestFirst",
-							"style": "StartOfInterval",
-							"retry": 0,
-							"timeout": "01:00:00"
-						}		
-					}
-        		],
-
-				"start": "2015-02-13T00:00:00Z",
-        		"end": "2015-02-14T00:00:00Z",
-        		"isPaused": false
-      		}
+		
+		{
+		  "name": "ADFTutorialPipeline",
+		  "properties": {
+		    "description": "Copy data from a blob to Azure SQL table",
+		    "activities": [
+		      {
+		        "name": "CopyFromBlobToSQL",
+		        "description": "Push Regional Effectiveness Campaign data to Azure SQL database",
+		        "type": "Copy",
+		        "inputs": [
+		          {
+		            "name": "EmpTableFromBlob"
+		          }
+		        ],
+		        "outputs": [
+		          {
+		            "name": "EmpSQLTable"
+		          }
+		        ],
+		        "typeProperties": {
+		          "source": {
+		            "type": "BlobSource"
+		          },
+		          "sink": {
+		            "type": "SqlSink",
+		            "writeBatchSize": 10000,
+		            "writeBatchTimeout": "60:00:00"
+		          }
+		        },
+		        "Policy": {
+		          "concurrency": 1,
+		          "executionPriorityOrder": "NewestFirst",
+		          "style": "StartOfInterval",
+		          "retry": 0,
+		          "timeout": "01:00:00"
+		        }
+		      }
+		    ],
+		    "start": "2015-07-12T00:00:00Z",
+		    "end": "2015-07-13T00:00:00Z"
+		  }
 		} 
 
 	Обратите внимание на следующее:
@@ -274,7 +279,7 @@
 	
 	Даты начала и окончания должны быть в [формате ISO](http://en.wikipedia.org/wiki/ISO_8601). Например, 2014-10-14T16:32:41Z. Время **окончания** указывать не обязательно, однако в этом примере мы будем его использовать.
 	
-	Если не указать значение свойства **end**, оно вычисляется по формуле «**дата начала + 48 часов**». Чтобы запустить конвейер в течение неопределенного срока, укажите значение **9999-09-09** в качестве значения свойства **окончание**.
+	Если не указать значение свойства **end**, оно вычисляется по формуле «\*\*дата начала + 48 часов\*\*». Чтобы запустить конвейер в течение неопределенного срока, укажите значение **9999-09-09** в качестве значения свойства **окончание**.
 	
 	В приведенном выше примере будет 24 среза данных, так как срезы данных производятся каждый час.
 	
@@ -316,7 +321,7 @@
 5. В колонке **Наборы данных** щелкните **EmpTableFromBlob**. Это входная таблица для **ADFTutorialPipeline**.
 
 	![Наборы данных с выбранным объектом EmpTableFromBlob][image-data-factory-get-started-datasets-emptable-selected]   
-5. Обратите внимание, что срезы данных до настоящего момента уже произведены и находятся в состоянии **Готов**, поскольку файл **emp.txt** все это время существует в контейнере больших двоичных объектов **adftutorial\input**. Убедитесь, что срезы не отображаются в разделе **Срезы, в которых недавно произошел сбой** в нижней части.
+5. Обратите внимание, что срезы данных до настоящего момента уже произведены и находятся в состоянии **Готов**, поскольку файл **emp.txt** все это время существует в контейнере больших двоичных объектов **adftutorial\\input**. Убедитесь, что срезы не отображаются в разделе **Срезы, в которых недавно произошел сбой** в нижней части.
 
 	Оба списка, **Недавно обновленные срезы** и **Срезы, в которых недавно произошел сбой**, сортируются по **ПОСЛЕДНЕМУ ВРЕМЕНИ ОБНОВЛЕНИЯ**. Время обновления среза изменяется в таких ситуациях:
     
@@ -358,7 +363,7 @@
 
 	
 12. С помощью кнопки **X** закройте все колонки, чтобы вернуться к начальной колонке **ADFTutorialDataFactory**.
-14. (Необязательно) Щелкните **Конвейеры** на домашней странице фабрики данных **ADFTutorialDataFactory**, щелкните **ADFTutorialPipeline** в колонке **Конвейеры** и изучите входные таблицы (**Использованные**) или выходные таблицы (**Произведенные**).
+14. (Необязательно) Щелкните **Конвейеры** на домашней странице фабрики данных **ADFTutorialDataFactory**, щелкните **ADFTutorialPipeline** в колонке **Конвейеры** и изучите входные таблицы (\*\*Использованные\*\*) или выходные таблицы (\*\*Произведенные\*\*).
 15. Запустите **SQL Server Management Studio**, подключитесь к базе данных SQL Azure и убедитесь, что строки вставляются в таблицу **emp** в базе данных.
 
 	![результаты SQL-запроса][image-data-factory-get-started-sql-query-results]
@@ -508,4 +513,4 @@
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

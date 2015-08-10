@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="adinah"
+   manager="carolz"
    editor="tysonn" />
 <tags
    ms.service="expressroute"
@@ -12,10 +12,10 @@
    ms.topic="hero-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/29/2015"
+   ms.date="07/28/2015"
    ms.author="cherylmc"/>
 
-#  "Настройка подключения ExpressRoute через поставщика Exchange"
+#  Настройка подключения ExpressRoute через поставщик Exchange
 
 Чтобы настроить подключение ExpressRoute через поставщик Exchange, необходимо выполнить несколько шагов в соответствующем порядке. Эти инструкции помогут вам выполнять следующее.
 
@@ -218,7 +218,7 @@ Windows PowerShell — это полнофункциональная среда 
 
 8. **Настройте виртуальную сеть и шлюз.**
 
-	См. раздел [Настройка виртуальной сети и шлюза для ExpressRoute](https://msdn.microsoft.com/library/azure/dn643737.aspx) Обратите внимание, что подсеть шлюза должна быть /28 для работы с подключением ExpressRoute.
+	См. раздел [Настройка виртуальной сети и шлюза для ExpressRoute](expressroute-configuring-vnet-gateway.md) Обратите внимание, что подсеть шлюза должна быть /28 для работы с подключением ExpressRoute.
 
 9. **Привяжите вашу сеть к каналу.** Выполняйте следующие инструкции только после получения подтверждения, что ваш канал имеет следующее состояние и статус:
 	- ServiceProviderProvisioningState: Provisioned
@@ -227,5 +227,8 @@ Windows PowerShell — это полнофункциональная среда 
 			PS C:\> $Vnet = "MyTestVNet"
 			New-AzureDedicatedCircuitLink -ServiceKey $ServiceKey -VNetName $Vnet
  
+## Дальнейшие действия
 
-<!---HONumber=July15_HO4-->
+- Дополнительную информацию об ExpressRoute см. в статье [Часто задаваемые вопросы об ExpressRoute](expressroute-faqs.md).
+
+<!---HONumber=July15_HO5-->

@@ -1,11 +1,13 @@
-You can create Azure queues by using Visual Studio **Server Explorer**.
+Вы можете создать очереди Azure с помощью **обозревателя сервера** Visual Studio.
 
-![Server Explorer Blobs][Image1]
+![Большие двоичные объекты обозревателя сервера][Image1]
 
-1. On the **View** menu, choose **Server Explorer**.
-2. In Server Explorer, expand the **Azure** node for your subscription, expand the **Storage** node and the node for the storage account you specified in the Azure Storage connected service.
-3. Select the **Queues** node and choose **Create Queue** from the context menu.
-4. Enter a name for the queue and choose **OK**.   
+1. В меню **Вид** выберите **Обозреватель серверов**.
+2. В обозревателе сервера разверните узел **Azure** для своей подписки, разверните узел **Служба хранилища** и узел для учетной записи хранения, указанной вами в подключенной службе хранилища Azure.
+3. Выберите узел **Очереди** и в контекстном меню выберите пункт **Создать очередь**.
+4. Введите имя очереди и нажмите кнопку **ОК**.   
 
 
 [Image1]: ./media/vs-create-queue-in-server-explorer/vs-storage-queues-create-in-server-explorer.png
+
+<!---HONumber=July15_HO5-->

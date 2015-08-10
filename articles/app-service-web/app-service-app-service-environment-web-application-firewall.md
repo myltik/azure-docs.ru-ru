@@ -97,4 +97,4 @@ Barracuda WAF использует TCP-порт 8000 для настройки �
 [ConfigureTrafficManager]: ./media/app-service-app-service-environment-web-application-firewall/ConfigureTrafficManager.png
 [WebsiteTranslations]: ./media/app-service-app-service-environment-web-application-firewall/WebsiteTranslations.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

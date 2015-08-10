@@ -3,7 +3,7 @@
 
 В этом разделе будет обновляться проект из учебника [Приступая к работе с мобильными службами] для съемки фотографий и передачи их в хранилище BLOB-объектов Azure. Для захвата изображения в этом учебнике используется [CameraCaptureTask] из пространства имен `Microsoft.Phone.Tasks`. Этот класс запускает пользовательский интерфейс камеры на устройстве Windows Phone для записи фотографии и автоматически сохраняет изображение в галерее камеры на устройстве Windows Phone. Если вам не нужны изображения, сохраненные в альбоме камеры, используйте вместо этого класс [PhotoCamera] в пространстве имен `Microsoft.Devices`.
 
-1. В обозревателе решений для Visual Studio в проекте разверните пункт **Свойства**. Затем откройте файл WMAppManifest.xml и на вкладке **Возможности** включите камеру, щелкнув **ID_CAP_ISV_CAMERA**. Закройте файл, чтобы сохранить изменения.
+1. В обозревателе решений для Visual Studio в проекте разверните пункт **Свойства**. Затем откройте файл WMAppManifest.xml и на вкладке **Возможности** включите камеру, щелкнув **ID\_CAP\_ISV\_CAMERA**. Закройте файл, чтобы сохранить изменения.
 
    	![](./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-WMAppmanifest-wp8.png)
 
@@ -183,4 +183,4 @@
 [CameraCaptureTask]: http://msdn.microsoft.com/library/windowsphone/develop/microsoft.phone.tasks.cameracapturetask(v=vs.105).aspx
 [PhotoCamera]: http://msdn.microsoft.com/library/windowsphone/develop/microsoft.devices.photocamera(v=vs.105).aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

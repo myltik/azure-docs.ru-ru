@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="03/11/2015" 
+	ms.date="07/29/2015" 
 	ms.author="tomfitz"/>
 
 # Использование хранилища очередей из PHP
@@ -42,7 +42,7 @@
 
 Чтобы использовать интерфейсы API службы очередей Azure, необходимо следующее:
 
-1. Ссылка на файл автозагрузчика с использованием инструкции [require_once][require_once] и
+1. Ссылка на файл автозагрузчика с использованием инструкции [require\_once][require_once] и
 2. Ссылка на любые классы, которые могут использоваться.
 
 В следующем примере показано, как включить файл автозагрузчика и сослаться на класс **ServicesBuilder**.
@@ -384,4 +384,4 @@
 [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

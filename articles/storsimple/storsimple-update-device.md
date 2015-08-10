@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="06/15/2015"
+   ms.date="07/28/2015"
    ms.author="v-sharos" />
 
 # Обновление устройства StorSimple
@@ -52,7 +52,6 @@
 
 С помощью портала управления можно обновлять устройство StorSimple.
 
-
 [AZURE.INCLUDE [storsimple-install-updates-manually](../../includes/storsimple-install-updates-manually.md)]
 
 ## Установка обычных обновлений через Windows PowerShell для StorSimple
@@ -91,8 +90,7 @@ Windows PowerShell для StorSimple используется, чтобы при
 Затем установите обновления.
 
 [AZURE.INCLUDE [storsimple-install-maintenance-mode-updates](../../includes/storsimple-install-maintenance-mode-updates.md)]
-
-    
+ 
 ### Шаг 4. Выход из режима обслуживания
 
 В конце выйдите из режима обслуживания.
@@ -121,4 +119,4 @@ Windows PowerShell для StorSimple используется, чтобы при
 Подробнее о [Windows PowerShell для StorSimple](https://msdn.microsoft.com/library/azure/dn772425.aspx).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -304,4 +304,4 @@
  - Дополнительные сведения о службе Поиск Azure можно узнать [здесь](/services/search/).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

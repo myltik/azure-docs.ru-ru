@@ -52,7 +52,7 @@
 
 Действие — это конкретная задача в рабочем процессе. Так же как скрипт состоит из одной или нескольких команд, рабочий процесс состоит из одного или нескольких действий, которые выполняются в последовательности. Рабочий процесс Windows PowerShell автоматически преобразует множество командлетов Windows PowerShell в действия при выполнении рабочего процесса. Если указать один из этих командлетов в модуле Runbook, соответствующее действие фактически запускается в Windows Workflow Foundation. Для командлетов, для которых не существует соответствующего действия, рабочий процесс Windows PowerShell автоматически запустит командлет в действии [InlineScript](#inlinescript). Существует набор командлетов, которые исключаются и не могут использоваться в рабочем процессе, если они явно не включены в блок InlineScript. Дополнительные сведения об этих понятиях см. в разделе [Использование действий в рабочих процессах скриптов](http://technet.microsoft.com/library/jj574194.aspx).
 
-Действия рабочих процессов совместно используют набор общих параметров для настройки их работы. Сведения об общих параметрах рабочего процесса см. в разделе [about_WorkflowCommonParameters](http://technet.microsoft.com/library/jj129719.aspx).
+Действия рабочих процессов совместно используют набор общих параметров для настройки их работы. Сведения об общих параметрах рабочего процесса см. в разделе [about\_WorkflowCommonParameters](http://technet.microsoft.com/library/jj129719.aspx).
 
 ### Позиционные параметры
 
@@ -144,7 +144,7 @@ InlineScript использует описанный ниже синтаксис
 - Использовать [параллельное выполнение](#parallel-execution) в блоке InlineScript нельзя.
 - InlineScript влияет на масштабируемость рабочего процесса, поскольку содержит сеанс Windows PowerShell для всей продолжительности блока InlineScript.
 
-Дополнительные сведения об использовании InlineScript см. в разделе [Запуск команд Windows PowerShell в рабочем процессе](http://technet.microsoft.com/library/jj574197.aspx) и [about_InlineScript](http://technet.microsoft.com/library/jj649082.aspx).
+Дополнительные сведения об использовании InlineScript см. в разделе [Запуск команд Windows PowerShell в рабочем процессе](http://technet.microsoft.com/library/jj574197.aspx) и [about\_InlineScript](http://technet.microsoft.com/library/jj649082.aspx).
 
 
 ## Параллельная обработка
@@ -163,9 +163,9 @@ InlineScript использует описанный ниже синтаксис
 
 Рассмотрим, например, приведенные ниже команды PowerShell, которые копируют несколько файлов в определенный узел сети. Команды выполняются последовательно, поэтому следующий файл не копируется, пока не закончится копирование предыдущего.
 
-	$Copy-Item -Path C:\LocalPath\File1.txt -Destination \NetworkPath\File1.txt
-	$Copy-Item -Path C:\LocalPath\File2.txt -Destination \NetworkPath\File2.txt
-	$Copy-Item -Path C:\LocalPath\File3.txt -Destination \NetworkPath\File3.txt
+	$Copy-Item -Path C:\LocalPath\File1.txt -Destination \\NetworkPath\File1.txt
+	$Copy-Item -Path C:\LocalPath\File2.txt -Destination \\NetworkPath\File2.txt
+	$Copy-Item -Path C:\LocalPath\File3.txt -Destination \\NetworkPath\File3.txt
 
 Приведенный ниже рабочий процесс выполняет те же команды параллельно, так что все файлы копируются одновременно. При этом сообщение о завершении отображается только после того, как все файлы будут скопированы.
 
@@ -173,9 +173,9 @@ InlineScript использует описанный ниже синтаксис
 	{
 		Parallel 
 		{
-			$Copy-Item -Path "C:\LocalPath\File1.txt" -Destination "\NetworkPath"
-			$Copy-Item -Path "C:\LocalPath\File2.txt" -Destination "\NetworkPath"
-			$Copy-Item -Path "C:\LocalPath\File3.txt" -Destination "\NetworkPath"
+			$Copy-Item -Path "C:\LocalPath\File1.txt" -Destination "\\NetworkPath"
+			$Copy-Item -Path "C:\LocalPath\File2.txt" -Destination "\\NetworkPath"
+			$Copy-Item -Path "C:\LocalPath\File3.txt" -Destination "\\NetworkPath"
 		}
 
 		Write-Output "Files copied."
@@ -199,7 +199,7 @@ InlineScript использует описанный ниже синтаксис
 
 		ForEach -Parallel ($File in $Files) 
 		{
-			$Copy-Item -Path $File -Destination \NetworkPath
+			$Copy-Item -Path $File -Destination \\NetworkPath
 			Write-Output "$File copied."
 		}
 		
@@ -231,7 +231,7 @@ InlineScript использует описанный ниже синтаксис
 
 		ForEach ($File in $Files) 
 		{
-			$Copy-Item -Path $File -Destination \NetworkPath
+			$Copy-Item -Path $File -Destination \\NetworkPath
 			Write-Output "$File copied."
 			Checkpoint-Workflow
 		}
@@ -249,4 +249,4 @@ InlineScript использует описанный ниже синтаксис
 
 - [Начало работы с рабочим процессом Windows PowerShell](http://technet.microsoft.com/library/jj134242.aspx) 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

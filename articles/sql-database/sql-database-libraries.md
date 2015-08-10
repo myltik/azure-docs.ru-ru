@@ -39,12 +39,12 @@
 
 | платформа | Oper Sys | Библиотеки<br/>для загрузки | Версия<br/>драйвера | Описание<br/>драйвера | Дополнительные<br/>сведения |
 | :--- | :--- | :--- | :--- | :--- | :-- |
-| .NET | Кроссплатформенная (.NET) | [ADO.NET, System .Data .SqlClient](http://www.microsoft.com/download/details.aspx?id=30653) | 4.5+ | Поставщик SQL Server для платформы .NET Framework | . |
-| PHP | Windows | [PHP для SQL Server](http://www.microsoft.com/download/details.aspx?id=20098) | 2.0+ | Драйвер PHP для SQL Server | [Ссылка](http://msdn.microsoft.com/library/dn865013.aspx) |
-| Java | Windows | [JDBC для SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) | 2.0+ | Драйвер JDBC типа 4, который обеспечивает подключение к базе данных через стандартные API JDBC | [Ссылка](http://msdn.microsoft.com/library/dn425070.aspx) |
-| ODBC | Windows | [ODBC для SQL Server](http://www.microsoft.com/download/details.aspx?id=36434) | 11.0+ | Драйвер Microsoft ODBC для SQL Server | [Ссылка](http://msdn.microsoft.com/library/jj730308.aspx) |
-| ODBC | Suse Linux | [ODBC для SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11.0+ | Драйвер Microsoft ODBC для SQL Server | . |
-| ODBC | Redhat Linux | [ODBC для SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11.0+ | Драйвер Microsoft ODBC для SQL Server | . |
+| .NET | Кроссплатформенная (.NET) | [ADO.NET, System .Data .SqlClient](http://www.microsoft.com/download/details.aspx?id=30653) | 4\.5+ | Поставщик SQL Server для платформы .NET Framework | . |
+| PHP | Windows | [PHP для SQL Server](http://www.microsoft.com/download/details.aspx?id=20098) | 2\.0+ | Драйвер PHP для SQL Server | [Ссылка](http://msdn.microsoft.com/library/dn865013.aspx) |
+| Java | Windows | [JDBC для SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) | 2\.0+ | Драйвер JDBC типа 4, который обеспечивает подключение к базе данных через стандартные API JDBC | [Ссылка](http://msdn.microsoft.com/library/dn425070.aspx) |
+| ODBC | Windows | [ODBC для SQL Server](http://www.microsoft.com/download/details.aspx?id=36434) | 11\.0+ | Драйвер Microsoft ODBC для SQL Server | [Ссылка](http://msdn.microsoft.com/library/jj730308.aspx) |
+| ODBC | Suse Linux | [ODBC для SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11\.0+ | Драйвер Microsoft ODBC для SQL Server | . |
+| ODBC | Redhat Linux | [ODBC для SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11\.0+ | Драйвер Microsoft ODBC для SQL Server | . |
 
 
 ### OLEDB для DB2 и SQL Server для разработки DRDA
@@ -82,4 +82,4 @@
 https://en.wikipedia.org/wiki/Draft:Microsoft_SQL_Server_Libraries/Drivers
 -->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

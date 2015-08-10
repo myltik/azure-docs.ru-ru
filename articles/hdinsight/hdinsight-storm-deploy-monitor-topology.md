@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/06/2015"
+   ms.date="07/24/2015"
    ms.author="larryfr"/>
 
 #Развертывание топологий Apache Storm в HDInsight и управление ими
@@ -42,9 +42,7 @@
 
 ##Панель мониторинга Storm
 
-Панель мониторинга Storm доступна в кластере Storm по URL-адресу **https://&lt;clustername>.azurehdinsight.net/**, где **clustername** — это имя Storm в кластере HDInsight. Панель мониторинга можно также открыть с помощью ссылки **Панель мониторинга Storm** на панели мониторинга кластера на портале Azure.
-
-![портал с выделенной панелью мониторинга Storm][hdinsight-dashboard]
+Панель мониторинга Storm представляет собой веб-страницу в кластере Storm по URL-адресу **https://&lt;clustername>.azurehdinsight.net/**, где **clustername** — это имя Storm в кластере HDInsight.
 
 В верхней части панели мониторинга Storm выберите **Submit Topology** (Отправка топологии). Следуйте инструкциям на странице, чтобы запустить пример топологии или передать и запустить созданную вами топологию.
 
@@ -178,4 +176,4 @@
 [storm-dashboard-submit]: ./media/hdinsight-storm-deploy-monitor-topology/submit.png
 [storm-dashboard-ui]: ./media/hdinsight-storm-deploy-monitor-topology/storm-ui-summary.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.date="07/25/2015" 
 	ms.author="glenga"/>
 
 
@@ -21,13 +21,12 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-data-legacy](../../includes/mobile-services-selector-get-started-data-legacy.md)]
 
-<div class="dev-onpage-video-clear clearfix">
-<div class="dev-onpage-left-content">
+##Обзор
 
-<p>В этом разделе показано, как использовать мобильные службы Azure для эффективного использования данных в приложении для Windows Phone 8. В этом учебнике предстоит загрузить проект для приложения, которое хранит данные в памяти, создать новые услуги мобильной связи, интегрировать мобильную службу с приложением, а затем выполнить вход на портал управления Azure для просмотра изменений, внесенных в данные в ходе выполнения приложения.</p>
-</div>
-<div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkID=298628" target="_blank" class="label">Просмотр учебника</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-wp8-get-started-data-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkID=298628" target="_blank" class="dev-onpage-video"><span class="icon">Воспроизведение видео</span></a> <span class="time">12:54:00</span></div>
-</div>
+В этом разделе показано, как использовать мобильные службы Azure для эффективного использования данных в приложении для Windows Phone 8. В этом учебнике предстоит загрузить проект для приложения, которое хранит данные в памяти, создать новые услуги мобильной связи, интегрировать мобильную службу с приложением, а затем выполнить вход на портал управления Azure для просмотра изменений, внесенных в данные в ходе выполнения приложения.
+
+Ник Харрис (Nick Harris) демонстрирует порядок работы в следующем видео.
+>[AZURE.VIDEO mobile-get-started-with-data-windows-phone]
 
 ##Предварительные требования 
 
@@ -120,9 +119,9 @@
         private IMobileServiceTable<TodoItem> todoTable = 
 			App.MobileService.GetTable<TodoItem>();
 
-   	Этот код создает коллекцию привязок с поддержкой мобильных служб (**items**) и прокси-класс для таблицы базы данных SQL **TodoItem** (**todoTable**).
+   	Этот код создает коллекцию привязок с поддержкой мобильных служб (\*\*items\*\*) и прокси-класс для таблицы базы данных SQL **TodoItem** (\*\*todoTable\*\*).
 
-7. В методе **InsertTodoItem** удалите строку кода, которая устанавливает значение свойства **TodoItem**.**Id**, добавьте в метод модификатор **async** и раскомментируйте следующую строку кода:
+7. В методе **InsertTodoItem** удалите строку кода, которая устанавливает значение свойства **TodoItem**.\*\*Id\*\*, добавьте в метод модификатор **async** и раскомментируйте следующую строку кода:
 
         await todoTable.InsertAsync(todoItem);
 
@@ -162,7 +161,7 @@
 
 ## <a name="next-steps"> </a>Дальнейшие действия
 
-В этом учебнике показаны основы включения в приложении для Windows Phone 8 возможностей работы с данными в мобильных службах. Рекомендуем прочитать один из следующих разделов:
+В этом учебнике показаны основы включения в приложении для Windows Phone 8 возможностей работы с данными в мобильных службах. Рекомендуем прочитать один из следующих разделов.
 
 * [Добавление проверки подлинности в приложение](mobile-services-windows-phone-get-started-users.md) <br/>Узнайте, как проверять подлинность пользователей приложения.
 
@@ -194,4 +193,4 @@
 [примеров кода для разработчиков]: http://go.microsoft.com/fwlink/p/?LinkId=271146
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

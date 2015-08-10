@@ -26,4 +26,4 @@
 [AZURE.INCLUDE [идентификация](../../includes/identity.md)]
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

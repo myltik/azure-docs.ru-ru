@@ -40,9 +40,9 @@
 
 Демонстрационная программа разработана так, чтобы временная ошибка во время попытки подключения вызывала повторную попытку. Тем не менее, в случае временной ошибки во время выполнения команды запроса программа отменяет текущее подключение и создает новое, прежде чем повторять попытку запроса. Мы не выступаем на за, ни против использования этого метода. Демонстрационная программа иллюстрирует некоторые возможности разработки, доступные пользователю.
 
-<br>Длина этого примера кода в основном связана с логикой перехвата исключений. Сокращенная версия файла Program.cs доступна [здесь](https://azure.microsoft.com/ru-ru/documentation/articles/sql-database-develop-php-simple-windows/). <br>Метод Main находится в файле Program.cs. Стек вызовов выполняется следующим образом: * Метод Main вызывает ConnectAndQuery. * ConnectAndQuery вызывает EstablishConnection. * EstablishConnection вызывает IssueQueryCommand.
+<br>Длина этого примера кода в основном связана с логикой перехвата исключений. Сокращенная версия файла Program.cs доступна [здесь](sql-database-develop-php-simple-windows.md). <br>Метод Main находится в файле Program.cs. Стек вызовов выполняется следующим образом: \* Метод Main вызывает ConnectAndQuery. \* ConnectAndQuery вызывает EstablishConnection. \* EstablishConnection вызывает IssueQueryCommand.
 
-Функция [sqlsrv_query()](http://php.net/manual/en/function.sqlsrv-query.php) может использоваться для извлечения результирующего набора из запроса к базе данных SQL. Эта функция фактически принимает любой запрос и объект соединения и возвращает результирующий набор, по которому может быть выполнена итерация с использованием [sqlsrv_fetch_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php).
+Функция [sqlsrv\_query()](http://php.net/manual/en/function.sqlsrv-query.php) может использоваться для извлечения результирующего набора из запроса к базе данных SQL. Эта функция фактически принимает любой запрос и объект подключения и возвращает результирующий набор, по которому может быть выполнена итерация с использованием [sqlsrv\_fetch\_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php).
 
 	<?php
 		// Variables to tune the retry logic.  
@@ -137,4 +137,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

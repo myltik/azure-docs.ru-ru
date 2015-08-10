@@ -132,7 +132,7 @@
 
 	![](./media/app-service-api-dotnet-consume/gatewayurl.png)
 
-4. В исходный код *Form1.cs* добавьте следующий код перед конструктором `Form1()`, заменив значение для GATEWAY_URL значением, скопированным на предыдущем шаге. Убедитесь, что адрес содержит завершающую косую черту (/).
+4. В исходный код *Form1.cs* добавьте следующий код перед конструктором `Form1()`, заменив значение для GATEWAY\_URL значением, скопированным на предыдущем шаге. Убедитесь, что адрес содержит завершающую косую черту (/).
 
 		private const string GATEWAY_URL = "https://resourcegroupnameb4f3d966dfa43b6607f30.azurewebsites.net/";
 		private const string URL_TOKEN = "#token=";
@@ -205,4 +205,4 @@
 Сведения об использовании проверки подлинности в приложениях API см. в статье [Проверка подлинности для приложений API и мобильных приложений в службе приложений Azure](../app-service/app-service-authentication-overview.md).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

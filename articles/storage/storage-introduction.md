@@ -224,4 +224,4 @@
 - [Использование хранилища очередей из Python](storage-python-how-to-use-queue-storage.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

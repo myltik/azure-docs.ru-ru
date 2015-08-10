@@ -127,4 +127,4 @@
 
 [Дополнительные сведения о пользовательском интерфейсе диспетчера моментальных снимков StorSimple](storsimple-use-snapshot-manager.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

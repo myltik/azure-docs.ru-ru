@@ -28,7 +28,7 @@
 Следуйте [этим инструкциям](../cache-dotnet-how-to-use-azure-redis-cache.md#create-cache), чтобы создать кэш.
 
 ##<a id="configureproject"></a>Добавление пакета NuGet RedisSessionStateProvider в веб-приложение
-Установите пакет NuGet `RedisSessionStateProvider`. Используйте следующую команду, чтобы установить из консоли менеджера пакетов (**Сервис** > **Диспетчер пакетов NuGet** > **Консоль диспетчера пакетов**):
+Установите пакет NuGet `RedisSessionStateProvider`. Используйте следующую команду, чтобы установить из консоли менеджера пакетов (\*\*Сервис\*\* > **Диспетчер пакетов NuGet** > **Консоль диспетчера пакетов**):
 
   `PM> Install-Package Microsoft.Web.RedisSessionStateProvider`
   
@@ -95,7 +95,7 @@
 
   *Автор: [Рик Андерсон (Rick Anderson)](https://twitter.com/RickAndMSFT)*
   
-  [installed the latest]: http://azure.microsoft.com/downloads/?sdk=net
+  [installed the latest]: http://www.windowsazure.com/downloads/?sdk=net
   [Общие сведения о состоянии сеанса ASP.NET]: http://msdn.microsoft.com/library/ms178581.aspx
 
   [NewIcon]: ./media/web-sites-dotnet-session-state-caching/CacheScreenshot_NewButton.png
@@ -108,4 +108,4 @@
   [ManageKeys]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_ManageAccessKeys.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

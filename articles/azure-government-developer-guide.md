@@ -75,31 +75,18 @@ Azure Goverment в настоящее время имеет следующие �
 
 Используйте следующую таблицу для сопоставления общедоступных конечных точек Microsoft Azure и баз данных SQL Azure с конечными точками Azure Government.
 
-<table>
-<tr style='font-weight:bold'><td>
-Тип службы</td><td>	Azure Public</td><td>	Azure Government
-</td></tr><tr><td>
-Azure Government Home</td><td>	windowsazure.com	</td><td>microsoftazure.us
-</td></tr><tr><td>
-Портал управления</td><td>	manage.windowsazure.com</td><td>	manage.windowsazure.us
-</td></tr><tr><td>
-Общие сведения</td><td>	*.windows.net	</td><td>*.usgovcloudapi.net
-</td></tr><tr><td>
-Core	</td><td>*.core.windows.net	</td><td>*.core.usgovcloudapi.net
-</td></tr><tr><td>
-Среда выполнения приложений	</td><td>*.cloudapp.net	</td><td>*.usgovcloudapp.net
-</td></tr><tr><td>
-Хранилище BLOB-объектов</td><td>	*.blob.core.windows.net</td><td>	*.blob.core.usgovcloudapi.net
-</td></tr><tr><td>
-Хранилище очередей	</td><td>*.queue.core.windows.net</td><td>	*.queue.core.usgovcloudapi.net
-</td></tr><tr><td>
-Хранилище таблиц</td><td>	*.table.core.windows.net	</td><td>*.table.core.usgovcloudapi.net
-</td></tr><tr><td>
-Service Management</td><td>	management.core.windows.net</td><td>	management.core.usgovcloudapi.net
 
-</td></tr>
-<tr><td>База данных SQL</td><td>	*.database.windows.net	</td><td>*.database.usgovcloudapi.net</td></tr>
-</table>
+Тип службы|Azure Public|Azure Government
+---|---|---
+Azure Government Home|windowsazure.com|microsoftazure.us
+Портал управления|manage.windowsazure.com|manage.windowsazure.us
+Общие сведения|*.windows.net|*.usgovcloudapi.net
+Core|*.core.windows.net|*.core.usgovcloudapi.net
+Среда выполнения приложений|*.cloudapp.net|*.usgovcloudapp.net
+Хранилище BLOB-объектов|*.blob.core.windows.net| *.blob.core.usgovcloudapi.net Хранилище очередей|*.queue.core.windows.net|*.queue.core.usgovcloudapi.net
+Хранилище таблиц|*.table.core.windows.net|*.table.core.usgovcloudapi.net
+Service Management|management.core.windows.net|management.core.usgovcloudapi.net
+База данных SQL|*.database.windows.net|*.database.usgovcloudapi.net
 
 ## <a name="next"></a>Дальнейшие действия
 Дополнительные сведения о Azure Government и о том, как ваша организация может получить доступ к этой службе, см. на странице <A href="http://azure.com/gov">http://www.azure.com/gov</a>.
@@ -118,4 +105,4 @@ Service Management</td><td>	management.core.windows.net</td><td>	management.core
 [Link 2 to another azure.microsoft.com documentation topic]: web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

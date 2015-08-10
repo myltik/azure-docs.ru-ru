@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/04/2015" 
+	ms.date="07/28/2015" 
 	ms.author="piyushjo" />
 
 #Обзор Azure Mobile Engagement
@@ -50,4 +50,4 @@ Azure Mobile Engagement — предоставляемая по принципу
 [Учебник по началу работы (для разработчиков)](/documentation/services/mobile-engagement/)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

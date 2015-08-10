@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="davidmu1"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -13,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2015"
+	ms.date="07/28/2015"
 	ms.author="davidmu"/>
 
 # Шаблон диспетчера ресурсов для трехсерверной фермы Sharepoint
 
 В этом разделе последовательно рассматривается структура файла шаблона azuredeploy.json для трехсерверной фермы SharePoint. Кроме того, просмотреть содержимое этого шаблона можно в браузере [здесь](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm/azuredeploy.json).
 
-Для того чтобы ознакомиться с локальной копией файла azuredeploy.json, в качестве альтернативы укажите локальную папку для расположения файла и создайте его (например, C:\Azure\Templates\SharePointFarm). Введите имя папки и запустите эти команды в командной строке Azure PowerShell.
+Для того чтобы ознакомиться с локальной копией файла azuredeploy.json, в качестве альтернативы укажите локальную папку для расположения файла и создайте его (например, C:\\Azure\\Templates\\SharePointFarm). Введите имя папки и запустите эти команды в командной строке Azure PowerShell.
 
 	$folderName="<folder name, such as C:\Azure\Templates\SharePointFarm>"
 	$webclient = New-Object System.Net.WebClient
@@ -376,4 +377,4 @@
 
 [Документация по виртуальным машинам](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

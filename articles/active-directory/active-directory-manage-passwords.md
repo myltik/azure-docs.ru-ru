@@ -1,21 +1,21 @@
-<properties 
-	pageTitle="Управление паролями в Azure AD" 
-	description="Раздел, в котором объясняется, как управлять паролями в Azure AD." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
-	editor="LisaToft"
+<properties
+	pageTitle="Управление паролями в Azure AD | Microsoft Azure"
+	description="Раздел, в котором объясняется, как управлять паролями в Azure AD."
+	services="active-directory"
+	documentationCenter=""
+	authors="curtand"
+	manager="swadwha"
+	editor=""
 	tags="azure-classic-portal"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/27/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="active-directory"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/28/2015"
+	ms.author="curtand"/>
 
 # Управление паролями в Azure AD
 
@@ -26,7 +26,7 @@
 - **Самостоятельное изменение пароля** позволяет конечным пользователям или администраторам менять свои пароли с истекшим или не истекшим сроком действия без поддержки администратора или службы технической поддержки.
 - **Самостоятельное изменение пароля** позволяет конечным пользователям или администраторам автоматически изменять свои пароли с истекшим или не истекшим сроком действия без вызова администратора или обращения в службу технической поддержки. Для самостоятельного сброса пароля требуется Azure AD Premium или Basic. Дополнительные сведения см. в статье [Выпуски Azure Active Directory](active-directory-editions.md).
 - **Сброс пароля администратором** позволяет администратору сбросить пароль пользователя или другого администратора на портале управления Azure.
-- **Отчеты по операциям управления паролями** позволяют администраторам лучше понять, как работают операции по сбросу и регистрации паролей, происходящие в организации. 
+- **Отчеты по операциям управления паролями** позволяют администраторам лучше понять, как работают операции по сбросу и регистрации паролей, происходящие в организации.
 - **Обратная запись паролей** позволяет управлять локальными паролями из облака, чтобы федеративный пользователь или пользователь с синхронизированным паролем смог выполнять все сценарии, указанные выше, или эти сценарии можно было выполнить от его лица. Для обратной записи паролей требуется Azure AD Premium. Дополнительную информацию см. в разделе [Приступая к работе с Azure Active Directory Premium](active-directory-get-started-premium.md).
 
 > [AZURE.NOTE]Китайским клиентам служба Azure AD Premium доступна в качестве веб-экземпляра Azure AD, доступного по всему миру. Служба Microsoft Azure, обслуживаемая компанией 21Vianet в Китае, сейчас не поддерживает AD Premium. Чтобы получить дополнительную информацию, свяжитесь с нами на [форуме Azure Active Directory](http://feedback.azure.com/forums/169401-azure-active-directory).
@@ -46,6 +46,5 @@
 - [Администрирование Azure AD](active-directory-administer.md)
 - [Создание и изменение пользователей в Azure AD](active-directory-create-users.md)
 - [Управление группами в Azure AD](active-directory-manage-groups.md)
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

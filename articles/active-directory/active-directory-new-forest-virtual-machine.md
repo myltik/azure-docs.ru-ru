@@ -3,7 +3,7 @@
 	description="В этом учебнике объясняется, как создать новый лес Active Directory на виртуальной машине (ВМ) в виртуальной сети Windows Azure." 
 	services="active-directory, virtual-network" 
 	documentationCenter="" 
-	authors="Justinha" 
+	authors="markusvi" 
 	manager="TerryLan" 
 	editor="LisaToft"
 	tags="azure-classic-portal"/>
@@ -14,8 +14,8 @@
 	ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-	ms.date="04/27/2015" 
-	ms.author="Justinha"/>
+	ms.date="07/23/2015" 
+	ms.author="markusvi"/>
 
 
 # Установка нового леса Active Directory в виртуальной сети Azure
@@ -25,7 +25,7 @@
 Вас также могут заинтересовать следующие связанные разделы:
 
 - Видео, в котором показаны эти шаги, см. в разделе [Как установить новый лес Active Directory в виртуальной сети Azure](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network).
-- Можно также [настроить VPN между двумя сайтами](https://msdn.microsoft.com/library/azure/dn133795.aspx) и затем либо установить новый лес, либо расширить существующий локальный лес на виртуальную сеть Azure. Инструкции по выполнению этих действий см. в разделе [Установка реплики контроллера домена Active Directory в виртуальной сети Azure](../virtual-networks-install-replica-active-directory-domain-controller.md).
+- Можно также [настроить VPN между двумя сайтами](../vpn-gateway/vpn-gateway-site-to-site-create.md) и затем либо установить новый лес, либо расширить существующий локальный лес на виртуальную сеть Azure. Инструкции по выполнению этих действий см. в разделе [Установка реплики контроллера домена Active Directory в виртуальной сети Azure](../virtual-networks-install-replica-active-directory-domain-controller.md).
 -  Концептуальное руководство об установке доменных служб Active Directory (AD DS) в виртуальной сети Azure см. в статье [Руководства по развертыванию Windows Server Active Directory на виртуальных машинах Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx).
 
 ## Схема сценария
@@ -42,7 +42,7 @@
 ------------- | -------------  | ------------
 **IP-адрес для контроллера домена** | Назначьте статический IP-адрес в свойствах сетевого адаптера | Выполните командлет Set-AzureStaticVNetIP, чтобы назначить статический IP-адрес
 **Сопоставитель DNS-клиента** | Задайте адреса предпочитаемого и дополнительного DNS-серверов в свойствах сетевого адаптера для членов домена | Задайте адрес DNS-сервера в свойствах виртуальной сети
-**Хранилище базы данных Active Directory** | При желании измените расположение хранилища по умолчанию, C:\ | Потребуется изменить расположение хранилища по умолчанию с диска C:\.
+**Хранилище базы данных Active Directory** | При желании измените расположение хранилища по умолчанию, C:\\ | Потребуется изменить расположение хранилища по умолчанию с диска C:\\.
 
 
 
@@ -121,7 +121,7 @@
 -  [Установка нового леса Active Directory в виртуальной сети Azure](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
 -  [Рекомендации по развертыванию Windows Server Active Directory на виртуальных машинах Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx)
 -  [Настройка виртуальной сети только для облака](https://msdn.microsoft.com/library/dn631643.aspx)
--  [Настроить VPN типа «сеть-сеть»](https://msdn.microsoft.com/library/dn133795.aspx)
+-  [Настроить VPN типа «сеть-сеть»](../vpn-gateway/vpn-gateway-site-to-site-create.md)
 -  [Установка реплики контроллера домена Active Directory в виртуальной сети Azure](../virtual-networks-install-replica-active-directory-domain-controller.md)
 -  [Microsoft Azure IaaS для профессионалов в сфере IT. (01) Основная информация о виртуальных машинах](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 -  [Microsoft Azure IaaS для профессионалов в сфере IT. (05) Создание виртуальных сетей и подключений между организациями](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
@@ -139,4 +139,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

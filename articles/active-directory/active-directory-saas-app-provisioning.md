@@ -106,4 +106,4 @@ Azure AD готовит пользователей для приложения S
 
 Для того чтобы связаться с командой инженеров Azure AD для обеспечения подготовки в других приложениях, отправьте сообщение через [форум отзывов Azure Active Directory](http://feedback.azure.com/forums/169401-azure-active-directory).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

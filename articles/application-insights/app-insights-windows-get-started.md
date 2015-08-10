@@ -35,7 +35,7 @@
 * подписка на [Microsoft Azure][azure];
 * Visual Studio 2013 или более поздняя версия.
 
-## 1. Создание ресурса Application Insights 
+## 1\. Создание ресурса Application Insights 
 
 На [портале Azure][portal] создайте новый ресурс Application Insights.
 
@@ -50,7 +50,7 @@
 ![Откройте раскрывающуюся панель Essentials и выберите ключ инструментирования](./media/app-insights-windows-get-started/02-props.png)
 
 
-## 2. Добавление пакета SDK Application Insights в приложение
+## 2\. Добавление пакета SDK Application Insights в приложение
 
 В Visual Studio добавьте соответствующий пакет SDK в свой проект.
 
@@ -66,18 +66,20 @@
 
 3. Выберите **Application Insights для приложений Windows**.
 
-4. Добавьте файл ApplicationInsights.config в корневой каталог решения и вставьте скопированный ранее ключ инструментирования. Ниже приведен пример XML-кода для этого файла конфигурации. **В файле ApplicationInsights.config установите для параметра «Действие при построении» значение «Содержимое», а для параметра «Копировать в выходной каталог» — значение «Копировать всегда»**.
+4. Добавьте файл ApplicationInsights.config в корневой каталог проекта и вставьте скопированный c портала ключ инструментирования. Ниже приведен пример XML-кода для этого файла конфигурации.
 
 	```xml
 		<?xml version="1.0" encoding="utf-8" ?>
 		<ApplicationInsights>
-			<InstrumentationKey>YOUR COPIED KEY FROM ABOVE</InstrumentationKey>
+			<InstrumentationKey>YOUR COPIED INSTRUMENTATION KEY</InstrumentationKey>
 		</ApplicationInsights>
 	```
+
+    Задайте для файла ApplicationInsights.config такие свойства: **Действие при построении** == **Содержимое**, **Копировать в выходной каталог** == **Копировать всегда**.
 	
 	![](./media/app-insights-windows-get-started/AIConfigFileSettings.png)
 
-5. Добавьте приведенный ниже код инициализации. Рекомендуем добавить этот код в конструктор `App()`. Если инициализация в конструкторе приложений не выполняется, можно пропустить начальный автоматический сбор данных по просмотрам страниц.
+5. Добавьте приведенный ниже код инициализации. Рекомендуем добавить этот код в конструктор `App()`. Если выполнить это действие в другом месте, можно пропустить автоматический сбор сведений о первых просмотрах страниц.
 
 ```C#
 	public App()
@@ -90,7 +92,7 @@
 	}  
 ```
 
-**Для универсальных приложений Windows**: повторите эти действия для проектов Windows Phone и магазина Windows. [Пример универсального приложения Windows 8.1](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/Windows%208.1%20Universal).
+**Универсальные приложения Windows**. Повторите эти действия для проектов Windows Phone и Магазина Windows. [Пример универсального приложения для Windows 8.1](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/Windows%208.1%20Universal).
 
 ## <a name="network"></a>3. Включение доступа к сети для вашего приложения
 
@@ -163,7 +165,7 @@
 
 ```
 
-Дополнительные сведения см. в статье [Пользовательские события и метрики][api].
+Дополнительные сведения см. в статье [API Application Insights для пользовательских событий и метрик][api].
 
 ## Что дальше?
 
@@ -194,7 +196,7 @@
 
 ## Обновление до новой версии пакета SDK
 
-При [выпуске новой версии пакета SDK](app-insights-release-notes-windows.md): * Щелкните правой кнопкой мыши проект и выберите «Управление пакетами NuGet». * Выберите установленные пакеты Application Insights и выберите «Обновить».
+При [выпуске новой версии пакета SDK](app-insights-release-notes-windows.md): \* Щелкните правой кнопкой мыши проект и выберите «Управление пакетами NuGet». \* Выберите установленные пакеты Application Insights и выберите «Обновить».
 
 
 ## <a name="usage"></a>Дальнейшие действия
@@ -227,4 +229,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

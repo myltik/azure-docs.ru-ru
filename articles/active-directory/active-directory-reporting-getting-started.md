@@ -156,4 +156,4 @@ Azure Active Directory содержит отчеты о безопасности
 
 > [AZURE.TIP]Дополнительную документацию по Azure AD Reporting см. в статье [Просмотр отчетов о доступе и использовании](active-directory-view-access-usage-reports.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

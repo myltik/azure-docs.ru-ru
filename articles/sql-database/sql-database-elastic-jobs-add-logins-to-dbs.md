@@ -1,7 +1,8 @@
 <properties 
 	pageTitle="Добавление пользователей в эластичный пул баз данных." 
 	description="Необходимо добавить пользователя с правами доступа во все базы данных пула." 
-	services="sql-database" documentationCenter=""  
+	services="sql-database" 
+	documentationCenter="" 
 	manager="jeffreyg" 
 	authors="sidneyh"/>
 
@@ -11,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sidneyh" />
 
 # Добавление пользователей в пул эластичных баз данных.
@@ -32,7 +33,7 @@
 
 		CREATE USER admin1 FROM LOGIN login1;
 		
-3. Пользователь должен иметь разрешения, достаточные для выполнения сценария, указанного для задания. Используйте процедуру **sp_addrolemember**, чтобы предоставить пользователю необходимые разрешения для успешного выполнения сценария.
+3. Пользователь должен иметь разрешения, достаточные для выполнения сценария, указанного для задания. Используйте процедуру **sp\_addrolemember**, чтобы предоставить пользователю необходимые разрешения для успешного выполнения сценария.
 
 ## Дальнейшие действия
 
@@ -44,4 +45,4 @@
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

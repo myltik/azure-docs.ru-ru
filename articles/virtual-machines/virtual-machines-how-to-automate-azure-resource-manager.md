@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Автоматизация с помощью диспетчера ресурсов Azure"
-	description="Получите ссылки на разделы, в которых описывается, как автоматизировать создание виртуальных машин и управление ими с помощью диспетчера ресурсов Azure."
+	description="Получите ссылки на разделы, в которых описывается, как автоматизировать создание виртуальных машин и управление ими с помощью диспетчера ресурсов."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="davidmu1"
@@ -17,15 +17,16 @@
 	ms.date="07/09/2015"
 	ms.author="davidmu"/>
 
+
 # Автоматизация с помощью диспетчера ресурсов Azure
 
 Диспетчер ресурсов Azure упрощает развертывание сложных приложений, работающих в службах инфраструктуры Azure, а также управление этими приложениями. Для многих приложений требуется сочетание вычислительных и сетевых ресурсов, а также ресурсов хранилища, таких как виртуальная сеть, учетная запись хранения и виртуальные машины с сетевыми интерфейсами. Диспетчер ресурсов Azure позволяет использовать или создать шаблон JSON для развертывания всех этих ресурсов и управления ими как единым приложением.
 
 ## Начало работы
 
-[Общие сведения о диспетчере ресурсов](../resource-group-overview.md)
+[Общие сведения о диспетчере ресурсов Azure](../resource-group-overview.md)
 
-[Шаблоны диспетчера ресурсов](http://go.microsoft.com/fwlink/p/?linkid=536445&clcid=0x409)
+[Шаблоны быстрого запуска Azure](http://go.microsoft.com/fwlink/p/?linkid=536445&clcid=0x409)
 
 [Создание платформы приложений с помощью шаблонов](virtual-machines-app-frameworks.md)
 
@@ -42,16 +43,16 @@
 
 ## Сеть
 
-[Настройка сетевых ресурсов](http://go.microsoft.com/fwlink/p/?linkid=534943&clcid=0x409)
+[Поставщик сетевых ресурсов](http://go.microsoft.com/fwlink/p/?linkid=534943&clcid=0x409)
 
 
 ## Автоматизация с помощью CLI Azure
 
-[Общие сведения о CLI Azure для Mac и Linux](xplat-cli-azure-resource-manager.md)
+[Использование CLI Azure для Mac, Linux и Windows с диспетчером ресурсов Azure](xplat-cli-azure-resource-manager.md)
 
 [Развертывание виртуальных машин и управление ими с помощью шаблонов диспетчера ресурсов Azure и интерфейса командной строки Azure](http://go.microsoft.com/fwlink/p/?linkid=534868&clcid=0x409)
 
-## Автоматизация с помощью PowerShell
+## Автоматизация с помощью Azure PowerShell
 
 [Развертывание виртуальных машин и управление ими с использованием шаблонов диспетчера ресурсов Azure и PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
 
@@ -60,9 +61,10 @@
 
 [Развертывание ресурсов Azure с помощью библиотеки .NET](virtual-machines-arm-deployment.md)
 
+
 ## Автоматизация с помощью службы автоматизации Azure
 
-[Управление задачами виртуальных машин с помощью службы автоматизации Azure](automation-manage-virtual-machines.md)
+[Управление виртуальными машинами Azure с помощью службы автоматизации Azure](automation-manage-virtual-machines.md)
 
 
 
@@ -70,4 +72,4 @@
 
 [Документация по виртуальным машинам](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

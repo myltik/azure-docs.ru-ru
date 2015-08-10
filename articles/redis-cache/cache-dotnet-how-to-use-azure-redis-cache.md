@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/20/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sdanie"/>
 
 # Как использовать кэш Azure Redis
@@ -122,15 +122,13 @@
 
 Для подключения к кэшу Redis для Azure и получения экземпляра подключенного класса `ConnectionMultiplexer` вызовите статический метод `Connect` и передайте ему конечную точку кэша и ключ, как показано в примере ниже. Используйте в качестве параметра пароля ключ Azure, созданный на портале.
 
-	ConnectionMultiplexer connection = ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,ssl=true,password=...");
+	ConnectionMultiplexer connection = ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
 
 >[AZURE.IMPORTANT]Внимание! Никогда не храните учетные данные в исходном коде. Для сохранения простоты примера они показаны в исходном коде. Сведения о том, как хранить учетные данные, см. в статье [Принципы работы строк приложений и подключения][].
 
-Если вы не хотите использовать SSL, установите `ssl=false` или просто передайте конечную точку и ключ.
+Если вам не требуется SSL, задайте значение `ssl=false` или пропустите параметр `ssl`.
 
 >[AZURE.NOTE]Для новых кэшей не SSL порт по умолчанию запрещен. Дополнительную информацию о подключении без порта SSL см. в разделе «Порты доступа» статьи [Настройка кэша в кэше Redis для Azure][].
-
-	connection = ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,password=...");
 
 За дополнительной информацией по вариантам расширенных настроек соединения обратитесь к раз делу [Модель конфигурации StackExchange.Redis][].
 
@@ -142,12 +140,12 @@
 
 Создав подключение, верните ссылку на базу данных кэша Redis с помощью метода `ConnectionMultiplexer.GetDatabase`.
 
-	// connection referes to a previously configured ConnectionMultiplexer
+	// connection refers to a previously configured ConnectionMultiplexer
 	IDatabase cache = connection.GetDatabase();
 
 >[AZURE.NOTE]Объект, возвращенный из метода `GetDatabase`, – это упрощенный передаваемый объект, не требующий сохранения.
 
-	ConnectionMultiplexer connection = ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,ssl=true,password=...");
+	ConnectionMultiplexer connection = ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
 
 	IDatabase cache = connection.GetDatabase();
 
@@ -161,8 +159,6 @@
 	int key2 = (int)cache.StringGet("key2");
 
 Теперь нам известно, как соединяться с экземпляром кэша Azure Redis и возвращать ссылку на базу данных кэша, поэтому давайте посмотрим, как работать с кэшем.
-
-
 
 <a name="add-object"></a>
 ## Добавление и извлечение объектов из кэша
@@ -273,11 +269,11 @@
 
 После изучения основ кэша Redis для Azure просмотрите следующие ссылки, чтобы ознакомиться с тем, как выполнять более сложные задачи по кэшированию.
 
--	[Включите диагностику кэша](https://msdn.microsoft.com/library/azure/dn763945.aspx#EnableDiagnostics), чтобы можно было [наблюдать](https://msdn.microsoft.com/library/azure/dn763945.aspx) за работоспособностью кэша. Метрики можно просмотреть на портале; кроме того, их можно [загружать и просматривать](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) с помощью подходящих средств.
+-	[Включите диагностику кэша](cache-how-to-monitor.md#enable-cache-diagnostics), чтобы можно было наблюдать [cache-how-to-monitor.md) за работоспособностью кэша. Метрики можно просмотреть на портале; кроме того, их можно [загружать и просматривать](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) с помощью подходящих средств.
 -	Ознакомьтесь с [документацией по клиенту кэша StackExchange.Redis][].
 	-	Доступ к кэшу Redis для Azure можно получить из многих клиентов Redis и языков разработки. Дополнительные сведения см. в статьях [http://redis.io/clients][] и [Разработка на других языках для кэша Redis для Azure][].
 	-	Кэш Redis для Azure может также использоваться со службами, такими как Redsmin. Дополнительные сведения см. в статье [Получение строки подключения Redis для Azure и ее использование с Redsmin][].
--	См. документацию по [redis][]: прочитайте [статью о типах данных redis][] и [пятнадцатиминутное введение в типы данных Redis][].
+-	См. документацию по [redis][]\: прочитайте [статью о типах данных redis][] и [пятнадцатиминутное введение в типы данных Redis][].
 -   См. справочник MSDN по [кэшу Redis для Azure][]. 
 
 
@@ -350,7 +346,7 @@
 
 
 [NuGet Package Manager Installation]: http://go.microsoft.com/fwlink/?LinkId=240311
-[Сведения о ценах — кэш]: http://azure.microsoft.com/pricing/details/cache/
+[Сведения о ценах — кэш]: http://www.windowsazure.com/pricing/details/cache/
 [портал предварительной версии Microsoft Azure]: https://portal.azure.com/
 
 [Обзор кэша Azure Redis]: http://go.microsoft.com/fwlink/?LinkId=320830
@@ -372,4 +368,4 @@
 
 [Бесплатная пробная версия Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

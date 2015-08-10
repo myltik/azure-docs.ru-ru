@@ -13,11 +13,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/04/2015"
+   ms.date="07/24/2015"
    ms.author="seanmck"/>
 
 # Настройка среды разработки Service Fabric
  В этой статье рассматривается все, что требуется для начала разработки приложений на платформе [Service Fabric][1], включая установку среды выполнения, пакет SDK и инструменты, а также настройку локального кластера.
+
+ >[AZURE.NOTE]Эти инструкции предназначены для настройки новых компьютеров. Если на вашем компьютере установлена предыдущая версия Service Fabric, выполните следующие [инструкции по обновлению среды разработки](service-fabric-update-your-development-environment.md).
 
 ## Предварительные требования
 ### Поддерживаемые версии операционных систем
@@ -29,15 +31,15 @@
 
 ### Visual Studio 2015
 
-В случае установки Visual Studio 2015 RC набор инструментов в Service Fabric Preview 1 может отличаться. Загрузить Visual Studio 2015 RC можно [здесь][2].
+В случае установки Visual Studio 2015 набор инструментов в Service Fabric может отличаться. Загрузить Visual Studio 2015 можно [здесь][2].
 
-> [AZURE.NOTE]Если у вас не установлена ни одна из поддерживаемых операционных систем или вы не хотите устанавливать на компьютер Visual Studio 2015 RC, [настройте виртуальную машину Azure][3] c предустановленными Windows Server 2012 R2 и Visual Studio 2015, используя образ из галереи виртуальных машин.
+> [AZURE.NOTE]Если у вас не установлена ни одна из поддерживаемых операционных систем или вы не хотите устанавливать на компьютер Visual Studio 2015, настройте виртуальную машину Azure c предустановленными Windows Server 2012 R2 и Visual Studio 2015, используя образ из галереи виртуальных машин.
 
 ## Установка среды выполнения, пакета SDK и инструментов
 
 Установите компоненты Service Fabric с помощью установщика веб-платформы, следуя этим инструкциям:
 
-1. Щелкните [здесь][4], чтобы загрузить пакет SDK, используя установщик веб-платформы.
+1. [Загрузите пакет SDK][3], используя установщик веб-платформы.
 
 2. Чтобы приступить к установке, нажмите кнопку «Установить».
 
@@ -89,8 +91,6 @@
 
 [1]: http://azure.microsoft.com/campaigns/service-fabric/ "Страница кампании Service Fabric"
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
-[3]: http://blogs.msdn.com/b/visualstudioalm/archive/2014/06/04/visual-studio-14-ctp-now-available-in-the-virtual-machine-azure-gallery.aspx "Azure"
-[4]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "Ссылка WebPI"
- 
+[3]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "Ссылка WebPI"
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

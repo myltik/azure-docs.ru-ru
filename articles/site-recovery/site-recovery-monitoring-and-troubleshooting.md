@@ -103,7 +103,7 @@ ASR предоставляет возможность центрального �
 
 ### Параметры ведения журнала репликации Hyper-V
 
-Все события, относящиеся к реплике Hyper-V, записываются в журнал Hyper-V-VMMS\Admin log, расположенный в папке **Applications and Services Logs\Microsoft\Windows**. Кроме того можно также включить аналитический журнал для Hyper-V-VMMS. Чтобы включить этот журнал, сначала убедитесь, что аналитический журнал и журнал отладки видны в средстве просмотра событий. Откройте средство просмотра событий, в **меню «Вид»** выберите **Отобразить аналитический и отладочный журналы**.
+Все события, относящиеся к реплике Hyper-V, записываются в журнал Hyper-V-VMMS\\Admin log, расположенный в папке **Applications and Services Logs\\Microsoft\\Windows**. Кроме того можно также включить аналитический журнал для Hyper-V-VMMS. Чтобы включить этот журнал, сначала убедитесь, что аналитический журнал и журнал отладки видны в средстве просмотра событий. Откройте средство просмотра событий, в **меню «Вид»** выберите **Отобразить аналитический и отладочный журналы**.
 
 ![Устранение неполадок локальной среды Hyper-V](media/site-recovery-monitoring-and-troubleshooting/image14.png)
 
@@ -133,7 +133,7 @@ ASR предоставляет возможность центрального �
 
 Сценарии для VMware или физических сайтов: см. [Сбор журналов Azure Site Recovery для защиты VMware и физических сайтов](http://social.technet.microsoft.com/wiki/contents/articles/30677.azure-site-recovery-log-collection-for-vmware-and-physical-site-protection.aspx) для сбора необходимых журналов.
 
-Средство SDP собирает локальный файл журнала, который также может быть расположен в папке с любым именем в подпапке **%LocalAppData%\ElevatedDiagnostics**
+Средство SDP собирает локальный файл журнала, который также может быть расположен в папке с любым именем в подпапке **%LocalAppData%\\ElevatedDiagnostics**
 
 ### Открытие запроса в службу поддержки
 
@@ -164,8 +164,6 @@ ASR предоставляет возможность центрального �
 
 ### Настройка
 
--   [Не удается проверить выбранный сертификат. Пожалуйста, выберите другой сертификат.](http://social.technet.microsoft.com/wiki/contents/articles/25569.the-selected-certificate-cannot-be-validated-please-select-a-different-certificate.aspx)
-
 -   [Не удается зарегистрировать сервер VMM из-за внутренней ошибки. Пожалуйста, просмотрите представление заданий на портале Site Recovery для получения дополнительных сведений об этой ошибке. Запустите программу установки еще раз, чтобы зарегистрировать сервер.](http://social.technet.microsoft.com/wiki/contents/articles/25570.the-vmm-server-cannot-be-registered-due-to-an-internal-error-please-refer-to-the-jobs-view-in-the-site-recovery-portal-for-more-details-on-the-error-run-setup-again-to-register-the-server.aspx)
 
 -   [Не удается установить подключение к хранилищу диспетчера восстановления Hyper-V. Проверьте параметры прокси-сервера или повторите попытку позже.](http://social.technet.microsoft.com/wiki/contents/articles/25571.a-connection-cant-be-established-to-the-hyper-v-recovery-manager-vault-verify-the-proxy-settings-or-try-again-later.aspx)
@@ -174,23 +172,17 @@ ASR предоставляет возможность центрального �
 
 -   [Кластер узлов Hyper-V содержит по крайней мере один статический сетевой адаптер, или ни на одном из подключенных адаптеров не настроено использование DHCP.](http://social.technet.microsoft.com/wiki/contents/articles/25498.hyper-v-host-cluster-contains-at-least-one-static-network-adapter-or-no-connected-adapters-are-configured-to-use-dhcp.aspx)
 
--   [Профиль Hyper-V не включен в Профилях возможностей облака](http://social.technet.microsoft.com/wiki/contents/articles/25499.the-hyper-v-profile-isn-t-enabled-in-the-capability-profiles-for-cloud.aspx)
-
--   [Невозможно применить конфигурацию защиты для '%CloudName;'. Не удалось настроить вновь добавленный узел Hyper-V или кластер, так как защита облака не настроена.](http://social.technet.microsoft.com/wiki/contents/articles/25500.protection-configuration-for-cloudname-couldn-t-be-applied-a-newly-added-hyper-v-host-or-cluster-couldn-t-be-configured-because-cloud-protection-isn-t-configured.aspx)
-
--   [VMM не имеет разрешений для выполнения действия](http://social.technet.microsoft.com/wiki/contents/articles/31110.vmm-does-not-have-permissions-to-complete-an-action.aspx)
+-   [VMM не имеет разрешений для выполнения действия](http://social.technet.microsoft.com/wiki/contents/articles/31110.vmm-does-not-have-permissions-to-complete-an-action.aspx).
 
 ### Защита
 
--   [Операционная система не поддерживается](http://social.technet.microsoft.com/wiki/contents/articles/31103.the-operating-system-is-not-supported.aspx)
+-   [Включение защиты не выполнено, поскольку на компьютере не установлен агент](http://social.technet.microsoft.com/wiki/contents/articles/31105.enable-protection-failed-since-agent-not-installed-on-host-machine.aspx).
 
--   [Включение защиты не выполнено, поскольку на компьютере не установлен агент](http://social.technet.microsoft.com/wiki/contents/articles/31105.enable-protection-failed-since-agent-not-installed-on-host-machine.aspx)
+-   [Не удается найти подходящий узел для реплики виртуальной машины из-за недостатка вычислительных ресурсов](http://social.technet.microsoft.com/wiki/contents/articles/25501.a-suitable-host-for-the-replica-virtual-machine-can-t-be-found-due-to-low-compute-resources.aspx).
 
--   [Не удается найти подходящий узел для реплики виртуальной машины из-за недостатка вычислительных ресурсов](http://social.technet.microsoft.com/wiki/contents/articles/25501.a-suitable-host-for-the-replica-virtual-machine-can-t-be-found-due-to-low-compute-resources.aspx)
+-   [Не удается найти подходящий узел для реплики виртуальной машины из-за того, что не подключена ни одна логическая сеть](http://social.technet.microsoft.com/wiki/contents/articles/25502.a-suitable-host-for-the-replica-virtual-machine-can-t-be-found-due-to-no-logical-network-attached.aspx).
 
--   [Не удается найти подходящий узел для реплики виртуальной машины из-за того, что не подключена ни одна логическая сеть](http://social.technet.microsoft.com/wiki/contents/articles/25502.a-suitable-host-for-the-replica-virtual-machine-can-t-be-found-due-to-no-logical-network-attached.aspx)
-
--   [Не удается подключиться к узлу реплики — невозможно установить соединение](http://social.technet.microsoft.com/wiki/contents/articles/31106.cannot-connect-to-the-replica-host-machine-connection-could-not-be-established.aspx)
+-   [Не удается подключиться к узлу реплики — невозможно установить соединение](http://social.technet.microsoft.com/wiki/contents/articles/31106.cannot-connect-to-the-replica-host-machine-connection-could-not-be-established.aspx).
 
 ### Восстановление
 
@@ -200,29 +192,26 @@ ASR предоставляет возможность центрального �
 
     -   [Не удалось выполнить отработку отказа на выбранную точку восстановления для виртуальной машины Hyper-V: операция прервана. Попробуйте использовать более свежую точку восстановления. (0x80004004)](http://social.technet.microsoft.com/wiki/contents/articles/25503.hyper-v-failed-to-fail-over-to-the-selected-recovery-point-for-virtual-machine-operation-aborted-try-a-more-recent-recovery-point-0x80004004.aspx)
 
-    -   Соединение с сервером не может быть установлено (0x00002EFD)
+    -   Подключение к серверу не может быть установлено (0x00002EFD)
 
-        -   [Hyper-V не удалось включить обратную репликацию для виртуальной машины](http://social.technet.microsoft.com/wiki/contents/articles/25505.a-connection-with-the-server-could-not-be-established-0x00002efd-hyper-v-failed-to-enable-reverse-replication-for-virtual-machine.aspx)
+        -   [Hyper-V не удалось включить обратную репликацию для виртуальной машины](http://social.technet.microsoft.com/wiki/contents/articles/25505.a-connection-with-the-server-could-not-be-established-0x00002efd-hyper-v-failed-to-enable-reverse-replication-for-virtual-machine.aspx).
 
-        -   [Hyper-V не удалось включить репликацию для виртуальной машины](http://social.technet.microsoft.com/wiki/contents/articles/25506.a-connection-with-the-server-could-not-be-established-0x00002efd-hyper-v-failed-to-enable-replication-for-virtual-machine-virtual-machine.aspx)
+        -   [Hyper-V не удалось включить репликацию для виртуальной машины](http://social.technet.microsoft.com/wiki/contents/articles/25506.a-connection-with-the-server-could-not-be-established-0x00002efd-hyper-v-failed-to-enable-replication-for-virtual-machine-virtual-machine.aspx).
 
-    -   [Не удалось выполнить отработку отказа для виртуальной машины](http://social.technet.microsoft.com/wiki/contents/articles/25508.could-not-commit-failover-for-virtual-machine.aspx)
+    -   [Не удалось выполнить отработку отказа для виртуальной машины](http://social.technet.microsoft.com/wiki/contents/articles/25508.could-not-commit-failover-for-virtual-machine.aspx).
 
--   [План восстановления содержит виртуальные машины, которые еще не готовы для запланированной отработки отказа](http://social.technet.microsoft.com/wiki/contents/articles/25509.the-recovery-plan-contains-virtual-machines-which-are-not-ready-for-planned-failover.aspx)
+-   [План восстановления содержит виртуальные машины, которые еще не готовы для запланированной отработки отказа](http://social.technet.microsoft.com/wiki/contents/articles/25509.the-recovery-plan-contains-virtual-machines-which-are-not-ready-for-planned-failover.aspx).
 
--   [Виртуальная машина не готова для запланированной отработки отказа](http://social.technet.microsoft.com/wiki/contents/articles/25507.the-virtual-machine-isn-t-ready-for-planned-failover.aspx)
+-   [Виртуальная машина не готова для запланированной отработки отказа](http://social.technet.microsoft.com/wiki/contents/articles/25507.the-virtual-machine-isn-t-ready-for-planned-failover.aspx).
 
--   [Виртуальная машина не запущена и не отключена](http://social.technet.microsoft.com/wiki/contents/articles/25510.virtual-machine-is-not-running-and-is-not-powered-off.aspx)
+-   [Виртуальная машина не запущена и не отключена](http://social.technet.microsoft.com/wiki/contents/articles/25510.virtual-machine-is-not-running-and-is-not-powered-off.aspx).
 
--   [На виртуальной машине произошла незапланированная операция, и ](http://social.technet.microsoft.com/wiki/contents/articles/25507.the-virtual-machine-isn-t-ready-for-planned-failover.aspx) не удалось выполнить отработку отказа
+-   [На виртуальной машине произошла незапланированная операция, и ](http://social.technet.microsoft.com/wiki/contents/articles/25507.the-virtual-machine-isn-t-ready-for-planned-failover.aspx) не удалось выполнить отработку отказа.
 
 -   Тестирование отработки отказа
 
-    -   [Не удалось начать отработку отказа, так как выполняется тестовая отработка отказа](http://social.technet.microsoft.com/wiki/contents/articles/31111.failover-could-not-be-initiated-since-test-failover-is-in-progress.aspx)
+    -   [Не удалось начать отработку отказа, так как выполняется тестовая отработка отказа](http://social.technet.microsoft.com/wiki/contents/articles/31111.failover-could-not-be-initiated-since-test-failover-is-in-progress.aspx).
 
--   Особые сообщения об ошибках при восстановлении в Azure
-
-    -   [Не удалось начать отработку отказа из-за неподдерживаемых символов в имени виртуальной машины](http://social.technet.microsoft.com/wiki/contents/articles/31107.failover-could-not-be-started-due-to-unsupported-characters-in-the-vm-name.aspx)
 
 ### Сервер конфигурации, Сервер обработки, Главный целевой сервер
 
@@ -230,4 +219,7 @@ ASR предоставляет возможность центрального �
 
 -   [На узле ESXi, на котором работает PS/CS в виде виртуальной машины, произошел сбой с фиолетовым экраном смерти.](http://social.technet.microsoft.com/wiki/contents/articles/31107.vmware-esxi-host-experiences-a-purple-screen-of-death.aspx)
 
-<!---HONumber=July15_HO4-->
+### Устранение неполадок после отработки отказа удаленного рабочего стола
+Многие пользователи испытывают проблемы при подключении к виртуальной машине Azure после обработки отказа. Используйте документ по устранению неполадок для подключения к виртуальной машине с помощью удаленного рабочего стола. [Ссылка на документ](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)
+
+<!---HONumber=July15_HO5-->

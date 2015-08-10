@@ -40,4 +40,4 @@
 
 	![Настройка агента и конечных точек виртуальной машины](./media/virtual-machines-create-WindowsVM/vmcreated.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

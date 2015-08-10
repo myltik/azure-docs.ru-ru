@@ -137,7 +137,7 @@ $ ssh-keygen
 $ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 ```
 
-Измените или создайте файл ssh_config в каталоге /.ssh. Укажите диапазон IP-адресов частной сети, которая будет использоваться в Azure:
+Измените или создайте файл ssh\_config в каталоге \~/.ssh. Укажите диапазон IP-адресов частной сети, которая будет использоваться в Azure:
 
 ```
 host 10.32.0.*
@@ -256,9 +256,7 @@ private ip address2:16
 Вы можете выполнить следующие команды Intel MPI, чтобы проверить конфигурацию кластера.
 
 ```
-/opt/intel/impi_latest/bin64/mpirun -hosts <host1>, <host2> -ppn 1 -n 2 -env I_MPI_FABRICS dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0
-
-/opt/intel/impi_latest/bin64/IMB-MPI1 pingpong
+/opt/intel/impi_latest/bin64/mpirun -hosts <host1>, <host2> -ppn 1 -n 2 -env I_MPI_FABRICS dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 /opt/intel/impi_latest/bin64/IMB-MPI1 pingpong
 ```
 
 В работающем кластере с двумя узлами вы должны увидеть результаты, аналогичные приведенным ниже:
@@ -341,4 +339,4 @@ private ip address2:16
 
 * Рекомендации по Intel MPI см. в [документации для библиотеки Intel MPI](https://software.intel.com/ru-ru/articles/intel-mpi-library-documentation/).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

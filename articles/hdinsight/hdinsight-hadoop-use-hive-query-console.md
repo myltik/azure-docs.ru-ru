@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/06/2015"
+   ms.date="07/23/2015"
    ms.author="larryfr"/>
 
 # Выполнение запросов Hive с помощью консоли запросов
@@ -23,6 +23,7 @@
 В этой статье вы узнаете, как выполнять запросы Hive в кластере HDInsight Hadoop из браузера с помощью консоли запросов HDInsight.
 
 > [AZURE.NOTE]Консоль запросов доступна только в кластерах HDInsight на платформе Windows.
+
 
 ##<a id="prereq"></a>Предварительные требования
 
@@ -34,9 +35,7 @@
 
 ##<a id="run"></a> Выполнение запросов Hive с помощью консоли запросов
 
-1. Откройте [портал Azure](https://manage.windowsazure.com) и выберите свой кластер HDInsight. В нижней части страницы выберите **Консоль запросов**. При появлении запроса введите имя пользователя и пароль, которые были введены при создании кластера.
-
-    > [AZURE.NOTE]Доступ к консоли запроса также можно получить , введя **https://CLUSTERNAME.azurehdinsight.net** в браузере.
+1. Откройте веб-браузер и перейдите по адресу __https://CLUSTERNAME.azurehdinsight.net__, где __CLUSTERNAME__ — это имя вашего кластера HDInsight. При появлении соответствующего запроса введите имя пользователя и пароль, использованные при создании кластера. 
 
 2. Среди ссылок в верхней части страницы выберите **Редактор Hive**. Откроется форма, которую можно использовать для ввода операторов HiveQL, которые будут выполняться в кластере HDInsight.
 
@@ -120,4 +119,4 @@
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

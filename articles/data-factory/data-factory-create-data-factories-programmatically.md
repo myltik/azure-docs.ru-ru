@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/16/2015" 
+	ms.date="07/22/2015" 
 	ms.author="spelluru"/>
 
 # Создание, отслеживание фабрик данных Azure и управление ими с помощью пакета .NET SDK фабрики данных
@@ -74,7 +74,7 @@
 6. Добавьте в метод **Main** следующий код, который создает экземпляр класса **DataPipelineManagementClient**. Этот объект служит для создания фабрики данных, связанной службы, входных и выходных таблиц и конвейера. Кроме того, этот объект используется для отслеживания фрагментов таблицы во время выполнения.    
 
         // create data factory management client
-        string resourceGroupName = "ADF";
+        string resourceGroupName = "resourcegroupname";
         string dataFactoryName = "APITutorialFactorySP";
 
         TokenCloudCredentials aadTokenCredentials =
@@ -85,6 +85,8 @@
         Uri resourceManagerUri = new Uri(ConfigurationManager.AppSettings["ResourceManagerEndpoint"]);
 
         DataFactoryManagementClient client = new DataFactoryManagementClient(aadTokenCredentials, resourceManagerUri);
+
+	> [AZURE.NOTE]Замените **resourcegroupname** на имя своей группы ресурсов Azure. Для создания группы ресурсов можно использовать командлет [New-AzureResourceGroup](https://msdn.microsoft.com/library/Dn654594.aspx).
 
 7. Добавьте следующий код, создающий **фабрику данных**, в метод **Main**.
 
@@ -329,7 +331,7 @@
             }
         }
 
-14. **(Необязательно)** Добавьте в метод **Main** следующий код для получения сведений о выполнения для фрагмента среза данных.
+14. **(Необязательно)** Добавьте в метод **Main** следующий код для получения сведений о выполнении для среза данных.
 
         Console.WriteLine("Getting run details of a data slice");
 
@@ -360,7 +362,7 @@
         Console.WriteLine("\nPress any key to exit.");
         Console.ReadKey();
 
-15. Постройте консольное приложение. В меню щелкните **Построить** и выберите **Построить решение**. Если приходит сообщение об ошибке относительно класса **ConfigurationManager**, добавьте ссылку на сборку **System.Configuration** и повторите попытку сборки.
+15. Постройте консольное приложение. В меню щелкните **Построить** и выберите **Построить решение**. При отображении сообщения об ошибке с классом **ConfigurationManager** добавьте ссылку на сборку **System.Configuration** и повторите попытку сборки.
 16. Убедитесь, что как минимум один файл существует в контейнере adftutorial в хранилище больших двоичных объектов Azure. В противном случае создайте файл Emp.txt в блокноте со следующим содержимым и передайте его в контейнер adftutorial.
 
         John, Doe
@@ -368,7 +370,7 @@
 	 
 17. Запустите пример, щелкнув **Отладка** > **Начать отладку** в меню. При появлении сообщения **Получение сведений о выполнении для среза данных** подождите несколько минут и нажмите клавишу **ВВОД**.
 18. Используйте портал предварительной версии Azure, чтобы убедиться, что фабрика данных **APITutorialFactory** создана с использованием следующих артефактов: 
-	- Связанная служба: **LinkedService_AzureStorage**. 
+	- Связанная служба: **LinkedService\_AzureStorage**. 
 	- Таблицы: **TableBlobSource** и **TableBlobDestination**.
 	- Конвейер: **PipelineBlobSample**. 
 18. Убедитесь, что выходной файл создан в папке **apifactoryoutput** в контейнере **adftutorial**.
@@ -392,4 +394,4 @@
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

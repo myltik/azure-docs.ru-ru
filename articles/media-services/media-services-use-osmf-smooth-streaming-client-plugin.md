@@ -403,4 +403,4 @@ package
 
 [Адаптивный подключаемый модуль Майкрософт для потоковой передачи для обновления OSMF](http://azure.microsoft.com/blog/2014/10/27/microsoft-adaptive-streaming-plugin-for-osmf-update/)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

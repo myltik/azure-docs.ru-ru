@@ -61,4 +61,4 @@
 * [Регистрация организации в Azure](../sign-up-organization.md)
 * [Удостоверение Azure](../fundamentals-identity.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

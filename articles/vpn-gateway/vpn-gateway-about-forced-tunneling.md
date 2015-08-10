@@ -1,4 +1,5 @@
-<properties pageTitle="Configure Forced Tunneling for Microsoft Azure VPN Gateways" description="If you have a virtual network with a cross-premises VPN-gateway, you can redirect or "force" all Internet-bound traffic back to your on-premises location. " services="vpn-gateway" documentationCenter="na" authors="cherylmc" manager="jdial" editor="tysonn" /> <tags 
+<properties pageTitle="Configure Forced Tunneling for Microsoft Azure VPN Gateways" description="If you have a virtual network with a cross-premises VPN-gateway, you can redirect or "force" all Internet-bound traffic back to your on-premises location. " services="vpn-gateway" documentationCenter="na" authors="cherylmc" manager="jdial" editor="tysonn" />
+<tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="article"
@@ -144,4 +145,4 @@
 
 В виртуальную сеть можно добавлять виртуальные машины. Соответствующие инструкции см. в статье [Создание настраиваемой виртуальной машины](../virtual-machines/virtual-machines-create-custom.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

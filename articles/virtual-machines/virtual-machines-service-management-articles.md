@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Статьи по виртуальным машинам в управлении службами | Microsoft Azure"
-	description="Список статей, которые помогут создавать виртуальные машины в управлении службами Azure и управлять ими."
+	description="В этой статье представлен список ресурсов, которые помогут создавать виртуальные машины в управлении службами Azure и управлять ими."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dlepow"
@@ -14,19 +14,19 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-multiple"
 	ms.workload="infrastructure-services"
-	ms.date="06/30/2015"
+	ms.date="07/28/2015"
 	ms.author="danlep"/>
 
 # Статьи по виртуальным машинам в управлении службами
 Это список статей для работы с виртуальными машинами в управлении службами Azure. Для новых развертываний мы советуем использовать виртуальные машины на основе диспетчера ресурсов Azure и другие ресурсы. Объяснение преимуществ диспетчера ресурсов см. в статье [Поставщики вычислительных и сетевых ресурсов, а также ресурсов хранения Azure в диспетчере ресурсов Azure](virtual-machines-azurerm-versus-azuresm.md).
 
-## Начало работы
+## Приступая к работе
 
-[Создание виртуальной машины под управлением Windows на портале управления Azure](virtual-machines-windows-tutorial-classic-portal.md)
+[Создание виртуальной машины под управлением Windows на портале Azure](virtual-machines-windows-tutorial-classic-portal.md)
 
-[Как создать настраиваемую виртуальную машину под управлением Windows](virtual-machines-windows-create-custom.md)
+[Создание настраиваемой виртуальной машины под управлением Windows в Azure](virtual-machines-windows-create-custom.md)
 
-[Как создать настраиваемую виртуальную машину под управлением Linux](virtual-machines-linux-create-custom.md)
+[Создание настраиваемой виртуальной машины под управлением Linux в Azure](virtual-machines-linux-create-custom.md)
 
 [Учебник. Создание виртуальной сети только для облака в Azure.](create-virtual-network.md)
 
@@ -36,9 +36,9 @@
 
 [Использование Azure PowerShell для создания и предварительной настройки виртуальных машин под управлением Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-[Создание виртуальной машины Windows и управление ею с помощью PowerShell и управления службами Azure](virtual-machines-create-windows-powershell-service-manager.md)
+[Создание виртуальной машины Windows и управление ею с помощью Azure PowerShell](virtual-machines-create-windows-powershell-service-manager.md)
 
-[Как создать виртуальную машину с помощью интерфейса командной строки Azure (Azure CLI)](virtual-machines-xplat-getting-started.md)
+[Создание виртуальной машины с помощью интерфейса командной строки Azure](virtual-machines-xplat-getting-started.md)
 
 [Развертывание нескольких виртуальных машин с помощью интерфейса командной строки Azure](virtual-machines-create-multi-vm-deployment-xplat-cli.md)
 
@@ -46,37 +46,35 @@
 
 [Руководство по реализации служб инфраструктуры Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-[О параметрах конфигурации виртуальной машины](https://msdn.microsoft.com/library/azure/dn763935.aspx)
-
 [Нужна ли мне виртуальная сеть?](https://msdn.microsoft.com/library/azure/jj156007.aspx)
 
 ## Создание
 
 [Создание и передача виртуального жесткого диска Windows Server в Azure](virtual-machines-create-upload-vhd-windows-server.md)
 
-[Создание и загрузка виртуального жесткого диска, содержащего операционную систему Linux.](virtual-machines-linux-create-upload-vhd.md)
+[Создание и загрузка виртуального жесткого диска, содержащего операционную систему Linux](virtual-machines-linux-create-upload-vhd.md)
 
-[Как записать виртуальную машину Windows, чтобы использовать в качестве шаблона](virtual-machines-capture-image-windows-server.md)
+[Как записать виртуальную машину под управлением Windows, чтобы использовать в качестве образа](virtual-machines-capture-image-windows-server.md)
 
 
-[Как записать образ виртуальной машины Linux для использования в качестве шаблона](virtual-machines-linux-capture-image.md)
+[Как записать образ виртуальной машины под управлением Linux для использования в качестве шаблона](virtual-machines-linux-capture-image.md)
 
-[Как записать образ виртуальной машины под управлением Linux с помощью CLI для дальнейшего использования в качестве шаблона](virtual-machines-vm-capture-image-cli.md)
+[Как записать образ виртуальной машины под управлением Linux с помощью интерфейса командной строки для дальнейшего использования в качестве шаблона](virtual-machines-vm-capture-image-cli.md)
 
 
 ## Управление
 
-[Как войти в виртуальную машину под управлением Windows Server](virtual-machines-log-on-windows-server.md)
+[Вход в виртуальную машину под управлением Windows Server](virtual-machines-log-on-windows-server.md)
 
-[Как войти в виртуальную машину под управлением Linux](virtual-machines-linux-how-to-log-on.md)
+[Вход в виртуальную машину под управлением ОС Linux](virtual-machines-linux-how-to-log-on.md)
 
-[Подключение диска данных к виртуальной машине Windows](storage-windows-attach-disk.md)
+[Подключение диска данных к виртуальной машине под управлением Windows](storage-windows-attach-disk.md)
 
-[Как отсоединить диск данных от виртуальной машины Windows](storage-windows-detach-disk.md)
+[Отключение диска данных от виртуальной машины под управлением Windows](storage-windows-detach-disk.md)
 
-[Подключение диска данных к виртуальной машине Linux](virtual-machines-linux-how-to-attach-disk.md)
+[Подключение диска данных к виртуальной машине под управлением Linux](virtual-machines-linux-how-to-attach-disk.md)
 
-[Как отсоединить диск данных от виртуальной машины Linux](virtual-machines-linux-how-to-detach-disk.md)
+[Отключение диска данных от виртуальной машины под управлением Linux](virtual-machines-linux-how-to-detach-disk.md)
 
 [Подключение виртуальных машин с помощью виртуальной сети или облачной службы](cloud-services-connect-virtual-machine.md)
 
@@ -92,15 +90,23 @@
 
 [Active Directory](https://msdn.microsoft.com/library/azure/jj156090.aspx)
 
+[BizTalk Server](https://msdn.microsoft.com/library/azure/jj248689)
+
 [Cassandra](virtual-machines-linux-nodejs-running-cassandra.md)
 
 [Docker](virtual-machines-docker-with-xplat-cli.md)
 
-[Dynamics NAV](https://msdn.microsoft.com/library/azure/dn168977.aspx)
+[Exchange Server](https://technet.microsoft.com/library/jj619301.aspx)
 
 [Пакет HPC](https://msdn.microsoft.com/library/azure/dn518135.aspx)
 
 [Стек LAMP](virtual-machines-linux-install-lamp-stack.md)
+
+[Очередь сообщений (MSMQ)](https://msdn.microsoft.com/library/azure/dn529082.aspx)
+
+[Microsoft Dynamics AX](https://technet.microsoft.com/library/dn741581.aspx)
+
+[Microsoft Dynamics NAV](https://msdn.microsoft.com/library/azure/dn168977.aspx)
 
 [MongoDB в Windows Server](virtual-machines-install-mongodb-windows-server.md)
 
@@ -108,19 +114,27 @@
 
 [Oracle](virtual-machines-oracle-azure-virtual-machines.md)
 
-[SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
+[SAP](https://msdn.microsoft.com/library/azure/dn745892.aspx)
+
+[SharePoint Server](virtual-machines-workload-intranet-sharepoint-farm.md)
 
 [SQL Server](virtual-machines-sql-server-infrastructure-services.md)
 
+[Контроллер приложений System Center](https://technet.microsoft.com/library/dn249764.aspx)
+
+[System Center Operations Manager](https://technet.microsoft.com/library/dn249696.aspx#BKMK_Azure)
+
+[Team Foundation Server](https://msdn.microsoft.com/library/azure/dn769056.aspx)
+
+[Режим Windows Server Essentials](https://msdn.microsoft.com/library/azure/dn520827.aspx)
+
 ## Монитор
 
-[Общая информация об уведомлениях и оповещениях мониторинга в Azure](https://msdn.microsoft.com/library/azure/dn306639.aspx)
-
-[Включение диагностики](../cloud-services/cloud-services-dotnet-diagnostics.md)
+[Включение диагностики в облачных службах и виртуальных машинах Azure](../cloud-services/cloud-services-dotnet-diagnostics.md)
 
 [Отладка облачной службы или виртуальной машины в Visual Studio](https://msdn.microsoft.com/library/azure/ff683670.aspx)
 
-[Использование скриптов Windows PowerShell для публикации в среды разработки и тестирования](https://msdn.microsoft.com/library/azure/dn642480.aspx).
+[Использование скриптов Windows PowerShell для публикации в средах разработки и тестирования](https://msdn.microsoft.com/library/azure/dn642480.aspx)
 
 ## Устранение неполадок
 
@@ -130,10 +144,10 @@
 
 ## Справочные материалы
 
-[Командлеты PowerShell для управления службами](https://msdn.microsoft.com/library/azure/dn708504.aspx)
+[Командлеты для управления службами Azure](https://msdn.microsoft.com/library/azure/dn708504.aspx)
 
 [Справочник по API-интерфейсу управления службами REST](https://msdn.microsoft.com/library/azure/ee460799.aspx)
 
-[Команды интерфейса командной строки Azure для управления службами](virtual-machines-command-line-tools.md)
+[Управление службами Azure с помощью интерфейса командной строки Azure на компьютерах Mac, а также на компьютерах с ОС Linux и Windows](virtual-machines-command-line-tools.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

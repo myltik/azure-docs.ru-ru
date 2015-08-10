@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="SQL Server на виртуальных машинах Azure" 
+	pageTitle="Расширение агента IaaS для SQL Server" 
 	description="В этой статье описано расширение агента для SQL Server, который позволяет виртуальным машинам с сервером SQL Server в облаке Azure использовать функции автоматизации. Здесь также приведен способ установки агента, если он не был установлен автоматически." 
 	services="virtual-machines" 
 	documentationCenter="" 
@@ -74,4 +74,4 @@ Get-AzureVMSqlServerExtension [[-VM] <IPersistentVM>] [[-Version] <string>] [<Co
 ### Синтаксис
 Remove-AzureVMSqlServerExtension -VM <IPersistentVM> [<CommonParameters>]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

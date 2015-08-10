@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/16/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sidneyh"/>
 
-# Практическое руководство. Добавление справочников по клиентской библиотеке в эластичную базу данных в проект Visual Studio 
+# Практическое руководство. Добавление справочников клиентской библиотеки эластичных баз данных в проект Visual Studio 
 
 ### Предварительные требования: 
 
@@ -40,4 +40,4 @@
 [1]: ./media/sql-database-elastic-scale-add-references-visual-studio/search-online.png
 <!--anchors-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

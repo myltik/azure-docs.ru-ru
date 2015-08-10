@@ -243,9 +243,6 @@ Sqoop можно также использовать для импорта и э
 
 
 
-
-[azure-management-portal]: https://manage.windowsazure.com/
-
 [hdinsight-versions]: hdinsight-component-versioning.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-get-started]: ../hdinsight-get-started.md
@@ -264,4 +261,4 @@ Sqoop можно также использовать для импорта и э
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

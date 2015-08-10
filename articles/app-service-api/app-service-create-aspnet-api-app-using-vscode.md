@@ -123,7 +123,7 @@ yo aspnet
 
 	![Команда Restore](./media/app-service-create-aspnet-api-app-using-vscode/04-dnu-restore.png)
 
-	Команда Restore устанавливает пакеты NuGet, необходимые для запуска приложения. По завершении в командном окно отобразится сообщение **Восстановление завершено**.
+	Команда Restore устанавливает пакеты NuGet, необходимые для запуска приложения. По завершении в командном окне отобразится сообщение **Восстановление завершено**.
 
 ## Изменение приложения API
 
@@ -150,28 +150,28 @@ namespace ContactsList.Models
 3. Щелкните правой кнопкой мыши папку **Controllers** и добавьте файл *ContactsController.cs* следующего вида:
 
 	<pre class="prettyprint">
-	using System.Collections.Generic;
-	using Microsoft.AspNet.Mvc;
-	using ContactsList.Models;
-	
-	namespace ContactsList.Controllers
-	{
-	    [Route("api/[controller]")]
-	    public class ContactsController : Controller
-	    {
-	        // GET: api/Contacts
-	        [HttpGet]
-	        public IEnumerable&lt;Contact&gt; Get()
-	        {
-	            return new Contact[]{
-	                new Contact { Id = 1, EmailAddress = "barney@contoso.com", Name = "Barney Poland"},
-	                new Contact { Id = 2, EmailAddress = "lacy@contoso.com", Name = "Lacy Barrera"},
-	                new Contact { Id = 3, EmailAddress = "lora@microsoft.com", Name = "Lora Riggs"}
-	            };
-	        }
-	    }
-	}
-	</pre>
+using System.Collections.Generic;
+using Microsoft.AspNet.Mvc;
+using ContactsList.Models;
+
+namespace ContactsList.Controllers
+{
+    [Route("api/[controller]")]
+    public class ContactsController : Controller
+    {
+        // GET: api/Contacts
+        [HttpGet]
+        public IEnumerable&lt;Contact> Get()
+        {
+            return new Contact[]{
+                new Contact { Id = 1, EmailAddress = "barney@contoso.com", Name = "Barney Poland"},
+                new Contact { Id = 2, EmailAddress = "lacy@contoso.com", Name = "Lacy Barrera"},
+                new Contact { Id = 3, EmailAddress = "lora@microsoft.com", Name = "Lora Riggs"}
+            };
+        }
+    }
+}
+</pre>
 
 4. Убедитесь, что все файлы сохранены, выбрав **Файл** > **Сохранить все**.
 5. В **палитре команд** введите следующую команду, чтобы запустить приложение локально:
@@ -194,22 +194,22 @@ namespace ContactsList.Models
 Метаданные, которые позволяют развертывать проект API ASP.NET как приложение API, содержатся в файле *apiapp.json* в корневой папке проекта.
 
 1. В VSCode щелкните правой кнопкой мыши папку *wwwroot* и выберите параметр **Создать файл**.
-2. Назовите новый файл *apiapp.json*.<br\> Убедитесь, что *apiapp.json* находится в папке *wwwroot*.
+2. Назовите новый файл *apiapp.json*.<br> Убедитесь, что *apiapp.json* находится в папке *wwwroot*.
 3. Добавьте в файл *apiapp.json* следующее:
 
 	<pre class="prettyprint">
-	{
-	    "$schema": "http://json-schema.org/schemas/2014-11-01/apiapp.json#",
-	    "id": "ContactsList",
-	    "namespace": "microsoft.com",
-	    "gateway": "2015-01-14",
-	    "version": "1.0.0",
-	    "title": "ContactsList",
-	    "summary": "",
-	    "author": "",
-	    "endpoints": null
-	}
-	</pre>
+{
+    "$schema": "http://json-schema.org/schemas/2014-11-01/apiapp.json#",
+    "id": "ContactsList",
+    "namespace": "microsoft.com",
+    "gateway": "2015-01-14",
+    "version": "1.0.0",
+    "title": "ContactsList",
+    "summary": "",
+    "author": "",
+    "endpoints": null
+}
+</pre>
 
 В файле *apiapp.json* можно указать конечную точку для JSON динамического определения Swagger API, но в этом учебнике будет использоваться статический файл определения API. Пример, в котором используется динамическое создание Swagger, см. в разделе [Настройка проекта веб-API как приложения API](app-service-dotnet-create-api-app-visual-studio.md).
 
@@ -221,106 +221,106 @@ namespace ContactsList.Models
 3. Добавьте следующий синтаксис JSON в новый файл:
 
 	<pre class="prettyprint">
-	{
-	  "swagger": "2.0",
-	  "info": {
-	    "version": "v1",
-	    "title": "ContactsList"
-	  },
-	  "host": "СЛЕДУЕТ ЗАМЕНИТЬ ЭТУ СТРОКУ НА URL-АДРЕС УЗЛА",
-	  "schemes": [
-	    "https"
-	  ],
-	  "paths": {
-	    "/api/Contacts": {
-	      "get": {
-	        "tags": [
-	          "Contacts"
-	        ],
-	        "operationId": "Contacts_Get",
-	        "consumes": [],
-	        "produces": [
-	          "application/json",
-	          "text/json",
-	          "application/xml",
-	          "text/xml"
-	        ],
-	        "responses": {
-	          "200": {
-	            "description": "OK",
-	            "schema": {
-	              "type": "array",
-	              "items": {
-	                "$ref": "#/definitions/Contact"
-	              }
-	            }
-	          }
-	        },
-	        "deprecated": false
-	      },
-	      "post": {
-	        "tags": [
-	          "Contacts"
-	        ],
-	        "operationId": "Contacts_Post",
-	        "consumes": [
-	          "application/json",
-	          "text/json",
-	          "application/xml",
-	          "text/xml",
-	          "application/x-www-form-urlencoded"
-	        ],
-	        "produces": [
-	          "application/json",
-	          "text/json",
-	          "application/xml",
-	          "text/xml"
-	        ],
-	        "parameters": [
-	          {
-	            "name": "contact",
-	            "in": "body",
-	            "required": true,
-	            "schema": {
-	              "$ref": "#/definitions/Contact"
-	            }
-	          }
-	        ],
-	        "responses": {
-	          "200": {
-	            "description": "OK",
-	            "schema": {
-	              "$ref": "#/definitions/Object"
-	            }
-	          }
-	        },
-	        "deprecated": false
-	      }
-	    }
-	  },
-	  "definitions": {
-	    "Contact": {
-	      "type": "object",
-	      "properties": {
-	        "Id": {
-	          "format": "int32",
-	          "type": "integer"
-	        },
-	        "Name": {
-	          "type": "string"
-	        },
-	        "EmailAddress": {
-	          "type": "string"
-	        }
-	      }
-	    },
-	    "Object": {
-	      "type": "object",
-	      "properties": {}
-	    }
-	  }
-	}
-	</pre>
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "v1",
+    "title": "ContactsList"
+  },
+  "host": "СЛЕДУЕТ ЗАМЕНИТЬ ЭТУ СТРОКУ НА URL-АДРЕС УЗЛА",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/api/Contacts": {
+      "get": {
+        "tags": [
+          "Contacts"
+        ],
+        "operationId": "Contacts_Get",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Contact"
+              }
+            }
+          }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": [
+          "Contacts"
+        ],
+        "operationId": "Contacts_Post",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "contact",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Contact"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "definitions": {
+    "Contact": {
+      "type": "object",
+      "properties": {
+        "Id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "EmailAddress": {
+          "type": "string"
+        }
+      }
+    },
+    "Object": {
+      "type": "object",
+      "properties": {}
+    }
+  }
+}
+</pre>
 
 Далее в этом учебнике вы замените строку заполнителя URL-адреса узла URL-адресом узла Azure, который создадите и скопируете позже.
 
@@ -420,14 +420,14 @@ Git является распределенной системой управл�
 7. В **GitBash** измените папки на свою папку проекта VSCode, например
 
 	<pre class="prettyprint">
-	cd c:\VSCodeProjects\ContactsList
-	</pre>
+cd c:\VSCodeProjects\ContactsList
+</pre>
 
 7. Создайте внешнюю ссылку для публикации обновлений в ранее созданное веб-приложение (узел приложений API), используя URL-адрес Git (заканчивающийся на .git), скопированный ранее:
 
 	<pre class="prettyprint">
-	git remote add azure [URL-адрес удаленного репозитория]
-	</pre>
+git remote add azure [URL-адрес удаленного репозитория]
+</pre>
 
 8. Отправьте обновления в Azure с помощью следующей команды:
 
@@ -463,4 +463,4 @@ Git является распределенной системой управл�
 В этом учебнике вы узнали, как создать приложение API в Visual Studio Code. Дополнительную информацию о Visual Studio Code см. в разделе [Visual Studio Code](https://code.visualstudio.com/Docs/). Информацию о приложениях API см. в разделе [Что такое приложения API?](app-service-api-apps-why-best-platform.md).
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

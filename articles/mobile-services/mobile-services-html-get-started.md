@@ -13,32 +13,31 @@
 	ms.tgt_pltfrm="mobile-html5"
 	ms.devlang="javascript"
 	ms.topic="article" 
-	ms.date="04/24/2015"
-	ms.author="ggailey777"/>
+	ms.date="07/25/2015"
+	ms.author="glenga"/>
 
 
 # <a name="getting-started"> </a>Приступая к работе с мобильными службами
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
-<div class="dev-onpage-video-clear clearfix">
-<div class="dev-onpage-left-content">
-<p>В этом учебнике показано, как добавить облачную серверную службу в приложение на HTML с помощью мобильных служб Azure. В этом учебнике вы создадите новую мобильную службу и простое приложение <em>To do list</em>, хранящее данные приложения в новой мобильной службе. Чтобы просмотреть видеоверсию данного учебника, щелкните расположенный справа клип.</p>
-</div>
-<div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkId=287040" target="_blank" class="label">Просмотр учебника</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-html-get-started-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkId=287040" target="_blank" class="dev-onpage-video"><span class="icon">Воспроизведение видео</span></a> <span class="time">3:51:00</span></div>
-</div>
+##Обзор 
 
+В этом учебнике показано, как добавить облачную серверную службу в приложение на HTML с помощью мобильных служб Azure. В этом учебнике вы создадите новую мобильную службу и простое приложение *To do list*, хранящее данные приложения в новой мобильной службе. Вы можете просмотреть видеоверсию данного учебника.
+
+> [AZURE.VIDEO mobile-get-started-html]
+ 
 Снимок экрана завершенного приложения приведен ниже:
 
 ![][0]
 
-Завершение изучения этого учебника является необходимым условием для работы со всеми другими учебниками, посвященными приложениям HTML.
+Завершение изучения этого учебника является необходимым условием для работы со всеми другими учебниками, посвященными приложениям HTML. Для приложения PhoneGap/Cordova см. [версию PhoneGap или Cordova](mobile-services-javascript-backend-phonegap-get-started.md) этого учебника.
 
-> [AZURE.IMPORTANT]Для работы с этим учебником требуется учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fru-ru%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank).
+##Предварительные требования
 
-###Дополнительные требования
+Ниже перечислены необходимые условия для выполнения действий, описанных в этом учебнике.
 
-+ В этом учебнике требуется наличие одного из следующих веб-серверов, запущенных на локальном компьютере:
++ Необходимо иметь один из следующих веб-серверов, работающих на локальном компьютере.
 
 	+  **В Windows**: IIS Express. IIS Express устанавливается [установщиком веб-платформы Майкрософт].
 	+  **В MacOS X**: Python, который уже должен быть установлен.
@@ -47,6 +46,7 @@
 	Можно использовать любой веб-сервер для размещения приложения, однако ниже приведены веб-серверы, которые поддерживаются доступными для загрузки сценариями.
 
 + Браузер, который поддерживает HTML5.
++ Учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fru-ru%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank). 
 
 
 ## <a name="create-new-service"> </a>Создание мобильной службы
@@ -134,10 +134,6 @@
 <!-- Images. -->
 [0]: ./media/mobile-services-html-get-started/mobile-quickstart-completed-html.png
 
-
-
-
-
 [6]: ./media/mobile-services-html-get-started/mobile-portal-quickstart-html.png
 [7]: ./media/mobile-services-html-get-started/mobile-quickstart-steps-html.png
 
@@ -148,15 +144,15 @@
 
 
 <!-- URLs. -->
-[Приступая к работе с данными]: /develop/mobile/tutorials/get-started-with-data-html
-[Приступая к работе с аутентификацией]: /develop/mobile/tutorials/get-started-with-users-html
+[Приступая к работе с данными]: mobile-services-html-get-started-data.md
+[Приступая к работе с аутентификацией]: mobile-services-html-get-started-users.md
 [Вызов настраиваемого API из приложения на HTML]: mobile-services-html-call-custom-api.md
 
 [Management Portal]: https://manage.windowsazure.com/
 [установщиком веб-платформы Майкрософт]: http://go.microsoft.com/fwlink/p/?LinkId=286333
 [последнюю версию Python]: http://go.microsoft.com/fwlink/p/?LinkId=286342
-[Справочник принципов использования мобильных служб HTML/JavaScript]: /develop/mobile/how-to-guides/work-with-html-js-client
-[Cross-origin resource sharing]: http://msdn.microsoft.com/library/windowsazure/dn155871.aspx
+[Справочник принципов использования мобильных служб HTML/JavaScript]: mobile-services-html-how-to-use-client-library.md
+[Cross-origin resource sharing]: http://msdn.microsoft.com/library/azure/dn155871.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

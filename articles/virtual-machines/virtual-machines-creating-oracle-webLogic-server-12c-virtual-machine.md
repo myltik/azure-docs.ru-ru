@@ -1,19 +1,5 @@
-<properties 
-	pageTitle="Создание виртуальной машины Oracle WebLogic Server 12c в Azure" 
-	description="Пошагово создайте пример образа Oracle WebLogic Server 12c под управлением Windows Server 2012 в Microsoft Azure." 
-	services="virtual-machines" 
-	authors="bbenz" 
-	documentationCenter=""/>
-
-<tags 
-	ms.service="virtual-machines" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="infrastructure-services" 
-	ms.date="06/22/2015" 
-	ms.author="bbenz" />
-	
+<properties pageTitle="Создание виртуальной машины Oracle WebLogic Server 12c в Azure" description="Пошагово создайте пример образа Oracle WebLogic Server 12c под управлением Windows Server 2012 в Microsoft Azure." services="virtual-machines" authors="bbenz" documentationCenter=""/>
+<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
 #Создание виртуальной машины Oracle WebLogic Server 12c в Azure
 В следующем примере показано, как можно создать в Azure виртуальную машину на основе предоставленного корпорацией Майкрософт образа Oracle WebLogic Server 12c под управлением Windows Server 2012.
 
@@ -100,19 +86,19 @@
 15.	Запустится командная строка **startWebLogic.cmd**. При появлении запроса укажите имя пользователя и пароль WebLogic.
 
 ##Установка приложения на виртуальную машину Oracle WebLogic Server 12c в Azure
-1.	Не выходя из виртуальной машины, скопируйте в пример shoppingcart.war, доступный по адресу http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war, на локальный компьютер. Например, создайте папку с именем **c:\mywar** и сохраните WAR-файл, полученный по адресу http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war, в **c:\mywar**.
+1.	Не выходя из виртуальной машины, скопируйте в пример shoppingcart.war, доступный по адресу http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war, на локальный компьютер. Например, создайте папку с именем **c:\\mywar** и сохраните WAR-файл, полученный по адресу http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war, в **c:\\mywar**.
 
 2.	Откройте **консоль администрирования WebLogic Server**, http://localhost:7001/console. При появлении запроса укажите имя пользователя и пароль WebLogic.
 
 3.	В **консоли администрирования WebLogic Server** последовательно щелкните **Lock & Edit** (Заблокировать и изменить), **Deployments** (Развертывания) и нажмите кнопку **Install** (Установить).
 
-4.	В поле **Path** (Путь) введите **c:\myway\shoppingcart.war**.
+4.	В поле **Path** (Путь) введите **c:\\myway\\shoppingcart.war**.
 
 	![](media/virtual-machines-creating-oracle-webLogic-server-12c-virtual-machine/image18.png)
 
 	Нажмите кнопку **Далее**.
 
-5.	Выберите **Install this deployment as an application** (Установить это развертывание как приложение) и нажмите кнопку **Next** (Далее).
+5.	Выберите \*\*Install this deployment as an application\*\* (Установить это развертывание как приложение) и нажмите кнопку **Next** (Далее).
 
 6.	Нажмите кнопку **Готово**
 
@@ -168,7 +154,7 @@
 
 	8.	Укажите имя правила и необязательное описание, затем нажмите кнопку **Готово**.
 
-12.	Чтобы увидеть выполнение приложения shoppingcart в Интернете, откройте в браузере URL-адрес вида `http://<<unique_domain_name>>/shoppingcart`. (Значение <<*unique_domain_name*>> можно определить на [портале Azure](https://ms.portal.azure.com/), щелкнув **Виртуальные машины** и выбрав виртуальную машину, которая используется для запуска Oracle WebLogic Server.)
+12.	Чтобы увидеть выполнение приложения shoppingcart в Интернете, откройте в браузере URL-адрес вида `http://<<unique_domain_name>>/shoppingcart`. (Значение <<\*unique\_domain\_name\*>> можно определить на [портале Azure](https://ms.portal.azure.com/), щелкнув **Виртуальные машины** и выбрав виртуальную машину, которая используется для запуска Oracle WebLogic Server.)
 
 
 ##Дополнительные ресурсы
@@ -182,4 +168,4 @@
 
 -	[Образы виртуальных машин Oracle для Azure](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

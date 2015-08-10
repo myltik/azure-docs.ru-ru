@@ -51,9 +51,9 @@
 
 [Руководство разработчика по Azure Active Directory](active-directory-developers-guide.md)
 
-[Использование Azure AD для проверки подлинности](https://msdn.microsoft.com/library/azure/dn385718.aspx)
+[Использование Azure AD для проверки подлинности](../app-service-web/web-sites-authentication-authorization.md)
 
 [Примеры кода Active Directory](active-directory-code-samples.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

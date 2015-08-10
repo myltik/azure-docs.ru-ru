@@ -112,7 +112,7 @@
 > [AZURE.NOTE]В данном учебнике используется один экземпляр [EventProcessorHost]. Чтобы увеличить пропускную способность, рекомендуется запустить несколько экземпляров [EventProcessorHost], как показано в примере [Обработка масштабированного события]. В этом случае различные экземпляры автоматически координируются друг с другом для распределения нагрузки полученных событий. Если каждый из нескольких получателей должен обрабатывать *все* события, то необходимо использовать понятие **ConsumerGroup**. При получении события от разных компьютеров может оказаться полезным указать имена экземпляров [EventProcessorHost] в компьютерах (или ролях), где они развернуты. Дополнительные сведения об этих темах см. в разделах [Общие сведения о концентраторах событий] и [Руководство по программированию концентраторов событий].
 
 <!-- Links -->
-[Общие сведения о концентраторах событий]: http://msdn.microsoft.com/library/azure/dn836025.aspx
+[Общие сведения о концентраторах событий]: http://azure.microsoft.com/documentation/articles/event-hubs-overview/
 [Обработка масштабированного события]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
 [обработки масштабируемого события]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
 [учетную запись хранения Azure]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/
@@ -126,8 +126,8 @@
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-[Руководство по программированию концентраторов событий]: http://msdn.microsoft.com/library/azure/dn789972.aspx
+[Руководство по программированию концентраторов событий]: http://azure.microsoft.com/documentation/articles/event-hubs-programming-guide/
 [Async Await in Console Apps]: http://blogs.msdn.com/b/pfxteam/archive/2012/01/20/10259049.aspx
 [AsyncPump.cs]: http://blogs.msdn.com/cfs-file.ashx/__key/communityserver-components-postattachments/00-10-25-90-49/AsyncPump_2E00_cs
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

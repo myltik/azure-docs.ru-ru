@@ -37,7 +37,7 @@
 
 Так как эти учебники помогают быстро создать виртуальную машину, в них показан только один из способов сделать это и не описаны различные инструменты, с помощью которых можно создавать виртуальные машины. Сводка этих инструментов и ссылки на указания:
 
-[Различные способы создания виртуальной машины Linux](virtual-machines-linux-choices-create-vm.md)
+[Разные способы создания виртуальной машины Linux](virtual-machines-linux-choices-create-vm.md)
 
 [Различные способы создания виртуальной машины Windows](virtual-machines-windows-choices-create-vm.md)
 
@@ -49,4 +49,4 @@
 [Virtual Machines]: #tellmevm
 [Cloud Services]: cloud-services-choose-me.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

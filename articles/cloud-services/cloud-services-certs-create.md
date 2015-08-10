@@ -71,10 +71,10 @@
 
 ## Дальнейшие действия
 
-[Загрузка сертификата службы на портал Azure](cloud-services-configure-ssl-certificate.md) (или [портал предварительной версии](cloud-services-configure-ssl-certificate-portal.md)) и его настройка для облачной службы.
- 
+[Загрузка сертификата службы на портал Azure](cloud-services-configure-ssl-certificate.md) (или [портал предварительной версии](cloud-services-configure-ssl-certificate-portal.md)) и [его настройка](cloud-services-xml-certs.md) для облачной службы.
+
 Загрузка [сертификата управления API](../azure-api-management-certs.md) на портал Azure.
 
 >[AZURE.NOTE]Портал предварительной версии Azure не использует сертификаты управления для доступа к API, обращаясь вместо этого к учетным записям пользователей.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

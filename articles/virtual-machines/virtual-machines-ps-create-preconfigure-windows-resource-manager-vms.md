@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/09/2015"
+	ms.date="07/22/2015"
 	ms.author="kathydav"/>
 
 # Создание и предварительная настройка виртуальной машины под управлением Windows с помощью диспетчера ресурсов и Azure PowerShell
@@ -29,7 +29,7 @@
 
 ## Шаг 1. Установка Azure PowerShell
 
-У Azure PowerShell должна быть версия не ниже 0.9.0. Если вы еще не установили и не настроили Azure PowerShell, см. соответствующие инструкции [здесь](powershell-install-configure.md).
+У Azure PowerShell должна быть версия не ниже 0.9.0. Если вы еще не установили и не настроили Azure PowerShell, см. соответствующие инструкции [здесь](../powershell-install-configure.md).
 
 Чтобы узнать, какая версия Azure PowerShell установлена, используйте эту команду Azure PowerShell:
 
@@ -41,7 +41,7 @@
 	-------
 	0.9.0
 
-Если установлена версия ниже 0.9.0, удалите Azure PowerShell с помощью компонента «Программы и компоненты» панели управления, а затем установите последнюю версию. Дополнительные сведения см. в статье [Установка и настройка Azure PowerShell](powershell-install-configure.md).
+Если установлена версия ниже 0.9.0, удалите Azure PowerShell с помощью компонента «Программы и компоненты» панели управления, а затем установите последнюю версию. Дополнительные сведения см. в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
 
 ## Шаг 2. Настройка подписки
 
@@ -119,6 +119,8 @@
 
 	Get-AzureAvailabilitySet –ResourceGroupName $rgName | Sort Name | Select Name
 
+Виртуальные машины на основе диспетчера ресурсов можно настроить с помощью правил преобразования сетевых адресов (NAT) для входящих подключений, чтобы разрешить входящий трафик из Интернета и направить его в набор балансировки нагрузки. В обоих случаях необходимо указать экземпляр подсистемы балансировки нагрузки и другие параметры. Дополнительные сведения см. в статье [Создание подсистемы балансировки нагрузки с помощью диспетчера ресурсов Azure](../load-balancer/load-balancer-arm-powershell.md).
+
 Для виртуальных машин на базе диспетчера ресурсов требуется виртуальная сеть на базе диспетчера ресурсов. При необходимости создайте для новой виртуальной машины виртуальную сеть на базе диспетчера ресурсов с минимум одной подсетью. Ниже приведен пример новой виртуальной сети с двумя подсетями: frontendSubnet и backendSubnet.
 
 	$rgName="LOBServers"
@@ -165,24 +167,71 @@
 	$subnetIndex=<index of the subnet on which to create the NIC for the virtual machine>
 	$vnet=Get-AzurevirtualNetwork -Name $vnetName -ResourceGroupName $rgName
 
-Далее создайте сетевой адаптер (NIC), запросите общедоступный IP-адрес и при необходимости назначьте ему DNS-имя. Скопируйте код из первого или второго варианта в набор команд и введите имя сетевого адаптера и DNS-имя.
+Затем создайте сетевую карту. Скопируйте данные из одного из следующих вариантов в набор команд и введите имя необходимые сведения.
 
-Вариант 1. Укажите имя сетевого адаптера.
+### Вариант 1. Укажите имя сетевой карты и назначьте общедоступный IP-адрес.
 
-Скопируйте эти строки в набор команд и укажите имя сетевого адаптера.
+Скопируйте следующие строки в набор команд и укажите имя сетевой карты.
 
 	$nicName="<name of the NIC of the VM>"
 	$pip = New-AzurePublicIpAddress -Name $nicName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
 	$nic = New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[$subnetIndex].Id -PublicIpAddressId $pip.Id
 
-Вариант 2. Укажите имя сетевого адаптера и DNS-имя.
+### Вариант 2. Укажите имя сетевой карты и DNS-имя.
 
-Скопируйте эти строки в набор команд и укажите имя сетевого адаптера, а также глобально уникальное доменное имя. При создании виртуальной машины в режиме управления службами Azure PowerShell Azure выполняет эти действия автоматически.
+Скопируйте следующие строки в набор команд и укажите имя сетевой карты, а также глобально уникальное доменное имя. При создании виртуальной машины в режиме управления службами Azure PowerShell Azure выполняет эти действия автоматически.
 
 	$nicName="<name of the NIC of the VM>"
 	$domName="<domain name label>"
 	$pip = New-AzurePublicIpAddress -Name $nicName -ResourceGroupName $rgName -DomainNameLabel $domName -Location $locName -AllocationMethod Dynamic
 	$nic = New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[$subnetIndex].Id -PublicIpAddressId $pip.Id
+
+### Вариант 3. Укажите имя сетевой карты и назначьте статический частный IP-адрес.
+
+Скопируйте следующие строки в набор команд и укажите имя сетевой карты.
+
+	$nicName="<name of the NIC of the VM>"
+	$staticIP="<available static IP address on the subnet>"
+	$pip = New-AzurePublicIpAddress -Name $nicName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
+	$nic = New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[$subnetIndex].Id -PublicIpAddressId $pip.Id -PrivateIpAddress $staticIP
+
+### Вариант 4. Укажите имя сетевой карты и экземпляр подсистемы балансировки нагрузки для правила преобразования сетевых адресов (NAT) для входящих подключений.
+
+Чтобы создать сетевую карту и добавить ее в экземпляр подсистемы балансировки нагрузки для правила преобразования сетевых адресов (NAT) для входящих подключений, необходимы следующие данные:
+
+- имя ранее созданного экземпляра подсистемы балансировки нагрузки, включающего правило преобразования сетевых адресов (NAT) для входящих подключений для трафика, который переадресовывается на виртуальную машину;
+- номер индекса пула адресов серверной части экземпляра подсистемы балансировки нагрузки, который нужно назначить сетевой карте;
+- номер индекса правила преобразования сетевых адресов (NAT) для входящих подключений, которое нужно назначить сетевой карте.
+
+Сведения о том, как создать экземпляр подсистемы балансировки нагрузки с помощью правил преобразования сетевых адресов (NAT) для входящих подключений, см. в статье [Создание подсистемы балансировки нагрузки с помощью диспетчера ресурсов Azure](../load-balancer/load-balancer-arm-powershell.md).
+
+Скопируйте эти строки в набор команд и укажите необходимые имена и номера индекса.
+
+	$nicName="<name of the NIC of the VM>"
+	$lbName="<name of the load balancer instance>"
+	$bePoolIndex=<index of the back end pool, starting at 0>
+	$natRuleIndex=<index of the inbound NAT rule, starting at 0>
+	$lb=Get-AzureLoadBalancer -Name $lbName -ResourceGroupName $rgName 
+	$nic=New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -Subnet $vnet.Subnets[$subnetIndex].Id -LoadBalancerBackendAddressPool $lb.BackendAddressPools[$bePoolIndex] -LoadBalancerInboundNatRule $lb.InboundNatRules[$natRuleIndex]
+
+Строка $nicName должна быть уникальной для группы ресурсов. В строку рекомендуется включить имя виртуальной машины, например LOB07-NIC.
+
+### Вариант 5. Укажите имя сетевой карты и экземпляр подсистемы балансировки нагрузки для набора балансировки нагрузки.
+
+Чтобы создать сетевую карту и добавить ее в экземпляр подсистемы балансировки нагрузки для набора балансировки нагрузки, необходимы следующие данные:
+
+- имя ранее созданного экземпляра подсистемы балансировки нагрузки, включающего правило для трафика с балансировкой нагрузки;
+- номер индекса пула адресов серверной части экземпляра подсистемы балансировки нагрузки, который нужно назначить сетевой карте.
+
+Сведения о том, как создать экземпляр подсистемы балансировки нагрузки с правилами для трафика с балансировкой нагрузки, см. в статье [Создание подсистемы балансировки нагрузки с помощью диспетчера ресурсов Azure](../load-balancer/load-balancer-arm-powershell.md).
+
+Скопируйте эти строки в набор команд и укажите необходимые имена и номера индекса.
+
+	$nicName="<name of the NIC of the VM>"
+	$lbName="<name of the load balancer instance>"
+	$bePoolIndex=<index of the back end pool, starting at 0>
+	$lb=Get-AzureLoadBalancer -Name $lbName -ResourceGroupName $rgName 
+	$nic=New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -Subnet $vnet.Subnets[$subnetIndex].Id -LoadBalancerBackendAddressPool $lb.BackendAddressPools[$bePoolIndex]
 
 Затем создайте локальный объект виртуальной машины и при необходимости добавьте его в группу доступности. Скопируйте код первого или второго варианта в набор команд и введите имя и размер виртуальной машины, а также имя группы доступности.
 
@@ -262,15 +311,15 @@
 
 Если вы используете текстовый редактор, скопируйте набор команд в буфер обмена и щелкните правой кнопкой мыши в командном окне Azure PowerShell. При этом набор команд выполняется в виде последовательности команд PowerShell, и создается виртуальная машина Azure. Или выполните набор команд в среде Azure PowerShell ISE.
 
-Если вы планируете создавать такие же или аналогичные виртуальные машины снова, можете сохранить набор команд как файл сценария PowerShell (*.ps1).
+Если вы планируете создавать такие же или аналогичные виртуальные машины снова, можете сохранить набор команд как файл сценария PowerShell (\*.ps1).
 
 ## Пример
 
 Мне требуется набор команд PowerShell, чтобы создать дополнительную виртуальную машину для обработки коммерческого веб-трафика. ВМ должна:
 
-- входить в существующую группу ресурсов LOBServers;
+- находиться в существующей группе ресурсов LOBServers;
 - использовать образ Windows Server 2012 R2 Datacenter;
-- иметь имя LOB07 и входить в существующую группу доступности WEB_AS;
+- иметь имя LOB07 и входить в существующую группу доступности WEB\_AS;
 - иметь сетевой адаптер с общедоступным IP-адресом в подсети FrontEnd (индекс подсети — 0) существующей виртуальной сети AZDatacenter;
 - иметь дополнительный диск данных объемом 200 ГБ.
 
@@ -282,7 +331,7 @@
 	# Set values for existing resource group and storage account names
 	$rgName="LOBServers"
 	$locName="West US"
-	$saName="contosoLOBServersSA"
+	$saName="contosolobserverssa"
 
 	# Set the existing virtual network and subnet index
 	$vnetName="AZDatacenter"
@@ -290,7 +339,7 @@
 	$vnet=Get-AzurevirtualNetwork -Name $vnetName -ResourceGroupName $rgName
 
 	# Create the NIC
-	$nicName="AzureInterface"
+	$nicName="LOB07-NIC"
 	$domName="contoso-vm-lob07"
 	$pip=New-AzurePublicIpAddress -Name $nicName -ResourceGroupName $rgName -DomainNameLabel $domName -Location $locName -AllocationMethod Dynamic
 	$nic=New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[$subnetIndex].Id -PublicIpAddressId $pip.Id
@@ -330,12 +379,12 @@
 
 [Поставщики вычислительных и сетевых ресурсов, а также ресурсов хранения Azure в диспетчере ресурсов Azure](virtual-machines-azurerm-versus-azuresm.md)
 
-[Общие сведения о диспетчере ресурсов Azure](resource-group-overview.md)
+[Общие сведения о диспетчере ресурсов Azure](../resource-group-overview.md)
 
 [Развертывание виртуальных машин Azure и управление ими с использованием шаблонов диспетчера ресурсов и PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
 
 [Создание виртуальной машины Windows с помощью шаблона диспетчера ресурсов и PowerShell](virtual-machines-create-windows-powershell-resource-manager-template-simple)
 
-[Установка и настройка Azure PowerShell](install-configure-powershell.md)
+[Установка и настройка Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/16/2015" 
+	ms.date="07/23/2015" 
 	ms.author="juliako"/>
 
 #Кодирование содержимого по запросу с помощью служб мультимедиа Azure
@@ -26,7 +26,7 @@
 
 - [Стандартный кодировщик служб мультимедиа](#media_encoder_standard)
 - [Azure Media Encoder](#azure_media_encoder)
-- [Расширенный рабочий процесс кодировщика служб мультимедиа](#media_encoder_premium_workflow) (общедоступная предварительная версия)
+- [Рабочий процесс Premium обработчика мультимедиа](#media_encoder_premium_workflow)
 
 В [следующем разделе](#compare_encoders) сравниваются возможности поддерживаемых кодировщиков.
 
@@ -61,7 +61,7 @@
 [Кодирование мультимедиа с помощью Dolby Digital Plus](media-services-encode-with-dolby-digital-plus.md): описание кодирования звуковых дорожек с использованием Dolby Digital Plus.
 
 
-##<a id="media_encoder_premium_wokrflow"></a>Расширенный рабочий процесс кодировщика служб мультимедиа (предварительная версия)
+##<a id="media_encoder_premium_wokrflow"></a> Рабочий процесс Premium обработчика мультимедиа 
 
 **Примечание**. Обработчик мультимедиа рабочего процесса Premium Media Encoder, рассмотренный в данном разделе, недоступен в Китае.
 
@@ -195,4 +195,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

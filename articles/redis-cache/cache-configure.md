@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="tbd"
-   ms.date="06/29/2015"
+   ms.date="07/24/2015"
    ms.author="sdanie" />
 
 # Настройка кэша Redis для Azure
@@ -122,7 +122,9 @@
 |lua-event-limit|500|Это максимальный размер очереди событий сценариев.|
 |client-output-buffer-limit normalclient-output-buffer-limit pubsub|0 0 032mb 8mb 60|Ограничения буферов вывода клиентов можно использовать для принудительного отключения клиентов, по каким-либо причинам недостаточно быстро считывающим данные с сервера (распространенной причиной является неспособность клиента Pub/Sub поглощать сообщения так же быстро, как их производит издатель). Дополнительные сведения см. в разделе [http://redis.io/topics/clients](http://redis.io/topics/clients).|
 
->[AZURE.IMPORTANT]Поскольку настройка и управление экземплярами кэша Redis для Azure осуществляется с помощью портала Azure, следующие команды отключены. При попытке вызвать их вы получите сообщение об ошибке для `"(error) ERR unknown command"`.
+## Команды Redis не поддерживаются в кэше Redis для Azure
+
+>[AZURE.IMPORTANT]Поскольку настройка и управление экземплярами кэша Redis для Azure осуществляется с помощью портала Azure, следующие команды отключены. При попытке вызвать их вы получите сообщение об ошибке примерно следующего содержания: `"(error) ERR unknown command"`.
 >
 >-	BGREWRITEAOF
 >-	BGSAVE
@@ -133,9 +135,23 @@
 >-	SHUTDOWN
 >-	SLAVEOF
 
-Дополнительные сведения о командах Redis см. в разделе [http://redis.io/commands](http://redis.io/commands).
+Дополнительные сведения о командах Redis см. на странице [http://redis.io/commands](http://redis.io/commands).
+
+## Консоль Redis
+
+В экземплярах кэша Redis для Azure можно безопасно выполнять команды с помощью **консоли Redis**, которая доступна для кэшей Standard. Для доступа к консоли Redis щелкните **Консоль** в колонке **Кэш Redis**.
+
+![Консоль Redis](./media/cache-configure/redis-console-menu.png)
+
+>[AZURE.IMPORTANT]Консоль Redis доступна только для кэшей Standard.
+
+Чтобы выполнить команду в своем экземпляре кэша, просто введите нужную команду в консоль.
+
+![Консоль Redis](./media/cache-configure/redis-console.png)
+
+Список команд Redis, отключенных в кэше Redis для Azure, см. в предыдущем разделе [Команды Redis, не поддерживаемые в кэше Redis для Azure](#redis-commands-not-supported-in-azure-redis-cache). Дополнительные сведения о командах Redis см. на странице [http://redis.io/commands](http://redis.io/commands).
 
 ## Дальнейшие действия
 -	Дополнительные сведения о работе с командами Redis см. в разделе [Как выполнять команды Redis?](cache-faq.md#how-can-i-run-redis-commands).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

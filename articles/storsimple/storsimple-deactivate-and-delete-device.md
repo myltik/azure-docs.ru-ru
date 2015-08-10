@@ -91,4 +91,4 @@
 
 Чтобы получить техническую поддержку, [обратитесь в службу поддержки Майкрософт](https://msdn.microsoft.com/library/azure/dn757750.aspx).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

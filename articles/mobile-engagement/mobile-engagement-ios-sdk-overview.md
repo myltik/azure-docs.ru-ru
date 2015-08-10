@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="05/04/2015" 
+	ms.date="07/28/2015" 
 	ms.author="piyushjo" />
 
 #Пакет SDK для Azure Mobile Engagement (iOS)
@@ -32,7 +32,7 @@
 
 ##Заметки о выпуске
 
-###2.2.0 (05/21/2015)
+###2\.2.0 (05/21/2015)
 
 -   В основе идентификатора устройства Mobile Engagement для устройств c версией ОС ниже iOS 6 теперь используется GUID, генерируемый во время установки.
 
@@ -50,4 +50,4 @@
 Нет.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

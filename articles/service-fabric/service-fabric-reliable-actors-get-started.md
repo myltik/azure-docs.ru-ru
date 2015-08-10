@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/10/2015"
+   ms.date="07/23/2015"
    ms.author="claudioc"/>
 
 # Надежные субъекты: пошаговое руководство по началу работы на примере HelloWorld
@@ -143,14 +143,6 @@ fabricRuntime.RegisterActor(typeof(MyNewActor));
 
 ![Окно вывода отладки Service Fabric][3]
 
-## Развертывание приложения
-Используя Visual Studio, вы можете также упаковать и развернуть приложение в локальном кластере, не запуская отладчик. Для этого выберите проект приложения Service Fabric и щелкните правой кнопкой мыши.
-
-![Service Fabric — меню проекта для развертывания и упаковывания приложений][4]
-
-* **Развернуть**. Создание пакета приложения и запуск процесса развертывания.
-* **Удалить развертывание**. Удаление приложения из локального кластера.
-* **Упаковать**. Создание пакета приложения. Эту команду можно использовать для подготовки приложения к развертыванию в другом кластере, например в Azure.
 
 ## Дальнейшие действия
 
@@ -163,6 +155,5 @@ fabricRuntime.RegisterActor(typeof(MyNewActor));
 [3]: ./media/service-fabric-reliable-actors-get-started/debugging-output.PNG
 [4]: ./media/service-fabric-reliable-actors-get-started/vs-context-menu.png
 [5]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject1.PNG
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

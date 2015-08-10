@@ -52,4 +52,4 @@
 
 -  [Добавление виртуальной машины](../virtual-machines/virtual-machines-create-custom.md) в виртуальную сеть.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/25/2015"
+	ms.date="07/24/2015"
 	ms.author="larryfr"/>
 
 
@@ -215,7 +215,7 @@ Apache Oozie — это система рабочих процессов и ко
         data:    Server Name i1qwc540ts
         info:    sql server create command OK
 
-    > [AZURE.IMPORTANT]Обратите внимание на имя сервера, возвращаемое этой командой (** i1qwc540ts ** в примере выше.) Это краткое имя созданного сервера базы данных SQL. Полное доменное имя (FQDN) — **&lt;shortname&gt;.database.windows.net**. В приведенном выше примере полным доменным именем будет **i1qwc540ts.database.windows.net**.
+    > [AZURE.IMPORTANT]Обратите внимание на имя сервера, возвращаемое этой командой (\*\* i1qwc540ts \*\* в примере выше.) Это краткое имя созданного сервера базы данных SQL. Полное доменное имя (FQDN) — **&lt;shortname&gt;.database.windows.net**. В приведенном выше примере полным доменным именем будет **i1qwc540ts.database.windows.net**.
 
 2. Для создания базы данных **oozietest** на сервере базы данных SQL выполните следующую команду:
 
@@ -276,7 +276,7 @@ Apache Oozie — это система рабочих процессов и ко
 
 1. Для получения полного адреса WASB хранилища по умолчанию воспользуйтесь следующей командой. Позже он будет использован в файле конфигурации.
 
-		sed -n '/<name>fs.default/,/</value>/p' /etc/hadoop/conf/core-site.xml
+		sed -n '/<name>fs.default/,/<\/value>/p' /etc/hadoop/conf/core-site.xml
 
 	Эта команда возвращает следующую информацию:
 
@@ -383,7 +383,7 @@ Apache Oozie — это система рабочих процессов и ко
 
 1. Для получения URL-адреса службы Oozie воспользуйтесь следующей командой:
 
-		sed -n '/<name>oozie.base.url/,/</value>/p' /etc/oozie/conf/oozie-site.xml
+		sed -n '/<name>oozie.base.url/,/<\/value>/p' /etc/oozie/conf/oozie-site.xml
 
 	Эта команда возвращает следующее значение:
 
@@ -622,7 +622,7 @@ Oozie REST API позволяет создавать собственные ут
 
 ###JA009: Не удается инициализировать кластер
 
-**Симптомы**: Состояние задания изменяется на **SUSPENDED**. В подробной информации о задании состояние RunHiveScript отображается как **START_MANUAL**. При выборе действия отображается следующее сообщение об ошибке:
+**Симптомы**: Состояние задания изменяется на **SUSPENDED**. В подробной информации о задании состояние RunHiveScript отображается как **START\_MANUAL**. При выборе действия отображается следующее сообщение об ошибке:
 
 	JA009: Cannot initialize Cluster. Please check your configuration for map
 
@@ -632,7 +632,7 @@ Oozie REST API позволяет создавать собственные ут
 
 ###JA002: Oozie не может работать от имени &lt;USER>
 
-**Симптомы**: Состояние задания изменяется на **SUSPENDED**. В подробной информации о задании состояние RunHiveScript отображается как **START_MANUAL**. При выборе действия отображается следующее сообщение об ошибке:
+**Симптомы**: Состояние задания изменяется на **SUSPENDED**. В подробной информации о задании состояние RunHiveScript отображается как **START\_MANUAL**. При выборе действия отображается следующее сообщение об ошибке:
 
 	JA002: User: oozie is not allowed to impersonate <USER>
 
@@ -686,7 +686,6 @@ Oozie REST API позволяет создавать собственные ут
 [hdinsight-versions]: hdinsight-component-versioning.md
 [hdinsight-storage]: hdinsight-use-blob-storage.md
 [hdinsight-get-started]: hdinsight-get-started.md
-[hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 
 
 [hdinsight-use-sqoop]: hdinsight-use-sqoop-mac-linux.md
@@ -704,7 +703,6 @@ Oozie REST API позволяет создавать собственные ут
 [sqldatabase-create-configue]: sql-database-create-configure.md
 [sqldatabase-get-started]: sql-database-get-started.md
 
-[azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
 [apache-hadoop]: http://hadoop.apache.org/
@@ -725,4 +723,4 @@ Oozie REST API позволяет создавать собственные ут
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

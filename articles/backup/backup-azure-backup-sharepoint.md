@@ -7,7 +7,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/14/2015" ms.author="sammehta"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt\_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/14/2015" ms.author="sammehta"; "jimpark"/>
 
 
 # Резервное копирование фермы SharePoint в Azure
@@ -33,7 +33,7 @@
 На каждые 10 млн элементов в ферме требуется не меньше 2 ГБ памяти в томе, где находится папка DPM. Эта память нужна для создания каталога. Для восстановления конкретных элементов (коллекций веб-сайтов, сайтов, списков, библиотек документов, папок, отдельных документов и элементов списков) через DPM операция создания каталога формирует список URL-адресов, содержащихся в каждой базе данных содержимого. Список URL-адресов можно просмотреть в консоли администратора DPM, открыв панель восстанавливаемых элементов в области задач восстановления.
 
 ### SQL Server
-DPM выполняется как локальная система и для создания резервной копии SQL Server требует наличия прав системного администратора в учетной записи SQL Server. Установите для параметра NT AUTHORITY\SYSTEM значение *sysadmin* в SQL Server, для которого нужно создать резервную копию.
+DPM выполняется как локальная система и для создания резервной копии SQL Server требует наличия прав системного администратора в учетной записи SQL Server. Установите для параметра NT AUTHORITY\\SYSTEM значение *sysadmin* в SQL Server, для которого нужно создать резервную копию.
 
 При наличии баз данных SQL Server, настроенных с псевдонимами SQL Server, в ферме SharePoint установите клиентские компоненты SQL Server на интерфейсный веб-сервер, который DPM будет защищать.
 
@@ -50,14 +50,14 @@ DPM выполняется как локальная система и для с
 ## Настройка защиты SharePoint
 Перед развертыванием защиты SharePoint с помощью DPM необходимо настроить службу модуля записи VSS SharePoint (службу модуля записи WSS) с помощью файла **ConfigureSharePoint.exe**.
 
-Файл **ConfigureSharePoint.exe** находится в папке [путь установки DPM]\bin на интерфейсном веб-сервере. Он позволяет установить агент защиты с учетными данными для фермы SharePoint. Файл нужно распаковать на одном интерфейсном веб-сервере. Если у вас таких серверов несколько, выберите один из них для настройки группы защиты.
+Файл **ConfigureSharePoint.exe** находится в папке [путь установки DPM]\\bin на интерфейсном веб-сервере. Он позволяет установить агент защиты с учетными данными для фермы SharePoint. Файл нужно распаковать на одном интерфейсном веб-сервере. Если у вас таких серверов несколько, выберите один из них для настройки группы защиты.
 
 ### Настройка службы модуля записи VSS SharePoint
-1. На интерфейсном веб-сервере перейдите через командную строку в папку [путь установки DPM]\bin\.
+1. На интерфейсном веб-сервере перейдите через командную строку в папку [путь установки DPM]\\bin\\.
 2. Запустите ConfigureSharePoint - EnableSharePointProtection.
 3. Введите учетные данные администратора фермы. Эта учетная запись должна быть членом локальной группы администраторов на интерфейсном веб-сервере. Если администратор фермы не является локальным администратором, предоставьте на интерфейсном веб-сервере следующие разрешения:
-  - Предоставьте группе WSS_Admin_WPG полный доступ к папке DPM (%Program Files%\Microsoft Data Protection Manager\DPM).
-  - Предоставьте группе WSS_Admin_WPG право чтения реестра DPM (HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager).
+  - Предоставьте группе WSS\_Admin\_WPG полный доступ к папке DPM (%Program Files%\\Microsoft Data Protection Manager\\DPM).
+  - Предоставьте группе WSS\_Admin\_WPG право чтения реестра DPM (HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Microsoft Data Protection Manager).
 
 >[AZURE.NOTE]После каждого изменения в учетных данных администратора фермы SharePoint файл ConfigureSharePoint.exe необходимо перезапускать.
 
@@ -107,19 +107,19 @@ DPM выполняется как локальная система и для с
 
 10. На экране **Укажите расписание онлайн-архивации** выберите желаемое расписание и нажмите кнопку **Далее**.
 
-    ![Online_backup_schedule](./media/backup-azure-backup-sharepoint/specify-online-backup-schedule.png)
+    ![Online\_backup\_schedule](./media/backup-azure-backup-sharepoint/specify-online-backup-schedule.png)
 
     >[AZURE.NOTE]DPM допускает создание двух резервных копий в Azure в разное время дня.
 
 11. В зависимости от выбранного расписания архивации на экране **Укажите политику онлайн-хранения** выберите политику хранения для ежедневных, еженедельных, ежемесячных и ежегодных точек резервного копирования.
 
-    ![Online_retention_policy](./media/backup-azure-backup-sharepoint/specify-online-retention.png)
+    ![Online\_retention\_policy](./media/backup-azure-backup-sharepoint/specify-online-retention.png)
 
     >[AZURE.NOTE]DPM использует трехуровневую схему хранения, позволяющую выбирать разную политику хранения для разных точек резервного копирования.
 
 12. Как и диск, реплика начальной контрольной точки должна быть создана в Azure. Выберите желаемый параметр для создания начальной резервной копии в Azure и нажмите кнопку **Далее**.
 
-    ![Online_replica](./media/backup-azure-backup-sharepoint/online-replication.png)
+    ![Online\_replica](./media/backup-azure-backup-sharepoint/online-replication.png)
 
 13. Просмотрите выбранные параметры на странице **Сводка** и нажмите кнопку **Создать группу**. После создания группы защиты появится сообщение об успешном выполнении операции.
 
@@ -226,4 +226,4 @@ DPM выполняется как локальная система и для с
 - См. [Заметки о выпуске System Center 2012 — Data Protection Manager](https://technet.microsoft.com/library/jj860415.aspx)
 - См. [Заметки о выпуске Data Protection Manager в System Center 2012 SP1](https://technet.microsoft.com/library/jj860394.aspx)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->
