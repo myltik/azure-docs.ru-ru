@@ -56,7 +56,7 @@
 
 5. Замените {application-id} только что записанным идентификатором, а затем создайте субъект-службу для приложения:
 
-        New-AzureADServicePrincipal -ApplicationId {application-id}
+        New-AzureADServicePrincipal -ApplicationId {application-id} 
 
 6. Настройте разрешение на использование приложения:
 
@@ -109,7 +109,7 @@
           ClientCredential cc = new ClientCredential("{application-id}", "{password}");
             var context = new AuthenticationContext("https://login.windows.net/{tenant-id}");
             var result = context.AcquireToken("https://management.azure.com/", cc);
-
+          
           if (result == null)
           {
             throw new InvalidOperationException("Failed to obtain the JWT token");
@@ -142,7 +142,7 @@
 		public async static void CreateResourceGroup(TokenCloudCredentials credential)
 		{
 		  Console.WriteLine("Creating the resource group...");
-
+		  
           using (var resourceManagementClient = new ResourceManagementClient(credential))
 		  {
 		    var rgResult = await resourceManagementClient.ResourceGroups.CreateOrUpdateAsync("mytestrg1", new ResourceGroup { Location = "West US" });
@@ -170,7 +170,7 @@
 		public async static void CreateStorageAccount(TokenCloudCredentials credential)
         {
           Console.WriteLine("Creating the storage account...");
-
+          
           using (var storageManagementClient = new StorageManagementClient(credential))
           {
             var saResult = await storageManagementClient.StorageAccounts.CreateAsync(
@@ -183,7 +183,7 @@
         }
 
 3.	Для вызова только что добавленного метода добавьте указанный ниже код в метод Main.
-
+		
 		CreateStorageAccount(credential);
 		Console.ReadLine();
 
@@ -286,7 +286,7 @@
                 Location = "West US"
               } );
             Console.WriteLine(avSetResponse.StatusCode);
-
+                
             var networkClient = new NetworkResourceProviderClient(credential);
             var nicResponse = await networkClient.NetworkInterfaces.GetAsync("mytestrg1", "mytestnic1");
 
@@ -335,7 +335,7 @@
                   {
                     Name = "myosdisk1",
                     CreateOption = "FromImage",
-                    VirtualHardDisk = new VirtualHardDisk
+                    VirtualHardDisk = new VirtualHardDisk 
                     {
                       Uri = "http://mytestsa1.blob.core.windows.net/vhds/myosdisk1.vhd"
                     }
@@ -346,7 +346,7 @@
           }
         }
 
-	>[AZURE.NOTE]Имена образов виртуальных жестких дисков в коллекции образов регулярно изменяются, поэтому для развертывания виртуальной машины необходимо получить текущее имя образа. В разделе [Управление образами с помощью Windows PowerShell](https://msdn.microsoft.com/library/azure/dn790330.aspx) прочитайте сведения о том, как сделать это, и замените текст {source-image-name} именем файла виртуального жесткого диска, который необходимо использовать. Имя может иметь следующий вид: a699494373c04fc0bc8f2bb1389d6106\_\_Windows-Server-2012-R2-201411.01-en.us-127GB.vhd.
+	>[AZURE.NOTE]Имена образов виртуальных жестких дисков в коллекции образов регулярно изменяются, поэтому для развертывания виртуальной машины необходимо получить текущее имя образа. В разделе [Управление образами с помощью Windows PowerShell](https://msdn.microsoft.com/library/azure/dn790330.aspx) прочитайте сведения о том, как сделать это, и замените текст {source-image-name} именем файла виртуального жесткого диска, который необходимо использовать. Имя может иметь следующий вид: a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201411.01-en.us-127GB.vhd.
 
 	Замените текст {subscription-id} идентификатором вашей подписки.
 
@@ -388,4 +388,4 @@
 
 	![Создание приложения AD](./media/virtual-machines-arm-deployment/crpportal.png)
 
-<!---HONumber=July15_HO5-->
+<!----HONumber=July15_HO5-->

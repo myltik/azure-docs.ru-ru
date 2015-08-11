@@ -2,7 +2,7 @@
 
 	![](./media/app-service-api-dotnet-add-generated-client/03-add-azure-api-client-v3.png)
 	
-3. В диалоговом окне **Добавление клиента приложения API Azure ** установите переключатель **Загрузить из приложения API Azure**.
+3. В диалоговом окне **Добавление клиента приложения API Azure** установите переключатель **Загрузить из приложения API Azure**.
 
 5. В раскрывающемся списке выберите приложение API, которое необходимо вызвать.
 
@@ -18,4 +18,4 @@
 
 	![Создание завершено](./media/app-service-api-dotnet-add-generated-client/06-code-gen-output-v3.png)
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

@@ -45,8 +45,8 @@
 
 
 <!--links-->
-[App Service]: app-service-choose-me.md
-[Virtual Machines]: #tellmevm
-[Cloud Services]: cloud-services-choose-me.md
+[Служба приложений]: app-service-choose-me.md
+[Виртуальные машины]: #tellmevm
+[Облачные службы]: cloud-services-choose-me.md
 
-<!---HONumber=July15_HO5-->
+<!----HONumber=July15_HO5-->

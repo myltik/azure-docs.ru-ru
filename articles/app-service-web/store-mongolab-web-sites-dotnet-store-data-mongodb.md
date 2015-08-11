@@ -40,13 +40,18 @@
 1. Откройте Azure Marketplace, выбрав команду **Создать** > **Marketplace**.  
 	<!-- ![Store][button-store] -->
 
-1. Приобретите надстройку MongoLab. ![MongoLab][entry-mongolab]
+1. Приобретите надстройку MongoLab.  
+	![MongoLab][entry-mongolab]
 
-1. Щелкните надстройку MongoLab в списке надстроек, а затем выберите пункт **Сведения о подключении**. ![ConnectionInfoButton][button-connectioninfo]
+1. Щелкните надстройку MongoLab в списке надстроек, а затем выберите пункт **Сведения о подключении**.  
+	![ConnectionInfoButton][button-connectioninfo]
 
-1. Скопируйте MONGOLAB_URI в буфер обмена. ![ConnectionInfoScreen][screen-connectioninfo] **Этот универсальный код ресурса (URI) содержит имя пользователя базы данных и пароль. Считайте это конфиденциальной информацией и не передавайте ее.**
+1. Скопируйте MONGOLAB_URI в буфер обмена.  
+	![ConnectionInfoScreen][screen-connectioninfo] 
+	**Этот универсальный код ресурса (URI) содержит имя пользователя базы данных и пароль. Считайте это конфиденциальной информацией и не передавайте ее.**
 
-1. Добавьте значение в список "Строки подключения" в меню "Конфигурация" веб-приложения Azure: ![WebSiteConnectionStrings][focus-website-connectinfo]
+1. Добавьте значение в список "Строки подключения" в меню "Конфигурация" веб-приложения Azure:  
+	![WebSiteConnectionStrings][focus-website-connectinfo]
 
 1. В качестве **Имени** введите MONGOLAB_URI.
 
@@ -84,7 +89,8 @@
 ### Создание проекта
 Для примера приложения используется шаблон Visual Studio. Убедитесь, что используется платформа .NET Framework 4.5.
 
-1. Выберите **Файл -> Новый проект**. Появится диалоговое окно "Новый проект": ![NewProject][dialog-mongolab-csharp-newproject]
+1. Выберите **Файл -> Новый проект**. Появится диалоговое окно "Новый проект":    
+	![NewProject][dialog-mongolab-csharp-newproject]
 
 1. Выберите **Установлено -> Шаблоны -> Visual C# -> Интернет**.
 
@@ -94,7 +100,9 @@
 
 1. В поле _Имя проекта_ введите **mongoNotes**. Если вы выбрали другое имя, потребуется изменить код, используемый в учебнике.
 
-1. Выберите **Средства -> Диспетчер пакетов библиотеки -> Консоль диспетчера пакетов**. В консоли PM введите команду **Install-Package mongocsharpdriver** и нажмите клавишу **ВВОД**. ![PMConsole][focus-mongolab-csharp-pmconsole] Драйвер MongoDB C# интегрируется с проектом, а в файл _packages.config_ будет автоматически добавлена следующая строка:
+1. Выберите **Средства -> Диспетчер пакетов библиотеки -> Консоль диспетчера пакетов**. В консоли PM введите команду **Install-Package mongocsharpdriver** и нажмите клавишу **ВВОД**.  
+	![PMConsole][focus-mongolab-csharp-pmconsole] 
+	Драйвер MongoDB C# интегрируется с проектом, а в файл _packages.config_ будет автоматически добавлена следующая строка:
 
         < package id="mongocsharpdriver" version="1.9.2" targetFramework="net45" / >
 
@@ -488,4 +496,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

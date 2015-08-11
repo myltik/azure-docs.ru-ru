@@ -144,7 +144,7 @@
 
 В этом разделе для мобильных устройств будет создан специальный файл макета.
 
-Сначала скопируйте *Views\Shared\_Layout.cshtml* в *Views\Shared\_Layout.Mobile.cshtml*. Откройте *_Layout.Mobile.cshtml* и измените заголовок с **Приложение MVC5** на **Приложение MVC5 (мобильное)**.
+Сначала скопируйте *Views\Shared_Layout.cshtml* в *Views\Shared_Layout.Mobile.cshtml*. Откройте *_Layout.Mobile.cshtml* и измените заголовок с **Приложение MVC5** на **Приложение MVC5 (мобильное)**.
 
 В каждом вызове `Html.ActionLink` панели навигации удалите "Поиск по" в каждой ссылке *ActionLink*. В следующем коде показан законченный тег `<ul class="nav navbar-nav">` файла макета для мобильных устройств.
 
@@ -191,7 +191,7 @@
 
     using System.Web.WebPages;
 
-Сохраните изменения. Скопируйте файл *Views\Shared\_Layout.Mobile.cshtml* в *Views\Shared\_Layout.iPhone.cshtml*. Откройте новый файл и измените заголовок с `MVC5 Application (Mobile)` на `MVC5 Application (iPhone)`.
+Сохраните изменения. Скопируйте файл *Views\Shared_Layout.Mobile.cshtml* в *Views\Shared_Layout.iPhone.cshtml*. Откройте новый файл и измените заголовок с `MVC5 Application (Mobile)` на `MVC5 Application (iPhone)`.
 
 Скопируйте файл *Views\Home\AllTags.Mobile.cshtml* в *Views\Home\AllTags.iPhone.cshtml*. В новом файле измените значение элемента `<h2>` с "Tags (M)" на "Tags (iPhone)".
 
@@ -209,7 +209,7 @@
 
 ![][AllSpeakers_LayoutMobile]
 
-Вы можете глобально отключить представление по умолчанию (не для мобильных устройств) из отображения в макете для мобильных устройств, задав для параметра `RequireConsistentDisplayMode` значение `true` в файле *Views\_ViewStart.cshtml* следующим образом.
+Вы можете глобально отключить представление по умолчанию (не для мобильных устройств) из отображения в макете для мобильных устройств, задав для параметра `RequireConsistentDisplayMode` значение `true` в файле *Views_ViewStart.cshtml* следующим образом.
 
     @{
         Layout = "~/Views/Shared/_Layout.cshtml";
@@ -262,7 +262,7 @@
 
 ![][AllSpeakersFixedDesktop]
 
-Мы улучшили представление браузера для мобильных устройств, но перемещаться по длинному списку докладчиков все еще неудобно. Исходные настройки Bootstrap не предусматривают функцию фильтра поиска, но вы можете ее добавить с помощью нескольких строк кода. Сначала вы добавите в представление поле поиска, а затем с помощью кода JavaScript подключите функцию фильтра. В *Views\Home\AllSpeakers.cshtml* добавьте тег <form> сразу после тега <h2>, как показано ниже.
+Мы улучшили представление браузера для мобильных устройств, но перемещаться по длинному списку докладчиков все еще неудобно. Исходные настройки Bootstrap не предусматривают функцию фильтра поиска, но вы можете ее добавить с помощью нескольких строк кода. Сначала вы добавите в представление поле поиска, а затем с помощью кода JavaScript подключите функцию фильтра. В *Views\Home\AllSpeakers.cshtml* добавьте тег \<form\> сразу после тега \<h2\>, как показано ниже.
 
     @model IEnumerable<string>
 
@@ -618,4 +618,4 @@
 [SessionByCodeFixed3-644]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionByCode-Fixed-3-644.png
  
 
-<!---HONumber=July15_HO4-->
+<!-----HONumber=July15_HO4-->

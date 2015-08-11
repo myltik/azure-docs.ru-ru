@@ -306,38 +306,38 @@ HDInsight использует контейнер хранилища BLOB-объ
 
 **Подключение к учетной записи Azure**
 
-	Add-AzureAccount
+		Add-AzureAccount
 
 Появится запрос на ввод учетных данных учетной записи Azure.
 
 **Создание учетной записи хранения Azure**
 
-	$storageAccountName = "<StorageAcccountName>"	# Provide a Storage account name
-	$location = "<MicrosoftDataCenter>"				# For example, "West US"
+		$storageAccountName = "<StorageAcccountName>"	# Provide a Storage account name
+		$location = "<MicrosoftDataCenter>"				# For example, "West US"
 
-	# Create an Azure Storage account
-	New-AzureStorageAccount -StorageAccountName $storageAccountName -Location $location
+		# Create an Azure Storage account
+		New-AzureStorageAccount -StorageAccountName $storageAccountName -Location $location
 
 Если у вас уже есть учетная запись хранения, но вы не знаете имени и ключа этой учетной записи, можно использовать следующие команды Windows PowerShell для получения нужной информации:
 
-	# List Storage accounts for the current subscription
-	Get-AzureStorageAccount
+		# List Storage accounts for the current subscription
+		Get-AzureStorageAccount
 
-	# List the keys for a Storage account
-	Get-AzureStorageKey "<StorageAccountName>"
+		# List the keys for a Storage account
+		Get-AzureStorageKey "<StorageAccountName>"
 
 **Создание контейнера хранилища больших двоичных объектов Azure**
 
-	$storageAccountName = "<StorageAccountName>"	# Provide the Storage account name
-	$containerName="<ContainerName>"				# Provide a container name
+		$storageAccountName = "<StorageAccountName>"	# Provide the Storage account name
+		$containerName="<ContainerName>"				# Provide a container name
 
-	# Create a storage context object
-	$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
-	$destContext = New-AzureStorageContext -StorageAccountName $storageAccountName
-	                                       -StorageAccountKey $storageAccountKey  
+		# Create a storage context object
+		$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
+		$destContext = New-AzureStorageContext -StorageAccountName $storageAccountName
+		                                       -StorageAccountKey $storageAccountKey  
 
-	# Create a Blob storage container
-	New-AzureStorageContainer -Name $containerName -Context $destContext
+		# Create a Blob storage container
+		New-AzureStorageContainer -Name $containerName -Context $destContext
 
 После создания учетной записи хранения и подготовки контейнера больших двоичных объектов все готово к созданию кластера.
 
@@ -348,25 +348,25 @@ HDInsight использует контейнер хранилища BLOB-объ
 - Выполните следующие команды в окне консоли Azure PowerShell:
 
 		$subscriptionName = "<AzureSubscriptionName>"	  # The Azure subscription used for the HDInsight cluster to be created
-	
+
 		$storageAccountName = "<AzureStorageAccountName>" # HDInsight cluster requires an existing Azure Storage account to be used as the default file system
-	
+
 		$clusterName = "<HDInsightClusterName>"			  # The name for the HDInsight cluster to be created
 		$clusterNodes = <ClusterSizeInNodes>              # The number of nodes in the HDInsight cluster
-		$hadoopUserName = "<HadoopUserName>"              # User name for the Hadoop user. You will use this account to connect to the cluster and run jobs.
-		$hadoopUserPassword = "<HadoopUserPassword>"
-	
-		$secPassword = ConvertTo-SecureString $hadoopUserPassword -AsPlainText -Force
-		$credential = New-Object System.Management.Automation.PSCredential($hadoopUserName,$secPassword)
-	
+        $hadoopUserName = "<HadoopUserName>"              # User name for the Hadoop user. You will use this account to connect to the cluster and run jobs.
+        $hadoopUserPassword = "<HadoopUserPassword>"
+
+        $secPassword = ConvertTo-SecureString $hadoopUserPassword -AsPlainText -Force
+        $credential = New-Object System.Management.Automation.PSCredential($hadoopUserName,$secPassword)
+
 		# Get the storage primary key based on the account name
 		Select-AzureSubscription $subscriptionName
 		$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
 		$containerName = $clusterName				# Azure Blob container that is used as the default file system for the HDInsight cluster
-	
-		# The location of the HDInsight cluster. It must be in the same data center as the Storage account.
-		$location = Get-AzureStorageAccount -StorageAccountName $storageAccountName | %{$_.Location}
-	
+
+        # The location of the HDInsight cluster. It must be in the same data center as the Storage account.
+        $location = Get-AzureStorageAccount -StorageAccountName $storageAccountName | %{$_.Location}
+
 		# Create a new HDInsight cluster
 		New-AzureHDInsightCluster -Name $clusterName -Credential $credential -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainerName $containerName  -ClusterSizeInNodes $clusterNodes -ClusterType Hadoop
 
@@ -375,6 +375,8 @@ HDInsight использует контейнер хранилища BLOB-объ
 	На подготовку кластера может уйти несколько минут.
 
 	![HDI.CLI.Provision][image-hdi-ps-provision]
+
+
 
 **Подготовка кластера HDInsight с использованием настраиваемых параметров конфигурации**
 
@@ -781,4 +783,4 @@ HDInsight использует контейнер хранилища BLOB-объ
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-management-portal]: https://manage.windowsazure.com
 
-<!---HONumber=July15_HO5-->
+<!----HONumber=July15_HO5-->

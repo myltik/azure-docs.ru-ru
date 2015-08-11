@@ -204,7 +204,7 @@ DNS-сервер является необязательным, но в неко
 
 			curl -u <username>:<password> -k https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/services/hbase/components/hbrest
 
-		В возвращенных данных JSON найдите запись «host\_name». В ней указаны полные доменные имена узлов в кластере. Например:
+		В возвращенных данных JSON найдите запись «host_name». В ней указаны полные доменные имена узлов в кластере. Например:
 
 			...
 			"host_name": "wordkernode0.<clustername>.b1.cloudapp.net
@@ -437,4 +437,4 @@ DNS-сервер является необязательным, но в неко
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "Использование действия сценария для настройки кластера HBase"
  
 
-<!---HONumber=July15_HO5-->
+<!----HONumber=July15_HO5-->

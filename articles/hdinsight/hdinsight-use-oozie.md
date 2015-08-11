@@ -65,23 +65,25 @@ Apache Oozie — это система рабочих процессов и ко
 - **Кластер HDInsight**. Сведения о создании кластера HDInsight см. в статье [Подготовка кластеров Hadoop в HDInsight с использованием настраиваемых параметров][hdinsight-provision] или [Приступая к работе с Hadoop с использованием Hive в HDInsight для анализа использования мобильного телефона][hdinsight-get-started]. Для выполнения учебника необходимы следующие данные:
 
 	<table border = "1">
-<tr><th>Свойство кластера</th><th>Имя переменной Windows PowerShell</th><th>Значение</th><th>Описание</th></tr>
-<tr><td>Имя кластера HDInsight.</td><td>$clusterName</td><td></td><td>Кластер HDInsight, на котором будет выполняться данный учебник.</td></tr>
-<tr><td>Имя пользователя кластера HDInsigh</td><td>$clusterUsername</td><td></td><td>Имя пользователя кластера HDInsight. </td></tr>
-<tr><td>Пароль пользователя кластера HDInsight. </td><td>$clusterPassword</td><td></td><td>Пароль пользователя кластера HDInsight.</td></tr>
-<tr><td>Имя учетной записи хранения Azure</td><td>$storageAccountName</td><td></td><td>Учетная запись хранения Azure, доступная для кластера HDInsight. В этом учебнике используйте учетную запись хранения по умолчанию, указанную в процессе подготовки кластера.</td></tr>
-<tr><td>Имя контейнера BLOB-объектов Azure</td><td>$containerName</td><td></td><td>Для этого примера используйте имя контейнера больших двоичных объектов, который применяется для стандартной файловой системы кластера HDInsight. По умолчанию его имя совпадает с именем кластера HDInsight.</td></tr>
-</table>
+	<tr><th>Свойство кластера</th><th>Имя переменной Windows PowerShell</th><th>Значение</th><th>Описание</th></tr>
+	<tr><td>Имя кластера HDInsight.</td><td>$clusterName</td><td></td><td>Кластер HDInsight, на котором будет выполняться данный учебник.</td></tr>
+	<tr><td>Имя пользователя кластера HDInsigh</td><td>$clusterUsername</td><td></td><td>Имя пользователя кластера HDInsight. </td></tr>
+	<tr><td>Пароль пользователя кластера HDInsight. </td><td>$clusterPassword</td><td></td><td>Пароль пользователя кластера HDInsight.</td></tr>
+	<tr><td>Имя учетной записи хранения Azure</td><td>$storageAccountName</td><td></td><td>Учетная запись хранения Azure, доступная для кластера HDInsight. В этом учебнике используйте учетную запись хранения по умолчанию, указанную в процессе подготовки кластера.</td></tr>
+	<tr><td>Имя контейнера BLOB-объектов Azure</td><td>$containerName</td><td></td><td>Для этого примера используйте имя контейнера больших двоичных объектов, который применяется для стандартной файловой системы кластера HDInsight. По умолчанию его имя совпадает с именем кластера HDInsight.</td></tr>
+	</table>
 
 - **База данных SQL Azure.** Необходимо настроить правило брандмауэра для базы данных SQL Azure, чтобы разрешить доступ к рабочей станции. Инструкции по созданию базы данных SQL Azure и настройке брандмауэра см. в статье [Приступая к работе с базой данных SQL Microsoft Azure][sqldatabase-get-started]. Эта статья включает сценарий Windows PowerShell для создания таблицы базы данных Azure SQL, необходимой в рамках этого учебника.
 
 	<table border = "1">
-<tr><th>Свойство базы данных SQL</th><th>Имя переменной Windows PowerShell</th><th>Значение</th><th>Описание</th></tr>
-<tr><td>Имя сервера базы данных SQL</td><td>$sqlDatabaseServer</td><td></td><td>База данных Azure SQL, куда Sqoop экспортирует данные. </td></tr>
-<tr><td>Имя для входа базы данных SQL</td><td>$sqlDatabaseLogin</td><td></td><td>Имя для входа в базу данных SQL Azure.</td></tr>
-<tr><td>Пароль для входа базы данных SQL</td><td>$sqlDatabaseLoginPassword</td><td></td><td>Пароль для входа в базу данных SQL Azure.</td></tr>
-<tr><td>Имя базы данных SQL</td><td>$sqlDatabaseName</td><td></td><td>База данных Azure SQL, куда Sqoop экспортирует данные. </td></tr>
-</table>> [AZURE.NOTE]По умолчанию в базе данных SQL Azure разрешены подключения из служб Azure, в частности из службы Azure HDInsight. Если этот параметр брандмауэра отключен, вы должны включить его на портале Azure. Инструкции по созданию базы данных SQL и настройке правил брандмауэра см. в статье [Создание и настройка базы данных SQL Azure][sqldatabase-create-configue].
+	<tr><th>Свойство базы данных SQL</th><th>Имя переменной Windows PowerShell</th><th>Значение</th><th>Описание</th></tr>
+	<tr><td>Имя сервера базы данных SQL</td><td>$sqlDatabaseServer</td><td></td><td>База данных Azure SQL, куда Sqoop экспортирует данные. </td></tr>
+	<tr><td>Имя для входа базы данных SQL</td><td>$sqlDatabaseLogin</td><td></td><td>Имя для входа в базу данных SQL Azure.</td></tr>
+	<tr><td>Пароль для входа базы данных SQL</td><td>$sqlDatabaseLoginPassword</td><td></td><td>Пароль для входа в базу данных SQL Azure.</td></tr>
+	<tr><td>Имя базы данных SQL</td><td>$sqlDatabaseName</td><td></td><td>База данных Azure SQL, куда Sqoop экспортирует данные. </td></tr>
+	</table>
+
+	> [AZURE.NOTE]По умолчанию в базе данных SQL Azure разрешены подключения из служб Azure, в частности из службы Azure HDInsight. Если этот параметр брандмауэра отключен, вы должны включить его на портале Azure. Инструкции по созданию базы данных SQL и настройке правил брандмауэра см. в статье [Создание и настройка базы данных SQL Azure][sqldatabase-create-configue].
 
 
 > [AZURE.NOTE]Введите значения в таблицы. Это будет полезно для прохождения данного учебника.
@@ -183,21 +185,27 @@ Apache Oozie — это система рабочих процессов и ко
 	RunHiveScript имеет несколько переменных. Вы передадите эти значения при отправке задания Oozie с рабочей станции с помощью Windows PowerShell.
 
 	<table border = "1">
-<tr><th>Переменные рабочего процесса</th><th>Описание</th></tr>
-<tr><td>${jobTracker}</td><td>Задает URL-адрес средства отслеживания заданий Hadoop. Используйте <strong>jobtrackerhost:9010</strong> в версиях 3.0 и 2.1 HDInsight.</td></tr>
-<tr><td>${nameNode}</td><td>Задает URL-адрес узла имен заданий Hadoop. Используйте стандартный адрес файловой системы, например <i>wasb://&lt;имя_контейнера>@&lt;имя_учетной_записи_хранилища>.blob.core.windows.net</i>.</td></tr>
-<tr><td>${queueName}</td><td>Указывает имя очереди, в которую будет отправлено задание. Используйте значение <strong>default</strong>.</td></tr>
-</table><table border = "1">
-<tr><th>Переменная действия Hive</th><th>Описание</th></tr>
-<tr><td>${hiveDataFolder}</td><td>Задает исходный каталог для команды создания таблицы Hive.</td></tr>
-<tr><td>${hiveOutputFolder}</td><td>Задает папку выходных данных для оператора INSERT OVERWRITE.</td></tr>
-<tr><td>${hiveTableName}</td><td>Задает имя таблицы Hive, ссылающейся на файлы данных log4j.</td></tr>
-</table><table border = "1">
-<tr><th>Переменная действия Sqoop</th><th>Описание</th></tr>
-<tr><td>${sqlDatabaseConnectionString}</td><td>Определяет строку подключения для базы данных SQL Azure.</td></tr>
-<tr><td>${sqlDatabaseTableName}</td><td>Задает таблицу базы данных SQL Azure, в которую будут экспортированы данные.</td></tr>
-<tr><td>${hiveOutputFolder}</td><td>Задает папку выходных данных для оператора INSERT OVERWRITE Hive. Это та же папка, что и каталог для экспорта Sqoop (export-dir).</td></tr>
-</table>Дополнительные сведения о рабочем процессе Oozie и использовании его действий см. в [документации на Apache Oozie 4.0][apache-oozie-400] (для HDInsight версии 3.0) или [документации на Apache Oozie 3.3.2][apache-oozie-332] (для HDInsight версии 2.1).
+	<tr><th>Переменные рабочего процесса</th><th>Описание</th></tr>
+	<tr><td>${jobTracker}</td><td>Задает URL-адрес средства отслеживания заданий Hadoop. Используйте <strong>jobtrackerhost:9010</strong> в версиях 3.0 и 2.1 HDInsight.</td></tr>
+	<tr><td>${nameNode}</td><td>Задает URL-адрес узла имен заданий Hadoop. Используйте стандартный адрес файловой системы, например <i>wasb://&lt;имя_контейнера>@&lt;имя_учетной_записи_хранилища>.blob.core.windows.net</i>.</td></tr>
+	<tr><td>${queueName}</td><td>Указывает имя очереди, в которую будет отправлено задание. Используйте значение <strong>default</strong>.</td></tr>
+	</table>
+
+	<table border = "1">
+	<tr><th>Переменная действия Hive</th><th>Описание</th></tr>
+	<tr><td>${hiveDataFolder}</td><td>Задает исходный каталог для команды создания таблицы Hive.</td></tr>
+	<tr><td>${hiveOutputFolder}</td><td>Задает папку выходных данных для оператора INSERT OVERWRITE.</td></tr>
+	<tr><td>${hiveTableName}</td><td>Задает имя таблицы Hive, ссылающейся на файлы данных log4j.</td></tr>
+	</table>
+
+	<table border = "1">
+	<tr><th>Переменная действия Sqoop</th><th>Описание</th></tr>
+	<tr><td>${sqlDatabaseConnectionString}</td><td>Определяет строку подключения для базы данных SQL Azure.</td></tr>
+	<tr><td>${sqlDatabaseTableName}</td><td>Задает таблицу базы данных SQL Azure, в которую будут экспортированы данные.</td></tr>
+	<tr><td>${hiveOutputFolder}</td><td>Задает папку выходных данных для оператора INSERT OVERWRITE Hive. Это та же папка, что и каталог для экспорта Sqoop (export-dir).</td></tr>
+	</table>
+
+	Дополнительные сведения о рабочем процессе Oozie и использовании его действий см. в [документации на Apache Oozie 4.0][apache-oozie-400] (для HDInsight версии 3.0) или [документации на Apache Oozie 3.3.2][apache-oozie-332] (для HDInsight версии 2.1).
 
 2. Сохраните файл как **C:\Tutorials\UseOozie\workflow.xml** в кодировке ANSI (ASCII). (Используйте Блокнот, если ваш текстовый редактор не предоставляет такую возможность.)
 
@@ -614,4 +622,4 @@ HDInsight использует большие двоичные объекты в
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->
