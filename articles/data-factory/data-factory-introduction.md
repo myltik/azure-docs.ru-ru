@@ -56,4 +56,4 @@
 
 Уяснив смысл четырех простых понятий (набор данных, действие, конвейер и связанная служба), можно приступать к работе с фабрикой данных.  Вы можете [построить первый конвейер](data-factory-build-your-first-pipeline.md)  с нуля или развернуть готовый образец, следуя инструкциям в нашем [блоге](https://azure.microsoft.com/blog/2015/04/24/azure-data-factory-update-simplified-sample-deployment/).
 
-<!----HONumber=July15_HO5-->
+<!-----HONumber=July15_HO5-->
