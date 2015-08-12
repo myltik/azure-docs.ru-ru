@@ -42,7 +42,7 @@
 - Средства Python для Visual Studio [отсюда][].
 - Пакет Azure SDK для Visual Studio 2013 версии 2.4 и выше доступен [здесь][1].
 - Python 2.7 [отсюда][2].
-- Компилятор Microsoft Visual C++ для Python 2.7 [отсюда][3].
+- Компилятор Microsoft Visual C++ для Python 2.7 [отсюда][99].
 
 ## Шаг 1. Создание учетной записи базы данных DocumentDB
 
@@ -345,9 +345,9 @@
   [отсюда]: http://aka.ms/ptvs
   [1]: http://go.microsoft.com/fwlink/?linkid=254281&clcid=0x409
   [2]: https://www.python.org/downloads/windows/
-  [3]: http://aka.ms/vcpython27
+  [99]: http://aka.ms/vcpython27
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
   [Azure Management Portal]: http://portal.azure.com
  
 
-<!---HONumber=July15_HO5-->
+<!-----HONumber=July15_HO5-->
