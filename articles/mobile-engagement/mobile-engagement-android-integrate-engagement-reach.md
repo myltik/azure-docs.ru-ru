@@ -247,7 +247,7 @@
 
 Чтобы зарегистрировать обработчик категорий для уведомлений, нужно добавить вызов при инициализации приложения.
 
-> [AZURE.IMPORTANT] Перед продолжением прочтите предупреждение об атрибуте android:process <android-sdk-engagement-process> в разделе «Интеграция Engagement на платформе Android».
+> [AZURE.IMPORTANT] Перед продолжением прочтите предупреждение об атрибуте android:process \<android-sdk-engagement-process\> в разделе «Интеграция Engagement на платформе Android».
 
 В следующем примере предполагается, что вы прочли это предупреждение и используете подкласс `EngagementApplication`:
 
@@ -647,4 +647,4 @@
 [Amazon Device Messaging]: https://developer.amazon.com/sdk/adm.html
  
 
-<!----HONumber=July15_HO4-->
+<!------HONumber=July15_HO4-->
