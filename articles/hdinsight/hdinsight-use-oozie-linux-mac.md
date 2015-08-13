@@ -360,7 +360,8 @@ Apache Oozie — это система рабочих процессов и ко
 		  </property>
 		</configuration>
 
-	* Замените все вхождения **wasb://mycontainer@mystorageaccount.blob.core.windows.net** значением, полученным ранее. 
+	* Замените все вхождения **wasb://mycontainer@mystorageaccount.blob.core.windows.net** значением, полученным ранее.
+
 	> [AZURE.WARNING]В составе пути необходимо использовать полный путь WASB с контейнером и учетной записью хранилища. Использование короткого формата (wasb:///) приведет к сбою при запуске задания RunHiveScript.
 
 	* Замените **JOBTRACKERADDRESS** на адрес JobTracker/ResourceManager, полученный ранее.

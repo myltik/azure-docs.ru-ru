@@ -191,16 +191,16 @@
 ### Создание связанной службы локальной файловой системы
 Следующий пример JSON можно использовать для создания связанной службы с именем **FolderDataStore** и типом **OnPremisesFileSystemLinkedService**.
 
-	{
-	    "name": "FolderDataStore",
-	    "properties": {
-	        "type": "OnPremisesFileSystemLinkedService",
-	        "host": "\\\\contoso",
-	        "userId": "username",
-	        "password": "password",
-	        "gatewayName": "ContosoGateway"
-	    }
-	}
+		{
+		    "name": "FolderDataStore",
+	    	"properties": {
+		        "type": "OnPremisesFileSystemLinkedService",
+		        "host": "\\\\contoso",
+	        	"userId": "username",
+	        	"password": "password",
+	        	"gatewayName": "ContosoGateway"
+	    	}
+		}
 
 > [AZURE.NOTE] Помните, что необходимо использовать escape-символ '\' для имен узлов и папок в файлы JSON. Для **\\Contoso** укажите **\\\\Contoso**.
 
@@ -491,4 +491,4 @@
 [adf-copyactivity]: data-factory-copy-activity.md
 [copy-activity-video]: http://azure.microsoft.com/documentation/videos/introducing-azure-data-factory-copy-activity/
 
-<!----HONumber=July15_HO4-->
+<!-------HONumber=July15_HO4-->
